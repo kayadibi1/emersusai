@@ -209,23 +209,6 @@
               id="form-message"
             ></p>
 
-            <div
-              class="mt-10 max-w-sm border border-white/5 bg-surface-container-low/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.18)] backdrop-blur"
-            >
-              <p
-                class="font-label text-[10px] uppercase tracking-[0.3em] text-primary"
-              >
-                Ask about
-              </p>
-              <div class="mt-4 min-h-[3.5rem] overflow-hidden">
-                <p
-                  class="font-headline text-2xl font-bold tracking-tight text-on-surface transition-all duration-500"
-                  id="ask-about-word"
-                >
-                  hypertrophy
-                </p>
-              </div>
-            </div>
           </div>
 
           <div class="grid gap-4 lg:grid-cols-2">
@@ -284,6 +267,24 @@
                 </h3>
               </div>
             </article>
+          </div>
+
+          <div
+            class="glass-panel w-full overflow-hidden border border-white/5 bg-surface-container-low/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.18)] backdrop-blur lg:col-span-2"
+          >
+            <p
+              class="font-headline text-sm font-bold uppercase tracking-[0.3em] text-primary"
+            >
+              Help me optimize
+            </p>
+            <div class="mt-4 min-h-[4rem] overflow-hidden">
+              <p
+                class="font-headline text-2xl font-bold tracking-tight text-on-surface md:text-4xl"
+              >
+                <span id="ask-about-word">hypertrophy</span
+                ><span class="ml-1 inline-block animate-pulse text-primary">|</span>
+              </p>
+            </div>
           </div>
         </div>
 
@@ -674,16 +675,36 @@
         ];
 
         let topicIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
 
-        window.setInterval(() => {
-          topicIndex = (topicIndex + 1) % topics.length;
-          askAboutWord.classList.add("opacity-0", "translate-y-2");
+        const tick = () => {
+          const currentTopic = topics[topicIndex];
 
-          window.setTimeout(() => {
-            askAboutWord.textContent = topics[topicIndex];
-            askAboutWord.classList.remove("opacity-0", "translate-y-2");
-          }, 240);
-        }, 2600);
+          if (isDeleting) {
+            charIndex -= 1;
+          } else {
+            charIndex += 1;
+          }
+
+          askAboutWord.textContent = currentTopic.slice(0, charIndex);
+
+          let delay = isDeleting ? 45 : 85;
+
+          if (!isDeleting && charIndex === currentTopic.length) {
+            delay = 1200;
+            isDeleting = true;
+          } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            topicIndex = (topicIndex + 1) % topics.length;
+            delay = 280;
+          }
+
+          window.setTimeout(tick, delay);
+        };
+
+        askAboutWord.textContent = "";
+        window.setTimeout(tick, 500);
       }
 
       if (form && message) {
