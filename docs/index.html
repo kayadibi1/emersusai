@@ -162,18 +162,13 @@
 
     <main>
       <section class="relative flex min-h-screen items-center overflow-hidden pt-24">
-        <div class="absolute inset-0 z-0">
-          <img
-            alt="Performance Focus"
-            class="h-full w-full object-cover opacity-20 grayscale"
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAu77JCwoU__EamFJ4Oz_L752UyVbbTxly5alYsIp98WC2Xfe38yQd37CntTWUDF4lxOa9duOGf4409V-aYQdPoh3-j53Ulr3cuis5-J-sED-iGHB36-lu8hfhL8bM8n4dCH7PCYYYk2L5oHvFW5QlDRERa6BxAAXntVVM5QLkRI0-RgDtRtuDMX45mLhG9ep3YsFPPNXS5y4zZkfXXO6-fztcbQ7fJJRlBH3nqlbIvDB_vWOjAZk2CGoSf74rlYvYWzjScSJRVPQ"
-          />
-          <div
-            class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"
-          ></div>
-        </div>
+        <div
+          class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(186,195,255,0.12),_transparent_32%),linear-gradient(180deg,_rgba(6,14,32,0.96),_rgba(6,14,32,1))]"
+        ></div>
 
-        <div class="relative z-10 mx-auto w-full max-w-7xl px-8">
+        <div
+          class="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-16 px-8 lg:grid-cols-[minmax(0,1fr)_30rem]"
+        >
           <div class="max-w-3xl">
             <span
               class="label-sm mb-6 block font-label text-[10px] uppercase tracking-[0.3em] text-primary"
@@ -213,6 +208,64 @@
               class="mt-4 min-h-[1.25rem] font-label text-[10px] uppercase tracking-[0.2em] text-secondary"
               id="form-message"
             ></p>
+          </div>
+
+          <div class="grid gap-4 lg:grid-cols-2">
+            <article
+              class="glass-panel relative overflow-hidden border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.28)] lg:row-span-2"
+            >
+              <img
+                alt="A person presenting in a modern workspace"
+                class="h-full min-h-[22rem] w-full object-cover opacity-80 grayscale"
+                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
+              />
+              <div
+                class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#060e20] to-transparent p-6"
+              >
+                <p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">
+                  At Work
+                </p>
+                <h3 class="mt-2 font-headline text-2xl font-bold text-on-surface">
+                  Decisions sharpened by data.
+                </h3>
+              </div>
+            </article>
+
+            <article
+              class="glass-panel relative overflow-hidden border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
+            >
+              <img
+                alt="A person lifting weights in a dark gym"
+                class="h-56 w-full object-cover opacity-80 grayscale"
+                src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=900&q=80"
+              />
+              <div class="p-5">
+                <p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">
+                  In Training
+                </p>
+                <h3 class="mt-2 font-headline text-lg font-bold text-on-surface">
+                  Strength built with intent.
+                </h3>
+              </div>
+            </article>
+
+            <article
+              class="glass-panel relative overflow-hidden border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
+            >
+              <img
+                alt="A person eating at a restaurant table"
+                class="h-56 w-full object-cover opacity-80 grayscale"
+                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
+              />
+              <div class="p-5">
+                <p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">
+                  In Real Life
+                </p>
+                <h3 class="mt-2 font-headline text-lg font-bold text-on-surface">
+                  Nutrition that survives the schedule.
+                </h3>
+              </div>
+            </article>
           </div>
         </div>
 
