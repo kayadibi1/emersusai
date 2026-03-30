@@ -208,6 +208,24 @@
               class="mt-4 min-h-[1.25rem] font-label text-[10px] uppercase tracking-[0.2em] text-secondary"
               id="form-message"
             ></p>
+
+            <div
+              class="mt-10 max-w-sm border border-white/5 bg-surface-container-low/80 p-6 shadow-[0_20px_60px_rgba(0,0,0,0.18)] backdrop-blur"
+            >
+              <p
+                class="font-label text-[10px] uppercase tracking-[0.3em] text-primary"
+              >
+                Ask about
+              </p>
+              <div class="mt-4 min-h-[3.5rem] overflow-hidden">
+                <p
+                  class="font-headline text-2xl font-bold tracking-tight text-on-surface transition-all duration-500"
+                  id="ask-about-word"
+                >
+                  hypertrophy
+                </p>
+              </div>
+            </div>
           </div>
 
           <div class="grid gap-4 lg:grid-cols-2">
@@ -643,6 +661,30 @@
     <script>
       const form = document.querySelector("#waitlist-form");
       const message = document.querySelector("#form-message");
+      const askAboutWord = document.querySelector("#ask-about-word");
+
+      if (askAboutWord) {
+        const topics = [
+          "hypertrophy",
+          "mental performance",
+          "micronutrient intake",
+          "optimal work hours",
+          "supplements",
+          "nutrition",
+        ];
+
+        let topicIndex = 0;
+
+        window.setInterval(() => {
+          topicIndex = (topicIndex + 1) % topics.length;
+          askAboutWord.classList.add("opacity-0", "translate-y-2");
+
+          window.setTimeout(() => {
+            askAboutWord.textContent = topics[topicIndex];
+            askAboutWord.classList.remove("opacity-0", "translate-y-2");
+          }, 240);
+        }, 2600);
+      }
 
       if (form && message) {
         form.addEventListener("submit", (event) => {
