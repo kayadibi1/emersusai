@@ -166,129 +166,71 @@
     </nav>
 
     <main>
-      <section class="relative flex min-h-screen items-center overflow-hidden pt-24">
+      <section
+        class="relative min-h-[320vh] overflow-hidden pt-24"
+        id="hero-sequence"
+      >
         <div
           class="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,0,217,0.14),_transparent_28%),radial-gradient(circle_at_right,_rgba(18,247,255,0.12),_transparent_24%),linear-gradient(180deg,_rgba(5,7,13,0.94),_rgba(5,7,13,1))]"
         ></div>
 
         <div
-          class="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-16 px-8 lg:grid-cols-[minmax(0,1fr)_30rem]"
+          class="sticky top-0 relative z-10 mx-auto flex min-h-screen w-full max-w-7xl items-center px-8"
         >
-          <div class="max-w-3xl">
+          <div class="mx-auto w-full max-w-6xl text-center">
             <span
-              class="label-sm mb-6 block font-label text-[10px] uppercase tracking-[0.3em] text-primary"
+              class="mb-8 block font-label text-[10px] uppercase tracking-[0.45em] text-primary md:text-xs"
               >The Clinical Standard</span
             >
-            <h1
-              class="mb-8 font-headline text-6xl font-bold leading-[0.9] tracking-tighter text-on-surface md:text-8xl"
+            <div
+              class="glass-panel border border-white/5 px-6 py-12 shadow-[0_20px_60px_rgba(0,0,0,0.28)] md:px-12 md:py-20"
             >
-              Science-Backed Fitness and Nutrition for the
-              <span class="text-primary-dim">Modern Elite.</span>
-            </h1>
-            <p
-              class="mb-12 max-w-xl font-body text-xl leading-relaxed text-secondary"
-            >
-              Precision-engineered protocols for the ambitious and informed.
-              Join the waitlist for early access to the most advanced human
-              performance system.
-            </p>
-            <form
-              class="group flex max-w-md flex-col gap-0 sm:flex-row"
-              id="waitlist-form"
-            >
-              <input
-                class="w-full bg-surface-container-lowest px-6 py-5 font-label text-xs tracking-widest text-on-surface outline-none transition-all focus:ring-1 focus:ring-primary/40"
-                name="email"
-                placeholder="ENTER WORK EMAIL"
-                type="email"
-              />
-              <button
-                class="hero-gradient whitespace-nowrap px-10 py-5 font-label text-[10px] font-bold uppercase tracking-widest text-on-primary transition-all hover:brightness-110"
-                type="submit"
-              >
-                Request Access
-              </button>
-            </form>
-            <p
-              class="mt-4 min-h-[1.25rem] font-label text-[10px] uppercase tracking-[0.2em] text-secondary"
-              id="form-message"
-            ></p>
-
-          </div>
-
-          <div class="grid gap-4 lg:grid-cols-2">
-            <article
-              class="glass-panel relative overflow-hidden border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.28)] lg:row-span-2"
-            >
-              <img
-                alt="A person presenting in a modern workspace"
-                class="h-full min-h-[22rem] w-full object-cover opacity-80 grayscale"
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
-              />
               <div
-                class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#05070d] to-transparent p-6"
+                class="mx-auto flex min-h-[20rem] max-w-5xl flex-col items-center justify-center gap-5 md:min-h-[24rem]"
               >
-                <p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">
-                  At Work
+                <p
+                  class="hero-sequence-line font-headline text-4xl font-bold uppercase tracking-tight text-on-surface transition-all duration-500 md:text-7xl"
+                  data-line="brain"
+                >
+                  your brain is compute
                 </p>
-                <h3 class="mt-2 font-headline text-2xl font-bold text-on-surface">
-                  Decisions sharpened by data.
-                </h3>
-              </div>
-            </article>
-
-            <article
-              class="glass-panel relative overflow-hidden border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
-            >
-              <img
-                alt="A person lifting weights in a dark gym"
-                class="h-56 w-full object-cover opacity-80 grayscale"
-                src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=900&q=80"
-              />
-              <div class="p-5">
-                <p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">
-                  In Training
+                <p
+                  class="hero-sequence-line font-headline text-4xl font-bold uppercase tracking-tight text-on-surface transition-all duration-500 md:text-7xl"
+                  data-line="body"
+                  style="opacity: 0; transform: translateY(28px)"
+                >
+                  your body is hardware
                 </p>
-                <h3 class="mt-2 font-headline text-lg font-bold text-on-surface">
-                  Strength built with intent.
-                </h3>
-              </div>
-            </article>
-
-            <article
-              class="glass-panel relative overflow-hidden border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
-            >
-              <img
-                alt="A person eating at a restaurant table"
-                class="h-56 w-full object-cover opacity-80 grayscale"
-                src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
-              />
-              <div class="p-5">
-                <p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">
-                  In Real Life
+                <p
+                  class="hero-sequence-line font-headline text-4xl font-bold uppercase tracking-tight text-on-surface transition-all duration-500 md:text-7xl"
+                  data-line="emersus"
+                  style="opacity: 0; transform: translateY(28px)"
+                >
+                  emersus optimizes both
                 </p>
-                <h3 class="mt-2 font-headline text-lg font-bold text-on-surface">
-                  Nutrition that survives the schedule.
-                </h3>
               </div>
-            </article>
-          </div>
 
-          <div
-            class="glass-panel w-full overflow-hidden border border-white/5 bg-surface-container-low/80 p-6 text-center shadow-[0_20px_60px_rgba(0,0,0,0.18)] backdrop-blur lg:col-span-2 md:p-10"
-          >
-            <p
-              class="font-headline text-base font-bold uppercase tracking-[0.3em] text-primary md:text-2xl"
-            >
-              Help me optimize
-            </p>
-            <div class="mt-6 min-h-[6rem] overflow-hidden">
+              <form
+                class="mx-auto mt-6 flex max-w-xl flex-col gap-0 sm:flex-row"
+                id="waitlist-form"
+              >
+                <input
+                  class="w-full border border-[#12f7ff]/20 bg-surface-container-lowest px-6 py-5 font-label text-xs tracking-widest text-on-surface outline-none transition-all focus:ring-1 focus:ring-primary/40"
+                  name="email"
+                  placeholder="ENTER WORK EMAIL"
+                  type="email"
+                />
+                <button
+                  class="hero-gradient whitespace-nowrap px-10 py-5 font-label text-[10px] font-bold uppercase tracking-widest text-on-primary transition-all hover:brightness-110"
+                  type="submit"
+                >
+                  Request Access
+                </button>
+              </form>
               <p
-                class="font-headline text-4xl font-bold tracking-tight text-on-surface md:text-7xl"
-              >
-                <span id="ask-about-word">hypertrophy</span
-                ><span class="ml-1 inline-block animate-pulse text-primary">|</span>
-              </p>
+                class="mt-4 min-h-[1.25rem] font-label text-[10px] uppercase tracking-[0.2em] text-secondary"
+                id="form-message"
+              ></p>
             </div>
           </div>
         </div>
@@ -300,6 +242,70 @@
             >Discovery</span
           >
           <div class="h-12 w-[1px] bg-on-surface"></div>
+        </div>
+      </section>
+
+      <section class="px-6 py-10 md:px-8 md:py-14">
+        <div class="grid gap-4 lg:grid-cols-3">
+          <article
+            class="glass-panel relative overflow-hidden border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
+          >
+            <img
+              alt="A person presenting in a modern workspace"
+              class="h-64 w-full object-cover opacity-80 grayscale"
+              src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1400&q=80"
+            />
+            <div
+              class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#05070d] to-transparent p-6"
+            >
+              <p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">
+                At Work
+              </p>
+              <h3 class="mt-2 font-headline text-xl font-bold text-on-surface">
+                Decisions sharpened by data.
+              </h3>
+            </div>
+          </article>
+
+          <article
+            class="glass-panel relative overflow-hidden border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
+          >
+            <img
+              alt="A person lifting weights in a dark gym"
+              class="h-64 w-full object-cover opacity-80 grayscale"
+              src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=1400&q=80"
+            />
+            <div
+              class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#05070d] to-transparent p-6"
+            >
+              <p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">
+                In Training
+              </p>
+              <h3 class="mt-2 font-headline text-xl font-bold text-on-surface">
+                Strength built with intent.
+              </h3>
+            </div>
+          </article>
+
+          <article
+            class="glass-panel relative overflow-hidden border border-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.28)]"
+          >
+            <img
+              alt="A person eating at a restaurant table"
+              class="h-64 w-full object-cover opacity-80 grayscale"
+              src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1400&q=80"
+            />
+            <div
+              class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#05070d] to-transparent p-6"
+            >
+              <p class="font-label text-[10px] uppercase tracking-[0.3em] text-primary">
+                In Real Life
+              </p>
+              <h3 class="mt-2 font-headline text-xl font-bold text-on-surface">
+                Nutrition that survives the schedule.
+              </h3>
+            </div>
+          </article>
         </div>
       </section>
 
@@ -667,49 +673,57 @@
     <script>
       const form = document.querySelector("#waitlist-form");
       const message = document.querySelector("#form-message");
-      const askAboutWord = document.querySelector("#ask-about-word");
+      const heroSequence = document.querySelector("#hero-sequence");
+      const brainLine = document.querySelector('[data-line="brain"]');
+      const bodyLine = document.querySelector('[data-line="body"]');
+      const emersusLine = document.querySelector('[data-line="emersus"]');
 
-      if (askAboutWord) {
-        const topics = [
-          "hypertrophy",
-          "mental performance",
-          "micronutrient intake",
-          "optimal work hours",
-          "supplements",
-          "nutrition",
-        ];
+      if (heroSequence && brainLine && bodyLine && emersusLine) {
+        const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
+        const mix = (start, end, progress) => start + (end - start) * progress;
 
-        let topicIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        const tick = () => {
-          const currentTopic = topics[topicIndex];
-
-          if (isDeleting) {
-            charIndex -= 1;
-          } else {
-            charIndex += 1;
-          }
-
-          askAboutWord.textContent = currentTopic.slice(0, charIndex);
-
-          let delay = isDeleting ? 45 : 85;
-
-          if (!isDeleting && charIndex === currentTopic.length) {
-            delay = 1200;
-            isDeleting = true;
-          } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            topicIndex = (topicIndex + 1) % topics.length;
-            delay = 280;
-          }
-
-          window.setTimeout(tick, delay);
+        const setLineState = (element, opacity, translateY) => {
+          element.style.opacity = opacity;
+          element.style.transform = `translateY(${translateY}px)`;
         };
 
-        askAboutWord.textContent = "";
-        window.setTimeout(tick, 500);
+        const updateSequence = () => {
+          const rect = heroSequence.getBoundingClientRect();
+          const scrollable = Math.max(rect.height - window.innerHeight, 1);
+          const progress = clamp(-rect.top / scrollable, 0, 1);
+
+          const bodyEnter = clamp((progress - 0.18) / 0.16, 0, 1);
+          const bodyExit = clamp((progress - 0.42) / 0.14, 0, 1);
+          const emersusEnter = clamp((progress - 0.58) / 0.16, 0, 1);
+          const finalStage = clamp((progress - 0.82) / 0.14, 0, 1);
+
+          const brainOpacity = mix(1, 0.38, finalStage);
+          const brainTranslate = mix(0, -18, finalStage);
+
+          let bodyOpacity = bodyEnter * (1 - bodyExit);
+          let bodyTranslate = mix(28, 0, bodyEnter);
+          if (bodyExit > 0) {
+            bodyTranslate = mix(0, -42, bodyExit);
+          }
+
+          let emersusOpacity = emersusEnter;
+          let emersusTranslate = mix(28, 0, emersusEnter);
+
+          if (finalStage > 0) {
+            bodyOpacity = mix(bodyOpacity, 0.38, finalStage);
+            bodyTranslate = mix(bodyTranslate, 0, finalStage);
+            emersusOpacity = mix(emersusOpacity, 1, finalStage);
+            emersusTranslate = mix(emersusTranslate, 0, finalStage);
+          }
+
+          setLineState(brainLine, brainOpacity, brainTranslate);
+          setLineState(bodyLine, bodyOpacity, bodyTranslate);
+          setLineState(emersusLine, emersusOpacity, emersusTranslate);
+        };
+
+        updateSequence();
+        window.addEventListener("scroll", updateSequence, { passive: true });
+        window.addEventListener("resize", updateSequence);
       }
 
       if (form && message) {
