@@ -1,3 +1,11 @@
+@font-face {
+  font-family: "Canela Light";
+  src: url("./fonts/Canela-Light-Web.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
 :root {
   --bg: #060713;
   --bg-strong: #0b1030;
@@ -84,7 +92,16 @@ h2,
 h3,
 summary,
 .button {
-  font-family: "Space Grotesk", sans-serif;
+  font-family:
+    "Canela Light",
+    "Canela",
+    "Iowan Old Style",
+    "Palatino Linotype",
+    "Book Antiqua",
+    "Georgia",
+    "Times New Roman",
+    serif;
+  font-weight: 300;
 }
 
 .brand-copy span:last-child {

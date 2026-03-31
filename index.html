@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link
@@ -78,7 +78,16 @@
               secondary: "#6fd5df",
             },
             fontFamily: {
-              headline: ["Space Grotesk"],
+              headline: [
+                "Canela Light",
+                "Canela",
+                "Iowan Old Style",
+                "Palatino Linotype",
+                "Book Antiqua",
+                "Georgia",
+                "Times New Roman",
+                "serif",
+              ],
               body: ["Inter"],
               label: ["Inter"],
             },
@@ -93,6 +102,14 @@
       };
     </script>
     <style>
+      @font-face {
+        font-family: "Canela Light";
+        src: url("./fonts/Canela-Light-Web.woff2") format("woff2");
+        font-style: normal;
+        font-weight: 300;
+        font-display: swap;
+      }
+
       .material-symbols-outlined {
         font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
         vertical-align: middle;
@@ -125,6 +142,20 @@
 
       .hide-scrollbar::-webkit-scrollbar {
         display: none;
+      }
+
+      .font-headline {
+        font-family:
+          "Canela Light",
+          "Canela",
+          "Iowan Old Style",
+          "Palatino Linotype",
+          "Book Antiqua",
+          "Georgia",
+          "Times New Roman",
+          serif !important;
+        font-weight: 300 !important;
+        letter-spacing: -0.04em;
       }
     </style>
   </head>
