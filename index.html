@@ -167,7 +167,7 @@
 
     <main>
       <section
-        class="relative min-h-[320vh] overflow-hidden pt-24"
+        class="relative min-h-[240vh] overflow-hidden pt-24"
         id="hero-sequence"
       >
         <div
@@ -179,7 +179,9 @@
         >
           <div class="mx-auto w-full max-w-6xl text-center">
             <span
+              id="hero-eyebrow"
               class="mb-8 block font-label text-[10px] uppercase tracking-[0.45em] text-primary md:text-xs"
+              style="opacity: 0; transform: translateY(20px)"
               >The Clinical Standard</span
             >
             <div
@@ -210,27 +212,32 @@
                 </p>
               </div>
 
-              <form
-                class="mx-auto mt-6 flex max-w-xl flex-col gap-0 sm:flex-row"
-                id="waitlist-form"
+              <div
+                id="hero-support"
+                style="opacity: 0; transform: translateY(20px)"
               >
-                <input
-                  class="w-full border border-[#12f7ff]/20 bg-surface-container-lowest px-6 py-5 font-label text-xs tracking-widest text-on-surface outline-none transition-all focus:ring-1 focus:ring-primary/40"
-                  name="email"
-                  placeholder="ENTER WORK EMAIL"
-                  type="email"
-                />
-                <button
-                  class="hero-gradient whitespace-nowrap px-10 py-5 font-label text-[10px] font-bold uppercase tracking-widest text-on-primary transition-all hover:brightness-110"
-                  type="submit"
+                <form
+                  class="mx-auto mt-6 flex max-w-xl flex-col gap-0 sm:flex-row"
+                  id="waitlist-form"
                 >
-                  Request Access
-                </button>
-              </form>
-              <p
-                class="mt-4 min-h-[1.25rem] font-label text-[10px] uppercase tracking-[0.2em] text-secondary"
-                id="form-message"
-              ></p>
+                  <input
+                    class="w-full border border-[#12f7ff]/20 bg-surface-container-lowest px-6 py-5 font-label text-xs tracking-widest text-on-surface outline-none transition-all focus:ring-1 focus:ring-primary/40"
+                    name="email"
+                    placeholder="ENTER WORK EMAIL"
+                    type="email"
+                  />
+                  <button
+                    class="hero-gradient whitespace-nowrap px-10 py-5 font-label text-[10px] font-bold uppercase tracking-widest text-on-primary transition-all hover:brightness-110"
+                    type="submit"
+                  >
+                    Request Access
+                  </button>
+                </form>
+                <p
+                  class="mt-4 min-h-[1.25rem] font-label text-[10px] uppercase tracking-[0.2em] text-secondary"
+                  id="form-message"
+                ></p>
+              </div>
             </div>
           </div>
         </div>
@@ -677,12 +684,26 @@
       const brainLine = document.querySelector('[data-line="brain"]');
       const bodyLine = document.querySelector('[data-line="body"]');
       const emersusLine = document.querySelector('[data-line="emersus"]');
+      const heroEyebrow = document.querySelector("#hero-eyebrow");
+      const heroSupport = document.querySelector("#hero-support");
 
-      if (heroSequence && brainLine && bodyLine && emersusLine) {
+      if (
+        heroSequence &&
+        brainLine &&
+        bodyLine &&
+        emersusLine &&
+        heroEyebrow &&
+        heroSupport
+      ) {
         const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
         const mix = (start, end, progress) => start + (end - start) * progress;
 
         const setLineState = (element, opacity, translateY) => {
+          element.style.opacity = opacity;
+          element.style.transform = `translateY(${translateY}px)`;
+        };
+
+        const setSupportState = (element, opacity, translateY) => {
           element.style.opacity = opacity;
           element.style.transform = `translateY(${translateY}px)`;
         };
@@ -692,10 +713,10 @@
           const scrollable = Math.max(rect.height - window.innerHeight, 1);
           const progress = clamp(-rect.top / scrollable, 0, 1);
 
-          const bodyEnter = clamp((progress - 0.18) / 0.16, 0, 1);
-          const bodyExit = clamp((progress - 0.42) / 0.14, 0, 1);
-          const emersusEnter = clamp((progress - 0.58) / 0.16, 0, 1);
-          const finalStage = clamp((progress - 0.82) / 0.14, 0, 1);
+          const bodyEnter = clamp((progress - 0.1) / 0.14, 0, 1);
+          const bodyExit = clamp((progress - 0.3) / 0.12, 0, 1);
+          const emersusEnter = clamp((progress - 0.46) / 0.14, 0, 1);
+          const finalStage = clamp((progress - 0.66) / 0.14, 0, 1);
 
           const brainOpacity = mix(1, 0.38, finalStage);
           const brainTranslate = mix(0, -18, finalStage);
@@ -719,6 +740,8 @@
           setLineState(brainLine, brainOpacity, brainTranslate);
           setLineState(bodyLine, bodyOpacity, bodyTranslate);
           setLineState(emersusLine, emersusOpacity, emersusTranslate);
+          setSupportState(heroEyebrow, finalStage, mix(20, 0, finalStage));
+          setSupportState(heroSupport, finalStage, mix(20, 0, finalStage));
         };
 
         updateSequence();
