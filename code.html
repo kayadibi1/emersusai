@@ -1,0 +1,300 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>EMERSUS AI | Total Human Optimization</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;800&amp;family=Inter:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "error-dim": "#d7383b",
+                        "inverse-primary": "#005bc3",
+                        "on-secondary-fixed-variant": "#3e6600",
+                        "on-secondary-fixed": "#2a4700",
+                        "on-surface": "#f9f9fd",
+                        "on-primary-fixed-variant": "#002a61",
+                        surface: "#0c0e11",
+                        primary: "#85adff",
+                        "tertiary-fixed": "#ffffff",
+                        "error-container": "#9f0519",
+                        "on-tertiary-fixed-variant": "#6c6d6e",
+                        "surface-tint": "#85adff",
+                        "surface-variant": "#23262a",
+                        "primary-fixed-dim": "#5291ff",
+                        "outline-variant": "#46484b",
+                        "primary-fixed": "#6d9fff",
+                        "on-secondary-container": "#ebffcc",
+                        "on-primary-container": "#00214f",
+                        "on-secondary": "#375b00",
+                        "surface-container": "#171a1d",
+                        "on-error": "#490006",
+                        "surface-container-low": "#111417",
+                        background: "#0c0e11",
+                        "tertiary-dim": "#ebebeb",
+                        "on-primary": "#002c65",
+                        "surface-container-high": "#1d2024",
+                        "on-error-container": "#ffa8a3",
+                        "secondary-fixed-dim": "#95eb00",
+                        "surface-container-highest": "#23262a",
+                        "surface-container-lowest": "#000000",
+                        "inverse-surface": "#f9f9fd",
+                        "primary-dim": "#0c70ea",
+                        "secondary-fixed": "#9ffb00",
+                        "surface-bright": "#292c31",
+                        error: "#ff716c",
+                        "on-tertiary-fixed": "#4f5051",
+                        "tertiary-container": "#ebebeb",
+                        "on-surface-variant": "#aaabaf",
+                        "primary-container": "#6d9fff",
+                        "surface-dim": "#0c0e11",
+                        "inverse-on-surface": "#535559",
+                        tertiary: "#f9f9f9",
+                        outline: "#747579",
+                        "on-tertiary-container": "#555757",
+                        "secondary-dim": "#95eb00",
+                        "tertiary-fixed-dim": "#f0f1f1",
+                        "on-primary-fixed": "#000000",
+                        "on-background": "#f9f9fd",
+                        "secondary-container": "#406900",
+                        "on-tertiary": "#5e5f60",
+                        secondary: "#9ffb00"
+                    },
+                    fontFamily: {
+                        headline: ["Space Grotesk"],
+                        body: ["Inter"],
+                        label: ["Inter"],
+                        display: ["Space Grotesk"]
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.125rem",
+                        lg: "0.25rem",
+                        xl: "0.5rem",
+                        full: "0.75rem"
+                    }
+                }
+            }
+        };
+    </script>
+<style type="text/tailwindcss">
+        @layer base {
+            body {
+                @apply tracking-wider font-light;
+            }
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 200, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .glass-panel {
+            background: rgba(12, 14, 17, 0.6);
+            backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .text-gradient-primary {
+            background: linear-gradient(to right, #6d9fff, #9ffb00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .holographic-overlay {
+            background: linear-gradient(135deg, rgba(109, 159, 255, 0.05) 0%, rgba(159, 251, 0, 0.05) 100%);
+            mix-blend-mode: overlay;
+        }
+        .tracking-ultra {
+            letter-spacing: 0.15em;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-secondary selection:text-on-secondary-fixed">
+<nav class="bg-[#0c0e12]/60 backdrop-blur-3xl fixed top-0 w-full z-[100] border-b border-white/5">
+<div class="flex justify-between items-center h-20 px-12 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-white uppercase font-headline" style="">
+                EMERSUS AI
+            </div>
+<div class="hidden md:flex items-center gap-16 font-headline tracking-ultra text-[10px] uppercase font-medium">
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#" style="">Research</a>
+<a class="text-secondary border-b border-secondary pb-1" href="#" style="">Optimization</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#" style="">Protocols</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#" style="">Clinical</a>
+</div>
+<button class="bg-white text-black font-headline font-bold uppercase py-2.5 px-6 text-[0.75rem] tracking-widest hover:bg-secondary transition-colors duration-500" style="">
+                Get Access
+            </button>
+</div>
+</nav>
+<section class="relative min-h-screen flex items-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Ascendance Transcendence" class="w-full h-full object-cover scale-105 opacity-60" src="https://lh3.googleusercontent.com/aida/ADBb0ujekLaHMgRjG_sg9sruOgb8Mqtcbx35b_LUr9grVIDNWWJxYxDKP7EsBVLmD9yiLjvuWbXLZnspHs-acaiUM-zABS_Y6Z7YAJo4omdoKFuE9M8Mf8bdJOt_3gPra083FC-DIrHtGb_Sz1fnaq6sZgJrGsqAo_gy5-SEw8d1pVwN2acEjmbDm2zifFsW30Daf1Cke9ct3ZDeeL3QW9KUjgiczDdjvhoNjlIj-nL1wKigb1Ic1o_Ty09eMvQ_aVWd24QhspE0zuxF" style="">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20"></div>
+<div class="absolute inset-0 holographic-overlay"></div>
+</div>
+<div class="relative z-20 max-w-screen-2xl mx-auto w-full px-12 pt-32">
+<div class="max-w-6xl">
+<span class="text-secondary font-headline font-bold tracking-[0.5em] uppercase mb-10 block text-xs md:text-sm animate-pulse" style="">eMERSUS</span>
+<h1 class="font-headline text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-[0.85] mb-12 uppercase" style=""><span class="text-gradient-primary" style="">OPTIMIZE</span> OR <br><span class="text-error-container" style="">OBSOLETE</span></h1>
+<p class="text-on-surface-variant text-xl md:text-2xl max-w-3xl mb-16 font-light leading-relaxed tracking-wider" style="">Scientificaly grounded optimization AI for peak mental and physical performance. For those who take life seriously.&nbsp;</p>
+<div class="flex flex-col sm:flex-row gap-0 w-full max-w-2xl border-l border-secondary/30 pl-8 py-4">
+<div class="flex-1">
+<label class="block text-[10px] uppercase tracking-ultra text-secondary mb-2" style="">BE THE FIRST IN LINE</label>
+<input class="w-full bg-transparent border-none text-on-surface text-xl p-0 focus:ring-0 placeholder:text-white/20" placeholder="YOUR EMAIL" type="email">
+</div>
+<button class="bg-secondary text-black font-headline font-extrabold uppercase px-12 py-5 mt-4 sm:mt-0 hover:bg-white transition-all tracking-widest text-sm" style="">
+                        Join Waitlist
+                    </button>
+</div>
+<div class="mt-32 flex items-center gap-12 opacity-50 overflow-hidden">
+<span class="font-headline font-bold text-[10px] tracking-[0.4em] uppercase whitespace-nowrap" style=""><br></span>
+<div class="flex gap-12 font-headline font-medium text-[10px] tracking-widest uppercase">
+<span class="" style=""><br></span>
+<span class="" style=""><br></span>
+<span class="" style=""><br></span>
+<span class="" style=""><br></span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative min-h-screen py-32 flex flex-col justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Neural Network Energy" class="w-full h-full object-cover grayscale opacity-20 opacity-60" src="https://lh3.googleusercontent.com/aida/ADBb0ujekLaHMgRjG_sg9sruOgb8Mqtcbx35b_LUr9grVIDNWWJxYxDKP7EsBVLmD9yiLjvuWbXLZnspHs-acaiUM-zABS_Y6Z7YAJo4omdoKFuE9M8Mf8bdJOt_3gPra083FC-DIrHtGb_Sz1fnaq6sZgJrGsqAo_gy5-SEw8d1pVwN2acEjmbDm2zifFsW30Daf1Cke9ct3ZDeeL3QW9KUjgiczDdjvhoNjlIj-nL1wKigb1Ic1o_Ty09eMvQ_aVWd24QhspE0zuxF" style="">
+<div class="absolute inset-0 bg-background/80 backdrop-blur-sm"></div>
+</div>
+<div class="relative z-10 max-w-screen-2xl mx-auto w-full px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-20 items-end">
+<div class="lg:col-span-6">
+<span class="text-primary font-headline font-bold tracking-[0.4em] uppercase mb-8 block text-xs" style="">ai &amp; science synthesis for peak performance</span>
+<h2 class="font-headline text-5xl md:text-7xl font-bold uppercase tracking-tighter mb-12 leading-none" style="">life is too short to not be your best</h2>
+<p class="text-on-surface-variant text-lg mb-16 max-w-xl leading-relaxed" style="">
+                        EMERSUS offers optimization routines based on peer-reviewed, scholarly articles ranging from muscle hypetrophy to mental focus, without the jargon. Completely tailored to you.</p>
+<div class="space-y-1 w-full max-w-lg">
+<div class="glass-panel p-8 group hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-6 mb-4">
+<span class="material-symbols-outlined text-secondary text-3xl" style="">psychology</span>
+<span class="font-headline font-bold text-lg uppercase tracking-tight" style="">Cognitive Focus</span>
+</div>
+<p class="text-sm text-on-surface-variant tracking-wider leading-loose" style="">Modern science produces novel ways to improve mental performance every single day. EMERSUS tracks new publications, judges relevance and confidence, and tailors routines to your specific circumstances.</p>
+</div>
+<div class="glass-panel p-8 group hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-6 mb-4">
+<span class="material-symbols-outlined text-primary text-3xl" style="">self_improvement</span>
+<span class="font-headline font-bold text-lg uppercase tracking-tight" style="">physical aptitude</span>
+</div>
+<p class="text-sm text-on-surface-variant tracking-wider leading-loose" style="">Weight-lifting, doing cardio, or simply looking for a way to get more restful sleep? EMERSUS cuts through the folklore and myths to deliver replicable and verifiable protocols using the collective output of all human sciences.</p>
+</div>
+<div class="glass-panel p-8 group hover:bg-white/5 transition-colors">
+<div class="flex items-center gap-6 mb-4">
+<span class="material-symbols-outlined text-white text-3xl" style="">medical_services</span>
+<span class="font-headline font-bold text-lg uppercase tracking-tight" style="">DATA INTEGRATION</span>
+</div>
+<p class="text-sm text-on-surface-variant tracking-wider leading-loose" style="">EMERSUS supports data integration from smartphones and wearable technology to identify what you need to accomplish your goals. Track relevant performance markers and ignore the noise.&nbsp;</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-6 relative">
+<div class="aspect-square glass-panel p-1 flex items-center justify-center overflow-hidden">
+<img alt="High Performance Data Stream" class="w-full h-full object-cover opacity-80 opacity-60" src="https://lh3.googleusercontent.com/aida/ADBb0ujekLaHMgRjG_sg9sruOgb8Mqtcbx35b_LUr9grVIDNWWJxYxDKP7EsBVLmD9yiLjvuWbXLZnspHs-acaiUM-zABS_Y6Z7YAJo4omdoKFuE9M8Mf8bdJOt_3gPra083FC-DIrHtGb_Sz1fnaq6sZgJrGsqAo_gy5-SEw8d1pVwN2acEjmbDm2zifFsW30Daf1Cke9ct3ZDeeL3QW9KUjgiczDdjvhoNjlIj-nL1wKigb1Ic1o_Ty09eMvQ_aVWd24QhspE0zuxF" style="">
+<div class="absolute inset-0 holographic-overlay"></div>
+</div>
+<div class="absolute -bottom-10 -left-10 glass-panel p-10 max-w-xs border-l-4 border-secondary">
+<p class="text-[10px] font-headline font-bold uppercase tracking-widest text-secondary mb-2" style="">Live Data Feed</p>
+<p class="text-2xl font-headline font-bold" style="">98.4%</p>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1" style="">Optimization Accuracy</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative min-h-screen py-32 flex flex-col justify-center bg-surface-container-lowest overflow-hidden">
+<div class="absolute top-0 right-0 w-1/2 h-full z-0">
+<img alt="Abstract Synaptic Patterns" class="w-full h-full object-cover opacity-20 grayscale opacity-60" src="https://lh3.googleusercontent.com/aida/ADBb0ujekLaHMgRjG_sg9sruOgb8Mqtcbx35b_LUr9grVIDNWWJxYxDKP7EsBVLmD9yiLjvuWbXLZnspHs-acaiUM-zABS_Y6Z7YAJo4omdoKFuE9M8Mf8bdJOt_3gPra083FC-DIrHtGb_Sz1fnaq6sZgJrGsqAo_gy5-SEw8d1pVwN2acEjmbDm2zifFsW30Daf1Cke9ct3ZDeeL3QW9KUjgiczDdjvhoNjlIj-nL1wKigb1Ic1o_Ty09eMvQ_aVWd24QhspE0zuxF" style="">
+<div class="absolute inset-0 bg-gradient-to-l from-transparent to-surface-container-lowest"></div>
+</div>
+<div class="relative z-10 max-w-screen-2xl mx-auto w-full px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-24 items-center">
+<div class="lg:col-span-5 order-2 lg:order-1">
+<div class="glass-panel p-12 relative overflow-hidden">
+<div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-secondary via-primary to-secondary"></div>
+<div class="flex items-center gap-4 mb-10">
+<div class="w-3 h-3 rounded-full bg-secondary shadow-[0_0_15px_#9ffb00]"></div>
+<span class="font-headline font-bold text-xs uppercase tracking-ultra text-on-surface-variant" style="">emersus.ai&nbsp;</span>
+</div>
+<div class="space-y-10">
+<div class="border-l border-white/10 pl-6">
+<p class="text-[10px] uppercase tracking-widest text-on-surface-variant mb-2" style="">User Query</p>
+<p class="text-lg italic font-light" style="">"How can I control my nerves for my upcoming sales pitch next week?"</p>
+</div>
+<div class="bg-surface-container p-8 rounded-lg border border-white/5">
+<div class="flex items-center gap-3 mb-4">
+<span class="material-symbols-outlined text-secondary" style="">neurology</span>
+<span class="text-[10px] uppercase font-bold text-secondary tracking-widest" style="">Protocol Response</span>
+</div>
+<p class="text-on-surface-variant leading-relaxed text-sm" style=""><font color="#ffffff">PUBLIC SPEAKING: Extensive research suggests a combination of cognitive modification and systematic desensitization works best. Given your timeframe, I can produce a cognitive modification routine for you that will improve your public speaking skills by the time of your sales pitch. (Allent et. al., 2023)</font></p>
+<div class="mt-8 pt-6 border-t border-white/5 flex items-center justify-between">
+<span class="text-[9px] uppercase tracking-[0.3em] font-bold text-on-surface-variant" style="">Optimizing...</span>
+<div class="w-24 h-1 bg-surface-container-highest overflow-hidden">
+<div class="h-full bg-secondary w-2/3 animate-pulse"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7 order-1 lg:order-2">
+<span class="text-secondary font-headline font-bold tracking-[0.4em] uppercase mb-8 block text-xs" style="">bio-hacking life</span>
+<h2 class="font-headline text-6xl md:text-[8rem] font-black uppercase tracking-tighter mb-12 leading-[0.8]" style="">
+                        AI <span class="text-gradient-primary" style="">PROTOCOL</span> BOT
+                    </h2>
+<p class="text-on-surface-variant text-xl md:text-2xl mb-12 max-w-2xl leading-relaxed font-light" style="">Competition in the modern world is more intense than ever in every aspect of life. You need the best information, in a digestible format, delivered when and where you need it to stay on top. EMERSUS delivers.&nbsp;</p>
+<div class="flex gap-8">
+<button class="bg-white text-black font-headline font-bold uppercase px-10 py-4 tracking-widest text-xs hover:bg-secondary transition-colors" style="">
+                            View Methodology
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative py-48 px-12 text-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Cosmic Energy Transcendence" class="w-full h-full object-cover opacity-30" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOj4ACmSpjUk53CqaXzsgpIvZ0KDh9cmoQjSt5r5wqXDfnfAUzbiCCxDHHCHz1SKnZEXR-tFa7wSjB7xDplpEKX2gdGaUg6KHQvFCRBK-PLscy7dEB2cSVJgGB1CZxBaSqv7SKuIP6Exx1CO3V0ELdtaG5SHIEp7O4tvSx5pzIheDryk5weOneRT-7uaQJfSrhTzxqnPBU-dI2FQDGiE7CHa4evquybHuzu-0t86XpvjuRb3PDau-d9eAIX9wHynOubw227S5_8Q" style="">
+<div class="absolute inset-0 bg-background/90"></div>
+<div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 40px 40px;"></div>
+</div>
+<div class="relative z-10 max-w-5xl mx-auto">
+<h2 class="font-headline text-6xl md:text-9xl font-black uppercase tracking-tighter mb-12 leading-[0.85]" style="">
+                READY TO <span class="text-secondary" style="">TRANSCEND</span> LIMITATIONS?
+            </h2>
+<p class="text-on-surface-variant text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-light tracking-wider leading-relaxed" style="">
+                Join the private beta. Validated human optimization for the modern elite. Experience revolutionary breakthroughs.
+            </p>
+<div class="flex flex-col sm:flex-row justify-center gap-4">
+<button class="bg-gradient-to-r from-primary-dim to-primary text-black font-headline font-black uppercase px-16 py-6 text-sm tracking-[0.3em] hover:scale-105 transition-transform" style="">
+                    Request Credentials
+                </button>
+<button class="border border-white/20 text-on-surface font-headline font-bold uppercase px-16 py-6 text-sm tracking-[0.3em] hover:bg-white hover:text-black transition-all" style="">
+                    Explore Science
+                </button>
+</div>
+</div>
+</section>
+<footer class="bg-background border-t border-white/5 w-full py-20 px-12">
+<div class="max-w-screen-2xl mx-auto grid grid-cols-1 md:grid-cols-2 items-end gap-12 w-full">
+<div class="flex flex-col gap-8">
+<div class="text-white font-bold font-headline tracking-tighter text-3xl uppercase" style="">EMERSUS AI</div>
+<div class="font-headline text-[9px] uppercase tracking-[0.4em] text-on-surface-variant max-w-sm leading-loose" style="">
+                    © 2024 EMERSUS AI. LABORATORY GRADE PERFORMANCE. ALL RIGHTS RESERVED. NEURAL LINK SECURED.
+                </div>
+</div>
+<div class="flex flex-wrap justify-center md:justify-end gap-12 font-headline text-[10px] uppercase tracking-[0.2em] font-medium">
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#" style="">Legal</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#" style="">Research</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#" style="">Privacy</a>
+<a class="text-on-surface-variant hover:text-secondary transition-colors" href="#" style="">Methodology</a>
+</div>
+</div>
+</footer>
+</body></html>
