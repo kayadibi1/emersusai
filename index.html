@@ -128,8 +128,8 @@
 </nav>
 <section class="relative min-h-screen flex items-center overflow-hidden">
 <div class="absolute inset-0 z-0">
-<img alt="Ascendance Transcendence" class="w-full h-full object-cover scale-105 opacity-60" src="https://lh3.googleusercontent.com/aida/ADBb0ujekLaHMgRjG_sg9sruOgb8Mqtcbx35b_LUr9grVIDNWWJxYxDKP7EsBVLmD9yiLjvuWbXLZnspHs-acaiUM-zABS_Y6Z7YAJo4omdoKFuE9M8Mf8bdJOt_3gPra083FC-DIrHtGb_Sz1fnaq6sZgJrGsqAo_gy5-SEw8d1pVwN2acEjmbDm2zifFsW30Daf1Cke9ct3ZDeeL3QW9KUjgiczDdjvhoNjlIj-nL1wKigb1Ic1o_Ty09eMvQ_aVWd24QhspE0zuxF" style="">
-<div class="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-background/20"></div>
+<img alt="Neuron network background" class="w-full h-full object-cover scale-105 opacity-70" src="./neuron.png" style="">
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30"></div>
 <div class="absolute inset-0 holographic-overlay"></div>
 </div>
 <div class="relative z-20 max-w-screen-2xl mx-auto w-full px-12 pt-32">
@@ -205,6 +205,17 @@
 <p class="text-[10px] text-on-surface-variant uppercase tracking-widest mt-1" style="">Optimization Accuracy</p>
 </div>
 </div>
+</div>
+</div>
+</section>
+<section class="relative overflow-hidden bg-background py-24">
+<div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(109,159,255,0.12),_transparent_35%)]"></div>
+<div class="relative z-10 mx-auto max-w-5xl px-12 text-center">
+<p class="font-headline text-[10px] font-bold uppercase tracking-[0.45em] text-secondary">EMERSUS can help you with</p>
+<div class="mt-8 min-h-[5rem] flex items-center justify-center">
+<p class="font-headline text-3xl font-black uppercase tracking-tight text-on-surface md:text-5xl">
+<span id="typed-topic"></span><span class="ml-1 inline-block text-secondary animate-pulse">|</span>
+</p>
 </div>
 </div>
 </section>
@@ -297,4 +308,50 @@
 </div>
 </div>
 </footer>
+<script>
+const typedTopic = document.getElementById("typed-topic");
+
+if (typedTopic) {
+    const topics = [
+        "hypertrophy",
+        "mental performance",
+        "micronutrient intake",
+        "supplements",
+        "optimal work hours",
+        "morning routines",
+        "sleep habits"
+    ];
+
+    let topicIndex = 0;
+    let charIndex = 0;
+    let deleting = false;
+
+    const typeLoop = () => {
+        const currentTopic = topics[topicIndex];
+
+        if (deleting) {
+            charIndex -= 1;
+        } else {
+            charIndex += 1;
+        }
+
+        typedTopic.textContent = currentTopic.slice(0, charIndex);
+
+        let delay = deleting ? 45 : 85;
+
+        if (!deleting && charIndex === currentTopic.length) {
+            deleting = true;
+            delay = 1300;
+        } else if (deleting && charIndex === 0) {
+            deleting = false;
+            topicIndex = (topicIndex + 1) % topics.length;
+            delay = 250;
+        }
+
+        window.setTimeout(typeLoop, delay);
+    };
+
+    window.setTimeout(typeLoop, 500);
+}
+</script>
 </body></html>
