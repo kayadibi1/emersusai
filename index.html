@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
       rel="stylesheet"
     />
+    <link href="./styles.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <script id="tailwind-config">
       tailwind.config = {
@@ -101,65 +102,8 @@
         },
       };
     </script>
-    <style>
-      @font-face {
-        font-family: "Canela Light";
-        src: url("./fonts/Canela-Light-Web.woff2") format("woff2");
-        font-style: normal;
-        font-weight: 300;
-        font-display: swap;
-      }
-
-      .material-symbols-outlined {
-        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-        vertical-align: middle;
-      }
-
-      html {
-        scroll-behavior: smooth;
-      }
-
-      body {
-        background-color: #05070d;
-        background-image:
-          linear-gradient(rgba(18, 247, 255, 0.06) 1px, transparent 1px),
-          linear-gradient(90deg, rgba(18, 247, 255, 0.06) 1px, transparent 1px),
-          radial-gradient(circle at top, rgba(255, 0, 217, 0.12), transparent 28%);
-        background-size: 32px 32px, 32px 32px, auto;
-        color: #cbfbff;
-        font-family: "Inter", sans-serif;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      .hero-gradient {
-        background: linear-gradient(135deg, #ff6a00 0%, #ff9d00 100%);
-      }
-
-      .glass-panel {
-        background: rgba(5, 8, 14, 0.88);
-        backdrop-filter: blur(20px);
-      }
-
-      .hide-scrollbar::-webkit-scrollbar {
-        display: none;
-      }
-
-      .font-headline {
-        font-family:
-          "Canela Light",
-          "Canela",
-          "Iowan Old Style",
-          "Palatino Linotype",
-          "Book Antiqua",
-          "Georgia",
-          "Times New Roman",
-          serif !important;
-        font-weight: 300 !important;
-        letter-spacing: -0.04em;
-      }
-    </style>
   </head>
-  <body class="selection:bg-primary selection:text-on-primary">
+  <body class="selection:bg-primary selection:text-on-primary" id="top">
     <nav
       class="fixed top-0 z-50 flex w-full max-w-none items-center justify-between border-b border-[#ff6a00]/30 bg-[#05070d]/85 px-8 py-6 shadow-[0_10px_40px_-15px_rgba(18,247,255,0.16)] backdrop-blur-md"
     >
@@ -225,24 +169,35 @@
             </p>
             <form
               class="group flex max-w-md flex-col gap-0 sm:flex-row"
-              id="waitlist-form"
+              data-form-endpoint=""
+              data-waitlist-form
+              id="hero-waitlist-form"
+              method="post"
+              novalidate
             >
+              <label class="sr-only" for="hero-waitlist-email">Work email</label>
               <input
+                autocomplete="email"
                 class="w-full bg-surface-container-lowest px-6 py-5 font-label text-xs tracking-widest text-on-surface outline-none transition-all focus:ring-1 focus:ring-primary/40"
+                id="hero-waitlist-email"
+                inputmode="email"
                 name="email"
                 placeholder="ENTER WORK EMAIL"
+                required
                 type="email"
               />
               <button
-                class="hero-gradient whitespace-nowrap px-10 py-5 font-label text-[10px] font-bold uppercase tracking-widest text-on-primary transition-all hover:brightness-110"
+                class="waitlist-submit hero-gradient whitespace-nowrap px-10 py-5 font-label text-[10px] font-bold uppercase tracking-widest text-on-primary transition-all hover:brightness-110"
                 type="submit"
               >
                 Request Access
               </button>
             </form>
             <p
-              class="mt-4 min-h-[1.25rem] font-label text-[10px] uppercase tracking-[0.2em] text-secondary"
+              aria-live="polite"
+              class="form-message mt-4 font-label text-[10px] uppercase tracking-[0.2em] text-secondary"
               id="form-message"
+              role="status"
             ></p>
 
           </div>
@@ -254,6 +209,8 @@
               <img
                 alt="A person presenting in a modern workspace"
                 class="h-full min-h-[22rem] w-full object-cover opacity-80 grayscale"
+                decoding="async"
+                fetchpriority="high"
                 src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
               />
               <div
@@ -274,6 +231,7 @@
               <img
                 alt="A person lifting weights in a dark gym"
                 class="h-56 w-full object-cover opacity-80 grayscale"
+                decoding="async"
                 src="https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=900&q=80"
               />
               <div class="p-5">
@@ -292,6 +250,7 @@
               <img
                 alt="A person eating at a restaurant table"
                 class="h-56 w-full object-cover opacity-80 grayscale"
+                decoding="async"
                 src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80"
               />
               <div class="p-5">
@@ -391,6 +350,8 @@
                 <img
                   alt="Scientific Nutrition"
                   class="h-full w-full object-cover brightness-50 grayscale"
+                  decoding="async"
+                  loading="lazy"
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuD57jkUePeHlUo4nNrDzt8TDbo8kAgLLnaW-tte2INEXho3am5YixY1NxSX9SEfkRoTPvKpW1Pw5tsvSdm16lgE5SEXuC6pSoDjNlv6OQqMKh17s-Uuhr20XRFkDJ3iSKqLItj5pvsHTO-1o9GA341k0vpJLH8JgRRNRcKqUFJe4jq_sszQK5JaX8QcSWy-6nLZ3tLjX-S4GH4RxFotAwLzFSsFwjnEXb4Ht6E4fJ-8x8mUYl2P2Af6NE2wW1rvd-N6DAUet5VKXQ"
                 />
                 <div
@@ -451,6 +412,8 @@
                   <img
                     alt="Training Protocol"
                     class="h-64 w-full object-cover opacity-40 grayscale"
+                    decoding="async"
+                    loading="lazy"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCiH41NbmqfZlgBu1b21-GTIb-hSZttYce0tp4fx7yJ_1ZrrNdY83L76MVcifbHOgzntrPTCwII0fM0Hshp104znsy6ff1GwruRlnmB_G_AEfraOQsAybMGXHYc1tII3mnH4MKz_nIXusW1ra1S5AxSqp6pSTcDfmhn1NAqJWFEKDDKQwURpf-FSQJHONyq2bQYM2HJA3zcRxbWRi-BAHQ47KpspphSJk-xYrv0zWtL9-aNDOVzT-7vftq0KyPDT4meGMYh1cjQjA"
                   />
                 </div>
@@ -467,7 +430,7 @@
                 Advanced Training
               </h2>
               <p class="mb-12 font-body leading-relaxed text-secondary">
-                Discard the gym culture of aesthetics. We focus on neuromusclular
+                Discard the gym culture of aesthetics. We focus on neuromuscular
                 efficiency and systemic resilience. Our protocols are derived
                 from elite athletic foundations and military-grade performance
                 research.
@@ -601,12 +564,37 @@
               Join the private beta. Validated performance for the modern elite.
               Early access is granted on a rolling basis.
             </p>
-            <a
-              class="inline-block bg-[#ff6a00] px-16 py-6 font-label text-xs font-bold uppercase tracking-[0.3em] text-[#05070d] shadow-[0_0_40px_rgba(255,106,0,0.35)] transition-all duration-500 hover:scale-105 hover:bg-[#12f7ff]"
-              href="#waitlist-form"
+            <form
+              class="mx-auto flex max-w-2xl flex-col gap-0 sm:flex-row"
+              data-form-endpoint=""
+              data-waitlist-form
+              id="waitlist-form"
+              method="post"
+              novalidate
             >
-              Request Credentials
-            </a>
+              <label class="sr-only" for="waitlist-email">Waitlist email</label>
+              <input
+                autocomplete="email"
+                class="w-full border border-[#ff6a00]/20 bg-black/40 px-6 py-5 font-label text-xs tracking-[0.25em] text-on-surface outline-none transition-all focus:ring-1 focus:ring-primary/40"
+                id="waitlist-email"
+                inputmode="email"
+                name="email"
+                placeholder="ENTER EMAIL FOR EARLY ACCESS"
+                required
+                type="email"
+              />
+              <button
+                class="waitlist-submit bg-[#ff6a00] px-10 py-5 font-label text-[10px] font-bold uppercase tracking-[0.3em] text-[#05070d] shadow-[0_0_40px_rgba(255,106,0,0.35)] transition-all duration-500 hover:bg-[#12f7ff]"
+                type="submit"
+              >
+                Request Credentials
+              </button>
+            </form>
+            <p
+              aria-live="polite"
+              class="form-message mx-auto mt-4 max-w-2xl font-label text-[10px] uppercase tracking-[0.2em] text-secondary"
+              role="status"
+            ></p>
             <div
               class="mt-24 grid grid-cols-2 gap-12 border-t border-outline-variant/5 pt-12 md:grid-cols-4"
             >
@@ -675,89 +663,25 @@
         <a
           class="font-label text-[10px] font-medium uppercase tracking-widest text-[#12f7ff]/50 transition-colors hover:text-[#12f7ff]"
           href="#science"
-          >Scientific Methodology</a
+          >Science</a
         >
         <a
           class="font-label text-[10px] font-medium uppercase tracking-widest text-[#12f7ff]/50 transition-colors hover:text-[#12f7ff]"
           href="#waitlist"
-          >Privacy Protocol</a
+          >Waitlist</a
         >
         <a
           class="font-label text-[10px] font-medium uppercase tracking-widest text-[#12f7ff]/50 transition-colors hover:text-[#12f7ff]"
           href="#nutrition"
-          >Research</a
+          >Nutrition</a
         >
         <a
           class="font-label text-[10px] font-medium uppercase tracking-widest text-[#12f7ff]/50 transition-colors hover:text-[#12f7ff]"
-          href="#waitlist"
-          >Support</a
+          href="#training"
+          >Training</a
         >
       </div>
     </footer>
-
-    <script>
-      const form = document.querySelector("#waitlist-form");
-      const message = document.querySelector("#form-message");
-      const askAboutWord = document.querySelector("#ask-about-word");
-
-      if (askAboutWord) {
-        const topics = [
-          "hypertrophy",
-          "mental performance",
-          "micronutrient intake",
-          "optimal work hours",
-          "supplements",
-          "nutrition",
-        ];
-
-        let topicIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        const tick = () => {
-          const currentTopic = topics[topicIndex];
-
-          if (isDeleting) {
-            charIndex -= 1;
-          } else {
-            charIndex += 1;
-          }
-
-          askAboutWord.textContent = currentTopic.slice(0, charIndex);
-
-          let delay = isDeleting ? 45 : 85;
-
-          if (!isDeleting && charIndex === currentTopic.length) {
-            delay = 1200;
-            isDeleting = true;
-          } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            topicIndex = (topicIndex + 1) % topics.length;
-            delay = 280;
-          }
-
-          window.setTimeout(tick, delay);
-        };
-
-        askAboutWord.textContent = "";
-        window.setTimeout(tick, 500);
-      }
-
-      if (form && message) {
-        form.addEventListener("submit", (event) => {
-          event.preventDefault();
-
-          const email = form.elements.email.value.trim();
-
-          if (!email) {
-            message.textContent = "Enter your email to request access.";
-            return;
-          }
-
-          message.textContent =
-            "Waitlist capture is ready. Connect your preferred form backend before launch.";
-        });
-      }
-    </script>
+    <script src="./script.js"></script>
   </body>
 </html>
