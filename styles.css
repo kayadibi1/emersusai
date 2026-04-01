@@ -1,0 +1,500 @@
+@font-face {
+  font-family: "Canela Light";
+  src: url("./fonts/Canela-Light-Web.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+:root {
+  --bg: #060713;
+  --bg-strong: #0b1030;
+  --surface: rgba(13, 18, 48, 0.7);
+  --surface-strong: rgba(17, 24, 61, 0.88);
+  --ink: #eef1ff;
+  --muted: #a7aed8;
+  --line: rgba(151, 129, 255, 0.16);
+  --accent: #8b5cf6;
+  --accent-strong: #b48bff;
+  --accent-soft: rgba(139, 92, 246, 0.16);
+  --warm: #1c7bff;
+  --shadow: 0 28px 100px rgba(0, 0, 0, 0.42);
+  --radius-xl: 32px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --max-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Source Sans 3", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.32), transparent 24%),
+    radial-gradient(circle at 85% 8%, rgba(28, 123, 255, 0.24), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(88, 28, 135, 0.22), transparent 30%),
+    linear-gradient(180deg, #05060d 0%, #070918 42%, #04040b 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page-shell {
+  width: min(calc(100% - 2rem), var(--max-width));
+  margin: 0 auto;
+  padding: 1.25rem 0 3rem;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0 2rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.brand-logo {
+  width: 3.25rem;
+  height: 3.25rem;
+  object-fit: cover;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+}
+
+.brand-copy {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-copy strong,
+.nav a,
+h1,
+h2,
+h3,
+summary,
+.button {
+  font-family:
+    "Canela Light",
+    "Canela",
+    "Iowan Old Style",
+    "Palatino Linotype",
+    "Book Antiqua",
+    "Georgia",
+    "Times New Roman",
+    serif;
+  font-weight: 300;
+}
+
+.brand-copy span:last-child {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.nav {
+  display: flex;
+  gap: 1.25rem;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  gap: 2rem;
+  align-items: stretch;
+  padding: 1.25rem 0 2rem;
+}
+
+.hero-copy,
+.hero-card-inner,
+.feature-card,
+.science-checklist article,
+.waitlist-form,
+.faq-list details,
+.stats article {
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+}
+
+.hero-copy {
+  padding: 2.5rem;
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(14, 17, 43, 0.92), rgba(8, 10, 26, 0.9)),
+    radial-gradient(circle at top right, rgba(139, 92, 246, 0.2), transparent 28%);
+}
+
+.eyebrow {
+  margin: 0 0 0.85rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--accent-strong);
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2.75rem, 6vw, 5.2rem);
+  line-height: 0.98;
+  max-width: 11ch;
+}
+
+.hero-text,
+.section-heading p,
+.feature-card p,
+.science-copy p,
+.science-checklist p,
+.faq-list p,
+.footer p,
+.form-note,
+.form-message,
+.stats span {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+.hero-text {
+  max-width: 60ch;
+  margin: 1.4rem 0 0;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 2rem 0 1.4rem;
+}
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 3.25rem;
+  padding: 0.85rem 1.35rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 0.98rem;
+  font-weight: 700;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--warm) 100%);
+  color: #fff;
+}
+
+.button-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.09);
+}
+
+.hero-points {
+  display: grid;
+  gap: 0.8rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.hero-points li {
+  position: relative;
+  padding-left: 1.5rem;
+  font-size: 1rem;
+}
+
+.hero-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--accent), var(--warm));
+}
+
+.hero-card {
+  display: flex;
+}
+
+.hero-card-inner {
+  width: 100%;
+  padding: 1.5rem;
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(5, 6, 15, 0.98), rgba(11, 15, 36, 0.94)),
+    linear-gradient(135deg, rgba(139, 92, 246, 0.18), transparent 50%);
+  color: #f4f7f6;
+}
+
+.card-kicker {
+  margin: 0 0 0.65rem;
+  color: rgba(244, 247, 246, 0.72);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.hero-card h2 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  line-height: 1.05;
+}
+
+.chat-demo {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.bubble {
+  max-width: 88%;
+  padding: 0.95rem 1rem;
+  border-radius: 18px;
+  line-height: 1.5;
+}
+
+.bubble-user {
+  justify-self: end;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.bubble-ai {
+  justify-self: start;
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.24);
+}
+
+.stats,
+.feature-grid,
+.science-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 0 0 2.5rem;
+}
+
+.stats article,
+.feature-card,
+.science-checklist article,
+.waitlist-form,
+.faq-list details {
+  padding: 1.35rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+}
+
+.stats strong,
+.feature-card h3,
+.science-checklist strong {
+  display: block;
+  margin-bottom: 0.45rem;
+  font-size: 1.1rem;
+}
+
+.section {
+  padding: 2rem 0;
+}
+
+.section-heading {
+  max-width: 52rem;
+  margin-bottom: 1.4rem;
+}
+
+.section-heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1.02;
+}
+
+.section-heading p:last-child {
+  margin-top: 0.8rem;
+}
+
+.feature-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.science-layout {
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+}
+
+.science-copy {
+  padding-right: 1rem;
+}
+
+.science-checklist {
+  display: grid;
+  gap: 1rem;
+}
+
+.waitlist-section {
+  position: relative;
+}
+
+.waitlist-section::before {
+  content: "";
+  position: absolute;
+  inset: 1rem 0 auto;
+  height: calc(100% - 2rem);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(28, 123, 255, 0.1));
+  z-index: -1;
+}
+
+.waitlist-form {
+  display: grid;
+  gap: 1rem;
+  max-width: 42rem;
+  padding: 1.5rem;
+}
+
+.waitlist-form label {
+  display: grid;
+  gap: 0.45rem;
+  font-weight: 600;
+}
+
+.waitlist-form input,
+.waitlist-form select,
+.waitlist-form textarea {
+  width: 100%;
+  padding: 0.95rem 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(151, 129, 255, 0.18);
+  background: rgba(6, 8, 22, 0.85);
+  color: var(--ink);
+  font: inherit;
+}
+
+.waitlist-form input::placeholder,
+.waitlist-form textarea::placeholder {
+  color: #7d86bc;
+}
+
+.waitlist-form input:focus,
+.waitlist-form select:focus,
+.waitlist-form textarea:focus {
+  outline: 2px solid rgba(139, 92, 246, 0.22);
+  border-color: var(--accent);
+}
+
+.form-note,
+.form-message {
+  margin: 0;
+}
+
+.form-message {
+  min-height: 1.5rem;
+  font-weight: 600;
+}
+
+.form-message.is-success {
+  color: #b6a0ff;
+}
+
+.form-message.is-error {
+  color: #ff8f9d;
+}
+
+.faq-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.faq-list summary {
+  cursor: pointer;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.faq-list p {
+  margin: 0.8rem 0 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 0 0.5rem;
+  border-top: 1px solid var(--line);
+  margin-top: 1rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+@media (max-width: 920px) {
+  .topbar,
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero,
+  .science-layout,
+  .feature-grid,
+  .stats {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-copy,
+  .hero-card-inner {
+    padding: 1.5rem;
+  }
+
+  h1 {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .page-shell {
+    width: min(calc(100% - 1.1rem), var(--max-width));
+  }
+
+  .nav {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .button {
+    width: 100%;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+}
