@@ -1,3 +1,5 @@
+const { Resend } = require("resend");
+
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 module.exports = async function handler(req, res) {
@@ -14,6 +16,10 @@ module.exports = async function handler(req, res) {
   const supabaseUrl =
     process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const resendApiKey = process.env.RESEND_API_KEY;
+  const resendFromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
+  const contactNotificationEmail =
+    process.env.CONTACT_NOTIFICATION_EMAIL || "support@emersus.ai";
 
   if (!supabaseUrl || !serviceRoleKey) {
     return res.status(500).json({
@@ -55,6 +61,30 @@ module.exports = async function handler(req, res) {
   });
 
   if (response.ok) {
+    if (resendApiKey) {
+      const resend = new Resend(resendApiKey);
+
+      try {
+        await resend.emails.send({
+          from: resendFromEmail,
+          to: contactNotificationEmail,
+          replyTo: email,
+          subject: `New Emersus contact submission: ${category}`,
+          html: `
+            <h2>New contact submission</h2>
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Category:</strong> ${category}</p>
+            <p><strong>Page URL:</strong> ${pageUrl || "Not provided"}</p>
+            <p><strong>Message:</strong></p>
+            <p>${message.replace(/\n/g, "<br>")}</p>
+          `,
+        });
+      } catch (error) {
+        console.error("Resend contact notification failed:", error);
+      }
+    }
+
     return res.status(200).json({
       message: "Message received. We will get back to you soon.",
     });
