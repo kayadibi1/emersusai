@@ -1,5 +1,8 @@
 create table if not exists public.waitlist_signups (
   id bigint generated always as identity primary key,
+  name text,
+  surname text,
+  company text,
   email text not null unique,
   source text not null default 'landing-page',
   page_url text,
@@ -7,6 +10,10 @@ create table if not exists public.waitlist_signups (
   user_agent text,
   created_at timestamptz not null default now()
 );
+
+alter table public.waitlist_signups add column if not exists name text;
+alter table public.waitlist_signups add column if not exists surname text;
+alter table public.waitlist_signups add column if not exists company text;
 
 alter table public.waitlist_signups enable row level security;
 

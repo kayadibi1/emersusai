@@ -229,9 +229,9 @@ gtag('config', 'G-RVQWW1H0S9');
 <a class="text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#" style="">Protocols</a>
 <a class="text-on-surface-variant hover:text-secondary transition-colors duration-500" href="#" style="">Clinical</a>
 </div>
-<button class="bg-white text-black font-headline font-bold uppercase py-2.5 px-6 text-[0.75rem] tracking-widest hover:bg-secondary transition-colors duration-500" style="">
+<a class="inline-flex items-center justify-center bg-white text-black font-headline font-bold uppercase py-2.5 px-6 text-[0.75rem] tracking-widest hover:bg-secondary transition-colors duration-500" href="#waitlist-form" style="">
                 Get Access
-            </button>
+            </a>
 </div>
 </nav>
 <section class="relative min-h-screen flex items-center overflow-hidden">
@@ -245,15 +245,27 @@ gtag('config', 'G-RVQWW1H0S9');
 <span class="text-secondary font-headline font-bold tracking-[0.5em] uppercase mb-10 block text-xs md:text-sm animate-pulse" style="">eMERSUS</span>
 <h1 class="font-headline text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-[0.85] mb-12 uppercase" style=""><span class="text-gradient-primary" style="">OPTIMIZE</span> OR <br><span class="text-error-container" style="">OBSOLETE</span></h1>
 <p class="text-on-surface-variant text-xl md:text-2xl max-w-3xl mb-16 font-light leading-relaxed tracking-wider" style="">Scientificaly grounded optimization AI for peak mental and physical performance. For those who take life seriously.&nbsp;</p>
-<form id="waitlist-form" class="w-full max-w-2xl border-l border-secondary/30 pl-8 py-4">
-<div class="flex flex-col sm:flex-row gap-0">
-<div class="flex-1">
-<label class="block text-[10px] uppercase tracking-ultra text-secondary mb-2" style="">BE THE FIRST IN LINE</label>
-<input id="waitlist-email" name="email" class="w-full bg-transparent border-none text-on-surface text-xl p-0 focus:ring-0 placeholder:text-white/20" placeholder="YOUR EMAIL" type="email" autocomplete="email" required>
+<form id="waitlist-form" class="w-full max-w-3xl border-l border-secondary/30 pl-8 py-4">
+<label class="block text-[10px] uppercase tracking-ultra text-secondary mb-5" style="">BE THE FIRST IN LINE</label>
+<div class="grid gap-4 sm:grid-cols-2">
+<input id="waitlist-name" name="name" class="w-full bg-transparent border border-white/10 px-4 py-4 text-on-surface text-sm uppercase tracking-[0.18em] focus:border-secondary focus:ring-0 placeholder:text-white/20" placeholder="NAME (OPTIONAL)" type="text" autocomplete="given-name">
+<input id="waitlist-surname" name="surname" class="w-full bg-transparent border border-white/10 px-4 py-4 text-on-surface text-sm uppercase tracking-[0.18em] focus:border-secondary focus:ring-0 placeholder:text-white/20" placeholder="SURNAME (OPTIONAL)" type="text" autocomplete="family-name">
 </div>
-<button id="waitlist-submit" type="submit" class="bg-secondary text-black font-headline font-extrabold uppercase px-12 py-5 mt-4 sm:mt-0 hover:bg-white transition-all tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed" style="">
+<div class="mt-4">
+<input id="waitlist-company" name="company" class="w-full bg-transparent border border-white/10 px-4 py-4 text-on-surface text-sm uppercase tracking-[0.18em] focus:border-secondary focus:ring-0 placeholder:text-white/20" placeholder="COMPANY (OPTIONAL)" type="text" autocomplete="organization">
+</div>
+<div class="mt-4">
+<label class="block text-[10px] uppercase tracking-ultra text-secondary mb-2" for="waitlist-email" style="">EMAIL *</label>
+<input id="waitlist-email" name="email" class="w-full bg-transparent border border-white/10 px-4 py-4 text-on-surface text-sm uppercase tracking-[0.18em] focus:border-secondary focus:ring-0 placeholder:text-white/20" placeholder="YOUR EMAIL" type="email" autocomplete="email" required>
+</div>
+<p class="mt-3 font-body text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">* Required</p>
+<div class="mt-5 flex flex-col sm:flex-row gap-4">
+<button id="waitlist-submit" type="submit" class="bg-secondary text-black font-headline font-extrabold uppercase px-12 py-5 hover:bg-white transition-all tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed" style="">
                         Join Waitlist
                     </button>
+<a class="inline-flex items-center justify-center border border-white/20 text-on-surface font-headline font-bold uppercase px-10 py-5 text-sm tracking-[0.3em] hover:bg-white hover:text-black transition-all" href="#waitlist-form" style="">
+                        Get Access
+                    </a>
 </div>
 <p id="form-message" class="mt-4 min-h-[1.5rem] font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant"></p>
 </form>
@@ -394,9 +406,9 @@ gtag('config', 'G-RVQWW1H0S9');
                 Join the private beta. Validated human optimization for the modern elite. Experience revolutionary breakthroughs.
             </p>
 <div class="flex flex-col sm:flex-row justify-center gap-4">
-<button class="bg-gradient-to-r from-primary-dim to-primary text-black font-headline font-black uppercase px-16 py-6 text-sm tracking-[0.3em] hover:scale-105 transition-transform" style="">
+<a class="inline-flex items-center justify-center bg-gradient-to-r from-primary-dim to-primary text-black font-headline font-black uppercase px-16 py-6 text-sm tracking-[0.3em] hover:scale-105 transition-transform" href="#waitlist-form" style="">
                     Request Credentials
-                </button>
+                </a>
 <button class="border border-white/20 text-on-surface font-headline font-bold uppercase px-16 py-6 text-sm tracking-[0.3em] hover:bg-white hover:text-black transition-all" style="">
                     Explore Science
                 </button>
@@ -471,11 +483,14 @@ if (typedTopic) {
 </script>
 <script>
 const waitlistForm = document.getElementById("waitlist-form");
+const waitlistName = document.getElementById("waitlist-name");
+const waitlistSurname = document.getElementById("waitlist-surname");
+const waitlistCompany = document.getElementById("waitlist-company");
 const waitlistEmail = document.getElementById("waitlist-email");
 const waitlistSubmit = document.getElementById("waitlist-submit");
 const formMessage = document.getElementById("form-message");
 
-if (waitlistForm && waitlistEmail && waitlistSubmit && formMessage) {
+if (waitlistForm && waitlistName && waitlistSurname && waitlistCompany && waitlistEmail && waitlistSubmit && formMessage) {
     const setMessage = (text, tone) => {
         formMessage.textContent = text;
         formMessage.className = "mt-4 min-h-[1.5rem] font-body text-xs uppercase tracking-[0.2em]";
@@ -511,6 +526,9 @@ if (waitlistForm && waitlistEmail && waitlistSubmit && formMessage) {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
+                    name: waitlistName.value.trim() || null,
+                    surname: waitlistSurname.value.trim() || null,
+                    company: waitlistCompany.value.trim() || null,
                     email,
                     source: "landing-page",
                     page_url: window.location.href,

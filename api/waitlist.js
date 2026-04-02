@@ -24,6 +24,9 @@ module.exports = async function handler(req, res) {
   const email = String(req.body?.email || "")
     .trim()
     .toLowerCase();
+  const name = req.body?.name ? String(req.body.name).trim() : null;
+  const surname = req.body?.surname ? String(req.body.surname).trim() : null;
+  const company = req.body?.company ? String(req.body.company).trim() : null;
   const source = String(req.body?.source || "landing-page").trim();
   const pageUrl = req.body?.page_url ? String(req.body.page_url).trim() : null;
   const referrer = req.body?.referrer ? String(req.body.referrer).trim() : null;
@@ -65,6 +68,9 @@ module.exports = async function handler(req, res) {
       Prefer: "return=minimal",
     },
     body: JSON.stringify({
+      name,
+      surname,
+      company,
       email,
       source,
       page_url: pageUrl,
