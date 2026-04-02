@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reset Password | Emersus AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/site.css">
+</head>
+<body data-page="reset-password">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand-mark" href="/">Emersus AI</a>
+        <nav class="site-nav">
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="/contact/">Contact</a>
+          <a href="/auth/login/">Log In</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container auth-layout">
+        <section class="hero-panel auth-copy stack">
+          <p class="section-kicker">New Password</p>
+          <h1>Set your new password.</h1>
+          <p class="lede">
+            This page only works after you follow a valid recovery link from your inbox.
+          </p>
+        </section>
+
+        <section class="form-panel stack">
+          <div>
+            <p class="section-kicker">Reset Password</p>
+            <h2>Choose a new password</h2>
+          </div>
+          <form class="form-grid" data-auth-reset>
+            <label class="field">
+              <span class="field-label">New Password</span>
+              <input type="password" name="password" autocomplete="new-password" minlength="8" required>
+            </label>
+            <label class="field">
+              <span class="field-label">Confirm Password</span>
+              <input type="password" name="confirm_password" autocomplete="new-password" minlength="8" required>
+            </label>
+            <div class="button-row">
+              <button class="button button-primary" type="submit">Update Password</button>
+            </div>
+            <p class="status-text" data-auth-status></p>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/shared/auth-pages.js"></script>
+</body>
+</html>

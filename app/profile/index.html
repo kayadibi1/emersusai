@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Profile | Emersus AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand-mark" href="/">Emersus AI</a>
+        <nav class="site-nav">
+          <a href="/app/">Dashboard</a>
+          <a href="/app/profile/">Profile</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/contact/">Contact</a>
+          <button class="button button-ghost" type="button" data-auth-logout>Log Out</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container stack">
+        <section class="hero-panel stack">
+          <p class="section-kicker">Profile</p>
+          <h1>Complete your app profile.</h1>
+          <p class="lede">
+            This information is stored in your profile row and helps future product features personalize guidance without storing any password data outside Supabase Auth.
+          </p>
+          <div class="chip">Signed in as <span data-user-email>Loading...</span></div>
+        </section>
+
+        <section class="form-panel stack">
+          <form class="form-grid" data-profile-form>
+            <input type="hidden" name="email">
+            <div class="form-grid two-up">
+              <label class="field">
+                <span class="field-label">Full Name</span>
+                <input type="text" name="full_name" autocomplete="name">
+              </label>
+              <label class="field">
+                <span class="field-label">Experience Level</span>
+                <select name="experience_level">
+                  <option value="">Select one</option>
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                </select>
+              </label>
+            </div>
+            <label class="field">
+              <span class="field-label">Primary Goal</span>
+              <input type="text" name="goal" placeholder="Examples: hypertrophy, mental performance, recovery">
+            </label>
+            <label class="field">
+              <span class="field-label">Dietary Preferences</span>
+              <textarea name="dietary_preferences" placeholder="Anything relevant about food preferences, restrictions, or routines."></textarea>
+            </label>
+            <label class="field">
+              <span class="field-label">Injuries / Limitations</span>
+              <textarea name="injuries_limitations" placeholder="Anything that should shape future training or habit guidance."></textarea>
+            </label>
+            <div class="button-row">
+              <button class="button button-primary" type="submit">Save Profile</button>
+              <a class="button button-secondary" href="/app/">Back to Dashboard</a>
+            </div>
+            <p class="status-text" data-profile-status></p>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/shared/app-pages.js"></script>
+</body>
+</html>
