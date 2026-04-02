@@ -1,0 +1,7 @@
+{
+  "name": "emersus-ai-site",
+  "private": true,
+  "dependencies": {
+    "resend": "^4.1.0"
+  }
+}
