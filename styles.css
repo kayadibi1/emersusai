@@ -1,69 +1,21 @@
-@font-face {
-  font-family: "Canela Light";
-  src: url("./fonts/Canela-Light-Web.woff2") format("woff2");
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-}
-
-.material-symbols-outlined {
-  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
-  vertical-align: middle;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
-body {
-  background-color: #05070d;
-  background-image:
-    linear-gradient(rgba(18, 247, 255, 0.06) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(18, 247, 255, 0.06) 1px, transparent 1px),
-    radial-gradient(circle at top, rgba(255, 0, 217, 0.12), transparent 28%);
-  background-size: 32px 32px, 32px 32px, auto;
-  color: #cbfbff;
-  font-family: "Inter", sans-serif;
-  -webkit-font-smoothing: antialiased;
+section {
+  scroll-margin-top: 6rem;
 }
 
-.hero-gradient {
-  background: linear-gradient(135deg, #ff6a00 0%, #ff9d00 100%);
+.waitlist-feedback {
+  min-height: 1.5rem;
 }
 
-.glass-panel {
-  background: rgba(5, 8, 14, 0.88);
-  backdrop-filter: blur(20px);
+.waitlist-feedback.is-success {
+  color: #9ffb00;
 }
 
-.hide-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-
-.font-headline {
-  font-family:
-    "Canela Light",
-    "Canela",
-    "Iowan Old Style",
-    "Palatino Linotype",
-    "Book Antiqua",
-    "Georgia",
-    "Times New Roman",
-    serif !important;
-  font-weight: 300 !important;
-  letter-spacing: -0.04em;
-}
-
-.form-message {
-  min-height: 1.25rem;
-}
-
-.form-message.is-success {
-  color: #79fbff;
-}
-
-.form-message.is-error {
-  color: #ff9993;
+.waitlist-feedback.is-error {
+  color: #ff716c;
 }
 
 .waitlist-submit[disabled] {
