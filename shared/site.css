@@ -1,0 +1,448 @@
+@font-face {
+  font-family: "Canela Light";
+  src: url("/fonts/Canela-Light-Web.woff2") format("woff2");
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+}
+
+:root {
+  --bg: #060713;
+  --bg-strong: #090b18;
+  --surface: rgba(12, 14, 18, 0.82);
+  --surface-strong: rgba(16, 19, 30, 0.94);
+  --surface-soft: rgba(255, 255, 255, 0.04);
+  --ink: #f5f7ff;
+  --muted: #9ca4c7;
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #9ffb00;
+  --accent-soft: rgba(159, 251, 0, 0.16);
+  --brand-a: #85adff;
+  --brand-b: #9ffb00;
+  --danger: #ff8f9d;
+  --shadow: 0 26px 80px rgba(0, 0, 0, 0.42);
+  --radius-xl: 28px;
+  --radius-lg: 22px;
+  --radius-md: 16px;
+  --content-width: 1180px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at top left, rgba(133, 173, 255, 0.16), transparent 24%),
+    radial-gradient(circle at top right, rgba(159, 251, 0, 0.11), transparent 18%),
+    linear-gradient(180deg, #05060d 0%, #080b13 38%, #05060d 100%);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.site-shell {
+  min-height: 100vh;
+}
+
+.container {
+  width: min(calc(100% - 2rem), var(--content-width));
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  backdrop-filter: blur(18px);
+  background: rgba(6, 7, 19, 0.78);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.site-header-inner,
+.site-footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.brand-mark,
+.section-kicker,
+.button,
+.chip,
+.auth-switch,
+.status-text,
+.footer-links,
+.mini-card-label {
+  font-family:
+    "Canela Light",
+    "Iowan Old Style",
+    "Georgia",
+    serif;
+}
+
+.brand-mark {
+  font-size: 1.35rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem 1.4rem;
+  flex-wrap: wrap;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.site-nav a:hover,
+.footer-links a:hover {
+  color: var(--accent);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 0.85rem 1.2rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.button:hover,
+.button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.button-primary {
+  background: linear-gradient(120deg, var(--brand-a), var(--brand-b));
+  color: #09100d;
+}
+
+.button-secondary {
+  background: var(--surface-soft);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--ink);
+}
+
+.button-ghost {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.14);
+  color: var(--muted);
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+}
+
+.page-main {
+  padding: 4rem 0 5rem;
+}
+
+.hero-panel,
+.content-panel,
+.form-panel,
+.info-card,
+.dashboard-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(11, 13, 22, 0.96), rgba(8, 10, 17, 0.92));
+  box-shadow: var(--shadow);
+}
+
+.hero-panel {
+  padding: 3rem;
+}
+
+.auth-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.auth-copy {
+  padding: 2.5rem;
+}
+
+.section-kicker {
+  margin: 0 0 0.9rem;
+  color: var(--accent);
+  font-size: 0.92rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family:
+    "Canela Light",
+    "Iowan Old Style",
+    "Georgia",
+    serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 4.8rem);
+  line-height: 0.98;
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  line-height: 1.02;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+.lede,
+.body-copy,
+.detail-text,
+.status-text,
+.footer-copy,
+.list-copy li,
+.legal-copy p,
+.legal-copy li {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.lede {
+  max-width: 62ch;
+  font-size: 1.05rem;
+}
+
+.body-copy {
+  font-size: 1rem;
+}
+
+.content-panel,
+.form-panel {
+  padding: 1.5rem;
+}
+
+.info-grid,
+.dashboard-grid,
+.mini-card-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.mini-card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.dashboard-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.info-card,
+.dashboard-card {
+  padding: 1.35rem;
+  border-radius: var(--radius-lg);
+}
+
+.mini-card-label {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-size: 0.82rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.stack {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.form-grid.two-up {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.field-label {
+  color: var(--ink);
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--ink);
+  padding: 0.95rem 1rem;
+}
+
+.field textarea {
+  min-height: 11rem;
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: 2px solid rgba(159, 251, 0, 0.22);
+  border-color: var(--accent);
+}
+
+.helper-text {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.status-text {
+  min-height: 1.5rem;
+  font-weight: 600;
+}
+
+.status-text[data-tone="success"] {
+  color: var(--accent);
+}
+
+.status-text[data-tone="error"] {
+  color: var(--danger);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 0.55rem 0.8rem;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--muted);
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.split-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.legal-shell {
+  max-width: 760px;
+}
+
+.legal-copy {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.legal-copy section {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.legal-copy ul {
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.footer-copy {
+  font-size: 0.92rem;
+}
+
+.site-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 3rem;
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem 1.1rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (max-width: 980px) {
+  .auth-layout,
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .site-header-inner,
+  .site-footer-inner,
+  .split-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .hero-panel,
+  .auth-copy,
+  .content-panel,
+  .form-panel {
+    padding: 1.25rem;
+  }
+
+  .form-grid.two-up,
+  .mini-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    width: min(calc(100% - 1.1rem), var(--content-width));
+  }
+}

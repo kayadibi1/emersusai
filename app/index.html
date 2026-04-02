@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>App Dashboard | Emersus AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand-mark" href="/">Emersus AI</a>
+        <nav class="site-nav">
+          <a href="/app/">Dashboard</a>
+          <a href="/app/profile/">Profile</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/contact/">Contact</a>
+          <button class="button button-ghost" type="button" data-auth-logout>Log Out</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container stack" data-dashboard>
+        <section class="hero-panel stack">
+          <div class="split-row">
+            <div class="stack">
+              <p class="section-kicker">Protected App Area</p>
+              <h1>Welcome to Emersus AI</h1>
+              <p class="lede">
+                Evidence-based training, nutrition, and performance guidance for serious users. This dashboard is the first protected layer after the waitlist and account setup.
+              </p>
+            </div>
+            <div class="stack">
+              <span class="chip">Signed In</span>
+              <div class="info-card">
+                <span class="mini-card-label">Account</span>
+                <p class="body-copy"><strong data-user-name>Member</strong></p>
+                <p class="detail-text" data-user-email>Loading...</p>
+                <p class="detail-text" data-profile-state>Checking profile...</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="dashboard-card">
+            <span class="mini-card-label">Profile</span>
+            <h3>Complete Profile</h3>
+            <p class="body-copy">Capture your goal, experience level, and practical constraints so future guidance has useful context.</p>
+            <div class="button-row">
+              <a class="button button-primary" href="/app/profile/">Complete Profile</a>
+            </div>
+          </article>
+          <article class="dashboard-card">
+            <span class="mini-card-label">Conversation</span>
+            <h3>Start Chat</h3>
+            <p class="body-copy">Reserved placeholder for guided interactions around training, recovery, and performance routines.</p>
+            <div class="button-row">
+              <a class="button button-secondary" href="/contact/">Start Chat</a>
+            </div>
+          </article>
+          <article class="dashboard-card">
+            <span class="mini-card-label">Sessions</span>
+            <h3>Saved Sessions</h3>
+            <p class="body-copy">Session history and plan continuity will appear here as the application expands.</p>
+          </article>
+          <article class="dashboard-card">
+            <span class="mini-card-label">Roadmap</span>
+            <h3>Coming Soon</h3>
+            <p class="body-copy">Structured onboarding, saved protocols, richer coaching context, and deeper account management.</p>
+          </article>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/shared/app-pages.js"></script>
+</body>
+</html>

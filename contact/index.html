@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact | Emersus AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/site.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand-mark" href="/">Emersus AI</a>
+        <nav class="site-nav">
+          <a href="/auth/login/">App / Login</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container auth-layout">
+        <section class="hero-panel auth-copy stack">
+          <p class="section-kicker">Contact</p>
+          <h1>Reach the Emersus team.</h1>
+          <p class="lede">
+            Use this page for support, partnerships, product questions, or general outreach.
+          </p>
+          <div class="info-card">
+            <span class="mini-card-label">Email</span>
+            <p class="body-copy"><a href="mailto:support@emersus.ai">support@emersus.ai</a></p>
+          </div>
+        </section>
+
+        <section class="form-panel stack">
+          <div>
+            <p class="section-kicker">Message Us</p>
+            <h2>Contact form</h2>
+          </div>
+          <form class="form-grid" data-contact-form>
+            <label class="field">
+              <span class="field-label">Name</span>
+              <input type="text" name="name" required>
+            </label>
+            <label class="field">
+              <span class="field-label">Email</span>
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label class="field">
+              <span class="field-label">Category / Reason</span>
+              <select name="category" required>
+                <option value="">Select one</option>
+                <option value="support">Support</option>
+                <option value="partnership">Partnership</option>
+                <option value="press">Press</option>
+                <option value="feedback">Feedback</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <label class="field">
+              <span class="field-label">Message</span>
+              <textarea name="message" required></textarea>
+            </label>
+            <div class="button-row">
+              <button class="button button-primary" type="submit">Send Message</button>
+            </div>
+            <p class="status-text" data-contact-status></p>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/shared/contact-page.js"></script>
+</body>
+</html>

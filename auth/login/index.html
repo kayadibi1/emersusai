@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Log In | Emersus AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/site.css">
+</head>
+<body data-page="login">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand-mark" href="/">Emersus AI</a>
+        <nav class="site-nav">
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+          <a href="/contact/">Contact</a>
+          <a href="/auth/signup/">Sign Up</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container auth-layout">
+        <section class="hero-panel auth-copy stack">
+          <p class="section-kicker">Member Access</p>
+          <h1>Return to your Emersus workspace.</h1>
+          <p class="lede">
+            Log in to access your profile, upcoming coaching tools, and performance guidance.
+          </p>
+          <div class="mini-card-grid">
+            <article class="info-card">
+              <span class="mini-card-label">Evidence-Based</span>
+              <p class="body-copy">Training, nutrition, and recovery guidance built to stay grounded in useful evidence.</p>
+            </article>
+            <article class="info-card">
+              <span class="mini-card-label">Member Dashboard</span>
+              <p class="body-copy">Your protected app area is ready for profile onboarding and future sessions.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="form-panel stack">
+          <div>
+            <p class="section-kicker">Log In</p>
+            <h2>Welcome back</h2>
+          </div>
+          <form class="form-grid" data-auth-login>
+            <label class="field">
+              <span class="field-label">Email</span>
+              <input type="email" name="email" autocomplete="email" required>
+            </label>
+            <label class="field">
+              <span class="field-label">Password</span>
+              <input type="password" name="password" autocomplete="current-password" required>
+            </label>
+            <div class="button-row">
+              <button class="button button-primary" type="submit">Log In</button>
+              <a class="button button-secondary" href="/auth/forgot-password/">Forgot Password</a>
+            </div>
+            <p class="status-text" data-auth-status></p>
+          </form>
+          <p class="helper-text">
+            New here? <a class="auth-switch" href="/auth/signup/">Create an account</a>.
+          </p>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/shared/auth-pages.js"></script>
+</body>
+</html>
