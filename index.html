@@ -245,15 +245,18 @@ gtag('config', 'G-RVQWW1H0S9');
 <span class="text-secondary font-headline font-bold tracking-[0.5em] uppercase mb-10 block text-xs md:text-sm animate-pulse" style="">eMERSUS</span>
 <h1 class="font-headline text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-[0.85] mb-12 uppercase" style=""><span class="text-gradient-primary" style="">OPTIMIZE</span> OR <br><span class="text-error-container" style="">OBSOLETE</span></h1>
 <p class="text-on-surface-variant text-xl md:text-2xl max-w-3xl mb-16 font-light leading-relaxed tracking-wider" style="">Scientificaly grounded optimization AI for peak mental and physical performance. For those who take life seriously.&nbsp;</p>
-<div class="flex flex-col sm:flex-row gap-0 w-full max-w-2xl border-l border-secondary/30 pl-8 py-4">
+<form id="waitlist-form" class="w-full max-w-2xl border-l border-secondary/30 pl-8 py-4">
+<div class="flex flex-col sm:flex-row gap-0">
 <div class="flex-1">
 <label class="block text-[10px] uppercase tracking-ultra text-secondary mb-2" style="">BE THE FIRST IN LINE</label>
-<input class="w-full bg-transparent border-none text-on-surface text-xl p-0 focus:ring-0 placeholder:text-white/20" placeholder="YOUR EMAIL" type="email">
+<input id="waitlist-email" name="email" class="w-full bg-transparent border-none text-on-surface text-xl p-0 focus:ring-0 placeholder:text-white/20" placeholder="YOUR EMAIL" type="email" autocomplete="email" required>
 </div>
-<button class="bg-secondary text-black font-headline font-extrabold uppercase px-12 py-5 mt-4 sm:mt-0 hover:bg-white transition-all tracking-widest text-sm" style="">
+<button id="waitlist-submit" type="submit" class="bg-secondary text-black font-headline font-extrabold uppercase px-12 py-5 mt-4 sm:mt-0 hover:bg-white transition-all tracking-widest text-sm disabled:opacity-60 disabled:cursor-not-allowed" style="">
                         Join Waitlist
                     </button>
 </div>
+<p id="form-message" class="mt-4 min-h-[1.5rem] font-body text-xs uppercase tracking-[0.2em] text-on-surface-variant"></p>
+</form>
 <div class="mt-32 flex items-center gap-12 opacity-50 overflow-hidden">
 <span class="font-headline font-bold text-[10px] tracking-[0.4em] uppercase whitespace-nowrap" style=""><br></span>
 <div class="flex gap-12 font-headline font-medium text-[10px] tracking-widest uppercase">
@@ -464,6 +467,78 @@ if (typedTopic) {
     };
 
     window.setTimeout(typeLoop, 500);
+}
+</script>
+<script>
+const waitlistForm = document.getElementById("waitlist-form");
+const waitlistEmail = document.getElementById("waitlist-email");
+const waitlistSubmit = document.getElementById("waitlist-submit");
+const formMessage = document.getElementById("form-message");
+
+if (waitlistForm && waitlistEmail && waitlistSubmit && formMessage) {
+    const setMessage = (text, tone) => {
+        formMessage.textContent = text;
+        formMessage.className = "mt-4 min-h-[1.5rem] font-body text-xs uppercase tracking-[0.2em]";
+
+        if (tone === "success") {
+            formMessage.classList.add("text-secondary");
+        } else if (tone === "error") {
+            formMessage.classList.add("text-error");
+        } else {
+            formMessage.classList.add("text-on-surface-variant");
+        }
+    };
+
+    waitlistForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+
+        const email = waitlistEmail.value.trim();
+
+        if (!email) {
+            setMessage("Please enter your email address.", "error");
+            waitlistEmail.focus();
+            return;
+        }
+
+        waitlistSubmit.disabled = true;
+        waitlistSubmit.textContent = "Submitting...";
+        setMessage("Saving your spot...", "neutral");
+
+        try {
+            const response = await fetch("/api/waitlist", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    email,
+                    source: "landing-page",
+                    page_url: window.location.href,
+                    referrer: document.referrer || null
+                })
+            });
+
+            const payload = await response.json().catch(() => ({}));
+
+            if (response.ok) {
+                waitlistForm.reset();
+                setMessage(payload.message || "You are on the list.", "success");
+                return;
+            }
+
+            if (response.status === 409) {
+                setMessage(payload.message || "This email is already on the waitlist.", "neutral");
+                return;
+            }
+
+            throw new Error(payload.message || "Request failed");
+        } catch (error) {
+            setMessage("Something went wrong. Please try again in a moment.", "error");
+        } finally {
+            waitlistSubmit.disabled = false;
+            waitlistSubmit.textContent = "Join Waitlist";
+        }
+    });
 }
 </script>
 <script>
