@@ -285,12 +285,24 @@
 <p class="text-on-surface-variant text-xl md:text-2xl mb-16 max-w-2xl mx-auto font-light tracking-wider leading-relaxed" style="">
                 Join the private beta. Validated human optimization for the modern elite. Experience revolutionary breakthroughs.
             </p>
-<form class="mx-auto flex w-full max-w-2xl flex-col gap-0 sm:flex-row" data-form-endpoint="" data-waitlist-form id="waitlist-form" method="post" novalidate>
-<label class="sr-only" for="waitlist-email">Waitlist email</label>
-<input autocomplete="email" class="w-full border border-white/10 bg-black/30 px-6 py-5 text-on-surface placeholder:text-white/25 focus:border-secondary focus:ring-secondary" id="waitlist-email" inputmode="email" name="email" placeholder="ENTER EMAIL FOR EARLY ACCESS" required type="email">
+<form class="mx-auto w-full max-w-3xl" data-form-endpoint="" data-waitlist-form id="waitlist-form" method="post" novalidate>
+<div class="grid gap-4 sm:grid-cols-2">
+<input autocomplete="given-name" class="w-full border border-white/10 bg-black/30 px-6 py-5 text-on-surface placeholder:text-white/25 focus:border-secondary focus:ring-secondary" id="waitlist-name" name="name" placeholder="NAME (OPTIONAL)" type="text">
+<input autocomplete="family-name" class="w-full border border-white/10 bg-black/30 px-6 py-5 text-on-surface placeholder:text-white/25 focus:border-secondary focus:ring-secondary" id="waitlist-surname" name="surname" placeholder="SURNAME (OPTIONAL)" type="text">
+</div>
+<div class="mt-4">
+<input autocomplete="organization" class="w-full border border-white/10 bg-black/30 px-6 py-5 text-on-surface placeholder:text-white/25 focus:border-secondary focus:ring-secondary" id="waitlist-company" name="company" placeholder="COMPANY (OPTIONAL)" type="text">
+</div>
+<div class="mt-4">
+<label class="mb-2 block text-[10px] uppercase tracking-[0.3em] text-secondary" for="waitlist-email">EMAIL *</label>
+<input autocomplete="email" class="w-full border border-white/10 bg-black/30 px-6 py-5 text-on-surface placeholder:text-white/25 focus:border-secondary focus:ring-secondary" id="waitlist-email" inputmode="email" name="email" placeholder="YOUR EMAIL" required type="email">
+</div>
+<p class="mt-3 text-left text-[10px] uppercase tracking-[0.2em] text-on-surface-variant">* Required</p>
+<div class="mt-5 flex flex-col gap-4 sm:flex-row">
 <button class="waitlist-submit bg-gradient-to-r from-primary-dim to-primary text-black font-headline font-black uppercase px-16 py-6 text-sm tracking-[0.3em] hover:scale-105 transition-transform" type="submit" style="">
                     Request Credentials
                 </button>
+</div>
 </form>
 <p aria-live="polite" class="waitlist-feedback mt-5 text-[10px] uppercase tracking-[0.3em] text-on-surface-variant" role="status"></p>
 <div class="mt-6 flex flex-col sm:flex-row justify-center gap-4">
