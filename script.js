@@ -1,80 +1,81 @@
-const askAboutWord = document.querySelector("#ask-about-word");
+const typedTopic = document.getElementById("typed-topic");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-if (askAboutWord) {
+if (typedTopic) {
   const topics = [
     "hypertrophy",
     "mental performance",
     "micronutrient intake",
-    "optimal work hours",
     "supplements",
-    "nutrition",
+    "optimal work hours",
+    "morning routines",
+    "sleep habits",
   ];
 
   if (reducedMotionQuery.matches) {
-    askAboutWord.textContent = topics[0];
+    typedTopic.textContent = topics[0];
   } else {
     let topicIndex = 0;
     let charIndex = 0;
-    let isDeleting = false;
+    let deleting = false;
 
     const tick = () => {
       const currentTopic = topics[topicIndex];
-      charIndex += isDeleting ? -1 : 1;
-      askAboutWord.textContent = currentTopic.slice(0, charIndex);
+      charIndex += deleting ? -1 : 1;
+      typedTopic.textContent = currentTopic.slice(0, charIndex);
 
-      let delay = isDeleting ? 45 : 85;
+      let delay = deleting ? 45 : 85;
 
-      if (!isDeleting && charIndex === currentTopic.length) {
-        delay = 1200;
-        isDeleting = true;
-      } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
+      if (!deleting && charIndex === currentTopic.length) {
+        deleting = true;
+        delay = 1300;
+      } else if (deleting && charIndex === 0) {
+        deleting = false;
         topicIndex = (topicIndex + 1) % topics.length;
-        delay = 280;
+        delay = 250;
       }
 
       window.setTimeout(tick, delay);
     };
 
-    askAboutWord.textContent = "";
+    typedTopic.textContent = "";
     window.setTimeout(tick, 500);
   }
 }
 
 document.querySelectorAll("[data-waitlist-form]").forEach((form) => {
   const emailField = form.elements.email;
-  const message = form.nextElementSibling;
-  const submitButton = form.querySelector('button[type="submit"]');
+  const feedback = form.nextElementSibling;
   const endpoint = form.dataset.formEndpoint?.trim();
+  const submitButton = form.querySelector('button[type="submit"]');
 
-  if (!(emailField instanceof HTMLInputElement) || !(message instanceof HTMLElement)) {
+  if (!(emailField instanceof HTMLInputElement) || !(feedback instanceof HTMLElement)) {
     return;
   }
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    message.classList.remove("is-success", "is-error");
-    message.textContent = "";
+    feedback.classList.remove("is-success", "is-error");
+    feedback.textContent = "";
 
     if (!emailField.value.trim()) {
-      message.textContent = "Enter your email to request access.";
-      message.classList.add("is-error");
+      feedback.textContent = "Enter your email to join the waitlist.";
+      feedback.classList.add("is-error");
       emailField.focus();
       return;
     }
 
     if (!emailField.checkValidity()) {
-      message.textContent = "Enter a valid email address.";
-      message.classList.add("is-error");
+      feedback.textContent = "Enter a valid email address.";
+      feedback.classList.add("is-error");
       emailField.focus();
       return;
     }
 
     if (!endpoint) {
-      message.textContent =
+      feedback.textContent =
         "Add a real waitlist endpoint in data-form-endpoint before launch.";
-      message.classList.add("is-error");
+      feedback.classList.add("is-error");
       return;
     }
 
@@ -94,12 +95,12 @@ document.querySelectorAll("[data-waitlist-form]").forEach((form) => {
       }
 
       form.reset();
-      message.textContent = "You're on the list. We'll keep you posted.";
-      message.classList.add("is-success");
+      feedback.textContent = "You're on the list. We'll keep you posted.";
+      feedback.classList.add("is-success");
     } catch (error) {
-      message.textContent =
-        "Something went wrong while sending your signup. Please verify the endpoint and try again.";
-      message.classList.add("is-error");
+      feedback.textContent =
+        "Something went wrong while sending your signup. Verify the endpoint and try again.";
+      feedback.classList.add("is-error");
     } finally {
       submitButton?.removeAttribute("disabled");
     }
