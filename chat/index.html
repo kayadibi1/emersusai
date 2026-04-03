@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emersus Chat | Emersus AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/site.css">
+  <script
+    id="openai-chatkit-script"
+    src="https://cdn.platform.openai.com/deployments/chatkit/chatkit.js"
+    async
+  ></script>
+  <style>
+    .chat-layout {
+      display: grid;
+      grid-template-columns: 320px minmax(0, 1fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .chat-sidebar,
+    .chat-stage {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-xl);
+      background:
+        linear-gradient(180deg, rgba(12, 14, 17, 0.84), rgba(9, 11, 14, 0.9)),
+        linear-gradient(135deg, rgba(109, 159, 255, 0.05), rgba(159, 251, 0, 0.03));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(32px);
+    }
+
+    .chat-sidebar {
+      display: grid;
+      gap: 1rem;
+      padding: 1.25rem;
+      position: sticky;
+      top: 6rem;
+    }
+
+    .chat-sidebar-copy,
+    .chat-sidebar li,
+    .chat-status-text,
+    .chat-note {
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .chat-stage {
+      min-height: 76vh;
+      padding: 1rem;
+    }
+
+    .chat-stage-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+
+    .chat-status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: fit-content;
+      padding: 0.6rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+    }
+
+    .chat-status-pill::before {
+      content: "";
+      width: 0.65rem;
+      height: 0.65rem;
+      border-radius: 999px;
+      background: var(--secondary);
+      box-shadow: 0 0 14px rgba(159, 251, 0, 0.6);
+    }
+
+    .chat-root {
+      min-height: 68vh;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 28px;
+      overflow: hidden;
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    openai-chatkit {
+      display: block;
+      width: 100%;
+      height: 68vh;
+    }
+
+    .chat-meta {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .chat-meta-card {
+      padding: 1rem;
+      border-radius: 22px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .chat-meta-card strong {
+      display: block;
+      margin-bottom: 0.45rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.78rem;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+
+    .chat-chip {
+      display: inline-flex;
+      align-items: center;
+      width: fit-content;
+      border-radius: 999px;
+      padding: 0.55rem 0.85rem;
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .chat-note {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 980px) {
+      .chat-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .chat-sidebar {
+        position: static;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .chat-stage {
+        padding: 0.75rem;
+      }
+
+      .chat-root,
+      openai-chatkit {
+        height: 72vh;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand-mark" href="/">Emersus AI</a>
+        <nav class="site-nav">
+          <a href="/app/">Dashboard</a>
+          <a href="/app/profile/">Profile</a>
+          <a href="/chat/">Chat</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/contact/">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container stack">
+        <section class="hero-panel stack">
+          <p class="section-kicker">Managed Chat</p>
+          <h1>Emersus chat workspace.</h1>
+          <p class="lede">
+            This is the managed ChatKit integration powered by an OpenAI Agent Builder workflow. It is ready for later scholarly-article retrieval wiring through your published workflow, without exposing the OpenAI API key in the browser.
+          </p>
+        </section>
+
+        <section class="chat-layout">
+          <aside class="chat-sidebar">
+            <div class="stack">
+              <p class="section-kicker">Session</p>
+              <div class="chat-chip" data-chat-user-mode>Loading user mode</div>
+            </div>
+
+            <div class="chat-meta">
+              <div class="chat-meta-card">
+                <strong>User Identifier</strong>
+                <p class="chat-sidebar-copy" data-chat-user-id>Preparing secure session...</p>
+              </div>
+              <div class="chat-meta-card">
+                <strong>Workflow</strong>
+                <p class="chat-sidebar-copy">Managed by OpenAI Agent Builder. Retrieval can be connected later by publishing a workflow version and setting `OPENAI_WORKFLOW_ID`.</p>
+              </div>
+              <div class="chat-meta-card">
+                <strong>Planned Context</strong>
+                <ul class="chat-sidebar-copy">
+                  <li>Training and hypertrophy planning</li>
+                  <li>Nutrition and supplements guidance</li>
+                  <li>Scholarly-article retrieval in a later workflow revision</li>
+                </ul>
+              </div>
+            </div>
+          </aside>
+
+          <section class="chat-stage">
+            <div class="chat-stage-header">
+              <div class="stack">
+                <p class="section-kicker">Conversation Surface</p>
+                <h2>OpenAI-hosted workflow chat</h2>
+              </div>
+              <div class="chat-status-pill">ChatKit Ready</div>
+            </div>
+            <p class="status-text" data-chat-status></p>
+            <div class="chat-root">
+              <openai-chatkit id="emersus-chatkit"></openai-chatkit>
+            </div>
+            <p class="chat-note">If you are signed in, ChatKit uses your Supabase auth user id. If not, it falls back to a stable anonymous device id stored locally in this browser.</p>
+          </section>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/shared/chatkit-page.js"></script>
+</body>
+</html>

@@ -9,6 +9,74 @@ import {
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function normalizeAuthMessage(message = "") {
+  return String(message || "").toLowerCase();
+}
+
+function updateResendButton(form, email = "", visible = false) {
+  const resendButton = form?.querySelector("[data-auth-resend]");
+  if (!(resendButton instanceof HTMLButtonElement)) {
+    return;
+  }
+
+  resendButton.hidden = !visible;
+  resendButton.dataset.email = email;
+}
+
+function bindResendConfirmation(form, status) {
+  const resendButton = form?.querySelector("[data-auth-resend]");
+  const emailInput = form?.querySelector('input[name="email"]');
+
+  if (!(resendButton instanceof HTMLButtonElement) || !(emailInput instanceof HTMLInputElement)) {
+    return;
+  }
+
+  emailInput.addEventListener("input", () => {
+    if (resendButton.hidden) {
+      return;
+    }
+
+    resendButton.dataset.email = emailInput.value.trim().toLowerCase();
+  });
+
+  resendButton.addEventListener("click", async () => {
+    const email = (resendButton.dataset.email || emailInput.value || "").trim().toLowerCase();
+
+    setStatus(status, "", "");
+
+    if (!emailPattern.test(email)) {
+      setStatus(status, "error", "Enter your email first so we know where to resend the confirmation.");
+      return;
+    }
+
+    resendButton.disabled = true;
+    const previousText = resendButton.textContent;
+    resendButton.textContent = "Resending...";
+
+    try {
+      const supabase = await getSupabase();
+      const { error } = await supabase.auth.resend({
+        type: "signup",
+        email,
+        options: {
+          emailRedirectTo: getAuthCallbackUrl(),
+        },
+      });
+
+      if (error) {
+        throw error;
+      }
+
+      setStatus(status, "success", "Confirmation email sent. Check your inbox for a fresh link.");
+    } catch (error) {
+      setStatus(status, "error", error.message || "Unable to resend confirmation email.");
+    } finally {
+      resendButton.disabled = false;
+      resendButton.textContent = previousText;
+    }
+  });
+}
+
 function bindSignupForm() {
   const form = document.querySelector("[data-auth-signup]");
   if (!form) {
@@ -16,6 +84,7 @@ function bindSignupForm() {
   }
 
   const status = document.querySelector("[data-auth-status]");
+  bindResendConfirmation(form, status);
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -63,13 +132,17 @@ function bindSignupForm() {
       }
 
       form.reset();
+      updateResendButton(form, email, true);
       setStatus(
         status,
         "success",
-        "Check your inbox to confirm your email and finish setting up your account."
+        "Check your inbox to confirm your email and finish setting up your account. If it does not arrive, use Resend Confirmation Email."
       );
     } catch (error) {
-      setStatus(status, "error", error.message || "Unable to create your account.");
+      const message = error.message || "Unable to create your account.";
+      const normalized = normalizeAuthMessage(message);
+      updateResendButton(form, email, normalized.includes("confirm") || normalized.includes("already") || normalized.includes("exists"));
+      setStatus(status, "error", message);
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = "Create Account";
@@ -84,6 +157,7 @@ function bindLoginForm() {
   }
 
   const status = document.querySelector("[data-auth-status]");
+  bindResendConfirmation(form, status);
 
   form.addEventListener("submit", async (event) => {
     event.preventDefault();
@@ -115,7 +189,14 @@ function bindLoginForm() {
 
       window.location.replace(resolveNextPath("/app/"));
     } catch (error) {
-      setStatus(status, "error", error.message || "Unable to sign you in.");
+      const message = error.message || "Unable to sign you in.";
+      const normalized = normalizeAuthMessage(message);
+      updateResendButton(
+        form,
+        email,
+        normalized.includes("confirm") || normalized.includes("not confirmed")
+      );
+      setStatus(status, "error", message);
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = "Log In";
