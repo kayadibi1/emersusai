@@ -2,6 +2,30 @@ const { Resend } = require("resend");
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+function createEmailShell({ eyebrow, title, body, footer }) {
+  return `
+    <div style="margin:0; padding:32px 16px; background:#090b0e;">
+      <div style="margin:0 auto; max-width:640px; border:1px solid rgba(255,255,255,0.08); background:#0c0e11; color:#f9f9fd; font-family:Inter,Arial,sans-serif;">
+        <div style="height:4px; background:linear-gradient(90deg,#6d9fff 0%,#9ffb00 100%);"></div>
+        <div style="padding:40px 32px 24px;">
+          <div style="font-family:'Space Grotesk',Inter,Arial,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.32em; text-transform:uppercase; color:#9ffb00; margin-bottom:18px;">
+            ${eyebrow}
+          </div>
+          <h1 style="margin:0 0 18px; font-family:'Space Grotesk',Inter,Arial,sans-serif; font-size:32px; line-height:1.05; font-weight:800; letter-spacing:-0.04em; text-transform:uppercase; color:#f9f9fd;">
+            ${title}
+          </h1>
+          <div style="font-size:16px; line-height:1.75; color:#c8cdd4;">
+            ${body}
+          </div>
+        </div>
+        <div style="padding:24px 32px 32px; border-top:1px solid rgba(255,255,255,0.06); color:#8f96a0; font-size:12px; line-height:1.8; letter-spacing:0.08em; text-transform:uppercase;">
+          ${footer}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 module.exports = async function handler(req, res) {
   if (req.method === "OPTIONS") {
     res.setHeader("Allow", "POST, OPTIONS");
@@ -76,15 +100,35 @@ module.exports = async function handler(req, res) {
         to: contactNotificationEmail,
         replyTo: email,
         subject: `New Emersus contact submission: ${category}`,
-        html: `
-          <h2>New contact submission</h2>
-          <p><strong>Name:</strong> ${name}</p>
-          <p><strong>Email:</strong> ${email}</p>
-          <p><strong>Category:</strong> ${category}</p>
-          <p><strong>Page URL:</strong> ${pageUrl || "Not provided"}</p>
-          <p><strong>Message:</strong></p>
-          <p>${message.replace(/\n/g, "<br>")}</p>
-        `,
+        html: createEmailShell({
+          eyebrow: "Contact Alert",
+          title: "New contact submission",
+          body: `
+            <div style="display:grid; gap:12px; margin-bottom:20px;">
+              <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
+                <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Name</div>
+                <div style="font-size:16px; color:#f9f9fd;">${name}</div>
+              </div>
+              <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
+                <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Email</div>
+                <div style="font-size:16px; color:#f9f9fd;">${email}</div>
+              </div>
+              <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
+                <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Category</div>
+                <div style="font-size:16px; color:#f9f9fd;">${category}</div>
+              </div>
+              <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
+                <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Page URL</div>
+                <div style="font-size:16px; color:#f9f9fd;">${pageUrl || "Not provided"}</div>
+              </div>
+            </div>
+            <div style="padding:20px 22px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
+              <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:10px;">Message</div>
+              <div style="font-size:16px; color:#f9f9fd;">${message.replace(/\n/g, "<br>")}</div>
+            </div>
+          `,
+          footer: "Reply directly to this email to respond to the sender.",
+        }),
       });
     } catch (error) {
       console.error("Resend contact notification failed:", error);
