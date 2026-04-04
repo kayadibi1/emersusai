@@ -82,24 +82,33 @@ document.querySelectorAll("[data-waitlist-form]").forEach((form) => {
     submitButton?.setAttribute("disabled", "disabled");
 
     try {
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+
+      payload.page_url = window.location.href;
+      payload.referrer = document.referrer || "";
+
       const response = await fetch(endpoint, {
         method: "POST",
-        body: new FormData(form),
         headers: {
           Accept: "application/json",
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify(payload),
       });
 
+      const result = await response.json().catch(() => ({}));
+
       if (!response.ok) {
-        throw new Error("Submission failed");
+        throw new Error(result.message || "Submission failed");
       }
 
       form.reset();
-      feedback.textContent = "You're on the list. We'll keep you posted.";
+      feedback.textContent = result.message || "You're on the list. We'll keep you posted.";
       feedback.classList.add("is-success");
     } catch (error) {
       feedback.textContent =
-        "Something went wrong while sending your signup. Verify the endpoint and try again.";
+        error.message || "Something went wrong while sending your signup. Please try again.";
       feedback.classList.add("is-error");
     } finally {
       submitButton?.removeAttribute("disabled");
