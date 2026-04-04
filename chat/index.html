@@ -9,14 +9,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/site.css">
   <style>
-    .chat-layout {
-      display: grid;
-      grid-template-columns: 290px minmax(0, 1fr);
-      gap: 1.25rem;
-      align-items: start;
-    }
-
-    .chat-sidebar,
     .chat-stage {
       position: relative;
       overflow: hidden;
@@ -27,47 +19,11 @@
         linear-gradient(135deg, rgba(109, 159, 255, 0.05), rgba(159, 251, 0, 0.03));
       box-shadow: var(--shadow);
       backdrop-filter: blur(32px);
-    }
-
-    .chat-sidebar {
-      display: grid;
-      gap: 1rem;
-      padding: 1.25rem;
-      position: sticky;
-      top: 6rem;
-    }
-
-    .chat-stage {
       min-height: 76vh;
       padding: 1rem;
       display: grid;
       grid-template-rows: auto minmax(0, 1fr) auto;
       gap: 1rem;
-    }
-
-    .chat-status-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      width: fit-content;
-      padding: 0.6rem 0.9rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.05);
-      color: var(--muted);
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.24em;
-      text-transform: uppercase;
-    }
-
-    .chat-status-pill::before {
-      content: "";
-      width: 0.65rem;
-      height: 0.65rem;
-      border-radius: 999px;
-      background: var(--secondary);
-      box-shadow: 0 0 14px rgba(159, 251, 0, 0.6);
     }
 
     .chat-thread {
@@ -142,11 +98,6 @@
       color: var(--secondary);
     }
 
-    .quick-list {
-      display: grid;
-      gap: 0.7rem;
-    }
-
     .quick-chip {
       display: inline-flex;
       width: fit-content;
@@ -158,16 +109,7 @@
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-    }
-
-    @media (max-width: 980px) {
-      .chat-layout {
-        grid-template-columns: 1fr;
-      }
-
-      .chat-sidebar {
-        position: static;
-      }
+      cursor: pointer;
     }
   </style>
 </head>
@@ -178,8 +120,6 @@
         <a class="brand-mark" href="/">Emersus AI</a>
         <nav class="site-nav">
           <a href="/app/">Dashboard</a>
-          <a href="/app/emersus/">Workflow</a>
-          <a href="/app/profile/">Profile</a>
           <a href="/chat/">Chat</a>
           <a href="/privacy/">Privacy</a>
           <a href="/contact/">Contact</a>
@@ -191,77 +131,52 @@
       <div class="container stack">
         <section class="hero-panel stack">
           <p class="section-kicker">Emersus Chat</p>
-          <h1>Chat with your optimizer.</h1>
+          <h1>Ask your optimizer.</h1>
           <p class="lede">
-            Ask in plain language. Emersus will answer with training, cardio, nutrition, and mental performance guidance, plus sources and confidence when it can support the answer.
+            One prompt, one answer. Emersus will infer the context from what you ask and return evidence-aware guidance with confidence and sources when available.
           </p>
         </section>
 
-        <section class="chat-layout">
-          <aside class="chat-sidebar">
+        <section class="chat-stage">
+          <div class="split-row">
             <div class="stack">
-              <p class="section-kicker">Session</p>
-              <div class="quick-chip" data-chat-user-mode>Loading user mode</div>
+              <p class="section-kicker">Conversation</p>
+              <h2>Live Emersus chat</h2>
             </div>
+            <div class="chip">Direct API</div>
+          </div>
 
-            <div class="stack">
-              <div class="info-card">
-                <span class="mini-card-label">User</span>
-                <p class="body-copy" data-chat-user-id>Preparing secure session...</p>
-              </div>
-              <div class="info-card">
-                <span class="mini-card-label">How to Ask</span>
-                <div class="quick-list">
-                  <span class="quick-chip">Build me a 4-day split</span>
-                  <span class="quick-chip">Help me lose fat without crashing energy</span>
-                  <span class="quick-chip">Fix my afternoon focus</span>
-                </div>
-              </div>
-              <div class="info-card">
-                <span class="mini-card-label">Sources</span>
-                <p class="body-copy">The assistant will pull from your Supabase knowledge table when available and can fall back to web search for fresher evidence.</p>
-              </div>
+          <div class="chat-thread" data-chat-thread>
+            <article class="message assistant">
+              <div class="message-meta"><span>Emersus</span><span>Ready</span></div>
+              Ask me about strength, cardio, nutrition, or mental performance and I'll keep the response evidence-aware.
+            </article>
+          </div>
+
+          <div class="stack">
+            <div class="quick-chip" data-chat-suggest>Try: Is creatine effective for building muscle?</div>
+          </div>
+
+          <form class="composer" data-chat-form>
+            <textarea class="field" name="question" placeholder="Ask me anything about training, nutrition, or performance."></textarea>
+            <div class="button-row">
+              <button class="button button-primary" type="submit" data-chat-submit>Send</button>
+              <button class="button button-secondary" type="button" data-chat-clear>Clear</button>
             </div>
-          </aside>
+            <p class="status-text" data-chat-status></p>
+          </form>
 
-          <section class="chat-stage">
-            <div class="split-row">
-              <div class="stack">
-                <p class="section-kicker">Conversation Surface</p>
-                <h2>Live Emersus chat</h2>
-              </div>
-              <div class="chat-status-pill">Direct API</div>
-            </div>
-
-            <div class="chat-thread" data-chat-thread>
-              <article class="message assistant">
-                <div class="message-meta"><span>Emersus</span><span>Ready</span></div>
-                Ask me about strength, cardio, nutrition, or mental performance and I’ll keep the response evidence-aware.
-              </article>
-            </div>
-
-            <form class="composer" data-chat-form>
-              <input type="hidden" name="userId">
-              <textarea class="field" name="question" placeholder="Example: I need a 3-day plan that keeps my conditioning up while I build muscle."></textarea>
-              <div class="button-row">
-                <button class="button button-primary" type="submit" data-chat-submit>Send</button>
-                <button class="button button-secondary" type="button" data-chat-clear>Clear</button>
-              </div>
-              <p class="status-text" data-chat-status></p>
-            </form>
-
-            <div class="stack">
-              <p class="section-kicker">Sources</p>
-              <ul class="source-list" data-chat-sources></ul>
-            </div>
-          </section>
+          <div class="stack">
+            <p class="section-kicker">Sources</p>
+            <ul class="source-list" data-chat-sources></ul>
+          </div>
         </section>
       </div>
     </main>
   </div>
 
   <script type="module">
-    import { getProfile, requireAuth, setStatus } from "/shared/supabase.js";
+    import { setStatus } from "/shared/supabase.js";
 
     const form = document.querySelector("[data-chat-form]");
     const thread = document.querySelector("[data-chat-thread]");
@@ -269,16 +184,15 @@
     const sources = document.querySelector("[data-chat-sources]");
     const submitButton = document.querySelector("[data-chat-submit]");
     const clearButton = document.querySelector("[data-chat-clear]");
-    const userIdNode = document.querySelector("[data-chat-user-id]");
-    const userModeNode = document.querySelector("[data-chat-user-mode]");
+    const suggestButton = document.querySelector("[data-chat-suggest]");
 
-    function appendMessage(role, content, meta) {
+    function appendMessage(role, content, stamp) {
       const article = document.createElement("article");
       article.className = `message ${role}`;
       article.innerHTML = `
         <div class="message-meta">
-          <span>${meta?.name || (role === "user" ? "You" : "Emersus")}</span>
-          <span>${meta?.stamp || ""}</span>
+          <span>${role === "user" ? "You" : "Emersus"}</span>
+          <span>${stamp}</span>
         </div>
         ${content}
       `;
@@ -309,7 +223,7 @@
         item.className = "source-item";
         item.innerHTML = `
           <strong>${source.title || "Source"}</strong>
-          <div>${source.source_type || "database"}${source.published_at ? ` • ${source.published_at}` : ""}</div>
+          <div>${source.source_type || "database"}${source.published_at ? ` - ${source.published_at}` : ""}</div>
           <div>${source.why_it_matters || ""}</div>
           ${source.url ? `<div><a href="${source.url}" target="_blank" rel="noreferrer">${source.url}</a></div>` : ""}
         `;
@@ -317,28 +231,9 @@
       });
     }
 
-    async function loadProfile() {
-      const session = await requireAuth();
-      if (!session) {
-        return null;
-      }
-
-      const profile = await getProfile(session.user.id);
-      const userId = `supabase:${session.user.id}`;
-      const hidden = form.elements.namedItem("userId");
-      if (hidden) hidden.value = userId;
-      userIdNode.textContent = userId;
-      userModeNode.textContent = "Authenticated";
-      return { session, profile };
-    }
-
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const formData = new FormData(form);
-      const question = String(formData.get("question") || "").trim();
-      const userId = String(formData.get("userId") || "").trim();
-
-      if (!question) {
+    async function submitQuestion(question) {
+      const trimmed = String(question || "").trim();
+      if (!trimmed) {
         setStatus(status, "error", "Type a question first.");
         return;
       }
@@ -347,7 +242,7 @@
       submitButton.textContent = "Thinking...";
       setStatus(status, "", "");
 
-      appendMessage("user", question, { name: "You", stamp: "Now" });
+      appendMessage("user", trimmed, "Now");
 
       try {
         const response = await fetch("/api/emersus/recommendation", {
@@ -356,43 +251,46 @@
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            question,
-            userId,
+            question: trimmed,
             includeDebug: true,
           }),
         });
 
         const data = await response.json().catch(() => ({}));
-
         if (!response.ok) {
           throw new Error(data.message || "Unable to generate a recommendation.");
         }
 
-        appendMessage("assistant", renderAssistantResponse(data), { name: "Emersus", stamp: "Now" });
+        appendMessage("assistant", renderAssistantResponse(data), "Now");
         renderSources(data);
         setStatus(status, "success", "Recommendation generated.");
         form.reset();
-        if (userId) {
-          form.elements.namedItem("userId").value = userId;
-        }
       } catch (error) {
-        appendMessage("assistant", `<p>${error.message || "Request failed."}</p>`, { name: "Emersus", stamp: "Error" });
+        appendMessage("assistant", `<p>${error.message || "Request failed."}</p>`, "Error");
         setStatus(status, "error", error.message || "Request failed.");
       } finally {
         submitButton.disabled = false;
         submitButton.textContent = "Send";
       }
+    }
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const formData = new FormData(form);
+      submitQuestion(formData.get("question"));
     });
 
     clearButton.addEventListener("click", () => {
       thread.innerHTML = "";
       sources.innerHTML = "";
-      appendMessage("assistant", "Ask me about strength, cardio, nutrition, or mental performance and I’ll keep the response evidence-aware.", { name: "Emersus", stamp: "Ready" });
+      appendMessage("assistant", "Ask me about strength, cardio, nutrition, or mental performance and I'll keep the response evidence-aware.", "Ready");
       setStatus(status, "", "");
     });
 
-    loadProfile().catch((error) => {
-      setStatus(status, "error", error.message || "Unable to load profile.");
+    suggestButton.addEventListener("click", () => {
+      const question = "Is creatine effective for building muscle?";
+      form.elements.namedItem("question").value = question;
+      submitQuestion(question);
     });
   </script>
 </body>

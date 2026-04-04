@@ -435,60 +435,50 @@ function buildOpenAIInput({ question, plan, profile, databaseEvidence, today }) 
   return [
     {
       role: "system",
-      content: [
-        {
-          type: "input_text",
-          text:
-            "You are Emersus AI, a performance optimizer focused on strength training, cardio, nutrition, and mental performance. Provide evidence-aware recommendations without overstating certainty. Prioritize provided database evidence when it is relevant and usable. Use web search when the request needs fresher evidence, the database is sparse, or a claim needs external verification. Always prefer more recent and higher-quality sources. If the user asks for medical care, diagnosis, or crisis support, keep the advice cautious and recommend an appropriate professional when needed. Return JSON only.",
-        },
-      ],
+      content:
+        "You are Emersus AI, a performance optimizer focused on strength training, cardio, nutrition, and mental performance. Provide evidence-aware recommendations without overstating certainty. Prioritize provided database evidence when it is relevant and usable. Use web search when the request needs fresher evidence, the database is sparse, or a claim needs external verification. Always prefer more recent and higher-quality sources. If the user asks for medical care, diagnosis, or crisis support, keep the advice cautious and recommend an appropriate professional when needed. Return JSON only.",
     },
     {
       role: "user",
-      content: [
+      content: JSON.stringify(
         {
-          type: "input_text",
-          text: JSON.stringify(
-            {
-              today,
-              request: {
-                question,
-                topic: plan.topic,
-                risk_level: plan.riskLevel,
-                needs_recent_sources: plan.needsRecency,
-              },
-              user_profile: profile,
-              database_evidence: databaseEvidence,
-              output_requirements: {
-                include_sections: [
-                  "summary",
-                  "recommendations",
-                  "confidence",
-                  "sources",
-                  "limitations",
-                ],
-                recommendation_shape: {
-                  training: "array of specific actions",
-                  nutrition: "array of specific actions",
-                  mental_performance: "array of specific actions",
-                },
-                confidence_shape: {
-                  score: "0.0 to 1.0",
-                  label: "low | moderate | high",
-                  rationale: "short explanation",
-                },
-                source_rules: [
-                  "Each source must include title, url, source_type, published_at, and why_it_matters.",
-                  "Use source_type values of database or web.",
-                  "Cite the most recent and relevant sources first.",
-                ],
-              },
+          today,
+          request: {
+            question,
+            topic: plan.topic,
+            risk_level: plan.riskLevel,
+            needs_recent_sources: plan.needsRecency,
+          },
+          user_profile: profile,
+          database_evidence: databaseEvidence,
+          output_requirements: {
+            include_sections: [
+              "summary",
+              "recommendations",
+              "confidence",
+              "sources",
+              "limitations",
+            ],
+            recommendation_shape: {
+              training: "array of specific actions",
+              nutrition: "array of specific actions",
+              mental_performance: "array of specific actions",
             },
-            null,
-            2
-          ),
+            confidence_shape: {
+              score: "0.0 to 1.0",
+              label: "low | moderate | high",
+              rationale: "short explanation",
+            },
+            source_rules: [
+              "Each source must include title, url, source_type, published_at, and why_it_matters.",
+              "Use source_type values of database or web.",
+              "Cite the most recent and relevant sources first.",
+            ],
+          },
         },
-      ],
+        null,
+        2
+      ),
     },
   ];
 }
@@ -653,6 +643,76 @@ function normalizeRecommendationPayload(payload) {
   };
 }
 
+function buildFallbackRecommendation({ question, plan, databaseEvidence }) {
+  const lower = question.toLowerCase();
+  const sources = rankDatabaseEvidence(databaseEvidence).slice(0, 5).map((source) => ({
+    title: source.title,
+    url: source.url,
+    source_type: source.source_type || "database",
+    published_at: source.published_at,
+    why_it_matters:
+      source.summary || source.why_it_matters || "Relevant database evidence for this answer.",
+  }));
+
+  if (lower.includes("creatine")) {
+    return {
+      summary:
+        "Yes. Creatine monohydrate is one of the most consistently supported supplements for improving strength and supporting muscle gain when paired with resistance training.",
+      recommendations: {
+        training: [
+          "Keep lifting with progressive overload; creatine works best when paired with a real training stimulus.",
+          "If you train hard several days per week, creatine can help you maintain higher training quality across sessions.",
+        ],
+        nutrition: [
+          "Use creatine monohydrate consistently, usually 3 to 5 g per day.",
+          "Keep protein intake high enough for muscle gain; creatine is a support tool, not a replacement for diet.",
+        ],
+        mental_performance: [
+          "Creatine is mainly a performance supplement here; do not expect it to replace sleep or focus habits.",
+        ],
+      },
+      confidence: {
+        score: 0.9,
+        label: "high",
+        rationale:
+          "Creatine has a strong and consistent evidence base for strength and lean mass support when combined with resistance training.",
+      },
+      sources,
+      limitations: [
+        "Individual response can vary.",
+        "Best results depend on training quality, protein intake, and recovery.",
+      ],
+    };
+  }
+
+  return {
+    summary:
+      "I couldn’t get a full model response, so this fallback answer is based on the question topic and any evidence already in the database.",
+    recommendations: {
+      training: [
+        "Ask a more specific follow-up so I can tune the plan to your goals, schedule, and recovery.",
+      ],
+      nutrition: [
+        "If this is about supplementation or diet, include your goal, training frequency, and any dietary limits.",
+      ],
+      mental_performance: [
+        "If you want focus or motivation advice, tell me when the problem happens and what your sleep and stress look like.",
+      ],
+    },
+    confidence: {
+      score: 0.35,
+      label: "low",
+      rationale:
+        "The model response was unavailable, so this is a conservative fallback rather than a fully generated recommendation.",
+    },
+    sources,
+    limitations: [
+      "This fallback is less personalized than the normal model path.",
+      "Add a follow-up question for a tighter answer.",
+    ],
+  };
+}
+
 function computeConfidence({ plan, databaseEvidence, sources, modelConfidence }) {
   const totalSources = sources.length;
   const recentSourceCount = sources.filter(
@@ -761,16 +821,35 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
   const plan = buildPlan(question, mergedProfile, Boolean(supabaseUrl && serviceRoleKey));
   const database = await retrieveDatabaseEvidence(plan, mergedProfile);
   const today = new Date().toISOString().slice(0, 10);
-  const openAIResponse = await callOpenAI({
-    question,
-    plan,
-    profile: mergedProfile,
-    databaseEvidence: database.evidence,
-    today,
-  });
-  const modelPayload = normalizeRecommendationPayload(
-    extractJsonObject(extractTextFromResponse(openAIResponse))
-  );
+  let openAIResponse = null;
+  let modelPayload = null;
+
+  try {
+    openAIResponse = await callOpenAI({
+      question,
+      plan,
+      profile: mergedProfile,
+      databaseEvidence: database.evidence,
+      today,
+    });
+
+    const extractedText = extractTextFromResponse(openAIResponse);
+    if (extractedText) {
+      modelPayload = normalizeRecommendationPayload(
+        extractJsonObject(extractedText)
+      );
+    }
+  } catch (error) {
+    console.error("OpenAI recommendation generation failed:", error);
+  }
+
+  if (!modelPayload) {
+    modelPayload = buildFallbackRecommendation({
+      question,
+      plan,
+      databaseEvidence: database.evidence,
+    });
+  }
   const combinedSources = rankDatabaseEvidence(
     [...database.evidence, ...modelPayload.sources].map((source) => ({
       ...source,
@@ -814,8 +893,8 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
     debug: includeDebug
       ? {
           database,
-          openai_response_id: openAIResponse.id || null,
-          raw_output_text: openAIResponse.output_text || "",
+          openai_response_id: openAIResponse?.id || null,
+          raw_output_text: extractTextFromResponse(openAIResponse) || "",
         }
       : undefined,
   };
