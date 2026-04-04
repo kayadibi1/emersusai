@@ -47,3 +47,32 @@ python3 -m http.server 8000
 ```
 
 Then open `http://localhost:8000`.
+
+## Emersus recommendation API
+
+The repository now includes `POST /api/emersus/recommendation`, a coded Emersus workflow that:
+
+- merges request profile context with the user's Supabase profile when available
+- consults the Emersus knowledge database in Supabase when configured
+- falls back to fresh web search through the OpenAI Responses API
+- returns structured recommendations for training, nutrition, and mental performance
+- includes sources, recency-aware ranking, and a confidence score
+
+Expected request shape:
+
+```json
+{
+  "question": "Build me a 3 day hypertrophy plan with zone 2 cardio.",
+  "userId": "supabase:USER_UUID",
+  "profile": {
+    "goal": "gain muscle while keeping conditioning",
+    "experience_level": "intermediate",
+    "dietary_preferences": "high protein",
+    "injuries_limitations": "none",
+    "equipment_access": "full gym",
+    "available_days_per_week": "4",
+    "available_minutes_per_session": "75",
+    "sleep_stress_context": "moderate work stress"
+  }
+}
+```
