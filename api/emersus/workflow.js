@@ -1,4 +1,4 @@
-const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5";
+const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
 const DEFAULT_DB_TABLE =
   process.env.EMERSUS_EVIDENCE_TABLE || "knowledge_documents";
 const DEFAULT_DB_RPC = process.env.EMERSUS_EVIDENCE_RPC || "match_knowledge_documents";
@@ -493,6 +493,117 @@ function buildOpenAIInput({ question, plan, profile, databaseEvidence, today }) 
   ];
 }
 
+function buildResponseSchema() {
+  return {
+    type: "object",
+    properties: {
+      summary: { type: "string" },
+      recommendations: {
+        type: "object",
+        properties: {
+          training: {
+            type: "array",
+            items: { type: "string" },
+          },
+          nutrition: {
+            type: "array",
+            items: { type: "string" },
+          },
+          mental_performance: {
+            type: "array",
+            items: { type: "string" },
+          },
+        },
+        required: ["training", "nutrition", "mental_performance"],
+        additionalProperties: false,
+      },
+      confidence: {
+        type: "object",
+        properties: {
+          score: { type: "number" },
+          label: { type: "string" },
+          rationale: { type: "string" },
+        },
+        required: ["score", "label", "rationale"],
+        additionalProperties: false,
+      },
+      sources: {
+        type: "array",
+        items: {
+          type: "object",
+          properties: {
+            title: { type: "string" },
+            url: { type: "string" },
+            source_type: { type: "string" },
+            published_at: { type: "string" },
+            why_it_matters: { type: "string" },
+          },
+          required: [
+            "title",
+            "url",
+            "source_type",
+            "published_at",
+            "why_it_matters",
+          ],
+          additionalProperties: false,
+        },
+      },
+      limitations: {
+        type: "array",
+        items: { type: "string" },
+      },
+    },
+    required: [
+      "summary",
+      "recommendations",
+      "confidence",
+      "sources",
+      "limitations",
+    ],
+    additionalProperties: false,
+  };
+}
+
+function extractTextFromResponse(payload) {
+  if (!payload) {
+    return "";
+  }
+
+  if (typeof payload.output_text === "string" && payload.output_text.trim()) {
+    return payload.output_text;
+  }
+
+  if (typeof payload.output_parsed === "object" && payload.output_parsed) {
+    return JSON.stringify(payload.output_parsed);
+  }
+
+  if (Array.isArray(payload.output)) {
+    for (const item of payload.output) {
+      if (!item || typeof item !== "object") {
+        continue;
+      }
+
+      if (typeof item.text === "string" && item.text.trim()) {
+        return item.text;
+      }
+
+      if (Array.isArray(item.content)) {
+        for (const content of item.content) {
+          if (typeof content?.text === "string" && content.text.trim()) {
+            return content.text;
+          }
+
+          if (typeof content?.json === "object" && content.json) {
+            return JSON.stringify(content.json);
+          }
+        }
+      }
+    }
+  }
+
+  return "";
+}
+
 function extractJsonObject(text) {
   const trimmed = String(text || "").trim();
 
@@ -593,17 +704,28 @@ async function callOpenAI({ question, plan, profile, databaseEvidence, today }) 
     },
     body: JSON.stringify({
       model: DEFAULT_MODEL,
-      tool_choice: "auto",
-      tools: [
-        {
-          type: "web_search",
-          search_context_size: DEFAULT_WEB_CONTEXT,
-          user_location: {
-            type: "approximate",
-            country: "US",
-          },
+      tool_choice: plan.needsWeb ? "auto" : "none",
+      tools: plan.needsWeb
+        ? [
+            {
+              type: "web_search",
+              search_context_size: DEFAULT_WEB_CONTEXT,
+              user_location: {
+                type: "approximate",
+                country: "US",
+              },
+            },
+          ]
+        : undefined,
+      text: {
+        format: {
+          type: "json_schema",
+          name: "emersus_recommendation",
+          schema: buildResponseSchema(),
+          strict: true,
         },
-      ],
+      },
+      max_output_tokens: 1400,
       input: buildOpenAIInput({
         question,
         plan,
@@ -647,7 +769,7 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
     today,
   });
   const modelPayload = normalizeRecommendationPayload(
-    extractJsonObject(openAIResponse.output_text)
+    extractJsonObject(extractTextFromResponse(openAIResponse))
   );
   const combinedSources = rankDatabaseEvidence(
     [...database.evidence, ...modelPayload.sources].map((source) => ({
