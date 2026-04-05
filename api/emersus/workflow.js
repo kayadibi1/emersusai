@@ -581,6 +581,59 @@ async function retrieveVectorEvidence(question) {
   }
 }
 
+function summarizeEvidenceSnapshot(databaseEvidence) {
+  const topEvidence = rankDatabaseEvidence(databaseEvidence).slice(0, 3);
+
+  if (!topEvidence.length) {
+    return {
+      summary:
+        "I couldn't get a full model response, so this fallback is limited to the evidence that was already retrieved.",
+      training: [
+        "Ask a more specific follow-up so I can tailor the recommendation more tightly to your goal and context.",
+      ],
+      nutrition: [
+        "Include your goal, training volume, and any dietary constraints for a more useful answer.",
+      ],
+      mentalPerformance: [
+        "Add sleep, stress, or focus context if you want broader performance recommendations.",
+      ],
+      limitations: [
+        "This fallback is less personalized than the normal model-generated path.",
+      ],
+      confidenceRationale:
+        "Confidence is based on retrieved sources only because the main generation path did not produce a usable answer.",
+    };
+  }
+
+  const titles = topEvidence
+    .map((item) => item.title)
+    .filter(Boolean)
+    .slice(0, 2);
+  const lead = titles.length
+    ? `The strongest retrieved evidence included ${titles.join(" and ")}.`
+    : "Relevant evidence was retrieved, but the main generation path did not complete.";
+  const primary = topEvidence[0];
+
+  return {
+    summary: `${lead} This fallback is grounded in the retrieved papers rather than the old canned response path.`,
+    training: primary?.title
+      ? [`Use the retrieved evidence around "${primary.title}" as the main anchor for your training decision.`]
+      : ["Use the retrieved evidence as the main anchor for your training decision."],
+    nutrition: [
+      "Prioritize the nutrition implications supported by the top retrieved papers before adding broader advice.",
+    ],
+    mentalPerformance: [
+      "Mental-performance guidance is limited here unless the retrieved evidence directly addressed that topic.",
+    ],
+    limitations: [
+      "This fallback did not synthesize the evidence as deeply as the normal model-generated answer.",
+      "Retry the question after the model path is healthy if you want a fuller synthesis.",
+    ],
+    confidenceRationale:
+      "Confidence is based on source quality and recency, but the final narrative was not fully model-generated.",
+  };
+}
+
 function buildOpenAIInput({
   question,
   plan,
@@ -816,7 +869,6 @@ function normalizeRecommendationPayload(payload) {
 }
 
 function buildFallbackRecommendation({ question, databaseEvidence }) {
-  const lower = question.toLowerCase();
   const sources = rankDatabaseEvidence(databaseEvidence).slice(0, 5).map((source) => ({
     title: source.title,
     url: source.url,
@@ -836,36 +888,7 @@ function buildFallbackRecommendation({ question, databaseEvidence }) {
         : source.evidence_level || ""),
   }));
 
-  if (lower.includes("creatine")) {
-    return {
-      summary:
-        "Yes. Creatine monohydrate is one of the most consistently supported supplements for improving strength and supporting muscle gain when paired with resistance training.",
-      recommendations: {
-        training: [
-          "Keep lifting with progressive overload; creatine works best when paired with a real training stimulus.",
-          "If you train hard several days per week, creatine can help you maintain higher training quality across sessions.",
-        ],
-        nutrition: [
-          "Use creatine monohydrate consistently, usually 3 to 5 g per day.",
-          "Keep protein intake high enough for muscle gain; creatine is a support tool, not a replacement for diet.",
-        ],
-        mental_performance: [
-          "Creatine is mainly a performance supplement here; do not expect it to replace sleep or focus habits.",
-        ],
-      },
-      confidence: {
-        score: 0.9,
-        label: "high",
-        rationale:
-          "Creatine has a strong and consistent evidence base for strength and lean mass support when combined with resistance training.",
-      },
-      sources,
-      limitations: [
-        "Individual response can vary.",
-        "Best results depend on training quality, protein intake, and recovery.",
-      ],
-    };
-  }
+  const evidenceSnapshot = summarizeEvidenceSnapshot(databaseEvidence);
 
   return {
     summary:
@@ -892,6 +915,18 @@ function buildFallbackRecommendation({ question, databaseEvidence }) {
       "This fallback is less personalized than the normal model path.",
       "Add a follow-up question for a tighter answer.",
     ],
+    summary: evidenceSnapshot.summary,
+    recommendations: {
+      training: evidenceSnapshot.training,
+      nutrition: evidenceSnapshot.nutrition,
+      mental_performance: evidenceSnapshot.mentalPerformance,
+    },
+    confidence: {
+      score: sources.length ? 0.5 : 0.35,
+      label: "low",
+      rationale: evidenceSnapshot.confidenceRationale,
+    },
+    limitations: evidenceSnapshot.limitations,
   };
 }
 
@@ -1010,7 +1045,17 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
   const mergedProfile = mergeProfile(profile, storedProfile || {});
   const plan = buildPlan(question, mergedProfile, Boolean(supabaseUrl && serviceRoleKey));
   const vectorDatabase = await retrieveVectorEvidence(question);
-  const legacyDatabase = await retrieveLegacyDatabaseEvidence(plan, mergedProfile);
+  const shouldUseLegacyDatabase =
+    vectorDatabase.evidence.length === 0 ||
+    process.env.EMERSUS_ENABLE_LEGACY_DATABASE === "true";
+  const legacyDatabase = shouldUseLegacyDatabase
+    ? await retrieveLegacyDatabaseEvidence(plan, mergedProfile)
+    : {
+        available: false,
+        method: null,
+        evidence: [],
+        error: null,
+      };
   const databaseEvidence = rankDatabaseEvidence(
     dedupeEvidence([...vectorDatabase.evidence, ...legacyDatabase.evidence])
   ).slice(0, 8);
