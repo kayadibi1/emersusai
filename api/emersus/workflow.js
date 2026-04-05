@@ -819,6 +819,42 @@ function extractTextFromResponse(payload) {
   return "";
 }
 
+function extractStructuredOutput(payload) {
+  if (!payload || typeof payload !== "object") {
+    return null;
+  }
+
+  if (payload.output_parsed && typeof payload.output_parsed === "object") {
+    return payload.output_parsed;
+  }
+
+  if (Array.isArray(payload.output)) {
+    for (const item of payload.output) {
+      if (!item || typeof item !== "object") {
+        continue;
+      }
+
+      if (item.parsed && typeof item.parsed === "object") {
+        return item.parsed;
+      }
+
+      if (Array.isArray(item.content)) {
+        for (const content of item.content) {
+          if (content?.parsed && typeof content.parsed === "object") {
+            return content.parsed;
+          }
+
+          if (content?.json && typeof content.json === "object") {
+            return content.json;
+          }
+        }
+      }
+    }
+  }
+
+  return null;
+}
+
 function extractJsonObject(text) {
   const trimmed = String(text || "").trim();
 
@@ -1080,11 +1116,16 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
       today,
     });
 
-    const extractedText = extractTextFromResponse(openAIResponse);
-    if (extractedText) {
-      modelPayload = normalizeRecommendationPayload(
-        extractJsonObject(extractedText)
-      );
+    const structuredOutput = extractStructuredOutput(openAIResponse);
+    if (structuredOutput) {
+      modelPayload = normalizeRecommendationPayload(structuredOutput);
+    } else {
+      const extractedText = extractTextFromResponse(openAIResponse);
+      if (extractedText) {
+        modelPayload = normalizeRecommendationPayload(
+          extractJsonObject(extractedText)
+        );
+      }
     }
   } catch (error) {
     console.error("OpenAI recommendation generation failed:", error);
