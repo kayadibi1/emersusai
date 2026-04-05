@@ -1,0 +1,642 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="advs74068" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="iso-abbrev">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="pmc-domain-id">2933</journal-id><journal-id journal-id-type="pmc-domain">advsci</journal-id><journal-id journal-id-type="publisher-id">ADVS</journal-id><journal-title-group><journal-title>Advanced Science</journal-title></journal-title-group><issn pub-type="epub">2198-3844</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13045468</article-id><article-id pub-id-type="pmcid-ver">PMC13045468.1</article-id><article-id pub-id-type="pmcaid">13045468</article-id><article-id pub-id-type="pmcaiid">13045468</article-id><article-id pub-id-type="pmid">41603137</article-id><article-id pub-id-type="doi">10.1002/advs.202523654</article-id><article-id pub-id-type="publisher-id">ADVS74068</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>Water‐Assisted Exfoliation of HfO<sub>2</sub>‐Based Membrane for Flexible Robust Ferroelectric Synaptic Transistors</article-title></title-group><contrib-group><contrib id="advs74068-cr-0001" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="H">Han</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-6718-7867</contrib-id><xref rid="advs74068-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs74068-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs74068-cr-0002" contrib-type="author"><name name-style="western"><surname>Zeng</surname><given-names initials="M">Miao</given-names></name><xref rid="advs74068-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74068-cr-0003" contrib-type="author"><name name-style="western"><surname>Chen</surname><given-names initials="J">Jingxin</given-names></name><xref rid="advs74068-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs74068-cr-0004" contrib-type="author"><name name-style="western"><surname>Wang</surname><given-names initials="L">Lei</given-names></name><xref rid="advs74068-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs74068-cr-0005" contrib-type="author"><name name-style="western"><surname>Jiang</surname><given-names initials="S">Sai</given-names></name><xref rid="advs74068-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74068-cr-0006" contrib-type="author"><name name-style="western"><surname>Cao</surname><given-names initials="Q">Qian</given-names></name><xref rid="advs74068-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74068-cr-0007" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="X">Xuebo</given-names></name><xref rid="advs74068-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74068-cr-0008" contrib-type="author"><name name-style="western"><surname>Hou</surname><given-names initials="Z">Zekun</given-names></name><xref rid="advs74068-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74068-cr-0009" contrib-type="author"><name name-style="western"><surname>Shen</surname><given-names initials="C">Chun</given-names></name><xref rid="advs74068-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74068-cr-0010" contrib-type="author"><name name-style="western"><surname>Gan</surname><given-names initials="Y">Yulin</given-names></name><xref rid="advs74068-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs74068-cr-0011" contrib-type="author"><name name-style="western"><surname>Fang</surname><given-names initials="N">Ning</given-names></name><xref rid="advs74068-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74068-cr-0012" contrib-type="author" corresp="yes"><name name-style="western"><surname>Liao</surname><given-names initials="Z">Zhaoliang</given-names></name><xref rid="advs74068-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref><address><email>zliao@ustc.edu.cn</email></address></contrib><contrib id="advs74068-cr-0013" contrib-type="author" corresp="yes"><name name-style="western"><surname>Zhou</surname><given-names initials="Z">Ziyao</given-names></name><xref rid="advs74068-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>ziyaozhou@cczu.edu.cn</email></address></contrib><contrib id="advs74068-cr-0014" contrib-type="author" corresp="yes"><name name-style="western"><surname>Hao</surname><given-names initials="L">Lin</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-3393-0672</contrib-id><xref rid="advs74068-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><address><email>haolin@hmfl.ac.cn</email></address></contrib></contrib-group><aff id="advs74068-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">The Materials and Electronics Research Center</named-content>
+<institution>Changzhou University</institution>
+<city>Changzhou</city>
+<named-content content-type="country-part">Jiangsu</named-content>
+<country country="CN">China</country>
+</aff><aff id="advs74068-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">Anhui Provincial Key Laboratory of Low‐Energy Quantum Materials and Devices</named-content>
+<named-content content-type="organisation-division">High Magnetic Field Laboratory</named-content>
+<named-content content-type="organisation-division">HFIPS</named-content>
+<institution>Chinese Academy of Sciences</institution>
+<city>Hefei</city>
+<named-content content-type="country-part">Anhui</named-content>
+<country country="CN">China</country>
+</aff><aff id="advs74068-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">National Synchrotron Radiation Laboratory</named-content>
+<named-content content-type="organisation-division">School of Nuclear Science and Technology</named-content>
+<institution>University of Science and Technology of China</institution>
+<city>Hefei</city>
+<country country="CN">China</country>
+</aff><pub-date pub-type="epub"><day>28</day><month>1</month><year>2026</year></pub-date><pub-date pub-type="collection"><month>4</month><year>2026</year></pub-date><volume>13</volume><issue seq="610">19</issue><issue-id pub-id-type="pmc-issue-id">510804</issue-id><issue-id pub-id-type="doi">10.1002/advs.v13.19</issue-id><elocation-id>e23654</elocation-id><history><date date-type="rev-recd"><day>30</day><month>12</month><year>2025</year></date><date date-type="received"><day>20</day><month>11</month><year>2025</year></date><date date-type="accepted"><day>20</day><month>1</month><year>2026</year></date></history><pub-history><event event-type="pmc-release"><date><day>28</day><month>01</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>03</day><month>04</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-03 10:25:15.667"><day>03</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). <italic toggle="yes">Advanced Science</italic> published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="ADVS-13-e23654.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:ADVS-13-e23654.pdf"/><abstract><title>ABSTRACT</title><p>HfO<sub>2</sub>‐based thin films possess broad application potential in semiconductors, non‐volatile memory, and neuromorphic computing owing to their high dielectric constant, excellent ferroelectricity, and environmental robustness. However, an environmentally friendly strategy for synthesizing flexible HfO<sub>2</sub>‐based films remains lacking. In this work, by incorporating a BaTiO<sub>3</sub>/Hf<sub>0</sub>.<sub>5</sub>Zr<sub>0</sub>.<sub>5</sub>O<sub>2</sub>/BaTiO<sub>3</sub> (BTO/HZO/BTO) sandwiched architecture together with a Sr<sub>4</sub>Al<sub>2</sub>O<sub>7</sub> sacrificial layer, a freestanding HfO<sub>2</sub>‐based heterostructure can be detached simply by applying pure water. The resulting film exhibits high film quality and stable ferroelectric behavior, along with pronounced flexibility that enables repeated transfer onto diverse substrates. Furthermore, the synthesized freestanding film is employed to construct a ferroelectric field‐effect transistor that successfully emulates synaptic functionalities, highlighting its potential for low‐power neuromorphic hardware. This work provides a viable strategy for developing high‐performance artificial synapses based on flexible oxide heterostructures.</p></abstract><abstract id="advs74068-abs-0001" abstract-type="graphical"><p>A flexible freestanding HfO<sub>2</sub>‐based ferroelectric membrane is achieved via a water‐assisted exfoliation technique using a Sr<sub>4</sub>Al<sub>2</sub>O₇ sacrificial layer. The BaTiO<sub>3</sub>/Hf<sub>0.5</sub>Zr<sub>0.5</sub>O<sub>2</sub>/BaTiO<sub>3</sub> heterostructure maintains robust ferroelectricity and exhibits reliable synaptic plasticity. It successfully performs low‐power reservoir computing tasks, including ECG arrhythmia classification and handwritten digit recognition. This work provides a viable strategy for developing high‐performance, flexible neuromorphic devices based on ferroelectric oxides.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="ADVS-13-e23654-g001.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="advs74068-kwd-0001">artificial synapses</kwd><kwd id="advs74068-kwd-0002">flexible oxide films</kwd><kwd id="advs74068-kwd-0003">HfO<sub>2</sub>–ZrO<sub>2</sub> heterostructures</kwd><kwd id="advs74068-kwd-0004">reservoir computing</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>National Natural Science Foundation of China</institution><institution-id institution-id-type="doi">10.13039/501100001809</institution-id></institution-wrap>
+</funding-source><award-id>12574033</award-id><award-id>12204068</award-id><award-id>12474125</award-id><award-id>52172126</award-id><award-id>12204523</award-id></award-group><award-group id="funding-0002"><funding-source>
+<institution-wrap><institution>Natural Science Foundation of Jiangsu Province</institution><institution-id institution-id-type="doi">10.13039/501100004608</institution-id></institution-wrap>
+</funding-source><award-id>BK20220616</award-id></award-group><award-group id="funding-0003"><funding-source>
+<institution-wrap><institution>China Postdoctoral Science Foundation</institution><institution-id institution-id-type="doi">10.13039/501100002858</institution-id></institution-wrap>
+</funding-source><award-id>2024M753261</award-id><award-id>2025T180149</award-id></award-group><award-group id="funding-0004"><funding-source>
+<institution-wrap><institution>Natural Science Research of Jiangsu Higher Education Institutions of China</institution><institution-id institution-id-type="doi">10.13039/501100010023</institution-id></institution-wrap>
+</funding-source><award-id>22KJB140001</award-id></award-group></funding-group><counts><fig-count count="5"/><table-count count="0"/><page-count count="8"/><word-count count="5235"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>2 April 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:02.04.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="advs74068-sec-0010"><label>1</label><title>Introduction</title><p>The emergence of conductive polymers as a novel class of materials in the early 21<sup>st</sup> century marked a milestone in the development of flexible electronics [<xref rid="advs74068-bib-0001" ref-type="bibr">1</xref>, <xref rid="advs74068-bib-0002" ref-type="bibr">2</xref>] Over the following decades, flexible materials have been introduced into electroluminescent devices, solar cells, organic transistors and field‐effect transistors, polymer dot memory, and organic sensors [<xref rid="advs74068-bib-0003" ref-type="bibr">3</xref>, <xref rid="advs74068-bib-0004" ref-type="bibr">4</xref>, <xref rid="advs74068-bib-0005" ref-type="bibr">5</xref>, <xref rid="advs74068-bib-0006" ref-type="bibr">6</xref>, <xref rid="advs74068-bib-0007" ref-type="bibr">7</xref>]. During this period, conventional inorganic compounds, which generally lack intrinsic elasticity, received limited consideration in flexible applications [<xref rid="advs74068-bib-0005" ref-type="bibr">5</xref>, <xref rid="advs74068-bib-0008" ref-type="bibr">8</xref>]. Progress accelerated only after 2019, when freestanding perovskite films such as BaTiO<sub>3</sub> (BTO) and PbZrO<sub>3</sub> were successfully fabricated using pulsed laser deposition (PLD) in combination with hydrolytic or support‐layer‐assisted release techniques [<xref rid="advs74068-bib-0009" ref-type="bibr">9</xref>, <xref rid="advs74068-bib-0010" ref-type="bibr">10</xref>]. This breakthrough enabled inorganic compounds to emerge as viable candidates for flexible electronics. In 2023, researchers at the University of Science and Technology of China further refined the method, extending it to a wider family of inorganic flexible materials [<xref rid="advs74068-bib-0011" ref-type="bibr">11</xref>] Compared with organic materials, oxide thin films typically offer superior durability, thermal stability, and compatibility with micro‐/nano‐fabrication processes such as photolithography and etching, making them attractive for flexible micro‐electronic device engineering [<xref rid="advs74068-bib-0005" ref-type="bibr">5</xref>, <xref rid="advs74068-bib-0012" ref-type="bibr">12</xref>]</p><p>Among non‐organic ferroelectric/dielectric systems, HfO<sub>2</sub>‐based thin films are particularly promising for semiconductor memory and neuromorphic architectures because of their high‐κ dielectric properties, stable ferroelectricity, and resilience under harsh operating environments [<xref rid="advs74068-bib-0013" ref-type="bibr">13</xref>, <xref rid="advs74068-bib-0014" ref-type="bibr">14</xref>, <xref rid="advs74068-bib-0015" ref-type="bibr">15</xref>, <xref rid="advs74068-bib-0016" ref-type="bibr">16</xref>]. Neuromorphic devices emulate biological synapses to perform efficient and low‐power signal processing [<xref rid="advs74068-bib-0017" ref-type="bibr">17</xref>, <xref rid="advs74068-bib-0018" ref-type="bibr">18</xref>, <xref rid="advs74068-bib-0019" ref-type="bibr">19</xref>, <xref rid="advs74068-bib-0020" ref-type="bibr">20</xref>]. However, the integration of HfO<sub>2</sub>‐based materials with flexible substrates is hindered by the intrinsic trade‐off between ferroelectric stability and the mechanical compliance required at ultrathin thicknesses [<xref rid="advs74068-bib-0021" ref-type="bibr">21</xref>, <xref rid="advs74068-bib-0022" ref-type="bibr">22</xref>, <xref rid="advs74068-bib-0023" ref-type="bibr">23</xref>]. A recent study demonstrated that Zn‐doped HfO<sub>2</sub> deposited on a La<sub>0</sub>․<sub>67</sub>Sr<sub>0</sub>․<sub>33</sub>MnO<sub>3</sub> (LSMO) layer could be partially released to form a flexible ferroelectric film after chemical removal of the sacrificial layer [<xref rid="advs74068-bib-0024" ref-type="bibr">24</xref>]. Nevertheless, acid etching is generally undesirable in device fabrication, and the released HZO layer alone offers limited flexibility, preventing reliable multistep transfer [<xref rid="advs74068-bib-0025" ref-type="bibr">25</xref>, <xref rid="advs74068-bib-0026" ref-type="bibr">26</xref>]. Meanwhile, the solution‐based deposition of Zn‐doped HfO<sub>2</sub> often reply on toxic organic precursors and can only be used to synthesize polycrystalline samples [<xref rid="advs74068-bib-0027" ref-type="bibr">27</xref>]. Thus, fabrication of a freestanding HfO<sub>2</sub>‐based film that maintains ferroelectricity while exhibiting genuine flexibility remains an open challenge. Here, we demonstrate a strategy that overcomes these limitations. By inserting ultra‐flexible BTO thin buffer layers, which impart tensile strain to stabilize the ferroelectric phase, and employing a water‐soluble Sr<sub>4</sub>Al<sub>2</sub>O<sub>7</sub> (SAO) sacrificial layer for its high dissolution rate and epitaxial compatibility. This approach allows for the complete release of the BTO/HZO/BTO heterostructure film using only deionized water (Figure <xref rid="advs74068-fig-0001" ref-type="fig">1b,c</xref>). Meanwhile, the BTO buffer layers impart exceptional bendability, enabling smooth transfer to arbitrary host substrates [<xref rid="advs74068-bib-0009" ref-type="bibr">9</xref>, <xref rid="advs74068-bib-0028" ref-type="bibr">28</xref>]. The harvested film is also integrated into a ferroelectric field‐effect transistor (FEFET) to highlight its feasibility for flexible oxide‐based synaptic devices. As shown schematically in Figure <xref rid="advs74068-fig-0001" ref-type="fig">1a</xref>, the top gate receives external voltage stimuli analogous to a presynaptic terminal, while the channel behaves as the postsynaptic response, functionally reproducing synaptic signal modulation.</p><fig position="float" fig-type="FIGURE" id="advs74068-fig-0001" orientation="portrait"><label>FIGURE 1</label><caption><p>Structure and characterization of the synaptic transistors. (a) Schematic of the freestanding HZO capacitive synapse. (b,c) Fabrication process of the freestanding HZO film. (d) HAADF‐STEM image of the BTO/HZO/BTO/SAO/STO stack showing a clean HZO/BTO interface. (e‐f) XRD patterns of the heterostructure on the substrate (e) and after release onto PDMS (f); inset in (f) shows an optical image of the freestanding membrane (2 × 5 mm). (g) V<sub>OUT</sub>–V<sub>IN</sub> hysteresis loops measured as the driving voltage decreases from ±4 to ±0.5 V. Inset: close‐up view from −0.01 to 0.01 V.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="ADVS-13-e23654-g004.jpg"/></fig></sec><sec id="advs74068-sec-0020"><label>2</label><title>Results and Discussion</title><sec id="advs74068-sec-0030"><label>2.1</label><title>Fabrication and Structural Characterization</title><p>HfO<sub>2</sub> normally crystallizes in a monoclinic (m‐phase, P2<sub>1</sub>/c) structure under ambient conditions and undergoes phase transitions to tetragonal and cubic symmetries as temperature approaches 3000 K [<xref rid="advs74068-bib-0029" ref-type="bibr">29</xref>, <xref rid="advs74068-bib-0030" ref-type="bibr">30</xref>, <xref rid="advs74068-bib-0031" ref-type="bibr">31</xref>]. A metastable orthorhombic (o‐phase) configuration, which breaks inversion symmetry, gives rise to ferroelectricity. Stabilization of the o‐phase can be achieved by tuning deposition conditions or by aliovalent doping [<xref rid="advs74068-bib-0015" ref-type="bibr">15</xref>, <xref rid="advs74068-bib-0032" ref-type="bibr">32</xref>, <xref rid="advs74068-bib-0033" ref-type="bibr">33</xref>]. Partial substitution of Hf by Zr significantly enhances ferroelectric behavior relative to pristine HfO<sub>2</sub>.Studies on Hf<sub>1</sub>
+<sub>−</sub>
+<sub>x</sub>Zr<sub>x</sub>O<sub>2</sub> confirm that ferroelectricity is optimized near <italic toggle="yes">x</italic> = 0․5, corresponding to the Hf<sub>0</sub>․<sub>5</sub>Zr<sub>0</sub>․<sub>5</sub>O<sub>2</sub> (HZO) composition employed in this work [<xref rid="advs74068-bib-0034" ref-type="bibr">34</xref>, <xref rid="advs74068-bib-0035" ref-type="bibr">35</xref>, <xref rid="advs74068-bib-0036" ref-type="bibr">36</xref>].</p><p>By depositing directly on top of the water‐soluble SAO sacrifice layer, HZO is seen to stabilize in its rhombohedral phase (r‐HZO) probably due to the moderate lattice mismatch [<xref rid="advs74068-bib-0037" ref-type="bibr">37</xref>], although the r‐HZO also exhibit some extend of ferroelectricity, its metastable nature may pose challenges for long‐term endurance in practical applications [<xref rid="advs74068-bib-0038" ref-type="bibr">38</xref>]. Further, the film also exhibits weak flexibility which renders it easily shattered into pieces during the water‐assisted transfer process (See Figure <xref rid="advs74068-supinfo-0001" ref-type="">S1</xref> in the Supplementary Information for details). To address both of the above issues, BTO buffer layers were introduced where an orthorhombic ferroelectric phase of HZO was eventually stabilized with greatly enhanced flexibility at the same time. Figure <xref rid="advs74068-fig-0001" ref-type="fig">1b,c</xref> presents the stacked heterostructure consisting of a 40 nm HZO layer confined between two 10 nm BTO layers that provide improved mechanical resilience and a strain‐inducing template. A 35 nm water‐soluble SAO sacrificial underlayer was first deposited on the SrTiO<sub>3</sub> (STO) substrate prior to heterostructure growth. Thin‐film synthesis was carried out using PLD under real‐time monitoring by reflection high‐energy electron diffraction (RHEED). Interfacial crystallinity was then examined by scanning transmission electron microscopy (STEM). A representative cross‐sectional image in Figure <xref rid="advs74068-fig-0001" ref-type="fig">1d</xref> reveals a coherent and sharply defined epitaxial interface. The Energy Dispersive Spectroscopy (EDS) shown in Figure <xref rid="advs74068-supinfo-0001" ref-type="">S</xref>3 confirms no inter‐diffusion of the elements.</p><p>The heterostructure is subsequently immersed in pure water to dissolve the SAO sacrificial layer using a PDMS‐supported transfer method (Figure <xref rid="advs74068-fig-0001" ref-type="fig">1b</xref>). Figure <xref rid="advs74068-fig-0001" ref-type="fig">1c</xref> displays the released BTO/HZO/BTO film, whose XRD patterns (Figure <xref rid="advs74068-fig-0001" ref-type="fig">1e,f</xref>) exhibit a clearly resolved [111] peak of the o‐phase HZO, confirming a successful transfer process. The freestanding heterostructure can be repeatedly laminated onto rigid or flexible substrates and integrated with various 2D systems.</p></sec><sec id="advs74068-sec-0040"><label>2.2</label><title>Ferroelectric and Synaptic Properties</title><p>For demonstration, a BTO/HZO/BTO field‐effect transistor (FET) was fabricated via photolithography on n‐type silicon serving as the universal back‐gate (Figure <xref rid="advs74068-fig-0001" ref-type="fig">1a</xref>). To verify ferroelectric switching, the input signal V<sub>in</sub> modulates the capacitive polarization of the HZO dielectric layer, inducing ferroelectric inversion and a corresponding change in V<sub>out</sub>. Such behavior aligns with the reservoir computing (RC) framework, requiring rapid, low‐power temporal computation. The device underwent voltage sweeps with amplitudes between ±0.5 and ±4 V, as presented in Figure <xref rid="advs74068-fig-0001" ref-type="fig">1g</xref>. A pronounced hysteresis over the entire voltage range confirms robust ferroelectricity, with no performance degradation when monitored over a 20‐day period (Figure <xref rid="advs74068-supinfo-0001" ref-type="">S4c</xref> in the Supplementary Information). Moreover, the inset scans at 10 mV also display well‐defined hysteresis, indicating operation at exceptionally low energy without significant loss in performance. The membrane was also transferred to a Indium Tin Oxide/polyethylene terephthalate (ITO/PET) flexible substrate and mounted it to a bending apparatus (see Supplementary Note <xref rid="advs74068-supinfo-0001" ref-type="">S6</xref> for details). The results suggest the membrane to exhibit no observable fractures with stable electrical signal down to R = 2cm, where R is the bending radius, confirming flexibility.</p><p>In the device configuration, the top gate (Figure <xref rid="advs74068-fig-0001" ref-type="fig">1a</xref>) functions as the presynaptic terminal receiving external voltage stimuli, while the bottom gate emulates the postsynaptic response. The synaptic weight update mechanism is realized by modulating the channel conductance through ferroelectric polarization switching in the HZO layer under the applied gate voltage. As shown in Figure <xref rid="advs74068-fig-0002" ref-type="fig">2a</xref>, by tuning the V<sub>in</sub> amplitude at a fixed 800 ms pulse width, the induced V<sub>out</sub> increases almost linearly with a proportionality of ∼0.67, consistent with prior reports [<xref rid="advs74068-bib-0039" ref-type="bibr">39</xref>, <xref rid="advs74068-bib-0040" ref-type="bibr">40</xref>].</p><fig position="float" fig-type="FIGURE" id="advs74068-fig-0002" orientation="portrait"><label>FIGURE 2</label><caption><p>Emulation of Synaptic Plasticity and Dynamic Modulation in the Ferroelectric Transistor (a) Synaptic response of the BTO/HZO/BTO FEFET as the pulse amplitude varies. (b) Synaptic response when the pulse width varies. (c) Paired‐pulse facilitation (PPF) with V<sub>in</sub> = 4 V. (d–g) Experimental and theoretical responses of the synaptic device under different pulse sequences. In the schematic pixel patterns, black and white represent 4 and 0 V pulses, respectively, with a pulse width and interval of 100 ms per pixel.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="ADVS-13-e23654-g003.jpg"/></fig><p>The synaptic dynamics were further evaluated by varying the pulse width of V<sub>in</sub> (Figure <xref rid="advs74068-fig-0002" ref-type="fig">2b</xref>). The source terminal acts as the presynaptic neuron, while the gate terminal operates as the postsynaptic neuron. The applied pulse waveform serves as the presynaptic trigger, modulating the interfacial surface potential. The resting state is maintained at 0 V to preclude prior charge buildup. As the pulse amplitude increases from 1 to 5 V (0.8 s width), the system exhibits a short‐term memory (STM) response during excitation, followed by a transition toward long‐term memory (LTM) during relaxation, signifying a shift from short‐term plasticity (STP) to long‐term plasticity (LTP) (Figure <xref rid="advs74068-fig-0002" ref-type="fig">2a</xref>). Increasing the pulse width from 0.2 s to 1.0 s at 4 V amplifies the storage‐capacitor output and further enhances synaptic plasticity (Figure <xref rid="advs74068-fig-0002" ref-type="fig">2b</xref>). This tunable polarization modulation enables controllable nonlinear voltage evolution, providing the high‐dimensional state richness essential for RC frameworks.</p><p>As a core indicator of STP, the paired‐pulse facilitation (PPF) quantitatively reflects the device's temporal information‐processing capability. The PPF behavior of the FEFET is presented in Figure <xref rid="advs74068-fig-0002" ref-type="fig">2c</xref>. When two identical stimulation pulses (pulse width = 50 ms) are applied with an inter‐pulse interval Δt = 50 ms, the ratio of the second excitatory postsynaptic potential (A<sub>2</sub>) to the first (A<sub>1</sub>) follows a double‐exponential decay with respect to Δt
+<disp-formula id="advs74068-disp-0001">
+<label>(1)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="block"><mml:mrow><mml:mrow><mml:mi>P</mml:mi><mml:mi>P</mml:mi><mml:mi>F</mml:mi><mml:mspace width="0.16em"/><mml:mi>R</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>o</mml:mi><mml:mo linebreak="badbreak">=</mml:mo><mml:mn>1</mml:mn><mml:mo linebreak="goodbreak">+</mml:mo><mml:msub><mml:mi>C</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mi>e</mml:mi><mml:mi>x</mml:mi><mml:mi>p</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mo linebreak="badbreak">−</mml:mo><mml:mfrac><mml:mrow><mml:mi mathvariant="normal">Δ</mml:mi><mml:mi>t</mml:mi></mml:mrow><mml:msup><mml:mi>τ</mml:mi><mml:mn>1</mml:mn></mml:msup></mml:mfrac></mml:mrow></mml:mfenced><mml:mo linebreak="goodbreak">+</mml:mo><mml:msub><mml:mi>C</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mi>e</mml:mi><mml:mi>x</mml:mi><mml:mi>p</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mo linebreak="badbreak">−</mml:mo><mml:mfrac><mml:mrow><mml:mi mathvariant="normal">Δ</mml:mi><mml:mi>t</mml:mi></mml:mrow><mml:msup><mml:mi>τ</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mfrac></mml:mrow></mml:mfenced></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where τ<sub>1</sub> and τ<sub>2</sub> are the characteristic relaxation times, and C<sub>1</sub> and C<sub>2</sub> represent the initial facilitation magnitudes. Curve fitting yields C<sub>1</sub> = 0.0984, C<sub>2</sub> = 0.0416, τ<sub>1</sub> = 0.02 s, and τ<sub>2</sub> = 9.766 s. The fitted dual time constants indicate a biphasic decay, with the fast component (τ₁) associated with STP and the ultralong component (τ<sub>2</sub>) linked to long‐term plasticity LTP mechanisms. These values (C<sub>1</sub>/C<sub>2</sub> ≈ 2.37) indicate suitability for high‐speed pulse processing while retaining long‐term charge memory, validating the nonlinear, time‐dependent response of the synaptic device.</p><p>The dynamic behavior of the capacitive synaptic device is investigated through experiments together with numerical simulations, as illustrated in Figure <xref rid="advs74068-fig-0002" ref-type="fig">2d–g</xref>. Four representative pulse sequences are applied to the fabricated device, and the corresponding synaptic responses are compared with model predictions. In each black‐and‐white pixel pattern of Figure <xref rid="advs74068-fig-0002" ref-type="fig">2d–g</xref>, the time duration per pixel is 100 ms; a black pixel corresponds to V<sub>IN</sub> = 4 V, whereas a white pixel denotes no excitation. The synaptic kernel is simulated using Weiss mean‐field theory combined with an empirical polarization transient‐switching model (see Note <xref rid="advs74068-supinfo-0001" ref-type="">S4</xref> in the Supplementary Information). The computed V<sub>OUT</sub> values match the experimentally measured responses across all tested pulse patterns.</p></sec><sec id="advs74068-sec-0050"><label>2.3</label><title>Reservoir Computing for Biosignal Classification</title><p>The strong consistency between experimental measurements and numerical predictions supports extending the model to evaluate system‐level performance under more complex temporal tasks. Figure <xref rid="advs74068-fig-0003" ref-type="fig">3</xref> presents an example in which the HZO synaptic device is used for electrocardiogram (ECG) interpretation.</p><fig position="float" fig-type="FIGURE" id="advs74068-fig-0003" orientation="portrait"><label>FIGURE 3</label><caption><p>Bio‐Inspired Reservoir Computing for ECG Arrhythmia Classification and Edge‐Health Monitoring. (a) Schematic illustrating the use of the HZO‐based synaptic device for cardiac signal interpretation. (b) Input ECG waveform. (c) Converted voltage input. (d) Output voltage of the synaptic device. (e) Accuracy of LSTM vs. RC. (f) RC accuracy for different arrhythmia subtypes. (g) LSTM accuracy for different arrhythmia subtypes.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="ADVS-13-e23654-g002.jpg"/></fig><p>ECG is widely used to monitor cardiac electrical activity using wearable platforms such as smartwatches and biosensing patches [<xref rid="advs74068-bib-0041" ref-type="bibr">41</xref>, <xref rid="advs74068-bib-0042" ref-type="bibr">42</xref>]. These devices are particularly valuable for detecting arrhythmias, a common cardiac disorder.Standard classifications of arrhythmias include normal heartbeat (N), atrial premature beats (A), ventricular premature beats (V), left bundle branch block (L), and right bundle branch block (R) (Figure <xref rid="advs74068-fig-0003" ref-type="fig">3a</xref>) [<xref rid="advs74068-bib-0043" ref-type="bibr">43</xref>]. Conventional diagnosis pipelines often rely on recurrent neural network (RNN) or long short‐term memory (LSTM) architectures to achieve high classification accuracy [<xref rid="advs74068-bib-0044" ref-type="bibr">44</xref>]. However, these models are computationally expensive, require large training datasets, and become impractical for low‐power edge hardware [<xref rid="advs74068-bib-0045" ref-type="bibr">45</xref>]. Reservoir computing (RC), as an energy‐efficient RNN variant, is therefore well suited for biosignal processing [<xref rid="advs74068-bib-0046" ref-type="bibr">46</xref>].</p><p>The RC architecture comprises an input layer, a nonlinear reservoir layer, and a readout layer (Figure <xref rid="advs74068-fig-0003" ref-type="fig">3a</xref>). The reservoir consists of randomly connected nonlinear nodes that project the temporal inputs into a high‐dimensional state space essential for classification [<xref rid="advs74068-bib-0047" ref-type="bibr">47</xref>]. Arrhythmia classification was carried out using the MIT‐BIH arrhythmia database, a widely used benchmark containing long‐duration ECG recordings [<xref rid="advs74068-bib-0048" ref-type="bibr">48</xref>]. The reservoir states are optimized using randomly selected points on the decay curve as reservoir states. These points are mainly used for the inherent charge de‐trapping and depolarization effects of the device to optimize the individual nodes on the ground on the decay curve, instead of simply setting the states to ±1. The raw ECG input signal is linearly converted into a 4 V amplitude voltage signal following wavelet denoising, feature extraction, and decay‐memory‐based masking (see Figure <xref rid="advs74068-supinfo-0001" ref-type="">S</xref>6 in the Supplementary Information). Each processed input subsequently produces a 40‐point voltage burst, which is used as V<sub>IN</sub> and fed into the synaptic device through the empirical device model in the simulation. The V<sub>OUT</sub> signal is then post‐processed via 40‐point interval sampling to generate the final system output for all reservoir states. The dataset is subsequently randomized for cross‐validation of the system model (see Supplementary Material Note <xref rid="advs74068-supinfo-0001" ref-type="">S7</xref> for details), and the reservoir states are analyzed using linear regression on the training weights to determine the error between the network output and the target classification labels. Notably, the procedure requires only a single linear regression step throughout the entire workflow, underscoring its simplicity and computational efficiency for lightweight temporal classification tasks. The proposed device model achieves a classification accuracy of 98.99% for ECG data from the MIT‐BIH database (Figure <xref rid="advs74068-fig-0003" ref-type="fig">3f</xref>), confirming the excellent data‐processing capability of the BTO/HZO/BTO film‐based energy storage architecture. For comparison, an LSTM model trained under identical conditions (see Note <xref rid="advs74068-supinfo-0001" ref-type="">S7</xref> and Note <xref rid="advs74068-supinfo-0001" ref-type="">S9</xref> in the Supplementary Materials) achieves 99.32% accuracy (Figure <xref rid="advs74068-fig-0003" ref-type="fig">3g</xref>). Although both the LSTM and RC confusion matrices show high recognition accuracy across the five ECG classes, the training time per epoch for the LSTM is substantially longer, and its operational complexity is considerably higher than that of the proposed energy storage model. This efficiency gap originates from the fundamental difference in training paradigms. The RC system requires only a single linear regression step on the reservoir states, while the LSTM relies on iterative backpropagation through time. Our simulations show that this leads to a reduction in training time by over an order of magnitude and a reduction in trainable parameters by more than two orders of magnitude for the RC approach. Complementing this algorithmic efficiency, the synaptic device itself exhibits exceptional energy characteristics. The device operates with an ultralow leakage current of ∼2.5 × 10<sup>−11</sup> A at 3.0 V(Supplementary Note <xref rid="advs74068-supinfo-0001" ref-type="">S5</xref>) which yields to an energy consumption of ∼60 fJ per synaptic event, consistent with the literature [<xref rid="advs74068-bib-0046" ref-type="bibr">46</xref>]. The synergy between simplified algorithmic training and inherently low hardware energy consumption establishes the BTO/HZO/BTO‐based synaptic platform as a highly promising candidate for resource‐constrained, low‐power edge computing applications.</p></sec><sec id="advs74068-sec-0060"><label>2.4</label><title>Reservoir Computing for Image Recognition</title><p>To further validate applicability of the flexible HZO synaptic device in visual perception tasks, handwritten digit recognition was performed using the Modified National Institute of Standards and Technology (MNIST) dataset. The original dataset contains 70,000 black‐and‐white handwritten digit images, each sized 128 × 128 pixels, representing the digits 0–9. After normalization and resizing, the images are converted into 28 × 28 grayscale format containing 784 pixels (see Note <xref rid="advs74068-supinfo-0001" ref-type="">S8</xref> in the Supplementary Materials). This representation is widely used for benchmarking hardware‐efficient computing architectures and is ideal for evaluating low‐power synaptic devices.</p><p>During verification, handwritten digits 6 and 8 were randomly selected to visually illustrate the preprocessing workflow. First, the original 128 × 128 grayscale images were converted into 28 × 28 grayscale format while preserving the handwritten proportions and centering the digit within the frame (Figure <xref rid="advs74068-fig-0004" ref-type="fig">4a</xref>). The pixel values were then normalized to the range (0, 1) and mapped to pulse sequences, where distinct grayscale intensities generate diverse signal states (Figure <xref rid="advs74068-fig-0004" ref-type="fig">4b</xref>). These normalized values were subsequently transformed into 4 V voltage signals via linear scaling. After multiplication with a mask matrix of size 784 × 280, each image produced a voltage pulse train of 280 points (pulse width = 50 ms, pulse interval = 50 ms) (Figure <xref rid="advs74068-fig-0004" ref-type="fig">4c</xref>). The preprocessed signal was then applied to the HZO‐based synaptic device model as V<sub>in</sub>, and following post‐processing using ML (ML = 280) interval sampling, the resulting V<sub>out</sub> values were collected as the final reservoir states. Each training epoch updates the effective reservoir representation by leveraging the intrinsic charge trapping and depolarization behavior of the device.</p><fig position="float" fig-type="FIGURE" id="advs74068-fig-0004" orientation="portrait"><label>FIGURE 4</label><caption><p>Visual Pattern Recognition via Reservoir Computing on the MNIST Dataset. (a) Example 28 × 28 grayscale images of handwritten digits 6 and 8. (b) Corresponding voltage inputs normalized to 0–1 V. (c) Linear transformation of the inputs.(d) Output responses from the HZO‐based synaptic device. (e) Recognition accuracy of RC vs. LSTM.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="ADVS-13-e23654-g005.jpg"/></fig><p>In handwritten digit classification on the MNIST dataset, the device‐based model achieved an accuracy of 81.67% on the test set (Figure <xref rid="advs74068-fig-0004" ref-type="fig">4e</xref>), demonstrating efficient image‐processing capability. Under identical preprocessing and using a two‐layer fully connected readout for comparison, a conventional LSTM model (Figure <xref rid="advs74068-supinfo-0001" ref-type="">S7</xref>) reached 84.33% accuracy (Figure <xref rid="advs74068-fig-0004" ref-type="fig">4f</xref>), as expected. Although both approaches exhibit comparable recognition rates, the LSTM requires significantly longer processing time, whereas the device‐based reservoir model executes the computation more rapidly. This faster response highlights its advantage in feature extraction under high‐throughput conditions, improving the data‐handling efficiency of downstream neural networks.</p></sec></sec><sec id="advs74068-sec-0070"><label>3</label><title>Conclusion</title><p>To summarize, a freestanding BTO/HZO/BTO film was successfully synthesized using PLD via a water‐assisted exfoliation technique that utilizes the rapid dissolution of an SAO sacrificial layer and the multifunctional BTO buffers. High‐resolution electron microscopy, X‐ray diffraction, and electrical transport measurements confirm high sample crystallinity and stable ferroelectric switching. The freestanding film is prepared using the water‐soluble SAO sacrificial layer and can be transferred onto rigid or flexible substrates, as well as integrated with other 2D material systems. A BTO/HZO/BTO FEFET was fabricated to demonstrate its neuromorphic functionality, exhibiting robust ferroelectricity down to millivolt operation. System‐level simulations confirm that the simplified RC training, combined with the device's low energy consumption (∼60 fJ/event), achieves high classification accuracy with drastically lower computational overhead than LSTM networks. On the other hand, the dynamics of the BTO/HZO/BTO may need further examination for future study. The results in this work advance the convergence of flexible electronics with oxide ferroelectrics and open a pathway toward high‐performance energy‐efficient synaptic devices based on transferable oxide heterostructures.</p></sec><sec id="advs74068-sec-0080"><label>4</label><title>Materials and Methods</title><sec id="advs74068-sec-0090"><label>4.1</label><title>Target Preparation and Thin Film Deposition</title><p>SAO targets were fabricated by mixing SrCO<sub>3</sub> and Al<sub>2</sub>O<sub>3</sub> powders via conventional solid‐state synthesis followed by sintering at 1300°C for 24 h. STO substrates were surface‐treated using HF and annealed at 1050°C to ensure single‐layer TiO<sub>2</sub> termination before epitaxial growth.</p></sec><sec id="advs74068-sec-0100"><label>4.2</label><title>Film Deposition</title><p>HZO films (40 nm thick) capped by a 10 nm BTO buffer layer were deposited onto (110)‐oriented SrTiO<sub>3</sub> substrates using a pulsed laser deposition (PLD) system equipped with a COMPex 201 KrF excimer laser (λ = 248 nm) from Coherent Inc. The laser fluence was maintained at 2 J/cm<sup>2</sup> for Sr<sub>4</sub>Al<sub>2</sub>O<sub>7</sub> and 1.3 J/cm<sup>2</sup> for Hf<sub>0</sub>․<sub>5</sub>Zr<sub>0</sub>․<sub>5</sub>O<sub>2</sub>, with oxygen partial pressures of 5.7 × 10<sup>−5</sup> mbar and 0.1 mbar, respectively. BTO growth was carried out at 0.03 mbar oxygen pressure with a fluence of 1.25 J/cm<sup>2</sup>. The pulse rate was 2 Hz for all targets, and the substrate temperature remained at 750°C. Film growth was tracked in situ by RHEED, and samples were cooled to room temperature at 10°C/min under 200 mbar oxygen.</p></sec><sec id="advs74068-sec-0110"><label>4.3</label><title>Film Transfer and Device Fabrication</title><p>To preserve film integrity, a PDMS protective layer was spin‐coated onto the HZO film before immersion in deionized water to dissolve the SAO layer. The released films were then transferred to SiO<sub>2</sub>/Si, PDMS, or polyethylene terephthalate (PET) substrates. Prior to transfer, SiO<sub>2</sub>/Si substrates were cleaned ultrasonically in acetone, isopropanol, and deionized water for 15 min each. Gold top electrodes (40 nm) were deposited by thermal evaporation and patterned by photolithography with channel dimensions of 400 µm (width) × 80 µm (length).</p></sec><sec id="advs74068-sec-0120"><label>4.4</label><title>Sample Characterization and Electrical Measurements</title><p>Crystal structure analysis was performed using an X‐ray diffractometer (XRD, Panalytical X'Pert MRD). For cross‐sectional analysis, samples were prepared via the conventional lift‐out method using a focused ion beam scanning electron microscope (FIB‐SEM, Carl Zeiss Crossbeam 550L) operated at 30 kV. Atomic‐scale microstructure, integrated differential phase contrast (iDPC) imaging, and elemental mapping were conducted at 300 kV using a probe‐corrected Thermo Fisher Scientific Themis Z scanning transmission electron microscope (STEM). The system was equipped with a high‐sensitivity energy‐dispersive X‐ray spectroscopy (EDS) detector and a four‐segment DF4 detector. The imaging conditions included a convergence semi‐angle of 25 mrad, with collection semi‐angles of 50–200 mrad for high‐angle annular dark‐field (HAADF) imaging and 8–42 mrad for iDPC. All electrical measurements were performed with a Keithley 4200 source meter in a probe station under ambient conditions.</p></sec></sec><sec id="advs74068-sec-0140"><title>Funding</title><p>This work is supported by the National Natural Science Foundation of China (grant No. 12574033, 12204068, 12474125, 52172126 and12204523), the Natural Science Foundation of Jiangsu Province (grant No. BK20220616), the China Postdoctoral Science Foundation (grant No. 2024M753261 and 2025T180149), and the Natural Science Research of Jiangsu Higher Education Institutions of China (grant No. 22KJB140001).</p></sec><sec sec-type="COI-statement" id="advs74068-sec-0150"><title>Conflicts of Interest</title><p>The authors declare no conflicts of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="advs74068-supinfo-0001" position="float" content-type="local-data" orientation="portrait"/><supplementary-material id="advs74068-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File</bold>: advs74068‐sup‐0001‐SuppMat.docx.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e23654-s001.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="advs74068-sec-0130"><title>Acknowledgements</title><p>This work is supported by the National Natural Science Foundation of China (grant No. 12574033, 12204068, 12474125, 52172126 and, 12204523), the Natural Science Foundation of Jiangsu Province (grant No. BK20220616), the China Postdoctoral Science Foundation (grant No. 2024M753261 and 2025T180149), and the Natural Science Research of Jiangsu Higher Education Institutions of China (grant No. 22KJB140001). H.Z. acknowledges support from the Postdoc Research Program in Hefei province. L. H. acknowledges support from the International Partnership Program of the Chinese Academy of Sciences (grant No. 145GJHZ2022044MI) and the Basic Research Program of the Chinese Academy of Sciences based on Major Scientific Infrastructures (grant No. JZHKYPT‐2021–08). M.Z., X. L., Z. H., C. S. acknowledge support from the Postgraduate Research &amp; Practice Innovation Program of Jiangsu Province. The authors thank Prof. Dongsheng Song from the Institutes of Physical Science and Information Technology, Anhui University (Hefei 230601, China) for the assistance with the scanning transmission electron microscopy (STEM) measurements; Dr. Shen Li from Changzhou University for the discussion about the bending test.</p></ack><sec sec-type="data-availability" id="advs74068-sec-0170"><title>Data Availability Statement</title><p>The data that support the findings of this study are available from the corresponding author upon reasonable request.</p></sec><ref-list id="advs74068-bibl-0001"><title>References</title><ref id="advs74068-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="advs74068-cite-0001">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Someya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Bao</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>G. G.</given-names>
+<surname>Malliaras</surname>
+</string-name>, “<article-title>The Rise of Plastic Bioelectronics</article-title>,” <source>Nature</source>
+<volume>540</volume> (<year>2016</year>): <fpage>379</fpage>–<lpage>385</lpage>.<pub-id pub-id-type="pmid">27974769</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nature21004</pub-id></mixed-citation></ref><ref id="advs74068-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="advs74068-cite-0002">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Someya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Sekitani</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Iba</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Kato</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Kawaguchi</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Sakurai</surname>
+</string-name>, “<article-title>A Large‐area, Flexible Pressure Sensor Matrix with Organic Field‐effect Transistors for Artificial Skin Applications</article-title>,” <source>Proceedings of the National Academy of Sciences</source>
+<volume>101</volume> (<year>2004</year>): <fpage>9966</fpage>–<lpage>9970</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1073/pnas.0401918101</pub-id><pub-id pub-id-type="pmcid">PMC454198</pub-id><pub-id pub-id-type="pmid">15226508</pub-id></mixed-citation></ref><ref id="advs74068-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="advs74068-cite-0003">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Ouyang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Guo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Guo</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liu</surname>
+</string-name>, “<article-title>Advances in flexible organic field‐effect transistors and their applications for flexible electronics</article-title>,” <source>npj Flex Electron</source>
+<volume>6</volume> (<year>2022</year>): <fpage>1</fpage>.</mixed-citation></ref><ref id="advs74068-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="advs74068-cite-0004">
+<string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Xie</surname>
+</string-name>, et al., “<article-title>Flexible Silk‐Fibroin‐Based Electroluminescent Fiber with External‐Field‐Driven Touch Response and Triboelectric Sensing for Smart Wearables</article-title>,” <source>Advanced Functional Materials</source> (<year>2025</year>): <elocation-id>e14650</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="advs74068-cite-0005">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W. R.</given-names>
+<surname>Leow</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Chen</surname>
+</string-name>, “<article-title>Nature‐inspired Structural Materials for Flexible Electronic Devices</article-title>,” <source>Chemical Reviews</source>
+<volume>117</volume> (<year>2017</year>): <fpage>12893</fpage>–<lpage>12941</lpage>.<pub-id pub-id-type="pmid">28991450</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.chemrev.7b00291</pub-id></mixed-citation></ref><ref id="advs74068-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="advs74068-cite-0006">
+<string-name name-style="western">
+<given-names>Y. S.</given-names>
+<surname>Rim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.‐H.</given-names>
+<surname>Bae</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>De Marco</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yang</surname>
+</string-name>, “<article-title>Recent Progress in Materials and Devices toward Printable and Flexible Sensors</article-title>,” <source>Advanced Materials</source>
+<volume>28</volume> (<year>2016</year>): <fpage>4415</fpage>–<lpage>4440</lpage>.<pub-id pub-id-type="pmid">26898945</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.201505118</pub-id></mixed-citation></ref><ref id="advs74068-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="advs74068-cite-0007">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Fu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Sun</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Peng</surname>
+</string-name>, “<article-title>Flexible Solar Cells Based on Carbon Nanomaterials</article-title>,” <source>Carbon</source>
+<volume>139</volume> (<year>2018</year>): <fpage>1063</fpage>–<lpage>1073</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="advs74068-cite-0008">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Sun</surname>
+</string-name> and <string-name name-style="western">
+<given-names>J. A.</given-names>
+<surname>Rogers</surname>
+</string-name>, “<article-title>Inorganic Semiconductors for Flexible Electronics</article-title>,” <source>Advanced Materials</source>
+<volume>19</volume> (<year>2007</year>): <fpage>1897</fpage>–<lpage>1916</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="advs74068-cite-0009">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Dong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Yao</surname>
+</string-name>, et al., “<article-title>Super‐elastic Ferroelectric Single‐crystal Membrane with Continuous Electric Dipole Rotation</article-title>,” <source>Science</source>
+<volume>366</volume> (<year>2019</year>): <fpage>475</fpage>–<lpage>479</lpage>.<pub-id pub-id-type="pmid">31649196</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.aay7221</pub-id></mixed-citation></ref><ref id="advs74068-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="advs74068-cite-0010">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Guo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Peng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Lu</surname>
+</string-name>, et al., “<article-title>Remarkable Flexibility in Freestanding Single‐crystalline Antiferroelectric PbZrO<sub>3</sub> Membranes</article-title>,” <source>Nature Communications</source>
+<volume>15</volume> (<year>2024</year>): <fpage>4414</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-024-47419-w</pub-id><pub-id pub-id-type="pmcid">PMC11116490</pub-id><pub-id pub-id-type="pmid">38782889</pub-id></mixed-citation></ref><ref id="advs74068-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="advs74068-cite-0011">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Wang</surname>
+</string-name>, et al., “<article-title>Super‐Tetragonal Sr<sub>4</sub>Al<sub>2</sub>O<sub>7</sub> as a Sacrificial Layer for High‐Integrity Freestanding Oxide Membranes</article-title>,” <source>Science</source>
+<volume>383</volume> (<year>2024</year>): <fpage>388</fpage>–<lpage>394</lpage>.<pub-id pub-id-type="pmid">38271502</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.adi6620</pub-id></mixed-citation></ref><ref id="advs74068-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="advs74068-cite-0012">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Nomura</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Ohta</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Takagi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Kamiya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hirano</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Hosono</surname>
+</string-name>, “<article-title>Room‐Temperature Fabrication of Transparent Flexible Thin‐Film Transistors Using Amorphous Oxide Semiconductors</article-title>,” <source>Nature</source>
+<volume>432</volume> (<year>2004</year>): <fpage>488</fpage>–<lpage>492</lpage>.<pub-id pub-id-type="pmid">15565150</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nature03090</pub-id></mixed-citation></ref><ref id="advs74068-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="advs74068-cite-0013">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhao</surname>
+</string-name>, et al., “<article-title>A Robust High‐Performance Electronic Synapse Based on Epitaxial Ferroelectric Hf<sub>0.5</sub>Zr<sub>0.5</sub>O<sub>2</sub> Films with Uniform Polarization and High Curie Temperature</article-title>,” <source>Applied Materials Today</source>
+<volume>29</volume> (<year>2022</year>): <elocation-id>101587</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="advs74068-cite-0014">
+<string-name name-style="western">
+<given-names>X.‐F.</given-names>
+<surname>Luo</surname>
+</string-name>, et al., “<article-title>Interface Engineering in Optoelectronic Hafnium Oxide‐based Heterojunction Synaptic Device for Neuromorphic Computing</article-title>,” <source>Journal of Colloid and Interface Science</source>
+<volume>704</volume> (<year>2025</year>): <elocation-id>139324</elocation-id>.<pub-id pub-id-type="pmid">41151255</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jcis.2025.139324</pub-id></mixed-citation></ref><ref id="advs74068-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="advs74068-cite-0015">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yao</surname>
+</string-name>, et al., “<article-title>HfO<sub>2</sub>‐Based Ferroelectric Optoelectronic Memcapacitors</article-title>,” <source>IEEE Electron Device Letters</source>
+<volume>44</volume> (<year>2023</year>): <fpage>524</fpage>–<lpage>527</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="advs74068-cite-0016">
+<string-name name-style="western">
+<given-names>J.‐D.</given-names>
+<surname>Luo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐Y.</given-names>
+<surname>Lai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.‐Y.</given-names>
+<surname>Hsiang</surname>
+</string-name>, et al., “<article-title>Atomic Layer Deposition Plasma‐based Undoped‐HfO<sub>2</sub> Ferroelectric FETs for Non‐Volatile Memory</article-title>,” <source>IEEE Electron Device Letters</source>
+<volume>42</volume> (<year>2021</year>): <fpage>1152</fpage>–<lpage>1155</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="advs74068-cite-0017">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Peng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Xiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Hao</surname>
+</string-name>, “<article-title>Synaptic Behaviors in Ferroelectric‐Like Field‐Effect Transistors with Ultrathin Amorphous HfO<sub>2</sub> Film</article-title>,” <source>Nanoscale Research Letters</source>
+<volume>17</volume> (<year>2022</year>): <fpage>17</fpage>.<pub-id pub-id-type="pmid">35072820</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s11671-022-03655-x</pub-id><pub-id pub-id-type="pmcid">PMC8787020</pub-id></mixed-citation></ref><ref id="advs74068-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="advs74068-cite-0018">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Wang</surname>
+</string-name>, et al., “<article-title>Bridging Machine Learning and Neuroscience with a Silicon Nanosheet Neuromorphic Device</article-title>,” <source>Cell Reports Physical Science</source>
+<volume>6</volume> (<year>2025</year>): <elocation-id>102915</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="advs74068-cite-0019">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Ahmad</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Kim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Ahmad</surname>
+</string-name>, et al., “<article-title>Interface‐Driven Performance Boost in NbO<sub>x</sub>/V<sub>2</sub>O<sub>5</sub> Bilayer Memristors for next‐generation Neuromorphic Systems</article-title>,” <source>Materials Today Nano</source>
+<volume>32</volume> (<year>2025</year>): <elocation-id>100706</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="advs74068-cite-0020">
+<string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Tzouvadaki</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Gkoupidenis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Vassanelli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Wang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Prodromakis</surname>
+</string-name>, “<article-title>Interfacing Biology and Electronics with Memristive Materials</article-title>,” <source>Advanced Materials</source>
+<volume>35</volume> (<year>2023</year>): <elocation-id>2210035</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202210035</pub-id><pub-id pub-id-type="pmid">36829290</pub-id></mixed-citation></ref><ref id="advs74068-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="advs74068-cite-0021">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Václavek</surname>
+</string-name>, et al., “<article-title>Mechanical and Optical Properties of HfO<sub>2</sub> Thin Films Prepared by Evaporation with Ion‐Assisted Deposition</article-title>,” <source>Materials Today Communications</source>
+<volume>49</volume> (<year>2025</year>): <elocation-id>114125</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0022"><label>22</label><mixed-citation publication-type="miscellaneous" id="advs74068-cite-0022">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kruv</surname>
+</string-name>, “<article-title>Impact of Mechanical Strain on Wakeup of HfO<sub>2</sub> Ferroelectric Memory</article-title>,” in <article-title>
+2021 IEEE International Reliability Physics Symposium (IRPS)
+</article-title> (<year>2021</year>), <fpage>1</fpage>–<lpage>6</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="advs74068-cite-0023">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Banerjee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kashir</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Kamba</surname>
+</string-name>, “<article-title>Hafnium Oxide (HfO<sub>2</sub> ) – A Multifunctional Oxide: A Review on the Prospect and Challenges of Hafnium Oxide in Resistive Switching and Ferroelectric Memories</article-title>,” <source>Small</source>
+<volume>18</volume> (<year>2022</year>): <elocation-id>2107575</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/smll.202107575</pub-id><pub-id pub-id-type="pmid">35510954</pub-id></mixed-citation></ref><ref id="advs74068-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="advs74068-cite-0024">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Zhang</surname>
+</string-name>, et al., “<article-title>Large‐Scale Hf 0.5 Zr 0.5 O<sub>2</sub> Membranes with Robust Ferroelectricity</article-title>,” <source>Advanced Materials</source>
+<volume>34</volume> (<year>2022</year>): <elocation-id>2109889</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202109889</pub-id><pub-id pub-id-type="pmid">35397192</pub-id></mixed-citation></ref><ref id="advs74068-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="advs74068-cite-0025">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Song</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Lenzi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. P. B.</given-names>
+<surname>Silva</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Marques</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Fina</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Sánchez</surname>
+</string-name>, “<article-title>Disentangling Stress and Strain Effects in Ferroelectric HfO<sub>2</sub>
+</article-title>,” <source>Applied Physics Reviews</source>
+<volume>10</volume> (<year>2023</year>): <elocation-id>041415</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="advs74068-cite-0026">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Acker</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Koschwitz</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Meinel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Heinemann</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Blocks</surname>
+</string-name>, “<article-title>HF/HNO<sub>3</sub> Etching of the Saw Damage</article-title>,” <source>Energy Procedia</source>
+<volume>38</volume> (<year>2013</year>): <fpage>223</fpage>–<lpage>233</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="advs74068-cite-0027">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Badillo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Taleb</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Mokabber</surname>
+</string-name>, et al., “<article-title>Low‐Toxicity Chemical Solution Deposition of Ferroelectric ca:HfO<sub>2</sub>
+</article-title>,” <source>Journal of Materials Chemistry C</source>
+<volume>11</volume> (<year>2023</year>): <fpage>1119</fpage>–<lpage>1133</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="advs74068-cite-0028">
+<string-name name-style="western">
+<given-names>K.‐I.</given-names>
+<surname>Park</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liu</surname>
+</string-name>, et al., “<article-title>Flexible Nanocomposite Generator Made of BaTiO<sub>3</sub> Nanoparticles and Graphitic Carbons</article-title>,” <source>Advanced Materials</source>
+<volume>24</volume> (<year>2012</year>): <fpage>2999</fpage>–<lpage>3004</lpage>.<pub-id pub-id-type="pmid">22549998</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.201200105</pub-id></mixed-citation></ref><ref id="advs74068-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="advs74068-cite-0029">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Tobase</surname>
+</string-name>, et al., “<article-title>Pre‐transitional Behavior in Tetragonal to Cubic Phase Transition in HfO<sub>2</sub> Revealed by High Temperature Diffraction Experiments</article-title>,” <source>physica status solidi (b)</source>
+<volume>255</volume>, (<year>2018</year>): <elocation-id>1800090</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="advs74068-cite-0030">
+<string-name name-style="western">
+<given-names>C. E.</given-names>
+<surname>Curtis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. M.</given-names>
+<surname>Doney</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. R.</given-names>
+<surname>Johnson</surname>
+</string-name>, “<article-title>Some Properties of Hafnium Oxide, Hafnium Silicate, Calcium Hafnate, and Hafnium Carbide</article-title>,” <source>Journal of the American Ceramic Society</source>
+<volume>37</volume> (<year>1954</year>): <fpage>458</fpage>–<lpage>465</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="advs74068-cite-0031">
+<string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Ohtaka</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Fukui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Kunisada</surname>
+</string-name>, et al., “<article-title>Phase Relations and Volume Changes of hafnia under High Pressure and High Temperature</article-title>,” <source>Journal of the American Ceramic Society</source>
+<volume>84</volume> (<year>2001</year>): <fpage>1369</fpage>–<lpage>1373</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="advs74068-cite-0032">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Cho</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Pujar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Choi</surname>
+</string-name>, et al., “<article-title>Expeditiously Crystallized Pure Orthorhombic‐Hf0.5Zr0.5O<sub>2</sub> for Negative Capacitance Field Effect Transistors</article-title>,” <source>ACS Applied Materials, Interfaces</source>
+<volume>13</volume> (<year>2021</year>): <fpage>60250</fpage>–<lpage>60260</lpage>.<pub-id pub-id-type="pmid">34894665</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsami.1c21387</pub-id></mixed-citation></ref><ref id="advs74068-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="advs74068-cite-0033">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Mattelaer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Geryl</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Rampelberg</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Dobbelaere</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Dendooven</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Detavernier</surname>
+</string-name>, “<article-title>Atomic Layer Deposition of Vanadium Oxides for Thin‐film Lithium‐ion Battery Applications</article-title>,” <source>RSC Advances</source>
+<volume>6</volume> (<year>2016</year>): <fpage>114658</fpage>–<lpage>114665</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="advs74068-cite-0034">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Materlik</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Künneth</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kersch</surname>
+</string-name>, “<article-title>The Origin of Ferroelectricity in Hf<sub>1−x</sub>Zr<sub>x</sub>O<sub>2</sub>: A Computational Investigation and a Surface Energy Model</article-title>,” <source>Journal of Applied Physics</source>
+<volume>117</volume> (<year>2015</year>): <elocation-id>134109</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="advs74068-cite-0035">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Müller</surname>
+</string-name>, et al., “<article-title>Ferroelectricity in Simple Binary ZrO<sub>2</sub> and HfO<sub>2</sub>
+</article-title>,” <source>Nano Letters</source>
+<volume>12</volume> (<year>2012</year>): <fpage>4318</fpage>–<lpage>4323</lpage>.<pub-id pub-id-type="pmid">22812909</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/nl302049k</pub-id></mixed-citation></ref><ref id="advs74068-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="advs74068-cite-0036">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Müller</surname>
+</string-name>, et al., “<article-title>Ferroelectricity in Yttrium‐Doped Hafnium Oxide</article-title>,” <source>Journal of Applied Physics</source>
+<volume>110</volume> (<year>2011</year>): <elocation-id>114113</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="advs74068-cite-0037">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Hond</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Rijnders</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Koster</surname>
+</string-name>, “<article-title>Synthesis of Rhombohedral Hf0.5Zr0.5O<sub>2</sub> and Analysis by X‐Ray Diffraction through Dynamical Diffraction Simulations</article-title>,” <source>Materials Advances</source>
+<volume>5</volume> (<year>2024</year>): <fpage>7342</fpage>–<lpage>7348</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="advs74068-cite-0038">
+<string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Lv</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Xue</surname>
+</string-name>, et al., “<article-title>Phase Stability and Phase Transition Pathways in the Rhombohedral Phase of HfO<sub>2</sub>
+</article-title>,” <source>The Journal of Physical Chemistry Letters</source>
+<volume>15</volume> (<year>2024</year>): <fpage>9319</fpage>–<lpage>9325</lpage>.<pub-id pub-id-type="pmid">39235872</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.jpclett.4c02019</pub-id></mixed-citation></ref><ref id="advs74068-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="advs74068-cite-0039">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Tong</surname>
+</string-name>, et al., “<article-title>Reconfigurable Dielectric Engineered WSe<sub>2</sub>/HZO Mem‐Transistor</article-title>,” <source>2D Materials</source>
+<volume>11</volume> (<year>2024</year>): <elocation-id>045012</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="advs74068-cite-0040">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Kho</surname>
+</string-name>, et al., “<article-title>Maximizing the Synaptic Efficiency of Ferroelectric Tunnel Junction Devices Using a Switching Mechanism Hidden in an Identical Pulse Programming Learning Scheme</article-title>,” <source>Advanced Intelligent Systems</source>
+<volume>6</volume> (<year>2024</year>): <elocation-id>2400211</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="advs74068-cite-0041">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Xue</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Gai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Liu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Li</surname>
+</string-name>, “<article-title>Wearable Mechanical and Electrochemical Sensors for Real‐time Health Monitoring</article-title>,” <source>Communications Materials</source>
+<volume>5</volume> (<year>2024</year>): <fpage>1</fpage>–<lpage>7</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="advs74068-cite-0042">
+<string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Khan</surname>
+</string-name>, et al., “<article-title>Electrospun Nanofibers for Wearable Cardiovascular Health Monitoring</article-title>,” <source>Journal of Science: Advanced Materials and Devices</source>
+<volume>10</volume> (<year>2025</year>): <elocation-id>101030</elocation-id>.</mixed-citation></ref><ref id="advs74068-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="advs74068-cite-0043">
+<string-name name-style="western">
+<given-names>N. F.</given-names>
+<surname>Banks</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. T.</given-names>
+<surname>Robinson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. W.</given-names>
+<surname>Wray</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Bunsawat</surname>
+</string-name>, “<article-title>Beyond the QT Interval: How QT/RR Hysteresis May Reveal a Sex‐dependent Hidden Risk for Cardiac Arrhythmias</article-title>,” <source>American Journal of Physiology‐Heart and Circulatory Physiology</source>
+<volume>329</volume> (<year>2025</year>): <fpage>H1006</fpage>–<lpage>H1009</lpage>.<pub-id pub-id-type="pmid">40960945</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/ajpheart.00699.2025</pub-id><pub-id pub-id-type="pmcid">PMC12512364</pub-id></mixed-citation></ref><ref id="advs74068-bib-0044"><label>44</label><mixed-citation publication-type="journal" id="advs74068-cite-0044">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Çınar</surname>
+</string-name> and <string-name name-style="western">
+<given-names>S. A.</given-names>
+<surname>Tuncer</surname>
+</string-name>, “<article-title>Classification of Normal Sinus Rhythm, Abnormal Arrhythmia and Congestive Heart Failure ECG Signals Using LSTM and Hybrid CNN‐SVM Deep Neural Networks</article-title>,” <source>Computer Methods in Biomechanics and Biomedical Engineering</source>
+<volume>24</volume> (<year>2021</year>): <fpage>203</fpage>–<lpage>214</lpage>.<pub-id pub-id-type="pmid">32955928</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1080/10255842.2020.1821192</pub-id></mixed-citation></ref><ref id="advs74068-bib-0045"><label>45</label><mixed-citation publication-type="book" id="advs74068-cite-0045">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Lei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Dai</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Artzi</surname>
+</string-name>, “<article-title>Simple Recurrent Units for Highly Parallelizable Recurrence</article-title>,” in <article-title>Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing</article-title> (<publisher-name>Association for Computational Linguistics</publisher-name>, <year>2018</year>), <fpage>4470</fpage>–<lpage>4481</lpage>.</mixed-citation></ref><ref id="advs74068-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="advs74068-cite-0046">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Pei</surname>
+</string-name>, et al., “<article-title>Energy‐Efficient Reservoir Computing Based on Solution‐processed Electrolyte/Ferroelectric Memcapacitive Synapses for Biosignal Classification</article-title>,” <source>The Journal of Physical Chemistry Letters</source>
+<volume>15</volume> (<year>2024</year>): <fpage>8501</fpage>–<lpage>8509</lpage>.<pub-id pub-id-type="pmid">39133786</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.jpclett.4c01896</pub-id></mixed-citation></ref><ref id="advs74068-bib-0047"><label>47</label><mixed-citation publication-type="journal" id="advs74068-cite-0047">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Pei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Liu</surname>
+</string-name>, et al., “<article-title>Power‐Efficient Multisensory Reservoir Computing Based on Zr‐Doped HfO<sub>2</sub> Memcapacitive Synapse Arrays</article-title>,” <source>Advanced Materials</source>
+<volume>35</volume> (<year>2023</year>): <elocation-id>2305609</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202305609</pub-id><pub-id pub-id-type="pmid">37572299</pub-id></mixed-citation></ref><ref id="advs74068-bib-0048"><label>48</label><mixed-citation publication-type="journal" id="advs74068-cite-0048">
+<string-name name-style="western">
+<given-names>G. B.</given-names>
+<surname>Moody</surname>
+</string-name> and <string-name name-style="western">
+<given-names>R. G.</given-names>
+<surname>Mark</surname>
+</string-name>, “<article-title>The Impact of the MIT‐BIH Arrhythmia Database</article-title>,” <source>IEEE Engineering in Medicine and Biology Magazine</source>
+<volume>20</volume> (<year>2001</year>): <fpage>45</fpage>–<lpage>50</lpage>.<pub-id pub-id-type="pmid">11446209</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1109/51.932724</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

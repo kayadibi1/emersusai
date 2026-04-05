@@ -1,0 +1,339 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Automated"><PMID Version="1">41551229</PMID><DateCompleted><Year>2026</Year><Month>01</Month><Day>19</Day></DateCompleted><DateRevised><Year>2026</Year><Month>01</Month><Day>19</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Electronic">2046-1402</ISSN><JournalIssue CitedMedium="Internet"><Volume>14</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>F1000Research</Title><ISOAbbreviation>F1000Res</ISOAbbreviation></Journal><ArticleTitle>Do hotel green practices influence customer satisfaction? Evidence from the Indian hospitality sector.</ArticleTitle><Pagination><StartPage>1480</StartPage><MedlinePgn>1480</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1480</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.12688/f1000research.175471.1</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">The study investigates the impact of Hotel Green Practices (HGP) on customers' Willingness to Pay (WTP) for the sustainable initiative, Customer Loyalty (CL), and Customer Satisfaction (CS) in the hotel industry. Although green practices have gained considerable importance in hotel operations, empirical studies that simultaneously assess their direct and mediated effects on customer satisfaction remain limited. To address this gap, the present research integrates HGP, WTP, CL, and CS into a unified structural framework and examines the mediating roles of WTP and CL in explaining consumers' satisfaction with hotel green practices.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">Data were collected from the guests who stayed in star rated hotels of Delhi, India, between 9 <sup>th</sup> to 29 <sup>th</sup> October 2025. Convenience sampling was used, and a self-administered questionnaire served as the data collection tool. Measurement items were adapted from well-established scales in hospitality and consumer behaviour research. Data were analysed using SmartPLS 4, and PLS-SEM was employed to examine the structural relationships, as well as the explanatory and predictive capabilities of the proposed model.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">The structural analysis demonstrated that HGP has a significant impact on both WTP and CL. A direct, although weaker, positive association was also observed between HGP and CS. Both mediators WTP, and CL contributed significantly to CS, with CL has the strongest effect, followed by WTP. Mediation analysis confirmed partial mediation, with indirect effects surpassing the direct effect of HGP on CS. The model showed substantial explanatory power, particularly for CS (R <sup>2</sup> = 0.627), and demonstrated strong predictive relevance, with Q <sup>2</sup> values exceeding the recommended threshold of 0.35.</AbstractText><AbstractText Label="CONCLUSIONS" NlmCategory="UNASSIGNED">The findings suggest that HGP has positive impact on CS, CL, and customers' WTP. Furthermore, customer loyalty emerged as a strong mediating variable between hotel green practices and customer satisfaction relationship. Overall, these results highlight the importance of adopting sustainability practices in hotel operations, as they not only strengthen customer loyalty and customer satisfaction, but also influence customers to pay premium price for the hotel's sustainable initiatives.</AbstractText><CopyrightInformation>Copyright: &#xa9; 2025 Singh AK et al.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Singh</LastName><ForeName>Ajit Kumar</ForeName><Initials>AK</Initials><Identifier Source="ORCID">0000-0003-0518-6142</Identifier><AffiliationInfo><Affiliation>Chandigarh University, Mohali, Punjab, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Poddar</LastName><ForeName>Ajay Kumar</ForeName><Initials>AK</Initials><Identifier Source="ORCID">0000-0003-0518-6142</Identifier><AffiliationInfo><Affiliation>Texila American University, Lilayi, Lusaka, Zambia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kumar</LastName><ForeName>Sumit</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Manipal Academy of Higher Education, Manipal, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Dahiya</LastName><ForeName>Mohit</ForeName><Initials>M</Initials><Identifier Source="ORCID">0000-0002-1512-2794</Identifier><AffiliationInfo><Affiliation>University of Sunderland, Sunderland, England, UK.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Dashora</LastName><ForeName>Amit Kumar</ForeName><Initials>AK</Initials><AffiliationInfo><Affiliation>Galgotias University, Greater Noida, Uttar Pradesh, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kumar</LastName><ForeName>Sachin</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Panjab University, Chandigarh, Chandigarh, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Paatlan</LastName><ForeName>Sandeep</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Chandigarh University, Mohali, Punjab, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sharma</LastName><ForeName>Anmol</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Chandigarh Group of Colleges Jhanjeri, Mohali, Punjab, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Bakshi</LastName><ForeName>Neetesh</ForeName><Initials>N</Initials><AffiliationInfo><Affiliation>Chandigarh University, Mohali, Punjab, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Singh</LastName><ForeName>Anita Kumari</ForeName><Initials>AK</Initials><AffiliationInfo><Affiliation>Chandigarh University, Mohali, Punjab, India.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>12</Month><Day>31</Day></ArticleDate></Article><MedlineJournalInfo><Country>England</Country><MedlineTA>F1000Res</MedlineTA><NlmUniqueID>101594320</NlmUniqueID><ISSNLinking>2046-1402</ISSNLinking></MedlineJournalInfo><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D003258" MajorTopicYN="Y">Consumer Behavior</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D007194" MajorTopicYN="N" Type="Geographic">India</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D010549" MajorTopicYN="Y">Personal Satisfaction</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D011795" MajorTopicYN="N">Surveys and Questionnaires</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D008297" MajorTopicYN="N">Male</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000328" MajorTopicYN="N">Adult</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005260" MajorTopicYN="N">Female</DescriptorName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Hotel green practices</Keyword><Keyword MajorTopicYN="N">customer loyalty</Keyword><Keyword MajorTopicYN="N">customer satisfaction</Keyword><Keyword MajorTopicYN="N">hotel</Keyword><Keyword MajorTopicYN="N">willingness to pay</Keyword></KeywordList><CoiStatement>No competing interests were disclosed.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>12</Month><Day>17</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>1</Month><Day>19</Day><Hour>12</Hour><Minute>52</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>1</Month><Day>19</Day><Hour>12</Hour><Minute>51</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>1</Month><Day>19</Day><Hour>6</Hour><Minute>15</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>12</Month><Day>31</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41551229</ArticleId><ArticleId IdType="pmc">PMC12805227</ArticleId><ArticleId IdType="doi">10.12688/f1000research.175471.1</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+Baber R, Kaurav RPS, Williams RL, Jr:
+How travelers differ in their preferences regarding hotel selection: Empirical evidence from travelers in India.
+
+<i>Asian Journal of Tourism and Hospitality Research.</i>
+
+2015;8(1):15&#x2013;26.</Citation></Reference><Reference><Citation>
+Barber NA:
+Profiling the potential &#x201c;green&#x201d; hotel guest: Who are they and what do they want?
+
+<i>J. Hosp. Tour. Res.</i>
+
+2014;38(3):361&#x2013;387.
+10.1177/1096348012451462
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1096348012451462</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bohdanowicz P:
+Environmental awareness and initiatives in the Swedish and Polish hotel industries&#x2014;Survey results.
+
+<i>Int. J. Hosp. Manag.</i>
+
+2006;25(4):662&#x2013;682.
+10.1016/j.ijhm.2005.06.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijhm.2005.06.006</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bowen JT, Chen SL:
+The relationship between customer loyalty and customer satisfaction.
+
+<i>Int. J. Contemp. Hosp. Manag.</i>
+
+2001;13(5):213&#x2013;217.
+10.1108/09596110110395893
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1108/09596110110395893</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Chang R, Ho C, Ho S:
+Assessing green practices on eco-friendly hotels: Effects on visitor satisfaction, revisit intention, premium willingness to pay and word-of-mouth.
+
+<i>Sustainability.</i>
+
+2024;16(9).
+10.3390/su16093834
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/su16093834</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Chen Y-S:
+The drivers of green brand equity: Green brand image, green satisfaction, and green trust.
+
+<i>J. Bus. Ethics.</i>
+
+2010;93(2):307&#x2013;319.
+10.1007/s10551-009-0223-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10551-009-0223-9</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Chin WW:
+The partial least squares approach to structural equation modeling. 
+Marcoulides GA, editor.
+
+<i>Modern methods for business research.</i>
+
+Lawrence Erlbaum Associates;1998; pp.295&#x2013;336.</Citation></Reference><Reference><Citation>
+Damigos D:
+How much are consumers willing to pay for a greener hotel industry? A systematic literature review.
+
+<i>Sustainability.</i>
+
+2023;15(11):8775.
+10.3390/su15118775
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/su15118775</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Diamantopoulos A, Siguaw JA:
+Formative versus reflective indicators in organizational research: A comparison and evaluation.
+
+<i>Br. J. Manag.</i>
+
+2006;17:263&#x2013;282.
+10.1111/j.1467-8551.2006.00500.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1467-8551.2006.00500.x</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Font X, Elgammal I, Lamond I:
+Greenhushing: The deliberate under-communication of sustainability practices by tourism businesses.
+
+<i>J. Sustain. Tour.</i>
+
+2016;25(7):1007&#x2013;1023.
+10.1080/09669582.2016.1158829
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/09669582.2016.1158829</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fornell C, Larcker DF:
+Evaluating structural equation models with unobservable variables and measurement error.
+
+<i>J. Mark. Res.</i>
+
+1981;18(1):39&#x2013;50.
+10.1177/002224378101800104
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/002224378101800104</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Gen&#xe7; G, Zengin B:
+How do green hotel practices affect guests&#x2019; behavioral intentions? A PLS-SEM approach.
+
+<i>Tourism Management Studies.</i>
+
+2025;21:1&#x2013;16. (Special issue).
+10.18089/tms.2025.03.01
+</Citation><ArticleIdList><ArticleId IdType="doi">10.18089/tms.2025.03.01</ArticleId></ArticleIdList></Reference><Reference><Citation>
+G&#xf6;ssling S:
+New performance indicators for water management in tourism.
+
+<i>Tour. Manag.</i>
+
+2015;46:233&#x2013;244.
+10.1016/j.tourman.2014.06.018
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.tourman.2014.06.018</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Hair JF, Hult GTM, Ringle CM, et al. :
+
+<i>A primer on partial least squares structural equation modeling (PLS-SEM).</i>
+
+SAGE Publications;
+2nd ed. 
+2019.</Citation></Reference><Reference><Citation>
+Han H, Hyun SS:
+Impact of hotel-restaurant image and quality of physical-environment, service, and food on satisfaction and intention.
+
+<i>Int. J. Hosp. Manag.</i>
+
+2017;63:82&#x2013;92.
+10.1016/j.ijhm.2017.03.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijhm.2017.03.006</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Han H, Hyun SS:
+Role of motivations for luxury cruise traveling, satisfaction, and involvement in building traveler loyalty.
+
+<i>Int. J. Hosp. Manag.</i>
+
+2018;70:75&#x2013;84.
+10.1016/j.ijhm.2017.10.024
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijhm.2017.10.024</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Han H, Yoon HJ:
+Hotel customers&#x2019; environmentally responsible behavioral intention: Impact of key constructs on decision in green consumerism.
+
+<i>Int. J. Hosp. Manag.</i>
+
+2015;45:22&#x2013;33.
+10.1016/j.ijhm.2014.11.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijhm.2014.11.004</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Han H, Hsu L-TJ, Sheu C:
+Application of the theory of planned behavior to green hotel choice: Testing the effect of environmental friendly activities.
+
+<i>Tour. Manag.</i>
+
+2010;31(3):325&#x2013;334.
+10.1016/j.tourman.2009.03.013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.tourman.2009.03.013</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Han H, Yu J, Kim W:
+Environmental corporate social responsibility and the strategy to boost the airline&#x2019;s image and customer loyalty intentions.
+
+<i>J. Travel Tour. Mark.</i>
+
+2019;36(3):371&#x2013;383.
+10.1080/10548408.2018.1557580
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10548408.2018.1557580</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Henseler J, Ringle CM, Sarstedt M:
+A new criterion for assessing discriminant validity in variance-based structural equation modeling.
+
+<i>J. Acad. Mark. Sci.</i>
+
+2015;43:115&#x2013;135.
+10.1007/s11747-014-0403-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11747-014-0403-8</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kandampully J, Suhartanto D:
+Customer loyalty in the hotel industry: The role of customer satisfaction and image.
+
+<i>Int. J. Contemp. Hosp. Manag.</i>
+
+2000;12(6):346&#x2013;351.
+10.1108/09596110010342559
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1108/09596110010342559</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kang KH, Stein L, Heo CY, et al. :
+Consumers&#x2019; willingness to pay for green initiatives of the hotel industry.
+
+<i>Int. J. Hosp. Manag.</i>
+
+2012;31(2):564&#x2013;572.
+10.1016/j.ijhm.2011.08.001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijhm.2011.08.001</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kaurav RPS, Baber R, Rajput S:
+
+<i>Technology-driven tourism and hospitality industry as a tool for economic development: A bibliometric analysis</i>
+
+
+<i>The Emerald handbook of ICT in tourism and hospitality.</i>
+
+Emerald Publishing Limited;2020; pp.469&#x2013;486.
+10.1108/978-1-83982-688-720201030
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1108/978-1-83982-688-720201030</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kock N:
+Common method bias in PLS-SEM: A full collinearity assessment approach.
+
+<i>International Journal of e-Collaboration (ijec).</i>
+
+2015;11(4):1&#x2013;10.
+10.4018/ijec.2015100101
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4018/ijec.2015100101</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Mensah I:
+Environmental management practices among hotels in the greater Accra region.
+
+<i>Int. J. Hosp. Manag.</i>
+
+2006;25(3):414&#x2013;431.
+10.1016/j.ijhm.2005.02.003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijhm.2005.02.003</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Merli R, Preziosi M, Acampora A, et al. :
+Why should hotels go green? Insights from guests experience in green hotels.
+
+<i>Int. J. Hosp. Manag.</i>
+
+2018;81:169&#x2013;179.
+10.1016/j.ijhm.2019.04.022
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijhm.2019.04.022</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Moise M-S, Gil-Saura I, Ruiz-Molina M-E:
+Effects of green practices on guest satisfaction and loyalty.
+
+<i>European Journal of Tourism Research.</i>
+
+2018;20:92&#x2013;104.
+10.54055/ejtr.v20i.342
+</Citation><ArticleIdList><ArticleId IdType="doi">10.54055/ejtr.v20i.342</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Namkung Y, Jang S:
+Effects of restaurant green practices on brand equity formation: Do green practices really matter?
+
+<i>Int. J. Hosp. Manag.</i>
+
+2013;33:85&#x2013;95.
+10.1016/j.ijhm.2012.06.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijhm.2012.06.006</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Oliver RL:
+A cognitive model of the antecedents and consequences of satisfaction decisions.
+
+<i>J. Mark. Res.</i>
+
+1980;17(4):460&#x2013;469.
+10.1177/002224378001700405
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/002224378001700405</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Oliver RL:
+
+<i>Satisfaction: A behavioral perspective on the consumer.</i>
+
+McGraw-Hill;1996.</Citation></Reference><Reference><Citation>
+Oliver RL:
+Whence consumer loyalty?
+
+<i>J. Mark.</i>
+
+1999;63(Special Issue):33&#x2013;44.
+10.1177/00222429990634s105
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/00222429990634s105</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Prayag G, Ryan C:
+Antecedents of tourists&#x2019; loyalty to Mauritius: The role and influence of destination image, place attachment, personal involvement, and satisfaction.
+
+<i>J. Travel Res.</i>
+
+2012;51(3):342&#x2013;356.
+10.1177/0047287511410321
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0047287511410321</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Rahman I, Reynolds D:
+Predicting green hotel behavioral intentions using a theory of environmental commitment and sacrifice for the environment.
+
+<i>Int. J. Hosp. Manag.</i>
+
+2016;52:107&#x2013;116.
+10.1016/j.ijhm.2015.09.007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijhm.2015.09.007</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Rahman I, Reynolds D:
+The influence of values and attitudes on green consumer behavior: A study of eco-friendly hotel patrons.
+
+<i>Tour. Manag. Perspect.</i>
+
+2019;31:171&#x2013;180.</Citation></Reference><Reference><Citation>
+Raina A, Bathla G, Mishra S, et al. :
+The role of ecotourism and environmental awareness in shaping travel behavior.
+
+<i>Examining Tourist Behaviors and Community Involvement in Destination Rejuvenation.</i>
+
+IGI Global Scientific Publishing;2024; pp.136&#x2013;152.</Citation></Reference><Reference><Citation>
+Rana VS, Raina A, Bathla G:
+The effect of sustainable practices on customer attitude: A study of sustainable hospitality operations.
+
+<i>Emirati Journal of Business, Economics, &amp; Social Studies.</i>
+
+2023;2(1):4&#x2013;13.
+10.54878/3er5qg34
+</Citation><ArticleIdList><ArticleId IdType="doi">10.54878/3er5qg34</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Shmueli G, Sarstedt M, Hair JF, et al. :
+Predictive model assessment in PLS-SEM: Guidelines for using PLSpredict.
+
+<i>Eur. J. Mark.</i>
+
+2019;53(11):2322&#x2013;2347.
+10.1108/EJM-02-2019-0189
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1108/EJM-02-2019-0189</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Singh AK:
+a. Data set for the article titled &#x201c;Do hotel green practices influence customer satisfaction? Evidence from the Indian hospitality sector&#x201d;.[Data set].
+
+<i>Zenodo.</i>
+
+2025a.
+10.5281/zenodo.17848960
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5281/zenodo.17848960</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Singh AK:
+b. Questionnaire.[Data set].
+
+<i>Zenodo.</i>
+
+2025b.
+10.5281/zenodo.17848885
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5281/zenodo.17848885</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Singh N, Cranage DA, Lee S:
+Green strategies for hotels: Estimation of recycling benefits.
+
+<i>Int. J. Hosp. Manag.</i>
+
+2014;43:13&#x2013;22.
+10.1016/j.ijhm.2014.07.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijhm.2014.07.006</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Soni G, Hussain S, Kareem S:
+Environment friendly practices adopted in hotels and their impact on customer satisfaction: A critical review of the literature and research implications.
+
+<i>ATNA Journal of Tourism Studies.</i>
+
+2022;17(1):115&#x2013;142.
+10.12727/ajts.27.5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.12727/ajts.27.5</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Yusof N, Mohd Noor S, Rahman A:
+Stakeholder perspectives on sustainable hospitality practices in Malaysia.
+
+<i>J. Clean. Prod.</i>
+
+2022;356:131842.
+10.1016/j.jclepro.2022.131842
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jclepro.2022.131842</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Zeithaml VA, Berry LL, Parasuraman A:
+The behavioral consequences of service quality.
+
+<i>J. Mark.</i>
+
+1996;60(2):31&#x2013;46.
+10.1177/002224299606000203
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/002224299606000203</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

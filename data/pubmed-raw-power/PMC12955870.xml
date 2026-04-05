@@ -1,0 +1,1012 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="advs73435" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="iso-abbrev">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="pmc-domain-id">2933</journal-id><journal-id journal-id-type="pmc-domain">advsci</journal-id><journal-id journal-id-type="publisher-id">ADVS</journal-id><journal-title-group><journal-title>Advanced Science</journal-title></journal-title-group><issn pub-type="epub">2198-3844</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC12955870</article-id><article-id pub-id-type="pmcid-ver">PMC12955870.1</article-id><article-id pub-id-type="pmcaid">12955870</article-id><article-id pub-id-type="pmcaiid">12955870</article-id><article-id pub-id-type="pmid">41566577</article-id><article-id pub-id-type="doi">10.1002/advs.202514954</article-id><article-id pub-id-type="publisher-id">ADVS73435</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>Magnetically Responsive Piezoelectric Nanocapacitors Enhance Neural Recovery Following Spinal Cord Injury via Targeted Spinal Magnetic Stimulation</article-title></title-group><contrib-group><contrib id="advs73435-cr-0001" contrib-type="author"><name name-style="western"><surname>Xiao</surname><given-names initials="Z">Zhihang</given-names></name><xref rid="advs73435-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73435-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73435-cr-0002" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="T">Tingting</given-names></name><xref rid="advs73435-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73435-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73435-cr-0003" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="L">Lechi</given-names></name><xref rid="advs73435-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73435-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="advs73435-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs73435-cr-0004" contrib-type="author"><name name-style="western"><surname>Xia</surname><given-names initials="C">Chunya</given-names></name><xref rid="advs73435-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73435-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73435-cr-0005" contrib-type="author"><name name-style="western"><surname>Su</surname><given-names initials="Z">Zelin</given-names></name><xref rid="advs73435-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73435-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73435-cr-0006" contrib-type="author"><name name-style="western"><surname>Ren</surname><given-names initials="X">Xuyan</given-names></name><xref rid="advs73435-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73435-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73435-cr-0007" contrib-type="author"><name name-style="western"><surname>Fan</surname><given-names initials="Y">Yingjie</given-names></name><xref rid="advs73435-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73435-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73435-cr-0008" contrib-type="author"><name name-style="western"><surname>Wu</surname><given-names initials="Z">Zerui</given-names></name><xref rid="advs73435-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref><xref rid="advs73435-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="advs73435-cr-0009" contrib-type="author" corresp="yes"><name name-style="western"><surname>Liu</surname><given-names initials="Y">Yaobo</given-names></name><xref rid="advs73435-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73435-aff-0006" ref-type="aff">
+<sup>6</sup>
+</xref><xref rid="advs73435-aff-0007" ref-type="aff">
+<sup>7</sup>
+</xref><address><email>liuyaobo@suda.edu.cn</email></address></contrib><contrib id="advs73435-cr-0010" contrib-type="author" corresp="yes"><name name-style="western"><surname>Su</surname><given-names initials="M">Min</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0009-0002-5830-1669</contrib-id><xref rid="advs73435-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73435-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><address><email>su_min_suda@126.com</email></address></contrib></contrib-group><aff id="advs73435-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Department of Rehabilitation Medicine</named-content>
+<institution>The Fourth Affiliated Hospital of Soochow University</institution>
+<city>Suzhou</city>
+<country country="CN">China</country>
+</aff><aff id="advs73435-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">Rehabilitation Research Institute of Soochow University</named-content>
+<institution>Soochow University</institution>
+<city>Suzhou</city>
+<country country="CN">China</country>
+</aff><aff id="advs73435-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">Department of Rehabilitation Medicine</named-content>
+<named-content content-type="organisation-division">The Affiliated Suzhou Hospital of Nanjing Medical University</named-content>
+<institution>Suzhou Rehabilitation Hospital</institution>
+<city>Suzhou</city>
+<country country="CN">China</country>
+</aff><aff id="advs73435-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">Department of Traumatic Surgery</named-content>
+<named-content content-type="organisation-division">Changshu Hospital Affiliated to Soochow University</named-content>
+<institution>First Peoples' Hospital of Changshu City</institution>
+<city>Changshu</city>
+<named-content content-type="country-part">Jiangsu</named-content>
+<country country="CN">China</country>
+</aff><aff id="advs73435-aff-0005">
+<label>
+<sup>5</sup>
+</label>
+<named-content content-type="organisation-division">Department of Orthopedics</named-content>
+<named-content content-type="organisation-division">Central Laboratory</named-content>
+<named-content content-type="organisation-division">Changshu Hospital Affiliated to Soochow University</named-content>
+<institution>First People's Hospital of Changshu City</institution>
+<city>Changshu</city>
+<named-content content-type="country-part">Jiangsu</named-content>
+<country country="CN">China</country>
+</aff><aff id="advs73435-aff-0006">
+<label>
+<sup>6</sup>
+</label>
+<named-content content-type="organisation-division">Jiangsu Key Laboratory of Drug Discovery and Translational Research for Brain Diseases</named-content>
+<named-content content-type="organisation-division">Institute of Neuroscience</named-content>
+<institution>Soochow University</institution>
+<city>Suzhou</city>
+<country country="CN">China</country>
+</aff><aff id="advs73435-aff-0007">
+<label>
+<sup>7</sup>
+</label>
+<named-content content-type="organisation-division">Co‐innovation Center of Neuroregeneration</named-content>
+<institution>Nantong University</institution>
+<city>Nantong</city>
+<country country="CN">China</country>
+</aff><pub-date pub-type="epub"><day>21</day><month>1</month><year>2026</year></pub-date><pub-date pub-type="collection"><month>3</month><year>2026</year></pub-date><volume>13</volume><issue seq="500">13</issue><issue-id pub-id-type="pmc-issue-id">508764</issue-id><issue-id pub-id-type="doi">10.1002/advs.v13.13</issue-id><elocation-id>e14954</elocation-id><history><date date-type="rev-recd"><day>10</day><month>12</month><year>2025</year></date><date date-type="received"><day>06</day><month>8</month><year>2025</year></date><date date-type="accepted"><day>10</day><month>12</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>21</day><month>01</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>04</day><month>03</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-03-04 10:25:13.860"><day>04</day><month>03</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). Advanced Science published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="ADVS-13-e14954.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:ADVS-13-e14954.pdf"/><abstract><title>ABSTRACT</title><p>Precise intracorporeal electrical–magnetic stimulation represents a promising strategy for promoting neural network reconstruction and motor function recovery after spinal cord injury. However, overcoming the inherent limitations of conventional intracorporeal electrical stimulation—such as infection risks from implanted wires and the logistical challenges posed by external power sources—while simultaneously improving the spatial precision of stimulation remains a major unmet need. Here, we introduce a novel therapeutic approach that integrates extracorporeal trans‐spinal magnetic stimulation with energy‐storing, sustained‐release piezoelectric nanomaterials to generate precise, noninvasive electrical stimulation for spinal cord injury treatment. Experimental results demonstrate that these piezoelectric nanocapacitors induce current conduction across the dura mater in response to extracorporeal trans‐spinal magnetic stimulation, thereby achieving highly localized and accurate electrical stimulation. Our findings show that this approach effectively promotes corticospinal tract axonal regeneration distal to the injury site, restores functional neural connectivity, and improves lower limb motor performance. Notably, the magnetically responsive piezoelectric nanocapacitors do not require open surgical implantation and are capable of delivering long‐term, localized electrical stimulation. This strategy establishes a new paradigm for extracorporeal neuromodulation in spinal cord injury therapy and provides a promising foundation for the development of implant‐free, remotely controllable neuromodulation systems.</p></abstract><abstract id="advs73435-abs-0001" abstract-type="graphical"><p>This study presents a novel “in vivo–in vitro” therapeutic strategy for spinal cord injury by leveraging magnetically responsive piezoelectric nanomaterials. These nanomaterials enable targeted delivery of localized electrical stimulation at the injury site through noninvasive external magnetic actuation, thereby promoting axonal regeneration and functional motor recovery, offering a promising paradigm for precise neural modulation.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="ADVS-13-e14954-g002.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="advs73435-kwd-0001">electromagnetic conversion</kwd><kwd id="advs73435-kwd-0002">epidural electrical stimulation</kwd><kwd id="advs73435-kwd-0003">extracorporeal neural regulation</kwd><kwd id="advs73435-kwd-0004">piezoelectric nanomaterials, spinal cord injury</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>National Key Research and Development Program of China</institution><institution-id institution-id-type="doi">10.13039/501100012166</institution-id></institution-wrap>
+</funding-source><award-id>2022YFC2009700</award-id><award-id>2023YFC2412502</award-id><award-id>2023YFC2306502</award-id></award-group><award-group id="funding-0002"><funding-source>
+<institution-wrap><institution>National Natural Science Foundation of China</institution><institution-id institution-id-type="doi">10.13039/501100001809</institution-id></institution-wrap>
+</funding-source><award-id>82272594 U25A2053</award-id><award-id>82171376</award-id></award-group><award-group id="funding-0003"><funding-source>
+<institution-wrap><institution>Priority Academic Program Development of Jiangsu Higher Education Institutions, and the Key Research and Development Plan of Jiangsu Province</institution></institution-wrap>
+</funding-source><award-id>BE2023701</award-id></award-group><award-group id="funding-0004"><funding-source>
+<institution-wrap><institution>Suzhou Medical‐Engineering Collaborative Innovation Research Project</institution></institution-wrap>
+</funding-source><award-id>SZM2023004</award-id></award-group><award-group id="funding-0005"><funding-source>
+<institution-wrap><institution>Keyuan High‐level Talent Support Program of Suzhou Medical College, Soochow University</institution></institution-wrap>
+</funding-source><award-id>MA21500124</award-id></award-group><award-group id="funding-0006"><funding-source>
+<institution-wrap><institution>Suzhou Municipal "Science and Education for Strengthening Healthcare" Youth Program</institution></institution-wrap>
+</funding-source><award-id>QNXM2025042</award-id></award-group></funding-group><counts><fig-count count="12"/><table-count count="0"/><page-count count="25"/><word-count count="14268"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>3 March 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.1 mode:remove_FC converted:03.03.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="advs73435-sec-0010"><label>1</label><title>Introduction</title><p>In regenerative medicine, restoring central nervous system function after injury remains a major clinical challenge that requires urgent solutions [<xref rid="advs73435-bib-0001" ref-type="bibr">1</xref>]. Electrical stimulation therapy has shown promising therapeutic outcomes in both preclinical studies and clinical trials for neural repair and functional recovery [<xref rid="advs73435-bib-0002" ref-type="bibr">2</xref>, <xref rid="advs73435-bib-0003" ref-type="bibr">3</xref>, <xref rid="advs73435-bib-0004" ref-type="bibr">4</xref>, <xref rid="advs73435-bib-0005" ref-type="bibr">5</xref>], and is now regarded as one of the most effective strategies in central nervous system rehabilitation. Several electrical stimulation devices have already received clinical approval for neurological disorders [<xref rid="advs73435-bib-0006" ref-type="bibr">6</xref>, <xref rid="advs73435-bib-0007" ref-type="bibr">7</xref>, <xref rid="advs73435-bib-0008" ref-type="bibr">8</xref>]. For spinal cord injury (SCI), commonly used electrical stimulation approaches in basic research include epidural electrical stimulation and the use of rotating magnetic fields combined with implanted materials to generate endogenous electrical signals [<xref rid="advs73435-bib-0002" ref-type="bibr">2</xref>, <xref rid="advs73435-bib-0009" ref-type="bibr">9</xref>, <xref rid="advs73435-bib-0010" ref-type="bibr">10</xref>]. These techniques primarily function by activating spinal neurons and their associated pathways, mimicking brain‐derived electrical transmission through the spinal cord, and modulating intracellular calcium concentrations to regulate action potentials, ultimately promoting neural recovery. Developing a safe, effective, and sustainable electrical stimulation material for spinal cord applications is therefore essential for advancing SCI treatment.</p><p>Implantable electrode patches and conductive hydrogels are currently the most widely used spinal cord electrical stimulation materials [<xref rid="advs73435-bib-0011" ref-type="bibr">11</xref>, <xref rid="advs73435-bib-0012" ref-type="bibr">12</xref>, <xref rid="advs73435-bib-0013" ref-type="bibr">13</xref>]. These systems rely on external or internal power sources to generate current at the injury site and stimulate neural activity. However, external power supplies carry risks of infection and mechanical instability, including electrode displacement or detachment, which can compromise stimulation efficacy. This has created an urgent need for wire‐free, implantable spinal cord electrical stimulation materials. Piezoelectric polymers, particularly polyvinylidene fluoride (PVDF), have gained significant interest because of their strong piezoelectric properties and ease of fabrication [<xref rid="advs73435-bib-0014" ref-type="bibr">14</xref>, <xref rid="advs73435-bib-0015" ref-type="bibr">15</xref>, <xref rid="advs73435-bib-0016" ref-type="bibr">16</xref>, <xref rid="advs73435-bib-0017" ref-type="bibr">17</xref>]. These materials generate electrical currents when deformed under mechanical stress, producing charge separation and potential differences. For example, Chen et al. [<xref rid="advs73435-bib-0018" ref-type="bibr">18</xref>] developed an ultrasound‐responsive piezoelectric polymer scaffold placed at the SCI site, which promoted motor function recovery in rats through transcutaneous ultrasound stimulation. Similarly, Royo et al. [<xref rid="advs73435-bib-0019" ref-type="bibr">19</xref>] demonstrated that PVDF‐based piezoelectric fibers, when cocultured with neurons in vitro, could guide neuronal growth through the negative electrode interface. Despite these advantages, pure piezoelectric materials have inherent limitations: without continuous and sufficiently strong mechanical stimulation, they cannot generate therapeutically effective electrical intensities [<xref rid="advs73435-bib-0020" ref-type="bibr">20</xref>]. Although such systems eliminate wired connections, they still require external devices placed near the implantation site to activate stimulation [<xref rid="advs73435-bib-0021" ref-type="bibr">21</xref>], which remains a major barrier to clinical translation. Therefore, reducing the duration of external device use while prolonging sustained electrical stimulation is essential for advancing spinal cord epidural stimulation toward clinical application.</p><p>Magnetic stimulation, a widely used noninvasive neuromodulation technique in clinical practice, offers advantages, such as safety, tolerability, and minimal invasiveness [<xref rid="advs73435-bib-0022" ref-type="bibr">22</xref>, <xref rid="advs73435-bib-0023" ref-type="bibr">23</xref>, <xref rid="advs73435-bib-0024" ref-type="bibr">24</xref>]. It modulates neuronal activity in targeted regions of the central nervous system through electromagnetic induction. High‐frequency stimulation generally excites neurons, whereas low‐frequency stimulation suppresses neuronal activity [<xref rid="advs73435-bib-0025" ref-type="bibr">25</xref>]. Magnetic stimulation can also influence synaptic plasticity by inducing long‐term potentiation or depression through alterations in intracellular calcium levels [<xref rid="advs73435-bib-0026" ref-type="bibr">26</xref>]. Chalfouh et al. [<xref rid="advs73435-bib-0027" ref-type="bibr">27</xref>] demonstrated that high‐frequency spinal magnetic stimulation effectively inhibited neuronal demyelination at the injury site, protected surrounding neurons, and promoted axonal regeneration and motor function recovery. Despite these benefits, magnetic stimulation is limited by poor spatial precision, short‐lived effects, and the absence of directional control [<xref rid="advs73435-bib-0028" ref-type="bibr">28</xref>], which constrain its use in targeted neural regulation. In our clinical work with patients with SCI, we observed that magnetic stimulation pulses also generate mechanical potential energy. This finding led us to hypothesize that integrating piezoelectric materials—which convert mechanical energy into electrical stimulation—could enhance the electrical output induced by magnetic stimulation and improve targeting accuracy. However, simply increasing the instantaneous electrical intensity during magnetic pulses is unlikely to achieve lasting neural repair. Sustaining electrical stimulation after the magnetic input ends remains the critical requirement for optimizing epidural electrical stimulation in SCI treatment.</p><p>Based on this rationale, we propose a novel strategy that leverages the mechanical potential energy generated during magnetic stimulation pulses in combination with piezoelectric materials placed in the epidural space at the SCI site. During magnetic stimulation, the piezoelectric material covering the target area enhances stimulation intensity and improves targeting accuracy. We further modified PVDF to construct a piezoelectric nanocapacitor (PNC) capable of converting mechanical potential energy into stored electrical potential energy, which is then gradually released. This design enables prolonged stimulation of neurons both upstream and within the injury site, guiding directed neural growth and promoting axonal regeneration. Barium titanate (BaTiO<sub>3</sub>), known for its biocompatibility, low dielectric loss, and ferroelectric properties, has been widely investigated in bio‐piezoelectric materials for neural regeneration [<xref rid="advs73435-bib-0029" ref-type="bibr">29</xref>, <xref rid="advs73435-bib-0030" ref-type="bibr">30</xref>, <xref rid="advs73435-bib-0031" ref-type="bibr">31</xref>] and demonstrates favorable conductivity [<xref rid="advs73435-bib-0032" ref-type="bibr">32</xref>]. Here, we present a BaTiO<sub>3</sub>‐modified PVDF‐based PNC capable of storing and slowly releasing electrical energy (Figure <xref rid="advs73435-fig-0001" ref-type="fig">1</xref>). This material functions as an epidural patch responsive to trans‐spinal magnetic stimulation, delivering localized electrical stimulation. In a mouse model of complete thoracic SCI, the nanocapacitor was implanted at both ends of the lesion to provide sustained electrical stimulation for neural regeneration. Fabricated through electrospinning, this composite material exhibits excellent biocompatibility. Under trans‐spinal magnetic stimulation, the system operates in two modes: first, magnetic stimulation enhances neuronal excitability and promotes survival through magnetoelectric conversion; second, the mechanical potential energy generated during stimulation is stored within the PNC. After the magnetic input ceases, the stored electrical energy is gradually released through contact with the dural surface, continuously supporting neuronal repair and regeneration at the injury site.</p><fig position="float" fig-type="FIGURE" id="advs73435-fig-0001" orientation="portrait"><label>FIGURE 1</label><caption><p>Schematic illustration of the experimental design for PNC patch implantation in spinal cord injury. (A) Microstructural morphology of the PNC material observed under scanning electron microscopy at week 8. (B) Representative live‐dead staining images of PNC material and mouse primary neurons cocultured for 5 days. (C) Schematic diagram depicting complete transection injury at the T8–T10 spinal segment and the designated implantation site of the PNC patch following injury. (D) Representative temporal profile of current stimulation generated by the PNC material after magnetic stimulation during the model establishment phase. (E) Representative image showing regeneration of the corticospinal tract in mice at week 8 postinjury. (F) Representative calcium ion imaging image of neuronal activity in mice at week 8 following combined treatment with magnetic stimulation (MS) and PNC. (G) Representative gait trajectory analysis of hindlimb locomotion in mice on a weight‐bearing treadmill at week 8. (H) Representative motor evoked potential (MEP) recording demonstrating action potential generation in mice at week 8. (I) Representative surface electromyography (EMG) signal acquisition from the TA) muscle of mice at week 8.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="ADVS-13-e14954-g004.jpg"/></fig><p>This study confirmed—through immunofluorescence histology, electrophysiological evaluation, and behavioral analysis—that the magnetically responsive, energy‐storing PNC provides effective and sustained spinal cord electrical stimulation (lasting up to 2.41 h) under trans‐spinal magnetic stimulation. This continuous stimulation markedly promotes corticospinal tract (CST) axon regeneration and motor function recovery. Our proposed “magnetic stimulation‐powered internal energy release” strategy introduces a novel approach to wireless and controllable spinal cord electrical stimulation in neural tissue engineering. It highlights the substantial clinical potential of combining implantable electronic biomaterials with external neurostimulation technologies for SCI treatment.</p></sec><sec id="advs73435-sec-0020"><label>2</label><title>Results and Discussion</title><sec id="advs73435-sec-0030"><label>2.1</label><title>Construction and Characterization of the PNC with Energy Storage and Slow‐Release Properties</title><p>To enable precise and long‐term intervention at the SCI site under transcutaneous external magnetic stimulation, we designed and fabricated a magnetically responsive PNC composed of PVDF and BaTiO<sub>3</sub>. To achieve an electrical stimulation intensity sufficient to activate neural cells effectively, PVDF was synthesized with progressively increasing BaTiO<sub>3</sub> proportions (5%, 8%, and 12%; Figure <xref rid="advs73435-fig-0002" ref-type="fig">2A</xref>), and piezoelectric films were fabricated via electrospinning [<xref rid="advs73435-bib-0033" ref-type="bibr">33</xref>], then applied as patches covering the SCI site. This patch converts mechanical potential energy into electrical energy during transcutaneous magnetic stimulation and releases the generated current over a defined period. Voltage and current outputs were evaluated under clinically relevant magnetic stimulation parameters. Among all formulations, the 8% BaTiO<sub>3</sub> group produced the highest voltage and current (2.9 V, 59 µA) under identical stimulation conditions, with markedly lower responses in the other groups (Figure <xref rid="advs73435-fig-0002" ref-type="fig">2B,C</xref>). Scanning electron microscope (SEM) and transmission electron microscope (TEM) analyses reveal that at a low filler content (5%), BaTiO<sub>3</sub> nanoparticles are sparsely and nonuniformly distributed, whereas excessive loading (12%) results in pronounced agglomeration and charge shielding. In contrast, the 8% BaTiO<sub>3</sub> formulation enables uniform dispersion of nanoparticles within PVDF fibers, effectively promoting interfacial polarization and β‐phase crystallization [<xref rid="advs73435-bib-0034" ref-type="bibr">34</xref>], which correlates with the highest piezoelectric response (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S1</xref>). These microstructural findings demonstrate that the 8% loading achieves an optimal balance between particle dispersion, interfacial adhesion, and electrical coupling efficiency. According to Kathe et al. [<xref rid="advs73435-bib-0035" ref-type="bibr">35</xref>], epidural electrical stimulation at 6–9 µA in a mouse model of SCI is sufficient to activate local spinal neurons and restore motor function. Rowald et al. [<xref rid="advs73435-bib-0036" ref-type="bibr">36</xref>] similarly reported that a current of 7.5 µA (equivalent to an electric field of 5 V/m) activates segmental interneurons in human spinal cord implantation studies. Based on these findings and other literature [<xref rid="advs73435-bib-0037" ref-type="bibr">37</xref>, <xref rid="advs73435-bib-0038" ref-type="bibr">38</xref>], we established 7.5 µA as the threshold for effective neuronal activation. The PVDF/BaTiO<sub>3</sub> system we developed meets this minimum requirement. Pressure–strain testing was performed to assess mechanical responsiveness. The PVDF+8% group exhibited superior elasticity and greater sensitivity to external pressure, reflected by a larger area under the stress–strain curve compared with other groups (Figure <xref rid="advs73435-fig-0002" ref-type="fig">2D</xref>). The superior elasticity exhibited by the 8% BaTiO<sub>3</sub> composite (Figure <xref rid="advs73435-fig-0002" ref-type="fig">2D</xref>) can be attributed to the uniform dispersion of nanoparticles and robust interfacial adhesion, as confirmed by SEM and TEM (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S1</xref>). This homogeneous microstructure facilitates efficient stress transfer between the BaTiO<sub>3</sub> particles and the PVDF matrix, minimizing localized stress concentration and thereby enhancing elastic recovery [<xref rid="advs73435-bib-0039" ref-type="bibr">39</xref>, <xref rid="advs73435-bib-0040" ref-type="bibr">40</xref>]. In contrast, excessive BaTiO<sub>3</sub> loading (12%) induces particle agglomeration, which impedes matrix deformation and compromises structural integrity, leading to reduced elasticity and a consequent deterioration in piezoelectric response and dielectric performance (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S2</xref>). To evaluate long‐term stability, all samples were immersed in simulated body fluid (SBF) and examined at set intervals. The PVDF+8% group maintained higher electrical performance throughout the planned treatment duration of 8 weeks (Figure <xref rid="advs73435-fig-0002" ref-type="fig">2E,F</xref>), indicating enhanced energy conversion and storage capability. Piezoelectric performance was further evaluated using PVDF as a control. The piezoelectric coefficient (d33), closely associated with residual polarization intensity, showed a significantly higher polarization intensity for the PVDF+8% group on the <italic toggle="yes">x</italic>‐axis of the polarization curve. Combined with the <italic toggle="yes">y</italic>‐axis data, the PVDF/BaTiO<sub>3</sub>+8% group demonstrated superior efficiency in converting mechanical stress into electrical charge along the polarization axis (Figure <xref rid="advs73435-fig-0002" ref-type="fig">2G</xref>), confirming its enhanced electrical performance and sensitivity under identical electric field conditions. X‐ray diffraction analysis of the PVDF/BaTiO<sub>3</sub> composite (Figure <xref rid="advs73435-fig-0002" ref-type="fig">2H</xref>) identified diffraction peaks at (110), (111), (220), and (221), characteristic of a perovskite crystal structure. Fourier transform infrared (FTIR) spectra reveal significant changes in the characteristic peaks at 1679, 1408, and 1071 cm<sup>−1</sup>, confirming the successful incorporation and synthesis of the composite (Figure <xref rid="advs73435-fig-0002" ref-type="fig">2I</xref> and Figure <xref rid="advs73435-supinfo-0001" ref-type="">S3</xref>). The β‐phase content was quantified using the intensity ratio of the β‐phase peak (840 cm<sup>−1</sup>) to the α‐phase peak (612 cm<sup>−1</sup>), demonstrating that the 8% BaTiO<sub>3</sub> composite exhibits a significantly higher β‐phase fraction (89.9%) compared to the 5% (78.7%) and 12% (76.1%) composites. This enhancement in β‐phase content is critical for the observed improvement in piezoelectric performance, as the β‐phase is known to enhance the polarization efficiency and energy storage capacity of PVDF [<xref rid="advs73435-bib-0041" ref-type="bibr">41</xref>, <xref rid="advs73435-bib-0042" ref-type="bibr">42</xref>]. Structural stability was assessed by immersing the composites in SBF for up to 3 months (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S4</xref>). X‐ray diffraction results showed no significant reduction in diffraction peak intensity, demonstrating that the composite maintains a stable crystal structure in physiological conditions—an essential property for long‐term in vivo stimulation. We further evaluated current‐release behavior under mechanical stimulation within the established safety limits for continuous in vivo stimulation (&lt;3 h) [<xref rid="advs73435-bib-0035" ref-type="bibr">35</xref>, <xref rid="advs73435-bib-0036" ref-type="bibr">36</xref>, <xref rid="advs73435-bib-0043" ref-type="bibr">43</xref>, <xref rid="advs73435-bib-0044" ref-type="bibr">44</xref>]. The PVDF+8% group maintained a current above 7.5 µA for approximately 2.41 h after cessation of stimulation (Figure <xref rid="advs73435-fig-0002" ref-type="fig">2J</xref>), whereas other groups failed to sustain effective currents for most of the monitoring period (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S5</xref>). Thus, PVDF/BaTiO<sub>3</sub>+8% was identified as the optimal formulation for effective neuronal stimulation. Figure <xref rid="advs73435-fig-0002" ref-type="fig">2K</xref> illustrates the electrical performance testing setup. Magnetic stimulation was delivered at 15 Hz and 120% of the resting motor threshold (RMT) [<xref rid="advs73435-bib-0045" ref-type="bibr">45</xref>]. As reported by Boato et al. [<xref rid="advs73435-bib-0046" ref-type="bibr">46</xref>], this protocol promotes CST regeneration by upregulating regeneration‐associated transcription factors. Our previous work [<xref rid="advs73435-bib-0047" ref-type="bibr">47</xref>] also showed that this frequency improves the SCI microenvironment by modulating autophagy. Under these stimulation conditions, the induced pressure was measured at 0.45 N (Figure <xref rid="advs73435-fig-0002" ref-type="fig">2N</xref> and Figure <xref rid="advs73435-supinfo-0001" ref-type="">S6</xref>). Because piezoelectricity is instantaneous, the resulting electrical stimulation frequency matched the magnetic stimulation frequency (15 Hz), with voltage and current outputs shown in Figure <xref rid="advs73435-fig-0002" ref-type="fig">2L,O</xref>, respectively. Individual amplitude waveform segments are presented in Figure <xref rid="advs73435-fig-0002" ref-type="fig">2M,P</xref>.</p><fig position="float" fig-type="FIGURE" id="advs73435-fig-0002" orientation="portrait"><label>FIGURE 2</label><caption><p>Preparation and performance characterization of magnetically responsive energy storage and release nanocapacitors. (A) Schematic illustration of the fabrication process for magnetically responsive piezoelectric nanocapacitors. (B,C) Open‐circuit voltage and short‐circuit current of each group under mechanical excitation at different filler loading ratios (5%, 8%, and 12%). (D). Representative pressure–strain curves for each group at different loading ratios. (E,F) Weekly measurements of open‐circuit voltage and short‐circuit current over 8 weeks under continuous mechanical excitation for all groups. (G) Piezoelectric coefficient (d33) and remanent polarization (Pr) values at different filler loadings. (H) X‐ray diffraction (XRD) patterns of the composites with varying BaTiO3 contents. (I) Fourier transform infrared (FTIR) spectra showing phase evolution as a function of filler concentration. (J) Time‐dependent short‐circuit current profile of the PVDF + 8% BaTiO3 composite (i.e., PNC), demonstrating its sustained current release behavior. (K) Schematic illustration of the electrical output mechanism of the PNC under in vitro high‐frequency magnetic stimulation. (L,M) Short‐circuit current response of the PNC when spinal cord magnetic stimulation is applied at 120% of the resting motor threshold (frequency: 15 Hz). (N) Correlation diagram illustrating the interplay among magnetic stimulation intensity, excitation stress, applied pressure, and induced voltage output. (O–P) Open‐circuit voltage response of the PNC under identical spinal cord magnetic stimulation conditions.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="ADVS-13-e14954-g006.jpg"/></fig></sec><sec id="advs73435-sec-0040"><label>2.2</label><title>Stable Performance and Release of PNC in Simulated Environments</title><p>To evaluate the stability of the electrical performance of the PNC in both liquid and tissue environments, we simulated SBF and in vivo muscle tissue conditions. Using PVDF as a control, we examined the ferroelectric properties of the PNC through polarization (P)–electric field (E) hysteresis loop measurements. As shown in Figure <xref rid="advs73435-fig-0003" ref-type="fig">3A</xref>, the PNC exhibited a distinct hysteresis loop, indicating the presence of net dipoles. In contrast, PVDF showed no clear P–E hysteresis loop, likely reflecting its relatively weak piezoelectric performance, consistent with its lower current and voltage outputs observed in earlier experiments. Because the PNC inevitably contacts blood or body fluids after implantation, we performed constant‐current discharge tests in simulated liquid environments (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S7</xref>). The PNC maintained stable electrical performance across saline, phosphate‐buffered saline, and SBF. Compared with PVDF, the PNC exhibited a significantly higher discharge‐specific capacity of up to 1500 mAh g<sup>−1</sup> and an energy density of 3750 mWh g<sup>−1</sup> in SBF. Electrochemical testing in muscle tissue showed a slight reduction in discharge rate and peak power density relative to in vitro conditions, but values remained markedly higher than those of PVDF (Figure <xref rid="advs73435-fig-0003" ref-type="fig">3B</xref>). Cyclic voltammetry results in SBF (Figure <xref rid="advs73435-fig-0003" ref-type="fig">3C</xref>) revealed a clear cathodic peak under oxygen atmosphere, which appeared less pronounced in air. This enhanced redox activity suggests that the incorporation of BaTiO<sub>3</sub> nanoparticles provides high‐activity sites that lower activation energy under mechanical stress [<xref rid="advs73435-bib-0048" ref-type="bibr">48</xref>], increase the specific surface area, and consequently improve voltage and current outputs. These characteristics support the sustained release of current in vivo and justify placing the PNC cathode directly against the spinal dura mater for stimulation. We next evaluated voltage output at varying discharge densities (Figure <xref rid="advs73435-fig-0003" ref-type="fig">3D</xref>). Under fixed capacitance, the stimulation intensity remained consistently above 2.5 V across different current densities, indicating that stable stimulation can be maintained over time even at lower current levels at the implantation site. To assess mechanical responsiveness, we measured voltage and current outputs in both SBF and muscle tissue (Figure <xref rid="advs73435-fig-0003" ref-type="fig">3E</xref> and Figure <xref rid="advs73435-supinfo-0001" ref-type="">S8</xref>). Electrical performance in SBF closely matched theoretical predictions, whereas muscle tissue showed slightly attenuated responses owing to mechanical conduction losses. In vivo tests further confirmed a clear relationship between capacitance and voltage release (Figure <xref rid="advs73435-fig-0003" ref-type="fig">3F</xref>), demonstrating that a stable voltage above 2.5 V could be generated at a discharge capacity of 600 mAh g<sup>−1</sup>. Together, these results show that the PNC effectively responds to magnetic stimulation‐induced mechanical stress and delivers stable, long‐lasting current in vivo, thereby activating the targeted neural tissue. To assess structural stability, we immersed PVDF and PNC samples in SBF and examined their microstructures using transmission electron microscopy before and after immersion (Figure <xref rid="advs73435-fig-0003" ref-type="fig">3G</xref>). No curling, degradation, or structural changes were observed in the electrospun PNC fibers over 3 months, consistent with the nonbiodegradable properties of the material. Mass loss analysis (Figure <xref rid="advs73435-fig-0003" ref-type="fig">3H</xref>) also showed no significant change after 1, 2, or 3 months of immersion. This complete structural stability enables minimally invasive removal of the PNC after treatment concludes, distinguishing it from biodegradable biomaterials. This approach ensures stable electrical stimulation parameters throughout therapy while allowing retrieval of the device afterward, similar to the removal of fixation hardware after bone healing. Finally, nuclear magnetic resonance imaging and electromagnetic field finite element simulation [<xref rid="advs73435-bib-0049" ref-type="bibr">49</xref>] (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S9</xref>) were used to validate the effective range and depth of PNC‐mediated electrical release in the mouse spinal cord. Three groups were analyzed: magnetic stimulation alone (MS), magnetic stimulation with PNC implantation (MS+PNC), and magnetic stimulation followed by a 2‐h rest period with PNC (MS+PNC 2H). In the MS group, the maximum electric field intensity reached only 12.012 V/m, localized to the spinal cord surface (Figure <xref rid="advs73435-fig-0003" ref-type="fig">3I</xref> and Figures <xref rid="advs73435-supinfo-0001" ref-type="">S10</xref>–<xref rid="advs73435-supinfo-0001" ref-type="">S11</xref>). In contrast, the MS+PNC group (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S12</xref>) showed a peak current density of 4.06 A/m<sup>2</sup> and a voltage intensity of 26.011 V/m at the spinal cord surface. The sagittal view revealed an expanded stimulation field of 22–26 V/m across the entire spinal cord, far exceeding that of the MS group. In the MS+PNC 2H group, 3D reconstructions showed sustained electric field intensity (19.018 V/m) and current density (2.85 A/m<sup>2</sup>) in the PNC‐covered region after 2 h without additional stimulation. The sagittal view indicated that approximately 10 V/m persisted across the dorsal half‐depth of the spinal cord—substantially broader than that observed in the MS group. Coronal sections across different spinal cord segments show that the effective stimulation range in both the MS+PNC and MS+PNC 2H groups nearly encompasses the full thickness of the injury site, with more pronounced signal dispersion downstream than upstream during the 2‐h stimulation period (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S13</xref>). Finite element simulations confirmed that the PNC fully captured the excitation stress from magnetic stimulation, enabling a “wireless charging” mechanism through magnetic responsiveness. Placement of the PNC provided precise targeting of the desired stimulation region, and effective electrical stimulation persisted for up to 2 h poststimulation within the PNC‐covered zone. These simulations further clarified the depth and spatial distribution of spinal cord stimulation, which could not be accurately evaluated using previous simulation methods. Collectively, these findings provide a theoretical basis for understanding the neural and motor recovery induced by PNC‐mediated stimulation.</p><fig position="float" fig-type="FIGURE" id="advs73435-fig-0003" orientation="portrait"><label>FIGURE 3</label><caption><p>Preparation and performance characterization of magnetically responsive electrostatic energy storage and sustained‐release nanopatches. (A) Polarization hysteresis loops of PVDF and PNC under identical polarization electric fields, demonstrating the ferroelectric properties of the materials. (B) Linear sweep voltammetry curves of PNC in simulated body fluid (SBF) and under simulated in vivo conditions (muscle tissue), indicating its electrochemical stability in physiological environments. (C) Cyclic voltammetry curves of PVDF and PNC in SBF under both air and oxygen‐saturated atmospheres, revealing distinct redox activity of the PNC cathode under oxygen‐rich conditions. (D) Discharge profiles of PNC in SBF at varying current densities, showing stable voltage output above 2.5 V across different discharge rates. (E) Open‐circuit voltage response of PNC under mechanical excitation stress in simulated body fluid and muscle tissue environments; results indicate that PNC maintains effective stimulation intensity even in complex biological media. (F) Voltage–capacity curves of PNC under simulated in vivo conditions, demonstrating a stable voltage output of over 2.5 V at a discharge capacity of 600 mAh g<sup>−1</sup>. (G) Scanning electron microscopy images of PVDF and PNC after immersion in SBF for up to 3 months, showing no significant structural degradation or fiber curling in PNC, consistent with its nonbiodegradable nature. (H) Quantitative analysis of mass loss in PVDF and PNC after immersion in SBF at different time points, confirming minimal weight change and excellent structural stability of PNC over time. (I) 3D and 2D finite element simulations of electric field intensity distribution in the mouse spinal cord under three experimental conditions: simple magnetic stimulation (MS), magnetic stimulation combined with PNC implantation (MS + PNC), and 2 h after cessation of stimulation (MS + PNC 2H). Simulations were based on nuclear magnetic resonance scanning, 3D modeling, and electromagnetic field transformation, revealing significantly enhanced and sustained electric field penetration in the MS + PNC groups compared to MS alone.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="ADVS-13-e14954-g007.jpg"/></fig></sec><sec id="advs73435-sec-0050"><label>2.3</label><title>PNC Biocompatibility Meets Requirements for In Vivo Experimentation</title><p>To assess the biocompatibility of PNC patches, we established three experimental groups: an untreated control group (Control), a PVDF group, and a PNC group (Figure <xref rid="advs73435-fig-0004" ref-type="fig">4A</xref>). Fetal rat cortical motor neurons were isolated from pregnant rats and cultured in poly‐D‐lysine‐coated 24‐well plates at a density of approximately 6 × 10<sup>4</sup> cells per well. Live/dead staining was performed on days 1, 3, and 5 of culture (Figure <xref rid="advs73435-fig-0004" ref-type="fig">4B</xref>). At all‐time points, no statistically significant differences in the density of live cells were observed between the PVDF and PNC groups compared with the Control group (Figure <xref rid="advs73435-fig-0004" ref-type="fig">4C</xref>), indicating that neither material adversely affected neuronal survival or development. Cell Counting Kit‐8 assays were conducted on the same days (Figure <xref rid="advs73435-fig-0004" ref-type="fig">4D</xref>). Quantitative analysis of cell viability showed that the optical density values of the PVDF and PNC groups were comparable to those of the Control group at all time points, confirming their noncytotoxicity. These findings are consistent with previous reports [<xref rid="advs73435-bib-0014" ref-type="bibr">14</xref>, <xref rid="advs73435-bib-0050" ref-type="bibr">50</xref>] demonstrating the biocompatibility of PVDF‐based materials. After confirming the absence of cytotoxicity, we investigated whether magnetic stimulation applied to the PNC patch could promote neuronal differentiation. For this purpose, three groups were established: Control, PNC, and MS+PNC (Figure <xref rid="advs73435-fig-0005" ref-type="fig">5A</xref>). Immunofluorescence staining was performed using early (Tuj‐1, Figure <xref rid="advs73435-fig-0005" ref-type="fig">5B</xref>) and late (MAP2, Figure <xref rid="advs73435-fig-0005" ref-type="fig">5D</xref>) neuronal markers, costained with 4′,6‐diamidino‐2‐phenylindole on days 1, 3, and 5. Both Tuj‐1 and MAP2 fluorescence intensities were significantly higher in the MS+PNC group than in the Control and PNC groups. The MS+PNC group also exhibited thicker dendrites, increased axon density (Figure <xref rid="advs73435-fig-0005" ref-type="fig">5C</xref>), broader neurite outgrowth (Figure <xref rid="advs73435-fig-0005" ref-type="fig">5E</xref>), and a higher neuronal survival rate (Figure <xref rid="advs73435-fig-0005" ref-type="fig">5F</xref>). A significant difference was also observed between the PNC and Control groups. Importantly, no adverse effects—such as delayed healing or secondary injury, which have been associated with some biomaterials [<xref rid="advs73435-bib-0051" ref-type="bibr">51</xref>, <xref rid="advs73435-bib-0052" ref-type="bibr">52</xref>]—were observed in this SCI model. Tuj‐1 and MAP2 serve as established markers for evaluating neuronal growth in vitro. Our findings show that the mechanical stimulation generated during spinal cord magnetic stimulation exceeded the minimum threshold required to activate the piezoelectric properties of PNC, supporting the feasibility of noninvasive external modulation. Under comparable seeding densities, neurons cultured on PNC and exposed to sustained, enhanced current stimulation exhibited markedly improved growth relative to the other groups, highlighting the beneficial role of electrical stimulation in neuronal development. Prior studies have shown similar effects: Martin et al. [<xref rid="advs73435-bib-0053" ref-type="bibr">53</xref>] demonstrated that direct current stimulation enhances the differentiation and growth of both neurons and osteoblasts; Hao et al. [<xref rid="advs73435-bib-0054" ref-type="bibr">54</xref>] reviewed the targeted effects of electrical stimulation on neuronal differentiation and maturation; and Song et al. [<xref rid="advs73435-bib-0055" ref-type="bibr">55</xref>] reported that a current of 7.4 µA reduces intracellular calcium concentration and enhances neuronal excitability by modulating potassium ion channels. Collectively, these findings indicate that the combined MS+PNC approach creates a stable and effective electrical microenvironment that significantly enhances neuronal survival and growth. These results provide strong evidence supporting the in vivo applicability of the PNC as a biocompatible and functionally effective implantable device.</p><fig position="float" fig-type="FIGURE" id="advs73435-fig-0004" orientation="portrait"><label>FIGURE 4</label><caption><p>Modified PVDF (PNC) demonstrates excellent neuronal biocompatibility. (A) Schematic illustration of primary mouse neuron culture and the experimental setup for evaluating PNC biocompatibility. (B) Live/dead staining images of neurons following coculture with PVDF and PNC for 1, 3, and 5 days; scale bar: 100 µm. (C) Quantitative analysis of neuronal survival rates based on live/dead staining (<italic toggle="yes">n</italic> = 5). (D) Statistical analysis of cell viability assessed by CCK‐8 assay after coculture with PVDF and PNC for 1, 3, and 5 days (<italic toggle="yes">n</italic> = 5). Data were analyzed using two‐way ANOVA. Significance levels: ns, not significant; *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001; ****<italic toggle="yes">p</italic> &lt; 0.0001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="ADVS-13-e14954-g010.jpg"/></fig><fig position="float" fig-type="FIGURE" id="advs73435-fig-0005" orientation="portrait"><label>FIGURE 5</label><caption><p>PNC provides a conducive environment for neuronal survival and growth. (A) Schematic illustration of the experimental design involving coculture of mouse primary neurons with PNC under magnetic stimulation intervention. (B) Immunofluorescence staining images of neurons after coculture in different groups for 1, 3, and 5 days. Tuj‐1 was labeled green and DAPI‐stained nuclei were labeled blue. Scale bar: 100 µm. (C) Quantitative analysis of average axon length in Tuj‐1(+) cells (<italic toggle="yes">n</italic> = 5). (D) Immunofluorescence staining images of neurons following coculture in different groups for 1, 3, and 5 days. MAP2 was labeled green and DAPI‐stained nuclei were labeled blue. Scale bar: 100 µm. (E) Quantitative analysis of average fluorescence intensity in MAP2(+) cells (<italic toggle="yes">n</italic> = 5). (F) Statistical evaluation of the percentage of MAP2(+) cells relative to total cell count (<italic toggle="yes">n</italic> = 5). Data were analyzed using one‐way ANOVA. Significance levels: ns, not significant; *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001; ****<italic toggle="yes">p</italic> &lt; 0.0001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="ADVS-13-e14954-g011.jpg"/></fig></sec><sec id="advs73435-sec-0060"><label>2.4</label><title>MS+PNC Promotes Neural Differentiation and Regeneration in the Core Lesion Area After SCI</title><p>Following SCI, regardless of the injury mechanism, the damaged region can be histologically divided into three zones: the neuron‐depleted core lesion area, glial scar boundary, and surrounding residual tissue containing viable neurons. To determine whether the magnetically responsive PNC can improve the microenvironment of the core lesion area through electrical stimulation and thereby promote neural differentiation and regeneration, we established a complete spinal cord transection model at the T8–T10 levels in C57/B6J mice. Animals were randomly assigned to one of three groups: an untreated control group (Control), a group implanted with Magnetic Stimulation alone (MS), a group implanted with PNC alone (PNC), and a group receiving spinal magnetic stimulation combined with PNC implantation (MS+PNC). At 8 weeks postinjury, sagittal spinal cord sections were analyzed by immunofluorescence to assess newly formed neurofilaments (NF) and neural precursor cells (Tuj1) within the core lesion area. Tuj1 staining (Figure <xref rid="advs73435-fig-0006" ref-type="fig">6A</xref>) showed that the MS+PNC group contained a significantly higher number of neural precursor cells than the MS, PNC, and Control groups (Figure <xref rid="advs73435-fig-0006" ref-type="fig">6C</xref>). Notably, these precursor cells extended across the glial scar and spanned from the rostral to the caudal ends of the lesion. In contrast, the PNC group exhibited only limited Tuj1‐positive projections into the core lesion area without effective caudal connections, whereas the Control group showed Tuj1 expression restricted to the glial scar regions at both lesion margins, with no evidence of neural differentiation. NF immunostaining, which marks axonal cytoskeletal structures (Figure <xref rid="advs73435-fig-0006" ref-type="fig">6B</xref>), demonstrated a significantly greater presence of neurofilaments in the core lesion area of the MS+PNC group compared with the Control and PNC groups (Figure <xref rid="advs73435-fig-0006" ref-type="fig">6D</xref>). Tuj1, an early marker of neural precursor cells and immature neurons, is widely used to evaluate neural differentiation in SCI models [<xref rid="advs73435-bib-0021" ref-type="bibr">21</xref>]. NF, a major structural component of axons, is essential for neuronal survival, axonal regeneration, and functional recovery after injury [<xref rid="advs73435-bib-0056" ref-type="bibr">56</xref>]. Together, Tuj1 and NF staining patterns reflect the extent of neural differentiation and regeneration induced by MS+PNC treatment. Our findings show that MS+PNC treatment enhances the differentiation and regeneration of neural precursor cells, thereby promoting neurofilament development and contributing to neural functional recovery. These observations are consistent with those reported by Yang et al. [<xref rid="advs73435-bib-0057" ref-type="bibr">57</xref>]. Furthermore, at the 8‐week time point—considered a stable phase of SCI [<xref rid="advs73435-bib-0058" ref-type="bibr">58</xref>]—the average fluorescence intensity and proportion of NF were significantly higher than those of Tuj1 within the same group. This suggests that MS+PNC not only promotes early neural differentiation but also supports the maturation of Tuj1‐expressing immature neurons into NF‐expressing mature neurons, indicating active neural regeneration. Notably, in both the PNC and MS+PNC groups, a distinct NF fluorescence signal was observed on the dorsal aspect of the spinal cord in direct contact with the implanted PNC patch (Figure <xref rid="advs73435-fig-0006" ref-type="fig">6D</xref>). This signal corresponded precisely to the implantation site, demonstrating that the PNC patch effectively promotes neuronal growth and differentiation in vivo. These results highlight the importance of combining spinal magnetic stimulation with PNC implantation, as this strategy mimics the effects of epidural electrical stimulation and enables sustained stimulation that enhances neural differentiation and regeneration within the core lesion area.</p><fig position="float" fig-type="FIGURE" id="advs73435-fig-0006" orientation="portrait"><label>FIGURE 6</label><caption><p>MS+PNC promotes neural regeneration and differentiation within the core lesion area following spinal cord injury. (A) Representative immunofluorescence images showing Tuj1 (green) and GFAP (red) staining in each experimental group at 8 weeks postinjury. Scale bar: 500 µm; magnified insets, 20 µm. (B) Representative immunofluorescence images showing NF (green) and GFAP (red) staining across experimental groups at 8 weeks postspinal cord injury. Scale bar: 500 µm; magnified insets, 20 µm. (C) Quantitative analysis of mean Tuj1(+) fluorescence intensity in the core lesion area (<italic toggle="yes">n</italic> = 6). (D) Quantitative analysis of mean NF(+) fluorescence intensity in the core lesion area (<italic toggle="yes">n</italic> = 6). Data are presented as mean ± SEM and were analyzed by one‐way ANOVA with Tukey's post hoc test. Significance levels: ns, not significant; *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001; ****<italic toggle="yes">p</italic> &lt; 0.0001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-13" orientation="portrait" xlink:href="ADVS-13-e14954-g009.jpg"/></fig><p>To evaluate whether long‐term epidural implantation of PNC in spinal cord‐injured mice causes physical or inflammatory damage that could impair neural regeneration marker expression (e.g., Tuj1, NF), we performed additional assessments. Immunofluorescence analysis of CD68/IBa1 colocalization showed no signs of heightened inflammation at the injury site over 8 weeks (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S14</xref>). Inflammation levels in the PNC and MS+PNC groups were similar to those in the control group, with no significant differences, indicating that PNC implantation does not disrupt spinal cord physiology. This aligns with findings from Fan et al. [<xref rid="advs73435-bib-0059" ref-type="bibr">59</xref>] on hydrogel implantation in a murine SCI model. We also collected heart, liver, spleen, lung, and kidney tissues postintervention for H&amp;E staining. Histopathological examination revealed no abnormal structural changes in major organs in either the PNC or MS+PNC group (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S15</xref>), suggesting no detectable organ toxicity or systemic damage under current conditions. These results are consistent with prior histological data from zinc–oxygen battery implants in sciatic nerve repair [<xref rid="advs73435-bib-0012" ref-type="bibr">12</xref>], supporting the biocompatibility and systemic safety of such bioelectronic devices. With biocompatibility confirmed at both local and systemic levels, we next examined whether sustained electrical stimulation via PNC modulates neuronal activity above and below the lesion. Using c‐Fos/NeuN colabeling as a marker of neuronal activation [<xref rid="advs73435-bib-0060" ref-type="bibr">60</xref>], we assessed excitability in the motor cortex (M1), rostral spinal cord (cervical), and caudal segment (lumbar). Neuronal activation in rostral regions (M1 and cervical) was low across all groups, with no significant differences (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S16</xref>). However, in the lumbar region distal to the injury, dorsal neurons in the MS+PNC group showed significantly higher c‐Fos expression than the other groups—consistent with predictions from our finite element simulations. Given that PVDF is a well‐documented self‐powered material [<xref rid="advs73435-bib-0014" ref-type="bibr">14</xref>, <xref rid="advs73435-bib-0015" ref-type="bibr">15</xref>, <xref rid="advs73435-bib-0016" ref-type="bibr">16</xref>, <xref rid="advs73435-bib-0017" ref-type="bibr">17</xref>, <xref rid="advs73435-bib-0061" ref-type="bibr">61</xref>] and barium titanate is widely used for dielectric enhancement in biomedical applications [<xref rid="advs73435-bib-0029" ref-type="bibr">29</xref>, <xref rid="advs73435-bib-0062" ref-type="bibr">62</xref>, <xref rid="advs73435-bib-0063" ref-type="bibr">63</xref>], we conclude that epidural PNC implantation does not cause unintended tissue damage or aberrant neuronal activation.</p></sec><sec id="advs73435-sec-0070"><label>2.5</label><title>MS+PNC Effectively Promotes the Regeneration of Descending Axons Across the Injury Site in the Spinal Cord Pathway</title><p>Although neural regeneration within the core lesion area is essential, functional recovery requires the re‐establishment of long‐distance axonal connections across the injury site. To determine whether MS+PNC treatment promotes functional axonal regeneration, we evaluated both serotonergic projections and CST regeneration. NF expression in the lesion indicated structural axonal regeneration; therefore, we performed 5‐hydroxytryptamine immunostaining to label serotonergic axons [<xref rid="advs73435-bib-0064" ref-type="bibr">64</xref>] and used adeno‐associated virus (AAV)‐based tracing to monitor CST regeneration. Because our primary focus was axonal regrowth, we quantified the distance of newly regenerated axons caudal to the lesion as the main outcome measure. In the complete spinal cord transection model, 5‐hydroxytryptamine immunofluorescence staining (Figure <xref rid="advs73435-fig-0007" ref-type="fig">7A</xref>) showed that within 250–1000 µm caudal to the lesion, the MS+PNC group exhibited significantly more serotonergic axons than the PNC and Control groups. These axons displayed a distinct cord‐like morphology. At 50 µm caudal to the injury, no significant difference was observed between the MS+PNC and either the MS or PNC groups; the MS and PNC group displayed only partially developed serotonergic precursors without mature axon formation. Beyond 1000 µm caudal, no significant differences were identified among the three groups (Figure <xref rid="advs73435-fig-0007" ref-type="fig">7D</xref>). To further assess CST regeneration across the lesion, we employed a dorsal hemisection model at the T9 level [<xref rid="advs73435-bib-0046" ref-type="bibr">46</xref>, <xref rid="advs73435-bib-0065" ref-type="bibr">65</xref>, <xref rid="advs73435-bib-0066" ref-type="bibr">66</xref>] (Figure <xref rid="advs73435-fig-0007" ref-type="fig">7B</xref>). 3 weeks before sacrifice, AAV9‐hSyn‐EGFP was injected into the M1 motor cortex to trace CST projections. After 8 weeks of treatment, sagittal spinal cord sections were stained for green fluorescent protein to visualize CST regrowth (Figure <xref rid="advs73435-fig-0007" ref-type="fig">7C</xref>). Across all distances analyzed (50–2000 µm), the MS+PNC group showed significantly greater CST axonal density and length compared with the Control, MS, and PNC groups (Figure <xref rid="advs73435-fig-0007" ref-type="fig">7E</xref>). In contrast, no significant differences were observed among the Control, MS, and PNC groups, indicating minimal CST regeneration in the absence of magnetic stimulation. These findings demonstrate that MS+PNC treatment substantially enhances the regeneration of both serotonergic and CST axons across the lesion and into the caudal spinal cord. The dorsal hemisection injury model is widely used to study CST regeneration. In the Control group, CST fibers were completely blocked, confirming the severity of the model. CST regenerative capacity diminishes with increasing distance from its cortical origin; therefore, thoracic CST regeneration is more difficult to achieve. In Boato et al. [<xref rid="advs73435-bib-0046" ref-type="bibr">46</xref>], magnetic stimulation induced CST regeneration following thoracic dorsal hemisection, while other studies [<xref rid="advs73435-bib-0067" ref-type="bibr">67</xref>, <xref rid="advs73435-bib-0068" ref-type="bibr">68</xref>, <xref rid="advs73435-bib-0069" ref-type="bibr">69</xref>] focused on cervical injuries, which are generally less severe. Compared with these models, our T9 thoracic injury represents a greater regenerative challenge. The robust CST regeneration observed in the thoracic segment of the MS+PNC group therefore highlights the strong efficacy of this combined treatment. Based on our material characterization and in vitro findings, we propose that the biocompatible PNC patch provides a physical scaffold for CST fibers, supporting their traversal across the lesion. Moreover, the electrical current generated by the PNC covering both the rostral and caudal ends of the injury likely mimics epidural electrical stimulation, thereby promoting CST regeneration. Interestingly, in the MS+PNC group, the CST rostral to the injury appeared more divergent and densely distributed than in the other groups. We hypothesize that this divergence results from diffusive propagation of electrical current within the spinal cord, indirectly supporting the role of electrical stimulation in guiding CST axonal growth. This observation aligns with the findings of Martín et al. [<xref rid="advs73435-bib-0053" ref-type="bibr">53</xref>], which suggest that the directionality of electrical current strongly influences axonal growth orientation. To investigate the molecular mechanisms of cellular responses to electrical stimulation, spinal cord tissues were collected from mice 8 weeks postintervention, with sampling extending 0.3 cm rostral and caudal to the injury epicenter. Western blotting and semiquantitative analysis assessed expression levels of key proteins involved in calcium signaling (CaMKII), axonal regeneration (NF), axon guidance (Netrin3), and relevant signaling pathways (CREB, TrkB) (Figure <xref rid="advs73435-supinfo-0001" ref-type="">S17</xref>). The MS+PNC group showed altered calmodulin expression, indicating enhanced regulation of neuronal calcium signaling. This combined treatment increased expression of regeneration‐related proteins, axonal guidance molecules, and associated pathways more than any other group. These results provide strong biochemical support for MS+PNC promoting neural recovery after spinal cord injury, consistent with improved lower limb motor function seen in electrophysiological and histological assessments.</p><fig position="float" fig-type="FIGURE" id="advs73435-fig-0007" orientation="portrait"><label>FIGURE 7</label><caption><p>MS+PNC effectively promotes regeneration of descending axons at the spinal cord injury site. (A) Representative immunofluorescence images showing 5‐hydroxytryptamine (5‐HT, green) and glial fibrillary acidic protein (GFAP, red) staining in each experimental group at 8 weeks postinjury. Scale bar: 500 µm; magnified insets, 20 µm. (B) Schematic illustration of the dorsal hemisection model at the T9 spinal cord level in mice. (C) Representative immunofluorescence images showing green fluorescent protein (GFP, green), neuronal nuclear antigen (NeuN, purple), and GFAP (red) staining across experimental groups at 8 weeks postspinal cord injury. Scale bar: 500 µm; magnified insets, 20 µm. (D) Segmental quantitative analysis of fluorescence intensity of descending 5‐HT(+) axons measured rostrally from the lesion epicenter (<italic toggle="yes">n</italic> = 6). (E) Segmental quantitative analysis of fluorescence intensity of descending GFP(+) axons measured rostrally from the dorsal hemisection site (<italic toggle="yes">n</italic> = 6). Data are presented as mean ± SEM and were analyzed by two‐way ANOVA with Tukey's post hoc test. Significance levels: ns, not significant; *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001; ****<italic toggle="yes">p</italic> &lt; 0.0001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-15" orientation="portrait" xlink:href="ADVS-13-e14954-g008.jpg"/></fig></sec><sec id="advs73435-sec-0080"><label>2.6</label><title>MS+PNC Restores the Conduction of Electrical and Chemical Signals in Damaged Neural Circuits</title><p>To determine whether axons regenerated across the injury site successfully re‐establish functional physiological connections capable of restoring lower limb function, we assessed both electrical and chemical signal transmission. Motor evoked potential (MEP) are key physiological indicators of axonal functional recovery [<xref rid="advs73435-bib-0070" ref-type="bibr">70</xref>, <xref rid="advs73435-bib-0071" ref-type="bibr">71</xref>]. Therefore, 8 weeks after treatment, MEP recordings were obtained from mice under anesthesia. Electrical stimulation was applied to the left M1 motor cortex using needle electrodes (9 V, 1 Hz, 3 ms pulse width), and signals were recorded from the contralateral anterior tibialis (TA) muscle (Figure <xref rid="advs73435-fig-0008" ref-type="fig">8A</xref>). In healthy mice, action potential latency ranged from 4 to 6 ms and amplitudes from 15 to 25 mV. In contrast, no identifiable action potentials were detected in the Control group, indicating a complete absence of conduction. Latency values for the Normal, MS+PNC, PNC, MS, and Control groups progressively increased, with significant differences between all groups. MEP amplitudes showed the opposite trend (19.57 ± 3.768, 2.059 ± 0.5822, 0.625 ± 0.3249, 0.05 375 ± 0.05 854, and 0.0275 ± 0.05 148 mV, respectively), again with significant differences between groups (Figure <xref rid="advs73435-fig-0008" ref-type="fig">8B–D</xref>). To assess chemical signal transmission, rAAV‐hSyn‐Axon‐GCaMP6s was injected into the M1 cortex to label CST‐connected motor neurons (Figure <xref rid="advs73435-fig-0009" ref-type="fig">9A</xref>). 2 days before imaging, an optical fiber was implanted into the ventral horn motor neuron pool caudal to the injury. In the Normal group, hindlimb movement produced robust GCaMP fluorescence peaks, confirming intact CST‐to‐lumbar motor neuron transmission (Figure <xref rid="advs73435-fig-0009" ref-type="fig">9B</xref>). In the experimental groups, the MS+PNC group exhibited significantly higher GCaMP signal intensity compared with the Control, MS, and PNC groups (Figure <xref rid="advs73435-fig-0009" ref-type="fig">9C</xref>). In contrast, no significant difference was detected among the Control, MS, and PNC groups. All injured groups showed markedly reduced fluorescence intensity compared with the Normal group (Figure <xref rid="advs73435-fig-0009" ref-type="fig">9D</xref>). The area under the curve for the Ca<sup>2+</sup> signal displayed the same trend, with the MS+PNC group performing significantly better than the Control, MS, and PNC groups, whereas the latter two did not differ significantly (Figure <xref rid="advs73435-fig-0009" ref-type="fig">9E</xref>). Neural conduction requires reception of upstream signals, conversion between electrical and chemical signals, and transmission to downstream neurons. To establish reference values, a Normal group was included, consistent with previous studies [<xref rid="advs73435-bib-0009" ref-type="bibr">9</xref>, <xref rid="advs73435-bib-0021" ref-type="bibr">21</xref>, <xref rid="advs73435-bib-0064" ref-type="bibr">64</xref>]. Regarding chemical transmission, synaptic communication underlies movement generation and action potential propagation, and calcium ions as crucial regulators of this process. Calcium imaging showed that MS+PNC treatment enabled regenerated axons to reconnect functionally with caudal motor neurons. These findings demonstrate that the electrical stimulation generated by MS+PNC effectively activates CST–motor neuron synapses and restores continuity of the motor pathway to the lumbar motor neuron pool. MEP analysis further supported this conclusion. MS+PNC treatment restored identifiable action potential waveforms and significantly reduced TA muscle latency, indicating functional recovery of the motor pathway. As the effector muscle of the lower limb, TA MEP provide an objective measure of functional restoration [<xref rid="advs73435-bib-0072" ref-type="bibr">72</xref>]. Our results show that MS+PNC treatment evokes motor potentials even in completely transected mice and shortens latency substantially. These findings indicate that SCI disrupts input from motor preneurons to motor neurons. However, PNC activated by magnetic stimulation effectively re‐establishes functional synaptic connectivity between CST axons and caudal motor neurons through epidural‐like electrical stimulation. Thus, MS+PNC reshapes physiological synaptic transmission between upstream motor circuits and downstream motor neurons, enabling electrical signals to traverse a completely transected spinal cord and reach peripheral effectors, ultimately restoring normal motor circuit function.</p><fig position="float" fig-type="FIGURE" id="advs73435-fig-0008" orientation="portrait"><label>FIGURE 8</label><caption><p>MS+PNC restores electrical signal conduction in the motor neural circuit. (A) Schematic illustration of the experimental setup for recording motor evoked potential (MEP) in mice. (B) Representative MEP waveforms recorded from the tibialis anterior (TA) muscle under identical stimulation parameters across experimental groups. (C) Statistical analysis of mean latency, defined as the time interval from stimulus onset to peak response amplitude, in each group (<italic toggle="yes">n</italic> = 8). (D) Statistical analysis of mean amplitude, calculated as the voltage difference between peak and trough of the evoked potential, across groups (<italic toggle="yes">n</italic> = 8). (E) Schematic illustration of the surface electromyography (sEMG) recording setup on the TA muscle in mice. (F) Representative sEMG signal traces recorded from the TA muscle within a consistent time window across groups. (G–K) Quantitative analyses of electrophysiological parameters during the same time period: (G) Integrated electromyography (IEMG); (H) Root mean square (RMS); (I) Average electromyography (AEMG); (J) Mean power frequency (MPF); (K) Median frequency (MF) (<italic toggle="yes">n</italic> = 8 per group). Data are presented as mean ± SEM and were analyzed by one‐way ANOVA with Tukey's post hoc test. Significance levels: ns, not significant; *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001; ****<italic toggle="yes">p</italic> &lt; 0.0001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-17" orientation="portrait" xlink:href="ADVS-13-e14954-g003.jpg"/></fig><fig position="float" fig-type="FIGURE" id="advs73435-fig-0009" orientation="portrait"><label>FIGURE 9</label><caption><p>MS+PNC restores chemical signal transmission in the motor neural circuit. (A) Schematic illustration of the experimental procedure for AAV‐GCaMP6s injection and calcium signal detection. (B) Schematic representation of the correlation between hindlimb motor behavior and dynamic Ca<sup>2</sup>⁺ signal changes in mice. (C) Line plots showing Δ<italic toggle="yes">F</italic>/<italic toggle="yes">F</italic> values reflecting Ca<sup>2</sup>⁺ signal fluctuations during locomotion, with red indicating movement onset. The <italic toggle="yes">y</italic>‐axis range is −10%–60% for the normal group and −10%–30% for all other groups. Each row in the heatmap represents a single movement event recorded under standardized conditions. (D) Statistical comparison of mean peak fluorescence amplitude during movement across experimental groups (<italic toggle="yes">n</italic> = 5). (E) Quantitative analysis of the average area under the curve (AUC) of fluorescence intensity across groups (<italic toggle="yes">n</italic> = 5). Data are presented as mean ± SEM and were analyzed by one‐way ANOVA with Tukey's post hoc test. Significance levels: ns, not significant; *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001; ****<italic toggle="yes">p</italic> &lt; 0.0001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-19" orientation="portrait" xlink:href="ADVS-13-e14954-g005.jpg"/></fig></sec><sec id="advs73435-sec-0090"><label>2.7</label><title>MS+PNC Improves Neural Innervation of Hindlimb Muscles After SCI</title><p>To comprehensively assess motor pathway recovery after SCI, every component of the neural circuit must be evaluated. After confirming axonal regeneration within the core lesion area, regeneration across the injury gap, and restoration of descending signal transmission, we next examined the efferent nerves and their target tissues—the hindlimb muscles. Immunofluorescence staining was performed on the right TA muscle 8 weeks post‐treatment. α‐Bungarotoxin (α‐BTX) was used to label acetylcholine receptors, NF to label nerve fibers, and synaptophysin (Syn) to label presynaptic terminals (Figure <xref rid="advs73435-fig-0010" ref-type="fig">10A</xref>). Based on the degree of Syn and α‐BTX colocalization, neuromuscular junctions (NMJs) were classified into three categories: denervated, partially innervated, and fully innervated (Figure <xref rid="advs73435-fig-0010" ref-type="fig">10B</xref>). NMJ staining was performed in all five groups, including the Normal group (Figure <xref rid="advs73435-fig-0010" ref-type="fig">10C</xref>). Six randomly selected TA muscle endplates per field were analyzed to determine the percentage of innervated NMJs. The MS+PNC group exhibited a significantly higher percentage of innervated NMJs compared with the Control, MS, and PNC groups (Figure <xref rid="advs73435-fig-0010" ref-type="fig">10E</xref>). The PNC group differed significantly from both the control and MS groups. However, all four injured groups demonstrated markedly lower innervation levels than the Normal group, indicating incomplete functional recovery. To further evaluate muscle atrophy, hematoxylin, and eosin staining was performed on coronal and sagittal sections of the TA muscle (Figure <xref rid="advs73435-fig-0010" ref-type="fig">10D</xref>), and myofiber cross‐sectional area and inter‐fiber spacing were measured. Myofiber area analysis (Figure <xref rid="advs73435-fig-0010" ref-type="fig">10F</xref>) revealed significantly smaller myofibers in all injured groups relative to the Normal group. The MS+PNC group had significantly larger myofiber cross‐sectional areas than the Control, MS, and PNC groups, with a statistically significant difference also present between these latter groups. For myofiber spacing (Figure <xref rid="advs73435-fig-0010" ref-type="fig">10G</xref>), the MS+PNC group showed markedly reduced spacing compared with both the Control and PNC groups, indicating partial structural recovery; however, significant differences persisted between the MS+PNC and Normal groups. Myofiber spacing decreased progressively from Control to PNC and then to MS+PNC, with significant differences among all groups. NMJ integrity is a critical indicator of motor function recovery after SCI. As expected, nearly all NMJs in the Normal group were fully innervated. In contrast, Syn fluorescence was nearly absent in the Control and MS group, indicating a complete loss of neural control over hindlimb muscles in the fully transected model. This finding aligns with Basso Mouse Scale locomotor scores and confirms that complete pathway interruption results in upstream denervation, muscle atrophy, and functional loss. In the MS+PNC group, many partially innervated NMJs were observed within the same field, indicating that the combined treatment effectively promotes functional NMJ reconstruction following axonal regeneration across the lesion. This observation is consistent with the findings of Wang et al. [<xref rid="advs73435-bib-0073" ref-type="bibr">73</xref>]. Histological analysis of TA muscle cross‐sections further showed that the MS+PNC group exhibited significantly improved myofiber morphology compared with the Control and PNC groups, demonstrating that long‐term spinal electromagnetic stimulation combined with PNC implantation enhances effector recovery. This result aligns with the observations of Yan et al. [<xref rid="advs73435-bib-0074" ref-type="bibr">74</xref>]. Taken together, these findings indicate that upstream axonal regeneration restores the descending motor pathway and thereby improves neural innervation of the hindlimb musculature. SCI disrupts axonal conduction, leading to the loss of neural control and subsequent motor dysfunction. However, the magnetically responsive PNC provides long‐term and effective electrical stimulation that restores upstream axonal function and enhances downstream neuromuscular innervation, ultimately contributing to functional recovery of the hindlimbs.</p><fig position="float" fig-type="FIGURE" id="advs73435-fig-0010" orientation="portrait"><label>FIGURE 10</label><caption><p>MS+PNC enhances neuromuscular innervation of lower limb muscles following spinal cord injury. (A) Schematic illustration of the immunofluorescence staining protocol for neuromuscular junctions (NMJs) in the mouse tibialis anterior muscle. (B) Representative immunofluorescence images showing three distinct patterns of NMJ innervation in the tibialis anterior muscle. (C) Representative immunofluorescence images of sagittal‐section NMJs in the tibialis anterior muscle from different experimental groups at 8 weeks postinjury. α‐Bungarotoxin (α‐BTX, red), neurofilament (NF, green), and synaptophysin (Syn, purple) labeling indicate pre‐ and postsynaptic components. Scale bar: 50 µm. (D). Representative hematoxylin and eosin (H&amp;E) staining images of coronal and sagittal sections of the tibialis anterior muscle across experimental groups at 8 weeks postspinal cord injury. Scale bar: 100 µm. (E) Quantitative analysis of the percentage of fully innervated NMJs in the tibialis anterior muscle (<italic toggle="yes">n</italic> = 6). (F) Statistical comparison of mean myofibril cross‐sectional area in the coronal section of the tibialis anterior muscle among groups (<italic toggle="yes">n</italic> = 6). (G) Statistical assessment of average myofibril spacing in the sagittal section of the tibialis anterior muscle across groups (<italic toggle="yes">n</italic> = 6). Data are presented as mean ± SEM and were analyzed by one‐way ANOVA with Tukey's post hoc test. Significance levels: ns, not significant; *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001; ****<italic toggle="yes">p</italic> &lt; 0.0001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-21" orientation="portrait" xlink:href="ADVS-13-e14954-g001.jpg"/></fig></sec><sec id="advs73435-sec-0100"><label>2.8</label><title>MS+PNC Restores Lower Limb Motor Function by Reshaping Neural Connectivity</title><p>The preceding experiments demonstrated that long‐term electrical stimulation generated by magnetic stimulation promotes neural repair after SCI at both histological (immunofluorescence) and physiological (electrical and chemical transmission) levels. To extend these findings to whole‐body function, we evaluated lower limb motor recovery and locomotor characteristics in mice. To assess rhythmic movement and electromyographic (EMG) activity during locomotion, we recorded TA muscle activity using a surface EMG patch system during treadmill walking (Figure <xref rid="advs73435-fig-0008" ref-type="fig">8E,F</xref>). Time‐domain analyses—including integrated EMG (IEMG), root mean square (RMS), and average EMG (AEMG)—revealed consistent trends (Figure <xref rid="advs73435-fig-0008" ref-type="fig">8G–K</xref>). The MS+PNC group displayed significantly higher IEMG (490.4 ± 113.2 µV), RMS (51.12 ± 9.506 µV), and AEMG (11.89 ± 2.847 µV) than both the Control (IEMG: 54.84 ± 26.24 µV; RMS: 3.564 ± 1.354 µV; AEMG: 3.985 ± 1.165 µV), MS groups (IEMG:86.36 ± 15.2 µV; RMS:10.53 ± 4.079 µV; AEMG:4.456 ± 1.138 µV), and PNC groups (IEMG: 206.1 ± 59.66 µV; RMS: 19.54 ± 4.542 µV; AEMG: 6.693 ± 1.253 µV). No significant differences were found among the Control, MS, and PNC groups. Compared with the Normal group (IEMG: 1266 ± 269.6 µV; RMS: 121.2 ± 31.11 µV; AEMG: 25.25 ± 3.641 µV), all injured groups showed significantly reduced EMG activity. Frequency‐domain analysis showed progressively decreasing median power frequency (MPF) and mean frequency (MF) values across groups: MS+PNC (MPF: 108.1 ± 15.26 Hz; MF: 60.17 ± 8.482 Hz), PNC (MPF: 80.05 ± 9.187 Hz; MF: 38.13 ± 6.552 Hz), MS (MPF:59.17 ± 8.31; MF:32.7 ± 8.098 Hz), and Control (MPF: 56.05 ± 8.196 Hz; MF: 27.33 ± 4.776 Hz), with significant differences among all groups. All injured groups performed significantly worse than the Normal group (MPF: 178.9 ± 11.07; MF: 110.1 ± 6.089 Hz). To quantify gait characteristics, hip, knee, ankle, and toe joints were marked, and machine learning‐based motion tracking was used to reconstruct joint trajectories and angular changes during treadmill movement (Figure <xref rid="advs73435-fig-0011" ref-type="fig">11A–C</xref>). Control mice showed minimal joint motion and no limb lifting, whereas the MS+PNC group demonstrated clear limb elevation and completed full stepping cycles (Figure <xref rid="advs73435-fig-0011" ref-type="fig">11D</xref>). Ground contact time, maximum lift height, and ankle angle changes differed significantly among the MS+PNC, PNC, and Control groups (Figure <xref rid="advs73435-fig-0011" ref-type="fig">11E–G</xref>). Open‐field locomotion was further evaluated using Basso Mouse Scale scores at multiple time points (0, 1, 3, 7, 14, 21, 28, 35, 42, 49, and 56 days) after injury. Both PNC and MS+PNC groups showed significant motor improvement compared with the Control group, with the MS+PNC group showing significantly greater functional recovery (Figure <xref rid="advs73435-fig-0011" ref-type="fig">11H</xref>). Surface EMG analysis confirmed that MS+PNC treatment enhanced lower limb muscle contractility, improved motor unit activation and recruitment, and increased fatigue resistance [<xref rid="advs73435-bib-0075" ref-type="bibr">75</xref>]. These findings suggest that restored upstream neural function enabled effective downstream motor unit engagement and prolonged locomotion, consistent with video‐based Basso Mouse Scale observations. Unlike prior studies relying solely on EMG amplitude and invasive electrodes [<xref rid="advs73435-bib-0009" ref-type="bibr">9</xref>], our frequency‐domain evaluation provided a noninvasive method for assessing motor recovery. Gait analysis showed that the MS+PNC mice had significantly increased ground contact time and maximum lift height—indicators of improved motor unit recruitment and gait stability. In contrast, the PNC group showed only limited limb elevation, consistent with previous findings [<xref rid="advs73435-bib-0076" ref-type="bibr">76</xref>, <xref rid="advs73435-bib-0077" ref-type="bibr">77</xref>]. Ankle joint angle analysis also differed significantly among groups, with the MS+PNC group exhibiting greater dorsiflexion, reflecting enhanced neural drive to the TA muscle, corroborated by NMJ innervation, myofiber morphology, and Syn/α‐BTX staining. These findings align with those of Jin et al. [<xref rid="advs73435-bib-0013" ref-type="bibr">13</xref>]. Basso Mouse Scale scores showed that MS+PNC‐treated mice achieved frequent and stable plantar stepping and improved edge running, surpassing outcomes reported in comparable studies. Together, these behavioral data demonstrate that epidural PNC implantation partially restores motor function after SCI, and—critically—magnetic stimulation‐enabled long‐term electrical stimulation markedly enhances functional recovery. This noninvasive charge‐delivery approach effectively promotes coordinated motor function restoration. Overall, MS+PNC treatment activates and restores each component of the motor pathway, ultimately enabling axonal regeneration and improved lower limb motor function after SCI. Compared to existing neural modulation approaches for spinal cord injury—such as transcranial [<xref rid="advs73435-bib-0023" ref-type="bibr">23</xref>, <xref rid="advs73435-bib-0026" ref-type="bibr">26</xref>] or transspinal magnetic stimulation [<xref rid="advs73435-bib-0024" ref-type="bibr">24</xref>, <xref rid="advs73435-bib-0045" ref-type="bibr">45</xref>], and transcutaneous [<xref rid="advs73435-bib-0004" ref-type="bibr">4</xref>, <xref rid="advs73435-bib-0007" ref-type="bibr">7</xref>] or epidural electrical stimulation [<xref rid="advs73435-bib-0009" ref-type="bibr">9</xref>, <xref rid="advs73435-bib-0033" ref-type="bibr">33</xref>, <xref rid="advs73435-bib-0035" ref-type="bibr">35</xref>]—our “in vivo–in vitro” therapeutic strategy provides wirelessly powered, sustained, localized, and targeted electrical stimulation. A key advantage is noninvasive modulation of PNC stimulation intensity via external transspinal magnetic stimulation, enabling dynamic adjustment across animal models to optimize parameters or personalize protocols, enhancing translational potential. Unlike conventional systems, our approach eliminates implanted wires and external power sources after implantation, reducing infection risk and movement restrictions, allowing recovery in a more natural physiological environment. However, a current limitation is the inability to maintain constant stimulation intensity over time. Future work will focus on improving magnetic responsive materials and optimizing the transspinal stimulation device to achieve stable, intensity‐controlled stimulation over defined periods.</p><fig position="float" fig-type="FIGURE" id="advs73435-fig-0011" orientation="portrait"><label>FIGURE 11</label><caption><p>MS+PNC enhances recovery of lower limb motor function after spinal cord injury. (A) Schematic illustration of the experimental setup for video recording of gait trajectories in mice using a weight‐bearing treadmill. (B) Standardized anatomical landmarks for joint kinematics: hip, knee, ankle, and toe joints during gait data acquisition. (C) Representative gait patterns under weight‐bearing treadmill conditions: black denotes the stance phase, red indicates the swing phase; H represents maximum ground clearance height, α denotes knee joint angle, and β denotes ankle joint angle. (D) Representative gait trajectory images from different experimental groups at 8 weeks postinjury. For each group: the first row shows coordinated trajectories of four connected joints, the second row displays individual joint movements, and the third row illustrates instantaneous ankle joint angles. (E) Statistical comparison of mean maximum ground clearance height across groups (<italic toggle="yes">n</italic> = 8, unit: mm). (F) Quantitative analysis of mean swing phase duration within a consistent time window across experimental groups (<italic toggle="yes">n</italic> = 8, unit: s). (G) Statistical evaluation of mean ankle joint angle excursion during locomotion among groups (<italic toggle="yes">n</italic> = 8, unit: °). (H) Longitudinal statistical analysis of average Basso Mouse Scale (BMS) scores across groups over time (<italic toggle="yes">n</italic> = 8). Data are presented as mean ± SEM and were analyzed by one‐way ANOVA with Tukey's post hoc test. Significance levels: ns, not significant; *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001; ****<italic toggle="yes">p</italic> &lt; 0.0001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-23" orientation="portrait" xlink:href="ADVS-13-e14954-g012.jpg"/></fig></sec></sec><sec id="advs73435-sec-0110"><label>3</label><title>Conclusion</title><p>In a mouse model of SCI, comprehensive assessments—including material biocompatibility testing, immunofluorescence staining to quantify neural marker expression, viral tracing of CST axonal regeneration, MEP, and calcium imaging to evaluate functional connectivity with motor neurons, and multiple behavioral assays—demonstrate that spinal cord electrical stimulation can be effectively achieved by converting mechanical energy into electrical energy through magnetic stimulation, storing this energy within a dura mater‐implanted PNC, and enabling its sustained and controlled release. This strategy significantly promotes axonal regeneration and restores lower limb motor function. Importantly, this approach addresses the inability of conventional external magnetic stimulation to achieve precise in vivo targeting. By introducing the innovative concept of “wireless charging,” it also resolves major challenges associated with traditional in vivo electrical stimulation, including infection risks from wired implants, dependence on external power supplies, and limited efficacy under noninvasive conditions. Collectively, these findings highlight the therapeutic value of integrating extracorporeal magnetic neuromodulation with intracorporeal electrical stimulation as a synergistic and effective strategy for SCI repair.</p></sec><sec id="advs73435-sec-0120"><label>4</label><title>Experimental Section</title><p>The complete materials and methods can be found in the Supporting Information.</p><sec id="advs73435-sec-0130"><label>4.1</label><title>Material Characterization</title><p>The morphology of the synthesized materials was characterized by scanning electron microscopy (model: Zeiss Sigma360, 5 kV, gold target sputtering for 30 s) and transmission electron microscopy (model: Thermo Talos F200S, 200 kV). Use a digital storage oscilloscope (RIGOL DS2102) and a current amplifier (CX3300) to record the changes in output voltage and current of the nanogenerator when subjected to external periodic impact forces or high‐frequency ultrasound. Use a quasistatic D33 measurement instrument (ZJ‐3AN type), with a quasistatic force of 1 N and a frequency of 0.5 Hz, and take the average value after cycling. Use a Land battery testing system (LAND, BlueTest battery testing system CT2001A) to evaluate the discharge performance of the capacitor. Use an X‐ray diffractometer (model: Smartlab, 40 kV/40 mA (Cu target), scanning range 5–90 degrees) to measure the crystal phase of the nanomaterials. Use a Fourier transform infrared spectrometer (Thermo Nicolet iS 5) to study the FTIR spectra of the materials. Use Changkai mechanical and electrical equipment for tensile tests (CFT‐300, strain rate 0.1 mm/min, set for uniaxial tension) to measure the mechanical property differences of PVDF with different doping ratios. Use a Keithley 2602B source meter to apply periodic impact forces to the nanogenerator. Use a semiconductor parameter analyzer (Keysight B1500A) as the instrument. Perform cyclic voltammetry (CV) of the capacitor on an electrochemical workstation (CHI 600E, CorrTest S4 CS350) at 37°C to record the discharge current and voltage of the capacitor.</p></sec><sec id="advs73435-sec-0140"><label>4.2</label><title>Electrochemical Measurements</title><p>For CV testing, a common three‐electrode system was used, with PNC as the working electrode, Pt as the counter electrode, Ag/AgCl as the reference electrode, and SBF as the electrolyte. High‐purity O2 (99.999%) was introduced into the SBF for at least 0.5 h to obtain Air or O<sub>2</sub> voltages, which were scanned from 0.5 to −0.8 V at a rate of 100 mV s<sup>−1</sup>.</p></sec><sec id="advs73435-sec-0150"><label>4.3</label><title>Animals</title><p>Eight‐week‐old male C57BL/6J mice were obtained from Hangzhou Qizhi Experimental Animal Technology Co., Ltd. (Hangzhou, China). All experimental procedures involving animals were approved by the Medical Ethics Committee of the Medical Center of Soochow University (Suzhou Dushu Lake Hospital), (Approval No. 220031), and conducted in strict accordance with established guidelines for laboratory animal care and safety.</p></sec><sec id="advs73435-sec-0160"><label>4.4</label><title>Tracing of the Corticospinal Tract</title><p>To assess the regeneration of the corticospinal tract (CST), we anesthetized the spinal cord injury mice with intraperitoneal injection of tribromoethanol at the 5th week after surgery. The mice's heads were fixed with a fixator, and AAV‐hSyn‐EGFP virus was injected using a high‐precision stereotactic instrument. The injection site was set at bregma point, with AP ± 0.5 mm; ML ± 1.5 mm; DV −0.55 mm. Each injection site was injected with 300 nL AAV‐hSyn‐EGFP virus at a speed of 50 nL/min, and the needle was left in place for 2 min after each injection. To quantify CST regeneration, sagittal sections were imaged under a confocal microscope. Vertical lines were drawn at different distances from the lesion center. The average fluorescence intensity of GFP fluorescence signals at the intersection of CST axons and the vertical lines was calculated at each distance. Three consecutive sections were analyzed for each mouse. Six replicates were performed for each group (<italic toggle="yes">n</italic> = 6).</p></sec><sec id="advs73435-sec-0170"><label>4.5</label><title>Calcium Imaging</title><p>rAAV‐hSyn‐GCaMP6s virus (Brain Case, China) was injected into the left M1 cortex of the mouse brain. The injection method was the same as that for CST tracing to express GCaMP in the corresponding motor neurons in the spinal cord. After 7 weeks of intervention treatment, the L3–L5 vertebrae of the spinal cord were exposed, and the right vertebra was opened with a microscissors. A fiber (250 µm O.D., 0.37 NA, Shanghai Fiblaser, China) was placed in a ceramic ferrule. The ferrule was fixed on the stereotactic instrument, and then the fiber was implanted into the spinal cord (0.3 mm right of the spinal cord midline at a 20° angle, with an implant depth of 0.7–0.8 mm). The ceramic ferrule was fixed to the vertebra with biological tissue glue (3 M Vetbond, USA) and dental cement (Peolankg, China). After the fiber implantation, the mice were allowed to recover for 1 week. They were treated and adapted to the behavioral testing environment for 3 days. Mice with incorrect injection sites were excluded from further experiments. To record the fluorescence signal, a fiber optic patch cord guided the light between the switch (Doric Lenses, Canada) and the implanted fiber. The laser power was adjusted to a low level of 10–30 µW at the fiber tip to minimize bleaching. The analog voltage signal was digitized at 200–500 Hz and recorded using CamFiberPhotometry software (Thinker Tech Nanjing Biotechnology Co., Ltd., China).</p><p>In the awake state, the fluorescence values obtained before the activity: before ankle flexion (i.e., −1 s to time 0) and during the activity: after ankle flexion (time 0 to +3 s) were used to record the response of GCaMP to ankle flexion. The Ca2<sup>+</sup> signals related to ankle flexion in mice were recorded five times. The data were segmented according to the behavioral events in each trial. The baseline value was calculated as Δ<italic toggle="yes">F</italic>/<italic toggle="yes">F</italic> at 1 s before ankle flexion. The photometry data were analyzed using custom‐written MATLAB code (MATLAB R2018a, MathWorks, Inc., China).</p><p>To calculate the GCaMP6m signal, the relative fluorescence change of Δ<italic toggle="yes">F</italic>/<italic toggle="yes">F</italic> was calculated to determine the Ca2<sup>+</sup> signal as follows
+<disp-formula id="advs73435-disp-0001">
+<label>(1)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="block"><mml:mrow><mml:mrow><mml:mi mathvariant="normal">Δ</mml:mi><mml:mi>F</mml:mi><mml:mo>/</mml:mo><mml:mi>F</mml:mi><mml:mo linebreak="goodbreak">=</mml:mo><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>F</mml:mi><mml:mo>−</mml:mo><mml:msub><mml:mi>F</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:mrow></mml:mfenced><mml:mo>/</mml:mo><mml:msub><mml:mi>F</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where <italic toggle="yes">F</italic>
+<sub>0</sub> is the average baseline value at the reference time point, and <italic toggle="yes">F</italic> is the fluorescence signal collected during the experiment.</p><p>The experiments and quantifications were conducted by independent researchers who were unaware of the group allocation and stimulation conditions.</p></sec><sec id="advs73435-sec-0180"><label>4.6</label><title>Immunofluorescence Staining</title><p>At the end of the treatment period (8 weeks), mice were anesthetized with tribromoethanol (20 mg/kg, intraperitoneal injection), perfused with PBS and sacrificed. The tissues were then fixed with 4% paraformaldehyde. Each spinal cord was dissected and rinsed with PBS, followed by overnight dehydration in 20% and 30% sucrose. The tissues containing the spinal cord injury segments were embedded in OCT for cryosectioning. Sections were cut in the coronal and sagittal planes as required for the experiment, with a thickness of 30 µm, and attached to glass slides. The sections were incubated overnight at 4°C with primary antibodies diluted in bovine serum albumin. The tissues were washed three times with PBS, incubated with appropriate fluorescently labeled secondary antibodies at room temperature for 2 h, washed three times with PBS, and mounted with an antifluorescence quenching mounting medium containing DAPI. Images were acquired using a confocal microscope (LSM900; Zeiss, Germany) and a whole‐slide scanning system (VS200; Olympus, Japan), and processed and exported using Zen software (Zeiss, Germany) and OlyVIA software (Olympus, Japan). The same imaging parameters were used for all groups for the same staining images. The experiments were conducted by an independent researcher who was unaware of the group allocation and stimulation conditions.</p></sec><sec id="advs73435-sec-0190"><label>4.7</label><title>Motor Evoked Potential</title><p>At 8 weeks after spinal cord injury, motor evoked potentials (MEPs) were measured in the right hindlimb TA muscle of each mouse. After intraperitoneal injection of tribromoethanol to anesthetize the mice, the left M1 area of the brain was used as the stimulation electrode site, and the right hindlimb TA muscle belly was used as the receiving electrode. Both the stimulation and receiving electrodes were needle electrodes. Current stimulation of the motor cortex was performed by an independent experimenter using a BIOPAC MP150 system (Biopac Systems Inc., USA), with a stimulation intensity of 9 V, a stimulation frequency of 1 Hz, and a stimulation pulse width of 0.2 ms. The MEP signals of the right hindlimb were recorded using Biopac Acknowledge 4.3 software, and 20 consecutive MEP amplitudes were recorded for each mouse. Then, the MATLAB code provided with the electrical stimulation system (MATLAB R2018a, MathWorks, Inc., China) was used for fitting and statistical analysis of the latency and amplitude. Eight replicates were performed for each group (<italic toggle="yes">n</italic> = 8).</p></sec><sec id="advs73435-sec-0200"><label>4.8</label><title>Neuromuscular Junction Analysis</title><p>To stain the neuromuscular junctions (NMJs), the right hindlimb TA muscles of the 8‐week‐old mice in each group were simultaneously dissected during the immunofluorescence staining process. The muscles were fixed in 4% paraformaldehyde at 4°C for 12 h. After washing three times with PBS for 10 min each, the muscles were separated into 5–10 muscle fiber bundles under a microscope and placed in PHT (2% BSA and 1% Triton X‐100 dissolved in PBS) at room temperature for 1 h. The NMJs were labeled with antibodies Mo‐NF, Rb‐syn, and α‐BTX, where NF labeled neurofilaments, α‐BTX labeled the postsynaptic membrane motor endplate, and syn labeled the presynaptic terminals. Layered scanning images were obtained using an LSM900 confocal microscope and OlyVIA software (Olympus, Japan) in Z‐stack mode. The average immunofluorescence intensity of 5 neuromuscular junctions in random fields of view was calculated, with 6 replicates for each group (<italic toggle="yes">n</italic> = 6).</p></sec><sec id="advs73435-sec-0210"><label>4.9</label><title>H&amp;E Staining</title><p>The same method as for the neuromuscular junction staining was used for tissue collection. The tibialis anterior muscles were fixed in 4% paraformaldehyde at 4°C, washed three times with PBS for 10 min each, and then dehydrated in 20% and 30% sucrose PBS overnight. The TA muscles were embedded in OCT. Frozen tissue sections were stained with hematoxylin and eosin and subjected to histological analysis. Images were collected using the VS200 whole‐slide scanning system (20x objective) and processed and output using OlyVIA software. Finally, the sarcomere length and cross‐sectional area of the myofibrils were measured using ImageJ (NIH), and the differences between groups were analyzed using Prism9.5.1 (Graph Pad, La Jolla, CA). Each group had 6 replicates (<italic toggle="yes">n</italic> = 6).</p></sec><sec id="advs73435-sec-0220"><label>4.10</label><title>Surface Electromyography Signal Acquisition</title><p>For the activity state of the lower limb muscles of mice, a surface electromyography signal acquisition system (Dno, China) was used for collection. The tibialis anterior muscle of the right lower limb of freely moving mice was detected. The surface electromyography patch was fixed on the right lower limb of the mouse, and it was allowed to move freely in a 1 m × 1 m open field. The mouse was allowed to adapt to the field for 4 min before recording, and then 60 s of data was recorded. The middle 20–40 s were used for statistics. The detection indicators included root mean square value, average electromyography value, integrated electromyography value, median frequency value, and average power frequency. The surface electromyography signal acquisition was performed by a dedicated researcher to ensure that the patch position was basically consistent for each mouse. The differences between groups were analyzed using Prism9.5.1 (Graph Pad, La Jolla, CA). Each group had 8 replicates (<italic toggle="yes">n</italic> = 8).</p></sec><sec id="advs73435-sec-0230"><label>4.11</label><title>Gait Analysis</title><p>For the gait pattern characteristics of mice, the greater trochanter, lateral femoral condyle, lateral malleolus, and distal fifth metatarsal of the right hind limb were marked with a white paint pen on the skin. Then, the mice were suspended and fixed on a weight‐reduced treadmill. The standard was that the lower limbs naturally hung down without pressure on the treadmill. The rhythmic movement of the mice was observed at a treadmill speed of 1.5 m/min and recorded with a DV camera. Each mouse's recording met the following requirements: recording duration ≥ 2 min, and the middle part (30–45 s) of each segment was selected for machine learning (to reserve the time for mice to adapt to the weight‐reduced treadmill and exclude factors, such as fatigue in the later stage of suspension that cause the lower limbs to not actively move). The DeepLabCut software was used to plot the right hind limb stepping rhythm movement of the selected video for each mouse. A leg movement model was constructed based on the white marks. After training, the movement trajectory of the right hind limb during weight‐reduced walking was automatically captured, generating a real‐time spatial coordinate dataset for each marker point. The joint angle, maximum ground clearance, and swing phase ratio were analyzed using the accompanying MATLAB code (MATLAB R2018a, MathWorks, Inc., China). Each group had 8 replicates (<italic toggle="yes">n</italic> = 8).</p></sec><sec id="advs73435-sec-0240"><label>4.12</label><title>BMS Score</title><p>The recovery of the function of the lower limbs of mice was observed and recorded at 0, 1, 3, 7, 14, 21, 28, 35, 42, 49, and 56 days after spinal cord injury (<italic toggle="yes">n</italic> = 8). The recovery of hind limb movement was evaluated in an open field using a modified BMS score for both lower limbs. The scores were given by two independent researchers with proficient research experience. The average score of each mouse at each time point was recorded and statistically analyzed. At the same time, they were unaware of the group allocation and stimulation conditions of the experiment.</p></sec><sec id="advs73435-sec-0250"><label>4.13</label><title>Statistics</title><p>One‐way ANOVA or two‐way ANOVA was used to analyze multiple statistical indicators. In this study, one‐way ANOVA was used to compare data with only one factor (e.g., treatment method at the same time point), and two‐way ANOVA was used to compare data with two factors (e.g., treatment method and different time points). The differences between two experimental groups (e.g., PNC group and MS+PNC group) were analyzed using Student's <italic toggle="yes">t</italic>‐test. All parameters were expressed as mean ± standard error of the mean (SEM), and a <italic toggle="yes">p</italic> value &lt; 0.05 was considered statistically significant. Statistical analysis and visualization were performed using Prism9.5.1 (Graph Pad, La Jolla, CA). Surface electromyography (sEMG) data analysis and behavioral assessment were presented using the software provided by Dno(SG‐1600B,China). For microscopic images, ImageJ (Windows 64‐bit, Java 8) was used for analysis. Experimental schematics and operation flowcharts were drawn using BioRender software. Significance levels: ns, not significant; *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001; ****<italic toggle="yes">p</italic> &lt; 0.0001.</p></sec></sec><sec id="advs73435-sec-0260"><title>Author Contributions</title><p>M.S., Y.L., Z.X., and L.Z. contributed to conceptualization; M.S., Y.L., Z.X., L.Z., and T.L. contributed to methodology; Z.X., L.Z., T.L., C.X., Z.S., X.R., Y.F., and Z.W. performed the experimental operation; Z.X., L.Z., and Z.W. contributed to visualization; M.S. and Y.L. contributed to supervision; Z.X. and L.Z. contributed to writing the original draft; M.S., Y.L., and Z.X. contributed to writing‐review and editing.</p></sec><sec id="advs73435-sec-0280"><title>Funding</title><p>This research was supported by the National Key Research and Development Program of China (Nos. 2022YFC2009700, 2023YFC2412502, and 2023YFC2306502), the National Natural Science Foundation of China (Nos. 82272594, U25A2053, and 82171376), a project funded by the Priority Academic Program Development of Jiangsu Higher Education Institutions, and the Key Research and Development Plan of Jiangsu Province (No. BE2023701), the Suzhou Medical‐Engineering Collaborative Innovation Research Project (No. SZM2023004), the Keyuan High‐level Talent Support Program of Suzhou Medical College, Soochow University (No. MA21500124), and the Suzhou Municipal “Science and Education for Strengthening Healthcare” Youth Program (No. QNXM2025042).</p></sec><sec sec-type="COI-statement" id="advs73435-sec-0290"><title>Conflict of Interest</title><p>The authors declare no conflict of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="advs73435-supinfo-0001" position="float" content-type="local-data" orientation="portrait"/><supplementary-material id="advs73435-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File</bold>: advs73435‐sup‐0001‐SuppMat.docx.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14954-s001.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="advs73435-sec-0270"><title>Acknowledgements</title><p>We are grateful to Dr. Wei Wei, Yunpeng Huang, and Wenzhe Tao from the Institute of Neuroscience, Soochow University for their guidance and assistance in animal experiments; and to Prof. Jun Zhang and Prof. Zhongxiu Chen from the College of Textile and Clothing Engineering, Soochow University for their guidance and assistance in material preparation and testing; and to Dr. Fan Zhaojun from the First Affiliated Hospital of Soochow University for his help in experimental design. We would like to express our gratitude to Prof. Song Bo and Prof. Hu Zhijun from the School of Materials Chemistry and Chemical Engineering at Soochow University for their guidance and direction in this research.</p></ack><sec sec-type="data-availability" id="advs73435-sec-0310"><title>Data Availability Statement</title><p>The data that support the findings of this study are available in the supplementary material of this article.</p></sec><ref-list id="advs73435-bibl-0001"><title>References</title><ref id="advs73435-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="advs73435-cite-0001">
+<string-name name-style="western">
+<given-names>T. C.</given-names>
+<surname>Burns</surname>
+</string-name> and <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Quinones‐Hinojosa</surname>
+</string-name>, “ <article-title>Regenerative Medicine for Neurological Diseases—Will Regenerative Neurosurgery Deliver?</article-title>,” <source>BMJ</source>
+<volume>373</volume> (<year>2021</year>): <fpage>n955</fpage>.<pub-id pub-id-type="pmid">34162530</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1136/bmj.n955</pub-id></mixed-citation></ref><ref id="advs73435-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="advs73435-cite-0002">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Marco</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Tomislav</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>David</surname>
+</string-name>, et al., “<article-title>A Brain‐Spine Interface Alleviating Gait Deficits After Spinal Cord Injury in Primates</article-title>,” <source>Nature</source>
+<volume>539</volume>, no. <issue>7628</issue> (<year>2016</year>): <fpage>284</fpage>–<lpage>288</lpage>.<pub-id pub-id-type="pmid">27830790</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nature20118</pub-id><pub-id pub-id-type="pmcid">PMC5108412</pub-id></mixed-citation></ref><ref id="advs73435-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="advs73435-cite-0003">
+<string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Bolu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W. F.</given-names>
+<surname>R</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. R.</given-names>
+<surname>Young</surname>
+</string-name>, et al., “<article-title>Restoration of Reaching and Grasping Movements Through Brain‐Controlled Muscle Stimulation in a Person With Tetraplegia: A Proof‐of‐Concept Demonstration</article-title>,” <source>Lancet</source>
+<volume>389</volume>, no. <issue>10081</issue> (<year>2017</year>): <fpage>1821</fpage>–<lpage>1830</lpage>.<pub-id pub-id-type="pmid">28363483</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/S0140-6736(17)30601-3</pub-id><pub-id pub-id-type="pmcid">PMC5516547</pub-id></mixed-citation></ref><ref id="advs73435-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="advs73435-cite-0004">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Moritz</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. C.</given-names>
+<surname>Field‐Fote</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Tefertiller</surname>
+</string-name>, et al., “<article-title>Non‐Invasive Spinal Cord Electrical Stimulation for Arm and Hand Function in Chronic Tetraplegia: A Safety and Efficacy Trial</article-title>,” <source>Nature Medicine</source>
+<volume>30</volume>, no. <issue>5</issue> (<year>2024</year>): <fpage>1276</fpage>–<lpage>1283</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41591-024-02940-9</pub-id><pub-id pub-id-type="pmcid">PMC11108781</pub-id><pub-id pub-id-type="pmid">38769431</pub-id></mixed-citation></ref><ref id="advs73435-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="advs73435-cite-0005">
+<string-name name-style="western">
+<given-names>C. M.</given-names>
+<surname>Greenspon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Valle</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N. D.</given-names>
+<surname>Shelchkova</surname>
+</string-name>, et al., “<article-title>Evoking Stable and Precise Tactile Sensations via Multi‐Electrode Intracortical Microstimulation of the Somatosensory Cortex</article-title>,” <source>Nature Biomedical Engineering</source>
+<volume>9</volume> (<year>2024</year>): <fpage>935</fpage>–<lpage>951</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41551-024-01299-z</pub-id><pub-id pub-id-type="pmcid">PMC12176618</pub-id><pub-id pub-id-type="pmid">39643730</pub-id></mixed-citation></ref><ref id="advs73435-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="advs73435-cite-0006">
+<string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Squair</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Gautier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Mahe</surname>
+</string-name>, et al., “<article-title>Neuroprosthetic Baroreflex Controls Haemodynamics After Spinal Cord Injury</article-title>,” <source>Nature</source>
+<volume>590</volume>, no. <issue>7845</issue> (<year>2021</year>): <fpage>308</fpage>–<lpage>314</lpage>.<pub-id pub-id-type="pmid">33505019</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41586-020-03180-w</pub-id></mixed-citation></ref><ref id="advs73435-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="advs73435-cite-0007">
+<string-name name-style="western">
+<given-names>N. A.</given-names>
+<surname>C</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Rohit</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. A.</given-names>
+<surname>Petersen</surname>
+</string-name>, et al., “<article-title>Restoration of Sensory Feedback From the Foot and Reduction of Phantom Limb Pain via Closed‐loop Spinal Cord Stimulation</article-title>,” <source>Nature Biomedical Engineering</source>
+<volume>8</volume>, no. <issue>8</issue> (<year>2024</year>): <fpage>992</fpage>–<lpage>1003</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41551-023-01153-8</pub-id><pub-id pub-id-type="pmcid">PMC11404213</pub-id><pub-id pub-id-type="pmid">38097809</pub-id></mixed-citation></ref><ref id="advs73435-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="advs73435-cite-0008">
+<string-name name-style="western">
+<given-names>N. D.</given-names>
+<surname>James</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. B.</given-names>
+<surname>McMahon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. C.</given-names>
+<surname>Field‐Fote</surname>
+</string-name>, et al., “<article-title>Neuromodulation in the Restoration of Function After Spinal Cord Injury</article-title>,” <source>Lancet Neurology</source>
+<volume>17</volume>, no. <issue>10</issue> (<year>2018</year>): <fpage>905</fpage>–<lpage>917</lpage>.<pub-id pub-id-type="pmid">30264729</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/S1474-4422(18)30287-4</pub-id></mixed-citation></ref><ref id="advs73435-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="advs73435-cite-0009">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Kai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Dan</surname>
+</string-name>, et al., “<article-title>Dual Electrical Stimulation at Spinal‐Muscular Interface Reconstructs Spinal Sensorimotor Circuits After Spinal Cord Injury</article-title>,” <source>Nature Communications</source>
+<volume>15</volume>, no. <issue>1</issue> (<year>2024</year>): <fpage>619</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-024-44898-9</pub-id><pub-id pub-id-type="pmcid">PMC10799086</pub-id><pub-id pub-id-type="pmid">38242904</pub-id></mixed-citation></ref><ref id="advs73435-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="advs73435-cite-0010">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Nathan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Beatrice</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Giuseppe</surname>
+</string-name>, et al., “<article-title>Recruitment of Upper‐Limb Motoneurons With Epidural Electrical Stimulation of the Cervical Spinal Cord</article-title>,” <source>Nature Communications</source>
+<volume>12</volume>, no. <issue>1</issue> (<year>2021</year>): <fpage>435</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-020-20703-1</pub-id><pub-id pub-id-type="pmcid">PMC7815834</pub-id><pub-id pub-id-type="pmid">33469022</pub-id></mixed-citation></ref><ref id="advs73435-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="advs73435-cite-0011">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Cong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Yizhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Shihao</surname>
+</string-name>, et al., “<article-title>Nanogenerator Neuromodulation to Enable Locomotion Rehabilitation for Spinal Cord Injury via Epidural Electrical Stimulation</article-title>,” <source>Advanced Science</source>
+<volume>12</volume>, no. <issue>24</issue> (<year>2025</year>): <elocation-id>2501425</elocation-id>.<pub-id pub-id-type="pmid">40407414</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/advs.202501425</pub-id><pub-id pub-id-type="pmcid">PMC12199601</pub-id></mixed-citation></ref><ref id="advs73435-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="advs73435-cite-0012">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Luhe</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Dan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Yuanzhen</surname>
+</string-name>, et al., “<article-title>Implantable Zinc‐Oxygen Battery for in Situ Electrical Stimulation‐Promoted Neural Regeneration</article-title>,” <source>Advanced Materials</source>
+<volume>35</volume>, no. <issue>32</issue> (<year>2023</year>): <elocation-id>2302997</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202302997</pub-id><pub-id pub-id-type="pmid">37159396</pub-id></mixed-citation></ref><ref id="advs73435-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="advs73435-cite-0013">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Subin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Heewon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Duhwan</surname>
+</string-name>, et al., “<article-title>Injectable Tissue Prosthesis for Instantaneous Closed‐Loop Rehabilitation</article-title>,” <source>Nature</source>
+<volume>623</volume>, no. <issue>7985</issue> (<year>2023</year>): <fpage>58</fpage>–<lpage>65</lpage>.<pub-id pub-id-type="pmid">37914945</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41586-023-06628-x</pub-id></mixed-citation></ref><ref id="advs73435-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="advs73435-cite-0014">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Shi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhou</surname>
+</string-name>, et al., “<article-title>Stem Cell Self‐Triggered Regulation and Differentiation on Polyvinylidene Fluoride Electrospun Nanofibers</article-title>,” <source>Advanced Functional Materials</source>
+<volume>34</volume>, no. <issue>4</issue> (<year>2024</year>): <elocation-id>2309270</elocation-id>.</mixed-citation></ref><ref id="advs73435-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="advs73435-cite-0015">
+<string-name name-style="western">
+<given-names>J. Y.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Song</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F. W.</given-names>
+<surname>Qi</surname>
+</string-name>, et al., “<article-title>Enhanced Bone Regeneration via ZIF‐8 Decorated Hierarchical Polyvinylidene Fluoride Piezoelectric Foam Nanogenerator: Coupling of Bioelectricity, Angiogenesis, and Osteogenesis</article-title>,” <source>Nano Energy</source>
+<volume>106</volume> (<year>2022</year>): <elocation-id>108076</elocation-id>.</mixed-citation></ref><ref id="advs73435-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="advs73435-cite-0016">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Si</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Piao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Lijie</surname>
+</string-name>, et al., “<article-title>Piezocatalytic Medicine: An Emerging Frontier Using Piezoelectric Materials for Biomedical Applications</article-title>,” <source>Advanced Materials</source>
+<volume>35</volume>, no. <issue>25</issue> (<year>2023</year>): <elocation-id>2208256</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202208256</pub-id><pub-id pub-id-type="pmid">36634150</pub-id></mixed-citation></ref><ref id="advs73435-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="advs73435-cite-0017">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Xue</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Jiacheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Yong</surname>
+</string-name>, et al., “<article-title>Piezoelectricity, Pyroelectricity, and Ferroelectricity in Biomaterials and Biomedical Applications</article-title>,” <source>Advanced Materials</source>
+<volume>36</volume>, no. <issue>3</issue> (<year>2024</year>): <elocation-id>2308726</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202308726</pub-id><pub-id pub-id-type="pmid">37842855</pub-id></mixed-citation></ref><ref id="advs73435-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="advs73435-cite-0018">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Ping</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Chao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Ping</surname>
+</string-name>, et al., “<article-title>Wirelessly Powered Electrical‐Stimulation Based on Biodegradable 3D Piezoelectric Scaffolds Promotes the Spinal Cord Injury Repair</article-title>,” <source>ACS Nano</source>
+<volume>16</volume>, no. <issue>10</issue> (<year>2022</year>): <fpage>16513</fpage>–<lpage>16528</lpage>.<pub-id pub-id-type="pmid">36174221</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsnano.2c05818</pub-id></mixed-citation></ref><ref id="advs73435-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="advs73435-cite-0019">
+<string-name name-style="western">
+<given-names>R.‐G.</given-names>
+<surname>Núria</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Michael</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. I.</given-names>
+<surname>Scheinbeim</surname>
+</string-name>, et al., “<article-title>Piezoelectric Substrates Promote Neurite Growth in Rat Spinal Cord Neurons</article-title>,” <source>Annals Of Biomedical Engineering</source>
+<volume>41</volume>, no. <issue>1</issue> (<year>2013</year>): <fpage>112</fpage>–<lpage>122</lpage>.<pub-id pub-id-type="pmid">22864823</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s10439-012-0628-y</pub-id></mixed-citation></ref><ref id="advs73435-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="advs73435-cite-0020">
+<string-name name-style="western">
+<given-names>L. E.</given-names>
+<surname>Shlapakova</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Surmeneva</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. L.</given-names>
+<surname>Kholkin</surname>
+</string-name>, et al., “<article-title>Revealing an Important Role of Piezoelectric Polymers in Nervous‐Tissue Regeneration: A Review</article-title>,” <source>Materials today. Bio.</source>
+<volume>25</volume> (<year>2024</year>): <elocation-id>100950</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.mtbio.2024.100950</pub-id><pub-id pub-id-type="pmcid">PMC10840125</pub-id><pub-id pub-id-type="pmid">38318479</pub-id></mixed-citation></ref><ref id="advs73435-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="advs73435-cite-0021">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Mingshan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wencan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Shuwei</surname>
+</string-name>, et al., “<article-title>Multifunctional Conductive and Electrogenic Hydrogel Repaired Spinal Cord Injury via Immunoregulation and Enhancement of Neuronal Differentiation</article-title>,” <source>Advanced Materials</source>
+<volume>36</volume>, no. <issue>21</issue> (<year>2024</year>): <elocation-id>2313672</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202313672</pub-id><pub-id pub-id-type="pmid">38308338</pub-id></mixed-citation></ref><ref id="advs73435-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="advs73435-cite-0022">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Qi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Dai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Ying‐Yu</surname>
+</string-name>, et al., “<article-title>Effects of High‐frequency Repetitive Transcranial Magnetic Stimulation Over the Contralesional Motor Cortex on Motor Recovery in Severe Hemiplegic Stroke: A Randomized Clinical Trial</article-title>,” <source>Brain Stimulation</source>
+<volume>13</volume>, no. <issue>4</issue> (<year>2020</year>): <fpage>979</fpage>–<lpage>986</lpage>.<pub-id pub-id-type="pmid">32380449</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.brs.2020.03.020</pub-id></mixed-citation></ref><ref id="advs73435-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="advs73435-cite-0023">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ting‐Ting</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Guang‐Yue</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Ya</surname>
+</string-name>, et al., “<article-title>Effects of Paired Associative Magnetic Stimulation Between Nerve Root and Cortex on Motor Function of Lower Limbs After Spinal Cord Injury: Study Protocol for a Randomized Controlled Trial</article-title>,” <source>Neural Regeneration Research</source>
+<volume>17</volume>, no. <issue>11</issue> (<year>2022</year>): <fpage>2459</fpage>–<lpage>2464</lpage>.<pub-id pub-id-type="pmid">35535897</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.4103/1673-5374.339012</pub-id><pub-id pub-id-type="pmcid">PMC9120678</pub-id></mixed-citation></ref><ref id="advs73435-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="advs73435-cite-0024">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Ya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Dan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Dong‐Dong</surname>
+</string-name>, et al., “<article-title>Nerve Root Magnetic Stimulation Improves Locomotor Function Following Spinal Cord Injury With Electrophysiological Improvements and Cortical Synaptic Reconstruction</article-title>,” <source>Neural Regeneration Research</source>
+<volume>17</volume>, no. <issue>9</issue> (<year>2022</year>): <fpage>2036</fpage>–<lpage>2042</lpage>.<pub-id pub-id-type="pmid">35142694</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.4103/1673-5374.335161</pub-id><pub-id pub-id-type="pmcid">PMC8848603</pub-id></mixed-citation></ref><ref id="advs73435-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="advs73435-cite-0025">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Bingshuo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V. P.</given-names>
+<surname>Juha</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Axel</surname>
+</string-name>, et al., “<article-title>Lifting the Veil on the Dynamics of Neuronal Activities Evoked by Transcranial Magnetic Stimulation</article-title>,” <source>eLife</source>
+<volume>6</volume> (<year>2017</year>): <elocation-id>30552</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.7554/eLife.30552</pub-id><pub-id pub-id-type="pmcid">PMC5722613</pub-id><pub-id pub-id-type="pmid">29165241</pub-id></mixed-citation></ref><ref id="advs73435-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="advs73435-cite-0026">
+<string-name name-style="western">
+<given-names>N. S.</given-names>
+<surname>Rose</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. J.</given-names>
+<surname>LaRocque</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. C.</given-names>
+<surname>Riggall</surname>
+</string-name>, et al., “<article-title>Reactivation of Latent Working Memories With Transcranial Magnetic Stimulation</article-title>,” <source>Science</source>
+<volume>354</volume>, no. <issue>6316</issue> (<year>2016</year>): <fpage>1136</fpage>–<lpage>1139</lpage>.<pub-id pub-id-type="pmid">27934762</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.aah7011</pub-id><pub-id pub-id-type="pmcid">PMC5221753</pub-id></mixed-citation></ref><ref id="advs73435-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="advs73435-cite-0027">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Chalfouh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Guillou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Hardouin</surname>
+</string-name>, et al., “<article-title>The Regenerative Effect of Trans‐Spinal Magnetic Stimulation after Spinal Cord Injury: Mechanisms and Pathways Underlying the Effect</article-title>,” <source>Neurotherapeutics</source>
+<volume>17</volume>, no. <issue>4</issue> (<year>2020</year>): <fpage>2069</fpage>–<lpage>2088</lpage>.<pub-id pub-id-type="pmid">32856173</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s13311-020-00915-5</pub-id><pub-id pub-id-type="pmcid">PMC7851265</pub-id></mixed-citation></ref><ref id="advs73435-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="advs73435-cite-0028">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Cécilia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Monany Dylan</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Florent</surname>
+</string-name>, “<article-title>Exploring Cortico‐Cortical Interactions During Action Preparation by Means of Dual‐Coil Transcranial Magnetic Stimulation: A Systematic Review</article-title>,” <source>Neuroscience and Biobehavioral Reviews</source>
+<volume>128</volume> (<year>2021</year>): <fpage>678</fpage>–<lpage>692</lpage>.<pub-id pub-id-type="pmid">34274404</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.neubiorev.2021.07.018</pub-id></mixed-citation></ref><ref id="advs73435-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="advs73435-cite-0029">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Shuwei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Dapeng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Yanbing</surname>
+</string-name>, et al., “<article-title>Trojan Horse Strategy for Wireless Electrical Stimulation‐Induced Zn2+ Release to Regulate Neural Stem Cell Differentiation for Spinal Cord Injury Repair</article-title>,” <source>ACS Nano</source>
+<volume>18</volume>, no. <issue>47</issue> (<year>2024</year>): <fpage>32517</fpage>–<lpage>32533</lpage>.<pub-id pub-id-type="pmid">39527695</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsnano.4c08863</pub-id></mixed-citation></ref><ref id="advs73435-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="advs73435-cite-0030">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Liu</surname>
+</string-name>, et al., “<article-title>Wireless Manipulation of Magnetic/Piezoelectric Micromotors for Precise Neural Stem‐Like Cell Stimulation</article-title>,” <source>Advanced Functional Materials</source>
+<volume>30</volume>, no. <issue>11</issue> (<year>2020</year>): <elocation-id>1910108</elocation-id>.</mixed-citation></ref><ref id="advs73435-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="advs73435-cite-0031">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Xiaowen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Yaru</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Xiaona</surname>
+</string-name>, et al., “<article-title>Optimizing the Electrical Microenvironment Provided by 3D Micropillar Topography on a Piezoelectric BaTiO3 Substrate to Enhance Osseointegration</article-title>,” <source>Advanced Materials</source>
+<volume>37</volume>, no. <issue>4</issue> (<year>2025</year>): <elocation-id>2414161</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202414161</pub-id><pub-id pub-id-type="pmid">39564749</pub-id></mixed-citation></ref><ref id="advs73435-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="advs73435-cite-0032">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Giada Graziana</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Luca</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Attilio</surname>
+</string-name>, et al., “<article-title>P(VDF‐TrFE)/BaTiO3 Nanoparticle Composite Films Mediate Piezoelectric Stimulation and Promote Differentiation of SH‐SY5Y Neuroblastoma Cells</article-title>,” <source>Advanced Healthcare Materials</source>
+<volume>5</volume>, no. <issue>14</issue> (<year>2016</year>): <fpage>1808</fpage>–<lpage>1820</lpage>.<pub-id pub-id-type="pmid">27283784</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adhm.201600245</pub-id></mixed-citation></ref><ref id="advs73435-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="advs73435-cite-0033">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Tong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Minghe</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Corey</surname>
+</string-name>, et al., “<article-title>High‐Performance Poly(vinylidene difluoride)/Dopamine Core/Shell Piezoelectric Nanofiber and Its Application for Biomedical Sensors</article-title>,” <source>Advanced Materials</source>
+<volume>33</volume>, no. <issue>3</issue> (<year>2021</year>): <elocation-id>2006093</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202006093</pub-id><pub-id pub-id-type="pmid">33274802</pub-id></mixed-citation></ref><ref id="advs73435-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="advs73435-cite-0034">
+<string-name name-style="western">
+<given-names>M. S.</given-names>
+<surname>Das</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. P.</given-names>
+<surname>Chandan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Indrat</surname>
+</string-name>, et al., “<article-title>Piezoelectric Materials for Energy Harvesting and Sensing Applications: Roadmap for Future Smart Materials</article-title>,” <source>Advanced Science</source>
+<volume>8</volume>, no. <issue>17</issue> (<year>2021</year>): <elocation-id>2100864</elocation-id>.<pub-id pub-id-type="pmid">34254467</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/advs.202100864</pub-id><pub-id pub-id-type="pmcid">PMC8425885</pub-id></mixed-citation></ref><ref id="advs73435-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="advs73435-cite-0035">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Kathe</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Skinnider</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. H.</given-names>
+<surname>Hutson</surname>
+</string-name>, et al., “<article-title>The Neurons That Restore Walking After Paralysis</article-title>,” <source>Nature</source>
+<volume>611</volume>, no. <issue>7936</issue> (<year>2022</year>): <fpage>540</fpage>–<lpage>547</lpage>.<pub-id pub-id-type="pmid">36352232</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41586-022-05385-7</pub-id><pub-id pub-id-type="pmcid">PMC9668750</pub-id></mixed-citation></ref><ref id="advs73435-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="advs73435-cite-0036">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Andreas</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Salif</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Robin</surname>
+</string-name>, et al., “<article-title>Activity‐Dependent Spinal Cord Neuromodulation Rapidly Restores Trunk and Leg Motor Functions After Complete Paralysis</article-title>,” <source>Nature Medicine</source>
+<volume>28</volume>, no. <issue>2</issue> (<year>2022</year>): <fpage>260</fpage>–<lpage>271</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41591-021-01663-5</pub-id><pub-id pub-id-type="pmid">35132264</pub-id></mixed-citation></ref><ref id="advs73435-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="advs73435-cite-0037">
+<string-name name-style="western">
+<given-names>M. P.</given-names>
+<surname>Kilgard</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>Epperson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. A.</given-names>
+<surname>Adehunoluwa</surname>
+</string-name>, et al., “<article-title>Closed‐Loop Vagus Nerve Stimulation Aids Recovery From Spinal Cord Injury</article-title>,” <source>Nature</source>
+<volume>643</volume> (<year>2025</year>): <fpage>1030</fpage>–<lpage>1036</lpage>.<pub-id pub-id-type="pmid">40399668</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41586-025-09028-5</pub-id><pub-id pub-id-type="pmcid">PMC12286844</pub-id></mixed-citation></ref><ref id="advs73435-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="advs73435-cite-0038">
+<string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Squair</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Milano</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>de Coucy</surname>
+</string-name>, et al., “<article-title>Recovery of Walking After Paralysis by Regenerating Characterized Neurons to Their Natural Target Region</article-title>,” <source>Science</source>
+<volume>381</volume>, no. <issue>6664</issue> (<year>2023</year>): <fpage>1338</fpage>–<lpage>1345</lpage>.<pub-id pub-id-type="pmid">37733871</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.adi6412</pub-id></mixed-citation></ref><ref id="advs73435-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="advs73435-cite-0039">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Vladislav</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Svitlana</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. P.</given-names>
+<surname>Soares Dos Santos</surname>
+</string-name>, et al., “<article-title>Natural and Eco‐Friendly Materials for Triboelectric Energy Harvesting</article-title>,” <source>Nano‐Micro Letters</source>
+<volume>12</volume>, no. <issue>1</issue> (<year>2020</year>): <fpage>42</fpage>.<pub-id pub-id-type="pmid">34138259</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s40820-020-0373-y</pub-id><pub-id pub-id-type="pmcid">PMC7770886</pub-id></mixed-citation></ref><ref id="advs73435-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="advs73435-cite-0040">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ran</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. H.</given-names>
+<surname>Alex</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Ming</surname>
+</string-name>, et al., “<article-title>Nano‐Ferroelectric for High Efficiency Overall Water Splitting Under Ultrasonic Vibration</article-title>,” <source>Angewandte Chemie‐International Edition</source>
+<volume>58</volume>, no. <issue>42</issue> (<year>2019</year>): <fpage>15076</fpage>–<lpage>15081</lpage>.<pub-id pub-id-type="pmid">31404487</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/anie.201907695</pub-id></mixed-citation></ref><ref id="advs73435-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="advs73435-cite-0041">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhongchen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>François</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Maryline</surname>
+</string-name>, et al., “<article-title>Electrospun PVDF Nanofibers for Piezoelectric Applications: A Review of the Influence of Electrospinning Parameters on the β Phase and Crystallinity Enhancement</article-title>,” <source>Polymers</source>
+<volume>13</volume>, no. <issue>2</issue> (<year>2021</year>): <fpage>174</fpage>.<pub-id pub-id-type="pmid">33418962</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/polym13020174</pub-id><pub-id pub-id-type="pmcid">PMC7825031</pub-id></mixed-citation></ref><ref id="advs73435-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="advs73435-cite-0042">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhongzhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Suishui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Jingzhan</surname>
+</string-name>, et al., “<article-title>Fabrication of β‐Phase‐Enriched PVDF Sheets for Self‐Powered Piezoelectric Sensing</article-title>,” <source>ACS Applied Materials &amp; Interfaces</source>
+<volume>14</volume>, no. <issue>9</issue> (<year>2022</year>): <fpage>11854</fpage>–<lpage>11863</lpage>.<pub-id pub-id-type="pmid">35192327</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsami.2c01611</pub-id></mixed-citation></ref><ref id="advs73435-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="advs73435-cite-0043">
+<string-name name-style="western">
+<given-names>M. P.</given-names>
+<surname>Powell</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Verma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Sorensen</surname>
+</string-name>, et al., “<article-title>Epidural Stimulation of the Cervical Spinal Cord for Post‐Stroke Upper‐Limb Paresis</article-title>,” <source>Nature Medicine</source>
+<volume>29</volume>, no. <issue>3</issue> (<year>2023</year>): <fpage>689</fpage>–<lpage>699</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41591-022-02202-6</pub-id><pub-id pub-id-type="pmcid">PMC10291889</pub-id><pub-id pub-id-type="pmid">36807682</pub-id></mixed-citation></ref><ref id="advs73435-bib-0044"><label>44</label><mixed-citation publication-type="journal" id="advs73435-cite-0044">
+<string-name name-style="western">
+<given-names>P.‐O.</given-names>
+<surname>Genís</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Scott</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Serena</surname>
+</string-name>, et al., “<article-title>First‐in‐Human Study of Epidural Spinal Cord Stimulation in Individuals With Spinal Muscular Atrophy</article-title>,” <source>Nature Medicine</source>
+<volume>31</volume>, no. <issue>4</issue> (<year>2025</year>): <fpage>1246</fpage>–<lpage>1256</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41591-024-03484-8</pub-id><pub-id pub-id-type="pmcid">PMC13000922</pub-id><pub-id pub-id-type="pmid">39910271</pub-id></mixed-citation></ref><ref id="advs73435-bib-0045"><label>45</label><mixed-citation publication-type="journal" id="advs73435-cite-0045">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Roth</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. S.</given-names>
+<surname>Pell</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Barnea‐Ygael</surname>
+</string-name>, et al., “<article-title>Rotational Field TMS: Comparison With Conventional TMS Based on Motor Evoked Potentials and Thresholds in the Hand and Leg Motor Cortices</article-title>,” <source>Brain Stimulation</source>
+<volume>13</volume>, no. <issue>3</issue> (<year>2020</year>): <fpage>900</fpage>–<lpage>907</lpage>.<pub-id pub-id-type="pmid">32289723</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.brs.2020.03.010</pub-id></mixed-citation></ref><ref id="advs73435-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="advs73435-cite-0046">
+<string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Francesco</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Xiaofei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Yanjie</surname>
+</string-name>, et al., “<article-title>Activation of MAP2K Signaling by Genetic Engineering or HF‐rTMS Promotes Corticospinal Axon Sprouting and Functional Regeneration</article-title>,” <source>Science Translational Medicine</source>
+<volume>15</volume>, no. <issue>677</issue> (<year>2023</year>): <elocation-id>abq6885</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/scitranslmed.abq6885</pub-id><pub-id pub-id-type="pmid">36599003</pub-id></mixed-citation></ref><ref id="advs73435-bib-0047"><label>47</label><mixed-citation publication-type="journal" id="advs73435-cite-0047">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Lechi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhihang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zelin</surname>
+</string-name>, et al., “<article-title>Repetitive Transcranial Magnetic Stimulation Promotes Motor Function Recovery in Mice After Spinal Cord Injury via Regulation of the Cx43‐autophagy Loop</article-title>,” <source>Journal of Orthopaedic Surgery and Research</source>
+<volume>19</volume>, no. <issue>1</issue> (<year>2024</year>): <fpage>387</fpage>.<pub-id pub-id-type="pmid">38956661</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s13018-024-04879-6</pub-id><pub-id pub-id-type="pmcid">PMC11218133</pub-id></mixed-citation></ref><ref id="advs73435-bib-0048"><label>48</label><mixed-citation publication-type="journal" id="advs73435-cite-0048">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Peifang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Yanhui</surname>
+</string-name>, et al., “<article-title>Directing Charge Transfer in a Chemical‐Bonded BaTiO3 @ReS2 Schottky Heterojunction for Piezoelectric Enhanced Photocatalysis</article-title>,” <source>Advanced Materials</source>
+<volume>34</volume>, no. <issue>29</issue> (<year>2022</year>): <elocation-id>2202508</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202202508</pub-id><pub-id pub-id-type="pmid">35560713</pub-id></mixed-citation></ref><ref id="advs73435-bib-0049"><label>49</label><mixed-citation publication-type="journal" id="advs73435-cite-0049">
+<string-name name-style="western">
+<given-names>A. S.</given-names>
+<surname>Aberra</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W. M.</given-names>
+<surname>Grill</surname>
+</string-name>, et al., “<article-title>Simulation of Transcranial Magnetic Stimulation in Head Model With Morphologically‐Realistic Cortical Neurons</article-title>,” <source>Brain Stimulation</source>
+<volume>13</volume>, no. <issue>1</issue> (<year>2020</year>): <fpage>175</fpage>–<lpage>189</lpage>.<pub-id pub-id-type="pmid">31611014</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.brs.2019.10.002</pub-id><pub-id pub-id-type="pmcid">PMC6889021</pub-id></mixed-citation></ref><ref id="advs73435-bib-0050"><label>50</label><mixed-citation publication-type="journal" id="advs73435-cite-0050">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Bhaskar</surname>
+</string-name> and <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Basu</surname>
+</string-name>, “<article-title>Osteogenesis, Hemocompatibility, and Foreign Body Response of Polyvinylidene Difluoride‐Based Composite Reinforced With Carbonaceous Filler and Higher Volume of Piezoelectric Ceramic Phase</article-title>,” <source>Biomaterials</source>
+<volume>297</volume> (<year>2023</year>): <elocation-id>122100</elocation-id>.<pub-id pub-id-type="pmid">37004426</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.biomaterials.2023.122100</pub-id></mixed-citation></ref><ref id="advs73435-bib-0051"><label>51</label><mixed-citation publication-type="journal" id="advs73435-cite-0051">
+<string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>Guest</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. W.</given-names>
+<surname>Moore</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Aimetti</surname>
+</string-name>, et al., “<article-title>Internal Decompression of the Acutely Contused Spinal Cord: Differential Effects of Irrigation Only versus Biodegradable Scaffold Implantation</article-title>,” <source>Biomaterials</source>
+<volume>185</volume> (<year>2018</year>): <fpage>284</fpage>–<lpage>300</lpage>.<pub-id pub-id-type="pmid">30265898</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.biomaterials.2018.09.025</pub-id></mixed-citation></ref><ref id="advs73435-bib-0052"><label>52</label><mixed-citation publication-type="journal" id="advs73435-cite-0052">
+<string-name name-style="western">
+<given-names>C. M.</given-names>
+<surname>Zipser</surname>
+</string-name> and <string-name name-style="western">
+<given-names>J. J.</given-names>
+<surname>Cragg</surname>
+</string-name>, “<article-title>Cell‐Based and Stem‐Cell‐Based Treatments for Spinal Cord Injury: Evidence From Clinical Trials</article-title>,” <source>Lancet Neurology</source>
+<volume>21</volume>, no. <issue>7</issue> (<year>2022</year>): <fpage>659</fpage>–<lpage>670</lpage>.<pub-id pub-id-type="pmid">35569486</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/S1474-4422(21)00464-6</pub-id></mixed-citation></ref><ref id="advs73435-bib-0053"><label>53</label><mixed-citation publication-type="journal" id="advs73435-cite-0053">
+<string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Martín</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Bocio‐Nuñez</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. F.</given-names>
+<surname>Scagliusi</surname>
+</string-name>, et al., “<article-title>DC Electrical Stimulation Enhances Proliferation and Differentiation on N2a and MC3T3 Cell Lines</article-title>,” <source>Journal of Biological Engineering</source>
+<volume>16</volume>, no. <issue>1</issue> (<year>2022</year>): <fpage>27</fpage>.<pub-id pub-id-type="pmid">36229846</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s13036-022-00306-8</pub-id><pub-id pub-id-type="pmcid">PMC9563743</pub-id></mixed-citation></ref><ref id="advs73435-bib-0054"><label>54</label><mixed-citation publication-type="journal" id="advs73435-cite-0054">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhuo‐Wen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhe‐Yuan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Ze‐Pu</surname>
+</string-name>, et al., “<article-title>Bioactive Peptides and Proteins for Tissue Repair: Microenvironment Modulation, Rational Delivery, and Clinical Potential</article-title>,” <source>Military Medical Research</source>
+<volume>11</volume>, no. <issue>1</issue> (<year>2024</year>): <fpage>75</fpage>.<pub-id pub-id-type="pmid">39639374</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s40779-024-00576-x</pub-id><pub-id pub-id-type="pmcid">PMC11619216</pub-id></mixed-citation></ref><ref id="advs73435-bib-0055"><label>55</label><mixed-citation publication-type="journal" id="advs73435-cite-0055">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Yong‐Ak</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Rohat</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. N.</given-names>
+<surname>Rabie</surname>
+</string-name>, et al., “<article-title>Electrochemical Activation and Inhibition of Neuromuscular Systems Through Modulation of Ion Concentrations With Ion‐Selective Membranes</article-title>,” <source>Nature Materials</source>
+<volume>10</volume>, no. <issue>12</issue> (<year>2011</year>): <fpage>980</fpage>–<lpage>986</lpage>.<pub-id pub-id-type="pmid">22019944</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nmat3146</pub-id><pub-id pub-id-type="pmcid">PMC3223285</pub-id></mixed-citation></ref><ref id="advs73435-bib-0056"><label>56</label><mixed-citation publication-type="journal" id="advs73435-cite-0056">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V. P. H.</given-names>
+<surname>Lin</surname>
+</string-name>, et al., “<article-title>A 3D Fiber‐Hydrogel Based Non‐Viral Gene Delivery Platform Reveals That microRNAs Promote Axon Regeneration and Enhance Functional Recovery Following Spinal Cord Injury</article-title>,” <source>Advanced Science</source>
+<volume>8</volume>, no. <issue>15</issue> (<year>2021</year>): <elocation-id>2100805</elocation-id>.<pub-id pub-id-type="pmid">34050637</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/advs.202100805</pub-id><pub-id pub-id-type="pmcid">PMC8336488</pub-id></mixed-citation></ref><ref id="advs73435-bib-0057"><label>57</label><mixed-citation publication-type="journal" id="advs73435-cite-0057">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Jia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Kaiyuan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Weitao</surname>
+</string-name>, et al., “<article-title>3D Bio‐Printed Living Nerve‐Like Fibers Refine the Ecological Niche for Long‐Distance Spinal Cord Injury Regeneration</article-title>,” <source>Bioactive Materials</source>
+<volume>25</volume> (<year>2023</year>): <fpage>160</fpage>–<lpage>175</lpage>.<pub-id pub-id-type="pmid">36817821</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.bioactmat.2023.01.023</pub-id><pub-id pub-id-type="pmcid">PMC9931763</pub-id></mixed-citation></ref><ref id="advs73435-bib-0058"><label>58</label><mixed-citation publication-type="journal" id="advs73435-cite-0058">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Norbert</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Rainer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Doris</surname>
+</string-name>, et al., “<article-title>Safety and Efficacy of Intrathecal Antibodies to Nogo‐A in Patients With Acute Cervical Spinal Cord Injury: A Randomised, Double‐Blind, Multicentre, Placebo‐Controlled, Phase 2b Trial</article-title>,” <source>Lancet Neurology</source>
+<volume>24</volume>, no. <issue>1</issue> (<year>2025</year>): <fpage>42</fpage>–<lpage>53</lpage>.<pub-id pub-id-type="pmid">39706632</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/S1474-4422(24)00447-2</pub-id></mixed-citation></ref><ref id="advs73435-bib-0059"><label>59</label><mixed-citation publication-type="journal" id="advs73435-cite-0059">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Lei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Can</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Xiuxing</surname>
+</string-name>, et al., “<article-title>Directing Induced Pluripotent Stem Cell Derived Neural Stem Cell Fate With a Three‐Dimensional Biomimetic Hydrogel for Spinal Cord Injury Repair</article-title>,” <source>ACS Applied Materials &amp; Interfaces</source>
+<volume>10</volume>, no. <issue>21</issue> (<year>2018</year>): <fpage>17742</fpage>–<lpage>17755</lpage>.<pub-id pub-id-type="pmid">29733569</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsami.8b05293</pub-id></mixed-citation></ref><ref id="advs73435-bib-0060"><label>60</label><mixed-citation publication-type="journal" id="advs73435-cite-0060">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Takafumi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hideya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Tetsuhiro</surname>
+</string-name>, et al., “<article-title>Therapeutic Effects of Combined Cell Transplantation and Locomotor Training in Rats With Brain Injury</article-title>,” <source>NPJ Regenerative Medicine</source>
+<volume>4</volume> (<year>2019</year>): <fpage>13</fpage>.<pub-id pub-id-type="pmid">31231547</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41536-019-0075-6</pub-id><pub-id pub-id-type="pmcid">PMC6549150</pub-id></mixed-citation></ref><ref id="advs73435-bib-0061"><label>61</label><mixed-citation publication-type="journal" id="advs73435-cite-0061">
+<string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Koya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Natsuko</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Kyoumi</surname>
+</string-name>, et al., “<article-title>Hair‐Follicle‐Associated Pluripotent (HAP) Stem Cells Encapsulated on Polyvinylidene Fluoride Membranes (PFM) Promote Functional Recovery From Spinal Cord Injury</article-title>,” <source>Stem Cell Reviews and Reports</source>
+<volume>15</volume>, no. <issue>1</issue> (<year>2019</year>): <fpage>59</fpage>–<lpage>66</lpage>.<pub-id pub-id-type="pmid">30341634</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s12015-018-9856-3</pub-id></mixed-citation></ref><ref id="advs73435-bib-0062"><label>62</label><mixed-citation publication-type="journal" id="advs73435-cite-0062">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Cam‐Hoa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Hsien‐Meng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Sheng‐Min</surname>
+</string-name>, et al., “<article-title>Orally Ingested Self‐Powered Stimulators for Targeted Gut‐Brain Axis Electrostimulation to Treat Obesity and Metabolic Disorders</article-title>,” <source>Advanced Materials</source>
+<volume>36</volume>, no. <issue>21</issue> (<year>2024</year>): <elocation-id>2310351</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202310351</pub-id><pub-id pub-id-type="pmid">38591658</pub-id></mixed-citation></ref><ref id="advs73435-bib-0063"><label>63</label><mixed-citation publication-type="journal" id="advs73435-cite-0063">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Fang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Lulu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Xule</surname>
+</string-name>, et al., “<article-title>Neuron‐Inspired Ferroelectric Bioelectronics for Adaptive Biointerfacing</article-title>,” <source>Advanced Materials</source>
+<volume>37</volume>, no. <issue>35</issue> (<year>2025</year>): <elocation-id>2416698</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202416698</pub-id><pub-id pub-id-type="pmid">40442937</pub-id></mixed-citation></ref><ref id="advs73435-bib-0064"><label>64</label><mixed-citation publication-type="journal" id="advs73435-cite-0064">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Ao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Yifan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Naiyu</surname>
+</string-name>, et al., “<article-title>Porous Microneedle Patch With Sustained Delivery of Extracellular Vesicles Mitigates Severe Spinal Cord Injury</article-title>,” <source>Nature Communications</source>
+<volume>14</volume>, no. <issue>1</issue> (<year>2023</year>): <fpage>4011</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-023-39745-2</pub-id><pub-id pub-id-type="pmcid">PMC10328956</pub-id><pub-id pub-id-type="pmid">37419902</pub-id></mixed-citation></ref><ref id="advs73435-bib-0065"><label>65</label><mixed-citation publication-type="journal" id="advs73435-cite-0065">
+<string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Philip</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Xingxing</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Siegel Chad</surname>
+</string-name>, et al., “<article-title>Myelin‐Derived EphrinB3 Restricts Axonal Regeneration and Recovery After Adult CNS Injury</article-title>,” <source>Proceedings of the National Academy of Sciences of the United States of America</source>
+<volume>109</volume>, no. <issue>13</issue> (<year>2012</year>): <fpage>5063</fpage>–<lpage>5068</lpage>.<pub-id pub-id-type="pmid">22411787</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1073/pnas.1113953109</pub-id><pub-id pub-id-type="pmcid">PMC3323955</pub-id></mixed-citation></ref><ref id="advs73435-bib-0066"><label>66</label><mixed-citation publication-type="journal" id="advs73435-cite-0066">
+<string-name name-style="western">
+<given-names>E. M.</given-names>
+<surname>Floriddia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. I.</given-names>
+<surname>Rathore</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Tedeschi</surname>
+</string-name>, et al., “<article-title>Regulates the Neuronal Intrinsic and Extrinsic Responses Affecting the Recovery of Motor Function Following Spinal Cord Injury</article-title>,” <source>Journal of Neuroscience</source>
+<volume>32</volume>, no. <issue>40</issue> (<year>2012</year>): <fpage>13956</fpage>–<lpage>13970</lpage>.<pub-id pub-id-type="pmid">23035104</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1523/JNEUROSCI.1925-12.2012</pub-id><pub-id pub-id-type="pmcid">PMC6704782</pub-id></mixed-citation></ref><ref id="advs73435-bib-0067"><label>67</label><mixed-citation publication-type="journal" id="advs73435-cite-0067">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Weitao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Junqiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Chao</surname>
+</string-name>, et al., “<article-title>Lipin1 Depletion Coordinates Neuronal Signaling Pathways to Promote Motor and Sensory Axon Regeneration After Spinal Cord Injury</article-title>,” <source>Proceedings of the National Academy of Sciences of the United States of America</source>
+<volume>121</volume>, no. <issue>39</issue> (<year>2024</year>): <elocation-id>2404395121</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1073/pnas.2404395121</pub-id><pub-id pub-id-type="pmcid">PMC11441493</pub-id><pub-id pub-id-type="pmid">39292743</pub-id></mixed-citation></ref><ref id="advs73435-bib-0068"><label>68</label><mixed-citation publication-type="journal" id="advs73435-cite-0068">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Qi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Yuxiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>Ordaz</surname>
+</string-name>, et al., “<article-title>Restoring Cellular Energetics Promotes Axonal Regeneration and Functional Recovery After Spinal Cord Injury</article-title>,” <source>Cell Metabolism</source>
+<volume>31</volume>, no. <issue>3</issue> (<year>2020</year>): <fpage>623</fpage>–<lpage>641.e8</lpage>.<pub-id pub-id-type="pmid">32130884</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cmet.2020.02.002</pub-id><pub-id pub-id-type="pmcid">PMC7188478</pub-id></mixed-citation></ref><ref id="advs73435-bib-0069"><label>69</label><mixed-citation publication-type="journal" id="advs73435-cite-0069">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Kristyna</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Zuzana</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Lydia</surname>
+</string-name>, et al., “<article-title>Hyperactive Delta Isoform of PI3 Kinase Enables Long‐Distance Regeneration of Adult Rat Corticospinal Tract</article-title>,” <source>Molecular Therapy: The Journal of the American Society of Gene Therapy</source>
+<volume>33</volume>, no. <issue>2</issue> (<year>2025</year>): <fpage>752</fpage>–<lpage>770</lpage>.<pub-id pub-id-type="pmid">39748509</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.ymthe.2024.12.040</pub-id><pub-id pub-id-type="pmcid">PMC11852985</pub-id></mixed-citation></ref><ref id="advs73435-bib-0070"><label>70</label><mixed-citation publication-type="journal" id="advs73435-cite-0070">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Nikolaus</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. E.</given-names>
+<surname>Martin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Jerome</surname>
+</string-name>, et al., “<article-title>Spatiotemporal Neuromodulation Therapies Engaging Muscle Synergies Improve Motor Control After Spinal Cord Injury</article-title>,” <source>Nature Medicine</source>
+<volume>22</volume>, no. <issue>2</issue> (<year>2016</year>): <fpage>138</fpage>–<lpage>145</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nm.4025</pub-id><pub-id pub-id-type="pmcid">PMC5061079</pub-id><pub-id pub-id-type="pmid">26779815</pub-id></mixed-citation></ref><ref id="advs73435-bib-0071"><label>71</label><mixed-citation publication-type="journal" id="advs73435-cite-0071">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Taoyang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Xu</surname>
+</string-name>, et al., “<article-title>Highly Permeable DNA Supramolecular Hydrogel Promotes Neurogenesis and Functional Recovery After Completely Transected Spinal Cord Injury</article-title>,” <source>Advanced Materials</source>
+<volume>33</volume>, no. <issue>35</issue> (<year>2021</year>): <elocation-id>2102428</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202102428</pub-id><pub-id pub-id-type="pmid">34296471</pub-id></mixed-citation></ref><ref id="advs73435-bib-0072"><label>72</label><mixed-citation publication-type="journal" id="advs73435-cite-0072">
+<string-name name-style="western">
+<given-names>R.‐C.</given-names>
+<surname>Elena</surname>
+</string-name> and <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Xavier</surname>
+</string-name>, “<article-title>García‐Alías Guillermo. Longitudinal Evaluation of Residual Cortical and Subcortical Motor Evoked Potentials in Spinal Cord Injured Rats</article-title>,” <source>Journal of Neurotrauma</source>
+<volume>33</volume>, no. <issue>10</issue> (<year>2016</year>): <fpage>907</fpage>–<lpage>916</lpage>.<pub-id pub-id-type="pmid">26560177</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1089/neu.2015.4140</pub-id></mixed-citation></ref><ref id="advs73435-bib-0073"><label>73</label><mixed-citation publication-type="journal" id="advs73435-cite-0073">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Zijue</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Hongmei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Fei</surname>
+</string-name>, et al., “<article-title>Circuit Reconstruction of Newborn Neurons After Spinal Cord Injury in Adult Rats via an NT3‐chitosan Scaffold</article-title>,” <source>Progress in Neurobiology</source>
+<volume>220</volume> (<year>2023</year>): <elocation-id>102375</elocation-id>.<pub-id pub-id-type="pmid">36410665</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.pneurobio.2022.102375</pub-id></mixed-citation></ref><ref id="advs73435-bib-0074"><label>74</label><mixed-citation publication-type="journal" id="advs73435-cite-0074">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Ji</surname>
+</string-name>, et al., “<article-title>Motor Neuron‐Specific Membrane Depolarization of Transected Peripheral Nerves by Upconversion Nanoparticle‐Mediated Optogenetics</article-title>,” <source>Advanced Functional Materials</source>
+<volume>33</volume>, no. <issue>17</issue> (<year>2023</year>): <elocation-id>2303992</elocation-id>.</mixed-citation></ref><ref id="advs73435-bib-0075"><label>75</label><mixed-citation publication-type="journal" id="advs73435-cite-0075">
+<string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Gustavo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Guijin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Matheus Joner</surname>
+</string-name>, et al., “<article-title>Properties of the Surface Electromyogram Following Traumatic Spinal Cord Injury: A Scoping Review</article-title>,” <source>Journal of Neuroengineering and Rehabilitation</source>
+<volume>18</volume>, no. <issue>1</issue> (<year>2021</year>): <fpage>105</fpage>.<pub-id pub-id-type="pmid">34187509</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s12984-021-00888-2</pub-id><pub-id pub-id-type="pmcid">PMC8244234</pub-id></mixed-citation></ref><ref id="advs73435-bib-0076"><label>76</label><mixed-citation publication-type="journal" id="advs73435-cite-0076">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Jian</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Peng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Wenbin</surname>
+</string-name>, et al., “<article-title>Grafted Human ESC‐Derived Astroglia Repair Spinal Cord Injury via Activation of Host Anti‐Inflammatory Microglia in the Lesion Area</article-title>,” <source>Theranostics</source>
+<volume>12</volume>, no. <issue>9</issue> (<year>2022</year>): <fpage>4288</fpage>–<lpage>4309</lpage>.<pub-id pub-id-type="pmid">35673563</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.7150/thno.70929</pub-id><pub-id pub-id-type="pmcid">PMC9169351</pub-id></mixed-citation></ref><ref id="advs73435-bib-0077"><label>77</label><mixed-citation publication-type="journal" id="advs73435-cite-0077">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Aya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Isabel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Grégoire</surname>
+</string-name>, et al., “<article-title>Muscle Spindle Feedback Directs Locomotor Recovery and Circuit Reorganization After Spinal Cord Injury</article-title>,” <source>Cell</source>
+<volume>159</volume>, no. <issue>7</issue> (<year>2014</year>): <fpage>1626</fpage>–<lpage>1639</lpage>.<pub-id pub-id-type="pmid">25525880</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cell.2014.11.019</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

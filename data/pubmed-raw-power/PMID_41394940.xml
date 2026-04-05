@@ -1,0 +1,214 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41394940</PMID><DateCompleted><Year>2025</Year><Month>12</Month><Day>15</Day></DateCompleted><DateRevised><Year>2025</Year><Month>12</Month><Day>17</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1662-5161</ISSN><JournalIssue CitedMedium="Print"><Volume>19</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>Frontiers in human neuroscience</Title><ISOAbbreviation>Front Hum Neurosci</ISOAbbreviation></Journal><ArticleTitle>Motor imagery-based brain-computer interface for differential diagnosis in prolonged disorders of consciousness.</ArticleTitle><Pagination><StartPage>1695730</StartPage><MedlinePgn>1695730</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1695730</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fnhum.2025.1695730</ELocationID><Abstract><AbstractText Label="INTRODUCTION" NlmCategory="UNASSIGNED">Patients with prolonged disorders of consciousness (pDoC) present significant challenges to the assessment of consciousness. This study investigated the clinical utility of motor imagery-based brain-computer interface (MI-BCI) for discriminating consciousness levels in patients with pDoC.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">Thirty-one pDoC patients [12 with unresponsive wakefulness syndrome (UWS) and 19 in a minimally conscious state (MCS)] underwent EEG recordings during resting state and MI-BCI training. The analysis focused on relative power spectral density across five frequency bands (delta, theta, alpha, beta, gamma) in motor imagery-related regions (frontal and parietal cortices), along with BCI performance metrics (classification accuracy and attention indices).</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">We found that MCS patients exhibited multiband neural oscillation modulation during MI-BCI tasks, including slow-wave enhancement [(delta in frontal lobes (<i>p</i> = 0.003); theta in frontal (<i>p</i> = 0.026) and parietal lobes (<i>p</i> &lt; 0.001)) and fast-wave suppression (alpha in frontal (<i>p</i> &lt; 0.001) and parietal lobes (<i>p</i> = 0.049); beta in frontal (<i>p</i> = 0.014) and parietal lobes (<i>p</i> = 0.001); gamma in parietal lobes (<i>p</i> = 0.023)]. In contrast, UWS patients only showed localized parietal gamma enhancement (<i>p</i> = 0.042). Notably, the MCS group achieved significantly higher classification accuracy (55% vs. 38%, <i>p</i> = 0.02), and attention indices correlated moderately with CRS-R scores across all patients (Spearman's &#x3c1; = 0.43, <i>p</i> = 0.02).</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">The findings suggest that MI-BCI classification accuracy and attention indices may serve as auxiliary discriminators between UWS and MCS patients, with MCS patients demonstrating superior responsiveness to MI-BCI training.</AbstractText><CopyrightInformation>Copyright &#xa9; 2025 Liu, Ge, Dong, Jiao, Han, Kang, Wang, He and Zhang.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y" EqualContrib="Y"><LastName>Liu</LastName><ForeName>Ping</ForeName><Initials>P</Initials><AffiliationInfo><Affiliation>School of Rehabilitation, Capital Medical University, Beijing, China.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Neurorehabilitation, China Rehabilitation Research Center, Beijing, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y" EqualContrib="Y"><LastName>Ge</LastName><ForeName>Qianqian</ForeName><Initials>Q</Initials><AffiliationInfo><Affiliation>Department of Neurosurgery, Beijing Tiantan Hospital, Capital Medical University, Beijing, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Dong</LastName><ForeName>Linghui</ForeName><Initials>L</Initials><AffiliationInfo><Affiliation>School of Rehabilitation, Capital Medical University, Beijing, China.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Neurorehabilitation, China Rehabilitation Research Center, Beijing, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Jiao</LastName><ForeName>Liqin</ForeName><Initials>L</Initials><AffiliationInfo><Affiliation>Department of Neurocritical Care Rehabilitation, Closely Affiliated Medical Consortium Unit of China Rehabilitation Research Center, Beijing, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Han</LastName><ForeName>Shuai</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Department of Neurosurgery, Beijing Tiantan Hospital, Capital Medical University, Beijing, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kang</LastName><ForeName>Xiaoyang</ForeName><Initials>X</Initials><AffiliationInfo><Affiliation>Department of Neurosurgery, Beijing Tiantan Hospital, Capital Medical University, Beijing, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Wang</LastName><ForeName>Haochong</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>School of Life Sciences and Technology, Institute of Health and Rehabilitation Science, Xi'an Jiaotong University, Xi'an, Shaanxi, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y" EqualContrib="Y"><LastName>He</LastName><ForeName>Jianghong</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Department of Neurosurgery, Beijing Tiantan Hospital, Capital Medical University, Beijing, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Zhang</LastName><ForeName>Hao</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>School of Rehabilitation, Capital Medical University, Beijing, China.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Neurorehabilitation, China Rehabilitation Research Center, Beijing, China.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>11</Month><Day>27</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Hum Neurosci</MedlineTA><NlmUniqueID>101477954</NlmUniqueID><ISSNLinking>1662-5161</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">assessment</Keyword><Keyword MajorTopicYN="N">brain-computer interface</Keyword><Keyword MajorTopicYN="N">electroencephalography</Keyword><Keyword MajorTopicYN="N">motor imagery</Keyword><Keyword MajorTopicYN="N">prolonged disorders of consciousness</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>8</Month><Day>30</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2025</Year><Month>10</Month><Day>30</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>11</Month><Day>10</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2025</Year><Month>12</Month><Day>15</Day><Hour>13</Hour><Minute>10</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2025</Year><Month>12</Month><Day>15</Day><Hour>13</Hour><Minute>9</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2025</Year><Month>12</Month><Day>15</Day><Hour>6</Hour><Minute>28</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>11</Month><Day>27</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41394940</ArticleId><ArticleId IdType="pmc">PMC12696706</ArticleId><ArticleId IdType="doi">10.3389/fnhum.2025.1695730</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Annen J., Laureys S., Gosseries O. (2020). Brain-computer interfaces for consciousness assessment and communication in severely brain-injured patients.
+<i>Handb. Clin. Neurol.</i>
+168
+137&#x2013;152. 10.1016/B978-0-444-63934-9.00011-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/B978-0-444-63934-9.00011-1</ArticleId><ArticleId IdType="pubmed">32164848</ArticleId></ArticleIdList></Reference><Reference><Citation>Astfalck L. C., Sykulski A. M., Cripps E. J. (2024). Debiasing Welch&#x2019;s method for spectral density estimation.
+<i>Biometrika</i>
+111
+1313&#x2013;1329. 10.1093/biomet/asae033</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/biomet/asae033</ArticleId></ArticleIdList></Reference><Reference><Citation>Bagherzadeh Y., Baldauf D., Pantazis D., Desimone R. (2020). Alpha synchrony and the neurofeedback control of spatial attention.
+<i>Neuron</i>
+105
+577&#x2013;587. 10.1016/j.neuron.2019.11.001
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neuron.2019.11.001</ArticleId><ArticleId IdType="pubmed">31812515</ArticleId></ArticleIdList></Reference><Reference><Citation>Bareham C. A., Roberts N., Allanson J., Hutchinson P. J. A., Pickard J. D., Menon D. K., et al.  (2020). Bedside EEG predicts longitudinal behavioural changes in disorders of consciousness.
+<i>Neuroimage Clin.</i>
+28:102372. 10.1016/j.nicl.2020.102372
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.nicl.2020.102372</ArticleId><ArticleId IdType="pmc">PMC7426558</ArticleId><ArticleId IdType="pubmed">32795964</ArticleId></ArticleIdList></Reference><Reference><Citation>Bruno M. A., Majerus S., Boly M., Vanhaudenhuyse A., Schnakers C., Gosseries O., et al.  (2012). Functional neuroanatomy underlying the clinical subcategorization of minimally conscious state patients.
+<i>J Neurol.</i>
+259
+1087&#x2013;1098. 10.1007/s00415-011-6303-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00415-011-6303-7</ArticleId><ArticleId IdType="pubmed">22081100</ArticleId></ArticleIdList></Reference><Reference><Citation>Coulborn S., Taylor C., Naci L., Owen A. M., Fern&#xe1;ndez-Espejo D. (2021). Disruptions in effective connectivity within and between default mode network and anterior forebrain mesocircuit in prolonged disorders of consciousness.
+<i>Brain Sci.</i>
+11:749. 10.3390/brainsci11060749
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/brainsci11060749</ArticleId><ArticleId IdType="pmc">PMC8227204</ArticleId><ArticleId IdType="pubmed">34200092</ArticleId></ArticleIdList></Reference><Reference><Citation>Coyle D., Stow J., McCreadie K., McElligott J., Carroll &#xc1;. (2015). Sensorimotor modulation assessment and brain-computer interface training in disorders of consciousness.
+<i>Arch. Phys. Med. Rehabil.</i>
+96(3 Suppl.), S62&#x2013;S70. 10.1016/j.apmr.2014.08.024
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.apmr.2014.08.024</ArticleId><ArticleId IdType="pubmed">25721549</ArticleId></ArticleIdList></Reference><Reference><Citation>Cuomo G., Maglianella V., Ghanbari Ghooshchy S., Zoccolotti P., Martelli M., Paolucci S., et al.  (2022). Motor imagery and gait control in Parkinson&#x2019;s disease: Techniques and new perspectives in neurorehabilitation.
+<i>Exp. Rev. Neurother.</i>
+22
+43&#x2013;51. 10.1080/14737175.2022.2018301
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/14737175.2022.2018301</ArticleId><ArticleId IdType="pubmed">34906019</ArticleId></ArticleIdList></Reference><Reference><Citation>Di Perri C., Bahri M. A., Amico E., Thibaut A., Heine L., Antonopoulos G., et al.  (2016). Neural correlates of consciousness in patients who have emerged from a minimally conscious state: A cross-sectional multimodal imaging study.
+<i>Lancet Neurol.</i>
+15
+830&#x2013;842. 10.1016/S1474-4422(16)00111-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1474-4422(16)00111-3</ArticleId><ArticleId IdType="pubmed">27131917</ArticleId></ArticleIdList></Reference><Reference><Citation>Duszyk-Bogorodzka A., Zieleniewska M., Jankowiak-Siuda K. (2022). Brain activity characteristics of patients with disorders of consciousness in the EEG resting state paradigm: A review.
+<i>Front. Syst. Neurosci.</i>
+16:654541. 10.3389/fnsys.2022.654541
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnsys.2022.654541</ArticleId><ArticleId IdType="pmc">PMC9198636</ArticleId><ArticleId IdType="pubmed">35720438</ArticleId></ArticleIdList></Reference><Reference><Citation>Edlow B. L., Menon D. K. (2024). Covert consciousness in the ICU.
+<i>Crit. Care Med.</i>
+52
+1414&#x2013;1426. 10.1097/CCM.0000000000006372
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/CCM.0000000000006372</ArticleId><ArticleId IdType="pubmed">39145701</ArticleId></ArticleIdList></Reference><Reference><Citation>Galiotta V., Quattrociocchi I., D&#x2019;Ippolito M., Schettini F., Aric&#xf2; P., Sdoia S., et al.  (2022). EEG-based brain-computer interfaces for people with disorders of consciousness: Features and applications. a systematic review.
+<i>Front. Hum. Neurosci.</i>
+16:1040816. 10.3389/fnhum.2022.1040816
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnhum.2022.1040816</ArticleId><ArticleId IdType="pmc">PMC9760911</ArticleId><ArticleId IdType="pubmed">36545350</ArticleId></ArticleIdList></Reference><Reference><Citation>Giacino J. T., Kalmar K., Whyte J. (2004). The JFK coma recovery scale-revised: Measurement characteristics and diagnostic utility.
+<i>Arch. Phys. Med. Rehabil.</i>
+85
+2020&#x2013;2029. 10.1016/j.apmr.2004.02.033
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.apmr.2004.02.033</ArticleId><ArticleId IdType="pubmed">15605342</ArticleId></ArticleIdList></Reference><Reference><Citation>Giacino J. T., Katz D. I., Schiff N. D., Whyte J., Ashman E. J., Ashwal S., et al.  (2018). Practice guideline update recommendations summary: Disorders of consciousness: Report of the guideline development, dissemination, and implementation subcommittee of the american academy of neurology; the american congress of rehabilitation medicine; and the national institute on disability, independent living, and rehabilitation research.
+<i>Neurology</i>
+91
+450&#x2013;460. 10.1212/WNL.0000000000005926
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1212/WNL.0000000000005926</ArticleId><ArticleId IdType="pmc">PMC6139814</ArticleId><ArticleId IdType="pubmed">30089618</ArticleId></ArticleIdList></Reference><Reference><Citation>Ji E. K., Wang H. H., Jung S. J., Lee K. B., Kim J. S., Jo L., et al.  (2021). Graded motor imagery training as a home exercise program for upper limb motor function in patients with chronic stroke: A randomized controlled trial.
+<i>Medicine</i>
+100:e24351. 10.1097/MD.0000000000024351
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/MD.0000000000024351</ArticleId><ArticleId IdType="pmc">PMC7837923</ArticleId><ArticleId IdType="pubmed">33546067</ArticleId></ArticleIdList></Reference><Reference><Citation>Kahya M., Gouskova N. A., Lo O. Y., Zhou J., Cappon D., Finnerty E., et al.  (2022). Brain activity during dual-task standing in older adults.
+<i>J. Neuroeng. Rehabil.</i>
+19:123. 10.1186/s12984-022-01095-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12984-022-01095-3</ArticleId><ArticleId IdType="pmc">PMC9652829</ArticleId><ArticleId IdType="pubmed">36369027</ArticleId></ArticleIdList></Reference><Reference><Citation>Khademi Z., Ebrahimi F., Kordy H. M. (2023). A review of critical challenges in MI-BCI: From conventional to deep learning methods.
+<i>J. Neurosci. Methods</i>
+383:109736. 10.1016/j.jneumeth.2022.109736
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jneumeth.2022.109736</ArticleId><ArticleId IdType="pubmed">36349568</ArticleId></ArticleIdList></Reference><Reference><Citation>Klimesch W. (2012). &#x3b1;-band oscillations, attention, and controlled access to stored information.
+<i>Trends Cogn. Sci.</i>
+16
+606&#x2013;617. 10.1016/j.tics.2012.10.007
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.tics.2012.10.007</ArticleId><ArticleId IdType="pmc">PMC3507158</ArticleId><ArticleId IdType="pubmed">23141428</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu H., Wei P., Wang H., Lv X., Duan W., Li M., et al.  (2024). An EEG motor imagery dataset for brain computer interface in acute stroke patients.
+<i>Sci. Data</i>
+11:131. 10.1038/s41597-023-02787-8
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41597-023-02787-8</ArticleId><ArticleId IdType="pmc">PMC10811218</ArticleId><ArticleId IdType="pubmed">38272904</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu M., Ushiba J. (2022). Brain-machine Interface (BMI)-based neurorehabilitation for post-stroke upper limb paralysis.
+<i>Keio J. Med.</i>
+71
+82&#x2013;92. 10.2302/kjm.2022-0002-OA
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2302/kjm.2022-0002-OA</ArticleId><ArticleId IdType="pubmed">35718470</ArticleId></ArticleIdList></Reference><Reference><Citation>Lul&#xe9; D., Noirhomme Q., Kleih S. C., Chatelle C., Halder S., Demertzi A., et al.  (2013). Probing command following in patients with disorders of consciousness using a brain-computer interface.
+<i>Clin. Neurophysiol.</i>
+124
+101&#x2013;106. 10.1016/j.clinph.2012.04.030
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinph.2012.04.030</ArticleId><ArticleId IdType="pubmed">22920562</ArticleId></ArticleIdList></Reference><Reference><Citation>Lutkenhoff E. S., Nigri A., Rossi Sebastiano D., Sattin D., Visani E., Rosazza C., et al.  (2022). EEG Power spectra and subcortical pathology in chronic disorders of consciousness.
+<i>Psychol. Med.</i>
+52
+1491&#x2013;1500. 10.1017/S003329172000330X
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1017/S003329172000330X</ArticleId><ArticleId IdType="pubmed">32962777</ArticleId></ArticleIdList></Reference><Reference><Citation>Mane R., Chouhan T., Guan C. (2020). BCI for stroke rehabilitation: Motor and beyond.
+<i>J. Neural Eng.</i>
+17:041001. 10.1088/1741-2552/aba162
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1088/1741-2552/aba162</ArticleId><ArticleId IdType="pubmed">32613947</ArticleId></ArticleIdList></Reference><Reference><Citation>Mathiyazhagan S., Devasena M. S. G. (2025). Motor imagery EEG signal classification using novel deep learning algorithm.
+<i>Sci. Rep.</i>
+15:24539. 10.1038/s41598-025-00824-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-025-00824-7</ArticleId><ArticleId IdType="pmc">PMC12238400</ArticleId><ArticleId IdType="pubmed">40628758</ArticleId></ArticleIdList></Reference><Reference><Citation>Monti M. M., Vanhaudenhuyse A., Coleman M. R., Boly M., Pickard J. D., Tshibanda L., et al.  (2010). Willful modulation of brain activity in disorders of consciousness.
+<i>N. Engl. J. Med.</i>
+362
+579&#x2013;589. 10.1056/NEJMoa0905370
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMoa0905370</ArticleId><ArticleId IdType="pubmed">20130250</ArticleId></ArticleIdList></Reference><Reference><Citation>M&#xfc;ller-Putz G. R., Zimmermann D., Graimann B., Nestinger K., Korisek G., Pfurtscheller G. (2007). Event-related beta EEG-changes during passive and attempted foot movements in paraplegic patients.
+<i>Brain Res.</i>
+1137
+84&#x2013;91. 10.1016/j.brainres.2006.12.052
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.brainres.2006.12.052</ArticleId><ArticleId IdType="pubmed">17229403</ArticleId></ArticleIdList></Reference><Reference><Citation>Muthukumaraswamy S. D. (2010). Functional properties of human primary motor cortex gamma oscillations.
+<i>J. Neurophysiol.</i>
+104
+2873&#x2013;2885. 10.1152/jn.00607.2010
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.00607.2010</ArticleId><ArticleId IdType="pubmed">20884762</ArticleId></ArticleIdList></Reference><Reference><Citation>Nagarajan A., Robinson N., Ang K. K., Chua K. S. G., Chew E., Guan C. (2024). Transferring a deep learning model from healthy subjects to stroke patients in a motor imagery brain-computer interface.
+<i>J. Neural Eng.</i>
+21:016007. 10.1088/1741-2552/ad152f
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1088/1741-2552/ad152f</ArticleId><ArticleId IdType="pubmed">38091617</ArticleId></ArticleIdList></Reference><Reference><Citation>Nierhaus T., Vidaurre C., Sannelli C., Mueller K. R., Villringer A. (2021). Immediate brain plasticity after one hour of brain-computer interface (BCI).
+<i>J. Physiol.</i>
+599
+2435&#x2013;2451. 10.1113/JP278118
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP278118</ArticleId><ArticleId IdType="pubmed">31696938</ArticleId></ArticleIdList></Reference><Reference><Citation>Owen A. M. (2020). Improving diagnosis and prognosis in disorders of consciousness.
+<i>Brain</i>
+143
+1050&#x2013;1053. 10.1093/brain/awaa056
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/brain/awaa056</ArticleId><ArticleId IdType="pmc">PMC7174033</ArticleId><ArticleId IdType="pubmed">32318732</ArticleId></ArticleIdList></Reference><Reference><Citation>Owen A. M., Coleman M. R., Boly M., Davis M. H., Laureys S., Pickard J. D. (2006). Detecting awareness in the vegetative state.
+<i>Science</i>
+313:1402. 10.1126/science.1130197
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/science.1130197</ArticleId><ArticleId IdType="pubmed">16959998</ArticleId></ArticleIdList></Reference><Reference><Citation>Pan J., Xie Q., Qin P., Chen Y., He Y., Huang H., et al.  (2020). Prognosis for patients with cognitive motor dissociation identified by brain-computer interface.
+<i>Brain</i>
+143
+1177&#x2013;1189. 10.1093/brain/awaa026
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/brain/awaa026</ArticleId><ArticleId IdType="pmc">PMC7174053</ArticleId><ArticleId IdType="pubmed">32101603</ArticleId></ArticleIdList></Reference><Reference><Citation>Pfurtscheller G., Neuper C. (2006). Future prospects of ERD/ERS in the context of brain-computer interface (BCI) developments.
+<i>Prog. Brain Res.</i>
+159
+433&#x2013;437. 10.1016/S0079-6123(06)59028-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0079-6123(06)59028-4</ArticleId><ArticleId IdType="pubmed">17071247</ArticleId></ArticleIdList></Reference><Reference><Citation>Pomper U., Ansorge U. (2021). Theta-Rhythmic oscillation of working memory performance.
+<i>Psychol. Sci.</i>
+32
+1801&#x2013;1810. 10.1177/09567976211013045
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/09567976211013045</ArticleId><ArticleId IdType="pubmed">34592108</ArticleId></ArticleIdList></Reference><Reference><Citation>Rosanova M., Gosseries O., Casarotto S., Boly M., Casali A. G., Bruno M. A., et al.  (2012). Recovery of cortical effective connectivity and recovery of consciousness in vegetative patients.
+<i>Brain</i>
+135(Pt 4), 1308&#x2013;1320. 10.1093/brain/awr340
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/brain/awr340</ArticleId><ArticleId IdType="pmc">PMC3326248</ArticleId><ArticleId IdType="pubmed">22226806</ArticleId></ArticleIdList></Reference><Reference><Citation>Schiff N. D., Diringer M., Diserens K., Edlow B. L., Gosseries O., Hill N. J., et al.  (2024). Brain-Computer interfaces for communication in patients with disorders of consciousness: A gap analysis and scientific roadmap.
+<i>Neurocrit. Care</i>
+41
+129&#x2013;145. 10.1007/s12028-023-01924-w
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12028-023-01924-w</ArticleId><ArticleId IdType="pmc">PMC11284251</ArticleId><ArticleId IdType="pubmed">38286946</ArticleId></ArticleIdList></Reference><Reference><Citation>Spataro R., Xu Y., Xu R., Mandal&#xe0; G., Allison B. Z., Ortner R., et al.  (2022). How brain-computer interface technology may improve the diagnosis of the disorders of consciousness: A comparative study.
+<i>Front. Neurosci.</i>
+16:959339. 10.3389/fnins.2022.959339
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnins.2022.959339</ArticleId><ArticleId IdType="pmc">PMC9404379</ArticleId><ArticleId IdType="pubmed">36033632</ArticleId></ArticleIdList></Reference><Reference><Citation>Szurhaj W., Bourriez J. L., Kahane P., Chauvel P., Maugui&#xe8;re F., Derambure P. (2005). Intracerebral study of gamma rhythm reactivity in the sensorimotor cortex.
+<i>Eur. J. Neurosci.</i>
+21
+1223&#x2013;1235. 10.1111/j.1460-9568.2005.03966.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1460-9568.2005.03966.x</ArticleId><ArticleId IdType="pubmed">15813932</ArticleId></ArticleIdList></Reference><Reference><Citation>Toppi J., Quattrociocchi I., Riccio A., D&#x2019;Ippolito M., Aloisi M., Colamarino E., et al.  (2024). EEG-Derived markers to improve prognostic evaluation of disorders of consciousness.
+<i>IEEE J. Biomed. Health Inform.</i>
+28
+6674&#x2013;6684. 10.1109/JBHI.2024.3445118
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1109/JBHI.2024.3445118</ArticleId><ArticleId IdType="pubmed">39150811</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang F., He Y., Pan J., Xie Q., Yu R., Zhang R., et al.  (2015). A novel audiovisual brain-computer interface and its application in awareness detection.
+<i>Sci. Rep.</i>
+5:9962. 10.1038/srep09962
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/srep09962</ArticleId><ArticleId IdType="pmc">PMC4485169</ArticleId><ArticleId IdType="pubmed">26123281</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang X., Seguin C., Zalesky A., Wong W. W., Chu W. C., Tong R. K. (2019). Synchronization lag in post stroke: Relation to motor function and structural connectivity.
+<i>Netw. Neurosci.</i>
+3
+1121&#x2013;1140. 10.1162/netn_a_00105
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1162/netn_a_00105</ArticleId><ArticleId IdType="pmc">PMC6777982</ArticleId><ArticleId IdType="pubmed">31637341</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilson T. W., Heinrichs-Graham E., Becker K. M. (2014). Circadian modulation of motor-related beta oscillatory responses.
+<i>Neuroimage</i>
+102(Pt 2), 531&#x2013;539. 10.1016/j.neuroimage.2014.08.013
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neuroimage.2014.08.013</ArticleId><ArticleId IdType="pmc">PMC4252760</ArticleId><ArticleId IdType="pubmed">25128712</ArticleId></ArticleIdList></Reference><Reference><Citation>Young M. J., Edlow B. L., Bodien Y. G. (2024). Covert consciousness.
+<i>NeuroRehabilitation</i>
+54
+23&#x2013;42. 10.3233/NRE-230123
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3233/NRE-230123</ArticleId><ArticleId IdType="pmc">PMC10898447</ArticleId><ArticleId IdType="pubmed">38217619</ArticleId></ArticleIdList></Reference><Reference><Citation>Yuan Z., Peng Y., Wang L., Song S., Chen S., Yang L., et al.  (2021). Effect of BCI-Controlled pedaling training system with multiple modalities of feedback on motor and cognitive function rehabilitation of early subacute stroke patients.
+<i>IEEE Trans. Neural Syst. Rehabil. Eng.</i>
+29
+2569&#x2013;2577. 10.1109/TNSRE.2021.3132944
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1109/TNSRE.2021.3132944</ArticleId><ArticleId IdType="pubmed">34871175</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang H., Ling F. (2023). Chinese expert consensus on the rehabilitation of prolonged disorders of consciousness.
+<i>Chin. J. Rehabil. Theory Pract.</i>
+29
+125&#x2013;139. 10.3760/cma.j.cn112147-20240611-00328
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3760/cma.j.cn112147-20240611-00328</ArticleId><ArticleId IdType="pubmed">39757093</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhu T., Tang H., Jiang L., Li Y., Li S., Wu Z. (2025). A study of motor imagery EEG classification based on feature fusion and attentional mechanisms.
+<i>Front. Hum. Neurosci.</i>
+19:1611229. 10.3389/fnhum.2025.1611229
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnhum.2025.1611229</ArticleId><ArticleId IdType="pmc">PMC12307489</ArticleId><ArticleId IdType="pubmed">40741298</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

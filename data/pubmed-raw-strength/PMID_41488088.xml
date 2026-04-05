@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41488088</PMID><DateCompleted><Year>2026</Year><Month>01</Month><Day>05</Day></DateCompleted><DateRevised><Year>2026</Year><Month>01</Month><Day>07</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">2296-858X</ISSN><JournalIssue CitedMedium="Print"><Volume>12</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>Frontiers in medicine</Title><ISOAbbreviation>Front Med (Lausanne)</ISOAbbreviation></Journal><ArticleTitle>Effect of segmental rim defect morphology on press-fit stability of the cementless acetabular cup: a finite element analysis.</ArticleTitle><Pagination><StartPage>1729549</StartPage><MedlinePgn>1729549</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1729549</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fmed.2025.1729549</ELocationID><Abstract><AbstractText Label="INTRODUCTION" NlmCategory="UNASSIGNED">Segmental rim defect (SRD) of the acetabulum is a common type of osteolysis following primary total hip arthroplasty. Accurate quantitative evaluation of severity and morphology of the SRD can provide critical information to surgeons for decision-making on surgical reconstruction. Therefore, we aim to investigate the effect of morphologic features of SRDs on the press-fit stability of cementless cups.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">A 3D finite element model of Sawbones hemipelvic bone was developed using CT scan. Submodels with varying SRD geometries and locations were created, followed by Boolean reaming and virtual 1-mm press-fit implantation of a cementless cup. The press-fit stability was evaluated by using the push-out and lever-out tests based on quasi-static non-linear finite element analysis. The peak micromotion (PM) levels of all submodels at the bone-cup interface during the gait cycle were also compared.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Despite the depth and width, the defect in the weight-bearing zone exhibited the lowest average push-out load of 2429 &#xb1; 294.19 N and lever-out moment of 100 &#xb1; 8.40 Nm comparing to those in other zones. The maximal push-out and lever-out loads of the cup decreased as either the width or depth of defect increased. The percentages of strength reduction for push-out and lever-out tests, respectively up to 47.8 and 34.1%, were significantly higher in the weight-bearing zone comparing to those in the other zones. During the gait cycle, all worst-scenario defects resulted in varying levels of increase in interfacial PM comparing to the intact acetabular rim. In the second half of the gait cycle, the defect in the weight-bearing zone produced the highest level of PM.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">In revision total hip arthroplasty (r-THA), a large SRD in the weight-bearing zone can result in the utmost loss of press-fit stability and a detrimental interfacial micromotion, which may lead to early loosening of the cup. Thus, an accurate quantitative evaluation of defect morphology is valuable for surgeons to develop a refined plan for reconstruction of initial stability of a cementless cup.</AbstractText><CopyrightInformation>Copyright &#xa9; 2025 Zhang, Lin, Feng, Chen, Zhong and Ouyang.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y" EqualContrib="Y"><LastName>Zhang</LastName><ForeName>Xin</ForeName><Initials>X</Initials><AffiliationInfo><Affiliation>Department of Orthopedic Center, Joint Surgery, The Affiliated Hospital of Guangdong Medical University, Zhanjiang, China.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Orthopaedic Trauma, Heze Municipal Hospital, Heze, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y" EqualContrib="Y"><LastName>Lin</LastName><ForeName>Kewei</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Orthopedic Center, Joint Surgery, The Affiliated Hospital of Guangdong Medical University, Zhanjiang, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Feng</LastName><ForeName>Bolin</ForeName><Initials>B</Initials><AffiliationInfo><Affiliation>Department of Orthopedic Center, Joint Surgery, The Affiliated Hospital of Guangdong Medical University, Zhanjiang, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Chen</LastName><ForeName>Haicong</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Orthopedic Center, Joint Surgery, The Affiliated Hospital of Guangdong Medical University, Zhanjiang, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Zhong</LastName><ForeName>Huan</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Orthopedic Center, Joint Surgery, The Affiliated Hospital of Guangdong Medical University, Zhanjiang, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ouyang</LastName><ForeName>Hanbin</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Orthopedic Center, Joint Surgery, The Affiliated Hospital of Guangdong Medical University, Zhanjiang, China.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>12</Month><Day>10</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Med (Lausanne)</MedlineTA><NlmUniqueID>101648047</NlmUniqueID><ISSNLinking>2296-858X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">acetabulum</Keyword><Keyword MajorTopicYN="N">bone defect</Keyword><Keyword MajorTopicYN="N">finite element analysis</Keyword><Keyword MajorTopicYN="N">press-fit</Keyword><Keyword MajorTopicYN="N">total hip arthroplasty</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>10</Month><Day>21</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2025</Year><Month>11</Month><Day>16</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>11</Month><Day>19</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>1</Month><Day>5</Day><Hour>6</Hour><Minute>47</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>1</Month><Day>5</Day><Hour>6</Hour><Minute>46</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>1</Month><Day>5</Day><Hour>5</Hour><Minute>26</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>12</Month><Day>10</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41488088</ArticleId><ArticleId IdType="pmc">PMC12758491</ArticleId><ArticleId IdType="doi">10.3389/fmed.2025.1729549</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Kurtz S, Ong K, Lau E, Mowat F, Halpern M. Projections of primary and revision hip and knee arthroplasty in the United States from 2005 to 2030.
+<i>J Bone Joint Surg Am.</i> (2007). 89:780&#x2013;5. 10.2106/JBJS.F.00222
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2106/JBJS.F.00222</ArticleId><ArticleId IdType="pubmed">17403800</ArticleId></ArticleIdList></Reference><Reference><Citation>Hou Z, Xu M, Zheng K, Yu X. Classification and reconstruction of femoral bone defect in the revision of aseptic loosening of distal femoral endoprostheses: a 10-year multicenter retrospective analysis.
+<i>BMC Musculoskelet Disord.</i> (2022) 23:935. 10.1186/s12891-022-05885-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12891-022-05885-7</ArticleId><ArticleId IdType="pmc">PMC9608886</ArticleId><ArticleId IdType="pubmed">36303200</ArticleId></ArticleIdList></Reference><Reference><Citation>Oltean-Dan D, Apostu D, Tomoaia G, Kerekes K, P&#x103;iu&#x15f;an M, Bardas C, et al. 
+Causes of revision after total hip arthroplasty in an orthopedics and traumatology regional center.
+<i>Med Pharm Rep.</i> (2022) 95:179&#x2013;84. 10.15386/mpr-2136
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.15386/mpr-2136</ArticleId><ArticleId IdType="pmc">PMC9176300</ArticleId><ArticleId IdType="pubmed">35721045</ArticleId></ArticleIdList></Reference><Reference><Citation>Parchi P, Simonetti M, Bonicoli E, Piolanti N, Scaglione M. Synthetic bone grafting in aseptic loosening of acetabular cup: good clinical and radiological outcomes in contained bone defects at medium-term follow up.
+<i>Int J Environ Res Public Health.</i> (2020) 17:5624. 10.3390/ijerph17155624
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph17155624</ArticleId><ArticleId IdType="pmc">PMC7432051</ArticleId><ArticleId IdType="pubmed">32759871</ArticleId></ArticleIdList></Reference><Reference><Citation>Anil U, Singh V, Schwarzkopf R. Diagnosis and detection of subtle aseptic loosening in total hip arthroplasty.
+<i>J Arthroplasty.</i> (2022) 37:1494&#x2013;500. 10.1016/j.arth.2022.02.060
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.arth.2022.02.060</ArticleId><ArticleId IdType="pubmed">35189292</ArticleId></ArticleIdList></Reference><Reference><Citation>Feng X, Gu J, Zhou Y. Primary total hip arthroplasty failure: aseptic loosening remains the most common cause of revision.
+<i>Am J Transl Res.</i> (2022) 15:7080&#x2013;9.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC9641425</ArticleId><ArticleId IdType="pubmed">36398241</ArticleId></ArticleIdList></Reference><Reference><Citation>L&#xfc;bbeke A, Barea C, Zingg M, Lauper N, Hannouche D, Garavaglia G. Radiographic signs and hip pain 5 years after THA with a cemented stem predict future revision for aseptic loosening: a prospective cohort study.
+<i>Acta Orthop.</i> (2024) 95:32&#x2013;8. 10.2340/17453674.2023.26190
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2340/17453674.2023.26190</ArticleId><ArticleId IdType="pmc">PMC10823869</ArticleId><ArticleId IdType="pubmed">38284749</ArticleId></ArticleIdList></Reference><Reference><Citation>Xie Y, Peng Y, Fu G, Jin J, Wang S, Li M, et al. 
+Nano wear particles and the periprosthetic microenvironment in aseptic loosening induced osteolysis following joint arthroplasty.
+<i>Front Cell Infect Microbiol.</i> (2023) 13:1275086. 10.3389/fcimb.2023.1275086
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fcimb.2023.1275086</ArticleId><ArticleId IdType="pmc">PMC10579613</ArticleId><ArticleId IdType="pubmed">37854857</ArticleId></ArticleIdList></Reference><Reference><Citation>Wu Y, Zhang C, Teng Y, Pan Y, Liu N, Liu P, et al. 
+Propionate and butyrate attenuate macrophage pyroptosis and osteoclastogenesis induced by CoCrMo alloy particles.
+<i>Mil Med Res.</i> (2022) 9:46. 10.1186/s40779-022-00404-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s40779-022-00404-0</ArticleId><ArticleId IdType="pmc">PMC9396885</ArticleId><ArticleId IdType="pubmed">35996168</ArticleId></ArticleIdList></Reference><Reference><Citation>Sheth N, Nelson C, Springer B, Fehring T, Paprosky W. Acetabular bone loss in revision total hip arthroplasty: evaluation and management.
+<i>J Am Acad Orthop Surg.</i> (2013) 21:128&#x2013;39. 10.5435/JAAOS-21-03-128
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5435/JAAOS-21-03-128</ArticleId><ArticleId IdType="pubmed">23457063</ArticleId></ArticleIdList></Reference><Reference><Citation>Shen X, Tian H, Li Y, Zuo J, Gao Z, Xiao J. Acetabular revision arthroplasty based on 3-dimensional reconstruction technology using jumbo cups.
+<i>Front Bioeng Biotechnol.</i> (2022) 10:799443. 10.3389/fbioe.2022.799443
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fbioe.2022.799443</ArticleId><ArticleId IdType="pmc">PMC9016227</ArticleId><ArticleId IdType="pubmed">35449597</ArticleId></ArticleIdList></Reference><Reference><Citation>Ghanem M, Zajonz D, Heyde C, Roth A. Acetabular defect classification and management : Revision arthroplasty of the acetabular cup based on 3-point fixation.
+<i>Orthopade.</i> (2020) 49:432&#x2013;42. 10.1007/s00132-020-03895-8
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00132-020-03895-8</ArticleId><ArticleId IdType="pmc">PMC7198480</ArticleId><ArticleId IdType="pubmed">32112227</ArticleId></ArticleIdList></Reference><Reference><Citation>Lerch T, Steppacher S, Liechti E, Tannast M, Siebenrock K. One-third of hips after periacetabular osteotomy survive 30 years with good clinical results, no progression of arthritis, or conversion to THA.
+<i>Clin Orthop Relat Res.</i> (2017) 475:1154&#x2013;68. 10.1007/s11999-016-5169-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11999-016-5169-5</ArticleId><ArticleId IdType="pmc">PMC5339143</ArticleId><ArticleId IdType="pubmed">27905061</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang S, Liu Y, Ma M, Cao Z, Kong X, Chai W. Revision total hip arthroplasty with severe acetabular defect: a preliminary exploration and attempt of robotic-assisted technology.
+<i>Orthop Surg.</i> (2022) 14:1912&#x2013;7. 10.1111/os.13368
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/os.13368</ArticleId><ArticleId IdType="pmc">PMC9363716</ArticleId><ArticleId IdType="pubmed">35794826</ArticleId></ArticleIdList></Reference><Reference><Citation>Fr&#xf6;schen F, Randau T, Hischebeth G, Gravius N, Gravius S, Walter S. Mid-term results after revision total hip arthroplasty with custom-made acetabular implants in patients with Paprosky III acetabular bone loss.
+<i>Arch Orthop Trauma Surg.</i> (2020) 140:263&#x2013;73. 10.1007/s00402-019-03318-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00402-019-03318-0</ArticleId><ArticleId IdType="pubmed">31820093</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang Q, Wang Q, Liu P, Ge J, Zhang Q, Guo W, et al. 
+Clinical and radiological outcomes of jumbo cup in revision total hip arthroplasty: a systematic review.
+<i>Front Surg.</i> (2022) 9:929103. 10.3389/fsurg.2022.929103
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fsurg.2022.929103</ArticleId><ArticleId IdType="pmc">PMC9577022</ArticleId><ArticleId IdType="pubmed">36268211</ArticleId></ArticleIdList></Reference><Reference><Citation>Alqwbani M, Wang Z, Wang Q, Li Q, Yang Z, Kang P. Porous tantalum shell and augment for acetabular defect reconstruction in revision total hip arthroplasty: a mid-term follow-up study.
+<i>Int Orthop.</i> (2022) 46:1515&#x2013;20. 10.1007/s00264-022-05353-w
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00264-022-05353-w</ArticleId><ArticleId IdType="pubmed">35224670</ArticleId></ArticleIdList></Reference><Reference><Citation>O&#x2019;Neill C, Creedon S, Brennan S, O&#x2019;Mahony F, Lynham R, Guerin S, et al. 
+Acetabular revision using trabecular metal augments for paprosky type 3 defects.
+<i>J Arthroplasty.</i> (2018) 33:823&#x2013;8. 10.1016/j.arth.2017.10.031
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.arth.2017.10.031</ArticleId><ArticleId IdType="pubmed">29217393</ArticleId></ArticleIdList></Reference><Reference><Citation>Strahl A, Boese C, Ries C, Hubert J, Beil F, Rolvien T. Outcome of different reconstruction options using allografts in revision total hip arthroplasty for severe acetabular bone loss: a systematic review and meta-analysis.
+<i>Arch Orthop Trauma Surg.</i> (2023) 143:6403&#x2013;22. 10.1007/s00402-023-04843-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00402-023-04843-9</ArticleId><ArticleId IdType="pmc">PMC10491513</ArticleId><ArticleId IdType="pubmed">36971802</ArticleId></ArticleIdList></Reference><Reference><Citation>Dorr L, Bechtol C, Watkins R, Wan Z. Radiographic anatomic structure of the arthritic acetabulum and its influence on total hip arthroplasty.
+<i>J Arthroplasty.</i> (2000) 15:890&#x2013;900. 10.1054/arth.2000.8323
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1054/arth.2000.8323</ArticleId><ArticleId IdType="pubmed">11061450</ArticleId></ArticleIdList></Reference><Reference><Citation>Schulze C, Morgenroth R, Bader R, Kluess D, Haas H. Fixation stability of uncemented acetabular cups with respect to different bone defect sizes.
+<i>J Arthroplasty.</i> (2020) 35:1720&#x2013;8. 10.1016/j.arth.2020.01.019
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.arth.2020.01.019</ArticleId><ArticleId IdType="pubmed">32063411</ArticleId></ArticleIdList></Reference><Reference><Citation>Amirouche F, Solitro G, Broviak S, Gonzalez M, Goldstein W, Barmada R. Factors influencing initial cup stability in total hip arthroplasty.
+<i>Clin Biomech.</i> (2014) 29:1177&#x2013;85. 10.1016/j.clinbiomech.2014.09.006
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinbiomech.2014.09.006</ArticleId><ArticleId IdType="pubmed">25266242</ArticleId></ArticleIdList></Reference><Reference><Citation>Immel K, Nguyen V, Dubory A, Flouzat-Lachaniette C, Sauer R, Ha&#xef;at G. Determinants of the primary stability of cementless acetabular cup implants: a 3D finite element study.
+<i>Comput Biol Med.</i> (2021) 135:104607. 10.1016/j.compbiomed.2021.104607
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.compbiomed.2021.104607</ArticleId><ArticleId IdType="pubmed">34242871</ArticleId></ArticleIdList></Reference><Reference><Citation>Amirouche F, Solitro G, Walia A, Gonzalez M, Bobko A. Segmental acetabular rim defects, bone loss, oversizing, and press fit cup in total hip arthroplasty evaluated with a probabilistic finite element analysis.
+<i>Int Orthop.</i> (2017) 41:1527&#x2013;33. 10.1007/s00264-016-3369-y
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00264-016-3369-y</ArticleId><ArticleId IdType="pubmed">28012048</ArticleId></ArticleIdList></Reference><Reference><Citation>Lewinnek G, Lewis J, Tarr R, Compere C, Zimmerman J. Dislocations after total hip-replacement arthroplasties.
+<i>J Bone Joint Surg Am.</i> (1978) 60:217&#x2013;20.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">641088</ArticleId></ArticleIdList></Reference><Reference><Citation>Yang Y, Chen D, Zhang B, Li Q, Hu L, Ma Y, et al. 
+Morphological and bone defect mapping analysis of true acetabulum in Crowe type IV hip dysplasia.
+<i>J Orthop Surg Res.</i> (2024) 19:888. 10.1186/s13018-024-05389-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13018-024-05389-1</ArticleId><ArticleId IdType="pmc">PMC11684270</ArticleId><ArticleId IdType="pubmed">39734190</ArticleId></ArticleIdList></Reference><Reference><Citation>Horas K, Arnholdt J, Steinert A, Hoberg M, Rudert M, Holzapfel B. Acetabular defect classification in times of 3D imaging and patient-specific treatment protocols.
+<i>Orthopade.</i> (2017) 46:168&#x2013;78. 10.1007/s00132-016-3378-y
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00132-016-3378-y</ArticleId><ArticleId IdType="pubmed">28078371</ArticleId></ArticleIdList></Reference><Reference><Citation>Hsu J, Lai K, Chen Q, Zobitz M, Huang H, An K, et al. 
+The relation between micromotion and screw fixation in acetabular cup.
+<i>Comput Methods Programs Biomed.</i> (2006) 84:34&#x2013;41. 10.1016/j.cmpb.2006.08.002
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cmpb.2006.08.002</ArticleId><ArticleId IdType="pubmed">16971018</ArticleId></ArticleIdList></Reference><Reference><Citation>Schulze C, Vogel D, Sander M, Bader R. Calibration of crushable foam plasticity models for synthetic bone material for use in finite element analysis of acetabular cup deformation and primary stability.
+<i>Comput Methods Biomech Biomed Engin.</i> (2019) 22:25&#x2013;37. 10.1080/10255842.2018.1524884
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10255842.2018.1524884</ArticleId><ArticleId IdType="pubmed">30449160</ArticleId></ArticleIdList></Reference><Reference><Citation>Bergmann G, Deuretzbacher G, Heller M, Graichen F, Rohlmann A, Strauss J, et al. 
+Hip contact forces and gait patterns from routine activities.
+<i>J Biomech.</i> (2001) 34:859&#x2013;71. 10.1016/s0021-9290(01)00040-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0021-9290(01)00040-9</ArticleId><ArticleId IdType="pubmed">11410170</ArticleId></ArticleIdList></Reference><Reference><Citation>Schulze C, Vogel D, Mallow S, Bader R. Comparison of test setups for the experimental evaluation of the primary fixation stability of acetabular cups.
+<i>Materials.</i> (2020) 13:3982. 10.3390/ma13183982
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ma13183982</ArticleId><ArticleId IdType="pmc">PMC7559462</ArticleId><ArticleId IdType="pubmed">32916802</ArticleId></ArticleIdList></Reference><Reference><Citation>Kaku N, Tabata T, Tsumura H. Influence of cup-center-edge angle on micro-motion at the interface between the cup and host bone in cementless total hip arthroplasty: three-dimensional finite element analysis.
+<i>Eur J Orthop Surg Traumatol.</i> (2015) 25:1271&#x2013;7. 10.1007/s00590-015-1697-z
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00590-015-1697-z</ArticleId><ArticleId IdType="pubmed">26319002</ArticleId></ArticleIdList></Reference><Reference><Citation>Takao M, Nakamura N, Ohzono K, Sakai T, Nishii T, Sugano N. The results of a press-fit-only technique for acetabular fixation in hip dysplasia.
+<i>J Arthroplasty.</i> (2011) 26:562&#x2013;8. 10.1016/j.arth.2010.05.025
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.arth.2010.05.025</ArticleId><ArticleId IdType="pubmed">20647158</ArticleId></ArticleIdList></Reference><Reference><Citation>&#xc7;ataltepe A, Iyetin Y. The press-fit technique without screws and bone graft can be used as an alternative method in crowe type II and III hip dysplasia.
+<i>Turk J Med Sci.</i> (2023) 53:1448&#x2013;57. 10.55730/1300-0144.5712
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.55730/1300-0144.5712</ArticleId><ArticleId IdType="pmc">PMC10763771</ArticleId><ArticleId IdType="pubmed">38813005</ArticleId></ArticleIdList></Reference><Reference><Citation>Tikhilov R, Shubnyakov I, Burns S, Shabrov N, Kuzin A, Mazurenko A, et al. 
+Experimental study of the installation acetabular component with uncoverage in arthroplasty patients with severe developmental hip dysplasia.
+<i>Int Orthop.</i> (2016) 40:1595&#x2013;9. 10.1007/s00264-015-2951-z
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00264-015-2951-z</ArticleId><ArticleId IdType="pubmed">26255058</ArticleId></ArticleIdList></Reference><Reference><Citation>Spears I, Pfleiderer M, Schneider E, Hille E, Bergmann G, Morlock M. Interfacial conditions between a press-fit acetabular cup and bone during daily activities: implications for achieving bone in-growth.
+<i>J Biomech.</i> (2000) 33:1471&#x2013;7. 10.1016/s0021-9290(00)00096-8
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0021-9290(00)00096-8</ArticleId><ArticleId IdType="pubmed">10940406</ArticleId></ArticleIdList></Reference><Reference><Citation>Widmer K, Zurfluh B, Morscher E. Load transfer and fixation mode of press-fit acetabular sockets.
+<i>J Arthroplasty.</i> (2002) 17:926&#x2013;35. 10.1054/arth.2002.34526
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1054/arth.2002.34526</ArticleId><ArticleId IdType="pubmed">12375254</ArticleId></ArticleIdList></Reference><Reference><Citation>Janssen D, Zwartel&#xe9; R, Doets H, Verdonschot N. Computational assessment of press-fit acetabular implant fixation: the effect of implant design, interference fit, bone quality, and frictional properties.
+<i>Proc Inst Mech Eng H.</i> (2010) 224:67&#x2013;75. 10.1243/09544119JEIM645
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1243/09544119JEIM645</ArticleId><ArticleId IdType="pubmed">20225458</ArticleId></ArticleIdList></Reference><Reference><Citation>Nam H, Lim Y, Jo W, Bahk J, Kwon S, Park H, et al. 
+Is the construct stability of the acetabular cup affected by the acetabular screw configuration in bone defect models?
+<i>J Orthop Surg Res.</i> (2023) 18:354. 10.1186/s13018-023-03845-y
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13018-023-03845-y</ArticleId><ArticleId IdType="pmc">PMC10176723</ArticleId><ArticleId IdType="pubmed">37173688</ArticleId></ArticleIdList></Reference><Reference><Citation>Tabata T, Kaku N, Hara K, Tsumura H. Initial stability of cementless acetabular cups: press-fit and screw fixation interaction&#x2013;an in vitro biomechanical study.
+<i>Eur J Orthop Surg Traumatol.</i> (2015) 25:497&#x2013;502. 10.1007/s00590-014-1571-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00590-014-1571-4</ArticleId><ArticleId IdType="pmc">PMC4363363</ArticleId><ArticleId IdType="pubmed">25421640</ArticleId></ArticleIdList></Reference><Reference><Citation>Brandt J, Scheiderbauer R, Wezenberg D, Schilcher J. Preoperative three-dimensional planning using computed tomography improves screw placement in patients undergoing acetabular revision surgery.
+<i>Arthroplast Today.</i> (2024) 29:101431. 10.1016/j.artd.2024.101431
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.artd.2024.101431</ArticleId><ArticleId IdType="pmc">PMC11424765</ArticleId><ArticleId IdType="pubmed">39328880</ArticleId></ArticleIdList></Reference><Reference><Citation>Lavernia C, Cook C, Hernandez R, Sierra R, Rossi M. Neurovascular injuries in acetabular reconstruction cage surgery: an anatomical study.
+<i>J Arthroplasty.</i> (2007) 22:124&#x2013;32. 10.1016/j.arth.2006.02.082
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.arth.2006.02.082</ArticleId><ArticleId IdType="pubmed">17197319</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

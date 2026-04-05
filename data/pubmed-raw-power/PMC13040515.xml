@@ -1,0 +1,798 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="cen70067" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Clin Endocrinol (Oxf)</journal-id><journal-id journal-id-type="iso-abbrev">Clin Endocrinol (Oxf)</journal-id><journal-id journal-id-type="pmc-domain-id">379</journal-id><journal-id journal-id-type="pmc-domain">blackwellopen</journal-id><journal-id journal-id-type="publisher-id">CEN</journal-id><journal-title-group><journal-title>Clinical Endocrinology</journal-title></journal-title-group><issn pub-type="ppub">0300-0664</issn><issn pub-type="epub">1365-2265</issn><custom-meta-group><custom-meta><meta-name>pmc-is-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-collection-title</meta-name><meta-value>Wiley Open Access Collection</meta-value></custom-meta></custom-meta-group></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13040515</article-id><article-id pub-id-type="pmcid-ver">PMC13040515.1</article-id><article-id pub-id-type="pmcaid">13040515</article-id><article-id pub-id-type="pmcaiid">13040515</article-id><article-id pub-id-type="pmid">41327603</article-id><article-id pub-id-type="doi">10.1111/cen.70067</article-id><article-id pub-id-type="publisher-id">CEN70067</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Original Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Original Article</subject><subj-group subj-group-type="heading"><subject>Reproduction</subject></subj-group></subj-group></article-categories><title-group><article-title>Cerebrovascular Function in Women With Polycystic Ovary Syndrome: A Pilot Multi‐Parameter Magnetic Resonance Imaging Study</article-title></title-group><contrib-group><contrib id="cen70067-cr-0001" contrib-type="author" corresp="yes"><name name-style="western"><surname>Wright</surname><given-names initials="ME">Melissa E.</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-2744-4504</contrib-id><xref rid="cen70067-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>wrightME@cardiff.ac.uk</email></address></contrib><contrib id="cen70067-cr-0002" contrib-type="author"><name name-style="western"><surname>Richards</surname><given-names initials="CT">Cory T.</given-names></name><xref rid="cen70067-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="cen70067-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="cen70067-cr-0003" contrib-type="author"><name name-style="western"><surname>Davies</surname><given-names initials="S">Saajan</given-names></name><xref rid="cen70067-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="cen70067-cr-0004" contrib-type="author"><name name-style="western"><surname>Lord</surname><given-names initials="RN">Rachel N.</given-names></name><xref rid="cen70067-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="cen70067-cr-0005" contrib-type="author"><name name-style="western"><surname>Rees</surname><given-names initials="DA">D. Aled</given-names></name><xref rid="cen70067-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib id="cen70067-cr-0006" contrib-type="author"><name name-style="western"><surname>Murphy</surname><given-names initials="K">Kevin</given-names></name><xref rid="cen70067-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib></contrib-group><aff id="cen70067-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Cardiff University Brain Research Imaging Centre (CUBRIC), School of Physics and Astronomy</named-content>
+<institution>Cardiff University</institution>
+<city>Cardiff</city>
+<country country="GB">UK</country>
+</aff><aff id="cen70067-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">School of Sport and Health Sciences</named-content>
+<institution>Cardiff Metropolitan University</institution>
+<city>Cardiff</city>
+<country country="GB">UK</country>
+</aff><aff id="cen70067-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">School of Education, Health and Science</named-content>
+<institution>University of Gloucestershire</institution>
+<city>Cheltenham</city>
+<country country="GB">UK</country>
+</aff><aff id="cen70067-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">Neuroscience and Mental Health Innovation Institute</named-content>
+<institution>Cardiff University</institution>
+<city>Cardiff</city>
+<country country="GB">UK</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>
+<bold>Correspondence:</bold> Melissa E. Wright (<email>wrightME@cardiff.ac.uk</email>)<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>01</day><month>12</month><year>2025</year></pub-date><pub-date pub-type="ppub"><month>5</month><year>2026</year></pub-date><volume>104</volume><issue seq="120">5</issue><issue-id pub-id-type="pmc-issue-id">510661</issue-id><issue-id pub-id-type="doi">10.1111/cen.v104.5</issue-id><fpage>493</fpage><lpage>506</lpage><history><date date-type="rev-recd"><day>17</day><month>11</month><year>2025</year></date><date date-type="received"><day>29</day><month>8</month><year>2025</year></date><date date-type="accepted"><day>21</day><month>11</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>01</day><month>04</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>02</day><month>04</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-03 00:25:12.917"><day>03</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2025 The Author(s). <italic toggle="yes">Clinical Endocrinology</italic> published by John Wiley &amp; Sons Ltd.</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="CEN-104-493.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:CEN-104-493.pdf"/><abstract><title>ABSTRACT</title><sec id="cen70067-sec-0010"><title>Objective</title><p>Polycystic ovary syndrome (PCOS) is associated with an increased risk of cerebrovascular disease, but the effects on cerebrovascular function are unknown. In this pilot study, we sought to compare cerebrovascular perfusion, pulsatility, reactivity and metabolism between women with PCOS and healthy volunteers using MRI, and investigated the influence of testosterone and insulin resistance on these parameters.</p></sec><sec id="cen70067-sec-0020"><title>Design</title><p>Case‐control pilot study.</p></sec><sec id="cen70067-sec-0030"><title>Patients</title><p>Fifteen patients with PCOS (age: 32.0 ± 7.4 years; body mass index [BMI]: 31.8 ± 5.7 kg/m<sup>2</sup>) and 12 healthy controls (HC) (age: 30.7 ± 6.4 years; BMI: 30.2 ± 5.8 kg/m<sup>2</sup>).</p></sec><sec id="cen70067-sec-0040"><title>Measurements</title><p>We used 3T magnetic resonance imaging (MRI) to assess several aspects of cerebrovascular function: (1) perfusion (cerebral blood flow [CBF] and arterial arrival time [AAT]; PCOS <italic toggle="yes">N</italic> = 15; HC <italic toggle="yes">N</italic> = 12), (2) pulsatility index (PCOS <italic toggle="yes">N</italic> = 15; HC <italic toggle="yes">N</italic> = 12), (3) breath‐hold induced cerebrovascular reactivity (CVR; PCOS <italic toggle="yes">N</italic> = 15; HC N = 10), and (4) global oxygen metabolism (oxygen extraction fraction [OEF] and cerebral metabolic rate of oxygen [CMRO<sub>2</sub>]; PCOS <italic toggle="yes">N</italic> = 9; HC <italic toggle="yes">N</italic> = 8). Linear regression models investigated the contribution of PCOS status, serum testosterone and Homeostatic Model Assessment for Insulin Resistance (HOMA2‐IR). Regional analysis underwent false discovery rate (FDR) correction for multiple comparisons.</p></sec><sec id="cen70067-sec-0050"><title>Results</title><p>Overall baseline CBF was not statistically different in PCOS patients compared to controls after adjustment for other variables (χ<sup>2</sup>(1) = 3.29; <italic toggle="yes">p</italic> = 0.07) but did show evidence for regional reduction with PCOS status in the transverse temporal gyrus (χ<sup>2</sup>(84) = 110.31; <italic toggle="yes">p</italic> = 0.03; −29.05 mL/100 g/min ± 7.26 [standard error; SE]). Similarly, while PCOS status was not associated with overall CVR (χ<sup>2</sup>(1) = 0.78; <italic toggle="yes">p</italic> = 0.38), there was evidence of a regional interaction (χ<sup>2</sup>(84) = 154.25; <italic toggle="yes">p</italic> &lt; 0.001) in the parahippocampus (1.37% signal change ± 0.27 [SE]) and pericalcarine cortex (1.04% signal change ± 0.26 [SE]). Neither testosterone nor HOMA2‐IR was associated with any outcome measure.</p></sec><sec id="cen70067-sec-0060"><title>Conclusions</title><p>We observed regional reduction in cerebral blood flow and regional increase in cerebrovascular reactivity in women with PCOS compared to healthy controls. However, due to the limited statistical power and unclear menstrual timing in this pilot study, these results require further replication.</p></sec></abstract><kwd-group><kwd id="cen70067-kwd-0001">cerebrovascular function</kwd><kwd id="cen70067-kwd-0002">insulin resistance</kwd><kwd id="cen70067-kwd-0003">neuroimaging</kwd><kwd id="cen70067-kwd-0004">PCOS</kwd><kwd id="cen70067-kwd-0005">testosterone</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>This work was supported by a grant from The Waterloo Foundation (Grant #515818). Additionally, this research was funded in whole, or in part, by the Wellcome Trust (WT224267).</institution></institution-wrap>
+</funding-source></award-group></funding-group><counts><fig-count count="3"/><table-count count="4"/><page-count count="14"/><word-count count="7925"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>May 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:01.04.2026</meta-value></custom-meta></custom-meta-group></article-meta><notes><p content-type="self-citation">
+<mixed-citation publication-type="journal" id="cen70067-cit-0047">
+<string-name name-style="western">
+<given-names>M. E.</given-names>
+<surname>Wright</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. T.</given-names>
+<surname>Richards</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Davies</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. N.</given-names>
+<surname>Lord</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. A.</given-names>
+<surname>Rees</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Murphy</surname>
+</string-name>, “<article-title>Cerebrovascular Function in Women With Polycystic Ovary Syndrome: A Pilot Multi‐Parameter Magnetic Resonance Imaging Study</article-title>,” <source>Clinical Endocrinology</source>
+<volume>104</volume> (<year>2026</year>): <fpage>493</fpage>‐<lpage>506</lpage>, <pub-id pub-id-type="doi">10.1111/cen.70067</pub-id>.<pub-id pub-id-type="pmcid">PMC13040515</pub-id><pub-id pub-id-type="pmid">41327603</pub-id></mixed-citation>
+</p><fn-group><fn id="cen70067-note-0001"><p>Authors D. Aled Rees and Kevin Murphy should be considered joint senior authors.</p></fn></fn-group></notes></front><body><sec id="cen70067-sec-0070"><label>1</label><title>Introduction</title><p>Polycystic ovary syndrome (PCOS) is a common, multi‐system condition affecting 10%–13% of the premenopausal population [<xref rid="cen70067-bib-0001" ref-type="bibr">1</xref>]. In addition to its reproductive manifestations, PCOS is recognised as a metabolic disorder with long‐term health risks, including an increased risk of cerebrovascular disease [<xref rid="cen70067-bib-0002" ref-type="bibr">2</xref>]. This may contribute to reduced cognitive ability in early [<xref rid="cen70067-bib-0003" ref-type="bibr">3</xref>, <xref rid="cen70067-bib-0004" ref-type="bibr">4</xref>] and mid‐life [<xref rid="cen70067-bib-0005" ref-type="bibr">5</xref>], as well as an increased risk of major adverse cardiovascular events and stroke [<xref rid="cen70067-bib-0006" ref-type="bibr">6</xref>]. Potential mediators may include direct effects of hyperandrogenism [<xref rid="cen70067-bib-0007" ref-type="bibr">7</xref>] or hyperinsulinaemia [<xref rid="cen70067-bib-0008" ref-type="bibr">8</xref>] on the vascular system.</p><p>Previous studies of cerebrovascular structure and function in individuals with PCOS have shown mixed results, with greater carotid intima‐media thickness, lower carotid pulsatility and reduced vascular reactivity in patients with PCOS reported in some [<xref rid="cen70067-bib-0009" ref-type="bibr">9</xref>, <xref rid="cen70067-bib-0010" ref-type="bibr">10</xref>, <xref rid="cen70067-bib-0011" ref-type="bibr">11</xref>], but not all [<xref rid="cen70067-bib-0012" ref-type="bibr">12</xref>] studies. Cerebral metabolism may also be altered: in an <sup>18</sup>F‐FDG PET imaging study of lean patients with PCOS, the cerebral metabolic rate of glucose in frontal, parietal, and temporal cortices was 9%–14% lower than controls [<xref rid="cen70067-bib-0013" ref-type="bibr">13</xref>]. White matter lesions, often associated with small vessel disease [<xref rid="cen70067-bib-0014" ref-type="bibr">14</xref>], have also been shown to be more prevalent among women with PCOS [<xref rid="cen70067-bib-0015" ref-type="bibr">15</xref>]. Whilst these studies hint at altered cerebrovascular physiology in women with PCOS, no studies have examined this comprehensively, nor considered the potential underlying mechanisms, such as hyperandrogenism. For example, in the periphery, arterial stiffness as measured via the cardio‐ankle vascular index (CAVI), was found to be higher in women with PCOS compared to controls, which was independently associated with excess androgens [<xref rid="cen70067-bib-0007" ref-type="bibr">7</xref>]. Insulin resistance is also a biochemical hallmark of most women with PCOS and might also be implicated in altered cerebrovascular function. In keeping with this contention, cerebral perfusion is lower in adults with metabolic syndrome compared to controls [<xref rid="cen70067-bib-0016" ref-type="bibr">16</xref>, <xref rid="cen70067-bib-0017" ref-type="bibr">17</xref>], a reduction that is more apparent when comparing women with and without metabolic syndrome than their male counterparts [<xref rid="cen70067-bib-0016" ref-type="bibr">16</xref>].</p><p>We hypothesised that global and regional cerebrovascular flow and function would be reduced in women with PCOS. To investigate this, and generate more specific, region‐dependent hypotheses, this pilot study aimed to capture a range of cerebrovascular parameters using advanced neuroimaging and tested associations with possible contributing factors (i.e., testosterone and insulin resistance). Modern advances in MRI facilitate interrogation of cerebrovascular function in unprecedented detail, offering major advantages on traditional measures such as Doppler ultrasound.</p></sec><sec sec-type="materials-and-methods" id="cen70067-sec-0080"><label>2</label><title>Materials and Methods</title><sec id="cen70067-sec-0090"><label>2.1</label><title>Participants</title><p>Fifteen women with PCOS and 13 age‐ and body mass index (BMI)‐matched controls were recruited. Approval was given by the NHS Research Ethics Committee (REC:19/WA/0093) and institutional ethical boards (Cardiff Metropolitan University: STA‐9540; Cardiff University: EC.19.12.10.5916A). The study was registered on <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://ClinicalTrials.gov" ext-link-type="uri">ClinicalTrials.gov</ext-link> (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmc:clinical-trial" xlink:href="NCT05394935">NCT05394935</ext-link>) and followed the Declaration of Helsinki. Patients with PCOS were recruited through the endocrinology clinic at the University Hospital of Wales, Cardiff, via social media and the PCOS charity, Verity. Healthy volunteers were recruited via word of mouth and social media. All participants provided written informed consent. Healthy volunteers self‐reported a regular menstrual cycle (between 27 and 31 days). All testing sessions occurred during the early follicular phase of their menstrual cycles, based on the self‐reported first day of menses (day 1–7). No such temporal limitations were applied in oligomenorrhoeic or amenorrhoeic women with PCOS. Since hormonal contraceptives alter the endocrine profile, hormonal contraceptive use was recorded for modelling.</p><p>Participants fasted for a minimum of 4 h and were required to abstain from caffeine, alcohol and strenuous physical activity for 24 h before the neuroimaging session to avoid any potential influence on haemodynamic parameters.</p></sec><sec id="cen70067-sec-0100"><label>2.2</label><title>Inclusion/Exclusion Criteria</title><p>A diagnosis of PCOS was made in accordance with the Rotterdam criteria, including exclusion of congenital adrenal hyperplasia, Cushing's syndrome, thyroid disease, hyperprolactinaemia and androgen‐secreting tumours through clinical and/or biochemical evaluation. All participants did not meet recommended physical activity guidelines of 150 min of moderate, or 75 min of vigorous physical activity per week [<xref rid="cen70067-bib-0018" ref-type="bibr">18</xref>]. Participants were excluded if they had any of the commonly accepted contraindications to MRI scanning (e.g., ferromagnetic devices), a clinically significant condition (such as other metabolic, neurological, cardiovascular, psychiatric, cerebrovascular, or respiratory condition), were pregnant (or had been in the last 6 weeks), were breastfeeding, or were post‐menopausal. Control participants were additionally excluded if they had clinical or biochemical evidence of hyperandrogenism. One control participant was excluded on the basis of biochemical hyperandrogenism, leaving a final control sample of 12. Participants taking medication for PCOS, insulin‐sensitising drugs, oral contraceptives (OCP) or anti‐anxiety/antidepression medications were required to be on a stable dose for 3 months before study entry.</p></sec><sec id="cen70067-sec-0110"><label>2.3</label><title>Anthropometric and Biochemical Measurements</title><p>Anthropometric measurements were undertaken at Cardiff Metropolitan University. Participant height and weight were measured using a fixed stadiometer (Holtain Ltd., Pembrokeshire, U.K.) and scales (SECA 770, Vogel &amp; Halke, Hamburg, Germany) respectively. Body Mass Index (BMI) was calculated as weight (kg)/height (m)<sup>2</sup>. Blood sampling and analysis was completed at the University Hospital Wales. Serum total testosterone and androstenedione concentrations were measured by liquid chromatography‐tandem mass spectrometry (Quattro Premier XE triple quadrupole mass spectrometer), and sex hormone binding globulin (SHBG) using an Alinity i reagent kit (Abbott Diagnostics, Illinois, USA). Fasting glucose, total cholesterol, HDL‐cholesterol, LDL‐cholesterol and triglycerides were measured using an Alinity c reagent kit (Abbott Diagnostics, Illinois, USA), while fasting insulin was measured using a Mercodia Iso‐Insulin ELISA kit (Mercodia, Sweden). Free androgen index (FAI) was calculated as testosterone (nmol/l)/SHBG (nmol/l) x100. The Homeostatic Model Assessment for Insulin Resistance (HOMA2‐IR) was generated using ‘HOMA2 Calculator V.2.2.3.’ software (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.dtu.ox.ac.uk/homacalculator/index.php" ext-link-type="uri">http://www.dtu.ox.ac.uk/homacalculator/index.php</ext-link> [<xref rid="cen70067-bib-0019" ref-type="bibr">19</xref>]).</p></sec><sec id="cen70067-sec-0120"><label>2.4</label><title>MRI Acquisition</title><p>Full scan parameters are available in the Supporting Information <xref rid="cen70067-suppl-0001" ref-type="supplementary-material">S1</xref>. Briefly, the following metrics were acquired at Cardiff University Brain Research Imaging Centre (CUBRIC) on a Siemens MAGNETOM Prisma 3T scanner:</p><p>
+<bold>Structure:</bold> a high‐resolution structural T1 image using an MPRAGE (Magnetization‐Prepared Rapid Acquisition Gradient Echo) sequence (1 mm<sup>3</sup>; repetition time [TR] = 2.1 s; echo time [TE] = 3.24 ms), from which individual labels of cortical and subcortical areas were created (regions‐of‐interest [ROIs]).</p><p>
+<bold>Cerebral blood flow (CBF) and arterial arrival time (AAT):</bold> measured using a multi post‐labelling delay pseudocontinuous arterial spin labelling (MPLD‐pCASL) scan (maximum TR = 5.6 s; TE = 11 s; voxel resolution = 3.4 × 3.4 × 6.0 mm). CBF is defined as the volume of blood (in millilitres) reaching 100 g of brain tissue per minute delivering sufficient oxygen/nutrients for neural function. AAT is the duration it takes for blood to arrive at brain tissue (from a labelling plane in the carotid) and is informative of any blood supply delays.</p><p>
+<bold>Pulsatility Index (PI):</bold> measured in the internal carotid arteries using dynamic inflow magnitude contrast (DIMAC) [<xref rid="cen70067-bib-0020" ref-type="bibr">20</xref>], with a 15 ms temporal resolution. PI reflects blood flow resistance in the cerebral arteries, calculated using the difference between peak systolic and end‐diastolic velocities, and is related to changes in vessel stiffness.</p><p>
+<bold>Breath‐hold cerebrovascular reactivity (CVR):</bold> a blood oxygen level dependent (BOLD) echo planar imaging (EPI) scan (TR = 1 s; TE = 30 ms; voxel size = 2.0 mm<sup>3</sup>) was completed during a 9‐min breath‐hold task (detailed below). CVR is the brain's ability to adjust blood flow in response to a vasodilating stimulus (here, breath‐hold induced fluctuations in CO<sub>2</sub> were utilised) and is a key indicator of cerebrovascular reserve capacity and health.</p><p>
+<bold>Global oxygen extraction fraction (OEF) and cerebral metabolic rate of oxygen (CMRO</bold>
+<sub>
+<bold>2</bold>
+</sub>
+<bold>):</bold> oxygen metabolism metrics were collected in a subsample (PCOS <italic toggle="yes">n</italic> = 9, control <italic toggle="yes">n</italic> = 8) using a T2‐relaxation‐under‐spin‐tagging (TRUST) [<xref rid="cen70067-bib-0021" ref-type="bibr">21</xref>] sequence (TR = 3 s; TE = 3.9 ms). A T1 inversion recovery sequence (ΔTR/TE = 150 ms/22 ms, flip angle = 90 degrees, and GRAPPA acceleration factor = 2; with 960 acquisitions &gt; 16 repeats of 60 measurements) was also collected to quantify the T1 of venous blood, used to calculate haematocrit, which is used to estimate OEF and CMRO<sub>2</sub>. OEF represents the proportion of blood oxygen removed by brain tissue and is related to CMRO<sub>2</sub>, the quantified rate of oxygen metabolism. These metrics give information of global energy usage and metabolism, a critical aspect of overall cerebrovascular health. To generate a global value, this scan was localised over the sagittal sinus.</p></sec><sec id="cen70067-sec-0130"><label>2.5</label><title>MRI Breath‐Hold Task</title><p>During the breath‐hold task, continuous partial pressure of end‐tidal oxygen (PETO<sub>2</sub>) and carbon dioxide (PETCO<sub>2</sub>) signals in expired air were measured via a nasal cannula (AEI Technologies, PA, US). Each breath‐hold‐task began with 20 s of rest. The following sequence was repeated 10 times with instructions appearing in the middle of the stimulus screen.
+<list list-type="simple"><list-item><label>–</label><p>24 s of paced breathing (3 s in and 3 s out), ending on an ‘out’ prompt.</p></list-item><list-item><label>–</label><p>20 s of breath‐hold.</p></list-item><list-item><label>–</label><p>2 s of expelling air after completing the breath‐hold. This allows for the rise in CO<sub>2</sub> to be measured.</p></list-item><list-item><label>–</label><p>4 s of recovery (spontaneous breathing with no specific instructions).</p></list-item></list>
+</p><p>After all breath‐hold challenges were completed, another 24 s of resting data were recorded.</p></sec><sec id="cen70067-sec-0140"><label>2.6</label><title>MRI Pre‐Processing</title><sec id="cen70067-sec-0150"><label>2.6.1</label><title>Structure</title><p>A grey matter mask was generated for use in other processing pipelines. The T1‐weighted MPRAGE structural images were processed using the ‘fsl_anat’ pipeline [<xref rid="cen70067-bib-0022" ref-type="bibr">22</xref>], which includes reorientating to standard orientation, bias‐field correction, brain extraction, and tissue‐type segmentation.</p></sec><sec id="cen70067-sec-0160"><label>2.6.2</label><title>Cerebral Blood Flow (CBF) and Arterial Arrival Time (AAT)</title><p>Pre‐processing and generation of the perfusion maps were completed using the Analysis of Functional NeuroImages (AFNI) software package [<xref rid="cen70067-bib-0023" ref-type="bibr">23</xref>]. Following motion correction, the scan was split into separate post labelling delays (PLDs; five pairs of each) and the deltaM was calculated (tag minus control). For quantification, the M0 of the blood was calculated as:
+<disp-formula id="cen70067-disp-0001a">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="block"><mml:mrow><mml:mrow><mml:mrow><mml:msub><mml:mi>M</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mi mathvariant="italic">blood</mml:mi><mml:mo>=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mi>M</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mi mathvariant="italic">csf</mml:mi><mml:mspace width="0.25em"/><mml:mo>*</mml:mo><mml:mtext>exp</mml:mtext><mml:mi mathvariant="normal">⁡</mml:mi><mml:mo stretchy="true">(</mml:mo><mml:mi mathvariant="italic">TE</mml:mi><mml:mo>*</mml:mo><mml:mfenced close=")" open="("><mml:mrow><mml:mfenced close=")" open="("><mml:mfrac><mml:mn>1</mml:mn><mml:mrow><mml:msub><mml:mi>T</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mi mathvariant="italic">csf</mml:mi></mml:mrow></mml:mfrac></mml:mfenced><mml:mo>−</mml:mo><mml:mfenced close=")" open="("><mml:mfrac><mml:mn>1</mml:mn><mml:mrow><mml:msub><mml:mi>T</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mi mathvariant="italic">blood</mml:mi></mml:mrow></mml:mfrac></mml:mfenced></mml:mrow></mml:mfenced><mml:mo stretchy="true">)</mml:mo></mml:mrow><mml:mrow><mml:mi>λ</mml:mi><mml:mi mathvariant="italic">csf</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+<list list-type="simple"><list-item><p>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-2" display="inline"><mml:mrow><mml:mrow><mml:mrow><mml:mi>λ</mml:mi><mml:mi mathvariant="italic">csf</mml:mi></mml:mrow></mml:mrow></mml:mrow></mml:math> = blood‐CSF partition coefficient (1.15) [<xref rid="cen70067-bib-0024" ref-type="bibr">24</xref>, <xref rid="cen70067-bib-0025" ref-type="bibr">25</xref>].</p></list-item><list-item><p>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-3" display="inline"><mml:mrow><mml:mrow><mml:mrow><mml:msub><mml:mi>M</mml:mi><mml:mn>0</mml:mn></mml:msub><mml:mi mathvariant="italic">csf</mml:mi></mml:mrow></mml:mrow></mml:mrow></mml:math> = the M<sub>0</sub> of the cerebral spinal fluid (CSF) was taken from a CSF mask generated around a manually positioned central point in the lateral ventricles.</p></list-item><list-item><p>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-4" display="inline"><mml:mrow><mml:mrow><mml:mrow><mml:mi mathvariant="italic">TE</mml:mi></mml:mrow></mml:mrow></mml:mrow></mml:math> = echo time (0.019 s).</p></list-item><list-item><p>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-5" display="inline"><mml:mrow><mml:mrow><mml:mrow><mml:msub><mml:mi>T</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mi mathvariant="italic">csf</mml:mi></mml:mrow></mml:mrow></mml:mrow></mml:math> = T<sub>2</sub>* of CSF (0.4 s) [<xref rid="cen70067-bib-0024" ref-type="bibr">24</xref>].</p></list-item><list-item><p>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-6" display="inline"><mml:mrow><mml:mrow><mml:mrow><mml:msub><mml:mi>T</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mi mathvariant="italic">blood</mml:mi></mml:mrow></mml:mrow></mml:mrow></mml:math> = T<sub>2</sub>* of blood (0.06 s) [<xref rid="cen70067-bib-0026" ref-type="bibr">26</xref>].</p></list-item></list>
+</p><p>The 3dNLfim command and the Buxton model [<xref rid="cen70067-bib-0027" ref-type="bibr">27</xref>] was used for final quantification. CBF values were allowed to vary between 0 and 300, and AAT values could vary between 0 and 3. The final CBF and AAT maps were thresholded by R<sup>2</sup> &gt; 0.6 (excluding a sample average 93% of voxels, which includes voxels outside of the brain).</p><p>FLIRT [<xref rid="cen70067-bib-0022" ref-type="bibr">22</xref>] was used to generate a transformation matrix to register the Desikan‐Killiany Atlas (cortical and subcortical regions) to each participant's native space [<xref rid="cen70067-bib-0028" ref-type="bibr">28</xref>]. The cortical regions were further restricted to the individual's grey matter voxels, using their individual grey matter mask. The median CBF and AAT were extracted for each region. The median CBF and AAT across all atlas voxels were taken as global measures for comparison.</p></sec><sec id="cen70067-sec-0170"><label>2.6.3</label><title>Pulsatility Index (PI)</title><p>The DIMAC time series for left and right internal carotid artery were generated by averaging the signal from a 4 × 4 voxel square region over each artery. A 3 s cut‐off high‐pass filter and 5th‐order (21 timepoint frame length) Savitzky‐Golay low‐pass filter was applied. Each pulse period was then modelled using Fourier analysis, with five sine/cosine pairs with periods ranging from one to one fifth of the pulse period. PI was calculated as the range divided by the mean of the modelled timeseries for each pulse period, then averaged across pulse periods.</p></sec><sec id="cen70067-sec-0180"><label>2.6.4</label><title>Breath‐Hold Cerebrovascular Reactivity (CVR)</title><p>Similar to the pCASL perfusion maps, pre‐processing (e.g., motion correction, brain extraction, slice time correction, conversion to % change) of the Blood Oxygen Level Dependent (BOLD) signal timeseries was completed using the AFNI software package [<xref rid="cen70067-bib-0023" ref-type="bibr">23</xref>]. PETCO<sub>2</sub> traces were processed using in‐house scripts. This involves clipping the traces to only include the relevant scan, rescaling to mmHg, and converting the trace to a haemodynamic‐response‐function [HRF]‐convolved regressor. The final regressor is cross‐correlated (Spearman's Rho) to the global BOLD time course (with 41 incremental time shifts in CO<sub>2</sub> trace) to find the best temporal match between time series, defined as the correlation with the highest value. This allows for the breath‐hold induced increases in PETCO<sub>2</sub> and BOLD to be matched and the reactivity to be modelled. The final PETCO<sub>2</sub> trace was used to model the CVR response using AFNI. A threshold of <italic toggle="yes">R</italic>
+<sup>2</sup> &gt; 0.06 was applied to the final CVR maps to exclude noisy voxels (excluding a sample average 89% of voxels, which includes voxels outside of the brain). The same process to extract global and ROI median values used for the perfusion maps was applied.</p><p>Due to a technical error in PETCO<sub>2</sub> recording, two controls were excluded from the CVR analysis at this point, leaving 10 healthy controls for CVR analysis.</p></sec><sec id="cen70067-sec-0190"><label>2.6.5</label><title>Global Oxygen Extraction Fraction (OEF) and Cerebral Metabolic Rate of Oxygen (CMRO<sub>2</sub>)</title><p>Both metrics were estimated using TRUST scan data. The T<sub>2</sub> of blood was calculated by nonlinear least‐squared fitting of a mono‐exponential curve, as a function of the effective echo times. The two most intense voxels were used and venous oxygenation (Yv) was estimated by inverting the relationship between Yv, haemoglobin and T<sub>2</sub> [<xref rid="cen70067-bib-0021" ref-type="bibr">21</xref>]. The OEF value was then used with grey matter CBF for the CMRO<sub>2</sub> calculation (see Supporting Information <xref rid="cen70067-suppl-0001" ref-type="supplementary-material">S1</xref>). SaO<sub>2</sub> was assumed to be 98%, as has been used previously [<xref rid="cen70067-bib-0029" ref-type="bibr">29</xref>].</p></sec></sec><sec id="cen70067-sec-0200"><label>2.7</label><title>Statistical Analysis</title><p>Participant characteristics were compared using independent <italic toggle="yes">t</italic>‐tests, computed with JASP software [<xref rid="cen70067-bib-0030" ref-type="bibr">30</xref>]. A student's <italic toggle="yes">t</italic>‐test was used, unless a significant Shapiro‐Wilk test indicated non‐normality in one or both groups, in which case a Mann‐Whitney <italic toggle="yes">t</italic>‐test was employed.</p><p>Linear models were constructed using R software (v.4.2.2) [<xref rid="cen70067-bib-0031" ref-type="bibr">31</xref>] and the ‘lmerTest’ analysis package [<xref rid="cen70067-bib-0032" ref-type="bibr">32</xref>]. Statistical significance was set at <italic toggle="yes">p</italic> &lt; 0.05. Three tiers of linear models with additional fixed effects were used to investigate contributions of PCOS‐related factors to cerebrovascular outcomes:</p><p>
+<italic toggle="yes">Status model</italic>. Firstly, PCOS status was added alone to maximise statistical power and investigate any overall group differences.</p><p>
+<italic toggle="yes">Status/hormonal contraceptive model</italic>. Hormonal contraceptive use was then added to account for possible impact on endocrine function.</p><p>
+<italic toggle="yes">Status/hormonal contraceptive/testosterone/HOMA2‐IR model</italic>. Testosterone variance and insulin resistance (HOMA2‐IR) were then also added, to investigate how these hallmarks of PCOS contribute to cerebrovascular outcome variance.</p><p>In all models, participant was included as a random effect and, if relevant, ROI/laterality was added as an additional fixed crossed effect. Residual plots were visually inspected and showed no notable deviations from homoscedasticity or normality. To test if an outcome contributed to a model, an ANOVA was used to compare the model with and without that outcome variable. If relevant, an interaction with cortical ROI was then added to the model; considering the limited statistical power and hypothesis‐generating aim of this pilot study, all regions were considered exploratory. If a statistically significant interaction was found, the ROI individual coefficients were examined and a false discovery rate (FDR) correction for multiple comparisons was employed using the Benjamini‐Hochberg (BH) procedure [<xref rid="cen70067-bib-0033" ref-type="bibr">33</xref>] and correcting over all 83 regional comparisons. All ROI comparison data, including <italic toggle="yes">p</italic>‐values and adjusted q‐values, are provided in the Supporting Information <xref rid="cen70067-suppl-0001" ref-type="supplementary-material">S1</xref>.</p><p>For CVR, CBF, and AAT, all ROIs that had 0 voxels that passed the R<sup>2</sup> threshold were excluded from model fitting (109/2100 observations for CVR, 13/2268 observations for perfusion maps).</p><p>Power calculations were generated for a wider study on peripheral blood flow changes in PCOS and based on inducing a significant increase of MCAv during exercise (Δ15.5 cm·s<sup>−1</sup>) [<xref rid="cen70067-bib-0034" ref-type="bibr">34</xref>]. These a priori power estimates suggested a sample of 14 per group with an α = 0.05 and β = 0.80.</p></sec><sec id="cen70067-sec-0210"><label>2.8</label><title>Sensitivity Analysis</title><p>Sensitivity analysis was carried out for medicated compared to non‐medicated individuals. As there was such a small, homogeneous medicated sample, these were combined for this analysis (hormonal contraceptives, metformin, psychotropics, anti‐androgens). For each vascular outcome, linear models were constructed in which medication status was a primary fixed effect, participant was a random effect and, if relevant, ROI/laterality was added as an additional fixed effect. We then examined whether medication status explained a significant amount of outcome variance in each model.</p><p>For all quality group differences tests, either a Student's independent <italic toggle="yes">t</italic>‐test or Mann‐Whitney <italic toggle="yes">t</italic>‐test was used, depending on normality checks, via JASP v.0.17 software [<xref rid="cen70067-bib-0030" ref-type="bibr">30</xref>]. Due to the potential influence of task‐related effort and ventilatory drive, breath hold CVR‐related quality metrics were extracted and group differences investigated. These metrics were:
+<list list-type="simple"><list-item><label>–</label><p>ΔPETCO<sub>2</sub>—defined as the max‐min end tidal CO<sub>2</sub> recording across the breath hold scan.</p></list-item><list-item><label>–</label><p>CO<sub>2</sub>‐BOLD Rho—the Rho statistic from the Spearman's Rho correlation between the optimum PETCO<sub>2</sub> trace and the BOLD time course, indicating the direction and strength of the relationship.</p></list-item><list-item><label>–</label><p>Optimal CO<sub>2</sub>‐BOLD lag—the time lag that the PETCO<sub>2</sub> trace was shifted to get the optimal correlation with the BOLD time course (defined as the highest Rho value).</p></list-item></list>
+</p><p>An additional fixed effect of per‐subject ΔPETCO<sub>2</sub> was added to any statistically significant CVR model to investigate if any group differences were driven by breath‐hold amplitude.</p><p>TRUST quality check metrics (goodness‐of‐fit adjusted R<sup>2</sup> value and venous oxygenation [Yv]) were also extracted and group differences compared similarly.</p><p>Finally, quality check metrics for DIMAC‐derived PI was investigated. Firstly, the within‐session coefficient of variation (CV) was calculated across the whole sample (defined as standard deviation/mean) to describe overall variation. Next, test‐retest reliability was investigated. The DIMAC timeseries for every participant was divided into two (1st compared to 2nd half) and analysed separately, including the vessel selection and PI calculation. Intraclass correlations (ICC) were used to calculate test‐retest reliability (left and right vessels averaged).</p></sec></sec><sec sec-type="results" id="cen70067-sec-0220"><label>3</label><title>Results</title><sec id="cen70067-sec-0230"><label>3.1</label><title>Clinical and Biochemical Characteristics</title><p>The demographic and clinical characteristics for the full study population are shown in Table <xref rid="cen70067-tbl-0001" ref-type="table">1</xref>. The PCOS and control groups were well‐matched for age and BMI (nonsignificant difference found in the full sample, CVR sample, and TRUST subsample; all <italic toggle="yes">p</italic> &gt; 0.05). As anticipated, the PCOS group had higher levels of circulating testosterone, free androgen index and androstenedione compared to controls (all <italic toggle="yes">p</italic> &lt; 0.05). However, HOMA2‐IR was not different between groups. The rate of hormonal contraceptive use was higher in the control group compared to the PCOS group (PCOS = 0; controls = 3; out of these, two were on a hormonal contraceptive pill and one a contraceptive injection).</p><table-wrap position="float" id="cen70067-tbl-0001" content-type="Table" orientation="portrait"><label>Table 1</label><caption><p>Clinical characteristics and biochemical data.</p></caption><table frame="hsides" rules="groups"><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><thead valign="bottom"><tr valign="bottom" style="border-bottom:solid 1px #000000"><th align="left" valign="bottom" rowspan="1" colspan="1"/><th align="center" valign="bottom" rowspan="1" colspan="1">PCOS</th><th align="center" valign="bottom" rowspan="1" colspan="1">Controls</th><th align="center" valign="bottom" rowspan="1" colspan="1">Test statistic</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">p</italic> value</th></tr></thead><tbody valign="top"><tr><td align="left" valign="top" rowspan="1" colspan="1">N</td><td align="center" valign="top" rowspan="1" colspan="1">15</td><td align="center" valign="top" rowspan="1" colspan="1">12</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Age (years)</td><td align="center" valign="top" rowspan="1" colspan="1">32.0 ± 7.4</td><td align="center" valign="top" rowspan="1" colspan="1">30.7 ± 6.4</td><td align="center" valign="top" rowspan="1" colspan="1">−0.45</td><td align="center" valign="top" rowspan="1" colspan="1">0.654</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Body Mass Index (kg/m<sup>2</sup>)</td><td align="center" valign="top" rowspan="1" colspan="1">31.8 ± 5.7</td><td align="center" valign="top" rowspan="1" colspan="1">30.2 ± 5.8</td><td align="center" valign="top" rowspan="1" colspan="1">−0.73</td><td align="center" valign="top" rowspan="1" colspan="1">0.475</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Hormonal contraceptive (N,%)</td><td align="center" valign="top" rowspan="1" colspan="1">0, 0%</td><td align="center" valign="top" rowspan="1" colspan="1">3, 25%</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Metaformin use (N,%)</td><td align="center" valign="top" rowspan="1" colspan="1">0, 0%</td><td align="center" valign="top" rowspan="1" colspan="1">1, 8.3%</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Psychotropic use (N,%)</td><td align="center" valign="top" rowspan="1" colspan="1">3, 20%</td><td align="center" valign="top" rowspan="1" colspan="1">3, 25%</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Anti‐androgen use (N,%)</td><td align="center" valign="top" rowspan="1" colspan="1">0, 0%</td><td align="center" valign="top" rowspan="1" colspan="1">1, 8.3%</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Androstenedione (nmol/L)</td><td align="center" valign="top" rowspan="1" colspan="1">5.3 ± 1.8</td><td align="center" valign="top" rowspan="1" colspan="1">3.8 ± 1.5</td><td align="center" valign="top" rowspan="1" colspan="1">−<italic toggle="yes">2.20</italic>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<italic toggle="yes">0.037</italic>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Sex Hormone Binding Globulin (nmol/L)</td><td align="center" valign="top" rowspan="1" colspan="1">41.5 ± 15.7</td><td align="center" valign="top" rowspan="1" colspan="1">56.3 ± 40.8</td><td align="center" valign="top" rowspan="1" colspan="1">1.30</td><td align="center" valign="top" rowspan="1" colspan="1">0.206</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Testosterone (nmol/L)</td><td align="center" valign="top" rowspan="1" colspan="1">1.4 ± 0.5</td><td align="center" valign="top" rowspan="1" colspan="1">1.1 ± 0.3</td><td align="center" valign="top" rowspan="1" colspan="1">−<italic toggle="yes">2.09</italic>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<italic toggle="yes">0.047</italic>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Free Androgen Index (%)</td><td align="center" valign="top" rowspan="1" colspan="1">3.6 ± 1.4</td><td align="center" valign="top" rowspan="1" colspan="1">2.4 ± 1.3</td><td align="center" valign="top" rowspan="1" colspan="1">−<italic toggle="yes">2.25</italic>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<italic toggle="yes">0.034</italic>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Cholesterol (mmol/L)</td><td align="center" valign="top" rowspan="1" colspan="1">5.0 ± 0.9</td><td align="center" valign="top" rowspan="1" colspan="1">4.6 ± 1.0</td><td align="center" valign="top" rowspan="1" colspan="1">−0.90</td><td align="center" valign="top" rowspan="1" colspan="1">0.377</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Triglycerides (mmol/L)</td><td align="center" valign="top" rowspan="1" colspan="1">1.0 ± 0.4</td><td align="center" valign="top" rowspan="1" colspan="1">0.9 ± 0.3</td><td align="center" valign="top" rowspan="1" colspan="1">−1.14</td><td align="center" valign="top" rowspan="1" colspan="1">0.264</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">HDL cholesterol (mmol/L)</td><td align="center" valign="top" rowspan="1" colspan="1">1.4 ± 0.2</td><td align="center" valign="top" rowspan="1" colspan="1">1.5 ± 0.3</td><td align="center" valign="top" rowspan="1" colspan="1">1.00</td><td align="center" valign="top" rowspan="1" colspan="1">0.327</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Non‐HDL cholesterol (mmol/L)</td><td align="center" valign="top" rowspan="1" colspan="1">3.6 ± 0.9</td><td align="center" valign="top" rowspan="1" colspan="1">3.2 ± 0.8</td><td align="center" valign="top" rowspan="1" colspan="1">−1.28</td><td align="center" valign="top" rowspan="1" colspan="1">0.212</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">LDL cholesterol (mmol/L)</td><td align="center" valign="top" rowspan="1" colspan="1">3.1 ± 0.8</td><td align="center" valign="top" rowspan="1" colspan="1">2.8 ± 0.7</td><td align="center" valign="top" rowspan="1" colspan="1">−1.14</td><td align="center" valign="top" rowspan="1" colspan="1">0.264</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Fasting glucose (mmol/L)</td><td align="center" valign="top" rowspan="1" colspan="1">4.7 ± 0.5</td><td align="center" valign="top" rowspan="1" colspan="1">4.7 ± 0.4</td><td align="center" valign="top" rowspan="1" colspan="1">0.16</td><td align="center" valign="top" rowspan="1" colspan="1">0.875</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Fasting Insulin (μU/mL)</td><td align="center" valign="top" rowspan="1" colspan="1">9.9 ± 6.2</td><td align="center" valign="top" rowspan="1" colspan="1">9.2 ± 3.3</td><td align="center" valign="top" rowspan="1" colspan="1">91.50*</td><td align="center" valign="top" rowspan="1" colspan="1">0.961</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">HOMA2‐IR</td><td align="center" valign="top" rowspan="1" colspan="1">1.3 ± 0.8</td><td align="center" valign="top" rowspan="1" colspan="1">1.2 ± 0.4</td><td align="center" valign="top" rowspan="1" colspan="1">92.50*</td><td align="center" valign="top" rowspan="1" colspan="1">0.922</td></tr></tbody></table><table-wrap-foot><fn id="cen70067-tbl1-note-0001"><p>
+<italic toggle="yes">Note:</italic> Data are reported as mean ± SD. All statistics are independent Student <italic toggle="yes">t</italic>‐tests, unless indicated by a *, in which case the data were non‐normally distributed and a Mann‐Whitney U test was used. Significant group differences (at the <italic toggle="yes">p</italic> &lt; 0.05 level) are shown in italics.</p></fn><fn id="cen70067-tbl1-note-0002"><p>Abbreviations: HDL, High‐density lipoprotein; HOMA2‐IR, Homeostatic Model of Insulin Resistance; LDL, Low‐density lipoprotein.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap></sec><sec id="cen70067-sec-0240"><label>3.2</label><title>Outlier Detection</title><p>Post‐hoc visual inspection of the CBF data revealed an outlier (defined as three standard deviations from the mean for that ROI; see Figure <xref rid="cen70067-fig-0001" ref-type="fig">1</xref>) that was high enough to be biologically implausible. It was therefore excluded and analysis repeated (for the initial analysis with outlier included, see Supporting Information <xref rid="cen70067-suppl-0001" ref-type="supplementary-material">S1</xref>). We also examined whether the results were robust to outlier exclusion. As a sensitivity analysis, CBF models were calculated with (a) the full sample, (b) the sample excluding the outlier value, and (c) the full sample with a robust mixed‐effect model (Huber weighting) that will reduce the impact of the outlier. The pattern of the results (i.e., directionality of the estimates and standard errors) remained consistent, suggesting a degree of robustness to the results (full results in Supporting Information <xref rid="cen70067-suppl-0001" ref-type="supplementary-material">S1</xref>).</p><fig position="float" fig-type="Figure" id="cen70067-fig-0001" orientation="portrait"><label>Figure 1</label><caption><p>Plot of cerebral blood flow (CBF) values against region of interest (ROI) labels. Each single datapoint is a CBF value from a single ROI from an individual (all ROIs and individuals included). Desikan‐Killiany atlas ID labels used for ROIs, with 0 = global. The red line shows the mean average across ROIs. The outlier in ROI 74 (left transverse temporal gyrus) is shown in the unfilled circle.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="CEN-104-493-g002.jpg"/></fig></sec><sec id="cen70067-sec-0250"><label>3.3</label><title>MRI Outcomes</title><p>An example of the CBF data for a PCOS and control participant is shown in Figure <xref rid="cen70067-fig-0002" ref-type="fig">2</xref>. Summary results are plotted by group in Figure <xref rid="cen70067-fig-0003" ref-type="fig">3</xref>.</p><fig position="float" fig-type="Figure" id="cen70067-fig-0002" orientation="portrait"><label>Figure 2</label><caption><p>Example MRI data. (A) illustrates the Desikan‐Killiany Atlas (Desikan et al. <xref rid="cen70067-bib-0028" ref-type="bibr">2006</xref>) used to mask and delineate perfusion and reactivity data. Different colours indicate different cortical or subcortical regions of interest. (B and C) show the cerebral blood flow (CBF) data for a representative PCOS patient and healthy control respectively. Data is smoothed by a 2 mm gaussian kernel for visualisation purposes only. Darker colours indicate lower CBF and lighter colours indicate higher CBF. The scale is in ml/100 g/min. The data are converted to MNI (Montreal Neurological Institute) standard space for visualisation.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="CEN-104-493-g001.jpg"/></fig><fig position="float" fig-type="Figure" id="cen70067-fig-0003" orientation="portrait"><label>Figure 3</label><caption><p>Violin plots comparing (A) cerebral blood flow (CBF; mL/100 g/min), (B) arterial arrival time (AAT; seconds), (C) pulsatility index (PI; m/s), (D) cerebrovascular reactivity (CVR; % BOLD change with each mmHg increase in CO<sub>2</sub>) values from all regions of interest (ROIs) between the control group (left, green) and the PCOS group (right, blue). The final line are violin plots comparing (E) global cerebral metabolic rate of oxygen (CMRO<sub>2</sub>) and (F) global oxygen extraction fraction (OEF) between the healthy control group (left, green), and the PCOS group (right, blue). The box‐and‐whisker plots indicate the median (central line), first and third quartile (hinges), and 1.5 *interquartile range from the hinge (whiskers). Individual datapoints are shown as filled circles. Median (M) and inter‐quartile range (IQR) are presented. Data presented in A–C are from 15 PCOS patients and 12 healthy controls, data presented in D are from 15 PCOS patients and 10 healthy controls, and data in E and F are from 9 PCOS patients and 8 healthy controls.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="CEN-104-493-g003.jpg"/></fig><p>Results are presented in Tables <xref rid="cen70067-tbl-0002" ref-type="table">2</xref>, <xref rid="cen70067-tbl-0003" ref-type="table">3</xref>, <xref rid="cen70067-tbl-0004" ref-type="table">4</xref>. Residual plots were visually inspected and the assumptions of homoscedasticity or normality held in all models. We found that PCOS status did not significantly contribute to overall global CBF variance, which persisted in models with and without the other explanatory variables (hormonal contraceptive, testosterone, and insulin resistance). However, there was evidence of a regional effect (<italic toggle="yes">χ</italic>
+<sup>
+<italic toggle="yes">2</italic>
+</sup> = 110.31; df = 1; <italic toggle="yes">p</italic> = 0.029); participants with PCOS had a significantly reduced CBF value in the left transverse temporal gyrus compared to healthy controls (t(2227.04) = −3.99; <italic toggle="yes">p</italic> = 0.005; estimate[standard error, SE] = −29.05[7.26]; 95% confidence intervals [CIs]= −43.29, −14.81). This was reflected in the CVR results: while no model suggested an overall influence of PCOS on global CVR, there was evidence of a regional effect (<italic toggle="yes">χ</italic>
+<sup>
+<italic toggle="yes">2</italic>
+</sup> = 154.25; df = 1; <italic toggle="yes">p</italic>‐value &lt; 0.001). PCOS patients demonstrated a small increase in CVR compared to healthy controls in the left parahippocampus (t(1966.20) = 5.10; <italic toggle="yes">p</italic> &lt; 0.001; estimate [SE] = 1.37 [0.27]; 95% CIs = 0.84, 1.90) and left pericalcarine cortex (t(1966.08) = 4.06; <italic toggle="yes">p</italic> = 0.002; estimate[SE] = 1.04 [0.26]; 95% CIs = 0.54, 1.54). There was also evidence of a regional influence of hormonal contraceptive use on brain CVR values (<italic toggle="yes">χ</italic>
+<sup>
+<italic toggle="yes">2</italic>
+</sup> = 337.49; df = 1; <italic toggle="yes">p</italic>‐value &lt; 0.001), but none passed correction for multiple comparisons, and this should be interpreted with caution considering the small sample of participants on a form of hormonal contraceptives and the mix of hormonal formulations included. Neither serum testosterone nor HOMA2‐IR explained a significant amount of CBF or CVR variance. No other statistically significant effect was found in either the pulsatility, arterial arrival time, or the preliminary oxygen metabolism metrics.</p><table-wrap position="float" id="cen70067-tbl-0002" content-type="Table" orientation="portrait"><label>Table 2</label><caption><p>Model results for main MRI cerebrovascular outcomes.</p></caption><table frame="hsides" rules="groups"><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><thead valign="bottom"><tr valign="bottom"><th align="left" valign="bottom" rowspan="1" colspan="1"/><th align="center" valign="bottom" rowspan="1" colspan="1"/><th colspan="3" style="border-bottom:solid 1px #000000" align="center" valign="bottom" rowspan="1">Model 1</th><th colspan="3" style="border-bottom:solid 1px #000000" align="center" valign="bottom" rowspan="1">Model 2</th><th align="center" colspan="3" style="border-bottom:solid 1px #000000" valign="bottom" rowspan="1">Model 3</th></tr><tr valign="bottom" style="border-bottom:solid 1px #000000"><th align="left" valign="bottom" rowspan="1" colspan="1"/><th align="center" valign="bottom" rowspan="1" colspan="1">Outcome</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">χ</italic>
+<sup>
+<italic toggle="yes">2</italic>
+</sup>
+</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">p</italic> value</th><th align="center" valign="bottom" rowspan="1" colspan="1">Estimate (SE)</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">χ</italic>
+<sup>
+<italic toggle="yes">2</italic>
+</sup>
+</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">p</italic> value</th><th align="center" valign="bottom" rowspan="1" colspan="1">Estimate (SE)</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">χ</italic>
+<sup>
+<italic toggle="yes">2</italic>
+</sup>
+</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">p</italic> value</th><th align="center" valign="bottom" rowspan="1" colspan="1">Estimate (SE)</th></tr></thead><tbody valign="top"><tr><td valign="middle" rowspan="4" align="left" colspan="1">CBF</td><td align="center" valign="top" rowspan="1" colspan="1">PCOS status</td><td align="center" valign="top" rowspan="1" colspan="1">1.48</td><td align="center" valign="top" rowspan="1" colspan="1">0.224</td><td align="center" valign="top" rowspan="1" colspan="1">−4.78 (3.88)</td><td align="center" valign="top" rowspan="1" colspan="1">3.29</td><td align="center" valign="top" rowspan="1" colspan="1">0.070</td><td align="center" valign="top" rowspan="1" colspan="1">−7.50 (4.01)</td><td align="center" valign="top" rowspan="1" colspan="1">3.29</td><td align="center" valign="top" rowspan="1" colspan="1">0.070</td><td align="center" valign="top" rowspan="1" colspan="1">−8.07 (4.31)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Hormonal contraceptive use</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">2.79</td><td align="center" valign="top" rowspan="1" colspan="1">0.095</td><td align="center" valign="top" rowspan="1" colspan="1">−10.87 (6.34)</td><td align="center" valign="top" rowspan="1" colspan="1">2.85</td><td align="center" valign="top" rowspan="1" colspan="1">0.092</td><td align="center" valign="top" rowspan="1" colspan="1">−11.03 (6.37)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Testosterone</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">0.10</td><td align="center" valign="top" rowspan="1" colspan="1">0.752</td><td align="center" valign="top" rowspan="1" colspan="1">1.50 (4.77)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">HOMA2‐IR</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">0.01</td><td align="center" valign="top" rowspan="1" colspan="1">0.936</td><td align="center" valign="top" rowspan="1" colspan="1">0.25 (3.12)</td></tr><tr><td valign="middle" rowspan="4" align="left" colspan="1">AAT</td><td align="center" valign="top" rowspan="1" colspan="1">PCOS status</td><td align="center" valign="top" rowspan="1" colspan="1">0.58</td><td align="center" valign="top" rowspan="1" colspan="1">0.447</td><td align="center" valign="top" rowspan="1" colspan="1">0.01 (0.02)</td><td align="center" valign="top" rowspan="1" colspan="1">0.21</td><td align="center" valign="top" rowspan="1" colspan="1">0.644</td><td align="center" valign="top" rowspan="1" colspan="1">0.010 (0.02)</td><td align="center" valign="top" rowspan="1" colspan="1">0.70</td><td align="center" valign="top" rowspan="1" colspan="1">0.404</td><td align="center" valign="top" rowspan="1" colspan="1">0.02 (0.02)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Hormonal contraceptive use</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">0.38</td><td align="center" valign="top" rowspan="1" colspan="1">0.536</td><td align="center" valign="top" rowspan="1" colspan="1">−0.02 (0.03)</td><td align="center" valign="top" rowspan="1" colspan="1">0.22</td><td align="center" valign="top" rowspan="1" colspan="1">0.640</td><td align="center" valign="top" rowspan="1" colspan="1">−0.01 (0.03)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Testosterone</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">0.37</td><td align="center" valign="top" rowspan="1" colspan="1">0.546</td><td align="center" valign="top" rowspan="1" colspan="1">−0.01 (0.02)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">HOMA2‐IR</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">1.85</td><td align="center" valign="top" rowspan="1" colspan="1">0.396</td><td align="center" valign="top" rowspan="1" colspan="1">−0.02 (0.02)</td></tr><tr><td valign="middle" rowspan="4" align="left" colspan="1">PI</td><td align="center" valign="top" rowspan="1" colspan="1">PCOS status</td><td align="center" valign="top" rowspan="1" colspan="1">0.68</td><td align="center" valign="top" rowspan="1" colspan="1">0.411</td><td align="center" valign="top" rowspan="1" colspan="1">−0.04 (0.04)</td><td align="center" valign="top" rowspan="1" colspan="1">0.05</td><td align="center" valign="top" rowspan="1" colspan="1">0.820</td><td align="center" valign="top" rowspan="1" colspan="1">−0.01 (0.04)</td><td align="center" valign="top" rowspan="1" colspan="1">0.07</td><td align="center" valign="top" rowspan="1" colspan="1">0.797</td><td align="center" valign="top" rowspan="1" colspan="1">−0.01 (0.05)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Hormonal contraceptive use</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">1.94</td><td align="center" valign="top" rowspan="1" colspan="1">0.164</td><td align="center" valign="top" rowspan="1" colspan="1">0.10 (0.07)</td><td align="center" valign="top" rowspan="1" colspan="1">2.08</td><td align="center" valign="top" rowspan="1" colspan="1">0.150</td><td align="center" valign="top" rowspan="1" colspan="1">0.10 (0.07)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Testosterone</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">0.08</td><td align="center" valign="top" rowspan="1" colspan="1">0.772</td><td align="center" valign="top" rowspan="1" colspan="1">0.02 (0.05)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">HOMA2‐IR</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">2.23</td><td align="center" valign="top" rowspan="1" colspan="1">0.328</td><td align="center" valign="top" rowspan="1" colspan="1">−0.02 (0.07)</td></tr><tr><td valign="middle" rowspan="4" align="left" colspan="1">CVR</td><td align="center" valign="top" rowspan="1" colspan="1">PCOS status</td><td align="center" valign="top" rowspan="1" colspan="1">0.74</td><td align="center" valign="top" rowspan="1" colspan="1">0.389</td><td align="center" valign="top" rowspan="1" colspan="1">0.18 (0.21)</td><td align="center" valign="top" rowspan="1" colspan="1">2.33</td><td align="center" valign="top" rowspan="1" colspan="1">0.127</td><td align="center" valign="top" rowspan="1" colspan="1">−0.23 (0.15)</td><td align="center" valign="top" rowspan="1" colspan="1">0.85</td><td align="center" valign="top" rowspan="1" colspan="1">0.356</td><td align="center" valign="top" rowspan="1" colspan="1">−0.15 (0.16)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Hormonal contraceptive use</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>23.15</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>&lt; 0.001</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>−1.38 (0.22)</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>23.56</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>&lt; 0.001</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>−1.36 (0.22)</bold>
+</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Testosterone</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">1.71</td><td align="center" valign="top" rowspan="1" colspan="1">0.192</td><td align="center" valign="top" rowspan="1" colspan="1">−0.22 (0.17)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">HOMA2‐IR</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">0.20</td><td align="center" valign="top" rowspan="1" colspan="1">0.656</td><td align="center" valign="top" rowspan="1" colspan="1">0.05 (0.10)</td></tr></tbody></table><table-wrap-foot><fn id="cen70067-tbl2-note-0001"><p>
+<italic toggle="yes">Note:</italic> Degrees‐of‐freedom (Df) = 1. Statistically significant results indicated in bold. CBF, AAT, and PI data are from 15 PCOS patients and 12 healthy controls, while CVR data are from 15 PCOS patients and 10 healthy controls.</p></fn><fn id="cen70067-tbl2-note-0002"><p>Abbreviations: AAT, arterial arrival time; CBF, cerebral blood flow; CVR, cerebrovascular reactivity; PI, pulsatility index; SE, Standard Error.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><table-wrap position="float" id="cen70067-tbl-0003" content-type="Table" orientation="portrait"><label>Table 3</label><caption><p>Model results for MRI oxygen metabolism outcomes.</p></caption><table frame="hsides" rules="groups"><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><thead valign="bottom"><tr valign="bottom"><th align="left" valign="bottom" rowspan="1" colspan="1"/><th align="center" valign="bottom" rowspan="1" colspan="1"/><th colspan="3" style="border-bottom:solid 1px #000000" align="center" valign="bottom" rowspan="1">Model 1</th><th colspan="3" style="border-bottom:solid 1px #000000" align="center" valign="bottom" rowspan="1">Model 2</th><th align="center" colspan="3" style="border-bottom:solid 1px #000000" valign="bottom" rowspan="1">Model 3</th></tr><tr valign="bottom" style="border-bottom:solid 1px #000000"><th align="left" valign="bottom" rowspan="1" colspan="1"/><th align="center" valign="bottom" rowspan="1" colspan="1">Outcomes</th><th align="center" valign="bottom" rowspan="1" colspan="1">t‐statistic</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">p</italic> value</th><th align="center" valign="bottom" rowspan="1" colspan="1">Estimate (SE)</th><th align="center" valign="bottom" rowspan="1" colspan="1">t‐statistic</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">p</italic> value</th><th align="center" valign="bottom" rowspan="1" colspan="1">Estimate (SE)</th><th align="center" valign="bottom" rowspan="1" colspan="1">t‐statistic</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">p</italic> value</th><th align="center" valign="bottom" rowspan="1" colspan="1">Estimate (SE)</th></tr></thead><tbody valign="top"><tr><td valign="middle" rowspan="4" align="left" colspan="1">OEF</td><td align="center" valign="top" rowspan="1" colspan="1">PCOS status</td><td align="center" valign="top" rowspan="1" colspan="1">−1.70</td><td align="center" valign="top" rowspan="1" colspan="1">0.110</td><td align="center" valign="top" rowspan="1" colspan="1">−0.05 (0.03)</td><td align="center" valign="top" rowspan="1" colspan="1">−1.27</td><td align="center" valign="top" rowspan="1" colspan="1">0.226</td><td align="center" valign="top" rowspan="1" colspan="1">−0.04 (0.03)</td><td align="center" valign="top" rowspan="1" colspan="1">−1.24</td><td align="center" valign="top" rowspan="1" colspan="1">0.130</td><td align="center" valign="top" rowspan="1" colspan="1">−0.06 (0.04)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Hormonal contraceptive use</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">0.53</td><td align="center" valign="top" rowspan="1" colspan="1">0.493</td><td align="center" valign="top" rowspan="1" colspan="1">0.03 (0.05)</td><td align="center" valign="top" rowspan="1" colspan="1">0.628</td><td align="center" valign="top" rowspan="1" colspan="1">0.628</td><td align="center" valign="top" rowspan="1" colspan="1">0.03 (0.05)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Testosterone</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">1.27</td><td align="center" valign="top" rowspan="1" colspan="1">0.228</td><td align="center" valign="top" rowspan="1" colspan="1">0.05 (0.04)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">HOMA2‐IR</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">−0.71</td><td align="center" valign="top" rowspan="1" colspan="1">0.486</td><td align="center" valign="top" rowspan="1" colspan="1">−0.02 (0.03)</td></tr><tr><td valign="middle" rowspan="4" align="left" colspan="1">CMRO<sub>2</sub>
+</td><td align="center" valign="top" rowspan="1" colspan="1">PCOS status</td><td align="center" valign="top" rowspan="1" colspan="1">−1.19</td><td align="center" valign="top" rowspan="1" colspan="1">0.251</td><td align="center" valign="top" rowspan="1" colspan="1">−13.40 (11.22)</td><td align="center" valign="top" rowspan="1" colspan="1">−1.22</td><td align="center" valign="top" rowspan="1" colspan="1">0.244</td><td align="center" valign="top" rowspan="1" colspan="1">−15.23 (12.53)</td><td align="center" valign="top" rowspan="1" colspan="1">−1.06</td><td align="center" valign="top" rowspan="1" colspan="1">0.309</td><td align="center" valign="top" rowspan="1" colspan="1">−16.42 (15.47)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Hormonal contraceptive use</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">−0.38</td><td align="center" valign="top" rowspan="1" colspan="1">0.711</td><td align="center" valign="top" rowspan="1" colspan="1">−7.33 (19.41)</td><td align="center" valign="top" rowspan="1" colspan="1">−0.37</td><td align="center" valign="top" rowspan="1" colspan="1">0.720</td><td align="center" valign="top" rowspan="1" colspan="1">−7.75 (21.11)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Testosterone</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">0.13</td><td align="center" valign="top" rowspan="1" colspan="1">0.901</td><td align="center" valign="top" rowspan="1" colspan="1">2.04 (15.98)</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">HOMA2−IR</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1">0.05</td><td align="center" valign="top" rowspan="1" colspan="1">0.962</td><td align="center" valign="top" rowspan="1" colspan="1">0.52 (10.63)</td></tr></tbody></table><table-wrap-foot><fn id="cen70067-tbl3-note-0001"><p>
+<italic toggle="yes">Note:</italic> Model 1 degrees‐of‐freedom (Df) = 1,15. Model 2 Df = 2,14. Model 3 Df = 3,13. Data presented are from nine PCOS patients and eight healthy controls.</p></fn><fn id="cen70067-tbl3-note-0002"><p>Abbreviations: CMRO<sub>2</sub>, cerebral metabolic rate of oxygen; OEF, oxygen extraction fraction; SE, Standard Error.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><table-wrap position="float" id="cen70067-tbl-0004" content-type="Table" orientation="portrait"><label>Table 4</label><caption><p>Model results for brain regional effects of main MRI vascular outcomes (region*outcome interaction).</p></caption><table frame="hsides" rules="groups"><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="center" span="1"/><thead valign="bottom"><tr valign="bottom"><th align="left" valign="bottom" rowspan="1" colspan="1"/><th align="center" valign="bottom" rowspan="1" colspan="1"/><th align="center" colspan="6" style="border-bottom:solid 1px #000000" valign="bottom" rowspan="1">Model 3 – brain regional effects</th></tr><tr valign="bottom" style="border-bottom:solid 1px #000000"><th align="left" valign="bottom" rowspan="1" colspan="1"/><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">Outcomes</italic>
+</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">χ</italic>
+<sup>
+<italic toggle="yes">2</italic>
+</sup>
+</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">p</italic> value</th><th align="center" valign="bottom" rowspan="1" colspan="1">Region</th><th align="center" valign="bottom" rowspan="1" colspan="1">t−statistic (Df)</th><th align="center" valign="bottom" rowspan="1" colspan="1">Estimate (SE)</th><th align="center" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">p</italic> value [corrected]</th></tr></thead><tbody valign="top"><tr><td valign="middle" rowspan="4" align="left" colspan="1">CBF</td><td align="center" valign="top" rowspan="1" colspan="1">PCOS status</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>110.31</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>0.029</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>Left transverse temporal gyrus</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>−3.99 (2227.04)</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>−29.05 (7.26)</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>0.005</bold>
+</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Hormonal contraceptive use</td><td align="center" valign="top" rowspan="1" colspan="1">46.68</td><td align="center" valign="top" rowspan="1" colspan="1">1.00</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Testosterone</td><td align="center" valign="top" rowspan="1" colspan="1">76.99</td><td align="center" valign="top" rowspan="1" colspan="1">0.693</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">HOMA2−IR</td><td align="center" valign="top" rowspan="1" colspan="1">94.08</td><td align="center" valign="top" rowspan="1" colspan="1">0.212</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td valign="middle" rowspan="4" align="left" colspan="1">AAT</td><td align="center" valign="top" rowspan="1" colspan="1">PCOS status</td><td align="center" valign="top" rowspan="1" colspan="1">98.93</td><td align="center" valign="top" rowspan="1" colspan="1">0.127</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Hormonal contraceptive use</td><td align="center" valign="top" rowspan="1" colspan="1">76.04</td><td align="center" valign="top" rowspan="1" colspan="1">0.720</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Testosterone</td><td align="center" valign="top" rowspan="1" colspan="1">71.53</td><td align="center" valign="top" rowspan="1" colspan="1">0.832</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">HOMA2−IR</td><td align="center" valign="top" rowspan="1" colspan="1">82.02</td><td align="center" valign="top" rowspan="1" colspan="1">0.541</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td valign="middle" rowspan="5" align="left" colspan="1">CVR</td><td valign="middle" rowspan="2" align="center" colspan="1">PCOS status</td><td valign="middle" rowspan="2" align="center" colspan="1">
+<bold>154.25</bold>
+</td><td valign="middle" rowspan="2" align="center" colspan="1">
+<bold>&lt; 0.001</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>Left parahippocampus</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>5.10 (1966.20)</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>1.37 (0.27)</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>&lt; 0.001</bold>
+</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>Left pericalcarine cortex</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>4.06 (1966.08)</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>1.04 (0.26)</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>0.002</bold>
+</td></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Hormonal contraceptive use</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>155.38</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1">
+<bold>&lt; 0.001</bold>
+</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">Testosterone</td><td align="center" valign="top" rowspan="1" colspan="1">72.70</td><td align="center" valign="top" rowspan="1" colspan="1">0.783</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr><tr><td align="center" valign="top" rowspan="1" colspan="1">HOMA2−IR</td><td align="center" valign="top" rowspan="1" colspan="1">38.67</td><td align="center" valign="top" rowspan="1" colspan="1">&gt; 0.99</td><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/><td align="center" valign="top" rowspan="1" colspan="1"/></tr></tbody></table><table-wrap-foot><fn id="cen70067-tbl4-note-0001"><p>
+<italic toggle="yes">Note:</italic> Degrees‐of‐freedom (Df) = 84 unless otherwise stated. Statistically significant results indicated in bold. Regional <italic toggle="yes">p</italic>‐values corrected for multiple comparisons. CBF and AAT data are from 15 PCOS patients and 12 healthy controls, and CVR data are from 15 PCOS patients and 10 healthy controls.</p></fn><fn id="cen70067-tbl4-note-0002"><p>Abbreviations: AAT, arterial arrival time; CBF, cerebral blood flow; CVR, cerebrovascular reactivity.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap></sec><sec id="cen70067-sec-0260"><label>3.4</label><title>Sensitivity Analysis</title><p>Medication status alone did not significantly explain variance in any outcome variable in this sample (for full results, see Supporting Information <xref rid="cen70067-suppl-0001" ref-type="supplementary-material">S1</xref>).</p><p>Group differences in CVR‐related quality metrics were then investigated. Neither CO<sub>2</sub>‐BOLD Rho (t(23) = −1.23; <italic toggle="yes">p</italic> = 0.23) nor optimal CO<sub>2</sub>‐BOLD lag (W(23) = 73.50; <italic toggle="yes">p</italic> = 0.95) were statistically significantly different between groups. However, ΔPETCO<sub>2</sub> was greater in PCOS patients compared to controls (t(23) = −2.23; <italic toggle="yes">p</italic> = 0.04; PCOS mean (SD) = 12.56 (3.46) mmHg; control mean (SD) = 9.45 (3.32) mmHg; figure in Supporting Information <xref rid="cen70067-suppl-0001" ref-type="supplementary-material">S1</xref>). The CVR analysis used accounts for such differences in ΔPETCO<sub>2</sub> as individual PETCO<sub>2</sub> traces were included in CVR modelling. Nevertheless, the final ROI‐interaction CVR model was repeated with per‐subject ΔPETCO<sub>2</sub> as an additional fixed effect; if the regional group difference was no longer seen, it would suggest they were driven by breath‐hold amplitude variance. However, the pattern of results was maintained; there was evidence of a regional effect (<italic toggle="yes">χ</italic>
+<sup>
+<italic toggle="yes">2</italic>
+</sup> = 154.20; df = 1; <italic toggle="yes">p</italic>‐value &lt; 0.001), with PCOS patients demonstrating a small increase in CVR compared to healthy controls in the left parahippocampus (t(1966) = 5.10; <italic toggle="yes">p</italic> &lt; 0.001; estimate [SE] = 1.37[0.27]; 95% CIs = 0.84, 1.90) and left pericalcarine cortex (t(1966) = 4.05; <italic toggle="yes">p</italic> = 0.002; estimate [SE] = 1.03 [0.26]; 95% CIs = 0.53, 1.54).</p><p>TRUST goodness‐of fit values were &gt; 0.99 for all participants. Neither Yv (t(15) = −1.70; <italic toggle="yes">p</italic> = 0.11) nor goodness‐of‐fit (W(15) = 55.00; <italic toggle="yes">p</italic> = 0.07) significantly differed between groups.</p><p>Finally, reliability of the PI dataset was investigated. A CV of 20% was found in the full dataset. A test‐retest ICC of 0.82 [95% CI: 0.65, 0.91) was calculated, which suggests good intrasession reliability.</p></sec></sec><sec sec-type="discussion" id="cen70067-sec-0270"><label>4</label><title>Discussion</title><p>This preliminary study is the first to investigate the independent contribution of PCOS status, serum testosterone, and insulin resistance on a comprehensive range of cerebrovascular measures in a sample of PCOS patients and age‐and‐BMI‐matched controls, using advanced MRI. This pilot investigation aimed to broadly interrogate cerebrovascular flow and function so specific hypotheses could be generated for testing in subsequent adequately powered studies. We observed that PCOS diagnosis is associated with regional dampened cortical perfusion and regional enhanced cerebrovascular reactivity. Our observations have potentially important implications for our understanding of cerebrovascular risk in women with PCOS.</p><p>When considering the overall models and in line with recently published work using ultrasound (Richards et al. [<xref rid="cen70067-bib-0035" ref-type="bibr">35</xref>], Clinical Endocrinology – accepted), we found that PCOS did not significantly contribute to cerebrovascular function variance, with or without the addition of possible explanatory variables such as circulating testosterone or HOMA2‐IR. However, an additional in‐depth regional analysis suggested that women with PCOS had region‐specific reductions in CBF compared to healthy controls. This effect was significant despite accounting for testosterone and insulin resistance in the model, suggesting that additional mechanisms may drive this effect, such as wider endocrine or metabolic disruption. For example, patients with PCOS typically have relative progesterone deficiency, especially in the context of oligo‐/amenorrhoea. Since progesterone has been shown to increase CBF [<xref rid="cen70067-bib-0036" ref-type="bibr">36</xref>], relative progesterone deficiency may contribute to our observations. Additionally, women with PCOS demonstrated increases in regional CVR compared to controls. The difference between regional resting (CBF) and dynamic (CVR) function is notable and may suggest some region‐limited compensatory action, vascular dysregulation, or altered neurovascular coupling. In recent work from our lab (Richards et al. [<xref rid="cen70067-bib-0035" ref-type="bibr">35</xref>], Clinical Endocrinology – accepted), global neurovascular coupling measured using ultrasound was comparable between PCOS and healthy controls, but it may be important to interrogate regional variation to help understand PCOS cerebrovascular function. Since this was an exploratory study, these regions should be considered for future hypothesis‐driven work.</p><p>AAT and PI were also of interest as both may reflect vascular stiffness, an important marker of vascular ageing, and peripheral endothelial dysfunction has been observed in women with PCOS [<xref rid="cen70067-bib-0037" ref-type="bibr">37</xref>]. However, we found no effect of PCOS status on resting PI or AAT in this sample. While previous work has found an influence of serum testosterone concentration on vascular compliance, the evidence is much more inconclusive in women compared to men [<xref rid="cen70067-bib-0038" ref-type="bibr">38</xref>], suggesting that there may be sexually dimorphic effects. Previous work has found conflicting results when comparing PI in patients with PCOS to controls in a similar age range [<xref rid="cen70067-bib-0011" ref-type="bibr">11</xref>, <xref rid="cen70067-bib-0012" ref-type="bibr">12</xref>]; however, the use of high‐resolution MRI techniques allows more accurate estimation. It is also possible that, in this age group, the effect of testosterone and insulin resistance on cerebrovascular stiffness is too subtle to be detected. This may not be the case in an older cohort with longer disease exposure than the cohort studied here, or if tested while the system was under stress, such as exercise. The effect of testosterone may also be dampened in our sample due to the relatively high BMI, as it has been previously suggested that the relationship between androgens and endothelial function reduces with weight gain [<xref rid="cen70067-bib-0039" ref-type="bibr">39</xref>].</p><p>Finally, we examined metrics of oxygen metabolism in a subsample. We found no influence of PCOS status on either OEF or CMRO<sub>2</sub>. This suggests that cortical oxygen metabolism is maintained in young adults with PCOS, although we recognise that we may have been underpowered to address this, and larger studies are needed.</p><p>This study formed part of a wider investigation of vascular health in PCOS in a ‘real world’ setting (Richards et al., 2025, Clinical Endocrinology – accepted). Medication used commonly in clinical practice was therefore included as long as participants had been taking them at a stable dose for at least 3 months. Though a sensitivity analysis suggested no statistically significant differences between individuals taking medication compared to those not taking medication, this may introduce noise to our vascular outcomes. Future research should therefore investigate outcomes in medication‐naïve cohorts. There are also other potential confounding factors that were not monitored and modelled but which could influence perfusion and reactivity outcomes, such as smoking status [<xref rid="cen70067-bib-0040" ref-type="bibr">40</xref>], blood pressure [<xref rid="cen70067-bib-0041" ref-type="bibr">41</xref>], dyslipidaemia [<xref rid="cen70067-bib-0042" ref-type="bibr">42</xref>], and obstructive sleep apnoea [<xref rid="cen70067-bib-0043" ref-type="bibr">43</xref>]. These factors should be included in future modelling work using a larger, more heterogeneous sample.</p><p>Our study has several strengths and some limitations. This is the first study to employ state‐of‐the‐art MRI techniques to interrogate a range of cerebrovascular measures in PCOS and examine associations with potential mechanisms. Age and BMI were carefully matched between groups, as obesity can independently impact cerebrovascular function [<xref rid="cen70067-bib-0044" ref-type="bibr">44</xref>]. Recruitment was also confined to sedentary individuals to reduce any impact of significant variation in physical fitness on vascular function. However, we acknowledge the relatively small sample size, especially with respect to measures of oxygen metabolism, which will reduce power for examining subtle region‐specific effects. These results should therefore be interpreted with caution and used to generate more targeted hypotheses. Additionally, insulin resistance did not differ between the PCOS and control groups, suggesting that the recruited PCOS sample had a relatively ‘mild’ metabolic phenotype. This may potentially explain why insulin resistance showed no relationship with our vascular measures, despite previous work demonstrating that insulin resistance may be linked to reduced cerebrovascular reactivity independently of BMI [<xref rid="cen70067-bib-0045" ref-type="bibr">45</xref>]. Our results may not thus be generalisable to patients with PCOS with a more severe metabolic phenotype. Additionally, the narrow age and BMI range means that our findings may not translate to older women or those with lean PCOS. However, this helped to specifically investigate PCOS‐associated effects. Finally, an important limitation is that, due to the presence of oligomenorrhoea or amenorrhoea in the PCOS patients, information on menstrual timing was not available and so the groups could not be matched in this aspect. This introduces additional noise in our PCOS vascular measurements that may contribute or mask group differences, as previous work has suggested that menstrual‐related fluctuations in oestrogen and progesterone are associated with small, global changes in cerebral blood flow [<xref rid="cen70067-bib-0036" ref-type="bibr">36</xref>].</p><p>In conclusion, our study demonstrates for the first time that PCOS patients have dampened regional resting CBF and elevated regional CVR compared to healthy controls, which were not associated with serum testosterone concentration or insulin resistance in this sample. However, due to the limited power of this pilot study, these results require further replication. Further studies with greater statistical power are needed to confirm our findings, investigate additional underlying mechanisms and establish whether measures which reduce vascular risk can improve cerebrovascular physiology in this population, especially as early cardiovascular risk factors are associated with cognitive impairment in later life [<xref rid="cen70067-bib-0046" ref-type="bibr">46</xref>].</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="cen70067-suppl-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting Figure 1:</bold> Violin plot comparing cerebral blood flow (CBF; ml/100g/min) values from all regions of interest (ROIs) between the healthy control group (left, green) and the PCOS group (right, blue). <bold>Supporting Figure 2:</bold> Violin plot comparing PETCO2 (defined as the max‐min end‐tidal CO2 trace recorded during the breath hold task) between the control group (left, green) and the PCOS group (right, blue). <bold>Supporting Table 1:</bold> Sensitivity analysis for outlier handling. <bold>Supporting Table 2:</bold> Regional interactions with PCOS status on cerebral blood flow. Q values are corrected for a false discovery rate (FDR) over 83 regions. <bold>Supporting Table 3:</bold> Regional interactions with PCOS status on cerebrovascular reactivity. Q values are corrected for a false discovery rate (FDR) over 83 regions. <bold>Supporting Table 4:</bold> Regional interactions with Hormonal contraceptive use on cerebrovascular reactivity. Q values are corrected for a false discovery rate (FDR) over 83 regions. <bold>Supporting Table 5:</bold> Sensitivity analysis of medication status on vascular outcomes.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="CEN-104-493-s001.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="cen70067-sec-0280"><title>Acknowledgements</title><p>This work was supported by a grant from The Waterloo Foundation (Grant #515818). Additionally, this research was funded in whole, or in part, by the Wellcome Trust (WT224267). For the purpose of open access, the author has applied a CC BY public copyright license to any Author Accepted Manuscript version arising from this submission.</p><sec sec-type="COI-statement" id="cen70067-sec-0290"><title>Conflicts of Interest</title><p>The authors declare no conflicts of interest.</p></sec></ack><sec sec-type="data-availability" id="cen70067-sec-0310"><title>Data Availability Statement</title><p>The data and code that support the findings of this study are openly available in g‐node at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://doi.org/10.12751/g-node.y6xp8z" ext-link-type="uri" specific-use="dataset is-supplemented-by">doi.org/10.12751/g-node.y6xp8z</ext-link>.</p></sec><ref-list content-type="cited-references" id="cen70067-bibl-0001"><title>References</title><ref id="cen70067-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="cen70067-cit-0001">
+<string-name name-style="western">
+<given-names>H. J.</given-names>
+<surname>Teede</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. T.</given-names>
+<surname>Tay</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. J. E.</given-names>
+<surname>Laven</surname>
+</string-name>, et al., “<article-title>Recommendations From the 2023 International Evidence‐Based Guideline for the Assessment and Management of Polycystic Ovary Syndrome</article-title>,” <source>European Journal of Endocrinology</source>
+<volume>189</volume>, no. <issue>2</issue> (<year>2023</year>): <fpage>G43</fpage>–<lpage>G64</lpage>, <pub-id pub-id-type="doi">10.1093/ejendo/lvad096</pub-id>.<pub-id pub-id-type="pmid">37580861</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="cen70067-cit-0002">
+<string-name name-style="western">
+<given-names>C. T.</given-names>
+<surname>Tay</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Mousa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Vyas</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Pattuwage</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F. R.</given-names>
+<surname>Tehrani</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Teede</surname>
+</string-name>, “<article-title>2023 International Evidence‐Based Polycystic Ovary Syndrome Guideline Update: Insights From a Systematic Review and Meta‐Analysis on Elevated Clinical Cardiovascular Disease in Polycystic Ovary Syndrome</article-title>,” <source>Journal of the American Heart Association</source>
+<volume>13</volume>, no. <issue>16</issue> (<year>2024</year>): <elocation-id>e033572</elocation-id>, <pub-id pub-id-type="doi">10.1161/JAHA.123.033572</pub-id>.<pub-id pub-id-type="pmid">39119982</pub-id>
+<pub-id pub-id-type="pmcid">PMC11963914</pub-id></mixed-citation></ref><ref id="cen70067-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="cen70067-cit-0003">
+<string-name name-style="western">
+<given-names>D. A.</given-names>
+<surname>Rees</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Udiawar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Berlot</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. K.</given-names>
+<surname>Jones</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. J.</given-names>
+<surname>O'Sullivan</surname>
+</string-name>, “<article-title>White Matter Microstructure and Cognitive Function in Young Women With Polycystic Ovary Syndrome</article-title>,” <source>Journal of Clinical Endocrinology &amp; Metabolism</source>
+<volume>101</volume>, no. <issue>1</issue> (<year>2016</year>): <fpage>314</fpage>–<lpage>323</lpage>, <pub-id pub-id-type="doi">10.1210/jc.2015-2318</pub-id>.<pub-id pub-id-type="pmid">26574952</pub-id>
+<pub-id pub-id-type="pmcid">PMC4701841</pub-id></mixed-citation></ref><ref id="cen70067-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="cen70067-cit-0004">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Schattmann</surname>
+</string-name> and <string-name name-style="western">
+<given-names>B. B.</given-names>
+<surname>Sherwin</surname>
+</string-name>, “<article-title>Testosterone Levels and Cognitive Functioning in Women With Polycystic Ovary Syndrome and in Healthy Young Women</article-title>,” <source>Hormones and Behavior</source>
+<volume>51</volume>, no. <issue>5</issue> (<year>2007</year>): <fpage>587</fpage>–<lpage>596</lpage>, <pub-id pub-id-type="doi">10.1016/j.yhbeh.2007.02.007</pub-id>.<pub-id pub-id-type="pmid">17433328</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="cen70067-cit-0005">
+<string-name name-style="western">
+<given-names>H. G.</given-names>
+<surname>Huddleston</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. G.</given-names>
+<surname>Jaswa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. B.</given-names>
+<surname>Casaletto</surname>
+</string-name>, et al., “<article-title>Associations of Polycystic Ovary Syndrome With Indicators of Brain Health at Midlife in the CARDIA Cohort</article-title>,” <source>Neurology</source>
+<volume>102</volume>, no. <issue>4</issue> (<year>2024</year>): <elocation-id>e208104</elocation-id>, <pub-id pub-id-type="doi">10.1212/WNL.0000000000208104</pub-id>.<pub-id pub-id-type="pmid">38295344</pub-id>
+<pub-id pub-id-type="pmcid">PMC11383880</pub-id></mixed-citation></ref><ref id="cen70067-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="cen70067-cit-0006">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. H.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q. Q.</given-names>
+<surname>Qu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>G. Q.</given-names>
+<surname>Zhong</surname>
+</string-name>, “<article-title>Risk of Cardiovascular and Cerebrovascular Events in Polycystic Ovarian Syndrome Women: A Meta‐Analysis of Cohort Studies</article-title>,” <source>Frontiers in Cardiovascular Medicine</source>
+<volume>7</volume> (<year>2020</year>): <elocation-id>55242</elocation-id>, <pub-id pub-id-type="doi">10.3389/fcvm.2020.552421</pub-id>.<pub-id pub-id-type="pmcid">PMC7690560</pub-id><pub-id pub-id-type="pmid">33282917</pub-id></mixed-citation></ref><ref id="cen70067-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="cen70067-cit-0007">
+<string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Kilic</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I. D.</given-names>
+<surname>Kilic</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. I.</given-names>
+<surname>Sevgican</surname>
+</string-name>, et al., “<article-title>Arterial Stiffness Measured by Cardio‐Ankle Vascular Index Is Greater in Non‐Obese Young Women With Polycystic Ovarian Syndrome</article-title>,” <source>Journal of Obstetrics and Gynaecology Research</source>
+<volume>47</volume>, no. <issue>2</issue> (<year>2021</year>): <fpage>521</fpage>–<lpage>528</lpage>, <pub-id pub-id-type="doi">10.1111/jog.14543</pub-id>.<pub-id pub-id-type="pmid">33145911</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="cen70067-cit-0008">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Fu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. G.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Park</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>G. L.</given-names>
+<surname>King</surname>
+</string-name>, “<article-title>Insulin's Actions on Vascular Tissues: Physiological Effects and Pathophysiological Contributions to Vascular Complications of Diabetes</article-title>,” <source>Molecular Metabolism</source>
+<volume>52</volume> (<year>2021</year>): <elocation-id>101236</elocation-id>, <pub-id pub-id-type="doi">10.1016/j.molmet.2021.101236</pub-id>.<pub-id pub-id-type="pmid">33878400</pub-id>
+<pub-id pub-id-type="pmcid">PMC8513152</pub-id></mixed-citation></ref><ref id="cen70067-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="cen70067-cit-0009">
+<string-name name-style="western">
+<given-names>D. S.</given-names>
+<surname>Guzick</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. O.</given-names>
+<surname>Talbott</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Sutton‐Tyrrell</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. C.</given-names>
+<surname>Herzog</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. H.</given-names>
+<surname>Kuller</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S. K.</given-names>
+<surname>Wolfson</surname>
+</string-name>, “<article-title>Carotid Atherosclerosis in Women With Polycystic Ovary Syndrome: Initial Results From a Case‐Control Study</article-title>,” <source>American Journal of Obstetrics and Gynecology</source>
+<volume>174</volume>, no. <issue>4</issue> (<year>1996</year>): <fpage>1224</fpage>–<lpage>1232</lpage>, <pub-id pub-id-type="doi">10.1016/s0002-9378(96)70665-8</pub-id>.<pub-id pub-id-type="pmid">8623850</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="cen70067-cit-0010">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Lakhani</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Constantinovici</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Purcell</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Fernando</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Hardiman</surname>
+</string-name>, “<article-title>Internal Carotid‐Artery Response to 5% Carbon Dioxide in Women With Polycystic Ovaries</article-title>,” <source>Lancet</source>
+<volume>356</volume>, no. <issue>9236</issue> (<year>2000</year>): <fpage>1166</fpage>–<lpage>1167</lpage>, <pub-id pub-id-type="doi">10.1016/S0140-6736(00)02764-1</pub-id>.<pub-id pub-id-type="pmid">11030301</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="cen70067-cit-0011">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Lakhani</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Constantinovici</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W. M.</given-names>
+<surname>Purcell</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Fernando</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Hardiman</surname>
+</string-name>, “<article-title>Internal Carotid Artery Haemodynamics in Women With Polycystic Ovaries</article-title>,” <source>Clinical Science</source>
+<volume>98</volume>, no. <issue>6</issue> (<year>2000</year>): <fpage>661</fpage>–<lpage>665</lpage>, <pub-id pub-id-type="doi">10.1042/CS19990319</pub-id>.<pub-id pub-id-type="pmid">10814602</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="cen70067-cit-0012">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Kizkin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Engin‐Ustun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ustun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Ozcan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Serbest</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H. I.</given-names>
+<surname>Ozisik</surname>
+</string-name>, “<article-title>Cerebral Artery Hemodynamics in Polycystic Ovary Syndrome</article-title>,” <source>Gynecological Endocrinology</source>
+<volume>21</volume>, no. <issue>5</issue> (<year>2005</year>): <fpage>287</fpage>–<lpage>291</lpage>, <pub-id pub-id-type="doi">10.1080/09513590500402848</pub-id>.<pub-id pub-id-type="pmid">16373248</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="cen70067-cit-0013">
+<string-name name-style="western">
+<given-names>C. A.</given-names>
+<surname>Castellano</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. P.</given-names>
+<surname>Baillargeon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Nugent</surname>
+</string-name>, et al., “<article-title>Regional Brain Glucose Hypometabolism in Young Women With Polycystic Ovary Syndrome: Possible Link to Mild Insulin Resistance</article-title>,” <source>PLoS One</source>
+<volume>10</volume>, no. <issue>12</issue> (<year>2015</year>): <elocation-id>e0144116</elocation-id>, <pub-id pub-id-type="doi">10.1371/journal.pone.0144116</pub-id>.<pub-id pub-id-type="pmid">26650926</pub-id>
+<pub-id pub-id-type="pmcid">PMC4674147</pub-id></mixed-citation></ref><ref id="cen70067-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="cen70067-cit-0014">
+<string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Wardlaw</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Smith</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Dichgans</surname>
+</string-name>, “<article-title>Small Vessel Disease: Mechanisms and Clinical Implications</article-title>,” <source>Lancet Neurology</source>
+<volume>18</volume>, no. <issue>7</issue> (<year>2019</year>): <fpage>684</fpage>–<lpage>696</lpage>, <pub-id pub-id-type="doi">10.1016/S1474-4422(19)30079-1</pub-id>.<pub-id pub-id-type="pmid">31097385</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="cen70067-cit-0015">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Guoqing</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Fang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Lihui</surname>
+</string-name>, et al., “<article-title>Cerebral White Matter Lesions and Silent Cerebral Infarcts in Postmenopausal Women With Polycystic Ovary Syndrome</article-title>,” <source>Gynecological Endocrinology</source>
+<volume>32</volume>, no. <issue>8</issue> (<year>2016</year>): <fpage>655</fpage>–<lpage>658</lpage>, <pub-id pub-id-type="doi">10.3109/09513590.2016.1149812</pub-id>.<pub-id pub-id-type="pmid">26941198</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="cen70067-cit-0016">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Banks</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Carter</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Wannebo</surname>
+</string-name>, et al., “<article-title>Metabolic Syndrome Reduces Cerebral Blood Flow More in Women Than Men</article-title>,” <source>Physiology</source>
+<volume>39</volume>, no. <issue>S1</issue> (<year>2024</year>): <elocation-id>356</elocation-id>, <pub-id pub-id-type="doi">10.1152/physiol.2024.39.S1.356</pub-id>.</mixed-citation></ref><ref id="cen70067-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="cen70067-cit-0017">
+<string-name name-style="western">
+<given-names>K. J.</given-names>
+<surname>Carter</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. T.</given-names>
+<surname>Ward</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Kellawan</surname>
+</string-name>, et al., “<article-title>Reduced Basal Macrovascular and Microvascular Cerebral Blood Flow in Young Adults With Metabolic Syndrome: Potential Mechanisms</article-title>,” <source>Journal of Applied Physiology</source>
+<volume>135</volume>, no. <issue>1</issue> (<year>2023</year>): <fpage>94</fpage>–<lpage>108</lpage>, <pub-id pub-id-type="doi">10.1152/japplphysiol.00688.2022</pub-id>.<pub-id pub-id-type="pmid">37199780</pub-id>
+<pub-id pub-id-type="pmcid">PMC10292973</pub-id></mixed-citation></ref><ref id="cen70067-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="cen70067-cit-0018">
+<string-name name-style="western">
+<given-names>F. C.</given-names>
+<surname>Bull</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. S.</given-names>
+<surname>Al‐Ansari</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Biddle</surname>
+</string-name>, et al., “<article-title>World Health Organization 2020 Guidelines on Physical Activity and Sedentary Behaviour</article-title>,” <source>British Journal of Sports Medicine</source>
+<volume>54</volume>, no. <issue>24</issue> (<year>2020</year>): <fpage>1451</fpage>–<lpage>1462</lpage>, <pub-id pub-id-type="doi">10.1136/bjsports-2020-102955</pub-id>.<pub-id pub-id-type="pmid">33239350</pub-id>
+<pub-id pub-id-type="pmcid">PMC7719906</pub-id></mixed-citation></ref><ref id="cen70067-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="cen70067-cit-0019">
+<string-name name-style="western">
+<given-names>J. C.</given-names>
+<surname>Levy</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. R.</given-names>
+<surname>Matthews</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. P.</given-names>
+<surname>Hermans</surname>
+</string-name>, “<article-title>Correct Homeostasis Model Assessment (HOMA) Evaluation Uses the Computer Program</article-title>,” <source>Diabetes Care</source>
+<volume>21</volume>, no. <issue>12</issue> (<year>1998</year>): <fpage>2191</fpage>–<lpage>2192</lpage>, <pub-id pub-id-type="doi">10.2337/diacare.21.12.2191</pub-id>.<pub-id pub-id-type="pmid">9839117</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="cen70067-cit-0020">
+<string-name name-style="western">
+<given-names>J. R.</given-names>
+<surname>Whittaker</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Fasano</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Venzi</surname>
+</string-name>, et al., “<article-title>Measuring Arterial Pulsatility With Dynamic Inflow Magnitude Contrast</article-title>,” <source>Frontiers in Neuroscience</source>
+<volume>15</volume> (<year>2022</year>): <elocation-id>795749</elocation-id>, <pub-id pub-id-type="doi">10.3389/fnins.2021.795749</pub-id>.<pub-id pub-id-type="pmid">35110991</pub-id>
+<pub-id pub-id-type="pmcid">PMC8802674</pub-id></mixed-citation></ref><ref id="cen70067-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="cen70067-cit-0021">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Lu</surname>
+</string-name> and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ge</surname>
+</string-name>, “<article-title>Quantitative Evaluation of Oxygenation In Venous Vessels Using T2‐Relaxation‐Under‐Spin‐Tagging MRI</article-title>,” <source>Magnetic Resonance in Medicine</source>
+<volume>60</volume>, no. <issue>2</issue> (<year>2008</year>): <fpage>357</fpage>–<lpage>363</lpage>, <pub-id pub-id-type="doi">10.1002/mrm.21627</pub-id>.<pub-id pub-id-type="pmid">18666116</pub-id>
+<pub-id pub-id-type="pmcid">PMC2587050</pub-id></mixed-citation></ref><ref id="cen70067-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="cen70067-cit-0022">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Jenkinson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. F.</given-names>
+<surname>Beckmann</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. E. J.</given-names>
+<surname>Behrens</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. W.</given-names>
+<surname>Woolrich</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Smith</surname>
+</string-name>, “<article-title>FSL</article-title>,” <source>NeuroImage</source>
+<volume>62</volume>, no. <issue>2</issue> (<year>2012</year>): <fpage>782</fpage>–<lpage>790</lpage>.<pub-id pub-id-type="pmid">21979382</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.neuroimage.2011.09.015</pub-id></mixed-citation></ref><ref id="cen70067-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="cen70067-cit-0023">
+<string-name name-style="western">
+<given-names>R. W.</given-names>
+<surname>Cox</surname>
+</string-name>, “<article-title>AFNI: Software for Analysis and Visualization of Functional Magnetic Resonance Neuroimages</article-title>,” <source>Computers and Biomedical Research</source>
+<volume>29</volume>, no. <issue>3</issue> (<year>1996</year>): <fpage>162</fpage>–<lpage>173</lpage>, <pub-id pub-id-type="doi">10.1006/cbmr.1996.0014</pub-id>.<pub-id pub-id-type="pmid">8812068</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="cen70067-cit-0024">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Pinto</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Chappell</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. W.</given-names>
+<surname>Okell</surname>
+</string-name>, et al., “<article-title>Calibration of Arterial Spin Labeling Data—Potential Pitfalls in Post‐Processing</article-title>,” <source>Magnetic Resonance in Medicine</source>
+<volume>83</volume>, no. <issue>4</issue> (<year>2020</year>): <fpage>1222</fpage>–<lpage>1234</lpage>, <pub-id pub-id-type="doi">10.1002/mrm.28000</pub-id>.<pub-id pub-id-type="pmid">31605558</pub-id>
+<pub-id pub-id-type="pmcid">PMC6972489</pub-id></mixed-citation></ref><ref id="cen70067-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="cen70067-cit-0025">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Herscovitch</surname>
+</string-name> and <string-name name-style="western">
+<given-names>M. E.</given-names>
+<surname>Raichle</surname>
+</string-name>, “<article-title>What Is the Correct Value for the Brain‐Blood Partition Coefficient for Water?</article-title>,” <source>Journal of Cerebral Blood Flow &amp; Metabolism</source>
+<volume>5</volume>, no. <issue>1</issue> (<year>1985</year>): <fpage>65</fpage>–<lpage>69</lpage>, <pub-id pub-id-type="doi">10.1038/jcbfm.1985.9</pub-id>.<pub-id pub-id-type="pmid">3871783</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="cen70067-cit-0026">
+<string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. S.</given-names>
+<surname>Clingman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. J.</given-names>
+<surname>Närväinen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. A.</given-names>
+<surname>Kauppinen</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>P. C. M.</given-names>
+<surname>Van Zijl</surname>
+</string-name>, “<article-title>Oxygenation and Hematocrit Dependence of Transverse Relaxation Rates of Blood at 3T</article-title>,” <source>Magnetic Resonance in Medicine</source>
+<volume>58</volume>, no. <issue>3</issue> (<year>2007</year>): <fpage>592</fpage>–<lpage>597</lpage>, <pub-id pub-id-type="doi">10.1002/mrm.21342</pub-id>.<pub-id pub-id-type="pmid">17763354</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="cen70067-cit-0027">
+<string-name name-style="western">
+<given-names>R. B.</given-names>
+<surname>Buxton</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. R.</given-names>
+<surname>Frank</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. C.</given-names>
+<surname>Wong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Siewert</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Warach</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R. R.</given-names>
+<surname>Edelman</surname>
+</string-name>, “<article-title>A General Kinetic Model for Quantitative Perfusion Imaging With Arterial Spin Labeling</article-title>,” <source>Magnetic Resonance in Medicine</source>
+<volume>40</volume>, no. <issue>3</issue> (<year>1998</year>): <fpage>383</fpage>–<lpage>396</lpage>, <pub-id pub-id-type="doi">10.1002/mrm.1910400308</pub-id>.<pub-id pub-id-type="pmid">9727941</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="cen70067-cit-0028">
+<string-name name-style="western">
+<given-names>R. S.</given-names>
+<surname>Desikan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Ségonne</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Fischl</surname>
+</string-name>, et al., “<article-title>An Automated Labeling System for Subdividing the Human Cerebral Cortex on MRI Scans Into Gyral Based Regions of Interest</article-title>,” <source>NeuroImage</source>
+<volume>31</volume>, no. <issue>3</issue> (<year>2006</year>): <fpage>968</fpage>–<lpage>980</lpage>, <pub-id pub-id-type="doi">10.1016/j.neuroimage.2006.01.021</pub-id>.<pub-id pub-id-type="pmid">16530430</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="cen70067-cit-0029">
+<string-name name-style="western">
+<given-names>H. L.</given-names>
+<surname>Chandler</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. C.</given-names>
+<surname>Stickland</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Patitucci</surname>
+</string-name>, et al., “<article-title>Reduced Brain Oxygen Metabolism in Patients With Multiple Sclerosis: Evidence From Dual‐Calibrated Functional MRI</article-title>,” <source>Journal of Cerebral Blood Flow &amp; Metabolism</source>
+<volume>43</volume>, no. <issue>1</issue> (<year>2023</year>): <fpage>115</fpage>–<lpage>128</lpage>, <pub-id pub-id-type="doi">10.1177/0271678X221121849</pub-id>.<pub-id pub-id-type="pmid">36071645</pub-id>
+<pub-id pub-id-type="pmcid">PMC9875355</pub-id></mixed-citation></ref><ref id="cen70067-bib-0030"><label>30</label><mixed-citation publication-type="miscellaneous" id="cen70067-cit-0030">
+<collab collab-type="authors">JASP Team</collab>
+. JASP (v.0.17). Published online 2023.</mixed-citation></ref><ref id="cen70067-bib-0031"><label>31</label><mixed-citation publication-type="miscellaneous" id="cen70067-cit-0031">
+<collab collab-type="authors">R core team</collab>
+. <article-title>R: A Language and Environment for Statistical Computing</article-title>. Published online 2022, <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.R-project.org/" ext-link-type="uri">https://www.R-project.org/</ext-link>.</mixed-citation></ref><ref id="cen70067-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="cen70067-cit-0032">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kuznetsova</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. B.</given-names>
+<surname>Brockhoff</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R. H. B.</given-names>
+<surname>Christensen</surname>
+</string-name>, “<article-title>lmerTest Package: Tests in Linear Mixed Effects Models</article-title>,” <source>Journal of Statistical Software</source>
+<volume>82</volume>, no. <issue>13</issue> (<year>2017</year>): <fpage>1</fpage>–<lpage>26</lpage>, <pub-id pub-id-type="doi">10.18637/jss.v082.i13</pub-id>.</mixed-citation></ref><ref id="cen70067-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="cen70067-cit-0033">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Benjamini</surname>
+</string-name> and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Hochberg</surname>
+</string-name>, “<article-title>Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing</article-title>,” <source>Journal of the Royal Statistical Society Series B: Statistical Methodology</source>
+<volume>57</volume>, no. <issue>1</issue> (<year>1995</year>): <fpage>289</fpage>–<lpage>300</lpage>, <pub-id pub-id-type="doi">10.1111/j.2517-6161.1995.tb02031.x</pub-id>.</mixed-citation></ref><ref id="cen70067-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="cen70067-cit-0034">
+<string-name name-style="western">
+<given-names>S. R.</given-names>
+<surname>Weaver</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. D.</given-names>
+<surname>Skinner</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Furlong</surname>
+</string-name>, et al., “<article-title>Cerebral Hemodynamic and Neurotrophic Factor Responses Are Dependent on the Type of Exercise</article-title>,” <source>Frontiers in Physiology</source>
+<volume>11</volume> (<year>2021</year>): <elocation-id>609935</elocation-id>, <pub-id pub-id-type="doi">10.3389/fphys.2020.609935</pub-id>.<pub-id pub-id-type="pmid">33551835</pub-id>
+<pub-id pub-id-type="pmcid">PMC7859714</pub-id></mixed-citation></ref><ref id="cen70067-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="cen70067-cit-0035">
+<string-name name-style="western">
+<surname>Richards</surname>, <given-names>C. T.</given-names>
+</string-name>, <string-name name-style="western">
+<given-names>T. D.</given-names>
+<surname>Griffiths</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z. H.</given-names>
+<surname>Adams</surname>
+</string-name>, et al., “<article-title>Resting Cerebrovascular Haemodynamics and Dynamic Assessment of Cerebrovascular Function in Polycystic Ovary Syndrome</article-title>,” <source>Clinical Endocrinology</source>, ahead of print, November 25, <year>2025</year>, <pub-id pub-id-type="doi">10.1111/cen.70061</pub-id>.<pub-id pub-id-type="pmcid">PMC12865755</pub-id><pub-id pub-id-type="pmid">41292137</pub-id></mixed-citation></ref><ref id="cen70067-bib-0036"><label>36</label><mixed-citation publication-type="miscellaneous" id="cen70067-cit-0036">
+<string-name name-style="western">
+<given-names>M. E.</given-names>
+<surname>Wright</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Crofts</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Davies</surname>
+</string-name>, et al., “<article-title>Endocrine Modulation of Cortical and Retinal Blood Flow Across the Menstrual Cycle</article-title>,” preprint, bioRxiv, April 4, 2025, <pub-id pub-id-type="doi">10.1101/2024.12.19.629235</pub-id>.<pub-id pub-id-type="pmcid">PMC12913051</pub-id><pub-id pub-id-type="pmid">41696811</pub-id></mixed-citation></ref><ref id="cen70067-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="cen70067-cit-0037">
+<string-name name-style="western">
+<given-names>V. S.</given-names>
+<surname>Sprung</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Atkinson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. J.</given-names>
+<surname>Cuthbertson</surname>
+</string-name>, et al., “<article-title>Endothelial Function Measured Using Flow‐Mediated Dilation in Polycystic Ovary Syndrome: A Meta‐Analysis of the Observational Studies</article-title>,” <source>Clinical Endocrinology</source>
+<volume>78</volume>, no. <issue>3</issue> (<year>2013</year>): <fpage>438</fpage>–<lpage>446</lpage>, <pub-id pub-id-type="doi">10.1111/j.1365-2265.2012.04490.x</pub-id>.<pub-id pub-id-type="pmid">22775449</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="cen70067-cit-0038">
+<string-name name-style="western">
+<given-names>K. L.</given-names>
+<surname>Moreau</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. C.</given-names>
+<surname>Babcock</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>K. L.</given-names>
+<surname>Hildreth</surname>
+</string-name>, “<article-title>Sex Differences in Vascular Aging in Response to Testosterone</article-title>,” <source>Biology of Sex Differences</source>
+<volume>11</volume>, no. <issue>1</issue> (<year>2020</year>): <fpage>18</fpage>, <pub-id pub-id-type="doi">10.1186/s13293-020-00294-8</pub-id>.<pub-id pub-id-type="pmid">32295637</pub-id>
+<pub-id pub-id-type="pmcid">PMC7161199</pub-id></mixed-citation></ref><ref id="cen70067-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="cen70067-cit-0039">
+<string-name name-style="western">
+<given-names>D. E.</given-names>
+<surname>Berbrier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. A.</given-names>
+<surname>Leone</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. E.</given-names>
+<surname>Adler</surname>
+</string-name>, et al., “<article-title>Effects of Androgen Excess and Body Mass Index on Endothelial Function in Women With Polycystic Ovary Syndrome</article-title>,” <source>Journal of Applied Physiology (Bethesda, Md.: 1985)</source>
+<volume>134</volume>, no. <issue>4</issue> (<year>2023</year>): <fpage>868</fpage>–<lpage>878</lpage>, <pub-id pub-id-type="doi">10.1152/japplphysiol.00583.2022</pub-id>.<pub-id pub-id-type="pmid">36861670</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="cen70067-cit-0040">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Toda</surname>
+</string-name> and <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Okamura</surname>
+</string-name>, “<article-title>Cigarette Smoking Impairs Nitric Oxide‐Mediated Cerebral Blood Flow Increase: Implications for Alzheimer's Disease</article-title>,” <source>Journal of Pharmacological Sciences</source>
+<volume>131</volume>, no. <issue>4</issue> (<year>2016</year>): <fpage>223</fpage>–<lpage>232</lpage>, <pub-id pub-id-type="doi">10.1016/j.jphs.2016.07.001</pub-id>.<pub-id pub-id-type="pmid">27530818</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="cen70067-cit-0041">
+<string-name name-style="western">
+<given-names>L. L.</given-names>
+<surname>Beason‐Held</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Moghekar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. B.</given-names>
+<surname>Zonderman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Kraut</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Resnick</surname>
+</string-name>, “<article-title>Longitudinal Changes in Cerebral Blood Flow in the Older Hypertensive Brain</article-title>,” <source>Stroke</source>
+<volume>38</volume>, no. <issue>6</issue> (<year>2007</year>): <fpage>1766</fpage>–<lpage>1773</lpage>, <pub-id pub-id-type="doi">10.1161/STROKEAHA.106.477109</pub-id>.<pub-id pub-id-type="pmid">17510458</pub-id>
+</mixed-citation></ref><ref id="cen70067-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="cen70067-cit-0042">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Ayata</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. K.</given-names>
+<surname>Shin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Dileköz</surname>
+</string-name>, et al., “<article-title>Hyperlipidemia Disrupts Cerebrovascular Reflexes and Worsens Ischemic Perfusion Defect</article-title>,” <source>Journal of Cerebral Blood Flow &amp; Metabolism</source>
+<volume>33</volume>, no. <issue>6</issue> (<year>2013</year>): <fpage>954</fpage>–<lpage>962</lpage>, <pub-id pub-id-type="doi">10.1038/jcbfm.2013.38</pub-id>.<pub-id pub-id-type="pmid">23486293</pub-id>
+<pub-id pub-id-type="pmcid">PMC3677117</pub-id></mixed-citation></ref><ref id="cen70067-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="cen70067-cit-0043">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Xiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Hua</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Chen</surname>
+</string-name>, et al., “<article-title>Abnormal Cerebral Blood Flow and Volumetric Brain Morphometry in Patients With Obstructive Sleep Apnea</article-title>,” <source>Frontiers in Neuroscience</source>
+<volume>16</volume> (<year>2022</year>): <elocation-id>934166</elocation-id>, <pub-id pub-id-type="doi">10.3389/fnins.2022.934166</pub-id>.<pub-id pub-id-type="pmid">35873812</pub-id>
+<pub-id pub-id-type="pmcid">PMC9298748</pub-id></mixed-citation></ref><ref id="cen70067-bib-0044"><label>44</label><mixed-citation publication-type="journal" id="cen70067-cit-0044">
+<string-name name-style="western">
+<given-names>Y. S.</given-names>
+<surname>Qiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. H.</given-names>
+<surname>Chai</surname>
+</string-name>, et al., “<article-title>Cerebral Blood Flow Alterations and Obesity: A Systematic Review and Meta‐Analysis</article-title>,” <source>Journal of Alzheimer's Disease</source>
+<volume>90</volume>, no. <issue>1</issue> (<year>2022</year>): <fpage>15</fpage>–<lpage>31</lpage>, <pub-id pub-id-type="doi">10.3233/JAD-220601</pub-id>.<pub-id pub-id-type="pmid">36093706</pub-id></mixed-citation></ref><ref id="cen70067-bib-0045"><label>45</label><mixed-citation publication-type="journal" id="cen70067-cit-0045">
+<string-name name-style="western">
+<given-names>O. H.</given-names>
+<surname>Frosch</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. L.</given-names>
+<surname>Yau</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. S.</given-names>
+<surname>Osorio</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Rusinek</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Storey</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Convit</surname>
+</string-name>, “<article-title>Insulin Resistance Among Obese Middle‐Aged Is Associated With Decreased Cerebrovascular Reactivity</article-title>,” <source>Neurology</source>
+<volume>89</volume>, no. <issue>3</issue> (<year>2017</year>): <fpage>249</fpage>–<lpage>255</lpage>, <pub-id pub-id-type="doi">10.1212/WNL.0000000000004110</pub-id>.<pub-id pub-id-type="pmid">28615420</pub-id>
+<pub-id pub-id-type="pmcid">PMC5513815</pub-id></mixed-citation></ref><ref id="cen70067-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="cen70067-cit-0046">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Yaffe</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. L.</given-names>
+<surname>Bahorik</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. D.</given-names>
+<surname>Hoang</surname>
+</string-name>, et al., “<article-title>Cardiovascular Risk Factors and Accelerated Cognitive Decline in Midlife: The CARDIA Study</article-title>,” <source>Neurology</source>
+<volume>95</volume>, no. <issue>7</issue> (<year>2020</year>): <fpage>e839</fpage>–<lpage>e846</lpage>, <pub-id pub-id-type="doi">10.1212/WNL.0000000000010078</pub-id>.<pub-id pub-id-type="pmid">32669394</pub-id>
+<pub-id pub-id-type="pmcid">PMC7605504</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

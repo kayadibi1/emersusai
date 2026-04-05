@@ -1,0 +1,1847 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="advs73095" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="iso-abbrev">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="pmc-domain-id">2933</journal-id><journal-id journal-id-type="pmc-domain">advsci</journal-id><journal-id journal-id-type="publisher-id">ADVS</journal-id><journal-title-group><journal-title>Advanced Science</journal-title></journal-title-group><issn pub-type="epub">2198-3844</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC12904085</article-id><article-id pub-id-type="pmcid-ver">PMC12904085.1</article-id><article-id pub-id-type="pmcaid">12904085</article-id><article-id pub-id-type="pmcaiid">12904085</article-id><article-id pub-id-type="pmid">41347640</article-id><article-id pub-id-type="doi">10.1002/advs.202515865</article-id><article-id pub-id-type="publisher-id">ADVS73095</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>AIEgen‐Based Proactive Early Warning System and Precise Treatment Strategy for Monkeypox Prevention and Control</article-title></title-group><contrib-group><contrib id="advs73095-cr-0001" contrib-type="author"><name name-style="western"><surname>Wang</surname><given-names initials="W">Wei</given-names></name><xref rid="advs73095-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73095-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73095-cr-0002" contrib-type="author"><name name-style="western"><surname>Liu</surname><given-names initials="Z">Zining</given-names></name><xref rid="advs73095-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73095-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs73095-cr-0003" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="M">Mengjun</given-names></name><xref rid="advs73095-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs73095-cr-0004" contrib-type="author"><name name-style="western"><surname>Zheng</surname><given-names initials="J">Judun</given-names></name><xref rid="advs73095-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs73095-cr-0005" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="R">Ruilin</given-names></name><xref rid="advs73095-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs73095-cr-0006" contrib-type="author"><name name-style="western"><surname>Liu</surname><given-names initials="K">Ke</given-names></name><xref rid="advs73095-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs73095-cr-0007" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="X">Xiaoxue</given-names></name><xref rid="advs73095-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs73095-cr-0008" contrib-type="author"><name name-style="western"><surname>Wen</surname><given-names initials="S">Shaoying</given-names></name><xref rid="advs73095-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73095-cr-0009" contrib-type="author"><name name-style="western"><surname>Yu</surname><given-names initials="J">Jingze</given-names></name><xref rid="advs73095-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73095-cr-0010" contrib-type="author"><name name-style="western"><surname>Pan</surname><given-names initials="M">Meijia</given-names></name><xref rid="advs73095-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73095-cr-0011" contrib-type="author"><name name-style="western"><surname>Ma</surname><given-names initials="F">Fengbo</given-names></name><xref rid="advs73095-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73095-cr-0012" contrib-type="author" corresp="yes"><name name-style="western"><surname>Zhou</surname><given-names initials="K">Kun</given-names></name><xref rid="advs73095-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref><address><email>zhoukun@xjtu.edu.cn</email></address></contrib><contrib id="advs73095-cr-0013" contrib-type="author" corresp="yes"><name name-style="western"><surname>Zhao</surname><given-names initials="Z">Zheng</given-names></name><xref rid="advs73095-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref><address><email>zhaozheng@cuhk.edu.cn</email></address></contrib><contrib id="advs73095-cr-0014" contrib-type="author" corresp="yes"><name name-style="western"><surname>Shen</surname><given-names initials="C">Chenguang</given-names></name><xref rid="advs73095-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="advs73095-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref><address><email>a124965468@smu.edu.cn</email></address></contrib><contrib id="advs73095-cr-0015" contrib-type="author" corresp="yes"><name name-style="western"><surname>Liao</surname><given-names initials="Y">Yuhui</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-4702-9516</contrib-id><xref rid="advs73095-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73095-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><address><email>liaoyh8@mail.sysu.edu.cn</email></address></contrib></contrib-group><aff id="advs73095-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Institute for Engineering Medicine</named-content>
+<institution>Kunming Medical University</institution>
+<city>Kunming</city>
+<named-content content-type="country-part">Yunnan</named-content>
+<postal-code>650500</postal-code>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs73095-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">School of inspection</named-content>
+<institution>Ningxia Medical University</institution>
+<city>Yinchuan</city>
+<named-content content-type="country-part">Ningxia</named-content>
+<postal-code>750004</postal-code>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs73095-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">BSL‐3 Laboratory (Guangdong)</named-content>
+<named-content content-type="organisation-division">Guangdong Provincial Key Laboratory of Tropical Disease Research</named-content>
+<named-content content-type="organisation-division">School of Public Health</named-content>
+<named-content content-type="organisation-division">Department of Laboratory Medicine</named-content>
+<named-content content-type="organisation-division">Zhujiang Hospital，Key Laboratory of Infectious Diseases Research in South China, Southern Medical University, Ministry of Education</named-content>
+<institution>Southern Medical University</institution>
+<city>Guangzhou</city>
+<named-content content-type="country-part">Guangdong</named-content>
+<postal-code>510515</postal-code>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs73095-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">Guangdong Basic Research Center of Excellence for Aggregate Science</named-content>
+<named-content content-type="organisation-division">Shenzhen Institute of Aggregate Science and Technology</named-content>
+<named-content content-type="organisation-division">School of Science and Engineering</named-content>
+<institution>The Chinese University of Hong Kong Shenzhen (CUHK‐Shenzhen)</institution>
+<city>Guangdong</city>
+<postal-code>518172</postal-code>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs73095-aff-0005">
+<label>
+<sup>5</sup>
+</label>
+<named-content content-type="organisation-division">Key Laboratory of Infectious Diseases Research in South China (Southern Medical University)</named-content>
+<institution>Ministry of Education</institution>
+<city>Guangzhou</city>
+<named-content content-type="country-part">Guangdong</named-content>
+<postal-code>510515</postal-code>
+<country country="CN">P. R. China</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>E‐mail: <email>zhoukun@xjtu.edu.cn</email>; <email>zhaozheng@cuhk.edu.cn</email>; <email>a124965468@smu.edu.cn</email>; <email>liaoyh8@mail.sysu.edu.cn</email>
+<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>05</day><month>12</month><year>2025</year></pub-date><pub-date pub-type="collection"><month>2</month><year>2026</year></pub-date><volume>13</volume><issue seq="430">9</issue><issue-id pub-id-type="pmc-issue-id">507662</issue-id><issue-id pub-id-type="doi">10.1002/advs.v13.9</issue-id><elocation-id>e15865</elocation-id><history><date date-type="rev-recd"><day>21</day><month>11</month><year>2025</year></date><date date-type="received"><day>25</day><month>8</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>05</day><month>12</month><year>2025</year></date></event><event event-type="pmc-live"><date><day>14</day><month>02</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-02-14 10:25:15.270"><day>14</day><month>02</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2025 The Author(s). Advanced Science published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="ADVS-13-e15865.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:ADVS-13-e15865.pdf"/><abstract><title>Abstract</title><p>The recent monkeypox outbreak is garnering attention, but early warning and treatment mechanisms are lacking. Owing to its rapid spread and high death rate, monkeypox must be prevented and controlled immediately. An advanced early warning system for monkeypox prevention and control is provided through aggregation‐induced emission luminogen (AIEgen)‐active monitoring and precision photodynamic therapy (PDT). This system are developed by combining a sprayable AIE@LD with a commercial liquid dressing (LD) and a pyridine‐substituted benzothiadiazole derivative possessing AIEgen properties. In vivo tests revealed that 1 min of low‐power white light PDT at 5 mW cm<sup>−</sup>
+<sup>2</sup> promoted viral eradication and lesion healing within one week. The system comprises dual optical channels that incorporate smartphone image recognition software and a cloud platform, combining image analysis, data transmission, infection monitoring, and PDT to provide a comprehensive solution for detecting, monitoring, treating, and interrupting the transmission of monkeypox. This system can considerably reduce the medical burden of monkeypox epidemics and provide innovative ideas and technological assistance for intelligent prevention and management.</p></abstract><abstract id="advs73095-abs-0001" abstract-type="graphical"><p>An intelligent early warning and treatment system for monkeypox, utilizing a sprayable AIEgen‐ liquid dressing (AIE@LD) that responds to lesion pH. Integrated with a smartphone app and cloud platform, it enables real‐time infection detection via fluorescence imaging and triggers on‐demand photodynamic therapy under white light, effectively eradicating the virus, accelerating healing, and blocking transmission in a user‐friendly, scalable manner.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="ADVS-13-e15865-g007.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="advs73095-kwd-0001">AIEgen</kwd><kwd id="advs73095-kwd-0002">control</kwd><kwd id="advs73095-kwd-0003">monkeypox</kwd><kwd id="advs73095-kwd-0004">photodynamic therapy</kwd><kwd id="advs73095-kwd-0005">prevention</kwd><kwd id="advs73095-kwd-0006">warning system</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>National Key Research and Development Program of China</institution><institution-id institution-id-type="doi">10.13039/501100012166</institution-id></institution-wrap>
+</funding-source><award-id>2024YFC2311503</award-id></award-group><award-group id="funding-0002"><funding-source>
+<institution-wrap><institution>National Natural Science Foundation of China</institution><institution-id institution-id-type="doi">10.13039/501100001809</institution-id></institution-wrap>
+</funding-source><award-id>82322042</award-id><award-id>82272248</award-id><award-id>82371846</award-id><award-id>82500159</award-id><award-id>22565018</award-id></award-group></funding-group><counts><fig-count count="9"/><table-count count="0"/><page-count count="15"/><word-count count="9900"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>13 February 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.6.8 mode:remove_FC converted:13.02.2026</meta-value></custom-meta></custom-meta-group></article-meta><notes><p content-type="self-citation">
+<mixed-citation publication-type="journal" id="advs73095-cit-0001">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Li</surname>
+</string-name>, et al. “<article-title>AIEgen‐Based Proactive Early Warning System and Precise Treatment Strategy for Monkeypox Prevention and Control</article-title>.” <source>Adv. Sci.</source>
+<volume>13</volume>, no. <issue>9</issue> (<year>2026</year>): <elocation-id>e15865</elocation-id>. <pub-id pub-id-type="doi">10.1002/advs.202515865</pub-id>
+<pub-id pub-id-type="pmcid">PMC12904085</pub-id><pub-id pub-id-type="pmid">41347640</pub-id></mixed-citation>
+</p></notes></front><body><sec id="advs73095-sec-0010"><label>1</label><title>Introduction</title><p>In 2022, a global monkeypox (MPOX) outbreak occurred, rapidly spreading to more than 100 countries, making the situation extremely critical.<sup>[</sup>
+<xref rid="advs73095-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="advs73095-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>
+<sup>]</sup> In August 2024, the epidemic re‐emerged in many countries, with the development of the highly virulent B.1.2 lineage leading to an increase in the fatality rate to 10%. The World Health Organization (WHO) reclassified the MPOX outbreak as a “Public Health Emergency of International Concern” (PHEIC), emphasizing its seriousness and the risk it poses to global health security.<sup>[</sup>
+<xref rid="advs73095-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>, <xref rid="advs73095-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>
+<sup>]</sup> This virus has a high capacity for sustained transmission and a high mutation rate, which could cause the outbreak to escalate uncontrollably and re‐emerge at any time.<sup>[</sup>
+<xref rid="advs73095-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>, <xref rid="advs73095-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="advs73095-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>
+<sup>]</sup> Consequently, it is imperative to implement an intelligent, proactive monitoring and early warning system that enables the effective identification, continuous monitoring, accurate treatment, and control of transmission, thereby mitigating the progression of the epidemic and preventing future outbreaks.</p><p>In response to the complex circumstances of the MPOX epidemic, countries primarily rely on conventional strategies, such as quarantine at entry points, surveillance in medical institutions, and health education for targeted groups, to establish a prevention and control framework.<sup>[</sup>
+<xref rid="advs73095-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="advs73095-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>
+<sup>]</sup> However, these methods have several limitations, including failure to detect asymptomatic carriers, delayed monitoring, and inadequate coverage, which complicates the ability to achieve effective prevention and control.<sup>[</sup>
+<xref rid="advs73095-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>
+<sup>]</sup> Prompt identification and ongoing dynamic surveillance are essential for controlling the transmission of infectious diseases.<sup>[</sup>
+<xref rid="advs73095-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>
+<sup>]</sup> Nevertheless, current diagnostic methods often have drawbacks, including being time‐consuming, expensive, and dependent on specialized equipment, which limits the ability of primary healthcare institutions to respond rapidly and hinders epidemic prevention and control.<sup>[</sup>
+<xref rid="advs73095-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>, <xref rid="advs73095-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>, <xref rid="advs73095-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>
+<sup>]</sup> Portable diagnostic devices for MPOX detection have yet to be developed, leaving patients reliant on medical facilities for diagnosis and treatment, which places additional strain on healthcare systems. Furthermore, existing patient tracking systems are inadequate, hindered by fragmented data sources, inconsistent formats, cumbersome data reporting procedures, and a lack of standardized data integration and management platforms.<sup>[</sup>
+<xref rid="advs73095-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>
+<sup>]</sup> These issues significantly increase the complexity of data exchange and analysis, thereby affecting monitoring efficiency and accuracy.<sup>[</sup>
+<xref rid="advs73095-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="advs73095-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>, <xref rid="advs73095-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref>
+<sup>]</sup> Therefore, developing a preventive and control system that integrates effective detection, patient self‐monitoring, standardized data management, and precise treatment to facilitate early detection, diagnosis, and intervention for MPOX is essential.</p><p>Aggregation‐induced emission luminogens (AIEgens) exhibit enhanced fluorescence in their aggregated forms, characterized by prolonged stability and improved signal‐to‐noise ratios,<sup>[</sup>
+<xref rid="advs73095-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>, <xref rid="advs73095-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref>, <xref rid="advs73095-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>
+<sup>]</sup> making them ideal for imaging bacteria, viruses, and tumours.<sup>[</sup>
+<xref rid="advs73095-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>, <xref rid="advs73095-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>, <xref rid="advs73095-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref>, <xref rid="advs73095-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>
+<sup>]</sup> AIE‐based fluorescence sensors offer noninvasive, rapid, and highly specific diagnostic capabilities;<sup>[</sup>
+<xref rid="advs73095-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>, <xref rid="advs73095-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>, <xref rid="advs73095-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>
+<sup>]</sup> however, there is currently no research on their use for MPOX detection. It is noteworthy that monkeypox virus‐infected cells enter the cell through interactions between viral ligands and glycosaminoglycans (such as chondroitin sulfate or heparan sulfate) acting as cell surface receptors, where fusion and uncoating occur in a low pH‐dependent manner.<sup>[</sup>
+<xref rid="advs73095-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+<sup>]</sup> The low pH (&lt;6) in acidified endosomes promotes viral particle entry.<sup>[</sup>
+<xref rid="advs73095-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+<sup>]</sup> These phenomena indicate that monkeypox virus infection relies to some extent on an acidic environment. Additionally, monkeypox virus infection typically progresses through stages such as papules, vesicles, pustules, ulcers, pseudopustules, and scabs,<sup>[</sup>
+<xref rid="advs73095-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="advs73095-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+<sup>]</sup> which can result in a mildly acidic lesion microenvironment, particularly during the ulcer and scabbing stages. These characteristics can serve as important biomarkers for the early detection of monkeypox skin lesions.<sup>[</sup>
+<xref rid="advs73095-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>, <xref rid="advs73095-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref>, <xref rid="advs73095-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref>, <xref rid="advs73095-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref>, <xref rid="advs73095-bib-0034" ref-type="bibr">
+<sup>34</sup>
+</xref>
+<sup>]</sup> Therefore, developing AIEgens with diagnostic and monitoring functions based on pH fluctuations in monkeypox lesions holds considerable research significance and potential applications for early warning systems. To achieve rapid, accurate, and sustained disease diagnosis, integrating intelligent systems with computer vision and machine learning algorithms represents a viable strategy.<sup>[</sup>
+<xref rid="advs73095-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref>, <xref rid="advs73095-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref>
+<sup>]</sup> Intelligent solutions enable infection detection by allowing users to capture images of lesions via their smartphones, providing a noninvasive, cost‐effective method for disease screening.<sup>[</sup>
+<xref rid="advs73095-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref>
+<sup>]</sup> Intelligent detection has been applied to infectious diseases, including malaria and fungal infections;<sup>[</sup>
+<xref rid="advs73095-bib-0038" ref-type="bibr">
+<sup>38</sup>
+</xref>
+<sup>]</sup> however, no intelligent diagnostic methods currently exist for MPOX. The system could also incorporate standardized health data, which can be uploaded to a cloud platform in real‐time, facilitating sharing and unified analysis, thereby improving monitoring efficiency. In addition to early identification and surveillance, appropriate treatment is crucial for MPOX.<sup>[</sup>
+<xref rid="advs73095-bib-0039" ref-type="bibr">
+<sup>39</sup>
+</xref>, <xref rid="advs73095-bib-0040" ref-type="bibr">
+<sup>40</sup>
+</xref>
+<sup>]</sup> Current treatments remain largely supportive. Our team previously developed TPE‐BT‐DCTBT for the treatment of MPOX.<sup>[</sup>
+<xref rid="advs73095-bib-0039" ref-type="bibr">
+<sup>39</sup>
+</xref>, <xref rid="advs73095-bib-0041" ref-type="bibr">
+<sup>41</sup>
+</xref>
+<sup>]</sup> However, this approach relies on intravenous injections and photothermal therapy (PTT), which is invasive and poses a risk of skin burns, thereby affecting patient compliance. In contrast, photodynamic therapy (PDT) offers several advantages, including non‐invasiveness, simplicity, greater spatiotemporal selectivity, reduced resistance, and fewer side effects,<sup>[</sup>
+<xref rid="advs73095-bib-0042" ref-type="bibr">
+<sup>42</sup>
+</xref>, <xref rid="advs73095-bib-0043" ref-type="bibr">
+<sup>43</sup>
+</xref>, <xref rid="advs73095-bib-0044" ref-type="bibr">
+<sup>44</sup>
+</xref>
+<sup>]</sup> making it a more attractive therapeutic option for MPOX. Given the complexities of the MPOX epidemic and the urgent need for global public health security, implementing a sophisticated prevention and control early warning system that encompasses epidemic detection, dynamic monitoring, targeted treatment, and transmission interruption is essential to mitigate its transmission risk and public health impact.</p><p>In this study, we developed an intelligent early warning system based on a commercial liquid dressing (LD) as the substrate, integrated with a pyridine‐substituted benzothiadiazole derivative (TBSMPPy) that exhibits AIEgen properties (AIE@LD). This system combines active monitoring and PDT for precise treatment, along with a smartphone‐based image recognition system. The liquid dressing provides excellent adhesion, flexibility, and film‐forming characteristics, ensuring system stability while offering a physical barrier for MPOX lesions. Smartphones equipped with UV and white light sources act as excitation sources. After the AIE@LD spray is applied to the wound, photos are taken under UV light via the smartphone camera and sent to the cloud, creating a dynamic monitoring database. Once MPOX infection is detected, the system automatically initiates PDT treatment. If the wound emits a vivid orange light, indicating virus eradication, the system rescinds the warning and stops prevention and control measures, effectively controlling MPOX transmission. In vitro and in vivo studies demonstrated that this intelligent system can rapidly and accurately detect MPOX infections and efficiently eradicate the virus. Furthermore, the system offers excellent stability, biocompatibility, and ease of use. This system provides basic detection and monitoring methods, and through real‐time data uploads and cloud analysis, it offers novel support for the MPOX epidemic response. These measures can significantly reduce the burden on medical resources and establish an intelligent defence mechanism for public health safety (<bold>Figure</bold> <xref rid="advs73095-fig-0001" ref-type="fig">
+<bold>1</bold>
+</xref>).</p><fig position="float" fig-type="Figure" id="advs73095-fig-0001" orientation="portrait"><label>Figure 1</label><caption><p>Schematic of the early intelligent warning system based on AIE@LD spray film and on‐demand photodynamic therapy. A) Active monitoring and a cloud platform for intelligent early warning systems. B) Photodynamic precision treatment and stability of AIE@LD.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="ADVS-13-e15865-g008.jpg"/></fig></sec><sec id="advs73095-sec-0020"><label>2</label><title>Results and Discussion</title><sec id="advs73095-sec-0030"><label>2.1</label><title>Characterization and pH Responsiveness of AIE@LD</title><p>We previously designed and synthesized the organic photosensitizer TBSMPPy and effectively utilized it for treating fungus‐infected wounds.<sup>[</sup>
+<xref rid="advs73095-bib-0045" ref-type="bibr">
+<sup>45</sup>
+</xref>
+<sup>]</sup> Under low‐power white‐light irradiation (5 mW cm<sup>−</sup>
+<sup>2</sup>), a single 1‐min photodynamic therapy (PDT) session achieved over 96% antifungal efficacy and significant wound healing within one week. Owing to the excellent acid responsiveness and fluorescence properties of TBSMPPy, we incorporated 1 mol of TBSMPPy into 1 mL of LD to prepare the spray film AIE@LD, which was then applied to MPOX lesions. TBSMPPy was synthesized according to the synthetic route shown in Scheme <xref rid="advs73095-supinfo-0001" ref-type="">S1</xref> (Supporting Information) and characterized by <sup>1</sup>H, <sup>13</sup>C nuclear magnetic resonance (NMR) and high‐resolution mass spectrometry (Figures <xref rid="advs73095-supinfo-0001" ref-type="">S1–S3</xref>, Supporting Information). TBSMPpy maintained good UV–vis absorption and stable fluorescence characteristics after simulated incubation for 10 days (Figure <xref rid="advs73095-supinfo-0001" ref-type="">S4</xref>, Supporting Information), which indicated that TBSMPy had good stability in a physiological environment. TBSMPPy consistently exhibited broad visible absorption in both LDs (<bold>Figure</bold> <xref rid="advs73095-fig-0002" ref-type="fig">
+<bold>2</bold>A</xref>) and DMSO (Figure <xref rid="advs73095-supinfo-0001" ref-type="">S5</xref>, Supporting Information). The photoluminescence (PL) spectrum of TBSMPPy shows an emission range from 530 to 800 nm, with a maximum at 678 nm, indicating orange fluorescence. Furthermore, as shown in Figure <xref rid="advs73095-fig-0002" ref-type="fig">2B</xref>, increasing the water fraction led to the formation of aggregates and a gradual increase in the PL intensity, which was significantly greater than that of TBSMPPy in the DMSO solution, confirming its aggregation‐induced emission (AIE) properties and suggesting substantial potential for film‐based applications. TBSMPPy also exhibited outstanding acid responsiveness and fluorescence characteristics. We conducted pH response studies on AIE@LD to investigate its fluorescence behavior under various acidic and basic conditions. The AIE@LD films were exposed to a range of pH environments and imaged under UV light, and their photoluminescence changes were recorded. The experimental results indicate that AIE@LD exhibits macroscopic fluorescence quenching in response to a decreasing pH (Figure <xref rid="advs73095-fig-0002" ref-type="fig">2C</xref>). At a pH of 7.0, the film emits bright orange fluorescence; however, its fluorescence significantly decreases as the pH decreases to 3.0. Upon exposure to a pH 5.5 buffer solution, the photoluminescence intensity of AIE@LD decreased rapidly (Figure <xref rid="advs73095-fig-0002" ref-type="fig">2D</xref>). Subsequent quantitative analysis revealed that a decrease in pH corresponds to a gradual decrease in the grayscale value of the film (Figure <xref rid="advs73095-fig-0002" ref-type="fig">2E</xref>). The PL change with significantly reduced AIE@LD activity is mainly attributed to protonation of the pyridine of TBSMPPY in low pH buffer solution, which enhances the electron‐withdrawing ability of the pyridine moiety. As shown in Figure <xref rid="advs73095-supinfo-0001" ref-type="">S6</xref> (Supporting Information), after protonation, the UV spectrum shows a distinct red shift, indicating a strong ICT effect. In addition, DFT calculations also show significant HOMO and LUMO separation, which suggests ICT effects enhance post‐protonation (Figure <xref rid="advs73095-supinfo-0001" ref-type="">S7</xref>, Supporting Information). These results demonstrate the exceptional pH‐dependent fluorescence response of AIE@LD, highlighting its potential for detecting and monitoring MPOX virus infections. TBSMPPy also demonstrated pH‐dependent reactive oxygen species (ROS) generation under white light irradiation, endowing AIE@LD with potential photodynamic therapy (PDT) functionality. Further studies revealed that under acidic conditions, ROS production by AIE@LD significantly increased (Figure <xref rid="advs73095-fig-0002" ref-type="fig">2F</xref>), and this effect was further enhanced in the aggregated state (Figure <xref rid="advs73095-fig-0002" ref-type="fig">2G</xref>). The efficient intersystem crossing could benefit the ROS generation. It has been reported that the introduction of heteroatoms can effectively enhance intersystem crossing and is an effective strategy for designing highly efficient phosphorescent and TADF materials.<sup>[</sup>
+<xref rid="advs73095-bib-0046" ref-type="bibr">
+<sup>46</sup>
+</xref>, <xref rid="advs73095-bib-0047" ref-type="bibr">
+<sup>47</sup>
+</xref>
+<sup>]</sup> Based on the above results, we think effective ISC of our molecules mainly comes from the heteroatoms of the molecular skeleton. Thus, the DFT and TD‐DFT calculations were conducted to evaluate the ISC process. As shown in Table <xref rid="advs73095-supinfo-0001" ref-type="">S1</xref> (Supporting Information), the protonated TBSMPPy showed a low energy gap (∆Est = 0.181) between S1 and T1, indicated the easily intersystem crossing. Besides, the spin−orbit coupling (SOC) constants (ξ) 0.447 between S1 and T1 also reflected the smooth ISC process (Table <xref rid="advs73095-supinfo-0001" ref-type="">S1</xref>, Supporting Information). This property provides excellent specificity for MPOX therapy, as AIE@LD produces substantial amounts of ROS exclusively in acidic lesion environments while generating negligible levels in normal tissues, thereby greatly increasing treatment safety. In summary, AIE@LDs exhibit superior pH responsiveness, fluorescence properties, ROS‐generating capacity, and safety, establishing a robust foundation for long‐term monitoring of MPOX and targeted wound therapy.</p><fig position="float" fig-type="Figure" id="advs73095-fig-0002" orientation="portrait"><label>Figure 2</label><caption><p>Characterization and pH responsiveness of AIE@LD. A) UV–vis absorption and photoluminescence (PL) spectra of AIE@LD. B) PL spectra of TBSMPPy in DMSO/water mixtures with different water (f<sub>W</sub>) ratios. C) Schematic diagram of the pH response mechanism of AIE@LD films and sample photos under UV light in different pH environments. D) Comparison of the PL spectra of AIE@LD under different pH conditions. E) Changes in the normalized grayscale values of AIE@LD films under different pH conditions. F) Changes in the relative PL intensity of 2′,7′‐dichlorodihydrofluorescein (DCFH) when irradiated with white light (5 mW cm<sup>−</sup>
+<sup>2</sup>) by AIE@LD under different pH conditions, where I<sub>0</sub> and I represent the PL intensities of the indicator before and after irradiation, respectively. G) Changes in the relative PL intensity of DCFH under the action of AIE@LD in different fW DMSO/water mixtures. White‐light irradiation conditions: 5 mW cm<sup>−</sup>
+<sup>2</sup>. The AIE@LD stock solution concentration was 1 m<sc>m</sc>, and the final working concentration was 10 m<sc>m</sc>.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="ADVS-13-e15865-g001.jpg"/></fig></sec><sec id="advs73095-sec-0040"><label>2.2</label><title>Stability of AIE@LD</title><p>The main characteristics of the AIE@LD dressing are its excellent flexibility, strong adhesion, and extended service life. To validate these attributes, the AIE@LD dressing was applied to a mold to form a film, which was subsequently removed via tweezers and assessed for its flexibility. Even when stretched to twice its original length with tweezers, the film reverted to its initial length and appearance (<bold>Figure</bold> <xref rid="advs73095-fig-0003" ref-type="fig">
+<bold>3</bold>A,B</xref>), demonstrating that the AIE@LD dressing possesses remarkable elasticity and maintains significant flexibility under external stress, a critical feature for observing MPOX in skin regions located at or near joints that undergo frequent movement. To evaluate adhesion, the dressing was applied to a human arm. Lifting one edge with tweezers while applying tensile force showed that the opposite edge remained firmly attached to the skin. Under UV illumination, the dressing emitted a uniform fluorescence signal, indicating its excellent adherence and mechanical stability (Figure <xref rid="advs73095-fig-0003" ref-type="fig">3C</xref>). Flexion and extension tests were performed on the finger joints to assess the flexibility and adhesive performance of the dressing. When the finger was bent at a 90° angle, the dressing remained securely attached without visible peeling or cracking (Figure <xref rid="advs73095-supinfo-0001" ref-type="">S8</xref>, Supporting Information). After 500 cycles of high‐intensity flexion and extension, AIE@LD maintained strong adhesion to the finger joint, with no significant change in area or fluorescence intensity, and its tensile strength remained comparable to that of the unmodified LD (Figure <xref rid="advs73095-fig-0003" ref-type="fig">3D,E</xref>). These findings confirm that the incorporation of TBSMPPy does not compromise the mechanical toughness of LDs while ensuring that the dressing can withstand repeated mechanical stresses in practical applications.</p><fig position="float" fig-type="Figure" id="advs73095-fig-0003" orientation="portrait"><label>Figure 3</label><caption><p>Stability of AIE@LD. A,B) Images and statistical analysis of the relative length changes of AIE@LD before, during, and after stretching (scale = 5 mm). The data are expressed as the means ± SDs (n = 3). C) Adhesion of AIE@LD to skin under white light and UV light. D,E) Images and statistical analysis of the relative area changes in the liquid dressing (LD) and AIE@LD after 0–500 flexion‐extension cycles of finger joints (scale = 10 mm). The data are expressed as the means ± SDs (n = 3). F,G) AIE@LD images and statistical analysis of the relative area change under continuous flows of pure water, 75% alcohol, and soap water over different periods (scale = 10 mm). The data are expressed as the means ± SDs (n = 3). H,I) Changes in the membrane area of AIE@LD on mouse skin over 24 h and statistical analysis (scale bar = 10 mm). The data are expressed as the means ± SDs (n = 3). ns, not significant; <sup>*</sup>
+<italic toggle="yes">p</italic> &lt; 0.05, <sup>**</sup>
+<italic toggle="yes">p</italic> &lt; 0.01, <sup>***</sup>
+<italic toggle="yes">P</italic> &lt; 0.001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="ADVS-13-e15865-g004.jpg"/></fig><p>Additionally, the stability of AIE@LD was evaluated under various liquid conditions. Upon immersion in running water, 75% alcohol, or soapy water for 1 h, the film remained intact on the skin surface, showing no signs of detachment, coagulation, or dissolution (Figure <xref rid="advs73095-fig-0003" ref-type="fig">3F</xref>). The film area remained stable across different time points (Figure <xref rid="advs73095-fig-0003" ref-type="fig">3G</xref>), and under UV light, the dressing consistently emitted fluorescence without notable intensity loss (Figure <xref rid="advs73095-supinfo-0001" ref-type="">S9</xref>, Supporting Information). These results demonstrate that AIE@LD has excellent water resistance, making it suitable for daily use. It maintains strong adhesion and effective fluorescent performance even after handwashing, disinfection, or bathing. Durability and adhesion are essential for wound dressings, as they must withstand mechanical forces from surrounding tissues and adhere reliably to wounds for effective treatment. To further evaluate its performance, we employed an active mouse model to simulate skin tension under daily movement by attaching the AIE@LD dressing to the dorsal skin of the mice and recording both morphological changes and UV fluorescence images at 3, 6, 12, and 24 h (Figure <xref rid="advs73095-fig-0003" ref-type="fig">3H,I</xref>). The results indicate that AIE@LD adhered firmly to the skin throughout the observation period, with no signs of detachment, and that the dressing area remained unchanged. Overall, these findings confirm that AIE@LD has outstanding flexibility, adhesion, and durability, allowing it to adapt to dynamic skin movements, remain stable in various aqueous environments, and reliably maintain its fluorescent signal. AIE@LD thus serves as an ideal spray film for wound protection and real‐time monitoring of wound healing.</p></sec><sec id="advs73095-sec-0050"><label>2.3</label><title>In Vitro PDT Antiviral and Anti‐Inflammatory Activity</title><p>We subsequently assessed the antiviral and anti‐inflammatory properties of AIE@LD. The PBS, LD, and AIE@LD–Irradiation groups presented pronounced cytopathic effects (CPEs) and reduced cell viability, whereas cells in the AIE@LD+Irradiation group presented negligible pathological changes (<bold>Figure</bold> <xref rid="advs73095-fig-0004" ref-type="fig">
+<bold>4</bold>A</xref>), suggesting that this treatment approach effectively protects cells from viral invasion. In addition, the CCK‐8 assay was employed to evaluate cell viability across all treatment groups, revealing that AIE@LD effectively preserved cellular activity under white light exposure, whereas cell viability in the other groups significantly decreased (Figure <xref rid="advs73095-fig-0004" ref-type="fig">4B</xref>). These results demonstrate that AIE@LD can activate the photodynamic therapy (PDT) effect under white light, efficiently eliminate active viruses, and thereby achieve a potent antiviral protective effect. To quantitatively evaluate the antiviral efficacy of each treatment modality, we employed the median tissue culture infectious dose (TCID<sub>50</sub>) assay to measure the quantity of remaining viable viral particles. The results indicated that the PBS, LD, and AIE@LD–Irradiation groups did not significantly reduce viral titers, whereas the AIE@LD+Irradiation group nearly eradicated the virus (Figure <xref rid="advs73095-fig-0004" ref-type="fig">4C</xref>), confirming that AIE@LD generates substantial amounts of reactive oxygen species (ROS) under white light activation, thereby achieving effective antiviral outcomes via PDT. We established a virus infection model by virus‐infected cells with GPF‐tagged variant, which was more accurately demonstrated by laser confocal microscopy to be negligible in the AIE@LD+Irradiation group, while fluorescence was abundant in the control group, indicating that the virus continued to survive in the PBS and LD groups (Figure <xref rid="advs73095-fig-0004" ref-type="fig">4D</xref>; Figure <xref rid="advs73095-supinfo-0001" ref-type="">S10</xref>, Supporting Information). This highly sensitive technology fully demonstrates the advantages of AIE@LD in killing viruses.</p><fig position="float" fig-type="Figure" id="advs73095-fig-0004" orientation="portrait"><label>Figure 4</label><caption><p>In vitro PDT's antiviral and anti‐inflammatory activity. A,B) Photos and cell viability analysis of BHK‐21 cells after different treatments (scale = 100 µm), showing the mean ± SD (n = 6). C) Evaluation of antiviral efficacy after different treatments (TCID50). The data are shown as the means ± SDs (n = 3). D) Confocal fluorescence images of GPF‐tagged variant post‐treatment (scale bar = 200 µm). Nuclei were stained with DAPI (blue); GFP‐ virus (green). E,F,G)The levels of various cytokines (IL‐6, IL‐1β, and TNF‐α) in the cell supernatants after different treatments were determined using an enzyme‐linked immunosorbent assay (ELISA). The data are shown as the means ± SDs (n = 3). The data are shown as the means ± SDs (n = 3). Data analysis was performed via one‐way ANOVA. <sup>*</sup>
+<italic toggle="yes">p</italic> &lt; 0.05, <sup>**</sup>
+<italic toggle="yes">p</italic> &lt; 0.01, <sup>***</sup>
+<italic toggle="yes">p</italic> &lt; 0.001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="ADVS-13-e15865-g005.jpg"/></fig><p>Furthermore, an enzyme‐linked immunosorbent assay (ELISA) was conducted to measure the concentrations of the pro‐inflammatory cytokines IL‐6, IL‐1β, and TNF‐α in the culture supernatant, assessing the anti‐inflammatory effects of AIE@LD. Compared with those in the other treatment cohorts, the expression levels of these inflammatory cytokines were significantly lower in the AIE@LD+irradiation group (Figure <xref rid="advs73095-fig-0004" ref-type="fig">4E–G</xref>), indicating that this therapeutic strategy can effectively suppress virus‐induced inflammatory responses. The AIE@LD treatment strategy, when combined with white light activation, not only successfully eliminates viruses but also minimizes cellular damage and suppresses inflammation, thereby resulting in outstanding antiviral and anti‐inflammatory properties.</p></sec><sec id="advs73095-sec-0060"><label>2.4</label><title>Detection of MPOX Wound Infections and Development of an Intelligent Early Warning System</title><p>To assess the in vivo detection efficacy of AIE@LD, a scar infection model and a control group were established on the tails of the mice via the MPOX seed virus and saline, respectively, in accordance with previously reported methods.<sup>[</sup>
+<xref rid="advs73095-bib-0048" ref-type="bibr">
+<sup>48</sup>
+</xref>, <xref rid="advs73095-bib-0049" ref-type="bibr">
+<sup>49</sup>
+</xref>
+<sup>]</sup> The mice were divided into infected and uninfected groups, and AIE@LD was applied to the wounds, which formed a stable film within 5 min. The in vivo experimental results revealed a notable reduction in the fluorescence intensity of the wound dressing in infected mice, yielding a grayscale value of 0.357, whereas the fluorescence intensity in uninfected mice remained high, with a grayscale value of 0.719 (<bold>Figure</bold> <xref rid="advs73095-fig-0005" ref-type="fig">
+<bold>5</bold>A</xref>). These variations in luminescence at different infection stages are attributed to the pH‐sensitive properties of the AIE molecule TBSMPPy. In uninfected wounds, the local pH is ≈6, which has a minimal impact on the fluorescence emission of TBSMPPy. In contrast, in infected environments, the pH decreases, leading to the protonation of the pyridine groups on TBSMPPy and subsequent fluorescence quenching. During the detection process, no change in fluorescence was observed in the EP tube, and the grayscale values did not differ significantly (Figure <xref rid="advs73095-fig-0005" ref-type="fig">5B</xref>), indicating that AIE@LD maintains a stable fluorescence signal unaffected by external environmental factors. These findings support the conclusion that the fluorescence changes observed in vivo are primarily due to pH alterations at the infection site rather than material degradation or interference from other environmental influences, confirming the reliability and specificity of AIE@LD as a sensor for monkeypox virus (MPXV) infection. A magnified image is shown in Figure <xref rid="advs73095-supinfo-0001" ref-type="">S11A</xref> (Supporting Information), where fluorescence from the infected group significantly decreased 5 min after application, whereas fluorescence in the uninfected group remained stable. Quantitative analysis of fluorescence intensity revealed a statistically significant difference between the two groups (Figure <xref rid="advs73095-supinfo-0001" ref-type="">S11B</xref>, Supporting Information), demonstrating that AIE@LD can be used to distinguish between infected and uninfected wounds with high sensitivity based on the fluorescence response, confirming its high accuracy and reliability for MPXV diagnosis.</p><fig position="float" fig-type="Figure" id="advs73095-fig-0005" orientation="portrait"><label>Figure 5</label><caption><p>Detection of monkeypox wound infections and the construction of an intelligent, comprehensive early warning system. A,B) Quantitative analysis of images and grayscale values before and after AIE@LD detection of infected and uninfected wounds. The data are shown as the means ± SDs (n = 3). C) Schematic diagram of the intelligent early warning system for monkeypox infection monitoring and photodynamic therapy based on AIEgen. Data analysis was performed using an unpaired <italic toggle="yes">t</italic>‐test. <sup>*</sup>
+<italic toggle="yes">p</italic> &lt; 0.05, <sup>**</sup>
+<italic toggle="yes">p</italic> &lt; 0.01, <sup>***</sup>
+<italic toggle="yes">p</italic> &lt; 0.001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="ADVS-13-e15865-g009.jpg"/></fig><p>Building upon the detection efficiency of AIE@LD, we developed an integrated system for the detection, monitoring, treatment, and prevention of MPXV. The procedure begins by attaching a UV light source to a smartphone, which is used to photograph the wound under UV illumination. The application utilizes a one‐click detection function to automatically analyze images and generate real‐time diagnostic results while simultaneously uploading data to the cloud to support informed clinical decision‐making. The full prevention and control workflow is illustrated in Figure <xref rid="advs73095-fig-0005" ref-type="fig">5C</xref>. After AIE@LD is applied to the wound, the mobile phone captures an image under UV light. The intelligent system analyzes the image in real‐time, generates a diagnostic report, and synchronizes the results with cloud storage. In the absence of infection, the dressing emits bright fluorescence, the system interface displays a green background, a health report is issued, and the data are automatically uploaded to the cloud. If an infection is detected, the fluorescence becomes faint orange, the interface turns red, an infection alert is triggered, and the results are synchronized with the disease control center to enable rapid response and containment. Simultaneously, the system recommends white‐light PDT treatment based on the test results and physician input. Following PDT therapy, infected mice are retested. If the dressing fluoresces brightly in orange, the system interprets this as successful virus elimination, deactivates the CDC alert, and confirms the progression of wound healing.</p></sec><sec id="advs73095-sec-0070"><label>2.5</label><title>In Vivo Comprehensive Warning and PDT Treatment</title><p>For in vivo investigations, we employed an intelligent control system to replicate the diagnostic and therapeutic processes for MPOX infection, as illustrated in <bold>Figure</bold> <xref rid="advs73095-fig-0006" ref-type="fig">
+<bold>6</bold>A</xref>. The MPOX vaccine virus was administered at the incision site on the mouse tail. By day six, visible lesions had formed in the infected area. AIE@LD was applied to the wound, resulting in the formation of a film that exhibited dark orange fluorescence under UV light. A mobile application was subsequently used to capture and analyze images with a single click, generating a monkeypox disease alert and synchronizing the data to the cloud. Researchers then initiated control measures in infected mice, administering white light photodynamic therapy (PDT) as needed to inhibit lesion progression while continuously monitoring treatment outcomes. After treatment, in situ detection under UV light revealed that the film emitted bright orange fluorescence. The intelligent software generated a recovery report and synchronized the results to the cloud, prompting the control center to revoke the quarantine alert.</p><fig position="float" fig-type="Figure" id="advs73095-fig-0006" orientation="portrait"><label>Figure 6</label><caption><p>In vivo comprehensive warning and PDT treatment. A) Schematic diagram of proactive monitoring and on‐demand PDT treatment for MPOX infection. B) Photos of wounds under white light and UV light, as well as wound trajectory diagrams for different treatment groups on day 12 (scale = 10 mm). C) Quantitative analysis of the area of tail lesions in different treatment groups. D) Statistical analysis of the grayscale values of wound spray images of AIE@LD films under UV light on day 12 for different treatment groups. E) Viral load in the tail lesions of different treatment groups. F,G) Detection of pro‐inflammatory factors (IL‐1β and IL‐6) in the tail lesions of different treatment groups. H,I) Immunohistochemical staining and quantitative analysis of viral antigens in the lesion sites of different treatment groups (scale = 400 µm). J,K) Quantitative analysis of hematoxylin‐eosin (H&amp;E) staining and injury areas in the lesion sites of different treatment groups (scale = 400 µm). The data are expressed as the means ± SDs (n = 3). Data analysis was performed via one‐way ANOVA. <sup>*</sup>
+<italic toggle="yes">p</italic> &lt; 0.05, <sup>**</sup>
+<italic toggle="yes">p</italic> &lt; 0.01, <sup>***</sup>
+<italic toggle="yes">p</italic> &lt; 0.001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-13" orientation="portrait" xlink:href="ADVS-13-e15865-g002.jpg"/></fig><p>To evaluate the efficacy of the AIE@LD‐based intelligent system in antiviral therapy, infected mice were randomly divided into six groups, each receiving a different treatment on day 6: PBS, PBS + irradiation, LD, LD + irradiation, AIE@LD, and AIE@LD + irradiation. The degree of wound healing was recorded (Figure <xref rid="advs73095-supinfo-0001" ref-type="">S12</xref>, Supporting Information). In the PBS, LD, and AIE@LD‐Irradiation groups, healing was slow, with multiple pustules still evident on day 12, indicating ongoing viral replication and uncontrolled inflammation. In contrast, pustules in the AIE@LD+irradiation group rapidly formed crusts, which had detached by day 9, leading to nearly complete healing by day 12 (Figure <xref rid="advs73095-fig-0006" ref-type="fig">6B,C</xref>). On day 12, an assessment of each group revealed that only the tails of the mice in the AIE@LD+irradiation group emitted bright orange fluorescence, indicating complete viral clearance (Figure <xref rid="advs73095-fig-0006" ref-type="fig">6D</xref>). These results demonstrate that AIE@LD, in combination with white light PDT, can effectively suppress viral replication, significantly accelerate wound healing.</p><p>Previous research has suggested that AIE molecules may exert antiviral effects by obstructing viral entry, reducing replication, and preventing viral release. To further evaluate the antiviral efficacy of the different treatments, virus titers in the tail tissue were measured on day six post‐treatment. The AIE@LD+Irradiation group presented the lowest viral load, indicating the strongest antiviral effect, whereas the viral loads remained high in the other five groups (Figure <xref rid="advs73095-fig-0006" ref-type="fig">6E</xref>). Moreover, AIE‐mediated PDT has antioxidant effects on healthy tissues and cells, effectively modulating apoptosis by regulating immune cell oxidative stress responses, thereby preventing tissue damage.<sup>[</sup>
+<xref rid="advs73095-bib-0050" ref-type="bibr">
+<sup>50</sup>
+</xref>, <xref rid="advs73095-bib-0051" ref-type="bibr">
+<sup>51</sup>
+</xref>
+<sup>]</sup> ELISA analysis of tissue homogenates revealed significantly elevated levels of the pro‐inflammatory cytokines IL‐1β and IL‐6 in the PBS, LD, and AIE@LD‐ irradiation groups (Figure <xref rid="advs73095-fig-0006" ref-type="fig">6F,G</xref>), indicating that MPXV induces local inflammation, which results in pronounced redness, swelling, and abscess formation. In contrast, the AIE@LD + Irradiation group presented markedly reduced cytokine levels, further validating the anti‐inflammatory efficacy of AIE@LD‐mediated photodynamic therapy (PDT). Subsequently, immunohistochemical analysis was conducted on infected tail tissues (Figure <xref rid="advs73095-fig-0006" ref-type="fig">6H,I</xref>). High levels of viral antigen deposition were observed in the PBS, LD, and AIE@LD‐ irradiation groups, indicating active viral replication in these tissues.</p><p>In contrast, the AIE@LD+Irradiation group presented a significant reduction in antigen density, confirming effective viral eradication. Hematoxylin and eosin (HE) staining (Figure <xref rid="advs73095-fig-0006" ref-type="fig">6J,K</xref>) revealed extensive inflammatory cell infiltration and tissue necrosis in the PBS, LD, and AIE@LD‐irradiation groups, whereas no significant pathological damage was observed in the AIE@LD+irradiation group, underscoring the therapeutic efficacy of the treatment. Furthermore, immunohistochemical staining for TNF‐α and IFN‐γ revealed strong and diffuse nuclear expression in the PBS, LD, and AIE@LD‐irradiation groups (Figures <xref rid="advs73095-supinfo-0001" ref-type="">S13</xref> and <xref rid="advs73095-supinfo-0001" ref-type="">S14</xref>, Supporting Information), indicating robust viral replication and intense inflammatory responses. These markers were significantly diminished or absent in the AIE@LD+irradiation group, supporting its antiviral and anti‐inflammatory capabilities. Masson staining corroborated these findings: the five untreated groups exhibited severe collagen fibre hyperplasia, fragmentation, and muscle fibre disorganization, whereas the AIE@LD+irradiation group presented a stable collagen quantity and morphology, with no abnormal hyperplasia (Figure <xref rid="advs73095-supinfo-0001" ref-type="">S15</xref>, Supporting Information). Collectively, these results confirm that the AIE@LD‐mediated intelligent prevention and control system offers effective detection and real‐time monitoring of MPXV, precisely eliminates viruses via white light PDT, mitigates inflammatory responses, and significantly promotes wound healing, establishing a novel and intelligent approach for diagnosing and treating viral infections.</p></sec><sec id="advs73095-sec-0080"><label>2.6</label><title>Blocking MPXV Transmission In Vivo through PDT with AIE@LD</title><p>During the MPXV outbreak, the virus primarily spreads through direct contact with lesions on the skin or mucous membranes of infected individuals<sup>[</sup>
+<xref rid="advs73095-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="advs73095-bib-0052" ref-type="bibr">
+<sup>52</sup>
+</xref>
+<sup>]</sup>;therefore, blocking transdermal transmission is critical for effective epidemic control. To this end, we systematically evaluated the efficacy of various treatment strategies in preventing viral transmission by collecting tissue samples from the tail lesions of mice in different treatment groups and reinoculating them into healthy mice. The experimental results revealed that the mice in the PBS, LD, and AIE@LD‐irradiation groups developed viral transmission to healthy subjects (Figure <xref rid="advs73095-supinfo-0001" ref-type="">S16</xref>, Supporting Information). In contrast, the mice in the AIE@LD+irradiation group presented minimal tail damage (<bold>Figure</bold> <xref rid="advs73095-fig-0007" ref-type="fig">
+<bold>7</bold>A–C</xref>), with appearances comparable to those of the uninfected controls, suggesting that this treatment strategy effectively prevented viral spread. Moreover, viral load analysis revealed that the nonirradiated, PBS+Irradiation, and LD+Irradiation groups maintained relatively high viral titers (Figure <xref rid="advs73095-fig-0007" ref-type="fig">7D</xref>), whereas no viable virus was detected in the AIE@LD+Irradiation group. This finding demonstrates that upon activation by white light, AIE@LD can efficiently eliminate the virus, thereby disrupting the transmission route. To further validate these findings, an ELISA was conducted on affected tissues (Figure <xref rid="advs73095-fig-0007" ref-type="fig">7E,F</xref>). The PBS, LD, and AIE@LD‐irradiation groups presented significantly elevated levels of IL‐6 and IL‐1β, indicating a strong inflammatory response. Conversely, the AIE@LD+Irradiation group presented dramatically reduced inflammatory cytokine levels, likely attributable to the intelligent, on‐demand AIE‐based photodynamic therapy, which eradicates MPXV and halts its transmission, thereby preventing chronic inflammation. In addition, tail lesion tissues were subjected to immunohistochemical analysis. High levels of viral antigens were observed in the nonirradiated, PBS+irradiated, and LD+irradiated groups, whereas antigen deposition was minimal in the AIE@LD+irradiated group (Figure <xref rid="advs73095-fig-0007" ref-type="fig">7G,H</xref>), suggesting that this treatment can effectively counteract the presence of viruses and associated inflammation. Hematoxylin and eosin (H&amp;E) staining further confirmed significant inflammatory infiltration, tissue necrosis, and skin disruption in the PBS, LD, and AIE@LD‐irradiation groups, underscoring the sustained transmissibility of the virus (Figure <xref rid="advs73095-fig-0007" ref-type="fig">7I,J</xref>).</p><fig position="float" fig-type="Figure" id="advs73095-fig-0007" orientation="portrait"><label>Figure 7</label><caption><p>Blocking monkeypox virus transmission in vivo through PDT with AIE@LD. A) Appearance and trajectory of the wound on the tail of healthy mice 12 days after reinoculation with viral supernatant (from the tail lesions of mice treated via different methods). Scale = 10 mm, and the data are expressed as the means± standard deviations (n = 3). B,C) Statistical analysis of the wound area for each group on day 12 and at different time points. D–F) Detection of the viral load and pro‐inflammatory factors (IL‐1β and IL‐6) in tail wounds 12 days after reinoculation. G,H) After the tails of healthy mice were reinoculated with virus‐containing supernatant, immunohistochemical staining and quantitative analysis of viral antigens in the tail lesions were performed (scale bar = 400 µm). I,J) After the healthy mouse tails were reinoculated with the virus‐containing supernatant, the tail lesions were subjected to HE staining, and the necrotic areas of the lesions were quantitatively analyzed (scale = 400 µm). The data are expressed as the means ± SDs (n = 3). Data analysis was performed via one‐way ANOVA. <sup>*</sup>
+<italic toggle="yes">p</italic> &lt; 0.05, <sup>**</sup>
+<italic toggle="yes">p</italic> &lt; 0.01, <sup>***</sup>
+<italic toggle="yes">p</italic> &lt; 0.001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-15" orientation="portrait" xlink:href="ADVS-13-e15865-g003.jpg"/></fig><p>In contrast, the tissue architecture in the AIE@LD+irradiation group remained largely intact, with no significant pathological damage observed. Furthermore, immunohistochemical staining for TNF‐α and IFN‐γ revealed strong and widespread nuclear expression in the nonirradiated, PBS+irradiation, and LD+irradiation groups (Figures <xref rid="advs73095-supinfo-0001" ref-type="">S17</xref> and <xref rid="advs73095-supinfo-0001" ref-type="">S18</xref>, Supporting Information), reflecting robust inflammatory responses to MPXV infection. The AIE@LD+Irradiation group exhibited minimal inflammatory marker expression, which was likely limited to mild irritation from tail scratching. The Masson staining results (Figure <xref rid="advs73095-supinfo-0001" ref-type="">S19</xref>, Supporting Information) further corroborated these findings: all groups, except the AIE@LD+irradiation group, presented pronounced collagen fibre hyperplasia and myofiber abnormalities, indicating continued viral activity and transmissibility. These findings collectively demonstrate that the AIE@LD‐based intelligent diagnostic and therapeutic system, when combined with white light irradiation, can effectively eliminate MPXV and block its transmission.</p></sec><sec id="advs73095-sec-0090"><label>2.7</label><title>Biocompatibility of AIE@LD</title><p>Excellent biocompatibility and high biosafety are fundamental prerequisites for the development of novel therapeutic agents.<sup>[</sup>
+<xref rid="advs73095-bib-0053" ref-type="bibr">
+<sup>53</sup>
+</xref>, <xref rid="advs73095-bib-0054" ref-type="bibr">
+<sup>54</sup>
+</xref>, <xref rid="advs73095-bib-0055" ref-type="bibr">
+<sup>55</sup>
+</xref>, <xref rid="advs73095-bib-0056" ref-type="bibr">
+<sup>56</sup>
+</xref>
+<sup>]</sup> We conducted a comprehensive evaluation of both the in vitro and in vivo biocompatibility of AIE@LD. As shown in <bold>Figure</bold> <xref rid="advs73095-fig-0008" ref-type="fig">
+<bold>8</bold>A,B</xref>, coculturing AIE@LD with cells for up to 72 h and measuring cell viability at 0, 12, 24, 48, and 72 h revealed no significant inhibition of normal cell proliferation, indicating that AIE@LD has low cytotoxicity. Hemolysis assays demonstrated that coincubation with AIE@LD at a defined concentration did not induce hemolysis of red blood cells across all time points tested (0, 6, 12, 18, 24, and 36 h) (Figure <xref rid="advs73095-fig-0008" ref-type="fig">8C,D</xref>). To assess in vivo biocompatibility and simulate potential dermal toxicity, AIE@LD was topically applied to the dorsal skin of mice. Subsequent routine hematological evaluations—including red blood cell (RBC), hemoglobin (HGB), white blood cell (WBC), and platelet (PLT) counts—revealed no significant differences compared with those of the PBS‐treated controls (Figure <xref rid="advs73095-fig-0008" ref-type="fig">8E</xref>). Additionally, blood biochemical indicators such as albumin (ALB), alanine aminotransferase (ALT), aspartate aminotransferase (AST), blood urea nitrogen (BUN), and creatinine (CRE) levels remained within normal limits (Figure <xref rid="advs73095-fig-0008" ref-type="fig">8F</xref>). For the evaluation of genital toxicity, AIE@LD was applied to the penile skin of the mice. No abnormalities were detected in standard hematological or biochemical parameters (Figure <xref rid="advs73095-fig-0008" ref-type="fig">8G,H</xref>). Body weight measurements revealed no significant differences between the AIE@LD‐treated and PBS control groups throughout the study (Figure <xref rid="advs73095-fig-0008" ref-type="fig">8I</xref>). Histological assessments, including H&amp;E staining, Masson staining, and TNF‐α immunohistochemistry, confirmed the absence of significant inflammation or tissue damage in both the skin and genital areas following 7 days of exposure to a high concentration of AIE@LD (200 µL, 30 mg kg<sup>−1</sup>) (Figure <xref rid="advs73095-fig-0008" ref-type="fig">8J,K</xref>). Furthermore, pathological examination of major organs, including the heart, liver, spleen, lungs, and kidneys, did not reveal any notable tissue abnormalities (Figure <xref rid="advs73095-fig-0008" ref-type="fig">8L</xref>). These findings collectively demonstrate that AIE@LD does not exhibit hematological toxicity or acute or chronic dysfunction of the hepatic or renal system. AIE@LD displays excellent biocompatibility when administered topically to both dorsal and genital skin, underscoring its potential as a safe and promising biomaterial for clinical applications.</p><fig position="float" fig-type="Figure" id="advs73095-fig-0008" orientation="portrait"><label>Figure 8</label><caption><p>Biocompatibility of AIE@LD. A,B) Viability of healthy cells (human umbilical vein endothelial cells and L929 cells) after incubation with AIE@LD for different durations, as assessed via the Cell Counting Kit‐8. The data are shown as the means ± SDs (n = 6). C,D) Evaluation of erythrocyte lysis at different incubation times with AIE@LD, showing the mean ± SD (n = 6). E,F) Analysis of routine blood function, liver function, and kidney function on the back skin of the mice 7 days after the AIE@LD spray film was applied (mean ± SD; n = 3). G,H) Analysis of routine blood function, liver function, and kidney function in the perineal skin of mice 7 days after treatment with the AIE@LD spray film (mean ± SD; n = 3). I) The weight of the posterior skin of mice treated with different dressings was recorded, with PBS used as the control (mean ± SD; n = 3). J,K) After PBS, LD, or AIE@LD films were applied to the dorsal or perineal skin of the mice for 7 days, HE staining, Masson staining, and immunohistochemical analysis of inflammatory cytokines (TNF‐α) were performed on the mouse skin and penis (scale = 50 µm). (L) After PBS, LD, and AIE@LD were applied to the backs of healthy mice for 7 days, H&amp;E staining was performed on vital organs (scale = 50 µm). Data analysis was performed via one‐way ANOVA. ns, not significant; <sup>*</sup>
+<italic toggle="yes">p</italic> &lt; 0.05, <sup>**</sup>
+<italic toggle="yes">p</italic> &lt; 0.01, <sup>***</sup>
+<italic toggle="yes">p</italic> &lt; 0.001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-17" orientation="portrait" xlink:href="ADVS-13-e15865-g006.jpg"/></fig></sec></sec><sec id="advs73095-sec-0100"><label>3</label><title>Conclusion</title><p>To effectively prevent and manage large‐scale MPXV outbreaks, we developed an integrated smart early warning and PDT system by combining AIEgens with mobile applications. This comprehensive approach enables rapid diagnosis, real‐time monitoring, targeted photodynamic therapy (PDT) treatment, and systematic management of MPXV‐infected lesions, offering a standardized strategy for outbreak control. By leveraging the unique fluorescence characteristics and pH‐responsive behavior of the AIEgen molecule TBSMPPy, the system can accurately identify MPXV infections. Simultaneously, diagnostic data are transmitted in real‐time to a cloud‐based database, enabling efficient analysis of big data and epidemiological surveillance. Under white light irradiation, AIE@LD exhibited strong ROS generation and potent antiviral effects, effectively suppressing viral replication and spread. This intelligent early warning platform enables proactive disease management for individuals infected with MPXV, even in a home‐care setting, underscoring its practical value for widespread community deployment. Therefore, the integrated system of “portable spray, smartphone applications, and cloud databases” demonstrates significant potential in enhancing accessibility, particularly in resource‐limited environments, by providing a cost‐effective and scalable solution for disease management. Overall, this system presents a novel and promising approach for utilizing AIEgen materials in the large‐scale prevention and control of emerging infectious diseases, offering new directions for translational research and public health innovation.</p></sec><sec id="advs73095-sec-0110"><label>4</label><title>Experimental Section</title><sec id="advs73095-sec-0140"><title>Materials Synthetic Procedures</title><p>The organic photosensitizer, TBSMPPy had been previously designed and synthesized, and the synthesis in this work strictly followed the procedures reported in the previous work.<sup>[</sup>
+<xref rid="advs73095-bib-0045" ref-type="bibr">
+<sup>45</sup>
+</xref>
+<sup>]</sup> One mol of TBSMPPy was incorporated into 1 mL of LD, and the preparation of the spray film AIE@LD was carried out. AIE@LD was successfully prepared, and its UV–vis absorption spectrum and photoluminescence (PL) spectrum were systematically characterized. To investigate the aggregation‐induced emission phenomenon, researchers studied the PL behavior under DMSO/water mixtures with different fW ratios.</p></sec><sec id="advs73095-sec-0150"><title>ROS Measurements</title><p>The production of ROS was examined utilizing 2,7‐dichlorofluorescein diacetate (DCFH‐DA) as a probe. DCFH‐DA was converted to 2,7‐dichlorofluorescin (DCFH) under alkaline conditions. Subsequently, DCFH was converted into the extremely fluorescent 2,7‐dichloro fluorescein (DCF) in the presence of reactive oxygen species (ROS). The excitation wavelength for DCF was 488 nm, with emission at 525 nm. The quantum yield of DCF was 90 percent. Compounds were added to the activated DCFH solutions at doses of 40 and 2 µ<sc>m</sc>, respectively. The solutions were subjected to white light at an intensity of 5 mW cm<sup>−2</sup> for a period of 5 min. The emission intensity of the DCF solution at 525 nm was recorded every 20 s with an excitation wavelength of 488 nm.</p></sec><sec id="advs73095-sec-0160"><title>AIE@LD Stability Test</title><p>To assess the flexibility and mechanical stability of the sprayed film AIE@LD, it was sprayed onto a mold surface to form a thin film. After drying, the film was removed with tweezers and stretched to twice its original length to observe its elasticity. In the adhesion test, the film was applied to the skin surface of the forearm. One edge was lifted with tweezers, and tension was applied to record whether the film remains adhered on the other side. Flexibility testing involves attaching the film to the finger joint, performing 90° flexion and extension movements, and repeating 500 high‐intensity bending cycles. The adhesion status and area changes of the film layer were observed, and fluorescent images were captured under UV light to assess its stability. In the liquid resistance test, the membrane‐adhered skin was sequentially immersed in flowing water, 75% alcohol, and soapy water for 1 h each, and it was recorded whether the membrane layer peels off, dissolves, or experiences fluorescence decay. In animal model testing, the AIE@LD membrane was applied to the dorsal skin of mice. Under free‐moving conditions, morphological and fluorescent images were captured at 3, 6, 12, and 24 h to assess their adhesion durability and signal stability on a dynamic skin surface.</p></sec><sec id="advs73095-sec-0170"><title>Cell Culture and Virus</title><p>The BHK‐21 kidney cell line (CSTR:19375.09.3101HAMSCSP5287) from young Syrian hamsters, the RAW 264.7 murine macrophage cell line (CSTR:19375.09.3101MOUSCSP5036), the L929 mouse epithelioid fibroblast cell line (CSTR:19375.09.3101MOUGNM28), and the human umbilical vein endothelial cell (HUVEC, CSTR:19375.09.3101HUMSCSP5330) line were acquired from the National Collection of Authenticated Cell Cultures. All cells were confirmed to be free of mycoplasma and other pathogens. All cells were grown in RPMI 1640 media or DMEM enriched with 10% FBS and 1% penicillin‐streptomycin at 37 °C in a humidified environment containing 5% CO<sub>2</sub>. The vaccinia virus strain Tian Tan and the GPF‐tagged variant were cultured and titrated on BHK‐21 cell monolayers. All investigations with the vaccinia virus were conducted in a biosafety level II facility.</p></sec><sec id="advs73095-sec-0180"><title>TCID50</title><p>The median tissue culture infectious dose (TCID<sub>50</sub>) assay was performed to evaluate the antiviral efficacy of different treatments. BHK‐21 cells were seeded into 96‐well plates at a density of 5000 cells per well and incubated overnight at 37 °C with 5% CO<sub>2</sub> to allow monolayer formation. Vaccinia virus (VACV) samples were collected from six groups: PBS, LD, and AIE@LD with or without white light irradiation. Each viral sample was serially diluted twofold across 14 wells using DMEM as the diluent. From each dilution, 35 µL was added to five replicate wells of the cell plate, while control wells received no virus. After incubation at 37 °C for 1 h to allow viral adsorption, 180 µL of DMEM supplemented with 10% fetal bovine serum (FBS) was added to each well. Cytopathic effects were evaluated on day 4 post‐infection, and TCID<sub>50</sub> values were calculated using the Reed–Muench method.</p></sec><sec id="advs73095-sec-0190"><title>ELISA Assay</title><p>The enzyme‐linked immunosorbent assay (ELISA) was used to quantitatively detect the levels of target proteins in the samples. Following the instructions in the kit manual (manufacturer: MIbio, catalog number: ML2133), samples or standards were added to a 96‐well plate pre‐coated with specific antibodies, with 100 µL added to each well, and incubated at 37 °C for 1 h. Remove the liquid, wash the plate three times with wash buffer (300 µL per wash). Add the enzyme‐labeled secondary antibody (HRP‐labeled) at 100 µL per well, incubate at 37 °C for another hour, and repeat the washing steps. Add 100 µL of the color development substrate solution (TMB) to each well, incubate at room temperature in the dark for 15 min, and add 50 µL of stop solution to terminate the reaction. Measure the absorbance (OD value) of each well at 450 nm using an enzyme‐linked immunosorbent assay reader. Plot a standard curve using the standard samples and calculate the concentration of the target factor in the samples.</p></sec><sec id="advs73095-sec-0200"><title>Establishing a Rash Replacement Model following MPXV Infection</title><p>The Experimental Animal Ethics Committee of the Experimental Animal Center of Southern Medical University evaluated and approved all animal research. Eight‐week‐old male Balb/c mice were obtained from the Laboratory Animal Center at Southern Medical University. The animal experiments related to the Vaccinia virus were performed in the SL‐2 Laboratory in Guangdong, recognized as the Guangdong Provincial Key Laboratory of Tropical Disease Research. Mice were initially anesthetized by intraperitoneal injection. A 20 µL solution of vaccinia virus (5 × 10^6 pfu) was subsequently administered to the tail, ≈1 cm from the base. The skin was subsequently scraped 20 times with a 1 cm long syringe needle (29G), facilitating the entry of the virus into the abrasion. Following a week, the researchers examined the tail lesions of the mice. The successful implementation of the mouse tail scratch model (MPOX rash substitute model) was validated by the appearance of yellow scabs and rash‐like lesions.</p></sec><sec id="advs73095-sec-0210"><title>The Establishment of an Advanced Early Warning System</title><p>This research has established an advanced infection early warning system utilizing smartphones. The system incorporates a UV light source within the smartphone and utilizes the device's camera to capture images of wounds under the UV light spectrum. The system utilizes a one‐click detection program to automatically analyze images, produce real‐time detection results, and upload data to the cloud to facilitate clinical decision‐making.</p><p>The monkeypox seedling virus (infection group) and saline (control group) were inoculated into the scratch model on the mouse tail to establish a scar infection model. Subsequently, AIE@LD was applied to the wound surface, creating a stable self‐luminescent film within 5 min. Wound images were captured using a smartphone under UV light, and the system autonomously analyzed the image features and produced a diagnostic report. The test results were concurrently uploaded to the cloud.</p><p>In the absence of infection, the dressing exhibits a vivid fluorescence, the system interface presents a green background, and a health report was produced, with pertinent data automatically synchronized to the cloud. Upon detection of an infection, the dressing exhibits a subtle orange fluorescence, the system interface illuminates red, an infection alert was promptly issued, and the data was synchronized with the disease control center to enable timely intervention and mitigate the spread of the epidemic.</p><p>Furthermore, the system will adeptly suggest PDT in accordance with the test outcomes and medical protocols. Post‐PDT treatment, imaging and analysis will be performed once more on the infected mice. Upon detection of a bright orange fluorescence in the dressing, the system will ascertain that the virus has been eradicated, deactivate the CDC alarm, and document the healing outcomes, thereby ensuring accurate treatment of the infected region and visual oversight of the healing progression.</p></sec><sec id="advs73095-sec-0220"><title>In Vivo Elimination of Virus and Prevention of Disease Transmission</title><p>According to the specified criteria, 30 mice were randomly chosen and evenly allocated into six groups. A tail‐scratch mouse model was developed using the aforementioned method. Six days later, six cohorts of mice will receive treatment with PBS, LD, and AIE@LD on the tail skin lesion site, with each treatment comprising both illuminated and non‐illuminated subgroups, each constituting fifty percent of the total. Images of the tail lesion regions for each group will be captured every three days, with ongoing monitoring for a duration of two weeks. Following the euthanasia of the mice via cervical dislocation, tail tissues were harvested from each group. Viral titers and necrosis levels at the lesion sites were assessed using quantitative reverse transcription polymerase chain reaction (qRT‐PCR), immunohistochemistry, and HE staining. The magnitude of damage and antigen density were quantified utilizing ImageJ software (National Institutes of Health, Bethesda, MD, USA) to facilitate a more precise analysis of the results. To further assess in vivo antiviral and anti‐inflammatory activity, the collected tail specimens were isolated, pulverized, and re‐suspended in 1000 µL of 1× PBS, homogenized with a refrigerated grinder (LUKYM‐I, 70 Hz, 5 min). The samples were subsequently centrifuged at 12 000 rpm for 5 min, and the supernatant was extracted. Vaccinia virus concentrations were quantified using qRT‐PCR. The primer sequences for qPCR were: vaccinia virus forward, 5′‐ACATCTGGAGAATCCACAACA‐3′; vaccinia virus reverse, 5′‐CATCATCGGTGGTTGATTTA‐3′; vaccinia virus probe, 5′‐FAM‐GAGACTCCGGAACCAAT‐TAMRA‐3′. The concentrations of pro‐inflammatory cytokines in each group were assessed using precoated ELISA kits for mouse IL‐1βand IL‐6 to evaluate the in vivo anti‐inflammatory efficacy of various treatment strategies. Immunohistochemistry and hematoxylin‐eosin staining were employed to visually assess viral antigen density and tissue necrosis levels, respectively. Image J was utilized to compute the scores. Thereafter, to assess the impact of various treatment strategies on inhibiting virus transmission in vivo, equal volumes of the collected samples from each group were combined with 1 mL of 1× PBS, subsequently homogenized in a frozen grinder (LUKYM‐I, 70 Hz, 5 min), and centrifuged at 12 000 rpm for 5 min to isolate the supernatant. The virus was introduced into abrasions on the tails of healthy mice, and these abrasions were monitored and documented with a camera over a period of 12 days. The outcomes were evaluated utilizing ImageJ software and GraphPad Prism 7.0 (GraphPad, San Diego, CA, USA). The pro‐inflammatory cytokines INF‐γ, IL‐6, and IL‐1β were measured utilizing ELISA kits. Immunohistochemical staining, hematoxylin and eosin staining, and Masson's trichrome staining were employed to quantify viral particles and inflammatory factors in the collected tail‐diseased tissues, as well as to assess the density of viral antigens and the extent of tissue necrosis. Image J was employed to compute the scores.</p></sec><sec id="advs73095-sec-0230"><title>Biosafety Assessment</title><p>To evaluate the biocompatibility of different treatments, PBS, LD, and AIE@LD, with or without irradiation, were administered to BHK‐21 cells for 72 h. The proliferation and viability of the cells were then assessed utilizing the CCK‐8 kit supplied by Beyotime Biotechnology. The hemolysis experiment was concurrently conducted on individuals exposed to a specified concentration of AIE@LD. They were under continuous observation for 36 h, during which hemolysis rates were documented at 0, 6, 12, 18, 24, and 36 h. To assess toxicity in living creatures, namely healthy female Balb/c mice aged 8 weeks, the mice were administered PBS, LD, and AIE@LD, with or without irradiation, over a period of 12 days. The mice's body weight was meticulously monitored and documented throughout the trial. On the twelfth day, venous blood samples were collected to assess liver function indicators including ALB, AST, and ALT, alongside renal function indicators such as CRE and blood urea nitrogen BUN. Subsequently, the skin and penises were collected from each group of mice for histological analysis and cytokine detection.</p></sec><sec id="advs73095-sec-0240"><title>Statistical Analysis</title><p>The results were expressed as the mean ± standard deviation (SD) derived from at least three different experiments. Group disparities were assessed utilizing an unpaired <italic toggle="yes">t</italic>‐test and one‐way analysis of variance (ANOVA), succeeded by Tukey's post‐hoc test (GraphPad Prism 7.0). The threshold for statistical significance was established at <italic toggle="yes">p</italic> &lt; 0.05.</p></sec></sec><sec sec-type="COI-statement" id="advs73095-sec-0260"><title>Conflict of Interest</title><p>The authors declare no conflict of interest.</p></sec><sec id="advs73095-sec-0270"><title>Author Contributions</title><p>W.W., Z.L., M.L., J.Z. and R.Z. contributed equally to this work. K.Z., Z.Z., C.S. and Y.H. conceived the study and supervised the project. W.W., Z.L., M.L., J.Z. and R.Z. designed the experiments and performed most in vitro and in vivo experiments with the contribution of K.L., X.L., S.W., J.Y., M.P. and F.M. W.W., Z.L., M.L., J.Z. and R.Z. wrote the manuscript. All authors commented on the manuscript.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="advs73095-supinfo-0001" position="float" content-type="local-data" orientation="portrait"/><supplementary-material id="advs73095-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>Supporting Information</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e15865-s001.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="advs73095-sec-0250"><title>Acknowledgements</title><p>This research was funded by the National Key Research and Development Program of China (2024YFC2311503), the National Natural Science Foundation of China (82322042, 82272248, 82371846, 82500159, and 22565018), the Shenzhen Medical Research Fund (C2401021).</p></ack><sec sec-type="data-availability" id="advs73095-sec-0290"><title>Data Availability Statement</title><p>The data that support the findings of this study are available from the corresponding author upon reasonable request.</p></sec><ref-list id="advs73095-bibl-0001"><ref id="advs73095-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="advs73095-cite-0001">
+<string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Mitjà</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Ogoina</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. K.</given-names>
+<surname>Titanji</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Galvan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.‐J.</given-names>
+<surname>Muyembe</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Marks</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. M.</given-names>
+<surname>Orkin</surname>
+</string-name>, <source>Lancet</source>
+<year>2023</year>, <volume>401</volume>, <fpage>60</fpage>.<pub-id pub-id-type="pmid">36403582</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/S0140-6736(22)02075-X</pub-id><pub-id pub-id-type="pmcid">PMC9671644</pub-id></mixed-citation></ref><ref id="advs73095-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="advs73095-cite-0002">
+<string-name name-style="western">
+<given-names>M. E.</given-names>
+<surname>DeWitt</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Polk</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Williamson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. K.</given-names>
+<surname>Shetty</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. L.</given-names>
+<surname>Passaretti</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. J.</given-names>
+<surname>McNeil</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. T.</given-names>
+<surname>Fairman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. M.</given-names>
+<surname>Sampson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Dalton</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Sanders</surname>
+</string-name>, <source>EClinicalMedicine</source>
+<year>2022</year>, <volume>54</volume>, <elocation-id>101710</elocation-id>.<pub-id pub-id-type="pmid">36345526</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.eclinm.2022.101710</pub-id><pub-id pub-id-type="pmcid">PMC9621693</pub-id></mixed-citation></ref><ref id="advs73095-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="advs73095-cite-0003">
+<string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Cabanillas</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Murdaca</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Guemari</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. J.</given-names>
+<surname>Torres</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. K.</given-names>
+<surname>Azkur</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Aksoy</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Vitte</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Fernández‐Santamaria</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Karavelia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Castagnoli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Valdelvira</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Orsi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Ogliastro</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Massaro</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Özek Yücel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Novak</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Agache</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Akdis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. A.</given-names>
+<surname>Akdis</surname>
+</string-name>, <source>Allergy</source>
+<year>2024</year>, <volume>79</volume>, <fpage>3285</fpage>.<pub-id pub-id-type="pmid">39495103</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/all.16374</pub-id></mixed-citation></ref><ref id="advs73095-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="advs73095-cite-0004">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Brüssow</surname>
+</string-name>, <source>Microb. Biotechnol.</source>
+<year>2025</year>, <volume>18</volume>, <elocation-id>70142</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/1751-7915.70142</pub-id><pub-id pub-id-type="pmcid">PMC11974452</pub-id><pub-id pub-id-type="pmid">40193168</pub-id></mixed-citation></ref><ref id="advs73095-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="advs73095-cite-0005">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Adepoju</surname>
+</string-name>, <source>Lancet</source>
+<year>2024</year>, <volume>404</volume>, <elocation-id>1</elocation-id>.<pub-id pub-id-type="pmid">39396535</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/S0140-6736(24)02241-4</pub-id></mixed-citation></ref><ref id="advs73095-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="advs73095-cite-0006">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Karagoz</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Tombuloglu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Alsaeed</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Tombuloglu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>AlRubaish</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Mahmoud</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Smajlovic</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Cordic</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Rabaan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Alsuhaimi</surname>
+</string-name>, <source>J. Infect. Public Health</source>
+<year>2023</year>, <volume>16</volume>, <fpage>531</fpage>.<pub-id pub-id-type="pmid">36801633</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jiph.2023.02.003</pub-id><pub-id pub-id-type="pmcid">PMC9908738</pub-id></mixed-citation></ref><ref id="advs73095-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="advs73095-cite-0007">
+<string-name name-style="western">
+<given-names>B. K.</given-names>
+<surname>Titanji</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Hazra</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zucker</surname>
+</string-name>, <source>JAMA, J. Am. Med. Assoc.</source>
+<year>2024</year>, <volume>332</volume>, <fpage>1652</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1001/jama.2024.21091</pub-id><pub-id pub-id-type="pmid">39401235</pub-id></mixed-citation></ref><ref id="advs73095-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="advs73095-cite-0008">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Amer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. E. S.</given-names>
+<surname>Khalil</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Elahmady</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N. E.</given-names>
+<surname>ElBadawy</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W. A.</given-names>
+<surname>Zahran</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Abdelnasser</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>Rodríguez‐Morales</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Wegdan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. M. E.</given-names>
+<surname>Tash</surname>
+</string-name>, <source>J. Infect. Public Health</source>
+<year>2023</year>, <volume>16</volume>, <fpage>901</fpage>.<pub-id pub-id-type="pmid">37062165</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jiph.2023.04.001</pub-id><pub-id pub-id-type="pmcid">PMC10074767</pub-id></mixed-citation></ref><ref id="advs73095-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="advs73095-cite-0009">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Musuka</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Moyo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Tungwarara</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Mhango</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Pierre</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Saramba</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. G.</given-names>
+<surname>Iradukunda</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Dzinamarira</surname>
+</string-name>, <source>IJID Reg.</source>
+<year>2024</year>, <volume>12</volume>, <elocation-id>100402</elocation-id>.<pub-id pub-id-type="pmid">39157420</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.ijregi.2024.100402</pub-id><pub-id pub-id-type="pmcid">PMC11326932</pub-id></mixed-citation></ref><ref id="advs73095-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="advs73095-cite-0010">
+<string-name name-style="western">
+<given-names>I.</given-names>
+<surname>De Baetselier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Van Dijck</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Kenyon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Coppens</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Michiels</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>de Block</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Smet</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Coppens</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Vanroye</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. J.</given-names>
+<surname>Bugert</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Girl</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zange</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Liesenborghs</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Brosius</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>van Griensven</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Selhorst</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Florence</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Van den Bossche</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. K.</given-names>
+<surname>Ariën</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. M.</given-names>
+<surname>Rezende</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Vercauteren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Van Esbroeck</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Ramadan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Platteau</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Van Looveren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Baeyens</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Van Hoyweghen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Mangelschots</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Heyndrickx</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Hauner</surname>
+</string-name>, et al., <source>Nat. Med.</source>
+<year>2022</year>, <volume>28</volume>, <fpage>2288</fpage>.<pub-id pub-id-type="pmid">35961373</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41591-022-02004-w</pub-id><pub-id pub-id-type="pmcid">PMC9671802</pub-id></mixed-citation></ref><ref id="advs73095-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="advs73095-cite-0011">
+<string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Christaki</surname>
+</string-name>, <source>Virulence</source>
+<year>2015</year>, <volume>6</volume>, <fpage>558</fpage>.<pub-id pub-id-type="pmid">26068569</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1080/21505594.2015.1040975</pub-id><pub-id pub-id-type="pmcid">PMC4720248</pub-id></mixed-citation></ref><ref id="advs73095-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="advs73095-cite-0012">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Silva</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kohl</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Pena</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Pardee</surname>
+</string-name>, <source>iScience</source>
+<year>2023</year>, <volume>26</volume>, <elocation-id>106759</elocation-id>.<pub-id pub-id-type="pmid">37206155</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.isci.2023.106759</pub-id><pub-id pub-id-type="pmcid">PMC10183700</pub-id></mixed-citation></ref><ref id="advs73095-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="advs73095-cite-0013">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Altindis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Puca</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Shapo</surname>
+</string-name>, <source>Travel Med. Infect. Dis.</source>
+<year>2022</year>, <volume>50</volume>, <elocation-id>102459</elocation-id>.<pub-id pub-id-type="pmid">36109000</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.tmaid.2022.102459</pub-id><pub-id pub-id-type="pmcid">PMC9534096</pub-id></mixed-citation></ref><ref id="advs73095-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="advs73095-cite-0014">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Fan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ye</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liao</surname>
+</string-name>, <source>Aggregate</source>
+<year>2024</year>, <volume>5</volume>, <elocation-id>620</elocation-id>.</mixed-citation></ref><ref id="advs73095-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="advs73095-cite-0015">
+<string-name name-style="western">
+<given-names>K. L.</given-names>
+<surname>Koenig</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. K.</given-names>
+<surname>Beÿ</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. M.</given-names>
+<surname>Marty</surname>
+</string-name>, <source>One Health</source>
+<year>2022</year>, <volume>15</volume>, <elocation-id>100410</elocation-id>.<pub-id pub-id-type="pmid">36249992</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.onehlt.2022.100410</pub-id><pub-id pub-id-type="pmcid">PMC9534172</pub-id></mixed-citation></ref><ref id="advs73095-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="advs73095-cite-0016">
+<string-name name-style="western">
+<given-names>E. A.</given-names>
+<surname>Siegrist</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Sassine</surname>
+</string-name>, <source>Clin. Infect. Dis.</source>
+<year>2023</year>, <volume>76</volume>, <fpage>155</fpage>.<pub-id pub-id-type="pmid">35904001</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/cid/ciac622</pub-id><pub-id pub-id-type="pmcid">PMC9825831</pub-id></mixed-citation></ref><ref id="advs73095-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="advs73095-cite-0017">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Pourkarim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Entezari‐Maleki</surname>
+</string-name>, <source>Pharmacol. Res. Perspect.</source>
+<year>2024</year>, <volume>12</volume>, <elocation-id>01164</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/prp2.1164</pub-id><pub-id pub-id-type="pmcid">PMC10751857</pub-id><pub-id pub-id-type="pmid">38149674</pub-id></mixed-citation></ref><ref id="advs73095-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="advs73095-cite-0018">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liao</surname>
+</string-name>, <source>Aggregate</source>
+<year>2025</year>, <volume>6</volume>, <elocation-id>715</elocation-id>.</mixed-citation></ref><ref id="advs73095-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="advs73095-cite-0019">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Guo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Xiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Zhou</surname>
+</string-name>, <source>Biosaf. Health</source>
+<year>2022</year>, <volume>4</volume>, <fpage>258</fpage>.</mixed-citation></ref><ref id="advs73095-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="advs73095-cite-0020">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Luo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Xiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Duo</surname>
+</string-name>, <source>Aggregate</source>
+<year>2024</year>, <volume>5</volume>, <elocation-id>470</elocation-id>.</mixed-citation></ref><ref id="advs73095-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="advs73095-cite-0021">
+<string-name name-style="western">
+<given-names>M. M. S.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. Y.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. H. C.</given-names>
+<surname>Chau</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. W. Y.</given-names>
+<surname>Lam</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. T. K.</given-names>
+<surname>Kwok</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. Z.</given-names>
+<surname>Tang</surname>
+</string-name>, <source>Adv. Mater.</source>
+<year>2025</year>, <volume>37</volume>, <elocation-id>2407707</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202407707</pub-id><pub-id pub-id-type="pmid">39246197</pub-id></mixed-citation></ref><ref id="advs73095-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="advs73095-cite-0022">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Shi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Fan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Yang</surname>
+</string-name>, <source>Extracell. Vesicles Circ. Nucleic Acids</source>
+<year>2023</year>, <volume>4</volume>, <fpage>684</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.20517/evcna.2023.49</pub-id><pub-id pub-id-type="pmcid">PMC11648465</pub-id><pub-id pub-id-type="pmid">39697802</pub-id></mixed-citation></ref><ref id="advs73095-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="advs73095-cite-0023">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Aafreen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Liu</surname>
+</string-name>, <source>Extracell. Vesicles Circ. Nucleic Acids</source>
+<year>2023</year>, <volume>4</volume>, <fpage>107</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.20517/evcna.2023.01</pub-id><pub-id pub-id-type="pmcid">PMC10568980</pub-id><pub-id pub-id-type="pmid">37829171</pub-id></mixed-citation></ref><ref id="advs73095-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="advs73095-cite-0024">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Meng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Fang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Cui</surname>
+</string-name>, <source>ACS Sens.</source>
+<year>2022</year>, <volume>7</volume>, <fpage>2521</fpage>.<pub-id pub-id-type="pmid">36048423</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acssensors.2c01550</pub-id></mixed-citation></ref><ref id="advs73095-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="advs73095-cite-0025">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Fu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liao</surname>
+</string-name>, <source>Adv. Sci.</source>
+<year>2024</year>, <volume>11</volume>, <elocation-id>2405848</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/advs.202405848</pub-id><pub-id pub-id-type="pmcid">PMC11481339</pub-id><pub-id pub-id-type="pmid">39119886</pub-id></mixed-citation></ref><ref id="advs73095-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="advs73095-cite-0026">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Lai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Su</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liao</surname>
+</string-name>, <source>Exploration</source>
+<year>2024</year>, <volume>4</volume>, <elocation-id>20230113</elocation-id>.<pub-id pub-id-type="pmid">39713199</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/EXP.20230113</pub-id><pub-id pub-id-type="pmcid">PMC11655311</pub-id></mixed-citation></ref><ref id="advs73095-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="advs73095-cite-0027">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Soheili</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Nasseri</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Afraie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Khateri</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Moradi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Mahdavi Mortazavi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Gilzad‐Kohan</surname>
+</string-name>, <source>J. Pharm. Pharm. Sci.</source>
+<year>2022</year>, <volume>25</volume>, <fpage>297</fpage>.<pub-id pub-id-type="pmid">36130588</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.18433/jpps33138</pub-id></mixed-citation></ref><ref id="advs73095-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="advs73095-cite-0028">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Adler</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Gould</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Hine</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. B.</given-names>
+<surname>Snell</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. F.</given-names>
+<surname>Houlihan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. C.</given-names>
+<surname>Osborne</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Rampling</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. B.</given-names>
+<surname>Beadsworth</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. J.</given-names>
+<surname>Duncan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Dunning</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. E.</given-names>
+<surname>Fletcher</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. R.</given-names>
+<surname>Hunter</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Jacobs</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. H.</given-names>
+<surname>Khoo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Newsholme</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Porter</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. J.</given-names>
+<surname>Porter</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Ratcliffe</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. L.</given-names>
+<surname>Schmid</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. G.</given-names>
+<surname>Semple</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>Tunbridge</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Wingfield</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N. M.</given-names>
+<surname>Price</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Abouyannis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Al‐Balushi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Aston</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Ball</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N. J.</given-names>
+<surname>Beeching</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. J.</given-names>
+<surname>Blanchard</surname>
+</string-name>, et al., <source>Lancet Infect. Dis.</source>
+<year>2022</year>, <volume>22</volume>, <fpage>1153</fpage>.35623380
+</mixed-citation></ref><ref id="advs73095-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="advs73095-cite-0029">
+<string-name name-style="western">
+<given-names>J. A.</given-names>
+<surname>Cann</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. B.</given-names>
+<surname>Jahrling</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. E.</given-names>
+<surname>Hensley</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Wahl‐Jensen</surname>
+</string-name>, <source>J. Comp. Pathol.</source>
+<year>2013</year>, <volume>148</volume>, <fpage>6</fpage>.<pub-id pub-id-type="pmid">22884034</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jcpa.2012.06.007</pub-id><pub-id pub-id-type="pmcid">PMC3498598</pub-id></mixed-citation></ref><ref id="advs73095-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="advs73095-cite-0030">
+<string-name name-style="western">
+<given-names>E. M.</given-names>
+<surname>Jones</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. A.</given-names>
+<surname>Cochrane</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. L.</given-names>
+<surname>Percival</surname>
+</string-name>, <source>Adv. Wound Care</source>
+<year>2015</year>, <volume>4</volume>, <fpage>431</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1089/wound.2014.0538</pub-id><pub-id pub-id-type="pmcid">PMC4486717</pub-id><pub-id pub-id-type="pmid">26155386</pub-id></mixed-citation></ref><ref id="advs73095-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="advs73095-cite-0031">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Ye</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Ali</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Yao</surname>
+</string-name>, <source>ACS Appl. Mater. Interfaces</source>
+<year>2024</year>, <volume>17</volume>, <fpage>2148</fpage>.<pub-id pub-id-type="pmid">39727382</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsami.4c14905</pub-id></mixed-citation></ref><ref id="advs73095-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="advs73095-cite-0032">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Gong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Cui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Deng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>You</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Lin</surname>
+</string-name>, <source>Adv. Mater.</source>
+<year>2022</year>, <volume>34</volume>, <elocation-id>2109580</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202109580</pub-id><pub-id pub-id-type="pmid">35229371</pub-id></mixed-citation></ref><ref id="advs73095-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="advs73095-cite-0033">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Ouyang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Xing</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Nong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Deng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Bao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Jin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Luo</surname>
+</string-name>, <source>Adv. Healthcare Mater.</source>
+<year>2025</year>, <volume>14</volume>, <elocation-id>2403961</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adhm.202403961</pub-id><pub-id pub-id-type="pmid">40109148</pub-id></mixed-citation></ref><ref id="advs73095-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="advs73095-cite-0034">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hajjar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhou</surname>
+</string-name>, <source>Trends Immunol.</source>
+<year>2023</year>, <volume>44</volume>, <fpage>807</fpage>.<pub-id pub-id-type="pmid">37714775</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.it.2023.08.008</pub-id><pub-id pub-id-type="pmcid">PMC10543622</pub-id></mixed-citation></ref><ref id="advs73095-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="advs73095-cite-0035">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Fatima</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Pasha</surname>
+</string-name>, <source>J. Intelligent Learning Syst. Appl.</source>
+<year>2017</year>, <volume>9</volume>, <fpage>1</fpage>.</mixed-citation></ref><ref id="advs73095-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="advs73095-cite-0036">
+<string-name name-style="western">
+<given-names>R. M.</given-names>
+<surname>Wehbe</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. K.</given-names>
+<surname>Katsaggelos</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. J.</given-names>
+<surname>Hammond</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. M.</given-names>
+<surname>Wehbe</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. K.</given-names>
+<surname>Katsaggelos</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. J.</given-names>
+<surname>Hammond</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Hong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F. S.</given-names>
+<surname>Ahmad</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Ouyang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. J.</given-names>
+<surname>Shah</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. M.</given-names>
+<surname>McCarthy</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>Thomas</surname>
+</string-name>, <source>JAMA Cardiol.</source>
+<year>2023</year>, <volume>8</volume>, <fpage>1089</fpage>.<pub-id pub-id-type="pmid">37728933</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1001/jamacardio.2023.3142</pub-id></mixed-citation></ref><ref id="advs73095-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="advs73095-cite-0037">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.‐L.</given-names>
+<surname>Lo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Anal. Chem.</source>
+<year>2024</year>, <volume>96</volume>, <fpage>7787</fpage>.<pub-id pub-id-type="pmid">38702857</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.analchem.4c01845</pub-id></mixed-citation></ref><ref id="advs73095-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="advs73095-cite-0038">
+<string-name name-style="western">
+<given-names>S. G.</given-names>
+<surname>Hong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Park</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Kwon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Sakthivel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. P.</given-names>
+<surname>Nagappa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Leem</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. R.</given-names>
+<surname>Steinhubl</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Ngiruwonsanga</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.‐L. N.</given-names>
+<surname>Mangara</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Twizere</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. L.</given-names>
+<surname>Kim</surname>
+</string-name>, <source>NPJ Digital Med.</source>
+<year>2025</year>, <volume>8</volume>, <fpage>151</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41746-025-01548-8</pub-id><pub-id pub-id-type="pmcid">PMC11893748</pub-id><pub-id pub-id-type="pmid">40065117</pub-id></mixed-citation></ref><ref id="advs73095-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="advs73095-cite-0039">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Malik</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Ahmad</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Ahsan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Muhammad</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Waheed</surname>
+</string-name>, <source>Vaccines</source>
+<year>2023</year>, <volume>11</volume>, <fpage>500</fpage>.<pub-id pub-id-type="pmid">36992085</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/vaccines11030500</pub-id><pub-id pub-id-type="pmcid">PMC10057056</pub-id></mixed-citation></ref><ref id="advs73095-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="advs73095-cite-0040">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Zhu</surname>
+</string-name>, <source>Extracell. Vesicles Circul. Nucleic Acids</source>
+<year>2024</year>, <volume>5</volume>, <fpage>458</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.20517/evcna.2024.30</pub-id><pub-id pub-id-type="pmcid">PMC11648403</pub-id><pub-id pub-id-type="pmid">39697627</pub-id></mixed-citation></ref><ref id="advs73095-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="advs73095-cite-0041">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Mo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Xiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Cai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Zhou</surname>
+</string-name>, <source>Asian J. Pharm. Sci.</source>
+<year>2024</year>, <volume>19</volume>, <elocation-id>100926</elocation-id>.<pub-id pub-id-type="pmid">39253610</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.ajps.2024.100926</pub-id><pub-id pub-id-type="pmcid">PMC11381595</pub-id></mixed-citation></ref><ref id="advs73095-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="advs73095-cite-0042">
+<string-name name-style="western">
+<given-names>J. A.</given-names>
+<surname>Willis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Cheburkanov</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Kassab</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Soares</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. C.</given-names>
+<surname>Blanco</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V. S.</given-names>
+<surname>Bagnato</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V. V.</given-names>
+<surname>Yakovlev</surname>
+</string-name>, <source>Appl. Phys. Rev.</source>
+<year>2021</year>, <volume>8</volume>, <elocation-id>021315</elocation-id>.<pub-id pub-id-type="pmid">34084253</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1063/5.0044713</pub-id><pub-id pub-id-type="pmcid">PMC8132927</pub-id></mixed-citation></ref><ref id="advs73095-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="advs73095-cite-0043">
+<string-name name-style="western">
+<given-names>J. Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Zeitouni</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Austin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Jagdeo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. W.</given-names>
+<surname>Lim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. M.</given-names>
+<surname>Ozog</surname>
+</string-name>, <source>J. Am. Acad. Dermatol.</source>
+<year>2025</year>, <volume>20</volume>, <elocation-id>S0190</elocation-id>.</mixed-citation></ref><ref id="advs73095-bib-0044"><label>44</label><mixed-citation publication-type="journal" id="advs73095-cite-0044">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yuan</surname>
+</string-name>, <source>Eng. Regener.</source>
+<year>2022</year>, <volume>3</volume>, <fpage>59</fpage>.</mixed-citation></ref><ref id="advs73095-bib-0045"><label>45</label><mixed-citation publication-type="journal" id="advs73095-cite-0045">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Qiu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. Z.</given-names>
+<surname>Tang</surname>
+</string-name>, <source>Matter</source>
+<year>2023</year>, <volume>6</volume>, <fpage>3449</fpage>.</mixed-citation></ref><ref id="advs73095-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="advs73095-cite-0046">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Cai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Auffray</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Nagata</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐Y.</given-names>
+<surname>Chan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐T.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Song</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Tsuchiya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Adachi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Duan</surname>
+</string-name>, <source>Chem. Eng. J.</source>
+<year>2021</year>, <volume>420</volume>, <elocation-id>127591</elocation-id>.</mixed-citation></ref><ref id="advs73095-bib-0047"><label>47</label><mixed-citation publication-type="journal" id="advs73095-cite-0047">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Kondo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Tsutsui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Matsuo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Tanaka</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Seki</surname>
+</string-name>, <source>Nanoscale Adv</source>
+<year>2024</year>, <volume>6</volume>, <fpage>4567</fpage>.<pub-id pub-id-type="pmid">39144158</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1039/d4na00516c</pub-id><pub-id pub-id-type="pmcid">PMC11320297</pub-id></mixed-citation></ref><ref id="advs73095-bib-0048"><label>48</label><mixed-citation publication-type="journal" id="advs73095-cite-0048">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Shu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liao</surname>
+</string-name>, <source>Matter</source>
+<year>2024</year>, <volume>7</volume>, <fpage>1187</fpage>.</mixed-citation></ref><ref id="advs73095-bib-0049"><label>49</label><mixed-citation publication-type="journal" id="advs73095-cite-0049">
+<string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Shu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Qin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Qiu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Shen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. Z.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liao</surname>
+</string-name>, <source>Adv. Mater.</source>
+<year>2024</year>, <volume>36</volume>, <elocation-id>2305378</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202305378</pub-id><pub-id pub-id-type="pmid">37931029</pub-id></mixed-citation></ref><ref id="advs73095-bib-0050"><label>50</label><mixed-citation publication-type="journal" id="advs73095-cite-0050">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Dai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ding</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Lou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Xia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Hong</surname>
+</string-name>, <source>J. Med. Chem.</source>
+<year>2020</year>, <volume>63</volume>, <fpage>1996</fpage>.<pub-id pub-id-type="pmid">32039596</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.jmedchem.9b02014</pub-id></mixed-citation></ref><ref id="advs73095-bib-0051"><label>51</label><mixed-citation publication-type="journal" id="advs73095-cite-0051">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. Z.</given-names>
+<surname>Tang</surname>
+</string-name>, <source>ACS Nano</source>
+<year>2023</year>, <volume>17</volume>, <fpage>7394</fpage>.<pub-id pub-id-type="pmid">37009988</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsnano.2c11762</pub-id></mixed-citation></ref><ref id="advs73095-bib-0052"><label>52</label><mixed-citation publication-type="journal" id="advs73095-cite-0052">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Sberna</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Rozera</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Minosse</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Bordi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Mazzotta</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>D'Abramo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Girardi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Antinori</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Maggi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Lalle</surname>
+</string-name>, <source>Emerging infectious diseases</source>
+<year>2024</year>, <volume>30</volume>, <fpage>1829</fpage>.<pub-id pub-id-type="pmid">39127126</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3201/eid3009.240075</pub-id><pub-id pub-id-type="pmcid">PMC11346984</pub-id></mixed-citation></ref><ref id="advs73095-bib-0053"><label>53</label><mixed-citation publication-type="journal" id="advs73095-cite-0053">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Trucillo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. D.</given-names>
+<surname>Delivery</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Applications</surname>
+</string-name>, <source>Materials (Basel)</source>
+<year>2024</year>, <volume>17</volume>, <fpage>456</fpage>.<pub-id pub-id-type="pmid">38255624</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/ma17020456</pub-id><pub-id pub-id-type="pmcid">PMC10817481</pub-id></mixed-citation></ref><ref id="advs73095-bib-0054"><label>54</label><mixed-citation publication-type="journal" id="advs73095-cite-0054">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Luo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Tan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Gui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. Z.</given-names>
+<surname>Tang</surname>
+</string-name>, <source>Molecules</source>
+<year>2022</year>, <volume>27</volume>, <fpage>3914</fpage>.<pub-id pub-id-type="pmid">35745035</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/molecules27123914</pub-id><pub-id pub-id-type="pmcid">PMC9229065</pub-id></mixed-citation></ref><ref id="advs73095-bib-0055"><label>55</label><mixed-citation publication-type="journal" id="advs73095-cite-0055">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. Z.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Adv. Mater.</source>
+<year>2024</year>, <volume>36</volume>, <elocation-id>2406047</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202406047</pub-id><pub-id pub-id-type="pmid">38874364</pub-id></mixed-citation></ref><ref id="advs73095-bib-0056"><label>56</label><mixed-citation publication-type="journal" id="advs73095-cite-0056">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Guo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Rao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Fan</surname>
+</string-name>, <source>Adv. Healthcare Mater.</source>
+<year>2024</year>, <volume>13</volume>, <elocation-id>2402103</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adhm.202402103</pub-id><pub-id pub-id-type="pmid">38923772</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

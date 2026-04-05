@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41473656</PMID><DateCompleted><Year>2025</Year><Month>12</Month><Day>31</Day></DateCompleted><DateRevised><Year>2026</Year><Month>01</Month><Day>02</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1663-4365</ISSN><JournalIssue CitedMedium="Print"><Volume>17</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>Frontiers in aging neuroscience</Title><ISOAbbreviation>Front Aging Neurosci</ISOAbbreviation></Journal><ArticleTitle>HALP, PIV, and SII as novel composite inflammatory indices for early detection and severity assessment of Alzheimer's disease.</ArticleTitle><Pagination><StartPage>1711176</StartPage><MedlinePgn>1711176</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1711176</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fnagi.2025.1711176</ELocationID><Abstract><AbstractText Label="OBJECTIVE" NlmCategory="UNASSIGNED">This study aimed to evaluate the diagnostic and prognostic value of the Hemoglobin, Albumin, Lymphocyte, and Platelet (HALP) Score, the Pan-Immune-Inflammation Value (PIV), and the Systemic-Immune-Inflammation Index (SII) in Alzheimer's disease (AD), exploring their association with dementia severity and their potential utility in diagnosis and monitoring disease progression.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">In a retrospective case-control study, 261 AD patients and 176 healthy controls were enrolled. Propensity score matching (PSM) generated a balanced cohort of 176 patient-control pairs. Demographic, clinical, and hematologic variables were collected, including HALP, PIV, and SII, and dementia severity was assessed using the mini-mental state examination (MMSE). Univariate and multivariate logistic regression analyses were performed to identify independent risk factors for AD, while spearman's correlation and receiver operating characteristic (ROC) curve analysis with bootstrap internal validation were used to evaluate the biomarker's performance.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Following matching, AD patients exhibited significantly lower HALP and higher PIV and SII levels indicating a chronic pro-inflammatory state. HALP, PIV, and SII showed gradual but non-significant changes with dementia severity. HALP exhibited inverse correlation trend with dementia severity, though it did not reach statistical significance. Logistic regression identified education level and elevated neutrophil counts as independent risk factors of AD. ROC analysis revealed modest diagnostic performance for indices (AUC from 0.627 to 0.655), while combination of them did not significantly improve the diagnostic power.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">HALP, PIV, and SII are promising blood-based biomarkers for AD diagnosis and progression monitoring. HALP may help track disease progression. These low cost, accessible composite inflammatory indices offer potential as adjunct tools for early detection and severity assessment in AD, especially in resource limited settings.</AbstractText><CopyrightInformation>Copyright &#xa9; 2025 Huang, Lu, Liu, Dai, Mahmut, Gao, Ji and Zhang.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Huang</LastName><ForeName>Chao</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Department of Clinical Laboratory, Huanhu Hospital Affiliated to Tianjin Medical University, Tianjin, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lu</LastName><ForeName>Chenxi</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Department of Clinical Laboratory, Huanhu Hospital Affiliated to Tianjin Medical University, Tianjin, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Liu</LastName><ForeName>Shuai</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Department of Neurology, Huanhu Hospital Affiliated to Tianjin Medical University, Tianjin, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Dai</LastName><ForeName>Fanshu</ForeName><Initials>F</Initials><AffiliationInfo><Affiliation>Department of Clinical Laboratory, Huanhu Hospital Affiliated to Tianjin Medical University, Tianjin, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mahmut</LastName><ForeName>Dilraba</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Department of Clinical Laboratory, Huanhu Hospital Affiliated to Tianjin Medical University, Tianjin, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gao</LastName><ForeName>Hezhen</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Clinical Laboratory, Huanhu Hospital Affiliated to Tianjin Medical University, Tianjin, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ji</LastName><ForeName>Yong</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Neurology, Huanhu Hospital Affiliated to Tianjin Medical University, Tianjin, China.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Tianjin Key Laboratory of Cerebral Vascular and Neurodegenerative Diseases, Tianjin, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Zhang</LastName><ForeName>Biao</ForeName><Initials>B</Initials><AffiliationInfo><Affiliation>Department of Clinical Laboratory, Huanhu Hospital Affiliated to Tianjin Medical University, Tianjin, China.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Tianjin Key Laboratory of Cerebral Vascular and Neurodegenerative Diseases, Tianjin, China.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>12</Month><Day>15</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Aging Neurosci</MedlineTA><NlmUniqueID>101525824</NlmUniqueID><ISSNLinking>1663-4365</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Alzheimer&#x2019;s disease</Keyword><Keyword MajorTopicYN="N">biomarkers</Keyword><Keyword MajorTopicYN="N">dementia severity</Keyword><Keyword MajorTopicYN="N">inflammatory indices</Keyword><Keyword MajorTopicYN="N">neuroinflammation</Keyword></KeywordList><CoiStatement>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>9</Month><Day>23</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2025</Year><Month>11</Month><Day>27</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>11</Month><Day>28</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2025</Year><Month>12</Month><Day>31</Day><Hour>7</Hour><Minute>38</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2025</Year><Month>12</Month><Day>31</Day><Hour>7</Hour><Minute>37</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2025</Year><Month>12</Month><Day>31</Day><Hour>4</Hour><Minute>57</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>12</Month><Day>15</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41473656</ArticleId><ArticleId IdType="pmc">PMC12745467</ArticleId><ArticleId IdType="doi">10.3389/fnagi.2025.1711176</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Aries M., Hensley-McBain T. (2023). Neutrophils as a potential therapeutic target in Alzheimer&#x2019;s disease.
+<i>Front. Immunol.</i>
+14:1123149. 10.3389/fimmu.2023.1123149
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fimmu.2023.1123149</ArticleId><ArticleId IdType="pmc">PMC10020508</ArticleId><ArticleId IdType="pubmed">36936930</ArticleId></ArticleIdList></Reference><Reference><Citation>Bettcher B., Tansey M., Doroth&#xe9;e G., Heneka M. (2021). Peripheral and central immune system crosstalk in Alzheimer disease - a research prospectus.
+<i>Nat. Rev. Neurol.</i>
+17
+689&#x2013;701. 10.1038/s41582-021-00549-x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41582-021-00549-x</ArticleId><ArticleId IdType="pmc">PMC8439173</ArticleId><ArticleId IdType="pubmed">34522039</ArticleId></ArticleIdList></Reference><Reference><Citation>Calsolaro V., Edison P. (2016). Neuroinflammation in Alzheimer&#x2019;s disease: Current evidence and future directions.
+<i>Alzheimers Dement.</i>
+12
+719&#x2013;732. 10.1016/j.jalz.2016.02.010
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jalz.2016.02.010</ArticleId><ArticleId IdType="pubmed">27179961</ArticleId></ArticleIdList></Reference><Reference><Citation>Guo Z., Zheng Y., Geng J., Wu Z., Wei T., Shan G., et al.  (2024). Unveiling the link between systemic inflammation markers and cognitive performance among older adults in the US: A population-based study using NHANES 2011-2014 data.
+<i>J. Clin. Neurosci.</i>
+119
+45&#x2013;51. 10.1016/j.jocn.2023.11.004
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jocn.2023.11.004</ArticleId><ArticleId IdType="pubmed">37979310</ArticleId></ArticleIdList></Reference><Reference><Citation>G&#xfc;rb&#xfc;zer N., Ozkaya A. (2024). Inflammatory burden index (IBI) and hemoglobin, albumin, lymphocyte, and platelet (HALP) score in Alzheimer&#x2019;s disease: A retrospective comparative study.
+<i>Cureus</i>
+16:e69148. 10.7759/cureus.69148
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7759/cureus.69148</ArticleId><ArticleId IdType="pmc">PMC11467697</ArticleId><ArticleId IdType="pubmed">39398776</ArticleId></ArticleIdList></Reference><Reference><Citation>Heneka M., Carson M., El Khoury J., Landreth G., Brosseron F., Feinstein D., et al.  (2015). Neuroinflammation in Alzheimer&#x2019;s disease.
+<i>Lancet Neurol.</i>
+14
+388&#x2013;405. 10.1016/S1474-4422(15)70016-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1474-4422(15)70016-5</ArticleId><ArticleId IdType="pmc">PMC5909703</ArticleId><ArticleId IdType="pubmed">25792098</ArticleId></ArticleIdList></Reference><Reference><Citation>Huang X., Hussain B., Chang J. (2021). Peripheral inflammation and blood-brain barrier disruption: Effects and mechanisms.
+<i>CNS Neurosci. Ther.</i>
+27
+36&#x2013;47. 10.1111/cns.13569
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cns.13569</ArticleId><ArticleId IdType="pmc">PMC7804893</ArticleId><ArticleId IdType="pubmed">33381913</ArticleId></ArticleIdList></Reference><Reference><Citation>Jose S., Groves N., Roper K., Gordon R. (2022). Mechanisms of NLRP3 activation and pathology during neurodegeneration.
+<i>Int. J. Biochem. Cell. Biol.</i>
+151:106273. 10.1016/j.biocel.2022.106273
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.biocel.2022.106273</ArticleId><ArticleId IdType="pubmed">35926782</ArticleId></ArticleIdList></Reference><Reference><Citation>K&#x131;ndan A., Kurt D., Nalbant&#xe7;&#x131;lar D., Ulusoy C., Y&#xfc;cel K. (2025). Evaluation of albumin-based inflammatory markers as diagnostic tools in HELLP syndrome.
+<i>Sci. Rep.</i>
+15:22125. 10.1038/s41598-025-01797-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-025-01797-3</ArticleId><ArticleId IdType="pmc">PMC12218002</ArticleId><ArticleId IdType="pubmed">40593842</ArticleId></ArticleIdList></Reference><Reference><Citation>Li C., Wen Q., Zhu G., Zhang Y., Wang Y., Luo D., et al.  (2025). Association of the panimmune-inflammatory value (PIV) with all-cause and cardiovascular mortality in maintenance hemodialysis patients: A propensity score matching retrospective study.
+<i>Int. Urol. Nephrol.</i>
+57
+571&#x2013;583. 10.1007/s11255-024-04203-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11255-024-04203-5</ArticleId><ArticleId IdType="pubmed">39254905</ArticleId></ArticleIdList></Reference><Reference><Citation>Li J., Zhang Y., Wang H., Guo Y., Shen X., Li M., et al.  (2023). Exploring the links among peripheral immunity, biomarkers, cognition, and neuroimaging in Alzheimer&#x2019;s disease.
+<i>Alzheimers Dement.</i>
+15:e12517. 10.1002/dad2.12517
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/dad2.12517</ArticleId><ArticleId IdType="pmc">PMC10730778</ArticleId><ArticleId IdType="pubmed">38124758</ArticleId></ArticleIdList></Reference><Reference><Citation>Livingston G., Huntley J., Sommerlad A., Ames D., Ballard C., Banerjee S., et al.  (2020). Dementia prevention, intervention, and care: 2020 report of the <i>Lancet</i> commission.
+<i>Lancet</i>
+396
+413&#x2013;446. 10.1016/S0140-6736(20)30367-6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0140-6736(20)30367-6</ArticleId><ArticleId IdType="pmc">PMC7392084</ArticleId><ArticleId IdType="pubmed">32738937</ArticleId></ArticleIdList></Reference><Reference><Citation>Meng X., D&#x2019;Arcy C. (2012). Education and dementia in the context of the cognitive reserve hypothesis: A systematic review with meta-analyses and qualitative analyses.
+<i>PLoS One</i>
+7:e38268. 10.1371/journal.pone.0038268
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0038268</ArticleId><ArticleId IdType="pmc">PMC3366926</ArticleId><ArticleId IdType="pubmed">22675535</ArticleId></ArticleIdList></Reference><Reference><Citation>Okyar Ba&#x15f; A., G&#xfc;ner M., Ceylan S., Haf&#x131;zo&#x11f;lu M., &#x15e;ahiner Z., Do&#x11f;u B., et al.  (2023). Pan-immune inflammation value; a novel biomarker reflecting inflammation associated with frailty.
+<i>Aging Clin. Exp. Res.</i>
+35
+1641&#x2013;1649. 10.1007/s40520-023-02457-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40520-023-02457-0</ArticleId><ArticleId IdType="pubmed">37289361</ArticleId></ArticleIdList></Reference><Reference><Citation>Palmqvist S., Janelidze S., Quiroz Y., Zetterberg H., Lopera F., Stomrud E., et al.  (2020). Discriminative accuracy of plasma Phospho-tau217 for Alzheimer disease vs other neurodegenerative disorders.
+<i>JAMA</i>
+324
+772&#x2013;781. 10.1001/jama.2020.12134
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2020.12134</ArticleId><ArticleId IdType="pmc">PMC7388060</ArticleId><ArticleId IdType="pubmed">32722745</ArticleId></ArticleIdList></Reference><Reference><Citation>Prinz M., Priller J. (2017). The role of peripheral immune cells in the CNS in steady state and disease.
+<i>Nat. Neurosci.</i>
+20
+136&#x2013;144. 10.1038/nn.4475
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nn.4475</ArticleId><ArticleId IdType="pubmed">28092660</ArticleId></ArticleIdList></Reference><Reference><Citation>Sancesario G., Bernardini S. (2019). AD biomarker discovery in CSF and in alternative matrices.
+<i>Clin. Biochem.</i>
+72
+52&#x2013;57. 10.1016/j.clinbiochem.2019.08.008
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinbiochem.2019.08.008</ArticleId><ArticleId IdType="pubmed">31437430</ArticleId></ArticleIdList></Reference><Reference><Citation>Szczechowiak K., Diniz B., Leszek J. (2019). Diet and Alzheimer&#x2019;s dementia - Nutritional approach to modulate inflammation.
+<i>Pharmacol. Biochem. Behav.</i>
+184:172743. 10.1016/j.pbb.2019.172743
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pbb.2019.172743</ArticleId><ArticleId IdType="pubmed">31356838</ArticleId></ArticleIdList></Reference><Reference><Citation>Tao Q., Ang T., DeCarli C., Auerbach S., Devine S., Stein T., et al.  (2018). Association of chronic low-grade inflammation with risk of Alzheimer disease in ApoE4 carriers.
+<i>JAMA Netw. Open</i>
+1:e183597. 10.1001/jamanetworkopen.2018.3597
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamanetworkopen.2018.3597</ArticleId><ArticleId IdType="pmc">PMC6324596</ArticleId><ArticleId IdType="pubmed">30646251</ArticleId></ArticleIdList></Reference><Reference><Citation>Xia Y., Xia C., Wu L., Li Z., Li H., Zhang J. (2023). Systemic immune inflammation index (SII), System inflammation response index (SIRI) and Risk of all-cause mortality and cardiovascular mortality: A 20-year follow-up cohort study of 42,875 US Adults.
+<i>J. Clin. Med.</i>
+12:1128. 10.3390/jcm12031128
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/jcm12031128</ArticleId><ArticleId IdType="pmc">PMC9918056</ArticleId><ArticleId IdType="pubmed">36769776</ArticleId></ArticleIdList></Reference><Reference><Citation>Xu M., Chen R., Liu L., Liu X., Hou J., Liao J., et al.  (2021). Systemic immune-inflammation index and incident cardiovascular diseases among middle-aged and elderly Chinese adults: The Dongfeng-Tongji cohort study.
+<i>Atherosclerosis</i>
+323
+20&#x2013;29. 10.1016/j.atherosclerosis.2021.02.012
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.atherosclerosis.2021.02.012</ArticleId><ArticleId IdType="pubmed">33773161</ArticleId></ArticleIdList></Reference><Reference><Citation>Xu W., Huang Y., Zhou R. (2025). NLRP3 inflammasome in neuroinflammation and central nervous system diseases.
+<i>Cell. Mol. Immunol.</i>
+22
+341&#x2013;355. 10.1038/s41423-025-01275-w
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41423-025-01275-w</ArticleId><ArticleId IdType="pmc">PMC11955557</ArticleId><ArticleId IdType="pubmed">40075143</ArticleId></ArticleIdList></Reference><Reference><Citation>Yalav O., Topal U., Unal A., Eray I. (2021). Prognostic significance of preoperative hemoglobin and albumin levels and lymphocyte and platelet counts (HALP) in patients undergoing curative resection for colorectal cancer.
+<i>Ann. Ital. Chir.</i>
+92
+283&#x2013;292.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">34312330</ArticleId></ArticleIdList></Reference><Reference><Citation>Yang X., Tao N., Wang T., Zhang Z., Wu Q. (2025). The relationship between composite inflammatory indicators and short-term outcomes in patients with heart failure.
+<i>Int. J. Cardiol.</i>
+420:132755. 10.1016/j.ijcard.2024.132755
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijcard.2024.132755</ArticleId><ArticleId IdType="pubmed">39581270</ArticleId></ArticleIdList></Reference><Reference><Citation>Zenaro E., Pietronigro E., Della Bianca V., Piacentino G., Marongiu L., Budui S., et al.  (2015). Neutrophils promote Alzheimer&#x2019;s disease-like pathology and cognitive decline via LFA-1 integrin.
+<i>Nat. Med.</i>
+21
+880&#x2013;886. 10.1038/nm.3913
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nm.3913</ArticleId><ArticleId IdType="pubmed">26214837</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

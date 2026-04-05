@@ -1,0 +1,1139 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article article-type="research-article" xml:lang="en" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Sci Rep</journal-id><journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id><journal-id journal-id-type="pmc-domain-id">1579</journal-id><journal-id journal-id-type="pmc-domain">scirep</journal-id><journal-title-group><journal-title>Scientific Reports</journal-title></journal-title-group><issn pub-type="epub">2045-2322</issn><publisher><publisher-name>Nature Publishing Group</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC12749379</article-id><article-id pub-id-type="pmcid-ver">PMC12749379.1</article-id><article-id pub-id-type="pmcaid">12749379</article-id><article-id pub-id-type="pmcaiid">12749379</article-id><article-id pub-id-type="pmid">41309921</article-id><article-id pub-id-type="doi">10.1038/s41598-025-29285-8</article-id><article-id pub-id-type="publisher-id">29285</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Article</subject></subj-group></article-categories><title-group><article-title>Development and validation of a kinematic hindlimb cycling model for rats</article-title></title-group><contrib-group><contrib contrib-type="author" corresp="yes"><name name-style="western"><surname>Sweatland</surname><given-names initials="HM">Hannah M.</given-names></name><address><email>hsweatland@ufl.edu</email></address><xref ref-type="aff" rid="Aff1">1</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Pettit</surname><given-names initials="E">Eric</given-names></name><xref ref-type="aff" rid="Aff2">2</xref><xref ref-type="aff" rid="Aff4">4</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Patel</surname><given-names initials="H">Heet</given-names></name><xref ref-type="aff" rid="Aff2">2</xref><xref ref-type="aff" rid="Aff4">4</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>de la Mata</surname><given-names initials="N">Neeley</given-names></name><xref ref-type="aff" rid="Aff7">7</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Conover</surname><given-names initials="CF">Christine F.</given-names></name><xref ref-type="aff" rid="Aff4">4</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Griffis</surname><given-names initials="EJ">Emily J.</given-names></name><xref ref-type="aff" rid="Aff1">1</xref></contrib><contrib contrib-type="author" equal-contrib="yes"><name name-style="western"><surname>Yarrow</surname><given-names initials="JF">Joshua F.</given-names></name><xref ref-type="aff" rid="Aff4">4</xref><xref ref-type="aff" rid="Aff5">5</xref><xref ref-type="aff" rid="Aff6">6</xref></contrib><contrib contrib-type="author" equal-contrib="yes"><name name-style="western"><surname>Schiefer</surname><given-names initials="MA">Matthew A.</given-names></name><xref ref-type="aff" rid="Aff2">2</xref><xref ref-type="aff" rid="Aff3">3</xref><xref ref-type="aff" rid="Aff4">4</xref></contrib><contrib contrib-type="author" equal-contrib="yes"><name name-style="western"><surname>Dixon</surname><given-names initials="WE">Warren E.</given-names></name><xref ref-type="aff" rid="Aff1">1</xref></contrib><aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/02y3ad647</institution-id><institution-id institution-id-type="GRID">grid.15276.37</institution-id><institution-id institution-id-type="ISNI">0000 0004 1936 8091</institution-id><institution>Department of Mechanical and Aerospace Engineering, </institution><institution>University of Florida, </institution></institution-wrap>Gainesville, FL USA </aff><aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/02y3ad647</institution-id><institution-id institution-id-type="GRID">grid.15276.37</institution-id><institution-id institution-id-type="ISNI">0000 0004 1936 8091</institution-id><institution>Department of Biomedical Engineering, </institution><institution>University of Florida, </institution></institution-wrap>Gainesville, FL USA </aff><aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/02y3ad647</institution-id><institution-id institution-id-type="GRID">grid.15276.37</institution-id><institution-id institution-id-type="ISNI">0000 0004 1936 8091</institution-id><institution>Department of Neuroscience, </institution><institution>University of Florida, </institution></institution-wrap>Gainesville, FL USA </aff><aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/02r7md321</institution-id><institution-id institution-id-type="GRID">grid.429684.5</institution-id><institution-id institution-id-type="ISNI">0000 0004 0414 1177</institution-id><institution>Malcom Randall Veterans Affairs Medical Center, North Florida/South Georgia Veterans Health System, </institution></institution-wrap>Gainesville, FL USA </aff><aff id="Aff5"><label>5</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/04d7ez939</institution-id><institution-id institution-id-type="GRID">grid.280930.0</institution-id><institution>Eastern Colorado Geriatrics Research, Education, and Clinical Center, </institution><institution>VA Eastern Colorado Health Care System, </institution></institution-wrap>Aurora, CO USA </aff><aff id="Aff6"><label>6</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/03wmf1y16</institution-id><institution-id institution-id-type="GRID">grid.430503.1</institution-id><institution-id institution-id-type="ISNI">0000 0001 0703 675X</institution-id><institution>Division of Geriatric Medicine, Department of Medicine, </institution><institution>University of Colorado Anschutz Medical Campus, </institution></institution-wrap>Aurora, CO USA </aff><aff id="Aff7"><label>7</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/011vxgd24</institution-id><institution-id institution-id-type="GRID">grid.268154.c</institution-id><institution-id institution-id-type="ISNI">0000 0001 2156 6140</institution-id><institution>West Virginia University School of Medicine, </institution></institution-wrap>Morgantown, WV USA </aff></contrib-group><pub-date pub-type="epub"><day>27</day><month>11</month><year>2025</year></pub-date><pub-date pub-type="collection"><year>2025</year></pub-date><volume>15</volume><issue-id pub-id-type="pmc-issue-id">478255</issue-id><elocation-id>45444</elocation-id><history><date date-type="received"><day>7</day><month>4</month><year>2025</year></date><date date-type="accepted"><day>14</day><month>11</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>27</day><month>11</month><year>2025</year></date></event><event event-type="pmc-live"><date><day>31</day><month>12</month><year>2025</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2025-12-31 00:25:13.470"><day>31</day><month>12</month><year>2025</year></date></event></pub-history><permissions><copyright-statement>© The Author(s) 2025</copyright-statement><copyright-year>2025</copyright-year><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="41598_2025_Article_29285.pdf"/><abstract id="Abs1"><p id="Par1">Functional electrical stimulation (FES) bicycle training is a physical rehabilitation technique used to promote muscle recovery and/or cardiorespiratory health in persons with lower extremity impairment due to neurologic injury. FES cycling may also increase bone mineral density (BMD) in such populations, although no consensus exists that supports FES-induced skeletal improvement, in-part due to the extended 9–12 + month duration necessary to detect BMD gain in humans and the multitude of FES parameter permutations that require optimization to improve bone strength and/or reduce fracture risk, which may differ from those needed to improve muscle or cardiovascular fitness. Rodent models have been used in FES studies because musculoskeletal changes are phenotypically like humans but occur over an accelerated time course that permits more rapid identification of potentially efficacious FES parameters. To gain accelerated understanding of FES-cycling in humans, we performed a kinematic analysis of the rat hindlimb with a fixed hip location and variable foot location as the pedal of the bicycle rotated about the crank. Based on this analysis, an FES pattern was developed for the femoral and sciatic nerves to produce forward (clockwise) or reverse (counterclockwise) motion of the crank. These modeled FES patterns were validated in nine experiments that used 743 unique stimulation trials conducted in anesthetized male and female rodents. Such insights represent initial steps to facilitate closed-loop FES control of cycling in rats, which will help to refine rehabilitation strategies to promote bone and muscle recovery in rodent models and ultimately people.</p></abstract><kwd-group xml:lang="en"><title>Keywords</title><kwd>Kinematic analysis</kwd><kwd>Functional electrical stimulation</kwd><kwd>Physical rehabilitation</kwd><kwd>Rats</kwd><kwd>Spinal cord injury</kwd></kwd-group><kwd-group kwd-group-type="npg-subject"><title>Subject terms</title><kwd>Biomedical engineering</kwd><kwd>Mechanical engineering</kwd></kwd-group><funding-group><award-group><funding-source><institution>Department of Veterans Affairs</institution></funding-source><award-id>I21RX003757</award-id><principal-award-recipient><name name-style="western"><surname>Yarrow</surname><given-names>Joshua F.</given-names></name></principal-award-recipient></award-group></funding-group><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>issue-copyright-statement</meta-name><meta-value>© Springer Nature Limited 2025</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="Sec1"><title>Introduction</title><p id="Par3">Due in part to musculoskeletal unloading that occurs after neurologic injury, disuse or neurogenic osteoporosis can develop and increase bone fracture risk<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>. One prevalent example of this is spinal cord injury (SCI), which dramatically increases bone loss<sup><xref ref-type="bibr" rid="CR2">2</xref></sup> and fracture risk<sup><xref ref-type="bibr" rid="CR3">3</xref></sup> at the distal femur and proximal tibial areas near the knee. This bone weakness can lead to other comorbidities such as respiratory illness, pressure ulcers, and urinary tract infections that worsen mortality risk<sup><xref ref-type="bibr" rid="CR4">4</xref></sup>. Functional electrical stimulation (FES)-induced cycling is one method of stimulating peripheral nerves and muscles in a manner that (1) does not require central nervous system (CNS) input to reload affected limbs; (2) improves muscle mass; and (3) promotes sensorimotor recovery in some individuals with SCI<sup><xref ref-type="bibr" rid="CR5">5</xref>–<xref ref-type="bibr" rid="CR7">7</xref></sup>. However, improvements in bone mineral density (BMD), bone microstructure, and bone strength have been difficult to demonstrate in response to FES in persons with SCI<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>. For example, some FES-cycling clinical studies have shown minor BMD gains<sup><xref ref-type="bibr" rid="CR8">8</xref>–<xref ref-type="bibr" rid="CR10">10</xref></sup>, while others report no trabecular or cortical bone gain<sup><xref ref-type="bibr" rid="CR11">11</xref>–<xref ref-type="bibr" rid="CR13">13</xref></sup>. Many factors can be varied when designing FES schemes to promote musculoskeletal recovery, such as frequency and duration of training sessions, pedaling cadence, and the frequency, amplitude, and pulse width of electrical stimulation. It is difficult to predict how the variation of these factors would impact bone structure and bone mechanical characteristics. Moreover, because of the relatively slow rate of bone metabolism in humans<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>, years-long clinical trials would be needed to optimize such factors when developing FES-cycling protocols to improve bone parameters in persons after SCI.</p><p id="Par4">One approach to expedite the identification of optimal FES-cycling protocols for bone recovery is to reverse-translate the design of existing human FES-bicycle systems<sup><xref ref-type="bibr" rid="CR15">15</xref></sup> to develop an FES-cycling system for use in rodent models, which are an accepted model of human bone diseases<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. For example, the severe contusion SCI model closely reproduces that pathophysiology of severe traumatic SCI in humans<sup><xref ref-type="bibr" rid="CR17">17</xref></sup> and findings from several labs have reported that bone phenotypic changes in rats subjected to various models of contusion SCI<sup><xref ref-type="bibr" rid="CR18">18</xref>–<xref ref-type="bibr" rid="CR23">23</xref></sup> closely reproduce those occurring in humans after severe traumatic SCI<sup><xref ref-type="bibr" rid="CR24">24</xref></sup>. However, because bone loss and regain occurs 25–50 + times faster in rats with SCI<sup><xref ref-type="bibr" rid="CR18">18</xref>,<xref ref-type="bibr" rid="CR19">19</xref></sup> when compared to people with SCI<sup><xref ref-type="bibr" rid="CR2">2</xref>,<xref ref-type="bibr" rid="CR25">25</xref></sup>, the back-translation of an FES-bicycle may allow for higher-throughput experimentation than is currently possible with human-subject testing, using a model with musculoskeletal pathophysiology comparable to humans<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>. A passive-isokinetic motor-driven bicycle for rats was previously developed<sup><xref ref-type="bibr" rid="CR26">26</xref></sup> and tested<sup><xref ref-type="bibr" rid="CR27">27</xref></sup> and has been shown to promote near-complete trabecular and cortical bone recovery at the distal femur and proximal tibia in a rat severe SCI model within several weeks of training<sup><xref ref-type="bibr" rid="CR28">28</xref>,<xref ref-type="bibr" rid="CR29">29</xref></sup>. However, in these experiments, recovery of hindlimb muscle mass did not occur in response to passive-isokinetic (motorized) bicycle training after severe SCI and the use of FES was not previously considered in rodent cycling models, despite the ability of FES to promote improvement in various aspects of skeletal and cardiac muscle performance in humans with SCI<sup><xref ref-type="bibr" rid="CR30">30</xref>–<xref ref-type="bibr" rid="CR32">32</xref></sup>.</p><p id="Par5">An important feature of human FES-cycling is the automatic switching of FES between muscle groups so that each muscle is only stimulated in the region of the crank cycle where it is kinematically efficient to do so and to avoid simultaneous co-contraction of antagonist muscle groups that would limit productive cycling (e.g., co-contraction of knee extensor and knee flexor groups), which delays the onset of fatigue and enables longer bicycle training sessions<sup><xref ref-type="bibr" rid="CR33">33</xref></sup>. Before developing a closed-loop FES bicycle for rats, a model that informs the closed-loop controller needs to be developed. Based on a similar analysis in humans<sup><xref ref-type="bibr" rid="CR34">34</xref></sup>, this paper details the kinematic model and stimulation patterns, which can be used to facilitate closed-loop clockwise and counterclockwise FES-cycling for rats in future experiments, accounting for the rat quadrupedal locomotion and unique hindlimb kinematics<sup><xref ref-type="bibr" rid="CR35">35</xref></sup>. The theoretical kinematic model was validated in a series of 743 experimental trials conducted on anesthetized neurologically intact rats. Future work can use the developed FES patterns to design a closed-loop controller for continuous FES-cycling, which will facilitate experiments for bone and muscle recovery or for improvement in other health parameters.</p><p id="Par6">
+<fig id="Fig1" position="float" orientation="portrait"><label>Fig. 1</label><caption><p>(<bold>A</bold>) The rodent bicycle includes a pedal (P), the crank arm (C), the crank axle (A), and the encoder (E). Not shown are gears that transmit rotation from the crank axle to the encoder. Accompanying the bicycle is a bodyweight supporting rod (R) that extends above the bicycle and a nosecone holder (N) for delivering anesthesia. (<bold>B</bold>) Experimental setup with rodent harnessed to support rod (R) showing the lateral view of the rodent’s right leg and foot on the pedal (P).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="d33e431" position="float" orientation="portrait" xlink:href="41598_2025_29285_Fig1_HTML.jpg"/></fig>
+</p></sec><sec id="Sec2"><title>Methods</title><sec id="Sec3"><title>Development of the rodent bicycle</title><p id="Par7">A stationary bicycle system was developed for this application and is shown in Fig. <xref rid="Fig1" ref-type="fig">1</xref>A. The design was based on a passive rat bicycle<sup><xref ref-type="bibr" rid="CR26">26</xref>,<xref ref-type="bibr" rid="CR27">27</xref></sup> and includes pedals of sufficient length to support the hind paws of an adult male rat and a horizontal rod mounted above the animal to support the bodyweight within a sling. The bicycle was equipped with an encoder (US Digital E2) to measure the crank position in degrees, mimicking modern FES-cycling systems for human riders, with data acquired via a data acquisition board (Quanser Q8-USB) controlled by Simulink (Mathworks). Figure <xref rid="Fig1" ref-type="fig">1</xref>B shows the experimental setup with the rat harnessed to the mounting rod (not visible) from the right side of the bicycle.</p></sec><sec id="Sec4"><title>Development of the kinematic model</title><p id="Par8">Quadrupedal locomotion has similarities to human bipedal locomotion<sup><xref ref-type="bibr" rid="CR36">36</xref></sup>. Because the design of the rat bicycle is based on a previously developed rehabilitative bicycle for human riders, a kinematic modeling-based analysis like the one by Bellman<sup><xref ref-type="bibr" rid="CR34">34</xref></sup> was performed to model the angles and velocities of the hip, knee, and ankle joints of a rat during cycling. The coupled kinematic chains fixed to the ground frame had one degree-of-freedom. Therefore, with known link lengths, each joint angle was calculated based on the crank angle measured by an encoder attached to the crank.</p><p id="Par9">As indicated in Fig. <xref rid="Fig2" ref-type="fig">2</xref>, the closed-loop kinematic chain for each side of the system can be written as<disp-formula id="Equ1"><label>1</label><tex-math id="d33e469">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\overrightarrow{r}}_{H/O}+{\overrightarrow{r}}_{K/H}\left(q\left(t\right)\right)+{\overrightarrow{r}}_{A/K}\left(q\left(t\right)\right)+{\overrightarrow{r}}_{P/A}\left(q\left(t\right)\right)+{\overrightarrow{r}}_{C/P}\left(q\left(t\right)\right)+{\overrightarrow{r}}_{O/C}=\overrightarrow{0}$$\end{document}</tex-math></disp-formula></p><p id="Par10">
+<fig id="Fig2" position="float" orientation="portrait"><label>Fig. 2</label><caption><p>Free body diagram (FBD) of the closed kinematic chain of the right leg (top) and superimposed on a rat to show how the FBD aligns with the anatomy (bottom).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="d33e481" position="float" orientation="portrait" xlink:href="41598_2025_29285_Fig2_HTML.jpg"/></fig>
+</p><p id="Par11">Where <inline-formula id="IEq1"><tex-math id="d33e485">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:q\in\:Q$$\end{document}</tex-math></inline-formula> is the measured crank angle, <inline-formula id="IEq2"><tex-math id="d33e489">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:Q\subseteq\:\mathbb{R}$$\end{document}</tex-math></inline-formula> denotes the set of possible crank angles (0-360°), <inline-formula id="IEq3"><tex-math id="d33e493">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\overrightarrow{r}}_{H/O}\in\:{\mathbb{R}}^{2}$$\end{document}</tex-math></inline-formula> represents the vector from the fixed origin point <italic toggle="yes">O</italic> to the hip joint, <inline-formula id="IEq4"><tex-math id="d33e500">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\overrightarrow{r}}_{K/H},\:{\overrightarrow{r}}_{A/K},\:{\overrightarrow{r}}_{P/A},{\overrightarrow{r}}_{C/P}\in\:Q\to\:{\mathbb{R}}^{2}$$\end{document}</tex-math></inline-formula> represent the vectors between the hip and knee joints, knee and ankle joints, ankle and pedal joints, and pedal and crank joints, respectively, and <inline-formula id="IEq5"><tex-math id="d33e505">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\overrightarrow{r}}_{O/C}\in\:{\mathbb{R}}^{2}$$\end{document}</tex-math></inline-formula> represents the vector from the crank center to the origin point. The following development considers the right-hand side of the system. Knowing that the left-hand side of the bicycle crank is 180° offset from the right, the joint angles and stimulation regions for the left hindlimb can be found using the same approach.</p><p id="Par12">Based on the coordinate system in Fig. <xref rid="Fig2" ref-type="fig">2</xref>, each term in (1) can be represented as<disp-formula id="Equa"><tex-math id="d33e514">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\overrightarrow{r}}_{H/O}={l}_{x}\overrightarrow{x}+0\overrightarrow{y}$$\end{document}</tex-math></disp-formula><disp-formula id="Equb"><tex-math id="d33e517">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\overrightarrow{r}}_{K/H}\left(q\left(t\right)\right)={-l}_{t}\text{sin}\left({q}_{h}\left(q\left(t\right)\right)\right)\overrightarrow{x}+{l}_{t}\text{cos}\left({q}_{h}\left(q\left(t\right)\right)\right)\overrightarrow{y}$$\end{document}</tex-math></disp-formula><disp-formula id="Equc"><tex-math id="d33e520">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\overrightarrow{r}}_{A/K}\left(q\left(t\right)\right)={-l}_{l}\text{sin}\left({q}_{k}\left(q\left(t\right)\right)\right)\overrightarrow{x}+{l}_{l}\text{cos}\left({q}_{k}\left(q\left(t\right)\right)\right)\overrightarrow{y}$$\end{document}</tex-math></disp-formula><disp-formula id="Equd"><tex-math id="d33e523">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\overrightarrow{r}}_{P/A}\left(q\left(t\right)\right)=\left({l}_{v}\text{sin}\left({q}_{a}\left(q\left(t\right)\right)\right)-{l}_{h}\text{cos}\left({q}_{a}\left(q\left(t\right)\right)\right)\right)\overrightarrow{x}-\left({l}_{h}\text{sin}\left({q}_{a}\left(q\left(t\right)\right)\right)-{l}_{v}\text{cos}\left({q}_{a}\left(q\left(t\right)\right)\right)\right)\overrightarrow{y}$$\end{document}</tex-math></disp-formula><disp-formula id="Eque"><tex-math id="d33e526">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\overrightarrow{r}}_{C/P}\left(q\left(t\right)\right)={-l}_{C}\text{sin}\left(\left(q\left(t\right)\right)\right)\overrightarrow{x}+{l}_{C}\text{cos}\left(\left(q\left(t\right)\right)\right)\overrightarrow{y}$$\end{document}</tex-math></disp-formula><disp-formula id="Equf"><tex-math id="d33e529">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\overrightarrow{r}}_{O/C}=0\overrightarrow{x}+{l}_{y}\overrightarrow{y}.$$\end{document}</tex-math></disp-formula></p><p id="Par13">Where hip, knee, and ankle angles are denoted <inline-formula id="IEq6"><tex-math id="d33e534">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{h},\:{q}_{k},\:{q}_{a}:\:Q\to\:\mathbb{R}$$\end{document}</tex-math></inline-formula>, the fixed lengths of the thigh, knee, and crank are denoted <inline-formula id="IEq7"><tex-math id="d33e538">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{l}_{t},\:{l}_{l},\:{l}_{c}\in\:{\mathbb{R}}_{&gt;0}$$\end{document}</tex-math></inline-formula>, the components of the distance between the ankle and pedal joint are denoted <inline-formula id="IEq8"><tex-math id="d33e542">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{l}_{h},\:{l}_{v}\in\:{\mathbb{R}}_{&gt;0}$$\end{document}</tex-math></inline-formula>, and the fixed <inline-formula id="IEq9"><tex-math id="d33e546">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:x$$\end{document}</tex-math></inline-formula> and <inline-formula id="IEq10"><tex-math id="d33e550">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:y$$\end{document}</tex-math></inline-formula> components of the distance between the crank joint and hip joint are denoted <inline-formula id="IEq11"><tex-math id="d33e555">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{l}_{x},\:{l}_{y}\in\:{\mathbb{R}}_{&gt;0}$$\end{document}</tex-math></inline-formula>. Solving for the hip, knee, and ankle angles in terms of <inline-formula id="IEq12"><tex-math id="d33e559">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:q$$\end{document}</tex-math></inline-formula> provides insight into the relationship between each link and helps determine the regions of the crank cycle where FES of each muscle will cause forward (clockwise) or reverse (counterclockwise) motion of the crank.</p></sec><sec id="Sec5"><title>Joint angles</title><p id="Par14">Joint angles <inline-formula id="IEq13"><tex-math id="d33e567">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{h},\:{q}_{k},\:$$\end{document}</tex-math></inline-formula>and <inline-formula id="IEq14"><tex-math id="d33e571">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{a}$$\end{document}</tex-math></inline-formula> can each be found based on the measured crank angle <inline-formula id="IEq15"><tex-math id="d33e575">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:q$$\end{document}</tex-math></inline-formula>. Unlike in Bellman<sup><xref ref-type="bibr" rid="CR34">34</xref></sup>, the ankle angle <inline-formula id="IEq16"><tex-math id="d33e583">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{a}$$\end{document}</tex-math></inline-formula> varies over the crank cycle and can be calculated based on the geometry of the cycle as<disp-formula id="Equ2"><label>2</label><tex-math id="d33e588">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{a}=-\text{a}\text{r}\text{c}\text{t}\text{a}\text{n}\left(\frac{{l}_{c}\:\text{c}\text{o}\text{s}\left(q\right)}{{l}_{c}\text{sin}\left(q\right)+d}\right)$$\end{document}</tex-math></disp-formula></p><p id="Par15">where <inline-formula id="IEq17"><tex-math id="d33e594">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{l}_{c}\in\:{\mathbb{R}}_{&gt;0}$$\end{document}</tex-math></inline-formula> is the length of the crank and <inline-formula id="IEq18"><tex-math id="d33e598">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:d\in\:{\mathbb{R}}_{&gt;0}$$\end{document}</tex-math></inline-formula> is the horizontal distance between the crankshaft and the mounting point of the rod that keeps the pedal in the correct orientation.</p><p id="Par16">To find the remaining joint angles, we parameterize the system in terms of crank angle <inline-formula id="IEq19"><tex-math id="d33e604">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:q$$\end{document}</tex-math></inline-formula>. Based on Crane and Duffy<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>, <inline-formula id="IEq20"><tex-math id="d33e612">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{h}$$\end{document}</tex-math></inline-formula> can be expressed as<disp-formula id="Equ3"><label>3</label><tex-math id="d33e616">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{h}=\pm\:\text{a}\text{r}\text{c}\text{c}\text{o}\text{s}\left(-\frac{{k}_{3}\left(q\right)}{\sqrt{{k}_{1}{\left(q\right)}^{2}+{k}_{2}{\left(q\right)}^{2}}}\right)+\gamma\:\left(q\right)$$\end{document}</tex-math></disp-formula></p><p id="Par17">where<disp-formula id="Equg"><tex-math id="d33e622">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{k}_{1}\left(q\right)\triangleq\:2{l}_{t}{l}_{h}\text{c}\text{o}\text{s}\left({q}_{a}\right)-2{l}_{t}{l}_{v}\text{s}\text{i}\text{n}\left({q}_{a}\right)+2{l}_{t}{l}_{c}\text{s}\text{i}\text{n}\left(q\right)-2{l}_{t}{l}_{x}$$\end{document}</tex-math></disp-formula><disp-formula id="Equh"><tex-math id="d33e625">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{k}_{2}\left(q\right)\triangleq\:-2{l}_{t}{l}_{h}\text{s}\text{i}\text{n}\left({q}_{a}\right)+2{l}_{t}{l}_{v}\text{c}\text{o}\text{s}\left({q}_{a}\right)+2{l}_{t}{l}_{c}\text{c}\text{o}\text{s}\left(q\right)-2{l}_{t}{l}_{y}.$$\end{document}</tex-math></disp-formula></p><p id="Par18">
+<inline-formula id="IEq21"><tex-math id="d33e630">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{k}_{3}\left(q\right)\triangleq\:{l}_{t}^{2}+{l}_{h}^{2}+{l}_{v}^{2}+{l}_{c}^{2}+{l}_{x}^{2}+{l}_{y}^{2}-{l}_{l}^{2}$$\end{document}</tex-math></inline-formula>
+</p><p>
+<inline-formula id="IEq22"><tex-math id="d33e636">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:-2{l}_{h}{l}_{v}cos\left({q}_{a}\right)sin\left({q}_{a}\right)+2{l}_{h}{l}_{c}cos\left({q}_{a}\right)sin\left(q\right)$$\end{document}</tex-math></inline-formula>
+</p><p>
+<inline-formula id="IEq23"><tex-math id="d33e642">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:-\:2{l}_{h}{l}_{x}cos\left({q}_{a}\right)-2{l}_{v}{l}_{c}sin\left({q}_{a}\right)sin\left(q\right)$$\end{document}</tex-math></inline-formula>
+</p><p>
+<inline-formula id="IEq24"><tex-math id="d33e648">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:+\:2{l}_{v}{l}_{x}sin\left({q}_{a}\right)-2{l}_{c}{l}_{x}sin\left(q\right)$$\end{document}</tex-math></inline-formula>
+</p><p>
+<inline-formula id="IEq25"><tex-math id="d33e654">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:-\:2{l}_{h}{l}_{v}sin\left({q}_{a}\right)cos\left({q}_{a}\right)-2{l}_{h}{l}_{c}sin\left({q}_{a}\right)cos\left(q\right)$$\end{document}</tex-math></inline-formula>
+</p><p>
+<inline-formula id="IEq26"><tex-math id="d33e660">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:+\:2{l}_{h}{l}_{y}sin\left({q}_{a}\right)+\:2{l}_{v}{l}_{c}cos\left({q}_{a}\right)cos\left(q\right)$$\end{document}</tex-math></inline-formula>
+</p><p>
+<inline-formula id="IEq27"><tex-math id="d33e667">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:-\:2{l}_{v}{l}_{y}cos\left({q}_{a}\right)-2{l}_{c}{l}_{y}cos\left(q\right)$$\end{document}</tex-math></inline-formula>
+</p><p id="Par19">and <inline-formula id="IEq28"><tex-math id="d33e673">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\gamma\:\triangleq\:\text{a}\text{r}\text{c}\text{t}\text{a}\text{n}\left(\frac{{k}_{1}\left(q\right)}{{k}_{2}\left(q\right)}\right)$$\end{document}</tex-math></inline-formula>. There are two solutions to (3), but the positive solution of <inline-formula id="IEq29"><tex-math id="d33e677">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{h}$$\end{document}</tex-math></inline-formula> corresponds to hyperextension of the hip joint and is therefore ignored. The knee angle <inline-formula id="IEq30"><tex-math id="d33e681">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{k}$$\end{document}</tex-math></inline-formula> is a function of <inline-formula id="IEq31"><tex-math id="d33e685">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{h},\:{q}_{a},$$\end{document}</tex-math></inline-formula> and <inline-formula id="IEq32"><tex-math id="d33e689">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:q$$\end{document}</tex-math></inline-formula> and can be written as<disp-formula id="Equi"><tex-math id="d33e694">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{k}=arctan\left(\frac{{l}_{x}-{l}_{t}\text{s}\text{i}\text{n}\left({q}_{h}\right)-{l}_{h}\text{c}\text{o}\text{s}\left({q}_{a}\right)-{l}_{v}\text{s}\text{i}\text{n}\left({q}_{a}\right)-{l}_{c}\text{s}\text{i}\text{n}\left(q\right)}{{l}_{y}-{l}_{t}\text{c}\text{o}\text{s}\left({q}_{h}\right)+{l}_{h}\text{s}\text{i}\text{n}\left({q}_{a}\right)-{l}_{v}\text{c}\text{o}\text{s}\left({q}_{a}\right)-{l}_{c}\text{c}\text{o}\text{s}\left(q\right)}\right)$$\end{document}</tex-math></disp-formula></p><p id="Par20">where <inline-formula id="IEq33"><tex-math id="d33e699">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{l}_{x}\in\:\mathbb{R}$$\end{document}</tex-math></inline-formula> and <inline-formula id="IEq34"><tex-math id="d33e703">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{l}_{y},\:{l}_{t},{l}_{h},{l}_{v}\in\:{\mathbb{R}}_{&gt;0}$$\end{document}</tex-math></inline-formula> are the known constant lengths of each link in the kinematic chain.</p><sec id="Sec6"><title>Joint velocities</title><p id="Par21">Ankle, hip, and knee joint velocities are functions of the crank position and velocity. Velocity transformation terms for the ankle, hip, and knee joints relate the velocity of the crank to the velocity of each joint and are denoted <inline-formula id="IEq35"><tex-math id="d33e711">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{S}_{a},\:{S}_{h},\:{S}_{k}:\:Q\to\:\mathbb{R}$$\end{document}</tex-math></inline-formula>, respectively. The ankle velocity transformation term <inline-formula id="IEq36"><tex-math id="d33e715">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{S}_{a}$$\end{document}</tex-math></inline-formula> can be calculated from the time derivative of (2) as<disp-formula id="Equj"><tex-math id="d33e719">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{S}_{a}\triangleq\:\frac{{l}_{c}^{2}+{dl}_{c}\text{s}\text{i}\text{n}\left(q\right)}{{\text{sec}}^{2}\left({q}_{a}\right){\left({l}_{c}\text{sin}\left(q\right)+d\right)}^{2}}.$$\end{document}</tex-math></disp-formula></p><p id="Par22">Taking the time derivative of (1), solving for <inline-formula id="IEq37"><tex-math id="d33e724">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\dot{q}}_{h}$$\end{document}</tex-math></inline-formula> and <inline-formula id="IEq38"><tex-math id="d33e728">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\dot{q}}_{k}$$\end{document}</tex-math></inline-formula> in terms of <inline-formula id="IEq39"><tex-math id="d33e732">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\dot{q}$$\end{document}</tex-math></inline-formula>, and substituting <inline-formula id="IEq40"><tex-math id="d33e736">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{S}_{a}$$\end{document}</tex-math></inline-formula> yields the relationships between the velocity of the crank and the velocities of the hip and knee joints<disp-formula id="Equ4"><label>4</label><tex-math id="d33e740">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\left[\begin{array}{c}{\dot{q}}_{h}\left(q,\dot{q}\right)\\\:{\dot{q}}_{k}\left(q,\dot{q}\right)\end{array}\right]=\left[\begin{array}{c}{S}_{h}\left(q\right)\\\:{S}_{k}\left(q\right)\end{array}\right]\dot{q}$$\end{document}</tex-math></disp-formula></p><p id="Par23">where <inline-formula id="IEq41"><tex-math id="d33e746">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{S}_{h}$$\end{document}</tex-math></inline-formula>and <inline-formula id="IEq42"><tex-math id="d33e750">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{S}_{k}$$\end{document}</tex-math></inline-formula> are defined as<disp-formula id="Equk"><tex-math id="d33e754">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{S}_{h}\triangleq\:\frac{-sin\left({q}_{k}\right)\left({l}_{c}\text{cos}\left(q\right)-{S}_{a}\left({l}_{h}\text{sin}\left({q}_{a}\right)+{l}_{v}\text{cos}\left({q}_{a}\right)\right)\right)}{{l}_{t}\text{s}\text{i}\text{n}\left({q}_{k}-{q}_{h}\right)}+\frac{sin\left({q}_{k}\right)\left({l}_{c}\text{sin}\left(q\right)+{S}_{a}\left({l}_{h}\text{cos}\left({q}_{a}\right)-{l}_{v}\text{sin}\left({q}_{a}\right)\right)\right)}{{l}_{t}\text{s}\text{i}\text{n}\left({q}_{k}-{q}_{h}\right)}$$\end{document}</tex-math></disp-formula><disp-formula id="Equl"><tex-math id="d33e757">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{S}_{k}\triangleq\:\frac{sin\left({q}_{h}\right)\left({l}_{c}\text{cos}\left(q\right)-{S}_{a}\left({l}_{h}\text{sin}\left({q}_{a}\right)+{l}_{v}\text{cos}\left({q}_{a}\right)\right)\right)}{{l}_{l}\text{s}\text{i}\text{n}\left({q}_{k}-{q}_{h}\right)}+\frac{sin\left({q}_{h}\right)\left({l}_{c}\text{sin}\left(q\right)+{S}_{a}\left({l}_{h}\text{cos}\left({q}_{a}\right)-{l}_{v}\text{sin}\left({q}_{a}\right)\right)\right)}{{l}_{l}\text{s}\text{i}\text{n}\left({q}_{k}-{q}_{h}\right)}$$\end{document}</tex-math></disp-formula></p><p id="Par24">respectively. Solving (4) for <inline-formula id="IEq43"><tex-math id="d33e762">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{S}_{h}$$\end{document}</tex-math></inline-formula> and <inline-formula id="IEq44"><tex-math id="d33e766">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{S}_{k}$$\end{document}</tex-math></inline-formula> requires matrix inversion that can only be done if <inline-formula id="IEq45"><tex-math id="d33e770">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{q}_{h}+{q}_{k}\ne\:n\pi\:$$\end{document}</tex-math></inline-formula>, <inline-formula id="IEq46"><tex-math id="d33e774">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:n\in\:\mathbb{Z}$$\end{document}</tex-math></inline-formula>, meaning the bicycle should be adjusted such that the hindlimb of the rat never reaches full extension.</p><p id="Par25">The principle of virtual work can be used to develop a relationship between the torque produced at each joint <inline-formula id="IEq47"><tex-math id="d33e780">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:j\in\:\mathcal{J}\triangleq\:\left\{\text{h}\text{i}\text{p},\:\text{k}\text{n}\text{e}\text{e},\:\text{a}\text{n}\text{k}\text{l}\text{e}\right\}$$\end{document}</tex-math></inline-formula> and the resultant torque at the crank<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>. The work done at the crank <inline-formula id="IEq48"><tex-math id="d33e788">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\dot{W}}_{\text{c}\text{r}\text{a}\text{n}\text{k}}:\:Q\to\:\mathbb{R}$$\end{document}</tex-math></inline-formula> can be expressed as <inline-formula id="IEq49"><tex-math id="d33e792">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\dot{W}}_{\text{c}\text{r}\text{a}\text{n}\text{k}}={\tau\:}_{\text{c}\text{r}\text{a}\text{n}\text{k}}\dot{q}$$\end{document}</tex-math></inline-formula>, where <inline-formula id="IEq50"><tex-math id="d33e796">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\tau\:}_{\text{c}\text{r}\text{a}\text{n}\text{k}}$$\end{document}</tex-math></inline-formula> is the torque at the crank. The work done at the crank caused by the work at each joint <inline-formula id="IEq51"><tex-math id="d33e801">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\dot{W}}_{\text{c}\text{r}\text{a}\text{n}\text{k}}^{j}$$\end{document}</tex-math></inline-formula>is equal to the work done at each joint. The total work done at the crank is <inline-formula id="IEq52"><tex-math id="d33e805">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\dot{W}}_{\text{c}\text{r}\text{a}\text{n}\text{k}}={\sum\:}_{j\in\:\mathcal{J}}\:{\dot{W}}_{\text{c}\text{r}\text{a}\text{n}\text{k}}^{j}$$\end{document}</tex-math></inline-formula>. The work done at the hip can be written as<disp-formula id="Equm"><tex-math id="d33e809">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\dot{W}}_{\text{c}\text{r}\text{a}\text{n}\text{k}}^{\text{h}\text{i}\text{p}}={\tau\:}_{\text{h}\text{i}\text{p}}{S}_{h}\dot{q}$$\end{document}</tex-math></disp-formula></p><p id="Par26">
+<fig id="Fig3" position="float" orientation="portrait"><label>Fig. 3</label><caption><p>The stimulation pattern found for the right leg muscles as a function of the crank angle <italic toggle="yes">q</italic> to produce clockwise rotation.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="d33e824" position="float" orientation="portrait" xlink:href="41598_2025_29285_Fig3_HTML.jpg"/></fig>
+</p><p id="Par27">where <inline-formula id="IEq53"><tex-math id="d33e828">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\tau\:}_{\text{h}\text{i}\text{p}}$$\end{document}</tex-math></inline-formula>is the torque produced by the hip. Similarly, the work at the knee and ankle are <inline-formula id="IEq54"><tex-math id="d33e832">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\dot{W}}_{\text{c}\text{r}\text{a}\text{n}\text{k}}^{\text{k}\text{n}\text{e}\text{e}}={\tau\:}_{\text{k}\text{n}\text{e}\text{e}}\left(-{S}_{h}+{S}_{k}\right)\dot{q}$$\end{document}</tex-math></inline-formula> and <inline-formula id="IEq55"><tex-math id="d33e836">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\dot{W}}_{\text{c}\text{r}\text{a}\text{n}\text{k}}^{\text{a}\text{n}\text{k}\text{l}\text{e}}={\tau\:}_{\text{a}\text{n}\text{k}\text{l}\text{e}}\left({S}_{h}-{S}_{k}+{S}_{a}\right)\dot{q}$$\end{document}</tex-math></inline-formula>, respectively. Based on the principle of virtual work, torque transfer ratios <inline-formula id="IEq56"><tex-math id="d33e840">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{j}:\:Q\to\:\mathbb{R}$$\end{document}</tex-math></inline-formula> that relate the torque at each joint <inline-formula id="IEq57"><tex-math id="d33e844">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:j\in\:\mathcal{J}\triangleq\:\left\{\text{h}\text{i}\text{p},\:\text{k}\text{n}\text{e}\text{e},\:\text{a}\text{n}\text{k}\text{l}\text{e}\right\}$$\end{document}</tex-math></inline-formula> to the resultant torque at the crank can be expressed as<sup><xref ref-type="bibr" rid="CR38">38</xref></sup><disp-formula id="Equ5"><label>5</label><tex-math id="d33e852">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{h}\text{i}\text{p}}\left(q\right)={S}_{h}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ6"><label>6</label><tex-math id="d33e856">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{k}\text{n}\text{e}\text{e}}\left(q\right)={-S}_{h}+{S}_{k}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ7"><label>7</label><tex-math id="d33e860">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{a}\text{n}\text{k}\text{l}\text{e}}\left(q\right)={S}_{h}-{S}_{k}+{S}_{a}$$\end{document}</tex-math></disp-formula></p></sec></sec><sec id="Sec7"><title>Model-guided development of stimulation patterns</title><p id="Par28">Two kinematic models were developed. The first model (Version A) assumed that independent control over four muscle groups – gluteal muscle (GM), quadriceps muscle (QM), hamstrings muscle (HM), and plantarflexor muscle (PFM) groups – was possible. The second model (Version B) assumed that independent control over the muscle groups was not possible but that independent control over the femoral and sciatic nerves was possible.</p><sec id="Sec8"><title>Version A: four muscle stimulation pattern</title><p id="Par29">To delay fatigue onset, which can be detrimental to continuous cycling, FES duration should be minimized, and each muscle should be stimulated only when the contraction of that muscle produces sufficiently large forward motion about the crank. Assuming that biarticular effects of each muscle group can be neglected, the torque transfer ratios in (5)-(7) can be translated to stimulation regions denoted <inline-formula id="IEq58"><tex-math id="d33e872">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{m}\subset\:\mathcal{Q}$$\end{document}</tex-math></inline-formula> for each <inline-formula id="IEq59"><tex-math id="d33e876">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:m\subset\:\mathcal{M}\triangleq\:\{\text{G}\text{M},\:\text{Q}\text{M},\:\text{H}\text{M},\:\text{P}\text{F}\text{M}\}$$\end{document}</tex-math></inline-formula>, corresponding to the GM, QM, HM, and PFM groups. When viewed from a position lateral to the limb receiving FES, GM stimulation causes clockwise torque at the hip (hip extension); QM stimulation causes counterclockwise torque at the knee (knee extension); HM stimulation causes clockwise torque at the knee (knee flexion); and PFM stimulation causes clockwise torque at the ankle (plantarflexion). Multiplying the torque transfer ratios in (5)-(7) by the active torques at each joint, respectively, gives the resultant torque at the crank caused by the FES-induced contraction of each muscle. Because forward pedaling requires clockwise motion of the crank, the GM should only be stimulated when <inline-formula id="IEq60"><tex-math id="d33e880">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{h}\text{i}\text{p}}^{S}$$\end{document}</tex-math></inline-formula> is positive. Similarly, the QM should only be stimulated when <inline-formula id="IEq61"><tex-math id="d33e884">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{k}\text{n}\text{e}\text{e}}^{S}$$\end{document}</tex-math></inline-formula> is negative, the HM when <inline-formula id="IEq62"><tex-math id="d33e888">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{k}\text{n}\text{e}\text{e}}^{S}$$\end{document}</tex-math></inline-formula> is positive, and the PFM when <inline-formula id="IEq63"><tex-math id="d33e893">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{a}\text{n}\text{k}\text{l}\text{e}}^{S}$$\end{document}</tex-math></inline-formula> is positive. Additionally, to prevent muscles from being stimulated at points when the torque transfer ratio is near-zero, we introduce a user-selected constant <inline-formula id="IEq64"><tex-math id="d33e897">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\epsilon\:}_{m}\in\:{\mathbb{R}}_{&gt;0}$$\end{document}</tex-math></inline-formula> for each <inline-formula id="IEq65"><tex-math id="d33e901">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:m\in\:\mathcal{M}$$\end{document}</tex-math></inline-formula> so that each muscle is only stimulated when the magnitude of its torque transfer ratio is sufficiently large to cause forward motion of the crank. These constants should be selected such that <inline-formula id="IEq66"><tex-math id="d33e905">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\epsilon\:}_{m}&lt;\text{m}\text{a}\text{x}\left(\left|{T}_{j}\right|\right)$$\end{document}</tex-math></inline-formula> so that each muscle group receives FES at some point in the crank cycle. The stimulation regions are defined for each muscle group as<disp-formula id="Equ8"><label>8</label><tex-math id="d33e909">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{\text{G}\text{M}}\triangleq\:\left\{q|{T}_{\text{h}\text{i}\text{p}}\left(q\left(t\right)\right)&gt;{\epsilon\:}_{\text{G}\text{M}}\right\}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ9"><label>9</label><tex-math id="d33e913">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{\text{Q}\text{M}}\triangleq\:\left\{q|{-T}_{\text{k}\text{n}\text{e}\text{e}}\left(q\left(t\right)\right)&gt;{\epsilon\:}_{\text{Q}\text{M}}\right\}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ10"><label>10</label><tex-math id="d33e917">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{\text{H}\text{M}}\triangleq\:\left\{q|{T}_{\text{k}\text{n}\text{e}\text{e}}\left(q\left(t\right)\right)&gt;{\epsilon\:}_{\text{H}\text{M}}\right\}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ11"><label>11</label><tex-math id="d33e922">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{\text{P}\text{F}\text{M}}\triangleq\:\left\{q|{T}_{\text{a}\text{n}\text{k}\text{l}\text{e}}\left(q\left(t\right)\right)&gt;{\epsilon\:}_{\text{P}\text{F}\text{M}}\right\}$$\end{document}</tex-math></disp-formula></p><p id="Par30">Stimulation to each muscle group <inline-formula id="IEq67"><tex-math id="d33e928">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:m\in\:\mathcal{M}$$\end{document}</tex-math></inline-formula> is activated if <inline-formula id="IEq68"><tex-math id="d33e932">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:q\in\:{\mathcal{Q}}_{m}$$\end{document}</tex-math></inline-formula>. Otherwise, FES to that muscle group is turned off. The developed hindlimb kinematic equations were simulated over one crank cycle using MATLAB (Ver. R2023a; The MathWorks, Inc). An example of the developed switching pattern for the muscle stimulation of the right leg can be seen in Fig. <xref rid="Fig3" ref-type="fig">3</xref>, where the different colored wedges correspond to the stimulation of the indicated muscle group in that region of the crank cycle.</p></sec><sec id="Sec9"><title>Version B: two nerve stimulation pattern</title><p id="Par31">Due to the small sizes of the individual hindlimb muscles of the rat and their close proximity to each other, it can be difficult to independently stimulate individual muscle groups using non-invasive or minimally-invasive techniques. Moreover, near-complete overlap existed between the modelled QM region of activity (RoA) and the RoA for the GM in kinematic model Version A, suggesting that independent GM stimulation may not be required. Under this scenario, independent stimulation of the femoral and sciatic nerves would elicit contractions in the anterior (QM) and posterior (HM, GM, and PFM) hindlimb groups, respectively. Thus, kinematic model Version B was developed to account for this scenario.</p><p id="Par32">As above, the torque transfer ratios in (5)-(7) can be translated to stimulation regions denoted <inline-formula id="IEq69"><tex-math id="d33e945">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{n}\subset\:\mathcal{Q}$$\end{document}</tex-math></inline-formula> for each <inline-formula id="IEq70"><tex-math id="d33e949">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:n\subset\:\mathcal{N}\triangleq\:\{\text{f}\text{n},\:\text{s}\text{n}\}$$\end{document}</tex-math></inline-formula>, where fn and sn correspond to the muscles innervated by the femoral and sciatic nerves, respectively. Stimulation of the femoral nerve elicits contractions in the QM group, so the stimulation region for the femoral nerve, denoted <inline-formula id="IEq71"><tex-math id="d33e953">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{\text{f}\text{n}}$$\end{document}</tex-math></inline-formula> should be applied in <inline-formula id="IEq72"><tex-math id="d33e957">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{\text{q}\text{u}\text{a}\text{d}}$$\end{document}</tex-math></inline-formula> in (9). Stimulation of the sciatic nerve causes co-contractions of the GM, HM, and PFM groups, so further analysis is required to establish the stimulation <inline-formula id="IEq73"><tex-math id="d33e961">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{\text{s}\text{n}}$$\end{document}</tex-math></inline-formula>.</p><p id="Par33">
+<fig id="Fig4" position="float" orientation="portrait"><label>Fig. 4</label><caption><p>The stimulation pattern found for the right leg nerves as a function of the crank angle <italic toggle="yes">q</italic> to produce clockwise (A) and counterclockwise (B) rotation.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="d33e977" position="float" orientation="portrait" xlink:href="41598_2025_29285_Fig4_HTML.jpg"/></fig>
+</p><p id="Par34">Stimulation of the GM can only cause clockwise torque at the hip, the QM cause counterclockwise torque at the knee, the HM cause clockwise torque at the knee, and the PFM cause clockwise torque at the ankle. By multiplying the torque transfer ratios in (5)-(7) by the active torques at each joint, respectively, gives the resultant torque at the crank caused by the stimulation of each muscle. Because forward pedaling requires, clockwise motion of the crank, the GM group should only be stimulated when <inline-formula id="IEq74"><tex-math id="d33e981">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{h}\text{i}\text{p}}^{S}$$\end{document}</tex-math></inline-formula> is positive. Similarly, the QM group should only be stimulated when <inline-formula id="IEq75"><tex-math id="d33e985">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{k}\text{n}\text{e}\text{e}}^{S}$$\end{document}</tex-math></inline-formula> is negative, the HM when <inline-formula id="IEq76"><tex-math id="d33e989">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{k}\text{n}\text{e}\text{e}}^{S}$$\end{document}</tex-math></inline-formula> is positive, and the PFM when <inline-formula id="IEq77"><tex-math id="d33e993">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{a}\text{n}\text{k}\text{l}\text{e}}^{S}$$\end{document}</tex-math></inline-formula> is positive. Additionally, to prevent muscles from being stimulated at points when the torque transfer ratio is near-zero, we introduce a user-selected constant <inline-formula id="IEq78"><tex-math id="d33e997">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\epsilon\:}_{m}\in\:{\mathbb{R}}_{&gt;0}$$\end{document}</tex-math></inline-formula> for each <inline-formula id="IEq79"><tex-math id="d33e1002">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:m\in\:\mathcal{M}$$\end{document}</tex-math></inline-formula> so that each muscle is only stimulated when the magnitude of its torque transfer ratio is sufficiently large to cause forward motion of the crank. These constants should be selected such that <inline-formula id="IEq80"><tex-math id="d33e1006">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\epsilon\:}_{m}&lt;\text{m}\text{a}\text{x}\left(\left|{T}_{j}\right|\right)$$\end{document}</tex-math></inline-formula> so that each muscle group receives FES at some point in the crank cycle. The stimulation regions are defined for each muscle group as<disp-formula id="Equ12"><label>12</label><tex-math id="d33e1010">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{\text{f}\text{n}}\triangleq\:\left\{q|-{T}_{\text{k}\text{n}\text{e}\text{e}}\left(q\left(t\right)\right)&gt;{\epsilon\:}_{\text{f}\text{n}}\right\}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ13"><label>13</label><tex-math id="d33e1014">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{\mathcal{Q}}_{\text{s}\text{n}}\triangleq\:\left\{q|{T}_{\text{c}\text{r}\text{a}\text{n}\text{k}}&gt;{\epsilon\:}_{\text{s}\text{n}}\right\}$$\end{document}</tex-math></disp-formula></p><p id="Par35">where <inline-formula id="IEq81"><tex-math id="d33e1020">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{T}_{\text{c}\text{r}\text{a}\text{n}\text{k}}={a}_{1}{T}_{\text{h}\text{i}\text{p}}+{a}_{2}{T}_{\text{k}\text{n}\text{e}\text{e}}+{a}_{3}{T}_{\text{a}\text{n}\text{k}\text{l}\text{e}}$$\end{document}</tex-math></inline-formula> and <inline-formula id="IEq82"><tex-math id="d33e1024">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{a}_{1},\:{a}_{2},\:{a}_{3}\in\:{\mathbb{R}}_{&gt;0}$$\end{document}</tex-math></inline-formula> are known constants. Stimulation to each nerve <inline-formula id="IEq83"><tex-math id="d33e1028">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:n\in\:\mathcal{N}$$\end{document}</tex-math></inline-formula> is activated if <inline-formula id="IEq84"><tex-math id="d33e1032">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:q\in\:{Q}_{n}$$\end{document}</tex-math></inline-formula>. Otherwise, FES to that nerve is turned off. The developed hindlimb kinematic equations were simulated over one crank cycle using MATLAB. An example of the developed switching pattern for the nerve stimulation of the right leg can be seen in Fig. <xref rid="Fig4" ref-type="fig">4</xref>, where the different colored wedges correspond to the stimulation of the indicated nerve in that region of the crank cycle.</p></sec></sec><sec id="Sec10"><title>Model validation</title><sec id="Sec11"><title>Ethical approval &amp; husbandry</title><p id="Par36">To validate the kinematic model, nine experiments were performed over 110 days with Sprague-Dawley rats (<italic toggle="yes">N</italic> = 2, one male, one female) starting at 4 months of age under a protocol approved by the Institutional Animal Care and Use Committee (IACUC) at Malcom Randall Veterans Affairs Medical Center (MRVAMC). All experiments were performed in accordance with the relevant guidelines and regulations set forth by Public Health Service, the Animal Welfare Act, the Guide for Care and Use of Laboratory Animals, and ARRIVE. Animals were purchased from Charles River Labs and housed at the MRVAMC. While not undergoing experiments, rats were maintained on a standard 12:12 light: dark cycle. Water and standard rat chow were provided <italic toggle="yes">ad libitum</italic>.</p></sec><sec id="Sec12"><title>Stimulus titration</title><p id="Par37">At the start of an experiment, the rat was anesthetized with isoflurane (1.5% with O2 flow at 1000 mL/min) and was placed on a 37 °C heated water blanket to assist in temperature regulation. This approach was used to ensure that the kinematic model was validated in a neurally intact rat and that the animal experienced no pain or distress during the initial testing and validation of our kinematic model. Ophthalmic ointment was applied to prevent drying. The right hindlimb was shaved. The rat was positioned over the bicycle and placed in a sling that was attached to a horizontal rod above the bicycle (“R” in Fig. <xref rid="Fig1" ref-type="fig">1</xref>), like in previous papers<sup><xref ref-type="bibr" rid="CR27">27</xref>–<xref ref-type="bibr" rid="CR29">29</xref></sup>. Care was taken to ensure the sling did not interfere with the motion of the lower limbs. The hip was positioned to be vertically in-line with the crank arm axis. After alignment, the tail was fixed to the horizontal rod to further reduce body movement during pedaling. Once the rat was positioned correctly, the right hind paw was securely fixed to the right pedal with adhesive strips to prevent the foot from slipping off the pedal. In comparison, the left limb was gently supported from the rod using adhesive strips so that the left foot did not touch the left pedal. An infrared clip was attached to the left foot and used to monitor heart rate, breathing rate, and blood oxygenation via a MouseOx Plus pulse oximeter (Starr Life Sciences). Body temperature was continuously monitored.</p><p id="Par38">Prior to titrating the stimulation, the QM and HM of the right hindlimb were located by palpation during limb manipulation. Using a pair of sterile monopolar needle electrodes (Technomed, 0.45 mm x 26 g) connected to a current-controlled stimulator (NeuroControl), locations were determined that targeted the femoral and sciatic nerves, resulting in robust contraction of the target muscle groups. After confirming the target with the needle electrodes, the needle electrodes were removed and a pair of fine wire electrodes (Rhythmlink, 50 mm x 25 g) were introduced at the same locations.</p><p id="Par39">Using micrograbbers attached to the fine wire electrodes, electrical stimulation was delivered to the rat using a computer-controlled stimulator (Hasomed P24 Science). The pedals were positioned prior to each test and placed in a location where electrical stimulation was expected to lead to an advantageous rotation (robust rotation in the clockwise direction) based on the kinematic model. For femoral nerve testing, the pedal was positioned at approximately 90° and for sciatic nerve testing, the pedal was positioned at approximately 180º. Using a systematic staircase method, operational pulse width, pulse amplitude and stimulus frequencies were determined.</p></sec><sec id="Sec13"><title>Mapping activity regions</title><p id="Par40">The femoral nerve and sciatic nerve were stimulated separately using the titrated parameters. The pedal was positioned at a desired starting angle. During a 3s FES timeframe, the change in angle of the crank resulting from muscle contraction was recorded using the optical encoder. The test was repeated at least two more times. The procedure was then repeated at other angles between 0° and 360° in 15° increments in a randomized order. In addition to angular deviation, active plantarflexion or dorsiflexion was noted. Following each stimulus trial, no stimulation was applied for at least 60s to reduce the potential effect of muscle fatigue. After completing tests for one nerve, tests for the other nerve commenced. During each session, nerves were tested in a randomized order. The resulting data were used to calculate a RoA. To find a RoA, the region that captured 95% of observations in which FES resulted in motion, defined as a crank deviation of at least 10°, was determined using observations in which the stimulus frequency was 100 Hz due to the more robust contraction, greater development of torque, and more predictable motion that FES developed. Using the RoA of the experimental data as truth and the RoA of the model as prediction, true positive (TP), true negative (TN), false positive (FP), and false negatives (FN) were calculated as<disp-formula id="Equ14"><label>14</label><tex-math id="d33e1073">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\text{T}\text{P}=\left({\text{R}\text{o}\text{A}}_{\text{M}}\cap\:{\text{R}\text{o}\text{A}}_{\text{E}}\right)$$\end{document}</tex-math></disp-formula><disp-formula id="Equ15"><label>15</label><tex-math id="d33e1077">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\text{T}\text{N}={\left({\text{R}\text{o}\text{A}}_{\text{M}}\cup\:{\text{R}\text{o}\text{A}}_{\text{E}}\right)}^{{\prime\:}}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ16"><label>16</label><tex-math id="d33e1081">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\text{F}\text{P}=\left({\text{R}\text{o}\text{A}}_{\text{M}}\cap\:{\text{R}\text{o}\text{A}}_{\text{E}}^{{\prime\:}}\right)$$\end{document}</tex-math></disp-formula><disp-formula id="Equ17"><label>17</label><tex-math id="d33e1085">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\text{F}\text{N}=\left({\text{R}\text{o}\text{A}}_{\text{M}}^{{\prime\:}}\cap\:{\text{R}\text{o}\text{A}}_{\text{E}}\right)$$\end{document}</tex-math></disp-formula></p><p id="Par41">Using these definitions, the Sensitivity, Specificity, Positive Predictive Value (PPV), and Negative Predictive Value (NPV) were calculated as<disp-formula id="Equ18"><label>18</label><tex-math id="d33e1091">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\text{S}\text{e}\text{n}\text{s}\text{i}\text{t}\text{i}\text{v}\text{i}\text{t}\text{y}=\frac{\text{T}\text{P}}{\text{T}\text{P}+\text{F}\text{N}}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ19"><label>19</label><tex-math id="d33e1095">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\text{S}\text{p}\text{e}\text{c}\text{i}\text{f}\text{i}\text{c}\text{i}\text{t}\text{y}=\frac{\text{T}\text{N}}{\text{T}\text{N}+\text{F}\text{P}}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ20"><label>20</label><tex-math id="d33e1099">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\text{P}\text{P}\text{V}=\frac{\text{T}\text{P}}{\text{T}\text{P}+\text{F}\text{P}}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ21"><label>21</label><tex-math id="d33e1103">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:\text{N}\text{P}\text{V}=\frac{\text{T}\text{N}}{\text{T}\text{N}+\text{F}\text{N}}$$\end{document}</tex-math></disp-formula></p></sec><sec id="Sec14"><title>Sensitivity to shifts in body position</title><p id="Par42">To evaluate sensitivity to slight shifts in body position, three scenarios were tested that encompassed the full range in which an adult rat is expected to be operational on the bicycle system: (1) the hip was centered over the crankshaft (<inline-formula id="IEq85"><tex-math id="d33e1111">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{l}_{x}=0$$\end{document}</tex-math></inline-formula> in Fig. <xref rid="Fig2" ref-type="fig">2</xref>); (2) the hips were positioned 1 cm behind the crankshaft (<inline-formula id="IEq86"><tex-math id="d33e1118">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{l}_{x}=-1\text{c}\text{m}$$\end{document}</tex-math></inline-formula> in Fig. <xref rid="Fig2" ref-type="fig">2</xref>); (3) the hips were positioned 1 cm in front of the crankshaft (<inline-formula id="IEq87"><tex-math id="d33e1125">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\:{l}_{x}=1\text{c}\text{m}$$\end{document}</tex-math></inline-formula> in Fig. <xref rid="Fig2" ref-type="fig">2</xref>). The protocol established for <italic toggle="yes">Mapping RoAs</italic> was followed for each condition. The results for each condition were compared to the kinematic model adjusted for that condition.</p></sec></sec></sec><sec id="Sec15"><title>Results</title><sec id="Sec16"><title>Stimulus titration</title><p id="Par43">In early pilot experiments, we found that we could easily elicit a robust contraction using a pulse width fixed at 125 µs and stimulus frequency at 100 Hz while varying the pulse amplitude. This was used as a starting point during titration. During brief (&lt; 10s) trials, we determined the pulse amplitude needed to elicit a robust muscle contraction and forward-clockwise (as viewed from the right side of the bicycle) rotation of the crank arm. After the first several experiments produced similar outcomes, a consistent pulse amplitude of 4 mA was used.</p></sec><sec id="Sec17"><title>Mapping regions of activity (RoAs)</title><p id="Par44">A total of 743 trials were conducted in two animals over 9 experiments that occurred over 110 days. Results from mapping the response to femoral and sciatic nerve stimulation are shown in Figs. <xref rid="Fig5" ref-type="fig">5</xref>A-F and <xref rid="Fig6" ref-type="fig">6</xref>A-B. Each trial is shown as a black arc. The approximated RoA is shaded in light blue (femoral nerve) or light orange (sciatic nerve) while the corresponding model-derived activation region is shown in dark blue and dark orange at the periphery of each panel, respectively. The RoA was defined as the region that captured 95% of observations in which FES resulted in motion of the crankshaft of at least 10°. RoA was developed using observations in which the stimulus frequency was 100 Hz due to the more robust contraction, greater development of torque, and more predictable motion that FES developed (<italic toggle="yes">N</italic> = 449). The majority of data (<italic toggle="yes">N</italic> = 566) were gathered with the hips of the rat centered over the crankshaft (Fig. <xref rid="Fig5" ref-type="fig">5</xref>, center column; Fig. <xref rid="Fig6" ref-type="fig">6</xref>), with a smaller number of observations at forward (<italic toggle="yes">N</italic> = 57) and backward (<italic toggle="yes">N</italic> = 120) shifts. The effects of a rearward 1 cm shift relative to the crankshaft (Fig. <xref rid="Fig5" ref-type="fig">5</xref>, left column) and a forward 1 cm shift relative to the crankshaft (Fig. <xref rid="Fig5" ref-type="fig">5</xref>, right column) are also presented, with figures labeled as described above.</p><p id="Par45">
+<fig id="Fig5" position="float" orientation="portrait"><label>Fig. 5</label><caption><p>Observed rotation patterns relative to the model predictions. Row 1 (<bold>A, B, C</bold>): femoral nerve. Row 2 (<bold>D, E, F</bold>): sciatic nerve. The hips were shifted 1 cm behind (Left Column;<bold> A, D, G</bold>), 1 cm in front of (Right Column;<bold> C, F, I</bold>), or aligned with the crankshaft (Middle Column;<bold> B, E, H</bold>). Black tracts denoted FES-induced clockwise-forward motion. Locations that resulted in no motion are noted with an “x.” The predictions from the model are shaded darker at the periphery. The lighter, inner shaded region is the estimated region of activation (RoA) based on animal data. Row 3 (<bold>G, H, I</bold>): The estimated RoA for the femoral (blue) and sciatic (orange) nerves showing overlapping regions (purple). Arrow at 0° shows direction of rotation.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="d33e1205" position="float" orientation="portrait" xlink:href="41598_2025_29285_Fig5_HTML.jpg"/></fig>
+</p><p id="Par46">
+<fig id="Fig6" position="float" orientation="portrait"><label>Fig. 6</label><caption><p>Observed rotation patterns relative to the model predictions for the femoral nerve (<bold>A</bold>) and the sciatic nerve (<bold>B</bold>). The hips were aligned with the crankshaft. Black tracts denoted FES-induced counterclockwise-backwards motion. Locations that resulted in no motion are noted with an “x.” The predictions from the model are shaded darker at the periphery. The lighter, inner shaded region is the estimated region of activation (RoA) based on animal data. (<bold>C</bold>): The estimated RoA for the femoral (blue) and sciatic (orange) nerves showing overlapping regions (purple). Arrow at 0° shows direction of rotation.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="d33e1225" position="float" orientation="portrait" xlink:href="41598_2025_29285_Fig6_HTML.jpg"/></fig>
+</p><p id="Par47">In general, the RoA from the experimental data agreed with the RoA from the model (Table <xref rid="Tab1" ref-type="table">1</xref>). The sensitivity – a measure of how well the model identifies true positives – averaged 77.0% ± 8.9% (64.5–91.7%) across both nerves, the three lateral positions, and the two rotation directions. The specificity – a measure of how well the model identifies true negatives – averaged 97.7% ± 4.3% (87.2–100%). The PPV – a measure of the probability that a positive prediction from the model is correct – averaged 95.6% ± 8.7% (74.2–100%). The NPV – a measure of the probability that a negative prediction from the model is correct – averaged 85.4% ± 6.9% (80.2–96.1%).</p><p id="Par48">
+<table-wrap id="Tab1" position="float" orientation="portrait"><label>Table 1</label><caption><p>Agreement between model and experimental data for clockwise and Counterclockwise motion.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" colspan="1" rowspan="1">Motion</th><th align="left" colspan="6" rowspan="1">Clockwise</th><th align="left" colspan="2" rowspan="1">Counterclockwise</th></tr><tr><th align="left" colspan="1" rowspan="1">Shift</th><th align="left" colspan="2" rowspan="1">Backward</th><th align="left" colspan="2" rowspan="1">Centered</th><th align="left" colspan="2" rowspan="1">Forward</th><th align="left" colspan="2" rowspan="1">Centered</th></tr><tr><th align="left" colspan="1" rowspan="1">l<sub>x</sub> (cm)</th><th align="left" colspan="2" rowspan="1">-1.0</th><th align="left" colspan="2" rowspan="1">0.0</th><th align="left" colspan="2" rowspan="1">+ 1.0</th><th align="left" colspan="2" rowspan="1">0.0</th></tr><tr><th align="left" colspan="1" rowspan="1">Nerve</th><th align="left" colspan="1" rowspan="1">Femoral</th><th align="left" colspan="1" rowspan="1">Sciatic</th><th align="left" colspan="1" rowspan="1">Femoral</th><th align="left" colspan="1" rowspan="1">Sciatic</th><th align="left" colspan="1" rowspan="1">Femoral</th><th align="left" colspan="1" rowspan="1">Sciatic</th><th align="left" colspan="1" rowspan="1">Femoral</th><th align="left" colspan="1" rowspan="1">Sciatic</th></tr></thead><tbody><tr><td align="left" colspan="1" rowspan="1">Sensitivity</td><td align="left" colspan="1" rowspan="1">72.6%</td><td align="left" colspan="1" rowspan="1">85.1%</td><td align="left" colspan="1" rowspan="1">70.6%</td><td align="left" colspan="1" rowspan="1">73.1%</td><td align="left" colspan="1" rowspan="1">64.5%</td><td align="left" colspan="1" rowspan="1">83.1%</td><td align="left" colspan="1" rowspan="1">91.7%</td><td align="left" colspan="1" rowspan="1">75.4%</td></tr><tr><td align="left" colspan="1" rowspan="1">Specificity</td><td align="left" colspan="1" rowspan="1">98.9%</td><td align="left" colspan="1" rowspan="1">98.3%</td><td align="left" colspan="1" rowspan="1">99.9%</td><td align="left" colspan="1" rowspan="1">100.0%</td><td align="left" colspan="1" rowspan="1">100.0%</td><td align="left" colspan="1" rowspan="1">98.2%</td><td align="left" colspan="1" rowspan="1">99.3%</td><td align="left" colspan="1" rowspan="1">87.2%</td></tr><tr><td align="left" colspan="1" rowspan="1">PPV</td><td align="left" colspan="1" rowspan="1">98.3%</td><td align="left" colspan="1" rowspan="1">97.3%</td><td align="left" colspan="1" rowspan="1">98.8%</td><td align="left" colspan="1" rowspan="1">100.0%</td><td align="left" colspan="1" rowspan="1">100.0%</td><td align="left" colspan="1" rowspan="1">96.5%</td><td align="left" colspan="1" rowspan="1">98.4%</td><td align="left" colspan="1" rowspan="1">74.2%</td></tr><tr><td align="left" colspan="1" rowspan="1">NPV</td><td align="left" colspan="1" rowspan="1">81.0%</td><td align="left" colspan="1" rowspan="1">90.5%</td><td align="left" colspan="1" rowspan="1">80.2%</td><td align="left" colspan="1" rowspan="1">80.8%</td><td align="left" colspan="1" rowspan="1">76.1%</td><td align="left" colspan="1" rowspan="1">90.8%</td><td align="left" colspan="1" rowspan="1">96.1%</td><td align="left" colspan="1" rowspan="1">87.9%</td></tr></tbody></table></table-wrap>
+</p></sec></sec><sec id="Sec18"><title>Discussion</title><p id="Par49">Persons with neurologic injury exhibit reductions in muscle size and function due, in part, to the CNS insult and the resulting disuse<sup><xref ref-type="bibr" rid="CR39">39</xref></sup>. Moreover, neurologic injury predisposes to bone loss and increased fracture risk in the impaired limbs, which is particularly evident in the paralyzed extremities after severe SCI<sup><xref ref-type="bibr" rid="CR2">2</xref>,<xref ref-type="bibr" rid="CR3">3</xref></sup> and in hemiparesis following stroke<sup><xref ref-type="bibr" rid="CR40">40</xref></sup>. The etiology of these musculoskeletal declines has resulted in an emphasis on physical rehabilitation modalities (e.g., FES cycling) that use electrical stimulation to activate peripheral nerves and produce muscle contractions against a progressive external resistance in a manner that augments the damaged CNS<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>. FES modalities have been shown to improve muscle recovery in some persons with neurologic injury, when performed with sufficient frequency and duration<sup><xref ref-type="bibr" rid="CR5">5</xref></sup>. However, the ability of FES to restore BMD in the paralyzed limbs is contentious. For example, a few clinical trials have reported that FES cycling produced relatively minor trabecular BMD improvement when performed 4–5 days/week, 30–60 min per bout for 6–12 months, while others report no trabecular or cortical bone benefits<sup><xref ref-type="bibr" rid="CR1">1</xref></sup>. As such, the need exists to optimize FES parameters to increase BMD and bone strength and to ensure that such regimens also continue to improve muscle recovery. Approaching this issue purely from a clinical trials perspective would necessitate multiple years-long studies to design optimal regimens for bone recovery, given the many factors that can be varied when designing FES schemes (e.g., frequency and duration of training sessions, pedaling cadence, and the frequency, amplitude, and pulse width of electrical stimulation, among others), and the slow rate of bone accrual that occurs in people<sup><xref ref-type="bibr" rid="CR14">14</xref></sup>. Herein, we detail kinematic models and stimulation patterns that are needed to facilitate the development of closed-loop FES hindlimb cycling in rats, a model species that exhibits similar mechanisms of bone loss and regain as humans<sup><xref ref-type="bibr" rid="CR16">16</xref></sup>. Within the context of severe contusion SCI, the rat model has been shown to reproduce the complex pathophysiology of severe traumatic SCI in humans<sup><xref ref-type="bibr" rid="CR17">17</xref></sup>, along with the deleterious bone phenotype that occurs in humans with severe traumatic SCI<sup><xref ref-type="bibr" rid="CR18">18</xref>–<xref ref-type="bibr" rid="CR24">24</xref></sup>. However, the rate of bone loss and regain occurs much faster in rodent SCI models<sup><xref ref-type="bibr" rid="CR18">18</xref>,<xref ref-type="bibr" rid="CR19">19</xref></sup> than in humans after SCI<sup><xref ref-type="bibr" rid="CR2">2</xref>,<xref ref-type="bibr" rid="CR25">25</xref></sup>, potentially allowing for more high-throughput testing and identification of effective FES schemes. Previous kinematic and stimulation pattern analyses have been performed for lower-extremity muscle groups in human FES-cycling<sup><xref ref-type="bibr" rid="CR34">34</xref></sup>, but the quadrupedal locomotion of rats results in unique body position, hindlimb kinematics, and joint angles<sup><xref ref-type="bibr" rid="CR35">35</xref></sup> that require different considerations than humans. The theoretical kinematic models we developed were assessed and validated through experimental trials on anesthetized young to middle-aged adult male and female rats, akin to the largest proportion of persons experiencing SCI in both the US military<sup><xref ref-type="bibr" rid="CR41">41</xref></sup> and general populations<sup><xref ref-type="bibr" rid="CR42">42</xref></sup>, providing an initial foundation to develop FES patterns for use in closed-loop controllers that facilitate continuous FES-cycling in adult rats across the age-span. Such systems can be used to better understand how FES schemes impact bone, muscle, and other health parameters in preclinical models, including those of neurologic injury.</p><p id="Par50">The overall purpose of this study was to determine the feasibility of using a kinematic modelling analysis, like that used in human FES-cycling<sup><xref ref-type="bibr" rid="CR34">34</xref></sup>, to characterize appropriate crankshaft RoAs where FES would contribute to forward (clockwise) pedaling and positions where FES may be counterproductive, such as producing no pedaling motion or counterclockwise pedaling. When FES produced clockwise rotation of at least 10°, it was considered productive motion. All other outcomes - when FES produced rotation greater than 0° but less than 10°, when it produced counterclockwise motion, or when it produced no motion (“dead zones”) – were considered counterproductive. In doing so, our original muscle-based kinematic analysis included four hindlimb muscle groups: QM (knee extensors), HM (knee flexors), GM (hip extensors), and PFM. The estimated QM RoA to produce forward pedaling using kinematic analysis Version A ranged from 30° to ~ 140°, with estimated GM and PFM RoAs ranging from ~ 45° to 140°. These findings indicated near-complete overlap in estimated RoAs for GM and PFM when compared with QM, suggesting that simultaneous GM and PFM stimulation would contribute minimally beyond that of QM stimulation. In comparison, the estimated HM RoA to produce forward pedaling ranged from ~ 220° to 315°, with no overlap amongst other muscle groups evaluated.</p><p id="Par51">To assess the validity of these models, we initially attempted to use surface electrodes to deliver transcutaneous electrical stimulation to each individual muscle group (data not shown), as is typical within human FES-cycling. However, we were unable to obtain sufficient precision with this approach. The relatively small size of the rat hindlimb muscles in relation to the surface electrodes as well as their proximity of each muscle resulted in stimulus spillover and simultaneous recruitment of muscle groups that precluded pedaling motion. Additionally, because rat skin is relatively loose and mobile, we observed considerable movement of the electrode in relation to the underlying nerves and muscles during pedaling. As such, data obtained from surface electrodes were not included in this study and instead the included data were limited to those obtained with fine wire percutaneous electrodes, which represents a more precise approach to stimulate nerves and muscle groups of interest. Importantly, the precision to place the fine wires into small muscles to achieve independent and repeatable control is difficult, so we elected to use fine wires to recruit the femoral and sciatic nerves instead.</p><p id="Par52">We then devised a modified nerve-based kinematic analysis (Version B) that included only femoral nerve or sciatic nerve stimulation, which could be assessed and validated in real-world experiments using indwelling fine wire electrodes placed in precise muscle locations. Our nerve-based kinematic analysis indicated femoral nerve FES would produce forward pedaling from 30° to ~ 140°, like our original model, and that sciatic nerve FES would produce forward pedaling from ~ 160° to ~ 280°. To assess the validity of these models, we completed several FES trials in which we selectively stimulated the femoral nerve or sciatic nerve in anesthetized rats (1 male and 1 female) on different days over a series of months and across different crankshaft angles to identify appropriate and counterproductive RoAs. In doing so, we observed consistent forward pedaling throughout the estimated RoAs predicted in our nerve-based model, with 98–100% specificity. However, several differences also existed between the estimated RoAs and our real-world data. For example, in sciatic nerve FES, our real-world data indicated that forward pedaling initiated at ~ 125°, which was prior to the estimated RoA in our model. Likewise, in femoral nerve FES, our real-world data indicated that forward pedaling continued beyond 140° to ~ 190°, which was after the estimated RoA end-range in our model. These differences in sensitivity are likely explained by a constraint used in our nerve-based kinematic model that did not permit RoA overlap between the femoral and sciatic nerves. This model constraint eliminated the possibility of simultaneous femoral and sciatic nerve stimulation that would result in co-contraction of antagonist knee extensor/flexor and hip extensor/flexor muscle groups, exacerbate muscle fatigue, and ultimately prove deleterious to continuous forward pedaling. As such, our real-world experiments appear to validate the estimated femoral and sciatic nerve RoAs that were predicted in our nerve-based kinematic analysis.</p><p id="Par53">While conducting our real-world trials, we noted several observations that should be considered when developing closed-loop control systems to automate rat FES cycling. For example, vertical and horizontal hip placement varied in relation to the crankshaft between animals, largely due to the differing body sizes and limbs lengths of adult male and female rats. Moreover, within the same rat, we noted slight variations in hip placement across bouts, despite our best efforts to maintain identical positioning, which never exceeded ± 1 cm horizontal translation from the crankshaft due to rat limb length limitations. We consider these variations inherent to the design of the bicycle system. To systematically assess how hip position might impact femoral and sciatic nerve RoAs, we altered the inputs in our nerve-based kinematical analysis to place the hips either 1 cm forward or rearward of the crank, which represented the maximum real-world difference (based on limb lengths) that permitted rats to perform cycling without limb overextension. In doing so, we observed only slight changes in the estimated RoAs for each nerve, which did not appreciably impact the modeled RoAs. We subsequently verified these estimated RoAs in real-world trials in which the hips were carefully positioned forwards or rearwards of the cranks and noted no perceivable impact on sensitivity of specificity.</p><p id="Par54">In addition, we noted minor differences in FES start and stop angles across trials in the same rats, even when carefully controlling hip position. In comparison, within each testing session considerable consistency in FES start and stop angles was noted. One potential explanation for the differences across trials was slightly different fine wire electrode placement across sessions, which may impact the degree to which muscles are recruited in response to femoral or sciatic nerve stimulation. In this regard, femoral nerve FES recruits all QM, with each individual muscle (vastus lateralis, vastus medialis, vastus intermedius, and rectus femoris) producing knee extension, while the rectus femoris also produces hip flexion, which must be overcome to allow forward pedaling. To address this, future studies could tattoo the skin to identify exact reproducible locations for fine wire electrode placement across trials or could consider surgical implantation of nerve cuffs on the femoral and sciatic nerves to allow identical nerve stimulation across trials. The former may still result in variations among trials as rat skin can move significantly relative to the target muscle, particularly when significant atrophy occurs like after SCI<sup><xref ref-type="bibr" rid="CR43">43</xref></sup>. In comparison, the latter would result in greater consistency, but would involve an invasive surgical procedure that may independently impact muscle and/or bone recovery and increase the risk of infection. Regardless, the 700 plus FES trials performed on the rat bicycle for the femoral and sciatic nerves verified that our kinematic models accurately predicted RoAs for each nerve that, when stimulated, produced consistent and meaningful forward pedaling motions with 98–100% specificity.</p><p id="Par55">Though not tested explicitly, these data suggest that it should be possible to traverse the entire rotational field with bilateral independent stimulation of the femoral and sciatic nerves. In this bilateral 4-nerve scenario, nearly 75% of the unit circle can be traversed by stimulating one of two nerves, as denoted by overlapping RoAs. This redundancy should delay the onset of fatigue and/or allow for greater torque development.</p><p id="Par56">As with all studies, several potential limitations also warrant mention. First, our kinematic models were developed using average limb length inputs for 4-months-old (adult) male rats and were not re-developed in an age- or sex-specific manner. As such, actual RoAs may differ for smaller or larger rats. Regardless, we tested an adult male and female rat with differing body sizes and limb lengths over a series of months and observed similar femoral and sciatic nerve RoAs and forward pedaling responses across animals, when using an identical FES pulse width (125 µs), stimulation frequency (100 Hz), and variable pulse amplitude. This suggests that the limb length inputs in our kinematic analyses were robust to differences in body size and limb length, at least in adult rats over 4-months of age. Moreover, limb length values are input variables in our kinematic model that can be selectively varied in future experiments, if considerably smaller or larger animals are tested. Second, when testing FES, we fixed pulse width and stimulation frequency and varied pulse amplitude, as noted above, based on a preliminary titration experiment that indicated these parameters produced robust muscle contractions. However, these FES parameters were not optimized to produce forward pedaling, to limit fatigue, or to induce any physiologic adaptations. As such, future studies are needed to systematically optimize FES parameters to achieve the desired outcome within a closed-loop control system and to discern whether bone or muscle adaptations occur. Third, we incorporated 60-second rest periods between successive nerve stimulation bouts to lessen potential fatigue that could prove deleterious to forward pedaling, but we did not measure neuromuscular fatigue to verify that this rest period was sufficient to achieve this outcome. Regardless, the considerable consistency observed in FES start and end angles across successive femoral and sciatic nerve bouts suggested the existence of minimal fatigue. Lastly, we verified femoral and sciatic nerve RoAs using fully anesthetized rats to validate our kinematic model in neurally intact animals and to ensure animals experienced no pain or distress during testing. As such, it remains to be determined whether the FES parameters used to validate these RoAs are appropriate for unanesthetized rats or whether these stimulation parameters will differ in models of SCI or other neurologic injuries that experience considerable muscle atrophy and neuromuscular impairment. Regardless, the experiments and RoAs described herein provide an initial foundation to develop closed-loop control systems that are capable of measuring crank angle and that automatically adjust stimulation parameters to ensure consistent forward pedaling, which are key factors needed to optimize FES-cycling schemes for physiologic benefit.</p></sec><sec id="Sec19"><title>Conclusion</title><p id="Par57">A passive bicycle system for rats was developed and corresponding FES patterns for the femoral and sciatic nerves were simulated, tested, and validated on live animals. These FES patterns will enable future work aimed at the design of closed-loop controllers for a rat FES-cycling system. Ultimately, these studies may provide cost- and time-effective means to identify favorable preclinical FES parameters for bone and muscle restoration and may assist in improving other health outcomes that are negatively impacted in response to neurologic injury.</p></sec></body><back><fn-group><fn><p><bold>Publisher’s note</bold></p><p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p></fn><fn><p>Joshua F. Yarrow, Matthew A. Schiefer and Warren E. Dixon contributed equally to this work.</p></fn></fn-group><notes notes-type="author-contribution"><title>Author contributions</title><p>All authors wrote and/or revised one or more sections of this manuscript. HMS and EJG constructed and analyzed kinematic models. HMS, WED, NdlM, EP, and HP built the rat bicycle. NdlM, EP, HP, CFC, and MAS conducted in vivo experiments and analyzed acquired data. CFC, HMS, JFY, MAS, and WED conducted validation analyses. CFC, MAS, and JFY provided training on conducting in vivo experiments.</p></notes><notes notes-type="funding-information"><title>Funding</title><p>This research is supported in part by the Department of Veterans Affairs (VA) Office of Research and Development, Rehabilitation Research and Development Service SPiRE I21RX003757 to JFY and VA grant AGR DTD 3-9-2022. Additional support provided by the Brain Rehabilitation Research Center (BRRC) at the MRVAMC. The work reported herein does not represent the views of the US Department of Veterans Affairs or the US Government. Any opinions, findings and conclusions or recommendations expressed in this material are those of the author(s) and do not necessarily reflect the views of the sponsoring agencies.</p></notes><notes notes-type="data-availability"><title>Data availability</title><p>The datasets generated and analyzed during the current study will be made available in the Harvard Dataverse repository upon acceptance of the manuscript and are available upon request. Additionally, HMS or WED can be contacted for data pertaining to the kinematic models while MAS and JFY can be contacted for data from *in vivo* experiments.</p></notes><notes><title>Declarations</title><notes id="FPar1" notes-type="COI-statement"><title>Competing interests</title><p id="Par60">The authors declare no competing interests.</p></notes></notes><ref-list id="Bib1"><title>References</title><ref id="CR1"><label>1.</label><mixed-citation publication-type="other">Sutor, T. W., Kura, J., Mattingly, A. J., Otzel, D. M. &amp; Yarrow, J. F. The effects of exercise and Activity-Based physical therapy on bone after spinal cord injury. <italic toggle="yes">Int. J. Mol. Sci</italic>. <bold>23</bold> (2022).<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/ijms23020608</pub-id><pub-id pub-id-type="pmcid">PMC8775843</pub-id><pub-id pub-id-type="pmid">35054791</pub-id></mixed-citation></ref><ref id="CR2"><label>2.</label><citation-alternatives><element-citation id="ec-CR2" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Edwards</surname><given-names>WB</given-names></name><name name-style="western"><surname>Schnitzer</surname><given-names>TJ</given-names></name><name name-style="western"><surname>Troy</surname><given-names>KL</given-names></name></person-group><article-title>Bone mineral and stiffness loss at the distal femur and proximal tibia in acute spinal cord injury</article-title><source>Osteoporos. Int.</source><year>2014</year><volume>25</volume><fpage>1005</fpage><lpage>1015</lpage><pub-id pub-id-type="doi">10.1007/s00198-013-2557-5</pub-id><pub-id pub-id-type="pmid">24190426</pub-id></element-citation><mixed-citation id="mc-CR2" publication-type="journal">Edwards, W. B., Schnitzer, T. J. &amp; Troy, K. L. Bone mineral and stiffness loss at the distal femur and proximal tibia in acute spinal cord injury. <italic toggle="yes">Osteoporos. Int.</italic><bold>25</bold>, 1005–1015 (2014).<pub-id pub-id-type="pmid">24190426</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00198-013-2557-5</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR3"><label>3.</label><citation-alternatives><element-citation id="ec-CR3" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Frisbie</surname><given-names>JH</given-names></name></person-group><article-title>Fractures after myelopathy: the risk quantified</article-title><source>J. Spinal Cord Med.</source><year>1997</year><volume>20</volume><fpage>66</fpage><lpage>69</lpage><pub-id pub-id-type="doi">10.1080/10790268.1997.11719458</pub-id><pub-id pub-id-type="pmid">9097259</pub-id></element-citation><mixed-citation id="mc-CR3" publication-type="journal">Frisbie, J. H. Fractures after myelopathy: the risk quantified. <italic toggle="yes">J. Spinal Cord Med.</italic><bold>20</bold>, 66–69 (1997).<pub-id pub-id-type="pmid">9097259</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1080/10790268.1997.11719458</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR4"><label>4.</label><citation-alternatives><element-citation id="ec-CR4" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Carbone</surname><given-names>LD</given-names></name><etal/></person-group><article-title>Morbidity following lower extremity fractures in men with spinal cord injury</article-title><source>Osteoporos. Int.</source><year>2013</year><volume>24</volume><fpage>2261</fpage><lpage>2267</lpage><pub-id pub-id-type="doi">10.1007/s00198-013-2295-8</pub-id><pub-id pub-id-type="pmid">23392311</pub-id></element-citation><mixed-citation id="mc-CR4" publication-type="journal">Carbone, L. D. et al. Morbidity following lower extremity fractures in men with spinal cord injury. <italic toggle="yes">Osteoporos. Int.</italic><bold>24</bold>, 2261–2267 (2013).<pub-id pub-id-type="pmid">23392311</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00198-013-2295-8</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR5"><label>5.</label><mixed-citation publication-type="other">Carraro, U. et al. Recovery from muscle weakness by exercise and FES: Lessons from masters, active or sedentary seniors and SCI patients. <italic toggle="yes">Aging Clin. Exp. Res.</italic><bold>29</bold>, 579–590 (2017). 10.1007/s40520-016-0619-1 (preprint).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s40520-016-0619-1</pub-id><pub-id pub-id-type="pmid">27592133</pub-id></mixed-citation></ref><ref id="CR6"><label>6.</label><citation-alternatives><element-citation id="ec-CR6" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Duffell</surname><given-names>L</given-names></name><name name-style="western"><surname>N. de N Donaldson</surname><given-names>D</given-names></name></person-group><article-title>A comparison of FES and SCS for neuroplastic recovery after SCI: historical perspectives and future directions</article-title><source>Front. Neurol.</source><year>2020</year><volume>11</volume><fpage>Preprintathttpsdoiorg103389fneur202000607</fpage><pub-id pub-id-type="doi">10.3389/fneur.2020.00607</pub-id><pub-id pub-id-type="pmcid">PMC7344227</pub-id><pub-id pub-id-type="pmid">32714270</pub-id></element-citation><mixed-citation id="mc-CR6" publication-type="journal">Duffell, L. &amp; N. de N. Donaldson, D. A comparison of FES and SCS for neuroplastic recovery after SCI: historical perspectives and future directions. <italic toggle="yes">Front. Neurol.</italic><bold>11</bold>, Preprintathttpsdoiorg103389fneur202000607 (2020).<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fneur.2020.00607</pub-id><pub-id pub-id-type="pmcid">PMC7344227</pub-id><pub-id pub-id-type="pmid">32714270</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR7"><label>7.</label><citation-alternatives><element-citation id="ec-CR7" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Marqueste</surname><given-names>T</given-names></name><name name-style="western"><surname>Hug</surname><given-names>F</given-names></name><name name-style="western"><surname>Decherchi</surname><given-names>P</given-names></name><name name-style="western"><surname>Jammes</surname><given-names>Y</given-names></name></person-group><article-title>Changes in neuromuscular function after training by functional electrical stimulation</article-title><source>Muscle Nerve</source><year>2003</year><volume>28</volume><fpage>181</fpage><lpage>188</lpage><pub-id pub-id-type="doi">10.1002/mus.10408</pub-id><pub-id pub-id-type="pmid">12872322</pub-id></element-citation><mixed-citation id="mc-CR7" publication-type="journal">Marqueste, T., Hug, F., Decherchi, P. &amp; Jammes, Y. Changes in neuromuscular function after training by functional electrical stimulation. <italic toggle="yes">Muscle Nerve</italic>. <bold>28</bold>, 181–188 (2003).<pub-id pub-id-type="pmid">12872322</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/mus.10408</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR8"><label>8.</label><citation-alternatives><element-citation id="ec-CR8" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Frotzler</surname><given-names>A</given-names></name><etal/></person-group><article-title>Effect of detraining on bone and muscle tissue in subjects with chronic spinal cord injury after a period of electrically-stimulated cycling: A small cohort study</article-title><source>J. Rehabil Med.</source><year>2009</year><volume>41</volume><fpage>282</fpage><lpage>285</lpage><pub-id pub-id-type="doi">10.2340/16501977-0321</pub-id><pub-id pub-id-type="pmid">19247550</pub-id></element-citation><mixed-citation id="mc-CR8" publication-type="journal">Frotzler, A. et al. Effect of detraining on bone and muscle tissue in subjects with chronic spinal cord injury after a period of electrically-stimulated cycling: A small cohort study. <italic toggle="yes">J. Rehabil Med.</italic><bold>41</bold>, 282–285 (2009).<pub-id pub-id-type="pmid">19247550</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.2340/16501977-0321</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR9"><label>9.</label><citation-alternatives><element-citation id="ec-CR9" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Frotzler</surname><given-names>A</given-names></name><etal/></person-group><article-title>High-volume FES-cycling partially reverses bone loss in people with chronic spinal cord injury</article-title><source>Bone</source><year>2008</year><volume>43</volume><fpage>169</fpage><lpage>176</lpage><pub-id pub-id-type="doi">10.1016/j.bone.2008.03.004</pub-id><pub-id pub-id-type="pmid">18440891</pub-id></element-citation><mixed-citation id="mc-CR9" publication-type="journal">Frotzler, A. et al. High-volume FES-cycling partially reverses bone loss in people with chronic spinal cord injury. <italic toggle="yes">Bone</italic><bold>43</bold>, 169–176 (2008).<pub-id pub-id-type="pmid">18440891</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.bone.2008.03.004</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR10"><label>10.</label><mixed-citation publication-type="other">Mohr, T. et al. <italic toggle="yes">Increased Bone Mineral Density After Prolonged Electrically Induced Cycle Training of Paralyzed Limbs in Spinal Cord Injured Man</italic>. (1997).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s002239900286</pub-id><pub-id pub-id-type="pmid">9192506</pub-id></mixed-citation></ref><ref id="CR11"><label>11.</label><citation-alternatives><element-citation id="ec-CR11" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>BeDell</surname><given-names>K</given-names></name><name name-style="western"><surname>Scremin</surname><given-names>A</given-names></name><name name-style="western"><surname>Perell</surname><given-names>K</given-names></name><name name-style="western"><surname>Kunkel</surname><given-names>C</given-names></name></person-group><article-title>Effects of functional electrical stimulation-induced lower extremity cycling on bone density of spinal cord-injured patients</article-title><source>Am. J. Phys. Med. Rehabil</source><year>1669</year><volume>75</volume><fpage>29</fpage><lpage>34</lpage><pub-id pub-id-type="doi">10.1097/00002060-199601000-00008</pub-id><pub-id pub-id-type="pmid">8645435</pub-id></element-citation><mixed-citation id="mc-CR11" publication-type="journal">BeDell, K., Scremin, A., Perell, K. &amp; Kunkel, C. Effects of functional electrical stimulation-induced lower extremity cycling on bone density of spinal cord-injured patients. <italic toggle="yes">Am. J. Phys. Med. Rehabil</italic>. <bold>75</bold>, 29–34 (1669).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/00002060-199601000-00008</pub-id><pub-id pub-id-type="pmid">8645435</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR12"><label>12.</label><mixed-citation publication-type="other">Johnston, T. E. et al. Musculoskeletal effects of 2 functional electrical stimulation cycling paradigms conducted at different cadences for people with spinal cord injury: A pilot study. <italic toggle="yes">Arch. Phys. Med. Rehabil</italic>. <bold>97</bold>, 1413–1422 (W.B. Saunders, 2016).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.apmr.2015.11.014</pub-id><pub-id pub-id-type="pmid">26705884</pub-id></mixed-citation></ref><ref id="CR13"><label>13.</label><citation-alternatives><element-citation id="ec-CR13" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Eser</surname><given-names>P</given-names></name><etal/></person-group><article-title>Effect of electrical stimulation-induced cycling on bone mineral density in spinal cord-injured patients</article-title><source>Eur. J. Clin. Invest.</source><year>2003</year><volume>33</volume><fpage>412</fpage><lpage>419</lpage><pub-id pub-id-type="doi">10.1046/j.1365-2362.2003.01156.x</pub-id><pub-id pub-id-type="pmid">12713456</pub-id></element-citation><mixed-citation id="mc-CR13" publication-type="journal">Eser, P. et al. Effect of electrical stimulation-induced cycling on bone mineral density in spinal cord-injured patients. <italic toggle="yes">Eur. J. Clin. Invest.</italic><bold>33</bold>, 412–419 (2003).<pub-id pub-id-type="pmid">12713456</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1046/j.1365-2362.2003.01156.x</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR14"><label>14.</label><citation-alternatives><element-citation id="ec-CR14" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Bolamperti</surname><given-names>S</given-names></name><name name-style="western"><surname>Villa</surname><given-names>I</given-names></name><name name-style="western"><surname>Rubinacci</surname><given-names>A</given-names></name></person-group><article-title>Bone remodeling: an operational process ensuring survival and bone mechanical competence</article-title><source>Bone Res.</source><year>2022</year><volume>10</volume><fpage>Preprintathttpsdoiorg101038s41413</fpage><lpage>Preprintathttpsdoiorg101038s41022</lpage><pub-id pub-id-type="doi">10.1038/s41413-022-00219-8</pub-id><pub-id pub-id-type="pmcid">PMC9293977</pub-id><pub-id pub-id-type="pmid">35851054</pub-id></element-citation><mixed-citation id="mc-CR14" publication-type="journal">Bolamperti, S., Villa, I. &amp; Rubinacci, A. Bone remodeling: an operational process ensuring survival and bone mechanical competence. <italic toggle="yes">Bone Res.</italic><bold>10</bold>, Preprintathttpsdoiorg101038s41413–Preprintathttpsdoiorg101038s41022 (2022).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41413-022-00219-8</pub-id><pub-id pub-id-type="pmcid">PMC9293977</pub-id><pub-id pub-id-type="pmid">35851054</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR15"><label>15.</label><mixed-citation publication-type="other">Frazão, M., de Figueiredo, T. &amp; Cipriano, G. G. Should we use the functional electrical stimulation-cycling exercise in clinical practice? Physiological and clinical effects systematic review with meta-analysis. <italic toggle="yes">Arch. Phys. Med. Rehabil</italic>. <bold>106</bold>, 404–423 (2025) (preprint). 10.1016/j.apmr.2024.06.003<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.apmr.2024.06.003</pub-id><pub-id pub-id-type="pmid">38914190</pub-id></mixed-citation></ref><ref id="CR16"><label>16.</label><citation-alternatives><element-citation id="ec-CR16" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Koh</surname><given-names>NYY</given-names></name><name name-style="western"><surname>Miszkiewicz</surname><given-names>JJ</given-names></name><name name-style="western"><surname>Fac</surname><given-names>ML</given-names></name><name name-style="western"><surname>Wee</surname><given-names>NKY</given-names></name><name name-style="western"><surname>Sims</surname><given-names>NA</given-names></name></person-group><article-title>Preclinical rodent models for human bone disease, including a focus on cortical bone</article-title><source>Endocr. Rev.</source><year>2024</year><volume>45</volume><fpage>493</fpage><lpage>520</lpage><pub-id pub-id-type="doi">10.1210/endrev/bnae004</pub-id><pub-id pub-id-type="pmid">38315213</pub-id><pub-id pub-id-type="pmcid">PMC11244217</pub-id></element-citation><mixed-citation id="mc-CR16" publication-type="journal">Koh, N. Y. Y., Miszkiewicz, J. J., Fac, M. L., Wee, N. K. Y. &amp; Sims, N. A. Preclinical rodent models for human bone disease, including a focus on cortical bone. <italic toggle="yes">Endocr. Rev.</italic><bold>45</bold>, 493–520 (2024).<pub-id pub-id-type="pmid">38315213</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1210/endrev/bnae004</pub-id><pub-id pub-id-type="pmcid">PMC11244217</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR17"><label>17.</label><mixed-citation publication-type="other">Sharif-Alhoseini, M. et al. Animal models of spinal cord injury: A systematic review. <italic toggle="yes">Spinal Cord</italic><bold>55</bold>, 714–721 (2017). 10.1038/sc.2016.187 (preprint).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/sc.2016.187</pub-id><pub-id pub-id-type="pmid">28117332</pub-id></mixed-citation></ref><ref id="CR18"><label>18.</label><citation-alternatives><element-citation id="ec-CR18" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Yarrow</surname><given-names>JF</given-names></name><etal/></person-group><article-title>Bone loss after severe spinal cord injury coincides with reduced bone formation and precedes bone blood flow deficits</article-title><source>J. Appl. Physiol.</source><year>2021</year><volume>131</volume><fpage>1288</fpage><lpage>1299</lpage><pub-id pub-id-type="doi">10.1152/japplphysiol.00444.2021</pub-id><pub-id pub-id-type="pmid">34473574</pub-id><pub-id pub-id-type="pmcid">PMC8560388</pub-id></element-citation><mixed-citation id="mc-CR18" publication-type="journal">Yarrow, J. F. et al. Bone loss after severe spinal cord injury coincides with reduced bone formation and precedes bone blood flow deficits. <italic toggle="yes">J. Appl. Physiol.</italic><bold>131</bold>, 1288–1299 (2021).<pub-id pub-id-type="pmid">34473574</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.00444.2021</pub-id><pub-id pub-id-type="pmcid">PMC8560388</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR19"><label>19.</label><citation-alternatives><element-citation id="ec-CR19" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Otzel</surname><given-names>DM</given-names></name><etal/></person-group><article-title>Longitudinal examination of bone loss in male rats after moderate–severe contusion spinal cord injury</article-title><source>Calcif Tissue Int.</source><year>2019</year><volume>104</volume><fpage>79</fpage><lpage>91</lpage><pub-id pub-id-type="doi">10.1007/s00223-018-0471-8</pub-id><pub-id pub-id-type="pmid">30218117</pub-id><pub-id pub-id-type="pmcid">PMC8349506</pub-id></element-citation><mixed-citation id="mc-CR19" publication-type="journal">Otzel, D. M. et al. Longitudinal examination of bone loss in male rats after moderate–severe contusion spinal cord injury. <italic toggle="yes">Calcif Tissue Int.</italic><bold>104</bold>, 79–91 (2019).<pub-id pub-id-type="pmid">30218117</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00223-018-0471-8</pub-id><pub-id pub-id-type="pmcid">PMC8349506</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR20"><label>20.</label><citation-alternatives><element-citation id="ec-CR20" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Yarrow</surname><given-names>JF</given-names></name><etal/></person-group><article-title>Bone loss in a new rodent model combining spinal cord injury and cast immobilization</article-title><source>J. Musculoskelet. Neuronal Interact.</source><year>2014</year><volume>14</volume><fpage>255</fpage><lpage>266</lpage><pub-id pub-id-type="pmid">25198220</pub-id><pub-id pub-id-type="pmcid">PMC8349504</pub-id></element-citation><mixed-citation id="mc-CR20" publication-type="journal">Yarrow, J. F. et al. Bone loss in a new rodent model combining spinal cord injury and cast immobilization. <italic toggle="yes">J. Musculoskelet. Neuronal Interact.</italic><bold>14</bold>, 255–266 (2014).<pub-id pub-id-type="pmid">25198220</pub-id>
+<pub-id pub-id-type="pmcid">PMC8349504</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR21"><label>21.</label><citation-alternatives><element-citation id="ec-CR21" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Morse</surname><given-names>LR</given-names></name><etal/></person-group><article-title>Severe spinal cord injury causes immediate Multi-cellular dysfunction at the Chondro-Osseous junction</article-title><source>Transl Stroke Res.</source><year>2011</year><volume>2</volume><fpage>643</fpage><lpage>650</lpage><pub-id pub-id-type="doi">10.1007/s12975-011-0118-9</pub-id><pub-id pub-id-type="pmid">22368723</pub-id><pub-id pub-id-type="pmcid">PMC3285243</pub-id></element-citation><mixed-citation id="mc-CR21" publication-type="journal">Morse, L. R. et al. Severe spinal cord injury causes immediate Multi-cellular dysfunction at the Chondro-Osseous junction. <italic toggle="yes">Transl Stroke Res.</italic><bold>2</bold>, 643–650 (2011).<pub-id pub-id-type="pmid">22368723</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s12975-011-0118-9</pub-id><pub-id pub-id-type="pmcid">PMC3285243</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR22"><label>22.</label><citation-alternatives><element-citation id="ec-CR22" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Voor</surname><given-names>MJ</given-names></name><etal/></person-group><article-title>Bone loss following spinal cord injury in a rat model</article-title><source>J. Neurotrauma</source><year>2012</year><volume>29</volume><fpage>1676</fpage><lpage>1682</lpage><pub-id pub-id-type="doi">10.1089/neu.2011.2037</pub-id><pub-id pub-id-type="pmid">22181016</pub-id><pub-id pub-id-type="pmcid">PMC3353757</pub-id></element-citation><mixed-citation id="mc-CR22" publication-type="journal">Voor, M. J. et al. Bone loss following spinal cord injury in a rat model. <italic toggle="yes">J. Neurotrauma</italic>. <bold>29</bold>, 1676–1682 (2012).<pub-id pub-id-type="pmid">22181016</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1089/neu.2011.2037</pub-id><pub-id pub-id-type="pmcid">PMC3353757</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR23"><label>23.</label><mixed-citation publication-type="other">Lin, T. et al. A comprehensive study of long-term skeletal changes after spinal cord injury in adult rats. <italic toggle="yes">Bone Res</italic>. <bold>3,</bold> 15028 (2015).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/boneres.2015.28</pub-id><pub-id pub-id-type="pmcid">PMC4621491</pub-id><pub-id pub-id-type="pmid">26528401</pub-id></mixed-citation></ref><ref id="CR24"><label>24.</label><mixed-citation publication-type="other">Yarrow, J. F. &amp; Cardozo, C. P. Effects of spinal cord injury and related conditions. In <italic toggle="yes">Encyclopedia Bone Biology</italic>. 429–448 (2020).</mixed-citation></ref><ref id="CR25"><label>25.</label><citation-alternatives><element-citation id="ec-CR25" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Zehnder</surname><given-names>Y</given-names></name><etal/></person-group><article-title>Long-term changes in bone metabolism, bone mineral density, quantitative ultrasound parameters, and fracture incidence after spinal cord injury: A cross-sectional observational study in 100 paraplegic men</article-title><source>Osteoporos. Int.</source><year>2004</year><volume>15</volume><fpage>180</fpage><lpage>189</lpage><pub-id pub-id-type="doi">10.1007/s00198-003-1529-6</pub-id><pub-id pub-id-type="pmid">14722626</pub-id></element-citation><mixed-citation id="mc-CR25" publication-type="journal">Zehnder, Y. et al. Long-term changes in bone metabolism, bone mineral density, quantitative ultrasound parameters, and fracture incidence after spinal cord injury: A cross-sectional observational study in 100 paraplegic men. <italic toggle="yes">Osteoporos. Int.</italic><bold>15</bold>, 180–189 (2004).<pub-id pub-id-type="pmid">14722626</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00198-003-1529-6</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR26"><label>26.</label><citation-alternatives><element-citation id="ec-CR26" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Bose</surname><given-names>PK</given-names></name><name name-style="western"><surname>Thompson</surname><given-names>FJ</given-names></name></person-group><article-title>Systems and methods for promoting locomotion and facilitating exercise</article-title><source>U S Patent No</source><year>2016</year><volume>9</volume><fpage>141</fpage></element-citation><mixed-citation id="mc-CR26" publication-type="journal">Bose, P. K. &amp; Thompson, F. J. Systems and methods for promoting locomotion and facilitating exercise. <italic toggle="yes">U S Patent No</italic>. <bold>9</bold>, 421,141 (2016).</mixed-citation></citation-alternatives></ref><ref id="CR27"><label>27.</label><mixed-citation publication-type="other">Bose, P. K., Hou, J., Parmer, R., Reier, P. J. &amp; Thompson, F. J. Altered patterns of reflex excitability, balance, and locomotion following spinal cord injury and locomotor training. <italic toggle="yes">Front. Physiol</italic>. (2012).<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fphys.2012.00258</pub-id><pub-id pub-id-type="pmcid">PMC3429034</pub-id><pub-id pub-id-type="pmid">22934014</pub-id></mixed-citation></ref><ref id="CR28"><label>28.</label><citation-alternatives><element-citation id="ec-CR28" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Yarrow</surname><given-names>JF</given-names></name><etal/></person-group><article-title>Passive cycle training promotes bone recovery after spinal cord injury without altering resting-state bone perfusion</article-title><source>Med. Sci. Sports Exerc.</source><year>2023</year><volume>55</volume><fpage>813</fpage><lpage>823</lpage><pub-id pub-id-type="doi">10.1249/MSS.0000000000003101</pub-id><pub-id pub-id-type="pmid">36728986</pub-id><pub-id pub-id-type="pmcid">PMC10090357</pub-id></element-citation><mixed-citation id="mc-CR28" publication-type="journal">Yarrow, J. F. et al. Passive cycle training promotes bone recovery after spinal cord injury without altering resting-state bone perfusion. <italic toggle="yes">Med. Sci. Sports Exerc.</italic><bold>55</bold>, 813–823 (2023).<pub-id pub-id-type="pmid">36728986</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1249/MSS.0000000000003101</pub-id><pub-id pub-id-type="pmcid">PMC10090357</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR29"><label>29.</label><citation-alternatives><element-citation id="ec-CR29" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Kura</surname><given-names>JR</given-names></name><etal/></person-group><article-title>Passive bicycle training stimulates epiphyseal bone formation and restores bone integrity independent of locomotor recovery in a rat spinal cord injury model</article-title><source>J. Appl. Physiol.</source><year>2024</year><pub-id pub-id-type="doi">10.1152/japplphysiol.00299.2024</pub-id><pub-id pub-id-type="pmid">39088645</pub-id><pub-id pub-id-type="pmcid">PMC11424172</pub-id></element-citation><mixed-citation id="mc-CR29" publication-type="journal">Kura, J. R. et al. Passive bicycle training stimulates epiphyseal bone formation and restores bone integrity independent of locomotor recovery in a rat spinal cord injury model. <italic toggle="yes">J. Appl. Physiol.</italic>10.1152/japplphysiol.00299.2024 (2024).<pub-id pub-id-type="pmid">39088645</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.00299.2024</pub-id><pub-id pub-id-type="pmcid">PMC11424172</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR30"><label>30.</label><citation-alternatives><element-citation id="ec-CR30" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Couper</surname><given-names>SK</given-names></name><name name-style="western"><surname>Smith</surname><given-names>M</given-names></name></person-group><article-title>The effects of functional electrical stimulation cycling on muscle spasticity in individuals with spinal cord injury: A systematic review</article-title><source>Top. Spinal Cord Inj Rehabil</source><year>2025</year><volume>31</volume><fpage>77</fpage><lpage>99</lpage><pub-id pub-id-type="doi">10.46292/sci23-00048</pub-id><pub-id pub-id-type="pmid">40008155</pub-id><pub-id pub-id-type="pmcid">PMC11848135</pub-id></element-citation><mixed-citation id="mc-CR30" publication-type="journal">Couper, S. K. &amp; Smith, M. The effects of functional electrical stimulation cycling on muscle spasticity in individuals with spinal cord injury: A systematic review. <italic toggle="yes">Top. Spinal Cord Inj Rehabil</italic>. <bold>31</bold>, 77–99 (2025).<pub-id pub-id-type="pmid">40008155</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.46292/sci23-00048</pub-id><pub-id pub-id-type="pmcid">PMC11848135</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR31"><label>31.</label><citation-alternatives><element-citation id="ec-CR31" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Rabelo</surname><given-names>M</given-names></name><etal/></person-group><article-title>Overview of FES-Assisted cycling approaches and their benefits on functional rehabilitation and muscle atrophy</article-title><source>Adv. Exp. Med. Biol.</source><year>2018</year><volume>1088</volume><fpage>561</fpage><lpage>583</lpage><pub-id pub-id-type="doi">10.1007/978-981-13-1435-3_26</pub-id><pub-id pub-id-type="pmid">30390270</pub-id></element-citation><mixed-citation id="mc-CR31" publication-type="journal">Rabelo, M. et al. Overview of FES-Assisted cycling approaches and their benefits on functional rehabilitation and muscle atrophy. <italic toggle="yes">Adv. Exp. Med. Biol.</italic><bold>1088</bold>, 561–583 (2018).<pub-id pub-id-type="pmid">30390270</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/978-981-13-1435-3_26</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR32"><label>32.</label><citation-alternatives><element-citation id="ec-CR32" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Phillips</surname><given-names>WT</given-names></name><etal/></person-group><article-title>Effect of spinal cord injury on the heart and cardiovascular fitness</article-title><source>Curr. Probl. Cardiol.</source><year>1998</year><volume>23</volume><fpage>641</fpage><lpage>716</lpage><pub-id pub-id-type="doi">10.1016/S0146-2806(98)80003-0</pub-id><pub-id pub-id-type="pmid">9830574</pub-id></element-citation><mixed-citation id="mc-CR32" publication-type="journal">Phillips, W. T. et al. Effect of spinal cord injury on the heart and cardiovascular fitness. <italic toggle="yes">Curr. Probl. Cardiol.</italic><bold>23</bold>, 641–716 (1998).<pub-id pub-id-type="pmid">9830574</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/s0146-2806(98)80003-0</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR33"><label>33.</label><citation-alternatives><element-citation id="ec-CR33" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Bellman</surname><given-names>MJ</given-names></name><name name-style="western"><surname>Downey</surname><given-names>RJ</given-names></name><name name-style="western"><surname>Parikh</surname><given-names>A</given-names></name><name name-style="western"><surname>Dixon</surname><given-names>WE</given-names></name></person-group><article-title>Automatic control of cycling induced by functional electrical stimulation with electric motor assistance</article-title><source>IEEE Trans. Autom. Sci. Eng.</source><year>2017</year><volume>14</volume><fpage>1225</fpage><lpage>1234</lpage><pub-id pub-id-type="doi">10.1109/TASE.2016.2527716</pub-id></element-citation><mixed-citation id="mc-CR33" publication-type="journal">Bellman, M. J., Downey, R. J., Parikh, A. &amp; Dixon, W. E. Automatic control of cycling induced by functional electrical stimulation with electric motor assistance. <italic toggle="yes">IEEE Trans. Autom. Sci. Eng.</italic><bold>14</bold>, 1225–1234 (2017).</mixed-citation></citation-alternatives></ref><ref id="CR34"><label>34.</label><mixed-citation publication-type="other">Bellman, M. J. <italic toggle="yes">Control of Cycling Induced by Functional Electrical Stimulation: A Switched Systems Theory Approach</italic>. (2015).</mixed-citation></ref><ref id="CR35"><label>35.</label><mixed-citation publication-type="other">Dienes, J. et al. Comprehensive dynamic and kinematic analysis of the rodent hindlimb during over ground walking. <italic toggle="yes">Sci. Rep.</italic><bold>12</bold> (2022).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-022-20288-3</pub-id><pub-id pub-id-type="pmcid">PMC9668918</pub-id><pub-id pub-id-type="pmid">36385108</pub-id></mixed-citation></ref><ref id="CR36"><label>36.</label><mixed-citation publication-type="other">Duysens, J., Van De Crommert, H. W. A. A., Smits-Engelsman, B. C. M. &amp; Van Der Helm F. C. T. A walking robot called human: Lessons to be learned from neural control of locomotion. <italic toggle="yes">J. Biomech.</italic><bold>35</bold> (2002).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/s0021-9290(01)00187-7</pub-id><pub-id pub-id-type="pmid">11934413</pub-id></mixed-citation></ref><ref id="CR37"><label>37.</label><mixed-citation publication-type="other">Crane, C. D. &amp; Duffy, J. <italic toggle="yes">Kinematic Analysis of Robot Manipulators</italic> (Cambridge University Press, 1998).</mixed-citation></ref><ref id="CR38"><label>38.</label><mixed-citation publication-type="other">Idsø, E. S. <italic toggle="yes">Development of a Mathematical Model of a Rider-Tricycle System</italic>. (2002).</mixed-citation></ref><ref id="CR39"><label>39.</label><mixed-citation publication-type="other">Carda, S., Cisari, C. &amp; Invernizzi, M. Sarcopenia or muscle modifications in neurologic diseases: A lexical or patophysiological difference? <italic toggle="yes">Eur. J. Phys. Rehabil. Med.</italic> (2013). https://www.researchgate.net/publication/236156743.<pub-id pub-id-type="pmid">23575206</pub-id></mixed-citation></ref><ref id="CR40"><label>40.</label><citation-alternatives><element-citation id="ec-CR40" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Saleh</surname><given-names>I</given-names></name><name name-style="western"><surname>Akbar</surname><given-names>A</given-names></name><name name-style="western"><surname>Hasan</surname><given-names>HS</given-names></name><name name-style="western"><surname>Yulisa</surname><given-names>ND</given-names></name><name name-style="western"><surname>Aprilya</surname><given-names>D</given-names></name></person-group><article-title>Clinical characteristics and bone mineral density score in post-stroke neuromuscular deficit</article-title><source>J. Clin. Med. Res.</source><year>2025</year><volume>17</volume><fpage>119</fpage><lpage>124</lpage><pub-id pub-id-type="doi">10.14740/jocmr6070</pub-id><pub-id pub-id-type="pmid">39981337</pub-id><pub-id pub-id-type="pmcid">PMC11835557</pub-id></element-citation><mixed-citation id="mc-CR40" publication-type="journal">Saleh, I., Akbar, A., Hasan, H. S., Yulisa, N. D. &amp; Aprilya, D. Clinical characteristics and bone mineral density score in post-stroke neuromuscular deficit. <italic toggle="yes">J. Clin. Med. Res.</italic><bold>17</bold>, 119–124 (2025).<pub-id pub-id-type="pmid">39981337</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.14740/jocmr6070</pub-id><pub-id pub-id-type="pmcid">PMC11835557</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR41"><label>41.</label><mixed-citation publication-type="other">Barrows, D. &amp; Goldstein, B. Virtual care in the veterans affairs spinal cord injuries and disorders system of care during the COVID-19 National Public Health Emergency. <italic toggle="yes">Phys. Med. Rehabil. Clin. N. Am.</italic><bold>32</bold>, 207–221 (2021). 10.1016/j.pmr.2021.01.007 (preprint)<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.pmr.2021.01.007</pub-id><pub-id pub-id-type="pmcid">PMC9759797</pub-id><pub-id pub-id-type="pmid">33814053</pub-id></mixed-citation></ref><ref id="CR42"><label>42.</label><mixed-citation publication-type="other">National Spinal Cord Injury Statistical Center. <italic toggle="yes">Traumatic Spinal Cord Injury Facts and Figures at a Glance 2025 SCI Data Sheet</italic>. (2025).</mixed-citation></ref><ref id="CR43"><label>43.</label><citation-alternatives><element-citation id="ec-CR43" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Kok</surname><given-names>HJ</given-names></name><etal/></person-group><article-title>Transcriptomics reveals transient and dynamic muscle fibrosis and atrophy differences following spinal cord injury in rats</article-title><source>J. Cachexia Sarcopenia Muscle</source><year>2024</year><volume>15</volume><fpage>1309</fpage><lpage>1323</lpage><pub-id pub-id-type="doi">10.1002/jcsm.13476</pub-id><pub-id pub-id-type="pmid">38764311</pub-id><pub-id pub-id-type="pmcid">PMC11294049</pub-id></element-citation><mixed-citation id="mc-CR43" publication-type="journal">Kok, H. J. et al. Transcriptomics reveals transient and dynamic muscle fibrosis and atrophy differences following spinal cord injury in rats. <italic toggle="yes">J. Cachexia Sarcopenia Muscle</italic>. <bold>15</bold>, 1309–1323 (2024).<pub-id pub-id-type="pmid">38764311</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/jcsm.13476</pub-id><pub-id pub-id-type="pmcid">PMC11294049</pub-id></mixed-citation></citation-alternatives></ref></ref-list></back></article></pmc-articleset>

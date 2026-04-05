@@ -1,0 +1,849 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="advs73958" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="iso-abbrev">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="pmc-domain-id">2933</journal-id><journal-id journal-id-type="pmc-domain">advsci</journal-id><journal-id journal-id-type="publisher-id">ADVS</journal-id><journal-title-group><journal-title>Advanced Science</journal-title></journal-title-group><issn pub-type="epub">2198-3844</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13042495</article-id><article-id pub-id-type="pmcid-ver">PMC13042495.1</article-id><article-id pub-id-type="pmcaid">13042495</article-id><article-id pub-id-type="pmcaiid">13042495</article-id><article-id pub-id-type="pmid">41560699</article-id><article-id pub-id-type="doi">10.1002/advs.202514950</article-id><article-id pub-id-type="publisher-id">ADVS73958</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>Water‐Efficient Smart Drip Irrigation Enabled by a Low‐Power and High‐Efficiency Flexible Electromagnetic Actuator</article-title></title-group><contrib-group><contrib id="advs73958-cr-0001" contrib-type="author"><name name-style="western"><surname>Chen</surname><given-names initials="D">Duo</given-names></name><xref rid="advs73958-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs73958-cr-0002" contrib-type="author"><name name-style="western"><surname>Zhu</surname><given-names initials="X">Xubin</given-names></name><xref rid="advs73958-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs73958-cr-0003" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="M">Minwei</given-names></name><xref rid="advs73958-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73958-cr-0004" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="K">Kerui</given-names></name><xref rid="advs73958-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs73958-cr-0005" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="Q">Qinghong</given-names></name><xref rid="advs73958-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs73958-cr-0006" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="Y">Yaogang</given-names></name><xref rid="advs73958-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs73958-cr-0007" contrib-type="author" corresp="yes"><name name-style="western"><surname>Hou</surname><given-names initials="C">Chengyi</given-names></name><xref rid="advs73958-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73958-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><address><email>hcy@dhu.edu.cn</email></address></contrib><contrib id="advs73958-cr-0008" contrib-type="author" corresp="yes"><name name-style="western"><surname>Wang</surname><given-names initials="H">Hongzhi</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-5469-2327</contrib-id><xref rid="advs73958-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>wanghz@dhu.edu.cn</email></address></contrib></contrib-group><aff id="advs73958-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">State Key Laboratory of Advanced Fiber Materials</named-content>
+<named-content content-type="organisation-division">College of Materials Science and Engineering</named-content>
+<institution>Donghua University</institution>
+<city>Shanghai</city>
+<country country="CN">China</country>
+</aff><aff id="advs73958-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">College of Smart Agriculture</named-content>
+<institution>Xinjiang University</institution>
+<city>Urumqi</city>
+<country country="CN">China</country>
+</aff><aff id="advs73958-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">Engineering Research Center of Advanced Glasses Manufacturing Technology</named-content>
+<named-content content-type="organisation-division">Ministry of Education</named-content>
+<institution>Donghua University</institution>
+<city>Shanghai</city>
+<country country="CN">China</country>
+</aff><pub-date pub-type="epub"><day>21</day><month>1</month><year>2026</year></pub-date><pub-date pub-type="collection"><month>3</month><year>2026</year></pub-date><volume>13</volume><issue seq="690">18</issue><issue-id pub-id-type="pmc-issue-id">510724</issue-id><issue-id pub-id-type="doi">10.1002/advs.v13.18</issue-id><elocation-id>e14950</elocation-id><history><date date-type="rev-recd"><day>25</day><month>12</month><year>2025</year></date><date date-type="received"><day>05</day><month>8</month><year>2025</year></date><date date-type="accepted"><day>13</day><month>1</month><year>2026</year></date></history><pub-history><event event-type="pmc-release"><date><day>21</day><month>01</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>02</day><month>04</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-02 16:25:13.347"><day>02</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). <italic toggle="yes">Advanced Science</italic> published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="ADVS-13-e14950.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:ADVS-13-e14950.pdf"/><abstract><title>ABSTRACT</title><p>Global water scarcity severely restricts the sustainability of agricultural production, as conventional flood irrigation technologies exhibit low water use efficiency and insufficient flow regulation precision. Smart agriculture systems, which rely on Internet of Things (IoT) and control algorithms to establish closed‐loop irrigation frameworks, critically require intelligent fluidic actuators with rapid response, precise positioning, and broad‐range flow modulation capabilities. Here, we introduce a low‐power and high‐efficiency flexible electromagnetic actuator developed through a multi‐scale collaborative design of “magnetic materials‐flexible structures‐environmental interaction” based on an electromagnetically driven mechanism. The actuator employs low drive current and frequency modulation technology to achieve low‐power precision regulation of magnetic field strength, thereby enabling wide‐range and high‐precision flow control (0.05–5.8 mL/min). When applied to drip irrigation systems, it enables a refined, demand‐based water supply according to plants’ real‐time water requirements, with water consumption lower than that of traditional flood irrigation. This not only enhances water resource utilization efficiency but also creates an optimal moisture environment for crop growth, thereby promoting their development. It provides a viable technical pathway with economic and environmental benefits for alleviating global agricultural water scarcity pressures and advancing smart agriculture.</p></abstract><abstract id="advs73958-abs-0001" abstract-type="graphical"><p>Water scarcity poses a critical threat to global food security. A low‐power, flexible electromagnetic actuator is presented for smart drip irrigation systems. The device achieves precise, wide‐range flow modulation (0.05–5.8 mL/min) in response to real‐time plant demands, reducing water consumption compared to conventional flood irrigation. This technology advances water‐use efficiency and crop productivity, offering a scalable solution for sustainable precision agriculture.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="ADVS-13-e14950-g003.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="advs73958-kwd-0001">flexible electromagnetic actuator</kwd><kwd id="advs73958-kwd-0002">low‐power actuation</kwd><kwd id="advs73958-kwd-0003">precision agriculture</kwd><kwd id="advs73958-kwd-0004">water‐efficient irrigation</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>Scientific Research Innovation Capability Support Project for Young Faculty</institution></institution-wrap>
+</funding-source><award-id>ZYGXQNJSKYCXNLZCXM‐M5</award-id></award-group><award-group id="funding-0002"><funding-source>
+<institution-wrap><institution>DHU Distinguished Young Professor Program</institution></institution-wrap>
+</funding-source><award-id>LZA2023001</award-id></award-group></funding-group><counts><fig-count count="6"/><table-count count="0"/><page-count count="12"/><word-count count="7262"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>27 March 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:01.04.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="advs73958-sec-0010"><label>1</label><title>Introduction</title><p>Global water scarcity is increasingly severe, and agricultural irrigation, as a primary water‐consuming sector, urgently requires technological innovation to achieve efficient water use and sustainable development [<xref rid="advs73958-bib-0001" ref-type="bibr">1</xref>, <xref rid="advs73958-bib-0002" ref-type="bibr">2</xref>]. Conventional irrigation methods, such as flood irrigation, suffer from serious water waste and low efficiency. Statistics show that water loss rates caused by evaporation and seepage during flood irrigation exceed 40% [<xref rid="advs73958-bib-0003" ref-type="bibr">3</xref>, <xref rid="advs73958-bib-0004" ref-type="bibr">4</xref>, <xref rid="advs73958-bib-0005" ref-type="bibr">5</xref>]. Drip irrigation systems are a core method for precision irrigation and efficient water conservation, with their precision, reliability, and environmental adaptability directly determining water use efficiency [<xref rid="advs73958-bib-0006" ref-type="bibr">6</xref>, <xref rid="advs73958-bib-0007" ref-type="bibr">7</xref>]. These systems deliver water and nutrients directly to crops through pipeline networks, featuring low flow rates and high‐frequency delivery to significantly reduce evaporation and deep percolation [<xref rid="advs73958-bib-0008" ref-type="bibr">8</xref>, <xref rid="advs73958-bib-0009" ref-type="bibr">9</xref>]. However, existing drip irrigation systems have engineering designs lacking precise models, leading to poor matching between pipe network layouts and crop water demand characteristics [<xref rid="advs73958-bib-0010" ref-type="bibr">10</xref>], making it difficult to adapt to refined requirements. Moreover, current drip irrigation actuators have issues such as low flow control precision and obvious response lag [<xref rid="advs73958-bib-0011" ref-type="bibr">11</xref>, <xref rid="advs73958-bib-0012" ref-type="bibr">12</xref>]. The stability and repeatability of micro‐flow regulation struggle to meet the requirements of precision irrigation [<xref rid="advs73958-bib-0013" ref-type="bibr">13</xref>, <xref rid="advs73958-bib-0014" ref-type="bibr">14</xref>], while their coordination with Internet of Things (IoT) sensors and intelligent control systems needs improvement. These technical bottlenecks significantly restrict the intelligent and efficient development of drip irrigation systems [<xref rid="advs73958-bib-0015" ref-type="bibr">15</xref>]. In this context, developing new actuators with flexible deformation, low‐power driving, and high environmental tolerance has become an urgent need for smart agriculture technology upgrades [<xref rid="advs73958-bib-0016" ref-type="bibr">16</xref>].</p><p>In contemporary drip irrigation systems, actuator materials primarily comprise engineering plastics and metal alloys [<xref rid="advs73958-bib-0017" ref-type="bibr">17</xref>, <xref rid="advs73958-bib-0018" ref-type="bibr">18</xref>]. Engineering plastics, favored for their corrosion resistance and cost‐effectiveness [<xref rid="advs73958-bib-0019" ref-type="bibr">19</xref>, <xref rid="advs73958-bib-0020" ref-type="bibr">20</xref>], exhibit limited mechanical durability under prolonged environmental stress. Metal alloys, despite their robustness in high‐pressure scenarios [<xref rid="advs73958-bib-0021" ref-type="bibr">21</xref>, <xref rid="advs73958-bib-0022" ref-type="bibr">22</xref>], are susceptible to chemical degradation and economic infeasibility. Conversely, flexible actuators leveraging elastic polymers and composites demonstrate superior adaptability and dynamic responsiveness [<xref rid="advs73958-bib-0023" ref-type="bibr">23</xref>, <xref rid="advs73958-bib-0024" ref-type="bibr">24</xref>], with structural plasticity mitigating environmental interference [<xref rid="advs73958-bib-0025" ref-type="bibr">25</xref>]. Modular integration of sensing and actuation units further enhances system synergy [<xref rid="advs73958-bib-0026" ref-type="bibr">26</xref>, <xref rid="advs73958-bib-0027" ref-type="bibr">27</xref>, <xref rid="advs73958-bib-0028" ref-type="bibr">28</xref>]. However, material longevity and scalable manufacturing remain unresolved challenges. Wang et al. [<xref rid="advs73958-bib-0029" ref-type="bibr">29</xref>] introduced a polydimethylsiloxane (PDMS)‐based dielectric elastomer pump achieving a 0.35 mL/min flow rate, yet its high‐voltage requirement restricts practicality in low‐energy agricultural settings [<xref rid="advs73958-bib-0030" ref-type="bibr">30</xref>, <xref rid="advs73958-bib-0031" ref-type="bibr">31</xref>]. Zhao et al. [<xref rid="advs73958-bib-0032" ref-type="bibr">32</xref>] proposed a magnetically controlled PDMS tubular actuator (MTLA‐SIS) utilizing Laplace pressure gradients for droplet manipulation, though challenges persist in field deployment, including magnetic infrastructure costs, pore clogging from agrochemical residues [<xref rid="advs73958-bib-0033" ref-type="bibr">33</xref>], and maintenance complexities [<xref rid="advs73958-bib-0034" ref-type="bibr">34</xref>].</p><p>To address challenges of high water loss in flood irrigation and deficiencies in current drip irrigation systems, including inadequate precision control, low‐accuracy micro‐flow regulation, response hysteresis, and poor environmental adaptability, we propose a flexible electromagnetic actuator based on an electromagnetically driven mechanism. Using multi‐scale co‐design methodology, we developed a system integrating a corrugated silicone matrix doped with magnetic particles (4 mm pitch, 200 µm wall thickness), permanent magnets, excitation coils, and a closed‐loop control system. This configuration leverages low‐coercivity magnetic materials to enable rapid magneto‐responsive actuation, overcoming the bottleneck of achieving wide‐range flow regulation (0.05–5.8 mL/min) with high precision under low driving currents. The incorporated “actuation‐response‐holding” full‐cycle control logic provides an efficient solution for smart agricultural micro‐irrigation systems. Moreover, it establishes a generalized magneto‐electrical theoretical framework for multi‐physics‐coupled design of magnetic soft robots in harsh environments, advancing water‐efficient irrigation toward intelligent adaptivity while demonstrating significant technical and socioeconomic value.</p></sec><sec id="advs73958-sec-0020"><label>2</label><title>Results</title><sec id="advs73958-sec-0030"><label>2.1</label><title>Flexible Electromagnetic Actuator</title><p>Efficient water utilization remains a critical challenge in smart agriculture [<xref rid="advs73958-bib-0035" ref-type="bibr">35</xref>, <xref rid="advs73958-bib-0036" ref-type="bibr">36</xref>]. Conventional irrigation methods fail to meet modern agricultural demands for precise water management, often causing localized drought or excessive water waste [<xref rid="advs73958-bib-0037" ref-type="bibr">37</xref>, <xref rid="advs73958-bib-0038" ref-type="bibr">38</xref>]. The proposed flexible electromagnetic actuator addresses this via parallel circuit integration, enabling real‐time adjustment of water flow rate and irrigation duration based on individual plant water demand. This forms an independently controllable, parallel‐integrated smart agricultural system (Figure <xref rid="advs73958-fig-0001" ref-type="fig">1a</xref>). Comprising a permanent magnet, corrugated matrix, and induction coils (Figure <xref rid="advs73958-fig-0001" ref-type="fig">1b</xref>), the actuator achieves precise structural modulation through electromagnetic control of magnetic field intensity. Magnetic coupling between the induction coil and magnet drives the squeezing deformation of the flexible matrix, with check valves ensuring unidirectional fluid transport. The check valves in this system function through a two‐phase cycle: In the compression phase, driven by electromagnetic force, the chamber pressure rises, inducing closure of the inlet valve and opening of the outlet valve to pump fluid forward. During the subsequent elastic reset phase, negative pressure is established inside the chamber. Herein, the outlet valve seals to prevent fluid backflow, while the inlet valve opens to draw fluid from the water source in preparation for the next operational cycle. This mechanism inherently ensures net unidirectional fluid transport under periodic actuation. The core structure of the actuator adopts a corrugated substrate design (Figure <xref rid="advs73958-fig-0001" ref-type="fig">1c</xref>), comprising two corrugated structures. In this structure, <italic toggle="yes">R</italic> denotes the radius of the corrugation, <italic toggle="yes">r</italic> denotes the pipe radius, 𝜃 denotes the deformation angle of the corrugation, <italic toggle="yes">d</italic> denotes the deformation depth, and <italic toggle="yes">N</italic> denotes the width between two crests. The degree of corrugation bending is correlated with the corrugation radius and width. Through optimization of the central angle 𝜃 of the corrugation, magnetic field pressure output, and structural dimensions, the performance of the actuator can be effectively controlled to better adapt to requirements under different operating conditions and enhance its reliability and efficiency in various applications.</p><fig position="float" fig-type="FIGURE" id="advs73958-fig-0001" orientation="portrait"><label>FIGURE 1</label><caption><p>Flexible electromagnetic actuator. (a) Schematic of parallel‐integrated smart agriculture precision irrigation system with independent control. (b) The actuator components include a permanent magnet, a corrugated matrix of silicone, induction coils, and unidirectional dropwise transport facilitated by the application of an electrical current and a check valve. The dimensions of the corrugated silicone matrix are as follows: corrugation pitch N of 4 millimeters, wall thickness of 200 micrometers, interior radius r of 2 millimeters, and (c) rest radius R of 5 millimeters. (d) Electromagnetically driven periodic deformation mechanism under field‐stress–strain coupling. (e) Fabrication workflow for pure Ecoflex and magnetic particle‐doped corrugated matrices. (f) The actuator pumping mechanism involves the induction of heteropolar coupling for axial compression (fluid extrusion) by means of a forward current. In the reverse current scenario, homopolar repulsion enables elastic reset and pressure gradient‐driven directional transport.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="ADVS-13-e14950-g001.jpg"/></fig><p>The actuation system relies on synergistic interaction between the corrugated elastic matrix and permanent electromagnetic coil assembly (Figure <xref rid="advs73958-fig-0001" ref-type="fig">1d</xref>). Under conditions of forward current excitation, heteropolar magnetic attraction induces axial compression of corrugations; conversely, reverse current triggers homopolar repulsion for elastic reset, thereby creating periodic “compression‐reset” actuation cycles (Figure <xref rid="advs73958-supinfo-0001" ref-type="">S1</xref>). The compression coefficient α (0≤ α ≤1) is defined by (Note <xref rid="advs73958-supinfo-0001" ref-type="">S1</xref>):
+<disp-formula id="advs73958-disp-0001">
+<label>(1)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="block"><mml:mrow><mml:mrow><mml:mi>α</mml:mi><mml:mo linebreak="badbreak">=</mml:mo><mml:mi>m</mml:mi><mml:mo>·</mml:mo><mml:mi>I</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mn>0</mml:mn><mml:mo linebreak="goodbreak">≤</mml:mo><mml:mi>α</mml:mi><mml:mo>≤</mml:mo><mml:mn>1</mml:mn></mml:mfenced></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where m is the material constant and I is the driving current. The corresponding flow volume ΔV follows:<disp-formula id="advs73958-disp-0002">
+<label>(2)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-2" display="block"><mml:mrow><mml:mrow><mml:mi mathvariant="normal">Δ</mml:mi><mml:mi>V</mml:mi><mml:mo linebreak="badbreak">=</mml:mo><mml:mi>π</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:msup><mml:mi>R</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:mo>−</mml:mo><mml:msup><mml:mi>r</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mfenced><mml:mo>·</mml:mo><mml:mfenced separators="" open="(" close=")"><mml:mi>α</mml:mi><mml:mi>d</mml:mi><mml:mi>sin</mml:mi><mml:mi>θ</mml:mi></mml:mfenced><mml:mo>·</mml:mo><mml:mfrac><mml:mi>H</mml:mi><mml:mi>R</mml:mi></mml:mfrac></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+</p><p>At full compression, flow rate Q is expressed as [<xref rid="advs73958-bib-0039" ref-type="bibr">39</xref>, <xref rid="advs73958-bib-0040" ref-type="bibr">40</xref>]:
+<disp-formula id="advs73958-disp-0003">
+<label>(3)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-3" display="block"><mml:mrow><mml:mrow><mml:mi mathvariant="normal">Q</mml:mi><mml:mspace width="0.33em"/><mml:mo linebreak="badbreak">=</mml:mo><mml:mi mathvariant="normal">Δ</mml:mi><mml:mi mathvariant="normal">V</mml:mi><mml:mo>·</mml:mo><mml:mi mathvariant="normal">f</mml:mi><mml:mspace width="0.33em"/><mml:mo linebreak="goodbreak">=</mml:mo><mml:mi>π</mml:mi><mml:mi>km</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:msup><mml:mi mathvariant="normal">R</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:mo>−</mml:mo><mml:msup><mml:mi mathvariant="normal">r</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mfenced><mml:mfrac><mml:mrow><mml:mi>Hd</mml:mi><mml:mi>sin</mml:mi><mml:mi>θ</mml:mi></mml:mrow><mml:mi mathvariant="normal">R</mml:mi></mml:mfrac><mml:msup><mml:mi mathvariant="normal">I</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where f is the frequency coefficient. Fabrication of the corrugated elastic matrix involves injecting Ecoflex silicone prepolymer into custom molds, followed by thermal curing at 60°C for 1 h to induce cross‐linking. Magnetic responsiveness is achieved by dispersing magnetic particles into the silicone precursor via mechanical stirring and vacuum degassing, forming magnetically active polymer composites (Figure <xref rid="advs73958-fig-0001" ref-type="fig">1e</xref>). Under a 50 mA current, forward excitation drives axial compression for fluid extrusion, while reverse excitation enables elastic reset for droplet accumulation (Figure <xref rid="advs73958-fig-0001" ref-type="fig">1f</xref>). This cyclic polarity switching realizes controlled, dropwise fluid transport. Through electromagnetic control strategies and flexible material design, the proposed actuator delivers tunable performance, offering a robust solution for smart agricultural irrigation systems.</p></sec><sec id="advs73958-sec-0040"><label>2.2</label><title>Characterization of Corrugated Matrix</title><p>The flexible electromagnetic actuator's core driving force for efficient fluid pumping originates from its corrugated magnetic silicone substrate, combining superior mechanical and magnetic properties. Fabricated via a casting process with Ecoflex 00–30 silicone in custom molds, the substrate exhibits a metallic luster with 30 wt.% NdFeB magnetic powder doping (Figure <xref rid="advs73958-supinfo-0001" ref-type="">S2</xref>) and a dark gray appearance with 30 wt.% Fe<sub>3</sub>O<sub>4</sub> doping (Figure <xref rid="advs73958-fig-0002" ref-type="fig">2a</xref>). This 30 wt.% loading optimizes magnetic enhancement and structural integrity, as lower levels fail to boost magnetic fields sufficiently, while higher levels introduce matrix defects. SEM analysis shows pure silicone cross‐sections (Figure <xref rid="advs73958-fig-0002" ref-type="fig">2b</xref>) have smooth surfaces, whereas Fe<sub>3</sub>O<sub>4</sub>‐silicone cross‐sections (Figure <xref rid="advs73958-supinfo-0001" ref-type="">S3</xref>) reveal uniformly embedded bright‐region particles in the dark matrix with good encapsulation, despite occasional local agglomeration. NdFeB‐silicone cross‐sections show 5 µm particles fully encapsulated without defects when unmagnetized (lower‐left), but show partial protrusion from the silicone coating upon magnetization (lower‐right), indicating weak matrix suppression. Local protrusions observed on the surface of silicone matrices embedded with magnetized NdFeB particles arise from the strong intrinsic magnetic moments formed in high‐remanence NdFeB particles after magnetization. The interparticle magnetic dipole‐dipole repulsive forces generated thereby may partially surpass the mechanical binding capacity of the silicone matrix. This microstructural heterogeneity modulates the dynamic mechanical properties via two synergistic effects. First, in the periodic deformation process driven by an alternating magnetic field, these protruding hard‐phase particles become local stress concentration hotspots, facilitating the initiation and propagation of fatigue cracks in the matrix. Second, relative sliding at the particle‐matrix interface induces supplementary internal frictional dissipation, leading to a reduction in the energy conversion efficiency from magnetic energy to mechanical work [<xref rid="advs73958-bib-0041" ref-type="bibr">41</xref>]. Uniform particle distribution is critical for actuator performance consistency, durability, and stress transfer during “compression‐return” cycles (Figure <xref rid="advs73958-fig-0002" ref-type="fig">2c</xref>). Hysteresis loop tests (Figure <xref rid="advs73958-fig-0002" ref-type="fig">2d</xref>) confirm NdFeB's high saturation magnetization, remanence, and coercivity (hard magnetic) [<xref rid="advs73958-bib-0042" ref-type="bibr">42</xref>], while Fe<sub>3</sub>O<sub>4</sub> exhibits soft magnetic behavior with near‐zero remanence and low coercivity [<xref rid="advs73958-bib-0043" ref-type="bibr">43</xref>], enabling fast magnetic response, millisecond‐scale deformation, and low hysteresis loss for high‐frequency control. Demonstrations (Figure <xref rid="advs73958-fig-0002" ref-type="fig">2e</xref>) show magnetized NdFeB attracts/repels magnets (Figure <xref rid="advs73958-supinfo-0001" ref-type="">S4</xref>), while Fe<sub>3</sub>O<sub>4</sub>‐doped samples lift a 10 g magnet (Figure <xref rid="advs73958-supinfo-0001" ref-type="">S5</xref>). Hall sensor measurements (Figure <xref rid="advs73958-fig-0002" ref-type="fig">2f</xref>) reveal the magnet's 2800 Gs field strength and the substrate's 50 Gs contribution, synergizing to enable precise deformation control and stable fluid pumping. This design endows the actuator with high efficiency, low power consumption, and reliability for smart agricultural applications.</p><fig position="float" fig-type="FIGURE" id="advs73958-fig-0002" orientation="portrait"><label>FIGURE 2</label><caption><p>Characterization of corrugated matrix. (a) Macroscopic morphology comparison of Ecoflex 00–30, Fe<sub>3</sub>O<sub>4</sub>, and NdFeB materials. (b) Scanning electron microscopy (SEM) images of silicone matrix (amorphous structure), Fe<sub>3</sub>O<sub>4</sub> nanoparticle‐doped matrix (20 µm particle size), and magnetized/unmagnetized NdFeB‐doped matrix (5 µm particle size). (c) Tensile property comparison of Ecoflex 00–30 Fe<sub>3</sub>O<sub>4</sub> and NdFeB materials. (d) Hysteresis loops of Fe<sub>3</sub>O<sub>4</sub> and NdFeB, including (i) static hysteresis loops measured by a vibrating sample magnetometer (VSM), and (ii) magnified central portions of loops highlighting remanence and coercivity. (e) Dynamic response demonstration of NdFeB composite corrugated matrix under magnetic field, showing distinct attraction and repulsion effects (i, ii), and of Fe<sub>3</sub>O<sub>4</sub> composite corrugated matrix attracting a 10 g magnet (iii, iv). (f) Magnetic flux density distribution between the NdFeB permanent magnet (grade N52 dimensions; inner diameter 4 mm, outer diameter 10 mm, thickness 4 mm) and the NdFeB composite in the actuation unit.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="ADVS-13-e14950-g005.jpg"/></fig></sec><sec id="advs73958-sec-0050"><label>2.3</label><title>Characterization of Flexible Electromagnetic Actuator</title><p>Dynamic pumping processes of three materials under 100 mA low‐current excitation were captured via high‐speed photography (Figure <xref rid="advs73958-fig-0003" ref-type="fig">3a</xref>). Driven by alternating magnetic fields, corrugated silicone matrices of Ecoflex (Figure <xref rid="advs73958-fig-0003" ref-type="fig">3a(i)</xref>), Fe<sub>3</sub>O<sub>4</sub>‐silicone composite (Figure <xref rid="advs73958-fig-0003" ref-type="fig">3a(ii)</xref>), and NdFeB‐silicone composite (Figure <xref rid="advs73958-fig-0003" ref-type="fig">3a(iii)</xref>) all exhibited uniform axial compression to drive fluid transport (Movie <xref rid="advs73958-supinfo-0001" ref-type="">S1</xref>). Ecoflex showed a flexible response at low current, achieving stable pumping via periodic deformation. Fe<sub>3</sub>O<sub>4</sub>‐silicone composites utilized magnetic enhancement for efficient fluid transport through axial deformation under low current; however, NdFeB‐silicone composites, due to high remanence, rapidly extruded fluid in forward magnetic fields but suffered flow decline from magnetic attraction during reverse fields. This discrepancy highlights the critical role of corrugation design and precise magnetic field direction control in maintaining pumping efficiency.</p><fig position="float" fig-type="FIGURE" id="advs73958-fig-0003" orientation="portrait"><label>FIGURE 3</label><caption><p>Characterization of flexible electromagnetic actuator. (a) The dynamic behavior of fluid actuation of Ecoflex matrix, Fe<sub>3</sub>O<sub>4</sub>, and NdFeB composite corrugated matrices under current excitation (50 mA) was recorded using high‐speed photography. (b) Surface magnetic flux density distributions of coils with different wire diameters (0.06, 0.08, 0.10, 0.12, and 0.15 mm). (c) radial corrugation distance versus magnetic induction intensity under varying currents (50–250 mA). (d) Axial magnetic induction decay curve within a radial corrugation range (0–10 mm) for a 0.08 mm wire diameter coil. (e) Flow rate comparisons of three actuator types under frequency‐modulated actuation (0–10 Hz): Ecoflex matrix exhibits non‐monotonic flow‐frequency response due to viscoelastic relaxation at low current (100 mA), with peak flow Q<sub>max</sub> of 1.2 mL/min at 2 Hz; linear flow increase with frequency occurs when magnetostrictive stress exceeds the viscoelastic threshold at higher currents. (f) NdFeB composites show limited magneto‐mechanical conversion efficiency due to magnetic domain pinning from hard magnetic properties, with a maximum flow rate of 1.0 mL/min across all frequencies (83.3% lower than Fe<sub>3</sub>O<sub>4</sub> systems). (g) Fe<sub>3</sub>O<sub>4</sub> composites achieve linear flow‐frequency response (Q<sub>max</sub> 5.8 mL/min at 200 mA and 10 Hz) via soft magnetic properties, with unit frequency flow gain ΔQ/Δf of 0.58 mL/(min·Hz), which is four times that of the Ecoflex matrix, highlighting advantages in wide‐frequency (0.1–10 Hz) pumping scenarios.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="ADVS-13-e14950-g004.jpg"/></fig><p>Induction coil wire diameter is a key factor affecting magnetic field distribution and actuation efficiency. A systematic study was performed in which the surface magnetic induction and field distribution at varying distances were investigated for wire diameters of 0.06, 0.08, 0.10, 0.12, and 0.15 mm. The fixed coil geometry used in this study was 4 mm in length, 10 mm in outer diameter, and 4 mm in thickness (Figure <xref rid="advs73958-fig-0003" ref-type="fig">3b,c</xref>). A coil with a diameter of 0.08 mm and an internal electric current of 200 mA demonstrated optimal magnetic properties, characterized by a surface magnetic induction of 400 Gs and a radial magnetic intensity of 30 Gs along the corrugation length. This coil exhibited a 10% increase in magnetic intensity compared to coils with a diameter of 0.10 mm, and a 50% increase compared to coils with a diameter of 0.12 mm. This ensures sufficient actuation (&gt;20 Gs threshold) while optimally regulating current conduction to suppress Joule heating [<xref rid="advs73958-bib-0044" ref-type="bibr">44</xref>].</p><p>The magnetic field distributions of induction coils were measured using Hall sensors (Figure <xref rid="advs73958-fig-0003" ref-type="fig">3d</xref>). The data demonstrated a decline in magnetic intensity with radial distance, yet a persistence of &gt;30 Gs within the deformation range (r &lt;10 mm). This finding aligns with the magnetization characteristics of magnetic composites, which are designed to optimize actuation efficiency. The pumping flow dynamics of three systems (Ecoflex matrix (Figure <xref rid="advs73958-fig-0003" ref-type="fig">3e</xref>), NdFeB‐doped composite (Figure <xref rid="advs73958-fig-0003" ref-type="fig">3f</xref>), and Fe<sub>3</sub>O<sub>4</sub>‐doped composite (Figure <xref rid="advs73958-fig-0003" ref-type="fig">3g</xref>) were tested across a frequency range of 0–10 Hz under varying currents (0‐200 mA). Under a low current of 100 mA, all three actuator configurations displayed non‐linear flow‐frequency behaviors. For the Ecoflex‐based matrix, a peak flow rate of 1.2 mL/min was attained at 2 Hz; flow rates declined at higher frequencies owing to phase mismatch arising from viscoelastic lag [<xref rid="advs73958-bib-0045" ref-type="bibr">45</xref>]. Elevating the current mitigated this phase mismatch, resulting in a positive flow‐frequency correlation across the 2–10 Hz range. This phenomenon is a quintessential reflection of the coupling effect between material viscoelasticity and external periodic driving loads. The peak frequency corresponds to an approximate resonant matching condition between the driving period and the material's characteristic relaxation time scale, which is associated with the specific stress magnitude under the applied driving parameters. At this resonant frequency, the silicone network possesses sufficient time to accomplish most of its elastic deformation within one half‐cycle, while viscous resistance does not yet fully govern the dynamic behavior [<xref rid="advs73958-bib-0046" ref-type="bibr">46</xref>] (Note <xref rid="advs73958-supinfo-0001" ref-type="">S1</xref>). When the driving frequency substantially surpasses this characteristic value, the material's viscous response lag is exacerbated, causing the deformation amplitude to be unable to track the rapid magnetic field switching. This compromises the effective pumping stroke, ultimately leading to a reduced flow rate. The Fe<sub>3</sub>O<sub>4</sub> composites demonstrated soft magnetic properties, facilitating rapid magnetic moment reorientation under weak fields. This process resulted in efficient periodic wall deformation through magnetostriction, generating a flow rate of 5.8 mL/min at 200 mA. This is 5–6× higher than the levels observed in Ecoflex and NdFeB. The composites also exhibited a high‐frequency response, rendering them suitable for dynamic irrigation applications. NdFeB composites, hindered by magnetic domain pinning from their inherent hard magnetic properties [<xref rid="advs73958-bib-0047" ref-type="bibr">47</xref>], demonstrated low energy conversion at low fields, necessitating gradient fields for steady‐state magnetization locking. This material‐specific functional differentiation provides flexible solutions for multi‐mode regulation in smart agricultural irrigation systems and offers design insights for optimizing magnetic composites in a flexible electromagnetic actuator.</p></sec><sec id="advs73958-sec-0060"><label>2.4</label><title>Demonstration of Smart Drip Irrigation Based on Electromagnetically Driven Flexible Actuators</title><p>The drip irrigation system consists of the flexible electromagnetic actuator unit and the fluidic channel (Figure <xref rid="advs73958-fig-0004" ref-type="fig">4a</xref>). Cultivation was conducted under controlled laboratory conditions (25°C ± 1°C, 60% ± 5%RH) (Figure <xref rid="advs73958-fig-0004" ref-type="fig">4b</xref>), using standardized plastic pots (base diameter: 6.5 cm, height: 5.2 cm) aligned with the growth cycle of wheatgrass [<xref rid="advs73958-bib-0048" ref-type="bibr">48</xref>] (Figure <xref rid="advs73958-fig-0004" ref-type="fig">4c</xref>; Note <xref rid="advs73958-supinfo-0001" ref-type="">S2</xref>). A comparative irrigation design was implemented, including flood irrigation (8 mL daily) and drip irrigation at 2 Hz (1.6 mL/min) and 5 Hz (3.6 mL/min) (Figure <xref rid="advs73958-supinfo-0001" ref-type="">S6</xref>; Movie <xref rid="advs73958-supinfo-0001" ref-type="">S2</xref>). Growth dynamics were measured at 7, 10, 12, and 18 days post‐planting. The plants that received flood irrigation exhibited heights of 1, 2.5, 4.8, and 10.2 centimeters, while those subjected to 2 Hz drip irrigation demonstrated heights of 4, 6, 7.2, and 9.6 centimeters, respectively. The 5 Hz drip irrigation group exhibited superior performance, with heights of 5, 7.8, 9, and 12.8 centimeters (Figure <xref rid="advs73958-fig-0004" ref-type="fig">4d</xref>). Visual observations from germination to maturity confirmed robust growth under both drip and flood irrigation (Figure <xref rid="advs73958-fig-0004" ref-type="fig">4e</xref>; Figure <xref rid="advs73958-supinfo-0001" ref-type="">S7</xref>). Flood irrigation induced accelerated vertical growth in the latter stages, achieving approximately 15 centimeters at day 21. Conversely, 5 Hz drip irrigation exhibited faster early growth and reached 15 centimeters at maturity. The 2 Hz drip irrigation group exhibited a more gradual and consistent growth trajectory, attaining a length of 9 centimeters after a period of three weeks. Collectively, flood irrigation and 5 Hz drip irrigation were most effective for height development (Figure <xref rid="advs73958-fig-0004" ref-type="fig">4f</xref>).</p><fig position="float" fig-type="FIGURE" id="advs73958-fig-0004" orientation="portrait"><label>FIGURE 4</label><caption><p>Demonstration of smart drip irrigation based on electromagnetically driven flexible actuators. (a) Schematic diagram of the electromagnetically driven drip irrigation system architecture. (b) Laboratory performance test of dropwise irrigation, demonstrated under controlled environmental conditions (25 ± 1°C/60%RH). (c) Plant growth cycle observation timeline. (d) Experimental design of irrigation mode dependence on plant water uptake: I. conventional flood irrigation; II. low‐frequency irrigation (2 Hz); III. high‐frequency irrigation (5 Hz). (e) Plant vigor comparison after one week of irrigation. (f) The three‐week dynamic growth trajectory curves of the plants demonstrate that the 5 Hz drip irrigation group achieved the maximum growth rate (µ<sub>max</sub> of 2.1 cm/d), representing a 61.5% increase compared to the flood irrigation group (µ<sub>max</sub> of 1.3 cm/d) and a 40% reduction in lag phase. However, the flood irrigation group eventually caught up with the 2 Hz drip group in growth rate. g Plant height comparison among three irrigation modes after three weeks.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="ADVS-13-e14950-g006.jpg"/></fig><p>At two weeks post‐maturity (day 21), the 5 Hz drip irrigation group achieved significantly higher plant heights (11.9 ± 1.6 cm) compared to flood irrigation (8.8 ± 1.1 cm) and 2 Hz drip irrigation (7.8 ± 0.6 cm) (Figure <xref rid="advs73958-fig-0004" ref-type="fig">4g</xref>; Figure <xref rid="advs73958-supinfo-0001" ref-type="">S8</xref>). These results highlight the water‐saving and growth‐promoting advantages of high‐frequency drip irrigation, particularly during early developmental stages, while flood irrigation remains effective for late‐stage biomass accumulation. Drip irrigation using a flexible electromagnetic actuator and fluidic channels offers a combination of low power consumption and high efficiency. At 2 Hz, drip irrigation substantially increases plant growth while significantly reducing water usage. At 5 Hz, the growth rate and maturity height of plants increase, and drip irrigation outperforms flood irrigation in terms of water efficiency. The innovative solution for smart water‐saving agriculture is an example of the synergy between low‐power electromagnetic actuation and high‐efficiency irrigation, which delivers water‐saving benefits. Versus commercially available systems, the flexible electromagnetic actuator fundamentally exhibits inherent advantages in low‐power actuation and milliliter‐scale flow precision control, aligning with the demand for miniaturized, distributed, and precisely controllable actuation units in smart agriculture [<xref rid="advs73958-bib-0049" ref-type="bibr">49</xref>] (Table <xref rid="advs73958-supinfo-0001" ref-type="">S1</xref>). The 5 Hz smart drip irrigation system used only 73.4% of the total water consumed by flood irrigation over 22 days (representing a 26.6% water saving rate), while simultaneously achieving a significantly higher average plant height of 11.9 ± 1.6 cm (an increase of approximately 35% compared to 8.8 ± 1.1 cm for flood irrigation). This achievement synergistically realizes water conservation and crop growth promotion, with promising prospects for diverse plants’ drip irrigation and an efficient, precise irrigation solution for smart agriculture (Table <xref rid="advs73958-supinfo-0001" ref-type="">S2</xref>).</p></sec><sec id="advs73958-sec-0070"><label>2.5</label><title>Growth Regulation of Drip Irrigation and Analysis of Water Saving in Xinjiang, China</title><p>For further comparison between 5 Hz drip irrigation and flood irrigation, during cultivation, soil moisture, temperature, and supplementary lighting were controlled to establish an optimal growing environment [<xref rid="advs73958-bib-0050" ref-type="bibr">50</xref>] (Figure <xref rid="advs73958-fig-0005" ref-type="fig">5a</xref>). Throughout the growth stages, watering regimes were adjusted according to plant physiology and soil moisture dynamics, with humidity maintained at 75%–90% RH during germination, 60%–75% RH during vegetative growth, and &gt;50% RH during maturity (Movie <xref rid="advs73958-supinfo-0001" ref-type="">S3</xref>). The temperature‐humidity control curves over the experimental cycle (Figure <xref rid="advs73958-fig-0005" ref-type="fig">5b</xref>) provided a stable microclimate for plant development,[<xref rid="advs73958-bib-0051" ref-type="bibr">51</xref>] (Figure <xref rid="advs73958-supinfo-0001" ref-type="">S9</xref>),. Based on pot volume, flood irrigation delivered a constant 8 mL of water daily, while 5 Hz drip irrigation (3.6 mL/min) adjusted water input by growth stage: 8 mL/day for the 7‐day germination phase, 12 mL/day for the 8‐day vegetative stage, and 6 mL/day for the 7‐day maturity period. Plants exhibited healthy growth across all stages (Figure <xref rid="advs73958-fig-0005" ref-type="fig">5c</xref>), with drip irrigation requiring only 73.4% of flood irrigation's total water volume to achieve superior growth performance (Figure <xref rid="advs73958-fig-0005" ref-type="fig">5d</xref>).</p><fig position="float" fig-type="FIGURE" id="advs73958-fig-0005" orientation="portrait"><label>FIGURE 5</label><caption><p>Growth regulation of drip irrigation and analysis of water saving in Xinjiang, China. (a) Plant cultivation schematic. (b) Temperature and humidity control curves during plant growth cycles. (c) Growth comparisons between flood irrigation and dropwise irrigation at Germination, Vegetative, and Maturation stages. (d) Water usage comparison between flood irrigation and 5 Hz drip irrigation throughout the experimental period. (e) Annual precipitation in China and the Xinjiang region in 2023 (i), and trends in agricultural water consumption and effective irrigated area in the Xinjiang region from 2005 to 2023 (ii). (f) Calculation and analysis of water saved, water saving rate, and energy consumption efficiency for 1 hectare of farmland in Xinjiang based on plant growth cycles.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="ADVS-13-e14950-g002.jpg"/></fig><p>In 2023, China's average annual precipitation was recorded at 642.8 mm [<xref rid="advs73958-bib-0052" ref-type="bibr">52</xref>], while the Xinjiang region registered a significantly lower value of 154.0 mm [<xref rid="advs73958-bib-0053" ref-type="bibr">53</xref>], representing less than 23% of the national mean (Figure <xref rid="advs73958-fig-0005" ref-type="fig">5e(i)</xref>). This disparity accentuates the region's pronounced aridity and the imbalanced spatiotemporal precipitation patterns (Figure <xref rid="advs73958-supinfo-0001" ref-type="">S10</xref>). Time‐series data for agricultural water use and effective irrigation area in Xinjiang (2005–2023) [<xref rid="advs73958-bib-0053" ref-type="bibr">53</xref>] show total water consumption increased from 46.4 to 56.8 billion m<sup>3</sup>, while effective irrigation area expanded from 32.04 to 66.29 million hectares. Concurrently, water use per hectare decreased by 40.83% (from 1448.19 to 856.84 m<sup>3</sup>/hm<sup>2</sup>) (Figure <xref rid="advs73958-fig-0005" ref-type="fig">5e(ii)</xref>), underscoring the critical role of drip irrigation technologies (Figure <xref rid="advs73958-supinfo-0001" ref-type="">S11</xref>).</p><p>Based on laboratory planting data, the quantitative assessment of a 1‐hectare farmland in Xinjiang was conducted with data correction calculations performed in accordance with the flood irrigation and drip irrigation loss rate models specific to the region [<xref rid="advs73958-bib-0054" ref-type="bibr">54</xref>, <xref rid="advs73958-bib-0055" ref-type="bibr">55</xref>]. Considering the differences in irrigation efficiency under Xinjiang's arid ecological conditions, the field water use coefficients for drip irrigation and flood irrigation were set at 0.90 and 0.50, respectively (corresponding to irrigation loss rates of 15% and 50%). Targeting the high‐temperature and sandy wind environment, an environmental compensation coefficient of 1.25 and an intelligent regulation coefficient of 0.85 were introduced, with the comprehensive energy consumption correction factor being 1.0625 (Note <xref rid="advs73958-supinfo-0001" ref-type="">S3</xref>). The quantitative assessment of a 1‐hectare farm in Xinjiang, adjusted for flood/drip irrigation loss rates, reveals that traditional flood irrigation requires 396 m<sup>3</sup> of water over a 22‐day cycle. In contrast, the smart drip system, which is controlled by electromagnetically driven flexible actuators, reduces water consumption to 223.1 m<sup>3</sup> (43.7% water saving), with a comprehensive energy efficiency of 0.1004 m<sup>3</sup>/kWh (Figure <xref rid="advs73958-fig-0005" ref-type="fig">5f</xref>). This “high‐frequency micro‐irrigation” model significantly increases annual water savings in Xinjiang's pilot zones (Tables <xref rid="advs73958-supinfo-0001" ref-type="">S3</xref> and <xref rid="advs73958-supinfo-0001" ref-type="">S4</xref>). When paired with a photovoltaic‐magnetic energy storage combined power supply system [<xref rid="advs73958-bib-0056" ref-type="bibr">56</xref>], it achieves a reduction in the full‐life‐cycle carbon footprint. Electromagnetically controlled drip irrigation, through “material‐water‐energy” tripartite innovation, provides a paradigm‐level solution to the optimization of the “water‐energy‐food” triangle in arid‐region agriculture [<xref rid="advs73958-bib-0057" ref-type="bibr">57</xref>, <xref rid="advs73958-bib-0058" ref-type="bibr">58</xref>].</p></sec></sec><sec id="advs73958-sec-0080"><label>3</label><title>Discussion</title><p>In conclusion, we have developed a novel flexible electromagnetic actuator. This actuator employs a synergistic “corrugated substrate‐electromagnetic coupling” architecture, enabling precise dropwise fluid actuation. This design facilitates broad‐range flow regulation under low‐current conditions while preserving exceptional responsiveness to high‐frequency pulse signals. When integrated with plant irrigation systems, the actuator offers significant benefits in the realm of smart agriculture. A 5 Hz high‐frequency pulsation drip mode has been shown to enhance the efficiency of root development during the germination phase. Additionally, dynamic soil moisture regulations have been observed to reduce water consumption per unit yield. This suggests the potential for annual water savings of 5832 m<sup>3</sup> per hectare in arid regions such as Xinjiang. When employed in conjunction with photovoltaic‐storage systems, it leads to a further reduction in agricultural carbon footprints. The technology extends to precision nutrient solution delivery in controlled‐environment agriculture and intelligent water cycling for desertification control, providing material‐driven technical support for sustainable smart agriculture paradigms that synergistically optimize the “water‐energy‐food” system.</p></sec><sec id="advs73958-sec-0090"><label>4</label><title>Methods</title><sec id="advs73958-sec-0100"><label>4.1</label><title>Fabrication of Corrugated Matrix Molds via 3D Printing</title><p>A hollow mold with corrugated structures was designed using SOLIDWORKS. The design consists of two external support molds and an internal hollow support mold. The external mold dimensions are as follows: The internal mold dimensions were adjusted according to the design specifications, resulting in measurements of 49.5 millimeters in length, 15.0 millimeters in width, and 7.0 millimeters in thickness. The molds were fabricated using an stereolithography (SLA) 3D printer (model from Lingxi Zhizao Tianjin Technology Co., Ltd., China), with Crysta‐7 material serving as the printing substrate. Subsequent to the fabrication process, the molds were meticulously cleaned using an ultrasonic cleaner, rinsed, and dried. A release agent (Ease Release 200, Smooth‐On, USA) was applied to the inner surfaces of the molds to prevent adhesion of silicone and its composites, thereby facilitating smooth demolding during the preparation of corrugated matrices. This process ensures precise replication of corrugated geometries and enables consistent production of flexible magnetic‐responsive matrices for subsequent fluidic actuation applications.</p></sec><sec id="advs73958-sec-0110"><label>4.2</label><title>Preparation of Corrugated Matrices with Different Materials</title><p>For the pure Ecoflex silicone corrugated matrix, Ecoflex00‐30 silicone prepolymer (Smooth‐On, USA) was weighed at a mass ratio of A:B = 1:1 (5 g of each component). To prepare the 30 wt.% Fe<sub>3</sub>O<sub>4</sub>‐doped magnetic silicone corrugated matrix, 3 g of Fe<sub>3</sub>O<sub>4</sub> particles (100 µm, Shanghai Titan Co., Ltd.) were mixed with 7 g of silicone (3.5 g of component A + 3.5 g of component B). For the 30 wt.% NdFeB‐doped magnetic silicone corrugated matrix, 3 g of NdFeB particles (5 µm, Guangzhou Xinnuode Transmission Components Co., Ltd.) were combined with 7 g of silicone (3.5 g of component A + 3.5 g of component B). Fe<sub>3</sub>O<sub>4</sub> and NdFeB powders were dried in a vacuum oven at 60°C under −0.1 MPa for 2 h to remove moisture. The dried particles were then dispersed in anhydrous ethanol via ultrasonic treatment (100 W, 10 min) to enhance compatibility with the silicone. The particles were added to component A in batches, followed by magnetic stirring at 500 rpm for 30 min and ultrasonic treatment for 15 min. After adding component B, the mixture was re‐stirred at 300 rpm for 10 min until homogeneous. The mixture was transferred to a vacuum degasser (−0.095 MPa) for 15 min to eliminate bubbles. The inner walls of the molds were evenly coated with release agent and preheated to 40°C. The mixture was slowly injected into the molds, followed by secondary vacuum degassing for 5 min. The molds were cured in a constant‐temperature oven at 60°C for 2 h. After curing, the corrugated matrices were separated by gentle tapping, with edge burrs trimmed and the matrices left to stand for 24 h to ensure complete curing. NdFeB‐doped composite corrugated matrices were magnetized after fabrication.</p></sec><sec id="advs73958-sec-0120"><label>4.3</label><title>Characterization of Flexible Electromagnetic Actuators</title><p>To characterize the magnetic Fe<sub>3</sub>O<sub>4</sub> and NdFeB corrugated matrix actuators based on iron oxide/neodymium‐iron–boron concentration and distribution, particle dispersion, mechanical properties, hysteresis loops, and magnetic field strength were systematically analyzed to evaluate matrix characteristics. For particle distribution observation, a field‐emission scanning electron microscope (Zeiss Sigma 360 with Oxford Xplore 30 EDS) was used. Mechanical properties of corrugated matrices with different materials were assessed via tensile testing using an electronic universal material testing machine (Instron 5969, USA). Magnetic hysteresis loops and magnetic induction intensity of composite corrugated matrices were measured using a vibrating sample magnetometer (VSM, Lake Shore, USA) and a gaussmeter (DX‐102F), with signal acquisition for data plotting. For droplet‐based outflow quantification, water was collected in discrete sampling at 10‐s intervals over 1 min. The flow rate was determined as the time‐averaged value from 3 independent measurements per actuation condition (e.g., 200 mA, 10 Hz), ensuring statistical robustness against transient fluctuations.</p></sec><sec id="advs73958-sec-0130"><label>4.4</label><title>Actuator Assembly and Circuit Setup</title><p>A precision programmable power supply (3A, 60V, Qiuyin Electronics Shanghai Co., Ltd.) was used to deliver direct current (DC) current. The direction of the current was controlled via an isolated DC motor forward‐reverse module (Hangzhou Longke Electronics Co., Ltd.), and automated control was achieved using a programmable logic controller (PLC) all‐in‐one controller (Aoshangming Technology Co., Ltd.). Both ends of the corrugated matrix were inserted into a hollow magnet and an induction coil, respectively, to ensure a tight fit. Wires led out from both ends of the coil were connected to the output terminals of the forward‐reverse module, while the output of the precision programmable power supply was linked to the input terminals of the forward‐reverse module, completing the actuation circuit. This configuration enables precise control over current direction and intensity for magnetic actuation.</p></sec><sec id="advs73958-sec-0140"><label>4.5</label><title>Drip Irrigation Demonstration with Wheatgrass</title><p>Drip irrigation technology was demonstrated using wheatgrass as the experimental model to observe dynamic changes in plant height across different growth stages under drip irrigation. Experiments were conducted in a laboratory with environmental parameters strictly controlled at 25°C ± 1°C and 60% ± 5%RH to exclude fluctuations in temperature and humidity. The total cultivation period was 22 days, divided into three key observation stages: Germination (Days 0–7), focusing on seed sprouting and seedling establishment; Vegetative (Days 8–15), monitoring rapid stem elongation; and Reproductive (Days 16–22), observing plant stabilization. The core of the experiment was comparing plant height between the drip irrigation treatment group and the flood irrigation control group, with other conditions (light, growing medium, etc.) kept consistent across groups. Plant height, the primary evaluation index, was measured multiple times at each stage by precisely recording the vertical distance from the medium surface to the highest natural point of the plant using a ruler, followed by calculating the average plant height for each treatment group. Through comparative analysis of plant height data and growth trends between the drip irrigation and control groups within and across stages, this demonstration visually demonstrates the specific impacts of drip irrigation technology on wheatgrass growth rate, developmental progression at each stage, and final plant height, providing direct growth‐response evidence for evaluating the application efficacy of drip irrigation.</p></sec></sec><sec id="advs73958-sec-0150"><title>Author Contributions</title><p>C. H. and H. W. guided the project. H. W., C. H., X. Z., and D.C. conceived the idea and designed the experiment. D. C. and X. Z., fabricated the flexible electromagnetic actuator. D. C. and M. Z. performed the experiments and measurements. M. Z., K. L., Q. Z., Y. L., C. H., and H. W. revised the manuscript. All authors analyzed the experimental data, drew the figures and prepared the manuscript. All authors discussed the results and reviewed the manuscript.</p></sec><sec sec-type="COI-statement" id="advs73958-sec-0170"><title>Conflicts of Interest</title><p>The authors declare no conflicts of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="advs73958-supinfo-0001" position="float" content-type="local-data" orientation="portrait"/><supplementary-material id="advs73958-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File</bold>: advs73958‐sup‐0001‐SuppMat.docx.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14950-s003.docx" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="advs73958-supitem-0002" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File</bold>: advs73958‐sup‐0002‐MovieS1.mp4.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14950-s001.mp4" mimetype="video" mime-subtype="mp4" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="advs73958-supitem-0003" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File</bold>: advs73958‐sup‐0003‐MovieS2.mp4.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14950-s004.mp4" mimetype="video" mime-subtype="mp4" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="advs73958-supitem-0004" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File</bold>: advs73958‐sup‐0004‐MovieS3.mp4.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14950-s002.mp4" mimetype="video" mime-subtype="mp4" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="advs73958-sec-0160"><title>Acknowledgements</title><p>This work was supported by the Scientific Research Innovation Capability Support Project for Young Faculty (ZYGXQNJSKYCXNLZCXM‐M5), the DHU Distinguished Young Professor Program (LZA2023001).</p></ack><sec sec-type="data-availability" id="advs73958-sec-0190"><title>Data Availability Statement</title><p>The data that support the findings of this study are available from the corresponding authors upon reasonable request.</p></sec><ref-list id="advs73958-bibl-0001"><title>References</title><ref id="advs73958-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="advs73958-cite-0001">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Mehta</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Siebert</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Kummu</surname>
+</string-name>, et al., “<article-title>Half of Twenty‐First Century Global Irrigation Expansion Has Been in Water‐stressed Regions</article-title>,” <source>Nature Water</source>
+<volume>2</volume> (<year>2024</year>): <fpage>254</fpage>–<lpage>261</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="advs73958-cite-0002">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Martínez‐Valderrama</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Olcina</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Delacámara</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Guirado</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>F. T.</given-names>
+<surname>Maestre</surname>
+</string-name>, “<article-title>Complex Policy Mixes are Needed to Cope With Agricultural Water Demands under Climate Change</article-title>,” <source>Water Resources Management</source>
+<volume>37</volume> (<year>2023</year>): <fpage>2805</fpage>–<lpage>2834</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="advs73958-cite-0003">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Schoengold</surname>
+</string-name> and <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Zilberman</surname>
+</string-name>, “<article-title>The Economics of Water, Irrigation, and Development</article-title>,” <source>Handbook of Agricultural Economics</source>
+<volume>3</volume> (<year>2007</year>): <fpage>2933</fpage>–<lpage>2977</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="advs73958-cite-0004">
+<string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Ju</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Du</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Liu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Jiang</surname>
+</string-name>, “<article-title>Water Resource Management for Irrigated Agriculture in China: Problems and Prospects</article-title>,” <source>Irrigation and Drainage</source>
+<volume>72</volume> (<year>2023</year>): <fpage>854</fpage>–<lpage>863</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="advs73958-cite-0005">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Cheng</surname>
+</string-name>, et al., “<article-title>Review on Drip Irrigation: Impact on Crop Yield, Quality, and Water Productivity in China</article-title>,” <source>Water</source>
+<volume>15</volume> (<year>2023</year>): <fpage>1733</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0006"><label>6</label><mixed-citation publication-type="book" id="advs73958-cite-0006">
+<string-name name-style="western">
+<given-names>M. N.</given-names>
+<surname>Anjum</surname>
+</string-name>
+<string-name name-style="western">
+<given-names>M. J. M.</given-names>
+<surname>Cheema</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Hussain</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R.‐S.</given-names>
+<surname>Wu</surname>
+</string-name>, “<part-title>Precision Irrigation: Challenges and Opportunities</part-title>,” in <source>Precision Agriculture: Evolution, Insights and Emerging Trends</source>, ed. <person-group person-group-type="editor">
+<string-name name-style="western">
+<given-names>Q. U.</given-names>
+<surname>Zaman</surname>
+</string-name>
+</person-group> and <person-group person-group-type="editor">
+<string-name name-style="western">
+<given-names>R. M.</given-names>
+<surname>Malik</surname>
+</string-name>
+</person-group> (<publisher-name>Elsevier</publisher-name>, <year>2023</year>), <fpage>85</fpage>–<lpage>101</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="advs73958-cite-0007">
+<string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Jayant</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Dahiya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Rukhiyar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Raj</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R. K.</given-names>
+<surname>Meena</surname>
+</string-name>, “<article-title>A Review of the Drip Irrigation System</article-title>,” <source>Journal of Engineering Research and Application</source>
+<volume>1</volume> (<year>2022</year>): <fpage>22</fpage>–<lpage>29</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="advs73958-cite-0008">
+<string-name name-style="western">
+<given-names>M. K.</given-names>
+<surname>Meriç</surname>
+</string-name>, “<article-title>Implementation of a Wireless Sensor Network for Irrigation Management in Drip Irrigation Systems</article-title>,” <source>Scientific Reports</source>
+<volume>15</volume> (<year>2025</year>): <elocation-id>14157</elocation-id>.<pub-id pub-id-type="pmid">40269065</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-025-97303-w</pub-id><pub-id pub-id-type="pmcid">PMC12019383</pub-id></mixed-citation></ref><ref id="advs73958-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="advs73958-cite-0009">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Guo</surname>
+</string-name> and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Li</surname>
+</string-name>, “<article-title>A Review of Drip Irrigation's Effect on Water, Carbon Fluxes, and Crop Growth in Farmland</article-title>,” <source>Water</source>
+<volume>16</volume> (<year>2024</year>): <fpage>2206</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="advs73958-cite-0010">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, et al., “<article-title>A Review of Optimal Design for Large‐Scale Micro‐Irrigation Pipe Network Systems</article-title>,” <source>Agronomy</source>
+<volume>13</volume> (<year>2023</year>): <fpage>2966</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="advs73958-cite-0011">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Zhang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Li</surname>
+</string-name>, “<article-title>Improving Drip Irrigation Uniformity by Boosting the Hydraulic Performance of Drip Lateral Pressure Regulators</article-title>,” <source>International Journal of Agricultural and Biological Engineering</source>
+<volume>17</volume> (<year>2024</year>): <fpage>185</fpage>–<lpage>192</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="advs73958-cite-0012">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Liang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Zou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Liu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Liu</surname>
+</string-name>, “<article-title>Collaborative Operation and Application Influence of Sprinkler Drip Irrigation: A Systematic Progress Review</article-title>,” <source>International Journal of Agricultural and Biological Engineering</source>
+<volume>16</volume> (<year>2023</year>): <fpage>12</fpage>–<lpage>27</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0013"><label>13</label><mixed-citation publication-type="book" id="advs73958-cite-0013">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Ren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Lv</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Shi</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, “<article-title>Numerical Simulation and Optimization Analysis of a New Percolation Irrigator</article-title>,” in <article-title>
+<italic toggle="yes">2022 3rd International Conference on Intelligent Design</italic>
+<italic toggle="yes">(ICID)</italic>
+</article-title> (<publisher-name>IEEE</publisher-name>, <year>2022</year>), <fpage>213</fpage>–<lpage>217</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="advs73958-cite-0014">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Guan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Tian</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Hashemy Shahdany</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Wang</surname>
+</string-name>, “<article-title>The Integrator Dual‐Delay Model for Advanced Controller Design of the Open Canal Irrigation Systems With Multiple Offtakes</article-title>,” <source>Computers and Electronics in Agriculture</source>
+<volume>205</volume> (<year>2023</year>): <elocation-id>107616</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="advs73958-cite-0015">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Benzaouia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Hajji</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Mellit</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Rabhi</surname>
+</string-name>, “<article-title>Fuzzy‐IoT Smart Irrigation System for Precision Scheduling and Monitoring</article-title>,” <source>Computers and Electronics in Agriculture</source>
+<volume>215</volume> (<year>2023</year>): <elocation-id>108407</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="advs73958-cite-0016">
+<string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Xie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Chen</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wang</surname>
+</string-name>, “<article-title>Actuators and Sensors for Application in Agricultural Robots: A Review</article-title>,” <source>Machines</source>
+<volume>10</volume> (<year>2022</year>): <fpage>913</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="advs73958-cite-0017">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Roh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Lim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Kang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Cho</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Han</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S. H.</given-names>
+<surname>Ko</surname>
+</string-name>, “<article-title>Rigidity‐Tunable Materials for Soft Engineering Systems</article-title>,” <source>Advanced Engineering Materials</source>
+<volume>26</volume> (<year>2024</year>): <elocation-id>2400563</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="advs73958-cite-0018">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Sarker</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. U.</given-names>
+<surname>Islam</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. R.</given-names>
+<surname>Islam</surname>
+</string-name>, “<article-title>A Review on Recent Trends of Bioinspired Soft Robotics: Actuators, Control Methods, Materials Selection, Sensors, Challenges, and Future Prospects</article-title>,” <source>Advanced Intelligent Systems</source>
+<volume>7</volume> (<year>2025</year>): <elocation-id>2400414</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="advs73958-cite-0019">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Amini Najafabadi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Fatahi Nafchi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Salami</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. R.</given-names>
+<surname>Vanani</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Ostad‐Ali‐Askari</surname>
+</string-name>, “<article-title>Effect of Different Managements With Drip Irrigation (Tape)</article-title>,” <source>Applied Water Science</source>
+<volume>13</volume> (<year>2023</year>): <fpage>37</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="advs73958-cite-0020">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Petit</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>García</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Molle</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Bendoula</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Ait‐Mouheb</surname>
+</string-name>, “<article-title>Methods for Drip Irrigation Clogging Detection, Analysis and Understanding: State of the Art and Perspectives</article-title>,” <source>Agricultural Water Management</source>
+<volume>272</volume> (<year>2022</year>): <elocation-id>107873</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="advs73958-cite-0021">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Reda</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Shahin</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Montague</surname>
+</string-name>, “<article-title>Review of Material Selection for Corrosion‐Resistant Alloy Pipelines</article-title>,” <source>Engineering Sciences</source>
+<volume>33</volume> (<year>2025</year>): <fpage>1373</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="advs73958-cite-0022">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Tudi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Yu</surname>
+</string-name>, et al., “<article-title>Leaching Characteristics and Potential Risk of Heavy Metals from Drip Irrigation Pipes and Mulch Substrate in Agricultural Ecosystems</article-title>,” <source>Science of The Total Environment</source>
+<volume>882</volume> (<year>2023</year>): <elocation-id>163573</elocation-id>.<pub-id pub-id-type="pmid">37076001</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.scitotenv.2023.163573</pub-id></mixed-citation></ref><ref id="advs73958-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="advs73958-cite-0023">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Ji</surname>
+</string-name>, et al., “<article-title>Pressure‐Stabilized Flexible End‐Effector for Selective Picking of Agaricus Bisporus</article-title>,” <source>Agriculture</source>
+<volume>13</volume> (<year>2023</year>): <fpage>2256</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="advs73958-cite-0024">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Yang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Chen</surname>
+</string-name>, “<article-title>Flexible Actuators for Soft Robotics</article-title>,” <source>Advanced Intelligent Systems</source>
+<volume>2</volume> (<year>2020</year>): <elocation-id>1900077</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="advs73958-cite-0025">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Jin</surname>
+</string-name> and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Han</surname>
+</string-name>, “<article-title>Robotic Arms in Precision Agriculture: A Comprehensive Review of the Technologies, Applications, Challenges, and Future Prospects</article-title>,” <source>Computers and Electronics in Agriculture</source>
+<volume>221</volume> (<year>2024</year>): <elocation-id>108938</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="advs73958-cite-0026">
+<string-name name-style="western">
+<given-names>R. R.</given-names>
+<surname>Shamshiri</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Navas</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Dworak</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F. A.</given-names>
+<surname>Auat Cheein</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Weltzien</surname>
+</string-name>, “<article-title>A Modular Sensing System With CANBUS Communication for Assisted Navigation of an Agricultural Mobile Robot</article-title>,” <source>Computers and Electronics in Agriculture</source>
+<volume>223</volume> (<year>2024</year>): <elocation-id>109112</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="advs73958-cite-0027">
+<string-name name-style="western">
+<given-names>P. G.</given-names>
+<surname>Steeneken</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Kaiser</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. J.</given-names>
+<surname>Verbiest</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M.‐C.</given-names>
+<surname>ten Veldhuis</surname>
+</string-name>, “<article-title>Sensors in Agriculture: Towards an Internet of Plants</article-title>,” <source>Nature Reviews Methods Primers</source>
+<volume>3</volume> (<year>2023</year>): <fpage>60</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="advs73958-cite-0028">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Prakash</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. P.</given-names>
+<surname>Singh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Gupta</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S. K.</given-names>
+<surname>Lohan</surname>
+</string-name>, “<article-title>Advancements in Smart Farming: A Comprehensive Review of IoT, Wireless Communication, Sensors, and Hardware for Agricultural Automation</article-title>,” <source>Sensors and Actuators A: Physical</source>
+<volume>362</volume> (<year>2023</year>): <elocation-id>114605</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="advs73958-cite-0029">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhuo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Peng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Dong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Jiang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Shi</surname>
+</string-name>, “<article-title>A Stretchable Soft Pump Driven by a Heterogeneous Dielectric Elastomer Actuator</article-title>,” <source>Advanced Functional Materials</source>
+<volume>34</volume> (<year>2024</year>): <elocation-id>2411160</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="advs73958-cite-0030">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Qin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Duan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Huang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Rosa</surname>
+</string-name>, “<article-title>Global Energy Use and Carbon Emissions from Irrigated Agriculture</article-title>,” <source>Nature Communications</source>
+<volume>15</volume> (<year>2024</year>): <fpage>3084</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-024-47383-5</pub-id><pub-id pub-id-type="pmcid">PMC11006866</pub-id><pub-id pub-id-type="pmid">38600059</pub-id></mixed-citation></ref><ref id="advs73958-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="advs73958-cite-0031">
+<string-name name-style="western">
+<given-names>I. A.</given-names>
+<surname>Lakhiar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Zhang</surname>
+</string-name>, et al., “<article-title>A Review of Precision Irrigation Water‐Saving Technology Under Changing Climate for Enhancing Water Use Efficiency, Crop Yield, and Environmental Footprints</article-title>,” <source>Agriculture</source>
+<volume>14</volume> (<year>2024</year>): <fpage>1141</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="advs73958-cite-0032">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Wen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhang</surname>
+</string-name>, et al., “<article-title>Magneto‐Controlled Tubular Liquid Actuators with Pore Engineering for Liquid Transport and Regulation</article-title>,” <source>Advanced Science</source>
+<volume>11</volume> (<year>2024</year>): <elocation-id>2406325</elocation-id>.<pub-id pub-id-type="pmid">39137359</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/advs.202406325</pub-id><pub-id pub-id-type="pmcid">PMC11497001</pub-id></mixed-citation></ref><ref id="advs73958-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="advs73958-cite-0033">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Shi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhangzhong</surname>
+</string-name>, “<article-title>A Review of the Category, Mechanism, and Controlling Methods of Chemical Clogging in Drip Irrigation System</article-title>,” <source>Agriculture</source>
+<volume>12</volume> (<year>2022</year>): <fpage>202</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="advs73958-cite-0034">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Benameur</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Dahane</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Kechar</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>A. E. H.</given-names>
+<surname>Benyamina</surname>
+</string-name>, “<article-title>An Innovative Smart and Sustainable Low‐Cost Irrigation System for Anomaly Detection Using Deep Learning</article-title>,” <source>Sensors</source>
+<volume>24</volume> (<year>2024</year>): <fpage>1162</fpage>.<pub-id pub-id-type="pmid">38400320</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/s24041162</pub-id><pub-id pub-id-type="pmcid">PMC10892454</pub-id></mixed-citation></ref><ref id="advs73958-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="advs73958-cite-0035">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Gu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Siebert</surname>
+</string-name>, et al., “<article-title>The Asymmetric Impacts of International Agricultural Trade on Water Use Scarcity, Inequality and Inequity</article-title>,” <source>Nature Water</source>
+<volume>2</volume> (<year>2024</year>): <fpage>324</fpage>–<lpage>336</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="advs73958-cite-0036">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Xing</surname>
+</string-name> and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, “<article-title>Precision Agriculture and Water Conservation Strategies for Sustainable Crop Production in Arid Regions</article-title>,” <source>Plants</source>
+<volume>13</volume> (<year>2024</year>): <fpage>3184</fpage>.<pub-id pub-id-type="pmid">39599396</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/plants13223184</pub-id><pub-id pub-id-type="pmcid">PMC11598231</pub-id></mixed-citation></ref><ref id="advs73958-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="advs73958-cite-0037">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Shen</surname>
+</string-name>, et al., “<article-title>Efficient Agricultural Drip Irrigation Inspired by Fig Leaf Morphology</article-title>,” <source>Nature Communications</source>
+<volume>14</volume> (<year>2023</year>): <fpage>5934</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-023-41673-0</pub-id><pub-id pub-id-type="pmcid">PMC10518012</pub-id><pub-id pub-id-type="pmid">37741843</pub-id></mixed-citation></ref><ref id="advs73958-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="advs73958-cite-0038">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Rosa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. D.</given-names>
+<surname>Chiarelli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. C.</given-names>
+<surname>Rulli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Dell'Angelo</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>D'Odorico</surname>
+</string-name>, “<article-title>Global Agricultural Economic Water Scarcity</article-title>,” <source>Science Advances</source>
+<volume>6</volume> (<year>2020</year>): <elocation-id>aaz6031</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/sciadv.aaz6031</pub-id><pub-id pub-id-type="pmcid">PMC7190309</pub-id><pub-id pub-id-type="pmid">32494678</pub-id></mixed-citation></ref><ref id="advs73958-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="advs73958-cite-0039">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Hashem</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Stommel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. K.</given-names>
+<surname>Cheng</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Xu</surname>
+</string-name>, “<article-title>Design and Characterization of a Bellows‐Driven Soft Pneumatic Actuator</article-title>,” <source>IEEE/ASME Transactions on Mechatronics</source>
+<volume>26</volume> (<year>2020</year>): <fpage>2327</fpage>–<lpage>2338</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="advs73958-cite-0040">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Qiu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Xue</surname>
+</string-name>, et al., “<article-title>An Empirical Model of Soft Bellows Actuator</article-title>,” <source>Scientific Reports</source>
+<volume>14</volume> (<year>2024</year>): <elocation-id>28681</elocation-id>.<pub-id pub-id-type="pmid">39562794</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-024-79084-w</pub-id><pub-id pub-id-type="pmcid">PMC11577089</pub-id></mixed-citation></ref><ref id="advs73958-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="advs73958-cite-0041">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hermann</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Butaud</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Chevallier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.‐F.</given-names>
+<surname>Manceau</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Espanet</surname>
+</string-name>, “<article-title>Magnetic and Dynamic Mechanical Properties of a Highly Coercive MRE Based on NdFeB Particles and a Stiff Matrix</article-title>,” <source>Smart Materials and Structures</source>
+<volume>29</volume> (<year>2020</year>): <elocation-id>105009</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="advs73958-cite-0042">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Liang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Shao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Que</surname>
+</string-name>, et al., “<article-title>Recent Advances in Mechanical Properties of Sintered NdFeB Magnets</article-title>,” <source>Journal of Alloys and Compounds</source>
+<volume>1003</volume> (<year>2024</year>): <elocation-id>175689</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="advs73958-cite-0043">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Salidkul</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Thongbai</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Pinitsoontorn</surname>
+</string-name>, “<article-title>Enhanced Magnetic Properties and Densification of SrFe<sub>12</sub>O<sub>19</sub>/Fe<sub>3</sub>O<sub>4</sub> Hard/Soft Composites via Cold Sintering Process</article-title>,” <source>Journal of Science: Advanced Materials and Devices</source>
+<volume>10</volume> (<year>2025</year>): <elocation-id>100900</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0044"><label>44</label><mixed-citation publication-type="journal" id="advs73958-cite-0044">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Cui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Ji</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Hang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Li</surname>
+</string-name>, “<article-title>Analysis and Optimization of Induction Heating Processes by Focusing the Inner Magnetism of the Coil</article-title>,” <source>Applied Energy</source>
+<volume>321</volume> (<year>2022</year>): <elocation-id>119316</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0045"><label>45</label><mixed-citation publication-type="journal" id="advs73958-cite-0045">
+<string-name name-style="western">
+<given-names>Q.‐Y.</given-names>
+<surname>Zeng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.‐X.</given-names>
+<surname>Su</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.‐S.</given-names>
+<surname>Song</surname>
+</string-name>, et al., “<article-title>High‐Quality‐Factor Viscoelastic Nanomechanical Resonators From Moiré Superlattices</article-title>,” <source>Nature Communications</source>
+<volume>16</volume> (<year>2025</year>): <fpage>3793</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-025-58981-2</pub-id><pub-id pub-id-type="pmcid">PMC12015328</pub-id><pub-id pub-id-type="pmid">40263349</pub-id></mixed-citation></ref><ref id="advs73958-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="advs73958-cite-0046">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Liao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hossain</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Yao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Navaratne</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Chagnon</surname>
+</string-name>, “<article-title>A Comprehensive Thermo‐Viscoelastic Experimental Investigation of Ecoflex Polymer</article-title>,” <source>Polymer Testing</source>
+<volume>86</volume> (<year>2020</year>): <elocation-id>106478</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0047"><label>47</label><mixed-citation publication-type="journal" id="advs73958-cite-0047">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Guo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Xing</surname>
+</string-name>, et al., “<article-title>Magnetic Properties and Magnetoimpedance in FINEMET/NdFeB Composite Ribbons</article-title>,” <source>Materials Research Bulletin</source>
+<volume>190</volume> (<year>2025</year>): <elocation-id>113507</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0048"><label>48</label><mixed-citation publication-type="journal" id="advs73958-cite-0048">
+<string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Darwesh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O. H.</given-names>
+<surname>El‐Shiaty</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. M.</given-names>
+<surname>Farahat</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>A. S.</given-names>
+<surname>Ibrahim</surname>
+</string-name>, “<article-title>Response of Monstera Deliciosa Liebm. To Plant Spacing and Nitrogen Sources Fertilizer</article-title>,” <source>Egyptian Journal of Agricultural Sciences</source>
+<volume>62</volume> (<year>2011</year>): <fpage>81</fpage>–<lpage>92</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0049"><label>49</label><mixed-citation publication-type="journal" id="advs73958-cite-0049">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Li</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Jiang</surname>
+</string-name>, “<article-title>A Review of Pressure Regulation Technologies for Irrigation Pipeline Systems</article-title>,” <source>Agriculture</source>
+<volume>15</volume>, no. <issue>14</issue> (<year>2025</year>): <fpage>1528</fpage>.</mixed-citation></ref><ref id="advs73958-bib-0050"><label>50</label><mixed-citation publication-type="journal" id="advs73958-cite-0050">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Steppuhn</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. G.</given-names>
+<surname>Jefferson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. D.</given-names>
+<surname>Iwaasa</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. G.</given-names>
+<surname>McLeod</surname>
+</string-name>, “<article-title>AC Saltlander Green Wheatgrass</article-title>,” <source>Canadian Journal of Plant Science</source>
+<volume>86</volume> (<year>2006</year>): <fpage>1161</fpage>–<lpage>1164</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0051"><label>51</label><mixed-citation publication-type="journal" id="advs73958-cite-0051">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Cao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Marelli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zeng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>Mason</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Cao</surname>
+</string-name>, “<article-title>Soil Sensors and Plant Wearables for Smart and Precision Agriculture</article-title>,” <source>Advanced Materials</source>
+<volume>33</volume> (<year>2021</year>): <elocation-id>2007764</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.202007764</pub-id><pub-id pub-id-type="pmid">33829545</pub-id></mixed-citation></ref><ref id="advs73958-bib-0052"><label>52</label><mixed-citation publication-type="miscellaneous" id="advs73958-cite-0052">
+<collab collab-type="authors">Ministry of Water Resources of the People's Republic of China</collab>
+, “<article-title>Annual Precipitation in Each Province and Municipality</article-title>,” <year>2023</year>, <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.mwr.gov.cn/sj/tjgb/szygb/202406/t20240614_1713318.html" ext-link-type="uri">http://www.mwr.gov.cn/sj/tjgb/szygb/202406/t20240614_1713318.html</ext-link>.</mixed-citation></ref><ref id="advs73958-bib-0053"><label>53</label><mixed-citation publication-type="miscellaneous" id="advs73958-cite-0053">
+<collab collab-type="authors">Water Resources Department of Xinjiang Uygur Autonomous Region</collab>
+, “<article-title>Annual Precipitation in Each Region</article-title>,” <year>2023</year>, <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://slt.xinjiang.gov.cn/xjslt/c114491/zfxxgk_list.shtml" ext-link-type="uri">https://slt.xinjiang.gov.cn/xjslt/c114491/zfxxgk_list.shtml</ext-link>.</mixed-citation></ref><ref id="advs73958-bib-0054"><label>54</label><mixed-citation publication-type="journal" id="advs73958-cite-0054">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Ping</surname>
+</string-name>, et al., “<article-title>Analysis of Agricultural Irrigation Water‐Using Coefficient in Xinjiang Arid Region</article-title>,” <source>Transactions of the Chinese Society of Agricultural Engineering</source>
+<volume>29</volume> (<year>2013</year>): <fpage>100</fpage>–<lpage>107</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0055"><label>55</label><mixed-citation publication-type="journal" id="advs73958-cite-0055">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Hou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Fan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Zhang</surname>
+</string-name>, et al., “<article-title>Determining Water Use and Crop Coefficients of Drip‐Irrigated Cotton in South Xinjiang of China Under Various Irrigation Amounts</article-title>,” <source>Industrial Crops and Products</source>
+<volume>176</volume> (<year>2022</year>): <elocation-id>114376</elocation-id>.</mixed-citation></ref><ref id="advs73958-bib-0056"><label>56</label><mixed-citation publication-type="journal" id="advs73958-cite-0056">
+<string-name name-style="western">
+<given-names>X.‐C.</given-names>
+<surname>Fan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.‐Q.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.‐J.</given-names>
+<surname>Shi</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Z.‐J.</given-names>
+<surname>Cheng</surname>
+</string-name>, “<article-title>Hybrid Pluripotent Coupling System with Wind and Photovoltaic‐Hydrogen Energy Storage and the Coal Chemical Industry in Hami, Xinjiang</article-title>,” <source>Renewable and Sustainable Energy Reviews</source>
+<volume>72</volume> (<year>2017</year>): <fpage>950</fpage>–<lpage>960</lpage>.</mixed-citation></ref><ref id="advs73958-bib-0057"><label>57</label><mixed-citation publication-type="journal" id="advs73958-cite-0057">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Song</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Xue</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Xia</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Ye</surname>
+</string-name>, “<article-title>Farming in Arid Areas Depletes China's Water</article-title>,” <source>Science</source>
+<volume>379</volume> (<year>2023</year>): <fpage>651</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.adg4780</pub-id><pub-id pub-id-type="pmid">36795840</pub-id></mixed-citation></ref><ref id="advs73958-bib-0058"><label>58</label><mixed-citation publication-type="journal" id="advs73958-cite-0058">
+<string-name name-style="western">
+<given-names>S. E.</given-names>
+<surname>Null</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zeff</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Mount</surname>
+</string-name>, et al., “<article-title>Storing and Managing Water for the Environment is More Efficient Than Mimicking Natural Flows</article-title>,” <source>Nature Communications</source>
+<volume>15</volume> (<year>2024</year>): <fpage>5462</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-024-49770-4</pub-id><pub-id pub-id-type="pmcid">PMC11211385</pub-id><pub-id pub-id-type="pmid">38937466</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

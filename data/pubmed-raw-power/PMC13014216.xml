@@ -1,0 +1,1015 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="smll72639" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Small</journal-id><journal-id journal-id-type="iso-abbrev">Small</journal-id><journal-id journal-id-type="pmc-domain-id">379</journal-id><journal-id journal-id-type="pmc-domain">blackwellopen</journal-id><journal-id journal-id-type="publisher-id">SMLL</journal-id><journal-title-group><journal-title>Small (Weinheim an Der Bergstrasse, Germany)</journal-title></journal-title-group><issn pub-type="ppub">1613-6810</issn><issn pub-type="epub">1613-6829</issn><custom-meta-group><custom-meta><meta-name>pmc-is-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-collection-title</meta-name><meta-value>Wiley Open Access Collection</meta-value></custom-meta></custom-meta-group></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13014216</article-id><article-id pub-id-type="pmcid-ver">PMC13014216.1</article-id><article-id pub-id-type="pmcaid">13014216</article-id><article-id pub-id-type="pmcaiid">13014216</article-id><article-id pub-id-type="pmid">41618818</article-id><article-id pub-id-type="doi">10.1002/smll.202512257</article-id><article-id pub-id-type="publisher-id">SMLL72639</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>High‐Rate and Selective Conversion of Low‐Concentration Carbon Dioxide to Carbon Monoxide Using a Carbon Nanotube‐Supported Molecular Electrocatalyst</article-title></title-group><contrib-group><contrib id="smll72639-cr-0001" contrib-type="author"><name name-style="western"><surname>Wang</surname><given-names initials="TH">Tzu‐Hsuan</given-names></name><xref rid="smll72639-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="smll72639-cr-0002" contrib-type="author"><name name-style="western"><surname>Sari</surname><given-names initials="FNI">Fitri Nur Indah</given-names></name><xref rid="smll72639-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="smll72639-cr-0003" contrib-type="author"><name name-style="western"><surname>Cheng</surname><given-names initials="YP">Yen‐Peng</given-names></name><xref rid="smll72639-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="smll72639-cr-0004" contrib-type="author"><name name-style="western"><surname>De Guzman</surname><given-names initials="EE">Eunice Estrella</given-names></name><xref rid="smll72639-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="smll72639-cr-0005" contrib-type="author"><name name-style="western"><surname>Matamoros‐Veloza</surname><given-names initials="A">Adriana</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-3870-9141</contrib-id><xref rid="smll72639-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="smll72639-cr-0006" contrib-type="author" corresp="yes"><name name-style="western"><surname>Camargo‐Valero</surname><given-names initials="MA">Miller Alonso</given-names></name><xref rid="smll72639-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="smll72639-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref><address><email>M.A.Camargo-Valero@leeds.ac.uk</email></address></contrib><contrib id="smll72639-cr-0007" contrib-type="author" corresp="yes"><name name-style="western"><surname>Lin</surname><given-names initials="CY">Chia‐Yu</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-9591-9260</contrib-id><xref rid="smll72639-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="smll72639-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref><xref rid="smll72639-aff-0006" ref-type="aff">
+<sup>6</sup>
+</xref><address><email>cyl44@mail.ncku.edu.tw</email></address></contrib></contrib-group><aff id="smll72639-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Department of Chemical Engineering</named-content>
+<institution>National Cheng Kung University</institution>
+<city>Tainan</city>
+<country country="TW">Taiwan</country>
+</aff><aff id="smll72639-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">School of Chemistry</named-content>
+<institution>University of Leeds</institution>
+<city>Leeds</city>
+<country country="GB">UK</country>
+</aff><aff id="smll72639-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">BioResource Systems Research Group, School of Civil Engineering</named-content>
+<institution>University of Leeds</institution>
+<city>Leeds</city>
+<country country="GB">UK</country>
+</aff><aff id="smll72639-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">Department of Civil Engineering and Planning</named-content>
+<named-content content-type="organisation-division">Faculty of Engineering</named-content>
+<institution>Universitas Negeri Malang</institution>
+<city>Malang</city>
+<country country="ID">Indonesia</country>
+</aff><aff id="smll72639-aff-0005">
+<label>
+<sup>5</sup>
+</label>
+<named-content content-type="organisation-division">Center for Resilience and Intelligence on Sustainable Energy Research (RiSER)</named-content>
+<institution>National Cheng Kung University</institution>
+<city>Tainan</city>
+<country country="TW">Taiwan</country>
+</aff><aff id="smll72639-aff-0006">
+<label>
+<sup>6</sup>
+</label>
+<named-content content-type="organisation-division">Program On Key Materials &amp; Program on Smart and Sustainable Manufacturing Academy of Innovative Semiconductor and Sustainable Manufacturing</named-content>
+<institution>National Cheng Kung University</institution>
+<city>Tainan</city>
+<country country="TW">Taiwan</country>
+</aff><pub-date pub-type="epub"><day>31</day><month>1</month><year>2026</year></pub-date><pub-date pub-type="ppub"><day>25</day><month>3</month><year>2026</year></pub-date><volume>22</volume><issue seq="580">18</issue><issue-id pub-id-type="pmc-issue-id">510137</issue-id><issue-id pub-id-type="doi">10.1002/smll.v22.18</issue-id><elocation-id>e12257</elocation-id><history><date date-type="rev-recd"><day>23</day><month>12</month><year>2025</year></date><date date-type="received"><day>06</day><month>10</month><year>2025</year></date><date date-type="accepted"><day>23</day><month>1</month><year>2026</year></date></history><pub-history><event event-type="pmc-release"><date><day>25</day><month>03</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>26</day><month>03</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-03-26 00:25:14.117"><day>26</day><month>03</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). <italic toggle="yes">Small</italic> published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="SMLL-22-e12257.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:SMLL-22-e12257.pdf"/><abstract><title>ABSTRACT</title><p>Electrocatalytic CO<sub>2</sub> reduction reaction (<italic toggle="yes">e</italic>‐CO<sub>2</sub>RR), powered by renewable electricity, is a compelling strategy to valorize CO<sub>2</sub> into valuable chemicals and fuels. Herein, we report on MWCNT|CuPc‐CoPc‐modified gas‐diffusion electrodes (GDEs) featuring molecular‐level dispersion of cobalt phthalocyanine (CoPc) and copper phthalocyanine (CuPc) on the multi‐walled carbon nanotube (MWCNT) support. The introduction of CuPc effectively mitigates CoPc aggregation, enabling tunable loading and fractional accessibility of electrochemically active CoPc sites, alongside improved CO<sub>2</sub> adsorption capacity. Besides, the synergistic electronic interactions among CoPc, MWCNT, CuPc, and H<sub>2</sub>Pc, formed in situ via CuPc demetallization during electrolysis, optimized CO<sub>2</sub> affinity, as evidenced by density functional theory calculations. With these promising attributes, the MWCNT|CuPc‐CoPc‐modified GDE with optimized CuPc content exhibits promising <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance across a wide CO<sub>2</sub> concentration range (20%–98%). Notably, an efficient single‐pass conversion of CO<sub>2</sub> to CO is achieved, yielding a high CO yield of 65.7 ± 2.3% and an energy efficiency of 54.8 ± 1.9% using 20% CO<sub>2</sub> at an ampere‐level current (0.625 A). Furthermore, the developed electrode demonstrated robust stability, maintaining FE<sub>CO</sub> above 80.4% over 72‐h electrolysis under a simulated biogas atmosphere (40% CO<sub>2</sub>/60% CH<sub>4</sub>). These findings underscore the strong promise of molecularly engineered catalyst systems for efficient and selective CO production from low‐concentration CO<sub>2</sub> emission sources.</p></abstract><abstract id="smll72639-abs-0001" abstract-type="graphical"><p>With significantly enhanced accessibility, optimized CO<sub>2</sub> affinity, and CO<sub>2</sub> adsorption capacity of CoPc active sites, the molecularly dispersed MWCNT|CuPc‐CoPc electrodes realize efficient single‐pass conversion of CO<sub>2</sub> to CO, yielding a high CO yield of 65.7 ± 2.3% and an energy efficiency of 54.8 ± 1.9% using 20% CO<sub>2</sub> at an ampere‐level current (0.625 A).
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="SMLL-22-e12257-g001.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="smll72639-kwd-0001">biogas upgrading</kwd><kwd id="smll72639-kwd-0002">CO<sub>2</sub> affinity</kwd><kwd id="smll72639-kwd-0003">carbon mitigation</kwd><kwd id="smll72639-kwd-0004">diluted CO<sub>2</sub>
+</kwd><kwd id="smll72639-kwd-0005">electrochemical upcycling of CO<sub>2</sub>
+</kwd><kwd id="smll72639-kwd-0006">metal phthalocyanine</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>National Science and Technology Council of Taiwan</institution></institution-wrap>
+</funding-source><award-id>114‐2221‐E‐006‐036‐MY3</award-id><award-id>114‐2811‐E‐006‐014‐MY3</award-id><award-id>111‐2221‐E‐006‐019‐MY3</award-id></award-group><award-group id="funding-0002"><funding-source>
+<institution-wrap><institution>Center for Resilience and Intelligence on Sustainable Energy Research</institution></institution-wrap>
+</funding-source></award-group><award-group id="funding-0003"><funding-source>
+<institution-wrap><institution>National Cheng Kung University</institution><institution-id institution-id-type="doi">10.13039/501100007750</institution-id></institution-wrap>
+</funding-source></award-group><award-group id="funding-0004"><funding-source>
+<institution-wrap><institution>Higher Education Sprout Project by the Ministry of Education</institution></institution-wrap>
+</funding-source></award-group></funding-group><counts><fig-count count="11"/><table-count count="0"/><page-count count="15"/><word-count count="9768"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>25 March 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:25.03.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="smll72639-sec-0010"><label>1</label><title>Introduction</title><p>Electrochemical CO<sub>2</sub> reduction (<italic toggle="yes">e</italic>‐CO<sub>2</sub>RR) under ambient conditions, driven by green electricity, offers a sustainable pathway for resourcing CO<sub>2</sub> into commodity chemicals and high‐energy fuels, contributing to carbon mitigation, green chemical synthesis, and renewable energy storage [<xref rid="smll72639-bib-0001" ref-type="bibr">1</xref>, <xref rid="smll72639-bib-0002" ref-type="bibr">2</xref>]. However, the inherent chemical inertness of CO<sub>2</sub> molecules and the complexity of the multi‐step proton‐coupled electron transfer processes involved in <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR often lead to sluggish reaction kinetics and diverse competing side reactions, posing significant challenges for achieving high product selectivity. Moreover, given that the CO<sub>2</sub> content in most emission sources is less than 45%, and the enrichment of CO<sub>2</sub> streams via carbon capture is both energy‐ and cost‐intensive, the direct utilization of low‐concentration CO<sub>2</sub> holds a transformative impact on decarbonization efforts. Despite this, most studies on <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR have focused on the performance characterization of developed electrocatalysts under highly pure CO<sub>2</sub> atmospheres, while investigations under dilute CO<sub>2</sub> conditions remained limited [<xref rid="smll72639-bib-0003" ref-type="bibr">3</xref>, <xref rid="smll72639-bib-0004" ref-type="bibr">4</xref>, <xref rid="smll72639-bib-0005" ref-type="bibr">5</xref>, <xref rid="smll72639-bib-0006" ref-type="bibr">6</xref>, <xref rid="smll72639-bib-0007" ref-type="bibr">7</xref>, <xref rid="smll72639-bib-0008" ref-type="bibr">8</xref>, <xref rid="smll72639-bib-0009" ref-type="bibr">9</xref>, <xref rid="smll72639-bib-0010" ref-type="bibr">10</xref>, <xref rid="smll72639-bib-0011" ref-type="bibr">11</xref>]. Electrochemical reduction of low‐concentration CO<sub>2</sub> directly at emission sites often suffers from low Faradaic efficiency and poor product selectivity due to the mass‐transfer limitation and the presence of impurity gases [<xref rid="smll72639-bib-0003" ref-type="bibr">3</xref>, <xref rid="smll72639-bib-0004" ref-type="bibr">4</xref>, <xref rid="smll72639-bib-0005" ref-type="bibr">5</xref>, <xref rid="smll72639-bib-0006" ref-type="bibr">6</xref>, <xref rid="smll72639-bib-0007" ref-type="bibr">7</xref>]. To render <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR economically viable, the development of robust and efficient electrocatalysts capable of selectively converting low‐concentration CO<sub>2</sub> directly from emission sources into targeted products with minimal energy input is therefore imperative.</p><p>Among the products generated via <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR, carbon monoxide (CO) has received particular interest due to its broad utility in the medical, chemical, and metallurgical industries [<xref rid="smll72639-bib-0012" ref-type="bibr">12</xref>]. To date, several electrocatalysts have been developed for the selective CO production via <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR at low overpotentials (η &lt; −0.5 V) [<xref rid="smll72639-bib-0013" ref-type="bibr">13</xref>, <xref rid="smll72639-bib-0014" ref-type="bibr">14</xref>, <xref rid="smll72639-bib-0015" ref-type="bibr">15</xref>, <xref rid="smll72639-bib-0016" ref-type="bibr">16</xref>, <xref rid="smll72639-bib-0017" ref-type="bibr">17</xref>, <xref rid="smll72639-bib-0018" ref-type="bibr">18</xref>]. Among them, molecular complexes, such as cobalt phthalocyanine (CoPc) and cobalt tetraphenylporphyrin, have received great attention due to their ability to convert CO<sub>2</sub> into CO with high selectivity at a low overpotential, their molecular size providing extremely high active sites per geometric surface area, and a clear and controllable structure‐property relationship, which is beneficial for subsequent performance optimization [<xref rid="smll72639-bib-0019" ref-type="bibr">19</xref>, <xref rid="smll72639-bib-0020" ref-type="bibr">20</xref>, <xref rid="smll72639-bib-0021" ref-type="bibr">21</xref>, <xref rid="smll72639-bib-0022" ref-type="bibr">22</xref>, <xref rid="smll72639-bib-0023" ref-type="bibr">23</xref>]. However, their strong <italic toggle="yes">π</italic>–<italic toggle="yes">π</italic> stacking interactions among the MPc molecules often lead to aggregation in solution or upon deposition on the electrode surface, especially at high MPc concentrations. This aggregation severely compromises overall catalytic performance by reducing the accessible active sites and diminishing electronic conductivity [<xref rid="smll72639-bib-0024" ref-type="bibr">24</xref>, <xref rid="smll72639-bib-0025" ref-type="bibr">25</xref>, <xref rid="smll72639-bib-0026" ref-type="bibr">26</xref>]. For example, the turnover frequency for CO production (TOF<sub>CO</sub>) decreased from ∼100 to ∼7 s<sup>−1</sup> at −0.73 V vs. RHE when the loading amount of CoPc was increased from 2 × 10<sup>−11</sup> mol cm<sup>−2</sup> to 1 × 10<sup>−9</sup> mol cm<sup>−2</sup> [<xref rid="smll72639-bib-0027" ref-type="bibr">27</xref>]. In addition, the CoPc decomposed under highly cathodic potentials due to the undesirable reduction of the phthalocyanine ligands, further deteriorating the activity of CoPc at industrially relevant operation current densities [<xref rid="smll72639-bib-0027" ref-type="bibr">27</xref>, <xref rid="smll72639-bib-0028" ref-type="bibr">28</xref>]. To address these issues, several strategies have been developed, including the utilisation of porous carbon supports [<xref rid="smll72639-bib-0019" ref-type="bibr">19</xref>, <xref rid="smll72639-bib-0026" ref-type="bibr">26</xref>, <xref rid="smll72639-bib-0029" ref-type="bibr">29</xref>, <xref rid="smll72639-bib-0030" ref-type="bibr">30</xref>] and ligand functionalization of MPcs [<xref rid="smll72639-bib-0025" ref-type="bibr">25</xref>, <xref rid="smll72639-bib-0027" ref-type="bibr">27</xref>, <xref rid="smll72639-bib-0031" ref-type="bibr">31</xref>, <xref rid="smll72639-bib-0032" ref-type="bibr">32</xref>, <xref rid="smll72639-bib-0033" ref-type="bibr">33</xref>]. For instance, Wang and his coworkers reported that the detrimental reduction of the phthalocyanine ligand can be suppressed by appending electron‐donating amino substituents to the phthalocyanine ring to enhance the metal–ligand bond strength [<xref rid="smll72639-bib-0027" ref-type="bibr">27</xref>]. Zhu et al. reported host–guest interaction between tetra‐crown ether substituted CoPc and K<sup>+</sup> ions, which not only eliminated catalyst aggregation but also strengthened catalyst‐support interactions, achieving a high TOF<sub>CO</sub> of 111 s<sup>−1</sup> and high current density of 38 mA cm<sup>−2</sup> at the expense of a moderate η of −0.57 V [<xref rid="smll72639-bib-0031" ref-type="bibr">31</xref>]. Recently, Wang et al. synthesized an ultrathin conjugated microporous polymer sheath around carbon nanotubes by an ionothermal copolymerization of CoPc and H<sub>2</sub>Pc using the Scholl reaction. With the synergistic effect of H<sub>2</sub>Pc moieties as proton/electron donors, the resultant composites selectively generated CO with a high TOF<sub>CO</sub> of 27.1 s<sup>−1</sup> at −0.65 V vs. RHE [<xref rid="smll72639-bib-0034" ref-type="bibr">34</xref>]. Very recently, He et al. reported that the inclusion of sulfylphenoxy group and cross‐linking with polypyrrole significantly enhanced the CO<sub>2</sub> affinity of CoPc, thereby resulting in a high Faradaic efficiency (FE<sub>CO</sub>: ∼95.6%) and an acceptable TOF<sub>CO</sub> (0.34 s<sup>−1</sup>) towards CO production from the conversion of 48% CO<sub>2</sub> at the expense of a moderate η of −0.79 V [<xref rid="smll72639-bib-0035" ref-type="bibr">35</xref>]. Beyond the challenge of molecular aggregation, the <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR into CO over CoPc is typically limited by the initial activation step (<sup>*</sup> + e<sup>−</sup> + CO<sub>2</sub> →<sup>*</sup>CO<sub>2</sub>
+<sup>−</sup>) [<xref rid="smll72639-bib-0036" ref-type="bibr">36</xref>], a process that remains relatively understudied. The incorporation of Cu into Co‐containing catalysts has been demonstrated to be crucial in modulating the charge distribution surrounding the Co center, thereby tuning the affinity of the Co metal center toward the reaction intermediates [<xref rid="smll72639-bib-0037" ref-type="bibr">37</xref>]. Despite these advances, the applications of CoPc for the conversion of low‐concentration CO<sub>2</sub> at industrially relevant current densities (&gt;100 mA cm<sup>−2</sup>) remain largely unexplored.</p><p>In the present contribution, we report a facile H<sub>2</sub>SO<sub>4</sub>‐assisted impregnation method for the preparation of MWCNT|CuPc‐CoPc‐modified gas‐diffusion electrodes (GDEs) featuring molecular‐level dispersion of CoPc and copper phthalocyanine (CuPc) on the multi‐walled carbon nanotube (MWCNT) support. Incorporating CuPc during the electrode preparation effectively mitigated CoPc aggregation, enabling tunable loading and fractional accessibility (θ) of electrochemically active CoPc sites. In particular, the MWCNT|CuPc‐CoPc‐modified GDE, prepared with optimized CuPc content, exhibited a significantly‐enhanced θ of 0.32, attributed to the in situ CuPc demetallization during electrolysis, which facilitated the exposure of previously buried CoPc active sites. Furthermore, the synergistic electronic interactions among CoPc, MWCNT, CuPc, and H<sub>2</sub>Pc, formed in situ via CuPc demetallization during electrolysis, optimized CO<sub>2</sub> affinity, as evidenced by density functional theory calculations. With significantly enhanced accessibility, optimized CO<sub>2</sub> affinity, and CO<sub>2</sub> adsorption capacity of CoPc active sites, the MWCNT|CuPc‐CoPc‐modified GDE, prepared with optimized CuPc content, exhibited promising <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance across a wide range of CO<sub>2</sub> concentrations (20%–98%). Notably, this work marks the first demonstration of a high CO yield of 65.7 ± 2.3% and a high energy efficiency of 54.8 ± 1.9% from single‐pass conversion of 20% CO<sub>2</sub> at an ampere‐level current (0.625 A) using a molecular catalyst‐based modified electrode. Moreover, the electrode also exhibited promising stability, maintaining a FE<sub>CO</sub> above 80.4% over 72‐h electrolysis under simulated biogas atmosphere (40% CO<sub>2</sub> and 60% CH<sub>4</sub>). These results highlight the strong potential of the developed molecularly‐engineered catalyst system for efficient and selective CO production from the conversion of low‐concentration CO<sub>2</sub> directly from emission sources, with relevance to scalable carbon utilization technologies.</p></sec><sec id="smll72639-sec-0020"><label>2</label><title>Results and Discussion</title><sec id="smll72639-sec-0030"><label>2.1</label><title>Materials Synthesis and Characterizations</title><p>As revealed in Figure <xref rid="smll72639-supinfo-0001" ref-type="">S1</xref> and the discussion in Dispersity of CoPc in <xref rid="smll72639-supinfo-0001" ref-type="">Supporting Information</xref>, CoPc exhibited pronounced aggregation and precipitation in N, N‐dimethylformamide (DMF), but it remained molecularly dispersed in concentrated H<sub>2</sub>SO<sub>4</sub> at high CoPc concentration (∼0.9 m<sc>m</sc>) with no visible precipitation of CoPc after static incubation for several hours. The highly dispersed CoPc in concentrated H<sub>2</sub>SO<sub>4</sub> is attributed to the protonation of CoPc in H<sub>2</sub>SO<sub>4</sub> into [CoPcH]<sup>+</sup> [<xref rid="smll72639-bib-0038" ref-type="bibr">38</xref>, <xref rid="smll72639-bib-0039" ref-type="bibr">39</xref>], which induces electrostatic repulsion and enhances dispersibility. The UV–vis spectrum of the CoPc‐containing H<sub>2</sub>SO<sub>4</sub> solution, shown in Figure <xref rid="smll72639-fig-0001" ref-type="fig">1a</xref>, exhibited two typical absorption peaks of the Pc molecule, which are the Soret or B‐band at the wavelength of 430 nm and the Q‐band at the wavelength of 790 nm [<xref rid="smll72639-bib-0040" ref-type="bibr">40</xref>, <xref rid="smll72639-bib-0041" ref-type="bibr">41</xref>]. These bands originate from <italic toggle="yes">π</italic>→<italic toggle="yes">π</italic>
+<sup>∗ </sup>transition between bonding and antibonding molecular orbitals [<xref rid="smll72639-bib-0042" ref-type="bibr">42</xref>]. The Q‐band serves as an indicator of molecular aggregation; its strong and well‐defined absorption indicates that CoPc was molecularly dispersed without aggregation [<xref rid="smll72639-bib-0024" ref-type="bibr">24</xref>, <xref rid="smll72639-bib-0043" ref-type="bibr">43</xref>, <xref rid="smll72639-bib-0044" ref-type="bibr">44</xref>]. In addition, the presence of both B‐band and Q‐band confirms that the CoPc structure remained intact in concentrated H<sub>2</sub>SO<sub>4</sub>. Raman analyses (Figure <xref rid="smll72639-fig-0001" ref-type="fig">1b</xref>) showed that CoPc powder recovered from the H<sub>2</sub>SO<sub>4</sub> dispersion retained spectra features consistent with pristine CoPc powder, indicating structural preservation. Similarly, XPS analyses (Figure <xref rid="smll72639-fig-0001" ref-type="fig">1c,d</xref>) revealed that the recovered CoPc powder exhibited the same XPS features to that of pristine CoPc powder, including (i) two distinct peaks at 780.7 and 796.4 eV in the Co 2p region, corresponding to Co(II) 2p<sub>3/2</sub> and Co(II) 2p<sub>1/2</sub>, respectively [<xref rid="smll72639-bib-0045" ref-type="bibr">45</xref>], and (ii) two peaks at 398.4 and 400.1 eV in the N 1s region, attributed to pyridinic nitrogen and ─C═N─Co group, respectively [<xref rid="smll72639-bib-0026" ref-type="bibr">26</xref>, <xref rid="smll72639-bib-0045" ref-type="bibr">45</xref>]. Collectively, the UV–vis, Raman, and XPS results confirm that CoPc maintained its chemical integrity during dispersion, demonstrating its high chemical stability in concentrated H<sub>2</sub>SO<sub>4</sub>.</p><fig position="float" fig-type="FIGURE" id="smll72639-fig-0001" orientation="portrait"><label>FIGURE 1</label><caption><p>(a) UV–vis spectrum of CoPc‐containing concentrated H<sub>2</sub>SO<sub>4</sub> after 4‐h static standing. (b) Raman spectra, and (c,d) XPS spectra of (i) the pristine CoPc powder and (ii) CoPc powder recovered from the H<sub>2</sub>SO<sub>4</sub> dispersion. (c) Co 2p region and (d) N 1s region.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="SMLL-22-e12257-g010.jpg"/></fig><p>To investigate the correlation between CoPc dispersibility and its <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR activity, CoPc‐SA and CoPc‐DMF electrodes were prepared by incubating carbon paper in CoPc (0.2 mg mL<sup>−1</sup>)‐containing H<sub>2</sub>SO<sub>4</sub> solution and CoPc (0.2 mg mL<sup>−1</sup>)‐containing DMF solution under stirring at 200 rpm for 2 h, respectively, and subjected to electrochemical characterizations. The ICP‐OES analyses reveal that the CoPc‐SA and CoPc‐DMF electrodes contained about 14 and 97 nmol cm<sup>−2</sup> CoPc, respectively. The analysis of linear sweep voltammetry (LSV) (Figure <xref rid="smll72639-supinfo-0001" ref-type="">S2</xref>) reveals that both CoPc‐SA and CoPc‐DMF electrodes exhibited enhanced current response upon exposure to CO<sub>2</sub>. For example, the current responses of CoPc‐SA and CoPc‐DMF electrodes at the applied potential of −0.7 V vs. RHE were 2.05 and 1.19 mA cm<sup>−2</sup> under CO<sub>2</sub> atmosphere (98%), respectively, which were about 2.6 and 1.4 times higher than those obtained under Ar atmosphere. To further confirm that the enhanced current responses resulted from <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR, additional 2‐h controlled‐potential electrolysis experiments at −0.7 V vs. RHE were performed in the two‐compartment H‐cell, and the results are shown in Figure <xref rid="smll72639-supinfo-0001" ref-type="">S3</xref>. As revealed, the CoPc‐SA electrode exhibited a similar Faradaic efficiency (FE<sub>CO</sub>: 93.9 ± 2.2% vs. 91.6 ± 3.9%) for CO production to the CoPc‐DMF electrode. However, the CoPc‐SA electrode exhibited significantly higher activity, in terms of CO production rate (R<sub>CO</sub>: 35.4 ± 1.6 µmol cm<sup>−2</sup> h<sup>−1 </sup>vs. 18.1 ± 1.2 µmol cm<sup>−2</sup> h<sup>−1</sup>) and turnover frequency (TOF<sub>CO</sub>: 0.70 ± 0.03 s<sup>−1</sup> <italic toggle="yes">vs</italic>. 0.05 ± 0.00 s<sup>−1</sup>), than the CoPc‐DMF electrode. These findings align with previous reports indicating that the molecularly dispersed CoPc exhibits superior <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR activity than its aggregated form [<xref rid="smll72639-bib-0025" ref-type="bibr">25</xref>], underscoring the critical role of solvent‐dependent dispersibility in determining surface distribution and intrinsic catalytic performance of the deposited CoPc.</p><p>Encouraged by the promising <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR activity of the CoPc‐SA electrode, further performance enhancement was explored by immobilizing CoPc onto multi‐walled carbon nanotubes (MWCNT) and subsequent preparation of the MWCNT‐supported CoPc electrode (i.e., MWCNT|CoPc; see Experimental Section for details). The SEM analyses, shown in Figure <xref rid="smll72639-supinfo-0001" ref-type="">S4</xref>, reveal that the pristine CoPc powder consists of aggregates of CoPc microrods. Nevertheless, after the dispersion in concentrated H<sub>2</sub>SO<sub>4</sub> and subsequent immobilization onto the MWCNTs, the obtained MWCNT|CoPc sample exhibited a surface morphology resembling that of MWCNTs, with no observable aggregation of CoPc molecules. Figure <xref rid="smll72639-supinfo-0001" ref-type="">S5</xref> shows the XPS spectra of the pristine CoPc powder and MWCNT|CoPc. As revealed, the Co 2p<sub>1/2</sub> and Co 2p<sub>3/2</sub> peaks of MWCNT|CoPc shifted to a higher binding energy compared to the pristine CoPc powder, which implies the oxidation state of Co sites in the MWCNT|CoPc is lower than that in the pristine CoPc powder. This finding indicates a strong interaction between CoPc and MWCNT with the electron transfer from the MWCNT to the Co center [<xref rid="smll72639-bib-0046" ref-type="bibr">46</xref>, <xref rid="smll72639-bib-0047" ref-type="bibr">47</xref>]. The molecular dispersion of CoPc on MWCNT support was further investigated using high‐angle annular dark‐field scanning transmission electron microscopy (HAADF‐STEM). As shown in Figure <xref rid="smll72639-fig-0002" ref-type="fig">2a</xref>, the HAADF‐STEM image revealed a high density of isolated bright dots (highlighted by yellow circles) attributed to Co atoms due to their higher Z‐contrast relative to carbon atoms, confirming molecular‐level dispersion of CoPc on the surface of MWCNT support. The dispersion of isolated Co atoms was further verified by the profiles along the blue arrow in the HAADF‐STEM image (Figure <xref rid="smll72639-fig-0002" ref-type="fig">2a</xref>). The different atomic intensities can be clearly distinguished, and the highest peak intensity has an atomic radius of the Co atom (0.19 nm), confirming the existence of atomically dispersed Co sites (Figure <xref rid="smll72639-fig-0002" ref-type="fig">2b</xref>). The scanning transmission electron microscopy energy‐dispersive X‐ray spectroscopy (STEM‐EDS) analysis reveals the uniform distribution of C, N, and Co elements (Figure <xref rid="smll72639-fig-0002" ref-type="fig">2c</xref>). These findings confirm the successful preparation of MWCNT‐supported CoPc (<italic toggle="yes">i.e</italic>., MWCNT|CoPc) featuring molecularly dispersed CoPc species.</p><fig position="float" fig-type="FIGURE" id="smll72639-fig-0002" orientation="portrait"><label>FIGURE 2</label><caption><p>(a) HAADF‐STEM image, (b) line profile along the blue arrow in (a), and (c) STEM‐EDS elemental mapping of MWCNT|CoPc.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="SMLL-22-e12257-g011.jpg"/></fig><p>Figure <xref rid="smll72639-fig-0003" ref-type="fig">3</xref> shows the temperature‐programmed desorption‐coupled mass spectrometry (TPD‐MS) of the MWCNTs, pristine CoPc powder, and MWCNT|CoPc. While MWCNTs and CoPc powder exhibited negligible CO<sub>2</sub> desorption signal, MWCNT|CoPc showed two distinct desorption peaks at 105°C and 224°C, originating from physically adsorbed CO<sub>2</sub>, [<xref rid="smll72639-bib-0048" ref-type="bibr">48</xref>] and had a total CO<sub>2</sub> adsorption capacity of 73.0 µmol CO<sub>2</sub> g<sup>−1</sup>. The enhanced CO<sub>2</sub> affinity of the MWCNT|CoPc compared to the pristine CoPc powder could be attributed to the significantly higher exposed surface area for CO<sub>2</sub> adsorption sites provided by the molecularly dispersed CoPc molecules and/or the enriched electron density of the cobalt center of CoPc via the strong interaction between CoPc and MWCNT, with the electron transfer from the MWCNT to the Co center (Figure <xref rid="smll72639-supinfo-0001" ref-type="">S5</xref>) [<xref rid="smll72639-bib-0046" ref-type="bibr">46</xref>, <xref rid="smll72639-bib-0048" ref-type="bibr">48</xref>].</p><fig position="float" fig-type="FIGURE" id="smll72639-fig-0003" orientation="portrait"><label>FIGURE 3</label><caption><p>CO<sub>2</sub>‐TPD profiles of the (i) MWCNTs, (ii) pristine CoPc powder, and (iii) MWCNT|CoPc.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="SMLL-22-e12257-g009.jpg"/></fig><p>Figure <xref rid="smll72639-fig-0004" ref-type="fig">4</xref> shows the electrochemical characterization of the <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the MWCNT|CoPc electrode under different applied potentials in the two‐compartment H‐cell. As revealed, the MWCNT|CoPc electrode generated CO with a FE<sub>CO</sub> ≥90% at potentials ranging from −0.55 V vs. RHE to −0.7 V vs. RHE. In addition, both the R<sub>CO</sub> and TOF<sub>CO</sub> increased with increasing cathodic potential, reaching maximal values of 216.9 ± 4.2 µmol cm<sup>−2</sup> h<sup>−1</sup> and 3.6 ± 0.1 s<sup>−1</sup>, respectively, at −0.7 V vs. RHE. The generation of methanol (MeOH) onset at −0.8 V vs. RHE with a FE<sub>MeOH</sub> of 10.1 ± 1.7% at the expense of FE<sub>CO</sub>, R<sub>CO</sub>, and TOF<sub>CO</sub>, which is in agreement with previous reports indicating that MeOH generation via <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR to MeOH proceeds through a domino pathway, wherein CO<sub>2</sub> is first reduced to CO via a two‐electron transfer process, followed by further reduction of CO to MeOH through a four‐electron–four‐proton transfer process [<xref rid="smll72639-bib-0027" ref-type="bibr">27</xref>]. It is important to note that the MWCNT|CoPc electrode exhibited remarkably higher activity, in terms of R<sub>CO</sub> (216.9 ± 4.2 vs. 35.4 ± 1.6 µmol cm<sup>−2</sup> h<sup>−1</sup>) and TOF<sub>CO</sub> (3.57 ± 0.07 s<sup>−1</sup> vs. 0.70 ± 0.03 s<sup>−1</sup>), than the CoPc‐SA electrode at −0.7 V vs. RHE. The enhanced <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the MWCNT|CoPc electrode could be attributed to the interaction between CoPc and MWCNT support with the electron transfer from the MWCNT to the Co center, which enriches the electron density of the Co active site, thereby facilitating CO<sub>2</sub> adsorption and activation [<xref rid="smll72639-bib-0034" ref-type="bibr">34</xref>, <xref rid="smll72639-bib-0046" ref-type="bibr">46</xref>, <xref rid="smll72639-bib-0048" ref-type="bibr">48</xref>, <xref rid="smll72639-bib-0054" ref-type="bibr">54</xref>].</p><fig position="float" fig-type="FIGURE" id="smll72639-fig-0004" orientation="portrait"><label>FIGURE 4</label><caption><p>The <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the MWCNT|CoPc electrode (catalyst loading was 0.1 mg cm<sup>−2</sup>) obtained from 2‐h electrolysis experiments at various applied potentials (i: −0.5 V; ii: −0.55 V; iii: −0.6 V; iv: −0.7 V; v: −0.8 V vs. RHE) in NaHCO<sub>3</sub> (0.5 <sc>m</sc>) solution under 98% CO<sub>2</sub> atmosphere: (a) Current transients, (b) FE of products, (c) generation rate (R) of products, and (d) TOF<sub>CO</sub>. The reported standard deviation was calculated from a minimum of three repeated experiments.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="SMLL-22-e12257-g006.jpg"/></fig></sec><sec id="smll72639-sec-0040"><label>2.2</label><title>
+<italic toggle="yes">e</italic>‐CO<sub>2</sub>RR Performance With a Gas‐Fed Flow Electrolyzer</title><p>To mitigate the mass transport limitations inherent to batch‐mode operation with H cells, a flow‐type electrolyzer was established (Scheme <xref rid="smll72639-supinfo-0001" ref-type="">S1</xref>, see Experimental Section for details). Furthermore, to achieve high <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance at the industrially relevant applied current densities, MWCNTs‐supported CoPc and CuPc with various nominal CuPc/CoPc weight ratios (r), designated as MWCNT|CuPc‐CoPc (r) for simplicity, were prepared, and their <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance was systematically investigated. The chemical composition and chemical properties of the prepared electrodes are summarised in Table <xref rid="smll72639-supinfo-0001" ref-type="">S1</xref>.</p><p>Figure <xref rid="smll72639-fig-0005" ref-type="fig">5</xref> and Figures <xref rid="smll72639-supinfo-0001" ref-type="">S6</xref> and<xref rid="smll72639-supinfo-0001" ref-type="">S7</xref> show the electrochemical characterization of the <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the MWCNT|CuPc‐CoPc (r)‐modified GDE obtained from 2‐h electrolysis at −100 mA cm<sup>−2</sup>. As revealed from Figure <xref rid="smll72639-supinfo-0001" ref-type="">S6</xref>, the MWCNT|CuPc‐modified GDE exhibited negligible <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR activity, with no detectable CO generation at −100 mA cm<sup>−2</sup>. The ex situ XPS analysis (Figure <xref rid="smll72639-supinfo-0001" ref-type="">S8</xref>) confirms that the as‐prepared MWCNT|CuPc‐modified GDE showed spectral features characteristic of CuPc, including (i) Cu(II) 2p<sub>3/2</sub> and Cu(II) 2p<sub>1/2</sub> peaks at binding energies of 935.2 and 954.9 eV [<xref rid="smll72639-bib-0049" ref-type="bibr">49</xref>], (ii) a pyridinic‐N peak at binding energy of 398.6 eV [<xref rid="smll72639-bib-0049" ref-type="bibr">49</xref>], and (iii) a ─C═N─Cu peak at binding energy of 400.2 eV [<xref rid="smll72639-bib-0050" ref-type="bibr">50</xref>]. After 2‐h electrolysis, these features disappeared, and a new peak corresponding to the −NH− group of H<sub>2</sub>Pc emerged at a binding energy of 399.8 eV [<xref rid="smll72639-bib-0049" ref-type="bibr">49</xref>]. These findings indicate that CuPc decomposed during the electrolysis to form H<sub>2</sub>Pc, which is also inactive towards <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR, as evidenced by no detectable CO generation in Figure <xref rid="smll72639-supinfo-0001" ref-type="">S6</xref>. Note that the redeposition of Cu species onto the electrode was not observed in this study, likely due to the significantly lower Cu content (0.0046 µmol cm<sup>−2</sup>) in the as‐prepared MWCNT|CuPc‐modified GDE compared to those (≥0.1 µmol cm<sup>−2</sup>) reported previously [<xref rid="smll72639-bib-0049" ref-type="bibr">49</xref>, <xref rid="smll72639-bib-0051" ref-type="bibr">51</xref>, <xref rid="smll72639-bib-0052" ref-type="bibr">52</xref>]. However, incorporating a small amount of CuPc significantly enhanced <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR activity. Specifically, the overpotential (η) required for the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE required to sustain the applied current density of −100 mA cm<sup>−2</sup> was about −0.77 V, which is about 70 mV less than that for the MWCNT|CoPc‐modified GDE. The XPS analyses, shown in Figure <xref rid="smll72639-fig-0006" ref-type="fig">6</xref> and Figure <xref rid="smll72639-supinfo-0001" ref-type="">S9</xref>, reveal a decrease in the Co(II) and ─C═N─Co peak intensities for the MWCNT|CoPc‐modified GDE decreased after 2‐h electrolysis, indicating the loss of Co(II) species or demetallization [<xref rid="smll72639-bib-0053" ref-type="bibr">53</xref>]. On the other hand, the Cu(II) 2p<sub>3/2</sub> and Cu(II) 2p<sub>1/2</sub> peaks at binding energies of 935.2 and 954.9 eV of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE disappeared after 2‐h electrolysis, consistent with the decomposition of CuPc into H<sub>2</sub>Pc as observed in Figure <xref rid="smll72639-supinfo-0001" ref-type="">S8</xref>. However, the intensity of the Co(II) peak of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE after 2‐h electrolysis remained unchanged after electrolysis, suggesting that the reduction in overpotential by incorporating a small amount of CuPc is beneficial to mitigate CoPc deactivation caused by the undesirable reduction of the Pc ligands at highly cathodic potential [<xref rid="smll72639-bib-0027" ref-type="bibr">27</xref>]. Notably, the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE exhibited significantly improved FE<sub>CO</sub> (71.0 ± 9.1% vs. 47.2 ± 1.9%) and TOF<sub>CO</sub> (26.66 ± 3.41 s<sup>−1</sup> vs. 16.02 ± 0.65 s<sup>−1</sup>) compared to the MWCNT|CoPc‐modified GDE (Figure <xref rid="smll72639-fig-0005" ref-type="fig">5</xref>). Note that, as CuPc itself is inactive towards <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR, the TOF<sub>CO</sub> values were calculated based solely on the ICP‐OES‐determined CoPc content. In contrast, the MWCNT|CuPc‐CoPc (r)‐modified GDE with r value ≥1 required significantly high overpotential (η &gt;0.84 V) to sustain the applied current density of −100 mA cm<sup>−2</sup>, presumably due to a lower amount of active CoPc, leading to pronounced deactivation (Figure <xref rid="smll72639-supinfo-0001" ref-type="">S7</xref>). Moreover, as revealed in Figure <xref rid="smll72639-fig-0006" ref-type="fig">6</xref>, the Co 2p<sub>1/2</sub> and Co 2p<sub>3/2</sub> peaks of the MWCNT|CuPc‐CoPc (r = 0.5)‐ and MWCNT|H<sub>2</sub>Pc‐CoPc (r = 0.5)‐modified GDEs shifted to a higher binding energy compared to the MWCNT|CoPc‐modified GDE, indicating a lower oxidation state of Co sites in the MWCNT|CuPc‐CoPc (r = 0.5)‐ and MWCNT|H<sub>2</sub>Pc‐CoPc (r = 0.5)‐modified GDEs. This shift suggests the presence of electronic interactions between CoPc and either CuPc or H<sub>2</sub>Pc, which enrich the electron density of the Co active site and thereby facilitate CO<sub>2</sub> adsorption and activation [<xref rid="smll72639-bib-0034" ref-type="bibr">34</xref>, <xref rid="smll72639-bib-0046" ref-type="bibr">46</xref>, <xref rid="smll72639-bib-0048" ref-type="bibr">48</xref>, <xref rid="smll72639-bib-0054" ref-type="bibr">54</xref>].</p><fig position="float" fig-type="FIGURE" id="smll72639-fig-0005" orientation="portrait"><label>FIGURE 5</label><caption><p>The <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the MWCNT|CoPc‐modified GDE (i and iii) and MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE (ii and iv) obtained from 2‐h electrolysis experiments at −100 mA cm<sup>−2</sup> in KHCO<sub>3</sub> (1.0 <sc>m</sc>) solution under 98% CO<sub>2</sub> atmosphere: (a) Potential transients, (b) FE of products, (c) R<sub>CO</sub>, and (d) TOF<sub>CO</sub>. Catalyst loadings were 0.1 mg cm<sup>−2</sup> for samples (i) and (ii), and 0.2 mg cm<sup>−2</sup> for samples (iii) and (iv). The reported standard deviation was calculated from a minimum of three repeated experiments.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="SMLL-22-e12257-g002.jpg"/></fig><fig position="float" fig-type="FIGURE" id="smll72639-fig-0006" orientation="portrait"><label>FIGURE 6</label><caption><p>(a) Cu 2p and (b) N 1s XPS spectra of (i) the as‐prepared MWCNT|CoPc‐modified GDE, (ii) the as‐prepared MWCNT|H<sub>2</sub>Pc‐CoPc (r = 0.5)‐modified GDE, and (iii) the as‐prepared MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-13" orientation="portrait" xlink:href="SMLL-22-e12257-g007.jpg"/></fig><p>The electrochemically available CoPc (τ<sub>CoPc</sub>) and θ on the prepared electrodes were quantified using cyclic voltammetry (CV) and ICP‐OES (see Experimental Section for the details), and the results are shown in Figures <xref rid="smll72639-supinfo-0001" ref-type="">S10</xref> and <xref rid="smll72639-supinfo-0001" ref-type="">S11</xref> and Table <xref rid="smll72639-supinfo-0001" ref-type="">S1</xref>. As revealed, incorporating either CuPc or H<sub>2</sub>Pc significantly influenced τ<sub>CoPc</sub>. Particularly, the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE and MWCNT|H<sub>2</sub>Pc‐CoPc (r = 0.5)‐modified GDE exhibited τ<sub>CoPc</sub> values of 3.0 and 2.8 nmol cm<sup>−2</sup>, respectively, both exceeding that obtained for the MWCNT|CoPc‐modified GDE (1.9 nmol cm<sup>−2</sup>). Similarly, the incorporation of CuPc or H<sub>2</sub>Pc was significantly enhanced θ, with the MWCNT|CuPc‐CoPc (r = 0.5)‐ and MWCNT|H<sub>2</sub>Pc‐CoPc (r = 0.5)‐modified GDEs reaching values of 0.22 and 0.21, respectively, both exceeding that (0.12) observed for the MWCNT|CoPc control. These findings suggest that incorporating a small amount of CuPc or H<sub>2</sub>Pc effectively mitigated CoPc aggregation, thereby increasing the accessibility of the active CoPc sites for <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR. This molecular‐level dispersion of CoPc is achieved by mitigating CoPc aggregation through both steric hindrance and electronic modulation, arising from delocalized π coordination [<xref rid="smll72639-bib-0034" ref-type="bibr">34</xref>, <xref rid="smll72639-bib-0054" ref-type="bibr">54</xref>, <xref rid="smll72639-bib-0055" ref-type="bibr">55</xref>, <xref rid="smll72639-bib-0056" ref-type="bibr">56</xref>, <xref rid="smll72639-bib-0057" ref-type="bibr">57</xref>] induced by the incorporation of CuPc or H<sub>2</sub>Pc molecules. The presence of steric hindrance prevents aggregation among CoPc, while the electron transfer between the central metal Co in CoPc and the central metal Cu in CuPc disrupts the <italic toggle="yes">π</italic>–<italic toggle="yes">π</italic> stacking interactions among the CoPc molecules. The underlying mechanism is schematically illustrated in Scheme <xref rid="smll72639-fig-0010" ref-type="fig">1</xref>. The uniform distribution of the isolated CoPc (atomic radius: 0.19 nm) and CuPc (atomic radius: 0.14 nm) on the as‐prepared MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE was further confirmed by the HAADF‐STEM and STEM‐EDS analyses (Figure <xref rid="smll72639-fig-0007" ref-type="fig">7a–c</xref>). Furthermore, CO<sub>2</sub>‐TPD analysis (Figure <xref rid="smll72639-fig-0007" ref-type="fig">7d</xref>) reveals that MWCNT|CuPc‐CoPc(r = 0.5) exhibited desorption peaks of CO<sub>2</sub> at 115°C, 204°C, and 260°C, having a higher total CO<sub>2</sub> adsorption capacity (91.5 vs. 73 µmol CO<sub>2</sub> g<sup>−1</sup>) compared to MWCNT|CoPc control. The enhancement corroborates that the incorporation of CuPc effectively increased the accessibility of the active CoPc site, thereby facilitating superior CO<sub>2</sub> adsorption.</p><fig position="float" fig-type="SCHEME" id="smll72639-fig-0010" orientation="portrait"><label>SCHEME 1</label><caption><p>The proposed mechanism of the enhanced <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the MWCNT|CuPc‐CoPc (r = 0.5). The dashed line indicates the <italic toggle="yes">π</italic>–<italic toggle="yes">π</italic> stacking. The blue and red arrows indicate the electron transfer and the steric effect, respectively.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-15" orientation="portrait" xlink:href="SMLL-22-e12257-g005.jpg"/></fig><fig position="float" fig-type="FIGURE" id="smll72639-fig-0007" orientation="portrait"><label>FIGURE 7</label><caption><p>(a) HAADF‐STEM image, (b) line profiles along the blue and red arrows in (a), and (c) STEM‐EDS elemental mapping of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE. (d) CO<sub>2</sub>‐TPD profiles of MWCNT|CuPc‐CoPc (r = 0.5).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-17" orientation="portrait" xlink:href="SMLL-22-e12257-g008.jpg"/></fig><p>It is interesting to note that θ of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE increased from 0.22 to 0.32 after potential cycling between 0.66 and −0.84 V vs. RHE for 10 cycles in KHCO<sub>3</sub> solution (1.0 <sc>m</sc>) (Figure <xref rid="smll72639-supinfo-0001" ref-type="">S12</xref>). XPS analysis (Figure <xref rid="smll72639-supinfo-0001" ref-type="">S8</xref>) revealed CuPc decomposed to form H<sub>2</sub>Pc at potentials ≥−0.84 V, suggesting such decomposition would facilitate the exposure of previously buried CoPc active sites during electrolysis. To elucidate the underlying mechanism, density functional theory (DFT) calculations were performed using coaxially stacked bilayer models, as shown in the inset in Figure <xref rid="smll72639-fig-0008" ref-type="fig">8a</xref>. These models consist of two CoPc units (CoPc‐CoPc) or a CoPc unit paired with a CuPc unit (CoPc‐CuPc) or H<sub>2</sub>Pc unit (CoPc‐H<sub>2</sub>Pc). The d‐band center (ε<sub>d</sub>), a key descriptor for the binding strength between intermediate species and the active sites, was calculated from the partial density of state (pDOS), as shown in Figure <xref rid="smll72639-fig-0008" ref-type="fig">8a</xref>. As revealed, the pristine CoPc exhibited a ε<sub>d</sub> of −1.08 eV, which downshifted significantly upon incorporation of CuPc (−1.61 eV) or H<sub>2</sub>Pc (−1.67 eV). According to the Sabatier principle, catalytic efficiency is maximized at an optimal adsorption strength; adsorption that is either too strong or too weak hinders reaction kinetics [<xref rid="smll72639-bib-0058" ref-type="bibr">58</xref>, <xref rid="smll72639-bib-0059" ref-type="bibr">59</xref>]. These results indicate that CoPc binds intermediates too strongly, whereas the addition of CuPc or H<sub>2</sub>Pc moderates this interaction to a more favorable level. The CuPc‐CoPc catalyst, with its optimized d‐band position, achieves the ideal balance, leading to the superior FE<sub>CO</sub> observed experimentally. Furthermore, the calculated adsorption energy of CO<sub>2</sub> (E<sub>ads,CO2</sub>) for CoPc‐CuPc (−0.19 eV) and CoPc‐H<sub>2</sub>Pc (−0.20 eV) was less negative than that for CoPc‐CoPc (−0.24 eV) (Figure <xref rid="smll72639-fig-0008" ref-type="fig">8b</xref>), indicating a weakening of CO<sub>2</sub> binding after the incorporation of CuPc or H<sub>2</sub>Pc. This theoretical finding perfectly corroborates our TPD analyses (Figure <xref rid="smll72639-fig-0003" ref-type="fig">3</xref> and <xref rid="smll72639-fig-0007" ref-type="fig">7d</xref>), where the CO<sub>2</sub> desorption peak maximum for MWCNT|CuPc‐CoPc (r = 0.5) appeared at a lower temperature relative to the MWCNT|CoPc control (204°C vs. 224°C). Interestingly, while MWCNT|CuPc‐CoPc (r = 0.5) exhibited lower CO<sub>2</sub> binding strength compared to the MWCNT|CoPc control, it possessed a higher total CO<sub>2</sub> adsorption capacity (91.5 vs. 73 µmol CO<sub>2</sub> g<sup>−1</sup>) than the MWCNT|CoPc control. This enhancement is attributed to the increased accessibility of the active CoPc sites, as the incorporation of CuPc helps mitigate CoPc aggregation, thereby exposing more active surface area. Taken together, the enhanced <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE can be attributed to favourable electronic interactions between CoPc and CuPc and/or H<sub>2</sub>Pc formed via CuPc decomposition, as well as the improved accessibility of CoPc active sites. Notably, the molecular‐level dispersion enabled a high intrinsic <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR activity with a τ<sub>CoPc</sub>‐based <italic toggle="yes">e</italic>‐TOF<sub>CO</sub> of 121.18 ± 15.50 s<sup>−1</sup>.</p><fig position="float" fig-type="FIGURE" id="smll72639-fig-0008" orientation="portrait"><label>FIGURE 8</label><caption><p>(a) pDOS of Co 3d orbital of (i) CoPc‐CoPc, (ii) CuPc‐CoPc, and (iii) H<sub>2</sub>Pc‐CoPc. The Fermi level is set to zero, indicated by a black dashed vertical line. The pink dashed vertical lines represent the ε<sub>d</sub> energy level. (b) E<sub>ads, CO2</sub> for (i) CoPc‐CoPc, (ii) CuPc‐CoPc, and (iii) H<sub>2</sub>Pc‐CoPc.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-19" orientation="portrait" xlink:href="SMLL-22-e12257-g003.jpg"/></fig><p>To mitigate deactivation associated with the high overpotential required to maintain the applied current density of −100 mA cm<sup>−2</sup>, additional MWCNT|CoPc‐, MWCNT|CuPc‐CoPc (r = 0.5)‐, and MWCNT|H<sub>2</sub>Pc‐CoPc (r = 0.5)‐modified GDEs were prepared with an increased catalyst loading (0.2 mg cm<sup>−2</sup>) and subjected to the 2‐h electrolysis. The results, shown in Figure <xref rid="smll72639-fig-0005" ref-type="fig">5</xref>, indicate that increasing the catalyst loading effectively reduced the overpotential, presumably by increasing the number of active sites, and thus enhanced FE<sub>CO</sub> of both MWCNT|CoPc‐ and MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDEs. Specifically, FE<sub>CO</sub> improved from 47.2 ± 1.9% to 73.8 ± 2.3% for the MWCNT|CoPc‐modified GDE, and from 71.0 ± 9.1% to 90.1 ± 3.4% for the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE. Furthermore, as revealed in Figure <xref rid="smll72639-supinfo-0001" ref-type="">S13</xref>, the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE exhibited excellent stability during prolonged electrolysis at −100 mA cm<sup>−2</sup>, maintaining a high FE<sub>CO</sub> (∼91.2%), a TOF<sub>CO</sub> (15.74 s<sup>−1</sup>), and cathodic energy efficiency for CO production (EE<sub>CO</sub>: 68.9%), defined as the ratio of chemical energy stored in CO to applied electrical energy (see Experimental Section for the details), over 12 h electrolysis. Moreover, as revealed in Figure <xref rid="smll72639-fig-0005" ref-type="fig">5</xref> and Figure <xref rid="smll72639-supinfo-0001" ref-type="">S14</xref>, the MWCNT|H<sub>2</sub>Pc‐CoPc (r = 0.5)‐modified GDE exhibited better <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance, in terms of FE<sub>CO</sub> (77.7 ± 4.9% vs. 73.8 ± 2.3%) and TOF<sub>CO</sub> (14.91 ± 0.64 s<sup>−1</sup> vs. 10.05 ± 0.32 s<sup>−1</sup>), than the MWCNT|CoPc‐modified GDE. This finding is in agreement with the previous discussion that the enhanced e‐CO<sub>2</sub>RR performance of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE can be attributed to favourable electronic interactions between CoPc and CuPc and/or H<sub>2</sub>Pc formed via CuPc decomposition during electrolysis, as well as the improved accessibility of CoPc active sites. The enhanced τ<sub>CoPc</sub> and θ also promoted further reduction of CO into methanol, presumably by providing a high local CO concentration that facilitates subsequent CO reduction through a domino pathway [<xref rid="smll72639-bib-0027" ref-type="bibr">27</xref>]. Specifically, the MWCNT|CuPc‐CoPc (r = 0.5)‐ and MWCNT|H<sub>2</sub>Pc‐CoPc (r = 0.5)‐modified GDEs exhibited FE<sub>MeOH</sub> of 2.5 ± 1.2%, and 4.2 ± 1.7%, respectively, both outperforming the MWCNT|CoPc control. We also prepared the MWCNT|NiPc‐CoPc (r = 0.5)‐modified GDE for performance comparison. As revealed in Figure <xref rid="smll72639-supinfo-0001" ref-type="">S15</xref> and Figure <xref rid="smll72639-fig-0005" ref-type="fig">5</xref>, the MWCNT|NiPc‐CoPc (r = 0.5)‐modified GDE exhibited inferior performance than the MWCNT|CoPc‐modified GDE, requiring a significantly higher overpotential (∼−0.80 vs. −0.70 V) to sustain the applied current density and yielding a lower FE<sub>CO</sub> (71.8 ± 8.4% vs. 73.8 ± 2.3%). This finding stands in sharp contrast to the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE and can be attributed to the lower e‐CO<sub>2</sub>RR activity of NiPc than CoPc and its inability to decompose into H<sub>2</sub>Pc during <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR [<xref rid="smll72639-bib-0060" ref-type="bibr">60</xref>], thereby lacking the synergistic electronic interactions required for performance enhancement. Note that further increase in catalyst loading for the electrode preparation was not attempted as the marginal gains in FE<sub>CO</sub> were offset by a substantial decline in TOF<sub>CO</sub>.</p><p>Figure <xref rid="smll72639-fig-0009" ref-type="fig">9</xref> and Figure <xref rid="smll72639-supinfo-0001" ref-type="">S16</xref> show the <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE at an applied current of 6.25 A (or −100 mA cm<sup>−2</sup>) under CO<sub>2</sub> atmospheres of various CO<sub>2</sub> concentrations (10%∼98%). As revealed, the FE<sub>CO</sub> and cathodic energy efficiency (EE<sub>CO</sub>) for CO generation of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE remained above 80% and 50%, respectively, even when the CO<sub>2</sub> concentration was reduced to 20%. Specifically, the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE exhibited a FE<sub>CO</sub> of 92.6 ± 1.3% and an EE<sub>CO</sub> of 62.2 ± 0.8% under 40% CO<sub>2</sub> atmosphere at −0.76 V vs. RHE, and a FE<sub>CO</sub> of 80.4 ± 2.8% and an EE<sub>CO</sub> of 54.8 ± 1.9% under 20% CO<sub>2</sub> atmosphere at −0.82 V vs. RHE. This high CO selectivity of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE from the conversion of low‐concentration CO<sub>2</sub> is likely attributed to the enhanced CO<sub>2</sub> adsorption capability (e.g., Figure <xref rid="smll72639-fig-0007" ref-type="fig">7d</xref>) and moderate binding strength of CO<sub>2</sub> resulting from favourable electronic interactions among MWCNT, CoPc, CuPc, and H<sub>2</sub>Pc formed in situ via CuPc decomposition during electrolysis, along with the improved accessibility of CoPc active sites. Additionally, the high FE<sub>CO</sub> at low CO<sub>2</sub> concentrations enabled efficient single‐pass CO<sub>2</sub> conversion and high CO yield. Notably, it is the first time that a high CO yield of 65.7 ± 2.3% from the conversion of low‐concentration CO<sub>2</sub> has been realized using a molecular catalyst‐based modified electrode. Furthermore, as revealed from Figure <xref rid="smll72639-supinfo-0001" ref-type="">S17</xref>, the MWCNT|CuPc‐CoPc (r = 0.5)‐modified electrode remains its high e‐CO<sub>2</sub>RR performance in the presence of H<sub>2</sub>S. Specifically, the MWCNT|CuPc‐CoPc (r = 0.5)‐modified electrode maintained a FE<sub>CO</sub> &gt;93.5% throughout the electrolysis with the gas feed containing 98% CO<sub>2</sub> and 2% H<sub>2</sub>S, outperforming the MWCNT|CoPc control (FE<sub>CO</sub> &lt;86%). The enhanced FE<sub>CO</sub> is corroborated by the increased CO<sub>2</sub> adsorption capacity (91.5 vs. 73 µmol CO<sub>2</sub> g<sup>−1</sup>) of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified electrode compared to the MWCNT|CoPc control. Moreover, the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE also exhibited high stability under simulated biogas atmosphere, maintaining a FE<sub>CO</sub> &gt; 80% over 72‐h electrolysis (Figure <xref rid="smll72639-supinfo-0001" ref-type="">S18</xref>). The excellent <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE was attributed to its sustaining molecular‐dispersion of the active CoPc molecules on MWCNT, as evidenced by HAADF‐STEM and STEM‐EDS analyses shown in Figure <xref rid="smll72639-supinfo-0001" ref-type="">S19</xref>. Furthermore, the FE<sub>CO</sub> of MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE remained above 80% and an EE<sub>CO</sub> of 53.4 ± 1.4% under 40% CO<sub>2</sub> atmosphere at a higher applied current density of −200 mA cm<sup>−2</sup> at the expense of applied potential of −0.81 V vs. RHE (Figure <xref rid="smll72639-supinfo-0001" ref-type="">S20</xref>). The excellent <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the developed MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE under a broad range of CO<sub>2</sub> concentrations and high current density places itself among the most active CoPc‐ and cobalt‐porphyrin‐based systems reported to date (Table <xref rid="smll72639-supinfo-0001" ref-type="">S2</xref>). This finding highlights the effectiveness of CuPc incorporation in enhancing CO<sub>2</sub> affinity and electrochemically available CoPc active sites, thereby boosting the e‐CO<sub>2</sub>RR performance of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE, particularly for the conversion of low‐concentration CO<sub>2</sub>. Collectively, these findings highlight the promise of this molecularly engineered system for future industrial deployment, particularly in scalable CO<sub>2</sub> electroreduction platforms targeting efficient and selective CO production to support carbon mitigation and the circular economy initiatives.</p><fig position="float" fig-type="FIGURE" id="smll72639-fig-0009" orientation="portrait"><label>FIGURE 9</label><caption><p>The <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE at −100 mA cm<sup>−2</sup> in KHCO<sub>3</sub> (1.0 <sc>m</sc>) solution under CO<sub>2</sub> atmospheres of various concentrations: (a) FE of products and R<sub>CO</sub>, and (b) EE<sub>CO</sub> and y<sub>CO</sub>. Catalyst loading was 0.2 mg cm<sup>−2</sup>. The reported standard deviation was calculated from a minimum of three repeated experiments.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-21" orientation="portrait" xlink:href="SMLL-22-e12257-g004.jpg"/></fig></sec></sec><sec id="smll72639-sec-0050"><label>3</label><title>Conclusion</title><p>The MWCNT|CuPc‐CoPc (r)‐modified GDEs, featuring the molecular‐level dispersion of CoPc and CuPc on the MWCNT support, were successfully prepared using a simple H<sub>2</sub>SO<sub>4</sub>‐assisted impregnation method. The incorporation of CuPc or H<sub>2</sub>Pc effectively suppressed CoPc aggregation, enabling tunable loading and fractional accessibility of electrochemically active CoPc sites. In particular, the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE exhibited significantly‐enhanced θ of 0.32, attributed to the in situ decomposition of CuPc during electrolysis, which facilitated the exposure of previously buried CoPc active sites. The enhanced accessibility of CoPc active sites, along with the optimized binding strength, attributed to the favourable electronic interactions among CoPc, MWCNT, CuPc, and H<sub>2</sub>Pc formed in situ via CuPc decomposition during electrolysis, remarkably boosted the e‐CO<sub>2</sub>RR performance of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE, especially for the conversion of low‐concentration CO<sub>2</sub>. Notably, it is the first time that a high y<sub>CO</sub> of 65.7 ± 2.3% from single‐pass conversion of 20% CO<sub>2</sub> at Ampere‐level current has been realized using a molecular catalyst‐based modified electrode. Furthermore, the high stability of the MWCNT|CuPc‐CoPc (r = 0.5)‐modified GDE, maintaining a FE<sub>CO</sub>&gt;80.4% over 72‐h electrolysis under simulated biogas atmosphere, was also demonstrated. The DFT calculation revealed that CuP modulates ε<sub>d</sub> position of the catalyst, resulting in optimal binding energy for reaction intermediates. This electronic tuning facilitates the interaction with the Co active sites, thereby promoting CO<sub>2</sub> conversion to CO. These findings demonstrate the strong promise of the developed molecularly engineered catalyst system in promoting carbon neutrality through efficient and selective CO production from low‐concentration CO<sub>2</sub> emission sources.</p></sec><sec id="smll72639-sec-0060"><label>4</label><title>Experimental Section/Methods</title><sec id="smll72639-sec-0070"><label>4.1</label><title>Chemical and Materials</title><p>All the chemicals used for the preparation of catalytic materials, modified electrodes, and electrolyte solutions, including cobalt (II) phthalocyanine (CoPc; 97%, Sigma–Aldrich), copper (II) phthalocyanine (CuPc; Cu content &gt;80%, Honeywell Fluka), 29H, 31H‐phthalocyanine (H<sub>2</sub>Pc; 98%, Sigma–Aldrich), nickel (II) phthalocyanine (NiPc; 95%, Acros Organic), sodium sulfide hydrate (60%–64%, extra pure flakes, Thermo Scientific), dimethylformamide (DMF; 99.8%, TEDIA), multi‐walled carbon nanotubes (MWCNT; &gt;95% carbon, Sigma–Aldrich), sulfuric acid (≥97%, Honeywell Fluka), potassium hydroxide (≥85%, Honeywell Fluka), hydrogen chloride (≥37%, Honeywell Fluka), NaHCO<sub>3</sub> (≥98%, Sigma–Aldrich), KHCO<sub>3</sub> (99%, Alfa Aesar), CsHCO<sub>3</sub> (99.99%, Macklin), Nafion 117 solution (5wt.%, Sigma–Aldrich), and ethanol (≥99.5%, Echo Chemical) were purchased from commercial suppliers and used without additional purification. Deionized water (DIW; 18.2 MΩ∙cm) was used for the electrode rinsing and electrolyte preparation throughout the work. Nickel foam (&gt;99%, thickness: 1 mm) was obtained from Central Research Company, Taiwan. Before use, Ni foam was cleaned by immersion in HCl (1 <sc>m</sc>) for 5 min, followed by thorough rinsing with DIW. GDL‐340 carbon paper (thickness of 340 µm) with a microporous layer, used as the gas diffusion electrode (GDE) substrate, was purchased from CeTech Co., Ltd., Taiwan. The GDE substrate was cleaned by immersion in HCl (∼10 <sc>m</sc>) for 5 min, followed by thorough rinsing with DIW.</p></sec><sec id="smll72639-sec-0080"><label>4.2</label><title>Synthesis of MWCNT‐Supported Metal Phthalocyanines</title><p>MWCNT‐supported CoPc and CuPc with various nominal CuPc/CoPc weight ratios (r), designated as MWCNT|CuPc‐CoPc (r) for simplicity, were synthesized by firstly preparing a dispersion solution containing CoPc, CuPc, and MWCNTs by dispersing 9/(1+r) mg CoPc, 9r/(1+r) CuPc, and 45 mg MWCNT in 45 mL H<sub>2</sub>SO<sub>4</sub> under ultrasonication for 1 h and subsequent continuous stirring for an additional 2 h. The resulting dispersion solution was then slowly poured into ice‐cooled DIW and subjected to repeated centrifugations and washing with deionized water and ethanol until the pH of the supernatant reached 7. Finally, the precipitate was then dried in an oven at 60°C overnight. MWCNT|H<sub>2</sub>Pc‐CoPc (r = 0.5) and MWCNT|NiPc‐CoPc (r = 0.5) were also prepared with the same procedure described above by replacing CuPc with H<sub>2</sub>Pc or NiPc.</p><p>MWCNT‐supported CoPc (i.e., MWCNT|CoPc), MWCNT‐supported CuPc (i.e., MWCNT|CuPc), and MWCNT‐supported phthalocyanine (i.e., MWCNT|H<sub>2</sub>Pc), were prepared with the same procedure described above. Nevertheless, the dispersion solutions for the preparation of MWCNT|CoPc, MWCNT|CuPc, and MWCNT|H<sub>2</sub>Pc were prepared by dispersing 9 mg CoPc, 9 mg CuPc, and 9 mg H<sub>2</sub>Pc, in 45 mL H<sub>2</sub>SO<sub>4</sub> containing 45 mg MWCNT, respectively.</p></sec><sec id="smll72639-sec-0090"><label>4.3</label><title>Electrode Preparation</title><p>To prepare <italic toggle="yes">MWCNT‐supported metal phthalocyanine‐</italic>modified electrodes, catalyst inks were first prepared by dispersing 10 mg <italic toggle="yes">MWCNT‐supported metal phthalocyanine</italic> (i.e., MWCNT|CuPc‐CoPc (r), MWCNT|CoPc, MWCNT|CuPc, and MWCNT|H<sub>2</sub>Pc) in 10 mL ethanol under ultrasonication for 2 h. Unless otherwise noted, an aliquot of 100 µL cm<sup>−2</sup> of the catalyst ink and 1 µL cm<sup>−2</sup> of Nafion 117 solution were subsequently drop‐casted onto the GDE substrate (working area: 2.0 cm × 2.0 cm or 2.5 cm × 2.5 cm).</p></sec><sec id="smll72639-sec-0100"><label>4.4</label><title>Physical Characterization</title><p>The loading amounts of CoPc and CuPc in the prepared electrodes were quantified by inductively‐coupled plasma optical emission spectrometry (ICP‐OES; Horiba Jobin Yvon JY2000‐2). The chemical composition of the prepared electrodes was characterized by X‐ray photoelectron spectroscopy (XPS) using a PHI 5000 VersaProbe system (ULVAC‐PHI, Chigasaki, Japan). The binding energy (BE) scale of the acquired XPS spectra was calibrated against the Au<sup>0</sup> 4f<sub>7/2</sub> peak of the deposited gold nanoparticles at 84.0 eV. The particle size of the dispersed CoPc was determined by dynamic light scattering (DLS) using a Malvern Zetasizer Nano ZS particle size analyser (Malvern Instruments Ltd., Worcestershire, UK). The CO<sub>2</sub>‐TPD measurement was carried out using AutoChem II (Micromeritics), equipped with a thermal conductivity detector. Following CO<sub>2</sub> purging, the TPD profile was recorded with a He stream (25 mL min<sup>−1</sup>) as the sweeping gas at a heating rate of 10°C min<sup>−1</sup>. Detailed structural and elemental analyses of MWCNT|CuPc‐CoPc (r = 0.5) and MWCNT|CoPc were performed by transmission electron microscopy and HAADF‐STEM using a JEM‐2100F microscope (JEOL Ltd., Japan). SEM images were obtained using Hitachi SU‐8010. Raman analyses were performed using a DXR Raman spectrometer (Thermo Fisher Scientific, USA) equipped with a 532 nm laser.</p></sec><sec id="smll72639-sec-0110"><label>4.5</label><title>Electrochemical Characterization</title><p>The electrochemical characterizations on the <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR performance of the MWCNT‐supported metal phthalocyanine‐modified electrodes were performed in the homemade two‐compartment H‐cell or flow‐type electrolyzer (Scheme <xref rid="smll72639-supinfo-0001" ref-type="">S1</xref>) connecting to an Ivium‐n‐Stat multichannel potentiostat (Ivium Technologies B.V., Netherlands) under a gas atmosphere containing CO<sub>2</sub> of various concentrations (10%–98%). The anodic and cathodic compartments of the H‐cell and flow‐type electrolyzer were separated with a Neosepta ASE anion exchange membrane (ASTOM Corporation, Tokyo, Japan). In the case of the electrochemical characterization with the two‐compartment H‐cell, the MWCNT‐supported metal phthalocyanine‐modified electrodes (geometry area of 0.5 cm<sup>2</sup>) were used as the working electrode and placed with an Ag/AgCl (sat'd KCl) reference electrode in the cathodic compartment, whereas a Pt foil (2 cm × 1 cm) counter electrode was placed in the anodic compartment. In the case of the electrochemical characterization with the flow‐type electrolyzer, the MWCNT‐supported metal phthalocyanine‐modified electrodes (geometry area of 4.0∼6.25 cm<sup>2</sup>) were used as the working electrode and placed with Ag/AgCl (sat'd KCl) reference electrode in the cathodic compartment, whereas a nickel foam (3.5 cm × 3.5 cm) counter electrode was placed in the anodic compartment. The catalyst loading was 0.1∼0.2 mg cm<sup>−2</sup> for both the H‐cell and the flow‐type electrolyzer, unless otherwise stated. CO<sub>2</sub> concentration (C<sub>CO2</sub>) was regulated by adjusting the relative flow rates of the CO<sub>2</sub>/Ar gas stream (98% CO<sub>2</sub> and 2% Ar; Yun Shan Gas Co., Taiwan) and high‐purity Ar gas stream (99.995%; Yun Shan Gas Co., Taiwan) using a mass flow controller. The simulated biogas environment was created by purging the cathodic compartment with the CO<sub>2</sub>/CH<sub>4</sub> gas mixture (40% CO<sub>2</sub> and 60% CH<sub>4</sub>; Yun Shan Gas Co., Taiwan). To investigate the effects of H<sub>2</sub>S, the electrolysis experiments were performed with the feed of 98% CO<sub>2</sub> and 2% H<sub>2</sub>S. In this setup, H<sub>2</sub>S gas was generated in situ by the acidification of a sodium sulfide solution (∼10 wt.%) with a HCl solution (1.67 <sc>m</sc>). Unless otherwise noted, the total flow rate (ϕ) was maintained at 35 mL min<sup>−1</sup>. The KHCO<sub>3</sub> solution (1.0 <sc>m</sc>) was used as the catholyte, whereas KOH (1 <sc>m</sc>) solution was used as the anolyte. Both the catholyte and anolyte were circulated respectively to the cathodic and anodic compartments of the flow‐type electrolyzer at a flow rate of 35 mL min<sup>−1</sup> using peristaltic pumps. 95% IR compensation was used for all electrochemical measurements. Unless otherwise noted, the potentials reported in this work are referenced to the reversible hydrogen electrode (RHE) according to Equation <xref rid="smll72639-disp-0001" ref-type="disp-formula">1</xref>:
+<disp-formula id="smll72639-disp-0001">
+<label>(1)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="block"><mml:mrow><mml:mrow><mml:mrow><mml:mi mathvariant="normal">E</mml:mi><mml:mspace width="0.28em"/><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">V</mml:mi><mml:mspace width="0.28em"/><mml:mi>vs</mml:mi></mml:mrow><mml:mrow><mml:mo>.</mml:mo><mml:mspace width="0.28em"/><mml:mi>RHE</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>=</mml:mo><mml:mi mathvariant="normal">E</mml:mi><mml:mspace width="0.28em"/><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">V</mml:mi><mml:mspace width="0.28em"/><mml:mi>vs</mml:mi></mml:mrow><mml:mrow><mml:mo>.</mml:mo><mml:mspace width="0.28em"/><mml:mi>Ag</mml:mi><mml:mo>/</mml:mo><mml:mi>AgCl</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo>+</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mo>.</mml:mo><mml:mn>197</mml:mn><mml:mo linebreak="goodbreak">+</mml:mo><mml:mn>0</mml:mn></mml:mrow><mml:mrow><mml:mo>.</mml:mo><mml:mn>059</mml:mn><mml:mo linebreak="goodbreak">×</mml:mo><mml:mi>pH</mml:mi></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+</p><p>The overpotential (η) for the generation of CO from <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR was defined as the difference between the applied potential and the equilibrium potential for CO<sub>2</sub> reduction to CO (i.e., −0.11 V vs. RHE). The electrochemically accessible amount of CoPc (τ<sub>CoPc</sub>) in the prepared electrodes was quantified using cyclic voltammetry (CV) in NaHCO<sub>3</sub> solution (1 M). Briefly, the values of peak current density (I<sub>p</sub>) responsible for the redox reaction of Co<sup>2+</sup>/Co<sup>+</sup> (<italic toggle="yes">i.e</italic>., O<sub>1</sub>/R<sub>1</sub> redox peaks in Figures <xref rid="smll72639-supinfo-0001" ref-type="">S10a–e</xref>) in CoPc at various scan rates (<italic toggle="yes">v</italic>) were first determined. Thereafter, τ was deduced from the slope of the I<sub>p</sub> vs. <italic toggle="yes">v</italic> plot using Equation <xref rid="smll72639-disp-0002" ref-type="disp-formula">2</xref>:
+<disp-formula id="smll72639-disp-0002">
+<label>(2)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-2" display="block"><mml:mrow><mml:mrow><mml:msub><mml:mi>I</mml:mi><mml:mi>p</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:msup><mml:mi>n</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:msup><mml:mi>F</mml:mi><mml:mn>2</mml:mn></mml:msup><mml:msub><mml:mi>τ</mml:mi><mml:mi>CoPc</mml:mi></mml:msub></mml:mrow><mml:mrow><mml:mn>4</mml:mn><mml:mi>RT</mml:mi></mml:mrow></mml:mfrac><mml:mi>v</mml:mi></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where n is the number of electron transfer number for the redox reaction of Co<sup>2+</sup>/Co<sup>+</sup>, F is the Faraday constant (96485 C mol<sup>−1</sup>), R is the ideal gas constant (8.314 J K<sup>−1</sup> mol<sup>−1</sup>), and T is the operating temperature (300 K). The ratio of the electrochemically accessible amount of CoPc to the loading amount of CoPc (N<sub>CoPc</sub>), quantified by ICP‐OES, was used to evaluate the fraction of electrochemically available CoPc on the prepared electrodes (θ) using Equation <xref rid="smll72639-disp-0003" ref-type="disp-formula">3</xref>:
+<disp-formula id="smll72639-disp-0003">
+<label>(3)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-3" display="block"><mml:mrow><mml:mrow><mml:mi>θ</mml:mi><mml:mo linebreak="badbreak">=</mml:mo><mml:msub><mml:mi>τ</mml:mi><mml:mi>CoPc</mml:mi></mml:msub><mml:mo>/</mml:mo><mml:msub><mml:mi>N</mml:mi><mml:mrow><mml:mi>C</mml:mi><mml:mi>o</mml:mi><mml:mi>P</mml:mi><mml:mi>c</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+</p></sec><sec id="smll72639-sec-0120"><label>4.6</label><title>Product Analysis and Quantification</title><p>The main liquid products (<italic toggle="yes">i.e</italic>., methanol) produced from the electrolysis experiments were analyzed and quantified using a Shimadzu GC‐2010 Plus gas chromatography system (GC) equipped with a Rtx‐Volatiles column and a flame ionization detector (FID). The GC oven temperature was initially held at 40°C for 1 min, then ramped at 40°C min<sup>−1</sup> to 80°C and maintained at 80°C for 6 min, and finally ramped at 20°C min<sup>−1</sup> to 250°C and held for an additional 8.5 min. Gaseous products generated from the electrolysis experiments, on the other hand, were analyzed and quantified using an Agilent 7890B Series gas chromatography system. CO was detected using a Carboxen‐1006 PLOT column with helium as the carrier gas at a flow rate of ∼5 mL min<sup>−1</sup>, coupled to a thermal conductivity detector (TCD) and a flame ionization detector (FID) connected in series. Hydrogen gas was analyzed using an HP‐PLOT Molesieve 19095P‐MS6 column with nitrogen as the carrier gas at a flow rate of ∼4 mL min<sup>−1</sup>, coupled to a TCD detector. The GC oven temperature for both the Carboxen‐1006 PLOT and HP‐PLOT Molesieve columns was initially maintained at 40°C for 8 min, ramped at 40°C min<sup>−1</sup> to 200°C, and then held at 200°C for an additional 8 min. The concentrations of obtained products (C<sub>product</sub>) were determined by converting the measured TCD and FID signals with routinely updated calibration curves. For the quantification of CO generated from e‐CO<sub>2</sub>RR under a feed of 98% CO<sub>2</sub> and 2% H<sub>2</sub>S, the cathodic headspace was monitored using a portable MET‐GD4AP gas detector (S.E.A.T. Industry Technology Co., Ltd) to the headspace of the cathodic compartment with a sampling pump. The Faradaic efficiency of product (FE<sub>product</sub>) obtained from the electrolysis experiments using the two‐compartment H‐cell and the flow‐type electrolyzer was determined by Equations <xref rid="smll72639-disp-0004" ref-type="disp-formula">4</xref> and <xref rid="smll72639-disp-0005" ref-type="disp-formula">5</xref>, respectively.
+<disp-formula id="smll72639-disp-0004">
+<label>(4)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-4" display="block"><mml:mrow><mml:mrow><mml:mi mathvariant="normal">F</mml:mi><mml:msub><mml:mi mathvariant="normal">E</mml:mi><mml:mi>product</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mi>C</mml:mi><mml:mi>product</mml:mi></mml:msub><mml:mo>×</mml:mo><mml:mi>V</mml:mi><mml:mo>×</mml:mo><mml:msub><mml:mi>n</mml:mi><mml:mi>product</mml:mi></mml:msub><mml:mo>×</mml:mo><mml:mi>F</mml:mi></mml:mrow><mml:msub><mml:mi>Q</mml:mi><mml:mi>total</mml:mi></mml:msub></mml:mfrac><mml:mo linebreak="goodbreak">×</mml:mo><mml:mrow><mml:mn>100</mml:mn><mml:mo>%</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+<disp-formula id="smll72639-disp-0005">
+<label>(5)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-5" display="block"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi mathvariant="normal">F</mml:mi><mml:msub><mml:mi mathvariant="normal">E</mml:mi><mml:mi>product</mml:mi></mml:msub></mml:mrow></mml:mtd><mml:mtd/><mml:mtd columnalign="left"><mml:mrow><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mi>R</mml:mi><mml:mi>product</mml:mi></mml:msub><mml:mo>×</mml:mo><mml:msub><mml:mi>n</mml:mi><mml:mi>product</mml:mi></mml:msub><mml:mo>×</mml:mo><mml:mi>F</mml:mi></mml:mrow><mml:mi>J</mml:mi></mml:mfrac><mml:mo linebreak="goodbreak">=</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd/><mml:mtd/><mml:mtd columnalign="left"><mml:mrow><mml:mfrac><mml:mrow><mml:mi>ϕ</mml:mi><mml:mo>×</mml:mo><mml:msub><mml:mi>C</mml:mi><mml:mi>product</mml:mi></mml:msub><mml:mo>×</mml:mo><mml:mfrac><mml:mi>P</mml:mi><mml:mrow><mml:mi>R</mml:mi><mml:mi>T</mml:mi></mml:mrow></mml:mfrac><mml:mo>×</mml:mo><mml:msub><mml:mi>n</mml:mi><mml:mi>product</mml:mi></mml:msub><mml:mo>×</mml:mo><mml:mi>F</mml:mi></mml:mrow><mml:mi>J</mml:mi></mml:mfrac><mml:mo linebreak="badbreak">×</mml:mo><mml:mrow><mml:mn>100</mml:mn><mml:mo>%</mml:mo></mml:mrow></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math>
+</disp-formula>where V is volume of headspace (for gaseous product) or volume of catholyte (for liquid product), n<sub>product</sub> is the number of electrons transferred for the formation of the specific product, Q<sub>total</sub> is the total charge passed in the electrolysis, R<sub>product</sub> is the generation rate of specific product, P is the ambient pressure, R is the ideal gas constant (8.314 J K<sup>−1</sup> mol<sup>−1</sup>), T is the operating temperature (300 K), F is the Faradaic constant (96 485 C mol<sup>−1</sup>), and J is the applied current density.</p><p>The CO yield (y<sub>CO</sub>) at specific CO<sub>2</sub> feeding rate (F<sub>CO2</sub>) was calculated using Equation <xref rid="smll72639-disp-0006" ref-type="disp-formula">6</xref>:
+<disp-formula id="smll72639-disp-0006">
+<label>(6)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-6" display="block"><mml:mrow><mml:mrow><mml:msub><mml:mi>y</mml:mi><mml:mi>CO</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:msub><mml:mi>R</mml:mi><mml:mi>CO</mml:mi></mml:msub><mml:msub><mml:mi>F</mml:mi><mml:mrow><mml:mi mathvariant="normal">C</mml:mi><mml:msub><mml:mi mathvariant="normal">O</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:msub></mml:mfrac><mml:mo linebreak="goodbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:mi>j</mml:mi><mml:mo>×</mml:mo><mml:msub><mml:mi>C</mml:mi><mml:mi>CO</mml:mi></mml:msub><mml:mo>×</mml:mo><mml:mfrac><mml:mi>P</mml:mi><mml:mi>RT</mml:mi></mml:mfrac></mml:mrow><mml:mrow><mml:mi>j</mml:mi><mml:mo>×</mml:mo><mml:msub><mml:mi>C</mml:mi><mml:mrow><mml:mi mathvariant="normal">C</mml:mi><mml:msub><mml:mi mathvariant="normal">O</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:msub><mml:mo>×</mml:mo><mml:mfrac><mml:mi>P</mml:mi><mml:mi>RT</mml:mi></mml:mfrac></mml:mrow></mml:mfrac><mml:mo linebreak="goodbreak">=</mml:mo><mml:mfrac><mml:msub><mml:mi>C</mml:mi><mml:mi>CO</mml:mi></mml:msub><mml:msub><mml:mi>C</mml:mi><mml:mrow><mml:mi mathvariant="normal">C</mml:mi><mml:msub><mml:mi mathvariant="normal">O</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:msub></mml:mfrac></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+</p><p>The EE<sub>CO</sub>, defined as the ratio of chemical energy stored in CO to applied electrical energy, was determined using Equation <xref rid="smll72639-disp-0007" ref-type="disp-formula">7</xref>: [<xref rid="smll72639-bib-0061" ref-type="bibr">61</xref>]<disp-formula id="smll72639-disp-0007">
+<label>(7)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-7" display="block"><mml:mrow><mml:mrow><mml:mi mathvariant="normal">E</mml:mi><mml:msub><mml:mi mathvariant="normal">E</mml:mi><mml:mi>CO</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mn>1</mml:mn><mml:mrow><mml:mo>.</mml:mo><mml:mn>23</mml:mn></mml:mrow><mml:mo>−</mml:mo><mml:msubsup><mml:mi>E</mml:mi><mml:mi>CO</mml:mi><mml:mn>0</mml:mn></mml:msubsup></mml:mrow></mml:mfenced><mml:mo>×</mml:mo><mml:mi mathvariant="normal">F</mml:mi><mml:msub><mml:mi mathvariant="normal">E</mml:mi><mml:msub><mml:mi>C</mml:mi><mml:mi>CO</mml:mi></mml:msub></mml:msub></mml:mrow><mml:mrow><mml:mn>1.23</mml:mn><mml:mo>−</mml:mo><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>a</mml:mi><mml:mi>p</mml:mi><mml:mi>p</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfrac><mml:mo linebreak="goodbreak">×</mml:mo><mml:mrow><mml:mn>100</mml:mn><mml:mo>%</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-8" display="inline"><mml:mrow><mml:msubsup><mml:mi>E</mml:mi><mml:mrow><mml:mi>C</mml:mi><mml:mi>O</mml:mi></mml:mrow><mml:mn>0</mml:mn></mml:msubsup></mml:mrow></mml:math> is the standard reduction potential for the generation of CO (−0.1 V vs. RHE) from <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR, and E<sub>app</sub> is the operation potential under a specific applied current density.</p><p>Two kinds of turnover frequencies were used to evaluate the <italic toggle="yes">e</italic>‐CO<sub>2</sub>RR activity of the prepared electrodes, including one based on N<sub>CoPc</sub> (TOF<sub>CO</sub>) and the other based on τ<sub>CoPc</sub> (<italic toggle="yes">e</italic>‐TOF<sub>CO</sub>). TOF<sub>CO</sub>, determined by using Equation (<xref rid="smll72639-disp-0008" ref-type="disp-formula">8</xref>), was used to evaluate the overall activity, whereas <italic toggle="yes">e</italic>‐TOF<sub>CO</sub>, determined by using Equation (<xref rid="smll72639-disp-0009" ref-type="disp-formula">9</xref>) [<xref rid="smll72639-bib-0062" ref-type="bibr">62</xref>], was used to assess the intrinsic activity.<disp-formula id="smll72639-disp-0008">
+<label>(8)</label>
+<inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="SMLL-22-e12257-e006.jpg"/>
+</disp-formula>
+<disp-formula id="smll72639-disp-0009">
+<label>(9)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-10" display="block"><mml:mrow><mml:mrow><mml:mi>e</mml:mi><mml:mo linebreak="badbreak">−</mml:mo><mml:mi>TO</mml:mi><mml:msub><mml:mi mathvariant="normal">F</mml:mi><mml:mi>CO</mml:mi></mml:msub><mml:mo linebreak="goodbreak">=</mml:mo><mml:mfrac><mml:msub><mml:mi>R</mml:mi><mml:mi>CO</mml:mi></mml:msub><mml:msub><mml:mi>τ</mml:mi><mml:mi>CoPc</mml:mi></mml:msub></mml:mfrac></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+</p></sec><sec id="smll72639-sec-0130"><label>4.7</label><title>DFT Calculation</title><p>First‐principles calculations based on Density Functional Theory (DFT) were performed using the CASTEP module [<xref rid="smll72639-bib-0063" ref-type="bibr">63</xref>] implemented in BIOVIA Materials Studio 2020. Spin‐polarized calculations were employed, and dispersion interactions were accounted for using the Tkatchenko–Scheffler DFT‐D correction [<xref rid="smll72639-bib-0064" ref-type="bibr">64</xref>, <xref rid="smll72639-bib-0065" ref-type="bibr">65</xref>]. The exchange–correlation interactions were described within the generalized gradient approximation [<xref rid="smll72639-bib-0066" ref-type="bibr">66</xref>] using the Perdew–Burke–Ernzerhof functional [<xref rid="smll72639-bib-0067" ref-type="bibr">67</xref>]. Core–valence interactions were treated using on‐the‐fly generated ultrasoft pseudopotentials [<xref rid="smll72639-bib-0068" ref-type="bibr">68</xref>]. Geometry optimizations were carried out without symmetry constraints until the maximum force, total energy change, and atomic displacement converged below 2.0 × 10<sup>−3</sup> Ha Å<sup>−1</sup>, 1.0 × 10<sup>−5</sup> Ha, and 5.0 × 10<sup>−3</sup> Å, respectively. The self‐consistent field (SCF) convergence criterion was set to 1.0 × 10<sup>−6</sup> Ha. A cutoff energy of 500 eV was used for geometry optimizations. Single‐point energy calculations were subsequently performed on the optimized structures using a higher cutoff energy of 550 eV with the same SCF convergence threshold. Solvent effects were considered using the Conductor‐like Screening Model (COSMO) implicit solvation model with water as the solvent (dielectric constant ε = 78.54).</p><p>The d‐band center (ε<sub>
+<italic toggle="yes">d</italic>
+</sub>)was determined by Equation <xref rid="smll72639-disp-0010" ref-type="disp-formula">10</xref>.
+<disp-formula id="smll72639-disp-0010">
+<label>(10)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-11" display="block"><mml:mrow><mml:mrow><mml:msub><mml:mi>ε</mml:mi><mml:mi>d</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:msubsup><mml:mi>∫</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>∞</mml:mi></mml:mrow><mml:mn>0</mml:mn></mml:msubsup><mml:mi>E</mml:mi><mml:mspace width="0.28em"/><mml:mi>N</mml:mi><mml:mfenced open="(" close=")"><mml:mi>E</mml:mi></mml:mfenced><mml:mspace width="0.28em"/><mml:mi>d</mml:mi><mml:mi>E</mml:mi></mml:mrow><mml:mrow><mml:msubsup><mml:mi>∫</mml:mi><mml:mrow><mml:mo>−</mml:mo><mml:mi>∞</mml:mi></mml:mrow><mml:mn>0</mml:mn></mml:msubsup><mml:mi>N</mml:mi><mml:mfenced open="(" close=")"><mml:mi>E</mml:mi></mml:mfenced><mml:mspace width="0.28em"/><mml:mi>d</mml:mi><mml:mi>E</mml:mi></mml:mrow></mml:mfrac><mml:mspace width="0.28em"/></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where E is the energy and N(E) is the projected density of states. E represents the energy relative to the Fermi level, and N(E) is the projected density of states (PDOS) for the d‐orbitals of the active metal center.</p><p>The adsorption energy of CO<sub>2</sub> (E<sub>ads, CO2</sub>) was calculated using Equation <xref rid="smll72639-disp-0011" ref-type="disp-formula">11</xref>:
+<disp-formula id="smll72639-disp-0011">
+<label>(11)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-12" display="block"><mml:mrow><mml:mrow><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>a</mml:mi><mml:mi>d</mml:mi><mml:mi>s</mml:mi><mml:mo>,</mml:mo><mml:mi>C</mml:mi><mml:mi>O</mml:mi><mml:mn>2</mml:mn></mml:mrow></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>M</mml:mi><mml:mn>1</mml:mn><mml:mi>P</mml:mi><mml:mi>c</mml:mi><mml:mo>+</mml:mo><mml:mi>M</mml:mi><mml:mn>2</mml:mn><mml:mi>P</mml:mi><mml:mi>c</mml:mi><mml:mo>+</mml:mo><mml:mi>C</mml:mi><mml:msub><mml:mi>O</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:msub><mml:mspace width="0.28em"/><mml:mo linebreak="goodbreak">−</mml:mo><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>M</mml:mi><mml:mn>1</mml:mn><mml:mi>P</mml:mi><mml:mi>c</mml:mi><mml:mo>+</mml:mo><mml:mi>M</mml:mi><mml:mn>2</mml:mn><mml:mi>P</mml:mi><mml:mi>c</mml:mi></mml:mrow></mml:msub><mml:mo>+</mml:mo><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>C</mml:mi><mml:msub><mml:mi>O</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-13" display="inline"><mml:mrow><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>M</mml:mi><mml:mn>1</mml:mn><mml:mi>P</mml:mi><mml:mi>c</mml:mi><mml:mo>+</mml:mo><mml:mi>M</mml:mi><mml:mn>2</mml:mn><mml:mi>P</mml:mi><mml:mi>c</mml:mi><mml:mo>+</mml:mo><mml:mi>C</mml:mi><mml:msub><mml:mi>O</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:msub></mml:mrow></mml:math>, <italic toggle="yes">E</italic>
+<sub>
+<italic toggle="yes">M</italic>1<italic toggle="yes">Pc</italic> + <italic toggle="yes">M</italic>2<italic toggle="yes">Pc</italic>
+</sub>, and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-14" display="inline"><mml:mrow><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>C</mml:mi><mml:msub><mml:mi>O</mml:mi><mml:mn>2</mml:mn></mml:msub></mml:mrow></mml:msub></mml:mrow></mml:math> represent the total energies of MPc molecules with adsorbed CO<sub>2</sub>, the stacked M<sub>2</sub>Pc on M<sub>1</sub>Pc system, and an isolated CO<sub>2</sub> molecule, respectively.</p></sec><sec id="smll72639-sec-0140"><label>4.8</label><title>Statistical Analysis</title><p>The data were reported as mean value ± standard deviation. The reported standard deviation was calculated from a minimum of three independent repeated experiments.</p></sec></sec><sec sec-type="COI-statement" id="smll72639-sec-0160"><title>Conflicts of Interest</title><p>The authors declare no conflicts of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="smll72639-supinfo-0001" position="float" content-type="local-data" orientation="portrait"/><supplementary-material id="smll72639-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File</bold>: smll72639‐sup‐0001‐SuppMat.docx.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="SMLL-22-e12257-s001.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="smll72639-sec-0150"><title>Acknowledgements</title><p>This research was financially supported from the National Science and Technology Council of Taiwan (114‐2221‐E‐006‐036‐MY3, 114‐2811‐E‐006‐014‐MY3, and 111‐2221‐E‐006‐019‐MY3). This work was financially supported by the Center for Resilience and Intelligence on Sustainable Energy Research (RiSER) of National Cheng Kung University, from the framework of the Higher Education Sprout Project by the Ministry of Education (MOE) in Taiwan. The authors would also like to thank the use of ESCA003200 and EM000800, belonging to the Core Facility Center of National Cheng Kung University.</p></ack><sec sec-type="data-availability" id="smll72639-sec-0180"><title>Data Availability Statement</title><p>The data that support the findings of this study are available in the supplementary material of this article.</p></sec><ref-list id="smll72639-bibl-0001"><title>References</title><ref id="smll72639-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="smll72639-cit-0001">
+<string-name name-style="western">
+<given-names>K. P.</given-names>
+<surname>Kuhl</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Hatsukade</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E. R.</given-names>
+<surname>Cave</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. N.</given-names>
+<surname>Abram</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Kibsgaard</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>T. F.</given-names>
+<surname>Jaramillo</surname>
+</string-name>, “<article-title>Electrocatalytic Conversion of Carbon Dioxide to Methane and Methanol on Transition Metal Surfaces</article-title>,” <source>Journal of the American Chemical Society</source>
+<volume>136</volume> (<year>2014</year>): <fpage>14107</fpage>–<lpage>14113</lpage>, <pub-id pub-id-type="doi">10.1021/ja505791r</pub-id>.<pub-id pub-id-type="pmid">25259478</pub-id>
+</mixed-citation></ref><ref id="smll72639-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="smll72639-cit-0002">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Sun</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Han</surname>
+</string-name>, “<article-title>Green Carbon Science: Efficient Carbon Resource Processing, Utilization, and Recycling Towards Carbon Neutrality</article-title>,” <source>Angewandte Chemie International Edition</source>
+<volume>61</volume> (<year>2022</year>): <elocation-id>202112835</elocation-id>, <pub-id pub-id-type="doi">10.1002/anie.202112835</pub-id>.<pub-id pub-id-type="pmid">34919305</pub-id></mixed-citation></ref><ref id="smll72639-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="smll72639-cit-0003">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. P.</given-names>
+<surname>Edwards</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. J.</given-names>
+<surname>Zhong</surname>
+</string-name>, et al., “<article-title>Oxygen‐Tolerant Electroproduction of C<sub>2</sub> Products From Simulated Flue Gas</article-title>,” <source>Energy &amp; Environmental Science</source>
+<volume>13</volume> (<year>2020</year>): <fpage>554</fpage>–<lpage>561</lpage>, <pub-id pub-id-type="doi">10.1039/C9EE03077H</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="smll72639-cit-0004">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Van Daele</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Hintjens</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Hoek</surname>
+</string-name>, et al., “<article-title>Influence of the Target Product on the Electrochemical Reduction of Diluted CO<sub>2</sub> in a Continuous Flow Cell</article-title>,” <source>Journal of CO2 Utilization</source>
+<volume>65</volume> (<year>2022</year>): <elocation-id>102210</elocation-id>, <pub-id pub-id-type="doi">10.1016/j.jcou.2022.102210</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="smll72639-cit-0005">
+<string-name name-style="western">
+<given-names>D. Y. C.</given-names>
+<surname>Leung</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Caramanna</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. M.</given-names>
+<surname>Maroto‐Valer</surname>
+</string-name>, “<article-title>An Overview of Current Status of Carbon Dioxide Capture and Storage Technologies</article-title>,” <source>Renewable and Sustainable Energy Reviews</source>
+<volume>39</volume> (<year>2014</year>): <fpage>426</fpage>–<lpage>443</lpage>, <pub-id pub-id-type="doi">10.1016/j.rser.2014.07.093</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="smll72639-cit-0006">
+<string-name name-style="western">
+<given-names>B. U.</given-names>
+<surname>Choi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. C.</given-names>
+<surname>Tan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Song</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. B.</given-names>
+<surname>Lee</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Oh</surname>
+</string-name>, “<article-title>System Design Considerations for Enhancing Electroproduction of Formate From Simulated Flue Gas</article-title>,” <source>ACS Sustainable Chemistry &amp; Engineering</source>
+<volume>9</volume> (<year>2021</year>): <fpage>2348</fpage>–<lpage>2357</lpage>, <pub-id pub-id-type="doi">10.1021/acssuschemeng.0c08632</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="smll72639-cit-0007">
+<string-name name-style="western">
+<given-names>L. Y.</given-names>
+<surname>Deng</surname>
+</string-name> and <string-name name-style="western">
+<given-names>M. B.</given-names>
+<surname>Hagg</surname>
+</string-name>, “<article-title>Techno‐Economic Evaluation of Biogas Upgrading Process Using CO<sub>2</sub> Facilitated Transport Membrane</article-title>,” <source>International Journal of Greenhouse Gas Control</source>
+<volume>4</volume> (<year>2010</year>): <fpage>638</fpage>–<lpage>646</lpage>, <pub-id pub-id-type="doi">10.1016/j.ijggc.2009.12.013</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="smll72639-cit-0008">
+<string-name name-style="western">
+<given-names>B. Q.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X. Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Wu</surname>
+</string-name>, et al., “<article-title>Organic Molecule Functionalization Enables Selective Electrochemical Reduction of Dilute CO<sub>2</sub> Feedstock</article-title>,” <source>Angewandte Chemie International Edition</source>
+<volume>64</volume> (<year>2024</year>): <elocation-id>202417196</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/anie.202417196</pub-id><pub-id pub-id-type="pmid">39587414</pub-id></mixed-citation></ref><ref id="smll72639-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="smll72639-cit-0009">
+<string-name name-style="western">
+<given-names>L. Y. Q.</given-names>
+<surname>Xie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. M.</given-names>
+<surname>Cai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. J.</given-names>
+<surname>Jiang</surname>
+</string-name>, et al., “<article-title>Direct low concentration CO<sub>2</sub> electroreduction to multicarbon products via rate‐determining step tuning</article-title>,” <source>Nature Communications</source>
+<volume>15</volume> (<year>2024</year>): <elocation-id>10386</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-024-54590-7</pub-id><pub-id pub-id-type="pmcid">PMC11607466</pub-id><pub-id pub-id-type="pmid">39613736</pub-id></mixed-citation></ref><ref id="smll72639-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="smll72639-cit-0010">
+<string-name name-style="western">
+<given-names>E. E.</given-names>
+<surname>De Guzman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.‐H.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A. B.</given-names>
+<surname>Promentilla</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.‐Y.</given-names>
+<surname>Lin</surname>
+</string-name>, “<article-title>Integrated Capture and Electroreduction of Low‐Concentration CO<sub>2</sub> to CO Using Geopolymer|Graphene‐Cobalt Phthalocyanine Composite</article-title>,” <source>Advanced Energy and Sustainability Research</source>
+<volume>6</volume> (<year>2025</year>): <elocation-id>2500080</elocation-id>, <pub-id pub-id-type="doi">10.1002/aesr.202500080</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="smll72639-cit-0011">
+<string-name name-style="western">
+<given-names>F. N. I.</given-names>
+<surname>Sari</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.‐H.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.‐C.</given-names>
+<surname>Hsieh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.‐H.</given-names>
+<surname>Kuan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Camargo‐Valero</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.‐Y.</given-names>
+<surname>Lin</surname>
+</string-name>, “<article-title>Iodide‐Mediated Electroreduction of Carbon Dioxide for Efficient and Selective Electrosynthesis of Multicarbon Products Over Copper Iodide Microcrystals</article-title>,” <source>Journal of Colloid and Interface Science</source>
+<volume>696</volume> (<year>2025</year>): <elocation-id>137847</elocation-id>, <pub-id pub-id-type="doi">10.1016/j.jcis.2025.137847</pub-id>.<pub-id pub-id-type="pmid">40378445</pub-id>
+</mixed-citation></ref><ref id="smll72639-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="smll72639-cit-0012">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>De Luna</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Hahn</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Higgins</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. A.</given-names>
+<surname>Jaffer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. F.</given-names>
+<surname>Jaramillo</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>E. H.</given-names>
+<surname>Sargent</surname>
+</string-name>, “<article-title>What Would it Take for Renewably Powered Electrosynthesis to Displace Petrochemical Processes?</article-title>,” <source>Science</source>
+<volume>364</volume> (<year>2019</year>): <elocation-id>aav3506</elocation-id>, <pub-id pub-id-type="doi">10.1126/science.aav3506</pub-id>.<pub-id pub-id-type="pmid">31023896</pub-id></mixed-citation></ref><ref id="smll72639-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="smll72639-cit-0013">
+<string-name name-style="western">
+<given-names>T.‐H.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐Y.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐C.</given-names>
+<surname>Huang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.‐Y.</given-names>
+<surname>Li</surname>
+</string-name>, “<article-title>Facile Electrosynthesis of Polyaniline|Gold Nanoparticle Core‐Shell Nanofiber for Efficient Electrocatalytic CO<sub>2</sub> Reduction</article-title>,” <source>Electrochimica Acta</source>
+<volume>437</volume> (<year>2023</year>): <elocation-id>141500</elocation-id>, <pub-id pub-id-type="doi">10.1016/j.electacta.2022.141500</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="smll72639-cit-0014">
+<string-name name-style="western">
+<given-names>Y. M.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F. Q.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q. Y.</given-names>
+<surname>Wang</surname>
+</string-name>, et al., “<article-title>Single‐Atom Tailored Atomically‐Precise Nanoclusters for Enhanced Electrochemical Reduction of CO<sub>2</sub>‐to‐CO Activity</article-title>,” <source>Nature Communications</source>
+<volume>15</volume> (<year>2024</year>): <fpage>1843</fpage>, <pub-id pub-id-type="doi">10.1038/s41467-024-46098-x</pub-id>.<pub-id pub-id-type="pmcid">PMC10901820</pub-id><pub-id pub-id-type="pmid">38418496</pub-id></mixed-citation></ref><ref id="smll72639-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="smll72639-cit-0015">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Joulié</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Salvatore</surname>
+</string-name>, et al., “<article-title>Molecular Electrocatalysts can Mediate Fast, Selective CO<sub>2</sub> Reduction in a Flow Cell</article-title>,” <source>Science</source>
+<volume>365</volume> (<year>2019</year>): <fpage>367</fpage>–<lpage>369</lpage>, <pub-id pub-id-type="doi">10.1126/science.aax4608</pub-id>.<pub-id pub-id-type="pmid">31346062</pub-id>
+</mixed-citation></ref><ref id="smll72639-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="smll72639-cit-0016">
+<string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. L.</given-names>
+<surname>Zeng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Dong</surname>
+</string-name>, et al., “<article-title>Selective CO<sub>2</sub> Electrolysis to CO Using Isolated Antimony Alloyed Copper</article-title>,” <source>Nature Communications</source>
+<volume>14</volume> (<year>2023</year>): <fpage>340</fpage>, <pub-id pub-id-type="doi">10.1038/s41467-023-35960-z</pub-id>.<pub-id pub-id-type="pmcid">PMC9860050</pub-id><pub-id pub-id-type="pmid">36670129</pub-id></mixed-citation></ref><ref id="smll72639-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="smll72639-cit-0017">
+<string-name name-style="western">
+<given-names>S. B.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Xiao</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. L.</given-names>
+<surname>Luo</surname>
+</string-name>, “<article-title>Unraveling Structure Sensitivity in CO<sub>2</sub> Electroreduction to Near‐Unity CO on Silver Nanocubes</article-title>,” <source>ACS Catalysis</source>
+<volume>10</volume> (<year>2020</year>): <fpage>3158</fpage>–<lpage>3163</lpage>, <pub-id pub-id-type="doi">10.1021/acscatal.9b03883</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="smll72639-cit-0018">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Möller</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Ju</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Bagger</surname>
+</string-name>, et al., “<article-title>Efficient CO<sub>2</sub> to CO Electrolysis on Solid Ni–N–C Catalysts at Industrial Current Densities</article-title>,” <source>Energy &amp; Environmental Science</source>
+<volume>12</volume> (<year>2019</year>): <fpage>640</fpage>–<lpage>647</lpage>.</mixed-citation></ref><ref id="smll72639-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="smll72639-cit-0019">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, et al., “<article-title>Highly Selective and Active CO<sub>2</sub> Reduction Electrocatalysts Based on Cobalt Phthalocyanine/Carbon Nanotube Hybrid Structures</article-title>,” <source>Nature Communications</source>
+<volume>8</volume> (<year>2017</year>): <elocation-id>14675</elocation-id>, <pub-id pub-id-type="doi">10.1038/ncomms14675</pub-id>.<pub-id pub-id-type="pmcid">PMC5344970</pub-id><pub-id pub-id-type="pmid">28272403</pub-id></mixed-citation></ref><ref id="smll72639-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="smll72639-cit-0020">
+<string-name name-style="western">
+<given-names>X. M.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. H.</given-names>
+<surname>Ronne</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. U.</given-names>
+<surname>Pedersen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Skrydstrup</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Daasbjerg</surname>
+</string-name>, “<article-title>Enhanced Catalytic Activity of Cobalt Porphyrin in CO<sub>2</sub> Electroreduction upon Immobilization on Carbon Materials</article-title>,” <source>Angewandte Chemie International Edition</source>
+<volume>56</volume> (<year>2017</year>): <fpage>6468</fpage>–<lpage>6472</lpage>, <pub-id pub-id-type="doi">10.1002/anie.201701104</pub-id>.<pub-id pub-id-type="pmid">28466962</pub-id>
+</mixed-citation></ref><ref id="smll72639-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="smll72639-cit-0021">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Lv</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Qiu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Luo</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, “<article-title>Transition Metal Macrocycles for Heterogeneous Electrochemical CO<sub>2</sub> Reduction</article-title>,” <source>Coordination Chemistry Reviews</source>
+<volume>422</volume> (<year>2020</year>): <elocation-id>213435</elocation-id>, <pub-id pub-id-type="doi">10.1016/j.ccr.2020.213435</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="smll72639-cit-0022">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Gu</surname>
+</string-name>, et al., “<article-title>Molecular Engineering of Dispersed Nickel Phthalocyanines on Carbon Nanotubes for Selective CO<sub>2</sub> Reduction</article-title>,” <source>Nature Energy</source>
+<volume>5</volume> (<year>2020</year>): <fpage>684</fpage>–<lpage>692</lpage>, <pub-id pub-id-type="doi">10.1038/s41560-020-0667-9</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="smll72639-cit-0023">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Gong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Liu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Lv</surname>
+</string-name>, “<article-title>Efficient and Stable Metal Macrocyclic Molecular Catalyst for Electrocatalytic Reduction of CO<sub>2</sub> to CO</article-title>,” <source>Progress in Chemistry</source>
+<volume>37</volume> (<year>2025</year>): <fpage>173</fpage>–<lpage>184</lpage>, <pub-id pub-id-type="doi">10.7536/PC240409</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="smll72639-cit-0024">
+<string-name name-style="western">
+<given-names>W. S.</given-names>
+<surname>Dean</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. L.</given-names>
+<surname>Soucy</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. E.</given-names>
+<surname>Rivera‐Cruz</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. L.</given-names>
+<surname>Filien</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. D.</given-names>
+<surname>Terry</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C. C. L.</given-names>
+<surname>McCrory</surname>
+</string-name>, “<article-title>Mitigating Cobalt Phthalocyanine Aggregation in Electrocatalyst Films Through Codeposition With an Axially Coordinating Polymer</article-title>,” <source>Small</source>
+<volume>21</volume> (<year>2025</year>): <elocation-id>2402293</elocation-id>, <pub-id pub-id-type="doi">10.1002/smll.202402293</pub-id>.<pub-id pub-id-type="pmid">38923726</pub-id>
+<pub-id pub-id-type="pmcid">PMC11840456</pub-id></mixed-citation></ref><ref id="smll72639-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="smll72639-cit-0025">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Ye</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Jin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Lazouski</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Manthiram</surname>
+</string-name>, “<article-title>Elucidating the Reactivity and Mechanism of CO<sub>2</sub> Electroreduction at Highly Dispersed Cobalt Phthalocyanine</article-title>,” <source>ACS Energy Letters</source>
+<volume>3</volume> (<year>2018</year>): <fpage>1381</fpage>–<lpage>1386</lpage>, <pub-id pub-id-type="doi">10.1021/acsenergylett.8b00519</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="smll72639-cit-0026">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. F.</given-names>
+<surname>Liu</surname>
+</string-name>, et al., “<article-title>Molecularly Dispersed Cobalt Phthalocyanine Mediates Selective and Durable CO<sub>2</sub> Reduction in a Membrane Flow Cell</article-title>,” <source>Advanced Functional Materials</source>
+<volume>32</volume> (<year>2022</year>): <elocation-id>2107301</elocation-id>, <pub-id pub-id-type="doi">10.1002/adfm.202107301</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="smll72639-cit-0027">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wang</surname>
+</string-name>, “<article-title>Domino Electroreduction of CO<sub>2</sub> to Methanol on a Molecular Catalyst</article-title>,” <source>Nature</source>
+<volume>575</volume> (<year>2019</year>): <fpage>639</fpage>–<lpage>642</lpage>, <pub-id pub-id-type="doi">10.1038/s41586-019-1760-8</pub-id>.<pub-id pub-id-type="pmid">31776492</pub-id>
+</mixed-citation></ref><ref id="smll72639-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="smll72639-cit-0028">
+<string-name name-style="western">
+<given-names>W. W.</given-names>
+<surname>Kramer</surname>
+</string-name> and <string-name name-style="western">
+<given-names>C. C. L.</given-names>
+<surname>McCrory</surname>
+</string-name>, “<article-title>Polymer Coordination Promotes Selective CO<sub>2</sub> Reduction by Cobalt Phthalocyanine</article-title>,” <source>Chemical Science</source>
+<volume>7</volume> (<year>2016</year>): <fpage>2506</fpage>–<lpage>2515</lpage>, <pub-id pub-id-type="doi">10.1039/C5SC04015A</pub-id>.<pub-id pub-id-type="pmid">28660020</pub-id>
+<pub-id pub-id-type="pmcid">PMC5477023</pub-id></mixed-citation></ref><ref id="smll72639-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="smll72639-cit-0029">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Morlanes</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Takanabe</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Rodionov</surname>
+</string-name>, “<article-title>Simultaneous Reduction of CO<sub>2</sub> and Splitting of H<sub>2</sub>O by a Single Immobilized Cobalt Phthalocyanine Electrocatalyst</article-title>,” <source>ACS Catalysis</source>
+<volume>6</volume> (<year>2016</year>): <fpage>3092</fpage>–<lpage>3095</lpage>.</mixed-citation></ref><ref id="smll72639-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="smll72639-cit-0030">
+<string-name name-style="western">
+<given-names>Y. S.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. Y.</given-names>
+<surname>Liang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H. L.</given-names>
+<surname>Wang</surname>
+</string-name>, “<article-title>Domino Electroreduction of CO<sub>2</sub> to Methanol on a Molecular Catalyst</article-title>,” <source>Nature</source>
+<volume>575</volume> (<year>2019</year>): <fpage>639</fpage>–<lpage>642</lpage>.<pub-id pub-id-type="pmid">31776492</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41586-019-1760-8</pub-id></mixed-citation></ref><ref id="smll72639-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="smll72639-cit-0031">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.‐J.</given-names>
+<surname>Chen</surname>
+</string-name>, et al., “<article-title>Single Molecular Dispersion of Crown Ether‐Decorated Cobalt Phthalocyanine on Carbon Nanotubes for Robust CO<sub>2</sub> Reduction Through Host‐Guest Interactions</article-title>,” <source>Angewandte Chemie International Edition</source>
+<volume>64</volume> (<year>2025</year>): <elocation-id>202418156</elocation-id>, <pub-id pub-id-type="doi">10.1002/anie.202418156</pub-id>.<pub-id pub-id-type="pmid">39417210</pub-id></mixed-citation></ref><ref id="smll72639-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="smll72639-cit-0032">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, et al., “<article-title>Highly Selective and Active CO<sub>2</sub> Reduction Electrocatalysts Based on Cobalt Phthalocyanine/Carbon Nanotube Hybrid Structures</article-title>,” <source>Nature Communications</source>
+<volume>8</volume> (<year>2017</year>): <elocation-id>14675</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/ncomms14675</pub-id><pub-id pub-id-type="pmcid">PMC5344970</pub-id><pub-id pub-id-type="pmid">28272403</pub-id></mixed-citation></ref><ref id="smll72639-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="smll72639-cit-0033">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Su</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.‐J.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Chen</surname>
+</string-name>, et al., “<article-title>Building a Stable Cationic Molecule/Electrode Interface for Highly Efficient and Durable CO<sub>2</sub> Reduction at an Industrially Relevant Current</article-title>,” <source>Energy &amp; Environmental Science</source>
+<volume>14</volume> (<year>2021</year>): <fpage>483</fpage>–<lpage>492</lpage>.</mixed-citation></ref><ref id="smll72639-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="smll72639-cit-0034">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Weng</surname>
+</string-name>, et al., “<article-title>Proton/Electron Donors Enhancing Electrocatalytic Activity of Supported Conjugated Microporous Polymers for CO<sub>2</sub> Reduction</article-title>,” <source>Angewandte Chemie International Edition</source>
+<volume>61</volume> (<year>2022</year>): <elocation-id>202115503</elocation-id>, <pub-id pub-id-type="doi">10.1002/anie.202115503</pub-id>.<pub-id pub-id-type="pmid">34851556</pub-id></mixed-citation></ref><ref id="smll72639-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="smll72639-cit-0035">
+<string-name name-style="western">
+<given-names>J.‐M.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.‐J.</given-names>
+<surname>Xie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.‐W.</given-names>
+<surname>Yang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>L.‐N.</given-names>
+<surname>He</surname>
+</string-name>, “<article-title>Cobalt Phthalocyanine Cross‐Linked Polypyrrole for Efficient Electroreduction of Low Concentration CO2 To CO</article-title>,” <source>Chemsuschem</source>
+<volume>15</volume> (<year>2022</year>): <elocation-id>202201455</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/cssc.202201455</pub-id><pub-id pub-id-type="pmid">36163546</pub-id></mixed-citation></ref><ref id="smll72639-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="smll72639-cit-0036">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Xiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. J.</given-names>
+<surname>Masana</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Dong</surname>
+</string-name>, et al., “<article-title>Mechanistic Understanding of 3d‐Metal Phthalocyanine Catalysts: Heterostructure Regulation of d Z<sub>2</sub> Orbitals for Efficient CO<sub>2</sub> Reduction</article-title>,” <source>Journal of Materials Chemistry A</source>
+<volume>11</volume> (<year>2023</year>): <fpage>24359</fpage>–<lpage>24370</lpage>, <pub-id pub-id-type="doi">10.1039/D3TA05834D</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="smll72639-cit-0037">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Wu</surname>
+</string-name>, et al., “<article-title>Electronic Structure Tuning in Cu–Co Dual Single Atom Catalysts for Enhanced COOH* Spillover and Electrocalytic CO<sub>2</sub> Reduction Activity</article-title>,” <source>Angewandte Chemie International Edition</source>
+<volume>64</volume> (<year>2025</year>): <elocation-id>202504423</elocation-id>, <pub-id pub-id-type="doi">10.1002/anie.202504423</pub-id>.<pub-id pub-id-type="pmid">40192576</pub-id></mixed-citation></ref><ref id="smll72639-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="smll72639-cit-0038">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Tian</surname>
+</string-name>, et al., “<article-title>Assembly of Copper Phthalocyanine on TiO<sub>2</sub> Nanorod Arrays as Co‐catalyst for Enhanced Photoelectrochemical Water Splitting</article-title>,” <source>Frontiers in Chemistry</source>
+<volume>7</volume> (<year>2019</year>): <elocation-id>334</elocation-id>, <pub-id pub-id-type="doi">10.3389/fchem.2019.00334</pub-id>.<pub-id pub-id-type="pmid">31157207</pub-id>
+<pub-id pub-id-type="pmcid">PMC6530342</pub-id></mixed-citation></ref><ref id="smll72639-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="smll72639-cit-0039">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Honda</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Kojima</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Fukuzumi</surname>
+</string-name>, “<article-title>Proton‐Coupled Electron‐Transfer Reduction of Dioxygen Catalyzed by a Saddle‐Distorted Cobalt Phthalocyanine</article-title>,” <source>Journal of the American Chemical Society</source>
+<volume>134</volume> (<year>2012</year>): <fpage>4196</fpage>–<lpage>4206</lpage>, <pub-id pub-id-type="doi">10.1021/ja209978q</pub-id>.<pub-id pub-id-type="pmid">22299646</pub-id>
+</mixed-citation></ref><ref id="smll72639-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="smll72639-cit-0040">
+<string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Çakır</surname>
+</string-name>, “<article-title>Functional Chalcone‐Substituted Tetrakis‐Metallophthalocyanines: Synthesis and Spectroscopic Characterization</article-title>,” <source>Journal of Chemical Research</source>
+<volume>44</volume> (<year>2020</year>): <fpage>148</fpage>–<lpage>151</lpage>.</mixed-citation></ref><ref id="smll72639-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="smll72639-cit-0041">
+<string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Ledson</surname>
+</string-name> and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Twigg</surname>
+</string-name>, “<article-title>Acid‐Base Behaviour of Phthalocyanine</article-title>,” <source>Inorganica Chimica Acta</source>
+<volume>13</volume> (<year>1975</year>): <fpage>43</fpage>–<lpage>46</lpage>, <pub-id pub-id-type="doi">10.1016/S0020-1693(00)90175-0</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="smll72639-cit-0042">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Seoudi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. S.</given-names>
+<surname>El‐Bahy</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Z. A.</given-names>
+<surname>El Sayed</surname>
+</string-name>, “<article-title>Ultraviolet and Visible Spectroscopic Studies of Phthalocyanine and Its Complexes Thin Films</article-title>,” <source>Optical Materials</source>
+<volume>29</volume> (<year>2006</year>): <fpage>304</fpage>–<lpage>312</lpage>, <pub-id pub-id-type="doi">10.1016/j.optmat.2005.10.002</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="smll72639-cit-0043">
+<string-name name-style="western">
+<given-names>Y. J.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. S.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Jin</surname>
+</string-name>, et al., “<article-title>Organized Langmuir−Blodgett Monolayers and Multilayers Based on Semiamphiphilic Binuclear Phthalocyanine:  Structural and Photovoltaic Characteristics</article-title>,” <source>Langmuir</source>
+<volume>15</volume> (<year>1999</year>): <fpage>2183</fpage>–<lpage>2187</lpage>, <pub-id pub-id-type="doi">10.1021/la980466j</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0044"><label>44</label><mixed-citation publication-type="book" id="smll72639-cit-0044">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Ishii</surname>
+</string-name> and <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Kobayashi</surname>
+</string-name>, in <source>The Porphyrin Handbook</source>, (Eds.: <person-group person-group-type="editor">
+<string-name name-style="western">
+<given-names>K. M.</given-names>
+<surname>Kadish</surname>
+</string-name>
+</person-group>, <person-group person-group-type="editor">
+<string-name name-style="western">
+<given-names>K. M.</given-names>
+<surname>Smith</surname>
+</string-name>
+</person-group>, <person-group person-group-type="editor">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Guilard</surname>
+</string-name>
+</person-group>). (<publisher-name>Academic Press</publisher-name>, <year>2003</year>): <fpage>1</fpage>–<lpage>42</lpage>.</mixed-citation></ref><ref id="smll72639-bib-0045"><label>45</label><mixed-citation publication-type="journal" id="smll72639-cit-0045">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Liang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wu</surname>
+</string-name>, et al., “<article-title>Enhanced NH<sub>3</sub> ‐Sensing Behavior of 2,9,16,23‐Tetrakis(2,2,3,3‐Tetrafluoropropoxy) Metal(II) Phthalocyanine/Multi‐Walled Carbon Nanotube Hybrids: An Investigation of the Effects of Central Metals</article-title>,” <source>Carbon</source>
+<volume>80</volume> (<year>2014</year>): <fpage>268</fpage>–<lpage>278</lpage>, <pub-id pub-id-type="doi">10.1016/j.carbon.2014.08.065</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="smll72639-cit-0046">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Xin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. B.</given-names>
+<surname>Musgrave</surname>, <suffix>3rd</suffix>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Su</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Li</surname>
+</string-name>, et al., “<article-title>Subtle Modifications in Interface Configurations of Iron/Cobalt Phthalocyanine‐Based Electrocatalysts Determine Molecular CO<sub>2</sub> Reduction Activities</article-title>,” <source>Angewandte Chemie International Edition</source>
+<volume>64</volume> (<year>2025</year>): <elocation-id>e202420286</elocation-id>, <pub-id pub-id-type="doi">10.1002/anie.202420286</pub-id>.<pub-id pub-id-type="pmid">39585505</pub-id>
+</mixed-citation></ref><ref id="smll72639-bib-0047"><label>47</label><mixed-citation publication-type="journal" id="smll72639-cit-0047">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Gong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Li</surname>
+</string-name>, et al., “<article-title>Paired Electrolysis for Efficient Coproduction of CO and S8 With Techno‐Economic Analysis</article-title>,” <source>Chemical Engineering Journal</source>
+<volume>507</volume> (<year>2025</year>): <elocation-id>160286</elocation-id>, <pub-id pub-id-type="doi">10.1016/j.cej.2025.160286</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0048"><label>48</label><mixed-citation publication-type="journal" id="smll72639-cit-0048">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Song</surname>
+</string-name>, et al., “<article-title>Metal‐Free Polyphthalocyanine With Implanted Built‐In Electric Field Enabling High‐Efficiency CO<sub>2</sub> Electroreduction</article-title>,” <source>Chemistry of Materials</source>
+<volume>36</volume> (<year>2024</year>): <fpage>1602</fpage>–<lpage>1611</lpage>, <pub-id pub-id-type="doi">10.1021/acs.chemmater.3c02856</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0049"><label>49</label><mixed-citation publication-type="journal" id="smll72639-cit-0049">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. H.</given-names>
+<surname>My Pham</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Gao</surname>
+</string-name>, et al., “<article-title>Electrochemical CO<sub>2</sub> Reduction Over Copper Phthalocyanine Derived Catalysts With Enhanced Selectivity for Multicarbon Products</article-title>,” <source>ACS Catalysis</source>
+<volume>13</volume> (<year>2023</year>): <fpage>9326</fpage>–<lpage>9335</lpage>, <pub-id pub-id-type="doi">10.1021/acscatal.3c01439</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0050"><label>50</label><mixed-citation publication-type="journal" id="smll72639-cit-0050">
+<string-name name-style="western">
+<given-names>Y.‐L.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Liu</surname>
+</string-name>, et al., “<article-title>Subtle Tuning of Catalytic Well Effect in Phthalocyanine Covalent Organic Frameworks for Selective CO<sub>2</sub> Electroreduction Into C<sub>2</sub>H<sub>4</sub>
+</article-title>,” <source>Advanced Materials</source>
+<volume>37</volume> (<year>2025</year>): <elocation-id>2415799</elocation-id>, <pub-id pub-id-type="doi">10.1002/adma.202415799</pub-id>.<pub-id pub-id-type="pmid">39580664</pub-id></mixed-citation></ref><ref id="smll72639-bib-0051"><label>51</label><mixed-citation publication-type="journal" id="smll72639-cit-0051">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Weng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Wang</surname>
+</string-name>, et al., “<article-title>Active Sites of Copper‐Complex Catalytic Materials for Electrochemical Carbon Dioxide Reduction</article-title>,” <source>Nature Communications</source>
+<volume>9</volume> (<year>2018</year>): <fpage>415</fpage>, <pub-id pub-id-type="doi">10.1038/s41467-018-02819-7</pub-id>.<pub-id pub-id-type="pmcid">PMC5788987</pub-id><pub-id pub-id-type="pmid">29379087</pub-id></mixed-citation></ref><ref id="smll72639-bib-0052"><label>52</label><mixed-citation publication-type="journal" id="smll72639-cit-0052">
+<string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Boutin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Salamé</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Robert</surname>
+</string-name>, “<article-title>Confined Molecular Catalysts Provide an Alternative Interpretation to the Electrochemically Reversible Demetallation of Copper Complexes</article-title>,” <source>Nature Communications</source>
+<volume>13</volume> (<year>2022</year>): <fpage>4190</fpage>, <pub-id pub-id-type="doi">10.1038/s41467-022-31661-1</pub-id>.<pub-id pub-id-type="pmcid">PMC9307776</pub-id><pub-id pub-id-type="pmid">35869051</pub-id></mixed-citation></ref><ref id="smll72639-bib-0053"><label>53</label><mixed-citation publication-type="journal" id="smll72639-cit-0053">
+<string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Wan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Ke</surname>
+</string-name>, et al., “<article-title>Insight on Performance Degradation of Phthalocyanine Cobalt‐Based Gas Diffusion Cathode for Carbon Dioxide Electrochemical Reduction</article-title>,” <source>ACS Sustainable Chemistry &amp; Engineering</source>
+<volume>9</volume> (<year>2021</year>): <fpage>17214</fpage>–<lpage>17220</lpage>, <pub-id pub-id-type="doi">10.1021/acssuschemeng.1c07158</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0054"><label>54</label><mixed-citation publication-type="journal" id="smll72639-cit-0054">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Wang</surname>
+</string-name>, et al., “<article-title>Bimetallic Phthalocyanine Heterostructure Used for Highly Selective Electrocatalytic CO<sub>2</sub> Reduction</article-title>,” <source>Science China Materials</source>
+<volume>65</volume> (<year>2022</year>): <fpage>155</fpage>–<lpage>162</lpage>, <pub-id pub-id-type="doi">10.1007/s40843-021-1749-5</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0055"><label>55</label><mixed-citation publication-type="journal" id="smll72639-cit-0055">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Ghatak</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. S.</given-names>
+<surname>Shanker</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Pearlmutter</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Fryder</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Shimoni</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Hod</surname>
+</string-name>, “<article-title>Dual Molecular Catalyst‐Based Tandem That Enables Electrocatalytic CO<sub>2</sub> −Formaldehyde−Methanol Cascade Conversion</article-title>,” <source>Journal of the American Chemical Society</source>
+<volume>147</volume> (<year>2025</year>): <fpage>20329</fpage>–<lpage>20337</lpage>, <pub-id pub-id-type="doi">10.1021/jacs.5c00316</pub-id>.<pub-id pub-id-type="pmid">40461952</pub-id>
+<pub-id pub-id-type="pmcid">PMC12186479</pub-id></mixed-citation></ref><ref id="smll72639-bib-0056"><label>56</label><mixed-citation publication-type="journal" id="smll72639-cit-0056">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Wang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Dai</surname>
+</string-name>, “<article-title>Efficient Oxygen Reduction Reaction (ORR) Catalysts Based on Single Iron Atoms Dispersed on a Hierarchically Structured Porous Carbon Framework</article-title>,” <source>Angewandte Chemie International Edition</source>
+<volume>57</volume> (<year>2018</year>): <fpage>9038</fpage>–<lpage>9043</lpage>, <pub-id pub-id-type="doi">10.1002/anie.201804958</pub-id>.<pub-id pub-id-type="pmid">29920892</pub-id>
+</mixed-citation></ref><ref id="smll72639-bib-0057"><label>57</label><mixed-citation publication-type="journal" id="smll72639-cit-0057">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Dou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Ji</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Wang</surname>
+</string-name>, “<article-title>Phthalocyanine Tethered Iron Phthalocyanine on Graphitized Carbon Black as Superior Electrocatalyst for Oxygen Reduction Reaction</article-title>,” <source>Nano Energy</source>
+<volume>34</volume> (<year>2017</year>): <fpage>338</fpage>–<lpage>343</lpage>, <pub-id pub-id-type="doi">10.1016/j.nanoen.2017.02.042</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0058"><label>58</label><mixed-citation publication-type="journal" id="smll72639-cit-0058">
+<string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>Medford</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Vojvodic</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. S.</given-names>
+<surname>Hummelshøj</surname>
+</string-name>, et al., “<article-title>From the Sabatier Principle to a Predictive Theory of Transition‐Metal Heterogeneous Catalysis</article-title>,” <source>Journal of Catalysis</source>
+<volume>328</volume> (<year>2015</year>): <fpage>36</fpage>–<lpage>42</lpage>, <pub-id pub-id-type="doi">10.1016/j.jcat.2014.12.033</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0059"><label>59</label><mixed-citation publication-type="journal" id="smll72639-cit-0059">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Jiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Fu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Huang</surname>
+</string-name>, “<article-title>Descriptors for the Evaluation of Electrocatalytic Reactions: D‐Band Theory and Beyond</article-title>,” <source>Advanced Functional Materials</source>
+<volume>32</volume> (<year>2022</year>): <elocation-id>2107651</elocation-id>, <pub-id pub-id-type="doi">10.1002/adfm.202107651</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0060"><label>60</label><mixed-citation publication-type="journal" id="smll72639-cit-0060">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Gu</surname>
+</string-name>, et al., “<article-title>Molecular Engineering of Dispersed Nickel Phthalocyanines on Carbon Nanotubes for Selective CO<sub>2</sub> Reduction</article-title>,” <source>Nature Energy</source>
+<volume>5</volume> (<year>2020</year>): <fpage>684</fpage>–<lpage>692</lpage>.</mixed-citation></ref><ref id="smll72639-bib-0061"><label>61</label><mixed-citation publication-type="journal" id="smll72639-cit-0061">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Shi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐L.</given-names>
+<surname>Dong</surname>
+</string-name>, et al., “<article-title>Localized Geometry Determined Selectivity of Iodide‐Derived Copper for Electrochemical CO<sub>2</sub> Reduction</article-title>,” <source>Advanced Energy Materials</source>
+<volume>13</volume> (<year>2023</year>): <elocation-id>2203896</elocation-id>, <pub-id pub-id-type="doi">10.1002/aenm.202203896</pub-id>.</mixed-citation></ref><ref id="smll72639-bib-0062"><label>62</label><mixed-citation publication-type="journal" id="smll72639-cit-0062">
+<string-name name-style="western">
+<given-names>S.‐C.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.‐C.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐K.</given-names>
+<surname>Peng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐G.</given-names>
+<surname>Lin</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.‐Y.</given-names>
+<surname>Lin</surname>
+</string-name>, “<article-title>P‐Doped NiFe Alloy‐Based Oxygen Evolution Electrocatalyst for Efficient and Stable Seawater Splitting and Organic Electrosynthesis at Neutral pH</article-title>,” <source>Small</source>
+<volume>21</volume> (<year>2025</year>): <elocation-id>2408957</elocation-id>, <pub-id pub-id-type="doi">10.1002/smll.202408957</pub-id>.<pub-id pub-id-type="pmid">39718219</pub-id></mixed-citation></ref><ref id="smll72639-bib-0063"><label>63</label><mixed-citation publication-type="journal" id="smll72639-cit-0063">
+<string-name name-style="western">
+<given-names>S. J.</given-names>
+<surname>Clark</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. D.</given-names>
+<surname>Segall</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. J.</given-names>
+<surname>Pickard</surname>
+</string-name>, et al., “<article-title>First Principles Methods Using CASTEP</article-title>,” <source>Zeitschrift für Kristallographie ‐ Crystalline Materials</source>
+<volume>220</volume> (<year>2005</year>): <fpage>567</fpage>–<lpage>570</lpage>.</mixed-citation></ref><ref id="smll72639-bib-0064"><label>64</label><mixed-citation publication-type="journal" id="smll72639-cit-0064">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Motta</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>El‐Mellouhi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Kais</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Tabet</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Alharbi</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Sanvito</surname>
+</string-name>, “<article-title>Revealing the Role of Organic Cations in Hybrid Halide Perovskite CH<sub>3</sub>NH<sub>3</sub>PbI<sub>3</sub>
+</article-title>,” <source>Nature Communications</source>
+<volume>6</volume> (<year>2015</year>): <fpage>7026</fpage>, <pub-id pub-id-type="doi">10.1038/ncomms8026</pub-id>.<pub-id pub-id-type="pmcid">PMC4421841</pub-id><pub-id pub-id-type="pmid">25912782</pub-id></mixed-citation></ref><ref id="smll72639-bib-0065"><label>65</label><mixed-citation publication-type="journal" id="smll72639-cit-0065">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Tkatchenko</surname>
+</string-name> and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Scheffler</surname>
+</string-name>, “<article-title>Accurate Molecular Van Der Waals Interactions From Ground‐State Electron Density and Free‐Atom Reference Data</article-title>,” <source>Physical Review Letters</source>
+<volume>102</volume> (<year>2009</year>): <elocation-id>073005</elocation-id>, <pub-id pub-id-type="doi">10.1103/PhysRevLett.102.073005</pub-id>.<pub-id pub-id-type="pmid">19257665</pub-id>
+</mixed-citation></ref><ref id="smll72639-bib-0066"><label>66</label><mixed-citation publication-type="journal" id="smll72639-cit-0066">
+<string-name name-style="western">
+<given-names>J. P.</given-names>
+<surname>Perdew</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. A.</given-names>
+<surname>Chevary</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. H.</given-names>
+<surname>Vosko</surname>
+</string-name>, et al., “<article-title>Atoms, Molecules, Solids, and Surfaces: Applications of the Generalized Gradient Approximation for Exchange and Correlation</article-title>,” <source>Physical Review B</source>
+<volume>46</volume> (<year>1992</year>): <fpage>6671</fpage>–<lpage>6687</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1103/physrevb.46.6671</pub-id><pub-id pub-id-type="pmid">10002368</pub-id></mixed-citation></ref><ref id="smll72639-bib-0067"><label>67</label><mixed-citation publication-type="journal" id="smll72639-cit-0067">
+<string-name name-style="western">
+<given-names>J. P.</given-names>
+<surname>Perdew</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Burke</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Ernzerhof</surname>
+</string-name>, “<article-title>Generalized Gradient Approximation Made Simple</article-title>,” <source>Physical Review Letters</source>
+<volume>77</volume> (<year>1996</year>): <fpage>3865</fpage>–<lpage>3868</lpage>.<pub-id pub-id-type="pmid">10062328</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1103/PhysRevLett.77.3865</pub-id></mixed-citation></ref><ref id="smll72639-bib-0068"><label>68</label><mixed-citation publication-type="journal" id="smll72639-cit-0068">
+<string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Vanderbilt</surname>
+</string-name>, “<article-title>Soft Self‐Consistent Pseudopotentials in a Generalized Eigenvalue Formalism</article-title>,” <source>Physical Review Letters</source>
+<volume>41</volume> (<year>1990</year>): <fpage>7892</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1103/physrevb.41.7892</pub-id><pub-id pub-id-type="pmid">9993096</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

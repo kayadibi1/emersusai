@@ -1,0 +1,468 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Curated"><PMID Version="1">41199793</PMID><DateCompleted><Year>2025</Year><Month>11</Month><Day>07</Day></DateCompleted><DateRevised><Year>2025</Year><Month>12</Month><Day>15</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Electronic">2046-1402</ISSN><JournalIssue CitedMedium="Internet"><Volume>14</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>F1000Research</Title><ISOAbbreviation>F1000Res</ISOAbbreviation></Journal><ArticleTitle>The Effect Of Visual Deprivation During Cognitive Motor Dual Task Training On Cognitive Function In Type 2 Diabetes Mellitus.</ArticleTitle><Pagination><StartPage>592</StartPage><MedlinePgn>592</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">592</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.12688/f1000research.162466.3</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">Type 2 diabetes mellitus (T2DM) is linked to cognitive dysfunction, and cognitive motor dual-task blindfold training (CMDBT) may enhance cognition by engaging procedural memory centers. This study aimed to evaluate the effectiveness of CMDBT combined with aerobic and resistance exercises on cognitive function in individuals with T2DM.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">A single-center, parallel-group randomized controlled trial with pre- and post-intervention assessments was conducted. Sixty two adults with T2DM were randomly allocated to an experimental group (CMDBT plus moderate-intensity aerobic and resistance training; n = 31) or a control group (aerobic and resistance training only; n = 31). Both groups trained three times per week for 12 weeks. Cognitive function was assessed using the Montreal Cognitive Assessment (MoCA) at baseline and after the 12-week intervention.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Baseline demographic and clinical characteristics were comparable between groups (all p &gt; 0.05). After 12 weeks, the experimental group showed a mean MoCA increase of 3.32 &#xb1; 1.74 to 29.13 &#xb1; 0.76 (p &lt; 0.0001), exceeding the minimal clinically important difference of 2.3 points, whereas the control group improved by 0.94 points (25.77 &#xb1; 1.45 to 26.71 &#xb1; 1.37; p = 0.0006). The adjusted between-group difference was 2.38 points (p = 0.0001), demonstrating a significantly greater cognitive benefit with CMDBT.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">CMDBT combined with conventional exercises is more effective than CMDT or conventional therapy alone in enhancing cognition and in T2DM, supporting its integration into rehabilitation programs.</AbstractText><CopyrightInformation>Copyright: &#xa9; 2025 Anandh Raj J et al.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Anandh Raj</LastName><ForeName>J</ForeName><Initials>J</Initials><Identifier Source="ORCID">0009-0005-1622-4329</Identifier><AffiliationInfo><Affiliation>Lovely Faculty of Applied Medical Sciences, Lovely Professional University, Phagwara, Punjab, 144411, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Patra</LastName><ForeName>Ramesh Chandra</ForeName><Initials>RC</Initials><Identifier Source="ORCID">0000-0001-5287-8833</Identifier><AffiliationInfo><Affiliation>Lovely Faculty of Applied Medical Sciences, Lovely Professional University, Phagwara, Punjab, 144411, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>S</LastName><ForeName>Kavitha</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>School of Health Sciences, The Apollo University, Chittoor, Andhra Pradesh, 517127, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Subramanyam</LastName><ForeName>V</ForeName><Initials>V</Initials><AffiliationInfo><Affiliation>School of Health Sciences, The Apollo University, Chittoor, Andhra Pradesh, 517127, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Himabindu</LastName><ForeName>K</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>School of Health Sciences, The Apollo University, Chittoor, Andhra Pradesh, 517127, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kusuma</LastName><ForeName>Kilani</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Faculty of Physiotherapy, Meenakshi Academy of Higher Education and Research, Chennai, Tamil Nadu, 600078, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ramya Krishna</LastName><ForeName>M L</ForeName><Initials>ML</Initials><AffiliationInfo><Affiliation>School of Health Sciences, The Apollo University, Chittoor, Andhra Pradesh, 517127, India.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><DataBankList CompleteYN="Y"><DataBank><DataBankName>figshare</DataBankName><AccessionNumberList><AccessionNumber>10.6084/m9.figshare.28513433.V2</AccessionNumber></AccessionNumberList></DataBank></DataBankList><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType><PublicationType UI="D016449">Randomized Controlled Trial</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>10</Month><Day>17</Day></ArticleDate></Article><MedlineJournalInfo><Country>England</Country><MedlineTA>F1000Res</MedlineTA><NlmUniqueID>101594320</NlmUniqueID><ISSNLinking>2046-1402</ISSNLinking></MedlineJournalInfo><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D003924" MajorTopicYN="Y">Diabetes Mellitus, Type 2</DescriptorName><QualifierName UI="Q000503" MajorTopicYN="N">physiopathology</QualifierName><QualifierName UI="Q000523" MajorTopicYN="N">psychology</QualifierName><QualifierName UI="Q000628" MajorTopicYN="N">therapy</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D008297" MajorTopicYN="N">Male</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005260" MajorTopicYN="N">Female</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D008875" MajorTopicYN="N">Middle Aged</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D003071" MajorTopicYN="Y">Cognition</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D055070" MajorTopicYN="N">Resistance Training</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000368" MajorTopicYN="N">Aged</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D015444" MajorTopicYN="N">Exercise</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005081" MajorTopicYN="N">Exercise Therapy</DescriptorName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Type 2 Diabetes mellitus</Keyword><Keyword MajorTopicYN="N">cognitive function</Keyword><Keyword MajorTopicYN="N">cognitive motor dual task training</Keyword><Keyword MajorTopicYN="N">montreal cognitive assessment (MoCA).</Keyword></KeywordList><CoiStatement>No competing interests were disclosed.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>10</Month><Day>3</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2025</Year><Month>11</Month><Day>7</Day><Hour>6</Hour><Minute>29</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2025</Year><Month>11</Month><Day>7</Day><Hour>6</Hour><Minute>28</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2025</Year><Month>11</Month><Day>7</Day><Hour>4</Hour><Minute>15</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>10</Month><Day>17</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41199793</ArticleId><ArticleId IdType="pmc">PMC12583909</ArticleId><ArticleId IdType="doi">10.12688/f1000research.162466.3</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+American Diabetes Association:
+Diagnosis and classification of diabetes mellitus.
+
+<i>Diabetes Care.</i>
+
+2010;33(Suppl 1):S62&#x2013;S69.
+10.2337/dc10S062
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/dc10S062</ArticleId><ArticleId IdType="pmc">PMC2797383</ArticleId><ArticleId IdType="pubmed">20042775</ArticleId></ArticleIdList></Reference><Reference><Citation>
+ADA:
+WHO, 2018a Standards of Medical Care in Diabetes&#x2014;2019. Abridged for primary care providers.
+
+<i>Clin. Diabetes.</i>
+
+2019;37(1):11&#x2013;34.
+10.2337/cd18-0105
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/cd18-0105</ArticleId><ArticleId IdType="pmc">PMC6336119</ArticleId><ArticleId IdType="pubmed">30705493</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+<i>Global report on diabetes.</i>
+
+Geneva:
+World Health Organization;2016.
+Reference Source
+</Citation></Reference><Reference><Citation>
+International Diabetes Federation :
+
+<i>IDF Diabetes Atlas</i>
+,
+11th edition.
+Brussels, Belgium:
+International Diabetes Federation;2025.
+https://diabetesatlas.org
+</Citation></Reference><Reference><Citation>
+Pradeepa R, Mohan V:
+Epidemiology of type 2 diabetes in India.
+
+<i>Indian J. Ophthalmol.</i>
+
+2021;69(11):2932&#x2013;2938.
+10.4103/ijo.IJO_1627_21
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4103/ijo.IJO_1627_21</ArticleId><ArticleId IdType="pmc">PMC8725109</ArticleId><ArticleId IdType="pubmed">34708726</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Chatterjee S, Peters SA, Woodward M, et al. :
+Type 2 Diabetes as a Risk Factor for Dementia in Women Compared With Men: A Pooled Analysis of 2.3 Million People Comprising More Than 100,000 Cases of Dementia.
+
+<i>Diabetes Care.</i>
+
+2016;39(2):300&#x2013;307.
+10.2337/dc15-1588
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/dc15-1588</ArticleId><ArticleId IdType="pmc">PMC4722942</ArticleId><ArticleId IdType="pubmed">26681727</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Janson J, Laedtke T, Parisi JE, et al. :
+Increased risk of type 2 diabetes in Alzheimer disease.
+
+<i>Diabetes.</i>
+
+2004;53(2):474&#x2013;481.
+10.2337/diabetes.53.2.474
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diabetes.53.2.474</ArticleId><ArticleId IdType="pubmed">14747300</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bresser, et al. :
+Cerebral Pathology and Cognition in Diabetes: The Merits of Multiparametric Neuroimaging.
+
+<i>Front. Neurosci.</i>
+
+2017;11:188. 2010a. Kawamura et al., 2014; Umegaki et al., 2012; Umemura et al., 2013. Published online 2017 Apr 5.
+10.3389/fnins.2017.00188
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnins.2017.00188</ArticleId><ArticleId IdType="pmc">PMC5380729</ArticleId><ArticleId IdType="pubmed">28424581</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Biessels GJ, Despa F:
+Cognitive decline and dementia in diabetes mellitus: Mechanisms and clinical implications.
+
+<i>Nat. Rev. Endocrinol.</i>
+
+2018;14(10):591&#x2013;604.
+10.1038/s41574-018-0048-7
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41574-018-0048-7</ArticleId><ArticleId IdType="pmc">PMC6397437</ArticleId><ArticleId IdType="pubmed">30022099</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Gong CX, Iqbal K:
+Hyperphosphorylation of microtubule- associated protein tau: A promising therapeutic target for Alzheimer disease.
+
+<i>Curr. Med. Chem.</i>
+
+2008;15(23):2321&#x2013;2328.
+10.2174/092986708785909111
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2174/092986708785909111</ArticleId><ArticleId IdType="pmc">PMC2656563</ArticleId><ArticleId IdType="pubmed">18855662</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Gon&#xe7;alves RA, Wijesekara N, Fraser PE, et al. :
+The Link Between Tau and Insulin Signaling: Implications for Alzheimer&#x2019;s Disease and Other Tauopathies.
+
+<i>Front. Cell. Neurosci.</i>
+
+2019;13:17.
+10.3389/fncel.2019.00017
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fncel.2019.00017</ArticleId><ArticleId IdType="pmc">PMC6371747</ArticleId><ArticleId IdType="pubmed">30804755</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bathina S, Das UN:
+Brain-derived neurotrophic factor and its clinical implications.
+
+<i>Arch. Med. Sci.</i>
+
+2015;6(6):1164&#x2013;1178.
+10.5114/aoms.2015.56342
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5114/aoms.2015.56342</ArticleId><ArticleId IdType="pmc">PMC4697050</ArticleId><ArticleId IdType="pubmed">26788077</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Lim JS, Mietus-Snyder M, Valente A, et al. :
+The role of fructose in the pathogenesis of NAFLD and the metabolic syndrome.
+
+<i>Nat. Rev. Gastroenterol. Hepatol.</i>
+
+2010;7(5):251&#x2013;264.
+10.1038/nrgastro.2010.41
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nrgastro.2010.41</ArticleId><ArticleId IdType="pubmed">20368739</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Renier L, De Volder AG:
+Cognitive and brain mechanisms in sensory substitution of vision: A contribution to the study of human perception.
+
+<i>J. Integr. Neurosci.</i>
+
+2005;04(4):489&#x2013;503.
+10.1142/S0219635205000999
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1142/S0219635205000999</ArticleId><ArticleId IdType="pubmed">16385643</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Rawlings AM, Sharrett AR, Schneider AL, et al. :
+Diabetes in midlife and cognitive change over 20 years: A cohort study.
+
+<i>Ann. Intern. Med.</i>
+
+2014;161(11):785&#x2013;793.
+10.7326/M14-0737
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7326/M14-0737</ArticleId><ArticleId IdType="pmc">PMC4432464</ArticleId><ArticleId IdType="pubmed">25437406</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Callisaya ML, Daly RM, Sharman JE, et al. :
+Feasibility of a multi-modal exercise program on cognition in older adults with Type 2 diabetes - a pilot randomised controlled trial.
+
+<i>BMC Geriatr.</i>
+
+2017;17(1):237.
+10.1186/s12877017-0635-9
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12877017-0635-9</ArticleId><ArticleId IdType="pmc">PMC5644140</ArticleId><ArticleId IdType="pubmed">29037162</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Babu B, Unnikrishnan M, Remya N, et al. :
+Effect of Resistance Training on Improving Cognitive Function in Subjects Having Type 2 Diabetes with Mild Cognitive Impairment.
+
+<i>Int. J. Health Sci. Res.</i>
+
+2022;12(10):174&#x2013;184. October 2022.
+10.52403/ijhsr.20221023
+</Citation><ArticleIdList><ArticleId IdType="doi">10.52403/ijhsr.20221023</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kraiwong R, Vongsirinavarat M, Rueankam M, et al. :
+Effects of physical-cognitive training on physical and psychological functions among older adults with type 2 diabetes and balance impairment: A randomized controlled trial.
+
+<i>J. Exerc. Rehabil.</i>
+
+2021;17(2):120&#x2013;130.
+10.12965/jer.2142106.053
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.12965/jer.2142106.053</ArticleId><ArticleId IdType="pmc">PMC8103183</ArticleId><ArticleId IdType="pubmed">34012938</ArticleId></ArticleIdList></Reference><Reference><Citation>
+George D, Mallery P:
+
+<i>IBM SPSS Statistics 26 Step by Step.</i>
+
+routledge;2019.
+10.4324/9780429056765
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4324/9780429056765</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Boa Sorte Silva NC, Gill DP, Owen AM, et al. :
+Cognitive changes following multiple-modality exercise and mind-motor training in older adults with subjective cognitive complaints: The M4 study.
+
+<i>PLoS One.</i>
+
+2018;13(4):e0196356.
+10.1371/journal.pone.0196356
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0196356</ArticleId><ArticleId IdType="pmc">PMC5919480</ArticleId><ArticleId IdType="pubmed">29698440</ArticleId></ArticleIdList></Reference><Reference><Citation>Heath GW, Gavin JR, 3rd, Hinderliter JM, et al. : Effects of exercise and lack of exercise on glucose tolerance and insulin sensitivity. 1983.</Citation></Reference><Reference><Citation>
+Gavelin HM, Dong C, Minkov R, et al. :
+Combined physical and cognitive training for older adults with and without cognitive impairment: A systematic review and network meta-analysis of randomized controlled trials. Ageing research reviews.
+
+<i>Ageing Res Rev.</i>
+
+2021;66:101232.
+10.1016/j.arr.2020.101232
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.arr.2020.101232</ArticleId><ArticleId IdType="pubmed">33249177</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Al-Yahya E, Dawes H, Smith L, et al. :
+Cognitive motor interference while walking: A systematic review and meta-analysis.
+
+<i>Neurosci. Biobehav. Rev.</i>
+
+2011;35(3):715&#x2013;728.
+10.1016/j.neubiorev.2010.08.008
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neubiorev.2010.08.008</ArticleId><ArticleId IdType="pubmed">20833198</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Woollacott M, Shumway-Cook A:
+Attention and the control of posture and gait: A review of an emerging area of research.
+
+<i>Gait Posture.</i>
+
+2002;16(1):1&#x2013;14.
+10.1016/s0966-6362(01)00156-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0966-6362(01)00156-4</ArticleId><ArticleId IdType="pubmed">12127181</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Shumway-Cook A, Woollacott M, Kerns KA, et al. :
+The effects of two types of cognitive tasks on postural stability in older adults with and without a history of falls.
+
+<i>J. Gerontol. A Biol. Sci. Med. Sci.</i>
+
+1997;52(4):M232&#x2013;M240.
+10.1093/gerona/52a.4.m232
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gerona/52a.4.m232</ArticleId><ArticleId IdType="pubmed">9224435</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fissler P, K&#xfc;ster O, Schlee W, et al. :
+Novelty interventions to enhance broad cognitive abilities and prevent dementia synergistic approaches for the facilitation of positive plastic change.
+
+<i>Prog. Brain Res.</i>
+
+2013;207:403&#x2013;434.
+10.1016/B978-0-444-63327-9.00017-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/B978-0-444-63327-9.00017-5</ArticleId><ArticleId IdType="pubmed">24309264</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Zhang Z, Wang JJ:
+Feng A neuropsychology review of cognition and postural control (in Chinese).
+
+<i>Space Med. Med. Eng.</i>
+
+2013;26(4):333&#x2013;337.
+10.16289/j.cnki.1002-0837.2013.04.016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.16289/j.cnki.1002-0837.2013.04.016</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Yogev-Seligmann G, Hausdorff JM, Giladi N:
+Do we always prioritize balance when walking? Towards an integrated model of task prioritization.
+
+<i>Mov. Disord.</i>
+
+2012;27(6):765&#x2013;770.
+10.1002/mds.24963
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mds.24963</ArticleId><ArticleId IdType="pubmed">22419512</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Broeker L, Liepelt R, Poljac E, et al. :
+Multitasking as a choice: A perspective.
+
+<i>Psychol. Res.</i>
+
+2018;82(1):12&#x2013;23.
+10.1007/s00426-017-0938-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00426-017-0938-7</ArticleId><ArticleId IdType="pubmed">29086021</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Pang MYC, Yang L, Ouyang H, et al. :
+Dual-Task Exercise Reduces Cognitive-Motor Interference in Walking and FallsAfter Stroke.
+
+<i>Stroke.</i>
+
+2018;49(12):2990&#x2013;2998.
+10.1161/STROKEAHA.118.022157
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/STROKEAHA.118.022157</ArticleId><ArticleId IdType="pubmed">30571419</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Erickson KI, Colcombe SJ, Wadhwa R, et al. :
+Training-induced functional activation changes in dual-task processing: An FMRI study.
+
+<i>Cerebral Cortex (New York, N.Y.: 1991).</i>
+
+2007;17(1):192&#x2013;204.
+10.1093/cercor/bhj137
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/cercor/bhj137</ArticleId><ArticleId IdType="pubmed">16467562</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bach-y-Rita P, Collins CC, Saunders F, et al. :
+Vision substitution by tactile image projection.
+
+<i>Nature.</i>
+
+1969;221(5184):963&#x2013;964. Bibcode:1969Natur.221.963B. S2CID 4179427.
+10.1038/221963a0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/221963a0</ArticleId><ArticleId IdType="pubmed">5818337</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bach-y-Rita P:
+Tactile sensory substitution studies.
+
+<i>Ann. N. Y. Acad. Sci.</i>
+
+2004;1013(1):83&#x2013;91. Bibcode:2004NYASA1013.83B. S2CID 44624575.
+10.1196/annals.1305.006
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1196/annals.1305.006</ArticleId><ArticleId IdType="pubmed">15194608</ArticleId></ArticleIdList></Reference><Reference><Citation>
+O&#x2019;Regan JK, Noe A:
+A sensorimotor account of vision and visual consciousness.
+
+<i>Behav. Brain Sci.</i>
+
+2001;24(5):939&#x2013;973. S2CID 22606536.
+10.1017/s0140525x01000115
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1017/s0140525x01000115</ArticleId><ArticleId IdType="pubmed">12239892</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Eggenberger P, Schumacher V, Angst M, et al. :
+Does multicomponent physical exercise with simultaneous cognitive training boost cognitive performance in older adults? A 6-month randomized controlled trial with a 1-year follow-up.
+
+<i>Clin. Interv. Aging.</i>
+
+2015;10:1335&#x2013;1349.
+10.2147/CIA.S87732
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/CIA.S87732</ArticleId><ArticleId IdType="pmc">PMC4544626</ArticleId><ArticleId IdType="pubmed">26316729</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Hewston P, Deshpande N:
+Effects of dual-task balance training on gait parameters in older adults with type 2 diabetes: a randomized controlled trial.
+
+<i>Phys. Ther.</i>
+
+2013;93(7):879&#x2013;889.
+10.2522/ptj.20120073
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2522/ptj.20120073</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Herold F, et al. :
+Cognitive&#x2013;motor dual-task training: Mechanisms, neuroplasticity, and application to neurorehabilitation.
+
+<i>Neuroscience &amp; Biobehavioral Reviews.</i>
+
+2018;87:67&#x2013;86.
+10.1016/j.neubiorev.2018.01.015
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neubiorev.2018.01.015</ArticleId><ArticleId IdType="pmc">PMC5845852</ArticleId><ArticleId IdType="pubmed">29391183</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Faul F, Erdfelder E, Lang A-G, et al. :
+
+<i>G</i>Power 3: A flexible statistical power analysis program for the social, behavioral, and biomedical sciences.
+
+<i>Behav. Res. Methods.</i>
+
+2007;39(2):175&#x2013;191.
+10.3758/BF03193146
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3758/BF03193146</ArticleId><ArticleId IdType="pubmed">17695343</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Smith A, et al. :
+Cognitive intervention improves executive function in adults with type 2 diabetes mellitus: A randomized controlled trial.
+
+<i>Diabetes Care.</i>
+
+2020;43(5):1020&#x2013;1028.</Citation></Reference><Reference><Citation>
+Johnson B, et al. :
+Montreal Cognitive Assessment (MoCA) as a sensitive tool for detecting cognitive changes in type 2 diabetes mellitus.
+
+<i>J. Diabetes Res.</i>
+
+2019;2019:1&#x2013;9.
+10.1155/2019/2310235
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2019/2310235</ArticleId><ArticleId IdType="pmc">PMC6476113</ArticleId><ArticleId IdType="pubmed">31089471</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Malek-Ahmadi M, Nikkhahmanesh N:
+Meta-analysis of Montreal cognitive assessment diagnostic accuracy in amnestic mild cognitive impairment.
+
+<i>Front Psychol.</i>
+
+2024 Feb 12;15:1369766.
+10.3389/fpsyg.2024.1369766
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2024.1369766</ArticleId><ArticleId IdType="pmc">PMC10896827</ArticleId><ArticleId IdType="pubmed">38414877</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Cohen J:
+
+<i>Statistical Power Analysis for the Behavioral Sciences.</i>
+
+1988;
+2nded.
+Hillsdale, NJ:
+Lawrence Erlbaum Associates.</Citation></Reference><Reference><Citation>
+Anandh Raj J:
+Baseline characteristics of 12-week &amp; 18th-week follow-up of cognitive motor dual-task training in type 2 diabetes mellitus subjects.Dataset.
+
+<i>figshare.</i>
+
+2025.
+10.6084/m9.figshare.29134604.v1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.6084/m9.figshare.29134604.v1</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Biessels GJ, Despa F:
+Cognitive decline and dementia in diabetes mellitus: Mechanisms and clinical implications.
+
+<i>Nat. Rev. Endocrinol.</i>
+
+2018;14:591&#x2013;604.
+10.1038/s41574-018-0048-7
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41574-018-0048-7</ArticleId><ArticleId IdType="pmc">PMC6397437</ArticleId><ArticleId IdType="pubmed">30022099</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Moran C, et al. :
+Type 2 diabetes, brain structure, and cognitive decline: A meta-analysis.
+
+<i>Lancet Diabetes Endocrinol.</i>
+
+2019;7:105&#x2013;117.</Citation></Reference><Reference><Citation>
+Koekkoek PS, et al. :
+Cognitive function in patients with type 2 diabetes: A meta-analysis.
+
+<i>Diabetes Care.</i>
+
+2015;38:725&#x2013;732.</Citation></Reference><Reference><Citation>
+Cheng G, Huang C, Deng H, et al. :
+Diabetes as a risk factor for dementia and mild cognitive impairment: A meta-analysis of longitudinal studies.
+
+<i>Intern. Med. J.</i>
+
+2012;42:484&#x2013;491.
+10.1111/j.1445-5994.2012.02758.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1445-5994.2012.02758.x</ArticleId><ArticleId IdType="pubmed">22372522</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Eggenberger P, Schumacher V, Angst M, et al. :
+Does multicomponent physical exercise with simultaneous cognitive training boost cognitive performance in older adults?
+
+<i>Age.</i>
+
+2015;37:1&#x2013;13.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4312309</ArticleId><ArticleId IdType="pubmed">25637334</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Hewston P, Deshpande N:
+The effects of dual-task training on gait in older adults with type 2 diabetes mellitus.
+
+<i>J. Aging Phys. Act.</i>
+
+2013;21:285&#x2013;295.</Citation></Reference><Reference><Citation>
+Bach-y-Rita P:2004;
+
+<i>Seeing with the brain. </i>
+
+New York:
+HarperCollins.</Citation></Reference><Reference><Citation>
+Ptito M, et al. :
+Cross-modal plasticity in sensory-deprived cortex.
+
+<i>Prog. Brain Res.</i>
+
+2005;150:309&#x2013;327.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">16186033</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bach-y-Rita P, Kercel SW:
+Sensory substitution and the human&#x2013;machine interface.
+
+<i>Trends Cogn. Sci.</i>
+
+2003;7:541&#x2013;546.
+10.1016/j.tics.2003.10.013
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.tics.2003.10.013</ArticleId><ArticleId IdType="pubmed">14643370</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Maidenbaum S, Abboud S, Amedi A:
+Sensory substitution: Closing the gap between basic research and widespread practical visual rehabilitation.
+
+<i>Neurosci. Biobehav. Rev.</i>
+
+2014;41:3&#x2013;15.
+10.1016/j.neubiorev.2013.11.007
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neubiorev.2013.11.007</ArticleId><ArticleId IdType="pubmed">24275274</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Anandh Raj J:
+Pretest and post test values of MoCA in Group A and B in Type 2 Diabetes Mellitus subjects.Dataset.
+
+<i>figshare.</i>
+
+2025.
+10.6084/m9.figshare.28513433.v2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.6084/m9.figshare.28513433.v2</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>
