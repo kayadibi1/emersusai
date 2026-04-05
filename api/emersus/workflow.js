@@ -1,3 +1,5 @@
+import { retrieveDatabaseEvidence as retrieveVectorDatabaseEvidence } from "./retrieveDatabaseEvidence.js";
+
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
 const DEFAULT_DB_TABLE =
   process.env.EMERSUS_EVIDENCE_TABLE || "knowledge_documents";
@@ -6,6 +8,9 @@ const DEFAULT_DB_LIMIT = Number(process.env.EMERSUS_EVIDENCE_LIMIT || 6);
 const DEFAULT_WEB_CONTEXT =
   process.env.OPENAI_EMERSUS_WEB_CONTEXT || "medium";
 const MAX_QUESTION_LENGTH = 3000;
+const VECTOR_LIMIT = 6;
+const VECTOR_MATCH_THRESHOLD = 0.4;
+const VECTOR_MATCH_COUNT = 10;
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -27,6 +32,17 @@ function normalizeList(value, maxItems = 8) {
     .map((item) => normalizeText(item, 240))
     .filter(Boolean)
     .slice(0, maxItems);
+}
+
+function parsePublicationTypes(value) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((item) => normalizeText(item, 80))
+    .filter(Boolean)
+    .slice(0, 6);
 }
 
 function parseJsonBody(req) {
@@ -202,7 +218,7 @@ function normalizeDatabaseRow(row) {
   const metadata = row.metadata && typeof row.metadata === "object" ? row.metadata : {};
 
   return {
-    id: row.id || row.document_id || null,
+    source_id: row.id || row.document_id || null,
     title: normalizeText(
       row.title || metadata.title || row.name || row.document_title,
       240
@@ -225,7 +241,55 @@ function normalizeDatabaseRow(row) {
       row.summary || row.snippet || row.abstract || metadata.summary,
       600
     ),
+    excerpt: normalizeText(
+      row.summary || row.snippet || row.abstract || metadata.summary,
+      420
+    ),
     database_score: Number(row.database_score || row.similarity || row.score || 0) || 0,
+    why_it_matters: normalizeText(
+      row.summary || metadata.summary || "Relevant database evidence for this answer.",
+      240
+    ),
+  };
+}
+
+function normalizeVectorEvidenceRow(row) {
+  const publicationTypes = parsePublicationTypes(row.publication_types);
+  const publicationYear = normalizeText(row.publication_year, 8);
+  const publicationDate = normalizeText(row.publication_date, 40);
+  const pmid = normalizeText(row.pmid, 32);
+  const doi = normalizeText(row.doi, 160);
+
+  return {
+    source_id: pmid ? `pmid:${pmid}` : null,
+    pmid,
+    doi,
+    pmcid: normalizeText(row.pmcid, 40),
+    title: normalizeText(row.title, 240),
+    journal: normalizeText(row.journal, 160),
+    publication_year: publicationYear,
+    publication_date: publicationDate,
+    publication_types: publicationTypes,
+    publication_type: publicationTypes.join(", "),
+    chunk_type: normalizeText(row.chunk_type, 40),
+    chunk_text: normalizeText(row.chunk_text, 900),
+    excerpt: normalizeText(row.chunk_text, 420),
+    summary: normalizeText(row.chunk_text, 600),
+    similarity: clamp(Number(row.similarity || 0), 0, 1),
+    database_score: clamp(Number(row.similarity || 0), 0, 1),
+    source_type: "pubmed_vector",
+    evidence_level: publicationTypes.join(", "),
+    published_at: publicationDate || publicationYear,
+    url: doi
+      ? `https://doi.org/${doi}`
+      : pmid
+        ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`
+        : "",
+    why_it_matters: normalizeText(
+      row.chunk_text || `Matched a PubMed evidence chunk with similarity ${Number(row.similarity || 0).toFixed(2)}.`,
+      240
+    ),
+    mesh_terms: Array.isArray(row.mesh_terms) ? row.mesh_terms.slice(0, 8) : [],
   };
 }
 
@@ -376,7 +440,64 @@ function rankDatabaseEvidence(evidence) {
     .sort((left, right) => right.ranking_score - left.ranking_score);
 }
 
-async function retrieveDatabaseEvidence(plan, profile) {
+function dedupeEvidence(evidence) {
+  const byId = new Map();
+
+  for (const item of evidence) {
+    const key =
+      item.source_id ||
+      item.pmid ||
+      item.doi ||
+      item.url ||
+      `${item.title}:${item.excerpt}`;
+
+    const existing = byId.get(key);
+
+    if (!existing || Number(item.ranking_score || 0) > Number(existing.ranking_score || 0)) {
+      byId.set(key, item);
+    }
+  }
+
+  return [...byId.values()];
+}
+
+function formatEvidenceForModel(evidence) {
+  if (!evidence.length) {
+    return "No database evidence retrieved.";
+  }
+
+  return evidence
+    .slice(0, 6)
+    .map((item, index) => {
+      const publicationTypes = parsePublicationTypes(item.publication_types);
+      return [
+        `[${index + 1}] ${item.title || "Untitled evidence"}`,
+        item.pmid ? `PMID: ${item.pmid}` : null,
+        item.journal ? `Journal: ${item.journal}` : null,
+        item.publication_year
+          ? `Year: ${item.publication_year}`
+          : item.published_at
+            ? `Year: ${item.published_at}`
+            : null,
+        publicationTypes.length
+          ? `Publication types: ${publicationTypes.join(", ")}`
+          : item.publication_type || item.evidence_level
+            ? `Publication types: ${item.publication_type || item.evidence_level}`
+            : null,
+        item.similarity != null
+          ? `Similarity: ${Number(item.similarity).toFixed(2)}`
+          : item.database_score != null
+            ? `Similarity: ${Number(item.database_score).toFixed(2)}`
+            : null,
+        item.excerpt ? `Relevant excerpt: ${item.excerpt}` : null,
+      ]
+        .filter(Boolean)
+        .join("\n");
+    })
+    .join("\n\n");
+}
+
+async function retrieveLegacyDatabaseEvidence(plan, profile) {
   const supabaseUrl =
     process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -431,7 +552,43 @@ async function retrieveDatabaseEvidence(plan, profile) {
   }
 }
 
-function buildOpenAIInput({ question, plan, profile, databaseEvidence, today }) {
+async function retrieveVectorEvidence(question) {
+  try {
+    const matches = await retrieveVectorDatabaseEvidence({
+      prompt: question,
+      limit: VECTOR_LIMIT,
+      matchThreshold: VECTOR_MATCH_THRESHOLD,
+      matchCount: VECTOR_MATCH_COUNT,
+    });
+
+    return {
+      available: matches.length > 0,
+      method: "vector",
+      evidence: rankDatabaseEvidence(matches.map(normalizeVectorEvidenceRow)).slice(
+        0,
+        VECTOR_LIMIT
+      ),
+      error: null,
+    };
+  } catch (error) {
+    console.error("Vector evidence retrieval failed:", error);
+    return {
+      available: false,
+      method: null,
+      evidence: [],
+      error: error.message || "Vector evidence retrieval failed.",
+    };
+  }
+}
+
+function buildOpenAIInput({
+  question,
+  plan,
+  profile,
+  databaseEvidence,
+  evidenceForModel,
+  today,
+}) {
   return [
     {
       role: "system",
@@ -450,6 +607,7 @@ function buildOpenAIInput({ question, plan, profile, databaseEvidence, today }) 
             needs_recent_sources: plan.needsRecency,
           },
           user_profile: profile,
+          retrieved_evidence_block: evidenceForModel,
           database_evidence: databaseEvidence,
           output_requirements: {
             include_sections: [
@@ -470,7 +628,9 @@ function buildOpenAIInput({ question, plan, profile, databaseEvidence, today }) 
               rationale: "short explanation",
             },
             source_rules: [
+              "Use retrieved database evidence when relevant before relying on general web search.",
               "Each source must include title, url, source_type, published_at, and why_it_matters.",
+              "When PubMed-style evidence is available, preserve pmid, journal, publication year, doi, excerpt, and publication type when possible.",
               "Use source_type values of database or web.",
               "Cite the most recent and relevant sources first.",
             ],
@@ -527,6 +687,12 @@ function buildResponseSchema() {
             source_type: { type: "string" },
             published_at: { type: "string" },
             why_it_matters: { type: "string" },
+            journal: { type: "string" },
+            year: { type: "string" },
+            doi: { type: "string" },
+            pmid: { type: "string" },
+            excerpt: { type: "string" },
+            publication_type: { type: "string" },
           },
           required: [
             "title",
@@ -637,13 +803,19 @@ function normalizeRecommendationPayload(payload) {
         source_type: normalizeText(source?.source_type, 32) || "web",
         published_at: normalizeText(source?.published_at, 80),
         why_it_matters: normalizeText(source?.why_it_matters, 240),
+        journal: normalizeText(source?.journal, 160),
+        year: normalizeText(source?.year, 16),
+        doi: normalizeText(source?.doi, 160),
+        pmid: normalizeText(source?.pmid, 32),
+        excerpt: normalizeText(source?.excerpt, 420),
+        publication_type: normalizeText(source?.publication_type, 160),
       }))
       .filter((source) => source.title || source.url),
     limitations: normalizeList(payload?.limitations, 6),
   };
 }
 
-function buildFallbackRecommendation({ question, plan, databaseEvidence }) {
+function buildFallbackRecommendation({ question, databaseEvidence }) {
   const lower = question.toLowerCase();
   const sources = rankDatabaseEvidence(databaseEvidence).slice(0, 5).map((source) => ({
     title: source.title,
@@ -652,6 +824,16 @@ function buildFallbackRecommendation({ question, plan, databaseEvidence }) {
     published_at: source.published_at,
     why_it_matters:
       source.summary || source.why_it_matters || "Relevant database evidence for this answer.",
+    journal: source.journal || "",
+    year: source.publication_year || source.published_at || "",
+    doi: source.doi || "",
+    pmid: source.pmid || "",
+    excerpt: source.excerpt || "",
+    publication_type:
+      source.publication_type ||
+      (Array.isArray(source.publication_types)
+        ? source.publication_types.join(", ")
+        : source.evidence_level || ""),
   }));
 
   if (lower.includes("creatine")) {
@@ -749,7 +931,14 @@ function computeConfidence({ plan, databaseEvidence, sources, modelConfidence })
   };
 }
 
-async function callOpenAI({ question, plan, profile, databaseEvidence, today }) {
+async function callOpenAI({
+  question,
+  plan,
+  profile,
+  databaseEvidence,
+  evidenceForModel,
+  today,
+}) {
   const apiKey = process.env.OPENAI_API_KEY;
 
   if (!apiKey) {
@@ -791,6 +980,7 @@ async function callOpenAI({ question, plan, profile, databaseEvidence, today }) 
         plan,
         profile,
         databaseEvidence,
+        evidenceForModel,
         today,
       }),
     }),
@@ -819,7 +1009,12 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
   );
   const mergedProfile = mergeProfile(profile, storedProfile || {});
   const plan = buildPlan(question, mergedProfile, Boolean(supabaseUrl && serviceRoleKey));
-  const database = await retrieveDatabaseEvidence(plan, mergedProfile);
+  const vectorDatabase = await retrieveVectorEvidence(question);
+  const legacyDatabase = await retrieveLegacyDatabaseEvidence(plan, mergedProfile);
+  const databaseEvidence = rankDatabaseEvidence(
+    dedupeEvidence([...vectorDatabase.evidence, ...legacyDatabase.evidence])
+  ).slice(0, 8);
+  const evidenceForModel = formatEvidenceForModel(databaseEvidence);
   const today = new Date().toISOString().slice(0, 10);
   let openAIResponse = null;
   let modelPayload = null;
@@ -829,7 +1024,8 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
       question,
       plan,
       profile: mergedProfile,
-      databaseEvidence: database.evidence,
+      databaseEvidence,
+      evidenceForModel,
       today,
     });
 
@@ -846,19 +1042,19 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
   if (!modelPayload) {
     modelPayload = buildFallbackRecommendation({
       question,
-      plan,
-      databaseEvidence: database.evidence,
+      databaseEvidence,
     });
   }
   const combinedSources = rankDatabaseEvidence(
-    [...database.evidence, ...modelPayload.sources].map((source) => ({
+    [...databaseEvidence, ...modelPayload.sources].map((source) => ({
       ...source,
-      database_score: source.database_score || 0,
+      database_score:
+        source.database_score ?? source.similarity ?? source.freshness_score ?? 0,
     }))
   ).slice(0, 8);
   const confidence = computeConfidence({
     plan,
-    databaseEvidence: database.evidence,
+    databaseEvidence,
     sources: combinedSources,
     modelConfidence: modelPayload.confidence.score,
   });
@@ -875,24 +1071,41 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
     limitations: modelPayload.limitations,
     sources: combinedSources.map((source) => ({
       title: source.title,
-      url: source.url,
+      url: source.url || "",
       source_type: source.source_type || "database",
-      published_at: source.published_at,
+      published_at: source.published_at || "",
       evidence_level: source.evidence_level || "",
       why_it_matters:
         source.why_it_matters ||
-        (source.source_type === "database"
+        (source.source_type === "pubmed_vector"
+          ? "Retrieved from the Emersus PubMed evidence index."
+          : source.source_type === "database"
           ? "Retrieved from the Emersus knowledge database."
           : "Referenced in the model-generated recommendation."),
+      journal: source.journal || "",
+      year: source.publication_year || source.year || source.published_at || "",
+      doi: source.doi || "",
+      pmid: source.pmid || "",
+      excerpt: source.excerpt || source.chunk_text || source.summary || "",
+      publication_type:
+        source.publication_type ||
+        (Array.isArray(source.publication_types)
+          ? source.publication_types.join(", ")
+          : source.evidence_level || ""),
       freshness_score:
         source.freshness_score ?? scoreEvidenceFreshness(source.published_at),
       quality_score:
         source.quality_score ??
-        scoreEvidenceQuality(source.evidence_level, source.source_type),
+        scoreEvidenceQuality(
+          source.publication_type || source.evidence_level,
+          source.source_type
+        ),
     })),
     debug: includeDebug
       ? {
-          database,
+          vector_database: vectorDatabase,
+          legacy_database: legacyDatabase,
+          evidence_for_model: evidenceForModel,
           openai_response_id: openAIResponse?.id || null,
           raw_output_text: extractTextFromResponse(openAIResponse) || "",
         }
@@ -928,7 +1141,7 @@ function validateRequest(body) {
   };
 }
 
-module.exports = {
+export {
   generateRecommendation,
   parseJsonBody,
   validateRequest,

@@ -221,10 +221,21 @@
       (data.sources || []).forEach((source) => {
         const item = document.createElement("li");
         item.className = "source-item";
+        const meta = [
+          source.source_type || "database",
+          source.journal || "",
+          source.year || source.published_at || "",
+          source.publication_type || "",
+          source.pmid ? `PMID ${source.pmid}` : "",
+        ]
+          .filter(Boolean)
+          .join(" - ");
         item.innerHTML = `
           <strong>${source.title || "Source"}</strong>
-          <div>${source.source_type || "database"}${source.published_at ? ` - ${source.published_at}` : ""}</div>
-          <div>${source.why_it_matters || ""}</div>
+          <div>${meta}</div>
+          <div>${source.why_it_matters || source.excerpt || ""}</div>
+          ${source.excerpt ? `<div>${source.excerpt}</div>` : ""}
+          ${source.doi ? `<div>DOI: ${source.doi}</div>` : ""}
           ${source.url ? `<div><a href="${source.url}" target="_blank" rel="noreferrer">${source.url}</a></div>` : ""}
         `;
         sources.appendChild(item);

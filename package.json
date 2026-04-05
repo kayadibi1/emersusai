@@ -1,7 +1,10 @@
 {
   "name": "emersus-ai-site",
   "private": true,
+  "type": "module",
   "dependencies": {
+    "@supabase/supabase-js": "^2.101.1",
+    "openai": "^6.33.0",
     "resend": "^4.1.0"
   }
 }
