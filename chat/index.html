@@ -549,6 +549,10 @@
 
       const html = cards
         .map((card) => {
+          if (card.type === "verdict_hero" || card.type === "source_highlights") {
+            return "";
+          }
+
           if (card.type === "verdict_hero") {
             return `
               <section class="report-card report-card--hero">
@@ -665,7 +669,14 @@
         .filter(Boolean)
         .join("");
 
-      return html ? `<div class="card-stack">${html}</div>` : "";
+      return html
+        ? `
+          <div class="card-stack">
+            <p class="card-title">Supporting view</p>
+            ${html}
+          </div>
+        `
+        : "";
     }
 
     function renderNarrativeResponse(data) {
@@ -722,8 +733,8 @@
     function renderAssistantResponse(data) {
       return `
         <div class="assistant-report">
-          ${renderCards(data.cards || [])}
           ${renderNarrativeResponse(data)}
+          ${renderCards(data.cards || [])}
         </div>
       `;
     }

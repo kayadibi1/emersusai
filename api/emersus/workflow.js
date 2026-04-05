@@ -800,6 +800,14 @@ function buildCards({ question, plan, synthesis, confidence, sources, evidence }
     recommendations: synthesis.recommendations,
     topic: plan.topic,
   });
+  const shouldShowCards =
+    sources.length >= 2 &&
+    Number(confidence.score || 0) >= 0.65 &&
+    actionColumns.length >= 2;
+
+  if (!shouldShowCards) {
+    return [];
+  }
   const sourceHighlights = sources.slice(0, 3).map((source) => ({
     title: source.title,
     meta: [
