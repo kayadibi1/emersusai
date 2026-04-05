@@ -1,12 +1,6 @@
 import { retrieveDatabaseEvidence as retrieveVectorDatabaseEvidence } from "./retrieveDatabaseEvidence.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
-const DEFAULT_DB_TABLE =
-  process.env.EMERSUS_EVIDENCE_TABLE || "knowledge_documents";
-const DEFAULT_DB_RPC = process.env.EMERSUS_EVIDENCE_RPC || "match_knowledge_documents";
-const DEFAULT_DB_LIMIT = Number(process.env.EMERSUS_EVIDENCE_LIMIT || 6);
-const DEFAULT_WEB_CONTEXT =
-  process.env.OPENAI_EMERSUS_WEB_CONTEXT || "medium";
 const MAX_QUESTION_LENGTH = 3000;
 const VECTOR_LIMIT = 6;
 const VECTOR_MATCH_THRESHOLD = 0.4;
@@ -23,13 +17,13 @@ function normalizeText(value, maxLength = 4000) {
     .slice(0, maxLength);
 }
 
-function normalizeList(value, maxItems = 8) {
+function normalizeList(value, maxItems = 8, maxLength = 240) {
   if (!Array.isArray(value)) {
     return [];
   }
 
   return value
-    .map((item) => normalizeText(item, 240))
+    .map((item) => normalizeText(item, maxLength))
     .filter(Boolean)
     .slice(0, maxItems);
 }
@@ -101,13 +95,9 @@ function inferTopic(question) {
   return "strength";
 }
 
-function buildPlan(question, profile, hasDatabase) {
+function buildPlan(question, profile) {
   const topic = inferTopic(question);
   const lowerQuestion = question.toLowerCase();
-  const needsRecency =
-    /latest|recent|new|today|this year|study|studies|evidence|research|update/.test(
-      lowerQuestion
-    ) || topic !== "strength";
   const riskLevel =
     /injur|pain|depress|anx|panic|eating disorder|blood pressure|diabetes|medication|pregnan/.test(
       lowerQuestion
@@ -117,21 +107,7 @@ function buildPlan(question, profile, hasDatabase) {
 
   return {
     topic,
-    hasDatabase,
-    needsDatabase: hasDatabase,
-    needsWeb: needsRecency || !hasDatabase,
-    needsRecency,
     riskLevel,
-    dbQuery: [
-      question,
-      normalizeText(profile.goal, 200),
-      normalizeText(profile.experience_level, 120),
-      normalizeText(profile.dietary_preferences, 200),
-      normalizeText(profile.injuries_limitations, 200),
-    ]
-      .filter(Boolean)
-      .join(" | ")
-      .slice(0, 700),
   };
 }
 
@@ -190,69 +166,6 @@ function mergeProfile(profile, storedProfile) {
   };
 }
 
-function buildSearchTerms(question, plan, profile) {
-  const text = [
-    question,
-    plan.topic,
-    profile.goal,
-    profile.experience_level,
-    profile.dietary_preferences,
-    profile.injuries_limitations,
-  ]
-    .join(" ")
-    .toLowerCase();
-
-  const terms = Array.from(
-    new Set(
-      text
-        .split(/[^a-z0-9+]+/)
-        .map((token) => token.trim())
-        .filter((token) => token.length >= 4)
-    )
-  );
-
-  return terms.slice(0, 12);
-}
-
-function normalizeDatabaseRow(row) {
-  const metadata = row.metadata && typeof row.metadata === "object" ? row.metadata : {};
-
-  return {
-    source_id: row.id || row.document_id || null,
-    title: normalizeText(
-      row.title || metadata.title || row.name || row.document_title,
-      240
-    ),
-    url: normalizeText(row.url || metadata.url || row.source_url, 500),
-    source_type: normalizeText(
-      row.source_type || metadata.source_type || row.publisher || "database",
-      80
-    ),
-    topic: normalizeText(row.topic || metadata.topic, 80),
-    published_at: normalizeText(
-      row.published_at || metadata.published_at || row.publication_date,
-      80
-    ),
-    evidence_level: normalizeText(
-      row.evidence_level || metadata.evidence_level || "",
-      120
-    ),
-    summary: normalizeText(
-      row.summary || row.snippet || row.abstract || metadata.summary,
-      600
-    ),
-    excerpt: normalizeText(
-      row.summary || row.snippet || row.abstract || metadata.summary,
-      420
-    ),
-    database_score: Number(row.database_score || row.similarity || row.score || 0) || 0,
-    why_it_matters: normalizeText(
-      row.summary || metadata.summary || "Relevant database evidence for this answer.",
-      240
-    ),
-  };
-}
-
 function normalizeVectorEvidenceRow(row) {
   const publicationTypes = parsePublicationTypes(row.publication_types);
   const publicationYear = normalizeText(row.publication_year, 8);
@@ -272,7 +185,7 @@ function normalizeVectorEvidenceRow(row) {
     publication_types: publicationTypes,
     publication_type: publicationTypes.join(", "),
     chunk_type: normalizeText(row.chunk_type, 40),
-    chunk_text: normalizeText(row.chunk_text, 900),
+    chunk_text: normalizeText(row.chunk_text, 1200),
     excerpt: normalizeText(row.chunk_text, 420),
     summary: normalizeText(row.chunk_text, 600),
     similarity: clamp(Number(row.similarity || 0), 0, 1),
@@ -291,86 +204,6 @@ function normalizeVectorEvidenceRow(row) {
     ),
     mesh_terms: Array.isArray(row.mesh_terms) ? row.mesh_terms.slice(0, 8) : [],
   };
-}
-
-function encodeOrFilter(searchTerms, columns) {
-  if (!searchTerms.length || !columns.length) {
-    return "";
-  }
-
-  const fragments = [];
-
-  for (const term of searchTerms.slice(0, 4)) {
-    for (const column of columns) {
-      fragments.push(`${column}.ilike.*${term.replace(/\*/g, "")}*`);
-    }
-  }
-
-  return fragments.join(",");
-}
-
-async function retrieveViaRpc({ supabaseUrl, serviceRoleKey, plan, profile }) {
-  const response = await fetch(`${supabaseUrl}/rest/v1/rpc/${DEFAULT_DB_RPC}`, {
-    method: "POST",
-    headers: {
-      apikey: serviceRoleKey,
-      Authorization: `Bearer ${serviceRoleKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      query_text: plan.dbQuery,
-      match_count: DEFAULT_DB_LIMIT,
-      requested_topic: plan.topic,
-      user_goal: profile.goal || null,
-    }),
-  });
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(errorText || "RPC retrieval failed.");
-  }
-
-  const rows = await response.json().catch(() => []);
-  return Array.isArray(rows) ? rows.map(normalizeDatabaseRow) : [];
-}
-
-async function retrieveViaTable({ supabaseUrl, serviceRoleKey, plan, profile }) {
-  const searchTerms = buildSearchTerms(plan.dbQuery, plan, profile);
-  const columns = ["title", "summary", "topic", "evidence_level"];
-  const params = new URLSearchParams({
-    select:
-      "id,title,url,source_type,topic,published_at,evidence_level,summary,metadata",
-    limit: String(DEFAULT_DB_LIMIT),
-    order: "published_at.desc.nullslast",
-  });
-
-  if (plan.topic) {
-    params.set("topic", `eq.${plan.topic}`);
-  }
-
-  const orFilter = encodeOrFilter(searchTerms, columns);
-  if (orFilter) {
-    params.set("or", `(${orFilter})`);
-  }
-
-  const response = await fetch(
-    `${supabaseUrl}/rest/v1/${DEFAULT_DB_TABLE}?${params.toString()}`,
-    {
-      method: "GET",
-      headers: {
-        apikey: serviceRoleKey,
-        Authorization: `Bearer ${serviceRoleKey}`,
-      },
-    }
-  );
-
-  if (!response.ok) {
-    const errorText = await response.text();
-    throw new Error(errorText || "Table retrieval failed.");
-  }
-
-  const rows = await response.json().catch(() => []);
-  return Array.isArray(rows) ? rows.map(normalizeDatabaseRow) : [];
 }
 
 function scoreEvidenceFreshness(publishedAt) {
@@ -409,10 +242,6 @@ function scoreEvidenceQuality(evidenceLevel, sourceType) {
 
   if (/trial|rct|peer|journal|database/.test(text)) {
     return 0.84;
-  }
-
-  if (/expert|news|blog/.test(text)) {
-    return 0.58;
   }
 
   return 0.68;
@@ -461,97 +290,6 @@ function dedupeEvidence(evidence) {
   return [...byId.values()];
 }
 
-function formatEvidenceForModel(evidence) {
-  if (!evidence.length) {
-    return "No database evidence retrieved.";
-  }
-
-  return evidence
-    .slice(0, 6)
-    .map((item, index) => {
-      const publicationTypes = parsePublicationTypes(item.publication_types);
-      return [
-        `[${index + 1}] ${item.title || "Untitled evidence"}`,
-        item.pmid ? `PMID: ${item.pmid}` : null,
-        item.journal ? `Journal: ${item.journal}` : null,
-        item.publication_year
-          ? `Year: ${item.publication_year}`
-          : item.published_at
-            ? `Year: ${item.published_at}`
-            : null,
-        publicationTypes.length
-          ? `Publication types: ${publicationTypes.join(", ")}`
-          : item.publication_type || item.evidence_level
-            ? `Publication types: ${item.publication_type || item.evidence_level}`
-            : null,
-        item.similarity != null
-          ? `Similarity: ${Number(item.similarity).toFixed(2)}`
-          : item.database_score != null
-            ? `Similarity: ${Number(item.database_score).toFixed(2)}`
-            : null,
-        item.excerpt ? `Relevant excerpt: ${item.excerpt}` : null,
-      ]
-        .filter(Boolean)
-        .join("\n");
-    })
-    .join("\n\n");
-}
-
-async function retrieveLegacyDatabaseEvidence(plan, profile) {
-  const supabaseUrl =
-    process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
-  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-  if (!plan.needsDatabase || !supabaseUrl || !serviceRoleKey) {
-    return {
-      available: false,
-      method: null,
-      evidence: [],
-      error: null,
-    };
-  }
-
-  try {
-    const rpcEvidence = await retrieveViaRpc({
-      supabaseUrl,
-      serviceRoleKey,
-      plan,
-      profile,
-    });
-
-    return {
-      available: true,
-      method: "rpc",
-      evidence: rankDatabaseEvidence(rpcEvidence).slice(0, DEFAULT_DB_LIMIT),
-      error: null,
-    };
-  } catch (rpcError) {
-    try {
-      const tableEvidence = await retrieveViaTable({
-        supabaseUrl,
-        serviceRoleKey,
-        plan,
-        profile,
-      });
-
-      return {
-        available: true,
-        method: "table",
-        evidence: rankDatabaseEvidence(tableEvidence).slice(0, DEFAULT_DB_LIMIT),
-        error: rpcError.message || "RPC retrieval failed.",
-      };
-    } catch (tableError) {
-      console.error("Database retrieval failed:", rpcError, tableError);
-      return {
-        available: false,
-        method: null,
-        evidence: [],
-        error: tableError.message || rpcError.message || "Database retrieval failed.",
-      };
-    }
-  }
-}
-
 async function retrieveVectorEvidence(question) {
   try {
     const matches = await retrieveVectorDatabaseEvidence({
@@ -564,10 +302,9 @@ async function retrieveVectorEvidence(question) {
     return {
       available: matches.length > 0,
       method: "vector",
-      evidence: rankDatabaseEvidence(matches.map(normalizeVectorEvidenceRow)).slice(
-        0,
-        VECTOR_LIMIT
-      ),
+      evidence: rankDatabaseEvidence(
+        dedupeEvidence(matches.map(normalizeVectorEvidenceRow))
+      ).slice(0, VECTOR_LIMIT),
       error: null,
     };
   } catch (error) {
@@ -581,122 +318,35 @@ async function retrieveVectorEvidence(question) {
   }
 }
 
-function summarizeEvidenceSnapshot(databaseEvidence) {
-  const topEvidence = rankDatabaseEvidence(databaseEvidence).slice(0, 3);
-
-  if (!topEvidence.length) {
-    return {
-      summary:
-        "I couldn't get a full model response, so this fallback is limited to the evidence that was already retrieved.",
-      training: [
-        "Ask a more specific follow-up so I can tailor the recommendation more tightly to your goal and context.",
-      ],
-      nutrition: [
-        "Include your goal, training volume, and any dietary constraints for a more useful answer.",
-      ],
-      mentalPerformance: [
-        "Add sleep, stress, or focus context if you want broader performance recommendations.",
-      ],
-      limitations: [
-        "This fallback is less personalized than the normal model-generated path.",
-      ],
-      confidenceRationale:
-        "Confidence is based on retrieved sources only because the main generation path did not produce a usable answer.",
-    };
+function formatEvidenceForModel(evidence) {
+  if (!evidence.length) {
+    return "No database evidence retrieved.";
   }
 
-  const titles = topEvidence
-    .map((item) => item.title)
-    .filter(Boolean)
-    .slice(0, 2);
-  const lead = titles.length
-    ? `The strongest retrieved evidence included ${titles.join(" and ")}.`
-    : "Relevant evidence was retrieved, but the main generation path did not complete.";
-  const primary = topEvidence[0];
-
-  return {
-    summary: `${lead} This fallback is grounded in the retrieved papers rather than the old canned response path.`,
-    training: primary?.title
-      ? [`Use the retrieved evidence around "${primary.title}" as the main anchor for your training decision.`]
-      : ["Use the retrieved evidence as the main anchor for your training decision."],
-    nutrition: [
-      "Prioritize the nutrition implications supported by the top retrieved papers before adding broader advice.",
-    ],
-    mentalPerformance: [
-      "Mental-performance guidance is limited here unless the retrieved evidence directly addressed that topic.",
-    ],
-    limitations: [
-      "This fallback did not synthesize the evidence as deeply as the normal model-generated answer.",
-      "Retry the question after the model path is healthy if you want a fuller synthesis.",
-    ],
-    confidenceRationale:
-      "Confidence is based on source quality and recency, but the final narrative was not fully model-generated.",
-  };
+  return evidence
+    .slice(0, 5)
+    .map((item, index) =>
+      [
+        `[${index + 1}] ${item.title || "Untitled evidence"}`,
+        item.pmid ? `PMID: ${item.pmid}` : null,
+        item.journal ? `Journal: ${item.journal}` : null,
+        item.publication_year
+          ? `Year: ${item.publication_year}`
+          : item.published_at
+            ? `Year: ${item.published_at}`
+            : null,
+        item.publication_type || item.evidence_level
+          ? `Publication type: ${item.publication_type || item.evidence_level}`
+          : null,
+        item.excerpt ? `Excerpt: ${item.excerpt}` : null,
+      ]
+        .filter(Boolean)
+        .join("\n")
+    )
+    .join("\n\n");
 }
 
-function buildOpenAIInput({
-  question,
-  plan,
-  profile,
-  databaseEvidence,
-  evidenceForModel,
-  today,
-}) {
-  return [
-    {
-      role: "system",
-      content:
-        "You are Emersus AI, a performance optimizer focused on strength training, cardio, nutrition, and mental performance. Provide evidence-aware recommendations without overstating certainty. Prioritize provided database evidence when it is relevant and usable. Use web search when the request needs fresher evidence, the database is sparse, or a claim needs external verification. Always prefer more recent and higher-quality sources. If the user asks for medical care, diagnosis, or crisis support, keep the advice cautious and recommend an appropriate professional when needed. Return JSON only.",
-    },
-    {
-      role: "user",
-      content: JSON.stringify(
-        {
-          today,
-          request: {
-            question,
-            topic: plan.topic,
-            risk_level: plan.riskLevel,
-            needs_recent_sources: plan.needsRecency,
-          },
-          user_profile: profile,
-          retrieved_evidence_block: evidenceForModel,
-          database_evidence: databaseEvidence,
-          output_requirements: {
-            include_sections: [
-              "summary",
-              "recommendations",
-              "confidence",
-              "sources",
-              "limitations",
-            ],
-            recommendation_shape: {
-              training: "array of specific actions",
-              nutrition: "array of specific actions",
-              mental_performance: "array of specific actions",
-            },
-            confidence_shape: {
-              score: "0.0 to 1.0",
-              label: "low | moderate | high",
-              rationale: "short explanation",
-            },
-            source_rules: [
-              "Use retrieved database evidence when relevant before relying on general web search.",
-              "Each source must include title, url, source_type, published_at, and why_it_matters.",
-              "When PubMed-style evidence is available, preserve pmid, journal, publication year, doi, excerpt, and publication type when possible.",
-              "Use source_type values of database or web.",
-              "Cite the most recent and relevant sources first.",
-            ],
-          },
-        },
-        null,
-        2
-      ),
-    },
-  ];
-}
-
-function buildResponseSchema() {
+function buildSynthesisSchema() {
   return {
     type: "object",
     properties: {
@@ -720,103 +370,46 @@ function buildResponseSchema() {
         required: ["training", "nutrition", "mental_performance"],
         additionalProperties: false,
       },
-      confidence: {
-        type: "object",
-        properties: {
-          score: { type: "number" },
-          label: { type: "string" },
-          rationale: { type: "string" },
-        },
-        required: ["score", "label", "rationale"],
-        additionalProperties: false,
-      },
-      sources: {
-        type: "array",
-        items: {
-          type: "object",
-          properties: {
-            title: { type: "string" },
-            url: { type: "string" },
-            source_type: { type: "string" },
-            published_at: { type: "string" },
-            why_it_matters: { type: "string" },
-            journal: { type: "string" },
-            year: { type: "string" },
-            doi: { type: "string" },
-            pmid: { type: "string" },
-            excerpt: { type: "string" },
-            publication_type: { type: "string" },
-          },
-          required: [
-            "title",
-            "url",
-            "source_type",
-            "published_at",
-            "why_it_matters",
-            "journal",
-            "year",
-            "doi",
-            "pmid",
-            "excerpt",
-            "publication_type",
-          ],
-          additionalProperties: false,
-        },
-      },
       limitations: {
         type: "array",
         items: { type: "string" },
       },
     },
-    required: [
-      "summary",
-      "recommendations",
-      "confidence",
-      "sources",
-      "limitations",
-    ],
+    required: ["summary", "recommendations", "limitations"],
     additionalProperties: false,
   };
 }
 
-function extractTextFromResponse(payload) {
-  if (!payload) {
-    return "";
-  }
-
-  if (typeof payload.output_text === "string" && payload.output_text.trim()) {
-    return payload.output_text;
-  }
-
-  if (typeof payload.output_parsed === "object" && payload.output_parsed) {
-    return JSON.stringify(payload.output_parsed);
-  }
-
-  if (Array.isArray(payload.output)) {
-    for (const item of payload.output) {
-      if (!item || typeof item !== "object") {
-        continue;
-      }
-
-      if (typeof item.text === "string" && item.text.trim()) {
-        return item.text;
-      }
-
-      if (Array.isArray(item.content)) {
-        for (const content of item.content) {
-          if (typeof content?.text === "string" && content.text.trim()) {
-            return content.text;
-          }
-
-          if (typeof content?.json === "object" && content.json) {
-            return JSON.stringify(content.json);
-          }
-        }
-      }
-    }
-  }
-
-  return "";
+function buildSynthesisInput({ question, profile, plan, evidenceForModel, today }) {
+  return [
+    {
+      role: "system",
+      content:
+        "You are Emersus AI, a science-aware performance assistant for strength training, cardio, nutrition, and mental performance. Use the provided evidence first. Keep claims tethered to the evidence. Be practical, specific, and concise. Do not invent sources. Return only structured output that matches the schema.",
+    },
+    {
+      role: "user",
+      content: JSON.stringify(
+        {
+          today,
+          question,
+          topic: plan.topic,
+          risk_level: plan.riskLevel,
+          user_profile: profile,
+          retrieved_evidence: evidenceForModel,
+          instructions: [
+            "Answer the user's question directly.",
+            "Use the retrieved evidence as the main basis for the answer.",
+            "Make the recommendations specific and useful.",
+            "If the evidence is limited or mixed, say so in limitations.",
+            "Do not include citations inline; the server will attach sources.",
+          ],
+        },
+        null,
+        2
+      ),
+    },
+  ];
 }
 
 function extractStructuredOutput(payload) {
@@ -855,6 +448,38 @@ function extractStructuredOutput(payload) {
   return null;
 }
 
+function extractTextFromResponse(payload) {
+  if (!payload) {
+    return "";
+  }
+
+  if (typeof payload.output_text === "string" && payload.output_text.trim()) {
+    return payload.output_text;
+  }
+
+  if (Array.isArray(payload.output)) {
+    for (const item of payload.output) {
+      if (!item || typeof item !== "object") {
+        continue;
+      }
+
+      if (typeof item.text === "string" && item.text.trim()) {
+        return item.text;
+      }
+
+      if (Array.isArray(item.content)) {
+        for (const content of item.content) {
+          if (typeof content?.text === "string" && content.text.trim()) {
+            return content.text;
+          }
+        }
+      }
+    }
+  }
+
+  return "";
+}
+
 function extractJsonObject(text) {
   const trimmed = String(text || "").trim();
 
@@ -874,145 +499,10 @@ function extractJsonObject(text) {
   }
 }
 
-function normalizeRecommendationPayload(payload) {
-  const recommendations = payload?.recommendations || {};
-  const confidence = payload?.confidence || {};
-  const sources = Array.isArray(payload?.sources) ? payload.sources : [];
-
-  return {
-    summary: normalizeText(payload?.summary, 1600),
-    recommendations: {
-      training: normalizeList(recommendations.training, 8),
-      nutrition: normalizeList(recommendations.nutrition, 8),
-      mental_performance: normalizeList(recommendations.mental_performance, 8),
-    },
-    confidence: {
-      score: clamp(Number(confidence.score || 0), 0, 1),
-      label: normalizeText(confidence.label, 32) || "moderate",
-      rationale: normalizeText(confidence.rationale, 280),
-    },
-    sources: sources
-      .map((source) => ({
-        title: normalizeText(source?.title, 240),
-        url: normalizeText(source?.url, 500),
-        source_type: normalizeText(source?.source_type, 32) || "web",
-        published_at: normalizeText(source?.published_at, 80),
-        why_it_matters: normalizeText(source?.why_it_matters, 240),
-        journal: normalizeText(source?.journal, 160),
-        year: normalizeText(source?.year, 16),
-        doi: normalizeText(source?.doi, 160),
-        pmid: normalizeText(source?.pmid, 32),
-        excerpt: normalizeText(source?.excerpt, 420),
-        publication_type: normalizeText(source?.publication_type, 160),
-      }))
-      .filter((source) => source.title || source.url),
-    limitations: normalizeList(payload?.limitations, 6),
-  };
-}
-
-function buildFallbackRecommendation({ question, databaseEvidence }) {
-  const sources = rankDatabaseEvidence(databaseEvidence).slice(0, 5).map((source) => ({
-    title: source.title,
-    url: source.url,
-    source_type: source.source_type || "database",
-    published_at: source.published_at,
-    why_it_matters:
-      source.summary || source.why_it_matters || "Relevant database evidence for this answer.",
-    journal: source.journal || "",
-    year: source.publication_year || source.published_at || "",
-    doi: source.doi || "",
-    pmid: source.pmid || "",
-    excerpt: source.excerpt || "",
-    publication_type:
-      source.publication_type ||
-      (Array.isArray(source.publication_types)
-        ? source.publication_types.join(", ")
-        : source.evidence_level || ""),
-  }));
-
-  const evidenceSnapshot = summarizeEvidenceSnapshot(databaseEvidence);
-
-  return {
-    summary:
-      "I couldn’t get a full model response, so this fallback answer is based on the question topic and any evidence already in the database.",
-    recommendations: {
-      training: [
-        "Ask a more specific follow-up so I can tune the plan to your goals, schedule, and recovery.",
-      ],
-      nutrition: [
-        "If this is about supplementation or diet, include your goal, training frequency, and any dietary limits.",
-      ],
-      mental_performance: [
-        "If you want focus or motivation advice, tell me when the problem happens and what your sleep and stress look like.",
-      ],
-    },
-    confidence: {
-      score: 0.35,
-      label: "low",
-      rationale:
-        "The model response was unavailable, so this is a conservative fallback rather than a fully generated recommendation.",
-    },
-    sources,
-    limitations: [
-      "This fallback is less personalized than the normal model path.",
-      "Add a follow-up question for a tighter answer.",
-    ],
-    summary: evidenceSnapshot.summary,
-    recommendations: {
-      training: evidenceSnapshot.training,
-      nutrition: evidenceSnapshot.nutrition,
-      mental_performance: evidenceSnapshot.mentalPerformance,
-    },
-    confidence: {
-      score: sources.length ? 0.5 : 0.35,
-      label: "low",
-      rationale: evidenceSnapshot.confidenceRationale,
-    },
-    limitations: evidenceSnapshot.limitations,
-  };
-}
-
-function computeConfidence({ plan, databaseEvidence, sources, modelConfidence }) {
-  const totalSources = sources.length;
-  const recentSourceCount = sources.filter(
-    (source) => scoreEvidenceFreshness(source.published_at) >= 0.82
-  ).length;
-  const highQualitySourceCount = sources.filter(
-    (source) =>
-      scoreEvidenceQuality(source.evidence_level, source.source_type) >= 0.84
-  ).length;
-  const dbSupport = Math.min(databaseEvidence.length / 4, 1);
-  const recencySupport = totalSources ? recentSourceCount / totalSources : 0;
-  const qualitySupport = totalSources ? highQualitySourceCount / totalSources : 0.55;
-  const riskPenalty = plan.riskLevel === "medium" ? 0.08 : 0;
-
-  const computedScore = clamp(
-    dbSupport * 0.2 + recencySupport * 0.35 + qualitySupport * 0.35 + 0.18 - riskPenalty,
-    0.15,
-    0.96
-  );
-  const finalScore = modelConfidence
-    ? clamp(modelConfidence * 0.6 + computedScore * 0.4, 0.1, 0.97)
-    : computedScore;
-
-  return {
-    score: Number(finalScore.toFixed(2)),
-    label:
-      finalScore >= 0.75 ? "high" : finalScore >= 0.5 ? "moderate" : "low",
-    rationale:
-      finalScore >= 0.75
-        ? "Multiple relevant sources align, with good recency and support."
-        : finalScore >= 0.5
-          ? "The recommendation has useful support, but evidence quality, recency, or personalization is mixed."
-          : "Support is limited, older, or only partially matched to the request.",
-  };
-}
-
-async function callOpenAI({
+async function callOpenAISynthesis({
   question,
-  plan,
   profile,
-  databaseEvidence,
+  plan,
   evidenceForModel,
   today,
 }) {
@@ -1030,33 +520,19 @@ async function callOpenAI({
     },
     body: JSON.stringify({
       model: DEFAULT_MODEL,
-      tool_choice: plan.needsWeb ? "auto" : "none",
-      tools: plan.needsWeb
-        ? [
-            {
-              type: "web_search",
-              search_context_size: DEFAULT_WEB_CONTEXT,
-              user_location: {
-                type: "approximate",
-                country: "US",
-              },
-            },
-          ]
-        : undefined,
       text: {
         format: {
           type: "json_schema",
-          name: "emersus_recommendation",
-          schema: buildResponseSchema(),
+          name: "emersus_synthesis",
+          schema: buildSynthesisSchema(),
           strict: true,
         },
       },
-      max_output_tokens: 1400,
-      input: buildOpenAIInput({
+      max_output_tokens: 900,
+      input: buildSynthesisInput({
         question,
-        plan,
         profile,
-        databaseEvidence,
+        plan,
         evidenceForModel,
         today,
       }),
@@ -1074,6 +550,108 @@ async function callOpenAI({
   return payload;
 }
 
+function normalizeSynthesisPayload(payload) {
+  const recommendations = payload?.recommendations || {};
+
+  return {
+    summary: normalizeText(payload?.summary, 1600),
+    recommendations: {
+      training: normalizeList(recommendations.training, 8),
+      nutrition: normalizeList(recommendations.nutrition, 8),
+      mental_performance: normalizeList(recommendations.mental_performance, 8),
+    },
+    limitations: normalizeList(payload?.limitations, 6),
+  };
+}
+
+function computeConfidence({ plan, evidence }) {
+  const sources = evidence.slice(0, 5);
+  const totalSources = sources.length;
+  const recentSourceCount = sources.filter(
+    (source) => scoreEvidenceFreshness(source.published_at) >= 0.82
+  ).length;
+  const highQualitySourceCount = sources.filter(
+    (source) =>
+      scoreEvidenceQuality(source.evidence_level, source.source_type) >= 0.84
+  ).length;
+  const recencySupport = totalSources ? recentSourceCount / totalSources : 0;
+  const qualitySupport = totalSources ? highQualitySourceCount / totalSources : 0;
+  const coverageSupport = Math.min(totalSources / 4, 1);
+  const riskPenalty = plan.riskLevel === "medium" ? 0.08 : 0;
+
+  const score = clamp(
+    0.2 + recencySupport * 0.35 + qualitySupport * 0.3 + coverageSupport * 0.2 - riskPenalty,
+    0.18,
+    0.95
+  );
+
+  return {
+    score: Number(score.toFixed(2)),
+    label: score >= 0.75 ? "high" : score >= 0.5 ? "moderate" : "low",
+    rationale:
+      score >= 0.75
+        ? "The top retrieved studies are recent, relevant, and relatively strong."
+        : score >= 0.5
+          ? "The recommendation has useful support, but evidence quality, recency, or personalization is mixed."
+          : "The retrieved support is limited or only partially matched to the question.",
+  };
+}
+
+function buildFallbackRecommendation({ question, evidence }) {
+  const topEvidence = evidence.slice(0, 2);
+  const titles = topEvidence.map((item) => item.title).filter(Boolean);
+
+  return {
+    summary: titles.length
+      ? `I couldn't complete the normal synthesis step, but the strongest retrieved evidence included ${titles.join(" and ")}.`
+      : "I couldn't complete the normal synthesis step, so this answer is based only on the retrieved evidence.",
+    recommendations: {
+      training: topEvidence[0]?.title
+        ? [`Use the evidence around "${topEvidence[0].title}" as the main anchor for your next decision.`]
+        : ["Ask a more specific follow-up so I can give a tighter evidence-backed answer."],
+      nutrition: [
+        "Use the retrieved studies as your main reference and treat this fallback as a lighter summary.",
+      ],
+      mental_performance: [
+        "Mental-performance guidance is limited unless the retrieved evidence directly addressed that topic.",
+      ],
+    },
+    limitations: [
+      "This fallback is less polished than the normal model-generated answer.",
+    ],
+  };
+}
+
+function normalizeSources(evidence) {
+  return evidence.slice(0, 6).map((source) => ({
+    title: source.title,
+    url: source.url || "",
+    source_type: source.source_type || "pubmed_vector",
+    published_at: source.published_at || "",
+    evidence_level: source.evidence_level || "",
+    why_it_matters:
+      source.why_it_matters || source.summary || "Retrieved from the Emersus PubMed evidence index.",
+    journal: source.journal || "",
+    year: source.publication_year || source.year || source.published_at || "",
+    doi: source.doi || "",
+    pmid: source.pmid || "",
+    excerpt: source.excerpt || source.chunk_text || source.summary || "",
+    publication_type:
+      source.publication_type ||
+      (Array.isArray(source.publication_types)
+        ? source.publication_types.join(", ")
+        : source.evidence_level || ""),
+    freshness_score:
+      source.freshness_score ?? scoreEvidenceFreshness(source.published_at),
+    quality_score:
+      source.quality_score ??
+      scoreEvidenceQuality(
+        source.publication_type || source.evidence_level,
+        source.source_type
+      ),
+  }));
+}
+
 async function generateRecommendation({ question, profile, userId, includeDebug }) {
   const { stableUserId, supabaseUserId } = parseUserId(userId);
   const supabaseUrl =
@@ -1085,70 +663,47 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
     supabaseUserId
   );
   const mergedProfile = mergeProfile(profile, storedProfile || {});
-  const plan = buildPlan(question, mergedProfile, Boolean(supabaseUrl && serviceRoleKey));
+  const plan = buildPlan(question, mergedProfile);
   const vectorDatabase = await retrieveVectorEvidence(question);
-  const shouldUseLegacyDatabase =
-    vectorDatabase.evidence.length === 0 ||
-    process.env.EMERSUS_ENABLE_LEGACY_DATABASE === "true";
-  const legacyDatabase = shouldUseLegacyDatabase
-    ? await retrieveLegacyDatabaseEvidence(plan, mergedProfile)
-    : {
-        available: false,
-        method: null,
-        evidence: [],
-        error: null,
-      };
-  const databaseEvidence = rankDatabaseEvidence(
-    dedupeEvidence([...vectorDatabase.evidence, ...legacyDatabase.evidence])
-  ).slice(0, 8);
+  const databaseEvidence = vectorDatabase.evidence.slice(0, VECTOR_LIMIT);
   const evidenceForModel = formatEvidenceForModel(databaseEvidence);
   const today = new Date().toISOString().slice(0, 10);
   let openAIResponse = null;
-  let modelPayload = null;
+  let synthesis = null;
 
   try {
-    openAIResponse = await callOpenAI({
+    openAIResponse = await callOpenAISynthesis({
       question,
-      plan,
       profile: mergedProfile,
-      databaseEvidence,
+      plan,
       evidenceForModel,
       today,
     });
 
     const structuredOutput = extractStructuredOutput(openAIResponse);
     if (structuredOutput) {
-      modelPayload = normalizeRecommendationPayload(structuredOutput);
+      synthesis = normalizeSynthesisPayload(structuredOutput);
     } else {
       const extractedText = extractTextFromResponse(openAIResponse);
       if (extractedText) {
-        modelPayload = normalizeRecommendationPayload(
-          extractJsonObject(extractedText)
-        );
+        synthesis = normalizeSynthesisPayload(extractJsonObject(extractedText));
       }
     }
   } catch (error) {
     console.error("OpenAI recommendation generation failed:", error);
   }
 
-  if (!modelPayload) {
-    modelPayload = buildFallbackRecommendation({
+  if (!synthesis) {
+    synthesis = buildFallbackRecommendation({
       question,
-      databaseEvidence,
+      evidence: databaseEvidence,
     });
   }
-  const combinedSources = rankDatabaseEvidence(
-    [...databaseEvidence, ...modelPayload.sources].map((source) => ({
-      ...source,
-      database_score:
-        source.database_score ?? source.similarity ?? source.freshness_score ?? 0,
-    }))
-  ).slice(0, 8);
+
+  const sources = normalizeSources(databaseEvidence);
   const confidence = computeConfidence({
     plan,
-    databaseEvidence,
-    sources: combinedSources,
-    modelConfidence: modelPayload.confidence.score,
+    evidence: databaseEvidence,
   });
 
   return {
@@ -1157,46 +712,14 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
       profile_used: mergedProfile,
     },
     plan,
-    summary: modelPayload.summary,
-    recommendations: modelPayload.recommendations,
+    summary: synthesis.summary,
+    recommendations: synthesis.recommendations,
     confidence,
-    limitations: modelPayload.limitations,
-    sources: combinedSources.map((source) => ({
-      title: source.title,
-      url: source.url || "",
-      source_type: source.source_type || "database",
-      published_at: source.published_at || "",
-      evidence_level: source.evidence_level || "",
-      why_it_matters:
-        source.why_it_matters ||
-        (source.source_type === "pubmed_vector"
-          ? "Retrieved from the Emersus PubMed evidence index."
-          : source.source_type === "database"
-          ? "Retrieved from the Emersus knowledge database."
-          : "Referenced in the model-generated recommendation."),
-      journal: source.journal || "",
-      year: source.publication_year || source.year || source.published_at || "",
-      doi: source.doi || "",
-      pmid: source.pmid || "",
-      excerpt: source.excerpt || source.chunk_text || source.summary || "",
-      publication_type:
-        source.publication_type ||
-        (Array.isArray(source.publication_types)
-          ? source.publication_types.join(", ")
-          : source.evidence_level || ""),
-      freshness_score:
-        source.freshness_score ?? scoreEvidenceFreshness(source.published_at),
-      quality_score:
-        source.quality_score ??
-        scoreEvidenceQuality(
-          source.publication_type || source.evidence_level,
-          source.source_type
-        ),
-    })),
+    limitations: synthesis.limitations,
+    sources,
     debug: includeDebug
       ? {
           vector_database: vectorDatabase,
-          legacy_database: legacyDatabase,
           evidence_for_model: evidenceForModel,
           openai_response_id: openAIResponse?.id || null,
           raw_output_text: extractTextFromResponse(openAIResponse) || "",
