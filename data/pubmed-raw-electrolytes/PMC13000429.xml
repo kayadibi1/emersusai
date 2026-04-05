@@ -1,0 +1,643 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">J Vet Med Sci</journal-id><journal-id journal-id-type="iso-abbrev">J Vet Med Sci</journal-id><journal-id journal-id-type="pmc-domain-id">2350</journal-id><journal-id journal-id-type="pmc-domain">jvms</journal-id><journal-id journal-id-type="publisher-id">JVMS</journal-id><journal-title-group><journal-title>The Journal of Veterinary Medical Science</journal-title></journal-title-group><issn pub-type="ppub">0916-7250</issn><issn pub-type="epub">1347-7439</issn><publisher><publisher-name>Japanese Society of Veterinary Science</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13000429</article-id><article-id pub-id-type="pmcid-ver">PMC13000429.1</article-id><article-id pub-id-type="pmcaid">13000429</article-id><article-id pub-id-type="pmcaiid">13000429</article-id><article-id pub-id-type="pmid">41485945</article-id><article-id pub-id-type="doi">10.1292/jvms.25-0507</article-id><article-id pub-id-type="publisher-id">25-0507</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Surgery</subject><subj-group><subject>Full Paper</subject></subj-group></subj-group></article-categories><title-group><article-title>Effect of fuzapladib sodium hydrate on adhesion molecule expression in canine
+endothelial cells and neutrophils</article-title></title-group><contrib-group><contrib contrib-type="author"><name name-style="western"><surname>DARAWIROJ</surname><given-names initials="K">Kanittha</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>SUNAGA</surname><given-names initials="T">Takafumi</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>OWAKI</surname><given-names initials="R">Ryo</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>HANDONDO</surname><given-names initials="NM">Nomsa Mulenga</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>OKUMURA</surname><given-names initials="M">Masahiro</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="cor1" ref-type="corresp">
+<sup>*</sup>
+</xref></contrib><aff id="aff1"><label>1)</label>Laboratory of Veterinary Surgery, Department of Veterinary
+Clinical Sciences, Graduate School of Veterinary Medicine, Hokkaido University, Hokkaido,
+Japan</aff></contrib-group><author-notes><corresp id="cor1"><label>*</label>Correspondence to: Okumura M: <email xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="okumuram@vetmed.hokudai.ac.jp">okumuram@vetmed.hokudai.ac.jp</email>,
+Laboratory of Veterinary Surgery, Department of Veterinary Clinical Sciences, Graduate
+School of Veterinary Medicine, Hokkaido University, Sapporo, Hokkaido 060-0818,
+Japan</corresp></author-notes><pub-date pub-type="epub"><day>31</day><month>12</month><year>2025</year></pub-date><pub-date pub-type="ppub"><month>3</month><year>2026</year></pub-date><volume>88</volume><issue>3</issue><issue-id pub-id-type="pmc-issue-id">509813</issue-id><fpage>471</fpage><lpage>481</lpage><history><date date-type="received"><day>29</day><month>10</month><year>2025</year></date><date date-type="accepted"><day>16</day><month>12</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>31</day><month>12</month><year>2025</year></date></event><event event-type="pmc-live"><date><day>20</day><month>03</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-03-20 00:25:12.663"><day>20</day><month>03</month><year>2026</year></date></event></pub-history><permissions><copyright-statement>©2026 The Japanese Society of Veterinary Science</copyright-statement><copyright-year>2026</copyright-year><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbyncndlicense">https://creativecommons.org/licenses/by-nc-nd/4.0/</ali:license_ref><license-p>This is an open-access article distributed under the terms of the Creative
+Commons Attribution Non-Commercial No Derivatives (by-nc-nd) License. (CC-BY-NC-ND 4.0:
+<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by-nc-nd/4.0/">
+https://creativecommons.org/licenses/by-nc-nd/4.0/</ext-link>)</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="jvms-88-3-471.pdf"/><abstract><p>Neutrophil recruitment to inflamed tissue is mediated by adhesion molecules and chemokine
+signaling. Fuzapladib sodium hydrate (FZP) has been reported to reduce neutrophil
+infiltration, but its broader effect on adhesion molecules in dogs remains unclear. This
+study investigated the influence of FZP on canine aortic endothelial cells (CnAOEC) and
+primary neutrophils under cytokine stimulation. CnAOEC were treated with recombinant
+canine tumor necrosis factor alpha (rh-cTNFα) or lipopolysaccharide together with FZP,
+while neutrophils isolated from healthy dogs were preincubated with FZP before rh-cTNFα
+stimulation for gene and protein expression analyses. Expression of endothelial
+<italic toggle="yes">E-selectin</italic>, <italic toggle="yes">P-selectin</italic>, and <italic toggle="yes">intercellular
+adhesion molecule-1</italic> (<italic toggle="yes">ICAM-1</italic>) was quantified by qPCR.
+Neutrophil <italic toggle="yes">C-X-C motif chemokine receptor 2</italic>, <italic toggle="yes">P-selectin
+glycoprotein ligand-1</italic> (<italic toggle="yes">PSGL-1</italic>), and
+<italic toggle="yes">L-selectin</italic> were also analyzed using qPCR. In addition, C-X-C motif
+chemokine ligand 1 and leukocyte function-associated antigen-1 (LFA-1) were determined
+using ELISA and flow cytometry, respectively. Neutrophil adhesion to FZP-treated
+endothelial monolayers was evaluated under static conditions. FZP significantly
+downregulated endothelial <italic toggle="yes">P-selectin</italic> at the highest dose, whereas
+<italic toggle="yes">ICAM-1</italic> was upregulated. In neutrophils, FZP decreased
+<italic toggle="yes">L-selectin</italic> and <italic toggle="yes">PSGL-1</italic> expression at the highest
+concentration. These findings suggest that FZP selectively modulates early adhesion
+through suppression of <italic toggle="yes">P-selectin</italic>, <italic toggle="yes">L-selectin</italic>, and
+<italic toggle="yes">PSGL-1</italic>, which may weaken rolling and tethering interactions between
+cells. Although functional adhesion effects were limited, these molecular responses
+provide further insight into the anti-inflammatory effect of FZP.</p></abstract><kwd-group><kwd>C-X-C motif chemokine ligand 1</kwd><kwd>fuzapladib</kwd><kwd>L-selectin</kwd><kwd>P-selectin</kwd><kwd>P-selectin glycoprotein ligand-1</kwd></kwd-group><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY-NC-ND</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec sec-type="intro" id="s1"><title>INTRODUCTION</title><p>Inflammation is a fundamental defense mechanism triggered by harmful stimuli, including
+pathogens, damaged cells, toxins, and irritants, and is characterized by increased vascular
+permeability, neutrophil recruitment, and the release of pro-inflammatory mediators.
+Collectively, these characteristics contribute to the major clinical signs of inflammation,
+including redness, swelling, heat, pain, and impaired tissue function [<xref rid="r5" ref-type="bibr">5</xref>]. A key component of inflammation is the interaction between adhesion
+molecules on leukocytes and endothelial cells, which facilitates leukocyte extravasation
+into inflamed tissue. This interaction is mediated by selectins, integrins, and members of
+the immunoglobulin superfamily, regulating neutrophil rolling, firm adhesion, and
+transendothelial migration [<xref rid="r8" ref-type="bibr">8</xref>].</p><p>Neutrophils, as the primary responders in the early phase of acute inflammation, are
+rapidly recruited from the circulation to inflamed tissues, where they contribute to
+pathogen clearance and modulation of the immune response. However, under certain
+pathological conditions, neutrophils may undergo reverse migration. This phenomenon has been
+associated with systemic inflammation and the development of complications such as acute
+lung injury, renal injury, encephalomyelitis, colitis, and endotoxemia [<xref rid="r10" ref-type="bibr">10</xref>].</p><p>Neutrophil recruitment and transmigration are regulated through a sequence of adhesive
+interactions. The process begins with selectin-mediated tethering and rolling along
+activated endothelial cells. Neutrophils express P-selectin glycoprotein ligand-1 (PSGL-1),
+which binds to E- and P-selectins on the inflamed endothelium, initiating contact.
+Subsequent firm adhesion is achieved through the binding of β2-integrins, specifically
+leukocyte function-associated antigen-1 (LFA-1) or CD11a/CD18, to intercellular adhesion
+molecule-1 (ICAM-1), regulated by bidirectional signaling. Neutrophils then continue along
+the endothelial surface, guided by LFA-1-ICAM-1 interactions, before crossing the
+endothelium through paracellular or transcellular pathways [<xref rid="r23" ref-type="bibr">23</xref>]. Effective removal of neutrophils from inflamed tissue is essential for
+inflammation resolution and protecting tissue integrity. Therefore, understanding the course
+of migrated neutrophils is crucial to differentiating between self-limiting and chronic
+inflammation, as well as advancing focused therapeutic strategies [<xref rid="r9" ref-type="bibr">9</xref>].</p><p>Targeting adhesion molecules has become a promising approach for regulating
+neutrophil-mediated inflammation. Fuzapladib sodium hydrate (FZP), a leukocyte
+function-associated antigen-1 (LFA-1) inhibitor, prevents neutrophil extravasation by
+interfering with LFA-1-mediated adhesion. It is currently approved for the treatment of
+canine pancreatitis in the United States of America and Japan [<xref rid="r11" ref-type="bibr">11</xref>]. Preclinical investigations in rat and canine models have shown that
+FZP reduced the severity of pancreatic injury by decreasing neutrophil infiltration [<xref rid="r12" ref-type="bibr">12</xref>, <xref rid="r13" ref-type="bibr">13</xref>].
+Furthermore, <italic toggle="yes">in vitro</italic> studies using human umbilical vein endothelial cells
+(HUVEC) and HL-60 cells revealed reduced neutrophil-endothelial adhesion after
+lipopolysaccharide (LPS) stimulation and FZP treatment, explained by reduced LFA-1
+expression [<xref rid="r25" ref-type="bibr">25</xref>]. However, the effect of FZP on the
+broader range of adhesion molecule expression has yet to be researched, particularly in
+canine endothelial cells and neutrophils. Moreover, the information available on the
+dose-dependent effect is limited. This study aims to investigate the effect of FZP on the
+expression of key adhesion molecules involved in neutrophil-endothelial interactions in a
+canine cell-based <italic toggle="yes">in vitro</italic> model, emphasizing potential dose-dependent
+responses.</p></sec><sec sec-type="materials|methods" id="s2"><title>MATERIALS AND METHODS</title><sec><title>Cell culture</title><p>Canine aortic endothelial cells (CnAOEC; Cell Applications, Inc., San Diego, CA, USA;
+Cat. No Cn304-05) were obtained as a cryopreserved vial at passage 2. In this study,
+CnAOEC from passage 4 to passage 9 were used. The cells were cultured in the Canine EC
+Growth Medium (Cell Applications, Cat. No. Cn211K-500) according to the manufacturer’s
+instructions with a minor modification. Briefly, CnAOEC were seeded at a density of 1 ×
+10<sup>4</sup> cells/cm<sup>2</sup> onto 100 mm culture dishes (Corning, Lowell, MA,
+USA) coated with Attachment Factor Solution (AFS; Cell Applications, Cat. No. 123). Fresh
+medium, pre-warmed to 37°C, was replaced every other day. When cultures reached 80–90%
+confluence, cells were washed three times with Hanks’ Balanced Salt Solution (HBSS; Thermo
+Fisher Scientific, Waltham, MA, USA; Cat. No. 14025092) and detached using Acutase
+solution (Sigma-Aldrich, St. Louis, MO, USA). The cell suspension was then centrifuged at
+400 × <italic toggle="yes">g</italic> for 5 min at 4°C without braking, and the cell pellet was
+resuspended in Canine EC growth medium. Cell number and viability were assessed using the
+trypan blue exclusion method (Wako Pure Chemical Industries, Osaka, Japan). Following this
+assessment, cells were expanded and sub-cultured under identical conditions for subsequent
+experiments.</p></sec><sec><title>Canine neutrophil isolation</title><p>Ten milliliters of fresh whole blood were obtained from the cephalic vein of three
+healthy female beagles, with the approval of the Ethics Committee of Hokkaido University
+(Approval No. 230104). This followed the institutional guidelines for the care and use of
+experimental animals. Neutrophils were isolated from 10 mL of fresh, anticoagulated
+K<sub>2</sub>EDTA (Dojindo Laboratories, Kumamoto, Japan) using Polymorphprep (Serumwerk
+Bernburg, Bernburg, Germany) through density gradient centrifugation, following the
+manufacturer’s protocol for human neutrophil isolation (500 × <italic toggle="yes">g</italic> for 30
+min at 20°C). Residual erythrocytes were eliminated by the addition of 1 mL of 1× RBC
+lysis buffer (Thermo Fisher Scientific) for 8 min at room temperature. This was
+immediately followed by an addition of HBSS and centrifugation at 400 × <italic toggle="yes">g</italic>
+for 10 min. The residual neutrophils were resuspended and calibrated to 4 × 10<sup>6</sup>
+cells/mL in the Roswell Park Memorial Institute 1640 medium (RPMI-1640; Thermo Fisher
+Scientific), supplemented with 10% fetal bovine serum (FBS; Sigma-Aldrich) and 1%
+penicillin-streptomycin solution (Wako Pure Chemical Industries). The isolated neutrophils
+were immediately used for the subsequent experiment.</p></sec><sec><title>RNA extraction, reverse transcription, and quantitative real-time polymerase chain
+reaction (qPCR)</title><p>CnAOEC were cultured at a density of 2 × 10<sup>5</sup> cells per well in 6-well plates
+(Corning), with the Canine EC Growth Medium replaced every other day until it became
+confluent. The cells were subsequently treated in Canine EC Basal Medium (Cell
+Applications, Inc., Cat. No. Cn210-500) with either recombinant canine tumor necrosis
+factor alpha (rh-cTNFα; Kingfisher Biotech, Saint Paul, MN, USA) at 30 ng/mL or LPS (100
+ng/mL; Wako Pure Chemical Industries, Cat. No. 127-05141), each administered alone or in
+combination with Fuzapladib sodium hydrate (1, 10, or 100 µM; BRENDA; Ishihara Sangyo
+Kaisha, Ltd., Osaka, Japan), abbreviated as FZP. Treatments were applied for 6 hr in a
+humidified incubator at 37°C with 5% CO<sub>2</sub>. Following incubation, the cells were
+washed three times with HBSS to remove residual medium, and total RNA was subsequently
+isolated.</p><p>Freshly isolated neutrophils, at a concentration of 1 × 10<sup>6</sup> cells/mL, were
+pre-incubated with or without FZP at concentrations of 1, 10, or 100 µM in a humidified
+incubator with 5% CO<sub>2</sub> at 37°C for 24 hr. The cells were then stimulated with
+rh-cTNFα at 20 ng/mL for 1 hr. RPMI-1640 supplemented with 10% FBS and 1%
+penicillin-streptomycin served as the negative control, while rh-cTNFα treatment alone was
+used as the positive control. Following treatment, neutrophils were washed once with
+phosphate-buffered saline (PBS; Thermo Fisher Scientific, Cat. No. 10010023).
+Subsequently, the cells were lysed and stored at −70°C until all samples were collected,
+after which RNA was extracted. Neutrophil viability under these incubation conditions was
+evaluated in parallel experiments using 7-Aminoactinomycin D (7-AAD; BD Biosciences, San
+Diego, CA, USA) staining.</p><p>Total RNA was isolated utilizing the NucleoSpin RNA Purification Kit (Macherey-Nagel,
+Dürren, Germany). The concentration of RNA was determined using a NanoEX Lite
+spectrophotometer (Optima Inc., Tokyo, Japan) at a wavelength of 260 nm. Subsequently, 500
+ng of total RNA from CnAOEC and 50 ng from canine neutrophils were reverse-transcribed
+into cDNA using the M-MLV RT Kit (Invitrogen, Carlsbad, CA, USA), following the
+manufacturer’s guidelines. A two-step qPCR was conducted with the KAPA SYBR FAST qPCR Kit
+(KAPA Biosystems, Woburn, MA, USA). The relative expression levels of target genes were
+determined using the 2<sup>-ΔΔCt</sup> method, with <italic toggle="yes">glyceraldehyde-3-phosphate
+dehydrogenase </italic>(<italic toggle="yes">GAPDH</italic>) serving as the housekeeping gene for
+normalization. The expression levels of adhesion-related genes, which include
+<italic toggle="yes">E-selectin</italic>, <italic toggle="yes">ICAM-1</italic>, <italic toggle="yes">P-selectin</italic>,
+<italic toggle="yes">C-X-C motif chemokine receptor 2</italic> (<italic toggle="yes">CXCR2</italic>),
+<italic toggle="yes">PSGL-1</italic>, and <italic toggle="yes">L-selectin</italic>, were evaluated to determine
+the impact of FZP on endothelial and neutrophil adhesion molecules. Primer sequences are
+listed in <xref rid="tbl_001" ref-type="table">Table 1</xref><table-wrap position="float" id="tbl_001" orientation="portrait"><label>Table 1.</label><caption><title>Primer sequences for quantitative real-time polymerase chain reaction</title></caption><table frame="hsides" rules="groups"><thead><tr><th align="center" rowspan="1" colspan="1">Primer</th><th align="center" rowspan="1" colspan="1">Primer sequence</th><th align="center" rowspan="1" colspan="1">Reference</th></tr></thead><tbody><tr><td align="left" valign="top" rowspan="2" colspan="1"><italic toggle="yes">CXCR2</italic></td><td align="left" valign="top" rowspan="1" colspan="1">Forward: 5′ AGCTGCCTTAATCCCCTCAT 3′</td><td align="center" valign="top" rowspan="2" colspan="1">[<xref rid="r18" ref-type="bibr">18</xref>]</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Reverse: 5′ CTGAACCTGCTGGGAAACTC 3′</td></tr><tr><td align="left" valign="top" rowspan="2" colspan="1"><italic toggle="yes">E-selectin</italic></td><td align="left" valign="top" rowspan="1" colspan="1">Forward: 5′ GAAATTCTTGGCCCGTCCATC 3′</td><td align="center" valign="top" rowspan="2" colspan="1">[<xref rid="r22" ref-type="bibr">22</xref>]</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Reverse: 5′ ATGCAGCCAGCACTTAATCTGAAAC 3′</td></tr><tr><td align="left" valign="top" rowspan="2" colspan="1"><italic toggle="yes">GAPDH</italic></td><td align="left" valign="top" rowspan="1" colspan="1">Forward: 5′ TGTCCCCACCCCCAATGTATC 3′</td><td align="center" valign="top" rowspan="2" colspan="1">[<xref rid="r22" ref-type="bibr">22</xref>]</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Reverse: 5′ CTCCGATGCCTGCTTCACTACCTT 3′</td></tr><tr><td align="left" valign="top" rowspan="2" colspan="1"><italic toggle="yes">ICAM-1</italic></td><td align="left" valign="top" rowspan="1" colspan="1">Forward: 5′ CAGGGTTGCCAGGTACAGTT 3′</td><td align="center" valign="top" rowspan="2" colspan="1">[<xref rid="r22" ref-type="bibr">22</xref>]</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Reverse: 5′ AGTATGGGCTCAGTGGGTTG 3′</td></tr><tr><td align="left" valign="top" rowspan="2" colspan="1"><italic toggle="yes">L-selectin</italic></td><td align="left" valign="top" rowspan="1" colspan="1">Forward: 5′ GATTTCAACAGGACCAGCAGCA 3′</td><td align="center" valign="top" rowspan="2" colspan="1">[<xref rid="r22" ref-type="bibr">22</xref>]</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Reverse: 5′ CCGCAGGGTCCACAAGTAAGA 3′</td></tr><tr><td align="left" valign="top" rowspan="2" colspan="1"><italic toggle="yes">PSGL-1</italic></td><td align="left" valign="top" rowspan="1" colspan="1">Forward: 5′ TTCTGGCTGAGATGGCGATG 3′</td><td align="center" valign="top" rowspan="2" colspan="1">[<xref rid="r22" ref-type="bibr">22</xref>]</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Reverse: 5′ AGAGTGGCTGGCTCTGGAGTTC 3′</td></tr><tr><td align="left" valign="top" rowspan="2" colspan="1"><italic toggle="yes">P-selectin</italic></td><td align="left" valign="top" rowspan="1" colspan="1">Forward: 5′ TACAACACCAGCTGTCGCTTCC 3′</td><td align="center" valign="top" rowspan="2" colspan="1">[<xref rid="r22" ref-type="bibr">22</xref>]</td></tr><tr><td valign="top" rowspan="1" colspan="1">Reverse: 5′ GTGCTGTCCACTGTCCCAAGTC 3′</td></tr></tbody></table><table-wrap-foot><p><italic toggle="yes">CXCR2</italic>: C-X-C motif chemokine receptor 2; <italic toggle="yes">GAPDH</italic>:
+glyceraldehyde-3 phosphate dehydrogenase; <italic toggle="yes">ICAM-1</italic>: intercellular
+adhesion molecule-1; <italic toggle="yes">PSGL-1</italic>: P-selectin glycoprotein ligand-1.</p></table-wrap-foot></table-wrap> [<xref rid="r18" ref-type="bibr">18</xref>, <xref rid="r22" ref-type="bibr">22</xref>]. The qPCR assays consisted of three biological replicates for each
+endothelial cell sample. Moreover, each sample comprised two technical replicates. For
+neutrophils, the process was as follows. Blood was drawn from a dog on three separate
+occasions. Each sample was used for two technical replicates. This process was repeated
+for a total of three dogs.</p></sec><sec><title>Enzyme-linked immunosorbent assay (ELISA)</title><p>In an independent experiment, CnAOEC were inoculated onto 96-well plates (Corning) coated
+with AFS at a density of 1 × 10<sup>5</sup> cells per well in 200 μL of the Canine EC
+Growth Medium and incubated for 24 hr to allow cell attachment. Following incubation, the
+culture medium was replaced with one of the following treatments: rh-cTNFα at 30 ng/mL,
+either alone or combined with FZP at concentrations of 1, 10, or 100 μM, or with LPS at
+100 ng/mL, either alone or in combination with FZP (1, 10, or 100 μM). The Canine EC Basal
+Medium without stimulants or FZP served as the negative control. All procedures were
+conducted in a humidified incubator at 37°C with 5% CO<sub>2</sub>. After 24 hr of
+stimulation, the concentration of secreted C-X-C motif chemokine ligand 1 (CXCL1) protein
+in the culture medium was quantified using the Canine CXCL1 ELISA kit (RayBiotech, Inc.,
+Norcross, GA, USA) according to the manufacturer’s instructions.</p></sec><sec><title>Flow cytometry</title><p>Neutrophils were isolated from three dogs. For each dog, the experiment was conducted in
+three separate runs. Fresh isolated neutrophils were subjected to the same pre-incubation
+and stimulation protocol as described above for the qPCR assay. Following this protocol,
+the cells were washed once with PBS. Subsequently, 3 × 10<sup>5</sup> cells were
+resuspended in PBS containing 10% goat serum (Thermo Fisher Scientific) and incubated at
+room temperature for 20 min to reduce nonspecific antibody binding. The cells were then
+stained with PE-conjugated mouse anti-human CD11a monoclonal antibody (clone HI111, mouse
+IgG1; BD Biosciences) or PE-conjugated mouse IgG1, κ isotype control (clone MOPC-21; BD
+Biosciences) for 10 min under light-protected conditions. After staining, the cells were
+washed twice with PBS containing 10% goat serum. Two microliters of 7-AAD was then added
+to the stained cell suspension in 200 µL of PBS containing 10% goat serum and subsequently
+incubated for 10 min. Flow cytometric analysis was performed using a BD
+FACSLyric<sup>™</sup> Flow Cytometer (BD Biosciences). Viability was quantified as the
+percentage of 7-AAD-negative (viable) cells within the singlet neutrophil gate. The gating
+strategy, including neutrophil identification, singlet selection, exclusion of non-viable
+events, and definition of CD11a-low and CD11a-high subsets using an isotype control, is
+shown in <xref rid="pdf_001" ref-type="supplementary-material">Supplementary Fig.
+2</xref>.</p></sec><sec><title>Static adhesion assay</title><p>A static adhesion assay, modified from a prior human investigation [<xref rid="r33" ref-type="bibr">33</xref>], was conducted to assess the impact of FZP on neutrophil adherence
+to endothelial cells. Within this experiment, CnAOEC were seeded at a density of 1 ×
+10<sup>4</sup> cells per well in 96-well plates. The Canine EC Growth Medium was
+replaced every other day until the cells reached 100% confluence. Once confluent, the
+cells were pre-incubated for 3 hr with FZP at doses of 1, 10, or 100 μM, or the Canine EC
+Basal Medium as a control. Following pretreatment, the cells were exposed to rh-cTNFα at a
+final concentration of 30 ng/mL and incubated for 4 hr. Freshly isolated neutrophils were
+labeled with Calcein-AM (Dojindo Laboratories). The labeled neutrophils, at a
+concentration of 1 × 10<sup>5</sup> cells per well, were then coincubated with treated
+CnAOEC for 20 min. All incubations were performed at 37°C in a humidified incubator with
+5% CO<sub>2</sub>. Fluorescence intensity (FI) at an excitation wavelength of 485 nm and
+an emission wavelength of 520 nm was measured using a GloMax Discover microplate reader
+(Promega, Madison, WI, USA). This measurement was performed before the washing step to
+determine the total cell count. The cells were then gently washed twice with HBSS to
+remove non-adherent neutrophils. Subsequently, 100 µL of RPMI-1640 solution was added to
+each well, and fluorescence was re-evaluated. Neutrophil adhesion was calculated as the
+relative adherence by examining the FI before and after washing using the following
+equation:</p><p>
+<inline-formula>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M1" display="inline" overflow="scroll"><mml:mrow><mml:mrow><mml:mfrac><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>P</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>w</mml:mi><mml:mi>a</mml:mi><mml:mi>s</mml:mi><mml:mi>h</mml:mi><mml:mo> </mml:mo><mml:mi>F</mml:mi><mml:mi>I</mml:mi><mml:mo> </mml:mo><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mo> </mml:mo><mml:mi>s</mml:mi><mml:mi>a</mml:mi><mml:mi>m</mml:mi><mml:mi>p</mml:mi><mml:mi>l</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mo>−</mml:mo><mml:mo> </mml:mo><mml:mi>P</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>w</mml:mi><mml:mi>a</mml:mi><mml:mi>s</mml:mi><mml:mi>h</mml:mi><mml:mo> </mml:mo><mml:mi>F</mml:mi><mml:mi>I</mml:mi><mml:mo> </mml:mo><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mo> </mml:mo><mml:mi>b</mml:mi><mml:mi>a</mml:mi><mml:mi>c</mml:mi><mml:mi>k</mml:mi><mml:mi>g</mml:mi><mml:mi>r</mml:mi><mml:mi>o</mml:mi><mml:mi>u</mml:mi><mml:mi>n</mml:mi><mml:mi>d</mml:mi><mml:mo stretchy="false">)</mml:mo><mml:mo> </mml:mo></mml:mrow><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>P</mml:mi><mml:mi>o</mml:mi><mml:mi>s</mml:mi><mml:mi>t</mml:mi><mml:mi>w</mml:mi><mml:mi>a</mml:mi><mml:mi>s</mml:mi><mml:mi>h</mml:mi><mml:mo> </mml:mo><mml:mi>F</mml:mi><mml:mi>I</mml:mi><mml:mo> </mml:mo><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mo> </mml:mo><mml:mi>s</mml:mi><mml:mi>a</mml:mi><mml:mi>m</mml:mi><mml:mi>p</mml:mi><mml:mi>l</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mo>−</mml:mo><mml:mo> </mml:mo><mml:mi>P</mml:mi><mml:mi>o</mml:mi><mml:mi>s</mml:mi><mml:mi>t</mml:mi><mml:mi>w</mml:mi><mml:mi>a</mml:mi><mml:mi>s</mml:mi><mml:mi>h</mml:mi><mml:mo> </mml:mo><mml:mi>F</mml:mi><mml:mi>I</mml:mi><mml:mo> </mml:mo><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mo> </mml:mo><mml:mi>b</mml:mi><mml:mi>a</mml:mi><mml:mi>c</mml:mi><mml:mi>k</mml:mi><mml:mi>g</mml:mi><mml:mi>r</mml:mi><mml:mi>o</mml:mi><mml:mi>u</mml:mi><mml:mi>n</mml:mi><mml:mi>d</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mfrac><mml:mo>×</mml:mo><mml:mn>100</mml:mn><mml:mo>=</mml:mo><mml:mi>%</mml:mi><mml:mo> </mml:mo><mml:mi>a</mml:mi><mml:mi>d</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi></mml:mrow></mml:mrow></mml:math>
+</inline-formula>
+</p><p>
+<inline-formula>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M2" display="inline" overflow="scroll"><mml:mrow><mml:mrow><mml:mfrac><mml:mrow><mml:mi>%</mml:mi><mml:mo> </mml:mo><mml:mi>a</mml:mi><mml:mi>d</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mo> </mml:mo><mml:mi>t</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>m</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi></mml:mrow><mml:mrow><mml:mi>a</mml:mi><mml:mi>v</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>a</mml:mi><mml:mi>g</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mi>%</mml:mi><mml:mo> </mml:mo><mml:mi>a</mml:mi><mml:mi>d</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mi>o</mml:mi><mml:mi>f</mml:mi><mml:mo> </mml:mo><mml:mi>p</mml:mi><mml:mi>o</mml:mi><mml:mi>s</mml:mi><mml:mi>i</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>v</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mi>c</mml:mi><mml:mi>o</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi><mml:mi>r</mml:mi><mml:mi>o</mml:mi><mml:mi>l</mml:mi></mml:mrow></mml:mfrac><mml:mo>=</mml:mo><mml:mo> </mml:mo><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>l</mml:mi><mml:mi>a</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>v</mml:mi><mml:mi>e</mml:mi><mml:mo> </mml:mo><mml:mi>a</mml:mi><mml:mi>d</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi></mml:mrow></mml:mrow></mml:math>
+</inline-formula>
+</p><p>Similar to the previous experiment, neutrophils were isolated from three healthy dogs,
+and the experiment was independently repeated three times for each dog. Each repeat
+included five treatment conditions, with six technical replicates per condition.</p></sec><sec><title>Statistical analysis</title><p>All data are presented as mean ± standard deviation (SD). Statistical analyses were
+conducted using GraphPad Prism 10.0 software (GraphPad Software, San Diego, CA, USA), and
+a <italic toggle="yes">P-</italic>value &lt;0.05 was considered statistically significant for all
+tests. The assumption of a normal distribution was assessed using the Shapiro-Wilk test.
+The repeated-measures (RM) one-way ANOVA followed by Tukey’s multiple comparison test was
+used to analyze the normally distributed data. In case the assumption of normality was
+violated, the Friedman test in combination with Dunn’s test was employed instead.</p></sec></sec><sec sec-type="results" id="s3"><title>RESULTS</title><sec><title>Effect of fuzapladib sodium hydrate on adhesion molecule gene expression in
+cytokine-induced CnAOEC</title><p>To confirm that the observed changes in gene expression were not caused by cytotoxicity,
+cell viability was evaluated using the Cell Counting Kit-8 assay (CCK-8; Dojindo
+Laboratories). CnAOEC were treated with FZP (1, 10, and 100 μM) for 24 hr. The results
+showed that FZP did not cause significant cytotoxicity at any tested concentration. Cell
+viability at 100 μM FZP remained above 90% compared to the control and showed no
+statistical difference (<italic toggle="yes">P</italic>&gt;0.05). In contrast, the positive control
+(10% DMSO) significantly decreased cell viability (<xref rid="pdf_001" ref-type="supplementary-material">Supplementary Fig. 1</xref>).</p><p>Following viability confirmation, qPCR was conducted to assess the effect of FZP on the
+expression of endothelial adhesion molecules, specifically: <italic toggle="yes">E-selectin</italic>,
+<italic toggle="yes">ICAM-1</italic>, and <italic toggle="yes">P-selectin</italic> in CnAOEC stimulated with
+rh-cTNFα or LPS. All expression levels were compared to those of the corresponding
+positive control. The results indicated that stimulation with both LPS and rh-cTNFα
+increased the mRNA levels of all target genes compared to the negative control (<xref rid="pdf_001" ref-type="supplementary-material">Supplementary Table 1</xref>).</p><p>Across both stimuli on the CnAOEC for 6 hr, the result revealed that FZP did not reduce
+<italic toggle="yes">E-selectin</italic> transcription level relative to the stimulus control. Under
+LPS stimuli, the mean fold was set at 1.00, while the treatment groups showed mean values
+of 0.79, 0.85, and 1.40 for FZP at 1, 10, and 100 μM, respectively, as shown in <xref rid="fig_001" ref-type="fig">Fig. 1A.</xref><fig position="float" fig-type="figure" id="fig_001" orientation="portrait"><label>Fig. 1.</label><caption><p>Effects of fuzapladib sodium hydrate (FZP) on adhesion molecule expression in
+lipopolysaccharide (LPS)-treated canine aortic endothelial cells (CnAOEC). CnAOEC
+were stimulated with LPS (100 ng/mL) alone for 6 hr or in combination with FZP (1,
+10, or 100 μM). The mRNA expression of (A) <italic toggle="yes">E-selectin</italic>, (B)
+<italic toggle="yes">intercellular adhesion molecule-1</italic> (<italic toggle="yes">ICAM-1</italic>), and
+(C) <italic toggle="yes">P-selectin</italic> was analyzed by qPCR and normalized to the LPS
+control set to 1.0. The data represent the mean ± SD from three independent
+experiments. Statistical significance was assessed using RM one-way ANOVA with
+Tukey’s <italic toggle="yes">post hoc</italic> test, or the Friedman test with Dunn’s correction
+when normality was not met. *<italic toggle="yes">P</italic>&lt;0.05 versus the indicated
+groups.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="jvms-88-3-471-g001.jpg"/></fig> Neither of the doses was statistically significant compared to the LPS control
+group (<italic toggle="yes">P</italic>≥0.347). Among the treatments, the 100 μM group values increased
+compared to the 1 μM group (<italic toggle="yes">P</italic>=0.027), yet other pairs were not
+significant. In the rh-cTNFα-stimulated group (see <xref rid="fig_002" ref-type="fig">Fig.
+2A</xref><fig position="float" fig-type="figure" id="fig_002" orientation="portrait"><label>Fig. 2.</label><caption><p>Effects of fuzapladib sodium hydrate (FZP) on adhesion molecule expression in
+recombinant canine tumor necrosis factor alpha (rh-cTNFα)-stimulated canine aortic
+endothelial cells <bold>(</bold>CnAOEC). CnAOEC were challenged with rh-cTNFα (30
+ng/mL) alone for 6 hr or combined with FZP (1, 10, or 100 μM). The mRNA expression
+of (A) <italic toggle="yes">E-selectin</italic>, (B) <italic toggle="yes">intercellular adhesion
+molecule-1</italic> (<italic toggle="yes">ICAM-1</italic>), and (C) <italic toggle="yes">P-selectin</italic>
+was quantified by qPCR and normalized to the rh-cTNFα control (set to 1.0). Data are
+presented as mean ± SD from three independent experiments. Statistical significance
+was assessed using RM one-way ANOVA followed by Tukey’s multiple comparison test.
+*<italic toggle="yes">P</italic>&lt;0.05, **<italic toggle="yes"> P</italic>&lt;0.01 versus the indicated
+groups.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="jvms-88-3-471-g002.jpg"/></fig>), the statistics showed no difference between treatment groups versus the positive
+control (<italic toggle="yes">P</italic>≥0.395) and no difference between the treatments
+(<italic toggle="yes">P</italic>≥0.534). The mean folds were 1.00, 0.82, and 0.95 for 1, 10, and 100
+μM of FZP, respectively.</p><p><italic toggle="yes">ICAM-1</italic> gene expression relative to the positive control exhibits a
+similar pattern in the LPS-exposed group as <italic toggle="yes">E-selectin</italic>, illustrated in
+<xref rid="fig_001" ref-type="fig">Fig. 1B.</xref> The mean fold was 1.00, 0.95, 0.86,
+and 1.56 for LPS and FZP concentrations of 1, 10, and 100 μM, respectively. The
+statistical analysis showed no significant effect of the <italic toggle="yes">ICAM-1</italic> gene
+expression after being challenged with all treatments compared to the LPS treatment alone
+(<italic toggle="yes">P</italic>≥0.347). However, <italic toggle="yes">ICAM-1</italic> was significantly
+upregulated in the 100 μM group compared to the 10 μM group (<italic toggle="yes">P</italic>=0.027).
+Other pairwise comparisons were not significant. For the rh-cTNFα treatment groups, the
+mean fold versus rh-cTNFα alone was 0.99, 0.81, and 1.39 at 1, 10, and 100 μM of FZP,
+respectively, as shown in <xref rid="fig_002" ref-type="fig">Fig. 2B.</xref> These results
+revealed that FZP at 100 μM concentration significantly increased <italic toggle="yes">ICAM-1</italic>
+gene expression level compared to both the positive control (<italic toggle="yes">P</italic>=0.007) and
+the FZP 1 μM treatment group (<italic toggle="yes">P</italic>=0.039). There are no significant
+differences between other pairwise comparisons (<italic toggle="yes">P</italic>≥0.359).</p><p><italic toggle="yes">P-selectin</italic> mRNA expression level was highlighted across both stimuli, as
+it illustrates an inverse-dose response. The results of the LPS-challenged group indicate
+that the mean fold against the isolated LPS treatment was 1.09 (1 μM), 1.21 (10 μM), and
+0.84 (100 μM), visible in <xref rid="fig_001" ref-type="fig">Fig. 1C.</xref> The
+statistical calculations showed that 100 μM concentration had a significant effect in
+reducing <italic toggle="yes">P-selectin</italic> expression levels compared to the 10 μM group
+(<italic toggle="yes">P</italic>=0.024). However, other pairwise comparisons were not statistically
+significant (<italic toggle="yes">P</italic>≥0.052). For the rh-cTNFα treatment groups, the mean fold
+change compared to the positive control was 1.07, 0.90, and 0.69 for FZP at 1, 10, and 100
+μM, respectively, in a dose-dependent pattern. <xref rid="fig_002" ref-type="fig">Figure
+2C</xref> visualizes this pattern. The statistical results indicate that
+<italic toggle="yes">P-selectin</italic> was downregulated after incubation with FZP 100 μM compared
+to both incubations with rh-cTNFα alone (<italic toggle="yes">P</italic>=0.009) and FZP 1 μM
+(<italic toggle="yes">P</italic>=0.046). However, all remaining pairwise comparisons were
+non-significant (<italic toggle="yes">P</italic>≥0.157).</p></sec><sec><title>Effect of fuzapladib sodium hydrate on CXCL1 protein expression in cytokine-induced
+CnAOEC</title><p>The concentration of CXCL1 protein was quantified using the Canine CXCL1 ELISA kit to
+determine the effect of FZP on cytokine-induced CnAOEC. As expected, stimulation with both
+LPS and rh-cTNFα markedly increased CXCL1 levels compared with the negative control (<xref rid="pdf_001" ref-type="supplementary-material">Supplementary Table 3</xref>). The
+conducted ANOVA test showed no significant effect of treatment on CXCL1 expression in
+LPS-stimulated samples (<italic toggle="yes">P</italic>=0.286), illustrated in <xref rid="fig_003" ref-type="fig">Fig. 3A.</xref><fig position="float" fig-type="figure" id="fig_003" orientation="portrait"><label>Fig. 3.</label><caption><p>Effects of fuzapladib sodium hydrate (FZP) on C-X-C motif chemokine ligand 1
+(CXCL1) protein expression in cytokine-induced canine aortic endothelial cells
+(CnAOEC). CnAOEC were stimulated with (A) lipopolysaccharide (LPS; 100 ng/mL) or (B)
+recombinant canine tumor necrosis factor alpha (rh-cTNFα; 30 ng/mL), either in
+isolation or combined with FZP (1, 10, or 100 μM) for 24 hr. CXCL1 levels in culture
+supernatants were measured using a Canine CXCL1 ELISA kit. Data represent mean ± SD
+from three independent experiments. Statistical significance was determined by RM
+one-way ANOVA with Tukey’s multiple comparison test
+(<italic toggle="yes">P</italic>&gt;0.05).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="jvms-88-3-471-g003.jpg"/></fig> In contrast, the overall effect of treatment was statistically significant in the
+rh-cTNFα-challenged group (<italic toggle="yes">F</italic>(1.16, 2.32)=20.14,
+<italic toggle="yes">P</italic>=0.035), as shown in <xref rid="fig_003" ref-type="fig">Fig. 3B.</xref>
+However, Tukey’s <italic toggle="yes">post hoc</italic> test did not identify significant pairwise
+differences (<italic toggle="yes">P</italic>≥0.054), indicating that the reduction represents a
+downward trend rather than a statistically significant suppression. The partial
+eta-squared <inline-formula>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M3" display="inline" overflow="scroll"><mml:mrow><mml:mrow><mml:msubsup><mml:mi>η</mml:mi><mml:mi>ρ</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:mrow></mml:math>
+</inline-formula> was 0.91, consistent with a very large effect size despite the
+non-significant pairwise comparisons.</p></sec><sec><title>Effect of fuzapladib sodium hydrate on adhesion molecule gene expression in
+cytokine-induced canine neutrophils</title><p>The effect of FZP on neutrophil adhesion molecule gene expression, including
+<italic toggle="yes">CXCR2</italic>, <italic toggle="yes">PSGL-1</italic>, and <italic toggle="yes">L-selectin</italic>, was
+evaluated using neutrophils isolated from three healthy dogs. For each dog, experiments
+were independently repeated three times. Expression values were normalized within the dogs
+to the rh-cTNFα–stimulated condition. Subsequently, the gene expression data were averaged
+for each dog before statistical analysis. Baseline comparisons showed no significant
+difference in <italic toggle="yes">CXCR2</italic> or <italic toggle="yes">L-selectin</italic> expression between
+non-stimulated and cTNFα–stimulated neutrophils, but <italic toggle="yes">PSGL-1</italic> expression
+was significantly decreased following stimulation (<xref rid="pdf_001" ref-type="supplementary-material">Supplementary Table 2</xref>).</p><p>To verify cell survival under the incubation conditions used for gene expression
+analysis, neutrophil viability was assessed by evaluating membrane integrity using 7-AAD
+staining in parallel flow cytometry experiments performed under identical conditions.
+Viability remained high across all treatments (90.6–91.8%) with no significant differences
+across all groups (<italic toggle="yes">P</italic>≥0.078), confirming that the observed gene expression
+changes were not due to cytotoxicity.</p><p>The results of this analysis are shown in <xref rid="fig_004" ref-type="fig">Fig.
+4A–C</xref><fig position="float" fig-type="figure" id="fig_004" orientation="portrait"><label>Fig. 4.</label><caption><p>Effects of fuzapladib sodium hydrate (FZP) on adhesion molecule gene expression in
+recombinant canine tumor necrosis factor alpha (rh-cTNFα)-induced canine
+neutrophils. Neutrophils from three dogs were pre-incubated with FZP (1, 10, or 100
+μM) for 24 hr and then stimulated with rh-cTNFα (20 ng/mL) for 1 hr. Gene expression
+of (A) <italic toggle="yes">C-X-C motif chemokine receptor 2</italic> (<italic toggle="yes">CXCR2</italic>),
+(B) <italic toggle="yes">P-selectin glycoprotein ligand-1</italic> (<italic toggle="yes">PSGL-1</italic>), and
+(C) <italic toggle="yes">L-selectin</italic> was quantified by qPCR and normalized to
+rh-cTNFα-stimulated controls. Data represent mean ± SD, averaged per dog.
+Statistical analysis was performed using RM one-way ANOVA with Tukey’s test
+(*<italic toggle="yes">P</italic>&lt;0.05, **<italic toggle="yes">P</italic>&lt;0.01).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="jvms-88-3-471-g004.jpg"/></fig>. They highlight that FZP did not significantly affect <italic toggle="yes">CXCR2</italic> gene
+expression across 1, 10, and 100 μM, with relative fold changes of 0.92, 0.80, and 0.88,
+respectively (<italic toggle="yes">P</italic>≥0.368). This is illustrated by <xref rid="fig_004" ref-type="fig">Fig. 4A.</xref> For <italic toggle="yes">PSGL-1</italic>, expression increased at 1 μM
+(1.40-fold) and declined at 10 and 100 μM (0.94- and 0.53-fold, respectively), visible in
+<xref rid="fig_004" ref-type="fig">Fig. 4B.</xref> When comparing each result with
+rh-cTNFα, there was no statistical significance (<italic toggle="yes">P</italic>≥0.064). However, 100
+μM was significantly lower than 10 μM (<italic toggle="yes">P</italic>=0.037).
+<italic toggle="yes">L-selectin</italic> revealed a similar pattern, showing relative fold changes of
+1.81, 0.88, and 0.54 (1, 10, and 100 μM, respectively). Importantly, expression at 100 μM
+was significantly lower than that of the rh-cTNFα-stimulated control
+(<italic toggle="yes">P</italic>=0.005), as visualized in <xref rid="fig_004" ref-type="fig">Fig.
+4C.</xref></p></sec><sec><title>Effect of fuzapladib sodium hydrate on LFA-1 on rh-cTNFα-induced canine
+neutrophils</title><p>This study evaluated whether FZP modulates the expression of LFA-1 (CD11a) in canine
+neutrophils under rh-cTNFα-stimulated conditions. Neutrophils were isolated from three
+dogs, and three independent experiments were performed for each animal. The mean value
+from each dog was used for statistical analysis. The results indicated that stimulation
+with rh-cTNFα did not significantly alter CD11a expression compared to the negative
+control (<xref rid="pdf_001" ref-type="supplementary-material">Supplementary Table
+4</xref>).</p><p>The effect of FZP on the mean fluorescence intensity (MFI) of CD11a is shown in <xref rid="fig_005" ref-type="fig">Fig. 5A.</xref><fig position="float" fig-type="figure" id="fig_005" orientation="portrait"><label>Fig. 5.</label><caption><p>Effects of fuzapladib sodium hydrate (FZP) on leukocyte function-associated
+antigen-1 (LFA-1; CD11a subunit) expression in recombinant canine tumor necrosis
+factor alpha (rh-cTNFα)-stimulated canine neutrophils. Neutrophils were
+pre-incubated with FZP (1, 10, or 100 μM) for 24 hr and stimulated with rh-cTNFα (20
+ng/mL) for 1 hr. (A) Mean fluorescence intensity (MFI) of CD11a expression. (B)
+Representative flow-cytometric plots showing distinct CD11a-low and CD11a-high
+subpopulations. (C and D) Quantitative analysis of low- and high-expression
+populations, respectively. Each dog was tested in triplicate, using the mean per
+dog. Data are mean ± SD (n=3). Statistical significance was assessed using RM
+one-way ANOVA with Tukey’s test, or the Friedman test with Dunn’s correction. No
+significant differences were detected (<italic toggle="yes">P</italic>&gt;0.05).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="jvms-88-3-471-g005.jpg"/></fig> The mean MFI of the rh-cTNFα control group was 2,818; meanwhile, the FZP-treated
+groups were 2,892, 2,685, and 2,250 at FZP 1, 10, and 100 μM, respectively. The statistics
+indicated that there was no significant difference in overall treatment effect
+(<italic toggle="yes">P</italic>=0.727). In addition, the flow cytometric analysis also revealed two
+distinct populations of CD11a-positive cells, characterized by either low or high CD11a
+expression (<xref rid="fig_005" ref-type="fig">Fig. 5B</xref>). Consequently, the effect
+of FZP on the CD11a expression population was determined. The mean percentage of live
+cells with low CD11a expression was 49.59% in the rh-cTNFα-stimulated group and 49.15%,
+53.83%, and 66.70% following FZP treatment at 1, 10, and 100 μM, respectively (<xref rid="fig_005" ref-type="fig">Fig. 5C</xref>). Conversely, the proportion of live cells
+showing high CD11a expression was 37.59%, 47.30%, 42.23%, and 41.41% for the rh-cTNFα
+control, FZP at 1, 10, and 100 μM groups, respectively, as exhibited in <xref rid="fig_005" ref-type="fig">Fig. 5D.</xref> The results revealed no statistical
+significance in both the low (<italic toggle="yes">P</italic>=0.253) and high-expression
+(<italic toggle="yes">P</italic>=0.608) populations between any pairs of comparisons.</p></sec><sec><title>Effect of fuzapladib sodium hydrate on static neutrophil adherence to
+rh-cTNFα-induced CnAOEC</title><p>Given the observed downregulation of <italic toggle="yes">P-selectin</italic> on endothelial cells
+following treatment with FZP, the potential effect on neutrophil adhesion to
+rh-cTNFα-stimulated CnAOEC under static adhesion conditions was further investigated.
+CnAOEC at passages 4–9 were used for this experiment. Calcein-AM–labeled neutrophils,
+isolated from three healthy beagles, were applied to the endothelial cell monolayer
+following treatment. Three independent experiments were performed for each dog, and the
+mean per dog was used for statistical analysis.</p><p>Stimulation with rh-cTNFα induced a marked increase in neutrophil adhesion to CnAOEC
+compared to the negative control (<xref rid="pdf_001" ref-type="supplementary-material">Supplementary Table 5</xref>). The effect of different concentrations of FZP on
+neutrophil adhesion was evaluated, as shown in <xref rid="fig_006" ref-type="fig">Fig.
+6.</xref><fig position="float" fig-type="figure" id="fig_006" orientation="portrait"><label>Fig. 6.</label><caption><p>Effect of fuzapladib sodium hydrate (FZP) on static neutrophil adhesion to
+recombinant canine tumor necrosis factor alpha (rh-cTNFα)-stimulated canine aortic
+endothelial cells <bold>(</bold>CnAOEC). CnAOEC were pre-incubated with FZP (1, 10,
+or 100 μM) for 3 hr and subsequently stimulated with rh-cTNFα (30 ng/mL) for 4 hr.
+Calcein-AM-labeled neutrophils (1 × 10<sup>5</sup> cells/well) were added and
+allowed to adhere for 20 min. Neutrophil adhesion was quantified as relative
+fluorescence intensity before and after washing. Data represent mean ± SD from three
+dogs, each tested in three independent experiments. The mean per dog was used for
+statistical analysis using the Friedman test with Dunn’s <italic toggle="yes">post hoc</italic>
+correction, observing no significant effect (<italic toggle="yes">P</italic>&gt;0.05).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="float" orientation="portrait" xlink:href="jvms-88-3-471-g006.jpg"/></fig> Overall, there was no statistically significant difference in adhesion among the
+treatment groups (<italic toggle="yes">P</italic>=0.446). Subsequent pairwise comparisons confirmed the
+lack of significance between any of the groups (<italic toggle="yes">P</italic>≥0.683).</p></sec></sec><sec sec-type="discussion" id="s4"><title>DISCUSSION</title><p>This study investigated the effects of FZP on adhesion molecules in CnAOEC and canine
+neutrophils, focusing on <italic toggle="yes">E-selectin</italic>, <italic toggle="yes">ICAM-1</italic>,
+<italic toggle="yes">P-selectin</italic>, CXCL1, <italic toggle="yes">CXCR2</italic>, <italic toggle="yes">PSGL-1</italic>,
+<italic toggle="yes">L-selectin</italic>, and LFA-1. Across both stimuli, low concentrations of FZP (1
+and 10 μM) showed no significant effect on <italic toggle="yes">E-selectin</italic> and
+<italic toggle="yes">ICAM-1</italic> gene expression compared to the stimulation controls, yet 100 μM
+resulted in a significant increase in expression levels. These findings are consistent with
+earlier observations in HUVEC, where pretreatment with 1 μM FZP did not reduce ICAM-1
+protein expression after LPS stimulation [<xref rid="r25" ref-type="bibr">25</xref>]. In
+contrast, <italic toggle="yes">P-selectin</italic> expression illustrated a dose-response profile:
+rh-cTNFα-stimulated CnAOEC showed a significant reduction at 100 μM, and LPS-stimulated
+cells demonstrated a similar downward trend, though not significant. A notable aspect of the
+endothelial response was the divergent behavior of <italic toggle="yes">P-selectin</italic> and
+<italic toggle="yes">ICAM-1</italic> at 100 μM. This difference indicates a specific modulation of
+signaling pathways rather than overall cytotoxicity, which would usually inhibit global
+protein synthesis. One possible explanation is a functional compensatory mechanism that
+responds with an increase in <italic toggle="yes">ICAM-1</italic> expression in response to selectin
+suppression to maintain adhesive quality [<xref rid="r4" ref-type="bibr">4</xref>].</p><p>In addition to adhesion molecules, this study examined the CXCL1-CXCR2 axis, a key pathway
+in neutrophil recruitment and survival [<xref rid="r16" ref-type="bibr">16</xref>].
+Dysregulated CXCL1 expression contributes to inflammation and chronic injury in multiple
+organs [<xref rid="r34" ref-type="bibr">34</xref>]. In this study, both LPS and rh-cTNFα
+strongly induced CXCL1 secretion from CnAOEC, confirming the expected pro-inflammatory
+activation. FZP did not change CXCL1 levels under LPS stimulation. In rh-cTNFα-stimulated
+conditions, the overall treatment effect was statistically significant, but <italic toggle="yes">post
+hoc</italic> comparisons were not. The reduction at 100 μM should therefore be interpreted
+as a non-significant downward trend rather than confirmed suppression. Notably, the effect
+size was very large <inline-formula>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="M4" display="inline" overflow="scroll"><mml:mrow><mml:mrow><mml:msubsup><mml:mi>η</mml:mi><mml:mi>ρ</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:mrow></mml:math>
+</inline-formula> , indicating that FZP accounted for substantial variance in CXCL1 level
+despite the limited statistical power. This observation is consistent with a previous report
+showing reduced cytokine-induced neutrophil chemoattractant (CINC), the rodent homolog of
+CXCL1, following FZP treatment in an inflammatory model [<xref rid="r35" ref-type="bibr">35</xref>]. Given the established role of the CXCL1-CXCR2 axis in neutrophil-mediated
+tissue injury, including severe lung conditions [<xref rid="r24" ref-type="bibr">24</xref>]
+and acute pancreatitis, in which fibroblast-derived CXCL1 contributes to inflammation [<xref rid="r32" ref-type="bibr">32</xref>], even a partial reduction of CXCL1 has been reported
+to influence neutrophil infiltration and inflammatory pathology. Related preclinical
+findings, such as reduced macrophage infiltration [<xref rid="r15" ref-type="bibr">15</xref>] and improved clinical outcome in canine acute pancreatitis [<xref rid="r6" ref-type="bibr">6</xref>], further support the possibility that FZP influences
+this cytokine pathway, though confirmation will require studies with larger sample
+sizes.</p><p>TNFα is a well-known proinflammatory cytokine that activates neutrophils. The
+transcriptional responses observed in rh-cTNFα-stimulated neutrophils were consistent with
+established models of leukocyte activation. <italic toggle="yes">PSGL-1</italic> was significantly
+downregulated, whereas <italic toggle="yes">CXCR2</italic> and <italic toggle="yes">L-selectin</italic> remained
+comparable to non-stimulated controls. These patterns are compatible with the predominance
+of rapid ectodomain shedding from the surface rather than transcriptional modulation [<xref rid="r2" ref-type="bibr">2</xref>, <xref rid="r14" ref-type="bibr">14</xref>, <xref rid="r20" ref-type="bibr">20</xref>]. Interestingly, high concentrations of FZP further
+decreased <italic toggle="yes">L-selectin</italic> and <italic toggle="yes">PSGL-1</italic> mRNA expression. Because
+L-selectin mediates leukocyte rolling and secondary tethering between leukocytes [<xref rid="r1" ref-type="bibr">1</xref>, <xref rid="r3" ref-type="bibr">3</xref>, <xref rid="r17" ref-type="bibr">17</xref>, <xref rid="r26" ref-type="bibr">26</xref>], and
+PSGL-1 cooperates with L-selectin to initiate LFA-1 activation [<xref rid="r27" ref-type="bibr">27</xref>], the observed reductions in <italic toggle="yes">L-selectin</italic> and
+<italic toggle="yes">PSGL-1</italic> suggest that FZP may interfere with early steps of neutrophil
+recruitment. This interpretation is consistent with the established role of L-selectin in
+directing lymphocyte migration through high endothelial venules [<xref rid="r31" ref-type="bibr">31</xref>].</p><p>In addition to transcriptional responses, the effect of FZP on neutrophil surface
+expression of LFA-1 (CD11a) was examined. rh-cTNFα stimulation did not increase CD11a
+surface expression compared with control conditions. This is consistent with the established
+biology of LFA-1, in which cytokines typically regulate integrin affinity rather than total
+surface levels [<xref rid="r30" ref-type="bibr">30</xref>]. Accordingly, MFI analysis was
+used to determine whether FZP altered CD11a expression on rh-cTNFα-stimulated neutrophils.
+Total LFA-1 (CD11a) expression remained similar across all treatment groups. Although a
+numerical increase in the proportion of cells in the low-expression subset was observed at
+100 μM FZP, this redistribution did not reach statistical significance. Consequently, it is
+suggested that FZP does not primarily affect surface expression or population distributions
+under these conditions. This pattern is consistent with the previous report indicating that
+FZP and related inhibitors can reduce integrin activation, such as LFA-1 and MAC-1, in
+inflammatory models, limiting their conformational activation and adhesive function [<xref rid="r25" ref-type="bibr">25</xref>].</p><p>The functional relevance of these molecular changes was examined using a static neutrophil
+adhesion assay. As expected, rh-cTNFα stimulation significantly increased neutrophil
+adhesion to CnAOEC. Pretreatment of endothelial cells with FZP did not affect adhesion
+across all treatment groups, indicating that suppression of <italic toggle="yes">P-selectin</italic>
+transcription alone is insufficient to affect static adhesion <italic toggle="yes">in vitro.</italic>
+This is consistent with previous studies showing that P-selectin is essential for the
+initial tethering of polymorphonuclear leukocytes. However, by itself, it cannot support
+firm adhesion without additional activating signals, such as platelet-activating factors
+[<xref rid="r19" ref-type="bibr">19</xref>]. P-selectin has also been involved in several
+inflammatory pathologies, including dermatitis, lung injury, ischemia, myocardial damage,
+and arterial thrombosis [<xref rid="r7" ref-type="bibr">7</xref>, <xref rid="r21" ref-type="bibr">21</xref>, <xref rid="r28" ref-type="bibr">28</xref>]. Thus, although no
+significant effects were detected in this static adhesion assay, which primarily relies on
+integrin-mediated firm adhesion, the observed <italic toggle="yes">P-selectin</italic> suppression
+remains biologically significant for the earlier stages of the adhesion cascade. Because
+P-selectin mediates initial tethering and rolling under physiological flow conditions, its
+downregulation by FZP suggests a potential to attenuate the recruitment phase of
+inflammation. Furthermore, only endothelial cells were exposed to FZP in this assay, and
+neutrophil integrin activation was therefore unlikely to be affected, which may further
+explain the absence of changes in firm adhesion in this study.</p><p>Taken together, these results suggest that FZP modulates several adhesion molecules in
+endothelial cells and neutrophils in a dose-dependent manner. In CnAOEC, the most consistent
+effect was suppression of <italic toggle="yes">P-selectin</italic> and a potential reduction of CXCL1
+secretion. Yet, in neutrophils, decreases in <italic toggle="yes">L-selectin</italic> and
+<italic toggle="yes">PSGL-1</italic> were observed. Although statistical significance was not achieved
+across multiple assays, the overall downward trends in both cell types support the
+possibility that FZP influences the early steps of neutrophil recruitment, particularly the
+rolling and tethering phases. It should be noted that most of the notable effects occurred
+at 100 μM, which exceeds the expected peak plasma concentration (C<sub>max</sub>) observed
+in dogs treated with the clinical dose at 0.4 mg/kg [<xref rid="r29" ref-type="bibr">29</xref>]. Consequently, these findings should be interpreted as <italic toggle="yes">in
+vitro</italic> mechanistic observations demonstrating the potential effect rather than a
+direct reflection of therapeutic plasma concentration.</p><p>However, this study has several limitations. The experiments were performed under static
+<italic toggle="yes">in vitro</italic> conditions, which do not replicate physiological shear stress or
+dynamic interactions that occur <italic toggle="yes">in vivo</italic>. The number of donor dogs and the
+range of FZP concentrations were also limited, which may influence the statistical power.
+Most observations were derived from gene expression analyses, with restricted confirmation
+at the protein level. In the present static adhesion assay, FZP treatment was restricted to
+endothelial cells to specifically isolate the endothelial contribution to neutrophil
+recruitment. Consequently, the direct effects of FZP on the neutrophil side were not
+evaluated in this functional assay. Future studies should employ flow-based adhesion assays,
+which more accurately replicate physiological conditions, and co-incubation assays under
+cytokine-induced conditions to clarify downstream consequences. Additional experiments with
+larger sample sizes and protein-level analyses, as well as further investigation of the
+underlying mechanisms, would help confirm the biological relevance of FZP. Overall, the
+present findings provide experimental support that FZP has anti-inflammatory effects by
+modulating adhesion molecules and neutrophil trafficking.</p></sec><sec sec-type="COI-statement" id="s5"><title>CONFLICT OF INTEREST</title><p>The authors declare that they have no competing financial interests or personal
+relationships that could have influenced the work reported in this study.</p></sec><sec sec-type="supplementary-material"><title>Supplementary Material</title><supplementary-material id="pdf_001" position="float" content-type="local-data" orientation="portrait"><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="jvms-88-3-471-s001.pdf" id="d67e1356" position="anchor" orientation="portrait"/></supplementary-material></sec></body><back><ack><p>The authors would like to thank the staff of the Laboratory of Veterinary Surgery,
+Department of Veterinary Clinical Science, Hokkaido University, for their valuable technical
+assistance and continuous support throughout this study. We are also grateful to the animal
+care staff for their assistance with sample collection and to our colleagues for
+constructive discussions.</p></ack><ref-list><title>REFERENCES</title><ref id="r1"><label>1</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Alon</surname><given-names>R</given-names></name><name name-style="western"><surname>Fuhlbrigge</surname><given-names>RC</given-names></name><name name-style="western"><surname>Finger</surname><given-names>EB</given-names></name><name name-style="western"><surname>Springer</surname><given-names>TA</given-names></name></person-group>. <year>1996</year>. <article-title>Interactions through L-selectin between
+leukocytes and adherent leukocytes nucleate rolling adhesions on selectins and VCAM-1 in
+shear flow</article-title>. <source><italic toggle="yes">J Cell
+Biol</italic></source><volume>135</volume>: <fpage>849</fpage>–<lpage>865</lpage>. doi:
+<pub-id pub-id-type="doi">10.1083/jcb.135.3.849</pub-id><pub-id pub-id-type="pmid">8909556</pub-id>
+<pub-id pub-id-type="pmcid">PMC2121073</pub-id></mixed-citation></ref><ref id="r2"><label>2</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Asagoe</surname><given-names>K</given-names></name><name name-style="western"><surname>Yamamoto</surname><given-names>K</given-names></name><name name-style="western"><surname>Takahashi</surname><given-names>A</given-names></name><name name-style="western"><surname>Suzuki</surname><given-names>K</given-names></name><name name-style="western"><surname>Maeda</surname><given-names>A</given-names></name><name name-style="western"><surname>Nohgawa</surname><given-names>M</given-names></name><name name-style="western"><surname>Harakawa</surname><given-names>N</given-names></name><name name-style="western"><surname>Takano</surname><given-names>K</given-names></name><name name-style="western"><surname>Mukaida</surname><given-names>N</given-names></name><name name-style="western"><surname>Matsushima</surname><given-names>K</given-names></name><name name-style="western"><surname>Okuma</surname><given-names>M</given-names></name><name name-style="western"><surname>Sasada</surname><given-names>M</given-names></name></person-group>. <year>1998</year>. <article-title>Down-regulation of CXCR2 expression on
+human polymorphonuclear leukocytes by TNF-alpha</article-title>. <source><italic toggle="yes">J
+Immunol</italic></source><volume>160</volume>:
+<fpage>4518</fpage>–<lpage>4525</lpage>. doi: <pub-id pub-id-type="doi">10.4049/jimmunol.160.9.4518</pub-id><pub-id pub-id-type="pmid">9574558</pub-id>
+</mixed-citation></ref><ref id="r3"><label>3</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Bargatze</surname><given-names>RF</given-names></name><name name-style="western"><surname>Kurk</surname><given-names>S</given-names></name><name name-style="western"><surname>Butcher</surname><given-names>EC</given-names></name><name name-style="western"><surname>Jutila</surname><given-names>MA</given-names></name></person-group>. <year>1994</year>. <article-title>Neutrophils roll on adherent
+neutrophils bound to cytokine-induced endothelial cells via L-selectin on the rolling
+cells</article-title>. <source><italic toggle="yes">J Exp Med</italic></source><volume>180</volume>:
+<fpage>1785</fpage>–<lpage>1792</lpage>. doi: <pub-id pub-id-type="doi">10.1084/jem.180.5.1785</pub-id><pub-id pub-id-type="pmid">7525838</pub-id>
+<pub-id pub-id-type="pmcid">PMC2191733</pub-id></mixed-citation></ref><ref id="r4"><label>4</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Bullard</surname><given-names>DC</given-names></name><name name-style="western"><surname>Kunkel</surname><given-names>EJ</given-names></name><name name-style="western"><surname>Kubo</surname><given-names>H</given-names></name><name name-style="western"><surname>Hicks</surname><given-names>MJ</given-names></name><name name-style="western"><surname>Lorenzo</surname><given-names>I</given-names></name><name name-style="western"><surname>Doyle</surname><given-names>NA</given-names></name><name name-style="western"><surname>Doerschuk</surname><given-names>CM</given-names></name><name name-style="western"><surname>Ley</surname><given-names>K</given-names></name><name name-style="western"><surname>Beaudet</surname><given-names>AL</given-names></name></person-group>. <year>1996</year>. <article-title>Infectious susceptibility and severe
+deficiency of leukocyte rolling and recruitment in E-selectin and P-selectin double
+mutant mice</article-title>. <source><italic toggle="yes">J Exp
+Med</italic></source><volume>183</volume>: <fpage>2329</fpage>–<lpage>2336</lpage>. doi:
+<pub-id pub-id-type="doi">10.1084/jem.183.5.2329</pub-id><pub-id pub-id-type="pmid">8642341</pub-id>
+<pub-id pub-id-type="pmcid">PMC2192541</pub-id></mixed-citation></ref><ref id="r5"><label>5</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Chen</surname><given-names>L</given-names></name><name name-style="western"><surname>Deng</surname><given-names>H</given-names></name><name name-style="western"><surname>Cui</surname><given-names>H</given-names></name><name name-style="western"><surname>Fang</surname><given-names>J</given-names></name><name name-style="western"><surname>Zuo</surname><given-names>Z</given-names></name><name name-style="western"><surname>Deng</surname><given-names>J</given-names></name><name name-style="western"><surname>Li</surname><given-names>Y</given-names></name><name name-style="western"><surname>Wang</surname><given-names>X</given-names></name><name name-style="western"><surname>Zhao</surname><given-names>L</given-names></name></person-group>. <year>2017</year>. <article-title>Inflammatory responses and
+inflammation-associated diseases in organs</article-title>.
+<source><italic toggle="yes">Oncotarget</italic></source><volume>9</volume>:
+<fpage>7204</fpage>–<lpage>7218</lpage>. doi: <pub-id pub-id-type="doi">10.18632/oncotarget.23208</pub-id><pub-id pub-id-type="pmid">29467962</pub-id>
+<pub-id pub-id-type="pmcid">PMC5805548</pub-id></mixed-citation></ref><ref id="r6"><label>6</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Cridge</surname><given-names>H</given-names></name><name name-style="western"><surname>Lim</surname><given-names>SY</given-names></name><name name-style="western"><surname>Algül</surname><given-names>H</given-names></name><name name-style="western"><surname>Steiner</surname><given-names>JM</given-names></name></person-group>. <year>2022</year>. <article-title>New insights into the etiology, risk
+factors, and pathogenesis of pancreatitis in dogs: Potential impacts on clinical
+practice</article-title>. <source><italic toggle="yes">J Vet Intern
+Med</italic></source><volume>36</volume>: <fpage>847</fpage>–<lpage>864</lpage>. doi:
+<pub-id pub-id-type="doi">10.1111/jvim.16437</pub-id><pub-id pub-id-type="pmid">35546513</pub-id>
+<pub-id pub-id-type="pmcid">PMC9151489</pub-id></mixed-citation></ref><ref id="r7"><label>7</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Doré</surname><given-names>M</given-names></name><name name-style="western"><surname>Sirois</surname><given-names>J</given-names></name></person-group>. <year>1996</year>. <article-title>Regulation of P-selectin expression by
+inflammatory mediators in canine jugular endothelial cells</article-title>.
+<source><italic toggle="yes">Vet Pathol</italic></source><volume>33</volume>:
+<fpage>662</fpage>–<lpage>671</lpage>. doi: <pub-id pub-id-type="doi">10.1177/030098589603300605</pub-id><pub-id pub-id-type="pmid">8952025</pub-id>
+</mixed-citation></ref><ref id="r8"><label>8</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Doré</surname><given-names>M</given-names></name><name name-style="western"><surname>Simon</surname><given-names>SI</given-names></name><name name-style="western"><surname>Hughes</surname><given-names>BJ</given-names></name><name name-style="western"><surname>Entman</surname><given-names>ML</given-names></name><name name-style="western"><surname>Smith</surname><given-names>CW</given-names></name></person-group>. <year>1995</year>. <article-title>P-selectin- and CD18-mediated
+recruitment of canine neutrophils under conditions of shear stress</article-title>.
+<source><italic toggle="yes">Vet Pathol</italic></source><volume>32</volume>:
+<fpage>258</fpage>–<lpage>268</lpage>. doi: <pub-id pub-id-type="doi">10.1177/030098589503200307</pub-id><pub-id pub-id-type="pmid">7541590</pub-id>
+</mixed-citation></ref><ref id="r9"><label>9</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Filep</surname><given-names>JG</given-names></name></person-group>. <year>2022</year>. <article-title>Targeting Neutrophils for Promoting the
+Resolution of Inflammation</article-title>. <source><italic toggle="yes">Front
+Immunol</italic></source><volume>13</volume>: <fpage>866747</fpage>. doi: <pub-id pub-id-type="doi">10.3389/fimmu.2022.866747</pub-id><pub-id pub-id-type="pmid">35371088</pub-id>
+<pub-id pub-id-type="pmcid">PMC8966391</pub-id></mixed-citation></ref><ref id="r10"><label>10</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Habtezion</surname><given-names>A</given-names></name></person-group>. <year>2015</year>. <article-title>Inflammation in acute and chronic
+pancreatitis</article-title>. <source><italic toggle="yes">Curr Opin
+Gastroenterol</italic></source><volume>31</volume>:
+<fpage>395</fpage>–<lpage>399</lpage>. doi: <pub-id pub-id-type="doi">10.1097/MOG.0000000000000195</pub-id><pub-id pub-id-type="pmid">26107390</pub-id>
+<pub-id pub-id-type="pmcid">PMC4618697</pub-id></mixed-citation></ref><ref id="r11"><label>11</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Hines</surname><given-names>OJ</given-names></name><name name-style="western"><surname>Pandol</surname><given-names>SJ</given-names></name></person-group>. <year>2019</year>. <article-title>Management of severe acute
+pancreatitis</article-title>. <source><italic toggle="yes">BMJ</italic></source><volume>367</volume>:
+<fpage>l6227</fpage>. doi: <pub-id pub-id-type="doi">10.1136/bmj.l6227</pub-id><pub-id pub-id-type="pmid">31791953</pub-id>
+</mixed-citation></ref><ref id="r12"><label>12</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Imamura</surname><given-names>T</given-names></name><name name-style="western"><surname>Niikawa</surname><given-names>J</given-names></name><name name-style="western"><surname>Kitamura</surname><given-names>K</given-names></name><name name-style="western"><surname>Takahashi</surname><given-names>A</given-names></name><name name-style="western"><surname>Ikegami</surname><given-names>A</given-names></name><name name-style="western"><surname>Yoshida</surname><given-names>H</given-names></name><name name-style="western"><surname>Tanaka</surname><given-names>S</given-names></name><name name-style="western"><surname>Mitamura</surname><given-names>K</given-names></name></person-group>. <year>2003</year>. <article-title>Effect of IS-741 on ethionine-induced
+acute pancreatitis in rats: relation to pancreatic acinar cell
+regeneration</article-title>. <source><italic toggle="yes">J
+Gastroenterol</italic></source><volume>38</volume>:
+<fpage>260</fpage>–<lpage>267</lpage>. doi: <pub-id pub-id-type="doi">10.1007/s005350300045</pub-id><pub-id pub-id-type="pmid">12673449</pub-id>
+</mixed-citation></ref><ref id="r13"><label>13</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Isaji</surname><given-names>S</given-names></name><name name-style="western"><surname>Hayashi</surname><given-names>J</given-names></name><name name-style="western"><surname>Higashiguchi</surname><given-names>T</given-names></name><name name-style="western"><surname>Yokoi</surname><given-names>H</given-names></name><name name-style="western"><surname>Ogura</surname><given-names>Y</given-names></name><name name-style="western"><surname>Noguchi</surname><given-names>T</given-names></name><name name-style="western"><surname>Kawarada</surname><given-names>Y</given-names></name></person-group>. <year>1999</year>. <article-title>Effect of IS-741 (a new synthetic
+antiinflammatory agent) on acute necrotizing pancreatitis in dogs. Significance of its
+inhibitory effect on cytosolic phospholipase A2</article-title>.
+<source><italic toggle="yes">Digestion</italic></source><volume>60</volume>
+<issue>Suppl 1</issue>: <fpage>47</fpage>–<lpage>51</lpage>. doi: <pub-id pub-id-type="doi">10.1159/000051453</pub-id><pub-id pub-id-type="pmid">10026431</pub-id>
+</mixed-citation></ref><ref id="r14"><label>14</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Ivetic</surname><given-names>A</given-names></name><name name-style="western"><surname>Hoskins Green</surname><given-names>HL</given-names></name><name name-style="western"><surname>Hart</surname><given-names>SJ</given-names></name></person-group>. <year>2019</year>. <article-title>L-selectin: a major regulator of
+leukocyte adhesion, migration and signaling</article-title>. <source><italic toggle="yes">Front
+Immunol</italic></source><volume>10</volume>: <fpage>1068</fpage>. doi: <pub-id pub-id-type="doi">10.3389/fimmu.2019.01068</pub-id><pub-id pub-id-type="pmid">31139190</pub-id>
+<pub-id pub-id-type="pmcid">PMC6527602</pub-id></mixed-citation></ref><ref id="r15"><label>15</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Kaji</surname><given-names>N</given-names></name><name name-style="western"><surname>Iwaoka</surname><given-names>K</given-names></name><name name-style="western"><surname>Nakamura</surname><given-names>S</given-names></name><name name-style="western"><surname>Tsukamoto</surname><given-names>A</given-names></name></person-group>. <year>2023</year>. <article-title>Fuzapladib reduces postsurgical
+inflammation in the intestinal muscularis externa</article-title>. <source><italic toggle="yes">J Vet
+Med Sci</italic></source><volume>85</volume>: <fpage>1151</fpage>–<lpage>1156</lpage>.
+doi: <pub-id pub-id-type="doi">10.1292/jvms.23-0257</pub-id><pub-id pub-id-type="pmid">37730381</pub-id>
+<pub-id pub-id-type="pmcid">PMC10686772</pub-id></mixed-citation></ref><ref id="r16"><label>16</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Korbecki</surname><given-names>J</given-names></name><name name-style="western"><surname>Gąssowska-Dobrowolska</surname><given-names>M</given-names></name><name name-style="western"><surname>Wójcik</surname><given-names>J</given-names></name><name name-style="western"><surname>Szatkowska</surname><given-names>I</given-names></name><name name-style="western"><surname>Barczak</surname><given-names>K</given-names></name><name name-style="western"><surname>Chlubek</surname><given-names>M</given-names></name><name name-style="western"><surname>Baranowska-Bosiacka</surname><given-names>I</given-names></name></person-group>. <year>2022</year>. <article-title>The importance of CXCL1 in physiology
+and noncancerous diseases of bone, bone marrow, muscle and the nervous
+system</article-title>. <source><italic toggle="yes">Int J Mol
+Sci</italic></source><volume>23</volume>: <fpage>4205</fpage>. doi: <pub-id pub-id-type="doi">10.3390/ijms23084205</pub-id><pub-id pub-id-type="pmid">35457023</pub-id>
+<pub-id pub-id-type="pmcid">PMC9024980</pub-id></mixed-citation></ref><ref id="r17"><label>17</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Kunkel</surname><given-names>EJ</given-names></name><name name-style="western"><surname>Chomas</surname><given-names>JE</given-names></name><name name-style="western"><surname>Ley</surname><given-names>K</given-names></name></person-group>. <year>1998</year>. <article-title>Role of primary and secondary capture
+for leukocyte accumulation <italic toggle="yes">in vivo</italic></article-title>.
+<source><italic toggle="yes">Circ Res</italic></source><volume>82</volume>:
+<fpage>30</fpage>–<lpage>38</lpage>. doi: <pub-id pub-id-type="doi">10.1161/01.RES.82.1.30</pub-id><pub-id pub-id-type="pmid">9440702</pub-id>
+</mixed-citation></ref><ref id="r18"><label>18</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Li</surname><given-names>Y</given-names></name><name name-style="western"><surname>Imaizumi</surname><given-names>T</given-names></name><name name-style="western"><surname>Matsumiya</surname><given-names>T</given-names></name><name name-style="western"><surname>Seya</surname><given-names>K</given-names></name><name name-style="western"><surname>Kawaguchi</surname><given-names>S</given-names></name><name name-style="western"><surname>Ding</surname><given-names>J</given-names></name><name name-style="western"><surname>Ohkuma</surname><given-names>H</given-names></name></person-group>. <year>2020</year>. <article-title>Polyinosinic-polycytidylic acid induces
+CXCL1 expression in cultured hCMEC/D3 human cerebral microvascular endothelial
+cells</article-title>.
+<source><italic toggle="yes">Neuroimmunomodulation</italic></source><volume>27</volume>:
+<fpage>38</fpage>–<lpage>47</lpage>. doi: <pub-id pub-id-type="doi">10.1159/000506482</pub-id><pub-id pub-id-type="pmid">32294654</pub-id>
+</mixed-citation></ref><ref id="r19"><label>19</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Lorant</surname><given-names>DE</given-names></name><name name-style="western"><surname>Topham</surname><given-names>MK</given-names></name><name name-style="western"><surname>Whatley</surname><given-names>RE</given-names></name><name name-style="western"><surname>McEver</surname><given-names>RP</given-names></name><name name-style="western"><surname>McIntyre</surname><given-names>TM</given-names></name><name name-style="western"><surname>Prescott</surname><given-names>SM</given-names></name><name name-style="western"><surname>Zimmerman</surname><given-names>GA</given-names></name></person-group>. <year>1993</year>. <article-title>Inflammatory roles of
+P-selectin</article-title>. <source><italic toggle="yes">J Clin
+Invest</italic></source><volume>92</volume>: <fpage>559</fpage>–<lpage>570</lpage>. doi:
+<pub-id pub-id-type="doi">10.1172/JCI116623</pub-id><pub-id pub-id-type="pmid">7688760</pub-id>
+<pub-id pub-id-type="pmcid">PMC294887</pub-id></mixed-citation></ref><ref id="r20"><label>20</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Marsik</surname><given-names>C</given-names></name><name name-style="western"><surname>Mayr</surname><given-names>F</given-names></name><name name-style="western"><surname>Cardona</surname><given-names>F</given-names></name><name name-style="western"><surname>Schaller</surname><given-names>G</given-names></name><name name-style="western"><surname>Wagner</surname><given-names>OF</given-names></name><name name-style="western"><surname>Jilma</surname><given-names>B</given-names></name></person-group>. <year>2004</year>. <article-title>Endotoxin down-modulates P-selectin
+glycoprotein ligand-1 (PSGL-1, CD162) on neutrophils in humans</article-title>.
+<source><italic toggle="yes">J Clin Immunol</italic></source><volume>24</volume>:
+<fpage>62</fpage>–<lpage>65</lpage>. doi: <pub-id pub-id-type="doi">10.1023/B:JOCI.0000018064.13793.83</pub-id><pub-id pub-id-type="pmid">14997035</pub-id>
+</mixed-citation></ref><ref id="r21"><label>21</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Minamino</surname><given-names>T</given-names></name><name name-style="western"><surname>Kitakaze</surname><given-names>M</given-names></name><name name-style="western"><surname>Asanuma</surname><given-names>H</given-names></name><name name-style="western"><surname>Tomiyama</surname><given-names>Y</given-names></name><name name-style="western"><surname>Shiraga</surname><given-names>M</given-names></name><name name-style="western"><surname>Sato</surname><given-names>H</given-names></name><name name-style="western"><surname>Ueda</surname><given-names>Y</given-names></name><name name-style="western"><surname>Funaya</surname><given-names>H</given-names></name><name name-style="western"><surname>Kuzuya</surname><given-names>T</given-names></name><name name-style="western"><surname>Matsuzawa</surname><given-names>Y</given-names></name><name name-style="western"><surname>Hori</surname><given-names>M</given-names></name></person-group>. <year>1998</year>. <article-title>Endogenous adenosine inhibits
+P-selectin-dependent formation of coronary thromboemboli during hypoperfusion in
+dogs</article-title>. <source><italic toggle="yes">J Clin
+Invest</italic></source><volume>101</volume>: <fpage>1643</fpage>–<lpage>1653</lpage>.
+doi: <pub-id pub-id-type="doi">10.1172/JCI635</pub-id><pub-id pub-id-type="pmid">9541494</pub-id>
+<pub-id pub-id-type="pmcid">PMC508745</pub-id></mixed-citation></ref><ref id="r22"><label>22</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Okanishi</surname><given-names>H</given-names></name><name name-style="western"><surname>Kagawa</surname><given-names>Y</given-names></name><name name-style="western"><surname>Watari</surname><given-names>T</given-names></name></person-group>. <year>2014</year>. <article-title>Expression of selectins and P-selectin
+glycoprotein ligand-1 in dogs with lymphocytic-plasmacytic enteritis</article-title>.
+<source><italic toggle="yes">Vet Immunol Immunopathol</italic></source><volume>161</volume>:
+<fpage>42</fpage>–<lpage>48</lpage>. doi: <pub-id pub-id-type="doi">10.1016/j.vetimm.2014.06.005</pub-id><pub-id pub-id-type="pmid">25063223</pub-id>
+</mixed-citation></ref><ref id="r23"><label>23</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Park</surname><given-names>SA</given-names></name><name name-style="western"><surname>Hyun</surname><given-names>YM</given-names></name></person-group>. <year>2016</year>. <article-title>Neutrophil extravasation cascade: what
+can we learn from two-photon intravital imaging?</article-title><source><italic toggle="yes">Immune
+Netw</italic></source><volume>16</volume>: <fpage>317</fpage>–<lpage>321</lpage>. doi:
+<pub-id pub-id-type="doi">10.4110/in.2016.16.6.317</pub-id><pub-id pub-id-type="pmid">28035206</pub-id>
+<pub-id pub-id-type="pmcid">PMC5195840</pub-id></mixed-citation></ref><ref id="r24"><label>24</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Sawant</surname><given-names>KV</given-names></name><name name-style="western"><surname>Xu</surname><given-names>R</given-names></name><name name-style="western"><surname>Cox</surname><given-names>R</given-names></name><name name-style="western"><surname>Hawkins</surname><given-names>H</given-names></name><name name-style="western"><surname>Sbrana</surname><given-names>E</given-names></name><name name-style="western"><surname>Kolli</surname><given-names>D</given-names></name><name name-style="western"><surname>Garofalo</surname><given-names>RP</given-names></name><name name-style="western"><surname>Rajarathnam</surname><given-names>K</given-names></name></person-group>. <year>2015</year>. <article-title>Chemokine CXCL1-mediated neutrophil
+trafficking in the lung: role of CXCR2 activation</article-title>. <source><italic toggle="yes">J
+Innate Immun</italic></source><volume>7</volume>:
+<fpage>647</fpage>–<lpage>658</lpage>. doi: <pub-id pub-id-type="doi">10.1159/000430914</pub-id><pub-id pub-id-type="pmid">26138727</pub-id>
+<pub-id pub-id-type="pmcid">PMC4618178</pub-id></mixed-citation></ref><ref id="r25"><label>25</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Shikama</surname><given-names>H</given-names></name><name name-style="western"><surname>Yotsuya</surname><given-names>S</given-names></name><name name-style="western"><surname>Satake</surname><given-names>S</given-names></name><name name-style="western"><surname>Sugi</surname><given-names>H</given-names></name><name name-style="western"><surname>Kato</surname><given-names>M</given-names></name></person-group>. <year>1999</year>. <article-title>Effect of IS-741 on cell adhesion
+between human umbilical vein endothelial cells and HL-60 cells</article-title>.
+<source><italic toggle="yes">Biol Pharm Bull</italic></source><volume>22</volume>:
+<fpage>127</fpage>–<lpage>131</lpage>. doi: <pub-id pub-id-type="doi">10.1248/bpb.22.127</pub-id><pub-id pub-id-type="pmid">10077429</pub-id>
+</mixed-citation></ref><ref id="r26"><label>26</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Spertini</surname><given-names>O</given-names></name><name name-style="western"><surname>Luscinskas</surname><given-names>FW</given-names></name><name name-style="western"><surname>Kansas</surname><given-names>GS</given-names></name><name name-style="western"><surname>Munro</surname><given-names>JM</given-names></name><name name-style="western"><surname>Griffin</surname><given-names>JD</given-names></name><name name-style="western"><surname>Gimbrone</surname><given-names>MA</given-names><suffix>Jr.</suffix></name><name name-style="western"><surname>Tedder</surname><given-names>TF</given-names></name></person-group>. <year>1991</year>. <article-title>Leukocyte adhesion molecule-1 (LAM-1,
+L-selectin) interacts with an inducible endothelial cell ligand to support leukocyte
+adhesion</article-title>. <source><italic toggle="yes">J
+Immunol</italic></source><volume>147</volume>: <fpage>2565</fpage>–<lpage>2573</lpage>.
+doi: <pub-id pub-id-type="doi">10.4049/jimmunol.147.8.2565</pub-id><pub-id pub-id-type="pmid">1717567</pub-id>
+</mixed-citation></ref><ref id="r27"><label>27</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Stadtmann</surname><given-names>A</given-names></name><name name-style="western"><surname>Germena</surname><given-names>G</given-names></name><name name-style="western"><surname>Block</surname><given-names>H</given-names></name><name name-style="western"><surname>Boras</surname><given-names>M</given-names></name><name name-style="western"><surname>Rossaint</surname><given-names>J</given-names></name><name name-style="western"><surname>Sundd</surname><given-names>P</given-names></name><name name-style="western"><surname>Lefort</surname><given-names>C</given-names></name><name name-style="western"><surname>Fisher</surname><given-names>CI</given-names></name><name name-style="western"><surname>Buscher</surname><given-names>K</given-names></name><name name-style="western"><surname>Gelschefarth</surname><given-names>B</given-names></name><name name-style="western"><surname>Urzainqui</surname><given-names>A</given-names></name><name name-style="western"><surname>Gerke</surname><given-names>V</given-names></name><name name-style="western"><surname>Ley</surname><given-names>K</given-names></name><name name-style="western"><surname>Zarbock</surname><given-names>A</given-names></name></person-group>. <year>2013</year>. <article-title>The PSGL-1-L-selectin signaling complex
+regulates neutrophil adhesion under flow</article-title>. <source><italic toggle="yes">J Exp
+Med</italic></source><volume>210</volume>: <fpage>2171</fpage>–<lpage>2180</lpage>.
+doi: <pub-id pub-id-type="doi">10.1084/jem.20130664</pub-id><pub-id pub-id-type="pmid">24127491</pub-id>
+<pub-id pub-id-type="pmcid">PMC3804951</pub-id></mixed-citation></ref><ref id="r28"><label>28</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Tremblay</surname><given-names>C</given-names></name><name name-style="western"><surname>Paradis</surname><given-names>M</given-names></name><name name-style="western"><surname>Doré</surname><given-names>M</given-names></name></person-group>. <year>2001</year>. <article-title>Expression of E- and P-selectin in
+tumor necrosis factor-induced dermatitis in dogs</article-title>. <source><italic toggle="yes">Vet
+Pathol</italic></source><volume>38</volume>: <fpage>261</fpage>–<lpage>268</lpage>.
+doi: <pub-id pub-id-type="doi">10.1354/vp.38-3-261</pub-id><pub-id pub-id-type="pmid">11355655</pub-id>
+</mixed-citation></ref><ref id="r29"><label>29</label><mixed-citation publication-type="eref">U.S. Food and Drug
+Administration. <year>2022</year>. Freedom of Information Summary, Conditional Approval
+NADA 141–567, PANOQUELL<sup>®</sup>-CA1 (fuzapladib sodium for injection). <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://animaldrugsatfda.fda.gov/adafda/app/search/public/document/downloadFoi/13134" ext-link-type="uri">https://animaldrugsatfda.fda.gov/adafda/app/search/public/document/downloadFoi/13134</ext-link>
+[accessed on November 29, 2025].</mixed-citation></ref><ref id="r30"><label>30</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>van Kooyk</surname><given-names>Y</given-names></name><name name-style="western"><surname>Figdor</surname><given-names>CG</given-names></name></person-group>. <year>2000</year>. <article-title>Avidity regulation of integrins: the
+driving force in leukocyte adhesion</article-title>. <source><italic toggle="yes">Curr Opin Cell
+Biol</italic></source><volume>12</volume>: <fpage>542</fpage>–<lpage>547</lpage>. doi:
+<pub-id pub-id-type="doi">10.1016/S0955-0674(00)00129-0</pub-id><pub-id pub-id-type="pmid">10978887</pub-id>
+</mixed-citation></ref><ref id="r31"><label>31</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>von Andrian</surname><given-names>UH</given-names></name><name name-style="western"><surname>Mempel</surname><given-names>TR</given-names></name></person-group>. <year>2003</year>. <article-title>Homing and cellular traffic in lymph
+nodes</article-title>. <source><italic toggle="yes">Nat Rev
+Immunol</italic></source><volume>3</volume>: <fpage>867</fpage>–<lpage>878</lpage>. doi:
+<pub-id pub-id-type="doi">10.1038/nri1222</pub-id><pub-id pub-id-type="pmid">14668803</pub-id>
+</mixed-citation></ref><ref id="r32"><label>32</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Wang</surname><given-names>Q</given-names></name><name name-style="western"><surname>Zhang</surname><given-names>X</given-names></name><name name-style="western"><surname>Han</surname><given-names>C</given-names></name><name name-style="western"><surname>Lv</surname><given-names>Z</given-names></name><name name-style="western"><surname>Zheng</surname><given-names>Y</given-names></name><name name-style="western"><surname>Liu</surname><given-names>X</given-names></name><name name-style="western"><surname>Du</surname><given-names>Z</given-names></name><name name-style="western"><surname>Liu</surname><given-names>T</given-names></name><name name-style="western"><surname>Xue</surname><given-names>D</given-names></name><name name-style="western"><surname>Li</surname><given-names>T</given-names></name><name name-style="western"><surname>Wang</surname><given-names>L</given-names></name></person-group>. <year>2025</year>. <article-title>Immunodynamic axis of fibroblast-driven
+neutrophil infiltration in acute pancreatitis: NF-κB-HIF-1α-CXCL1</article-title>.
+<source><italic toggle="yes">Cell Mol Biol Lett</italic></source><volume>30</volume>:
+<fpage>57</fpage>. doi: <pub-id pub-id-type="doi">10.1186/s11658-025-00734-6</pub-id><pub-id pub-id-type="pmid">40335899</pub-id>
+<pub-id pub-id-type="pmcid">PMC12060353</pub-id></mixed-citation></ref><ref id="r33"><label>33</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Wilhelmsen</surname><given-names>K</given-names></name><name name-style="western"><surname>Farrar</surname><given-names>K</given-names></name><name name-style="western"><surname>Hellman</surname><given-names>J</given-names></name></person-group>. <year>2013</year>. <article-title>Quantitative <italic toggle="yes">in vitro</italic>
+assay to measure neutrophil adhesion to activated primary human microvascular
+endothelial cells under static conditions</article-title>. <source><italic toggle="yes">J Vis
+Exp</italic></source><volume>78</volume>: <fpage>e50677</fpage>. <pub-id pub-id-type="pmid">23995778</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3791/50677</pub-id><pub-id pub-id-type="pmcid">PMC3856291</pub-id></mixed-citation></ref><ref id="r34"><label>34</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Wu</surname><given-names>CL</given-names></name><name name-style="western"><surname>Yin</surname><given-names>R</given-names></name><name name-style="western"><surname>Wang</surname><given-names>SN</given-names></name><name name-style="western"><surname>Ying</surname><given-names>R</given-names></name></person-group>. <year>2021</year>. <article-title>A review of CXCL1 in cardiac
+fibrosis</article-title>. <source><italic toggle="yes">Front Cardiovasc
+Med</italic></source><volume>8</volume>: <fpage>674498</fpage>. doi: <pub-id pub-id-type="doi">10.3389/fcvm.2021.674498</pub-id><pub-id pub-id-type="pmid">33996954</pub-id>
+<pub-id pub-id-type="pmcid">PMC8113392</pub-id></mixed-citation></ref><ref id="r35"><label>35</label><mixed-citation publication-type="journal"><person-group><name name-style="western"><surname>Yamaguchi</surname><given-names>Y</given-names></name><name name-style="western"><surname>Okabe</surname><given-names>K</given-names></name><name name-style="western"><surname>Liang</surname><given-names>J</given-names></name><name name-style="western"><surname>Matsumura</surname><given-names>F</given-names></name><name name-style="western"><surname>Akizuki</surname><given-names>E</given-names></name><name name-style="western"><surname>Matsuda</surname><given-names>T</given-names></name><name name-style="western"><surname>Ohshiro</surname><given-names>H</given-names></name><name name-style="western"><surname>Nakano</surname><given-names>S</given-names></name><name name-style="western"><surname>Ishihara</surname><given-names>K</given-names></name><name name-style="western"><surname>Ogawa</surname><given-names>M</given-names></name></person-group>. <year>1999</year>. <article-title>The novel carboxamide derivative IS-741
+reduces neutrophil chemoattractant production by bronchoalveolar macrophages in rats
+with cerulein-induced pancreatitis complicated by sepsis</article-title>.
+<source><italic toggle="yes">Digestion</italic></source><volume>60</volume>
+<issue>Suppl 1</issue>: <fpage>52</fpage>–<lpage>56</lpage>. doi: <pub-id pub-id-type="doi">10.1159/000051454</pub-id><pub-id pub-id-type="pmid">10026432</pub-id>
+</mixed-citation></ref></ref-list></back></article></pmc-articleset>

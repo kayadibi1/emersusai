@@ -1,0 +1,1753 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="smtd70229" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Small Methods</journal-id><journal-id journal-id-type="iso-abbrev">Small Methods</journal-id><journal-id journal-id-type="pmc-domain-id">379</journal-id><journal-id journal-id-type="pmc-domain">blackwellopen</journal-id><journal-id journal-id-type="publisher-id">SMTD</journal-id><journal-title-group><journal-title>Small Methods</journal-title></journal-title-group><issn pub-type="epub">2366-9608</issn><custom-meta-group><custom-meta><meta-name>pmc-is-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-collection-title</meta-name><meta-value>Wiley Open Access Collection</meta-value></custom-meta></custom-meta-group></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13010211</article-id><article-id pub-id-type="pmcid-ver">PMC13010211.1</article-id><article-id pub-id-type="pmcaid">13010211</article-id><article-id pub-id-type="pmcaiid">13010211</article-id><article-id pub-id-type="pmid">41047814</article-id><article-id pub-id-type="doi">10.1002/smtd.202500947</article-id><article-id pub-id-type="publisher-id">SMTD70229</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>Rapid Mechanochemical Synthesis of Oxyhalide Superionic Conductor: Time‐Resolved Structural Evolution</article-title></title-group><contrib-group><contrib id="smtd70229-cr-0001" contrib-type="author"><name name-style="western"><surname>Butenko</surname><given-names initials="D">Denys</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0009-0007-7217-6274</contrib-id><xref rid="smtd70229-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="smtd70229-cr-0002" contrib-type="author" corresp="yes"><name name-style="western"><surname>Tseng</surname><given-names initials="JC">Jo‐chi</given-names></name><xref rid="smtd70229-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><address><email>jochi.tseng@spring8.or.jp</email></address></contrib><contrib id="smtd70229-cr-0003" contrib-type="author" corresp="yes"><name name-style="western"><surname>Zhang</surname><given-names initials="X">Xinyu</given-names></name><xref rid="smtd70229-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>zhangxy3@sustech.edu.cn</email></address></contrib><contrib id="smtd70229-cr-0004" contrib-type="author"><name name-style="western"><surname>Yu</surname><given-names initials="P">Pencheng</given-names></name><xref rid="smtd70229-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="smtd70229-cr-0005" contrib-type="author"><name name-style="western"><surname>Tang</surname><given-names initials="W">Wen</given-names></name><xref rid="smtd70229-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib id="smtd70229-cr-0006" contrib-type="author"><name name-style="western"><surname>Lei</surname><given-names initials="J">Jiuwei</given-names></name><xref rid="smtd70229-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="smtd70229-cr-0007" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="S">Shuoxiao</given-names></name><xref rid="smtd70229-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="smtd70229-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="smtd70229-cr-0008" contrib-type="author"><name name-style="western"><surname>Wang</surname><given-names initials="P">Pengfei</given-names></name><xref rid="smtd70229-aff-0006" ref-type="aff">
+<sup>6</sup>
+</xref></contrib><contrib id="smtd70229-cr-0009" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="Y">Yuhang</given-names></name><xref rid="smtd70229-aff-0007" ref-type="aff">
+<sup>7</sup>
+</xref></contrib><contrib id="smtd70229-cr-0010" contrib-type="author"><name name-style="western"><surname>Liu</surname><given-names initials="M">Ming</given-names></name><xref rid="smtd70229-aff-0007" ref-type="aff">
+<sup>7</sup>
+</xref></contrib><contrib id="smtd70229-cr-0011" contrib-type="author"><name name-style="western"><surname>Yin</surname><given-names initials="W">Wen</given-names></name><xref rid="smtd70229-aff-0008" ref-type="aff">
+<sup>8</sup>
+</xref></contrib><contrib id="smtd70229-cr-0012" contrib-type="author"><name name-style="western"><surname>Wang</surname><given-names initials="L">Liping</given-names></name><xref rid="smtd70229-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="smtd70229-cr-0013" contrib-type="author"><name name-style="western"><surname>Han</surname><given-names initials="S">Songbai</given-names></name><xref rid="smtd70229-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="smtd70229-cr-0014" contrib-type="author" corresp="yes"><name name-style="western"><surname>Xia</surname><given-names initials="W">Wei</given-names></name><xref rid="smtd70229-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref><address><email>wxia@eitech.edu.cn</email></address></contrib><contrib id="smtd70229-cr-0015" contrib-type="author"><name name-style="western"><surname>Zhao</surname><given-names initials="Y">Yusheng</given-names></name><xref rid="smtd70229-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib id="smtd70229-cr-0016" contrib-type="author" corresp="yes"><name name-style="western"><surname>Zhu</surname><given-names initials="J">Jinlong</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-7314-8394</contrib-id><xref rid="smtd70229-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="smtd70229-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="smtd70229-aff-0006" ref-type="aff">
+<sup>6</sup>
+</xref><address><email>zhuji@sustech.edu.cn</email></address></contrib></contrib-group><aff id="smtd70229-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Department of Physics and Institute of Major Scientific Facilities for New Materials</named-content>
+<institution>Southern University of Science and Technology</institution>
+<city>Shenzhen</city>
+<postal-code>518055</postal-code>
+<country country="CN">China</country>
+</aff><aff id="smtd70229-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">Diffraction and Scattering Division</named-content>
+<institution>Japan Synchrotron Radiation Research Institute SPring‐8</institution>
+<named-content content-type="street">1‐1‐1 Koto, Sayo‐gun Hyogo</named-content>
+<city>Sayo‐cho</city>
+<postal-code>679–5198</postal-code>
+<country country="JP">Japan</country>
+</aff><aff id="smtd70229-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">Guangdong Provincial Key Laboratory of Energy Materials for Electric Power</named-content>
+<named-content content-type="organisation-division">Academy for Advanced Interdisciplinary Studies</named-content>
+<institution>Southern University of Science and Technology</institution>
+<city>Shenzhen</city>
+<postal-code>518055</postal-code>
+<country country="CN">China</country>
+</aff><aff id="smtd70229-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">Eastern Institute for Advanced Study</named-content>
+<institution>Eastern Institute of Technology</institution>
+<city>Ningbo</city>
+<postal-code>315201</postal-code>
+<country country="CN">China</country>
+</aff><aff id="smtd70229-aff-0005">
+<label>
+<sup>5</sup>
+</label>
+<named-content content-type="organisation-division">Department of Physics</named-content>
+<institution>City University of Hong Kong</institution>
+<city>Hong Kong</city>
+<postal-code>999077</postal-code>
+<country country="CN">China</country>
+</aff><aff id="smtd70229-aff-0006">
+<label>
+<sup>6</sup>
+</label>
+<named-content content-type="organisation-division">Shenzhen Key Laboratory of Natural Gas Hydrate</named-content>
+<named-content content-type="organisation-division">Institute of Major Scientific Facilities for New Materials</named-content>
+<named-content content-type="organisation-division">Academy for Advanced Interdisciplinary Studies</named-content>
+<institution>Southern University of Science and Technology</institution>
+<city>Shenzhen</city>
+<postal-code>518055</postal-code>
+<country country="CN">China</country>
+</aff><aff id="smtd70229-aff-0007">
+<label>
+<sup>7</sup>
+</label>
+<named-content content-type="organisation-division">Institute of Materials Research</named-content>
+<named-content content-type="organisation-division">Tsinghua Shenzhen International Graduate School</named-content>
+<institution>Tsinghua University</institution>
+<city>Shenzhen</city>
+<postal-code>518055</postal-code>
+<country country="CN">China</country>
+</aff><aff id="smtd70229-aff-0008">
+<label>
+<sup>8</sup>
+</label>
+<named-content content-type="organisation-division">Institute of High Energy Physics</named-content>
+<institution>Chinese Academy of Sciences (CAS)</institution>
+<city>Beijing</city>
+<postal-code>100049</postal-code>
+<country country="CN">China</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>E‐mail: <email>jochi.tseng@spring8.or.jp</email>; <email>zhangxy3@sustech.edu.cn</email>; <email>wxia@eitech.edu.cn</email>; <email>zhuji@sustech.edu.cn</email>
+<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>06</day><month>10</month><year>2025</year></pub-date><pub-date pub-type="ppub"><day>24</day><month>3</month><year>2026</year></pub-date><volume>10</volume><issue seq="60">6</issue><issue-id pub-id-type="pmc-issue-id">510009</issue-id><issue-id pub-id-type="doi">10.1002/smtd.v10.6</issue-id><elocation-id>e00947</elocation-id><history><date date-type="rev-recd"><day>24</day><month>9</month><year>2025</year></date><date date-type="received"><day>28</day><month>7</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>24</day><month>03</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>25</day><month>03</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-03-25 10:25:13.310"><day>25</day><month>03</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2025 The Author(s). Small Methods published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbynclicense">https://creativecommons.org/licenses/by-nc/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by-nc/4.0/">http://creativecommons.org/licenses/by-nc/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited and is not used for commercial purposes.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="SMTD-10-e00947.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:SMTD-10-e00947.pdf"/><abstract><title>Abstract</title><p>The design and synthesis of advanced solid electrolytes (SEs) underlie the development of safety and high‐energy density all‐solid‐state batteries (ASSBs). Mechanochemical synthesis stands as the predominant method, yet it faces criticism due to its energy and time‐intensive process (typically spanning several hours to days), presenting a significant obstacle to large‐scale industrial production. Furthermore, ambiguity surrounding the formation mechanisms of SEs during mechanochemical reactions has limited optimization efforts. In addressing these challenges, evidence is presented that the efficiency of mechanochemical SE synthesis can achieve remarkable heights through process optimization. Specifically, the rapid synthesis of the state‐of‐the‐art Li‐Nb‐O‐Cl superionic conductor in only a few hours is highlighted, while concurrently demonstrating its superior electrochemical performance. Notably, for the first time, a structural evaluation during the mechanochemical reaction by time‐resolved in situ synchrotron X‐ray scattering experiments unveils a two‐stage process. This expeditious mechanochemical synthesis of SEs establishes a foundational step toward the commercialization of ASSBs.</p></abstract><abstract id="smtd70229-abs-0001" abstract-type="graphical"><p>Time‐resolved synchrotron X‐ray scattering coupled with mechanochemical synthesis reveals the structural evolution of oxyhalide superionic conductors. Oxygen incorporation governs reaction kinetics, amorphization, and microstructural transformations, while enabling efficient Li‐ion diffusion. This study highlights critical correlations between reaction mechanisms and structure, informing the rational design of advanced solid electrolytes.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="SMTD-10-e00947-g003.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="smtd70229-kwd-0001">all‐solid‐state batteries</kwd><kwd id="smtd70229-kwd-0002">anion‐mixed chemistry</kwd><kwd id="smtd70229-kwd-0003">mechanochemistry</kwd><kwd id="smtd70229-kwd-0004">oxyhalide</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>National Natural Science Foundation of China</institution><institution-id institution-id-type="doi">10.13039/501100001809</institution-id></institution-wrap>
+</funding-source><award-id>W2433132 12204219 12275119 51732005</award-id></award-group><award-group id="funding-0002"><funding-source>
+<institution-wrap><institution>Shenzhen Science and Technology Program</institution><institution-id institution-id-type="doi">10.13039/501100017610</institution-id></institution-wrap>
+</funding-source><award-id>KQTD20200820113047086</award-id></award-group><award-group id="funding-0003"><funding-source>
+<institution-wrap><institution>Zhejiang Provincial Natural Science Foundation of China</institution></institution-wrap>
+</funding-source><award-id>LY23B030003</award-id></award-group><award-group id="funding-0004"><funding-source>
+<institution-wrap><institution>Shenzhen Key Laboratory of Solid State Batteries</institution></institution-wrap>
+</funding-source><award-id>SYSPG20241211173726011</award-id></award-group><award-group id="funding-0005"><funding-source>
+<institution-wrap><institution>Guangdong Provincial Key Laboratory of Energy Materials for Electric Power</institution></institution-wrap>
+</funding-source><award-id>2018B030322001</award-id></award-group><award-group id="funding-0006"><funding-source>
+<institution-wrap><institution>Guangdong‐Hong Kong‐Macao Joint Laboratory for Photonic‐Thermal‐Electrical Energy Materials and Devices</institution></institution-wrap>
+</funding-source><award-id>2019B121205001</award-id></award-group><award-group id="funding-0007"><funding-source>
+<institution-wrap><institution>Key Laboratory of Energy Conversion and Storage Technologies</institution></institution-wrap>
+</funding-source></award-group><award-group id="funding-0008"><funding-source>
+<institution-wrap><institution>Radiation Research Institute (JASRI)</institution></institution-wrap>
+</funding-source><award-id>2021B2006</award-id><award-id>2022B1508</award-id><award-id>2023A2341</award-id></award-group><award-group id="funding-0009"><funding-source>
+<institution-wrap><institution>Natural Science Foundation of Zhejiang Province</institution><institution-id institution-id-type="doi">10.13039/501100004731</institution-id></institution-wrap>
+</funding-source><award-id>LY23B030003</award-id></award-group><award-group id="funding-0010"><funding-source>
+<institution-wrap><institution>Natural Science Foundation of Ningbo Municipality</institution><institution-id institution-id-type="doi">10.13039/100007834</institution-id></institution-wrap>
+</funding-source><award-id>2023J200</award-id></award-group></funding-group><counts><fig-count count="6"/><table-count count="0"/><page-count count="14"/><word-count count="9852"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY-NC</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>24 March 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:24.03.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="smtd70229-sec-0010"><label>1</label><title>Introduction</title><p>The rapid development of modern portable electronic products and electric vehicles has greatly fostered the development and remarkable progress of lithium‐ion batteries.<sup>[</sup>
+<xref rid="smtd70229-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="smtd70229-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>, <xref rid="smtd70229-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>
+<sup>]</sup> All‐solid‐state batteries (ASSBs) with inorganic ionic conductors, or solid electrolytes (SEs), are promising candidates to address safety issues and increase energy density.<sup>[</sup>
+<xref rid="smtd70229-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>, <xref rid="smtd70229-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>, <xref rid="smtd70229-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>
+<sup>]</sup> Among inorganic compounds, lithium (Li)‐rich sulfides, and halides have been extensively investigated as potential SEs due to their properties, which include rapid Li‐ion mobility and excellent deformability. The primary objective in solid‐state electrochemistry research is to enhance lithium‐ion conductivity. Owing to significant research efforts, sulfide superionic conductors have been successfully developed, demonstrating notably high lithium‐ion conductivities. For example, Li<sub>10</sub>GeP<sub>2</sub>S<sub>12</sub>,<sup>[</sup>
+<xref rid="smtd70229-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>
+<sup>]</sup> Li<sub>9.54</sub>Si<sub>1.74</sub>P<sub>1.44</sub>S<sub>11.7</sub>Cl<sub>0.3</sub>,<sup>[</sup>
+<xref rid="smtd70229-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>
+<sup>]</sup> Li<sub>9.54</sub>[Si<sub>0.6</sub>Ge<sub>0.4</sub>]<sub>1.74</sub>P<sub>1.44</sub>S<sub>11.1</sub>Br<sub>0.3</sub>O<sub>0.6</sub>
+<sup>[</sup>
+<xref rid="smtd70229-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>
+<sup>]</sup> sulfides give 10 mS cm<sup>−1</sup>‐level RT ionic conductivities, already exceeding that of liquid electrolytes (≈5 mS cm<sup>−1</sup> assuming a lithium transference number of 0.5). Halides display generally lower ionic conductivity than sulfides, but many of them also demonstrate a superionic conductivity of above 1 mS cm<sup>−1</sup>, such as Li<sub>3</sub>YBr<sub>6</sub>,<sup>[</sup>
+<xref rid="smtd70229-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>
+<sup>]</sup> Li<sub>3</sub>InCl<sub>6</sub>,<sup>[</sup>
+<xref rid="smtd70229-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>
+<sup>]</sup> Li<sub>2</sub>In<sub>1/3</sub>Sc<sub>1/3</sub>Cl<sub>4</sub>.<sup>[</sup>
+<xref rid="smtd70229-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>
+<sup>]</sup> They possess a wider electrochemical stability window and superior cathode compatibility compared to sulfides. ASSBs assembled with sulfide and/or halide SEs displayed excellent kinetic performance over a wide temperature range.</p><p>The practical application of these advanced SEs relies on mass production, which is a big challenge. The mechanochemical reaction is the most commonly utilized method in a laboratory setting for the synthesis of sulfide and halide SEs, in which reagents are sealed in jars and milled with grinding media (balls) at room temperature (RT) until the target phase is achieved. In this process, chemical reactions occur under mechanical forces (mechanochemistry) that are caused by collisions between the milling balls and reagents.<sup>[</sup>
+<xref rid="smtd70229-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>
+<sup>]</sup> This method is notably straightforward and can reduce waste generation by eliminating the use of solvents. However, it typically necessitates an extended duration to attain the desired separation efficiencies, ranging from several hours to multiple days. For example, the Li<sub>9.54</sub>[Si<sub>0.6</sub>Ge<sub>0.4</sub>]<sub>1.74</sub>P<sub>1.44</sub>S<sub>11.1</sub>Br<sub>0.3</sub>O<sub>0.6</sub> sulfide SE with the record conductivity was prepared by an initial ball milling for 40 h, followed by ≈10 h of annealing. The Li<sub>3</sub>YBr<sub>6</sub> halide SE (1.7 mS cm<sup>−1</sup>) was mechanochemically synthesized with planetary ball milling for 50 h, followed by a period of heat treatment. Based on a new mixed anion strategy, LiNbOCl<sub>4</sub> exhibits ionic conductivity up to 9.1 mS cm<sup>−1</sup> at RT after 40 h of the ball‐milling process.<sup>[</sup>
+<xref rid="smtd70229-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>
+<sup>]</sup> Interestingly, the structure of Nb‐based SEs has a partially amorphized crystalline structure or completely amorphous materials after the ball milling process, as was recently discovered for the Li<sub>2</sub>O:NbCl<sub>5</sub> and LiCl:NbCl<sub>5</sub> systems with Li<sup>+</sup> conductivity higher than 4 mS cm<sup>−1</sup> at RT, which were synthesized within 24 and 144 h, respectively.<sup>[</sup>
+<xref rid="smtd70229-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>
+<sup>]</sup>
+</p><p>The extended milling duration not only incurs high time costs but also exacerbates the depreciation of machinery, rendering this method unideal for large‐scale production of SEs. The effective design of halide SEs with certain distortion and amorphization can greatly enhance the ionic conductivity. However, the actual synthesis of these materials remains difficult when using straightforward synthesis methods.</p><p>Furthermore, the processes occurring within planetary ball mills are highly intricate. It has been observed that prolonging the mechanochemical reaction is not always beneficial for improving ion transport in SEs. Moreover, excessive ball milling is likely to introduce local disorder or structural relaxation into SEs, which is associated with decreased ionic conductivity.<sup>[</sup>
+<xref rid="smtd70229-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>, <xref rid="smtd70229-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref>
+<sup>]</sup> Thus, it is essential to elucidate the intricate structural evolution during mechanochemical synthesis of SEs, specifically, to identify the rate‐determining step(s). This is particularly intriguing and vital for the optimization of the mechanochemical process to accelerate the formation of the target conducting phase while simultaneously preventing over‐reaction. Previous studies have revealed the evolution of ionic conductivity and the size/shape of SE particles throughout the mechanochemical reaction.<sup>[</sup>
+<xref rid="smtd70229-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>
+<sup>]</sup> The ability to produce particles of a specific dimension represents a key advantage of mechanochemistry, enabling precise modification of material properties and a substantial enhancement of battery performance.<sup>[</sup>
+<xref rid="smtd70229-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref>
+<sup>]</sup> Nevertheless, the time‐resolved atomic‐scale alterations in the crystal structure of mechanochemical reactions remain inadequately characterized.</p><p>Here, we show compelling evidence that mechanochemical synthesis of SEs holds significant promise for achieving desirable high efficiency through optimized processing techniques. As a case study, the state‐of‐the‐art Li‐Nb‐O‐Cl (LNOC) electrolyte, which exhibits a record high ionic conductivity for halide SEs (&gt;10 mS cm<sup>−1</sup>), is prepared by a mere few hours of mechanochemical reaction, resulting in a marked reduction in processing time. After only 2 h of reaction, the product maintains a superionic conductivity exceeding 1 mS cm<sup>−1</sup>. Remarkably, we performed time‐resolved <italic toggle="yes">in situ</italic> synchrotron X‐ray scattering (XRS) with home‐built ball milling devices, for the first time, which illuminated the mechanochemical formation pathways of SEs in response to varying precursors, and identified an interesting two‐stage process in the optimized rapid reaction. The LNOC solid electrolyte demonstrates commendable electrochemical performance across a broad temperature range in all‐solid‐state batteries. These novel findings are expected to provide valuable guidance for the development and synthesis of next‐generation solid electrolyte materials.</p></sec><sec id="smtd70229-sec-0020"><label>2</label><title>Results and Discussion</title><p>The niobium‐based SEs were synthesized by ball milling from a stoichiometric ratio of xLiOH:NbCl<sub>5</sub> (x = 0.75–1.05) to determine the optimum Li content in a formed composite. The ionic conductivities of cold‐pressed Li<sub>x</sub>NbO<sub>x</sub>Cl<sub>5‐x</sub> (LNOC) pellets were assessed by the AC impedance method using Li<sup>+</sup>‐blocking SS/LNOC SE/SS symmetric cells (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S1a</xref>, Supporting Information). The Nyquist plot shows one slash starting with a characteristic negative value of the imaginary impedance, which is a characteristic feature of superionic conductors.<sup>[</sup>
+<xref rid="smtd70229-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="smtd70229-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>, <xref rid="smtd70229-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>
+<sup>]</sup> The results of multiple repeated electrochemical impedance spectroscopy (EIS) were fitted using the equivalent circuit model, which has been applied to provide a quantitative analysis of the impedance changes (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S1b,c</xref> and Table <xref rid="smtd70229-supinfo-0001" ref-type="">S1</xref>, Supporting Information). The calculated values of ionic conductivity are presented in <bold>Figure</bold>
+<xref rid="smtd70229-fig-0001" ref-type="fig">
+<bold>1</bold>a</xref>. The LNOC powder of x = 0.9 exhibits the remarkable superionic conductivity of 1.02 × 10<sup>−2</sup> S cm<sup>−1</sup> at 30 °C, which represents the highest value for oxyhalide materials synthesized via the one‐step ball‐milling method.<sup>[</sup>
+<xref rid="smtd70229-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="smtd70229-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>, <xref rid="smtd70229-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>, <xref rid="smtd70229-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref>
+<sup>]</sup> The electronic conductivity of LNOC SE obtained by chronoamperometry using the SS/SE/SS symmetric cell was 7.03 × 10<sup>−9</sup> S cm<sup>−1</sup>, which is significantly lower than the ionic conductivity and indicates a poor conductor as given in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S2</xref> (Supporting Information). The unique combination of properties, such as superionic conductivity and low electronic conductivity, observed in LNOC SE can reduce side reactions in the ASSB system, in particular, enhancing interfacial stability and improving cycling performance.<sup>[</sup>
+<xref rid="smtd70229-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>
+<sup>]</sup>
+</p><fig position="float" fig-type="Figure" id="smtd70229-fig-0001" orientation="portrait"><label>Figure 1</label><caption><p>Li<sup>+</sup> ionic transport of LNOC solid electrolyte. a) Li<sup>+</sup> ionic conductivity of xLiOH:NbCl<sub>5</sub> SEs (x = 0.75–1.05). b) Arrhenius plots and the calculated activation energy for LNOC (x = 0.9) and LiNbCl<sub>6</sub> at a wide temperature range from −40 to 80 °C. c) The summary of Arrhenius plots of the LNOC SE and representative Li‐ion solid electrolytes reported so far. d) The ionic conductivity evolution of LNOC SE depends on ball milling time compared to halide SEs synthesized via the ball milling method.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="SMTD-10-e00947-g002.jpg"/></fig><p>The EIS results were obtained over a temperature range of −40 °C–80 °C to calculate the activation energy (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S3a,b</xref>, Supporting Information). At low temperatures, the Nyquist plot exhibits a semicircle followed by a slash. The EIS data were fitted using the equivalent circuit in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S3c,d</xref> (Supporting Information), with the corresponding fitted values detailed in Table <xref rid="smtd70229-supinfo-0001" ref-type="">S1</xref> (Supporting Information). The Arrhenius plots and their associated Nyquist plots are presented in Figure <xref rid="smtd70229-fig-0001" ref-type="fig">1b</xref> and Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S3</xref> (Supporting Information), respectively. It is remarkable that the ionic conductivity of LNOC SE remained above 1.03 × 10<sup>−3</sup> S cm<sup>−1</sup> at low temperatures down to −20 °C, and at even lower temperatures of −40 °C, the ionic conductivity was still maintained at 5.14 × 10<sup>−4</sup> S cm<sup>−1</sup>, which is applicable in commercialized Li‐batteries operating under such conditions. The LNOC conductor exhibits a relatively lower activation energy of 0.25 eV, which aligns with the characteristics of the superionic conductor.<sup>[</sup>
+<xref rid="smtd70229-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="smtd70229-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>
+<sup>]</sup> In comparison, the LiNbCl<sub>6</sub> compound with a single anion was also synthesized by the ball milling method, but demonstrated a lower ionic conductivity of 4.59 × 10<sup>−7</sup> S cm<sup>−1</sup> at 30 °C, accompanied by a high activation energy over &gt;0.5 eV. This comparison underscores the advantages offered by mixed anion chemistry.</p><p>Figure <xref rid="smtd70229-fig-0001" ref-type="fig">1с</xref> illustrates the Arrhenius plot of the superionic LNOC SE compared with representative Li‐ion SEs reported so far. For example, sulfide SEs such as Li<sub>9.54</sub>Si<sub>1.74</sub>P<sub>1.44</sub>S<sub>11.7</sub>Cl<sub>0.3</sub>, Li<sub>6.6</sub>Si<sub>0.6</sub>Sb<sub>0.4</sub>S<sub>5</sub>I, and Li<sub>10</sub>GeP<sub>2</sub>S<sub>12</sub> exhibit ionic conductivities of 2.5 × 10<sup>−2</sup> S cm<sup>−1</sup>, 1.48 × 10<sup>−2</sup> S cm<sup>−1</sup>, and 1.2 × 10<sup>−2</sup> S cm<sup>−1</sup> at room temperature (RT), respectively.<sup>[</sup>
+<xref rid="smtd70229-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="smtd70229-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="smtd70229-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>
+<sup>]</sup> The oxide‐based Li<sub>7</sub>La<sub>3</sub>Zr<sub>2</sub>O<sub>12</sub> conductor with Al‐doping demonstrates an ionic conductivity of about 2.63 × 10<sup>−4</sup> S cm<sup>−1</sup> at 25 °C, while Li<sub>3</sub>Zr<sub>2</sub>Si<sub>2</sub>PO<sub>12</sub> shows 3.59 × 10<sup>−3</sup> S cm<sup>−1</sup> at 20 °C.<sup>[</sup>
+<xref rid="smtd70229-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>, <xref rid="smtd70229-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>
+<sup>]</sup> Halide electrolytes exhibit the ionic conductivity of &gt;10<sup>−4</sup> S cm<sup>−1</sup> at RT, with materials such as Li<sub>3</sub>Y(Br<sub>3</sub>Cl<sub>3</sub>),<sup>[</sup>
+<xref rid="smtd70229-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+<sup>]</sup> Li<sub>3</sub>ScCl<sub>6</sub>,<sup>[</sup>
+<xref rid="smtd70229-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>
+<sup>]</sup> Li<sub>3</sub>YBr<sub>6</sub>,<sup>[</sup>
+<xref rid="smtd70229-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>
+<sup>]</sup> Li<sub>3</sub>InCl<sub>6</sub>
+<sup>[</sup>
+<xref rid="smtd70229-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>
+<sup>]</sup> and Li<sub>2</sub>ZrCl<sub>6</sub>
+<sup>[</sup>
+<xref rid="smtd70229-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+<sup>]</sup> presenting ionic conductivity around 4.5 × 10<sup>−4</sup> S cm<sup>−1</sup> at 30 °C. Furthermore, various Li‐M‐X compounds, where M = represents Al,<sup>[</sup>
+<xref rid="smtd70229-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>
+<sup>]</sup> Mg<sup>[</sup>
+<xref rid="smtd70229-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref>
+<sup>]</sup> or Zn<sup>[</sup>
+<xref rid="smtd70229-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref>
+<sup>]</sup> possess poor ionic conductivities less than 10<sup>−4</sup> S cm<sup>−1</sup> at RT. The present LNOC SE is a superionic conductor in the halide family solid‐state electrolyte with ionic conductivity &gt;10<sup>−2</sup> S cm<sup>−1</sup> comparable to that of sulfide electrolytes (Table <xref rid="smtd70229-supinfo-0001" ref-type="">S2</xref>, Supporting Information).</p><p>The dependency of ionic conductivity on the grinding time of LiOH and NbCl<sub>5</sub>, ranging from 1 to 60 h, was obtained through 8 intermediate steps with reloading of the initial raw material for each step (Figure <xref rid="smtd70229-fig-0001" ref-type="fig">1d</xref>). During the initial 3 h of the mechanochemical process, the ionic conductivity exhibits a substantial increase from 1.1 × 10<sup>−4</sup> to 5 × 10<sup>−3</sup> S cm<sup>−1</sup> at RT (see Table <xref rid="smtd70229-supinfo-0001" ref-type="">S3</xref>, Supporting Information). Moreover, the ionic conductivity continues to rise significantly with prolonged increasing milling time, surpassing 1.02 × 10<sup>−2</sup> S cm<sup>−1</sup> at RT after 24 h. Beyond this duration, extending the milling time to 60 h results in only minor fluctuations in conductivity. Interestingly, the optimized composition achieves a conductivity of 10<sup>−2</sup> S cm<sup>−1</sup> within 24 h of the ball milling process, in contrast to LiNbOCl<sub>4</sub>, which reaches 9.7 × 10<sup>−3</sup> S cm<sup>−1</sup> after 40 h. In addition, Nb‐based oxyhalide synthesized using Li<sub>2</sub>O as a precursor in the system Li<sub>2</sub>O:NbCl<sub>5</sub> SEs demonstrates a lower ionic conductivity of 4.47 × 10<sup>−3</sup> S cm<sup>−1</sup> following a 24 h ball milling process. In both cases, the presence of LiCl impurities in the LiNbOCl<sub>4</sub> and Li<sub>2</sub>O:NbCl<sub>5</sub> materials restricts ionic conductivity.<sup>[</sup>
+<xref rid="smtd70229-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="smtd70229-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>
+<sup>]</sup> It is evident that optimizing the composition of the solid electrolyte material can significantly enhance conductivity, as clearly demonstrated by comparison with other halide electrolytes synthesized via the ball milling method.</p><p>The superionic LNOC SE, subjected to 24 h of ball milling time, exhibits an average particle size of 6.5 µm, with the largest particles, as illustrated in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S4</xref> (Supporting Information). In addition, energy‐dispersive X‐ray spectroscopy mapping of the LNOC powder reveals a homogeneous distribution of Nb, O, and Cl throughout the sample (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S5</xref>, Supporting Information). To further elucidate the influence of mechanochemical treatment on the microstructure evolution, a systematic analysis was conducted using scanning electron microscopy (SEM) on LNOC samples that were subjected to ball milling for different durations (Figures <xref rid="smtd70229-supinfo-0001" ref-type="">S6</xref>–<xref rid="smtd70229-supinfo-0001" ref-type="">S12</xref>, Supporting Information). During the first 3 h, SEM images show the coexistence of large NbCl<sub>5</sub> precursor particles alongside smaller particles indicative of the forming solid electrolyte phase. After a duration of 10 to 15 h of ball milling, the conglomeration of particles is observable, and previously smooth, large precursor particles are no longer present. Long‐term ball‐milling synthesis over 24 h results in a further narrowing of the particle size distribution with the formation of a larger number of smaller particles, accompanied by minor agglomeration of these small particles into larger clusters. Notably, the ionic conductivity increases rapidly in the early stages of milling, ultimately reaching a plateau of about 10 mS cm<sup>−1</sup> after 24 h, indicating that a structurally and morphologically optimized state has been reached (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S13</xref>, Supporting Information). These findings underscore the critical role of controlled particle size and morphology in enhancing ion transport in chloride‐based solid electrolytes, thereby offering valuable insights for the rational design of high‐performance superionic conductors.</p><p>The primary coordination environment of the mixed‐anion solid electrolyte LNOC surrounding Nb was further elucidated using ATR‐FTIR and Raman spectroscopy. As shown in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S14</xref> (Supporting Information), the ATR‐FTIR spectrum of the LNOC SE exhibits two distinct absorption bands at 800–850 and 580–750 cm<sup>−1</sup>, which correspond to the vibrations of the Nb─O─Nb bonds in the structure.<sup>[</sup>
+<xref rid="smtd70229-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref>
+<sup>]</sup> The band at 800–850 cm<sup>−1</sup> can be attributed to the symmetric stretching of the Nb─O─Nb bonds in a nearly linear (collinear) configuration, which is characteristic of polyhedra bonded to each other at an angle close to 180°. In turn, the band at 580–750 cm<sup>−1</sup> can be associated with asymmetric vibrations or stretching in locally distorted Nb─O─Nb bonds arising from the mixed anionic environment (O/Cl), local defects, or partial amorphization. Such distortions lead to a deviation of the Nb─O─Nb angle from linearity, which reduces the frequency of the corresponding oscillations. Thus, the spectral features in the 600–850 cm<sup>−1</sup> region reflect the presence of both ordered linear Nb─O─Nb fragments and locally distorted areas in the material, confirming the existence of structural heterogeneity. In addition, Raman spectra exhibit Nb─O/Cl coordination, which is created by the combination of Nb─O─Nb niobium‐oxygen double bond vibrational mode at 770 cm<sup>−1</sup> and chloride double bond vibrational mode Nb─Cl─Nb at 397–340 cm<sup>−1</sup>, respectively (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S15</xref>, Supporting Information).<sup>[</sup>
+<xref rid="smtd70229-bib-0034" ref-type="bibr">
+<sup>34</sup>
+</xref>, <xref rid="smtd70229-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref>, <xref rid="smtd70229-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref>
+<sup>]</sup> The removal of hydrogen from the synthesized product is confirmed by the results of <sup>1</sup>H nuclear magnetic resonance (NMR) spectroscopy of LNOC SE in combination with LNC SE (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S16</xref>, Supporting Information). In addition, FTIR spectroscopy of the gas released during the mechanochemical reaction in the ball milling jar was obtained, and it was confirmed that H from raw material LiOH reacted with NbCl<sub>5</sub> and released HCl gas, which was detectable at around 2800–2900 cm<sup>−1</sup> (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S17</xref>, Supporting Information).<sup>[</sup>
+<xref rid="smtd70229-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref>
+<sup>]</sup>
+</p><p>The XRD patterns of synthesized LNOC SEs give broadened main reflections, as shown in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S18</xref> (Supporting Information). The broad reflections from the low crystallinity of the LNOC materials are usually observed in samples prepared by the mechanochemical process.<sup>[</sup>
+<xref rid="smtd70229-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="smtd70229-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>
+<sup>]</sup> The refinements were performed by the Rietveld method of the GSAS II software package.<sup>[</sup>
+<xref rid="smtd70229-bib-0038" ref-type="bibr">
+<sup>38</sup>
+</xref>, <xref rid="smtd70229-bib-0039" ref-type="bibr">
+<sup>39</sup>
+</xref>, <xref rid="smtd70229-bib-0040" ref-type="bibr">
+<sup>40</sup>
+</xref>, <xref rid="smtd70229-bib-0041" ref-type="bibr">
+<sup>41</sup>
+</xref>
+<sup>]</sup> Based on the detailed discussion by W. G. Zeier et al., we selected the <italic toggle="yes">I</italic>4<italic toggle="yes">/m</italic> space group to identify the crystal structure of the prepared LNOC SE.<sup>[</sup>
+<xref rid="smtd70229-bib-0042" ref-type="bibr">
+<sup>42</sup>
+</xref>
+<sup>]</sup> A combination of synchrotron X‐ray diffraction (SXRD) and powder neutron diffraction (PND) was used in a joint refinement to reliably determine both atomic positions and occupancies (<bold>Figure</bold>
+<xref rid="smtd70229-fig-0002" ref-type="fig">
+<bold>2</bold>a–c</xref>). Following the guidelines outlined in their work, we determined that the synthesized materials fall within the composition range of 0.75 ≤ x ≤ 1.05 for Li<sub>x</sub>NbO<sub>x</sub>Cl<sub>5‐x</sub>, as supported by the (110)/(101) peak intensity ratio of ≈0.796(1) and the lattice parameters of 8.92 ≤ a ≤ 8.97 Å and 3.96 ≤ c ≤ 3.98 Å. Table <xref rid="smtd70229-supinfo-0001" ref-type="">S4</xref> shows the refined results that fit both X‐ray and neutron diffraction patterns. From the refinements, we observe a more stable trend compared to those previously reported findings,<sup>[</sup>
+<xref rid="smtd70229-bib-0042" ref-type="bibr">
+<sup>42</sup>
+</xref>, <xref rid="smtd70229-bib-0043" ref-type="bibr">
+<sup>43</sup>
+</xref>
+<sup>]</sup> with the thermal displacement parameter for oxygen falling within an acceptable range. However, the O<sup>2−</sup> substitutes for Cl<sup>−</sup> exhibits a significantly larger thermal displacement, suggesting increased bond distortion when O<sup>2−</sup> occupies this position instead of Cl<sup>−</sup>. This substitution likely causes a deviation from linearity in the Nb─O/Cl─Nb linkage (1.97 Å), which in turn affects the geometry of the surrounding octahedral motifs. Because the partial substitution of chlorine by oxygen introduces compositional disorder at the bridging anion site, the nearest Nb–Nb interatomic distance (6.64 Å) oriented along the (111) direction has changed accordingly.</p><fig position="float" fig-type="Figure" id="smtd70229-fig-0002" orientation="portrait"><label>Figure 2</label><caption><p>The structure determination and cryo‐TEM characterization of LNOC SE. a) Rietveld refinement of synchrotron X‐ray diffraction (wavelength = 0.68867 Å). b, c) Rietveld refinements of TOF neutron diffraction data for LNOC. b) Low‐q region with structural coherence up to Nb‐Nb distances (≈6.3 Å). c) High‐q region showing refined local coordination around Nb (Nb‐O/Cl, ≈1.97 Å). d) Crystal structures based on the Rietveld refinement of the <italic toggle="yes">bc</italic> plane and the <italic toggle="yes">ac</italic> plane. e) Cryo‐TEM overview image of LNOC particle. Cryo‐HRTEM images of the selected regions (insert shows a lattice parameter). SAED patterns of the selected regions with indexing (marked by green and blue squares).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="SMTD-10-e00947-g005.jpg"/></fig><p>However, the current high‐symmetry structural model may not allow us to distinguish between the two anions based on positional refinement alone. Therefore, we have accepted a reasonable level of misfit in both the X‐ray and neutron diffraction refinements and instead focused on refining the occupancy fraction of Li<sup>+</sup>. After careful refinement, we found that the Li<sup>+</sup> ion occupies a position that enables the formation of a stable network with Cl and O atoms, bridging two neighboring octahedral motifs (Figure <xref rid="smtd70229-fig-0002" ref-type="fig">2d</xref>). This supports the structural stability of the material, even after undergoing high‐energy ball milling.</p><p>To further understand the degree of distortion associated with oxygen in the structure, we performed local structure modelling based on pair distribution function analysis (PDF) using the neutron total scattering pattern. As reported structure in the referenced study using <italic toggle="yes">Cc</italic> structure, oxygen exhibits a highly asymmetric coordination within the octahedron, and the O─Nb─O linkage is significantly distorted from linearity. Two distinct Nb─O bond lengths of 1.75 and 2.50 Å were identified, where the values are relatively rare and considered unstable for Nb─O bonds in naturally occurring structures. Moreover, the reported <italic toggle="yes">Cc</italic> structure from PDF analysis could not simultaneously satisfy both reciprocal space (average structure) and real‐space (local structure) modelling, suggesting that the proposed structural model may require further investigation.</p><p>In this work, to more reasonably interpret the structure of Li<sub>x</sub>NbO<sub>x</sub>Cl<sub>5‐x</sub>, we aimed to model both reciprocal and real space using a unified structural model. Specifically, we used the high‐symmetry structure obtained from reciprocal space (XRD) refinement as the basis for real‐space modelling, adjusting only a few parameters directly related to oxygen distortion—namely the β angle and the X/Y/Z coordinates of the oxygen atoms—while strictly maintaining the <italic toggle="yes">I</italic>4<italic toggle="yes">/m</italic> symmetry. From the results, only minor shifts in the oxygen positions were observed, and the simulated pair distribution function showed excellent agreement with the experimental data (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S19</xref>, Supporting Information). The β angle was determined to be 90.0568°, and the fractional coordinates of the O/Cl site were (0, −0.0207(3), 0.5738(1). The position of Nb is distorted (0.0107(1),0.0004(2), 0). These minimal distortions suggest that the high‐symmetry <italic toggle="yes">I</italic>4<italic toggle="yes">/m</italic> model remains largely preserved in real space. The excellent agreement between the simulated and experimental pair distribution functions further supports this conclusion, indicating that the previously reported 1.75 Å bond length may result from termination ripples or possibly minor impurity phases rather than intrinsic structural features of the Li<sub>x</sub>NbO<sub>x</sub>Cl<sub>5‐x</sub>.</p><p>In this <italic toggle="yes">I</italic>4<italic toggle="yes">/m</italic>‐type structure, the Nb atoms are six‐fold coordinated by two axial O<sup>2−</sup> and four equatorial Cl<sup>−</sup> ions, forming slightly distorted NbO<sub>2</sub>Cl<sub>4</sub> octahedra that align into infinite chains along the <italic toggle="yes">c</italic>‐axis. These chains are separated by disordered Li<sup>+</sup> ions that occupy interstitial sites between the octahedra, allowing Li ions to pass freely during the charging and discharging process. In contrast, the crystal structure of Nb‐based SE without O‐doping, as LiNbCl<sub>6</sub>, demonstrates a trigonal phase in the <italic toggle="yes">R</italic>3 space group (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S20</xref>, Supporting Information).</p><p>Cryogenic high‐resolution transmission electron microscopy (cryo‐HRTEM) and selected area electron diffraction (SAED) were employed to investigate the microstructure of the oxyhalide material in order to reduce the irradiation from the electron beam (Figure <xref rid="smtd70229-fig-0002" ref-type="fig">2e</xref>). As can be seen from the cryo‐TEM overview image, the LNOC particle shows an irregular shape without noticeable crystal faces. Cryo‐HRTEM image of the selected region (green frame) shows the presence of crystalline nanoparticles (highlighted in red circles), as well as the presence of an amorphous component, such as uneven surface boundaries and structural distortions. The elemental mapping indicates homogeneous incorporation of Nb, O, and Cl into the amorphous and crystalline matrix (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S21</xref>, Supporting Information). To further elucidate the structural characteristics of the LNOC solid electrolyte, two representative zones were examined by selected area electron diffraction (SAED). In the first region, clear lattice fringes with an interplanar spacing of 0.397 nm were observed. The corresponding pattern exhibits well‐defined diffraction spots, confirming the crystalline nature of this domain, as indicated by the selected region (green frame). In contrast, the second region (blue frame) displayed no discernible lattice contrast in the HRTEM image and demonstrated solely diffuse halo rings in the SAED pattern, indicating a predominantly amorphous phase. Although the coexistence of crystalline and amorphous regions is evident in microscopy, the broadened peaks observed in the X‐ray diffraction pattern are most likely due to the limited crystallite size and microstrains within the crystalline domains, a common consequence of high‐energy ball milling processes. Collectively, these structural data indicate that the synthesized LNOC material exhibits both partial amorphization and nanocrystallinity. The key factor contributing to the elevated conductivity of LNOC is the presence of the nanocrystalline phase embedded within the amorphous matrix. This specific configuration facilitates the transfer of lithium ions between the crystalline nanoparticles of the SE and ensures grain‐boundary‐free ion transport. Cryo‐TEM studies have permitted the identification of the amorphous matrix and its interaction with crystalline nanoparticles. However, to gain a comprehensive understanding of the ion transport mechanism and to optimize conductivity, it is imperative to focus on the crystalline structure.</p><p>The <italic toggle="yes">ex situ</italic> XRD analysis depends on ball‐milling time for LNOC SE was carried out to understand the formation of oxychloride structure (see Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S22</xref>, Supporting Information), but certain limitations hindered the capture of subtle phase transitions during the milling process, allowing for the identification of stable phases only after milling is complete. Consequently, to effectively monitor the formation pathway of both oxychloride and chloride SEs, we performed synchrotron X‐ray scattering (XRS) techniques during high‐frequency ball milling, as presented in <bold>Figure</bold>
+<xref rid="smtd70229-fig-0003" ref-type="fig">
+<bold>3</bold>a,b</xref>. It should be mentioned that in planetary mills, the energy transfer predominantly occurs through shear forces, whereas in vibrator mills, the direct impact of the balls is more significant. Given that it is not feasible to ascertain the quantity and positions of lithium using X‐ray techniques, a viable alternative for qualitatively assessing the rate of mechanochemical reactions is to monitor the change in the profiles of Bragg peaks for NbCl<sub>5</sub> during conversion to the final product. For both LNOC and LNC SEs experimental setup, the final product was identified after 180 min at a frequency of 25 Hz. For both experiments, LNOC and LNC SEs present well‐defined characteristic Bragg peaks in the range of 0.8°–2.7° (Figure <xref rid="smtd70229-fig-0003" ref-type="fig">3c,d</xref>) under 114.29 KeV synchrotron X‐ray. Therefore, this methodology permits the estimation of the qualitative rate of the oxidation or chlorination reaction can be estimated using this approach. In both scenarios, the first reflections are the same and belong to the NbCl<sub>5</sub> structure, while the additional reflections at 1.46° and 1.69° arise from the utilized steel balls.</p><fig position="float" fig-type="Figure" id="smtd70229-fig-0003" orientation="portrait"><label>Figure 3</label><caption><p>Study on the synthesis mechanism of SEs. a,b) Scheme of study on the synthesis mechanism of Nb‐based SEs. c,d) in situ monitoring of milling for 180 min of c) 0.9LiOH:NbCl<sub>5</sub> and d) LiCl:NbCl<sub>5</sub>. e) Phase transformation from initial precursors to oxyhalide structure.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="SMTD-10-e00947-g004.jpg"/></fig><p>Figure <xref rid="smtd70229-fig-0003" ref-type="fig">3c</xref> shows the time‐dependent diffractions during mechanochemical synthesis up to 180 min, which starts from LiOH and NbCl<sub>5</sub> in a molar ratio of 0.9:1. Real‐time monitoring patterns show dimensional destruction of the structure during the mechanochemical reaction. The primary reflections shown at the beginning of the reaction were well identified with the NbCl<sub>5</sub> structure. During the first 13 min of grinding (Figure <xref rid="smtd70229-fig-0003" ref-type="fig">3c</xref>; Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S23a,b</xref>, Supporting Information), the intensity of Bragg peaks was greatly related to the NbCl<sub>5</sub> structure. This could lead to the dimensional destruction of the NbCl<sub>5</sub> structure along (310) and (042) orientations, owing to substantial mechanical impact. As a result, only a singular unit of NbCl<sub>5</sub> was preserved within the evolving structure. In the subsequent stage of the crystallization process, isolated NbCl<sub>5</sub> units incorporate oxygen to form NbO<sub>2</sub>Cl<sub>4</sub> polyhedra, which undergo linear and 2D aggregation, progressively bridging along the (110) and (200) crystallographic planes over the next 10 min of mechanochemical activation. This directional assembly marks the transition from a disordered state to an emerging framework via the (101), where polyhedral units begin to align and connect coherently within the developing <italic toggle="yes">I</italic>4<italic toggle="yes">/m</italic> symmetry. Collectively, the reflections at 0.97°, 2.10°, and 2.43° are unambiguously attributed to the (110), (200), and (101) planes of the <italic toggle="yes">I</italic>4<italic toggle="yes">/m</italic> phase, highlighting the progressive assembly of a 3D network (Figure <xref rid="smtd70229-fig-0003" ref-type="fig">3c,e</xref>; Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S23</xref>, Supporting Information). It is noteworthy that the crystalline LNOC structure formed through this pathway remains stable throughout extended milling durations, lasting up to 180 min.</p><p>In contrast, the chlorination rate of the LiCl and NbCl<sub>5</sub> reaction is significantly lower than the oxidation reaction. This results in the destruction of the (310) and (040) planes within the NbCl<sub>5</sub> structure, subsequently leading to the gradual formation of a new layer along the (001) plane (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S23c,d</xref>, Supporting Information). Upon completion of the reactions, a mixture of the starting materials, NbCl<sub>5</sub> and newly synthesized LiNbCl<sub>6</sub>, was obtained as indicated by the reflections at (042) and (003), respectively (Figure <xref rid="smtd70229-fig-0003" ref-type="fig">3d</xref>). The intensity of the reflection increased during the final 10 min, culminating in maximum values, which is evidenced by the appearance of a red tint on the (003) plane. An increase in the intensity of the LNC SE suggests that crystallization of the sample occurred during the milling process, leading to the formation of a close‐packing sublattice, which may limit the ionic conductivity of the material. As a result, a sandwich‐like quasi‐two‐dimensional LiNbCl<sub>6</sub> structure completely devoid of oxygen is synthesized, as shown in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S20b</xref> (Supporting Information).</p><p>Migration paths and associated energy barriers were calculated using the valence bond center energy (BVSE) method.<sup>[</sup>
+<xref rid="smtd70229-bib-0043" ref-type="bibr">
+<sup>43</sup>
+</xref>, <xref rid="smtd70229-bib-0044" ref-type="bibr">
+<sup>44</sup>
+</xref>, <xref rid="smtd70229-bib-0045" ref-type="bibr">
+<sup>45</sup>
+</xref>, <xref rid="smtd70229-bib-0046" ref-type="bibr">
+<sup>46</sup>
+</xref>
+<sup>]</sup> The obtained results are in good agreement with the experimental data, elucidating the reason underlying the phenomenon of rapid ionic conductivity. As shown in <bold>Figure</bold>
+<xref rid="smtd70229-fig-0004" ref-type="fig">
+<bold>4</bold>a</xref>, the disordered main structure presents multiple sites for Li ions movement along the c direction, and the activation energy is relatively negligible, only 0.057 eV. In the macroscopic crystal, these isolated 1D channels are actually always blocked by some defects in the channels. For LNOC SE, a rotating NbO<sub>2</sub>Cl<sub>4</sub> group might be a possible low‐energy defect that causes this blocking. Therefore, the activation energy of 0.25 eV observed experimentally near room temperature is very close to the predicted migration energy of 0.225 eV for the 3D migration path network involving all Li sites. This network is formed by the sites (i1 and i2) along the c direction through the two equivalent vertical directions with Li and i3 sites (see Figure <xref rid="smtd70229-fig-0004" ref-type="fig">4b</xref>). By comparison, the Li‐ion diffusivity in LiNbCl<sub>6</sub> SE exhibits a high energy barrier over 0.5 eV, which was evaluated using the BVSE calculation (Figure <xref rid="smtd70229-fig-0004" ref-type="fig">4c,d</xref>). The high energy barrier is related to the close packing of LiCl<sub>6</sub> and NbCl<sub>6</sub> into the trigonal structure <italic toggle="yes">R</italic>3 space group, which severely limits the mobility of Li ions in Oct‐Tet‐Oct diffusion channels. For this reason, mixed anion chemistry, where a metal cation is coordinated by more than one type of anionic ligand to form a heteroleptic polyhedron, can lead to significant structural modifications. These changes can lead to increased ionic conductivity that is not achievable in compounds containing only one type of anion.</p><fig position="float" fig-type="Figure" id="smtd70229-fig-0004" orientation="portrait"><label>Figure 4</label><caption><p>Theoretical analysis of the Li transport behaviour in Li<sub>0.9</sub>NbO<sub>0.9</sub>Cl<sub>4.1</sub> and LiNbCl<sub>6</sub> SEs. a,c) BVSE models for migration energy barriers of a) Li<sub>0.9</sub>NbO0<sub>.9</sub>Cl<sub>4.1</sub> and c) LiNbCl<sub>6</sub> SE; b, d) BVSE maps showing 2D migration paths for b) Li<sub>0.9</sub>NbO<sub>0.9</sub>Cl<sub>4.1</sub> SE and d) LiNbCl<sub>6</sub> viewed as a blue constant E<sub>BVSE</sub> (Li) iso‐surface superimposed on a crystal structure.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="SMTD-10-e00947-g006.jpg"/></fig><p>The electrochemical stability window of LNOC SE was evaluated by cyclic voltammetry measurements using Li‐In/Li<sub>6</sub>PS<sub>5</sub>Cl/LNOC/LNOC+CNT cells, as shown in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S24</xref> (Supporting Information). The argyrodite sulfide electrolyte Li<sub>6</sub>PS<sub>5</sub>Cl (LPSC) exhibits an ionic conductivity of 9.78 × 10<sup>−3</sup> S cm<sup>−1</sup> at RT (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S25</xref>, Supporting Information), which is used as an additional protective layer to prevent direct chemical reaction between LNOC material and Li‐In alloy.<sup>[</sup>
+<xref rid="smtd70229-bib-0047" ref-type="bibr">
+<sup>47</sup>
+</xref>
+<sup>]</sup> Carbon nanotube CNT (30 wt.%) was added to the working electrode to improve electronic conductivity, which allows a more accurate determination of the electrochemical stability window.<sup>[</sup>
+<xref rid="smtd70229-bib-0048" ref-type="bibr">
+<sup>48</sup>
+</xref>
+<sup>]</sup> The LNOC SE shows a high oxidation potential of 4.42 V vs. Li<sup>+</sup>/Li and a reduction voltage for the Nb<sup>5+</sup> cation at 3.32 V vs. Li<sup>+</sup>/Li, which is consistent with computational results for Nb‐based solid electrolytes.<sup>[</sup>
+<xref rid="smtd70229-bib-0049" ref-type="bibr">
+<sup>49</sup>
+</xref>
+<sup>]</sup> This result corresponds to the fact that this material is not resistant to the reduction of Li. Hence, the LNOC SE shows an electrochemical stability window from 3.32 to 4.42 V vs. Li<sup>+</sup>/Li that can be used with high‐voltage oxide cathode material for high‐energy‐density ASSBs.</p><p>The superionic LNOC material has been tested as a solid‐state electrolyte in ASSBs at 30 °C. The electrochemical performance of ASSBs at the voltage range of 3.32–4.42 V versus Li<sup>+</sup>/Li is presented in <bold>Figure</bold>
+<xref rid="smtd70229-fig-0005" ref-type="fig">
+<bold>5</bold>a–d</xref>. LiNi<sub>0.8</sub>Co<sub>0.1</sub>Mn<sub>0.1</sub>O<sub>2</sub> (scNCM811) powder was used as a cathode material, and Li‐In alloy was used as an anode. A thin layer of sulfide electrolyte LPSC was placed to prevent the LNOC and Li‐In alloy reaction. The rate capability at various current densities of assembled ASSBs is shown in Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5a,b</xref>. While the speed was gradually increased step‐by‐step from 0.2C to 1C, the magnitude of the capacitance drop was negligible. The values of the average capacities for 0.2C, 0.33C, 0.5C, 0.8C, 1C, and 2C were 159.9, 152.1, 142.5, 131.4, 125.5, and 105.8 mAh g<sup>−1</sup>, respectively, which are reasonable given the use of a solid‐state configuration.<sup>[</sup>
+<xref rid="smtd70229-bib-0050" ref-type="bibr">
+<sup>50</sup>
+</xref>
+<sup>]</sup>
+</p><fig position="float" fig-type="Figure" id="smtd70229-fig-0005" orientation="portrait"><label>Figure 5</label><caption><p>Electrochemical performance of Ni‐rich ASSBs with LNOC SE. a) Rate capability at 0.2C–2C at RT. b) Charge/discharge curves at different current densities at RT. c) Long‐term cycling performance at 0.5C at RT. d) Long‐term cycling performance at 2C at RT. e) Rate capability at 0.03C–0.5C at −18 °C. f) Charge/discharge curves at different current densities at −18 °C. g) Long‐term cycling performance at −18 °C. h) Rate capability at 0.2C–2C at −30 °C. i) Charge/discharge curves at different current densities at −30 °C.g) Long‐term cycling performance at 0.1C at 30 °C. k) Long‐term cycling performance at 0.2C at −30 °C.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="SMTD-10-e00947-g001.jpg"/></fig><p>After returning to 0.5C, the capacity can stay at 140.8 mAh g<sup>−1</sup>. During long‐term cycle tests at 0.5C, the specific capacity gradually decreases, and the capacity remains at the level of 76.5% after the 400th cycle, as plotted in Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5c</xref>. In addition, the long‐term cycle performance of LNOC ASSBs was tested at a high current density of 2C, and the initial specific capacity reduced from 112.5 to 78.8 mAh g<sup>−1</sup> after 500 cycles (Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5d</xref>), which corresponds to a capacity retention of 70.1% and a high average Coulomb efficiency of 99.9%. The results showed that the applied pressure of 200 MPa for ASSBs significantly improved the cycling stability and capacity retention compared to lower pressures (see Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S26</xref>, Supporting Information). Accordingly, it can be concluded that the applied pressure of 200 MPa significantly enhances electrochemical performance, which is crucial in maintaining solid–solid contact and reducing interfacial resistance during cycling. Afterward, the evolution of impedance during cycling at a current density of 2C was investigated to understand the degradation of the interface (as shown in Figures <xref rid="smtd70229-supinfo-0001" ref-type="">S27</xref> and <xref rid="smtd70229-supinfo-0001" ref-type="">S28</xref>, Supporting Information). These results highlight the importance of optimizing ASSB with LNOC SE by improving the stability of the sulfide/oxyhalide interface or replacing the sulfide with a halide electrolyte that is stable to the anode materials.<sup>[</sup>
+<xref rid="smtd70229-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="smtd70229-bib-0051" ref-type="bibr">
+<sup>51</sup>
+</xref>
+<sup>]</sup> The results show that oxygen not only improves ion transport by changing the local environment of LiOCl<sub>5</sub> and NbO<sub>2</sub>Cl<sub>4</sub>, but also stabilizes the material electrochemically due to stronger bonds with oxygen, reducing the maximum energies of interfacial reactions between SE halides and SE sulfides.<sup>[</sup>
+<xref rid="smtd70229-bib-0052" ref-type="bibr">
+<sup>52</sup>
+</xref>
+<sup>]</sup>
+</p><p>Additionally, cross‐sectional SEM images and corresponding EDS elemental mapping analysis on different interfacial areas were conducted for a comprehensive understanding of the electrochemical stability after 100 cycles. The interfacial area of LNOC SE|scNCM811 cathode particles remains extremely dense and tight even after charge/discharge cycles, resulting in an undamaged cathode layer. On the other hand, the interfacial area of LNOC SE in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S29</xref> (Supporting Information) showed an undamaged cathode layer with well‐particle‐particle morphology of the composite on the cathode electrode, which confirms electrochemical stability and maintains the geometric continuity after cycling. Thus, the introduction of oxygen increases the average bond strength in the anionic framework and reduces the electronic polarizability of the electrolyte. This makes the LNOC matrix less susceptible to oxidative degradation when used with high‐voltage cathodes. In particular, the mixed coordination of anions suppresses the formation of easily oxidizable Cl‐rich compounds, thereby expanding the oxidative stability window.</p><p>More importantly, the ionic conductivity of LNOC shows the applicable value at low temperatures, comparable with sulfide and liquid electrolytes. The ASSBs at low temperatures were also tested (Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5e–k</xref>). Before the ASSB with LNOC SE test, the electrochemical window was measured by cyclic voltammetry measurements using Li‐In/LPSC/LNOC/LNOC+CNT cells at −18 °C, and the results are presented in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S30</xref> (Supporting Information). The electrochemical studies have shown that the electrochemical stability window has become wider, resulting in a potential window from 3.12–4.42 V versus Li<sup>+</sup>/Li. Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5e</xref> shows the results of electrochemical charge/discharge tests at various current densities for ASSBs with LNOC SE. During electrochemical tests at low temperatures, the specific capacity of the battery at a current of 0.1C decreased significantly, which could be due to the poor electronic conductivity of the cathode material. Therefore, 2% CNT was added to the oxide cathode material to increase the electronic conductivity, which greatly improved the charge/discharge performance of ASSB at −18 °C, as presented in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S31a</xref> (Supporting Information). At a low rate of 0.03C, the reversible capacity was 158 mAh g<sup>−1</sup>, and at higher rates of 0.1C, 0.33C, and 0.5C, the reversible capacitances remained at 140.3, 113.5, and 101.4 mAh g<sup>−1</sup>, respectively (Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5e,f</xref>). Even when the current densities were increased to 0.8 and 1C, effective Li (de)integration processes still took place, as evidenced by the charge/discharge curves in Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5f</xref>. It is worth noting that the charge/discharge curves showed smooth redox plateaus at low temperatures, which shows the efficient operation of a solid battery at low temperatures. Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5g</xref> demonstrates that the overall capacity reduction at the long‐term stability cycling at 1C current density at low temperature for ASSB with LNOC SE is 70.6% after 400 cycles with a high average Coulomb efficiency of 99.8%.</p><p>In addition, since LNOC SE exhibits ionic conductivity ≥10<sup>−4</sup> S cm<sup>−1</sup> at −30 °C, we further performed the electrochemical testing of ASSBs at −30 °C. The electrochemical performance results at −30 °C are presented in Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5h–k</xref>. The additive 4% CNT to the cathode material mixture to raise the electronic conductivity significantly improves the capacitance performance of the battery compared to adding 2% CNT at −30 °C, as shown in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S31b</xref> (Supporting Information). The discharge capacity of ASSBs at 0.03C, 0.1C, and 0.3C are 138.2, 95.9, and 38.6 mAh g<sup>−1</sup>, respectively (Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5h,i</xref>). When the current returns to 0.1C again, the reversible capacity of 95 mAh g<sup>−1</sup> can still be reached. Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5j</xref> shows the cycle performance of ASSB with LNOC SE at a current density of 0.1C after the rate capability test. According to the electrochemical test result, the reversible capacity can still be maintained at 66 mAh g<sup>−1</sup> and 70.9% retention with a high average Coulomb efficiency of 99.6% after more than 200 cycles.</p><p>In order to further study the long cycle life of ASSBs with LNOC SE at −30 °C, the ultra‐long cycle test was performed at 0.2C for 1000 cycles, which is presented in Figure <xref rid="smtd70229-fig-0005" ref-type="fig">5k</xref>. It is impressive that the ASSB can still achieve a good initial discharge capacity of 65.9 mAh g<sup>−1</sup> at 0.2C at a low temperature. Moreover, electrochemical performance shows only 8.8% and 15.7% capacity decay after 250 and 750 cycles, and maintains a high‐capacity retention of 80.6% with a high average Coulomb efficiency of 99.7% after 1000 cycles. This impressive performance of ASSB with LNOC SE demonstrates durability and functionality at low temperatures, which has previously been very rarely seen with halide‐based SEs.</p><p>For the scalable implementation of halide‐based SEs, it is essential that SEs exhibit excellent ionic conductivity and enable seamless integration into all‐solid‐state batteries, but also demonstrate robust moisture stability and low cost.<sup>[</sup>
+<xref rid="smtd70229-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+<sup>]</sup> Currently, In and Zr‐based halides are the most moisture‐resistant.<sup>[</sup>
+<xref rid="smtd70229-bib-0053" ref-type="bibr">
+<sup>53</sup>
+</xref>, <xref rid="smtd70229-bib-0054" ref-type="bibr">
+<sup>54</sup>
+</xref>, <xref rid="smtd70229-bib-0055" ref-type="bibr">
+<sup>55</sup>
+</xref>
+<sup>]</sup> Therefore, to evaluate the moisture‐sensitiveness of LNOC SE, we tested oxyhalide SEs in comparison with one‐anion halide SEs, such as Li<sub>3</sub>InCl<sub>6</sub> and Li<sub>2</sub>ZrCl<sub>6</sub>, at different relative humidities (RH = 5%–7% and 10%–12%) for 1, 6, and 12 h, respectively. Li<sub>2</sub>ZrCl<sub>6</sub> SE demonstrated superior moisture stability at RH 5%–7%, followed by LNOC and Li<sub>3</sub>InCl<sub>6</sub>, exhibiting residual conductivities of 36.5%, 25.5%, and 9.6%, respectively (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S32</xref> and Table <xref rid="smtd70229-supinfo-0001" ref-type="">S6</xref>, Supporting Information). The obtained results correlate well with the calculated maximum interfacial reaction energies of potential chemical reactions between representative halides SEs and H<sub>2</sub>O (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S33</xref>, Supporting Information), confirming that LZC has stronger bonds than LNOC and LIC. While LIC SE contains In<sup>3+</sup> centers prone to hydrolysis and formation of In–OH compounds under humid conditions, the LNOC structure is characterized by Nb‐based oxychloride domains, where Nb─O bonds promote partial covalency and increase lattice stability. The presence of oxygen in the structure probably passivates the hydrolysis pathways, stabilizing the coordination environment of niobium, thereby suppressing the release of Cl<sup>−</sup> and Li<sup>+</sup> into aqueous media. To investigate the degradation behavior of the LNOC solid electrolyte, time‐dependent XRD analysis was performed for 80 min, allowing identification of the decomposition products formed during this period (see Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S34</xref>, Supporting Information).</p><p>After increasing the RH to 10%–12%, LNOC SE showed good stability for 12 h with a residual ionic conductivity above 5 × 10<sup>−4</sup> S cm<sup>−1</sup>, while LZC and LIC SEs showed rather low ionic conductivity values (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S35</xref>, Supporting Information). Notably, LNOC SE maintained conductivities, highlighting promising performance in moisture‐rich environments. In addition, LiNbOCl<sub>4</sub> strongly contrasted with LNOC SE by showing a large drop in ionic conductivity to 6.47 × 10<sup>−6</sup> S cm<sup>−1</sup> (Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S</xref>3 and Table <xref rid="smtd70229-supinfo-0001" ref-type="">S6</xref>, Supporting Information). Due to the presence of hygroscopic LiCl impurities, it can better absorb moisture and thereby promote its penetration into the structure of the solid electrolyte, which leads to low conductivity values. Therefore, the strategy of O‐doping in the structure of halide electrolytes opens the way not only to high ionic conductivity but also to improving moisture stability compared to single‐anion halide materials due to the enhanced bonding energy involving oxygen in oxyhalide SEs. However, this approach is effective only when hygroscopic impurities, such as LiCl, are absent, as such impurities can absorb moisture and compromise the structural integrity and ionic conductivity of the electrolyte.</p><p>In light of the significance of cost in practical applications, a comparative analysis of the expenses associated with LNOC SEs was conducted in relation to other conventional sulfide, halide, and oxide SEs.<sup>[</sup>
+<xref rid="smtd70229-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref>, <xref rid="smtd70229-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+<sup>]</sup> As shown in Figure <xref rid="smtd70229-supinfo-0001" ref-type="">S37</xref> and Table <xref rid="smtd70229-supinfo-0001" ref-type="">S7</xref> (Supporting Information), the results show that the cost of LNOC SE is comparable with that of widely used commercial SEs and also has the lowest cost compared with the anion‐mixed SEs, which have an ionic conductivity close to 10<sup>−2</sup> S cm<sup>−1</sup> at RT. In summary, the high ionic conductivities and excellent cycling performance over a wide temperature range, good moisture stability, and promising commercialization demonstrate the high potential for practical application of Nb‐based oxyhalide SE in high‐performance halide ASSBs.</p></sec><sec id="smtd70229-sec-0030"><label>3</label><title>Conclusion</title><p>In summary, this study employs a combination of advanced experimental techniques for structure characterization in conjunction with theoretical calculations to study the structural features and elucidate the influence of anion mixing on ionic transport in oxychloride solid‐state electrolyte. The structure of the as‐prepared Li<sub>0.9</sub>NbO<sub>0.9</sub>Cl<sub>4.1</sub> solid electrolyte was determined to crystallize in the <italic toggle="yes">I</italic>4<italic toggle="yes">/m</italic> space group, as validated by synchrotron X‐ray and neutron diffraction. High mobility of Li ions drives an impressive conductivity of 1.02 × 10<sup>−2</sup> S cm<sup>−1</sup> at RT, which is facilitated by the anion mixed structure. The theoretical study shows that the lithium conduction channels adopt a continuous, spiral‐like topology along the <italic toggle="yes">c</italic>‐axis, forming a 3D, helically interconnected network with a low migration barrier of 0.225 eV. In contrast, LiNbCl<sub>6</sub> SE with one anion close‐packing trigonal structure shows an Oct‐Tet‐Oct pathway characterized by a high energy landscape, correlating with a substantially lower ionic conductivity of 4.59 × 10<sup>−7</sup> S cm<sup>−1</sup> at RT. The results of the formation pathway of halide electrolytes demonstrate a step‐wise transformation, involving amorphization and structural reconstruction before subsequent crystallization, which enhances the understanding of phase transformations and the manifestation of intermediate changes in relation to variations in ionic conductivity. The assembled ASSBs with oxyhalide SE exhibit commendable and stable long‐cycling performance over a wide temperature range. At a high‐rate density of 2 C and 1 C, the capacity retentions are 70.1% and 70.6% after 500 cycles and 400 cycles at room and low temperatures, respectively. Furthermore, a stable performance of 1000 cycles at 0.2C with a capacity retention of 80.6% can be reached in the environment of −30 °C. In addition, the improved moisture stability and cost‐competitiveness of LNOC SE pave the way for their potential commercialization in all‐solid‐state batteries. This study provides valuable insights into crucial synthesis criteria during mechanochemical synthesis and offers guidance for the design of innovative halide superionic conductors. Such advancements are poised to enhance the stability of solid‐state lithium batteries, effectively addressing safety concerns.</p></sec><sec id="smtd70229-sec-0040"><label>4</label><title>Experimental Section</title><sec id="smtd70229-sec-0070"><title>Material Synthesis of Solid Electrolytes</title><p>The oxychloride xLiOH:NbCl<sub>5</sub> (<italic toggle="yes">x</italic> = 0.75‐1.05) SEs were synthesized by the ball milling method (BM). All chemicals raw reagents with an analytical grade, such as LiOH (99.9%, Aladdin), and NbCl5 (99% Macklin), were mixed in appropriate ratios using a ball planetary mill (FRITSCH PULVERISETTE 7) at 500 rpm min<sup>−1</sup> for 24 h in ZrO<sub>2</sub> jar with three φ10 mm, five φ5 mm, and 21 φ3 mm zirconia balls. The mass ratio of powder raw materials to balls is 1:20. All processes are prepared in an Ar‐filled glove box (O<sub>2</sub> &lt; 0.01 ppm, H<sub>2</sub>O &lt; 0.01 ppm).</p><p>The resulting chemical equation of the mechanochemical process is represented below:
+<disp-formula id="smtd70229-disp-0001">
+<label>(1)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="block"><mml:mrow><mml:mrow><mml:mi>x</mml:mi><mml:mi>L</mml:mi><mml:mi>i</mml:mi><mml:mi>O</mml:mi><mml:mi>H</mml:mi><mml:mo linebreak="badbreak">+</mml:mo><mml:mi>N</mml:mi><mml:mi>b</mml:mi><mml:mi>C</mml:mi><mml:msub><mml:mi>l</mml:mi><mml:mn>5</mml:mn></mml:msub><mml:mo linebreak="goodbreak">=</mml:mo><mml:mi>L</mml:mi><mml:msub><mml:mi>i</mml:mi><mml:mi>x</mml:mi></mml:msub><mml:mi>N</mml:mi><mml:mi>b</mml:mi><mml:msub><mml:mi>O</mml:mi><mml:mi>x</mml:mi></mml:msub><mml:mi>C</mml:mi><mml:msub><mml:mi>l</mml:mi><mml:mrow><mml:mn>5</mml:mn><mml:mo>−</mml:mo><mml:mi>x</mml:mi></mml:mrow></mml:msub><mml:mrow><mml:mo linebreak="badbreak">+</mml:mo><mml:mi>x</mml:mi><mml:mi>H</mml:mi><mml:mi>C</mml:mi><mml:mi>l</mml:mi><mml:mo>↑</mml:mo><mml:mo>,</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where <italic toggle="yes">x</italic> = 0.75–1.05.</p><p>The LiNbCl<sub>6</sub> and Li2ZrCl<sub>6</sub> materials were synthesized by the same ball milling method. The starting materials were LiCl (99.9%, Aladdin) and NbCl<sub>5</sub> (99% Macklin) or ZrCl<sub>4</sub> (98% Macklin).</p></sec><sec id="smtd70229-sec-0080"><title>Materials Characterization</title><p>Powder X‐ray diffraction (XRD) measurements of SEs were collected using the Malvern Panalytical Empyrean X‐ray diffractometer employing CuKα radiation (λ = 1.5406 Å) at 40 kV and 45 mA). The samples were placed in the cavity of the zero‐diffraction plate in an Ar‐filled glove box, and the top of the sample holder was covered by a polyamine film to protect against exposure to air.</p><p>The morphology and elemental mapping analysis studies of SE materials utilized a high‐resolution field emission scanning electron microscope JEOL Ltd./JSM‐7160FPlus equipped with an EDX detector.</p><p>LNOC solid‐state electrolyte was studied by cryo‐TEM on a scanning/transmission electron microscope (S/TEM) operated at 300 kV. Particles were dispersed onto a TEM lacey carbon grid inside an Ar‐filled glovebox. The specimen was then taken out into an air‐tight container and immediately plunged into liquid nitrogen, followed by transferring the specimen onto a pre‐cooled cryo‐TEM holder (Elsa, Gatan, USA) using a cryotransfer station to ensure the entire process occurred under a cryogenic environment, which keeps the specimen in its native state. Then, the cryo‐TEM holder was inserted into the TEM column for characterization at a low temperature (100 K).</p><p>The infrared (IR) spectra were obtained using an FTIR spectrometer (Thermo Scientific Nicolet iS50 FTIR Spectrometer) in the range of 400–2000 cm<sup>−1</sup>, which is placed in the glove box to prevent the measured electrolytes from coming into contact with air.</p><p>The FTIR spectra of gas in the ball milling jar were carried out using an FTIR spectrometer (Brucker VERTEX 70v) with ATR‐PROBE IN350‐TEX attachment, which connects by a tube with a ball milling jar after mechanochemical reactions for detecting escaping gas after opening the spool valve on the jar cover.</p><p>Raman spectra were measured on a DXR3 Raman Microscope equipped with a 532 nm laser. Powder of solid electrolyte was placed in a glass capillary with a diameter of 1 mm in an Ar‐filled glove box, which was sealed with a LOXEAL UV 30‐23 adhesive to prevent contact with air during measurements.</p><p>The synchrotron X‐ray data collected at beamline 11‐ID of APS were used for refinement. A neutron diffraction study was conducted on the Multi‐Physics Instrument (MPI) at the China Spallation Neutron Source.</p><p>The <sup>1</sup>H solid‐state NMR (ssNMR) experiments were performed on a Bruker Avance NEO 400 spectrometer equipped with a 9.4 T wide‐bore magnet. The <sup>1</sup>H MAS NMR spectra were obtained via one pulse sequence with a π/2 pulse length of 2.27 µs and a recycle delay of 2.0 s. All the ssNMR experiments were operated at a spinning rate of 5 kHz at room temperature via a 3.2 mm HXY probe. 1H shifts with respect to adamantane (1.8 ppm).</p></sec><sec id="smtd70229-sec-0090"><title>in situ Monitoring of the Synthesis Mechanism</title><p>The real‐time experiments on the synthesis mechanism of Nb‐based solid electrolytes were conducted using a specially designed milling machine and an in‐house‐designed milling jar from BL08W at Spring‐8, Japan, which is equipped with a PMMA X‐ray window in the middle parts, and enhances the X‐ray signal while minimizing the loss of mechano impact. It also features two layers of thick walls on the sides to facilitate maximum horizontal mechano impact, ensuring efficient grinding and milling. The wavelength used was 0.1078 Å. To track the phase transition of halide materials from the precursors, a collimated beam with 1 × 1  mm<sup>2</sup> size and a flat‐panel detector PE1621En was employed.</p></sec><sec id="smtd70229-sec-0100"><title>Computational Details</title><p>Bond Valence Site Energy (BVSE) Calculations used to investigate the migration of Li ions are based on the SoftBV program, using the single crystal structural model as input and the SoftBV bond valence parameter set developed by S. Adams.<sup>[</sup>
+<xref rid="smtd70229-bib-0043" ref-type="bibr">
+<sup>43</sup>
+</xref>, <xref rid="smtd70229-bib-0045" ref-type="bibr">
+<sup>45</sup>
+</xref>
+<sup>]</sup> Lithium‐ion site energies were calculated for a dense grid of points with a resolution of 0.1 Å covering the crystal structure using the transferable Morse‐type softBV force field. Li‐ion diffusion pathways are identified with the regions of low bond valence site energy. The LNOC structure determined from powder neutron diffraction was used as the input structure for the BVSE calculations. BVSE maps with an E<sub>BVSE(Li)</sub> constant iso‐surface energy over the global minimum indicate Li‐ion diffusion pathways. BVSE calculations have been used to study a wide variety of ion conductors and show good agreement with experiments and calculations.</p><p>The interface pseudo‐binary reaction energy was calculated as follows:
+<disp-formula id="smtd70229-disp-0002">
+<label>(2)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-2" display="block"><mml:mrow><mml:mrow><mml:mi mathvariant="normal">Δ</mml:mi><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>D</mml:mi><mml:mspace width="0.28em"/></mml:mrow></mml:msub><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>S</mml:mi><mml:mi>E</mml:mi><mml:mo>,</mml:mo><mml:msub><mml:mi>H</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mi>O</mml:mi><mml:mo>,</mml:mo><mml:mi>x</mml:mi></mml:mrow></mml:mfenced><mml:mo linebreak="badbreak">=</mml:mo><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>e</mml:mi><mml:mi>q</mml:mi><mml:mspace width="0.28em"/></mml:mrow></mml:msub><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:msub><mml:mi>C</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>f</mml:mi><mml:mi>a</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi></mml:mrow></mml:msub><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:msub><mml:mi>C</mml:mi><mml:mrow><mml:mi>s</mml:mi><mml:mi>e</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:msub><mml:mi>C</mml:mi><mml:mrow><mml:msub><mml:mi>H</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mi>O</mml:mi></mml:mrow></mml:msub><mml:mo>,</mml:mo><mml:mi>x</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:mfenced><mml:mo linebreak="goodbreak">−</mml:mo><mml:msub><mml:mi>E</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>f</mml:mi><mml:mi>a</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi></mml:mrow></mml:msub><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>S</mml:mi><mml:mi>E</mml:mi><mml:mo>,</mml:mo><mml:msub><mml:mi>H</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mi>O</mml:mi><mml:mo>,</mml:mo><mml:mi>x</mml:mi></mml:mrow></mml:mfenced></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where <italic toggle="yes">C<sub>SE</sub>
+</italic> and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-3" display="inline"><mml:mrow><mml:msub><mml:mi>C</mml:mi><mml:mrow><mml:msub><mml:mi>H</mml:mi><mml:mn>2</mml:mn></mml:msub><mml:mi>O</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:math> or <italic toggle="yes">C<sub>LNOC</sub>
+</italic> are the compositions of SE and water or LNOC SE. The <italic toggle="yes">x</italic> is the molar fraction of the SE. The energies of materials were obtained from the Materials Project database.<sup>[</sup>
+<xref rid="smtd70229-bib-0052" ref-type="bibr">
+<sup>52</sup>
+</xref>
+<sup>]</sup>
+</p></sec><sec id="smtd70229-sec-0110"><title>Measurements of Ionic and Electronic Conductivities</title><p>Prior to the electrochemical impedance spectroscopy (EIS) and direct current (DC) polarization measurements, the powders of solid electrolytes (SEs) were cold‐pressed at 3 tons (260 MPa) in a polyether ether ketone (PEEK) mold with a diameter of 10 mm, and stainless steel (SS) rods were used as blocking electrodes on both sides of the pellets. The DC polarization was carried out using the Autolab PGSTAT 302F at RT. The EIS measurements were measured using a Biologic VSP200 electrochemical station in the measurement frequency range of 0.01–10 MHz with 10 mV driving potential amplitude with respect to the open‐circuit voltage at 30 °C. The Li<sup>+</sup> ionic conductivity of LNOC SEs was calculated by the equation:
+<disp-formula id="smtd70229-disp-0003">
+<label>(3)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-4" display="block"><mml:mrow><mml:mrow><mml:mi>σ</mml:mi><mml:mo linebreak="badbreak">=</mml:mo><mml:msup><mml:mfenced separators="" open="(" close=")"><mml:mfrac><mml:mrow><mml:msub><mml:mi>R</mml:mi><mml:mrow><mml:mi>S</mml:mi><mml:mi>E</mml:mi></mml:mrow></mml:msub><mml:mo>·</mml:mo><mml:mi>S</mml:mi></mml:mrow><mml:mi>t</mml:mi></mml:mfrac></mml:mfenced><mml:mrow><mml:mo>−</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where <italic toggle="yes">σ</italic> – the ionic conductivity of the solid electrolyte; <italic toggle="yes">S</italic> – an area of contact between the solid electrolyte and the SS rods; <italic toggle="yes">R<sub>SE –</sub>
+</italic> resistance value of the SE; <italic toggle="yes">t</italic> – thickness of the SE pellets. The area of contact SSǀSE for all samples is 0.785 cm<sup>2</sup>.</p><p>The activation energy was obtained by EIS measurements in the temperature range from −40 to 80 °C. The Swagelok cell was set in a variable temperature oven (Guangzhou Wusuo Environment Instrument, HSL/G‐04). Every temperature value was held for 1.5 h before collecting data to ensure that the thermal equilibrium was reached. The Ea is calculated by the following Arrhenius equation:
+<disp-formula id="smtd70229-disp-0004">
+<label>(4)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-5" display="block"><mml:mrow><mml:mrow><mml:mi>σ</mml:mi><mml:mi>T</mml:mi><mml:mo linebreak="badbreak">=</mml:mo><mml:mi>A</mml:mi><mml:mi>e</mml:mi><mml:mi>x</mml:mi><mml:mi>p</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mo linebreak="badbreak">−</mml:mo><mml:mfrac><mml:msub><mml:mi>E</mml:mi><mml:mi>a</mml:mi></mml:msub><mml:mrow><mml:msub><mml:mi>k</mml:mi><mml:mi>B</mml:mi></mml:msub><mml:mi>T</mml:mi></mml:mrow></mml:mfrac></mml:mrow></mml:mfenced></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where σ is the tested ionic conductivity, <italic toggle="yes">T</italic> is the Kelvin temperature, and kB is the Boltzmann constant.</p></sec><sec id="smtd70229-sec-0120"><title>All‐Solid‐State Battery (ASSB) Cell Preparation and Battery Performance Measurement</title><p>The all‐solid‐state Li‐ion batteries were assembled in a mold cell consisting of two stainless steel rods and a 10 mm diameter cylinder made of insulating polycarbonate. First, 85 mg of LNOC powder was filled into a cylinder and cold pressed at 200 MPa for 2 min. Then, 7 mg of scNCM811 cathode was spread on one side of the LNOC tablet and uniaxially pressed at 300 MPa for 3 min. On the other side of the LNOC SE layer, evenly spread 45 mg Li6PS5Cl sulfide solid‐state electrolyte to avoid the reaction of the LNOC electrolyte with the anode, and pressurize 200 MPa for 1 min. Finally, place a thin Indium foil (0.042 g in weight, 100 µm) with a diameter of 9 mm and Li foil (0.006 g in weight, 6 mm in diameter) on the LPSC electrolyte. Then, a constant uniaxial pressure of 200 MPa was applied to the cell using stainless steel frame screws.</p></sec><sec id="smtd70229-sec-0130"><title>Humidity Tolerance Test</title><p>Humidity tolerance tests were performed on 0.25 g of Li<sub>0.9</sub>NbO<sub>0.9</sub>Cl<sub>4.1</sub>, LiNbOCl<sub>4</sub>, Li<sub>2</sub>ZrCl<sub>6</sub>, and Li<sub>3</sub>InCl<sub>6</sub> (MTI Corporation) powders. The samples were placed in a glovebox equipped with a relative humidity (RH) controller (Changshu Tongrun Electronic Co., Ltd) and filled with argon (Ar) gas. The tests were conducted at 5%–7% and 10%–12% RH at RT for durations of 1, 6, and 12 h, respectively.</p></sec><sec id="smtd70229-sec-0140"><title>Statistical Analysis</title><p>To ensure reproducibility, all electrochemical measurements were performed on at least three nominally identical cells for each configuration: SS/SE/SS, Li–In/Li<sub>6</sub>PS<sub>5</sub>Cl/LNOC/LNOC+CNT, and Li–In/Li<sub>6</sub>PS<sub>5</sub>Cl/LNOC/scNCM811. Data are presented as mean values ± standard deviation (SD). Statistical processing and graphical presentation of data were performed using OriginPro 2021 software.</p></sec></sec><sec sec-type="COI-statement" id="smtd70229-sec-0160"><title>Conflict of Interest</title><p>The authors declare no conflict of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="smtd70229-supinfo-0001" position="float" content-type="local-data" orientation="portrait"/><supplementary-material id="smtd70229-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>Supporting Information</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="SMTD-10-e00947-s001.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="smtd70229-sec-0150"><title>Acknowledgements</title><p>This work was supported by the National Natural Science Foundation of China under Grant No. W2433132, 12204219, 12275119, 51732005, the Shenzhen Science and Technology Program under Grant No. KQTD20200820113047086, the Zhejiang Provincial Natural Science Foundation of China under Grant No. LY23B030003, Natural Science Foundation of Ningbo under Grant No. 2023J200, the Shenzhen Key Laboratory of Solid State Batteries (SYSPG20241211173726011), the Guangdong Provincial Key Laboratory of Energy Materials for Electric Power (2018B030322001), the Guangdong‐Hong Kong‐Macao Joint Laboratory for Photonic‐Thermal‐Electrical Energy Materials and Devices (2019B121205001), the Key Laboratory of Energy Conversion and Storage Technologies (Southern University of Science and Technology), the Ministry of Education. The work was also supported by the Laboratory of Electrochemical Energy Storage Technologies, Academy for Advanced Interdisciplinary Studies (SUSTech), the Major Science and Technology Infrastructure Project of Material Genome Big‐science Facilities Platform supported by Municipal Development and Reform Commission of Shenzhen, and the Center for Computational Science and Engineering at Southern University of Science and Technology. The synchrotron radiation experiments were performed at BL08W at SPring‐8 with the approval of the Japan Synchrotron Radiation Research Institute (JASRI). The proposal numbers are 2021B2006, 2022B1508, and 2023A2341.</p></ack><sec sec-type="data-availability" id="smtd70229-sec-0180"><title>Data Availability Statement</title><p>The data that support the findings of this study are available in the supplementary material of this article.</p></sec><ref-list id="smtd70229-bibl-0001"><ref id="smtd70229-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="smtd70229-cite-0001">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Armand</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Tarascon</surname>
+</string-name>, <source>Nature</source>
+<year>2008</year>, <volume>451</volume>, <fpage>652</fpage>.<pub-id pub-id-type="pmid">18256660</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/451652a</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="smtd70229-cite-0002">
+<string-name name-style="western">
+<given-names>J. B.</given-names>
+<surname>Goodenough</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Kim</surname>
+</string-name>, <source>Chem. Mater.</source>
+<year>2010</year>, <volume>22</volume>, <fpage>587</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="smtd70229-cite-0003">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Turcheniuk</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Bondarev</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Singhal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Yushin</surname>
+</string-name>, <source>Nature</source>
+<year>2018</year>, <volume>559</volume>, <fpage>467</fpage>.<pub-id pub-id-type="pmid">30046087</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/d41586-018-05752-3</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="smtd70229-cite-0004">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Famprikis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Canepa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. A.</given-names>
+<surname>Dawson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. S.</given-names>
+<surname>Islam</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Masquelier</surname>
+</string-name>, <source>Nat. Mater.</source>
+<year>2019</year>, <volume>18</volume>, <fpage>1278</fpage>.<pub-id pub-id-type="pmid">31427742</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41563-019-0431-3</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="smtd70229-cite-0005">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Janek</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W. G.</given-names>
+<surname>Zeier</surname>
+</string-name>, <source>Nat. Energy</source>
+<year>2016</year>, <volume>1</volume>, <elocation-id>16141</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="smtd70229-cite-0006">
+<string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Stalin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐Z.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. A.</given-names>
+<surname>Archer</surname>
+</string-name>, <source>Nat. Rev. Mater.</source>
+<year>2020</year>, <volume>5</volume>, <fpage>252</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="smtd70229-cite-0007">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Kamaya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Homma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yamakawa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hirayama</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Kanno</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Yonemura</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Kamiyama</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Kato</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hama</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Kawamoto</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Mitsui</surname>
+</string-name>, <source>Nat. Mater.</source>
+<year>2011</year>, <volume>10</volume>, <fpage>682</fpage>.<pub-id pub-id-type="pmid">21804556</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nmat3066</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="smtd70229-cite-0008">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Kato</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hori</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Saito</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Suzuki</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hirayama</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Mitsui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Yonemura</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Iba</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Kanno</surname>
+</string-name>, <source>Nat. Energy</source>
+<year>2016</year>, <volume>1</volume>, <elocation-id>16030</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="smtd70229-cite-0009">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Song</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Kim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Nomoto</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Kim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hori</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Suzuki</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Matsui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hirayama</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Mizoguchi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Saito</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Kamiyama</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Kanno</surname>
+</string-name>, <source>Science</source>
+<year>2023</year>, <volume>381</volume>, <fpage>50</fpage>.<pub-id pub-id-type="pmid">37410839</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.add7138</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="smtd70229-cite-0010">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Asano</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Sakai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ouchi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Sakaida</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Miyazaki</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hasegawa</surname>
+</string-name>, <source>Adv. Mater.</source>
+<year>2018</year>, <volume>30</volume>, <elocation-id>1803075</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/adma.201803075</pub-id><pub-id pub-id-type="pmid">30216562</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="smtd70229-cite-0011">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Liang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Luo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Norouzi Banis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Deng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. K.</given-names>
+<surname>Sham</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. R.</given-names>
+<surname>Adair</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Sun</surname>
+</string-name>, <source>Energy &amp; Enviromental Science</source>
+<year>2019</year>, <volume>12</volume>, <fpage>2665</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="smtd70229-cite-0012">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.‐T.</given-names>
+<surname>Zuo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. Y.</given-names>
+<surname>Kwok</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. Y</given-names>
+<surname>Kim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Assoud</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Janek</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. F.</given-names>
+<surname>Nazar</surname>
+</string-name>, <source>Nat. Energy</source>
+<year>2022</year>, <volume>7</volume>, <fpage>83</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="smtd70229-cite-0013">
+<string-name name-style="western">
+<given-names>C. F.</given-names>
+<surname>Burmeister</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kwade</surname>
+</string-name>, <source>Chem. Soc. Rev.</source>
+<year>2013</year>, <volume>42</volume>, <fpage>7660</fpage>.<pub-id pub-id-type="pmid">23389051</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1039/c3cs35455e</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="smtd70229-cite-0014">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Tanaka</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Ueno</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Mizuno</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Takeuchi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Asano</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Sakai</surname>
+</string-name>, <source>Angew. Chem., Int. Ed.</source>
+<year>2023</year>, <volume>62</volume>, <elocation-id>202217581</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/anie.202217581</pub-id><pub-id pub-id-type="pmid">36747340</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="smtd70229-cite-0015">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Cheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐C.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐C.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Pan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.‐D.</given-names>
+<surname>Luo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.‐Z.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.‐L.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Jiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Cao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.‐P.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Tao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Shang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.‐B.</given-names>
+<surname>Yao</surname>
+</string-name>, <source>J. Am. Chem. Soc.</source>
+<year>2023</year>, <volume>145</volume>, <elocation-id>27774</elocation-id>.<pub-id pub-id-type="pmid">38079498</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/jacs.3c10602</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="smtd70229-cite-0016">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Schweiger</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Hogrefe</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Gadermaier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. L.</given-names>
+<surname>Rupp</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. M. R.</given-names>
+<surname>Wilkening</surname>
+</string-name>, <source>J. Am. Chem. Soc.</source>
+<year>2022</year>, <volume>144</volume>, <fpage>959</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/jacs.1c13477</pub-id><pub-id pub-id-type="pmcid">PMC9185751</pub-id><pub-id pub-id-type="pmid">35608382</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="smtd70229-cite-0017">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kuhn</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Wilkening</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Heitjans</surname>
+</string-name>, <source>Solid State Ionics</source>
+<year>2009</year>, <volume>180</volume>, <fpage>302</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="smtd70229-cite-0018">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Cronau</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Duchardt</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Szabo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Roling</surname>
+</string-name>, <source>Batteries Supercaps</source>
+<year>2022</year>, <volume>5</volume>, <elocation-id>202200041</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="smtd70229-cite-0019">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yamada</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Watanabe</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.‐S.</given-names>
+<surname>Kim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Suzuki</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hori</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Kanno</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hirayama</surname>
+</string-name>, <source>Batteries Supercaps</source>
+<year>2023</year>, <volume>6</volume>, <elocation-id>202300261</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="smtd70229-cite-0020">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Fu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Luo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. H.</given-names>
+<surname>Alahakoon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.‐Y.</given-names>
+<surname>Chang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Shakouri</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Liang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.‐K.</given-names>
+<surname>Sham</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Sun</surname>
+</string-name>, <source>Nat. Commun.</source>
+<year>2023</year>, <volume>14</volume>, <fpage>3780</fpage>.<pub-id pub-id-type="pmid">37355635</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-023-39197-8</pub-id><pub-id pub-id-type="pmcid">PMC10290651</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="smtd70229-cite-0021">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ishiguro</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Ueno</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Nishimura</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Iida</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Igarashib</surname>
+</string-name>, <source>Chem. Lett.</source>
+<year>2023</year>, <volume>52</volume>, <fpage>237</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="smtd70229-cite-0022">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Gu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Xi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Ma</surname>
+</string-name>, <source>Nat. Commun.</source>
+<year>2023</year>, <volume>14</volume>, <fpage>3807</fpage>.<pub-id pub-id-type="pmid">37369677</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-023-39522-1</pub-id><pub-id pub-id-type="pmcid">PMC10300059</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="smtd70229-cite-0023">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. S.</given-names>
+<surname>Westover</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Yue</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Fan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Chi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. N.</given-names>
+<surname>Leonard</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N. J.</given-names>
+<surname>Dudney</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Nat. Energy</source>
+<year>2019</year>, <volume>4</volume>, <fpage>187</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="smtd70229-cite-0024">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Assoud</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. F.</given-names>
+<surname>Nazar</surname>
+</string-name>, <source>J. Am. Chem. Soc.</source>
+<year>2019</year>, <volume>141</volume>, <elocation-id>19002</elocation-id>.<pub-id pub-id-type="pmid">31642663</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/jacs.9b08357</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="smtd70229-cite-0025">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Xia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Peng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Tang</surname>
+</string-name>, <source>Sci. Adv.</source>
+<year>2022</year>, <volume>8</volume>, <elocation-id>abj7698</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/sciadv.abj7698</pub-id><pub-id pub-id-type="pmcid">PMC8932667</pub-id><pub-id pub-id-type="pmid">35302845</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="smtd70229-cite-0026">
+<string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Rettenwander</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Redhammer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Preishuber‐Pflügl</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Cheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Miara</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Wagner</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Welzl</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Suard</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. M.</given-names>
+<surname>Doeff</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Wilkening</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Fleig</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Amthauer</surname>
+</string-name>, <source>Chem. Mater.</source>
+<year>2016</year>, <volume>28</volume>, <fpage>2384</fpage>.<pub-id pub-id-type="pmid">27110064</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.chemmater.6b00579</pub-id><pub-id pub-id-type="pmcid">PMC4836877</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="smtd70229-cite-0027">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Xiong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Chen</surname>
+</string-name>, <source>ACS Energy Lett.</source>
+<year>2021</year>, <volume>6</volume>, <fpage>298</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="smtd70229-cite-0028">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Liang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. R.</given-names>
+<surname>Adair</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Mo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Sun</surname>
+</string-name>, <source>J. Am. Chem. Soc.</source>
+<year>2020</year>, <volume>142</volume>, <fpage>7012</fpage>.<pub-id pub-id-type="pmid">32212650</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/jacs.0c00134</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="smtd70229-cite-0029">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Ren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Gu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Duan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Fu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Hao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Ma</surname>
+</string-name>, <source>Nat. Commun.</source>
+<year>2021</year>, <volume>12</volume>, <fpage>4410</fpage>.<pub-id pub-id-type="pmid">34285207</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-021-24697-2</pub-id><pub-id pub-id-type="pmcid">PMC8292426</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="smtd70229-cite-0030">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Weppner</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Huggins</surname>
+</string-name>, <source>Phys. Lett. A</source>
+<year>1976</year>, <volume>58</volume>, <fpage>245</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="smtd70229-cite-0031">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Cros</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Hanebali</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Latie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Villeneuve</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Gang</surname>
+</string-name>, <source>Solid State Ionics</source>
+<year>1983</year>, <volume>9</volume>, <fpage>139</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="smtd70229-cite-0032">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Kanno</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Takeda</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Mori</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Yamamoto</surname>
+</string-name>, <source>Chem. Lett.</source>
+<year>1989</year>, <volume>18</volume>, <fpage>223</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="smtd70229-cite-0033">
+<string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Orel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Maček</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Grdadolnik</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Meden</surname>
+</string-name>, <source>J. Solid State Electrochem.</source>
+<year>1998</year>, <volume>2</volume>, <fpage>221</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="smtd70229-cite-0034">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Aronne</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Marenna</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Califano</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Fanelli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Pernice</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Trifuoggi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Vergara</surname>
+</string-name>, <source>J. Sol‐Gel Sci. Technol.</source>
+<year>2007</year>, <volume>43</volume>, <fpage>193</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="smtd70229-cite-0035">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Fielicke</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Meijer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>von Helden</surname>
+</string-name>, <source>J. Am. Chem. Soc.</source>
+<year>2003</year>, <volume>125</volume>, <fpage>3659</fpage>.<pub-id pub-id-type="pmid">12643729</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/ja0288946</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="smtd70229-cite-0036">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Rosenkilde</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Voyiatzis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V. R.</given-names>
+<surname>Jensen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Ystenes</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Oestvold</surname>
+</string-name>, <source>Inorg. Chem.</source>
+<year>1995</year>, <volume>34</volume>, <fpage>4360</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="smtd70229-cite-0037">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Guelachvili</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Niay</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Bernage</surname>
+</string-name>, <source>J. Mol. Spectrosc.</source>
+<year>1981</year>, <volume>85</volume>, <fpage>271</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="smtd70229-cite-0038">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Albinati</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Willis</surname>
+</string-name>, <source>J. Appl. Crystallogr.</source>
+<year>1982</year>, <volume>15</volume>, <fpage>361</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="smtd70229-cite-0039">
+<string-name name-style="western">
+<given-names>B. H.</given-names>
+<surname>Toby</surname>
+</string-name>, <source>J. Appl. Crystallogr.</source>
+<year>2001</year>, <volume>34</volume>, <fpage>210</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="smtd70229-cite-0040">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Calvin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Carpenter</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Ravel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Harris</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Morrison</surname>
+</string-name>, <source>Phys. Rev. B</source>
+<year>2002</year>, <volume>66</volume>, <elocation-id>224405</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="smtd70229-cite-0041">
+<string-name name-style="western">
+<given-names>I. S.</given-names>
+<surname>Bushmarinov</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. O.</given-names>
+<surname>Dmitrienko</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Korlyukov</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. Y.</given-names>
+<surname>Antipin</surname>
+</string-name>, <source>J. Appl. Crystallogr.</source>
+<year>2012</year>, <volume>45</volume>, <fpage>1187</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="smtd70229-cite-0042">
+<string-name name-style="western">
+<given-names>J. A.</given-names>
+<surname>Newnham</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Kondek</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Hartel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Rosenbach</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Faka</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Gronych</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Glikman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Schreiner</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. D.</given-names>
+<surname>Wind</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Braunschweig</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. R.</given-names>
+<surname>Hansen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W. G.</given-names>
+<surname>Zeier</surname>
+</string-name>, <source>Chem. Mater.</source>
+<year>2025</year>, <volume>37</volume>, <fpage>4130</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="smtd70229-cite-0043">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Adams</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Chen</surname>
+</string-name>, <source>Acta Crystallogr.</source>
+<year>2017</year>, <volume>70</volume>, <fpage>C381</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0044"><label>44</label><mixed-citation publication-type="journal" id="smtd70229-cite-0044">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Adams</surname>
+</string-name>, <source>Energy Storage Mater.</source>
+<year>2024</year>, <volume>68</volume>, <elocation-id>103359</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0045"><label>45</label><mixed-citation publication-type="journal" id="smtd70229-cite-0045">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. L.</given-names>
+<surname>Wong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Adams</surname>
+</string-name>, <source>Acta Crystallogr. B</source>
+<year>2019</year>, <volume>75</volume>, <fpage>18</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1107/S2052520618015718</pub-id><pub-id pub-id-type="pmid">32830774</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="smtd70229-cite-0046">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Butenko</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Ye</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Hong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Xia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhu</surname>
+</string-name>, <source>Chem. Mater.</source>
+<year>2023</year>, <volume>35</volume>, <fpage>4541</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0047"><label>47</label><mixed-citation publication-type="journal" id="smtd70229-cite-0047">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Xia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Hussain</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Yin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Lei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. S.</given-names>
+<surname>Butenko</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhao</surname>
+</string-name>, <source>J. Power Sources</source>
+<year>2023</year>, <volume>568</volume>, <elocation-id>232992</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0048"><label>48</label><mixed-citation publication-type="journal" id="smtd70229-cite-0048">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Mo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Adv. Energy Mater.</source>
+<year>2016</year>, <volume>6</volume>, <elocation-id>1501590</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0049"><label>49</label><mixed-citation publication-type="journal" id="smtd70229-cite-0049">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Mo</surname>
+</string-name>, <source>J. Mater. Chem.</source>
+<year>2016</year>, <volume>4</volume>, <fpage>3253</fpage>.</mixed-citation></ref><ref id="smtd70229-bib-0050"><label>50</label><mixed-citation publication-type="journal" id="smtd70229-cite-0050">
+<string-name name-style="western">
+<given-names>X.‐k.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐x.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.‐h.</given-names>
+<surname>Mi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.‐l.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐w.</given-names>
+<surname>Sun</surname>
+</string-name>, <source>Energy Storage Mater.</source>
+<year>2024</year>, <volume>72</volume>, <elocation-id>103737</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0051"><label>51</label><mixed-citation publication-type="journal" id="smtd70229-cite-0051">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.‐Y.</given-names>
+<surname>Chang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐C.</given-names>
+<surname>Chuang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Hao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Fu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Luo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.‐K.</given-names>
+<surname>Sham</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. D</given-names>
+<surname>Gu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>King</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Sun</surname>
+</string-name>, <source>J. Am. Chem. Soc.</source>
+<year>2024</year>, <volume>146</volume>, <fpage>2977</fpage>.<pub-id pub-id-type="pmid">38284994</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/jacs.3c07343</pub-id></mixed-citation></ref><ref id="smtd70229-bib-0052"><label>52</label><mixed-citation publication-type="journal" id="smtd70229-cite-0052">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Cui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Jin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Lei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Liang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Shi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Hussain</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Xia</surname>
+</string-name>, <source>Adv. Funct. Mater.</source>
+<year>2025</year>, <elocation-id>10497</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0053"><label>53</label><mixed-citation publication-type="journal" id="smtd70229-cite-0053">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Molaiyan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. E.</given-names>
+<surname>Mailhiot</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Voges</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. M.</given-names>
+<surname>Kantola</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Michalowski</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kwade</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.‐V.</given-names>
+<surname>Telkki</surname>
+</string-name>, <string-name name-style="western">
+<given-names>U.</given-names>
+<surname>Lassi</surname>
+</string-name>, <source>Mater. Des.</source>
+<year>2023</year>, <volume>227</volume>, <elocation-id>111690</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0054"><label>54</label><mixed-citation publication-type="journal" id="smtd70229-cite-0054">
+<string-name name-style="western">
+<given-names>Y.‐T.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. H. S.</given-names>
+<surname>Tan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.‐Y.</given-names>
+<surname>Ham</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Sayahpour</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. B.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Kim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.‐S.</given-names>
+<surname>Song</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. H. B.</given-names>
+<surname>Nguyen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. A. S</given-names>
+<surname>Oh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Ridley</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Cronk</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Deysher</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Jang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. S.</given-names>
+<surname>Meng</surname>
+</string-name>, <source>J. Electrochem. Soc.</source>
+<year>2023</year>, <volume>170</volume>, <elocation-id>080521</elocation-id>.</mixed-citation></ref><ref id="smtd70229-bib-0055"><label>55</label><mixed-citation publication-type="journal" id="smtd70229-cite-0055">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Usami</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Tanibata</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Takeda</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Nakayama</surname>
+</string-name>, <source>J. Solid State Electrochem.</source>
+<year>2024</year>, <volume>28</volume>, <fpage>4427</fpage>.</mixed-citation></ref></ref-list></back></article></pmc-articleset>

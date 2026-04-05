@@ -1,0 +1,228 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Automated"><PMID Version="1">40511634</PMID><DateCompleted><Year>2025</Year><Month>06</Month><Day>13</Day></DateCompleted><DateRevised><Year>2025</Year><Month>06</Month><Day>15</Day></DateRevised><Article PubModel="Print"><Journal><ISSN IssnType="Electronic">1399-3054</ISSN><JournalIssue CitedMedium="Internet"><Volume>177</Volume><Issue>3</Issue><PubDate><Year>2025</Year><Season>May-Jun</Season></PubDate></JournalIssue><Title>Physiologia plantarum</Title><ISOAbbreviation>Physiol Plant</ISOAbbreviation></Journal><ArticleTitle>Modelling Net CO<sub>2</sub> Assimilation of Two Sphagnum Species From Temperature and Water Content Response.</ArticleTitle><Pagination><StartPage>e70325</StartPage><MedlinePgn>e70325</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">e70325</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.1111/ppl.70325</ELocationID><Abstract><AbstractText>Photosynthesis and respiration respond differently to the combined effects of temperature and water status. Quantifying their responses is crucial to predict the carbon balance of Sphagnum peatlands in different scenarios of climate change. A first approach was done for two Sphagnum species inhabiting a boreal peatland in Finland. Gas exchange at different temperatures and moss hydration were measured to model net assimilation using simultaneous measurements of photosynthesis and dark respiration. In addition, measurements of moss surface temperature at different water content were performed in the field, covering natural conditions of sun exposure and air temperature. We also accounted for the interaction effect between moss canopy temperature and air temperature, radiation, and water content. Our model accurately predicted net assimilation and was used to estimate net primary productivity based on meteorological inputs and moss water content. The two Sphagnum species presented optimum temperatures for net CO<sub>2</sub> assimilation around 25&#xb0;C, with minimum changes at other temperatures. In contrast, dark respiration increased exponentially with temperature, which makes losses of carbon during the night and the duration of dark conditions key determinants in the carbon balance of Sphagnum. The modeled net primary productivity revealed an enhancement of CO<sub>2</sub> fixation under warming conditions (averaged +10&#xb0;C), concomitant to the expected transformation of peatlands from sink to source of CO<sub>2</sub>. Our model highlighted the importance of respiration restriction in ensuring positive assimilation in Sphagnum. Therefore, day and night temperature oscillation and short night photoperiods are more important than the optimum temperature of photosynthesis for carbon balance.</AbstractText><CopyrightInformation>&#xa9; 2025 The Author(s). Physiologia Plantarum published by John Wiley &amp; Sons Ltd on behalf of Scandinavian Plant Physiology Society.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Perera-Castro</LastName><ForeName>Alicia V</ForeName><Initials>AV</Initials><AffiliationInfo><Affiliation>Department of Botany, Ecology and Plant Physiology, Universidad de La Laguna, La Laguna, Canary Islands, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Institute of Biology, University of Hohenheim, Stuttgart, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Nadal</LastName><ForeName>Miquel</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>AgroParisTech, INRAE, UMR Silva, Universit&#xe9; de Lorraine, Nancy, France.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Departamento de Sistemas Agr&#xed;colas, Forestales y Medio Ambiente, Centro de Investigaci&#xf3;n y Tecnolog&#xed;a Agroalimentaria de Arag&#xf3;n (CITA), Zaragoza, Spain.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><GrantList CompleteYN="Y"><Grant><GrantID>871120</GrantID><Agency>EU H2020 INTERACT TA</Agency><Country/></Grant><Grant><GrantID>FJC2020-043902-I</GrantID><Agency>MCIN/AEI/10.13039/501100011033, Next Generation EU/PRTR</Agency><Country/></Grant></GrantList><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList></Article><MedlineJournalInfo><Country>Denmark</Country><MedlineTA>Physiol Plant</MedlineTA><NlmUniqueID>1256322</NlmUniqueID><ISSNLinking>0031-9317</ISSNLinking></MedlineJournalInfo><ChemicalList><Chemical><RegistryNumber>142M471B3J</RegistryNumber><NameOfSubstance UI="D002245">Carbon Dioxide</NameOfSubstance></Chemical><Chemical><RegistryNumber>059QF0KO0R</RegistryNumber><NameOfSubstance UI="D014867">Water</NameOfSubstance></Chemical></ChemicalList><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D044003" MajorTopicYN="Y">Sphagnopsida</DescriptorName><QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName><QualifierName UI="Q000528" MajorTopicYN="N">radiation effects</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D002245" MajorTopicYN="Y">Carbon Dioxide</DescriptorName><QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D013696" MajorTopicYN="N">Temperature</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D014867" MajorTopicYN="Y">Water</DescriptorName><QualifierName UI="Q000378" MajorTopicYN="N">metabolism</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D010788" MajorTopicYN="N">Photosynthesis</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D008954" MajorTopicYN="N">Models, Biological</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D057231" MajorTopicYN="N">Climate Change</DescriptorName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Sphagnum</Keyword><Keyword MajorTopicYN="N">carbon balance</Keyword><Keyword MajorTopicYN="N">photoperiod</Keyword><Keyword MajorTopicYN="N">primary productivity</Keyword><Keyword MajorTopicYN="N">respiration</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="revised"><Year>2025</Year><Month>5</Month><Day>2</Day></PubMedPubDate><PubMedPubDate PubStatus="received"><Year>2024</Year><Month>11</Month><Day>8</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>5</Month><Day>15</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2025</Year><Month>6</Month><Day>13</Day><Hour>12</Hour><Minute>33</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2025</Year><Month>6</Month><Day>13</Day><Hour>12</Hour><Minute>32</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2025</Year><Month>6</Month><Day>13</Day><Hour>6</Hour><Minute>33</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>6</Month><Day>13</Day></PubMedPubDate></History><PublicationStatus>ppublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">40511634</ArticleId><ArticleId IdType="pmc">PMC12163974</ArticleId><ArticleId IdType="doi">10.1111/ppl.70325</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Asemaninejad, A. , Thorn R. G., Branfireun B. A., and Lindo Z.. 2018. &#x201c;Climate Change Favours Specific Fungal Communities in Boreal Peatlands.&#x201d; Soil Biology and Biochemistry 120: 28&#x2013;36.</Citation></Reference><Reference><Citation>Bao, T. , Jia G., and Xu X.. 2022. &#x201c;Warming Enhances Dominance of Vascular Plants Over Cryptogams Across Northern Wetlands.&#x201d; Global Change Biology 28: 4097&#x2013;4109.</Citation><ArticleIdList><ArticleId IdType="pubmed">35364612</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Bates, J. W.
+
+1994. &#x201c;Responses of the Mosses <i>Brachythecium Rutabulum</i> and <i>Pseudoscleropodium Purum</i> to a Mineral Nutrient Pulse.&#x201d; Functional Ecology
+8: 686&#x2013;693.</Citation></Reference><Reference><Citation>Bengtsson, F. , Granath G., and Rydin H.. 2016. &#x201c;Photosynthesis, Growth, and Decay Traits in Sphagnum&#x2013;a Multispecies Comparison.&#x201d; Ecology and Evolution 6: 3325&#x2013;3341.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4833502</ArticleId><ArticleId IdType="pubmed">27103989</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Bengtsson, F.
+, Rydin H., Baltzer J. L., et&#xa0;al. 2021. &#x201c;Environmental Drivers of <i>Sphagnum</i> Growth in Peatlands Across the Holarctic Region.&#x201d; Journal of Ecology
+109: 417&#x2013;431.</Citation></Reference><Reference><Citation>Bergeron, O. , Margolis H. A., and Coursolle C.. 2009. &#x201c;Forest Floor Carbon Exchange of a Boreal Black Spruce Forest in Eastern North America.&#x201d; Biogeosciences 6: 1849&#x2013;1864.</Citation></Reference><Reference><Citation>
+
+Beyer, C.
+, and H&#xf6;per H.. 2015. &#x201c;Greenhouse Gas Exchange of Rewetted Bog Peat Extraction Sites and a <i>Sphagnum</i> Cultivation Site in Northwest Germany.&#x201d; Biogeosciences
+12: 2101&#x2013;2117.</Citation></Reference><Reference><Citation>Bilgili, M. 2010. &#x201c;Prediction of Soil Temperature Using Regression and Artificial Neural Network Models.&#x201d; Meteorology and Atmospheric Physics 110: 59&#x2013;70.</Citation></Reference><Reference><Citation>Block, W. , Lewis Smith R. I., and Kennedy A. D.. 2009. &#x201c;Strategies of Survival and Resource Exploitation in the Antarctic Fellfield Ecosystem.&#x201d; Biological Reviews 84: 449&#x2013;484.</Citation><ArticleIdList><ArticleId IdType="pubmed">19659886</ArticleId></ArticleIdList></Reference><Reference><Citation>Bruhn, D. , Newman F., Hancock M., et&#xa0;al. 2022. &#x201c;Nocturnal Plant Respiration Is Under Strong Non&#x2010;Temperature Control.&#x201d; Nature Communications 13: 5650.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC9512894</ArticleId><ArticleId IdType="pubmed">36163192</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Calama, R.
+, Pu&#xe9;rtolas J., Madrigal G., and Pardos M.. 2013. &#x201c;Modeling the Environmental Response of Leaf Net Photosynthesis in 
+<i>Pinus pinea</i>
+ L. Natural Regeneration.&#x201d; Ecological Modelling
+251: 9&#x2013;21.</Citation></Reference><Reference><Citation>
+
+Calcutt, R.
+, Aghli Y., Arinzeh T., and Dixit R.. 2024. &#x201c;A Fibrous Scaffold for In&#xa0;Vitro Culture and Experimental Studies of <i>Physcomitrium Patens</i>
+.&#x201d; Plant Direct
+8: e570.</Citation></Reference><Reference><Citation>
+
+Campbell, C.
+, Granath G., and Rydin H.. 2021. &#x201c;Climatic Drivers of <i>Sphagnum</i> Species Distributions.&#x201d; Frontiers of Biogeography
+13: e511.</Citation></Reference><Reference><Citation>Charman, D. J. , Beilman D. W., Blaauw M., et&#xa0;al. 2013. &#x201c;Climate&#x2010;Related Changes in Peatland Carbon Accumulation During the Last Millennium.&#x201d; Biogeosciences 10: 929&#x2013;944.</Citation></Reference><Reference><Citation>Chaudhary, N. , Westermann S., Lamba S., et&#xa0;al. 2020. &#x201c;Modelling Past and Future Peatland Carbon Dynamics Across the Pan&#x2010;Arctic.&#x201d; Global Change Biology 26: 4119&#x2013;4133.</Citation><ArticleIdList><ArticleId IdType="pubmed">32239563</ArticleId></ArticleIdList></Reference><Reference><Citation>Convey, P. , Coulson S. J., Worland M. R., and Sj&#xf6;blom A.. 2018. &#x201c;The Importance of Understanding Annual and Shorter&#x2010;Term Temperature Patterns and Variation in the Surface Levels of Polar Soils for Terrestrial Biota.&#x201d; Polar Biology 41: 1587&#x2013;1605.</Citation></Reference><Reference><Citation>
+
+Cove, D. J.
+, Perroud P. F., Charron A. J., McDaniel S. F., Khandelwal A., and Quatrano R. S.. 2009. &#x201c;Culturing the Moss <i>Physcomitrella Patens</i>
+.&#x201d; Cold Spring Harbor Protocols
+4: 1&#x2013;7. 10.1101/pdb.prot5136.</Citation><ArticleIdList><ArticleId IdType="doi">10.1101/pdb.prot5136</ArticleId><ArticleId IdType="pubmed">20147066</ArticleId></ArticleIdList></Reference><Reference><Citation>Cris, R. , Buckmaster S., Bain C., and Bonn A.. 2011. &#x201c;UK Peatland Restoration&#x2014;Demonstrating Success.&#x201d; IUCN UK National Committee Peatland Programme. Edinburgh.</Citation></Reference><Reference><Citation>Cris, R. , Buckmaster S., Bain C., and Reed M.. 2014. &#x201c;Global Peatland Restoration Demonstrating Success.&#x201d; Edinburgh: IUCN UK National Committee Peatland Programme.</Citation></Reference><Reference><Citation>Daniels, R. E. , and Eddy A.. 1990. &#x201c;Handbook of European Sphagna. Institute of Terrestrial Ecology.&#x201d; In Natural Environment Research Council. London: HMSO.</Citation></Reference><Reference><Citation>
+
+de Mendiburu, F.
+
+2021. &#x201c;Agricolae: Statistical Procedures for Agricultural Research. R Package Version 1, 3&#x2013;5.&#x201d;
+https://CRAN.R&#x2010;project.org/package=agricolae.</Citation></Reference><Reference><Citation>Dieleman, C. M. , Lindo Z., McLaughlin J. W., Craig A. E., and Branfireun B. A.. 2016. &#x201c;Climate Change Effects on Peatland Decomposition and Porewater Dissolved Organic Carbon Biogeochemistry.&#x201d; Biogeochemistry 128: 385&#x2013;396.</Citation></Reference><Reference><Citation>Dilks, T. J. K. , and Proctor M. C. F.. 1979. &#x201c;Photosynthesis, Respiration and Water Content in Bryophytes.&#x201d; New Phytologist 82: 97&#x2013;114.</Citation></Reference><Reference><Citation>
+
+Duckett, J. G.
+, and Pressel S.. 2022. &#x201c;Do Moss Sporophytes Maintain Water Balance? New Insights From Sporophyte Water Relations and the Wild Maturation Cycle in <i>Funaria Hygrometrica</i> Hedw.&#x201d; Journal of Bryology
+44: 187&#x2013;198.</Citation></Reference><Reference><Citation>
+
+Duckett, J. G.
+, Burch J., Fletcher P. W., et&#xa0;al. 2004. &#x201c;
+<i>In Vitro</i> Cultivation of Bryophytes: A Review of Practicalities, Problems, Progress and Promise.&#x201d; Journal of Bryology
+26: 3&#x2013;20.</Citation></Reference><Reference><Citation>Flanagan, L. B. , and Syed K. H.. 2011. &#x201c;Stimulation of Both Photosynthesis and Respiration in Response to Warmer and Drier Conditions in a Boreal Peatland Ecosystem.&#x201d; Global Change Biology 17: 2271&#x2013;2287.</Citation></Reference><Reference><Citation>Flexas, J. , D&#xed;az&#x2010;Espejo A., Berry J. A., et&#xa0;al. 2007. &#x201c;Analysis of Leakage in IRGA'S Leaf Chambers of Open Gas Exchange Systems: Quantification and Its Effects in Photosynthesis Parameterization.&#x201d; Journal of Experimental Botany 58: 1533&#x2013;1543.</Citation><ArticleIdList><ArticleId IdType="pubmed">17339650</ArticleId></ArticleIdList></Reference><Reference><Citation>Fuchs, M. 1990. &#x201c;Infrared Measurement of Canopy Temperature and Detection of Plant Water Stress.&#x201d; Theoretical and Applied Climatology 42: 253&#x2013;261.</Citation></Reference><Reference><Citation>
+
+Fukuta, E.
+, Sasaki A., and Nakatsubo T.. 2012. &#x201c;Microclimate and Production of Peat Moss <i>Sphagnum Palustre</i> L. in the Warm&#x2010;Temperate Zone.&#x201d; Plant Species Biology
+27, no. 1: 110&#x2013;118.</Citation></Reference><Reference><Citation>
+
+Furness, S. B.
+, and Grime J. P.. 1982a. &#x201c;Growth Rate and Temperature Responses in Bryophytes: I. An Investigation of <i>Brachythecium Rutabulum</i>
+.&#x201d; Journal of Ecology
+70: 513&#x2013;523.</Citation></Reference><Reference><Citation>Furness, S. B. , and Grime J. P.. 1982b. &#x201c;Growth Rate and Temperature Responses in Bryophytes: II. A Comparative Study of Species of Contrasted Ecology.&#x201d; Journal of Ecology 70: 525&#x2013;536.</Citation></Reference><Reference><Citation>
+
+Gaber&#x161;&#x10d;ik, A.
+, and Martin&#x10d;i&#x10d; A.. 1987. &#x201c;Seasonal Dynamics of Net Photosynthesis and Productivity of <i>Sphagnum Papillosum</i>
+.&#x201d; Lindbergia
+13: 105&#x2013;110.</Citation></Reference><Reference><Citation>
+
+Gaudig, G.
+, Krebs M., Prager A., et&#xa0;al. 2018. &#x201c;
+<i>Sphagnum</i> Farming From Species Selection to the Production of Growing Media: A Review.&#x201d; Mires and Peat
+20: 1&#x2013;30.</Citation></Reference><Reference><Citation>
+
+Gerdol, R.
+, and Vicentini R.. 2011. &#x201c;Response to Heat Stress of Populations of Two <i>Sphagnum</i> Species From Alpine Bogs at Different Altitudes.&#x201d; Environmental and Experimental Botany
+74: 22&#x2013;30.</Citation></Reference><Reference><Citation>Glime, J. M. 2007. &#x201c;Bryophyte Ecology.&#x201d; In Michigan Technological University, Botanical Society of America &amp; International Association of Bryologists. Chapman and Hall.</Citation></Reference><Reference><Citation>
+
+Gong, J.
+, Roulet N., Frolking S., Peltola H., Laine A. M., Kokkonen N., and Tuittila ES.. 2020. &#x201c;Modelling the Habitat Preference of Two Key <i>Sphagnum</i> Species in a Poor Fen as Controlled by Capitulum Water Content.&#x201d; Biogeosciences
+17: 5693&#x2013;5719.</Citation></Reference><Reference><Citation>
+
+Goulden, M. L.
+, and Crill P. M.. 1997. &#x201c;Automated Measurements of CO<sub>2</sub> Exchange at the Moss Surface of a Black Spruce Forest.&#x201d; Tree Physiology
+17: 537&#x2013;542.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">14759826</ArticleId></ArticleIdList></Reference><Reference><Citation>Grace, J. , and Marks T. C.. 1978. &#x201c;Physiological Aspects of Bog Production at Moor House.&#x201d; In Production Ecology of British Moors and Montane Grasslands, edited by Wardle D. A., Canadell J. G., D&#xed;az S., Heldmaier G., Jackson R. B., Levia D. F., Schulze E. D., and Sommer U., 38&#x2013;51. Springer.</Citation></Reference><Reference><Citation>
+
+Graham, L. E.
+, Kim E., Arancibia&#x2010;Avila P., Graham J. M., and Wilcox L. W.. 2010. &#x201c;Evolutionary and Ecophysiological Significance of Sugar Utilization by the Peat Moss <i>Sphagnum Compactum</i> (Sphagnaceae) and the Common Charophycean Associates <i>Cylindrocystis Brebissonii</i> and <i>Mougeotia</i> sp. (Zygnemataceae).&#x201d; American Journal of Botany
+97: 1485&#x2013;1491.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">21616902</ArticleId></ArticleIdList></Reference><Reference><Citation>Griffiths, H. , Maxwell K., Richardson D., and Robe W.. 2004. &#x201c;Turning the Land Green: Inferring Photosynthetic Physiology and Diffusive Limitations in Early Bryophytes.&#x201d; In The Evolution of Plant Physiology, edited by Hemsley A. and Poole I., 3&#x2013;16. Elsevier Academic Press.</Citation></Reference><Reference><Citation>Grime, J. P. , Rincon E. R., and Wickerson B. E.. 1990. &#x201c;Bryophytes and Plant Strategy Theory.&#x201d; Botanical Journal of the Linnean Society 104: 175&#x2013;186.</Citation></Reference><Reference><Citation>Grobe, A. , Tiemeyer B., and Graf M.. 2021. &#x201c;Recommendations for Successful Establishment of Sphagnum Farming on Shallow Highly Decomposed Peat.&#x201d; Mires and Peat 27: 1&#x2013;18.</Citation></Reference><Reference><Citation>
+
+Gunnarsson, U.
+
+2005. &#x201c;Global Patterns of <i>Sphagnum</i> Productivity.&#x201d; Journal of Bryology
+27: 269&#x2013;279.</Citation></Reference><Reference><Citation>
+
+G&#xfc;nther, A.
+, Jurasinski G., Albrecht K., Gaudig G., Krebs M., and Glatzel S.. 2017. &#x201c;Greenhouse Gas Balance of an Establishing <i>Sphagnum</i> Culture on a Former Bog Grassland in Germany.&#x201d; Mires and Peat
+20: 1&#x2013;16.</Citation></Reference><Reference><Citation>
+
+H&#xe1;jek, T.
+, and Vicherov&#xe1; E.. 2014. &#x201c;Desiccation Tolerance of <i>Sphagnum</i> Revisited: A Puzzle Resolved.&#x201d; Plant Biology
+16: 765&#x2013;773.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">25068160</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+H&#xe1;jek, T.
+, and Beckett R. P.. 2008. &#x201c;Effect of Water Content Components on Desiccation and Recovery in <i>Sphagnum</i> Mosses.&#x201d; Annals of Botany
+101: 165&#x2013;173.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC2701845</ArticleId><ArticleId IdType="pubmed">18024417</ArticleId></ArticleIdList></Reference><Reference><Citation>H&#xe1;jek, T. , Tuittila E. S., Ilomets M., and Laiho R.. 2009. &#x201c;Light Responses of Mire Mosses&#x2013;a Key to Survival After Water&#x2010;Level Drawdown?&#x201d; Oikos 118: 240&#x2013;250.</Citation></Reference><Reference><Citation>Hanson, P. J. , Griffiths N. A., Iversen C. M., et&#xa0;al. 2020. &#x201c;Rapid Net Carbon Loss From a Whole&#x2010;Ecosystem Warmed Peatland.&#x201d; AGU Advances 1: e2020AV000163.</Citation></Reference><Reference><Citation>He, X. , He K. S., and Hyvonen J.. 2016. &#x201c;Will Bryophytes Survive in a Warming World?&#x201d; Perspectives in Plant Ecology, Evolution and Systematics 19: 49&#x2013;60.</Citation></Reference><Reference><Citation>Heskel, M. A. , O'sullivan O. S., and Reich P. B.. 2016. &#x201c;Convergence in the Temperature Response of Leaf Respiration Across Biomes and Plant Functional Types.&#x201d; Proceedings of the National Academy of Sciences of the United States of America 113: 3832&#x2013;3837.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4833281</ArticleId><ArticleId IdType="pubmed">27001849</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Horsley, K.
+, Stark L. R., and McLetchie D. N.. 2011. &#x201c;Does the Silver Moss 
+<i>Bryum argenteum</i>
+ Exhibit Sex&#x2010;Specific Patterns in Vegetative Growth Rate, Asexual Fitness or Prezygotic Reproductive Investment?&#x201d; Annals of Botany
+107: 897&#x2013;907.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3080617</ArticleId><ArticleId IdType="pubmed">21320878</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Hoshi, Y.
+
+2017. &#x201c;
+<i>Sphagnum</i> Growth in Floating Cultures: Effect of Planting Design.&#x201d; Mires and Peat
+20: 1&#x2013;10.</Citation></Reference><Reference><Citation>
+
+Jauhiainen, J.
+, and Silvola J.. 1999. &#x201c;Photosynthesis of <i>Sphagnum Fuscum</i> at Long&#x2010;Term Raised CO<sub>2</sub> Concentrations.&#x201d; Annales Botanici Fennici
+36: 11&#x2013;19.</Citation></Reference><Reference><Citation>
+
+Karki, S.
+, Kandel T. P., Elsgaard L., Labouriau R., and L&#xe6;rke P. E.. 2019. &#x201c;Annual CO<sub>2</sub> Fluxes From a Cultivated Fen With Perennial Grasses During Two Initial Years of Rewetting.&#x201d; Mires and Peat
+25: 1&#x2013;22.</Citation></Reference><Reference><Citation>
+
+Kellner, E.
+, and Halldin S.. 2002. &#x201c;Water Budget and Surface&#x2010;Layer Water Storage in a <i>Sphagnum</i> Bog in Central Sweden.&#x201d; Hydrological Processes
+16: 87&#x2013;103.</Citation></Reference><Reference><Citation>Kurnianto, S. , Warren M., Talbot J., Kauffman B., Murdiyarso D., and Frolking S.. 2015. &#x201c;Carbon Accumulation of Tropical Peatlands Over Millennia: A Modeling Approach.&#x201d; Global Change Biology 21: 431&#x2013;444.</Citation><ArticleIdList><ArticleId IdType="pubmed">25044171</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Laing, C.
+, Granath G., Belyea L. R., Allton K. E., and Rydin H.. 2014. &#x201c;Tradeoffs and Scaling of Functional Traits in <i>Sphagnum</i> as Drivers of Carbon Cycling in Peatlands.&#x201d; Oikos
+123: 817&#x2013;828.</Citation></Reference><Reference><Citation>Lembrechts, J. J. , and Lenoir J.. 2020. &#x201c;Microclimatic Conditions Anywhere at any Time!&#x201d; Global Change Biology 26: 337&#x2013;339.</Citation><ArticleIdList><ArticleId IdType="pubmed">31799715</ArticleId></ArticleIdList></Reference><Reference><Citation>Lembrechts, J. J. , Lenoir J., Roth N., et&#xa0;al. 2019. &#x201c;Comparing Temperature Data Sources for Use in Species Distribution Models: From In&#x2010;Situ Logging to Remote Sensing.&#x201d; Global Ecology and Biogeography 28: 1578&#x2013;1596.</Citation></Reference><Reference><Citation>Li, Y. , Song X., Li S., Salter W. T., and Barbour M. M.. 2020. &#x201c;The Role of Leaf Water Potential in the Temperature Response of Mesophyll Conductance.&#x201d; New Phytologist 225: 1193&#x2013;1205.</Citation><ArticleIdList><ArticleId IdType="pubmed">31545519</ArticleId></ArticleIdList></Reference><Reference><Citation>Limpens, J. , Berendse F., Blodau C., et&#xa0;al. 2008. &#x201c;Peatlands and the Carbon Cycle: From Local Processes to Global Implications&#x2013;a Synthesis.&#x201d; Biogeosciences 5: 1475&#x2013;1491.</Citation></Reference><Reference><Citation>L&#xf6;sch, R. , M&#xfc;lders P., Fischer E., and Frahm J. P.. 1994. &#x201c;Scientific Results of the BRYOTROP Expedition to Zaire and Rwanda. 3. Photosynthetic Gas Exchange of Bryophytes From Different Forest Types in Eastern Central Africa.&#x201d; Tropical Bryology 9: 169&#x2013;185.</Citation></Reference><Reference><Citation>Lunt, P. H. , Fyfe R. M., and Tappin A. D.. 2019. &#x201c;Role of Recent Climate Change on Carbon Sequestration in Peatland Systems.&#x201d; Science of the Total Environment 667: 348&#x2013;358.</Citation><ArticleIdList><ArticleId IdType="pubmed">30833238</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Ma, X.
+, Xu H., Cao Z., Shu L., and Zhu R.. 2022. &#x201c;Will Climate Change Cause the Global Peatland to Expand or Contract? Evidence From the Habitat Shift Pattern of <i>Sphagnum</i> Mosses.&#x201d; Global Change Biology
+28: 6419&#x2013;6432.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">35900846</ArticleId></ArticleIdList></Reference><Reference><Citation>M&#xe1;rquez, D. A. , and Busch F. A.. 2024. &#x201c;The Interplay of Short&#x2010;Term Mesophyll and Stomatal Conductance Responses Under Variable Environmental Conditions.&#x201d; Plant, Cell &amp; Environment 47: 3393&#x2013;3410.</Citation><ArticleIdList><ArticleId IdType="pubmed">38488802</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Marschall, M.
+, and Borb&#xe9;ly P.. 2011. &#x201c;Photosynthetic Responses of the Desiccation Intolerant <i>Sphagnum Angustifolium</i> in Relation to Increasing Its Desiccation Tolerance by Exogenous ABA.&#x201d; Acta Biologica Szegediensis
+55: 119&#x2013;121.</Citation></Reference><Reference><Citation>Matsuda, T. 1968. &#x201c;Ecological Study of the Moss Community and Microorganisms in the Vicinity of Syowa Station, Antarctica.&#x201d; JARE Scientific Reports. Ser. E, Biology 29: 1&#x2013;58.</Citation></Reference><Reference><Citation>
+
+McCarter, C. P.
+, and Price J. S.. 2014. &#x201c;Ecohydrology of <i>Sphagnum</i> Moss Hummocks: Mechanisms of Capitula Water Supply and Simulated Effects of Evaporation.&#x201d; Ecohydrology
+7: 33&#x2013;44.</Citation></Reference><Reference><Citation>
+
+Melosik, I.
+, and S&#xe5;stad S. M.. 2005. &#x201c;
+<i>In Vitro</i> Propagation of Selected <i>Sphagnum</i> Species (Section Subsecunda).&#x201d; Lindbergia
+30: 21&#x2013;31.</Citation></Reference><Reference><Citation>Mendoza, V. , Pazos M., Gardu&#xf1;o R., and Mendoza B.. 2021. &#x201c;Thermodynamics of Climate Change Between Cloud Cover, Atmospheric Temperature and Humidity.&#x201d; Scientific Reports 11: 21244.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC8553890</ArticleId><ArticleId IdType="pubmed">34711818</ArticleId></ArticleIdList></Reference><Reference><Citation>Moore, P. A. , Pypker T. G., and Waddington J. M.. 2013. &#x201c;Effect of Long&#x2010;Term Water Table Manipulation on Peatland Evapotranspiration.&#x201d; Agricultural and Forest Meteorology 178: 106&#x2013;119.</Citation></Reference><Reference><Citation>
+
+Murray, K. J.
+, Tenhunen J. D., and Nowak R. S.. 1993. &#x201c;Photoinhibition as a Control on Photosynthesis and Production of <i>Sphagnum</i> Mosses.&#x201d; Oecologia
+96: 200&#x2013;207.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">28313416</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakanishi, R. , and Tsuyuzaki S.. 2024. &#x201c;Litter Decomposition Rates in a Post&#x2010;Mined Peatland: Determining Factors Studied in Litterbag Experiments.&#x201d; Environmental Processes 11, no. 1: 2.</Citation></Reference><Reference><Citation>Oechel, W. C. , and Van Cleve K.. 1986. &#x201c;The Role of Bryophytes in Nutrient Cycling in the Taiga.&#x201d; In Forest Ecosystems in the Alaskan Taiga: A Synthesis of Structure and Function, edited by Cleve K., Chapin F. S., Flanagan P. W., Viereck L. A., and Dyrness C. T., 121&#x2013;137. Springer New York.</Citation></Reference><Reference><Citation>Page, S. E. , and Baird A. J.. 2016. &#x201c;Peatlands and Global Change: Response and Resilience.&#x201d; Annual Review of Environment and Resources 41: 35&#x2013;57.</Citation></Reference><Reference><Citation>Pannewitz, S. , Green T. A., Maysek K., et&#xa0;al. 2005. &#x201c;Photosynthetic Responses of Three Common Mosses From Continental Antarctica.&#x201d; Antarctic Science 17: 341&#x2013;352.</Citation></Reference><Reference><Citation>Perera&#x2010;Castro, A. V. , Gonz&#xe1;lez&#x2010;Rodr&#xed;guez &#xc1;. M., and Fern&#xe1;ndez&#x2010;Mar&#xed;n B.. 2022. &#x201c;When Time Is Not of the Essence: Constraints to the Carbon Balance of Bryophytes.&#x201d; Journal of Experimental Botany 73: 4562&#x2013;4575.</Citation><ArticleIdList><ArticleId IdType="pubmed">35298628</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Perera&#x2010;Castro, A. V.
+, and Nadal M.. 2025. &#x201c;Data From: Modelling Net CO<sub>2</sub> Assimilation of Two Sphagnum Species From Temperature and Water Content Response. Zenodo.&#x201d;
+10.5281/zenodo.15463352.</Citation><ArticleIdList><ArticleId IdType="doi">10.5281/zenodo.15463352</ArticleId></ArticleIdList></Reference><Reference><Citation>Perera&#x2010;Castro, A. V. , Waterman M. J., Turnbull J. D., et&#xa0;al. 2020. &#x201c;It Is Hot in the Sun: Antarctic Mosses Have High Temperature Optima for Photosynthesis Despite Cold Climate.&#x201d; Frontiers in Plant Science 11: 1178.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7457050</ArticleId><ArticleId IdType="pubmed">32922412</ArticleId></ArticleIdList></Reference><Reference><Citation>Perera&#x2010;Castro, A. V. , Waterman M. J., Robinson S. A., and Flexas J.. 2022. &#x201c;Limitations to Photosynthesis in Bryophytes: Certainties and Uncertainties Regarding Methodology.&#x201d; Journal of Experimental Botany 73: 4592&#x2013;4604.</Citation><ArticleIdList><ArticleId IdType="pubmed">35524766</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Piatkowski, B. T.
+, and Shaw A. J.. 2019. &#x201c;Functional Trait Evolution in <i>Sphagnum</i> Peat Mosses and Its Relationship to Niche Construction.&#x201d; New Phytologist
+223: 939&#x2013;949.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">30924950</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Pinheiro, J.
+, Bates D., and R Core Team
+. 2023. &#x201c;nlme: Linear and Nonlinear Mixed Effects Models. R Package Version 3: 1&#x2013;162.&#x201d;
+https://CRAN.R&#x2010;project.org/package=nlme.</Citation></Reference><Reference><Citation>Proctor, M. C. 2000. &#x201c;The Bryophyte Paradox: Tolerance of Desiccation, Evasion of Drought.&#x201d; Plant Ecology 151: 41&#x2013;49.</Citation></Reference><Reference><Citation>Proctor, M. C. F. , and Tuba Z.. 2002. &#x201c;Poikilohydry and Homoiohydry: Antithesis or Spectrum of Possibilities?&#x201d; New Phytologist 156: 327&#x2013;349.</Citation><ArticleIdList><ArticleId IdType="pubmed">33873572</ArticleId></ArticleIdList></Reference><Reference><Citation>Proctor, M. C. F. , Oliver M. J., Wood A. J., et&#xa0;al. 2007. &#x201c;Desiccation&#x2010;Tolerance in Bryophytes: A Review.&#x201d; Bryologist 110: 595&#x2013;621.</Citation></Reference><Reference><Citation>Proctor, M. C. F. , Nagy Z., Csintalan Z., and Tak&#xe1;cs Z.. 1998. &#x201c;Water Content Components in Bryophytes: Analysis of Pressure Volume Relationships.&#x201d; Journal of Experimental Botany 49: 1845&#x2013;1854.</Citation></Reference><Reference><Citation>Qiu, C. , Zhu D., Ciais P., Guenet B., and Peng S.. 2020. &#x201c;The Role of Northern Peatlands in the Global Carbon Cycle for the 21st Century.&#x201d; Global Ecology and Biogeography 29: 956&#x2013;973.</Citation></Reference><Reference><Citation>
+R Core Team
+. 2023. R: A Language and Environment for Statistical Computing. R Foundation for Statistical Computing. https://www.R&#x2010;project.org/.</Citation></Reference><Reference><Citation>Raven, J. A. 2002. &#x201c;Putting the Fight in Bryophytes.&#x201d; New Phytologist 156: 321&#x2013;323.</Citation><ArticleIdList><ArticleId IdType="pubmed">33873583</ArticleId></ArticleIdList></Reference><Reference><Citation>Raven, J. A. , and Edwards D.. 2004. &#x201c;Physiological Evolution of Lower Embryophytes: Adaptations to the Terrestrial Environment.&#x201d; In The Evolution of Plant Physiology, edited by Hemsley A. R. and Poole I., 17&#x2013;41. Elsevier Academic Press.</Citation></Reference><Reference><Citation>Rice, S. K. , Neal N., Mango J., and Black K.. 2011. &#x201c;Modeling Bryophyte Productivity Across Gradients of Water Availability Using Canopy Form Function Relationships.&#x201d; In Tuba Z, Stack NG, Stark LR, Bryophyte Ecology and Climate Change, 441&#x2013;457. University Press, Cambridge.</Citation></Reference><Reference><Citation>Rice, S. K. , Gagliardi T. A., and Krasa R. A.. 2018. &#x201c;Canopy Structure Affects Temperature Distributions and Free Convection in Moss Shoot Systems.&#x201d; American Journal of Botany 105: 1499&#x2013;1511.</Citation><ArticleIdList><ArticleId IdType="pubmed">30114317</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Rudolph, H.
+
+1968. &#x201c;Gas Exchange Determinations of 
+<i>Sphagnum magellanicum</i>
+: A Contribution to the Problem of Membrane Pigments in Sphagna (III).&#x201d; Planta
+79: 35&#x2013;43.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">24522820</ArticleId></ArticleIdList></Reference><Reference><Citation>Schenker, R. , and Block W.. 1986. &#x201c;Micro&#x2010;Arthropod Activity in Three Contrasting Terrestrial Habitats on Signy Island, Maritime Antarctic.&#x201d; British Antarctic Survey Bulletin 71: 31&#x2013;43.</Citation></Reference><Reference><Citation>Schipperges, B. , and Rydin H.. 1998. &#x201c;Response of Photosynthesis of Sphagnum Species From Contrasting Microhabitats to Tissue Water Content and Repeated Desiccation.&#x201d; New Phytologist 140: 677&#x2013;684.</Citation><ArticleIdList><ArticleId IdType="pubmed">33862962</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Serk, H.
+, Nilsson M. B., Figueira J., Wieloch T., and Schleucher J.. 2021. &#x201c;CO<sub>2</sub> Fertilization of <i>Sphagnum</i> Peat Mosses Is Modulated by Water Table Level and Other Environmental Factors.&#x201d; Plant, Cell &amp; Environment
+44: 1756&#x2013;1768.</Citation><ArticleIdList><ArticleId IdType="pubmed">33751592</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Silvan, N.
+, Jokinen K., N&#xe4;kkil&#xe4; J., and Tahvonen R.. 2017. &#x201c;Swift Recovery of <i>Sphagnum</i> Carpet and Carbon Sequestration After Shallow <i>Sphagnum</i> Biomass Harvesting.&#x201d; Mires and Peat
+20: 1&#x2013;11.</Citation></Reference><Reference><Citation>
+
+Silvola, J.
+, and Aaltonen H.. 1984. &#x201c;Water Content and Photosynthesis in the Peat Mosses <i>Shagnum Fuscum</i> and <i>S. Angustifolium</i>
+.&#x201d; Annales Botanici Fennici
+21: 1&#x2013;6.</Citation></Reference><Reference><Citation>Silvola, J. , and Hanski I.. 1979. &#x201c;Carbon Accumulation in a Raised Bog. Simulation on the Basis of Laboratory Measurements of CO&#x2082; Exchange.&#x201d; Oecologia 37: 285&#x2013;295.</Citation><ArticleIdList><ArticleId IdType="pubmed">28309216</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Silvola, J.
+, and Heikkinen S.. 1979. &#x201c;CO<sub>2</sub> Exchange in the 
+<i>Empetrum nigrum</i>
+&#x2010;
+<i>Sphagnum fuscum</i>
+ Community.&#x201d; Oecologia
+37: 273&#x2013;283.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">28309215</ArticleId></ArticleIdList></Reference><Reference><Citation>Sim, T. G. , Swindles G. T., Morris P. J., et&#xa0;al. 2021. &#x201c;Divergent Responses of Permafrost Peatlands to Recent Climate Change.&#x201d; Environmental Research Letters 16: 034001.</Citation></Reference><Reference><Citation>Smith, E. L. 1936. &#x201c;Photosynthesis in Relation to Light and Carbon Dioxide.&#x201d; Proceedings of the National Academy of Sciences of the United States of America 22: 504&#x2013;511.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC1079215</ArticleId><ArticleId IdType="pubmed">16577734</ArticleId></ArticleIdList></Reference><Reference><Citation>Smith, R. I. L. 1996. &#x201c;Terrestrial and Freshwater Biotic Components of the Western Antarctic Peninsula.&#x201d; In Foundations for Ecological Research West of the Antarctic Peninsula, edited by Ross R. M., Hoffmann I. I. E., and Quetin L. B., 15&#x2013;59. American Geophysical Union.</Citation></Reference><Reference><Citation>St&#xe5;lfelt, M. G. 1937. &#x201c;Der Gasaustausch der Moose.&#x201d; Planta 27: 30&#x2013;60.</Citation></Reference><Reference><Citation>Street, L. E. , Stoy P. C., Sommerkorn M., et&#xa0;al. 2012. &#x201c;Seasonal Bryophyte Productivity in the Sub&#x2010;Arctic: A Comparison With Vascular Plants.&#x201d; Functional Ecology 26: 365&#x2013;378.</Citation></Reference><Reference><Citation>Swindles, G. T. , Holden J., Raby C. L., et&#xa0;al. 2015. &#x201c;Testing Peatland Water&#x2010;Table Depth Transfer Functions Using High&#x2010;Resolution Hydrological Monitoring Data.&#x201d; Quaternary Science Reviews 120: 107&#x2013;117.</Citation></Reference><Reference><Citation>Tanneberger, F. , Tegetmeyer C., Busse S., et&#xa0;al. 2017. &#x201c;The Peatland Map of Europe.&#x201d; Mires and Peat 19: 1&#x2013;17.</Citation></Reference><Reference><Citation>
+
+Thompson, D. K.
+, and Waddington J. M.. 2008. &#x201c;
+<i>Shagnum</i> Under Pressure: Towards an Ecohydrological Approach to Examining <i>Sphagnum</i> Productivity.&#x201d; Ecohydrology
+1: 299&#x2013;308.</Citation></Reference><Reference><Citation>
+
+Titus, J. E.
+, and Wagner D. J.. 1984. &#x201c;Carbon Balance for Two <i>Sphagnum</i> Mosses: Water Balance Resolves a Physiological Paradox.&#x201d; Ecology
+65: 1765&#x2013;1774.</Citation></Reference><Reference><Citation>
+
+Updegraff, K.
+, Bridgham S. D., Pastor J., Weishampel P., and Harth C.. 2001. &#x201c;Response of CO<sub>2</sub> and CH<sub>4</sub> Emissions From Peatlands to Warming and Water Table Manipulation.&#x201d; Ecological Applications
+11: 311&#x2013;326.</Citation></Reference><Reference><Citation>
+
+Van Breemen, N.
+
+1995. &#x201c;How <i>Sphagnum</i> Bogs Down Other Plants.&#x201d; Trends in Ecology &amp; Evolution
+10: 270&#x2013;275.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">21237035</ArticleId></ArticleIdList></Reference><Reference><Citation>Velez&#x2010;Ramirez, A. I. , van Ieperen W., Vreugdenhil D., and Millenaar F. F.. 2011. &#x201c;Plants Under Continuous Light.&#x201d; Trends in Plant Science 16: 310&#x2013;318.</Citation><ArticleIdList><ArticleId IdType="pubmed">21396878</ArticleId></ArticleIdList></Reference><Reference><Citation>Ven&#xe4;l&#xe4;inen, A. , Lehtonen I., Laapas M., et&#xa0;al. 2020. &#x201c;Climate Change Induces Multiple Risks to Boreal Forests and Forestry in Finland: A Literature Review.&#x201d; Global Change Biology 26: 4178&#x2013;4196.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7383623</ArticleId><ArticleId IdType="pubmed">32449267</ArticleId></ArticleIdList></Reference><Reference><Citation>Vile, M. A. , Scott K. D., Brault E., Wieder R. K., and Vitt D. H.. 2011. &#x201c;Living on the Edge: The Effects of Drought on Canada's Western Boreal Peatlands.&#x201d; In Bryophyte Ecology and Climate Change, edited by Tuba Z., Slack N. G., and Stark L. R., 277&#x2013;298. Cambridge University Press.</Citation></Reference><Reference><Citation>Vitt, D. H. , Crandall&#x2010;Stotler B., and Wood A.. 2014. &#x201c;Bryophytes: Survival in a Dry World Through Tolerance and Avoidance.&#x201d; In Plant Ecology and Evolution in Harsh Environments, edited by Rajakaruna N., Boyd R., and Harris T., 267&#x2013;295. Nova Publishers.</Citation></Reference><Reference><Citation>
+
+Walker, A. P.
+, Carter K. R., Gu L., et&#xa0;al. 2017. &#x201c;Biophysical Drivers of Seasonal Variability in <i>Sphagnum</i> Gross Primary Production in a Northern Temperate Bog.&#x201d; Journal of Geophysical Research: Biogeosciences
+122: 1078&#x2013;1097.</Citation></Reference><Reference><Citation>Walter, H. 1931. Die Hydratur der Pflanze und ihre physiologisch&#x2010;&#xf6;kologische Bedeutung. Fischer.</Citation></Reference><Reference><Citation>Wang, Z. , and Bader M. Y.. 2018. &#x201c;Associations Between Shoot&#x2010;Level Water Relations and Photosynthetic Responses to Water and Light in 12 Moss Species.&#x201d; AoB Plants 10: ply034.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6012793</ArticleId><ArticleId IdType="pubmed">29977488</ArticleId></ArticleIdList></Reference><Reference><Citation>Wickham, H. 2011. &#x201c;The Split&#x2010;Apply&#x2010;Combine Strategy for Data Analysis.&#x201d; Journal of Statistical Software 40: 1&#x2013;29.</Citation></Reference><Reference><Citation>Wickham, H. 2016. ggplot2: Elegant Graphics for Data Analysis. Springer&#x2010;Verlag.</Citation></Reference><Reference><Citation>Wu, J. , and Roulet N. T.. 2014. &#x201c;Climate Change Reduces the Capacity of Northern Peatlands to Absorb the Atmospheric Carbon Dioxide: The Different Responses of Bogs and Fens.&#x201d; Global Biogeochemical Cycles 28: 1005&#x2013;1024.</Citation></Reference><Reference><Citation>Yin, H. , Perera&#x2010;Castro A. V., Randall K. L., et&#xa0;al. 2023. &#x201c;Basking in the Sun: How Mosses Photosynthesise and Survive in Antarctica.&#x201d; Photosynthesis Research 158: 151&#x2013;169.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC10684656</ArticleId><ArticleId IdType="pubmed">37515652</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhao, B. , and Zhuang Q.. 2023. &#x201c;Peatlands and Their Carbon Dynamics in Northern High Latitudes From 1990 to 2300: A Process&#x2010;Based Biogeochemistry Model Analysis.&#x201d; Biogeosciences 20: 251&#x2013;270.</Citation></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>
