@@ -693,6 +693,7 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
   const today = new Date().toISOString().slice(0, 10);
   let openAIResponse = null;
   let synthesis = null;
+  let synthesisMode = "not_started";
 
   try {
     openAIResponse = await callOpenAISynthesis({
@@ -706,20 +707,45 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
     const structuredOutput = extractStructuredOutput(openAIResponse);
     if (structuredOutput) {
       synthesis = normalizeSynthesisPayload(JSON.stringify(structuredOutput));
+      synthesisMode = "structured_output";
     } else {
       const extractedText = extractTextFromResponse(openAIResponse);
       if (extractedText) {
         synthesis = normalizeSynthesisPayload(extractedText);
+        synthesisMode = "text_output";
+      } else {
+        synthesisMode = "empty_model_output";
       }
     }
   } catch (error) {
+    synthesisMode = "openai_error";
     console.error("OpenAI recommendation generation failed:", error);
   }
 
   if (!synthesis) {
+    if (openAIResponse) {
+      console.warn("Emersus synthesis fell back after OpenAI call.", {
+        responseId: openAIResponse?.id || null,
+        hasStructuredOutput: Boolean(extractStructuredOutput(openAIResponse)),
+        hasTextOutput: Boolean(extractTextFromResponse(openAIResponse)),
+        synthesisMode,
+      });
+    } else {
+      console.warn("Emersus synthesis used fallback because no OpenAI response was available.", {
+        synthesisMode,
+      });
+    }
+
     synthesis = buildFallbackRecommendation({
       question,
       evidence: databaseEvidence,
+    });
+    synthesisMode = `${synthesisMode}:fallback`;
+  } else {
+    console.log("Emersus synthesis succeeded.", {
+      responseId: openAIResponse?.id || null,
+      synthesisMode,
+      evidenceCount: databaseEvidence.length,
     });
   }
 
@@ -746,6 +772,8 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
           evidence_for_model: evidenceForModel,
           openai_response_id: openAIResponse?.id || null,
           raw_output_text: extractTextFromResponse(openAIResponse) || "",
+          synthesis_mode: synthesisMode,
+          has_structured_output: Boolean(extractStructuredOutput(openAIResponse)),
         }
       : undefined,
   };
