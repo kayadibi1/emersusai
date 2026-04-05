@@ -23,7 +23,8 @@
     }
 
     body.chat-page {
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
 
     .chat-app-shell {
@@ -33,6 +34,7 @@
       grid-template-columns: 280px minmax(0, 1fr) 330px;
       gap: 1rem;
       min-height: 100vh;
+      align-items: start;
       padding: 1rem;
     }
 
@@ -40,7 +42,7 @@
     .chat-main,
     .chat-rail {
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       border: 1px solid var(--line);
       background:
         radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 30%),
@@ -249,13 +251,13 @@
       display: grid;
       grid-template-columns: minmax(0, 1fr);
       min-height: 0;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .conversation-canvas {
       display: grid;
       grid-template-rows: minmax(0, 1fr);
-      min-height: 0;
+      min-height: auto;
       padding: 1.25rem 1.4rem 1rem;
     }
 
@@ -263,83 +265,42 @@
       display: grid;
       gap: 1.15rem;
       align-content: start;
-      min-height: 0;
-      overflow: auto;
-      padding-right: 0.3rem;
-      scrollbar-width: thin;
-      scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
-    }
-
-    .chat-thread::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    .chat-thread::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.14);
-      border-radius: 999px;
+      min-height: auto;
+      overflow: visible;
+      padding-right: 0;
     }
 
     .message {
-      max-width: min(88%, 860px);
-      padding: 1rem 1.1rem 1rem 1.25rem;
-      border-radius: 16px;
+      max-width: min(92%, 860px);
+      padding: 0;
+      border-radius: 0;
       line-height: 1.68;
       white-space: pre-wrap;
       word-break: break-word;
       position: relative;
-      overflow: hidden;
+      overflow: visible;
     }
 
     .message::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 4px;
-      border-radius: 8px;
-      opacity: 0.8;
+      display: none;
     }
 
     .message.user {
       margin-left: auto;
-      background:
-        radial-gradient(circle at top right, rgba(109, 159, 255, 0.14), transparent 32%),
-        rgba(109, 159, 255, 0.12);
-      border: 1px solid rgba(109, 159, 255, 0.16);
-      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.24);
-    }
-
-    .message.user::before {
-      background: linear-gradient(180deg, rgba(109, 159, 255, 0.92), rgba(109, 159, 255, 0.2));
+      text-align: right;
     }
 
     .message.assistant {
-      background:
-        radial-gradient(circle at top left, rgba(159, 251, 0, 0.08), transparent 24%),
-        rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      box-shadow: 0 18px 52px rgba(0, 0, 0, 0.28);
-    }
-
-    .message.assistant::before {
-      background: linear-gradient(180deg, rgba(159, 251, 0, 0.9), rgba(159, 251, 0, 0.15));
+      text-align: left;
     }
 
     .message-meta {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      margin-bottom: 0.75rem;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--muted);
+      display: none;
     }
 
     .message-content {
       display: grid;
-      gap: 0.75rem;
+      gap: 0.8rem;
     }
 
     .message.assistant.is-revealing .message-content {
@@ -348,61 +309,9 @@
 
     .assistant-report {
       display: grid;
-      gap: 1rem;
+      gap: 0.9rem;
     }
 
-    .card-stack {
-      display: grid;
-      gap: 0.95rem;
-    }
-
-    .report-card {
-      border-radius: 14px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background:
-        radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 26%),
-        rgba(255, 255, 255, 0.03);
-      padding: 1.15rem 1.2rem;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
-    }
-
-    .report-eyebrow,
-    .card-title,
-    .narrative-heading {
-      margin: 0 0 0.65rem;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .action-grid {
-      display: grid;
-      gap: 0.85rem;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    }
-
-    .action-column {
-      border-radius: 14px;
-      padding: 0.95rem 1rem;
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(255, 255, 255, 0.055);
-    }
-
-    .signal-badge {
-      display: inline-flex;
-      margin-bottom: 0.65rem;
-      padding: 0.38rem 0.68rem;
-      border-radius: 999px;
-      background: rgba(159, 251, 0, 0.08);
-      font-size: 0.8rem;
-      font-weight: 700;
-      line-height: 1;
-    }
-
-    .action-column ul,
     .narrative-section ul,
     .watchout-list {
       margin: 0;
@@ -411,64 +320,9 @@
       gap: 0.45rem;
     }
 
-    .action-column li,
     .narrative-section li,
     .watchout-list li {
       color: rgba(255, 255, 255, 0.88);
-    }
-
-    .score-list {
-      display: grid;
-      gap: 0.9rem;
-    }
-
-    .score-row {
-      display: grid;
-      gap: 0.45rem;
-      grid-template-columns: minmax(0, 220px) minmax(0, 1fr) auto;
-      align-items: center;
-    }
-
-    .score-label {
-      color: var(--ink);
-      font-weight: 600;
-      line-height: 1.35;
-    }
-
-    .score-track {
-      position: relative;
-      height: 10px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.08);
-      overflow: hidden;
-    }
-
-    .score-fill {
-      position: absolute;
-      inset: 0 auto 0 0;
-      border-radius: inherit;
-      background: linear-gradient(90deg, var(--primary-dim), var(--secondary));
-    }
-
-    .score-fill.tone-medium {
-      background: linear-gradient(90deg, rgba(240, 179, 74, 0.95), rgba(202, 129, 27, 0.95));
-    }
-
-    .score-fill.tone-caution {
-      background: linear-gradient(90deg, rgba(255, 143, 157, 0.95), rgba(188, 74, 91, 0.95));
-    }
-
-    .score-value {
-      min-width: 3.4rem;
-      text-align: right;
-      font-weight: 700;
-    }
-
-    .card-footnote {
-      margin: 0.75rem 0 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.5;
     }
 
     .watchout-list {
@@ -477,17 +331,22 @@
 
     .narrative-stack {
       display: grid;
-      gap: 0.9rem;
+      gap: 1rem;
     }
 
     .narrative-section {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      padding-top: 0.9rem;
-    }
-
-    .narrative-section:first-child {
       border-top: 0;
       padding-top: 0;
+    }
+
+    .narrative-heading {
+      margin: 0 0 0.45rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     .quick-chip {
@@ -959,29 +818,29 @@
         <p class="chat-brand-subtitle">Evidence Layer Active</p>
       </div>
 
-      <nav class="chat-nav-list" aria-label="Chat navigation">
-        <a class="chat-nav-link is-active" href="/chat/">
-          <span class="material-symbols-outlined">forum</span>
-          <span class="chat-nav-label">Live Chat</span>
-        </a>
-        <a class="chat-nav-link" href="/app/">
-          <span class="material-symbols-outlined">dashboard</span>
-          <span class="chat-nav-label">Dashboard</span>
-        </a>
-        <a class="chat-nav-link" href="/contact/">
-          <span class="material-symbols-outlined">mail</span>
-          <span class="chat-nav-label">Contact</span>
-        </a>
-        <a class="chat-nav-link" href="/privacy/">
-          <span class="material-symbols-outlined">shield</span>
-          <span class="chat-nav-label">Privacy</span>
-        </a>
-      </nav>
+      <div class="chat-nav-list" aria-label="Chat history">
+        <div class="chat-nav-link is-active">
+          <span class="material-symbols-outlined">chat</span>
+          <span class="chat-nav-label">Current thread</span>
+        </div>
+        <div class="chat-nav-link">
+          <span class="material-symbols-outlined">history</span>
+          <span class="chat-nav-label">Creatine and muscle</span>
+        </div>
+        <div class="chat-nav-link">
+          <span class="material-symbols-outlined">history</span>
+          <span class="chat-nav-label">Zone 2 cardio</span>
+        </div>
+        <div class="chat-nav-link">
+          <span class="material-symbols-outlined">history</span>
+          <span class="chat-nav-label">Protein intake</span>
+        </div>
+      </div>
 
       <div class="chat-nav-foot">
-        <p class="chat-nav-foot-label">Mode</p>
+        <p class="chat-nav-foot-label">History</p>
         <p class="chat-nav-foot-copy">
-          Evidence-aware performance reasoning tuned for training, nutrition, recovery, and metabolic health.
+          Recent threads will live here once history is wired into storage.
         </p>
       </div>
     </aside>
@@ -1011,8 +870,9 @@
         <section class="conversation-canvas">
           <div class="chat-thread" data-chat-thread>
             <article class="message assistant">
-              <div class="message-meta"><span>Emersus</span><span>Ready</span></div>
-              Ask me about strength, cardio, nutrition, supplementation, recovery, or metabolic health and I&apos;ll keep the response evidence-aware.
+              <div class="message-content">
+                Ask me about strength, cardio, nutrition, supplementation, recovery, or metabolic health and I&apos;ll keep the response evidence-aware.
+              </div>
             </article>
           </div>
         </section>
@@ -1139,8 +999,8 @@
     const railModeBar = document.querySelector("[data-rail-mode-bar]");
 
     function scrollThreadToBottom() {
-      thread.scrollTo({
-        top: thread.scrollHeight,
+      window.scrollTo({
+        top: document.documentElement.scrollHeight,
         behavior: "smooth",
       });
     }
@@ -1195,10 +1055,6 @@
       const article = document.createElement("article");
       article.className = `message ${role}`;
       article.innerHTML = `
-        <div class="message-meta">
-          <span>${role === "user" ? "You" : "Emersus"}</span>
-          <span>${stamp}</span>
-        </div>
         <div class="message-content"></div>
       `;
       const body = article.querySelector(".message-content");
