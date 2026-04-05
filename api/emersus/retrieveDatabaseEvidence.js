@@ -67,7 +67,7 @@ export async function retrieveDatabaseEvidence({
   const { data: articles, error: articleError } = await supabaseAdmin
     .from("pubmed_articles")
     .select(
-      "pmid,doi,pmcid,title,abstract,journal,publication_date,publication_year,publication_types,mesh_terms,is_deleted"
+      "pmid,doi,pmcid,title,abstract,authors,journal,publication_date,publication_year,publication_types,mesh_terms,is_deleted"
     )
     .in("pmid", pmids)
     .eq("is_deleted", false);
@@ -95,6 +95,7 @@ export async function retrieveDatabaseEvidence({
     title: row.article.title,
     doi: row.article.doi,
     pmcid: row.article.pmcid,
+    authors: Array.isArray(row.article.authors) ? row.article.authors : [],
     journal: row.article.journal,
     publication_date: row.article.publication_date,
     publication_year: row.article.publication_year,

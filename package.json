@@ -4,6 +4,10 @@
   "type": "module",
   "scripts": {
     "fetch:pmc": "node scripts/fetch-pmc-fulltext.js",
+    "fill:pmc": "node scripts/fill-pmc-corpus.js",
+    "fill:pmc:topics": "node scripts/fill-pmc-topics.js",
+    "fill:pubmed": "node scripts/fill-pmc-corpus.js",
+    "fill:pubmed:topics": "node scripts/fill-pmc-topics.js",
     "import:pubmed": "node scripts/import-pubmed.js",
     "embed:evidence": "node scripts/embed-evidence.js",
     "test:retrieval": "node scripts/test-retrieval.js"

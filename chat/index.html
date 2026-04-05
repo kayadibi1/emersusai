@@ -6,121 +6,416 @@
   <title>Emersus Chat | Emersus AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/site.css">
   <style>
-    .chat-stage {
+    :root {
+      --chat-shell-padding: 1rem;
+      --chat-glass: linear-gradient(180deg, rgba(11, 13, 16, 0.92), rgba(9, 11, 14, 0.88));
+      --chat-panel: rgba(255, 255, 255, 0.035);
+      --chat-panel-strong: rgba(255, 255, 255, 0.055);
+      --chat-blur: blur(28px);
+    }
+
+    .material-symbols-outlined {
+      font-variation-settings: "FILL" 0, "wght" 280, "GRAD" 0, "opsz" 24;
+      line-height: 1;
+    }
+
+    body.chat-page {
+      overflow: hidden;
+    }
+
+    .chat-app-shell {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr) 330px;
+      gap: 1rem;
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    .chat-nav,
+    .chat-main,
+    .chat-rail {
       position: relative;
       overflow: hidden;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: var(--radius-xl);
+      border: 1px solid var(--line);
       background:
-        linear-gradient(180deg, rgba(12, 14, 17, 0.84), rgba(9, 11, 14, 0.92)),
-        linear-gradient(135deg, rgba(109, 159, 255, 0.05), rgba(159, 251, 0, 0.03));
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 30%),
+        radial-gradient(circle at top right, rgba(159, 251, 0, 0.05), transparent 28%),
+        var(--chat-glass);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(32px);
-      min-height: 76vh;
-      padding: 1rem;
+      backdrop-filter: var(--chat-blur);
+    }
+
+    .chat-nav,
+    .chat-rail {
+      border-radius: 38px;
+    }
+
+    .chat-main {
+      border-radius: 42px;
       display: grid;
       grid-template-rows: auto minmax(0, 1fr) auto;
+      min-height: calc(100vh - 2rem);
+    }
+
+    .chat-nav::before,
+    .chat-main::before,
+    .chat-rail::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(109, 159, 255, 0.04), rgba(159, 251, 0, 0));
+      pointer-events: none;
+    }
+
+    .chat-nav {
+      display: flex;
+      flex-direction: column;
+      padding: 2rem 1.25rem 1.2rem;
+    }
+
+    .chat-brand {
+      padding: 0.6rem 0.9rem 1.6rem;
+    }
+
+    .chat-brand-mark {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.7rem;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: var(--primary);
+      text-transform: uppercase;
+    }
+
+    .chat-brand-subtitle {
+      margin: 0.4rem 0 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.32em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+
+    .chat-nav-list {
+      display: grid;
+      gap: 0.45rem;
+      margin-top: 0.8rem;
+    }
+
+    .chat-nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      padding: 0.95rem 1rem;
+      border-radius: 999px;
+      color: var(--muted);
+      transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+    }
+
+    .chat-nav-link:hover,
+    .chat-nav-link:focus-visible {
+      transform: translateX(2px);
+      color: var(--ink);
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .chat-nav-link.is-active {
+      color: var(--secondary);
+      background: rgba(159, 251, 0, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(159, 251, 0, 0.08);
+    }
+
+    .chat-nav-label {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.86rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .chat-nav-foot {
+      margin-top: auto;
+      padding: 1rem 0.9rem 0.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .chat-nav-foot-label {
+      margin: 0 0 0.55rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .chat-nav-foot-copy {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.76);
+      line-height: 1.6;
+      font-size: 0.92rem;
+    }
+
+    .chat-main-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       gap: 1rem;
+      padding: 1.25rem 1.4rem 0.9rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .chat-main-status {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      min-width: 0;
+    }
+
+    .status-dot {
+      width: 0.6rem;
+      height: 0.6rem;
+      border-radius: 999px;
+      background: var(--secondary);
+      box-shadow: 0 0 16px rgba(159, 251, 0, 0.55);
+      flex-shrink: 0;
+    }
+
+    .chat-status-copy {
+      min-width: 0;
+    }
+
+    .chat-status-label {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .chat-status-value {
+      margin: 0.28rem 0 0;
+      color: var(--ink);
+      font-size: 0.98rem;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .chat-main-tools {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      color: var(--muted);
+    }
+
+    .top-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .profile-orb {
+      width: 2.75rem;
+      height: 2.75rem;
+      border-radius: 999px;
+      border: 1px solid rgba(109, 159, 255, 0.3);
+      display: grid;
+      place-items: center;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(109, 159, 255, 0.2), transparent 50%),
+        radial-gradient(circle at 70% 70%, rgba(159, 251, 0, 0.14), transparent 45%),
+        rgba(255, 255, 255, 0.03);
+      color: var(--primary);
+    }
+
+    .chat-main-body {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .conversation-canvas {
+      display: grid;
+      grid-template-rows: auto minmax(0, 1fr);
+      min-height: 0;
+      padding: 1.25rem 1.4rem 1rem;
+    }
+
+    .intro-banner {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 1rem;
+      padding: 1.3rem 1.4rem;
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      background:
+        radial-gradient(circle at top right, rgba(109, 159, 255, 0.12), transparent 26%),
+        radial-gradient(circle at left center, rgba(159, 251, 0, 0.09), transparent 20%),
+        rgba(255, 255, 255, 0.03);
+    }
+
+    .intro-banner::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      background: linear-gradient(180deg, rgba(109, 159, 255, 0.9), rgba(159, 251, 0, 0.25));
+    }
+
+    .intro-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .signal-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.42rem 0.65rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.64rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .signal-tag.is-live {
+      color: var(--secondary);
+      border-color: rgba(159, 251, 0, 0.16);
+      background: rgba(159, 251, 0, 0.06);
+    }
+
+    .signal-tag.is-strong {
+      color: var(--primary-dim);
+      border-color: rgba(109, 159, 255, 0.16);
+      background: rgba(109, 159, 255, 0.06);
+    }
+
+    .intro-title {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(1.55rem, 2.6vw, 2.6rem);
+      font-weight: 300;
+      line-height: 1.14;
+      letter-spacing: -0.04em;
+    }
+
+    .intro-copy {
+      max-width: 760px;
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.72);
+      line-height: 1.7;
+      font-size: 1rem;
     }
 
     .chat-thread {
       display: grid;
-      gap: 1rem;
+      gap: 1.15rem;
       align-content: start;
+      min-height: 0;
       overflow: auto;
-      padding-right: 0.25rem;
+      padding-right: 0.3rem;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+    }
+
+    .chat-thread::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .chat-thread::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.14);
+      border-radius: 999px;
     }
 
     .message {
-      max-width: 82ch;
-      padding: 1rem 1.1rem;
-      border-radius: 22px;
-      line-height: 1.65;
+      max-width: min(88%, 860px);
+      padding: 1rem 1.1rem 1rem 1.25rem;
+      border-radius: 28px;
+      line-height: 1.68;
       white-space: pre-wrap;
       word-break: break-word;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .message::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 4px;
+      border-radius: 8px;
+      opacity: 0.8;
     }
 
     .message.user {
       margin-left: auto;
-      background: rgba(109, 159, 255, 0.16);
-      border: 1px solid rgba(109, 159, 255, 0.2);
+      background:
+        radial-gradient(circle at top right, rgba(109, 159, 255, 0.14), transparent 32%),
+        rgba(109, 159, 255, 0.12);
+      border: 1px solid rgba(109, 159, 255, 0.16);
+      box-shadow: 0 18px 46px rgba(0, 0, 0, 0.24);
+    }
+
+    .message.user::before {
+      background: linear-gradient(180deg, rgba(109, 159, 255, 0.92), rgba(109, 159, 255, 0.2));
     }
 
     .message.assistant {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        radial-gradient(circle at top left, rgba(159, 251, 0, 0.08), transparent 24%),
+        rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      box-shadow: 0 18px 52px rgba(0, 0, 0, 0.28);
+    }
+
+    .message.assistant::before {
+      background: linear-gradient(180deg, rgba(159, 251, 0, 0.9), rgba(159, 251, 0, 0.15));
     }
 
     .message-meta {
       display: flex;
       justify-content: space-between;
       gap: 1rem;
-      margin-bottom: 0.55rem;
+      margin-bottom: 0.75rem;
       font-family: "Space Grotesk", sans-serif;
-      font-size: 0.7rem;
+      font-size: 0.68rem;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--secondary);
+      color: var(--muted);
     }
 
-    .composer {
-      display: grid;
-      gap: 0.85rem;
-      padding: 0.25rem 0 0;
-    }
-
-    .composer textarea {
-      min-height: 7rem;
-      resize: vertical;
-    }
-
-    .source-list {
+    .message-content {
       display: grid;
       gap: 0.75rem;
-      margin: 0;
-      padding: 0;
-      list-style: none;
     }
 
-    .source-item {
-      padding: 0.9rem 1rem;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-    }
-
-    .source-item strong {
-      display: block;
-      margin-bottom: 0.25rem;
-      color: var(--secondary);
-    }
-
-    .source-meta {
-      color: var(--muted);
-      font-size: 0.88rem;
-      margin-bottom: 0.55rem;
-    }
-
-    .source-snippet {
-      color: var(--text);
-      font-size: 0.95rem;
-      line-height: 1.55;
-      margin-bottom: 0.65rem;
-    }
-
-    .source-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      font-size: 0.88rem;
-    }
-
-    .source-links a {
-      color: var(--secondary);
+    .message.assistant.is-revealing .message-content {
+      opacity: 0.98;
     }
 
     .assistant-report {
@@ -134,101 +429,23 @@
     }
 
     .report-card {
-      border-radius: 24px;
+      border-radius: 28px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.02)),
-        rgba(12, 15, 18, 0.9);
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 26%),
+        rgba(255, 255, 255, 0.03);
       padding: 1.15rem 1.2rem;
       box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
     }
 
-    .report-card--hero {
-      padding: 1.25rem 1.3rem;
-      background:
-        radial-gradient(circle at top right, rgba(159, 251, 0, 0.08), transparent 40%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
-        rgba(12, 15, 18, 0.92);
-    }
-
-    .report-eyebrow {
-      margin: 0 0 0.55rem;
+    .report-eyebrow,
+    .card-title,
+    .narrative-heading {
+      margin: 0 0 0.65rem;
       font-family: "Space Grotesk", sans-serif;
       font-size: 0.72rem;
       font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .report-title {
-      margin: 0;
-      font-size: clamp(1.2rem, 2vw, 1.9rem);
-      line-height: 1.15;
-      letter-spacing: -0.03em;
-    }
-
-    .report-body {
-      margin: 0.7rem 0 0;
-      color: rgba(255, 255, 255, 0.84);
-      font-size: 1rem;
-      line-height: 1.65;
-    }
-
-    .metric-row {
-      display: grid;
-      gap: 0.8rem;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      margin-top: 1rem;
-    }
-
-    .metric-pill {
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      padding: 0.75rem 0.8rem;
-    }
-
-    .metric-label {
-      display: block;
-      margin-bottom: 0.3rem;
-      font-size: 0.72rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .metric-value {
-      font-size: 1rem;
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--text);
-    }
-
-    .tone-good .metric-value,
-    .tone-good .score-value,
-    .tone-good .signal-badge {
-      color: #7df14a;
-    }
-
-    .tone-medium .metric-value,
-    .tone-medium .score-value,
-    .tone-medium .signal-badge {
-      color: #f0b34a;
-    }
-
-    .tone-caution .metric-value,
-    .tone-caution .score-value,
-    .tone-caution .signal-badge {
-      color: #ff7666;
-    }
-
-    .card-title {
-      margin: 0 0 0.8rem;
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
     }
@@ -240,7 +457,7 @@
     }
 
     .action-column {
-      border-radius: 20px;
+      border-radius: 22px;
       padding: 0.95rem 1rem;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.055);
@@ -249,18 +466,17 @@
     .signal-badge {
       display: inline-flex;
       margin-bottom: 0.65rem;
-      padding: 0.36rem 0.62rem;
+      padding: 0.38rem 0.68rem;
       border-radius: 999px;
       background: rgba(159, 251, 0, 0.08);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 700;
       line-height: 1;
     }
 
     .action-column ul,
     .narrative-section ul,
-    .watchout-list,
-    .source-highlight-copy ul {
+    .watchout-list {
       margin: 0;
       padding-left: 1rem;
       display: grid;
@@ -286,7 +502,7 @@
     }
 
     .score-label {
-      color: var(--text);
+      color: var(--ink);
       font-weight: 600;
       line-height: 1.35;
     }
@@ -303,7 +519,7 @@
       position: absolute;
       inset: 0 auto 0 0;
       border-radius: inherit;
-      background: linear-gradient(90deg, rgba(109, 159, 255, 0.92), rgba(77, 227, 169, 0.92));
+      background: linear-gradient(90deg, var(--primary-dim), var(--secondary));
     }
 
     .score-fill.tone-medium {
@@ -311,7 +527,7 @@
     }
 
     .score-fill.tone-caution {
-      background: linear-gradient(90deg, rgba(255, 118, 102, 0.95), rgba(206, 67, 67, 0.95));
+      background: linear-gradient(90deg, rgba(255, 143, 157, 0.95), rgba(188, 74, 91, 0.95));
     }
 
     .score-value {
@@ -325,50 +541,6 @@
       color: var(--muted);
       font-size: 0.92rem;
       line-height: 1.5;
-    }
-
-    .source-highlight-list {
-      display: grid;
-      gap: 0.85rem;
-    }
-
-    .source-highlight {
-      border-radius: 18px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      background: rgba(255, 255, 255, 0.025);
-      padding: 0.95rem 1rem;
-    }
-
-    .source-highlight-title {
-      margin: 0;
-      font-size: 1rem;
-      line-height: 1.35;
-      color: var(--text);
-    }
-
-    .source-highlight-meta {
-      margin: 0.35rem 0 0;
-      color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.5;
-    }
-
-    .source-highlight-copy {
-      margin-top: 0.65rem;
-      color: rgba(255, 255, 255, 0.84);
-      line-height: 1.55;
-    }
-
-    .source-highlight-links {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.7rem;
-      margin-top: 0.7rem;
-      font-size: 0.88rem;
-    }
-
-    .source-highlight-links a {
-      color: var(--secondary);
     }
 
     .watchout-list {
@@ -390,15 +562,453 @@
       padding-top: 0;
     }
 
-    .narrative-heading {
-      margin: 0 0 0.45rem;
-      font-size: 0.82rem;
+    .quick-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      width: fit-content;
+      padding: 0.7rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .quick-chip:hover,
+    .quick-chip:focus-visible {
+      color: var(--secondary);
+      border-color: rgba(159, 251, 0, 0.18);
+      background: rgba(159, 251, 0, 0.05);
+    }
+
+    .chat-composer-shell {
+      padding: 0 1.4rem 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      background: linear-gradient(180deg, rgba(12, 14, 18, 0), rgba(12, 14, 18, 0.58));
+    }
+
+    .composer {
+      display: grid;
+      gap: 0.85rem;
+      margin-top: 1rem;
+      padding: 0.85rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 24%),
+        rgba(255, 255, 255, 0.035);
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.24);
+    }
+
+    .composer-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 0.85rem;
+    }
+
+    .composer-lead {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      padding: 0 0.35rem 0 0.55rem;
+      color: var(--secondary);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .composer-cursor {
+      width: 3px;
+      height: 1rem;
+      border-radius: 999px;
+      background: rgba(159, 251, 0, 0.5);
+      box-shadow: 0 0 10px rgba(159, 251, 0, 0.22);
+    }
+
+    .composer textarea {
+      min-height: 4rem;
+      max-height: 9rem;
+      flex: 1;
+      resize: vertical;
+      border: 0;
+      background: transparent;
+      color: var(--ink);
+      line-height: 1.6;
+      padding: 0.35rem 0.25rem 0.35rem 0;
+    }
+
+    .composer textarea:focus {
+      outline: none;
+    }
+
+    .composer textarea::placeholder {
+      color: #6d7480;
+    }
+
+    .composer-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding-right: 0.3rem;
+    }
+
+    .mini-key {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.35rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.62rem;
+      font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .submit-orb {
+      width: 3rem;
+      height: 3rem;
+      border: 0;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--secondary), var(--primary-dim));
+      color: #040806;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 0 24px rgba(159, 251, 0, 0.25);
+      transition: transform 180ms ease, box-shadow 180ms ease;
+    }
+
+    .submit-orb:hover,
+    .submit-orb:focus-visible {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 0 30px rgba(159, 251, 0, 0.3);
+    }
+
+    .composer-utility-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0 0.45rem 0.2rem;
+    }
+
+    .composer-buttons {
+      display: flex;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+
+    .inline-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--ink);
+      border-radius: 999px;
+      padding: 0.55rem 0.9rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .inline-button:hover,
+    .inline-button:focus-visible {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .status-text {
+      margin: 0;
       color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.5;
+      text-align: right;
+    }
+
+    .chat-rail {
+      display: grid;
+      grid-template-rows: auto auto minmax(0, 1fr);
+      gap: 1rem;
+      min-height: calc(100vh - 2rem);
+      padding: 1.15rem;
+    }
+
+    .rail-card {
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      background:
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 28%),
+        rgba(255, 255, 255, 0.03);
+      padding: 1.2rem 1.15rem;
+    }
+
+    .rail-title {
+      margin: 0 0 1rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary-dim);
+    }
+
+    .rail-metric-stack {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .rail-metric {
+      display: grid;
+      gap: 0.4rem;
+    }
+
+    .rail-metric-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 0.75rem;
+    }
+
+    .rail-metric-label {
+      margin: 0;
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .rail-metric-value {
+      margin: 0;
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .rail-metric-note {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.66rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--secondary);
+    }
+
+    .rail-spark {
+      height: 0.65rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.05);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .rail-spark::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: var(--spark-width, 50%);
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--primary-dim), var(--secondary));
+    }
+
+    .rail-spark.tone-medium::before {
+      background: linear-gradient(90deg, rgba(240, 179, 74, 0.95), rgba(202, 129, 27, 0.95));
+    }
+
+    .rail-spark.tone-caution::before {
+      background: linear-gradient(90deg, rgba(255, 143, 157, 0.95), rgba(188, 74, 91, 0.95));
+    }
+
+    .source-list {
+      display: grid;
+      gap: 0.75rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      min-height: 0;
+      overflow: auto;
+      padding-right: 0.2rem;
+    }
+
+    .source-item {
+      padding: 0.95rem 1rem;
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .source-item strong {
+      display: block;
+      margin-bottom: 0.35rem;
+      color: var(--secondary);
+      font-size: 0.98rem;
+      line-height: 1.35;
+    }
+
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.84rem;
+      line-height: 1.5;
+      margin-bottom: 0.55rem;
+    }
+
+    .source-snippet {
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.92rem;
+      line-height: 1.55;
+      margin-bottom: 0.65rem;
+    }
+
+    .source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      font-size: 0.84rem;
+    }
+
+    .source-links a {
+      color: var(--primary-dim);
+    }
+
+    .rail-foot {
+      margin-top: auto;
+      display: grid;
+      gap: 0.55rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .rail-foot-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.66rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    @media (max-width: 1280px) {
+      body.chat-page {
+        overflow: auto;
+      }
+
+      .chat-app-shell {
+        grid-template-columns: 250px minmax(0, 1fr);
+      }
+
+      .chat-rail {
+        grid-column: 1 / -1;
+        min-height: auto;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        grid-template-rows: none;
+      }
+
+      .rail-card:last-of-type {
+        min-height: 300px;
+      }
+
+      .rail-foot {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 980px) {
+      .chat-app-shell {
+        grid-template-columns: 1fr;
+        padding: 0.8rem;
+      }
+
+      .chat-nav,
+      .chat-main,
+      .chat-rail {
+        min-height: auto;
+      }
+
+      .chat-nav {
+        padding: 1.3rem 1rem 1rem;
+      }
+
+      .chat-nav-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .chat-main {
+        min-height: 78vh;
+      }
+
+      .chat-rail {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 720px) {
+      .chat-main-header,
+      .conversation-canvas,
+      .chat-composer-shell {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+
+      .chat-main-header {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .chat-main-tools {
+        justify-content: space-between;
+      }
+
+      .message {
+        max-width: 100%;
+      }
+
+      .composer {
+        border-radius: 30px;
+      }
+
+      .composer-row {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .composer-lead {
+        padding: 0;
+      }
+
+      .composer-actions,
+      .composer-utility-row {
+        justify-content: space-between;
+      }
+
       .score-row {
         grid-template-columns: 1fr;
       }
@@ -406,83 +1016,191 @@
       .score-value {
         text-align: left;
       }
-    }
 
-    .quick-chip {
-      display: inline-flex;
-      width: fit-content;
-      padding: 0.55rem 0.8rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.06);
-      color: var(--muted);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      cursor: pointer;
+      .chat-nav-list {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
-<body>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container site-header-inner">
-        <a class="brand-mark" href="/">Emersus AI</a>
-        <nav class="site-nav">
-          <a href="/app/">Dashboard</a>
-          <a href="/chat/">Chat</a>
-          <a href="/privacy/">Privacy</a>
-          <a href="/contact/">Contact</a>
-        </nav>
+<body class="chat-page">
+  <div class="chat-app-shell">
+    <aside class="chat-nav">
+      <div class="chat-brand">
+        <h1 class="chat-brand-mark">EMERSUS</h1>
+        <p class="chat-brand-subtitle">Evidence Layer Active</p>
       </div>
-    </header>
 
-    <main class="page-main">
-      <div class="container stack">
-        <section class="hero-panel stack">
-          <p class="section-kicker">Emersus Chat</p>
-          <h1>Ask your optimizer.</h1>
-          <p class="lede">
-            One prompt, one answer. Emersus will infer the context from what you ask and return evidence-aware guidance with confidence and sources when available.
-          </p>
-        </section>
+      <nav class="chat-nav-list" aria-label="Chat navigation">
+        <a class="chat-nav-link is-active" href="/chat/">
+          <span class="material-symbols-outlined">forum</span>
+          <span class="chat-nav-label">Live Chat</span>
+        </a>
+        <a class="chat-nav-link" href="/app/">
+          <span class="material-symbols-outlined">dashboard</span>
+          <span class="chat-nav-label">Dashboard</span>
+        </a>
+        <a class="chat-nav-link" href="/contact/">
+          <span class="material-symbols-outlined">mail</span>
+          <span class="chat-nav-label">Contact</span>
+        </a>
+        <a class="chat-nav-link" href="/privacy/">
+          <span class="material-symbols-outlined">shield</span>
+          <span class="chat-nav-label">Privacy</span>
+        </a>
+      </nav>
 
-        <section class="chat-stage">
-          <div class="split-row">
-            <div class="stack">
-              <p class="section-kicker">Conversation</p>
-              <h2>Live Emersus chat</h2>
-            </div>
-            <div class="chip">Direct API</div>
+      <div class="chat-nav-foot">
+        <p class="chat-nav-foot-label">Mode</p>
+        <p class="chat-nav-foot-copy">
+          Evidence-aware performance reasoning tuned for training, nutrition, recovery, and metabolic health.
+        </p>
+      </div>
+    </aside>
+
+    <main class="chat-main">
+      <header class="chat-main-header">
+        <div class="chat-main-status">
+          <div class="status-dot" aria-hidden="true"></div>
+          <div class="chat-status-copy">
+            <p class="chat-status-label">Conversation substrate</p>
+            <p class="chat-status-value">Emersus recommendation engine online</p>
           </div>
+        </div>
+
+        <div class="chat-main-tools">
+          <div class="top-chip">
+            <span class="material-symbols-outlined">bubble_chart</span>
+            <span>Evidence-aware</span>
+          </div>
+          <div class="profile-orb" aria-hidden="true">
+            <span class="material-symbols-outlined">person</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="chat-main-body">
+        <section class="conversation-canvas">
+          <section class="intro-banner">
+            <div class="intro-badges">
+              <span class="signal-tag is-live">Synthesis Ready</span>
+              <span class="signal-tag is-strong">PubMed Indexed</span>
+            </div>
+            <h2 class="intro-title">Ask Emersus for evidence-backed guidance on performance, nutrition, recovery, and health.</h2>
+            <p class="intro-copy">
+              You ask the question once. Emersus retrieves relevant literature, synthesizes an answer, and attaches confidence and sources when the evidence supports it.
+            </p>
+          </section>
 
           <div class="chat-thread" data-chat-thread>
             <article class="message assistant">
               <div class="message-meta"><span>Emersus</span><span>Ready</span></div>
-              Ask me about strength, cardio, nutrition, or mental performance and I'll keep the response evidence-aware.
+              Ask me about strength, cardio, nutrition, supplementation, recovery, or metabolic health and I&apos;ll keep the response evidence-aware.
             </article>
-          </div>
-
-          <div class="stack">
-            <div class="quick-chip" data-chat-suggest>Try: Is creatine effective for building muscle?</div>
-          </div>
-
-          <form class="composer" data-chat-form>
-            <textarea class="field" name="question" placeholder="Ask me anything about training, nutrition, or performance."></textarea>
-            <div class="button-row">
-              <button class="button button-primary" type="submit" data-chat-submit>Send</button>
-              <button class="button button-secondary" type="button" data-chat-clear>Clear</button>
-            </div>
-            <p class="status-text" data-chat-status></p>
-          </form>
-
-          <div class="stack">
-            <p class="section-kicker">Sources</p>
-            <ul class="source-list" data-chat-sources></ul>
           </div>
         </section>
       </div>
+
+      <div class="chat-composer-shell">
+        <div class="quick-chip" data-chat-suggest>
+          <span class="material-symbols-outlined">bolt</span>
+          <span>Try: Is creatine effective for building muscle?</span>
+        </div>
+
+        <form class="composer" data-chat-form>
+          <div class="composer-row">
+            <div class="composer-lead">
+              <span>Prompt</span>
+              <span class="composer-cursor" aria-hidden="true"></span>
+            </div>
+
+            <label class="sr-only" for="chat-question">Question</label>
+            <textarea id="chat-question" name="question" placeholder="Ask me anything about training, nutrition, recovery, or performance."></textarea>
+
+            <div class="composer-actions">
+              <div class="mini-key">Shift + Enter</div>
+              <button class="submit-orb" type="submit" data-chat-submit aria-label="Send question">
+                <span class="material-symbols-outlined">arrow_upward</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="composer-utility-row">
+            <div class="composer-buttons">
+              <button class="inline-button" type="button" data-chat-clear>
+                <span class="material-symbols-outlined">ink_eraser</span>
+                <span>Clear</span>
+              </button>
+            </div>
+            <p class="status-text" data-chat-status></p>
+          </div>
+        </form>
+      </div>
     </main>
+
+    <aside class="chat-rail">
+      <section class="rail-card">
+        <h3 class="rail-title">System status</h3>
+        <div class="rail-metric-stack">
+          <div class="rail-metric">
+            <div class="rail-metric-head">
+              <div>
+                <p class="rail-metric-label">Confidence</p>
+                <p class="rail-metric-value" data-rail-confidence>0.00</p>
+              </div>
+              <span class="rail-metric-note" data-rail-confidence-label>Idle</span>
+            </div>
+            <div class="rail-spark" data-rail-confidence-bar style="--spark-width:0%"></div>
+          </div>
+
+          <div class="rail-metric">
+            <div class="rail-metric-head">
+              <div>
+                <p class="rail-metric-label">Source count</p>
+                <p class="rail-metric-value" data-rail-sources>0</p>
+              </div>
+              <span class="rail-metric-note">Attached</span>
+            </div>
+            <div class="rail-spark tone-medium" data-rail-sources-bar style="--spark-width:0%"></div>
+          </div>
+
+          <div class="rail-metric">
+            <div class="rail-metric-head">
+              <div>
+                <p class="rail-metric-label">Model state</p>
+                <p class="rail-metric-value" data-rail-mode>Ready</p>
+              </div>
+              <span class="rail-metric-note">Live</span>
+            </div>
+            <div class="rail-spark tone-caution" data-rail-mode-bar style="--spark-width:68%"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="rail-card">
+        <h3 class="rail-title">Session notes</h3>
+        <div class="rail-metric-stack">
+          <div class="rail-metric">
+            <p class="rail-metric-label">Best prompt style</p>
+            <p class="chat-nav-foot-copy">Ask one focused question and include the goal or outcome you care about.</p>
+          </div>
+          <div class="rail-metric">
+            <p class="rail-metric-label">Coverage</p>
+            <p class="chat-nav-foot-copy">The corpus is strongest on training, supplements, recovery, body composition, and metabolic health.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="rail-card">
+        <h3 class="rail-title">Retrieved sources</h3>
+        <ul class="source-list" data-chat-sources></ul>
+      </section>
+
+      <div class="rail-foot">
+        <div class="rail-foot-line"><span>Pipeline</span><span>PubMed + PMC</span></div>
+        <div class="rail-foot-line"><span>Interface</span><span>Emersus Chat</span></div>
+      </div>
+    </aside>
   </div>
 
   <script type="module">
@@ -495,8 +1213,65 @@
     const submitButton = document.querySelector("[data-chat-submit]");
     const clearButton = document.querySelector("[data-chat-clear]");
     const suggestButton = document.querySelector("[data-chat-suggest]");
+    const railConfidence = document.querySelector("[data-rail-confidence]");
+    const railConfidenceLabel = document.querySelector("[data-rail-confidence-label]");
+    const railConfidenceBar = document.querySelector("[data-rail-confidence-bar]");
+    const railSources = document.querySelector("[data-rail-sources]");
+    const railSourcesBar = document.querySelector("[data-rail-sources-bar]");
+    const railMode = document.querySelector("[data-rail-mode]");
+    const railModeBar = document.querySelector("[data-rail-mode-bar]");
 
-    function appendMessage(role, content, stamp) {
+    function scrollThreadToBottom() {
+      thread.scrollTop = thread.scrollHeight;
+    }
+
+    function wait(ms) {
+      return new Promise((resolve) => setTimeout(resolve, ms));
+    }
+
+    async function animateHtmlInto(container, html) {
+      const template = document.createElement("template");
+      template.innerHTML = String(html || "").trim();
+      const fragment = template.content.cloneNode(true);
+      const walker = document.createTreeWalker(fragment, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          return node.textContent.trim() ? NodeFilter.FILTER_ACCEPT : NodeFilter.FILTER_REJECT;
+        },
+      });
+
+      const textNodes = [];
+      let currentNode = walker.nextNode();
+      while (currentNode) {
+        textNodes.push(currentNode);
+        currentNode = walker.nextNode();
+      }
+
+      const tokensByNode = textNodes.map((node) => node.textContent.match(/\S+\s*/g) || [node.textContent]);
+      textNodes.forEach((node) => {
+        node.textContent = "";
+      });
+
+      container.appendChild(fragment);
+      scrollThreadToBottom();
+
+      for (let nodeIndex = 0; nodeIndex < textNodes.length; nodeIndex += 1) {
+        const node = textNodes[nodeIndex];
+        const tokens = tokensByNode[nodeIndex];
+
+        for (let tokenIndex = 0; tokenIndex < tokens.length; tokenIndex += 1) {
+          node.textContent += tokens[tokenIndex];
+          if (tokenIndex % 3 === 0) {
+            scrollThreadToBottom();
+            await wait(14);
+          }
+        }
+
+        scrollThreadToBottom();
+        await wait(18);
+      }
+    }
+
+    async function appendMessage(role, content, stamp, options = {}) {
       const article = document.createElement("article");
       article.className = `message ${role}`;
       article.innerHTML = `
@@ -504,10 +1279,19 @@
           <span>${role === "user" ? "You" : "Emersus"}</span>
           <span>${stamp}</span>
         </div>
-        ${content}
+        <div class="message-content"></div>
       `;
+      const body = article.querySelector(".message-content");
       thread.appendChild(article);
-      thread.scrollTop = thread.scrollHeight;
+
+      if (options.animate && role === "assistant") {
+        article.classList.add("is-revealing");
+        await animateHtmlInto(body, content);
+        article.classList.remove("is-revealing");
+      } else {
+        body.innerHTML = content;
+        scrollThreadToBottom();
+      }
     }
 
     function escapeHtml(value) {
@@ -525,21 +1309,7 @@
         return "";
       }
 
-      return text.length > maxLength ? `${text.slice(0, maxLength - 1).trim()}…` : text;
-    }
-
-    function renderLinks(links = []) {
-      const validLinks = links.filter((link) => link?.url && link?.label);
-      if (!validLinks.length) {
-        return "";
-      }
-
-      return `<div class="source-highlight-links">${validLinks
-        .map(
-          (link) =>
-            `<a href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`
-        )
-        .join("")}</div>`;
+      return text.length > maxLength ? `${text.slice(0, maxLength - 1).trim()}...` : text;
     }
 
     function renderCards(cards = []) {
@@ -551,30 +1321,6 @@
         .map((card) => {
           if (card.type === "verdict_hero" || card.type === "source_highlights") {
             return "";
-          }
-
-          if (card.type === "verdict_hero") {
-            return `
-              <section class="report-card report-card--hero">
-                ${card.eyebrow ? `<p class="report-eyebrow">${escapeHtml(card.eyebrow)}</p>` : ""}
-                <h3 class="report-title">${escapeHtml(card.title || "Evidence-backed verdict")}</h3>
-                ${card.body ? `<p class="report-body">${escapeHtml(card.body)}</p>` : ""}
-                ${
-                  Array.isArray(card.metrics) && card.metrics.length
-                    ? `<div class="metric-row">${card.metrics
-                        .map(
-                          (metric) => `
-                            <div class="metric-pill tone-${escapeHtml(metric.tone || "good")}">
-                              <span class="metric-label">${escapeHtml(metric.label || "")}</span>
-                              <span class="metric-value">${escapeHtml(metric.value || "")}</span>
-                            </div>
-                          `
-                        )
-                        .join("")}</div>`
-                    : ""
-                }
-              </section>
-            `;
           }
 
           if (card.type === "action_grid") {
@@ -629,36 +1375,12 @@
             `;
           }
 
-          if (card.type === "source_highlights") {
-            return `
-              <section class="report-card">
-                <h3 class="card-title">${escapeHtml(card.title || "Best sources")}</h3>
-                <div class="source-highlight-list">
-                  ${(card.items || [])
-                    .map(
-                      (item) => `
-                        <article class="source-highlight">
-                          <h4 class="source-highlight-title">${escapeHtml(item.title || "Source")}</h4>
-                          ${item.meta ? `<p class="source-highlight-meta">${escapeHtml(item.meta)}</p>` : ""}
-                          ${item.takeaway ? `<div class="source-highlight-copy">${escapeHtml(item.takeaway)}</div>` : ""}
-                          ${renderLinks(item.links || [])}
-                        </article>
-                      `
-                    )
-                    .join("")}
-                </div>
-              </section>
-            `;
-          }
-
           if (card.type === "watchouts") {
             return `
               <section class="report-card">
                 <h3 class="card-title">${escapeHtml(card.title || "Watchouts")}</h3>
                 <ul class="watchout-list">
-                  ${(card.items || [])
-                    .map((item) => `<li>${escapeHtml(item)}</li>`)
-                    .join("")}
+                  ${(card.items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
                 </ul>
               </section>
             `;
@@ -687,6 +1409,7 @@
           <p>${escapeHtml(data.summary || "No summary returned.")}</p>
         </section>
       `);
+
       if ((data.recommendations?.training || []).length) {
         sections.push(`
           <section class="narrative-section">
@@ -695,6 +1418,7 @@
           </section>
         `);
       }
+
       if ((data.recommendations?.nutrition || []).length) {
         sections.push(`
           <section class="narrative-section">
@@ -703,6 +1427,7 @@
           </section>
         `);
       }
+
       if ((data.recommendations?.mental_performance || []).length) {
         sections.push(`
           <section class="narrative-section">
@@ -711,6 +1436,7 @@
           </section>
         `);
       }
+
       sections.push(`
         <section class="narrative-section">
           <h3 class="narrative-heading">Confidence</h3>
@@ -718,6 +1444,7 @@
           ${data.confidence?.rationale ? `<p>${escapeHtml(data.confidence.rationale)}</p>` : ""}
         </section>
       `);
+
       if (Array.isArray(data.limitations) && data.limitations.length) {
         sections.push(`
           <section class="narrative-section">
@@ -745,6 +1472,7 @@
         const item = document.createElement("li");
         item.className = "source-item";
         const meta = [
+          source.author_label || "",
           source.source_type || "database",
           source.journal || "",
           source.year || source.published_at || "",
@@ -776,6 +1504,23 @@
       });
     }
 
+    function updateRail(data = {}) {
+      const confidenceScore = Number(data.confidence?.score || 0);
+      const confidenceLabel = String(data.confidence?.label || "idle");
+      const sourceCount = Array.isArray(data.sources) ? data.sources.length : 0;
+      const synthesisMode = data.debug?.synthesis_mode || (data.summary ? "synthesized" : "idle");
+
+      railConfidence.textContent = confidenceScore ? confidenceScore.toFixed(2) : "0.00";
+      railConfidenceLabel.textContent = confidenceLabel;
+      railConfidenceBar.style.setProperty("--spark-width", `${Math.max(0, Math.min(confidenceScore * 100, 100))}%`);
+
+      railSources.textContent = String(sourceCount);
+      railSourcesBar.style.setProperty("--spark-width", `${Math.max(10, Math.min(sourceCount * 16, 100))}%`);
+
+      railMode.textContent = synthesisMode.replace(/[:_]/g, " ");
+      railModeBar.style.setProperty("--spark-width", `${data.summary ? 88 : 68}%`);
+    }
+
     async function submitQuestion(question) {
       const trimmed = String(question || "").trim();
       if (!trimmed) {
@@ -784,10 +1529,10 @@
       }
 
       submitButton.disabled = true;
-      submitButton.textContent = "Thinking...";
       setStatus(status, "", "");
 
-      appendMessage("user", trimmed, "Now");
+      await appendMessage("user", escapeHtml(trimmed), "Now");
+      railMode.textContent = "thinking";
 
       try {
         const response = await fetch("/api/emersus/recommendation", {
@@ -806,37 +1551,47 @@
           throw new Error(data.message || "Unable to generate a recommendation.");
         }
 
-        appendMessage("assistant", renderAssistantResponse(data), "Now");
+        await appendMessage("assistant", renderAssistantResponse(data), "Now", {
+          animate: true,
+        });
         renderSources(data);
+        updateRail(data);
         setStatus(status, "success", "Recommendation generated.");
         form.reset();
       } catch (error) {
-        appendMessage("assistant", `<p>${error.message || "Request failed."}</p>`, "Error");
+        await appendMessage("assistant", `<p>${escapeHtml(error.message || "Request failed.")}</p>`, "Error", {
+          animate: true,
+        });
         setStatus(status, "error", error.message || "Request failed.");
+        railMode.textContent = "error";
       } finally {
         submitButton.disabled = false;
-        submitButton.textContent = "Send";
       }
     }
 
-    form.addEventListener("submit", (event) => {
+    form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const formData = new FormData(form);
-      submitQuestion(formData.get("question"));
+      await submitQuestion(formData.get("question"));
     });
 
-    clearButton.addEventListener("click", () => {
+    clearButton.addEventListener("click", async () => {
       thread.innerHTML = "";
       sources.innerHTML = "";
-      appendMessage("assistant", "Ask me about strength, cardio, nutrition, or mental performance and I'll keep the response evidence-aware.", "Ready");
+      await appendMessage("assistant", "Ask me about strength, cardio, nutrition, supplementation, recovery, or metabolic health and I&apos;ll keep the response evidence-aware.", "Ready", {
+        animate: true,
+      });
+      updateRail({});
       setStatus(status, "", "");
     });
 
-    suggestButton.addEventListener("click", () => {
+    suggestButton.addEventListener("click", async () => {
       const question = "Is creatine effective for building muscle?";
       form.elements.namedItem("question").value = question;
-      submitQuestion(question);
+      await submitQuestion(question);
     });
+
+    updateRail({});
   </script>
 </body>
 </html>

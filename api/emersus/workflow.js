@@ -49,6 +49,29 @@ function parsePublicationTypes(value) {
     .slice(0, 6);
 }
 
+function parseAuthors(value) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((item) => normalizeText(item, 160))
+    .filter(Boolean)
+    .slice(0, 12);
+}
+
+function formatAuthorLabel(authors) {
+  const normalized = parseAuthors(authors);
+
+  if (normalized.length === 0) {
+    return "";
+  }
+
+  const firstAuthor = normalized[0];
+  const surname = firstAuthor.split(/\s+/).slice(-1)[0] || firstAuthor;
+  return normalized.length === 1 ? surname : `${surname} et al.`;
+}
+
 function parseJsonBody(req) {
   if (!req.body) {
     return {};
@@ -188,6 +211,8 @@ function normalizeVectorEvidenceRow(row) {
     pmid,
     doi,
     pmcid: normalizeText(row.pmcid, 40),
+    authors: parseAuthors(row.authors),
+    author_label: formatAuthorLabel(row.authors),
     title: normalizeText(row.title, 240),
     journal: normalizeText(row.journal, 160),
     publication_year: publicationYear,
@@ -350,6 +375,7 @@ function formatEvidenceForModel(evidence) {
     .map((item, index) =>
       [
         `[${index + 1}] ${item.title || "Untitled evidence"}`,
+        item.author_label ? `Authors: ${item.author_label}` : null,
         item.pmid ? `PMID: ${item.pmid}` : null,
         item.journal ? `Journal: ${item.journal}` : null,
         item.publication_year
@@ -931,6 +957,8 @@ function normalizeSources(evidence) {
     title: source.title,
     url: source.url || "",
     source_type: source.source_type || "pubmed_vector",
+    authors: parseAuthors(source.authors),
+    author_label: source.author_label || formatAuthorLabel(source.authors),
     published_at: source.published_at || "",
     evidence_level: source.evidence_level || "",
     why_it_matters:

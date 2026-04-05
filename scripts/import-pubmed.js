@@ -12,6 +12,9 @@ const ARTICLE_COLUMNS = new Set([
   "title",
   "abstract",
   "full_text",
+  "has_full_text",
+  "content_source",
+  "authors",
   "journal",
   "publication_date",
   "publication_year",
@@ -115,6 +118,10 @@ function normalizeArray(value, maxItems = 25) {
   return [];
 }
 
+function normalizeAuthors(value, maxItems = 20) {
+  return [...new Set(normalizeArray(value, maxItems).map((item) => normalizeText(item, 160)).filter(Boolean))];
+}
+
 function firstNonEmpty(...values) {
   for (const value of values) {
     if (Array.isArray(value) && value.length > 0) {
@@ -141,6 +148,69 @@ function inferPublicationYear(publicationDate, rawYear) {
   return match ? match[0] : "";
 }
 
+function isLeapYear(year) {
+  return (year % 4 === 0 && year % 100 !== 0) || year % 400 === 0;
+}
+
+function daysInMonth(year, month) {
+  const normalizedMonth = Math.min(Math.max(month, 1), 12);
+
+  if ([1, 3, 5, 7, 8, 10, 12].includes(normalizedMonth)) {
+    return 31;
+  }
+
+  if ([4, 6, 9, 11].includes(normalizedMonth)) {
+    return 30;
+  }
+
+  return isLeapYear(year) ? 29 : 28;
+}
+
+function buildSafeIsoDate(yearRaw, monthRaw, dayRaw) {
+  const year = Number(yearRaw);
+  if (!Number.isInteger(year) || year < 1800 || year > 2200) {
+    return "";
+  }
+
+  let month = Number(monthRaw);
+  let day = Number(dayRaw);
+
+  if (!Number.isInteger(month) || month <= 0) {
+    month = 1;
+  }
+
+  if (!Number.isInteger(day) || day <= 0) {
+    day = 1;
+  }
+
+  if (month > 12 && day <= 12) {
+    [month, day] = [day, month];
+  }
+
+  month = Math.min(Math.max(month, 1), 12);
+  const maxDay = daysInMonth(year, month);
+
+  if (day > maxDay && day <= 12 && month <= 12) {
+    const swappedMonth = day;
+    const swappedDay = month;
+    if (swappedMonth >= 1 && swappedMonth <= 12) {
+      const swappedMaxDay = daysInMonth(year, swappedMonth);
+      if (swappedDay >= 1 && swappedDay <= swappedMaxDay) {
+        month = swappedMonth;
+        day = swappedDay;
+      } else {
+        day = maxDay;
+      }
+    } else {
+      day = maxDay;
+    }
+  } else {
+    day = Math.min(Math.max(day, 1), maxDay);
+  }
+
+  return `${String(year).padStart(4, "0")}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
 function normalizePublicationDate(rawDate, fallbackYear = "") {
   const value = normalizeText(rawDate, 40);
 
@@ -149,21 +219,23 @@ function normalizePublicationDate(rawDate, fallbackYear = "") {
   }
 
   if (/^\d{4}-\d{2}-\d{2}$/.test(value)) {
-    return value;
+    const [year, month, day] = value.split("-");
+    return buildSafeIsoDate(year, month, day);
   }
 
   if (/^\d{4}-\d{2}$/.test(value)) {
-    return `${value}-01`;
+    const [year, month] = value.split("-");
+    return buildSafeIsoDate(year, month, 1);
   }
 
   if (/^\d{4}$/.test(value)) {
-    return `${value}-01-01`;
+    return buildSafeIsoDate(value, 1, 1);
   }
 
   const normalized = value.replace(/\//g, "-");
   if (/^\d{4}-\d{1,2}-\d{1,2}$/.test(normalized)) {
     const [year, month, day] = normalized.split("-");
-    return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
+    return buildSafeIsoDate(year, month, day);
   }
 
   if (fallbackYear && /^\d{4}$/.test(fallbackYear)) {
@@ -247,6 +319,15 @@ function normalizeRecord(rawRecord) {
     title,
     abstract: abstractText,
     full_text: fullText,
+    authors: normalizeAuthors(
+      firstNonEmpty(
+        rawRecord.authors,
+        rawRecord.Authors,
+        rawRecord.author_names,
+        rawRecord.authorNames
+      ),
+      20
+    ),
     journal,
     publication_date: normalizedPublicationDate,
     publication_year: publicationYear,
@@ -457,12 +538,17 @@ async function upsertArticleBatch(records, articleColumns) {
       const rows = records.map((record) =>
         pickColumns(
           {
+            has_full_text: Boolean(normalizeText(record.full_text, 10)),
+            content_source: normalizeText(record.full_text, 10)
+              ? "full_text"
+              : "abstract_only",
             pmid: record.pmid,
             doi: record.doi,
             pmcid: record.pmcid,
             title: record.title,
             abstract: record.abstract,
             full_text: record.full_text,
+            authors: record.authors,
             journal: record.journal,
             publication_date: record.publication_date || null,
             publication_year: record.publication_year || null,
