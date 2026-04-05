@@ -123,6 +123,291 @@
       color: var(--secondary);
     }
 
+    .assistant-report {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card-stack {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .report-card {
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.02)),
+        rgba(12, 15, 18, 0.9);
+      padding: 1.15rem 1.2rem;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    .report-card--hero {
+      padding: 1.25rem 1.3rem;
+      background:
+        radial-gradient(circle at top right, rgba(159, 251, 0, 0.08), transparent 40%),
+        linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+        rgba(12, 15, 18, 0.92);
+    }
+
+    .report-eyebrow {
+      margin: 0 0 0.55rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .report-title {
+      margin: 0;
+      font-size: clamp(1.2rem, 2vw, 1.9rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .report-body {
+      margin: 0.7rem 0 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 1rem;
+      line-height: 1.65;
+    }
+
+    .metric-row {
+      display: grid;
+      gap: 0.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      margin-top: 1rem;
+    }
+
+    .metric-pill {
+      border-radius: 18px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0.75rem 0.8rem;
+    }
+
+    .metric-label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .metric-value {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text);
+    }
+
+    .tone-good .metric-value,
+    .tone-good .score-value,
+    .tone-good .signal-badge {
+      color: #7df14a;
+    }
+
+    .tone-medium .metric-value,
+    .tone-medium .score-value,
+    .tone-medium .signal-badge {
+      color: #f0b34a;
+    }
+
+    .tone-caution .metric-value,
+    .tone-caution .score-value,
+    .tone-caution .signal-badge {
+      color: #ff7666;
+    }
+
+    .card-title {
+      margin: 0 0 0.8rem;
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .action-grid {
+      display: grid;
+      gap: 0.85rem;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    .action-column {
+      border-radius: 20px;
+      padding: 0.95rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.055);
+    }
+
+    .signal-badge {
+      display: inline-flex;
+      margin-bottom: 0.65rem;
+      padding: 0.36rem 0.62rem;
+      border-radius: 999px;
+      background: rgba(159, 251, 0, 0.08);
+      font-size: 0.82rem;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .action-column ul,
+    .narrative-section ul,
+    .watchout-list,
+    .source-highlight-copy ul {
+      margin: 0;
+      padding-left: 1rem;
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .action-column li,
+    .narrative-section li,
+    .watchout-list li {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .score-list {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .score-row {
+      display: grid;
+      gap: 0.45rem;
+      grid-template-columns: minmax(0, 220px) minmax(0, 1fr) auto;
+      align-items: center;
+    }
+
+    .score-label {
+      color: var(--text);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .score-track {
+      position: relative;
+      height: 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+    }
+
+    .score-fill {
+      position: absolute;
+      inset: 0 auto 0 0;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(109, 159, 255, 0.92), rgba(77, 227, 169, 0.92));
+    }
+
+    .score-fill.tone-medium {
+      background: linear-gradient(90deg, rgba(240, 179, 74, 0.95), rgba(202, 129, 27, 0.95));
+    }
+
+    .score-fill.tone-caution {
+      background: linear-gradient(90deg, rgba(255, 118, 102, 0.95), rgba(206, 67, 67, 0.95));
+    }
+
+    .score-value {
+      min-width: 3.4rem;
+      text-align: right;
+      font-weight: 700;
+    }
+
+    .card-footnote {
+      margin: 0.75rem 0 0;
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .source-highlight-list {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .source-highlight {
+      border-radius: 18px;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.025);
+      padding: 0.95rem 1rem;
+    }
+
+    .source-highlight-title {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.35;
+      color: var(--text);
+    }
+
+    .source-highlight-meta {
+      margin: 0.35rem 0 0;
+      color: var(--muted);
+      font-size: 0.88rem;
+      line-height: 1.5;
+    }
+
+    .source-highlight-copy {
+      margin-top: 0.65rem;
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.55;
+    }
+
+    .source-highlight-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.7rem;
+      font-size: 0.88rem;
+    }
+
+    .source-highlight-links a {
+      color: var(--secondary);
+    }
+
+    .watchout-list {
+      list-style: disc;
+    }
+
+    .narrative-stack {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .narrative-section {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 0.9rem;
+    }
+
+    .narrative-section:first-child {
+      border-top: 0;
+      padding-top: 0;
+    }
+
+    .narrative-heading {
+      margin: 0 0 0.45rem;
+      font-size: 0.82rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      .score-row {
+        grid-template-columns: 1fr;
+      }
+
+      .score-value {
+        text-align: left;
+      }
+    }
+
     .quick-chip {
       display: inline-flex;
       width: fit-content;
@@ -225,28 +510,6 @@
       thread.scrollTop = thread.scrollHeight;
     }
 
-    function renderAssistantResponse(data) {
-      const parts = [];
-      parts.push(`<p><strong>Summary:</strong> ${data.summary || "No summary returned."}</p>`);
-      if ((data.recommendations?.training || []).length) {
-        parts.push("<p><strong>Training</strong></p><ul>" + (data.recommendations?.training || []).map((item) => `<li>${item}</li>`).join("") + "</ul>");
-      }
-      if ((data.recommendations?.nutrition || []).length) {
-        parts.push("<p><strong>Nutrition</strong></p><ul>" + (data.recommendations?.nutrition || []).map((item) => `<li>${item}</li>`).join("") + "</ul>");
-      }
-      if ((data.recommendations?.mental_performance || []).length) {
-        parts.push("<p><strong>Mental performance</strong></p><ul>" + (data.recommendations?.mental_performance || []).map((item) => `<li>${item}</li>`).join("") + "</ul>");
-      }
-      parts.push(`<p><strong>Confidence:</strong> ${(data.confidence?.label || "moderate")} (${data.confidence?.score ?? "n/a"})</p>`);
-      if (data.confidence?.rationale) {
-        parts.push(`<p>${data.confidence.rationale}</p>`);
-      }
-      if (Array.isArray(data.limitations) && data.limitations.length) {
-        parts.push("<p><strong>Limitations</strong></p><ul>" + data.limitations.map((item) => `<li>${item}</li>`).join("") + "</ul>");
-      }
-      return parts.join("");
-    }
-
     function escapeHtml(value) {
       return String(value || "")
         .replace(/&/g, "&amp;")
@@ -263,6 +526,206 @@
       }
 
       return text.length > maxLength ? `${text.slice(0, maxLength - 1).trim()}…` : text;
+    }
+
+    function renderLinks(links = []) {
+      const validLinks = links.filter((link) => link?.url && link?.label);
+      if (!validLinks.length) {
+        return "";
+      }
+
+      return `<div class="source-highlight-links">${validLinks
+        .map(
+          (link) =>
+            `<a href="${escapeHtml(link.url)}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>`
+        )
+        .join("")}</div>`;
+    }
+
+    function renderCards(cards = []) {
+      if (!Array.isArray(cards) || !cards.length) {
+        return "";
+      }
+
+      const html = cards
+        .map((card) => {
+          if (card.type === "verdict_hero") {
+            return `
+              <section class="report-card report-card--hero">
+                ${card.eyebrow ? `<p class="report-eyebrow">${escapeHtml(card.eyebrow)}</p>` : ""}
+                <h3 class="report-title">${escapeHtml(card.title || "Evidence-backed verdict")}</h3>
+                ${card.body ? `<p class="report-body">${escapeHtml(card.body)}</p>` : ""}
+                ${
+                  Array.isArray(card.metrics) && card.metrics.length
+                    ? `<div class="metric-row">${card.metrics
+                        .map(
+                          (metric) => `
+                            <div class="metric-pill tone-${escapeHtml(metric.tone || "good")}">
+                              <span class="metric-label">${escapeHtml(metric.label || "")}</span>
+                              <span class="metric-value">${escapeHtml(metric.value || "")}</span>
+                            </div>
+                          `
+                        )
+                        .join("")}</div>`
+                    : ""
+                }
+              </section>
+            `;
+          }
+
+          if (card.type === "action_grid") {
+            return `
+              <section class="report-card">
+                <h3 class="card-title">${escapeHtml(card.title || "What to do")}</h3>
+                <div class="action-grid">
+                  ${(card.columns || [])
+                    .map(
+                      (column) => `
+                        <div class="action-column tone-${escapeHtml(column.tone || "good")}">
+                          <div class="signal-badge">${escapeHtml(column.label || "")}</div>
+                          <ul>
+                            ${(column.items || [])
+                              .map((item) => `<li>${escapeHtml(item)}</li>`)
+                              .join("")}
+                          </ul>
+                        </div>
+                      `
+                    )
+                    .join("")}
+                </div>
+              </section>
+            `;
+          }
+
+          if (card.type === "evidence_profile") {
+            return `
+              <section class="report-card">
+                <h3 class="card-title">${escapeHtml(card.title || "Evidence profile")}</h3>
+                <div class="score-list">
+                  ${(card.items || [])
+                    .map((item) => {
+                      const max = Number(item.max || 10);
+                      const score = Number(item.score || 0);
+                      const width = Math.max(0, Math.min((score / max) * 100, 100));
+                      const tone = escapeHtml(item.tone || "good");
+                      return `
+                        <div class="score-row">
+                          <div class="score-label">${escapeHtml(item.label || "")}</div>
+                          <div class="score-track">
+                            <div class="score-fill tone-${tone}" style="width:${width}%"></div>
+                          </div>
+                          <div class="score-value tone-${tone}">${escapeHtml(`${score}/${max}`)}</div>
+                        </div>
+                      `;
+                    })
+                    .join("")}
+                </div>
+                ${card.footnote ? `<p class="card-footnote">${escapeHtml(card.footnote)}</p>` : ""}
+              </section>
+            `;
+          }
+
+          if (card.type === "source_highlights") {
+            return `
+              <section class="report-card">
+                <h3 class="card-title">${escapeHtml(card.title || "Best sources")}</h3>
+                <div class="source-highlight-list">
+                  ${(card.items || [])
+                    .map(
+                      (item) => `
+                        <article class="source-highlight">
+                          <h4 class="source-highlight-title">${escapeHtml(item.title || "Source")}</h4>
+                          ${item.meta ? `<p class="source-highlight-meta">${escapeHtml(item.meta)}</p>` : ""}
+                          ${item.takeaway ? `<div class="source-highlight-copy">${escapeHtml(item.takeaway)}</div>` : ""}
+                          ${renderLinks(item.links || [])}
+                        </article>
+                      `
+                    )
+                    .join("")}
+                </div>
+              </section>
+            `;
+          }
+
+          if (card.type === "watchouts") {
+            return `
+              <section class="report-card">
+                <h3 class="card-title">${escapeHtml(card.title || "Watchouts")}</h3>
+                <ul class="watchout-list">
+                  ${(card.items || [])
+                    .map((item) => `<li>${escapeHtml(item)}</li>`)
+                    .join("")}
+                </ul>
+              </section>
+            `;
+          }
+
+          return "";
+        })
+        .filter(Boolean)
+        .join("");
+
+      return html ? `<div class="card-stack">${html}</div>` : "";
+    }
+
+    function renderNarrativeResponse(data) {
+      const sections = [];
+      sections.push(`
+        <section class="narrative-section">
+          <h3 class="narrative-heading">Summary</h3>
+          <p>${escapeHtml(data.summary || "No summary returned.")}</p>
+        </section>
+      `);
+      if ((data.recommendations?.training || []).length) {
+        sections.push(`
+          <section class="narrative-section">
+            <h3 class="narrative-heading">Training</h3>
+            <ul>${(data.recommendations.training || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          </section>
+        `);
+      }
+      if ((data.recommendations?.nutrition || []).length) {
+        sections.push(`
+          <section class="narrative-section">
+            <h3 class="narrative-heading">Nutrition</h3>
+            <ul>${(data.recommendations.nutrition || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          </section>
+        `);
+      }
+      if ((data.recommendations?.mental_performance || []).length) {
+        sections.push(`
+          <section class="narrative-section">
+            <h3 class="narrative-heading">Mental performance</h3>
+            <ul>${(data.recommendations.mental_performance || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          </section>
+        `);
+      }
+      sections.push(`
+        <section class="narrative-section">
+          <h3 class="narrative-heading">Confidence</h3>
+          <p>${escapeHtml(`${data.confidence?.label || "moderate"} (${data.confidence?.score ?? "n/a"})`)}</p>
+          ${data.confidence?.rationale ? `<p>${escapeHtml(data.confidence.rationale)}</p>` : ""}
+        </section>
+      `);
+      if (Array.isArray(data.limitations) && data.limitations.length) {
+        sections.push(`
+          <section class="narrative-section">
+            <h3 class="narrative-heading">Limitations</h3>
+            <ul>${data.limitations.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
+          </section>
+        `);
+      }
+
+      return `<div class="narrative-stack">${sections.join("")}</div>`;
+    }
+
+    function renderAssistantResponse(data) {
+      return `
+        <div class="assistant-report">
+          ${renderCards(data.cards || [])}
+          ${renderNarrativeResponse(data)}
+        </div>
+      `;
     }
 
     function renderSources(data) {
