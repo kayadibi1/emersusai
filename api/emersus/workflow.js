@@ -505,9 +505,10 @@ async function callOpenAISynthesis({
 
 function extractSectionBlock(text, label, nextLabels) {
   const normalized = String(text || "");
+  const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
   const escapedNext = nextLabels.map((item) => item.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   const pattern = new RegExp(
-    `${label}:\\s*([\\s\\S]*?)(?=\\n(?:${escapedNext.join("|")}):|$)`,
+    `(?:^|\\n)(?:#+\\s*)?${escapedLabel}:?\\s*([\\s\\S]*?)(?=\\n(?:#+\\s*)?(?:${escapedNext.join("|")}):?|$)`,
     "i"
   );
   const match = normalized.match(pattern);
@@ -519,6 +520,14 @@ function parseBulletSection(text) {
     .split(/\r?\n/)
     .map((line) => line.replace(/^\s*[-*]\s*/, "").trim())
     .filter(Boolean);
+}
+
+function sentenceSplit(text, maxItems = 4) {
+  return String(text || "")
+    .split(/(?<=[.!?])\s+/)
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .slice(0, maxItems);
 }
 
 function normalizeSynthesisPayload(text) {
@@ -548,16 +557,31 @@ function normalizeSynthesisPayload(text) {
     extractSectionBlock(text, "LIMITATIONS", [])
   );
 
-  if (!summary && !training.length && !nutrition.length && !mentalPerformance.length) {
-    throw new Error("The model response was missing the required labeled sections.");
+  const normalizedText = normalizeText(text, 2400);
+  const fallbackSummary = summary || normalizedText;
+  const fallbackBullets = sentenceSplit(normalizedText, 3);
+
+  if (!fallbackSummary) {
+    throw new Error("The model response was empty.");
   }
 
   return {
-    summary: normalizeText(summary, 1600),
+    summary: normalizeText(fallbackSummary, 1600),
     recommendations: {
-      training: normalizeList(training, 8),
-      nutrition: normalizeList(nutrition, 8),
-      mental_performance: normalizeList(mentalPerformance, 8),
+      training: normalizeList(
+        training.length ? training : fallbackBullets.slice(0, 1),
+        8
+      ),
+      nutrition: normalizeList(
+        nutrition.length ? nutrition : fallbackBullets.slice(1, 2),
+        8
+      ),
+      mental_performance: normalizeList(
+        mentalPerformance.length
+          ? mentalPerformance
+          : fallbackBullets.slice(2, 3),
+        8
+      ),
     },
     limitations: normalizeList(limitations, 6),
   };
