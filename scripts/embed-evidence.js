@@ -29,7 +29,13 @@ async function withDbRetry(label, operation) {
 
   while (true) {
     try {
-      return await operation();
+      const result = await operation();
+
+      if (result?.error && isRetryableSupabaseError(result.error)) {
+        throw result.error;
+      }
+
+      return result;
     } catch (error) {
       attempt += 1;
 

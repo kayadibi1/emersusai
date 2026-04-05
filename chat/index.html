@@ -102,6 +102,12 @@
       padding: 0.6rem 0.9rem 1.6rem;
     }
 
+    .chat-brand-actions {
+      display: flex;
+      justify-content: flex-start;
+      margin-top: 1rem;
+    }
+
     .chat-brand-mark {
       margin: 0;
       font-family: "Space Grotesk", sans-serif;
@@ -136,7 +142,7 @@
     .conversation-canvas,
     .chat-rail {
       scrollbar-width: thin;
-      scrollbar-color: rgba(159, 251, 0, 0.55) rgba(255, 255, 255, 0.05);
+      scrollbar-color: rgba(108, 108, 108, 0.95) rgba(18, 18, 18, 0.96);
     }
 
     .chat-nav-list::-webkit-scrollbar,
@@ -149,22 +155,22 @@
     .chat-nav-list::-webkit-scrollbar-track,
     .conversation-canvas::-webkit-scrollbar-track,
     .chat-rail::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.04);
+      background: rgba(18, 18, 18, 0.96);
       border-radius: 999px;
     }
 
     .chat-nav-list::-webkit-scrollbar-thumb,
     .conversation-canvas::-webkit-scrollbar-thumb,
     .chat-rail::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, rgba(109, 159, 255, 0.8), rgba(159, 251, 0, 0.8));
+      background: linear-gradient(180deg, rgba(112, 112, 112, 0.96), rgba(76, 76, 76, 0.96));
       border-radius: 999px;
-      border: 2px solid rgba(7, 10, 14, 0.9);
+      border: 2px solid rgba(10, 10, 10, 0.96);
     }
 
     .chat-nav-list::-webkit-scrollbar-thumb:hover,
     .conversation-canvas::-webkit-scrollbar-thumb:hover,
     .chat-rail::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, rgba(109, 159, 255, 0.95), rgba(159, 251, 0, 0.95));
+      background: linear-gradient(180deg, rgba(138, 138, 138, 0.98), rgba(96, 96, 96, 0.98));
     }
 
     .chat-nav-link {
@@ -237,14 +243,16 @@
       overflow-y: auto;
       overflow-x: hidden;
       scroll-behavior: smooth;
+      justify-content: center;
     }
 
     .chat-thread {
       display: grid;
-      gap: 0.65rem;
+      gap: 0.28rem;
       align-content: start;
       min-height: min-content;
       width: 100%;
+      max-width: 760px;
       overflow: visible;
       padding-right: 0;
     }
@@ -257,7 +265,7 @@
     .thread-welcome {
       display: grid;
       gap: 0.9rem;
-      max-width: 38rem;
+      max-width: 46rem;
       padding: 0 0.2rem;
     }
 
@@ -290,7 +298,9 @@
     }
 
     .message {
-      max-width: min(96%, 900px);
+      width: 100%;
+      max-width: 100%;
+      margin: 0 auto;
       padding: 0;
       border-radius: 0;
       line-height: 1.68;
@@ -305,9 +315,7 @@
     }
 
     .message.user {
-      margin-left: auto;
-      text-align: right;
-      max-width: min(80%, 720px);
+      text-align: left;
     }
 
     .message.assistant {
@@ -320,7 +328,7 @@
 
     .message-content {
       display: grid;
-      gap: 0.45rem;
+      gap: 0.12rem;
       font-size: 1rem;
     }
 
@@ -330,7 +338,7 @@
 
     .assistant-report {
       display: grid;
-      gap: 0.45rem;
+      gap: 0.12rem;
     }
 
     .narrative-section ul,
@@ -338,7 +346,7 @@
       margin: 0;
       padding-left: 1rem;
       display: grid;
-      gap: 0.45rem;
+      gap: 0.18rem;
     }
 
     .narrative-section li,
@@ -352,10 +360,12 @@
 
     .narrative-stack {
       display: grid;
-      gap: 0.55rem;
+      gap: 0.22rem;
     }
 
     .narrative-section {
+      display: grid;
+      gap: 0.1rem;
       border-top: 0;
       padding-top: 0;
     }
@@ -365,15 +375,15 @@
     }
 
     .narrative-section > p + p {
-      margin-top: 0.35rem;
+      margin-top: 0.14rem;
     }
 
     .narrative-section > ul {
-      margin-top: 0.15rem;
+      margin-top: 0.04rem;
     }
 
     .narrative-heading {
-      margin: 0 0 0.18rem;
+      margin: 0;
       font-family: "Space Grotesk", sans-serif;
       font-size: 0.68rem;
       font-weight: 700;
@@ -419,6 +429,9 @@
       display: grid;
       gap: 0.85rem;
       margin-top: 1rem;
+      margin-left: auto;
+      margin-right: auto;
+      width: min(100%, 720px);
       padding: 0.85rem;
       border-radius: 12px;
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -806,6 +819,12 @@
       <div class="chat-brand">
         <h1 class="chat-brand-mark">EMERSUS</h1>
         <p class="chat-brand-subtitle">Evidence Layer Active</p>
+        <div class="chat-brand-actions">
+          <button class="inline-button" type="button" data-chat-new>
+            <span class="material-symbols-outlined">add</span>
+            <span>New chat</span>
+          </button>
+        </div>
       </div>
 
       <div class="chat-nav-list" data-chat-history aria-label="Chat history"></div>
@@ -840,10 +859,6 @@
             <div class="composer-buttons">
               <button class="inline-button" type="button" data-history-toggle aria-expanded="true" aria-label="Toggle conversation history">
                 <span class="material-symbols-outlined">left_panel_open</span>
-              </button>
-              <button class="inline-button" type="button" data-chat-new>
-                <span class="material-symbols-outlined">add</span>
-                <span>New chat</span>
               </button>
             </div>
             <p class="status-text" data-chat-status></p>
@@ -1288,7 +1303,6 @@
         item.className = "source-item";
         const meta = [
           source.author_label || "",
-          source.source_type || "database",
           source.journal || "",
           source.year || source.published_at || "",
           source.publication_type || "",
