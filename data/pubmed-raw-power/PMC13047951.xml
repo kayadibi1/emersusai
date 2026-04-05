@@ -1,0 +1,597 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="mus70172" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Muscle Nerve</journal-id><journal-id journal-id-type="iso-abbrev">Muscle Nerve</journal-id><journal-id journal-id-type="pmc-domain-id">379</journal-id><journal-id journal-id-type="pmc-domain">blackwellopen</journal-id><journal-id journal-id-type="publisher-id">MUS</journal-id><journal-title-group><journal-title>Muscle &amp; Nerve</journal-title></journal-title-group><issn pub-type="ppub">0148-639X</issn><issn pub-type="epub">1097-4598</issn><custom-meta-group><custom-meta><meta-name>pmc-is-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-collection-title</meta-name><meta-value>Wiley Open Access Collection</meta-value></custom-meta></custom-meta-group></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13047951</article-id><article-id pub-id-type="pmcid-ver">PMC13047951.1</article-id><article-id pub-id-type="pmcaid">13047951</article-id><article-id pub-id-type="pmcaiid">13047951</article-id><article-id pub-id-type="pmid">41649381</article-id><article-id pub-id-type="doi">10.1002/mus.70172</article-id><article-id pub-id-type="publisher-id">MUS70172</article-id><article-id pub-id-type="other">MUS-25-0324</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Clinical Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Clinical Research Article</subject></subj-group></article-categories><title-group><article-title>Post Activation Potentiation Is Greater in Human Triceps Brachii Versus Triceps Surae Muscles</article-title></title-group><contrib-group><contrib id="mus70172-cr-0001" contrib-type="author"><name name-style="western"><surname>Zoughaib</surname><given-names initials="WS">William S.</given-names></name><xref rid="mus70172-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="mus70172-cr-0002" contrib-type="author"><name name-style="western"><surname>Fry</surname><given-names initials="MJ">Madison J.</given-names></name><xref rid="mus70172-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="mus70172-cr-0003" contrib-type="author"><name name-style="western"><surname>Singhal</surname><given-names initials="A">Ahaan</given-names></name><xref rid="mus70172-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="mus70172-cr-0004" contrib-type="author"><name name-style="western"><surname>Hoffman</surname><given-names initials="RL">Richard L.</given-names></name><xref rid="mus70172-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="mus70172-cr-0005" contrib-type="author" corresp="yes"><name name-style="western"><surname>Coggan</surname><given-names initials="AR">Andrew R.</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-7723-8872</contrib-id><xref rid="mus70172-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>acoggan@iu.edu</email></address></contrib></contrib-group><aff id="mus70172-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Exercise Physiology Laboratory, Department of Kinesiology, School of Health &amp; Human Sciences</named-content>
+<institution>Indiana University Indianapolis</institution>
+<city>Indianapolis</city>
+<named-content content-type="country-part">Indiana</named-content>
+<country country="US">USA</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>
+<bold>Correspondence:</bold>
+<break/>
+Andrew R. Coggan (<email>acoggan@iu.edu</email>)<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>06</day><month>2</month><year>2026</year></pub-date><pub-date pub-type="ppub"><month>5</month><year>2026</year></pub-date><volume>73</volume><issue seq="150">5</issue><issue-id pub-id-type="pmc-issue-id">510865</issue-id><issue-id pub-id-type="doi">10.1002/mus.v73.5</issue-id><fpage>815</fpage><lpage>821</lpage><history><date date-type="rev-recd"><day>15</day><month>1</month><year>2026</year></date><date date-type="received"><day>23</day><month>5</month><year>2025</year></date><date date-type="accepted"><day>27</day><month>1</month><year>2026</year></date></history><pub-history><event event-type="pmc-release"><date><day>03</day><month>04</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>04</day><month>04</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-04 10:25:15.023"><day>04</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). <italic toggle="yes">Muscle &amp; Nerve</italic> published by Wiley Periodicals LLC.</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="MUS-73-815.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:MUS-73-815.pdf"/><abstract><title>ABSTRACT</title><sec id="mus70172-sec-0001"><title>Introduction/Aims</title><p>Voluntary muscle contractions result in a temporary increase in twitch force, a phenomenon termed post activation potentiation (PAP). In rodents and other species, PAP is observed predominantly or exclusively in fast twitch muscles. However, it has been suggested that in humans, PAP occurs more or less independently of muscle fiber type.</p></sec><sec id="mus70172-sec-0002"><title>Methods</title><p>Eighteen healthy men and women (27 ± 8 years) underwent an electrical stimulation protocol during which two sets of four twitches were elicited both pre and post 6 s maximal voluntary contractions of the triceps surae (60%–70% slow twitch) and triceps brachii (60%–70% fast twitch) muscles.</p></sec><sec id="mus70172-sec-0003"><title>Results</title><p>Unpotentiated peak twitch torque (PTT) was higher in the larger triceps surae versus the smaller triceps brachii (i.e., 13.4 ± 5.3 vs. 3.4 ± 2.1 nm; <italic toggle="no">p</italic> &lt; 0.001), but time to peak torque was shorter (i.e., 84 ± 7 vs. 132 ± 14 ms; <italic toggle="no">p</italic> &lt; 0.001) and relative rate of torque development (RTD) was greater in the triceps brachii (2294 ± 257 vs. 1425% ± 102%/s; <italic toggle="no">p</italic> &lt; 0.001). PAP increased PTT by 172% ± 124% in the triceps brachii versus 20% ± 20% in the triceps surae (<italic toggle="no">p</italic> &lt; 0.001). Absolute RTD also increased more in the triceps brachii (i.e., 240% ± 170% vs. 31% ± 24%; <italic toggle="no">p</italic> &lt; 0.001). However, PAP‐induced changes in half‐relaxation time and relative rate of relaxation did not differ between muscle groups.</p></sec><sec id="mus70172-sec-0004"><title>Discussion</title><p>We conclude that PAP influences contraction but not relaxation of human muscle in a fiber type dependent manner. This should be kept in mind when interpreting individual differences in the results of neuromuscular testing, response to varying warm‐up protocols, etc.</p></sec></abstract><kwd-group kwd-group-type="author-generated"><kwd id="mus70172-kwd-0001">muscle fiber type</kwd><kwd id="mus70172-kwd-0002">myosin regulatory light chain</kwd><kwd id="mus70172-kwd-0003">neuromuscular electrical stimulation</kwd><kwd id="mus70172-kwd-0004">twitch contractile properties</kwd></kwd-group><counts><fig-count count="3"/><table-count count="1"/><page-count count="7"/><word-count count="5500"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>May 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:03.04.2026</meta-value></custom-meta></custom-meta-group></article-meta><notes><p content-type="self-citation">
+<mixed-citation publication-type="journal" id="mus70172-cit-1001">
+<string-name name-style="western">
+<given-names>W. S.</given-names>
+<surname>Zoughaib</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. J.</given-names>
+<surname>Fry</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Singhal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. L.</given-names>
+<surname>Hoffman</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>A. R.</given-names>
+<surname>Coggan</surname>
+</string-name>, “<article-title>Post Activation Potentiation Is Greater in Human Triceps Brachii Versus Triceps Surae Muscles</article-title>,” <source>Muscle &amp; Nerve</source>
+<volume>73</volume>, no. <issue>5</issue> (<year>2026</year>): <fpage>815</fpage>–<lpage>821</lpage>, <pub-id pub-id-type="doi">10.1002/mus.70172</pub-id>.<pub-id pub-id-type="pmcid">PMC13047951</pub-id><pub-id pub-id-type="pmid">41649381</pub-id></mixed-citation>
+</p><fn-group id="mus70172-ntgp-0001"><fn fn-type="paperPresentation" id="mus70172-note-0001"><p>Preliminary results from this study were presented at the American College of Sports Medicine Annual Meeting in Boston, MA, May 28‐31, 2024.</p></fn></fn-group></notes></front><body id="mus70172-body-0001"><def-list list-content="abbreviations" id="mus70172-dl-0001"><title>Abbreviations</title><def-item><term id="mus70172-li-0001">ANOVA</term><def id="mus70172-li-0002"><p>analysis of variance</p></def></def-item><def-item><term id="mus70172-li-0003">ATP</term><def id="mus70172-li-0004"><p>adenosine triphosphate</p></def></def-item><def-item><term id="mus70172-li-0005">HRT</term><def id="mus70172-li-0006"><p>half‐relaxation time</p></def></def-item><def-item><term id="mus70172-li-0007">IPAQ</term><def id="mus70172-li-0008"><p>International Physical Activity Questionnaire</p></def></def-item><def-item><term id="mus70172-li-0009">MET</term><def id="mus70172-li-0010"><p>metabolic equivalent of task</p></def></def-item><def-item><term id="mus70172-li-0011">MVC</term><def id="mus70172-li-0012"><p>maximal voluntary contraction</p></def></def-item><def-item><term id="mus70172-li-0013">PAP</term><def id="mus70172-li-0014"><p>post‐activation potentiation</p></def></def-item><def-item><term id="mus70172-li-0015">P<sub>i</sub>
+</term><def id="mus70172-li-0016"><p>inorganic phosphate</p></def></def-item><def-item><term id="mus70172-li-0017">PTT</term><def id="mus70172-li-0018"><p>peak twitch torque</p></def></def-item><def-item><term id="mus70172-li-0019">RLC</term><def id="mus70172-li-0020"><p>regulatory light chain</p></def></def-item><def-item><term id="mus70172-li-0021">RR</term><def id="mus70172-li-0022"><p>rate of relaxation</p></def></def-item><def-item><term id="mus70172-li-0023">RTD</term><def id="mus70172-li-0024"><p>rate of torque development</p></def></def-item><def-item><term id="mus70172-li-0025">smMLCK</term><def id="mus70172-li-0026"><p>skeletal muscle myosin light chain kinase</p></def></def-item><def-item><term id="mus70172-li-0027">TPT</term><def id="mus70172-li-0028"><p>time to peak torque</p></def></def-item></def-list><sec id="mus70172-sec-0005"><label>1</label><title>Introduction</title><p>Post‐activation potentiation (PAP) is the short‐term (i.e., seconds to minutes) enhancement of skeletal muscle function following prior voluntary contractile activity. Analogous to the post‐tetanic potentiation observed following electrically evoked contractions, PAP results in increases in the peak force and rate of force development during an isometric twitch [<xref rid="mus70172-bib-0001" ref-type="bibr">1</xref>]. Even greater increases in force (and hence power) are observed during concentric contractions [<xref rid="mus70172-bib-0001" ref-type="bibr">1</xref>]. These changes are thought to be largely, albeit not entirely, the result of a Ca<sup>2+</sup>‐stimulated increase in phosphorylation of the myosin regulatory light chain (RLC) [<xref rid="mus70172-bib-0002" ref-type="bibr">2</xref>]. This disrupts the superrelaxed state of myosin, leading to an increase in Ca<sup>2+</sup> sensitivity and thus force upon stimulation [<xref rid="mus70172-bib-0003" ref-type="bibr">3</xref>]. Furthermore, although RLC phosphorylation has no apparent effect on the maximal ATPase activity or velocity of unloaded shortening of muscle [<xref rid="mus70172-bib-0001" ref-type="bibr">1</xref>], which are indicative of the rate of crossbridge cycling, the formation of more crossbridges results in an increase in the rate of force development when Ca<sup>2+</sup> levels are subsaturating (e.g., during a twitch) [<xref rid="mus70172-bib-0004" ref-type="bibr">4</xref>].</p><p>In other species [<xref rid="mus70172-bib-0005" ref-type="bibr">5</xref>, <xref rid="mus70172-bib-0006" ref-type="bibr">6</xref>, <xref rid="mus70172-bib-0007" ref-type="bibr">7</xref>, <xref rid="mus70172-bib-0008" ref-type="bibr">8</xref>, <xref rid="mus70172-bib-0009" ref-type="bibr">9</xref>, <xref rid="mus70172-bib-0010" ref-type="bibr">10</xref>], significant PAP is observed only in fast and not in slow muscles. At least in rodents, this appears to be primarily due to a &gt; 10‐fold higher ratio of skeletal muscle myosin light chain kinase (smMLCK) activity to myosin light chain phosphatase activity in fast muscle fibers [<xref rid="mus70172-bib-0011" ref-type="bibr">11</xref>]. As a result, during contractions a marked increase in RLC phosphorylation occurs only in fast fibers, and in fact it has been suggested that the potentiated state is the normal operating state of fast muscles [<xref rid="mus70172-bib-0012" ref-type="bibr">12</xref>]. In humans, however, muscle contraction results in phosphorylation of the RLC in both fiber types [<xref rid="mus70172-bib-0013" ref-type="bibr">13</xref>, <xref rid="mus70172-bib-0014" ref-type="bibr">14</xref>], and considerable PAP is observed even in muscles with a high percentage of slow fibers [<xref rid="mus70172-bib-0015" ref-type="bibr">15</xref>, <xref rid="mus70172-bib-0016" ref-type="bibr">16</xref>, <xref rid="mus70172-bib-0017" ref-type="bibr">17</xref>, <xref rid="mus70172-bib-0018" ref-type="bibr">18</xref>, <xref rid="mus70172-bib-0019" ref-type="bibr">19</xref>, <xref rid="mus70172-bib-0020" ref-type="bibr">20</xref>]. Moreover, endurance athletes exhibit greater PAP in their trained muscles despite a slower phenotype [<xref rid="mus70172-bib-0020" ref-type="bibr">20</xref>]. Contrastingly, PAP has also been reported to be greater in faster vs. slower human muscles [<xref rid="mus70172-bib-0019" ref-type="bibr">19</xref>, <xref rid="mus70172-bib-0021" ref-type="bibr">21</xref>] and to be inversely correlated with baseline (i.e., unpotentiated) twitch kinetics [<xref rid="mus70172-bib-0021" ref-type="bibr">21</xref>, <xref rid="mus70172-bib-0022" ref-type="bibr">22</xref>], implying a fast twitch fiber dependence. Thus, the effects of muscle fiber type on PAP in humans are still uncertain [<xref rid="mus70172-bib-0001" ref-type="bibr">1</xref>].</p><p>In addition to altering the rate of force development, PAP may (or may not) alter the rate of relaxation. In rodent muscle, PAP slows the rate of relaxation from a steady force but enhances the rate of relaxation during a twitch [<xref rid="mus70172-bib-0001" ref-type="bibr">1</xref>], effects that appear to be independent of either RLC phosphorylation or muscle fiber type [<xref rid="mus70172-bib-0022" ref-type="bibr">22</xref>]. In humans, on the other hand, PAP has been reported to either reduce [<xref rid="mus70172-bib-0015" ref-type="bibr">15</xref>, <xref rid="mus70172-bib-0016" ref-type="bibr">16</xref>, <xref rid="mus70172-bib-0018" ref-type="bibr">18</xref>, <xref rid="mus70172-bib-0020" ref-type="bibr">20</xref>], not change [<xref rid="mus70172-bib-0016" ref-type="bibr">16</xref>, <xref rid="mus70172-bib-0017" ref-type="bibr">17</xref>, <xref rid="mus70172-bib-0022" ref-type="bibr">22</xref>, <xref rid="mus70172-bib-0023" ref-type="bibr">23</xref>], or even increase [<xref rid="mus70172-bib-0024" ref-type="bibr">24</xref>] twitch half‐relaxation time (HRT) in various muscle groups. The effects of PAP on relaxation of human muscle, especially with respect to fiber type, are therefore still unclear.</p><p>The purpose of the present study was to determine the effects of a conditioning activity designed to elicit PAP on the twitch contractile properties of two human muscles differing significantly in fiber type composition, that is, the triceps brachii (60%–70% fast twitch) and triceps surae (60%–70% slow twitch) muscles [<xref rid="mus70172-bib-0025" ref-type="bibr">25</xref>, <xref rid="mus70172-bib-0026" ref-type="bibr">26</xref>]. We hypothesized that PAP would increase twitch force and kinetics in both muscle groups, but that these effects would be larger in the triceps brachii versus the triceps surae.</p></sec><sec sec-type="methods" id="mus70172-sec-0006"><label>2</label><title>Methods</title><sec id="mus70172-sec-0007"><label>2.1</label><title>Participants</title><p>Healthy adults provided informed consent to participate in this study, which was approved by the Human Subjects Office at Indiana University. Both men and women were included because prior research has demonstrated that there is no sex‐related difference in twitch potentiation immediately after an isometric contraction [<xref rid="mus70172-bib-0027" ref-type="bibr">27</xref>, <xref rid="mus70172-bib-0028" ref-type="bibr">28</xref>]. To avoid the potentially confounding influence of exercise training on PAP [<xref rid="mus70172-bib-0020" ref-type="bibr">20</xref>], highly active individuals (i.e., those performing &gt; 3000 metabolic equivalent of task (MET)‐min/week of moderate physical activity or &gt; 1500 MET‐min/week of vigorous physical activity based on the short‐form International Physical Activity Questionnaire (IPAQ; [<xref rid="mus70172-bib-0029" ref-type="bibr">29</xref>]) were excluded). Other exclusion criteria were age &lt; 18 or &gt; 44 years, current use of antibiotics, phosphodiesterase inhibitors, tobacco, or any supplements intended to increase muscle mass or function, diagnosis of epilepsy or presence of a pacemaker or other implantable cardiac device, resting blood pressure &gt; 140/90 mmHg, or an answer of yes to any of the seven general health questions of the Physical Activity Readiness Questionnaire [<xref rid="mus70172-bib-0030" ref-type="bibr">30</xref>]. In addition, women were excluded if they had an irregular menstrual cycle (average length &lt; 21 or &gt; 35 days), had missed more than three consecutive periods in the last 12 months, or were pregnant, using hormonal contraceptives, or on hormone replacement therapy. We did not attempt to control for menstrual cycle phase since it has been reported to have no influence on twitch contractile properties [<xref rid="mus70172-bib-0031" ref-type="bibr">31</xref>, <xref rid="mus70172-bib-0032" ref-type="bibr">32</xref>].</p></sec><sec id="mus70172-sec-0008"><label>2.2</label><title>Experimental Procedures</title><p>A constant current stimulator (Digitimer DS 7AH, Hertfordshire, UK) was used to elicit unpotentiated and potentiated isometric twitch contractions of the triceps brachii and triceps surae, with the resultant torque measured at 1000 Hz using an isokinetic dynamometer (Biodex System 4 Pro, Biodex Medical Systems, Shirley, NY) and data acquisition system (Biopac MP160, Biopac, Goleta, CA). The order of testing of the two muscle groups was randomized between participants.</p><p>After shaving, abrading, and cleaning the participant's skin over the muscles of interest, two 5.08 × 8.89 cm self‐adhesive electrodes (Dura‐Stick Plus, Chattanooga Medical Supply, Chattanooga, TN) were applied to the first muscle to be tested. For the triceps brachii, the cathode was placed diagonally across the proximal posterolateral portion of the long and lateral heads, whereas the anode was placed transversely ~5 cm proximal to the olecranon process. For the triceps surae, the cathode was placed transversely over the gastrocnemius muscle ~5 cm distal to the popliteal fossa, whereas the anode was placed over the soleus muscle ~10 cm proximal to the calcaneus. The participant was then positioned on the dynamometer for testing of the triceps brachii (Figure <xref rid="mus70172-supitem-0001" ref-type="supplementary-material">S1</xref>, top panel) or triceps surae (Figure <xref rid="mus70172-supitem-0001" ref-type="supplementary-material">S1</xref>, bottom panel). Single stimuli (400 V, 200 μs) of increasing current were then applied at 3–5 s intervals until a plateau in twitch torque was observed. After a brief rest, four unpotentiated twitches were then elicited at approximately 1 s intervals. The participant then performed a 6 s maximal voluntary isometric contraction (MVC), during which strong verbal encouragement was provided. Previous research has demonstrated that MVCs of 3–10 s result in maximal PAP irrespective of muscle fiber type [<xref rid="mus70172-bib-0016" ref-type="bibr">16</xref>, <xref rid="mus70172-bib-0022" ref-type="bibr">22</xref>]. Immediately afterwards, four potentiated twitches were elicited, also at approximately 1 s intervals. Results of a representative experiment are shown in Figure <xref rid="mus70172-fig-0001" ref-type="fig">1</xref>. After 10 min of rest [<xref rid="mus70172-bib-0015" ref-type="bibr">15</xref>, <xref rid="mus70172-bib-0023" ref-type="bibr">23</xref>], a single stimulus was applied to verify reversal of the potentiation, then this sequence was repeated for that muscle. The electrodes were then moved, and the participant repositioned on the dynamometer to permit testing of the second muscle using the same procedures.</p><fig position="float" fig-type="FIGURE" id="mus70172-fig-0001" orientation="portrait"><label>FIGURE 1</label><caption><p>Effects of a 6 s maximal voluntary contraction (MVC) on twitch torque in the triceps surae (<italic toggle="yes">top panel</italic>) or triceps brachii (<italic toggle="yes">bottom panel</italic>) of a representative participant.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="MUS-73-815-g003.jpg"/></fig></sec><sec id="mus70172-sec-0009"><label>2.3</label><title>Data Analysis</title><p>Torque data were analyzed using Biopac AcqKnowledge version 5.08. The signal was first smoothed using a 10 ms rolling average filter, after which peak twitch torque (PTT), time to peak torque (TPT), and HRT were manually extracted for each twitch. Maximal rates of torque development (RTD) and relaxation (RR) were also determined based on the first derivative of the smoothed torque signal over a 20 ms interval. The eight values obtained for each of these parameters under each condition (i.e., unpotentiated and potentiated) were then averaged and these averages used in all subsequent calculations.</p></sec><sec id="mus70172-sec-0010"><label>2.4</label><title>Statistical Analysis</title><p>Statistical analyses were performed using GraphPad Prism version 10.4.1 (build 627) (GraphPad Software, La Jolla, CA). Normality of data distribution was assessed using the D'Agostino and Pearson omnibus test. Two‐way (i.e., muscle × condition, both as within participant factors) analyses of variance (ANOVA) were used to compare twitch contractile properties between the triceps surae and triceps brachii. Differences between individual cell means were tested using the Holm‐Šidák multiple comparison procedure. The effects of PAP on percentage changes in PTT, RTD, and RR in the two muscle groups were compared using paired <italic toggle="yes">t</italic>‐tests. Pearson product correlations were used to evaluate the relationship between unpotentiated twitch characteristics and the extent of PAP. Multiplicity‐adjusted two‐tailed <italic toggle="yes">P</italic> values &lt; 0.05 were considered statistically significant. Effect sizes are presented as Cohen's <italic toggle="yes">d</italic>.</p></sec></sec><sec sec-type="results" id="mus70172-sec-0011"><label>3</label><title>Results</title><p>Eighteen individuals (15 men, three women) were studied. Their mean age, height, weight, and body mass index were 27 ± 8 years, 1.74 ± 0.07 m, 77.0 ± 18.3 kg, and 25.2 ± 4.8 kg/m<sup>2</sup>, respectively. Based on the IPAQ, they were moderately active, performing 1140 ± 751 MET‐min/week of physical activity.</p><p>The multiple (i.e., <italic toggle="yes">n</italic> = 8) twitches elicited under each condition (i.e., unpotentiated or potentiated) were used to calculate the 95% confidence limits for the mean values of PTT, TPT, HRT, absolute RTD, absolute RR, relative RTD, and relative RR. In relative terms these were determined to be ±3.2%, ±3.2%, ±4.5%, ±3.5%, ±4.1%, ±2.4%, and ±3.4% in the unpotentiated state and ±2.1%, ±2.7%, ±3.0%, ±2.5%, ±3.5%, ±1.8%, and ±2.9% in the potentiated state, respectively. Data from a representative participant are illustrated in Figure <xref rid="mus70172-fig-0002" ref-type="fig">2</xref>, whereas the contractile properties of the two muscle groups are summarized in Table <xref rid="mus70172-tbl-0001" ref-type="table">1</xref>.</p><fig position="float" fig-type="FIGURE" id="mus70172-fig-0002" orientation="portrait"><label>FIGURE 2</label><caption><p>Effects of post‐activation potentiation on twitch torque in the triceps surae (<italic toggle="yes">top panel</italic>) and triceps brachii (<italic toggle="yes">bottom panel</italic>) of a representative participant.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="MUS-73-815-g001.jpg"/></fig><table-wrap position="float" id="mus70172-tbl-0001" content-type="TABLE" orientation="portrait"><label>TABLE 1</label><caption><p>Twitch contractile properties of the triceps surae and triceps brachii muscle groups.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead valign="bottom"><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="2" valign="bottom" colspan="1"/><th align="center" colspan="3" valign="bottom" rowspan="1">Triceps surae</th><th align="center" colspan="3" valign="bottom" rowspan="1">Triceps brachii</th></tr><tr style="border-bottom:solid 1px #000000"><th align="center" valign="bottom" rowspan="1" colspan="1">Unpotentiated</th><th align="center" valign="bottom" rowspan="1" colspan="1">Potentiated</th><th align="center" valign="bottom" rowspan="1" colspan="1">% Change</th><th align="center" valign="bottom" rowspan="1" colspan="1">Unpotentiated</th><th align="center" valign="bottom" rowspan="1" colspan="1">Potentiated</th><th align="center" valign="bottom" rowspan="1" colspan="1">% Change</th></tr></thead><tbody valign="top"><tr><td align="left" valign="top" rowspan="1" colspan="1">PTT (nm)</td><td align="center" valign="top" rowspan="1" colspan="1">13.4 ± 5.3</td><td align="center" valign="top" rowspan="1" colspan="1">15.8<xref rid="mus70172-note-0005" ref-type="table-fn">
+<sup>b</sup>
+</xref> ± 5.9</td><td align="center" valign="top" rowspan="1" colspan="1">+21 ± 20</td><td align="center" valign="top" rowspan="1" colspan="1">3.4<xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>c</sup>
+</xref> ± 2.1</td><td align="center" valign="top" rowspan="1" colspan="1">7.6<xref rid="mus70172-note-0005" ref-type="table-fn">
+<sup>
+b
+</sup>
+</xref>, <xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>
+c
+</sup>
+</xref> ± 2.9</td><td align="center" valign="top" rowspan="1" colspan="1">+172<xref rid="mus70172-note-0007" ref-type="table-fn">
+<sup>d</sup>
+</xref> ± 124</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">TPT (ms)</td><td align="center" valign="top" rowspan="1" colspan="1">132 ± 14</td><td align="center" valign="top" rowspan="1" colspan="1">117<xref rid="mus70172-note-0005" ref-type="table-fn">
+<sup>b</sup>
+</xref> ± 9</td><td align="center" valign="top" rowspan="1" colspan="1">−11 ± 6</td><td align="center" valign="top" rowspan="1" colspan="1">84<xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>c</sup>
+</xref> ± 7</td><td align="center" valign="top" rowspan="1" colspan="1">76<xref rid="mus70172-note-0005" ref-type="table-fn">
+<sup>
+b
+</sup>
+</xref>, <xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>
+c
+</sup>
+</xref> ± 9</td><td align="center" valign="top" rowspan="1" colspan="1">−9 ± 10</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Absolute RTD (nm/s)</td><td align="center" valign="top" rowspan="1" colspan="1">191 ± 74</td><td align="center" valign="top" rowspan="1" colspan="1">244<xref rid="mus70172-note-0005" ref-type="table-fn">
+<sup>b</sup>
+</xref> ± 96</td><td align="center" valign="top" rowspan="1" colspan="1">+31 ± 24</td><td align="center" valign="top" rowspan="1" colspan="1">78<xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>c</sup>
+</xref> ± 50</td><td align="center" valign="top" rowspan="1" colspan="1">216<xref rid="mus70172-note-0005" ref-type="table-fn">
+<sup>b</sup>
+</xref> ± 90</td><td align="center" valign="top" rowspan="1" colspan="1">+240<xref rid="mus70172-note-0007" ref-type="table-fn">
+<sup>d</sup>
+</xref> ± 170</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Relative RTD (%/s)</td><td align="center" valign="top" rowspan="1" colspan="1">1425 ± 102</td><td align="center" valign="top" rowspan="1" colspan="1">1539<xref rid="mus70172-note-0004" ref-type="table-fn">
+<sup>a</sup>
+</xref> ± 137</td><td align="center" valign="top" rowspan="1" colspan="1">+8 ± 7</td><td align="center" valign="top" rowspan="1" colspan="1">2294<xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>c</sup>
+</xref> ± 257</td><td align="center" valign="top" rowspan="1" colspan="1">2850<xref rid="mus70172-note-0005" ref-type="table-fn">
+<sup>
+b
+</sup>
+</xref>, <xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>
+c
+</sup>
+</xref> ± 350</td><td align="center" valign="top" rowspan="1" colspan="1">+248<xref rid="mus70172-note-0007" ref-type="table-fn">
+<sup>d</sup>
+</xref> ± 12</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">HRT (ms)</td><td align="center" valign="top" rowspan="1" colspan="1">99 ± 13</td><td align="center" valign="top" rowspan="1" colspan="1">96 ± 15</td><td align="center" valign="top" rowspan="1" colspan="1">−2 ± 7</td><td align="center" valign="top" rowspan="1" colspan="1">63<xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>c</sup>
+</xref> ± 13</td><td align="center" valign="top" rowspan="1" colspan="1">58<xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>c</sup>
+</xref> ± 8</td><td align="center" valign="top" rowspan="1" colspan="1">−3 ± 21</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Absolute RR (nm/s)</td><td align="center" valign="top" rowspan="1" colspan="1">−111 ± 45</td><td align="center" valign="top" rowspan="1" colspan="1">−131<xref rid="mus70172-note-0004" ref-type="table-fn">
+<sup>a</sup>
+</xref> ± 50</td><td align="center" valign="top" rowspan="1" colspan="1">+21 ± 24</td><td align="center" valign="top" rowspan="1" colspan="1">−41<xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>c</sup>
+</xref> ± 28</td><td align="center" valign="top" rowspan="1" colspan="1">−94<xref rid="mus70172-note-0005" ref-type="table-fn">
+<sup>
+b
+</sup>
+</xref>, <xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>
+c
+</sup>
+</xref> ± 40</td><td align="center" valign="top" rowspan="1" colspan="1">+169<xref rid="mus70172-note-0007" ref-type="table-fn">
+<sup>d</sup>
+</xref> ± 105</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Relative RR (%/s)</td><td align="center" valign="top" rowspan="1" colspan="1">−829 ± 82</td><td align="center" valign="top" rowspan="1" colspan="1">−832 ± 105</td><td align="center" valign="top" rowspan="1" colspan="1">0 ± 8</td><td align="center" valign="top" rowspan="1" colspan="1">−1271<xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>c</sup>
+</xref> ± 347</td><td align="center" valign="top" rowspan="1" colspan="1">−1241<xref rid="mus70172-note-0006" ref-type="table-fn">
+<sup>c</sup>
+</xref> ± 196</td><td align="center" valign="top" rowspan="1" colspan="1">+3 ± 27</td></tr></tbody></table><table-wrap-foot id="mus70172-ntgp-0002"><fn id="mus70172-note-0002"><p>
+<italic toggle="yes">Note:</italic> Values are mean ± SD for <italic toggle="yes">N</italic> = 18. Potentiated versus unpotentiated for same muscle.</p></fn><fn id="mus70172-note-0003"><p>Abbreviations: HRT, half relaxation time; PTT, peak twitch torque; RR, rate of relaxation; RTD, rate of torque development; TPT, time to peak torque.</p></fn><fn id="mus70172-note-0004"><label>
+<sup>a</sup>
+</label><p>Potentiated vs. unpotentiated for same muscle: <italic toggle="yes">p</italic> &lt; 0.05.</p></fn><fn id="mus70172-note-0005"><label>
+<sup>b</sup>
+</label><p>Potentiated vs. unpotentiated for same muscle: <italic toggle="yes">p</italic> &lt; 0.001.</p></fn><fn id="mus70172-note-0006"><label>
+<sup>c</sup>
+</label><p>Triceps brachii vs. triceps surae for same condition: <italic toggle="yes">p</italic> &lt; 0.001.</p></fn><fn id="mus70172-note-0007"><label>
+<sup>d</sup>
+</label><p>Percent change in triceps brachii vs. triceps surae: <italic toggle="yes">p</italic> &lt; 0.001.</p></fn></table-wrap-foot></table-wrap><p>Based on ANOVA there was a significant interaction effect for PTT (i.e., F(1,17) = 6.779; <italic toggle="yes">p</italic> &lt; 0.05), with post hoc testing indicating that the PTT of the larger triceps surae was significantly greater than that of the smaller triceps brachii in both the unpotentiated (i.e., <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 4.891) and the potentiated (i.e., <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 4.022) state. However, PAP increased PTT more in the triceps brachii than in the triceps surae in both absolute and relative terms (i.e., <italic toggle="yes">p</italic> &lt; 0.05, <italic toggle="yes">d</italic> = 0.6135 and <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 1.163).</p><p>There was also a significant interaction effect for TPT (i.e., F(1,17) = 6.419; <italic toggle="yes">p</italic> &lt; 0.05), with TPT being significantly shorter in the triceps brachii both before (i.e., <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 5.683) and after (i.e., <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 4.839) potentiation. Potentiation also shortened TPT in both muscle groups, with the absolute decrease being greater in the triceps surae (i.e., <italic toggle="yes">p</italic> &lt; 0.05, <italic toggle="yes">d</italic> = 0.6106). However, the relative change did not differ between them (i.e., <italic toggle="yes">p</italic> = 0.4800, <italic toggle="yes">d</italic> = 0.1700).</p><p>Significant interaction effects were also observed for absolute and relative RTD (i.e., F(1,17) = 25.10; <italic toggle="yes">p</italic> &lt; 0.001 and F(1,17) = 36.69; <italic toggle="yes">p</italic> &lt; 0.001). Based on post hoc testing, absolute RTD was significantly higher in the triceps surae during unpotentiated (i.e., <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 2.235) but not during potentiated (i.e., <italic toggle="yes">p</italic> = 0.0559, <italic toggle="yes">d</italic> = 0.5648) twitches. On the other hand, relative RTD was higher in the triceps brachii both in the absence (i.e., <italic toggle="yes">p</italic> &lt; 0.001; <italic toggle="yes">d</italic> = 3.973) and the presence (i.e., <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 5.991) of PAP. The absolute RTD was accelerated to a greater degree by potentiation in the triceps brachii versus the triceps surae, both in absolute and relative terms (i.e., <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 1.181 and <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 1.159, respectively). The relative RTD also increased more in the triceps brachii, both absolutely and as a percentage (i.e., <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 1.428 and <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 1.068, respectively).</p><p>Main effects for muscle (i.e., F(1,17) = 94.68; <italic toggle="yes">p</italic> &lt; 0.001) and condition (i.e., F(1,17) = 5.108; <italic toggle="yes">p</italic> &lt; 0.05) were found for HRT, but the interaction effect was not significant. Absolute and the relative changes in HRT due to PAP also did not differ between the two muscle groups (i.e., <italic toggle="yes">p</italic> = 0.6156, <italic toggle="yes">d</italic> = 0.1205 and <italic toggle="yes">p</italic> = 0.8450, <italic toggle="yes">d</italic> = 0.0004, respectively).</p><p>There was a significant interaction effect for absolute RR (i.e., F(1,17) = 21.75; <italic toggle="yes">p</italic> &lt; 0.001), with post hoc testing revealing that absolute RR was significantly more rapid in the triceps surae both when unpotentiated (i.e., <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 3.320) and when potentiated (i.e., <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 1.765). However, potentiation enhanced the absolute RR more in the triceps brachii than in the triceps surae, both in absolute and relative terms (<italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 1.099 and <italic toggle="yes">p</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 1.404).</p><p>Finally, relative RR showed a main effect for muscle (i.e., F(1,17) = 50.93; <italic toggle="yes">p</italic> &lt; 0.001), but the condition and interaction effects were not significant. PAP had no impact on the relative RR in either muscle, with both the absolute and relative changes being non‐significant (i.e., <italic toggle="yes">p</italic> = 0.7081, <italic toggle="yes">d</italic> = 0.3049 and <italic toggle="yes">p</italic> = 0.6986, <italic toggle="yes">d</italic> = 0.1039).</p><p>As described above, the effects of potentiation on PTT and absolute RTD and RR were, on average, 8‐fold larger in the triceps brachii versus the triceps surae. However, the magnitudes of these changes were not related to baseline, that is, unpotentiated, twitch kinetics on an individual basis (Figure <xref rid="mus70172-fig-0003" ref-type="fig">3</xref>). The only exception was the potentiation‐induced increase in the rate of relaxation of the triceps surae, which was modestly correlated the unpotentiated TPT of this muscle.</p><fig position="float" fig-type="FIGURE" id="mus70172-fig-0003" orientation="portrait"><label>FIGURE 3</label><caption><p>Relationship between potentiated‐induced changes in peak twitch torque (PTT, top row), rate of torque development (RTD, middle row), and rate of relaxation (RR, bottom row) with the unpotentiated time to peak torque (TPT, left column), RTD, and RR in individual participants. closed circles, triceps surae (TS). open circles, triceps brachii (TB).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="MUS-73-815-g002.jpg"/></fig></sec><sec sec-type="discussion" id="mus70172-sec-0012"><label>4</label><title>Discussion</title><p>In the present study we found that performance of a 6 s MVC increased PTT and enhanced the absolute and relative RTD in both the predominantly fast twitch triceps brachii and the predominantly slow twitch triceps surae, but that these effects were significantly larger in the triceps brachii. Prior contraction also shortened TPT and HRT and increased the absolute but not the relative RR in both muscle groups. These observations support and expand current understanding of the fiber type‐specific effects of PAP on the twitch contractile properties of human muscle.</p><p>At least two previous studies have observed greater increases in PTT following a brief MVC in faster versus slower muscles of humans [<xref rid="mus70172-bib-0019" ref-type="bibr">19</xref>, <xref rid="mus70172-bib-0021" ref-type="bibr">21</xref>]. However, the effects of PAP on PTT have also been reported to be similar in the triceps brachii and the triceps surae [<xref rid="mus70172-bib-0020" ref-type="bibr">20</xref>], or even larger in the tibialis anterior (75% slow twitch; [<xref rid="mus70172-bib-0027" ref-type="bibr">27</xref>]) versus the triceps surae [<xref rid="mus70172-bib-0016" ref-type="bibr">16</xref>]. Although the reason for these discrepant findings is not clear, our results are comparable to the former studies [<xref rid="mus70172-bib-0019" ref-type="bibr">19</xref>, <xref rid="mus70172-bib-0021" ref-type="bibr">21</xref>], with the relative increase in PTT due to a 6 s MVC being &gt; 8‐fold larger in the triceps brachii versus the triceps surae. Thus, in humans as in other species, PAP seems to increase twitch force to a much greater extent in fast muscle. Similarly, the greater increases in absolute and relative RTD that we observed in the triceps brachii versus the triceps surae are consistent with the results of animal studies indicating that PAP also increases the rate of force development primarily or exclusively in fast fibers [<xref rid="mus70172-bib-0001" ref-type="bibr">1</xref>]. In contrast, previous studies of the effects of PAP in fast versus slow human muscles have either not measured twitch kinetics [<xref rid="mus70172-bib-0019" ref-type="bibr">19</xref>, <xref rid="mus70172-bib-0021" ref-type="bibr">21</xref>] or have only measured TPT and have found similar relative changes in both fast and slow muscles [<xref rid="mus70172-bib-0016" ref-type="bibr">16</xref>, <xref rid="mus70172-bib-0020" ref-type="bibr">20</xref>]. PAP has a smaller effect on TPT than on RTD ([<xref rid="mus70172-bib-0023" ref-type="bibr">23</xref>]; Table <xref rid="mus70172-tbl-0001" ref-type="table">1</xref>), however, which may explain the latter findings.</p><p>In addition to the above‐described changes in PTT, TPT, and RTD, we also found that PAP was accompanied by a shorter HRT and a faster absolute RR, with the latter effect being greater in the triceps brachii than in the triceps surae. In relative terms, however, there were no changes in RR in either muscle group. The latter results imply that PAP does not alter the fundamental determinant of relaxation, i.e., the rate of dissociation of myosin from actin [<xref rid="mus70172-bib-0033" ref-type="bibr">33</xref>], in either fast or slow human muscle, with the higher absolute RR simply reflecting the detachment of more such crossbridges per unit time. This conclusion is consistent with the fact that RLC phosphorylation does not alter the maximal rate of crossbridge cycling, as indicated by ATPase activity or unloaded shortening velocity [<xref rid="mus70172-bib-0001" ref-type="bibr">1</xref>]. On the other hand, the shorter HRT in the potentiated state may be because twitch relaxation is a complicated process influenced by factors in addition to the rate of crossbridge detachment [<xref rid="mus70172-bib-0033" ref-type="bibr">33</xref>]. For example, it has been suggested that PAP may accelerate relaxation via increases in inorganic phosphate (<italic toggle="yes">P</italic>
+<sub>i</sub>) during the conditioning contraction, thus favoring “backward” transition of still‐attached crossbridges from their force‐generating to their non‐force‐generating state [<xref rid="mus70172-bib-0033" ref-type="bibr">33</xref>]. Although <italic toggle="yes">P</italic>
+<sub>i</sub> would be expected to have increased less in the triceps surae versus the triceps brachii [<xref rid="mus70172-bib-0034" ref-type="bibr">34</xref>], reversal of the myosin power stroke is exquisitely sensitive to <italic toggle="yes">P</italic>
+<sub>i</sub>, even in cardiac muscle [<xref rid="mus70172-bib-0035" ref-type="bibr">35</xref>]. Increases in <italic toggle="yes">P</italic>
+<sub>i</sub> during the MVC therefore could have accelerated and shortened the initial, linear phase of relaxation in the triceps surae as well as the triceps brachii. Alternatively, the greater PTT in the potentiated state may lead to more rapid “give” of the longest sarcomere in a myofibril and hence more rapid onset of the fast, that is, “chaotic”, phase of relaxation in both muscle groups [<xref rid="mus70172-bib-0033" ref-type="bibr">33</xref>, <xref rid="mus70172-bib-0036" ref-type="bibr">36</xref>].</p><p>The above results therefore support the conclusion that PAP influences the mechanisms of force development but not relaxation in human muscle in a fiber‐type specific manner. Notably, however, with the exception of a weak correlation between unpotentiated TPT and the relative increase in RR in the triceps surae, no significant relationships were found between baseline twitch contractile properties and the extent of PAP on an individual basis. These results contrast with previous studies that have reported modest‐but‐significant correlation between the increase in PTT due to PAP and, for example, TPT in the unpotentiated state [<xref rid="mus70172-bib-0021" ref-type="bibr">21</xref>, <xref rid="mus70172-bib-0022" ref-type="bibr">22</xref>, <xref rid="mus70172-bib-0024" ref-type="bibr">24</xref>]. Although the reason(s) for the lack of any such relationships in the present study cannot be determined, the absence of a strong correlation (including in previous studies [<xref rid="mus70172-bib-0021" ref-type="bibr">21</xref>, <xref rid="mus70172-bib-0022" ref-type="bibr">22</xref>, <xref rid="mus70172-bib-0024" ref-type="bibr">24</xref>]) indicates that factors other than fiber type (e.g., differences in tendon stiffness [<xref rid="mus70172-bib-0015" ref-type="bibr">15</xref>]) must also contribute to intraindividual differences in the effects of PAP.</p><p>As with all studies, there are limitations to the present investigation. The most obvious is the fact that muscle biopsies were not obtained to verify the fiber type distribution of the triceps surae and triceps brachii in the present participants. However, differences in fiber type between these muscles are well‐established [<xref rid="mus70172-bib-0025" ref-type="bibr">25</xref>, <xref rid="mus70172-bib-0026" ref-type="bibr">26</xref>]. This conclusion is reinforced by the differing contractile properties (e.g., TPT) that we observed. Nonetheless, this may have contributed to the apparent lack of any relationship between individual muscle characteristics and the degree of PAP. Furthermore, despite clearly differing in fiber type, both the triceps surae and triceps brachii are still mixed muscles, such that it is not possible to definitively ascribe our observations to strictly just slow twitch or fast twitch muscle fibers. We also did not quantify PAP in other muscles, at different joint angles/muscle lengths, in different states of fatigue, at different time points, and/or during dynamic muscle contractions, all of which can influence the magnitude of the response [<xref rid="mus70172-bib-0017" ref-type="bibr">17</xref>, <xref rid="mus70172-bib-0021" ref-type="bibr">21</xref>, <xref rid="mus70172-bib-0022" ref-type="bibr">22</xref>, <xref rid="mus70172-bib-0037" ref-type="bibr">37</xref>, <xref rid="mus70172-bib-0038" ref-type="bibr">38</xref>]. Likewise, we did not assess the effects of different conditioning contraction regimens, for example, the duration and/or number of MVC, which can differentially effect the degree of PAP in faster and slower muscles due to the greater fatigability of the former [<xref rid="mus70172-bib-0016" ref-type="bibr">16</xref>, <xref rid="mus70172-bib-0023" ref-type="bibr">23</xref>].</p><p>In summary, in the present study we found that the effects of PAP on PTT and absolute and relative RTD, but not on HRT or relative RR, are greater in the predominantly fast‐twitch triceps brachii than in the predominantly slow‐twitch triceps surae of humans. We therefore conclude that, as in other species, PAP influences muscle contraction but not relaxation in humans in a fiber type dependent manner.</p></sec><sec id="mus70172-sec-1005"><title>Author Contributions</title><p>R.L.H. and A.R.C. conceived and designed research. W.S.Z. and A.R.C. analyzed data. W.S.Z, M.J.F., A.S., R.L.H., and A.R.C. performed experiments. W.S.Z. and A.R.C. interpreted results of experiments. W.S.Z. and A.R.C. prepared figures. W.S.Z. drafted manuscript. A.R.C. edited and revised the manuscript. W.S.Z, M.J.F., A.S, R.L.H., and A.R.C. approved final version of the manuscript.</p></sec><sec id="mus70172-sec-0015"><title>Funding</title><p>The authors have nothing to report.</p></sec><sec id="mus70172-sec-0013"><title>Ethics Statement</title><p>We confirm that we have read the Journal's position on issues involved in ethical publication and affirm that this report is consistent with those guidelines.</p></sec><sec sec-type="COI-statement" id="mus70172-sec-0014"><title>Conflicts of Interest</title><p>The authors declare no conflicts of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="mus70172-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Figure S1:</bold> Participant positioning when testing the triceps brachii (<italic toggle="yes">top panel</italic>) and triceps surae (<italic toggle="yes">bottom panel</italic>). For the triceps brachii, participants were positioned on the dynamometer with a chair back angle of 1.48 rad (85°) and with the shoulder of the dominant arm adducted and at an elevation of 0 rad (0°). The elbow was supported at a joint angle of 1.57 rad (90°) and straps were placed over the participant's waist, torso, and forearm to restrict extraneous movement. A plastic and fabric brace (Roylan Ulnar Deviation Splint, Performance Health, Cedarburg, WI) and an elastic wrap were used to prevent any movement of the wrist or fingers relative to the handgrip. For the triceps surae, the participant was positioned on the dynamometer with a chair back angle of 0.96 rad (55°) and the knee and ankle joints of the ipsilateral leg of the dominant arm at an angle of 0 rad (0°). Straps were placed over the waist and thigh as well as across the instep and metatarsals to prevent any movement of the leg or the foot with respect to the footplate.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="MUS-73-815-s001.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><sec sec-type="data-availability" id="mus70172-sec-0017"><title>Data Availability Statement</title><p>The data that support the findings of this study are available on request from the corresponding author. The data are not publicly available due to privacy or ethical restrictions.</p></sec><ref-list content-type="cited-references" id="mus70172-bibl-0001"><title>References</title><ref id="mus70172-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="mus70172-cit-0001">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Vandenboom</surname>
+</string-name>, “<article-title>Modulation of Skeletal Muscle Contraction by Myosin Phosphorylation</article-title>,” <source>Comprehensive Physiology</source>
+<volume>7</volume>, no. <issue>1</issue> (<year>2017</year>): <fpage>171</fpage>–<lpage>212</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/cphy.c150044</pub-id><pub-id pub-id-type="pmid">28135003</pub-id></mixed-citation></ref><ref id="mus70172-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="mus70172-cit-0002">
+<string-name name-style="western">
+<given-names>R. L.</given-names>
+<surname>Moore</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. E.</given-names>
+<surname>Houston</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. A.</given-names>
+<surname>Iwamoto</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. T.</given-names>
+<surname>Stull</surname>
+</string-name>, “<article-title>Phosphorylation of Rabbit Skeletal Muscle Myosin In Situ</article-title>,” <source>Journal of Cellular Physiology</source>
+<volume>125</volume>, no. <issue>2</issue> (<year>1985</year>): <fpage>301</fpage>–<lpage>305</lpage>.<pub-id pub-id-type="pmid">4055914</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/jcp.1041250219</pub-id></mixed-citation></ref><ref id="mus70172-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="mus70172-cit-0003">
+<string-name name-style="western">
+<given-names>R. J.</given-names>
+<surname>Levine</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N. D.</given-names>
+<surname>Epstein</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Fananapazir</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. T.</given-names>
+<surname>Stull</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H. L.</given-names>
+<surname>Sweeney</surname>
+</string-name>, “<article-title>Structural and Functional Responses of Mammalian Thick Filaments to Alterations in Myosin Regulatory Light Chains</article-title>,” <source>Journal of Structural Biology</source>
+<volume>122</volume>, no. <issue>1–2</issue> (<year>1998</year>): <fpage>149</fpage>–<lpage>161</lpage>.<pub-id pub-id-type="pmid">9724616</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1006/jsbi.1998.3980</pub-id></mixed-citation></ref><ref id="mus70172-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="mus70172-cit-0004">
+<string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Metzger</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. L.</given-names>
+<surname>Greaser</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R. L.</given-names>
+<surname>Moss</surname>
+</string-name>, “<article-title>Variations in Cross‐Bridge Attachment Rate and Tension With Phosphorylation of Myosin in Mammalian Skinned Skeletal Muscle Fibers. Implications for Twitch Potentiation in Intact Muscle</article-title>,” <source>Journal of General Physiology</source>
+<volume>93</volume>, no. <issue>5</issue> (<year>1989</year>): <fpage>855</fpage>–<lpage>883</lpage>.<pub-id pub-id-type="pmid">2661721</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1085/jgp.93.5.855</pub-id><pub-id pub-id-type="pmcid">PMC2216237</pub-id></mixed-citation></ref><ref id="mus70172-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="mus70172-cit-0005">
+<string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>Altringham</surname>
+</string-name> and <string-name name-style="western">
+<given-names>I. A.</given-names>
+<surname>Johnson</surname>
+</string-name>, “<article-title>Modeling Muscle Power Output in a Swimming Fish</article-title>,” <source>Journal of Experimental Biology</source>
+<volume>148</volume>, no. <issue>1</issue> (<year>1990</year>): <fpage>395</fpage>–<lpage>402</lpage>.</mixed-citation></ref><ref id="mus70172-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="mus70172-cit-0006">
+<string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Biewener</surname>
+</string-name> and <string-name name-style="western">
+<given-names>W. R.</given-names>
+<surname>Corning</surname>
+</string-name>, “<article-title>Dynamics of Mallard (<italic toggle="yes">Anas platyrynchos</italic>) Gastrocnemius Function During Swimming Versus Terrestrial Locomotion</article-title>,” <source>Journal of Experimental Biology</source>
+<volume>204</volume>, no. <issue>10</issue> (<year>2001</year>): <fpage>1745</fpage>–<lpage>1756</lpage>.<pub-id pub-id-type="pmid">11316495</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1242/jeb.204.10.1745</pub-id></mixed-citation></ref><ref id="mus70172-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="mus70172-cit-0007">
+<string-name name-style="western">
+<given-names>F. G.</given-names>
+<surname>Standaert</surname>
+</string-name>, “<article-title>The Mechanisms of Post‐Tetanic Potentation in Cat Soleus and Gastrocnemius Muscles</article-title>,” <source>Journal of General Physiology</source>
+<volume>47</volume>, no. <issue>5</issue> (<year>1964</year>): <fpage>987</fpage>–<lpage>1001</lpage>.<pub-id pub-id-type="pmid">14155439</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1085/jgp.47.5.987</pub-id><pub-id pub-id-type="pmcid">PMC2195371</pub-id></mixed-citation></ref><ref id="mus70172-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="mus70172-cit-0008">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Kössler</surname>
+</string-name> and <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Küchler</surname>
+</string-name>, “<article-title>Contractile Properties of Fast and Slow Twitch Muscles of the Rat at Temperatures Between 6 and 42 Degrees C</article-title>,” <source>Biomedica Biochimica Acta</source>
+<volume>46</volume>, no. <issue>11</issue> (<year>1987</year>): <fpage>815</fpage>–<lpage>822</lpage>.<pub-id pub-id-type="pmid">3446207</pub-id>
+</mixed-citation></ref><ref id="mus70172-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="mus70172-cit-0009">
+<string-name name-style="western">
+<given-names>W. C.</given-names>
+<surname>Bowman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Goldberg</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Raper</surname>
+</string-name>, “<article-title>A Comparison Between the Effects of a Tetanus and the Effects of Sympathomimetic Amines on Fast‐ and Slow‐Contracting Mammalian Muscles</article-title>,” <source>British Journal of Pharmacology and Chemotherapy</source>
+<volume>19</volume>, no. <issue>3</issue> (<year>1962</year>): <fpage>464</fpage>–<lpage>484</lpage>.<pub-id pub-id-type="pmid">14014654</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/j.1476-5381.1962.tb01451.x</pub-id><pub-id pub-id-type="pmcid">PMC1482211</pub-id></mixed-citation></ref><ref id="mus70172-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="mus70172-cit-0010">
+<string-name name-style="western">
+<given-names>D. J.</given-names>
+<surname>Parry</surname>
+</string-name> and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>DiCori</surname>
+</string-name>, “<article-title>The Relationship Between Post‐Tetanic Potentiation of Motor Units and Myosin Isoforms in Mouse Soleus Muscle</article-title>,” <source>Canadian Journal of Physiology and Pharmacology</source>
+<volume>68</volume>, no. <issue>1</issue> (<year>1990</year>): <fpage>51</fpage>–<lpage>56</lpage>.<pub-id pub-id-type="pmid">2328443</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1139/y90-007</pub-id></mixed-citation></ref><ref id="mus70172-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="mus70172-cit-0011">
+<string-name name-style="western">
+<given-names>R. L.</given-names>
+<surname>Moore</surname>
+</string-name> and <string-name name-style="western">
+<given-names>J. T.</given-names>
+<surname>Stull</surname>
+</string-name>, “<article-title>Myosin Light Chain Phosphorylation in Fast and Slow Skeletal Muscles In Situ</article-title>,” <source>American Journal of Physiology</source>
+<volume>247</volume>, no. <issue>5 Pt 1</issue> (<year>1984</year>): <fpage>C462</fpage>–<lpage>C471</lpage>.<pub-id pub-id-type="pmid">6548609</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/ajpcell.1984.247.5.C462</pub-id></mixed-citation></ref><ref id="mus70172-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="mus70172-cit-0012">
+<string-name name-style="western">
+<given-names>I. A.</given-names>
+<surname>Brown</surname>
+</string-name> and <string-name name-style="western">
+<given-names>G. E.</given-names>
+<surname>Loeb</surname>
+</string-name>, “<article-title>Post‐Activation Potentiation: A Clue for Simplifying Models of Muscle Dynamics</article-title>,” <source>American Zoologist</source>
+<volume>38</volume>, no. <issue>4</issue> (<year>1988</year>): <fpage>743</fpage>–<lpage>754</lpage>.</mixed-citation></ref><ref id="mus70172-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="mus70172-cit-0013">
+<string-name name-style="western">
+<given-names>M. E.</given-names>
+<surname>Houston</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. D.</given-names>
+<surname>Lingley</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. S.</given-names>
+<surname>Stuart</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R. W.</given-names>
+<surname>Grange</surname>
+</string-name>, “<article-title>Myosin Light Chain Phosphorylation in Intact Human Muscle</article-title>,” <source>FEBS Letters</source>
+<volume>219</volume>, no. <issue>2</issue> (<year>1987</year>): <fpage>469</fpage>–<lpage>471</lpage>.<pub-id pub-id-type="pmid">3609305</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/0014-5793(87)80274-0</pub-id></mixed-citation></ref><ref id="mus70172-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="mus70172-cit-0014">
+<string-name name-style="western">
+<given-names>D. S.</given-names>
+<surname>Stuart</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. D.</given-names>
+<surname>Lingley</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. W.</given-names>
+<surname>Grange</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. E.</given-names>
+<surname>Houston</surname>
+</string-name>, “<article-title>Myosin Light Chain Phosphorylation and Contractile Performance of Human Skeletal Muscle</article-title>,” <source>Canadian Journal of Physiology and Pharmacology</source>
+<volume>66</volume>, no. <issue>1</issue> (<year>1988</year>): <fpage>49</fpage>–<lpage>54</lpage>.<pub-id pub-id-type="pmid">3370535</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1139/y88-009</pub-id></mixed-citation></ref><ref id="mus70172-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="mus70172-cit-0015">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Gago</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Ardnt</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Tarassova</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. M.</given-names>
+<surname>Ekblom</surname>
+</string-name>, “<article-title>Post Activation Potentiation Can Be Induced Without Impairing Tendon Stiffness</article-title>,” <source>European Journal of Applied Physiology</source>
+<volume>114</volume>, no. <issue>11</issue> (<year>2014</year>): <fpage>2299</fpage>–<lpage>2308</lpage>.<pub-id pub-id-type="pmid">25048072</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-014-2945-3</pub-id></mixed-citation></ref><ref id="mus70172-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="mus70172-cit-0016">
+<string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Vandervoort</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Quinlan</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>McComas</surname>
+</string-name>, “<article-title>Twitch Potentiation After Voluntary Contraction</article-title>,” <source>Experimental Neurology</source>
+<volume>81</volume>, no. <issue>1</issue> (<year>1983</year>): <fpage>141</fpage>–<lpage>152</lpage>.<pub-id pub-id-type="pmid">6861942</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/0014-4886(83)90163-2</pub-id></mixed-citation></ref><ref id="mus70172-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="mus70172-cit-0017">
+<string-name name-style="western">
+<given-names>S. L.</given-names>
+<surname>Kuzyk</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. R.</given-names>
+<surname>Smart</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. L.</given-names>
+<surname>Simpson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Fedorov</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Jakobi</surname>
+</string-name>, “<article-title>Influence of Fascicle Length on Twitch Potentiation of the Medial Gastrocnemius Across Three Ankle Angles</article-title>,” <source>European Journal of Applied Physiology</source>
+<volume>118</volume>, no. <issue>6</issue> (<year>2018</year>): <fpage>1199</fpage>–<lpage>1207</lpage>.<pub-id pub-id-type="pmid">29600331</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-018-3849-4</pub-id></mixed-citation></ref><ref id="mus70172-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="mus70172-cit-0018">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Xenofondos</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Papavasileiou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Bassa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I. S.</given-names>
+<surname>Vrabas</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>D. A.</given-names>
+<surname>Patikas</surname>
+</string-name>, “<article-title>Postactivation Potentiation and the Asynchronous Action of Muscular and Neural Responses</article-title>,” <source>International Journal of Sports Physiology and Performance</source>
+<volume>18</volume>, no. <issue>8</issue> (<year>2023</year>): <fpage>852</fpage>–<lpage>860</lpage>.<pub-id pub-id-type="pmid">37295786</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1123/ijspp.2022-0336</pub-id></mixed-citation></ref><ref id="mus70172-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="mus70172-cit-0019">
+<string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Vandervoort</surname>
+</string-name> and <string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>McComas</surname>
+</string-name>, “<article-title>A Comparison of the Contractile Properties of the Human Gastrocnemius and Soleus Muscles</article-title>,” <source>European Journal of Applied Physiology and Occupational Physiology</source>
+<volume>51</volume>, no. <issue>3</issue> (<year>1983</year>): <fpage>435</fpage>–<lpage>440</lpage>.<pub-id pub-id-type="pmid">6685041</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/BF00429079</pub-id></mixed-citation></ref><ref id="mus70172-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="mus70172-cit-0020">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Hamada</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. G.</given-names>
+<surname>Sale</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>Macdougall</surname>
+</string-name>, “<article-title>Postactivation Potentiation in Endurance‐Trained Male Athletes</article-title>,” <source>Medicine and Science in Sports and Exercise</source>
+<volume>32</volume>, no. <issue>2</issue> (<year>2000</year>): <fpage>403</fpage>–<lpage>411</lpage>.<pub-id pub-id-type="pmid">10694124</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/00005768-200002000-00022</pub-id></mixed-citation></ref><ref id="mus70172-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="mus70172-cit-0021">
+<string-name name-style="western">
+<given-names>A. Y.</given-names>
+<surname>Bélanger</surname>
+</string-name> and <string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>McComas</surname>
+</string-name>, “<article-title>A Comparison of Contractile Properties in Human Arm and Leg Muscles</article-title>,” <source>European Journal of Applied Physiology and Occupational Physiology</source>
+<volume>54</volume>, no. <issue>3</issue> (<year>1985</year>): <fpage>326</fpage>–<lpage>330</lpage>.<pub-id pub-id-type="pmid">4065119</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/BF00426154</pub-id></mixed-citation></ref><ref id="mus70172-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="mus70172-cit-0022">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Hamada</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. G.</given-names>
+<surname>Sale</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>MacDougall</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Tarnapolsky</surname>
+</string-name>, “<article-title>Postactivation Potentiation, Fiber Type, and Twitch Contraction Time in Human Knee Extensor Muscles</article-title>,” <source>Journal of Applied Physiology</source>
+<volume>88</volume>, no. <issue>6</issue> (<year>2000</year>): <fpage>2131</fpage>–<lpage>2137</lpage>.<pub-id pub-id-type="pmid">10846027</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jappl.2000.88.6.2131</pub-id></mixed-citation></ref><ref id="mus70172-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="mus70172-cit-0023">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Froyd</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F. G.</given-names>
+<surname>Beltram</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Jensen</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>T. D.</given-names>
+<surname>Noakes</surname>
+</string-name>, “<article-title>Potentiation Increases Peak Twitch Force by Enhancing Rates of Torque Development and Relaxation</article-title>,” <source>Journal of Human Kinetics</source>
+<volume>38</volume> (<year>2013</year>): <fpage>83</fpage>–<lpage>94</lpage>.<pub-id pub-id-type="pmid">24235987</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.2478/hukin-2013-0048</pub-id><pub-id pub-id-type="pmcid">PMC3827760</pub-id></mixed-citation></ref><ref id="mus70172-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="mus70172-cit-0024">
+<string-name name-style="western">
+<given-names>C. K.</given-names>
+<surname>Thomas</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. S.</given-names>
+<surname>Johansson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Westling</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Bigland‐Ritchie</surname>
+</string-name>, “<article-title>Twitch Properties of Human Thenar Motor Units Measured in Response to Intraneural Motor‐Axon Stimulation</article-title>,” <source>Journal of Neurophysiology</source>
+<volume>64</volume>, no. <issue>4</issue> (<year>1990</year>): <fpage>1339</fpage>–<lpage>1346</lpage>.<pub-id pub-id-type="pmid">2258751</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.1990.64.4.1339</pub-id></mixed-citation></ref><ref id="mus70172-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="mus70172-cit-0025">
+<string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Johnson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Polgar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Weightman</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Appleton</surname>
+</string-name>, “<article-title>Data on the Distribution of Fibre Type in Thirty‐Six Human Muscles. An Autopsy Study</article-title>,” <source>Journal of the Neurological Sciences</source>
+<volume>18</volume>, no. <issue>1</issue> (<year>1973</year>): <fpage>111</fpage>–<lpage>129</lpage>.<pub-id pub-id-type="pmid">4120482</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/0022-510x(73)90023-3</pub-id></mixed-citation></ref><ref id="mus70172-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="mus70172-cit-0026">
+<string-name name-style="western">
+<given-names>G. C. B.</given-names>
+<surname>Elder</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Bradbury</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Roberts</surname>
+</string-name>, “<article-title>Variability of Fiber Type Distributions Within Human Muscles</article-title>,” <source>Journal of Applied Physiology</source>
+<volume>53</volume>, no. <issue>6</issue> (<year>1982</year>): <fpage>1473</fpage>–<lpage>1480</lpage>.<pub-id pub-id-type="pmid">6218151</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jappl.1982.53.6.1473</pub-id></mixed-citation></ref><ref id="mus70172-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="mus70172-cit-0027">
+<string-name name-style="western">
+<given-names>D. D.</given-names>
+<surname>O'Leary</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Hope</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>D. G.</given-names>
+<surname>Sale</surname>
+</string-name>, “<article-title>Influence of Gender on Post‐Tetanic Potentiation in Human Dorsiflexors</article-title>,” <source>Canadian Journal of Physiology and Pharmacology</source>
+<volume>76</volume>, no. <issue>7–8</issue> (<year>1998</year>): <fpage>772</fpage>–<lpage>779</lpage>.<pub-id pub-id-type="pmid">10030458</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1139/cjpp-76-7-8-772</pub-id></mixed-citation></ref><ref id="mus70172-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="mus70172-cit-0028">
+<string-name name-style="western">
+<given-names>D. W.</given-names>
+<surname>West</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. R.</given-names>
+<surname>Oates</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. R.</given-names>
+<surname>Moore</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Phillips</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>D. G.</given-names>
+<surname>Sale</surname>
+</string-name>, “<article-title>Sex‐Based Comparisons in Skeletal Muscle Fatigue and Twitch Potentiation</article-title>,” <source>FASEB Journal</source>
+<volume>21</volume>, no. <issue>6</issue> (<year>2001</year>): <fpage>A939</fpage>–<lpage>A940</lpage>.</mixed-citation></ref><ref id="mus70172-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="mus70172-cit-0029">
+<string-name name-style="western">
+<given-names>C. L.</given-names>
+<surname>Craig</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. L.</given-names>
+<surname>Marshall</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Sjöström</surname>
+</string-name>, et al., “<article-title>International Physical Activity Questionnaire: 12‐Country Reliability and Validity</article-title>,” <source>Medicine and Science in Sports and Exercise</source>
+<volume>35</volume>, no. <issue>8</issue> (<year>2003</year>): <fpage>1381</fpage>–<lpage>1395</lpage>.<pub-id pub-id-type="pmid">12900694</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1249/01.MSS.0000078924.61453.FB</pub-id></mixed-citation></ref><ref id="mus70172-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="mus70172-cit-0030">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Adams</surname>
+</string-name>, “<article-title>Revised Physical Activity Readiness Questionnaire</article-title>,” <source>Canadian Family Physician</source>
+<volume>45</volume>, no. <issue>4</issue> (<year>1999</year>): <fpage>992</fpage>–<lpage>995</lpage>.<pub-id pub-id-type="pmid">10216799</pub-id>
+<pub-id pub-id-type="pmcid">PMC2328306</pub-id></mixed-citation></ref><ref id="mus70172-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="mus70172-cit-0031">
+<string-name name-style="western">
+<given-names>X. A. K.</given-names>
+<surname>de Janse Jonge</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. R. L.</given-names>
+<surname>Boot</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. M.</given-names>
+<surname>Thom</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. A.</given-names>
+<surname>Ruell</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. W.</given-names>
+<surname>Thompson</surname>
+</string-name>, “<article-title>The Influence of Menstrual Cycle Phase on Skeletal Muscle Contractile Characteristics in Humans</article-title>,” <source>Journal of Physiology</source>
+<volume>530</volume>, no. <issue>1</issue> (<year>2001</year>): <fpage>161</fpage>–<lpage>166</lpage>.<pub-id pub-id-type="pmid">11136868</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/j.1469-7793.2001.0161m.x</pub-id><pub-id pub-id-type="pmcid">PMC2278395</pub-id></mixed-citation></ref><ref id="mus70172-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="mus70172-cit-0032">
+<string-name name-style="western">
+<given-names>S. D. H.</given-names>
+<surname>Soedirdjo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. A.</given-names>
+<surname>Rodriguez</surname>, <suffix>II</suffix>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐C.</given-names>
+<surname>Chung</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Casey</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y. Y.</given-names>
+<surname>Dhaher</surname>
+</string-name>, “<article-title>Sex Hormone‐Mediated Change on Muscle Activation Deactivation Dynamics in Young Eumenorrheic Women</article-title>,” <source>Frontiers in Physiology</source>
+<volume>14</volume> (<year>2023</year>): <elocation-id>1104578</elocation-id>, <pub-id pub-id-type="doi">10.3389/fphys.2023.1104578</pub-id>.<pub-id pub-id-type="pmid">36960149</pub-id>
+<pub-id pub-id-type="pmcid">PMC10029997</pub-id></mixed-citation></ref><ref id="mus70172-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="mus70172-cit-0033">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Poggesi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Tesi</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Stehle</surname>
+</string-name>, “<article-title>Sarcomeric Determinants of Striated Muscle Relaxation Kinetics</article-title>,” <source>Pflügers Archiv – European Journal of Physiology</source>
+<volume>449</volume>, no. <issue>6</issue> (<year>2005</year>): <fpage>505</fpage>–<lpage>517</lpage>.<pub-id pub-id-type="pmid">15750836</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00424-004-1363-5</pub-id></mixed-citation></ref><ref id="mus70172-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="mus70172-cit-0034">
+<string-name name-style="western">
+<given-names>G. B.</given-names>
+<surname>Fiedler</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Meyerspeer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. I.</given-names>
+<surname>Schmid</surname>
+</string-name>, et al., “<article-title>Localized Semi‐LASER Dynamic <sup>31</sup>P Magnetic Resonance Spectroscopy of the Soleus During and Following Exercise at 7 T</article-title>,” <source>Magnetic Resonance Materials in Physics</source>
+<volume>28</volume> (<year>2015</year>): <fpage>493</fpage>–<lpage>501</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s10334-015-0484-5</pub-id><pub-id pub-id-type="pmcid">PMC4876918</pub-id><pub-id pub-id-type="pmid">25894813</pub-id></mixed-citation></ref><ref id="mus70172-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="mus70172-cit-0035">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Stehle</surname>
+</string-name> and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Krueger</surname>
+</string-name>, “<article-title>Pfitzer G Force Kinetics and Individual Sarcomere Dynamics in Cardiac Myofibrils Following Rapid Ca<sup>2+</sup> Changes</article-title>,” <source>Biophysical Journal</source>
+<volume>83</volume>, no. <issue>4</issue> (<year>2002</year>): <fpage>2152</fpage>–<lpage>2161</lpage>.<pub-id pub-id-type="pmid">12324432</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/S0006-3495(02)73975-1</pub-id><pub-id pub-id-type="pmcid">PMC1302303</pub-id></mixed-citation></ref><ref id="mus70172-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="mus70172-cit-0036">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Hill</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Kalakoutis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Arcidiacono</surname>
+</string-name>, et al., “<article-title>Dual‐Filament Regulation of Relaxation in Mammalian Fast Skeletal Muscle</article-title>,” <source>Proceedings of the National Academy of Sciences</source>
+<volume>122</volume>, no. <issue>11</issue> (<year>2025</year>): <elocation-id>e2416324122</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1073/pnas.2416324122</pub-id><pub-id pub-id-type="pmcid">PMC11929500</pub-id><pub-id pub-id-type="pmid">40073060</pub-id></mixed-citation></ref><ref id="mus70172-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="mus70172-cit-0037">
+<string-name name-style="western">
+<given-names>D. E.</given-names>
+<surname>Rassier</surname>
+</string-name>, “<article-title>The Effects of Length on Fatigue and Twitch Potentiation in Human Skeletal Muscle</article-title>,” <source>Clinical Physiology</source>
+<volume>20</volume>, no. <issue>6</issue> (<year>2000</year>): <fpage>474</fpage>–<lpage>482</lpage>.<pub-id pub-id-type="pmid">11100395</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1046/j.1365-2281.2000.00283.x</pub-id></mixed-citation></ref><ref id="mus70172-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="mus70172-cit-0038">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Fukutani</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Miyamoto</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Kanehisa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Yanai</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Kawakami</surname>
+</string-name>, “<article-title>Potentiation of Isokinetic Torque Is Velocity‐Dependent Following an Isometric Conditioning Contraction</article-title>,” <source>Springerplus</source>
+<volume>2</volume> (<year>2013</year>): <elocation-id>554</elocation-id>, <pub-id pub-id-type="doi">10.1186/2193-1801-2-554</pub-id>.<pub-id pub-id-type="pmid">24255848</pub-id>
+<pub-id pub-id-type="pmcid">PMC3825088</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">33815141</PMID><DateRevised><Year>2021</Year><Month>04</Month><Day>06</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>12</Volume><PubDate><Year>2021</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Does Characterizing Global Running Pattern Help to Prescribe Individualized Strength Training in Recreational Runners?</ArticleTitle><Pagination><StartPage>631637</StartPage><MedlinePgn>631637</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">631637</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2021.631637</ELocationID><Abstract><AbstractText>This study aimed to determine if concurrent endurance and strength training that matches the global running pattern would be more effective in increasing running economy (RE) than non-matched training. The global running pattern of 37 recreational runners was determined using the Volodalen<sup>&#xae;</sup> method as being aerial (AER) or terrestrial (TER). Strength training consisted of endurance running training and either plyometric (PLY) or dynamic weight training (DWT). Runners were randomly assigned to a matched (<i>n</i> = 18; DWT for TER, PLY for AER) or non-matched (<i>n</i> = 19; DWT for AER, PLY for TER) 8 weeks concurrent training program. RE, maximal oxygen uptake V&#x307;O<sub>2</sub>max) and peak treadmill speed at V&#x307;O<sub>2</sub>max (PTS) were measured before and after the training intervention. None of the tested performance related variables depicted a significant group effect or interaction effect between training and grouping (<i>p</i> &#x2265; 0.436). However, a significant increase in RE, V&#x307;O<sub>2</sub>max, and PTS (<i>p</i> &#x2264; 0.003) was found after the training intervention. No difference in number of responders between matched and non-matched groups was observed for any of the performance related variables (<i>p</i> &#x2265; 0.248). In recreational runners, prescribing PLT or DWT according to the global running pattern of individuals, in addition to endurance training, did not lead to greater improvements in RE.</AbstractText><CopyrightInformation>Copyright &#xa9; 2021 Patoz, Breine, Thouvenot, Mourot, Gindre and Lussiana.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Patoz</LastName><ForeName>Aur&#xe9;lien</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Institute of Sport Sciences, University of Lausanne, Lausanne, Switzerland.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Research and Development Department, Volodalen Swiss Sportlab, Aigle, Switzerland.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Breine</LastName><ForeName>Bastiaan</ForeName><Initials>B</Initials><AffiliationInfo><Affiliation>Research and Development Department, Volodalen Swiss Sportlab, Aigle, Switzerland.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Movement and Sports Sciences, Ghent University, Ghent, Belgium.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Thouvenot</LastName><ForeName>Adrien</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Research and Development Department, Volodalen, Chav&#xe9;ria, France.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Research Unit EA3920 Prognostic Markers and Regulatory Factors of Cardiovascular Diseases and Exercise Performance, Health, Innovation Platform, University of Bourgogne Franche-Comt&#xe9;, Besan&#xe7;on, France.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mourot</LastName><ForeName>Laurent</ForeName><Initials>L</Initials><AffiliationInfo><Affiliation>Research Unit EA3920 Prognostic Markers and Regulatory Factors of Cardiovascular Diseases and Exercise Performance, Health, Innovation Platform, University of Bourgogne Franche-Comt&#xe9;, Besan&#xe7;on, France.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Division for Physical Education, Tomsk Polytechnic University, Tomsk, Russia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gindre</LastName><ForeName>Cyrille</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Research and Development Department, Volodalen Swiss Sportlab, Aigle, Switzerland.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Research and Development Department, Volodalen, Chav&#xe9;ria, France.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lussiana</LastName><ForeName>Thibault</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Research and Development Department, Volodalen Swiss Sportlab, Aigle, Switzerland.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Research and Development Department, Volodalen, Chav&#xe9;ria, France.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Research Unit EA3920 Prognostic Markers and Regulatory Factors of Cardiovascular Diseases and Exercise Performance, Health, Innovation Platform, University of Bourgogne Franche-Comt&#xe9;, Besan&#xe7;on, France.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2021</Year><Month>03</Month><Day>17</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">concurrent training</Keyword><Keyword MajorTopicYN="N">dynamic weight training</Keyword><Keyword MajorTopicYN="N">plyometric training</Keyword><Keyword MajorTopicYN="N">running</Keyword><Keyword MajorTopicYN="N">sports biomechanics</Keyword></KeywordList><CoiStatement>CG was on the origin of the Volodalen&#xae; method. However, this paper does not constitute endorsement of the method by the authors and stems completely from a Ph.D. research project undertaken at the Bourgogne Franche-Comt&#xe9; University by TL. The remaining authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2020</Year><Month>11</Month><Day>20</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2021</Year><Month>2</Month><Day>26</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2021</Year><Month>4</Month><Day>5</Day><Hour>5</Hour><Minute>56</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2021</Year><Month>4</Month><Day>6</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2021</Year><Month>4</Month><Day>6</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2021</Year><Month>3</Month><Day>17</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">33815141</ArticleId><ArticleId IdType="pmc">PMC8010254</ArticleId><ArticleId IdType="doi">10.3389/fphys.2021.631637</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Anderson T. (1996). Biomechanics and running economy.
+<i>Sports Med.</i>
+22
+76&#x2013;89. 10.2165/00007256-199622020-00003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-199622020-00003</ArticleId><ArticleId IdType="pubmed">8857704</ArticleId></ArticleIdList></Reference><Reference><Citation>Barnes K. R., Kilding A. E. (2014). Strategies to improve running economy.
+<i>Sports Med.</i>
+45
+37&#x2013;56. 10.1007/s40279-014-0246-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0246-y</ArticleId><ArticleId IdType="pubmed">25164465</ArticleId></ArticleIdList></Reference><Reference><Citation>Barnes K. R., Kilding A. E. (2015). Running economy: measurement, norms, and determining factors.
+<i>Sport Med. Open</i>
+1
+1&#x2013;15. 10.1007/s00421-006-0147-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-006-0147-3</ArticleId><ArticleId IdType="pmc">PMC4555089</ArticleId><ArticleId IdType="pubmed">27747844</ArticleId></ArticleIdList></Reference><Reference><Citation>Blickhan R. (1989). The spring-mass model for running and hopping.
+<i>J. Biomech.</i>
+22
+1217&#x2013;1227. 10.1016/0021-9290(89)90224-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0021-9290(89)90224-8</ArticleId><ArticleId IdType="pubmed">2625422</ArticleId></ArticleIdList></Reference><Reference><Citation>Bosco C., Luhtanen P., Komi P. V. (1983). A simple method for measurement of mechanical power in jumping.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+50
+273&#x2013;282. 10.1007/bf00422166
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/bf00422166</ArticleId><ArticleId IdType="pubmed">6681758</ArticleId></ArticleIdList></Reference><Reference><Citation>Conley D. L., Krahenbuhl G. S. (1980). Running economy and distance running performance of highly trained athletes.
+<i>Med. Sci. Sport Exerc.</i>
+12
+357&#x2013;360. 10.1249/00005768-198012050-00010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00005768-198012050-00010</ArticleId><ArticleId IdType="pubmed">7453514</ArticleId></ArticleIdList></Reference><Reference><Citation>Dalleau G., Belli A., Viale F., Lacour J. R., Bourdin M. (2004). A simple method for field measurements of leg stiffness in hopping.
+<i>Int. J. Sports Med.</i>
+25
+170&#x2013;176. 10.1055/s-2003-45252
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2003-45252</ArticleId><ArticleId IdType="pubmed">15088239</ArticleId></ArticleIdList></Reference><Reference><Citation>Dalleck L. C., Haney D. E., Buchanan C. A., Weatherwax R. M. (2016). Does a personalised exercise prescription enhance training efficacy and limit training unresponsiveness? A randomised controlled trial.
+<i>J. Fit. Res.</i>
+5
+15&#x2013;27.</Citation></Reference><Reference><Citation>Damasceno M. V., Lima-Silva A. E., Pasqua L. A., Tricoli V., Duarte M., Bishop D. J., et al.  (2015). Effects of resistance training on neuromuscular characteristics and pacing during 10-km running time trial.
+<i>Eur. J. Appl. Physiol.</i>
+115
+1513&#x2013;1522. 10.1007/s00421-015-3130-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-015-3130-z</ArticleId><ArticleId IdType="pubmed">25697149</ArticleId></ArticleIdList></Reference><Reference><Citation>Denadai B. S., de Aguiar R. A., de Lima L. C. R., Greco C. C., Caputo F. (2017). Explosive training and heavy weight training are effective for improving running economy in endurance athletes: a systematic review and meta-analysis.
+<i>Sports Med.</i>
+47
+545&#x2013;554. 10.1007/s40279-016-0604-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-016-0604-z</ArticleId><ArticleId IdType="pubmed">27497600</ArticleId></ArticleIdList></Reference><Reference><Citation>Faul F., Erdfelder E., Lang A.-G., Buchner A. G. (2007). Power 3: a flexible statistical power analysis program for the social, behavioral, and biomedical siences.
+<i>Behav. Res. Methods</i>
+39
+175&#x2013;191. 10.3758/bf03193146
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3758/bf03193146</ArticleId><ArticleId IdType="pubmed">17695343</ArticleId></ArticleIdList></Reference><Reference><Citation>Ferrauti A., Bergermann M., Fernandez-Fernandez J. (2010). Effects of a concurrent strength and endurance training on running performance and running economy in recreational marathon runners.
+<i>J. Strength Cond. Res.</i>
+24
+2770&#x2013;2778. 10.1519/jsc.0b013e3181d64e9c
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/jsc.0b013e3181d64e9c</ArticleId><ArticleId IdType="pubmed">20885197</ArticleId></ArticleIdList></Reference><Reference><Citation>Gindre C., Lussiana T., Hebert-Losier K., Mourot L. (2015). Aerial and terrestrial patterns: a novel approach to analyzing human running.
+<i>Int. J. Sports Med.</i>
+37
+25&#x2013;29. 10.1055/s-0035-1555931
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0035-1555931</ArticleId><ArticleId IdType="pubmed">26509380</ArticleId></ArticleIdList></Reference><Reference><Citation>Hautala A. J., Kiviniemi A. M., M&#xe4;kikallio T. H., Kinnunen H., Nissil&#xe4; S., Huikuri H. V., et al.  (2006). Individual differences in the responses to endurance and resistance training.
+<i>Eur. J. Appl. Physiol.</i>
+96
+535&#x2013;542. 10.1007/s00421-005-0116-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-005-0116-2</ArticleId><ArticleId IdType="pubmed">16369817</ArticleId></ArticleIdList></Reference><Reference><Citation>Howley E. T., Bassett D. R., Welch H. G. (1995). Criteria for maximal oxygen uptake.
+<i>Med. Sci. Sport Exerc.</i>
+27
+1292&#x2013;1301.</Citation><ArticleIdList><ArticleId IdType="pubmed">8531628</ArticleId></ArticleIdList></Reference><Reference><Citation>Johnston R. E., Quinn T. J., Kertzer R., Vroman N. B. (1997). Strength training in female distance runners: impact on running economy.
+<i>J. Strength Cond. Res.</i>
+11
+224&#x2013;229. 10.1519/00124278-199711000-00004</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-199711000-00004</ArticleId></ArticleIdList></Reference><Reference><Citation>Kawamori N., Haff G. G. (2004). The optimal training load for the development of muscular power.
+<i>J. Strength Cond. Res.</i>
+18
+675&#x2013;684. 10.1519/00124278-200408000-00051</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200408000-00051</ArticleId><ArticleId IdType="pubmed">15320680</ArticleId></ArticleIdList></Reference><Reference><Citation>Kuipers H., Rietjens G., Verstappen F., Schoenmakers H., Hofman G. (2003). Effects of stage duration in incremental running tests on physiological variables.
+<i>Int. J. Sports Med.</i>
+24
+486&#x2013;491. 10.1055/s-2003-42020
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2003-42020</ArticleId><ArticleId IdType="pubmed">12968205</ArticleId></ArticleIdList></Reference><Reference><Citation>Lussiana T., Patoz A., Gindre C., Mourot L., H&#xe9;bert-Losier K. (2019). The implications of time on the ground on running economy: less is not always better.
+<i>J. Exp. Biol.</i>
+222(Pt 6):jeb192047. 10.1242/jeb.192047
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1242/jeb.192047</ArticleId><ArticleId IdType="pubmed">30787136</ArticleId></ArticleIdList></Reference><Reference><Citation>Mann T. N., Lamberts R. P., Lambert M. I. (2014). High responders and low responders: factors associated with individual variation in response to standardized training.
+<i>Sports Med.</i>
+44
+1113&#x2013;1124. 10.1007/s40279-014-0197-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0197-3</ArticleId><ArticleId IdType="pubmed">24807838</ArticleId></ArticleIdList></Reference><Reference><Citation>Meszler B., Atlasz T., Misovics B., Botka B., Szab&#xf3; E., V&#xe1;czi M. (2019). Combined strength and plyometric exercise training improves running economy and muscle elastic energy storage and re-use in young untrained women.
+<i>Eur. J. Integr. Med.</i>
+28
+86&#x2013;91. 10.1016/j.eujim.2019.05.004</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.eujim.2019.05.004</ArticleId></ArticleIdList></Reference><Reference><Citation>Mikkola J., Rusko H., Nummela A., Pollari T., H&#xe4;kkinen K. (2007). Concurrent endurance and explosive type strength training improves neuromuscular and anaerobic characteristics in young distance runners.
+<i>Int. J. Sports Med.</i>
+28
+602&#x2013;611. 10.1055/s-2007-964849
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2007-964849</ArticleId><ArticleId IdType="pubmed">17373596</ArticleId></ArticleIdList></Reference><Reference><Citation>Mikkola J., Vesterinen V., Taipale R., Capostagno B., H&#xe4;kkinen K., Nummela A. (2011). Effect of resistance training regimens on treadmill running and neuromuscular performance in recreational endurance runners.
+<i>J. Sports Sci.</i>
+29
+1359&#x2013;1371. 10.1080/02640414.2011.589467
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2011.589467</ArticleId><ArticleId IdType="pubmed">21854344</ArticleId></ArticleIdList></Reference><Reference><Citation>Patoz A., Gindre C., Mourot L., Lussiana T. (2019). Intra and inter-rater reliability of the Volodalen<sup>&#xae;</sup> scale to assess aerial and terrestrial running forms.
+<i>J. Athl. Enhanc.</i>
+8
+4&#x2013;9.</Citation></Reference><Reference><Citation>Pellegrino J., Ruby B. C., Dumke C. L. (2016). Effect of plyometrics on the energy cost of running and MHC and titin isoforms.
+<i>Med. Sci. Sports Exerc.</i>
+48
+49&#x2013;56. 10.1249/mss.0000000000000747
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0000000000000747</ArticleId><ArticleId IdType="pubmed">26258856</ArticleId></ArticleIdList></Reference><Reference><Citation>R&#xf8;nnestad B. R., Mujika I. (2014). Optimizing strength training for running and cycling endurance performance: a review.
+<i>Scand. J. Med. Sci. Sport</i>
+24
+603&#x2013;612. 10.1111/sms.12104
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12104</ArticleId><ArticleId IdType="pubmed">23914932</ArticleId></ArticleIdList></Reference><Reference><Citation>Taipale R. S., Mikkola J., Vesterinen V., Nummela A., H&#xe4;kkinen K. (2013). Neuromuscular adaptations during combined strength and endurance training in endurance runners: maximal versus explosive strength training or a mix of both.
+<i>Eur. J. Appl. Physiol.</i>
+113
+325&#x2013;335. 10.1007/s00421-012-2440-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-012-2440-7</ArticleId><ArticleId IdType="pubmed">22711181</ArticleId></ArticleIdList></Reference><Reference><Citation>Trowell D., Vicenzino B., Saunders N., Fox A., Bonacci J. (2020). Effect of strength training on biomechanical and neuromuscular variables in distance runners: a systematic review and meta-analysis.
+<i>Sports Med.</i>
+50
+133&#x2013;150. 10.1007/s40279-019-01184-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-019-01184-9</ArticleId><ArticleId IdType="pubmed">31541409</ArticleId></ArticleIdList></Reference><Reference><Citation>Turner A. M., Owings M., Schwane J. A. (2003). Improvement in running economy after 6 weeks of plyometric training.
+<i>J. Strength Cond. Res.</i>
+17
+60&#x2013;67. 10.1519/00124278-200302000-00010</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200302000-00010</ArticleId><ArticleId IdType="pubmed">12580657</ArticleId></ArticleIdList></Reference><Reference><Citation>Vikmoen O., Raastad T., Seynnes O., Bergstr&#xf8;m K., Ellefsen S., R&#xf8;nnestad B. R. (2016). Effects of heavy strength training on running performance and determinants of running performance in female endurance athletes.
+<i>PLoS One</i>
+11:e0150799. 10.1371/journal.pone.0150799
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0150799</ArticleId><ArticleId IdType="pmc">PMC4783109</ArticleId><ArticleId IdType="pubmed">26953893</ArticleId></ArticleIdList></Reference><Reference><Citation>World Medical Association (2013). World medical association declaration of helsinki ethical principles for medical research involving human subjects.
+<i>JAMA</i>
+310
+2013&#x2013;2016.</Citation><ArticleIdList><ArticleId IdType="pubmed">24141714</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

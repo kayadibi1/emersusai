@@ -1,0 +1,144 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31249534</PMID><DateRevised><Year>2020</Year><Month>10</Month><Day>01</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Progression of Blood Flow Restricted Resistance Training in Older Adults at Risk of Mobility Limitations.</ArticleTitle><Pagination><StartPage>738</StartPage><MedlinePgn>738</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">738</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.00738</ELocationID><Abstract><AbstractText>Blood flow restriction (BFR) resistance training leads to increased muscle mass and strength but the progression leading to adaptations may be different as strength gains are often to a lesser magnitude than high-load (HL) training. The impact of training loads and repetitions on older adults' muscle mass and strength following BFR or HL training was evaluated. Twenty-one older adults (67-90 years) classified as being at risk of mobility limitations were randomly assigned to HL (<i>n</i> = 11) or BFR (<i>n</i> = 10) knee extension (KE) and flexion (KF) training twice per week for 12 weeks. Strength was measured with 10-repetition maximum (10-RM) tests and isometric contractions. Cross-sectional area (CSA) of the quadriceps and hamstrings was measured. HL and BFR interventions increased 10-RM KF and isometric strength (<i>P</i> &lt; 0.05) and hamstrings CSA increased an average of 4.8 &#xb1; 5.9% after HL and BFR training (time main effect <i>P</i> &lt; 0.01). There were no differences between the training groups (time x group interactions <i>P</i> &gt; 0.05). The rate of progression of KF training load and repetitions was comparable (time &#xd7; group interactions of each variable <i>P</i> &gt; 0.05). The groups averaged an increase of 0.50 &#xb1; 25 kg&#x22c5;week<sup>-1</sup> and 1.8 &#xb1; 0.1.7 repetitions&#x22c5;week<sup>-1</sup> of training (time main effects <i>P</i> &lt; 0.05). The HL training group experienced greater improvements in KE 10-RM strength than the BFR group (60.7 &#xb1; 36.0% vs. 35.3 &#xb1; 25.5%; <i>P</i> = 0.03). In both groups, isometric KE strength increased 17.3 &#xb1; 18.5% (<i>P</i> = 0.001) and there were no differences between groups (<i>P</i> = 0.24). Quadriceps CSA increased (time main effect <i>P</i> &lt; 0.01) and to similar magnitudes (time x group interaction <i>P</i> = 0.62) following HL (6.5 &#xb1; 3.1%) and BFR training (7.8 &#xb1; 8.2%). The HL group experienced accelerated progression of load when compared to BFR (0.90 &#xb1; 0.60 kg&#x22c5;week<sup>-1</sup> vs. 30 &#xb1; 0.21 kg&#x22c5;week<sup>-1</sup>; <i>P</i> = 0.006) but was not different when expressed in relative terms. BFR training progressed at a rate of 3.6 &#xb1; 1.3 repetitions&#x22c5;week<sup>-1</sup> while the HL group progressed at 2.2 &#xb1; 0.43 repetitions&#x22c5;week<sup>-1</sup> (<i>P</i> = 0.003). HL training led to greater increases in KE 10-RM and it may be attributed to the greater load and/or faster rate of progression of the load throughout the 12-week training period and the specificity of the testing modality. Incorporating systematic load progression throughout BFR training periods should be employed to lead to maximal strength gains.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Cook</LastName><ForeName>Summer B</ForeName><Initials>SB</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, University of New Hampshire, Durham, NH, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Cleary</LastName><ForeName>Christopher J</ForeName><Initials>CJ</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, University of New Hampshire, Durham, NH, United States.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>06</Month><Day>12</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">blood flow restriction</Keyword><Keyword MajorTopicYN="N">hypertrophy</Keyword><Keyword MajorTopicYN="N">older adults</Keyword><Keyword MajorTopicYN="N">progression</Keyword><Keyword MajorTopicYN="N">resistance training</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>12</Month><Day>20</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>5</Month><Day>28</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>6</Month><Day>29</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>6</Month><Day>30</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>6</Month><Day>30</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>6</Month><Day>12</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31249534</ArticleId><ArticleId IdType="pmc">PMC6582311</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.00738</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Aagaard P., Suetta C., Caserotti P., Magnusson S. P., Kjaer M. (2010). Role of the nervous system in sarcopenia and muscle atrophy with aging: strength training as a countermeasure.
+<i>Scand. J. Med. Sci. Sports</i>
+20
+49&#x2013;64. 10.1111/j.1600-0838.2009.01084.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2009.01084.x</ArticleId><ArticleId IdType="pubmed">20487503</ArticleId></ArticleIdList></Reference><Reference><Citation>Abramoff M., Magalhaes P., Ram S. (2004). Image processing with ImageJ.
+<i>Biophotonics Int.</i>
+11
+36&#x2013;42.</Citation></Reference><Reference><Citation>Blyth F. M., Noguchi N. (2017). Chronic musculoskeletal pain and its impact on older people.
+<i>Best Pract. Res. Clin. Rheumatol.</i>
+31
+160&#x2013;168. 10.1016/j.berh.2017.10.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.berh.2017.10.004</ArticleId><ArticleId IdType="pubmed">29224694</ArticleId></ArticleIdList></Reference><Reference><Citation>Bryk F. F., Dos Reis A. C., Fingerhut D., Araujo T., Schutzer M., Cury R., et al.  (2016). Exercises with partial vascular occlusion in patients with knee osteoarthritis: a randomized clinical trial.
+<i>Knee Surg. Sports Traumatol. Arthrosc.</i>
+24
+1580&#x2013;1586. 10.1007/s00167-016-4064-4067
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00167-016-4064-4067</ArticleId><ArticleId IdType="pubmed">26971109</ArticleId></ArticleIdList></Reference><Reference><Citation>Buckner S. L., Jessee M. B., Mattocks K. T., Mouser J. G., Counts B. R., Dankel S. J., et al.  (2017). Determining strength: a case for multiple methods of measurement.
+<i>Sports Med. Auckl.</i>
+47
+193&#x2013;195. 10.1007/s40279-016-0580-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-016-0580-3</ArticleId><ArticleId IdType="pubmed">27380100</ArticleId></ArticleIdList></Reference><Reference><Citation>Ciolac E. G., Garcez-Leme L. E., Greve J. M. D. (2010). Resistance exercise intensity progression in older men.
+<i>Int. J. Sports Med.</i>
+31
+433&#x2013;438. 10.1055/s-0030-1249087
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0030-1249087</ArticleId><ArticleId IdType="pubmed">20301048</ArticleId></ArticleIdList></Reference><Reference><Citation>Cook S. B., Brown K. A., Deruisseau K., Kanaley J. A., Ploutz-Snyder L. L. (2010). Skeletal muscle adaptations following blood flow-restricted training during 30 days of muscular unloading.
+<i>J. Appl. Physiol.</i>
+1985
+341&#x2013;349. 10.1152/japplphysiol.01288.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01288.2009</ArticleId><ArticleId IdType="pubmed">20522734</ArticleId></ArticleIdList></Reference><Reference><Citation>Cook S. B., LaRoche D. P., Villa M. R., Barile H., Manini T. M. (2017). Blood flow restricted resistance training in older adults at risk of mobility limitations.
+<i>Exp. Gerontol.</i>
+99
+138&#x2013;145. 10.1016/j.exger.2017.10.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.exger.2017.10.004</ArticleId><ArticleId IdType="pmc">PMC5660944</ArticleId><ArticleId IdType="pubmed">28987643</ArticleId></ArticleIdList></Reference><Reference><Citation>Ellefsen S., Hammarstr&#xf6;m D., Strand T. A., Zacharoff E., Whist J. E., Rauk I., et al.  (2015). Blood flow-restricted strength training displays high functional and biological efficacy in women: a within-subject comparison with high-load strength training.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+309
+R767&#x2013;R779. 10.1152/ajpregu.00497.2014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00497.2014</ArticleId><ArticleId IdType="pmc">PMC4666930</ArticleId><ArticleId IdType="pubmed">26202071</ArticleId></ArticleIdList></Reference><Reference><Citation>Garber C. E., Blissmer B., Deschenes M. R., Franklin B. A., Lamonte M. J., Lee I.-M., et al.  (2011). American college of sports medicine position stand. quantity and quality of exercise for developing and maintaining cardiorespiratory, musculoskeletal, and neuromotor fitness in apparently healthy adults: guidance for prescribing exercise.
+<i>Med. Sci. Sports Exerc.</i>
+43
+1334&#x2013;1359. 10.1249/MSS.0b013e318213fefb
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e318213fefb</ArticleId><ArticleId IdType="pubmed">21694556</ArticleId></ArticleIdList></Reference><Reference><Citation>Haff G. G., Triplett N. T. (2016). <i>Essentials of Strength Training and Conditioning</i>, 4th Edn. Champaign, IL: Human Kinetics.</Citation></Reference><Reference><Citation>Hughes L., Paton B., Rosenblatt B., Gissane C., Patterson S. D. (2017). Blood flow restriction training in clinical musculoskeletal rehabilitation: a systematic review and meta-analysis.
+<i>Br. J. Sports Med.</i>
+51
+1003&#x2013;1011. 10.1136/bjsports-2016-097071
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2016-097071</ArticleId><ArticleId IdType="pubmed">28259850</ArticleId></ArticleIdList></Reference><Reference><Citation>Karabulut M., Abe T., Sato Y., Bemben M. G. (2010). The effects of low-intensity resistance training with vascular restriction on leg muscle strength in older men.
+<i>Eur. J. Appl. Physiol.</i>
+108
+147&#x2013;155. 10.1007/s00421-009-1204-1205</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-009-1204-1205</ArticleId><ArticleId IdType="pubmed">19760431</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim K.-E., Jang S.-N., Lim S., Park Y. J., Paik N.-J., Kim K. W., et al.  (2012). Relationship between muscle mass and physical performance: is it the same in older adults with weak muscle strength?
+<i>Age Ageing</i>
+41
+799&#x2013;803. 10.1093/ageing/afs115
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ageing/afs115</ArticleId><ArticleId IdType="pubmed">22910301</ArticleId></ArticleIdList></Reference><Reference><Citation>Kirk E. A., Gilmore K. J., Rice C. L. (2018). Neuromuscular changes of the aged human hamstrings.
+<i>J. Neurophysiol.</i>
+120
+480&#x2013;488. 10.1152/jn.00794.2017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.00794.2017</ArticleId><ArticleId IdType="pmc">PMC6139447</ArticleId><ArticleId IdType="pubmed">29668388</ArticleId></ArticleIdList></Reference><Reference><Citation>Kraemer W. J., Ratamess N. A. (2004). Fundamentals of resistance training: progression and exercise prescription.
+<i>Med. Sci. Sports Exerc.</i>
+36
+674&#x2013;688. 10.1249/01.mss.0000121945.36635.61
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000121945.36635.61</ArticleId><ArticleId IdType="pubmed">15064596</ArticleId></ArticleIdList></Reference><Reference><Citation>Ladlow P., Coppack R. J., Dharm-Datta S., Conway D., Sellon E., Patterson S. D., et al.  (2018). Low-load resistance training with blood flow restriction improves clinical outcomes in musculoskeletal rehabilitation: a single-blind randomized controlled trial.
+<i>Front. Physiol.</i>
+9:1269. 10.3389/fphys.2018.01269
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.01269</ArticleId><ArticleId IdType="pmc">PMC6139300</ArticleId><ArticleId IdType="pubmed">30246795</ArticleId></ArticleIdList></Reference><Reference><Citation>Laurentino G. C., Ugrinowitsch C., Roschel H., Aoki M. S., Soares A. G., Neves M., et al.  (2012). Strength training with blood flow restriction diminishes myostatin gene expression.
+<i>Med. Sci. Sports Exerc.</i>
+44
+406&#x2013;412. 10.1249/MSS.0b013e318233b4bc
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e318233b4bc</ArticleId><ArticleId IdType="pubmed">21900845</ArticleId></ArticleIdList></Reference><Reference><Citation>Liguori I., Russo G., Aran L., Bulli G., Curcio F., Della-Morte D., et al.  (2018). Sarcopenia: assessment of disease burden and strategies to improve outcomes.
+<i>Clin. Interv. Aging</i>
+13
+913&#x2013;927. 10.2147/CIA.S149232
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/CIA.S149232</ArticleId><ArticleId IdType="pmc">PMC5957062</ArticleId><ArticleId IdType="pubmed">29785098</ArticleId></ArticleIdList></Reference><Reference><Citation>Lixandr&#xe3;o M. E., Ugrinowitsch C., Berton R., Vechin F. C., Concei&#xe7;&#xe3;o M. S., Damas F., et al.  (2018). Magnitude of muscle strength and mass adaptations between high-load resistance training versus low-load resistance training associated with blood-flow restriction: a systematic review and meta-analysis.
+<i>Sports Med. Auckl.</i>
+48
+361&#x2013;378. 10.1007/s40279-017-0795-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-017-0795-y</ArticleId><ArticleId IdType="pubmed">29043659</ArticleId></ArticleIdList></Reference><Reference><Citation>Loenneke J. P., Abe T., Wilson J. M., Thiebaud R. S., Fahs C. A., Rossow L. M., et al.  (2012a). Blood flow restriction: an evidence based progressive model (Review).
+<i>Acta Physiol. Hung.</i>
+99
+235&#x2013;250. 10.1556/APhysiol.99.2012.3.1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1556/APhysiol.99.2012.3.1</ArticleId><ArticleId IdType="pubmed">22982712</ArticleId></ArticleIdList></Reference><Reference><Citation>Loenneke J. P., Wilson J. M., Mar&#xed;n P. J., Zourdos M. C., Bemben M. G. (2012b). Low intensity blood flow restriction training: a meta-analysis.
+<i>Eur. J. Appl. Physiol.</i>
+112
+1849&#x2013;1859. 10.1007/s00421-011-2167-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2167-x</ArticleId><ArticleId IdType="pubmed">21922259</ArticleId></ArticleIdList></Reference><Reference><Citation>Loenneke J. P., Allen K. M., Mouser J. G., Thiebaud R. S., Kim D., Abe T., et al.  (2015). Blood flow restriction in the upper and lower limbs is predicted by limb circumference and systolic blood pressure.
+<i>Eur. J. Appl. Physiol.</i>
+115
+397&#x2013;405. 10.1007/s00421-014-3030-3037
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-014-3030-3037</ArticleId><ArticleId IdType="pubmed">25338316</ArticleId></ArticleIdList></Reference><Reference><Citation>Manini T. M., Visser M., Won-Park S., Patel K. V., Strotmeyer E. S., Chen H., et al.  (2007). Knee extension strength cutpoints for maintaining mobility.
+<i>J. Am. Geriatr. Soc.</i>
+55
+451&#x2013;457. 10.1111/j.1532-5415.2007.01087.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1532-5415.2007.01087.x</ArticleId><ArticleId IdType="pubmed">17341251</ArticleId></ArticleIdList></Reference><Reference><Citation>Mart&#xed;n-Hern&#xe1;ndez J., Mar&#xed;n P. J., Men&#xe9;ndez H., Ferrero C., Loenneke J. P., Herrero A. J. (2013). Muscular adaptations after two different volumes of blood flow-restricted training.
+<i>Scand. J. Med. Sci. Sports</i>
+23
+e114&#x2013;e120. 10.1111/sms.12036
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12036</ArticleId><ArticleId IdType="pubmed">23278841</ArticleId></ArticleIdList></Reference><Reference><Citation>Mattocks K. T., Jessee M. B., Mouser J. G., Dankel S. J., Buckner S. L., Bell Z. W., et al.  (2018). The application of blood flow restriction: lessons from the laboratory.
+<i>Curr. Sports Med. Rep.</i>
+17
+129&#x2013;134. 10.1249/JSR.0000000000000473
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/JSR.0000000000000473</ArticleId><ArticleId IdType="pubmed">29629973</ArticleId></ArticleIdList></Reference><Reference><Citation>Ohta H., Kurosawa H., Ikeda H., Iwase Y., Satou N., Nakamura S. (2003). Low-load resistance muscular training with moderate restriction of blood flow after anterior cruciate ligament reconstruction.
+<i>Acta Orthop. Scand.</i>
+74
+62&#x2013;68. 10.1080/00016470310013680
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/00016470310013680</ArticleId><ArticleId IdType="pubmed">12635796</ArticleId></ArticleIdList></Reference><Reference><Citation>Peterson M. D., Rhea M. R., Sen A., Gordon P. M. (2010). Resistance exercise for muscular strength in older adults: a meta-analysis.
+<i>Ageing Res. Rev.</i>
+9
+226&#x2013;237. 10.1016/j.arr.2010.03.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.arr.2010.03.004</ArticleId><ArticleId IdType="pmc">PMC2892859</ArticleId><ArticleId IdType="pubmed">20385254</ArticleId></ArticleIdList></Reference><Reference><Citation>Pope Z. K., Willardson J. M., Schoenfeld B. J. (2013). Exercise and blood flow restriction.
+<i>J. Strength Cond. Res.</i>
+27
+2914&#x2013;2926. 10.1519/JSC.0b013e3182874721
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3182874721</ArticleId><ArticleId IdType="pubmed">23364292</ArticleId></ArticleIdList></Reference><Reference><Citation>Reid K. F., Martin K. I., Doros G., Clark D. J., Hau C., Patten C., et al.  (2015). Comparative effects of light or heavy resistance power training for improving lower extremity power and physical performance in mobility-limited older adults.
+<i>J. Gerontol. A. Biol. Sci. Med. Sci.</i>
+70
+374&#x2013;380. 10.1093/gerona/glu156
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gerona/glu156</ArticleId><ArticleId IdType="pmc">PMC4351393</ArticleId><ArticleId IdType="pubmed">25199912</ArticleId></ArticleIdList></Reference><Reference><Citation>Rutherford O. M., Jones D. A. (1986). The role of learning and coordination in strength training.
+<i>Eur. J. Appl. Physiol.</i>
+55
+100&#x2013;105. 10.1007/bf00422902</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/bf00422902</ArticleId><ArticleId IdType="pubmed">3698983</ArticleId></ArticleIdList></Reference><Reference><Citation>Scott B. R., Loenneke J. P., Slattery K. M., Dascombe B. J. (2015). Exercise with blood flow restriction: an updated evidence-based approach for enhanced muscular development.
+<i>Sports Med. Auckl.</i>
+45
+313&#x2013;325. 10.1007/s40279-014-0288-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0288-1</ArticleId><ArticleId IdType="pubmed">25430600</ArticleId></ArticleIdList></Reference><Reference><Citation>Segal N. A., Williams G. N., Davis M. C., Wallace R. B., Mikesky A. E. (2015). Efficacy of blood flow-restricted, low-load resistance training in women with risk factors for symptomatic knee osteoarthritis.
+<i>PM R</i>
+7
+376&#x2013;384. 10.1016/j.pmrj.2014.09.014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pmrj.2014.09.014</ArticleId><ArticleId IdType="pmc">PMC4385750</ArticleId><ArticleId IdType="pubmed">25289840</ArticleId></ArticleIdList></Reference><Reference><Citation>Soligon S. D., Lixandr&#xe3;o M. E., Biazon T., Angleri V., Roschel H., Libardi C. A. (2018). Lower occlusion pressure during resistance exercise with blood-flow restriction promotes lower pain and perception of exercise compared to higher occlusion pressure when the total training volume is equalized.
+<i>Physiol. Int.</i>
+105
+276&#x2013;284. 10.1556/2060.105.2018.3.18
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1556/2060.105.2018.3.18</ArticleId><ArticleId IdType="pubmed">30269562</ArticleId></ArticleIdList></Reference><Reference><Citation>Takarada Y., Takazawa H., Sato Y., Takebayashi S., Tanaka Y., Ishii N. (2000). Effects of resistance exercise combined with moderate vascular occlusion on muscular function in humans.
+<i>J. Appl. Physiol.</i>
+1985
+2097&#x2013;2106. 10.1152/jappl.2000.88.6.2097
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.2000.88.6.2097</ArticleId><ArticleId IdType="pubmed">10846023</ArticleId></ArticleIdList></Reference><Reference><Citation>Tennent D. J., Hylden C. M., Johnson A. E., Burns T. C., Wilken J. M., Owens J. G. (2017). Blood flow restriction training after knee arthroscopy: a randomized controlled pilot study.
+<i>Clin. J. Sport Med. Off. J. Can. Acad. Sport Med.</i>
+27
+245&#x2013;252. 10.1097/JSM.0000000000000377
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/JSM.0000000000000377</ArticleId><ArticleId IdType="pubmed">27749358</ArticleId></ArticleIdList></Reference><Reference><Citation>Vechin F. C., Libardi C. A., Concei&#xe7;&#xe3;o M. S., Damas F. R., Lixandr&#xe3;o M. E., Berton R. P. B., et al.  (2015). Comparisons between low-intensity resistance training with blood flow restriction and high-intensity resistance training on quadriceps muscle mass and strength in elderly.
+<i>J. Strength Cond. Res.</i>
+29
+1071&#x2013;1076. 10.1519/JSC.0000000000000703
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000703</ArticleId><ArticleId IdType="pubmed">25264670</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

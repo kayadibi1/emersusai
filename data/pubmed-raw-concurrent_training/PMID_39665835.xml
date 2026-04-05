@@ -1,0 +1,191 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Curated"><PMID Version="1">39665835</PMID><DateCompleted><Year>2025</Year><Month>02</Month><Day>26</Day></DateCompleted><DateRevised><Year>2025</Year><Month>06</Month><Day>06</Day></DateRevised><Article PubModel="Print-Electronic"><Journal><ISSN IssnType="Electronic">1973-9095</ISSN><JournalIssue CitedMedium="Internet"><Volume>61</Volume><Issue>1</Issue><PubDate><Year>2025</Year><Month>Feb</Month></PubDate></JournalIssue><Title>European journal of physical and rehabilitation medicine</Title><ISOAbbreviation>Eur J Phys Rehabil Med</ISOAbbreviation></Journal><ArticleTitle>Exercise rehabilitation in post COVID-19 patients: a randomized controlled trial of different training modalities.</ArticleTitle><Pagination><StartPage>130</StartPage><EndPage>140</EndPage><MedlinePgn>130-140</MedlinePgn></Pagination><ELocationID EIdType="doi" ValidYN="Y">10.23736/S1973-9087.24.08487-9</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="BACKGROUND">Long-lasting symptoms (&gt;12 weeks) following a COVID-19 infection are defined as the post-COVID-19 syndrome (PCS), often manifesting as fatigue and reduced exercise capacity. Thus, exercise has been suggested as a non-pharmacological therapy.</AbstractText><AbstractText Label="AIM" NlmCategory="OBJECTIVE">To investigate the effects of endurance vs. concurrent exercise on physical function, symptoms and quality of life in individuals with PCS, that did not need hospital admission during acute COVID-19.</AbstractText><AbstractText Label="DESIGN" NlmCategory="METHODS">Parallel-group, single-center, randomized controlled trial.</AbstractText><AbstractText Label="SETTING" NlmCategory="METHODS">This study was conducted at the University of Vienna.</AbstractText><AbstractText Label="POPULATION" NlmCategory="METHODS">Adult individuals with a SARS-CoV-2 infection at least 12 weeks prior to enrollment who reported at least one symptom specific to PCS and did not experience post-exertional malaise.</AbstractText><AbstractText Label="METHODS" NlmCategory="METHODS">Participants were randomized to either 12 weeks of supervised endurance training (ED) or concurrent training (CT), or a non-exercising control group (C). As the primary outcome, VO&lt;inf&gt;2&lt;/inf&gt;peak was assessed pre and post intervention. Secondary outcomes were handgrip and lower body strength, heart rate variability, symptoms, health-related quality of life (HRQoL) and concentration performance. The main effects for time and group as well as the time*group interaction were assessed via a 2x2 analysis of variance. Additionally, within-group pre-post testing was performed.</AbstractText><AbstractText Label="RESULTS" NlmCategory="RESULTS">Taking the study protocol into account, 42 subjects could be included in the analysis (N.=14 in each group). A significant time*group interaction favoring both exercise conditions was found for VO&lt;inf&gt;2&lt;/inf&gt;peak (partial Eta<sup>2</sup>=0.267; ED: +3.9 mL/min/kg; CT: +3.2 mL/min/kg). The Fatigue Severity Score significantly decreased in ED (Hedges' g=0.63) and CT (Hedges' g=0.82) from pre to post, but not in C. Breathlessness and lower body strength improved most in CT. Significant within-group improvements in HRQoL and the number of PCS symptoms occurred in all groups.</AbstractText><AbstractText Label="CONCLUSIONS" NlmCategory="CONCLUSIONS">Both exercise regimes led to increases in VO&lt;inf&gt;2&lt;/inf&gt;peak and lower fatigue scores in subjects with PCS. Improvements in HRQoL occurred in all groups, however more pronounced after the exercise interventions. No definite conclusion about the superiority of either training modality can be drawn.</AbstractText><AbstractText Label="CLINICAL REHABILITATION IMPACT" NlmCategory="CONCLUSIONS">The results show that in this population both exercise regimes are feasible and safe and lead to improvements in various health domains.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Sick</LastName><ForeName>Johanna</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Department of Sport and Human Movement Science, Center for Sport Science and University Sports, University of Vienna, Vienna, Austria - johanna.sick@univie.ac.at.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Vienna Doctoral School of Pharmaceutical, Nutritional and Sport Sciences, University of Vienna, Vienna, Austria - johanna.sick@univie.ac.at.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Steinbacher</LastName><ForeName>Verena</ForeName><Initials>V</Initials><AffiliationInfo><Affiliation>Department of Sport and Human Movement Science, Center for Sport Science and University Sports, University of Vienna, Vienna, Austria.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kotnik</LastName><ForeName>Daniel</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Department of Sport and Human Movement Science, Center for Sport Science and University Sports, University of Vienna, Vienna, Austria.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>K&#xf6;nig</LastName><ForeName>Florian</ForeName><Initials>F</Initials><AffiliationInfo><Affiliation>Department of Sport and Human Movement Science, Center for Sport Science and University Sports, University of Vienna, Vienna, Austria.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Recking</LastName><ForeName>Tim</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Department of Sport and Human Movement Science, Center for Sport Science and University Sports, University of Vienna, Vienna, Austria.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Bengsch</LastName><ForeName>Dominik</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Department of Sport and Human Movement Science, Center for Sport Science and University Sports, University of Vienna, Vienna, Austria.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>K&#xf6;nig</LastName><ForeName>Daniel</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Department of Sport and Human Movement Science, Center for Sport Science and University Sports, University of Vienna, Vienna, Austria.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Nutritional Sciences, Faculty of Life Sciences, University of Vienna, Vienna, Austria.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType><PublicationType UI="D016449">Randomized Controlled Trial</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2024</Year><Month>12</Month><Day>12</Day></ArticleDate></Article><MedlineJournalInfo><Country>Italy</Country><MedlineTA>Eur J Phys Rehabil Med</MedlineTA><NlmUniqueID>101465662</NlmUniqueID><ISSNLinking>1973-9087</ISSNLinking></MedlineJournalInfo><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000086382" MajorTopicYN="Y">COVID-19</DescriptorName><QualifierName UI="Q000534" MajorTopicYN="N">rehabilitation</QualifierName><QualifierName UI="Q000150" MajorTopicYN="N">complications</QualifierName><QualifierName UI="Q000503" MajorTopicYN="N">physiopathology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D008297" MajorTopicYN="N">Male</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005260" MajorTopicYN="N">Female</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D011788" MajorTopicYN="N">Quality of Life</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005081" MajorTopicYN="Y">Exercise Therapy</DescriptorName><QualifierName UI="Q000379" MajorTopicYN="N">methods</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D008875" MajorTopicYN="N">Middle Aged</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000328" MajorTopicYN="N">Adult</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000086402" MajorTopicYN="N">SARS-CoV-2</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000076663" MajorTopicYN="Y">Endurance Training</DescriptorName><QualifierName UI="Q000379" MajorTopicYN="N">methods</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D000368" MajorTopicYN="N">Aged</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D018737" MajorTopicYN="N">Hand Strength</DescriptorName></MeshHeading></MeshHeadingList><CoiStatement><b>Conflicts of interest:</b> The authors certify that there is no conflict of interest with any financial organization regarding the material discussed in the manuscript.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="medline"><Year>2025</Year><Month>2</Month><Day>26</Day><Hour>12</Hour><Minute>23</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2024</Year><Month>12</Month><Day>12</Day><Hour>12</Hour><Minute>28</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2024</Year><Month>12</Month><Day>12</Day><Hour>10</Hour><Minute>59</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2024</Year><Month>12</Month><Day>12</Day></PubMedPubDate></History><PublicationStatus>ppublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">39665835</ArticleId><ArticleId IdType="pmc">PMC11922198</ArticleId><ArticleId IdType="doi">10.23736/S1973-9087.24.08487-9</ArticleId><ArticleId IdType="pii">S1973-9087.24.08487-9</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Fern&#xe1;ndez-de-Las-Pe&#xf1;as C, Palacios-Ce&#xf1;a D, G&#xf3;mez-Mayordomo V, Cuadrado ML, Florencio LL. Defining Post-COVID Symptoms (Post-Acute COVID, Long COVID, Persistent Post-COVID): An Integrative Classification.
+Int J Environ Res Public Health
+2021;18:2621. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=33807869&amp;dopt=Abstract
+10.3390/ijerph18052621
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph18052621</ArticleId><ArticleId IdType="pmc">PMC7967389</ArticleId><ArticleId IdType="pubmed">33807869</ArticleId></ArticleIdList></Reference><Reference><Citation>National Institute for Health and Care Excellence. Clinical Guidelines. COVID-19 rapid guideline: managing the long-term effects of COVID-19. London: National Institute for Health and Care Excellence (NICE); 2020.</Citation></Reference><Reference><Citation>O&#x2019;Mahoney LL, Routen A, Gillies C, Ekezie W, Welford A, Zhang A, et al. 
+The prevalence and long-term health effects of Long Covid among hospitalised and non-hospitalised populations: A systematic review and meta-analysis.
+EClinicalMedicine
+2022;55:101762. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=36474804&amp;dopt=Abstract
+10.1016/j.eclinm.2022.101762
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.eclinm.2022.101762</ArticleId><ArticleId IdType="pmc">PMC9714474</ArticleId><ArticleId IdType="pubmed">36474804</ArticleId></ArticleIdList></Reference><Reference><Citation>Peter RS, Nieters A, Kr&#xe4;usslich HG, Brockmann SO, G&#xf6;pel S, Kindle G, et al. ; EPILOC Phase 1 Study Group. Post-acute sequelae of covid-19 six to 12 months after infection: population based study.
+BMJ
+2022;379:e071050. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=36229057&amp;dopt=Abstract
+10.1136/bmj-2022-071050
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj-2022-071050</ArticleId><ArticleId IdType="pmc">PMC9557001</ArticleId><ArticleId IdType="pubmed">36229057</ArticleId></ArticleIdList></Reference><Reference><Citation>Augustin M, Schommers P, Stecher M, Dewald F, Gieselmann L, Gruell H, et al. 
+Post-COVID syndrome in non-hospitalised patients with COVID-19: a longitudinal prospective cohort study.
+Lancet Reg Health Eur
+2021;6:100122. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=34027514&amp;dopt=Abstract
+10.1016/j.lanepe.2021.100122
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.lanepe.2021.100122</ArticleId><ArticleId IdType="pmc">PMC8129613</ArticleId><ArticleId IdType="pubmed">34027514</ArticleId></ArticleIdList></Reference><Reference><Citation>Blomberg B, Mohn KG, Brokstad KA, Zhou F, Linchausen DW, Hansen BA, et al. Bergen COVID-19 Research Group . Long COVID in a prospective cohort of home-isolated patients.
+Nat Med
+2021;27:1607&#x2013;13. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=34163090&amp;dopt=Abstract
+10.1038/s41591-021-01433-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41591-021-01433-3</ArticleId><ArticleId IdType="pmc">PMC8440190</ArticleId><ArticleId IdType="pubmed">34163090</ArticleId></ArticleIdList></Reference><Reference><Citation>Natarajan A, Shetty A, Delanerolle G, Zeng Y, Zhang Y, Raymont V, et al. 
+A systematic review and meta-analysis of long COVID symptoms.
+Syst Rev
+2023;12:88. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=37245047&amp;dopt=Abstract
+10.1186/s13643-023-02250-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13643-023-02250-0</ArticleId><ArticleId IdType="pmc">PMC10220332</ArticleId><ArticleId IdType="pubmed">37245047</ArticleId></ArticleIdList></Reference><Reference><Citation>Davis HE, McCorkell L, Vogel JM, Topol EJ. Long COVID: major findings, mechanisms and recommendations.
+Nat Rev Microbiol
+2023;21:133&#x2013;46. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=36639608&amp;dopt=Abstract
+10.1038/s41579-022-00846-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41579-022-00846-2</ArticleId><ArticleId IdType="pmc">PMC9839201</ArticleId><ArticleId IdType="pubmed">36639608</ArticleId></ArticleIdList></Reference><Reference><Citation>Yong SJ, Liu S. Proposed subtypes of post-COVID-19 syndrome (or long-COVID) and their respective potential therapies.
+Rev Med Virol
+2022;32:e2315. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=34888989&amp;dopt=Abstract
+10.1002/rmv.2315
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/rmv.2315</ArticleId><ArticleId IdType="pubmed">34888989</ArticleId></ArticleIdList></Reference><Reference><Citation>Jason LA, Dorri JA. ME/CFS and Post-Exertional Malaise among Patients with Long COVID.
+Neurol Int
+2022;15:1&#x2013;11. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=36648965&amp;dopt=Abstract
+10.3390/neurolint15010001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/neurolint15010001</ArticleId><ArticleId IdType="pmc">PMC9844405</ArticleId><ArticleId IdType="pubmed">36648965</ArticleId></ArticleIdList></Reference><Reference><Citation>Malik P, Patel K, Pinto C, Jaiswal R, Tirupathi R, Pillai S, et al. 
+Post-acute COVID-19 syndrome (PCS) and health-related quality of life (HRQoL)-A systematic review and meta-analysis.
+J Med Virol
+2022;94:253&#x2013;62. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=34463956&amp;dopt=Abstract
+10.1002/jmv.27309
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jmv.27309</ArticleId><ArticleId IdType="pmc">PMC8662132</ArticleId><ArticleId IdType="pubmed">34463956</ArticleId></ArticleIdList></Reference><Reference><Citation>Dowman L, Hill CJ, May A, Holland AE. Pulmonary rehabilitation for interstitial lung disease. Cochrane Database Syst Rev 2021;2:CD006322. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=34559419&amp;dopt=Abstract</Citation><ArticleIdList><ArticleId IdType="pmc">PMC8094410</ArticleId><ArticleId IdType="pubmed">34559419</ArticleId></ArticleIdList></Reference><Reference><Citation>Dauwan M, Begemann MJ, Slot MI, Lee EH, Scheltens P, Sommer IE. Physical exercise improves quality of life, depressive symptoms, and cognition across chronic brain disorders: a transdiagnostic systematic review and meta-analysis of randomized controlled trials.
+J Neurol
+2021;268:1222&#x2013;46. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=31414194&amp;dopt=Abstract
+10.1007/s00415-019-09493-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00415-019-09493-9</ArticleId><ArticleId IdType="pmc">PMC7990819</ArticleId><ArticleId IdType="pubmed">31414194</ArticleId></ArticleIdList></Reference><Reference><Citation>Chandan JS, Brown KR, Simms-Williams N, Bashir NZ, Camaradou J, Heining D, et al. ; TLC Study. Non-Pharmacological Therapies for Post-Viral Syndromes, Including Long COVID: A Systematic Review.
+Int J Environ Res Public Health
+2023;20:3477. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=36834176&amp;dopt=Abstract
+10.3390/ijerph20043477
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph20043477</ArticleId><ArticleId IdType="pmc">PMC9967466</ArticleId><ArticleId IdType="pubmed">36834176</ArticleId></ArticleIdList></Reference><Reference><Citation>Barker-Davies RM, O&#x2019;Sullivan O, Senaratne KP, Baker P, Cranley M, Dharm-Datta S, et al. 
+The Stanford Hall consensus statement for post-COVID-19 rehabilitation.
+Br J Sports Med
+2020;54:949&#x2013;59. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=32475821&amp;dopt=Abstract
+10.1136/bjsports-2020-102596
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2020-102596</ArticleId><ArticleId IdType="pmc">PMC7418628</ArticleId><ArticleId IdType="pubmed">32475821</ArticleId></ArticleIdList></Reference><Reference><Citation>Ahmadi Hekmatikar AH, Ferreira J&#xfa;nior JB, Shahrbanian S, Suzuki K. Functional and Psychological Changes after Exercise Training in Post-COVID-19 Patients Discharged from the Hospital: A PRISMA-Compliant Systematic Review.
+Int J Environ Res Public Health
+2022;19:2290. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=35206483&amp;dopt=Abstract
+10.3390/ijerph19042290
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph19042290</ArticleId><ArticleId IdType="pmc">PMC8871540</ArticleId><ArticleId IdType="pubmed">35206483</ArticleId></ArticleIdList></Reference><Reference><Citation>Shah W, Hillman T, Playford ED, Hishmeh L. Managing the long term effects of covid-19: summary of NICE, SIGN, and RCGP rapid guideline.
+BMJ
+2021;372:n136. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=33483331&amp;dopt=Abstract
+10.1136/bmj.n136</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.n136</ArticleId><ArticleId IdType="pubmed">33483331</ArticleId></ArticleIdList></Reference><Reference><Citation>Klok FA, Boon GJ, Barco S, Endres M, Geelhoed JJ, Knauss S, et al. 
+The Post-COVID-19 Functional Status scale: a tool to measure functional status over time after COVID-19.
+Eur Respir J
+2020;56:2001494. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=32398306&amp;dopt=Abstract
+10.1183/13993003.01494-2020
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1183/13993003.01494-2020</ArticleId><ArticleId IdType="pmc">PMC7236834</ArticleId><ArticleId IdType="pubmed">32398306</ArticleId></ArticleIdList></Reference><Reference><Citation>Hopkins WG. Assigning Subjects to Groups in a Controlled Trial. Sportscience. 2010;14:7&#x2013;12.</Citation></Reference><Reference><Citation>Reina-Guti&#xe9;rrez S, Torres-Costoso A, Mart&#xed;nez-Vizca&#xed;no V, N&#xfa;&#xf1;ez de Arenas-Arroyo S, Fern&#xe1;ndez-Rodr&#xed;guez R, Pozuelo-Carrascosa DP. Effectiveness of Pulmonary Rehabilitation in Interstitial Lung Disease, Including Coronavirus Diseases: A Systematic Review and Meta-analysis.
+Arch Phys Med Rehabil
+2021;102:1989&#x2013;1997.e3. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=33932361&amp;dopt=Abstract
+10.1016/j.apmr.2021.03.035
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.apmr.2021.03.035</ArticleId><ArticleId IdType="pmc">PMC8474048</ArticleId><ArticleId IdType="pubmed">33932361</ArticleId></ArticleIdList></Reference><Reference><Citation>Wasserman K, Hansen JE, Sue DY, Whipp BJ, Froelicher VF. Principles of Exercise Testing and Interpretation. J Cardiopulm Rehabil Prev 1987;7:189. 10.1097/00008483-198704000-00014</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00008483-198704000-00014</ArticleId></ArticleIdList></Reference><Reference><Citation>Learmonth YC, Dlugonski D, Pilutti LA, Sandroff BM, Klaren R, Motl RW. Psychometric properties of the Fatigue Severity Scale and the Modified Fatigue Impact Scale.
+J Neurol Sci
+2013;331:102&#x2013;7. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=23791482&amp;dopt=Abstract
+10.1016/j.jns.2013.05.023
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jns.2013.05.023</ArticleId><ArticleId IdType="pubmed">23791482</ArticleId></ArticleIdList></Reference><Reference><Citation>Bestall JC, Paul EA, Garrod R, Garnham R, Jones PW, Wedzicha JA. Usefulness of the Medical Research Council (MRC) dyspnoea scale as a measure of disability in patients with chronic obstructive pulmonary disease.
+Thorax
+1999;54:581&#x2013;6. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=10377201&amp;dopt=Abstract
+10.1136/thx.54.7.581
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/thx.54.7.581</ArticleId><ArticleId IdType="pmc">PMC1745516</ArticleId><ArticleId IdType="pubmed">10377201</ArticleId></ArticleIdList></Reference><Reference><Citation>Broadbent S, Coutts R.
+Graded versus Intermittent Exercise Effects on Lymphocytes in Chronic Fatigue Syndrome.
+Med Sci Sports Exerc
+2016;48:1655&#x2013;63. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=27116645&amp;dopt=Abstract
+10.1249/MSS.0000000000000957
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000000957</ArticleId><ArticleId IdType="pubmed">27116645</ArticleId></ArticleIdList></Reference><Reference><Citation>Valkenborghs SR, Anderson SL, Scott HA, Callister R. Exercise Training Programs Improve Cardiorespiratory and Functional Fitness in Adults With Asthma: A SYSTEMATIC REVIEW AND META-ANALYSIS.
+J Cardiopulm Rehabil Prev
+2022;42:423&#x2013;33. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=35703265&amp;dopt=Abstract
+10.1097/HCR.0000000000000698
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/HCR.0000000000000698</ArticleId><ArticleId IdType="pubmed">35703265</ArticleId></ArticleIdList></Reference><Reference><Citation>Li D, Chen P, Zhu J.
+The Effects of Interval Training and Continuous Training on Cardiopulmonary Fitness and Exercise Tolerance of Patients with Heart Failure-A Systematic Review and Meta-Analysis.
+Int J Environ Res Public Health
+2021;18:6761. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=34201804&amp;dopt=Abstract
+10.3390/ijerph18136761
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph18136761</ArticleId><ArticleId IdType="pmc">PMC8268940</ArticleId><ArticleId IdType="pubmed">34201804</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee J, Lee R, Stone AJ. Combined Aerobic and Resistance Training for Peak Oxygen Uptake, Muscle Strength, and Hypertrophy After Coronary Artery Disease: a Systematic Review and Meta-Analysis.
+J Cardiovasc Transl Res
+2020;13:601&#x2013;11. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=31656988&amp;dopt=Abstract
+10.1007/s12265-019-09922-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12265-019-09922-0</ArticleId><ArticleId IdType="pubmed">31656988</ArticleId></ArticleIdList></Reference><Reference><Citation>Giuliano C, Karahalios A, Neil C, Allen J, Levinger I. The effects of resistance training on muscle strength, quality of life and aerobic capacity in patients with chronic heart failure - A meta-analysis.
+Int J Cardiol
+2017;227:413&#x2013;23. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=27843045&amp;dopt=Abstract
+10.1016/j.ijcard.2016.11.023
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijcard.2016.11.023</ArticleId><ArticleId IdType="pubmed">27843045</ArticleId></ArticleIdList></Reference><Reference><Citation>Longobardi I, Goessler K, de Oliveira J&#xfa;nior GN, Prado DM, Santos JV, Meletti MM, et al. 
+Effects of a 16-week home-based exercise training programme on health-related quality of life, functional capacity, and persistent symptoms in survivors of severe/critical COVID-19: a randomised controlled trial.
+Br J Sports Med
+2023;57:1295&#x2013;303. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=37164620&amp;dopt=Abstract
+10.1136/bjsports-2022-106681
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2022-106681</ArticleId><ArticleId IdType="pubmed">37164620</ArticleId></ArticleIdList></Reference><Reference><Citation>Rasmussen IE, L&#xf8;k M, Durrer CG, Foged F, Schelde VG, Budde JB, et al. Impact of high-intensity interval training on cardiac structure and function after COVID-19: an investigator-blinded randomized controlled trial. J Appl Physiol (1985) 2023;135:421&#x2013;35. 10.1152/japplphysiol.00078.2023</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00078.2023</ArticleId><ArticleId IdType="pubmed">37391888</ArticleId></ArticleIdList></Reference><Reference><Citation>Ara&#xfa;jo BT, Barros AE, Nunes DT, Rem&#xed;gio de Aguiar MI, Mastroianni VW, de Souza JA, et al. 
+Effects of continuous aerobic training associated with resistance training on maximal and submaximal exercise tolerance, fatigue, and quality of life of patients post-COVID-19.
+Physiother Res Int
+2023;28:e1972. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=36088642&amp;dopt=Abstract
+10.1002/pri.1972
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/pri.1972</ArticleId><ArticleId IdType="pmc">PMC9539049</ArticleId><ArticleId IdType="pubmed">36088642</ArticleId></ArticleIdList></Reference><Reference><Citation>Jimeno-Almaz&#xe1;n A, Franco-L&#xf3;pez F, Buend&#xed;a-Romero &#xc1;, Mart&#xed;nez-Cava A, S&#xe1;nchez-Agar JA, S&#xe1;nchez-Alcaraz Mart&#xed;nez BJ, et al. 
+Rehabilitation for post-COVID-19 condition through a supervised exercise intervention: A randomized controlled trial.
+Scand J Med Sci Sports
+2022;32:1791&#x2013;801. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=36111386&amp;dopt=Abstract
+10.1111/sms.14240
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.14240</ArticleId><ArticleId IdType="pmc">PMC9538729</ArticleId><ArticleId IdType="pubmed">36111386</ArticleId></ArticleIdList></Reference><Reference><Citation>Jimeno-Almaz&#xe1;n A, Buend&#xed;a-Romero &#xc1;, Mart&#xed;nez-Cava A, Franco-L&#xf3;pez F, S&#xe1;nchez-Alcaraz BJ, Courel-Ib&#xe1;&#xf1;ez J, et al. Effects of a concurrent training, respiratory muscle exercise, and self-management recommendations on recovery from post-COVID-19 conditions: the RECOVE trial. J Appl Physiol (1985) 2023;134:95&#x2013;104. 10.1152/japplphysiol.00489.2022</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00489.2022</ArticleId><ArticleId IdType="pmc">PMC9829459</ArticleId><ArticleId IdType="pubmed">36476156</ArticleId></ArticleIdList></Reference><Reference><Citation>Massy-Westropp NM, Gill TK, Taylor AW, Bohannon RW, Hill CL. Hand Grip Strength: age and gender stratified normative data in a population-based study.
+BMC Res Notes
+2011;4:127. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=21492469&amp;dopt=Abstract
+10.1186/1756-0500-4-127
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1756-0500-4-127</ArticleId><ArticleId IdType="pmc">PMC3101655</ArticleId><ArticleId IdType="pubmed">21492469</ArticleId></ArticleIdList></Reference><Reference><Citation>Hilfiker R, Meichtry A, Eicher M, Nilsson Balfe L, Knols RH, Verra ML, et al. 
+Exercise and other non-pharmaceutical interventions for cancer-related fatigue in patients during or after cancer treatment: a systematic review incorporating an indirect-comparisons meta-analysis.
+Br J Sports Med
+2018;52:651&#x2013;8. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=28501804&amp;dopt=Abstract
+10.1136/bjsports-2016-096422
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2016-096422</ArticleId><ArticleId IdType="pmc">PMC5931245</ArticleId><ArticleId IdType="pubmed">28501804</ArticleId></ArticleIdList></Reference><Reference><Citation>Razazian N, Kazeminia M, Moayedi H, Daneshkhah A, Shohaimi S, Mohammadi M, et al. 
+The impact of physical exercise on the fatigue symptoms in patients with multiple sclerosis: a systematic review and meta-analysis.
+BMC Neurol
+2020;20:93. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=32169035&amp;dopt=Abstract
+10.1186/s12883-020-01654-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12883-020-01654-y</ArticleId><ArticleId IdType="pmc">PMC7068865</ArticleId><ArticleId IdType="pubmed">32169035</ArticleId></ArticleIdList></Reference><Reference><Citation>Romanet C, Wormser J, Fels A, Lucas P, Prudat C, Sacco E, et al. 
+Effectiveness of exercise training on the dyspnoea of individuals with long COVID: A randomised controlled multicentre trial.
+Ann Phys Rehabil Med
+2023;66:101765. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=37271020&amp;dopt=Abstract
+10.1016/j.rehab.2023.101765
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.rehab.2023.101765</ArticleId><ArticleId IdType="pmc">PMC10237688</ArticleId><ArticleId IdType="pubmed">37271020</ArticleId></ArticleIdList></Reference><Reference><Citation>Flor-Rufino C, Barrachina-Igual J, P&#xe9;rez-Ros P, Pablos-Monz&#xf3; A, Mart&#xed;nez-Arnau FM. Resistance training of peripheral muscles benefits respiratory parameters in older women with sarcopenia: randomized controlled trial.
+Arch Gerontol Geriatr
+2023;104:104799. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=36070636&amp;dopt=Abstract
+10.1016/j.archger.2022.104799
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.archger.2022.104799</ArticleId><ArticleId IdType="pubmed">36070636</ArticleId></ArticleIdList></Reference><Reference><Citation>Chilunga FP, Appelman B, van Vugt M, Kalverda K, Smeele P, van Es J, et al. 
+Differences in incidence, nature of symptoms, and duration of long COVID among hospitalised migrant and non-migrant patients in the Netherlands: a retrospective cohort study.
+Lancet Reg Health Eur
+2023;29:100630. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=37261215&amp;dopt=Abstract
+10.1016/j.lanepe.2023.100630
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.lanepe.2023.100630</ArticleId><ArticleId IdType="pmc">PMC10079482</ArticleId><ArticleId IdType="pubmed">37261215</ArticleId></ArticleIdList></Reference><Reference><Citation>Gillison FB, Skevington SM, Sato A, Standage M, Evangelidou S. The effects of exercise interventions on quality of life in clinical and healthy populations; a meta-analysis.
+Soc Sci Med
+2009;68:1700&#x2013;10. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=19297065&amp;dopt=Abstract
+10.1016/j.socscimed.2009.02.028
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.socscimed.2009.02.028</ArticleId><ArticleId IdType="pubmed">19297065</ArticleId></ArticleIdList></Reference><Reference><Citation>Mooren FC, B&#xf6;ckelmann I, Waranski M, Kotewitsch M, Teschler M, Sch&#xe4;fer H, et al. 
+Autonomic dysregulation in long-term patients suffering from Post-COVID-19 Syndrome assessed by heart rate variability.
+Sci Rep
+2023;13:15814. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=37739977&amp;dopt=Abstract
+10.1038/s41598-023-42615-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-023-42615-y</ArticleId><ArticleId IdType="pmc">PMC10516975</ArticleId><ArticleId IdType="pubmed">37739977</ArticleId></ArticleIdList></Reference><Reference><Citation>Buoite Stella A, Furlanis G, Frezza NA, Valentinotti R, Ajcevic M, Manganotti P. Autonomic dysfunction in post-COVID patients with and witfhout neurological symptoms: a prospective multidomain observational study.
+J Neurol
+2022;269:587&#x2013;96. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=34386903&amp;dopt=Abstract
+10.1007/s00415-021-10735-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00415-021-10735-y</ArticleId><ArticleId IdType="pmc">PMC8359764</ArticleId><ArticleId IdType="pubmed">34386903</ArticleId></ArticleIdList></Reference><Reference><Citation>Mohammed J, Derom E, Van Oosterwijck J, Da Silva H, Calders P. Evidence for aerobic exercise training on the autonomic function in patients with chronic obstructive pulmonary disease (COPD): a systematic review.
+Physiotherapy
+2018;104:36&#x2013;45. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=28947079&amp;dopt=Abstract
+10.1016/j.physio.2017.07.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.physio.2017.07.004</ArticleId><ArticleId IdType="pubmed">28947079</ArticleId></ArticleIdList></Reference><Reference><Citation>Picard M, Tauveron I, Magdasy S, Benichou T, Bagheri R, Ugbolue UC, et al. 
+Effect of exercise training on heart rate variability in type 2 diabetes mellitus patients: A systematic review and meta-analysis.
+PLoS One
+2021;16:e0251863. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=33999947&amp;dopt=Abstract
+10.1371/journal.pone.0251863
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0251863</ArticleId><ArticleId IdType="pmc">PMC8128270</ArticleId><ArticleId IdType="pubmed">33999947</ArticleId></ArticleIdList></Reference><Reference><Citation>Lantelme P, Milon H, Gharib C, Gayet C, Fortrat JO. White coat effect and reactivity to stress: cardiovascular and autonomic nervous system responses.
+Hypertension
+1998;31:1021&#x2013;9. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=9535430&amp;dopt=Abstract
+10.1161/01.HYP.31.4.1021
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/01.HYP.31.4.1021</ArticleId><ArticleId IdType="pubmed">9535430</ArticleId></ArticleIdList></Reference><Reference><Citation>Uhlig S, Meylan A, Rudolph U. Reliability of short-term measurements of heart rate variability: findings from a longitudinal study.
+Biol Psychol
+2020;154:107905. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=32505705&amp;dopt=Abstract
+10.1016/j.biopsycho.2020.107905
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.biopsycho.2020.107905</ArticleId><ArticleId IdType="pubmed">32505705</ArticleId></ArticleIdList></Reference><Reference><Citation>Phetsouphanh C, Darley DR, Wilson DB, Howe A, Munier CM, Patel SK, et al. 
+Immunological dysfunction persists for 8 months following initial mild-to-moderate SARS-CoV-2 infection.
+Nat Immunol
+2022;23:210&#x2013;6. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=35027728&amp;dopt=Abstract
+10.1038/s41590-021-01113-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41590-021-01113-x</ArticleId><ArticleId IdType="pubmed">35027728</ArticleId></ArticleIdList></Reference><Reference><Citation>Fairbank R.
+Long COVID exercise trials proposed by NIH raise alarm.
+Nature
+2023;616:228&#x2013;9. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=37002390&amp;dopt=Abstract
+10.1038/d41586-023-00900-w
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/d41586-023-00900-w</ArticleId><ArticleId IdType="pubmed">37002390</ArticleId></ArticleIdList></Reference><Reference><Citation>Twomey R, DeMars J, Franklin K, Culos-Reed SN, Weatherald J, Wrightson JG. Chronic Fatigue and Postexertional Malaise in People Living With Long COVID: An Observational Study. Phys Ther 2022;102:pzac005. https://www.ncbi.nlm.nih.gov/entrez/query.fcgi?cmd=Retrieve&amp;db=PubMed&amp;list_uids=35079817&amp;dopt=Abstract
+10.1093/ptj/pzac005</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ptj/pzac005</ArticleId><ArticleId IdType="pmc">PMC9383197</ArticleId><ArticleId IdType="pubmed">35079817</ArticleId></ArticleIdList></Reference><Reference><Citation>National Institute for Health and Care Excellence: Guidelines. Myalgic encephalomyelitis (or encephalopathy)/chronic fatigue syndrome: diagnosis and management. London: National Institute for Health and Care Excellence (NICE).</Citation></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

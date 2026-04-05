@@ -1,0 +1,124 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31057416</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>30</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>The Effect of Changing the Contraction Mode During Resistance Training on mTORC1 Signaling and Muscle Protein Synthesis.</ArticleTitle><Pagination><StartPage>406</StartPage><MedlinePgn>406</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">406</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.00406</ELocationID><Abstract><AbstractText>Acute resistance exercise (RE) increases muscle protein synthesis (MPS) via activation of mechanistic target of rapamycin complex (mTORC), and chronic resistance exercise training (RT) results in skeletal muscle hypertrophy. Although MPS in response to RE is blunted over time during RT, no effective restorative strategy has been identified. Since eccentric muscle contraction (EC) has the potential to strongly stimulate mTORC1 activation and MPS, changing the muscle contraction mode to EC might maintain the MPS response to RE during chronic RT. Male rats were randomly divided into RE (1 bout of RE) and RT (13 bouts of RE) groups. Additionally, each group was subdivided into isometric contraction (IC) and EC subgroups. The RE groups performed acute, unilateral RE using IC or EC. The RT groups performed 12 bouts of unilateral RE using IC. For bout 13, the RT-IC subgroup performed a further IC bout, while the RT-EC subgroup changed to EC. All muscle contractions were induced by percutaneous electrical stimulation. Muscle samples were obtained at 6 h post exercise in all groups. After the 1st RE bout, the EC group showed significantly higher p70S6K Thr389 phosphorylation than the IC group. However, the phosphorylation of other mTORC1-associated proteins (4E-BP1 and ribosomal protein S6) and the MPS response did not differ between the contraction modes. After the 13th bout of RE, mTORC1 activation and the MPS response were significantly blunted as compared with the 1st bout of RE. Changing from IC to EC did not improve these responses. In conclusion, changing the contraction mode to EC does not reinvigorate the blunted mTORC1 activation and MPS in response to RE during chronic RT.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Ato</LastName><ForeName>Satoru</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Department of Life Science and Applied Chemistry, Nagoya Institute of Technology, Nagoya, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Tsushima</LastName><ForeName>Daisuke</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Department of Life Sciences, The University of Tokyo, Tokyo, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Isono</LastName><ForeName>Yurie</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Life Science and Applied Chemistry, Nagoya Institute of Technology, Nagoya, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Suginohara</LastName><ForeName>Takeshi</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Department of Life Science and Applied Chemistry, Nagoya Institute of Technology, Nagoya, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Maruyama</LastName><ForeName>Yuki</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Life Science and Applied Chemistry, Nagoya Institute of Technology, Nagoya, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Nakazato</LastName><ForeName>Koichi</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Exercise Physiology, Nippon Sport Science University, Tokyo, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ogasawara</LastName><ForeName>Riki</ForeName><Initials>R</Initials><AffiliationInfo><Affiliation>Department of Life Science and Applied Chemistry, Nagoya Institute of Technology, Nagoya, Japan.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>04</Month><Day>18</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">4E-BP1</Keyword><Keyword MajorTopicYN="N">P70S6K</Keyword><Keyword MajorTopicYN="N">cell signaling</Keyword><Keyword MajorTopicYN="N">eccentric contraction</Keyword><Keyword MajorTopicYN="N">mTOR</Keyword><Keyword MajorTopicYN="N">resistance exercise</Keyword><Keyword MajorTopicYN="N">skeletal muscle</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>11</Month><Day>24</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>3</Month><Day>22</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>5</Month><Day>7</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>5</Month><Day>7</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>5</Month><Day>7</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>4</Month><Day>18</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31057416</ArticleId><ArticleId IdType="pmc">PMC6482468</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.00406</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Ashida Y., Himori K., Tatebayashi D., Yamada R., Ogasawara R., Yamada T. (2018). Effects of contraction mode and stimulation frequency on electrical stimulation-induced skeletal muscle hypertrophy.
+<i>J. Appl. Physiol.</i>
+124
+341&#x2013;348. 10.1152/japplphysiol.00708.2017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00708.2017</ArticleId><ArticleId IdType="pubmed">29074713</ArticleId></ArticleIdList></Reference><Reference><Citation>Ato S., Makanae Y., Kido K., Fujita S. (2016). Contraction mode itself does not determine the level of mTORC1 activity in rat skeletal muscle.
+<i>Physiol. Rep.</i>
+4:e12976. 10.14814/phy2.12976
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.12976</ArticleId><ArticleId IdType="pmc">PMC5064134</ArticleId><ArticleId IdType="pubmed">27688433</ArticleId></ArticleIdList></Reference><Reference><Citation>Brook M. S., Wilkinson D. J., Mitchell W. K., Lund J. N., Szewczyk N. J., Greenhaff P. L., et al.  (2015). Skeletal muscle hypertrophy adaptations predominate in the early stages of resistance exercise training, matching deuterium oxide-derived measures of muscle protein synthesis and mechanistic target of rapamycin complex 1 signaling.
+<i>FASEB J.</i>
+29
+4485&#x2013;4496. 10.1096/fj.15-273755
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.15-273755</ArticleId><ArticleId IdType="pubmed">26169934</ArticleId></ArticleIdList></Reference><Reference><Citation>Burd N. A., Holwerda A. M., Selby K. C., West D. W., Staples A. W., Cain N. E., et al.  (2010a). Resistance exercise volume affects myofibrillar protein synthesis and anabolic signalling molecule phosphorylation in young men.
+<i>J. Physiol.</i>
+588
+3119&#x2013;3130. 10.1113/jphysiol.2010.192856
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2010.192856</ArticleId><ArticleId IdType="pmc">PMC2956949</ArticleId><ArticleId IdType="pubmed">20581041</ArticleId></ArticleIdList></Reference><Reference><Citation>Burd N. A., West D. W., Staples A. W., Atherton P. J., Baker J. M., Moore D. R., et al.  (2010b). Low-load high volume resistance exercise stimulates muscle protein synthesis more than high-load low volume resistance exercise in young men.
+<i>PLoS One</i>
+5:e12033. 10.1371/journal.pone.0012033
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0012033</ArticleId><ArticleId IdType="pmc">PMC2918506</ArticleId><ArticleId IdType="pubmed">20711498</ArticleId></ArticleIdList></Reference><Reference><Citation>Burry M., Hawkins D., Spangenburg E. E. (2007). Lengthening contractions differentially affect p70s6k phosphorylation compared to isometric contractions in rat skeletal muscle.
+<i>Eur. J. Appl. Physiol.</i>
+100
+409&#x2013;415. 10.1007/s00421-007-0444-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-007-0444-5</ArticleId><ArticleId IdType="pubmed">17401575</ArticleId></ArticleIdList></Reference><Reference><Citation>Cuthbertson D. J., Babraj J., Smith K., Wilkes E., Fedele M. J., Esser K., et al.  (2006). Anabolic signaling and protein synthesis in human skeletal muscle after dynamic shortening or lengthening exercise.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+290
+E731&#x2013;E738. 10.1152/ajpendo.00415.2005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00415.2005</ArticleId><ArticleId IdType="pubmed">16263770</ArticleId></ArticleIdList></Reference><Reference><Citation>Damas F., Phillips S., Vechin F. C., Ugrinowitsch C. (2015). A review of resistance training-induced changes in skeletal muscle protein synthesis and their contribution to hypertrophy.
+<i>Sports Med.</i>
+45
+801&#x2013;807. 10.1007/s40279-015-0320-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-015-0320-0</ArticleId><ArticleId IdType="pubmed">25739559</ArticleId></ArticleIdList></Reference><Reference><Citation>Damas F., Phillips S. M., Libardi C. A., Vechin F. C., Lixandrao M. E., Jannig P. R., et al.  (2016). Resistance training-induced changes in integrated myofibrillar protein synthesis are related to hypertrophy only after attenuation of muscle damage.
+<i>J. Physiol.</i>
+594
+5209&#x2013;5222. 10.1113/JP272472
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP272472</ArticleId><ArticleId IdType="pmc">PMC5023708</ArticleId><ArticleId IdType="pubmed">27219125</ArticleId></ArticleIdList></Reference><Reference><Citation>Eliasson J., Elfegoun T., Nilsson J., Kohnke R., Ekblom B., Blomstrand E. (2006). Maximal lengthening contractions increase p70 S6 kinase phosphorylation in human skeletal muscle in the absence of nutritional supply.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+291
+E1197&#x2013;E1205. </Citation><ArticleIdList><ArticleId IdType="pubmed">16835402</ArticleId></ArticleIdList></Reference><Reference><Citation>Figueiredo V. C., Roberts L. A., Markworth J. F., Barnett M. P., Coombes J. S., Raastad T., et al.  (2016). Impact of resistance exercise on ribosome biogenesis is acutely regulated by post-exercise recovery strategies.
+<i>Physiol. Rep.</i>
+4:e12670. 10.14814/phy2.12670
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.12670</ArticleId><ArticleId IdType="pmc">PMC4760384</ArticleId><ArticleId IdType="pubmed">26818586</ArticleId></ArticleIdList></Reference><Reference><Citation>Franchi M. V., Atherton P. J., Reeves N. D., Fluck M., Williams J., Mitchell W. K., et al.  (2014). Architectural, functional and molecular responses to concentric and eccentric loading in human skeletal muscle.
+<i>Acta Physiol.</i>
+210
+642&#x2013;654. 10.1111/apha.12225
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/apha.12225</ArticleId><ArticleId IdType="pubmed">24387247</ArticleId></ArticleIdList></Reference><Reference><Citation>Franchi M. V., Ruoss S., Valdivieso P., Mitchell K. W., Smith K., Atherton P. J., et al.  (2018). Regional regulation of focal adhesion kinase after concentric and eccentric loading is related to remodelling of human skeletal muscle.
+<i>Acta Physiol.</i>
+223:e13056. 10.1111/apha.13056
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/apha.13056</ArticleId><ArticleId IdType="pubmed">29438584</ArticleId></ArticleIdList></Reference><Reference><Citation>Gautsch T. A., Anthony J. C., Kimball S. R., Paul G. L., Layman D. K., Jefferson L. S. (1998). Availability of eIF4E regulates skeletal muscle protein synthesis during recovery from exercise.
+<i>Am. J. Physiol.</i>
+274
+C406&#x2013;C414. </Citation><ArticleIdList><ArticleId IdType="pubmed">9486130</ArticleId></ArticleIdList></Reference><Reference><Citation>Gehlert S., Suhr F., Gutsche K., Willkomm L., Kern J., Jacko D., et al.  (2014). High force development augments skeletal muscle signalling in resistance exercise modes equalized for time under tension.
+<i>Pflugers Arch.</i>
+467
+1343&#x2013;1356. 10.1007/s00424-014-1579-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00424-014-1579-y</ArticleId><ArticleId IdType="pubmed">25070178</ArticleId></ArticleIdList></Reference><Reference><Citation>Glass D. J. (2003). Molecular mechanisms modulating muscle mass.
+<i>Trends Mol. Med.</i>
+9
+344&#x2013;350. 10.1016/s1471-4914(03)00138-2</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s1471-4914(03)00138-2</ArticleId><ArticleId IdType="pubmed">12928036</ArticleId></ArticleIdList></Reference><Reference><Citation>Goodman C. A., Mabrey D. M., Frey J. W., Miu M. H., Schmidt E. K., Pierre P., et al.  (2011). Novel insights into the regulation of skeletal muscle protein synthesis as revealed by a new nonradioactive in vivo technique.
+<i>FASEB J.</i>
+25
+1028&#x2013;1039. 10.1096/fj.10-168799
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.10-168799</ArticleId><ArticleId IdType="pmc">PMC3042844</ArticleId><ArticleId IdType="pubmed">21148113</ArticleId></ArticleIdList></Reference><Reference><Citation>Kubica N., Bolster D. R., Farrell P. A., Kimball S. R., Jefferson L. S. (2005). Resistance exercise increases muscle protein synthesis and translation of eukaryotic initiation factor 2Bepsilon mRNA in a mammalian target of rapamycin-dependent manner.
+<i>J. Biol. Chem.</i>
+280
+7570&#x2013;7580. 10.1074/jbc.m413732200
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1074/jbc.m413732200</ArticleId><ArticleId IdType="pubmed">15591312</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu Y., Vertommen D., Rider M. H., Lai Y. C. (2013). Mammalian target of rapamycin-independent S6K1 and 4E-BP1 phosphorylation during contraction in rat skeletal muscle.
+<i>Cell Signal.</i>
+25
+1877&#x2013;1886. 10.1016/j.cellsig.2013.05.005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cellsig.2013.05.005</ArticleId><ArticleId IdType="pubmed">23707523</ArticleId></ArticleIdList></Reference><Reference><Citation>Martin T. D., Dennis M. D., Gordon B. S., Kimball S. R., Jefferson L. S. (2014). mTORC1 and JNK coordinate phosphorylation of the p70S6K1 autoinhibitory domain in skeletal muscle following functional overloading.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+306
+E1397&#x2013;E1405. 10.1152/ajpendo.00064.2014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00064.2014</ArticleId><ArticleId IdType="pmc">PMC4059989</ArticleId><ArticleId IdType="pubmed">24801387</ArticleId></ArticleIdList></Reference><Reference><Citation>Moller A. B., Vendelbo M. H., Rahbek S. K., Clasen B. F., Schjerling P., Vissing K., et al.  (2013). Resistance exercise, but not endurance exercise, induces IKKbeta phosphorylation in human skeletal muscle of training-accustomed individuals.
+<i>Pflugers Arch.</i>
+465
+1785&#x2013;1795. 10.1007/s00424-013-1318-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00424-013-1318-9</ArticleId><ArticleId IdType="pubmed">23838844</ArticleId></ArticleIdList></Reference><Reference><Citation>Moore D. R., Phillips S. M., Babraj J. A., Smith K., Rennie M. J. (2005). Myofibrillar and collagen protein synthesis in human skeletal muscle in young men after maximal shortening and lengthening contractions.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+288
+E1153&#x2013;E1159. </Citation><ArticleIdList><ArticleId IdType="pubmed">15572656</ArticleId></ArticleIdList></Reference><Reference><Citation>Ogasawara R., Arihara Y., Takegaki J., Nakazato K., Ishii N. (2017). Relationship between exercise volume and muscle protein synthesis in a rat model of resistance exercise.
+<i>J. Appl. Physiol.</i>
+123
+710&#x2013;716. 10.1152/japplphysiol.01009.2016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01009.2016</ArticleId><ArticleId IdType="pubmed">28729395</ArticleId></ArticleIdList></Reference><Reference><Citation>Ogasawara R., Fujita S., Hornberger T. A., Kitaoka Y., Makanae Y., Nakazato K., et al.  (2016). The role of mTOR signalling in the regulation of skeletal muscle mass in a rodent model of resistance exercise.
+<i>Sci. Rep.</i>
+6:31142. 10.1038/srep31142
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/srep31142</ArticleId><ArticleId IdType="pmc">PMC4977552</ArticleId><ArticleId IdType="pubmed">27502839</ArticleId></ArticleIdList></Reference><Reference><Citation>Ogasawara R., Kobayashi K., Tsutaki A., Lee K., Abe T., Fujita S., et al.  (2013a). mTOR signaling response to resistance exercise is altered by chronic resistance training and detraining in skeletal muscle.
+<i>J. Appl. Physiol.</i>
+114
+934&#x2013;940. 10.1152/japplphysiol.01161.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01161.2012</ArticleId><ArticleId IdType="pubmed">23372143</ArticleId></ArticleIdList></Reference><Reference><Citation>Ogasawara R., Yasuda T., Ishii N., Abe T. (2013b). Comparison of muscle hypertrophy following 6-month of continuous and periodic strength training.
+<i>Eur J Appl Physiol.</i>
+113
+975&#x2013;985. 10.1007/s00421-012-2511-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-012-2511-9</ArticleId><ArticleId IdType="pubmed">23053130</ArticleId></ArticleIdList></Reference><Reference><Citation>Ogasawara R., Suginohara T. (2018). Rapamycin-insensitive mechanistic target of rapamycin regulates basal and resistance exercise-induced muscle protein synthesis.
+<i>FASEB J.</i>
+</Citation><ArticleIdList><ArticleId IdType="pubmed">29757673</ArticleId></ArticleIdList></Reference><Reference><Citation>Phillips S. M., Tipton K. D., Aarsland A., Wolf S. E., Wolfe R. R. (1997). Mixed muscle protein synthesis and breakdown after resistance exercise in humans.
+<i>Am. J. Physiol.</i>
+273
+E99&#x2013;E107.</Citation><ArticleIdList><ArticleId IdType="pubmed">9252485</ArticleId></ArticleIdList></Reference><Reference><Citation>West D. W., Baehr L. M., Marcotte G. R., Chason C. M., Tolento L., Gomes A. V., et al.  (2016). Acute resistance exercise activates rapamycin-sensitive and -insensitive mechanisms that control translational activity and capacity in skeletal muscle.
+<i>J. Physiol.</i>
+594
+453&#x2013;468. 10.1113/JP271365
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP271365</ArticleId><ArticleId IdType="pmc">PMC4713726</ArticleId><ArticleId IdType="pubmed">26548696</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilkinson S. B., Phillips S. M., Atherton P. J., Patel R., Yarasheski K. E., Tarnopolsky M. A., et al.  (2008). Differential effects of resistance and endurance exercise in the fed state on signalling molecule phosphorylation and protein synthesis in human muscle.
+<i>J. Physiol.</i>
+586
+3701&#x2013;3717. 10.1113/jphysiol.2008.153916
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2008.153916</ArticleId><ArticleId IdType="pmc">PMC2538832</ArticleId><ArticleId IdType="pubmed">18556367</ArticleId></ArticleIdList></Reference><Reference><Citation>Woolstenhulme M. T., Conlee R. K., Drummond M. J., Stites A. W., Parcell A. C. (2006). Temporal response of desmin and dystrophin proteins to progressive resistance exercise in human skeletal muscle.
+<i>J. Appl. Physiol.</i>
+100
+1876&#x2013;1882. 10.1152/japplphysiol.01592.2005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01592.2005</ArticleId><ArticleId IdType="pubmed">16439510</ArticleId></ArticleIdList></Reference><Reference><Citation>You J. S., Anderson G. B., Dooley M. S., Hornberger T. A. (2015). The role of mTOR signaling in the regulation of protein synthesis and muscle mass during immobilization in mice.
+<i>Dis. Model. Mech.</i>
+8
+1059&#x2013;1069. 10.1242/dmm.019414
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1242/dmm.019414</ArticleId><ArticleId IdType="pmc">PMC4582099</ArticleId><ArticleId IdType="pubmed">26092121</ArticleId></ArticleIdList></Reference><Reference><Citation>You J. S., Mcnally R. M., Jacobs B. L., Privett R. E., Gundermann D. M., Lin K. H., et al.  (2018). The role of raptor in the mechanical load-induced regulation of mTOR signaling, protein synthesis, and skeletal muscle hypertrophy.
+<i>FASEB J.</i>
+33
+4021&#x2013;4034. 10.1096/fj.201801653RR
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.201801653RR</ArticleId><ArticleId IdType="pmc">PMC6404572</ArticleId><ArticleId IdType="pubmed">30509128</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

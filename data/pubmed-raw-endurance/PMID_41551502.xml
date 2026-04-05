@@ -1,0 +1,122 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41551502</PMID><DateCompleted><Year>2026</Year><Month>01</Month><Day>19</Day></DateCompleted><DateRevised><Year>2026</Year><Month>01</Month><Day>21</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">2296-858X</ISSN><JournalIssue CitedMedium="Print"><Volume>12</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>Frontiers in medicine</Title><ISOAbbreviation>Front Med (Lausanne)</ISOAbbreviation></Journal><ArticleTitle>Functional decline after severe COVID-19: duke activity status index for preoperative risk assessment.</ArticleTitle><Pagination><StartPage>1623423</StartPage><MedlinePgn>1623423</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1623423</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fmed.2025.1623423</ELocationID><Abstract><AbstractText Label="INTRODUCTION" NlmCategory="UNASSIGNED">Survivors of severe COVID-19 (Coronavirus Disease 2019) frequently experience long-term functional impairment, a condition known as post-COVID syndrome. As these patients may eventually undergo surgical procedures, evaluating their functional capacity becomes essential for safe anesthetic management. The Duke Activity Status Index (DASI) is a validated, easy-to-administer tool that correlates with cardiopulmonary fitness and surgical risk.</AbstractText><AbstractText Label="OBJECTIVE" NlmCategory="UNASSIGNED">To evaluate changes in functional capacity using DASI scores in patients who survived severe COVID-19, comparing pre- and post-infection performance, and to assess implications for perioperative care.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">A retrospective observational study was conducted including 31 patients with a history of severe COVID-19 requiring ICU (Intensive Care Unit) admission. DASI scores were collected before and after hospitalization due to COVID-19. Associations between DASI variation and clinical variables (e.g., presence of pleural effusion, duration of intubation, ICU stay) were also explored.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">A marked decline in functional capacity was observed after COVID-19, with lower DASI scores post-infection. The presence of pleural effusion and ultrasound abnormalities were associated with more pronounced reductions in DASI scores. A strong correlation was found between duration of intubation and length of hospital stay, and between post-COVID DASI and percentage variation.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">Severe COVID-19 has a lasting impact on functional capacity as measured by DASI. These findings highlight the need for anesthesiologists to include functional assessments in the preoperative evaluation of patients with a history of severe COVID-19. Integrating DASI into routine pre-anesthetic workup may improve risk stratification and perioperative outcomes in this vulnerable population.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Linares and Lopes.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Linares</LastName><ForeName>Luis Alberto Rodriguez</ForeName><Initials>LAR</Initials><AffiliationInfo><Affiliation>Department of Anesthesiology, S&#xe3;o Paulo University, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Anesthesiology, Hospital S&#xe3;o Luiz Rede Dor, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lopes</LastName><ForeName>Sarah Cerillo</ForeName><Initials>SC</Initials><AffiliationInfo><Affiliation>Department of Anesthesiology, ABC Foundation School of Medicine (FMABC), Santo Andr&#xe9;, Brazil.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>01</Month><Day>02</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Med (Lausanne)</MedlineTA><NlmUniqueID>101648047</NlmUniqueID><ISSNLinking>2296-858X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">COVID-19</Keyword><Keyword MajorTopicYN="N">Duke Activity Status Index</Keyword><Keyword MajorTopicYN="N">VO2 max</Keyword><Keyword MajorTopicYN="N">anesthesia</Keyword><Keyword MajorTopicYN="N">functional capacity</Keyword><Keyword MajorTopicYN="N">post-COVID syndrome</Keyword><Keyword MajorTopicYN="N">preoperative evaluation</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>5</Month><Day>5</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2025</Year><Month>11</Month><Day>2</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>11</Month><Day>5</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>1</Month><Day>19</Day><Hour>12</Hour><Minute>52</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>1</Month><Day>19</Day><Hour>12</Hour><Minute>51</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>1</Month><Day>19</Day><Hour>6</Hour><Minute>18</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>1</Month><Day>2</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41551502</ArticleId><ArticleId IdType="pmc">PMC12808341</ArticleId><ArticleId IdType="doi">10.3389/fmed.2025.1623423</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Carf&#xec; A, Bernabei R, Landi F. Persistent symptoms in patients after acute COVID-19.
+<i>JAMA</i>. (2020) 324:603&#x2013;5. 10.1001/jama.2020.12603
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2020.12603</ArticleId><ArticleId IdType="pmc">PMC7349096</ArticleId><ArticleId IdType="pubmed">32644129</ArticleId></ArticleIdList></Reference><Reference><Citation>Nalbandian A, Sehgal K, Gupta A, Madhavan MV, McGroder C, Stevens JS, et al. 
+Post-acute COVID-19 syndrome.
+<i>Nat Med</i>. (2021) 27:601&#x2013;15. 10.1038/s41591-021-01283-z
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41591-021-01283-z</ArticleId><ArticleId IdType="pmc">PMC8893149</ArticleId><ArticleId IdType="pubmed">33753937</ArticleId></ArticleIdList></Reference><Reference><Citation>Cattano D, Zura A, Saad M. Anesthesia considerations in patients recovering from COVID-19.
+<i>Best Pract Res Clin Anaesthesiol.</i> (2021) 35:473&#x2013;84. 10.1016/j.bpa.2020.10.002
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bpa.2020.10.002</ArticleId><ArticleId IdType="pubmed">34030806</ArticleId></ArticleIdList></Reference><Reference><Citation>Bui N, Coates E, Zakhary B. Long-term outcomes in COVID-19 survivors following critical illness.
+<i>Anesth Analg.</i> (2022) 135:229&#x2013;38. 10.1213/ANE.000000000000599111
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1213/ANE.000000000000599111</ArticleId></ArticleIdList></Reference><Reference><Citation>Herridge MS, Tansey CM, Matt&#xe9; A, Tomlinson G, Diaz-Granados N, Cooper A, et al. 
+Functional disability 5 years after acute respiratory distress syndrome.
+<i>N Engl J Med</i>. (2011) 364:1293&#x2013;304. 10.1056/NEJMoa1011802
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMoa1011802</ArticleId><ArticleId IdType="pubmed">21470008</ArticleId></ArticleIdList></Reference><Reference><Citation>Raman B, Bluemke DA, L&#xfc;scher TF, Neubauer S. Long COVID: post-acute sequelae of COVID-19 with a cardiovascular focus.
+<i>Eur Heart J</i>. (2022) 43:1157&#x2013;72. 10.1093/eurheartj/ehab724
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/eurheartj/ehab724</ArticleId><ArticleId IdType="pmc">PMC8903393</ArticleId><ArticleId IdType="pubmed">35176758</ArticleId></ArticleIdList></Reference><Reference><Citation>Hlatky MA, Boineau RE, Higginbotham MB, Lee KL, Mark DB, Califf RM, et al. 
+A brief self-administered questionnaire to determine functional capacity (Duke Activity Status Index).
+<i>Am J Cardiol</i>. (1989) 64:651&#x2013;4. 10.1016/0002-9149(89)90496-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0002-9149(89)90496-7</ArticleId><ArticleId IdType="pubmed">2782256</ArticleId></ArticleIdList></Reference><Reference><Citation>Kapusta J, Babicki M, Pieniawska-&#x15a;miech K, Ka&#x142;uzi&#x144;ska-Ko&#x142;at &#x17b;, Ko&#x142;at D, Jankowski P, et al. 
+Clinical and electrocardiographic correlates of myocardial dysfunction after COVID-19 in nonhospitalised patients in long-term follow-up. Data from the Polish long-COVID cardiovascular study.
+<i>J Med Virol.</i> (2023) 95:e29331. 10.1002/jmv.29331
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jmv.29331</ArticleId><ArticleId IdType="pubmed">38112151</ArticleId></ArticleIdList></Reference><Reference><Citation>Coutinho-Myrrha MA, Dias RC, Fernandes AA, Ara&#xfa;jo CG, Hlatky MA, Pereira DG, et al. 
+Duke Activity Status Index in cardiovascular diseases: validation of the Portuguese translation.
+<i>Arq Bras Cardiol</i>. (2014) 102:383&#x2013;90. 10.5935/abc.20140031
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5935/abc.20140031</ArticleId><ArticleId IdType="pmc">PMC4028943</ArticleId><ArticleId IdType="pubmed">24652056</ArticleId></ArticleIdList></Reference><Reference><Citation>Myles PS, Story DA. Postoperative complications and mortality in older patients: How important is functional status?
+<i>Br J Anaesth</i>. (2020) 124:403&#x2013;6. 10.1016/j.bja.2020.01.011
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bja.2020.01.011</ArticleId></ArticleIdList></Reference><Reference><Citation>Detsky ME, Jivraj N, Adhikari NKJ. Will this patient be able to return home and perform activities of daily living after surgery?
+<i>JAMA.</i> (2019) 321:1824&#x2013;31. 10.1001/jama.2019.486213</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2019.486213</ArticleId></ArticleIdList></Reference><Reference><Citation>Madjid M, Safavi-Naeini P, Solomon SD, Vardeny O. Potential effects of coronaviruses on the cardiovascular system: a review.
+<i>JAMA Cardiol</i>. (2020) 5:831&#x2013;40. 10.1001/jamacardio.2020.1286
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamacardio.2020.1286</ArticleId><ArticleId IdType="pubmed">32219363</ArticleId></ArticleIdList></Reference><Reference><Citation>Klappenbach RF, Detsky ME, Jivraj N. Functional capacity evaluation in perioperative assessment: current concepts and clinical utility.
+<i>J Cardiothorac Vasc Anesth.</i> (2021) 35:2533&#x2013;42.
+</Citation></Reference><Reference><Citation>Dureja GP. Long COVID: implications for anesthetic practice and perioperative management.
+<i>Anaesthesia Rep.</i> (2022) 10:115&#x2013;23. 10.1111/anae.1567115</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/anae.1567115</ArticleId></ArticleIdList></Reference><Reference><Citation>Biccard BM. Perioperative risk stratification in COVID-19 survivors: what have we learned?
+<i>Lancet Respir Med.</i> (2022) 10:636&#x2013;8. 10.1016/S2213-2600(22)00154-116
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S2213-2600(22)00154-116</ArticleId></ArticleIdList></Reference><Reference><Citation>Kambic T, Pereira do Carmo A.
+Functional capacity evaluation in preoperative assessment: focus on VO2 max and DASI.
+<i>Br J Anaesth.</i> (2023) 130:16&#x2013;24. 10.1016/j.bja.2022.09.00531</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bja.2022.09.00531</ArticleId></ArticleIdList></Reference><Reference><Citation>Ljungqvist O, de Boer HD. ERAS in the post-pandemic era: optimizing surgical care for COVID-19 survivors.
+<i>Eur J Anaesthesiol</i>. (2022) 39:7&#x2013;10. 10.1097/EJA.0000000000001596
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/EJA.0000000000001596</ArticleId><ArticleId IdType="pubmed">34980859</ArticleId></ArticleIdList></Reference><Reference><Citation>Sudre CH, Murray B, Varsavsky T, Graham MS, Penfold RS, Bowyer RC, et al. 
+Attributes and predictors of long COVID.
+<i>Nat Med</i>. (2021) 27:626&#x2013;31. 10.1038/s41591-021-01292-y
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41591-021-01292-y</ArticleId><ArticleId IdType="pmc">PMC7611399</ArticleId><ArticleId IdType="pubmed">33692530</ArticleId></ArticleIdList></Reference><Reference><Citation>Mouch CA, Eddy B, Leiser JD. Functional status as a predictor of postoperative outcomes: a comparison of DASI. METs, and frailty.
+<i>JAMA Surg</i>. (2022) 157:814&#x2013;22. 10.1001/jamasurg.2022.2455</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamasurg.2022.2455</ArticleId></ArticleIdList></Reference><Reference><Citation>COVIDSurg Collaborative.
+Outcomes and risks of surgery in patients with recent SARS-CoV-2 infection: a global prospective cohort study.
+<i>Anaesthesia</i>. (2021) 76:748&#x2013;58. 10.1111/anae.15458
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/anae.15458</ArticleId><ArticleId IdType="pmc">PMC8206995</ArticleId><ArticleId IdType="pubmed">33690889</ArticleId></ArticleIdList></Reference><Reference><Citation>Davis HE, Assaf GS, McCorkell L, Wei H, Low RJ, Re&#x2019;em Y, et al. 
+Characterizing long COVID in an international cohort: 7 months of symptoms and their impact.
+<i>EClinicalMedicine</i>. (2021) 38:101019. 10.1016/j.eclinm.2021.101019
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.eclinm.2021.101019</ArticleId><ArticleId IdType="pmc">PMC8280690</ArticleId><ArticleId IdType="pubmed">34308300</ArticleId></ArticleIdList></Reference><Reference><Citation>Huang L, Yao Q, Gu X, Wang Q, Ren L, Wang Y, et al. 
+1-year outcomes in hospital survivors with COVID-19: a longitudinal cohort study.
+<i>Lancet</i>. (2021) 398:747&#x2013;58. 10.1016/S0140-6736(21)01755-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0140-6736(21)01755-4</ArticleId><ArticleId IdType="pmc">PMC8389999</ArticleId><ArticleId IdType="pubmed">34454673</ArticleId></ArticleIdList></Reference><Reference><Citation>Evans RA, McAuley H, Harrison EM, Shikotra A, Singapuri A, Sereno M, et al. 
+Physical, cognitive, and mental health impacts of COVID-19 after hospitalisation (PHOSP-COVID): a UK multicentre, prospective cohort study.
+<i>Lancet Respir Med.</i> (2021) 9:1275&#x2013;87. 10.1016/S2213-2600(21)00383-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S2213-2600(21)00383-0</ArticleId><ArticleId IdType="pmc">PMC8497028</ArticleId><ArticleId IdType="pubmed">34627560</ArticleId></ArticleIdList></Reference><Reference><Citation>Deng JZ, Chan JS, Potter AL, Chen YW, Sandhu HS, Panda N, et al. 
+The risk of postoperative complications after major elective surgery in active or resolved COVID-19 in the United States.
+<i>Ann Surg.</i> (2022) 275:242&#x2013;6. 10.1097/SLA.0000000000005308
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/SLA.0000000000005308</ArticleId><ArticleId IdType="pmc">PMC8745943</ArticleId><ArticleId IdType="pubmed">34793348</ArticleId></ArticleIdList></Reference><Reference><Citation>Babicki M, Kapusta J, Pieniawska-&#x15a;miech K, Ka&#x142;uzi&#x144;ska-Ko&#x142;at &#x17b;, Ko&#x142;at D, Mastalerz-Migas A, et al. 
+Do COVID-19 vaccinations affect the most common post-COVID symptoms? Initial data from the STOP-COVID Register&#x2013;12-month follow-up.
+<i>Viruses.</i> (2023) 151370. 10.3390/v15061370
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/v15061370</ArticleId><ArticleId IdType="pmc">PMC10304551</ArticleId><ArticleId IdType="pubmed">37376668</ArticleId></ArticleIdList></Reference><Reference><Citation>Di Liberto G, Rocchetti NS, Oggioni C. Quality of life in COVID-related ARDS patients one year after intensive care discharge (Odissea study): a multicenter observational study.
+<i>J Clin Med</i>. (2023) 12:1058. 10.3390/jcm12031058
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/jcm12031058</ArticleId><ArticleId IdType="pmc">PMC9918008</ArticleId><ArticleId IdType="pubmed">36769705</ArticleId></ArticleIdList></Reference><Reference><Citation>Lamperti M, Romero CS, Guarracino F. Preoperative assessment of adults undergoing elective non-cardiac surgery: updated guidelines from the European Society of Anaesthesiology and Intensive Care.
+<i>Eur J Anaesthesiol.</i> (2025) 42:1&#x2013;35. 10.1097/EJA.000000000000206928
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/EJA.000000000000206928</ArticleId><ArticleId IdType="pubmed">39492705</ArticleId></ArticleIdList></Reference><Reference><Citation>Wijeysundera DN, Beattie WS, Hillis GS, Abbott TEF, Shulman MA, Ackland GL, et al. 
+Integration of the Duke Activity Status Index into preoperative risk evaluation: a multicentre prospective cohort study.
+<i>Br J Anaesth.</i> (2020) 124:261&#x2013;70. 10.1016/j.bja.2019.11.025
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bja.2019.11.025</ArticleId><ArticleId IdType="pubmed">31864719</ArticleId></ArticleIdList></Reference><Reference><Citation>Hanley C, Wijeysundera DN. Perioperative risk assessment - focus on functional capacity.
+<i>Curr Opin Anaesthesiol.</i> (2021) 34:309&#x2013;16. 10.1097/ACO.0000000000000988
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/ACO.0000000000000988</ArticleId><ArticleId IdType="pubmed">33935179</ArticleId></ArticleIdList></Reference><Reference><Citation>Lobo SM, de Assis Farias LA. Anesthesia in the post-COVID era: what do we need to change?
+<i>Rev Bras Anestesiol</i>. (2023) 73:1&#x2013;9. 10.1016/j.bjan.2022.06.004</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bjan.2022.06.004</ArticleId></ArticleIdList></Reference><Reference><Citation>van Aerde N, Meersseman P, Debaveye Y, Willems A, Van den Berghe G, Gunst J, et al. 
+ICU-acquired weakness, 1-year mortality and functional outcomes in critically ill patients.
+<i>Ann Intensive Care.</i> (2020) 10:102.
+</Citation></Reference><Reference><Citation>Ten&#xf3;rio LMC, Bonfim FM, Silva TCA. Pulmonary rehabilitation improves exercise tolerance and functional status in post-COVID-19 patients.
+<i>Phys Ther.</i> (2022) 102:zac030.</Citation></Reference><Reference><Citation>Fox J, Verduzco-Gutierrez M, Sanchez S, Lopez M, Ali F, Quesada O, et al. 
+Enhanced External Counterpulsation Improves Long COVID-Associated Symptoms.
+<i>Am J Cardiol.</i> (2024) 224:12&#x2013;13. 10.1016/j.amjcard.2024.05.037
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.amjcard.2024.05.037</ArticleId><ArticleId IdType="pmc">PMC11257783</ArticleId><ArticleId IdType="pubmed">38866353</ArticleId></ArticleIdList></Reference><Reference><Citation>Sayers A, Whitehouse T, Kerr K, Reeves BC, Cousins J, Minto G, et al. 
+Responsiveness of the Duke Activity Status Index after major colorectal surgery: a prospective cohort study.
+<i>Eur J Anaesthesiol.</i> (2021) 38:941&#x2013;8.</Citation></Reference><Reference><Citation>Wijeysundera DN, Beattie WS, Elliot RF. Integration of DASI into preoperative cardiac risk assessment.
+<i>Ann Intern Med</i>. (2010) 152:265&#x2013;71. 10.7326/0003-4819-152-4-201002160-00004
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7326/0003-4819-152-4-201002160-00004</ArticleId><ArticleId IdType="pmc">PMC2906916</ArticleId><ArticleId IdType="pubmed">20157134</ArticleId></ArticleIdList></Reference><Reference><Citation>Doyle DJ, Garmon EH. American Society of Anesthesiologists classification (ASA): update and controversies.
+<i>Curr Opin Anaesthesiol</i>. (2021) 34:324&#x2013;30. 10.1097/ACO.0000000000000994
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/ACO.0000000000000994</ArticleId><ArticleId IdType="pubmed">33935173</ArticleId></ArticleIdList></Reference><Reference><Citation>Gualandro DM, Yu PC, Calderaro D. Functional capacity in preoperative evaluation: comparison of subjective assessment vs. DASI vs. cardiopulmonary exercise testing (CPET).
+<i>Clin Cardiol</i>. (2022) 45:475&#x2013;83. 10.1002/clc.23816
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/clc.23816</ArticleId><ArticleId IdType="pmc">PMC9045081</ArticleId><ArticleId IdType="pubmed">35312085</ArticleId></ArticleIdList></Reference><Reference><Citation>Shanthanna H, Uppal V, Narouze S, Joshi GP, Venkatraghavan L, Absalom AR, et al. 
+Perioperative care of patients with post-acute sequelae of COVID-19.
+<i>Can J Anaesth.</i> (2022) 69:624&#x2013;37. 10.1007/s12630-021-02090-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12630-021-02090-3</ArticleId></ArticleIdList></Reference><Reference><Citation>Munker D, Osterman A, Stubbe H, Muenchhoff M, Veit T, Weinberger T, et al. 
+Long-term functional impairments and symptoms following COVID-19: a prospective cohort study.
+<i>Respir Res</i>. (2022) 23:176. 10.1186/s12931-022-02111-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12931-022-02111-4</ArticleId></ArticleIdList></Reference><Reference><Citation>Sommer P, Lukovic E, Fagley RE, Schreiber A, Paladino L, Walecka A, et al. 
+Post-acute COVID-19 syndrome in perioperative medicine: a narrative review.
+<i>Br J Anaesth.</i> (2022) 128:774&#x2013;84. 10.1016/j.bja.2022.01.009</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bja.2022.01.009</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

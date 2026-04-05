@@ -1,0 +1,109 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">35651527</PMID><DateRevised><Year>2022</Year><Month>07</Month><Day>16</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1663-4365</ISSN><JournalIssue CitedMedium="Print"><Volume>14</Volume><PubDate><Year>2022</Year></PubDate></JournalIssue><Title>Frontiers in aging neuroscience</Title><ISOAbbreviation>Front Aging Neurosci</ISOAbbreviation></Journal><ArticleTitle>Immediate Effects of Functional Electrical Stimulation-Assisted Cycling on the Paretic Muscles of Patients With Hemiparesis After Stroke: Evidence From Electrical Impedance Myography.</ArticleTitle><Pagination><StartPage>880221</StartPage><MedlinePgn>880221</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">880221</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fnagi.2022.880221</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">Electrical impedance myography (EIM) has been applied to assess muscle health conditions in neuromuscular disorders. This study aimed to detect immediate muscle electrical impedance property alterations in lower extremity of chronic stroke survivors immediately after functional electrical stimulation (FES)-assisted cycling training.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">Fourteen chronic stroke survivors were recruited for the current study. EIM measurements were conducted before and immediately after 40-min FES-assisted cycling training for each subject. Four interested muscle groups [rectus femoris (RF), biceps femoris (BF), tibialis anterior (TA), and the medial head of gastrocnemius (MG)] were selected. Correlation analysis was performed to reveal a significant correlation between changes in EIM parameters and clinical scales [Fugl-Meyer Assessment of the lower extremity (FMA-LE); 6-min walking test (6MWT)].</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Immediately after training, reactance (<i>X</i>) and phase angle (&#x3b8;) values significantly increased on the TA and MG muscles. Significant correlation was observed between <i>X</i> value and FMA-LE scores (<i>r</i> = 0.649, <i>p</i> = 0.012) at MG as well as <i>X</i> and FMA scores of the ankle joint (<i>r</i> = 0.612, <i>p</i> = 0.02). Resistance (<i>R</i>) and &#x3b8; were significantly correlated with 6MWT score (R-6MWT: <i>r</i> = 0.651, <i>p</i> = 0.012; &#x3b8;-6MWT: <i>r</i> = 0.621, <i>p</i> = 0.018).</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">This brief report demonstrated that EIM can reveal the intrinsic property alteration in the paretic muscle of chronic stroke survivors immediately after FES-assisted cycling training. These alterations might be related to muscle hypertrophy (i.e., increases in muscle fiber size). This brief report might aid the understanding of the mechanism of electrical stimulation-assisted exercise in improving muscle function of stroke survivors.</AbstractText><CopyrightInformation>Copyright &#xa9; 2022 Li, Hu, Leung and Tong.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Li</LastName><ForeName>Le</ForeName><Initials>L</Initials><AffiliationInfo><Affiliation>Institute of Medical Research, Northwestern Polytechnical University, Xi'an, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Hu</LastName><ForeName>Chengpeng</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Department of Biomedical Engineering, The Chinese University of Hong Kong, Hong Kong, Hong Kong SAR, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Leung</LastName><ForeName>Kenry W C</ForeName><Initials>KWC</Initials><AffiliationInfo><Affiliation>Department of Biomedical Engineering, The Chinese University of Hong Kong, Hong Kong, Hong Kong SAR, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Tong</LastName><ForeName>Raymond K Y</ForeName><Initials>RKY</Initials><AffiliationInfo><Affiliation>Department of Biomedical Engineering, The Chinese University of Hong Kong, Hong Kong, Hong Kong SAR, China.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2022</Year><Month>05</Month><Day>16</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Aging Neurosci</MedlineTA><NlmUniqueID>101525824</NlmUniqueID><ISSNLinking>1663-4365</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">cycling</Keyword><Keyword MajorTopicYN="N">electrical impedance myography (EIM)</Keyword><Keyword MajorTopicYN="N">functional electrical simulation (FES)</Keyword><Keyword MajorTopicYN="N">muscle</Keyword><Keyword MajorTopicYN="N">stroke</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2022</Year><Month>2</Month><Day>21</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2022</Year><Month>3</Month><Day>29</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2022</Year><Month>6</Month><Day>2</Day><Hour>2</Hour><Minute>5</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2022</Year><Month>6</Month><Day>3</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2022</Year><Month>6</Month><Day>3</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2022</Year><Month>1</Month><Day>1</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">35651527</ArticleId><ArticleId IdType="pmc">PMC9149084</ArticleId><ArticleId IdType="doi">10.3389/fnagi.2022.880221</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Bickel C. S., Gregory C. M., Dean J. C. (2011). Motor unit recruitment during neuromuscular electrical stimulation: a critical appraisal.
+<i>Eur. J. Appl. Physiol.</i>
+111
+2399&#x2013;2407. 10.1007/s00421-011-2128-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2128-4</ArticleId><ArticleId IdType="pubmed">21870119</ArticleId></ArticleIdList></Reference><Reference><Citation>Chen C. L., Chen H. C., Tang S. F., Wu C. Y., Cheng P. T., Hong W. H. (2003). Gait performance with compensatory adaptations in stroke patients with different degrees of motor recovery.
+<i>Am. J. Phys. Med. Rehabil.</i>
+82
+925&#x2013;935. 10.1097/01.PHM.0000098040.13355.B5</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/01.PHM.0000098040.13355.B5</ArticleId><ArticleId IdType="pubmed">14627929</ArticleId></ArticleIdList></Reference><Reference><Citation>GBD 2016 Stroke Collaborators (2019). Global, regional, and national burden of stroke, 1990-2016: a systematic analysis for the Global Burden of Disease Study 2016.
+<i>Lancet Neurol.</i>
+18
+439&#x2013;458. 10.1016/S1474-4422(19)30034-1</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1474-4422(19)30034-1</ArticleId><ArticleId IdType="pmc">PMC6494974</ArticleId><ArticleId IdType="pubmed">30871944</ArticleId></ArticleIdList></Reference><Reference><Citation>Freeborn T. J., Fu B. (2019). Time-course bicep tissue bio-impedance changes throughout a fatiguing exercise protocol.
+<i>Med. Eng. Phys.</i>
+69
+109&#x2013;115. 10.1016/j.medengphy.2019.04.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.medengphy.2019.04.006</ArticleId><ArticleId IdType="pubmed">31056402</ArticleId></ArticleIdList></Reference><Reference><Citation>Howlett O. A., Lannin N. A., Ada L., McKinstry C. (2015). Functional electrical stimulation improves activity after stroke: a systematic review with meta-analysis.
+<i>Arch. Phys. Med. Rehabil.</i>
+96
+934&#x2013;943. 10.1016/j.apmr.2015.01.013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.apmr.2015.01.013</ArticleId><ArticleId IdType="pubmed">25634620</ArticleId></ArticleIdList></Reference><Reference><Citation>Hu C., Hu H., Mai X., Lo W. L. A., Li L. (2019). Correlation Between Muscle Structures and Electrical Properties of the Tibialis Anterior in Subacute Stroke Survivors: A Pilot Study.
+<i>Front. Neurosci.</i>
+13:1270. 10.3389/fnins.2019.01270
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnins.2019.01270</ArticleId><ArticleId IdType="pmc">PMC6902003</ArticleId><ArticleId IdType="pubmed">31849584</ArticleId></ArticleIdList></Reference><Reference><Citation>Hu C., Wang T., Leung K. W. C., Li L., Tong R. K. (2021). Muscle Electrical Impedance Properties and Activation Alteration After Functional Electrical Stimulation-Assisted Cycling Training for Chronic Stroke Survivors: A Longitudinal Pilot Study.
+<i>Front. Neurol.</i>
+12:746263. 10.3389/fneur.2021.746263
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fneur.2021.746263</ArticleId><ArticleId IdType="pmc">PMC8716001</ArticleId><ArticleId IdType="pubmed">34975713</ArticleId></ArticleIdList></Reference><Reference><Citation>Huang S. C., Wong A. M., Chuang Y. F., Liu Y. C., Tsai W. L., Wang J. S. (2014). Effects of neuromuscular electrical stimulation on arterial hemodynamic properties and body composition in paretic upper extremities of patients with subacute stroke.
+<i>Biomed. J.</i>
+37
+205&#x2013;210. 10.4103/2319-4170.117892
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4103/2319-4170.117892</ArticleId><ArticleId IdType="pubmed">25116716</ArticleId></ArticleIdList></Reference><Reference><Citation>Hwang D. Y., Lee H. J., Lee G. C., Lee S. M. (2015). Treadmill training with tilt sensor functional electrical stimulation for improving balance, gait, and muscle architecture of tibialis anterior of survivors with chronic stroke: A randomized controlled trial.
+<i>Technol. Health Care</i>
+23
+443&#x2013;452. 10.3233/THC-150903
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3233/THC-150903</ArticleId><ArticleId IdType="pubmed">25735313</ArticleId></ArticleIdList></Reference><Reference><Citation>Konopka A. R., Harber M. P. (2014). Skeletal muscle hypertrophy after aerobic exercise training.
+<i>Exerc. Sport Sci. Rev.</i>
+42
+53&#x2013;61. 10.1249/JES.0000000000000007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/JES.0000000000000007</ArticleId><ArticleId IdType="pmc">PMC4523889</ArticleId><ArticleId IdType="pubmed">24508740</ArticleId></ArticleIdList></Reference><Reference><Citation>Li J., Geisbush T. R., Rosen G. D., Lachey J., Mulivor A., Rutkove S. B. (2014). Electrical impedance myography for the in vivo and ex vivo assessment of muscular dystrophy (mdx) mouse muscle.
+<i>Muscle Nerve</i>
+49
+829&#x2013;835. 10.1002/mus.24086
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.24086</ArticleId><ArticleId IdType="pmc">PMC5582805</ArticleId><ArticleId IdType="pubmed">24752469</ArticleId></ArticleIdList></Reference><Reference><Citation>Li J., Spieker A. J., Rosen G. D., Rutkove S. B. (2013). Electrical impedance alterations in the rat hind limb with unloading.
+<i>J. Musculoskelet. Neuronal Interact.</i>
+13
+37&#x2013;44. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC3984464</ArticleId><ArticleId IdType="pubmed">23445913</ArticleId></ArticleIdList></Reference><Reference><Citation>Li J., Yim S., Pacheck A., Sanchez B., Rutkove S. B. (2016). Electrical Impedance Myography to Detect the Effects of Electrical Muscle Stimulation in Wild Type and Mdx Mice.
+<i>PLoS One</i>
+11:e0151415. 10.1371/journal.pone.0151415
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0151415</ArticleId><ArticleId IdType="pmc">PMC4795734</ArticleId><ArticleId IdType="pubmed">26986564</ArticleId></ArticleIdList></Reference><Reference><Citation>Li L., Shin H., Li X., Li S., Zhou P. (2016). Localized Electrical Impedance Myography of the Biceps Brachii Muscle during Different Levels of Isometric Contraction and Fatigue.
+<i>Sensors</i>
+16:581. 10.3390/s16040581
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/s16040581</ArticleId><ArticleId IdType="pmc">PMC4851095</ArticleId><ArticleId IdType="pubmed">27110795</ArticleId></ArticleIdList></Reference><Reference><Citation>Li L., Shin H., Stampas A., Li X., Zhou P. (2017). Electrical impedance myography changes after incomplete cervical spinal cord injury: an examination of hand muscles.
+<i>Clin. Neurophysiol.</i>
+128
+2242&#x2013;2247. 10.1016/j.clinph.2017.08.027
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinph.2017.08.027</ArticleId><ArticleId IdType="pubmed">29024874</ArticleId></ArticleIdList></Reference><Reference><Citation>Li X., Li L., Shin H., Li S., Zhou P. (2017). Electrical Impedance Myography for Evaluating Paretic Muscle Changes After Stroke.
+<i>IEEE Trans. Neural Syst. Rehabil. Eng.</i>
+25
+2113&#x2013;2121. 10.1109/TNSRE.2017.2707403
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1109/TNSRE.2017.2707403</ArticleId><ArticleId IdType="pmc">PMC6734926</ArticleId><ArticleId IdType="pubmed">28574361</ArticleId></ArticleIdList></Reference><Reference><Citation>Moon S. H., Choi J. H., Park S. E. (2017). The effects of functional electrical stimulation on muscle tone and stiffness of stroke patients.
+<i>J. Phys. Ther. Sci.</i>
+29
+238&#x2013;241. 10.1589/jpts.29.238
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1589/jpts.29.238</ArticleId><ArticleId IdType="pmc">PMC5332979</ArticleId><ArticleId IdType="pubmed">28265148</ArticleId></ArticleIdList></Reference><Reference><Citation>Mulasi U., Kuchnia A. J., Cole A. J., Earthman C. P. (2015). Bioimpedance at the bedside: current applications, limitations, and opportunities.
+<i>Nutr. Clin. Pract.</i>
+30
+180&#x2013;193. 10.1177/0884533614568155
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0884533614568155</ArticleId><ArticleId IdType="pubmed">25613832</ArticleId></ArticleIdList></Reference><Reference><Citation>Peri E., Ambrosini E., Pedrocchi A., Ferrigno G., Nava C., Longoni V., et al.  (2016). Can FES-Augmented Active Cycling Training Improve Locomotion in Post-Acute Elderly Stroke Patients?
+<i>Eur. J. Transl. Myol.</i>
+26:6063. 10.4081/ejtm.2016.6063
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4081/ejtm.2016.6063</ArticleId><ArticleId IdType="pmc">PMC5128967</ArticleId><ArticleId IdType="pubmed">27990234</ArticleId></ArticleIdList></Reference><Reference><Citation>Raasch C. C., Zajac F. E. (1999). Locomotor strategy for pedaling: muscle groups and biomechanical functions.
+<i>J. Neurophysiol.</i>
+82
+515&#x2013;525. 10.1152/jn.1999.82.2.515
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.1999.82.2.515</ArticleId><ArticleId IdType="pubmed">10444651</ArticleId></ArticleIdList></Reference><Reference><Citation>Romani A. (2008). The treatment of fatigue.
+<i>Neurol. Sci.</i>
+29
+S247&#x2013;S249. 10.1007/s10072-008-0952-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10072-008-0952-z</ArticleId><ArticleId IdType="pubmed">18690507</ArticleId></ArticleIdList></Reference><Reference><Citation>Rutkove S. B., Aaron R., Shiffman C. A. (2002). Localized bioimpedance analysis in the evaluation of neuromuscular disease.
+<i>Muscle Nerve</i>
+25
+390&#x2013;397. 10.1002/mus.10048
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.10048</ArticleId><ArticleId IdType="pubmed">11870716</ArticleId></ArticleIdList></Reference><Reference><Citation>Scherbakov N., von Haehling S., Anker S. D., Dirnagl U., Doehner W. (2013). Stroke induced Sarcopenia: muscle wasting and disability after stroke.
+<i>Int. J. Cardiol.</i>
+170
+89&#x2013;94. 10.1016/j.ijcard.2013.10.031
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijcard.2013.10.031</ArticleId><ArticleId IdType="pubmed">24231058</ArticleId></ArticleIdList></Reference><Reference><Citation>Shiffman C. A., Aaron R., Amoss V., Therrien J., Coomler K. (1999). Resistivity and phase in localized BIA.
+<i>Phys. Med. Biol.</i>
+44
+2409&#x2013;2429. 10.1088/0031-9155/44/10/304</Citation><ArticleIdList><ArticleId IdType="doi">10.1088/0031-9155/44/10/304</ArticleId><ArticleId IdType="pubmed">10533919</ArticleId></ArticleIdList></Reference><Reference><Citation>Shiffman C. A., Aaron R., Rutkove S. B. (2003). Electrical impedance of muscle during isometric contraction.
+<i>Physiol. Meas.</i>
+24
+213&#x2013;234. 10.1088/0967-3334/24/1/316</Citation><ArticleIdList><ArticleId IdType="doi">10.1088/0967-3334/24/1/316</ArticleId><ArticleId IdType="pubmed">12636198</ArticleId></ArticleIdList></Reference><Reference><Citation>Shiffman C. A., Rutkove S. B. (2013). Circuit modeling of the electrical impedance: I. Neuromuscular disease.
+<i>Physiol. Meas.</i>
+34
+203&#x2013;221. 10.1088/0967-3334/34/2/203</Citation><ArticleIdList><ArticleId IdType="doi">10.1088/0967-3334/34/2/203</ArticleId><ArticleId IdType="pmc">PMC3593043</ArticleId><ArticleId IdType="pubmed">23353926</ArticleId></ArticleIdList></Reference><Reference><Citation>Takarada Y., Nakamura Y., Aruga S., Onda T., Miyazaki S., Ishii N. (2000). Rapid increase in plasma growth hormone after low-intensity resistance exercise with vascular occlusion.
+<i>J. Appl. Physiol.</i>
+88
+61&#x2013;65. 10.1152/jappl.2000.88.1.61
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.2000.88.1.61</ArticleId><ArticleId IdType="pubmed">10642363</ArticleId></ArticleIdList></Reference><Reference><Citation>Yamaguchi T., Tanabe S., Muraoka Y., Masakado Y., Kimura A., Tsuji T., et al.  (2012). Immediate effects of electrical stimulation combined with passive locomotion-like movement on gait velocity and spasticity in persons with hemiparetic stroke: a randomized controlled study.
+<i>Clin. Rehabil.</i>
+26
+619&#x2013;628. 10.1177/0269215511426803
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0269215511426803</ArticleId><ArticleId IdType="pubmed">22089962</ArticleId></ArticleIdList></Reference><Reference><Citation>Yasuda T., Fukumura K., Iida H., Nakajima T. (2015). Effect of low-load resistance exercise with and without blood flow restriction to volitional fatigue on muscle swelling.
+<i>Eur. J. Appl. Physiol.</i>
+115
+919&#x2013;926. 10.1007/s00421-014-3073-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-014-3073-9</ArticleId><ArticleId IdType="pubmed">25491331</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

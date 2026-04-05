@@ -1,0 +1,502 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41767562</PMID><DateCompleted><Year>2026</Year><Month>03</Month><Day>02</Day></DateCompleted><DateRevised><Year>2026</Year><Month>03</Month><Day>02</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-302X</ISSN><JournalIssue CitedMedium="Print"><Volume>17</Volume><PubDate><Year>2026</Year></PubDate></JournalIssue><Title>Frontiers in microbiology</Title><ISOAbbreviation>Front Microbiol</ISOAbbreviation></Journal><ArticleTitle>A dual-loop chemostat to investigate multi-species biofilms on implant surfaces under adjustable flow conditions.</ArticleTitle><Pagination><StartPage>1751315</StartPage><MedlinePgn>1751315</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1751315</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fmicb.2026.1751315</ELocationID><Abstract><AbstractText>Natural biofilms are typically composed of a mix of different microbial species and are often exposed to strong shear forces resulting from liquid flow. Simple biofilm models that attempt to study biofilms are based on a single species and on static growth conditions. To overcome these limitations, we developed a modular dual-loop reactor that decouples bacterial cultivation from hydrodynamic exposure, enabling independent control of nutrient availability (and thus, cell density) and flow rate (and thus, shear stress). Importantly, the system allows for testing different surface materials in a systematic manner. To validate our setup, we used a community of six keystone members of oral biofilms in conjunction with titanium materials of defined roughness that mimic dental implant surfaces. We found that biofilm mass, robustness, and species distribution not only differ significantly between static and dynamic growth conditions, but also vary strongly with different flow velocities. The biofilms formed under flow could be separated into two fractions, one that washed away very easily, and a more robust, basal layer. At low shear forces, overall biofilm mass was the highest, but at the expense of biofilm robustness. At medium shear forces, the robust fraction of the biofilm had the highest relative content of extracellular matrix. At the highest flow rates, the biofilm mass was low, but late colonizers (represented by the oral pathogens <i>Porphyromonas gingivalis</i> and <i>Aggregatibacter actinomycetemcomitans</i>) had the lowest relative abundance. This is in accordance with the concept that high flow of saliva reduces the risk of oral disease. Future applications of our system will include the systematic testing of antimicrobial coatings or surface design effects under defined flow regimes, opening the path toward better medical implants.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Reese, Lund, Haugen, Saragliadis, Lyngstadaas and Linke.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Reese</LastName><ForeName>Jan-Ole</ForeName><Initials>JO</Initials><AffiliationInfo><Affiliation>Department of Biosciences, University of Oslo, Oslo, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lund</LastName><ForeName>Ingrid Maria Castro</ForeName><Initials>IMC</Initials><AffiliationInfo><Affiliation>Department of Biosciences, University of Oslo, Oslo, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Haugen</LastName><ForeName>H&#xe5;vard Jostein</ForeName><Initials>HJ</Initials><AffiliationInfo><Affiliation>Department of Biomaterials, Institute of Clinical Dentistry, University of Oslo, Oslo, Norway.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Corticalis AS, Oslo Science Park, Oslo, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Saragliadis</LastName><ForeName>Athanasios</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Department of Biosciences, University of Oslo, Oslo, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lyngstadaas</LastName><ForeName>St&#xe5;le Petter</ForeName><Initials>SP</Initials><AffiliationInfo><Affiliation>Department of Biomaterials, Institute of Clinical Dentistry, University of Oslo, Oslo, Norway.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Corticalis AS, Oslo Science Park, Oslo, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Linke</LastName><ForeName>Dirk</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Department of Biosciences, University of Oslo, Oslo, Norway.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>02</Month><Day>13</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Microbiol</MedlineTA><NlmUniqueID>101548977</NlmUniqueID><ISSNLinking>1664-302X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">biofilm model</Keyword><Keyword MajorTopicYN="N">flow</Keyword><Keyword MajorTopicYN="N">implant materials</Keyword><Keyword MajorTopicYN="N">multi-species biofilm</Keyword><Keyword MajorTopicYN="N">oral biofilm</Keyword><Keyword MajorTopicYN="N">shear stress</Keyword></KeywordList><CoiStatement>HH and SL were employed by Corticalis AS. The remaining author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest. The author(s) declared that they were an editorial board member of Frontiers, at the time of submission. This had no impact on the peer review process and the final decision.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>11</Month><Day>21</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2026</Year><Month>1</Month><Day>7</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>1</Month><Day>22</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>2</Day><Hour>13</Hour><Minute>17</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>2</Day><Hour>13</Hour><Minute>16</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>2</Day><Hour>6</Hour><Minute>32</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>2</Month><Day>13</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41767562</ArticleId><ArticleId IdType="pmc">PMC12946110</ArticleId><ArticleId IdType="doi">10.3389/fmicb.2026.1751315</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abdullah S.-N., Jakubovics N. S. (2022). <i>In Vitro and In Vivo Models to Understand Biofilm Implant Infections.</i>
+Berlin: Springer International Publishing, 47&#x2013;59. 10.1007/978-3-030-99014-5_4</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/978-3-030-99014-5_4</ArticleId></ArticleIdList></Reference><Reference><Citation>Abusleme L., Hong B.-Y., Dupuy A. K., Strausbaugh L. D., Diaz P. I. (2014). Influence of DNA extraction on oral microbial profiles obtained via 16S rRNA gene sequencing.
+<i>J. Oral Microbiol.</i>
+6:23990. 10.3402/jom.v6.23990
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3402/jom.v6.23990</ArticleId><ArticleId IdType="pmc">PMC4000428</ArticleId><ArticleId IdType="pubmed">24778776</ArticleId></ArticleIdList></Reference><Reference><Citation>Ad&#xe9;kambi T., Drancourt M., Raoult D. (2009). The <i>rpoB</i> gene as a tool for clinical microbiologists.
+<i>Trends Microbiol.</i>
+17
+37&#x2013;45. 10.1016/j.tim.2008.09.008
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.tim.2008.09.008</ArticleId><ArticleId IdType="pubmed">19081723</ArticleId></ArticleIdList></Reference><Reference><Citation>Algraffee H., Borumandi F., Cascarini L. (2012). Peri-implantitis.
+<i>Br. J. Oral Maxillofacial Surg.</i>
+50
+689&#x2013;694. 10.1016/j.bjoms.2011.11.020
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bjoms.2011.11.020</ArticleId><ArticleId IdType="pubmed">22197573</ArticleId></ArticleIdList></Reference><Reference><Citation>Ammann T. W., Gm&#xfc;r R., Thurnheer T. (2012). Advancement of the 10-species subgingival Zurich Biofilm model by examining different nutritional conditions and defining the structure of the in vitro biofilms.
+<i>BMC Microbiol.</i>
+12:227. 10.1186/1471-2180-12-227
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1471-2180-12-227</ArticleId><ArticleId IdType="pmc">PMC3561252</ArticleId><ArticleId IdType="pubmed">23040057</ArticleId></ArticleIdList></Reference><Reference><Citation>An S. Q., Hull R., Metris A., Barrett P., Webb J. S., Stoodley P. (2022). An in vitro biofilm model system to facilitate study of microbial communities of the human oral cavity.
+<i>Lett. Appl. Microbiol.</i>
+74
+302&#x2013;310. 10.1111/lam.13618
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/lam.13618</ArticleId><ArticleId IdType="pubmed">34826143</ArticleId></ArticleIdList></Reference><Reference><Citation>Atieh M. A., Alsabeeha N. H. M., Faggion C. M., Duncan W. J. (2013). The frequency of peri-implant diseases: A systematic review and meta-analysis.
+<i>J. Periodontol.</i>
+84
+1586&#x2013;1598. 10.1902/jop.2012.120592
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1902/jop.2012.120592</ArticleId><ArticleId IdType="pubmed">23237585</ArticleId></ArticleIdList></Reference><Reference><Citation>Azeredo J., Azevedo N. F., Briandet R., Cerca N., Coenye T., Costa A. R., et al.  (2017). Critical review on biofilm methods.
+<i>Crit. Rev. Microbiol.</i>
+43
+313&#x2013;351. 10.1080/1040841x.2016.1208146
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/1040841x.2016.1208146</ArticleId><ArticleId IdType="pubmed">27868469</ArticleId></ArticleIdList></Reference><Reference><Citation>Barros S. P., Williams R., Offenbacher S., Morelli T. (2016). Gingival crevicular fluid as a source of biomarkers for periodontitis.
+<i>Periodontology 2000</i>
+70
+53&#x2013;64. 10.1111/prd.12107
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/prd.12107</ArticleId><ArticleId IdType="pmc">PMC4911175</ArticleId><ArticleId IdType="pubmed">26662482</ArticleId></ArticleIdList></Reference><Reference><Citation>Barsotti O., Renaud F., Freney J., Benay G., Decoret D., Dumont J. (1987). Rapid isolation of DNA from <i>Actinomyces</i>.
+<i>Ann. Inst. Pasteur. Microbiol.</i>
+138
+529&#x2013;536. 10.1016/0769-2609(87)90038-x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0769-2609(87)90038-x</ArticleId><ArticleId IdType="pubmed">3125848</ArticleId></ArticleIdList></Reference><Reference><Citation>Belibasakis G. N., Manoil D. (2021). Microbial community-driven etiopathogenesis of peri-implantitis.
+<i>J. Dental Res.</i>
+100
+21&#x2013;28. 10.1177/0022034520949851
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0022034520949851</ArticleId><ArticleId IdType="pmc">PMC7754824</ArticleId><ArticleId IdType="pubmed">32783779</ArticleId></ArticleIdList></Reference><Reference><Citation>Benoit M. R., Conant C. G., Ionescu-Zanetti C., Schwartz M., Matin A. (2010). New device for high-throughput viability screening of flow biofilms.
+<i>Appl. Environ. Microbiol.</i>
+76
+4136&#x2013;4142. 10.1128/aem.03065-09
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/aem.03065-09</ArticleId><ArticleId IdType="pmc">PMC2897429</ArticleId><ArticleId IdType="pubmed">20435763</ArticleId></ArticleIdList></Reference><Reference><Citation>Berglundh T., Lindhe J. (1996). Dimension of the periimplant mucosa.
+<i>J. Clin. Periodontol.</i>
+23
+971&#x2013;973. 10.1111/j.1600-051x.1996.tb00520.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-051x.1996.tb00520.x</ArticleId><ArticleId IdType="pubmed">8915028</ArticleId></ArticleIdList></Reference><Reference><Citation>Bevilacqua L., De Biasi M., Lorenzon M. G., Frattini C., Angerame D. (2016). Volumetric analysis of gingival crevicular fluid and peri-implant sulcus fluid in healthy and diseased sites: a cross-sectional split-mouth pilot study.
+<i>Open Dentistry J.</i>
+10
+131&#x2013;138. 10.2174/1874210601610010131
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2174/1874210601610010131</ArticleId><ArticleId IdType="pmc">PMC4892129</ArticleId><ArticleId IdType="pubmed">27335614</ArticleId></ArticleIdList></Reference><Reference><Citation>Beyenal H., Lewandowski Z. (2002). Internal and external mass transfer in biofilms grown at various flow velocities.
+<i>Biotechnol. Prog.</i>
+18
+55&#x2013;61. 10.1021/bp010129s
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1021/bp010129s</ArticleId><ArticleId IdType="pubmed">11822900</ArticleId></ArticleIdList></Reference><Reference><Citation>Blanc V., Isabal S., S&#xe1;nchez M. C., Llama-Palacios A., Herrera D., Sanz M., et al.  (2014). Characterization and application of a flow system for <i>in vitro</i> multispecies oral biofilm formation.
+<i>J. Periodontal Res.</i>
+49
+323&#x2013;332. 10.1111/jre.12110
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jre.12110</ArticleId><ArticleId IdType="pubmed">23815431</ArticleId></ArticleIdList></Reference><Reference><Citation>Blanc-Sylvestre N., Bouchard P., Chaussain C., Bardet C. (2021). Pre-clinical models in implant dentistry: past, present, future.
+<i>Biomedicines</i>
+9:1538. 10.3390/biomedicines9111538
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/biomedicines9111538</ArticleId><ArticleId IdType="pmc">PMC8615291</ArticleId><ArticleId IdType="pubmed">34829765</ArticleId></ArticleIdList></Reference><Reference><Citation>Buser D., Janner S. F. M., Wittneben J. G., Br&#xe4;gger U., Ramseier C. A., Salvi G. E. (2012). 10-year survival and success rates of 511 titanium implants with a sandblasted and acid-etched surface: a retrospective study in 303 partially edentulous patients.
+<i>Clin. Implant Dentistry Relat. Res.</i>
+14
+839&#x2013;851. 10.1111/j.1708-8208.2012.00456.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1708-8208.2012.00456.x</ArticleId><ArticleId IdType="pubmed">22897683</ArticleId></ArticleIdList></Reference><Reference><Citation>Ceri H., Olson M. E., Stremick C., Read R. R., Morck D., Buret A. (1999). The calgary biofilm device: new technology for rapid determination of antibiotic susceptibilities of bacterial biofilms.
+<i>J. Clin. Microbiol.</i>
+37
+1771&#x2013;1776. 10.1128/jcm.37.6.1771-1776.1999
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/jcm.37.6.1771-1776.1999</ArticleId><ArticleId IdType="pmc">PMC84946</ArticleId><ArticleId IdType="pubmed">10325322</ArticleId></ArticleIdList></Reference><Reference><Citation>Chahal G., Quintana-Hayashi M. P., Gayt&#xe1;n M. O., Benktander J., Padra M., King S. J., et al.  (2022). <i>Streptococcus oralis</i> employs multiple mechanisms of salivary mucin binding that differ between strains.
+<i>Front. Cell. Infect. Microbiol.</i>
+12:889711. 10.3389/fcimb.2022.889711
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fcimb.2022.889711</ArticleId><ArticleId IdType="pmc">PMC9247193</ArticleId><ArticleId IdType="pubmed">35782137</ArticleId></ArticleIdList></Reference><Reference><Citation>Chang J., He X., Bai X., Yuan C. (2020). The impact of hydrodynamic shear force on adhesion morphology and biofilm conformation of <i>Bacillus</i> sp.
+<i>Ocean Eng.</i>
+197:106860. 10.1016/j.oceaneng.2019.106860</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.oceaneng.2019.106860</ArticleId></ArticleIdList></Reference><Reference><Citation>Chen H., Xia A., Yan H., Huang Y., Zhu X., Zhu X., et al.  (2024). Mass transfer in heterogeneous biofilms: Key issues in biofilm reactors and AI-driven performance prediction.
+<i>Environ. Sci. Ecotechnol.</i>
+22:100480. 10.1016/j.ese.2024.100480
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ese.2024.100480</ArticleId><ArticleId IdType="pmc">PMC11416670</ArticleId><ArticleId IdType="pubmed">39309319</ArticleId></ArticleIdList></Reference><Reference><Citation>Chen Y., Shi T., Li Y., Huang L., Yin D. (2022). <i>Fusobacterium nucleatum</i>: The opportunistic pathogen of periodontal and peri-implant diseases.
+<i>Front. Microbiol.</i>
+13:860149. 10.3389/fmicb.2022.860149
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fmicb.2022.860149</ArticleId><ArticleId IdType="pmc">PMC8966671</ArticleId><ArticleId IdType="pubmed">35369522</ArticleId></ArticleIdList></Reference><Reference><Citation>Coenye T., Nelis H. J. (2010). In vitro and in vivo model systems to study microbial biofilm formation.
+<i>J. Microbiol. Methods</i>
+83
+89&#x2013;105. 10.1016/j.mimet.2010.08.018
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.mimet.2010.08.018</ArticleId><ArticleId IdType="pubmed">20816706</ArticleId></ArticleIdList></Reference><Reference><Citation>Corcoll N., &#xd6;sterlund T., Sinclair L., Eiler A., Kristiansson E., Backhaus T., et al.  (2017). Comparison of four DNA extraction methods for comprehensive assessment of 16S rRNA bacterial diversity in marine biofilms using high-throughput sequencing.
+<i>FEMS Microbiol. Lett.</i>
+364:fnx139. 10.1093/femsle/fnx139</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/femsle/fnx139</ArticleId><ArticleId IdType="pubmed">28673033</ArticleId></ArticleIdList></Reference><Reference><Citation>Cypionka H. (1986). Sulfide-controlled continuous culture of sulfate-reducing bacteria.
+<i>J. Microbiol. Methods</i>
+5
+1&#x2013;9. 10.1016/0167-7012(86)90018-7</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0167-7012(86)90018-7</ArticleId></ArticleIdList></Reference><Reference><Citation>Darrene L.-N., Cecile B. (2016). Experimental models of oral biofilms developed on inert substrates: A review of the literature.
+<i>BioMed Res. Int.</i>
+2016
+1&#x2013;8. 10.1155/2016/7461047
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2016/7461047</ArticleId><ArticleId IdType="pmc">PMC5028824</ArticleId><ArticleId IdType="pubmed">27699173</ArticleId></ArticleIdList></Reference><Reference><Citation>De Lauretis A., Santacroce M., Ellingsen J. E., Lyngstadaas S. P., Linke D., Haugen H. J. (2025a). Surface-specific outcomes of mechanical debridement with titanium, chitosan and nitinol brushes on titanium dental implant surfaces.
+<i>J. Dentistry</i>
+162:106010. 10.1016/j.jdent.2025.106010
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jdent.2025.106010</ArticleId><ArticleId IdType="pubmed">40750080</ArticleId></ArticleIdList></Reference><Reference><Citation>De Lauretis A., Wang Q., Santacroce M., Thiede B., Ma Q., Lyngstadaas S. P., et al.  (2025b). A comparative study of the impact of chemical debridement products on the proteomic profile of the salivary pellicle and cell adhesion on osseospeed titanium dental implant surfaces.
+<i>ACS Appl. Materials Interfaces</i>
+17
+54579&#x2013;54592. 10.1021/acsami.5c14570
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1021/acsami.5c14570</ArticleId><ArticleId IdType="pmc">PMC12492328</ArticleId><ArticleId IdType="pubmed">40963248</ArticleId></ArticleIdList></Reference><Reference><Citation>Dieckow S., Szafra&#x144;ski S. P., Grischke J., Qu T., Doll-Nikutta K., Steglich M., et al.  (2024). Structure and composition of early biofilms formed on dental implants are complex, diverse, subject-specific and dynamic.
+<i>npj Biofilms Microbiomes</i>
+10:155. 10.1038/s41522-024-00624-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41522-024-00624-3</ArticleId><ArticleId IdType="pmc">PMC11668855</ArticleId><ArticleId IdType="pubmed">39719447</ArticleId></ArticleIdList></Reference><Reference><Citation>Drake D. R., Brogden K. A. (2014). <i>Continuous-Culture Chemostat Systems and Flowcells as Methods To Investigate Microbial Interactions.</i>
+Washington, DC: ASM Press, 21&#x2013;30. 10.1128/9781555817947.ch2</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/9781555817947.ch2</ArticleId></ArticleIdList></Reference><Reference><Citation>Emecen-Huja P., Eubank T. D., Shapiro V., Yildiz V., Tatakis D. N., Leblebicioglu B. (2013). Peri-implant <i>versus</i> periodontal wound healing.
+<i>J. Clin. Periodontol.</i>
+40
+816&#x2013;824. 10.1111/jcpe.12127
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jcpe.12127</ArticleId><ArticleId IdType="pmc">PMC3725126</ArticleId><ArticleId IdType="pubmed">23772674</ArticleId></ArticleIdList></Reference><Reference><Citation>Faggion jr C., Aranda L., Diaz K., Shih M., Tu Y., Alarc&#xf3;n M. (2016). The quality of reporting of measures of precision in animal experiments in implant dentistry: A methodological study.
+<i>Int. J. Oral Maxillofac Implants</i>
+31
+1312&#x2013;1319. 10.11607/jomi.4619
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.11607/jomi.4619</ArticleId><ArticleId IdType="pubmed">27598425</ArticleId></ArticleIdList></Reference><Reference><Citation>Faggion C. M. (2015). Animal research as a basis for clinical trials.
+<i>Eur. J. Oral Sci.</i>
+123
+61&#x2013;64. 10.1111/eos.12175
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/eos.12175</ArticleId><ArticleId IdType="pubmed">25684017</ArticleId></ArticleIdList></Reference><Reference><Citation>Gibson J. (2022). <i>Four Tips for PCR Amplification of GC-Rich Sequences.</i>
+Ipswich, MA: New England Biolabs. Available online at: https://www.neb.com/en/nebinspired-blog/four-tips-for-pcr-amplification-of-gc-rich-sequences?srsltid=AfmBOorpy6FWJH4jKSQGPeNOmUSY9Y7401H55nk94LhMU8LIu_ntQUi6</Citation></Reference><Reference><Citation>Gloag E. S., Fabbri S., Wozniak D. J., Stoodley P. (2020). Biofilm mechanics: Implications in infection and survival.
+<i>Biofilm</i>
+2:100017. 10.1016/j.bioflm.2019.100017
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bioflm.2019.100017</ArticleId><ArticleId IdType="pmc">PMC7798440</ArticleId><ArticleId IdType="pubmed">33447803</ArticleId></ArticleIdList></Reference><Reference><Citation>Goeres D. M., Hamilton M. A., Beck N. A., Buckingham-Meyer K., Hilyard J. D., Loetterle L. R., et al.  (2009). A method for growing a biofilm under low shear at the air&#x2013;liquid interface using the drip flow biofilm reactor.
+<i>Nat. Protoc.</i>
+4
+783&#x2013;788. 10.1038/nprot.2009.59
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nprot.2009.59</ArticleId><ArticleId IdType="pubmed">19528953</ArticleId></ArticleIdList></Reference><Reference><Citation>Guggenheim B., Giertsen E., Sch&#xfc;pbach P., Shapiro S. (2001). Validation of an in vitro biofilm model of Supragingival plaque.
+<i>J. Dental Res.</i>
+80
+363&#x2013;370. 10.1177/00220345010800011201
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/00220345010800011201</ArticleId><ArticleId IdType="pubmed">11269730</ArticleId></ArticleIdList></Reference><Reference><Citation>Hajishengallis G., Darveau R. P., Curtis M. A. (2012). The keystone-pathogen hypothesis.
+<i>Nat. Rev. Microbiol.</i>
+10
+717&#x2013;725. 10.1038/nrmicro2873
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nrmicro2873</ArticleId><ArticleId IdType="pmc">PMC3498498</ArticleId><ArticleId IdType="pubmed">22941505</ArticleId></ArticleIdList></Reference><Reference><Citation>Hall M. W., Singh N., Ng K. F., Lam D. K., Goldberg M. B., Tenenbaum H. C., et al.  (2017). Inter-personal diversity and temporal dynamics of dental, tongue, and salivary microbiota in the healthy oral cavity.
+<i>npj Biofilms Microbiomes</i>
+3:2. 10.1038/s41522-016-0011-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41522-016-0011-0</ArticleId><ArticleId IdType="pmc">PMC5445578</ArticleId><ArticleId IdType="pubmed">28649403</ArticleId></ArticleIdList></Reference><Reference><Citation>Harmsen H. J. M., Gibson G. R., Elfferich P., Raangs G. C., Wildeboer-Veloo A. C. M., Argaiz A., et al.  (2000). Comparison of viable cell counts and fluorescence in situ hybridization using specific rRNA-based probes for the quantification of human fecal bacteria.
+<i>FEMS Microbiol. Lett.</i>
+183
+125&#x2013;129. 10.1111/j.1574-6968.2000.tb08945.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1574-6968.2000.tb08945.x</ArticleId><ArticleId IdType="pubmed">10650214</ArticleId></ArticleIdList></Reference><Reference><Citation>Henke W., Herdel K., Jung K., Schnorr D., Loening S. A. (1997). Betaine improves the PCR amplification of GC-rich DNA sequences.
+<i>Nucleic Acids Res.</i>
+25
+3957&#x2013;3958. 10.1093/nar/25.19.3957
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/nar/25.19.3957</ArticleId><ArticleId IdType="pmc">PMC146979</ArticleId><ArticleId IdType="pubmed">9380524</ArticleId></ArticleIdList></Reference><Reference><Citation>Hermann-Bank M. L., Skovgaard K., Stockmarr A., Larsen N., M&#xf8;lbak L. (2013). The gut microbiotassay: A high-throughput qPCR approach combinable with next generation sequencing to study gut microbial diversity.
+<i>BMC Genomics</i>
+14:788. 10.1186/1471-2164-14-788
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1471-2164-14-788</ArticleId><ArticleId IdType="pmc">PMC3879714</ArticleId><ArticleId IdType="pubmed">24225361</ArticleId></ArticleIdList></Reference><Reference><Citation>Hirai N., Miwa Y., Hattori S., Kanematsu H., Ogawa A., Iwata F. (2025). Three-dimensional structure of biofilm formed on glass surfaces revealed using scanning ion conductance microscopy combined with confocal laser scanning microscopy.
+<i>Microorganisms</i>
+13:1779. 10.3390/microorganisms13081779
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/microorganisms13081779</ArticleId><ArticleId IdType="pmc">PMC12388386</ArticleId><ArticleId IdType="pubmed">40871283</ArticleId></ArticleIdList></Reference><Reference><Citation>Hojo K., Nagaoka S., Ohshima T., Maeda N. (2009). Bacterial interactions in dental biofilm development.
+<i>J. Dental Res.</i>
+88
+982&#x2013;990. 10.1177/0022034509346811
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0022034509346811</ArticleId><ArticleId IdType="pubmed">19828884</ArticleId></ArticleIdList></Reference><Reference><Citation>Hou J., Veeregowda D. H., Van De Belt-Gritter B., Busscher H. J., Van Der Mei H. C. (2018). Extracellular polymeric matrix production and relaxation under fluid shear and mechanical pressure in <i>Staphylococcus aureus</i> biofilms.
+<i>Appl. Environ. Microbiol.</i>
+84:e01516-17. 10.1128/aem.01516-17
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/aem.01516-17</ArticleId><ArticleId IdType="pmc">PMC5734043</ArticleId><ArticleId IdType="pubmed">29054874</ArticleId></ArticleIdList></Reference><Reference><Citation>Hussain B., Simm R., Bueno J., Giannettou S., Naemi A. O., Lyngstadaas S. P., et al.  (2024). Biofouling on titanium implants: A novel formulation of poloxamer and peroxide for in situ removal of pellicle and multi-species oral biofilm.
+<i>Regen. Biomater.</i>
+11:rbae014. 10.1093/rb/rbae014
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/rb/rbae014</ArticleId><ArticleId IdType="pmc">PMC10907064</ArticleId><ArticleId IdType="pubmed">38435376</ArticleId></ArticleIdList></Reference><Reference><Citation>Jass J., Costerton J. W., Lappin-Scott H. M. (1995). Assessment of a chemostat-coupled modified Robbins device to study biofilms.
+<i>J. Industrial Microbiol.</i>
+15
+283&#x2013;289. 10.1007/bf01569981</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/bf01569981</ArticleId></ArticleIdList></Reference><Reference><Citation>Javed F., Al-Hezaimi K., Salameh Z., Almas K., Romanos G. E. (2011). Proinflammatory cytokines in the crevicular fluid of patients with peri-implantitis.
+<i>Cytokine</i>
+53
+8&#x2013;12. 10.1016/j.cyto.2010.08.013
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cyto.2010.08.013</ArticleId><ArticleId IdType="pubmed">20870421</ArticleId></ArticleIdList></Reference><Reference><Citation>Jia P., Guo X., Ye J., Lu H., Yang J., Hou J. (2024). Microbiome of diseased and healthy implants&#x2014;a comprehensive microbial data analysis.
+<i>Front. Cell. Infect. Microbiol.</i>
+14:1445751. 10.3389/fcimb.2024.1445751
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fcimb.2024.1445751</ArticleId><ArticleId IdType="pmc">PMC11390503</ArticleId><ArticleId IdType="pubmed">39268486</ArticleId></ArticleIdList></Reference><Reference><Citation>Johannsen A., Westergren A., Johannsen G. (2012). Dental implants from the patients perspective: Transition from tooth loss, through amputation to implants &#x2013; negative and positive trajectories.
+<i>J. Clin. Periodontol.</i>
+39
+681&#x2013;687. 10.1111/j.1600-051x.2012.01893.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-051x.2012.01893.x</ArticleId><ArticleId IdType="pubmed">22587026</ArticleId></ArticleIdList></Reference><Reference><Citation>Johnson E., Petersen T., Goeres D. M. (2021). Characterizing the shearing stresses within the CDC biofilm reactor using computational fluid dynamics.
+<i>Microorganisms</i>
+9:1709. 10.3390/microorganisms9081709
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/microorganisms9081709</ArticleId><ArticleId IdType="pmc">PMC8399442</ArticleId><ArticleId IdType="pubmed">34442788</ArticleId></ArticleIdList></Reference><Reference><Citation>Katz M. S., Ooms M., Heitzer M., Winnand P., Bock A., Klein M., et al.  (2025). Laser doppler flowmetry as a diagnostic tool to detect gingival inflammation: A systematic review.
+<i>BMC Oral Health</i>
+25:1290. 10.1186/s12903-025-06608-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12903-025-06608-9</ArticleId><ArticleId IdType="pmc">PMC12315472</ArticleId><ArticleId IdType="pubmed">40745537</ArticleId></ArticleIdList></Reference><Reference><Citation>Kharazmi A., Giwercman B., H&#xf8;iby N. (1999). <i>Robbins Device in Biofilm Research.</i>
+Amsterdam: Elsevier, 207&#x2013;215. 10.1016/s0076-6879(99)10018-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0076-6879(99)10018-1</ArticleId><ArticleId IdType="pubmed">10547794</ArticleId></ArticleIdList></Reference><Reference><Citation>Kirchhoff C., Cypionka H. (2017). Propidium ion enters viable cells with high membrane potential during live-dead staining.
+<i>J. Microbiol. Methods</i>
+142
+79&#x2013;82. 10.1016/j.mimet.2017.09.011
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.mimet.2017.09.011</ArticleId><ArticleId IdType="pubmed">28927972</ArticleId></ArticleIdList></Reference><Reference><Citation>Klein D., Janda P., Steinborn R., M&#xfc;ller M., Salmons B., G&#xfc;nzburg W. H. (1999). Proviral load determination of different feline immunodeficiency virus isolates using real-time polymerase chain reaction: Influence of mismatches on quantification.
+<i>Electrophoresis</i>
+20
+291&#x2013;299. 10.1002/(SICI)1522-2683(19990201)20:2&lt;291::AID-ELPS291&gt;3.0.CO;2-R
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/(SICI)1522-2683(19990201)20:2&lt;291::AID-ELPS291&gt;3.0.CO;2-R</ArticleId><ArticleId IdType="pubmed">10197436</ArticleId></ArticleIdList></Reference><Reference><Citation>Kleine D., Chodorski J., Mitra S., Schlegel C., Huttenlochner K., M&#xfc;ller-Renno C., et al.  (2019). Monitoring of biofilms grown on differentially structured metallic surfaces using confocal laser scanning microscopy.
+<i>Eng. Life Sci.</i>
+19
+513&#x2013;521. 10.1002/elsc.201800176
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/elsc.201800176</ArticleId><ArticleId IdType="pmc">PMC6999451</ArticleId><ArticleId IdType="pubmed">32625028</ArticleId></ArticleIdList></Reference><Reference><Citation>Knutsson R., L&#xf6;Fstr&#xf6;M C., Grage H., Hoorfar J., R&#xe5;Dstr&#xf6;M P. (2002). Modeling of 5&#x2032; nuclease real-time responses for optimization of a high-throughput enrichment PCR procedure for <i>Salmonella enterica</i>.
+<i>J. Clin. Microbiol.</i>
+40
+52&#x2013;60. 10.1128/jcm.40.1.52-60.2002
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/jcm.40.1.52-60.2002</ArticleId><ArticleId IdType="pmc">PMC120126</ArticleId><ArticleId IdType="pubmed">11773092</ArticleId></ArticleIdList></Reference><Reference><Citation>Kolenbrander P. E., Andersen R. N., Blehert D. S., Egland P. G., Foster J. S., Palmer R. J. (2002). Communication among oral bacteria.
+<i>Microbiol. Mol. Biol. Rev.</i>
+66
+486&#x2013;505. 10.1128/mmbr.66.3.486-505.2002
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/mmbr.66.3.486-505.2002</ArticleId><ArticleId IdType="pmc">PMC120797</ArticleId><ArticleId IdType="pubmed">12209001</ArticleId></ArticleIdList></Reference><Reference><Citation>Kolenbrander P. E., Palmer R. J., Periasamy S., Jakubovics N. S. (2010). Oral multispecies biofilm development and the key role of cell&#x2013;cell distance.
+<i>Nat. Rev. Microbiol.</i>
+8
+471&#x2013;480. 10.1038/nrmicro2381
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nrmicro2381</ArticleId><ArticleId IdType="pubmed">20514044</ArticleId></ArticleIdList></Reference><Reference><Citation>Krastev B., Filipov I. (2020). Laser doppler assessment of microcirculation of apical periodontitis before nonsurgical and during surgical laser treatment.
+<i>Folia Medica</i>
+62
+619&#x2013;625. 10.3897/folmed.62.e48340
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3897/folmed.62.e48340</ArticleId><ArticleId IdType="pubmed">33009753</ArticleId></ArticleIdList></Reference><Reference><Citation>Kwok W. K., Picioreanu C., Ong S. L., Van Loosdrecht M. C. M., Ng W. J., Heijnen J. J. (1998). Influence of biomass production and detachment forces on biofilm structures in a biofilm airlift suspension reactor.
+<i>Biotechnol. Bioeng.</i>
+58
+400&#x2013;407. 10.1002/(SICI)1097-0290(19980520)58:4&lt;400::AID-BIT7&gt;3.0.CO;2-N
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/(SICI)1097-0290(19980520)58:4&lt;400::AID-BIT7&gt;3.0.CO;2-N</ArticleId><ArticleId IdType="pubmed">10099274</ArticleId></ArticleIdList></Reference><Reference><Citation>Laso-P&#xe9;rez R., Krukenberg V., Musat F., Wegener G. (2018). Establishing anaerobic hydrocarbon-degrading enrichment cultures of microorganisms under strictly anoxic conditions.
+<i>Nat. Protoc.</i>
+13
+1310&#x2013;1330. 10.1038/nprot.2018.030
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nprot.2018.030</ArticleId><ArticleId IdType="pubmed">29773905</ArticleId></ArticleIdList></Reference><Reference><Citation>Lemos M., Mergulh&#xe3;o F., Melo L., Sim&#xf5;es M. (2015). The effect of shear stress on the formation and removal of <i>Bacillus cereus</i> biofilms.
+<i>Food Bioproducts Process.</i>
+93
+242&#x2013;248. 10.1016/j.fbp.2014.09.005</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.fbp.2014.09.005</ArticleId></ArticleIdList></Reference><Reference><Citation>Li X., Bosch-Tijhof C. J., Wei X., De Soet J. J., Crielaard W., Loveren C. V., et al.  (2020). Efficiency of chemical versus mechanical disruption methods of DNA extraction for the identification of oral Gram-positive and Gram-negative bacteria.
+<i>J. Int. Med. Res.</i>
+48:030006052092559. 10.1177/0300060520925594
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0300060520925594</ArticleId><ArticleId IdType="pmc">PMC7278108</ArticleId><ArticleId IdType="pubmed">32459112</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu X., Cao B., Yang L., Gu J.-D. (2022). Biofilm control by interfering with c-di-GMP metabolism and signaling.
+<i>Biotechnol. Adv.</i>
+56:107915. 10.1016/j.biotechadv.2022.107915
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.biotechadv.2022.107915</ArticleId><ArticleId IdType="pubmed">35101567</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu Y., Tay J.-H. (2002). The essential role of hydrodynamic shear force in the formation of biofilm and granular sludge.
+<i>Water Res.</i>
+36
+1653&#x2013;1665. 10.1016/s0043-1354(01)00379-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0043-1354(01)00379-7</ArticleId><ArticleId IdType="pubmed">12044065</ArticleId></ArticleIdList></Reference><Reference><Citation>Luo T. L., Vanek M. E., Gonzalez-Cabezas C., Marrs C. F., Foxman B., Rickard A. H. (2022). <i>In vitro</i> model systems for exploring oral biofilms: From single-species populations to complex multi-species communities.
+<i>J. Appl. Microbiol.</i>
+132
+855&#x2013;871. 10.1111/jam.15200
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jam.15200</ArticleId><ArticleId IdType="pmc">PMC10505481</ArticleId><ArticleId IdType="pubmed">34216534</ArticleId></ArticleIdList></Reference><Reference><Citation>Marsh P. D. (2005). Dental plaque: Biological significance of a biofilm and community life-style.
+<i>J. Clin. Periodontol.</i>
+32
+7&#x2013;15. 10.1111/j.1600-051x.2005.00790.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-051x.2005.00790.x</ArticleId><ArticleId IdType="pubmed">16128825</ArticleId></ArticleIdList></Reference><Reference><Citation>Mayr A., Ciper N., Wahl G., Wildenhof J., Frede S., Kirschneck C., et al.  (2024). Longitudinal analysis of microcirculatory parameters in gingival tissues after tooth extraction in patients with different risk profiles for wound healing disorders&#x2013;a pilot study.
+<i>Clin. Oral Invest.</i>
+28:303. 10.1007/s00784-024-05686-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00784-024-05686-3</ArticleId><ArticleId IdType="pmc">PMC11076346</ArticleId><ArticleId IdType="pubmed">38714559</ArticleId></ArticleIdList></Reference><Reference><Citation>McBain A. J. (2009). <i>Chapter 4 In Vitro Biofilm Models.</i>
+Amsterdam: Elsevier, 99&#x2013;132. 10.1016/s0065-2164(09)69004-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0065-2164(09)69004-3</ArticleId><ArticleId IdType="pubmed">19729092</ArticleId></ArticleIdList></Reference><Reference><Citation>M&#xf6;hle R. B., Langemann T., Haesner M., Augustin W., Scholl S., Neu T. R., et al.  (2007). Structure and shear strength of microbial biofilms as determined with confocal laser scanning microscopy and fluid dynamic gauging using a novel rotating disc biofilm reactor.
+<i>Biotechnol. Bioeng.</i>
+98
+747&#x2013;755. 10.1002/bit.21448
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/bit.21448</ArticleId><ArticleId IdType="pubmed">17421046</ArticleId></ArticleIdList></Reference><Reference><Citation>Moore W. E. C., Moore L. V. H. (1994). The bacteria of periodontal diseases.
+<i>Periodontology 2000</i>
+5
+66&#x2013;77. 10.1111/j.1600-0757.1994.tb00019.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0757.1994.tb00019.x</ArticleId><ArticleId IdType="pubmed">9673163</ArticleId></ArticleIdList></Reference><Reference><Citation>Morou-Bermudez E., Burne R. A. (1999). Genetic and physiologic characterization of urease of <i>Actinomyces naeslundii</i>.
+<i>Infect. Immunity</i>
+67
+504&#x2013;512. 10.1128/iai.67.2.504-512.1999
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/iai.67.2.504-512.1999</ArticleId><ArticleId IdType="pmc">PMC96348</ArticleId><ArticleId IdType="pubmed">9916052</ArticleId></ArticleIdList></Reference><Reference><Citation>Nailis H., Kuchar&#xed;kov&#xe1; S., &#x158;i&#x10d;icov&#xe1; M., Van Dijck P., Deforce D., Nelis H., et al.  (2010). Real-time PCR expression profiling of genes encoding potential virulence factors in Candida albicans biofilms: identification of model-dependent and -independent gene expression.
+<i>BMC Microbiol.</i>
+10:114. 10.1186/1471-2180-10-114
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1471-2180-10-114</ArticleId><ArticleId IdType="pmc">PMC2862034</ArticleId><ArticleId IdType="pubmed">20398368</ArticleId></ArticleIdList></Reference><Reference><Citation>Nairn B. L., Lima B. P., Chen R., Yang J. Q., Wei G., Chumber A. K., et al.  (2024). Effects of fluid shear stress on oral biofilm formation and composition and the transcriptional response of <i>Streptococcus gordonii</i>.
+<i>Mol. Oral Microbiol.</i>
+39
+477&#x2013;490. 10.1111/omi.12481
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/omi.12481</ArticleId><ArticleId IdType="pmc">PMC11912947</ArticleId><ArticleId IdType="pubmed">39158270</ArticleId></ArticleIdList></Reference><Reference><Citation>Nilsson D. P. G., Wiklund K., Malyshev D., Andersson M. (2025). 3D-printed temperature and shear stress-controlled rocker platform for enhanced biofilm incubation.
+<i>Scientific Rep.</i>
+15:19575. 10.1038/s41598-025-04575-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-025-04575-3</ArticleId><ArticleId IdType="pmc">PMC12137683</ArticleId><ArticleId IdType="pubmed">40467684</ArticleId></ArticleIdList></Reference><Reference><Citation>Nybo K. (2011). qPCR efficiency calculations.
+<i>BioTechniques</i>
+51
+401&#x2013;402. 10.2144/000113776
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2144/000113776</ArticleId><ArticleId IdType="pubmed">22150330</ArticleId></ArticleIdList></Reference><Reference><Citation>Ogier J.-C., Pag&#xe8;s S., Galan M., Barret M., Gaudriault S. (2019). rpoB, a promising marker for analyzing the diversity of bacterial communities by amplicon sequencing.
+<i>BMC Microbiol.</i>
+19:171. 10.1186/s12866-019-1546-z
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12866-019-1546-z</ArticleId><ArticleId IdType="pmc">PMC6664775</ArticleId><ArticleId IdType="pubmed">31357928</ArticleId></ArticleIdList></Reference><Reference><Citation>Palmer R. J., Caldwell D. E. (1995). A flowcell for the study of plaque removal and regrowth.
+<i>J. Microbiol. Methods</i>
+24
+171&#x2013;182. 10.1016/0167-7012(95)00068-2</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0167-7012(95)00068-2</ArticleId></ArticleIdList></Reference><Reference><Citation>Paul E., Ochoa J. C., Pechaud Y., Liu Y., Lin&#xe9; A. (2012). Effect of shear stress and growth conditions on detachment and physical properties of biofilms.
+<i>Water Res.</i>
+46
+5499&#x2013;5508. 10.1016/j.watres.2012.07.029
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.watres.2012.07.029</ArticleId><ArticleId IdType="pubmed">22898671</ArticleId></ArticleIdList></Reference><Reference><Citation>Pechaud Y., Peyre Lavigne M., Bessiere Y., Ochoa J. C., Queinnec I., Paul E. (2022). Influence of shear stress, organic loading rate and hydraulic retention time on the biofilm structure and on the competition between different biological aggregate morphotypes.
+<i>J. Environ. Chem. Eng.</i>
+10:107597. 10.1016/j.jece.2022.107597</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jece.2022.107597</ArticleId></ArticleIdList></Reference><Reference><Citation>Pratten J. (2007). Growing oral biofilms in a constant depth film fermentor (CDFF).
+<i>Curr. Protoc. Microbiol.</i>
+6
+1B.5.1&#x2013;1B.5.18. 10.1002/9780471729259.mc01b05s6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/9780471729259.mc01b05s6</ArticleId><ArticleId IdType="pubmed">18770599</ArticleId></ArticleIdList></Reference><Reference><Citation>Quintana M., Palicki O., Lucchi G., Ducoroy P., Chambon C., Salles C., et al.  (2009). Inter-individual variability of protein patterns in saliva of healthy adults.
+<i>J. Proteomics</i>
+72
+822&#x2013;830. 10.1016/j.jprot.2009.05.004
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jprot.2009.05.004</ArticleId><ArticleId IdType="pubmed">19470415</ArticleId></ArticleIdList></Reference><Reference><Citation>Quirynen M., Dekeyser C., Van Steenberghe D. (1991). The influence of gingival inflammation, tooth type, and timing on the rate of plaque formation.
+<i>J. Periodontol.</i>
+62
+219&#x2013;222. 10.1902/jop.1991.62.3.219
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1902/jop.1991.62.3.219</ArticleId><ArticleId IdType="pubmed">2027075</ArticleId></ArticleIdList></Reference><Reference><Citation>Ramachandra S. S., Wright P., Han P., Abdal-Hay A., Lee R. S. B., Ivanovski S. (2023). Evaluating models and assessment techniques for understanding oral biofilm complexity.
+<i>MicrobiologyOpen</i>
+12:e1377. 10.1002/mbo3.1377
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mbo3.1377</ArticleId><ArticleId IdType="pmc">PMC10464519</ArticleId><ArticleId IdType="pubmed">37642488</ArticleId></ArticleIdList></Reference><Reference><Citation>Rochex A., Godon J., Bernet N., Escudie R. (2008). Role of shear stress on composition, diversity and dynamics of biofilm bacterial communities.
+<i>Water Res.</i>
+42
+4915&#x2013;4922. 10.1016/j.watres.2008.09.015
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.watres.2008.09.015</ArticleId><ArticleId IdType="pubmed">18945468</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodesney C. A., Roman B., Dhamani N., Cooley B. J., Katira P., Touhami A., et al.  (2017). Mechanosensing of shear by <i>Pseudomonas aeruginosa</i> leads to increased levels of the cyclic-di-GMP signal initiating biofilm development.
+<i>Proc. Natl. Acad. Sci.</i>
+114
+5906&#x2013;5911. 10.1073/pnas.1703255114
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.1703255114</ArticleId><ArticleId IdType="pmc">PMC5468607</ArticleId><ArticleId IdType="pubmed">28533383</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodr&#xed;guez-Mart&#xed;nez M., Pati&#xf1;o-Mar&#xed;n N., Loyola-Rodr&#xed;guez J. P., Brito-Orta M. D. (2006). Gingivitis and periodontitis as antagonistic modulators of gingival perfusion.
+<i>J. Periodontol.</i>
+77
+1643&#x2013;1650. 10.1902/jop.2006.050311
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1902/jop.2006.050311</ArticleId><ArticleId IdType="pubmed">17032105</ArticleId></ArticleIdList></Reference><Reference><Citation>Rosenbaum J., Usyk M., Chen Z., Zolnik C. P., Jones H. E., Waldron L., et al.  (2019). Evaluation of oral cavity DNA extraction methods on bacterial and fungal microbiota.
+<i>Scientific Rep.</i>
+9:1531. 10.1038/s41598-018-38049-6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-018-38049-6</ArticleId><ArticleId IdType="pmc">PMC6365504</ArticleId><ArticleId IdType="pubmed">30728424</ArticleId></ArticleIdList></Reference><Reference><Citation>Rovida C. (2009). Re-evaluation of animal numbers and costs for in vivo tests to accomplish REACH legislation requirements for chemicals - a report by the Transatlantic Think Tank for Toxicology (t4).
+<i>ALTEX</i>
+26
+187&#x2013;208. 10.14573/altex.2009.3.187
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14573/altex.2009.3.187</ArticleId><ArticleId IdType="pubmed">19907906</ArticleId></ArticleIdList></Reference><Reference><Citation>Rudney J. D., Chen R., Lenton P., Li J., Li Y., Jones R. S., et al.  (2012). A reproducible oral microcosm biofilm model for testing dental materials.
+<i>J. Appl. Microbiol.</i>
+113
+1540&#x2013;1553. 10.1111/j.1365-2672.2012.05439.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1365-2672.2012.05439.x</ArticleId><ArticleId IdType="pmc">PMC3501590</ArticleId><ArticleId IdType="pubmed">22925110</ArticleId></ArticleIdList></Reference><Reference><Citation>S&#xe1;nchez M. C., Llama-Palacios A., Blanc V., Le&#xf3;n R., Herrera D., Sanz M. (2011). Structure, viability and bacterial kinetics of an in vitro biofilm model using six bacteria from the subgingival microbiota.
+<i>J. Periodontal Res.</i>
+46
+252&#x2013;260. 10.1111/j.1600-0765.2010.01341.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0765.2010.01341.x</ArticleId><ArticleId IdType="pubmed">21261622</ArticleId></ArticleIdList></Reference><Reference><Citation>Shammas F. V., Heikkil&#xe4; R., Osland A. (2001). Improvement of quantitative PCR reproducibility by betaine as determined by fluorescence-based method.
+<i>BioTechniques</i>
+30
+950&#x2013;954. 10.2144/01305bm05
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2144/01305bm05</ArticleId><ArticleId IdType="pubmed">11355355</ArticleId></ArticleIdList></Reference><Reference><Citation>Sharma A., Inagaki S., Sigurdson W., Kuramitsu H. K. (2005). Synergy between <i>Tannerella forsythia</i> and <i>Fusobacterium nucleatum</i> in biofilm formation.
+<i>Oral Microbiol. Immunol.</i>
+20
+39&#x2013;42. 10.1111/j.1399-302x.2004.00175.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1399-302x.2004.00175.x</ArticleId><ArticleId IdType="pubmed">15612944</ArticleId></ArticleIdList></Reference><Reference><Citation>Simm R., Morr M., Kader A., Nimtz M., R&#xf6;mling U. (2004). GGDEF and EAL domains inversely regulate cyclic di-GMP levels and transition from sessility to motility.
+<i>Mol. Microbiol.</i>
+53
+1123&#x2013;1134. 10.1111/j.1365-2958.2004.04206.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1365-2958.2004.04206.x</ArticleId><ArticleId IdType="pubmed">15306016</ArticleId></ArticleIdList></Reference><Reference><Citation>Sim&#xf5;es L. C., Gomes I. B., Sousa H., Borges A., Sim&#xf5;es M. (2022). Biofilm formation under high shear stress increases resilience to chemical and mechanical challenges.
+<i>Biofouling</i>
+38
+1&#x2013;12. 10.1080/08927014.2021.2006189
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/08927014.2021.2006189</ArticleId><ArticleId IdType="pubmed">34818957</ArticleId></ArticleIdList></Reference><Reference><Citation>Socransky S. S., Haffajee A. D., Cugini M. A., Smith C., Kent R. L. (1998). Microbial complexes in subgingival plaque.
+<i>J. Clin. Periodontol.</i>
+25
+134&#x2013;144. 10.1111/j.1600-051x.1998.tb02419.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-051x.1998.tb02419.x</ArticleId><ArticleId IdType="pubmed">9495612</ArticleId></ArticleIdList></Reference><Reference><Citation>Socransky S. S., Smith C., Haffajee A. D. (2002). Subgingival microbial profiles in refractory periodontal disease.
+<i>J. Clin. Periodontol.</i>
+29
+260&#x2013;268. 10.1034/j.1600-051x.2002.290313.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1034/j.1600-051x.2002.290313.x</ArticleId><ArticleId IdType="pubmed">11940147</ArticleId></ArticleIdList></Reference><Reference><Citation>Steiner S., Lori C., Boehm A., Jenal U. (2012). Allosteric activation of exopolysaccharide synthesis through cyclic di-GMP-stimulated protein&#x2013;protein interaction.
+<i>EMBO J.</i>
+32
+354&#x2013;368. 10.1038/emboj.2012.315
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/emboj.2012.315</ArticleId><ArticleId IdType="pmc">PMC3567491</ArticleId><ArticleId IdType="pubmed">23202856</ArticleId></ArticleIdList></Reference><Reference><Citation>Stoodley P., Cargo R., Rupp C. J., Wilson S., Klapper I. (2002). Biofilm material properties as related to shear-induced deformation and detachment phenomena.
+<i>J. Industrial Microbiol. Biotechnol.</i>
+29
+361&#x2013;367. 10.1038/sj.jim.7000282
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/sj.jim.7000282</ArticleId><ArticleId IdType="pubmed">12483479</ArticleId></ArticleIdList></Reference><Reference><Citation>Sugiyama S., Takahashi S. S., Tokutomi F. A., Yoshida A., Kobayashi K., Yoshino F., et al.  (2012). Gingival vascular functions are altered in type 2 diabetes mellitus model and/or periodontitis model.
+<i>J. Clin. Biochem. Nutr.</i>
+51
+108&#x2013;113. 10.3164/jcbn.11-103
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3164/jcbn.11-103</ArticleId><ArticleId IdType="pmc">PMC3432819</ArticleId><ArticleId IdType="pubmed">22962527</ArticleId></ArticleIdList></Reference><Reference><Citation>Tang P.-C., Eriksson O., Sj&#xf6;gren J., Fatsis-Kavalopoulos N., Kreuger J., Andersson D. I. (2022). A microfluidic chip for studies of the dynamics of antibiotic resistance selection in bacterial biofilms.
+<i>Front. Cell. Infect. Microbiol.</i>
+12:896149. 10.3389/fcimb.2022.896149
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fcimb.2022.896149</ArticleId><ArticleId IdType="pmc">PMC9128571</ArticleId><ArticleId IdType="pubmed">35619647</ArticleId></ArticleIdList></Reference><Reference><Citation>Tsagkari E., Connelly S., Liu Z., McBride A., Sloan W. T. (2022). The role of shear dynamics in biofilm formation.
+<i>npj Biofilms Microbiomes</i>
+8:33. 10.1038/s41522-022-00300-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41522-022-00300-4</ArticleId><ArticleId IdType="pmc">PMC9055050</ArticleId><ArticleId IdType="pubmed">35487949</ArticleId></ArticleIdList></Reference><Reference><Citation>Valentini M., Filloux A. (2016). Biofilms and cyclic di-GMP (c-di-GMP) signaling: Lessons from <i>Pseudomonas aeruginosa</i> and other bacteria.
+<i>J. Biol. Chem.</i>
+291
+12547&#x2013;12555. 10.1074/jbc.r115.711507
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1074/jbc.r115.711507</ArticleId><ArticleId IdType="pmc">PMC4933438</ArticleId><ArticleId IdType="pubmed">27129226</ArticleId></ArticleIdList></Reference><Reference><Citation>Wagner M., Amann R., Lemmer H., Schleifer K. H. (1993). Probing activated sludge with oligonucleotides specific for <i>proteobacteria</i>: Inadequacy of culture-dependent methods for describing microbial community structure.
+<i>Appl. Environ. Microbiol.</i>
+59
+1520&#x2013;1525. 10.1128/aem.59.5.1520-1525.1993
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/aem.59.5.1520-1525.1993</ArticleId><ArticleId IdType="pmc">PMC182113</ArticleId><ArticleId IdType="pubmed">8517747</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang Q., Haugen H. J., Linke D., Lyngstadaas S. P., Sigurj&#xf3;nsson &#xd3;E., Ma Q. (2025). Impact of different chemical debridement agents on early cellular responses to titanium dental implants: A transcriptome-based in vitro study on peri-implant tissue regeneration.
+<i>Colloids Surfaces B: Biointerfaces</i>
+253:114727. 10.1016/j.colsurfb.2025.114727
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.colsurfb.2025.114727</ArticleId><ArticleId IdType="pubmed">40288111</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang T., Guo Z., Shen Y., Cui Z., Goodwin A. (2020). Accumulation mechanism of biofilm under different water shear forces along the networked pipelines in a drip irrigation system.
+<i>Scientific Rep.</i>
+10:6960. 10.1038/s41598-020-63898-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-020-63898-5</ArticleId><ArticleId IdType="pmc">PMC7181636</ArticleId><ArticleId IdType="pubmed">32332820</ArticleId></ArticleIdList></Reference><Reference><Citation>Warreth A., Boggs S., Ibieyou N., El-Helali R., Hwang S. (2015). Peri-implant diseases: An overview.
+<i>Dental Update</i>
+42
+166&#x2013;184. 10.12968/denu.2015.42.2.166
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.12968/denu.2015.42.2.166</ArticleId><ArticleId IdType="pubmed">26058231</ArticleId></ArticleIdList></Reference><Reference><Citation>Widdel F. (1980). <i>Anaerober Abbau von Fetts&#xe4;uren und Benzoes&#xe4;ure durch neu isolierte Arten sulfat-reduzierender Bakterien [Anaerobic Degradation of Fatty Acids and Benzoic Acid by Newly Isolated Species of Sulfate-Reducing Bacteria].</i>
+Germany: Georg-August-Universit&#xe4;t G&#xf6;ttingen. German.</Citation></Reference><Reference><Citation>Yamamoto R., Amano K., Takahashi S. W., To M., Takahashi S., Matsuo M. (2021). Changes in the microcirculation in periodontal tissue due to experimental peri-implantitis.
+<i>J. Oral Biosci.</i>
+63
+153&#x2013;160. 10.1016/j.job.2021.03.002
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.job.2021.03.002</ArticleId><ArticleId IdType="pubmed">33746071</ArticleId></ArticleIdList></Reference><Reference><Citation>Yawata Y., Nguyen J., Stocker R., Rusconi R. (2016). Microfluidic studies of biofilm formation in dynamic environments.
+<i>J. Bacteriol.</i>
+198
+2589&#x2013;2595. 10.1128/jb.00118-16
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/jb.00118-16</ArticleId><ArticleId IdType="pmc">PMC5019069</ArticleId><ArticleId IdType="pubmed">27274032</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang Y., Silva D. M., Young P., Traini D., Li M., Ong H. X., et al.  (2022). Understanding the effects of aerodynamic and hydrodynamic shear forces on <i>Pseudomonas aeruginosa</i> biofilm growth.
+<i>Biotechnol. Bioeng.</i>
+119
+1483&#x2013;1497. 10.1002/bit.28077
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/bit.28077</ArticleId><ArticleId IdType="pmc">PMC9313621</ArticleId><ArticleId IdType="pubmed">35274289</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhou P., Manoil D., Belibasakis G. N., Kotsakis G. A. (2021). Veillonellae: beyond bridging species in oral biofilm ecology.
+<i>Front. Oral Health</i>
+2:774115. 10.3389/froh.2021.774115
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/froh.2021.774115</ArticleId><ArticleId IdType="pmc">PMC8757872</ArticleId><ArticleId IdType="pubmed">35048073</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

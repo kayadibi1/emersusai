@@ -1,0 +1,640 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article article-type="research-article" xml:lang="en" dtd-version="1.4"><front><journal-meta><journal-id journal-id-type="nlm-ta">J Diabetes Investig</journal-id><journal-id journal-id-type="iso-abbrev">J Diabetes Investig</journal-id><journal-id journal-id-type="pmc-domain-id">2358</journal-id><journal-id journal-id-type="pmc-domain">jdi</journal-id><journal-id journal-id-type="publisher-id">JDI</journal-id><journal-title-group><journal-title>Journal of Diabetes Investigation</journal-title></journal-title-group><issn pub-type="ppub">2040-1116</issn><issn pub-type="epub">2040-1124</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC6497603</article-id><article-id pub-id-type="pmcid-ver">PMC6497603.1</article-id><article-id pub-id-type="pmcaid">6497603</article-id><article-id pub-id-type="pmcaiid">6497603</article-id><article-id pub-id-type="pmid">30290074</article-id><article-id pub-id-type="doi">10.1111/jdi.12948</article-id><article-id pub-id-type="publisher-id">JDI12948</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Original Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Articles</subject><subj-group subj-group-type="heading"><subject>Basic Science and Research</subject></subj-group></subj-group></article-categories><title-group><article-title>Restoration of myocardial glucose uptake with facilitated myocardial glucose transporter 4 translocation contributes to alleviation of diabetic cardiomyopathy in rats after duodenal‐jejunal bypass</article-title><alt-title alt-title-type="left-running-head">Huang <italic toggle="yes">et al</italic>.</alt-title></title-group><contrib-group><contrib id="jdi12948-cr-0001" contrib-type="author"><name name-style="western"><surname>Huang</surname><given-names initials="X">Xin</given-names></name><xref ref-type="aff" rid="jdi12948-aff-0001">
+<sup>1</sup>
+</xref></contrib><contrib id="jdi12948-cr-0002" contrib-type="author"><name name-style="western"><surname>Wu</surname><given-names initials="D">Dong</given-names></name><xref ref-type="aff" rid="jdi12948-aff-0001">
+<sup>1</sup>
+</xref></contrib><contrib id="jdi12948-cr-0003" contrib-type="author"><name name-style="western"><surname>Cheng</surname><given-names initials="Y">Yugang</given-names></name><xref ref-type="aff" rid="jdi12948-aff-0001">
+<sup>1</sup>
+</xref></contrib><contrib id="jdi12948-cr-0004" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="X">Xiang</given-names></name><xref ref-type="aff" rid="jdi12948-aff-0001">
+<sup>1</sup>
+</xref></contrib><contrib id="jdi12948-cr-0005" contrib-type="author"><name name-style="western"><surname>Liu</surname><given-names initials="T">Teng</given-names></name><xref ref-type="aff" rid="jdi12948-aff-0001">
+<sup>1</sup>
+</xref></contrib><contrib id="jdi12948-cr-0006" contrib-type="author"><name name-style="western"><surname>Liu</surname><given-names initials="Q">Qiaoran</given-names></name><xref ref-type="aff" rid="jdi12948-aff-0002">
+<sup>2</sup>
+</xref></contrib><contrib id="jdi12948-cr-0007" contrib-type="author"><name name-style="western"><surname>Xia</surname><given-names initials="P">Pingtian</given-names></name><xref ref-type="aff" rid="jdi12948-aff-0002">
+<sup>2</sup>
+</xref></contrib><contrib id="jdi12948-cr-0008" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="G">Guangyong</given-names></name><xref ref-type="aff" rid="jdi12948-aff-0001">
+<sup>1</sup>
+</xref></contrib><contrib id="jdi12948-cr-0009" contrib-type="author"><name name-style="western"><surname>Hu</surname><given-names initials="S">Sanyuan</given-names></name><xref ref-type="aff" rid="jdi12948-aff-0001">
+<sup>1</sup>
+</xref></contrib><contrib id="jdi12948-cr-0010" contrib-type="author" corresp="yes"><name name-style="western"><surname>Liu</surname><given-names initials="S">Shaozhuang</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">http://orcid.org/0000-0003-2052-0516</contrib-id><address><email>liushaozhuang@sdu.edu.cn</email></address><xref ref-type="aff" rid="jdi12948-aff-0001">
+<sup>1</sup>
+</xref></contrib></contrib-group><aff id="jdi12948-aff-0001">
+<label><sup>1</sup></label>
+<named-content content-type="organisation-division">Department of General Surgery</named-content>
+<institution>Qilu Hospital of Shandong University</institution>
+<named-content content-type="city">Jinan</named-content>
+<country country="CN">China</country>
+</aff><aff id="jdi12948-aff-0002">
+<label><sup>2</sup></label>
+<named-content content-type="organisation-division">State Key Laboratory of Diabetes and Obesity Surgery</named-content>
+<institution>Qilu Hospital of Shandong University</institution>
+<named-content content-type="city">Jinan</named-content>
+<country country="CN">China</country>
+</aff><author-notes><corresp id="correspondenceTo"><label>*</label><bold>Correspondence</bold><break/>
+Shaozhuang Liu<break/>
+Tel.: +86‐185‐6008‐5165<break/>
+Fax: +86‐0531‐8216‐6009<break/>
+Email address: <email>liushaozhuang@sdu.edu.cn</email><break/></corresp></author-notes><pub-date pub-type="epub"><day>02</day><month>11</month><year>2018</year></pub-date><pub-date pub-type="ppub"><month>5</month><year>2019</year></pub-date><volume>10</volume><issue>3</issue><issue-id pub-id-type="pmc-issue-id">334077</issue-id><issue-id pub-id-type="doi">10.1111/jdi.2019.10.issue-3</issue-id><fpage>626</fpage><lpage>638</lpage><history><date date-type="received"><day>02</day><month>7</month><year>2018</year></date><date date-type="rev-recd"><day>10</day><month>9</month><year>2018</year></date><date date-type="accepted"><day>01</day><month>10</month><year>2018</year></date></history><pub-history><event event-type="pmc-release"><date><day>01</day><month>05</month><year>2019</year></date></event><event event-type="pmc-live"><date><day>07</day><month>05</month><year>2019</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2024-02-03 00:25:10.243"><day>03</day><month>02</month><year>2024</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2018 The Authors. Journal of Diabetes Investigation published by Asian Association for the Study of Diabetes (AASD) and John Wiley &amp; Sons Australia, Ltd</copyright-statement><license license-type="creativeCommonsBy-nc-nd"><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbyncndlicense">https://creativecommons.org/licenses/by-nc-nd/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="http://creativecommons.org/licenses/by-nc-nd/4.0/">http://creativecommons.org/licenses/by-nc-nd/4.0/</ext-link> License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="JDI-10-626.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:JDI-10-626.pdf"/><abstract id="jdi12948-abs-0001"><title>Abstract</title><sec id="jdi12948-sec-0001"><title>Aims/Introduction</title><p>Duodenal‐jejunal bypass (<styled-content style="fixed-case">DJB</styled-content>) surgery has been reported to effectively relieve diabetic cardiomyopathy (<styled-content style="fixed-case">DCM</styled-content>). However, the specific mechanisms remain largely unknown. The present study was designed to determine the alterations of myocardial glucose uptake (<styled-content style="fixed-case">MGU</styled-content>) after <styled-content style="fixed-case">DJB</styled-content> and their effects on <styled-content style="fixed-case">DCM</styled-content>.</p></sec><sec id="jdi12948-sec-0002"><title>Materials and Methods</title><p>Duodenal‐jejunal bypass and sham surgeries were carried out in diabetic rats induced by a high‐fat diet and a low dose of streptozotocin, with chow‐diet fed rats as controls. Bodyweight, food intake, glucose homeostasis and lipid profiles were measured at indicated time‐points. Cardiac function was evaluated by transthoracic echocardiography and hemodynamic measurement. Cardiac remodeling was assessed by a series of morphometric analyses along with transmission electron microscopy. Positron‐emission tomography with fluorine‐18 labeled fluorodeoxyglucose was carried out to evaluate the <styled-content style="fixed-case">MGU </styled-content>
+<italic toggle="yes">in vivo</italic>. Furthermore, myocardial glucose transporters (<styled-content style="fixed-case">GLUT; GLUT</styled-content>1 and <styled-content style="fixed-case">GLUT</styled-content>4), myocardial insulin signaling and <styled-content style="fixed-case">GLUT</styled-content>‐4 translocation‐related proteins were investigated to elucidate the underlying mechanisms.</p></sec><sec id="jdi12948-sec-0003"><title>Results</title><p>The <styled-content style="fixed-case">DJB</styled-content> group showed restored systolic and diastolic cardiac function, along with significant remission in cardiac hypertrophy, cardiac fibrosis, lipid deposit and ultrastructural disorder independent of weight loss compared with the sham group. Furthermore, the <styled-content style="fixed-case">DJB</styled-content> group showed upregulated myocardial insulin signaling, hyperphosphorylation of <styled-content style="fixed-case">AKT</styled-content> substrate of 160 <styled-content style="fixed-case">kD</styled-content>a (<styled-content style="fixed-case">AS</styled-content>160) and <styled-content style="fixed-case">TBC</styled-content>1D1, along with preserved <styled-content style="fixed-case">soluble N‐ethylmaleimide‐sensitive factor attachment protein receptor</styled-content> proteins, facilitating the <styled-content style="fixed-case">GLUT</styled-content>‐4 translocation to the myocardial cell surface and restoration of <styled-content style="fixed-case">MGU</styled-content>.</p></sec><sec id="jdi12948-sec-0004"><title>Conclusions</title><p>The present findings provide evidence that restoration of <styled-content style="fixed-case">MGU</styled-content> is implicated in the alleviation of <styled-content style="fixed-case">DCM</styled-content> after <styled-content style="fixed-case">DJB</styled-content> through facilitating <styled-content style="fixed-case">GLUT</styled-content>‐4 translocation, suggesting a potential choice for treatment of human <styled-content style="fixed-case">DCM</styled-content> if properly implemented.</p></sec></abstract><kwd-group kwd-group-type="author-generated"><kwd id="jdi12948-kwd-0001">Diabetic cardiomyopathy</kwd><kwd id="jdi12948-kwd-0002">Duodenal‐jejunal bypass</kwd><kwd id="jdi12948-kwd-0003">Glucose uptake</kwd></kwd-group><funding-group><award-group><funding-source>National Natural Science Foundation of China</funding-source><award-id>81471019/H0712</award-id><award-id>81700708/H0712</award-id></award-group></funding-group><counts><fig-count count="6"/><table-count count="1"/><page-count count="13"/><word-count count="7289"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY-NC-ND</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>component-id</meta-name><meta-value>jdi12948</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>May 2019</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_NLMPMC version:5.6.2.1 mode:remove_FC converted:02.05.2019</meta-value></custom-meta></custom-meta-group></article-meta><notes><p content-type="self-citation">
+<mixed-citation publication-type="journal" id="jdi12948-cit-1001">
+<source xml:lang="en">J Diabetes Investig</source>
+<year>2019</year>; <volume>10</volume>: <fpage>626</fpage>–<lpage>638</lpage>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/jdi.12948</pub-id><pub-id pub-id-type="pmcid">PMC6497603</pub-id><pub-id pub-id-type="pmid">30290074</pub-id></mixed-citation>
+</p></notes></front><body><sec id="jdi12948-sec-0005"><title>Introduction</title><p>Diabetic cardiomyopathy (DCM) substantially increases heart failure risk and leads to poor prognosis<xref rid="jdi12948-bib-0001" ref-type="ref">1</xref>. However, there is currently no specific clinical intervention, and novel therapies are required.</p><p>Bariatric surgery has been proved to provide effective remission in type 2 diabetes and associated complications<xref rid="jdi12948-bib-0002" ref-type="ref">2</xref>, <xref rid="jdi12948-bib-0003" ref-type="ref">3</xref>. It has attracted more attention because of its effectiveness in ameliorating diabetic cardiac dysfunction<xref rid="jdi12948-bib-0004" ref-type="ref">4</xref>, <xref rid="jdi12948-bib-0005" ref-type="ref">5</xref>. However, most previous studies were carried out on the background of obesity, and remarkable weight loss after surgery would inevitably confound the results.</p><p>Duodenal‐jejunal bypass (DJB) is a commonly used experimental model to investigate the antidiabetic effect of bariatric surgery independent of weight loss<xref rid="jdi12948-bib-0006" ref-type="ref">6</xref>, <xref rid="jdi12948-bib-0007" ref-type="ref">7</xref>. However, there has been limited study regarding the therapeutic effects of DJB on DCM to date. Our previous research showed that DJB could ameliorate diabetic cardiac dysfunction in a rat model<xref rid="jdi12948-bib-0008" ref-type="ref">8</xref>. However, more studies are required to elucidate the underlying mechanism.</p><p>Insulin resistance is one of the main triggers of DCM<xref rid="jdi12948-bib-0009" ref-type="ref">9</xref>. Although multiple downstream signaling is involved, impaired insulin‐mediated myocardial glucose uptake (MGU) is consistently observed<xref rid="jdi12948-bib-0010" ref-type="ref">10</xref>, <xref rid="jdi12948-bib-0011" ref-type="ref">11</xref>, <xref rid="jdi12948-bib-0012" ref-type="ref">12</xref>. The compromised glucose utilization facilitates a substrate shift toward increased free fatty acid oxidation, which would in turn lead to cardiac damage<xref rid="jdi12948-bib-0013" ref-type="ref">13</xref>. Conversely, normalizing MGU and cardiac metabolism could reverse DCM<xref rid="jdi12948-bib-0014" ref-type="ref">14</xref>.</p><p>At the cellular level, MGU is dependent on the transmembrane glucose gradient and the content of cell surface glucose transporters (GLUT)<xref rid="jdi12948-bib-0015" ref-type="ref">15</xref>. GLUT‐1 is mainly localized in the sarcolemma and regulates the basal MGU, whereas GLUT‐4 takes effect relying on a sophisticated translocation from intracellular storage sites to the cell surface through a cascade activation of the insulin signaling pathway in the presence of stimulation<xref rid="jdi12948-bib-0016" ref-type="ref">16</xref>, <xref rid="jdi12948-bib-0017" ref-type="ref">17</xref>.</p><p>To our knowledge, the alterations in MGU after DJB and its effects on DCM have not been reported. In the present study, we carried out DJB and sham surgeries on diabetic rats induced by a high‐fat diet (HFD) and a low dose of streptozotocin, with chow‐diet fed rats as controls. We aim to investigate the alterations in MGU after DJB and the associated mechanisms, as well as its morphological and functional effects on DCM.</p></sec><sec id="jdi12948-sec-0006"><title>Methods</title><sec id="jdi12948-sec-0007"><title>Animals</title><p>All experiments were approved by the Ethics Committee on Experiment Animal of Shandong University Qilu Hospital. Eight‐week‐old male Sprague–Dawley rats (the Laboratory Animal Center of Shandong University, Jinan, China) were randomly assigned to the control group or diabetic group. The control group (<italic toggle="yes">n</italic> = 10) was fed with standard rodent chow diet (15% of calories as fat, Laboratory Animal Center of Shandong University) throughout the study period. Type 2 diabetes was induced as previously described<xref rid="jdi12948-bib-0018" ref-type="ref">18</xref>. Briefly, rats in the diabetic group received HFD (40% calories as fat, Huafukang Biotech Company, Beijing, China) for 4 weeks to induce insulin resistance. After a 12‐h fast, they were injected intraperitoneally with 2% of streptozotocin (Sigma, St. Louis, MO, USA; 35 mg/kg dissolved in ice cold citrate buffer, pH 4.5), while the control group received citrate buffer alone. Three days later, rats with non‐fasting glucose ≥16.7 mmol/L were considered diabetic (<italic toggle="yes">n</italic> = 20). After 16 weeks of diabetes, transthoracic echocardiography was carried out to evaluate the cardiac function before surgery. Then diabetic rats (<italic toggle="yes">n</italic> = 20) were randomly allocated to undergo corresponding surgery in the DJB group (<italic toggle="yes">n</italic> = 10) or the sham group (<italic toggle="yes">n</italic> = 10). The study design is summarized in Figure <xref rid="jdi12948-sup-0001" ref-type="supplementary-material">S1</xref>.</p></sec><sec id="jdi12948-sec-0008"><title>Surgical Procedures</title><p>DJB surgery was carried out as previously reported<xref rid="jdi12948-bib-0019" ref-type="ref">19</xref>. Sham surgery consisted of midline laparotomy with the same exposure, but not removal of stomach tissue. The operation time was prolonged similar to that of DJB to ensure equivalent anesthetic and surgical stress. Access to water was given from 2 h postoperatively. Rats were fed with 10% of Ensure (Abbott Laboratories, Abbott Park, IL, USA) from 24 h after surgery for 3 days, followed by standard rodent chow diet until the end of the study.</p></sec><sec id="jdi12948-sec-0009"><title>Oral Glucose Tolerance Test and Insulin Tolerance Test</title><p>The oral glucose tolerance test (OGTT) and insulin tolerance test (ITT) were carried out preoperatively, and at both 2 and 8 weeks after surgery, as previously described<xref rid="jdi12948-bib-0018" ref-type="ref">18</xref>. Briefly, after a 12‐h fast, blood glucose of rats was monitored from the tail vein at baseline, 10, 30, 60 and 120 min after administration of 20% glucose (1 g/kg) by intragastric gavage for OGTT, or insulin lispro (0.5 IU/kg) by intraperitoneal injection for ITT. ITT was carried out 2 days after OGTT to ensure recovery.</p></sec><sec id="jdi12948-sec-0010"><title>Blood Sampling and Analysis</title><p>Blood samples were collected from the retro‐orbital plexus of rats under light ether anesthesia after an overnight fast. Levels of serum triglyceride, total cholesterol, fasting plasma glucose (FPG), high‐density lipoprotein cholesterol, low‐density lipoprotein cholesterol and non‐esterified fatty acid were analyzed by the Roche Cobas 8000 modular analyzer system (Roche Diagnostics, Indianapolis, IN, USA). Plasma fasting insulin and glucagon‐like peptide‐1 (GLP‐1) were quantified using the Ultra Sensitive Rat Insulin ELISA Kit (Crystal Chem, Elk Grove, IL, USA) and multispecies GLP‐1 ELISA kit (Millipore, Billerica, MA, USA), respectively. The homeostasis model assessment of basal insulin resistance was calculated as FPG (mmol/L) × fasting insulin (mIU/L) / 22.5<xref rid="jdi12948-bib-0020" ref-type="ref">20</xref>.</p></sec><sec id="jdi12948-sec-0011"><title>Echocardiographic Evaluation</title><p>Before and at 8 weeks after surgery, transthoracic echocardiography was carried out with a VEVO 2100 imaging system (VisualSonics, Toronto, ON, Canada). Rats were lightly anesthetized with inhaled isoflurane‐O<sub>2</sub>. Two‐dimensional and M‐mode imaging was carried out to evaluate cardiac structure by determining left ventricular end diastolic diameter and left ventricular end systolic diameter. The left ventricular systolic function was assessed according to ejection fraction and fractional shortening. Mitral inflow was recorded by pulsed‐wave Doppler at the apical position; peak velocities of early filling (E) were measured. Tissue Doppler imaging of mitral annulus was obtained in the apical four‐chamber view at the highest possible frame rate and peak early diastolic velocities (e′) were measured. The ratio of E/e′ was calculated to evaluate the left ventricular diastolic function<xref rid="jdi12948-bib-0021" ref-type="ref">21</xref>.</p></sec><sec id="jdi12948-sec-0012"><title>Hemodynamic and Blood Pressure Measurements</title><p>At 8 weeks after surgery, under deep anesthesia, a fluid‐filled catheter was inserted from the right carotid artery into the left ventricle (LV) of rats. The left ventricular end diastolic pressure was measured.</p><p>In terms of blood pressure measurement, the heart rate, systolic blood pressure, diastolic blood pressure and mean arterial pressure were measured by a tail‐cuff automatic sphygmomanometer (Softron, Tokyo, Japan) as described previously<xref rid="jdi12948-bib-0022" ref-type="ref">22</xref>.</p></sec><sec id="jdi12948-sec-0013"><title>Positron‐Emission Tomography Scan and Image Processing</title><p>Three rounds of positron‐emission tomography (PET) scan were carried out at 8 weeks after surgery to evaluate the MGU <italic toggle="yes">in vivo</italic> with an Inveon dedicated PET system (Siemens, Bonn, Germany). Briefly, the first round was carried out regularly after fluorine‐18 labeled fluorodeoxyglucose (<sup>18</sup>F‐FDG) injection from the tail vein. To ensure the maximal stimulation of MGU, the second round was carried out after an intravenous glucose load. To fully simulate the postprandial hyperglycemia state, the third round was carried out after an intragastric glucose load instead. To determine the MGU, multiple regions‐of‐interest were drawn manually on at least five representative midventricular transverse planes by visualizing the heart margin as they appeared as bumps under the skin<xref rid="jdi12948-bib-0023" ref-type="ref">23</xref>. The mean standard uptake value was calculated to identify the radioactivity of the heart. The detailed method and image processing are listed in Appendix <xref rid="jdi12948-sup-0001" ref-type="supplementary-material">S1</xref>.</p></sec><sec id="jdi12948-sec-0014"><title>Organ Harvesting</title><p>At the end of the study (8 weeks after the surgery), human insulin (Velosulin, 10 U/kg bodyweight) was injected into the caudal vena cava of rats. Three minutes later, rats were euthanized and the hearts were rapidly removed and washed in cold phosphate‐buffered saline. Then, 1‐mm cubes were quickly cut from the LV and fixed in 2.5% glutaraldehyde for electron microscopy analysis. The remaining part of the LV was sliced into three pieces, one was fixed in 4% paraformaldehyde, and the other two were put into liquid nitrogen and stored at −80°C for further analysis.</p></sec><sec id="jdi12948-sec-0015"><title>Morphometric and Histological Analysis</title><p>LV tissues fixed in 4% paraformaldehyde were embedded in paraffin, and 4‐μm thick sections were produced for hematoxylin–eosin staining and Masson's trichrome staining. The myocyte cross‐sectional area was calculated under ×400 magnification from hematoxylin–eosin‐stained sections. Collagen volume fraction and perivascular collagen area/luminal area ratio were quantified from Masson‐stained sections. LV frozen sections (5 μm) were stained with Oil Red O and then counterstained with hematoxylin to detect neutral lipid. All quantitative morphometry was carried out with Image‐Pro Plus 6.0 (Media Cybernatics, Bethesda, MD, USA).</p></sec><sec id="jdi12948-sec-0016"><title>Transmission Electron Microscopy</title><p>LV samples (1‐mm cubes) were fixed in 2.5% glutaraldehyde overnight at 4°C and post‐fixed in 1% osmium tetroxide, then dehydrated through a graded ethanol series and embedded in epoxy resin. Ultrathin sections double‐stained with uranyl acetate and lead citrate were examined by a transmission electron microscope (FEI/Philips CM‐100; Thermo Fisher Scientific, Waltham, MA, USA).</p></sec><sec id="jdi12948-sec-0017"><title>Immunohistochemistry and Western Blotting</title><p>Image‐Pro Plus 6.0 software (Media Cybernatics) was used to calculate the mean integrated optical density per stained area (μm<sup>2</sup>) for immunohistochemistry. In terms of Western blotting, the total and membrane target protein were normalized relative to β‐actin and Na+/K+ ATPase1, respectively. The detailed methods are listed in Table S1 and Appendix <xref rid="jdi12948-sup-0001" ref-type="supplementary-material">S2</xref>.</p></sec><sec id="jdi12948-sec-0018"><title>Statistical Analysis</title><p>Quantitative data are presented as mean ± standard deviation, and were analyzed using SPSS software (ver. 18.0; SPSS Inc., Chicago, IL, USA). The area under the curve (AUC) for OGTT (AUC<sub>OGTT</sub>) and ITT (AUC<sub>ITT</sub>) was calculated by trapezoidal integration. Bodyweight, food intake, FPG, fasting insulin and homeostasis model assessment of basal insulin resistance over time were analyzed using two‐way (repeated‐measures) analysis of variance (<sc>anova</sc>). The results are reported differences as <sup>A</sup>
+<italic toggle="yes">P</italic> by group, <sup>B</sup>
+<italic toggle="yes">P</italic> over time and <sup>C</sup>
+<italic toggle="yes">P</italic> due to the interaction of the two factors. The Bonferroni post‐hoc test was carried out where appropriate. The other datasets were compared using one‐way <sc>anova</sc> followed by Bonferroni or Dunnett's T3 correction. <italic toggle="yes">P</italic> &lt; 0.05 was taken to show statistical significance.</p></sec></sec><sec id="jdi12948-sec-0019"><title>Results</title><sec id="jdi12948-sec-0020"><title>General Characteristics of Diabetic Rats Before Surgery</title><p>After 16 weeks of diabetes, the diabetic group showed higher water intake and urine volume than the control group, as expected. The two groups showed similar levels of bodyweight, systolic blood pressure, diastolic blood pressure and mean arterial pressure (Table<xref rid="jdi12948-sup-0001" ref-type="supplementary-material">S2).</xref> However, the diabetic group showed significantly higher left ventricular end diastolic diameter, left ventricular end systolic diameter and E/e′, along with lower ejection fraction and fractional shortening (Figure <xref rid="jdi12948-fig-0001" ref-type="fig">1</xref>), indicating both systolic and diastolic cardiac dysfunction before surgery.</p><fig fig-type="Figure" xml:lang="en" id="jdi12948-fig-0001" orientation="portrait" position="float"><label>Figure 1</label><caption><p>Evaluation of cardiac function in the control and diabetic groups before the surgery. (a) Representative M‐mode (left), pulsed‐wave Doppler mode (middle) and tissue Doppler mode (right) echocardiogram along with measurements of left ventricular end diastolic diameter (LVEDD), left ventricular end systolic diameter (LVESD), peak velocities of early filling (E) and peak early diastolic velocities (e′). (b–g) Sequential evaluations of (b) heart rate, (c) LVEDD, (d) LVESD, (e) ejection fraction (EF), (f) fractional shortening (FS) and (g) E/e′. Data are expressed as mean ± standard deviation. <italic toggle="yes">n</italic> = 10 in the control group and <italic toggle="yes">n</italic> = 20 in the diabetic group. *<italic toggle="yes">P</italic> &lt; 0.05, **<italic toggle="yes">P</italic> &lt; 0.01 diabetic versus control.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="nlm-graphic-3" position="float" orientation="portrait" xlink:href="JDI-10-626-g001.jpg"/></fig></sec><sec id="jdi12948-sec-0021"><title>Bodyweight and Food Intake After Surgery</title><p>Due to perioperative food restriction and surgical stress, both bodyweight and food intake in the sham and DJB groups decreased sharply during the first week after surgery, and increased gradually thereafter (Figure <xref rid="jdi12948-fig-0002" ref-type="fig">2</xref>a,b). No significant difference was detected between these two groups in terms of bodyweight and food intake after surgery (Figure <xref rid="jdi12948-fig-0002" ref-type="fig">2</xref>a,b).</p><fig fig-type="Figure" xml:lang="en" id="jdi12948-fig-0002" orientation="portrait" position="float"><label>Figure 2</label><caption><p>Bodyweight, food intake and glucose homeostasis of rats. (a) Bodyweight, (b) food intake, (c) fasting plasma glucose (FPG), (d) fasting insulin (FINS) and (e) homeostasis model assessment of basal insulin resistance (HOMA‐IR) before and after surgery. (f) The area under the curve (AUC) for the oral glucose tolerance test and (AUC<sub>OGTT</sub>) and (g) insulin tolerance test (AUC<sub>ITT</sub>) before and at 2 and 8 weeks after surgery. (h) Level of plasma glucagon‐like peptide‐1 (GLP‐1) before and at 2 and 8 weeks after surgery. Data are expressed as mean ± standard deviation for <italic toggle="yes">n</italic> = 10 per groups. <sup>A</sup>
+<italic toggle="yes">P</italic>, difference by groups; <sup>B</sup>
+<italic toggle="yes">P</italic>, difference over time; <sup>C</sup>
+<italic toggle="yes">P</italic>, difference due to interaction of groups and time in two‐way <sc>anova</sc>. *<italic toggle="yes">P</italic> &lt; 0.05, **<italic toggle="yes">P</italic> &lt; 0.01 sham versus control; <sup>##</sup>
+<italic toggle="yes">P</italic> &lt; 0.01 duodenal‐jejunal bypass versus sham; <sup>&amp;</sup>
+<italic toggle="yes">P</italic> &lt; 0.05, <sup>&amp;&amp;</sup>
+<italic toggle="yes">P</italic> &lt; 0.01 duodenal‐jejunal bypass versus control.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="nlm-graphic-5" position="float" orientation="portrait" xlink:href="JDI-10-626-g002.jpg"/></fig></sec><sec id="jdi12948-sec-0022"><title>DJB Surgery Significantly Improved Glucose Homeostasis and Serum Lipid Profiles</title><p>The DJB group showed lower levels of FPG than the sham group from 2 weeks after surgery (Figure <xref rid="jdi12948-fig-0002" ref-type="fig">2</xref>c). Though the fasting insulin level of the two groups was similar, the DJB group showed improved homeostasis model assessment of basal insulin resistance from 2 weeks after surgery (Figure <xref rid="jdi12948-fig-0002" ref-type="fig">2</xref>d,e). In addition, lower levels of AUC<sub>OGTT</sub> and AUC<sub>ITT</sub> were detected in the DJB group at 2 and 8 weeks after surgery than the sham group (Figure <xref rid="jdi12948-fig-0002" ref-type="fig">2</xref>f,g). These findings suggested that DJB could reverse the impaired glucose tolerance and insulin sensitivity in diabetic rats. Furthermore, the DJB group had higher levels of plasma GLP‐1 than the sham group at both 2 and 8 weeks after surgery (Figure <xref rid="jdi12948-fig-0002" ref-type="fig">2</xref>h).</p><p>Compared with the sham group, the DJB group showed lower serum triglyceride and non‐esterified fatty acid, along with higher serum high‐density lipoprotein cholesterol at 2 weeks after surgery (Table <xref rid="jdi12948-tbl-0001" ref-type="table">1</xref>). At 8 weeks postoperatively, the DJB group showed significantly lower serum triglyceride, total cholesterol, low‐density lipoprotein cholesterol and non‐esterified fatty acid, as well as higher serum high‐density lipoprotein cholesterol, which were at the same levels as in the control group (Table <xref rid="jdi12948-tbl-0001" ref-type="table">1</xref>). Thus, DJB surgery could effectively improve the serum lipid profiles of diabetic rats.</p><table-wrap id="jdi12948-tbl-0001" xml:lang="en" orientation="portrait" position="float"><label>Table 1</label><caption><p>Heart rate, blood pressure and serum lipid profiles of rats at 2 and 8 weeks after surgery</p></caption><table frame="hsides" rules="groups"><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><col style="border-right:solid 1px #000000" span="1"/><thead valign="top"><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="2" valign="top" colspan="1">Determination</th><th align="left" colspan="3" style="border-bottom:solid 1px #000000" valign="top" rowspan="1">2 weeks after surgery</th><th align="left" colspan="3" style="border-bottom:solid 1px #000000" valign="top" rowspan="1">8 weeks after surgery</th></tr><tr style="border-bottom:solid 1px #000000"><th align="left" valign="top" rowspan="1" colspan="1">Control (<italic toggle="yes">n</italic> = 10)</th><th align="left" valign="top" rowspan="1" colspan="1">Sham (<italic toggle="yes">n</italic> = 10)</th><th align="left" valign="top" rowspan="1" colspan="1">DJB (<italic toggle="yes">n</italic> = 10)</th><th align="left" valign="top" rowspan="1" colspan="1">Control (<italic toggle="yes">n</italic> = 10)</th><th align="left" valign="top" rowspan="1" colspan="1">Sham (<italic toggle="yes">n</italic> = 10)</th><th align="left" valign="top" rowspan="1" colspan="1">DJB (<italic toggle="yes">n</italic> = 10)</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">HR (b.p.m.)</td><td align="char" char="±" rowspan="1" colspan="1">371.46 ± 44.72</td><td align="char" char="±" rowspan="1" colspan="1">393.06 ± 37.29</td><td align="char" char="±" rowspan="1" colspan="1">382.53 ± 45.31</td><td align="char" char="±" rowspan="1" colspan="1">378.23 ± 40.75</td><td align="char" char="±" rowspan="1" colspan="1">391.74 ± 52.33</td><td align="char" char="±" rowspan="1" colspan="1">380.28 ± 45.62</td></tr><tr><td align="left" rowspan="1" colspan="1">SBP (mmHg)</td><td align="char" char="±" rowspan="1" colspan="1">121.53 ± 6.46</td><td align="char" char="±" rowspan="1" colspan="1">117.70 ± 8.36</td><td align="char" char="±" rowspan="1" colspan="1">119.14 ± 11.51</td><td align="char" char="±" rowspan="1" colspan="1">122.37 ± 8.16</td><td align="char" char="±" rowspan="1" colspan="1">119.55 ± 9.61</td><td align="char" char="±" rowspan="1" colspan="1">123.67 ± 10.32</td></tr><tr><td align="left" rowspan="1" colspan="1">DBP (mmHg)</td><td align="char" char="±" rowspan="1" colspan="1">99.62 ± 6.37</td><td align="char" char="±" rowspan="1" colspan="1">101.21 ± 6.38</td><td align="char" char="±" rowspan="1" colspan="1">98.64 ± 8.12</td><td align="char" char="±" rowspan="1" colspan="1">95.47 ± 7.41</td><td align="char" char="±" rowspan="1" colspan="1">95.32 ± 7.93</td><td align="char" char="±" rowspan="1" colspan="1">97.61 ± 8.19</td></tr><tr><td align="left" rowspan="1" colspan="1">MAP (mmHg)</td><td align="char" char="±" rowspan="1" colspan="1">105.14 ± 5.74</td><td align="char" char="±" rowspan="1" colspan="1">106.87 ± 7.51</td><td align="char" char="±" rowspan="1" colspan="1">104.94 ± 6.52</td><td align="char" char="±" rowspan="1" colspan="1">103.29 ± 7.48</td><td align="char" char="±" rowspan="1" colspan="1">104.11 ± 8.16</td><td align="char" char="±" rowspan="1" colspan="1">106.16 ± 6.87</td></tr><tr><td align="left" rowspan="1" colspan="1">TG (mmol/L)</td><td align="char" char="±" rowspan="1" colspan="1">1.05 ± 0.31</td><td align="char" char="±" rowspan="1" colspan="1">2.69 ± 0.72<xref ref-type="fn" rid="jdi12948-note-0001">**</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">1.92 ± 0.65<xref ref-type="fn" rid="jdi12948-note-0001">#</xref>
+<sup>,</sup>
+<xref ref-type="fn" rid="jdi12948-note-0001">&amp;&amp;</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">1.11 ± 0.34</td><td align="char" char="±" rowspan="1" colspan="1">2.95 ± 0.84<xref ref-type="fn" rid="jdi12948-note-0001">**</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">1.43 ± 0.65<xref ref-type="fn" rid="jdi12948-note-0001">##</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">TC (mmol/L)</td><td align="char" char="±" rowspan="1" colspan="1">1.80 ± 0.35</td><td align="char" char="±" rowspan="1" colspan="1">2.32 ± 0.49<xref ref-type="fn" rid="jdi12948-note-0001">*</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">1.96 ± 0.32</td><td align="char" char="±" rowspan="1" colspan="1">1.87 ± 0.44</td><td align="char" char="±" rowspan="1" colspan="1">3.60 ± 1.16<xref ref-type="fn" rid="jdi12948-note-0001">**</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">2.19 ± 0.73<xref ref-type="fn" rid="jdi12948-note-0001">##</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">HDL‐c (mmol/L)</td><td align="char" char="±" rowspan="1" colspan="1">1.15 ± 0.27</td><td align="char" char="±" rowspan="1" colspan="1">0.62 ± 0.20<xref ref-type="fn" rid="jdi12948-note-0001">**</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">0.96 ± 0.39<xref ref-type="fn" rid="jdi12948-note-0001">#</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">1.21 ± 0.21</td><td align="char" char="±" rowspan="1" colspan="1">0.52 ± 0.25<xref ref-type="fn" rid="jdi12948-note-0001">**</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">1.04 ± 0.31<xref ref-type="fn" rid="jdi12948-note-0001">##</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">LDL‐c (mmol/L)</td><td align="char" char="±" rowspan="1" colspan="1">0.42 ± 0.05</td><td align="char" char="±" rowspan="1" colspan="1">0.54 ± 0.16</td><td align="char" char="±" rowspan="1" colspan="1">0.47 ± 0.15</td><td align="char" char="±" rowspan="1" colspan="1">0.39 ± 0.08</td><td align="char" char="±" rowspan="1" colspan="1">0.64 ± 0.13<xref ref-type="fn" rid="jdi12948-note-0001">**</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">0.46 ± 0.09<xref ref-type="fn" rid="jdi12948-note-0001">##</xref>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">NEFA (μmol/dL)</td><td align="char" char="±" rowspan="1" colspan="1">22.54 ± 3.39</td><td align="char" char="±" rowspan="1" colspan="1">48.42 ± 9.81<xref ref-type="fn" rid="jdi12948-note-0001">**</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">30.83 ± 6.75<xref ref-type="fn" rid="jdi12948-note-0001">##</xref>
+<sup>,</sup>
+<xref ref-type="fn" rid="jdi12948-note-0001">&amp;&amp;</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">24.27 ± 4.31</td><td align="char" char="±" rowspan="1" colspan="1">62.43 ± 10.28<xref ref-type="fn" rid="jdi12948-note-0001">**</xref>
+</td><td align="char" char="±" rowspan="1" colspan="1">27.51 ± 6.20<xref ref-type="fn" rid="jdi12948-note-0001">##</xref>
+</td></tr></tbody></table><table-wrap-foot><fn id="jdi12948-note-0001"><p>Data are expressed as mean ± standard deviation, <italic toggle="yes">n</italic> = 10 per group. *<italic toggle="yes">P</italic> &lt; 0.05, **<italic toggle="yes">P</italic> &lt; 0.01 sham versus control; <sup>#</sup>
+<italic toggle="yes">P</italic> &lt; 0.05, <sup>##</sup>
+<italic toggle="yes">P</italic> &lt; 0.01 duodenal‐jejunal bypass (DJB) versus sham; <sup>&amp;&amp;</sup>
+<italic toggle="yes">P</italic> &lt; 0.01 DJB versus control. DBP, diastolic blood pressure; HDL‐c, high‐density lipoprotein cholesterol; HR, heart rate; LDL‐c, low‐density lipoprotein cholesterol; MAP, mean arterial pressure; NEFA, non‐esterified fatty acid; SBP, systolic blood pressure; TC, total cholesterol; TG, triglyceride.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd</copyright-holder></permissions></table-wrap></sec><sec id="jdi12948-sec-0023"><title>DJB Surgery Reversed Diabetic‐Induced Cardiac Remodeling</title><p>As shown in Figure <xref rid="jdi12948-fig-0003" ref-type="fig">3</xref>a, the myocardial cells in the sham group lined up in disorder with irregular nucleus and uneven cytoplasm distribution, and the myocardial fibers were fragmented and disrupted. The DJB group showed well‐arranged myocardial cells, which was similar as those in the control group. The DJB group showed a 29% decrease in myocyte size compared with the sham group (Figure <xref rid="jdi12948-fig-0003" ref-type="fig">3</xref>f), indicating a significant amelioration of the cardiomyocyte hypertrophy. In addition, the Oil Red O staining results showed less myocardial lipid deposition in the DJB (Figure <xref rid="jdi12948-fig-0003" ref-type="fig">3</xref>c). Furthermore, both interstitial and perivascular cardiac fibrosis were alleviated in the DJB group, with a lower collagen volume fraction and perivascular collagen area/luminal area ratio than the sham group (Figure <xref rid="jdi12948-fig-0003" ref-type="fig">3</xref>b,g,h). This was further confirmed by the significantly lower collagen I and III content in the DJB group (Figure <xref rid="jdi12948-fig-0003" ref-type="fig">3</xref>d,i). In terms of myocardial ultrastructure, the sham group showed randomly distributed swollen mitochondria and lipid droplets between poorly organized myofibrils, whereas the DJB group showed layers of mitochondria intervened between myofibrils consisting of regular and continuous sarcomeres (Figure <xref rid="jdi12948-fig-0003" ref-type="fig">3</xref>e). These results showed that DJB could reverse the diabetes‐induced cardiac remodeling remarkably.</p><fig fig-type="Figure" xml:lang="en" id="jdi12948-fig-0003" orientation="portrait" position="float"><label>Figure 3</label><caption><p>Effect of duodenal‐jejunal bypass (DJB) on diabetes‐induced cardiac remodeling. (a) Representative (a1) longitudinal and (a2) transverse sections of left ventricle stained with hematoxylin–eosin. Scale bar, 50 μm. (b1) Interstitial (scale bar, 100 μm) and (b2) perivascular (scale bar, 50 μm) fibrosis, as shown by Masson's trichrome stain. Collagen fibers are dark blue and myocardium is red. (c) Representative Oil Red O‐stained myocardial sections, the red droplets indicate neutral lipid staining. Scale bar, 20 μm. (d) Representative immunohistochemical images of (d1) collagen I and (d2) III. Brown staining is considered positive. Scale bar, 100 μm. (e) Representative transmission electron micrographs images of left ventricle tissues, the blue triangles indicate lipid droplets. Scale bar, 2 μm (magnification, ×10,000) (f) The myocyte size of the three groups. (g) The collagen volume fraction (CVF) of the three groups. (h) The perivascular collagen area/luminal area ratio (PVCA/LA) ratio of the three groups. (i) Semi‐quantification of collagen I and <styled-content style="fixed-case">III</styled-content> staining indicated by integrated optical density/area relative density, the value of the control group was used as the standard (100%). Data are expressed as mean ± standard deviation for <italic toggle="yes">n</italic> = 10 per groups. **<italic toggle="yes">P</italic> &lt; 0.01 sham versus control; <sup>##</sup>
+<italic toggle="yes">P</italic> &lt; 0.01 <styled-content style="fixed-case">DJB</styled-content> versus sham; <sup>&amp;&amp;</sup>
+<italic toggle="yes">P</italic> &lt; 0.01 DJB versus control.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="nlm-graphic-7" position="float" orientation="portrait" xlink:href="JDI-10-626-g003.jpg"/></fig></sec><sec id="jdi12948-sec-0024"><title>DJB Surgery Ameliorated Diabetic‐Induced Cardiac Dysfunction</title><p>The three groups showed similar heart rate, systolic blood pressure, diastolic blood pressure and mean arterial pressure at both 2 and 8 weeks after surgery (Table <xref rid="jdi12948-tbl-0001" ref-type="table">1</xref>). Compared with the sham group, the DJB group showed significant reductions in left ventricular end diastolic diameter, left ventricular end systolic diameter and E/e′, along with higher levels of ejection fraction and fractional shortening (Figure <xref rid="jdi12948-fig-0004" ref-type="fig">4</xref>a–e). In addition, the hemodynamic measurement showed lower left ventricular end diastolic pressure in the DJB group than in the sham group (Figure <xref rid="jdi12948-fig-0004" ref-type="fig">4</xref>f). There was no significant difference between the DJB group and control group, except for the E/e′ ratio (Figure <xref rid="jdi12948-fig-0004" ref-type="fig">4</xref>e). These results showed that DJB could improve both systolic and diastolic LV function of diabetic rats to levels close to or similar to those observed in the control group.</p><fig fig-type="Figure" xml:lang="en" id="jdi12948-fig-0004" orientation="portrait" position="float"><label>Figure 4</label><caption><p>Effect of duodenal‐jejunal bypass (DJB) on cardiac function and myocardial glucose uptake. (a–e) Sequential evaluations of (a) left ventricular end diastolic diameter (LVEDD), (b) left ventricular end systolic diameter (LVESD), (c) ejection fraction (EF), (d) fractional shortening (FS) and (e) the ratio peak velocities of early filling/peak early diastolic velocities of (E/e′) at 8 weeks after surgery. (f) Result of hemodynamic measurement indicated by left ventricular end diastolic pressure (LVEDP). (g) Representative transverse axis images of the heart showing <sup>18</sup>F‐<styled-content style="fixed-case">FDG</styled-content> distribution in the first (g1), second (g2), and third (g3) rounds of <styled-content style="fixed-case">PET</styled-content> scan, the yellow cross indicates the position of heart. (h) Representative three‐dimensional reconstruction of the third round of fluorine‐18 labeled fluorodeoxyglucose scan, the green square indicates the position of the heart. The first round was carried out regularly after fluorine‐18 labeled fluorodeoxyglucose injection, whereas the second round was carried out after an intravenous glucose load, and the third round was carried out after an intragastric glucose load. (i) The statistical results of standard uptake value (SUV). Data are expressed as mean ± standard deviation for <italic toggle="yes">n</italic> = 10 per groups. **<italic toggle="yes">P</italic> &lt; 0.01 sham versus control; <sup>#</sup>
+<italic toggle="yes">P</italic> &lt; 0.05, <sup>##</sup>
+<italic toggle="yes">P</italic> &lt; 0.01 DJB versus sham; <sup>&amp;</sup>
+<italic toggle="yes">P</italic> &lt; 0.05, <sup>&amp;&amp;</sup>
+<italic toggle="yes">P</italic> &lt; 0.01 DJB versus control. </p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="nlm-graphic-9" position="float" orientation="portrait" xlink:href="JDI-10-626-g004.jpg"/></fig></sec><sec id="jdi12948-sec-0025"><title>DJB Surgery Restored MGU of Diabetic Rats</title><p>The sham group showed remarkably impaired MGU in all three rounds of PET scans (Figure <xref rid="jdi12948-fig-0004" ref-type="fig">4</xref>g,h). However, the DJB group showed a significantly higher standard uptake value than the sham group in all three rounds, although it did not reach the level of the control group (Figure <xref rid="jdi12948-fig-0004" ref-type="fig">4</xref>i). These results showed that DJB could alleviate diabetes‐induced MGU impairment in both basal and insulin‐stimulated states.</p></sec><sec id="jdi12948-sec-0026"><title>Effects of DJB Surgery on Myocardial Glucose and Fatty Acid Transporter</title><p>The total protein levels of GLUT‐1 and GLUT‐4 were similar among the three groups (Figure <xref rid="jdi12948-fig-0005" ref-type="fig">5</xref>a,b,d). No significant difference was detected in plasma membrane GLUT‐1 among the three groups (Figure <xref rid="jdi12948-fig-0005" ref-type="fig">5</xref>b,e). However, the plasma membrane expression of GLUT‐4 was significantly upregulated in the DJB group compared with the sham group (Figure <xref rid="jdi12948-fig-0005" ref-type="fig">5</xref>b,e). The inconsistent intracellular distributions of GLUT‐4 were further confirmed by immunohistochemical staining, which showed that most myocardial GLUT‐4 in the control and DJB groups was gathered near the cell membrane (Figure <xref rid="jdi12948-fig-0005" ref-type="fig">5</xref>a). The plasma membrane cluster of differentiation 36 (CD36), the major myocardial fatty acid transporter, was significantly attenuated after DJB compared with the sham group, although the total protein of which remained similar (Figure <xref rid="jdi12948-fig-0005" ref-type="fig">5</xref>c–e). These results showed that the DJB group had more GLUT‐4 and less CD36 in the plasma membrane compared with the sham group, but there was no significant difference in GLUT‐1 (Figure <xref rid="jdi12948-fig-0005" ref-type="fig">5</xref>f).</p><fig fig-type="Figure" xml:lang="en" id="jdi12948-fig-0005" orientation="portrait" position="float"><label>Figure 5</label><caption><p>Impact of duodenal‐jejunal bypass (DJB) on myocardial glucose and fatty acid transporter. (a) Representative immunohistochemical staining of glucose transporter 4 (GLUT‐4) in (a1) longitudinal (scale bar, 100 μm) and (a2) transverse (scale bar, 50 μm) myocardial sections. Brown staining is considered positive. (b) Representative western blot of myocardial total and plasma membrane <styled-content style="fixed-case">GLUT</styled-content>‐1 and <styled-content style="fixed-case">GLUT</styled-content>‐4. (c) Representative western blot of myocardial total and plasma membrane <styled-content style="fixed-case">CD</styled-content>36. (d–f) Comparisons of (d) total expression, (e) plasma membrane expression, and (f) membrane/total ratio of <styled-content style="fixed-case">GLUT</styled-content>‐1, <styled-content style="fixed-case">GLUT</styled-content>‐4 and cluster of differentiation 36 (CD36), the value of control group was used as standard (100%). Data are expressed as mean ± standard deviation for <italic toggle="yes">n</italic> = 10 per groups. <italic toggle="yes">**P</italic> &lt; 0.01 sham versus control; <sup><italic toggle="yes">#</italic></sup>
+<italic toggle="yes">P</italic> &lt; 0.05, <sup><italic toggle="yes">##</italic></sup>
+<italic toggle="yes">P</italic> &lt; 0.01 <styled-content style="fixed-case">DJB</styled-content> versus sham.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="nlm-graphic-11" position="float" orientation="portrait" xlink:href="JDI-10-626-g005.jpg"/></fig></sec><sec id="jdi12948-sec-0027"><title>Effects of DJB Surgery on Myocardial Insulin Signaling and GLUT‐4 Translocation</title><p>The DJB group showed a higher phospho/total ratio of insulin receptor substrate 1, phosphatidylinositol 3‐kinase (PI3K) and protein kinase B (AKT/PKB) than the sham group (Figure <xref rid="jdi12948-fig-0006" ref-type="fig">6</xref>a–d). In terms of proteins involved in GLUT‐4 translocation, the DJB group showed upregulated phosphorylation of AKT substrate of 160 kDa (AS160) and TBC1D1 compared with the sham group (Figure <xref rid="jdi12948-fig-0006" ref-type="fig">6</xref>e–h). No significant difference was detected in the expression of vesicle‐associated membrane protein 2, synaptosome‐associated protein of 23 kDa or syntaxin 4 among the three groups (Figure <xref rid="jdi12948-fig-0006" ref-type="fig">6</xref>e,i). These results showed that DJB could facilitate myocardial insulin signaling and GLUT‐4 translocation.</p><fig fig-type="Figure" xml:lang="en" id="jdi12948-fig-0006" orientation="portrait" position="float"><label>Figure 6</label><caption><p>Impact of duodenal‐jejunal bypass (DJB) on myocardial expression of proteins involved in insulin signaling and glucose transporter 4 (GLUT‐4) translocation. (a) Representative western blot of proteins in myocardial insulin signaling pathway. (b–d) Comparisons of (b) phospho/total ratio of insulin receptor substrate 1 (IRS1), (c) phosphatidylinositol 3‐kinase (PI3K) and (d) protein kinase B (AKT). (e, f) Representative western blot of proteins involved in <styled-content style="fixed-case">GLUT</styled-content>‐4 translocation. (g) Comparisons of phospho/total ratio of AKT substrate of 160 kDa (AS160). (h) Comparisons of phospho/total ratio of <styled-content style="fixed-case">TBC</styled-content>1D1. (i) Comparisons of vesicle associated membrane protein 2 (VAMP2), synaptosome‐associated protein of 23 kDa (SNAP23) and syntaxin 4 expression, the value of the control group was used as the standard (100%). Data are expressed as mean ± standard deviation for <italic toggle="yes">n</italic> = 10 per groups. <sup><italic toggle="yes">**</italic></sup>
+<italic toggle="yes">P</italic> &lt; 0.01 sham versus control; <sup><italic toggle="yes">#</italic></sup>
+<italic toggle="yes">P</italic> &lt; 0.05, <sup><italic toggle="yes">##</italic></sup>
+<italic toggle="yes">P</italic> &lt; 0.01 <styled-content style="fixed-case">DJB</styled-content> versus sham; <sup><italic toggle="yes">&amp;</italic></sup>
+<italic toggle="yes">P</italic> &lt; 0.05 <styled-content style="fixed-case">DJB</styled-content> versus control.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="nlm-graphic-13" position="float" orientation="portrait" xlink:href="JDI-10-626-g006.jpg"/></fig></sec></sec><sec id="jdi12948-sec-0028"><title>Discussion</title><p>Diabetic cardiomyopathy is defined as LV dysfunction in patients with diabetes in the absence of coronary artery disease and arterial hypertension<xref rid="jdi12948-bib-0024" ref-type="ref">24</xref>. It is characterized by morphological, functional and metabolic changes in the heart<xref rid="jdi12948-bib-0025" ref-type="ref">25</xref>. The present study was carried out to further explore the therapeutic effects of DJB on DCM and the associated mechanisms.</p><p>In the present study, HFD combined with low‐dose streptozotocin was used to induce diabetes in rats. This method has been accepted by many researchers, as it simulates the natural history and metabolic characteristics of patients with type 2 diabetes<xref rid="jdi12948-bib-0026" ref-type="ref">26</xref>, <xref rid="jdi12948-bib-0027" ref-type="ref">27</xref>, <xref rid="jdi12948-bib-0028" ref-type="ref">28</xref>. Furthermore, this model is commonly used in research of DCM, and it was reported that 12–16 weeks of diabetes was sufficient to induce DCM in this model<xref rid="jdi12948-bib-0029" ref-type="ref">29</xref>, <xref rid="jdi12948-bib-0030" ref-type="ref">30</xref>, <xref rid="jdi12948-bib-0031" ref-type="ref">31</xref>. In the present study, after 16 weeks of diabetes, the diabetic rats showed both systolic and diastolic LV dysfunction before surgery, which makes it a suitable experimental model for investigating the effects of DJB on DCM.</p><p>The present study provided direct evidence that DJB could markedly alleviate DCM morphologically and functionally independent of weight loss. We further showed that DJB could ameliorate the MGU defects in diabetic rats, which was associated with facilitated myocardial insulin signaling and GLUT‐4 translocation (Figure <xref rid="jdi12948-sup-0001" ref-type="supplementary-material">S2</xref>).</p><p>As a central trigger of DCM, the impaired MGU in diabetic hearts has been reported<xref rid="jdi12948-bib-0010" ref-type="ref">10</xref>, <xref rid="jdi12948-bib-0012" ref-type="ref">12</xref>. However, these studies suffered from a drawback that the measurements were carried out <italic toggle="yes">in vitro</italic> using isolated working hearts. Recently, PET has been used to evaluate myocardial energy substrate uptake, with the advantage of fully reflecting the physiological state <italic toggle="yes">in vivo</italic>
+<xref rid="jdi12948-bib-0029" ref-type="ref">29</xref>, <xref rid="jdi12948-bib-0032" ref-type="ref">32</xref>. We carried out three rounds of <sup>18</sup>F‐FDG PET in this study. The first round was carried out in the basal state, whereas the second one was carried out under conditions of hyperglycemia and hyperinsulinemia to ensure maximal stimulation of myocardial glucose transport. The third round was carried out to better simulate postprandial hyperglycemia. The results confirmed that DJB significantly restored the MGU in diabetic rats.</p><p>GLUT‐1 and GLUT‐4 are responsible for basal and insulin‐stimulated MGU, respectively<xref rid="jdi12948-bib-0016" ref-type="ref">16</xref>. However, the alterations of GLUTs in DCM remained inconsistent<xref rid="jdi12948-bib-0010" ref-type="ref">10</xref>, <xref rid="jdi12948-bib-0033" ref-type="ref">33</xref>. In the present study, similar levels of total GLUT‐1 and GLUT‐4 were observed among groups. However, we found attenuated levels of plasma membrane GLUT‐4 in the sham group, which was consistent with previous studies<xref rid="jdi12948-bib-0012" ref-type="ref">12</xref>, <xref rid="jdi12948-bib-0032" ref-type="ref">32</xref>. Furthermore, we had a novel finding that DJB could restore the myocardial expression of membrane GLUT‐4. As the total GLUT‐4 levels were similar among groups, the GLUT‐4 defect in the sham group and rehabilitation after DJB should occur at the translocation process. PI3K/AKT is the central hub of signal transduction in the myocardial insulin signaling pathway<xref rid="jdi12948-bib-0034" ref-type="ref">34</xref>, it receives the upstream signal of IRS family and plays a central role in promoting GLUT‐4 translocation<xref rid="jdi12948-bib-0035" ref-type="ref">35</xref>. The sham group in the present study had serious myocardial insulin resistance, which is consistent with previous studies<xref rid="jdi12948-bib-0005" ref-type="ref">5</xref>, <xref rid="jdi12948-bib-0031" ref-type="ref">31</xref>, <xref rid="jdi12948-bib-0036" ref-type="ref">36</xref>. Furthermore, the DJB group showed restored insulin sensitivity with increased insulin receptor substrate 1 phosphorylation and intensified PI3K/AKT activation, showing DJB could alleviate myocardial insulin resistance at the molecular level.</p><p>The detailed mechanism regarding how exactly DJB interferes with myocardial insulin signaling pathway remains unclear. The present results showed increased levels of plasma GLP‐1 after DJB, which was considered to be due to the accelerated nutrient delivery to the distal ileum where GLP‐1 is secreted<xref rid="jdi12948-bib-0037" ref-type="ref">37</xref>. A previous study reported that GLP‐1 had direct effects on MGU and GLUT‐4 translocation during reperfusion<xref rid="jdi12948-bib-0038" ref-type="ref">38</xref>. More recent studies further confirmed that GLP‐1 carried out its cardioprotective role in alleviating myocardial insulin resistance by activating the PI3K/AKT pathway<xref rid="jdi12948-bib-0039" ref-type="ref">39</xref>, <xref rid="jdi12948-bib-0040" ref-type="ref">40</xref>, <xref rid="jdi12948-bib-0041" ref-type="ref">41</xref>. Taken together, GLP‐1 probably plays an important role in the alleviation of myocardial insulin sensitivity after DJB. Future studies are warranted to confirm this hypothesis.</p><p>There is still a gap between upstream insulin signaling and downstream GLUT‐4 translocation<xref rid="jdi12948-bib-0042" ref-type="ref">42</xref>. Two novel substrates of AKT, AS160 and TBC1D1, have been the major candidates potentially bridging this gap<xref rid="jdi12948-bib-0043" ref-type="ref">43</xref>. They are essentially functioning as a brake on GLUT‐4 vesicle exocytosis. The phosphorylation of AS160 and TBC1D1 by AKT in response to insulin results in the conversion of some downstream Rab proteins to the active guanosine‐5’‐triphosphate‐bound form, and thus triggers the GLUT‐4 translocation to the plasma membrane<xref rid="jdi12948-bib-0043" ref-type="ref">43</xref>, <xref rid="jdi12948-bib-0044" ref-type="ref">44</xref>. Studies have confirmed the role of AS160 and TBC1D1 in skeletal muscle<xref rid="jdi12948-bib-0045" ref-type="ref">45</xref>, <xref rid="jdi12948-bib-0046" ref-type="ref">46</xref>. However, there has been limited research into their role in DCM to date. In the present study, the phosphorylation and activation of AS160 were restored after DJB, which could play a pivotal role in the facilitation of GLUT‐4 translocation.</p><p>The docking and fusion of GLUT‐4 vesicles with the cell membrane represent the final step of GLUT‐4 translocation. This process is mainly driven by soluble N‐ethylmaleimide‐sensitive factor attachment protein receptor (SNARE) complex assembly between the GLUT‐4 vesicle‐localized v‐SNARE vesicle‐associated membrane protein 2 and the plasma membrane‐localized t‐SNARE syntaxin 4, along with synaptosome‐associated protein of 23 kDa<xref rid="jdi12948-bib-0017" ref-type="ref">17</xref>, <xref rid="jdi12948-bib-0047" ref-type="ref">47</xref>. In the present study, the three groups showed similar levels of vesicle‐associated membrane protein 2, Syntaxin4, and synaptosome‐associated protein of 23 kDa, showing that both impaired MGU in diabetic rats and restored MGU after DJB are independent of the quantity of SNARE proteins. Further studies are required to validate the physiological relevance of the current findings to humans.</p><p>As glucose and fatty acid metabolism could be tightly coupled and inversely regulated in the myocardium<xref rid="jdi12948-bib-0048" ref-type="ref">48</xref>, it is likely that DJB results not only in the improvement in MGU, but also in a decrease in lipotoxicity. CD36 acts as a major facilitator of myocardial fatty acids uptake in humans and rodents<xref rid="jdi12948-bib-0049" ref-type="ref">49</xref>. Persistent relocation of CD36 to the sarcolemma is observed in the diabetic myocardium<xref rid="jdi12948-bib-0050" ref-type="ref">50</xref>. The present results are consistent with previous report and further show a net internalization of CD36 after DJB compared with Sham surgery, which could account, at least in part, for the alleviation of myocardial lipid accumulation. Further studies are warranted to explore the effects of DJB surgery on myocardial fatty acid metabolism.</p><p>One potential limitation of the present study was the lack of detailed myocardial metabolic alterations. Although recovery in MGU and the balance of cardiac metabolism have been proved to effectively reverse DCM<xref rid="jdi12948-bib-0014" ref-type="ref">14</xref>, there are still gaps between enhanced myocardial GLUT‐4 on the membrane and the final amelioration of cardiac function. Future studies focusing on myocardial metabolic profiling after DJB and associated effects on DCM would be of vital significance.</p><p>In conclusion, the present study showed that DJB surgery could restore the MGU in diabetic rats by facilitating myocardial GLUT‐4 translocation, thus contributing to the morphological and functional alleviation of DCM.</p></sec><sec id="jdi12948-sec-0030"><title>Disclosure</title><p>The authors declare no conflict of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material content-type="local-data" id="jdi12948-sup-0001" position="float" orientation="portrait"><caption><p>
+<bold>Appendix S1</bold> Detailed method of positron‐emission tomography scan and image processing.</p><p>
+<bold>Appendix S2</bold> Detailed method of immunohistochemistry and western blotting.</p><p>
+<bold>Figure S1</bold> Summary of the study protocol.</p><p>
+<bold>Figure S2</bold> A potential model for the mechanism of upregulated myocardial glucose uptake after duodenal‐jejunal bypass.</p><p>
+<bold>Table S1</bold> Detailed information of primary antibodies used.</p><p>
+<bold>Table S2</bold> Animal characteristics for the control and diabetic groups before surgery.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="JDI-10-626-s001.docx" position="float" orientation="portrait"><caption><p>Click here for additional data file.</p></caption></media></supplementary-material></sec></body><back><ack id="jdi12948-sec-0029"><title>Acknowledgment</title><p>This study is supported by grants from the National Natural Science Foundation of China (no. 81471019/H0712 and 81700708/H0712).</p></ack><ref-list content-type="cited-references" id="jdi12948-bibl-0001"><title>References</title><ref id="jdi12948-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="jdi12948-cit-0001">
+<string-name name-style="western">
+<surname>de Simone</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Devereux</surname>
+<given-names>RB</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chinali</surname>
+<given-names>M</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Diabetes and incident heart failure in hypertensive and normotensive participants of the Strong Heart Study</article-title>. <source xml:lang="en">J Hypertens</source>
+<year>2010</year>; <volume>28</volume>: <fpage>353</fpage>–<lpage>360</lpage>.<pub-id pub-id-type="pmid">19844184</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/HJH.0b013e3283331169</pub-id><pub-id pub-id-type="pmcid">PMC3005764</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="jdi12948-cit-0002">
+<string-name name-style="western">
+<surname>Mingrone</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Panunzi</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>De Gaetano</surname>
+<given-names>A</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Bariatric‐metabolic surgery versus conventional medical treatment in obese patients with type 2 diabetes: 5 year follow‐up of an open‐label, single‐centre, randomised controlled trial</article-title>. <source xml:lang="en">Lancet</source>
+<year>2015</year>; <volume>386</volume>: <fpage>964</fpage>–<lpage>973</lpage>.<pub-id pub-id-type="pmid">26369473</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/S0140-6736(15)00075-6</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="jdi12948-cit-0003">
+<string-name name-style="western">
+<surname>Rubino</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nathan</surname>
+<given-names>DM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Eckel</surname>
+<given-names>RH</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Metabolic surgery in the treatment algorithm for Type 2 Diabetes: a joint statement by International Diabetes Organizations</article-title>. <source xml:lang="en">Diabetes Care</source>
+<year>2016</year>; <volume>39</volume>: <fpage>861</fpage>–<lpage>877</lpage>.<pub-id pub-id-type="pmid">27222544</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.2337/dc16-0236</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="jdi12948-cit-0004">
+<string-name name-style="western">
+<surname>Aggarwal</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Harling</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Efthimiou</surname>
+<given-names>E</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>The effects of bariatric surgery on cardiac structure and function: a systematic review of cardiac imaging outcomes</article-title>. <source xml:lang="en">Obes Surg</source>
+<year>2016</year>; <volume>26</volume>: <fpage>1030</fpage>–<lpage>1040</lpage>.<pub-id pub-id-type="pmid">26328532</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11695-015-1866-5</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="jdi12948-cit-0005">
+<string-name name-style="western">
+<surname>Iancu</surname>
+<given-names>ME</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Copaescu</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Serban</surname>
+<given-names>M</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Favorable changes in arterial elasticity, left ventricular mass, and diastolic function after significant weight loss following laparoscopic sleeve gastrectomy in obese individuals</article-title>. <source xml:lang="en">Obes Surg</source>
+<year>2014</year>; <volume>24</volume>: <fpage>364</fpage>–<lpage>370</lpage>.<pub-id pub-id-type="pmid">24142422</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11695-013-1097-6</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="jdi12948-cit-0006">
+<string-name name-style="western">
+<surname>Ashrafian</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bueter</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ahmed</surname>
+<given-names>K</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Metabolic surgery: an evolution through bariatric animal models</article-title>. <source xml:lang="en">Obes Rev</source>
+<year>2010</year>; <volume>11</volume>: <fpage>907</fpage>–<lpage>920</lpage>.<pub-id pub-id-type="pmid">20051020</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/j.1467-789X.2009.00701.x</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="jdi12948-cit-0007">
+<string-name name-style="western">
+<surname>Rubino</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Marescaux</surname>
+<given-names>J</given-names>
+</string-name>. <article-title>Effect of duodenal‐jejunal exclusion in a non‐obese animal model of type 2 diabetes: a new perspective for an old disease</article-title>. <source xml:lang="en">Ann Surg</source>
+<year>2004</year>; <volume>239</volume>: <fpage>1</fpage>–<lpage>11</lpage>.<pub-id pub-id-type="pmid">14685093</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/01.sla.0000102989.54824.fc</pub-id><pub-id pub-id-type="pmcid">PMC1356185</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="jdi12948-cit-0008">
+<string-name name-style="western">
+<surname>Zhang</surname>
+<given-names>X</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Liu</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zhang</surname>
+<given-names>G</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Bariatric surgery ameliorates diabetic cardiac dysfunction by inhibiting er stress in a diabetic rat model</article-title>. <source xml:lang="en">Obes Surg</source>
+<year>2017</year>; <volume>27</volume>: <fpage>1324</fpage>–<lpage>1334</lpage>.<pub-id pub-id-type="pmid">27981457</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11695-016-2492-6</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="jdi12948-cit-0009">
+<string-name name-style="western">
+<surname>Bugger</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Abel</surname>
+<given-names>ED</given-names>
+</string-name>. <article-title>Molecular mechanisms of diabetic cardiomyopathy</article-title>. <source xml:lang="en">Diabetologia</source>
+<year>2014</year>; <volume>57</volume>: <fpage>660</fpage>–<lpage>671</lpage>.<pub-id pub-id-type="pmid">24477973</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00125-014-3171-6</pub-id><pub-id pub-id-type="pmcid">PMC3969857</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="jdi12948-cit-0010">
+<string-name name-style="western">
+<surname>Desrois</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sidell</surname>
+<given-names>RJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gauguier</surname>
+<given-names>D</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Initial steps of insulin signaling and glucose transport are defective in the type 2 diabetic rat heart</article-title>. <source xml:lang="en">Cardiovas Res</source>
+<year>2004</year>; <volume>61</volume>: <fpage>288</fpage>–<lpage>296</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cardiores.2003.11.021</pub-id><pub-id pub-id-type="pmid">14736545</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="jdi12948-cit-0011">
+<string-name name-style="western">
+<surname>Iozzo</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chareonthaitawee</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rimoldi</surname>
+<given-names>O</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Mismatch between insulin‐mediated glucose uptake and blood flow in the heart of patients with Type II diabetes</article-title>. <source xml:lang="en">Diabetologia</source>
+<year>2002</year>; <volume>45</volume>: <fpage>1404</fpage>–<lpage>1409</lpage>.<pub-id pub-id-type="pmid">12378381</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00125-002-0917-3</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="jdi12948-cit-0012">
+<string-name name-style="western">
+<surname>Yan</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chen</surname>
+<given-names>W</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Liu</surname>
+<given-names>S</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Myocardial insulin signaling and glucose transport are up‐regulated in Goto‐Kakizaki type 2 diabetic rats after ileal transposition</article-title>. <source xml:lang="en">Obes Surg</source>
+<year>2012</year>; <volume>22</volume>: <fpage>493</fpage>–<lpage>501</lpage>.<pub-id pub-id-type="pmid">22249887</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11695-012-0604-5</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="jdi12948-cit-0013">
+<string-name name-style="western">
+<surname>An</surname>
+<given-names>D</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rodrigues</surname>
+<given-names>B</given-names>
+</string-name>. <article-title>Role of changes in cardiac metabolism in development of diabetic cardiomyopathy</article-title>. <source xml:lang="en">Am J Physiol Heart Circ Physiol</source>
+<year>2006</year>; <volume>291</volume>: <fpage>H1489</fpage>–<lpage>H1506</lpage>.<pub-id pub-id-type="pmid">16751293</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/ajpheart.00278.2006</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="jdi12948-cit-0014">
+<string-name name-style="western">
+<surname>Belke</surname>
+<given-names>DD</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Larsen</surname>
+<given-names>TS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gibbs</surname>
+<given-names>EM</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Altered metabolism causes cardiac dysfunction in perfused hearts from diabetic (db/db) mice</article-title>. <source xml:lang="en">Am J Physiol Endocrinol Metab</source>
+<year>2000</year>; <volume>279</volume>: <fpage>E1104</fpage>–<lpage>E1113</lpage>.<pub-id pub-id-type="pmid">11052966</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/ajpendo.2000.279.5.E1104</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="jdi12948-cit-0015">
+<string-name name-style="western">
+<surname>Kraegen</surname>
+<given-names>EW</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sowden</surname>
+<given-names>JA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Halstead</surname>
+<given-names>MB</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Glucose transporters and in vivo glucose uptake in skeletal and cardiac muscle: fasting, insulin stimulation and immunoisolation studies of GLUT1 and GLUT4</article-title>. <source xml:lang="en">Biochem</source>
+<year>1993</year>; <volume>295</volume>: <fpage>287</fpage>–<lpage>293</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1042/bj2950287</pub-id><pub-id pub-id-type="pmcid">PMC1134851</pub-id><pub-id pub-id-type="pmid">8216230</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="jdi12948-cit-0016">
+<string-name name-style="western">
+<surname>Mueckler</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Thorens</surname>
+<given-names>B</given-names>
+</string-name>. <article-title>The SLC2 (GLUT) family of membrane transporters</article-title>. <source xml:lang="en">Mol Aspects Med</source>
+<year>2013</year>; <volume>34</volume>: <fpage>121</fpage>–<lpage>138</lpage>.<pub-id pub-id-type="pmid">23506862</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.mam.2012.07.001</pub-id><pub-id pub-id-type="pmcid">PMC4104978</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="jdi12948-cit-0017">
+<string-name name-style="western">
+<surname>Leto</surname>
+<given-names>D</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Saltiel</surname>
+<given-names>AR</given-names>
+</string-name>. <article-title>Regulation of glucose transport by insulin: traffic control of GLUT4</article-title>. <source xml:lang="en">Nat Rev Mol Cell Biol</source>
+<year>2012</year>; <volume>13</volume>: <fpage>383</fpage>–<lpage>396</lpage>.<pub-id pub-id-type="pmid">22617471</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nrm3351</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="jdi12948-cit-0018">
+<string-name name-style="western">
+<surname>Wu</surname>
+<given-names>Q</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zhang</surname>
+<given-names>X</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zhong</surname>
+<given-names>M</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Effects of bariatric surgery on serum bile acid composition and conjugation in a diabetic rat model</article-title>. <source xml:lang="en">Obes Surg</source>
+<year>2016</year>; <volume>26</volume>: <fpage>2384</fpage>–<lpage>2392</lpage>.<pub-id pub-id-type="pmid">26843082</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11695-016-2087-2</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="jdi12948-cit-0019">
+<string-name name-style="western">
+<surname>Liu</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zhang</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wang</surname>
+<given-names>L</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>The entire small intestine mediates the changes in glucose homeostasis after intestinal surgery in Goto‐Kakizaki rats</article-title>. <source xml:lang="en">Ann Surg</source>
+<year>2012</year>; <volume>256</volume>: <fpage>1049</fpage>–<lpage>1058</lpage>.<pub-id pub-id-type="pmid">23001083</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/SLA.0b013e31826c3866</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="jdi12948-cit-0020">
+<string-name name-style="western">
+<surname>Matthews</surname>
+<given-names>DR</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hosker</surname>
+<given-names>JP</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rudenski</surname>
+<given-names>AS</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Homeostasis model assessment: insulin resistance and beta‐cell function from fasting plasma glucose and insulin concentrations in man</article-title>. <source xml:lang="en">Diabetologia</source>
+<year>1985</year>; <volume>28</volume>: <fpage>412</fpage>–<lpage>419</lpage>.<pub-id pub-id-type="pmid">3899825</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/BF00280883</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="jdi12948-cit-0021">
+<string-name name-style="western">
+<surname>Nagueh</surname>
+<given-names>SF</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Smiseth</surname>
+<given-names>OA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Appleton</surname>
+<given-names>CP</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Recommendations for the evaluation of left ventricular diastolic function by echocardiography: an update from the American Society of Echocardiography and the European Association of Cardiovascular Imaging</article-title>. <source xml:lang="en">Eur Heart J Cardiovasc Imaging</source>
+<year>2016</year>; <volume>17</volume>: <fpage>1321</fpage>–<lpage>1360</lpage>.<pub-id pub-id-type="pmid">27422899</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/ehjci/jew082</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="jdi12948-cit-0022">
+<string-name name-style="western">
+<surname>Kanda</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hayashi</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wakino</surname>
+<given-names>S</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Role of Rho‐kinase and p27 in angiotensin II‐induced vascular injury</article-title>. <source xml:lang="en">Hypertension</source>
+<year>2005</year>; <volume>45</volume>: <fpage>724</fpage>–<lpage>729</lpage>.<pub-id pub-id-type="pmid">15699465</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1161/01.HYP.0000153316.59262.79</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="jdi12948-cit-0023">
+<string-name name-style="western">
+<surname>Utriainen</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Takala</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Luotolahti</surname>
+<given-names>M</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Insulin resistance characterizes glucose uptake in skeletal muscle but not in the heart in NIDDM</article-title>. <source xml:lang="en">Diabetologia</source>
+<year>1998</year>; <volume>41</volume>: <fpage>555</fpage>–<lpage>559</lpage>.<pub-id pub-id-type="pmid">9628273</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s001250050946</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="jdi12948-cit-0024">
+<string-name name-style="western">
+<surname>Adeghate</surname>
+<given-names>E</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Singh</surname>
+<given-names>J</given-names>
+</string-name>. <article-title>Structural changes in the myocardium during diabetes‐induced cardiomyopathy</article-title>. <source xml:lang="en">Heart Fail Rev</source>
+<year>2014</year>; <volume>19</volume>: <fpage>15</fpage>–<lpage>23</lpage>.<pub-id pub-id-type="pmid">23467937</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s10741-013-9388-5</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="jdi12948-cit-0025">
+<string-name name-style="western">
+<surname>Westermeier</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Riquelme</surname>
+<given-names>JA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pavez</surname>
+<given-names>M</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>New molecular insights of insulin in diabetic cardiomyopathy</article-title>. <source xml:lang="en">Front Physiol</source>
+<year>2016</year>; <volume>7</volume>: <fpage>125</fpage>.<pub-id pub-id-type="pmid">27148064</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fphys.2016.00125</pub-id><pub-id pub-id-type="pmcid">PMC4828458</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="jdi12948-cit-0026">
+<string-name name-style="western">
+<surname>Reed</surname>
+<given-names>MJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Meszaros</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Entes</surname>
+<given-names>LJ</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>A new rat model of type 2 diabetes: the fat‐fed, streptozotocin‐treated rat</article-title>. <source xml:lang="en">Metabolism</source>
+<year>2000</year>; <volume>49</volume>: <fpage>1390</fpage>–<lpage>1394</lpage>.<pub-id pub-id-type="pmid">11092499</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1053/meta.2000.17721</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="jdi12948-cit-0027">
+<string-name name-style="western">
+<surname>Sahin</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Onderci</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Tuzcu</surname>
+<given-names>M</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Effect of chromium on carbohydrate and lipid metabolism in a rat model of type 2 diabetes mellitus: the fat‐fed, streptozotocin‐treated rat</article-title>. <source xml:lang="en">Metabolism</source>
+<year>2007</year>; <volume>56</volume>: <fpage>1233</fpage>–<lpage>1240</lpage>.<pub-id pub-id-type="pmid">17697867</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.metabol.2007.04.021</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="jdi12948-cit-0028">
+<string-name name-style="western">
+<surname>Skovso</surname>
+<given-names>S</given-names>
+</string-name>. <article-title>Modeling type 2 diabetes in rats using high fat diet and streptozotocin</article-title>. <source xml:lang="en">J Diabetes Investig</source>
+<year>2014</year>; <volume>5</volume>: <fpage>349</fpage>–<lpage>358</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/jdi.12235</pub-id><pub-id pub-id-type="pmcid">PMC4210077</pub-id><pub-id pub-id-type="pmid">25411593</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="jdi12948-cit-0029">
+<string-name name-style="western">
+<surname>Ménard</surname>
+<given-names>SL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Croteau</surname>
+<given-names>E</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sarrhini</surname>
+<given-names>O</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Abnormal in vivo myocardial energy substrate uptake in diet‐induced type 2 diabetic cardiomyopathy in rats</article-title>. <source xml:lang="en">Am J Physiol Endocrinol Metab</source>
+<year>2010</year>; <volume>298</volume>: <fpage>E1049</fpage>–<lpage>E1057</lpage>.<pub-id pub-id-type="pmid">20159856</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/ajpendo.00560.2009</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="jdi12948-cit-0030">
+<string-name name-style="western">
+<surname>Yun</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Xie</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wang</surname>
+<given-names>Z</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>TRB3 gene silencing alleviates diabetic cardiomyopathy in a Type 2 diabetic rat model</article-title>. <source xml:lang="en">Diabetes</source>
+<year>2011</year>; <volume>60</volume>: <fpage>2963</fpage>–<lpage>2974</lpage>.<pub-id pub-id-type="pmid">21933987</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.2337/db11-0549</pub-id><pub-id pub-id-type="pmcid">PMC3198078</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="jdi12948-cit-0031">
+<string-name name-style="western">
+<surname>Zhang</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ding</surname>
+<given-names>WY</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wang</surname>
+<given-names>ZH</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Early administration of trimetazidine attenuates diabetic cardiomyopathy in rats by alleviating fibrosis, reducing apoptosis and enhancing autophagy</article-title>. <source xml:lang="en">J Transl Med</source>
+<year>2016</year>; <volume>14</volume>: <fpage>109</fpage>.<pub-id pub-id-type="pmid">27121077</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s12967-016-0849-1</pub-id><pub-id pub-id-type="pmcid">PMC4848862</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="jdi12948-cit-0032">
+<string-name name-style="western">
+<surname>Dutka</surname>
+<given-names>DP</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pitt</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pagano</surname>
+<given-names>D</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Myocardial glucose transport and utilization in patients with type 2 diabetes mellitus, left ventricular dysfunction, and coronary artery disease</article-title>. <source xml:lang="en">J Am Coll Cardiol</source>
+<year>2006</year>; <volume>48</volume>: <fpage>2225</fpage>–<lpage>2231</lpage>.<pub-id pub-id-type="pmid">17161251</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jacc.2006.06.078</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="jdi12948-cit-0033">
+<string-name name-style="western">
+<surname>Cook</surname>
+<given-names>SA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Varelacarver</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mongillo</surname>
+<given-names>M</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Abnormal myocardial insulin signaling in type 2 diabetes and left‐ventricular dysfunction</article-title>. <source xml:lang="en">Eur Heart J</source>
+<year>2010</year>; <volume>31</volume>: <fpage>100</fpage>–<lpage>111</lpage>.<pub-id pub-id-type="pmid">19797329</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/eurheartj/ehp396</pub-id><pub-id pub-id-type="pmcid">PMC2800920</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="jdi12948-cit-0034">
+<string-name name-style="western">
+<surname>Bertrand</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Horman</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Beauloye</surname>
+<given-names>C</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Insulin signaling in the heart</article-title>. <source xml:lang="en">Cardiovasc Res</source>
+<year>2008</year>; <volume>79</volume>: <fpage>238</fpage>–<lpage>248</lpage>.<pub-id pub-id-type="pmid">18390897</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/cvr/cvn093</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="jdi12948-cit-0035">
+<string-name name-style="western">
+<surname>Tengholm</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Meyer</surname>
+<given-names>T</given-names>
+</string-name>. <article-title>A PI3‐kinase signaling code for insulin‐triggered insertion of glucose transporters into the plasma membrane</article-title>. <source xml:lang="en">Curr Biol</source>
+<year>2002</year>; <volume>12</volume>: <fpage>1871</fpage>–<lpage>1876</lpage>.<pub-id pub-id-type="pmid">12419189</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/s0960-9822(02)01223-x</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="jdi12948-cit-0036">
+<string-name name-style="western">
+<surname>Cavarretta</surname>
+<given-names>E</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Casella</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Cali</surname>
+<given-names>B</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Cardiac remodeling in obese patients after laparoscopic sleeve gastrectomy</article-title>. <source xml:lang="en">World J Surg</source>
+<year>2013</year>; <volume>37</volume>: <fpage>565</fpage>–<lpage>572</lpage>.<pub-id pub-id-type="pmid">23254944</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00268-012-1874-8</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="jdi12948-cit-0037">
+<string-name name-style="western">
+<surname>Nakatani</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kasama</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Oshiro</surname>
+<given-names>T</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Serum bile acid along with plasma incretins and serum high‐molecular weight adiponectin levels are increased after bariatric surgery</article-title>. <source xml:lang="en">Metabolism</source>
+<year>2009</year>; <volume>58</volume>: <fpage>1400</fpage>–<lpage>1407</lpage>.<pub-id pub-id-type="pmid">19570554</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.metabol.2009.05.006</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="jdi12948-cit-0038">
+<string-name name-style="western">
+<surname>Zhao</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Parikh</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bhashyam</surname>
+<given-names>S</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Direct effects of glucagon‐like peptide‐1 on myocardial contractility and glucose uptake in normal and postischemic isolated rat hearts</article-title>. <source xml:lang="en">J Pharmacol Exp Ther</source>
+<year>2006</year>; <volume>317</volume>: <fpage>1106</fpage>–<lpage>1113</lpage>.<pub-id pub-id-type="pmid">16489128</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1124/jpet.106.100982</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="jdi12948-cit-0039">
+<string-name name-style="western">
+<surname>Noyanashraf</surname>
+<given-names>MH</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Shikatani</surname>
+<given-names>EA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Schuiki</surname>
+<given-names>I</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>A glucagon‐like peptide‐1 analog reverses the molecular pathology and cardiac dysfunction of a mouse model of obesity</article-title>. <source xml:lang="en">Circulation</source>
+<year>2013</year>; <volume>127</volume>: <fpage>74</fpage>–<lpage>85</lpage>.<pub-id pub-id-type="pmid">23186644</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1161/CIRCULATIONAHA.112.091215</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="jdi12948-cit-0040">
+<string-name name-style="western">
+<surname>Poornima</surname>
+<given-names>I</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Brown</surname>
+<given-names>SB</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bhashyam</surname>
+<given-names>S</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Chronic Glucagon‐like Peptide‐1 (GLP‐1) infusion sustains LV systolic function and prolongs survival in the spontaneously hypertensive heart failure prone rat</article-title>. <source xml:lang="en">Circ Heart Fail</source>
+<year>2003</year>; <volume>1</volume>: <fpage>153</fpage>–<lpage>160</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1161/CIRCHEARTFAILURE.108.766402</pub-id><pub-id pub-id-type="pmcid">PMC2733530</pub-id><pub-id pub-id-type="pmid">19727407</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="jdi12948-cit-0041">
+<string-name name-style="western">
+<surname>Vyas</surname>
+<given-names>AK</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yang</surname>
+<given-names>KC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Woo</surname>
+<given-names>D</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Exenatide improves glucose homeostasis and prolongs survival in a murine model of dilated cardiomyopathy</article-title>. <source xml:lang="en">PLoS One</source>
+<year>2011</year>; <volume>6</volume>: <fpage>e17178</fpage>.<pub-id pub-id-type="pmid">21359201</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1371/journal.pone.0017178</pub-id><pub-id pub-id-type="pmcid">PMC3040766</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="jdi12948-cit-0042">
+<string-name name-style="western">
+<surname>Watson</surname>
+<given-names>RT</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pessin</surname>
+<given-names>JE</given-names>
+</string-name>. <article-title>Bridging the GAP between insulin signaling and GLUT4 translocation</article-title>. <source xml:lang="en">Trends Biochem Sci</source>
+<year>2006</year>; <volume>31</volume>: <fpage>215</fpage>–<lpage>222</lpage>.<pub-id pub-id-type="pmid">16540333</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.tibs.2006.02.007</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="jdi12948-cit-0043">
+<string-name name-style="western">
+<surname>Mafakheri</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chadt</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Al‐Hasani</surname>
+<given-names>H</given-names>
+</string-name>. <article-title>Regulation of RabGAPs involved in insulin action</article-title>. <source xml:lang="en">Biochem Soc Trans</source>
+<year>2018</year>; <volume>46</volume>: <fpage>683</fpage>–<lpage>690</lpage>.<pub-id pub-id-type="pmid">29784647</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1042/BST20170479</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0044"><label>44</label><mixed-citation publication-type="journal" id="jdi12948-cit-0044">
+<string-name name-style="western">
+<surname>Sakamoto</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Holman</surname>
+<given-names>GD</given-names>
+</string-name>. <article-title>Emerging role for AS160/TBC1D4 and TBC1D1 in the regulation of GLUT4 traffic</article-title>. <source xml:lang="en">Am J Physiol Endocrinol Metab</source>
+<year>2008</year>; <volume>295</volume>: <fpage>E29</fpage>–<lpage>E37</lpage>.<pub-id pub-id-type="pmid">18477703</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/ajpendo.90331.2008</pub-id><pub-id pub-id-type="pmcid">PMC2493596</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0045"><label>45</label><mixed-citation publication-type="journal" id="jdi12948-cit-0045">
+<string-name name-style="western">
+<surname>Chen</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wasserman</surname>
+<given-names>DH</given-names>
+</string-name>, <string-name name-style="western">
+<surname>MacKintosh</surname>
+<given-names>C</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Mice with AS160/TBC1D4‐ Thr649Ala knockin mutation are glucose intolerant with reduced insulin sensitivity and altered GLUT4 trafficking</article-title>. <source xml:lang="en">Cell Metab</source>
+<year>2011</year>; <volume>13</volume>: <fpage>68</fpage>–<lpage>79</lpage>.<pub-id pub-id-type="pmid">21195350</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cmet.2010.12.005</pub-id><pub-id pub-id-type="pmcid">PMC3081066</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="jdi12948-cit-0046">
+<string-name name-style="western">
+<surname>Cartee</surname>
+<given-names>GD</given-names>
+</string-name>. <article-title>Mechanisms for greater insulin‐stimulated glucose uptake in normal and insulin‐resistant skeletal muscle after acute exercise</article-title>. <source xml:lang="en">Am J Physiol Endocrinol Metab</source>
+<year>2015</year>; <volume>309</volume>: <fpage>E949</fpage>–<lpage>E959</lpage>.<pub-id pub-id-type="pmid">26487009</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/ajpendo.00416.2015</pub-id><pub-id pub-id-type="pmcid">PMC4816200</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0047"><label>47</label><mixed-citation publication-type="journal" id="jdi12948-cit-0047">
+<string-name name-style="western">
+<surname>Bryant</surname>
+<given-names>NJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gould</surname>
+<given-names>GW</given-names>
+</string-name>. <article-title>SNARE proteins underpin insulin‐regulated GLUT4 traffic</article-title>. <source xml:lang="en">Traffic</source>
+<year>2011</year>; <volume>12</volume>: <fpage>657</fpage>–<lpage>664</lpage>.<pub-id pub-id-type="pmid">21226814</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/j.1600-0854.2011.01163.x</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0048"><label>48</label><mixed-citation publication-type="journal" id="jdi12948-cit-0048">
+<string-name name-style="western">
+<surname>Lopaschuk</surname>
+<given-names>GD</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ussher</surname>
+<given-names>JR</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Folmes</surname>
+<given-names>CD</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Myocardial fatty acid metabolism in health and disease</article-title>. <source xml:lang="en">Physiol Rev</source>
+<year>2010</year>; <volume>90</volume>: <fpage>207</fpage>–<lpage>258</lpage>.<pub-id pub-id-type="pmid">20086077</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/physrev.00015.2009</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0049"><label>49</label><mixed-citation publication-type="journal" id="jdi12948-cit-0049">
+<string-name name-style="western">
+<surname>Schwenk</surname>
+<given-names>RW</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Luiken</surname>
+<given-names>JJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bonen</surname>
+<given-names>A</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Regulation of sarcolemmal glucose and fatty acid transporters in cardiac disease</article-title>. <source xml:lang="en">Cardiovasc Res</source>
+<year>2008</year>; <volume>79</volume>: <fpage>249</fpage>–<lpage>258</lpage>.<pub-id pub-id-type="pmid">18469026</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/cvr/cvn116</pub-id></mixed-citation></ref><ref id="jdi12948-bib-0050"><label>50</label><mixed-citation publication-type="journal" id="jdi12948-cit-0050">
+<string-name name-style="western">
+<surname>van den Brom</surname>
+<given-names>CE</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Huisman</surname>
+<given-names>MC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Vlasblom</surname>
+<given-names>R</given-names>
+</string-name>, <italic toggle="yes">et al</italic>
+<article-title>Altered myocardial substrate metabolism is associated with myocardial dysfunction in early diabetic cardiomyopathy in rats: studies using positron emission tomography</article-title>. <source xml:lang="en">Cardiovasc Diabetol</source>
+<year>2009</year>; <volume>8</volume>: <fpage>39</fpage>.<pub-id pub-id-type="pmid">19624828</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/1475-2840-8-39</pub-id><pub-id pub-id-type="pmcid">PMC2722582</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

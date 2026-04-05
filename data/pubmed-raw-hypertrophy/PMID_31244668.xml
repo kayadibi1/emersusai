@@ -1,0 +1,204 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31244668</PMID><DateRevised><Year>2023</Year><Month>11</Month><Day>04</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Blood Flow Restriction Resistance Exercise Improves Muscle Strength and Hemodynamics, but Not Vascular Function in Coronary Artery Disease Patients: A Pilot Randomized Controlled Trial.</ArticleTitle><Pagination><StartPage>656</StartPage><MedlinePgn>656</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">656</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.00656</ELocationID><Abstract><AbstractText>Resistance training may be associated with unfavorable cardiovascular responses (such as hemodynamic alterations, anginal symptoms or ventricular arrhythmias). In healthy adults, blood flow-restricted (BFR) resistance training improves muscle strength and hypertrophy improvements at lower loads with minimal systemic cardiovascular adverse responses. The aim of this study was to assess the safety and efficacy of BFR resistance training in patients with coronary artery disease (CAD) compared to usual care. Patients with stable CAD were randomized to either 8 weeks of supervised biweekly BFR resistance training (30-40% 1RM unilateral knee extension) or usual exercise routine. At baseline and after 8 weeks, patients underwent 1-RM knee extension tests, ultrasonographic appraisal of <i>vastus lateralis</i> (VL) muscle diameter and of systemic (brachial artery) flow-mediated dilation, and determination of markers of inflammation (CD40 ligand and tumor necrosis factor alfa), and fasting glucose and insulin levels for homeostatic model assessment (HOMA). A total of 24 patients [12 per group, mean age 60 &#xb1; 2 years, 6 (25%) women] were included. No training-related adverse events were recorded. At baseline groups significantly differ in age (mean difference: 8.7 years, <i>p</i> &lt; 0.001), systolic blood pressure (mean difference: 12.17 mmHg, <i>p</i> = 0.024) and in metabolic control [insulin (<i>p</i> = 0.014) and HOMA IR (<i>p</i> = 0.014)]. BFR-resistance training significantly increased muscle strength (1-RM, +8.96 kg, <i>p</i> &lt; 0.001), and decreased systolic blood pressure (-6.77 mmHg; <i>p</i> = 0.030), whereas VL diameter (+0.09 cm, <i>p</i> = 0.096), brachial artery flow-mediated vasodilation (+1.55%; <i>p</i> = 0.079) and insulin sensitivity (HOMA IR change of 1.15, <i>p</i> = 0.079) did not improve significantly. Blood flow restricted resistance training is safe and associated with significant improvements in muscle strength, and may be therefore provided as an additional exercise option to aerobic exercise to improve skeletal muscle functioning in patients with CAD. Clinical Trial Registration: www.ClinicalTrials.gov, identifier: NCT03087292.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Kambi&#x10d;</LastName><ForeName>Tim</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Laboratory of Kinesiology, Faculty of Sport, University of Ljubljana, Ljubljana, Slovenia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Vascular Diseases, Division of Internal Medicine, University Medical Centre Ljubljana, Ljubljana, Slovenia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Novakovi&#x107;</LastName><ForeName>Marko</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Vascular Diseases, Division of Internal Medicine, University Medical Centre Ljubljana, Ljubljana, Slovenia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Faculty of Medicine, University of Ljubljana, Ljubljana, Slovenia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Toma&#x17e;in</LastName><ForeName>Katja</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Laboratory of Kinesiology, Faculty of Sport, University of Ljubljana, Ljubljana, Slovenia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Strojnik</LastName><ForeName>Vojko</ForeName><Initials>V</Initials><AffiliationInfo><Affiliation>Laboratory of Kinesiology, Faculty of Sport, University of Ljubljana, Ljubljana, Slovenia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Jug</LastName><ForeName>Borut</ForeName><Initials>B</Initials><AffiliationInfo><Affiliation>Department of Vascular Diseases, Division of Internal Medicine, University Medical Centre Ljubljana, Ljubljana, Slovenia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Faculty of Medicine, University of Ljubljana, Ljubljana, Slovenia.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><DataBankList CompleteYN="Y"><DataBank><DataBankName>ClinicalTrials.gov</DataBankName><AccessionNumberList><AccessionNumber>NCT03087292</AccessionNumber></AccessionNumberList></DataBank></DataBankList><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>06</Month><Day>12</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">blood flow restriction</Keyword><Keyword MajorTopicYN="N">cardiac rehabilitation</Keyword><Keyword MajorTopicYN="N">coronary artery disease</Keyword><Keyword MajorTopicYN="N">low-loads</Keyword><Keyword MajorTopicYN="N">resistance training</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>10</Month><Day>24</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>5</Month><Day>9</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>6</Month><Day>28</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>6</Month><Day>28</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>6</Month><Day>28</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>6</Month><Day>12</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31244668</ArticleId><ArticleId IdType="pmc">PMC6581774</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.00656</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abe T., Yasuda T., Midorikawa T., Sato Y., Kearns C. F., Inoue K., et al.  (2005). Skeletal muscle size and circulating IGF-1 are increased after two weeks of twice daily &#x201c;KAATSU&#x201d; resistance training.
+<i>Int. J. KAATSU Train. Res.</i>
+1
+6&#x2013;12. 10.3806/ijktr.1.6</Citation><ArticleIdList><ArticleId IdType="doi">10.3806/ijktr.1.6</ArticleId></ArticleIdList></Reference><Reference><Citation>American College of Sports Medicine [ACSM] (2009). American college of sports medicine position stand. progression models in resistance training for healthy adults.
+<i>Med. Sci. Sport Exerc.</i>
+41
+687&#x2013;708. 10.1249/MSS.0b013e3181915670
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181915670</ArticleId><ArticleId IdType="pubmed">19204579</ArticleId></ArticleIdList></Reference><Reference><Citation>Anagnostakou V., Chatzimichail K., Dimopoulos S., Karatzanos E., Papazachou O., Tasoulis A., et al.  (2014). Effects of interval cycle training with or without strength training on vascular reactivity in heart failure patients effects of interval cycle training with or without strength training on vascular reactivity in heart failure patients.
+<i>J. Card Fail.</i>
+17
+585&#x2013;592. 10.1016/j.cardfail.2011.02.009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cardfail.2011.02.009</ArticleId><ArticleId IdType="pubmed">21703531</ArticleId></ArticleIdList></Reference><Reference><Citation>Balady G. J., Williams M. A., Ades P. A., Bittner V., Comoss P., Foody J. M., et al.  (2007). Core components of cardiac rehabilitation/secondary prevention programs: 2007 update: a scientific statement from the american heart association exercise, cardiac rehabilitation, and prevention committee, the council on clinical cardiology; the councils o.
+<i>Circulation</i>
+115
+2675&#x2013;2682. 10.1161/CIRCULATIONAHA.106.180945
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/CIRCULATIONAHA.106.180945</ArticleId><ArticleId IdType="pubmed">17513578</ArticleId></ArticleIdList></Reference><Reference><Citation>Bjarnason-Wehrens B., Mayer-Berger W., Meister E. R., Baum K., Hambrecht R., Gielen S. (2004). Recommendations for resistance exercise in cardiac rehabilitation. recommendations of the german federation for cardiovascular prevention and rehabilitation.
+<i>Eur. J. Cardiovasc. Prev. Rehabil.</i>
+11
+352&#x2013;361. 10.1097/01.hjr.0000137692.36013.27
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/01.hjr.0000137692.36013.27</ArticleId><ArticleId IdType="pubmed">15292771</ArticleId></ArticleIdList></Reference><Reference><Citation>Bjornstad H. H., Bruvik J., Bjornstad A. B., Hjellestad B. L., Damas J. K., Aukrust P. (2008). Exercise training decreases plasma levels of soluble CD40 ligand and P-selectin in patients with chronic heart failure.
+<i>Eur. J. Cardiovasc. Prev. Rehabil.</i>
+15
+43&#x2013;48. 10.1097/HJR.0b013e3281ca7023
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/HJR.0b013e3281ca7023</ArticleId><ArticleId IdType="pubmed">18277184</ArticleId></ArticleIdList></Reference><Reference><Citation>Blumenthal J. A., Sherwood A., Babyak M. A., Watkins L. L., Waugh R., Georgiades A., et al.  (2005). Effects of exercise and stress management training on markers of cardiovascular risk in patients with ischemic heart disease: a randomized controlled trial.
+<i>JAMA</i>
+293
+1626&#x2013;1634. 10.1001/jama.293.13.1626
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.293.13.1626</ArticleId><ArticleId IdType="pubmed">15811982</ArticleId></ArticleIdList></Reference><Reference><Citation>Brown L. E., Weir J. P. (2001). Accurate assessment of muscular strength and power ASEP procedures recommendation I: accurate assessment of muscular strength and power.
+<i>J. Exerc. Physiol.</i>
+4
+1&#x2013;21.</Citation></Reference><Reference><Citation>Corretti M. C., Anderson T. J., Benjamin E. J., Celermajer D., Charbonneau F., Creager M. A., et al.  (2002). Guidelines for the ultrasound assessment of endothelial-dependent flow- mediated vasodilation of the brachial artery: a report of the international brachial artery reactivity task force.
+<i>J. Am. Coll. Cardiol.</i>
+39
+257&#x2013;265. 10.1016/S0735-1097(01)01746-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0735-1097(01)01746-6</ArticleId><ArticleId IdType="pubmed">11788217</ArticleId></ArticleIdList></Reference><Reference><Citation>Edwards D. G., Schofield R. S., Lennon S. L., Pierce G. L., Nichols W. W., Braith R. W. (2004). Effect of exercise training on endothelial function in men with coronary artery disease.
+<i>Am. J. Cardiol.</i>
+93
+617&#x2013;620. 10.1016/j.amjcard.2003.11.032
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.amjcard.2003.11.032</ArticleId><ArticleId IdType="pubmed">14996592</ArticleId></ArticleIdList></Reference><Reference><Citation>Fujita S., Abe T., Drummond M. J., Cadenas J. G., Dreyer H. C., Sato Y., et al.  (2007). Blood flow restriction during low-intensity resistance exercise increases S6K1 phosphorylation and muscle protein synthesis.
+<i>J. Appl. Physiol.</i>
+103
+903&#x2013;910. 10.1152/japplphysiol.00195.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00195.2007</ArticleId><ArticleId IdType="pubmed">17569770</ArticleId></ArticleIdList></Reference><Reference><Citation>Fujita T., Brechue W. F., Kurita K., Sato Y., Abe T. I. (2008). Increased muscle volume and strength following six days of low-intensity resistance training with restricted muscle blood flow.
+<i>Int. J. KAATSU Train. Res.</i>
+4
+1&#x2013;8. 10.3806/ijktr.4.1</Citation><ArticleIdList><ArticleId IdType="doi">10.3806/ijktr.4.1</ArticleId></ArticleIdList></Reference><Reference><Citation>Gayoso-Diz P., Otero-Gonzalez A., Rodriguez-Alvarez M. X., Gude F., Cadarso-Suarez C., Garc&#xed;a F., et al.  (2011). Insulin resistance index (HOMA-IR) levels in a general adult population: curves percentile by gender and age. The EPIRCE study.
+<i>Diabetes Res. Clin. Pract.</i>
+94
+146&#x2013;155. 10.1016/j.diabres.2011.07.015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.diabres.2011.07.015</ArticleId><ArticleId IdType="pubmed">21824674</ArticleId></ArticleIdList></Reference><Reference><Citation>Gjovaag T. F., Mirtaheri P., Simon K., Berdal G., Tuchel I., Westlie T., et al.  (2016). Hemodynamic responses to resistance exercise in patients with coronary artery disease.
+<i>Med. Sci. Sport Exerc.</i>
+48
+581&#x2013;588. 10.1249/MSS.0000000000000811
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000000811</ArticleId><ArticleId IdType="pubmed">26559450</ArticleId></ArticleIdList></Reference><Reference><Citation>Grafe K., Bendick P., Burr M., Boura J., Franklin B. A. (2018). Effects of resistance training on vascular and hemodynamic responses in patients with coronary artery disease.
+<i>Res. Q. Exerc. Sport</i>
+89
+457&#x2013;464. 10.1080/02701367.2018.1519385
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02701367.2018.1519385</ArticleId><ArticleId IdType="pubmed">30300089</ArticleId></ArticleIdList></Reference><Reference><Citation>Hackney K. J., Everett M., Scott J. M., Ploutz-Snyder L. (2012). Blood flow-restricted exercise in space.
+<i>Extrem. Physiol. Med.</i>
+1:12. 10.1186/2046-7648-1-12
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/2046-7648-1-12</ArticleId><ArticleId IdType="pmc">PMC3710201</ArticleId><ArticleId IdType="pubmed">23849078</ArticleId></ArticleIdList></Reference><Reference><Citation>Haslam D. R. S., McCartney N., McKelvie R. S., MacDougall J. D. (1988). Direct measurements of arterial blood pressure during formal weightlifing in cardiac patients.
+<i>J. Cardiopulm. Rehabil.</i>
+8
+213&#x2013;225. 10.1097/00008483-198806000-00002</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00008483-198806000-00002</ArticleId></ArticleIdList></Reference><Reference><Citation>Hughes L., Paton B., Rosenblatt B., Gissane C., Patterson S. D. (2017). Blood flow restriction training in clinical musculoskeletal rehabilitation: a systematic review and meta-analysis.
+<i>Br. J. Sports Med.</i>
+51
+1003&#x2013;1011. 10.1136/bjsports-2016-097071
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2016-097071</ArticleId><ArticleId IdType="pubmed">28259850</ArticleId></ArticleIdList></Reference><Reference><Citation>Jorge M. L., De Oliveira V. N., Resende N. M., Paraiso L. F., Calixto A., Diniz A. L. D., et al.  (2011). The effects of aerobic, resistance, and combined exercise on metabolic control, inflammatory markers, adipocytokines, and muscle insulin signaling in patients with type 2 diabetes mellitus.
+<i>Metabolism</i>
+60
+1244&#x2013;1252. 10.1016/j.metabol.2011.01.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.metabol.2011.01.006</ArticleId><ArticleId IdType="pubmed">21377179</ArticleId></ArticleIdList></Reference><Reference><Citation>Kacin A., Stra&#x17e;ar K. (2011). Frequent low-load ischemic resistance exercise to failure enhances muscle oxygen delivery and endurance capacity.
+<i>Scand. J. Med. Sci. Sport</i>
+21
+e231&#x2013;e241. 10.1111/j.1600-0838.2010.01260.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2010.01260.x</ArticleId><ArticleId IdType="pubmed">21385216</ArticleId></ArticleIdList></Reference><Reference><Citation>Kadoglou N. P. E., Fotiadis G., Kapelouzou A., Kostakis A., Liapis C. D., Vrabas I. S. (2013). The differential anti-inflammatory effects of exercise modalities and their association with early carotid atherosclerosis progression in patients with type 2 diabetes.
+<i>Diabetes Med.</i>
+30
+e41&#x2013;e50. 10.1111/dme.12055
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/dme.12055</ArticleId><ArticleId IdType="pubmed">23078531</ArticleId></ArticleIdList></Reference><Reference><Citation>Karabulut M., Abe T., Sato Y., Bemben M. G. (2010). The effects of low-intensity resistance training with vascular restriction on leg muscle strength in older men.
+<i>Eur. J. Appl. Physiol.</i>
+108
+147&#x2013;155. 10.1007/s00421-009-1204-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-009-1204-5</ArticleId><ArticleId IdType="pubmed">19760431</ArticleId></ArticleIdList></Reference><Reference><Citation>Karabulut M., Bemben D. A., Sherk V. D., Anderson M. A., Abe T., Michael G. B. (2011). Effects of high-intensity resistance training and low-intensity resistance training with vascular restriction on bone markers in older men.
+<i>Eur. J. Appl. Physiol.</i>
+111
+1659&#x2013;1667. 10.1007/s00421-010-1796-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-010-1796-9</ArticleId><ArticleId IdType="pubmed">21207053</ArticleId></ArticleIdList></Reference><Reference><Citation>Karabulut M., Sherk V. D., Bemben D. A., Bemben M. G. (2013). Inflammation marker, damage marker and anabolic hormone responses to resistance training with vascular restriction in older males.
+<i>Clin. Physiol. Funct. Imag.</i>
+33
+393&#x2013;399. 10.1111/cpf.12044
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12044</ArticleId><ArticleId IdType="pubmed">23701309</ArticleId></ArticleIdList></Reference><Reference><Citation>Lamotte M., Fleury F., Pirard M., Jamon A., van de Borne P. (2010). Acute cardiovascular response to resistance training during cardiac rehabilitation: effect of repetition speed and rest periods.
+<i>Eur. J. Cardiovasc. Prev. Rehabil.</i>
+17
+329&#x2013;336. 10.1097/HJR.0b013e328332efdd
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/HJR.0b013e328332efdd</ArticleId><ArticleId IdType="pubmed">20104178</ArticleId></ArticleIdList></Reference><Reference><Citation>Leon A. S., Franklin B. A., Costa F., Balady G. J., Berra K. A., Stewart K. J., et al.  (2005). Cardiac rehabilitation and secondary prevention of coronary heart disease: an American Heart Association scientific statement from the Council on Clinical Cardiology (subcommittee on exercise, cardiac rehabilitation, and prevention) and the council on nutrition, physical activity, and metabolism (subcommittee on physical activity), in collaboration with the American association of cardiovascular and pulmonary rehabilitation.
+<i>Circulation</i>
+111
+369&#x2013;376. 10.1161/01.CIR.0000151788.08740.5C
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/01.CIR.0000151788.08740.5C</ArticleId><ArticleId IdType="pubmed">15668354</ArticleId></ArticleIdList></Reference><Reference><Citation>Loenneke J. P., Fahs C. A., Rossow L. M., Sherk V. D., Thiebaud R. S., Abe T., et al.  (2012a). Effects of cuff width on arterial occlusion: implications for blood flow restricted exercise.
+<i>Eur. J. Appl. Physiol.</i>
+112
+2903&#x2013;2912. 10.1007/s00421-011-2266-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2266-8</ArticleId><ArticleId IdType="pmc">PMC4133131</ArticleId><ArticleId IdType="pubmed">22143843</ArticleId></ArticleIdList></Reference><Reference><Citation>Loenneke J. P., Wilson J. M., Mar&#xed;n P. J., Zourdos M. C., Bemben M. G. (2012b). Low intensity blood flow restriction training: a meta-analysis.
+<i>Eur. J. Appl. Physiol.</i>
+112
+1849&#x2013;1859. 10.1007/s00421-011-2167-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2167-x</ArticleId><ArticleId IdType="pubmed">21922259</ArticleId></ArticleIdList></Reference><Reference><Citation>Loenneke J. P., Pujol T. J. (2009). The use of occlusion training to produce muscle hypertrophy.
+<i>Strength Cond. J.</i>
+31
+77&#x2013;84. 10.1519/SSC.0b013e3181a5a352</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/SSC.0b013e3181a5a352</ArticleId></ArticleIdList></Reference><Reference><Citation>Madarame H., Kurano M., Fukumura K., Fukuda T., Nakajima T. (2013). Haemostatic and inflammatory responses to blood flow-restricted exercise in patients with ischaemic heart disease: a pilot study.
+<i>Clin. Physiol. Funct. Imag.</i>
+33
+11&#x2013;17. 10.1111/j.1475-097X.2012.01158.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1475-097X.2012.01158.x</ArticleId><ArticleId IdType="pubmed">23216760</ArticleId></ArticleIdList></Reference><Reference><Citation>Madarame H., Kurano M., Takano H., Iida H., Sato Y., Ohshima H., et al.  (2010). Effects of low-intensity resistance exercise with blood flow restriction on coagulation system in healthy subjects.
+<i>Clin. Physiol. Funct. Imag.</i>
+30
+210&#x2013;213. 10.1111/j.1475-097X.2010.00927.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1475-097X.2010.00927.x</ArticleId><ArticleId IdType="pubmed">20175789</ArticleId></ArticleIdList></Reference><Reference><Citation>Madarame H., Neya M., Ochi E., Nakazato K., Sato Y., Ishii N. (2008). Cross-transfer effects of resistance training with blood flow restriction.
+<i>Med. Sci. Sport Exerc.</i>
+40
+258&#x2013;263. 10.1249/mss.0b013e31815c6d7e
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0b013e31815c6d7e</ArticleId><ArticleId IdType="pubmed">18202577</ArticleId></ArticleIdList></Reference><Reference><Citation>Manini T. M., Clark B. C. (2009). Blood flow restricted exercise and skeletal muscle health.
+<i>Exerc. Sport Sci. Rev.</i>
+37
+78&#x2013;85. 10.1097/JES.0b013e31819c2e5c
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/JES.0b013e31819c2e5c</ArticleId><ArticleId IdType="pubmed">19305199</ArticleId></ArticleIdList></Reference><Reference><Citation>Mart&#xed;n-Hern&#xe1;ndez J., Mar&#xed;n P. J., Men&#xe9;ndez H., Ferrero C., Loenneke J. P., Herrero A. J. (2013). Muscular adaptations after two different volumes of blood flow-restricted training.
+<i>Scand. J. Med. Sci. Sport</i>
+23
+e114&#x2013;e120. 10.1111/sms.12036
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12036</ArticleId><ArticleId IdType="pubmed">23278841</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakajima T., Takano H., Kurano M., Iida H., Kubota N., Yasuda T., et al.  (2007). Effects of KAATSU training on haemostasis in healthy subjects.
+<i>Int. J. KAATSU Train. Res.</i>
+3
+11&#x2013;20. 10.2147/IJGM.S194883
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/IJGM.S194883</ArticleId><ArticleId IdType="pmc">PMC6388738</ArticleId><ArticleId IdType="pubmed">30863135</ArticleId></ArticleIdList></Reference><Reference><Citation>Patterson S. D., Leggate M., Nimmo M. A., Ferguson R. A. (2013). Circulating hormone and cytokine response to low-load resistance training with blood flow restriction in older men.
+<i>Eur. J. Appl. Physiol.</i>
+113
+713&#x2013;719. 10.1007/s00421-012-2479-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-012-2479-5</ArticleId><ArticleId IdType="pubmed">22922803</ArticleId></ArticleIdList></Reference><Reference><Citation>Pearson S. J., Hussain S. R. (2015). A review on the mechanisms of blood-flow restriction resistance training-induced muscle hypertrophy.
+<i>Sport Med.</i>
+45
+187&#x2013;200. 10.1007/s40279-014-0264-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0264-9</ArticleId><ArticleId IdType="pubmed">25249278</ArticleId></ArticleIdList></Reference><Reference><Citation>Pedersen B. K. (2017). Anti-inflammatory effects of exercise: role in diabetes and cardiovascular disease.
+<i>Eur. J. Clin. Invest.</i>
+47
+600&#x2013;611. 10.1111/eci.12781
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/eci.12781</ArticleId><ArticleId IdType="pubmed">28722106</ArticleId></ArticleIdList></Reference><Reference><Citation>Piepoli M. F., Conraads V., Corra U., Dickstein K., Francis D. P., Jaarsma T., et al.  (2011). Exercise training in heart failure: from theory to practice. a consensus document of the heart failure association and the european association for cardiovascular prevention and rehabilitation.
+<i>Eur. J. Heart Fail.</i>
+13
+347&#x2013;357. 10.1093/eurjhf/hfr017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/eurjhf/hfr017</ArticleId><ArticleId IdType="pubmed">21436360</ArticleId></ArticleIdList></Reference><Reference><Citation>Ramos J. R., Dalleck L. C., Tjonna A. E., Beetham K. S., Coombes J. S. (2015). The impact of high-intensity interval training versus moderate-intensity continuous training on vascular function: a systematic review and meta-analysis.
+<i>Sport Med.</i>
+45
+679&#x2013;692. 10.1007/s40279-015-0321-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-015-0321-z</ArticleId><ArticleId IdType="pubmed">25771785</ArticleId></ArticleIdList></Reference><Reference><Citation>Schulz K. F., Altman D. G., Moher D., Group C. O. N. S. O. R. T.  (2010). CONSORT 2010 statement: updated guidelines for reporting parallel group randomised trials.
+<i>BMC Med.</i>
+8:18. 10.1371/journal.pmed.1000251
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pmed.1000251</ArticleId><ArticleId IdType="pmc">PMC2860339</ArticleId><ArticleId IdType="pubmed">20334633</ArticleId></ArticleIdList></Reference><Reference><Citation>Scott B. R., Peiffer J. J., Thomas H. J., Marston K. J., Hill K. D. (2018). Hemodynamic responses to low-load blood flow restriction and unrestricted high-load resistance exercise in older women.
+<i>Front. Physiol.</i>
+9:1324. 10.3389/fphys.2018.01324
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.01324</ArticleId><ArticleId IdType="pmc">PMC6174249</ArticleId><ArticleId IdType="pubmed">30327609</ArticleId></ArticleIdList></Reference><Reference><Citation>Staunton C. A., May A. K., Brandner C. R., Warmington S. A. (2015). Haemodynamics of aerobic and resistance blood flow restriction exercise in young and older adults.
+<i>Eur. J. Appl. Physiol.</i>
+115
+2293&#x2013;2302. 10.1007/s00421-015-3213-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-015-3213-x</ArticleId><ArticleId IdType="pubmed">26142277</ArticleId></ArticleIdList></Reference><Reference><Citation>Szmitko P. E., Wang C.-H., Weisel R. D., de Almeida J. R., Anderson T. J., Verma S. (2003). New markers of inflammation and endothelial cell activation: part I.
+<i>Circulation</i>
+108
+1917&#x2013;1923. 10.1161/01.CIR.0000089190.95415.9F
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/01.CIR.0000089190.95415.9F</ArticleId><ArticleId IdType="pubmed">14568885</ArticleId></ArticleIdList></Reference><Reference><Citation>Takarada Y., Takazawa H., Sato Y., Takebayashi S., Tanaka Y., Ishii N. (2000). Effects of resistance exercise combined with moderate vascular occlusion on muscular function in humans.
+<i>J. Appl. Physiol.</i>
+88
+2097&#x2013;2106. 10.1152/jappl.2000.88.6.2097
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.2000.88.6.2097</ArticleId><ArticleId IdType="pubmed">10846023</ArticleId></ArticleIdList></Reference><Reference><Citation>Vechin F. C., Libardi C. A., Concei&#xe7;&#xe3;o M. S., Damas F. R., Lixandr&#xe3;o M. E., Berton R. P. B., et al.  (2015). Comparisons between low-intensity resistance training with blood flow restriction and high-intensity resistance training on quadriceps muscle mass and strength in elderly.
+<i>J. Strength Cond. Res.</i>
+29
+1071&#x2013;1076. 10.1519/JSC.0000000000000703
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000703</ArticleId><ArticleId IdType="pubmed">25264670</ArticleId></ArticleIdList></Reference><Reference><Citation>Vona M., Codeluppi G. M., Iannino T., Ferrari E., Bogousslavsky J., von Segesser L. K. (2009). Effects of different types of exercise training followed by detraining on endothelium-dependent dilation in patients with recent myocardial infarction.
+<i>Circulation</i>
+119
+1601&#x2013;1608. 10.1161/CIRCULATIONAHA.108.821736
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/CIRCULATIONAHA.108.821736</ArticleId><ArticleId IdType="pubmed">19289636</ArticleId></ArticleIdList></Reference><Reference><Citation>Williams M. A., Haskell W. L., Ades P. A., Amsterdam E. A., Bittner V., Franklin B. A., et al.  (2007). Resistance exercise in individuals with and without cardiovascular disease: 2007 update: a scientific statement from the American heart association council on clinical cardiology and council on nutrition, physical activity, and metabolism.
+<i>Circulation</i>
+116
+572&#x2013;584. 10.1161/CIRCULATIONAHA.108.821736
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/CIRCULATIONAHA.108.821736</ArticleId><ArticleId IdType="pubmed">17638929</ArticleId></ArticleIdList></Reference><Reference><Citation>Wise F. M., Patrick J. M. (2011). Resistance exercise in cardiac rehabilitation.
+<i>Clin. Rehabil.</i>
+25
+1059&#x2013;1065. 10.1177/0269215511423408
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0269215511423408</ArticleId><ArticleId IdType="pubmed">21984533</ArticleId></ArticleIdList></Reference><Reference><Citation>Yasuda T., Fukumura K., Fukuda T., Uchida Y., Iida H., Meguro M., et al.  (2014a). Muscle size and arterial stiffness after blood flow-restricted low-intensity resistance training in older adults.
+<i>Scand. J. Med. Sci. Sport</i>
+24
+799&#x2013;806. 10.1111/sms.12087
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12087</ArticleId><ArticleId IdType="pubmed">23730848</ArticleId></ArticleIdList></Reference><Reference><Citation>Yasuda T., Fukumura K., Sato Y., Yamasoba T., Nakajima T. (2014b). Effects of detraining after blood flow-restricted low-intensity training on muscle size and strength in older adults.
+<i>Aging Clin. Exp. Res.</i>
+26
+561&#x2013;564. 10.1007/s40520-014-0208-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40520-014-0208-0</ArticleId><ArticleId IdType="pubmed">24639094</ArticleId></ArticleIdList></Reference><Reference><Citation>Yasushi T. Y., Yudai T. (2018). The impact of aerobic exercise training with vascular occlusion in patients with chronic heart failure.
+<i>ESC Hear. Fail.</i>
+5
+586&#x2013;591. 10.1002/ehf2.12285
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/ehf2.12285</ArticleId><ArticleId IdType="pmc">PMC6073027</ArticleId><ArticleId IdType="pubmed">29575708</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,825 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Rev Cardiovasc Med</journal-id><journal-id journal-id-type="pmc-domain-id">4614</journal-id><journal-id journal-id-type="pmc-domain">revcardmed</journal-id><journal-id journal-id-type="publisher-id">RCM</journal-id><journal-title-group><journal-title>Reviews in Cardiovascular Medicine</journal-title></journal-title-group><issn pub-type="ppub">1530-6550</issn><issn pub-type="epub">2153-8174</issn><publisher><publisher-name>IMR Press</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC11273982</article-id><article-id pub-id-type="pmcid-ver">PMC11273982.1</article-id><article-id pub-id-type="pmcaid">11273982</article-id><article-id pub-id-type="pmcaiid">11273982</article-id><article-id pub-id-type="pmid">39076242</article-id><article-id pub-id-type="doi">10.31083/j.rcm2304134</article-id><article-id pub-id-type="publisher-id">S1530-6550(22)00458-6</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Original Research</subject></subj-group></article-categories><title-group><article-title>Effects of Circuit Training Program on Cardiovascular Risk Factors, Vascular Inflammatory Markers, and Insulin-like Growth Factor-1 in Elderly Obese Women with Sarcopenia</article-title></title-group><contrib-group><contrib contrib-type="author"><name name-style="western"><surname>Jung</surname><given-names initials="WS">Won-Sang</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="fn-1" ref-type="author-notes">
+<sup>†</sup>
+</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Kim</surname><given-names initials="YY">Yae-Young</given-names></name><xref rid="aff3" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="fn-1" ref-type="author-notes">
+<sup>†</sup>
+</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Kim</surname><given-names initials="JW">Jeong-Weon</given-names></name><xref rid="aff4" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Park</surname><given-names initials="HY">Hun-Young</given-names></name><xref rid="aff1" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="aff2" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="cor1" ref-type="corresp">
+<sup>*</sup>
+</xref><email>parkhy1980@konkuk.ac.kr</email></contrib></contrib-group><contrib-group><contrib contrib-type="editor"><name name-style="western"><surname>Hamdy</surname><given-names initials="O">Osama</given-names></name><role>Academic Editor</role></contrib><contrib contrib-type="editor"><name name-style="western"><surname>Mitri</surname><given-names initials="J">Joanna</given-names></name><role>Academic Editor</role></contrib></contrib-group><aff id="aff1">
+<sup>1</sup>Physical Activity and Performance Institute (PAPI), Konkuk University, 05029 Seoul, Republic of Korea
+</aff><aff id="aff2">
+<sup>2</sup>Department of sports medicine and science, graduated school, Konkuk University, 05029 Seoul, Republic of Korea
+</aff><aff id="aff3">
+<sup>3</sup>Department of oriental sports medicine, Daegu Haany University, 38609 GyeongBuk, Republic of Korea
+</aff><aff id="aff4">
+<sup>4</sup>Graduate School of Professional Therapy, Gachon University, 13120 Gyeonggi-do, Republic of Korea
+</aff><author-notes><corresp id="cor1"><sup>*</sup>Correspondence: <email>parkhy1980@konkuk.ac.kr</email> (Hun-Young Park)</corresp><fn fn-type="con" id="fn-1"><p><sup>†</sup>These authors contributed equally.
+</p></fn></author-notes><pub-date pub-type="epub"><day>8</day><month>4</month><year>2022</year></pub-date><pub-date pub-type="collection"><month>4</month><year>2022</year></pub-date><volume>23</volume><issue>4</issue><issue-id pub-id-type="pmc-issue-id">467519</issue-id><elocation-id>134</elocation-id><history><date date-type="received"><day>21</day><month>1</month><year>2022</year></date><date date-type="rev-recd"><day>16</day><month>2</month><year>2022</year></date><date date-type="accepted"><day>1</day><month>3</month><year>2022</year></date></history><pub-history><event event-type="pmc-release"><date><day>08</day><month>04</month><year>2022</year></date></event><event event-type="pmc-live"><date><day>29</day><month>07</month><year>2024</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2024-07-30 17:25:29.150"><day>30</day><month>07</month><year>2024</year></date></event></pub-history><permissions><copyright-statement>Copyright: © 2022 The Author(s). Published by IMR Press.</copyright-statement><copyright-year>2022</copyright-year><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0 license</ext-link>.
+</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="2153-8174-23-4-134.pdf"/><abstract><sec><title>Background:</title><p>Sarcopenic obesity is caused by a decrease in muscle mass 
+and an increase in body fat due to aging, and has been the cause of 
+cardiovascular diseases such as hypertension, diabetes, hyperlipidemia, and 
+arteriosclerosis and high inflammatory conditions. However, there is a lack of 
+research on the effects of long-term exercise training as regards to the body 
+composition and blood-related physiological indicators. Therefore, the purpose of 
+this study was to investigate the influences the effect of circuit exercise 
+training for 12 weeks on cardiovascular risk factors, vascular inflammatory 
+markers, and insulin-like growth factor-1 (IGF-1) in elderly obesity women with 
+sarcopenia.</p></sec><sec><title>Methods:</title><p>A total of 28 elderly obese Korean women with 
+sarcopenia (75.0 <inline-formula id="m1"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w1" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 5.1 years) were randomly assigned either to a control 
+group (CG, n = 14) or an exercise group (EG, n = 14). The EG performed circuit 
+exercise training for 25–75 minutes (gradually incremental) three times per week 
+over a period of 12 weeks, while the CG maintained their usual daily lifestyle 
+during the intervention period. Pre- and post-intervention evaluations were 
+performed on selected cardiovascular risk factors, inflammatory markers, and 
+IGF-1.</p></sec><sec><title>Results:</title><p>The EG group exhibited improved body composition (i.e., 
+body mass index, fat-free mass, % fat mass, waist-to-hip ratio; all <italic toggle="yes">p </italic><inline-formula id="m2"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w2" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.030, <inline-formula id="m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w3" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup>
+<inline-formula id="m5"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w5" alttext="&gt;" display="inline" overflow="scroll"><mml:mo>&gt;</mml:mo></mml:math></inline-formula> 0.169), Cardiovascular risks factor (i.e., 
+heart rate, systolic blood pressure, rate pressure product, high-density 
+lipoprotein cholesterol, total cholesterol/HDL-C ratio, triglyceride/HDL-C ratio, 
+low-density lipoprotein cholesterol/HDL-C ratio, brachial-ankle pulse wave 
+velocity, fasting plasma insulin, homeostasis model assessment-insulin 
+resistance; all <italic toggle="yes">p </italic><inline-formula id="m6"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w6" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.042, <inline-formula id="m7"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w7" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup>
+<inline-formula id="m9"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w9" alttext="&gt;" display="inline" overflow="scroll"><mml:mo>&gt;</mml:mo></mml:math></inline-formula> 0.150), 
+Inflammatory markers (i.e., high sensitivity C-reactive protein, interleukin-6; 
+all <italic toggle="yes">p </italic><inline-formula id="m10"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w10" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.045, <inline-formula id="m11"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w11" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup>
+<inline-formula id="m13"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w13" alttext="&gt;" display="inline" overflow="scroll"><mml:mo>&gt;</mml:mo></mml:math></inline-formula> 0.146), and IGF-1 
+(<italic toggle="yes">p</italic> = 0.037, <inline-formula id="m14"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w14" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.157). Conversely, there were no 
+significant changes observed in CG.</p></sec><sec><title>Conclusions:</title><p>Twelve weeks of circuit 
+training had a positive effect on the improvement in cardiovascular risk factors, 
+vascular inflammatory markers, and IGF-1 in elderly obese women with sarcopenia.</p></sec></abstract><kwd-group kwd-group-type="author"><kwd>circuit training</kwd><kwd>cardiovascular risk factors</kwd><kwd>inflammatory markers</kwd><kwd>insulin-like growth factor-1</kwd><kwd>sarcopenic obesity</kwd><kwd>elderly population</kwd></kwd-group><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="S1"><title>1. Introduction</title><p id="S1.p1">Sarcopenic obesity which is characterized by the increase in body fat, decrease 
+in fat-free mass and muscle strength has been attributed to aging [<xref rid="b1" ref-type="bibr">1</xref>]. Sarcopenia 
+symptoms include a decrease in muscle mass, muscular strength and functions 
+associated with age, with the elderly people at high risk of sarcopenic obesity 
+[<xref rid="b2" ref-type="bibr">2</xref>, <xref rid="b3" ref-type="bibr">3</xref>]. Sarcopenia is commonly as a result of lack of physical activity, and it is 
+reported that the risk of cardiovascular diseases is increased when sarcopenia is 
+combined with obesity [<xref rid="b4" ref-type="bibr">4</xref>]. In addition, fat infiltration in the skeletal muscle 
+worsens insulin resistance [<xref rid="b5" ref-type="bibr">5</xref>], and the vicious cycle of reduction in energy 
+consumption and increased risk of falling is as a result of greater sarcopenia 
+and obesity [<xref rid="b6" ref-type="bibr">6</xref>]. Moreover, increased intake of high fat diet results in increased 
+cholesterol and triglycerides in the blood, which causes hyperlipidemia [<xref rid="b7" ref-type="bibr">7</xref>], and 
+reduced vascular elasticity, which gives rise to arteriosclerosis accompanied by 
+stenosis and obstruction of the vascular wall [<xref rid="b8" ref-type="bibr">8</xref>, <xref rid="b9" ref-type="bibr">9</xref>].</p><p id="S1.p2">A decrease in muscle mass and muscle strength has been reported to act as an 
+independent risk factor for atherosclerosis [<xref rid="b10" ref-type="bibr">10</xref>]. Insulin-like growth factor-1 
+(IGF-1) is also a known independent risk factor of sarcopenic obesity, and the 
+reduction of growth hormone, dehydroepiandrosterone’s (DHEAs), estrogen and 
+testosterone precursor, caused by aging decreases sarcopenic obesity is also 
+known to be a direct cause [<xref rid="b11" ref-type="bibr">11</xref>]. Additionally, sarcopenic obesity is closely 
+related to the systemic inflammatory state, and level of inflammatory cytokines, 
+interleukin-6 (IL-6) and C-reactive protein (CRP) [<xref rid="b12" ref-type="bibr">12</xref>, <xref rid="b13" ref-type="bibr">13</xref>]. Hence, in older people 
+whose physical function is deteriorated as a result of aging, it is more likely 
+to aggravate various diseases and physiological problems caused by sarcopenic 
+obesity. Consequently, efforts to prevent and improve muscular obesity are 
+urgently required.</p><p id="S1.p3">Particularly, exercise therapy has been reported to be the most effective way to 
+prevent and remedy sarcopenic obesity [<xref rid="b14" ref-type="bibr">14</xref>]. However, single exercise has some 
+limitations in older adults. Aerobic exercises are limited to increasing muscle 
+mass in the elderly [<xref rid="b15" ref-type="bibr">15</xref>], and resistance exercise poses a high injury risk while 
+repetitive motion can be monotonous [<xref rid="b16" ref-type="bibr">16</xref>]. In order to compensate for these 
+short-comings, the study proposed circuit exercises consisting of a combination 
+of flexibility, aerobic and resistance exercises. Circuit exercise is reportedly 
+an effective way to develop cardiovascular and muscular functions simultaneously 
+owing to its low risk of injury, interesting exercises without being constrained 
+by cost and location, and alternates between aerobic and resistive movements 
+[<xref rid="b17" ref-type="bibr">17</xref>]. In particular, circuit training as a fitness program for the elderly was 
+selected as the world’s top health and fitness trend by the American College of 
+Sports Medicine for 2021 and 2022 [<xref rid="b18" ref-type="bibr">18</xref>, <xref rid="b19" ref-type="bibr">19</xref>].</p><p id="S1.p4">As highlighted above, sarcopenic obesity has been causal factor of 
+cardiovascular disease such as hypertension, diabetes, hyperlipidemia, and 
+arteriosclerosis, and high inflammatory status. However, there is a lack of 
+research on the effects of long-term exercise training as regards to the body 
+composition and blood-related physiological indicators. Therefore, we carried out 
+a randomized trial to investigate the influences of circuit exercise training for 
+12 weeks on cardiovascular risk factors, vascular inflammatory markers, and 
+insulin-like growth factor-1 (IGF-1) in elderly obesity women with sarcopenia.</p></sec><sec id="S2"><title>2. Materials and Methods</title><sec id="S2.SS1"><title>2.1 Participants</title><p id="S2.SS1.p1">The study subjects included 28 elderly obese Korean women with sarcopenia (mean 
+age = 75.0 <inline-formula id="S2.SS1.p1.m1"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w16" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 5.1 years) in community-dwelling. Table <xref rid="S2.T1" ref-type="table">1</xref> presents their 
+physical characteristics. The inclusion criteria were as follows: (1) aged 65 
+years and above; (2) have sarcopenia comorbid with obesity; (3) should not have 
+performed any kind of exercise over the past six months prior to the study, and 
+(4) willing to fully participate. The exclusion criteria included older adults 
+who: (1) had an ill controlled chronic diseases; (2) had previously undergone 
+retinal laser treatment; (3) had a history of acute myocardial infarction; (4) 
+had joint replacement or fracture of the lower limb six months prior, and (5) had 
+severe cognitive disturbance. The women who met the selection criteria were 
+randomly divided into a circuit exercise training group (EG, n = 14) and a 
+control group (CG, n = 14) using a computerized random number generator. 
+</p><table-wrap position="float" id="S2.T1" orientation="portrait"><label>Table 1.</label><caption><p><bold>Participants’ characteristics. Data are means (<inline-formula id="S2.T1.m2"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w17" alttext="\pm" display="inline" overflow="scroll"><mml:mo mathvariant="normal">±</mml:mo></mml:math></inline-formula> SD)</bold>.</p></caption><table frame="hsides" rules="groups"><tbody><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">Variables</td><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">CG (n = 14)</td><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">EG (n = 14)</td><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">
+<italic toggle="yes">p</italic>
+</td></tr><tr><td rowspan="1" colspan="1">Age (years)</td><td rowspan="1" colspan="1">74.64 <inline-formula id="S2.T1.m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w18" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 5.77</td><td rowspan="1" colspan="1">75.36 <inline-formula id="S2.T1.m4"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w19" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 4.50</td><td rowspan="1" colspan="1">0.718</td></tr><tr><td rowspan="1" colspan="1">Height (cm)</td><td rowspan="1" colspan="1">153.01 <inline-formula id="S2.T1.m5"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w20" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 4.41</td><td rowspan="1" colspan="1">152.58 <inline-formula id="S2.T1.m6"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w21" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 4.30</td><td rowspan="1" colspan="1">0.797</td></tr><tr><td rowspan="1" colspan="1">Weight kg)</td><td rowspan="1" colspan="1">52.91 <inline-formula id="S2.T1.m7"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w22" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 5.03</td><td rowspan="1" colspan="1">52.43 <inline-formula id="S2.T1.m8"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w23" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 5.20</td><td rowspan="1" colspan="1">0.804</td></tr><tr><td rowspan="1" colspan="1">BMI (kg/<inline-formula id="S2.T1.m9"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w24" alttext="{}^{2}" display="inline" overflow="scroll"><mml:msup><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">22.58 <inline-formula id="S2.T1.m10"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w25" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 1.69</td><td rowspan="1" colspan="1">22.50 <inline-formula id="S2.T1.m11"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w26" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 1.75</td><td rowspan="1" colspan="1">0.899</td></tr><tr><td rowspan="1" colspan="1">Free fat mass (kg)</td><td rowspan="1" colspan="1">32.89 <inline-formula id="S2.T1.m12"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w27" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 2.56</td><td rowspan="1" colspan="1">32.51 <inline-formula id="S2.T1.m13"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w28" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 1.93</td><td rowspan="1" colspan="1">0.663</td></tr><tr><td rowspan="1" colspan="1">Body fat mass (%)</td><td rowspan="1" colspan="1">35.33 <inline-formula id="S2.T1.m14"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w29" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 3.18</td><td rowspan="1" colspan="1">35.10 <inline-formula id="S2.T1.m15"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w30" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 3.13</td><td rowspan="1" colspan="1">0.847</td></tr><tr style="border-bottom:1px solid #000;"><td rowspan="1" colspan="1">ASM (kg/<inline-formula id="S2.T1.m16"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w31" alttext="{}^{2}" display="inline" overflow="scroll"><mml:msup><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">5.17 <inline-formula id="S2.T1.m17"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w32" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 0.59</td><td rowspan="1" colspan="1">5.27 <inline-formula id="S2.T1.m18"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w33" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 0.26</td><td rowspan="1" colspan="1">0.573</td></tr></tbody></table><table-wrap-foot><fn><p>Note: SD, standard deviation; CG, control group; EG, exercise group; BMI, body 
+mass index; ASM, appendicular skeletal mass.</p></fn></table-wrap-foot></table-wrap><p id="S2.SS1.p2">Sarcopenia is defined as an appendicular skeletal muscle mass (ASM, kg)/height 
+(<inline-formula id="S2.SS1.p2.m1"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w34" alttext="{}^{2}" display="inline" overflow="scroll"><mml:msup><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math></inline-formula>). The determinant threshold value is <inline-formula id="S2.SS1.p2.m2"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w35" alttext="\leq" display="inline" overflow="scroll"><mml:mo>≤</mml:mo></mml:math></inline-formula>5.4 kg/<inline-formula id="S2.SS1.p2.m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w36" alttext="{}^{2}" display="inline" overflow="scroll"><mml:msup><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math></inline-formula> for women 
+[<xref rid="b20" ref-type="bibr">20</xref>]. Obesity assessment criteria define the second highest quintiles of 
+whole-body fat % [<xref rid="b21" ref-type="bibr">21</xref>]. Based on the fifth period of the National Health and 
+Nutrition Examination Survey, the study defined the top 40 percentile of body fat 
+rate (% body fat 32%) as obese, and was calculated for 1072 elderly women aged 
+65 and above. The participants provided a written informed consent after being 
+taken through the experiment and having understood the possible adverse effects. 
+The consolidated standards of reporting trial (CONSORT: Consolidated Standards of 
+Reporting Trials) flow diagram is shown in Fig. <xref rid="S2.F1" ref-type="fig">1</xref>. This study was approved by the 
+Korean Institutional Review Board (KHSIRB-16-016). All procedures were in 
+accordance with the Helsinki Declaration.</p><fig position="float" id="S2.F1" orientation="portrait"><label>Fig. 1.</label><caption><p>
+<bold>CONSORT (Consolidated Standards of Reporting Trials) flow 
+diagram</bold>.
+</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="S2.F1.g1" position="float" orientation="portrait" xlink:href="2153-8174-23-4-134-g1.jpg"/></fig></sec><sec id="S2.SS2"><title>2.2 Study Design</title><p id="S2.SS2.p1">Blood sampling and body composition were measured for all participants by pre- 
+and post-test. The EG participants then began following the exercise intervention 
+consisting of 45~75 minutes, three times per week for a total of 
+12 weeks. The circuit training consisted of 10 movements: walking in place, 
+shoulder press and squat, twist to dash, lunge, jumping jacks, kick back, push 
+up, crunch, hip bridge and bird dog. The program included 10 minutes each for 
+warm-up and cool-down, and the main exercise set was performed for 10 minutes 
+followed by five minutes of rest in between sets. The training session lasted 25 
+minutes in week 1~2, 40 minutes in weeks 3~8, and 
+55 minutes in weeks 9~12. The exercise group subjects were 
+monitored by wearing a polar (m400, Polar, Helsinki, Finland) during exercise, 
+and the exercise intensity level was in the range of 60–80% of the heart rate 
+reserve (HRR) (Table <xref rid="S2.T2" ref-type="table">2</xref>). To minimize the effect of extrinsic variables on 
+dependent variables, education on dietary intake and daily activities was 
+conducted twice a week. All exercise interventions were conducted at a constant 
+temperature and humidity level of 23 ℃ and 60%. 
+</p><table-wrap position="float" id="S2.T2" orientation="portrait"><label>Table 2.</label><caption><p><bold>Circuit training program</bold>.</p></caption><table frame="hsides" rules="groups"><tbody><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">Stage</td><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">Phase</td><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">Mode/set</td><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">Duration</td><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">Intensity</td></tr><tr><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">Warm-up</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1"/><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">Stretching</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">10 minute</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1"/></tr><tr><td rowspan="3" colspan="1">Main exercise</td><td rowspan="1" colspan="1">Phase 1</td><td rowspan="1" colspan="1">1<inline-formula id="S2.T2.m1"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w37" alttext="\sim" display="inline" overflow="scroll"><mml:mo>∼</mml:mo></mml:math></inline-formula>2 weeks: 2 set</td><td rowspan="1" colspan="1">25 minute</td><td rowspan="3" colspan="1">HRR 60<inline-formula id="S2.T2.m2"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w38" alttext="\sim" display="inline" overflow="scroll"><mml:mo>∼</mml:mo></mml:math></inline-formula>80% 1 set (10 minute) Rest (5 minute) 3 times/week</td></tr><tr><td rowspan="1" colspan="1">Phase 2</td><td rowspan="1" colspan="1">3<inline-formula id="S2.T2.m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w39" alttext="\sim" display="inline" overflow="scroll"><mml:mo>∼</mml:mo></mml:math></inline-formula>8 weeks: 3 set</td><td rowspan="1" colspan="1">40 minute</td></tr><tr><td rowspan="1" colspan="1">Phase 3</td><td rowspan="1" colspan="1">9<inline-formula id="S2.T2.m4"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w40" alttext="\sim" display="inline" overflow="scroll"><mml:mo>∼</mml:mo></mml:math></inline-formula>12 weess: 4 set</td><td rowspan="1" colspan="1">55 minute</td></tr><tr><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">Cool-down</td><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1"/><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">Stretching</td><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1">10 minute</td><td style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1" colspan="1"/></tr></tbody></table></table-wrap><p id="S2.SS2.p2">In contrast, the Control group participants (CG) did not participate in any 
+exercise intervention. The CG sustained their usual physical activity lifestyle 
+for the duration of the study. In this routine, CG participants were encouraged 
+to check in by telephone twice a week to maintain their daily lifestyle (physical 
+activity and dietary intake), and were taught nutrition education in the lab 
+every four weeks. In order to keep the amount of food intake as constant as 
+possible during the 12-week treatment period, the subjects in all groups were 
+investigated for their daily energy intake using a three-day dietary log (2 days 
+on weekdays and 1 day on weekends). Energy intake was recorded every 4 weeks, and 
+total caloric intake was analyzed using a Computer Aided Nutritional analysis 
+program (CAN-Pro, version 5.0, The Korean Nutrition Society, Seoul, Korea) based 
+on each individual’s meal diary. In addition, in order to evaluate the amount of 
+normal physical activity, the total daily energy consumption (kcal) was measured 
+by wearing the Lifecorder (Kenz, Japan) on the subject’s right waist (the center 
+of the navel and flank glands). It was worn for 5 days excluding weekends, and 
+was worn except for sleeping and showering time. There was no difference between 
+the two groups or time period (Table <xref rid="S2.T3" ref-type="table">3</xref>). The CG participants underwent 
+similar pre-intervention and post-intervention testing as EG participants. 
+</p><table-wrap position="float" id="S2.T3" orientation="portrait"><label>Table 3.</label><caption><p><bold>Energy intake and physical activity. Data are means ( <inline-formula id="S2.T3.m2"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w41" alttext="\pm" display="inline" overflow="scroll"><mml:mo mathvariant="normal">±</mml:mo></mml:math></inline-formula> 
+SD)</bold>.</p></caption><table frame="hsides" rules="groups"><tbody><tr><td rowspan="2" style="border-top:1px solid #000;border-bottom:1px solid #000;" colspan="1">Variables</td><td rowspan="2" style="border-top:1px solid #000;border-bottom:1px solid #000;" colspan="1">Group</td><td colspan="4" align="center" style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1">Intervention</td><td rowspan="2" style="border-top:1px solid #000;border-bottom:1px solid #000;" colspan="1"><italic toggle="yes">p</italic>-value</td></tr><tr><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">0 week</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">4 week</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">8 week</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">12 week</td></tr><tr><td rowspan="3" style="border-bottom:1px solid #000;" colspan="1">Energy intake (kcal/day)</td><td rowspan="1" colspan="1">EG</td><td rowspan="1" colspan="1">1408.97 <inline-formula id="S2.T3.m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w42" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 497.40</td><td rowspan="1" colspan="1">1439.32 <inline-formula id="S2.T3.m4"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w43" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 514.38</td><td rowspan="1" colspan="1">1493.20 <inline-formula id="S2.T3.m5"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w44" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 109.36</td><td rowspan="1" colspan="1">1443.49 <inline-formula id="S2.T3.m6"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w45" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 396.57</td><td rowspan="1" colspan="1">0.432</td></tr><tr><td rowspan="1" colspan="1">CG</td><td rowspan="1" colspan="1">1354.86 <inline-formula id="S2.T3.m7"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w46" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 310.12</td><td rowspan="1" colspan="1">1374.21 <inline-formula id="S2.T3.m8"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w47" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 291.50</td><td rowspan="1" colspan="1">1407.23 <inline-formula id="S2.T3.m9"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w48" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 172.88</td><td rowspan="1" colspan="1">1412.71 <inline-formula id="S2.T3.m10"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w49" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 296.63</td><td rowspan="1" colspan="1">0.505</td></tr><tr><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1"><italic toggle="yes">p</italic>-value</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">0.623</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">0.558</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">0.671</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">0.742</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1"/></tr><tr><td rowspan="3" style="border-bottom:1px solid #000;" colspan="1">Physical activity (kcal/day)</td><td rowspan="1" colspan="1">EG</td><td rowspan="1" colspan="1">1721.11 <inline-formula id="S2.T3.m11"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w50" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 54.15</td><td rowspan="1" colspan="1">1728.76 <inline-formula id="S2.T3.m12"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w51" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 62.19</td><td rowspan="1" colspan="1">1832.91 <inline-formula id="S2.T3.m13"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w52" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 29.85</td><td rowspan="1" colspan="1">1810.96 <inline-formula id="S2.T3.m14"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w53" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 74.72</td><td rowspan="1" colspan="1">0.746</td></tr><tr><td rowspan="1" colspan="1">CG</td><td rowspan="1" colspan="1">1854.86 <inline-formula id="S2.T3.m15"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w54" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 310.12</td><td rowspan="1" colspan="1">1874.21 <inline-formula id="S2.T3.m16"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w55" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 291.50</td><td rowspan="1" colspan="1">1910.46 <inline-formula id="S2.T3.m17"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w56" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 30.16</td><td rowspan="1" colspan="1">1812.71 <inline-formula id="S2.T3.m18"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w57" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula> 296.63</td><td rowspan="1" colspan="1">0.861</td></tr><tr><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1"><italic toggle="yes">p</italic>-value</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">0.518</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">0.672</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">0.498</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">0.854</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1"/></tr></tbody></table></table-wrap></sec><sec id="S2.SS3"><title>2.3 Measurement</title><p id="S2.SS3.p1">All participants had been fasting for more than 12-hours before coming to the 
+laboratory. Blood samples were collected between AM 8:00 and 9:00, after the 
+subjects rested for 30 minutes. Afterwards, body composition was measured. Blood 
+samples were collected from venous blood (10 mL) by a trained nurse in a sitting 
+position for all subjects. The collected blood was placed in a tube that has with 
+and without heparin according to each analysis item, centrifuged at 3000 rpm at 4 
+<sup>∘</sup>C for 15 minutes using a centrifuge, and was separated into plasma and 
+Serum was collected, aliquoted into storage tubes, and stored in a deep freezer 
+at –80 <sup>∘</sup>C until blood analyses. Frozen samples were thawed at room 
+temperature, and all analyses were tested in duplicate by the same technician on 
+the same day. Body composition parameters (height, weight, BMI, free-fat mass, 
+and percent body fat) of the participants were measured using bioelectrical 
+impedance (InBody770, Inbody Co., Seoul, Korea) and dual-energy X-ray 
+absorptiometry (DEXA, Hologic QDR 4500, Hologic, Bedford, MA, USA) analysis 
+equipment. ASM, a value excluding the bones and fat of the arms and legs was used 
+among the values measured whole body by DEXA [<xref rid="b18" ref-type="bibr">18</xref>]. The Waist-to-hip Ratio (WHR) 
+was calculated as waist circumference divided by hip circumference. Waist and hip 
+circumference were measured according to the World Health Organization (WHO) 
+recommendations. The subject was asked to stand relaxed with arms at the sides, 
+feet positioned close together, and weight evenly distributed across feet. Waist 
+circumference measurement was made at the approximate midpoint between the lower 
+margin of the last palpable rib and the top of the iliac crest. Hip circumference 
+measurement was taken around the widest portion of the buttocks. To assess 
+hypertension related variable, the resting pulse rates and blood pressures were 
+measured twice, in the sitting position after a minimum of 5 minutes rest, using 
+an automatic sphygmomanometer (HBP-9020; OMRON Colin, Tokyo, Japan), and the 
+average value was used for analysis, and mean arterial blood pressure (MAP = DBP 
++ (SBP – DBP)/3), pulse pressure (PP = SBP – DBP), and rate pressure product 
+(RPP = HR <inline-formula id="S2.SS3.p1.m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w60" alttext="\times{}" display="inline" overflow="scroll"><mml:mo>×</mml:mo></mml:math></inline-formula> SBP) were calculated [<xref rid="b22" ref-type="bibr">22</xref>]. Arteriosclerosis related 
+variables, such as TC/HDL-C ratio, TG/HDL-C ratio, and LDL-C/HDL-C ratio were 
+calculated using hyperlipidemia related variables [<xref rid="b23" ref-type="bibr">23</xref>]. The arterial stiffness 
+was measured using automated VP-1000 plus (Omron, Kyoto, Japan). Measurements 
+were performed wearing pressure cuffs on the subject’s arms and ankles and after 
+the subject rested in the supine position for approximately 10 minutes. The 
+average of right and left brachial-ankle pulse wave velocity (ba-PWV) values was 
+used for analysis [<xref rid="b24" ref-type="bibr">24</xref>]. Hyperlipidemia related variables, Triglyceride (TG) was 
+analyzed using an autoanalyzer (ADVIA 1650, Bayer, Japan) applying an enzymatic 
+colorimetric method (intra-assay coefficients of variability (CV%): 1.2%, inter 
+CV%: 1.4%), and total cholesterol (TC) was analyzed through a chemical reaction 
+principle using cholesterol oxidase (intra CV%: 0.7%, inter CV%: 1.5%). 
+High-density lipoprotein cholesterol (HDL-C) and low-density lipoprotein 
+cholesterol (LDL-C) were analyzed using cholesterol oxidase and enzyme 
+immunoassay, respectively (intra CV% and inter CV%: under 2.0%). Among 
+diabetes related variables, the fasting plasma insulin (FPI) test was done using 
+Insulin Kit (Roche, Germany) as an electrochemiluminescence immunoassay (ECLIA), 
+while the fasting plasma glucose (FPG) was analyzed by enzyme assay using GLU Kit 
+(Roche, Germany) and Modular Analytics (E170, Roche, Germany). The CVs were as 
+follows: FPI: intra CV% 1.2, inter CV% 3.5%; FPG: intra CV% 0.4%, inter CV% 
+1.2%. The insulin resistance index, homeostasis model assessment-insulin 
+resistance (HOMA-IR), were calculated by the formulae by Matthews <italic toggle="yes">et al</italic>. 
+[<xref rid="b25" ref-type="bibr">25</xref>]. Among the markers of vascular inflammatory and insulin-like growth factor-1 
+(IGF-1), high sensitivity C-reactive protein (hs-CRP) was analyzed through 
+particle enhanced immunothelometry using BNTM System (high sensitivity CRP, dade 
+Behring, Marburg, Germany; intra CV%: 2.4%, inter CV%: 3.7%). IL-6 was 
+analyzed using ELISA kit (ELISA, Biosource International, Camarillo, CA, USA) for 
+cytokine measurement using plasma (intra CV%: 4.3%, inter CV%: 6.8%). IGF-1 
+was analyzed via chemiluminescent immunometric assay (CLIA) using Nichols 
+Institute Diagnostics (US). IGF-1 assays was intra CV% 4.7% and inter CV% 
+6.6%.</p></sec><sec id="S2.SS4"><title>2.4 Statistical Analysis</title><p id="S2.SS4.p1">The mean and standard deviation for all dependent variables were calculated. 
+Participants may be excluded from the entire analysis set if there is no data 
+available after randomization according to the intent-to-treat (ITT) principle. 
+In this study, ITT analysis was conducted excluding two dropouts (one control 
+group and one test group) who had not completed all tests after registration, and 
+the ITT analysis participants conducted in this study were consistent with the 
+per protocol (PP) analysis participants. The Kolmogorov–Smirnov test was used to 
+verify the normality of distribution for all outcome variables. A two-way 
+analysis of variance (ANOVA) with repeated measures of the “time” factor was 
+used to compare the EG and CG groups and to gage the effects of the 12-week 
+exercise intervention for each dependent variable. The Bonferroni post-hoc 
+testing method was used to identify within-group changes of time. Clinically 
+meaningful changes were assessed by determining the mean change and 95% 
+confidence interval (CI). All analyses were done using Statistical Package for 
+the Social Sciences (SPSS) version 25.0 (IBM Corporation, Armonk, NY, USA). A 
+priori, the level of significance was set at 0.05. 
+</p></sec></sec><sec id="S3"><title>3. Results</title><p id="S3.p1">The body composition parameters for both groups are shown in Table <xref rid="S3.T4" ref-type="table">4</xref> and a 
+significant interaction between the two groups was found for BMI (<italic toggle="yes">p</italic> = 
+0.029, <inline-formula id="S3.p1.m1"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w61" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.170), fat-free mass (<italic toggle="yes">p</italic> = 0.009, 
+<inline-formula id="S3.p1.m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w63" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.232), % body fat (<italic toggle="yes">p <inline-formula id="S3.p1.m5"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w65" alttext="&lt;" display="inline" overflow="scroll"><mml:mo mathvariant="normal">&lt;</mml:mo></mml:math></inline-formula></italic> 0.001, 
+<inline-formula id="S3.p1.m6"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w66" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.549), and WHR (<italic toggle="yes">p</italic> = 0.013, 
+<inline-formula id="S3.p1.m8"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w68" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.217). Post-hoc analyses exhibited significant 
+decreases in BMI (EG: –0.80 [–1.53, –0.06], <italic toggle="yes">p </italic><inline-formula id="S3.p1.m10"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w70" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.05), % body mass 
+(EG: –2.87 [–4.04, –1.70] %, <italic toggle="yes">p <inline-formula id="S3.p1.m11"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w71" alttext="&lt;" display="inline" overflow="scroll"><mml:mo mathvariant="normal">&lt;</mml:mo></mml:math></inline-formula></italic> 0.001), and WHR (EG: –0.03 
+[–0.05, 0.00], <italic toggle="yes">p <inline-formula id="S3.p1.m12"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w72" alttext="&lt;" display="inline" overflow="scroll"><mml:mo mathvariant="normal">&lt;</mml:mo></mml:math></inline-formula></italic> 0.05) in EG. Fat-free mass (EG: 0.86 [0.27, 1.45] 
+kg, <italic toggle="yes">p <inline-formula id="S3.p1.m13"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w73" alttext="&lt;" display="inline" overflow="scroll"><mml:mo mathvariant="normal">&lt;</mml:mo></mml:math></inline-formula></italic> 0.01) was significantly increased in the EG.</p><table-wrap position="float" id="S3.T4" orientation="portrait"><label>Table 4.</label><caption><p><bold>Before and after training data (mean <inline-formula id="S3.T4.m2"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w74" alttext="\pm" display="inline" overflow="scroll"><mml:mo mathvariant="normal">±</mml:mo></mml:math></inline-formula> SD) for body 
+composition with main analysis of variance results</bold>.</p></caption><table frame="hsides" rules="groups"><tbody><tr><td rowspan="3" style="border-top:1px solid #000;border-bottom:1px solid #000;" colspan="1">Measure</td><td colspan="3" align="center" style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1">CG</td><td colspan="3" align="center" style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1">EG</td><td colspan="3" align="center" style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1"><italic toggle="yes"><inline-formula id="S3.T4.m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w75" alttext="{}^{2}" display="inline" overflow="scroll"><mml:msup><mml:mi>η</mml:mi><mml:mn mathvariant="normal">2</mml:mn></mml:msup></mml:math></inline-formula></italic> (<italic toggle="yes">p</italic>) value</td></tr><tr><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">Before</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">After</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">Mean change</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">Before</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">After</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">Mean change</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">Group</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">Time</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">Interaction</td></tr><tr><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">95% CI</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">95% CI</td></tr><tr><td rowspan="1" colspan="1">Body weight</td><td rowspan="1" colspan="1">52.91 <inline-formula id="S3.T4.m4"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w76" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">52.97 <inline-formula id="S3.T4.m5"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w77" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.06</td><td rowspan="1" colspan="1">52.43 <inline-formula id="S3.T4.m6"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w78" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">50.75 <inline-formula id="S3.T4.m7"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w79" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–1.68</td><td rowspan="1" colspan="1">0.022</td><td rowspan="1" colspan="1">0.121</td><td rowspan="1" colspan="1">0.136</td></tr><tr><td rowspan="1" colspan="1">(kg)</td><td rowspan="1" colspan="1">5.03</td><td rowspan="1" colspan="1">4.71</td><td rowspan="1" colspan="1">[–0.53, 0.64]</td><td rowspan="1" colspan="1">5.20</td><td rowspan="1" colspan="1">4.13</td><td rowspan="1" colspan="1">[–3.43, 0.08]</td><td rowspan="1" colspan="1">(0.449)</td><td rowspan="1" colspan="1">(0.069)</td><td rowspan="1" colspan="1">(0.053)</td></tr><tr><td rowspan="1" colspan="1">BMI</td><td rowspan="1" colspan="1">22.58 <inline-formula id="S3.T4.m8"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w80" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">22.61 <inline-formula id="S3.T4.m9"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w81" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.03</td><td rowspan="1" colspan="1">22.50 <inline-formula id="S3.T4.m10"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w82" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">21.70 <inline-formula id="S3.T4.m11"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w83" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.8</td><td rowspan="1" colspan="1">0.030</td><td rowspan="1" colspan="1">0.149</td><td rowspan="1" colspan="1">0.170</td></tr><tr><td rowspan="1" colspan="1">(kg/<inline-formula id="S3.T4.m12"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w84" alttext="{}^{2}" display="inline" overflow="scroll"><mml:msup><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">1.69</td><td rowspan="1" colspan="1">1.60</td><td rowspan="1" colspan="1">[–0.23, 0.29]</td><td rowspan="1" colspan="1">1.75</td><td rowspan="1" colspan="1">1.11</td><td rowspan="1" colspan="1">[–1.53, –0.06]*</td><td rowspan="1" colspan="1">(0.382)</td><td rowspan="1" colspan="1">(0.043)†</td><td rowspan="1" colspan="1">(0.029)†</td></tr><tr><td rowspan="2" colspan="1">Free fat mass (kg)</td><td rowspan="1" colspan="1">32.89 <inline-formula id="S3.T4.m13"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w85" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">32.80 <inline-formula id="S3.T4.m14"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w86" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.08</td><td rowspan="1" colspan="1">32.51 <inline-formula id="S3.T4.m15"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w87" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">33.38 <inline-formula id="S3.T4.m16"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w88" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.86</td><td rowspan="1" colspan="1">0.000</td><td rowspan="1" colspan="1">0.169</td><td rowspan="1" colspan="1">0.232</td></tr><tr><td rowspan="1" colspan="1">2.56</td><td rowspan="1" colspan="1">2.96</td><td rowspan="1" colspan="1">[–0.52, 0.35]</td><td rowspan="1" colspan="1">1.93</td><td rowspan="1" colspan="1">1.72</td><td rowspan="1" colspan="1">[0.27, 1.45]**</td><td rowspan="1" colspan="1">(0.912)</td><td rowspan="1" colspan="1">(0.030)†</td><td rowspan="1" colspan="1">(0.009)†</td></tr><tr><td rowspan="1" colspan="1">Fat mass</td><td rowspan="1" colspan="1">35.33 <inline-formula id="S3.T4.m17"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w89" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">36.04 <inline-formula id="S3.T4.m18"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w90" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.71</td><td rowspan="1" colspan="1">35.10 <inline-formula id="S3.T4.m19"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w91" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">32.23 <inline-formula id="S3.T4.m20"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w92" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–2.87</td><td rowspan="1" colspan="1">0.105</td><td rowspan="1" colspan="1">0.307</td><td rowspan="1" colspan="1">0.549</td></tr><tr><td rowspan="1" colspan="1">(%)</td><td rowspan="1" colspan="1">3.18</td><td rowspan="1" colspan="1">3.19</td><td rowspan="1" colspan="1">[–0.01, 1.43]</td><td rowspan="1" colspan="1">3.13</td><td rowspan="1" colspan="1">3.23</td><td rowspan="1" colspan="1">[–4.04, –1.70]***</td><td rowspan="1" colspan="1">(0.093)</td><td rowspan="1" colspan="1">(0.002)†</td><td rowspan="1" colspan="1">(0.000)†</td></tr><tr><td rowspan="1" colspan="1">ASM,</td><td rowspan="1" colspan="1">5.17 <inline-formula id="S3.T4.m21"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w93" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">5.15 <inline-formula id="S3.T4.m22"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w94" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.02</td><td rowspan="1" colspan="1">5.27 <inline-formula id="S3.T4.m23"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w95" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">5.32 <inline-formula id="S3.T4.m24"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w96" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.05</td><td rowspan="1" colspan="1">0.024</td><td rowspan="1" colspan="1">0.010</td><td rowspan="1" colspan="1">0.041</td></tr><tr><td rowspan="1" colspan="1">(kg/<inline-formula id="S3.T4.m25"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w97" alttext="{}^{2}" display="inline" overflow="scroll"><mml:msup><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">0.59</td><td rowspan="1" colspan="1">0.55</td><td rowspan="1" colspan="1">[–0.13, 0.09]</td><td rowspan="1" colspan="1">0.26</td><td rowspan="1" colspan="1">0.26</td><td rowspan="1" colspan="1">[–0.04, 0.14]</td><td rowspan="1" colspan="1">(0.428)</td><td rowspan="1" colspan="1">(0.621)</td><td rowspan="1" colspan="1">(0.303)</td></tr><tr><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">WHR</td><td rowspan="1" colspan="1">0.93 <inline-formula id="S3.T4.m26"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w98" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.93 <inline-formula id="S3.T4.m27"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w99" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.01</td><td rowspan="1" colspan="1">0.93 <inline-formula id="S3.T4.m28"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w100" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.90 <inline-formula id="S3.T4.m29"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w101" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.03</td><td rowspan="1" colspan="1">0.050</td><td rowspan="1" colspan="1">0.117</td><td rowspan="1" colspan="1">0.217</td></tr><tr style="border-bottom:1px solid #000;"><td rowspan="1" colspan="1">0.04</td><td rowspan="1" colspan="1">0.04</td><td rowspan="1" colspan="1">[–0.01, 0.02]</td><td rowspan="1" colspan="1">0.06</td><td rowspan="1" colspan="1">0.05</td><td rowspan="1" colspan="1">[–0.05, 0.00]*</td><td rowspan="1" colspan="1">(0.253)</td><td rowspan="1" colspan="1">(0.075)</td><td rowspan="1" colspan="1">(0.013)†</td></tr></tbody></table><table-wrap-foot><fn><p>Note: SD, standard deviation; CI, confidence interval; CG, control group; EG, 
+exercise group; BMI, body mass index; ASM, appendicular skeletal mass; WHR, waist 
+hip ratio.</p><p> 
+† Significant interaction or main effect. </p><p>
+* <italic toggle="yes">p </italic><inline-formula id="S3.T4.m30"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w102" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.05; **<italic toggle="yes">p </italic><inline-formula id="S3.T4.m31"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w103" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.01; ***<italic toggle="yes">p </italic><inline-formula id="S3.T4.m32"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w104" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.001 vs. before 
+training.</p></fn></table-wrap-foot></table-wrap><p id="S3.p2">Cardiovascular risks factor parameters of pre-intervention and post-intervention 
+data for both groups are shown in Table <xref rid="S3.T5" ref-type="table">5</xref>. Hypertension related variables 
+included the significant interaction observed between the two groups in heart 
+rate (<italic toggle="yes">p</italic> = 0.006, <inline-formula id="S3.p2.m1"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w105" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.260), SBP (<italic toggle="yes">p</italic> = 
+0.034, <inline-formula id="S3.p2.m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w107" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.162), and RPP (<italic toggle="yes">p</italic> = 0.001, 
+<inline-formula id="S3.p2.m5"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w109" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.347). Post-hoc analyses established a significant 
+decrease in heart rate (EG: –7.14 [–11.74, –2.54] beat/min, <italic toggle="yes">p </italic><inline-formula id="S3.p2.m7"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w111" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 
+0.01), SBP (EG: –7.43 [–12.94, –1.92] mmHg, <italic toggle="yes">p </italic><inline-formula id="S3.p2.m8"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w112" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.05), and RPP (EG: 
+–1488.07 [–2279.37, –696.77], <italic toggle="yes">p </italic><inline-formula id="S3.p2.m9"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w113" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.01) in EG. Hyperlipidemia 
+related variables included significant interaction observed between the two 
+groups of HDL-C (<italic toggle="yes">p</italic> = 0.005, <inline-formula id="S3.p2.m10"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w114" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.271). Post-hoc 
+analyses established significantly increase in HDL-C (EG: 6.16 [1.37, 10.95] 
+mg/dL, <italic toggle="yes">p </italic><inline-formula id="S3.p2.m12"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w116" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.05) among EG. Atherosclerosis related variables included 
+significant interaction in all values (TC/HDL-C ratio: <italic toggle="yes">p </italic><inline-formula id="S3.p2.m13"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w117" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.001, 
+<inline-formula id="S3.p2.m14"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w118" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.395, TG/HDL-C ratio: <italic toggle="yes">p</italic> = 0.041, 
+<inline-formula id="S3.p2.m16"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w120" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.151, LDL-C/HDL-C ratio: <italic toggle="yes">p </italic><inline-formula id="S3.p2.m18"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w122" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.001, 
+<inline-formula id="S3.p2.m19"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w123" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0. 378, ba-PWV: <italic toggle="yes">p</italic> = 0.024, 
+<inline-formula id="S3.p2.m21"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w125" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.180). Post-hoc analyses established a significant 
+decrease in TC/HDL-C ratio (EG: –0.71 [–1.13, –0.28], <italic toggle="yes">p </italic><inline-formula id="S3.p2.m23"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w127" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.01), TG/HDL-C 
+ratio (EG: –0.72 [–1.31, –0.14], <italic toggle="yes">p </italic><inline-formula id="S3.p2.m24"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w128" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.05), LDL-C/HDL-C ratio (EG: 
+–0.56 [–0.92, –0.20], <italic toggle="yes">p </italic><inline-formula id="S3.p2.m25"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w129" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.01), ba-PWV (EG: –65.29 [–127.37, 
+–3.21] cm/s, <italic toggle="yes">p </italic><inline-formula id="S3.p2.m26"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w130" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.05) in EG. Diabetes mellitus related variables 
+included significant interaction observed between the two groups of FPI 
+(<italic toggle="yes">p</italic> = 0.013, <inline-formula id="S3.p2.m27"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w131" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.216) and HOMA-IR (<italic toggle="yes">p</italic> = 
+0.011, <inline-formula id="S3.p2.m29"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w133" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>η</sup> = 0.225). Post-hoc analyses established 
+significant improvements in FPI (EG: –1.73 [–2.85, –0.62], <italic toggle="yes">p </italic><inline-formula id="S3.p2.m31"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w135" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 
+0.01), and HOMA-IR (EG: –0.65 [–1.09, –0.21], <italic toggle="yes">p </italic><inline-formula id="S3.p2.m32"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w136" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.01) among EG. 
+</p><table-wrap position="float" id="S3.T5" orientation="portrait"><label>Table 5.</label><caption><p><bold>Before and after training data (mean <inline-formula id="S3.T5.m2"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w137" alttext="\pm" display="inline" overflow="scroll"><mml:mo mathvariant="normal">±</mml:mo></mml:math></inline-formula> SD) for 
+cardiovascular risk factors with main analysis of variance results</bold>.</p></caption><table frame="hsides" rules="groups"><tbody><tr><td rowspan="3" style="border-top:1px solid #000;border-bottom:1px solid #000;" colspan="1">Measure</td><td colspan="3" align="center" style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1">CG</td><td colspan="3" align="center" style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1">EG</td><td colspan="3" align="center" style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1"><italic toggle="yes"><inline-formula id="S3.T5.m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w138" alttext="{}^{2}" display="inline" overflow="scroll"><mml:msup><mml:mi>η</mml:mi><mml:mn mathvariant="normal">2</mml:mn></mml:msup></mml:math></inline-formula></italic> (<italic toggle="yes">p</italic>) value</td></tr><tr><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">Before</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">After</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">Mean change</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">Before</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">After</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">Mean change</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">Group</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">Time</td><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">Interaction</td></tr><tr><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">95% CI</td><td style="border-bottom:1px solid #000;" rowspan="1" colspan="1">95% CI</td></tr><tr><td colspan="10" style="border-bottom:1px solid #000;" rowspan="1">Hypertension related variables</td></tr><tr><td rowspan="1" colspan="1">Heart rate</td><td rowspan="1" colspan="1">75.93 <inline-formula id="S3.T5.m4"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w139" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">76.43 <inline-formula id="S3.T5.m5"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w140" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.50</td><td rowspan="1" colspan="1">75.64 <inline-formula id="S3.T5.m6"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w141" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">68.52 <inline-formula id="S3.T5.m7"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w142" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–7.14</td><td rowspan="1" colspan="1">0.071</td><td rowspan="1" colspan="1">0.210</td><td rowspan="1" colspan="1">0.260</td></tr><tr><td rowspan="1" colspan="1">(beats·<inline-formula id="S3.T5.m8"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w143" alttext="{}^{-1}" display="inline" overflow="scroll"><mml:msup><mml:mi>min</mml:mi><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">10.10</td><td rowspan="1" colspan="1">9.31</td><td rowspan="1" colspan="1">[–2.43, 3.43]</td><td rowspan="1" colspan="1">6.71</td><td rowspan="1" colspan="1">7.09</td><td rowspan="1" colspan="1">[–11.74, –2.54]**</td><td rowspan="1" colspan="1">(0.172)</td><td rowspan="1" colspan="1">(0.014)†</td><td rowspan="1" colspan="1">(0.006)†</td></tr><tr><td rowspan="1" colspan="1">SBP</td><td rowspan="1" colspan="1">133.90 <inline-formula id="S3.T5.m9"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w144" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">133.43 <inline-formula id="S3.T5.m10"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w145" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.50</td><td rowspan="1" colspan="1">132.57 <inline-formula id="S3.T5.m11"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w146" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">125.14 <inline-formula id="S3.T5.m12"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w147" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–7.43</td><td rowspan="1" colspan="1">0.045</td><td rowspan="1" colspan="1">0.202</td><td rowspan="1" colspan="1">0.162</td></tr><tr><td rowspan="1" colspan="1">(mmHg)</td><td rowspan="1" colspan="1">13.05</td><td rowspan="1" colspan="1">9.50</td><td rowspan="1" colspan="1">[–4.27, 3.27]</td><td rowspan="1" colspan="1">15.56</td><td rowspan="1" colspan="1">9.73</td><td rowspan="1" colspan="1">[–12.94, –1.92]*</td><td rowspan="1" colspan="1">(0.278)</td><td rowspan="1" colspan="1">(0.016)†</td><td rowspan="1" colspan="1">(0.034)†</td></tr><tr><td rowspan="1" colspan="1">DBP</td><td rowspan="1" colspan="1">81.10 <inline-formula id="S3.T5.m13"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w148" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">80.31 <inline-formula id="S3.T5.m14"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w149" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.79</td><td rowspan="1" colspan="1">80.29 <inline-formula id="S3.T5.m15"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w150" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">76.15 <inline-formula id="S3.T5.m16"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w151" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–4.14</td><td rowspan="1" colspan="1">0.033</td><td rowspan="1" colspan="1">0.095</td><td rowspan="1" colspan="1">0.047</td></tr><tr><td rowspan="1" colspan="1">(mmHg)</td><td rowspan="1" colspan="1">9.97</td><td rowspan="1" colspan="1">8.40</td><td rowspan="1" colspan="1">[–3.00, 1.42]</td><td rowspan="1" colspan="1">6.43</td><td rowspan="1" colspan="1">6.68</td><td rowspan="1" colspan="1">[–10.17, 1.89]</td><td rowspan="1" colspan="1">(0.353)</td><td rowspan="1" colspan="1">(0.110)</td><td rowspan="1" colspan="1">(0.270)</td></tr><tr><td rowspan="1" colspan="1">MAP</td><td rowspan="1" colspan="1">98.70 <inline-formula id="S3.T5.m17"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w152" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">98.01 <inline-formula id="S3.T5.m18"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w153" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.69</td><td rowspan="1" colspan="1">97.71 <inline-formula id="S3.T5.m19"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w154" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">93.65 <inline-formula id="S3.T5.m20"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w155" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–5.23</td><td rowspan="1" colspan="1">0.044</td><td rowspan="1" colspan="1">0.145</td><td rowspan="1" colspan="1">0.091</td></tr><tr><td rowspan="1" colspan="1">(mmHg)</td><td rowspan="1" colspan="1">10.80</td><td rowspan="1" colspan="1">8.99</td><td rowspan="1" colspan="1">[–3.02, 1.64]</td><td rowspan="1" colspan="1">9.09</td><td rowspan="1" colspan="1">6.72</td><td rowspan="1" colspan="1">[–10.87, 0.40]</td><td rowspan="1" colspan="1">(0.286)</td><td rowspan="1" colspan="1">(0.046)†</td><td rowspan="1" colspan="1">(0.119)</td></tr><tr><td rowspan="1" colspan="1">PP</td><td rowspan="1" colspan="1">52.80 <inline-formula id="S3.T5.m21"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w156" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">53.09 <inline-formula id="S3.T5.m22"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w157" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.29</td><td rowspan="1" colspan="1">52.29 <inline-formula id="S3.T5.m23"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w158" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">48.99 <inline-formula id="S3.T5.m24"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w159" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–3.29</td><td rowspan="1" colspan="1">0.024</td><td rowspan="1" colspan="1">0.064</td><td rowspan="1" colspan="1">0.089</td></tr><tr><td rowspan="1" colspan="1">(mmHg)</td><td rowspan="1" colspan="1">5.32</td><td rowspan="1" colspan="1">7.54</td><td rowspan="1" colspan="1">[–3.11, 3.69]</td><td rowspan="1" colspan="1">10.76</td><td rowspan="1" colspan="1">9.17</td><td rowspan="1" colspan="1">[–6.75, 0.17]</td><td rowspan="1" colspan="1">(0.436)</td><td rowspan="1" colspan="1">(0.192)</td><td rowspan="1" colspan="1">(0.123)</td></tr><tr><td rowspan="2" colspan="1">RPP</td><td rowspan="1" colspan="1">10191.4 <inline-formula id="S3.T5.m25"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w160" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">10208.6 <inline-formula id="S3.T5.m26"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w161" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">17.29</td><td rowspan="1" colspan="1">10090.3 <inline-formula id="S3.T5.m27"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w162" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">8602.2 <inline-formula id="S3.T5.m28"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w163" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–1488.07</td><td rowspan="1" colspan="1">0.072</td><td rowspan="1" colspan="1">0.336</td><td rowspan="1" colspan="1">0.347</td></tr><tr><td rowspan="1" colspan="1">1882.5</td><td rowspan="1" colspan="1">1525.4</td><td rowspan="1" colspan="1">[–357.53, 392.10]</td><td rowspan="1" colspan="1">1902.1</td><td rowspan="1" colspan="1">1380.0</td><td rowspan="1" colspan="1">[–2279.37, –696.77]**</td><td rowspan="1" colspan="1">(0.170)</td><td rowspan="1" colspan="1">(0.001)†</td><td rowspan="1" colspan="1">(0.001)†</td></tr><tr><td colspan="10" style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1">Hyperlipidemia related variables</td></tr><tr><td rowspan="1" colspan="1">TC</td><td rowspan="1" colspan="1">192.29 <inline-formula id="S3.T5.m29"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w164" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">193.71 <inline-formula id="S3.T5.m30"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w165" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">1.43</td><td rowspan="1" colspan="1">182.93 <inline-formula id="S3.T5.m31"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w166" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">172.07 <inline-formula id="S3.T5.m32"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w167" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–10.86</td><td rowspan="1" colspan="1">0.088</td><td rowspan="1" colspan="1">0.031</td><td rowspan="1" colspan="1">0.051</td></tr><tr><td rowspan="1" colspan="1">(mg·<inline-formula id="S3.T5.m33"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w168" alttext="{}^{-1}" display="inline" overflow="scroll"><mml:msup><mml:mi>dL</mml:mi><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">32.25</td><td rowspan="1" colspan="1">28.96</td><td rowspan="1" colspan="1">[–4.07, 6.92]</td><td rowspan="1" colspan="1">25.91</td><td rowspan="1" colspan="1">29.88</td><td rowspan="1" colspan="1">[–32.56, 10.84]</td><td rowspan="1" colspan="1">(0.126)</td><td rowspan="1" colspan="1">(0.371)</td><td rowspan="1" colspan="1">(0.246)</td></tr><tr><td rowspan="1" colspan="1">TG</td><td rowspan="1" colspan="1">116.93 <inline-formula id="S3.T5.m34"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w169" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">119.24 <inline-formula id="S3.T5.m35"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w170" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">2.31</td><td rowspan="1" colspan="1">107.57 <inline-formula id="S3.T5.m36"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w171" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">89.70 <inline-formula id="S3.T5.m37"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w172" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–17.88</td><td rowspan="1" colspan="1">0.056</td><td rowspan="1" colspan="1">0.036</td><td rowspan="1" colspan="1">0.059</td></tr><tr><td rowspan="1" colspan="1">(mg·<inline-formula id="S3.T5.m38"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w173" alttext="{}^{-1}" display="inline" overflow="scroll"><mml:msup><mml:mi>dL</mml:mi><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">62.91</td><td rowspan="1" colspan="1">50.90</td><td rowspan="1" colspan="1">[–24.78, 29.40]</td><td rowspan="1" colspan="1">34.01</td><td rowspan="1" colspan="1">30.5</td><td rowspan="1" colspan="1">[–38.86, 3.11]</td><td rowspan="1" colspan="1">(0.226)</td><td rowspan="1" colspan="1">(0.336)</td><td rowspan="1" colspan="1">(0.214)</td></tr><tr><td rowspan="1" colspan="1">LDL-C</td><td rowspan="1" colspan="1">118.47 <inline-formula id="S3.T5.m39"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w174" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">122.16 <inline-formula id="S3.T5.m40"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w175" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">3.69</td><td rowspan="1" colspan="1">111.27 <inline-formula id="S3.T5.m41"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w176" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">97.82 <inline-formula id="S3.T5.m42"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w177" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–13.45</td><td rowspan="1" colspan="1">0.076</td><td rowspan="1" colspan="1">0.041</td><td rowspan="1" colspan="1">0.117</td></tr><tr><td rowspan="1" colspan="1">(mg·<inline-formula id="S3.T5.m43"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w178" alttext="{}^{-1}" display="inline" overflow="scroll"><mml:msup><mml:mi>dL</mml:mi><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">36.46</td><td rowspan="1" colspan="1">30.09</td><td rowspan="1" colspan="1">[–1.24, 8.61]</td><td rowspan="1" colspan="1">22.38</td><td rowspan="1" colspan="1">33.4</td><td rowspan="1" colspan="1">[–32.77, 5.87]</td><td rowspan="1" colspan="1">(0.156)</td><td rowspan="1" colspan="1">(0.300)</td><td rowspan="1" colspan="1">(0.075)</td></tr><tr><td rowspan="1" colspan="1">HDL-C</td><td rowspan="1" colspan="1">49.71 <inline-formula id="S3.T5.m44"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w179" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">47.86 <inline-formula id="S3.T5.m45"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w180" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–1.86</td><td rowspan="1" colspan="1">50.14 <inline-formula id="S3.T5.m46"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w181" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">56.30 <inline-formula id="S3.T5.m47"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w182" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">6.16</td><td rowspan="1" colspan="1">0.058</td><td rowspan="1" colspan="1">0.097</td><td rowspan="1" colspan="1">0.271</td></tr><tr><td rowspan="1" colspan="1">(mg·<inline-formula id="S3.T5.m48"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w183" alttext="{}^{-1}" display="inline" overflow="scroll"><mml:msup><mml:mi>dL</mml:mi><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">8.05</td><td rowspan="1" colspan="1">8.65</td><td rowspan="1" colspan="1">[–4.71, 1.00]</td><td rowspan="1" colspan="1">13.48</td><td rowspan="1" colspan="1">8.36</td><td rowspan="1" colspan="1">[1.37, 10.95]*</td><td rowspan="1" colspan="1">(0.217)</td><td rowspan="1" colspan="1">(0.107)</td><td rowspan="1" colspan="1">(0.005)†</td></tr><tr><td colspan="10" style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1">Atherosclerosis related variables</td></tr><tr><td rowspan="1" colspan="1">TC/HDL-C ratio</td><td rowspan="1" colspan="1">3.99 <inline-formula id="S3.T5.m49"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w184" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">4.26 <inline-formula id="S3.T5.m50"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w185" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.27</td><td rowspan="1" colspan="1">3.87 <inline-formula id="S3.T5.m51"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w186" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">3.16 <inline-formula id="S3.T5.m52"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w187" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.71</td><td rowspan="1" colspan="1">0.073</td><td rowspan="1" colspan="1">0.118</td><td rowspan="1" colspan="1">0.395</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">1.27</td><td rowspan="1" colspan="1">1.38</td><td rowspan="1" colspan="1">[–0.02, 0.55]</td><td rowspan="1" colspan="1">1.09</td><td rowspan="1" colspan="1">0.82</td><td rowspan="1" colspan="1">[–1.13, –0.28]**</td><td rowspan="1" colspan="1">(0.164)</td><td rowspan="1" colspan="1">(0.073)</td><td rowspan="1" colspan="1">(0.000)†</td></tr><tr><td rowspan="1" colspan="1">TG/HDL-C ratio</td><td rowspan="1" colspan="1">2.61 <inline-formula id="S3.T5.m53"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w188" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">2.74 <inline-formula id="S3.T5.m54"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w189" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.13</td><td rowspan="1" colspan="1">2.38 <inline-formula id="S3.T5.m55"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w190" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">1.66 <inline-formula id="S3.T5.m56"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w191" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.72</td><td rowspan="1" colspan="1">0.051</td><td rowspan="1" colspan="1">0.078</td><td rowspan="1" colspan="1">0.151</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">2.00</td><td rowspan="1" colspan="1">1.93</td><td rowspan="1" colspan="1">[–0.50, 0.76]</td><td rowspan="1" colspan="1">1.21</td><td rowspan="1" colspan="1">0.73</td><td rowspan="1" colspan="1">[–1.31, –0.14]*</td><td rowspan="1" colspan="1">(0.250)</td><td rowspan="1" colspan="1">(0.150)</td><td rowspan="1" colspan="1">(0.041)†</td></tr><tr><td rowspan="1" colspan="1">LDL-C/HDL-C ratio</td><td rowspan="1" colspan="1">2.50 <inline-formula id="S3.T5.m57"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w192" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">2.71 <inline-formula id="S3.T5.m58"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w193" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.21</td><td rowspan="1" colspan="1">2.39 <inline-formula id="S3.T5.m59"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w194" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">1.83 <inline-formula id="S3.T5.m60"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w195" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.56</td><td rowspan="1" colspan="1">0.073</td><td rowspan="1" colspan="1">0.113</td><td rowspan="1" colspan="1">0.378</td></tr><tr><td rowspan="1" colspan="1"/><td rowspan="1" colspan="1">1.03</td><td rowspan="1" colspan="1">1.08</td><td rowspan="1" colspan="1">[0.00, 0.42]</td><td rowspan="1" colspan="1">0.87</td><td rowspan="1" colspan="1">0.76</td><td rowspan="1" colspan="1">[–0.92, –0.20]**</td><td rowspan="1" colspan="1">(0.165)</td><td rowspan="1" colspan="1">(0.080)</td><td rowspan="1" colspan="1">(0.000)†</td></tr><tr><td rowspan="1" colspan="1">ba-PWV</td><td rowspan="1" colspan="1">1808.4 <inline-formula id="S3.T5.m61"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w196" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">1844.9 <inline-formula id="S3.T5.m62"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w197" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">36.46</td><td rowspan="1" colspan="1">1798.7 <inline-formula id="S3.T5.m63"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w198" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">1733.4 <inline-formula id="S3.T5.m64"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w199" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–65.29</td><td rowspan="1" colspan="1">0.017</td><td rowspan="1" colspan="1">0.026</td><td rowspan="1" colspan="1">0.180</td></tr><tr><td rowspan="1" colspan="1">(cm/s)</td><td rowspan="1" colspan="1">219.4</td><td rowspan="1" colspan="1">164.9</td><td rowspan="1" colspan="1">[–31.46, 104.38]</td><td rowspan="1" colspan="1">200.3</td><td rowspan="1" colspan="1">214.2</td><td rowspan="1" colspan="1">[–127.37, –3.21]*</td><td rowspan="1" colspan="1">(0.504)</td><td rowspan="1" colspan="1">(0.413)</td><td rowspan="1" colspan="1">(0.024)†</td></tr><tr><td colspan="10" style="border-top:1px solid #000;border-bottom:1px solid #000;" rowspan="1">Diabetes mellitus related variables</td></tr><tr><td rowspan="1" colspan="1">FPG</td><td rowspan="1" colspan="1">107.50 <inline-formula id="S3.T5.m65"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w200" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">108.46 <inline-formula id="S3.T5.m66"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w201" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">0.96</td><td rowspan="1" colspan="1">107.79 <inline-formula id="S3.T5.m67"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w202" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">101.04 <inline-formula id="S3.T5.m68"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w203" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–6.75</td><td rowspan="1" colspan="1">0.010</td><td rowspan="1" colspan="1">0.075</td><td rowspan="1" colspan="1">0.126</td></tr><tr><td rowspan="1" colspan="1">(mg·<inline-formula id="S3.T5.m69"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w204" alttext="{}^{-1}" display="inline" overflow="scroll"><mml:msup><mml:mi>dL</mml:mi><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">20.02</td><td rowspan="1" colspan="1">18.10</td><td rowspan="1" colspan="1">[–2.96, 4.89]</td><td rowspan="1" colspan="1">22.70</td><td rowspan="1" colspan="1">12.94</td><td rowspan="1" colspan="1">[–14.40, 0.90]</td><td rowspan="1" colspan="1">(0.605)</td><td rowspan="1" colspan="1">(0.158)</td><td rowspan="1" colspan="1">(0.063)</td></tr><tr><td rowspan="1" colspan="1">FPI</td><td rowspan="1" colspan="1">7.31 <inline-formula id="S3.T5.m70"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w205" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">7.20 <inline-formula id="S3.T5.m71"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w206" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.011</td><td rowspan="1" colspan="1">6.82 <inline-formula id="S3.T5.m72"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w207" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">5.09 <inline-formula id="S3.T5.m73"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w208" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–1.73</td><td rowspan="1" colspan="1">0.116</td><td rowspan="1" colspan="1">0.264</td><td rowspan="1" colspan="1">0.216</td></tr><tr><td rowspan="1" colspan="1">(<inline-formula id="S3.T5.m74"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w209" alttext="\mu" display="inline" overflow="scroll"><mml:mi>μ</mml:mi></mml:math></inline-formula>U·<inline-formula id="S3.T5.m75"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w210" alttext="{}^{-1}" display="inline" overflow="scroll"><mml:msup><mml:mi>mL</mml:mi><mml:mrow><mml:mo>-</mml:mo><mml:mn>1</mml:mn></mml:mrow></mml:msup></mml:math></inline-formula>)</td><td rowspan="1" colspan="1">2.27</td><td rowspan="1" colspan="1">1.82</td><td rowspan="1" colspan="1">[–0.80, 0.57]</td><td rowspan="1" colspan="1">2.30</td><td rowspan="1" colspan="1">1.65</td><td rowspan="1" colspan="1">[–2.85, –0.62]**</td><td rowspan="1" colspan="1">(0.076)</td><td rowspan="1" colspan="1">(0.005)†</td><td rowspan="1" colspan="1">(0.013)†</td></tr><tr><td rowspan="2" style="border-bottom:1px solid #000;" colspan="1">HOMA-IR</td><td rowspan="1" colspan="1">1.98 <inline-formula id="S3.T5.m76"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w211" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">1.95 <inline-formula id="S3.T5.m77"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w212" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.03</td><td rowspan="1" colspan="1">1.92 <inline-formula id="S3.T5.m78"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w213" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">1.28 <inline-formula id="S3.T5.m79"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w214" alttext="\pm" display="inline" overflow="scroll"><mml:mo>±</mml:mo></mml:math></inline-formula></td><td rowspan="1" colspan="1">–0.65</td><td rowspan="1" colspan="1">0.069</td><td rowspan="1" colspan="1">0.259</td><td rowspan="1" colspan="1">0.225</td></tr><tr style="border-bottom:1px solid #000;"><td rowspan="1" colspan="1">0.77</td><td rowspan="1" colspan="1">0.69</td><td rowspan="1" colspan="1">[–0.24, 0.18]</td><td rowspan="1" colspan="1">0.95</td><td rowspan="1" colspan="1">0.50</td><td rowspan="1" colspan="1">[–1.09, –0.21]**</td><td rowspan="1" colspan="1">(0.176)</td><td rowspan="1" colspan="1">(0.006)†</td><td rowspan="1" colspan="1">(0.011)†</td></tr></tbody></table><table-wrap-foot><fn><p>Note: SD, standard deviation; CI, confidence interval; CG, control group; EG, 
+exercise group; SBP, systolic blood pressure; DBP, diastolic blood pressure; MAP, 
+mean arterial pressure; PP, pulse pressure; RPP, rate pressure product; TC, total 
+cholesterol; TG, triglyceride; LDL-C, low density lipoprotein cholesterol; HDL-C, 
+high density lipoprotein cholesterol; ba-PWV, brachial ankle pulse wave velocity; 
+FPG, fasting plasma glucose; FPI, fasting plasma insulin; HOMA-IR, homeostatic 
+model assessment for insulin resistance.</p><p> 
+† Significant interaction or main effect. </p><p>
+* <italic toggle="yes">p </italic><inline-formula id="S3.T5.m80"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w215" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.05; **<italic toggle="yes">p </italic><inline-formula id="S3.T5.m81"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w216" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.01; ***<italic toggle="yes">p </italic><inline-formula id="S3.T5.m82"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w217" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.001 vs. before 
+training.</p></fn></table-wrap-foot></table-wrap><p id="S3.p3">Inflammatory markers and IGF-1 parameters of pre-intervention and 
+post-intervention data for both groups are presented in Fig. <xref rid="S3.F2" ref-type="fig">2</xref>. Inflammatory 
+markers variables showed significant interaction among all values (hs-CRP: 
+<italic toggle="yes">p</italic> = 0.044, <inline-formula id="S3.p3.m1"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w218" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.147, IL-6: <italic toggle="yes">p</italic> = 0.048, 
+<inline-formula id="S3.p3.m3"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w220" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.142). Post-hoc analyses established a significant 
+decrease IL-6 (EG: –0.036 [–0.68, –0.04], <italic toggle="yes">p <inline-formula id="S3.p3.m5"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w222" alttext="&lt;" display="inline" overflow="scroll"><mml:mo mathvariant="normal">&lt;</mml:mo></mml:math></inline-formula></italic> 0.05) in EG. IGF-1 
+showed significant interaction (IGF-1: <italic toggle="yes">p</italic> = 0.037, 
+<inline-formula id="S3.p3.m6"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w223" alttext="\eta{}" display="inline" overflow="scroll"><mml:mi>η</mml:mi></mml:math></inline-formula><sup>2</sup> = 0.157), and IGF-1 (EG: 13.50 [2.04, 24.95], <italic toggle="yes">p 
+<inline-formula id="S3.p3.m8"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w225" alttext="&lt;" display="inline" overflow="scroll"><mml:mo mathvariant="normal">&lt;</mml:mo></mml:math></inline-formula></italic> 0.05) was significantly improved among the EG.</p><fig position="float" id="S3.F2" orientation="portrait"><label>Fig. 2.</label><caption><p><bold>Effects of vascular inflammatory markers, and insulin-like 
+growth factor-1</bold>. (A) High sensitivity C-reactive protein (hs-CRP). (B) 
+Interleukin 6 (IL-6). (C) Insulin-like growth factor-1 (IGF-1). 
+† Significant interaction or main effect. * <italic toggle="yes">p </italic><inline-formula id="S3.F2.m2"><mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="w226" alttext="&lt;" display="inline" overflow="scroll"><mml:mo>&lt;</mml:mo></mml:math></inline-formula> 0.05 vs. 
+before training.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="S3.F2.g1" position="float" orientation="portrait" xlink:href="2153-8174-23-4-134-g2.jpg"/></fig></sec><sec id="S4"><title>4. Discussion</title><p id="S4.p1">In the 12-week circuit training conducted in this study, the average attendance 
+rate was 98% or more, and one person each in the exercise group and the control 
+group dropped out due to personal circumstances. As a side effect of circuit 
+training in this study, there was some muscle pain at the beginning of exercise, 
+but it was quickly recovered. Other than that, there were no specific side 
+effects.</p><p id="S4.p2">Recently, fitness training and circuit training for the elderly were selected as 
+the world’s best health and fitness trends by the ACSM [<xref rid="b18" ref-type="bibr">18</xref>, <xref rid="b19" ref-type="bibr">19</xref>]. This study 
+attempted to investigate the effects of cardiovascular risk factors, vascular 
+inflammatory markers, and IGF-1 on obese women with sarcopenia by conducting 
+circuit training selected as the latest trend for 12 weeks. The results of this 
+study showed a significant decrease in BMI, % body fat, WHR, and significantly 
+increased fat-free mass among the exercise group, contrary to the control group. 
+Generally, combined exercise was reported to induce both reduction of body fat 
+through fat oxidation and increase in muscle mass owing to protein synthesis 
+[<xref rid="b26" ref-type="bibr">26</xref>, <xref rid="b27" ref-type="bibr">27</xref>]. There was little change in body weight as a result of combined exercise. 
+However, it was consistent with the results of previous studies that a decrease 
+in body fat and an increase in lean body mass were observed. In this study, it 
+was suggested that the improvement in body composition was observed without 
+significant changes in weight since the aerobic exercise effective against 
+reducing body fat and the resistance exercise effective against increasing muscle 
+mass was done by the elderly obese women with sarcopenia. Likewise, Vincent 
+<italic toggle="yes">et al</italic>. [<xref rid="b28" ref-type="bibr">28</xref>] reported that combined exercise training aimed at improving 
+sarcopenic obesity and improving body function is effective when training is 
+conducted more than twice a week for at least three months. Based on the results 
+of this study, where a positive effect on body composition was observed by 
+applying combined exercise three times a week for 12 weeks, the period and 
+frequency of circuit exercise conducted in this study was suitable for improving 
+the body composition in women with sarcopenic obesity.</p><p id="S4.p3">Hypertension is a common cause for excessive burden on the heart, which 
+increases the incidence of cardiovascular disease [<xref rid="b29" ref-type="bibr">29</xref>]. SBP and DBP in addition 
+to PP and MAP are also used as indicators for risk prediction of cardiovascular 
+disease such as arteriosclerosis [<xref rid="b30" ref-type="bibr">30</xref>]. Particularly, RPP, which is calculated 
+through the multiplication of SBP and HR, is an indicator of the burden on 
+myocardial muscle, which suggests that low RPP is good for myocardial function 
+and low ischemia [<xref rid="b31" ref-type="bibr">31</xref>]. In this regard, Park <italic toggle="yes">et al</italic>. [<xref rid="b32" ref-type="bibr">32</xref>] argued that the 
+risk of hypertension in the elderly with sarcopenia is higher compared to that of 
+the normal elderly, such that the elderly with sarcopenia should be more 
+interested in preventing hypertension. This study result showed that DBP, PP, and 
+MAP tended to decrease, while HRrest, SBP, and RPP were significantly reduced. 
+The previous study reported a significant decrease in SBP, DBP, HRrest, and RPP 
+after exercise [<xref rid="b33" ref-type="bibr">33</xref>, <xref rid="b34" ref-type="bibr">34</xref>] but it is interpreted that only significant decrease in 
+HRrest, SBP, and RPP in this study, and no significant decrease in blood pressure 
+since it is within normal range. Batrakoulis<italic toggle="yes"> et al</italic>. [<xref rid="b35" ref-type="bibr">35</xref>] studies that 
+conducted 20-week circuit exercise training for overweight and obese women showed 
+an improvement in average arterial pressure, which is believed to require 
+longer-term exercise for variables related to blood pressure. However, given the 
+significant changes in the RPP, which suggests there is a burden on myocardial 
+muscles along with the decrease in HRrest and SBP, it can be concluded that the 
+12-week circuit conducted in this study is likely to result to an improvement in 
+the cardiovascular functions among women with sarcopenic obesity.</p><p id="S4.p4">Regular exercises have a positive effect on changes in hyperlipidemia, while 
+long-term exercise regime is known to reduce TC, TG, and LDL-C and increase HDL-C 
+[<xref rid="b36" ref-type="bibr">36</xref>]. However, in this study, TC, TG, and LDL-C were reduced, despite no 
+significant changes made, and only HDL-C was significantly increased, resulting 
+in rather different outcomes from the preceding study. In the preceding study, TC 
+and LDL-C have been reported to be effectively reduced during the exercise 
+periods, when they are high in exercise and involve weight loss [<xref rid="b37" ref-type="bibr">37</xref>]. In this 
+study, it is construed that the lack of significant weight loss in exercise 
+groups was limited to the changes in TC and LDL-C. Therefore, it is expected that 
+further action involving higher-intensity exercise, as well as weight changes, 
+will provide a clean-up in regards to problems such as changes in TC and LDL-C. 
+Moreover, in this study, the HDL-C was significantly increased through the 
+12-week circulation exercise. In this regard, Tambalis <italic toggle="yes">et al</italic>. [<xref rid="b36" ref-type="bibr">36</xref>] 
+reported an increase in HDL-C when exercising at least 75% of HRmax and is 
+consistent with the strength of the motion conducted in this study. Consequently, 
+the cyclical motion programs taken care of in this study are effective against 
+the increase in HDL-C among women with sarcopenic obesity.</p><p id="S4.p5">The 12-week circuit exercises on arteriosclerosis-related variables in elderly 
+obesity women with sarcopenia was found to significantly reduce in all variants 
+of the exercise group. High strength training is suggested to improve the 
+arteriosclerosis index for the elderly [<xref rid="b36" ref-type="bibr">36</xref>, <xref rid="b38" ref-type="bibr">38</xref>], however, given the results of a 
+study that showed significant effects in low intensity in older adults with 
+illnesses [<xref rid="b39" ref-type="bibr">39</xref>], the intensity of the exercise conducted in older adults with 
+sarcopenia and obesity diseases as per the current study was deemed appropriate.</p><p id="S4.p6">Exercise training, one of the methods of improving insulin resistance is very 
+effective and acts by increasing the expression of free fatty acid oxidation and 
+blood glucose transportation, thereby regulating blood glucose and enhance the 
+insulin sensitivity [<xref rid="b40" ref-type="bibr">40</xref>, <xref rid="b41" ref-type="bibr">41</xref>, <xref rid="b42" ref-type="bibr">42</xref>]. In this regard, Mann <italic toggle="yes">et al</italic>. [<xref rid="b43" ref-type="bibr">43</xref>] reported 
+that combined treatment through resistance and aerobic exercise was more 
+effective in enhancing insulin resistance as compared to single exercise. In this 
+study, there was no significant change in fasting blood glucose after exercise 
+training, despite significant reduction in fasting insulin and HOMA-IR. This 
+suggests that insulin sensitivity is improved through regular exercise, and so is 
+the ability to control fasting blood glucose from a small amount of fasting 
+insulin. Therefore, circuit exercise is believed to contribute to the prevention 
+and improvement of diabetes in the elderly obese women with sarcopenia.</p><p id="S4.p7">In this study, hs-CRP and IL-6 were significantly decreased in the exercise 
+group after 12 weeks of circuit exercise. hs-CRP and IL-6 were found to have a 
+positive correlation with body fat mass and a negative correlation to muscle 
+mass, and two variables have been reported to be closely related to sarcopenic 
+obesity [<xref rid="b44" ref-type="bibr">44</xref>]. This suggests that the improvement in body composition, such as the 
+decrease in body fat and the increase in fat-free mass, is associated with the 
+improvement of inflammatory indicators in this study. In addition, Beyer 
+<italic toggle="yes">et al</italic>. [<xref rid="b45" ref-type="bibr">45</xref>] reported that the duration of exercise in the previous 
+study, which showed significant changes in inflammatory markers through exercise 
+training, varied from 10 weeks to 18 months, while the frequency varying from 1 
+to 3 times a week, with a moderate intensity. Therefore, the circuit exercise was 
+found to be effective against inflammatory markers among the elderly obese women 
+with sarcopenia.</p><p id="S4.p8">IGF-1 was negatively correlated to % body fat, positively correlated to 
+fat-free mass, and reported to decrease as a result of aging [<xref rid="b46" ref-type="bibr">46</xref>, <xref rid="b47" ref-type="bibr">47</xref>]. Therefore, 
+it is inferred that IGF-1 levels are low in sarcopenic obese elderly people with 
+increased body fat and decreased muscle mass. The preceding studies examining the 
+effects of exercise training on IGF-1 are as follows: In Chen <italic toggle="yes">et al</italic>. 
+[<xref rid="b48" ref-type="bibr">48</xref>], IGF-1 significantly increased after 8 weeks of combined exercise. 
+Annibalini <italic toggle="yes">et al</italic>. [<xref rid="b49" ref-type="bibr">49</xref>] also found out that IGF-1 significantly increased 
+after 16 weeks of combined exercise. In the current study, a 12-week circuit 
+exercise regime was conducted among elderly obese women with sarcopenia, and the 
+IGF-1 increased significantly, which is consistent with the previous studies.</p><p id="S4.p9">In summary, these results suggest that 12 weeks of circuit exercise could be 
+presented as an effective way to improved sarcopenic obesity and enhance health 
+through improvement of body composition, cardiovascular risk factors, 
+inflammatory markers, and IGF-1 in elderly obese women with sarcopenia. This 
+study had some limitations. We included only elderly women living in the 
+community-dwelling. In addition, despite the positive effects on health-related 
+variables and ASM values through circulation exercise, the subjects still fall 
+under sarcopenia. In order to eliminate this limitation in the future, it is 
+judged that it is necessary to combine nutritional intake such as protein intake 
+or to conduct additional research with a longer-term and different intensity. It 
+should also include men with sarcopenia and the elderly living in hospitals and 
+nursing homes.</p></sec><sec id="S5"><title>5. Conclusions</title><p id="S5.p1">This study investigated the effects of a 12-week circuit training program on 
+cardiovascular risk factors, vascular inflammatory markers, and IGF-1 in elderly 
+obese women with sarcopenia. The key results obtained from this study are as 
+follows: The BMI, fat-free mass, % body mass, and WHR were significantly 
+improved in the exercise group. Among Cardiovascular risk factors, heart rate, 
+SBP, RPP, HDL-C, TC/HDL-C ratio, TG/HDL-C ratio, LDL-C/HDL-C ratio, ba-PWV, 
+fasting insulin, and HOMA-IR were significantly improved in the exercise group. 
+hs-CRP and IL-6 had their inflammatory index significantly decreased among the 
+exercise group participants, and IGF-1 was significantly increased. Therefore, 
+the findings of this study indicate that circuit exercise has a positive effect 
+on the improvement of cardiovascular risk factors, vascular inflammatory markers, 
+and IGF-1 in elderly obese women with sarcopenia. Further research is required to 
+investigate the effects of various types, intensity, time, frequency, and 
+duration of exercise treatment on elderly people with sarcopenic obesity.</p></sec></body><back><ack><title>Acknowledgment</title><p id="S8.p1">This paper was supported by the KU Research Professor Program of Konkuk 
+University.</p></ack><sec id="S6"><title>Author contributions</title><p id="S6.p1">WSJ, YYK and HYP designed the research study. WSJ, YYK and JWK performed the 
+research and WSJ analyzed the data. The first draft of the manuscript was written 
+by WSJ and YYK with supervision by HYP. JWK provided specialist expertise and 
+advice regarding manuscript content and contributed to the final manuscript. All 
+authors participated in the editorial changes of the manuscript, and read and 
+approved the final manuscript.</p></sec><sec id="S7"><title>Ethics approval and consent to participate</title><p id="S7.p1">This study was approved by the Institutional Review Board of Kyunghee University 
+(KHSIRB-16-016) in Korea and was conducted according to the Declaration of 
+Helsinki. 
+</p></sec><sec id="S9"><title>Funding</title><p id="S9.p1">This work was supported by the National Research Foundation of Korea (NRF) grant 
+funded by the Korea government (MSIT) (NRF-2020R1G1A1101545).</p></sec><sec sec-type="COI-statement" id="S10"><title>Conflict of interest</title><p id="S10.p1">The authors declare no conflict of interest. 
+</p></sec><ref-list><title>References</title><ref id="b1"><label>[1]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Batsis</surname><given-names>JA</given-names></name>
+<name name-style="western"><surname>Villareal</surname><given-names>DT</given-names></name>
+</person-group><article-title>Sarcopenic obesity in older adults: aetiology, epidemiology and treatment strategies</article-title><source>
+<italic toggle="yes">Nature Reviews Endocrinology</italic>
+</source><year>2018</year><volume>14</volume><fpage>513</fpage><lpage>537</lpage><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41574-018-0062-9</pub-id><pub-id pub-id-type="pmcid">PMC6241236</pub-id><pub-id pub-id-type="pmid">30065268</pub-id></element-citation></ref><ref id="b2"><label>[2]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Wannamethee</surname><given-names>SG</given-names></name>
+<name name-style="western"><surname>Atkins</surname><given-names>JL</given-names></name>
+</person-group><article-title>Muscle loss and obesity: the health implications of sarcopenia and sarcopenic obesity</article-title><source>
+<italic toggle="yes">Proceedings of the Nutrition Society</italic>
+</source><year>2015</year><volume>74</volume><fpage>405</fpage><lpage>412</lpage><pub-id pub-id-type="pmid">25913270</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1017/S002966511500169X</pub-id></element-citation></ref><ref id="b3"><label>[3]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Roh</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Choi</surname><given-names>KM</given-names></name>
+</person-group><article-title>Health consequences of sarcopenic obesity: a narrative review</article-title><source>
+<italic toggle="yes">Frontiers in Endocrinology</italic>
+</source><year>2020</year><volume>11</volume><fpage>332</fpage><pub-id pub-id-type="pmid">32508753</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fendo.2020.00332</pub-id><pub-id pub-id-type="pmcid">PMC7253580</pub-id></element-citation></ref><ref id="b4"><label>[4]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Trifiro</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Alacqua</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Corrao</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Tari</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Arcoraci</surname><given-names>V</given-names></name>
+</person-group><article-title>Statins for the primary prevention of cardiovascular events in elderly patients: a picture from clinical practice without strong evidence from clinical trials</article-title><source>
+<italic toggle="yes">Journal of the American Geriatrics Society</italic>
+</source><year>2008</year><volume>56</volume><fpage>175</fpage><lpage>177</lpage><pub-id pub-id-type="pmid">18184214</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/j.1532-5415.2007.01486.x</pub-id></element-citation></ref><ref id="b5"><label>[5]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Abbatecola</surname><given-names>AM</given-names></name>
+<name name-style="western"><surname>Paolisso</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Fattoretti</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Evans</surname><given-names>WJ</given-names></name>
+<name name-style="western"><surname>Fiore</surname><given-names>V</given-names></name>
+<name name-style="western"><surname>Dicioccio</surname><given-names>L</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Discovering pathways of sarcopenia in older adults: a role for insulin resistance on mitochondria dysfunction</article-title><source>
+<italic toggle="yes">The Journal of Nutrition, Health &amp; Aging</italic>
+</source><year>2011</year><volume>15</volume><fpage>890</fpage><lpage>895</lpage><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s12603-011-0366-0</pub-id><pub-id pub-id-type="pmid">22159778</pub-id></element-citation></ref><ref id="b6"><label>[6]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Morley</surname><given-names>JE</given-names></name>
+</person-group><article-title>Hormones and sarcopenia</article-title><source>
+<italic toggle="yes">Current Pharmaceutical Design</italic>
+</source><year>2017</year><volume>23</volume><fpage>4484</fpage><lpage>4492</lpage><pub-id pub-id-type="pmid">27881060</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.2174/1381612823666161123150032</pub-id></element-citation></ref><ref id="b7"><label>[7]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Ryu</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Jo</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Lee</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Chung</surname><given-names>YS</given-names></name>
+<name name-style="western"><surname>Kim</surname><given-names>KM</given-names></name>
+<name name-style="western"><surname>Baek</surname><given-names>WC</given-names></name>
+</person-group><article-title>Association of physical activity with sarcopenia and sarcopenic obesity in community-dwelling older adults: the Fourth Korea National Health and Nutrition Examination Survey</article-title><source>
+<italic toggle="yes">Age Ageing</italic>
+</source><year>2013</year><volume>42</volume><fpage>734</fpage><lpage>740</lpage><pub-id pub-id-type="pmid">23761456</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/ageing/aft063</pub-id></element-citation></ref><ref id="b8"><label>[8]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Wang</surname><given-names>JC</given-names></name>
+<name name-style="western"><surname>Bennett</surname><given-names>M</given-names></name>
+</person-group><article-title>Aging and atherosclerosis</article-title><source>
+<italic toggle="yes">Circulation Research</italic>
+</source><year>2012</year><volume>111</volume><fpage>245</fpage><lpage>259</lpage><pub-id pub-id-type="pmid">22773427</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1161/CIRCRESAHA.111.261388</pub-id></element-citation></ref><ref id="b9"><label>[9]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Atkins</surname><given-names>JL</given-names></name>
+<name name-style="western"><surname>Wannamathee</surname><given-names>SG</given-names></name>
+</person-group><article-title>Sarcopenic obesity in ageing: cardiovascular outcomes and mortality</article-title><source>
+<italic toggle="yes">British Journal of Nutrition</italic>
+</source><year>2020</year><volume>124</volume><fpage>1102</fpage><lpage>1113</lpage><pub-id pub-id-type="pmid">32616084</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1017/S0007114520002172</pub-id></element-citation></ref><ref id="b10"><label>[10]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Abbatecola</surname><given-names>AM</given-names></name>
+<name name-style="western"><surname>Chiodini</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Gallo</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Lakatta</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Sutton-Tyrrell</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Tylavsky</surname><given-names>FA</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Pulse wave velocity is associated with muscle mass decline: Health ABC study</article-title><source>
+<italic toggle="yes">Age</italic>
+</source><year>2012</year><volume>34</volume><fpage>469</fpage><lpage>478</lpage><pub-id pub-id-type="pmid">21479573</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11357-011-9238-0</pub-id><pub-id pub-id-type="pmcid">PMC3312626</pub-id></element-citation></ref><ref id="b11"><label>[11]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Serra</surname><given-names>JR</given-names></name>
+</person-group><article-title>Clinical consequences of sarcopenia</article-title><source>
+<italic toggle="yes">Nutricion Hospitalaria</italic>
+</source><year>2006</year><volume>21</volume><fpage>46</fpage><lpage>50</lpage><pub-id pub-id-type="pmid">16768030</pub-id></element-citation></ref><ref id="b12"><label>[12]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Singh</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Newman</surname><given-names>AB</given-names></name>
+</person-group><article-title>Inflammatory markers in population studies of aging</article-title><source>
+<italic toggle="yes">Ageing Research Reviews</italic>
+</source><year>2011</year><volume>10</volume><fpage>319</fpage><lpage>329</lpage><pub-id pub-id-type="pmid">21145432</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.arr.2010.11.002</pub-id><pub-id pub-id-type="pmcid">PMC3098911</pub-id></element-citation></ref><ref id="b13"><label>[13]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Koliaki</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Liatis</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Dalamaga</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Kokkinos</surname><given-names>A</given-names></name>
+</person-group><article-title>Sarcopenic obesity: epidemiologic evidence, pathophysiology, and therapeutic perspectives</article-title><source>
+<italic toggle="yes">Current Obesity Reports</italic>
+</source><year>2019</year><volume>8</volume><fpage>458</fpage><lpage>471</lpage><pub-id pub-id-type="pmid">31654335</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s13679-019-00359-9</pub-id></element-citation></ref><ref id="b14"><label>[14]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Bouchonville</surname><given-names>MF</given-names></name>
+<name name-style="western"><surname>Villareal</surname><given-names>DT</given-names></name>
+</person-group><article-title>Sarcopenic Obesity–How Do We Treat It</article-title><source>
+<italic toggle="yes">Current Opinion in Endocrinology, Diabetes and Obesity</italic>
+</source><year>2013</year><volume>20</volume><fpage>412</fpage><lpage>419</lpage><pub-id pub-id-type="pmid">23974769</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/01.med.0000433071.11466.7f</pub-id><pub-id pub-id-type="pmcid">PMC4046899</pub-id></element-citation></ref><ref id="b15"><label>[15]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Hunter</surname><given-names>GR</given-names></name>
+<name name-style="western"><surname>McCarthy</surname><given-names>JP</given-names></name>
+<name name-style="western"><surname>Bamman</surname><given-names>MM</given-names></name>
+</person-group><article-title>Effects of resistance training on older adults</article-title><source>
+<italic toggle="yes">Sports Medicine</italic>
+</source><year>2004</year><volume>34</volume><fpage>329</fpage><lpage>348</lpage><pub-id pub-id-type="pmid">15107011</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.2165/00007256-200434050-00005</pub-id></element-citation></ref><ref id="b16"><label>[16]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Simons</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Andel</surname><given-names>R</given-names></name>
+</person-group><article-title>The effects of resistance training and walking on functional fitness in advanced old age</article-title><source>
+<italic toggle="yes">Journal of Aging and Health</italic>
+</source><year>2006</year><volume>18</volume><fpage>91</fpage><lpage>105</lpage><pub-id pub-id-type="pmid">16470977</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1177/0898264305281102</pub-id></element-citation></ref><ref id="b17"><label>[17]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Jung</surname><given-names>WS</given-names></name>
+<name name-style="western"><surname>Kim</surname><given-names>YY</given-names></name>
+<name name-style="western"><surname>Park</surname><given-names>HY</given-names></name>
+</person-group><article-title>Circuit Training Improvements in Korean Women with Sarcopenia</article-title><source>
+<italic toggle="yes">Perceptual and Motor Skills</italic>
+</source><year>2019</year><volume>126</volume><fpage>828</fpage><lpage>842</lpage><pub-id pub-id-type="pmid">31284844</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1177/0031512519860637</pub-id></element-citation></ref><ref id="b18"><label>[18]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Kercher</surname><given-names>VM</given-names></name>
+<name name-style="western"><surname>Kercher</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Bennion</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Levy</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Alexander</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Amaral</surname><given-names>PC</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>2022 Fitness Trends from Around the Globe</article-title><source>
+<italic toggle="yes">ACSM’s Health &amp; Fitness Journal</italic>
+</source><year>2022</year><volume>26</volume><fpage>21</fpage><lpage>37</lpage></element-citation></ref><ref id="b19"><label>[19]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Kercher</surname><given-names>VM</given-names></name>
+<name name-style="western"><surname>Kercher</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Bennion</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Yates</surname><given-names>BA</given-names></name>
+<name name-style="western"><surname>Feito</surname><given-names>Y</given-names></name>
+<name name-style="western"><surname>Alexander</surname><given-names>C</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Fitness Trends from around the globe</article-title><source>
+<italic toggle="yes">ACSM’s Health &amp; Fitness Journal</italic>
+</source><year>2021</year><volume>25</volume><fpage>20</fpage><lpage>31</lpage></element-citation></ref><ref id="b20"><label>[20]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Chen</surname><given-names>LK</given-names></name>
+<name name-style="western"><surname>Liu</surname><given-names>LK</given-names></name>
+<name name-style="western"><surname>Woo</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Assantachai</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Auyeung</surname><given-names>TW</given-names></name>
+<name name-style="western"><surname>Bahyah</surname><given-names>KS</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Sarcopenia in Asia: consensus report of the Asian working group for sarcopenia</article-title><source>
+<italic toggle="yes">Journal of the American Medical Directors Association</italic>
+</source><year>2014</year><volume>15</volume><fpage>95</fpage><lpage>101</lpage><pub-id pub-id-type="pmid">24461239</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jamda.2013.11.025</pub-id></element-citation></ref><ref id="b21"><label>[21]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Baumgartner</surname><given-names>RN</given-names></name>
+<name name-style="western"><surname>Wayne</surname><given-names>SJ</given-names></name>
+<name name-style="western"><surname>Waters</surname><given-names>DL</given-names></name>
+<name name-style="western"><surname>Janssen</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Gallagher</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Morley</surname><given-names>JE</given-names></name>
+</person-group><article-title>Sarcopenic obesity predicts instrumental activities of daily living disability in the elderly</article-title><source>
+<italic toggle="yes">Obesity Research</italic>
+</source><year>2004</year><volume>12</volume><fpage>1995</fpage><lpage>2004</lpage><pub-id pub-id-type="pmid">15687401</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/oby.2004.250</pub-id></element-citation></ref><ref id="b22"><label>[22]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Sprigg</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Gray</surname><given-names>LJ</given-names></name>
+<name name-style="western"><surname>Bath</surname><given-names>PM</given-names></name>
+<name name-style="western"><surname>Boysen</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>De Deyn</surname><given-names>PP</given-names></name>
+<name name-style="western"><surname>Friis</surname><given-names>P</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Relationship between outcome and baseline blood pressure and other haemodynamic measures in acute ischaemic stroke: data from the TAIST trial</article-title><source>
+<italic toggle="yes">Journal of Hypertension</italic>
+</source><year>2006</year><volume>24</volume><fpage>1413</fpage><lpage>1417</lpage><pub-id pub-id-type="pmid">16794492</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/01.hjh.0000234123.55895.12</pub-id></element-citation></ref><ref id="b23"><label>[23]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Salazar</surname><given-names>MR</given-names></name>
+<name name-style="western"><surname>Carbajal</surname><given-names>HA</given-names></name>
+<name name-style="western"><surname>Espeche</surname><given-names>WG</given-names></name>
+<name name-style="western"><surname>Leiva Sisnieguez</surname><given-names>CE</given-names></name>
+<name name-style="western"><surname>Balbín</surname><given-names>E</given-names></name>
+<name name-style="western"><surname>Dulbecco</surname><given-names>CA</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Relation among the plasma triglyceride/high-density lipoprotein cholesterol concentration ratio, insulin resistance, and associated cardio-metabolic risk factors in men and women</article-title><source>
+<italic toggle="yes">The American Journal of Cardiology</italic>
+</source><year>2012</year><volume>109</volume><fpage>1749</fpage><lpage>53</lpage><pub-id pub-id-type="pmid">22449634</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.amjcard.2012.02.016</pub-id></element-citation></ref><ref id="b24"><label>[24]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Meyer</surname><given-names>ML</given-names></name>
+<name name-style="western"><surname>Tanaka</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Palta</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Cheng</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Gouskova</surname><given-names>N</given-names></name>
+<name name-style="western"><surname>Aguilar</surname><given-names>D</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Correlates of segmental pulse wave velocity in older adults: The Atherosclerosis Risk in Communities (ARIC) Study</article-title><source>
+<italic toggle="yes">American Journal of Hypertension</italic>
+</source><year>2016</year><volume>29</volume><fpage>114</fpage><lpage>22</lpage><pub-id pub-id-type="pmid">26045531</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/ajh/hpv079</pub-id><pub-id pub-id-type="pmcid">PMC4692984</pub-id></element-citation></ref><ref id="b25"><label>[25]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Matthews</surname><given-names>DR</given-names></name>
+<name name-style="western"><surname>Hosker</surname><given-names>JP</given-names></name>
+<name name-style="western"><surname>Rudenski</surname><given-names>AS</given-names></name>
+<name name-style="western"><surname>Naylor</surname><given-names>BA</given-names></name>
+<name name-style="western"><surname>Treacher</surname><given-names>DF</given-names></name>
+<name name-style="western"><surname>Turner</surname><given-names>RC</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Homeostasis model assessment: insulin resistance and ᵝ-cell function from fasting plasma glucose and insulin concentrations in man</article-title><source>
+<italic toggle="yes">Diabetologia</italic>
+</source><year>1985</year><volume>28</volume><fpage>412</fpage><lpage>419</lpage><pub-id pub-id-type="pmid">3899825</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/BF00280883</pub-id></element-citation></ref><ref id="b26"><label>[26]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Gary</surname><given-names>RA</given-names></name>
+<name name-style="western"><surname>Sueta</surname><given-names>CA</given-names></name>
+<name name-style="western"><surname>Dougherty</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Rosenberg</surname><given-names>B</given-names></name>
+<name name-style="western"><surname>Cheek</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Preisser</surname><given-names>J</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Home-based exercise improves functional performance and quality of life in women with diastolic heart failure</article-title><source>
+<italic toggle="yes">Heart Lung</italic>
+</source><year>2004</year><volume>33</volume><fpage>210</fpage><lpage>218</lpage><pub-id pub-id-type="pmid">15252410</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.hrtlng.2004.01.004</pub-id></element-citation></ref><ref id="b27"><label>[27]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Colleluori</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Aguirre</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Phadnis</surname><given-names>U</given-names></name>
+<name name-style="western"><surname>Fowler</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Armamento-Villareal</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Sun</surname><given-names>Z</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Aerobic plus resistance exercise in obese older adults improves muscle protein synthesis and preserves myocellular quality despite weight loss</article-title><source>
+<italic toggle="yes">Cell Emetabolism</italic>
+</source><year>2019</year><volume>30</volume><fpage>261</fpage><lpage>273</lpage><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cmet.2019.06.008</pub-id><pub-id pub-id-type="pmcid">PMC6685749</pub-id><pub-id pub-id-type="pmid">31279675</pub-id></element-citation></ref><ref id="b28"><label>[28]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Vincent</surname><given-names>HK</given-names></name>
+<name name-style="western"><surname>Raiser</surname><given-names>SN</given-names></name>
+<name name-style="western"><surname>Vincent</surname><given-names>KR</given-names></name>
+</person-group><article-title>The aging musculoskeletal system and obesity-related considerations with exercise</article-title><source>
+<italic toggle="yes">Ageing Research Reviews</italic>
+</source><year>2012</year><volume>11</volume><fpage>361</fpage><lpage>373</lpage><pub-id pub-id-type="pmid">22440321</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.arr.2012.03.002</pub-id><pub-id pub-id-type="pmcid">PMC3356456</pub-id></element-citation></ref><ref id="b29"><label>[29]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Franklin</surname><given-names>SS</given-names></name>
+<name name-style="western"><surname>Larson</surname><given-names>MG</given-names></name>
+<name name-style="western"><surname>Khan</surname><given-names>SA</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Does the relation of blood pressure to coronary heart disease risk change with aging</article-title><source>
+<italic toggle="yes">Circulation</italic>
+</source><year>2001</year><volume>103</volume><fpage>1245</fpage><lpage>9</lpage><pub-id pub-id-type="pmid">11238268</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1161/01.cir.103.9.1245</pub-id></element-citation></ref><ref id="b30"><label>[30]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Chilton</surname><given-names>R</given-names></name>
+<name name-style="western"><surname>Tikkanen</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Cannon</surname><given-names>CP</given-names></name>
+<name name-style="western"><surname>Wong</surname><given-names>ND</given-names></name>
+<name name-style="western"><surname>Leip</surname><given-names>EP</given-names></name>
+<name name-style="western"><surname>Kannel</surname><given-names>WB</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Effects of empagliflozin on blood pressure and markers of arterial stiffness and vascular resistance in patients with type 2 diabetes</article-title><source>
+<italic toggle="yes">Diabetes, Obesity and Metabolism</italic>
+</source><year>2015</year><volume>17</volume><fpage>1180</fpage><lpage>1193</lpage><pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/dom.12572</pub-id><pub-id pub-id-type="pmcid">PMC5057299</pub-id><pub-id pub-id-type="pmid">26343814</pub-id></element-citation></ref><ref id="b31"><label>[31]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Ansari</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Javadi</surname><given-names>H</given-names></name>
+<name name-style="western"><surname>Pourbehi</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Mogharrabi</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Rayzan</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Semnani</surname><given-names>S</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>The association of rate pressure product (RPP) and myocardial perfusion imaging (MPI) findings: a preliminary study</article-title><source>
+<italic toggle="yes">Perfusion</italic>
+</source><year>2012</year><volume>27</volume><fpage>207</fpage><lpage>213</lpage><pub-id pub-id-type="pmid">22301391</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1177/0267659112436631</pub-id></element-citation></ref><ref id="b32"><label>[32]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Park</surname><given-names>SH</given-names></name>
+<name name-style="western"><surname>Park</surname><given-names>JH</given-names></name>
+<name name-style="western"><surname>Song</surname><given-names>PS</given-names></name>
+<name name-style="western"><surname>Kim</surname><given-names>DK</given-names></name>
+<name name-style="western"><surname>Kim</surname><given-names>KH</given-names></name>
+<name name-style="western"><surname>Seol</surname><given-names>SH</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Sarcopenic obesity as an independent risk factor of hypertension</article-title><source>
+<italic toggle="yes">Journal of the American Society of Hypertension</italic>
+</source><year>2013</year><volume>7</volume><fpage>420</fpage><lpage>425</lpage><pub-id pub-id-type="pmid">23910010</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jash.2013.06.002</pub-id></element-citation></ref><ref id="b33"><label>[33]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Figueroa</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Park</surname><given-names>SY</given-names></name>
+<name name-style="western"><surname>Seo</surname><given-names>DY</given-names></name>
+<name name-style="western"><surname>Sanchez-Gonzalez</surname><given-names>MA</given-names></name>
+<name name-style="western"><surname>Baek</surname><given-names>YH</given-names></name>
+</person-group><article-title>Combined resistance and endurance exercise training improves arterial stiffness, blood pressure, and muscle strength in postmenopausal women</article-title><source>
+<italic toggle="yes">Menopause</italic>
+</source><year>2011</year><volume>18</volume><fpage>980</fpage><lpage>984</lpage><pub-id pub-id-type="pmid">21540753</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/gme.0b013e3182135442</pub-id></element-citation></ref><ref id="b34"><label>[34]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Corrick</surname><given-names>KL</given-names></name>
+<name name-style="western"><surname>Hunter</surname><given-names>GR</given-names></name>
+<name name-style="western"><surname>Fisher</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Glasser</surname><given-names>SP</given-names></name>
+</person-group><article-title>Changes in vascular hemodynamics in older women following 16 weeks of combined aerobic and resistance training</article-title><source>
+<italic toggle="yes">The Journal of Clinical Hypertension</italic>
+</source><year>2013</year><volume>15</volume><fpage>241</fpage><lpage>246</lpage><pub-id pub-id-type="pmid">23551723</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/jch.12050</pub-id><pub-id pub-id-type="pmcid">PMC3771333</pub-id></element-citation></ref><ref id="b35"><label>[35]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Batrakoulis</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Jamurtas</surname><given-names>AZ</given-names></name>
+<name name-style="western"><surname>Draganidis</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Georgakouli</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Tsimeas</surname><given-names>P</given-names></name>
+<name name-style="western"><surname>Poulios</surname><given-names>A</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Hybrid Neuromuscular Training Improves Cardiometabolic Health and Alters Redox Status in Inactive Overweight and Obese Women: A Randomized Controlled Trial</article-title><source>
+<italic toggle="yes">Antioxidants</italic>
+</source><year>2021</year><volume>10</volume><fpage>1601</fpage><pub-id pub-id-type="pmid">34679738</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/antiox10101601</pub-id><pub-id pub-id-type="pmcid">PMC8533161</pub-id></element-citation></ref><ref id="b36"><label>[36]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Tambalis</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Panagiotakos</surname><given-names>DB</given-names></name>
+<name name-style="western"><surname>Kavouras</surname><given-names>SA</given-names></name>
+<name name-style="western"><surname>Sidossis</surname><given-names>LS</given-names></name>
+</person-group><article-title>Responses of blood lipids to aerobic, resistance, and combined aerobic with resistance exercise training: A systematic review of current evidence</article-title><source>
+<italic toggle="yes">Angiology</italic>
+</source><year>2009</year><volume>60</volume><fpage>614</fpage><lpage>632</lpage><pub-id pub-id-type="pmid">18974201</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1177/0003319708324927</pub-id></element-citation></ref><ref id="b37"><label>[37]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Paoli</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Pacelli</surname><given-names>QF</given-names></name>
+<name name-style="western"><surname>Moro</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Marcolin</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Neri</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Battaglia</surname><given-names>G</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Effects of high-intensity circuit training, low-intensity circuit training and endurance training on blood pressure and lipoproteins in middle-aged overweight men</article-title><source>
+<italic toggle="yes">Lipids in Health and Disease</italic>
+</source><year>2013</year><volume>12</volume><fpage>131</fpage><lpage>138</lpage><pub-id pub-id-type="pmid">24004639</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/1476-511X-12-131</pub-id><pub-id pub-id-type="pmcid">PMC3846819</pub-id></element-citation></ref><ref id="b38"><label>[38]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Colquhoun</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Keech</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Hunt</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Marschner</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Simes</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Glasziou</surname><given-names>P</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Effects of pravastatin on coronary events in 2073 patients with low levels of both low-density lipoprotein cholesterol and high-density lipoprotein cholesterol</article-title><source>
+<italic toggle="yes">European Heart Journal</italic>
+</source><year>2004</year><volume>25</volume><fpage>771</fpage><lpage>777</lpage><pub-id pub-id-type="pmid">15120888</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.ehj.2004.03.013</pub-id></element-citation></ref><ref id="b39"><label>[39]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Fernandez</surname><given-names>ML</given-names></name>
+<name name-style="western"><surname>Webb</surname><given-names>D</given-names></name>
+</person-group><article-title>The LDL to HDL cholesterol ratio as a valuable tool to evaluate coronary heart disease risk</article-title><source>
+<italic toggle="yes">Journal of the American Nutrition Association</italic>
+</source><year>2008</year><volume>27</volume><fpage>1</fpage><lpage>5</lpage><pub-id pub-id-type="doi" assigning-authority="pmc">10.1080/07315724.2008.10719668</pub-id><pub-id pub-id-type="pmid">18460475</pub-id></element-citation></ref><ref id="b40"><label>[40]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Sanz</surname><given-names>
+C</given-names></name>
+<name name-style="western"><surname>Gautier</surname><given-names>JF</given-names></name>
+<name name-style="western"><surname>Hanaire</surname><given-names>H</given-names></name>
+</person-group><article-title>Physical exercise for the prevention and treatment of type 2 diabetes</article-title><source>
+<italic toggle="yes">Diabetes and Metabolism</italic>
+</source><year>2010</year><volume>36</volume><fpage>346</fpage><lpage>351</lpage><pub-id pub-id-type="pmid">20675173</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.diabet.2010.06.001</pub-id></element-citation></ref><ref id="b41"><label>[41]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Black</surname><given-names>LE</given-names></name>
+<name name-style="western"><surname>Swan</surname><given-names>PD</given-names></name>
+<name name-style="western"><surname>Alvar</surname><given-names>BA</given-names></name>
+</person-group><article-title>Effects of intensity and volume on insulin sensitivity during acute bouts of resistance training</article-title><source>
+<italic toggle="yes">The Journal of Strength and Conditioning Research</italic>
+</source><year>2010</year><volume>24</volume><fpage>1109</fpage><lpage>1116</lpage><pub-id pub-id-type="pmid">20093961</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1519/JSC.0b013e3181cbab6d</pub-id></element-citation></ref><ref id="b42"><label>[42]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>O’Leary</surname><given-names>VB</given-names></name>
+<name name-style="western"><surname>Marchetti</surname><given-names>CM</given-names></name>
+<name name-style="western"><surname>Krishnan</surname><given-names>RK</given-names></name>
+<name name-style="western"><surname>Stetzer</surname><given-names>BP</given-names></name>
+<name name-style="western"><surname>Gonzalez</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Kirwan</surname><given-names>JP</given-names></name>
+</person-group><article-title>Exercise-induced reversal of insulin resistance in obese elderly is associated with reduced visceral fat</article-title><source>
+<italic toggle="yes">Journal of Applied Physiology</italic>
+</source><year>2006</year><volume>100</volume><fpage>1584</fpage><lpage>1589</lpage><pub-id pub-id-type="pmid">16373444</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.01336.2005</pub-id><pub-id pub-id-type="pmcid">PMC7037693</pub-id></element-citation></ref><ref id="b43"><label>[43]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Mann</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Beedie</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Balducci</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Zanuso</surname><given-names>S</given-names></name>
+<name name-style="western"><surname>Allgrove</surname><given-names>J</given-names></name>
+<name name-style="western"><surname>Bertiato</surname><given-names>F</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Changes in insulin sensitivity in response to different modalities of exercise: a review of the evidence</article-title><source>
+<italic toggle="yes">Diabetes Metabolism Research and Reviews</italic>
+</source><year>2014</year><volume>30</volume><fpage>257</fpage><lpage>268</lpage><pub-id pub-id-type="pmid">24130081</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/dmrr.2488</pub-id></element-citation></ref><ref id="b44"><label>[44]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Cesari</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Penninx</surname><given-names>BW</given-names></name>
+<name name-style="western"><surname>Pahor</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Lauretani</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Corsi</surname><given-names>AM</given-names></name>
+<name name-style="western"><surname>Williams</surname><given-names>GR</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Inflammatory markers and physical performance in older persons</article-title><source>
+<italic toggle="yes">The Journals of Gerontology Series A: Biological Sciences and Medical Sciences</italic>
+</source><year>2004</year><volume>59</volume><fpage>M242</fpage><lpage>M248</lpage><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/gerona/59.3.m242</pub-id><pub-id pub-id-type="pmid">15031308</pub-id></element-citation></ref><ref id="b45"><label>[45]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Beyer</surname><given-names>I</given-names></name>
+<name name-style="western"><surname>Mets</surname><given-names>T</given-names></name>
+<name name-style="western"><surname>Bautmans</surname><given-names>I</given-names></name>
+</person-group><article-title>Chronic low-grade inflammation and age-related sarcopenia</article-title><source>
+<italic toggle="yes">Current Opinion in Clinical Nutrition &amp; Metabolic Care</italic>
+</source><year>2012</year><volume>15</volume><fpage>12</fpage><lpage>22</lpage><pub-id pub-id-type="pmid">22108098</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/MCO.0b013e32834dd297</pub-id></element-citation></ref><ref id="b46"><label>[46]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Porch</surname><given-names>JV</given-names></name>
+<name name-style="western"><surname>Jain</surname><given-names>K</given-names></name>
+<name name-style="western"><surname>Reilly</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Valdez</surname><given-names>C</given-names></name>
+<name name-style="western"><surname>Mazariegos</surname><given-names>M</given-names></name>
+<name name-style="western"><surname>Ziegler</surname><given-names>TR</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Aging, physical activity, insulin-like growth factor I, and body composition in Guatemalan women</article-title><source>
+<italic toggle="yes">The American Journal of Clinical Nutrition</italic>
+</source><year>1997</year><volume>66</volume><fpage>874</fpage><lpage>879</lpage><pub-id pub-id-type="pmid">9322563</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/ajcn/66.4.874</pub-id></element-citation></ref><ref id="b47"><label>[47]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Seo</surname><given-names>DY</given-names></name>
+<name name-style="western"><surname>Hwang</surname><given-names>BG</given-names></name>
+</person-group><article-title>Effects of exercise training on the biochemical pathways associated with sarcopenia</article-title><source>
+<italic toggle="yes">Physical Activity and Nutrition</italic>
+</source><year>2020</year><volume>24</volume><fpage>32</fpage><lpage>38</lpage><pub-id pub-id-type="pmid">33108716</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.20463/pan.2020.0019</pub-id><pub-id pub-id-type="pmcid">PMC7669465</pub-id></element-citation></ref><ref id="b48"><label>[48]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Chen</surname><given-names>HT</given-names></name>
+<name name-style="western"><surname>Chung</surname><given-names>YC</given-names></name>
+<name name-style="western"><surname>Chen</surname><given-names>YJ</given-names></name>
+<name name-style="western"><surname>Ho</surname><given-names>SY</given-names></name>
+<name name-style="western"><surname>Wu</surname><given-names>HJ</given-names></name>
+</person-group><article-title>Effects of different types of exercise on body composition, muscle strength, and IGF‐1 in the elderly with sarcopenic obesity</article-title><source>
+<italic toggle="yes">Journal of the American Geriatrics Society</italic>
+</source><year>2017</year><volume>65</volume><fpage>827</fpage><lpage>832</lpage><pub-id pub-id-type="pmid">28205203</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/jgs.14722</pub-id></element-citation></ref><ref id="b49"><label>[49]</label><element-citation publication-type="journal"><person-group person-group-type="author">
+<name name-style="western"><surname>Annibalini</surname><given-names>G</given-names></name>
+<name name-style="western"><surname>Lucertini</surname><given-names>F</given-names></name>
+<name name-style="western"><surname>Agostini</surname><given-names>D</given-names></name>
+<name name-style="western"><surname>Vallorani</surname><given-names>L</given-names></name>
+<name name-style="western"><surname>Gioacchini</surname><given-names>A</given-names></name>
+<name name-style="western"><surname>Barbieri</surname><given-names>E</given-names></name>
+<etal>et al</etal>
+</person-group><article-title>Concurrent aerobic and resistance training has anti-inflammatory effects and increases both plasma and leukocyte levels of IGF-1 in late middle-aged type 2 diabetic patients</article-title><source>
+<italic toggle="yes">Oxidative Medicine and Cellular Longevity</italic>
+</source><year>2017</year><volume>2017</volume><fpage>3937842</fpage><pub-id pub-id-type="pmid">28713486</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1155/2017/3937842</pub-id><pub-id pub-id-type="pmcid">PMC5497609</pub-id></element-citation></ref></ref-list></back></article></pmc-articleset>

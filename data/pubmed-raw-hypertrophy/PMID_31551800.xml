@@ -1,0 +1,148 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31551800</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>30</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Muscular Adaptations to Whole Body Blood Flow Restriction Training and Detraining.</ArticleTitle><Pagination><StartPage>1099</StartPage><MedlinePgn>1099</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1099</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.01099</ELocationID><Abstract><AbstractText>Resistance training with blood flow restriction is typically performed during single exercises for the lower- or upper-body, which may not replicate <i>real world</i> programming. The present study examined the change in muscle strength and mass in a young healthy population during an 8-week whole body resistance training program, as well as monitoring these adaptations following a 4-week detraining period. Thirty-nine participants (27 males, 12 females) were allocated into four groups: blood flow restriction training (BFR-T); moderate-heavy load training (HL-T), light-load training (LL-T) or a non-exercise control (CON). Testing measurements were taken at Baseline, during mid-point of training (week 4), end of training (week 8) and following four weeks of detraining (week 12) and included anthropometrics, body composition, muscle thickness (MTH) at seven sites, and maximal dynamic strength (1RM) for six resistance exercises. Whole body resistance training with BFR significantly improved lower- and upper-body strength (overall; 11% increase in total tonnage), however, this was similar to LL-T (12%), but both groups were lower in comparison with HL-T (21%) and all groups greater than CON. Some markers of body composition (e.g., lean mass) and MTH significantly increased over the course of the 8-week training period, but these were similar across all groups. Following detraining, whole body strength remained significantly elevated for both BFR-T (6%) and HL-T (14%), but only the HL-T group remained higher than all other groups. Overall, whole body resistance training with blood flow restriction was shown to be an effective training mode to increase muscular strength and mass. However, traditional moderate-heavy load resistance training resulted in greater adaptations in muscle strength and mass as well as higher levels of strength maintenance following detraining.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Brandner</LastName><ForeName>Christopher R</ForeName><Initials>CR</Initials><AffiliationInfo><Affiliation>Sport Science Department, Aspire Academy for Sports Excellence, Doha, Qatar.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Clarkson</LastName><ForeName>Matthew J</ForeName><Initials>MJ</Initials><AffiliationInfo><Affiliation>School of Exercise and Nutrition Sciences, Institute for Physical Activity and Nutrition, Deakin University, Burwood, VIC, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kidgell</LastName><ForeName>Dawson J</ForeName><Initials>DJ</Initials><AffiliationInfo><Affiliation>Department of Physiotherapy, School of Primary and Allied Health Care, Monash University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Warmington</LastName><ForeName>Stuart A</ForeName><Initials>SA</Initials><AffiliationInfo><Affiliation>School of Exercise and Nutrition Sciences, Institute for Physical Activity and Nutrition, Deakin University, Burwood, VIC, Australia.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>09</Month><Day>10</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">BFR</Keyword><Keyword MajorTopicYN="N">hypertrophy</Keyword><Keyword MajorTopicYN="N">rehabilitation</Keyword><Keyword MajorTopicYN="N">resistance exercise</Keyword><Keyword MajorTopicYN="N">strength training</Keyword><Keyword MajorTopicYN="N">vascular occlusion</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>1</Month><Day>2</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>8</Month><Day>8</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>9</Month><Day>26</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>9</Month><Day>26</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>9</Month><Day>26</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>9</Month><Day>10</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31551800</ArticleId><ArticleId IdType="pmc">PMC6746941</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.01099</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abe T., Kondo M., Kawakami Y., Fukunaga T. (1994). Prediction equations for body composition of Japanese adults by B-mode ultrasound.
+<i>Am. J. Hum. Biol.</i>
+6
+161&#x2013;170. 10.1002/ajhb.1310060204
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/ajhb.1310060204</ArticleId><ArticleId IdType="pubmed">28548275</ArticleId></ArticleIdList></Reference><Reference><Citation>Abe T., Loenneke J. P., Fahs C. A., Rossow L. M., Thiebaud R. S., Bemben M. G. (2012). Exercise intensity and muscle hypertrophy in blood flow restricted limbs and non-restricted muscles: a brief review.
+<i>Clin. Physiol. Funct. Imaging</i>
+32
+247&#x2013;252. 10.1111/j.1475-097X.2012.01126.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1475-097X.2012.01126.x</ArticleId><ArticleId IdType="pubmed">22681600</ArticleId></ArticleIdList></Reference><Reference><Citation>American College of Sports Medicine (2009). American college of sports medicine position stand. progression models in resistance training for healthy adults.
+<i>Med. Sci. Sports Exerc.</i>
+41
+687&#x2013;708. 10.1249/MSS.0b013e3181915670
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181915670</ArticleId><ArticleId IdType="pubmed">19204579</ArticleId></ArticleIdList></Reference><Reference><Citation>Ara&#xfa;jo J. P., Neto G. R., Loenneke J. P., Bemben M. G., Laurentino G. C., Batista G., et al.  (2015). The effects of water-based exercise in combination with blood flow restriction on strength and functional capacity in post-menopausal women.
+<i>Age</i>
+37:110. 10.1007/s11357-015-9851-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11357-015-9851-4</ArticleId><ArticleId IdType="pmc">PMC5005855</ArticleId><ArticleId IdType="pubmed">26527466</ArticleId></ArticleIdList></Reference><Reference><Citation>Barcelos L. C., Nunes P. R. P., de Souza L. R., de Oliveira A. A., Furlanetto R., Marocolo M., et al.  (2015). Low-load resistance training promotes muscular adaptation regardless of vascular occlusion, load, or volume.
+<i>Eur. J. Appl. Physiol.</i>
+115
+1559&#x2013;1568. 10.1007/s00421-015-3141-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-015-3141-9</ArticleId><ArticleId IdType="pubmed">25731927</ArticleId></ArticleIdList></Reference><Reference><Citation>Bryk F. F., Reis A. C., Fingerhut D., Araujo T., Schutzer M., Cury P., et al.  (2016). Exercises with partial vascular occlusion in patients with knee osteoarthritis: a randomized clinical trial.
+<i>Knee Surg. Sports Traumatol. Arthrosc.</i>
+24
+1580&#x2013;1586. 10.1007/s00167-016-4064-4067
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00167-016-4064-4067</ArticleId><ArticleId IdType="pubmed">26971109</ArticleId></ArticleIdList></Reference><Reference><Citation>Counts B. R., Dankel S. J., Barnett B. E., Kim D., Mouser J. G., Allen K. M., et al.  (2015). The influence of relative blood flow restriction pressure on muscle activation and muscle adaptation.
+<i>Muscle Nerve</i>
+53
+438&#x2013;445. 10.1002/mus.24756
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.24756</ArticleId><ArticleId IdType="pubmed">26137897</ArticleId></ArticleIdList></Reference><Reference><Citation>Fitschen P., Kistler B., Jeong J., Chung H., Wu P., Walsh M., et al.  (2013). Perceptual effects and efficacy of intermittent or continuous blood flow restriction resistance training.
+<i>Clin. Physiol. Funct. Imaging</i>
+34
+356&#x2013;363. 10.1111/cpf.12100
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12100</ArticleId><ArticleId IdType="pubmed">24666729</ArticleId></ArticleIdList></Reference><Reference><Citation>Fujita T., Brechue W. F., Kurita K., Sato Y., Abe T. (2008). Increased muscle volume and strength following six days of low-intensity resistance training with restricted muscle blood flow.
+<i>Int. J. KAATSU Train. Res.</i>
+4
+1&#x2013;8. 10.3806/ijktr.4.1</Citation><ArticleIdList><ArticleId IdType="doi">10.3806/ijktr.4.1</ArticleId></ArticleIdList></Reference><Reference><Citation>Hakkinen K., Alen M., Kallinen M., Newton R., Kraemer W. (2000). Neuromuscular adaptation during prolonged strength training, detraining and re-strength-training in middle-aged and elderly people.
+<i>Eur. J. Appl. Physiol.</i>
+83
+51&#x2013;62. 10.1007/s004210000248
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s004210000248</ArticleId><ArticleId IdType="pubmed">11072774</ArticleId></ArticleIdList></Reference><Reference><Citation>Hughes L., Jeffries O., Waldron M., Rosenblatt B., Gissane C., Paton B., et al.  (2018). Influence and reliability of lower-limb arterial occlusion pressure at different body positions.
+<i>PeerJ</i>
+6:e4697. 10.7717/peerj.4697
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7717/peerj.4697</ArticleId><ArticleId IdType="pmc">PMC5936068</ArticleId><ArticleId IdType="pubmed">29736337</ArticleId></ArticleIdList></Reference><Reference><Citation>Jessee M. B., Buckner S. L., Mouser J. G., Mattocks K. T., Dankel S. J., Abe T., et al.  (2018). Muscle adaptations to high-load training and very low-load training with and without blood flow restriction.
+<i>Front. Physiol.</i>
+9:1448. 10.3389/fphys.2018.01448
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.01448</ArticleId><ArticleId IdType="pmc">PMC6198179</ArticleId><ArticleId IdType="pubmed">30386254</ArticleId></ArticleIdList></Reference><Reference><Citation>J&#xf8;rgensen A., Aagaard P., Nielsen J., Frandsen U., Diederichsen L. (2015). Effects of blood-flow-restricted resistance training on muscle function in a 74-year-old male with sporadic inclusion body myositis: a case report.
+<i>Clin. Physiol. Funct. Imaging</i>
+36
+504&#x2013;509. 10.1111/cpf.12259
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12259</ArticleId><ArticleId IdType="pubmed">26095885</ArticleId></ArticleIdList></Reference><Reference><Citation>Kacin A., Strazar K. (2011). Frequent low load ischemic resistance exercise to failure enhances muscle oxygen delivery and endurance capacity.
+<i>Scand. J. Med. Sci. Sports</i>
+21
+e231&#x2013;e241. 10.1111/j.1600-0838.2010.01260.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2010.01260.x</ArticleId><ArticleId IdType="pubmed">21385216</ArticleId></ArticleIdList></Reference><Reference><Citation>Karabulut M., Abe T., Sato Y., Bemben M. G. (2010). The effects of low-intensity resistance training with vascular restriction on leg muscle strength in older men.
+<i>Eur. J. Appl. Physiol.</i>
+108
+147&#x2013;155. 10.1007/s00421-009-1204-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-009-1204-5</ArticleId><ArticleId IdType="pubmed">19760431</ArticleId></ArticleIdList></Reference><Reference><Citation>Lixandr&#xe3;o M. E., Ugrinowitsch C., Berton R., Vechin F. C., Concei&#xe7;&#xe3;o M. S., Damas F., et al.  (2017). Magnitude of muscle strength and mass adaptations between high-load resistance training versus low-load resistance training associated with blood-flow restriction: a systematic review and meta-analysis.
+<i>Sports Med.</i>
+48
+361&#x2013;378. 10.1007/s40279-017-0795-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-017-0795-y</ArticleId><ArticleId IdType="pubmed">29043659</ArticleId></ArticleIdList></Reference><Reference><Citation>Lixandr&#xe3;o M. E., Ugrinowitsch C., Laurentino G., Libardi C. A., Aihara A. Y., Cardoso F. N., et al.  (2015). Effects of exercise intensity and occlusion pressure after 12 weeks of resistance training with blood-flow restriction.
+<i>Eur. J. Appl. Physiol.</i>
+15
+2471&#x2013;2480. 10.1007/s00421-015-3253-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-015-3253-2</ArticleId><ArticleId IdType="pubmed">26323350</ArticleId></ArticleIdList></Reference><Reference><Citation>Loenneke J. P., Wilson J. M., Marin P. J., Zourdos M. C., Bemben M. G. (2011). Low intensity blood flow restriction training: a meta-analysis.
+<i>Eur. J. Appl. Physiol.</i>
+112
+1849&#x2013;1859. 10.1007/s00421-011-2167-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2167-x</ArticleId><ArticleId IdType="pubmed">21922259</ArticleId></ArticleIdList></Reference><Reference><Citation>Luebbers P. E., Fry A. C., Kriley L. M., Butler M. S. (2014). The effects of a seven-week practical blood flow restriction program on well-trained collegiate athletes.
+<i>J. Strength Cond. Res.</i>
+28
+2270&#x2013;2280. 10.1519/jsc.0000000000000385
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/jsc.0000000000000385</ArticleId><ArticleId IdType="pubmed">24476782</ArticleId></ArticleIdList></Reference><Reference><Citation>Mart&#xed;n-Hern&#xe1;ndez J., Mar&#xed;n P., Men&#xe9;ndez H., Ferrero C., Loenneke J., Herrero A. (2013). Muscular adaptations after two different volumes of blood flow-restricted training.
+<i>Scand. J. Med. Sci. Sports</i>
+23
+e114&#x2013;e120. 10.1111/sms.12036
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12036</ArticleId><ArticleId IdType="pubmed">23278841</ArticleId></ArticleIdList></Reference><Reference><Citation>May A. K., Russell A. P., Warmington S. A. (2018). Lower body blood flow restriction training may induce remote muscle strength adaptations in an active unrestricted arm.
+<i>Eur. J. Appl. Physiol.</i>
+118
+617&#x2013;627. 10.1007/s00421-018-3806-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-018-3806-2</ArticleId><ArticleId IdType="pubmed">29350278</ArticleId></ArticleIdList></Reference><Reference><Citation>Mujika I., Padilla S. (2000). Detraining: loss of training-induced physiological and performance adaptations.
+<i>Sports Med.</i>
+30
+79&#x2013;87. 10.2165/00007256-200030020-200030022</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200030020-200030022</ArticleId><ArticleId IdType="pubmed">10966148</ArticleId></ArticleIdList></Reference><Reference><Citation>Nana A., Slater G. J., Stewart A. D., Burke L. M. (2015). Methodology review: using dual-energy X-ray absorptiometry (dxa) for the assessment of body composition in athletes and active people.
+<i>Int. J. Sport Nutr. Exerc. Metab.</i>
+25
+198&#x2013;215. 10.1123/ijsnem.2013-0228
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijsnem.2013-0228</ArticleId><ArticleId IdType="pubmed">25029265</ArticleId></ArticleIdList></Reference><Reference><Citation>Narici M., Roi G., Landoni L., Minetti A., Cerretelli P. (1989). Changes in force, cross-sectional area and neural activation during strength training and detraining of the human quadriceps.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+59
+310&#x2013;319. 10.1007/bf02388334
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/bf02388334</ArticleId><ArticleId IdType="pubmed">2583179</ArticleId></ArticleIdList></Reference><Reference><Citation>Patterson S. D., Brandner C. R. (2017). The role of blood flow restriction training for applied practitioners: a questionnaire-based survey.
+<i>J. Sports Sci.</i>
+36
+123&#x2013;130. 10.1080/02640414.2017.1284341
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2017.1284341</ArticleId><ArticleId IdType="pubmed">28143359</ArticleId></ArticleIdList></Reference><Reference><Citation>Scott B. R., Loenneke J. P., Slattery K. M., Dascombe B. J. (2014). Exercise with blood flow restriction: an updated evidence-based approach for enhanced muscular development.
+<i>Sports Med.</i>
+45
+313&#x2013;325. 10.1007/s40279-014-0288-281
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0288-281</ArticleId><ArticleId IdType="pubmed">25430600</ArticleId></ArticleIdList></Reference><Reference><Citation>Sumide T., Sakuraba K., Sawaki K., Ohmura H., Tamura Y. (2009). Effect of resistance exercise training combined with relatively low vascular occlusion.
+<i>J. Sci. Med. Sport</i>
+12
+107&#x2013;112. 10.1016/j.jsams.2007.09.009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2007.09.009</ArticleId><ArticleId IdType="pubmed">18083635</ArticleId></ArticleIdList></Reference><Reference><Citation>Takarada Y., Takazawa H., Sato Y., Takebayashi S., Tanaka Y., Ishii N. (2000). Effects of resistance exercise combined with moderate vascular occlusion on muscular function in humans.
+<i>J. Appl. Physiol.</i>
+88
+2097&#x2013;2106. 10.1152/jappl.2000.88.6.2097
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.2000.88.6.2097</ArticleId><ArticleId IdType="pubmed">10846023</ArticleId></ArticleIdList></Reference><Reference><Citation>Tennent D. J., Hylden C. M., Johnson A. E., Burns T. C., Wilken J. M., Owens J. G. (2016). Blood flow restriction training after knee arthroscopy: a randomized controlled pilot study.
+<i>Clin. J. Sport Med.</i>
+27
+245&#x2013;252. 10.1097/JSM.0000000000000377
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/JSM.0000000000000377</ArticleId><ArticleId IdType="pubmed">27749358</ArticleId></ArticleIdList></Reference><Reference><Citation>Thiebaud R. S., Loenneke J. P., Fahs C. A., Rossow L. M., Kim D., Abe T., et al.  (2013). The effects of elastic band resistance training combined with blood flow restriction on strength, total bone-free lean body mass and muscle thickness in postmenopausal women.
+<i>Clin. Physiol. Funct. Imaging</i>
+33
+344&#x2013;352. 10.1111/cpf.12033
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12033</ArticleId><ArticleId IdType="pubmed">23701116</ArticleId></ArticleIdList></Reference><Reference><Citation>Weatherholt A., Beekley M., Greer S., Urtel M., Mikesky A. (2012). Modified KAATSU training: adaptations and subject perceptions.
+<i>Med. Sci. Sports Exerc.</i>
+45
+952&#x2013;961. 10.1249/MSS.0b013e31827ddb1f
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e31827ddb1f</ArticleId><ArticleId IdType="pubmed">23247712</ArticleId></ArticleIdList></Reference><Reference><Citation>Yamanaka T., Farley R. S., Caputo J. L. (2012). Occlusion training increases muscular strength in division Ia football players.
+<i>J. Strength Cond. Res.</i>
+26
+2523&#x2013;2529. 10.1519/JSC.0b013e31823f2b0e
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31823f2b0e</ArticleId><ArticleId IdType="pubmed">22105051</ArticleId></ArticleIdList></Reference><Reference><Citation>Yasuda T., Fukumura K., Iida H., Nakajima T. (2015). Effects of detraining after blood flow-restricted low-load elastic band training on muscle size and arterial stiffness in older women.
+<i>SpringerPlus</i>
+4:348. 10.1186/s40064-015-1132-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s40064-015-1132-2</ArticleId><ArticleId IdType="pmc">PMC4502052</ArticleId><ArticleId IdType="pubmed">26191475</ArticleId></ArticleIdList></Reference><Reference><Citation>Yasuda T., Fukumura K., Sato Y., Yamasoba T., Nakajima T. (2014a). Effects of detraining after blood flow-restricted low-intensity training on muscle size and strength in older adults.
+<i>Aging Clin. Exp. Res.</i>
+26
+561&#x2013;564. 10.1007/s40520-014-0208-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40520-014-0208-0</ArticleId><ArticleId IdType="pubmed">24639094</ArticleId></ArticleIdList></Reference><Reference><Citation>Yasuda T., Loenneke J. P., Ogasawara R., Abe T. (2014b). Effects of short-term detraining following blood flow restricted low-intensity training on muscle size and strength.
+<i>Clin. Physiol. Funct. Imaging</i>
+35
+71&#x2013;75. 10.1111/cpf.12165
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12165</ArticleId><ArticleId IdType="pubmed">24828574</ArticleId></ArticleIdList></Reference><Reference><Citation>Yasuda T., Loenneke J. P., Thiebaud R. S., Abe T. (2014c). Effects of detraining after blood flow-restricted low-intensity concentric or eccentric training on muscle size and strength.
+<i>J. Physiol. Sci.</i>
+65
+139&#x2013;144. 10.1007/s12576-014-0345-344</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12576-014-0345-344</ArticleId><ArticleId IdType="pmc">PMC10717004</ArticleId><ArticleId IdType="pubmed">25381173</ArticleId></ArticleIdList></Reference><Reference><Citation>Yasuda T., Ogasawara R., Sakamaki M., Ozaki H., Sato Y., Abe T. (2010). Combined effects of low-intensity blood flow restriction training and high-intensity resistance training on muscle strength and size.
+<i>Eur. J. Appl. Physiol.</i>
+111
+2525&#x2013;2533. 10.1007/s00421-011-1873-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-1873-8</ArticleId><ArticleId IdType="pubmed">21360203</ArticleId></ArticleIdList></Reference><Reference><Citation>Yokokawa Y., Hongo M., Urayama H., Nishimura T., Kai I. (2008). Effects of low-intensity resistance exercise with vascular occlusion on physical function in healthy elderly people.
+<i>Biosci. Trends</i>
+2
+117&#x2013;123. </Citation><ArticleIdList><ArticleId IdType="pubmed">20103914</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,156 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">30618781</PMID><DateRevised><Year>2020</Year><Month>10</Month><Day>01</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>9</Volume><PubDate><Year>2018</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Blood Flow Restriction Training Reduces Blood Pressure During Exercise Without Affecting Metaboreflex Activity.</ArticleTitle><Pagination><StartPage>1736</StartPage><MedlinePgn>1736</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1736</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2018.01736</ELocationID><Abstract><AbstractText><b>Objective:</b> Blood flow restriction training (BFRT) has been proposed to induce muscle hypertrophy, but its safety remains controversial as it may increase mean arterial pressure (MAP) due to muscle metaboreflex activation. However, BFR training also causes metabolite accumulation that may desensitize type III and IV nerve endings, which trigger muscle metaboreflex. Then, we hypothesized that a period of BFR training would result in blunted hemodynamic activation during muscle metaboreflex. <b>Methods:</b> 17 young healthy males aged 18-25 yrs enrolled in this study. Hemodynamic responses during muscle metaboreflex were assessed by means of postexercise muscle ischemia (PEMI) at baseline (T0) and after 1 month (T1) of dynamic BFRT. BFRT consisted of 3-min rhythmic handgrip exercise applied 3 days/week (30 contractions per minute at 30% of maximum voluntary contraction) in the dominant arm. On the first week, the occlusion was set at 75% of resting systolic blood pressure (always obtained after 3 min of resting) and increased 25% every week, until reaching 150% of resting systolic pressure at week four. Hemodynamic measurements were assessed by means of impedance cardiography. <b>Results:</b> BFRT reduced MAP during handgrip exercise (T1: 96.3 &#xb1; 8.3 mmHg vs. T0: 102.0 &#xb1; 9.53 mmHg, <i>p</i> = 0.012). However, no significant time effect was detected for MAP during the metaboreflex activation (<i>P</i> &gt; 0.05). Additionally, none of the observed hemodynamic outcomes, including systemic vascular resistance (SVR), showed significant difference between T0 and T1 during the metaboreflex activation (<i>P</i> &gt; 0.05). <b>Conclusion:</b> BFRT reduced blood pressure during handgrip exercise, thereby suggesting a potential hypotensive effect of this modality of training. However, MAP reduction during handgrip seemed not to be provoked by lowered metaboreflex activity.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Crisafulli</LastName><ForeName>Antonio</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Sports Physiology Laboratory, The Department of Medical Sciences and Public Health, and International PhD in Innovation Sciences and Technologies, University of Cagliari, Cagliari, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>de Farias</LastName><ForeName>Rafael Riera</ForeName><Initials>RR</Initials><AffiliationInfo><Affiliation>Laboratory of Physical Activity and Health Promotion, University of Rio de Janeiro, Rio de Janeiro, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Graduate Program in Exercise and Sport Sciences, University of Rio de Janeiro State, Rio de Janeiro, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Farinatti</LastName><ForeName>Paulo</ForeName><Initials>P</Initials><AffiliationInfo><Affiliation>Laboratory of Physical Activity and Health Promotion, University of Rio de Janeiro, Rio de Janeiro, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Graduate Program in Exercise and Sport Sciences, University of Rio de Janeiro State, Rio de Janeiro, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Graduate Program in Physical Activity Sciences, Salgado de Oliveira University, Niter&#xf3;i, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lopes</LastName><ForeName>Karynne Grutter</ForeName><Initials>KG</Initials><AffiliationInfo><Affiliation>Laboratory of Physical Activity and Health Promotion, University of Rio de Janeiro, Rio de Janeiro, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Graduate Program in Clinical and Experimental Physiopathology, University of Rio de Janeiro State, Rio de Janeiro, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Laboratory of Vascular Biology, University of Rio de Janeiro State, Rio de Janeiro, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Milia</LastName><ForeName>Raffaele</ForeName><Initials>R</Initials><AffiliationInfo><Affiliation>Sports Physiology Laboratory, The Department of Medical Sciences and Public Health, and International PhD in Innovation Sciences and Technologies, University of Cagliari, Cagliari, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sainas</LastName><ForeName>Gianmarco</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Sports Physiology Laboratory, The Department of Medical Sciences and Public Health, and International PhD in Innovation Sciences and Technologies, University of Cagliari, Cagliari, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Pinna</LastName><ForeName>Virginia</ForeName><Initials>V</Initials><AffiliationInfo><Affiliation>Sports Physiology Laboratory, The Department of Medical Sciences and Public Health, and International PhD in Innovation Sciences and Technologies, University of Cagliari, Cagliari, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Palazzolo</LastName><ForeName>Girolamo</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Sports Physiology Laboratory, The Department of Medical Sciences and Public Health, and International PhD in Innovation Sciences and Technologies, University of Cagliari, Cagliari, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Doneddu</LastName><ForeName>Azzurra</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Sports Physiology Laboratory, The Department of Medical Sciences and Public Health, and International PhD in Innovation Sciences and Technologies, University of Cagliari, Cagliari, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Magnani</LastName><ForeName>Sara</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Sports Physiology Laboratory, The Department of Medical Sciences and Public Health, and International PhD in Innovation Sciences and Technologies, University of Cagliari, Cagliari, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mulliri</LastName><ForeName>Gabriele</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Sports Physiology Laboratory, The Department of Medical Sciences and Public Health, and International PhD in Innovation Sciences and Technologies, University of Cagliari, Cagliari, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Roberto</LastName><ForeName>Silvana</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Sports Physiology Laboratory, The Department of Medical Sciences and Public Health, and International PhD in Innovation Sciences and Technologies, University of Cagliari, Cagliari, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Oliveira</LastName><ForeName>Ricardo Brand&#xe3;o</ForeName><Initials>RB</Initials><AffiliationInfo><Affiliation>Graduate Program in Exercise and Sport Sciences, University of Rio de Janeiro State, Rio de Janeiro, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Graduate Program in Clinical and Experimental Physiopathology, University of Rio de Janeiro State, Rio de Janeiro, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Laboratory of Active Living (LaVA), University of Rio de Janeiro State, Rio de Janeiro, Brazil.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2018</Year><Month>12</Month><Day>04</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">blood flow restriction</Keyword><Keyword MajorTopicYN="N">blood pressure</Keyword><Keyword MajorTopicYN="N">exercise pressor reflex</Keyword><Keyword MajorTopicYN="N">exercise training</Keyword><Keyword MajorTopicYN="N">ischemia</Keyword><Keyword MajorTopicYN="N">metaboreflex</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>7</Month><Day>24</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2018</Year><Month>11</Month><Day>16</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>1</Month><Day>9</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>1</Month><Day>9</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>1</Month><Day>9</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2018</Year><Month>12</Month><Day>4</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">30618781</ArticleId><ArticleId IdType="pmc">PMC6299290</ArticleId><ArticleId IdType="doi">10.3389/fphys.2018.01736</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abe T., Kearns C. F., Sato Y. (2006). Muscle size and strength are increased following walk training with restricted venous blood flow from the leg muscle, kaatsu-walk training.
+<i>J. Appl. Physiol.</i>
+100
+1460&#x2013;1466. 10.1152/japplphysiol.01267.2005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01267.2005</ArticleId><ArticleId IdType="pubmed">16339340</ArticleId></ArticleIdList></Reference><Reference><Citation>Alam M., Smirk F. H. (1937). Observations in man upon a blood pressure raising reflex arising from the voluntary muscles.
+<i>J. Physiol.</i>
+89
+372&#x2013;383. 10.1113/jphysiol.1937.sp003485
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.1937.sp003485</ArticleId><ArticleId IdType="pmc">PMC1395054</ArticleId><ArticleId IdType="pubmed">16994867</ArticleId></ArticleIdList></Reference><Reference><Citation>Alam M., Smirk F. H. (1938). Observations in man on a pulse-accelerating reflex from the voluntary muscles of the legs.
+<i>J. Physiol.</i>
+92
+167&#x2013;177. 10.1113/jphysiol.1938.sp003592
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.1938.sp003592</ArticleId><ArticleId IdType="pmc">PMC1395171</ArticleId><ArticleId IdType="pubmed">16994964</ArticleId></ArticleIdList></Reference><Reference><Citation>Araujo J. P., Silva E. D., Silva J. C., Souza T. S., Lima E. O., Guerra I., et al.  (2014). The acute effect of resistance exercise with blood flow restriction with hemodynamic variables on hypertensive subjects.
+<i>J. Hum. Kinet.</i>
+43
+79&#x2013;85. 10.2478/hukin-2014-0092
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2478/hukin-2014-0092</ArticleId><ArticleId IdType="pmc">PMC4332187</ArticleId><ArticleId IdType="pubmed">25713647</ArticleId></ArticleIdList></Reference><Reference><Citation>Bastos B. G., Williamson J. W., Harrelson T., Nobrega A. C. (2000). Left ventricular volumes and hemodynamic responses to postexercise ischemia in healthy humans.
+<i>Med. Sci. Sports Exerc.</i>
+32
+1114&#x2013;1118. 10.1097/00005768-200006000-00012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-200006000-00012</ArticleId><ArticleId IdType="pubmed">10862538</ArticleId></ArticleIdList></Reference><Reference><Citation>Crisafulli A. (2017). The impact of cardiovascular diseases on cardiovascular regulation during exercise in humans: studies on metaboreflex activation elicited by the post-exercise muscle ischemia method.
+<i>Curr. Cardiol. Rev.</i>
+13
+293&#x2013;300. 10.2174/1573403X13666170804165928
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2174/1573403X13666170804165928</ArticleId><ArticleId IdType="pmc">PMC5730962</ArticleId><ArticleId IdType="pubmed">28782491</ArticleId></ArticleIdList></Reference><Reference><Citation>Crisafulli A., Melis F., Orru V., Lener R., Lai C., Concu A. (2000). Impedance cardiography for non-invasive assessment of systolic time intervals during exercise.
+<i>Sports Med. Train. Rehabil.</i>
+10
+13&#x2013;21. 10.1080/15438620109512093</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15438620109512093</ArticleId></ArticleIdList></Reference><Reference><Citation>Crisafulli A., Milia R., Lobina A., Caddeo M., Tocco F., Concu A., et al.  (2008). Haemodynamic effect of metaboreflex activation in men after running above and below the velocity of the anaerobic threshold.
+<i>Exp. Physiol.</i>
+93
+447&#x2013;457. 10.1113/expphysiol.2007.041863
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/expphysiol.2007.041863</ArticleId><ArticleId IdType="pubmed">18223022</ArticleId></ArticleIdList></Reference><Reference><Citation>Crisafulli A., Piras F., Filippi M., Piredda C., Chiappori P., Melis F., et al.  (2011). Role of heart rate and stroke volume during muscle metaboreflex-induced cardiac output increase: differences between activation during and after exercise.
+<i>J. Physiol. Sci.</i>
+61
+385&#x2013;394. 10.1007/s12576-011-0163-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12576-011-0163-x</ArticleId><ArticleId IdType="pmc">PMC10717214</ArticleId><ArticleId IdType="pubmed">21796398</ArticleId></ArticleIdList></Reference><Reference><Citation>Crisafulli A., Salis E., Pittau G., Lorrai L., Tocco F., Melis F., et al.  (2006). Modulation of cardiac contractility by muscle metaboreflex following efforts of different intensities in humans.
+<i>Am. J. Physiol. Heart Circ. Physiol.</i>
+291
+H3035&#x2013;H3042. 10.1152/ajpheart.00221.2006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpheart.00221.2006</ArticleId><ArticleId IdType="pubmed">16782848</ArticleId></ArticleIdList></Reference><Reference><Citation>Crisafulli A., Salis E., Tocco F., Melis F., Milia R., Pittau G., et al.  (2007). Impaired central hemodynamic response and exaggerated vasoconstriction during muscle metaboreflex activation in heart failure patients.
+<i>Am. J. Physiol. Heart Circ. Physiol.</i>
+292
+H2988&#x2013;H2996. 10.1152/ajpheart.00008.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpheart.00008.2007</ArticleId><ArticleId IdType="pubmed">17308012</ArticleId></ArticleIdList></Reference><Reference><Citation>Crisafulli A., Scott A. C., Wensel R., Davos C. H., Francis D. P., Pagliaro P., et al.  (2003). Muscle metaboreflex-induced increases in stroke volume.
+<i>Med. Sci. Sports Exerc.</i>
+35
+221&#x2013;228; discussion 229. 10.1249/01.MSS.0000048639.02548.24
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.MSS.0000048639.02548.24</ArticleId><ArticleId IdType="pubmed">12569208</ArticleId></ArticleIdList></Reference><Reference><Citation>Crisafulli A., Tocco F., Milia R., Angius L., Pinna M., Olla S., et al.  (2013). Progressive improvement in hemodynamic response to muscle metaboreflex in heart transplant recipients.
+<i>J. Appl. Physiol.</i>
+114
+421&#x2013;427. 10.1152/japplphysiol.01099.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01099.2012</ArticleId><ArticleId IdType="pubmed">23195627</ArticleId></ArticleIdList></Reference><Reference><Citation>Delaney E. P., Greaney J. L., Edwards D. G., Rose W. C., Fadel P. J., Farquhar W. B. (2010). Exaggerated sympathetic and pressor responses to handgrip exercise in older hypertensive humans: role of the muscle metaboreflex.
+<i>Am. J. Physiol. Heart Circ. Physiol.</i>
+299
+H1318&#x2013;H1327. 10.1152/ajpheart.00556.2010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpheart.00556.2010</ArticleId><ArticleId IdType="pmc">PMC2993192</ArticleId><ArticleId IdType="pubmed">20802135</ArticleId></ArticleIdList></Reference><Reference><Citation>Downs M. E., Hackney K. J., Martin D., Caine T. L., Cunningham D., O&#x2019;Connor D. P., et al.  (2014). Acute vascular and cardiovascular responses to blood flow-restricted exercise.
+<i>Med. Sci. Sports Exerc.</i>
+46
+1489&#x2013;1497. 10.1249/MSS.0000000000000253
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000000253</ArticleId><ArticleId IdType="pubmed">24389514</ArticleId></ArticleIdList></Reference><Reference><Citation>Faul F., Erdfelder E., Lang A. G., Buchner A. (2007). G<sup>&#x2217;</sup>Power 3: a flexible statistical power analysis program for the social, behavioral, and biomedical sciences.
+<i>Behav. Res. Methods</i>
+39
+175&#x2013;191. 10.3758/BF03193146</Citation><ArticleIdList><ArticleId IdType="doi">10.3758/BF03193146</ArticleId><ArticleId IdType="pubmed">17695343</ArticleId></ArticleIdList></Reference><Reference><Citation>Gledhill N., Cox D., Jamnik R. (1994). Endurance athletes&#x2019; stroke volume does not plateau: major advantage is diastolic function.
+<i>Med. Sci. Sports Exerc.</i>
+26
+1116&#x2013;1121. 10.1249/00005768-199409000-00008</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00005768-199409000-00008</ArticleId><ArticleId IdType="pubmed">7808245</ArticleId></ArticleIdList></Reference><Reference><Citation>Iida H., Kurano M., Takano H., Kubota N., Morita T., Meguro K., et al.  (2007). Hemodynamic and neurohumoral responses to the restriction of femoral blood flow by KAATSU in healthy subjects.
+<i>Eur. J. Appl. Physiol.</i>
+100
+275&#x2013;285. 10.1007/s00421-007-0430-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-007-0430-y</ArticleId><ArticleId IdType="pubmed">17342543</ArticleId></ArticleIdList></Reference><Reference><Citation>Kaijser L., Sundberg C. J., Eiken O., Nygren A., Esbjornsson M., Sylven C., et al.  (1990). Muscle oxidative capacity and work performance after training under local leg ischemia.
+<i>J. Appl. Physiol.</i>
+69
+785&#x2013;787. 10.1152/jappl.1990.69.2.785
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1990.69.2.785</ArticleId><ArticleId IdType="pubmed">2146245</ArticleId></ArticleIdList></Reference><Reference><Citation>Krieger E. M., Da Silva G. J., Negrao C. E. (2001). Effects of exercise training on baroreflex control of the cardiovascular system.
+<i>Ann. N. Y. Acad. Sci.</i>
+940
+338&#x2013;347. 10.1111/j.1749-6632.2001.tb03689.x</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1749-6632.2001.tb03689.x</ArticleId><ArticleId IdType="pubmed">11458691</ArticleId></ArticleIdList></Reference><Reference><Citation>La Rovere M. T., Pinna G. D. (2014). Beneficial effects of physical activity on baroreflex control in the elderly.
+<i>Ann. Noninvasive Electrocardiol.</i>
+19
+303&#x2013;310. 10.1111/anec.12170
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/anec.12170</ArticleId><ArticleId IdType="pmc">PMC6932392</ArticleId><ArticleId IdType="pubmed">24844457</ArticleId></ArticleIdList></Reference><Reference><Citation>Maior A. S., Simao R., Martins M. S., de Salles B. F., Willardson J. M. (2015). Influence of blood flow restriction during low-intensity resistance exercise on the postexercise hypotensive response.
+<i>J. Strength Cond. Res.</i>
+29
+2894&#x2013;2899. 10.1519/JSC.0000000000000930
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000930</ArticleId><ArticleId IdType="pubmed">25764494</ArticleId></ArticleIdList></Reference><Reference><Citation>Manini T. M., Clark B. C. (2009). Blood flow restricted exercise and skeletal muscle health.
+<i>Exerc. Sport Sci. Rev.</i>
+37
+78&#x2013;85. 10.1097/JES.0b013e31819c2e5c
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/JES.0b013e31819c2e5c</ArticleId><ArticleId IdType="pubmed">19305199</ArticleId></ArticleIdList></Reference><Reference><Citation>Moran D., Epstein Y., Keren G., Laor A., Sherez J., Shapiro Y. (1995). Calculation of mean arterial pressure during exercise as a function of heart rate.
+<i>Appl. Hum. Sci.</i>
+14
+293&#x2013;295. 10.2114/ahs.14.293</Citation><ArticleIdList><ArticleId IdType="doi">10.2114/ahs.14.293</ArticleId><ArticleId IdType="pubmed">8591100</ArticleId></ArticleIdList></Reference><Reference><Citation>Neto G. R., Novaes J. S., Dias I., Brown A., Vianna J., Cirilo-Sousa M. S. (2017). Effects of resistance training with blood flow restriction on haemodynamics: a systematic review.
+<i>Clin. Physiol. Funct. Imaging</i>
+37
+567&#x2013;574. 10.1111/cpf.12368
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12368</ArticleId><ArticleId IdType="pubmed">27095591</ArticleId></ArticleIdList></Reference><Reference><Citation>Neto G. R., Sousa M. S., Costa P. B., Salles B. F., Novaes G. S., Novaes J. S. (2015). Hypotensive effects of resistance exercises with blood flow restriction.
+<i>J. Strength Cond. Res.</i>
+29
+1064&#x2013;1070. 10.1519/JSC.0000000000000734
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000734</ArticleId><ArticleId IdType="pubmed">25330083</ArticleId></ArticleIdList></Reference><Reference><Citation>Nobrega A. C., O&#x2019;Leary D., Silva B. M., Marongiu E., Piepoli M. F., Crisafulli A. (2014). Neural regulation of cardiovascular response to exercise: role of central command and peripheral afferents.
+<i>Biomed. Res. Int.</i>
+2014
+1&#x2013;20. 10.1155/2014/478965
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2014/478965</ArticleId><ArticleId IdType="pmc">PMC4000959</ArticleId><ArticleId IdType="pubmed">24818143</ArticleId></ArticleIdList></Reference><Reference><Citation>Pearson S. J., Hussain S. R. (2015). A review on the mechanisms of blood-flow restriction resistance training-induced muscle hypertrophy.
+<i>Sports Med.</i>
+45
+187&#x2013;200. 10.1007/s40279-014-0264-269</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0264-269</ArticleId><ArticleId IdType="pubmed">25249278</ArticleId></ArticleIdList></Reference><Reference><Citation>Piepoli M. F., Dimopoulos K., Concu A., Crisafulli A. (2008). Cardiovascular and ventilatory control during exercise in chronic heart failure: role of muscle reflexes.
+<i>Int. J. Cardiol.</i>
+130
+3&#x2013;10. 10.1016/j.ijcard.2008.02.030
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijcard.2008.02.030</ArticleId><ArticleId IdType="pubmed">18584895</ArticleId></ArticleIdList></Reference><Reference><Citation>Roberto S., Marongiu E., Pinna M., Angius L., Olla S., Bassareo P., et al.  (2012). Altered hemodynamics during muscle metaboreflex in young type 1 diabetes patients.
+<i>J. Appl. Physiol.</i>
+113
+1323&#x2013;1331. 10.1152/japplphysiol.00280.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00280.2012</ArticleId><ArticleId IdType="pubmed">22700802</ArticleId></ArticleIdList></Reference><Reference><Citation>Rowell L. B., Sheriff D. D., Wyss C. R., Scher A. M. (1986). The nature of the exercise stimulus.
+<i>Acta Physiol. Scand. Suppl.</i>
+556
+7&#x2013;14.</Citation><ArticleIdList><ArticleId IdType="pubmed">3471059</ArticleId></ArticleIdList></Reference><Reference><Citation>Sanna I., Pinna V., Milia R., Roberto S., Olla S., Mulliri G., et al.  (2017). Hemodynamic responses during enduro-motorcycling performance.
+<i>Front. Physiol.</i>
+8:1062. 10.3389/fphys.2017.01062
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2017.01062</ArticleId><ArticleId IdType="pmc">PMC5736362</ArticleId><ArticleId IdType="pubmed">29311986</ArticleId></ArticleIdList></Reference><Reference><Citation>Sausen M. T., Delaney E. P., Stillabower M. E., Farquhar W. B. (2009). Enhanced metaboreflex sensitivity in hypertensive humans.
+<i>Eur. J. Appl. Physiol.</i>
+105
+351&#x2013;356. 10.1007/s00421-008-0910-918
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-008-0910-918</ArticleId><ArticleId IdType="pubmed">18989694</ArticleId></ArticleIdList></Reference><Reference><Citation>Spranger M. D., Krishnan A. C., Levy P. D., O&#x2019;Leary D. S., Smith S. A. (2015). Blood flow restriction training and the exercise pressor reflex: a call for concern.
+<i>Am. J. Physiol. Heart Circ. Physiol.</i>
+309
+H1440&#x2013;H1452. 10.1152/ajpheart.00208.2015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpheart.00208.2015</ArticleId><ArticleId IdType="pmc">PMC7002872</ArticleId><ArticleId IdType="pubmed">26342064</ArticleId></ArticleIdList></Reference><Reference><Citation>Sprick J. D., Rickards C. A. (2017). Cyclical blood flow restriction resistance exercise: a potential parallel to remote ischemic preconditioning?
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+313
+R507&#x2013;R517. 10.1152/ajpregu.00112.2017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00112.2017</ArticleId><ArticleId IdType="pmc">PMC5792150</ArticleId><ArticleId IdType="pubmed">28835448</ArticleId></ArticleIdList></Reference><Reference><Citation>Suga T., Okita K., Takada S., Omokawa M., Kadoguchi T., Yokota T., et al.  (2012). Effect of multiple set on intramuscular metabolic stress during low-intensity resistance exercise with blood flow restriction.
+<i>Eur. J. Appl. Physiol.</i>
+112
+3915&#x2013;3920. 10.1007/s00421-012-2377-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-012-2377-x</ArticleId><ArticleId IdType="pmc">PMC3474903</ArticleId><ArticleId IdType="pubmed">22415101</ArticleId></ArticleIdList></Reference><Reference><Citation>Sundblad P., Kolegard R., Rullman E., Gustafsson T. (2018). Effects of training with flow restriction on the exercise pressor reflex.
+<i>Eur. J. Appl. Physiol.</i>
+118
+1903&#x2013;1909. 10.1007/s00421-018-3911-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-018-3911-2</ArticleId><ArticleId IdType="pmc">PMC6105264</ArticleId><ArticleId IdType="pubmed">29951915</ArticleId></ArticleIdList></Reference><Reference><Citation>Takada S., Okita K., Suga T., Omokawa M., Kadoguchi T., Sato T., et al.  (2012). Low-intensity exercise can increase muscle mass and strength proportionally to enhanced metabolic stress under ischemic conditions.
+<i>J. Appl. Physiol.</i>
+113
+199&#x2013;205. 10.1152/japplphysiol.00149.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00149.2012</ArticleId><ArticleId IdType="pubmed">22628373</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang H. J., Pan Y. X., Wang W. Z., Gao L., Zimmerman M. C., Zucker I. H., et al.  (2010). Exercise training prevents the exaggerated exercise pressor reflex in rats with chronic heart failure.
+<i>J. Appl. Physiol.</i>
+108
+1365&#x2013;1375. 10.1152/japplphysiol.01273.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01273.2009</ArticleId><ArticleId IdType="pmc">PMC2867544</ArticleId><ArticleId IdType="pubmed">20185628</ArticleId></ArticleIdList></Reference><Reference><Citation>Wernbom M., Augustsson J., Raastad T. (2008). Ischemic strength training: a low-load alternative to heavy resistance exercise?
+<i>Scand. J. Med. Sci. Sports</i>
+18
+401&#x2013;416. 10.1111/j.1600-0838.2008.00788.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2008.00788.x</ArticleId><ArticleId IdType="pubmed">18466185</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

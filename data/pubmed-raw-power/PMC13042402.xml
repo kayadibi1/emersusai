@@ -1,0 +1,1199 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="advs73630" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="iso-abbrev">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="pmc-domain-id">2933</journal-id><journal-id journal-id-type="pmc-domain">advsci</journal-id><journal-id journal-id-type="publisher-id">ADVS</journal-id><journal-title-group><journal-title>Advanced Science</journal-title></journal-title-group><issn pub-type="epub">2198-3844</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13042402</article-id><article-id pub-id-type="pmcid-ver">PMC13042402.1</article-id><article-id pub-id-type="pmcaid">13042402</article-id><article-id pub-id-type="pmcaiid">13042402</article-id><article-id pub-id-type="pmid">41691474</article-id><article-id pub-id-type="doi">10.1002/advs.202514446</article-id><article-id pub-id-type="publisher-id">ADVS73630</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>SiCmiR Atlas: Single‐Cell miRNA Landscape Reveals Hub‐miRNA and Network Signatures in Human Cancers</article-title></title-group><contrib-group><contrib id="advs73630-cr-0001" contrib-type="author"><name name-style="western"><surname>Cai</surname><given-names initials="XX">Xiao‐Xuan</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0009-0007-8842-0358</contrib-id><xref rid="advs73630-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73630-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73630-cr-0002" contrib-type="author"><name name-style="western"><surname>Liao</surname><given-names initials="JS">Jing‐Shan</given-names></name><xref rid="advs73630-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73630-cr-0003" contrib-type="author"><name name-style="western"><surname>Ma</surname><given-names initials="JJ">Jia‐Jun</given-names></name><xref rid="advs73630-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73630-cr-0004" contrib-type="author"><name name-style="western"><surname>Pang</surname><given-names initials="YX">Yu‐Xuan</given-names></name><xref rid="advs73630-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs73630-cr-0005" contrib-type="author"><name name-style="western"><surname>Chen</surname><given-names initials="YG">Yi‐Gang</given-names></name><xref rid="advs73630-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73630-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73630-cr-0006" contrib-type="author"><name name-style="western"><surname>Lin</surname><given-names initials="YCD">Yang‐Chi‐Dung</given-names></name><xref rid="advs73630-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73630-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="advs73630-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs73630-cr-0007" contrib-type="author"><name name-style="western"><surname>Chen</surname><given-names initials="YD">Yi‐Dan</given-names></name><xref rid="advs73630-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73630-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73630-cr-0008" contrib-type="author"><name name-style="western"><surname>Cao</surname><given-names initials="X">Xin</given-names></name><xref rid="advs73630-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73630-cr-0009" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="YC">Yi‐Cheng</given-names></name><xref rid="advs73630-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs73630-cr-0010" contrib-type="author"><name name-style="western"><surname>Xu</surname><given-names initials="TS">Tao‐Sheng</given-names></name><xref rid="advs73630-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs73630-cr-0011" contrib-type="author"><name name-style="western"><surname>Lee</surname><given-names initials="TY">Tzong‐Yi</given-names></name><xref rid="advs73630-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="advs73630-cr-0012" contrib-type="author" corresp="yes"><name name-style="western"><surname>Huang</surname><given-names initials="HY">Hsi‐Yuan</given-names></name><xref rid="advs73630-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73630-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="advs73630-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref><address><email>huanghsiyuan@cuhk.edu.cn</email></address></contrib><contrib id="advs73630-cr-0013" contrib-type="author" corresp="yes"><name name-style="western"><surname>Huang</surname><given-names initials="HD">Hsien‐Da</given-names></name><xref rid="advs73630-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="advs73630-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="advs73630-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="advs73630-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref><address><email>huanghsienda@cuhk.edu.cn</email></address></contrib></contrib-group><aff id="advs73630-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Warshel Institute for Computational Biology, School of Medicine</named-content>
+<institution>The Chinese University of Hong Kong, Shenzhen</institution>
+<city>Shenzhen</city>
+<named-content content-type="country-part">Guangdong</named-content>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs73630-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">School of Medicine</named-content>
+<institution>The Chinese University of Hong Kong, Shenzhen</institution>
+<city>Shenzhen</city>
+<named-content content-type="country-part">Guangdong</named-content>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs73630-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">Guangdong Provincial Key Laboratory of Digital Biology and Drug Development</named-content>
+<institution>The Chinese University of Hong Kong, Shenzhen</institution>
+<city>Shenzhen</city>
+<named-content content-type="country-part">Guangdong</named-content>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs73630-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">Department of Endocrinology</named-content>
+<named-content content-type="organisation-division">Key Laboratory of Endocrinology of National Ministry of Health</named-content>
+<named-content content-type="organisation-division">Peking Union Medical College Hospital</named-content>
+<institution>Chinese Academy of Medical Sciences &amp; Peking Union Medical College</institution>
+<city>Beijing</city>
+<country country="CN">P. R. China</country>
+</aff><aff id="advs73630-aff-0005">
+<label>
+<sup>5</sup>
+</label>
+<named-content content-type="organisation-division">Institute of Bioinformatics and Systems Biology</named-content>
+<institution>National Yang Ming Chiao Tung University</institution>
+<city>Hsinchu</city>
+<country country="TW">Taiwan</country>
+</aff><pub-date pub-type="epub"><day>15</day><month>2</month><year>2026</year></pub-date><pub-date pub-type="collection"><month>3</month><year>2026</year></pub-date><volume>13</volume><issue seq="330">16</issue><issue-id pub-id-type="pmc-issue-id">510723</issue-id><issue-id pub-id-type="doi">10.1002/advs.v13.16</issue-id><elocation-id>e14446</elocation-id><history><date date-type="rev-recd"><day>11</day><month>12</month><year>2025</year></date><date date-type="received"><day>30</day><month>7</month><year>2025</year></date><date date-type="accepted"><day>20</day><month>12</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>15</day><month>02</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>02</day><month>04</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-02 16:25:13.347"><day>02</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). <italic toggle="yes">Advanced Science</italic> published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="ADVS-13-e14446.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:ADVS-13-e14446.pdf"/><abstract><title>ABSTRACT</title><p>MicroRNAs (miRNAs) are pivotal post‑transcriptional regulators whose single‑cell behavior has remained largely inaccessible due to technical barriers in single‐cell small‑RNA profiling. We present SiCmiR, a two‑layer neural network that predicts miRNA expression profiles from only 977 LINCS L1000 landmark genes, thereby reducing sensitivity to dropout in single‐cell RNA‐seq (scRNA‐seq) data. Proof‑of‑concept analyses illustrate how SiCmiR can uncover candidate hub‑miRNAs in bulk‐seq cell lines and hepatocellular carcinoma, scRNA‐seq pancreatic ductal carcinoma, and ACTH‑secreting pituitary adenoma and extracellular vesicle (EV)‑mediated crosstalk in glioblastoma. Trained on 6,462 TCGA paired miRNA–mRNA samples, SiCmiR attains state‑of‑the‑art accuracy on cancers and generalizes to unseen cancer types and drug perturbations. We next construct SiCmiR‑Atlas, containing 362 public datasets, 9.36 million cells, and 726 cell types, which is the first dedicated database of single‑cell mature miRNA expression, providing interactive visualization, biomarker identification, and cell‑type‑resolved miRNA–target networks. SiCmiR transforms bulk‑derived statistical power into a single‑cell view of miRNA biology and provides a community resource for biomarker discovery. SiCmiR Atlas is available at https://awi.cuhk.edu.cn/∼SiCmiR/.</p></abstract><abstract id="advs73630-abs-0001" abstract-type="graphical"><p>SiCmiR predicts mature miRNA activity at single‐cell resolution using only 977 landmark genes, enabling scalable reconstruction of miRNA landscapes across diverse tissues and disease contexts. The SiCmiR Atlas integrates 9.36 million cells with analytical tools for hub‐miRNA discovery, biomarker prioritization, and regulatory network interrogation, supporting both mechanistic insights and translational applications.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="ADVS-13-e14446-g002.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="advs73630-kwd-0001">atlas</kwd><kwd id="advs73630-kwd-0002">biomarkers</kwd><kwd id="advs73630-kwd-0003">cancers</kwd><kwd id="advs73630-kwd-0004">hub‐miRNA</kwd><kwd id="advs73630-kwd-0005">miRNA</kwd><kwd id="advs73630-kwd-0006">single‐cell</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>Shenzhen Science and Technology Innovation Program</institution><institution-id institution-id-type="doi">10.13039/501100017610</institution-id></institution-wrap>
+</funding-source><award-id>JCYJ20220530143615035</award-id><award-id>JCYJ20250604141235046</award-id><award-id>JCYJ20250604141041017</award-id></award-group><award-group id="funding-0002"><funding-source>
+<institution-wrap><institution>Guangdong S&amp;T Programme</institution></institution-wrap>
+</funding-source><award-id>2024A0505050001</award-id><award-id>2024A0505050002</award-id></award-group><award-group id="funding-0003"><funding-source>
+<institution-wrap><institution>Warshel Institute for Computational Biology funding from Shenzhen City and Longgang District</institution></institution-wrap>
+</funding-source><award-id>LGKCSDPT2025001</award-id></award-group><award-group id="funding-0004"><funding-source>
+<institution-wrap><institution>Guangdong Young Scholar Development Fund of Shenzhen Ganghong Group Co., Ltd.</institution></institution-wrap>
+</funding-source><award-id>2021E0005</award-id><award-id>2022E0035</award-id><award-id>2023E0012</award-id></award-group></funding-group><counts><fig-count count="7"/><table-count count="2"/><page-count count="17"/><word-count count="10789"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>18 March 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:01.04.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="advs73630-sec-0010"><label>1</label><title>Introduction</title><p>MicroRNAs (miRNAs) are small non‐coding RNAs that regulate gene expression. Most function as repressors by binding to the 3'‐untranslated region (3’ UTR) of mRNAs, initiating mRNA degradation and blocking translation, though certain miRNAs have been reported to stabilize mRNA and to enhance its activity [<xref rid="advs73630-bib-0001" ref-type="bibr">1</xref>]. Dysregulation of miRNAs and their protein translation in the regulatory network underpins virtually every cancer hallmark, such as proliferation, stemness, invasion, and immune evasion. MiRNAs are therefore valuable biomarkers and therapeutic targets [<xref rid="advs73630-bib-0002" ref-type="bibr">2</xref>]. MiRNAs that are strongly associated with mRNAs play central roles in the regulatory network, and are referred to as hub‐miRNAs due to their significant impact [<xref rid="advs73630-bib-0003" ref-type="bibr">3</xref>]. As our understanding deepens, targeting these hub‐miRNAs offers a promising frontier for advancing both cancer diagnostics and therapy.</p><p>According to the records of miRBase, 2656 mature miRNAs have been identified in humans [<xref rid="advs73630-bib-0004" ref-type="bibr">4</xref>], although not all have been assigned functional significance. This knowledge gap may be attributed to factors such as inadequate sample sizes, sequencing batch effects, and limitations in capturing the true miRNA landscape [<xref rid="advs73630-bib-0005" ref-type="bibr">5</xref>]. Additionally, existing approaches for identifying disease‐related miRNAs, such as weighted gene co‐expression network analysis (WGCNA), which detects co‐expression patterns and hub nodes through topological overlap [<xref rid="advs73630-bib-0006" ref-type="bibr">6</xref>], or annotation‐based methods relying on miRNA‐target databases [<xref rid="advs73630-bib-0007" ref-type="bibr">7</xref>, <xref rid="advs73630-bib-0008" ref-type="bibr">8</xref>, <xref rid="advs73630-bib-0009" ref-type="bibr">9</xref>], suffer from incomplete functional annotations and limited coverage [<xref rid="advs73630-bib-0010" ref-type="bibr">10</xref>]. Machine learning and deep learning models have been introduced to predict disease‐related miRNAs based on known miRNA‐disease associations [<xref rid="advs73630-bib-0011" ref-type="bibr">11</xref>, <xref rid="advs73630-bib-0012" ref-type="bibr">12</xref>]. However, challenges persist due to tumor heterogeneity [<xref rid="advs73630-bib-0013" ref-type="bibr">13</xref>], which complicates hub‐miRNA discovery.</p><p>While single‐cell RNA‐sequencing (scRNA‐seq) has significantly advanced mRNA‐level research, single‐cell miRNA sequencing remains underdeveloped with limited applications [<xref rid="advs73630-bib-0014" ref-type="bibr">14</xref>, <xref rid="advs73630-bib-0015" ref-type="bibr">15</xref>, <xref rid="advs73630-bib-0016" ref-type="bibr">16</xref>, <xref rid="advs73630-bib-0017" ref-type="bibr">17</xref>]. However, existing single‐cell miRNA profiling techniques encounter several challenges, including dependence on polyadenylation, adaptor dimer formation, high data sparsity, difficulties in distinguishing miRNAs from other small non‐coding RNAs, and inconsistent protocol reproducibility [<xref rid="advs73630-bib-0018" ref-type="bibr">18</xref>]. These technical barriers have hindered the identification of hub‐miRNAs in cancers, emphasizing the need for improved methodologies. Recent efforts such as miRSCAPE [<xref rid="advs73630-bib-0019" ref-type="bibr">19</xref>] and miTEA‐HiRes [<xref rid="advs73630-bib-0020" ref-type="bibr">20</xref>] have markedly improved the recovery of miRNA activity at single‐cell resolution. miRSCAPE requires around 20 000 gene features and therefore suffers from zero inflation in scRNA‑seq. miTEA‐HiRes infers miRNA activity by testing target‐gene enrichment within spatial transcriptomic spots. It depends on canonical target lists, thus failing to capture continuous miRNA expression profiles.</p><p>SiCmiR addresses these limitations by relying on just 977 landmark genes and does not require prior knowledge of target genes. SiCmiR demonstrates its robustness in hepatocellular carcinoma, glioblastoma, and adrenocorticotropic hormone (ACTH)‑secreting pituitary adenoma (PitNET), and revealed 414 hub‐miRNAs in cancer, and also EV‐mediated intercellular communication at single‑cell resolution. To maximize the method's utility, we further compiled the predictions across multiple datasets as SiCmiR‑Atlas, an openly searchable database, the first public database dedicated to single‑cell mature miRNA expression, providing interactive visualization, biomarker mining, and cell‑type‑resolved miRNA–target networks. By coupling bulk‑derived statistical power with cell‐type level metadata, SiCmiR establishes a practical route to dissect miRNA regulation in heterogeneous tissues, thus accelerating biomarker and drug target discovery in oncology (Figure <xref rid="advs73630-fig-0001" ref-type="fig">1</xref>).</p><fig position="float" fig-type="FIGURE" id="advs73630-fig-0001" orientation="portrait"><label>FIGURE 1</label><caption><p>Schematic representation of the SiCmiR workflow, applications, and visualization. (A) Construction of the SiCmiR Atlas which archives inferred miRNA expression across diverse cell types, disease contexts, and four functional modules. (B) Multi‐task applications, including disease biomarker discovery, drug response prediction, cell‐type specific miRNA expression profile prediction, hub‐miRNA discovery, and miRNA‐mediated cell–cell communication demonstrated the broad utility of SiCmiR. (C) SiCmiR model architecture, leveraging a DNN to infer miRNA expression from landmark mRNA features.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="ADVS-13-e14446-g003.jpg"/></fig></sec><sec id="advs73630-sec-0020"><label>2</label><title>Results</title><sec id="advs73630-sec-0030"><label>2.1</label><title>Performance Analysis and Feature Selection of SiCmiR</title><sec id="advs73630-sec-0040"><label>2.1.1</label><title>Performance Baseline Benchmarking and Feature Augmentation</title><p>The predictive performance of SiCmiR was evaluated by benchmarking multiple model architectures and validating the effectiveness of using 977 input features. Specifically, SiCmiR employs 977 landmark genes from the LINCS L1000 project (see Methods). These genes are recognized for their responsiveness to chemical and genetic perturbations, their high reproducibility across RNA‐seq datasets, and their capacity to infer approximately 81% of non‐measured transcript expression levels [<xref rid="advs73630-bib-0021" ref-type="bibr">21</xref>]. The use of these landmark genes also reduces data sparsity in single‐cell applications. Baseline performance was compared among neural networks, ResNet, and Transformer models. The neural network achieved superior performance (Table <xref rid="advs73630-tbl-0001" ref-type="table">1</xref>) and was consequently selected for subsequent optimization. Hyperparameters, including hidden layer size (1024 nodes), number of layers (2), dropout rate (0.3), and learning rate (0.4), were systematically tuned (Figure <xref rid="advs73630-fig-0002" ref-type="fig">2A–D</xref>). Using L1000 features, the mean Pearson correlation coefficient (PCC) across all miRNAs in the train and test sets reached 0.75 and 0.67, respectively (Figure <xref rid="advs73630-fig-0002" ref-type="fig">2E–F</xref>). Three‐fold cross‐validation confirmed the robustness of this performance, with average miRNA PCCs of 0.75 ± 0.00067 (train) and 0.67 ± 0.00073 (test), and sample‐level PCCs of 0.72 ± 0.09583 (train) and 0.63 ± 0.13707 (test) (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S1</xref>). To evaluate the sensitivity of model performance to input dimensionality, models were trained using different gene sets, including the 977 L1000 genes, and the top 1000, 5000, 10000, and all (<italic toggle="yes">n</italic> = 20062) variable protein‐coding genes. In comparison across feature sets, the average miRNA PCCs in the train set were 0.79 (L1000), 0.79 (top 1000), 0.81 (top 5000), 0.82 (top 10000), and 0.82 (all proteincoding genes). Performance of corresponding test set PCCs were 0.67, 0.66, 0.67, 0.67, and 0.68. Notably, when the number of features was limited to around 1000, the L1000 landmark genes consistently outperformed selected variable gene sets and offered substantial reductions in computational cost.</p><table-wrap position="float" id="advs73630-tbl-0001" content-type="TABLE" orientation="portrait"><label>TABLE 1</label><caption><p>The neural network model outperformed among basic models (Mean ± SE, 95% CI).</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1"/><th align="center" rowspan="1" colspan="1">MSE</th><th align="center" rowspan="1" colspan="1">RMSE</th><th align="center" rowspan="1" colspan="1">R2</th><th align="center" rowspan="1" colspan="1">PCC</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">
+<bold>Neural Network</bold>
+</td><td align="center" rowspan="1" colspan="1">
+<bold>0.522 ± 0.0039 [0.5049, 0.5364]</bold>
+</td><td align="center" rowspan="1" colspan="1">
+<bold>0.722 ± 0.0027 [0.7107, 0.7326]</bold>
+</td><td align="center" rowspan="1" colspan="1">
+<bold>0.484 ± 0.0066 [0.4673, 0.4997]</bold>
+</td><td align="center" rowspan="1" colspan="1">
+<bold>0.673 ± 0.0023 [0.6635, 0.6818]</bold>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">ResNet</td><td align="center" rowspan="1" colspan="1">0.648 ± 0.0056 [0.6241, 0.6723]</td><td align="center" rowspan="1" colspan="1">0.805 ± 0.0035 [0.7901, 0.8200]</td><td align="center" rowspan="1" colspan="1">0.359 ± 0.0047 [0.3385, 0.3788]</td><td align="center" rowspan="1" colspan="1">0.578 ± 0.0024 [0.5678, 0.5882]</td></tr><tr><td align="left" rowspan="1" colspan="1">Transformer</td><td align="center" rowspan="1" colspan="1">0.863 ± 0.0077 [0.8301, 0.8962]</td><td align="center" rowspan="1" colspan="1">0.929 ± 0.0041 [0.9113, 0.9468]</td><td align="center" rowspan="1" colspan="1">0.146 ± 0.0016 [0.1390, 0.1530]</td><td align="center" rowspan="1" colspan="1">0.359 ± 0.0020 [0.3509, 0.3680]</td></tr></tbody></table><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><fig position="float" fig-type="FIGURE" id="advs73630-fig-0002" orientation="portrait"><label>FIGURE 2</label><caption><p>Performance evaluation on datasets. Mean square error (MSE), root mean square error (RMSE), Pearson correlation coefficient (PCC), and R<sup>2</sup> were used for model performance evaluation. (A–D) compares the performance of models with the number of nodes in hidden layers set to 512 and 1024, the number of hidden layers ranging from 1 to 4, the dropout rate ranging from 0.1 to 0.4 in the SGD optimizer, and the learning rate ranging from 0.05 to 0.4. (E,F) Average PCC of each miRNA in the train set and test set using mRNA features of L1000 landmark genes, top 1000, 5000, 10 000 variable mRNAs, and all mRNAs. (G,H) Performance of SiCmiR excels miRSCAPE overall and across all cancer types. (I–L) High correlation between observed and predicted values in SiCmiR, highlighting miRNAs with the top performance.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="ADVS-13-e14446-g004.jpg"/></fig><p>SiCmiR also achieved higher predictive accuracy than miRSCAPE [<xref rid="advs73630-bib-0019" ref-type="bibr">19</xref>]. To ensure a fair and broadly applicable comparison, we retrained both frameworks on 6462 TCGA pan‐cancer samples. Using the 977 landmark genes, SiCmiR reached a PCC of 0.67 on an independent test set, outperforming miRSCAPE's 0.61 (Figure <xref rid="advs73630-fig-0002" ref-type="fig">2G</xref>). Notably, inference with a pre‐trained SiCmiR required only 2.23 s, whereas miRSCAPE required over 2 h due to its on‐the‐fly model training. When we adopted miRSCAPE's full‐gene feature space but unified training across cancer types, its pooled‐cancer model performance increased from the originally reported Spearman correlation coefficient of 0.62 to a PCC of 0.66 (Table <xref rid="advs73630-supinfo-0001" ref-type="">S1</xref>). Despite this improvement, SiCmiR achieved comparable or slightly superior accuracy using an order of magnitude fewer inputs, highlighting its efficiency and robustness. Although cancer‐specific SiCmiR variants were also trained on individual tumor types to account for potential context‐dependent miRNA–mRNA regulation (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S2</xref>), the pan‐cancer SiCmiR model consistently outperformed these cancer‐specific models as well as miRSCAPE across multiple tumor types (Figure 2H; Figure <xref rid="advs73630-supinfo-0001" ref-type="">S3</xref>) and was therefore selected for downstream analyses. For single‐miRNA performance, the highest predictive PCC was 0.984 for hsa‐miR‐21‐5p, as a well‐recognized oncogenic miRNA [<xref rid="advs73630-bib-0022" ref-type="bibr">22</xref>, <xref rid="advs73630-bib-0023" ref-type="bibr">23</xref>]. Examples of true vs. predicted expression levels for four top‐ranked miRNAs are shown in Figure <xref rid="advs73630-fig-0002" ref-type="fig">2I–L</xref>, separately.</p></sec><sec id="advs73630-sec-0050"><label>2.1.2</label><title>Stress Testing Model Robustness Through Feature Loss and Sparsity</title><p>To assess whether SiCmiR depends on a limited subset of landmark genes, we performed stress tests including random feature dropout and SHAP‐guided feature removal. Randomly removing 5%–90% of L1000 landmarks resulted in a smooth and gradual drop in performance without abrupt performance collapse (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S4A</xref>). Even when roughly 70%–80% of genes were masked, the model maintained non‐trivial predictive accuracy. This pattern suggests that the model relies on a broad set of genes rather than a few indispensable ones. Collapse was defined as performance indistinguishable from an average predictor (R<sup>2</sup> ≤ 0, PCC = 0), while non‐trivial accuracy was defined as PCC &gt; 0.2 and R<sup>2</sup> &gt; 0 [<xref rid="advs73630-bib-0024" ref-type="bibr">24</xref>]. SHAP‐ranked ablations revealed a clear asymmetry. Removing features from low to high SHAP values led to a steady deterioration until more than 90% of the lowest‐ranked landmarks were removed, after which performance collapsed rapidly, indicating the presence of a compact high‐importance core (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S4B</xref>). Conversely, removing features from high to low in order of their SHAP values resulted in an almost perfectly linear deterioration across all metrics (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S4C</xref>). This result demonstrates that lower‐ranked features are not irrelevant. Their cumulative removal leads to a steady reduction of predictive strength rather than a flat plateau. Collectively, these results show that SiCmiR relies on both a compact core and a broad distributed tail of features, reflecting a non‐sparse, distributed representation rather than dependence on a small and isolated subset.</p><p>To evaluate whether SiCmiR remains stable under sparsity, a common challenge in single‐cell profiles, we subjected the matrix to three complementary perturbations. First, we applied uniform masking of non‐zero entries. Second, we introduced quantile‐stratified dropout using a Poisson‐based scheme with varying γ as the dropout rate, and the mean expression of genes was reported to follow a Poisson distribution [<xref rid="advs73630-bib-0025" ref-type="bibr">25</xref>]. Smaller γ approaches uniform masking and larger γ concentrates dropout in the lowest‐abundance entries. Third, we simulated sequencing‐depth reduction using multinomial UMI down‐sampling to mimic the dropout caused by capture rate following a binomial distribution [<xref rid="advs73630-bib-0026" ref-type="bibr">26</xref>], followed by Poisson‐based masking. Performance consistently declined as sparsity increased across all perturbations. Under uniform masking, our model collapsed by around 95% density (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S5A</xref>). Stratified Poisson‐based masking exhibited an intermediate effect, with performance degrading more gradually. When γ was large, dropout was concentrated in low‐expression genes, and the model's feature robustness, as mentioned, resulted in an apparent “inverse” behavior in which performance rose at extreme sparsity. In contrast, UMI down‐sampling displayed substantially greater stability (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S5B</xref>). Multinomial down‐sampling alone produced a decrease in performance as sequencing depth decreased. Notably, adding Poisson‐like masking (γ = 0.5) on top of UMI down‐sampling, sparsity reached 80%–90% without model collapse. Pre‐ and post‐z‐score normalization sparsity was tracked. Z‐scoring normalization reduced sparsity to zero across all sampling conditions without restoring performance. Collectively, these results indicate that depth reduction and masking disrupt the rank structure of gene expression, yet the model retains a non‐trivial predictive signal even in a challenging range of sparsity. For practical applications to real scRNA‐seq datasets, cell‐type‐averaged profiles or bootstrap‐pooled aggregations are recommended, as both approaches substantially reduce sparsity and improve the reliability of prediction.</p></sec></sec><sec id="advs73630-sec-0060"><label>2.2</label><title>Cross‑Cancer Generalization, Bulk‐Seq and scRNA‐Seq Case Studies</title><p>To assess the applicability of the proposed method to single‐cell miRNA expression prediction, immortal cell line data were first analyzed under the assumption of homogeneous expression across cells, such that bulk‐seq profiles represent average single‐cell expression. SiCmiR successfully predicted biomarker expression for K562, 293T, HeLa, and A549 cells (Figure <xref rid="advs73630-fig-0003" ref-type="fig">3A–D</xref>). Subsequently, SiCmiR was applied to scRNA‐seq data from pancreatic ductal adenocarcinoma (PDAC) samples collected by Peng et al. [<xref rid="advs73630-bib-0027" ref-type="bibr">27</xref>], comprising 57 530 cells: 41 986 from 24 PDAC samples and 15 544 from 11 normal tissues. Cell types were annotated using marker genes from the original study (Figure <xref rid="advs73630-fig-0003" ref-type="fig">3E</xref>; Figure <xref rid="advs73630-supinfo-0001" ref-type="">S6A</xref>). Following the benchmarking strategy of Olgun et al. [<xref rid="advs73630-bib-0019" ref-type="bibr">19</xref>], a list of 101 dysregulated miRNAs from Mazza et al. [<xref rid="advs73630-bib-0028" ref-type="bibr">28</xref>] was used, of which 90 were present in the dataset. As type 1 ductal cells (DC1) are reported to be less malignant than type 2 ductal cells (DC2) [<xref rid="advs73630-bib-0027" ref-type="bibr">27</xref>], miRNA expression of DC2 within tumors was compared to that in DC1 and their precursor acinar cells. SiCmiR correctly predicted 66 miRNAs (sensitivity: 0.73) using pooled data and 28 miRNAs (0.31) using single‐cell data directly in DC2 cells compared to DC1 or acinar cells. Among the 39 dysregulated miRNAs assessable by miRSCAPE, SiCmiR provided predictions for 37 of them and correctly recovered 29 (0.78). For comparison, miRSCAPE, constrained to the same 977 landmark features as throughout subsequent analyses, correctly predicted 29 out of the full set of 39 (Table <xref rid="advs73630-supinfo-0001" ref-type="">S2</xref>). Overall, SiCmiR achieved an accuracy of 0.65 (66/101), whereas miRSCAPE achieved an accuracy of 0.29 (29/101). Among them, hsa‐miR‐30b‐3p was highly expressed in DC1 compared to DC2 (Figure <xref rid="advs73630-fig-0003" ref-type="fig">3F</xref>), consistent with its higher expression in normal tissue compared to tumor tissues in bulk‐seq [<xref rid="advs73630-bib-0028" ref-type="bibr">28</xref>]. hsa‐miR‐21‐5p was overexpressed in DC2 and MUC5<sup>+</sup> DC1 compared to MUC5<sup>−</sup> DC1 (Figure <xref rid="advs73630-fig-0003" ref-type="fig">3G</xref>), in agreement with the reported cell‐type malignancy trajectory and negative association with clinical outcome [<xref rid="advs73630-bib-0027" ref-type="bibr">27</xref>, <xref rid="advs73630-bib-0029" ref-type="bibr">29</xref>, <xref rid="advs73630-bib-0030" ref-type="bibr">30</xref>]. Overall, the evaluation of the model on PDAC data demonstrates that our model enables the detection of miRNAs as biomarkers for distinguishing cell types and cell state differences in single‐cell sequencing data, achieving state‐of‐the‐art performance.</p><fig position="float" fig-type="FIGURE" id="advs73630-fig-0003" orientation="portrait"><label>FIGURE 3</label><caption><p>Expression prediction of miRNAs based on cell line RNA‐seq and scRNA‐seq data, consistent with literature on real datasets. (A–D) miRNA biomarkers of cell lines inferred from bulk RNA‐seq data (upper) show the same expression pattern as in bulk miRNA‐seq data (lower). (E) T‐SNE shows the annotation of cells in the PDAC scRNA‐seq dataset. (F–G) Feature plot of inferred expression profile of hsa‐miR‐30b‐3p and hsa‐miR‐21‐5p, showing significant difference in DC1, MUC5<sup>+</sup> DC1, and malignant DC2. (H) T‐SNE shows cell annotation of cells in the PitNET scRNA‐seq dataset. (I,J) The feature plot of the inferred expression profile of hsa‐miR‐136‐3p and hsa‐miR‐410‐3p showed a significant difference between tumor cells and stromal cells, as in real data.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="ADVS-13-e14446-g005.jpg"/></fig><p>To further test the generalizability for cancer types not included in the TCGA data, we applied SiCmiR to ACTH‐secreting PitNET scRNA‐seq data from Zhang et al. [<xref rid="advs73630-bib-0031" ref-type="bibr">31</xref>], selecting two high‐quality samples (SRR13973073, SRR13973076). T‐SNE and marker‐based annotation from the original study identified 3314 tumor cells and 1948 stromal cells (Figure <xref rid="advs73630-fig-0003" ref-type="fig">3H</xref>; Figure <xref rid="advs73630-supinfo-0001" ref-type="">S6B</xref>). Using stromal cells as baseline, SiCmiR predicted 55/75 reported dysregulated miRNAs with a sensitivity of 0.73 using pooled data and |log2FC| ≥ 0.25 [<xref rid="advs73630-bib-0032" ref-type="bibr">32</xref>, <xref rid="advs73630-bib-0033" ref-type="bibr">33</xref>, <xref rid="advs73630-bib-0034" ref-type="bibr">34</xref>, <xref rid="advs73630-bib-0035" ref-type="bibr">35</xref>]. When raising the threshold to |log2FC| ≥ 1, sensitivity dropped to 0.53. The predicted expression of hsa‐miR‐136‐3p and hsa‐miR‐410‐3p (Figure <xref rid="advs73630-fig-0003" ref-type="fig">3I–J</xref>) was highly expressed in stromal cells rather than tumor cells, as expected [<xref rid="advs73630-bib-0033" ref-type="bibr">33</xref>]. Using non‐pooled single‐cell data, 46 miRNAs were predicted (0.61 sensitivity). Among these, 34 matched the expected trend (0.69) (Table <xref rid="advs73630-supinfo-0001" ref-type="">S3</xref>). Among the top 414 miRNAs by prediction PCC ≥ 0.8, 49 were dysregulated, and 30/48 were predicted using cell‐type averages (0.625). These results demonstrate SiCmiR's applicability to cancer types not present in TCGA training data, which indicates that our model has learnt the miRNA expression pattern associated with mRNAs, and the application of our model is not restricted to cancer types of TCGA but also extends to a variety of cancer types.</p><p>SiCmiR also applies to bulk tissue and drug‐perturbed samples. For hepatocellular carcinoma (HCC) vs. normal tissue (<italic toggle="yes">n</italic> = 8), 19 of 24 DEmiRs from Varghese et al. [<xref rid="advs73630-bib-0036" ref-type="bibr">36</xref>] were recovered (sensitivity 0.79). Among 13 DEmiRs with PCC ≥ 0.8 in the test set of our model, 12 were correctly predicted (sensitivity 0.92), including hsa‐miR‐139‐3p/5p and hsa‐miR‐378d (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S7A</xref>). These results demonstrate SiCmiR's effectiveness in identifying DEmiRs in cancer tissue. We further applied SiCmiR to bulk RNA‐seq of A549 cells treated with <italic toggle="yes">Cinnamomi Ramulus</italic> (a traditional Chinese medicine) at three concentrations (<italic toggle="yes">n</italic> = 2) sequenced by our lab, with DEmiRs validated by qPCR [<xref rid="advs73630-bib-0037" ref-type="bibr">37</xref>]. Seven DEmiRs were identified, including five miRNAs (hsa‐miR‐25‐3p, hsa‐miR‐183‐5p, hsa‐miR‐218‐5p, hsa‐miR‐27a‐3p, hsa‐miR‐24‐3p) with PCC ≥ 0.8 in the test set. hsa‐miR‐218‐5p and hsa‐miR‐576‐5p were significantly downregulated, while hsa‐miR‐27a‐3p and hsa‐miR‐24‐3p showed decreasing trends with CR concentration (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S7B</xref> and Table <xref rid="advs73630-supinfo-0001" ref-type="">S4</xref>). These results demonstrate SiCmiR's effectiveness in identifying drug‐perturbed DEmiRs.</p><p>To determine whether SiCmiR generalizes beyond cancer‐derived profiles, its performance was further evaluated in the GTEx cohort. This cohort provides paired mRNA–miRNA measurements generated from an independent sequencing center. Despite the substantial technical and biological shift between TCGA tumors and GTEx normal tissues, SiCmiR retained a PCC of 0.553 across miRNAs with PCC ≥ 0.8 and 0.465 on average among all miRNAs (Table <xref rid="advs73630-supinfo-0001" ref-type="">S5</xref>). In contrast, miRSCAPE exhibited a marked loss of accuracy when the XGBoost model trained on TCGA was transferred to GTEx, with the average PCC falling below 0.25 across brain, breast, colon, liver, and lung tissue. These results suggest that SiCmiR captures a transferable component of the miRNA–mRNA regulatory structure that extends beyond cancer‐derived patterns.</p></sec><sec id="advs73630-sec-0070"><label>2.3</label><title>SiCmiR Atlas Construction and Software Implementation</title><p>To demonstrate the utility of our method, we constructed the SiCmiR Atlas, which integrates 9.36 million single cells from 362 publicly available scRNA‐seq datasets spanning 189 anatomically distinct human tissues across 26 major organs, as defined by the Cell Ontology (Figures <xref rid="advs73630-fig-0001" ref-type="fig">1</xref> and <xref rid="advs73630-fig-0004" ref-type="fig">4A</xref>) [<xref rid="advs73630-bib-0038" ref-type="bibr">38</xref>]. Cells annotated according to origin studies, yielding 726 unique cell identities from deeply embedded tissue‐specific sub‐types to broadly shared immune lineages. Clinical metadata were grouped into 84 physiological or disease conditions distributed over 12 broad disease categories. Based on this comprehensive resource, we implemented four fully integrated analysis modules: (i) data collection and annotation, storing matrices and cell‐type labels; (ii) biomarkers identification, providing interactive summaries of lineage representation across tissues and conditions; (iii) miRNA or mRNA differential analysis, supporting rapid visualization, expression comparison, and biomarker discovery for cell‐type‐enriched and disease‐associated miRNAs; (iv) in‐built MTI network builder infers miRNA–target interaction (MTI) graphs by integrating target‐site predictions by TargetScan [<xref rid="advs73630-bib-0039" ref-type="bibr">39</xref>], miRWalk [<xref rid="advs73630-bib-0040" ref-type="bibr">40</xref>], miRDB [<xref rid="advs73630-bib-0041" ref-type="bibr">41</xref>], and experimentally validated evidence from miRTarBase [<xref rid="advs73630-bib-0042" ref-type="bibr">42</xref>]. In particular, the differential analysis module supports contrastive analysis among cell types, allowing users to identify context‐specific dysregulation of miRNAs at single‐cell resolution across distinct cell types and disease contexts. Together, these results demonstrate that SiCmiR Atlas delivers a harmonized and annotated database of single‐cell miRNA biology. It supports interactive querying (Figure <xref rid="advs73630-fig-0004" ref-type="fig">4B</xref>), visualizes cell cluster distributions via UMAP (Figure <xref rid="advs73630-fig-0004" ref-type="fig">4C</xref>), and provides a coherent set of tools for interactive exploration, biomarker discovery, and construction of cell‐type‐resolved regulatory networks (Figure <xref rid="advs73630-fig-0004" ref-type="fig">4D,E</xref>). Notably, to our knowledge, SiCmiR Atlas represents the first publicly available resource dedicated specifically to single‐cell mature miRNA expression, providing a scalable, data‐driven foundation for both practical mechanistic studies and translational applications, including the development of diagnostic biomarkers and the prioritization of therapeutic targets, which are not supported by bulk‐based or ambiguously annotated datasets [<xref rid="advs73630-bib-0043" ref-type="bibr">43</xref>].</p><fig position="float" fig-type="FIGURE" id="advs73630-fig-0004" orientation="portrait"><label>FIGURE 4</label><caption><p>Architecture, data coverage, and core analysis modules of the SiCmiR atlas. (A) An overview of tissue type, cell type distribution, and the hierarchical clustering dendrogram of the cell population of data in the SiCmiR Atlas. (B) An example of a browser of datasets. (C) An example of UMAP demonstrating the cell type distribution of each dataset. (D) Function panel of differential expression analysis for miRNAs and mRNAs in each dataset to identify cell‐type specific biomarkers and to construct cell‐type specific MTI network interactively in the webpage. (E) Identified common cell type miRNA biomarkers by SiCmiR Atlas.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="ADVS-13-e14446-g001.jpg"/></fig><p>To further demonstrate the analytical capabilities of SiCmiR Atlas, cell type‐specific miRNA biomarkers were systematically identified across multiple tissues and conditions. Predicted expression profiles from 726 annotated cell types aggregated to prioritize miRNAs exhibited consistently high expression within specific lineages, including epithelial cells, endothelial cells, fibroblasts, oligodendrocytes, B cells, T cells/natural killer cells, myofibroblasts, neurons, and myeloid compartments, while remaining low expression in unrelated cell types. A representative heatmap (Figure <xref rid="advs73630-fig-0004" ref-type="fig">4E</xref>) presents a panel of cell‐type‐enriched miRNAs, revealing robust and recurrent expression patterns across diverse biological contexts. This analysis not only confirms established markers, such as hsa‐miR‐126‐5p in endothelial cells [<xref rid="advs73630-bib-0044" ref-type="bibr">44</xref>] and hsa‐miR‐141‐3p in epithelial cells [<xref rid="advs73630-bib-0045" ref-type="bibr">45</xref>] but also potentially uncovers novel candidates for cell identity and function. These conserved signatures offer a valuable reference for miRNA‐based cell‐type annotation, facilitate deconvolution of bulk miRNA data, and may serve as entry points for studying regulatory circuits in specific cellular compartments.</p></sec><sec id="advs73630-sec-0080"><label>2.4</label><title>SiCmiR Discovered Hub‐miRNAs as Cancer Biomarkers</title><p>The higher the correlation between miRNA and mRNA expression, the better the pattern of expression can be extracted, and the more active and tighter the regulation between them. An elbow‐like transition was observed at a PCC of 0.8 (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S8</xref>), above which miRNAs exhibited a pronounced increase in cross‐cancer involvement. Below this threshold, gains were limited. PCC = 0.80 was thus adopted as the threshold for hub‐miRNA identification. Subsequent enrichment and Shapley Additive exPlanations (SHAP) analysis was conducted to elucidate the role of the hub‐miRNAs selected. In the independent test set, 414 miRNAs satisfied this threshold, displaying reproducible expression profiles across 33 cancer types and implying tight regulation by their target mRNAs. Among these 414 miRNAs, 105 mature pairs (210 mature miRNAs) originate from the same pre‑miRNAs (for example, hsa‑miR‑141‑3p/5p), and many are members of the same families or primary transcripts, such as the miR‑200 and miR‑302 families. Compared to miRNAs of PCC &lt; 0.8, these hub miRNAs formed denser cancer‑associated networks, with a mean degree of 11.12, approximately 2.4‑fold higher than that of other miRNAs (Figure <xref rid="advs73630-fig-0005" ref-type="fig">5A</xref>). Gene Ontology enrichment of their targets highlights pathways central to oncogenesis, progression, and metastasis (Figure <xref rid="advs73630-fig-0005" ref-type="fig">5B</xref>).</p><fig position="float" fig-type="FIGURE" id="advs73630-fig-0005" orientation="portrait"><label>FIGURE 5</label><caption><p>Identify hub‐miRNAs by SiCmiR. (A) Significant difference in the number of cancers associated with miRNAs with PCC ≥ 0.8 (<italic toggle="yes">n</italic> = 385) or PCC &lt; 0.8 (<italic toggle="yes">n</italic> = 528), two‐tailed Wilcoxon rank‐sum test. (B) Top 25 GO enrichment analysis for miRNAs with PCC ≥ 0.8. (C,D) The contribution of landmark genes as features to the expression of miRNAs hsa‐miR‐411‐5p and hsa‐miR‐485‐3p. (E) Survival analysis of contributing features for their association with survival in cancers. (F) Survival analysis of miRNAs in module 10 for KIRP (<italic toggle="yes">n</italic> = 326).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="ADVS-13-e14446-g006.jpg"/></fig><p>To interpret model predictions, SHAP was applied to quantify the contribution of each feature (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S9A</xref>) [<xref rid="advs73630-bib-0046" ref-type="bibr">46</xref>]. Network analysis of SHAP‑weighted edges revealed 12 functional modules (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S9B</xref> and Table <xref rid="advs73630-supinfo-0001" ref-type="">S6</xref>). In module 10, which is driven by features <italic toggle="yes">COL1A1, CDC25A</italic>, and <italic toggle="yes">GLI2</italic>, miRNAs cluster on chromosome 14 (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S9C</xref>). Notably, 32 of 41 <italic toggle="yes">COL1A1</italic>‑contributing miRNAs, such as hsa‑miR‑127‑3p/5p, hsa‑miR‑134‑5p, hsa‑miR‑136‑3p/5p, are located on this chromosome. Target enrichment analysis links this module to metastasis‑related processes, including angiogenesis, extracellular matrix remodeling, and epithelial–mesenchymal transition (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S9D</xref>). For these 32 miRNAs, <italic toggle="yes">COL1A1</italic> exhibits a strong, positive, and significantly larger SHAP contribution compared to any secondary feature (Figure <xref rid="advs73630-fig-0005" ref-type="fig">5C–D</xref>; Figure <xref rid="advs73630-supinfo-0001" ref-type="">S10</xref>). Survival analysis indicates that <italic toggle="yes">COL1A1</italic>, <italic toggle="yes">TGFB3</italic>, <italic toggle="yes">CDC25A</italic>, <italic toggle="yes">TNIP1</italic>, <italic toggle="yes">STAT5B</italic>, and <italic toggle="yes">TRAK2</italic>, the top contributors for these miRNAs, are correlated with prognosis in clear‑cell renal carcinoma (KIRC) and papillary renal carcinoma (KIRP) (Figure <xref rid="advs73630-fig-0005" ref-type="fig">5E</xref>), consistent with emerging reports [<xref rid="advs73630-bib-0047" ref-type="bibr">47</xref>, <xref rid="advs73630-bib-0048" ref-type="bibr">48</xref>, <xref rid="advs73630-bib-0049" ref-type="bibr">49</xref>, <xref rid="advs73630-bib-0050" ref-type="bibr">50</xref>]. Consistent with these mechanistic insights, patients with elevated expression of the chromosome 14‐enriched miRNA set show markedly worse overall survival in the TCGA‐KIRP cohort, supported by hazard ratios consistently exceeding 1 under univariate Cox analysis (Figure <xref rid="advs73630-fig-0005" ref-type="fig">5F</xref>), which suggests that higher miRNA expression is associated with increased risk and worse prognosis. As renal‑cell carcinoma progression is dependent on angiogenesis, invasion, and migration, these findings align with the pathways enriched for <italic toggle="yes">COL1A1</italic>‑linked miRNAs and collectively demonstrate how model interpretation reveals hub‑miRNA/mRNA axes that drive cancer development.</p></sec><sec id="advs73630-sec-0090"><label>2.5</label><title>SiCmiR Unlocks EV‑Mediated Communication Maps in Glioblastoma</title><p>miRTalk [<xref rid="advs73630-bib-0051" ref-type="bibr">51</xref>] describes how EV‐small RNA cargo remodels the tumor niche by coupling a sender–miRNA “secreting score” with receiver cell RISC activity inferred from mRNA expression in a single‐cell profile. However, mature miRNA abundance usually does not align with miRNA gene expression (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S11</xref>), which limits this approach. To address this, we integrated SiCmiR‐inferred single‐cell miRNA profiles into the miRTalk framework and re‐evaluated cell‐to‐cell communication in glioblastoma (GBM). After quality control, 3,497 cells were retained (Figure <xref rid="advs73630-fig-0006" ref-type="fig">6A</xref>), identifying eight canonical lineages, including malignant cells, OPC‐like cells, and their brain‐resident stromal counterparts. Summarizing significant edges produced a sender‐receiver matrix (Figure <xref rid="advs73630-fig-0006" ref-type="fig">6B</xref>) that highlighted pronounced traffic from malignant cells and macrophages, whereas oligodendrocyte progenitor‐like cells (OPCs) and neurons primarily served as sinks. We identified 1 14 501 high‐confidence miRNA–target pairs (<italic toggle="yes">p</italic> &lt; 0.05; Table <xref rid="advs73630-supinfo-0001" ref-type="">S7</xref>). Incorporating SiCmiR‑inferred mature miRNA abundance into the miRTalk workflow significantly expanded both the breadth and biological coherence of the predicted EV‑mediated miRNA–target network (Table <xref rid="advs73630-tbl-0002" ref-type="table">2</xref>). This SiCmiR‑enhanced workflow yielded 1 14 501 high‑confidence miRNA–target interactions, larger than 20 times the original proxy analysis, and tripled the likelihood that an edge displayed the expected negative miRNA–mRNA Spearman correlation in the bulk RNA‐seq profiles in the TCGA‐GBM cohort. (36.9 % vs. 15.6 %; Fisher's OR  =  3.17, 95 % CI 2.94–3.42, <italic toggle="yes">P</italic> &lt; 2.2 × 10<sup>−</sup>
+<sup>1</sup>
+<sup>6</sup>). The average interaction score increased nearly 50‑fold (0.04494 vs. 0.00095), reflecting a denser and more reliable interaction landscape. Consistent with the expectation that stronger interactions would translate into greater repression, the aggregate repression effect also slightly strengthened (Cliff's δ ‑0.21; one‑sided Wilcoxon <italic toggle="yes">P</italic> ≈ 0.011).</p><fig position="float" fig-type="FIGURE" id="advs73630-fig-0006" orientation="portrait"><label>FIGURE 6</label><caption><p>SiCmiR enables the unraveling of cell‐cell communication in GBM via EV‐mediated transfer. (A) T‐SNE embedding of 3497 cells clustered into eight lineages. (B) Sender‐receiver matrix summarizing cross‐talk strength. Size denotes the number of significant miRNA‐target edges, and color indicates the cumulative communication score. (C) Heatmap of EVmiR score of miRNAs denoting the abundance of across cell types. (D) Violin plot of hsa‐miR‐125b‐5p expression (log‐CPM) in TCGA‐GBM (<italic toggle="yes">n</italic> = 267), LGG (<italic toggle="yes">n</italic> = 530) vs. all non‐malignant tissue (<italic toggle="yes">n</italic> = 5), <italic toggle="yes">p</italic> value by two‐tailed Wilcoxon tests. (E) Spearman correlation between hsa‐miR‐125b‐5p levels and its targets <italic toggle="yes">TNFAIP3</italic> within the TCGA‐GBM cohort; shaded band, 95% CI. (F) Feature map: left, hsa‐miR‐125b‐5p; right, representative target gene <italic toggle="yes">TNFAIP3</italic>. Yellow indicates sender cells; purple indicates receiver cells. (G) GO enrichment for genes negatively correlated with hsa‐miR‐125b‐5p (‐log10 <italic toggle="yes">p</italic> value). (H) Expression landscape of hsa‐miR‐10b‐5p as (D). (I) Feature map for hsa‐miR‐10b‐5p with legend the same as (F). (J) Expression of five apoptosis‐related hallmarks as hsa‐miR‐10b‐5p target genes across cell types. (K) Feature map of hsa‐miR‐21‐5p, expression confined to malignant sub‐cluster. (L) Scatter plots showing Spearman correlations between hsa‐miR‐21‐5p and 4 canonical targets (<italic toggle="yes">EGFR, MMP2, TGFBI, BTG2</italic>) within the TCGA‐GBM cohort. Red lines indicate fitted regressions, shaded bands the 95% CI.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-13" orientation="portrait" xlink:href="ADVS-13-e14446-g007.jpg"/></fig><table-wrap position="float" id="advs73630-tbl-0002" content-type="TABLE" orientation="portrait"><label>TABLE 2</label><caption><p>SiCmiR Integration Dramatically Broadens and Refines EV‑Mediated miRNA–Target Networks.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1">Metric</th><th align="center" rowspan="1" colspan="1">miRTalk (gene‐proxy)</th><th align="center" rowspan="1" colspan="1">SiCmiR (mature‐miRNA)</th><th align="center" rowspan="1" colspan="1">Fold‐change / Gain</th><th align="center" rowspan="1" colspan="1">Statistical test</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">Total high‐confidence edges</td><td align="center" rowspan="1" colspan="1">5 390</td><td align="center" rowspan="1" colspan="1">114501</td><td align="center" rowspan="1" colspan="1">× 21.2</td><td align="center" rowspan="1" colspan="1">—</td></tr><tr><td align="left" rowspan="1" colspan="1">Negative‐correlated MTI (ρ &lt; 0, <italic toggle="yes">p</italic> value &lt; 0.05)</td><td align="center" rowspan="1" colspan="1">840</td><td align="center" rowspan="1" colspan="1">42273</td><td align="center" rowspan="1" colspan="1">× 50.3</td><td align="center" rowspan="1" colspan="1">Fisher exact test OR  =  3.17 (95 % CI  =  2.94‐3.42), <italic toggle="yes">p</italic> value &lt; 2.2e‐16</td></tr><tr><td align="left" rowspan="1" colspan="1">Negative‐correlated MTI proportion</td><td align="center" rowspan="1" colspan="1">15.6 %</td><td align="center" rowspan="1" colspan="1">36.9 %</td><td align="center" rowspan="1" colspan="1">+21.3 pp</td><td align="center" rowspan="1" colspan="1">Same Fisher test as above</td></tr><tr><td align="left" rowspan="1" colspan="1">Repression effect size (Cliff's δ on receiver‐cell)</td><td align="center" rowspan="1" colspan="1">−0.2</td><td align="center" rowspan="1" colspan="1">−0.21</td><td align="center" rowspan="1" colspan="1">Slight increase</td><td align="center" rowspan="1" colspan="1">
+<p>One‐sided Wilcoxon</p>
+<p>P  =  0.0128, 0.0107</p>
+</td></tr><tr><td align="left" rowspan="1" colspan="1">Average MTI score (by miRTalk)</td><td align="center" rowspan="1" colspan="1">0.00095</td><td align="center" rowspan="1" colspan="1">0.04494</td><td align="center" rowspan="1" colspan="1">× 47.23</td><td align="center" rowspan="1" colspan="1">Two‐sided Wilcoxon rank‐sum P &lt; 2.2e‐16</td></tr></tbody></table><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><p>A heatmap of sender scores ≥ 0.07 for individual miRNAs (Figure <xref rid="advs73630-fig-0006" ref-type="fig">6C</xref>) reveals marked cell‑type heterogeneity. At single‑miRNA resolution, SiCmiR identifies lineage‑restricted EV cargoes that modulate the tumor microenvironment. hsa‐miR‐125b‐5p was notably elevated in TCGA GBM samples compared to lower‐grade glioma (LGG) and non‐malignant cells (Figure <xref rid="advs73630-fig-0006" ref-type="fig">6D</xref>). Within TCGA‐GBM, miR‐125b‐5p levels correlated negatively with the expression of its validated targets (Figure <xref rid="advs73630-fig-0006" ref-type="fig">6E</xref>), indicating effective target repression in bulk tissue. These results were also reported by Shao et al. [<xref rid="advs73630-bib-0051" ref-type="bibr">51</xref>]. Feature overlays confirmed that miR‐125b‐5p is enriched in sender malignant clusters, while its target <italic toggle="yes">TNFAIP3</italic> is reciprocally expressed in malignant clusters and neighboring astrocytes (Figure <xref rid="advs73630-fig-0006" ref-type="fig">6F</xref>). These correlations supported an autocrine loop in which miR‐125b‐rich EVs reinforce lipid metabolism signaling and suppress apoptosis within the tumor core (Figure <xref rid="advs73630-fig-0006" ref-type="fig">6G</xref>) [<xref rid="advs73630-bib-0052" ref-type="bibr">52</xref>]. Likewise, hsa‑miR‑10b‑5p suppresses five pro‑apoptotic genes in recipient OPC‑like cells (Figure <xref rid="advs73630-fig-0006" ref-type="fig">6H–J</xref>), which are typically progenitors of malignant cells in GBM, consistent with previous reports that miR‐10b confers survival advantages and invasive phenotypes [<xref rid="advs73630-bib-0053" ref-type="bibr">53</xref>]. In contrast, macrophage‑enriched hsa‑miR‑21‑5p exports oncogenic signals to malignant clusters, correlating positively with <italic toggle="yes">B3GNT5</italic>, <italic toggle="yes">ICAM1</italic>, and <italic toggle="yes">TNFAIP3</italic> (Figure <xref rid="advs73630-fig-0006" ref-type="fig">6K,L</xref>). Overall, these results demonstrate that supplying mature‑miRNA expression predicted by SiCmiR not only increases network coverage but also substantially enhances the biological plausibility of miRTalk's intercellular miRNA–target interactions, providing a higher‑resolution view of EV‑mediated communication.</p></sec></sec><sec id="advs73630-sec-0100"><label>3</label><title>Discussion</title><p>This study introduces SiCmiR, a computational framework designed to infer miRNA activity from only 977 landmark genes and scales these predictions into SiCmiR Atlas, the first open repository of single‑cell mature‑miRNA landscapes. By shrinking the input space from more than 20 000 to 977 genes, SiCmiR mitigates zero‑inflation and attains state‑of‑the‑art accuracy across 33 TCGA tumor types and multiple scRNA‑seq datasets. SiCmiR Atlas warehouses predicted profiles, and cell‑type metadata in a user‐friendly webpage, enabling downstream applications interactively. Proof‑of‑concept case‐studies in HCC, GBM, and ACTH‑PitNET show that our framework recovers literature‑supported oncogenic miRNAs, reveals candidate hub regulators with prognostic value, and illuminates EV‑mediated crosstalk among malignant and stromal populations.</p><p>However, applying a bulk‐derived model to single‐cell data warrants careful interpretation. Biologically, bulk RNA‐seq captures population‐averaged transcriptional associations that may not fully reflect cell‐type‐specific or state‐dependent miRNA–mRNA quantitative relationships observable only at single‐cell resolution. Technically, single‐cell profiling introduces dropout and variable detection sensitivity that can weaken the coupling between true molecular abundance and observed expression values. These factors indicate that the accuracy of bulk‐trained models may be attenuated when biological heterogeneity or technical noise predominate. Sparsity remains another inherent challenge in single‐cell transcriptomics. Stress test results highlight the need for future noise‐aware architectures and sparsity‐robust feature priors. Notably, sampling from bulk FPKM shifts the retained‐gene composition toward lower‐expression ranks in higher UMI. This compositional shift coincides with the curve cross‐overs in Figure <xref rid="advs73630-supinfo-0001" ref-type="">S5B</xref>, suggesting that the inversions arise from sampling‐induced changes in feature covariance structure rather than true model failure. This result highlights the value of incorporating raw count information during model training. Furthermore, we tracked sparsity before and after gene‐wise z‐scoring. As expected, z‐scoring maps zeros to finite values and eliminates numerical sparsity, but it cannot recover rank or covariance information lost during masking or down‐sampling, and model performance continued to follow the pre‐z‐score sparsity profile. Together, these results show that although SiCmiR remains stable under depth and sparsity reduction, cell‐type averages or bootstrap‐pooled profiles are recommended for application, as they substantially reduce sparsity and improve predictive reliability.</p><p>In our results, accurate predictions of mature miRNA levels and the observed correlation between mature miRNA expression levels within the same family are biologically expected [<xref rid="advs73630-bib-0054" ref-type="bibr">54</xref>, <xref rid="advs73630-bib-0055" ref-type="bibr">55</xref>]. Members of a family often share substantial sequence similarity, which may result in overlapping mRNA target groups [<xref rid="advs73630-bib-0056" ref-type="bibr">56</xref>, <xref rid="advs73630-bib-0057" ref-type="bibr">57</xref>], an aspect that aligns with the underlying rationale of our model design. In addition, members of the same miRNA cluster also originate from the same precursor primary transcript [<xref rid="advs73630-bib-0058" ref-type="bibr">58</xref>], reside in close chromosomal proximity, and share common transcription regulators [<xref rid="advs73630-bib-0059" ref-type="bibr">59</xref>]. These transcriptional and genomic relationships establish a biological backdrop that may contribute to the model's performance, even though it lacks explicit other translational information, such as allelic variation and modifications on DNA and histone, and also post‐transcriptional information such as pri‐miRNA structural constraints, Drosha/Dicer processing, RBP‐mediated stability control, and chemical modifications on nucleotides, all influencing splicing and degradation [<xref rid="advs73630-bib-0060" ref-type="bibr">60</xref>, <xref rid="advs73630-bib-0061" ref-type="bibr">61</xref>].</p><p>On the other hand, our model is constrained by the fixed input feature space. Because SiCmiR relies on landmark genes, regulatory signals that arise from rare, lineage‐specific, or state‐dependent genes may remain under‐captured. These regulators are often lowly expressed in bulk but may exert a strong influence in single‐cell contexts [<xref rid="advs73630-bib-0062" ref-type="bibr">62</xref>]. While the current feature design supports robust generalization across datasets, future versions of SiCmiR could address this by integrating dynamic and context‐driven feature selection or adopting hybrid architectures that can flexibly embed variable‐length inputs while preserving computational efficiency. Refining the feature space may further enhance the performance and increase the resolution for mapping context‐specific miRNA regulation. Additionally, a more advanced model that integrates samples from both TCGA and GTEx could yield further improvements, as increasing sample size has been shown to enhance performance in both this and previous studies [<xref rid="advs73630-bib-0019" ref-type="bibr">19</xref>].</p><p>The case studies in our article show the utility of SiCmiR in identifying miRNAs with potential biological significance in cancers and cell types. By localizing dysregulated miRNAs to the cell types in which they are functionally active, SiCmiR enables researchers to better interpret miRNA‐driven processes during tumor development and progression. Among the miRNAs that were correctly detected by SiCmiR, hsa‐miR‐21, a well‐characterized regulator that suppresses apoptosis of tumor cells and promotes their proliferation [<xref rid="advs73630-bib-0030" ref-type="bibr">30</xref>], was consistently up‐regulated in all acinar cells, DC1, and DC2. hsa‐miRNA‐221, hsa‐miRNA‐222, and hsa‐miR‐146a, all of which have been implicated in promoting PDAC cell invasion [<xref rid="advs73630-bib-0063" ref-type="bibr">63</xref>], were upregulated in both DC1 and DC2 in cancer samples. Several dysregulated miRNAs identified by our framework have also been linked to tumor aggressiveness in recent literature. Among them, hsa‐miR‐147b‐3p was found to be significantly upregulated in DC2 cells in our analysis. Subsequent literature has reported its role in promoting invasion and proliferation [<xref rid="advs73630-bib-0064" ref-type="bibr">64</xref>, <xref rid="advs73630-bib-0065" ref-type="bibr">65</xref>], aligning with our cell‐type level observations. Such convergence illustrates how SiCmiR can help pinpoint cell‐type‐specific miRNA dysregulation that may otherwise be obscured in bulk‐tissue analyses. This capability enables the identification of miRNAs with cell‐type‐restricted expression patterns, offering a more precise view of post‐transcriptional regulation across heterogeneous tissues. Meanwhile, we note that the CR‐A549 perturbation analysis illustrates the potential of SiCmiR for drug‐response profiling, but the small sample size warrants cautious interpretation. These results should be considered preliminary until validated in larger perturbation cohorts. Since SiCmiR is trained on standardized inputs, its outputs primarily reflect the relative ordering of miRNA abundance within a given cell type, rather than absolute expression scale. Expanding benchmarking to include absolute‐error metrics, calibration analyses, and perturbation‐response consistency will further clarify the quantitative fidelity of the predictions.</p><p>Beyond intracellular regulation, the application of SiCmiR improves miRTalk's basic strategy of predicting EV‐miRNA abundance, where the quantification implicitly assumes linear additivity and homogeneous vesicle uptake, it nonetheless inherits a key limitation of the original framework. Studies have demonstrated that EV‐miRNA loading is an active and selective process mediated by specific sequence motifs and RNA‐binding proteins such as hnRNPA2B1 [<xref rid="advs73630-bib-0066" ref-type="bibr">66</xref>], YBX1 [<xref rid="advs73630-bib-0067" ref-type="bibr">67</xref>], and SYNCRIP [<xref rid="advs73630-bib-0068" ref-type="bibr">68</xref>, <xref rid="advs73630-bib-0069" ref-type="bibr">69</xref>], rather than a passive reflection of the intracellular miRNA pool. As a consequence, the current implementation does not explicitly model this selective packaging step. Although SiCmiR represents a substantial improvement over the previous use of host‐gene mRNA as a surrogate, the underlying assumption remains. Future efforts integrating EV‐specific sorting signals or context‐dependent EV‐miRNA profiles from bulk or, ideally, single‐cell datasets would be essential for capturing this additional layer of post‐transcriptional regulation.</p><p>Finally, we recognize the importance of long‐term maintenance and curation of the SiCmiR Atlas. The database will be updated regularly to incorporate new scRNA‐seq datasets, additional tissue contexts, emerging EV‐miRNA resources, and future model updates. Plans include refining the model structure, incorporating batch‐aware or domain‐specific strategies, and developing interactive tools that enable the community‐driven data calculation. Together, these efforts aim to ensure that SiCmiR Atlas remains an accurate, extensible, and evolving resource for studying miRNA regulation across diverse biological systems.</p></sec><sec id="advs73630-sec-0110"><label>4</label><title>Conclusion</title><p>SiCmiR bridges a critical gap in single‐cell transcriptomics by enabling robust, fine‐grained inference of miRNA activity from a compact 977‐gene feature set. This approach mitigates dropout‐related noise that impairs transcriptome‐wide models and accelerates computation, thereby facilitating the routine integration of miRNA layers into single‐cell analyses. Scaling the pipeline across diverse publicly available datasets resulted in the creation of SiCmiR Atlas, a freely accessible repository that integrates predicted miRNA abundance with cell‐type annotations. Proof‐of‐concept studies in hepatocellular carcinoma, glioblastoma, and ACTH‐secreting PitNET demonstrate the resource's ability to uncover candidate hub‐miRNAs and to map extracellular‐vesicle‐mediated regulatory circuits at single‐cell resolution. Although several avenues remain for future refinement, the present work delivers both a methodological framework and a community resource that collectively establish a foundation for the systematic dissection of miRNA‐driven cell–cell interactions for advancing their translational application in precision medicine.</p></sec><sec id="advs73630-sec-0120"><label>5</label><title>Methods</title><sec id="advs73630-sec-0130"><label>5.1</label><title>Data Collection for Model Training, Testing, and Case‐Study</title><p>Matched bulk log2(X+1) Fragments Per Kilobase of transcript per million mapped reads (FPKM) RNA‐Seq and reads per million mapped reads normalized (RPM) miRNA‐Seq gene expression data for cancers and normal samples were retrieved from TCGA using UCSC Xena at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://xenabrowser.net/" ext-link-type="uri">https://xenabrowser.net/</ext-link> [<xref rid="advs73630-bib-0070" ref-type="bibr">70</xref>] (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S12</xref>). miRNAs were selected from the union of samples with at least one non‐zero expressing sample in the TCGA data. mRNA expression profiles of 977 mRNAs in 978 L1000 genes were extracted. XBP1 in L1000 landmark genes was excluded due to zero count in all samples. 1298 miRNAs out of 1952 miRNAs were selected to filter out miRNAs with zero counts in all samples. Known experimentally validated miRNA target information was gathered from the miRTarBase [<xref rid="advs73630-bib-0042" ref-type="bibr">42</xref>]. The training data set contains 6462 samples from 33 types of cancers. The rest of the samples from TCGA are used as independent validation sets. For independent validation datasets, there are totally 2768 samples. The ratio of the number of samples for each cancer type is around 3 to 1 as the ratio of the number of samples in the training dataset and test dataset is close to 3:1.</p><p>For case‐study, bulk RNA‐seq and small RNA‐seq data were collected. Bulk RNA‐seq data for hepatocellular carcinoma was collected from Varghese et al., GEO accession number: <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmc:entrez-geo" xlink:href="GSE176289">GSE176289</ext-link> [<xref rid="advs73630-bib-0036" ref-type="bibr">36</xref>]. Bulk RNA‐seq data for the non‐small cell lung cancer (NSCLC) A5459 cell line is generated by our lab and published by Li et al. [<xref rid="advs73630-bib-0037" ref-type="bibr">37</xref>]. The scRNA‐seq expression profile of GBM obtained from GEO with accession <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmc:entrez-geo" xlink:href="GSE64465">GSE64465</ext-link> [<xref rid="advs73630-bib-0071" ref-type="bibr">71</xref>]. The expression of each mRNA and miRNA across cells was normalized by z‐score across samples before applying the SiCmiR model. The scRNA‐seq expression profile for PDAC was collected from Peng et al. [<xref rid="advs73630-bib-0027" ref-type="bibr">27</xref>]. at PRJCA001063 from <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://ngdc.cncb.ac.cn/" ext-link-type="uri">https://ngdc.cncb.ac.cn/</ext-link>. The PitNET scRNA‐seq data is retrieved from GEO with accession SRR13973073, SRR13973076. Cells were filtered by nFeature_RNA ≥ 200 and percentage of mitochondrial reads ≤ 10%. Gene counts were library‐size normalized (CPM × 1e4) and log‐transformed. For GTEx data, 15398 paired samples within Transcripts Per Million (TPM) RNASeQCv2.4.2 mRNA matrix and miRNA TPM matrix are retrieved from the GTEx portal at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.gtexportal.org/" ext-link-type="uri">https://www.gtexportal.org/</ext-link>.</p></sec><sec id="advs73630-sec-0140"><label>5.2</label><title>Machine Learning Model for miRNA Profile Prediction</title><p>We have adopted the neural network architecture that predicts miRNA profiling based on the given mRNA expression levels. Denote the training dataset <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="inline"><mml:mrow><mml:mrow><mml:mi mathvariant="script">D</mml:mi><mml:mo>=</mml:mo><mml:mo stretchy="false">{</mml:mo><mml:mrow><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mrow><mml:msup><mml:mi mathvariant="normal">x</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup><mml:mo>,</mml:mo><mml:msup><mml:mi mathvariant="normal">y</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mn>1</mml:mn><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup></mml:mrow><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mo>,</mml:mo><mml:mtext>…</mml:mtext><mml:mo>,</mml:mo><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mrow><mml:msup><mml:mi mathvariant="normal">x</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup><mml:mo>,</mml:mo><mml:msup><mml:mi mathvariant="normal">y</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>N</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup></mml:mrow><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow><mml:mo stretchy="false">}</mml:mo></mml:mrow></mml:mrow></mml:math> with a total of <italic toggle="yes">N</italic> samples, where the <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-2" display="inline"><mml:mrow><mml:mrow><mml:msup><mml:mi mathvariant="normal">x</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup><mml:mo>∈</mml:mo><mml:msup><mml:mi mathvariant="double-struck">R</mml:mi><mml:mi>d</mml:mi></mml:msup></mml:mrow></mml:mrow></mml:math> stands for the <italic toggle="yes">d</italic>‐dimensional gene expression vector and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-3" display="inline"><mml:mrow><mml:mrow><mml:msup><mml:mi mathvariant="normal">y</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup><mml:mo>∈</mml:mo><mml:msup><mml:mi mathvariant="double-struck">R</mml:mi><mml:mi>m</mml:mi></mml:msup></mml:mrow></mml:mrow></mml:math> represents the <italic toggle="yes">m</italic>‐dimensional vector of miRNA profiling values for the <italic toggle="yes">n</italic>‐th sample. The goal is to utilize <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-4" display="inline"><mml:mrow><mml:mi mathvariant="script">D</mml:mi></mml:mrow></mml:math> to learn a neural network‐based multi‐target repression model <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-5" display="inline"><mml:mrow><mml:mrow><mml:msub><mml:mi mathvariant="script">F</mml:mi><mml:mi>θ</mml:mi></mml:msub><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mo>·</mml:mo><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math> parameterized by θ that maps the input gene expression vector <italic toggle="yes">x</italic> to the output vector <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-6" display="inline"><mml:mrow><mml:mover accent="true"><mml:mi>y</mml:mi><mml:mo>^</mml:mo></mml:mover></mml:mrow></mml:math> of the miRNA values. A two‐layer fully connected network (input = 977, hidden = 1024, output = 1298) was implemented. Hyper‐parameters were tuned by grid search (Table <xref rid="advs73630-supinfo-0001" ref-type="">S8</xref>). Early stopping after 20 epochs without validation loss improvement. We considered batch normalization [<xref rid="advs73630-bib-0072" ref-type="bibr">72</xref>], dropout [<xref rid="advs73630-bib-0073" ref-type="bibr">73</xref>], and rectified linear unit (ReLU) [<xref rid="advs73630-bib-0074" ref-type="bibr">74</xref>] for each hidden layer to avoid overfitting and improve the prediction performance. A detailed schematic diagram for the structures of the adopted neural network model, and ResNet and Transformer model for comparison is illustrated in Figure <xref rid="advs73630-supinfo-0001" ref-type="">S13</xref> and <xref rid="advs73630-supinfo-0001" ref-type="">Supporting Information</xref> 8. 20% of the training set is separated randomly by seed = 42, 52, 62 as a validation set. To achieve the predictive performance of the regression tasks, the model utilizes a mean squared error (MSE) loss function <italic toggle="yes">l</italic>(·) as Equation (<xref rid="advs73630-disp-0001" ref-type="disp-formula">1</xref>).
+<disp-formula id="advs73630-disp-0001">
+<label>(1)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-7" display="block"><mml:mrow><mml:mrow><mml:mrow><mml:mi mathvariant="normal">l</mml:mi><mml:mspace width="0.33em"/></mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mrow><mml:mi mathvariant="normal">D</mml:mi><mml:mo>,</mml:mo><mml:mspace width="0.33em"/></mml:mrow><mml:mi>θ</mml:mi></mml:mrow></mml:mfenced><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mi mathvariant="normal">N</mml:mi></mml:mfrac><mml:mspace width="0.33em"/><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi mathvariant="normal">n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi mathvariant="normal">N</mml:mi></mml:munderover><mml:mrow><mml:mo stretchy="false">∥</mml:mo><mml:msup><mml:mi mathvariant="normal">y</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup><mml:mo linebreak="goodbreak">−</mml:mo><mml:msup><mml:mover accent="true"><mml:mi mathvariant="normal">y</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup><mml:mo stretchy="false">∥</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where the <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-8" display="inline"><mml:mrow><mml:msup><mml:mover accent="true"><mml:mi mathvariant="normal">y</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msup></mml:mrow></mml:math> denotes the output prediction for the <italic toggle="yes">n</italic>‐th training sample. The supervised loss encourages the model parameter θ to update and finally be capable to predict miRNA values from gene expression inputs. We optimized the model training by tuning the stochastic gradient descent optimizer with a 0.4 learning rate. The dropout rates are set as 0.3 for the hidden layers. In addition, we performed stratified 3‐fold cross‐validation in the training data set to further test the stability of the model. Feature selection (977‐gene landmark) was fixed a priori, and thus, cross‐validation was not nested.</p></sec><sec id="advs73630-sec-0150"><label>5.3</label><title>Performance Evaluation</title><p>To characterize the predictive performance of our proposed regression model, we adopted the Pearson correlation coefficient (PCC) to measure the consistency between model prediction and the ground‐truth miRNA prediction value. The PCC for a specific miRNA regression is defined as Equation (<xref rid="advs73630-disp-0002" ref-type="disp-formula">2</xref>).
+<disp-formula id="advs73630-disp-0002">
+<label>(2)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-9" display="block"><mml:mrow><mml:mrow><mml:mrow><mml:mi>PCC</mml:mi><mml:mo linebreak="badbreak">=</mml:mo></mml:mrow><mml:mfrac><mml:mrow><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi mathvariant="normal">n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi mathvariant="normal">N</mml:mi></mml:msubsup><mml:msubsup><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">y</mml:mi></mml:mrow><mml:mi mathvariant="normal">k</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msubsup><mml:mo>−</mml:mo><mml:mover><mml:msub><mml:mi mathvariant="normal">y</mml:mi><mml:mi mathvariant="normal">k</mml:mi></mml:msub><mml:mo>¯</mml:mo></mml:mover><mml:msubsup><mml:mrow><mml:mrow><mml:mo stretchy="false">)</mml:mo><mml:mo stretchy="false">(</mml:mo></mml:mrow><mml:mover accent="true"><mml:mi mathvariant="normal">y</mml:mi><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mi mathvariant="normal">k</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msubsup><mml:mo>−</mml:mo><mml:mover><mml:msub><mml:mover accent="true"><mml:mi mathvariant="normal">y</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi mathvariant="normal">k</mml:mi></mml:msub><mml:mo>¯</mml:mo></mml:mover><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:msqrt><mml:mrow><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi mathvariant="normal">n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi mathvariant="normal">N</mml:mi></mml:msubsup><mml:msup><mml:mrow><mml:msubsup><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">y</mml:mi></mml:mrow><mml:mi mathvariant="normal">k</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msubsup><mml:mo>−</mml:mo><mml:mover><mml:msub><mml:mi mathvariant="normal">y</mml:mi><mml:mi mathvariant="normal">k</mml:mi></mml:msub><mml:mo>¯</mml:mo></mml:mover><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mn>2</mml:mn></mml:msup><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi mathvariant="normal">n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi mathvariant="normal">N</mml:mi></mml:msubsup><mml:msup><mml:mrow><mml:msubsup><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mover accent="true"><mml:mi mathvariant="normal">y</mml:mi><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mi mathvariant="normal">k</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msubsup><mml:mo>−</mml:mo><mml:mover><mml:msub><mml:mover accent="true"><mml:mi mathvariant="normal">y</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi mathvariant="normal">k</mml:mi></mml:msub><mml:mo>¯</mml:mo></mml:mover><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:msqrt></mml:mfrac><mml:mspace width="0.33em"/></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where the <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-10" display="inline"><mml:mrow><mml:msubsup><mml:mi>y</mml:mi><mml:mi>k</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msubsup></mml:mrow></mml:math> and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-11" display="inline"><mml:mrow><mml:msubsup><mml:mover accent="true"><mml:mi>y</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>k</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msubsup></mml:mrow></mml:math> stand for <italic toggle="yes">k</italic>‐th miRNA ground‐truth value and the prediction result of the <italic toggle="yes">n</italic>‐th sample from the dataset. The <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-12" display="inline"><mml:mrow><mml:mrow><mml:mover><mml:msub><mml:mi>y</mml:mi><mml:mi>k</mml:mi></mml:msub><mml:mo>¯</mml:mo></mml:mover><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mi>N</mml:mi></mml:mfrac><mml:mspace width="0.33em"/><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>N</mml:mi></mml:msubsup><mml:msubsup><mml:mi>y</mml:mi><mml:mi>k</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msubsup></mml:mrow></mml:mrow></mml:math> and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-13" display="inline"><mml:mrow><mml:mrow><mml:mover><mml:msub><mml:mover accent="true"><mml:mi>y</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>k</mml:mi></mml:msub><mml:mo>¯</mml:mo></mml:mover><mml:mo>=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mi>N</mml:mi></mml:mfrac><mml:mspace width="0.33em"/><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi>n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi>N</mml:mi></mml:msubsup><mml:msubsup><mml:mover accent="true"><mml:mi>y</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi>k</mml:mi><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi>n</mml:mi><mml:mo stretchy="false">)</mml:mo></mml:mrow></mml:msubsup></mml:mrow></mml:mrow></mml:math> are the average of true miRNA profiles and prediction value, respectively. Mean square error (MSE, the same as the loss function) Equation (<xref rid="advs73630-disp-0003" ref-type="disp-formula">3</xref>) and root mean square error (RMSE) Equation (<xref rid="advs73630-disp-0004" ref-type="disp-formula">4</xref>) quantify the average squared and root‐squared deviations, with RMSE sharing the same scale as the original data.
+<disp-formula id="advs73630-disp-0003">
+<label>(3)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-14" display="block"><mml:mrow><mml:mrow><mml:mi>MS</mml:mi><mml:msub><mml:mi mathvariant="normal">E</mml:mi><mml:mi mathvariant="normal">k</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mi mathvariant="normal">N</mml:mi></mml:mfrac><mml:mspace width="0.33em"/><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi mathvariant="normal">n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi mathvariant="normal">N</mml:mi></mml:munderover><mml:msup><mml:mfenced separators="" open="(" close=")"><mml:msubsup><mml:mover accent="true"><mml:mi mathvariant="normal">y</mml:mi><mml:mo>^</mml:mo></mml:mover><mml:mi mathvariant="normal">k</mml:mi><mml:mfenced open="(" close=")"><mml:mi mathvariant="normal">n</mml:mi></mml:mfenced></mml:msubsup><mml:mo>−</mml:mo><mml:msubsup><mml:mi mathvariant="normal">y</mml:mi><mml:mi mathvariant="normal">k</mml:mi><mml:mfenced open="(" close=")"><mml:mi mathvariant="normal">n</mml:mi></mml:mfenced></mml:msubsup></mml:mfenced><mml:mn>2</mml:mn></mml:msup><mml:mspace width="0.33em"/></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+<disp-formula id="advs73630-disp-0004">
+<label>(4)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-15" display="block"><mml:mrow><mml:mrow><mml:mi>RMS</mml:mi><mml:msub><mml:mi mathvariant="normal">E</mml:mi><mml:mi mathvariant="normal">k</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:msqrt><mml:mrow><mml:mi>MS</mml:mi><mml:msub><mml:mi mathvariant="normal">E</mml:mi><mml:mi mathvariant="normal">k</mml:mi></mml:msub></mml:mrow></mml:msqrt><mml:mspace width="0.33em"/></mml:mrow></mml:mrow></mml:math>
+</disp-formula>The coefficient of determination R‐square (R<sup>2</sup>) Equation (<xref rid="advs73630-disp-0005" ref-type="disp-formula">5</xref>) revaluates how much of the variance in the ground‐truth expression levels is explained by the model where <italic toggle="yes">R</italic>
+<sup>2 </sup> =  1 indicating perfect fit, <italic toggle="yes">R</italic>
+<sup>2</sup> =  0 means the model performs no better than simply predicting the mean, and <italic toggle="yes">R</italic>
+<sup>2</sup> &lt; 0 implies worse performance than the mean predictor.
+<disp-formula id="advs73630-disp-0005">
+<label>(5)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-16" display="block"><mml:mrow><mml:mrow><mml:msubsup><mml:mi mathvariant="normal">R</mml:mi><mml:mi mathvariant="normal">k</mml:mi><mml:mn>2</mml:mn></mml:msubsup><mml:mrow><mml:mo linebreak="badbreak">=</mml:mo><mml:mn>1</mml:mn><mml:mo linebreak="goodbreak">−</mml:mo></mml:mrow><mml:mfrac><mml:mrow><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi mathvariant="normal">n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi mathvariant="normal">N</mml:mi></mml:msubsup><mml:msup><mml:mrow><mml:msubsup><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mover accent="true"><mml:mi mathvariant="normal">y</mml:mi><mml:mo>^</mml:mo></mml:mover></mml:mrow><mml:mi mathvariant="normal">k</mml:mi><mml:mfenced open="(" close=")"><mml:mi mathvariant="normal">n</mml:mi></mml:mfenced></mml:msubsup><mml:msubsup><mml:mrow><mml:mo>−</mml:mo><mml:mi mathvariant="normal">y</mml:mi></mml:mrow><mml:mi mathvariant="normal">k</mml:mi><mml:mfenced open="(" close=")"><mml:mi mathvariant="normal">n</mml:mi></mml:mfenced></mml:msubsup><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mn>2</mml:mn></mml:msup></mml:mrow><mml:mrow><mml:msubsup><mml:mo>∑</mml:mo><mml:mrow><mml:mi mathvariant="normal">n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi mathvariant="normal">N</mml:mi></mml:msubsup><mml:msup><mml:mrow><mml:msubsup><mml:mrow><mml:mo stretchy="false">(</mml:mo><mml:mi mathvariant="normal">y</mml:mi></mml:mrow><mml:mi mathvariant="normal">k</mml:mi><mml:mfenced open="(" close=")"><mml:mi mathvariant="normal">n</mml:mi></mml:mfenced></mml:msubsup><mml:msubsup><mml:mrow><mml:mo>−</mml:mo><mml:mover accent="true"><mml:mi mathvariant="normal">y</mml:mi><mml:mo>¯</mml:mo></mml:mover></mml:mrow><mml:mi mathvariant="normal">k</mml:mi><mml:mfenced open="(" close=")"><mml:mi mathvariant="normal">n</mml:mi></mml:mfenced></mml:msubsup><mml:mo stretchy="false">)</mml:mo></mml:mrow><mml:mn>2</mml:mn></mml:msup></mml:mrow></mml:mfrac><mml:mrow><mml:mo>,</mml:mo><mml:mspace width="0.33em"/><mml:mspace width="0.33em"/></mml:mrow><mml:msub><mml:mover accent="true"><mml:mi mathvariant="normal">y</mml:mi><mml:mo>¯</mml:mo></mml:mover><mml:mi mathvariant="normal">k</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mi mathvariant="normal">N</mml:mi></mml:mfrac><mml:mspace width="0.33em"/><mml:munderover><mml:mo>∑</mml:mo><mml:mrow><mml:mi mathvariant="normal">n</mml:mi><mml:mo>=</mml:mo><mml:mn>1</mml:mn></mml:mrow><mml:mi mathvariant="normal">N</mml:mi></mml:munderover><mml:msubsup><mml:mi mathvariant="normal">y</mml:mi><mml:mi mathvariant="normal">k</mml:mi><mml:mfenced open="(" close=")"><mml:mi mathvariant="normal">n</mml:mi></mml:mfenced></mml:msubsup></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+</p><p>Model training was performed on an NVIDIA A100 PCIe GPU (40 GB VRAM) in a workstation equipped with an Intel Xeon Gold 6326 CPU and 251 GB memory. The software environment required PyTorch 1.13.0+cu117 (CUDA 11.7), NumPy 1.26.4, pandas 2.0.3, and scikit‐learn 1.7.1. Under this configuration, one training epoch required approximately 0.33 s, yielding a total wall‐clock time of approximately 70 s for 200 epochs, with minor variation depending on GPU load. These hardware and software specifications support the reproducibility of the training setup.</p></sec><sec id="advs73630-sec-0160"><label>5.4</label><title>Feature Ablation Stress‐Test Framework for Evaluating Model Robustness</title><p>All perturbations were applied directly to the input matrix used for model prediction, and SiCmiR was run without any modification to architecture or training parameters to ensure that changes in performance reflected only perturbation effects. Random feature dropout: In each iteration, a fixed percentage of landmark genes ([0, 1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90]) was masked by setting their expression values to zero for all samples. The model was then evaluated on 6 different random seeds [101, 204, 387, 1567, 640, 912] across dropout levels, allowing us to quantify stability as feature availability decreases. SHAP‐guided feature removal: feature landmarks were ranked by their average SHAP contributions to hub‐miRNAs. Two cumulative removal series were generated. In each series, the top <italic toggle="yes">k</italic> (or bottom <italic toggle="yes">k</italic>) genes were masked jointly at step <italic toggle="yes">k</italic>, rather than removed individually, generating a progressive increase in the fraction of eliminated features. Model performance was evaluated at every cumulative removal level.</p></sec><sec id="advs73630-sec-0170"><label>5.5</label><title>Sparsity Stress‐Test Framework for Evaluating Model Robustness</title><p>Bulk RNA‐seq expression values, reported as log<sub>2</sub>(expression+1), were first converted back to an expression matrix of 977 landmark genes, and were perturbed to assess model robustness under increasing sparsity. Matrix was then z‐scored across samples and input to the model. To mimic a simple increase in dropout, we uniformly masked a proportion of non‐zero entries across the entire matrix. For each sparsity percentage ranging [0, 0.1, 1, 5, 10, 20, 30, 40, 50, 60, 70, 80, 90], a random subset of existing non‐zero counts were set to zero. The evaluation was repeated by 6 different random seeds [<xref rid="advs73630-bib-0062" ref-type="bibr">62</xref>, 567, 309, <xref rid="advs73630-bib-0039" ref-type="bibr">39</xref>, 675,<xref rid="advs73630-bib-0042" ref-type="bibr">42</xref>] across sparsity levels. Poisson‐based sampling mimic the distribution in which the probability of dropout increases as the expression of gene decreases [<xref rid="advs73630-bib-0025" ref-type="bibr">25</xref>]. For each non‐zero entry indexed by Equation (<xref rid="advs73630-disp-0006" ref-type="disp-formula">6</xref>).
+<disp-formula id="advs73630-disp-0006">
+<label>(6)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-17" display="block"><mml:mrow><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi mathvariant="normal">i</mml:mi><mml:mo>,</mml:mo><mml:mi mathvariant="normal">g</mml:mi></mml:mrow></mml:mfenced><mml:mo>∈</mml:mo><mml:mi mathvariant="normal">Ω</mml:mi><mml:mrow><mml:mo linebreak="badbreak">=</mml:mo><mml:mo stretchy="false">{</mml:mo></mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi mathvariant="normal">i</mml:mi><mml:mo>,</mml:mo><mml:mi mathvariant="normal">g</mml:mi></mml:mrow></mml:mfenced><mml:mrow><mml:mo>:</mml:mo><mml:mi>FPK</mml:mi></mml:mrow><mml:msub><mml:mi mathvariant="normal">M</mml:mi><mml:mi>ig</mml:mi></mml:msub><mml:mrow><mml:mo linebreak="badbreak">&gt;</mml:mo><mml:mn>0</mml:mn><mml:mo stretchy="false">}</mml:mo></mml:mrow></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where <italic toggle="yes">i</italic> denotes a sample and <italic toggle="yes">g</italic> denotes a gene, we defined dropout probability <italic toggle="yes">p<sub>ig</sub>
+</italic> as Equation (<xref rid="advs73630-disp-0007" ref-type="disp-formula">7</xref>).
+<disp-formula id="advs73630-disp-0007">
+<label>(7)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-18" display="block"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:msub><mml:mi>p</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>g</mml:mi></mml:mrow></mml:msub></mml:mtd><mml:mtd><mml:mo>=</mml:mo></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mi>e</mml:mi><mml:mi>x</mml:mi><mml:mi>p</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mo linebreak="badbreak">−</mml:mo><mml:mi>γ</mml:mi><mml:msub><mml:mi>λ</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>g</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced><mml:mspace width="0.33em"/><mml:mi>w</mml:mi><mml:mi>h</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>e</mml:mi><mml:mspace width="0.33em"/><mml:msub><mml:mi>λ</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>g</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd/><mml:mtd><mml:mo linebreak="newline">=</mml:mo></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mi>max</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mfrac><mml:mrow><mml:mi>F</mml:mi><mml:mi>P</mml:mi><mml:mi>K</mml:mi><mml:msub><mml:mi>M</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>g</mml:mi></mml:mrow></mml:msub></mml:mrow><mml:mrow><mml:mi>p</mml:mi><mml:mi>e</mml:mi><mml:mi>r</mml:mi><mml:mi>c</mml:mi><mml:mi>e</mml:mi><mml:mi>n</mml:mi><mml:mi>t</mml:mi><mml:mi>i</mml:mi><mml:mi>l</mml:mi><mml:msub><mml:mi>e</mml:mi><mml:mn>95</mml:mn></mml:msub><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>F</mml:mi><mml:mi>P</mml:mi><mml:mi>K</mml:mi><mml:msub><mml:mi>M</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>g</mml:mi></mml:mrow></mml:msub></mml:mrow></mml:mfenced></mml:mrow></mml:mfrac><mml:mo>,</mml:mo><mml:mspace width="0.33em"/><mml:msup><mml:msup><mml:mn>10</mml:mn><mml:mo>−</mml:mo></mml:msup><mml:mn>12</mml:mn></mml:msup></mml:mrow></mml:mfenced><mml:mspace width="0.33em"/></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math>
+</disp-formula>
+</p><p>Each entry was then independently masked by a Bernoulli distribution as Equation (<xref rid="advs73630-disp-0008" ref-type="disp-formula">8</xref>).
+<disp-formula id="advs73630-disp-0008">
+<label>(8)</label>
+<inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14446-e019.jpg"/>
+</disp-formula>
+</p><p>To approximate reduced sequencing depth, we applied multinomial sampling to every sample, since the sequencing depth is determined by the capture rate following binomial distribution [<xref rid="advs73630-bib-0026" ref-type="bibr">26</xref>]. For each sample <italic toggle="yes">i</italic>, the probability vector <italic toggle="yes">p<sub>i</sub>
+</italic> was normalized to a probability distribution Equation (<xref rid="advs73630-disp-0009" ref-type="disp-formula">9</xref>).
+<disp-formula id="advs73630-disp-0009">
+<label>(9)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-20" display="block"><mml:mrow><mml:mrow><mml:msub><mml:mi mathvariant="normal">p</mml:mi><mml:mi mathvariant="normal">i</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:mi>FPK</mml:mi><mml:msub><mml:mi mathvariant="normal">M</mml:mi><mml:mi>ig</mml:mi></mml:msub></mml:mrow><mml:mrow><mml:msub><mml:mo>∑</mml:mo><mml:mi mathvariant="normal">g</mml:mi></mml:msub><mml:mi>FPK</mml:mi><mml:msub><mml:mi mathvariant="normal">M</mml:mi><mml:mi>ig</mml:mi></mml:msub></mml:mrow></mml:mfrac><mml:mspace width="0.33em"/></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+</p><p>In order to clarify the effects of sparsity rather than feature dropout, γ  =  0.5 was selected in the next step. A pseudo‐UMI counts reduced were generated by multinomial sampling by Equation (<xref rid="advs73630-disp-0010" ref-type="disp-formula">10</xref>).
+<disp-formula id="advs73630-disp-0010">
+<label>(10)</label>
+<inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14446-e012.jpg"/>
+</disp-formula>
+</p><p>Reduced sequencing depth was then simulated by Poisson‐based sampling as above with a dropout probability <inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14446-e004.jpg"/> and sparsity after down‐sampling <italic toggle="yes">sp<sub>down</sub>
+</italic> to satisfied the target sparsity <italic toggle="yes">sp<sub>target</sub>
+</italic> as Equation (<xref rid="advs73630-disp-0011" ref-type="disp-formula">11</xref>).
+<disp-formula id="advs73630-disp-0011">
+<inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14446-e007.jpg"/>
+</disp-formula>
+<disp-formula id="advs73630-disp-0012">
+<label>(11)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-24" display="block"><mml:mrow><mml:mtable displaystyle="true"><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>where</mml:mi><mml:mspace width="0.33em"/><mml:mi mathvariant="normal">s</mml:mi></mml:mrow></mml:mtd><mml:mtd><mml:mo>=</mml:mo></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mfrac><mml:msubsup><mml:mi>sp</mml:mi><mml:mi>target</mml:mi><mml:mi mathvariant="normal">'</mml:mi></mml:msubsup><mml:mover><mml:msub><mml:mi mathvariant="normal">p</mml:mi><mml:mi>ig</mml:mi></mml:msub><mml:mo>¯</mml:mo></mml:mover></mml:mfrac><mml:mspace width="0.33em"/><mml:mo>,</mml:mo><mml:mspace width="0.33em"/><mml:mspace width="0.33em"/><mml:mover><mml:msub><mml:mi mathvariant="normal">p</mml:mi><mml:mi>ig</mml:mi></mml:msub><mml:mo>¯</mml:mo></mml:mover><mml:mo linebreak="goodbreak">=</mml:mo><mml:mfrac><mml:mn>1</mml:mn><mml:mfenced open="|" close="|"><mml:mi mathvariant="normal">Ω</mml:mi></mml:mfenced></mml:mfrac><mml:mspace width="0.33em"/><mml:munder><mml:mo>∑</mml:mo><mml:mrow><mml:mfenced separators="" open="(" close=")"><mml:mi mathvariant="normal">i</mml:mi><mml:mo>,</mml:mo><mml:mi mathvariant="normal">g</mml:mi></mml:mfenced><mml:mo>∈</mml:mo><mml:mi mathvariant="normal">Ω</mml:mi></mml:mrow></mml:munder><mml:msub><mml:mi mathvariant="normal">p</mml:mi><mml:mi>ig</mml:mi></mml:msub><mml:mo>,</mml:mo></mml:mrow></mml:mtd></mml:mtr><mml:mtr><mml:mtd columnalign="right"><mml:mrow><mml:mi>and</mml:mi><mml:mspace width="0.33em"/><mml:msubsup><mml:mi>sp</mml:mi><mml:mi>target</mml:mi><mml:mi mathvariant="normal">'</mml:mi></mml:msubsup></mml:mrow></mml:mtd><mml:mtd><mml:mo>=</mml:mo></mml:mtd><mml:mtd columnalign="left"><mml:mrow><mml:mfrac><mml:mrow><mml:msub><mml:mi>sp</mml:mi><mml:mi>target</mml:mi></mml:msub><mml:mspace width="0.33em"/><mml:mo>−</mml:mo><mml:mspace width="0.33em"/><mml:msub><mml:mi>sp</mml:mi><mml:mi>down</mml:mi></mml:msub></mml:mrow><mml:mrow><mml:mn>1</mml:mn><mml:mspace width="0.33em"/><mml:mo>−</mml:mo><mml:mspace width="0.33em"/><mml:msub><mml:mi>sp</mml:mi><mml:mi>down</mml:mi></mml:msub></mml:mrow></mml:mfrac><mml:mspace width="0.33em"/></mml:mrow></mml:mtd></mml:mtr></mml:mtable></mml:mrow></mml:math>
+</disp-formula>
+</p></sec><sec id="advs73630-sec-0180"><label>5.6</label><title>SHAP Analysis Attributes the Contribution of Each mRNA to Output</title><p>To attribute the contribution of each input feature to the model output, gradient explainer for SHAP analysis was adopted [<xref rid="advs73630-bib-0046" ref-type="bibr">46</xref>]. The average contribution of each feature to each output miRNA in each paired sample was calculated.</p></sec><sec id="advs73630-sec-0190"><label>5.7</label><title>Annotation of miRNA Functions and Pathway Enrichment Analysis</title><p>miEAA2 (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.ccb.uni-saarland.de/mieaa2" ext-link-type="uri">https://www.ccb.uni‐saarland.de/mieaa2</ext-link>) was used for the annotation of miRNAs of their roles in different types of cancers [<xref rid="advs73630-bib-0075" ref-type="bibr">75</xref>]. Enrichment analysis of miRNAs was also conducted. The over‐represented mode was chosen for the annotation of miRNAs in cancers. The network graphs between miRNAs and cancers and the analysis of the network, e.g., degree of nodes, were plot and calculated by Gephi [<xref rid="advs73630-bib-0076" ref-type="bibr">76</xref>]. MetaCore (@Clarivate Analytics, <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://portal.genego.com/" ext-link-type="uri">https://portal.genego.com/</ext-link>) and gene ontology [<xref rid="advs73630-bib-0077" ref-type="bibr">77</xref>] by R package clusterProfiler [<xref rid="advs73630-bib-0078" ref-type="bibr">78</xref>], and Kyoto Encyclopedia of Genes and Genome (KEGG) Pathway database [<xref rid="advs73630-bib-0079" ref-type="bibr">79</xref>] was used for gene enrichment analysis. Default parameters were used for analysis.</p></sec><sec id="advs73630-sec-0200"><label>5.8</label><title>Survival Analysis for Discovered Hub‐miRNA</title><p>Survival analyses for miRNAs in interests in cancers were performed by the univariate Cox proportional Hazard model which quantifies the change in hazard associated with a one‐unit increase in miRNA expression. Survival analysis for mRNA in cancers are computed by GEPIA2 [<xref rid="advs73630-bib-0080" ref-type="bibr">80</xref>]. Difference of survival rate between m low and high expression with <italic toggle="yes">p</italic> value &lt;0.05 was regarded as significant.</p></sec><sec id="advs73630-sec-0210"><label>5.9</label><title>Data Processing and Differential Expression Analysis</title><p>DESeq2 [<xref rid="advs73630-bib-0081" ref-type="bibr">81</xref>] with <italic toggle="yes">p</italic> value calculated by Wald test were used for differential expression analysis for bulk‐seq/predicted‐bulk miRNA expression profile. For predicted single‐cell miRNA expression profiles, Seurat V4 [<xref rid="advs73630-bib-0082" ref-type="bibr">82</xref>] was used to conduct differential expression analysis with <italic toggle="yes">p</italic>‐value calculated by the Wilcoxon Rank Sum test (Wilcox, <italic toggle="yes">p</italic>‐value &lt;0.05).</p></sec><sec id="advs73630-sec-0220"><label>5.10</label><title>scRNA‐seq Data Sampling and Pooling for Case‐Study</title><p>In the case‐study part, scRNA‐seq data were sampled by cells in each reported cell types and pooled as pseudo‐bulk data for better prediction accuracy. The scRNA‐seq data was pooled in order to avoid the sequencing bias and sparsity of scRNA‐seq or conducted cell type average pooling. For pooling average, cells in each cell type are randomly sampled not replacing 80% of cells for average pooling in one pooled sample, which is the same as the bootstrapping method in Olgun et al. [<xref rid="advs73630-bib-0019" ref-type="bibr">19</xref>].</p></sec><sec id="advs73630-sec-0230"><label>5.11</label><title>Cell–Cell Communication Imputation</title><p>miRTalk [<xref rid="advs73630-bib-0051" ref-type="bibr">51</xref>] algorithm is used for imputations with miRNA host genes expression replaced by predicted miRNA expression profiles by SiCmiR. Parameters remaining default.</p></sec><sec id="advs73630-sec-0240"><label>5.12</label><title>Database Implementation and GitHub Usage</title><p>All datasets included in SiCmiR Atlas were curated from Single Cell Atlas, Tabula Sapiens, and GEO under strict and fully reproducible criteria. Only Homo sapiens, UMI‐based datasets with publicly available raw count matrices with more than 500 cells, and metadata specifying tissue of origin and disease state were retained, whereas non‐human, mixed‐species, and metadata‐insufficient datasets were excluded. To ensure consistency, all datasets underwent a unified stringent QC workflow in which cells were retained only if nFeature_RNA &gt; 200 and &lt; 2500, percent.mt &lt; 5%. To avoid cross‐study batch artifacts, raw count matrices were never merged. Instead, preprocessing, SiCmiR inference, and downstream visualizations were performed independently per dataset, ensuring that observed patterns reflect biology rather than technical drift. datasets with more than 400 cells per cell type underwent bootstrap sampling to obtain stable pooled estimates; otherwise, cell‐type averages were used. The sparsity of the input data was thus reduced (Figure <xref rid="advs73630-supinfo-0001" ref-type="">S14</xref>). Datasets containing only two cell types that did not meet these criteria were excluded because averaging followed by z‐scoring would yield degenerate constant values. Cell annotation followed a two‐step procedure based on original metadata and subsequent harmonization for atlas‐level statistics and visualization. The atlas webpage was implemented using the Apache Wicket framework on a local CentOS high performance computational server, and the SiCmiR model is openly available on GitHub at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/Cristinex/SiCmiR/" ext-link-type="uri">https://github.com/Cristinex/SiCmiR/</ext-link>. For the visualization of predicted miRNA level in different subpopulation, the R package Seurat V4 [<xref rid="advs73630-bib-0082" ref-type="bibr">82</xref>] was used. SiCmiR accepts gene‐by‐cell expression matrices in CSV format and cell‐by‐gene matrices in h5ad format following the default AnnData orientation. Inputs must be annotated with gene symbols. Missing L1000 landmarks are filled as 0. The package outputs per‐cell, cell‐type average, or bootstrap‐pooled mature‐miRNA predictions, as specified by the user. SiCmiR runs efficiently on CPU. The main constraints arise from memory load when extracting landmark genes from very large matrices and from the bootstrapping step used for cell sampling. When users provide a pre‐subset matrix and bootstrapping is not required (although strongly recommended for datasets with very large cell numbers), inference is extremely fast and scales well on standard workstations. An interacting web interface is under development to further support community use.</p></sec><sec id="advs73630-sec-0250"><label>5.13</label><title>Statistical Analysis</title><p>All statistical analyses relevant to each experiment or comparison are described in the corresponding Method subsections and figure legends, including data preprocessing, sample sizes, and the specific tests applied. Unless otherwise noted, two‐sided tests were used with a significance threshold of <italic toggle="yes">p</italic>‐value = 0.05. Computational analyses were performed using Python and R with standard libraries, complemented by web‐based tools mentioned where appropriate.</p></sec></sec><sec id="advs73630-sec-0270"><title>Funding</title><p>This research was funded by Shenzhen Science and Technology Innovation Program [JCYJ20220530143615035, JCYJ20250604141235046, JCYJ20250604141041017]; Guangdong S&amp;T Programme [2024A0505050001, 2024A0505050002]; Warshel Institute for Computational Biology funding from Shenzhen City and Longgang District [LGKCSDPT2025001]; Guangdong Young Scholar Development Fund of Shenzhen Ganghong Group Co., Ltd. [2021E0005, 2022E0035, 2023E0012].</p></sec><sec sec-type="COI-statement" id="advs73630-sec-0280"><title>Conflicts of Interest</title><p>The authors declare no conflicts of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="advs73630-supinfo-0001" position="float" content-type="local-data" orientation="portrait"/><supplementary-material id="advs73630-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File 1</bold>: advs73630‐sup‐0001‐SuppMat.docx.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14446-s002.docx" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="advs73630-supitem-0002" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File 2</bold>: advs73630‐sup‐0002‐Data.zip.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e14446-s001.zip" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="advs73630-sec-0260"><title>Acknowledgements</title><p>This research benefited significantly from the interdisciplinary research environment and cut‐ting‐edge instrumentation maintained by the Computational Platform of Warshel Institute for Computational Biology. Their ongoing commitment to research infrastructure development has been crucial to our scientific endeavors. Authors are also grateful to the library of The Chinese University of Hong Kong, Shenzhen for providing effective database service.</p></ack><sec sec-type="data-availability" id="advs73630-sec-0300"><title>Data Availability Statement</title><p>The authors declare that data supporting the findings of this study are available within the article and supplementary information. Package for usage of SiCmiR can be retrieved at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/Cristinex/SiCmiR" ext-link-type="uri" specific-use="software is-supplemented-by">https://github.com/Cristinex/SiCmiR</ext-link>. Online application is deposited at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://awi.cuhk.edu.cn/~SiCmiR/" ext-link-type="uri" specific-use="software is-supplemented-by">https://awi.cuhk.edu.cn/~SiCmiR/</ext-link>. The data that support the findings of this study are openly available in Zenodo at <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://doi.org/10.5281/zenodo.16025109" ext-link-type="uri" specific-use="dataset is-supplemented-by">https://doi.org/10.5281/zenodo.16025109</ext-link>.</p></sec><ref-list id="advs73630-bibl-0001"><title>References</title><ref id="advs73630-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="advs73630-cite-0001">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>O'Brien</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Hayder</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zayed</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Peng</surname>
+</string-name>, “<article-title>Overview of microRNA Biogenesis, Mechanisms of Actions, and Circulation</article-title>,” <source>Frontiers in Endocrinology</source>
+<volume>9</volume> (<year>2018</year>): <fpage>402</fpage>.<pub-id pub-id-type="pmid">30123182</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fendo.2018.00402</pub-id><pub-id pub-id-type="pmcid">PMC6085463</pub-id></mixed-citation></ref><ref id="advs73630-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="advs73630-cite-0002">
+<string-name name-style="western">
+<given-names>L. J.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Papadopoli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Jewer</surname>
+</string-name>, et al., “<article-title>Cancer Plasticity: The Role of mRNA Translation</article-title>,” <source>Trends in Cancer</source>
+<volume>7</volume> (<year>2021</year>): <fpage>134</fpage>–<lpage>145</lpage>.<pub-id pub-id-type="pmid">33067172</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.trecan.2020.09.005</pub-id><pub-id pub-id-type="pmcid">PMC8023421</pub-id></mixed-citation></ref><ref id="advs73630-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="advs73630-cite-0003">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Peng</surname>
+</string-name> and <string-name name-style="western">
+<given-names>C. M.</given-names>
+<surname>Croce</surname>
+</string-name>, “<article-title>The Role of microRNAs in human Cancer</article-title>,” <source>Signal Transduction and Targeted Therapy</source>
+<volume>1</volume> (<year>2016</year>): <elocation-id>15004</elocation-id>, <pub-id pub-id-type="doi">10.1038/sigtrans.2015.4</pub-id>.<pub-id pub-id-type="pmid">29263891</pub-id>
+<pub-id pub-id-type="pmcid">PMC5661652</pub-id></mixed-citation></ref><ref id="advs73630-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="advs73630-cite-0004">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kozomara</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Birgaoanu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Griffiths‐Jones</surname>
+</string-name>, “<article-title>miRBase: from microRNA Sequences to Function</article-title>,” <source>Nucleic Acids Research</source>
+<volume>47</volume> (<year>2019</year>): <fpage>D155</fpage>–<lpage>D162</lpage>, <pub-id pub-id-type="doi">10.1093/nar/gky1141</pub-id>.<pub-id pub-id-type="pmid">30423142</pub-id>
+<pub-id pub-id-type="pmcid">PMC6323917</pub-id></mixed-citation></ref><ref id="advs73630-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="advs73630-cite-0005">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Benesova</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Kubista</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Valihrach</surname>
+</string-name>, “<article-title>Small RNA‐Sequencing: Approaches and Considerations for miRNA Analysis</article-title>,” <source>Diagnostics</source>
+<volume>11</volume> (<year>2021</year>): <elocation-id>942</elocation-id>, <pub-id pub-id-type="doi">10.3390/diagnostics11060964</pub-id>.<pub-id pub-id-type="pmid">34071824</pub-id>
+<pub-id pub-id-type="pmcid">PMC8229417</pub-id></mixed-citation></ref><ref id="advs73630-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="advs73630-cite-0006">
+<string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Zhang</surname>
+</string-name> and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Horvath</surname>
+</string-name>, “<article-title>A General Framework for Weighted Gene Co‐Expression Network Analysis</article-title>,” <source>Statistical Applications in Genetics and Molecular Biology</source>
+<volume>4</volume> (<year>2005</year>): <fpage>17</fpage>, <pub-id pub-id-type="doi">10.2202/1544-6115.1128</pub-id>.<pub-id pub-id-type="pmid">16646834</pub-id></mixed-citation></ref><ref id="advs73630-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="advs73630-cite-0007">
+<string-name name-style="western">
+<given-names>Y.‐J.</given-names>
+<surname>Na</surname>
+</string-name> and <string-name name-style="western">
+<given-names>J. H.</given-names>
+<surname>Kim</surname>
+</string-name>, “<article-title>Understanding Cooperativity of microRNAs via microRNA Association Networks</article-title>,” <source>BMC Genomics</source>
+<volume>14</volume> (<year>2013</year>): <elocation-id>S17</elocation-id>, <pub-id pub-id-type="doi">10.1186/1471-2164-14-S5-S17</pub-id>.<pub-id pub-id-type="pmid">24552551</pub-id>
+<pub-id pub-id-type="pmcid">PMC3852507</pub-id></mixed-citation></ref><ref id="advs73630-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="advs73630-cite-0008">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Dou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Xu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Lin</surname>
+</string-name>, “<article-title>Defining Disease‐Related Modules Based on Weighted miRNA Synergistic Network</article-title>,” <source>Computers in Biology and Medicine</source>
+<volume>152</volume> (<year>2023</year>): <elocation-id>106382</elocation-id>.<pub-id pub-id-type="pmid">36493730</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.compbiomed.2022.106382</pub-id></mixed-citation></ref><ref id="advs73630-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="advs73630-cite-0009">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Shao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Chen</surname>
+</string-name>, et al., “<article-title>Survey of miRNA‐miRNA Cooperative Regulation Principles across Cancer Types</article-title>,” <source>Briefings in Bioinformatics</source>
+<volume>20</volume> (<year>2019</year>): <fpage>1621</fpage>–<lpage>1638</lpage>.<pub-id pub-id-type="pmid">29800060</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bby038</pub-id></mixed-citation></ref><ref id="advs73630-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="advs73630-cite-0010">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Shao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Ding</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, “<article-title>miRNA‐miRNA Crosstalk: from Genomics to Phenomics</article-title>,” <source>Briefings in Bioinformatics</source>
+<volume>18</volume> (<year>2017</year>): <fpage>1002</fpage>–<lpage>1011</lpage>.<pub-id pub-id-type="pmid">27551063</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbw073</pub-id></mixed-citation></ref><ref id="advs73630-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="advs73630-cite-0011">
+<string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Su</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Liu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Huang</surname>
+</string-name>, “<article-title>Identifying the Potential miRNA Biomarkers Based on Multi‐view Networks and Reinforcement Learning for Diseases</article-title>,” <source>Briefings in Bioinformatics</source>
+<volume>25</volume> (<year>2024</year>): <elocation-id>bbad427</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbad427</pub-id><pub-id pub-id-type="pmcid">PMC10753537</pub-id><pub-id pub-id-type="pmid">38018913</pub-id></mixed-citation></ref><ref id="advs73630-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="advs73630-cite-0012">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, et al., “<article-title>Generative Adversarial Matrix Completion Network Based on Multi‐Source Data Fusion for miRNA–Disease Associations Prediction</article-title>,” <source>Briefings in Bioinformatics</source>
+<volume>24</volume> (<year>2023</year>): <elocation-id>bbad270</elocation-id>.<pub-id pub-id-type="pmid">37482409</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbad270</pub-id></mixed-citation></ref><ref id="advs73630-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="advs73630-cite-0013">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Alfardus</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Estevez‐Cebrero</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Rowlinson</surname>
+</string-name>, et al., “<article-title>Intratumour Heterogeneity in microRNAs Expression Regulates Glioblastoma Metabolism</article-title>,” <source>Scientific Reports</source>
+<volume>11</volume> (<year>2021</year>): <elocation-id>15908</elocation-id>.<pub-id pub-id-type="pmid">34354095</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-021-95289-9</pub-id><pub-id pub-id-type="pmcid">PMC8342598</pub-id></mixed-citation></ref><ref id="advs73630-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="advs73630-cite-0014">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Chen</surname>
+</string-name>, et al., “<article-title>Single‐Cell microRNA‐mRNA Co‐Sequencing Reveals Non‐Genetic Heterogeneity and Mechanisms of microRNA Regulation</article-title>,” <source>Nature Communications</source>
+<volume>10</volume> (<year>2019</year>): <fpage>95</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-018-07981-6</pub-id><pub-id pub-id-type="pmcid">PMC6327095</pub-id><pub-id pub-id-type="pmid">30626865</pub-id></mixed-citation></ref><ref id="advs73630-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="advs73630-cite-0015">
+<string-name name-style="western">
+<given-names>O. R.</given-names>
+<surname>Faridani</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Abdullayev</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hagemann‐Jensen</surname>
+</string-name>, et al., “<article-title>Single‐cell Sequencing of the Small‐RNA Transcriptome</article-title>,” <source>Nature Biotechnology</source>
+<volume>34</volume> (<year>2016</year>): <fpage>1264</fpage>–<lpage>1266</lpage>, <pub-id pub-id-type="doi">10.1038/nbt.3701</pub-id>.<pub-id pub-id-type="pmid">27798564</pub-id></mixed-citation></ref><ref id="advs73630-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="advs73630-cite-0016">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Ji</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Anwar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Petretto</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Emanueli</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>P. K.</given-names>
+<surname>Srivastava</surname>
+</string-name>, “<article-title>PPMS: A Framework to Profile Primary MicroRNAs from Single‐Cell RNA‐Sequencing Datasets</article-title>,” <source>Briefings in Bioinformatics</source>
+<volume>23</volume> (<year>2022</year>): <elocation-id>bbac419</elocation-id>.<pub-id pub-id-type="pmid">36209413</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbac419</pub-id><pub-id pub-id-type="pmcid">PMC9677482</pub-id></mixed-citation></ref><ref id="advs73630-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="advs73630-cite-0017">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Engel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Rishik</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Hirsch</surname>
+</string-name>, et al., “<article-title>SingmiR: a Single‐Cell miRNA Alignment and Analysis Tool</article-title>,” <source>Nucleic Acids Research</source>
+<volume>52</volume> (<year>2024</year>): <fpage>W374</fpage>–<lpage>W380</lpage>.<pub-id pub-id-type="pmid">38572750</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/nar/gkae225</pub-id><pub-id pub-id-type="pmcid">PMC11223861</pub-id></mixed-citation></ref><ref id="advs73630-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="advs73630-cite-0018">
+<string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Hücker</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Fehlmann</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Werno</surname>
+</string-name>, et al., “<article-title>Single‐Cell microRNA Sequencing Method Comparison and Application to Cell Lines and Circulating Lung Tumor Cells</article-title>,” <source>Nature Communications</source>
+<volume>12</volume> (<year>2021</year>): <fpage>4316</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-021-24611-w</pub-id><pub-id pub-id-type="pmcid">PMC8280203</pub-id><pub-id pub-id-type="pmid">34262050</pub-id></mixed-citation></ref><ref id="advs73630-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="advs73630-cite-0019">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Olgun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Gopalan</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hannenhalli</surname>
+</string-name>, “<article-title>miRSCAPE ‐ Inferring miRNA Expression from scRNA‐seq Data</article-title>,” <source>Iscience</source>
+<volume>25</volume> (<year>2022</year>): <elocation-id>104962</elocation-id>.<pub-id pub-id-type="pmid">36060076</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.isci.2022.104962</pub-id><pub-id pub-id-type="pmcid">PMC9437856</pub-id></mixed-citation></ref><ref id="advs73630-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="advs73630-cite-0020">
+<string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Herbst</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Mandel‐Gutfreund</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Yakhini</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Biran</surname>
+</string-name>, “<article-title>Inferring Single‐Cell and Spatial MicroRNA Activity from Transcriptomics Data</article-title>,” <source>Communications Biology</source>
+<volume>8</volume> (<year>2025</year>): <fpage>87</fpage>.<pub-id pub-id-type="pmid">39827321</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s42003-025-07454-9</pub-id><pub-id pub-id-type="pmcid">PMC11743151</pub-id></mixed-citation></ref><ref id="advs73630-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="advs73630-cite-0021">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Subramanian</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Narayan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Corsello</surname>
+</string-name>, et al., “<article-title>A Next Generation Connectivity Map: L1000 Platform and the First 1,000,000 Profiles</article-title>,” <source>Cell</source>
+<volume>171</volume> (<year>2017</year>): <fpage>1437</fpage>–<lpage>1452</lpage>, <pub-id pub-id-type="doi">10.1016/j.cell.2017.10.049</pub-id>.<pub-id pub-id-type="pmid">29195078</pub-id>
+<pub-id pub-id-type="pmcid">PMC5990023</pub-id></mixed-citation></ref><ref id="advs73630-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="advs73630-cite-0022">
+<string-name name-style="western">
+<given-names>S. D.</given-names>
+<surname>Selcuklu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. T. A.</given-names>
+<surname>Donoghue</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Spillane</surname>
+</string-name>, “<article-title>miR‐21 as a Key Regulator of Oncogenic Processes</article-title>,” <source>Biochemical Society Transactions</source>
+<volume>37</volume> (<year>2009</year>): <fpage>918</fpage>–<lpage>925</lpage>, <pub-id pub-id-type="doi">10.1042/BST0370918</pub-id>.<pub-id pub-id-type="pmid">19614619</pub-id>
+</mixed-citation></ref><ref id="advs73630-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="advs73630-cite-0023">
+<string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Bautista‐Sánchez</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Arriaga‐Canon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Pedroza‐Torres</surname>
+</string-name>, et al., “<article-title>The Promising Role of miR‐21 as a Cancer Biomarker and Its Importance in RNA‐Based Therapeutics</article-title>,” <source>Molecular Therapy – Nucleic Acids</source>
+<volume>20</volume> (<year>2020</year>): <fpage>409</fpage>–<lpage>420</lpage>.<pub-id pub-id-type="pmid">32244168</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.omtn.2020.03.003</pub-id><pub-id pub-id-type="pmcid">PMC7118281</pub-id></mixed-citation></ref><ref id="advs73630-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="advs73630-cite-0024">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Peteani</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. T. D.</given-names>
+<surname>Huynh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Gerebtzoff</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Rodríguez‐Pérez</surname>
+</string-name>, “<article-title>Application of Machine Learning Models for Property Prediction to Targeted Protein Degraders</article-title>,” <source>Nature Communications</source>
+<volume>15</volume> (<year>2024</year>): <fpage>5764</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-024-49979-3</pub-id><pub-id pub-id-type="pmcid">PMC11233499</pub-id><pub-id pub-id-type="pmid">38982061</pub-id></mixed-citation></ref><ref id="advs73630-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="advs73630-cite-0025">
+<string-name name-style="western">
+<given-names>T. H.</given-names>
+<surname>Kim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhou</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Chen</surname>
+</string-name>, “<article-title>Demystifying "Drop‐Outs" in Single‐Cell UMI Data</article-title>,” <source>Genome Biology</source>
+<volume>21</volume> (<year>2020</year>): <fpage>196</fpage>.<pub-id pub-id-type="pmid">32762710</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s13059-020-02096-y</pub-id><pub-id pub-id-type="pmcid">PMC7412673</pub-id></mixed-citation></ref><ref id="advs73630-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="advs73630-cite-0026">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Bertaux</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Thomas</surname>
+</string-name>, et al., “<article-title>bayNorm: Bayesian Gene Expression Recovery, Imputation and Normalization for Single‐Cell RNA‐Sequencing Data</article-title>,” <source>Bioinformatics</source>
+<volume>36</volume> (<year>2020</year>): <fpage>1174</fpage>–<lpage>1181</lpage>, <pub-id pub-id-type="doi">10.1093/bioinformatics/btz726</pub-id>.<pub-id pub-id-type="pmid">31584606</pub-id>
+<pub-id pub-id-type="pmcid">PMC7703772</pub-id></mixed-citation></ref><ref id="advs73630-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="advs73630-cite-0027">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Peng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.‐F.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐Y.</given-names>
+<surname>Chen</surname>
+</string-name>, et al., “<article-title>Single‐Cell RNA‐seq Highlights Intra‐Tumoral Heterogeneity and Malignant Progression in Pancreatic Ductal Adenocarcinoma</article-title>,” <source>Cell Research</source>
+<volume>29</volume> (<year>2019</year>): <fpage>725</fpage>–<lpage>738</lpage>, <pub-id pub-id-type="doi">10.1038/s41422-019-0195-y</pub-id>.<pub-id pub-id-type="pmid">31273297</pub-id>
+<pub-id pub-id-type="pmcid">PMC6796938</pub-id></mixed-citation></ref><ref id="advs73630-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="advs73630-cite-0028">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Mazza</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Copetti</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Capocefalo</surname>
+</string-name>, et al., “<article-title>MicroRNA Co‐Expression Networks Exhibit Increased Complexity in Pancreatic Ductal Compared to Vater's Papilla Adenocarcinoma</article-title>,” <source>Oncotarget</source>
+<volume>8</volume> (<year>2017</year>): <fpage>105320</fpage>–<lpage>105339</lpage>.<pub-id pub-id-type="pmid">29285254</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.18632/oncotarget.22184</pub-id><pub-id pub-id-type="pmcid">PMC5739641</pub-id></mixed-citation></ref><ref id="advs73630-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="advs73630-cite-0029">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Nagao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hisaoka</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Matsuyama</surname>
+</string-name>, et al., “<article-title>Association of MicroRNA‐21 Expression with its Targets, PDCD4 and TIMP3, in Pancreatic Ductal Adenocarcinoma</article-title>,” <source>Modern Pathology</source>
+<volume>25</volume> (<year>2012</year>): <fpage>112</fpage>–<lpage>121</lpage>.<pub-id pub-id-type="pmid">21983937</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/modpathol.2011.142</pub-id></mixed-citation></ref><ref id="advs73630-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="advs73630-cite-0030">
+<string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Tesfaye</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. S.</given-names>
+<surname>Azmi</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>P. A.</given-names>
+<surname>Philip</surname>
+</string-name>, “<article-title>miRNA and Gene Expression in Pancreatic Ductal Adenocarcinoma</article-title>,” <source>American Journal of Pathology</source>
+<volume>189</volume> (<year>2019</year>): <fpage>58</fpage>–<lpage>70</lpage>.<pub-id pub-id-type="pmid">30558723</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.ajpath.2018.10.005</pub-id><pub-id pub-id-type="pmcid">PMC6854437</pub-id></mixed-citation></ref><ref id="advs73630-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="advs73630-cite-0031">
+<string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Hugo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Redublo</surname>
+</string-name>, et al., “<article-title>A Human ACTH‐Secreting Corticotroph Tumoroid Model: Novel Human ACTH‐Secreting Tumor Cell in vitro Model</article-title>,” <source>EBioMedicine</source>
+<volume>66</volume> (<year>2021</year>): <elocation-id>103294</elocation-id>.<pub-id pub-id-type="pmid">33773184</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.ebiom.2021.103294</pub-id><pub-id pub-id-type="pmcid">PMC8024915</pub-id></mixed-citation></ref><ref id="advs73630-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="advs73630-cite-0032">
+<string-name name-style="western">
+<given-names>F. C.</given-names>
+<surname>Amaral</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Torres</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Saggioro</surname>
+</string-name>, et al., “<article-title>MicroRNAs Differentially Expressed in ACTH‐Secreting Pituitary Tumors</article-title>,” <source>The Journal of Clinical Endocrinology &amp; Metabolism</source>
+<volume>94</volume> (<year>2009</year>): <fpage>320</fpage>–<lpage>323</lpage>, <pub-id pub-id-type="doi">10.1210/jc.2008-1451</pub-id>.<pub-id pub-id-type="pmid">18840638</pub-id>
+</mixed-citation></ref><ref id="advs73630-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="advs73630-cite-0033">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Cheunsuchon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, et al., “<article-title>Silencing of the Imprinted DLK1‐MEG3 Locus in Human Clinically Nonfunctioning Pituitary Adenomas</article-title>,” <source>The American Journal of Pathology</source>
+<volume>179</volume> (<year>2011</year>): <fpage>2120</fpage>–<lpage>2130</lpage>, <pub-id pub-id-type="doi">10.1016/j.ajpath.2011.07.002</pub-id>.<pub-id pub-id-type="pmid">21871428</pub-id>
+<pub-id pub-id-type="pmcid">PMC3181372</pub-id></mixed-citation></ref><ref id="advs73630-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="advs73630-cite-0034">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Feng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.‐G.</given-names>
+<surname>Mao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, et al., “<article-title>MicroRNAs and Target Genes in Pituitary Adenomas</article-title>,” <source>Hormone and Metabolic Research</source>
+<volume>50</volume> (<year>2018</year>): <fpage>179</fpage>–<lpage>192</lpage>, <pub-id pub-id-type="doi">10.1055/s-0043-123763</pub-id>.<pub-id pub-id-type="pmid">29351706</pub-id>
+</mixed-citation></ref><ref id="advs73630-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="advs73630-cite-0035">
+<string-name name-style="western">
+<given-names>T. M.</given-names>
+<surname>Vicchio</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Aliquò</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. M.</given-names>
+<surname>Ruggeri</surname>
+</string-name>, et al., “<article-title>MicroRNAs Expression in Pituitary Tumors: Differences Related to Functional Status, Pathological Features, and Clinical Behavior</article-title>,” <source>Journal of Endocrinological Investigation</source>
+<volume>43</volume> (<year>2020</year>): <fpage>947</fpage>–<lpage>958</lpage>.<pub-id pub-id-type="pmid">31939196</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s40618-019-01178-4</pub-id></mixed-citation></ref><ref id="advs73630-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="advs73630-cite-0036">
+<string-name name-style="western">
+<given-names>R. S.</given-names>
+<surname>Varghese</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. E.</given-names>
+<surname>Barefoot</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Jain</surname>
+</string-name>, et al., “<article-title>Integrative Analysis of DNA Methylation and MicroRNA Expression Reveals Mechanisms of Racial Heterogeneity in Hepatocellular Carcinoma</article-title>,” <source>Frontiers in Genetics</source>
+<volume>12</volume> (<year>2021</year>): <elocation-id>708326</elocation-id>.<pub-id pub-id-type="pmid">34557219</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fgene.2021.708326</pub-id><pub-id pub-id-type="pmcid">PMC8453167</pub-id></mixed-citation></ref><ref id="advs73630-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="advs73630-cite-0037">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H. Y.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. C.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zuo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Tang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>H. D.</given-names>
+<surname>Huang</surname>
+</string-name>, “<article-title>Cinnamomi Ramulus Inhibits Cancer Cells Growth by Inducing G2/M Arrest</article-title>,” <source>Frontiers in Pharmacology</source>
+<volume>14</volume> (<year>2023</year>): <elocation-id>1121799</elocation-id>.<pub-id pub-id-type="pmid">37007025</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fphar.2023.1121799</pub-id><pub-id pub-id-type="pmcid">PMC10063822</pub-id></mixed-citation></ref><ref id="advs73630-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="advs73630-cite-0038">
+<string-name name-style="western">
+<given-names>A. D.</given-names>
+<surname>Diehl</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. F.</given-names>
+<surname>Meehan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. M.</given-names>
+<surname>Bradford</surname>
+</string-name>, et al., “<article-title>The Cell Ontology 2016: Enhanced Content, Modularization, and Ontology Interoperability</article-title>,” <source>Journal of Biomedical Semantics</source>
+<volume>7</volume> (<year>2016</year>): <fpage>44</fpage>, <pub-id pub-id-type="doi">10.1186/s13326-016-0088-7</pub-id>.<pub-id pub-id-type="pmid">27377652</pub-id>
+<pub-id pub-id-type="pmcid">PMC4932724</pub-id></mixed-citation></ref><ref id="advs73630-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="advs73630-cite-0039">
+<string-name name-style="western">
+<given-names>S. E.</given-names>
+<surname>McGeary</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. S.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. Y.</given-names>
+<surname>Shi</surname>
+</string-name>, et al., “<article-title>The Biochemical Basis of MicroRNA Targeting Efficacy</article-title>,” <source>Science</source>
+<volume>366</volume> (<year>2019</year>): <elocation-id>eaav1741</elocation-id>, <pub-id pub-id-type="doi">10.1126/science.aav1741</pub-id>.<pub-id pub-id-type="pmid">31806698</pub-id>
+<pub-id pub-id-type="pmcid">PMC7051167</pub-id></mixed-citation></ref><ref id="advs73630-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="advs73630-cite-0040">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Sticht</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. L.</given-names>
+<surname>de Torre</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Parveen</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Gretz</surname>
+</string-name>, “<article-title>miRWalk: an Online Resource for Prediction of MicroRNA Binding Sites</article-title>,” <source>PLoS ONE</source>
+<volume>13</volume> (<year>2018</year>): <elocation-id>0206239</elocation-id>, <pub-id pub-id-type="doi">10.1371/journal.pone.0206239</pub-id>.<pub-id pub-id-type="pmcid">PMC6193719</pub-id><pub-id pub-id-type="pmid">30335862</pub-id></mixed-citation></ref><ref id="advs73630-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="advs73630-cite-0041">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Chen</surname>
+</string-name> and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, “<article-title>miRDB: an Online Database for Prediction of Functional microRNA Targets</article-title>,” <source>Nucleic Acids Research</source>
+<volume>48</volume> (<year>2020</year>): <fpage>D127</fpage>–<lpage>D131</lpage>, <pub-id pub-id-type="doi">10.1093/nar/gkz757</pub-id>.<pub-id pub-id-type="pmid">31504780</pub-id>
+<pub-id pub-id-type="pmcid">PMC6943051</pub-id></mixed-citation></ref><ref id="advs73630-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="advs73630-cite-0042">
+<string-name name-style="western">
+<given-names>H.‐Y.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.‐C.‐D.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Cui</surname>
+</string-name>, et al., “<article-title>miRTarBase Update 2022: an Informative Resource for Experimentally Validated miRNA–target Interactions</article-title>,” <source>Nucleic Acids Research</source>
+<volume>50</volume> (<year>2022</year>): <fpage>D222</fpage>–<lpage>D230</lpage>, <pub-id pub-id-type="doi">10.1093/nar/gkab1079</pub-id>.<pub-id pub-id-type="pmid">34850920</pub-id>
+<pub-id pub-id-type="pmcid">PMC8728135</pub-id></mixed-citation></ref><ref id="advs73630-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="advs73630-cite-0043">
+<string-name name-style="western">
+<given-names>A. H.</given-names>
+<surname>Patil</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Baran</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z. P.</given-names>
+<surname>Brehm</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. N.</given-names>
+<surname>McCall</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M. K.</given-names>
+<surname>Halushka</surname>
+</string-name>, “<article-title>A Curated Human Cellular MicroRNAome Based on 196 Primary Cell Types</article-title>,” <source>GigaScience</source>
+<volume>11</volume> (<year>2022</year>): <elocation-id>giac085</elocation-id>.<pub-id pub-id-type="pmid">36007182</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/gigascience/giac083</pub-id><pub-id pub-id-type="pmcid">PMC9404528</pub-id></mixed-citation></ref><ref id="advs73630-bib-0044"><label>44</label><mixed-citation publication-type="journal" id="advs73630-cite-0044">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Schober</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Nazari‐Jahantigh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wei</surname>
+</string-name>, et al., “<article-title>MicroRNA‐126‐5p Promotes Endothelial Proliferation and Limits Atherosclerosis by Suppressing Dlk1</article-title>,” <source>Nature Medicine</source>
+<volume>20</volume> (<year>2014</year>): <fpage>368</fpage>–<lpage>376</lpage>, <pub-id pub-id-type="doi">10.1038/nm.3487</pub-id>.<pub-id pub-id-type="pmcid">PMC4398028</pub-id><pub-id pub-id-type="pmid">24584117</pub-id></mixed-citation></ref><ref id="advs73630-bib-0045"><label>45</label><mixed-citation publication-type="journal" id="advs73630-cite-0045">
+<string-name name-style="western">
+<given-names>D. L.</given-names>
+<surname>Vieu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Golebiewski</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Gastaldi</surname>
+</string-name>, et al., “<article-title>Identification of miR‐141 as a Regulator of Epidermal Homeostasis</article-title>,” <source>Journal of Investigative Dermatology</source>
+<volume>145</volume> (<year>2025</year>): <fpage>1670</fpage>–<lpage>1682</lpage>.<pub-id pub-id-type="pmid">39615746</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jid.2024.10.613</pub-id></mixed-citation></ref><ref id="advs73630-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="advs73630-cite-0046">
+<string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Lundberg</surname>
+</string-name> and <string-name name-style="western">
+<given-names>S.‐I.</given-names>
+<surname>Lee</surname>
+</string-name>, “<article-title>A Unified Approach to Interpreting Model Predictions</article-title>,” <source>arXiv</source> (<year>2017</year>): <elocation-id>170507874</elocation-id>.</mixed-citation></ref><ref id="advs73630-bib-0047"><label>47</label><mixed-citation publication-type="journal" id="advs73630-cite-0047">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhao</surname>
+</string-name> and <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Wang</surname>
+</string-name>, “<article-title>COL1A1 Drives Tumor Progression in Kidney Renal Clear Cell Carcinoma by Regulating EMT through The PI3K/Akt Pathway</article-title>,” <source>Cancer Cell International</source>
+<volume>25</volume> (<year>2025</year>): <fpage>314</fpage>.<pub-id pub-id-type="pmid">40851082</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s12935-025-03956-y</pub-id><pub-id pub-id-type="pmcid">PMC12376327</pub-id></mixed-citation></ref><ref id="advs73630-bib-0048"><label>48</label><mixed-citation publication-type="journal" id="advs73630-cite-0048">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Johnson</surname>
+</string-name> and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Turcotte</surname>
+</string-name>, “<article-title>Loss of SETD2 in Wild‐Type VHL Clear Cell Renal Cell Carcinoma Sensitizes Cells to STF‐62247 and Leads to DNA Damage, Cell Cycle Arrest, and Cell Death Characteristic of Pyroptosis</article-title>,” <source>Molecular Oncology</source>
+<volume>19</volume> (<year>2025</year>): <fpage>1244</fpage>–<lpage>1264</lpage>.<pub-id pub-id-type="pmid">39592433</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/1878-0261.13770</pub-id><pub-id pub-id-type="pmcid">PMC11977649</pub-id></mixed-citation></ref><ref id="advs73630-bib-0049"><label>49</label><mixed-citation publication-type="journal" id="advs73630-cite-0049">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Fan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Han</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Li</surname>
+</string-name>, “<article-title>TNIP1 Inhibits Proliferation and Promotes Apoptosis In Clear Cell Renal Carcinoma Through Targeting C/Ebpβ</article-title>,” <source>OncoTargets and Therapy</source>
+<volume>12</volume> (<year>2019</year>): <fpage>9861</fpage>–<lpage>9871</lpage>.<pub-id pub-id-type="pmid">31819484</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.2147/OTT.S216138</pub-id><pub-id pub-id-type="pmcid">PMC6874165</pub-id></mixed-citation></ref><ref id="advs73630-bib-0050"><label>50</label><mixed-citation publication-type="journal" id="advs73630-cite-0050">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Zou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Jia</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wu</surname>
+</string-name>, et al., “<article-title>PAQR6 as a Prognostic Biomarker and Potential Therapeutic Target in Kidney Renal Clear Cell Carcinoma</article-title>,” <source>Frontiers in Immunology</source>
+<volume>15</volume> (<year>2024</year>): <elocation-id>1521629</elocation-id>.<pub-id pub-id-type="pmid">39742277</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fimmu.2024.1521629</pub-id><pub-id pub-id-type="pmcid">PMC11685228</pub-id></mixed-citation></ref><ref id="advs73630-bib-0051"><label>51</label><mixed-citation publication-type="journal" id="advs73630-cite-0051">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Shao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Li</surname>
+</string-name>, et al., “<article-title>Extracellular Vesicle‐Derived miRNA‐Mediated Cell‐Cell Communication Inference for Single‐Cell Transcriptomic Data with miRTalk</article-title>,” <source>Genome Biology</source>
+<volume>26</volume> (<year>2025</year>): <fpage>95</fpage>.<pub-id pub-id-type="pmid">40229908</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s13059-025-03566-x</pub-id><pub-id pub-id-type="pmcid">PMC11998287</pub-id></mixed-citation></ref><ref id="advs73630-bib-0052"><label>52</label><mixed-citation publication-type="journal" id="advs73630-cite-0052">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Haemmig</surname>
+</string-name>, <string-name name-style="western">
+<given-names>U.</given-names>
+<surname>Baumgartner</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Glück</surname>
+</string-name>, et al., “<article-title>miR‐125b Controls Apoptosis and Temozolomide Resistance by Targeting TNFAIP3 and NKIRAS2 in Glioblastomas</article-title>,” <source>Cell Death &amp; Disease</source>
+<volume>5</volume> (<year>2014</year>): <elocation-id>1279</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/cddis.2014.245</pub-id><pub-id pub-id-type="pmcid">PMC4611719</pub-id><pub-id pub-id-type="pmid">24901050</pub-id></mixed-citation></ref><ref id="advs73630-bib-0053"><label>53</label><mixed-citation publication-type="journal" id="advs73630-cite-0053">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Guessous</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Alvarado‐Velez</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Marcinkiewicz</surname>
+</string-name>, et al., “<article-title>Oncogenic Effects of miR‐10b in Glioblastoma Stem Cells</article-title>,” <source>Journal of Neuro‐Oncology</source>
+<volume>112</volume> (<year>2013</year>): <fpage>153</fpage>–<lpage>163</lpage>.<pub-id pub-id-type="pmid">23307328</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11060-013-1047-0</pub-id><pub-id pub-id-type="pmcid">PMC3609924</pub-id></mixed-citation></ref><ref id="advs73630-bib-0054"><label>54</label><mixed-citation publication-type="journal" id="advs73630-cite-0054">
+<string-name name-style="western">
+<given-names>K. B.</given-names>
+<surname>Choo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. L.</given-names>
+<surname>Soon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. N. N.</given-names>
+<surname>Nguyen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. S. Y.</given-names>
+<surname>Hiew</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C.‐J.</given-names>
+<surname>Huang</surname>
+</string-name>, “<article-title>MicroRNA‐5p and ‐3p Co‐Expression and Cross‐Targeting in Colon Cancer Cells</article-title>,” <source>Journal of Biomedical Science</source>
+<volume>21</volume> (<year>2014</year>): <fpage>95</fpage>.<pub-id pub-id-type="pmid">25287248</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s12929-014-0095-x</pub-id><pub-id pub-id-type="pmcid">PMC4195866</pub-id></mixed-citation></ref><ref id="advs73630-bib-0055"><label>55</label><mixed-citation publication-type="journal" id="advs73630-cite-0055">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Mitra</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. M.</given-names>
+<surname>Adams</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Greenawalt</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>C. M.</given-names>
+<surname>Eischen</surname>
+</string-name>, “<article-title>Pan‐Cancer Analysis Rreveals Cooperativity of Both Strands of microRNA that Regulate Tumorigenesis and Patient Survival</article-title>,” <source>Nature Communications</source>
+<volume>11</volume> (<year>2020</year>): <fpage>968</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41467-020-14713-2</pub-id><pub-id pub-id-type="pmcid">PMC7033124</pub-id><pub-id pub-id-type="pmid">32080184</pub-id></mixed-citation></ref><ref id="advs73630-bib-0056"><label>56</label><mixed-citation publication-type="journal" id="advs73630-cite-0056">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Kehl</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Backes</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Kern</surname>
+</string-name>, et al., “<article-title>About miRNAs, miRNA Seeds, Target Genes and Target Pathways</article-title>,” <source>Oncotarget</source>
+<volume>8</volume> (<year>2017</year>): <fpage>107167</fpage>–<lpage>107175</lpage>, <pub-id pub-id-type="doi">10.18632/oncotarget.22363</pub-id>.<pub-id pub-id-type="pmid">29291020</pub-id>
+<pub-id pub-id-type="pmcid">PMC5739805</pub-id></mixed-citation></ref><ref id="advs73630-bib-0057"><label>57</label><mixed-citation publication-type="journal" id="advs73630-cite-0057">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Kitai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Kato</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Ogami</surname>
+</string-name>, et al., “<article-title>Systematic Characterization of Seed Overlap MicroRNA Cotargeting Associated with Lupus Pathogenesis</article-title>,” <source>BMC Biology</source>
+<volume>20</volume> (<year>2022</year>): <fpage>248</fpage>.<pub-id pub-id-type="pmid">36357926</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s12915-022-01447-4</pub-id><pub-id pub-id-type="pmcid">PMC9650897</pub-id></mixed-citation></ref><ref id="advs73630-bib-0058"><label>58</label><mixed-citation publication-type="journal" id="advs73630-cite-0058">
+<string-name name-style="western">
+<given-names>B. C.</given-names>
+<surname>Schanen</surname>
+</string-name> and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, “<article-title>Transcriptional Regulation of Mammalian miRNA Genes</article-title>,” <source>Genomics</source>
+<volume>97</volume> (<year>2011</year>): <fpage>1</fpage>–<lpage>6</lpage>, <pub-id pub-id-type="doi">10.1016/j.ygeno.2010.10.005</pub-id>.<pub-id pub-id-type="pmid">20977933</pub-id>
+<pub-id pub-id-type="pmcid">PMC3019299</pub-id></mixed-citation></ref><ref id="advs73630-bib-0059"><label>59</label><mixed-citation publication-type="journal" id="advs73630-cite-0059">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Baskerville</surname>
+</string-name> and <string-name name-style="western">
+<given-names>D. P.</given-names>
+<surname>Bartel</surname>
+</string-name>, “<article-title>Microarray Profiling of MicroRNAs Reveals Frequent Coexpression with Neighboring miRNAs and Host Genes</article-title>,” <source>Rna</source>
+<volume>11</volume> (<year>2005</year>): <fpage>241</fpage>–<lpage>247</lpage>, <pub-id pub-id-type="doi">10.1261/rna.7240905</pub-id>.<pub-id pub-id-type="pmid">15701730</pub-id>
+<pub-id pub-id-type="pmcid">PMC1370713</pub-id></mixed-citation></ref><ref id="advs73630-bib-0060"><label>60</label><mixed-citation publication-type="journal" id="advs73630-cite-0060">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Krol</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Loedige</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Filipowicz</surname>
+</string-name>, “<article-title>The Widespread Regulation of MicroRNA Biogenesis, Function and Decay</article-title>,” <source>Nature Reviews Genetics</source>
+<volume>11</volume> (<year>2010</year>): <fpage>597</fpage>–<lpage>610</lpage>, <pub-id pub-id-type="doi">10.1038/nrg2843</pub-id>.<pub-id pub-id-type="pmid">20661255</pub-id></mixed-citation></ref><ref id="advs73630-bib-0061"><label>61</label><mixed-citation publication-type="journal" id="advs73630-cite-0061">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Vilimova</surname>
+</string-name> and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Pfeffer</surname>
+</string-name>, “<article-title>Post‐Transcriptional Regulation of Polycistronic MicroRNAs</article-title>,” <source>WIREs RNA</source>
+<volume>13</volume> (<year>2022</year>): <elocation-id>1749</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/wrna.1749</pub-id><pub-id pub-id-type="pmid">35702737</pub-id></mixed-citation></ref><ref id="advs73630-bib-0062"><label>62</label><mixed-citation publication-type="journal" id="advs73630-cite-0062">
+<string-name name-style="western">
+<given-names>S. J.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. J.</given-names>
+<surname>Nowakowski</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Pollen</surname>
+</string-name>, et al., “<article-title>Single‐Cell Analysis of Long Non‐Coding RNAs in the Developing Human Neocortex</article-title>,” <source>Genome Biology</source>
+<volume>17</volume> (<year>2016</year>): <fpage>67</fpage>, <pub-id pub-id-type="doi">10.1186/s13059-016-0932-1</pub-id>.<pub-id pub-id-type="pmid">27081004</pub-id>
+<pub-id pub-id-type="pmcid">PMC4831157</pub-id></mixed-citation></ref><ref id="advs73630-bib-0063"><label>63</label><mixed-citation publication-type="journal" id="advs73630-cite-0063">
+<string-name name-style="western">
+<given-names>A. E.</given-names>
+<surname>Szafranska</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. S.</given-names>
+<surname>Davison</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>John</surname>
+</string-name>, et al., “<article-title>MicroRNA Expression Alterations Are Linked to Tumorigenesis and Non‐Neoplastic Processes in Pancreatic Ductal Adenocarcinoma</article-title>,” <source>Oncogene</source>
+<volume>26</volume> (<year>2007</year>): <fpage>4442</fpage>–<lpage>4452</lpage>, <pub-id pub-id-type="doi">10.1038/sj.onc.1210228</pub-id>.<pub-id pub-id-type="pmid">17237814</pub-id>
+</mixed-citation></ref><ref id="advs73630-bib-0064"><label>64</label><mixed-citation publication-type="journal" id="advs73630-cite-0064">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Cao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Hong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Yu</surname>
+</string-name>, et al., “<article-title>Circular RNA circTMEM59 Inhibits Progression of Pancreatic Ductal adenocarcinoma by Targeting miR‐147b/SOCS1: An in vitro Study</article-title>,” <source>Heliyon</source>
+<volume>10</volume> (<year>2024</year>): <elocation-id>24402</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.heliyon.2024.e24402</pub-id><pub-id pub-id-type="pmcid">PMC10831602</pub-id><pub-id pub-id-type="pmid">38304778</pub-id></mixed-citation></ref><ref id="advs73630-bib-0065"><label>65</label><mixed-citation publication-type="journal" id="advs73630-cite-0065">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ruan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhou</surname>
+</string-name>, “<article-title>Exosome‐Transmitted hsa_circ_0012634 Suppresses Pancreatic Ductal Adenocarcinoma Progression through Regulating miR‐147b/HIPK2 Axis</article-title>,” <source>Cancer Biology &amp; Therapy</source>
+<volume>24</volume> (<year>2023</year>): <elocation-id>2218514</elocation-id>.<pub-id pub-id-type="pmid">37326330</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1080/15384047.2023.2218514</pub-id><pub-id pub-id-type="pmcid">PMC10281470</pub-id></mixed-citation></ref><ref id="advs73630-bib-0066"><label>66</label><mixed-citation publication-type="journal" id="advs73630-cite-0066">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Villarroya‐Beltri</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Gutiérrez‐Vázquez</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Sánchez‐Cabo</surname>
+</string-name> et al., “<article-title>Sumoylated hnRNPA2B1 Controls the Sorting of miRNAs into Exosomes through Binding to Specific Motifs</article-title>,” <source>Nature Communications</source>
+<volume>4</volume> (<year>2013</year>): <fpage>2980</fpage>, <pub-id pub-id-type="doi">10.1038/ncomms3980</pub-id>.<pub-id pub-id-type="pmcid">PMC3905700</pub-id><pub-id pub-id-type="pmid">24356509</pub-id></mixed-citation></ref><ref id="advs73630-bib-0067"><label>67</label><mixed-citation publication-type="journal" id="advs73630-cite-0067">
+<string-name name-style="western">
+<given-names>M. J.</given-names>
+<surname>Shurtleff</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. M.</given-names>
+<surname>Temoche‐Diaz</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K. V.</given-names>
+<surname>Karfilis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ri</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Schekman</surname>
+</string-name>, “<article-title>Y‐box Protein 1 Is Required to Sort MicroRNAs into Exosomes in Cells and in a Cell‐free Reaction</article-title>,” <source>eLife</source>
+<volume>5</volume> (<year>2016</year>): <elocation-id>19276</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.7554/eLife.19276</pub-id><pub-id pub-id-type="pmcid">PMC5047747</pub-id><pub-id pub-id-type="pmid">27559612</pub-id></mixed-citation></ref><ref id="advs73630-bib-0068"><label>68</label><mixed-citation publication-type="journal" id="advs73630-cite-0068">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Santangelo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Giurato</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Cicchini</surname>
+</string-name>, et al., “<article-title>The RNA‐Binding Protein SYNCRIP Is a Component of the Hepatocyte Exosomal Machinery Controlling MicroRNA Sorting</article-title>,” <source>Cell Reports</source>
+<volume>17</volume> (<year>2016</year>): <fpage>799</fpage>–<lpage>808</lpage>, <pub-id pub-id-type="doi">10.1016/j.celrep.2016.09.031</pub-id>.<pub-id pub-id-type="pmid">27732855</pub-id>
+</mixed-citation></ref><ref id="advs73630-bib-0069"><label>69</label><mixed-citation publication-type="journal" id="advs73630-cite-0069">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Hobor</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Dallmann</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N. J.</given-names>
+<surname>Ball</surname>
+</string-name>, et al., “<article-title>A Cryptic RNA‐binding Domain Mediates Syncrip Recognition and Exosomal Partitioning of miRNA Targets</article-title>,” <source>Nature Communications</source>
+<volume>9</volume> (<year>2018</year>): <fpage>831</fpage>, <pub-id pub-id-type="doi">10.1038/s41467-018-03182-3</pub-id>.<pub-id pub-id-type="pmcid">PMC5827114</pub-id><pub-id pub-id-type="pmid">29483512</pub-id></mixed-citation></ref><ref id="advs73630-bib-0070"><label>70</label><mixed-citation publication-type="journal" id="advs73630-cite-0070">
+<string-name name-style="western">
+<given-names>M. J.</given-names>
+<surname>Goldman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Craft</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hastie</surname>
+</string-name>, et al., “<article-title>Visualizing and Interpreting Cancer Genomics Data via the Xena Platform</article-title>,” <source>Nature Biotechnology</source>
+<volume>38</volume> (<year>2020</year>): <fpage>675</fpage>–<lpage>678</lpage>, <pub-id pub-id-type="doi">10.1038/s41587-020-0546-8</pub-id>.<pub-id pub-id-type="pmcid">PMC7386072</pub-id><pub-id pub-id-type="pmid">32444850</pub-id></mixed-citation></ref><ref id="advs73630-bib-0071"><label>71</label><mixed-citation publication-type="journal" id="advs73630-cite-0071">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Fei</surname>
+</string-name>, et al., “<article-title>Construction of a Human Cell Landscape at Single‐Cell Level</article-title>,” <source>Nature</source>
+<volume>581</volume> (<year>2020</year>): <fpage>303</fpage>–<lpage>309</lpage>, <pub-id pub-id-type="doi">10.1038/s41586-020-2157-4</pub-id>.<pub-id pub-id-type="pmid">32214235</pub-id>
+</mixed-citation></ref><ref id="advs73630-bib-0072"><label>72</label><mixed-citation publication-type="journal" id="advs73630-cite-0072">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ioffe</surname>
+</string-name> and <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Szegedy</surname>
+</string-name>, “<article-title>Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift</article-title>,” <source>Proceedings of the 32nd International Conference on Machine Learning</source>
+<volume>37</volume> (<year>2015</year>): <fpage>448</fpage>–<lpage>456</lpage>.</mixed-citation></ref><ref id="advs73630-bib-0073"><label>73</label><mixed-citation publication-type="journal" id="advs73630-cite-0073">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Srivastava</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Hinton</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Krizhevsky</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Sutskever</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Salakhutdinov</surname>
+</string-name>, “<article-title>Dropout: a Simple Way to Prevent Neural Networks from Overfitting</article-title>,” <source>Journal of Machine Learning Research</source>
+<volume>15</volume> (<year>2014</year>): <fpage>1929</fpage>–<lpage>1958</lpage>.</mixed-citation></ref><ref id="advs73630-bib-0074"><label>74</label><mixed-citation publication-type="journal" id="advs73630-cite-0074">
+<string-name name-style="western">
+<given-names>A. F. M.</given-names>
+<surname>Agarap</surname>
+</string-name>, “<article-title>Deep Learning Using Rectified Linear Units (ReLU)</article-title>,” <source>arXiv</source> (<year>2018</year>): <elocation-id>180308375</elocation-id>.</mixed-citation></ref><ref id="advs73630-bib-0075"><label>75</label><mixed-citation publication-type="journal" id="advs73630-cite-0075">
+<string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Kern</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Fehlmann</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Solomon</surname>
+</string-name>, et al., “<article-title>miEAA 2.0: Integrating Multi‐Species microRNA Enrichment Analysis and Workflow Management Systems</article-title>,” <source>Nucleic Acids Research</source>
+<volume>48</volume> (<year>2020</year>): <fpage>W521</fpage>–<lpage>W528</lpage>, <pub-id pub-id-type="doi">10.1093/nar/gkaa309</pub-id>.<pub-id pub-id-type="pmid">32374865</pub-id>
+<pub-id pub-id-type="pmcid">PMC7319446</pub-id></mixed-citation></ref><ref id="advs73630-bib-0076"><label>76</label><mixed-citation publication-type="journal" id="advs73630-cite-0076">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Bastian</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Heymann</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Jacomy</surname>
+</string-name>, “<article-title>Gephi: an Open Source Software for Exploring and Manipulating Networks</article-title>,” <source>Proceedings of the International AAAI Conference on Web and Social Media</source>
+<volume>3</volume> (<year>2009</year>): <fpage>361</fpage>–<lpage>362</lpage>, <pub-id pub-id-type="doi">10.1609/icwsm.v3i1.13937</pub-id>.</mixed-citation></ref><ref id="advs73630-bib-0077"><label>77</label><mixed-citation publication-type="journal" id="advs73630-cite-0077">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Ashburner</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. A.</given-names>
+<surname>Ball</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. A.</given-names>
+<surname>Blake</surname>
+</string-name>, et al., “<article-title>Gene Ontology: Tool for the Unification of Biology</article-title>,” <source>Nature Genetics</source>
+<volume>25</volume> (<year>2000</year>): <fpage>25</fpage>–<lpage>29</lpage>, <pub-id pub-id-type="doi">10.1038/75556</pub-id>.<pub-id pub-id-type="pmid">10802651</pub-id>
+<pub-id pub-id-type="pmcid">PMC3037419</pub-id></mixed-citation></ref><ref id="advs73630-bib-0078"><label>78</label><mixed-citation publication-type="journal" id="advs73630-cite-0078">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Xu</surname>
+</string-name>, et al., “<article-title>clusterProfiler 4.0: a Universal Enrichment Tool for Interpreting Omics Data</article-title>,” <source>The Innovation</source>
+<volume>2</volume> (<year>2021</year>): <elocation-id>100141</elocation-id>, <pub-id pub-id-type="doi">10.1016/j.xinn.2021.100141</pub-id>.<pub-id pub-id-type="pmid">34557778</pub-id>
+<pub-id pub-id-type="pmcid">PMC8454663</pub-id></mixed-citation></ref><ref id="advs73630-bib-0079"><label>79</label><mixed-citation publication-type="journal" id="advs73630-cite-0079">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Kanehisa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Sato</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Kawashima</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Furumichi</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Tanabe</surname>
+</string-name>, “<article-title>KEGG as a Reference Resource for Gene and Protein Annotation</article-title>,” <source>Nucleic Acids Research</source>
+<volume>44</volume> (<year>2016</year>): <fpage>D457</fpage>–<lpage>D462</lpage>, <pub-id pub-id-type="doi">10.1093/nar/gkv1070</pub-id>.<pub-id pub-id-type="pmid">26476454</pub-id>
+<pub-id pub-id-type="pmcid">PMC4702792</pub-id></mixed-citation></ref><ref id="advs73630-bib-0080"><label>80</label><mixed-citation publication-type="journal" id="advs73630-cite-0080">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Kang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Chen</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Zhang</surname>
+</string-name>, “<article-title>GEPIA2: an Enhanced Web Server for Large‐scale Expression Profiling and Interactive Analysis</article-title>,” <source>Nucleic Acids Research</source>
+<volume>47</volume> (<year>2019</year>): <fpage>W556</fpage>–<lpage>W560</lpage>, <pub-id pub-id-type="doi">10.1093/nar/gkz430</pub-id>.<pub-id pub-id-type="pmid">31114875</pub-id>
+<pub-id pub-id-type="pmcid">PMC6602440</pub-id></mixed-citation></ref><ref id="advs73630-bib-0081"><label>81</label><mixed-citation publication-type="journal" id="advs73630-cite-0081">
+<string-name name-style="western">
+<given-names>M. I.</given-names>
+<surname>Love</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Huber</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Anders</surname>
+</string-name>, “<article-title>Moderated Estimation of Fold Change and Dispersion for RNA‐seq Data with DESeq2</article-title>,” <source>Genome Biology</source>
+<volume>15</volume> (<year>2014</year>): <fpage>550</fpage>, <pub-id pub-id-type="doi">10.1186/s13059-014-0550-8</pub-id>.<pub-id pub-id-type="pmid">25516281</pub-id>
+<pub-id pub-id-type="pmcid">PMC4302049</pub-id></mixed-citation></ref><ref id="advs73630-bib-0082"><label>82</label><mixed-citation publication-type="journal" id="advs73630-cite-0082">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Hao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Hao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Andersen‐Nissen</surname>
+</string-name>, et al., “<article-title>Integrated Analysis of Multimodal Single‐Cell Data</article-title>,” <source>Cell</source>
+<volume>184</volume> (<year>2021</year>): <fpage>3573</fpage>–<lpage>3587</lpage>.<pub-id pub-id-type="pmid">34062119</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cell.2021.04.048</pub-id><pub-id pub-id-type="pmcid">PMC8238499</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

@@ -1,0 +1,174 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">32009980</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>28</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>To Flex or Rest: Does Adding No-Load Isometric Actions to the Inter-Set Rest Period in Resistance Training Enhance Muscular Adaptations? A Randomized-Controlled Trial.</ArticleTitle><Pagination><StartPage>1571</StartPage><MedlinePgn>1571</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1571</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.01571</ELocationID><Abstract><AbstractText>We aimed to investigate the effects of resistance training (RT) combined with no-load isometric actions (iso-holds) during the inter-set recovery period versus RT that involves passive inter-set rest on muscular strength, muscular hypertrophy, and muscular endurance in resistance-trained men. Twenty-seven resistance-trained male volunteers were randomly assigned to either a traditional group (TRAD) that performed a hypertrophy-oriented RT routine with the rest intervals spent passively (<i>n</i> = 13) or to a group that supplemented traditional RT with iso-holds (ISO) for the working muscle group between each set (<i>n</i> = 14). Training for both routines consisted of three weekly sessions performed for 8 weeks. Three sets of 8-12 repetitions were performed per exercise. A 2-min rest interval was afforded between sets; the ISO group performed iso-holds for the first 30 s of each rest interval and then recovered for the final 90 s. Maximal strength was assessed using the one repetition maximum (1RM) tests in the leg press and bench press. Upper-body muscle endurance was assessed by performing the bench press to failure at 50% of 1RM. Muscle thickness (MT) of the elbow flexors, elbow extensors, mid-thigh, and lateral thigh was assessed using B-mode ultrasound. Results indicated a favorable effect of ISO on MT in the mid-thigh. Alternatively, there was a possible detrimental effect for ISO on leg press strength. No other notable differences were seen between conditions. In conclusion, the use of inter-set iso-holds may be a time-efficient strategy to enhance development of the quadriceps femoris; conversely, it may be detrimental to maximizing lower body strength.</AbstractText><CopyrightInformation>Copyright &#xa9; 2020 Schoenfeld, Grgic, Contreras, Delcastillo, Alto, Haun, De Souza and Vigotsky.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Schoenfeld</LastName><ForeName>Brad J</ForeName><Initials>BJ</Initials><AffiliationInfo><Affiliation>Department of Health Sciences, CUNY Lehman College, New York City, NY, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Grgic</LastName><ForeName>Jozo</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Institute for Health and Sport, Victoria University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Contreras</LastName><ForeName>Bret</ForeName><Initials>B</Initials><AffiliationInfo><Affiliation>Sport Performance Research Institute, Auckland University of Technology, Auckland, New Zealand.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Delcastillo</LastName><ForeName>Kenneth</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Health Sciences, CUNY Lehman College, New York City, NY, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Alto</LastName><ForeName>Andrew</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Department of Health Sciences, CUNY Lehman College, New York City, NY, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Haun</LastName><ForeName>Cody</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Department of Exercise Science, LaGrange College, LaGrange, GA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>De Souza</LastName><ForeName>Eduardo O</ForeName><Initials>EO</Initials><AffiliationInfo><Affiliation>Department of Health Sciences and Human Performance, The University of Tampa, Tampa, FL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Vigotsky</LastName><ForeName>Andrew D</ForeName><Initials>AD</Initials><AffiliationInfo><Affiliation>Department of Biomedical Engineering, Northwestern University, Evanston, IL, United States.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Statistics, Northwestern University, Evanston, IL, United States.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2020</Year><Month>01</Month><Day>15</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">active rest</Keyword><Keyword MajorTopicYN="N">hypertrophy</Keyword><Keyword MajorTopicYN="N">muscular adaptations</Keyword><Keyword MajorTopicYN="N">rest interval</Keyword><Keyword MajorTopicYN="N">strength</Keyword><Keyword MajorTopicYN="N">training methods</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>9</Month><Day>26</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>12</Month><Day>13</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2020</Year><Month>2</Month><Day>4</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2020</Year><Month>2</Month><Day>6</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2020</Year><Month>2</Month><Day>6</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2020</Year><Month>1</Month><Day>15</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">32009980</ArticleId><ArticleId IdType="pmc">PMC6974452</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.01571</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Altman D. G. (1985). Comparability of randomised groups.
+<i>J. R. Stat. Soc.</i>
+34
+125&#x2013;136.</Citation></Reference><Reference><Citation>American College of Sports Medicine. (2009). American college of sports medicine position stand. progression models in resistance training for healthy adults.
+<i>Med. Sci. Sports Exerc.</i>
+41
+687&#x2013;708. 10.1249/MSS.0b013e3181915670
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181915670</ArticleId><ArticleId IdType="pubmed">19204579</ArticleId></ArticleIdList></Reference><Reference><Citation>Amrhein V., Greenland S., McShane B. (2019). Scientists rise up against statistical significance.
+<i>Nature</i>
+567
+305&#x2013;307. 10.1038/d41586-019-00857-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/d41586-019-00857-9</ArticleId><ArticleId IdType="pubmed">30894741</ArticleId></ArticleIdList></Reference><Reference><Citation>Andersen L. L., Magnusson S. P., Nielsen M., Haleem J., Poulsen K., Aagaard P. (2006). Neuromuscular activation in conventional therapeutic exercises and heavy resistance exercises: implications for rehabilitation.
+<i>Phys. Ther.</i>
+86
+683&#x2013;697. </Citation><ArticleIdList><ArticleId IdType="pubmed">16649892</ArticleId></ArticleIdList></Reference><Reference><Citation>Baechle T. R., Earle R. W. (eds) (2008). <i>Essentials of Strength Training and Conditioning</i>, 3rd Edn
+Champaign, IL: Human Kinetics.</Citation></Reference><Reference><Citation>Biazon T. M. P. C., Ugrinowitsch C., Soligon S. D., Oliveira R. M., Bergamasco J. G., Borghi-Silva A., et al.  (2019). The association between muscle deoxygenation and muscle hypertrophy to blood flow restricted training performed at high and low loads.
+<i>Front. Physiol.</i>
+10:446. 10.3389/fphys.2019.00446
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2019.00446</ArticleId><ArticleId IdType="pmc">PMC6479177</ArticleId><ArticleId IdType="pubmed">31057426</ArticleId></ArticleIdList></Reference><Reference><Citation>Bland J. M., Altman D. G. (2011). Comparisons against baseline within randomised groups are often used and can be highly misleading.
+<i>Trials</i>
+12:264. 10.1186/1745-6215-12-264
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1745-6215-12-264</ArticleId><ArticleId IdType="pmc">PMC3286439</ArticleId><ArticleId IdType="pubmed">22192231</ArticleId></ArticleIdList></Reference><Reference><Citation>Bland J. M., Altman D. G. (2015). Best (but oft forgotten) practices: testing for treatment effects in randomized trials by separate analyses of changes from baseline in each group is a misleading approach.
+<i>Am. J. Clin. Nutr.</i>
+102
+991&#x2013;994. 10.3945/ajcn.115.119768
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3945/ajcn.115.119768</ArticleId><ArticleId IdType="pubmed">26354536</ArticleId></ArticleIdList></Reference><Reference><Citation>Burke L. E., Warziski M., Starrett T., Choo J., Music E., Sereika S., et al.  (2005). Self-monitoring dietary intake: current and future practices.
+<i>J. Ren. Nutr.</i>
+15
+281&#x2013;290. 10.1016/j.jrn.2005.04.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jrn.2005.04.002</ArticleId><ArticleId IdType="pubmed">16007557</ArticleId></ArticleIdList></Reference><Reference><Citation>Canty A., Ripley B. (2019). <i>Bootstrap R (S-plus) Functions. R Package Version</i>
+1.3&#x2013;23.</Citation></Reference><Reference><Citation>Coburn J. W., Malek M. H. (eds) (2011). <i>NSCA&#x2019;s Essentials of Personal Training</i>, 2nd Edn
+Champaign, IL: Human Kinetics.</Citation></Reference><Reference><Citation>Counts B. R., Buckner S. L., Dankel S. J., Jessee M. B., Mattocks K. T., Mouser J. G., et al.  (2016). The acute and chronic effects of &#x201c;NO LOAD&#x201d; resistance training.
+<i>Physiol. Behav.</i>
+164(Pt A), 345&#x2013;352. 10.1016/j.physbeh.2016.06.024
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.physbeh.2016.06.024</ArticleId><ArticleId IdType="pubmed">27329807</ArticleId></ArticleIdList></Reference><Reference><Citation>Damas F., Phillips S. M., Libardi C. A., Vechin F. C., Lixandrao M. E., Jannig P. R., et al.  (2016). Resistance training-induced changes in integrated myofibrillar protein synthesis are related to hypertrophy only after attenuation of muscle damage.
+<i>J. Physiol.</i>
+594
+5209&#x2013;5222. 10.1113/JP272472
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP272472</ArticleId><ArticleId IdType="pmc">PMC5023708</ArticleId><ArticleId IdType="pubmed">27219125</ArticleId></ArticleIdList></Reference><Reference><Citation>Davison A. C., Hinkley D. V. (1997). <i>Bootstrap Methods and Their Applications.</i>
+Cambridge: Cambridge University Press.</Citation></Reference><Reference><Citation>Eccles R. M., Lundberg A. (1958). Integrative pattern of ia synaptic actions on motoneurones of hip and knee muscles.
+<i>J. Physiol.</i>
+144
+271&#x2013;298. 10.1113/jphysiol.1958.sp006101</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.1958.sp006101</ArticleId><ArticleId IdType="pmc">PMC1356742</ArticleId><ArticleId IdType="pubmed">13611693</ArticleId></ArticleIdList></Reference><Reference><Citation>Edge J., Hill-Haas S., Goodman C., Bishop D. (2006). Effects of resistance training on H+ regulation, buffer capacity, and repeated sprints.
+<i>Med. Sci. Sports Exerc.</i>
+38
+2004&#x2013;2011. 10.1249/01.mss.0000233793.31659.a3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000233793.31659.a3</ArticleId><ArticleId IdType="pubmed">17095936</ArticleId></ArticleIdList></Reference><Reference><Citation>Efron B. (2012). Better bootstrap confidence intervals.
+<i>J. Am. Stat. Assoc.</i>
+82
+171&#x2013;185.</Citation></Reference><Reference><Citation>Ema R., Sakaguchi M., Akagi R., Kawakami Y. (2016). Unique activation of the quadriceps femoris during single- and multi-joint exercises.
+<i>Eur. J. App. Physiol.</i>
+116
+1031&#x2013;1041. 10.1007/s00421-016-3363-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-016-3363-5</ArticleId><ArticleId IdType="pubmed">27032805</ArticleId></ArticleIdList></Reference><Reference><Citation>Ema R., Wakahara T., Miyamoto N., Kanehisa H., Kawakami Y. (2013). Inhomogeneous architectural changes of the quadriceps femoris induced by resistance training.
+<i>Eur. J. App. Physiol.</i>
+113
+2691&#x2013;2703. 10.1007/s00421-013-2700-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-013-2700-1</ArticleId><ArticleId IdType="pubmed">23949789</ArticleId></ArticleIdList></Reference><Reference><Citation>Enocson A. G., Berg H. E., Vargas R., Jenner G., Tesch P. A. (2005). Signal intensity of MR-images of thigh muscles following acute open- and closed chain kinetic knee extensor exercise - index of muscle use.
+<i>Eur. J. App. Physiol.</i>
+94
+357&#x2013;363. 10.1007/s00421-005-1339-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-005-1339-y</ArticleId><ArticleId IdType="pubmed">15918061</ArticleId></ArticleIdList></Reference><Reference><Citation>Franchi M. V., Longo S., Mallinson J., Quinlan J. I., Taylor T., Greenhaff P. L., et al.  (2018). Muscle thickness correlates to muscle cross-sectional area in the assessment of strength training-induced hypertrophy.
+<i>Scand. J. Med. Sci. Sports</i>
+28
+846&#x2013;853. 10.1111/sms.12961
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12961</ArticleId><ArticleId IdType="pmc">PMC5873262</ArticleId><ArticleId IdType="pubmed">28805932</ArticleId></ArticleIdList></Reference><Reference><Citation>Garcia-Lopez D., Izquierdo M., Rodriguez S., Gonzalez-Calvo G., Sainz N., Abadia O., et al.  (2010). Interset stretching does not influence the kinematic profile of consecutive bench-press sets.
+<i>J. Strength Cond. Res.</i>
+24
+1361&#x2013;1368. 10.1519/JSC.0b013e3181cf780d
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181cf780d</ArticleId><ArticleId IdType="pubmed">20386480</ArticleId></ArticleIdList></Reference><Reference><Citation>Gardner M. J., Altman D. G. (1986). Confidence intervals rather than P values: estimation rather than hypothesis testing.
+<i>Br. Med. J.</i>
+292
+746&#x2013;750. 10.1136/bmj.292.6522.746
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.292.6522.746</ArticleId><ArticleId IdType="pmc">PMC1339793</ArticleId><ArticleId IdType="pubmed">3082422</ArticleId></ArticleIdList></Reference><Reference><Citation>Gentil P., Bottaro M. (2013). Effects of training attendance on muscle strength of young men after 11 weeks of resistance training.
+<i>Asian J. Sports Med.</i>
+4
+101&#x2013;106. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC3690729</ArticleId><ArticleId IdType="pubmed">23802051</ArticleId></ArticleIdList></Reference><Reference><Citation>Grgic J., Schoenfeld B. J., Skrepnik M., Davies T. B., Mikulic P. (2018). Effects of rest interval duration in resistance training on measures of muscular strength: a systematic review.
+<i>Sports Med.</i>
+48
+137&#x2013;151. 10.1007/s40279-017-0788-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-017-0788-x</ArticleId><ArticleId IdType="pubmed">28933024</ArticleId></ArticleIdList></Reference><Reference><Citation>Hannie P. Q., Hunter G. R., Kekes-Szabo T., Nicholson C., Harrison P. C. (1995). The effects of recovery on force production, blood lactate, and work performed during bench press exercise.
+<i>J Strength Cond Res.</i>
+9
+8&#x2013;12. 10.1519/00124278-199502000-00002</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-199502000-00002</ArticleId></ArticleIdList></Reference><Reference><Citation>Ho J., Tumkaya T., Aryal S., Choi H., Claridge-Chang A. (2019). Moving beyond P values: everyday data analysis with estimation plots.
+<i>Nat. Methods</i>
+16
+565&#x2013;566. 10.1038/s41592-019-0470-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41592-019-0470-3</ArticleId><ArticleId IdType="pubmed">31217592</ArticleId></ArticleIdList></Reference><Reference><Citation>Kubo K., Ikebukuro T., Yata H. (2019). Effects of squat training with different depths on lower limb muscle volumes.
+<i>Eur. J. App. Physiol.</i>
+119
+1933&#x2013;1942. 10.1007/s00421-019-04181-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-019-04181-y</ArticleId><ArticleId IdType="pubmed">31230110</ArticleId></ArticleIdList></Reference><Reference><Citation>Kwon Y. S., Robergs R. A., Mermier C. M., Schneider S. M., Gurney A. B. (2015). Palm cooling and heating delays fatigue during resistance exercise in women.
+<i>J. Strength Cond. Res.</i>
+29
+2261&#x2013;2269. 10.1519/JSC.0b013e31829cef4e
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31829cef4e</ArticleId><ArticleId IdType="pubmed">23722108</ArticleId></ArticleIdList></Reference><Reference><Citation>Maeo S., Yoshitake Y., Takai Y., Fukunaga T., Kanehisa H. (2014). Neuromuscular adaptations following 12-week maximal voluntary co-contraction training.
+<i>Eur. J. App. Physiol.</i>
+114
+663&#x2013;673. 10.1007/s00421-013-2801-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-013-2801-x</ArticleId><ArticleId IdType="pubmed">24368554</ArticleId></ArticleIdList></Reference><Reference><Citation>Matthews J. N., Altman D. G. (1996). Statistics notes. interaction 2: compare effect sizes not P values.
+<i>BMJ</i>
+313:808. 10.1136/bmj.313.7060.808
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.313.7060.808</ArticleId><ArticleId IdType="pmc">PMC2352195</ArticleId><ArticleId IdType="pubmed">8842080</ArticleId></ArticleIdList></Reference><Reference><Citation>McShane B. B., Gal D., Gelman A., Robert C., Tackett J. L. (2019). Abandon statistical significance.
+<i>Am. Stat.</i>
+73
+235&#x2013;245. 10.1080/00031305.2018.1527253</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/00031305.2018.1527253</ArticleId></ArticleIdList></Reference><Reference><Citation>Mertz W., Tsui J. C., Judd J. T., Reiser S., Hallfrisch J., Morris E. R., et al.  (1991). What are people really eating? the relation between energy intake derived from estimated diet records and intake determined to maintain body weight.
+<i>Am. J. Clin. Nutr.</i>
+54
+291&#x2013;295. 10.1093/ajcn/54.2.291
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ajcn/54.2.291</ArticleId><ArticleId IdType="pubmed">1858692</ArticleId></ArticleIdList></Reference><Reference><Citation>Mohamad N. I., Cronin J. B., Nosaka K. K. (2012). The effect of aerobic exercise during the interset rest periods on kinematics, kinetics, and lactate clearance of two resistance loading schemes.
+<i>J. Strength Cond. Res.</i>
+26
+73&#x2013;79. 10.1519/JSC.0b013e31821bf1f5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31821bf1f5</ArticleId><ArticleId IdType="pubmed">22158141</ArticleId></ArticleIdList></Reference><Reference><Citation>Moher D., Hopewell S., Schulz K. F., Montori V., Gotzsche P. C., Devereaux P. J., et al.  (2010). CONSORT 2010 explanation and elaboration: updated guidelines for reporting parallel group randomised trials.
+<i>BMJ</i>
+340:c869. 10.1136/bmj.c869
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.c869</ArticleId><ArticleId IdType="pmc">PMC2844943</ArticleId><ArticleId IdType="pubmed">20332511</ArticleId></ArticleIdList></Reference><Reference><Citation>Monteiro E. R., Neto V. G. (2016). Effect of different foam rolling volumes on knee extension fatigue.
+<i>Int. J. Sports Phys. Ther.</i>
+11
+1076&#x2013;1081. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC5159632</ArticleId><ArticleId IdType="pubmed">27999722</ArticleId></ArticleIdList></Reference><Reference><Citation>Moran-Navarro R., Perez C. E., Mora-Rodriguez R., de la Cruz-Sanchez E., Gonzalez-Badillo J. J., Sanchez-Medina L., et al.  (2017). Time course of recovery following resistance training leading or not to failure.
+<i>Eur. J. App. Physiol.</i>
+117
+2387&#x2013;2399. 10.1007/s00421-017-3725-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-017-3725-7</ArticleId><ArticleId IdType="pubmed">28965198</ArticleId></ArticleIdList></Reference><Reference><Citation>Morgan F., Battersby A., Weightman A. L., Searchfield L., Turley R., Morgan H., et al.  (2016). Adherence to exercise referral schemes by participants - what do providers and commissioners need to know? A systematic review of barriers and facilitators.
+<i>BMC Public Health</i>
+16:227. 10.1186/s12889-016-2882-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12889-016-2882-7</ArticleId><ArticleId IdType="pmc">PMC4779205</ArticleId><ArticleId IdType="pubmed">26944952</ArticleId></ArticleIdList></Reference><Reference><Citation>Ogasawara R., Thiebaud R. S., Loenneke J. P., Loftin M., Abe T. (2012). Time course for arm and chest muscle thickness changes following bench press training.
+<i>Int. Med. App. Sci.</i>
+4
+217&#x2013;220. 10.1556/IMAS.4.2012.4.7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1556/IMAS.4.2012.4.7</ArticleId><ArticleId IdType="pmc">PMC3831787</ArticleId><ArticleId IdType="pubmed">24265879</ArticleId></ArticleIdList></Reference><Reference><Citation>R: A language and environment for statistical computing, (2019). <i>R</i><i>: A Language and Environment for Statistical Computing.</i> Available at: https://www.R-project.org/
+(accessed September, 2019).</Citation></Reference><Reference><Citation>Reeves N. D., Maganaris C. N., Narici M. V. (2004). Ultrasonographic assessment of human skeletal muscle size.
+<i>Eur. J. App. Physiol.</i>
+91
+116&#x2013;118. 10.1007/s00421-003-0961-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-003-0961-9</ArticleId><ArticleId IdType="pubmed">14639480</ArticleId></ArticleIdList></Reference><Reference><Citation>Rossow L. M., Fukuda D. H., Fahs C. A., Loenneke J. P., Stout J. R. (2013). Natural bodybuilding competition preparation and recovery: a 12-month case study.
+<i>Int. J. Sports Physiol. Perform.</i>
+8
+582&#x2013;592. 10.1123/ijspp.8.5.582
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.8.5.582</ArticleId><ArticleId IdType="pubmed">23412685</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Contreras B., Krieger J., Grgic J., Delcastillo K., Belliard R., et al.  (2019). Resistance training volume enhances muscle hypertrophy but not strength in trained men.
+<i>Med. Sci. Sports Exerc.</i>
+51
+94&#x2013;103. 10.1249/MSS.0000000000001764
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000001764</ArticleId><ArticleId IdType="pmc">PMC6303131</ArticleId><ArticleId IdType="pubmed">30153194</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Contreras B., Ogborn D., Galpin A., Krieger J., Sonmez G. T. (2016a). Effects of varied versus constant loading zones on muscular adaptations in well-trained men.
+<i>Int. J. Sports Med.</i>
+37
+442&#x2013;447. 10.1055/s-0035-1569369
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0035-1569369</ArticleId><ArticleId IdType="pubmed">27042999</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Contreras B., Vigotsky A. D., Peterson M. (2016b). Differential effects of heavy versus moderate loads on measures of strength and hypertrophy in resistance-trained men.
+<i>J. Sports Sci. Med.</i>
+15
+715&#x2013;722. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC5131226</ArticleId><ArticleId IdType="pubmed">27928218</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Peterson M. D., Ogborn D., Contreras B., Sonmez G. T. (2015). Effects of low- versus high-load resistance training on muscle strength and hypertrophy in well-trained men.
+<i>J. Strength Cond. Res.</i>
+29
+2954&#x2013;2963. 10.1519/JSC.0000000000000958
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000958</ArticleId><ArticleId IdType="pubmed">25853914</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Vigotsky A., Contreras B., Golden S., Alto A., Larson R., et al.  (2018). Differential effects of attentional focus strategies during long-term resistance training.
+<i>Eur. J. Sport Sci.</i>
+18
+705&#x2013;712. 10.1080/17461391.2018.1447020
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/17461391.2018.1447020</ArticleId><ArticleId IdType="pubmed">29533715</ArticleId></ArticleIdList></Reference><Reference><Citation>Schwarzenegger A., Dobbins B. (1998). <i>The New Encyclopedia of Modern Bodybuilding. Simon and Schuster; 1998.</i>
+New York, NY: Simon and Schuster.</Citation></Reference><Reference><Citation>Senn S. (1994). Testing for baseline balance in clinical trials.
+<i>Stat. Med.</i>
+13
+1715&#x2013;1726. 10.1002/sim.4780131703
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/sim.4780131703</ArticleId><ArticleId IdType="pubmed">7997705</ArticleId></ArticleIdList></Reference><Reference><Citation>Vickers A. J., Altman D. G. (2001). Statistics notes: analysing controlled trials with baseline and follow up measurements.
+<i>BMJ</i>
+323
+1123&#x2013;1124. 10.1136/bmj.323.7321.1123
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.323.7321.1123</ArticleId><ArticleId IdType="pmc">PMC1121605</ArticleId><ArticleId IdType="pubmed">11701584</ArticleId></ArticleIdList></Reference><Reference><Citation>Vigotsky A. D., Schoenfeld B. J., Than C., Brown J. M. (2018). Methods matter: the relationship between strength and hypertrophy depends on methods of measurement and analysis.
+<i>PeerJ</i>
+6:e5071. 10.7717/peerj.5071
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7717/peerj.5071</ArticleId><ArticleId IdType="pmc">PMC6026459</ArticleId><ArticleId IdType="pubmed">29967737</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

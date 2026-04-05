@@ -1,0 +1,219 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">32849773</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>28</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-8021</ISSN><JournalIssue CitedMedium="Print"><Volume>11</Volume><PubDate><Year>2020</Year></PubDate></JournalIssue><Title>Frontiers in genetics</Title><ISOAbbreviation>Front Genet</ISOAbbreviation></Journal><ArticleTitle>A Potential Endurance Algorithm Prediction in the Field of Sports Performance.</ArticleTitle><Pagination><StartPage>711</StartPage><MedlinePgn>711</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">711</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fgene.2020.00711</ELocationID><Abstract><AbstractText>Sport performance is influenced by several factors, including genetic susceptibility. In the past years, specific single nucleotide polymorphisms have been associated to sport performance; however, these effects should be considered in multivariable prediction systems since they are related to a polygenic inheritance. The aim of this study was to design a genetic endurance prediction score (GES) of endurance performance and analyze its association with anthropometric, nutritional and sport efficiency variables in a cross-sectional study within fifteen male cyclists. A statistically significant positive relationship between GES and the VO<sub>2</sub> maximum (<i>P</i> = 0.033), VO<sub>2</sub> VT1 (<i>P</i> = 0.049) and VO<sub>2</sub> VT2 (<i>P</i> &lt; 0.001) was observed. Moreover, additional remarkable associations between genotype and the anthropometric, nutritional and sport performance variables, were achieved. In addition, an interesting link between the habit of consuming caffeinated beverages and the GES was observed. The outcomes of the present study indicate a potential use of this genetic prediction algorithm in the sports' field, which may facilitate the finding of genetically talented athletes, improve their training and food habits, as well as help in the improvement of physical conditions of amateurs.</AbstractText><CopyrightInformation>Copyright &#xa9; 2020 de la Iglesia, Espinosa-Salinas, Lopez-Silvarrey, Ramos-Alvarez, Segovia, Colmenarejo, Borregon-Rivilla, Marcos-Pasero, Aguilar-Aguilar, Loria-Kohen, Reglero and Ramirez-de Molina.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>de la Iglesia</LastName><ForeName>Rocio</ForeName><Initials>R</Initials><AffiliationInfo><Affiliation>Departamento de Ciencias Farmac&#xe9;uticas y de la Salud, Facultad de Farmacia, Universidad San Pablo-CEU, CEU Universities, Alcorc&#xf3;n, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Espinosa-Salinas</LastName><ForeName>Isabel</ForeName><Initials>I</Initials><AffiliationInfo><Affiliation>Nutrition and Clinical Trials Unit, GENYAL Platform IMDEA-Food Institute, CEI UAM + CSIC, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lopez-Silvarrey</LastName><ForeName>F Javier</ForeName><Initials>FJ</Initials><AffiliationInfo><Affiliation>Facultad de Ciencias de la Salud, Universidad Camilo Jos&#xe9; Cela, Madrid, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Sannus Clinic, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ramos-Alvarez</LastName><ForeName>J Jose</ForeName><Initials>JJ</Initials><AffiliationInfo><Affiliation>Departamento de Radiolog&#xed;a, Rehabilitaci&#xf3;n y Fisioterapia, Universidad Complutense de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Segovia</LastName><ForeName>J Carlos</ForeName><Initials>JC</Initials><AffiliationInfo><Affiliation>Facultad de Ciencias de la Salud, Universidad Camilo Jos&#xe9; Cela, Madrid, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Sannus Clinic, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Colmenarejo</LastName><ForeName>Gonzalo</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Biostatistics and Bioinformatics Unit, IMDEA Food CEI UAM + CSIC, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Borregon-Rivilla</LastName><ForeName>Elena</ForeName><Initials>E</Initials><AffiliationInfo><Affiliation>Nutrition and Clinical Trials Unit, GENYAL Platform IMDEA-Food Institute, CEI UAM + CSIC, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Marcos-Pasero</LastName><ForeName>Helena</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Nutrition and Clinical Trials Unit, GENYAL Platform IMDEA-Food Institute, CEI UAM + CSIC, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Aguilar-Aguilar</LastName><ForeName>Elena</ForeName><Initials>E</Initials><AffiliationInfo><Affiliation>Nutrition and Clinical Trials Unit, GENYAL Platform IMDEA-Food Institute, CEI UAM + CSIC, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Loria-Kohen</LastName><ForeName>Viviana</ForeName><Initials>V</Initials><AffiliationInfo><Affiliation>Nutrition and Clinical Trials Unit, GENYAL Platform IMDEA-Food Institute, CEI UAM + CSIC, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Reglero</LastName><ForeName>Guillermo</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Nutrition and Clinical Trials Unit, GENYAL Platform IMDEA-Food Institute, CEI UAM + CSIC, Madrid, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Production and Characterization of Novel Foods, Institute of Food Science Research (CIAL) CEI UAM + CSIC, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ramirez-de Molina</LastName><ForeName>Ana</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Nutrition and Clinical Trials Unit, GENYAL Platform IMDEA-Food Institute, CEI UAM + CSIC, Madrid, Spain.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2020</Year><Month>08</Month><Day>11</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Genet</MedlineTA><NlmUniqueID>101560621</NlmUniqueID><ISSNLinking>1664-8021</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">SNP</Keyword><Keyword MajorTopicYN="N">exercise</Keyword><Keyword MajorTopicYN="N">functional validation</Keyword><Keyword MajorTopicYN="N">genetics</Keyword><Keyword MajorTopicYN="N">nutrition</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2020</Year><Month>3</Month><Day>5</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2020</Year><Month>6</Month><Day>11</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2020</Year><Month>8</Month><Day>28</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2020</Year><Month>8</Month><Day>28</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2020</Year><Month>8</Month><Day>28</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2020</Year><Month>8</Month><Day>11</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">32849773</ArticleId><ArticleId IdType="pmc">PMC7431952</ArticleId><ArticleId IdType="doi">10.3389/fgene.2020.00711</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Aguirre-Jaime A., Cabrera de Leon A., Dominguez Coello S., Borges Alamo C., Carrillo Fernandez L., Gavilan Batista J. C., et al.  (2008). Validation of a food intake frequency questionnaire adapted for the study and monitoring of the adult population of the Canary Islands, Spain.
+<i>Rev. Esp. Salud Publ.</i>
+82
+509&#x2013;518. 10.1590/s1135-57272008000500006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1590/s1135-57272008000500006</ArticleId><ArticleId IdType="pubmed">19039504</ArticleId></ArticleIdList></Reference><Reference><Citation>Ahmetov I. I., Druzhevskaya A. M., Lyubaeva E. V., Popov D. V., Vinogradova O. L., Williams A. G. (2011). The dependence of preferred competitive racing distance on muscle fibre type composition and ACTN3 genotype in speed skaters.
+<i>Exp. Physiol.</i>
+96
+1302&#x2013;1310. 10.1113/expphysiol.2011.060293
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/expphysiol.2011.060293</ArticleId><ArticleId IdType="pubmed">21930675</ArticleId></ArticleIdList></Reference><Reference><Citation>Ahmetov I. I., Mozhayskaya I. A., Flavell D. M., Astratenkova I. V., Komkova A. I., Lyubaeva E. V., et al.  (2006). PPARalpha gene variation and physical performance in Russian athletes.
+<i>Eur. J. Appl. Physiol.</i>
+97
+103&#x2013;108. 10.1007/s00421-006-0154-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-006-0154-4</ArticleId><ArticleId IdType="pubmed">16506057</ArticleId></ArticleIdList></Reference><Reference><Citation>Akhmetov I. I., Popov D. V., Mozhaiskaia I. A., Missina S. S., Astratenkova I. V., Vinogradova O. L., et al.  (2007). Association of regulatory genes polymorphisms with aerobic and anaerobic performance of athletes.
+<i>Ross Fiziol Zh Im I M Sechenova</i>
+93
+837&#x2013;843.</Citation><ArticleIdList><ArticleId IdType="pubmed">17926914</ArticleId></ArticleIdList></Reference><Reference><Citation>Albouaini K., Egred M., Alahmar A., Wright D. J. (2007). Cardiopulmonary exercise testing and its application.
+<i>Postgrad. Med. J.</i>
+83
+675&#x2013;682. 10.1136/hrt.2007.121558</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/hrt.2007.121558</ArticleId><ArticleId IdType="pmc">PMC2734442</ArticleId><ArticleId IdType="pubmed">17989266</ArticleId></ArticleIdList></Reference><Reference><Citation>Alghannam A. F., Gonzalez J. T., Betts J. A. (2018). Restoration of muscle glycogen and functional capacity: role of post-exercise carbohydrate and protein co-ingestion.
+<i>Nutrients</i>
+10:253. 10.3390/nu10020253
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu10020253</ArticleId><ArticleId IdType="pmc">PMC5852829</ArticleId><ArticleId IdType="pubmed">29473893</ArticleId></ArticleIdList></Reference><Reference><Citation>Beaver W. L., Wasserman K., Whipp B. J. (1986). A new method for detecting anaerobic threshold by gas exchange.
+<i>J. Appl. Physiol.</i>
+60
+2020&#x2013;2027. 10.1152/jappl.1986.60.6.2020
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1986.60.6.2020</ArticleId><ArticleId IdType="pubmed">3087938</ArticleId></ArticleIdList></Reference><Reference><Citation>Bergh U., Ekblom B., Astrand P. O. (2000). Maximal oxygen uptake &#x201c;classical&#x201d; versus &#x201c;contemporary&#x201d; viewpoints.
+<i>Med. Sci. Sports Exerc.</i>
+32
+85&#x2013;88. 10.1097/00005768-200001000-00013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-200001000-00013</ArticleId><ArticleId IdType="pubmed">10647533</ArticleId></ArticleIdList></Reference><Reference><Citation>Borg G., Ljunggren G., Ceci R. (1985). The increase of perceived exertion, aches and pain in the legs, heart rate and blood lactate during exercise on a bicycle ergometer.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+54
+343&#x2013;349. 10.1007/bf02337176
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/bf02337176</ArticleId><ArticleId IdType="pubmed">4065121</ArticleId></ArticleIdList></Reference><Reference><Citation>Bouchard C., Sarzynski M. A., Rice T. K., Kraus W. E., Church T. S., Sung Y. J., et al.  (2011). Genomic predictors of the maximal O(2) uptake response to standardized exercise training programs.
+<i>J. Appl. Physiol.</i>
+110
+1160&#x2013;1170. 10.1152/japplphysiol.00973.2010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00973.2010</ArticleId><ArticleId IdType="pmc">PMC3098655</ArticleId><ArticleId IdType="pubmed">21183627</ArticleId></ArticleIdList></Reference><Reference><Citation>Brown J. C., Miller C. J., Posthumus M., Schwellnus M. P., Collins M. (2011). The COL5A1 gene, ultra-marathon running performance, and range of motion.
+<i>Int. J. Sports Physiol. Perform.</i>
+6
+485&#x2013;496. 10.1123/ijspp.6.4.485
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.6.4.485</ArticleId><ArticleId IdType="pubmed">21934170</ArticleId></ArticleIdList></Reference><Reference><Citation>Cartee G. D., Arias E. B., Yu C. S., Pataky M. W. (2016). Novel single skeletal muscle fiber analysis reveals a fiber type-selective effect of acute exercise on glucose uptake.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+311
+E818&#x2013;E824. 10.1152/ajpendo.00289.2016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00289.2016</ArticleId><ArticleId IdType="pmc">PMC5130359</ArticleId><ArticleId IdType="pubmed">27600826</ArticleId></ArticleIdList></Reference><Reference><Citation>Carter J., Heath B. (1990). <i>Somatotyping: Development And Implications.</i>
+Cambridge: Cambridge University Press.</Citation></Reference><Reference><Citation>Chen C., Sun Y., Liang H., Yu D., Hu S. (2017). A meta-analysis of the association of CKM gene rs8111989 polymorphism with sport performance.
+<i>Biol. Sport</i>
+34
+323&#x2013;330. 10.5114/biolsport.2017.69819
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5114/biolsport.2017.69819</ArticleId><ArticleId IdType="pmc">PMC5819473</ArticleId><ArticleId IdType="pubmed">29472734</ArticleId></ArticleIdList></Reference><Reference><Citation>Coyle E. F., Coggan A. R., Hopper M. K., Walters T. J. (1988). Determinants of endurance in well-trained cyclists.
+<i>J. Appl. Physiol.</i>
+64
+2622&#x2013;2630. 10.1152/jappl.1988.64.6.2622
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1988.64.6.2622</ArticleId><ArticleId IdType="pubmed">3403447</ArticleId></ArticleIdList></Reference><Reference><Citation>Dinkova-Kostova A. T., Abramov A. Y. (2015). The emerging role of Nrf2 in mitochondrial function.
+<i>Free Radic. Biol. Med.</i>
+88
+179&#x2013;188. 10.1016/j.freeradbiomed.2015.04.036
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.freeradbiomed.2015.04.036</ArticleId><ArticleId IdType="pmc">PMC4726722</ArticleId><ArticleId IdType="pubmed">25975984</ArticleId></ArticleIdList></Reference><Reference><Citation>Drozdovska S. B., Dosenko V. E., Ahmetov I. I., Ilyin V. N. (2013). The association of gene polymorphisms with athlete status in ukrainians.
+<i>Biol. Sport</i>
+30
+163&#x2013;167. 10.5604/20831862.1059168
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5604/20831862.1059168</ArticleId><ArticleId IdType="pmc">PMC3944573</ArticleId><ArticleId IdType="pubmed">24744483</ArticleId></ArticleIdList></Reference><Reference><Citation>Durkalec-Michalski K., Zawieja E. E., Zawieja B. E., Jurkowska D., Buchowski M. S., Jeszka J. (2018). Effects of low versus moderate glycemic index diets on aerobic capacity in endurance runners: three-week randomized controlled crossover trial.
+<i>Nutrients</i>
+10:370. 10.3390/nu10030370
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu10030370</ArticleId><ArticleId IdType="pmc">PMC5872788</ArticleId><ArticleId IdType="pubmed">29562613</ArticleId></ArticleIdList></Reference><Reference><Citation>Durkalec-Michalski K., Zawieja E. E., Zawieja B. E., Podgorski T., Jurkowska D., Jeszka J. (2017). Influence of low versus moderate glycemic index of diet on substrate oxidation and energy expenditure during incremental exercise in endurance athletes: a randomized counterbalanced cross-over trial.
+<i>Int. J. Food Sci. Nutr.</i>
+69
+741&#x2013;752. 10.1080/09637486.2017.1411891
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/09637486.2017.1411891</ArticleId><ArticleId IdType="pubmed">29252040</ArticleId></ArticleIdList></Reference><Reference><Citation>Duval C., Fruchart J. C., Staels B. (2004). PPAR alpha, fibrates, lipid metabolism and inflammation.
+<i>Arch. Mal. Coeur. Vaiss</i>
+97
+665&#x2013;672.</Citation><ArticleIdList><ArticleId IdType="pubmed">15283041</ArticleId></ArticleIdList></Reference><Reference><Citation>Eynon N., Alves A. J., Sagiv M., Yamin C., Sagiv M., Meckel Y. (2010a). Interaction between SNPs in the NRF2 gene and elite endurance performance.
+<i>Physiol. Genomics</i>
+41
+78&#x2013;81. 10.1152/physiolgenomics.00199.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/physiolgenomics.00199.2009</ArticleId><ArticleId IdType="pubmed">20028934</ArticleId></ArticleIdList></Reference><Reference><Citation>Eynon N., Meckel Y., Sagiv M., Yamin C., Amir R., Sagiv M., et al.  (2010b). Do PPARGC1A and PPARalpha polymorphisms influence sprint or endurance phenotypes?
+<i>Scand. J. Med. Sci. Sports</i>
+20
+e145&#x2013;e150. 10.1111/j.1600-0838.2009.00930.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2009.00930.x</ArticleId><ArticleId IdType="pubmed">19422653</ArticleId></ArticleIdList></Reference><Reference><Citation>Eynon N., Duarte J. A., Oliveira J., Sagiv M., Yamin C., Meckel Y., et al.  (2009). ACTN3 R577X polymorphism and Israeli top-level athletes.
+<i>Int. J. Sports Med.</i>
+30
+695&#x2013;698. 10.1055/s-0029-1220731
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0029-1220731</ArticleId><ArticleId IdType="pubmed">19544227</ArticleId></ArticleIdList></Reference><Reference><Citation>Eynon N., Ruiz J. R., Bishop D. J., Santiago C., Gomez-Gallego F., Lucia A., et al.  (2013). The rs12594956 polymorphism in the NRF-2 gene is associated with top-level Spanish athlete&#x2019;s performance status.
+<i>J. Sci. Med. Sport</i>
+16
+135&#x2013;139. 10.1016/j.jsams.2012.05.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2012.05.004</ArticleId><ArticleId IdType="pubmed">22749526</ArticleId></ArticleIdList></Reference><Reference><Citation>Freyssenet D. (2007). Energy sensing and regulation of gene expression in skeletal muscle.
+<i>J. Appl. Physiol.</i>
+102
+529&#x2013;540. 10.1152/japplphysiol.01126.2005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01126.2005</ArticleId><ArticleId IdType="pubmed">17082363</ArticleId></ArticleIdList></Reference><Reference><Citation>Frigeri A., Nicchia G. P., Balena R., Nico B., Svelto M. (2004). Aquaporins in skeletal muscle: reassessment of the functional role of aquaporin-4.
+<i>FASEB J.</i>
+18
+905&#x2013;907. 10.1096/fj.03-0987fje
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.03-0987fje</ArticleId><ArticleId IdType="pubmed">15033928</ArticleId></ArticleIdList></Reference><Reference><Citation>Glenn K. L., Du Z. Q., Eisenmann J. C., Rothschild M. F. (2009). An alternative method for genotyping of the ACE I/D polymorphism.
+<i>Mol. Biol. Rep.</i>
+36
+1305&#x2013;1310. 10.1007/s11033-008-9313-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11033-008-9313-5</ArticleId><ArticleId IdType="pubmed">18622756</ArticleId></ArticleIdList></Reference><Reference><Citation>Grealy R., Herruer J., Smith C. L., Hiller D., Haseler L. J., Griffiths L. R. (2015). Evaluation of a 7-gene genetic profile for athletic endurance phenotype in ironman championship triathletes.
+<i>PLoS One</i>
+10:e0145171. 10.1371/journal.pone.0145171
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0145171</ArticleId><ArticleId IdType="pmc">PMC4696732</ArticleId><ArticleId IdType="pubmed">26716680</ArticleId></ArticleIdList></Reference><Reference><Citation>Guenther P. M., Casavale K. O., Reedy J., Kirkpatrick S. I., Hiza H. A., Kuczynski K. J., et al.  (2013). Update of the healthy eating index: HEI-2010.
+<i>J. Acad. Nutr. Diet.</i>
+113
+569&#x2013;580. 10.1016/j.jand.2012.12.016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jand.2012.12.016</ArticleId><ArticleId IdType="pmc">PMC3810369</ArticleId><ArticleId IdType="pubmed">23415502</ArticleId></ArticleIdList></Reference><Reference><Citation>Gutnik B., Zuoza A., Zuoziene I., Alekrinskis A., Nash D., Scherbina S. (2015). Body physique and dominant somatotype in elite and low-profile athletes with different specializations.
+<i>Medicina</i>
+51
+247&#x2013;252. 10.1016/j.medici.2015.07.003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.medici.2015.07.003</ArticleId><ArticleId IdType="pubmed">26424190</ArticleId></ArticleIdList></Reference><Reference><Citation>Hausen M., Soares P. P., Araujo M. P., Esteves D., Julio H., Tauil R., et al.  (2018). Specificity elicits higher maximal and submaximal cardiorespiratory responses during a new taekwondo aerobic test.
+<i>Int. J. Sports Physiol. Perform.</i>
+56
+67&#x2013;71. 10.1123/ijspp.2017-0846
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.2017-0846</ArticleId><ArticleId IdType="pubmed">29745772</ArticleId></ArticleIdList></Reference><Reference><Citation>Herdy A. H., Ritt L. E., Stein R., Araujo C. G., Milani M., Meneghelo R. S., et al.  (2016). Cardiopulmonary exercise test: background, applicability and interpretation.
+<i>Arq. Bras. Cardiol.</i>
+107
+467&#x2013;481. 10.5935/abc.20160171
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5935/abc.20160171</ArticleId><ArticleId IdType="pmc">PMC5137392</ArticleId><ArticleId IdType="pubmed">27982272</ArticleId></ArticleIdList></Reference><Reference><Citation>Howley E. T., Bassett D. R., Jr., Welch H. G. (1995). Criteria for maximal oxygen uptake: review and commentary.
+<i>Med. Sci. Sports Exerc.</i>
+27
+1292&#x2013;1301.</Citation><ArticleIdList><ArticleId IdType="pubmed">8531628</ArticleId></ArticleIdList></Reference><Reference><Citation>Kenny G. P. (2014). Muscle temperature and sweating during exercise: a new link?
+<i>Acta Physiol.</i>
+212
+11&#x2013;13. 10.1111/apha.12335
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/apha.12335</ArticleId><ArticleId IdType="pubmed">24957481</ArticleId></ArticleIdList></Reference><Reference><Citation>Keramidas M. E., Debevec T., Amon M., Kounalakis S. N., Simunic B., Mekjavic I. B. (2010). Respiratory muscle endurance training: effect on normoxic and hypoxic exercise performance.
+<i>Eur. J. Appl. Physiol.</i>
+108
+759&#x2013;769. 10.1007/s00421-009-1286-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-009-1286-0</ArticleId><ArticleId IdType="pubmed">20187281</ArticleId></ArticleIdList></Reference><Reference><Citation>Lopez-Leon S., Tuvblad C., Forero D. A. (2016). Sports genetics: the PPARA gene and athletes&#x2019; high ability in endurance sports. a systematic review and meta-analysis.
+<i>Biol. Sport</i>
+33
+3&#x2013;6. 10.5604/20831862.1180170
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5604/20831862.1180170</ArticleId><ArticleId IdType="pmc">PMC4786580</ArticleId><ArticleId IdType="pubmed">26985127</ArticleId></ArticleIdList></Reference><Reference><Citation>Ma F., Yang Y., Li X., Zhou F., Gao C., Li M., et al.  (2013). The association of sport performance with ACE and ACTN3 genetic polymorphisms: a systematic review and meta-analysis.
+<i>PLoS One</i>
+8:e54685. 10.1371/journal.pone.0054685
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0054685</ArticleId><ArticleId IdType="pmc">PMC3554644</ArticleId><ArticleId IdType="pubmed">23358679</ArticleId></ArticleIdList></Reference><Reference><Citation>Malekmohammad M., Ahmadi-Nejad M., Adimi P., Jamaati H. R., Marashian S. M. (2012). Evaluation of maximum O<sub>2</sub> consumption: using ergo-spirometry in severe heart failure.
+<i>Acta Med. Iran.</i>
+50
+619&#x2013;623.</Citation><ArticleIdList><ArticleId IdType="pubmed">23165812</ArticleId></ArticleIdList></Reference><Reference><Citation>Martinez J. L., Carrion A., Florian M. E., Martin J. A., Lopez-Taylor J. R., Fahey T. D., et al.  (2009). Aquaporin-1 gene DNA variation predicts performance in Hispanic marathon runners.
+<i>Med. Sport.</i>
+13
+251&#x2013;255. 10.2478/v10036-009-0039-9</Citation><ArticleIdList><ArticleId IdType="doi">10.2478/v10036-009-0039-9</ArticleId></ArticleIdList></Reference><Reference><Citation>Pasqua L. A., Bueno S., Artioli G. G., Lancha A. H., Jr., Matsuda M., Marquezini M. V., et al.  (2016). Influence of ACTN3 R577X polymorphism on ventilatory thresholds related to endurance performance.
+<i>J. Sports Sci.</i>
+34
+163&#x2013;170. 10.1080/02640414.2015.1040823
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2015.1040823</ArticleId><ArticleId IdType="pubmed">25939605</ArticleId></ArticleIdList></Reference><Reference><Citation>Petot H., Meilland R., Le Moyec L., Mille-Hamard L., Billat V. L. (2012). A new incremental test for VO(2)max accurate measurement by increasing VO(2)max plateau duration, allowing the investigation of its limiting factors.
+<i>Eur. J. Appl. Physiol.</i>
+112
+2267&#x2013;2276. 10.1007/s00421-011-2196-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2196-5</ArticleId><ArticleId IdType="pubmed">21997677</ArticleId></ArticleIdList></Reference><Reference><Citation>Peveler W. W., Green M. (2010). The effect of extrinsic factors on simulated 20-km time trial performance.
+<i>J. Strength Cond. Res.</i>
+24
+3265&#x2013;3269. 10.1519/JSC.0b013e3181b2c817
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181b2c817</ArticleId><ArticleId IdType="pubmed">19996778</ArticleId></ArticleIdList></Reference><Reference><Citation>Posthumus M., Schwellnus M. P., Collins M. (2011). The COL5A1 gene: a novel marker of endurance running performance.
+<i>Med. Sci. Sports Exerc.</i>
+43
+584&#x2013;589. 10.1249/MSS.0b013e3181f34f4d
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181f34f4d</ArticleId><ArticleId IdType="pubmed">20798666</ArticleId></ArticleIdList></Reference><Reference><Citation>Rivera M. A., Martinez J. L., Carrion A., Fahey T. D. (2011). AQP-1 association with body fluid loss in 10-km runners.
+<i>Int. J. Sports Med.</i>
+32
+229&#x2013;233. 10.1055/s-0030-1268489
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0030-1268489</ArticleId><ArticleId IdType="pubmed">21271497</ArticleId></ArticleIdList></Reference><Reference><Citation>Sacha J. J., Quinn J. M. (2011). The environment, the airway, and the athlete.
+<i>Ann. Allergy Asthma Immunol.</i>
+106
+81&#x2013;87. 10.1016/j.anai.2010.06.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.anai.2010.06.004</ArticleId><ArticleId IdType="pubmed">21277508</ArticleId></ArticleIdList></Reference><Reference><Citation>Salas-Salvado J., Rubio M. A., Barbany M., Moreno B. (2007). SEEDO 2007 Consensus for the evaluation of overweight and obesity and the establishment of therapeutic intervention criteria.
+<i>Med. Clin.</i>
+128
+184&#x2013;196.</Citation><ArticleIdList><ArticleId IdType="pubmed">17298782</ArticleId></ArticleIdList></Reference><Reference><Citation>Santiago C., Ruiz J. R., Buxens A., Artieda M., Arteta D., Gonzalez-Freire M., et al.  (2011). Trp64Arg polymorphism in ADRB3 gene is associated with elite endurance performance.
+<i>Br. J. Sports Med.</i>
+45
+147&#x2013;149. 10.1136/bjsm.2009.061366
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.2009.061366</ArticleId><ArticleId IdType="pubmed">19553224</ArticleId></ArticleIdList></Reference><Reference><Citation>Santos C. G., Pimentel-Coelho P. M., Budowle B., de Moura-Neto R. S., Dornelas-Ribeiro M., Pompeu F. A., et al.  (2016). The heritable path of human physical performance: from single polymorphisms to the &#x201c;next generation&#x201d;.
+<i>Scand. J. Med. Sci. Sports</i>
+26
+600&#x2013;612. 10.1111/sms.12503
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12503</ArticleId><ArticleId IdType="pubmed">26147924</ArticleId></ArticleIdList></Reference><Reference><Citation>Saunders C. J., Posthumus M., O&#x2019;Connell K., September A. V., Collins M. (2015). A variant within the AQP1 3&#x2019;-untranslated region is associated with running performance, but not weight changes, during an Ironman Triathlon.
+<i>J. Sports Sci.</i>
+33
+1342&#x2013;1348. 10.1080/02640414.2014.989535
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2014.989535</ArticleId><ArticleId IdType="pubmed">25495276</ArticleId></ArticleIdList></Reference><Reference><Citation>Schuler R., Osterhoff M. A., Frahnow T., Mohlig M., Spranger J., Stefanovski D., et al.  (2017). Dietary fat intake modulates effects of a frequent ace gene variant on glucose tolerance with association to type 2 diabetes.
+<i>Sci. Rep.</i>
+7:9234. 10.1038/s41598-017-08300-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-017-08300-7</ArticleId><ArticleId IdType="pmc">PMC5569105</ArticleId><ArticleId IdType="pubmed">28835639</ArticleId></ArticleIdList></Reference><Reference><Citation>Shete A. N., Bute S. S., Deshmukh P. R. (2014). A Study of VO2 Max and body fat percentage in female athletes.
+<i>J. Clin. Diagn. Res.</i>
+8
+BC01&#x2013;BC03. 10.7860/JCDR/2014/10896.5329
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7860/JCDR/2014/10896.5329</ArticleId><ArticleId IdType="pmc">PMC4316241</ArticleId><ArticleId IdType="pubmed">25653935</ArticleId></ArticleIdList></Reference><Reference><Citation>Stefan N., Thamer C., Staiger H., Machicao F., Machann J., Schick F., et al.  (2007). Genetic variations in PPARD and PPARGC1A determine mitochondrial function and change in aerobic physical fitness and insulin sensitivity during lifestyle intervention.
+<i>J. Clin. Endocrinol. Metab.</i>
+92
+1827&#x2013;1833. 10.1210/jc.2006-1785
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1210/jc.2006-1785</ArticleId><ArticleId IdType="pubmed">17327385</ArticleId></ArticleIdList></Reference><Reference><Citation>Tanaka H., Monahan K. D., Seals D. R. (2001). Age-predicted maximal heart rate revisited.
+<i>J. Am. Coll. Cardiol.</i>
+37
+153&#x2013;156. 10.1016/s0735-1097(00)01054-8</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0735-1097(00)01054-8</ArticleId><ArticleId IdType="pubmed">11153730</ArticleId></ArticleIdList></Reference><Reference><Citation>Whitworth J. A., Chalmers J. (2004). World health organisation-international society of hypertension (WHO/ISH) hypertension guidelines.
+<i>Clin. Exp. Hypertens.</i>
+26
+747&#x2013;752. 10.1081/ceh-200032152
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1081/ceh-200032152</ArticleId><ArticleId IdType="pubmed">15702630</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilson J. M., Loenneke J. P., Jo E., Wilson G. J., Zourdos M. C., Kim J. S. (2012). The effects of endurance, strength, and power training on muscle fiber type shifting.
+<i>J. Strength Cond. Res.</i>
+26
+1724&#x2013;1729. 10.1519/JSC.0b013e318234eb6f
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e318234eb6f</ArticleId><ArticleId IdType="pubmed">21912291</ArticleId></ArticleIdList></Reference><Reference><Citation>Woods D. R., Humphries S. E., Montgomery H. E. (2000). The ACE I/D polymorphism and human physical performance.
+<i>Trends Endocrinol. Metab.</i>
+11
+416&#x2013;420. 10.1016/s1043-2760(00)00310-6</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s1043-2760(00)00310-6</ArticleId><ArticleId IdType="pubmed">11091119</ArticleId></ArticleIdList></Reference><Reference><Citation>Zaniqueli D., Morra E. A., Dantas E. M., Baldo M. P., Carletti L., Perez A. J., et al.  (2014). Heart rate at 4 s after the onset of exercise in endurance-trained men.
+<i>Can. J. Physiol. Pharmacol.</i>
+92
+476&#x2013;480. 10.1139/cjpp-2014-0042
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/cjpp-2014-0042</ArticleId><ArticleId IdType="pubmed">24886303</ArticleId></ArticleIdList></Reference><Reference><Citation>Zilberman-Schapira G., Chen J., Gerstein M. (2012). On sports and genes.
+<i>Recent Pat. DNA Gene Seq.</i>
+6
+180&#x2013;188. 10.2174/187221512802717367
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2174/187221512802717367</ArticleId><ArticleId IdType="pubmed">22762737</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

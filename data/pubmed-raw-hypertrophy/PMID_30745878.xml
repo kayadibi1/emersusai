@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">30745878</PMID><DateRevised><Year>2023</Year><Month>10</Month><Day>05</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Effects of Isokinetic Training on Trunk Muscle Fitness and Body Composition in World-Class Canoe Sprinters.</ArticleTitle><Pagination><StartPage>21</StartPage><MedlinePgn>21</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">21</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.00021</ELocationID><Abstract><AbstractText>In canoe sprint, the trunk muscles play an important role in stabilizing the body in an unstable environment (boat) and in generating forces that are transmitted through the shoulders and arms to the paddle for propulsion of the boat. Isokinetic training is well suited for sports in which propulsion is generated through water resistance due to similarities in the resistive mode. Thus, the purpose of this study was to determine the effects of isokinetic training in addition to regular sport-specific training on trunk muscular fitness and body composition in world-class canoeists and to evaluate associations between trunk muscular fitness and canoe-specific performance. Nine world-class canoeists (age: 25.6 &#xb1; 3.3 years; three females; four world champions; three Olympic gold medalists) participated in an 8-week progressive isokinetic training with a 6-week block "muscle hypertrophy" and a 2-week block "muscle power." Pre- and post-tests included the assessment of peak isokinetic torque at different velocities in concentric (30 and 140&#xb0;s<sup>-1</sup>) and eccentric (30 and 90&#xb0;s<sup>-1</sup>) mode, trunk muscle endurance, and body composition (e.g., body fat, segmental lean mass). Additionally, peak paddle force was assessed in the flume at a water current of 3.4 m/s. Significant pre-to-post increases were found for peak torque of the trunk rotators at 30&#xb0;s<sup>-1</sup> (<i>p</i> = 0.047; <i>d</i> = 0.4) and 140&#xb0;s<sup>-1</sup> (<i>p</i> = 0.014; <i>d</i> = 0.7) in concentric mode. No significant pre-to-post changes were detected for eccentric trunk rotator torque, trunk muscle endurance, and body composition (<i>p</i> &gt; 0.148). Significant medium-to-large correlations were observed between concentric trunk rotator torque but not trunk muscle endurance and peak paddle force, irrespective of the isokinetic movement velocity (all <i>r</i> &#x2265; 0.886; <i>p</i> &#x2264; 0.008). Isokinetic trunk rotator training is effective in improving concentric trunk rotator strength in world-class canoe sprinters. It is recommended to progressively increase angular velocity from 30&#xb0;s<sup>-1</sup> to 140&#xb0;s<sup>-1</sup> over the course of the training period.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Zinke</LastName><ForeName>Fridolin</ForeName><Initials>F</Initials><AffiliationInfo><Affiliation>Division of Training and Movement Sciences, Research Focus Cognition Sciences, University of Potsdam, Potsdam, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Warnke</LastName><ForeName>Torsten</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Institute for Applied Training Science, Leipzig, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>G&#xe4;bler</LastName><ForeName>Martijn</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Division of Training and Movement Sciences, Research Focus Cognition Sciences, University of Potsdam, Potsdam, Germany.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Center for Human Movement Sciences, University Medical Center Groningen, University of Groningen, Groningen, Netherlands.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Granacher</LastName><ForeName>Urs</ForeName><Initials>U</Initials><AffiliationInfo><Affiliation>Division of Training and Movement Sciences, Research Focus Cognition Sciences, University of Potsdam, Potsdam, Germany.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>01</Month><Day>28</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">canoe racing</Keyword><Keyword MajorTopicYN="N">core strength</Keyword><Keyword MajorTopicYN="N">elite athletes</Keyword><Keyword MajorTopicYN="N">peak torque</Keyword><Keyword MajorTopicYN="N">sport-specific performance</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>10</Month><Day>2</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>1</Month><Day>10</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>2</Month><Day>13</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>2</Month><Day>13</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>2</Month><Day>13</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>1</Month><Day>28</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">30745878</ArticleId><ArticleId IdType="pmc">PMC6360172</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.00021</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Akca F., Muniroglu S. (2008). Anthropometric &#x2013; Somatotype and strength profiles and on&#x2013;water performance in Turkish elite kayakers.
+<i>Int. J. Appl. Sport Sci.</i>
+20
+22&#x2013;34.</Citation></Reference><Reference><Citation>Akima H., Takahashi H., Kuno S. Y., Masuda K., Masuda T., Shimojo H., et al.  (1999). Early phase adaptations of muscle use and strength to isokinetic training.
+<i>Med. Sci. Sports Exerc.</i>
+31
+588&#x2013;594. 10.1097/00005768-199904000-00016</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-199904000-00016</ArticleId><ArticleId IdType="pubmed">10211857</ArticleId></ArticleIdList></Reference><Reference><Citation>Behm D. G., Sale D. G. (1993). Velocity specificity of resistance training.
+<i>Sports Med.</i>
+15
+374&#x2013;388. 10.2165/00007256-199315060-00003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-199315060-00003</ArticleId><ArticleId IdType="pubmed">8341872</ArticleId></ArticleIdList></Reference><Reference><Citation>Bergmark A. (1989). Stability of the lumbar spine. A study in mechanical engineering.
+<i>Acta Orthop. Scand. Suppl.</i>
+230
+1&#x2013;54. 10.3109/17453678909154177</Citation><ArticleIdList><ArticleId IdType="doi">10.3109/17453678909154177</ArticleId><ArticleId IdType="pubmed">2658468</ArticleId></ArticleIdList></Reference><Reference><Citation>Bjerkefors A., Rosen J. S., Tarassova O., Arndt A. (2018). Three-dimensional kinematics and power output in elite para-kayakers and elite able bodied flat-water kayakers.
+<i>J. Appl. Biomech.</i>
+9
+1&#x2013;24. 10.1123/jab.2017-0102
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/jab.2017-0102</ArticleId><ArticleId IdType="pubmed">30300050</ArticleId></ArticleIdList></Reference><Reference><Citation>Borges T. O., Bullock N., Duff C., Coutts A. (2014). Methods for quantifying training in sprint kayak.
+<i>J. Strength Cond. Res.</i>
+28
+474&#x2013;482. 10.1519/JSC.0b013e31829b56c4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31829b56c4</ArticleId><ArticleId IdType="pubmed">24476743</ArticleId></ArticleIdList></Reference><Reference><Citation>Borges T. O., Dascombe B., Bullock N., Coutts A. J. (2015). Physiological characteristics of well-trained junior sprint kayak athletes.
+<i>Int. J. Sports Physiol. Perform.</i>
+10
+593&#x2013;599. 10.1123/ijspp.2014-0292
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.2014-0292</ArticleId><ArticleId IdType="pubmed">25473923</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen J. (1992). A power primer.
+<i>Psychol. Bull.</i>
+112
+155&#x2013;159. 10.1037/0033-2909.112.1.155</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0033-2909.112.1.155</ArticleId><ArticleId IdType="pubmed">19565683</ArticleId></ArticleIdList></Reference><Reference><Citation>Fry R. W., Morton A. R. (1991). Physiological and kinanthropometric attributes of elite flatwater kayakists.
+<i>Med. Sci. Sports Exerc.</i>
+23
+1297&#x2013;1301. 10.1249/00005768-199111000-00016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00005768-199111000-00016</ArticleId><ArticleId IdType="pubmed">1766347</ArticleId></ArticleIdList></Reference><Reference><Citation>Garcia-Pallares J., Garcia-Fernandez M., Sanchez-Medina L., Izquierdo M. (2010). Performance changes in world-class kayakers following two different training periodization models.
+<i>Eur. J. Appl. Physiol.</i>
+110
+99&#x2013;107. 10.1007/s00421-010-1484-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-010-1484-9</ArticleId><ArticleId IdType="pubmed">20414669</ArticleId></ArticleIdList></Reference><Reference><Citation>Granacher U., Lesinski M., B&#xfc;sch D., Muehlbauer T., Prieske O., Puta C., et al.  (2016). Effects of resistance training in youth athletes on muscular fitness and athletic performance. A conceptual model for long-term athlete development.
+<i>Front. Physiol.</i>
+7:164. 10.3389/fphys.2016.00164
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2016.00164</ArticleId><ArticleId IdType="pmc">PMC4861005</ArticleId><ArticleId IdType="pubmed">27242538</ArticleId></ArticleIdList></Reference><Reference><Citation>Hopkins W. G., Marshall S. W., Batterham A. M., Hanin J. (2009). Progressive statistics for studies in sports medicine and exercise science.
+<i>Med. Sci. Sports</i>
+41
+3&#x2013;13. 10.1249/MSS.0b013e31818cb278
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e31818cb278</ArticleId><ArticleId IdType="pubmed">19092709</ArticleId></ArticleIdList></Reference><Reference><Citation>Housh D. J., Housh T. J., Johnson G. O., Chu W. (1992). Hypertrophic response to unilateral concentric isokinetic resistance training.
+<i>J. Appl. Physiol.</i>
+73
+65&#x2013;70. 10.1152/jappl.1992.73.1.65
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1992.73.1.65</ArticleId><ArticleId IdType="pubmed">1506400</ArticleId></ArticleIdList></Reference><Reference><Citation>K&#xf6;lling S., Hitzschke B., Holst T., Ferrauti A., Meyer T., Pfeiffer M., et al.  (2015). Validity of the acute recovery and stress scale: training monitoring of the German junior national field hockey team.
+<i>Int. J. Sports Sci. Coach.</i>
+10
+529&#x2013;542. 10.1260/1747-9541.10.2-3.529</Citation><ArticleIdList><ArticleId IdType="doi">10.1260/1747-9541.10.2-3.529</ArticleId></ArticleIdList></Reference><Reference><Citation>Lesinski M., Prieske O., Helm N., Granacher U. (2017). Effects of soccer training on anthropometry, body composition, and physical fitness during a soccer season in female elite young athletes: a prospective cohort study.
+<i>Front. Physiol.</i>
+8:1093. 10.3389/fphys.2017.01093
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2017.01093</ArticleId><ArticleId IdType="pmc">PMC5770736</ArticleId><ArticleId IdType="pubmed">29375392</ArticleId></ArticleIdList></Reference><Reference><Citation>Lesmes G. R., Costill D. L., Coyle E. F., Fink W. J. (1978). Muscle strength and power changes during maximal isokinetic training.
+<i>Med. Sci. Sports</i>
+10
+266&#x2013;269.</Citation><ArticleIdList><ArticleId IdType="pubmed">750845</ArticleId></ArticleIdList></Reference><Reference><Citation>Ling C. H. Y., de Craen A. J., Slagboom P. E., Gunn D. A., Stokkel M. P. M., Westendorp R. G. J., et al.  (2011). Accuracy of direct segmental multi-frequency bioimpedance analysis in the assessment of total body and segmental body composition in middle-aged adult population.
+<i>Clin. Nutr.</i>
+30
+610&#x2013;615. 10.1016/j.clnu.2011.04.001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clnu.2011.04.001</ArticleId><ArticleId IdType="pubmed">21555168</ArticleId></ArticleIdList></Reference><Reference><Citation>Mann R. V., Kearney J. T. (1980). A biomechanical analysis of the Olympic-style flatwater kayak stroke.
+<i>Med. Sci. Sports Exerc.</i>
+12
+183&#x2013;188. 10.1249/00005768-198023000-00010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00005768-198023000-00010</ArticleId><ArticleId IdType="pubmed">7402054</ArticleId></ArticleIdList></Reference><Reference><Citation>McFarland M., Bird S. P. (2014). A wellness monitoring tool for youth athletes.
+<i>J. Aust. Strength Cond.</i>
+22
+22&#x2013;26.</Citation></Reference><Reference><Citation>McKean M. R., Burkett B. (2010). The relationship between joint range of motion, muscular strength, and race time for sub-elite flat water kayakers.
+<i>J. Sci. Med. Sport</i>
+13
+537&#x2013;542. 10.1016/j.jsams.2009.09.003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2009.09.003</ArticleId><ArticleId IdType="pubmed">19897416</ArticleId></ArticleIdList></Reference><Reference><Citation>McKean M. R., Burkett B. J. (2014). The influence of upper-body strength on flat-water sprint kayak performance in elite athletes.
+<i>Int. J. Sports Physiol. Perform.</i>
+9
+707&#x2013;714. 10.1123/ijspp.2013-0301
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.2013-0301</ArticleId><ArticleId IdType="pubmed">24231254</ArticleId></ArticleIdList></Reference><Reference><Citation>Murray D. P., Brown L. E., Zinder S. M., Noffal G. J., Bera S. G., Garrett N. M. (2007). Effects of velocity-specific training on rte of velocity development, peak torque and performance.
+<i>Strength Cond. J.</i>
+21
+870&#x2013;874.</Citation><ArticleIdList><ArticleId IdType="pubmed">17685688</ArticleId></ArticleIdList></Reference><Reference><Citation>Ostering L. (1988). Isokinetic dynamometry: implications for muscle testing and rehabilitation.
+<i>Exerc. Sport Sci. Rev.</i>
+1
+165&#x2013;171.</Citation><ArticleIdList><ArticleId IdType="pubmed">3525192</ArticleId></ArticleIdList></Reference><Reference><Citation>Prieske O., Muehlbauer T., Granacher U. (2016). The role of trunk muscle strength for physical fitness and athletic performance in trained individuals. A systematic review and meta-analysis.
+<i>Sports Med.</i>
+46
+401&#x2013;419. 10.1007/s40279-015-0426-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-015-0426-4</ArticleId><ArticleId IdType="pubmed">26589515</ArticleId></ArticleIdList></Reference><Reference><Citation>Roig M., O&#x2019;Brien K., Kirk G., Murray R., McKinnon P., Shadgan B., et al.  (2009). The effects of eccentric versus concentric resistance training on muscle strength and mass in healthy adults: a systematic review with meta-analysis.
+<i>Br. J. Sports Med.</i>
+8
+556&#x2013;568. 10.1136/bjsm.2008.051417
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.2008.051417</ArticleId><ArticleId IdType="pubmed">18981046</ArticleId></ArticleIdList></Reference><Reference><Citation>Roth R., Donath L., Kurz E., Zahner L., Faude O. (2017). Absolute and relative reliability of isokinetic and isometric trunk strength testing using the IsoMed-2000 dynamometer.
+<i>Phys. Ther. Sport</i>
+24
+26&#x2013;31. 10.1016/j.ptsp.2016.11.005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ptsp.2016.11.005</ArticleId><ArticleId IdType="pubmed">27964928</ArticleId></ArticleIdList></Reference><Reference><Citation>Tesch P. A. (1983). Physiological characteristics of elite kayak paddlers.
+<i>Can. J. Appl. Sport Sci.</i>
+8
+87&#x2013;91.</Citation><ArticleIdList><ArticleId IdType="pubmed">6883619</ArticleId></ArticleIdList></Reference><Reference><Citation>Trevithick B. A., Ginn K. A., Halaki M., Balnave R. (2007). Shoulder muscle recruitment patterns during a kayak stroke performed on a paddling ergometer.
+<i>J. Electromyogr. Kinesiol.</i>
+17
+74&#x2013;79. 10.1016/j.jelekin.2005.11.012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelekin.2005.11.012</ArticleId><ArticleId IdType="pubmed">16513367</ArticleId></ArticleIdList></Reference><Reference><Citation>Tschopp M., Bourban P., H&#xfc;bner K., Marti B. (2001). Reliability of a standardized, dynamic trunk muscle strength test: experiences with healthy male elite athletes.
+<i>Swiss J. Sports Med. Sports Traumatol.</i>
+49
+67&#x2013;72.</Citation></Reference><Reference><Citation>Uali I., Herrero A. J., Garatachea N., Marin P. J., Alvear-Ordenes I., Garcia-Lopez D. (2012). Maximal strength on different resistance training rowing exercises predicts start phase performance in elite kayakers.
+<i>J. Strength Cond. Res.</i>
+26
+941&#x2013;946. 10.1519/JSC.0b013e31822e58f8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31822e58f8</ArticleId><ArticleId IdType="pubmed">22446667</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

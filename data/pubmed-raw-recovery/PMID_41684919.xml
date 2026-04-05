@@ -1,0 +1,139 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41684919</PMID><DateCompleted><Year>2026</Year><Month>02</Month><Day>13</Day></DateCompleted><DateRevised><Year>2026</Year><Month>02</Month><Day>15</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">2296-858X</ISSN><JournalIssue CitedMedium="Print"><Volume>13</Volume><PubDate><Year>2026</Year></PubDate></JournalIssue><Title>Frontiers in medicine</Title><ISOAbbreviation>Front Med (Lausanne)</ISOAbbreviation></Journal><ArticleTitle>From brain to heart: cognitive performance shapes exercise- induced cardiac autonomic trajectories in older adults.</ArticleTitle><Pagination><StartPage>1761743</StartPage><MedlinePgn>1761743</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1761743</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fmed.2026.1761743</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">Autonomic dysregulation and cognitive decline often co-occur in aging, but most work uses only resting heart rate variability (HRV). Therefore, we examined whether global cognitive performance modulates dynamic HRV responses to a functional exercise test in community-dwelling older adults.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">In this cross-sectional study, 104 adults aged 60-85 years from southern Chile completed a rest-exercise-recovery protocol using the 2-Min Step Test. Global cognition was assessed with the Addenbrooke's Cognitive Examination. Short-term HRV (time and frequency domains), parasympathetic (PNS) and sympathetic (SNS) indices, and Baevsky's Stress Index were derived from Polar H10 recordings at rest, during exercise, and recovery. Hierarchical Bayesian regression models characterized HRV trajectories as a function of cognitive performance, adjusting for body mass index.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Higher cognitive scores were associated with a more favorable autonomic profile at rest, including higher standard deviation of normal-to-normal intervals, low frequency (LF), and very low frequency (VLF) and lower SNS and Stress Index values. During exercise, better cognition was linked to greater high frequency power and larger reductions in LF and VLF from rest to effort, indicating enhanced autonomic flexibility. Lower cognitive scores showed flatter LF/VLF trajectories and a sharper in-exercise decline in the PNS index. Higher body mass index was consistently related to reduced vagal modulation and higher sympathetic markers.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">Older adults with better cognitive performance show healthier resting autonomic profiles and greater adaptability of cardiac autonomic regulation during a brief functional test. Blunted HRV trajectories in individuals with lower cognition may signal early neurophysiological vulnerability, and 2-Min Step Test-derived HRV responses may provide a non-invasive marker of cognitive health in aging.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Sep&#xfa;lveda-Figueroa, Castillo-Aguilar, Sep&#xfa;lveda-Lara, Sandoval, Saavedra and N&#xfa;&#xf1;ez-Espinosa.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Sep&#xfa;lveda-Figueroa</LastName><ForeName>Paulina</ForeName><Initials>P</Initials><AffiliationInfo><Affiliation>Departamento de Ciencias Precl&#xed;nicas, Facultad de Medicina, Universidad de La Frontera, Temuco, Chile.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Castillo-Aguilar</LastName><ForeName>Mat&#xed;as</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Centro Asistencial Docente e Investigaci&#xf3;n (CADI-UMAG), Universidad de Magallanes (UMAG), Punta Arenas, Chile.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Escuela de Medicina, Universidad de Magallanes (UMAG), Punta Arenas, Chile.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sep&#xfa;lveda-Lara</LastName><ForeName>Alexis</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Doctorado en Ciencias Menci&#xf3;n Biolog&#xed;a Celular y Molecular Aplicada, Facultad de Ciencias Agropecuarias, Universidad de La Frontera, Temuco, Chile.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sandoval</LastName><ForeName>Cristian</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Escuela de Tecnolog&#xed;a M&#xe9;dica, Facultad de Salud, Universidad Santo Tom&#xe1;s, Los Carreras, Osorno, Chile.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Departamento de Medicina Interna, Facultad de Medicina, Universidad de La Frontera, Temuco, Chile.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Saavedra</LastName><ForeName>Constanza</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Escuela de Medicina, Universidad de Magallanes (UMAG), Punta Arenas, Chile.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Servicio de Neurolog&#xed;a, Hospital Cl&#xed;nico de Magallanes, Punta Arenas, Chile.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>N&#xfa;&#xf1;ez-Espinosa</LastName><ForeName>Cristian</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Centro Asistencial Docente e Investigaci&#xf3;n (CADI-UMAG), Universidad de Magallanes (UMAG), Punta Arenas, Chile.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Escuela de Medicina, Universidad de Magallanes (UMAG), Punta Arenas, Chile.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>01</Month><Day>28</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Med (Lausanne)</MedlineTA><NlmUniqueID>101648047</NlmUniqueID><ISSNLinking>2296-858X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">aging</Keyword><Keyword MajorTopicYN="N">autonomic nervous system</Keyword><Keyword MajorTopicYN="N">body mass index</Keyword><Keyword MajorTopicYN="N">cognition</Keyword><Keyword MajorTopicYN="N">heart rate variability</Keyword></KeywordList><CoiStatement>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>12</Month><Day>5</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2026</Year><Month>1</Month><Day>8</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>1</Month><Day>13</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>2</Month><Day>13</Day><Hour>6</Hour><Minute>33</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>2</Month><Day>13</Day><Hour>6</Hour><Minute>32</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>2</Month><Day>13</Day><Hour>4</Hour><Minute>30</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>1</Month><Day>28</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41684919</ArticleId><ArticleId IdType="pmc">PMC12891186</ArticleId><ArticleId IdType="doi">10.3389/fmed.2026.1761743</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Umetani K, Singer DH, McCraty R, Atkinson M. Twenty-four hour time-domain heart rate variability and heart rate: relations to age and gender over nine decades.
+<i>J Am Coll Cardiol.</i> (1998) 31:593&#x2013;601. 10.1016/S0735-1097(97)00554-8
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0735-1097(97)00554-8</ArticleId><ArticleId IdType="pubmed">9502641</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang J. Effect of age and sex on heart rate variability in healthy subjects.
+<i>J Manipulative Physiol. Ther.</i> (2007) 30:374&#x2013;9. 10.1016/j.jmpt.2007.04.001
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jmpt.2007.04.001</ArticleId><ArticleId IdType="pubmed">17574955</ArticleId></ArticleIdList></Reference><Reference><Citation>Shaffer F, Ginsberg JP. An overview of heart rate variability metrics and norms.
+<i>Front Public Health</i> (2017) 5:258. 10.3389/fpubh.2017.00258
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpubh.2017.00258</ArticleId><ArticleId IdType="pmc">PMC5624990</ArticleId><ArticleId IdType="pubmed">29034226</ArticleId></ArticleIdList></Reference><Reference><Citation>Laborde S, Mosley E, Thayer JF. Heart rate variability and cardiac vagal tone in psychophysiological research: recommendations for experiment planning, data analysis, and data reporting.
+<i>Front Psychol.</i> (2017) 8:213. 10.3389/fpsyg.2017.00213
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2017.00213</ArticleId><ArticleId IdType="pmc">PMC5316555</ArticleId><ArticleId IdType="pubmed">28265249</ArticleId></ArticleIdList></Reference><Reference><Citation>Thayer JF, Yamamoto SS, Brosschot JF. The relationship of autonomic imbalance, heart rate variability and cardiovascular disease risk factors.
+<i>Int J Cardiol.</i> (2010) 141:122&#x2013;31. 10.1016/j.ijcard.2009.09.543
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijcard.2009.09.543</ArticleId><ArticleId IdType="pubmed">19910061</ArticleId></ArticleIdList></Reference><Reference><Citation>Benarroch EE. The central autonomic network: functional organization, dysfunction, and perspective.
+<i>Mayo Clin Proc.</i> (1993) 68:988&#x2013;1001. 10.1016/S0025-6196(12)62272-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0025-6196(12)62272-1</ArticleId><ArticleId IdType="pubmed">8412366</ArticleId></ArticleIdList></Reference><Reference><Citation>Thayer JF, Lane RD. Claude Bernard and the heart&#x2013;brain connection: further elaboration of a model of neurovisceral integration.
+<i>Neurosci Biobehav Rev.</i> (2009) 33:81&#x2013;8. 10.1016/j.neubiorev.2008.08.004
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neubiorev.2008.08.004</ArticleId><ArticleId IdType="pubmed">18771686</ArticleId></ArticleIdList></Reference><Reference><Citation>Critchley HD, Harrison NA. Visceral influences on brain and behavior.
+<i>Neuron</i> (2013) 77:624&#x2013;38. 10.1016/j.neuron.2013.02.008
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neuron.2013.02.008</ArticleId><ArticleId IdType="pubmed">23439117</ArticleId></ArticleIdList></Reference><Reference><Citation>Thayer JF, Hansen AL, Saus-Rose E, Johnsen BH. Heart rate variability, prefrontal neural function, and cognitive performance: the neurovisceral integration perspective.
+<i>Ann Behav Med.</i> (2009) 37:141&#x2013;53. 10.1007/s12160-009-9101-z
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12160-009-9101-z</ArticleId><ArticleId IdType="pubmed">19424767</ArticleId></ArticleIdList></Reference><Reference><Citation>Castillo-Aguilar M, Mabe-Castro M, Mabe-Castro D, Vald&#xe9;s-Badilla P, Herrera-Valenzuela T, Guzm&#xe1;n-Mu&#xf1;oz E, et al. 
+Validity and reliability of short-term heart rate variability parameters in older people in response to physical exercise.
+<i>Int J Environ Res Public Health</i> (2023) 20:4456. 10.3390/ijerph20054456
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph20054456</ArticleId><ArticleId IdType="pmc">PMC10001824</ArticleId><ArticleId IdType="pubmed">36901466</ArticleId></ArticleIdList></Reference><Reference><Citation>Castillo-Aguilar M, Vald&#xe9;s-Badilla P, Herrera-Valenzuela T, Guzm&#xe1;n-Mu&#xf1;oz E, Delgado-Floody P, Andrade DC, et al. 
+Cardiac autonomic modulation in response to muscle fatigue and sex differences during consecutive competition periods in young swimmers.
+<i>Front Physiol.</i> (2021) 12:769085. 10.3389/fphys.2021.769085
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2021.769085</ArticleId><ArticleId IdType="pmc">PMC8637437</ArticleId><ArticleId IdType="pubmed">34867474</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim DH, Lipsitz LA, Ferrucci L, Varadhan R, Guralnik JM, Carlson MC, et al. 
+Association between reduced heart rate variability and cognitive impairment in older disabled women.
+<i>J Am Geriatr Soc.</i> (2006) 54:1751&#x2013;7. 10.1111/j.1532-5415.2006.00940.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1532-5415.2006.00940.x</ArticleId><ArticleId IdType="pmc">PMC2276586</ArticleId><ArticleId IdType="pubmed">17087704</ArticleId></ArticleIdList></Reference><Reference><Citation>Forte G, Favieri F, Casagrande M. Heart rate variability and cognitive function:a systematic review.
+<i>Front Neurosci.</i> (2019) 13:710. 10.3389/fnins.2019.00710
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnins.2019.00710</ArticleId><ArticleId IdType="pmc">PMC6637318</ArticleId><ArticleId IdType="pubmed">31354419</ArticleId></ArticleIdList></Reference><Reference><Citation>Hansen AL, Johnsen BH, Sollers JJ, Stenvik K, Thayer JF. Heart rate variability and its relation to prefrontal cognitive function: effects of training and detraining.
+<i>Eur J Appl Physiol.</i> (2004) 93:263&#x2013;72. 10.1007/s00421-004-1208-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-004-1208-0</ArticleId><ArticleId IdType="pubmed">15338220</ArticleId></ArticleIdList></Reference><Reference><Citation>Arai Y, Saul JP, Albrecht P, Hartley LH, Lilly LS, Cohen RJ, et al. 
+Modulation of cardiac autonomic activity during and immediately after exercise.
+<i>Am J Physiol Heart Circ Physiol.</i> (1989) 256:H132&#x2013;41. 10.1152/ajpheart.1989.256.1.H132
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpheart.1989.256.1.H132</ArticleId><ArticleId IdType="pubmed">2643348</ArticleId></ArticleIdList></Reference><Reference><Citation>Stanley J, Peake JM, Buchheit M. Cardiac parasympathetic reactivation following exercise: implications for training prescription.
+<i>Sports Med.</i> (2013) 43:1259&#x2013;77. 10.1007/s40279-013-0083-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-013-0083-4</ArticleId><ArticleId IdType="pubmed">23912805</ArticleId></ArticleIdList></Reference><Reference><Citation>Michael S, Graham KS, Oam GMD. Cardiac autonomic Responses during exercise and post-exercise recovery using heart rate variability and systolic time intervals: a review.
+<i>Front Physiol.</i> (2017) 8:301. 10.3389/fphys.2017.00301
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2017.00301</ArticleId><ArticleId IdType="pmc">PMC5447093</ArticleId><ArticleId IdType="pubmed">28611675</ArticleId></ArticleIdList></Reference><Reference><Citation>Beissner F, Meissner K, B&#xe4;r KJ, Napadow V. The autonomic brain: an activation likelihood estimation meta-analysis.
+<i>J Neurosci.</i> (2013) 33:10503&#x2013;11. 10.1523/JNEUROSCI.1103-13.2013
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1523/JNEUROSCI.1103-13.2013</ArticleId><ArticleId IdType="pmc">PMC3685840</ArticleId><ArticleId IdType="pubmed">23785162</ArticleId></ArticleIdList></Reference><Reference><Citation>Str&#xfc;ven A, Holzapfel C, Stremmel C, Brunner S. Obesity, Nutrition and heart rate variability.
+<i>Int J Mol Sci.</i> (2021) 22:4215. 10.3390/ijms22084215
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijms22084215</ArticleId><ArticleId IdType="pmc">PMC8072942</ArticleId><ArticleId IdType="pubmed">33921697</ArticleId></ArticleIdList></Reference><Reference><Citation>Valdez P. Circadian rhythms in attention.
+<i>Yale J Biol Med.</i> (2019) 92:81&#x2013;90.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6430172</ArticleId><ArticleId IdType="pubmed">30923475</ArticleId></ArticleIdList></Reference><Reference><Citation>Schag CC, Heinrich RL, Ganz PA. Karnofsky performance status revisited: reliability, validity, and guidelines.
+<i>J Clin Oncol.</i> (1984) 2:187&#x2013;93. 10.1200/jco.1984.2.3.187
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1200/jco.1984.2.3.187</ArticleId><ArticleId IdType="pubmed">6699671</ArticleId></ArticleIdList></Reference><Reference><Citation>Beishon LC, Batterham AP, Quinn TJ, Nelson CP, Panerai RB, Robinson T, et al. 
+ACE-III and Mini-ACE for detection of dementia and MCI.
+<i>Cochrane Database Syst Rev.</i> (2019) 2019:CD013282. 10.1002/14651858.cd013282.pub2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/14651858.cd013282.pub2</ArticleId><ArticleId IdType="pmc">PMC6916534</ArticleId><ArticleId IdType="pubmed">31846066</ArticleId></ArticleIdList></Reference><Reference><Citation>Matias-Guiu JA, Fern&#xe1;ndez-de-Bobadilla R, Escudero G, P&#xe9;rez-P&#xe9;rez J, Cort&#xe9;s A, Morenas-Rodr&#xed;guez E, et al. 
+Validation of the Spanish ACE-III for diagnosing dementia.
+<i>Neurolog&#xed;a</i> (2015) 30:545&#x2013;51. 10.1016/j.nrl.2014.05.004
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.nrl.2014.05.004</ArticleId><ArticleId IdType="pubmed">25002342</ArticleId></ArticleIdList></Reference><Reference><Citation>Bruno D, Slachevsky A, Fiorentino N, Rueda DS, Bruno G, Tagle AR, et al. 
+Validaci&#xf3;n argentino-chilena del ACE-III [Argentine-chilean validation of ACE-III].
+<i>Neurolog&#xed;a</i> (2020) 35:82&#x2013;8. Spanish. 10.1016/j.nrl.2017.06.004
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.nrl.2017.06.004</ArticleId><ArticleId IdType="pubmed">28865943</ArticleId></ArticleIdList></Reference><Reference><Citation>Jones CJ, Rikli RE, Beam WC. A 30-s chair-stand test as a measure of lower body strength.
+<i>Res Q Exerc Sport.</i> (1999) 70:113&#x2013;9. 10.1080/02701367.1999.10608028
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02701367.1999.10608028</ArticleId><ArticleId IdType="pubmed">10380242</ArticleId></ArticleIdList></Reference><Reference><Citation>Veloza L, Jim&#xe9;nez C, Qui&#xf1;ones D, Polan&#xed;a F, Pach&#xf3;n-Valero LC, Rodr&#xed;guez- Trivi&#xf1;o CY, et al. 
+Variabilidad de la frecuencia cardiaca como factor predictor [Heart rate variability as a predictive factor].
+<i>Rev Colomb Cardiol.</i> (2019) 26:205&#x2013;10. Spanish. 10.1016/j.rccar.2019.01.006</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.rccar.2019.01.006</ArticleId></ArticleIdList></Reference><Reference><Citation>Buchheit M, Parouty ACJ. Monitoring endurance running performance using cardiac parasympathetic function.
+<i>Eur J Appl Physiol.</i> (2010) 108:1153&#x2013;67. 10.1007/s00421-009-1317-x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-009-1317-x</ArticleId><ArticleId IdType="pubmed">20033207</ArticleId></ArticleIdList></Reference><Reference><Citation>Berntson GG, Bigger JT, Eckberg DL, Grossman P, Kaufmann PG, Malik M, et al. 
+Heart rate variability: origins, methods, and interpretive caveats.
+<i>Psychophysiology</i> (1997) 34:623&#x2013;48. 10.1111/j.1469-8986.1997.tb02140.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1469-8986.1997.tb02140.x</ArticleId><ArticleId IdType="pubmed">9401419</ArticleId></ArticleIdList></Reference><Reference><Citation>Buchheit M, Gindre C. Cardiac parasympathetic regulation: associations with fitness and training load.
+<i>Am J Physiol Heart Circ Physiol.</i> (2006) 291:H451&#x2013;8. 10.1152/ajpheart.00008.2006
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpheart.00008.2006</ArticleId><ArticleId IdType="pubmed">16501030</ArticleId></ArticleIdList></Reference><Reference><Citation>Acharya UR, Joseph KP, Kannathal N, Lim CM, Suri JS. Heart rate variability: a review.
+<i>Med Biol Eng Comput.</i> (2006) 44:1031&#x2013;51. 10.1007/s11517-006-0119-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11517-006-0119-0</ArticleId><ArticleId IdType="pubmed">17111118</ArticleId></ArticleIdList></Reference><Reference><Citation>Baevsky RM, Berseneva AP.
+<i>Methodical Recommendations: Use of KARDiVAR System for Determination of the Stress Level and Estimation of the Body Adaptability. Standards of Measurements and Physiological Interpretation.</i>
+Mosc&#xfa;-Praga: State Scientific Center of Russian Federation &#x2013; Institute for Biomedical Problems;  (2009).</Citation></Reference><Reference><Citation>Yoo HH, Yune SJ, Im SJ, Kam BS, Lee SY. HRV-measured stress and academic achievement in medical students.
+<i>Med. Princ. Pract.</i> (2021) 30:193&#x2013;200. 10.1159/000513781
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000513781</ArticleId><ArticleId IdType="pmc">PMC8114035</ArticleId><ArticleId IdType="pubmed">33326983</ArticleId></ArticleIdList></Reference><Reference><Citation>van de Schoot R, Depaoli S, King R, Kramer B, M&#xe4;rtens K, Tadesse MG, et al. 
+Bayesian statistics and modelling.
+<i>Nat. Rev. Methods Primers</i> (2021) 1:1&#x2013;26. 10.1038/s43586-020-00001-2</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s43586-020-00001-2</ArticleId></ArticleIdList></Reference><Reference><Citation>Makowski D, Ben-Shachar MS, Chen SHA, L&#xfc;decke D. Indices of effect existence in the Bayesian framework.
+<i>Front. Psychol.</i> (2019) 10:2767. 10.3389/fpsyg.2019.02767
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2019.02767</ArticleId><ArticleId IdType="pmc">PMC6914840</ArticleId><ArticleId IdType="pubmed">31920819</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhao R, Li J, Du F, Gao R, Zhao S, Wang J. Effects of long-term moderate-intensity exercise on autonomic dysfunction.
+<i>Rev Cardiovasc Med.</i> (2025) 26:40714. 10.31083/rcm40714
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.31083/rcm40714</ArticleId><ArticleId IdType="pmc">PMC12593740</ArticleId><ArticleId IdType="pubmed">41209115</ArticleId></ArticleIdList></Reference><Reference><Citation>Olivieri F, Biscetti L, Pimpini L, Pelliccioni G, Sabbatinelli J, Giunta S. HRV and autonomic imbalance: biomarkers of aging.
+<i>Ageing Res. Rev.</i> (2024) 101:102521. 10.1016/j.arr.2024.102521
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.arr.2024.102521</ArticleId><ArticleId IdType="pubmed">39341508</ArticleId></ArticleIdList></Reference><Reference><Citation>Alimu A, Malati M, Ye J, Ma R, Zhang Y. HRV and inflammatory markers in first-episode depression.
+<i>BMC Psychiatry</i> (2025) 25:927. 10.1186/s12888-025-07256-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12888-025-07256-7</ArticleId><ArticleId IdType="pmc">PMC12492808</ArticleId><ArticleId IdType="pubmed">41039327</ArticleId></ArticleIdList></Reference><Reference><Citation>Lin FV, Heffner KL. Autonomic nervous system flexibility for understanding brainaging.
+<i>Ageing Res Rev.</i> (2023) 90:102016. 10.1016/j.arr.2023.102016
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.arr.2023.102016</ArticleId><ArticleId IdType="pmc">PMC10530154</ArticleId><ArticleId IdType="pubmed">37459967</ArticleId></ArticleIdList></Reference><Reference><Citation>Maduro PA, Maduro LAR, Lima PE, Silva ACC, Silva RCM, Rocha ASL, et al. 
+Cardiac autonomic modulation and cognitive performance in older adults.
+<i>Neurol Int.</i> (2025) 17:74. 10.3390/neurolint17050074
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/neurolint17050074</ArticleId><ArticleId IdType="pmc">PMC12113867</ArticleId><ArticleId IdType="pubmed">40423230</ArticleId></ArticleIdList></Reference><Reference><Citation>Gr&#xe4;ssler B, Thielmann B, B&#xf6;ckelmann I, H&#xf6;kelmann A. Effects of exercise interventions on HRV and cardiovascular factors: a systematic review.
+<i>Eur Rev. Aging Phys. Act.</i> (2021) 18:24. 10.1186/s11556-021-00278-6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s11556-021-00278-6</ArticleId><ArticleId IdType="pmc">PMC8597177</ArticleId><ArticleId IdType="pubmed">34789148</ArticleId></ArticleIdList></Reference><Reference><Citation>Lin FV, Heffner K, Gevirtz R, Zhang Z, Tadin D, Porsteinsson A. Targeting autonomic flexibility to enhance cognitive training outcomes.
+<i>Trials.</i> (2021) 22:560. 10.1186/s13063-021-05530-z
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13063-021-05530-z</ArticleId><ArticleId IdType="pmc">PMC8381519</ArticleId><ArticleId IdType="pubmed">34425878</ArticleId></ArticleIdList></Reference><Reference><Citation>Ma Y, Zhang Y, Hamaya R, Westerhof B, Shaltout H, Kavousi M, et al. 
+Baroreflex sensitivity and long-term dementia risk.
+<i>Hypertension.</i> (2025) 82:347&#x2013;56. 10.1161/HYPERTENSIONAHA.124.24001
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/HYPERTENSIONAHA.124.24001</ArticleId><ArticleId IdType="pmc">PMC11735285</ArticleId><ArticleId IdType="pubmed">39670317</ArticleId></ArticleIdList></Reference><Reference><Citation>Stillman CM, Cohen J, Lehman ME, Erickson KI. Mediators of physical activity on neurocognitive function: a multi-level review.
+<i>Front Hum Neurosci.</i> (2016) 10:626. 10.3389/fnhum.2016.00626
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnhum.2016.00626</ArticleId><ArticleId IdType="pmc">PMC5161022</ArticleId><ArticleId IdType="pubmed">28018195</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,658 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Curated"><PMID Version="1">32148775</PMID><DateCompleted><Year>2020</Year><Month>07</Month><Day>28</Day></DateCompleted><DateRevised><Year>2020</Year><Month>07</Month><Day>28</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Electronic">2046-1402</ISSN><JournalIssue CitedMedium="Internet"><Volume>9</Volume><PubDate><Year>2020</Year></PubDate></JournalIssue><Title>F1000Research</Title><ISOAbbreviation>F1000Res</ISOAbbreviation></Journal><ArticleTitle>Recent advances in understanding resistance exercise training-induced skeletal muscle hypertrophy in humans.</ArticleTitle><ELocationID EIdType="pii" ValidYN="Y">F1000 Faculty Rev-141</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.12688/f1000research.21588.1</ELocationID><Abstract><AbstractText>Skeletal muscle plays a pivotal role in the maintenance of physical and metabolic health and, critically, mobility. Accordingly, strategies focused on increasing the quality and quantity of skeletal muscle are relevant, and resistance exercise is foundational to the process of functional hypertrophy. Much of our current understanding of skeletal muscle hypertrophy can be attributed to the development and utilization of stable isotopically labeled tracers. We know that resistance exercise and sufficient protein intake act synergistically and provide the most effective stimuli to enhance skeletal muscle mass; however, the molecular intricacies that underpin the tremendous response variability to resistance exercise-induced hypertrophy are complex. The purpose of this review is to discuss recent studies with the aim of shedding light on key regulatory mechanisms that dictate hypertrophic gains in skeletal muscle mass. We also aim to provide a brief up-to-date summary of the recent advances in our understanding of skeletal muscle hypertrophy in response to resistance training in humans.</AbstractText><CopyrightInformation>Copyright: &#xa9; 2020 Joanisse S et al.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Joanisse</LastName><ForeName>Sophie</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Exercise Metabolism Research Group, Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lim</LastName><ForeName>Changhyun</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Exercise Metabolism Research Group, Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>McKendry</LastName><ForeName>James</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Exercise Metabolism Research Group, Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mcleod</LastName><ForeName>Jonathan C</ForeName><Initials>JC</Initials><AffiliationInfo><Affiliation>Exercise Metabolism Research Group, Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Stokes</LastName><ForeName>Tanner</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Exercise Metabolism Research Group, Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Phillips</LastName><ForeName>Stuart M</ForeName><Initials>SM</Initials><Identifier Source="ORCID">0000-0002-1956-4098</Identifier><AffiliationInfo><Affiliation>Exercise Metabolism Research Group, Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><GrantList CompleteYN="Y"><Grant><Agency>CIHR</Agency><Country>Canada</Country></Grant></GrantList><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType><PublicationType UI="D013485">Research Support, Non-U.S. Gov't</PublicationType><PublicationType UI="D016454">Review</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2020</Year><Month>02</Month><Day>24</Day></ArticleDate></Article><MedlineJournalInfo><Country>England</Country><MedlineTA>F1000Res</MedlineTA><NlmUniqueID>101594320</NlmUniqueID><ISSNLinking>2046-1402</ISSNLinking></MedlineJournalInfo><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D018482" MajorTopicYN="N">Muscle, Skeletal</DescriptorName><QualifierName UI="Q000254" MajorTopicYN="Y">growth &amp; development</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D055070" MajorTopicYN="Y">Resistance Training</DescriptorName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">hypertrophy</Keyword><Keyword MajorTopicYN="N">muscle</Keyword><Keyword MajorTopicYN="N">protein</Keyword><Keyword MajorTopicYN="N">resistance exercise</Keyword></KeywordList><CoiStatement>No competing interests were disclosed.No competing interests were disclosed.No competing interests were disclosed.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="accepted"><Year>2020</Year><Month>2</Month><Day>18</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2020</Year><Month>3</Month><Day>10</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2020</Year><Month>3</Month><Day>10</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2020</Year><Month>7</Month><Day>29</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2020</Year><Month>2</Month><Day>24</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">32148775</ArticleId><ArticleId IdType="pmc">PMC7043134</ArticleId><ArticleId IdType="doi">10.12688/f1000research.21588.1</ArticleId><ArticleId IdType="pii">F1000 Faculty Rev-141</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+Zurlo F, Larson K, Bogardus C, et al. :
+Skeletal muscle metabolism is a major determinant of resting energy expenditure.
+<i>J Clin Invest.</i>
+1990;86(5):1423&#x2013;7.
+10.1172/JCI114857
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1172/JCI114857</ArticleId><ArticleId IdType="pmc">PMC296885</ArticleId><ArticleId IdType="pubmed">2243122</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Thiebaud D, Jacot E, DeFronzo RA, et al. :
+The effect of graded doses of insulin on total glucose uptake, glucose oxidation, and glucose storage in man.
+<i>Diabetes.</i>
+1982;31(11):957&#x2013;63.
+10.2337/diacare.31.11.957
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diacare.31.11.957</ArticleId><ArticleId IdType="pubmed">6757014</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Mcleod JC, Stokes T, Phillips SM:
+Resistance Exercise Training as a Primary Countermeasure to Age-Related Chronic Disease.
+<i>Front Physiol.</i>
+2019;10:645.
+10.3389/fphys.2019.00645
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2019.00645</ArticleId><ArticleId IdType="pmc">PMC6563593</ArticleId><ArticleId IdType="pubmed">31244666</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Phillips SM, McGlory C:
+CrossTalk proposal: The dominant mechanism causing disuse muscle atrophy is decreased protein synthesis.
+<i>J Physiol.</i>
+2014;592(24):5341&#x2013;3.
+10.1113/jphysiol.2014.273615
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2014.273615</ArticleId><ArticleId IdType="pmc">PMC4270495</ArticleId><ArticleId IdType="pubmed">25512435</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Morton RW, Murphy KT, McKellar SR, et al. :
+A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults.
+<i>Br J Sports Med.</i>
+2018;52(6):376&#x2013;84.
+10.1136/bjsports-2017-097608
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2017-097608</ArticleId><ArticleId IdType="pmc">PMC5867436</ArticleId><ArticleId IdType="pubmed">28698222</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Figueiredo VC:
+Revisiting the roles of protein synthesis during skeletal muscle hypertrophy induced by exercise.
+<i>Am J Physiol Regul Integr Comp Physiol.</i>
+2019;317(5):R709&#x2013;R718.
+10.1152/ajpregu.00162.2019
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00162.2019</ArticleId><ArticleId IdType="pubmed">31508978</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Lavin KM, Roberts BM, Fry CS, et al. :
+The Importance of Resistance Exercise Training to Combat Neuromuscular Aging.
+<i>Physiology (Bethesda).</i>
+2019;34(2):112&#x2013;22.
+10.1152/physiol.00044.2018
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/physiol.00044.2018</ArticleId><ArticleId IdType="pmc">PMC6586834</ArticleId><ArticleId IdType="pubmed">30724133</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Roberts MD, Haun CT, Mobley CB, et al. :
+Physiological Differences Between Low Versus High Skeletal Muscle Hypertrophic Responders to Resistance Exercise Training: Current Perspectives and Future Research Directions.
+<i>Front Physiol.</i>
+2018;9:183.
+10.3389/fphys.2018.00834
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.00834</ArticleId><ArticleId IdType="pmc">PMC6039846</ArticleId><ArticleId IdType="pubmed">30022953</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Mazzulla M, Sawan SA, Williamson E, et al. :
+Protein Intake to Maximize Whole-Body Anabolism during Postexercise Recovery in Resistance-Trained Men with High Habitual Intakes is Severalfold Greater than the Current Recommended Dietary Allowance.
+<i>J Nutr.</i>
+2019. pii: nxz249.
+10.1093/jn/nxz249
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/jn/nxz249</ArticleId><ArticleId IdType="pubmed">31618421</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Atherton PJ, Smith K, Etheridge T, et al. :
+Distinct anabolic signalling responses to amino acids in C2C12 skeletal muscle cells.
+<i>Amino Acids.</i>
+2010;38(5):1533&#x2013;9.
+10.1007/s00726-009-0377-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00726-009-0377-x</ArticleId><ArticleId IdType="pubmed">19882215</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Devries MC, McGlory C, Bolster DR, et al. :
+Protein leucine content is a determinant of shorter- and longer-term muscle protein synthetic responses at rest and following resistance exercise in healthy older women: A randomized, controlled trial.
+<i>Am J Clin Nutr.</i>
+2018;107(2):217&#x2013;26.
+10.1093/ajcn/nqx028
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ajcn/nqx028</ArticleId><ArticleId IdType="pubmed">29529146</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Devries MC, McGlory C, Bolster DR, et al. :
+Leucine, Not Total Protein, Content of a Supplement Is the Primary Determinant of Muscle Protein Anabolic Responses in Healthy Older Women.
+<i>J Nutr.</i>
+2018;148(7):1088&#x2013;1095.
+10.1093/jn/nxy091
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/jn/nxy091</ArticleId><ArticleId IdType="pubmed">29901760</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Turner DC, Seaborne RA, Sharples AP:
+Comparative Transcriptome and Methylome Analysis in Human Skeletal Muscle Anabolism, Hypertrophy and Epigenetic Memory.
+<i>Sci Rep.</i>
+2019;9(1):4251.
+10.1038/s41598-019-40787-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-019-40787-0</ArticleId><ArticleId IdType="pmc">PMC6414679</ArticleId><ArticleId IdType="pubmed">30862794</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Morton RW, Colenso-Semple L, Phillips SM:
+Training for strength and hypertrophy: An evidence-based approach.
+<i>Curr Opin Physiol.</i>
+2019;10:90&#x2013;5.
+10.1016/j.cophys.2019.04.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cophys.2019.04.006</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Morton RW, Oikawa SY, Wavell CG, et al. :
+Neither load nor systemic hormones determine resistance training-mediated hypertrophy or strength gains in resistance-trained young men.
+<i>J Appl Physiol.</i>
+2016;121(1):129&#x2013;38.
+10.1152/japplphysiol.00154.2016
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00154.2016</ArticleId><ArticleId IdType="pmc">PMC4967245</ArticleId><ArticleId IdType="pubmed">27174923</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Morton RW, Sato K, Gallaugher MPB, et al. :
+Muscle Androgen Receptor Content but Not Systemic Hormones Is Associated With Resistance Training-Induced Skeletal Muscle Hypertrophy in Healthy, Young Men.
+<i>Front Physiol.</i>
+2018;9:1373.
+10.3389/fphys.2018.01373
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.01373</ArticleId><ArticleId IdType="pmc">PMC6189473</ArticleId><ArticleId IdType="pubmed">30356739</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Goodman CA:
+Role of mTORC1 in mechanically induced increases in translation and skeletal muscle mass.
+<i>J Appl Physiol (1985).</i>
+2019;127(2):581&#x2013;90.
+10.1152/japplphysiol.01011.2018
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01011.2018</ArticleId><ArticleId IdType="pubmed">30676865</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Haun CT, Vann CG, Mobley CB, et al. :
+Pre-training Skeletal Muscle Fiber Size and Predominant Fiber Type Best Predict Hypertrophic Responses to 6 Weeks of Resistance Training in Previously Trained Young Men.
+<i>Front Physiol.</i>
+2019;10:297.
+10.3389/fphys.2019.00297
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2019.00297</ArticleId><ArticleId IdType="pmc">PMC6445136</ArticleId><ArticleId IdType="pubmed">30971942</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Mobley CB, Haun CT, Roberson PA, et al. :
+Biomarkers associated with low, moderate, and high vastus lateralis muscle hypertrophy following 12 weeks of resistance training.
+<i>PLoS One.</i>
+2018;13(4):e0195203.
+10.1371/journal.pone.0195203
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0195203</ArticleId><ArticleId IdType="pmc">PMC5886420</ArticleId><ArticleId IdType="pubmed">29621305</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Mitchell CJ, Churchward-Venne TA, Bellamy L, et al. :
+Muscular and systemic correlates of resistance training-Induced muscle hypertrophy.
+<i>PLoS One.</i>
+2013;8(10):e78636.
+10.1371/journal.pone.0078636
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0078636</ArticleId><ArticleId IdType="pmc">PMC3793973</ArticleId><ArticleId IdType="pubmed">24130904</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Petrella JK, Kim JS, Mayhew DL, et al. :
+Potent myofiber hypertrophy during resistance training in humans is associated with satellite cell-mediated myonuclear addition: a cluster analysis.
+<i>J Appl Physiol (1985).</i>
+2008;104(6):1736&#x2013;42.
+10.1152/japplphysiol.01215.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01215.2007</ArticleId><ArticleId IdType="pubmed">18436694</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Ahtiainen JP, Hulmi JJ, Kraemer WJ, et al. :
+Heavy resistance exercise training and skeletal muscle androgen receptor expression in younger and older men.
+<i>Steroids.</i>
+2011;76(1&#x2013;2):183&#x2013;92.
+10.1016/j.steroids.2010.10.012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.steroids.2010.10.012</ArticleId><ArticleId IdType="pubmed">21070797</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Damas F, Libardi CA, Ugrinowitsch C, et al. :
+Early- and later-phases satellite cell responses and myonuclear content with resistance training in young men.
+<i>PLoS One.</i>
+2018;13(1):e0191039.
+10.1371/journal.pone.0191039
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0191039</ArticleId><ArticleId IdType="pmc">PMC5764368</ArticleId><ArticleId IdType="pubmed">29324825</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Figueiredo VC, Caldow MK, Massie V, et al. :
+Ribosome biogenesis adaptation in resistance training-induced human skeletal muscle hypertrophy.
+<i>Am J Physiol Endocrinol Metab.</i>
+2015;309(1):E72&#x2013;83.
+10.1152/ajpendo.00050.2015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00050.2015</ArticleId><ArticleId IdType="pubmed">25968575</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Chaillou T, Kirby TJ, McCarthy JJ:
+Ribosome biogenesis: emerging evidence for a central role in the regulation of skeletal muscle mass.
+<i>J Cell Physiol.</i>
+2014;229(11):1584&#x2013;94.
+10.1002/jcp.24604
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jcp.24604</ArticleId><ArticleId IdType="pmc">PMC4868551</ArticleId><ArticleId IdType="pubmed">24604615</ArticleId></ArticleIdList></Reference><Reference><Citation>
+McGlory C, Devries MC, Phillips SM:
+Skeletal Muscle and Resistance Exercise Training; The Role of Protein Synthesis in Recovery and Remodeling.
+<i>J Appl Physiol.</i>
+2017;122(3):541&#x2013;8.
+10.1152/japplphysiol.00613.2016
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00613.2016</ArticleId><ArticleId IdType="pmc">PMC5401959</ArticleId><ArticleId IdType="pubmed">27742803</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Stokes T, Hector AJ, Morton RW, et al. :
+Recent Perspectives Regarding the Role of Dietary Protein for the Promotion of Muscle Hypertrophy With Resistance Exercise Training.
+<i>Nutrients.</i>
+2018;10(2): pii: E180.
+10.3390/nu10020180
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu10020180</ArticleId><ArticleId IdType="pmc">PMC5852756</ArticleId><ArticleId IdType="pubmed">29414855</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Davies RW, Bass JJ, Carson BP, et al. :
+Differential Stimulation of Post-Exercise Myofibrillar Protein Synthesis in Humans Following Isonitrogenous, Isocaloric Pre-Exercise Feeding.
+<i>Nutrients.</i>
+2019;11(7): pii: E1657.
+10.3390/nu11071657
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu11071657</ArticleId><ArticleId IdType="pmc">PMC6682876</ArticleId><ArticleId IdType="pubmed">31331099</ArticleId></ArticleIdList></Reference><Reference><Citation>
+McKendry J, Shad BJ, Smeuninx B, et al. :
+Comparable Rates of Integrated Myofibrillar Protein Synthesis Between Endurance-Trained Master Athletes and Untrained Older Individuals.
+<i>Front Physiol.</i>
+2019;10:1084.
+10.3389/fphys.2019.01084
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2019.01084</ArticleId><ArticleId IdType="pmc">PMC6728413</ArticleId><ArticleId IdType="pubmed">31543824</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Phillips SM, Parise G, Roy BD, et al. :
+Resistance-training-induced Adaptations in Skeletal Muscle Protein Turnover in the Fed State.
+<i>Can J Physiol Pharmacol.</i>
+2002;80(11):1045&#x2013;53.
+10.1139/y02-134
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/y02-134</ArticleId><ArticleId IdType="pubmed">12489923</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Tang JE, Perco JG, Moore DR, et al. :
+Resistance Training Alters the Response of Fed State Mixed Muscle Protein Synthesis in Young Men.
+<i>Am J Physiol Regul Integr Comp Physiol.</i>
+2008;294(1):R172&#x2013;R178.
+10.1152/ajpregu.00636.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00636.2007</ArticleId><ArticleId IdType="pubmed">18032468</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Damas F, Phillips S, Vechin FC, et al. :
+A Review of Resistance Training-Induced Changes in Skeletal Muscle Protein Synthesis and Their Contribution to Hypertrophy.
+<i>Sports Med.</i>
+2015;45(6):801&#x2013;7.
+10.1007/s40279-015-0320-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-015-0320-0</ArticleId><ArticleId IdType="pubmed">25739559</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kim PL, Staron RS, Phillips SM:
+Fasted-state Skeletal Muscle Protein Synthesis After Resistance Exercise Is Altered With Training.
+<i>J Physiol.</i>
+2005;568(Pt 1):283&#x2013;90.
+10.1113/jphysiol.2005.093708
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2005.093708</ArticleId><ArticleId IdType="pmc">PMC1474760</ArticleId><ArticleId IdType="pubmed">16051622</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Wilkinson SB, Phillips SM, Atherton PJ, et al. :
+Differential Effects of Resistance and Endurance Exercise in the Fed State on Signalling Molecule Phosphorylation and Protein Synthesis in Human Muscle.
+<i>J Physiol.</i>
+2008;586(15):3701&#x2013;17.
+10.1113/jphysiol.2008.153916
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2008.153916</ArticleId><ArticleId IdType="pmc">PMC2538832</ArticleId><ArticleId IdType="pubmed">18556367</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kumar V, Atherton P, Smith K, et al. :
+Human Muscle Protein Synthesis and Breakdown During and After Exercise.
+<i>J Appl Physiol (1985).</i>
+2009;106(6):2026&#x2013;39.
+10.1152/japplphysiol.91481.2008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.91481.2008</ArticleId><ArticleId IdType="pubmed">19164770</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Seaborne RA, Hughes DC, Turner DC, et al. :
+UBR5 is a novel E3 ubiquitin ligase involved in skeletal muscle hypertrophy and recovery from atrophy.
+<i>J Physiol.</i>
+2019;597(14):3727&#x2013;49.
+10.1113/JP278073
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP278073</ArticleId><ArticleId IdType="pubmed">31093990</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Brook MS, Wilkinson DJ, Smith K, et al. :
+It's not just about protein turnover: the role of ribosomal biogenesis and satellite cells in the regulation of skeletal muscle hypertrophy.
+<i>Eur J Sport Sci.</i>
+2019;19(7):952&#x2013;63.
+10.1080/17461391.2019.1569726
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/17461391.2019.1569726</ArticleId><ArticleId IdType="pubmed">30741116</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Hodson N, West DWD, Philp A, et al. :
+Molecular regulation of human skeletal muscle protein synthesis in response to exercise and nutrients: a compass for overcoming age-related anabolic resistance.
+<i>Am J Physiol Cell Physiol.</i>
+2019;317(6):C1061&#x2013;C1078.
+10.1152/ajpcell.00209.2019
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpcell.00209.2019</ArticleId><ArticleId IdType="pmc">PMC6962519</ArticleId><ArticleId IdType="pubmed">31461340</ArticleId></ArticleIdList></Reference><Reference><Citation>
+You JS, McNally RM, Jacobs BL, et al. :
+The role of raptor in the mechanical load-induced regulation of mTOR signaling, protein synthesis, and skeletal muscle hypertrophy.
+<i>FASEB J.</i>
+2019;33(3):4021&#x2013;34.
+10.1096/fj.201801653RR
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.201801653RR</ArticleId><ArticleId IdType="pmc">PMC6404572</ArticleId><ArticleId IdType="pubmed">30509128</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Hammarstr&#xf6;m D, &#xd8;fsteng S, Koll L, et al. :
+Benefits of higher resistance-training volume are related to ribosome biogenesis.
+<i>J Physiol.</i>
+2020;598(3):543&#x2013;65.
+10.1113/JP278455
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP278455</ArticleId><ArticleId IdType="pubmed">31813190</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Stec MJ, Kelly NA, Many GM, et al. :
+Ribosome biogenesis may augment resistance training-induced myofiber hypertrophy and is required for myotube growth
+<i>in vitro</i>.
+<i>Am J Physiol Endocrinol Metab.</i>
+2016;310(8):E652&#x2013;E661.
+10.1152/ajpendo.00486.2015
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00486.2015</ArticleId><ArticleId IdType="pmc">PMC4835943</ArticleId><ArticleId IdType="pubmed">26860985</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Brook MS, Wilkinson DJ, Mitchell WK, et al. :
+Synchronous deficits in cumulative muscle protein synthesis and ribosomal biogenesis underlie age-related anabolic resistance to exercise in humans.
+<i>J Physiol.</i>
+2016;594(24):7399&#x2013;417.
+10.1113/JP272857
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP272857</ArticleId><ArticleId IdType="pmc">PMC5157077</ArticleId><ArticleId IdType="pubmed">27654940</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fyfe JJ, Bishop DJ, Bartlett JD, et al. :
+Enhanced skeletal muscle ribosome biogenesis, yet attenuated mTORC1 and ribosome biogenesis-related signalling, following short-term concurrent versus single-mode resistance training.
+<i>Sci Rep.</i>
+2018;8(1):560.
+10.1038/s41598-017-18887-6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-017-18887-6</ArticleId><ArticleId IdType="pmc">PMC5766515</ArticleId><ArticleId IdType="pubmed">29330460</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bamman MM, Petrella JK, Kim JS, et al. :
+Cluster analysis tests the importance of myogenic gene expression during myofiber hypertrophy in humans.
+<i>J Appl Physiol.</i>
+2007;102(6):2232&#x2013;9.
+10.1152/japplphysiol.00024.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00024.2007</ArticleId><ArticleId IdType="pubmed">17395765</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kim JS, Petrella JK, Cross JM, et al. :
+Load-mediated downregulation of myostatin mRNA is not sufficient to promote myofiber hypertrophy in humans: a cluster analysis.
+<i>J Appl Physiol (1985).</i>
+2007;103(5):1488&#x2013;95.
+10.1152/japplphysiol.01194.2006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01194.2006</ArticleId><ArticleId IdType="pubmed">17673556</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Damas F, Phillips SM, Libardi CA, et al. :
+Resistance training-induced changes in integrated myofibrillar protein synthesis are related to hypertrophy only after attenuation of muscle damage.
+<i>J Physiol.</i>
+2016;594(18):5209&#x2013;22.
+10.1113/JP272472
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP272472</ArticleId><ArticleId IdType="pmc">PMC5023708</ArticleId><ArticleId IdType="pubmed">27219125</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kadi F, Schjerling P, Andersen LL, et al. :
+The effects of heavy resistance training and detraining on satellite cells in human skeletal muscles.
+<i>J Physiol.</i>
+2004;558(Pt 3):1005&#x2013;12.
+10.1113/jphysiol.2004.065904
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2004.065904</ArticleId><ArticleId IdType="pmc">PMC1665027</ArticleId><ArticleId IdType="pubmed">15218062</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Mitchell CJ, Churchward-Venne TA, Parise G, et al. :
+Acute Post-Exercise Myofibrillar Protein Synthesis Is Not Correlated with Resistance Training-Induced Muscle Hypertrophy in Young Men.
+<i>PLoS One.</i>
+2014;9(2):e89431.
+10.1371/journal.pone.0089431
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0089431</ArticleId><ArticleId IdType="pmc">PMC3933567</ArticleId><ArticleId IdType="pubmed">24586775</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Mitchell CJ, Churchward-Venne TA, Cameron-Smith D, et al. :
+What is the relationship between the acute muscle protein synthesis response and changes in muscle mass?
+<i>J Appl Physiol (1985).</i>
+2015;118(4):495&#x2013;7.
+10.1152/japplphysiol.00609.2014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00609.2014</ArticleId><ArticleId IdType="pubmed">25257869</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Brook MS, Wilkinson DJ, Mitchell WK, et al. :
+A novel D
+<sub>2</sub>O tracer method to quantify RNA turnover as a biomarker of de novo ribosomal biogenesis,
+<i>in vitro</i>, in animal models, and in human skeletal muscle.
+<i>Am J Physiol Endocrinol Metab.</i>
+2017;313(6):E681&#x2013;E689.
+10.1152/ajpendo.00157.2017
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00157.2017</ArticleId><ArticleId IdType="pmc">PMC5814597</ArticleId><ArticleId IdType="pubmed">28811296</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Wilkinson DJ, Franchi MV, Brook MS, et al. :
+A validation of the application of D
+<sub>2</sub>O stable isotope tracer techniques for monitoring day-to-day changes in muscle protein subfraction synthesis in humans.
+<i>Am J Physiol Endocrinol Metab.</i>
+2014;306(5):E571&#x2013;9.
+10.1152/ajpendo.00650.2013
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00650.2013</ArticleId><ArticleId IdType="pmc">PMC3948971</ArticleId><ArticleId IdType="pubmed">24381002</ArticleId></ArticleIdList></Reference><Reference><Citation>
+McGlory C, Gorissen SHM, Kamal M, et al. :
+Omega-3 fatty acid supplementation attenuates skeletal muscle disuse atrophy during two weeks of unilateral leg immobilization in healthy young women.
+<i>FASEB J.</i>
+2019;33(3):4586&#x2013;97.
+10.1096/fj.201801857RRR
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.201801857RRR</ArticleId><ArticleId IdType="pubmed">30629458</ArticleId></ArticleIdList></Reference><Reference><Citation>
+McGlory C, von Allmen MT, Stokes T, et al. :
+Failed Recovery of Glycemic Control and Myofibrillar Protein Synthesis With 2 wk of Physical Inactivity in Overweight, Prediabetic Older Adults.
+<i>J Gerontol A Biol Sci Med Sci.</i>
+2018;73(8):1070&#x2013;7.
+10.1093/gerona/glx203
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gerona/glx203</ArticleId><ArticleId IdType="pmc">PMC6037059</ArticleId><ArticleId IdType="pubmed">29095970</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Oikawa SY, McGlory C, D'Souza LK, et al. :
+A randomized controlled trial of the impact of protein supplementation on leg lean mass and integrated muscle protein synthesis during inactivity and energy restriction in older persons.
+<i>Am J Clin Nutr.</i>
+2018;108(5):1060&#x2013;8.
+10.1093/ajcn/nqy193
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ajcn/nqy193</ArticleId><ArticleId IdType="pubmed">30289425</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Timmons JA, Atherton PJ, Larsson O, et al. :
+A coding and non-coding transcriptomic perspective on the genomics of human metabolic disease.
+<i>Nucleic Acids Res.</i>
+2018;46(15):7772&#x2013;92.
+10.1093/nar/gky570
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/nar/gky570</ArticleId><ArticleId IdType="pmc">PMC6125682</ArticleId><ArticleId IdType="pubmed">29986096</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Timmons JA, Szkop KJ, Gallagher IJ:
+Multiple sources of bias confound functional enrichment analysis of global -omics data.
+<i>Genome Biol.</i>
+2015;16:186.
+10.1186/s13059-015-0761-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13059-015-0761-7</ArticleId><ArticleId IdType="pmc">PMC4561415</ArticleId><ArticleId IdType="pubmed">26346307</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Potts GK, McNally RM, Blanco R, et al. :
+A map of the phosphoproteomic alterations that occur after a bout of maximal-intensity contractions.
+<i>J Physiol.</i>
+2017;595(15):5209&#x2013;5226.
+10.1113/JP273904
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP273904</ArticleId><ArticleId IdType="pmc">PMC5538225</ArticleId><ArticleId IdType="pubmed">28542873</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Boppart MD, Mahmassani ZS:
+Integrin signaling: linking mechanical stimulation to skeletal muscle hypertrophy.
+<i>Am J Physiol Cell Physiol.</i>
+2019;317(4):C629&#x2013;C641.
+10.1152/ajpcell.00009.2019
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpcell.00009.2019</ArticleId><ArticleId IdType="pmc">PMC6850995</ArticleId><ArticleId IdType="pubmed">31314586</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Li JJ, Bickel PJ, Biggin MD:
+System wide analyses have underestimated protein abundances and the importance of transcription in mammals.
+<i>PeerJ.</i>
+2014;2:e270.
+10.7717/peerj.270
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7717/peerj.270</ArticleId><ArticleId IdType="pmc">PMC3940484</ArticleId><ArticleId IdType="pubmed">24688849</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Li JJ, Biggin MD:
+Gene expression. Statistics requantitates the central dogma.
+<i>Science.</i>
+2015;347(6226):1066&#x2013;7.
+10.1126/science.aaa8332
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/science.aaa8332</ArticleId><ArticleId IdType="pubmed">25745146</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Chen YW, Nader GA, Baar KR, et al. :
+Response of rat muscle to acute resistance exercise defined by transcriptional and translational profiling.
+<i>J Physiol.</i>
+2002;545(1):27&#x2013;41.
+10.1113/jphysiol.2002.021220
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2002.021220</ArticleId><ArticleId IdType="pmc">PMC2290672</ArticleId><ArticleId IdType="pubmed">12433947</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Roberts MD, Childs TE, Brown JD, et al. :
+Early depression of Ankrd2 and Csrp3 mRNAs in the polyribosomal and whole tissue fractions in skeletal muscle with decreased voluntary running.
+<i>J Appl Physiol (1985).</i>
+2012;112(8):1291&#x2013;9.
+10.1152/japplphysiol.01419.2011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01419.2011</ArticleId><ArticleId IdType="pubmed">22282489</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Thalacker-Mercer A, Stec M, Cui X, et al. :
+Cluster analysis reveals differential transcript profiles associated with resistance training-induced human skeletal muscle hypertrophy.
+<i>Physiol Genomics.</i>
+2013;45(12):499&#x2013;507.
+10.1152/physiolgenomics.00167.2012
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/physiolgenomics.00167.2012</ArticleId><ArticleId IdType="pmc">PMC3680779</ArticleId><ArticleId IdType="pubmed">23632419</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Thalacker-Mercer AE, Dell'Italia LJ, Cui X, et al. :
+Differential genomic responses in old vs. young humans despite similar levels of modest muscle damage after resistance loading.
+<i>Physiol Genomics.</i>
+2010;40(3):141&#x2013;9.
+10.1152/physiolgenomics.00151.2009
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/physiolgenomics.00151.2009</ArticleId><ArticleId IdType="pmc">PMC2825766</ArticleId><ArticleId IdType="pubmed">19903761</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Raue U, Trappe TA, Estrem ST, et al. :
+Transcriptome signature of resistance exercise adaptations: mixed muscle and fiber type specific profiles in young and old adults.
+<i>J Appl Physiol (1985).</i>
+2012;112(10):1625&#x2013;36.
+10.1152/japplphysiol.00435.2011
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00435.2011</ArticleId><ArticleId IdType="pmc">PMC3365403</ArticleId><ArticleId IdType="pubmed">22302958</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Li J, Han S, Cousin W, et al. :
+Age-specific functional epigenetic changes in p21 and p16 in injury-activated satellite cells.
+<i>Stem Cells.</i>
+2015;33(3):951&#x2013;61.
+10.1002/stem.1908
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/stem.1908</ArticleId><ArticleId IdType="pmc">PMC4333004</ArticleId><ArticleId IdType="pubmed">25447026</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Damas F, Ugrinowitsch C, Libardi CA, et al. :
+Resistance training in young men induces muscle transcriptome-wide changes associated with muscle structure and metabolism refining the response to exercise-induced stress.
+<i>Eur J Appl Physiol.</i>
+2018;118(12):2607&#x2013;2616.
+10.1007/s00421-018-3984-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-018-3984-y</ArticleId><ArticleId IdType="pubmed">30196447</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Okada M, Hozumi Y, Ichimura T, et al. :
+Interaction of nucleosome assembly proteins abolishes nuclear localization of DGK&#x3b6; by attenuating its association with importins.
+<i>Exp Cell Res.</i>
+2011;317(20):2853&#x2013;63.
+10.1016/j.yexcr.2011.09.014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.yexcr.2011.09.014</ArticleId><ArticleId IdType="pubmed">21996351</ArticleId></ArticleIdList></Reference><Reference><Citation>
+You JS, Dooley MS, Kim CR, et al. :
+A DGK&#x3b6;-FoxO-ubiquitin proteolytic axis controls fiber size during skeletal muscle remodeling.
+<i>Sci Signal.</i>
+2018;11(530): pii: eaao6847.
+10.1126/scisignal.aao6847
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/scisignal.aao6847</ArticleId><ArticleId IdType="pmc">PMC6201691</ArticleId><ArticleId IdType="pubmed">29764991</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Huang da W, Sherman BT, Zheng X, et al. :
+Extracting biological meaning from large gene lists with DAVID.
+<i>Curr Protoc Bioinformatics.</i>
+2009;Chapter 13:Unit 13.11.
+10.1002/0471250953.bi1311s27
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/0471250953.bi1311s27</ArticleId><ArticleId IdType="pubmed">19728287</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kr&#xe4;mer A, Green J, Pollard J, Jr, et al. :
+Causal analysis approaches in Ingenuity Pathway Analysis.
+<i>Bioinformatics.</i>
+2014;30(4):523&#x2013;30.
+10.1093/bioinformatics/btt703
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/bioinformatics/btt703</ArticleId><ArticleId IdType="pmc">PMC3928520</ArticleId><ArticleId IdType="pubmed">24336805</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Clarke K, Ricciardi S, Pearson T, et al. :
+The Role of
+<i>Eif6</i> in Skeletal Muscle Homeostasis Revealed by Endurance Training Co-expression Networks.
+<i>Cell Rep.</i>
+2017;21(6):1507&#x2013;1520.
+10.1016/j.celrep.2017.10.040
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.celrep.2017.10.040</ArticleId><ArticleId IdType="pmc">PMC5695912</ArticleId><ArticleId IdType="pubmed">29117557</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Timmons JA, Knudsen S, Rankinen T, et al. :
+Using molecular classification to predict gains in maximal aerobic capacity following endurance exercise training in humans.
+<i>J Appl Physiol (1985).</i>
+2010;108(6):1487&#x2013;96.
+10.1152/japplphysiol.01295.2009
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01295.2009</ArticleId><ArticleId IdType="pmc">PMC2886694</ArticleId><ArticleId IdType="pubmed">20133430</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Murach KA, Fry CS, Kirby TJ, et al. :
+Starring or Supporting Role? Satellite Cells and Skeletal Muscle Fiber Size Regulation.
+<i>Physiology (Bethesda).</i>
+2018;33(1):26&#x2013;38.
+10.1152/physiol.00019.2017
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/physiol.00019.2017</ArticleId><ArticleId IdType="pmc">PMC5866409</ArticleId><ArticleId IdType="pubmed">29212890</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Allen DL, Roy RR, Edgerton VR:
+Myonuclear domains in muscle adaptation and disease.
+<i>Muscle Nerve.</i>
+1999;22(10):1350&#x2013;60.
+10.1002/(sici)1097-4598(199910)22:10&lt;1350::aid-mus3&gt;3.0.co;2-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/(sici)1097-4598(199910)22:10&lt;1350::aid-mus3&gt;3.0.co;2-8</ArticleId><ArticleId IdType="pubmed">10487900</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Adams GR, Caiozzo VJ, Haddad F, et al. :
+Cellular and molecular responses to increased skeletal muscle loading after irradiation.
+<i>Am J Physiol Cell Physiol.</i>
+2002;283(4):C1182&#x2013;95.
+10.1152/ajpcell.00173.2002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpcell.00173.2002</ArticleId><ArticleId IdType="pubmed">12225982</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Rosenblatt JD, Parry DJ:
+Gamma irradiation prevents compensatory hypertrophy of overloaded mouse extensor digitorum longus muscle.
+<i>J Appl Physiol (1985).</i>
+1992;73(6):2538&#x2013;43.
+10.1152/jappl.1992.73.6.2538
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1992.73.6.2538</ArticleId><ArticleId IdType="pubmed">1490967</ArticleId></ArticleIdList></Reference><Reference><Citation>
+McCarthy JJ, Mula J, Miyazaki M, et al. :
+Effective fiber hypertrophy in satellite cell-depleted skeletal muscle.
+<i>Development.</i>
+2011;138(17):3657&#x2013;66.
+10.1242/dev.068858
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1242/dev.068858</ArticleId><ArticleId IdType="pmc">PMC3152923</ArticleId><ArticleId IdType="pubmed">21828094</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Jackson JR, Mula J, Kirby TJ, et al. :
+Satellite cell depletion does not inhibit adult skeletal muscle regrowth following unloading-induced atrophy.
+<i>Am J Physiol Cell Physiol.</i>
+2012;303(8):C854&#x2013;C861.
+10.1152/ajpcell.00207.2012
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpcell.00207.2012</ArticleId><ArticleId IdType="pmc">PMC3469717</ArticleId><ArticleId IdType="pubmed">22895262</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Egner IM, Bruusgaard JC, Gundersen K:
+Satellite cell depletion prevents fiber hypertrophy in skeletal muscle.
+<i>Development.</i>
+2016;143(16):2898&#x2013;906.
+10.1242/dev.134411
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1242/dev.134411</ArticleId><ArticleId IdType="pubmed">27531949</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Murach KA, White SH, Wen Y, et al. :
+Differential requirement for satellite cells during overload-induced muscle hypertrophy in growing versus mature mice.
+<i>Skelet Muscle.</i>
+2017;7(1):14.
+10.1186/s13395-017-0132-z
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13395-017-0132-z</ArticleId><ArticleId IdType="pmc">PMC5504676</ArticleId><ArticleId IdType="pubmed">28693603</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fry CS, Lee JD, Jackson JR, et al. :
+Regulation of the muscle fiber microenvironment by activated satellite cells during hypertrophy.
+<i>FASEB J.</i>
+2014;28(4):1654&#x2013;65.
+10.1096/fj.13-239426
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.13-239426</ArticleId><ArticleId IdType="pmc">PMC3963024</ArticleId><ArticleId IdType="pubmed">24376025</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fry CS, Kirby TJ, Kosmac K, et al. :
+Myogenic Progenitor Cells Control Extracellular Matrix Production by Fibroblasts during Skeletal Muscle Hypertrophy.
+<i>Cell Stem Cell.</i>
+2017;20(1):56&#x2013;69.
+10.1016/j.stem.2016.09.010
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.stem.2016.09.010</ArticleId><ArticleId IdType="pmc">PMC5218963</ArticleId><ArticleId IdType="pubmed">27840022</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Smith LR, Chambers HG, Lieber RL:
+Reduced satellite cell population may lead to contractures in children with cerebral palsy.
+<i>Dev Med Child Neurol.</i>
+2013;55(3):264&#x2013;70.
+10.1111/dmcn.12027
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/dmcn.12027</ArticleId><ArticleId IdType="pmc">PMC4054943</ArticleId><ArticleId IdType="pubmed">23210987</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Dayanidhi S, Dykstra PB, Lyubasyuk V, et al. :
+Reduced satellite cell number
+<i>in situ</i> in muscular contractures from children with cerebral palsy.
+<i>J Orthop Res.</i>
+2015;33(7):1039&#x2013;45.
+10.1002/jor.22860
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jor.22860</ArticleId><ArticleId IdType="pubmed">25732238</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Dayanidhi S, Lieber RL:
+Skeletal muscle satellite cells: mediators of muscle growth during development and implications for developmental disorders.
+<i>Muscle Nerve.</i>
+2014;50(5):723&#x2013;32.
+10.1002/mus.24441
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.24441</ArticleId><ArticleId IdType="pmc">PMC4206584</ArticleId><ArticleId IdType="pubmed">25186345</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bellamy LM, Joanisse S, Grubb A, et al. :
+The acute satellite cell response and skeletal muscle hypertrophy following resistance training.
+<i>PLoS One.</i>
+2014;9(10):e109739.
+10.1371/journal.pone.0109739
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0109739</ArticleId><ArticleId IdType="pmc">PMC4196938</ArticleId><ArticleId IdType="pubmed">25313863</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Farup J, Rahbek SK, Riis S, et al. :
+Influence of exercise contraction mode and protein supplementation on human skeletal muscle satellite cell content and muscle fiber growth.
+<i>J Appl Physiol (1985).</i>
+2014;117(8):898&#x2013;909.
+10.1152/japplphysiol.00261.2014
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00261.2014</ArticleId><ArticleId IdType="pmc">PMC4280155</ArticleId><ArticleId IdType="pubmed">25103976</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kadi F, Thornell LE:
+Concomitant increases in myonuclear and satellite cell content in female trapezius muscle following strength training.
+<i>Histochem Cell Biol.</i>
+2000;113(2):99&#x2013;103.
+10.1007/s004180050012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s004180050012</ArticleId><ArticleId IdType="pubmed">10766262</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Leenders M, Verdijk LB, van der Hoeven L, et al. :
+Elderly men and women benefit equally from prolonged resistance-type exercise training.
+<i>J Gerontol A Biol Sci Med Sci.</i>
+2013;68(7):769&#x2013;79.
+10.1093/gerona/gls241
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gerona/gls241</ArticleId><ArticleId IdType="pubmed">23223011</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Olsen S, Aagaard P, Kadi F, et al. :
+Creatine supplementation augments the increase in satellite cell and myonuclei number in human skeletal muscle induced by strength training.
+<i>J Physiol.</i>
+2006;573(Pt 2):525&#x2013;34.
+10.1113/jphysiol.2006.107359
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2006.107359</ArticleId><ArticleId IdType="pmc">PMC1779717</ArticleId><ArticleId IdType="pubmed">16581862</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Petrella JK, Kim JS, Cross JM, et al. :
+Efficacy of myonuclear addition may explain differential myofiber growth among resistance-trained young and older men and women.
+<i>Am J Physiol Endocrinol Metab.</i>
+2006;291(5):E937&#x2013;46.
+10.1152/ajpendo.00190.2006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00190.2006</ArticleId><ArticleId IdType="pubmed">16772322</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fry CS, Noehren B, Mula J, et al. :
+Fibre type-specific satellite cell response to aerobic training in sedentary adults.
+<i>J Physiol.</i>
+2014;592(12):2625&#x2013;35.
+10.1113/jphysiol.2014.271288
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2014.271288</ArticleId><ArticleId IdType="pmc">PMC4080942</ArticleId><ArticleId IdType="pubmed">24687582</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Murach KA, Walton RG, Fry CS, et al. :
+Cycle training modulates satellite cell and transcriptional responses to a bout of resistance exercise.
+<i>Physiol Rep.</i>
+2016;4(18): pii: e12973.
+10.14814/phy2.12973
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.12973</ArticleId><ArticleId IdType="pmc">PMC5037921</ArticleId><ArticleId IdType="pubmed">27650251</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kirby TJ, Patel RM, McClintock TS, et al. :
+Myonuclear transcription is responsive to mechanical load and DNA content but uncoupled from cell size during hypertrophy.
+<i>Mol Biol Cell.</i>
+2016;27(5):788&#x2013;98.
+10.1091/mbc.E15-08-0585
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1091/mbc.E15-08-0585</ArticleId><ArticleId IdType="pmc">PMC4803305</ArticleId><ArticleId IdType="pubmed">26764089</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Seaborne RA, Strauss J, Cocks M, et al. :
+Human Skeletal Muscle Possesses an Epigenetic Memory of Hypertrophy.
+<i>Sci Rep.</i>
+2018;8(1):1898.
+10.1038/s41598-018-20287-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-018-20287-3</ArticleId><ArticleId IdType="pmc">PMC5789890</ArticleId><ArticleId IdType="pubmed">29382913</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Frontera WR, Ochala J:
+Skeletal muscle: a brief review of structure and function.
+<i>Calcif Tissue Int.</i>
+2015;96(3):183&#x2013;95.
+10.1007/s00223-014-9915-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00223-014-9915-y</ArticleId><ArticleId IdType="pubmed">25294644</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Nilwik R, Snijders T, Leenders M, et al. :
+The decline in skeletal muscle mass with aging is mainly attributed to a reduction in type II muscle fiber size.
+<i>Exp Gerontol.</i>
+2013;48(5):492&#x2013;8.
+10.1016/j.exger.2013.02.012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.exger.2013.02.012</ArticleId><ArticleId IdType="pubmed">23425621</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

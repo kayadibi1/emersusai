@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41835868</PMID><DateCompleted><Year>2026</Year><Month>03</Month><Day>16</Day></DateCompleted><DateRevised><Year>2026</Year><Month>03</Month><Day>16</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-1078</ISSN><JournalIssue CitedMedium="Print"><Volume>17</Volume><PubDate><Year>2026</Year></PubDate></JournalIssue><Title>Frontiers in psychology</Title><ISOAbbreviation>Front Psychol</ISOAbbreviation></Journal><ArticleTitle>Analysis of heart rate variability and subtle ECG changes based on machine learning for objective assessment of the psychological state of military personnel.</ArticleTitle><Pagination><StartPage>1688230</StartPage><MedlinePgn>1688230</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1688230</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fpsyg.2026.1688230</ELocationID><Abstract><AbstractText Label="INTRODUCTION" NlmCategory="UNASSIGNED">The implementation of objective methods for rapid assessment of the psychological and physiological readiness of military personnel is an extremely relevant task. The cardiovascular system acts as a "mirror" of functional and psychological state. The most common and accessible method for the objective study of the cardiovascular system remains electrocardiography (ECG). This study aims to develop a technology for objective monitoring of the psycho-emotional state and overall functional condition of personnel in the Ukrainian Defense Forces using miniature ECG devices and in-depth analysis of ECG signals with artificial intelligence.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">Using an innovative ECG device, 90 servicemen, average age of 38 years, undergoing sanatorium treatment and rehabilitation at the Central Military Clinical Sanatorium "Khmilnyk" were examined. The examination was conducted on the first or second day after the start of sanatorium treatment. ECG and HRV analysis were performed using our previously developed Universal Scoring System. The results of ECG analysis from limb leads in 6 leads were compared with 4 well-known psychological self-assessment methods: Beck Anxiety Scale, PCL-5, PHQ-9, as well as a formalized psychologist's conclusion. Correlation analysis and Sequential Feature Selector were used.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Forty ECG/HRV features were selected for each of the four psychological methods to find the maximum <i>R</i> <sup>2</sup> metric. The highest number of reliable correlations between ECG and HRV parameters and psychological tests was found for the Beck Anxiety Scale. The same can be said when using feature selection via machine learning. The cross-validated <i>R</i> <sup>2</sup> scores for the training and test sets in the case of the Beck Anxiety Scale were 0.520/0.359, respectively. Similar results were obtained for the Preliminary Psychological.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">The study's results demonstrate the potential for significant prediction of routine psychological assessment outcomes based on in-depth analysis of ECG and HRV, especially regarding the Beck Anxiety Scale and Preliminary Psychological Conclusion.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Chaikovsky, Senko, Budnyk, Matsyshyn, Ryzhenko, Budnyk, Romanchuk, Popov and Stetsyuk.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Chaikovsky</LastName><ForeName>Illya</ForeName><Initials>I</Initials><AffiliationInfo><Affiliation>Department of Contactless Control Systems, V.M. Glushkov Institute of Cybernetics of the National Academy of Sciences of Ukraine, Kyiv, Ukraine.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Senko</LastName><ForeName>Ivan</ForeName><Initials>I</Initials><AffiliationInfo><Affiliation>Department of Contactless Control Systems, V.M. Glushkov Institute of Cybernetics of the National Academy of Sciences of Ukraine, Kyiv, Ukraine.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Budnyk</LastName><ForeName>Mykola</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Contactless Control Systems, V.M. Glushkov Institute of Cybernetics of the National Academy of Sciences of Ukraine, Kyiv, Ukraine.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Matsyshyn</LastName><ForeName>Viktor</ForeName><Initials>V</Initials><AffiliationInfo><Affiliation>Department of State Administrative, State Institution of Science &#xab;Center of Innovative Healthcare Technologies&#xbb;, Kyiv, Ukraine.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ryzhenko</LastName><ForeName>Tetiana</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Department of Contactless Control Systems, V.M. Glushkov Institute of Cybernetics of the National Academy of Sciences of Ukraine, Kyiv, Ukraine.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Budnyk</LastName><ForeName>Vitaliy</ForeName><Initials>V</Initials><AffiliationInfo><Affiliation>Department of Contactless Control Systems, V.M. Glushkov Institute of Cybernetics of the National Academy of Sciences of Ukraine, Kyiv, Ukraine.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Romanchuk</LastName><ForeName>Oleksandr</ForeName><Initials>O</Initials><AffiliationInfo><Affiliation>Department of Internal and Family Medicine, Lesya Ukrainka Volyn National University, Lutsk, Ukraine.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Therapy and Rehabilitation, Ivan Bobersky Lviv State University of Physical Culture, Lviv, Ukraine.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Popov</LastName><ForeName>Anton</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Department of Electronic Engineering, Igor Sikorsky Kyiv Polytechnic Institute, Kyiv, Ukraine.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Faculty of Applied Sciences, Ukrainian Catholic University, Lviv, Ukraine.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Stetsyuk</LastName><ForeName>Petro</ForeName><Initials>P</Initials><AffiliationInfo><Affiliation>Department of Contactless Control Systems, V.M. Glushkov Institute of Cybernetics of the National Academy of Sciences of Ukraine, Kyiv, Ukraine.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>02</Month><Day>27</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Psychol</MedlineTA><NlmUniqueID>101550902</NlmUniqueID><ISSNLinking>1664-1078</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">ECG</Keyword><Keyword MajorTopicYN="N">correlation analysis</Keyword><Keyword MajorTopicYN="N">heart rate variability</Keyword><Keyword MajorTopicYN="N">machine learning</Keyword><Keyword MajorTopicYN="N">military personnel</Keyword><Keyword MajorTopicYN="N">psychological questionnaires</Keyword><Keyword MajorTopicYN="N">signal analysis</Keyword></KeywordList><CoiStatement>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2026</Year><Month>2</Month><Day>3</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2026</Year><Month>1</Month><Day>25</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>2</Month><Day>10</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>16</Day><Hour>6</Hour><Minute>32</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>16</Day><Hour>6</Hour><Minute>31</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>16</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>2</Month><Day>27</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41835868</ArticleId><ArticleId IdType="pmc">PMC12982173</ArticleId><ArticleId IdType="doi">10.3389/fpsyg.2026.1688230</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Baevskii R. M. (2004). Heart rate variability analysis: history and philosophy, theory and practice.
+<i>J. Clin. Comp. Sci. Telemed.</i>
+1
+54&#x2013;64.</Citation></Reference><Reference><Citation>Beck A. T., Epstein N., Brown G., Steer R. A. (1988). An inventory for measuring clinical anxiety: psychometric properties.
+<i>J. Consult. Clin. Psychol.</i>
+56
+893&#x2013;897. 10.1037/0022-006X.56.6.893
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0022-006X.56.6.893</ArticleId><ArticleId IdType="pubmed">3204199</ArticleId></ArticleIdList></Reference><Reference><Citation>Bergstra J., Bengio Y. (2012). Random search for hyper-parameter optimization.
+<i>J. Mach. Learn. Res.</i>
+13
+281&#x2013;305.</Citation></Reference><Reference><Citation>Bocharov M., Stasiuk V., Osyodlo V., Ryzhenko T., Malanin V., Chumachenko D., et al.  (2023). Assessment of the activities physiological cost of the defense forces officers in Ukraine using miniature ECG device.
+<i>Front. Cardiovasc. Med.</i>
+10:1239128. 10.3389/fcvm.2023.1239128
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fcvm.2023.1239128</ArticleId><ArticleId IdType="pmc">PMC10587465</ArticleId><ArticleId IdType="pubmed">37868775</ArticleId></ArticleIdList></Reference><Reference><Citation>Cawley G. C., Talbot N. L. C. (2010). On over-fitting in model selection and subsequent selection bias in performance evaluation.
+<i>J. Mach. Learn. Res.</i>
+11
+2079&#x2013;2107. 10.1093/humrep/deu295
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/humrep/deu295</ArticleId><ArticleId IdType="pubmed">25376459</ArticleId></ArticleIdList></Reference><Reference><Citation>Chaikovsky I. (2020). Electrocardiogram scoring beyond the routine analysis: subtle changes matters.
+<i>Expert Rev. Med. Devices</i>
+17
+379&#x2013;382. 10.1080/17434440.2020.1754795
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/17434440.2020.1754795</ArticleId><ArticleId IdType="pubmed">32271090</ArticleId></ArticleIdList></Reference><Reference><Citation>Chaikovsky I., Primin M., Nedayvoda I., Kazmirchuk A., Frolov Yu, Boreyko M. (2023). <i>New Metrics to Assess the Subtle Changes of the Heart&#x2019;s Electromagnetic Field: Advanced Methods in Biomedical Signal Processing and Analysis.</i>
+Amsterdam: Elsevier, 257&#x2013;310. 10.1016/B978-0-323-85955-4.00005-3</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/B978-0-323-85955-4.00005-3</ArticleId></ArticleIdList></Reference><Reference><Citation>Chalmers J. A., Quintana D. S., Abbott M. J.-A., Kemp A. H. (2014). Anxiety disorders are associated with reduced heart rate variability: a meta-analysis.
+<i>Front. Psychiatry</i>
+5:80. 10.3389/fpsyt.2014.00080
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyt.2014.00080</ArticleId><ArticleId IdType="pmc">PMC4092363</ArticleId><ArticleId IdType="pubmed">25071612</ArticleId></ArticleIdList></Reference><Reference><Citation>Colan S. D. (2013). The Why and How of Z Scores.
+<i>J. Am. Soc. Echocardiogr.</i>
+26
+38&#x2013;40. 10.1016/j.echo.2012.11.005
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.echo.2012.11.005</ArticleId><ArticleId IdType="pubmed">23261367</ArticleId></ArticleIdList></Reference><Reference><Citation>D&#x2019;Souza J. M., Wardle M., Green C. E., Lane S. D., Schmitz J. M., Vujanovic A. A. (2019). Resting heart rate variability: exploring associations with symptom severity in adults with substance use disorders and posttraumatic stress.
+<i>J. Dual Diagn.</i>
+15
+2&#x2013;7. 10.1080/15504263.2018.1526431
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15504263.2018.1526431</ArticleId><ArticleId IdType="pmc">PMC6511322</ArticleId><ArticleId IdType="pubmed">30418104</ArticleId></ArticleIdList></Reference><Reference><Citation>Eisenmann E. D., Rorabaugh B. R., Zoladz P. R. (2016). Acute stress decreases but chronic stress increases myocardial sensitivity to ischemic injury in rodents.
+<i>Front. Psychiatry</i>
+7:71. 10.3389/fpsyt.2016.00071
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyt.2016.00071</ArticleId><ArticleId IdType="pmc">PMC4843048</ArticleId><ArticleId IdType="pubmed">27199778</ArticleId></ArticleIdList></Reference><Reference><Citation>Forkus S. R., Raudales A. M., Rafiuddin H. S., Weiss N. H., Messman B. A., Contractor A. A. (2023). The Posttraumatic Stress Disorder (PTSD) checklist for DSM&#x2013;5: a systematic review of existing psychometric evidence.
+<i>Clin. Psychol.</i>
+30
+110&#x2013;121. 10.1037/cps0000111
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/cps0000111</ArticleId><ArticleId IdType="pmc">PMC10292741</ArticleId><ArticleId IdType="pubmed">37378352</ArticleId></ArticleIdList></Reference><Reference><Citation>Gebicki J., Katarzynska J., Marcinek A. (2023). Effect of psychological stress on microcirculation oscillations: diagnostic aspects.
+<i>Vasc. Health Risk Manag.</i>
+19
+79&#x2013;82. 10.2147/VHRM.S399082
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/VHRM.S399082</ArticleId><ArticleId IdType="pmc">PMC9926981</ArticleId><ArticleId IdType="pubmed">36798618</ArticleId></ArticleIdList></Reference><Reference><Citation>Guyon I., Elisseeff A. (2003). An introduction to variable and feature selection.
+<i>J. Mach. Learn. Res.</i>
+3
+1157&#x2013;1182.</Citation></Reference><Reference><Citation>Hastie T., Friedman J., Tibshirani R. (2009). <i>The Elements of Statistical Learning.</i>
+New York, NY: Springer. 10.1007/b94608</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/b94608</ArticleId></ArticleIdList></Reference><Reference><Citation>Huber P. J. (1981). <i>Robust Statistics, Wiley Series in Probability and Statistics.</i>
+Hoboken, NJ: Wiley. 10.1002/0471725250</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/0471725250</ArticleId></ArticleIdList></Reference><Reference><Citation>Immanuel S., Teferra M. N., Baumert M., Bidargaddi N. (2023). Heart rate variability for evaluating psychological stress changes in healthy adults: a scoping review.
+<i>Neuropsychobiology</i>
+82
+187&#x2013;202. 10.1159/000530376
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000530376</ArticleId><ArticleId IdType="pmc">PMC10614455</ArticleId><ArticleId IdType="pubmed">37290411</ArticleId></ArticleIdList></Reference><Reference><Citation>James G., Witten D., Hastie T., Tibshirani R., Taylor J. (2023). <i>An Introduction to Statistical Learning.</i>
+Cham: Springer. 10.1007/978-3-031-38747-0</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/978-3-031-38747-0</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim H.-G., Cheon E.-J., Bai D.-S., Lee Y. H., Koo B.-H. (2018). Stress and heart rate variability: a meta-analysis and review of the literature.
+<i>Psychiatry Investig.</i>
+15
+235&#x2013;245. 10.30773/pi.2017.08.17
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.30773/pi.2017.08.17</ArticleId><ArticleId IdType="pmc">PMC5900369</ArticleId><ArticleId IdType="pubmed">29486547</ArticleId></ArticleIdList></Reference><Reference><Citation>Kroenke K., Spitzer R. L., Williams J. B. W. (2001). The PHQ-9.
+<i>J. Gen. Intern. Med.</i>
+16
+606&#x2013;613. 10.1046/j.1525-1497.2001.016009606.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1046/j.1525-1497.2001.016009606.x</ArticleId><ArticleId IdType="pmc">PMC1495268</ArticleId><ArticleId IdType="pubmed">11556941</ArticleId></ArticleIdList></Reference><Reference><Citation>Lampert R. (2015). ECG signatures of psychological stress.
+<i>J. Electrocardiol.</i>
+48
+1000&#x2013;1005. 10.1016/j.jelectrocard.2015.08.005
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelectrocard.2015.08.005</ArticleId><ArticleId IdType="pmc">PMC4624516</ArticleId><ArticleId IdType="pubmed">26364755</ArticleId></ArticleIdList></Reference><Reference><Citation>Macfarlane P. W., van Oosterom A., Pahlm O., Kligfield P., Janse M., Camm J. (2010). <i>Comprehensive Electrocardiology.</i>
+London: Springer. 10.1007/978-1-84882-046-3</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/978-1-84882-046-3</ArticleId></ArticleIdList></Reference><Reference><Citation>Matsyshyn V. S., Kravchenko A. M., Chaikovsky I. &#xc0;, Apykhtin K. O., Voznitsyna K. B., Chukhrai O. V., et al.  (2023). Heart rate variability as an objective criterion for the psycho-emotional state of combatants.
+<i>Wiadomo&#x15b;ci Lekarskie</i>
+76
+2212&#x2013;2218. 10.36740/WLek202310113
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.36740/WLek202310113</ArticleId><ArticleId IdType="pubmed">37948717</ArticleId></ArticleIdList></Reference><Reference><Citation>Mccraty R., Shaffer F. (2015). Heart rate variability: new perspectives on physiological mechanisms, assessment of self-regulatory capacity, and health risk.
+<i>Glob. Adv. Health Med.</i>
+4
+46&#x2013;61. 10.7453/gahmj.2014.073
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7453/gahmj.2014.073</ArticleId><ArticleId IdType="pmc">PMC4311559</ArticleId><ArticleId IdType="pubmed">25694852</ArticleId></ArticleIdList></Reference><Reference><Citation>McKinney W. (2010). &#x201c;Data structures for statistical computing in python,&#x201d; in <i>Proceedings of the 9th Python in Science Conference</i>, (Austin: ), 56&#x2013;61. 10.25080/Majora-92bf1922-00a</Citation><ArticleIdList><ArticleId IdType="doi">10.25080/Majora-92bf1922-00a</ArticleId></ArticleIdList></Reference><Reference><Citation>OECD (2008). <i>Handbook on Constructing Composite Indicators: Methodology and User Guide.</i>
+Paris: OECD.</Citation></Reference><Reference><Citation>Oppenheimer D. M., Meyvis T., Davidenko N. (2009). Instructional manipulation checks: detecting satisficing to increase statistical power.
+<i>J. Exp. Soc. Psychol.</i>
+45
+867&#x2013;872. 10.1016/j.jesp.2009.03.009</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jesp.2009.03.009</ArticleId></ArticleIdList></Reference><Reference><Citation>Osborne M. T., Shin L. M., Mehta N. N., Pitman R. K., Fayad Z. A., Tawakol A. (2020). Disentangling the links between psychosocial stress and cardiovascular disease.
+<i>Circ. Cardiovasc. Imaging</i>
+13:e010931. 10.1161/CIRCIMAGING.120.010931
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/CIRCIMAGING.120.010931</ArticleId><ArticleId IdType="pmc">PMC7430065</ArticleId><ArticleId IdType="pubmed">32791843</ArticleId></ArticleIdList></Reference><Reference><Citation>Pedregosa F., Varoquaux G., Gramfort A., Michel V., Thirion B., Grisel O., et al.  (2011). Scikit-learn: machine learning in python.
+<i>J. Mach. Learn. Res.</i>
+12
+2825&#x2013;2830.</Citation></Reference><Reference><Citation>Romanchuk O. (2024). Peculiarities of cardio-respiratory relationships in qualified athletes with different types of heart rhythm regulation according to respiratory maneuver data.
+<i>Front. Sports Act. Living</i>
+6:1451643. 10.3389/fspor.2024.1451643
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fspor.2024.1451643</ArticleId><ArticleId IdType="pmc">PMC11769980</ArticleId><ArticleId IdType="pubmed">39872494</ArticleId></ArticleIdList></Reference><Reference><Citation>Sen&#x2019;ko I. (2014). The asymptotic normality of an adjusted least squares estimator in a multivariate vector errors-in-variables regression model.
+<i>Theory Prob. Math. Stat.</i>
+88
+175&#x2013;190.</Citation></Reference><Reference><Citation>Sen&#x2019;ko I. O. (2013). Consistency of an adjusted least-squares estimator in a vector linear model with measurement errors.
+<i>Ukrainian Math. J.</i>
+64
+1739&#x2013;1751. 10.1007/s11253-013-0748-z</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11253-013-0748-z</ArticleId></ArticleIdList></Reference><Reference><Citation>Shaffer F., Meehan Z. M. (2020). A practical guide to resonance frequency assessment for heart rate variability biofeedback.
+<i>Front. Neurosci.</i>
+14:570400. 10.3389/fnins.2020.570400
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnins.2020.570400</ArticleId><ArticleId IdType="pmc">PMC7578229</ArticleId><ArticleId IdType="pubmed">33117119</ArticleId></ArticleIdList></Reference><Reference><Citation>Souza G. G. L., Magalh&#xe3;es L. N., da Cruz T. A. R., Mendon&#xe7;a-De-Souza A. C. F., Duarte A. F. A., Fischer N. L., et al.  (2013). Resting vagal control and resilience as predictors of cardiovascular allostasis in peacekeepers.
+<i>Stress</i>
+16
+377&#x2013;383. 10.3109/10253890.2013.767326
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3109/10253890.2013.767326</ArticleId><ArticleId IdType="pubmed">23327672</ArticleId></ArticleIdList></Reference><Reference><Citation>Virtanen P., Gommers R., Oliphant T. E., Haberland M., Reddy T., Cournapeau D., et al.  (2020). SciPy 1.0: fundamental algorithms for scientific computing in Python.
+<i>Nat. Methods</i>
+17
+261&#x2013;272. 10.1038/s41592-019-0686-2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41592-019-0686-2</ArticleId><ArticleId IdType="pmc">PMC7056644</ArticleId><ArticleId IdType="pubmed">32015543</ArticleId></ArticleIdList></Reference><Reference><Citation>Yal&#xe7;in F., Abraham M. R., Garcia M. J. (2024). Stress and heart in remodeling process: multiple stressors at the same time kill.
+<i>J. Clin. Med.</i>
+13:2597. 10.3390/jcm13092597
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/jcm13092597</ArticleId><ArticleId IdType="pmc">PMC11084707</ArticleId><ArticleId IdType="pubmed">38731125</ArticleId></ArticleIdList></Reference><Reference><Citation>Zharinova V., Tabakovich-Vatseba V., Senko I. (2015). Diagnostic and prognostic possibilities of cardiotropic autoantibodies in the elderly patients with ischemic heart disease and different myocardial contractile function.
+<i>Ukrainian J. Cardiol.</i>
+4
+81&#x2013;86.</Citation></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

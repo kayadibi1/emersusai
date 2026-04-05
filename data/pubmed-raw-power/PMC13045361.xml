@@ -1,0 +1,472 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="advs74064" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="iso-abbrev">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="pmc-domain-id">2933</journal-id><journal-id journal-id-type="pmc-domain">advsci</journal-id><journal-id journal-id-type="publisher-id">ADVS</journal-id><journal-title-group><journal-title>Advanced Science</journal-title></journal-title-group><issn pub-type="epub">2198-3844</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13045361</article-id><article-id pub-id-type="pmcid-ver">PMC13045361.1</article-id><article-id pub-id-type="pmcaid">13045361</article-id><article-id pub-id-type="pmcaiid">13045361</article-id><article-id pub-id-type="pmid">41637583</article-id><article-id pub-id-type="doi">10.1002/advs.202524086</article-id><article-id pub-id-type="publisher-id">ADVS74064</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>Diamond Metasurface‐Based Optical Tweezers With Enhanced Robustness</article-title></title-group><contrib-group><contrib id="advs74064-cr-0001" contrib-type="author"><name name-style="western"><surname>Zhu</surname><given-names initials="JY">Jing‐Yuan</given-names></name><xref rid="advs74064-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74064-cr-0002" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="KX">Ke‐Xue</given-names></name><xref rid="advs74064-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs74064-cr-0003" contrib-type="author" corresp="yes"><name name-style="western"><surname>Ni</surname><given-names initials="PN">Pei‐Nan</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-1550-4450</contrib-id><xref rid="advs74064-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>nipeinan@zzu.edu.cn</email></address></contrib><contrib id="advs74064-cr-0004" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="SH">Shang‐Heng</given-names></name><xref rid="advs74064-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="advs74064-cr-0005" contrib-type="author"><name name-style="western"><surname>Wang</surname><given-names initials="SR">Si‐Rui</given-names></name><xref rid="advs74064-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74064-cr-0006" contrib-type="author"><name name-style="western"><surname>Dou</surname><given-names initials="WJ">Wen‐Jie</given-names></name><xref rid="advs74064-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74064-cr-0007" contrib-type="author"><name name-style="western"><surname>Zhu</surname><given-names initials="YY">Yong‐Yang</given-names></name><xref rid="advs74064-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs74064-cr-0008" contrib-type="author" corresp="yes"><name name-style="western"><surname>Wei</surname><given-names initials="ZP">Zhi‐Peng</given-names></name><xref rid="advs74064-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><address><email>zpweicust@126.com</email></address></contrib><contrib id="advs74064-cr-0009" contrib-type="author" corresp="yes"><name name-style="western"><surname>Shan</surname><given-names initials="CX">Chong‐Xin</given-names></name><xref rid="advs74064-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>cxshan@zzu.edu.cn</email></address></contrib></contrib-group><aff id="advs74064-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Henan Key Laboratory of Diamond Materials and Devices</named-content>
+<named-content content-type="organisation-division">Key Laboratory of Materials Physics</named-content>
+<named-content content-type="organisation-division">Ministry of Education</named-content>
+<named-content content-type="organisation-division">School of Physics</named-content>
+<institution>Zhengzhou University</institution>
+<city>Zhengzhou</city>
+<country country="CN">China</country>
+</aff><aff id="advs74064-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">State Key Laboratory of High‐Power Semiconductor Laser</named-content>
+<named-content content-type="organisation-division">State Key Laboratory of High‐Power Semiconductor Lasers</named-content>
+<named-content content-type="organisation-division">School of Physics</named-content>
+<institution>Changchun University of Science and Technology</institution>
+<city>Changchun</city>
+<country country="CN">China</country>
+</aff><pub-date pub-type="epub"><day>04</day><month>2</month><year>2026</year></pub-date><pub-date pub-type="collection"><month>4</month><year>2026</year></pub-date><volume>13</volume><issue seq="580">19</issue><issue-id pub-id-type="pmc-issue-id">510804</issue-id><issue-id pub-id-type="doi">10.1002/advs.v13.19</issue-id><elocation-id>e24086</elocation-id><history><date date-type="rev-recd"><day>16</day><month>1</month><year>2026</year></date><date date-type="received"><day>25</day><month>11</month><year>2025</year></date><date date-type="accepted"><day>20</day><month>1</month><year>2026</year></date></history><pub-history><event event-type="pmc-release"><date><day>04</day><month>02</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>03</day><month>04</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-03 10:25:15.667"><day>03</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). <italic toggle="yes">Advanced Science</italic> published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="ADVS-13-e24086.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:ADVS-13-e24086.pdf"/><abstract><title>ABSTRACT</title><p>Optical tweezers have revolutionized the manipulation of micro‐ and nano‐scale particles, with impacts across biophysics, materials science, and quantum optics. However, their miniaturization for lab‐on‐a‐chip applications is hindered by bulky optical components. While metasurface‐based optical tweezers offer an ultracompact alternative, they suffer from laser‐induced thermal effects, which degrade their performance, stability, and durability. Here, we overcome this challenge with diamond metasurfaces, leveraging the material's exceptional thermal conductivity, low thermal expansion, and high optical damage threshold to ensure structural integrity under high‐power illumination. We experimentally demonstrate versatile particle manipulations using diamond metasurface optical tweezers, including 2D trapping, precise translocation, and controlled rotation via angular momentum transfer. This work not only resolves the critical thermal limitations of conventional metasurface optical tweezers but also establishes a robust platform for high‐power, miniaturized optomechanical systems, paving the way for their scalable integration into demanding photonic applications.</p></abstract><abstract id="advs74064-abs-0001" abstract-type="graphical"><p>Conventional metasurface optical tweezers are hindered by thermal instability from laser heating. This work overcomes this by using diamond metasurfaces, exploiting their low thermo‐optic coefficient and minimal thermal expansion. The platform demonstrates stable particle trapping, translocation, and rotation, enabling robust miniaturized systems for advanced photonic and optomechanical applications.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="ADVS-13-e24086-g003.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="advs74064-kwd-0001">diamond</kwd><kwd id="advs74064-kwd-0006">lab‐on‐a‐chip </kwd><kwd id="advs74064-kwd-0003">metasurfaces</kwd><kwd id="advs74064-kwd-0004">optical tweezers</kwd><kwd id="advs74064-kwd-0005">thermal robustness</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>National Key R&amp;D Program of China</institution><institution-id institution-id-type="doi">10.13039/501100012166</institution-id></institution-wrap>
+</funding-source><award-id>SQ2024YFE0100936</award-id></award-group><award-group id="funding-0002"><funding-source>
+<institution-wrap><institution>National Natural Science Foundation of China</institution><institution-id institution-id-type="doi">10.13039/501100001809</institution-id></institution-wrap>
+</funding-source><award-id>62434001</award-id></award-group><award-group id="funding-0003"><funding-source>
+<institution-wrap><institution>Natural Science Foundation of Henan Province</institution><institution-id institution-id-type="doi">10.13039/501100006407</institution-id></institution-wrap>
+</funding-source><award-id>242300421216</award-id></award-group><award-group id="funding-0004"><funding-source>
+<institution-wrap><institution>Science and Technology Major Project of Henan Province</institution></institution-wrap>
+</funding-source><award-id>221100230300</award-id></award-group><award-group id="funding-0005"><funding-source>
+<institution-wrap><institution>Science and Technology Development Project of Jilin Province</institution></institution-wrap>
+</funding-source><award-id>SKL202402019</award-id></award-group></funding-group><counts><fig-count count="6"/><table-count count="0"/><page-count count="8"/><word-count count="4422"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>2 April 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:02.04.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="advs74064-sec-0010"><label>1</label><title>Introduction</title><p>Optical tweezers use highly focused laser beams for the noninvasive optomechanical manipulation of micro‐ and nano‐scale particles, enabling control over targets from whole cells to individual molecules [<xref rid="advs74064-bib-0001" ref-type="bibr">1</xref>, <xref rid="advs74064-bib-0002" ref-type="bibr">2</xref>, <xref rid="advs74064-bib-0003" ref-type="bibr">3</xref>, <xref rid="advs74064-bib-0004" ref-type="bibr">4</xref>]. This technique has significantly expanded the frontiers of scientific research across numerous disciplines. For example, optical tweezers have become indispensable for conducting high‐precision measurements of piconewton‐scale forces and nanometre‐level displacements, enabling foundational studies in molecular motors, protein folding, DNA mechanics, and cellular interactions [<xref rid="advs74064-bib-0005" ref-type="bibr">5</xref>, <xref rid="advs74064-bib-0006" ref-type="bibr">6</xref>, <xref rid="advs74064-bib-0007" ref-type="bibr">7</xref>, <xref rid="advs74064-bib-0008" ref-type="bibr">8</xref>, <xref rid="advs74064-bib-0009" ref-type="bibr">9</xref>]. These applications have profoundly advanced fields such as biophysics and single‐molecule biology. Furthermore, optical tweezers play a critical role in colloidal science for assembling nanostructures and in quantum optics for manipulating individual atoms or probing quantum coherent systems [<xref rid="advs74064-bib-0010" ref-type="bibr">10</xref>, <xref rid="advs74064-bib-0011" ref-type="bibr">11</xref>, <xref rid="advs74064-bib-0012" ref-type="bibr">12</xref>, <xref rid="advs74064-bib-0013" ref-type="bibr">13</xref>].</p><p>The rapid advancement of lab‐on‐a‐chip technology, which integrates multiple laboratory functions onto a single chip, requires the development of ultracompact optical tweezers [<xref rid="advs74064-bib-0014" ref-type="bibr">14</xref>, <xref rid="advs74064-bib-0015" ref-type="bibr">15</xref>]. However, conventional systems typically rely on the use of bulky and expensive optical elements, such as spatial light modulators (SLMs) [<xref rid="advs74064-bib-0016" ref-type="bibr">16</xref>] and high‐numerical‐aperture objectives [<xref rid="advs74064-bib-0017" ref-type="bibr">17</xref>], which prevents its miniaturization and integration. Over the past decade, metasurfaces, composed of engineered 2D nanoantenna arrays capable of subwavelength light manipulation, have emerged as an ultrathin, lightweight alternative to conventional optics [<xref rid="advs74064-bib-0018" ref-type="bibr">18</xref>, <xref rid="advs74064-bib-0019" ref-type="bibr">19</xref>, <xref rid="advs74064-bib-0020" ref-type="bibr">20</xref>, <xref rid="advs74064-bib-0021" ref-type="bibr">21</xref>, <xref rid="advs74064-bib-0022" ref-type="bibr">22</xref>, <xref rid="advs74064-bib-0023" ref-type="bibr">23</xref>, <xref rid="advs74064-bib-0024" ref-type="bibr">24</xref>, <xref rid="advs74064-bib-0025" ref-type="bibr">25</xref>]. This technique offers superior resolution and versatile optical functions, holding significant potential for miniaturized optical tweezers capable of advanced multifunctional optical manipulation [<xref rid="advs74064-bib-0026" ref-type="bibr">26</xref>, <xref rid="advs74064-bib-0027" ref-type="bibr">27</xref>]. However, metasurface optical tweezers operate by concentrating laser energy using subwavelength nanostructures to generate high optical gradients, which inevitably causes localized heating due to optical absorption. This issue is especially pronounced in metallic metasurfaces, where ohmic and interband losses lead to significant temperature increases. Even all‐dielectric metasurfaces suffer from non‐negligible absorption at high laser intensity, especially near engineered resonant modes. Therefore, effective thermal management poses a critical challenge in metasurface optical tweezers, necessitating strategic solutions to ensure reliable device operation and structural integrity, particularly under high‐power or continuous‐wave laser illumination.</p><p>Diamond features a unique combination of properties that make it an ideal material for metasurfaces, especially in applications demanding efficient thermal management. In particular, diamond exhibits the highest thermal conductivity (&gt; 2000 W/m·K) among all natural materials, enabling rapid and uniform dissipation of heat away from localized hot spots [<xref rid="advs74064-bib-0028" ref-type="bibr">28</xref>, <xref rid="advs74064-bib-0029" ref-type="bibr">29</xref>]. Moreover, owing to its low thermal expansion coefficient, diamond maintains exceptional dimensional stability under thermal stress, preventing structural deformation and minimizing optical performance drift even under high‐power laser irradiation. Furthermore, diamond demonstrates a high optical damage threshold, allowing it to withstand intense laser illumination without degradation, thereby supporting stable operation at higher power levels. Based on these advantages, diamond metasurface represents a promising platform for next‐generation optical tweezers, combining precise wavefront control with unparalleled thermal management capabilities. However, diamond metasurface optical tweezers have not been demonstrated previously.</p><p>In this work, we present the experimental demonstration of versatile optical tweezers using diamond metasurfaces that enable sophisticated motional control of microspheres, including stable 2D trapping, precise translocation, and controlled rotation via angular momentum transfer. This approach provides a robust solution to the critical challenge of thermal degradation in conventional metasurface optical tweezers. Consequently, our work establishes a new paradigm for high‐power, stable optomechanical manipulation and represents an important advancement toward practical, scalable integrated photonic systems for applications in biomedical engineering, quantum technologies, and beyond.</p></sec><sec id="advs74064-sec-0020"><label>2</label><title>Results and Discussion</title><p>Optical tweezers provide a high‐precision tool for the non‐contact manipulation of micro‐ and nano‐scale particles through the exertion of optical forces arising from strongly focused laser beams. These forces can be mainly classified into gradient and scattering components, which collectively form an optical potential well near the focal region [<xref rid="advs74064-bib-0030" ref-type="bibr">30</xref>]. Within this region, dielectric particles with a refractive index higher than the surrounding medium are confined at the position of maximum electric field intensity [<xref rid="advs74064-bib-0031" ref-type="bibr">31</xref>]. The physical basis of this trapping mechanism lies in the transfer of photon momentum, resulting in controlled mechanical motion of the target particles. Moreover, through the coordinated interplay of these optical forces, complex trajectory control of microspheres can be achieved with high spatial and temporal precision. However, conventional optical lenses suffer from thermally induced focal shifts under varying environmental conditions due to their substantial coefficients of thermal expansion (CTE) and thermo‐optic coefficient (d<italic toggle="yes">n</italic>/d<italic toggle="yes">T</italic>). In contrast, owing to diamond's exceptionally low CTE and near‐zero d<italic toggle="yes">n</italic>/d<italic toggle="yes">T</italic> (See Table <xref rid="advs74064-supinfo-0001" ref-type="">S1</xref>), diamond metalenses exhibit exceptional thermal stability, maintaining a nearly invariant focal length across a broad temperature range, as illustrated in Figure <xref rid="advs74064-fig-0001" ref-type="fig">1a</xref>. This inherent thermal robustness renders them particularly suitable for applications in environments with large thermal fluctuations or under prolonged high‐power laser illumination. To experimentally investigate the thermal stability of diamond metalenses, a single metalens (left panel, Figure <xref rid="advs74064-fig-0001" ref-type="fig">1b</xref>) and a 2 × 2 metalens array (right panel, Figure <xref rid="advs74064-fig-0001" ref-type="fig">1b</xref>) were designed and fabricated, operating at wavelengths of 1064 and 532 nm, respectively. (See Notes <xref rid="advs74064-supinfo-0001" ref-type="">S1</xref> and <xref rid="advs74064-supinfo-0001" ref-type="">S2</xref> for details).</p><fig position="float" fig-type="FIGURE" id="advs74064-fig-0001" orientation="portrait"><label>FIGURE 1</label><caption><p>(a) Schematic comparison of focal length variations under dramatic temperature changes, the diamond metalens shows a negligible focal shift, while a conventional lens experiences substantial focal drift. (b) Scanning electron microscopy (SEM) and optical microscopy images of the fabricated single‐element diamond metalens (left) and 2 × 2 diamond metalens array (right).</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="ADVS-13-e24086-g005.jpg"/></fig><p>The focusing performance of the diamond metasurfaces under varying temperatures was characterized using a custom optical system (Figure <xref rid="advs74064-fig-0002" ref-type="fig">2a</xref>). The setup employed continuous‐wave (CW) lasers as excitation sources, a high‐numerical‐aperture objective (60×, NA = 0.85), and a motorized translation stage for axial scanning. The focal intensity was recorded by a CCD camera via an imaging lens. The microscope objective, imaging lens, and CCD were mounted on a common platform to ensure a stable and reproducible optical path. Following precise alignment of all components, the diamond metalens was securely positioned on a translation stage with its backside normal to the incident beam direction, defining the metasurface plane as <italic toggle="yes">Z</italic> = 0 µm. To evaluate the focal properties of the diamond metalens, transverse beam profiles (<italic toggle="yes">X–Y</italic> plane) were recorded at incremental axial positions along the propagation direction (<italic toggle="yes">Z</italic>‐axis) by capturing the spatial intensity distribution via the CCD. For the 2 × 2 metalens array, the same procedure was repeated using a 532 nm CW laser as the excitation source. Figure <xref rid="advs74064-fig-0002" ref-type="fig">2b</xref> presents the optical characterization results for both the single‐element diamond metalens (top panel) and the 2 × 2 diamond metalens array (bottom panel), measured at room temperature. The left image in each panel displays the measured intensity distribution in the longitudinal cross‐section (<italic toggle="yes">X‐Z</italic> plane). The single‐element metalens exhibits a focal length of approximately 270 µm, while the 2 × 2 metalens array has a focal length of approximately 300 µm. The right image in each panel displays the reconstructed 3D intensity profile. It can be seen that the single‐element metalens produces a well‐defined focal spot with a full‐width at half‐maximum (FWHM) diameter of approximately 3 µm. In the case of the 2 × 2 metalens array, four distinct and uniformly spaced focal spots are clearly resolved in a square arrangement at the focal plane, with an inter‐spot distance of approximately 100 µm and individual spot diameters consistently around 3 µm, confirming high uniformity and diffraction‐limited performance. Furthermore, the focusing performance of both the single‐element diamond metalens and the 2 × 2 diamond metalens array was systematically characterized across a broad temperature range from –50°C to 400°C. As summarized in Figure <xref rid="advs74064-fig-0002" ref-type="fig">2c</xref>, all the fabricated devices maintained highly consistent focal properties under thermal variations. The right <italic toggle="yes">Y</italic>‐axis indicates the average inter‐spot distance within the metalens array, which serves as a metric for evaluating lateral positional stability under thermal perturbation. Note that all measurements were performed under steady‐state conditions after thermal equilibrium was reached at each target temperature. The results indicate negligible drift in both focal length and relative spot alignment over the entire temperature range, confirming the outstanding thermal stability of diamond metasurfaces and their potential for deployment in environments with severe thermal fluctuations. We further evaluated the focal stability of the diamond metalens under high‐power laser irradiation. As shown in Figure <xref rid="advs74064-fig-0002" ref-type="fig">2d,e</xref>, the diamond metalens maintained a stable focal position and exhibited only a minimal temperature rise across incident powers from 0.1 to 30 W. In contrast, a conventional objective lens suffered a substantial focal shift of ∼200 µm and significantly greater heating under the same conditions. These results directly demonstrate the superior thermal and structural stability of the diamond metalens for high‐power applications. Moreover, a critical limitation of the conventional objective lens is its severe focal drift under prolonged high‐power operation (e.g., 30 W), which destabilizes optical traps. The diamond metalens demonstrated remarkable robust performance, showing almost no observable drift under the same laser power and over an even longer duration (Figure <xref rid="advs74064-supinfo-0001" ref-type="">S4</xref>). Furthermore, the focusing efficiency of the diamond metalens proved highly robust, showing negligible change over the tested ranges of laser power and temperature (Figure <xref rid="advs74064-supinfo-0001" ref-type="">S5</xref>).</p><fig position="float" fig-type="FIGURE" id="advs74064-fig-0002" orientation="portrait"><label>FIGURE 2</label><caption><p>(a) Schematic diagram of the experimental setup for characterizing the focusing performance of diamond metalenses. (b) Measured focusing characteristics of both single‐element and 2 × 2 diamond metalenses at room temperature. (c) Thermal stability evaluation: focal length variation of the single‐element metalens (denoted as <italic toggle="yes">f<sub>a</sub>
+</italic>) and the four focal lengths of the 2 × 2 metalens array (denoted as <italic toggle="yes">f<sub>b</sub>
+</italic>
+<sub>1</sub>, <italic toggle="yes">f<sub>b</sub>
+</italic>
+<sub>2</sub>, <italic toggle="yes">f<sub>b</sub>
+</italic>
+<sub>3</sub>, and <italic toggle="yes">f<sub>b</sub>
+</italic>
+<sub>4</sub>) across different temperatures, with the right <italic toggle="yes">y</italic>‐axis showing the average inter‐spot distance of the quad‐focus metalens array (denoted as <italic toggle="yes">l</italic>
+<sub>b</sub>) as a metric for positional stability. (d) Comparison of focal spot displacement between a conventional objective lens and the diamond metalens under increasing laser power. (e) Corresponding temperature rise of the conventional objective lens vs. the diamond metalens under the same laser power conditions.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="ADVS-13-e24086-g004.jpg"/></fig><p>The capability of the diamond metalens for optical trapping and translocation was demonstrated with a system incorporating both a single‐element metalens and a 2 × 2 metalens array (Figure <xref rid="advs74064-fig-0003" ref-type="fig">3a</xref>, see Experimental Methods for details). In this configuration, the diamond metalens was mounted on a motorized coaxial <italic toggle="yes">X</italic>‐<italic toggle="yes">Y</italic> translation stage to enable precise axial alignment, while a sample dispersed with silica microspheres was positioned on a three‐axis translation stage. This arrangement facilitated controlled optical trapping and translocation of individual microsphere. Under illumination with a 1064 nm CW laser, a single silica microsphere was stably trapped at the focal point. Following successful trapping, the microsphere was transported to a predefined location using the three‐axis translation stage. Figure <xref rid="advs74064-fig-0003" ref-type="fig">3b</xref> summarizes this process, with a red arrow indicating the direction of motion and a white cross marking a fixed reference position across successive images. Furthermore, simultaneous manipulation of four silica microspheres was achieved by integrating the 2 × 2 diamond metalens array into the optical tweezer system illuminated by a 532 nm CW laser. It can be seen that all four microspheres were translated downward synchronously while maintaining a constant inter‐particle spacing of approximately 100 µm, demonstrating stable multi‐particle manipulation capability. Videos of microspheres transfer between the traps are further provided as Videos <xref rid="advs74064-supinfo-0001" ref-type="">S1</xref> and <xref rid="advs74064-supinfo-0001" ref-type="">S2</xref>, respectively.</p><fig position="float" fig-type="FIGURE" id="advs74064-fig-0003" orientation="portrait"><label>FIGURE 3</label><caption><p>(a) Schematic of the optical tweezer's setup incorporating a metasurface as the wavefront‐shaping element. (b) Demonstration of stable optical trapping and controlled translocation of silica microspheres using a single‐element diamond metalens (top) and a 2 × 2 metalens array (bottom), respectively, confirming precise multiparticle manipulation capabilities.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="ADVS-13-e24086-g006.jpg"/></fig><p>Note that the numerical aperture (NA) of a single‐element diamond metalens is approximately 0.35, calculated using the formula NA ≈ <italic toggle="yes">n</italic>*sin(arctan(<italic toggle="yes">D</italic>/(2<italic toggle="yes">f</italic>)), where <italic toggle="yes">n</italic> is the refractive index of the immersion medium (air, <italic toggle="yes">n</italic> = 1), <italic toggle="yes">D</italic> is the lens diameter, and <italic toggle="yes">f</italic> is the focal length. This moderate NA was chosen to enable a larger field of view and extended working distance, which supports parallel manipulation and system integration in a compact platform. As a result, the optical trapping demonstrated here is primarily 2D, with particles stably confined in the lateral (<italic toggle="yes">X</italic>‐<italic toggle="yes">Y</italic>) plane. Furthermore, it is important to emphasize that the multifunctional capabilities of metasurfaces significantly expand the toolkit available for optical trapping and manipulation. For example, controlled rotation of microparticles can be achieved using metasurfaces designed to impart orbital angular momentum (OAM) from an optical vortex beam to the target particles [<xref rid="advs74064-bib-0032" ref-type="bibr">32</xref>, <xref rid="advs74064-bib-0033" ref-type="bibr">33</xref>]. The vortex beam features a helical wavefront described by the phase term exp(<italic toggle="yes">i</italic>
+<italic toggle="yes">l</italic>
+<italic toggle="yes">ϕ</italic>), where <italic toggle="yes">l</italic> is the topological charge and <italic toggle="yes">ϕ</italic> the azimuthal angle [<xref rid="advs74064-bib-0034" ref-type="bibr">34</xref>]. This phase structure produces a characteristic annular intensity profile with a central phase singularity. When a microparticle is trapped within the high‐intensity ring of the vortex beam, it experiences asymmetric optical forces due to the spatially varying phase gradient. The transfer of orbital angular momentum from the photons to the particle induces a torque, resulting in rotation around the optical axis. The magnitude of this torque and the resulting rotational frequency depend on both the topological charge <italic toggle="yes">l</italic> and the incident laser power [<xref rid="advs74064-bib-0017" ref-type="bibr">17</xref>].</p><p>To validate this functionality experimentally, three distinct diamond vortex metasurfaces with topological charges <italic toggle="yes">l</italic> = 10, 20, and 30 were designed and fabricated based on the geometric Pancharatnam–Berry (PB) phase principle (See Note <xref rid="advs74064-supinfo-0001" ref-type="">S3</xref> for details). Figure <xref rid="advs74064-fig-0004" ref-type="fig">4a</xref> illustrates the experimental setup used to characterize the performance of these diamond metasurfaces. A 532 nm CW laser serves as the illumination source, with a quarter‐wave plate converting linearly polarized light into circular polarization. A CCD camera captures the spatial intensity profiles of the transmitted beam. The microscope objective, relay lenses, and camera are mounted on a motorized translation stage to enable scanning along the propagation axis (<italic toggle="yes">Z</italic>‐direction) for analysis of the beam properties after transmission through the vortex metasurfaces. The metasurface plane is defined as <italic toggle="yes">Z</italic> = 0 µm, with laser illumination occurring normal to the substrate. The left panel in Figure <xref rid="advs74064-fig-0004" ref-type="fig">4b</xref> shows the SEM and optical images of the fabricated diamond vortex metasurface with<italic toggle="yes"> l</italic> = 10, 20, and 30. The center panel displays the measured transverse intensity distribution (<italic toggle="yes">X</italic>–<italic toggle="yes">Y</italic> plane) at <italic toggle="yes">Z</italic> = 300 µm. The right panel shows the reconstructed beam propagation profile in the <italic toggle="yes">X</italic>–<italic toggle="yes">Z</italic> plane. The results confirm that all three metasurfaces generate vortex beams exhibiting the expected annular intensity distribution with a central dark core. Furthermore, we observe a monotonic increase in the central singularity's diameter with topological charge, in agreement with theoretical predictions.</p><fig position="float" fig-type="FIGURE" id="advs74064-fig-0004" orientation="portrait"><label>FIGURE 4</label><caption><p>(a) Schematic illustration of the experimental setup for characterizing the orbital angular momentum (OAM) generation and beam‐shaping performance of diamond vortex metasurfaces. (b) Performance evaluation of diamond vortex metasurfaces with varying topological charges (<italic toggle="yes">l</italic> = 10, 20, 30), including transverse beam profiles (<italic toggle="yes">X</italic>–<italic toggle="yes">Y</italic> plane) at <italic toggle="yes">Z</italic> = 300 µm and the reconstructed beam propagation profile in the <italic toggle="yes">X</italic>–<italic toggle="yes">Z</italic> plane. The white dashed line in the right panel indicates the plane at <italic toggle="yes">Z</italic> = 300 µm.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="ADVS-13-e24086-g002.jpg"/></fig><p>Figure <xref rid="advs74064-fig-0005" ref-type="fig">5a</xref> schematically illustrates the optical tweezer system designed for rotational manipulation of microspheres using a diamond vortex metasurface. A 532 nm CW laser was employed as the excitation source, which was collimated and then expanded to minimize divergence and ensure a uniform power density profile. A linear polarizer combined with a quarter‐wave plate converted the linear polarization to circular polarization. The diamond vortex metasurface was mounted on a co‐axial <italic toggle="yes">XY</italic> translation stage to facilitate precise alignment. The resulting optical vortex beam was directed through a 650 nm long‐pass dichroic mirror and subsequently focused by the objective lens. To quantify the influence of the topological charge on the orbital rotation speed of optically trapped silica microspheres, vortex beams with topological charges of <italic toggle="yes">l</italic> = 10, 20, and 30 were generated using diamond metasurfaces under a fixed incident laser power of 1 W. For fair comparison, all experimental parameters were maintained constant except for the topological charge value of the diamond vortex metasurface. The motion of the trapped particles was recorded with a CCD camera at a sampling interval of Δ<italic toggle="yes">t</italic> = 0.61 s, with six consecutive frames captured for each topological charge. As summarized in Figure <xref rid="advs74064-fig-0005" ref-type="fig">5b</xref>, the microspheres underwent stable orbital rotation in the clockwise direction, with measured rotation speeds of approximately 0.20 rps for <italic toggle="yes">l</italic> = 10, 0.28 rps for <italic toggle="yes">l</italic> = 20, and 0.34 rps for <italic toggle="yes">l</italic> = 30, respectively (Video <xref rid="advs74064-supinfo-0001" ref-type="">S3</xref>). These results clearly demonstrate a monotonic increase in rotation speed with increasing topological charge. Furthermore, bidirectional rotational control (clockwise and counterclockwise) of trapped particles can be achieved using the same diamond vortex metasurfaces by switching the handedness of the incident circularly polarized light. Specifically, the metasurface designed based on the PB phase principle converts LCP light into a vortex beam carrying a topological charge of +20, and RCP light into a vortex beam with <italic toggle="yes">l</italic> = −20, thereby inducing opposite rotational directions (Video <xref rid="advs74064-supinfo-0001" ref-type="">S4</xref>). Representative trajectories extracted from six images captured at 0.61s intervals under each condition are highlighted in purple in Figure <xref rid="advs74064-fig-0005" ref-type="fig">5c</xref>. Comparative analysis indicated no statistically significant difference in rotation speed between the two directions, confirming that the direction of rotation is determined solely by the sign of the OAM. This ability to precisely control rotational direction via OAM sign reversal holds considerable potential for applications in lab‐on‐a‐chip systems and optically driven micromachines.</p><fig position="float" fig-type="FIGURE" id="advs74064-fig-0005" orientation="portrait"><label>FIGURE 5</label><caption><p>(a) Schematic of the optical tweezer's setup employing a diamond vortex metasurface for controlled rotational manipulation of silica microspheres. (b) Measured rotation speeds of trapped microspheres under vortex beams with topological charges of <italic toggle="yes">l</italic> = 10, 20, and 30, showing a monotonic increase in rotation speed with increasing topological charge. (c) Bidirectional rotation control demonstrated by switching the topological charge from +20 to −20 through reversal of the handedness of the incident CP light, resulting in a corresponding switch from clockwise to counterclockwise rotation.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="ADVS-13-e24086-g001.jpg"/></fig></sec><sec id="advs74064-sec-0030"><label>3</label><title>Conclusion</title><p>In summary, in this work, we established a robust and versatile platform for optical tweezers based on diamond metasurfaces, representing a significant advance in micro‐and nano‐optical manipulation under demanding operational conditions. Capitalizing on diamond's exceptional properties, including its ultrahigh thermal conductivity, high optical damage threshold, and low coefficient of thermal expansion, diamond metasurfaces exhibit inherent thermal stability and maintain structural robustness even under abrupt environmental temperature fluctuations or prolonged high‐power laser illumination. This capability enables sustained and reliable device operation in regimes where conventional metasurfaces would suffer from rapid thermal degradation. Experimentally, we demonstrate versatile particle control using diamond metasurfaces optical tweezers, achieving multifunctionalities, such as stable 2D trapping, precise translocation, and controlled rotation via angular momentum transfer. These functionalities highlight the system's compact footprint and integrated versatility. By providing a thermally stable, high‐power, and ultracompact manipulation platform, this work paves the way for next‐generation optomechanical systems, with promising applications in high‐throughput lab‐on‐a‐chip system, precision nanofabrication, and quantum optomechanics, where stringent thermal management and miniaturization are essential.</p></sec><sec id="advs74064-sec-0040"><label>4</label><title>Experimental Methods</title><sec id="advs74064-sec-0050"><label>4.1</label><title>Construction of the Optical Tweezer Systems Using Diamond Metalenses</title><p>The silica microsphere solution (SiO<sub>2</sub>, 4 µm diameter) was diluted with deionized water at a volume ratio of 1:10, and the resulting solution was encapsulated in a sealed thin fluid chamber constructed from glass slides and cover slips to prepare experimental samples for subsequent use. A CW laser source (1064 nm, 1000 mW) was directed through mirror M1 into a beam compressor composed of two lenses (<italic toggle="yes">f</italic>
+<sub>1</sub> = 200 mm and <italic toggle="yes">f</italic>
+<sub>2</sub> = 40 mm) to match the metasurface dimensions. The collimated beam was then reflected by mirror M2, directed through a dichroic mirror, and focused by the diamond metalens to manipulate the SiO<sub>2</sub> microspheres. The imaging system utilized a white LED (GCI‐060411) with a lens as an illumination source. An objective lens was positioned beneath the sample for real‐time imaging, and the video image was subsequently relayed via mirror M3 through a lens‐filter assembly to a CCD camera for observation. Real‐time tracking of microsphere motion was achieved using a scientific‐grade CCD camera equipped with a 950 nm short‐pass filter (MEFH10‐950SP) and a lens.</p></sec></sec><sec sec-type="COI-statement" id="advs74064-sec-0070"><title>Conflicts of Interest</title><p>The authors declare no conflicts of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="advs74064-supinfo-0001" position="float" content-type="local-data" orientation="portrait"/><supplementary-material id="advs74064-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File 1</bold>: advs74064‐sup‐0001‐SuppMat.docx.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e24086-s004.docx" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="advs74064-supitem-0002" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File 2</bold>: advs74064‐sup‐0002‐VideoS1.mp4.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e24086-s003.mp4" mimetype="video" mime-subtype="mp4" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="advs74064-supitem-0003" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File 3</bold>: advs74064‐sup‐0003‐VideoS2.mp4.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e24086-s002.mp4" mimetype="video" mime-subtype="mp4" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="advs74064-supitem-0004" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File 4</bold>: advs74064‐sup‐0004‐VideoS3.mp4.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e24086-s005.mp4" mimetype="video" mime-subtype="mp4" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="advs74064-supitem-0005" position="float" content-type="local-data" orientation="portrait"><caption><p>
+<bold>Supporting File 5</bold>: advs74064‐sup‐0005‐VideoS4.mp4.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e24086-s001.mp4" mimetype="video" mime-subtype="mp4" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="advs74064-sec-0060"><title>Acknowledgements</title><p>This work was financially supported by the National Key R&amp;D Program of China (Grant No. SQ2024YFE0100936), the National Natural Science Foundation of China (62374150), Natural Science Foundation of Henan Province (242300421216), and Science and Technology Major Project of Henan Province (221100230300). K.L. and Z.W. acknowledge the support of the National Natural Science Foundation of China (62434001) and the Science and Technology Development Project of Jilin Province (SKL202402019).</p></ack><sec sec-type="data-availability" id="advs74064-sec-0090"><title>Data Availability Statement</title><p>The data that support the findings of this study are available from the corresponding author upon reasonable request.</p></sec><ref-list id="advs74064-bibl-0001"><title>References</title><ref id="advs74064-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="advs74064-cite-0001">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Ashkin</surname>
+</string-name>, “<article-title>Acceleration and Trapping of Particles by Radiation Pressure</article-title>,” <source>Physical Review Letters</source>
+<volume>24</volume> (<year>1970</year>): <fpage>156</fpage>–<lpage>159</lpage>.</mixed-citation></ref><ref id="advs74064-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="advs74064-cite-0002">
+<string-name name-style="western">
+<given-names>S. M.</given-names>
+<surname>Block</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. S.</given-names>
+<surname>Goldstein</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>B. J.</given-names>
+<surname>Schnapp</surname>
+</string-name>, “<article-title>Bead Movement by Single Kinesin Molecules Studied with Optical Tweezers</article-title>,” <source>Nature</source>
+<volume>348</volume> (<year>1990</year>): <fpage>348</fpage>–<lpage>352</lpage>.<pub-id pub-id-type="pmid">2174512</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/348348a0</pub-id></mixed-citation></ref><ref id="advs74064-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="advs74064-cite-0003">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Ohlinger</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Deak</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. A.</given-names>
+<surname>Lutich</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Feldmann</surname>
+</string-name>, “<article-title>Optically Trapped Gold Nanoparticle Enables Listening at the Microscale</article-title>,” <source>Physical Review Letters</source>
+<volume>108</volume> (<year>2012</year>): <elocation-id>018101</elocation-id>.<pub-id pub-id-type="pmid">22304294</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1103/PhysRevLett.108.018101</pub-id></mixed-citation></ref><ref id="advs74064-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="advs74064-cite-0004">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Min</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Dou</surname>
+</string-name>, et al., “<article-title>Plasmonic Tweezers: for Nanoscale Optical Trapping and beyond</article-title>,” <source>Light: Science &amp; Applications</source>
+<volume>10</volume> (<year>2021</year>): <fpage>59</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41377-021-00474-0</pub-id><pub-id pub-id-type="pmcid">PMC7969631</pub-id><pub-id pub-id-type="pmid">33731693</pub-id></mixed-citation></ref><ref id="advs74064-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="advs74064-cite-0005">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Avsievich</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Popov</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Meglinski</surname>
+</string-name>, “<article-title>Optical Tweezers in Studies of Red Blood Cells</article-title>,” <source>Cells</source>
+<volume>9</volume> (<year>2020</year>): <fpage>545</fpage>.<pub-id pub-id-type="pmid">32111018</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/cells9030545</pub-id><pub-id pub-id-type="pmcid">PMC7140472</pub-id></mixed-citation></ref><ref id="advs74064-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="advs74064-cite-0006">
+<string-name name-style="western">
+<given-names>E. P.</given-names>
+<surname>Furlani</surname>
+</string-name> and <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Baev</surname>
+</string-name>, “<article-title>Optical Nanotrapping Using Cloaking Metamaterial</article-title>,” <source>Physical Review E</source>
+<volume>79</volume> (<year>2009</year>): <elocation-id>026607</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1103/PhysRevE.79.026607</pub-id><pub-id pub-id-type="pmid">19391863</pub-id></mixed-citation></ref><ref id="advs74064-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="advs74064-cite-0007">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Suwannasopon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Meyer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Schlickriede</surname>
+</string-name>, et al., “<article-title>Miniaturized Metalens Based Optical Tweezers on Liquid Crystal Droplets for Lab‐on‐a‐Chip Optical Motors</article-title>,” <source>Crystals</source>
+<volume>9</volume> (<year>2019</year>): <fpage>515</fpage>.</mixed-citation></ref><ref id="advs74064-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="advs74064-cite-0008">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Corsetti</surname>
+</string-name> and <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Dholakia</surname>
+</string-name>, “<article-title>Optical Manipulation: Advances for Biophotonics in the 21st Century</article-title>,” <source>Journal of Biomedical Optics</source>
+<volume>26</volume> (<year>2021</year>): <elocation-id>070602</elocation-id>.<pub-id pub-id-type="pmid">34235899</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1117/1.JBO.26.7.070602</pub-id><pub-id pub-id-type="pmcid">PMC8262092</pub-id></mixed-citation></ref><ref id="advs74064-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="advs74064-cite-0009">
+<string-name name-style="western">
+<given-names>D. G.</given-names>
+<surname>Grier</surname>
+</string-name>, “<article-title>Optical Tweezers in Colloid and Interface Science</article-title>,” <source>Current Opinion in Colloid &amp; Interface Science</source>
+<volume>2</volume> (<year>1997</year>): <fpage>264</fpage>–<lpage>270</lpage>.</mixed-citation></ref><ref id="advs74064-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="advs74064-cite-0010">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Dholakia</surname>
+</string-name> and <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Zemánek</surname>
+</string-name>, “<article-title>Colloquium: Gripped by Light: Optical Binding</article-title>,” <source>Reviews of Modern Physics</source>
+<volume>82</volume> (<year>2010</year>): <fpage>1767</fpage>–<lpage>1791</lpage>.</mixed-citation></ref><ref id="advs74064-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="advs74064-cite-0011">
+<string-name name-style="western">
+<given-names>A. M.</given-names>
+<surname>Kaufman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B. J.</given-names>
+<surname>Lester</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. M.</given-names>
+<surname>Reynolds</surname>
+</string-name>, et al., “<article-title>Two‐particle Quantum Interference in Tunnel‐Coupled Optical Tweezers</article-title>,” <source>Science</source>
+<volume>345</volume> (<year>2014</year>): <fpage>306</fpage>–<lpage>309</lpage>.<pub-id pub-id-type="pmid">24968938</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.1250057</pub-id></mixed-citation></ref><ref id="advs74064-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="advs74064-cite-0012">
+<string-name name-style="western">
+<given-names>P. A.</given-names>
+<surname>Quinto‐Su</surname>
+</string-name>, “<article-title>Microparticle Transport Networks with Holographic Optical Tweezers and Cavitation Bubbles</article-title>,” <source>Optics Letters</source>
+<volume>44</volume> (<year>2019</year>): <fpage>4610</fpage>–<lpage>4613</lpage>.<pub-id pub-id-type="pmid">31517943</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1364/OL.44.004610</pub-id></mixed-citation></ref><ref id="advs74064-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="advs74064-cite-0013">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Liang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Yan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wang</surname>
+</string-name>, et al., “<article-title>Simultaneous Optical Trapping and Imaging in the Axial Plane: A Review of Current Progress</article-title>,” <source>Reports on Progress in Physics</source>
+<volume>83</volume> (<year>2020</year>): <elocation-id>032401</elocation-id>.<pub-id pub-id-type="pmid">31995793</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1088/1361-6633/ab7175</pub-id></mixed-citation></ref><ref id="advs74064-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="advs74064-cite-0014">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Fu</surname>
+</string-name>, et al., “<article-title>Integrating the Optical Tweezers and Spanner onto an Individual Single‐layer Metasurface</article-title>,” <source>Photonics Research</source>
+<volume>9</volume> (<year>2021</year>): <fpage>1062</fpage>–<lpage>1068</lpage>.</mixed-citation></ref><ref id="advs74064-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="advs74064-cite-0015">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Lu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Ginis</surname>
+</string-name>, et al., “<article-title>On‐Chip Optical Tweezers Based on Freeform Optics</article-title>,” <source>Optica</source>
+<volume>8</volume> (<year>2021</year>): <fpage>409</fpage>–<lpage>414</lpage>.</mixed-citation></ref><ref id="advs74064-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="advs74064-cite-0016">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Miccio</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Memmolo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Grilli</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Ferraro</surname>
+</string-name>, “<article-title>All‐Optical Microfluidic Chips for Reconfigurable Dielectrophoretic Trapping through SLM Light Induced Patterning</article-title>,” <source>Lab on a Chip</source>
+<volume>12</volume> (<year>2012</year>): <fpage>4449</fpage>–<lpage>4454</lpage>.<pub-id pub-id-type="pmid">22960732</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1039/c2lc40789b</pub-id></mixed-citation></ref><ref id="advs74064-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="advs74064-cite-0017">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Shi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Shen</surname>
+</string-name>, et al., “<article-title>A Plasmonic Spanner for Metal Particle Manipulation</article-title>,” <source>Scientific Reports</source>
+<volume>5</volume> (<year>2015</year>): <elocation-id>15446</elocation-id>.<pub-id pub-id-type="pmid">26481689</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/srep15446</pub-id><pub-id pub-id-type="pmcid">PMC4612544</pub-id></mixed-citation></ref><ref id="advs74064-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="advs74064-cite-0018">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Yu</surname>
+</string-name> and <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Capasso</surname>
+</string-name>, “<article-title>Flat Optics with Designer Metasurfaces</article-title>,” <source>Nature Materials</source>
+<volume>13</volume> (<year>2014</year>): <fpage>139</fpage>–<lpage>150</lpage>.<pub-id pub-id-type="pmid">24452357</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nmat3839</pub-id></mixed-citation></ref><ref id="advs74064-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="advs74064-cite-0019">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Jahani</surname>
+</string-name> and <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Jacob</surname>
+</string-name>, “<article-title>All‐dielectric Metamaterials</article-title>,” <source>Nature Nanotechnology</source>
+<volume>11</volume> (<year>2016</year>): <fpage>23</fpage>–<lpage>36</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nnano.2015.304</pub-id><pub-id pub-id-type="pmid">26740041</pub-id></mixed-citation></ref><ref id="advs74064-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="advs74064-cite-0020">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Rui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Gu</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Cui</surname>
+</string-name>, “<article-title>Trapping and Manipulation of Nanoparticles Using Multifocal Optical Vortex Metalens</article-title>,” <source>Scientific Reports</source>
+<volume>7</volume> (<year>2017</year>): <elocation-id>14611</elocation-id>.<pub-id pub-id-type="pmid">29097711</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-017-14449-y</pub-id><pub-id pub-id-type="pmcid">PMC5668435</pub-id></mixed-citation></ref><ref id="advs74064-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="advs74064-cite-0021">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Dai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Min</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Yuan</surname>
+</string-name>, “<article-title>Plasmonic Manipulation of Targeted Metallic Particles by Polarization‐Sensitive Metalens</article-title>,” <source>ACS Photonics</source>
+<volume>5</volume> (<year>2018</year>): <fpage>2945</fpage>–<lpage>2950</lpage>.</mixed-citation></ref><ref id="advs74064-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="advs74064-cite-0022">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Chantakit</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Schlickriede</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Sain</surname>
+</string-name>, et al., “<article-title>All‐Dielectric Silicon Metalens for Two‐Dimensional Particle Manipulation in Optical Tweezers</article-title>,” <source>Photonics Research</source>
+<volume>8</volume> (<year>2020</year>): <fpage>1435</fpage>–<lpage>1440</lpage>.</mixed-citation></ref><ref id="advs74064-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="advs74064-cite-0023">
+<string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Genevet</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Kats</surname>
+</string-name>, et al., “<article-title>Light Propagation with Phase Discontinuities: Generalized Laws of Reflection and Refraction</article-title>,” <source>Science</source>
+<volume>334</volume> (<year>2011</year>): <fpage>333</fpage>–<lpage>337</lpage>.<pub-id pub-id-type="pmid">21885733</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.1210713</pub-id></mixed-citation></ref><ref id="advs74064-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="advs74064-cite-0024">
+<string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Ni</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Xie</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Genevet</surname>
+</string-name>, “<article-title>On‐chip Light Control of Semiconductor Optoelectronic Devices Using Integrated Metasurfaces</article-title>,” <source>Opto‐Electronic Advances</source>
+<volume>8</volume> (<year>2025</year>): <elocation-id>240159</elocation-id>.</mixed-citation></ref><ref id="advs74064-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="advs74064-cite-0025">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Dou</surname>
+</string-name>, et al., “<article-title>Diamond‐enhanced Nanoimprint Lithography for Fabrication of Micro/Nano‐Optical Elements</article-title>,” <source>ACS Photonics</source>
+<volume>13</volume> (<year>2026</year>): <fpage>311</fpage>–<lpage>319</lpage>.</mixed-citation></ref><ref id="advs74064-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="advs74064-cite-0026">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Shen</surname>
+</string-name> and <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Huang</surname>
+</string-name>, “<article-title>A Review of Optical Tweezers with Metasurfaces</article-title>,” <source>Photonics</source>
+<volume>10</volume> (<year>2023</year>): <fpage>623</fpage>.</mixed-citation></ref><ref id="advs74064-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="advs74064-cite-0027">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Xiao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Plaskocinski</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Biabanifard</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Persheyev</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Di Falco</surname>
+</string-name>, “<article-title>On‐chip Optical Trapping with High NA Metasurfaces</article-title>,” <source>ACS Photonics</source>
+<volume>10</volume> (<year>2023</year>): <fpage>1341</fpage>–<lpage>1348</lpage>.<pub-id pub-id-type="pmid">37215320</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsphotonics.2c01986</pub-id><pub-id pub-id-type="pmcid">PMC10197168</pub-id></mixed-citation></ref><ref id="advs74064-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="advs74064-cite-0028">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Chen</surname>
+</string-name>, et al., “<article-title>Diamond Based Optical Metasurfaces for Broadband Wavefront Shaping in Harsh Environment</article-title>,” <source>Laser &amp; Photonics Reviews</source>
+<volume>18</volume> (<year>2024</year>): <elocation-id>2400007</elocation-id>.</mixed-citation></ref><ref id="advs74064-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="advs74064-cite-0029">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Dou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Zheng</surname>
+</string-name>, et al., “<article-title>Solar‐blind Ultraviolet Imaging with a Diamond Metalens</article-title>,” <source>Photonics Research</source>
+<volume>13</volume> (<year>2025</year>): <fpage>1452</fpage>–<lpage>1458</lpage>.</mixed-citation></ref><ref id="advs74064-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="advs74064-cite-0030">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Tian</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Xue</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Wang</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Yu</surname>
+</string-name>, “<article-title>Three‐Dimensional Array Optical Tweezers Based on Array Phase Modulation</article-title>,” <source>Optics &amp; Laser Technology</source>
+<volume>184</volume> (<year>2025</year>): <elocation-id>112547</elocation-id>.</mixed-citation></ref><ref id="advs74064-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="advs74064-cite-0031">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Roichman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Sun</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F. C.</given-names>
+<surname>Cheong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. G.</given-names>
+<surname>Grier</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. H.</given-names>
+<surname>Lee</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Amato‐Grill</surname>
+</string-name>, “<article-title>Optical Forces Arising from Phase Gradients</article-title>,” <source>Physical Review Letters</source>
+<volume>100</volume> (<year>2008</year>): <elocation-id>013602</elocation-id>.<pub-id pub-id-type="pmid">18232759</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1103/PhysRevLett.100.013602</pub-id></mixed-citation></ref><ref id="advs74064-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="advs74064-cite-0032">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ge</surname>
+</string-name>, et al., “<article-title>Experimental Demonstration of Optical Trapping and Manipulation with Multifunctional Metasurface</article-title>,” <source>Optics Letters</source>
+<volume>47</volume> (<year>2022</year>): <fpage>977</fpage>–<lpage>980</lpage>.<pub-id pub-id-type="pmid">35167573</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1364/OL.450490</pub-id></mixed-citation></ref><ref id="advs74064-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="advs74064-cite-0033">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Shi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Yin</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, “<article-title>Capture of Rayleigh Particles by Focused Double‐ring Perfect Vortex Beams</article-title>,” <source>Acta Physica Sinica</source>
+<volume>74</volume> (<year>2025</year>): <elocation-id>088702</elocation-id>.</mixed-citation></ref><ref id="advs74064-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="advs74064-cite-0034">
+<string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Allen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. W.</given-names>
+<surname>Beijersbergen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. J. C.</given-names>
+<surname>Spreeuw</surname>
+</string-name>, and <string-name name-style="western">
+<given-names>J. P.</given-names>
+<surname>Woerdman</surname>
+</string-name>, “<article-title>Orbital Angular Momentum of Light and the Transformation of Laguerre‐Gaussian Laser Modes</article-title>,” <source>Physical Review A</source>
+<volume>45</volume> (<year>1992</year>): <fpage>8185</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1103/physreva.45.8185</pub-id><pub-id pub-id-type="pmid">9906912</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

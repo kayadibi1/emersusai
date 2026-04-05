@@ -1,0 +1,1480 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article article-type="research-article" xml:lang="en" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Sci Rep</journal-id><journal-id journal-id-type="iso-abbrev">Sci Rep</journal-id><journal-id journal-id-type="pmc-domain-id">1579</journal-id><journal-id journal-id-type="pmc-domain">scirep</journal-id><journal-title-group><journal-title>Scientific Reports</journal-title></journal-title-group><issn pub-type="epub">2045-2322</issn><publisher><publisher-name>Nature Publishing Group</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13040048</article-id><article-id pub-id-type="pmcid-ver">PMC13040048.1</article-id><article-id pub-id-type="pmcaid">13040048</article-id><article-id pub-id-type="pmcaiid">13040048</article-id><article-id pub-id-type="pmid">41888558</article-id><article-id pub-id-type="doi">10.1038/s41598-026-45351-1</article-id><article-id pub-id-type="publisher-id">45351</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="heading"><subject>Article</subject></subj-group></article-categories><title-group><article-title>Nonlinear dynamics of <italic toggle="yes">Nosema ceranae</italic> and the fragile resilience of honeybee colonies under environmental strain</article-title></title-group><contrib-group><contrib contrib-type="author"><name name-style="western"><surname>Salman</surname><given-names initials="AM">Amer M.</given-names></name><xref ref-type="aff" rid="Aff1">1</xref></contrib><contrib contrib-type="author" corresp="yes"><name name-style="western"><surname>Mohd</surname><given-names initials="MH">Mohd Hafiz</given-names></name><address><email>mohdhafizmohd@usm.my</email></address><xref ref-type="aff" rid="Aff1">1</xref></contrib><contrib contrib-type="author"><name name-style="western"><surname>Almansoori</surname><given-names initials="AKK">Ammar Khazaal Kadhim</given-names></name><xref ref-type="aff" rid="Aff2">2</xref></contrib><contrib contrib-type="author" corresp="yes"><name name-style="western"><surname>Manmi</surname><given-names initials="KMA">Kawa M. A.</given-names></name><address><email>kawa.manmi@warwick.ac.uk</email></address><xref ref-type="aff" rid="Aff3">3</xref><xref ref-type="aff" rid="Aff4">4</xref></contrib><aff id="Aff1"><label>1</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/02rgb2k63</institution-id><institution-id institution-id-type="GRID">grid.11875.3a</institution-id><institution-id institution-id-type="ISNI">0000 0001 2294 3534</institution-id><institution>School of Mathematical Sciences, </institution><institution>Universiti Sains Malaysia, </institution></institution-wrap>11800 USM Gelugor, Penang Malaysia </aff><aff id="Aff2"><label>2</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/02rgb2k63</institution-id><institution-id institution-id-type="GRID">grid.11875.3a</institution-id><institution-id institution-id-type="ISNI">0000 0001 2294 3534</institution-id><institution>Centre for Chemical Biology (CCB), </institution><institution>Universiti Sains Malaysia, </institution></institution-wrap>SAINS@USM,29 Block B, 10, Persiaran Bukit Jambul, Bayan Lepas, 11900 Bayan Lepas, Penang Malaysia </aff><aff id="Aff3"><label>3</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/01a77tt86</institution-id><institution-id institution-id-type="GRID">grid.7372.1</institution-id><institution-id institution-id-type="ISNI">0000 0000 8809 1613</institution-id><institution>Mathematics Institute, </institution><institution>University of Warwick, </institution></institution-wrap>Gibbet Hill Road, Coventry, CV4 7AL UK </aff><aff id="Aff4"><label>4</label><institution-wrap><institution-id institution-id-type="ROR">https://ror.org/02124dd11</institution-id><institution-id institution-id-type="GRID">grid.444950.8</institution-id><institution>Department of Mathematics, College of Science, </institution><institution>Salahaddin University-Erbil, </institution></institution-wrap>Kurdistan Region, Iraq </aff></contrib-group><pub-date pub-type="epub"><day>27</day><month>3</month><year>2026</year></pub-date><pub-date pub-type="collection"><year>2026</year></pub-date><volume>16</volume><issue-id pub-id-type="pmc-issue-id">503847</issue-id><elocation-id>10905</elocation-id><history><date date-type="received"><day>17</day><month>11</month><year>2025</year></date><date date-type="accepted"><day>18</day><month>3</month><year>2026</year></date></history><pub-history><event event-type="pmc-release"><date><day>27</day><month>03</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>02</day><month>04</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-02 00:25:13.350"><day>02</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement>© The Author(s) 2026</copyright-statement><copyright-year>2026</copyright-year><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p><bold>Open Access</bold> This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long as you give appropriate credit to the original author(s) and the source, provide a link to the Creative Commons licence, and indicate if changes were made. The images or other third party material in this article are included in the article’s Creative Commons licence, unless indicated otherwise in a credit line to the material. If material is not included in the article’s Creative Commons licence and your intended use is not permitted by statutory regulation or exceeds the permitted use, you will need to obtain permission directly from the copyright holder. To view a copy of this licence, visit <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link>.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="41598_2026_Article_45351.pdf"/><abstract id="Abs1" abstract-type="unstructured"><p id="Par1">The health and sustainability of honeybee populations are essential for global food production and ecological balance. More than one-third of agricultural crops depend on pollination, making honeybees indispensable to the global economy. However, colonies worldwide are increasingly threatened by the gut parasite <italic toggle="yes">Nosema ceranae</italic>, whose recurrent outbreaks cause severe productivity losses and economic damage to the apicultural and agricultural sectors. Despite its prevalence, the nonlinear mechanisms responsible for the persistence and resurgence of <italic toggle="yes">Nosema ceranae</italic> remain poorly understood. This study aims to develop a mathematical model that interpret the complex epidemiological behaviour of <italic toggle="yes">Nosema ceranae</italic> under realistic biological conditions, specifically focusing on renewal of colony-level susceptibility and the strained resources available for control and management. A nonlinear Susceptible-Infected-Recovered-Susceptible (SIRS) model incorporating renewal of colony-level susceptibility and resource saturation is formulated and analysed using stability theory and numerical bifurcation techniques. Analytical derivations identify the conditions for transcritical and Hopf bifurcations, while numerical continuation analysis and time series simulations validate the theoretical predictions and reveal the rich dynamical structure. The analysis uncovers two critical thresholds governing colony dynamics. A forward (transcritical) bifurcation marks the transition from disease eradication to endemic persistence, while a Hopf bifurcation arising from resource limitations induces sustained oscillations representing recurrent infection waves. The coexistence of stable equilibria and periodic orbits highlights bistability, indicating that small perturbations or change in control interventions can trigger large amplitude outbreaks. These nonlinear feedbacks provide a mechanistic explanation for the cyclical prevalence of <italic toggle="yes">Nosema ceranae</italic> observed in distinct colonies. The proposed framework establishes, for the first time, how the interplay between partial recovery and limited resource availability can drive complex epidemic patterns in honeybee colonies. Beyond its theoretical contribution, the study provides actionable insight for the agriculture industry: efficient allocation of control resources and timely interventions are essential to prevent recurrent epidemics that threaten pollination services and agricultural productivity. The results bridge mathematical modelling and ecological management, offering a predictive foundation for mitigating the economic and environmental impact of <italic toggle="yes">Nosema ceranae</italic> on global food security.</p></abstract><kwd-group xml:lang="en"><title>Keywords</title><kwd><italic toggle="yes">Nosema ceranae</italic> dynamics</kwd><kwd>Mathematical ecology of pollinators</kwd><kwd>Bifurcation and stability analysis</kwd><kwd>Colony collapse and resilience</kwd><kwd>Eco-epidemiological modelling</kwd></kwd-group><kwd-group kwd-group-type="npg-subject"><title>Subject terms</title><kwd>Computational biology and bioinformatics</kwd><kwd>Diseases</kwd><kwd>Ecology</kwd><kwd>Ecology</kwd><kwd>Mathematics and computing</kwd><kwd>Systems biology</kwd></kwd-group><funding-group><award-group><funding-source><institution>The Fundamental Research Grant Scheme by the Ministry of Higher Education, Malaysia (MOHE).</institution></funding-source><award-id>FRGS/1/2022/STG06/USM/02/1</award-id></award-group></funding-group><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>issue-copyright-statement</meta-name><meta-value>© Springer Nature Limited 2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="Sec1"><title>Introduction</title><p id="Par2">Honeybees are among the most important pollinators sustaining terrestrial ecosystems and global food production, contributing to the pollination of approximately one-third of the crops consumed by humans<sup><xref ref-type="bibr" rid="CR1">1</xref>,<xref ref-type="bibr" rid="CR2">2</xref></sup>. In recent decades, however, widespread declines in honeybee populations have raised serious ecological and economic concerns<sup><xref ref-type="bibr" rid="CR3">3</xref>–<xref ref-type="bibr" rid="CR6">6</xref></sup>. These losses are attributed to multiple interacting stressors, including habitat degradation, pesticide exposure, nutritional stress, and pathogenic infections<sup><xref ref-type="bibr" rid="CR4">4</xref>,<xref ref-type="bibr" rid="CR7">7</xref></sup>. Among these, <italic toggle="yes">Nosema ceranae</italic>, a microsporidian parasite of adult worker bees, has emerged as a dominant pathogen contributing to colony weakening and collapse across temperate and tropical regions<sup><xref ref-type="bibr" rid="CR8">8</xref>–<xref ref-type="bibr" rid="CR10">10</xref></sup>. Originally a parasite of the Asian honeybee <italic toggle="yes">Apis cerana</italic><sup><xref ref-type="bibr" rid="CR11">11</xref></sup>, <italic toggle="yes">Nosema ceranae</italic> has successfully crossed the species barrier to infect the western honeybee <italic toggle="yes">Apis mellifera</italic><sup><xref ref-type="bibr" rid="CR12">12</xref></sup>, establishing a global distribution and replacing its congener <italic toggle="yes">Nosema apis</italic> as the predominant microsporidian infection in managed colonies<sup><xref ref-type="bibr" rid="CR13">13</xref></sup>.</p><p id="Par3">A defining feature of <italic toggle="yes">Nosema ceranae</italic> infection is its chronic and recurrent nature<sup><xref ref-type="bibr" rid="CR10">10</xref>,<xref ref-type="bibr" rid="CR14">14</xref></sup>. The parasite infects the epithelial cells of the midgut, leading to digestive impairment, reduced nutrient absorption, and premature worker mortality. Spores released through faecal excretion contaminate hive surfaces and food stores, enabling new infections through ingestion by healthy nestmates<sup><xref ref-type="bibr" rid="CR12">12</xref></sup>. This indirect faecal-oral and trophallactic transmission mechanism allows <italic toggle="yes">Nosema ceranae</italic> to persist within colonies even under hygienic management conditions<sup><xref ref-type="bibr" rid="CR15">15</xref></sup>. In general, management interventions and physiological responses can reduce infection intensity or temporarily restore colony function, although environmentally persistent spores frequently remain within the hive structure. Consequently, observed reductions in infection prevalence do not necessarily indicate permanent elimination of the parasite, but rather reflect transient suppression of infection intensity combined with ongoing environmental exposure. Renewed susceptibility may therefore arise through continued spore presence, waning physiological compensation, or the recruitment of newly emerged workers into a contaminated environment. These processes generate effective cycles of decline and resurgence in infection prevalence, supporting long-term persistence of the parasite within colonies<sup><xref ref-type="bibr" rid="CR16">16</xref>–<xref ref-type="bibr" rid="CR18">18</xref></sup>.</p><p id="Par4">Seasonal fluctuations in colony demography and foraging activity further modulate these infection dynamics, often producing periodic increases in prevalence during spring and summer<sup><xref ref-type="bibr" rid="CR19">19</xref>,<xref ref-type="bibr" rid="CR20">20</xref></sup>. A further challenge in the management of <italic toggle="yes">Nosema ceranae</italic> arises from the limited capacity for treatment and intervention at both the colony and apiary levels<sup><xref ref-type="bibr" rid="CR21">21</xref></sup>. Control measures such as fumagillin application, nutritional supplementation, and hive sanitation can temporarily reduce infection intensity, yet their effectiveness is constrained by labour, cost, and logistical limitations<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>. In large-scale beekeeping operations, it is rarely feasible to treat all colonies simultaneously or continuously, leading to delayed responses and heterogeneous control outcomes. This limitation can be conceptualised as a form of resource saturation, whereby the effective rate of treatment decreases when the number of infected individuals exceeds the available management capacity<sup><xref ref-type="bibr" rid="CR21">21</xref></sup>. Importantly, such constraints operate at the level of colony and apiary management, reflecting limits in intervention capacity rather than treatment of individual bees. The inclusion of this nonlinear limitation in epidemiological modelling provides a more realistic representation of real-world disease control scenarios in apiculture<sup><xref ref-type="bibr" rid="CR22">22</xref></sup>.</p><p id="Par5">Although infection occurs at the level of individual worker bees, the epidemiological patterns observed in managed apiaries emerge primarily at the colony scale, where demographic turnover, environmental contamination, and management interventions continuously reshape infection prevalence. Worker bees have relatively short lifespans and are continually replaced through recruitment of newly emerged individuals. Consequently, apparent recovery at the colony level does not strictly correspond to immunological clearance in individual bees, but rather reflects a combination of mortality of infected workers, reduction in spore burden, physiological compensation, and demographic replacement. From a dynamical perspective, transitions in colony infection status therefore arise from population turnover and environmental feedbacks as much as from individual-level biological processes<sup><xref ref-type="bibr" rid="CR23">23</xref>,<xref ref-type="bibr" rid="CR24">24</xref></sup>. Thus, in this study, we adopt a functional colony-level epidemiological perspective in which the model compartments describe proportions of the colony workforce in different infection states. Transitions between these states represent effective changes in colony infection status driven by demographic renewal, treatment-mediated suppression of infection, and persistence of spores within the hive environment, rather than permanent recovery or reinfection of the same individual bee. This modelling framework is consistent with the ecological and management processes that govern disease persistence in honeybee colonies.</p><p id="Par6">While several epidemiological models have been developed to study <italic toggle="yes">Nosema ceranae</italic> infections or general bee pathogens, most frameworks remain limited to either individual-level infection processes or simplified colony-level dynamics with constant recovery rates and unlimited treatment capacity<sup><xref ref-type="bibr" rid="CR25">25</xref>,<xref ref-type="bibr" rid="CR26">26</xref></sup>. Such assumptions overlook the complex feedbacks between infection intensity, resource allocation, and management constraints that characterise real apiary conditions. The nonlinear SIRS formulation introduced in this study addresses this gap by explicitly integrating partial infection suppression and resource saturation into a unified colony-level framework<sup><xref ref-type="bibr" rid="CR27">27</xref>,<xref ref-type="bibr" rid="CR28">28</xref></sup>. This approach captures how limited intervention capacity and transient reductions in infection burden can give rise to oscillatory infection patterns and bistable outcomes that are frequently observed in managed honeybee populations but not reproduced by classical models<sup><xref ref-type="bibr" rid="CR29">29</xref>–<xref ref-type="bibr" rid="CR31">31</xref></sup>.</p><p id="Par7">The contribution of this research lies in the development and rigorous analysis of a nonlinear SIRS-type model tailored to represent colony-level dynamics of <italic toggle="yes">Nosema ceranae</italic> under the combined influence of recurrent infection pressure and constrained management resources. The proposed framework links intervention limitations directly to epidemiological dynamics through a nonlinear treatment response, enabling systematic investigation of how resource availability and infection feedbacks jointly shape colony outcomes. From a dynamical systems perspective, the analysis reveals a range of qualitative transitions, including forward (transcritical) bifurcations, Hopf bifurcations, and regions of bistability, providing a mechanistic interpretation of recurrent infection cycles and stability shifts in managed colonies. By integrating biologically grounded colony-level processes with nonlinear stability analysis, the model offers a coherent theoretical framework for understanding how demographic turnover, environmental persistence of pathogens, and finite management capacity interact to determine long-term infection behaviour. These insights contribute to a deeper conceptual understanding of colony resilience, instability thresholds, and the dynamical conditions under which recurrent outbreaks may emerge or be suppressed.</p><p id="Par8">The remainder of this paper is organised as follows. Section “<xref rid="Sec2" ref-type="sec">The model formulation</xref>” presents the formulation of the <italic toggle="yes">Nosema ceranae</italic> SIRS model and its biological interpretation. Section “<xref rid="Sec3" ref-type="sec">Characterisation of equilibrium points</xref>” provides a detailed mathematical analysis of the stability, equilibrium points, and bifurcation structure. Section “<xref rid="Sec11" ref-type="sec">Results and discussion</xref>” reports the numerical simulations, validating the analytical results and illustrating the impact of control measures. Finally, section “<xref rid="Sec15" ref-type="sec">Conclusion and implications</xref>” discusses the biological implications of the findings and highlights potential directions for future research on sustainable <italic toggle="yes">Nosema ceranae</italic> control in honeybee colonies.</p></sec><sec id="Sec2"><title>The model formulation</title><p id="Par9">To investigate the combined influences of limited treatment capacity, management constraints, and transient infection suppression on the transmission dynamics of <italic toggle="yes">Nosema ceranae</italic> in honeybee colonies, we consider a generalised form of the classical Susceptible-Infected-Recovered (SIR) framework together with renewal of colony-level susceptibility processes<sup><xref ref-type="bibr" rid="CR27">27</xref></sup>. <italic toggle="yes">Nosema ceranae</italic> is a microsporidian parasite that infects the midgut epithelial cells of adult worker bees, leading to impaired digestion, reduced foraging efficiency, shortened lifespan, and progressive colony weakening. The parasite spreads predominantly through the faecal-oral route and trophallactic contact, as infected bees shed environmentally resistant spores that are subsequently ingested by healthy nestmates<sup><xref ref-type="bibr" rid="CR14">14</xref>,<xref ref-type="bibr" rid="CR32">32</xref></sup>. Within a densely populated colony, such indirect horizontal transmission enables the pathogen to persist even under hygienic management and seasonal variations in bee activity.</p><p id="Par10">The present model adopts a functional colony-level epidemiological perspective. Rather than representing immunological transitions of individual bees, the model describes the evolving distribution of the colony workforce across different infection states. Transitions between these states reflect demographic turnover, environmental persistence of spores, and management-mediated suppression of infection intensity. This formulation captures effective changes in colony infection status that arise from population renewal, physiological compensation, and intervention effects, which together govern observed infection prevalence at the colony scale.</p><p id="Par11">To capture these biological processes and their interaction with limited treatment interventions at the colony or apiary level, the model is illustrated diagrammatically in Fig. <xref rid="Fig1" ref-type="fig">1</xref>. The present framework adopts a system of ordinary differential equations of the SIRS type<sup><xref ref-type="bibr" rid="CR28">28</xref>,<xref ref-type="bibr" rid="CR29">29</xref></sup>:</p><p id="Par12"><disp-formula id="Equ1"><label>1</label><tex-math id="d33e470">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} {\left\{ \begin{array}{ll} \dfrac{dS}{dt} = \eta N - \dfrac{\beta S I}{N} + \varepsilon R - vS,\\[6pt] \dfrac{dI}{dt} = \dfrac{\beta S I}{N} - (\delta + v)I - \dfrac{\rho I}{\Phi + I},\\[8pt] \dfrac{dR}{dt} = \delta I + \dfrac{\rho I}{\Phi + I} - (\varepsilon + v)R,\\[6pt] N = S + I + R, \end{array}\right. } \end{aligned}$$\end{document}</tex-math></disp-formula>where <italic toggle="yes">N</italic> denotes the total adult worker population of the colony, subdivided into three functional epidemiological compartments.</p><p id="Par13">
+<fig id="Fig1" position="float" orientation="portrait"><label>Fig. 1</label><caption><p>Diagrammatical representation of the SIRS model for the <italic toggle="yes">Nosema ceranae</italic> transmission dynamics.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO1" position="float" orientation="portrait" xlink:href="41598_2026_45351_Fig1_HTML.jpg"/></fig>
+</p><p id="Par14">In the present formulation, the total colony population <italic toggle="yes">N</italic> is assumed to remain constant over the time horizon of the analysis. This assumption is intended as a simplifying approximation that allows the dynamical effects of infection, recovery, and limited management capacity to be isolated without the additional complexity of demographic feedback<sup><xref ref-type="bibr" rid="CR33">33</xref>,<xref ref-type="bibr" rid="CR34">34</xref></sup>. Biologically, this reflects a quasi-stationary colony phase in which recruitment and mortality are approximately balanced over the infection timescales considered. Under such conditions, the model represents the redistribution of individuals among functional health states within a stable workforce rather than large-scale changes in colony size. This approximation is also consistent with the well-documented social buffering mechanisms exhibited by eusocial insects, whereby behavioural and organisational adjustments can temporarily stabilise the effective workforce despite environmental fluctuations<sup><xref ref-type="bibr" rid="CR35">35</xref>,<xref ref-type="bibr" rid="CR36">36</xref></sup>. The susceptible class, <italic toggle="yes">S</italic>(<italic toggle="yes">t</italic>), represents the fraction of the colony workforce that is functionally healthy yet vulnerable to infection through environmental exposure to spores, trophallactic contact, or ingestion of contaminated food resources. The infected class, <italic toggle="yes">I</italic>(<italic toggle="yes">t</italic>), represents the fraction of the workforce actively harbouring <italic toggle="yes">Nosema ceranae</italic> and contributing to environmental spore accumulation within the hive. The recovered class, <italic toggle="yes">R</italic>(<italic toggle="yes">t</italic>), represents the fraction of the workforce that is functionally restored following infection suppression or reduction in parasite burden. This state may arise through treatment effects, physiological compensation, or demographic replacement of infected individuals by newly emerged workers. Importantly, this classification reflects temporary restoration of colony function rather than permanent immunological recovery of individual bees. Transitions from <italic toggle="yes">R</italic> back to <italic toggle="yes">S</italic> represent renewal of colony-level susceptibility driven by persistent environmental contamination, waning physiological compensation, or recruitment of new workers into a spore-containing environment, rather than reinfection of the same individual bee.</p><p id="Par15">In system (<xref rid="Equ1" ref-type="disp-formula">1</xref>), the parameter <inline-formula id="IEq1"><tex-math id="d33e545">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\eta$$\end{document}</tex-math></inline-formula> denotes the per capita recruitment rate of newly emerged adult workers, while <italic toggle="yes">v</italic> represents the natural mortality rate. These processes collectively regulate population turnover within the colony. The model assumes that recruitment and mortality balance over the time scale of infection dynamics, yielding a quasi-stationary total population size. This approximation allows the analysis to focus on infection redistribution within the workforce rather than long-term colony growth. The transmission parameter <inline-formula id="IEq2"><tex-math id="d33e552">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\beta$$\end{document}</tex-math></inline-formula> quantifies the effective rate at which susceptible workers acquire infection through exposure to environmentally deposited spores and trophallactic interactions. This parameter therefore incorporates both contact intensity and contamination level within the hive environment. The parameter <inline-formula id="IEq3"><tex-math id="d33e556">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\delta$$\end{document}</tex-math></inline-formula> represents the effective rate at which infection intensity is reduced sufficiently for individuals to be reclassified into the functionally restored workforce. This transition may occur through treatment-mediated reduction in parasite load, physiological recovery that restores functional capacity, or replacement of infected workers through demographic turnover. The parameter <inline-formula id="IEq4"><tex-math id="d33e561">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varepsilon$$\end{document}</tex-math></inline-formula> represents the rate at which temporary functional restoration is lost, returning individuals to a susceptible state. This transition reflects renewal of colony vulnerability due to environmental persistence of spores, waning physiological compensation, or recruitment of new workers into a contaminated environment.</p><p id="Par16">The nonlinear term<disp-formula id="Equ18"><tex-math id="d33e567">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \dfrac{\rho I}{\Phi + I} \end{aligned}$$\end{document}</tex-math></disp-formula>models the effect of limited treatment or management capacity, originally introduced by Zhou and Fan<sup><xref ref-type="bibr" rid="CR37">37</xref></sup>. Here, <inline-formula id="IEq5"><tex-math id="d33e575">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula> denotes the maximum achievable intervention intensity, while <inline-formula id="IEq6"><tex-math id="d33e579">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula> is the half-saturation constant describing how rapidly treatment effectiveness declines as infection burden increases. This nonlinear response represents constraints in colony- or apiary-level management, including limits in labour, treatment availability, monitoring capacity, and intervention timing. As infection burden rises, available management resources are distributed across a larger number of affected individuals or colonies, reducing the effective per-capita impact of treatment. The saturation mechanism therefore describes diminishing intervention efficiency at the management scale rather than treatment limitation at the level of individual bees.</p><p id="Par17">In the absence of renewal of colony-level susceptibility and treatment constraints (i.e. <inline-formula id="IEq7"><tex-math id="d33e585">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varepsilon = \rho = 0$$\end{document}</tex-math></inline-formula>), the system reduces to the classical SIR model. All parameters are assumed non-negative to ensure biological feasibility. The model formulated in Equation (<xref rid="Equ1" ref-type="disp-formula">1</xref>) extends the classical SIR framework by incorporating two ecologically grounded mechanisms that are central to colony-level <italic toggle="yes">Nosema ceranae</italic> epidemiology: transient functional restoration of the workforce and nonlinear limitations in intervention capacity. These processes arise naturally from demographic turnover, environmental persistence of spores, and finite management resources. By embedding these mechanisms within a unified dynamical framework, the model captures how feedbacks between infection burden and intervention capacity can generate persistent infection, oscillatory outbreaks, and alternative stable regimes. Such behaviours reflect the complex interaction between pathogen transmission, colony renewal, and management response that characterises real-world apicultural systems.</p></sec><sec id="Sec3"><title>Characterisation of equilibrium points</title><p id="Par18">In this section, we will investigate the stability analysis of the SIRS model (<xref rid="Equ1" ref-type="disp-formula">1</xref>). Since the population of <italic toggle="yes">R</italic> can be estimated based on <italic toggle="yes">N</italic>, <italic toggle="yes">S</italic> and <italic toggle="yes">I</italic>,(i.e. <inline-formula id="IEq8"><tex-math id="d33e615">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$R=N-(S+I)$$\end{document}</tex-math></inline-formula>). So, the model (<xref rid="Equ1" ref-type="disp-formula">1</xref>) will be reduced to the following system of ordinary differential equations:<disp-formula id="Equ2"><label>2</label><tex-math id="d33e622">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} {\left\{ \begin{array}{ll} \frac{dS}{dt} =\eta N -\frac{\beta S I}{N} +\varepsilon (N-(S+I)) -vS\\ \frac{dI}{dt} =\frac{\beta S I}{N} - (\delta + v)I - \frac{\rho I}{\Phi + I} \\ \end{array}\right. } \end{aligned}$$\end{document}</tex-math></disp-formula></p><sec id="Sec4"><title>Existence of the equilibrium points</title><p id="Par19">To calculate the equilibrium points of model (<xref rid="Equ2" ref-type="disp-formula">2</xref>), we denote each of the equations in the dynamical system (<xref rid="Equ2" ref-type="disp-formula">2</xref>) as follows:<disp-formula id="Equ3"><label>3</label><tex-math id="d33e636">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} F(S, I) = \eta N -\frac{\beta S I}{N} +\varepsilon (N-(S+I)) -vS. \end{aligned}$$\end{document}</tex-math></disp-formula><disp-formula id="Equ4"><label>4</label><tex-math id="d33e640">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} G(S, I) = \frac{\beta S I}{N} - (\delta + v)I - \frac{\rho I}{\Phi + I}. \end{aligned}$$\end{document}</tex-math></disp-formula>Now, we set each of the two equations (<xref rid="Equ3" ref-type="disp-formula">3</xref>) and (<xref rid="Equ4" ref-type="disp-formula">4</xref>) to be equal to zero, then we can solve for <italic toggle="yes">S</italic> and <italic toggle="yes">I</italic> and obtain distinct equilibria of the system. However, the equilibria of interest are: </p><p id="Par20"><list list-type="simple"><list-item><label>(i)</label><p id="Par21">The disease-free equilibrium (DFE), <inline-formula id="IEq9"><tex-math id="d33e665">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E_0(\frac{N(\eta +\varepsilon )}{v+\varepsilon }, 0)$$\end{document}</tex-math></inline-formula>, where the disease is eliminated as the population of <inline-formula id="IEq10"><tex-math id="d33e669">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$I^*=0$$\end{document}</tex-math></inline-formula>.</p></list-item><list-item><label>(ii)</label><p id="Par22">The endemic equilibrium (EE), <inline-formula id="IEq11"><tex-math id="d33e678">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E^*(S^*, I^*)$$\end{document}</tex-math></inline-formula>, where the disease spread in the community and both populations of <inline-formula id="IEq12"><tex-math id="d33e682">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$S^* &gt; 0$$\end{document}</tex-math></inline-formula> and <inline-formula id="IEq13"><tex-math id="d33e686">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$I^* &gt; 0$$\end{document}</tex-math></inline-formula>.</p></list-item></list>Next, we analyse the stability of equation (<xref rid="Equ2" ref-type="disp-formula">2</xref>) in details.</p></sec><sec id="Sec5"><title>Stability analysis</title><p id="Par23">This section focusses on examining the stability of equilibrium points. Stability analysis for the two equilibrium points were carried out using the Jacobian matrix. To formulate the Jacobian matrix, we take the partial derivative of the equations (<xref rid="Equ3" ref-type="disp-formula">3</xref>) and (<xref rid="Equ4" ref-type="disp-formula">4</xref>) as follows.<disp-formula id="Equ19"><tex-math id="d33e704">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} {\mathcal {J}}(S, I) = \begin{pmatrix} \frac{\partial F}{\partial S} &amp; &amp; \frac{\partial F}{ \partial I}\\ \frac{\partial G}{\partial S} &amp; &amp; \frac{\partial G}{ \partial I} \end{pmatrix}. \end{aligned}$$\end{document}</tex-math></disp-formula>Which yields to,<disp-formula id="Equ5"><label>5</label><tex-math id="d33e708">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} {\mathcal {J}}(S, I) = \begin{pmatrix} -\frac{\beta I}{N} - (v + \varepsilon ) &amp; &amp; -\frac{\beta S}{N} - \varepsilon \\ \\ \frac{\beta I}{N} &amp; &amp; \frac{\beta S}{N} - \frac{\Phi \rho }{(I+\Phi )^2} - (v+\delta ) \end{pmatrix} \end{aligned}$$\end{document}</tex-math></disp-formula>Mathematica software has been utilised to conduct the computation of the Jacobian and equilibrium points. Furthermore, to obtain the characteristics equation and get the eigenvalues of the equilibrium points, we substitute equilibrium points into the Jacobian matrix (<xref rid="Equ5" ref-type="disp-formula">5</xref>).</p><sec id="Sec6"><title>Stability analysis of the DFE</title><p id="Par24">In this section, we provide the dynamical system analysis associated with DFE point <inline-formula id="IEq14"><tex-math id="d33e722">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E_0=(\frac{N(\eta +\varepsilon )}{v+\varepsilon }, 0)$$\end{document}</tex-math></inline-formula>.</p><p id="Par25">Firstly, we shall substitute the DFE point <inline-formula id="IEq15"><tex-math id="d33e728">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E_0$$\end{document}</tex-math></inline-formula> into the Jacobian matrix (<xref rid="Equ5" ref-type="disp-formula">5</xref>), to obtain,<disp-formula id="Equ6"><label>6</label><tex-math id="d33e735">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} {\mathcal {J}}(E^0) = \begin{pmatrix} -(v + \varepsilon ) &amp; &amp; -\frac{\beta (\eta +\varepsilon )}{v+\varepsilon } - \varepsilon \\ \\ 0 &amp; &amp; \frac{\beta (\eta +\varepsilon )}{v+\varepsilon } - \frac{\rho }{\Phi } - (v+\delta ) \end{pmatrix}. \end{aligned}$$\end{document}</tex-math></disp-formula>Then, we compute the eigenvalues of the matrix (<xref rid="Equ6" ref-type="disp-formula">6</xref>) which are given by: </p><p id="Par26">
+<list list-type="simple"><list-item><label>(i)</label><p id="Par27"><inline-formula id="IEq16"><tex-math id="d33e750">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\lambda _1 = -(v + \varepsilon )$$\end{document}</tex-math></inline-formula>.</p></list-item><list-item><label>(ii)</label><p id="Par28"><inline-formula id="IEq17"><tex-math id="d33e758">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\lambda _2 = -(\frac{\rho }{\Phi } + v+\delta ) + \frac{\beta (\eta +\varepsilon )}{v+\varepsilon }$$\end{document}</tex-math></inline-formula>.</p></list-item></list>
+</p><p id="Par29">Recall that we assumed all the parameters are real and positive. So, <inline-formula id="IEq18"><tex-math id="d33e765">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\lambda _1 \le 0$$\end{document}</tex-math></inline-formula>. Therefore, the DFE is is asymptotically stable if the quantity <inline-formula id="IEq19"><tex-math id="d33e769">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\frac{\rho }{\Phi } + v+\delta ) &gt; \frac{\beta (\eta +\varepsilon )}{v+\varepsilon }$$\end{document}</tex-math></inline-formula>. Conversely, it is unstable if the quantity <inline-formula id="IEq20"><tex-math id="d33e773">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\frac{\rho }{\Phi } + v+\delta ) \le \frac{\beta (\eta +\varepsilon )}{v+\varepsilon }$$\end{document}</tex-math></inline-formula>.</p></sec><sec id="Sec7"><title>Stability analysis of the EE</title><p id="Par30">In this section, we will study the dynamical behaviour of model (<xref rid="Equ2" ref-type="disp-formula">2</xref>) associated with the EE. The EE of model (<xref rid="Equ2" ref-type="disp-formula">2</xref>) is given by:<disp-formula id="Equ20"><tex-math id="d33e787">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} E^* = (S^*, I^*), \end{aligned}$$\end{document}</tex-math></disp-formula>Then, the Jacobian matrix of the EE point is given by:<disp-formula id="Equ7"><label>7</label><tex-math id="d33e791">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} {\mathcal {J}}(E^*) = \begin{pmatrix} -\frac{\beta I^*}{N} - (v + \varepsilon ) &amp; &amp; -\frac{\beta S^*}{N} - \varepsilon \\ \\ \frac{\beta I^*}{N} &amp; &amp; \frac{\beta S^*}{N} - \frac{\Phi \rho }{(I^*+\Phi )^2} - (v+\delta ) \end{pmatrix} \end{aligned}$$\end{document}</tex-math></disp-formula></p><sec id="FPar1"><title>Lemma 1</title><p id="Par31"><italic toggle="yes">Let</italic>
+<inline-formula id="IEq21"><tex-math id="d33e801">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M = -\text {Tr}({\mathcal {J}}(E^*))$$\end{document}</tex-math></inline-formula><italic toggle="yes"> and</italic>
+<inline-formula id="IEq22"><tex-math id="d33e807">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$K = \text {Det}({\mathcal {J}}(E^*))$$\end{document}</tex-math></inline-formula>,<italic toggle="yes"> and let</italic><disp-formula id="Equ8"><label>8</label><tex-math id="d33e813">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} Q(\lambda ) = \lambda ^2 + M \lambda + K \end{aligned}$$\end{document}</tex-math></disp-formula><italic toggle="yes">be the characteristic equation of eigenvalues associated to the Jacobian matrix</italic> (<xref rid="Equ7" ref-type="disp-formula">7</xref>) <italic toggle="yes">computed at the EE</italic> (<inline-formula id="IEq23"><tex-math id="d33e827">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E^*$$\end{document}</tex-math></inline-formula>). <italic toggle="yes">According to Theorem (Routh-Hurwitz criteria) then the following are hold:</italic>
+</p><p id="Par32">
+<list list-type="order"><list-item><p id="Par33">Equation (<xref rid="Equ8" ref-type="disp-formula">8</xref>) has real negative roots if and only if the following conditions are satisfied: <list list-type="alpha-lower"><list-item><p id="Par34"><inline-formula id="IEq24"><tex-math id="d33e850">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M &gt; 0$$\end{document}</tex-math></inline-formula>.</p></list-item><list-item><p id="Par35"><inline-formula id="IEq25"><tex-math id="d33e858">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M^2 &gt; 4K$$\end{document}</tex-math></inline-formula>.</p></list-item><list-item><p id="Par36"><inline-formula id="IEq26"><tex-math id="d33e866">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\sqrt{M^2 - 4K} &lt; M$$\end{document}</tex-math></inline-formula>.</p></list-item></list></p></list-item><list-item><p id="Par37">Equation (<xref rid="Equ8" ref-type="disp-formula">8</xref>) has complex roots if and only if the following conditions are satisfied: <list list-type="alpha-lower"><list-item><p id="Par38"><inline-formula id="IEq27"><tex-math id="d33e883">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M &gt; 0$$\end{document}</tex-math></inline-formula>.</p></list-item><list-item><p id="Par39"><inline-formula id="IEq28"><tex-math id="d33e891">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$M^2 &lt; 4K$$\end{document}</tex-math></inline-formula>.</p></list-item></list></p></list-item></list>
+</p></sec></sec></sec><sec id="Sec8"><title>Bifurcation analysis</title><p id="Par40">In this section, we shall we establish the existence of the forward and Hopf bifurcations for the dynamical system (<xref rid="Equ2" ref-type="disp-formula">2</xref>).</p><sec id="Sec9"><title>Forward bifurcation</title><p id="Par41">A forward bifurcation, also known as a transcritical bifurcation, occurs in a dynamical system when two equilibrium points exchange their stability as a parameter crosses a critical value. In this scenario, no new equilibria are created or destroyed; instead, the stability of the equilibria changes at the bifurcation point, leading to a smooth transition in the dynamics of the system. In epidemiological modelling basic reproduction number (BRN) is one of the threshold components that often being associated with forward bifurcation. The BRN is denoted as <inline-formula id="IEq29"><tex-math id="d33e907">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {R}}_0$$\end{document}</tex-math></inline-formula> which, represents the average number of secondary infections caused by a single infected individual in an otherwise susceptible population. The term <inline-formula id="IEq30"><tex-math id="d33e911">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {R}}_0$$\end{document}</tex-math></inline-formula> is a critical bifurcation parameter: if <inline-formula id="IEq31"><tex-math id="d33e915">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {R}}_0 &lt; 1$$\end{document}</tex-math></inline-formula> the disease cannot sustain itself and eventually dies out, while if <inline-formula id="IEq32"><tex-math id="d33e919">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {R}}_0 &gt; 1$$\end{document}</tex-math></inline-formula> the disease can invade and establish itself within the population. The transition from a disease-free equilibrium (DFE) to an endemic equilibrium (EE) as <inline-formula id="IEq33"><tex-math id="d33e923">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {R}}_0$$\end{document}</tex-math></inline-formula> increases past 1 is often characterised by a transcritical bifurcation<sup><xref ref-type="bibr" rid="CR30">30</xref></sup>.</p><sec id="FPar2"><title>Theorem 1</title><p id="Par42"><italic toggle="yes">Considering the equilibria</italic>
+<inline-formula id="IEq34"><tex-math id="d33e938">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E_0 =(\frac{N(\eta + \varepsilon )}{v+ \varepsilon }, 0)$$\end{document}</tex-math></inline-formula>
+<italic toggle="yes">and</italic>
+<inline-formula id="IEq35"><tex-math id="d33e945">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E^* = (S^*, I^*)$$\end{document}</tex-math></inline-formula>
+<italic toggle="yes">computed in section</italic> “<xref rid="Sec4" ref-type="sec">Existence of the equilibrium points</xref>” <italic toggle="yes">and the basic reproduction number (BRN) of system</italic> (<xref rid="Equ2" ref-type="disp-formula">2</xref>) is given by:<disp-formula id="Equ9"><label>9</label><tex-math id="d33e962">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} {\mathcal {R}}_0 = \frac{\beta (\eta + \varepsilon )}{(v+\varepsilon )(\frac{\rho }{\Phi } + v+ \delta )}. \end{aligned}$$\end{document}</tex-math></disp-formula><italic toggle="yes">Then, the following properties hold</italic>: </p><p id="Par43">
+<list list-type="simple"><list-item><label>(i)</label><p id="Par44">If <inline-formula id="IEq36"><tex-math id="d33e977">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {R}}_0 &lt; 1$$\end{document}</tex-math></inline-formula>, the DFE (<inline-formula id="IEq37"><tex-math id="d33e981">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E_0$$\end{document}</tex-math></inline-formula>) is asymptotically stable and the infection dies out over time.</p></list-item><list-item><label>(ii)</label><p id="Par45">If <inline-formula id="IEq38"><tex-math id="d33e990">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {R}}_0 &gt; 1$$\end{document}</tex-math></inline-formula>, there exist a unique EE (<inline-formula id="IEq39"><tex-math id="d33e994">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E^*$$\end{document}</tex-math></inline-formula>) with <inline-formula id="IEq40"><tex-math id="d33e998">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$I^* &gt; 0$$\end{document}</tex-math></inline-formula>.</p></list-item></list>
+</p></sec><sec id="FPar3"><title><italic toggle="yes">Proof</italic></title><p id="Par46">The stability of the DFE depends on the dominant eigenvalue of the Jacobian matrix at <inline-formula id="IEq41"><tex-math id="d33e1009">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E_0$$\end{document}</tex-math></inline-formula>. From section “<xref rid="Sec6" ref-type="sec">Stability analysis of the DFE</xref>” the dominant eigenvalue is given by:<disp-formula id="Equ10"><label>10</label><tex-math id="d33e1016">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \lambda = -(\frac{\rho }{\Phi } + v + \delta ) + \frac{\beta (\eta + \varepsilon )}{v + \varepsilon }. \end{aligned}$$\end{document}</tex-math></disp-formula>Changes in dynamics occur when the dominant eigenvalue crosses zero:<disp-formula id="Equ21"><tex-math id="d33e1021">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \lambda = -(\frac{\rho }{\Phi } + v + \delta ) + \frac{\beta (\eta + \varepsilon )}{v + \varepsilon } =0. \end{aligned}$$\end{document}</tex-math></disp-formula>The dominant eigenvalue is stable when <inline-formula id="IEq42"><tex-math id="d33e1025">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\lambda &lt; 0$$\end{document}</tex-math></inline-formula>, thus:<disp-formula id="Equ22"><tex-math id="d33e1030">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} &amp; -(\frac{\rho }{\Phi } + v + \delta ) + \frac{\beta (\eta + \varepsilon )}{v + \varepsilon }&lt; 0, \\ &amp; \implies \frac{\beta (\eta + \varepsilon )}{v + \varepsilon }&lt; (\frac{\rho }{\Phi } + v + \delta ), \\ &amp; \implies \frac{\beta (\eta + \varepsilon )}{(v + \varepsilon ) (\frac{\rho }{\Phi } + v + \delta )} &lt; 1. \end{aligned}$$\end{document}</tex-math></disp-formula>Suppose that <inline-formula id="IEq43"><tex-math id="d33e1034">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {R}}_0 &lt; 1$$\end{document}</tex-math></inline-formula><disp-formula id="Equ23"><tex-math id="d33e1037">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} &amp; \implies \frac{\beta (\eta + \varepsilon )}{(v+\varepsilon )(\frac{\rho }{\Phi } + v+ \delta )}&lt; 1 \\ &amp; \implies \beta (\eta + \varepsilon ) &lt; (v+\varepsilon )(\frac{\rho }{\Phi } + v+ \delta ) \end{aligned}$$\end{document}</tex-math></disp-formula>Since all the parameters are assumed to be positive and the quantity <inline-formula id="IEq44"><tex-math id="d33e1041">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\beta (\eta + \varepsilon ) &lt; (v+\varepsilon )(\frac{\rho }{\Phi } + v+ \delta )$$\end{document}</tex-math></inline-formula>. Hence, the dominant eigenvalue (<xref rid="Equ10" ref-type="disp-formula">10</xref>) is always negative when <inline-formula id="IEq45"><tex-math id="d33e1048">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {R}}_0 &lt; 1$$\end{document}</tex-math></inline-formula>. Conversely, when <inline-formula id="IEq46"><tex-math id="d33e1053">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {R}}_0 &gt; 1$$\end{document}</tex-math></inline-formula> becomes unstable, and a stable endemic equilibrium <inline-formula id="IEq47"><tex-math id="d33e1057">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$E^*$$\end{document}</tex-math></inline-formula> emerges, satisfying <inline-formula id="IEq48"><tex-math id="d33e1061">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$I^* &gt; 0$$\end{document}</tex-math></inline-formula>. <inline-formula id="IEq49"><tex-math id="d33e1065">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\square$$\end{document}</tex-math></inline-formula></p></sec></sec><sec id="Sec10"><title>Hopf bifurcation</title><p id="Par47">Hopf bifurcation occurs when a system undergoes a qualitative change in the equilibrium point as a parameter is varied, leading to the creation or disappearance of periodic orbits. Specifically, a supercritical Hopf bifurcation is associated with the transition from a stable fixed point (equilibrium) to an unstable ones, with corresponding creation of a stable periodic orbit. Conversely, a subcritical Hopf bifurcation is associated with the transition from unstable equilibrium point to a stable equilibrium point with the creation of unstable limit cycles. Hopf bifurcation can occur only at (EE).</p><sec id="FPar4"><title>Theorem 2</title><p id="Par48"><italic toggle="yes">System</italic> (<xref rid="Equ2" ref-type="disp-formula">2</xref>) <italic toggle="yes">undergoes a Hopf bifurcation as the parameter</italic>
+<inline-formula id="IEq50"><tex-math id="d33e1084">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula>
+<italic toggle="yes">surpasses the transition threshold</italic>
+<inline-formula id="IEq51"><tex-math id="d33e1091">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi _{H}$$\end{document}</tex-math></inline-formula>.</p></sec><sec id="FPar5"><title><italic toggle="yes">Proof</italic></title><p id="Par49">Recall the characteristic equation (<xref rid="Equ8" ref-type="disp-formula">8</xref>) of the linearised Jacobian matrix (<xref rid="Equ7" ref-type="disp-formula">7</xref>), the Hopf bifurcation occurs if the following conditions are hold: </p><p id="Par50">
+<list list-type="simple"><list-item><label>(i)</label><p id="Par51">
+<inline-formula id="IEq52"><tex-math id="d33e1115">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$[Tr({\mathcal {J}}(E_*))]|_{\Phi =\Phi _{H}} = 0$$\end{document}</tex-math></inline-formula>
+</p></list-item><list-item><label>(ii)</label><p id="Par52">
+<inline-formula id="IEq53"><tex-math id="d33e1124">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$[Det({\mathcal {J}}(E_*))]|_{\Phi =\Phi _{H}} &gt; 0$$\end{document}</tex-math></inline-formula>
+</p></list-item><list-item><label>(iii)</label><p id="Par53">
+<inline-formula id="IEq54"><tex-math id="d33e1133">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\frac{d}{d\Phi }[Tr({\mathcal {J}}(E_*))]|_{\Phi =\Phi _{H}} \ne 0$$\end{document}</tex-math></inline-formula>
+</p></list-item></list>
+</p><p id="Par54">Firstly, we compute the sum of the diagonal elements i.e., the trace of <inline-formula id="IEq55"><tex-math id="d33e1140">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {J}}(E^*)$$\end{document}</tex-math></inline-formula> as follows:<disp-formula id="Equ11"><label>11</label><tex-math id="d33e1144">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} Tr({\mathcal {J}}(E^*)) = -(2v+\varepsilon +\delta ) + \frac{\beta (S^*-I^*)}{N} - \frac{\Phi \rho }{(I^* + \Phi )^2}. \end{aligned}$$\end{document}</tex-math></disp-formula>we compute the determinant <inline-formula id="IEq56"><tex-math id="d33e1149">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$${\mathcal {J}}(E^*)$$\end{document}</tex-math></inline-formula>:<disp-formula id="Equ12"><label>12</label><tex-math id="d33e1153">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} |{\mathcal {J}}(E^*)| = -(\frac{\beta I^*}{N} + (v + \varepsilon ))(\frac{\beta S^*}{N} - \frac{\Phi \rho }{(I^*+\Phi )^2} - (v+\delta )) + (\frac{\beta ^2 S^* I^*}{N^2} - \frac{ \varepsilon \beta I^*}{N}) \end{aligned}$$\end{document}</tex-math></disp-formula>To prove condition (i), we need to set equation (<xref rid="Equ11" ref-type="disp-formula">11</xref>) equals to zero and solve for <inline-formula id="IEq57"><tex-math id="d33e1162">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi = \Phi _{H}$$\end{document}</tex-math></inline-formula>.<disp-formula id="Equ24"><tex-math id="d33e1166">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} -(2v+\varepsilon +\delta ) + \frac{\beta (S^*-I^*)}{N} - \frac{\Phi _H \rho }{(I^* + \Phi _H)^2} = 0 \end{aligned}$$\end{document}</tex-math></disp-formula>First, move all terms not involving <inline-formula id="IEq58"><tex-math id="d33e1170">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi _H$$\end{document}</tex-math></inline-formula> to the right-hand side:<disp-formula id="Equ25"><tex-math id="d33e1174">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \frac{\Phi _H \rho }{(I^* + \Phi _H)^2} = \frac{\beta (S^*-I^*)}{N} - (2v + \varepsilon + \delta ). \end{aligned}$$\end{document}</tex-math></disp-formula>Simplify the right-hand side. Let us define a constant <inline-formula id="IEq59"><tex-math id="d33e1178">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$C$$\end{document}</tex-math></inline-formula> as:<disp-formula id="Equ26"><tex-math id="d33e1182">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} C&amp;= \frac{\beta (S^* - I^*)}{N} - (2v + \varepsilon + \delta ), \\ \implies&amp;\frac{\Phi _H \rho }{(I^* + \Phi _H)^2} = C, \\ \implies&amp;\Phi _H \rho = C (I^* + \Phi _H)^2, \\ \implies&amp;\Phi _H \rho = C (I^{*2} + 2I^* \Phi _H + \Phi _H^2), \\ \implies&amp;C \Phi _H^2 + (2 I^* C) \Phi _H + C I^{*2} - \Phi _H \rho = 0, \\ \implies&amp;C \Phi _H^2 + (2 I^* C - \rho ) \Phi _H + C I^{*2} = 0. \end{aligned}$$\end{document}</tex-math></disp-formula>Now, we now apply the quadratic formula:<disp-formula id="Equ27"><tex-math id="d33e1187">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \Phi _{H} = \frac{-(2 I^* C - \rho ) \pm \sqrt{(2 I^* C - \rho )^2 - 4C \cdot C I^{*2}}}{2C}. \end{aligned}$$\end{document}</tex-math></disp-formula>Thus, at <inline-formula id="IEq60"><tex-math id="d33e1191">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi _H$$\end{document}</tex-math></inline-formula> is:<disp-formula id="Equ28"><tex-math id="d33e1195">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \Phi _{H} = \frac{-(2 I^* C - \rho ) \pm \sqrt{\rho ^2 - 4 I^* C \rho }}{2C} \end{aligned}$$\end{document}</tex-math></disp-formula>It can be checked that at <inline-formula id="IEq61"><tex-math id="d33e1199">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$[Tr({\mathcal {J}}(E_*))]|_{\Phi =\Phi _{H}} = 0$$\end{document}</tex-math></inline-formula> as stated in condition (i).</p><p id="Par55">For condition (ii), we compute the determinant<disp-formula id="Equ13"><label>13</label><tex-math id="d33e1205">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \implies -(\frac{\beta I^*}{N} + (v + \varepsilon ))(\frac{\beta S^*}{N} - \frac{\Phi \rho }{(I^*+\Phi )^2} - (v+\delta )) + (\frac{\beta ^2 S^* I^*}{N^2} - \frac{ \varepsilon \beta I^*}{N}) \end{aligned}$$\end{document}</tex-math></disp-formula>Substitute <inline-formula id="IEq62"><tex-math id="d33e1210">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi _H$$\end{document}</tex-math></inline-formula> in (<xref rid="Equ13" ref-type="disp-formula">13</xref>), then it can be shown that the inequality below holds:<disp-formula id="Equ14"><label>14</label><tex-math id="d33e1217">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \frac{\beta ^2 S^* I^*}{N^2} &gt; (\frac{\beta I^*}{N} + (v + \varepsilon ))(\frac{\beta S^*}{N} - \frac{\Phi _H \rho }{(I^*+\Phi _H)^2} - (v+\delta )) + (\frac{ \varepsilon \beta I^*}{N}) \end{aligned}$$\end{document}</tex-math></disp-formula>By ensuring (<xref rid="Equ14" ref-type="disp-formula">14</xref>) holds, then we have <inline-formula id="IEq63"><tex-math id="d33e1226">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$[Det({\mathcal {J}}(E_*))]|_{\Phi =\Phi _{H}} &gt; 0$$\end{document}</tex-math></inline-formula> as stated in condition (ii).</p><p id="Par56">To show condition (iii), we shall take the partial derivative of (i) with respect to the bifurcation parameter <inline-formula id="IEq64"><tex-math id="d33e1232">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi _H$$\end{document}</tex-math></inline-formula>:<disp-formula id="Equ15"><label>15</label><tex-math id="d33e1236">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \frac{d}{d\Phi } |Tr(J(E_*))| = \frac{d}{d\Phi } (-2v-\varepsilon +\delta + \frac{\beta (S^*-I^*)}{N} + \frac{\Phi \rho }{(I^* + \Phi _H)^2}). \end{aligned}$$\end{document}</tex-math></disp-formula>Then substitute <inline-formula id="IEq65"><tex-math id="d33e1241">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi = \Phi _{H}$$\end{document}</tex-math></inline-formula> into (<xref rid="Equ15" ref-type="disp-formula">15</xref>)<disp-formula id="Equ16"><label>16</label><tex-math id="d33e1248">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \frac{d}{d\Phi _H} |Tr(J(E_*))| = \frac{d}{d\Phi _H} (-2v-\varepsilon +\delta + \frac{\beta (S^*-I^*)}{N} + \frac{\Phi _H \rho }{(I^* + \Phi _H)^2}). \end{aligned}$$\end{document}</tex-math></disp-formula>Solving the equation above (<xref rid="Equ16" ref-type="disp-formula">16</xref>),<disp-formula id="Equ17"><label>17</label><tex-math id="d33e1257">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} \frac{d}{d\Phi _H} |Tr(J(E_*))| = \frac{\rho (I^* - \Phi _H)}{(I^* + \Phi _H)^3}, \end{aligned}$$\end{document}</tex-math></disp-formula>where we can conclude that <inline-formula id="IEq66"><tex-math id="d33e1262">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$|\frac{d}{d\Phi _H} (Tr(J(E_*)))|_{\Phi _H} \ne 0$$\end{document}</tex-math></inline-formula>. Therefore, the Hopf bifurcation occurs around the EE at <inline-formula id="IEq67"><tex-math id="d33e1266">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi = \Phi _H$$\end{document}</tex-math></inline-formula>. <inline-formula id="IEq68"><tex-math id="d33e1270">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\square$$\end{document}</tex-math></inline-formula></p></sec></sec></sec></sec><sec id="Sec11"><title>Results and discussion</title><p id="Par57">In this section, we present the results of the numerical bifurcation analysis and the corresponding time series simulations for the SIRS model (<xref rid="Equ1" ref-type="disp-formula">1</xref>) governing the transmission of <italic toggle="yes">Nosema ceranae</italic> in honeybee colonies. The bifurcation results were obtained using the XPPAUT continuation package, while the numerical simulations were performed using MATLAB under the parameterisation given in Table <xref rid="Tab1" ref-type="table">1</xref>. The focus of the analysis is on the two key parameters <inline-formula id="IEq69"><tex-math id="d33e1286">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula> and <inline-formula id="IEq70"><tex-math id="d33e1290">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula>, which represent the maximum treatment capacity and the half-saturation constant describing the efficiency of resource utilisation. These parameters encapsulate the constraints of limited management and treatment resources in apiary systems. Through a combined analysis of one-parameter and two-parameter continuations, we identify the critical thresholds at which equilibrium states lose stability, leading to the emergence of sustained oscillations in the infected population. We then demonstrate that the numerical simulations are in excellent qualitative agreement with the bifurcation predictions, thereby validating the analytical results derived in section “<xref rid="Sec3" ref-type="sec">Characterisation of equilibrium points</xref>”. The baseline parameter values used in the simulations are selected from biologically plausible ranges reported in the literature<sup><xref ref-type="bibr" rid="CR38">38</xref></sup> and are intended to represent a typical managed colony under moderate infection pressure. Recruitment and mortality rates (<inline-formula id="IEq71"><tex-math id="d33e1302">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\eta$$\end{document}</tex-math></inline-formula> and <italic toggle="yes">v</italic>) are chosen to reflect approximate daily workforce turnover in stable colonies, while the transmission rate <inline-formula id="IEq72"><tex-math id="d33e1309">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\beta$$\end{document}</tex-math></inline-formula> and recovery rate <inline-formula id="IEq73"><tex-math id="d33e1313">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\delta$$\end{document}</tex-math></inline-formula> are consistent with experimentally observed infection progression and partial suppression under treatment. The reinfection parameter <inline-formula id="IEq74"><tex-math id="d33e1318">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varepsilon$$\end{document}</tex-math></inline-formula> is set at a smaller magnitude relative to mortality to represent gradual renewal of colony-level susceptibility driven by demographic turnover and environmental persistence of spores rather than rapid individual reinfection. The management-related parameters <inline-formula id="IEq75"><tex-math id="d33e1322">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula> and <inline-formula id="IEq76"><tex-math id="d33e1326">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula> are explored over wide intervals to capture both efficient and resource-limited intervention regimes. Importantly, the qualitative dynamical behaviours reported in this study are robust across neighbouring parameter values, as supported by the sensitivity analysis in section “<xref rid="Sec14" ref-type="sec">Sensitivity of dynamical behaviour to model parameters</xref>”.</p><p id="Par58">
+<table-wrap id="Tab1" position="float" orientation="portrait"><label>Table 1</label><caption><p>Model parameters, descriptions, and baseline values used for simulating the transmission dynamics of <italic toggle="yes">Nosema ceranae</italic> in a honeybee colony.</p></caption><table frame="hsides" rules="groups"><thead><tr><th align="left" colspan="1" rowspan="1">Parameter</th><th align="left" colspan="1" rowspan="1">Symbol</th><th align="left" colspan="1" rowspan="1">Value</th><th align="left" colspan="1" rowspan="1">Unit</th></tr></thead><tbody><tr><td align="left" colspan="1" rowspan="1"><p>Workforce recruitment rate</p><p>(emergence of new adult </p><p>workers)</p></td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq77"><tex-math id="d33e1368">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\eta$$\end{document}</tex-math></inline-formula>
+</td><td align="left" colspan="1" rowspan="1">0.03</td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq78"><tex-math id="d33e1377">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\hbox {day}^{-1}$$\end{document}</tex-math></inline-formula>
+</td></tr><tr><td align="left" colspan="1" rowspan="1">Natural mortality rate</td><td align="left" colspan="1" rowspan="1">
+<italic toggle="yes">v</italic>
+</td><td align="left" colspan="1" rowspan="1">0.03</td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq79"><tex-math id="d33e1395">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\hbox {day}^{-1}$$\end{document}</tex-math></inline-formula>
+</td></tr><tr><td align="left" colspan="1" rowspan="1"><p>Effective colony transmission </p><p>intensity (within-hive spore</p><p> exposure)</p></td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq80"><tex-math id="d33e1407">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\beta$$\end{document}</tex-math></inline-formula>
+</td><td align="left" colspan="1" rowspan="1">2.10</td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq81"><tex-math id="d33e1416">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\hbox {day}^{-1}$$\end{document}</tex-math></inline-formula>
+</td></tr><tr><td align="left" colspan="1" rowspan="1"><p>Infection suppression rate </p><p>(treatment, removal and </p><p>functional restoration)</p></td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq82"><tex-math id="d33e1428">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\delta$$\end{document}</tex-math></inline-formula>
+</td><td align="left" colspan="1" rowspan="1">0.10</td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq83"><tex-math id="d33e1437">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\hbox {day}^{-1}$$\end{document}</tex-math></inline-formula>
+</td></tr><tr><td align="left" colspan="1" rowspan="1"><p>Renewal of colony-level susceptibility </p><p>(environmental re-exposure </p><p>and demographic turnover)</p></td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq84"><tex-math id="d33e1449">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varepsilon$$\end{document}</tex-math></inline-formula>
+</td><td align="left" colspan="1" rowspan="1">0.006</td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq85"><tex-math id="d33e1458">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\hbox {day}^{-1}$$\end{document}</tex-math></inline-formula>
+</td></tr><tr><td align="left" colspan="1" rowspan="1"><p>Maximum achievable </p><p>intervention intensity</p></td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq86"><tex-math id="d33e1469">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula>
+</td><td align="left" colspan="1" rowspan="1">Vary</td><td align="left" colspan="1" rowspan="1"/></tr><tr><td align="left" colspan="1" rowspan="1">Half-saturation constant</td><td align="left" colspan="1" rowspan="1">
+<inline-formula id="IEq87"><tex-math id="d33e1482">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula>
+</td><td align="left" colspan="1" rowspan="1">Vary</td><td align="left" colspan="1" rowspan="1"/></tr><tr><td align="left" colspan="1" rowspan="1"><p>Total effective workforce</p><p> size</p></td><td align="left" colspan="1" rowspan="1">
+<italic toggle="yes">N</italic>
+</td><td align="left" colspan="1" rowspan="1">800</td><td align="left" colspan="1" rowspan="1"/></tr></tbody></table><table-wrap-foot><p> The parameter values setting is based on study<sup><xref ref-type="bibr" rid="CR38">38</xref></sup>.</p></table-wrap-foot></table-wrap>
+</p><sec id="Sec12"><title>Numerical continuation results</title><p id="Par59">The one-parameter continuation of the infected equilibrium with respect to the treatment efficiency parameter <inline-formula id="IEq89"><tex-math id="d33e1514">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula> is presented in Fig. <xref rid="Fig2" ref-type="fig">2</xref>. The parameter <inline-formula id="IEq90"><tex-math id="d33e1521">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula> quantifies the degree to which available treatment and hygienic management efforts are effectively distributed within the colony. Smaller values of <inline-formula id="IEq91"><tex-math id="d33e1525">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula> correspond to higher efficiency, where control measures such as hygienic behaviour, comb replacement, or supplementary feeding are applied consistently and with minimal delay, allowing the infection to be mitigated effectively.</p><p id="Par60">
+<fig id="Fig2" position="float" orientation="portrait"><label>Fig. 2</label><caption><p>One-parameter continuation of the infected equilibrium with respect to <inline-formula id="IEq88"><tex-math id="d33e1537">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula>. The diagram exhibits subcritical and supercritical Hopf bifurcations depending on the resources efficiency. Green curves represents stable periodic orbits, while blue curve represents the unstable stable periodic orbits. red and black represent stable and unstable equilibria respectively.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO2" position="float" orientation="portrait" xlink:href="41598_2026_45351_Fig2_HTML.jpg"/></fig>
+</p><p id="Par61">As <inline-formula id="IEq92"><tex-math id="d33e1546">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula> decreases, the infected equilibrium <inline-formula id="IEq93"><tex-math id="d33e1550">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$I^{*}$$\end{document}</tex-math></inline-formula> loses stability at a critical value <inline-formula id="IEq94"><tex-math id="d33e1554">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi _{H}$$\end{document}</tex-math></inline-formula>, where a Hopf bifurcation arises and gives birth to a branch of stable periodic oscillations (green curve). This transition indicates the onset of oscillatory infection dynamics, corresponding to recurrent <italic toggle="yes">Nosema ceranae</italic> outbreaks within the honeybee colony. For <inline-formula id="IEq95"><tex-math id="d33e1561">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi &gt; \Phi _{H}$$\end{document}</tex-math></inline-formula>, the endemic equilibrium remains locally stable, representing a steady state infection level in which the parasite persists chronically at a constant prevalence. In contrast, when <inline-formula id="IEq96"><tex-math id="d33e1566">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi &lt; \Phi _{H}$$\end{document}</tex-math></inline-formula>, inefficient treatment or irregular management destabilises the equilibrium, producing periodic infection waves driven by fluctuating spore loads and renewal of colony-level susceptibility events. The smooth emergence of stable limit cycles from the equilibrium indicates a supercritical Hopf bifurcation, implying that the transition from stability to oscillation occurs gradually. Biologically, this phenomenon reflects the field observations that <italic toggle="yes">Nosema ceranae</italic> infections tend to oscillate seasonally or cyclically when management actions such as fumagillin application, feeding supplementation, or hive sanitation are inconsistently implemented. The Hopf threshold <inline-formula id="IEq97"><tex-math id="d33e1573">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi _{H}$$\end{document}</tex-math></inline-formula> therefore delineates a critical boundary between stable endemic infection and recurrent epidemic dynamics within managed colonies.</p><p id="Par62">
+<fig id="Fig3" position="float" orientation="portrait"><label>Fig. 3</label><caption><p>One-parameter continuation of the infected equilibrium with respect to <inline-formula id="IEq98"><tex-math id="d33e1585">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula>. The diagram exhibits subcritical and supercritical Hopf bifurcations depending on the resource supply rate. Green curves represent stable periodic orbits, blue curves represent unstable periodic orbits, while red and black denote stable and unstable equilibria respectively.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO3" position="float" orientation="portrait" xlink:href="41598_2026_45351_Fig3_HTML.jpg"/></fig>
+</p><p id="Par63">The continuation of equilibria with respect to the treatment capacity <inline-formula id="IEq99"><tex-math id="d33e1594">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula> is depicted in Fig. <xref rid="Fig3" ref-type="fig">3</xref>. The parameter <inline-formula id="IEq100"><tex-math id="d33e1601">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula> represents the overall capacity of the colony or the beekeeper to apply management interventions, encompassing hygienic behaviour, spore-cleansing activity, and the ability of the beekeeper to distribute treatments effectively across hives.</p><p id="Par64">For small values of <inline-formula id="IEq101"><tex-math id="d33e1607">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula>, corresponding to limited treatment capacity, the system undergoes a subcritical Hopf bifurcation. In this regime, the infected equilibrium does not simply lose stability; instead, it coexists with both stable and unstable periodic solutions, generating a well-defined region of bistability bounded by a Limit Point of Cycles (LPC). Within this parameter window, two stable attractors are present simultaneously: a stable endemic equilibrium and a stable large-amplitude limit cycle. The phase-space geometry is organised by an unstable limit cycle that forms the basin boundary separating these two long-term outcomes. Trajectories initiated inside this unstable periodic orbit converge towards the endemic equilibrium, whereas those outside its boundary are repelled towards the oscillatory attractor. Hence, for identical parameter values, the colony’s long-term fate depends sensitively on its initial infection abundance. Numerical continuation further clarifies that this unstable periodic orbit originates from the subcritical Hopf bifurcation and persists until it collides with the stable limit cycle at the LPC. This collision marks the disappearance of sustained oscillations and delimits the parameter interval in which bistability occurs. Beyond this threshold, the endemic equilibrium becomes the unique attractor of the system. The loss of oscillatory behaviour therefore occurs through a global reorganisation of invariant sets rather than through gradual amplitude reduction.</p><p id="Par65">Biologically, this bistable structure implies that colony resilience is governed not only by management parameters but also by perturbation magnitude. When the colony operates within this bistable region, small infectious disturbances may decay towards a chronic yet stable endemic state. However, perturbations exceeding the unstable separatrix may drive the system towards recurrent large-amplitude infection cycles characterised by alternating periods of decline and resurgence in <italic toggle="yes">Nosema</italic> intensity. Colonies situated near this dynamical threshold may therefore appear stable under routine conditions, yet remain vulnerable to sufficiently strong epidemiological or environmental shocks that push the system across the basin boundary.</p><p id="Par66">As <inline-formula id="IEq102"><tex-math id="d33e1618">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula> increases, the subcritical Hopf transition gradually transforms into a supercritical one, indicating that enhanced treatment availability and more frequent management interventions suppress bistability and reduce oscillatory behaviour. When <inline-formula id="IEq103"><tex-math id="d33e1622">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula> exceeds a critical value <inline-formula id="IEq104"><tex-math id="d33e1626">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho _{H}$$\end{document}</tex-math></inline-formula>, the endemic equilibrium becomes globally stable and all oscillations vanish. This transition demonstrates that adequate treatment capacity stabilises the colony, leading to a steady endemic equilibrium where infection is persistently low. From an epidemiological and apicultural standpoint, this bifurcation behaviour indicates that insufficient management resources are a major driver of cyclic <italic toggle="yes">Nosema ceranae</italic> outbreaks. Enhancing treatment capacity, either through improved colony hygiene or timely interventions, is therefore essential to stabilising disease dynamics and maintaining colony health.</p><p id="Par67">The analytical Hopf bifurcation threshold derived in Theorem <xref ref-type="sec" rid="FPar4">3.3</xref> provides a precise theoretical prediction for the onset of oscillatory dynamics in the colony infection system. In particular, the critical value <inline-formula id="IEq105"><tex-math id="d33e1638">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi _H$$\end{document}</tex-math></inline-formula> obtained from the Hopf condition marks the parameter level at which the endemic equilibrium loses stability through a pair of complex conjugate eigenvalues crossing the imaginary axis. This analytical prediction is directly corroborated by the numerical continuation results shown in Figs. <xref rid="Fig2" ref-type="fig">2</xref> and <xref rid="Fig3" ref-type="fig">3</xref>. In both diagrams, the transition from a stable endemic equilibrium to sustained oscillatory behaviour occurs precisely at the parameter value identified by the Hopf threshold. The bifurcation point detected numerically as a Hopf bifurcation in the XPPAUT continuation curves therefore coincides with the analytically derived stability boundary, confirming the internal consistency between the theoretical analysis and the numerical bifurcation structure.</p><p id="Par68">
+<fig id="Fig4" position="float" orientation="portrait"><label>Fig. 4</label><caption><p>Two-parameter bifurcation diagram in the <inline-formula id="IEq106"><tex-math id="d33e1656">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\Phi , \rho )$$\end{document}</tex-math></inline-formula> plane showing Hopf loci. The curve separates stable equilibrium (below) from oscillatory regimes (above). The region of bistability is indicated near the transition boundary.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO4" position="float" orientation="portrait" xlink:href="41598_2026_45351_Fig4_HTML.jpg"/></fig>
+</p><p id="Par69">To explore the combined influence of treatment efficiency <inline-formula id="IEq107"><tex-math id="d33e1666">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula> and treatment capacity <inline-formula id="IEq108"><tex-math id="d33e1670">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula>, a two-parameter bifurcation analysis was conducted, and the results are shown in Fig. <xref rid="Fig4" ref-type="fig">4</xref>. The Hopf bifurcation curve divides the <inline-formula id="IEq109"><tex-math id="d33e1677">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\Phi , \rho )$$\end{document}</tex-math></inline-formula> plane into regions corresponding to qualitatively distinct dynamical behaviours. Below the Hopf locus, the endemic equilibrium is asymptotically stable, representing colonies in which infection persists at a controlled and predictable level. Above the curve, the system exhibits stable periodic oscillations, indicating recurrent infection and respectively recovery cycles that can destabilise the colony. A narrow region near the bifurcation boundary indicates bistability, where both a stable equilibrium and a stable limit cycle coexist. The orientation of the Hopf curve reveals a clear trade-off between treatment efficiency and capacity: as efficiency (<inline-formula id="IEq110"><tex-math id="d33e1681">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula>) decreases, greater treatment capacity (<inline-formula id="IEq111"><tex-math id="d33e1686">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula>) is required to sustain stability. Conversely, when treatment capacity diminishes, stability can be preserved only through improved efficiency of management. This interplay demonstrates that colony health depends jointly on both the availability of resources and the precision with which they are deployed.</p><p id="Par70">From a biological perspective, this two-parameter diagram encapsulates the critical management regimes for controlling <italic toggle="yes">Nosema ceranae</italic>. Colonies operating below the Hopf boundary represent resilient systems capable of maintaining stable endemic infection levels, whereas those above the boundary are vulnerable to cyclic outbreaks and possible collapse. The <inline-formula id="IEq112"><tex-math id="d33e1695">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\Phi , \rho )$$\end{document}</tex-math></inline-formula> plane thus serves as a predictive tool for identifying safe operational zones for colony management. By optimising both treatment efficiency and capacity, beekeepers can effectively mitigate oscillatory outbreaks and ensure long-term colony stability.</p></sec><sec id="Sec13"><title>Dynamical behaviour and attractor structure of the model</title><p id="Par71">To establish the qualitative behaviour of the proposed SIRS framework, numerical simulations were conducted using representative parameter sets drawn from distinct regions of parameter space identified through bifurcation analysis. The simulations reveal that the model supports three fundamentally different long-term epidemiological outcomes: infection elimination, persistent endemic infection, and sustained recurrent outbreaks. These dynamical behaviours emerge from the nonlinear interaction between transmission intensity, renewal of colony-level susceptibility feedback, and the finite capacity of recovery processes.</p><p id="Par72">Throughout this section, the state variables <italic toggle="yes">S</italic>(<italic toggle="yes">t</italic>), <italic toggle="yes">I</italic>(<italic toggle="yes">t</italic>), and <italic toggle="yes">R</italic>(<italic toggle="yes">t</italic>) are interpreted as colony-level subpopulations rather than disease states of individual bees. The model therefore describes aggregate infection burden within a colony, which may arise from continual turnover of individuals, heterogeneous exposure, and repeated environmental contamination. Under this interpretation, recovery does not necessarily represent permanent pathogen clearance at the individual level. Instead, it reflects a temporary reduction in colony infection burden resulting from treatment, mortality of infected individuals, or behavioural or physiological processes that reduce detectable infection prevalence. Reinfection then represents renewed exposure or recolonisation of the parasite within the colony environment. This interpretation is consistent with empirical observations that colony-level Nosema prevalence can decline following intervention but later re-emerge due to environmental persistence and demographic turnover.</p><p id="Par73">The numerical results corresponding to the three principal dynamical behaviours are presented in Figs. <xref rid="Fig5" ref-type="fig">5</xref>, <xref rid="Fig6" ref-type="fig">6</xref> and <xref rid="Fig7" ref-type="fig">7</xref>. Each figure illustrates temporal evolution of colony composition together with the associated phase-space structure. These simulations demonstrate how nonlinear recovery limitations can produce qualitatively distinct colony outcomes even under constant environmental conditions.</p><p id="Par74">
+<fig id="Fig5" position="float" orientation="portrait"><label>Fig. 5</label><caption><p>Disease-free equilibrium regime obtained for <inline-formula id="IEq113"><tex-math id="d33e1743">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\rho =20,\ \phi =2)$$\end{document}</tex-math></inline-formula>. (<bold>a</bold>) Time evolution of colony composition showing rapid elimination of infection and convergence to the infection-free state. (<bold>b</bold>) Phase portrait in the (<italic toggle="yes">S</italic>, <italic toggle="yes">I</italic>) plane demonstrating monotonic convergence toward the disease-free equilibrium without oscillation. (<bold>c</bold>) Infected population trajectory illustrating complete infection clearance following a short transient adjustment. These dynamics occur when recovery capacity remains sufficiently effective across all infection levels.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO5" position="float" orientation="portrait" xlink:href="41598_2026_45351_Fig5_HTML.jpg"/></fig>
+</p><p id="Par75">Figure <xref rid="Fig5" ref-type="fig">5</xref> shows the disease-free regime obtained when recovery capacity is sufficiently effective relative to infection pressure, here illustrated by <inline-formula id="IEq114"><tex-math id="d33e1771">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\rho =20,\ \phi =2)$$\end{document}</tex-math></inline-formula>. Under these conditions, the infected population declines rapidly and monotonically toward zero. The susceptible class expands to occupy nearly the entire colony, while the recovered class disappears after a transient period because no new infections occur. The phase portrait confirms global convergence toward the infection-free equilibrium. Trajectories move directly toward the boundary <inline-formula id="IEq115"><tex-math id="d33e1775">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$I=0$$\end{document}</tex-math></inline-formula> without oscillation, indicating that nonlinear feedback is insufficient to destabilise the disease-free state. The absence of transient amplification reflects strong effective recovery relative to transmission. From a biological perspective, this regime corresponds to successful colony-level suppression of infection. Treatment or natural recovery processes operate efficiently enough to remove infection faster than it can propagate or re-establish. Renewal of colony-level susceptibility feedback is present in the model but remains dynamically irrelevant because infection prevalence never reaches levels at which recovery saturation becomes limiting. The colony therefore converges toward a stable infection-free state.</p><p id="Par76">
+<fig id="Fig6" position="float" orientation="portrait"><label>Fig. 6</label><caption><p>Stable endemic equilibrium regime obtained for <inline-formula id="IEq116"><tex-math id="d33e1787">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\rho =25,\ \phi =40)$$\end{document}</tex-math></inline-formula>. (<bold>a</bold>) Time evolution showing damped oscillations that converge to a persistent non-zero infection level. (<bold>b</bold>) Phase portrait displaying spiral convergence toward the endemic equilibrium. (<bold>c</bold>) Infected population trajectory highlighting transient adjustment before stabilisation. This regime represents chronic colony-level infection persistence arising from partial limitation of recovery processes.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO6" position="float" orientation="portrait" xlink:href="41598_2026_45351_Fig6_HTML.jpg"/></fig>
+</p><p id="Par77">A qualitatively different behaviour emerges when recovery efficiency is reduced relative to infection pressure. Figure <xref rid="Fig6" ref-type="fig">6</xref> illustrates the case <inline-formula id="IEq117"><tex-math id="d33e1808">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\rho =25,\ \phi =40)$$\end{document}</tex-math></inline-formula>, where infection persists at a stable non-zero level. The time series shows damped oscillations that gradually decrease in amplitude before stabilising. The phase portrait exhibits a spiral trajectory converging toward a fixed interior point, which confirms local asymptotic stability of the endemic equilibrium. These transient oscillations arise because recovery responds with a delay when infection levels are elevated. As treatment capacity becomes partially saturated, recovery temporarily lags behind infection growth, producing overshoot and subsequent adjustment. However, the feedback is not sufficiently strong to maintain oscillations indefinitely, and the system settles into a steady balance between infection acquisition and removal. Biologically, this regime represents chronic colony-level infection persistence. The parasite is not eliminated, yet it does not generate recurring epidemic waves. Instead, the colony stabilises at a persistent infection burden determined by the balance of transmission, partial recovery, and renewal of colony-level susceptibilty. This behaviour is consistent with long-term endemic prevalence observed in many managed colonies where treatment reduces but does not eradicate infection.</p><p id="Par78">
+<fig id="Fig7" position="float" orientation="portrait"><label>Fig. 7</label><caption><p>Stable limit cycle regime obtained for <inline-formula id="IEq118"><tex-math id="d33e1820">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\rho =25,\ \phi =20)$$\end{document}</tex-math></inline-formula>. (<bold>a</bold>) Time evolution showing sustained periodic fluctuations in colony composition. (<bold>b</bold>) Phase portrait revealing a closed invariant orbit characteristic of persistent oscillatory dynamics. (<bold>c</bold>) Infected population trajectory demonstrating recurrent large-amplitude outbreak cycles. The oscillations are generated by nonlinear feedback between infection growth and saturation of recovery capacity.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO7" position="float" orientation="portrait" xlink:href="41598_2026_45351_Fig7_HTML.jpg"/></fig>
+</p><p id="Par79">When recovery becomes more strongly constrained relative to infection growth, the system undergoes a qualitative transition from equilibrium behaviour to sustained oscillations. Figure <xref rid="Fig7" ref-type="fig">7</xref> presents the parameter set <inline-formula id="IEq119"><tex-math id="d33e1841">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$(\rho =25,\ \phi =20)$$\end{document}</tex-math></inline-formula>, for which the system exhibits persistent periodic fluctuations. The time series displays repeated large-amplitude infection peaks separated by recovery phases. The phase portrait reveals a closed invariant orbit, demonstrating the existence of a stable limit cycle. These oscillations arise from a self-regulating feedback mechanism generated by recovery saturation. When infection prevalence becomes high, the effective recovery rate declines because treatment capacity cannot increase proportionally. This temporary reduction in recovery allows infection to persist and eventually rebound after partial suppression. As infection falls, recovery capacity becomes more effective again, which reduces prevalence until transmission once more dominates. The repeated alternation of these processes produces sustained endogenous epidemic cycles. Importantly, these oscillations occur in the absence of seasonal forcing or external perturbation. The recurrent outbreaks are generated entirely by internal nonlinear feedback within the colony. This mechanism provides a plausible explanation for repeated infection cycles observed in colonies even under stable environmental conditions.</p><p id="Par80">Taken together, the three dynamical behaviours demonstrate that colony infection dynamics depend critically on the balance between transmission and the effective capacity of recovery processes. When recovery remains sufficiently responsive across all infection levels, infection is eliminated. When recovery is moderately constrained, infection persists at a steady level. When recovery becomes strongly limited at high prevalence, delayed feedback generates recurrent epidemic cycles. These results highlight the important role of nonlinear recovery saturation in shaping colony resilience. The model predicts that increasing infection burden does not necessarily produce a proportional recovery response. Instead, resource or treatment limitations can create delayed regulation that fundamentally alters system stability. As a consequence, small parameter changes can shift the colony between elimination, persistence, and cyclic outbreak regimes.</p><p id="Par81">The ability of a single mechanistic model to generate these qualitatively distinct outcomes supports the hypothesis that renewal of colony-level susceptibility and finite recovery capacity are key drivers of colony-scale disease variability. The time-domain simulations presented here provide direct confirmation of the bifurcation structure analysed in subsequent sections and establish the dynamical foundation for understanding transitions between alternative epidemiological states.</p></sec><sec id="Sec14"><title>Sensitivity of dynamical behaviour to model parameters</title><p id="Par82">To quantify the relative influence of epidemiological and demographic processes on the long-term infection burden, we performed a sensitivity analysis of the model output with respect to key parameters. The analysis evaluates how small relative perturbations in each parameter affect a scalar summary of infection dynamics, thereby identifying the mechanisms that most strongly regulate disease persistence within the colony.</p><p id="Par83">Sensitivity was computed using the normalised local sensitivity index<disp-formula id="Equ29"><tex-math id="d33e1856">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\begin{aligned} S_p = \frac{p}{Y}\frac{\partial Y}{\partial p}, \end{aligned}$$\end{document}</tex-math></disp-formula>where <italic toggle="yes">Y</italic> denotes the selected infection outcome and <italic toggle="yes">p</italic> is the parameter under consideration. This dimensionless measure represents the proportional change in the infection metric induced by a proportional change in the parameter, allowing direct comparison across parameters with different biological units. Numerical derivatives were approximated using a central finite-difference scheme around the baseline parameter set.</p><p id="Par84">Figure <xref rid="Fig8" ref-type="fig">8</xref> presents the absolute values of the sensitivity indices for the principal model parameters. The results reveal a clear hierarchy in the mechanisms controlling long-term infection behaviour.</p><p id="Par85">
+<fig id="Fig8" position="float" orientation="portrait"><label>Fig. 8</label><caption><p>Normalised local sensitivity indices for key model parameters. Bars represent the magnitude of the proportional change in the long-term infection level resulting from a small proportional perturbation in each parameter.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" id="MO8" position="float" orientation="portrait" xlink:href="41598_2026_45351_Fig8_HTML.jpg"/></fig>
+</p><p id="Par86">The analysis demonstrates that the demographic recruitment rate <inline-formula id="IEq120"><tex-math id="d33e1883">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\eta$$\end{document}</tex-math></inline-formula> exerts the strongest influence on infection dynamics. This indicates that the long-term burden of Nosema infection is highly sensitive to the rate at which new susceptible individuals enter the colony. Biologically, this reflects the fundamental role of population turnover in sustaining transmission. Increased recruitment continuously replenishes the susceptible pool, counteracting depletion caused by infection and recovery, and thereby maintaining favourable conditions for parasite persistence. The dominance of this parameter highlights that colony demography is not merely a background process but a primary driver of epidemiological stability.</p><p id="Par87">The treatment or removal intensity <inline-formula id="IEq121"><tex-math id="d33e1889">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\rho$$\end{document}</tex-math></inline-formula> emerges as the second most influential parameter. This finding confirms that mechanisms regulating the clearance of infected individuals play a central role in shaping infection outcomes. Because treatment enters the model through a saturating functional response, its effect depends not only on its magnitude but also on the current infection level. Consequently, small changes in treatment capacity can produce disproportionately large shifts in infection persistence, particularly when the system operates near saturation thresholds. This sensitivity underscores the importance of effective management interventions in controlling colony infection levels. Natural mortality <italic toggle="yes">v</italic> also shows a strong regulatory effect. Mortality simultaneously removes susceptible, infected, and recovered individuals, thereby altering both transmission opportunities and population structure. Its relatively high sensitivity indicates that background demographic losses significantly reshape epidemiological feedback loops by modifying host availability and turnover. In ecological terms, mortality acts as a global regulator of population density and therefore indirectly modulates effective contact rates within the colony. The recovery rate <inline-formula id="IEq122"><tex-math id="d33e1896">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\delta$$\end{document}</tex-math></inline-formula> and the treatment half-saturation constant <inline-formula id="IEq123"><tex-math id="d33e1900">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\Phi$$\end{document}</tex-math></inline-formula> exhibit intermediate influence. Recovery shortens the infectious period and therefore directly reduces transmission potential, but its effect is moderated by renewal of colony-level susceptibility and demographic replenishment processes that reintroduce susceptibility. Similarly, the half-saturation constant governs the efficiency of treatment at different infection levels, shaping how rapidly treatment effects saturate as infection increases. The moderate sensitivity of these parameters suggests that they regulate infection intensity rather than fundamentally determining whether persistence occurs. In contrast, the transmission rate <inline-formula id="IEq124"><tex-math id="d33e1904">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\beta$$\end{document}</tex-math></inline-formula> and the renewal of colony-level susceptibility rate <inline-formula id="IEq125"><tex-math id="d33e1909">\documentclass[12pt]{minimal}
+				\usepackage{amsmath}
+				\usepackage{wasysym} 
+				\usepackage{amsfonts} 
+				\usepackage{amssymb} 
+				\usepackage{amsbsy}
+				\usepackage{mathrsfs}
+				\usepackage{upgreek}
+				\setlength{\oddsidemargin}{-69pt}
+				\begin{document}$$\varepsilon$$\end{document}</tex-math></inline-formula> display comparatively smaller sensitivity magnitudes under the baseline parameter regime. Although transmission is essential for invasion, once the system operates within a parameter region that supports persistence, marginal changes in transmission intensity produce smaller proportional changes in long-term infection levels than demographic or treatment processes. Renewal of colony-level susceptibility likewise contributes to maintaining susceptibility recycling, but its local influence is weaker than that of mechanisms directly governing host turnover and removal.</p><p id="Par88">Taken together, the sensitivity structure reveals that the long-term behaviour of the system is controlled primarily by demographic renewal and infection removal processes rather than by transmission alone. This finding provides an important mechanistic insight. While transmission initiates outbreaks, the persistence and magnitude of infection are governed more strongly by the balance between host recruitment, mortality, and treatment capacity. In practical terms, this implies that effective management of Nosema infection requires coordinated regulation of colony population dynamics and treatment efficiency, rather than reliance solely on reducing transmission rates. More broadly, the hierarchical organisation of parameter influence confirms that the model dynamics are structurally robust to small perturbations in transmission and renewal of colony-level susceptibility but remain highly responsive to demographic and management-related processes. This sensitivity pattern is consistent with the nonlinear feedback structure of the model, in which sustained infection emerges from the continuous replenishment and removal of hosts interacting with saturating treatment dynamics. The results therefore provide quantitative evidence identifying the key biological mechanisms that regulate the stability and persistence of infection within honeybee colonies.</p></sec></sec><sec id="Sec15"><title>Conclusion and implications</title><p id="Par89">This study developed and analysed a nonlinear epidemiological framework to investigate the dynamical consequences of renewal of colony-level susceptibility and treatment saturation in Nosema ceranae infection dynamics. By integrating analytical stability theory, bifurcation analysis, and numerical simulations, the model reveals that infection outcomes are not governed by a single threshold but instead emerge from the interaction of multiple nonlinear feedback mechanisms. These interactions generate a rich spectrum of dynamical regimes, including disease elimination, persistent endemic infection, sustained oscillations, and regions of bistability where long-term outcomes depend sensitively on initial conditions.</p><p id="Par90">A key outcome of the analysis is the identification of oscillatory infection dynamics arising through Hopf bifurcation when treatment capacity becomes effectively constrained relative to transmission and renewal of colony-level susceptibility processes. This demonstrates that recurrent epidemic cycles can arise endogenously from internal system feedback, even in the absence of seasonal forcing or environmental variability. The results therefore provide a mechanistic explanation for recurrent infection patterns frequently observed in managed honeybee colonies. In particular, the combination of renewal of colony-level susceptibility and limited effective control interventions creates a dynamical feedback loop that periodically restores susceptibility and allows infection to resurge. The analysis further shows that the system exhibits bistability within specific parameter regions. Under identical environmental and epidemiological conditions, colonies may converge either to persistent oscillatory infection or to a stable endemic equilibrium depending on the initial infection burden. This path dependence highlights the importance of early infection levels and intervention timing. Once infection crosses a critical threshold, the colony may be driven towards sustained cyclic outbreaks that cannot be reversed by small parameter changes alone. From a dynamical systems perspective, this behaviour reflects the coexistence of multiple attractors separated by basin boundaries, emphasising that disease management is inherently history dependent.</p><p id="Par91">Sensitivity analysis demonstrates that the predicted dynamical regimes are structurally robust across continuous parameter ranges rather than arising from isolated parameter choices. Transmission intensity primarily determines whether infection can invade and persist, renewal of colony-level susceptibility governs the recycling of susceptibility and maintenance of recurrent outbreaks, and recovery regulates infection magnitude while modulating oscillatory amplitude. These findings clarify the functional roles of epidemiological mechanisms and show that long-term infection behaviour is controlled by their nonlinear interaction rather than by any single process acting independently.</p><p id="Par92">From a biological perspective, the results support the interpretation of infection dynamics at the colony scale rather than at the level of individual bees. The recovery and renewal of colony-level susceptibility processes represented in the model capture effective turnover of infection status within the colony population, reflecting replacement of individuals, partial treatment effects, and continual exposure to infectious material. Under this interpretation, the model provides a mechanistic description of how colony-level infection prevalence evolves under sustained environmental pressure and constrained intervention capacity. The emergence of recurrent infection cycles has important implications for disease monitoring and control. Oscillatory dynamics imply that short-term declines in infection prevalence do not necessarily indicate long-term eradication. Instead, infection may re-emerge through endogenous system feedback. This suggests that management strategies based solely on periodic treatment may be insufficient if renewal of colony-level susceptibility pathways remain active or treatment capacity becomes saturated during peak infection periods. The presence of bistability further indicates that early intervention is critical. Colonies with low initial infection burden may remain stable under moderate control effort, whereas colonies that begin with high infection levels may require substantially stronger or sustained intervention to avoid persistent epidemic cycling. This threshold-like behaviour implies that preventive management may be more effective than reactive treatment once infection becomes established. The sensitivity results also emphasise that effective control requires coordinated action across multiple epidemiological mechanisms. Reducing transmission alone may not eliminate recurrent outbreaks if reinfection continues to replenish susceptibility. Increasing recovery through treatment may reduce infection burden without preventing recurrence if treatment capacity is limited relative to parasite load. Long-term stabilisation therefore requires simultaneous reduction of transmission pressure, limitation of renewal of colony-level susceptibility pathways, and maintenance of sufficient treatment effectiveness.</p><p id="Par93">While the present model captures key nonlinear mechanisms governing within-colony infection dynamics, several extensions would further enhance biological realism. Incorporating explicit colony demography, environmental spore reservoirs, or interactions with additional stressors such as nutrition and pesticide exposure would allow investigation of multi-factor drivers of colony health. Coupling the within-colony framework to between-colony transmission processes would also permit analysis of infection spread across apiaries and landscape-scale persistence. Empirical calibration using longitudinal infection prevalence data would provide quantitative validation of parameter ranges and improve predictive capability. Such data-driven integration represents an important direction for future work, particularly for assessing intervention strategies under realistic management scenarios.</p><p id="Par94">In conclusion, the study demonstrates that nonlinear feedback between transmission, recovery, renewal of colony-level susceptibility, and treatment limitation can generate complex and persistent infection dynamics at the colony level. The results provide a coherent dynamical explanation for recurrent outbreaks, regime transitions, and sensitivity to initial infection burden. More broadly, the analysis illustrates how epidemiological systems subject to resource constraints and partial immunity can exhibit multiple long-term outcomes even under constant environmental conditions. By linking mechanistic assumptions to observable dynamical patterns, the model provides a quantitative framework for understanding infection persistence in managed honeybee populations and offers insight into the design of intervention strategies that account for nonlinear system behaviour. These findings contribute to the broader understanding of eco-epidemiological dynamics in host populations where recovery is incomplete and control resources are finite.</p></sec></body><back><fn-group><fn><p><bold>Publisher’s note</bold></p><p>Springer Nature remains neutral with regard to jurisdictional claims in published maps and institutional affiliations.</p></fn></fn-group><notes notes-type="author-contribution"><title>Author contributions</title><p>A. M. S., Contributed to the conception and design of the study, wrote the original version of the article, and performed the analysis and simulations. M. H. M., Supervised the study, contributed to its conception and design, and assisted in writing the original version of the article and funding. A. K. K. A., Contributed to reviewing, and editing, and assisted with the biological concept in the original manuscript. K. M. A. M., Contributed to the writing, validation, investigation, formal analysis, and funding.</p></notes><notes notes-type="funding-information"><title>Funding</title><p>The authors acknowledge support from the Fundamental Research Grant Scheme with Project Code: FRGS/1/2022/STG06/USM/02/1 by the Ministry of Higher Education, Malaysia (MOHE).</p></notes><notes notes-type="data-availability"><title>Data availability</title><p>Simulation data and codes will be shared upon reasonable request</p></notes><notes id="FPar6" notes-type="COI-statement"><title>Competing interests</title><p id="Par95">The authors declare no competing interests.</p></notes><ref-list id="Bib1"><title>References</title><ref id="CR1"><label>1.</label><citation-alternatives><element-citation id="ec-CR1" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Hung</surname><given-names>K-LJ</given-names></name><name name-style="western"><surname>Kingston</surname><given-names>JM</given-names></name><name name-style="western"><surname>Albrecht</surname><given-names>M</given-names></name><name name-style="western"><surname>Holway</surname><given-names>DA</given-names></name><name name-style="western"><surname>Kohn</surname><given-names>JR</given-names></name></person-group><article-title>The worldwide importance of honey bees as pollinators in natural habitats</article-title><source>Proc. R. Soc. B: Biol. Sci.</source><year>2018</year><volume>285</volume><issue>1870</issue><fpage>20172140</fpage><pub-id pub-id-type="doi">10.1098/rspb.2017.2140</pub-id><pub-id pub-id-type="pmcid">PMC5784195</pub-id><pub-id pub-id-type="pmid">29321298</pub-id></element-citation><mixed-citation id="mc-CR1" publication-type="journal">Hung, K.-L.J., Kingston, J. M., Albrecht, M., Holway, D. A. &amp; Kohn, J. R. The worldwide importance of honey bees as pollinators in natural habitats. <italic toggle="yes">Proc. R. Soc. B: Biol. Sci.</italic><bold>285</bold>(1870), 20172140 (2018).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1098/rspb.2017.2140</pub-id><pub-id pub-id-type="pmcid">PMC5784195</pub-id><pub-id pub-id-type="pmid">29321298</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR2"><label>2.</label><mixed-citation publication-type="other">Khalifa, S. A. M. et al. Overview of bee pollination and its economic value for crop production. <italic toggle="yes">Insects</italic><bold>12</bold> (8), 688 (2021).<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/insects12080688</pub-id><pub-id pub-id-type="pmcid">PMC8396518</pub-id><pub-id pub-id-type="pmid">34442255</pub-id></mixed-citation></ref><ref id="CR3"><label>3.</label><citation-alternatives><element-citation id="ec-CR3" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Babin</surname><given-names>A</given-names></name><name name-style="western"><surname>Schurr</surname><given-names>F</given-names></name><name name-style="western"><surname>Delannoy</surname><given-names>S</given-names></name><name name-style="western"><surname>Fach</surname><given-names>P</given-names></name><name name-style="western"><surname>Huyen</surname><given-names>M</given-names></name><name name-style="western"><surname>Nguyet</surname><given-names>TN</given-names></name><name name-style="western"><surname>Bougeard</surname><given-names>S</given-names></name><name name-style="western"><surname>de Miranda</surname><given-names>JR</given-names></name><name name-style="western"><surname>Rundlöf</surname><given-names>M</given-names></name><name name-style="western"><surname>Wintermantel</surname><given-names>D</given-names></name><name name-style="western"><surname>Albrecht</surname><given-names>M</given-names></name><etal/></person-group><article-title>Distribution of infectious and parasitic agents among three sentinel bee species across european agricultural landscapes</article-title><source>Sci. Rep.</source><year>2024</year><volume>14</volume><issue>1</issue><fpage>3524</fpage><pub-id pub-id-type="doi">10.1038/s41598-024-53357-w</pub-id><pub-id pub-id-type="pmid">38347035</pub-id><pub-id pub-id-type="pmcid">PMC10861508</pub-id></element-citation><mixed-citation id="mc-CR3" publication-type="journal">Babin, A. et al. Distribution of infectious and parasitic agents among three sentinel bee species across european agricultural landscapes. <italic toggle="yes">Sci. Rep.</italic><bold>14</bold>(1), 3524 (2024).<pub-id pub-id-type="pmid">38347035</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-024-53357-w</pub-id><pub-id pub-id-type="pmcid">PMC10861508</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR4"><label>4.</label><citation-alternatives><element-citation id="ec-CR4" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Goulson</surname><given-names>D</given-names></name><name name-style="western"><surname>Nicholls</surname><given-names>E</given-names></name><name name-style="western"><surname>Botías</surname><given-names>C</given-names></name><name name-style="western"><surname>Rotheray</surname><given-names>EL</given-names></name></person-group><article-title>Bee declines driven by combined stress from parasites, pesticides, and lack of flowers</article-title><source>Science</source><year>2015</year><volume>347</volume><issue>6229</issue><fpage>1255957</fpage><pub-id pub-id-type="doi">10.1126/science.1255957</pub-id><pub-id pub-id-type="pmid">25721506</pub-id></element-citation><mixed-citation id="mc-CR4" publication-type="journal">Goulson, D., Nicholls, E., Botías, C. &amp; Rotheray, E. L. Bee declines driven by combined stress from parasites, pesticides, and lack of flowers. <italic toggle="yes">Science</italic><bold>347</bold>(6229), 1255957 (2015).<pub-id pub-id-type="pmid">25721506</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.1255957</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR5"><label>5.</label><citation-alternatives><element-citation id="ec-CR5" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Aizen</surname><given-names>MA</given-names></name><name name-style="western"><surname>Harder</surname><given-names>LD</given-names></name></person-group><article-title>The global stock of domesticated honey bees is growing slower than agricultural demand for pollination</article-title><source>Curr. Biol.</source><year>2009</year><volume>19</volume><issue>11</issue><fpage>915</fpage><lpage>918</lpage><pub-id pub-id-type="doi">10.1016/j.cub.2009.03.071</pub-id><pub-id pub-id-type="pmid">19427214</pub-id></element-citation><mixed-citation id="mc-CR5" publication-type="journal">Aizen, M. A. &amp; Harder, L. D. The global stock of domesticated honey bees is growing slower than agricultural demand for pollination. <italic toggle="yes">Curr. Biol.</italic><bold>19</bold>(11), 915–918 (2009).<pub-id pub-id-type="pmid">19427214</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cub.2009.03.071</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR6"><label>6.</label><citation-alternatives><element-citation id="ec-CR6" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Genersch</surname><given-names>Elke</given-names></name></person-group><article-title>Honey bee pathology: current threats to honey bees and beekeeping</article-title><source>Appl. Microbiol. Biotechnol.</source><year>2010</year><volume>87</volume><issue>1</issue><fpage>87</fpage><lpage>97</lpage><pub-id pub-id-type="doi">10.1007/s00253-010-2573-8</pub-id><pub-id pub-id-type="pmid">20401479</pub-id></element-citation><mixed-citation id="mc-CR6" publication-type="journal">Genersch, Elke. Honey bee pathology: current threats to honey bees and beekeeping. <italic toggle="yes">Appl. Microbiol. Biotechnol.</italic><bold>87</bold>(1), 87–97 (2010).<pub-id pub-id-type="pmid">20401479</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00253-010-2573-8</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR7"><label>7.</label><citation-alternatives><element-citation id="ec-CR7" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Collison</surname><given-names>E</given-names></name><name name-style="western"><surname>Hird</surname><given-names>H</given-names></name><name name-style="western"><surname>Cresswell</surname><given-names>J</given-names></name><name name-style="western"><surname>Tyler</surname><given-names>C</given-names></name></person-group><article-title>Interactive effects of pesticide exposure and pathogen infection on bee health-a critical analysis</article-title><source>Biol. Rev.</source><year>2016</year><volume>91</volume><issue>4</issue><fpage>1006</fpage><lpage>1019</lpage><pub-id pub-id-type="doi">10.1111/brv.12206</pub-id><pub-id pub-id-type="pmid">26150129</pub-id></element-citation><mixed-citation id="mc-CR7" publication-type="journal">Collison, E., Hird, H., Cresswell, J. &amp; Tyler, C. Interactive effects of pesticide exposure and pathogen infection on bee health-a critical analysis. <italic toggle="yes">Biol. Rev.</italic><bold>91</bold>(4), 1006–1019 (2016).<pub-id pub-id-type="pmid">26150129</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/brv.12206</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR8"><label>8.</label><citation-alternatives><element-citation id="ec-CR8" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>El-Sayed</surname><given-names>ASA</given-names></name><name name-style="western"><surname>Fathy</surname><given-names>NAM</given-names></name><name name-style="western"><surname>Labib</surname><given-names>M</given-names></name><name name-style="western"><surname>El-Baz</surname><given-names>AF</given-names></name><name name-style="western"><surname>El-Sheikh</surname><given-names>AA</given-names></name><name name-style="western"><surname>Moustafa</surname><given-names>AH</given-names></name></person-group><article-title>Biological control of nosemosis in apis mellifera l. with acacia nilotica extract</article-title><source>Sci. Rep.</source><year>2024</year><volume>14</volume><issue>1</issue><fpage>28340</fpage><pub-id pub-id-type="doi">10.1038/s41598-024-78874-6</pub-id><pub-id pub-id-type="pmid">39550385</pub-id><pub-id pub-id-type="pmcid">PMC11569257</pub-id></element-citation><mixed-citation id="mc-CR8" publication-type="journal">El-Sayed, A. S. A. et al. Biological control of nosemosis in apis mellifera l. with acacia nilotica extract. <italic toggle="yes">Sci. Rep.</italic><bold>14</bold>(1), 28340 (2024).<pub-id pub-id-type="pmid">39550385</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-024-78874-6</pub-id><pub-id pub-id-type="pmcid">PMC11569257</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR9"><label>9.</label><citation-alternatives><element-citation id="ec-CR9" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Fries</surname><given-names>Ingemar</given-names></name></person-group><article-title>Nosema ceranae in european honey bees (apis mellifera)</article-title><source>J. Invertebrate Pathol.</source><year>2010</year><volume>103</volume><fpage>S73</fpage><lpage>S79</lpage><pub-id pub-id-type="doi">10.1016/j.jip.2009.06.017</pub-id><pub-id pub-id-type="pmid">19909977</pub-id></element-citation><mixed-citation id="mc-CR9" publication-type="journal">Fries, Ingemar. Nosema ceranae in european honey bees (apis mellifera). <italic toggle="yes">J. Invertebrate Pathol.</italic><bold>103</bold>, S73–S79 (2010).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jip.2009.06.017</pub-id><pub-id pub-id-type="pmid">19909977</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR10"><label>10.</label><citation-alternatives><element-citation id="ec-CR10" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Martín-Hernández</surname><given-names>R</given-names></name><name name-style="western"><surname>Bartolomé</surname><given-names>C</given-names></name><name name-style="western"><surname>Chejanovsky</surname><given-names>N</given-names></name><name name-style="western"><surname>Conte</surname><given-names>YL</given-names></name><name name-style="western"><surname>Dalmon</surname><given-names>A</given-names></name><name name-style="western"><surname>Dussaubat</surname><given-names>C</given-names></name><name name-style="western"><surname>García-Palencia</surname><given-names>P</given-names></name><name name-style="western"><surname>Meana</surname><given-names>A</given-names></name><name name-style="western"><surname>Pinto</surname><given-names>MA</given-names></name><name name-style="western"><surname>Soroker</surname><given-names>V</given-names></name><etal/></person-group><article-title>Nosema ceranae in apis mellifera: a 12 years postdetection perspective</article-title><source>Environ. Microbiol.</source><year>2018</year><volume>20</volume><issue>4</issue><fpage>1302</fpage><lpage>1329</lpage><pub-id pub-id-type="doi">10.1111/1462-2920.14103</pub-id><pub-id pub-id-type="pmid">29575513</pub-id></element-citation><mixed-citation id="mc-CR10" publication-type="journal">Martín-Hernández, R. et al. Nosema ceranae in apis mellifera: a 12 years postdetection perspective. <italic toggle="yes">Environ. Microbiol.</italic><bold>20</bold>(4), 1302–1329 (2018).<pub-id pub-id-type="pmid">29575513</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/1462-2920.14103</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR11"><label>11.</label><citation-alternatives><element-citation id="ec-CR11" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Park</surname><given-names>D</given-names></name><name name-style="western"><surname>Jung</surname><given-names>JW</given-names></name><name name-style="western"><surname>Choi</surname><given-names>B-S</given-names></name><name name-style="western"><surname>Jayakodi</surname><given-names>M</given-names></name><name name-style="western"><surname>Lee</surname><given-names>J</given-names></name><name name-style="western"><surname>Lim</surname><given-names>J</given-names></name><name name-style="western"><surname>Yu</surname><given-names>Y</given-names></name><name name-style="western"><surname>Choi</surname><given-names>Y-S</given-names></name><name name-style="western"><surname>Lee</surname><given-names>M-L</given-names></name><name name-style="western"><surname>Park</surname><given-names>Y</given-names></name><etal/></person-group><article-title>Uncovering the novel characteristics of asian honey bee, apis cerana, by whole genome sequencing</article-title><source>BMC Genom.</source><year>2015</year><volume>16</volume><issue>1</issue><fpage>1</fpage><pub-id pub-id-type="doi">10.1186/1471-2164-16-1</pub-id><pub-id pub-id-type="pmcid">PMC4326529</pub-id><pub-id pub-id-type="pmid">25553907</pub-id></element-citation><mixed-citation id="mc-CR11" publication-type="journal">Park, D. et al. Uncovering the novel characteristics of asian honey bee, apis cerana, by whole genome sequencing. <italic toggle="yes">BMC Genom.</italic><bold>16</bold>(1), 1 (2015).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/1471-2164-16-1</pub-id><pub-id pub-id-type="pmcid">PMC4326529</pub-id><pub-id pub-id-type="pmid">25553907</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR12"><label>12.</label><citation-alternatives><element-citation id="ec-CR12" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Chen</surname><given-names>YP</given-names></name><name name-style="western"><surname>Huang</surname><given-names>ZY</given-names></name></person-group><article-title>Nosema ceranae, a newly identified pathogen of apis mellifera in the usa and asia</article-title><source>Apidologie</source><year>2010</year><volume>41</volume><issue>3</issue><fpage>364</fpage><lpage>374</lpage><pub-id pub-id-type="doi">10.1051/apido/2010021</pub-id></element-citation><mixed-citation id="mc-CR12" publication-type="journal">Chen, Y. P. &amp; Huang, Z. Y. Nosema ceranae, a newly identified pathogen of apis mellifera in the usa and asia. <italic toggle="yes">Apidologie</italic><bold>41</bold>(3), 364–374 (2010).</mixed-citation></citation-alternatives></ref><ref id="CR13"><label>13.</label><citation-alternatives><element-citation id="ec-CR13" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Koeniger</surname><given-names>N</given-names></name><name name-style="western"><surname>Koeniger</surname><given-names>G</given-names></name><name name-style="western"><surname>Delfinado-Baker</surname><given-names>M</given-names></name></person-group><article-title>Observations on mites of the asian honeybee species (apis cerana, apis dorsata, apis florea)</article-title><source>Apidologie</source><year>1983</year><volume>14</volume><issue>3</issue><fpage>197</fpage><lpage>204</lpage><pub-id pub-id-type="doi">10.1051/apido:19830305</pub-id></element-citation><mixed-citation id="mc-CR13" publication-type="journal">Koeniger, N., Koeniger, G. &amp; Delfinado-Baker, M. Observations on mites of the asian honeybee species (apis cerana, apis dorsata, apis florea). <italic toggle="yes">Apidologie</italic><bold>14</bold>(3), 197–204 (1983).</mixed-citation></citation-alternatives></ref><ref id="CR14"><label>14.</label><citation-alternatives><element-citation id="ec-CR14" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Kairo</surname><given-names>G</given-names></name><name name-style="western"><surname>Biron</surname><given-names>DG</given-names></name><name name-style="western"><surname>Abdelkader</surname><given-names>FB</given-names></name><name name-style="western"><surname>Bonnet</surname><given-names>M</given-names></name><name name-style="western"><surname>Tchamitchian</surname><given-names>S</given-names></name><name name-style="western"><surname>Cousin</surname><given-names>M</given-names></name><name name-style="western"><surname>Dussaubat</surname><given-names>C</given-names></name><name name-style="western"><surname>Benoit</surname><given-names>B</given-names></name><name name-style="western"><surname>Kretzschmar</surname><given-names>A</given-names></name><name name-style="western"><surname>Belzunces</surname><given-names>LP</given-names></name><etal/></person-group><article-title>Nosema ceranae, fipronil and their combination compromise honey bee reproduction via changes in male physiology</article-title><source>Sci. Rep.</source><year>2017</year><volume>7</volume><issue>1</issue><fpage>8556</fpage><pub-id pub-id-type="doi">10.1038/s41598-017-08380-5</pub-id><pub-id pub-id-type="pmid">28819220</pub-id><pub-id pub-id-type="pmcid">PMC5561069</pub-id></element-citation><mixed-citation id="mc-CR14" publication-type="journal">Kairo, G. et al. Nosema ceranae, fipronil and their combination compromise honey bee reproduction via changes in male physiology. <italic toggle="yes">Sci. Rep.</italic><bold>7</bold>(1), 8556 (2017).<pub-id pub-id-type="pmid">28819220</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-017-08380-5</pub-id><pub-id pub-id-type="pmcid">PMC5561069</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR15"><label>15.</label><citation-alternatives><element-citation id="ec-CR15" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Holt</surname><given-names>HL</given-names></name><name name-style="western"><surname>Grozinger</surname><given-names>CM</given-names></name></person-group><article-title>Approaches and challenges to managing nosema (microspora: Nosematidae) parasites in honey bee (hymenoptera: Apidae) colonies</article-title><source>J. Econ. Entomol.</source><year>2016</year><volume>109</volume><issue>4</issue><fpage>1487</fpage><lpage>1503</lpage><pub-id pub-id-type="doi">10.1093/jee/tow103</pub-id><pub-id pub-id-type="pmid">27340190</pub-id></element-citation><mixed-citation id="mc-CR15" publication-type="journal">Holt, H. L. &amp; Grozinger, C. M. Approaches and challenges to managing nosema (microspora: Nosematidae) parasites in honey bee (hymenoptera: Apidae) colonies. <italic toggle="yes">J. Econ. Entomol.</italic><bold>109</bold>(4), 1487–1503 (2016).<pub-id pub-id-type="pmid">27340190</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/jee/tow103</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR16"><label>16.</label><citation-alternatives><element-citation id="ec-CR16" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Fisher</surname><given-names>RA</given-names></name><name name-style="western"><surname>Gollan</surname><given-names>B</given-names></name><name name-style="western"><surname>Helaine</surname><given-names>S</given-names></name></person-group><article-title>Persistent bacterial infections and persister cells</article-title><source>Nat. Rev. Microbiol.</source><year>2017</year><volume>15</volume><issue>8</issue><fpage>453</fpage><lpage>464</lpage><pub-id pub-id-type="doi">10.1038/nrmicro.2017.42</pub-id><pub-id pub-id-type="pmid">28529326</pub-id></element-citation><mixed-citation id="mc-CR16" publication-type="journal">Fisher, R. A., Gollan, B. &amp; Helaine, S. Persistent bacterial infections and persister cells. <italic toggle="yes">Nat. Rev. Microbiol.</italic><bold>15</bold>(8), 453–464 (2017).<pub-id pub-id-type="pmid">28529326</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nrmicro.2017.42</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR17"><label>17.</label><citation-alternatives><element-citation id="ec-CR17" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Barrett</surname><given-names>MP</given-names></name><name name-style="western"><surname>Kyle</surname><given-names>DE</given-names></name><name name-style="western"><surname>Sibley</surname><given-names>LD</given-names></name><name name-style="western"><surname>Radke</surname><given-names>JB</given-names></name><name name-style="western"><surname>Tarleton</surname><given-names>RL</given-names></name></person-group><article-title>Protozoan persister-like cells and drug treatment failure</article-title><source>Nat. Rev. Microbiol.</source><year>2019</year><volume>17</volume><issue>10</issue><fpage>607</fpage><lpage>620</lpage><pub-id pub-id-type="doi">10.1038/s41579-019-0238-x</pub-id><pub-id pub-id-type="pmid">31444481</pub-id><pub-id pub-id-type="pmcid">PMC7024564</pub-id></element-citation><mixed-citation id="mc-CR17" publication-type="journal">Barrett, M. P., Kyle, D. E., Sibley, L. D., Radke, J. B. &amp; Tarleton, R. L. Protozoan persister-like cells and drug treatment failure. <italic toggle="yes">Nat. Rev. Microbiol.</italic><bold>17</bold>(10), 607–620 (2019).<pub-id pub-id-type="pmid">31444481</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41579-019-0238-x</pub-id><pub-id pub-id-type="pmcid">PMC7024564</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR18"><label>18.</label><citation-alternatives><element-citation id="ec-CR18" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Hopkins</surname><given-names>SR</given-names></name><name name-style="western"><surname>Jones</surname><given-names>IJ</given-names></name><name name-style="western"><surname>Buck</surname><given-names>JC</given-names></name><name name-style="western"><surname>LeBoa</surname><given-names>C</given-names></name><name name-style="western"><surname>Kwong</surname><given-names>LH</given-names></name><name name-style="western"><surname>Jacobsen</surname><given-names>K</given-names></name><name name-style="western"><surname>Rickards</surname><given-names>C</given-names></name><name name-style="western"><surname>Lund</surname><given-names>AJ</given-names></name><name name-style="western"><surname>Nova</surname><given-names>N</given-names></name><name name-style="western"><surname>MacDonald</surname><given-names>AJ</given-names></name><etal/></person-group><article-title>Environmental persistence of the world’s most burdensome infectious and parasitic diseases</article-title><source>Front. Public Health</source><year>2022</year><volume>10</volume><fpage>892366</fpage><pub-id pub-id-type="doi">10.3389/fpubh.2022.892366</pub-id><pub-id pub-id-type="pmid">35875032</pub-id><pub-id pub-id-type="pmcid">PMC9305703</pub-id></element-citation><mixed-citation id="mc-CR18" publication-type="journal">Hopkins, S. R. et al. Environmental persistence of the world’s most burdensome infectious and parasitic diseases. <italic toggle="yes">Front. Public Health</italic><bold>10</bold>, 892366 (2022).<pub-id pub-id-type="pmid">35875032</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fpubh.2022.892366</pub-id><pub-id pub-id-type="pmcid">PMC9305703</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR19"><label>19.</label><mixed-citation publication-type="other">Gisder, S., Schüler, V., Horchler, L. L., Groth, D. &amp; Genersch, E. Long-term temporal trends of nosema spp. infection prevalence in northeast Germany: continuous spread of nosema ceranae, an emerging pathogen of honey bees (apis mellifera), but no general replacement of nosema apis. <italic toggle="yes">Front. Cell. Infect. Microbiol.</italic><bold>7</bold>, 301 (2017).<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fcimb.2017.00301</pub-id><pub-id pub-id-type="pmcid">PMC5498484</pub-id><pub-id pub-id-type="pmid">28730143</pub-id></mixed-citation></ref><ref id="CR20"><label>20.</label><citation-alternatives><element-citation id="ec-CR20" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Jabal-Uriel</surname><given-names>C</given-names></name><name name-style="western"><surname>Albarracín</surname><given-names>VN</given-names></name><name name-style="western"><surname>Calatayud</surname><given-names>J</given-names></name><name name-style="western"><surname>Higes</surname><given-names>M</given-names></name><name name-style="western"><surname>Martín-Hernández</surname><given-names>R</given-names></name></person-group><article-title>Age and season effect the timing of adult worker honeybee infection by nosema ceranae</article-title><source>Front. Cell. Infect. Microbiol.</source><year>2022</year><volume>11</volume><fpage>823050</fpage><pub-id pub-id-type="doi">10.3389/fcimb.2021.823050</pub-id><pub-id pub-id-type="pmid">35155274</pub-id><pub-id pub-id-type="pmcid">PMC8836290</pub-id></element-citation><mixed-citation id="mc-CR20" publication-type="journal">Jabal-Uriel, C., Albarracín, V. N., Calatayud, J., Higes, M. &amp; Martín-Hernández, R. Age and season effect the timing of adult worker honeybee infection by nosema ceranae. <italic toggle="yes">Front. Cell. Infect. Microbiol.</italic><bold>11</bold>, 823050 (2022).<pub-id pub-id-type="pmid">35155274</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fcimb.2021.823050</pub-id><pub-id pub-id-type="pmcid">PMC8836290</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR21"><label>21.</label><citation-alternatives><element-citation id="ec-CR21" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Mendoza</surname><given-names>Y</given-names></name><name name-style="western"><surname>Diaz-Cetti</surname><given-names>S</given-names></name><name name-style="western"><surname>Ramallo</surname><given-names>G</given-names></name><name name-style="western"><surname>Santos</surname><given-names>E</given-names></name><name name-style="western"><surname>Porrini</surname><given-names>M</given-names></name><name name-style="western"><surname>Invernizzi</surname><given-names>C</given-names></name></person-group><article-title>Nosema ceranae winter control: study of the effectiveness of different fumagillin treatments and consequences on the strength of honey bee (hymenoptera: Apidae) colonies</article-title><source>J. Econ. Entomol.</source><year>2017</year><volume>110</volume><issue>1</issue><fpage>1</fpage><lpage>5</lpage><pub-id pub-id-type="pmid">28025388</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/jee/tow228</pub-id></element-citation><mixed-citation id="mc-CR21" publication-type="journal">Mendoza, Y. et al. Nosema ceranae winter control: study of the effectiveness of different fumagillin treatments and consequences on the strength of honey bee (hymenoptera: Apidae) colonies. <italic toggle="yes">J. Econ. Entomol.</italic><bold>110</bold>(1), 1–5 (2017).<pub-id pub-id-type="pmid">28025388</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/jee/tow228</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR22"><label>22.</label><citation-alternatives><element-citation id="ec-CR22" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Burnham</surname><given-names>AJ</given-names></name></person-group><article-title>Scientific advances in controlling nosema ceranae (microsporidia) infections in honey bees (apis mellifera)</article-title><source>Front. Vet. Sci.</source><year>2019</year><volume>6</volume><fpage>79</fpage><pub-id pub-id-type="doi">10.3389/fvets.2019.00079</pub-id><pub-id pub-id-type="pmid">30931319</pub-id><pub-id pub-id-type="pmcid">PMC6428737</pub-id></element-citation><mixed-citation id="mc-CR22" publication-type="journal">Burnham, A. J. Scientific advances in controlling nosema ceranae (microsporidia) infections in honey bees (apis mellifera). <italic toggle="yes">Front. Vet. Sci.</italic><bold>6</bold>, 79 (2019).<pub-id pub-id-type="pmid">30931319</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fvets.2019.00079</pub-id><pub-id pub-id-type="pmcid">PMC6428737</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR23"><label>23.</label><citation-alternatives><element-citation id="ec-CR23" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Betti</surname><given-names>MI</given-names></name><name name-style="western"><surname>Wahl</surname><given-names>LM</given-names></name><name name-style="western"><surname>Zamir</surname><given-names>M</given-names></name></person-group><article-title>Effects of infection on honey bee population dynamics: a model</article-title><source>PloS one</source><year>2014</year><volume>9</volume><issue>10</issue><fpage>e110237</fpage><pub-id pub-id-type="doi">10.1371/journal.pone.0110237</pub-id><pub-id pub-id-type="pmid">25329468</pub-id><pub-id pub-id-type="pmcid">PMC4199628</pub-id></element-citation><mixed-citation id="mc-CR23" publication-type="journal">Betti, M. I., Wahl, L. M. &amp; Zamir, M. Effects of infection on honey bee population dynamics: a model. <italic toggle="yes">PloS one</italic><bold>9</bold>(10), e110237 (2014).<pub-id pub-id-type="pmid">25329468</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1371/journal.pone.0110237</pub-id><pub-id pub-id-type="pmcid">PMC4199628</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR24"><label>24.</label><citation-alternatives><element-citation id="ec-CR24" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Laomettachit</surname><given-names>T</given-names></name><name name-style="western"><surname>Liangruksa</surname><given-names>M</given-names></name><name name-style="western"><surname>Termsaithong</surname><given-names>T</given-names></name><name name-style="western"><surname>Tangthanawatsakul</surname><given-names>A</given-names></name><name name-style="western"><surname>Duangphakdee</surname><given-names>O</given-names></name></person-group><article-title>A model of infection in honeybee colonies with social immunity</article-title><source>PloS one</source><year>2021</year><volume>16</volume><issue>2</issue><fpage>e0247294</fpage><pub-id pub-id-type="doi">10.1371/journal.pone.0247294</pub-id><pub-id pub-id-type="pmid">33617598</pub-id><pub-id pub-id-type="pmcid">PMC7899363</pub-id></element-citation><mixed-citation id="mc-CR24" publication-type="journal">Laomettachit, T., Liangruksa, M., Termsaithong, T., Tangthanawatsakul, A. &amp; Duangphakdee, O. A model of infection in honeybee colonies with social immunity. <italic toggle="yes">PloS one</italic><bold>16</bold>(2), e0247294 (2021).<pub-id pub-id-type="pmid">33617598</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1371/journal.pone.0247294</pub-id><pub-id pub-id-type="pmcid">PMC7899363</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR25"><label>25.</label><citation-alternatives><element-citation id="ec-CR25" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Jabal-Uriel</surname><given-names>C</given-names></name><name name-style="western"><surname>Barrios</surname><given-names>L</given-names></name><name name-style="western"><surname>Bonjour-Dalmon</surname><given-names>A</given-names></name><name name-style="western"><surname>Caspi-Yona</surname><given-names>S</given-names></name><name name-style="western"><surname>Chejanovsly</surname><given-names>N</given-names></name><name name-style="western"><surname>Erez</surname><given-names>T</given-names></name><name name-style="western"><surname>Henriques</surname><given-names>D</given-names></name><name name-style="western"><surname>Higes</surname><given-names>M</given-names></name><name name-style="western"><surname>Conte</surname><given-names>YL</given-names></name><name name-style="western"><surname>Lopes</surname><given-names>AR</given-names></name><etal/></person-group><article-title>Epidemiology of the microsporidium nosema ceranae in four mediterranean countries</article-title><source>Insects</source><year>2022</year><volume>13</volume><issue>9</issue><fpage>844</fpage><pub-id pub-id-type="doi">10.3390/insects13090844</pub-id><pub-id pub-id-type="pmid">36135545</pub-id><pub-id pub-id-type="pmcid">PMC9505483</pub-id></element-citation><mixed-citation id="mc-CR25" publication-type="journal">Jabal-Uriel, C. et al. Epidemiology of the microsporidium nosema ceranae in four mediterranean countries. <italic toggle="yes">Insects</italic><bold>13</bold>(9), 844 (2022).<pub-id pub-id-type="pmid">36135545</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/insects13090844</pub-id><pub-id pub-id-type="pmcid">PMC9505483</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR26"><label>26.</label><citation-alternatives><element-citation id="ec-CR26" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Schüler</surname><given-names>V</given-names></name><name name-style="western"><surname>Liu</surname><given-names>Y</given-names></name><name name-style="western"><surname>Gisder</surname><given-names>S</given-names></name><name name-style="western"><surname>Horchler</surname><given-names>L</given-names></name><name name-style="western"><surname>Groth</surname><given-names>D</given-names></name><name name-style="western"><surname>Genersch</surname><given-names>E</given-names></name></person-group><article-title>Significant, but not biologically relevant: Nosema ceranae infections and winter losses of honey bee colonies</article-title><source>Commun. Biol.</source><year>2023</year><volume>6</volume><issue>1</issue><fpage>229</fpage><pub-id pub-id-type="doi">10.1038/s42003-023-04587-7</pub-id><pub-id pub-id-type="pmid">36859713</pub-id><pub-id pub-id-type="pmcid">PMC9977864</pub-id></element-citation><mixed-citation id="mc-CR26" publication-type="journal">Schüler, V. et al. Significant, but not biologically relevant: Nosema ceranae infections and winter losses of honey bee colonies. <italic toggle="yes">Commun. Biol.</italic><bold>6</bold>(1), 229 (2023).<pub-id pub-id-type="pmid">36859713</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s42003-023-04587-7</pub-id><pub-id pub-id-type="pmcid">PMC9977864</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR27"><label>27.</label><citation-alternatives><element-citation id="ec-CR27" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Kermack</surname><given-names>WO</given-names></name><name name-style="western"><surname>McKendrick</surname><given-names>AG</given-names></name></person-group><article-title>A contribution to the mathematical theory of epidemics</article-title><source>Proc. R. Soc. Lond. Ser. A, Contain. Pap. Math. Phys. Character</source><year>1927</year><volume>115</volume><issue>772</issue><fpage>700</fpage><lpage>721</lpage></element-citation><mixed-citation id="mc-CR27" publication-type="journal">Kermack, W. O. &amp; McKendrick, A. G. A contribution to the mathematical theory of epidemics. <italic toggle="yes">Proc. R. Soc. Lond. Ser. A, Contain. Pap. Math. Phys. Character</italic><bold>115</bold>(772), 700–721 (1927).</mixed-citation></citation-alternatives></ref><ref id="CR28"><label>28.</label><citation-alternatives><element-citation id="ec-CR28" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Mohd</surname><given-names>MH</given-names></name><name name-style="western"><surname>Sulayman</surname><given-names>F</given-names></name></person-group><article-title>Unravelling the myths of r0 in controlling the dynamics of covid-19 outbreak: a modelling perspective</article-title><source>Chaos, Solitons Fractals</source><year>2020</year><volume>138</volume><fpage>109943</fpage><pub-id pub-id-type="doi">10.1016/j.chaos.2020.109943</pub-id><pub-id pub-id-type="pmid">32834577</pub-id><pub-id pub-id-type="pmcid">PMC7261458</pub-id></element-citation><mixed-citation id="mc-CR28" publication-type="journal">Mohd, M. H. &amp; Sulayman, F. Unravelling the myths of r0 in controlling the dynamics of covid-19 outbreak: a modelling perspective. <italic toggle="yes">Chaos, Solitons Fractals</italic><bold>138</bold>, 109943 (2020).<pub-id pub-id-type="pmid">32834577</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.chaos.2020.109943</pub-id><pub-id pub-id-type="pmcid">PMC7261458</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR29"><label>29.</label><citation-alternatives><element-citation id="ec-CR29" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Salman</surname><given-names>AM</given-names></name><name name-style="western"><surname>Ahmed</surname><given-names>I</given-names></name><name name-style="western"><surname>Mohd</surname><given-names>MH</given-names></name><name name-style="western"><surname>Jamiluddin</surname><given-names>MS</given-names></name><name name-style="western"><surname>Dheyab</surname><given-names>MA</given-names></name></person-group><article-title>Scenario analysis of covid-19 transmission dynamics in malaysia with the possibility of reinfection and limited medical resources scenarios</article-title><source>Comput. Biol. Med.</source><year>2021</year><volume>133</volume><fpage>104372</fpage><pub-id pub-id-type="doi">10.1016/j.compbiomed.2021.104372</pub-id><pub-id pub-id-type="pmid">33864970</pub-id><pub-id pub-id-type="pmcid">PMC8024227</pub-id></element-citation><mixed-citation id="mc-CR29" publication-type="journal">Salman, A. M., Ahmed, I., Mohd, M. H., Jamiluddin, M. S. &amp; Dheyab, M. A. Scenario analysis of covid-19 transmission dynamics in malaysia with the possibility of reinfection and limited medical resources scenarios. <italic toggle="yes">Comput. Biol. Med.</italic><bold>133</bold>, 104372 (2021).<pub-id pub-id-type="pmid">33864970</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.compbiomed.2021.104372</pub-id><pub-id pub-id-type="pmcid">PMC8024227</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR30"><label>30.</label><mixed-citation publication-type="other">Salman, A. M. &amp; Mohd, M. H. Dynamical systems analysis of a reaction-diffusion sirs model with optimal control for the covid-19 spread. <italic toggle="yes">Comput. Methods Biomech. Biomed. Eng.</italic><bold>2024</bold>, 1–18 (2024).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1080/10255842.2024.2423879</pub-id><pub-id pub-id-type="pmid">39534924</pub-id></mixed-citation></ref><ref id="CR31"><label>31.</label><citation-alternatives><element-citation id="ec-CR31" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Salman</surname><given-names>AM</given-names></name><name name-style="western"><surname>Mohd</surname><given-names>MH</given-names></name><name name-style="western"><surname>Ahmed</surname><given-names>NA</given-names></name><name name-style="western"><surname>Musa</surname><given-names>KI</given-names></name><name name-style="western"><surname>Ahmed</surname><given-names>I</given-names></name><name name-style="western"><surname>Alqahtani</surname><given-names>Z</given-names></name></person-group><article-title>An optimal control of sirs model with limited medical resources and reinfection problems</article-title><source>Malays. J. Fundam. Appl. Sci.</source><year>2022</year><volume>18</volume><issue>3</issue><fpage>332</fpage><lpage>342</lpage><pub-id pub-id-type="doi">10.11113/mjfas.v18n3.2390</pub-id></element-citation><mixed-citation id="mc-CR31" publication-type="journal">Salman, A. M. et al. An optimal control of sirs model with limited medical resources and reinfection problems. <italic toggle="yes">Malays. J. Fundam. Appl. Sci.</italic><bold>18</bold>(3), 332–342 (2022).</mixed-citation></citation-alternatives></ref><ref id="CR32"><label>32.</label><citation-alternatives><element-citation id="ec-CR32" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>MacInnis</surname><given-names>CI</given-names></name><name name-style="western"><surname>Luong</surname><given-names>LT</given-names></name><name name-style="western"><surname>Pernal</surname><given-names>SF</given-names></name></person-group><article-title>A tale of two parasites: responses of honey bees infected with nosema ceranae and lotmaria passim</article-title><source>Sci. Rep.</source><year>2023</year><volume>13</volume><issue>1</issue><fpage>22515</fpage><pub-id pub-id-type="doi">10.1038/s41598-023-49189-9</pub-id><pub-id pub-id-type="pmid">38110440</pub-id><pub-id pub-id-type="pmcid">PMC10728187</pub-id></element-citation><mixed-citation id="mc-CR32" publication-type="journal">MacInnis, C. I., Luong, L. T. &amp; Pernal, S. F. A tale of two parasites: responses of honey bees infected with nosema ceranae and lotmaria passim. <italic toggle="yes">Sci. Rep.</italic><bold>13</bold>(1), 22515 (2023).<pub-id pub-id-type="pmid">38110440</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-023-49189-9</pub-id><pub-id pub-id-type="pmcid">PMC10728187</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR33"><label>33.</label><citation-alternatives><element-citation id="ec-CR33" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Cronin</surname><given-names>AL</given-names></name><name name-style="western"><surname>Molet</surname><given-names>M</given-names></name><name name-style="western"><surname>Doums</surname><given-names>C</given-names></name><name name-style="western"><surname>Monnin</surname><given-names>T</given-names></name><name name-style="western"><surname>Peeters</surname><given-names>C</given-names></name></person-group><article-title>Recurrent evolution of dependent colony foundation across eusocial insects</article-title><source>Annu. Rev. Entomol.</source><year>2013</year><volume>58</volume><fpage>37</fpage><lpage>55</lpage><pub-id pub-id-type="doi">10.1146/annurev-ento-120811-153643</pub-id><pub-id pub-id-type="pmid">22934981</pub-id></element-citation><mixed-citation id="mc-CR33" publication-type="journal">Cronin, A. L., Molet, M., Doums, C., Monnin, T. &amp; Peeters, C. Recurrent evolution of dependent colony foundation across eusocial insects. <italic toggle="yes">Annu. Rev. Entomol.</italic><bold>58</bold>, 37–55 (2013).<pub-id pub-id-type="pmid">22934981</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1146/annurev-ento-120811-153643</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR34"><label>34.</label><citation-alternatives><element-citation id="ec-CR34" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Friedman</surname><given-names>DA</given-names></name><name name-style="western"><surname>Johnson</surname><given-names>BR</given-names></name><name name-style="western"><surname>Linksvayer</surname><given-names>TA</given-names></name></person-group><article-title>Distributed physiology and the molecular basis of social life in eusocial insects</article-title><source>Hormones Behav.</source><year>2020</year><volume>122</volume><fpage>104757</fpage><pub-id pub-id-type="doi">10.1016/j.yhbeh.2020.104757</pub-id><pub-id pub-id-type="pmid">32305342</pub-id></element-citation><mixed-citation id="mc-CR34" publication-type="journal">Friedman, D. A., Johnson, B. R. &amp; Linksvayer, T. A. Distributed physiology and the molecular basis of social life in eusocial insects. <italic toggle="yes">Hormones Behav.</italic><bold>122</bold>, 104757 (2020).<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.yhbeh.2020.104757</pub-id><pub-id pub-id-type="pmid">32305342</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR35"><label>35.</label><citation-alternatives><element-citation id="ec-CR35" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Feng</surname><given-names>Tao</given-names></name><name name-style="western"><surname>Kang</surname><given-names>Yun</given-names></name></person-group><article-title>Foraging dynamics in social insect colonies: mechanisms of backward bifurcations and impacts of stochasticity</article-title><source>Math. Biosci.</source><year>2025</year><volume>384</volume><fpage>109436</fpage><pub-id pub-id-type="doi">10.1016/j.mbs.2025.109436</pub-id><pub-id pub-id-type="pmid">40222589</pub-id></element-citation><mixed-citation id="mc-CR35" publication-type="journal">Feng, Tao &amp; Kang, Yun. Foraging dynamics in social insect colonies: mechanisms of backward bifurcations and impacts of stochasticity. <italic toggle="yes">Math. Biosci.</italic><bold>384</bold>, 109436 (2025).<pub-id pub-id-type="pmid">40222589</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.mbs.2025.109436</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR36"><label>36.</label><citation-alternatives><element-citation id="ec-CR36" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Opachaloemphan</surname><given-names>C</given-names></name><name name-style="western"><surname>Yan</surname><given-names>H</given-names></name><name name-style="western"><surname>Leibholz</surname><given-names>Al</given-names></name><name name-style="western"><surname>Desplan</surname><given-names>C</given-names></name><name name-style="western"><surname>Reinberg</surname><given-names>D</given-names></name></person-group><article-title>Recent advances in behavioral (epi) genetics in eusocial insects</article-title><source>Annu. Rev. Genet.</source><year>2018</year><volume>52</volume><issue>1</issue><fpage>489</fpage><lpage>510</lpage><pub-id pub-id-type="doi">10.1146/annurev-genet-120116-024456</pub-id><pub-id pub-id-type="pmid">30208294</pub-id><pub-id pub-id-type="pmcid">PMC6445553</pub-id></element-citation><mixed-citation id="mc-CR36" publication-type="journal">Opachaloemphan, C., Yan, H., Leibholz, A., Desplan, C. &amp; Reinberg, D. Recent advances in behavioral (epi) genetics in eusocial insects. <italic toggle="yes">Annu. Rev. Genet.</italic><bold>52</bold>(1), 489–510 (2018).<pub-id pub-id-type="pmid">30208294</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1146/annurev-genet-120116-024456</pub-id><pub-id pub-id-type="pmcid">PMC6445553</pub-id></mixed-citation></citation-alternatives></ref><ref id="CR37"><label>37.</label><citation-alternatives><element-citation id="ec-CR37" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Zhou</surname><given-names>L</given-names></name><name name-style="western"><surname>Fan</surname><given-names>M</given-names></name></person-group><article-title>Dynamics of an sir epidemic model with limited medical resources revisited</article-title><source>Nonlinear Anal. Real World Appl.</source><year>2012</year><volume>13</volume><issue>1</issue><fpage>312</fpage><lpage>324</lpage><pub-id pub-id-type="doi">10.1016/j.nonrwa.2011.07.036</pub-id></element-citation><mixed-citation id="mc-CR37" publication-type="journal">Zhou, L. &amp; Fan, M. Dynamics of an sir epidemic model with limited medical resources revisited. <italic toggle="yes">Nonlinear Anal. Real World Appl.</italic><bold>13</bold>(1), 312–324 (2012).</mixed-citation></citation-alternatives></ref><ref id="CR38"><label>38.</label><citation-alternatives><element-citation id="ec-CR38" publication-type="journal"><person-group person-group-type="author"><name name-style="western"><surname>Muhammad</surname><given-names>N</given-names></name><name name-style="western"><surname>Eberl</surname><given-names>HJ</given-names></name></person-group><article-title>Two routes of transmission for nosema infections in a honeybee population model with polyethism and time-periodic parameters can lead to drastically different qualitative model behavior</article-title><source>Commun. Nonlinear Sci. Numer. Simul.</source><year>2020</year><volume>84</volume><fpage>105207</fpage><pub-id pub-id-type="doi">10.1016/j.cnsns.2020.105207</pub-id></element-citation><mixed-citation id="mc-CR38" publication-type="journal">Muhammad, N. &amp; Eberl, H. J. Two routes of transmission for nosema infections in a honeybee population model with polyethism and time-periodic parameters can lead to drastically different qualitative model behavior. <italic toggle="yes">Commun. Nonlinear Sci. Numer. Simul.</italic><bold>84</bold>, 105207 (2020).</mixed-citation></citation-alternatives></ref></ref-list></back></article></pmc-articleset>

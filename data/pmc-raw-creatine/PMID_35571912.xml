@@ -1,0 +1,175 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">35571912</PMID><DateRevised><Year>2022</Year><Month>05</Month><Day>19</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">2296-861X</ISSN><JournalIssue CitedMedium="Print"><Volume>9</Volume><PubDate><Year>2022</Year></PubDate></JournalIssue><Title>Frontiers in nutrition</Title><ISOAbbreviation>Front Nutr</ISOAbbreviation></Journal><ArticleTitle><i>Lactobacillus plantarum</i> PL-02 Supplementation Combined With Resistance Training Improved Muscle Mass, Force, and Exercise Performance in Mice.</ArticleTitle><Pagination><StartPage>896503</StartPage><MedlinePgn>896503</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">896503</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fnut.2022.896503</ELocationID><Abstract><AbstractText>Increasing numbers of researchers are investigating the benefits of probiotics in enhancing exercise performance and verifying the role of the gut-muscle axis. In our previous study, <i>Lactobacillus plantarum</i> PL-02 improved exercise performance and muscle mass. Therefore, the purpose of this study was to investigate whether supplementation with PL-02 combined with resistance training has a synergistic effect on exercise performance and muscle mass. All the animals were assigned into four groups (<i>n</i> = 8/group): a sedentary control with normal distilled water group (vehicle, <i>n</i> = 8); PL-02 supplementation group (PL-02, 2.05 &#xd7; 10<sup>9</sup> CFU, <i>n</i> = 8); resistance training group (RT, <i>n</i> = 8); PL-02 supplementation combined with resistance training group (PL-02 + RT, 2.05 &#xd7; 10<sup>9</sup> CFU, <i>n</i> = 8). Supplementation with PL-02 for four consecutive weeks combined with resistance exercise training significantly improved the grip strength and the maximum number of crawls; increased the time of exhaustive exercise; significantly reduced the time required for a single climb; and reduced the lactate, blood ammonia, creatine kinase, and blood urea nitrogen produced after exercise (<i>p</i> &lt; 0.05). In addition, it produced substantial benefits for increasing muscle mass without causing any physical damage. In summary, our findings confirmed that PL-02 or RT supplementation alone is effective in improving muscle mass and exercise performance and in reducing exercise fatigue, but the combination of the two can achieve increased benefits.</AbstractText><CopyrightInformation>Copyright &#xa9; 2022 Yeh, Hsu, Ho, Ho, Kuo, Tsai, Huang and Lee.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Yeh</LastName><ForeName>Wen-Ling</ForeName><Initials>WL</Initials><AffiliationInfo><Affiliation>Department of Orthopedic Surgery, Lotung Poh-Ai Hospital, Luodong, Taiwan.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Orthopedic Surgery, Chang Gung Memorial Hospital, Taoyuan, Taiwan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Hsu</LastName><ForeName>Yi-Ju</ForeName><Initials>YJ</Initials><AffiliationInfo><Affiliation>Graduate Institute of Sports Science, National Taiwan Sport University, Taoyuan, Taiwan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ho</LastName><ForeName>Chin-Shen</ForeName><Initials>CS</Initials><AffiliationInfo><Affiliation>Graduate Institute of Sports Science, National Taiwan Sport University, Taoyuan, Taiwan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ho</LastName><ForeName>Hsieh-Hsun</ForeName><Initials>HH</Initials><AffiliationInfo><Affiliation>Department of Research and Design, Bioflag Biotech Co., Ltd., Tainan, Taiwan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kuo</LastName><ForeName>Yi-Wei</ForeName><Initials>YW</Initials><AffiliationInfo><Affiliation>Department of Research and Design, Bioflag Biotech Co., Ltd., Tainan, Taiwan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Tsai</LastName><ForeName>Shin-Yu</ForeName><Initials>SY</Initials><AffiliationInfo><Affiliation>Department of Research and Design, Bioflag Biotech Co., Ltd., Tainan, Taiwan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Huang</LastName><ForeName>Chi-Chang</ForeName><Initials>CC</Initials><AffiliationInfo><Affiliation>Graduate Institute of Sports Science, National Taiwan Sport University, Taoyuan, Taiwan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lee</LastName><ForeName>Mon-Chien</ForeName><Initials>MC</Initials><AffiliationInfo><Affiliation>Graduate Institute of Sports Science, National Taiwan Sport University, Taoyuan, Taiwan.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2022</Year><Month>04</Month><Day>27</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Nutr</MedlineTA><NlmUniqueID>101642264</NlmUniqueID><ISSNLinking>2296-861X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Lactobacillus plantarum PL-02</Keyword><Keyword MajorTopicYN="N">exercise</Keyword><Keyword MajorTopicYN="N">muscle mass</Keyword><Keyword MajorTopicYN="N">probiotic</Keyword><Keyword MajorTopicYN="N">training</Keyword></KeywordList><CoiStatement>H-HH, Y-WK, and S-YT were employed by Bioflag Biotech Co., Ltd. The remaining authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2022</Year><Month>3</Month><Day>15</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2022</Year><Month>4</Month><Day>7</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2022</Year><Month>5</Month><Day>16</Day><Hour>4</Hour><Minute>5</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2022</Year><Month>5</Month><Day>17</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2022</Year><Month>5</Month><Day>17</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2022</Year><Month>1</Month><Day>1</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">35571912</ArticleId><ArticleId IdType="pmc">PMC9094439</ArticleId><ArticleId IdType="doi">10.3389/fnut.2022.896503</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Viecelli C, Aguayo D.
+May the force and mass be with you-evidence-based contribution of mechano-biological descriptors of resistance exercise.
+<i>Front Physiol.</i> (2022) 12:686119. 10.3389/fphys.2021.686119
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2021.686119</ArticleId><ArticleId IdType="pmc">PMC8769283</ArticleId><ArticleId IdType="pubmed">35069229</ArticleId></ArticleIdList></Reference><Reference><Citation>El-Kotob R, Ponzano M, Chaput JP, Janssen I, Kho ME, Poitras VJ, et al. 
+Resistance training and health in adults: an overview of systematic reviews.
+<i>Appl Physiol Nutr Metab.</i> (2020) 45:S165&#x2013;79. 10.1139/apnm-2020-0245
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/apnm-2020-0245</ArticleId><ArticleId IdType="pubmed">33054335</ArticleId></ArticleIdList></Reference><Reference><Citation>Baffour-Awuah B, Pearson MJ, Smart NA, Dieberg G.
+Safety, efficacy and delivery of isometric resistance training as an adjunct therapy for blood pressure control: a modified Delphi study.
+<i>Hypertens Res.</i> (2022) 12:1&#x2013;13. 10.1038/s41440-021-00839-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41440-021-00839-3</ArticleId><ArticleId IdType="pmc">PMC8752388</ArticleId><ArticleId IdType="pubmed">35017680</ArticleId></ArticleIdList></Reference><Reference><Citation>Bronczek GA, Soares GM, de Barros JF, Vettorazzi JF, Kurauti MA, Marconato-J&#xfa;nior E, et al. 
+Resistance exercise training improves glucose homeostasis by enhancing insulin secretion in C57BL/6 mice.
+<i>Sci Rep.</i> (2021) 11:8574. 10.1038/s41598-021-88105-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-021-88105-x</ArticleId><ArticleId IdType="pmc">PMC8060292</ArticleId><ArticleId IdType="pubmed">33883630</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang HN, Chen Y, Cheng L, Wang ST, Hu DX, Wang LN, et al. 
+Effect of low-load resistance training with different degrees of blood flow restriction in patients with knee osteoarthritis: study protocol for a randomized trial.
+<i>Trials.</i> (2022) 23:6. 10.1186/s13063-021-05946-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13063-021-05946-7</ArticleId><ArticleId IdType="pmc">PMC8722122</ArticleId><ArticleId IdType="pubmed">34980197</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodrigues F, Domingos C, Monteiro D, Morou&#xe7;o P.
+A review on aging, sarcopenia, Falls, and resistance training in community-dwelling older adults.
+<i>Int J Environ Res Public Health.</i> (2022) 19:874. 10.3390/ijerph19020874
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph19020874</ArticleId><ArticleId IdType="pmc">PMC8775372</ArticleId><ArticleId IdType="pubmed">35055695</ArticleId></ArticleIdList></Reference><Reference><Citation>Behm DG, Young JD, Whitten JHD, Reid JC, Quigley PJ, Low J, et al. 
+Effectiveness of traditional strength vs. power training on muscle strength, power and speed with youth: a systematic review and meta-analysis.
+<i>Front Physiol.</i> (2017) 8:423. 10.3389/fphys.2017.00423
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2017.00423</ArticleId><ArticleId IdType="pmc">PMC5491841</ArticleId><ArticleId IdType="pubmed">28713281</ArticleId></ArticleIdList></Reference><Reference><Citation>American College of Sports Medicine.
+American college of sports medicine position stand. progression models in resistance training for healthy adults.
+<i>Med Sci Sports Exerc.</i> (2009) 41:687&#x2013;708. 10.1249/MSS.0b013e3181915670
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181915670</ArticleId><ArticleId IdType="pubmed">19204579</ArticleId></ArticleIdList></Reference><Reference><Citation>Dias KA, da Concei&#xe7;&#xe3;o AR, Oliveira LA, Pereira SMS, Paes SDS, Monte LF, et al. 
+Effects of curcumin supplementation on inflammatory markers, muscle damage, and sports performance during acute physical exercise in sedentary individuals.
+<i>Oxid Med Cell Longev.</i> (2021) 2021:9264639. 10.1155/2021/9264639
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2021/9264639</ArticleId><ArticleId IdType="pmc">PMC8516555</ArticleId><ArticleId IdType="pubmed">34659641</ArticleId></ArticleIdList></Reference><Reference><Citation>Oikawa SY, Brisbois TD, van Loon LJC, Rollo I.
+Eat like an athlete: insights of sports nutrition science to support active aging in healthy older adults.
+<i>Geroscience.</i> (2021) 43:2485&#x2013;95. 10.1007/s11357-021-00419-w
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11357-021-00419-w</ArticleId><ArticleId IdType="pmc">PMC8599603</ArticleId><ArticleId IdType="pubmed">34283389</ArticleId></ArticleIdList></Reference><Reference><Citation>Grosicki GJ, Fielding RA, Lustgarten MS.
+Gut microbiota contribute to age-related changes in skeletal muscle size, composition, and function: biological basis for a gut-muscle axis.
+<i>Calcif Tissue Int.</i> (2018) 102:433&#x2013;42. 10.1007/s00223-017-0345-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00223-017-0345-5</ArticleId><ArticleId IdType="pmc">PMC5858871</ArticleId><ArticleId IdType="pubmed">29058056</ArticleId></ArticleIdList></Reference><Reference><Citation>Didari T, Solki S, Mozaffari S, Nikfar S, Abdollahi M.
+A systematic review of the safety of probiotics.
+<i>Expert Opin Drug Saf.</i> (2014) 13:227&#x2013;39. 10.1517/14740338.2014.872627
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1517/14740338.2014.872627</ArticleId><ArticleId IdType="pubmed">24405164</ArticleId></ArticleIdList></Reference><Reference><Citation>Przew&#x142;&#xf3;cka K, Folwarski M, Ka&#x17a;mierczak-Siedlecka K, Skonieczna-&#x17b;ydecka K, Kaczor JJ.
+Gut-muscle axisexists and may affect skeletal muscle adaptation to training.
+<i>Nutrients.</i> (2020) 12:1451. 10.3390/nu12051451
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu12051451</ArticleId><ArticleId IdType="pmc">PMC7285193</ArticleId><ArticleId IdType="pubmed">32443396</ArticleId></ArticleIdList></Reference><Reference><Citation>Prokopidis K, Chambers E, Ni Lochlainn M, Witard OC.
+Mechanisms linking the gut-muscle axis with muscle protein metabolism and anabolic resistance: implications for older adults at risk of sarcopenia.
+<i>Front Physiol.</i> (2021) 12:770455. 10.3389/fphys.2021.770455
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2021.770455</ArticleId><ArticleId IdType="pmc">PMC8576575</ArticleId><ArticleId IdType="pubmed">34764887</ArticleId></ArticleIdList></Reference><Reference><Citation>Lahiri S, Kim H, Garcia-Perez I, Reza MM, Martin KA, Kundu P, et al. 
+The gut microbiota influences skeletal muscle mass and function in mice.
+<i>Sci Transl Med.</i> (2019) 11:eaan5662. 10.1126/scitranslmed.aan5662
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/scitranslmed.aan5662</ArticleId><ArticleId IdType="pmc">PMC7501733</ArticleId><ArticleId IdType="pubmed">31341063</ArticleId></ArticleIdList></Reference><Reference><Citation>Monda V, Villano I, Messina A, Valenzano A, Esposito T, Moscatelli F, et al. 
+Exercise modifies the gut microbiota with positive health effects.
+<i>Oxid Med Cell Longev.</i> (2017) 2017:3831972. 10.1155/2017/3831972
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2017/3831972</ArticleId><ArticleId IdType="pmc">PMC5357536</ArticleId><ArticleId IdType="pubmed">28357027</ArticleId></ArticleIdList></Reference><Reference><Citation>Hill C, Guarner F, Reid G, Gibson GR, Merenstein DJ, Pot B, et al. 
+Expert consensus document. The international scientific association for probiotics and prebiotics consensus statement on the scope and appropriate use of the term probiotic.
+<i>Nat Rev Gastroenterol Hepatol.</i> (2014) 11:506&#x2013;14. 10.1038/nrgastro.2014.66
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nrgastro.2014.66</ArticleId><ArticleId IdType="pubmed">24912386</ArticleId></ArticleIdList></Reference><Reference><Citation>Duranti S, Ferrario C, van Sinderen D, Ventura M, Turroni F.
+Obesity and microbiota: an example of an intricate relationship.
+<i>Genes Nutr.</i> (2017) 12:18. 10.1186/s12263-017-0566-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12263-017-0566-2</ArticleId><ArticleId IdType="pmc">PMC5473000</ArticleId><ArticleId IdType="pubmed">28638490</ArticleId></ArticleIdList></Reference><Reference><Citation>Lin CW, Chen YT, Ho HH, Kuo YW, Lin WY, Chen JF, et al. 
+Impact of the food grade heat-killed probiotic and postbiotic oral lozenges in oral hygiene.
+<i>Aging (Albany NY).</i> (2022) 14:2221&#x2013;38. 10.18632/aging.203923
+</Citation><ArticleIdList><ArticleId IdType="doi">10.18632/aging.203923</ArticleId><ArticleId IdType="pmc">PMC8954981</ArticleId><ArticleId IdType="pubmed">35236778</ArticleId></ArticleIdList></Reference><Reference><Citation>Liao CA, Huang CH, Ho HH, Chen JF, Kuo YW, Lin JH, et al. 
+A combined supplement of probiotic strains AP-32, bv-77, and CP-9 increased <i>Akkermansia mucinphila</i> and reduced non-esterified fatty acids and energy metabolism in HFD-induced obese rats.
+<i>Nutrients.</i> (2022) 14:527. 10.3390/nu14030527
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu14030527</ArticleId><ArticleId IdType="pmc">PMC8839477</ArticleId><ArticleId IdType="pubmed">35276886</ArticleId></ArticleIdList></Reference><Reference><Citation>Pyne DB, West NP, Cox AJ, Cripps AW.
+Probiotics supplementation for athletes &#x2013; clinical and physiological effects.
+<i>Eur J Sport Sci.</i> (2015) 15:63&#x2013;72. 10.1080/17461391.2014.971879
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/17461391.2014.971879</ArticleId><ArticleId IdType="pubmed">25339255</ArticleId></ArticleIdList></Reference><Reference><Citation>Chen YM, Wei L, Chiu YS, Hsu YJ, Tsai TY, Wang MF, et al. 
+<i>Lactobacillus plantarum</i> TWK10 supplementation improves exercise performance and increases muscle mass in mice.
+<i>Nutrients.</i> (2016) 8:205. 10.3390/nu8040205
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu8040205</ArticleId><ArticleId IdType="pmc">PMC4848674</ArticleId><ArticleId IdType="pubmed">27070637</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee MC, Hsu YJ, Chuang HL, Hsieh PS, Ho HH, Chen WL, et al. 
+<i>In vivo</i> ergogenic properties of the <i>Bifidobacterium longum</i> OLP-01 isolated from a weightlifting gold medalist.
+<i>Nutrients.</i> (2019) 11:2003. 10.3390/nu11092003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu11092003</ArticleId><ArticleId IdType="pmc">PMC6770164</ArticleId><ArticleId IdType="pubmed">31450615</ArticleId></ArticleIdList></Reference><Reference><Citation>Huang WC, Lee MC, Lee CC, Ng KS, Hsu YJ, Tsai TY, et al. 
+Effect of <i>Lactobacillus plantarum</i> TWK10 on exercise physiological adaptation, performance, and body composition in healthy humans.
+<i>Nutrients.</i> (2019) 11:2836. 10.3390/nu11112836
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu11112836</ArticleId><ArticleId IdType="pmc">PMC6893516</ArticleId><ArticleId IdType="pubmed">31752370</ArticleId></ArticleIdList></Reference><Reference><Citation>Lin CL, Hsu YJ, Ho HH, Chang YC, Kuo YW, Yeh YT, et al. 
+<i>Bifidobacterium longum</i> subsp. Longum OLP-01 supplementation during endurance running training improves exercise performance in middle&#x2013; and long-distance runners: a double-blind controlled trial.
+<i>Nutrients.</i> (2020) 12:1972. 10.3390/nu12071972
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu12071972</ArticleId><ArticleId IdType="pmc">PMC7400043</ArticleId><ArticleId IdType="pubmed">32630786</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee MC, Hsu YJ, Ho HH, Hsieh SH, Kuo YW, Sung HC, et al. 
+<i>Lactobacillus salivarius</i> subspecies salicinius SA-03 is a new probiotic capable of enhancing exercise performance and decreasing fatigue.
+<i>Microorganisms.</i> (2020) 8:545. 10.3390/microorganisms8040545
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/microorganisms8040545</ArticleId><ArticleId IdType="pmc">PMC7232535</ArticleId><ArticleId IdType="pubmed">32283729</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee MC, Hsu YJ, Ho HH, Kuo YW, Lin WY, Tsai SY, et al. 
+Effectiveness of human-origin Lactobacillus plantarum PL-02 in improving muscle mass, exercise performance and anti-fatigue.
+<i>Sci Rep.</i> (2021) 11:19469. 10.1038/s41598-021-98958-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-021-98958-x</ArticleId><ArticleId IdType="pmc">PMC8484333</ArticleId><ArticleId IdType="pubmed">34593921</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee MC, Hsu YJ, Yang LH, Huang CC, Ho CS.
+Ergogenic effects of green tea combined with isolated soy protein on increasing muscle mass and exercise performance in resistance-trained mice.
+<i>Nutrients.</i> (2021) 13:4547. 10.3390/nu13124547
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu13124547</ArticleId><ArticleId IdType="pmc">PMC8704395</ArticleId><ArticleId IdType="pubmed">34960099</ArticleId></ArticleIdList></Reference><Reference><Citation>Kan NW, Lee MC, Tung YT, Chiu CC, Huang CC, Huang WC.
+The synergistic effects of resveratrol combined with resistant training on exercise performance and physiological adaption.
+<i>Nutrients.</i> (2018) 10:1360. 10.3390/nu10101360
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu10101360</ArticleId><ArticleId IdType="pmc">PMC6212981</ArticleId><ArticleId IdType="pubmed">30249003</ArticleId></ArticleIdList></Reference><Reference><Citation>Baar K, Esser K.
+Phosphorylation of p70(S6k) correlates with increased skeletal muscle mass following resistance exercise.
+<i>Am J Physiol.</i> (1999) 276:C120&#x2013;7. 10.1152/ajpcell.1999.276.1.C120
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpcell.1999.276.1.C120</ArticleId><ArticleId IdType="pubmed">9886927</ArticleId></ArticleIdList></Reference><Reference><Citation>Ambrosio F, Kadi F, Lexell J, Fitzgerald GK, Boninger ML, Huard J.
+The effect of muscle loading on skeletal muscle regenerative potential: an update of current research findings relating to aging and neuromuscular pathology.
+<i>Am J Phys Med Rehabil.</i> (2009) 88:145&#x2013;55. 10.1097/PHM.0b013e3181951fc5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/PHM.0b013e3181951fc5</ArticleId><ArticleId IdType="pmc">PMC4872620</ArticleId><ArticleId IdType="pubmed">19169178</ArticleId></ArticleIdList></Reference><Reference><Citation>Clarke SF, Murphy EF, O&#x2019;Sullivan O, Lucey AJ, Humphreys M, Hogan A, et al. 
+Exercise and associated dietary extremes impact on gut microbial diversity.
+<i>Gut.</i> (2014) 63:1913&#x2013;20. 10.1136/gutjnl-2013-306541
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/gutjnl-2013-306541</ArticleId><ArticleId IdType="pubmed">25021423</ArticleId></ArticleIdList></Reference><Reference><Citation>Maruta H, Yoshimura Y, Araki A, Kimoto M, Takahashi Y, Yamashita H.
+Activation of AMP-activated protein kinase and stimulation of energy metabolism by acetic acid in l6 myotube cells.
+<i>PLoS One.</i> (2016) 11:e0158055. 10.1371/journal.pone.0158055
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0158055</ArticleId><ArticleId IdType="pmc">PMC4922563</ArticleId><ArticleId IdType="pubmed">27348124</ArticleId></ArticleIdList></Reference><Reference><Citation>den Besten G, Gerding A, van Dijk TH, Ciapaite J, Bleeker A, van Eunen K, et al. 
+Protection against the metabolic syndrome by guar gum-derived short-chain fatty acids depends on peroxisome proliferator-activated receptor &#x3b3; and glucagon-like peptide-1.
+<i>PLoS One.</i> (2015) 10:e0136364. 10.1371/journal.pone.0136364
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0136364</ArticleId><ArticleId IdType="pmc">PMC4546369</ArticleId><ArticleId IdType="pubmed">26292284</ArticleId></ArticleIdList></Reference><Reference><Citation>Walsh ME, Bhattacharya A, Sataranatarajan K, Qaisar R, Sloane L, Rahman MM, et al. 
+The histone deacetylase inhibitor butyrate improves metabolism and reduces muscle atrophy during aging.
+<i>Aging Cell.</i> (2015) 14:957&#x2013;70. 10.1111/acel.12387
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/acel.12387</ArticleId><ArticleId IdType="pmc">PMC4693467</ArticleId><ArticleId IdType="pubmed">26290460</ArticleId></ArticleIdList></Reference><Reference><Citation>Chen L, Nelson DR, Zhao Y, Cui Z, Johnston JA.
+Relationship between muscle mass and muscle strength, and the impact of comorbidities: a population-based, cross-sectional study of older adults in the United States.
+<i>BMC Geriatr.</i> (2013) 13:74. 10.1186/1471-2318-13-74
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1471-2318-13-74</ArticleId><ArticleId IdType="pmc">PMC3765109</ArticleId><ArticleId IdType="pubmed">23865675</ArticleId></ArticleIdList></Reference><Reference><Citation>Paavolainen L, H&#xe4;kkinen K, H&#xe4;m&#xe4;l&#xe4;inen I, Nummela A, Rusko H.
+Explosive-strength training improves 5-km running time by improving running economy and muscle power.
+<i>J Appl Physiol (1985).</i> (1999) 86:1527&#x2013;33. 10.1152/jappl.1999.86.5.1527
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1999.86.5.1527</ArticleId><ArticleId IdType="pubmed">10233114</ArticleId></ArticleIdList></Reference><Reference><Citation>Jensen J, Rustad PI, Kolnes AJ, Lai YC.
+The role of skeletal muscle glycogen breakdown for regulation of insulin sensitivity by exercise.
+<i>Front Physiol.</i> (2011) 2:112. 10.3389/fphys.2011.00112
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2011.00112</ArticleId><ArticleId IdType="pmc">PMC3248697</ArticleId><ArticleId IdType="pubmed">22232606</ArticleId></ArticleIdList></Reference><Reference><Citation>Murray B, Rosenbloom C.
+Fundamentals of glycogen metabolism for coaches and athletes.
+<i>Nutr Rev.</i> (2018) 76:243&#x2013;59. 10.1093/nutrit/nuy001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/nutrit/nuy001</ArticleId><ArticleId IdType="pmc">PMC6019055</ArticleId><ArticleId IdType="pubmed">29444266</ArticleId></ArticleIdList></Reference><Reference><Citation>Philp A, Hargreaves M, Baar K.
+More than a store: regulatory roles for glycogen in skeletal muscle adaptation to exercise.
+<i>Am J Physiol Endocrinol Metab.</i> (2012) 302:E1343&#x2013;51. 10.1152/ajpendo.00004.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00004.2012</ArticleId><ArticleId IdType="pubmed">22395109</ArticleId></ArticleIdList></Reference><Reference><Citation>Nay K, Jollet M, Goustard B, Baati N, Vernus B, Pontones M, et al. 
+Gut bacteria are critical for optimal muscle function: a potential link with glucose homeostasis.
+<i>Am J Physiol Endocrinol Metab.</i> (2019) 317:E158&#x2013;71. 10.1152/ajpendo.00521.2018
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00521.2018</ArticleId><ArticleId IdType="pubmed">31039010</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang WQ, Zhao TT, Gui DK, Gao CL, Gu JL, Gan WJ, et al. 
+Sodium butyrate improves liver glycogen metabolism in type 2 diabetes mellitus.
+<i>J Agric Food Chem.</i> (2019) 67:7694&#x2013;705. 10.1021/acs.jafc.9b02083
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1021/acs.jafc.9b02083</ArticleId><ArticleId IdType="pubmed">31250637</ArticleId></ArticleIdList></Reference><Reference><Citation>Samuel BS, Shaito A, Motoike T, Rey FE, Backhed F, Manchester JK, et al. 
+Effects of the gut microbiota on host adiposity are modulated by the short-chain fatty-acid binding G protein-coupled receptor, Gpr41.
+<i>Proc Natl Acad Sci USA.</i> (2008) 105:16767&#x2013;72. 10.1073/pnas.0808567105
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.0808567105</ArticleId><ArticleId IdType="pmc">PMC2569967</ArticleId><ArticleId IdType="pubmed">18931303</ArticleId></ArticleIdList></Reference><Reference><Citation>Yan F, Li N, Shi J, Li H, Yue Y, Jiao W, et al. 
+Lactobacillus acidophilus alleviates type 2 diabetes by regulating hepatic glucose, lipid metabolism and gut microbiota in mice.
+<i>Food Funct.</i> (2019) 10:5804&#x2013;15. 10.1039/c9fo01062a
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1039/c9fo01062a</ArticleId><ArticleId IdType="pubmed">31461095</ArticleId></ArticleIdList></Reference><Reference><Citation>Lawler TP, Cialdella-Kam L.
+Non-carbohydrate dietary factors and their influence on post-exercise glycogen storage: a review.
+<i>Curr Nutr Rep.</i> (2020) 9:394&#x2013;404. 10.1007/s13668-020-00335-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s13668-020-00335-z</ArticleId><ArticleId IdType="pubmed">33128726</ArticleId></ArticleIdList></Reference><Reference><Citation>Barton W, Penney NC, Cronin O, Garcia-Perez I, Molloy MG, Holmes E, et al. 
+The microbiome of professional athletes differs from that of more sedentary subjects in composition and particularly at the functional metabolic level.
+<i>Gut.</i> (2018) 67:625&#x2013;33. 10.1136/gutjnl-2016-313627
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/gutjnl-2016-313627</ArticleId><ArticleId IdType="pubmed">28360096</ArticleId></ArticleIdList></Reference><Reference><Citation>Halson SL, Bridge MW, Meeusen R, Busschaert B, Gleeson M, Jones DA, et al. 
+Time course of performance changes and fatigue markers during intensified training in trained cyclists.
+<i>J Appl Physiol.</i> (2002) 93:947&#x2013;56. 10.1152/japplphysiol.01164.2001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01164.2001</ArticleId><ArticleId IdType="pubmed">12183490</ArticleId></ArticleIdList></Reference><Reference><Citation>Cairns SP.
+Lactic acid and exercise performance: culprit or friend
+<i>Sports Med.</i> (2006) 36:279&#x2013;91. 10.2165/00007256-200636040-00001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200636040-00001</ArticleId><ArticleId IdType="pubmed">16573355</ArticleId></ArticleIdList></Reference><Reference><Citation>Proia P, Di Liegro CM, Schiera G, Fricano A, Di Liegro I.
+Lactate as a metabolite and a regulator in the central nervous system.
+<i>Int J Mol Sci.</i> (2016) 17:1450. 10.3390/ijms17091450
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijms17091450</ArticleId><ArticleId IdType="pmc">PMC5037729</ArticleId><ArticleId IdType="pubmed">27598136</ArticleId></ArticleIdList></Reference><Reference><Citation>Wan JJ, Qin Z, Wang PY, Sun Y, Liu X.
+Muscle fatigue: general understanding and treatment.
+<i>Exp Mol Med.</i> (2017) 49:e384. 10.1038/emm.2017.194
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/emm.2017.194</ArticleId><ArticleId IdType="pmc">PMC5668469</ArticleId><ArticleId IdType="pubmed">28983090</ArticleId></ArticleIdList></Reference><Reference><Citation>Ng SK, Hamilton IR.
+Carbon dioxide fixation by <i>Veillonella parvula</i> M 4 and its relation to propionic acid formation.
+<i>Can J Microbiol.</i> (1973) 19:715&#x2013;23. 10.1139/m73-116
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/m73-116</ArticleId><ArticleId IdType="pubmed">4712506</ArticleId></ArticleIdList></Reference><Reference><Citation>Mohr AE, J&#xe4;ger R, Carpenter KC, Kerksick CM, Purpura M, Townsend JR, et al. 
+The athletic gut microbiota.
+<i>J Int Soc Sports Nutr.</i> (2020) 17:24. 10.1186/s12970-020-00353-w
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12970-020-00353-w</ArticleId><ArticleId IdType="pmc">PMC7218537</ArticleId><ArticleId IdType="pubmed">32398103</ArticleId></ArticleIdList></Reference><Reference><Citation>Scheiman J, Luber JM, Chavkin TA, MacDonald T, Tung A, Pham LD, et al. 
+Meta-omics analysis of elite athletes identifies a performance-enhancing microbe that functions <i>via</i> lactate metabolism.
+<i>Nat Med.</i> (2019) 25:1104&#x2013;9. 10.1038/s41591-019-0485-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41591-019-0485-4</ArticleId><ArticleId IdType="pmc">PMC7368972</ArticleId><ArticleId IdType="pubmed">31235964</ArticleId></ArticleIdList></Reference><Reference><Citation>Hawley JA.
+Microbiota and muscle highway &#x2013; two way traffic.
+<i>Nat Rev Endocrinol.</i> (2020) 16:71&#x2013;2. 10.1038/s41574-019-0291-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41574-019-0291-6</ArticleId><ArticleId IdType="pubmed">31728050</ArticleId></ArticleIdList></Reference><Reference><Citation>Chen H, Shen L, Liu Y, Ma X, Long L, Ma X, et al. 
+Strength exercise confers protection in central nervous system autoimmunity by altering the gut microbiota.
+<i>Front Immunol.</i> (2021) 12:628629. 10.3389/fimmu.2021.628629
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fimmu.2021.628629</ArticleId><ArticleId IdType="pmc">PMC8007788</ArticleId><ArticleId IdType="pubmed">33796102</ArticleId></ArticleIdList></Reference><Reference><Citation>Bycura D, Santos AC, Shiffer A, Kyman S, Winfree K, Sutliffe J, et al. 
+Impact of different exercise modalities on the human gut microbiome.
+<i>Sports (Basel).</i> (2021) 9:14. 10.3390/sports9020014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/sports9020014</ArticleId><ArticleId IdType="pmc">PMC7909775</ArticleId><ArticleId IdType="pubmed">33494210</ArticleId></ArticleIdList></Reference><Reference><Citation>de la Cuesta-Zuluaga J, Mueller NT, Corrales-Agudelo V, Vel&#xe1;squez-Mej&#xed;a EP, Carmona JA, Abad JM, et al. 
+Metformin is associated with higher relative abundance of mucin-degrading <i>Akkermansia muciniphila</i> and Several short-chain fatty acid-producing microbiota in the gut.
+<i>Diabetes Care.</i> (2017) 40:54&#x2013;62. 10.2337/dc16-1324
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/dc16-1324</ArticleId><ArticleId IdType="pubmed">27999002</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

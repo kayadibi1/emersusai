@@ -1,0 +1,430 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41835898</PMID><DateCompleted><Year>2026</Year><Month>03</Month><Day>16</Day></DateCompleted><DateRevised><Year>2026</Year><Month>03</Month><Day>16</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-1078</ISSN><JournalIssue CitedMedium="Print"><Volume>17</Volume><PubDate><Year>2026</Year></PubDate></JournalIssue><Title>Frontiers in psychology</Title><ISOAbbreviation>Front Psychol</ISOAbbreviation></Journal><ArticleTitle>Resilience after the quake: life engagement and humor as pathways to trauma recovery.</ArticleTitle><Pagination><StartPage>1791041</StartPage><MedlinePgn>1791041</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1791041</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fpsyg.2026.1791041</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">Earthquakes are frequently associated with elevated levels of psychological trauma, particularly among vulnerable groups. In this context, understanding the conceptual pathways and relational processes through which individuals cope becomes an important focus for research.</AbstractText><AbstractText Label="OBJECTIVE" NlmCategory="UNASSIGNED">This study investigates the serial mediation role of life engagement and coping humor in the link between psychological resilience and trauma among physical education and sport teachers affected by the earthquake, aiming to clarify how individual and psychosocial resources contribute to post-trauma adaptation.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">The study was conducted with 689 physical education and sport teachers affected by the earthquake. Data were collected using the Brief Resilience Scale (BRS), the Life Engagement Scale (LES), the Coping Humor Scale (CHS), and the Post Earthquake Trauma Level Determination Scale (PETLDS). Statistical analyses were performed with SPSS v22. The relationships among the variables were examined using Pearson correlation and regression analyses, and serial mediation associations were tested using the PROCESS Macro v3.5 (Model 6) with 5,000 bootstrap samples.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Psychological resilience was negatively associated with post-earthquake trauma in the serial mediation model (&#x3b2; = -0.736, <i>p</i> = 0.030). Life engagement and coping humor were associated with this relationship through statistically significant indirect pathways, as indicated by bootstrap confidence intervals that did not include zero [a1b1 = -0.110, 95% CI (-0.231, -0.018); a2b2 = -0.077, 95% CI (-0.183, -0.004); a1d1b2 = -0.033, 95% CI (-0.082, -0.003)]. These findings indicate that resilience, life engagement, and coping humor are related through theoretically consistent indirect associations within the proposed serial mediation framework.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">Psychological resilience, life engagement, and coping humor were associated with individuals' trauma experiences following the earthquake. The findings indicate that these factors constitute relevant psychosocial resources in post-disaster contexts; however, their potential implications should be interpreted cautiously, given the study's cross-sectional design.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Yi&#x11f;it, Usuflu, Turan, K&#x131;r, Ulucan, Dalbudak, Pepe and Bay&#x131;ro&#x11f;lu.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Yi&#x11f;it</LastName><ForeName>&#x15e;&#x131;hmehmet</ForeName><Initials>&#x15e;</Initials><AffiliationInfo><Affiliation>Department of Sports Management, School of Physical Education and Sports, Osmaniye Korkut Ata University, Osmaniye, T&#xfc;rkiye.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Usuflu</LastName><ForeName>O&#x11f;ulcan</ForeName><Initials>O</Initials><AffiliationInfo><Affiliation>Department of Physical Education and Sports, Institute of Health Sciences, Erciyes University, Kayseri, T&#xfc;rkiye.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Turan</LastName><ForeName>Mehmet Behzat</ForeName><Initials>MB</Initials><AffiliationInfo><Affiliation>Department of Recreation, Faculty of Sports Sciences, Erciyes University, Kayseri, T&#xfc;rkiye.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>K&#x131;r</LastName><ForeName>Sevim</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Department of Physical Education and Sports, Institute of Health Sciences, Erciyes University, Kayseri, T&#xfc;rkiye.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ulucan</LastName><ForeName>Hakk&#x131;</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Sports Management, Faculty of Sports Sciences, Erciyes University, Kayseri, T&#xfc;rkiye.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Dalbudak</LastName><ForeName>&#x130;brahim</ForeName><Initials>&#x130;</Initials><AffiliationInfo><Affiliation>Department of Sports Management, Faculty of Sports Sciences, U&#x15f;ak University, U&#x15f;ak, T&#xfc;rkiye.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Pepe</LastName><ForeName>Osman</ForeName><Initials>O</Initials><AffiliationInfo><Affiliation>Department of Sports Management, Faculty of Sports Sciences, S&#xfc;leyman Demirel University, Isparta, T&#xfc;rkiye.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Bay&#x131;ro&#x11f;lu</LastName><ForeName>G&#xfc;l Bahar</ForeName><Initials>GB</Initials><AffiliationInfo><Affiliation>Department of Sports Management, Faculty of Sports Sciences, S&#xfc;leyman Demirel University, Isparta, T&#xfc;rkiye.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>02</Month><Day>26</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Psychol</MedlineTA><NlmUniqueID>101550902</NlmUniqueID><ISSNLinking>1664-1078</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">earthquake</Keyword><Keyword MajorTopicYN="N">education</Keyword><Keyword MajorTopicYN="N">humor</Keyword><Keyword MajorTopicYN="N">life engagement</Keyword><Keyword MajorTopicYN="N">physicaleducation</Keyword><Keyword MajorTopicYN="N">psychological resilience</Keyword><Keyword MajorTopicYN="N">teacher</Keyword><Keyword MajorTopicYN="N">trauma</Keyword></KeywordList><CoiStatement>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2026</Year><Month>1</Month><Day>20</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2026</Year><Month>2</Month><Day>4</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>2</Month><Day>4</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>16</Day><Hour>6</Hour><Minute>32</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>16</Day><Hour>6</Hour><Minute>31</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>16</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>2</Month><Day>26</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41835898</ArticleId><ArticleId IdType="pmc">PMC12979233</ArticleId><ArticleId IdType="doi">10.3389/fpsyg.2026.1791041</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>A&#xe7;&#x131;k Yavuz B., Demir M., Adal&#x131; S., &#xd6;zt&#xfc;rk C. &#x15e;. (2025). Psychological interventions for post-earthquake posttraumatic stress disorder in Turkey: a systematic review.
+<i>J. Disaster Risk</i>
+8
+468&#x2013;486. 10.35341/afet.1422407</Citation><ArticleIdList><ArticleId IdType="doi">10.35341/afet.1422407</ArticleId></ArticleIdList></Reference><Reference><Citation>Adhikari Baral I., K.C B. (2019). Posttraumatic stress disorder and coping strategies among adult survivors of the earthquake, Nepal.
+<i>BMC Psychiatry</i>
+19:118. 10.1186/s12888-019-2090-y
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12888-019-2090-y</ArticleId><ArticleId IdType="pmc">PMC6474064</ArticleId><ArticleId IdType="pubmed">30999893</ArticleId></ArticleIdList></Reference><Reference><Citation>AFAD (2018). <i>Disaster Management and Natural Hazard Statistics in Turkey.</i>
+Available online at: https://www.afad.gov.tr/Kurumlar/afad.gov.tr/35429/xfiles/turkiye_de_afetler.pdf (accessed February 6, 2023).</Citation></Reference><Reference><Citation>AFAD (2023). <i>06 &#x15e;ubat 2023 Preliminary Field Assessment Report of the February 6, 2023, Kahramanmara&#x15f; (Pazarc&#x131;k and Elbistan) Earthquakes.</i>
+Available online at: https://deprem.afad.gov.tr/assets/pdf/arazi_onrapor_28022023_surum1_revize.pdf (accessed February 6, 2023).</Citation></Reference><Reference><Citation>Ak&#xe7;a Ta&#x15f;&#xe7;&#x131; G., &#xd6;zsoy F. (2021). Early psychological effects of earthquake trauma and possible risk factors.
+<i>Cukurova Med. J.</i>
+46
+488&#x2013;494. 10.17826/cumj.841197</Citation><ArticleIdList><ArticleId IdType="doi">10.17826/cumj.841197</ArticleId></ArticleIdList></Reference><Reference><Citation>Ak&#x131;&#x15f; A. G., Korkmaz Yaylag&#xfc;l N. (2021). Life course perspective and aging.
+<i>Adiyaman Univ. J. Soc. Sci. Inst.</i>
+38
+276&#x2013;309. 10.14520/adyusbd.867560</Citation><ArticleIdList><ArticleId IdType="doi">10.14520/adyusbd.867560</ArticleId></ArticleIdList></Reference><Reference><Citation>Altun&#x131;&#x15f;&#x131;k R., &#xc7;o&#x15f;kun R., Bayraktaro&#x11f;lu S., Y&#x131;ld&#x131;r&#x131;m E. (2012). <i>Research Methods in Social Sciences (in Turkish).</i>
+Serdivan: Sakarya Publishing.</Citation></Reference><Reference><Citation>Anis H., Essayli D., Emir Hamitoglu A., Basha Shaik A., Nazir A., Wellington J., et al.  (2023). Mental health impact of the catastrophic 2023 earthquake on Turkish youth: psychological distress amidst humanitarian crisis.
+<i>Int. J. Surg.</i>
+6:e0160. 10.1097/GH9.0000000000000160</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/GH9.0000000000000160</ArticleId></ArticleIdList></Reference><Reference><Citation>Arguvanl&#x131; &#xc7;oban S., G&#xfc;n Ko&#x15f;ar N. (2024). Relationship between Post-Traumatic Stress Disorder and Spiritual Well-Being in older adults earthquake survivors: A cross-sectional correlational study. <i>J. Relig. Spiritual. Aging</i>
+37, 153&#x2013;166. 10.1080/15528030.2024.2437792</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15528030.2024.2437792</ArticleId></ArticleIdList></Reference><Reference><Citation>Aslan B., &#xd6;nal &#xd6;. (2024). Prevalence of probable post-traumatic stress disorder among survivors of the 2023 earthquakes in T&#xfc;rkiye.
+<i>East. Mediterranean Health J.</i>
+30
+622&#x2013;631. 10.26719/2024.30.9.622
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.26719/2024.30.9.622</ArticleId><ArticleId IdType="pubmed">39574380</ArticleId></ArticleIdList></Reference><Reference><Citation>Aydo&#x11f;an D., Eryi&#x11f;it Madzwamuse S. (2020). <i>Strengthening Resilience in Schools: A Whole-School Approach Handbook</i>, 2nd Edn. Ankara: Pegem Akademi Publishing. 10.14527/9786052417966</Citation><ArticleIdList><ArticleId IdType="doi">10.14527/9786052417966</ArticleId></ArticleIdList></Reference><Reference><Citation>Aykut S., Soner Aykut S. (2020). The importance of social work based on post-traumatic stress disorder during the COVID-19 pandemic.
+<i>J. Soc. Policy</i>
+1
+56&#x2013;66.</Citation></Reference><Reference><Citation>Aylaz R., Balkaya F., Uncu F. (2025). The relationship between post-earthquake trauma levels and sleep quality among university students: a cross-sectional study.
+<i>Turk. J. Psychiatry</i>
+36:29. 10.5080/u27374
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5080/u27374</ArticleId><ArticleId IdType="pmc">PMC11987545</ArticleId><ArticleId IdType="pubmed">41070492</ArticleId></ArticleIdList></Reference><Reference><Citation>Balbay E. G., Annakkaya A. N., Balbay &#xd6;. (2024). Earthquake and sleep health effects.
+<i>Turk. J. Sleep Med.</i>
+11
+141&#x2013;146. 10.4274/jtsm.galenos.2023.87059</Citation><ArticleIdList><ArticleId IdType="doi">10.4274/jtsm.galenos.2023.87059</ArticleId></ArticleIdList></Reference><Reference><Citation>Baron R. M., Kenny D. A. (1986). The moderator&#x2013;mediator variable distinction in social psychological research: conceptual, strategic, and statistical considerations.
+<i>J. Pers. Soc. Psychol.</i>
+51
+1173&#x2013;1182. 10.1037/0022-3514.51.6.1173
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0022-3514.51.6.1173</ArticleId><ArticleId IdType="pubmed">3806354</ArticleId></ArticleIdList></Reference><Reference><Citation>Bas&#x131;m H. N., &#xc7;etin F. (2011). The reliability and validity of the resilience scale for adults.
+<i>Turk. J. Psychiatry</i>
+22
+104&#x2013;114.</Citation><ArticleIdList><ArticleId IdType="pubmed">21638232</ArticleId></ArticleIdList></Reference><Reference><Citation>Basnet B. K. (2020). Earthquake and its impacts on education: aftermath of the 2015 Nepal quake.
+<i>Eur. Educ. Res.</i>
+3
+101&#x2013;118. 10.31757/euer.332</Citation><ArticleIdList><ArticleId IdType="doi">10.31757/euer.332</ArticleId></ArticleIdList></Reference><Reference><Citation>Berger V. W., Zhou Y. (2014). &#x201c;Kolmogorov&#x2013;Smirnov test: Overview,&#x201d; in <i>Wiley StatsRef: Statistics Reference Online</i>
+ed.
+Kenett R. S. (Hoboken, NJ: John Wiley &amp; Sons, Ltd; ). 10.1002/9781118445112.stat06558</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/9781118445112.stat06558</ArticleId></ArticleIdList></Reference><Reference><Citation>Block J., Kremen A. M. (1996). IQ and ego-resiliency: conceptual and empirical connections and separateness.
+<i>J. Pers. Soc. Psychol.</i>
+70
+349&#x2013;361. 10.1037/0022-3514.70.2.349
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0022-3514.70.2.349</ArticleId><ArticleId IdType="pubmed">8636887</ArticleId></ArticleIdList></Reference><Reference><Citation>Boerner M., Joseph S., Murphy D. (2017). The association between sense of humor and trauma-related mental health outcomes: two exploratory studies.
+<i>J. Loss Trauma</i>
+22
+440&#x2013;452. 10.1080/15325024.2017.1310504</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15325024.2017.1310504</ArticleId></ArticleIdList></Reference><Reference><Citation>B&#xf6;l&#xfc;kba&#x15f;&#x131; S. (2025). Support for older adults in post-traumatic recovery after earthquakes.
+<i>Turk. J. Healthy Aging Med.</i>
+2
+36&#x2013;40. 10.5281/zenodo.15056176</Citation><ArticleIdList><ArticleId IdType="doi">10.5281/zenodo.15056176</ArticleId></ArticleIdList></Reference><Reference><Citation>Bonanno G. A. (2004). Loss, trauma, and human resilience: Have we underestimated the human capacity to thrive after extremely aversive events?
+<i>Am. Psychol.</i>
+59
+20&#x2013;28. 10.1037/0003-066X.59.1.20
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0003-066X.59.1.20</ArticleId><ArticleId IdType="pubmed">14736317</ArticleId></ArticleIdList></Reference><Reference><Citation>Bonanno G. A., Romero S. A., Klein S. I. (2015). The temporal elements of psychological resilience: an integrative framework for the study of individuals, families, and communities.
+<i>Psychol. Inq.</i>
+26
+139&#x2013;169. 10.1080/1047840X.2015.992677</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/1047840X.2015.992677</ArticleId></ArticleIdList></Reference><Reference><Citation>Bozkurt V., Kaya H., G&#xf6;ka E., &#xd6;ngen Bilir K. &#xd6;. (2023). The mental health of a society in crisis: complaints of depression and anxiety.
+<i>&#x130;stanbul &#xdc;niv. Sosyoloji Dergisi</i>
+42 (Suppl. 1), 153&#x2013;170. 10.26650/SJ.2022.42.3.0059</Citation><ArticleIdList><ArticleId IdType="doi">10.26650/SJ.2022.42.3.0059</ArticleId></ArticleIdList></Reference><Reference><Citation>Bulut A. (2023). The relationship between natural disasters and mental health.
+<i>Cyprus Turk. J. Psychiatry Psychol.</i>
+5:265. 10.35365/ctjpp.23.3.09</Citation><ArticleIdList><ArticleId IdType="doi">10.35365/ctjpp.23.3.09</ArticleId></ArticleIdList></Reference><Reference><Citation>&#xc7;a&#x11f;&#x131;&#x15f; Z. G., Ak&#xe7;e I., Aziz I. A., Rizzo A., Nucera G., Bragazzi N., et al.  (2023). The mediating role of peritraumatic stress in the relationship between childhood psychological maltreatment and optimism and pessimism among earthquake survivors in Turkey.
+<i>J. Health Soc. Sci.</i>
+8
+121&#x2013;131. 10.19204/2023/THMD4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.19204/2023/THMD4</ArticleId></ArticleIdList></Reference><Reference><Citation>Canl&#x131; D., Y&#x131;lmaz F. (2024). Evaluation of earthquake anxiety, death anxiety, and psychological resilience levels of individuals after an earthquake.
+<i>Bozok Med. J.</i>
+14
+9&#x2013;17. 10.16919/bozoktip.1305106</Citation><ArticleIdList><ArticleId IdType="doi">10.16919/bozoktip.1305106</ArticleId></ArticleIdList></Reference><Reference><Citation>Chan D. (2009). &#x201c;So why ask me? Are self-report data really that bad?,&#x201d; in <i>Statistical and Methodological Myths and Urban Legends: Doctrine, Verity and Fable in Organizational and Social Sciences</i>, eds
+Lance C. E., Vandenberg R. J. (Routledge: ), 10.4324/9780203867266</Citation><ArticleIdList><ArticleId IdType="doi">10.4324/9780203867266</ArticleId></ArticleIdList></Reference><Reference><Citation>Christensen L. B., Johnson R. B., Turner L. A. (2010). <i>Research Methods, Design, and Analysis</i>, 11th Edn. Boston, MA: Allyn and Bacon.</Citation></Reference><Reference><Citation>&#xc7;if&#xe7;i S., K&#x131;l&#x131;n&#xe7; Z. (2024). The disaster of the century: effects of the 6 February 2023 Kahramanmara&#x15f; earthquakes on the sleep and mental health of healthcare workers.
+<i>Int. J. Environ. Res. Public Health</i>
+21:1533. 10.3390/ijerph21111533
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph21111533</ArticleId><ArticleId IdType="pmc">PMC11594060</ArticleId><ArticleId IdType="pubmed">39595800</ArticleId></ArticleIdList></Reference><Reference><Citation>&#xc7;&#x131;naro&#x11f;lu M., Y&#x131;lmazer E., Noyan Ahlatc&#x131;o&#x11f;lu E., &#xdc;lker S. V., H&#x131;zl&#x131; Sayar G. (2025). Psychological impact of the 2023 Kahramanmara&#x15f; earthquakes: a systematic review and meta-analysis of PTSD, depression, and anxiety among Turkish adults.
+<i>Front. Public Health</i>
+13:1664212. 10.3389/fpubh.2025.1664212
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpubh.2025.1664212</ArticleId><ArticleId IdType="pmc">PMC12417135</ArticleId><ArticleId IdType="pubmed">40933413</ArticleId></ArticleIdList></Reference><Reference><Citation>Demirchyan A. (2022). Depression among survivors of the 1988 Spitak earthquake in Armenia: A prospective cohort study.
+<i>Eur. J. Public Health</i>
+32 (Suppl. 3):ckac130.179. 10.1093/eurpub/ckac130.179</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/eurpub/ckac130.179</ArticleId></ArticleIdList></Reference><Reference><Citation>Deniz M. E., Sat&#x131;c&#x131; S. A. (2017). The relationships between Big Five personality traits and subjective vitality.
+<i>Ann. Psychol.</i>
+33
+218&#x2013;224. 10.6018/analesps.33.2.261911</Citation><ArticleIdList><ArticleId IdType="doi">10.6018/analesps.33.2.261911</ArticleId></ArticleIdList></Reference><Reference><Citation>Deniz O., Y&#x131;ld&#x131;z M. Z., Parin S., Erdo&#x11f;an R. (2017). Earthquake and migration: the case of the 2011 Van earthquake.
+<i>Soc. Sci. Stud. J.</i>
+10
+1426&#x2013;1444. 10.26449/sssj.202</Citation><ArticleIdList><ArticleId IdType="doi">10.26449/sssj.202</ArticleId></ArticleIdList></Reference><Reference><Citation>Derin G., &#xd6;zt&#xfc;rk E. (2023). Social trauma agents as war and terrorism: a modern psychotraumatological and dissoanalytic approach.
+<i>Ayd&#x131;n J. Hum. Soc.</i>
+9
+65&#x2013;82. 10.17932/IAU.AIT.2015.012/ait_v09i2004</Citation><ArticleIdList><ArticleId IdType="doi">10.17932/IAU.AIT.2015.012/ait_v09i2004</ArticleId></ArticleIdList></Reference><Reference><Citation>Do&#x11f;an T. (2015). Turkish adaptation of the Brief Resilience Scale: Validity and reliability study.
+<i>J. Happ. Well Being</i>
+3
+93&#x2013;102.</Citation></Reference><Reference><Citation>Dong L., Shan J. (2013). A comprehensive review of earthquake-induced building damage detection with remote sensing techniques.
+<i>ISPRS J. Photogr. Remote Sens.</i>
+84
+85&#x2013;99. 10.1016/j.isprsjprs.2013.06.011</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.isprsjprs.2013.06.011</ArticleId></ArticleIdList></Reference><Reference><Citation>Durmu&#x15f; M., Durar E. (2021). The relationship between spiritual well-being and fear of COVID-19 among Turkish elders.
+<i>J. Relig. Spirit. Aging</i>
+34
+3&#x2013;16. 10.1080/15528030.2021.1894627</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15528030.2021.1894627</ArticleId></ArticleIdList></Reference><Reference><Citation>Earvolino-Ramirez M. (2007). Resilience: a concept analysis.
+<i>Nurs. Forum</i>
+42
+73&#x2013;82. 10.1111/j.1744-6198.2007.00070.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1744-6198.2007.00070.x</ArticleId><ArticleId IdType="pubmed">17474940</ArticleId></ArticleIdList></Reference><Reference><Citation>Edemen M., Okkay M., Tu&#x11f;rul R., Kurt M. &#x15e;, Bircan O., Yolda&#x15f; H., et al.  (2023). What is an earthquake? How does it occur? Earthquakes in Turkey and their impacts: recommendations for measures against earthquakes.
+<i>Int. J. Soc. Human. Sci. Res.</i>
+10
+719&#x2013;734. 10.26450/jshsr.3584</Citation><ArticleIdList><ArticleId IdType="doi">10.26450/jshsr.3584</ArticleId></ArticleIdList></Reference><Reference><Citation>Ery&#x131;lmaz A. (2012). Investigating the effectiveness of extending goals group guidance program for adolescents with respect to positive psychotherapy. <i>Educ. Sci.</i>
+37, 3&#x2013;19. 10.15390/ES.2012.1023</Citation><ArticleIdList><ArticleId IdType="doi">10.15390/ES.2012.1023</ArticleId></ArticleIdList></Reference><Reference><Citation>Eyler Y., K&#x131;l&#x131;&#xe7; T. Y., Atilla &#xd6;. D., Berksoy E. (2022). Analysis of patients admitted to Health Sciences University Tepecik Education and Research Hospital emergency clinics after the &#x130;zmir earthquake on October 30, 2020.
+<i>Tepecik Educ. Res. Hosp.</i>
+32
+372&#x2013;377. 10.4274/terh.galenos.2021.62347</Citation><ArticleIdList><ArticleId IdType="doi">10.4274/terh.galenos.2021.62347</ArticleId></ArticleIdList></Reference><Reference><Citation>Fan Y., Guan L., Xiang H., Yang X., Huang G., Cheng W., et al.  (2021). Posttraumatic stress disorder and professional burnout among local government staff seven years after the Wenchuan earthquake in China: a longitudinal study.
+<i>Asian J. Psychiatry</i>
+64:102689. 10.1016/j.ajp.2021.102689
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ajp.2021.102689</ArticleId><ArticleId IdType="pubmed">34004459</ArticleId></ArticleIdList></Reference><Reference><Citation>Feder L. B., Zulli D. (2024). Extending athlete reputational crises: theorizing underperformance crises and the flip appeal.
+<i>Int. J. Commun.</i>
+18:23.</Citation></Reference><Reference><Citation>Filazo&#x11f;lu, &#xc7;okluk G., Sava&#x15f; E. (2025). Psychological impact of the February 6th earthquake in Turkey: a study on PTSD, depression, and anxiety.
+<i>Exp. Appl. Med. Sci.</i>
+6
+1&#x2013;19. 10.46871/eams.1564013</Citation><ArticleIdList><ArticleId IdType="doi">10.46871/eams.1564013</ArticleId></ArticleIdList></Reference><Reference><Citation>Fisher J. (1993). Social desirability bias and the validity of indirect questioning.
+<i>J. Consum. Res.</i>
+20
+303&#x2013;315. 10.1086/209351</Citation><ArticleIdList><ArticleId IdType="doi">10.1086/209351</ArticleId></ArticleIdList></Reference><Reference><Citation>Fraser M. W., Galinsky M. J., Richman J. M. (1999). Risk, protection, and resilience: Toward a conceptual framework for social work practice.
+<i>Soc. Work Res.</i>
+23
+131&#x2013;143. 10.1093/swr/23.3.131</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/swr/23.3.131</ArticleId></ArticleIdList></Reference><Reference><Citation>Fritz M. S., MacKinnon D. P. (2007). A sample size is required to detect the mediated effect.
+<i>Psychol. Sci.</i>
+18
+233&#x2013;239. 10.1111/j.1467-9280.2007.01882.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1467-9280.2007.01882.x</ArticleId><ArticleId IdType="pmc">PMC2843527</ArticleId><ArticleId IdType="pubmed">17444920</ArticleId></ArticleIdList></Reference><Reference><Citation>George D., Mallery P. (2010). <i>IBM SPSS Statistics 23 Step by Step: A Simple Guide and Reference.</i>
+London: Routledge.</Citation></Reference><Reference><Citation>Gezer M., &#x15e;ahin I. F. (2022). Earthquake education: earthquake knowledge levels of social studies teacher candidates.
+<i>Erzincan Univ. J. Educ. Faculty</i>
+24
+97&#x2013;106. 10.17556/erziefd.941878</Citation><ArticleIdList><ArticleId IdType="doi">10.17556/erziefd.941878</ArticleId></ArticleIdList></Reference><Reference><Citation>G&#xf6;k&#xe7;ay G., &#xc7;evirme A., &#x130;ncirku&#x15f; K&#xfc;&#xe7;&#xfc;k H., et al.  (2024). The relationship between earthquake risk perceptions, religious orientation, and spiritual well-being in individuals with and without earthquake experience: a cross-sectional study.
+<i>Sci. Rep.</i>
+14:5928. 10.1038/s41598-024-56641-x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-024-56641-x</ArticleId><ArticleId IdType="pmc">PMC10928068</ArticleId><ArticleId IdType="pubmed">38467706</ArticleId></ArticleIdList></Reference><Reference><Citation>G&#xfc;lo&#x11f;lu B., Kara&#x131;rmak O. (2010). Self-esteem and resilience as predictors of loneliness among university students.
+<i>Ege J. Educ.</i>
+11
+73&#x2013;88.</Citation></Reference><Reference><Citation>G&#xfc;rb&#xfc;z S. (2019). <i>Mediation, Moderation, and Conditional Effect Analysis in Social Sciences [Original Work in Turkish].</i>
+Ankara: Se&#xe7;kin Yay&#x131;nc&#x131;l&#x131;k.</Citation></Reference><Reference><Citation>Hayes A. F. (2013). <i>Introduction to Mediation, Moderation, and Conditional Process Analysis: A Regression-Based Approach.</i>
+New York, NY: Guilford Press.</Citation></Reference><Reference><Citation>Hayes A. F. (2018). <i>Introduction to Mediation, Moderation, and Conditional Process Analysis: A Regression-Based Approach</i>, 2nd Edn. New York, NY: Guilford Press.</Citation></Reference><Reference><Citation>Hayes A. F. (2022). <i>Introduction to Mediation, Moderation, and Conditional Process Analysis: A Regression-Based Approach</i>, 3rd Edn. New York, NY: Guilford Press.</Citation></Reference><Reference><Citation>He X., Chen Z., Yang Q., Xu C. (2025). Advances in earthquake and cascading disasters.
+<i>Nat. Hazards Res.</i>
+5
+421&#x2013;431. 10.1016/j.nhres.2025.01.010</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.nhres.2025.01.010</ArticleId></ArticleIdList></Reference><Reference><Citation>Helvac&#x131; &#xd6;zkara D., Y&#x131;lmaz E. (2025). Compassion fatigue, stress, and resilience levels of healthcare workers in earthquake-affected regions.
+<i>J. Health Acad.</i>
+12
+216&#x2013;225. 10.52880/sagakaderg.1572430</Citation><ArticleIdList><ArticleId IdType="doi">10.52880/sagakaderg.1572430</ArticleId></ArticleIdList></Reference><Reference><Citation>Hobfoll S. E., Watson P., Bell C. C., Bryant R. A., Brymer M. J., Friedman M. J., et al.  (2007). Five essential elements of immediate and mid-term mass trauma intervention: empirical evidence.
+<i>Psychiatry</i>
+70
+283&#x2013;369. 10.1521/psyc.2007.70.4.283
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1521/psyc.2007.70.4.283</ArticleId><ArticleId IdType="pubmed">18181708</ArticleId></ArticleIdList></Reference><Reference><Citation>Hofmann S. G., Hayes S. C. (2019). The future of intervention science: process-based therapy.
+<i>Clin. Psychol. Sci.</i>
+7
+37&#x2013;50. 10.1177/2167702618772296
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/2167702618772296</ArticleId><ArticleId IdType="pmc">PMC6350520</ArticleId><ArticleId IdType="pubmed">30713811</ArticleId></ArticleIdList></Reference><Reference><Citation>Hu L. T., Bentler P. M. (1999). Cutoff criteria for fit indexes in covariance structure analysis: conventional criteria versus new alternatives.
+<i>Struct. Equat. Model.</i>
+6
+1&#x2013;55. 10.1080/10705519909540118</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10705519909540118</ArticleId></ArticleIdList></Reference><Reference><Citation>Huang R., Li W. (2014). Post-earthquake landsliding and long-term impacts in the Wenchuan earthquake area, China.
+<i>Eng. Geol.</i>
+182
+111&#x2013;120. 10.1016/j.enggeo.2014.07.008</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.enggeo.2014.07.008</ArticleId></ArticleIdList></Reference><Reference><Citation>Hussain E., Kalayc&#x131;o&#x11f;lu S., Milliner C. W. D., &#xc7;akir Z. (2023). Preconditioning the 2023 Kahramanmara&#x15f; (T&#xfc;rkiye) earthquake disaster.
+<i>Nat. Rev. Earth Environ.</i>
+4
+287&#x2013;289. 10.1038/s43017-023-00411-2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s43017-023-00411-2</ArticleId><ArticleId IdType="pmc">PMC10123572</ArticleId><ArticleId IdType="pubmed">37168360</ArticleId></ArticleIdList></Reference><Reference><Citation>International Labour Organization [ILO] (2023). <i>The Effects of the February 2023 Earthquake on the Labour Market in T&#xfc;rkiye.</i>
+Available online at: https://www.ilo.org/publications/effects-february-2023-earthquake-labour-market-turkiye (accessed March 28, 2023).</Citation></Reference><Reference><Citation>Kara&#x131;rmak O., Sivi&#x15f; &#xc7;etinkaya R. (2011). The effects of self-esteem and locus of control on resilience: the mediating role of emotions.
+<i>Turk. Psychol. Counsel. Guidance J.</i>
+4
+30&#x2013;43. 10.17066/pdrd.81376</Citation><ArticleIdList><ArticleId IdType="doi">10.17066/pdrd.81376</ArticleId></ArticleIdList></Reference><Reference><Citation>Karak&#x131;&#x15f; S., Karaaziz M. (2024). Examination of the relationship between earthquake anxiety, stress, and depression in Turkey from the perspective of psychological flexibility.
+<i>ISPEC Int. J. Soc. Sci. Human.</i>
+8
+131&#x2013;146. 10.5281/zenodo.12511620</Citation><ArticleIdList><ArticleId IdType="doi">10.5281/zenodo.12511620</ArticleId></ArticleIdList></Reference><Reference><Citation>Karasar N. (2016). <i>Scientific Research Method: Concepts, Principles, and Techniques</i>, 31st Edn. Ankara: Nobel Academic Publishing.</Citation></Reference><Reference><Citation>Karbeyaz A. (2023). Determining the earthquake anxiety of teachers working in the earthquake zone.
+<i>Dokuz Eyl&#xfc;l Univ. Buca Facul. Educ. J.</i>
+58
+3138&#x2013;3157. 10.53444/deubefd.1359263</Citation><ArticleIdList><ArticleId IdType="doi">10.53444/deubefd.1359263</ArticleId></ArticleIdList></Reference><Reference><Citation>Kashdan T. B., Rottenberg J. (2010). Psychological flexibility is a fundamental aspect of health.
+<i>Clin. Psychol. Rev.</i>
+30
+865&#x2013;878. 10.1016/j.cpr.2010.03.001
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cpr.2010.03.001</ArticleId><ArticleId IdType="pmc">PMC2998793</ArticleId><ArticleId IdType="pubmed">21151705</ArticleId></ArticleIdList></Reference><Reference><Citation>Kawahara K., Ushijima H., Usami M., Takebayashi M. (2020). No associations of psychological symptoms and suicide risk with disaster experiences in junior high school students 5 years after the 2011 Great East Japan earthquake and tsunami.
+<i>Neuropsychiatr. Dis. Treat.</i>
+16
+2377&#x2013;2387. 10.2147/NDT.S269835
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/NDT.S269835</ArticleId><ArticleId IdType="pmc">PMC7571580</ArticleId><ArticleId IdType="pubmed">33116537</ArticleId></ArticleIdList></Reference><Reference><Citation>Kaya M. S. (2022). The use of dynamic cognitive behavioural therapy (DCBT) in social anxiety disorder (SAD): a theoretical integration initiative.
+<i>Medicina</i>
+58:1759. 10.3390/medicina58121759
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/medicina58121759</ArticleId><ArticleId IdType="pmc">PMC9781870</ArticleId><ArticleId IdType="pubmed">36556961</ArticleId></ArticleIdList></Reference><Reference><Citation>Kaya M. S., McCabe C. (2022). Effects of COVID-19 on adolescent mental health and internet use by ethnicity and gender: a mixed-method study.
+<i>Int. J. Environ. Res. Public Health</i>
+19:8927. 10.3390/ijerph19158927
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph19158927</ArticleId><ArticleId IdType="pmc">PMC9331135</ArticleId><ArticleId IdType="pubmed">35897302</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim E. M., Kim G. S., Kim H., Park C. G., Lee O., Pfefferbaum B. (2022). Health-related quality of life among older adults who experienced the Pohang earthquake in South Korea: a cross-sectional survey.
+<i>Health Qual. Life Outcomes</i>
+20:37. 10.1186/s12955-022-01944-8
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12955-022-01944-8</ArticleId><ArticleId IdType="pmc">PMC8896096</ArticleId><ArticleId IdType="pubmed">35246161</ArticleId></ArticleIdList></Reference><Reference><Citation>Kino S., Aida J., Kondo K., Kawachi I. (2020). Long-term trends in mental health disorders after the 2011 Great East Japan Earthquake and Tsunami.
+<i>JAMA Netw. Open</i>
+3:e2013437. 10.1001/jamanetworkopen.2020.13437
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamanetworkopen.2020.13437</ArticleId><ArticleId IdType="pmc">PMC7428812</ArticleId><ArticleId IdType="pubmed">32797173</ArticleId></ArticleIdList></Reference><Reference><Citation>Kizilhan J. I., Neumann J., Aslan S., Aladag E., Dogan A., Mese A., et al.  (2024). Psychological impact of the 2023 earthquake in Turkey.
+<i>Discover Public Health Res.</i>
+21:71. 10.1186/s12982-024-00198-7</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12982-024-00198-7</ArticleId></ArticleIdList></Reference><Reference><Citation>Korkut-Owen F., Demirbas-Celik N., Dogan T. (2017). Resilience as a predictor of well-being among university students.
+<i>Electron. J. Soc. Sci.</i>
+16
+1461&#x2013;1479. 10.17755/esosder.300405</Citation><ArticleIdList><ArticleId IdType="doi">10.17755/esosder.300405</ArticleId></ArticleIdList></Reference><Reference><Citation>Krumpal I. (2013). Determinants of social desirability bias in sensitive surveys: a literature review.
+<i>Qual. Quant.</i>
+47
+2025&#x2013;2047. 10.1007/s11135-011-9640-9</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11135-011-9640-9</ArticleId></ArticleIdList></Reference><Reference><Citation>Kuiper N. A. (2012). Humor and resiliency: towards a process model of coping and growth.
+<i>Europe&#x2019;s J. Psychol.</i>
+8
+475&#x2013;491. 10.5964/ejop.v8i3.464</Citation><ArticleIdList><ArticleId IdType="doi">10.5964/ejop.v8i3.464</ArticleId></ArticleIdList></Reference><Reference><Citation>Kuiper N. A., McHale N. (2020). Humor and resilience in coping with traumatic stress: A protective factor.
+<i>Pers. Individ. Differ.</i>
+154:109712. 10.1016/j.paid.2020.109712</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.paid.2020.109712</ArticleId></ArticleIdList></Reference><Reference><Citation>Li L., Reinhardt J. D., Van Dyke C., Wang H., Liu M., Yamamoto A., et al.  (2020). Prevalence and risk factors of post-traumatic stress disorder among elderly survivors six months after the 2008 Wenchuan earthquake in China.
+<i>BMC Psychiatry</i>
+20:78. 10.1186/s12888-020-2474-z
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12888-020-2474-z</ArticleId><ArticleId IdType="pmc">PMC7036222</ArticleId><ArticleId IdType="pubmed">32087728</ArticleId></ArticleIdList></Reference><Reference><Citation>Loades M. E., Chatburn E., Higson-Sweeney N., Reynolds S., Shafran R., Brigden A., et al.  (2020). Rapid systematic review: the impact of social isolation and loneliness on the mental health of children and adolescents in the context of COVID-19.
+<i>J. Am. Acad. Child Adolesc. Psychiatry</i>
+59
+1218&#x2013;1239. 10.1016/j.jaac.2020.05.009
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jaac.2020.05.009</ArticleId><ArticleId IdType="pmc">PMC7267797</ArticleId><ArticleId IdType="pubmed">32504808</ArticleId></ArticleIdList></Reference><Reference><Citation>Marici M. (2015). Some psychometric properties of the family domain in the &#x201c;Adolescent resilience questionnaire.&#x201d;.
+<i>Proc. Soc. Behav. Sci.</i>
+187
+289&#x2013;294. 10.1016/j.sbspro.2015.03.054</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.sbspro.2015.03.054</ArticleId></ArticleIdList></Reference><Reference><Citation>Martin R. A. (1996). The Situational Humor Response Questionnaire (SHRQ) and the Coping Humor Scale (CHS): a decade of research findings.
+<i>Humor</i>
+9
+251&#x2013;272. 10.1515/humr.1996.9.3-4.251</Citation><ArticleIdList><ArticleId IdType="doi">10.1515/humr.1996.9.3-4.251</ArticleId></ArticleIdList></Reference><Reference><Citation>Martin R. A. (2007). <i>The Psychology of Humor: An Integrative Approach.</i>
+Burlington, MA: Elsevier Academic Press.</Citation></Reference><Reference><Citation>Masten A. S. (2014). Global perspectives on resilience in children and youth.
+<i>Child Dev.</i>
+85
+6&#x2013;20. 10.1111/cdev.12205
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cdev.12205</ArticleId><ArticleId IdType="pubmed">24341286</ArticleId></ArticleIdList></Reference><Reference><Citation>Masten A. S., Coatsworth J. D. (1998). The development of competence in favorable and unfavorable environments: lessons from research on successful children.
+<i>Am. Psychol.</i>
+53
+205&#x2013;220. 10.1037/0003-066X.53.2.205
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0003-066X.53.2.205</ArticleId><ArticleId IdType="pubmed">9491748</ArticleId></ArticleIdList></Reference><Reference><Citation>Mayer K. U. (2009). New directions in life course research.
+<i>Annu. Rev. Sociol.</i>
+35
+413&#x2013;433. 10.1146/annurev.soc.34.040507.134619</Citation><ArticleIdList><ArticleId IdType="doi">10.1146/annurev.soc.34.040507.134619</ArticleId></ArticleIdList></Reference><Reference><Citation>McKnight P. E., Kashdan T. B. (2009). Purpose in life as a system that creates and sustains health and well-being: an integrative, testable theory.
+<i>Rev. Gen. Psychol.</i>
+13
+242&#x2013;251. 10.1037/a0017152</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/a0017152</ArticleId></ArticleIdList></Reference><Reference><Citation>Mutch C. (2015). Quiet heroes: teachers and the Canterbury, New Zealand, earthquakes.
+<i>Aust. J. Disaster Trauma Stud.</i>
+19
+77&#x2013;93.</Citation></Reference><Reference><Citation>Muth&#xe9;n B., Muth&#xe9;n L. (2002). How to use a Monte Carlo study to decide on sample size and determine power.
+<i>Struct. Equat. Model.</i>
+9
+599&#x2013;620. 10.1207/S15328007SEM0904_8
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1207/S15328007SEM0904_8</ArticleId></ArticleIdList></Reference><Reference><Citation>Nunnally J. C., Bernstein I. H. (1994). <i>Psychometric Theory</i>, 3rd Edn. Columbus, OH: McGraw-Hill.</Citation></Reference><Reference><Citation>&#xd6;z F., Hi&#xe7;durmaz D. (2010). An effective way to cope with stress: using humor.
+<i>J. Anat. Nurs. Health Sci.</i>
+13
+83&#x2013;88.</Citation></Reference><Reference><Citation>&#xd6;ztekin G. G., &#xd6;rki H. (2023). Effects of depression, anxiety, and stress on disaster preparedness: Evidence from the February 6 T&#xfc;rkiye earthquakes.
+<i>J. Disaster Risk</i>
+6
+1&#x2013;20. 10.35341/afet.1326948</Citation><ArticleIdList><ArticleId IdType="doi">10.35341/afet.1326948</ArticleId></ArticleIdList></Reference><Reference><Citation>&#xd6;zt&#xfc;rk E., Ak&#x131;&#x15f; A. D., Derin G., Erdo&#x11f;an B. (2023a). Social trauma and disaster psychology: The impact of earthquakes on children&#x2019;s mental health from the perspective of dissoanalysis theory and modern psychotraumatology.
+<i>Novel Forensic Res.</i>
+2
+57&#x2013;70. 10.5455/NOFOR.2023.07.010</Citation><ArticleIdList><ArticleId IdType="doi">10.5455/NOFOR.2023.07.010</ArticleId></ArticleIdList></Reference><Reference><Citation>&#xd6;zt&#xfc;rk E., Ayd&#x131;n A., Derin G. (2023b). Dissociative perspective on trauma, dissociation, and alter personality: Pluralistic personality, holistic self, deep memory, and consciousness.
+<i>Turk. Int. J. Spec. Educ. Guid. Counsell.</i>
+12
+164&#x2013;177.</Citation></Reference><Reference><Citation>&#xd6;zt&#xfc;rk E., Derin G. (2023). Modern psychotraumatology and the theory of dissociation: traumatic experiences and the phenomenon of dissociation.
+<i>Novel Forensic Res.</i>
+2
+50&#x2013;56. 10.5455/NOFOR.2023.07.09</Citation><ArticleIdList><ArticleId IdType="doi">10.5455/NOFOR.2023.07.09</ArticleId></ArticleIdList></Reference><Reference><Citation>Pang Y., Luo Q., Wei K., Deng K., Chen X. (2025). Seismic resilience assessment of reinforced concrete bridges constructed with tall piers in the deep-water environment.
+<i>Eng. Struct.</i>
+325:119387. 10.1016/j.engstruct.2024.119387</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.engstruct.2024.119387</ArticleId></ArticleIdList></Reference><Reference><Citation>Park C. L. (2010). Making sense of the meaning literature: an integrative review of meaning making and its effects on adjustment to stressful life events.
+<i>Psychol. Bull.</i>
+136
+257&#x2013;301. 10.1037/a0018301
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/a0018301</ArticleId><ArticleId IdType="pubmed">20192563</ArticleId></ArticleIdList></Reference><Reference><Citation>Paulhus D. L., Vazire S. (2007). &#x201c;The self-report method,&#x201d; in <i>Handbook of Research Methods in Personality Psychology</i>, eds
+Robins R. W., Fraley R. C., Krueger R. F. (New York, NY: Guilford Press; ).</Citation></Reference><Reference><Citation>Pierce M., Hope H., Ford T., Hatch S., Hotopf M., John A., et al.  (2020). Mental health before and during the COVID-19 pandemic: a longitudinal probability sample survey of the UK population.
+<i>Lancet Psychiatry</i>
+7
+883&#x2013;892. 10.1016/S2215-0366(20)30308-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S2215-0366(20)30308-4</ArticleId><ArticleId IdType="pmc">PMC7373389</ArticleId><ArticleId IdType="pubmed">32707037</ArticleId></ArticleIdList></Reference><Reference><Citation>Podsakoff P. M., MacKenzie S. B., Lee J. Y., Podsakoff N. P. (2003). Common method biases in behavioral research: a critical review of the literature and recommended remedies.
+<i>J. Appl. Psychol.</i>
+88
+879&#x2013;903. 10.1037/0021-9010.88.5.879
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0021-9010.88.5.879</ArticleId><ArticleId IdType="pubmed">14516251</ArticleId></ArticleIdList></Reference><Reference><Citation>Preacher K. J., Hayes A. F. (2008). Asymptotic and resampling strategies for assessing and comparing indirect effects in multiple mediator models.
+<i>Behav. Res. Methods</i>
+40
+879&#x2013;891. 10.3758/BRM.40.3.879
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3758/BRM.40.3.879</ArticleId><ArticleId IdType="pubmed">18697684</ArticleId></ArticleIdList></Reference><Reference><Citation>Preacher K. J., Kelley K. (2011). Effect size measures for mediation models: quantitative strategies for communicating indirect effects.
+<i>Psychol. Methods</i>
+16
+93&#x2013;115. 10.1037/a0022658
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/a0022658</ArticleId><ArticleId IdType="pubmed">21500915</ArticleId></ArticleIdList></Reference><Reference><Citation>Rutter M. (2007). Implications of resilience concepts for scientific understanding.
+<i>Ann. N. Y. Acad. Sci.</i>
+1094
+1&#x2013;12. 10.1196/annals.1376.002
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1196/annals.1376.002</ArticleId><ArticleId IdType="pubmed">17347337</ArticleId></ArticleIdList></Reference><Reference><Citation>Samson A. C., Gross J. J. (2012). Humor as emotion regulation: The differential consequences of negative versus positive humor.
+<i>Cognit. Emot.</i>
+26
+375&#x2013;384. 10.1080/02699931.2011.585069
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02699931.2011.585069</ArticleId><ArticleId IdType="pubmed">21756218</ArticleId></ArticleIdList></Reference><Reference><Citation>&#x15e;ar V., T&#xfc;rk T., &#xd6;zt&#xfc;rk E. (2019). Fear of happiness among college students: the role of gender, childhood psychological trauma, and dissociation.
+<i>Indian J. Psychiatry</i>
+61
+389&#x2013;394. 10.4103/psychiatry.IndianJPsychiatry_52_17
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4103/psychiatry.IndianJPsychiatry_52_17</ArticleId><ArticleId IdType="pmc">PMC6657544</ArticleId><ArticleId IdType="pubmed">31391643</ArticleId></ArticleIdList></Reference><Reference><Citation>Saul J. (2022). <i>Collective Trauma, Collective Healing: Promoting Community Resilience in the Aftermath of Disaster.</i>
+London: Routledge. 10.4324/9781003231448</Citation><ArticleIdList><ArticleId IdType="doi">10.4324/9781003231448</ArticleId></ArticleIdList></Reference><Reference><Citation>Saylam A. &#x130;., Sapanc&#x131; A. (2025). The mediating role of anxiety in the relationship between humor coping and secondary traumatic stress.
+<i>Cyprus Turk. J. Psychiatry Psychol.</i>
+7, 13&#x2013;20. 10.35365/ctjpp.25.1.02</Citation><ArticleIdList><ArticleId IdType="doi">10.35365/ctjpp.25.1.02</ArticleId></ArticleIdList></Reference><Reference><Citation>Scheier M. F., Wrosch C., Baum A., Cohen S., Martire L. M., Matthews K. A., et al.  (2006). The life engagement test: assessing purpose in life.
+<i>J. Behav. Med.</i>
+29
+291&#x2013;298. 10.1007/s10865-005-9044-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10865-005-9044-1</ArticleId><ArticleId IdType="pubmed">16565785</ArticleId></ArticleIdList></Reference><Reference><Citation>Schneider M., Voracek M., Tran U. S. (2018). &#x201c;A joke a day keeps the doctor away?&#x201d; Meta-analytical evidence of differential associations of habitual humor styles with mental health.
+<i>Scand. J. Psychol.</i>
+59
+289&#x2013;300. 10.1111/sjop.12432
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sjop.12432</ArticleId><ArticleId IdType="pubmed">29431190</ArticleId></ArticleIdList></Reference><Reference><Citation>Shoji K., Fordiani J. M., Bock J. H., Ford J. D. (2021). Anxiety, secondary traumatic stress, and resilience: Effects on mental health professionals.
+<i>Psychol. Trauma</i>
+13
+163&#x2013;172. 10.1037/tra0000964
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/tra0000964</ArticleId><ArticleId IdType="pmc">PMC7936986</ArticleId><ArticleId IdType="pubmed">32897090</ArticleId></ArticleIdList></Reference><Reference><Citation>&#x15e;im&#x15f;ek A. (2015). <i>Research Methods in Social Sciences</i>, 4th Edn. Eski&#x15f;ehir: Anadolu University Publications.</Citation></Reference><Reference><Citation>Smith B. W., Dalen J., Wiggins K., Tooley E., Christopher P., Bernard J. (2008). The brief resilience scale: assessing the ability to bounce back.
+<i>Int. J. Behav. Med.</i>
+15
+194&#x2013;200. 10.1080/10705500802222972
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10705500802222972</ArticleId><ArticleId IdType="pubmed">18696313</ArticleId></ArticleIdList></Reference><Reference><Citation>Sobel M. E. (1982). &#x201c;Asymptotic confidence intervals for indirect effects in structural equation models,&#x201d; in <i>Sociological Methodology</i>, ed.
+Leinhardt S. (San Francisco, CA: Jossey-Bass; ), 290&#x2013;312.</Citation></Reference><Reference><Citation>Southwick S. M., Charney D. S. (2012). <i>Resilience: The Science of Mastering life&#x2019;s Most Significant Challenges.</i>
+Cambridge: Cambridge University Press.</Citation></Reference><Reference><Citation>Southwick S. M., Bonanno G. A., Masten A. S., Panter-Brick C., Yehuda R. (2014). Resilience definitions, theory, and challenges: interdisciplinary perspectives.
+<i>Eur. J. Psychotraumatol.</i>
+5:25338. 10.3402/ejpt.v5.25338
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3402/ejpt.v5.25338</ArticleId><ArticleId IdType="pmc">PMC4185134</ArticleId><ArticleId IdType="pubmed">25317257</ArticleId></ArticleIdList></Reference><Reference><Citation>S&#xfc;da&#x15f; &#x130;. (2004). Effects of the Marmara earthquake of August 17, 1999, on population and settlement: Case of G&#xf6;lc&#xfc;k (Kocaeli).
+<i>Aegean Geograph. J.</i>
+13
+73&#x2013;91.</Citation></Reference><Reference><Citation>Sultano&#x11f;lu H., Kara A. C., Kara N., Erdem Sultano&#x11f;lu T. (2025). Evaluation of patients presenting to the emergency department with acute post-traumatic stress disorder symptoms after the earthquake.
+<i>SABD</i>
+15
+89&#x2013;93. 10.33631/sabd.1538704</Citation><ArticleIdList><ArticleId IdType="doi">10.33631/sabd.1538704</ArticleId></ArticleIdList></Reference><Reference><Citation>Tahernejad S., Ghaffari S., Ariza Montes A., Wesemann U., Farahmandnia H., Sahebi A. (2023). Post-traumatic stress disorder in medical workers involved in earthquake response: a systematic review and meta-analysis.
+<i>Heliyon</i>
+9:e12794. 10.1016/j.heliyon.2023.e12794
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.heliyon.2023.e12794</ArticleId><ArticleId IdType="pmc">PMC9850193</ArticleId><ArticleId IdType="pubmed">36685451</ArticleId></ArticleIdList></Reference><Reference><Citation>Tanhan F., Kayri M. (2013). Validity and reliability study of the scale for determining trauma level after an earthquake.
+<i>Educ. Sci.</i>
+13
+1013&#x2013;1025.</Citation></Reference><Reference><Citation>Tazeg&#xfc;l U. (2018). Determination of the relationship between positive thinking and life engagement levels of elite tennis players.
+<i>Akademik Bak&#x131;&#x15f; Int. Refereed Soc. Sci. J.</i>
+67
+16&#x2013;25.</Citation></Reference><Reference><Citation>Tourangeau R., Yan T. (2007). Sensitive questions in surveys.
+<i>Psychol. Bull.</i>
+133
+859&#x2013;883. 10.1037/0033-2909.133.5.859
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0033-2909.133.5.859</ArticleId><ArticleId IdType="pubmed">17723033</ArticleId></ArticleIdList></Reference><Reference><Citation>Tugade M. M., Fredrickson B. L. (2004). Resilient individuals use positive emotions to bounce back from negative emotional experiences.
+<i>J. Pers. Soc. Psychol.</i>
+86
+320&#x2013;333. 10.1037/0022-3514.86.2.320
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0022-3514.86.2.320</ArticleId><ArticleId IdType="pmc">PMC3132556</ArticleId><ArticleId IdType="pubmed">14769087</ArticleId></ArticleIdList></Reference><Reference><Citation>U&#x11f;ur E., Ak&#x131;n A. (2015). The Turkish version of the Life Engagement Test: a validity and reliability study.
+<i>J. Hum. Soc. Sci. Res.</i>
+4
+424&#x2013;432. 10.5336/nurses.2019-72950</Citation><ArticleIdList><ArticleId IdType="doi">10.5336/nurses.2019-72950</ArticleId></ArticleIdList></Reference><Reference><Citation>Utkucu M., Budako&#x11f;lu E., Durmu&#x15f; H. (2011). A discussion on the seismicity and seismic hazard of the Marmara region (NW Turkey).
+<i>Bull. Earth Sci. Appl. Res. Centre Hacettepe Univ.</i>
+32
+187&#x2013;212.</Citation></Reference><Reference><Citation>&#xdc;zar &#xd6;z&#xe7;etin Y. S., Hi&#xe7;durmaz D. (2017). Posttraumatic growth and resilience in the cancer experience.
+<i>Curr. Approach. Psychiatry</i>
+9
+388&#x2013;397. 10.18863/pgy.290285</Citation><ArticleIdList><ArticleId IdType="doi">10.18863/pgy.290285</ArticleId></ArticleIdList></Reference><Reference><Citation>Vang&#xf6;l&#xfc; M. S., Tanhan F. (2025). Effects of an acceptance and commitment therapy-oriented psycho-education program on adolescents&#x2019; psychological flexibility, resilience, and depressive symptom levels.
+<i>Dokuz Eylul Univ. Buca Faculty Educ. J.</i>
+64
+1447&#x2013;1466. 10.53444/deubefd.1485339</Citation><ArticleIdList><ArticleId IdType="doi">10.53444/deubefd.1485339</ArticleId></ArticleIdList></Reference><Reference><Citation>Vuran E., Serhato&#x11f;lu C., Timura&#x11f;ao&#x11f;lu M.
+Di&#x11f;erleri. (2025). Damage observations of RC buildings from the 2023 Kahramanmara&#x15f; earthquake sequence and discussion on the seismic code regulations.
+<i>Bull. Earthquake Eng.</i>
+23
+1153&#x2013;1182. 10.1007/s10518-023-01843-3</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10518-023-01843-3</ArticleId></ArticleIdList></Reference><Reference><Citation>Winders S. (2014). From extraordinary invulnerability to ordinary magic: a literature review of resilience.
+<i>J. Eur. Psychol. Stud.</i>
+5
+3&#x2013;9. 10.5334/jeps.bk</Citation><ArticleIdList><ArticleId IdType="doi">10.5334/jeps.bk</ArticleId></ArticleIdList></Reference><Reference><Citation>World Health Organization [WHO] (2023). <i>WHO Flash Appeal: Earthquake Response in T&#xfc;rkiye and the Whole of Syria.</i>
+Available online at: https://cdn.who.int/media/docs/default-source/documents/emergencies/2023/who_flashappeal_earthquakeresponse.pdf (accessed February 13, 2023).</Citation></Reference><Reference><Citation>World Medical Association (2013). World Medical Association Declaration of Helsinki: ethical principles for medical research involving human subjects.
+<i>JAMA</i>
+310
+2191&#x2013;2194. 10.1001/jama.2013.281053
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2013.281053</ArticleId><ArticleId IdType="pubmed">24141714</ArticleId></ArticleIdList></Reference><Reference><Citation>Xie X., Chen Y., Chen H., Au A., Guo H. (2017). Predictors of quality of life and depression in older people living in temporary houses 13 months after the Wenchuan earthquake in Western China: a cross-sectional study.
+<i>Nurs. Health Sci.</i>
+19
+170&#x2013;175. 10.1111/nhs.12333
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/nhs.12333</ArticleId><ArticleId IdType="pubmed">28295956</ArticleId></ArticleIdList></Reference><Reference><Citation>Yaz&#x131;c&#x131; &#xc7;elebi G. (2020). Examination of reactions to the COVID-19 pandemic in terms of psychological resilience.
+<i>IBAD J. Soc. Sci.</i>
+8
+471&#x2013;483. 10.21733/ibad.737406</Citation><ArticleIdList><ArticleId IdType="doi">10.21733/ibad.737406</ArticleId></ArticleIdList></Reference><Reference><Citation>Yerlikaya E. E. (2009). <i>The Relationship Between Humor Styles and Perceived Stress, Anxiety, and Depression of College Students.</i>
+Adana: &#xc7;ukurova University.</Citation></Reference><Reference><Citation>Y&#x131;ld&#x131;r&#x131;m M. (2023). The psychological impact of the devastating earthquake in T&#xfc;rkiye.
+<i>J. Concurr. Disord.</i>
+6
+91&#x2013;93. 10.54127/AGUK1011</Citation><ArticleIdList><ArticleId IdType="doi">10.54127/AGUK1011</ArticleId></ArticleIdList></Reference><Reference><Citation>Yucekaya M. A., Sagin A. E., Ugras S. (2023). The hidden counselors at school: physical education teachers.
+<i>Pamukkale Univ. J. Educ.</i>
+59
+304&#x2013;321. 10.9779/pauefd.1161427</Citation><ArticleIdList><ArticleId IdType="doi">10.9779/pauefd.1161427</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang W., Liu H., Jiang X., Wu D., Tian Y. (2014). A longitudinal study of posttraumatic stress disorder symptoms and their relationship with coping skills and locus of control in adolescents after an earthquake in China.
+<i>PLoS One</i>
+9:e88263. 10.1371/journal.pone.0088263
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0088263</ArticleId><ArticleId IdType="pmc">PMC3917873</ArticleId><ArticleId IdType="pubmed">24516622</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhou X., Zhen R., Wu X. (2019). Trajectories of academic burnout in adolescents after the Wenchuan earthquake: A latent growth mixture model analysis. <i>Sch. Psychol. Int.</i>
+40, 183&#x2013;199. 10.1177/0143034318810318</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0143034318810318</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

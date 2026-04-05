@@ -1,0 +1,361 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31920699</PMID><DateRevised><Year>2023</Year><Month>11</Month><Day>04</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Tensiomyography Derived Parameters Reflect Skeletal Muscle Architectural Adaptations Following 6-Weeks of Lower Body Resistance Training.</ArticleTitle><Pagination><StartPage>1493</StartPage><MedlinePgn>1493</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1493</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.01493</ELocationID><Abstract><AbstractText>Measurement of muscle specific contractile properties in response to resistance training (RT) can provide practitioners valuable information regarding physiological status of individuals. Field based measurements of such contractile properties within specific muscle groups, could be beneficial when monitoring efficacy of training or rehabilitation interventions. Tensiomyography (TMG) quantifies contractile properties of individual muscles via an electrically stimulated twitch contraction and may serve as a viable option in the aforementioned applications. Thus, aims of this study were; (i) to investigate the potential use of TMG to quantify training adaptations and differences, in response to exercise specific lower limb RT; and (ii) investigate any associations between TMG parameters and accompanying muscle architectural measures. Non-resistance trained male participants (<i>n</i> = 33) were randomly assigned to 1 of 3 single-exercise intervention groups (<i>n</i> = 11 per group); back squat (BS), deadlift (DL), or hip thrust (HT). Participants completed a 6-week linearized training program (2&#xd7; per week), where the assigned exercise was the sole method of lower body training. Pre- and post-intervention testing of maximal dynamic strength was assessed by one repetition maximum (1RM) of BS, DL, and HT. Radial muscle belly displacement (Dm) and contraction time (Tc) were obtained via TMG from the rectus femoris (RF) and vastus lateralis (VL) pre- and post-intervention, alongside muscle architectural measures (pennation angle and muscle thickness). All three groups displayed significant increases all 1RM strength tests (<i>p</i> &lt; 0.001; p&#x3b7;2 = 0.677-0.753). Strength increases were accompanied by significant overall increases in RF muscle thickness (<i>p</i> &lt; 0.001, p&#x3b7;2 = 0.969), and pennation angle (<i>p</i> = 0.007, p&#x3b7;2 = 0.220). Additionally, an overall reduction in RF Dm (<i>p</i> &lt; 0.001, p&#x3b7;2 = 0.427) was observed. Significant negative relationships were observed between RF Dm and pennation angle (<i>p</i> = 0.003, <i>r</i> = -0.36), and with RF Dm and muscle thickness (<i>p</i> &lt; 0.001, <i>r</i> = -0.50). These findings indicate that TMG is able to detect improved contractile properties, alongside improvements in muscle function within an untrained population. Furthermore, the observed associations between Dm and muscle architecture suggest that TMG contractile property assessments could be used to obtain information on muscle geometry.</AbstractText><CopyrightInformation>Copyright &#xa9; 2019 Wilson, Ryan, Vallance, Dias-Dougan, Dugdale, Hunter, Hamilton and Macgregor.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Wilson</LastName><ForeName>Matthew T</ForeName><Initials>MT</Initials><AffiliationInfo><Affiliation>Physical Exercise and Nutrition Research Group, Faculty of Health Sciences and Sport, University of Stirling, Stirling, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ryan</LastName><ForeName>Andrew M F</ForeName><Initials>AMF</Initials><AffiliationInfo><Affiliation>Physical Exercise and Nutrition Research Group, Faculty of Health Sciences and Sport, University of Stirling, Stirling, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Vallance</LastName><ForeName>Scott R</ForeName><Initials>SR</Initials><AffiliationInfo><Affiliation>Physical Exercise and Nutrition Research Group, Faculty of Health Sciences and Sport, University of Stirling, Stirling, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Dias-Dougan</LastName><ForeName>Alastair</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Physical Exercise and Nutrition Research Group, Faculty of Health Sciences and Sport, University of Stirling, Stirling, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Dugdale</LastName><ForeName>James H</ForeName><Initials>JH</Initials><AffiliationInfo><Affiliation>Physical Exercise and Nutrition Research Group, Faculty of Health Sciences and Sport, University of Stirling, Stirling, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Hunter</LastName><ForeName>Angus M</ForeName><Initials>AM</Initials><AffiliationInfo><Affiliation>Physical Exercise and Nutrition Research Group, Faculty of Health Sciences and Sport, University of Stirling, Stirling, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Hamilton</LastName><ForeName>D Lee</ForeName><Initials>DL</Initials><AffiliationInfo><Affiliation>School of Exercise and Nutrition Sciences, Institute for Physical Activity and Nutrition, Deakin University, Geelong, VIC, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Macgregor</LastName><ForeName>Lewis J</ForeName><Initials>LJ</Initials><AffiliationInfo><Affiliation>Physical Exercise and Nutrition Research Group, Faculty of Health Sciences and Sport, University of Stirling, Stirling, United Kingdom.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>12</Month><Day>10</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">muscle architecture</Keyword><Keyword MajorTopicYN="N">pennation angle</Keyword><Keyword MajorTopicYN="N">resistance training</Keyword><Keyword MajorTopicYN="N">skeletal muscle hypertrophy</Keyword><Keyword MajorTopicYN="N">tensiomyography</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>5</Month><Day>3</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>11</Month><Day>21</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2020</Year><Month>1</Month><Day>11</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2020</Year><Month>1</Month><Day>11</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2020</Year><Month>1</Month><Day>11</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>12</Month><Day>10</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31920699</ArticleId><ArticleId IdType="pmc">PMC6914863</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.01493</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Aagaard P., Andersen J. L., Dyhre-Poulsen P., Leffers A. M., Wagner A., Magnusson S. P., et al.  (2001). A mechanism for increased contractile strength of human pennate muscle in response to strength training: changes in muscle architecture.
+<i>J. Physiol.</i>
+534
+613&#x2013;623. 10.1111/j.1469-7793.2001.t01-1-00613.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1469-7793.2001.t01-1-00613.x</ArticleId><ArticleId IdType="pmc">PMC2278719</ArticleId><ArticleId IdType="pubmed">11454977</ArticleId></ArticleIdList></Reference><Reference><Citation>Alegre L. M., Jim&#xe9;nez F., Gonzalo-Orden J. M., Mart&#xed;n-Acero R., Aguado X. (2006). Effects of dynamic resistance training on fascicle lengthand isometric strength.
+<i>J. Sports Sci.</i>
+24
+501&#x2013;508. 10.1080/02640410500189322
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640410500189322</ArticleId><ArticleId IdType="pubmed">16608764</ArticleId></ArticleIdList></Reference><Reference><Citation>Alexander R. M., Vernon A. (1975). The dimensions of knee and ankle muscles and the forces they exert.
+<i>J. Hum. Mov. Stud.</i>
+1
+115&#x2013;123.</Citation></Reference><Reference><Citation>Andersen V., Fimland M. S., Mo D.-A., Iversen V. M., Vederhus T., Rockland Helleb&#xf8; L. R., et al.  (2018). Electromyographic comparison of barbell deadlift, hex bar deadlift, and hip thrust exercises: a cross-over study.
+<i>J. Strength Cond. Res.</i>
+32
+587&#x2013;593. 10.1519/JSC.0000000000001826
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001826</ArticleId><ArticleId IdType="pubmed">28151780</ArticleId></ArticleIdList></Reference><Reference><Citation>Blazevich A. J. (2006). Effects of physical training and detraining, immobilisation, growth and aging on human fascicle geometry.
+<i>Sports Med.</i>
+36
+1003&#x2013;1017. 10.2165/00007256-200636120-00002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200636120-00002</ArticleId><ArticleId IdType="pubmed">17123325</ArticleId></ArticleIdList></Reference><Reference><Citation>Blazevich A. J., Gill N. D., Bronks R., Newton R. U. (2003). Training-specific muscle architecture adaptation after 5-wk training in athletes.
+<i>Med. Sci. Sports Exerc.</i>
+35
+2013&#x2013;2022. 10.1249/01.mss.0000099092.83611.20
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000099092.83611.20</ArticleId><ArticleId IdType="pubmed">14652496</ArticleId></ArticleIdList></Reference><Reference><Citation>Blazevich A. J., Gill N. D., Zhou S. (2006). Intra- and intermuscular variation in human quadriceps femoris architecture assessed in vivo.
+<i>J. Anat.</i>
+209
+289&#x2013;310. 10.1111/j.1469-7580.2006.00619.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1469-7580.2006.00619.x</ArticleId><ArticleId IdType="pmc">PMC2100333</ArticleId><ArticleId IdType="pubmed">16928199</ArticleId></ArticleIdList></Reference><Reference><Citation>Burnie L., Barratt P., Davids K., Stone J., Worsfold P., Wheat J. (2017). Coaches&#x2019; philosophies on the transfer of strength training to elite sports performance.
+<i>Int. J. Sports Sci. Coach.</i>
+13
+729&#x2013;736. 10.1177/1747954117747131</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1747954117747131</ArticleId></ArticleIdList></Reference><Reference><Citation>Campbell E. L., Seynnes O. R., Bottinelli R., Mcphee J. S., Atherton P. J., Jones D. A., et al.  (2013). Skeletal muscle adaptations to physical inactivity and subsequent retraining in young men.
+<i>Biogerontology</i>
+14
+247&#x2013;259. 10.1007/s10522-013-9427-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10522-013-9427-6</ArticleId><ArticleId IdType="pubmed">23666342</ArticleId></ArticleIdList></Reference><Reference><Citation>Caterisano A., Moss R. F., Pellinger T. K., Woodruff K., Lewis V. C., Booth W., et al.  (2002). The effect of back squat depth on the EMG activity of 4 superficial hip and thigh muscles.
+<i>J. Strength Cond. Res.</i>
+16
+428&#x2013;432. 10.1519/00124278-200208000-00014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200208000-00014</ArticleId><ArticleId IdType="pubmed">12173958</ArticleId></ArticleIdList></Reference><Reference><Citation>Clark D. R., Lambert M. I., Hunter A. M. (2012). Muscle activation in the loaded free barbell squat: a brief review.
+<i>J. Strength Cond. Res.</i>
+26
+1169&#x2013;1178. 10.1519/JSC.0b013e31822d533d
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31822d533d</ArticleId><ArticleId IdType="pubmed">22373894</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen J. (1988). <i>Statistical Power Analysis for the Behavioral Sciences.</i>
+New York, NY: Academic Press.</Citation></Reference><Reference><Citation>Collazo Garc&#xed;a C. L., Rueda J., Su&#xe1;rez Luginick B., Navarro E. (2018). Differences in the Electromyographic activity of lower-body muscles in hip thrust variations.
+<i>J. Strength Cond. Res.</i>
+10.1519/JSC.0000000000002859
+[Epub ahead of print]. </Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002859</ArticleId><ArticleId IdType="pubmed">30335717</ArticleId></ArticleIdList></Reference><Reference><Citation>Comfort P., Mcmahon J. J., Suchomel T. J. (2018). Optimizing squat technique-revisited.
+<i>Strength Cond. J.</i>
+29
+10&#x2013;13. 10.1519/00126548-200712000-00001</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00126548-200712000-00001</ArticleId></ArticleIdList></Reference><Reference><Citation>Contreras B., Cronin J., Schoenfeld B. (2011). Barbell hip thrust.
+<i>Strength Cond. J.</i>
+33
+58&#x2013;61. 10.1519/ssc.0b013e31822fa09d</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/ssc.0b013e31822fa09d</ArticleId></ArticleIdList></Reference><Reference><Citation>Contreras B., Vigotsky A. D., Schoenfeld B. J., Beardsley C., Cronin J. (2015). A Comparison of gluteus Maximus, Biceps Femoris, and Vastus Lateralis electromyographic activity in the back squat and barbell hip thrust exercises.
+<i>J. Appl. Biomech.</i>
+31
+452&#x2013;458. 10.1123/jab.2014-0301
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/jab.2014-0301</ArticleId><ArticleId IdType="pubmed">26214739</ArticleId></ArticleIdList></Reference><Reference><Citation>Contreras B., Vigotsky A. D., Schoenfeld B. J., Beardsley C., Mcmaster D. T., Reyneke J. H., et al.  (2017). Effects of a six-week hip thrust vs. front squat resistance training program on performance in adolescent males: a randomized controlled trial.
+<i>J. Strength Cond. Res.</i>
+31
+999&#x2013;1008. 10.1519/JSC.0000000000001510
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001510</ArticleId><ArticleId IdType="pubmed">27253835</ArticleId></ArticleIdList></Reference><Reference><Citation>Dahmane R., Djordjevi&#x10d; S., Smerdu V. (2006). Adaptive potential of human biceps femoris muscle demonstrated by histochemical, immunohistochemical and mechanomyographical methods.
+<i>Med. Biol. Eng. Comput.</i>
+44
+999&#x2013;1006. 10.1007/s11517-006-0114-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11517-006-0114-5</ArticleId><ArticleId IdType="pubmed">17024467</ArticleId></ArticleIdList></Reference><Reference><Citation>De Paula Simola R. &#xc1;, Raeder C., Wiewelhove T., Kellmann M., Meyer T., Pfeiffer M., et al.  (2016). Muscle mechanical properties of strength and endurance athletes and changes after one week of intensive training.
+<i>J. Electromyogr. Kinesiol.</i>
+30
+73&#x2013;80. 10.1016/j.jelekin.2016.05.005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelekin.2016.05.005</ArticleId><ArticleId IdType="pubmed">27317976</ArticleId></ArticleIdList></Reference><Reference><Citation>Debernard L., Robert L., Charleux F., Bensamoun S. F. (2011). Characterization of muscle architecture in children and adults using magnetic resonance elastography and ultrasound techniques.
+<i>J. Biomech.</i>
+44
+397&#x2013;401. 10.1016/j.jbiomech.2010.10.025
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jbiomech.2010.10.025</ArticleId><ArticleId IdType="pubmed">21074773</ArticleId></ArticleIdList></Reference><Reference><Citation>Ditroilo M., Smith I. J., Fairweather M. M., Hunter A. M. (2013). Long-term stability of tensiomyography measured under different muscle conditions.
+<i>J. Electromyogr. Kinesiol.</i>
+23
+558&#x2013;563. 10.1016/j.jelekin.2013.01.014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelekin.2013.01.014</ArticleId><ArticleId IdType="pubmed">23461833</ArticleId></ArticleIdList></Reference><Reference><Citation>Eby S. F., Cloud B. A., Brandenburg J. E., Giambini H., Song P., Chen S., et al.  (2015). Shear wave elastography of passive skeletal muscle stiffness: influences of sex and age throughout adulthood.
+<i>Clin. Biomech.</i>
+30
+22&#x2013;27. 10.1016/j.clinbiomech.2014.11.011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinbiomech.2014.11.011</ArticleId><ArticleId IdType="pmc">PMC4298479</ArticleId><ArticleId IdType="pubmed">25483294</ArticleId></ArticleIdList></Reference><Reference><Citation>Ema R., Wakahara T., Miyamoto N., Kanehisa H., Kawakami Y. (2013a). Inhomogeneous architectural changes of the quadriceps femoris induced by resistance training.
+<i>Eur. J. Appl. Physiol.</i>
+113
+2691&#x2013;2703. 10.1007/s00421-013-2700-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-013-2700-1</ArticleId><ArticleId IdType="pubmed">23949789</ArticleId></ArticleIdList></Reference><Reference><Citation>Ema R., Wakahara T., Mogi Y., Miyamoto N., Komatsu T., Kanehisa H., et al.  (2013b). In vivo measurement of human rectus femoris architecture by ultrasonography: validity and applicability.
+<i>Clin. Physiol. Funct. Imaging</i>
+33
+267&#x2013;273. 10.1111/cpf.12023
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12023</ArticleId><ArticleId IdType="pubmed">23692615</ArticleId></ArticleIdList></Reference><Reference><Citation>Erskine R. M., Jones D. A., Williams A. G., Stewart C. E., Degens H. (2010). Resistance training increases in vivo quadriceps femoris muscle specific tension in young men.
+<i>Acta Physiol.</i>
+199
+83&#x2013;89. 10.1111/j.1748-1716.2010.02085.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1748-1716.2010.02085.x</ArticleId><ArticleId IdType="pubmed">20102343</ArticleId></ArticleIdList></Reference><Reference><Citation>Escamilla R. F., Francisco A. C., Kayes A. V., Speer K. P., Moorman C. T., III (2002). An electromyographic analysis of sumo and conventional style deadlifts.
+<i>Med. Sci. Sports Exerc.</i>
+34
+682&#x2013;688. 10.1249/00005768-200204000-00019
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00005768-200204000-00019</ArticleId><ArticleId IdType="pubmed">11932579</ArticleId></ArticleIdList></Reference><Reference><Citation>Fitzpatrick D. A., Cimadoro G., Cleather D. J. (2019). The magical horizontal force muscle? a preliminary study examining the &#x201c;Force-Vector&#x201d;.
+<i>Theory Sports</i>
+7:E30. 10.3390/sports7020030
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/sports7020030</ArticleId><ArticleId IdType="pmc">PMC6409580</ArticleId><ArticleId IdType="pubmed">30678251</ArticleId></ArticleIdList></Reference><Reference><Citation>Fleck S. J. (1999). Periodized strength training: a critical review.
+<i>J. Strength Cond. Res.</i>
+13
+82&#x2013;89. 10.1519/00124278-199902000-00015</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-199902000-00015</ArticleId></ArticleIdList></Reference><Reference><Citation>Franchi M. V., Atherton P. J., Reeves N. D., Fl&#xfc;ck M., Williams J., Mitchell W. K., et al.  (2014). Architectural, functional and molecular responses to concentric and eccentric loading in human skeletal muscle.
+<i>Acta Physiol.</i>
+210
+642&#x2013;654. 10.1111/apha.12225
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/apha.12225</ArticleId><ArticleId IdType="pubmed">24387247</ArticleId></ArticleIdList></Reference><Reference><Citation>Franchi M. V., Longo S., Mallinson J., Quinlan J. I., Taylor T., Greenhaff P. L., et al.  (2018). Muscle thickness correlates to muscle cross-sectional area in the assessment of strength training-induced hypertrophy.
+<i>Scand. J. Med. Sci. Sports</i>
+28
+846&#x2013;853. 10.1111/sms.12961
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12961</ArticleId><ArticleId IdType="pmc">PMC5873262</ArticleId><ArticleId IdType="pubmed">28805932</ArticleId></ArticleIdList></Reference><Reference><Citation>Garc&#xed;a-Garc&#xed;a O., Cancela-Carral J. M., Mart&#xed;nez-Trigo R., Serrano-G&#xf3;mez V. (2013). Differences in the contractile properties of the knee extensor and flexor muscles in professional road cyclists during the season.
+<i>J. Strength Cond. Res.</i>
+27
+2760&#x2013;2767. 10.1519/JSC.0b013e31828155cd
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31828155cd</ArticleId><ArticleId IdType="pubmed">23302746</ArticleId></ArticleIdList></Reference><Reference><Citation>Garc&#xed;a-Manso J. M., Rodr&#xed;guez-Matoso D., Sarmiento S., De Saa Y., Vaamonde D., Rodr&#xed;guez-Ruiz D., et al.  (2012). Effect of high-load and high-volume resistance exercise on the tensiomyographic twitch response of biceps brachii.
+<i>J. Electromyogr. Kinesiol.</i>
+22
+612&#x2013;619. 10.1016/j.jelekin.2012.01.005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelekin.2012.01.005</ArticleId><ArticleId IdType="pubmed">22341590</ArticleId></ArticleIdList></Reference><Reference><Citation>Garc&#xed;a-Manso J. M., Rodr&#xed;guez-Ruiz D., Rodr&#xed;guez-Matoso D., De Saa Y., Sarmiento S., Quiroga M. (2011). Assessment of muscle fatigue after an ultra-endurance triathlon using tensiomyography (TMG).
+<i>J. Sports Sci.</i>
+29
+619&#x2013;625. 10.1080/02640414.2010.548822
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2010.548822</ArticleId><ArticleId IdType="pubmed">21391085</ArticleId></ArticleIdList></Reference><Reference><Citation>Garc&#xed;a-Pallar&#xe9;s J., Izquierdo M. (2011). Strategies to optimize concurrent training of strength and aerobic fitness for rowing and canoeing.
+<i>Sports Med.</i>
+41
+329&#x2013;343. 10.2165/11539690-000000000-00000
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/11539690-000000000-00000</ArticleId><ArticleId IdType="pubmed">21425890</ArticleId></ArticleIdList></Reference><Reference><Citation>Gennisson J.-L., Deffieux T., Mac&#xe9; E., Montaldo G., Fink M., Tanter M. (2010). Viscoelastic and anisotropic mechanical properties of <i>in vivo</i> muscle tissue assessed by supersonic shear imaging.
+<i>Ultrasound Med. Biol.</i>
+36
+789&#x2013;801. 10.1016/j.ultrasmedbio.2010.02.013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ultrasmedbio.2010.02.013</ArticleId><ArticleId IdType="pubmed">20420970</ArticleId></ArticleIdList></Reference><Reference><Citation>Hales M. (2010). Improving the deadlift: understanding biomechanical constraints and physiological adaptations to resistance exercise.
+<i>Strength Cond. J.</i>
+32
+44&#x2013;51. 10.1519/ssc.0b013e3181e5e300</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/ssc.0b013e3181e5e300</ArticleId></ArticleIdList></Reference><Reference><Citation>Harries S. K., Lubans D. R., Buxton A., Macdougall T. H. J., Callister R. (2018). Effects of 12-week resistance training on sprint and jump performances in competitive adolescent rugby union players.
+<i>J. Strength Cond. Res.</i>
+32
+2762&#x2013;2769. 10.1519/JSC.0000000000002119
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002119</ArticleId><ArticleId IdType="pubmed">28723812</ArticleId></ArticleIdList></Reference><Reference><Citation>Howard R., Conway R., Harrison A. (2017). Muscle activity in sprinting: a review.
+<i>Sports Biomech.</i>
+17
+1&#x2013;17. 10.1080/14763141.2016.1252790
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/14763141.2016.1252790</ArticleId><ArticleId IdType="pubmed">28632055</ArticleId></ArticleIdList></Reference><Reference><Citation>Hughes D. C., Wallace M. A., Baar K. (2015). Effects of aging, exercise, and disease on force transfer in skeletal muscle.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+309
+E1&#x2013;E10. 10.1152/ajpendo.00095.2015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00095.2015</ArticleId><ArticleId IdType="pmc">PMC4490334</ArticleId><ArticleId IdType="pubmed">25968577</ArticleId></ArticleIdList></Reference><Reference><Citation>Hunter A. M., Galloway S. D. R., Smith I. J., Tallent J., Ditroilo M., Fairweather M. M., et al.  (2012). Assessment of eccentric exercise-induced muscle damage of the elbow flexors by tensiomyography.
+<i>J. Electromyog. Kinesiol.</i>
+22
+334&#x2013;341. 10.1016/j.jelekin.2012.01.009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelekin.2012.01.009</ArticleId><ArticleId IdType="pubmed">22336641</ArticleId></ArticleIdList></Reference><Reference><Citation>Jacobs R., Bobbert M. F., Van Ingen Schenau G. J. (1996). Mechanical output from individual muscles during explosive leg extensions: the role of biarticular muscles.
+<i>J. Biomech.</i>
+29
+513&#x2013;523. 10.1016/0021-9290(95)00067-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0021-9290(95)00067-4</ArticleId><ArticleId IdType="pubmed">8964781</ArticleId></ArticleIdList></Reference><Reference><Citation>Kawakami Y., Abe T., Kuno S., Fukunaga T. (1995). Training-induced changes in muscle architecture &amp; specific tension.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+72
+37&#x2013;43.</Citation><ArticleIdList><ArticleId IdType="pubmed">8789568</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim S. Y., Ko J. B., Farthing J. P., Butcher S. J. (2015). Investigation of supraspinatus muscle architecture following concentric and eccentric training.
+<i>J. Sci. Med. Sport</i>
+18
+378&#x2013;382. 10.1016/j.jsams.2014.05.007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2014.05.007</ArticleId><ArticleId IdType="pubmed">24969812</ArticleId></ArticleIdList></Reference><Reference><Citation>K&#xf6;nig N., Cassel M., Intziegianni K., Mayer F. (2014). Inter-rater reliability and measurement error of sonographic muscle architecture assessments.
+<i>J. Ultrasound Med.</i>
+33
+769&#x2013;777. 10.7863/ultra.33.5.769
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7863/ultra.33.5.769</ArticleId><ArticleId IdType="pubmed">24764331</ArticleId></ArticleIdList></Reference><Reference><Citation>Kri&#x17e;aj D., &#x160;imuni&#x10d; B., &#x17d;agar T. (2008). Short-term repeatability of parameters extracted from radial displacement of muscle belly.
+<i>J. Electromyogr. Kinesiol.</i>
+18
+645&#x2013;651. 10.1016/j.jelekin.2007.01.008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelekin.2007.01.008</ArticleId><ArticleId IdType="pubmed">17379538</ArticleId></ArticleIdList></Reference><Reference><Citation>Kwon Y. J., Park S. J., Jefferson J., Kim K. (2013). The effect of open and closed kinetic chain exercises on dynamic balance ability of normal healthy adults.
+<i>J. Phys. Ther. Sci.</i>
+25
+671&#x2013;674. 10.1589/jpts.25.671
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1589/jpts.25.671</ArticleId><ArticleId IdType="pmc">PMC3805008</ArticleId><ArticleId IdType="pubmed">24259825</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee S.-Y. (2015). Muscle activities of the rectus abdominis and rectus femoris and their ratio during leg raises performed by healthy adults.
+<i>J. Phys. Ther. Sci.</i>
+27
+549&#x2013;550. 10.1589/jpts.27.549
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1589/jpts.27.549</ArticleId><ArticleId IdType="pmc">PMC4395661</ArticleId><ArticleId IdType="pubmed">25931677</ArticleId></ArticleIdList></Reference><Reference><Citation>Levinger I., Goodman C., Hare D. L., Jerums G., Toia D., Selig S. (2009). The reliability of the 1RM strength test for untrained middle-aged individuals.
+<i>J. Sci. Med. Sport</i>
+12
+310&#x2013;316. 10.1016/j.jsams.2007.10.007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2007.10.007</ArticleId><ArticleId IdType="pubmed">18078784</ArticleId></ArticleIdList></Reference><Reference><Citation>Lieber R. L., Frid&#xe9;n J. (2000). Functional and clinical significance of skeletal muscle architecture.
+<i>Muscle Nerve</i>
+23
+1647&#x2013;1666. 10.1002/1097-4598(200011)23:11&lt;1647::aid-mus1&gt;3.3.co;2-d
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/1097-4598(200011)23:11&lt;1647::aid-mus1&gt;3.3.co;2-d</ArticleId><ArticleId IdType="pubmed">11054744</ArticleId></ArticleIdList></Reference><Reference><Citation>Lima K., Costa J&#xfa;nior J. F., Pereira W., Oliveira L. (2017). assessment of the mechanical properties of the muscle-tendon unit by supersonic shearwave imaging elastography: a review.
+<i>Ultrasonography</i>
+37
+3&#x2013;15. 10.14366/usg.17017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14366/usg.17017</ArticleId><ArticleId IdType="pmc">PMC5769952</ArticleId><ArticleId IdType="pubmed">28607322</ArticleId></ArticleIdList></Reference><Reference><Citation>Logan P., Fornasiero D., Abernethy P. J., Lynch K. (2000). &#x201c;Protocols for the assessment of isoinertial strength,&#x201d; in <i>Physiological Tests for Elite Athletes</i>, ed.
+Gore C. J., (Champaign, IL: Human Kinetics; ), 200&#x2013;221.</Citation></Reference><Reference><Citation>Loturco I., Gil S., Laurino C. F. D., Roschel H., Kobal R., Abad C. C. C., et al.  (2015). Differences in muscle mechanical properties between elite power and endurance athletes: a comparative study.
+<i>J. Strength Cond. Res.</i>
+29
+1723&#x2013;1728. 10.1519/JSC.0000000000000803
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000803</ArticleId><ArticleId IdType="pubmed">25546451</ArticleId></ArticleIdList></Reference><Reference><Citation>Macgregor L. J., Ditroilo M., Smith I. J., Fairweather M. M., Hunter A. M. (2016). Reduced radial displacement of the gastrocnemius medialis muscle after electrically elicited fatigue.
+<i>J. Sport Rehabil.</i>
+25
+241&#x2013;247. 10.1123/jsr.2014-0325
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/jsr.2014-0325</ArticleId><ArticleId IdType="pubmed">26060988</ArticleId></ArticleIdList></Reference><Reference><Citation>Macgregor L. J., Hunter A. M., Orizio C., Fairweather M. M., Ditroilo M. (2018). Assessment of skeletal muscle contractile properties by radial displacement: the case for tensiomyography.
+<i>Sports Med.</i>
+48
+1607&#x2013;1620. 10.1007/s40279-018-0912-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-018-0912-6</ArticleId><ArticleId IdType="pmc">PMC5999145</ArticleId><ArticleId IdType="pubmed">29605838</ArticleId></ArticleIdList></Reference><Reference><Citation>Macnaughton L. S., Wardle S. L., Witard O. C., Mcglory C., Hamilton D. L., Jeromson S., et al.  (2016). The response of muscle protein synthesis following whole-body resistance exercise is greater following 40 g than 20 g of ingested whey protein.
+<i>Physiol. Rep.</i>
+4:e12893. 10.14814/phy2.12893
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.12893</ArticleId><ArticleId IdType="pmc">PMC4985555</ArticleId><ArticleId IdType="pubmed">27511985</ArticleId></ArticleIdList></Reference><Reference><Citation>Mangine G. T., Redd M. J., Gonzalez A. M., Townsend J. R., Wells A. J., Jajtner A. R., et al.  (2018). Resistance training does not induce uniform adaptations to quadriceps.
+<i>PLoS One</i>
+13:e0198304. 10.1371/journal.pone.0198304
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0198304</ArticleId><ArticleId IdType="pmc">PMC6116919</ArticleId><ArticleId IdType="pubmed">30161137</ArticleId></ArticleIdList></Reference><Reference><Citation>Marchetti P. H., Jarbas Da Silva J., Jon Schoenfeld B., Nardi P. S. M., Pecoraro S. L., D&#x2019;andr&#xe9;a Greve J. M., et al.  (2016). Muscle activation differs between three different knee joint-angle positions during a maximal isometric back squat exercise.
+<i>J. Sports Med.</i>
+2016:3846123. 10.1155/2016/3846123
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2016/3846123</ArticleId><ArticleId IdType="pmc">PMC4967668</ArticleId><ArticleId IdType="pubmed">27504484</ArticleId></ArticleIdList></Reference><Reference><Citation>Matta T. T., Nascimento F. X. M. B., Fernandes I. A., Oliveira L. F. (2014). Heterogeneity of rectus femoris muscle architectural adaptations after two different 14-week resistance training programmes.
+<i>Clin. Physiol. Funct. Imaging</i>
+35
+210&#x2013;215. 10.1111/cpf.12151
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12151</ArticleId><ArticleId IdType="pubmed">24750784</ArticleId></ArticleIdList></Reference><Reference><Citation>Mohamed O., Perry J., Hislop H. (2002). Relationship between wire EMG activity, muscle length, and torque of the hamstrings.
+<i>Clin. Biomech.</i>
+17
+569&#x2013;579. 10.1016/s0268-0033(02)00070-0</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0268-0033(02)00070-0</ArticleId><ArticleId IdType="pubmed">12243716</ArticleId></ArticleIdList></Reference><Reference><Citation>Morton R. W., Oikawa S. Y., Wavell C. G., Mazara N., Mcglory C., Quadrilatero J., et al.  (2016). Neither load nor systemic hormones determine resistance training-mediated hypertrophy or strength gains in resistance-trained young men.
+<i>J. Appl. Physiol.</i>
+121
+129&#x2013;138. 10.1152/japplphysiol.00154.2016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00154.2016</ArticleId><ArticleId IdType="pmc">PMC4967245</ArticleId><ArticleId IdType="pubmed">27174923</ArticleId></ArticleIdList></Reference><Reference><Citation>Neto W. K., Vieira T. L., Gama E. F. (2019). Barbell hip thrust, muscular activation and performance: a systematic review.
+<i>J. Sports Sci. Med.</i>
+18
+198&#x2013;206.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6544005</ArticleId><ArticleId IdType="pubmed">31191088</ArticleId></ArticleIdList></Reference><Reference><Citation>Neumann D. A. (2010). Kinesiology of the hip: a focus on muscular actions.
+<i>J. Orthopaedic Sports Phys. Ther.</i>
+40
+82&#x2013;94. 10.2519/jospt.2010.3025
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2519/jospt.2010.3025</ArticleId><ArticleId IdType="pubmed">20118525</ArticleId></ArticleIdList></Reference><Reference><Citation>N&#xf3;brega S. R., Ugrinowitsch C., Pintanel L., Barcelos C., Libardi C. A. (2018). Effect of Resistance training to muscle failure vs. volitional interruption at high- and low-intensities on muscle mass and strength.
+<i>J. Strength Cond. Res.</i>
+32
+162&#x2013;169. 10.1519/JSC.0000000000001787
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001787</ArticleId><ArticleId IdType="pubmed">29189407</ArticleId></ArticleIdList></Reference><Reference><Citation>Parsons B. (2010). Resistance training for elite-level track cyclists.
+<i>Strength Cond. J.</i>
+32
+63&#x2013;68. 10.1519/ssc.0b013e3181e97d97</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/ssc.0b013e3181e97d97</ArticleId></ArticleIdList></Reference><Reference><Citation>Pi&#x161;ot R., Narici M. V., &#x160;imuni&#x10d; B., De Boer M., Seynnes O., Jurdana M., et al.  (2008). Whole muscle contractile parameters and thickness loss during 35-day bed rest.
+<i>Eur. J. Appl. Physiol.</i>
+104
+409&#x2013;414. 10.1007/s00421-008-0698-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-008-0698-6</ArticleId><ArticleId IdType="pubmed">18297302</ArticleId></ArticleIdList></Reference><Reference><Citation>Reeves N. D., Narici M. V., Maganaris C. N. (2004). Effect of resistance training on skeletal muscle-specific force in elderly humans.
+<i>J. Appl. Physiol.</i>
+96
+885&#x2013;892. 10.1152/japplphysiol.00688.2003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00688.2003</ArticleId><ArticleId IdType="pubmed">14578365</ArticleId></ArticleIdList></Reference><Reference><Citation>Rusu L. D., Cosma G. G. H., Cernaianu S. M., Marin M. N., Rusu P. A., Cioc&#x103;nescu D. P., et al.  (2013). Tensiomyography method used for neuromuscular assessment of muscle training.
+<i>J. Neuroeng. Rehabil.</i>
+10:67. 10.1186/1743-0003-10-67
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1743-0003-10-67</ArticleId><ArticleId IdType="pmc">PMC3713716</ArticleId><ArticleId IdType="pubmed">23822158</ArticleId></ArticleIdList></Reference><Reference><Citation>Rutherford O. M., Jones D. A. (1992). Measurement of fibre pennation using ultrasound in the human quadriceps in vivo.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+65
+433&#x2013;437. 10.1007/bf00243510
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/bf00243510</ArticleId><ArticleId IdType="pubmed">1425649</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J. (2010). Squatting kinematics and kinetics and their application to exercise performance.
+<i>J. Strength Cond. Res.</i>
+24
+3497&#x2013;3506. 10.1519/JSC.0b013e3181bac2d7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181bac2d7</ArticleId><ArticleId IdType="pubmed">20182386</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Ogborn D., Krieger J. W. (2016). Effects of resistance training frequency on measures of muscle hypertrophy: a systematic review and meta-analysis.
+<i>Sports Med.</i>
+46
+1689&#x2013;1697. 10.1007/s40279-016-0543-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-016-0543-8</ArticleId><ArticleId IdType="pubmed">27102172</ArticleId></ArticleIdList></Reference><Reference><Citation>Schulz K. F., Altman D. G., Moher D. (2010). CONSORT 2010 statement: updated guidelines for reporting parallel group randomised trials.
+<i>BMJ</i>
+340:c332. 10.1136/bmj.c332
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.c332</ArticleId><ArticleId IdType="pmc">PMC2844940</ArticleId><ArticleId IdType="pubmed">20332509</ArticleId></ArticleIdList></Reference><Reference><Citation>Seitz L. B., Reyes A., Tran T. T., De Villarreal E. S., Haff G. G. (2014). Increases in lower-body strength transfer positively to sprint performance: a systematic review with meta-analysis.
+<i>Sports Med.</i>
+44
+1693&#x2013;1702. 10.1007/s40279-014-0227-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0227-1</ArticleId><ArticleId IdType="pubmed">25059334</ArticleId></ArticleIdList></Reference><Reference><Citation>Seynnes O. R., De Boer M., Narici M. V. (2007). Early skeletal muscle hypertrophy and architectural changes in response to high-intensity resistance training.
+<i>J. Appl. Physiol.</i>
+102
+368&#x2013;373. 10.1152/japplphysiol.00789.2006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00789.2006</ArticleId><ArticleId IdType="pubmed">17053104</ArticleId></ArticleIdList></Reference><Reference><Citation>Silva C. R. S., Costa A. D. S., Rocha T., Lima D. A. M., Nascimento T., Moraes S. R. A. (2018). Quadriceps muscle architecture ultrasonography of individuals with type 2 diabetes: reliability and applicability.
+<i>PLoS One</i>
+13:e0205724. 10.1371/journal.pone.0205724
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0205724</ArticleId><ArticleId IdType="pmc">PMC6193658</ArticleId><ArticleId IdType="pubmed">30335818</ArticleId></ArticleIdList></Reference><Reference><Citation>Simsek D., Kirkaya &#x130;, Onarici Gungor E., Ruhi Soylu A. (2016). Relationships among vertical jumping performance, EMG activation, and knee extensor and flexor muscle strength in turkish elite male volleyball players.
+<i>Turkiye Klinikleri J. Sports Sci.</i>
+8
+46&#x2013;56. 10.5336/sportsci.2016-51433</Citation><ArticleIdList><ArticleId IdType="doi">10.5336/sportsci.2016-51433</ArticleId></ArticleIdList></Reference><Reference><Citation>&#x160;imuni&#x10d; B. (2012). Between-day reliability of a method for non-invasive estimation of muscle composition.
+<i>J. Electromyogr. Kinesiol.</i>
+22
+527&#x2013;530. 10.1016/j.jelekin.2012.04.003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelekin.2012.04.003</ArticleId><ArticleId IdType="pubmed">22546361</ArticleId></ArticleIdList></Reference><Reference><Citation>&#x160;imunic B., Degens H., Rittweger J., Narici M., Mekjavic I. B., Pi&#x161;ot R. (2011). Noninvasive estimation of myosin heavy chain composition in human skeletal muscle.
+<i>Med. Sci. Sports Exerc.</i>
+43
+1619&#x2013;1625. 10.1249/MSS.0b013e31821522d0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e31821522d0</ArticleId><ArticleId IdType="pubmed">21552151</ArticleId></ArticleIdList></Reference><Reference><Citation>&#x160;imuni&#x10d; B., Koren K., Rittweger J., Lazzer S., Reggiani C., Rejc E., et al.  (2019). Tensiomyography detects early hallmarks of bed-rest-induced atrophy before changes in muscle architecture.
+<i>J. Appl. Physiol.</i>
+126
+815&#x2013;822. 10.1152/japplphysiol.00880.2018
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00880.2018</ArticleId><ArticleId IdType="pubmed">30676871</ArticleId></ArticleIdList></Reference><Reference><Citation>&#x160;imuni&#x10d; B., Pi&#x161;ot R., Rittweger J., Degens H. (2018). Age-related slowing of contractile properties differs between power, endurance, and nonathletes: a tensiomyographic assessment.
+<i>J. Gerontol. A Biol. Sci. Med. Sci.</i>
+73
+1602&#x2013;1608. 10.1093/gerona/gly069
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gerona/gly069</ArticleId><ArticleId IdType="pubmed">29659723</ArticleId></ArticleIdList></Reference><Reference><Citation>Strasser E. M., Draskovits T., Praschak M., Quittan M., Graf A. (2013). Association between ultrasound measurements of muscle thickness, pennation angle, echogenicity and skeletal muscle strength in the elderly.
+<i>Age</i>
+35
+2377&#x2013;2388. 10.1007/s11357-013-9517-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11357-013-9517-z</ArticleId><ArticleId IdType="pmc">PMC3824993</ArticleId><ArticleId IdType="pubmed">23456136</ArticleId></ArticleIdList></Reference><Reference><Citation>Sung E., Han A., Hinrichs T., Vorgerd M., Manchado C., Platen P. (2014). Effects of follicular versus luteal phase-based strength training in young women.
+<i>Springerplus</i>
+3
+668&#x2013;668. 10.1186/2193-1801-3-668
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/2193-1801-3-668</ArticleId><ArticleId IdType="pmc">PMC4236309</ArticleId><ArticleId IdType="pubmed">25485203</ArticleId></ArticleIdList></Reference><Reference><Citation>Taljanovic M. S., Gimber L. H., Becker G. W., Latt L. D., Klauser A. S., Melville D. M., et al.  (2017). Shear-wave elastography: basic physics and musculoskeletal applications.
+<i>Radiographics</i>
+37
+855&#x2013;870. 10.1148/rg.2017160116
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1148/rg.2017160116</ArticleId><ArticleId IdType="pmc">PMC5452887</ArticleId><ArticleId IdType="pubmed">28493799</ArticleId></ArticleIdList></Reference><Reference><Citation>Thompson B. J., Stock M. S., Shields J. E., Luera M. J., Munayer I. K., Mota J. A., et al.  (2015). Barbell deadlift training increases the rate of torque development and vertical jump performance in novices.
+<i>J. Strength Cond. Res.</i>
+29
+1&#x2013;10. 10.1519/JSC.0000000000000691
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000691</ArticleId><ArticleId IdType="pubmed">25226322</ArticleId></ArticleIdList></Reference><Reference><Citation>Tous-Fajardo J., Moras G., Rodr&#xed;guez-Jim&#xe9;nez S., Usach R., Doutres D. M., Maffiuletti N. A. (2010). Inter-rater reliability of muscle contractile property measurements using non-invasive tensiomyography.
+<i>J. Electromyogr. Kinesiol.</i>
+20
+761&#x2013;766. 10.1016/j.jelekin.2010.02.008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelekin.2010.02.008</ArticleId><ArticleId IdType="pubmed">20236839</ArticleId></ArticleIdList></Reference><Reference><Citation>Valen&#x10d;i&#x10d; V., Knez N. (1997). Measuring of skeletal muscles&#x2019; dynamic properties.
+<i>Artif. Organs</i>
+21
+240&#x2013;242. 10.1111/j.1525-1594.1997.tb04658.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1525-1594.1997.tb04658.x</ArticleId><ArticleId IdType="pubmed">9148715</ArticleId></ArticleIdList></Reference><Reference><Citation>Valencic V., Knez N., Simunic B. (2001). Tensiomyography: detection of skeletal muscle response by means of radial muscle belly displacement.
+<i>Biomed. Eng.</i>
+1
+1&#x2013;10.</Citation></Reference><Reference><Citation>Vieira A., Blazevich A., Souza N., Celes R., Alex S., Tufano J. J., et al.  (2018). Acute changes in muscle thickness and pennation angle in response to work-matched concentric and eccentric isokinetic exercise.
+<i>Appl. Physiol. Nutr. Metab.</i>
+43
+1069&#x2013;1074. 10.1139/apnm-2018-0055
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/apnm-2018-0055</ArticleId><ArticleId IdType="pubmed">29707959</ArticleId></ArticleIdList></Reference><Reference><Citation>Vinstrup J., Calatayud J., Jakobsen M. D., Sundstrup E., Jay K., Brandt M., et al.  (2017). Electromyographic comparison of conventional machine strength training versus bodyweight exercises in patients with chronic stroke.
+<i>Top. Stroke Rehabil.</i>
+24
+242&#x2013;249. 10.1080/10749357.2016.1274466
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10749357.2016.1274466</ArticleId><ArticleId IdType="pubmed">28056670</ArticleId></ArticleIdList></Reference><Reference><Citation>Watanabe K., Kouzaki M., Moritani T. (2012). Task-dependent spatial distribution of neural activation pattern in human rectus femoris muscle.
+<i>J. Electromyogr. Kinesiol.</i>
+22
+251&#x2013;258. 10.1016/j.jelekin.2011.11.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelekin.2011.11.004</ArticleId><ArticleId IdType="pubmed">22153052</ArticleId></ArticleIdList></Reference><Reference><Citation>Whitehead N. P., Weerakkody N. S., Gregory J. E., Morgan D. L., Proske U. (2001). Changes in passive tension of muscle in humans and animals after eccentric exercise.
+<i>J. Physiol.</i>
+533
+593&#x2013;604. 10.1111/j.1469-7793.2001.0593a.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1469-7793.2001.0593a.x</ArticleId><ArticleId IdType="pmc">PMC2278643</ArticleId><ArticleId IdType="pubmed">11389215</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilson G. J., Murphy A. J., Pryor J. F. (1994). Musculotendinous stiffness: its relationship to eccentric, isometric, and concentric performance.
+<i>J. Appl. Physiol.</i>
+76
+2714&#x2013;2719. 10.1152/jappl.1994.76.6.2714
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1994.76.6.2714</ArticleId><ArticleId IdType="pubmed">7928905</ArticleId></ArticleIdList></Reference><Reference><Citation>Yoshitake Y., Kawakami Y., Kanehisa H., Fukunaga T. (2005). Surface mechanomyogram reflects length changes in fascicles of human skeletal muscles.
+<i>Int. J. Sport Health Sci.</i>
+3
+280&#x2013;285. 10.5432/ijshs.3.280</Citation><ArticleIdList><ArticleId IdType="doi">10.5432/ijshs.3.280</ArticleId></ArticleIdList></Reference><Reference><Citation>Yoshitake Y., Masani K., Shinohara M. (2008). Laser-detected lateral muscle displacement is correlated with force fluctuations during voluntary contractions in humans.
+<i>J. Neurosci. Methods</i>
+173
+271&#x2013;278. 10.1016/j.jneumeth.2008.06.022
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jneumeth.2008.06.022</ArticleId><ArticleId IdType="pubmed">18644407</ArticleId></ArticleIdList></Reference><Reference><Citation>Zourdos M. C., Klemp A., Dolan C., Quiles J. M., Schau K. A., Jo E., et al.  (2016). Novel resistance training&#x2013;specific rating of perceived exertion scale measuring repetitions in reserve.
+<i>J. Strength Cond. Res.</i>
+30
+267&#x2013;275. 10.1519/JSC.0000000000001049
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001049</ArticleId><ArticleId IdType="pubmed">26049792</ArticleId></ArticleIdList></Reference><Reference><Citation>Zubac D., Simunic B. (2017). Skeletal muscle contraction time and tone decrease after 8 weeks of plyometric training.
+<i>J. Strength Cond. Res.</i>
+31
+1610&#x2013;1619. 10.1519/JSC.0000000000001626
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001626</ArticleId><ArticleId IdType="pubmed">28538312</ArticleId></ArticleIdList></Reference><Reference><Citation>Zweifel M. B., Vigotsky A. D., Contreras B., Njororai Simiyu W. W. (2017). Effects of 6-week squat, deadlift, or hip thrust training program on speed, power, agility, and strength in experienced lifters: a pilot study.
+<i>J. Trainol.</i>
+6
+13&#x2013;17. 10.1519/JSC.0000000000002414
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002414</ArticleId><ArticleId IdType="pubmed">29324578</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

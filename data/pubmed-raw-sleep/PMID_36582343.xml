@@ -1,0 +1,353 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">36582343</PMID><DateRevised><Year>2023</Year><Month>01</Month><Day>03</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-1078</ISSN><JournalIssue CitedMedium="Print"><Volume>13</Volume><PubDate><Year>2022</Year></PubDate></JournalIssue><Title>Frontiers in psychology</Title><ISOAbbreviation>Front Psychol</ISOAbbreviation></Journal><ArticleTitle>Primum non nocere; It's time to consider altitude training as the medical intervention it actually is!</ArticleTitle><Pagination><StartPage>1028294</StartPage><MedlinePgn>1028294</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1028294</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fpsyg.2022.1028294</ELocationID><Abstract><AbstractText>Sleep is one of the most important aspects of recovery, and is known to be severely affected by hypoxia. The present position paper focuses on sleep as a strong moderator of the altitude training-response. Indeed, the response to altitude training is highly variable, it is not a fixed and classifiable trait, rather it is a state that is determined by multiple factors (e.g., iron status, altitude dose, pre-intervention hemoglobin mass, training load, and recovery). We present an overview of evidence showing that sleep, and more specifically the prolonged negative impact of altitude on the nocturnal breathing pattern, affecting mainly deep sleep and thus the core of physiological recovery during sleep, could play an important role in intra- and interindividual variability in the altitude training-associated responses in professional and recreational athletes. We conclude our paper with a set of suggested recommendations to customize the application of altitude training to the specific needs and vulnerabilities of each athlete (i.e., primum non nocere). Several factors have been identified (e.g., sex, polymorphisms in the TASK2/KCNK5, NOTCH4 and CAT genes and pre-term birth) to predict individual vulnerabilities to hypoxia-related sleep-disordered breathing. Currently, polysomnography should be the first choice to evaluate an individual's predisposition to a decrease in deep sleep related to hypoxia. Further interventions, both pharmacological and non-pharmacological, might alleviate the effects of nocturnal hypoxia in those athletes that show most vulnerable.</AbstractText><CopyrightInformation>Copyright &#xa9; 2022 Van Cutsem and Pattyn.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Van Cutsem</LastName><ForeName>Jeroen</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Vital Signs and Performance Monitoring (VIPER) Research Unit, Royal Military Academy, Brussels, Belgium.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Human Physiology and Sports Physiotherapy Research Group, Vrije Universiteit Brussel, Brussels, Belgium.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Pattyn</LastName><ForeName>Nathalie</ForeName><Initials>N</Initials><AffiliationInfo><Affiliation>Vital Signs and Performance Monitoring (VIPER) Research Unit, Royal Military Academy, Brussels, Belgium.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Human Physiology and Sports Physiotherapy Research Group, Vrije Universiteit Brussel, Brussels, Belgium.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType><PublicationType UI="D016454">Review</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2022</Year><Month>12</Month><Day>13</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Psychol</MedlineTA><NlmUniqueID>101550902</NlmUniqueID><ISSNLinking>1664-1078</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">endurance</Keyword><Keyword MajorTopicYN="N">genetic polymorphisms</Keyword><Keyword MajorTopicYN="N">hypoxia</Keyword><Keyword MajorTopicYN="N">performance</Keyword><Keyword MajorTopicYN="N">periodic breathing</Keyword><Keyword MajorTopicYN="N">physical activity</Keyword><Keyword MajorTopicYN="N">sleep</Keyword><Keyword MajorTopicYN="N">team-sport</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2022</Year><Month>8</Month><Day>25</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2022</Year><Month>11</Month><Day>23</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2022</Year><Month>12</Month><Day>30</Day><Hour>2</Hour><Minute>19</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2022</Year><Month>12</Month><Day>31</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2022</Year><Month>12</Month><Day>31</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2022</Year><Month>12</Month><Day>13</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">36582343</ArticleId><ArticleId IdType="pmc">PMC9792969</ArticleId><ArticleId IdType="doi">10.3389/fpsyg.2022.1028294</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abedelmalek S., Souissi N., Chtourou H., Denguezli M., Aouichaoui C., Ajina M., et al.  (2013). Effects of partial sleep deprivation on proinflammatory cytokines, growth hormone, and steroid hormone concentrations during repeated brief sprint interval exercise.
+<i>Chronobiol. Int.</i>
+30
+502&#x2013;509. 10.3109/07420528.2012.742102
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3109/07420528.2012.742102</ArticleId><ArticleId IdType="pubmed">23281720</ArticleId></ArticleIdList></Reference><Reference><Citation>Aguillard R. N., Riedel B. W., Lichstein K. L., Grieve F. G., Johnson C. T., Noe S. L. (1998). Daytime functioning in obstructive sleep apnea patients: Exercise tolerance, subjective fatigue, and sleepiness.
+<i>Appl. Psychophysiol. Biofeedback</i>
+23
+207&#x2013;217. 10.1023/A:1022257514209
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1023/A:1022257514209</ArticleId><ArticleId IdType="pubmed">10457812</ArticleId></ArticleIdList></Reference><Reference><Citation>Ainslie P. N., Duffin J. (2009). Integration of cerebrovascular CO2 reactivity and chemoreflex control of breathing: Mechanisms of regulation, measurement, and interpretation.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+296
+R1473&#x2013;R1495. 10.1152/ajpregu.91008.2008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.91008.2008</ArticleId><ArticleId IdType="pubmed">19211719</ArticleId></ArticleIdList></Reference><Reference><Citation>Ainslie P. N., Lucas S. J., Burgess K. R. (2013). Breathing and sleep at high altitude.
+<i>Respir. Physiol. Neurobiol.</i>
+188
+233&#x2013;256. 10.1016/j.resp.2013.05.020
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.resp.2013.05.020</ArticleId><ArticleId IdType="pubmed">23722066</ArticleId></ArticleIdList></Reference><Reference><Citation>Anholm J. D., Powles A. C., 3rd R. D., Houston C. S., Sutton J. R., Bonnet M. H., et al.  (1992). Operation everest II: Arterial oxygen saturation and sleep at extreme simulated altitude.
+<i>Am. Rev. Respir. Dis.</i>
+145(Pt 1)
+817&#x2013;826. 10.1164/ajrccm/145.4_Pt_1.817
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1164/ajrccm/145.4_Pt_1.817</ArticleId><ArticleId IdType="pubmed">1554208</ArticleId></ArticleIdList></Reference><Reference><Citation>Aughey R. J., Buchheit M., Garvican-Lewis L., Roach G., Sargent C., Billaut F., et al.  (2013). Yin and yang, or peas in a pod? Individual-sport versus team-sport athletes and altitude training.
+<i>Br. J. Sports Med.</i>
+47
+1150&#x2013;1154. 10.1136/bjsports-2013-092764
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2013-092764</ArticleId><ArticleId IdType="pmc">PMC3841751</ArticleId><ArticleId IdType="pubmed">24255910</ArticleId></ArticleIdList></Reference><Reference><Citation>Balke B., Nagle F. J., Daniels J. (1965). Altitude and maximum performance in work and sports activity.
+<i>JAMA</i>
+194
+646&#x2013;649. 10.1001/jama.1965.03090190068016</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.1965.03090190068016</ArticleId><ArticleId IdType="pubmed">5897239</ArticleId></ArticleIdList></Reference><Reference><Citation>Barcroft J. (1920). DISCUSSION O T.
+<i>Proc. R. Soc. Med.</i>
+13
+59&#x2013;68. 10.1177/003591572001302222
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/003591572001302222</ArticleId><ArticleId IdType="pmc">PMC2152031</ArticleId><ArticleId IdType="pubmed">19981520</ArticleId></ArticleIdList></Reference><Reference><Citation>Bejder J., Nordsborg N. B. (2018). Specificity of &#x201c;Live High-Train Low&#x201d; altitude training on exercise performance.
+<i>Exerc. Sport Sci. Rev.</i>
+46
+129&#x2013;136. 10.1249/JES.0000000000000144
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/JES.0000000000000144</ArticleId><ArticleId IdType="pubmed">29346162</ArticleId></ArticleIdList></Reference><Reference><Citation>Bejder J., Andersen A. B., Buchardt R., Larsson T. H., Olsen N. V., Nordsborg N. B. (2017). Endurance, aerobic high-intensity, and repeated sprint cycling performance is unaffected by normobaric &#x201c;Live High-Train Low&#x201d;: A double-blind placebo-controlled cross-over study.
+<i>Eur. J. Appl. Physiol.</i>
+117
+979&#x2013;988. 10.1007/s00421-017-3586-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-017-3586-0</ArticleId><ArticleId IdType="pubmed">28332025</ArticleId></ArticleIdList></Reference><Reference><Citation>Bian S., Zhang L., Jin J., Zhang J., Li Q., Yu J., et al.  (2019). The onset of sleep disturbances and their associations with anxiety after acute high-altitude exposure at 3700?m.
+<i>Transl. Psychiatry</i>
+9:175. 10.1038/s41398-019-0510-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41398-019-0510-x</ArticleId><ArticleId IdType="pmc">PMC6646382</ArticleId><ArticleId IdType="pubmed">31332159</ArticleId></ArticleIdList></Reference><Reference><Citation>Billaut F., Gore C. J., Aughey R. J. (2012). Enhancing team-sport athlete performance: Is altitude training relevant?
+<i>Sports Med.</i>
+42
+751&#x2013;767. 10.1007/BF03262293
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF03262293</ArticleId><ArticleId IdType="pubmed">22845561</ArticleId></ArticleIdList></Reference><Reference><Citation>Bloch K. E., Buenzli J. C., Latshang T. D., Ulrich S. (2015). Sleep at high altitude: Guesses and facts.
+<i>J. Appl. Physiol. (1985)</i>
+119
+1466&#x2013;1480. 10.1152/japplphysiol.00448.2015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00448.2015</ArticleId><ArticleId IdType="pubmed">26229000</ArticleId></ArticleIdList></Reference><Reference><Citation>Bloch K. E., Latshang T. D., Turk A. J., Hess T., Hefti U., Merz T. M., et al.  (2010). Nocturnal periodic breathing during acclimatization at very high altitude at mount muztagh ata (7,546 m).
+<i>Am. J. Respir. Crit. Care Med.</i>
+182
+562&#x2013;568. 10.1164/rccm.200911-1694OC
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1164/rccm.200911-1694OC</ArticleId><ArticleId IdType="pubmed">20442435</ArticleId></ArticleIdList></Reference><Reference><Citation>Bonetti D. L., Hopkins W. G. (2009). Sea-level exercise performance following adaptation to hypoxia: A meta-analysis.
+<i>Sports Med.</i>
+39
+107&#x2013;127. 10.2165/00007256-200939020-00002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200939020-00002</ArticleId><ArticleId IdType="pubmed">19203133</ArticleId></ArticleIdList></Reference><Reference><Citation>Buguet A., Cespuglio R., Radomski M. W. (1998). Sleep and stress in man: An approach through exercise and exposure to extreme environments.
+<i>Can J. Physiol. Pharmacol.</i>
+76
+553&#x2013;561. 10.1139/y98-044
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/y98-044</ArticleId><ArticleId IdType="pubmed">9839082</ArticleId></ArticleIdList></Reference><Reference><Citation>Byrne-Quinn E., Weil J., Sodal I., Filley G., Grover R. (1971). Ventilatory control in the athlete.
+<i>J. Appl. Physiol.</i>
+30
+91&#x2013;98. 10.1152/jappl.1971.30.1.91
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1971.30.1.91</ArticleId><ArticleId IdType="pubmed">5538798</ArticleId></ArticleIdList></Reference><Reference><Citation>Chapman R. F. (2013). The individual response to training and competition at altitude.
+<i>Br. J. Sports Med.</i>
+47(Suppl. 1)
+i40&#x2013;i44. 10.1136/bjsports-2013-092837
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2013-092837</ArticleId><ArticleId IdType="pmc">PMC3903142</ArticleId><ArticleId IdType="pubmed">24282206</ArticleId></ArticleIdList></Reference><Reference><Citation>Chapman R. F., Stray-Gundersen J., Levine B. D. (1998). Individual variation in response to altitude training.
+<i>J. Appl. Physiol. (1985)</i>
+85
+1448&#x2013;1456. 10.1152/jappl.1998.85.4.1448
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1998.85.4.1448</ArticleId><ArticleId IdType="pubmed">9760340</ArticleId></ArticleIdList></Reference><Reference><Citation>Chennaoui M., Arnal P. J., Sauvet F., L&#xe9;ger D. (2015). Sleep and exercise: A reciprocal issue?
+<i>Sleep Med. Rev.</i>
+20
+59&#x2013;72. 10.1016/j.smrv.2014.06.008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.smrv.2014.06.008</ArticleId><ArticleId IdType="pubmed">25127157</ArticleId></ArticleIdList></Reference><Reference><Citation>Conley S., Knies A., Batten J., Ash G., Miner B., Hwang Y., et al.  (2019). Agreement between actigraphic and polysomnographic measures of sleep in adults with and without chronic conditions: A systematic review and meta-analysis.
+<i>Sleep Med. Rev.</i>
+46
+151&#x2013;160. 10.1016/j.smrv.2019.05.001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.smrv.2019.05.001</ArticleId><ArticleId IdType="pmc">PMC6594867</ArticleId><ArticleId IdType="pubmed">31154154</ArticleId></ArticleIdList></Reference><Reference><Citation>Constantini K., Bouillet A. C., Wiggins C. C., Martin B. J., Chapman R. F. (2021). Ventilatory responsiveness during exercise and performance impairment in acute Hypoxia.
+<i>Med. Sci. Sports Exerc.</i>
+53
+295&#x2013;305. 10.1249/MSS.0000000000002466
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000002466</ArticleId><ArticleId IdType="pmc">PMC8058857</ArticleId><ArticleId IdType="pubmed">32694376</ArticleId></ArticleIdList></Reference><Reference><Citation>Dattilo M., Antunes H. K., Medeiros A., Neto M. M., Souza H. S., Tufik S., et al.  (2011). Sleep and muscle recovery: Endocrinological and molecular basis for a new and promising hypothesis.
+<i>Med. Hypotheses</i>
+77
+220&#x2013;222. 10.1016/j.mehy.2011.04.017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.mehy.2011.04.017</ArticleId><ArticleId IdType="pubmed">21550729</ArticleId></ArticleIdList></Reference><Reference><Citation>Deldicque L. (2022). Does normobaric hypoxic resistance training confer benefit over normoxic training in athletes? a narrative review.
+<i>J. Sci. Sport Exerc.</i>
+4
+306&#x2013;314. 10.1007/s42978-021-00159-5</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s42978-021-00159-5</ArticleId></ArticleIdList></Reference><Reference><Citation>Dongen H. P., Maislin G., Mullington J. M., Dinges D. F. (2003). The cumulative cost of additional wakefulness: Dose-response effects on neurobehavioral functions and sleep physiology from chronic sleep restriction and total sleep deprivation.
+<i>Sleep</i>
+26
+117&#x2013;126. 10.1093/sleep/26.2.117
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/sleep/26.2.117</ArticleId><ArticleId IdType="pubmed">12683469</ArticleId></ArticleIdList></Reference><Reference><Citation>Eyzaguirre C., Lewin J. (1961). The effect of sympathetic stimulation on carotid nerve activity.
+<i>J. Physiol.</i>
+159
+251&#x2013;267. 10.1113/jphysiol.1961.sp006806
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.1961.sp006806</ArticleId><ArticleId IdType="pmc">PMC1359503</ArticleId><ArticleId IdType="pubmed">13891146</ArticleId></ArticleIdList></Reference><Reference><Citation>Fernandez Tellez H., Mairesse O., Macdonald-Nethercott E., Neyt X., Meeusen R., Pattyn N., et al.  (2014). Sleep-related periodic breathing does not acclimatize to chronic hypobaric hypoxia: A 1-year study at high altitude in Antarctica.
+<i>Am. J. Respir. Crit. Care Med.</i>
+190
+114&#x2013;116. 10.1164/rccm.201403-0598LE
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1164/rccm.201403-0598LE</ArticleId><ArticleId IdType="pubmed">24983221</ArticleId></ArticleIdList></Reference><Reference><Citation>Friedmann B., Frese F., Menold E., Kauper F., Jost J., B&#xe4;rtsch P. (2005). Individual variation in the erythropoietic response to altitude training in elite junior swimmers.
+<i>Br. J. Sports Med.</i>
+39
+148&#x2013;153. 10.1136/bjsm.2003.011387
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.2003.011387</ArticleId><ArticleId IdType="pmc">PMC1725156</ArticleId><ArticleId IdType="pubmed">15728692</ArticleId></ArticleIdList></Reference><Reference><Citation>Girard O. (2022). Editorial &#x2013; contemporary use of altitude training to reach new heights.
+<i>J. Sci. Sport Exerc.</i>
+4
+291&#x2013;292. 10.1007/s42978-022-00202-z</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s42978-022-00202-z</ArticleId></ArticleIdList></Reference><Reference><Citation>Girard O., Amann M., Aughey R., Billaut F., Bishop D. J., Bourdon P., et al.  (2013). Position statement&#x2013;altitude training for improving team-sport players&#x2019; performance: Current knowledge and unresolved issues.
+<i>Br. J. Sports Med.</i>
+47(Suppl. 1)
+i8&#x2013;i16. 10.1136/bjsports-2013-093109
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2013-093109</ArticleId><ArticleId IdType="pmc">PMC3903313</ArticleId><ArticleId IdType="pubmed">24282213</ArticleId></ArticleIdList></Reference><Reference><Citation>Girard O., Brocherie F., Goods P. S., Millet G. P. (2020). An updated panorama of &#x201c;Living Low-Training High&#x201d; altitude/hypoxic methods.
+<i>Front. Sports Act. Living</i>
+2:26. 10.3389/fspor.2020.00026
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fspor.2020.00026</ArticleId><ArticleId IdType="pmc">PMC7739748</ArticleId><ArticleId IdType="pubmed">33345020</ArticleId></ArticleIdList></Reference><Reference><Citation>Goldberg S., Ollila H. M., Lin L., Sharifi H., Rico T., Andlauer O., et al.  (2017). Analysis of hypoxic and hypercapnic ventilatory response in healthy volunteers.
+<i>PLoS One</i>
+12:e0168930. 10.1371/journal.pone.0168930
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0168930</ArticleId><ArticleId IdType="pmc">PMC5207520</ArticleId><ArticleId IdType="pubmed">28045995</ArticleId></ArticleIdList></Reference><Reference><Citation>Gore C. J., Clark S. A., Saunders P. U. (2007). Nonhematological mechanisms of improved sea-level performance after hypoxic exposure.
+<i>Med. Sci. Sports Exerc.</i>
+39
+1600&#x2013;1609. 10.1249/mss.0b013e3180de49d3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0b013e3180de49d3</ArticleId><ArticleId IdType="pubmed">17805094</ArticleId></ArticleIdList></Reference><Reference><Citation>Gore C. J., Sharpe K., Garvican-Lewis L. A., Saunders P. U., Humberstone C. E., Robertson E. Y., et al.  (2013). Altitude training and haemoglobin mass from the optimised carbon monoxide rebreathing method determined by a meta-analysis.
+<i>Br. J. Sports Med.</i>
+47(Suppl. 1)
+i31&#x2013;i39. 10.1136/bjsports-2013-092840
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2013-092840</ArticleId><ArticleId IdType="pmc">PMC3903147</ArticleId><ArticleId IdType="pubmed">24282204</ArticleId></ArticleIdList></Reference><Reference><Citation>Haack M., Sanchez E., Mullington J. M. (2007). Elevated inflammatory markers in response to prolonged sleep restriction are associated with increased pain experience in healthy volunteers.
+<i>Sleep</i>
+30
+1145&#x2013;1152. 10.1093/sleep/30.9.1145
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/sleep/30.9.1145</ArticleId><ArticleId IdType="pmc">PMC1978405</ArticleId><ArticleId IdType="pubmed">17910386</ArticleId></ArticleIdList></Reference><Reference><Citation>Halson S. L., Juliff L. E. (2017). Sleep, sport, and the brain.
+<i>Prog. Brain Res.</i>
+234
+13&#x2013;31. 10.1016/bs.pbr.2017.06.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/bs.pbr.2017.06.006</ArticleId><ArticleId IdType="pubmed">29031461</ArticleId></ArticleIdList></Reference><Reference><Citation>Hauser A., Troesch S., Saugy J. J., Schmitt L., Cejuela-Anta R., Faiss R., et al.  (2017). Individual hemoglobin mass response to normobaric and hypobaric &#x201c;live high-train low&#x201d;: A one-year crossover study.
+<i>J. Appl. Physiol. (1985)</i>
+123
+387&#x2013;393. 10.1152/japplphysiol.00932.2016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00932.2016</ArticleId><ArticleId IdType="pubmed">28522767</ArticleId></ArticleIdList></Reference><Reference><Citation>Hermand E., Pichon A., Lhuissier F. J., Richalet J. (2015). Periodic breathing in healthy humans at exercise in hypoxia.
+<i>J. Appl. Physiol. (1985)</i>
+118
+115&#x2013;123. 10.1152/japplphysiol.00832.2014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00832.2014</ArticleId><ArticleId IdType="pubmed">25554800</ArticleId></ArticleIdList></Reference><Reference><Citation>Hoshikawa M., Uchida S., Sugo T., Kumai Y., Hanai Y., Kawahara T. (2007). Changes in sleep quality of athletes under normobaric hypoxia equivalent to 2,000-m altitude: A polysomnographic study.
+<i>J. Appl. Physiol. (1985)</i>
+103
+2005&#x2013;2011. 10.1152/japplphysiol.00315.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00315.2007</ArticleId><ArticleId IdType="pubmed">17690200</ArticleId></ArticleIdList></Reference><Reference><Citation>Houston C. S. (1997). Operation everest one and two. Studies of acclimatization to simulated high altitude.
+<i>Respiration</i>
+64
+398&#x2013;406. 10.1159/000196715
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000196715</ArticleId><ArticleId IdType="pubmed">9383814</ArticleId></ArticleIdList></Reference><Reference><Citation>Hrozanova M., Talsnes R., Karlsson &#xd8;, McGawley K., Moen F. (2021). An observational study of sleep characteristics in elite endurance athletes during an altitude training camp at 1800 m.
+<i>Sleep Health</i>
+7
+691&#x2013;698. 10.1016/j.sleh.2021.08.007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.sleh.2021.08.007</ArticleId><ArticleId IdType="pubmed">34635445</ArticleId></ArticleIdList></Reference><Reference><Citation>Johnson P. L., Edwards N., Burgess K. R., Sullivan C. E. (2010). Sleep architecture changes during a trek from 1400 to 5000 m in the Nepal Himalaya.
+<i>J. Sleep Res.</i>
+19(Pt 2)
+148&#x2013;156. 10.1111/j.1365-2869.2009.00745.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1365-2869.2009.00745.x</ArticleId><ArticleId IdType="pubmed">19663929</ArticleId></ArticleIdList></Reference><Reference><Citation>Kinsman T. A., Gore C. J., Hahn A. G., Hopkins W. G., Hawley J. A., McKenna M. J., et al.  (2005). Sleep in athletes undertaking protocols of exposure to nocturnal simulated altitude at 2650 m.
+<i>J. Sci. Med. Sport</i>
+8
+222&#x2013;232. 10.1016/S1440-2440(05)80013-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1440-2440(05)80013-1</ArticleId><ArticleId IdType="pubmed">16075782</ArticleId></ArticleIdList></Reference><Reference><Citation>Kinsman T. A., Hahn A. G., Gore C. J., Wilsmore B. R., Martin D. T., Chow C. (2002). Respiratory events and periodic breathing in cyclists sleeping at 2,650-m simulated altitude.
+<i>J. Appl. Physiol. (1985)</i>
+92
+2114&#x2013;2118. 10.1152/japplphysiol.00737.2001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00737.2001</ArticleId><ArticleId IdType="pubmed">11960964</ArticleId></ArticleIdList></Reference><Reference><Citation>Kong F. (2021). &#x201c;Sleep disorder at high altitude,&#x201d; in <i>Updates in sleep neurology and obstructive sleep apnea</i>, eds
+Rossi F. H., Tsakadze N. (London: IntechOpen; ). 10.5772/intechopen.86727</Citation><ArticleIdList><ArticleId IdType="doi">10.5772/intechopen.86727</ArticleId></ArticleIdList></Reference><Reference><Citation>Lancaster G., Debevec T., Millet G. P., Poussel M., Willis S. J., Mramor M., et al.  (2020). Relationship between cardiorespiratory phase coherence during hypoxia and genetic polymorphism in humans.
+<i>J. Physiol.</i>
+598
+2001&#x2013;2019. 10.1113/JP278829
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP278829</ArticleId><ArticleId IdType="pmc">PMC7317918</ArticleId><ArticleId IdType="pubmed">31957891</ArticleId></ArticleIdList></Reference><Reference><Citation>Leeuwen W. M., Hublin C., Sallinen M., H&#xe4;rm M., Hirvonen A., Porkka-Heiskanen T. (2010). Prolonged sleep restriction affects glucose metabolism in healthy young men.
+<i>Int. J. Endocrinol.</i>
+2010:108641. 10.1155/2010/108641
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2010/108641</ArticleId><ArticleId IdType="pmc">PMC2857625</ArticleId><ArticleId IdType="pubmed">20414467</ArticleId></ArticleIdList></Reference><Reference><Citation>Levine B. D., Friedman D., Engfred K., Hanel B., Kjaer M., Clifford P., et al.  (1992). The effect of normoxic or hypobaric hypoxic endurance training on the hypoxic ventilatory response.
+<i>Med. Sci. Sports Exerc.</i>
+24
+769&#x2013;775. 10.1249/00005768-199207000-00006</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00005768-199207000-00006</ArticleId><ArticleId IdType="pubmed">1501561</ArticleId></ArticleIdList></Reference><Reference><Citation>Lundby C., Robach P. (2016). Does &#x2018;altitude training&#x2019; increase exercise performance in elite athletes?
+<i>Exp. Physiol.</i>
+101
+783&#x2013;788. 10.1113/EP085579
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/EP085579</ArticleId><ArticleId IdType="pubmed">27173805</ArticleId></ArticleIdList></Reference><Reference><Citation>Lundby C., Millet G. P., Calbet J. A., B&#xe4;rtsch P., Subudhi A. W. (2012). Does &#x2018;altitude training&#x2019; increase exercise performance in elite athletes?
+<i>Br. J. Sports Med.</i>
+46
+792&#x2013;795. 10.1136/bjsports-2012-091231
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2012-091231</ArticleId><ArticleId IdType="pubmed">22797528</ArticleId></ArticleIdList></Reference><Reference><Citation>Mairesse O., MacDonald-Nethercott E., Neu D., Fernandez Tellez H., Dessy E., Neyt X., et al.  (2019). Preparing for mars: Human sleep and performance during a 13 month stay in Antarctica.
+<i>Sleep</i>
+42:zsy206. 10.1093/sleep/zsy206
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/sleep/zsy206</ArticleId><ArticleId IdType="pubmed">30403819</ArticleId></ArticleIdList></Reference><Reference><Citation>McLean B. D., Buttifant D., Gore C. J., White K., Kemp J. (2013a). Year-to-year variability in haemoglobin mass response to two altitude training camps.
+<i>Br. J. Sports Med.</i>
+47(Suppl. 1)
+i51&#x2013;i58. 10.1136/bjsports-2013-092744
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2013-092744</ArticleId><ArticleId IdType="pmc">PMC3903153</ArticleId><ArticleId IdType="pubmed">24282208</ArticleId></ArticleIdList></Reference><Reference><Citation>McLean B. D., Buttifant D., Gore C. J., White K., Liess C., Kemp J. (2013b). Physiological and performance responses to a preseason altitude-training camp in elite team-sport athletes.
+<i>Int. J. Sports Physiol. Perform.</i>
+8
+391&#x2013;399. 10.1123/ijspp.8.4.391
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.8.4.391</ArticleId><ArticleId IdType="pubmed">23170749</ArticleId></ArticleIdList></Reference><Reference><Citation>Miller D. J., Sargent C., Roach G. D. (2022). A validation of six wearable devices for estimating sleep, heart rate and heart rate variability in healthy adults.
+<i>Sensors (Basel)</i>
+22:6317. 10.3390/s22166317
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/s22166317</ArticleId><ArticleId IdType="pmc">PMC9412437</ArticleId><ArticleId IdType="pubmed">36016077</ArticleId></ArticleIdList></Reference><Reference><Citation>Millet G. P., Chapman R. F., Girard O., Brocherie F. (2019). Is live high&#x2013;train low altitude training relevant for elite athletes? flawed analysis from inaccurate data.
+<i>Br. J. Sports Med.</i>
+53
+923&#x2013;925. 10.1136/bjsports-2017-098083
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2017-098083</ArticleId><ArticleId IdType="pubmed">29247024</ArticleId></ArticleIdList></Reference><Reference><Citation>Morrison S. A., Mirnik D., Korsic S., Eiken O., Mekjavic I. B., Dolenc-Groselj L. (2017). Bed rest and hypoxic exposure affect sleep architecture and breathing stability.
+<i>Front. Physiol.</i>
+8:410. 10.3389/fphys.2017.00410
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2017.00410</ArticleId><ArticleId IdType="pmc">PMC5476730</ArticleId><ArticleId IdType="pubmed">28676764</ArticleId></ArticleIdList></Reference><Reference><Citation>Mujika I., Sharma A. P., Stellingwerff T. (2019). Contemporary periodization of altitude training for elite endurance athletes: A narrative review.
+<i>Sports Med.</i>
+49
+1651&#x2013;1669. 10.1007/s40279-019-01165-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-019-01165-y</ArticleId><ArticleId IdType="pubmed">31452130</ArticleId></ArticleIdList></Reference><Reference><Citation>Narang B. J., Manferdelli G., Millet G., Debevec T. (2022). Respiratory responses to hypoxia during rest and exercise in individuals born pre-term: A state-of-the-art review.
+<i>Eur. J. Appl. Physiol.</i>
+122
+1991&#x2013;2003. 10.1007/s00421-022-04965-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-022-04965-9</ArticleId><ArticleId IdType="pubmed">35589858</ArticleId></ArticleIdList></Reference><Reference><Citation>Nespoulet H., Wuyam B., Tamisier R., Saunier C., Monneret D., Remy J., et al.  (2012). Altitude illness is related to low hypoxic chemoresponse and low oxygenation during sleep.
+<i>Eur. Respir. J.</i>
+40
+673&#x2013;680. 10.1183/09031936.00073111
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1183/09031936.00073111</ArticleId><ArticleId IdType="pubmed">22523356</ArticleId></ArticleIdList></Reference><Reference><Citation>Nummela A., Eronen T., Koponen A., Tikkanen H., Peltonen J. E. (2021). Variability in hemoglobin mass response to altitude training camps.
+<i>Scand. J. Med. Sci. Sports</i>
+31
+44&#x2013;51. 10.1111/sms.13804
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.13804</ArticleId><ArticleId IdType="pubmed">32783231</ArticleId></ArticleIdList></Reference><Reference><Citation>Nussbaumer-Ochsner Y., Ursprung J., Siebenmann C., Maggiorini M., Bloch K. E. (2012). Effect of short-term acclimatization to high altitude on sleep and nocturnal breathing.
+<i>Sleep</i>
+35
+419&#x2013;423. 10.5665/sleep.1708
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5665/sleep.1708</ArticleId><ArticleId IdType="pmc">PMC3274343</ArticleId><ArticleId IdType="pubmed">22379248</ArticleId></ArticleIdList></Reference><Reference><Citation>Patrician A., Engan H., Lundsten D., Grote L., Vigetun-Haughey H., Schagatay E. (2018). The effect of dietary nitrate on nocturnal sleep-disordered breathing and arterial oxygen desaturation at high altitude.
+<i>High Alt. Med. Biol.</i>
+19
+21&#x2013;27. 10.1089/ham.2017.0039
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1089/ham.2017.0039</ArticleId><ArticleId IdType="pubmed">29211505</ArticleId></ArticleIdList></Reference><Reference><Citation>Pattyn N., Mairesse O., Cortoos A., Marcoen N., Neyt X., Meeusen R. (2017). Sleep during an Antarctic summer expedition: New light on &#x201c;polar insomnia&#x201d;.
+<i>J. Appl. Physiol. (1985)</i>
+122
+788&#x2013;794. 10.1152/japplphysiol.00606.2016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00606.2016</ArticleId><ArticleId IdType="pubmed">28082331</ArticleId></ArticleIdList></Reference><Reference><Citation>Pattyn N., Puyvelde M. V., Fernandez-Tellez H., Roelands B., Mairesse O. (2018). From the midnight sun to the longest night: Sleep in Antarctica.
+<i>Sleep Med. Rev.</i>
+37
+159&#x2013;172. 10.1016/j.smrv.2017.03.001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.smrv.2017.03.001</ArticleId><ArticleId IdType="pubmed">28460798</ArticleId></ArticleIdList></Reference><Reference><Citation>P&#xe9;pin J., Letesson C., Le-Dong N. N., Dedave A., Denison S., Cuthbert V., et al.  (2020). Assessment of mandibular movement monitoring with machine learning analysis for the diagnosis of obstructive sleep Apnea.
+<i>JAMA Netw. Open</i>
+3:e1919657. 10.1001/jamanetworkopen.2019.19657
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamanetworkopen.2019.19657</ArticleId><ArticleId IdType="pmc">PMC6991283</ArticleId><ArticleId IdType="pubmed">31968116</ArticleId></ArticleIdList></Reference><Reference><Citation>Pugh L. (1954). Scientific aspects of the expedition to mount everest, 1953.
+<i>Geogr. J.</i>
+120
+183&#x2013;192. 10.2307/1791534</Citation><ArticleIdList><ArticleId IdType="doi">10.2307/1791534</ArticleId></ArticleIdList></Reference><Reference><Citation>Racinais S., P&#xe9;riard J. D., Piscione J., Bourdon P. C., Cocking S., Ihsan M., et al.  (2021). Intensified training supersedes the impact of heat and/or altitude for increasing performance in elite rugby union players.
+<i>Int. J. Sports Physiol. Perform.</i>
+16
+1416&#x2013;1423. 10.1123/ijspp.2020-0630
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.2020-0630</ArticleId><ArticleId IdType="pubmed">33668015</ArticleId></ArticleIdList></Reference><Reference><Citation>Reite M., Jackson D., Cahoon R. L., Weil J. V. (1975). Sleep physiology at high altitude.
+<i>Electroencephalogr. Clin. Neurophysiol.</i>
+38
+463&#x2013;471. 10.1016/0013-4694(75)90188-1</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0013-4694(75)90188-1</ArticleId><ArticleId IdType="pubmed">50171</ArticleId></ArticleIdList></Reference><Reference><Citation>Richalet J. P. (2010). Operation Everest I: COMEX &#x2018;97.
+<i>High. Alt. Med. Biol.</i>
+11
+121&#x2013;132. 10.1089/ham.2009.1099
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1089/ham.2009.1099</ArticleId><ArticleId IdType="pubmed">20586596</ArticleId></ArticleIdList></Reference><Reference><Citation>Roach R. C., Hackett P. H., Oelz O., B&#xe4;rtsch P., Luks A. M., MacInnis M. J., et al.  (2018). The 2018 lake louise acute mountain sickness score.
+<i>High Alt. Med. Biol.</i>
+19
+4&#x2013;6. 10.1089/ham.2017.0164
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1089/ham.2017.0164</ArticleId><ArticleId IdType="pmc">PMC6191821</ArticleId><ArticleId IdType="pubmed">29583031</ArticleId></ArticleIdList></Reference><Reference><Citation>Robach P., Hansen J., Pichon A., Meinild Lundby A., Dandanell S., Slettal&#xf8;kken Falch G., et al.  (2018). Hypobaric live high-train low does not improve aerobic performance more than live low-train low in cross-country skiers.
+<i>Scand. J. Med. Sci. Sports</i>
+28
+1636&#x2013;1652. 10.1111/sms.13075
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.13075</ArticleId><ArticleId IdType="pubmed">29469995</ArticleId></ArticleIdList></Reference><Reference><Citation>Rojc B., Morrison S. A., Eiken O., Mekjavic I. B., Dolenc-Gro&#x161;elj L. (2014). The separate and combined effects of hypoxia and sustained recumbency/inactivity on sleep architecture.
+<i>Eur. J. Appl. Physiol.</i>
+114
+1973&#x2013;1981. 10.1007/s00421-014-2909-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-014-2909-7</ArticleId><ArticleId IdType="pubmed">24920550</ArticleId></ArticleIdList></Reference><Reference><Citation>Salvaggio A., Insalaco G., Marrone O., Romano S., Braghiroli A., Lanfranchi P., et al.  (1998). Effects of high-altitude periodic breathing on sleep and arterial oxyhaemoglobin saturation.
+<i>Eur. Respir. J.</i>
+12
+408&#x2013;413. 10.1183/09031936.98.12020408
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1183/09031936.98.12020408</ArticleId><ArticleId IdType="pubmed">9727793</ArticleId></ArticleIdList></Reference><Reference><Citation>Sargent C., Schmidt W. F., Aughey R. J., Bourdon P. C., Soria R., Claros J. C., et al.  (2013). The impact of altitude on the sleep of young elite soccer players (ISA3600).
+<i>Br. J. Sports Med.</i>
+47(Suppl. 1)
+i86&#x2013;i92. 10.1136/bjsports-2013-092829
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2013-092829</ArticleId><ArticleId IdType="pmc">PMC3903148</ArticleId><ArticleId IdType="pubmed">24282215</ArticleId></ArticleIdList></Reference><Reference><Citation>Stadelmann K., Latshang T. D., Cascio C. M., Tesler N., Stoewhas A., Kohler M., et al.  (2013). Quantitative changes in the sleep EEG at moderate altitude (1630 m and 2590 m).
+<i>PLoS One</i>
+8:e76945. 10.1371/journal.pone.0076945
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0076945</ArticleId><ArticleId IdType="pmc">PMC3805553</ArticleId><ArticleId IdType="pubmed">24167552</ArticleId></ArticleIdList></Reference><Reference><Citation>Stavrou V. T., Astara K., Tourlakopoulos K. N., Papayianni E., Boutlas S., Vavougios G. D., et al.  (2021). Obstructive sleep apnea syndrome: The effect of acute and chronic responses of exercise.
+<i>Front. Med. (Lausanne)</i>
+8:806924. 10.3389/fmed.2021.806924
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fmed.2021.806924</ArticleId><ArticleId IdType="pmc">PMC8738168</ArticleId><ArticleId IdType="pubmed">35004785</ArticleId></ArticleIdList></Reference><Reference><Citation>Szymczak R. K., Sitek E. J., S&#x142;awek J. W., Basi&#x144;ski A., Siemi&#x144;ski M., Wieczorek D. (2009). Subjective sleep quality alterations at high altitude.
+<i>Wilderness Environ. Med.</i>
+20
+305&#x2013;310. 10.1580/1080-6032-020.004.0305
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1580/1080-6032-020.004.0305</ArticleId><ArticleId IdType="pubmed">20030436</ArticleId></ArticleIdList></Reference><Reference><Citation>Taylor S. R., Rogers G. G., Driver H. S. (1997). Effects of training volume on sleep, psychological, and selected physiological profiles of elite female swimmers.
+<i>Med. Sci. Sports Exerc.</i>
+29
+688&#x2013;693. 10.1097/00005768-199705000-00016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-199705000-00016</ArticleId><ArticleId IdType="pubmed">9140908</ArticleId></ArticleIdList></Reference><Reference><Citation>Tellez H. F., Morrison S. A., Neyt X., Mairesse O., Piacentini M. F., Macdonald-Nethercott E., et al.  (2016). Exercise during short-term and long-term continuous exposure to hypoxia exacerbates sleep-related periodic breathing.
+<i>Sleep</i>
+39
+773&#x2013;783. 10.5665/sleep.5626
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5665/sleep.5626</ArticleId><ArticleId IdType="pmc">PMC4791611</ArticleId><ArticleId IdType="pubmed">26951389</ArticleId></ArticleIdList></Reference><Reference><Citation>Tobita K., Mekjavic I. B., McDonnell A. C. (2022). Individual variation exists within the psychological response to hypoxic bed rest: A retrospective analysis.
+<i>Front. Physiol.</i>
+13:810055. 10.3389/fphys.2022.810055
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2022.810055</ArticleId><ArticleId IdType="pmc">PMC8870828</ArticleId><ArticleId IdType="pubmed">35222078</ArticleId></ArticleIdList></Reference><Reference><Citation>Turner G., Fudge B. W., Pringle J. S., Maxwell N. S., Richardson A. J. (2019). Altitude training in endurance running: Perceptions of elite athletes and support staff.
+<i>J. Sports Sci.</i>
+37
+163&#x2013;172. 10.1080/02640414.2018.1488383
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2018.1488383</ArticleId><ArticleId IdType="pubmed">29932816</ArticleId></ArticleIdList></Reference><Reference><Citation>Turner G., Spilsbury K. L., Green D. J. (2022). Predicting an athlete&#x2019;s physiological and haematological response to live high-train high altitude training using a hypoxic sensitivity test.
+<i>J. Sci. Sport Exerc.</i>
+4
+371&#x2013;385. 10.1007/s42978-022-00167-z</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s42978-022-00167-z</ArticleId></ArticleIdList></Reference><Reference><Citation>Van Cauter E., Plat L. (1996). Physiology of growth hormone secretion during sleep.
+<i>J. Pediatr.</i>
+128(Pt 2)
+S32&#x2013;S37. 10.1016/S0022-3476(96)70008-2</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0022-3476(96)70008-2</ArticleId><ArticleId IdType="pubmed">8627466</ArticleId></ArticleIdList></Reference><Reference><Citation>Van Cutsem J., Pattyn N., Mairesse O., Delwiche B., Tellez H. F., Puyvelde M. V., et al.  (2022). Adult female sleep during hypoxic bed rest.
+<i>Front. Neurosci.</i>
+16:852741. 10.3389/fnins.2022.852741
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnins.2022.852741</ArticleId><ArticleId IdType="pmc">PMC9127600</ArticleId><ArticleId IdType="pubmed">35620666</ArticleId></ArticleIdList></Reference><Reference><Citation>Vitale J. A., Ieno C., Baldassarre R., Bonifazi M., Vitali F., La Torre A., et al.  (2022). The impact of a 14-day altitude training camp on olympic-level open-water swimmers&#x2019; sleep.
+<i>Int. J. Environ. Res. Public Health</i>
+19:4253. 10.3390/ijerph19074253
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph19074253</ArticleId><ArticleId IdType="pmc">PMC8998594</ArticleId><ArticleId IdType="pubmed">35409934</ArticleId></ArticleIdList></Reference><Reference><Citation>Vlahoyiannis A., Sakkas G. K., Manconi M., Aphamis G., Giannaki C. D. (2020). A critical review on sleep assessment methodologies in athletic populations: Factors to be considered.
+<i>Sleep Med.</i>
+74
+211&#x2013;223. 10.1016/j.sleep.2020.07.029
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.sleep.2020.07.029</ArticleId><ArticleId IdType="pubmed">32861013</ArticleId></ArticleIdList></Reference><Reference><Citation>Ward M. (1993). The first ascent of mount everest.
+<i>BMJ</i>
+306
+1455&#x2013;1458. 10.1136/bmj.306.6890.1455
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.306.6890.1455</ArticleId><ArticleId IdType="pmc">PMC1677895</ArticleId><ArticleId IdType="pubmed">8518644</ArticleId></ArticleIdList></Reference><Reference><Citation>Weil J. V. (2003). Variation in human ventilatory control-genetic influence on the hypoxic ventilatory response.
+<i>Respir. Physiol. Neurobiol.</i>
+135
+239&#x2013;246. 10.1016/S1569-9048(03)00048-X
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1569-9048(03)00048-X</ArticleId><ArticleId IdType="pubmed">12809623</ArticleId></ArticleIdList></Reference><Reference><Citation>Weil J. V., Byrne-Quinn E., Sodal I. E., Kline J. S., McCullough R. E., Filley G. F., et al.  (1972). Augmentation of chemosensitivity during mild exercise in normal man.
+<i>J. Appl. Physiol.</i>
+33
+813&#x2013;819. 10.1152/jappl.1972.33.6.813
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1972.33.6.813</ArticleId><ArticleId IdType="pubmed">4643864</ArticleId></ArticleIdList></Reference><Reference><Citation>West J. B., Schoene R., Luks A., Milledge J. (2013). &#x201c;Sleep,&#x201d; in <i>High altitude medicine and physiology</i>, eds
+West J. B. S., Robert B., Luks A. M., Milledge J. S. (Padstow: CRC Press; ). 10.1201/b13633
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1201/b13633</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilber R. L. (2001). Current trends in altitude training.
+<i>Sports Med.</i>
+31
+249&#x2013;265. 10.2165/00007256-200131040-00002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200131040-00002</ArticleId><ArticleId IdType="pubmed">11310547</ArticleId></ArticleIdList></Reference><Reference><Citation>Woorons X., Mollard P., Pichon A., Lamberto C., Duvallet A., Richalet J. (2007). Moderate exercise in hypoxia induces a greater arterial desaturation in trained than untrained men.
+<i>Scand. J. Med. Sci. Sports</i>
+17
+431&#x2013;436. 10.1111/j.1600-0838.2006.00577.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2006.00577.x</ArticleId><ArticleId IdType="pubmed">16805783</ArticleId></ArticleIdList></Reference><Reference><Citation>Yamashiro S. M., Kato T., Matsumoto T. (2021). Altered chemosensitivity to CO2 during exercise.
+<i>Physiol. Rep.</i>
+9:e14882. 10.14814/phy2.14882
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.14882</ArticleId><ArticleId IdType="pmc">PMC8191175</ArticleId><ArticleId IdType="pubmed">34110716</ArticleId></ArticleIdList></Reference><Reference><Citation>Zieli&#x144;ski J., Koziej M., Ma&#x144;kowski M., Sarybaev A. S., Tursalieva J. S., Sabirov I. S., et al.  (2000). The quality of sleep and periodic breathing in healthy subjects at an altitude of 3,200 m.
+<i>High Alt. Med. Biol.</i>
+1
+331&#x2013;336. 10.1089/15270290050502408
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1089/15270290050502408</ArticleId><ArticleId IdType="pubmed">11256469</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

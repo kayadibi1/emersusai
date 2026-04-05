@@ -1,0 +1,321 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41788543</PMID><DateCompleted><Year>2026</Year><Month>03</Month><Day>06</Day></DateCompleted><DateRevised><Year>2026</Year><Month>03</Month><Day>06</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1662-4548</ISSN><JournalIssue CitedMedium="Print"><Volume>20</Volume><PubDate><Year>2026</Year></PubDate></JournalIssue><Title>Frontiers in neuroscience</Title><ISOAbbreviation>Front Neurosci</ISOAbbreviation></Journal><ArticleTitle>Evoked potentials in stroke rehabilitation: current applications, emerging technologies, and future directions.</ArticleTitle><Pagination><StartPage>1758767</StartPage><MedlinePgn>1758767</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1758767</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fnins.2026.1758767</ELocationID><Abstract><AbstractText>Evoked potentials (EPs) are increasingly explored as objective neurophysiological biomarkers to complement scale-based assessment in stroke rehabilitation. This narrative review summarizes current evidence on the use of somatosensory evoked potentials (SEPs), motor evoked potentials (MEPs), and event-related potentials (ERPs) for monitoring recovery and guiding therapy. We first outline the physiological basis and stroke-relevant features of each modality, then synthesize data on how EP measures relate to motor, sensory, balance, cognitive and language outcomes, with particular emphasis on longitudinal changes during rehabilitation and responses to specific interventions, including neuromuscular electrical stimulation, robot-assisted training and non-invasive brain stimulation. Emerging applications such as perturbation-evoked cortical responses for postural control, EP-based brain-computer interfaces and EP-guided or closed-loop neuromodulation are discussed, together with advances in high-density recordings, connectivity analysis, and machine-learning-based multimodal prediction models. Finally, we highlight key methodological and practical challenges-protocol heterogeneity, small single-center studies, limited trial evidence, feasibility constraints and gaps in clinical integration-and propose priorities for standardization and translational research. Overall, EPs hold substantial promise as pathway-specific, temporally precise biomarkers to enable more mechanism-informed and individualized stroke rehabilitation monitoring.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Wang, Liu, Xie and Lin.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Wang</LastName><ForeName>Zhe</ForeName><Initials>Z</Initials><AffiliationInfo><Affiliation>Laboratory of Neuroelectrophysiology, Yantai Yantaishan Hospital, Yantai, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Liu</LastName><ForeName>Xiaolin</ForeName><Initials>X</Initials><AffiliationInfo><Affiliation>Department of Neurology, Zibo 148 Hospital, China RongTong Medical Healthcare Group Co. Ltd., Zibo, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Xie</LastName><ForeName>Jingyang</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Laboratory of Electrophysiology, Yantai Yantaishan Hospital, Yantai, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lin</LastName><ForeName>Yujun</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Laboratory of Neuroelectrophysiology, Yantai Yantaishan Hospital, Yantai, China.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType><PublicationType UI="D016454">Review</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>02</Month><Day>18</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Neurosci</MedlineTA><NlmUniqueID>101478481</NlmUniqueID><ISSNLinking>1662-453X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">ERPs</Keyword><Keyword MajorTopicYN="N">MEPs</Keyword><Keyword MajorTopicYN="N">SEPs</Keyword><Keyword MajorTopicYN="N">evoked potentials</Keyword><Keyword MajorTopicYN="N">stroke</Keyword></KeywordList><CoiStatement>XL was employed by China RongTong Medical Healthcare Group Co. Ltd. The remaining author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>12</Month><Day>2</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2026</Year><Month>1</Month><Day>20</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>2</Month><Day>5</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>6</Day><Hour>9</Hour><Minute>9</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>6</Day><Hour>9</Hour><Minute>8</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>6</Day><Hour>4</Hour><Minute>47</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>2</Month><Day>18</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41788543</ArticleId><ArticleId IdType="pmc">PMC12956785</ArticleId><ArticleId IdType="doi">10.3389/fnins.2026.1758767</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Ackerley S., Smith M., Jordan H., Stinear C. (2024). Biomarkers of motor outcomes after stroke.
+<i>Phys. Med. Rehabil. Clin. N. Am.</i>
+35
+259&#x2013;276. 10.1016/j.pmr.2023.06.003
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pmr.2023.06.003</ArticleId><ArticleId IdType="pubmed">38514217</ArticleId></ArticleIdList></Reference><Reference><Citation>Angrilli A., Elbert T., Cusumano S., Stegagno L., Rockstroh B. (2003). Temporal dynamics of linguistic processes are reorganized in aphasics&#x2019; cortex: An EEG mapping study.
+<i>Neuroimage</i>
+20
+657&#x2013;666. 10.1016/S1053-8119(03)00395-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1053-8119(03)00395-1</ArticleId><ArticleId IdType="pubmed">14568442</ArticleId></ArticleIdList></Reference><Reference><Citation>Ara&#xe7; N., Sa&#xf0;duyu A., Binai S., Ertekin C. (1994). Prognostic value of transcranial magnetic stimulation in acute stroke.
+<i>Stroke</i>
+25
+2183&#x2013;2186. 10.1161/01.str.25.11.2183
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/01.str.25.11.2183</ArticleId><ArticleId IdType="pubmed">7974543</ArticleId></ArticleIdList></Reference><Reference><Citation>Baethge C., Goldbeck-Wood S., Mertens S. (2019). SANRA-a scale for the quality assessment of narrative review articles.
+<i>Res. Integr. Peer Rev.</i>
+4:5. 10.1186/s41073-019-0064-8
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s41073-019-0064-8</ArticleId><ArticleId IdType="pmc">PMC6434870</ArticleId><ArticleId IdType="pubmed">30962953</ArticleId></ArticleIdList></Reference><Reference><Citation>Bagce H., Saleh S., Adamovich S., Krakauer J., Tunik E. (2013). Corticospinal excitability is enhanced after visuomotor adaptation and depends on learning rather than performance or error.
+<i>J. Neurophysiol.</i>
+109
+1097&#x2013;1106. 10.1152/jn.00304.2012
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.00304.2012</ArticleId><ArticleId IdType="pmc">PMC3569119</ArticleId><ArticleId IdType="pubmed">23197454</ArticleId></ArticleIdList></Reference><Reference><Citation>Belkacem A., Jamil N., Khalid S., Alnajjar F. (2023). On closed-loop brain stimulation systems for improving the quality of life of patients with neurological disorders.
+<i>Front. Hum. Neurosci.</i>
+17:1085173. 10.3389/fnhum.2023.1085173
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnhum.2023.1085173</ArticleId><ArticleId IdType="pmc">PMC10076878</ArticleId><ArticleId IdType="pubmed">37033911</ArticleId></ArticleIdList></Reference><Reference><Citation>Bembenek J., Kurczych K., Karli Nski M., Czlonkowska A. (2012). The prognostic value of motor-evoked potentials in motor recovery and functional outcome after stroke - A systematic review of the literature.
+<i>Funct. Neurol.</i>
+27
+79&#x2013;84.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3812773</ArticleId><ArticleId IdType="pubmed">23158578</ArticleId></ArticleIdList></Reference><Reference><Citation>Bembenek J., Kurczych K., K&#x142;ysz B., Cudna A., Antczak J., Cz&#x142;onkowska A. (2020). Prediction of recovery and outcome using motor evoked potentials and brain derived neurotrophic factor in subacute stroke.
+<i>J. Stroke Cerebrovasc. Dis.</i>
+29:105202. 10.1016/j.jstrokecerebrovasdis.2020.105202
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jstrokecerebrovasdis.2020.105202</ArticleId><ArticleId IdType="pubmed">33066924</ArticleId></ArticleIdList></Reference><Reference><Citation>Burghaus L., Liu W., Dohmen C., Bosche B., Haupt W. (2008). Evoked potentials in acute ischemic stroke within the first 24 h: Possible predictor of a malignant course.
+<i>Neurocrit Care</i>
+9
+13&#x2013;16. 10.1007/s12028-007-9025-z
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12028-007-9025-z</ArticleId><ArticleId IdType="pubmed">17982737</ArticleId></ArticleIdList></Reference><Reference><Citation>Chipchase L., Schabrun S., Cohen L., Hodges P., Ridding M., Rothwell J., et al.  (2012). A checklist for assessing the methodological quality of studies using transcranial magnetic stimulation to study the motor system: An international consensus study.
+<i>Clin. Neurophysiol.</i>
+123
+1698&#x2013;1704. 10.1016/j.clinph.2012.05.003
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinph.2012.05.003</ArticleId><ArticleId IdType="pmc">PMC4884647</ArticleId><ArticleId IdType="pubmed">22647458</ArticleId></ArticleIdList></Reference><Reference><Citation>Cruccu G., Aminoff M., Curio G., Guerit J., Kakigi R., Mauguiere F., et al.  (2008). Recommendations for the clinical use of somatosensory-evoked potentials.
+<i>Clin. Neurophysiol.</i>
+119
+1705&#x2013;1719. 10.1016/j.clinph.2008.03.016
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinph.2008.03.016</ArticleId><ArticleId IdType="pubmed">18486546</ArticleId></ArticleIdList></Reference><Reference><Citation>Deletis V., Sala F. (2008). Intraoperative neurophysiological monitoring of the spinal cord during spinal cord and spine surgery: A review focus on the corticospinal tracts.
+<i>Clin. Neurophysiol.</i>
+119
+248&#x2013;264. 10.1016/j.clinph.2007.09.135
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinph.2007.09.135</ArticleId><ArticleId IdType="pubmed">18053764</ArticleId></ArticleIdList></Reference><Reference><Citation>Donkers F., van Boxtel G. (2004). The N2 in go/no-go tasks reflects conflict monitoring not response inhibition.
+<i>Brain Cogn.</i>
+56
+165&#x2013;176. 10.1016/j.bandc.2004.04.005
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bandc.2004.04.005</ArticleId><ArticleId IdType="pubmed">15518933</ArticleId></ArticleIdList></Reference><Reference><Citation>Feng X., Sun X., Liu J., Li Y., Yao Y., Fu J., et al.  (2025). Effectiveness of computer-assisted cognitive training on cognitive function and activities of daily living in patients with post-stroke cognitive impairment.
+<i>Front. Aging Neurosci.</i>
+17:1590783. 10.3389/fnagi.2025.1590783
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnagi.2025.1590783</ArticleId><ArticleId IdType="pmc">PMC12405420</ArticleId><ArticleId IdType="pubmed">40908957</ArticleId></ArticleIdList></Reference><Reference><Citation>Fuhr P., Borggrefe-Chappuis A., Schindler C., Kappos L. (2001). Visual and motor evoked potentials in the course of multiple sclerosis.
+<i>Brain</i>
+124
+2162&#x2013;2168. 10.1093/brain/124.11.2162
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/brain/124.11.2162</ArticleId><ArticleId IdType="pubmed">11673318</ArticleId></ArticleIdList></Reference><Reference><Citation>Fuseya H., Tashiro S., Takahashi O., Kobayashi Y., Tsuji T., Mizuno K. (2025). Somatosensory-evoked potentials and clinical assessments of sensory function over time in patients with subacute stroke.
+<i>Neural Plast.</i>
+2025:7939662. 10.1155/np/7939662
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/np/7939662</ArticleId><ArticleId IdType="pmc">PMC11735060</ArticleId><ArticleId IdType="pubmed">39822763</ArticleId></ArticleIdList></Reference><Reference><Citation>GBD 2019 Stroke Collaborators (2021). Global, regional, and national burden of stroke and its risk factors, 1990-2019: A systematic analysis for the Global burden of disease study 2019.
+<i>Lancet Neurol.</i>
+20
+795&#x2013;820. 10.1016/S1474-4422(21)00252-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1474-4422(21)00252-0</ArticleId><ArticleId IdType="pmc">PMC8443449</ArticleId><ArticleId IdType="pubmed">34487721</ArticleId></ArticleIdList></Reference><Reference><Citation>Gindrat A., Quairiaux C., Britz J., Brunet D., Lanz F., Michel C., et al.  (2015). Whole-scalp EEG mapping of somatosensory evoked potentials in macaque monkeys.
+<i>Brain Struct. Funct.</i>
+220
+2121&#x2013;2142. 10.1007/s00429-014-0776-y
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00429-014-0776-y</ArticleId><ArticleId IdType="pmc">PMC4495608</ArticleId><ArticleId IdType="pubmed">24791748</ArticleId></ArticleIdList></Reference><Reference><Citation>Gladstone D., Danells C., Black S. (2002). The fugl-meyer assessment of motor recovery after stroke: A critical review of its measurement properties.
+<i>Neurorehabil. Neural Repair.</i>
+16
+232&#x2013;240. 10.1177/154596802401105171
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/154596802401105171</ArticleId><ArticleId IdType="pubmed">12234086</ArticleId></ArticleIdList></Reference><Reference><Citation>Hardmeier M., Schlaeger R., Lascano A., Toffolet L., Schindler C., Gobbi C., et al.  (2022). Prognostic biomarkers in primary progressive multiple sclerosis: Validating and scrutinizing multimodal evoked potentials.
+<i>Clin. Neurophysiol.</i>
+137
+152&#x2013;158. 10.1016/j.clinph.2022.02.019
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinph.2022.02.019</ArticleId><ArticleId IdType="pubmed">35316624</ArticleId></ArticleIdList></Reference><Reference><Citation>Hendricks H., Zwarts M., Plat E., van Limbeek J. (2002). Systematic review for the early prediction of motor and functional outcome after stroke by using motor-evoked potentials.
+<i>Arch. Phys. Med. Rehabil.</i>
+83
+1303&#x2013;1308. 10.1053/apmr.2002.34284
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1053/apmr.2002.34284</ArticleId><ArticleId IdType="pubmed">12235613</ArticleId></ArticleIdList></Reference><Reference><Citation>Herman T., Giladi N., Hausdorff J. (2011). Properties of the &#x2018;timed up and go&#x2019; test: More than meets the eye.
+<i>Gerontology</i>
+57
+203&#x2013;210. 10.1159/000314963
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000314963</ArticleId><ArticleId IdType="pmc">PMC3094679</ArticleId><ArticleId IdType="pubmed">20484884</ArticleId></ArticleIdList></Reference><Reference><Citation>Hwang P., Sohn M., Kim C., Jee S. (2016). Tibial somatosensory evoked potential can prognosticate for ambulatory function in subacute hemiplegic stroke.
+<i>J. Clin. Neurosci.</i>
+26
+122&#x2013;125. 10.1016/j.jocn.2015.05.070
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jocn.2015.05.070</ArticleId><ArticleId IdType="pubmed">26778357</ArticleId></ArticleIdList></Reference><Reference><Citation>Kashani A., Asanad S., Chan J., Singer M., Zhang J., Sharifi M., et al.  (2021). Past, present and future role of retinal imaging in neurodegenerative disease.
+<i>Prog. Retin Eye Res.</i>
+83:100938. 10.1016/j.preteyeres.2020.100938
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.preteyeres.2020.100938</ArticleId><ArticleId IdType="pmc">PMC8280255</ArticleId><ArticleId IdType="pubmed">33460813</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim M., Lee H., Lee J. (2020). Does isolated somatosensory impairment affect the balance and ambulation of patients with supratentorial stroke after the acute phase?
+<i>J. Clin. Neurosci.</i>
+74
+109&#x2013;114. 10.1016/j.jocn.2020.01.084
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jocn.2020.01.084</ArticleId><ArticleId IdType="pubmed">32051098</ArticleId></ArticleIdList></Reference><Reference><Citation>Koutsojannis C., Chrysanthakopoulou D. (2025). Predictive performance of machine learning with evoked potentials for SCI and MS prognosis: A meta-analysis.
+<i>Clin. Transl. Neurosci.</i>
+9:26. 10.3390/ctn9020026</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ctn9020026</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee S., Kim B., Han E. (2015). Association between evoked potentials and balance recovery in subacute hemiparetic stroke patients.
+<i>Ann. Rehabil. Med.</i>
+39
+451&#x2013;461. 10.5535/arm.2015.39.3.451
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5535/arm.2015.39.3.451</ArticleId><ArticleId IdType="pmc">PMC4496517</ArticleId><ArticleId IdType="pubmed">26161352</ArticleId></ArticleIdList></Reference><Reference><Citation>Li H., Li N., Xing Y., Zhang S., Liu C., Cai W., et al.  (2021). P300 as a potential indicator in the evaluation of neurocognitive disorders after traumatic brain injury.
+<i>Front. Neurol.</i>
+12:690792. 10.3389/fneur.2021.690792
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fneur.2021.690792</ArticleId><ArticleId IdType="pmc">PMC8458648</ArticleId><ArticleId IdType="pubmed">34566838</ArticleId></ArticleIdList></Reference><Reference><Citation>Li J., Zhong D., Ye J., He M., Liu X., Zheng H., et al.  (2019). Rehabilitation for balance impairment in patients after stroke: A protocol of a systematic review and network meta-analysis.
+<i>BMJ Open</i>
+9:e026844. 10.1136/bmjopen-2018-026844
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmjopen-2018-026844</ArticleId><ArticleId IdType="pmc">PMC6661695</ArticleId><ArticleId IdType="pubmed">31326927</ArticleId></ArticleIdList></Reference><Reference><Citation>Lieberman J. (2008). &#x201c;Chapter 44 - electromyography and evoked potentials,&#x201d; in
+<i>Essentials of Neuroanesthesia and Neurointensive Care</i>, eds
+Gupta A., Gelb A. (Philadelphia: W.B. Saunders; ), 283&#x2013;289.</Citation></Reference><Reference><Citation>Liu T., Xiao T., Shi J. (2017). Neural correlates of response inhibition and conflict control on facial expressions.
+<i>Front. Hum. Neurosci.</i>
+11:657. 10.3389/fnhum.2017.00657
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnhum.2017.00657</ArticleId><ArticleId IdType="pmc">PMC5767249</ArticleId><ArticleId IdType="pubmed">29375351</ArticleId></ArticleIdList></Reference><Reference><Citation>Lo M., Widge A. (2017). Closed-loop neuromodulation systems: Next-generation treatments for psychiatric illness.
+<i>Int. Rev. Psychiatry</i>
+29
+191&#x2013;204. 10.1080/09540261.2017.1282438
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/09540261.2017.1282438</ArticleId><ArticleId IdType="pmc">PMC5461950</ArticleId><ArticleId IdType="pubmed">28523978</ArticleId></ArticleIdList></Reference><Reference><Citation>Luk K., Ouyang H., Pang M. (2022). Low-frequency rTMS over contralesional M1 increases ipsilesional cortical excitability and motor function with decreased interhemispheric asymmetry in subacute stroke: A randomized controlled study.
+<i>Neural Plast.</i>
+2022:3815357. 10.1155/2022/3815357
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2022/3815357</ArticleId><ArticleId IdType="pmc">PMC8756161</ArticleId><ArticleId IdType="pubmed">35035473</ArticleId></ArticleIdList></Reference><Reference><Citation>Mancuso M., Iosa M., Abbruzzese L., Matano A., Coccia M., Baudo S., et al.  (2023). The impact of cognitive function deficits and their recovery on functional outcome in subjects affected by ischemic subacute stroke: Results from the Italian multicenter longitudinal study CogniReMo.
+<i>Eur. J. Phys. Rehabil. Med.</i>
+59
+284&#x2013;293. 10.23736/S1973-9087.23.07716-X
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.23736/S1973-9087.23.07716-X</ArticleId><ArticleId IdType="pmc">PMC10266259</ArticleId><ArticleId IdType="pubmed">37184413</ArticleId></ArticleIdList></Reference><Reference><Citation>McGill K., Sackley C., Godwin J., Gavaghan D., Ali M., Ballester B., et al.  (2022). Using the barthel index and modified rankin scale as outcome measures for stroke rehabilitation trials; A comparison of minimum sample size requirements.
+<i>J. Stroke Cerebrovasc. Dis.</i>
+31:106229. 10.1016/j.jstrokecerebrovasdis.2021.106229
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jstrokecerebrovasdis.2021.106229</ArticleId><ArticleId IdType="pubmed">34871903</ArticleId></ArticleIdList></Reference><Reference><Citation>McWeeny S., Norton E. (2020). Understanding event-related potentials (ERPs) in clinical and basic language and communication disorders research: A tutorial.
+<i>Int. J. Lang. Commun. Disord.</i>
+55
+445&#x2013;457. 10.1111/1460-6984.12535
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/1460-6984.12535</ArticleId><ArticleId IdType="pmc">PMC7802513</ArticleId><ArticleId IdType="pubmed">32347637</ArticleId></ArticleIdList></Reference><Reference><Citation>Meseguer-Henarejos A., Rubio-Aparicio M., L&#xf3;pez-Pina J., Carles-Hern&#xe1;ndez R., G&#xf3;mez-Conesa A. (2019). Characteristics that affect score reliability in the berg balance scale: A meta-analytic reliability generalization study.
+<i>Eur. J. Phys. Rehabil. Med.</i>
+55
+570&#x2013;584. 10.23736/S1973-9087.19.05363-2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.23736/S1973-9087.19.05363-2</ArticleId><ArticleId IdType="pubmed">30955319</ArticleId></ArticleIdList></Reference><Reference><Citation>Mijic M., Jung A., Schoser B., Young P. (2022). Use of peripheral electrical stimulation on healthy individual and patients after stroke and its effects on the somatosensory evoked potentials. A systematic review.
+<i>Front. Neurol</i>.
+13:1036891. 10.3389/fneur.2022.1036891
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fneur.2022.1036891</ArticleId><ArticleId IdType="pmc">PMC9716063</ArticleId><ArticleId IdType="pubmed">36468059</ArticleId></ArticleIdList></Reference><Reference><Citation>Montane E., Brihmat N., Cormier C., Thalamas C., Rousseau V., Tap G., et al.  (2025). Effect of early treatment of spasticity after stroke on motor recovery: Protocol for the baclotox multicenter, double-blind, double-dummy randomized controlled trial.
+<i>JMIR Res. Protoc.</i>
+14:e62951. 10.2196/62951
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2196/62951</ArticleId><ArticleId IdType="pmc">PMC12102626</ArticleId><ArticleId IdType="pubmed">40344664</ArticleId></ArticleIdList></Reference><Reference><Citation>Murray C., Vos T., Lozano R., Naghavi M., Flaxman A., Michaud C., et al.  (2012). Disability-adjusted life years (DALYs) for 291 diseases and injuries in 21 regions, 1990-2010: A systematic analysis for the Global burden of disease study 2010.
+<i>Lancet</i>
+380
+2197&#x2013;2223. 10.1016/S0140-6736(12)61689-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0140-6736(12)61689-4</ArticleId><ArticleId IdType="pubmed">23245608</ArticleId></ArticleIdList></Reference><Reference><Citation>Oertel F., Kr&#xe4;mer J., Motamedi S., Keihani A., Zimmermann H., Dimitriou N., et al.  (2023). Visually evoked potential as prognostic biomarker for neuroaxonal damage in multiple sclerosis from a multicenter longitudinal cohort.
+<i>Neurol. Neuroimmunol. Neuroinflamm</i>
+10:e200092. 10.1212/NXI.0000000000200092
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1212/NXI.0000000000200092</ArticleId><ArticleId IdType="pmc">PMC10026703</ArticleId><ArticleId IdType="pubmed">36878713</ArticleId></ArticleIdList></Reference><Reference><Citation>Otero-Luis I., Martinez-Rodrigo A., Cavero-Redondo I., Moreno-Herr&#xe1;iz N., Mart&#xed;nez-Garc&#xed;a I., Saz-Lara A. (2024). Effect of botulinum toxin injections in the treatment of spasticity of different etiologies: An umbrella review.
+<i>Pharmaceuticals</i>
+17:310. 10.3390/ph17030310
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ph17030310</ArticleId><ArticleId IdType="pmc">PMC10976034</ArticleId><ArticleId IdType="pubmed">38543096</ArticleId></ArticleIdList></Reference><Reference><Citation>Passmore S., Murphy B., Lee T. (2014). The origin, and application of somatosensory evoked potentials as a neurophysiological technique to investigate neuroplasticity.
+<i>J. Can. Chiropr. Assoc.</i>
+58
+170&#x2013;183.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4025087</ArticleId><ArticleId IdType="pubmed">24932021</ArticleId></ArticleIdList></Reference><Reference><Citation>Picton T., Bentin S., Berg P., Donchin E., Hillyard S., Johnson R., et al.  (2000). Guidelines for using human event-related potentials to study cognition: Recording standards and publication criteria.
+<i>Psychophysiology</i>
+37
+127&#x2013;152.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">10731765</ArticleId></ArticleIdList></Reference><Reference><Citation>Polich J. (2007). Updating P300: An integrative theory of P3a and P3b.
+<i>Clin. Neurophysiol.</i>
+118
+2128&#x2013;2148. 10.1016/j.clinph.2007.04.019
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinph.2007.04.019</ArticleId><ArticleId IdType="pmc">PMC2715154</ArticleId><ArticleId IdType="pubmed">17573239</ArticleId></ArticleIdList></Reference><Reference><Citation>Polich J., Criado J. (2006). Neuropsychology and neuropharmacology of P3a and P3b.
+<i>Int. J. Psychophysiol.</i>
+60
+172&#x2013;185. 10.1016/j.ijpsycho.2005.12.012
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijpsycho.2005.12.012</ArticleId><ArticleId IdType="pubmed">16510201</ArticleId></ArticleIdList></Reference><Reference><Citation>Poskotinova L., Khasanova N., Kharak A., Krivonogova O., Krivonogova E. (2023). Parameters of auditory evoked related potentials P300 in disorders of different cognitive function domains (visuospatial/executive and memory) in elderly hypertensive persons.
+<i>Diagnostics</i>
+13:1598. 10.3390/diagnostics13091598
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/diagnostics13091598</ArticleId><ArticleId IdType="pmc">PMC10178622</ArticleId><ArticleId IdType="pubmed">37174989</ArticleId></ArticleIdList></Reference><Reference><Citation>Rajendran S., Pan W., Sabuncu M., Chen Y., Zhou J., Wang F. (2024). Learning across diverse biomedical data modalities and cohorts: Challenges and opportunities for innovation.
+<i>Patterns</i>
+5:100913. 10.1016/j.patter.2023.100913
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.patter.2023.100913</ArticleId><ArticleId IdType="pmc">PMC10873158</ArticleId><ArticleId IdType="pubmed">38370129</ArticleId></ArticleIdList></Reference><Reference><Citation>Rossi S., Antal A., Bestmann S., Bikson M., Brewer C., Brockm&#xf6;ller J., et al.  (2021). Safety and recommendations for TMS use in healthy subjects and patient populations, with updates on training, ethical and regulatory issues: Expert Guidelines.
+<i>Clin. Neurophysiol.</i>
+132
+269&#x2013;306. 10.1016/j.clinph.2020.10.003
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinph.2020.10.003</ArticleId><ArticleId IdType="pmc">PMC9094636</ArticleId><ArticleId IdType="pubmed">33243615</ArticleId></ArticleIdList></Reference><Reference><Citation>Russell-Meill M., Marte M., Carpenter E., Kiran S. (2025). Navigating the complexity of bilingual aphasia: Current insights and future directions.
+<i>Brain Sci.</i>
+15
+989. 10.3390/brainsci15090989
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/brainsci15090989</ArticleId><ArticleId IdType="pmc">PMC12467905</ArticleId><ArticleId IdType="pubmed">41008350</ArticleId></ArticleIdList></Reference><Reference><Citation>Sawaki L., Butler A., Leng X., Wassenaar P., Mohammad Y., Blanton S., et al.  (2014). Differential patterns of cortical reorganization following constraint-induced movement therapy during early and late period after stroke: A preliminary study.
+<i>NeuroRehabilitation</i>
+35
+415&#x2013;426. 10.3233/NRE-141132
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3233/NRE-141132</ArticleId><ArticleId IdType="pmc">PMC4484865</ArticleId><ArticleId IdType="pubmed">25227542</ArticleId></ArticleIdList></Reference><Reference><Citation>Seyednozadi Z., Pishghadam R., Pishghadam M. (2021). Functional role of the N400 and P600 in language-related ERP studies with respect to semantic anomalies: An overview.
+<i>Noro Psikiyatr. Ars</i>.
+58
+249&#x2013;252. 10.29399/npa.27422
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.29399/npa.27422</ArticleId><ArticleId IdType="pmc">PMC8419728</ArticleId><ArticleId IdType="pubmed">34526850</ArticleId></ArticleIdList></Reference><Reference><Citation>Shanks M., Byblow W. (2025). Corticomotor pathway function and recovery after stroke: A look back and a way forward.
+<i>J. Physiol.</i>
+603
+651&#x2013;662. 10.1113/JP285562
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP285562</ArticleId><ArticleId IdType="pmc">PMC11782909</ArticleId><ArticleId IdType="pubmed">38814805</ArticleId></ArticleIdList></Reference><Reference><Citation>Spampinato D., Ibanez J., Rocchi L., Rothwell J. (2023). Motor potentials evoked by transcranial magnetic stimulation: Interpreting a simple measure of a complex system.
+<i>J. Physiol.</i>
+601
+2827&#x2013;2851. 10.1113/JP281885
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP281885</ArticleId><ArticleId IdType="pmc">PMC10952180</ArticleId><ArticleId IdType="pubmed">37254441</ArticleId></ArticleIdList></Reference><Reference><Citation>Stinear C. (2017). Prediction of motor recovery after stroke: Advances in biomarkers.
+<i>Lancet Neurol.</i>
+16
+826&#x2013;836. 10.1016/S1474-4422(17)30283-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1474-4422(17)30283-1</ArticleId><ArticleId IdType="pubmed">28920888</ArticleId></ArticleIdList></Reference><Reference><Citation>Stinear C., Byblow W., Ackerley S., Smith M., Borges V., Barber P. (2017). PREP2: A biomarker-based algorithm for predicting upper limb function after stroke.
+<i>Ann. Clin. Transl. Neurol.</i>
+4
+811&#x2013;820. 10.1002/acn3.488
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/acn3.488</ArticleId><ArticleId IdType="pmc">PMC5682112</ArticleId><ArticleId IdType="pubmed">29159193</ArticleId></ArticleIdList></Reference><Reference><Citation>Stoyell S., Wilmskoetter J., Dobrota M., Chinappen D., Bonilha L., Mintz M., et al.  (2021). High-density EEG in current clinical practice and opportunities for the future.
+<i>J. Clin. Neurophysiol.</i>
+38
+112&#x2013;123. 10.1097/WNP.0000000000000807
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/WNP.0000000000000807</ArticleId><ArticleId IdType="pmc">PMC8083969</ArticleId><ArticleId IdType="pubmed">33661787</ArticleId></ArticleIdList></Reference><Reference><Citation>Sur S., Sinha V. (2009). Event-related potential: An overview.
+<i>Ind. Psychiatry J.</i>
+18
+70&#x2013;73. 10.4103/0972-6748.57865
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4103/0972-6748.57865</ArticleId><ArticleId IdType="pmc">PMC3016705</ArticleId><ArticleId IdType="pubmed">21234168</ArticleId></ArticleIdList></Reference><Reference><Citation>Sutton S., Braren M., Zubin J., John E. (1965). Evoked-potential correlates of stimulus uncertainty.
+<i>Science</i>
+150
+1187&#x2013;1188. 10.1126/science.150.3700.1187
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/science.150.3700.1187</ArticleId><ArticleId IdType="pubmed">5852977</ArticleId></ArticleIdList></Reference><Reference><Citation>Tatemoto T., Tsuchiya J., Numata A., Osawa R., Yamaguchi T., Tanabe S., et al.  (2017). Real-time changes in corticospinal excitability related to motor imagery of a force control task.
+<i>Behav. Brain Res.</i>
+335
+185&#x2013;190. 10.1016/j.bbr.2017.08.020
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bbr.2017.08.020</ArticleId><ArticleId IdType="pubmed">28827129</ArticleId></ArticleIdList></Reference><Reference><Citation>Toleikis J., Pace C., Jahangiri F., Hemmer L., Toleikis S. (2024). Intraoperative somatosensory evoked potential (SEP) monitoring: An updated position statement by the American society of neurophysiological monitoring.
+<i>J. Clin. Monit. Comput.</i>
+38
+1003&#x2013;1042. 10.1007/s10877-024-01201-x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10877-024-01201-x</ArticleId><ArticleId IdType="pmc">PMC11427520</ArticleId><ArticleId IdType="pubmed">39068294</ArticleId></ArticleIdList></Reference><Reference><Citation>van de Leur R., Boonstra M., Bagheri A., Roudijk R., Sammani A., Taha K., et al.  (2020). Big data and artificial intelligence: Opportunities and threats in electrophysiology.
+<i>Arrhythm. Electrophysiol. Rev.</i>
+9
+146&#x2013;154. 10.15420/aer.2020.26
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.15420/aer.2020.26</ArticleId><ArticleId IdType="pmc">PMC7675143</ArticleId><ArticleId IdType="pubmed">33240510</ArticleId></ArticleIdList></Reference><Reference><Citation>van der Gun G., Meskers C., Andrinopoulou E., Grauwmeijer E., Hoogendam L., van Wegen E., et al.  (2025). Can machine learning improve on the early prediction of upper limb recovery after stroke?
+<i>J. Neuroeng. Rehabil.</i>
+22:223. 10.1186/s12984-025-01743-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12984-025-01743-4</ArticleId><ArticleId IdType="pmc">PMC12557897</ArticleId><ArticleId IdType="pubmed">41146217</ArticleId></ArticleIdList></Reference><Reference><Citation>Vorderw&#xfc;lbecke B., Baroumand A., Spinelli L., Seeck M., van Mierlo P., Vulli&#xe9;moz S. (2021). Automated interictal source localisation based on high-density EEG.
+<i>Seizure</i>
+92
+244&#x2013;251. 10.1016/j.seizure.2021.09.020
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.seizure.2021.09.020</ArticleId><ArticleId IdType="pubmed">34626920</ArticleId></ArticleIdList></Reference><Reference><Citation>Woodman G. F. (2010). A brief introduction to the use of event-related potentials in studies of perception and attention.
+<i>Atten. Percept. Psychophys.</i>
+72
+2031&#x2013;2046. 10.3758/APP.72.8.2031
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3758/APP.72.8.2031</ArticleId><ArticleId IdType="pmc">PMC3816929</ArticleId><ArticleId IdType="pubmed">21097848</ArticleId></ArticleIdList></Reference><Reference><Citation>Wu Y., Zhou D., Fornah L., Liu J., Zhao J., Wu S. (2025). Machine learning-based model for prediction of early post-stroke fatigue in patients with stroke: A longitudinal study.
+<i>Neurorehabil. Neural Repair.</i>
+39
+433&#x2013;444. 10.1177/15459683251329893
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/15459683251329893</ArticleId><ArticleId IdType="pubmed">40126510</ArticleId></ArticleIdList></Reference><Reference><Citation>Yen C., Chen H., Lee C., Lin C. (2023). Predictive value of motor-evoked potentials for motor recovery in patients with hemiparesis secondary to acute ischemic stroke.
+<i>Ann. Med.</i>
+55:2225144. 10.1080/07853890.2023.2225144
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/07853890.2023.2225144</ArticleId><ArticleId IdType="pmc">PMC10288919</ArticleId><ArticleId IdType="pubmed">37345693</ArticleId></ArticleIdList></Reference><Reference><Citation>Yoon H., Park C., Park I., Kim K., Cha Y. (2021). A precision neurorehabilitation using SSEP for early detection of sensory deficit and restoration of the motor recovery in balance, gait and activities of daily living in acute stroke.
+<i>Technol. Health Care</i>
+29
+377&#x2013;383. 10.3233/THC-218036
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3233/THC-218036</ArticleId><ArticleId IdType="pmc">PMC8150643</ArticleId><ArticleId IdType="pubmed">33682775</ArticleId></ArticleIdList></Reference><Reference><Citation>Zurawski E., Behm K., Dunlap C., Koo J., Ismail F., Boulias C., et al.  (2019). Interrater reliability of the modified ashworth scale with standardized movement speeds: A pilot study.
+<i>Physiother. Can.</i>
+71
+348&#x2013;354. 10.3138/ptc-2018-0086
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3138/ptc-2018-0086</ArticleId><ArticleId IdType="pmc">PMC6855344</ArticleId><ArticleId IdType="pubmed">31762545</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

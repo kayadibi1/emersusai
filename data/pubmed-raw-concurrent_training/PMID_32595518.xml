@@ -1,0 +1,130 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">32595518</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>28</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>11</Volume><PubDate><Year>2020</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>The Effects of Concurrent Training Combining Both Resistance Exercise and High-Intensity Interval Training or Moderate-Intensity Continuous Training on Metabolic Syndrome.</ArticleTitle><Pagination><StartPage>572</StartPage><MedlinePgn>572</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">572</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2020.00572</ELocationID><Abstract><AbstractText>To date, there are several knowledge gaps on how to properly prescribe concurrent training to achieve the best dose-response, especially regarding the optimal intensity or volume of the aerobic component. Thus, the objective of this study is to analyze the effects of different aerobic exercise modes and intensities [i.e. aerobic high-intensity interval training (HIIT) versus moderate-intensity continuous aerobic training (MICT) combined with a resistance training (RT) program] on metabolic outcomes in participants with metabolic syndrome (MetS). Thirty-nine men and women (67.0 &#xb1; 6.7 years) volunteered to a 12-weeks exercise intervention (3 week<sup>-1</sup>, 50 min/session) and were randomly assigned to one of three groups: (a) RT plus MICT (RT+MICT) (2 males; 11 females); (b) RT plus HIIT (RT+HIIT) (4 males; 9 females); and (c) control group (CON) - without formal exercise (4 males; 9 females). Intensity was established between 60 and 70% of maximum heart rate (HRmax) in RT+MICT and ranged from 55-65% to 80-90% HRmax in the RT+HIIT group. Dependent outcomes included morphological, metabolic and hemodynamic variables. Both training groups improved waist circumference (RT+MICT: <i>P</i> = 0.019; RT+HIIT: <i>P</i> = 0.003), but not body weight, fat mass or fat-free mass (<i>P</i> &#x2265; 0.114). RT+HIIT group improved fasting glucose (<i>P</i> = 0.014), low density lipoprotein [LDL (<i>P</i> = 0.022)], insulin (<i>P</i> = 0.034) and homeostatic model assessment (<i>P</i> = 0.028). RT+MICT group reduced triglycerides (<i>P</i> = 0.053). Both exercise interventions did not change high sensitivity C-reactive protein, glycated hemoglobin, high density lipoprotein and total cholesterol, systolic, diastolic or mean arterial blood pressure (<i>P</i> &#x2265; 0.05). The CON group reduced the LDL (<i>P</i> = 0.031). This trial suggests that short-term exercise mode and intensity may differently impact the metabolic profile of individuals with MetS. Further, our data suggests that both concurrent trainings promote important cardiometabolic gains, particularly in the RT+HIIT. Nonetheless, due to the small-to-moderate effect size and the short-term intervention length, our data suggests that the intervention length also has an important modulating role in these benefits in older adults with MetS. Therefore, more research is needed to confirm our results using longer exercise interventions and larger groups.</AbstractText><CopyrightInformation>Copyright &#xa9; 2020 Da Silva, Baptista, Neves, De Fran&#xe7;a, Loureiro, Lira, Caperuto, Ver&#xed;ssimo and Martins.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Da Silva</LastName><ForeName>Marco Ant&#xf4;nio R</ForeName><Initials>MAR</Initials><AffiliationInfo><Affiliation>Faculty of Sport Sciences and Physical Education, University of Coimbra, Coimbra, Portugal.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Physical Education, Universidade da Amaz&#xf4;nia, Bel&#xe9;m, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Baptista</LastName><ForeName>Liliana C</ForeName><Initials>LC</Initials><AffiliationInfo><Affiliation>Department of Medicine, The University of Alabama at Birmingham, Birmingham, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Neves</LastName><ForeName>Rafael S</ForeName><Initials>RS</Initials><AffiliationInfo><Affiliation>Faculty of Sport Sciences and Physical Education, University of Coimbra, Coimbra, Portugal.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>De Fran&#xe7;a</LastName><ForeName>Elias</ForeName><Initials>E</Initials><AffiliationInfo><Affiliation>Human Movement Laboratory, S&#xe3;o Judas Tadeu University, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Loureiro</LastName><ForeName>Helena</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Faculty of Sport Sciences and Physical Education, University of Coimbra, Coimbra, Portugal.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>School of Health Technologies, Polytechnic Institute of Coimbra, Coimbra, Portugal.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lira</LastName><ForeName>Fabio Santos</ForeName><Initials>FS</Initials><AffiliationInfo><Affiliation>Exercise and Immunometabolism Research Group, Department of Physical Education, Universidade Estadual Paulista (UNESP), Presidente Prudente, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Caperuto</LastName><ForeName>Erico C</ForeName><Initials>EC</Initials><AffiliationInfo><Affiliation>Human Movement Laboratory, S&#xe3;o Judas Tadeu University, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ver&#xed;ssimo</LastName><ForeName>Manuel T</ForeName><Initials>MT</Initials><AffiliationInfo><Affiliation>Faculty of Sport Sciences and Physical Education, University of Coimbra, Coimbra, Portugal.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Martins</LastName><ForeName>Raul A</ForeName><Initials>RA</Initials><AffiliationInfo><Affiliation>Faculty of Sport Sciences and Physical Education, University of Coimbra, Coimbra, Portugal.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2020</Year><Month>06</Month><Day>11</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">age groups</Keyword><Keyword MajorTopicYN="N">endurance training</Keyword><Keyword MajorTopicYN="N">high-intensity interval training</Keyword><Keyword MajorTopicYN="N">metabolic syndrome</Keyword><Keyword MajorTopicYN="N">resistance training</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2020</Year><Month>1</Month><Day>16</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2020</Year><Month>5</Month><Day>7</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2020</Year><Month>6</Month><Day>30</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2020</Year><Month>7</Month><Day>1</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2020</Year><Month>7</Month><Day>1</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2020</Year><Month>6</Month><Day>11</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">32595518</ArticleId><ArticleId IdType="pmc">PMC7300209</ArticleId><ArticleId IdType="doi">10.3389/fphys.2020.00572</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Agner V. F. C., Garcia M. C., Taffarel A. A., Mour&#xe3;o C. B., Da Silva I. P., Da Silva S. P., et al.  (2018). Effects of concurrent training on muscle strength in older adults with metabolic syndrome: a randomized controlled clinical trial.
+<i>Arch. Gerontol. Geriatr.</i>
+75
+158&#x2013;164. 10.1016/j.archger.2017.12.011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.archger.2017.12.011</ArticleId><ArticleId IdType="pubmed">29306767</ArticleId></ArticleIdList></Reference><Reference><Citation>Alberti G., Shaw J., Grundy S. (2006). <i>The IDF Consensus Worldwide Definition of the Metabolic Syndrome.</i>
+Brussels: International Diabetes Federation.</Citation></Reference><Reference><Citation>Balducci S., Zanuso S., Nicolucci A., Fernando F., Cavallo S., Cardelli P., et al.  (2010). Anti-inflammatory effect of exercise training in subjects with type 2 diabetes and the metabolic syndrome is dependent on exercise modalities and independent of weight loss.
+<i>Nutr. Metab. Cardiovasc. Dis.</i>
+20
+608&#x2013;617. 10.1016/j.numecd.2009.04.015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.numecd.2009.04.015</ArticleId><ArticleId IdType="pubmed">19695853</ArticleId></ArticleIdList></Reference><Reference><Citation>Banitalebi E., Faramarzi M., Bagheri L., Kazemi Abdol R. (2018). Comparison of performing 12 weeks&#x2019; resistance training before, after and/or in between aerobic exercise on the hormonal status of aged women: a randomized controlled trial.
+<i>Horm. Mol. Biol. Clin. Invest.</i>
+35:20180020. 10.1515/hmbci-2018-0020
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1515/hmbci-2018-0020</ArticleId><ArticleId IdType="pubmed">30205658</ArticleId></ArticleIdList></Reference><Reference><Citation>Bird S. R., Hawley J. A. (2017). Update on the effects of physical activity on insulin sensitivity in humans.
+<i>BMJ Open Sport Exerc. Med.</i>
+2:e000143. 10.1136/bmjsem-2016-000143
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmjsem-2016-000143</ArticleId><ArticleId IdType="pmc">PMC5569266</ArticleId><ArticleId IdType="pubmed">28879026</ArticleId></ArticleIdList></Reference><Reference><Citation>Bishop D. J., Botella J., Granata C. (2019). CrossTalk opposing view: exercise training volume is more important than training intensity to promote increases in mitochondrial content.
+<i>J. physiol.</i>
+597
+4115&#x2013;4118. 10.1113/JP277634
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP277634</ArticleId><ArticleId IdType="pubmed">31309570</ArticleId></ArticleIdList></Reference><Reference><Citation>Borg G. A. (1982). Psychophysical bases of perceived exertion.
+<i>Med. Sci. Sports Exerc.</i>
+14
+377&#x2013;381.</Citation><ArticleIdList><ArticleId IdType="pubmed">7154893</ArticleId></ArticleIdList></Reference><Reference><Citation>Cadore E. L., Menger E., Teodoro J. L., Da Silva L. X. N., Boeno F. P., Umpierre D., et al.  (2018). Functional and physiological adaptations following concurrent training using sets with and without concentric failure in elderly men: a randomized clinical trial.
+<i>Exp. Gerontol.</i>
+110
+182&#x2013;190. 10.1016/j.exger.2018.06.011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.exger.2018.06.011</ArticleId><ArticleId IdType="pubmed">29908345</ArticleId></ArticleIdList></Reference><Reference><Citation>Canoy D. (2008). Distribution of body fat and risk of coronary heart disease in men and women.
+<i>Curr. Opin. Cardiol.</i>
+23
+591&#x2013;598. 10.1097/HCO.0b013e328313133a
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/HCO.0b013e328313133a</ArticleId><ArticleId IdType="pubmed">18830075</ArticleId></ArticleIdList></Reference><Reference><Citation>Choi S.-J., Chang J. S., Kong I. D. (2015). Effects of a social welfare program for health promotion on cardiovascular risk factors.
+<i>J. Lifestyle Med.</i>
+5:76. 10.15280/jlm.2015.5.2.76
+</Citation><ArticleIdList><ArticleId IdType="doi">10.15280/jlm.2015.5.2.76</ArticleId><ArticleId IdType="pmc">PMC4711962</ArticleId><ArticleId IdType="pubmed">26770894</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen J. (1988). <i>Statistical Power Analysis for the Behavioral Sciences.</i>
+Cambridge, MA: Acadamic Press.</Citation></Reference><Reference><Citation>Currie K. D., Bailey K. J., Jung M. E., Mckelvie R. S., Macdonald M. J. (2015). Effects of resistance training combined with moderate-intensity endurance or low-volume high-intensity interval exercise on cardiovascular risk factors in patients with coronary artery disease.
+<i>J. Sci. Med. Sport</i>
+18
+637&#x2013;642. 10.1016/j.jsams.2014.09.013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2014.09.013</ArticleId><ArticleId IdType="pubmed">25308628</ArticleId></ArticleIdList></Reference><Reference><Citation>De Koning L., Merchant A. T., Pogue J., Anand S. S. (2007). Waist circumference and waist-to-hip ratio as predictors of cardiovascular events: meta-regression analysis of prospective studies.
+<i>Eur. Heart J.</i>
+28
+850&#x2013;856. 10.1093/eurheartj/ehm026
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/eurheartj/ehm026</ArticleId><ArticleId IdType="pubmed">17403720</ArticleId></ArticleIdList></Reference><Reference><Citation>Dos Santos E. S., Asano R. Y., Ir&#xea;nio Filho G., Lopes N. L., Panelli P., Nascimento D. D. C., et al.  (2014). Acute and chronic cardiovascular response to 16 weeks of combined eccentric or traditional resistance and aerobic training in elderly hypertensive women: a randomized controlled trial.
+<i>J. Strength Cond. Res.</i>
+28
+3073&#x2013;3084. 10.1519/JSC.0000000000000537
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000537</ArticleId><ArticleId IdType="pubmed">24845208</ArticleId></ArticleIdList></Reference><Reference><Citation>Ferrari R., Fuchs S. C., Kruel L. F. M., Cadore E. L., Alberton C. L., Pinto R. S., et al.  (2016). Effects of different concurrent resistance and aerobic training frequencies on muscle power and muscle quality in trained elderly men: a randomized clinical trial.
+<i>Aging Dis.</i>
+7:697. 10.14336/AD.2016.0504
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14336/AD.2016.0504</ArticleId><ArticleId IdType="pmc">PMC5198861</ArticleId><ArticleId IdType="pubmed">28053820</ArticleId></ArticleIdList></Reference><Reference><Citation>Garc&#xed;a-Pinillos F., Laredo-Aguilera J. A., Mu&#xf1;oz-Jim&#xe9;nez M., Latorre-Rom&#xe1;n P. A. (2019). Effects of 12-week concurrent high-intensity interval strength and endurance training program on physical performance in healthy older people.
+<i>J. Strength Cond. Res.</i>
+33
+1445&#x2013;1452. 10.1519/JSC.0000000000001895
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001895</ArticleId><ArticleId IdType="pubmed">28301438</ArticleId></ArticleIdList></Reference><Reference><Citation>Guadalupe-Grau A., Aznar-La&#xed;n S., Ma&#xf1;as A., Castellanos J., Alc&#xe1;zar J., Ara I., et al.  (2017). Short- and long-term effects of concurrent strength and HIIT training in octogenarians with COPD.
+<i>J. Aging Phys. Act.</i>
+25
+105&#x2013;115. 10.1123/japa.2015-0307
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/japa.2015-0307</ArticleId><ArticleId IdType="pubmed">27402660</ArticleId></ArticleIdList></Reference><Reference><Citation>Guirado G. N., Damatto R. L., Matsubara B. B., Roscani M. G., Fusco D. R., Cicchetto L. A., et al.  (2012). Combined exercise training in asymptomatic elderly with controlled hypertension: effects on functional capacity and cardiac diastolic function.
+<i>Med. Sci. Monit.</i>
+18:CR461. 10.12659/msm.883215
+</Citation><ArticleIdList><ArticleId IdType="doi">10.12659/msm.883215</ArticleId><ArticleId IdType="pmc">PMC3560779</ArticleId><ArticleId IdType="pubmed">22739737</ArticleId></ArticleIdList></Reference><Reference><Citation>Hair B., Black W. C., Babin B., Anderson R. E. (2006). <i>Tatham, Multivariate Data Analysis.</i>
+Cranbury, NJ: Pearson Education.</Citation></Reference><Reference><Citation>Ingle L., Mellis M., Brodie D., Sandercock G. R. (2017). Associations between cardiorespiratory fitness and the metabolic syndrome in British men.
+<i>Heart</i>
+103
+524&#x2013;528. 10.1136/heartjnl-2016-310142
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/heartjnl-2016-310142</ArticleId><ArticleId IdType="pubmed">27798054</ArticleId></ArticleIdList></Reference><Reference><Citation>Jabbour G., Iancu H. D., Mauriege P., Joanisse D. R., Martin L. J. (2017). High&#x2212;intensity interval training improves performance in young and older individuals by increasing mechanical efficiency.
+<i>Physiol. Rep.</i>
+5:e13232. 10.14814/phy2.13232
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.13232</ArticleId><ArticleId IdType="pmc">PMC5392519</ArticleId><ArticleId IdType="pubmed">28381445</ArticleId></ArticleIdList></Reference><Reference><Citation>Lakka T. A., Laaksonen D. E. (2007). Physical activity in prevention and treatment of the metabolic syndrome.
+<i>Appl. Physiol. Nutr. Metab.</i>
+32
+76&#x2013;88. 10.1139/h06-113
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/h06-113</ArticleId><ArticleId IdType="pubmed">17332786</ArticleId></ArticleIdList></Reference><Reference><Citation>Lanza I. R., Short D. K., Short K. R., Raghavakaimal S., Basu R., Joyner M. J., et al.  (2008). Endurance exercise as a countermeasure for aging.
+<i>Diabetes</i>
+57
+2933&#x2013;2942. 10.2337/db08-0349
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/db08-0349</ArticleId><ArticleId IdType="pmc">PMC2570389</ArticleId><ArticleId IdType="pubmed">18716044</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu Y., Ye W., Chen Q., Zhang Y., Kuo C.-H., Korivi M. (2019). Resistance exercise intensity is correlated with attenuation of HbA1c and insulin in patients with type 2 diabetes: a systematic review and meta-analysis.
+<i>Int. J. Environ. Res. Public Health</i>
+16:140. 10.3390/ijerph16010140
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph16010140</ArticleId><ArticleId IdType="pmc">PMC6339182</ArticleId><ArticleId IdType="pubmed">30621076</ArticleId></ArticleIdList></Reference><Reference><Citation>Lomax R. G., Schumacker R. E. (2004). <i>A Beginner&#x2019;s Guide to Structural Equation Modeling.</i>
+London: Psychology Press.</Citation></Reference><Reference><Citation>Morton R. W., Colenso-Semple L., Phillips S. M. (2019). Training for strength and hypertrophy: an evidence-based approach.
+<i>Curr. Opin. Physiol.</i>
+10
+90&#x2013;95.</Citation></Reference><Reference><Citation>Ostman C., Smart N. A., Morcos D., Duller A., Ridley W., Jewiss D. (2017). The effect of exercise training on clinical outcomes in patients with the metabolic syndrome: a systematic review and meta-analysis.
+<i>Cardiovasc. Diabetol.</i>
+16
+110&#x2013;110. 10.1186/s12933-017-0590-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12933-017-0590-y</ArticleId><ArticleId IdType="pmc">PMC5577843</ArticleId><ArticleId IdType="pubmed">28854979</ArticleId></ArticleIdList></Reference><Reference><Citation>Pedersen B. K., Saltin B. (2015). Exercise as medicine&#x2013;evidence for prescribing exercise as therapy in 26 different chronic diseases.
+<i>Scand. J. Med. Sci. Sports</i>
+25
+1&#x2013;72. 10.1111/sms.12581
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12581</ArticleId><ArticleId IdType="pubmed">26606383</ArticleId></ArticleIdList></Reference><Reference><Citation>Pescatello L. S., Riebe D., Thompson P. D. (2014). <i>ACSM&#x2019;s Guidelines for Exercise Testing and Prescription.</i>
+Philadelphia, PA: Lippincott Williams &amp; Wilkins.</Citation></Reference><Reference><Citation>Roberts C. K., Barnard R. J. (2005). Effects of exercise and diet on chronic disease.
+<i>J. Appl. Physiol.</i>
+98
+3&#x2013;30. 10.2143/AC.63.2.2029521
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2143/AC.63.2.2029521</ArticleId><ArticleId IdType="pubmed">15591300</ArticleId></ArticleIdList></Reference><Reference><Citation>Robinson M. M., Dasari S., Konopka A. R., Johnson M. L., Manjunatha S., Esponda R. R., et al.  (2017). Enhanced protein translation underlies improved metabolic and physical adaptations to different exercise training modes in young and old humans.
+<i>Cell Metab.</i>
+25
+581&#x2013;592. 10.1016/j.cmet.2017.02.009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cmet.2017.02.009</ArticleId><ArticleId IdType="pmc">PMC5423095</ArticleId><ArticleId IdType="pubmed">28273480</ArticleId></ArticleIdList></Reference><Reference><Citation>Sherling D. H., Perumareddi P., Hennekens C. H. (2017). Metabolic syndrome: clinical and policy implications of the new silent killer.
+<i>J. Cardiovasc. Pharmacol. Ther.</i>
+22
+365&#x2013;367.</Citation><ArticleIdList><ArticleId IdType="pubmed">28587579</ArticleId></ArticleIdList></Reference><Reference><Citation>Stamatakis E., Lee I.-M., Bennie J., Freeston J., Hamer M., O&#x2019;donovan G., et al.  (2017). Does strength-promoting exercise confer unique health benefits? A pooled analysis of data on 11 population cohorts with all-cause, cancer, and cardiovascular mortality endpoints.
+<i>Am. J. Epidemiol.</i>
+187
+1102&#x2013;1112. 10.1093/aje/kwx345
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/aje/kwx345</ArticleId><ArticleId IdType="pubmed">29099919</ArticleId></ArticleIdList></Reference><Reference><Citation>Tanaka H., Monahan K. D., Seals D. R. (2001). Age-predicted maximal heart rate revisited.
+<i>J. Am. Coll. Cardiol.</i>
+37
+153&#x2013;156. 10.1016/s0735-1097(00)01054-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0735-1097(00)01054-8</ArticleId><ArticleId IdType="pubmed">11153730</ArticleId></ArticleIdList></Reference><Reference><Citation>Theodorou A. A., Panayiotou G., Volaklis K. A., Douda H. T., Paschalis V., Nikolaidis M. G., et al.  (2016). Aerobic, resistance and combined training and detraining on body composition, muscle strength, lipid profile and inflammation in coronary artery disease patients.
+<i>Res. Sports Med.</i>
+24
+171&#x2013;184. 10.1080/15438627.2016.1191488
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15438627.2016.1191488</ArticleId><ArticleId IdType="pubmed">27258806</ArticleId></ArticleIdList></Reference><Reference><Citation>United Nations (2009). <i>Department of Economic and Social Affairs Population Division: World Population Ageing 2009.</i>
+New York, NY: United Nations.</Citation></Reference><Reference><Citation>Weston K. S., Wisl&#xf8;ff U., Coombes J. S. (2014). High-intensity interval training in patients with lifestyle-induced cardiometabolic disease: a systematic review and meta-analysis.
+<i>Br. J. Sports Med</i>. 48
+1227&#x2013;1234.</Citation><ArticleIdList><ArticleId IdType="pubmed">24144531</ArticleId></ArticleIdList></Reference><Reference><Citation>Wewege M. A., Thom J. M., Rye K.-A., Parmenter B. J. (2018). Aerobic, resistance or combined training: a systematic review and meta-analysis of exercise to reduce cardiovascular risk in adults with metabolic syndrome.
+<i>Atherosclerosis</i>
+274
+162&#x2013;171. 10.1016/j.atherosclerosis.2018.05.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.atherosclerosis.2018.05.002</ArticleId><ArticleId IdType="pubmed">29783064</ArticleId></ArticleIdList></Reference><Reference><Citation>WMA (2018). <i>World Medical Association. Declaration of Helsinki. Ethical Principles for Medical Research Involving Human Subjects. 64th WMA General Assembly.</i>
+Fortaleza: WMA.</Citation></Reference><Reference><Citation>Yasar Z., Dewhurst S., Hayes L. D. (2019). Peak power output is similarly recovered after three-and five-days&#x2019; rest following sprint interval training in young and older adults.
+<i>Sports</i>
+7:94. 10.3390/sports7040094
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/sports7040094</ArticleId><ArticleId IdType="pmc">PMC6524350</ArticleId><ArticleId IdType="pubmed">31027172</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

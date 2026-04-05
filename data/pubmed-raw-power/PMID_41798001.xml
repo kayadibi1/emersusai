@@ -1,0 +1,167 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41798001</PMID><DateCompleted><Year>2026</Year><Month>03</Month><Day>09</Day></DateCompleted><DateRevised><Year>2026</Year><Month>03</Month><Day>09</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-1078</ISSN><JournalIssue CitedMedium="Print"><Volume>17</Volume><PubDate><Year>2026</Year></PubDate></JournalIssue><Title>Frontiers in psychology</Title><ISOAbbreviation>Front Psychol</ISOAbbreviation></Journal><ArticleTitle>Operating characteristics of agreement metrics in AI-based scoring: a Monte Carlo simulation.</ArticleTitle><Pagination><StartPage>1705653</StartPage><MedlinePgn>1705653</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1705653</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fpsyg.2026.1705653</ELocationID><Abstract><AbstractText Label="INTRODUCTION" NlmCategory="UNASSIGNED">This study analyzed the threshold-exceedance performance of human and AI scoring agreement measures for scoring of open-ended items. Monte Carlo simulation was performed to represent the different types of errors encountered in automatic scoring determined by using studies in the literature. Accordingly, an examination was conducted of the agreement between human and artificial intelligence ratings under differing error conditions. The objective of the research was to ascertain the statistical power levels achieved by disparate agreement metrics under varying conditions. The objective of this research was to ascertain which metric would prove to be the most effective method, and under which conditions.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">Data with conditions including systematic additive bias, variance inflation, midpoint compression, class imbalance, and subgroup-related offsets. Human scores served as a reference to assess agreement. Agreement levels were evaluated with ICC(A,1), Krippendorff's &#x3b1; (ranked), quadratic weighted kappa (QWK), and Bland-Altman along with tolerance-based agreement metrics. Threshold-exceedance performance was defined as the proportion with which each metric surpassed conventional adequacy standards. Analyses were also conducted on real data to validate the analyses conducted in the second part of the study. In this part, written texts were scored by six different students using three teachers and two large language models.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">ICC(A,1) shown higher threshold-exceedance performance for low and moderate variance inflation. QWK was observed to reach a moderate level of robustness. Krippendorff's a showed consistent performance, especially in conditions where the distributions were unbalanced or variance inflated. Tolerance-based fit demonstrated numerical closeness between human and AI scores. The findings showed patterns consistent with simulated impairments.</AbstractText><AbstractText Label="DISCUSSION" NlmCategory="UNASSIGNED">All findings indicate that fit indices vary systematically across different structural mechanisms and sampling conditions. The results suggest that different conditions can affect the interpretability of automated scores. Accordingly, the need for multi-metric assessment frameworks when assessing human-AI score fit is highlighted.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Yandi.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Yandi</LastName><ForeName>Alperen</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Department of Educational Sciences, Faculty of Education, Bolu Abant Izzet Baysal University, Bolu, T&#xfc;rkiye.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Educational Measurement and Evaluation, Faculty of Education, Bolu Abant Izzet Baysal University, Bolu, T&#xfc;rkiye.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>02</Month><Day>19</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Psychol</MedlineTA><NlmUniqueID>101550902</NlmUniqueID><ISSNLinking>1664-1078</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Monte Carlo simulation</Keyword><Keyword MajorTopicYN="N">agreement metrics</Keyword><Keyword MajorTopicYN="N">artificial intelligence</Keyword><Keyword MajorTopicYN="N">measurement and evaluation in education and psychology</Keyword><Keyword MajorTopicYN="N">scoring reliability</Keyword></KeywordList><CoiStatement>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>9</Month><Day>15</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2025</Year><Month>11</Month><Day>24</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>1</Month><Day>5</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>9</Day><Hour>17</Hour><Minute>37</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>9</Day><Hour>17</Hour><Minute>36</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>9</Day><Hour>6</Hour><Minute>6</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>2</Month><Day>19</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41798001</ArticleId><ArticleId IdType="pmc">PMC12960511</ArticleId><ArticleId IdType="doi">10.3389/fpsyg.2026.1705653</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>American Educational Research Association [AERA], APA, and NCME (2014). <i>Standards for Educational and Psychological Testing.</i> Available online at: https://www.testingstandards.net/uploads/7/6/6/4/76643089/standards_2014edition.pdf
+(accessed December 17, 2025).</Citation></Reference><Reference><Citation>Badger E., Thomas B. (1991). Open-ended questions in reading.
+<i>Pract. Assess. Res. Eval.</i>
+3:4. 10.7275/fryf-z044</Citation><ArticleIdList><ArticleId IdType="doi">10.7275/fryf-z044</ArticleId></ArticleIdList></Reference><Reference><Citation>Baykul Y., Turgut M. F. (2012). <i>Measurement and Evaluation in Education [E&#x11f;itimde &#xf6;l&#xe7;me ve de&#x11f;erlendirme].</i>
+Ankara: Pegem Akademi.</Citation></Reference><Reference><Citation>Beiting-Parrish M., Whitmer J. (2023). Lessons learned about evaluating fairness from a data challenge to automatically score NAEP reading items.
+<i>Chin. Engl. J. Educ. Meas. Eval.</i>
+4:5. 10.59863/NKCJ9608</Citation><ArticleIdList><ArticleId IdType="doi">10.59863/NKCJ9608</ArticleId></ArticleIdList></Reference><Reference><Citation>Bexkens R., Claessen F. M., Kodde I. F., Oh L. S., Eygendaal D., van den Bekerom M. P. (2018). The kappa paradox.
+<i>Shoulder Elb.</i>
+10
+308&#x2013;314. 10.1177/1758573218791813
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1758573218791813</ArticleId><ArticleId IdType="pmc">PMC6134525</ArticleId><ArticleId IdType="pubmed">30214499</ArticleId></ArticleIdList></Reference><Reference><Citation>B&#x131;kmaz Bilgen &#xd6;., Do&#x11f;an N. (2017). The comparison of interrater reliability estimating techniques [Puanlay&#x131;c&#x131;lar aras&#x131; g&#xfc;venirlik belirleme tekniklerinin kar&#x15f;&#x131;la&#x15f;t&#x131;r&#x131;lmas&#x131;].
+<i>J. Meas. Eval. Educ. Psychol.</i>
+8
+63&#x2013;78. 10.21031/epod.294847</Citation><ArticleIdList><ArticleId IdType="doi">10.21031/epod.294847</ArticleId></ArticleIdList></Reference><Reference><Citation>Bland J. M., Altman D. G. (2010). Statistical methods for assessing agreement between two methods of clinical measurement. <i>Int. J. Nurs. Stud.</i>
+47, 931&#x2013;936. 10.1016/j.ijnurstu.2009.10.001</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijnurstu.2009.10.001</ArticleId><ArticleId IdType="pubmed">2868172</ArticleId></ArticleIdList></Reference><Reference><Citation>Blodgett S. L., Barocas S., Daum&#xe9; Iii H., Wallach H. (2020). &#x201c;Language (technology) is power: A critical survey of&#x201d; bias&#x201d; in NLP,&#x201d; in <i>Proceedings of the 58th Annual Meeting of the Association for Computational Linguistics</i>, (Stroudsburg, PA: ACL; ), 5454&#x2013;5476.</Citation></Reference><Reference><Citation>Brookhart S. M. (2010). <i>How to Assess Higher-Order Thinking Skills in your Classroom.</i>
+Alexandria, VA: ASCD.</Citation></Reference><Reference><Citation>Brown L. D., Cai T. T., DasGupta A. (2001). Interval estimation for a binomial proportion.
+<i>Stat. Sci.</i>
+16
+101&#x2013;133. 10.1214/ss/1009213286</Citation><ArticleIdList><ArticleId IdType="doi">10.1214/ss/1009213286</ArticleId></ArticleIdList></Reference><Reference><Citation>Camilli G. (2006). &#x201c;Test fairness,&#x201d; in <i>Educational Measurement</i>, 4th Edn, ed.
+Brennan R. L. (Westport, CT: American Council on Education and Praeger; ), 221&#x2013;256.</Citation></Reference><Reference><Citation>Cicchetti D. V., Feinstein A. R. (1990). High agreement but low kappa: II. Resolving the paradoxes.
+<i>J. Clin. Epidemiol.</i>
+43
+551&#x2013;558. 10.1016/0895-4356(90)90159-M
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0895-4356(90)90159-M</ArticleId><ArticleId IdType="pubmed">2189948</ArticleId></ArticleIdList></Reference><Reference><Citation>Dadi R., Sanampudi S. K. (2021). An automated essay scoring systems: A systematic literature review.
+<i>Artif. Intell. Rev.</i>
+55
+2495&#x2013;2527. 10.1007/s10462-021-10068-2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10462-021-10068-2</ArticleId><ArticleId IdType="pmc">PMC8460059</ArticleId><ArticleId IdType="pubmed">34584325</ArticleId></ArticleIdList></Reference><Reference><Citation>Debelak R., Ziegler M. (2025). Testing standards for AI-based scores in automated essay scoring.
+<i>OSF [Preprint]</i>
+10.31234/osf.io/vnq63_v2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.31234/osf.io/vnq63_v2</ArticleId></ArticleIdList></Reference><Reference><Citation>Dorans N. J., Liu J. (2009). Score equity assessment: Development of a prototype analysis using SAT<sup>&#xae;</sup> mathematics test data across several administrations.
+<i>ETS Res. Rep. Series</i>
+2009, i&#x2013;68. 10.1002/j.2333-8504.2009.tb02165.x</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/j.2333-8504.2009.tb02165.x</ArticleId></ArticleIdList></Reference><Reference><Citation>Eckes T. (2015). <i>Introduction to Many-Facet Rasch Measurement: Analyzing and Evaluating Rater-Mediated Assessments</i>, 2nd Edn. New York, NY: Peter Lang.</Citation></Reference><Reference><Citation>Ercikan K., McCaffrey D. F. (2022). Optimizing implementation of artificial-intelligence-based automated scoring: An evidence centered design approach for designing assessments for AI-based scoring.
+<i>J. Educ. Meas.</i>
+59
+272&#x2013;287. 10.1111/jedm.12332</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jedm.12332</ArticleId></ArticleIdList></Reference><Reference><Citation>Feinstein A. R., Cicchetti D. V. (1990). High agreement but low kappa: I. The problems of two paradoxes.
+<i>J. Clin. Epidemiol.</i>
+43
+543&#x2013;549. 10.1016/0895-4356(90)90158-L
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0895-4356(90)90158-L</ArticleId><ArticleId IdType="pubmed">2348207</ArticleId></ArticleIdList></Reference><Reference><Citation>Ferrara S., Qunbar S. (2022). Validity arguments for AI-based automated scores: Essay scoring as an illustration.
+<i>J. Educ. Meas.</i>
+59
+288&#x2013;313. 10.1111/jedm.12333</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jedm.12333</ArticleId></ArticleIdList></Reference><Reference><Citation>Freedman S. W. (1981). Influences on evaluators of expository essays: Beyond the text.
+<i>Res. Teach. Engl.</i>
+15
+245&#x2013;255.</Citation></Reference><Reference><Citation>Gamer M., Lemon J., Singh I. F. (2019). <i>irr: Various Coefficients of Interrater Reliability and Agreement (R Package Version 0.84.1).</i>
+Available online at: https://cran.r-project.org/package=irr (accessed October 10, 2025).</Citation></Reference><Reference><Citation>Giavarina D. (2015). Understanding Bland&#x2013;Altman analysis.
+<i>Biochem. Med.</i>
+25
+141&#x2013;151. 10.11613/BM.2015.015
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.11613/BM.2015.015</ArticleId><ArticleId IdType="pmc">PMC4470095</ArticleId><ArticleId IdType="pubmed">26110027</ArticleId></ArticleIdList></Reference><Reference><Citation>Gierl M. J., Latifi S., Lai H., Boulais A. P., De Champlain A. (2014). Automated essay scoring and the future of educational assessment in medical education.
+<i>Med. Educ.</i>
+48
+950&#x2013;962. 10.1111/medu.12517
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/medu.12517</ArticleId><ArticleId IdType="pubmed">25200016</ArticleId></ArticleIdList></Reference><Reference><Citation>Goldfeld K., Wujciak-Jens J. (2024). <i>Simresearch: Simulation of Research Data (R Package Version 0.5.0)</i>, Comprehensive R Archive Network (CRAN).</Citation></Reference><Reference><Citation>G&#xfc;ler N. (2014). <i>Measurement and Evaluation: Concepts, Practices, and Approaches [&#xd6;l&#xe7;me ve de&#x11f;erlendirme: Kavramlar, uygulamalar ve yakla&#x15f;&#x131;mlar].</i>
+Ankara: Pegem Akademi.</Citation></Reference><Reference><Citation>Hahn M. G., Navarro S. M. B., Valent&#xed;n L. D. L. F., Burgos D. (2021). A systematic review of the effects of automatic scoring and automatic feedback in educational settings.
+<i>IEEE Access</i>
+9
+108190&#x2013;108198. 10.1109/ACCESS.2021.3100890</Citation><ArticleIdList><ArticleId IdType="doi">10.1109/ACCESS.2021.3100890</ArticleId></ArticleIdList></Reference><Reference><Citation>Hayes A. F., Krippendorff K. (2007). Answering the call for a standard reliability measure for coding data.
+<i>Commun. Methods Meas.</i>
+1
+77&#x2013;89. 10.1080/19312450709336664</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/19312450709336664</ArticleId></ArticleIdList></Reference><Reference><Citation>Hogan T. P., Murphy G. (2007). <i>Psychological Testing: Principles, Applications, and Issues.</i>
+Boston, MA: McGraw-Hill.</Citation></Reference><Reference><Citation>Johnson M. S., McCaffrey D. F. (2023). &#x201c;Evaluating fairness of automated scoring in educational measurement,&#x201d; in <i>Advancing Natural Language Processing in Educational Assessment</i>, eds
+Yaneva V., Von Davier M. (Abingdon: Routledge; ). 10.1038/s41598-024-79208-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-024-79208-2</ArticleId></ArticleIdList></Reference><Reference><Citation>Johnson M. S., Liu X., McCaffrey D. F. (2022). Psychometric methods to evaluate measurement and algorithmic bias in automated scoring.
+<i>JEM</i>
+59
+338&#x2013;361. 10.1111/jedm.12335</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jedm.12335</ArticleId></ArticleIdList></Reference><Reference><Citation>Karada&#x11f; N., Boz Y&#xfc;ksekda&#x11f; B., Aky&#x131;ld&#x131;z M., Ib&#x131;leme A. I. (2020). Assessment and evaluation in open education system: Students opinions about Open-Ended Question (OEQ) practice.
+<i>Turk. Online J. Distance Educ.</i>
+22
+179&#x2013;193. 10.17718/tojde.849903</Citation><ArticleIdList><ArticleId IdType="doi">10.17718/tojde.849903</ArticleId></ArticleIdList></Reference><Reference><Citation>Karakaya &#x130;. (2022). <i>Preparation, Administration, and Evaluation of Open-Ended Questions [A&#xe7;&#x131;k u&#xe7;lu sorular&#x131;n haz&#x131;rlanmas&#x131;, uygulanmas&#x131; ve de&#x11f;erlendirilmesi].</i>
+Ankara: Pegem Yay&#x131;nlar&#x131;.</Citation></Reference><Reference><Citation>Kersting N. B., Sherin B. L., Stigler J. W. (2014). Automated scoring of teachers open-ended responses to video prompts: Bringing the classroom-video-analysis assessment to scale.
+<i>Educ. Psychol. Meas.</i>
+74
+950&#x2013;974. 10.1177/0013164414521634</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0013164414521634</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim J., Oshima T. C. (2012). Effect of multiple testing adjustment in differential item functioning detection.
+<i>Educ. Psychol. Meas.</i>
+73
+458&#x2013;470. 10.1177/0013164412467033</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0013164412467033</ArticleId></ArticleIdList></Reference><Reference><Citation>Koo T. K., Li M. Y. (2016). A guideline of selecting and reporting intraclass correlation coefficients for reliability research.
+<i>J. Chiropr. Med.</i>
+15
+155&#x2013;163. 10.1016/j.jcm.2016.02.012
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jcm.2016.02.012</ArticleId><ArticleId IdType="pmc">PMC4913118</ArticleId><ArticleId IdType="pubmed">27330520</ArticleId></ArticleIdList></Reference><Reference><Citation>Korteling J. E., van de Boer-Visschedijk G. C., Blankendaal R. A., Boonekamp R. C., Eikelboom A. R. (2021). Human-versus artificial intelligence.
+<i>Front. Artif. Intell.</i>
+4:622364. 10.3389/frai.2021.622364
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/frai.2021.622364</ArticleId><ArticleId IdType="pmc">PMC8108480</ArticleId><ArticleId IdType="pubmed">33981990</ArticleId></ArticleIdList></Reference><Reference><Citation>LaVoie N., Parker J., Legree P. J., Ardison S., Kilcullen R. N. (2019). Using latent semantic analysis to score short answer constructed responses: Automated scoring of the consequences test.
+<i>Educ. Psychol. Meas.</i>
+80
+399&#x2013;414. 10.1177/0013164419860575
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0013164419860575</ArticleId><ArticleId IdType="pmc">PMC7047257</ArticleId><ArticleId IdType="pubmed">32158028</ArticleId></ArticleIdList></Reference><Reference><Citation>Lehnert K. (2020). <i>BlandAltmanLeh: Bland&#x2013;Altman Plots, Statistics and Confidence Intervals (R Package Version 0.3.1).</i>
+Available online at: https://cran.r-project.org/package=BlandAltmanLeh (accessed October 10, 2025).</Citation></Reference><Reference><Citation>Liljequist D., Elfving B., Skavberg Roaldsen K. (2019). Intraclass correlation &#x2013; A discussion and demonstration of basic features.
+<i>PLoS One</i>
+14:e0219854. 10.1371/journal.pone.0219854
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0219854</ArticleId><ArticleId IdType="pmc">PMC6645485</ArticleId><ArticleId IdType="pubmed">31329615</ArticleId></ArticleIdList></Reference><Reference><Citation>Livingston L., Featherstone-Uwague A., Barry A., Barretto K., Morey T., Herrmannova D., et al.  (2025). Reproducible generative AI evaluation for healthcare: A clinician-in-the-loop approach.
+<i>medRxiv [Preprint]</i>
+10.1101/2025.03.04.25323131</Citation><ArticleIdList><ArticleId IdType="doi">10.1101/2025.03.04.25323131</ArticleId><ArticleId IdType="pmc">PMC12169418</ArticleId><ArticleId IdType="pubmed">40524837</ArticleId></ArticleIdList></Reference><Reference><Citation>Matta M., Mercer S. H., Keller-Margulis M. A. (2023). Implications of bias in automated writing quality scores for fair and equitable assessment decisions.
+<i>Sch. Psychol.</i>
+38
+173&#x2013;181. 10.1037/spq0000517
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/spq0000517</ArticleId><ArticleId IdType="pubmed">37184959</ArticleId></ArticleIdList></Reference><Reference><Citation>Mehrabi N., Morstatter F., Saxena N., Lerman K., Galstyan A. (2021). A survey on bias and fairness in machine learning.
+<i>ACM Comput. Surv.</i>
+54
+1&#x2013;35. 10.1145/3457607</Citation><ArticleIdList><ArticleId IdType="doi">10.1145/3457607</ArticleId></ArticleIdList></Reference><Reference><Citation>Mundform D. J., Schaffer J., Kim M. J., Shaw D., Thongteeraparp A., Supawan P. (2011). Number of replications required in Monte Carlo simulation studies: A synthesis of four studies.
+<i>J. Mod. Appl. Stat. Methods</i>
+10
+19&#x2013;28. 10.22237/jmasm/1304222580</Citation><ArticleIdList><ArticleId IdType="doi">10.22237/jmasm/1304222580</ArticleId></ArticleIdList></Reference><Reference><Citation>Myford C. M., Wolfe E. W. (2003). Detecting and measuring rater effects using many-facet Rasch measurement: Part I.
+<i>J. Appl. Meas.</i>
+4
+386&#x2013;422.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">14523257</ArticleId></ArticleIdList></Reference><Reference><Citation>Myford C. M., Wolfe E. W. (2004). Detecting and measuring rater effects using many-facet Rasch measurement: Part II.
+<i>J. Appl. Meas.</i>
+5
+189&#x2013;227.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">15064538</ArticleId></ArticleIdList></Reference><Reference><Citation>Nelson A. S., Santamar&#xed;a P. V., Javens J. S., Ricaurte M. (2025). Students perceptions of generative artificial intelligence (GenAI) use in academic writing in English as a foreign language.
+<i>Educ. Sci.</i>
+15:611. 10.3390/educsci15050611</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/educsci15050611</ArticleId></ArticleIdList></Reference><Reference><Citation>Quah B., Zheng L., Sng T. J. H., Yong C. W., Islam I. (2024). Reliability of ChatGPT in automated essay scoring for dental undergraduate examinations.
+<i>BMC Med. Educ.</i>
+24:962. 10.1186/s12909-024-05881-6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12909-024-05881-6</ArticleId><ArticleId IdType="pmc">PMC11373238</ArticleId><ArticleId IdType="pubmed">39227811</ArticleId></ArticleIdList></Reference><Reference><Citation>R Core Team (2024). <i>R: A Language and Environment for Statistical Computing (Version 4.3.2).</i>
+Vienna: R Foundation for Statistical Computing.</Citation></Reference><Reference><Citation>Ramesh D., Sanampudi S. K. (2022). An automated essay scoring systems: A systematic literature review.
+<i>Artif. Intell. Rev.</i>
+55
+2495&#x2013;2527. 10.1007/s10462-021-10068-2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10462-021-10068-2</ArticleId><ArticleId IdType="pmc">PMC8460059</ArticleId><ArticleId IdType="pubmed">34584325</ArticleId></ArticleIdList></Reference><Reference><Citation>Revelle W. (2024). <i>Psych: Procedures for Personality and Psychological Research (R Package Version 2.4.12).</i> Available online at: https://cran.r-project.org/package=psych
+(accessed October 10, 2025).</Citation></Reference><Reference><Citation>Schaller N.-J., Ding Y., Horbach A., Meyer J., Jansen T. (2024). &#x201c;Fairness in automated essay scoring: A comparative analysis of algorithms on German learner essays from secondary education,&#x201d; in <i>Proceedings of the 19th Workshop on Innovative Use of NLP for Building Educational Applications (BEA 2024)</i>, (Mexico: Association for Computational Linguistics; ), 210&#x2013;221.</Citation></Reference><Reference><Citation>Shrout P. E., Fleiss J. L. (1979). Intraclass correlations: Uses in assessing rater reliability.
+<i>Psychol. Bull.</i>
+86
+420&#x2013;428. 10.1037/0033-2909.86.2.420
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0033-2909.86.2.420</ArticleId><ArticleId IdType="pubmed">18839484</ArticleId></ArticleIdList></Reference><Reference><Citation>Signorell A. (2023). <i>DescTools: Tools for Descriptive Statistics (R Package Version 0.99.54).</i> Available online at: https://cran.r-project.org/package=DescTools
+(accessed October 10, 2025).</Citation></Reference><Reference><Citation>Uto M. (2021). A review of deep-neural automated essay scoring models.
+<i>Behaviormetrika</i>
+48
+459&#x2013;484. 10.1007/s41237-021-00142-y</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s41237-021-00142-y</ArticleId></ArticleIdList></Reference><Reference><Citation>Uysal &#x130;., Do&#x11f;an N. (2021). How reliable is it to automatically score open-ended items? An application in the Turkish language.
+<i>J. Meas. Eval. Educ. Psychol.</i>
+12
+28&#x2013;53. 10.21031/epod.817396</Citation><ArticleIdList><ArticleId IdType="doi">10.21031/epod.817396</ArticleId></ArticleIdList></Reference><Reference><Citation>Wickham H., Averick M., Bryan J., Chang W., McGowan L. D., Fran&#xe7;ois R., et al.  (2019). Welcome to the Tidyverse.
+<i>J. Open Source Softw.</i>
+4:1686. 10.21105/joss.01686</Citation><ArticleIdList><ArticleId IdType="doi">10.21105/joss.01686</ArticleId></ArticleIdList></Reference><Reference><Citation>Williamson D. M., Xi X., Breyer F. J. (2012). A framework for evaluation and use of automated scoring.
+<i>Educ. Meas. Issues Pract.</i>
+31
+2&#x2013;13. 10.1111/j.1745-3992.2011.00223.x</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1745-3992.2011.00223.x</ArticleId></ArticleIdList></Reference><Reference><Citation>Yi&#x11f;iter M., Boduro&#x11f;lu E. (2025). Examining the performance of artificial intelligence in scoring students&#x2019; handwritten responses to open-ended items.
+<i>Educ. Sci.</i>
+50
+1&#x2013;18. 10.15390/EB.2025.14119</Citation><ArticleIdList><ArticleId IdType="doi">10.15390/EB.2025.14119</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhai X., Haudek K. C., Wilson M., Stuhlsatz M. A. (2021). Misfit in rater-mediated assessments: Sources and consequences.
+<i>Educ. Meas. Issues Pract.</i>
+40
+25&#x2013;38. 10.1111/emip.12345</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/emip.12345</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhu X., Wu H., Zhang L. (2022). Automatic short-answer grading via BERT-based deep neural networks.
+<i>IEEE Trans. Learn. Technol.</i>
+15
+364&#x2013;375. 10.1109/TLT.2022.3175537</Citation><ArticleIdList><ArticleId IdType="doi">10.1109/TLT.2022.3175537</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,557 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="epi70088" xml:lang="en" article-type="brief-report" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Epilepsia</journal-id><journal-id journal-id-type="iso-abbrev">Epilepsia</journal-id><journal-id journal-id-type="pmc-domain-id">379</journal-id><journal-id journal-id-type="pmc-domain">blackwellopen</journal-id><journal-id journal-id-type="publisher-id">EPI</journal-id><journal-title-group><journal-title>Epilepsia</journal-title></journal-title-group><issn pub-type="ppub">0013-9580</issn><issn pub-type="epub">1528-1167</issn><custom-meta-group><custom-meta><meta-name>pmc-is-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-collection-title</meta-name><meta-value>Wiley Open Access Collection</meta-value></custom-meta></custom-meta-group></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC12927695</article-id><article-id pub-id-type="pmcid-ver">PMC12927695.1</article-id><article-id pub-id-type="pmcaid">12927695</article-id><article-id pub-id-type="pmcaiid">12927695</article-id><article-id pub-id-type="pmid">41489603</article-id><article-id pub-id-type="doi">10.1002/epi.70088</article-id><article-id pub-id-type="publisher-id">EPI70088</article-id><article-id pub-id-type="other">EPI-01208-2025.R2</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Brief Communication</subject></subj-group><subj-group subj-group-type="heading"><subject>Brief Communication</subject></subj-group></article-categories><title-group><article-title>A novel <styled-content style="fixed-case" toggle="no">
+<italic toggle="no">PTEN</italic>
+</styled-content> variant causing hemimegalencephaly and focal nodular heterotopias in the developing human brain</article-title><alt-title alt-title-type="left-running-head">Fazekas et al.</alt-title></title-group><contrib-group><contrib id="epi70088-cr-0001" contrib-type="author"><name name-style="western"><surname>Fazekas</surname><given-names initials="F">Franziska</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0009-0007-3050-1550</contrib-id><xref rid="epi70088-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="epi70088-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="epi70088-cr-0002" contrib-type="author"><name name-style="western"><surname>Haboosheh</surname><given-names initials="A">Amit</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0009-0008-3488-4920</contrib-id><xref rid="epi70088-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="epi70088-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref><xref rid="epi70088-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib id="epi70088-cr-0003" contrib-type="author"><name name-style="western"><surname>Hennebichler</surname><given-names initials="B">Bernhard</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0009-0005-3203-1375</contrib-id><xref rid="epi70088-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="epi70088-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="epi70088-cr-0004" contrib-type="author"><name name-style="western"><surname>Roetzer‐Pejrimovsky</surname><given-names initials="T">Thomas</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-8875-7304</contrib-id><xref rid="epi70088-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="epi70088-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="epi70088-cr-0005" contrib-type="author"><name name-style="western"><surname>Binder</surname><given-names initials="J">Julia</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-5725-9270</contrib-id><xref rid="epi70088-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="epi70088-cr-0006" contrib-type="author"><name name-style="western"><surname>Reischer</surname><given-names initials="T">Theresa</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-4021-1262</contrib-id><xref rid="epi70088-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="epi70088-cr-0007" contrib-type="author"><name name-style="western"><surname>Pfeifer</surname><given-names initials="M">Mateja</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-1459-4802</contrib-id><xref rid="epi70088-aff-0006" ref-type="aff">
+<sup>6</sup>
+</xref></contrib><contrib id="epi70088-cr-0008" contrib-type="author"><name name-style="western"><surname>Scharrer</surname><given-names initials="A">Anke</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-7368-3226</contrib-id><xref rid="epi70088-aff-0007" ref-type="aff">
+<sup>7</sup>
+</xref></contrib><contrib id="epi70088-cr-0009" contrib-type="author"><name name-style="western"><surname>Worda</surname><given-names initials="C">Christof</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-7635-3721</contrib-id><xref rid="epi70088-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="epi70088-cr-0010" contrib-type="author"><name name-style="western"><surname>Linder</surname><given-names initials="T">Tina</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-5929-1285</contrib-id><xref rid="epi70088-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="epi70088-cr-0011" contrib-type="author"><name name-style="western"><surname>Farr</surname><given-names initials="A">Alex</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-4628-9052</contrib-id><xref rid="epi70088-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="epi70088-cr-0012" contrib-type="author"><name name-style="western"><surname>Höftberger</surname><given-names initials="R">Romana</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-5769-1100</contrib-id><xref rid="epi70088-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="epi70088-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="epi70088-cr-0013" contrib-type="author"><name name-style="western"><surname>Gelpi</surname><given-names initials="E">Ellen</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-2948-4187</contrib-id><xref rid="epi70088-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="epi70088-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="epi70088-cr-0014" contrib-type="author"><name name-style="western"><surname>Mitter</surname><given-names initials="C">Christian</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-2796-0808</contrib-id><xref rid="epi70088-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="epi70088-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="epi70088-cr-0015" contrib-type="author"><name name-style="western"><surname>Kasprian</surname><given-names initials="G">Gregor</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-3858-3347</contrib-id><xref rid="epi70088-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="epi70088-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="epi70088-cr-0016" contrib-type="author"><name name-style="western"><surname>Haberler</surname><given-names initials="C">Christine</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-1016-0545</contrib-id><xref rid="epi70088-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="epi70088-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="epi70088-cr-0017" contrib-type="author" corresp="yes"><name name-style="western"><surname>Amberg</surname><given-names initials="N">Nicole</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-3183-8207</contrib-id><xref rid="epi70088-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="epi70088-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><address><email>nicole.amberg@meduniwien.ac.at</email></address></contrib></contrib-group><aff id="epi70088-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Department of Neurology, Division of Neuropathology and Neurochemistry</named-content>
+<institution>Medical University of Vienna</institution>
+<city>Vienna</city>
+<country country="AT">Austria</country>
+</aff><aff id="epi70088-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">Comprehensive Center for Clinical Neurosciences and Mental Health</named-content>
+<institution>Medical University of Vienna</institution>
+<city>Vienna</city>
+<country country="AT">Austria</country>
+</aff><aff id="epi70088-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">Department of Biomedical Imaging and Image‐Guided Therapy, Division of Neuroradiology and Musculoskeletal Radiology</named-content>
+<institution>Medical University of Vienna</institution>
+<city>Vienna</city>
+<country country="AT">Austria</country>
+</aff><aff id="epi70088-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">Department of Radiology</named-content>
+<institution>Hadassah Medical Center</institution>
+<city>Jerusalem</city>
+<country country="IL">Israel</country>
+</aff><aff id="epi70088-aff-0005">
+<label>
+<sup>5</sup>
+</label>
+<named-content content-type="organisation-division">Department of Obstetrics and Gynecology, Division of Obstetrics and Feto‐Maternal Medicine, and Comprehensive Center for Pediatrics</named-content>
+<institution>Medical University of Vienna</institution>
+<city>Vienna</city>
+<country country="AT">Austria</country>
+</aff><aff id="epi70088-aff-0006">
+<label>
+<sup>6</sup>
+</label>
+<named-content content-type="organisation-division">Medical University of Vienna</named-content>
+<institution>Center for Pathobiochemistry and Genetics, Institute of Medical Genetics</institution>
+<city>Vienna</city>
+<country country="AT">Austria</country>
+</aff><aff id="epi70088-aff-0007">
+<label>
+<sup>7</sup>
+</label>
+<named-content content-type="organisation-division">Department of Pathology</named-content>
+<institution>Medical University of Vienna</institution>
+<city>Vienna</city>
+<country country="AT">Austria</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>
+<bold>Correspondence</bold>
+<break/>
+Nicole Amberg, Department of Neurology, Division of Neuropathology and Neurochemistry, Medical University of Vienna, Vienna, Austria.<break/>
+Email: <email>nicole.amberg@meduniwien.ac.at</email>
+<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>05</day><month>1</month><year>2026</year></pub-date><pub-date pub-type="ppub"><month>2</month><year>2026</year></pub-date><volume>67</volume><issue seq="460">2</issue><issue-id pub-id-type="pmc-issue-id">508109</issue-id><issue-id pub-id-type="doi">10.1002/epi.v67.2</issue-id><fpage>e32</fpage><lpage>e38</lpage><history><date date-type="rev-recd"><day>16</day><month>12</month><year>2025</year></date><date date-type="received"><day>26</day><month>8</month><year>2025</year></date><date date-type="accepted"><day>16</day><month>12</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>23</day><month>02</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>24</day><month>02</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-02-24 10:25:12.480"><day>24</day><month>02</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). <italic toggle="yes">Epilepsia</italic> published by Wiley Periodicals LLC on behalf of International League Against Epilepsy.</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="EPI-67-e32.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:EPI-67-e32.pdf"/><abstract><title>Abstract</title><p>Brain development and subsequent brain function are highly sensitive to genetic mutations, which can result in severe neurodevelopmental malformations. Alterations in PTEN signaling cause a spectrum of developmental malformations and neurological diseases including epilepsy. To date, a detailed understanding of the neuropathological underpinnings of <italic toggle="no">PTEN</italic>‐associated brain malformations, particularly in fetuses, is missing. We have thus investigated a fetal case of hemimegalencephaly (HME), which is a rare disorder characterized by hemispheric overgrowth, developmental delay, and epileptic seizures. Our assessment of the male fetus includes genetic, radiologic, and histologic features and provides a comprehensive characterization of the cellular alterations in HME together with a genotypic correlation. Genetic analyses uncovered that hemispheric overgrowth was caused by a somatic second hit resulting in biallelic <italic toggle="no">PTEN</italic> alteration in the affected brain tissue, although the unaffected hemisphere carried the same <italic toggle="no">PTEN</italic> variant as the heterozygous germline variant. Based on the latter, we interpret that the <italic toggle="no">PTEN</italic> mutation is not a dominant‐negative variant. Within the outer subventricular zone of the enlarged cortex, we found small nodular heterotopias, which can be origins of focal epileptic seizures. Cell type‐specific marker stainings revealed that the heterotopias consisted exclusively of SATB2<sup>+</sup> glutamatergic projection neurons. Altogether, our analyses and findings contribute to a deeper understanding of the pathomechanisms of a novel <italic toggle="no">PTEN</italic> variant driving a severe brain malformation.</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="epi70088-kwd-0001">brain development</kwd><kwd id="epi70088-kwd-0002">hemimegalencephaly</kwd><kwd id="epi70088-kwd-0003">nodular heterotopia</kwd><kwd id="epi70088-kwd-0004">PTEN</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>Austrian Science Fund</institution><institution-id institution-id-type="doi">10.13039/501100002428</institution-id></institution-wrap>
+</funding-source><award-id>V1041T</award-id></award-group></funding-group><counts><fig-count count="2"/><table-count count="0"/><page-count count="7"/><word-count count="3300"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>February 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.1 mode:remove_FC converted:23.02.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body id="epi70088-body-0001"><p>
+<boxed-text position="anchor" content-type="box" id="epi70088-blkfxd-0001" orientation="portrait"><caption><title>Key points</title></caption><p>
+<list list-type="bullet" id="epi70088-list-0001"><list-item id="epi70088-li-0001"><p>Upon biallelic alteration, a novel <italic toggle="yes">PTEN</italic> variant is associated with hemispheric overgrowth during fetal brain development.</p></list-item><list-item id="epi70088-li-0002"><p>The affected hemisphere presents with focal nodular heterotopias within the outer subventricular zone.</p></list-item><list-item id="epi70088-li-0003"><p>
+<italic toggle="yes">PTEN</italic> variant‐associated heterotopias consist of SATB2<sup>+</sup> neurons.</p></list-item></list>
+</p></boxed-text>
+</p><sec id="epi70088-sec-0003"><label>1</label><title>INTRODUCTION</title><p>The brain comprises a remarkable cell‐type diversity, which arises during embryonic and fetal development and provides the basis for adequate brain function. Errors in the tightly orchestrated process of brain development, for example, by generating distinct subtypes of neurons in wrong ratios, can result in neurodevelopmental malformations and neurological diseases including epilepsy.<xref rid="epi70088-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>
+</p><p>Alterations in PTEN signaling, an essential regulator of cell growth, proliferation, survival, and metabolic activity, are known to cause brain malformations and neurological diseases of developmental origin. Depending on the time point/cell type in which respective mutations occur, altered PTEN signaling results in a spectrum of defects ranging from focal cortical dysplasia to hemimegalencephaly (HME) and macrocephaly.<xref rid="epi70088-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>, <xref rid="epi70088-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>, <xref rid="epi70088-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref> HME is a rare <italic toggle="yes">PTEN</italic>‐associated neurodevelopmental disorder,<xref rid="epi70088-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>, <xref rid="epi70088-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref> characterized by overgrowth of one hemisphere, developmental delay, and epileptic seizures.<xref rid="epi70088-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref> However, a detailed cellular and molecular understanding of the neuropathological underpinnings of HME and onset of neurological symptoms, particularly in fetuses, is still missing to date.</p><p>We have thus assessed the genetic, radiologic, and histologic features of a pronounced HME in a male fetus (gestational week [GW] 22) and provide a comprehensive characterization of the cellular alterations in this malformation, focusing on the cortex and the locally produced glutamatergic neurons. HME provides the unique opportunity to directly compare the unaffected and megalencephalic hemispheres derived from the same developmental time point, harboring the same gross genetic background, and that have undergone identical postmortem processing for magnetic resonance imaging (MRI), genetic, and histological analysis.</p></sec><sec sec-type="results" id="epi70088-sec-0004"><label>2</label><title>RESULTS</title><sec id="epi70088-sec-0005"><label>2.1</label><title>Hemisphere‐specific loss of heterozygosity of a novel <styled-content style="fixed-case" toggle="no">
+<italic toggle="no">PTEN</italic>
+</styled-content> variant</title><p>In utero fetal MRI (1.5 T) was performed at GW 20 + 5 to confirm the ultrasonographic suspicion of a unilateral and asymmetric enlargement of the entire right hemisphere with cortical dyslamination, as determined by loss of the normal T2‐high signal within the subplate (SP) zone (Figure <xref rid="epi70088-fig-0001" ref-type="fig">1A–D</xref>).<xref rid="epi70088-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref> Pregnancy was terminated at 22 weeks of gestation. A postmortem brain MRI (3 T) showed similar findings as in utero MRI (Figure <xref rid="epi70088-fig-0001" ref-type="fig">1E</xref>). In addition, subtle areas of irregular and undulating cortical plate (CP) surface, mainly along the medial frontobasal and medial occipital lobes, were noticed (Figure <xref rid="epi70088-fig-0001" ref-type="fig">1E</xref>). Both MRI examinations correlated with the gross macroscopic appearance of the brain, showing a similar pronounced enlargement and irregular surface of the right hemisphere as compared to the smooth and normal‐sized left hemisphere (Figure <xref rid="epi70088-fig-0001" ref-type="fig">1F–H</xref>).</p><fig position="float" fig-type="FIGURE" id="epi70088-fig-0001" orientation="portrait"><label>FIGURE 1</label><caption><p>Novel pathological <italic toggle="yes">PTEN</italic> variant in a fetus with hemimegalencephaly. (A–D) In utero evaluation. Selected coronal (A, B) and sagittal (C, D) T2‐weighted images from 1.5‐T in utero MRI examination of a fetus with hemimegalencephaly at gestational week (GW) 20 + 5 are shown. Distinct cortical zones can be discriminated based on signal intensity in the zoom‐ins. The enlarged right hemisphere shows an almost homogeneous signal across all cortical zones, thus not allowing discrimination between particular zones such as the ventricular zone (VZ), the subventricular zone (SVZ), the subplate (SP), and the cortical plate (CP). (E–H) Postmortem evaluation. (E) T2‐weighted axial image of 3‐T postmortem magnetic resonance imaging (MRI) of the fetal brain at GW 22, correlating with the observations gained from (F) macroscopic coronal section of the same brain. (G, H) Postmortem whole‐mount photographs of the lateral view of the fetal brain, correlating well with the in utero MRI findings shown in panels C and D. (I–K) Genetic evaluation. (I) Results from trio exome sequencing (ES) following amniocentesis identified a heterozygous de novo point variant in <italic toggle="yes">PTEN</italic> (c.1036 T&gt;G). (J) Schematic of the PTEN protein, indicating the location of the amino acid substitution in the PTEN protein caused by the c.1036 T&gt;G variant. (K) Results from TruSight Oncology 500 (TSO500) panel sequencing of DNA isolated from the formalin‐fixed hemispheres. FFPE, formalin‐fixed paraffin‐embedded; megalenc., megalencephaly; unaff., unaffected; PDZ‐BD, PDZ binding domain motif.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="EPI-67-e32-g002.jpg"/></fig><p>To perform a phenotype–genotype correlation, we first turned to the prenatal trio exome sequencing (ES) results, which were obtained after amniocentesis (Figure <xref rid="epi70088-fig-0001" ref-type="fig">1I</xref>). Trio ES identified a novel heterozygous de novo point variant in the phosphatase and tensin homolog (<italic toggle="yes">PTEN</italic>) gene (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="pmc:entrez-nucleotide" xlink:href="NM_000314.8">NM_000314.8</ext-link>: c.1036 T&gt;G; Figure <xref rid="epi70088-fig-0001" ref-type="fig">1I</xref>), causing an amino acid substitution in the C2 domain of the PTEN protein (p.Tyr346Asp; Figure <xref rid="epi70088-fig-0001" ref-type="fig">1J</xref>). Because PTEN serves as a negative regulator of mTOR signaling, <italic toggle="yes">PTEN</italic> loss‐of‐function variants typically result in overgrowth syndromes.<xref rid="epi70088-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>, <xref rid="epi70088-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>, <xref rid="epi70088-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>, <xref rid="epi70088-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref> However, a dominant‐negative germline variant in <italic toggle="yes">PTEN</italic> should result in a whole‐body overgrowth. Instead, the fetus showed no signs of peripheral organ abnormalities and displayed normal body length as compared to healthy fetuses of the same developmental stage (<xref rid="epi70088-supitem-0001" ref-type="supplementary-material">Supplemental Material</xref>) but had a unilateral HME phenotype where only one hemisphere overgrew, thus suggesting the presence of a second somatic hit or synergizing mutations in the affected hemisphere.<xref rid="epi70088-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>
+</p><p>To uncover hemisphere‐specific somatic mutations, we isolated DNA from formalin‐fixed paraffin‐embedded brain tissue of the unaffected and the affected hemisphere and performed next generation sequencing using TruSight Oncology 500 panel sequencing (Figure <xref rid="epi70088-fig-0001" ref-type="fig">1K</xref>, Table <xref rid="epi70088-supitem-0002" ref-type="supplementary-material">S1</xref>). In the unaffected hemisphere, we found an allelic frequency of 49.31% for the <italic toggle="yes">PTEN</italic> c.1036 T&gt;G variant, thus reflecting the heterozygous germline mutation that was already discovered by trio ES (Figure <xref rid="epi70088-fig-0001" ref-type="fig">1K</xref>). Importantly, the megalencephalic hemisphere showed an allelic frequency of 88.06% for the <italic toggle="yes">PTEN</italic> c.1036 T&gt;G variant, consistent with loss of heterozygosity in the neuronal lineage (Figure <xref rid="epi70088-fig-0001" ref-type="fig">1K</xref>, Table <xref rid="epi70088-supitem-0002" ref-type="supplementary-material">S1</xref>). As a result, we assume that the neuronal lineage of the megalencephalic hemisphere carries the <italic toggle="yes">PTEN</italic> c.1036 T&gt;G variant in a biallelic manner, and that other lineages, such as endothelial cells and immune cells, carry the heterozygous germline variant. We thus refer to the unaffected hemisphere as <italic toggle="yes">PTEN</italic>
+<sup>
+<italic toggle="yes">+/−</italic>
+</sup> and to the megalencephalic hemisphere as <italic toggle="yes">PTEN</italic>
+<sup>
+<italic toggle="yes">−/−</italic>
+</sup>.</p></sec><sec id="epi70088-sec-0006"><label>2.2</label><title>Biallelic <styled-content style="fixed-case" toggle="no">
+<italic toggle="no">PTEN</italic>
+</styled-content> variant causes reduced <styled-content style="fixed-case" toggle="no">PTEN</styled-content> signaling and nodular heterotopias in the overgrown hemisphere</title><p>To validate our hypothesis of the biallelic <italic toggle="yes">PTEN</italic> c.1036 T&gt;G variant resulting in reduced PTEN levels/activity, we performed PTEN immunostaining. The biallelic variant resulted in strongly diminished PTEN immunoreactivity (Figure <xref rid="epi70088-fig-0002" ref-type="fig">2A</xref>), which correlated with tissue enlargement (Figures <xref rid="epi70088-fig-0001" ref-type="fig">1</xref> and <xref rid="epi70088-fig-0002" ref-type="fig">2B</xref>) and was in line with the known role of <italic toggle="yes">PTEN</italic> loss of function in overgrowth syndromes.<xref rid="epi70088-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref> Based on these results we infer that the c.1036 T&gt;G variant is pathogenic upon biallelic alteration. According to the American College of Medical Genetics and Genomics criteria, we thus classify the variant as “likely pathogenic” (Table <xref rid="epi70088-supitem-0002" ref-type="supplementary-material">S1</xref>).<xref rid="epi70088-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>
+</p><fig position="float" fig-type="FIGURE" id="epi70088-fig-0002" orientation="portrait"><label>FIGURE 2</label><caption><p>Histological appearance of <italic toggle="yes">PTEN</italic>‐associated hemimegalencephaly. (A) PTEN staining of the unaffected (<italic toggle="yes">PTEN</italic>
+<sup>
+<italic toggle="yes">+/−</italic>
+</sup>) and the affected hemisphere (<italic toggle="yes">PTEN</italic>
+<sup>
+<italic toggle="yes">−/−</italic>
+</sup>). (B) Hematoxylin staining of the unaffected and the <italic toggle="yes">PTEN</italic>
+<sup>
+<italic toggle="yes">−/−</italic>
+</sup> hemisphere and identification of the different zones of the fetal cortex. Orange arrowheads highlight nodular heterotopias localized in the outer subventricular zone (oSVZ) of the <italic toggle="yes">PTEN</italic>
+<sup>
+<italic toggle="yes">−/−</italic>
+</sup> hemisphere. (C) High‐resolution images of immunofluorescent staining of representative nodular heterotopia, showing (top panel) layer V neuron marker CTIP2 (green) and layer II–III neuron marker BRN2 (red), (middle panel) apical radial glial progenitor marker PAX6 (red) and autofluorescence (AF; green), and (lower panel) intermediate progenitor marker TBR2 (green) and layer II–IV neuron marker SATB2 (red), together with nuclear stain (4,6‐diamidino‐2‐phenylindole, blue). Scale bars for panels A and B: 250 μm; scale bars for panel C: 20 μm. CP, cortical plate; GW, gestational week; iSVZ, inner subventricular zone; IZ, intermediate zone; MZ, marginal zone; SP, subplate; VZ, ventricular zone.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="EPI-67-e32-g001.jpg"/></fig><p>Next, we used nuclear staining with hematoxylin on histological sections to discriminate between the different zones of the developing fetal neocortex based on cell density (according to the developing human brain atlas; Figure <xref rid="epi70088-fig-0002" ref-type="fig">2B</xref>).<xref rid="epi70088-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="epi70088-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref> We detected nodular heterotopias specifically located in the outer subventricular zone (oSVZ) of the megalencephalic hemisphere (arrowheads, Figure <xref rid="epi70088-fig-0002" ref-type="fig">2B</xref>). The heterotopias were not visible on MRI, likely reflecting limited sensitivity at this developmental stage. Additionally, the CP of the <italic toggle="yes">PTEN</italic>
+<sup>
+<italic toggle="yes">−/−</italic>
+</sup> hemisphere showed features of cortical dyslamination and an irregular surface with many fingerlike protrusions, which correlated well with the MRI observations (Figures <xref rid="epi70088-fig-0001" ref-type="fig">1E</xref> and <xref rid="epi70088-fig-0002" ref-type="fig">2B</xref>).</p><p>To gain a deeper understanding of the nodular heterotopias occurring in <italic toggle="yes">PTEN</italic>‐associated HME, we stained for cell type‐specific markers (Figure <xref rid="epi70088-fig-0002" ref-type="fig">2C</xref>), using anti‐PAX6 antibody to identify apical radial glial progenitors and anti‐TBR2 antibody for intermediate progenitors.<xref rid="epi70088-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>, <xref rid="epi70088-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> Cortical projection neurons were discriminated based on CTIP2 (early born subcerebral neurons located in layer V), SATB2 (late born callosal neurons in layers II–IV), and BRN2 (late born corticocortical neurons in layer II–III) immunostaining.<xref rid="epi70088-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>, <xref rid="epi70088-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref> We could not detect any progenitor cell subtypes within the heterotopias as determined by absence of PAX6<sup>+</sup> or TBR2<sup>+</sup> cells, suggesting that these ectopic cells consisted of neurons. We found the heterotopias to almost exclusively harbor upper layer glutamatergic SATB2<sup>+</sup> cells and not lower layer CTIP2<sup>+</sup> or upper layer BRN2<sup>+</sup> cells (Figure <xref rid="epi70088-fig-0002" ref-type="fig">2C</xref>). Further immunohistochemistry stainings with interneuron markers (calbindin, calretinin, GAD67, somatostatin; Figure <xref rid="epi70088-supitem-0001" ref-type="supplementary-material">S1</xref>)<xref rid="epi70088-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref> showed that the heterotopias did not display interneuron enrichment, thus strengthening the evidence of a glutamatergic lineage phenotype in the <italic toggle="yes">PTEN<sup>−/−</sup>
+</italic> hemisphere.</p></sec></sec><sec sec-type="discussion" id="epi70088-sec-0007"><label>3</label><title>DISCUSSION</title><p>Our study provides novel insights into the asymmetric genetic and cellular alterations occurring in a case of HME. Many <italic toggle="yes">PTEN</italic>‐associated diseases are caused by dominant‐negative <italic toggle="yes">PTEN</italic> variants.<xref rid="epi70088-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref> However, here we describe a new <italic toggle="yes">PTEN</italic> c.1036 T&gt;G variant and unravel its pathogenicity in the biallelic state directly from the affected tissue by means of next generation sequencing.</p><p>Although a heterozygous germline variant could be responsible for a more systemic phenotype, the fetus did not present with further pathologies other than the pronounced hemimegalencephaly (see autopsy report in the <xref rid="epi70088-supitem-0001" ref-type="supplementary-material">Supplemental Material</xref>). We thus interpret that the heterozygous germline variant is not pathogenic and therefore does not cause a systemic phenotype, at least at this developmental stage.</p><p>The megalencephalic hemisphere showed an irregular cortical plate/marginal zone boundary. A recent study using cerebral organoids was able to show that a pathogenic <italic toggle="yes">PTEN</italic> loss‐of‐function mutation increased the proliferation potential of cortical progenitors, inducing expansion and folding during corticogenesis.<xref rid="epi70088-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref> The folded organoids contained expanded ventricular zone (VZ) and oSVZ progenitors, as well as delayed neural differentiation,<xref rid="epi70088-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref> similar to what we found in the megalencephalic hemisphere of the presented fetus.</p><p>The oSVZ of the <italic toggle="yes">PTEN</italic>
+<sup>
+<italic toggle="yes">−/−</italic>
+</sup> cortex contains small focal heterotopias, which consist of SATB2<sup>+</sup> glutamatergic neurons. Neuronal nodular heterotopias are a source of altered neuronal circuits causing focal seizure activity<xref rid="epi70088-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref> and have been described in HME before.<xref rid="epi70088-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> However, heterotopia cell composition may vary in a patient‐ and/or <italic toggle="yes">PTEN</italic> variant‐specific manner. Whereas we identified mainly a glutamatergic neuronal phenotype in the fetus, as determined by the presence of SATB2<sup>+</sup> neurons in the nodular heterotopias, Hannan et al.<xref rid="epi70088-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> found an enrichment of γ‐aminobutyric acidergic interneurons in the heterotopias of four postnatal HME cases. This hypothesis is supported by a recent report on a case of HME with epilepsy, harboring distinct <italic toggle="yes">PTEN</italic> variants in different regions of the cortex and showing variant‐specific alterations of the cellular composition in affected cortical areas.<xref rid="epi70088-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref> Because we did not perform ultradeep sequencing as reported by Sanders et al.,<xref rid="epi70088-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref> we cannot formally rule out that heterotopias may consist of genetically distinct cells with additional low‐level somatic pathogenic variants (allelic frequency &lt;5%). Yet, the expansion of the cortical VZ and oSVZ, as well as our histological assessment of glutamatergic and inhibitory neurons, provides strong evidence that the presented case mainly harbors a glutamatergic lineage phenotype.</p><p>Importantly, the heterotopias in the <italic toggle="yes">PTEN</italic>
+<sup>
+<italic toggle="yes">−/−</italic>
+</sup> fetal hemisphere could not be detected using MRI. Yet, they were clearly visible in histological sections. Our data thus underline the necessity to study brain malformations with both radiological and histological methods for a precise integrated diagnosis.</p></sec><sec id="epi70088-sec-0008"><title>AUTHOR CONTRIBUTIONS</title><p>Franziska Fazekas and Nicole Amberg designed the research project, performed histological analyses, and coordinated data collection. Bernhard Hennebichler coordinated the DNA isolation from formalin‐fixed paraffin‐embedded tissue and subsequent TruSight Oncology 500 panel sequencing. Thomas Roetzer‐Pejrimovsky performed TSO500 result interpretation. Amit Haboosheh, Christian Mitter, and Gregor Kasprian performed MRI assessment. Christof Worda, Julia Binder, Theresa Reischer, Tina Linder, and Alex Farr performed the clinical patient counseling. Mateja Pfeifer coordinated the trio ES screening of DNA isolated following amniocentesis. Anke Scharrer performed the fetal autopsy. Romana Höftberger, Ellen Gelpi, and Christine Haberler performed the diagnostic neuropathological examinations and provided neuropathological expertise. Franziska Fazekas, Amit Haboosheh, and Nicole Amberg wrote the manuscript with input from all coauthors. Franziska Fazekas and Nicole Amberg prepared the figures with input from all coauthors.</p></sec><sec id="epi70088-sec-0010"><title>FUNDING INFORMATION</title><p>N.A. received funding from the FWF (Elise Richter program, grant V1041T).</p></sec><sec sec-type="COI-statement" id="epi70088-sec-0011"><title>CONFLICT OF INTEREST STATEMENT</title><p>The authors have no competing interests. We confirm that we have read the Journal's position on issues involved in ethical publication and affirm that this report is consistent with those guidelines.</p></sec><sec id="epi70088-sec-0014"><title>ETHICS APPROVAL</title><p>The present study was approved by the ethics committee of the Medical University of Vienna (EK 1161/2018). This study is part of the Neurobiobank of the Division of Neuropathology and Neurochemistry, Department of Neurology, Medical University of Vienna. Research use of biobanked samples was approved by the ethics committee of the Medical University of Vienna (EK 1636/2019), which provides a common broad consent (biobank consent) according to the Austrian Research Organization Act 2018, §2d, para 3.</p></sec><sec id="epi70088-sec-0015"><title>CONSENT FOR PUBLICATION</title><p>Family members have consented to publication as part of their consent for tissue archiving in our neurobiobank (EK 1636/2019).</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="epi70088-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>
+DATA S1.
+</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="EPI-67-e32-s002.docx" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="epi70088-supitem-0002" position="float" content-type="local-data" orientation="portrait"><caption><p>
+TABLE S1.
+</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="EPI-67-e32-s001.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="epi70088-sec-0009"><title>ACKNOWLEDGMENTS</title><p>We thank Irene Erber and Michaela Kreiter for technical assistance. Parts of Figure <xref rid="epi70088-fig-0001" ref-type="fig">1K</xref> were generated with icons derived from BioRender. Open Access funding provided by Medizinische Universitat Wien/KEMÖ.</p></ack><sec sec-type="data-availability" id="epi70088-sec-0013"><title>DATA AVAILABILITY STATEMENT</title><p>The trio ES data that support the findings of this study are available on request from the corresponding author. The data are not publicly available because of privacy or ethical restrictions.</p></sec><ref-list content-type="cited-references" id="epi70088-bibl-0001"><title>REFERENCES</title><ref id="epi70088-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="epi70088-cit-0001">
+<string-name name-style="western">
+<surname>Siletti</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hodge</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mossi Albiach</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lee</surname>
+<given-names>KW</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ding</surname>
+<given-names>S‐L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hu</surname>
+<given-names>L</given-names>
+</string-name>, et al. <article-title>Transcriptomic diversity of cell types across the adult human brain</article-title>. <source>Science</source>. <year>2023</year>;<volume>382</volume>(<issue>6667</issue>):<elocation-id>eadd7046</elocation-id>.<pub-id pub-id-type="pmid">37824663</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1126/science.add7046</pub-id></mixed-citation></ref><ref id="epi70088-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="epi70088-cit-0002">
+<string-name name-style="western">
+<surname>Bizzotto</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Walsh</surname>
+<given-names>CA</given-names>
+</string-name>. <article-title>Genetic mosaicism in the human brain: from lineage tracing to neuropsychiatric disorders</article-title>. <source>Nat Rev Neurosci</source>. <year>2022</year>;<volume>23</volume>(<issue>5</issue>):<fpage>275</fpage>–<lpage>286</lpage>.<pub-id pub-id-type="pmid">35322263</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41583-022-00572-x</pub-id></mixed-citation></ref><ref id="epi70088-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="epi70088-cit-0003">
+<string-name name-style="western">
+<surname>Garcia</surname>
+<given-names>CAB</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Carvalho</surname>
+<given-names>SCS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yang</surname>
+<given-names>X</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ball</surname>
+<given-names>LL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>George</surname>
+<given-names>RD</given-names>
+</string-name>, <string-name name-style="western">
+<surname>James</surname>
+<given-names>KN</given-names>
+</string-name>, et al. <article-title>mTOR pathway somatic variants and the molecular pathogenesis of hemimegalencephaly</article-title>. <source>Epilepsia Open</source>. <year>2020</year>;<volume>5</volume>(<issue>1</issue>):<fpage>97</fpage>–<lpage>106</lpage>.<pub-id pub-id-type="pmid">32140648</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/epi4.12377</pub-id><pub-id pub-id-type="pmcid">PMC7049797</pub-id></mixed-citation></ref><ref id="epi70088-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="epi70088-cit-0004">
+<string-name name-style="western">
+<surname>Jansen</surname>
+<given-names>LA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mirzaa</surname>
+<given-names>GM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ishak</surname>
+<given-names>GE</given-names>
+</string-name>, <string-name name-style="western">
+<surname>O'Roak</surname>
+<given-names>BJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hiatt</surname>
+<given-names>JB</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Roden</surname>
+<given-names>WH</given-names>
+</string-name>, et al. <article-title>PI3K/AKT pathway mutations cause a spectrum of brain malformations from megalencephaly to focal cortical dysplasia</article-title>. <source>Brain</source>. <year>2015</year>;<volume>138</volume>(<issue>Pt 6</issue>):<fpage>1613</fpage>–<lpage>1628</lpage>.<pub-id pub-id-type="pmid">25722288</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/brain/awv045</pub-id><pub-id pub-id-type="pmcid">PMC4614119</pub-id></mixed-citation></ref><ref id="epi70088-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="epi70088-cit-0005">
+<string-name name-style="western">
+<surname>Itoh</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pooh</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Shimokawa</surname>
+<given-names>O</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fushiki</surname>
+<given-names>S</given-names>
+</string-name>. <article-title>Somatic mosaicism of the PI3K‐AKT‐MTOR pathway is associated with hemimegalencephaly in fetal brains</article-title>. <source>Neuropathology</source>. <year>2023</year>;<volume>43</volume>(<issue>2</issue>):<fpage>190</fpage>–<lpage>196</lpage>.<pub-id pub-id-type="pmid">36325654</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/neup.12875</pub-id></mixed-citation></ref><ref id="epi70088-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="epi70088-cit-0006">
+<string-name name-style="western">
+<surname>Jaiswal</surname>
+<given-names>V</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hanif</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sarfraz</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nepal</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Naz</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mukherjee</surname>
+<given-names>D</given-names>
+</string-name>, et al. <article-title>Hemimegalencephaly: a rare congenital malformation of cortical development</article-title>. <source>Clin Case Reports</source>. <year>2021</year>;<volume>9</volume>(<issue>12</issue>):<elocation-id>e05238</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/ccr3.5238</pub-id><pub-id pub-id-type="pmcid">PMC8684578</pub-id><pub-id pub-id-type="pmid">34976397</pub-id></mixed-citation></ref><ref id="epi70088-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="epi70088-cit-0007">
+<string-name name-style="western">
+<surname>Ikeda</surname>
+<given-names>KM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mirsattari</surname>
+<given-names>SM</given-names>
+</string-name>. <article-title>Evolution of epilepsy in hemimegalencephaly from infancy to adulthood: case report and review of the literature</article-title>. <source>Epilepsy Behav Case Rep</source>. <year>2017</year>;<volume>7</volume>:<fpage>45</fpage>–<lpage>48</lpage>.<pub-id pub-id-type="pmid">28377884</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.ebcr.2017.02.002</pub-id><pub-id pub-id-type="pmcid">PMC5369267</pub-id></mixed-citation></ref><ref id="epi70088-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="epi70088-cit-0008">
+<string-name name-style="western">
+<surname>Pogledic</surname>
+<given-names>I</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mankad</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Severino</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lerman‐Sagie</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jakab</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hadi</surname>
+<given-names>E</given-names>
+</string-name>, et al. <article-title>Prenatal assessment of brain malformations on neuroimaging: an expert panel review</article-title>. <source>Brain</source>. <year>2024</year>;<volume>147</volume>(<issue>12</issue>):<fpage>3982</fpage>–<lpage>4002</lpage>.<pub-id pub-id-type="pmid">39054600</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/brain/awae253</pub-id><pub-id pub-id-type="pmcid">PMC11730443</pub-id></mixed-citation></ref><ref id="epi70088-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="epi70088-cit-0009">
+<string-name name-style="western">
+<surname>Koboldt</surname>
+<given-names>DC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Miller</surname>
+<given-names>KE</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Miller</surname>
+<given-names>AR</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bush</surname>
+<given-names>JM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>McGrath</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Leraas</surname>
+<given-names>K</given-names>
+</string-name>, et al. <article-title>PTEN somatic mutations contribute to spectrum of cerebral overgrowth</article-title>. <source>Brain</source>. <year>2021</year>;<volume>144</volume>(<issue>10</issue>):<fpage>2971</fpage>–<lpage>2978</lpage>.<pub-id pub-id-type="pmid">34048549</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/brain/awab173</pub-id><pub-id pub-id-type="pmcid">PMC8634064</pub-id></mixed-citation></ref><ref id="epi70088-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="epi70088-cit-0010">
+<string-name name-style="western">
+<surname>Mester</surname>
+<given-names>JL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ghosh</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pesaran</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Huether</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Karam</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hruska</surname>
+<given-names>KS</given-names>
+</string-name>, et al. <article-title>Gene‐specific criteria for PTEN variant curation: recommendations from the ClinGen PTEN expert panel</article-title>. <source>Hum Mutat</source>. <year>2018</year>;<volume>39</volume>(<issue>11</issue>):<fpage>1581</fpage>–<lpage>1592</lpage>.<pub-id pub-id-type="pmid">30311380</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/humu.23636</pub-id><pub-id pub-id-type="pmcid">PMC6329583</pub-id></mixed-citation></ref><ref id="epi70088-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="epi70088-cit-0011">
+<string-name name-style="western">
+<surname>Ding</surname>
+<given-names>SL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Royall</surname>
+<given-names>JJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lesnar</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Facer</surname>
+<given-names>BAC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Smith</surname>
+<given-names>KA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wei</surname>
+<given-names>Y</given-names>
+</string-name>, et al. <article-title>Cellular resolution anatomical and molecular atlases for prenatal human brains</article-title>. <source>J Comp Neurol</source>. <year>2022</year>;<volume>530</volume>(<issue>1</issue>):<fpage>6</fpage>–<lpage>503</lpage>.<pub-id pub-id-type="pmid">34525221</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/cne.25243</pub-id><pub-id pub-id-type="pmcid">PMC8716522</pub-id></mixed-citation></ref><ref id="epi70088-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="epi70088-cit-0012">
+<string-name name-style="western">
+<surname>Miller</surname>
+<given-names>JA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ding</surname>
+<given-names>SL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sunkin</surname>
+<given-names>SM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Smith</surname>
+<given-names>KA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ng</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Szafer</surname>
+<given-names>A</given-names>
+</string-name>, et al. <article-title>Transcriptional landscape of the prenatal human brain</article-title>. <source>Nature</source>. <year>2014</year>;<volume>508</volume>(<issue>7495</issue>):<fpage>199</fpage>–<lpage>206</lpage>.<pub-id pub-id-type="pmid">24695229</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nature13185</pub-id><pub-id pub-id-type="pmcid">PMC4105188</pub-id></mixed-citation></ref><ref id="epi70088-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="epi70088-cit-0013">
+<string-name name-style="western">
+<surname>Akula</surname>
+<given-names>SK</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Exposito‐Alonso</surname>
+<given-names>D</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Walsh</surname>
+<given-names>CA</given-names>
+</string-name>. <article-title>Shaping the brain: the emergence of cortical structure and folding</article-title>. <source>Dev Cell</source>. <year>2023</year>;<volume>58</volume>(<issue>24</issue>):<fpage>2836</fpage>–<lpage>2849</lpage>.<pub-id pub-id-type="pmid">38113850</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.devcel.2023.11.004</pub-id><pub-id pub-id-type="pmcid">PMC10793202</pub-id></mixed-citation></ref><ref id="epi70088-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="epi70088-cit-0014">
+<string-name name-style="western">
+<surname>Englund</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fink</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lau</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pham</surname>
+<given-names>D</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Daza</surname>
+<given-names>RAM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bulfone</surname>
+<given-names>A</given-names>
+</string-name>, et al. <article-title>Pax6, Tbr2, and Tbr1 are expressed sequentially by radial glia, intermediate progenitor cells, and postmitotic neurons in developing neocortex</article-title>. <source>J Neurosci</source>. <year>2005</year>;<volume>25</volume>(<issue>1</issue>):<fpage>247</fpage>–<lpage>251</lpage>.<pub-id pub-id-type="pmid">15634788</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1523/JNEUROSCI.2899-04.2005</pub-id><pub-id pub-id-type="pmcid">PMC6725189</pub-id></mixed-citation></ref><ref id="epi70088-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="epi70088-cit-0015">
+<string-name name-style="western">
+<surname>Han</surname>
+<given-names>W</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sestan</surname>
+<given-names>N</given-names>
+</string-name>. <article-title>Cortical projection neurons: sprung from the same root</article-title>. <source>Neuron</source>. <year>2013</year>;<volume>80</volume>(<issue>5</issue>):<fpage>1103</fpage>–<lpage>1105</lpage>.<pub-id pub-id-type="pmid">24314721</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.neuron.2013.11.016</pub-id><pub-id pub-id-type="pmcid">PMC3951749</pub-id></mixed-citation></ref><ref id="epi70088-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="epi70088-cit-0016">
+<string-name name-style="western">
+<surname>Klingler</surname>
+<given-names>E</given-names>
+</string-name>. <article-title>Temporal controls over cortical projection neuron fate diversity</article-title>. <source>Curr Opin Neurobiol</source>. <year>2023</year>;<volume>79</volume>:<elocation-id>102677</elocation-id>.<pub-id pub-id-type="pmid">36736108</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.conb.2023.102677</pub-id></mixed-citation></ref><ref id="epi70088-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="epi70088-cit-0017">
+<string-name name-style="western">
+<surname>Wonders</surname>
+<given-names>CP</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Anderson</surname>
+<given-names>SA</given-names>
+</string-name>. <article-title>The origin and specification of cortical interneurons</article-title>. <source>Nat Rev Neurosci</source>. <year>2006</year>;<volume>7</volume>(<issue>9</issue>):<fpage>687</fpage>–<lpage>696</lpage>.<pub-id pub-id-type="pmid">16883309</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nrn1954</pub-id></mixed-citation></ref><ref id="epi70088-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="epi70088-cit-0018">
+<string-name name-style="western">
+<surname>Rademacher</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Eickholt</surname>
+<given-names>BJ</given-names>
+</string-name>. <article-title>PTEN in autism and neurodevelopmental disorders</article-title>. <source>Cold Spring Harb Perspect Med</source>. <year>2019</year>;<volume>9</volume>(<issue>11</issue>):<elocation-id>a036780</elocation-id>.<pub-id pub-id-type="pmid">31427284</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1101/cshperspect.a036780</pub-id><pub-id pub-id-type="pmcid">PMC6824399</pub-id></mixed-citation></ref><ref id="epi70088-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="epi70088-cit-0019">
+<string-name name-style="western">
+<surname>Li</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Muffat</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Omer</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bosch</surname>
+<given-names>I</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lancaster</surname>
+<given-names>MA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sur</surname>
+<given-names>M</given-names>
+</string-name>, et al. <article-title>Induction of expansion and folding in human cerebral organoids</article-title>. <source>Cell Stem Cell</source>. <year>2017</year>;<volume>20</volume>(<issue>3</issue>):<fpage>385</fpage>–<lpage>396</lpage>.e383.<pub-id pub-id-type="pmid">28041895</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.stem.2016.11.017</pub-id><pub-id pub-id-type="pmcid">PMC6461394</pub-id></mixed-citation></ref><ref id="epi70088-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="epi70088-cit-0020">
+<string-name name-style="western">
+<surname>Sanders</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Koeleman</surname>
+<given-names>BPC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Brilstra</surname>
+<given-names>EH</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jansen</surname>
+<given-names>FE</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Baldassari</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chipaux</surname>
+<given-names>M</given-names>
+</string-name>, et al. <article-title>Somatic variant analysis of resected brain tissue in epilepsy surgery patients</article-title>. <source>Epilepsia</source>. <year>2024</year>;<volume>65</volume>(<issue>12</issue>):<fpage>e209</fpage>–<lpage>e215</lpage>.<pub-id pub-id-type="pmid">39460693</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/epi.18148</pub-id><pub-id pub-id-type="pmcid">PMC11647421</pub-id></mixed-citation></ref><ref id="epi70088-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="epi70088-cit-0021">
+<string-name name-style="western">
+<surname>Hannan</surname>
+<given-names>AJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Servotte</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Katsnelson</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sisodiya</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Blakemore</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Squier</surname>
+<given-names>M</given-names>
+</string-name>, et al. <article-title>Characterization of nodular neuronal heterotopia in children</article-title>. <source>Brain</source>. <year>1999</year>;<volume>122</volume>(<issue>Pt 2</issue>):<fpage>219</fpage>–<lpage>238</lpage>.<pub-id pub-id-type="pmid">10071051</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/brain/122.2.219</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

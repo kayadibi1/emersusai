@@ -1,0 +1,335 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41908257</PMID><DateCompleted><Year>2026</Year><Month>03</Month><Day>30</Day></DateCompleted><DateRevised><Year>2026</Year><Month>03</Month><Day>30</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Electronic">2515-4826</ISSN><JournalIssue CitedMedium="Internet"><Volume>9</Volume><PubDate><Year>2026</Year></PubDate></JournalIssue><Title>HRB open research</Title><ISOAbbreviation>HRB Open Res</ISOAbbreviation></Journal><ArticleTitle>"We are more than just a number": Mental health needs in the context of diabetes healthcare in Ireland.</ArticleTitle><Pagination><StartPage>2</StartPage><MedlinePgn>2</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">2</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.12688/hrbopenres.14301.1</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">People living with diabetes often experience diabetes-related distress and have a higher incidence of mental health problems such as depression. For this reason, assessment and treatment of mental health is an important part of complex diabetes care. In Ireland, the importance of mental health in diabetes care was recently illustrated by the new national healthcare guidelines. The current study investigated the mental health needs of people living with type 1 or type 2 diabetes in Ireland and the extent which these needs are met within existing healthcare provision.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">We organized two workshops where we collected written and oral responses through a survey and group discussions from 30 people diagnosed with diabetes. Likert-type scale responses were analyzed through frequency statistics while open answers were analyzed using a content analysis approach.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Two main themes were identified which related to mental health aspects of living with diabetes namely 1) the feelings of isolation, and 2) the burden of daily life disruptions. Participants believed that diabetes significantly affected mental health and that access to psychological support is important for people living with diabetes. Many participants were dissatisfied by the lack of opportunities to discuss wellbeing and diabetes-related distress with their general practitioner and wished for better access to mental health support services.</AbstractText><AbstractText Label="CONCLUSIONS" NlmCategory="UNASSIGNED">These findings suggest that some healthcare professionals tend to overlook mental health when treating people living with diabetes, an issue that may extend beyond Ireland. Further research is needed to identify and address the barriers preventing the integration of effective mental health assessments and interventions into routine healthcare practice.</AbstractText><CopyrightInformation>Copyright: &#xa9; 2026 Gottfried J et al.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Gottfried</LastName><ForeName>Jaroslav</ForeName><Initials>J</Initials><Identifier Source="ORCID">0000-0002-6076-1632</Identifier><AffiliationInfo><Affiliation>School of Psychology, University College Dublin, Dublin, Ireland.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Fitzgerald</LastName><ForeName>Amanda</ForeName><Initials>A</Initials><Identifier Source="ORCID">0000-0001-6873-5474</Identifier><AffiliationInfo><Affiliation>School of Psychology, University College Dublin, Dublin, Ireland.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Flynn</LastName><ForeName>Gr&#xe1;inne</ForeName><Initials>G</Initials><Identifier Source="ORCID">0009-0006-1853-3106</Identifier><AffiliationInfo><Affiliation>Thriveabetes, Ennis, Ireland.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gajewska</LastName><ForeName>Katarzyna</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Diabetes Ireland, Dublin, Ireland.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lloyd</LastName><ForeName>Cathy</ForeName><Initials>C</Initials><Identifier Source="ORCID">0000-0002-8863-3069</Identifier><AffiliationInfo><Affiliation>Faculty of Wellbeing, Education &amp; Language Studies, The Open University, Milton Keynes, UK.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Nouwen</LastName><ForeName>Arie</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Department of Psychology, Middlesex University, London, UK.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>O'Donnell</LastName><ForeName>Shane</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>School of Business, University College Dublin, Dublin, Ireland.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Power</LastName><ForeName>Siobhan</ForeName><Initials>S</Initials><Identifier Source="ORCID">0009-0001-9882-490X</Identifier><AffiliationInfo><Affiliation>School of Psychology, University College Dublin, Dublin, Ireland.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Rodrigues</LastName><ForeName>Ricardo</ForeName><Initials>R</Initials><AffiliationInfo><Affiliation>ISEG Research, ISEG Lisbon School of Economics &amp; Management, Universidade de Lisboa, Lisbon, Portugal.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Schmitz</LastName><ForeName>Norbert</ForeName><Initials>N</Initials><AffiliationInfo><Affiliation>Population-based medicine, Tubingen University, T&#xfc;bingen, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Desch&#xea;nes</LastName><ForeName>Sonya</ForeName><Initials>S</Initials><Identifier Source="ORCID">0000-0002-9258-0895</Identifier><AffiliationInfo><Affiliation>School of Psychology, University College Dublin, Dublin, Ireland.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>01</Month><Day>05</Day></ArticleDate></Article><MedlineJournalInfo><Country>Ireland</Country><MedlineTA>HRB Open Res</MedlineTA><NlmUniqueID>101754913</NlmUniqueID><ISSNLinking>2515-4826</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Diabetes</Keyword><Keyword MajorTopicYN="N">content analysis</Keyword><Keyword MajorTopicYN="N">diabetes distress</Keyword><Keyword MajorTopicYN="N">mental health</Keyword><Keyword MajorTopicYN="N">wellbeing</Keyword></KeywordList><CoiStatement>No competing interests were disclosed.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>12</Month><Day>22</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>30</Day><Hour>12</Hour><Minute>50</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>30</Day><Hour>12</Hour><Minute>49</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>30</Day><Hour>6</Hour><Minute>25</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>1</Month><Day>5</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41908257</ArticleId><ArticleId IdType="pmc">PMC13019041</ArticleId><ArticleId IdType="doi">10.12688/hrbopenres.14301.1</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+Alzoubi A, Abunaser R, Khassawneh A, et al. :
+The bidirectional relationship between diabetes and depression: a literature review.
+
+<i>Korean J Fam Med.</i>
+
+2018;39(3):137&#x2013;146.
+10.4082/kjfm.2018.39.3.137
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4082/kjfm.2018.39.3.137</ArticleId><ArticleId IdType="pmc">PMC5975983</ArticleId><ArticleId IdType="pubmed">29788701</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Brown J, Isaacs D:
+The World Caf&#xe9;: living knowledge through conversations that matter.
+
+<i>Syst Thinker.</i>
+
+2001;12(5). Accessed 15th August 2025.
+Reference Source
+</Citation></Reference><Reference><Citation>
+Central Statistics Office:
+Population and migration estimates, April 2024. August 27,2024.
+Reference Source
+</Citation></Reference><Reference><Citation>
+de Groot M, Anderson R, Freedland KE, et al. :
+Association of depression and diabetes complications: a meta-analysis.
+
+<i>Psychosom Med.</i>
+
+2001;63(4):619&#x2013;30.
+10.1097/00006842-200107000-00015
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00006842-200107000-00015</ArticleId><ArticleId IdType="pubmed">11485116</ArticleId></ArticleIdList></Reference><Reference><Citation>
+DeCoster VA:
+The emotions of adults with diabetes: a comparison across race.
+
+<i>Soc Work Health Care.</i>
+
+2003;36(4):79&#x2013;99.
+10.1300/J010v36n04_05
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1300/J010v36n04_05</ArticleId><ArticleId IdType="pubmed">12836781</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Delamater AM, de Wit M, McDarby V, et al. :
+ISPAD clinical practice consensus guidelines 2018: psychological care of children and adolescents with type 1 diabetes.
+
+<i>Pediatr Diabetes.</i>
+
+2018;19(27):237&#x2013;249.
+10.1111/pedi.12736
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/pedi.12736</ArticleId><ArticleId IdType="pubmed">30058247</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Department of Health:
+National clinical guideline no. 17.2024.
+Reference Source
+</Citation></Reference><Reference><Citation>
+Desch&#xea;nes SS, McInerney A, Nearchou F, et al. :
+Prediabetes and the risk of type 2 diabetes: investigating the roles of depressive and anxiety symptoms in the Lifelines cohort study.
+
+<i>Diabet Med.</i>
+
+2023;40(7):
+e15061.
+10.1111/dme.15061
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/dme.15061</ArticleId><ArticleId IdType="pubmed">36751973</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Eilander M, de Wit M, Rotteveel J, et al. :
+Implementation of quality of life monitoring in Dutch routine care of adolescents with type 1 diabetes: appreciated but difficult.
+
+<i>Pediatr Diabetes.</i>
+
+2016;17(2):112&#x2013;119.
+10.1111/pedi.12237
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/pedi.12237</ArticleId><ArticleId IdType="pubmed">25580639</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Elo S, Kyng&#xe4;s H:
+The qualitative content analysis process.
+
+<i>J Adv Nurs.</i>
+
+2008;62(1):107&#x2013;115.
+10.1111/j.1365-2648.2007.04569.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1365-2648.2007.04569.x</ArticleId><ArticleId IdType="pubmed">18352969</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Erlingsson C, Brysiewicz P:
+A hands-on guide to doing content analysis.
+
+<i>Afr J Emerg Med.</i>
+
+2017;7(3):93&#x2013;99.
+10.1016/j.afjem.2017.08.001
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.afjem.2017.08.001</ArticleId><ArticleId IdType="pmc">PMC6234169</ArticleId><ArticleId IdType="pubmed">30456117</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Farooqi A, Gillies C, Sathanapally H, et al. :
+A systematic review and meta-analysis to compare the prevalence of depression between people with and without type 1 and type 2 diabetes.
+
+<i>Prim Care Diabetes.</i>
+
+2022;16(1):1&#x2013;10.
+10.1016/j.pcd.2021.11.001
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pcd.2021.11.001</ArticleId><ArticleId IdType="pubmed">34810141</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Feng X, Astell-Burt T:
+Impact of a type 2 diabetes diagnosis on mental health, quality of life, and social contacts: a longitudinal study.
+
+<i>BMJ Open Diabetes Res Care.</i>
+
+2017;5(1):
+e000198.
+10.1136/bmjdrc-2016-000198
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmjdrc-2016-000198</ArticleId><ArticleId IdType="pmc">PMC5316913</ArticleId><ArticleId IdType="pubmed">28243446</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fisher L, Polonsky WH, Hessler D:
+Addressing diabetes distress in clinical care: a practical guide.
+
+<i>Diabet Med.</i>
+
+2019;36(7):803&#x2013;812.
+10.1111/dme.13967
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/dme.13967</ArticleId><ArticleId IdType="pubmed">30985025</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Garrett C, Doherty A:
+Diabetes and mental health.
+
+<i>Clin Med (Lond).</i>
+
+2014;14(6):669&#x2013;672.
+10.7861/clinmedicine.14-6-669
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7861/clinmedicine.14-6-669</ArticleId><ArticleId IdType="pmc">PMC4954143</ArticleId><ArticleId IdType="pubmed">25468856</ArticleId></ArticleIdList></Reference><Reference><Citation>Gottfried J, Fitzgerald A, Flynn G, et al. : Diabetes and mental health workshop data. [Dataset].2025. 10.17605/OSF.IO/V2AW3</Citation><ArticleIdList><ArticleId IdType="doi">10.17605/OSF.IO/V2AW3</ArticleId></ArticleIdList></Reference><Reference><Citation>Gottfried J, Gajewska K, Hern&#xe1;ndez B, et al. : Diabetes and depressive symptoms: examining the potential roles of country-level and individual-level factors across European countries. [Manuscript in review].2025a.</Citation></Reference><Reference><Citation>
+Gottfried J, Gajewska K, Hern&#xe1;ndez B, et al. :
+Prospective associations between diabetes and depressive symptoms across European regions: a secondary analysis of ELSA, TILDA, and SHARE datasets.
+
+<i>Eur J Public Health.</i>
+
+2025b;35(6):1264&#x2013;1270.
+10.1093/eurpub/ckaf132
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/eurpub/ckaf132</ArticleId><ArticleId IdType="pmc">PMC12707472</ArticleId><ArticleId IdType="pubmed">41021297</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Guerrero Fern&#xe1;ndez de Alba I, Gimeno-Miguel A, Poblador-Plou B, et al. :
+Association between mental health comorbidity and health outcomes in type 2 diabetes mellitus patients.
+
+<i>Sci Rep.</i>
+
+2020;10(1):
+19583.
+10.1038/s41598-020-76546-9
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-020-76546-9</ArticleId><ArticleId IdType="pmc">PMC7658226</ArticleId><ArticleId IdType="pubmed">33177607</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Health Service Executive:
+Diabetes.2025.
+Reference Source
+</Citation></Reference><Reference><Citation>
+Hendrieckx C, Halliday J, Beeney L, et al. :
+Diabetes and emotional health: a practical guide for healthcare professionals supporting adults with Type 1 and Type 2 diabetes. (2nd ed.). Diabetes UK,2019.
+Reference Source
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7060499</ArticleId><ArticleId IdType="pubmed">32130112</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Hyland P, Valli&#xe8;res F, Shevlin M, et al. :
+State of Ireland&#x2019;s mental health: findings from a nationally representative survey.
+
+<i>Epidemiol Psychiatr Sci.</i>
+
+2022;31:e47.
+10.1017/S2045796022000312
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1017/S2045796022000312</ArticleId><ArticleId IdType="pmc">PMC9281488</ArticleId><ArticleId IdType="pubmed">35773999</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Khaledi M, Haghighatdoost F, Feizi A, et al. :
+The prevalence of comorbid depression in patients with type 2 diabetes: an updated systematic review and meta-analysis on huge number of observational studies.
+
+<i>Acta Diabetol.</i>
+
+2019;56(6):631&#x2013;650.
+10.1007/s00592-019-01295-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00592-019-01295-9</ArticleId><ArticleId IdType="pubmed">30903433</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Li C, Ford ES, Zhao G, et al. :
+Undertreatment of mental health problems in adults with diagnosed diabetes and serious psychological distress: the behavioral risk factor surveillance system, 2007.
+
+<i>Diabetes Care.</i>
+
+2010;33(5):1061&#x2013;1064.
+10.2337/dc09-1515
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/dc09-1515</ArticleId><ArticleId IdType="pmc">PMC2858175</ArticleId><ArticleId IdType="pubmed">20185747</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Lumivero:
+NVivo (Version 1.7.1) [Computer software].2022.
+Reference Source
+</Citation></Reference><Reference><Citation>
+Lynch D:
+HSE team appointed to develop diabetes registry.
+<i>The Medical Independent</i>. March 10,2025.
+Reference Source
+</Citation></Reference><Reference><Citation>
+McInerney AM, Lindekilde N, Nouwen A, et al. :
+Diabetes distress, depressive symptoms, and anxiety symptoms in people with type 2 diabetes: a network analysis approach to understanding comorbidity.
+
+<i>Diabetes Care.</i>
+
+2022;45(8):1715&#x2013;1723.
+10.2337/dc21-2297
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/dc21-2297</ArticleId><ArticleId IdType="pubmed">35704532</ArticleId></ArticleIdList></Reference><Reference><Citation>
+National Clinical Programme for Diabetes:
+Integrated model of care for people with type 2 diabetes mellitus.2024.
+Reference Source
+</Citation></Reference><Reference><Citation>
+Olshansky E, Sacco D, Fitzgerald K, et al. :
+Living with Diabetes.
+
+<i>Diabetes Educ.</i>
+
+2008;34(6):1004&#x2013;1012.
+10.1177/0145721708327304
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0145721708327304</ArticleId><ArticleId IdType="pubmed">19075082</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Paterson B, Thorne S, Crawford J, et al. :
+Living with diabetes as a transformational experience.
+
+<i>Qual Health Res.</i>
+
+1999;9(6):786&#x2013;802.
+10.1177/104973299129122289
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/104973299129122289</ArticleId><ArticleId IdType="pubmed">10662259</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Pera PI:
+Living with diabetes: quality of care and quality of life.
+
+<i>Patient Prefer Adherence.</i>
+
+2011;5:65&#x2013;72.
+10.2147/PPA.S16551
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/PPA.S16551</ArticleId><ArticleId IdType="pmc">PMC3058603</ArticleId><ArticleId IdType="pubmed">21423590</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Polonsky WH, Fisher L, Earles J, et al. :
+Assessing psychosocial distress in diabetes: development of the diabetes distress scale.
+
+<i>Diabetes Care.</i>
+
+2005;28(3):626&#x2013;631.
+10.2337/diacare.28.3.626
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diacare.28.3.626</ArticleId><ArticleId IdType="pubmed">15735199</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Robinson DJ, Coons M, Haensel H, et al. :
+Diabetes and mental health.
+
+<i>Can J Diabetes.</i>
+
+2018;42 Suppl 1:S130&#x2013;S141.
+10.1016/j.jcjd.2017.10.031
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jcjd.2017.10.031</ArticleId><ArticleId IdType="pubmed">29650085</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Robinson DJ, Hanson K, Jain AB, et al. :
+Diabetes and mental health.
+
+<i>Can J Diabetes.</i>
+
+2023;47(4):308&#x2013;344.
+10.1016/j.jcjd.2023.04.009
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jcjd.2023.04.009</ArticleId><ArticleId IdType="pubmed">37321702</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Scottish Diabetes Group:
+Scottish diabetes survey 2023.NHS Scotland,2023.
+Reference Source
+</Citation></Reference><Reference><Citation>
+Skinner TC, Joensen L, Parkin T:
+Twenty-five years of diabetes distress research.
+
+<i>Diabet Med.</i>
+
+2020;37(3):393&#x2013;400.
+10.1111/dme.14157
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/dme.14157</ArticleId><ArticleId IdType="pubmed">31638279</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Snoek FJ:
+Mental health in diabetes care. Time to step up.
+
+<i>Front Clin Diabetes Healthc.</i>
+
+2022;3:
+1039192.
+10.3389/fcdhc.2022.1039192
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fcdhc.2022.1039192</ArticleId><ArticleId IdType="pmc">PMC10012141</ArticleId><ArticleId IdType="pubmed">36992782</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Speight J, Hermanns N, Jensen W, et al. :
+2026 EASD evidence-based clinical practice guideline for assessing and managing diabetes distress among adults with type 1 diabetes and type 2 diabetes.European Association for the Study of Diabetes,2025.
+Reference Source
+</Citation></Reference><Reference><Citation>
+Sun H, Saeedi P, Karuranga S, et al. :
+IDF Diabetes Atlas: global, regional and country-level diabetes prevalence estimates for 2021 and projections for 2045.
+
+<i>Diabetes Res Clin Pract.</i>
+
+2022;183:
+109119.
+10.1016/j.diabres.2021.109119
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.diabres.2021.109119</ArticleId><ArticleId IdType="pmc">PMC11057359</ArticleId><ArticleId IdType="pubmed">34879977</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Trief PM, Sandberg J, Greenberg RP, et al. :
+Describing support: a qualitative study of couples living with diabetes.
+
+<i>Families, Systems, &amp; Health.</i>
+
+2003;21(1):57&#x2013;67.
+10.1037/h0089502
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/h0089502</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Wenzel J, Utz SW, Steeves R, et al. :
+"Plenty of sickness": descriptions by African Americans living in rural areas with type 2 diabetes.
+
+<i>Diabetes Educ.</i>
+
+2005;31(1):98&#x2013;107.
+10.1177/0145721704273242
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0145721704273242</ArticleId><ArticleId IdType="pubmed">15779251</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Young-Hyman D, de Groot M, Hill-Briggs F, et al. :
+Psychosocial care for people with diabetes: a position statement of the American Diabetes Association.
+
+<i>Diabetes Care.</i>
+
+2016;39(12):2126&#x2013;2140.
+10.2337/dc16-2053
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/dc16-2053</ArticleId><ArticleId IdType="pmc">PMC5127231</ArticleId><ArticleId IdType="pubmed">27879358</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,315 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41858475</PMID><DateCompleted><Year>2026</Year><Month>03</Month><Day>20</Day></DateCompleted><DateRevised><Year>2026</Year><Month>03</Month><Day>20</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-1078</ISSN><JournalIssue CitedMedium="Print"><Volume>17</Volume><PubDate><Year>2026</Year></PubDate></JournalIssue><Title>Frontiers in psychology</Title><ISOAbbreviation>Front Psychol</ISOAbbreviation></Journal><ArticleTitle>A meta-analysis and systematic review of creativity in schizophrenia: toward an ecological understanding integrating clinical and philosophical perspectives.</ArticleTitle><Pagination><StartPage>1658295</StartPage><MedlinePgn>1658295</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1658295</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fpsyg.2026.1658295</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">The presumed link between schizophrenia and creativity has long captured the collective imagination, but empirical data paint a more complex picture: while some patients produce extraordinary artistic works, quantitative studies consistently report lower creativity scores in individuals with schizophrenia compared to healthy controls. This contrasts with phenomenological accounts and clinical observations that highlight the expressive power of language and art in conveying the altered subjective experience of schizophrenia.</AbstractText><AbstractText Label="OBJECTIVE" NlmCategory="UNASSIGNED">This study aimed to update the existing evidence on creativity in schizophrenia through a systematic review and meta-analyses, and to assess whether a more fine-grained, ecologically valid approach might offer new insights.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">A systematic search of major databases yielded 4,043 studies after duplicate removal. Following PRISMA guidelines and strict inclusion criteria, 15 studies were included in the final qualitative synthesis and 13 in the quantitative meta-analyses. Creativity was analyzed both globally and across four subcomponents: elaboration, flexibility, fluency, and originality. Only tasks explicitly designed to elicit creative production were included.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">All five meta-analyses showed statistically significant deficits in patients with schizophrenia compared to controls. The strongest effects emerged for overall creativity (<i>d</i> = -0.79), fluency (<i>d</i> = -0.83), and originality (<i>d</i> = -0.61). Moderator analyses revealed that age was the only significant variable: older patients showed larger deficits, particularly in fluency and flexibility. Other demographic and methodological factors did not account for variability in outcomes.</AbstractText><AbstractText Label="DISCUSSION" NlmCategory="UNASSIGNED">These findings confirm and extend prior work, suggesting that creativity is broadly impaired in schizophrenia. However, the consistent directionality of the results also raises critical questions about the ecological validity of standardized tests. Phenomenological and qualitative perspectives point to the importance of subjectivity and lived experience-dimensions often diminished by clinical treatments aimed at restoring shared reality. We call for the development of subjectivity-sensitive assessment tools capable of capturing this complexity.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">Creativity in schizophrenia remains a multidimensional phenomenon that cannot be fully understood through normative psychometric measures alone. Future research should adopt interdisciplinary approaches and develop novel tools for ecological assessment that are more sensitive to the creative potential of individuals with schizophrenia.</AbstractText><AbstractText Label="SYSTEMATIC REVIEW REGISTRATION" NlmCategory="UNASSIGNED">https://www.crd.york.ac.uk/prospero/, CRD42024629254.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Pennisi, Longo, Nicotra, Salehinejad, Vicario and Falzone.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Pennisi</LastName><ForeName>Paola</ForeName><Initials>P</Initials><AffiliationInfo><Affiliation>Department of Adult and Childhood Human Pathology "Gaetano Barresi", Universit&#xe0; degli Studi di Messina, Messina, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Longo</LastName><ForeName>Federica</ForeName><Initials>F</Initials><AffiliationInfo><Affiliation>Department of Cognitive Sciences, Psychology, Education, and Cultural Studies, Universit&#xe0; degli Studi di Messina, Messina, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Nicotra</LastName><ForeName>Sara Alfia</ForeName><Initials>SA</Initials><AffiliationInfo><Affiliation>Department of Cognitive Sciences, Psychology, Education, and Cultural Studies, Universit&#xe0; degli Studi di Messina, Messina, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Salehinejad</LastName><ForeName>Mohammad Ali</ForeName><Initials>MA</Initials><AffiliationInfo><Affiliation>Department of Child and Adolescent Psychiatry, Psychosomatics and Psychotherapy, Faculty of Medical, RWTH Aachen University, Aachen, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Vicario</LastName><ForeName>Carmelo Mario</ForeName><Initials>CM</Initials><AffiliationInfo><Affiliation>Department of Cognitive Sciences, Psychology, Education, and Cultural Studies, Universit&#xe0; degli Studi di Messina, Messina, Italy.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Cognitive Neuroscience Laboratory, Department of Cognitive Sciences, Psychology, Education, and Cultural Studies, Universit&#xe0; degli Studi di Messina, Messina, Italy.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Falzone</LastName><ForeName>Alessandra Maria</ForeName><Initials>AM</Initials><AffiliationInfo><Affiliation>Department of Cognitive Sciences, Psychology, Education, and Cultural Studies, Universit&#xe0; degli Studi di Messina, Messina, Italy.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType><PublicationType UI="D000078182">Systematic Review</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>03</Month><Day>04</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Psychol</MedlineTA><NlmUniqueID>101550902</NlmUniqueID><ISSNLinking>1664-1078</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">creativity</Keyword><Keyword MajorTopicYN="N">ecological assessment</Keyword><Keyword MajorTopicYN="N">mad-genius hypothesis</Keyword><Keyword MajorTopicYN="N">originality</Keyword><Keyword MajorTopicYN="N">phenomenology</Keyword><Keyword MajorTopicYN="N">psychopathology</Keyword><Keyword MajorTopicYN="N">schizophrenia</Keyword></KeywordList><CoiStatement>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>7</Month><Day>2</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2026</Year><Month>2</Month><Day>2</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>2</Month><Day>6</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>20</Day><Hour>7</Hour><Minute>11</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>20</Day><Hour>7</Hour><Minute>10</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>20</Day><Hour>4</Hour><Minute>45</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>3</Month><Day>4</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41858475</ArticleId><ArticleId IdType="pmc">PMC12997125</ArticleId><ArticleId IdType="doi">10.3389/fpsyg.2026.1658295</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abraham A. (2014). Is there an inverted-U relationship between creativity and psychopathology?
+<i>Front. Psychol.</i>
+5:750. 10.3389/fpsyg.2014.00750
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2014.00750</ArticleId><ArticleId IdType="pmc">PMC4112907</ArticleId><ArticleId IdType="pubmed">25120500</ArticleId></ArticleIdList></Reference><Reference><Citation>Abraham A., Windmann S., McKenna P., G&#xfc;nt&#xfc;rk&#xfc;n O. (2007). Creative thinking in schizophrenia: The role of executive dysfunction and symptom severity.
+<i>Cogn. Neuropsychiatry</i>
+12
+235&#x2013;258. 10.1080/13546800601046714
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/13546800601046714</ArticleId><ArticleId IdType="pubmed">17453904</ArticleId></ArticleIdList></Reference><Reference><Citation>Abramovitch A., Short T., Schweiger A. (2021). The C Factor: Cognitive dysfunction as a transdiagnostic dimension in psychopathology.
+<i>Clin. Psychol. Rev.</i>
+86:102007. 10.1016/j.cpr.2021.102007
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cpr.2021.102007</ArticleId><ArticleId IdType="pubmed">33864968</ArticleId></ArticleIdList></Reference><Reference><Citation>Acar S., Chen X., Cayirdag N. (2018). Schizophrenia and creativity: A meta-analytic review.
+<i>Schizophr. Res.</i>
+195
+23&#x2013;31. 10.1016/j.schres.2017.08.036
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.schres.2017.08.036</ArticleId><ArticleId IdType="pubmed">28867517</ArticleId></ArticleIdList></Reference><Reference><Citation>Acar S., Ogurlu U., Runco M. A. (2020). &#x201c;Meta-analytic research on creativity: Challenges and solutions,&#x201d; in <i>Handbook of Research Methods on Creativity</i>, eds
+Thomas K., Chan J. (Cheltenham: Edward Elgar Publishing; ), 244&#x2013;258. 10.4337/9781786439659.00028</Citation><ArticleIdList><ArticleId IdType="doi">10.4337/9781786439659.00028</ArticleId></ArticleIdList></Reference><Reference><Citation>Allott K., Chopra S., Rogers J., Dauvermann M. R., Clark S. R. (2024). Advancing understanding of the mechanisms of antipsychotic-associated cognitive impairment to minimise harm: A call to action.
+<i>Mol. Psychiatry</i>
+29
+2571&#x2013;2574. 10.1038/s41380-024-02503-x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41380-024-02503-x</ArticleId><ArticleId IdType="pmc">PMC11412898</ArticleId><ArticleId IdType="pubmed">38454078</ArticleId></ArticleIdList></Reference><Reference><Citation>Allott K., Yuen H. P., Baldwin L., O&#x2019;Donoghue B., Fornito A., Chopra S., et al.  (2023). Effects of risperidone/paliperidone versus placebo on cognitive functioning over the first 6 months of treatment for psychotic disorder: Secondary analysis of a triple-blind randomised clinical trial.
+<i>Transl. Psychiatry</i>
+13:199. 10.1038/s41398-023-02501-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41398-023-02501-7</ArticleId><ArticleId IdType="pmc">PMC10257667</ArticleId><ArticleId IdType="pubmed">37301832</ArticleId></ArticleIdList></Reference><Reference><Citation>American Psychiatric Association [APA] (2022). <i>DSM-5-TR: Diagnostic and Statistical Manual of Mental Disorders</i>, 5th Edn. Washington, DC: American Psychiatric Publishing.</Citation></Reference><Reference><Citation>Bambini V., Arcara G., Bechi M., Buonocore M., Cavallaro R., Bosia M. (2016). The communicative impairment as a core feature of schizophrenia: Frequency of pragmatic deficit, cognitive substrates, and relation with quality of life.
+<i>Compr. Psychiatry</i>
+71
+106&#x2013;120. 10.1016/j.comppsych.2016.08.012
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.comppsych.2016.08.012</ArticleId><ArticleId IdType="pubmed">27653782</ArticleId></ArticleIdList></Reference><Reference><Citation>Barron F. (1963). <i>Creativity and psychological health</i>. Princeton, NJ: Van Nostrand.</Citation></Reference><Reference><Citation>Barron F., Welsh G. S. (1952). Artistic perception as a possible factor in personality style: Its measurement by a figure preference test.
+<i>J. Psychol.</i>
+33
+199&#x2013;203. 10.1080/00223980.1952.9712830</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/00223980.1952.9712830</ArticleId></ArticleIdList></Reference><Reference><Citation>Baudson T. G. (2016). The mad genius stereotype: Still alive and well.
+<i>Front. Psychol.</i>
+7:368. 10.3389/fpsyg.2016.00368
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2016.00368</ArticleId><ArticleId IdType="pmc">PMC4800426</ArticleId><ArticleId IdType="pubmed">27047409</ArticleId></ArticleIdList></Reference><Reference><Citation>Binnewies C., Ohly S., Niessen C. (2008). Age and creativity at work.
+<i>J. Manag. Psychol.</i>
+23
+438&#x2013;457. 10.1108/02683940810869042</Citation><ArticleIdList><ArticleId IdType="doi">10.1108/02683940810869042</ArticleId></ArticleIdList></Reference><Reference><Citation>Binswanger H. (1956). &#x201c;Freuds psychosentherapie,&#x201d; in <i>PSYCHE</i>, Vol. 10
+ed.
+Bion W. R. (Stuttgart: Ernst Klett Verlag; ), 357&#x2013;366.</Citation><ArticleIdList><ArticleId IdType="pubmed">13370682</ArticleId></ArticleIdList></Reference><Reference><Citation>Blankenburg W. (1971). <i>Der Verlust der Naturlichen Selbstverstandlichkeit. Ein Beitrag zur Psychopathologie Symptomarmer Schizophrenie.</i>
+Stuttgart: Ferdinand Enke Verlag.</Citation></Reference><Reference><Citation>Borenstein M., Hedges L. V., Higgins J. P., Rothstein H. R. (2021). <i>Introduction to Meta-Analysis.</i>
+Hoboken, NJ: John Wiley &amp; sons.</Citation></Reference><Reference><Citation>Bucca A. (2013). <i>La Follia Nelle Parole: Ultime Voci dal Manicomio Criminale?</i>
+Roma: Fioriti.</Citation></Reference><Reference><Citation>Bucca A. (2015). <i>Breve Viaggio Nell&#x2019;immaginario Simbolico Della Follia. Il Linguaggio, i Colori e la Psicopatologia Dell&#x2019;espressione.</i>
+Roma-Messina: Corisco Edizioni.</Citation></Reference><Reference><Citation>Bucca A. (2019). &#x201c;Pragmatics disorders and indirect reports in psychotic language,&#x201d; in <i>Indirect Reports and Pragmatics in the World Languages</i>, eds
+Capone A., Garc&#xed;a-Carpintero M., Falzone A. (Cham: Springer International Publishing; ), 439&#x2013;453. 10.1007/978-3-319-78771-8_22</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/978-3-319-78771-8_22</ArticleId></ArticleIdList></Reference><Reference><Citation>Bucca A. (2022). Poetry and schizophrenia. Domain of pragmatic abilities and delusional-hallucinatory context.
+<i>Reti Saperi Linguaggi</i>
+9
+147&#x2013;160. 10.12832/104545</Citation><ArticleIdList><ArticleId IdType="doi">10.12832/104545</ArticleId></ArticleIdList></Reference><Reference><Citation>Bucca A. (2024). The face of madness. Self-portraits and other delusion representations.
+<i>Reti Saperi Linguaggi</i>
+11
+357&#x2013;368. 10.12832/115548</Citation><ArticleIdList><ArticleId IdType="doi">10.12832/115548</ArticleId></ArticleIdList></Reference><Reference><Citation>Cardella V. (2011). <i>Lettere dal Mandalari. Linguaggi e Modi Della Follia Tra Filosofia e Scienze Cognitive.</i>
+Messina: EDAS.</Citation></Reference><Reference><Citation>Cardella V. (2017). <i>Language and Schizophrenia: Perspectives from Psychology and Philosophy.</i>
+London: Routledge. 10.4324/9781315123233</Citation><ArticleIdList><ArticleId IdType="doi">10.4324/9781315123233</ArticleId></ArticleIdList></Reference><Reference><Citation>Cardella V., Falzone A. (2021). <i>The Dark Side of Language. Psychopathology and Philosophy of Mind: What Mental Disorders can Tell us About our Minds.</i>
+New York, NY: Routledge, 191&#x2013;213. 10.4324/9781003009856-12</Citation><ArticleIdList><ArticleId IdType="doi">10.4324/9781003009856-12</ArticleId></ArticleIdList></Reference><Reference><Citation>Carson S. H. (2011). Creativity and psychopathology: A shared vulnerability model.
+<i>Can. J. Psychiatry</i>
+56
+144&#x2013;153. 10.1177/070674371105600304
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/070674371105600304</ArticleId><ArticleId IdType="pubmed">21443821</ArticleId></ArticleIdList></Reference><Reference><Citation>Chellew T., Barbaro J., Freeman N. C. (2022). The early childhood signs of autism in females: A systematic review.
+<i>Rev. J. Autism Dev. Disord.</i>
+11
+249&#x2013;264. 10.1007/s40489-022-00337-3</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40489-022-00337-3</ArticleId></ArticleIdList></Reference><Reference><Citation>Ciufalo J., Zaccone S., Fatiga G., Caputo G. B. (2024). Creative puppet therapy reduces hallucinations in patients diagnosed with schizophrenia: Preliminary findings.
+<i>Psychiatry Res.</i>
+342:116211. 10.1016/j.psychres.2024.116211
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.psychres.2024.116211</ArticleId><ArticleId IdType="pubmed">39326273</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen J. (1988). <i>The Analysis of Variance and Covariance. Statistical Power Analysis for the Behavioural Sciences.</i>
+New York, NY: Routledge.</Citation></Reference><Reference><Citation>Cohen J. (2013). <i>Statistical Power Analysis for the Behavioral Sciences</i>, 2nd Edn. New York, NY: Routledge. 10.4324/9780203771587</Citation><ArticleIdList><ArticleId IdType="doi">10.4324/9780203771587</ArticleId></ArticleIdList></Reference><Reference><Citation>Correll C. U., Martin A., Patel C., Benson C., Goulding R., Kern-Sliwa J., et al.  (2022). Systematic literature review of schizophrenia clinical practice guidelines on acute and maintenance management with antipsychotics.
+<i>Schizophrenia</i>
+8:5. 10.1038/s41537-021-00192-x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41537-021-00192-x</ArticleId><ArticleId IdType="pmc">PMC8873492</ArticleId><ArticleId IdType="pubmed">35210430</ArticleId></ArticleIdList></Reference><Reference><Citation>Del Missier F., Strag&#xe0; M., Galfano G., Venerus E., Ferrara D., Penolazzi B. (2022). Creativity in schizophrenia: Evidence beyond anecdotes.
+<i>Creat. Res. J.</i>
+34
+445&#x2013;459. 10.1080/10400419.2022.2134545</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10400419.2022.2134545</ArticleId></ArticleIdList></Reference><Reference><Citation>Dietrich A. (2014). The mythconception of the mad genius.
+<i>Front. Psychol.</i>
+5:79. 10.3389/fpsyg.2014.00079
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2014.00079</ArticleId><ArticleId IdType="pmc">PMC3935122</ArticleId><ArticleId IdType="pubmed">24616710</ArticleId></ArticleIdList></Reference><Reference><Citation>Domino G. (1980). Chinese tangrams as a technique to assess creativity.
+<i>J. Creat. Behav.</i>
+14
+204&#x2013;213. 10.1002/j.2162-6057.1980.tb00244</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/j.2162-6057.1980.tb00244</ArticleId></ArticleIdList></Reference><Reference><Citation>Downes M. J., Brennan M. L., Williams H. C., Dean R. S. (2016). Development of a critical appraisal tool to assess the quality of cross-sectional studies (AXIS).
+<i>BMJ Open</i>
+6:e011458. 10.1136/bmjopen-2016-011458
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmjopen-2016-011458</ArticleId><ArticleId IdType="pmc">PMC5168618</ArticleId><ArticleId IdType="pubmed">27932337</ArticleId></ArticleIdList></Reference><Reference><Citation>Duval S., Tweedie R. (2000). A nonparametric &#x201c;Trim and Fill&#x201d; method of accounting for publication bias in meta-analysis.
+<i>J. Am. Stat. Assoc.</i>
+95
+89&#x2013;98. 10.1080/01621459.2000.10473905</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/01621459.2000.10473905</ArticleId></ArticleIdList></Reference><Reference><Citation>Egger M., Smith G. D., Schneider M., Minder C. (1997). Bias in meta-analysis detected by a simple, graphical test.
+<i>BMJ</i>
+315
+629&#x2013;634. 10.1136/bmj.315.7109.629
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.315.7109.629</ArticleId><ArticleId IdType="pmc">PMC2127453</ArticleId><ArticleId IdType="pubmed">9310563</ArticleId></ArticleIdList></Reference><Reference><Citation>Falzone A., Dah&#xf2; M., Rizzotto C., Gangemi A. (2023). Psychopathology and new neuroscience approaches to our mind.
+<i>Reti Saperi Linguaggi</i>
+10
+155&#x2013;176. 10.12832/107719</Citation><ArticleIdList><ArticleId IdType="doi">10.12832/107719</ArticleId></ArticleIdList></Reference><Reference><Citation>Fasciolo Maschi&#xe3;o L., Messas G. (2025). Renewing psychopharmacology: Elements for a phenomenological research program.
+<i>J. Humanist. Psychol.</i>
+10.1177/00221678251366
+[Epub ahead of print].</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/00221678251366</ArticleId></ArticleIdList></Reference><Reference><Citation>Finke R. A. (1990). <i>Creative Imagery: Discoveries and Inventions in Visualization.</i>
+Hillsdale, NJ: Lawrence Erlbaum Associates.</Citation></Reference><Reference><Citation>Folley B. S., Park S. (2005). Verbal creativity and schizotypal personality in relation to prefrontal hemispheric laterality: A behavioral and near-infrared optical imaging study.
+<i>Schizophr. Res.</i>
+80
+271&#x2013;282. 10.1016/j.schres.2005.06.016
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.schres.2005.06.016</ArticleId><ArticleId IdType="pmc">PMC2817946</ArticleId><ArticleId IdType="pubmed">16125369</ArticleId></ArticleIdList></Reference><Reference><Citation>Gangemi A., Cardella V., Rizzotto C., Raso M. (2020). Emotions and reasoning in schizophrenic patients.
+<i>Reti Saperi Linguaggi</i>
+7
+353&#x2013;364. 10.12832/99839</Citation><ArticleIdList><ArticleId IdType="doi">10.12832/99839</ArticleId></ArticleIdList></Reference><Reference><Citation>Goff K., Torrance E. P. (2002). <i>Abbreviated Torrance Test for Adults (ATTA).</i>
+Bensenville, IL: Scholastic Testing Service. 10.1037/t12015-000</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/t12015-000</ArticleId></ArticleIdList></Reference><Reference><Citation>Guilford J. P. (1954). <i>A Factor-Analytic Study Across the Domains of Reasoning, Creativity, and Evaluation I: Hypotheses and Descriptions of Tests. Reports from the Psychological Lab.</i>
+Los Angeles: University of Southern California. 10.1037/h0093745</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/h0093745</ArticleId></ArticleIdList></Reference><Reference><Citation>Guilford J. P., Christensen P. R., Merrifield P. R., Wilson R. C. (1978). <i>Alternate Uses: Manual of Instructions and Interpretations.</i>
+Orange, CA: Sheridan Psychological Services.</Citation></Reference><Reference><Citation>Higgins J. P., Thomas J., Chandler J., Cumpston M., Li T., Page M. J., et al.  (2024). <i>Cochrane Handbook for Systematic Reviews of Interventions Version 6.5 (Updated August 2024).</i>
+London: Cochrane. Available online at: https://training.cochrane.org/handbook
+(Accessed: 6 June 2025).</Citation></Reference><Reference><Citation>Howard-Jones P. A., Blakemore S. J., Samuel E. A., Summers I. R., Claxton G. (2005). Semantic divergence and creative story generation: An fMRI investigation.
+<i>Cogn. Brain Res.</i>
+25
+240&#x2013;250. 10.1016/j.cogbrainres.2005.05.013
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cogbrainres.2005.05.013</ArticleId><ArticleId IdType="pubmed">15993573</ArticleId></ArticleIdList></Reference><Reference><Citation>Husa A. P., Moilanen J., Murray G. K., Marttila R., Haapea M., Rannikko I., et al.  (2017). Lifetime antipsychotic medication and cognitive performance in schizophrenia at age 43 years in a general population birth cohort.
+<i>Psychiatry Res.</i>
+247
+130&#x2013;138. 10.1016/j.psychres.2016.10.085
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.psychres.2016.10.085</ArticleId><ArticleId IdType="pmc">PMC5241225</ArticleId><ArticleId IdType="pubmed">27888683</ArticleId></ArticleIdList></Reference><Reference><Citation>J&#xe4;ger A. O., S&#xfc;&#xdf; H. M., Beauducel A. (1997). <i>Berliner Intelligenzstruktur-Test (BIS-Test): Form 4 [Berlin Test of Intelligence Structure, BIS-Test, Form 4].</i>
+G&#xf6;ttingen: Hogrefe.</Citation></Reference><Reference><Citation>Jaracz J., Patrzala A., Rybakowski J. K. (2012). Creative thinking deficits in patients with schizophrenia: Neurocognitive correlates.
+<i>J. Nerv. Ment. Dis.</i>
+200
+588&#x2013;593. 10.1097/NMD.0b013e31825bfc49
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/NMD.0b013e31825bfc49</ArticleId><ArticleId IdType="pubmed">22759935</ArticleId></ArticleIdList></Reference><Reference><Citation>Jung R. E. (2014). Evolution, creativity, intelligence, and madness: &#x201c;Here Be Dragons&#x201d;.
+<i>Front. Psychol.</i>
+5:784. 10.3389/fpsyg.2014.00784
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2014.00784</ArticleId><ArticleId IdType="pmc">PMC4107956</ArticleId><ArticleId IdType="pubmed">25101040</ArticleId></ArticleIdList></Reference><Reference><Citation>Keefe J. A., Magaro P. A. (1980). Creativity and schizophrenia: An equivalence of cognitive processing.
+<i>J. Abnorm. Psychol.</i>
+89
+390&#x2013;398. 10.1037/0021-843X.89.3.390
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0021-843X.89.3.390</ArticleId><ArticleId IdType="pubmed">7410706</ArticleId></ArticleIdList></Reference><Reference><Citation>Kucwaj H., Gajewski Z., Chuderski A. (2023). Schizophrenia patients perform as well as healthy controls on creative problem solving when fluid intelligence is accounted for.
+<i>Cogn. Neuropsychiatry</i>
+28
+253&#x2013;268. 10.1080/13546805.2023.2215921
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/13546805.2023.2215921</ArticleId><ArticleId IdType="pubmed">37212543</ArticleId></ArticleIdList></Reference><Reference><Citation>Kyaga S. (2015). <i>Creativity and mental illness: The mad genius in question.</i>
+New York, NY: Palgrave Macmillan. 10.1057/9781137345813</Citation><ArticleIdList><ArticleId IdType="doi">10.1057/9781137345813</ArticleId></ArticleIdList></Reference><Reference><Citation>Kyaga S., Land&#xe9;n M., Boman M., Hultman C. M., L&#xe5;ngstr&#xf6;m N., Lichtenstein P. (2013). Mental illness, suicide and creativity: 40-year prospective total population study.
+<i>J. Psychiatr. Res.</i>
+47
+83&#x2013;90. 10.1016/j.jpsychires.2012.09.010
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jpsychires.2012.09.010</ArticleId><ArticleId IdType="pubmed">23063328</ArticleId></ArticleIdList></Reference><Reference><Citation>Kyaga S., Lichtenstein P., Boman M., Hultman C., L&#xe5;ngstr&#xf6;m N., Landen M. (2011). Creativity and mental disorder: Family study of 300 000 people with severe mental disorder.
+<i>Br. J. Psychiatry</i>
+199
+373&#x2013;379. 10.1192/bjp.bp.110.085316
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1192/bjp.bp.110.085316</ArticleId><ArticleId IdType="pubmed">21653945</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee M., Cernvall M., Borg J., Plav&#xe9;n-Sigray P., Larsson C., Erhardt S., et al.  (2024). Cognitive function and variability in antipsychotic drug&#x2013;naive patients with first-episode psychosis: A systematic review and meta-analysis.
+<i>JAMA Psychiatry</i>
+81
+468&#x2013;476. 10.1001/jamapsychiatry.2024.0016
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamapsychiatry.2024.0016</ArticleId><ArticleId IdType="pmc">PMC10902783</ArticleId><ArticleId IdType="pubmed">38416480</ArticleId></ArticleIdList></Reference><Reference><Citation>Li X., Hu D., Deng W., Tao Q., Hu Y., Yang X., et al.  (2017). Pragmatic ability deficit in schizophrenia and associated theory of mind and executive function.
+<i>Front. Psychol.</i>
+8:2164. 10.3389/fpsyg.2017.02164
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2017.02164</ArticleId><ArticleId IdType="pmc">PMC5732175</ArticleId><ArticleId IdType="pubmed">29321753</ArticleId></ArticleIdList></Reference><Reference><Citation>Mavrogiorgou P., Peitzmeier N., Enzi B., Flasbeck V., Juckel G. (2021). Pareidolias and creativity in patients with mental disorders.
+<i>Psychopathology</i>
+54
+59&#x2013;69. 10.1159/000512129
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000512129</ArticleId><ArticleId IdType="pubmed">33657568</ArticleId></ArticleIdList></Reference><Reference><Citation>McCutcheon R. A., Keefe R. S., McGuire P. K. (2023). Cognitive impairment in schizophrenia: Aetiology, pathophysiology, and treatment.
+<i>Mol. Psychiatry</i>
+28
+1902&#x2013;1918. 10.1038/s41380-023-01949-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41380-023-01949-9</ArticleId><ArticleId IdType="pmc">PMC10575791</ArticleId><ArticleId IdType="pubmed">36690793</ArticleId></ArticleIdList></Reference><Reference><Citation>Mednick S. (1962). The associative basis of the creative process.
+<i>Psychol. Rev.</i>
+69
+220&#x2013;232. 10.1037/h0048850
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/h0048850</ArticleId><ArticleId IdType="pubmed">14472013</ArticleId></ArticleIdList></Reference><Reference><Citation>Michalica K., Hunt H. (2013). Creativity, schizotypicality, and mystical experience: An empirical study.
+<i>Creat. Res. J.</i>
+25
+266&#x2013;279. 10.1080/10400419.2013.813780</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10400419.2013.813780</ArticleId></ArticleIdList></Reference><Reference><Citation>Minkowski E. (1927). <i>La Schizophr&#xe9;nie. Psychopathologie des Schizo&#xef;des et des Schizophr&#xe8;nes.</i>
+Paris: Payot.</Citation></Reference><Reference><Citation>Minkowski E. (1933). <i>Le Temps V&#xe9;cu: &#xc9;tudes Ph&#xe9;nom&#xe9;nologiques et Psychopathologiques.</i>
+Paris: L&#x2019;&#xc9;volution Psychiatrique.</Citation></Reference><Reference><Citation>Moher D., Liberati A., Tetzlaff J., Altman D. G. (2009). Preferred reporting items for systematic reviews and meta-analyses: The PRISMA statement.
+<i>PLoS Med.</i>
+6:e1000097. 10.1371/journal.pmed.1000097
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pmed.1000097</ArticleId><ArticleId IdType="pmc">PMC2707599</ArticleId><ArticleId IdType="pubmed">19621072</ArticleId></ArticleIdList></Reference><Reference><Citation>Moor L., Anderson J. R. (2019). A systematic literature review of the relationship between dark personality traits and antisocial online behaviours.
+<i>Pers. Individ. Dif.</i>
+144
+40&#x2013;55. 10.1016/j.paid.2019.02.027</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.paid.2019.02.027</ArticleId></ArticleIdList></Reference><Reference><Citation>Morgenthaler W. (1992). <i>Madness &amp; Art: The Life and the Works of Adolf W&#x201d;lfli.</i>
+Lincoln, NE: University of Nebraska Press.</Citation></Reference><Reference><Citation>Musetti A., Manari T., Dioni B., Raffin C., Bravo G., Mariani R., et al.  (2021). Parental quality of life and involvement in intervention for children or adolescents with autism spectrum disorders: A systematic review.
+<i>J. Pers. Med.</i>
+11:894. 10.3390/jpm11090894
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/jpm11090894</ArticleId><ArticleId IdType="pmc">PMC8469292</ArticleId><ArticleId IdType="pubmed">34575671</ArticleId></ArticleIdList></Reference><Reference><Citation>Nelson B., Raballo A. (2015). Basic self-disturbance in the schizophrenia spectrum: Taking stock and moving forward.
+<i>Psychopathology</i>
+48
+301&#x2013;309. 10.1159/000437211
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000437211</ArticleId><ArticleId IdType="pubmed">26368118</ArticleId></ArticleIdList></Reference><Reference><Citation>Nettle D., Clegg H. (2006). Schizotypy, creativity and mating success in humans.
+<i>Proc. R. Soc. B Biol. Sci.</i>
+273
+611&#x2013;615. 10.1098/rspb.2005.3349
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1098/rspb.2005.3349</ArticleId><ArticleId IdType="pmc">PMC1560060</ArticleId><ArticleId IdType="pubmed">16537133</ArticleId></ArticleIdList></Reference><Reference><Citation>Osugo M., Zahid U., Selvaggi P., Chilimidos A., Finelli V., Chapman G. E., et al.  (2025). Effects of antipsychotics on human cognitive function: Causal evidence from healthy volunteers following sustained D2/D3 antagonism, D2/D3 partial agonism and placebo.
+<i>Mol. Psychiatry</i>
+30
+5315&#x2013;5325. 10.1038/s41380-025-03116-8
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41380-025-03116-8</ArticleId><ArticleId IdType="pmc">PMC12532602</ArticleId><ArticleId IdType="pubmed">40684007</ArticleId></ArticleIdList></Reference><Reference><Citation>Page M. J., McKenzie J. E., Bossuyt P. M., Boutron I., Hoffmann T. C., Mulrow C. D., et al.  (2021). The PRISMA 2020 statement: an updated guideline for reporting systematic reviews.
+<i>BMJ</i>
+372:n71. 10.1136/bmj.n71
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.n71</ArticleId><ArticleId IdType="pmc">PMC8005924</ArticleId><ArticleId IdType="pubmed">33782057</ArticleId></ArticleIdList></Reference><Reference><Citation>Parnas J., Handest P., Jansson L., Saebye D. (2005). Anomalous subjective experience among first-admitted schizophrenia spectrum patients: Empirical investigation.
+<i>Psychopathology</i>
+38
+259&#x2013;267. 10.1159/000088442
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000088442</ArticleId><ArticleId IdType="pubmed">16179812</ArticleId></ArticleIdList></Reference><Reference><Citation>Parnas J., Sandsten K. E., Vestergaard C. H., Nordgaard J. (2019a). Mental illness among relatives of successful academics: Implications for psychopathology-creativity research.
+<i>World Psychiatry</i>
+18:362. 10.1002/wps.20682
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/wps.20682</ArticleId><ArticleId IdType="pmc">PMC6732692</ArticleId><ArticleId IdType="pubmed">31496077</ArticleId></ArticleIdList></Reference><Reference><Citation>Parnas J., Sandsten K. E., Vestergaard C. H., Nordgaard J. (2019b). Schizophrenia and bipolar illness in the relatives of university scientists: An epidemiological report on the creativity-psychopathology relationship.
+<i>Front. Psychiatry</i>
+10:175. 10.3389/fpsyt.2019.00175
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyt.2019.00175</ArticleId><ArticleId IdType="pmc">PMC6454109</ArticleId><ArticleId IdType="pubmed">31001153</ArticleId></ArticleIdList></Reference><Reference><Citation>Pennisi A. (1998). <i>Psicopatologia del Linguaggio.</i>
+Roma: Carocci.</Citation></Reference><Reference><Citation>Pennisi A. (2022). Psychopathology of language, DMN and embodied neuroscience: A unifying perspective.
+<i>Reti Saperi Linguaggi</i>
+9
+5&#x2013;64. 10.12832/104540</Citation><ArticleIdList><ArticleId IdType="doi">10.12832/104540</ArticleId></ArticleIdList></Reference><Reference><Citation>Pennisi P. (2011). <i>Immagini dal Mandalari. Rappresentazioni ed estetiche Della Follia Tra Otto e Novecento.</i>
+Messina: EDAS.</Citation></Reference><Reference><Citation>Pennisi P., Bucca A. (2025). &#x201c;Reflections on neuropragmatics and clinical pragmatics: The theory of mind in autism spectrum disorder and schizophrenia,&#x201d; in <i>New Frontiers in Pragmalinguistic Studies: Theoretical, Social, and Cognitive Approaches</i>, eds
+Capone A., Graci R., Perconti P. (Cham: Springer Nature Switzerland; ), 217&#x2013;228. 10.1007/978-3-031-65502-9_12</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/978-3-031-65502-9_12</ArticleId></ArticleIdList></Reference><Reference><Citation>Pennisi P., Giallongo L., Milintenda G., Cannarozzo M. (2021). Autism, autistic traits and creativity: A systematic review and meta-analysis.
+<i>Cogn. Proc.</i>
+22
+1&#x2013;36. 10.1007/s10339-020-00992-6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10339-020-00992-6</ArticleId><ArticleId IdType="pubmed">33057954</ArticleId></ArticleIdList></Reference><Reference><Citation>Rasmussen A. R., Stephensen H., Parnas J. (2018). EAFI: examination of anomalous fantasy and imagination. <i>Psychopathology</i>, 51, 216&#x2013;226. 10.1159/000488464
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000488464</ArticleId><ArticleId IdType="pmc">PMC6106139</ArticleId><ArticleId IdType="pubmed">29758549</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodrigue A. L., Perkins D. R. (2012). Divergent thinking abilities across the schizophrenic spectrum and other psychological correlates.
+<i>Creat. Res. J.</i>
+24
+163&#x2013;168. 10.1080/10400419.2012.677315</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10400419.2012.677315</ArticleId></ArticleIdList></Reference><Reference><Citation>Rosenthal R. (1979). The file drawer problem and tolerance for null results. <i>Psychol Bull</i>
+86, 638&#x2013;641. 10.1037/0033-2909.86.3.638</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0033-2909.86.3.638</ArticleId></ArticleIdList></Reference><Reference><Citation>Rubinstein G. (2008). Are schizophrenic patients necessarily creative? A comparative study between three groups of psychiatric inpatients.
+<i>Pers. Individ. Dif.</i>
+45
+806&#x2013;810. 10.1016/j.paid.2008.08.012</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.paid.2008.08.012</ArticleId></ArticleIdList></Reference><Reference><Citation>Salesse R. N., Casties J. F., Capdevielle D., Raffard S. (2021). Socio-motor improvisation in schizophrenia: A case-control study in a sample of stable patients.
+<i>Front. Hum. Neurosci.</i>
+15:676242. 10.3389/fnhum.2021.676242
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnhum.2021.676242</ArticleId><ArticleId IdType="pmc">PMC8567989</ArticleId><ArticleId IdType="pubmed">34744659</ArticleId></ArticleIdList></Reference><Reference><Citation>Sampedro A., Pe&#xf1;a J., Ibarretxe-Bilbao N., S&#xe1;nchez P., Iriarte-Yoller N., Ledesma-Gonz&#xe1;lez S., et al.  (2019). Mediating role of cognition and social cognition on creativity among patients with schizophrenia and healthy controls: Revisiting the shared vulnerability model.
+<i>Psychiatry Clin. Neurosci.</i>
+74
+149&#x2013;155. 10.1111/pcn.12954
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/pcn.12954</ArticleId><ArticleId IdType="pmc">PMC7027444</ArticleId><ArticleId IdType="pubmed">31707749</ArticleId></ArticleIdList></Reference><Reference><Citation>Sampogna G., Di Vincenzo M., Giuliani L., Menculini G., Mancuso E., Arsenio E., et al.  (2023). A systematic review on the effectiveness of antipsychotic drugs on the quality of life of patients with schizophrenia.
+<i>Brain Sci.</i>
+13:1577. 10.3390/brainsci13111577
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/brainsci13111577</ArticleId><ArticleId IdType="pmc">PMC10669728</ArticleId><ArticleId IdType="pubmed">38002537</ArticleId></ArticleIdList></Reference><Reference><Citation>Sass L. A. (2001). Schizophrenia, modernism, and the &#x201c;creative imagination&#x201d;: On creativity and psychopathology.
+<i>Creat. Res. J.</i>
+13
+55&#x2013;74. 10.1207/S15326934CRJ1301_7</Citation><ArticleIdList><ArticleId IdType="doi">10.1207/S15326934CRJ1301_7</ArticleId></ArticleIdList></Reference><Reference><Citation>Sass L. A. (2003). Incomprehensibility and understanding: On the interpretation of severe mental illness.
+<i>Philos. Psychiatry Psychol.</i>
+10
+125&#x2013;132. 10.1353/ppp.2003.0101
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1353/ppp.2003.0101</ArticleId></ArticleIdList></Reference><Reference><Citation>Sass L. A., Parnas J. (2003). Schizophrenia, consciousness, and the self.
+<i>Schizophr. Bull.</i>
+29
+427&#x2013;444. 10.1093/oxfordjournals.schbul.a007017
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/oxfordjournals.schbul.a007017</ArticleId><ArticleId IdType="pubmed">14609238</ArticleId></ArticleIdList></Reference><Reference><Citation>Shimkunas A. M., Murray D. R. (1974). Assessment of change in conventional and unconventional thought processes of schizophrenics.
+<i>J. Pers. Assess.</i>
+38
+32&#x2013;40. 10.1080/00223891.1974.10119937
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/00223891.1974.10119937</ArticleId><ArticleId IdType="pubmed">4814805</ArticleId></ArticleIdList></Reference><Reference><Citation>Simonton D. K. (2014). The mad-genius paradox: Can creative people be more mentally healthy but highly creative people more mentally ill?
+<i>Perspect. Psychol. Sci.</i>
+9
+470&#x2013;480. 10.1177/1745691614543973
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1745691614543973</ArticleId><ArticleId IdType="pubmed">26186754</ArticleId></ArticleIdList></Reference><Reference><Citation>Son S., Kubota M., Miyata J., Fukuyama H., Aso T., Urayama S. I., et al.  (2015). Creativity and positive symptoms in schizophrenia revisited: Structural connectivity analysis with diffusion tensor imaging.
+<i>Schizophr. Res.</i>
+164
+221&#x2013;226. 10.1016/j.schres.2015.03.009
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.schres.2015.03.009</ArticleId><ArticleId IdType="pubmed">25823399</ArticleId></ArticleIdList></Reference><Reference><Citation>Spark J., Gaw&#x119;da &#x141;., Allott K., Hartmann J. A., Jack B. N., Koren D., et al.  (2021). Distinguishing schizophrenia spectrum from non-spectrum disorders among young patients with first episode psychosis and at high clinical risk: The role of basic self-disturbance and neurocognition.
+<i>Schizophr. Res.</i>
+228
+19&#x2013;28. 10.1016/j.schres.2020.11.061
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.schres.2020.11.061</ArticleId><ArticleId IdType="pubmed">33434729</ArticleId></ArticleIdList></Reference><Reference><Citation>Thompson J., Stansfeld J. L., Cooper R. E., Morant N., Crellin N. E., Moncrieff J. (2020). Experiences of taking neuroleptic medication and impacts on symptoms, sense of self and agency: A systematic review and thematic synthesis of qualitative data.
+<i>Soc. Psychiatry Psychiatr. Epidemiol.</i>
+55
+151&#x2013;164. 10.1007/s00127-019-01819-2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00127-019-01819-2</ArticleId><ArticleId IdType="pubmed">31875238</ArticleId></ArticleIdList></Reference><Reference><Citation>Torrance E. P. (1966). <i>Torrance Tests of Creative Thinking.</i>
+Lexington, MA: Personnel Press.</Citation></Reference><Reference><Citation>Wallach M. A., Kogan N. (1965). <i>Modes of Thinking in Young Children: A Study of the Creativity Intelligence Distinction.</i>
+New York, NY: Holt, Rinehart, &amp; Winston.</Citation></Reference><Reference><Citation>Wang L., Xu X., Wang Q., Healey G., Su L., Pang W. (2017). Are individuals with schizophrenia or schizotypy more creative? Evidence from multiple tests of creative potential.
+<i>Creat. Res. J.</i>
+29
+145&#x2013;156. 10.1080/10400419.2017.1302777</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10400419.2017.1302777</ArticleId></ArticleIdList></Reference><Reference><Citation>Ward T. B. (1994). Structured imagination: The role of category structure in exemplar generation.
+<i>Cogn. Psychol.</i>
+27
+1&#x2013;40. 10.1006/cogp.1994.1010</Citation><ArticleIdList><ArticleId IdType="doi">10.1006/cogp.1994.1010</ArticleId></ArticleIdList></Reference><Reference><Citation>Wittgenstein L. (1953). <i>Philosophical Investigations</i>. New York, NY: Wiley-Blackwell.</Citation></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

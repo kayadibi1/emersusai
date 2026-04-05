@@ -1,0 +1,149 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">40799334</PMID><DateRevised><Year>2025</Year><Month>08</Month><Day>16</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-1078</ISSN><JournalIssue CitedMedium="Print"><Volume>16</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>Frontiers in psychology</Title><ISOAbbreviation>Front Psychol</ISOAbbreviation></Journal><ArticleTitle>Psychological wellbeing of student-athletes: a comparative study between European and American athletes.</ArticleTitle><Pagination><StartPage>1604783</StartPage><MedlinePgn>1604783</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1604783</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fpsyg.2025.1604783</ELocationID><Abstract><AbstractText>Sports-related injuries occur at rates ranging from 0.5 to 34 per 1,000 practice hours and are a leading cause of early retirement, with psychosocial factors influencing recovery. Injury prevention remains a priority because of its financial and performance impacts on teams. Psychological factors, such as attention disturbances, negative life events, and arousal levels, can impact an athlete's risk of injury, although psychological interventions are rarely used in sports. Fear of failure, a major stress factor, negatively affects athletes' motivation and self-perception. Stress and recovery responses vary across cultures, with European and American athletes employing different strategies. Understanding these cultural differences could help tailor interventions to improve performance and wellbeing. This study compared stress and recovery parameters between American and European student-athletes. This observational pilot clinical trial aimed to assess stress and quality of life among young athletes from two universities: Universidad Europea de Madrid UEM and Saint Louis University (SLU), in pre-season conditions. Participants recruited from their respective soccer teams completed a one-time questionnaire to assess social- and sports-related stress. The study followed ethical guidelines and the questionnaires included tools such as the POMS, RESTQ-52, and the Groningen Sleep Questionnaire. This study found significant differences between the groups across various stress categories, including general, emotional, social, and sports-specific stress, as well as fatigue and disturbed breaks, with <i>p</i>-values ranging from 0.005 to 0.035. The effect sizes for these differences were moderate, with values ranging from <i>r</i> = -0.321 to <i>r</i> = -0.429. Overall, significant differences between the groups were observed, with moderate effect sizes for both general and Overall Stress Scores (<i>r</i> = -0.397 and <i>r</i> = -0.414, respectively). This study highlights significant cultural differences in stress, recovery, sleep quality, and mood between student-athletes at UEM and SLU. These findings emphasize the need for tailored psychological interventions and recovery strategies that address athletes' unique stressors and cultural environments and improve their performance and wellbeing.</AbstractText><CopyrightInformation>Copyright &#xa9; 2025 Keriven, S&#xe1;nchez-Sierra, de-la-Plaza-San-Frutos, Garc&#xed;a-P&#xe9;rez-de-Sevilla, Clemente-Suarez, Garcia-Laredo, Saenz-Bravo, Owoeye, Mi&#xf1;ambres-Mart&#xed;n and Dom&#xed;nguez-Balmaseda.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Keriven</LastName><ForeName>Hugo</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Physiotherapy, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Real Madrid Graduate School, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>S&#xe1;nchez-Sierra</LastName><ForeName>Alberto</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Department of Physiotherapy, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Faculty of Physiotherapy and Nursing, Universidad de Castilla-La Mancha, Toledo, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Toledo Physiotherapy Research Group (GIFTO) Toledo, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>de-la-Plaza-San-Frutos</LastName><ForeName>Marta</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Physiotherapy, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Research Group on Exercise Therapy and Functional Rehabilitation, Faculty of Health Sciences, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Garc&#xed;a-P&#xe9;rez-de-Sevilla</LastName><ForeName>Guillermo</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Department of Physiotherapy, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Clemente-Suarez</LastName><ForeName>Vicente</ForeName><Initials>V</Initials><AffiliationInfo><Affiliation>Department of Sports Sciences, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Garcia-Laredo</LastName><ForeName>Eduardo</ForeName><Initials>E</Initials><AffiliationInfo><Affiliation>Faculty of Health Sciences (PSICOBIOFUN Group), Universidad Internacional de La Rioja (UNIR), Logro&#xf1;o, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Saenz-Bravo</LastName><ForeName>Marisa</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Real Madrid Graduate School, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Owoeye</LastName><ForeName>Oluwatoyosi B A</ForeName><Initials>OBA</Initials><AffiliationInfo><Affiliation>Department of Physical Therapy &amp; Athletic Training, Doisy College of Health Sciences, Saint Louis University, St. Louis, MO, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mi&#xf1;ambres-Mart&#xed;n</LastName><ForeName>Diego</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Department of Physiotherapy, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Real Madrid Graduate School, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Dom&#xed;nguez-Balmaseda</LastName><ForeName>Diego</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Department of Physiotherapy, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Real Madrid Graduate School, Faculty of Medicine, Health and Sports, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Masmicrobiota Group, Faculty of Health Sciences, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>07</Month><Day>29</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Psychol</MedlineTA><NlmUniqueID>101550902</NlmUniqueID><ISSNLinking>1664-1078</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">athletes</Keyword><Keyword MajorTopicYN="N">injury prevention</Keyword><Keyword MajorTopicYN="N">psychosocial factors</Keyword><Keyword MajorTopicYN="N">recovery</Keyword><Keyword MajorTopicYN="N">stress</Keyword><Keyword MajorTopicYN="N">wellbeing</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>4</Month><Day>2</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>7</Month><Day>7</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2025</Year><Month>8</Month><Day>13</Day><Hour>6</Hour><Minute>31</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2025</Year><Month>8</Month><Day>13</Day><Hour>6</Hour><Minute>30</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2025</Year><Month>8</Month><Day>13</Day><Hour>5</Hour><Minute>48</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>7</Month><Day>29</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">40799334</ArticleId><ArticleId IdType="pmc">PMC12339549</ArticleId><ArticleId IdType="doi">10.3389/fpsyg.2025.1604783</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Bereng&#xfc;&#xed; Gil R., Castej&#xf3;n M. A., Parra-Plaza F. J., L&#xf3;pez-Gull&#xf3;n J. M. (2024). Burnout and psychological performance: Relationships in youth athletes. <i>J. Sport Health Res.</i>
+16, 249&#x2013;258. 10.58727/jshr.98589</Citation><ArticleIdList><ArticleId IdType="doi">10.58727/jshr.98589</ArticleId></ArticleIdList></Reference><Reference><Citation>Carreira-M&#xed;guez M., Ramos-Campo D. J., Clemente-Su&#xe1;rez V. J. (2022). Differences in nutritional and psychological habits in hypertension patients.
+<i>BioMed. Res. Int.</i>
+2022:1920996. 10.1155/2022/1920996
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2022/1920996</ArticleId><ArticleId IdType="pmc">PMC9286889</ArticleId><ArticleId IdType="pubmed">35845950</ArticleId></ArticleIdList></Reference><Reference><Citation>Fletcher D., Hanton S. (2001). The relationship between psychological skills usage and competitive anxiety responses.
+<i>Psychol. Sport Exer.</i>
+2
+89&#x2013;101. 10.1016/S1469-0292(00)00014-5</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1469-0292(00)00014-5</ArticleId></ArticleIdList></Reference><Reference><Citation>Gledhill A., Forsdyke D., Murray E. (2018). Psychological interventions used to reduce sports injuries: A systematic review of real-world effectiveness.
+<i>Br. J. Sports Med.</i>
+52
+967&#x2013;971. 10.1136/bjsports-2017-097694
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2017-097694</ArticleId><ArticleId IdType="pubmed">29463497</ArticleId></ArticleIdList></Reference><Reference><Citation>Graves B. S., Hall M. E., Dias-Karch C., Haischer M. H., Apter C. (2021). Gender differences in perceived stress and coping among college students.
+<i>PLoS One</i>
+16:e0255634. 10.1371/journal.pone.0255634
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0255634</ArticleId><ArticleId IdType="pmc">PMC8360537</ArticleId><ArticleId IdType="pubmed">34383790</ArticleId></ArticleIdList></Reference><Reference><Citation>Grunberg N. E., Doorley J. D., Barry E. S. (2024). Sport psychology: Principles and practices for sports medicine physicians.
+<i>Curr. Sports Med. Rep.</i>
+23
+192&#x2013;198. 10.1249/JSR.0000000000001167
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/JSR.0000000000001167</ArticleId><ArticleId IdType="pubmed">38709945</ArticleId></ArticleIdList></Reference><Reference><Citation>Guo C., Chen F., Wang Y. (2025). The psychological impact of competitive sports participation on adolescent athletes: An analysis of coping mechanisms and performance outcomes.
+<i>J. Ration. Emot. Cogn. Behav. Ther.</i>
+43:24. 10.1007/s10942-025-00587-0</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10942-025-00587-0</ArticleId></ArticleIdList></Reference><Reference><Citation>Gustafsson H., Sagar S. S., Stenling A. (2017). Fear of failure, psychological stress, and burnout among adolescent athletes competing in high level sport.
+<i>Scand. J. Med. Sci. Sports</i>
+27
+2091&#x2013;2102. 10.1111/sms.12797
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12797</ArticleId><ArticleId IdType="pubmed">27882607</ArticleId></ArticleIdList></Reference><Reference><Citation>Hardy L. (1992). Psychological stress, performance, and injury in sport.
+<i>Br. Med. Bull.</i>
+48
+615&#x2013;629. 10.1093/oxfordjournals.bmb.a072567
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/oxfordjournals.bmb.a072567</ArticleId><ArticleId IdType="pubmed">1450888</ArticleId></ArticleIdList></Reference><Reference><Citation>Jafarian S., Gorouhi F., Taghva A., Lotfi J. (2008). High-altitude sleep disturbance: Results of the Groningen Sleep Quality Questionnaire survey.
+<i>Sleep Med.</i>
+9
+446&#x2013;449. 10.1016/j.sleep.2007.06.017
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.sleep.2007.06.017</ArticleId><ArticleId IdType="pubmed">17869574</ArticleId></ArticleIdList></Reference><Reference><Citation>Junge A. (2000). The influence of psychological factors on sports injuries.
+<i>Am. J. Sports Med.</i>
+28
+10&#x2013;15. 10.1177/28.suppl_5.s-10
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/28.suppl_5.s-10</ArticleId><ArticleId IdType="pubmed">11032102</ArticleId></ArticleIdList></Reference><Reference><Citation>Kellmann M., Kallus K. W. (2024). <i>The recovery-stress questionnaires.</i>
+Routledge. 10.4324/9781032643380</Citation><ArticleIdList><ArticleId IdType="doi">10.4324/9781032643380</ArticleId></ArticleIdList></Reference><Reference><Citation>Keriven H., S&#xe1;nchez Sierra A., Gonz&#xe1;lez de-la-Flor &#xc1;, Garc&#xed;a-Arrab&#xe9; M., Bravo-Aguilar M., de la Plaza San Frutos M., et al.  (2023a). Effects of combined treatment with transcranial and peripheral electromagnetic stimulation on performance and pain recovery from delayed onset muscle soreness induced by eccentric exercise in young athletes. A randomized clinical trial.
+<i>Front. Physiol.</i>
+14:1267315. 10.3389/fphys.2023.1267315
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2023.1267315</ArticleId><ArticleId IdType="pmc">PMC10603222</ArticleId><ArticleId IdType="pubmed">37900951</ArticleId></ArticleIdList></Reference><Reference><Citation>Keriven H., S&#xe1;nchez-Sierra A., Mi&#xf1;ambres-Mart&#xed;n D., Gonz&#xe1;lez de la Flor &#xc1;, Garc&#xed;a-P&#xe9;rez-de-Sevilla G., Dom&#xed;nguez-Balmaseda D. (2023b). Effects of peripheral electromagnetic stimulation after an eccentric exercise-induced delayed-onset muscle soreness protocol in professional soccer players: A randomized controlled trial.
+<i>Front. Physiol.</i>
+14:1206293. 10.3389/fphys.2023.1206293
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2023.1206293</ArticleId><ArticleId IdType="pmc">PMC10351376</ArticleId><ArticleId IdType="pubmed">37465698</ArticleId></ArticleIdList></Reference><Reference><Citation>Keriven H., Sierra A. S., Gonz&#xe1;lez-de-la-Flor &#xc1;, Arrab&#xe9; M. G., de la Plaza San Frutos M., Maestro A. L., et al.  (2025). Influence of combined transcranial and peripheral electromagnetic stimulation on the autonomous nerve system on delayed onset muscle soreness in young athletes: A randomized clinical trial.
+<i>J. Trans. Med.</i>
+23:306. 10.1186/s12967-025-06238-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12967-025-06238-3</ArticleId><ArticleId IdType="pmc">PMC11895214</ArticleId><ArticleId IdType="pubmed">40065317</ArticleId></ArticleIdList></Reference><Reference><Citation>Kn&#xf6;bel S., Borchert A., Gatzmaga N., Heilmann F., Musculus L., Laborde S., et al.  (2024). The impact of soccer-specific psychophysiological stress on inhibition and cognitive flexibility in elite youth players.
+<i>Psychol. Sport Exer.</i>
+74:102682. 10.1016/j.psychsport.2024.102682
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.psychsport.2024.102682</ArticleId><ArticleId IdType="pubmed">38821249</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee H., Masuda T., Ishii K., Yasuda Y., Ohtsubo Y. (2023). Cultural differences in the perception of daily stress between european canadian and japanese undergraduate students.
+<i>Personal. Soc. Psychol. Bull.</i>
+49
+571&#x2013;584. 10.1177/01461672211070360
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/01461672211070360</ArticleId><ArticleId IdType="pmc">PMC9989219</ArticleId><ArticleId IdType="pubmed">35216544</ArticleId></ArticleIdList></Reference><Reference><Citation>Mart&#xed;nez-Pascual B., Ram&#xed;rez-Adrados A., Fern&#xe1;ndez-Mart&#xed;nez S., Gonzalez-de-Ramos C., Fern&#xe1;ndez-El&#xed;as V. E., Clemente-Su&#xe1;rez V. J. (2022). Autonomic stress response of physiotherapy student in the different scenarios of an objective structured clinical examination.
+<i>BMC Med. Educ.</i>
+22:811. 10.1186/s12909-022-03903-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12909-022-03903-9</ArticleId><ArticleId IdType="pmc">PMC9694562</ArticleId><ArticleId IdType="pubmed">36434652</ArticleId></ArticleIdList></Reference><Reference><Citation>Mart&#xed;n-Rodr&#xed;guez A., Tornero-Aguilera J. F., L&#xf3;pez-P&#xe9;rez P. J., Clemente-Su&#xe1;rez V. J. (2021). The effect of loneliness in psychological and behavioral profile among high school students in Spain.
+<i>Sustainability</i>
+14:168. 10.3390/su14010168</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/su14010168</ArticleId></ArticleIdList></Reference><Reference><Citation>Owoeye O. B. A. (2024). Normative hamstrings and quadriceps isometric strength values and hamstrings-quadriceps asymmetry in healthy collegiate soccer and basketball players.
+<i>Int. J. Exer. Sci.</i>
+17
+768&#x2013;778. 10.70252/KOZO5621
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.70252/KOZO5621</ArticleId><ArticleId IdType="pmc">PMC11268924</ArticleId><ArticleId IdType="pubmed">39050401</ArticleId></ArticleIdList></Reference><Reference><Citation>Owoeye O. B. A., Breitbach A., Esposito F., Nguyen N., Bender A. M., Neme J. R. (2024). Snooze it or lose it: Understanding sleep disturbance and injuries in soccer and basketball student-athletes.
+<i>Clin. J. Sport Med.</i>
+34
+610&#x2013;614. 10.1097/JSM.0000000000001250
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/JSM.0000000000001250</ArticleId><ArticleId IdType="pubmed">38980669</ArticleId></ArticleIdList></Reference><Reference><Citation>Owoeye O. B. A., Neme J. R., Buchanan P., Esposito F., Breitbach A. P. (2022). Absence of injury is not absence of pain: Prevalence of preseason musculoskeletal pain and associated factors in collegiate soccer and basketball student athletes.
+<i>Int. J. Environ. Res. Public Health</i>
+19:9128. 10.3390/ijerph19159128
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph19159128</ArticleId><ArticleId IdType="pmc">PMC9368705</ArticleId><ArticleId IdType="pubmed">35897492</ArticleId></ArticleIdList></Reference><Reference><Citation>Oyserman D., Kemmelmeier M., Coon H. M. (2002). Cultural psychology, a new look: Reply to Bond (2002), Fiske (2002), Kitayama (2002), and Miller (2002).
+<i>Psychol. Bull.</i>
+128
+110&#x2013;117. 10.1037/0033-2909.128.1.110
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/0033-2909.128.1.110</ArticleId><ArticleId IdType="pubmed">11843544</ArticleId></ArticleIdList></Reference><Reference><Citation>Petrowski K., Albani C., Zenger M., Br&#xe4;hler E., Schmalbach B. (2021). Revised short screening version of the Profile of Mood States (POMS) from the german general population.
+<i>Front. Psychol.</i>
+12:631668. 10.3389/fpsyg.2021.631668
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2021.631668</ArticleId><ArticleId IdType="pmc">PMC8200627</ArticleId><ArticleId IdType="pubmed">34135805</ArticleId></ArticleIdList></Reference><Reference><Citation>Reynoso-S&#xe1;nchez L. F., P&#xe1;rez-Verduzco G., Celestino-S&#xe1;nchez M. &#xc1;., L&#xf3;pez-Walle J. M., Zamarripa J., Rangel-Colmenero B. R., et al.  (2021). Competitive recovery&#x2013;stress and mood states in Mexican youth athletes.
+<i>Front. Psychol.</i>
+11:627828. 10.3389/fpsyg.2020.627828
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2020.627828</ArticleId><ArticleId IdType="pmc">PMC7835411</ArticleId><ArticleId IdType="pubmed">33510698</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodriguez-Besteiro S., Valencia-Zapata G., Beltr&#xe1;n de la Rosa E., Clemente-Su&#xe1;rez V. J. (2022). Food consumption and COVID-19 risk perception of University students.
+<i>Sustainability</i>
+14:1625. 10.3390/su14031625</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/su14031625</ArticleId></ArticleIdList></Reference><Reference><Citation>S&#xe1;nchez-Conde P., Clemente-Su&#xe1;rez V. J. (2021). Autonomic stress response of nurse students in an objective structured clinical examination (OSCE).
+<i>Sustainability</i>
+13:5803. 10.3390/su13115803</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/su13115803</ArticleId></ArticleIdList></Reference><Reference><Citation>Serrano-Fern&#xe1;ndez M.-J., Boada-Grau J., Robert-Sent&#xed;s L., Boada-Cuerva M., Vigil-Colet A., Assens-Serra J. (2021). Spanish adaptation of the Groningen Sleep Quality Scale (GSQS-8).
+<i>Univ. Psychol.</i>
+19
+1&#x2013;11. 10.11144/Javeriana.upsy19.sags</Citation><ArticleIdList><ArticleId IdType="doi">10.11144/Javeriana.upsy19.sags</ArticleId></ArticleIdList></Reference><Reference><Citation>Shacham S. (1983). A shortened version of the profile of mood states.
+<i>J. Pers. Assess.</i>
+47
+305&#x2013;306. 10.1207/s15327752jpa4703_14
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1207/s15327752jpa4703_14</ArticleId><ArticleId IdType="pubmed">6886962</ArticleId></ArticleIdList></Reference><Reference><Citation>Simor P., K&#xf6;teles F., B&#xf3;dizs R., B&#xe1;rdos G. (2009). A questionnaire-based study of subjective sleep quality: The psychometric evaluation of the Hungarian version of the Groningen Sleep Quality Scale.
+<i>Ment&#xe1;lhigi&#xe9;n&#xe9; Pszichoszom.</i>
+10
+249&#x2013;261. 10.1556/Mental.10.2009.3.5</Citation><ArticleIdList><ArticleId IdType="doi">10.1556/Mental.10.2009.3.5</ArticleId></ArticleIdList></Reference><Reference><Citation>Smith A. M., Scott S. G., Wiese D. M. (1990). The psychological effects of sports injuries.
+<i>Sports Med.</i>
+9
+352&#x2013;369. 10.2165/00007256-199009060-00004
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-199009060-00004</ArticleId><ArticleId IdType="pubmed">2192425</ArticleId></ArticleIdList></Reference><Reference><Citation>Stepanyan L., Lalayan G. (2024). Stress resilience and decision-making under pressure: Enhancing athletic performance in competitive sports.
+<i>Geor. Med. News</i>
+352&#x2013;353
+32&#x2013;37.</Citation><ArticleIdList><ArticleId IdType="pubmed">39441266</ArticleId></ArticleIdList></Reference><Reference><Citation>Tibbert S., Morris T., Andersen M. (2009). Validity of the recovery-stress questionnaire.
+<i>J. Sci. Med. Sport</i>
+12
+S32&#x2013;S33. 10.1016/j.jsams.2008.12.077</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2008.12.077</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang W., Chen H. (2024). A systematic review and meta-analysis study on the factors affecting sports psychology, athletic performance and physical activity.
+<i>Med. Dello Sport</i>
+77. 10.23736/S0025-7826.24.04461-2</Citation><ArticleIdList><ArticleId IdType="doi">10.23736/S0025-7826.24.04461-2</ArticleId></ArticleIdList></Reference><Reference><Citation>Wingelaar-Jagt Y. Q., Wingelaar T. T., Riedel W. J., Ramaekers J. G. (2024). Modafinil subjectively does not impair sleep in aviators after a period of extended wakefulness.
+<i>Aerospace Med. Hum. Perform.</i>
+95
+290&#x2013;296. 10.3357/AMHP.6390.2024
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3357/AMHP.6390.2024</ArticleId><ArticleId IdType="pubmed">38790126</ArticleId></ArticleIdList></Reference><Reference><Citation>World Medical and Association, (1991). Declaration of Helsinki.
+<i>Law Med. Health Care</i>
+19
+264&#x2013;265. 10.1111/j.1748-720x.1991.tb01824.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1748-720x.1991.tb01824.x</ArticleId><ArticleId IdType="pubmed">11642954</ArticleId></ArticleIdList></Reference><Reference><Citation>Zafra A. O., Martins B., Ponseti-Verdaguer F. J., Ruiz-Barqu&#xed;n R., Garc&#xed;a-Mas A. (2022). It is not just stress: A bayesian approach to the shape of the negative psychological features associated with sport injuries.
+<i>Healthcare</i>
+10:236. 10.3390/healthcare10020236
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/healthcare10020236</ArticleId><ArticleId IdType="pmc">PMC8872058</ArticleId><ArticleId IdType="pubmed">35206851</ArticleId></ArticleIdList></Reference><Reference><Citation>Zheng C., Ji H. (2021). Analysis of the intervention effect and self-satisfaction of sports dance exercise on the psychological stress of college students.
+<i>Work</i>
+69
+637&#x2013;649. 10.3233/WOR-213505
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3233/WOR-213505</ArticleId><ArticleId IdType="pubmed">34120941</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

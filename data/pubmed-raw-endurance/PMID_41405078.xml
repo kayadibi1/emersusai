@@ -1,0 +1,251 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Automated"><PMID Version="1">41405078</PMID><DateCompleted><Year>2025</Year><Month>12</Month><Day>17</Day></DateCompleted><DateRevised><Year>2025</Year><Month>12</Month><Day>24</Day></DateRevised><Article PubModel="Print"><Journal><ISSN IssnType="Electronic">1534-7362</ISSN><JournalIssue CitedMedium="Internet"><Volume>25</Volume><Issue>14</Issue><PubDate><Year>2025</Year><Month>Dec</Month><Day>01</Day></PubDate></JournalIssue><Title>Journal of vision</Title><ISOAbbreviation>J Vis</ISOAbbreviation></Journal><ArticleTitle>The effect of spatial attention on saccadic adaptation.</ArticleTitle><Pagination><StartPage>13</StartPage><MedlinePgn>13</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">13</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.1167/jov.25.14.13</ELocationID><Abstract><AbstractText>Eye movements and spatial attention are both crucial to visual perception. Orienting gaze to objects of interest is achieved by voluntary saccades (VSs) driven by internal goals or reactive saccades (RSs) triggered automatically by sudden environmental changes. Both VSs and RSs are known to undergo plastic adjustments to maintain their accuracy throughout life, driven by saccadic adaptation processes. Spatial attention enhances visual processing within a restricted zone, and it can be shifted voluntarily following our internal goals (endogenous) or automatically in response to unexpected changes in sensory stimulation (exogenous). Despite the widely accepted notion that saccadic and attention shifts are governed by distinct but highly interconnected systems, the relationship between saccadic adaptation and spatial attention is still unclear. To address this relationship, we conducted two experiments combining modified versions of the double-step adaptation paradigm and the attention-orienting paradigm. Experiment 1 tested the effect of shifting exogenous attention by a tactile cue near or away from the saccade's target on RS adaptation. Experiment 2 also used tactile cueing but now to investigate the effect of shifting endogenous attention on VS adaptation. Although we were unable to obtain direct evidence for an effect of spatial attention on saccadic adaptation, correlation analyses indicated that both the rate and magnitude of saccadic adaptation were positively correlated with the allocation of attention toward the saccade target and negatively correlated with attention directed away from the target.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Batikh</LastName><ForeName>Ali</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>IMPACT Team of Lyon Neuroscience Research Center INSERM U1028 CNRS UMR5292 University Claude Bernard Lyon 1, Lyon, France.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>ali.batikh.97@gmail.com.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>https://orcid.org/0000-0002-0306-8903.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Koun</LastName><ForeName>&#xc9;ric</ForeName><Initials>&#xc9;</Initials><AffiliationInfo><Affiliation>IMPACT Team of Lyon Neuroscience Research Center INSERM U1028 CNRS UMR5292 University Claude Bernard Lyon 1, Lyon, France.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>eric.koun@inserm.fr.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>https://orcid.org/0000-0003-3624-3701.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Salemme</LastName><ForeName>Rom&#xe9;o</ForeName><Initials>R</Initials><AffiliationInfo><Affiliation>IMPACT Team of Lyon Neuroscience Research Center INSERM U1028 CNRS UMR5292 University Claude Bernard Lyon 1, Lyon, France.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>romeo.salemme@inserm.fr.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>https://orcid.org/0000-0003-1075-540X.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Farn&#xe8;</LastName><ForeName>Alessandro</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>IMPACT Team of Lyon Neuroscience Research Center INSERM U1028 CNRS UMR5292 University Claude Bernard Lyon 1, Lyon, France.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>alessandro.farne@inserm.fr.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>https://orcid.org/0000-0001-5769-3491.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>P&#xe9;lisson</LastName><ForeName>Denis</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>IMPACT Team of Lyon Neuroscience Research Center INSERM U1028 CNRS UMR5292 University Claude Bernard Lyon 1, Lyon, France.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>denis.pelisson@inserm.fr.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>https://orcid.org/0000-0002-9114-7758.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList></Article><MedlineJournalInfo><Country>United States</Country><MedlineTA>J Vis</MedlineTA><NlmUniqueID>101147197</NlmUniqueID><ISSNLinking>1534-7362</ISSNLinking></MedlineJournalInfo><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D012438" MajorTopicYN="Y">Saccades</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D001288" MajorTopicYN="Y">Attention</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D008297" MajorTopicYN="N">Male</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005260" MajorTopicYN="N">Female</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000222" MajorTopicYN="Y">Adaptation, Physiological</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D000328" MajorTopicYN="N">Adult</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D055815" MajorTopicYN="N">Young Adult</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D013028" MajorTopicYN="Y">Space Perception</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D003463" MajorTopicYN="N">Cues</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D010775" MajorTopicYN="N">Photic Stimulation</DescriptorName><QualifierName UI="Q000379" MajorTopicYN="N">methods</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D014796" MajorTopicYN="N">Visual Perception</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading></MeshHeadingList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="medline"><Year>2025</Year><Month>12</Month><Day>17</Day><Hour>13</Hour><Minute>3</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2025</Year><Month>12</Month><Day>17</Day><Hour>13</Hour><Minute>2</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2025</Year><Month>12</Month><Day>17</Day><Hour>8</Hour><Minute>34</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>12</Month><Day>17</Day></PubMedPubDate></History><PublicationStatus>ppublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41405078</ArticleId><ArticleId IdType="pmc">PMC12721433</ArticleId><ArticleId IdType="doi">10.1167/jov.25.14.13</ArticleId><ArticleId IdType="pii">2811251</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+
+Alahyane, N., &amp; P&#xe9;lisson, D. (2005). Long-lasting modifications of saccadic eye movements following adaptation induced in the double-step target paradigm. <i>Learning &amp; Memory (Cold Spring Harbor, N.Y.),</i>
+12(4), 433&#x2013;443, 10.1101/lm.96405.</Citation><ArticleIdList><ArticleId IdType="doi">10.1101/lm.96405</ArticleId><ArticleId IdType="pmc">PMC1183262</ArticleId><ArticleId IdType="pubmed">16077021</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Becker, W. (1989). The neurobiology of saccadic eye movements. Metrics. <i>Reviews of Oculomotor Research,</i>
+3, 13&#x2013;67.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">2486323</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Bock, O., Grigorova, V., &amp; Ilieva-Staneva, M. (2017). Adaptation of reactive saccades is influenced by unconscious priming of the attention focus. <i>Journal of Motor Behavior,</i>
+49(5), 477&#x2013;481, 10.1080/00222895.2016.1241746.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/00222895.2016.1241746</ArticleId><ArticleId IdType="pubmed">27936350</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Bock, O., Ilieva, M., &amp; Grigorova, V. (2014). Effects of old age and resource demand on double-step adaptation of saccadic eye movements. <i>Experimental Brain Research,</i>
+232(9), 2821&#x2013;2826, 10.1007/s00221-014-3969-y.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00221-014-3969-y</ArticleId><ArticleId IdType="pubmed">24792506</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Bridgeman, B., Hendry, D., &amp; Stark, L. (1975). Failure to detect displacement of the visual world during saccadic eye movements. <i>Vision Research,</i>
+15(6), 719&#x2013;722, 10.1016/0042-6989(75)90290-4.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0042-6989(75)90290-4</ArticleId><ArticleId IdType="pubmed">1138489</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Capotosto, P., Babiloni, C., Romani, G. L., &amp; Corbetta, M. (2009). Frontoparietal cortex controls spatial attention through modulation of anticipatory alpha rhythms. <i>Journal of Neuroscience,</i>
+29(18), 5863&#x2013;5872, 10.1523/JNEUROSCI.0539-09.2009.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1523/JNEUROSCI.0539-09.2009</ArticleId><ArticleId IdType="pmc">PMC2692025</ArticleId><ArticleId IdType="pubmed">19420253</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Capotosto, P., Babiloni, C., Romani, G. L., &amp; Corbetta, M. (2012). Differential contribution of right and left parietal cortex to the control of spatial attention: A simultaneous EEG-rTMS study. <i>Cerebral Cortex (New York, N.Y.: 1991),</i>
+22(2), 446&#x2013;454, 10.1093/cercor/bhr127.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/cercor/bhr127</ArticleId><ArticleId IdType="pmc">PMC3256411</ArticleId><ArticleId IdType="pubmed">21666126</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Chica, A. B., Bartolomeo, P., &amp; Valero-Cabr&#xe9;, A. (2011). Dorsal and ventral parietal contributions to spatial orienting in the human brain. <i>Journal of Neuroscience,</i>
+31(22), 8143, 10.1523/JNEUROSCI.5463-10.2010.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1523/JNEUROSCI.5463-10.2010</ArticleId><ArticleId IdType="pmc">PMC6622880</ArticleId><ArticleId IdType="pubmed">21632936</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Chica, A. B., Mart&#xed;n-Ar&#xe9;valo, E., Botta, F., &amp; Lupi&#xe1;&#xf1;ez, J. (2014). The spatial orienting paradigm: How to design and interpret spatial attention experiments. <i>Neuroscience and Biobehavioral Reviews,</i>
+40, 35&#x2013;51, 10.1016/j.neubiorev.2014.01.002.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neubiorev.2014.01.002</ArticleId><ArticleId IdType="pubmed">24462751</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Chica, A. B., Sanabria, D., Lupi&#xe1;&#xf1;ez, J., &amp; Spence, C. (2007). Comparing intramodal and crossmodal cuing in the endogenous orienting of spatial attention. <i>Experimental Brain Research,</i>
+179(3), 353&#x2013;364, 10.1007/s00221-006-0798-7.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00221-006-0798-7</ArticleId><ArticleId IdType="pubmed">17160401</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Connolly, A., Rinehart, N., &amp; Fielding, J. (2016). Saccade adaptation in young people diagnosed with attention deficit hyperactivity disorder combined type. <i>Neuroscience,</i>
+333, 27&#x2013;34, 10.1016/j.neuroscience.2016.06.053.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neuroscience.2016.06.053</ArticleId><ArticleId IdType="pubmed">27393248</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Corbetta, M., Patel, G., &amp; Shulman, G. L. (2008). The reorienting system of the human brain: From environment to theory of mind. <i>Neuron,</i>
+58(3), 306&#x2013;324, 10.1016/j.neuron.2008.04.017.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neuron.2008.04.017</ArticleId><ArticleId IdType="pmc">PMC2441869</ArticleId><ArticleId IdType="pubmed">18466742</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Corbetta, M., &amp; Shulman, G. L. (2002). Control of goal-directed and stimulus-driven attention in the brain. <i>Nature Reviews. Neuroscience,</i>
+3(3), 201&#x2013;215, 10.1038/nrn755.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nrn755</ArticleId><ArticleId IdType="pubmed">11994752</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Diederich, A., &amp; Colonius, H. (2008). Crossmodal interaction in saccadic reaction time: Separating multisensory from warning effects in the time window of integration model. <i>Experimental Brain Research,</i>
+186(1), 1&#x2013;22, 10.1007/s00221-007-1197-4.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00221-007-1197-4</ArticleId><ArticleId IdType="pubmed">18004552</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Downar, J., Crawley, A. P., Mikulis, D. J., &amp; Davis, K. D. (2002). A cortical network sensitive to stimulus salience in a neutral behavioral context across multiple sensory modalities. <i>Journal of Neurophysiology,</i>
+87(1), 615&#x2013;620, 10.1152/jn.00636.2001.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.00636.2001</ArticleId><ArticleId IdType="pubmed">11784775</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Driver, J., &amp; Spence, C. (1998). Cross-modal links in spatial attention. <i>Philosophical Transactions of the Royal Society of London. Series B, Biological Sciences,</i>
+353(1373), 1319&#x2013;1331, 10.1098/rstb.1998.0286.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1098/rstb.1998.0286</ArticleId><ArticleId IdType="pmc">PMC1692335</ArticleId><ArticleId IdType="pubmed">9770225</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Ethier, V., Zee, D. S., &amp; Shadmehr, R. (2008). Changes in control of saccades during gain adaptation. <i>Journal of Neuroscience,</i>
+28(51), 13929&#x2013;13937, 10.1523/JNEUROSCI.3470-08.2008.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1523/JNEUROSCI.3470-08.2008</ArticleId><ArticleId IdType="pmc">PMC2632981</ArticleId><ArticleId IdType="pubmed">19091981</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+de Fockert, J., Rees, G. E., Frith, C. D., &amp; Lavie, N. (2004). Neural correlates of attentional capture in visual search. <i>Journal of Cognitive Neuroscience,</i>
+16, 751&#x2013;759.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">15200703</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Gaveau, V., Martin, O., Prablanc, C., P&#xe9;lisson, D., Urquizar, C., &amp; Desmurget, M. (2003). On-line modification of saccadic eye movements by retinal signals. <i>Neuroreport,</i>
+14(6), 875&#x2013;878, 10.1097/00001756-200305060-00020.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00001756-200305060-00020</ArticleId><ArticleId IdType="pubmed">12858051</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Gerardin, P., Miqu&#xe9;e, A., Urquizar, C., &amp; P&#xe9;lisson, D. (2012). Functional activation of the cerebral cortex related to sensorimotor adaptation of reactive and voluntary saccades. <i>NeuroImage,</i>
+61(4), 1100&#x2013;1112, 10.1016/j.neuroimage.2012.03.037.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neuroimage.2012.03.037</ArticleId><ArticleId IdType="pubmed">22465298</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Gerardin, P., Nicolas, J., Farn&#xe8;, A., &amp; P&#xe9;lisson, D. (2015). Increasing attentional load boosts saccadic adaptation. <i>Investigative Ophthalmology &amp; Visual Science,</i>
+56(11), 6304&#x2013;6312, 10.1167/iovs.14-16149.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1167/iovs.14-16149</ArticleId><ArticleId IdType="pubmed">26431484</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Groh, J. M., &amp; Sparks, D. L. (1996a). Saccades to somatosensory targets. II. Motor convergence in primate superior colliculus. <i>Journal of Neurophysiology,</i>
+75(1), 428&#x2013;438, 10.1152/jn.1996.75.1.428.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.1996.75.1.428</ArticleId><ArticleId IdType="pubmed">8822568</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Groh, J. M., &amp; Sparks, D. L. (1996b). Saccades to somatosensory targets. III. eye-position-dependent somatosensory activity in primate superior colliculus. <i>Journal of Neurophysiology,</i>
+75(1), 439&#x2013;453, 10.1152/jn.1996.75.1.439.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.1996.75.1.439</ArticleId><ArticleId IdType="pubmed">8822569</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Groner, R., &amp; Groner, M. T. (1989). Attention and eye movement control: An overview. <i>European Archives of Psychiatry and Neurological Sciences,</i>
+239(1), 9&#x2013;16, 10.1007/BF01739737.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF01739737</ArticleId><ArticleId IdType="pubmed">2676541</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Guillaume, A., Fuller, J. R., Srimal, R., &amp; Curtis, C. E. (2018). Cortico-cerebellar network involved in saccade adaptation. <i>Journal of Neurophysiology,</i>
+120(5), 2583&#x2013;2594, 10.1152/jn.00392.2018.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.00392.2018</ArticleId><ArticleId IdType="pmc">PMC6295533</ArticleId><ArticleId IdType="pubmed">30207858</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Habchi, O., Rey, E., Mathieu, R., Urquizar, C., Farn&#xe8;, A., &amp; P&#xe9;lisson, D. (2015). Deployment of spatial attention without moving the eyes is boosted by oculomotor adaptation. <i>Frontiers in Human Neuroscience,</i>
+9, 426, https://www.frontiersin.org/articles/10.3389/fnhum.2015.00426.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnhum.2015.00426</ArticleId><ArticleId IdType="pmc">PMC4523790</ArticleId><ArticleId IdType="pubmed">26300755</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Honor&#xe9;, J., Bourdeaud'hui, M., &amp; Sparrow, L. (1989). Reduction of cutaneous reaction time by directing eyes towards the source of stimulation. <i>Neuropsychologia,</i>
+27(3), 367&#x2013;371, 10.1016/0028-3932(89)90025-0.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0028-3932(89)90025-0</ArticleId><ArticleId IdType="pubmed">2710326</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Hopp, J. J., &amp; Fuchs, A. F. (2004). The characteristics and neuronal substrate of saccadic eye movement plasticity. <i>Progress in Neurobiology,</i>
+72(1), 27&#x2013;53, 10.1016/j.pneurobio.2003.12.002.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pneurobio.2003.12.002</ArticleId><ArticleId IdType="pubmed">15019175</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Hunt, A. R., Reuther, J., Hilchey, M. D., &amp; Klein, R. M. (2019). The relationship between spatial attention and eye movements. <i>Current Topics in Behavioral Neurosciences,</i>
+41, 255&#x2013;278, 10.1007/7854_2019_95.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/7854_2019_95</ArticleId><ArticleId IdType="pubmed">31037554</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Indovina, I., &amp; Macaluso, E. (2007). Dissociation of stimulus relevance and saliency factors during shifts of visuospatial attention. <i>Cerebral Cortex (New York, N.Y.&#x202f;: 1991),</i>
+17(7), 1701&#x2013;1711, 10.1093/cercor/bhl081.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/cercor/bhl081</ArticleId><ArticleId IdType="pubmed">17003078</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Jay, M. F., &amp; Sparks, D. L. (1987a). Sensorimotor integration in the primate superior colliculus. I. Motor convergence. <i>Journal of Neurophysiology,</i>
+57(1), 22&#x2013;34, 10.1152/jn.1987.57.1.22.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.1987.57.1.22</ArticleId><ArticleId IdType="pubmed">3559673</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Jay, M. F., &amp; Sparks, D. L. (1987b). Sensorimotor integration in the primate superior colliculus. II. Coordinates of auditory signals. <i>Journal of Neurophysiology,</i>
+57(1), 35&#x2013;55, 10.1152/jn.1987.57.1.35.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.1987.57.1.35</ArticleId><ArticleId IdType="pubmed">3559680</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Kennett, S., Eimer, M., Spence, C., &amp; Driver, J. (2001). Tactile-visual links in exogenous spatial attention under different postures: Convergent evidence from psychophysics and ERPs. <i>Journal of Cognitive Neuroscience,</i>
+13(4), 462&#x2013;478, 10.1162/08989290152001899.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1162/08989290152001899</ArticleId><ArticleId IdType="pubmed">11388920</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Khan, A., McFadden, S. A., Harwood, M., &amp; Wallman, J. (2014). Salient distractors can induce saccade adaptation. <i>Journal of Ophthalmology,</i>
+2014, 585792, 10.1155/2014/585792.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2014/585792</ArticleId><ArticleId IdType="pmc">PMC4021686</ArticleId><ArticleId IdType="pubmed">24876947</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Kincade, J. M., Abrams, R. A., Astafiev, S. V., Shulman, G. L., &amp; Corbetta, M. (2005). An event-related functional magnetic resonance imaging study of voluntary and stimulus-driven orienting of attention. <i>Journal of Neuroscience,</i>
+25(18), 4593, 10.1523/JNEUROSCI.0236-05.2005.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1523/JNEUROSCI.0236-05.2005</ArticleId><ArticleId IdType="pmc">PMC6725019</ArticleId><ArticleId IdType="pubmed">15872107</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Lloyd, D. M., Aza&#xf1;&#xf3;n, E., &amp; Poliakoff, E. (2010). Right hand presence modulates shifts of exogenous visuospatial attention in near perihand space. <i>Brain and Cognition,</i>
+73(2), 102&#x2013;109, 10.1016/j.bandc.2010.03.006.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bandc.2010.03.006</ArticleId><ArticleId IdType="pubmed">20403655</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Macaluso, E. (2010). Orienting of spatial attention and the interplay between the senses. <i>Cortex,</i>
+46(3), 282&#x2013;297, 10.1016/j.cortex.2009.05.010.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cortex.2009.05.010</ArticleId><ArticleId IdType="pubmed">19540475</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Macaluso, E., &amp; Driver, J. (2001). Spatial attention and crossmodal interactions between vision and touch. <i>Neuropsychologia,</i>
+39(12), 1304&#x2013;1316, 10.1016/s0028-3932(01)00119-1.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0028-3932(01)00119-1</ArticleId><ArticleId IdType="pubmed">11566313</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Macaluso, E., Eimer, M., Frith, C. D., &amp; Driver, J. (2003). Preparatory states in crossmodal spatial attention: Spatial specificity and possible control mechanisms. <i>Experimental Brain Research,</i>
+149(1), 62&#x2013;74, 10.1007/s00221-002-1335-y.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00221-002-1335-y</ArticleId><ArticleId IdType="pubmed">12592504</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Macaluso, E., Frith, C. D., &amp; Driver, J. (2000). Modulation of human visual cortex by crossmodal spatial attention. <i>Science,</i>
+289(5482), 1206&#x2013;1208, 10.1126/science.289.5482.1206.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/science.289.5482.1206</ArticleId><ArticleId IdType="pubmed">10947990</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Macaluso, E., Frith, C. D., &amp; Driver, J. (2002). Supramodal effects of covert spatial orienting triggered by visual or tactile events. <i>Journal of Cognitive Neuroscience,</i>
+14(3), 389&#x2013;401, 10.1162/089892902317361912.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1162/089892902317361912</ArticleId><ArticleId IdType="pubmed">11970799</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Madelain, L., Harwood, M. R., Herman, J. P., &amp; Wallman, J. (2010). Saccade adaptation is unhampered by distractors. <i>Journal of Vision,</i>
+10(12), 29, 10.1167/10.12.29.</Citation><ArticleIdList><ArticleId IdType="doi">10.1167/10.12.29</ArticleId><ArticleId IdType="pubmed">21047761</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+McFadden, S. A., Khan, A., &amp; Wallman, J. (2002). Gain adaptation of exogenous shifts of visual attention. <i>Vision Research,</i>
+42(24), 2709&#x2013;2726, 10.1016/S0042-6989(02)00304-8.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0042-6989(02)00304-8</ArticleId><ArticleId IdType="pubmed">12445854</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+McLaughlin, S. C. (1967). Parametric adjustment in saccadic eye movements. <i>Perception &amp; Psychophysics,</i>
+2(8), 359&#x2013;362, 10.3758/BF03210071.</Citation><ArticleIdList><ArticleId IdType="doi">10.3758/BF03210071</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+M&#xe9;tais, C., Nicolas, J., Diarra, M., Cheviet, A., Koun, E., &amp; P&#xe9;lisson, D. (2022). Neural substrates of saccadic adaptation: Plastic changes versus error processing and forward versus backward learning. <i>NeuroImage,</i>
+262, 119556, 10.1016/j.neuroimage.2022.119556.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neuroimage.2022.119556</ArticleId><ArticleId IdType="pubmed">35964865</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Moore, T., &amp; Armstrong, K. M. (2003). Selective gating of visual signals by microstimulation of frontal cortex. <i>Nature,</i>
+421(6921), 370&#x2013;373, 10.1038/nature01341.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nature01341</ArticleId><ArticleId IdType="pubmed">12540901</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Nicolas, J., Bidet-Caulet, A., &amp; P&#xe9;lisson, D. (2019). Inducing oculomotor plasticity to disclose the functional link between voluntary saccades and endogenous attention deployed perifoveally. <i>Scientific Reports,</i>
+9(1), 17770, 10.1038/s41598-019-54256-1.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-019-54256-1</ArticleId><ArticleId IdType="pmc">PMC6882914</ArticleId><ArticleId IdType="pubmed">31780727</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Nicolas, J., Bidet-Caulet, A., &amp; P&#xe9;lisson, D. (2020). Reactive saccade adaptation boosts orienting of visuospatial attention. <i>Scientific Reports,</i>
+10(1), 13430, 10.1038/s41598-020-70120-z.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-020-70120-z</ArticleId><ArticleId IdType="pmc">PMC7417993</ArticleId><ArticleId IdType="pubmed">32778710</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Nicolas, J., Bompas, A., Bouet, R., Sillan, O., Koun, E., Urquizar, C., &#x2026; P&#xe9;lisson, D. (2019). Saccadic adaptation boosts ongoing gamma activity in a subsequent visuoattentional task. <i>Cerebral Cortex (New York, N.Y.: 1991),</i>
+29(9), 3606&#x2013;3617, 10.1093/cercor/bhy241.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/cercor/bhy241</ArticleId><ArticleId IdType="pubmed">30295717</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Nikolov, T. Y. (2020). Klein C. &amp; Ettinger U. (Eds.). (2019). Eye movement research: An introduction to its scientific foundations and applications. <i>Perception,</i>
+49(9), 994&#x2013;995, 10.1177/0301006620944849.</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0301006620944849</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Panouill&#xe8;res, M., Weiss, T., Urquizar, C., Salemme, R., Munoz, D. P., &amp; P&#xe9;lisson, D. (2009). Behavioral evidence of separate adaptation mechanisms controlling saccade amplitude lengthening and shortening. <i>Journal of Neurophysiology,</i>
+101(3), 1550&#x2013;1559, 10.1152/jn.90988.2008.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.90988.2008</ArticleId><ArticleId IdType="pubmed">19091922</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+P&#xe9;lisson, D., Alahyane, N., Panouill&#xe8;res, M., &amp; Tilikete, C. (2010). Sensorimotor adaptation of saccadic eye movements. <i>Neuroscience &amp; Biobehavioral Reviews,</i>
+34(8), 1103&#x2013;1120, 10.1016/j.neubiorev.2009.12.010.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neubiorev.2009.12.010</ArticleId><ArticleId IdType="pubmed">20026351</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Plax, R. (2021). <i>Investigating the inhibition of the return of attention in the tactile domain</i>. Theses and Dissertations (Comprehensive). 2425. https://scholars.wlu.ca/etd/2425.</Citation></Reference><Reference><Citation>
+
+Posner, M. I. (1980). Orienting of attention. <i>Quarterly Journal of Experimental Psychology,</i>
+32(1), 3&#x2013;25, 10.1080/00335558008248231.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/00335558008248231</ArticleId><ArticleId IdType="pubmed">7367577</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Posner, M. I., &amp; Cohen, Y. A. (1984). Components of visual orienting. <i>Attention and Performance,</i>
+10, 531&#x2013;556.</Citation></Reference><Reference><Citation>
+
+Simon, J. R. (1990). The effects of an irrelevant directional CUE on human information processing. <i>Advances in Psychology,</i>
+65, 31&#x2013;86, 10.1016/S0166-4115(08)61218-2.</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0166-4115(08)61218-2</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Spence, C., &amp; McGlone, F. P. (2001). Reflexive spatial orienting of tactile attention. <i>Experimental Brain Research,</i>
+141(3), 324&#x2013;330, 10.1007/s002210100883.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s002210100883</ArticleId><ArticleId IdType="pubmed">11715076</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Spence, C., Nicholls, M. E., Gillespie, N., &amp; Driver, J. (1998). Cross-modal links in exogenous covert spatial orienting between touch, audition, and vision. <i>Perception &amp; Psychophysics,</i>
+60(4), 544&#x2013;557, 10.3758/bf03206045.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3758/bf03206045</ArticleId><ArticleId IdType="pubmed">9628989</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Spence, C., Pavani, F., &amp; Driver, J. (2000). Crossmodal links between vision and touch in covert endogenous spatial attention. <i>Journal of Experimental Psychology. Human Perception and Performance,</i>
+26, 1298&#x2013;1319, 10.1037//0096-1523.26.4.1298.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037//0096-1523.26.4.1298</ArticleId><ArticleId IdType="pubmed">10946716</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Vidal, M., Desantis, A., &amp; Madelain, L. (2020). Irrelevant auditory and tactile signals, but not visual signals, interact with the target onset and modulate saccade latencies. <i>PLoS ONE,</i>
+15(2), e0221192, 10.1371/journal.pone.0221192.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0221192</ArticleId><ArticleId IdType="pmc">PMC7012454</ArticleId><ArticleId IdType="pubmed">32045415</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Vossel, S., Weidner, R., Driver, J., Friston, K. J., &amp; Fink, G. R. (2012). Deconstructing the architecture of dorsal and ventral attention systems with dynamic causal modeling. <i>Journal of Neuroscience,</i>
+32(31), 10637, 10.1523/JNEUROSCI.0414-12.2012.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1523/JNEUROSCI.0414-12.2012</ArticleId><ArticleId IdType="pmc">PMC3432566</ArticleId><ArticleId IdType="pubmed">22855813</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Wick, F. A., Garaas, T. W., &amp; Pomplun, M. (2016). Saccadic adaptation alters the attentional field. <i>Frontiers in Human Neuroscience,</i>
+10, 568, https://www.frontiersin.org/articles/10.3389/fnhum.2016.00568.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnhum.2016.00568</ArticleId><ArticleId IdType="pmc">PMC5110509</ArticleId><ArticleId IdType="pubmed">27899887</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Wurtz, R. H. (2008). Neuronal mechanisms of visual stability. <i>Vision Research Reviews,</i>
+48(20), 2070&#x2013;2089, 10.1016/j.visres.2008.03.021.</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.visres.2008.03.021</ArticleId><ArticleId IdType="pmc">PMC2556215</ArticleId><ArticleId IdType="pubmed">18513781</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Zee, D. S., Optican, L. M., Cook, J. D., Robinson, D. A., &amp; Engel, W. K. (1976). Slow saccades in spinocerebellar degeneration. <i>Archives of Neurology,</i>
+33(4), 243&#x2013;251, 10.1001/archneur.1976.00500040027004.
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/archneur.1976.00500040027004</ArticleId><ArticleId IdType="pubmed">1083233</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

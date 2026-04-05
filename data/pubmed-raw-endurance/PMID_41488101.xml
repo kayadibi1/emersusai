@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41488101</PMID><DateCompleted><Year>2026</Year><Month>01</Month><Day>05</Day></DateCompleted><DateRevised><Year>2026</Year><Month>01</Month><Day>07</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">2296-858X</ISSN><JournalIssue CitedMedium="Print"><Volume>12</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>Frontiers in medicine</Title><ISOAbbreviation>Front Med (Lausanne)</ISOAbbreviation></Journal><ArticleTitle>Application of a modified lung ultrasound score in assessing the severity of neonatal pneumonia: a multicenter prospective study.</ArticleTitle><Pagination><StartPage>1711107</StartPage><MedlinePgn>1711107</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1711107</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fmed.2025.1711107</ELocationID><Abstract><AbstractText Label="OBJECTIVE" NlmCategory="UNASSIGNED">To evaluate a modified twelve-zone lung ultrasound (LUS) scoring system for diagnosing neonatal pneumonia and assessing disease severity.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">In this multicenter prospective study (January 2023-02tober 2024), 160 neonates with pneumonia underwent both LUS and chest X-ray. Diagnostic performance (AUC, sensitivity, specificity) was compared, and correlations between LUS indicators (B-lines, consolidation area, pleural line abnormalities) and clinical outcomes (respiratory distress scores, PaO<sub>2</sub>/FiO<sub>2</sub> ratio) were analyzed using multivariate regression.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">LUS demonstrated superior diagnostic accuracy to X-ray (AUC: 0.93 vs. 0.83; sensitivity 94.0 vs. 78.5%, specificity 88.5 vs. 78.5%, both <i>P</i> &lt; 0.05). B-line reduction correlated with improved respiratory distress scores (<i>r</i> = 0.856, <i>P</i> &lt; 0.001), and consolidation area reduction correlated with PaO<sub>2</sub>/FiO<sub>2</sub> ratio improvement (<i>r</i> = 0.801, <i>P</i> &lt; 0.001). Multivariate analysis identified B-line count (OR = 1.154), consolidation area (OR = 2.962), pleural line abnormalities (OR = 6.408), and CRP (OR = 1.102) as independent severity predictors (<i>P</i> &lt; 0.05).</AbstractText><AbstractText Label="CONCLUSIONS" NlmCategory="UNASSIGNED">The modified twelve-zone LUS system accurately diagnoses neonatal pneumonia, quantifies severity, and dynamically monitors treatment efficacy, offering a radiation-free alternative to X-ray for clinical practice.</AbstractText><CopyrightInformation>Copyright &#xa9; 2025 Cheng, Ge and Huang.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Cheng</LastName><ForeName>Jiang</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Department of Ultrasound, The Third People's Hospital of Bengbu, Bengbu, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ge</LastName><ForeName>Hui</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Ultrasound, The Third People's Hospital of Bengbu, Bengbu, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Huang</LastName><ForeName>Yunlu</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Affiliated Suzhou Hospital of Nanjing University Medical School, Suzhou, China.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>12</Month><Day>19</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Med (Lausanne)</MedlineTA><NlmUniqueID>101648047</NlmUniqueID><ISSNLinking>2296-858X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">diagnostic value</Keyword><Keyword MajorTopicYN="N">lung ultrasound scoring</Keyword><Keyword MajorTopicYN="N">neonatal pneumonia</Keyword><Keyword MajorTopicYN="N">prognosis evaluation</Keyword><Keyword MajorTopicYN="N">risk factors</Keyword></KeywordList><CoiStatement>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>9</Month><Day>23</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2025</Year><Month>11</Month><Day>24</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>12</Month><Day>5</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>1</Month><Day>5</Day><Hour>6</Hour><Minute>48</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>1</Month><Day>5</Day><Hour>6</Hour><Minute>47</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>1</Month><Day>5</Day><Hour>5</Hour><Minute>26</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>12</Month><Day>19</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41488101</ArticleId><ArticleId IdType="pmc">PMC12757275</ArticleId><ArticleId IdType="doi">10.3389/fmed.2025.1711107</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Wu J, Yang S, Cao Q, Ding C, Cui Y, Zhou Y, et al. 
+Pneumonia mortality in children aged &lt;5 years in 56 countries: a retrospective analysis of trends from 1960 to 2012.
+<i>Clin Infect Dis.</i> (2017) 65:1721&#x2013;8. 10.1093/cid/cix633
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/cid/cix633</ArticleId><ArticleId IdType="pubmed">29020363</ArticleId></ArticleIdList></Reference><Reference><Citation>Shi X, Wu M, Jia X, Bao J, Wang Y, Yang C, et al. 
+Trends of incidence, mortality, and risk factors for lower respiratory infections among children under5 years in china from 2000 to 2019.
+<i>Int J Environ Res Public Health.</i> (2023) 20:3547. 10.3390/ijerph20043547
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph20043547</ArticleId><ArticleId IdType="pmc">PMC9965335</ArticleId><ArticleId IdType="pubmed">36834242</ArticleId></ArticleIdList></Reference><Reference><Citation>Smith DK, Kuckel DP, Recidoro AM. Community-Acquired pneumonia in children: rapid evidence review.
+<i>Am Fam Phys.</i> (2021) 104:618&#x2013;25.</Citation><ArticleIdList><ArticleId IdType="pubmed">34913645</ArticleId></ArticleIdList></Reference><Reference><Citation>Sedney CJ, Harvill ET. The neonatal immune system and respiratory pathogens.
+<i>Microorganisms.</i> (2023) 11:1597. 10.3390/microorganisms11061597
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/microorganisms11061597</ArticleId><ArticleId IdType="pmc">PMC10301501</ArticleId><ArticleId IdType="pubmed">37375099</ArticleId></ArticleIdList></Reference><Reference><Citation>Wei&#xdf; D, Beeres M, Rochwalsky U, Vogl TJ, Schl&#xf6;&#xdf;er R. Radiation exposure and estimated risk of radiation-induced cancer from thoracic and abdominal radiographs in 1307 neonates.
+<i>Eur Radiol.</i> (2024) 35:297&#x2013;308. 10.1007/s00330-024-10942-x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00330-024-10942-x</ArticleId><ArticleId IdType="pmc">PMC11632034</ArticleId><ArticleId IdType="pubmed">39014087</ArticleId></ArticleIdList></Reference><Reference><Citation>Kartikeswar GAP, Parikh TB, Pandya D, Pandit A. Ionizing radiation exposure in NICU.
+<i>Indian J Pediatr.</i> (2020) 87:158&#x2013;60. 10.1007/s12098-019-03126-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12098-019-03126-9</ArticleId><ArticleId IdType="pmc">PMC7222152</ArticleId><ArticleId IdType="pubmed">31833039</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu J. Ultrasound diagnosis and grading criteria of neonatal respiratory distress syndrome.
+<i>J Matern Fetal Neonatal Med.</i> (2023) 36:2206943. 10.1080/14767058.2023.2206943
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/14767058.2023.2206943</ArticleId><ArticleId IdType="pubmed">37142428</ArticleId></ArticleIdList></Reference><Reference><Citation>Kaviani P, Digumarthy SR, Bizzo BC, Reddy B, Tadepalli M, Putha P, et al. 
+Performance of a chest radiography AI a lgorithm for detection of missed or mislabeled findings: a multicenter study.
+<i>Diagnostics.</i> (2022) 12:2086. 10.3390/diagnostics12092086
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/diagnostics12092086</ArticleId><ArticleId IdType="pmc">PMC9497851</ArticleId><ArticleId IdType="pubmed">36140488</ArticleId></ArticleIdList></Reference><Reference><Citation>Kvak D, Chromcov&#xe1; A, Hrub&#xfd; R, Jan&#x16f; E, Biro&#x161; M, Pajdakovi&#x107; M, et al. 
+Leveraging deep learning decision-support system in specialized oncology center: a multi-reader retrospective study on detection of pulmonary lesions in chest X-ray images.
+<i>Diagnostics.</i> (2023) 13:1043. 10.3390/diagnostics13061043
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/diagnostics13061043</ArticleId><ArticleId IdType="pmc">PMC10047277</ArticleId><ArticleId IdType="pubmed">36980351</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang J, Wei H, Chen H, Wan K, Mao R, Xiao P, et al. 
+Application of ultrasonography in neonatal lung disease: an updated review.
+<i>Front Pediatr.</i> (2022) 10:1020437. 10.3389/fped.2022.1020437
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fped.2022.1020437</ArticleId><ArticleId IdType="pmc">PMC9640768</ArticleId><ArticleId IdType="pubmed">36389379</ArticleId></ArticleIdList></Reference><Reference><Citation>Zong H, Huang Z, Zhao J, Lin B, Fu Y, Lin Y, et al. 
+The value of lung ultrasound score in neonatology.
+<i>Front Pediatr.</i> (2022) 10:791664. 10.3389/fped.2022.791664
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fped.2022.791664</ArticleId><ArticleId IdType="pmc">PMC9130655</ArticleId><ArticleId IdType="pubmed">35633958</ArticleId></ArticleIdList></Reference><Reference><Citation>Huang C, Zhang S, Ha X, Cui Y, Zhang H. The value of lung ultrasound score in neonatal respiratory distress syndrome: a prospective diagnostic cohort study.
+<i>Front Inmedicine.</i> (2024) 11:1357944. 10.3389/fmed.2024.1357944
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fmed.2024.1357944</ArticleId><ArticleId IdType="pmc">PMC10881781</ArticleId><ArticleId IdType="pubmed">38390571</ArticleId></ArticleIdList></Reference><Reference><Citation>Brat R, Yousef N, Klifa R, Reynaud S, Shankar Aguilera S, De Luca D. Lung ultrasonography score to evaluate oxygenation and surfactant need in neonates treated with continuous positive airway pressure.
+<i>JAMA Pediatr.</i> (2015) 169:e151797. 10.1001/jamapediatrics.2015.1797
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamapediatrics.2015.1797</ArticleId><ArticleId IdType="pubmed">26237465</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu J, Cao HY, Wang HW, Kong XY. The role of lung ultrasound in diagnosis of respiratory distress syndrome in newborn infants.
+<i>Iranian J Pediatr.</i> (2015) 25:e323. 10.5812/ijp.323
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5812/ijp.323</ArticleId><ArticleId IdType="pmc">PMC4505980</ArticleId><ArticleId IdType="pubmed">26199698</ArticleId></ArticleIdList></Reference><Reference><Citation>Corsini I, Lenzi MB, Ciarci&#xe0; M, Matina F, Petoello E, Flore AI, et al. 
+Comparison among three lung ultrasound scores used to predict the need for surfactant replacement therapy: a retrospective diagnostic accuracy study in a cohort of preterm infants.
+<i>Eur J Pediatr.</i> (2023) 182:5375&#x2013;83. 10.1007/s00431-023-05200-z
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00431-023-05200-z</ArticleId><ArticleId IdType="pubmed">37740771</ArticleId></ArticleIdList></Reference><Reference><Citation>Alonso-Ojembarrena A, Lechuga-Sancho AM, Ruiz-Gonz&#xe1;lez E, Gonz&#xe1;lez-Haba-Mart&#xed;nez B, Lubi&#xe1;n-L&#xf3;pez SP. Pleural line thickness reference values for preterm and term newborns.
+<i>Pediatr Pulmonol.</i> (2020) 55:2296&#x2013;301. 10.1002/ppul.24920
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/ppul.24920</ArticleId><ArticleId IdType="pubmed">32573932</ArticleId></ArticleIdList></Reference><Reference><Citation>Hedstrom AB, Gove NE, Mayock DE, Batra M. Performance of the SilvermanAndersen Respiratory Severity Score in predicting PCO2 and respiratory support in newborns: a prospective cohort study.
+<i>J Perinatol.</i> (2018) 38:505&#x2013;11. 10.1038/s41372-018-0049-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41372-018-0049-3</ArticleId><ArticleId IdType="pmc">PMC5998375</ArticleId><ArticleId IdType="pubmed">29426853</ArticleId></ArticleIdList></Reference><Reference><Citation>Saad MM, Kamal J, Moussaly E, Karam B, Mansour W, Gobran E, et al. 
+Relevance of B-lines on lung ultrasound in volume overload and pulmonary congestion: clinical correlations and outcomes in patients on hemodialysis.
+<i>Cardiorenal Med.</i> (2018) 8:83&#x2013;91. 10.1159/000476000
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000476000</ArticleId><ArticleId IdType="pmc">PMC5968278</ArticleId><ArticleId IdType="pubmed">29617006</ArticleId></ArticleIdList></Reference><Reference><Citation>Verma S, Nagar A, Sakhi P, Julka K, Singh S. Comparison of HRCT with lung sonography in the diagnosis of pulmonary edema and ILD.
+<i>Scholars J Appl Med Sci.</i> (2020) 8:934&#x2013;8. 10.36347/sjams.2020.v08i03.027</Citation><ArticleIdList><ArticleId IdType="doi">10.36347/sjams.2020.v08i03.027</ArticleId></ArticleIdList></Reference><Reference><Citation>Liang HY, Liang XW, Chen ZY, Tan XH, Yang HH, Liao JY, et al. 
+Ultrasound in neonatal lung disease.
+<i>Quant Imaging Med Surg.</i> (2018) 8:535&#x2013;46. 10.21037/qims.2018.06.01
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.21037/qims.2018.06.01</ArticleId><ArticleId IdType="pmc">PMC6037955</ArticleId><ArticleId IdType="pubmed">30050788</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu J, Ma HR, Fu W. Lung ultrasound to diagnose pneumonia in neonates with fungal infection.
+<i>Diagnostics.</i> (2022) 12:1776. 10.3390/diagnostics12081776
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/diagnostics12081776</ArticleId><ArticleId IdType="pmc">PMC9331912</ArticleId><ArticleId IdType="pubmed">35892488</ArticleId></ArticleIdList></Reference><Reference><Citation>Beretta E, Roman&#xf2; F, Sancini G, Grotberg JB, Nieman GF, Miserocchi G. Pulmonary interstitial matrix and lung fluid balance from normal to the acutelyinjured lung.
+<i>Front Physiol.</i> (2021) 12:781874. 10.3389/fphys.2021.781874
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2021.781874</ArticleId><ArticleId IdType="pmc">PMC8720972</ArticleId><ArticleId IdType="pubmed">34987415</ArticleId></ArticleIdList></Reference><Reference><Citation>Tana C, Ricci F, Coppola M, Mantini C, Lauretani F, Campanozzi D, et al. 
+Prognostic significance of chest imaging by LUS and CT in COVID-19 inpatients: the ECOVID multicenter study.
+<i>Respiration.</i> (2022) 101:122&#x2013;31. 10.1159/000518516
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000518516</ArticleId><ArticleId IdType="pmc">PMC8450833</ArticleId><ArticleId IdType="pubmed">34515247</ArticleId></ArticleIdList></Reference><Reference><Citation>Sanchez-Pinto L, Bhavani S, Atreya M, Sinha P. Leveraging data science and novel technologies to develop and implement precision medicine strategies in critical care.
+<i>Crit Care Clin.</i> (2023) 39:627&#x2013;46. 10.1016/j.ccc.2023.03.002
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ccc.2023.03.002</ArticleId><ArticleId IdType="pubmed">37704331</ArticleId></ArticleIdList></Reference><Reference><Citation>Zanza C, Saglietti F, Tesauro M, Longhitano Y, Savioli G, Balzanelli MG, et al. 
+Cardiogenic pulmonary edema in emergency medicine.
+<i>Adv Respiratory Med.</i> (2023) 91:445&#x2013;63. 10.3390/arm91050034
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/arm91050034</ArticleId><ArticleId IdType="pmc">PMC10604083</ArticleId><ArticleId IdType="pubmed">37887077</ArticleId></ArticleIdList></Reference><Reference><Citation>Nugent K, Dobbe L, Rahman R, Elmassry M, Paz P. Lung morphology and surfactant function in cardiogenic pulmonary edema: a narrative review.
+<i>J Thorac Dis.</i> (2019) 11:4031&#x2013;8. 10.21037/jtd.2019.09.02
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.21037/jtd.2019.09.02</ArticleId><ArticleId IdType="pmc">PMC6790471</ArticleId><ArticleId IdType="pubmed">31656679</ArticleId></ArticleIdList></Reference><Reference><Citation>Marquis AD, Jezek F, Pinsky DJ, Beard DA. Hypoxic pulmonary vasoconstriction as a regulator of alveolar-capillary oxygen flux: a computational model of ventilation-perfusion matching.
+<i>PLoS Comput Biol.</i> (2021) 17:e1008861. 10.1371/journal.pcbi.1008861
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pcbi.1008861</ArticleId><ArticleId IdType="pmc">PMC8130924</ArticleId><ArticleId IdType="pubmed">33956786</ArticleId></ArticleIdList></Reference><Reference><Citation>See KC, Sahagun J, Taculod J. Identification of focal ARDS using PF ratio: a cross-sectional study.
+<i>Crit Care.</i> (2020) 24:471. 10.1186/s13054-020-03190-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13054-020-03190-0</ArticleId><ArticleId IdType="pmc">PMC7391485</ArticleId><ArticleId IdType="pubmed">32727551</ArticleId></ArticleIdList></Reference><Reference><Citation>Rsovac S, Milo&#x161;evi&#x107; K, Plavec D, Todorovi&#x107; D, &#x160;&#x107;epanovi&#x107; L. Third-day PaO2/FiO2 ratio is an excellent predictor of survival in children mechanically ventilated for acute respiratory distress syndrome.
+<i>Risk Manag Healthc Policy.</i> (2020) 13:1739&#x2013;46. 10.2147/RMHP.S253545
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/RMHP.S253545</ArticleId><ArticleId IdType="pmc">PMC7522416</ArticleId><ArticleId IdType="pubmed">33061707</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu J, Chi JH, Lu ZL, Fu W. The specific signs of lung ultrasound to diagnose pulmonary hemorrhage of the newborns: evidence from a multicenter retrospective case-control study.
+<i>Front Pediatr.</i> (2023) 11:1090332. 10.3389/fped.2023.1090332
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fped.2023.1090332</ArticleId><ArticleId IdType="pmc">PMC9890160</ArticleId><ArticleId IdType="pubmed">36743886</ArticleId></ArticleIdList></Reference><Reference><Citation>Winant AJ, Vargas SO, Jenkins KJ, Callahan R, Rameh V, Krone KA, et al. 
+Pleuropulmonary MDCT findings: comparison between children with pulmonary vein stenosis and prematurity-related lung disease.
+<i>Children.</i> (2022) 9:355. 10.3390/children9030355
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/children9030355</ArticleId><ArticleId IdType="pmc">PMC8947577</ArticleId><ArticleId IdType="pubmed">35327727</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhou J, Zhang Q, Zhang Q, Zhang Z. Nanobubble lung ultrasound application in the treatment of neonatal pneumonia.
+<i>J Nanosci Nanotechnol.</i> (2021) 21:1244&#x2013;9. 10.1166/jnn.2021.18693
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1166/jnn.2021.18693</ArticleId><ArticleId IdType="pubmed">33183468</ArticleId></ArticleIdList></Reference><Reference><Citation>Ma HR, Deng BY, Liu J, Jiang P, Xu YL, Song XY, et al. 
+Lung ultrasound to diagnose infectious pneumonia of newborns: a prospective multicenter study.
+<i>Pediatric Pulmonol.</i> (2023) 58:122&#x2013;9. 10.1002/ppul.26168
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/ppul.26168</ArticleId><ArticleId IdType="pubmed">36169007</ArticleId></ArticleIdList></Reference><Reference><Citation>Jiang QX, Shi LJ, Shen LY, Li XQ, Huang RS, Chen LJ, et al. 
+Application value of a new lung ultrasound scoring method in neonatal respiratory distress syndrome treatment.
+<i>Ultrasound Med Biol.</i> (2022) 48:275&#x2013;82. 10.1016/j.ultrasmedbio.2021.10.009
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ultrasmedbio.2021.10.009</ArticleId><ArticleId IdType="pubmed">34782166</ArticleId></ArticleIdList></Reference><Reference><Citation>Zayani S, Thabet F, Daya A, Betbout O, Cyrine B, Chouchane C, et al. 
+Extended vs. concise lung ultrasound scores to predict the need for respiratory support in bronchiolitis: a prospective observational study.
+<i>Eur J Pediatr.</i> (2025) 184:357. 10.1007/s00431-025-06189-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00431-025-06189-3</ArticleId><ArticleId IdType="pubmed">40410579</ArticleId></ArticleIdList></Reference><Reference><Citation>Mongodi S, Cortegiani A, Alonso-Ojembarrena A, Biasucci DG, Bos LDJ, Bouhemad B, et al. 
+ESICM-ESPNIC international expert consensus on quantitative lung ultrasound in intensive care.
+<i>Intensive Care Med.</i> (2025) 51:1022&#x2013;49. 10.1007/s00134-025-07932-y
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00134-025-07932-y</ArticleId><ArticleId IdType="pubmed">40353867</ArticleId></ArticleIdList></Reference><Reference><Citation>Zheng LL, Chen R, Zheng CH, Dai XJ, Zheng WD, Zhang JX. The correlation between lung ultrasound scores and outcomes of high-flow nasal cannula therapy in infants with severe pneumonia.
+<i>BMC Pediatr.</i> (2024) 24:51. 10.1186/s12887-024-04522-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12887-024-04522-7</ArticleId><ArticleId IdType="pmc">PMC10790390</ArticleId><ArticleId IdType="pubmed">38229006</ArticleId></ArticleIdList></Reference><Reference><Citation>Solomon D, Ayalew B, Dellie S, Admasie D. Justification and optimization principles of ALARA in pediatric CT at a teaching hospital in Ethiopia.
+<i>Ethiopian J Health Sci.</i> (2020) 30:761&#x2013;6. 10.4314/ejhs.v30i5.16
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4314/ejhs.v30i5.16</ArticleId><ArticleId IdType="pmc">PMC8047270</ArticleId><ArticleId IdType="pubmed">33911838</ArticleId></ArticleIdList></Reference><Reference><Citation>El-Masry H, Aladawy M, Mansor T, Magd H. Comparative study between chest X-ray and lung ultrasound in neonatal respiratory distress.
+<i>J Ultrasound.</i> (2021) 3:125&#x2013;43. 10.21608/ANJ.2021.137638</Citation><ArticleIdList><ArticleId IdType="doi">10.21608/ANJ.2021.137638</ArticleId></ArticleIdList></Reference><Reference><Citation>Corsini I, Parri N, Ficial B, Dani C. Lung ultrasound in the neonatal intensive care unit: Review of the literature and future perspectives.
+<i>Pediatric Pulmonol.</i> (2020) 55:1550&#x2013;62. 10.1002/ppul.24792
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/ppul.24792</ArticleId><ArticleId IdType="pubmed">32339409</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu J, Inchingolo R, Suryawanshi P, Guo BB, Kurepa D, Cort&#xe9;s RG, et al. 
+Guidelines for the use of lung ultrasound to optimise the management of neonatal respiratory distress: international expert consensus.
+<i>BMC Med.</i> (2025) 23:114. 10.1186/s12916-025-03879-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12916-025-03879-5</ArticleId><ArticleId IdType="pmc">PMC11849336</ArticleId><ArticleId IdType="pubmed">39988689</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,400 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Curated"><PMID Version="1">41541916</PMID><DateCompleted><Year>2026</Year><Month>01</Month><Day>16</Day></DateCompleted><DateRevised><Year>2026</Year><Month>01</Month><Day>21</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Electronic">2046-1402</ISSN><JournalIssue CitedMedium="Internet"><Volume>14</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>F1000Research</Title><ISOAbbreviation>F1000Res</ISOAbbreviation></Journal><ArticleTitle>Isokinetic Strength and Functional Ratio for Quadriceps and Hamstrings among Semi-Professional Athletes in UAE playing Football, Cricket, and Tennis- Biomechanical Implications.</ArticleTitle><Pagination><StartPage>1163</StartPage><MedlinePgn>1163</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1163</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.12688/f1000research.170911.1</ELocationID><Abstract><AbstractText Label="AIM" NlmCategory="UNASSIGNED">This study aims to compare the isokinetic strength of the Hamstrings against the Quadriceps for Football, Cricket, and Tennis among semi-professional athletes.</AbstractText><AbstractText Label="METHODOLOGY" NlmCategory="UNASSIGNED">An observational, cross-sectional study was conducted with the inclusion of participants between 18-40 years, both males and females having an active athlete profile playing Football, Cricket, and Tennis as semi-professional (competing in inter-collegiate, national-level tournaments in the UAE). The minimum duration for each sport was one hour per day and three to five times per week. A total of 66 participants were enrolled, with 22 participants in each group. The ISOMOVE isokinetic device was used to assess the strength of dynamically contracting Quadriceps concentrically against eccentric contraction of the Hamstring muscles to determine the functional ratio (H/Q ratio).</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Age-wise distribution of players showed predominant male participants with 77.3% of players in Football, 68.2% in Cricket, and 59.1% in Tennis. The comparison for the mean peaks of isokinetic strength for functional ratio suggested a statistically significant difference between the three sports (Football p&lt;0.001, Cricket p=0.006, Tennis p =0.003). The findings suggested that the highest H/Q ratio was found in Football players with a mean value of 0.51&#xb1;0.07, followed by Cricket and Tennis with a mean of 0.48&#xb1;0.08 and 0.42&#xb1;0.05, respectively (p&lt;0.05).</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">The isokinetic strength testing for H/Q ratio was found to be higher in Football players, followed by Cricket and Tennis players for semi-professional athletes. The study concluded that the functional H/Q ratio varies between three similar sports as the demand on the target muscle would specifically vary. Thus, semi-professional players who play multiple games should consider enhancing FR for the Hamstring to the Quadriceps, besides the strength and training specific to sports, to avoid the risk of injuries.</AbstractText><CopyrightInformation>Copyright: &#xa9; 2025 Bhatt Y et al.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Bhatt</LastName><ForeName>Yogi</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>College of Health Sciences, Gulf Medical University, Ajman, Ajman, United Arab Emirates.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Hazari</LastName><ForeName>Animesh</ForeName><Initials>A</Initials><Identifier Source="ORCID">0000-0002-3936-5029</Identifier><AffiliationInfo><Affiliation>College of Health Sciences, Gulf Medical University, Ajman, Ajman, United Arab Emirates.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Govindappa</LastName><ForeName>Shashikumar Channmgere</ForeName><Initials>SC</Initials><Identifier Source="ORCID">0000-0002-5485-9473</Identifier><AffiliationInfo><Affiliation>College of Applied Medical Sciences, University of Hail, Hail, Hail Province, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kandakurti</LastName><ForeName>Praveen Kumar</ForeName><Initials>PK</Initials><Identifier Source="ORCID">0000-0003-2669-4488</Identifier><AffiliationInfo><Affiliation>College of Health Sciences, Gulf Medical University, Ajman, Ajman, United Arab Emirates.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><DataBankList CompleteYN="Y"><DataBank><DataBankName>figshare</DataBankName><AccessionNumberList><AccessionNumber>10.6084/m9.figshare.30156637.v1</AccessionNumber></AccessionNumberList></DataBank></DataBankList><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType><PublicationType UI="D064888">Observational Study</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>10</Month><Day>24</Day></ArticleDate></Article><MedlineJournalInfo><Country>England</Country><MedlineTA>F1000Res</MedlineTA><NlmUniqueID>101594320</NlmUniqueID><ISSNLinking>2046-1402</ISSNLinking></MedlineJournalInfo><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D008297" MajorTopicYN="N">Male</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005260" MajorTopicYN="N">Female</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D013715" MajorTopicYN="Y">Tennis</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D000328" MajorTopicYN="N">Adult</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000070633" MajorTopicYN="Y">Hamstring Muscles</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D055815" MajorTopicYN="N">Young Adult</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D053580" MajorTopicYN="Y">Muscle Strength</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D052097" MajorTopicYN="Y">Quadriceps Muscle</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D056352" MajorTopicYN="Y">Athletes</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D003430" MajorTopicYN="N">Cross-Sectional Studies</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000293" MajorTopicYN="N">Adolescent</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D001696" MajorTopicYN="N">Biomechanical Phenomena</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005538" MajorTopicYN="Y">Football</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D000080304" MajorTopicYN="Y">Cricket Sport</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Functional ratio</Keyword><Keyword MajorTopicYN="N">H/Q ratio</Keyword><Keyword MajorTopicYN="N">Hamstring</Keyword><Keyword MajorTopicYN="N">Isokinetic strength</Keyword><Keyword MajorTopicYN="N">Quadriceps</Keyword></KeywordList><CoiStatement>No competing interests were disclosed.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>10</Month><Day>17</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>1</Month><Day>16</Day><Hour>15</Hour><Minute>5</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>1</Month><Day>16</Day><Hour>15</Hour><Minute>4</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>1</Month><Day>16</Day><Hour>5</Hour><Minute>27</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>10</Month><Day>24</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41541916</ArticleId><ArticleId IdType="pmc">PMC12800611</ArticleId><ArticleId IdType="doi">10.12688/f1000research.170911.1</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+Daneshjoo A, Rahnama N, Mokhtar AH, et al. :
+Effectiveness of injury prevention programs on developing quadriceps and hamstrings strength of young male professional soccer players.
+
+<i>J. Hum. Kinet.</i>
+
+2013 Dec 18;39:115&#x2013;125.
+10.2478/hukin-2013-0074
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2478/hukin-2013-0074</ArticleId><ArticleId IdType="pmc">PMC3916926</ArticleId><ArticleId IdType="pubmed">24511347</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Iga J, George K, Lees A, et al. :
+Cross-sectional investigation of indices of isokinetic leg strength in youth soccer players and untrained individuals.
+
+<i>Scand. J. Med. Sci. Sports.</i>
+
+2009 Oct;19(5):714&#x2013;719.
+10.1111/j.1600-0838.2008.00822.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2008.00822.x</ArticleId><ArticleId IdType="pubmed">18627555</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Jenkins NDM, Hawkey MJ, Costa PB, et al. :
+Functional hamstrings: quadriceps ratios in elite women&#x2019;s soccer players.
+
+<i>J. Sports Sci.</i>
+
+2013;31(6):612&#x2013;617.
+10.1080/02640414.2012.742958
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2012.742958</ArticleId><ArticleId IdType="pubmed">23150930</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Hoskins WT, Pollard H:
+INJURIES IN AUSTRALIAN RULES FOOTBALL.
+
+<i>Australas. Chiropr. Osteopathy.</i>
+
+2003 Jul;11(2):49&#x2013;56.
+
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC2051317</ArticleId><ArticleId IdType="pubmed">17987211</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Croisier JL, Ganteaume S, Binet J, et al. :
+Strength imbalances and prevention of hamstring injury in professional soccer players: a prospective study.
+
+<i>Am. J. Sports Med.</i>
+
+2008 Aug;36(8):1469&#x2013;1475.
+10.1177/0363546508316764
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0363546508316764</ArticleId><ArticleId IdType="pubmed">18448578</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Dvir Z, Eger G, Halperin N, et al. :
+Thigh muscle activity and anterior cruciate ligament insufficiency.
+
+<i>Clin. Biomech.</i>
+
+1989;4(2):87&#x2013;91.
+10.1016/0268-0033(89)90044-2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0268-0033(89)90044-2</ArticleId><ArticleId IdType="pubmed">23915999</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Coombs R, Garbutt G:
+Developments in the use of the hamstring/quadriceps ratio for the assessment of muscle balance.
+
+<i>J. Sports Sci. Med.</i>
+
+2002 Sep 1;1(3):56&#x2013;62.
+
+
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3967430</ArticleId><ArticleId IdType="pubmed">24701125</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Chu SK, Rho ME:
+Hamstring Injuries in the Athlete: Diagnosis, Treatment, and Return to Play.
+
+<i>Curr. Sports Med. Rep.</i>
+
+2016;15(3):184&#x2013;190.
+10.1249/JSR.0000000000000264
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/JSR.0000000000000264</ArticleId><ArticleId IdType="pmc">PMC5003616</ArticleId><ArticleId IdType="pubmed">27172083</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Askling CM, Tengvar M, Saartok T, et al. :
+Acute first-time hamstring strains during high-speed running: a longitudinal study including clinical and magnetic resonance imaging findings.
+
+<i>Am. J. Sports Med.</i>
+
+2007 Feb;35(2):197&#x2013;206.
+10.1177/0363546506294679
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0363546506294679</ArticleId><ArticleId IdType="pubmed">17170160</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Ekstrand J, Wald&#xe9;n M, H&#xe4;gglund M:
+Hamstring injuries have increased by 4% annually in men&#x2019;s professional football, since 2001: a 13-year longitudinal analysis of the UEFA Elite Club injury study.
+
+<i>Br. J. Sports Med.</i>
+
+2016 Jun;50(12):731&#x2013;737.
+10.1136/bjsports-2015-095359
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2015-095359</ArticleId><ArticleId IdType="pubmed">26746908</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Roe M, Murphy JC, Gissane C, et al. :
+Hamstring injuries in elite Gaelic football: an 8-year investigation to identify injury rates, time-loss patterns and players at increased risk.
+
+<i>Br. J. Sports Med.</i>
+
+2018 Aug;52(15):982&#x2013;988.
+10.1136/bjsports-2016-096401
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2016-096401</ArticleId><ArticleId IdType="pubmed">27797729</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Danielsson A, Horvath A, Senorski C, et al. :
+The mechanism of hamstring injuries &#x2013; a systematic review.
+
+<i>BMC Musculoskelet. Disord.</i>
+
+2020 Sep 29;21(1):641.
+10.1186/s12891-020-03658-8
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12891-020-03658-8</ArticleId><ArticleId IdType="pmc">PMC7526261</ArticleId><ArticleId IdType="pubmed">32993700</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Van Dyk N, Bahr R, Whiteley R, et al. :
+Hamstring and quadriceps isokinetic strength deficits are weak risk factors for hamstring strain injuries: a 4-year cohort study.
+
+<i>Am. J. Sports Med.</i>
+
+2016 Jul;44(7):1789&#x2013;1795.
+10.1177/0363546516632526
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0363546516632526</ArticleId><ArticleId IdType="pubmed">27002102</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kiani A, Hellquist E, Ahlqvist K, et al. :
+Prevention of soccer-related knee injuries in teenaged girls.
+
+<i>Arch. Intern. Med.</i>
+
+2010 Jan 11;170(1):43&#x2013;49.
+10.1001/archinternmed.2009.289
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/archinternmed.2009.289</ArticleId><ArticleId IdType="pubmed">20065198</ArticleId></ArticleIdList></Reference><Reference><Citation>Rund JM, Christensen GV, Fleming JA, et al. : Anterior Cruciate Ligament Tears among Football Players. Curr. Rev. Musculoskelet. Med. 2025 May;18(5):183&#x2013;189.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC12014870</ArticleId><ArticleId IdType="pubmed">39930256</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Krishna SA, Alwar TK, Sibeko S, et al. :
+Plyometric-based Training for Isokinetic Knee Strength and Jump Performance in Cricket Fast Bowlers.
+
+<i>Int. J. Sports Med.</i>
+
+2019 Oct;40(11):704&#x2013;710.
+10.1055/a-0970-5564
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/a-0970-5564</ArticleId><ArticleId IdType="pubmed">31404936</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Read MT, Bellamy MJ:
+Comparison of hamstring/quadriceps isokinetic strength ratios and power in tennis, squash and track athletes.
+
+<i>Br. J. Sports Med.</i>
+
+1990 Sep;24(3):178&#x2013;182.
+10.1136/bjsm.24.3.178
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.24.3.178</ArticleId><ArticleId IdType="pmc">PMC1478790</ArticleId><ArticleId IdType="pubmed">2078804</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Lutz FD, Cleary CJ, Moffatt HM, et al. :
+Comparison of the H: Q ratio between the dominant and nondominant legs of soccer players: a meta-analysis.
+
+<i>Sports Health.</i>
+
+2023 Jul;15(4):486&#x2013;496.
+10.1177/19417381221095096
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/19417381221095096</ArticleId><ArticleId IdType="pmc">PMC10293569</ArticleId><ArticleId IdType="pubmed">35619586</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Brito J, Figueiredo P, Fernandes L, et al. :
+Isokinetic strength effects of FIFA&#x2019;s &#x201c;The 11+&#x201c; injury prevention training programme.
+
+<i>Isokinet. Exerc. Sci.</i>
+
+2010 Jan 1;18(4):211&#x2013;215.
+10.3233/IES-2010-0386
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3233/IES-2010-0386</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Allen JC, Jr:
+Sample size calculation for two independent groups: A useful rule of thumb.
+
+<i>Proceedings of Singapore Healthcare.</i>
+
+2011 Jun;20(2):138&#x2013;140.
+10.1177/201010581102000213
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/201010581102000213</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Alonazi A, Hasan S, Anwer S, et al. :
+Efficacy of Electromyographic-Biofeedback Supplementation Training with Patellar Taping on Quadriceps Strengthening in Patellofemoral Pain Syndrome among Young Adult Male Athletes.
+
+<i>Int. J. Environ. Res. Public Health.</i>
+
+2021 Apr 23;18(9):4514.
+10.3390/ijerph18094514
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph18094514</ArticleId><ArticleId IdType="pmc">PMC8123081</ArticleId><ArticleId IdType="pubmed">33922866</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Al-Hazza HM, AlMarzooki MA:
+Descriptive Analysis of Physical Activity Initiatives for Health Promotion in Saudi Arabia.
+
+<i>Front. Public Health.</i>
+
+2018 Nov 14;6:329.
+10.3389/fpubh.2018.00329
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpubh.2018.00329</ArticleId><ArticleId IdType="pmc">PMC6246731</ArticleId><ArticleId IdType="pubmed">30488032</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Stastny P, Lehnert M, Tufano JJ:
+Muscle imbalances: Testing and training functional eccentric hamstring strength in athletic populations.
+
+<i>JoVE (Journal of Visualized Experiments).</i>
+
+2018 May 1;135:e57508.
+10.3791/57508-v
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3791/57508-v</ArticleId><ArticleId IdType="pmc">PMC6101060</ArticleId><ArticleId IdType="pubmed">29781992</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Brown LE:
+
+<i>Isokinetics in human performance.</i>
+
+Human Kinetics;2000.</Citation></Reference><Reference><Citation>
+Arsenis S, Gioftsidou A, Ispyrlidis I, et al. :
+Effects of the FIFA 11+ injury prevention program on lower limb strength and balance.
+
+<i>Journal of Physical Education and Sport.</i>
+
+2020 Mar 1;20(2):592&#x2013;598.</Citation></Reference><Reference><Citation>
+Jaric S, Mirkov D, Markovic G:
+Normalizing physical performance tests for body size: aproposal for standardization.
+
+<i>J. Strength Cond. Res.</i>
+
+2005 May 1;19(2):467&#x2013;474.
+10.1519/00124278-200505000-00037
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200505000-00037</ArticleId><ArticleId IdType="pubmed">15903392</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Aginsky KD, Neophytou N, Charalambous T:
+Isokinetic hamstring and quadriceps muscle strength profiles of elite South African football players science.
+
+<i>African Journal for Physical Health Education, Recreation and Dance.</i>
+
+2014 Sep 1;20(3):1225&#x2013;1236.</Citation></Reference><Reference><Citation>
+Andrade Mdos S, De Lira CA, Koffes Fde C, et al. :
+Isokinetic hamstrings-to-quadriceps peak torque ratio: the influence of sport modality, gender, and angular velocity.
+
+<i>J. Sports Sci.</i>
+
+2012;30(6):547&#x2013;553.
+10.1080/02640414.2011.644249
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2011.644249</ArticleId><ArticleId IdType="pubmed">22364375</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Cheung R, Smith A, Wong D:
+H: Q ratios and bilateral leg strength in college field and court sports players.
+
+<i>J. Hum. Kinet.</i>
+
+2012 Jun 1;33(2012):63&#x2013;71.
+10.2478/v10078-012-0045-1
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2478/v10078-012-0045-1</ArticleId><ArticleId IdType="pmc">PMC3588678</ArticleId><ArticleId IdType="pubmed">23487043</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Voukelatos D, Evangelidis PE, Pain MTG:
+The hamstrings to quadriceps functional ratio expressed over the full angle-angular velocity range using a limited number of data points.
+
+<i>R. Soc. Open Sci.</i>
+
+2022 Apr 27;9(4):210696.
+10.1098/rsos.210696
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1098/rsos.210696</ArticleId><ArticleId IdType="pmc">PMC9043738</ArticleId><ArticleId IdType="pubmed">35601451</ArticleId></ArticleIdList></Reference><Reference><Citation>
+&#x15a;liwowski R, Marynowicz J, Grygorowicz M, et al. :
+Are There Differences in Concentric Isokinetic Strength Perfor-Mance Profiles between International and Non-International Elite Soccer Players?
+
+<i>Int. J. Environ. Res. Public Health.</i>
+
+2021 Jan;18(1):35.
+10.3390/ijerph18010035
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijerph18010035</ArticleId><ArticleId IdType="pmc">PMC7793063</ArticleId><ArticleId IdType="pubmed">33374580</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Costa PB, Ryan ED, Herda TJ, et al. :
+Effects of static stretching on the hamstrings-to-quadriceps ratio and electromyographic amplitude in men.
+
+<i>J. Sports Med. Phys. Fitness.</i>
+
+2009 Dec;49(4):401&#x2013;409.
+
+</Citation><ArticleIdList><ArticleId IdType="pubmed">20087300</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Sangnier S, Tourny-Chollet C:
+Comparison of the decrease in strength between hamstrings and quadriceps during isokinetic fatigue testing in semiprofessional soccer players.
+
+<i>Int. J. Sports Med.</i>
+
+2007 Nov;28(11):952&#x2013;957.
+10.1055/s-2007-964981
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2007-964981</ArticleId><ArticleId IdType="pubmed">17497573</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Yeung SS, Suen AMY, Yeung EW:
+A prospective cohort study of hamstring injuries in competitive sprinters: preseason muscle imbalance as a possible risk factor.
+
+<i>Br. J. Sports Med.</i>
+
+2009 Aug;43(8):589&#x2013;594.
+10.1136/bjsm.2008.056283
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.2008.056283</ArticleId><ArticleId IdType="pubmed">19174411</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Holcomb WR, Rubley MD, Lee HJ, et al. :
+Effect of hamstring-emphasized resistance training on hamstring:quadriceps strength ratios.
+
+<i>J. Strength Cond. Res.</i>
+
+2007 Feb;21(1):41&#x2013;47.
+10.1519/00124278-200702000-00008
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200702000-00008</ArticleId><ArticleId IdType="pubmed">17313266</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Aagaard P, Simonsen EB, Trolle M, et al. :
+Isokinetic hamstring/quadriceps strength ratio: influence from joint angular velocity, gravity correction and contraction mode.
+
+<i>Acta Physiol. Scand.</i>
+
+1995 Aug;154(4):421&#x2013;427.
+10.1111/j.1748-1716.1995.tb09927.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1748-1716.1995.tb09927.x</ArticleId><ArticleId IdType="pubmed">7484168</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Crenshaw AG, Karlsson S, Styf J, et al. :
+Knee extension torque and intramuscular pressure of the vastus lateralis muscle during eccentric and concentric activities.
+
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+
+1995;70(1):13&#x2013;19.
+10.1007/BF00601803
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF00601803</ArticleId><ArticleId IdType="pubmed">7729433</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Westing SH, Cresswell AG, Thorstensson A:
+Muscle activation during maximal voluntary eccentric and concentric knee extension.
+
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+
+1991;62(2):104&#x2013;108.
+10.1007/BF00626764
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF00626764</ArticleId><ArticleId IdType="pubmed">2022197</ArticleId></ArticleIdList></Reference><Reference><Citation>
+O&#x2019;Sullivan K, O&#x2019;Ceallaigh B, O&#x2019;Connell K, et al. :
+The relationship between previous hamstring injury and the concentric isokinetic knee muscle strength of Irish Gaelic footballers.
+
+<i>BMC Musculoskelet. Disord.</i>
+
+2008 Mar 6;9:30.
+10.1186/1471-2474-9-30
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1471-2474-9-30</ArticleId><ArticleId IdType="pmc">PMC2289821</ArticleId><ArticleId IdType="pubmed">18325107</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Grygorowicz M, Kubacki J, Pilis W, et al. :
+Selected isokinetic tests in knee injury prevetion.
+
+<i>Biol. Sport.</i>
+
+2010 Mar 14;27:47&#x2013;51.
+10.5604/20831862.907793
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5604/20831862.907793</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Ahmad CS, Clark AM, Heilmann N, et al. :
+Effect of gender and maturity on quadriceps-to-hamstring strength ratio and anterior cruciate ligament laxity.
+
+<i>Am. J. Sports Med.</i>
+
+2006 Mar;34(3):370&#x2013;374.
+10.1177/0363546505280426
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0363546505280426</ArticleId><ArticleId IdType="pubmed">16210574</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Lee JWY, Mok KM, Chan HCK, et al. :
+Eccentric hamstring strength deficit and poor hamstring-to-quadriceps ratio are risk factors for hamstring strain injury in football: A prospective study of 146 professional players.
+
+<i>J. Sci. Med. Sport.</i>
+
+2018 Aug;21(8):789&#x2013;793.
+10.1016/j.jsams.2017.11.017
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2017.11.017</ArticleId><ArticleId IdType="pubmed">29233665</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fritsch CG, Dornelles MP, Oliveira GDS, et al. :
+Poor hamstrings-to-quadriceps torque ratios in male soccer players: weak hamstrings, strong quadriceps, or both?
+
+<i>Sports Biomech.</i>
+
+2023 Jul;22(7):811&#x2013;821.
+10.1080/14763141.2020.1766100
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/14763141.2020.1766100</ArticleId><ArticleId IdType="pubmed">32508266</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Hazari A:
+H/Q SEMIPROFESSIONAL UAE.Dataset.
+
+<i>figshare.</i>
+
+2025.
+10.6084/m9.figshare.30156637.v1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.6084/m9.figshare.30156637.v1</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bhatt Y, Hazari A:
+Isokinetic Strength and Functional Ratio for Quadriceps and Hamstrings among Semi-Professional Athletes in UAE playing Football, Cricket, and Tennis.
+
+<i>Biomechanical Implications.</i>
+
+21 April 2024. PREPRINT (Version 1) available at Research Square.
+10.21203/rs.3.rs-4221390/v1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.21203/rs.3.rs-4221390/v1</ArticleId></ArticleIdList></Reference><Reference><Citation>
+:
+How to write an introduction section of a scientific article?.
+
+<i>T&#xfc;rk &#xdc;roloji Dergisi/Turkish Journal of Urology</i>
+.2014;39(1) :
+10.5152/tud.2013.046
+8-9
+10.5152/tud.2013.046
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5152/tud.2013.046</ArticleId><ArticleId IdType="pmc">PMC4548565</ArticleId><ArticleId IdType="pubmed">26328128</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

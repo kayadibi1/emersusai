@@ -1,0 +1,1307 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="advs72990" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="iso-abbrev">Adv Sci (Weinh)</journal-id><journal-id journal-id-type="pmc-domain-id">2933</journal-id><journal-id journal-id-type="pmc-domain">advsci</journal-id><journal-id journal-id-type="publisher-id">ADVS</journal-id><journal-title-group><journal-title>Advanced Science</journal-title></journal-title-group><issn pub-type="epub">2198-3844</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC12948262</article-id><article-id pub-id-type="pmcid-ver">PMC12948262.1</article-id><article-id pub-id-type="pmcaid">12948262</article-id><article-id pub-id-type="pmcaiid">12948262</article-id><article-id pub-id-type="pmid">41589601</article-id><article-id pub-id-type="doi">10.1002/advs.202513099</article-id><article-id pub-id-type="publisher-id">ADVS72990</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>DualPG‐DTA: A Large Language Model‐Powered Graph Neural Network Framework for Enhanced Drug‐Target Affinity Prediction and Discovery of Novel CDK9 Inhibitors Exhibiting In Vivo Anti‐Leukemia Activity</article-title></title-group><contrib-group><contrib id="advs72990-cr-0001" contrib-type="author"><name name-style="western"><surname>Chen</surname><given-names initials="Y">Yihao</given-names></name><xref rid="advs72990-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs72990-cr-0002" contrib-type="author"><name name-style="western"><surname>Huang</surname><given-names initials="J">Jindi</given-names></name><xref rid="advs72990-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs72990-cr-0003" contrib-type="author"><name name-style="western"><surname>Liu</surname><given-names initials="C">Cong</given-names></name><xref rid="advs72990-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="advs72990-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="advs72990-cr-0004" contrib-type="author"><name name-style="western"><surname>Zhang</surname><given-names initials="S">Shipeng</given-names></name><xref rid="advs72990-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs72990-cr-0005" contrib-type="author"><name name-style="western"><surname>Li</surname><given-names initials="X">Xinze</given-names></name><xref rid="advs72990-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="advs72990-cr-0006" contrib-type="author" corresp="yes"><name name-style="western"><surname>Zhang</surname><given-names initials="Z">Zhang</given-names></name><xref rid="advs72990-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><xref rid="advs72990-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref><address><email>zhang_zhang@jnu.edu.cn</email></address></contrib><contrib id="advs72990-cr-0007" contrib-type="author" corresp="yes"><name name-style="western"><surname>Chen</surname><given-names initials="TG">Tie‐Gen</given-names></name><xref rid="advs72990-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref><xref rid="advs72990-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref><address><email>chentiegen@simm.ac.cn</email></address></contrib><contrib id="advs72990-cr-0008" contrib-type="author" corresp="yes"><name name-style="western"><surname>Wang</surname><given-names initials="L">Ling</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-5116-7749</contrib-id><xref rid="advs72990-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>lingwang@scut.edu.cn</email></address></contrib></contrib-group><aff id="advs72990-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Joint International Research Laboratory of Synthetic Biology and Medicine</named-content>
+<named-content content-type="organisation-division">Ministry of Education</named-content>
+<named-content content-type="organisation-division">Guangdong Provincial Key Laboratory of Fermentation and Enzyme Engineering</named-content>
+<named-content content-type="organisation-division">Guangdong Provincial Engineering and Technology Research Center of Biopharmaceuticals</named-content>
+<named-content content-type="organisation-division">School of Biology and Biological Engineering</named-content>
+<institution>South China University of Technology</institution>
+<city>Guangzhou</city>
+<postal-code>510006</postal-code>
+<country country="CN">China</country>
+</aff><aff id="advs72990-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">State Key Laboratory of Bioactive Molecules and Druggability Assessment</named-content>
+<named-content content-type="organisation-division">School of Pharmacy</named-content>
+<institution>Jinan University</institution>
+<city>Guangzhou</city>
+<postal-code>510632</postal-code>
+<country country="CN">China</country>
+</aff><aff id="advs72990-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">International Cooperative Laboratory of Traditional Chinese Medicine Modernization and Innovative Drug Discovery of Chinese Ministry of Education</named-content>
+<named-content content-type="organisation-division">Guangzhou City Key Laboratory of Precision Chemical Drug Development</named-content>
+<named-content content-type="organisation-division">School of Pharmacy</named-content>
+<institution>Jinan University</institution>
+<city>Guangzhou</city>
+<postal-code>510632</postal-code>
+<country country="CN">China</country>
+</aff><aff id="advs72990-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">Zhongshan Institute for Drug Discovery</named-content>
+<named-content content-type="organisation-division">Shanghai Institute of Materia Medica</named-content>
+<institution>Chinese Academy of Sciences</institution>
+<city>Zhongshan</city>
+<postal-code>528400</postal-code>
+<country country="CN">China</country>
+</aff><aff id="advs72990-aff-0005">
+<label>
+<sup>5</sup>
+</label>
+<named-content content-type="organisation-division">Shanghai Institute of Materia Medica</named-content>
+<institution>Chinese Academy of Sciences</institution>
+<city>Shanghai</city>
+<postal-code>201203</postal-code>
+<country country="CN">China</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>E‐mail: <email>zhang_zhang@jnu.edu.cn</email>; <email>chentiegen@simm.ac.cn</email>; <email>lingwang@scut.edu.cn</email>
+<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>27</day><month>1</month><year>2026</year></pub-date><pub-date pub-type="collection"><month>2</month><year>2026</year></pub-date><volume>13</volume><issue seq="280">12</issue><issue-id pub-id-type="pmc-issue-id">508545</issue-id><issue-id pub-id-type="doi">10.1002/advs.v13.12</issue-id><elocation-id>e13099</elocation-id><history><date date-type="rev-recd"><day>18</day><month>10</month><year>2025</year></date><date date-type="received"><day>24</day><month>7</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>27</day><month>01</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>28</day><month>02</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-02-28 20:25:12.643"><day>28</day><month>02</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). Advanced Science published by Wiley‐VCH GmbH</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="ADVS-13-e13099.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:ADVS-13-e13099.pdf"/><abstract><title>Abstract</title><p>Accurate prediction of drug‐target interactions constitutes a crucial foundation for drug discovery. DualPG‐DTA is presented, a general framework for binding affinity prediction that integrates two pre‐trained language models to generate atomic‐level molecular representations and residue‐level protein embeddings. The architecture constructs dual molecular‐protein graphs processed through dedicated graph neural networks equipped with dynamic attention mechanisms to extract context‐aware sequence‐level features, which are fused via a multimodal module for affinity predictions. Benchmark results show that DualPG‐DTA consistently outperforms existing models across all metrics. Applied to CDK9 inhibitor discovery, the framework is used to develop robust regression/classification models and identified compound <bold>C1</bold> as a novel CDK9 inhibitor with an IC<sub>50</sub> of 1.2 nM. <bold>C1</bold> demonstrates exceptional CDK family selectivity alongside optimal pharmacokinetic properties, including prolonged half‐life, adequate clearance, robust plasma exposure, and oral bioavailability. Notably, oral <bold>C1</bold> demonstrated potent antitumor efficacy in a Venetoclax‐resistant MV4‐11 acute myeloid leukemia (AML) xenograft model, with concurrent demonstration of favorable tolerability and safety profiles. Collectively, the study not only establishes a unified framework for precise binding affinity prediction but also identifies <bold>C1</bold> as a highly promising therapeutic lead targeting CDK9 to conquer Venetoclax resistance in AML.</p></abstract><abstract id="advs72990-abs-0001" abstract-type="graphical"><p>This study introduces DualPG‐DTA, a framework integrating two pre‐trained models to generate molecular and protein representations. It constructs dual graphs processed by specialized neural networks with dynamic attention for feature fusion, achieving superior benchmark performance. Applied to CDK9 inhibitor discovery, it identifies compound <bold>C1</bold>—a potent, selective inhibitor with excellent efficacy and safety in resistant AML models.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="ADVS-13-e13099-g001.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="advs72990-kwd-0001">CDK9</kwd><kwd id="advs72990-kwd-0002">inhibitor</kwd><kwd id="advs72990-kwd-0003">Drug‐target binding affinity prediction</kwd><kwd id="advs72990-kwd-0004">graph neural networks</kwd><kwd id="advs72990-kwd-0005">pre‐training</kwd><kwd id="advs72990-kwd-0006">virtual screening</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>National Natural Science Foundation of China</institution><institution-id institution-id-type="doi">10.13039/501100001809</institution-id></institution-wrap>
+</funding-source><award-id>22577032</award-id><award-id>22371303</award-id></award-group><award-group id="funding-0002"><funding-source>
+<institution-wrap><institution>Natural Science Foundation of Guangdong Province</institution><institution-id institution-id-type="doi">10.13039/501100003453</institution-id></institution-wrap>
+</funding-source><award-id>2023B1515020042</award-id></award-group><award-group id="funding-0003"><funding-source>
+<institution-wrap><institution>100 Talents Program of the Chinese Academy of Sciences, and Zhongshan Municipal Bureau of Science and Technology</institution></institution-wrap>
+</funding-source><award-id>2021B2014andCXTD2022013</award-id></award-group></funding-group><counts><fig-count count="6"/><table-count count="3"/><page-count count="14"/><word-count count="10351"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>27 February 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.1 mode:remove_FC converted:27.02.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="advs72990-sec-0010"><label>1</label><title>Introduction</title><p>The use of traditional biochemical and molecular biology methods to evaluate drug‐target interaction strength requires expensive reagents, specialized equipment, and resource‐intensive experimental preparation coupled with complex data analysis. In contrast, deep learning (DL) approaches can automatically extract discriminative features from the structural or sequential information of drug molecules and target proteins to predict their binding affinities. These methodologies demonstrate particular efficacy in processing large‐scale biomedical data, offering transformative tools and innovative paradigms for drug discovery.<sup>[</sup>
+<xref rid="advs72990-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>
+<sup>]</sup> In 2018, DeepDTA emerged as the first DL‐based method for predicting continuous drug‐target binding affinities.<sup>[</sup>
+<xref rid="advs72990-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>
+<sup>]</sup> Unlike conventional computational approaches that perform binary classification of drug activity, DeepDTA employed novel convolutional neural networks (CNNs) to regress quantitative binding values. While utilizing simplified 1D representations of drugs and proteins as input, this architecture achieved superior performance compared to conventional machine learning (CML)‐based algorithms on large benchmark datasets. In 2019, an enhanced DeepDTA variant termed WideDTA<sup>[</sup>
+<xref rid="advs72990-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>
+<sup>]</sup> was proposed. This framework employed a vocabulary‐based (vs. character‐based) strategy to integrate the sequence information of drug molecules and target proteins, processing textual information such as protein domains, functional motifs, and maximal common substructures of compounds through CNNs. WideDTA demonstrated superior performance over DeepDTA on two commonly used benchmark datasets (Davis and KIBA). Zhao et al. proposed AttentionDTA,<sup>[</sup>
+<xref rid="advs72990-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>
+<sup>]</sup> implementing attention mechanisms to dynamically weight critical subsequences in both protein targets and ligand molecules, significantly improving prediction accuracy. Nguyen et al. advanced the field with GraphDTA,<sup>[</sup>
+<xref rid="advs72990-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>
+<sup>]</sup> a new graph neural network (GNN)‐based architecture representing drug molecules as graphs for binding affinity prediction. Multimodal DL models can process and integrate multiple types of data (e.g., text, images, and sound). They combine information from different modalities to provide a more comprehensive understanding and analysis of the data, thereby improving prediction accuracy. Zhong et al. proposed MMDTA,<sup>[</sup>
+<xref rid="advs72990-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>
+<sup>]</sup> a multimodal framework employing CNN‐GNN hybrid architectures to extract multidimensional heterogeneous features from drug‐target sequences and 3D structures. The model integrates these features via a mixed fusion strategy to generate drug‐target binding affinity predictions. Wang et al.<sup>[</sup>
+<xref rid="advs72990-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>
+<sup>]</sup> introduced AffinityVAE, a multi‐objective DL framework that leverages a variational autoencoder combined with protein–ligand interaction feature mapping. This approach enables simultaneous prediction of binding affinity and generation of novel drug‐like molecules, while also offering interpretable visualizations of binding sites.</p><p>Pretrained models represent a paradigm in DL that expedites task‐specific learning and enhances predictive performance by capturing generalized feature representations from large datasets, thereby serving as a starting point for subsequent tasks. The knowledge acquired from pretraining on vast amounts of data can be transferred to new related tasks. For example, in natural language processing (NLP), models like BERT<sup>[</sup>
+<xref rid="advs72990-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>
+<sup>]</sup> and GPT<sup>[</sup>
+<xref rid="advs72990-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>
+<sup>]</sup> are pretrained on massive text corpora to capture deep semantic and structural features of natural language. In computer vision (CV), foundational models such as ResNet<sup>[</sup>
+<xref rid="advs72990-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>
+<sup>]</sup> and VGGNet<sup>[</sup>
+<xref rid="advs72990-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>
+<sup>]</sup> leverage large‐scale image datasets to learn common features and effectively recognize and classify objects in images. Within structural biology, AlphaFold<sup>[</sup>
+<xref rid="advs72990-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>
+<sup>]</sup> exemplifies this paradigm through pretraining on extensive protein sequence data, 3D structural data, and evolutionary information, enabling accurate prediction of the 3D structures of novel proteins, which holds significant practical implications and application value in drug discovery and related fields.</p><p>In this study, we propose DualPG‐DTA, an innovative DL framework that synergistically integrates dual pretrained large language models with GNNs equipped with multi‐head attention mechanisms for drug‐target binding affinity prediction. We then conducted systematic benchmarking against state‐of‐the‐art CML and DL approaches spanning the past decade using two established benchmark datasets. The results demonstrated that DualPG‐DTA achieves optimal performance across all evaluation metrics. Furthermore, we extended DualPG‐DTA to the task of cyclin‐dependent kinase 9 (CDK9) inhibitor discovery and successfully identified compound <bold>C1</bold> as a novel CDK9 inhibitor. <bold>C1</bold> not only demonstrated potent inhibitory activity against CDK9 but also displayed favorable pharmacokinetic and safety properties in vivo. Additionally, it exhibited notable anti‐leukemia efficacy in a xenograft mouse model of MV4‐11‐VR that was resistant to the Bcl‐2 inhibitor Venetoclax.</p></sec><sec id="advs72990-sec-0020"><label>2</label><title>Results and Discussion</title><sec id="advs72990-sec-0030"><label>2.1</label><title>Architecture and Performance of the DualPG‐DTA Model</title><p>Accurate prediction of drug‐target interactions is fundamental for drug discovery. We introduce DualPG‐DTA, a deep learning framework designed to predict binding affinity by integrating two pre‐trained large language models. As illustrated in <bold>Figure</bold>
+<xref rid="advs72990-fig-0001" ref-type="fig">
+<bold>1</bold>
+</xref>, its architecture comprises three core components: a drug feature extraction module, a protein feature extraction module, and a multimodal fusion prediction module. The core innovation lies in leveraging these pre‐trained models to capture atomic‐level 3D structural information of small molecules and residue‐level embeddings of proteins. This information is processed through GATv2 networks with dynamic attention mechanisms, which extract context‐aware sequence‐level features from dual molecular‐protein graphs. For drug graphs, GATv2 dynamically assigns higher attention weights to key pharmacophoric features such as aromatic rings and hydrogen bond donors by leveraging learned edge features (Figure <xref rid="advs72990-fig-0001" ref-type="fig">1A</xref>). For protein graphs, residues located within 8Å of the binding pocket—for example, the hinge region in CDK9 (Figure <xref rid="advs72990-fig-0003" ref-type="fig">3F</xref>)—are assigned prioritized attention through distance‐based edge weights. This dual‐graph attention mechanism enables the model to focus on structurally meaningful interactions. A multimodal fusion module then integrates these features to generate precise predictions of drug‐target binding affinity, enabling systematic exploration of complex interactions in drug discovery.</p><fig position="float" fig-type="Figure" id="advs72990-fig-0001" orientation="portrait"><label>Figure 1</label><caption><p>Architecture diagram of DualPG‐DTA. A) Drug feature extraction module. B) Protein feature extraction module. C) Fusion prediction module.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="ADVS-13-e13099-g002.jpg"/></fig><p>To comprehensively evaluate the performance of the DualPG‐DTA model, we trained the model and tested all evaluation metrics on two benchmark datasets (Davis and KIBA). The reported results are averaged from five independent experimental indicators of fivefold cross‐validation. As shown in <bold>Table</bold>
+<xref rid="advs72990-tbl-0001" ref-type="table">
+<bold>1</bold>
+</xref>, our model achieved the best performance, with the highest Concordance Index (CI) and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="inline"><mml:mrow><mml:msubsup><mml:mi>r</mml:mi><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math> values of 0.908 and 0.788 for Davis and 0.894 and 0.791 for KIBA, and the lowest Mean Squared Error (MSE) values of 0.169 and 0.138 for Davis and KIBA, respectively. Specifically, compared with the previous best model (BiComp‐DTA), the MSE values of the DualPG‐DTA on the two datasets were reduced by 21.8% and 8.0%; the CI indexes of the DualPG‐DTA increased by 0.4% and 0.3% for Davis and KIBA, while the <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-2" display="inline"><mml:mrow><mml:msubsup><mml:mi>r</mml:mi><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math> values of the DualPG‐DTA improved by 11.8% and 4.5% for Davis and KIBA, respectively. In addition, our model has achieved a significant advantage on the Davis dataset with less data, which is the advantage brought by pretrained models introduced upstream of the DualPG‐DTA. Because the pretrained models have learned a lot of general knowledge, when the amount of data for downstream tasks is limited, the pretrained models can adapt to new tasks faster than ordinary models, helping the model to grasp more general features, so that the model can learn more useful information with less data.</p><table-wrap position="float" id="advs72990-tbl-0001" content-type="Table" orientation="portrait"><label>Table 1</label><caption><p>Performance results of DualPG‐DTA model on Davis and KIBA datasets.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr><th rowspan="2" align="left" colspan="1">Methods</th><th colspan="3" style="border-bottom:solid 1px #000000" align="center" rowspan="1">Davis</th><th colspan="3" style="border-bottom:solid 1px #000000" align="center" rowspan="1">KIBA</th></tr><tr style="border-bottom:solid 1px #000000"><th align="center" rowspan="1" colspan="1">MSE</th><th align="center" rowspan="1" colspan="1">C</th><th align="center" rowspan="1" colspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-3" display="inline"><mml:mrow><mml:msubsup><mml:mi>r</mml:mi><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math>
+</th><th align="center" rowspan="1" colspan="1">MSE</th><th align="center" rowspan="1" colspan="1">CI</th><th align="center" rowspan="1" colspan="1">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-4" display="inline"><mml:mrow><mml:msubsup><mml:mi>r</mml:mi><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math>
+</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">KronRLS<sup>[</sup>
+<xref rid="advs72990-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.379</td><td align="center" rowspan="1" colspan="1">0.871 (0.001)</td><td align="center" rowspan="1" colspan="1">0.407 (0.005)</td><td align="center" rowspan="1" colspan="1">0.411</td><td align="center" rowspan="1" colspan="1">0.782 (0.001)</td><td align="center" rowspan="1" colspan="1">0.342 (0.001)</td></tr><tr><td align="left" rowspan="1" colspan="1">SimBoost<sup>[</sup>
+<xref rid="advs72990-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.282</td><td align="center" rowspan="1" colspan="1">0.872 (0.002)</td><td align="center" rowspan="1" colspan="1">0.644 (0.006)</td><td align="center" rowspan="1" colspan="1">0.222</td><td align="center" rowspan="1" colspan="1">0.836 (0.001)</td><td align="center" rowspan="1" colspan="1">0.629 (0.007)</td></tr><tr><td align="left" rowspan="1" colspan="1">DeepDTA<sup>[</sup>
+<xref rid="advs72990-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.261</td><td align="center" rowspan="1" colspan="1">0.878 (0.004)</td><td align="center" rowspan="1" colspan="1">0.630 (0.017)</td><td align="center" rowspan="1" colspan="1">0.194</td><td align="center" rowspan="1" colspan="1">0.863 (0.002)</td><td align="center" rowspan="1" colspan="1">0.673 (0.009)</td></tr><tr><td align="left" rowspan="1" colspan="1">AttentionDTA<sup>[</sup>
+<xref rid="advs72990-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.216</td><td align="center" rowspan="1" colspan="1">0.893 (0.005)</td><td align="center" rowspan="1" colspan="1">0.677 (0.024)</td><td align="center" rowspan="1" colspan="1">0.155</td><td align="center" rowspan="1" colspan="1">0.882 (0.004)</td><td align="center" rowspan="1" colspan="1">0.755 (0.017)</td></tr><tr><td align="left" rowspan="1" colspan="1">MATT‐DTI<sup>[</sup>
+<xref rid="advs72990-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.227</td><td align="center" rowspan="1" colspan="1">0.891 (0.003)</td><td align="center" rowspan="1" colspan="1">0.683 (0.009)</td><td align="center" rowspan="1" colspan="1">0.150</td><td align="center" rowspan="1" colspan="1">0.889 (0.001)</td><td align="center" rowspan="1" colspan="1">0.756 (0.011)</td></tr><tr><td align="left" rowspan="1" colspan="1">GraphDTA<sup>[</sup>
+<xref rid="advs72990-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.258</td><td align="center" rowspan="1" colspan="1">0.884 (0.002)</td><td align="center" rowspan="1" colspan="1">0.656 (0.014)</td><td align="center" rowspan="1" colspan="1">0.162</td><td align="center" rowspan="1" colspan="1">0.879 (0.004)</td><td align="center" rowspan="1" colspan="1">0.736 (0.028)</td></tr><tr><td align="left" rowspan="1" colspan="1">FusionDTA<sup>[</sup>
+<xref rid="advs72990-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.220</td><td align="center" rowspan="1" colspan="1">0.903 (0.002)</td><td align="center" rowspan="1" colspan="1">0.666 (0.008)</td><td align="center" rowspan="1" colspan="1">0.167</td><td align="center" rowspan="1" colspan="1">0.890 (0.001)</td><td align="center" rowspan="1" colspan="1">0.699 (0.010)</td></tr><tr><td align="left" rowspan="1" colspan="1">BiComp‐DTA<sup>[</sup>
+<xref rid="advs72990-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.237</td><td align="center" rowspan="1" colspan="1">0.904 (0.001)</td><td align="center" rowspan="1" colspan="1">0.696 (0.012)</td><td align="center" rowspan="1" colspan="1">0.167</td><td align="center" rowspan="1" colspan="1">0.891 (0.001)</td><td align="center" rowspan="1" colspan="1">0.757 (0.012)</td></tr><tr><td align="left" rowspan="1" colspan="1">G‐K BertDTA<sup>[</sup>
+<xref rid="advs72990-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.267</td><td align="center" rowspan="1" colspan="1">0.879 (0.003)</td><td align="center" rowspan="1" colspan="1">0.660 (0.003)</td><td align="center" rowspan="1" colspan="1">0.201</td><td align="center" rowspan="1" colspan="1">0.847 (0.003)</td><td align="center" rowspan="1" colspan="1">0.675 (0.01)</td></tr><tr><td align="left" rowspan="1" colspan="1">TEFDTA<sup>[</sup>
+<xref rid="advs72990-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.264</td><td align="center" rowspan="1" colspan="1">0.878 (0.002)</td><td align="center" rowspan="1" colspan="1">0.635 (0.021)</td><td align="center" rowspan="1" colspan="1">0.199</td><td align="center" rowspan="1" colspan="1">0.857 (0.002)</td><td align="center" rowspan="1" colspan="1">0.703 (0.005)</td></tr><tr><td align="left" rowspan="1" colspan="1">AttentionMGT‐DTA<sup>[</sup>
+<xref rid="advs72990-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.193</td><td align="center" rowspan="1" colspan="1">0.891 (0.005)</td><td align="center" rowspan="1" colspan="1">0.699 (0.027)</td><td align="center" rowspan="1" colspan="1">0.140</td><td align="center" rowspan="1" colspan="1">0.893 (0.001)</td><td align="center" rowspan="1" colspan="1">0.786 (0.018)</td></tr><tr><td align="left" rowspan="1" colspan="1">InceptionDTA(CharVec)<sup>[</sup>
+<xref rid="advs72990-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.196</td><td align="center" rowspan="1" colspan="1">0.891 (0.003)</td><td align="center" rowspan="1" colspan="1">0.625 (0.020)</td><td align="center" rowspan="1" colspan="1">0.163</td><td align="center" rowspan="1" colspan="1">0.887 (0.001)</td><td align="center" rowspan="1" colspan="1">0.716 (0.018)</td></tr><tr><td align="left" rowspan="1" colspan="1">InceptionDTA(Seq)<sup>[</sup>
+<xref rid="advs72990-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>
+<sup>]</sup>
+</td><td align="center" rowspan="1" colspan="1">0.242</td><td align="center" rowspan="1" colspan="1">0.897 (0.002)</td><td align="center" rowspan="1" colspan="1">0.624 (0.028)</td><td align="center" rowspan="1" colspan="1">0.166</td><td align="center" rowspan="1" colspan="1">0.890 (0.001)</td><td align="center" rowspan="1" colspan="1">0.707 (0.007)</td></tr><tr><td align="left" rowspan="1" colspan="1">DualPG‐DTA</td><td align="center" rowspan="1" colspan="1">
+<bold>0.169</bold>
+</td><td align="center" rowspan="1" colspan="1">
+<bold>0.908 (0.003)</bold>
+</td><td align="center" rowspan="1" colspan="1">
+<bold>0.778 (0.009)</bold>
+</td><td align="center" rowspan="1" colspan="1">
+<bold>0.138</bold>
+</td><td align="center" rowspan="1" colspan="1">
+<bold>0.894 (0.001)</bold>
+</td><td align="center" rowspan="1" colspan="1">
+<bold>0.791 (0.009)</bold>
+</td></tr></tbody></table><table-wrap-foot><fn id="advs72990-tbl1-note-0001"><p>Note: Bolded values represent the optimal results for the metric. The values in parentheses represent the standard deviation of the cross‐validation process. The performance evaluation values for the baseline models (KronRLS, SimBoost, DeepDTA, AttentionDTA, MATT‐DTI, GraphDTA, FusionDTA, and BiComp‐DTA) were collected from the experimental data of Kalemati et al.<sup>[</sup>
+<xref rid="advs72990-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref>
+<sup>]</sup>. The performance results for the remaining baseline models were sourced from Wu et al.<sup>[</sup>
+<xref rid="advs72990-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>
+<sup>]</sup> and Kalemati et al.<sup>[</sup>
+<xref rid="advs72990-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>
+<sup>]</sup>.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><p>Table <xref rid="advs72990-tbl-0001" ref-type="table">1</xref> also shows that the two CML‐based models, KronRLS and SimBoost, generally perform worse than various DL models. The possible reason is that DL models can better adapt to the deep and complex feature representations in drug and protein data, and effectively handle the nonlinear relationship between drug and protein interactions. On the other hand, when both the drug and protein bilateral architectures are CNNs, DL models with attention mechanisms such as AttentionDTA and MATT‐DTI have significant performance improvements compared to the DeepDTA method without attention mechanisms. This is because the attention mechanisms can help the model adapt to different types of biological data in a more flexible way and focus on their key parts. It is worth noting that in terms of drug representation, GraphDTA, which uses GNNs for 2D molecular graph feature extraction, has a certain performance improvement over the DeepDTA model that only uses CNNs for 1D SMILES feature extraction. Collectively, our DualPG‐DTA model uses two pretrained large models and two sets of three‐layer GATv2 network modules as feature extractors for drugs and proteins, effectively integrating the advantages of pre‐training strategies, GAT, and attention mechanisms, ultimately leading to state‐of‐the‐art performance in drug‐target binding affinity prediction tasks.</p><p>Furthermore, to validate DualPG‐DTA, we benchmarked it against several recent methods—StructureNet,<sup>[</sup>
+<xref rid="advs72990-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>
+<sup>]</sup> PLAIG,<sup>[</sup>
+<xref rid="advs72990-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref>
+<sup>]</sup> and GNNSeq<sup>[</sup>
+<xref rid="advs72990-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>
+<sup>]</sup>—using the PDBBind v2020 refined set, the same dataset adopted in these studies. As shown in Table <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S1</xref> (Supporting Information), our model achieves the best mean squared error (MSE = 1.384) and mean absolute error (MAE = 0.951), along with a near‐optimal Pearson correlation coefficient (PCC = 0.776), underscoring its strong predictive accuracy.</p></sec><sec id="advs72990-sec-0040"><label>2.2</label><title>Multi‐Level Model Validations</title><sec id="advs72990-sec-0050"><label>2.2.1</label><title>Visualizinsg the Relationship between Predicted and Experimental Values</title><p>Visualizing the relationship between predicted values and experimental (Actual) values is one of the important steps in evaluating model performance, because it can help us intuitively understand the prediction accuracy and deviation of the model. As shown in <bold>Figure</bold>
+<xref rid="advs72990-fig-0002" ref-type="fig">
+<bold>2</bold>A,B</xref>, the distribution of the predicted values is closely consistent with the experimental values, with the high Pearson correlation coefficient values of 0.887 and 0.890 for Davis and KIBA, further confirming that the DualPG‐DTA model has good prediction accuracy. Kernel density estimation analysis (Figure <xref rid="advs72990-fig-0002" ref-type="fig">2C,D</xref>) shows that the distribution of predicted values from the DualPG‐DTA model and experimental values is highly consistent, proving that our model can accurately capture the overall distribution characteristics of the data.</p><fig position="float" fig-type="Figure" id="advs72990-fig-0002" orientation="portrait"><label>Figure 2</label><caption><p>Multi‐level validation of the DualPG‐DTA predictive performance. Scatter density plots with marginal histograms for comparing experimental values vs estimated binding affinities of DualPG‐DTA on Davis (A) and KIBA (B) datasets. Kernel density estimation plot for actual value vs estimated value of DualPG‐DTA on Davis (C) and KIBA (D) datasets. Different input features ablation results of the models on the MSE (E), CI (F), and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-5" display="inline"><mml:mrow><mml:msubsup><mml:mi>r</mml:mi><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math> (G) metrics of Davis dataset. Different GNN variants ablation results of the models on MSE (H), CI (I), and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-6" display="inline"><mml:mrow><mml:msubsup><mml:mi>r</mml:mi><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math> (J) metrics of Davis dataset. Y‐Scrambling validation results of DualPG‐DTA on Davis (K) and KIBA (L) datasets.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="ADVS-13-e13099-g006.jpg"/></fig></sec><sec id="advs72990-sec-0060"><label>2.2.2</label><title>Ablation Experiments</title><p>As shown in Figure <xref rid="advs72990-fig-0001" ref-type="fig">1</xref>, DualPG‐DTA uses the node‐level features provided by the upstream pretrained models and the customized edge features to complete the construction of the molecular graph and protein graph, and then uses the GNN to extract graph‐level features and input them into the fusion prediction module to complete the output of the predictive results. To further investigate the effectiveness and necessity of these well‐designed modules in the DualPG‐DTA framework, a series of ablation studies were performed to decouple DualPG‐DTA networks. Concretely, we designed five variants of DualPG‐DTA as follows:
+<list list-type="order" id="advs72990-list-0001"><list-item><p>DualPG‐DTA <italic toggle="yes">without molecular graph</italic> (w/o MG): remove the part of molecular graph construction and GNN training (Figure <xref rid="advs72990-fig-0001" ref-type="fig">1A</xref>), and directly use the sequence‐level features (i.e., the average of all node‐level features) output by the Uni‐Mol pretrained model to input the fusion prediction module to complete the prediction.</p></list-item><list-item><p>DualPG‐DTA <italic toggle="yes">without protein graph</italic> (w/o PG): remove the part of protein graph construction and GNN training (Figure <xref rid="advs72990-fig-0001" ref-type="fig">1B</xref>), and directly use the sequence‐level features (i.e., the average of all node‐level features) output by the ESM‐2 pretrained model to input the fusion prediction module to complete the prediction.</p></list-item><list-item><p>DualPG‐DTA <italic toggle="yes">without molecular graph and protein graph</italic> (w/o MG/PG): remove both the parts of molecular graph and protein graph construction and the corresponding GNN training (Figure <xref rid="advs72990-fig-0001" ref-type="fig">1A,B</xref>).</p></list-item><list-item><p>DualPG‐DTA <italic toggle="yes">without attention mechanism</italic> (w/o AM): use GCN without attention mechanism to replace GATv2 (Figure <xref rid="advs72990-fig-0001" ref-type="fig">1A,B</xref>).</p></list-item><list-item><p>DualPG‐DTA <italic toggle="yes">without dynamic attention mechanism</italic> (w/o DAM): use GAT without dynamic attention mechanism to replace GATv2 in Figure <xref rid="advs72990-fig-0001" ref-type="fig">1A,B</xref>.</p></list-item></list>
+</p><p>All these five variants of DualPG‐DTA were assessed on the Davis dataset, and the experimental setup and evaluation metrics are consistent with the original DualPG‐DTA for a fair comparison. As shown in Figure <xref rid="advs72990-fig-0002" ref-type="fig">2E–G</xref>, when the relevant part of molecular graph or protein graph is removed, the performance metrics (MSE, CI, and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-7" display="inline"><mml:mrow><mml:msubsup><mml:mi>r</mml:mi><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math>) of the variant models (w/o MG and w/o PG) deteriorate to a certain extent. Meanwhile, when removing both the relevant parts of molecular graph and protein graph, the performance of the variant model (w/o MG/PG) will further decrease. These results demonstrate the necessity of the graph construction strategy in the DualPG‐DTA architecture for drug‐target binding affinity prediction tasks.</p><p>As shown in Figure <xref rid="advs72990-fig-0002" ref-type="fig">2H–J</xref>, when the GNN is replaced from GATv2 to GAT, the performance of the variant model (w/o DAM) decreases slightly, proving that the static linear transformation mechanism of GAT to calculate the attention coefficient is defective compared to the dynamic adjustment algorithm of GATv2. Meanwhile, when the GNN is replaced with GCN, the performance of the variant model (w/o AM) will drop significantly. One possible reason is that when a node updates its feature vector in GCN, it aggregates the feature information of neighboring nodes with equal weights, assuming that all neighboring nodes have the same influence on the current node, thereby ignoring that the importance of neighboring nodes may be different. Meanwhile, the weight assignment of GCN is fixed, usually based on the topological structure of the graph, while GAT automatically learns how to assign weights to each neighbor through training data. Collectively, these results indicate that GATv2 in the DualPG‐DTA architecture also plays a key role in drug‐target binding affinity prediction tasks.</p></sec><sec id="advs72990-sec-0070"><label>2.2.3</label><title>Y‐Scrambling Testing</title><p>Y‐Scrambling testing was employed to further evaluate the validity of the model. Specifically, a total of 10 random seeds from 1 to 10 were used to shuffle the labels of each benchmark dataset for training, validation, and testing. Figure <xref rid="advs72990-fig-0002" ref-type="fig">2K,L</xref> illustrates the differences between the test results after 10 Y‐Scrambling operations and the original data. Obviously, the original DualPG‐DTA model without Y‐Scrambling (blue sphere) significantly outperforms the 10 models after Y‐Scrambling (red sphere) in all evaluation indicators. These results indicate that the DualPG‐DTA model is statistically effective and can correctly capture the real and meaningful relationship between input variables and output variables.</p></sec></sec><sec id="advs72990-sec-0080"><label>2.3</label><title>Identifying CDK9 Inhibitors Featuring a Novel Scaffold via the DualPG‐DTA Model</title><p>The translational application of predictive models in real‐world drug discovery workflows holds paramount significance, particularly in accelerating the identification of bioactive compounds and/or lead compounds. Motivated by this imperative, we utilized the DualPG‐DTA framework to discover novel CDK9 inhibitors. Notably, CDK9 plays a key role in controlling cellular transcription and has emerged as an attractive target for the treatment of acute myeloid leukemia (AML).<sup>[</sup>
+<xref rid="advs72990-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref>, <xref rid="advs72990-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>
+<sup>]</sup> To accomplish this, we employed a dataset of ≈1,330 CDK9 inhibitors from our recent study,<sup>[</sup>
+<xref rid="advs72990-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>
+<sup>]</sup> which exhibits high structural diversity and broad chemical coverage, to develop a regression model using the DualPG‐DTA framework for predicting drug‐target binding affinity (Figure <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S1</xref>, Supporting Information). As shown in <bold>Figure</bold>
+<xref rid="advs72990-fig-0003" ref-type="fig">
+<bold>3</bold>A</xref>, this model achieved considerable performance for binding affinity prediction of CDK9‐inhibitors, with the r value of 0.796 on the testing set. Given the potential data heterogeneity arising from diverse experimental sources in the literature‐sourced CDK9 inhibitors dataset,<sup>[</sup>
+<xref rid="advs72990-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>, <xref rid="advs72990-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>
+<sup>]</sup> we incorporated a Sigmoid function into the DualPG‐DTA output layer to build a predictive classification model to address data variability. As shown in Table <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S2</xref> (Supporting Information), the DualPG‐DTA model achieved the best performance across all evaluation metrics, with the highest ACC, AUC, BA, MCC, and F1 values of 0.872, 0.881, 0.727, 0.560, and 0.924 (Figure <xref rid="advs72990-fig-0003" ref-type="fig">3B</xref>), further demonstrating the powerful modeling and prediction capabilities of DualPG‐DTA.</p><fig position="float" fig-type="Figure" id="advs72990-fig-0003" orientation="portrait"><label>Figure 3</label><caption><p>Identifying novel CDK9 inhibitors using the DualPG‐DTA model. A) Performance of DualPG‐DTA regression model on CDK9 inhibitor dataset. B) Performance of DualPG‐DTA classification model on CDK9 inhibitor dataset. C) Structural novelty scores, predictive scores, and experimental values of designed compounds <bold>C1</bold>–<bold>C4</bold>. Data are the mean of n ≥ 2. D) Synthetic routes for compounds <bold>C1</bold>–<bold>C4</bold>. E) RMSD plots for CDK9‐<bold>C1</bold> complex and compound <bold>C1</bold> during 100 ns MD simulations. F) Schematic representation of the protein‐ligand interactions between CDK9 and <bold>C1</bold>. G) Per‐residue decomposition of binding free energy calculated using MMPBSA for CDK9‐<bold>C1</bold>.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="ADVS-13-e13099-g005.jpg"/></fig><p>While predictive models have demonstrated considerable utility in drug discovery, a persistent limitation lies in their reduced accuracy when evaluating compounds with novel structural scaffolds, particularly in scaffold hopping applications. Scaffold hopping enables circumvention of existing patent protections on drug/lead compound cores while generating new chemical entities for subsequent development. Analysis of the BAY1251152‐CDK9 docking pose (Figure <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S2</xref>, Supporting Information) confirmed the two critical hinge‐region hydrogen bonds via its aminopyridine group and Cys106 but also revealed that the sulfonimidamide group was solvent‐exposed. To exploit the adjacent hydrophobic cavity (Phe103, Val33, Lys48) reported in the literature to enhance binding, we implemented a scaffold‐hopping strategy through cyclization. Connecting the methoxy and fluorine substituents was hypothesized to improve rigidity and position the newly formed five‐membered ring into this cavity. Building upon this paradigm, four novel compounds (<bold>C1</bold>–<bold>C4</bold>, Figure <xref rid="advs72990-fig-0003" ref-type="fig">3C</xref>) were designed through scaffold‐hopping modifications of the established CDK9 inhibitor BAY1251152. Molecular similarity analysis using ECFP_4 fingerprints showed that these compounds are structurally novel, with lower Tanimoto coefficient scores of 0.214, 0.239, 0.296, and 0.247 (Figure <xref rid="advs72990-fig-0003" ref-type="fig">3C</xref>) relative to the parent compound.</p><p>We subsequently employed our established binding affinity regression and activity classification models to evaluate four novel compounds (<bold>C1</bold>–<bold>C4</bold>) for CDK9 inhibition. The regression model yielded moderate binding affinity predictions across all compounds, with predictive IC<sub>50</sub> values ranging between 300–400 nM (Figure <xref rid="advs72990-fig-0003" ref-type="fig">3C</xref>). The classification model predictive results showed that the compounds <bold>C1</bold> and <bold>C2</bold> exhibited potential inhibitory activity against CDK9, with the high predictive scores of 0.810 and 0.749 (Figure <xref rid="advs72990-fig-0003" ref-type="fig">3C</xref>), while <bold>C3</bold> and <bold>C4</bold> showed limited inhibitory potential due to their lower predicted scores (0.227 and 0.287). Based on these results, we synthesized the compounds <bold>C1</bold>–<bold>C4</bold> (Figure <xref rid="advs72990-fig-0003" ref-type="fig">3D</xref>) and validated their inhibitory activity through biochemical assays. In vitro kinase assays results showed that <bold>C1</bold> and <bold>C2</bold> exhibited superior inhibitory activity against CDK9, with IC<sub>50</sub> values of 1.2 and 3.9 nM, respectively (Figure <xref rid="advs72990-fig-0003" ref-type="fig">3C</xref>). In contrast, <bold>C3</bold> and <bold>C4</bold> showed weak CDK9 inhibitory activity, with inhibition rates of 33% and 4% at 1 µM, respectively. These experimental outcomes confirm the predictive capability of our model in identifying novel scaffolds, as evidenced by the discovery of two highly active and structurally distinct CDK9 inhibitors, <bold>C1</bold> and <bold>C2</bold>. Importantly, although <bold>C3</bold> and <bold>C4</bold> share the same dibenzo five‐membered heterocycle, their side‐chain modifications led to significantly reduced activity—a distinction accurately predicted by our model. This result highlights the model's sensitivity to subtle structural variations, even within the same scaffold family, and its ability to prioritize compounds with promising biological activity.</p></sec><sec id="advs72990-sec-0090"><label>2.4</label><title>C1 Binds within CDK9 and Exhibits Favorable Selectivity Across the CDK Kinase Family</title><p>To evaluate the molecular mechanisms underlying the interaction between compound <bold>C1</bold> and CDK9, molecular docking and molecular dynamics simulations were performed. As shown in Figure <xref rid="advs72990-fig-0003" ref-type="fig">3E</xref>, the CDK9‐<bold>C1</bold> complex reached equilibrium after 20 ns, with the RMSD value stabilizing ≈ 2.5 Å. Binding free energy calculations via the Molecular Mechanics/Poisson‐Boltzmann Surface Area (MMPBSA) method estimated a ΔG value of −33.88 kcal mol<sup>−1</sup> (Table <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S3</xref>, Supporting Information), suggesting a strong binding affinity, which aligns with the enzyme inhibition assay results. The most stable conformation of the CDK9‐<bold>C1</bold> complex (Figure <xref rid="advs72990-fig-0003" ref-type="fig">3F</xref>), as determined by principal component analysis (Figure <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S3A</xref>, Supporting Information), revealed that compound <bold>C1</bold> forms two hydrogen bonds with Cys106 in the hinge region of CDK9, which is crucial for its inhibitory activity. MD simulations demonstrated that the hydrogen bonds between <bold>C1</bold> and Cys106 remained stable throughout the simulation (Figure <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S3B</xref>; Table <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S4</xref>, Supporting Information). Additionally, five π‐H interactions were observed between <bold>C1</bold> and Leu156, Phe105, Ile25, Phe103, and Ala166. Free energy decomposition analysis identified Leu156, Phe105, Ile25, Phe103, Cys106, and Val33 as key residues that significantly contribute to the binding free energy, highlighting their essential roles in stabilizing the CDK9‐<bold>C1</bold> interactions (Figure <xref rid="advs72990-fig-0003" ref-type="fig">3G</xref>).</p><p>The kinase selectivity profile was systematically evaluated across the CDK family (<bold>Table</bold>
+<xref rid="advs72990-tbl-0002" ref-type="table">
+<bold>2</bold>
+</xref>). Notably, <bold>C1</bold> exhibited potent inhibitory activity exclusively against CDK6, CDK9, and CDK16 (&gt;90% inhibition at 200 nM), while showing limited inhibitory activity against other CDK isoforms (&lt;75% inhibition at 200 nM). In general, compound <bold>C1</bold> exhibited high kinase selectivity for CDK9 and acts as a selective inhibitor of CDK9.</p><table-wrap position="float" id="advs72990-tbl-0002" content-type="Table" orientation="portrait"><label>Table 2</label><caption><p>Selectivity of compound <bold>C1</bold> against the CDK family.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1">Kinase</th><th align="center" rowspan="1" colspan="1">Inhibition rate<xref rid="advs72990-tbl2-note-0001" ref-type="table-fn">
+<sup>a)</sup>
+</xref> @200 nM</th><th align="center" rowspan="1" colspan="1">Kinase</th><th align="center" rowspan="1" colspan="1">Inhibition rate<xref rid="advs72990-tbl2-note-0001" ref-type="table-fn">
+<sup>a)</sup>
+</xref> @200 nM</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">CDK1/CycA2</td><td align="center" rowspan="1" colspan="1">2.37%</td><td align="center" rowspan="1" colspan="1">CDK12/CycK</td><td align="center" rowspan="1" colspan="1">21.25%</td></tr><tr><td align="left" rowspan="1" colspan="1">CDK2/CycE1</td><td align="center" rowspan="1" colspan="1">31.54%</td><td align="center" rowspan="1" colspan="1">CDK13/CycK</td><td align="center" rowspan="1" colspan="1">20.91%</td></tr><tr><td align="left" rowspan="1" colspan="1">CDK3/CycE1</td><td align="center" rowspan="1" colspan="1">20.68%</td><td align="center" rowspan="1" colspan="1">CDK14/CycY</td><td align="center" rowspan="1" colspan="1">50.66%</td></tr><tr><td align="left" rowspan="1" colspan="1">CDK4/CycD1</td><td align="center" rowspan="1" colspan="1">74.95%</td><td align="center" rowspan="1" colspan="1">CDK15/CycY</td><td align="center" rowspan="1" colspan="1">72.77%</td></tr><tr><td align="left" rowspan="1" colspan="1">CDK5/p35NCK</td><td align="center" rowspan="1" colspan="1">31.90%</td><td align="center" rowspan="1" colspan="1">CDK16/CycY</td><td align="center" rowspan="1" colspan="1">92.50%</td></tr><tr><td align="left" rowspan="1" colspan="1">CDK6/CycD1</td><td align="center" rowspan="1" colspan="1">95.55%</td><td align="center" rowspan="1" colspan="1">CDK17/CycY</td><td align="center" rowspan="1" colspan="1">60.79%</td></tr><tr><td align="left" rowspan="1" colspan="1">CDK7/CCNH/MNAT1</td><td align="center" rowspan="1" colspan="1">35.36%</td><td align="center" rowspan="1" colspan="1">CDK18/CycY</td><td align="center" rowspan="1" colspan="1">65.69%</td></tr><tr><td align="left" rowspan="1" colspan="1">CDK8/CycC</td><td align="center" rowspan="1" colspan="1">−2.01%</td><td align="center" rowspan="1" colspan="1">CDK19/CycC</td><td align="center" rowspan="1" colspan="1">−1.08%</td></tr><tr><td align="left" rowspan="1" colspan="1">CDK9/CycT1</td><td align="center" rowspan="1" colspan="1">91.50%</td><td align="center" rowspan="1" colspan="1">‐</td><td align="center" rowspan="1" colspan="1">‐</td></tr></tbody></table><table-wrap-foot><fn id="advs72990-tbl2-note-0001"><label>
+<sup>a)</sup>
+</label><p>The mean inhibition rate of <bold>C1</bold> was measured in duplicate at two independent times.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap></sec><sec id="advs72990-sec-0100"><label>2.5</label><title>Inhibitory Efficacy and Mechanism Insights of C1 on Wild‐Type and Venetoclax Resistant AML Cells</title><p>Compounds <bold>C1</bold> and <bold>C2</bold> were further evaluated for their anticancer activity on AML cell lines. As shown in <bold>Figure</bold>
+<xref rid="advs72990-fig-0004" ref-type="fig">
+<bold>4</bold>A</xref>, <bold>C1</bold> showed favorable inhibitory effects on leukemia cell lines including HL‐60 and MV4‐11, with IC<sub>50</sub> values of 2.47 ± 0.52 and 0.13 ± 0.03 µM, respectively. Meanwhile, <bold>C1</bold> exhibited a notable 24‐fold selectivity for the MV4‐11 cell line over the normal MRC‐5 cells, with an IC<sub>50</sub> of 3.21 ± 0.15 µM for the latter. In comparison, the clinical‐stage CDK9 inhibitor BAY1251152 showed comparable potency against MV4‐11 (IC<sub>50</sub> = 0.061 ± 0.01 µM) and MRC‐5 (IC<sub>50</sub> = 0.03 ± 0.01 µM) cell lines, suggesting that compound <bold>C1</bold> may offer improved safety profiles (Figure <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S4A</xref>, Supporting Information).</p><fig position="float" fig-type="Figure" id="advs72990-fig-0004" orientation="portrait"><label>Figure 4</label><caption><p>Inhibitory Activity and Mechanism of Compound <bold>C1</bold> on Acute Myeloid Leukemia Cells. A) Effects of <bold>C1</bold>, <bold>C2</bold>, Venetoclax, BAY1251152, and <bold>C1·HCl</bold> on cell viability in HL‐60 and MV4‐11 cell lines after 72 h treatment. B) Effects of <bold>C1</bold>, <bold>C2</bold>, Venetoclax, BAY1251152, and <bold>C1·HCl</bold> on cell viability in Venetoclax‐resistant MV4‐11 cell line (MV4‐11‐VR) after 72 h treatment. C) Effects of compound <bold>C1</bold> on CDK9‐driven signaling pathways in MV4‐11 and MV4‐11‐VR cells after 12 h treatment; D) Effects of compound <bold>C1</bold> on CDK9‐driven signaling pathways in MV4‐11‐VR cells after 12 h treatment; E) Effects of compound <bold>C1</bold> (300 nM) on CDK9‐driven signaling pathways in MV4‐11‐VR cells under different time conditions; F) qPCR analysis of c‐Myc mRNA in MV4‐11‐VR cells after 12 h compound <bold>C1</bold> treatment. Effects of compound <bold>C1</bold> on apoptosis G and H) and apoptosis‐related proteins I) in MV4‐11‐VR cells after 48 h treatment. Effects of compound <bold>C1</bold> on cell cycle (L, J) and cell cycle‐related proteins (K) in MV4‐11‐VR cells after 24 h treatment. Statistics, significance: one‐way ANOVA with Bonferroni correction (A, B, D); ns, not significant; <sup>*</sup>
+<italic toggle="yes">p</italic> &lt; 0.05; <sup>**</sup>
+<italic toggle="yes">p</italic> &lt; 0.01.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="ADVS-13-e13099-g004.jpg"/></fig><p>Western blot (WB) was performed on MV4‐11 cells to elucidate the potential anticancer molecular mechanism of compound <bold>C1</bold>. As shown in Figure <xref rid="advs72990-fig-0004" ref-type="fig">4B</xref>, the phosphorylation level of RNAP II CTD (Ser2) was inhibited with <bold>C1</bold> treatment in a concentration‐dependent manner, indicating that <bold>C1</bold> could inhibit the activity of CDK9 in MV4‐11 cells. Annexin V‐FITC and PI staining were then conducted to verify whether <bold>C1</bold> affects cell proliferation through apoptosis. Figure <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S4C</xref> (Supporting Information) shows that when MV4‐11 cells were treated with <bold>C1</bold> at concentrations of 0.03, 0.1 and 0.3 µM for 48 h, the total number of early and late apoptotic cells was 12.32%, 16.93%, 20.3%, respectively. These results confirmed that <bold>C1</bold> induced cell apoptosis in a dose‐dependent manner, thereby contributing to its anticancer effect on MV4‐11 cells. Additionally, <bold>C1</bold> resulted in a notable concentration‐dependent G0/G1 phase cell cycle arrest in MV4‐11 cells, with the proportion of cells in the G0/G1 phase rising from 58.99% in the control group to 59.71%, 70.00% and 83.33% at 0.03, 0.1 and 0.3 µM of <bold>C1</bold>, respectively (Figure <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S4D</xref>, Supporting Information).</p><p>Our findings indicated that <bold>C1</bold> markedly reduces the expression levels of anti‐apoptotic proteins, including Mcl‐1 and c‐MYC, in MV4‐11 cells. Additionally, CDK9 inhibitors have been reported to regulate the expression of pro‐apoptotic protein BIM and induce sustained downregulation of Bcl‐2 mRNA transcription.<sup>[</sup>
+<xref rid="advs72990-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+<sup>]</sup> Increased Mcl‐1 protein levels caused by compensatory upregulation, enhanced stability, or modified functionality and its binding to BIM after Venetoclax (a Bcl‐2 inhibitor) treatment in Venetoclax‐resistant AML cell lines and primary patient samples represent an intrinsic mechanism of resistance to Venetoclax in AML.<sup>[</sup>
+<xref rid="advs72990-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>
+<sup>]</sup> Notably, ≈30% to 40% of AML patients are resistant to Venetoclax‐based regimens with relapse driven by drug resistance presenting a significant threat to survival.<sup>[</sup>
+<xref rid="advs72990-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+<sup>]</sup> Downregulation of Mcl‐1 may indirectly overcome this intrinsic resistance mechanism, thereby enhancing the therapeutic efficacy of Venetoclax in AML. CDK9 inhibitors exhibit synergistic sensitization when combined with Bcl‐2 inhibitor Venetoclax in both in vitro and in vivo models of Venetoclax‐resistant AML.<sup>[</sup>
+<xref rid="advs72990-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="advs72990-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>
+<sup>]</sup> Considering these factors, we tested the effects of compound <bold>C1</bold> on the Venetoclax‐resistant MV4‐11 (MV4‐11‐VR) cell line, which showed superior anti‐proliferative activity with an IC<sub>50</sub> value of 0.063 ± 0.01 µM. Furthermore, in MV4‐11‐VR cells, <bold>C1</bold> led to a dose‐dependent downregulation of p‐RNAP II CTD (Ser2), Cyclin T1, c‐MYC, and Mcl‐1 (Figure <xref rid="advs72990-fig-0004" ref-type="fig">4D</xref>). Downregulation of c‐MYC protein was clearly observed as early as 1 h after the treatment of <bold>C1</bold> (0.3 µM), whereas the reduction in Mcl‐1 levels became evident at 2 h, slightly lagging behind the effects on c‐MYC (Figure <xref rid="advs72990-fig-0004" ref-type="fig">4E</xref>). Figure <xref rid="advs72990-fig-0004" ref-type="fig">4E</xref> indicated that the mRNA expression level of c‐MYC was decreased in a dose‐dependent manner with the treatment of <bold>C1</bold> ranging from 0.03 to 3 µM. Similar to its activity in MV4‐11 cells, <bold>C1</bold> also promoted apoptosis (Figure <xref rid="advs72990-fig-0004" ref-type="fig">4G,H</xref>) and induced G0/G1 phase cell cycle arrest in MV4‐11‐VR cells (Figure <xref rid="advs72990-fig-0004" ref-type="fig">4L,J</xref>), further supporting the potential efficacy of <bold>C1</bold> in overcoming Venetoclax resistance by inhibiting CDK9. In addition, <bold>C1</bold> mediated the activation of apoptosis‐associated proteins (e.g., cleaved Caspase‐3 and cleaved Caspase‐9, Figure <xref rid="advs72990-fig-0004" ref-type="fig">4K</xref>) and the downregulation of the phase‐associated proteins (e.g., CDK4/6 and Cyclin E1, Figure <xref rid="advs72990-fig-0004" ref-type="fig">4I</xref>).</p></sec><sec id="advs72990-sec-0110"><label>2.6</label><title>Metabolic Properties of Compound C1</title><p>We further evaluated the in vitro metabolic stability of <bold>C1</bold> in human liver microsomes and in vivo pharmacokinetic (PK) properties via intravenous (i.v.) and oral (p.o.) administration. In human liver microsomes (Figure <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S4E</xref>, Supporting Information), <bold>C1</bold> exhibited high metabolic stability, with a T<sub>1/2</sub> of 98.18 min and slow intrinsic clearance (CL<sub>int</sub> 14.12 µL min<sup>−1</sup> mg<sup>−1</sup> protein), highlighting its potential as a promising candidate for further in vivo studies. Following i.v. (5 mg kg<sup>−1</sup>), <bold>C1</bold> had AUC<sub>last</sub> and AUC<sub>inf</sub> values of 412 and 489 h<sup>*</sup>ng mL<sup>−1</sup>, with a C<sub>max</sub> of 229 ng mL<sup>−1</sup> (<bold>Table</bold>
+<xref rid="advs72990-tbl-0003" ref-type="table">
+<bold>3</bold>
+</xref>). P.o. (20 mg kg<sup>−1</sup>) of <bold>C1</bold> provided acceptable in vivo exposure, with AUC<sub>last</sub> and AUC<sub>inf</sub> values of 400 and 582 h<sup>*</sup>ng mL<sup>−1</sup> and satisfactory oral bioavailability (F = 24.3%). Both i.v. and p.o. administration routes exhibited a long half‐life, with T<sub>1/2</sub> values of 10.9 h and 13.5 h, respectively. These favorable PK properties of <bold>C1</bold> strongly support the feasibility of oral dosing for the further evaluation of its antitumor activity in vivo.</p><table-wrap position="float" id="advs72990-tbl-0003" content-type="Table" orientation="portrait"><label>Table 3</label><caption><p>Pharmacokinetic parameters of compound <bold>C1</bold> in Sprague Dawley rat.</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1">Dose/routes</th><th align="center" rowspan="1" colspan="1">5 mg kg<sup>−1</sup> [i.v.]</th><th align="center" rowspan="1" colspan="1">20 mg kg<sup>−1</sup> [p.o.]</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">T<sub>1/2</sub> (h)</td><td align="center" rowspan="1" colspan="1">10.9 ± 0.8</td><td align="center" rowspan="1" colspan="1">13.5 ± 5.8</td></tr><tr><td align="left" rowspan="1" colspan="1">T<sub>max</sub> (h)</td><td align="center" rowspan="1" colspan="1">/</td><td align="center" rowspan="1" colspan="1">8.00 ± 0.8</td></tr><tr><td align="left" rowspan="1" colspan="1">C<sub>max</sub> (ng/mL)</td><td align="center" rowspan="1" colspan="1">229.0 ± 20.3</td><td align="center" rowspan="1" colspan="1">25.5 ± 4.8</td></tr><tr><td align="left" rowspan="1" colspan="1">AUC<sub>last</sub> (h<sup>*</sup>ng/mL)</td><td align="center" rowspan="1" colspan="1">412.0 ± 25.2</td><td align="center" rowspan="1" colspan="1">400.0 ± 60.4</td></tr><tr><td align="left" rowspan="1" colspan="1">AUC<sub>inf</sub> (h<sup>*</sup>ng/mL)</td><td align="center" rowspan="1" colspan="1">489.0 ± 25.9</td><td align="center" rowspan="1" colspan="1">582.0 ± 129.4</td></tr><tr><td align="left" rowspan="1" colspan="1">CL (mL/min/kg)</td><td align="center" rowspan="1" colspan="1">171.0 ± 8.8</td><td align="center" rowspan="1" colspan="1">/</td></tr><tr><td align="left" rowspan="1" colspan="1">F (%)</td><td align="center" rowspan="1" colspan="1">/</td><td align="center" rowspan="1" colspan="1">24.3 ± 3.7</td></tr></tbody></table><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><p>T<sub>1/2</sub>, terminal half‐life; T<sub>max</sub>, the time take to reach C<sub>max</sub>; C<sub>max</sub>, maximum drug concentration; AUC<sub>last</sub>, area under the curve between 0 and 24 h; AUC<sub>inf</sub>, area under the curve to infinity; CL, plasma clearance rate; F, oral bioavail ability. n = 3.</p></sec><sec id="advs72990-sec-0120"><label>2.7</label><title>In Vivo Anticancer Activity of C1 in Xenograft Mouse Model</title><p>Given the favorable bioavailability (F═ 24.3 ± 3.7%) and T<sub>1/2</sub> of 13.5 ± 5.8 h via p.o. administration, we aimed to evaluate the in vivo efficacy through daily oral administration. The MV4‐11‐VR xenograft‐bearing mice were treated daily for 11 days with <bold>C1·HCl</bold> (the hydrochloride salt of <bold>C1</bold>. The antiproliferative activity and WB analysis of compound <bold>C1·HCl</bold> against AML cell lines are presented in Figure <xref rid="advs72990-fig-0004" ref-type="fig">4A</xref>; Figure <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S4G</xref>, Supporting Information) administered orally at doses of 25 and 50 mg kg<sup>−1</sup>. Venetoclax (75 mg kg<sup>−1</sup>, p.o.) was included as a positive control. As illustrated in <bold>Figure</bold>
+<xref rid="advs72990-fig-0005" ref-type="fig">
+<bold>5</bold>A</xref>, <bold>C1·HCl</bold> demonstrated superior tumor suppression compared to Venetoclax, with tumor growth inhibition (TGI) values of 47.2% and 62.7% for 25 and 50 mg kg<sup>−1</sup>, respectively, whereas Venetoclax (75 mg kg<sup>−1</sup>) did not exhibit significant inhibitory effects on tumor growth (Figure <xref rid="advs72990-fig-0005" ref-type="fig">5C</xref> and Figure <xref rid="advs72990-fig-0005" ref-type="fig">5D</xref>). Importantly, no significant weight loss was observed in any treatment group during the study (Figure <xref rid="advs72990-fig-0005" ref-type="fig">5B</xref>), underscoring the favorable tolerability of <bold>C1·HCl</bold>. These results highlight the potential of <bold>C1</bold> as a potent and well‐tolerated antitumor agent.</p><fig position="float" fig-type="Figure" id="advs72990-fig-0005" orientation="portrait"><label>Figure 5</label><caption><p>Tumorigenicity study on MV4‐11‐VR xenograft‐bearing mice. Tumor volume (A) and body weight (B) of MV4‐11‐VR xenograft‐bearing mice treated with <bold>C1·HCl</bold>. Final tumor size (C) and final tumor weight (D) after treatment for 10 days. Statistics, significance: one‐way ANOVA with Bonferroni correction (A, B, D); ns, not significant; <sup>*</sup>
+<italic toggle="yes">p</italic> &lt; 0.05; <sup>**</sup>
+<italic toggle="yes">p</italic> &lt; 0.01; <sup>***</sup>
+<italic toggle="yes">p</italic> &lt; 0.001.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="ADVS-13-e13099-g003.jpg"/></fig></sec></sec><sec id="advs72990-sec-0130"><label>3</label><title>Conclusion</title><p>In the present study, we introduce DualPG‐DTA, an innovative DL framework that combines two pretrained large language models with GNNs with a multi‐head attention mechanism for predicting drug‐target binding affinity. Compared to eight existing ML and DL methods, systematic and comprehensive performance evaluation results show that DualPG‐DTA achieves the best predictive performance across all evaluation metrics on two commonly used benchmark datasets. Multi‐level validation testing, including visualizing the relationship between predicted and experimental values, ablation experiments, and Y‐Scrambling testing, further proves the rationality and effectiveness of the DualPG‐DTA architecture. Moreover, the scaffold hopping testing demonstrated the ability of the DualPG‐DTA model to accurately predict compounds with new scaffolds, which further led to the discovery of compound <bold>C1</bold> as a novel CDK9 inhibitor. In addition, <bold>C1</bold> showed good kinase spectrum selectivity, safety and PK properties, as well as anti‐AML activity in vitro and in vivo in Venetoclax‐resistant models. Compound <bold>C1</bold> offers potential for extending disease‐free survival and overall survival by overcoming Venetoclax resistance. Collectively, compound <bold>C1</bold> represents a promising lead compound for the development of therapies targeting AML, particularly for patients resistant to Venetoclax.</p><p>In addition, our DualPG‐DTA framework is designed to be general‐purpose and can, in principle, be applied to any target class, including GPCRs and ion channels, as long as both protein and molecule information are available. This broad applicability is supported by two key factors: (a) ESM‐2 embeddings capture universal sequence motifs, such as the seven‐transmembrane domains typical of GPCRs, and (b) the distance‐based protein graph representation adapts to any protein fold. That said, actual performance may vary depending on the quantity and quality of the training data available for specific target classes, so model accuracy for particular applications such as GPCRs or ion channels should be evaluated on a case‐by‐case basis.</p><p>Although DualPG‐DTA demonstrates leading‐performance in binding affinity prediction and novel scaffold identification, the model has certain limitations that warrant consideration, including its reliance on pre‐computed 3D molecular conformations, which may constrain applications involving dynamic conformational sampling, as well as its higher computational resource requirements during training compared to simpler single‐modality approaches such as DeepDTA; these trade‐offs between accuracy and efficiency present meaningful opportunities for future optimization.</p></sec><sec id="advs72990-sec-0140"><label>4</label><title>Experimental Section</title><sec id="advs72990-sec-0170"><title>Datasets</title><p>Two benchmark datasets (Davis<sup>[</sup>
+<xref rid="advs72990-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref>
+<sup>]</sup> and KIBA<sup>[</sup>
+<xref rid="advs72990-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref>
+<sup>]</sup>) were utilized to evaluate and validate model performance. The basic information of the datasets is summarized in Table <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S5</xref> (Supporting Information). The Davis dataset includes a large collection of binding affinity data between kinase targets and small molecules. These data are obtained through precise experimental methods and recorded as <italic toggle="yes">K</italic>
+<sub>d</sub> values as a quantitative indicator of drug‐target binding affinity. <italic toggle="yes">K</italic>
+<sub>d</sub> is often used to describe the tendency of a protein‐ligand complex to dissociate into free protein and free ligand under dynamic equilibrium. Currently, the Davis dataset encompasses over 30 000 protein‐ligand pairs, providing a broad range of binding affinities and allowing researchers to test and evaluate the accuracy and robustness of predictive models across different affinity levels. Given the large range of the original <italic toggle="yes">K</italic>
+<sub>d</sub> values, which is not suitable for training DL models, we followed the approach of He et al.<sup>[</sup>
+<xref rid="advs72990-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>
+<sup>]</sup> and transformed <italic toggle="yes">K</italic>
+<sub>d</sub> values into logarithmic form p<italic toggle="yes">K</italic>
+<sub>d</sub>.</p><p>The KIBA dataset integrates experimental data on drug‐target interactions from multiple sources, including <italic toggle="yes">K</italic>
+<sub>d</sub>, <italic toggle="yes">K</italic>
+<sub>i</sub>, and IC<sub>50</sub> values. To standardize these data, the dataset defines a composite score, called the KIBA score, which aims to provide a continuous and consistent measure of binding affinity. The original KIBA dataset includes 467 proteins and 52,498 small molecules. Considering the need for sample balance in the benchmark dataset, the data filtering method of He et al.<sup>[</sup>
+<xref rid="advs72990-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>
+<sup>]</sup> was used to retain data for 229 proteins and 2,111 small molecules, ensuring that each target had at least ten activity measurements.</p></sec><sec id="advs72990-sec-0180"><title>Model Architecture</title><p>We present DualPG‐DTA, a DL framework that utilizes dual pretrained large language models with GATv2 networks for predicting drug‐target binding affinity. The DualPG‐DTA architecture comprises three core components: drug feature extraction module, protein feature extraction module, and multimodal fusion prediction module. Detailed technical specifications of each component are described in subsequent sections.</p></sec><sec id="advs72990-sec-0190"><title>Drug Feature Extraction Module</title><p>The initial input of the drug feature extraction module is a 1D SMILES string sequence. For feature extraction, we utilize Uni‐Mol,<sup>[</sup>
+<xref rid="advs72990-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref>
+<sup>]</sup> a comprehensive 3D molecular representation learning framework developed by DP Technology, and an open‐source chemical software package RDKit (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.rdkit.org/" ext-link-type="uri">https://www.rdkit.org/</ext-link>). Uni‐Mol was selected for three primary reasons: a) It was pretrained on over 200 million 3D molecular conformations, providing more comprehensive spatial information compared to 2D‐based models such as ChemBERTa, which is essential for capturing binding interactions; b) It delivers fine‐grained, atomic‐level embeddings (512‐D), making it well‐suited for processing with graph neural networks (GNNs); c) It has demonstrated state‐of‐the‐art performance on benchmark molecular property prediction tasks. Accordingly, we initialize the Uni‐Mol model with pretrained weights, input the drug SMILES from the benchmark datasets, and obtain the atomic‐level representations for each compound. Simultaneously, RDKit is employed to convert SMILES strings into molecular objects, and in‐house scripts are used to batch‐extract atomic and bond information for each compound, which is then matched with the atomic‐level representations generated by Uni‐Mol.</p><p>Next, we construct a 2D molecular graph for each compound, where nodes represent atoms and node features are the 512‐D atomic‐level representations output by Uni‐Mol. Edge features are encoded as 6‐D one‐hot vectors representing i) bond type (single, double, triple, or aromatic), ii) conjugation, and iii) hybridization (Figure <xref rid="advs72990-fig-0001" ref-type="fig">1A</xref>). During processing of molecular graphs in the initial layer of a three‐layer GATv2 network, the attention mechanism is mathematically formulated as:
+<disp-formula id="advs72990-disp-0001">
+<label>(1)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-8" display="block"><mml:mrow><mml:mrow><mml:msub><mml:mi>α</mml:mi><mml:mrow><mml:mi>i</mml:mi><mml:mi>j</mml:mi></mml:mrow></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mi>softma</mml:mi><mml:msub><mml:mi mathvariant="normal">x</mml:mi><mml:mi>j</mml:mi></mml:msub><mml:mfenced separators="" open="(" close=")"><mml:mfrac><mml:mrow><mml:msup><mml:mi>W</mml:mi><mml:mn>1</mml:mn></mml:msup><mml:mo>·</mml:mo><mml:mfenced separators="" open="[" close="]"><mml:mrow><mml:msub><mml:mi>h</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo stretchy="false">∥</mml:mo><mml:msub><mml:mi>h</mml:mi><mml:mi>j</mml:mi></mml:msub></mml:mrow></mml:mfenced><mml:mo>+</mml:mo><mml:msup><mml:mi>b</mml:mi><mml:mn>1</mml:mn></mml:msup></mml:mrow><mml:msqrt><mml:msub><mml:mi>d</mml:mi><mml:mi>k</mml:mi></mml:msub></mml:msqrt></mml:mfrac></mml:mfenced></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where h<sub>
+<italic toggle="yes">i</italic>
+</sub> and h<sub>
+<italic toggle="yes">j</italic>
+</sub> are the node feature vectors of atom <italic toggle="yes">i</italic> and atom <italic toggle="yes">j</italic> respectively after being transformed by a learnable weight matrix <italic toggle="yes">W</italic>
+<sup>1</sup> and added with a bias <italic toggle="yes">b</italic>
+<sup>1</sup>, ∥ denotes concatenation, <italic toggle="yes">d<sub>k</sub>
+</italic> is a scaling factor (usually set to the dimension of the concatenated vector), and α<sub>
+<italic toggle="yes">ij</italic>
+</sub> represents the attention coefficient from atom <italic toggle="yes">j</italic> to atom <italic toggle="yes">i</italic>.</p><p>In the message passing step of the GATv2 network, the updated node feature <inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e13099-e012.jpg"/> for atom <italic toggle="yes">i</italic> can be calculated as:
+<disp-formula id="advs72990-disp-0002">
+<label>(2)</label>
+<inline-graphic xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e13099-e002.jpg"/>
+</disp-formula>where <italic toggle="yes">N</italic>(<italic toggle="yes">i</italic>) is the set of neighboring atoms of atom <italic toggle="yes">i</italic>, <italic toggle="yes">W</italic>
+<sup>2</sup> is another learnable weight matrix, and σ is an activation function (such as ReLU).</p><p>These molecular graphs are fed into a three‐layer GATv2 network for training to produce graph‐level representations for each molecule, which serve as inputs to the subsequent fusion prediction module.</p></sec><sec id="advs72990-sec-0200"><title>Protein Feature Extraction Module</title><p>The protein feature extraction module processes 1D amino acid sequences using ESM‐2 and ESMFold<sup>[</sup>
+<xref rid="advs72990-bib-0034" ref-type="bibr">
+<sup>34</sup>
+</xref>
+<sup>]</sup> as hierarchical feature extractors. ESM‐2 is a high‐precision protein sequence representation language model with 15 billion parameters. It leverages self‐supervised pretraining technology to learn evolutionary information and sequence features from extensive protein sequence databases. ESM‐2 generates high‐dimensional embeddings at the protein sequence and amino acid residue levels, which can be used for various downstream application tasks, including but not limited to sequence classification, functional prediction, and protein‐protein interaction prediction. Built upon ESM‐2, ESMFold is a protein structure prediction pretrained model that can capture complex patterns and long‐range interactions within protein sequences to achieve high‐precision structure predictions.</p><p>In the protein feature extraction module, we first utilize ESMFold to predict the 3D structure of each protein sequence in the benchmark dataset and output the prediction result as a PDB format file. Simultaneously, the ESM‐2 is used to extract residue‐level representations for each protein. Subsequently, we use an <italic toggle="yes">in‐house</italic> script to extract the 3D coordinates of each amino acid residue from the PDB file, compute the Euclidean distances between them, and generate a distance matrix. Finally, we construct a graph for each protein, where nodes represent amino acid residues and node features are determined by the 2560‐D atomic‐level representations output by ESM‐2. Edge weights are defined as the inverse Euclidean distances between Cα atoms, using a cutoff of 8Å. Similar to the drug feature extraction module, the protein graph is then input into a three‐layer GATv2 network for training and outputting graph‐level representations.</p></sec><sec id="advs72990-sec-0210"><title>Multimodal Fusion Prediction Module</title><p>The multimodal fusion prediction module orchestrates a hierarchical integration of drug and protein features through sequential transformation stages. After concatenating the drug and protein embeddings, the module employs a multi‐head attention mechanism to capture diverse interaction patterns across different feature subspaces. Specifically, the concatenated features are processed by a multi‐head self‐attention layer with 8 heads, where each head learns distinct attention weights:
+<disp-formula id="advs72990-disp-0003">
+<label>(3)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-11" display="block"><mml:mrow><mml:mrow><mml:mi>MultiHead</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>Q</mml:mi><mml:mo>,</mml:mo><mml:mi>K</mml:mi><mml:mo>,</mml:mo><mml:mi>V</mml:mi></mml:mrow></mml:mfenced><mml:mo linebreak="badbreak">=</mml:mo><mml:mi>Concat</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>hea</mml:mi><mml:msub><mml:mi mathvariant="normal">d</mml:mi><mml:mn>1</mml:mn></mml:msub><mml:mo>,</mml:mo><mml:mtext>…</mml:mtext><mml:mo>,</mml:mo><mml:mi>hea</mml:mi><mml:msub><mml:mi mathvariant="normal">d</mml:mi><mml:mn>8</mml:mn></mml:msub></mml:mrow></mml:mfenced><mml:msup><mml:mi>W</mml:mi><mml:mi>O</mml:mi></mml:msup></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where each head is computed as:
+<disp-formula id="advs72990-disp-0004">
+<label>(4)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-12" display="block"><mml:mrow><mml:mrow><mml:mi>hea</mml:mi><mml:msub><mml:mi mathvariant="normal">d</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mi>Attention</mml:mi><mml:mfenced separators="" open="(" close=")"><mml:mrow><mml:mi>Q</mml:mi><mml:msubsup><mml:mi>W</mml:mi><mml:mi>i</mml:mi><mml:mi>Q</mml:mi></mml:msubsup><mml:mo>,</mml:mo><mml:mi>K</mml:mi><mml:msubsup><mml:mi>W</mml:mi><mml:mi>i</mml:mi><mml:mi>K</mml:mi></mml:msubsup><mml:mo>,</mml:mo><mml:mi>V</mml:mi><mml:msubsup><mml:mi>W</mml:mi><mml:mi>i</mml:mi><mml:mi>V</mml:mi></mml:msubsup></mml:mrow></mml:mfenced></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+</p><p>This allows the model to jointly attend to information from different representation subspaces, enhancing its ability to capture complex drug‐target interactions. The output is then passed through fully connected layers (FCLs) with batch normalization and ReLU activation for dimensionality reduction and final affinity prediction.</p><p>The first FCL projects the concatenated features from 3072 to 1280 D, coupled with batch normalization (BN) and rectified linear unit (ReLU) activation to eliminate redundant cross‐modal correlations while retaining biochemically salient interaction signatures. This is followed by a second compression phase (1280 → 320 D) that further distills the feature space to isolate critical binding determinants, including hydrogen bonding patterns and hydrophobic complementarity. The final FCL employs linear activation to map the 320‐D refined features into a continuous binding affinity prediction. In the BN layers between these FCLs, the normalization process for each mini‐batch of data can be expressed as:
+<disp-formula id="advs72990-disp-0005">
+<label>(5)</label>
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-13" display="block"><mml:mrow><mml:mrow><mml:msub><mml:mover><mml:mi>x</mml:mi><mml:mstyle scriptlevel="2" displaystyle="false"><mml:mrow><mml:mi>⌢</mml:mi></mml:mrow></mml:mstyle></mml:mover><mml:mi>i</mml:mi></mml:msub><mml:mo linebreak="badbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:msub><mml:mi>x</mml:mi><mml:mi>i</mml:mi></mml:msub><mml:mo>−</mml:mo><mml:msub><mml:mi>μ</mml:mi><mml:mi>B</mml:mi></mml:msub></mml:mrow><mml:mrow><mml:msubsup><mml:mi>σ</mml:mi><mml:mi>B</mml:mi><mml:mn>2</mml:mn></mml:msubsup><mml:mo>+</mml:mo><mml:mo>∈</mml:mo></mml:mrow></mml:mfrac><mml:mo>·</mml:mo><mml:mi>γ</mml:mi><mml:mo linebreak="goodbreak">+</mml:mo><mml:mi>β</mml:mi></mml:mrow></mml:mrow></mml:math>
+</disp-formula>where x<sub>i</sub> is the input feature, μ<sub>B</sub> and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-14" display="inline"><mml:mrow><mml:msubsup><mml:mi>σ</mml:mi><mml:mi mathvariant="normal">B</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math> are the mean and variance of the current mini‐batch data respectively, ε is a small constant to avoid division by zero, and γ and β are learnable parameters for scaling and shifting the normalized data.</p><p>The BN layers normalize each mini‐batch of data to alleviate the issue of internal covariate shift, thereby accelerating network convergence and preventing gradient explosion or vanishing, even with relatively large learning rates. The ReLU layers introduce non‐linear activation functions to help the network capture the non‐linear relationships within the data and alleviate the vanishing gradient problem. Depending on the training dataset used, the prediction module outputs can include the <italic toggle="yes">K</italic>
+<sub>d</sub>, <italic toggle="yes">K</italic>
+<sub>i</sub>, half IC<sub>50</sub>, or other affinity scores between drugs and targets as determined by specific algorithms.</p></sec><sec id="advs72990-sec-0220"><title>Training Protocol, Hyperparameters Optimization, and Evaluation Metrics</title><p>Training a DL model is an iterative process where the model adaptively adjusts its parameters to progressively enhance prediction accuracy for a specific task. The ultimate goal of this process is to enable the model to perform well on unseen data, thereby demonstrating high generalization capability. In this study, a fivefold cross‐validation strategy was adopted<sup>[</sup>
+<xref rid="advs72990-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>
+<sup>]</sup> to minimize the impact of random errors in the evaluation process and enhance the reliability of the assessment results.</p><p>During the model training process, we employed the Optuna open‐source library (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://github.com/optuna/optuna" ext-link-type="uri">https://github.com/optuna/optuna</ext-link>) to perform Bayesian optimization of the hyperparameters. The search space used in the optimization process and the final hyperparameters employed by the model are summarized in Table <xref rid="advs72990-supinfo-0001" ref-type="supplementary-material">S6</xref> (Supporting Information).</p><p>In this study, three commonly used metrics including MSE, CI, and <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-15" display="inline"><mml:mrow><mml:msubsup><mml:mi>r</mml:mi><mml:mi>m</mml:mi><mml:mn>2</mml:mn></mml:msubsup></mml:mrow></mml:math> metrics are used to evaluate the performance of the DualPG‐DTA model.</p></sec><sec id="advs72990-sec-0230"><title>In Vitro CDK9 Kinase Assay</title><p>CDK9 inhibition assay was conducted by Huawei Pharmaceutical Co., Ltd. (China) in accordance with standardized protocols.<sup>[</sup>
+<xref rid="advs72990-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref>
+<sup>]</sup> Enzymatic reactions were performed at 30 °C for 40 min in a 50 µL reaction mixture containing 40 mM Tris (pH 7.4), 10 mM MgCl<sub>2</sub>, 0.1 mg mL<sup>−1</sup> BSA, 1 mM DTT, 10 µM ATP, 0.2 µg mL<sup>−1</sup> CDK9 kinase, and 100 µM lipid substrate. Test compounds were prepared in 10% DMSO, and 5 µL of the diluted solution was added to the reaction, ensuring a final DMSO concentration of 1%. Kinase activity was evaluated using the Kinase‐Glo Plus luminescence assay kit, which determines the residual ATP concentration post‐reaction. The luminescent signal is directly proportional to the remaining ATP levels and inversely proportional to kinase activity. IC<sub>50</sub> values were determined through nonlinear regression analysis with a normalized dose−response curve, using Prism GraphPad software.</p></sec><sec id="advs72990-sec-0240"><title>Molecular Docking</title><p>The X‐ray crystal structure of CDK9 (PDB ID: 4BCI) was retrieved from the Protein Data Bank and processed using the Protein Preparation Wizard in Maestro 12.8. The preparation steps included bond order assignment, hydrogen addition, and disulfide bond completion. The final protein structure was subjected to restrained minimization with a 0.30 Å RMSD cutoff, utilizing the OPLS‐2005 force field. The 3D conformation of the ligand was optimized using LigPrep in Schrödinger, also employing the OPLS‐2005 force field. The docking grid was generated via the Receptor Grid Generation tool, using the co‐crystallized ligand as the centroid to define the binding pocket. Molecular docking was performed in XP mode with default Glide settings. All structural figures were created using PyMOL (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://pymol.org/2/" ext-link-type="uri">https://pymol.org/2/</ext-link>).</p></sec><sec id="advs72990-sec-0250"><title>Molecular Dynamics Simulation</title><p>Molecular charges were calculated using Gaussian HF/6‐31G<sup>*</sup> with the RESP fitting method. The FF14SB force field was used for the protein, while GAFF was applied for the ligand. The system was solvated in a 12 Å TIP3P water box and neutralized with sodium and chloride ions. MD simulations were performed using the PMEMD.CUDA module of Amber 22 for 100 ns. The SHAKE algorithm was utilized to impose constraints on hydrogen bonds, while electrostatic interactions were computed employing the particle mesh Ewald method, using the particle mesh Ewald method with a 10 Å cutoff distance. Prior to simulation, the system underwent energy minimization to eliminate atomic clashes, employing 1000 steps each of steepest descent and conjugate gradient methods. Subsequent to minimization, the system underwent a gradual heating protocol under NVT ensemble conditions for 50 ps, regulated by a Langevin thermostat to ensure a controlled temperature increase from 0 to 310 K. This was followed by a 100 ps NPT equilibration phase, where the system was maintained at 310 K and 1 atm pressure for density stabilization and pressure coupling. An additional 100 ps equilibration was conducted to ensure thermal and pressure stability. After equilibration, a 100 ns production MD simulation was performed, with trajectory data recorded every 25 000 steps, yielding a total of 2000 frames for further analysis. Trajectory analysis was performed utilizing the CPPTRAJ module within Amber 22.</p></sec><sec id="advs72990-sec-0260"><title>Binding Free Energy Analysis</title><p>The MMPBSA methodology was utilized to determine the free energy of the final state based on molecular dynamics trajectory data, employing the gmx_MMPBSA program. The PB model was implemented with an ionic strength of 0.100 M to simulate the solution environment, utilizing default atomic radii settings. Additionally, free energy decomposition methods were applied to analyze the contribution of amino acids near the binding site to the overall binding free energy.</p></sec><sec id="advs72990-sec-0270"><title>Hydrogen Bond Analysis</title><p>We analyzed protein‐molecule complexes using the CPPTRAJ module within the Amber22 software suite. The 2000‐frame trajectory was aligned for further analysis, allowing us to quantify hydrogen bond lifetimes, occupancies, and average distances.</p></sec><sec id="advs72990-sec-0280"><title>Kinase Selectivity Assay</title><p>The assay buffer was prepared by combining 50 mM Hepes, 10 mM MgCl<sub>2</sub>, 0.01% Brij35, 1 mM EGTA, and 2 mM DTT in ddH<sub>2</sub>O. Two distinct 2× solutions were created using the assay buffer: one for ATP and substrate, and the other for kinase and metal. A volume of 40 nL of each test compound was transferred into a 384‐well plate utilizing the Echo 655 liquid handler. To each well, 2 µL of the 2× kinase and metal solution was added, followed by a 10‐min incubation at 25 °C. Next, 2 µL of the 2× ATP and substrate solution was added to each well, and the plate was incubated for 60 min at 25 °C. After this incubation, 4 µL of ADP‐Glo reagent was introduced, and the plate was incubated for an additional 40 min at 25 °C. Finally, 8 µL of kinase detection reagent was added to each well, and the plate was subjected to a further 40‐min incubation at 25 °C. Luminescence signals were subsequently recorded using a microplate reader.</p></sec><sec id="advs72990-sec-0290"><title>Cells and Reagents</title><p>MV4‐11 (RRID:CVCL_0064, acute myeloid leukemia, purchased from ATCC, Cat# CRL‐9591) and HL‐60 (RRID:CVCL_0002, promyelocytic leukemia, purchased from ATCC, Cat# CCL‐240) were obtained directly from ATCC (Manassas, VA, USA). Authentication of MV4‐11 and HL‐60 cell lines was performed by short tandem repeat (STR) profiling (Guangzhou IGEBIO Co., Ltd.), confirming no cross‐contamination with other human cell lines. MV4‐11 and MV4‐11‐VR cells were maintained in IMDM medium supplemented with 10% FBS, 100 U mL<sup>−1</sup> penicillin, and 50 mg mL<sup>−1</sup> streptomycin. MV4‐11‐VR cells required an additional 2 µM Venetoclax to maintain drug resistance during culture, and HL‐60 cells were maintained in 1640 medium. All the above cells were cultured at 37 °C in a humidified air incubator. Compounds were dissolved in 100% DMSO (Sigma‐Aldrich).</p></sec><sec id="advs72990-sec-0300"><title>Antiproliferation Cell Assay</title><p>Cells in the logarithmic growth phase were plated in 96‐well plates (15 000−20 000 cells per well) overnight. The compounds at a series of concentrations were added and cocultured for the further 72 h, and CCK8 (Dojindo Molecular Technologies Inc., Japan) was added into each well and coincubated for 2−4 h. The absorbance values of OD<sub>450</sub> and OD<sub>650</sub> were measured on an Envision multilabel Reader (Perkin Elmer). The cell viability rate (V%) of each well was calculated using equation: V (%) = (As − Ac) / (Ab − Ac) × 100. (A: OD<sub>450</sub>−OD<sub>650</sub>, s: sample, b: blank, c: control). IC<sub>50</sub> for each compound was calculated using GraphPad Prism 9.5.1. Three duplications were set for each dose, and experiments were repeated for at least three times.</p></sec><sec id="advs72990-sec-0310"><title>Western Blot Analysis</title><p>Protein immunoblotting analysis was determined according to the method recommended by Cell Signaling Technology (CST, USA). Briefly, after 12 h of cell culture, cells were treated with the indicated compounds for the indicated time periods. Then, cells were incubated in 1× SDS loading buffer (62.5 m<sc>m</sc> Tris‐HCl, pH 6.8, 2% w/v SDS, 10% glycerol, 50 m<sc>m</sc> DTT, 0.01% w/v bromophenol blue, as recommended by CST) and cell lysates were boiled and centrifuged to load the supernatant onto an SDS‐PAGE gel, and electrophoresis was performed to separate the proteins. The separated proteins were then electrotransferred to a PVDF membrane. The PVDF membrane was incubated with primary antibody overnight at 4 °C (or for 2 h at room temperature) and then with secondary antibody for 2 h at room temperature. Protein bands were visualized using an ECL Western blotting detection kit (Thermo Scientific, Waltham, MA, USA) and chemiluminescent signals were detected with an Amersham Imager 600 system (GE, Boston, MA, USA) according to the manufacturer's instructions. Antibodies were purchased from Cell Signaling Technology (CST, Boston, MA, USA) as follows: anti‐CDK9 (#2316), anti‐p‐RNAP II CTD (Ser2) (#13499), GAPDH (#2118), Mcl‐1 (#4572), c‐MYC (# 18583), CyclinT1 (#D1B6G) enzyme‐linked anti‐rabbit IgG (#7074), enzyme‐linked anti‐mouse Ig (#7076). Some of the antibodies were purchased from Beyotime, such as Actin (AA128).</p></sec><sec id="advs72990-sec-0320"><title>qPCR Assay</title><p>Total RNA was extracted from 6‐well plates (5 × 106 cells per well) by first incubating and harvesting the test compounds together with the test compound or vector control (DMSO) for 12 h. RNA was extracted using Trizol reagent (ThermoFisher #15596018) and quantified using a Thermo/NanoD2000C Ultra‐Micro UV Spectrophotometer. Photometer for quantification. Reverse transcription was performed using the HiScript IV All‐in‐One Ultra RT SuperMix for qPCR (+gDNA wiper) kit for qPCR (Vazyme Biotech Co., ltd, Nanjing, China) according to the manufacturer's instructions. Subsequently, the reverse transcription products were amplified using SYBR® Green Pro Taq HS Premix for qPCR Kit II (#AG11702, China).</p><p>The primer sequences were as follows:</p><p>c‐MYCF_: CCTGGTGCTCCATGAGGAGAC;</p><p>c‐MYCR_: CAGACTCTGACCTTTTGCCAGG;</p><p>β‐Actin_F: 5′‐CACCATTGGGCAATGAGCGGTTC‐3′;</p><p>β‐Actin_R: 5′‐AGGTCTTTGCGGATGTCCACGT‐3′.</p><p>All reactions were performed in triplicate and relative gene expression levels were normalized to β‐actin using the 2‐ΔΔCt method. Melting curves were routinely performed to determine the specificity of the PCR.</p></sec><sec id="advs72990-sec-0330"><title>Apoptosis Assay</title><p>The cell apoptosis analysis was carried out according to the procedure provided by BD Bioscience (Fisher Scientific, USA) using a PE Annexin V Apoptosis Detection Kit (#559763, BD Bioscience). Briefly, cells were treated with the indicated compounds for 48 h. Then, cells were collected and washed twice with cold PBS. Cells (2 × 106) were resuspended in 1× BD binding buffer solution (#556454, BD Bioscience) and then stained with 7‐ADD (#559925, BD Bioscience) and Annexin V‐PE (#556422, BD) in the dark for 15 min. BD binding buffer solution (1×) was added to stop the staining. The cells were then analyzed using a Guava EasyCyte flow cytometer (Merck, USA).</p></sec><sec id="advs72990-sec-0340"><title>Cell Cycle Analysis</title><p>The Cell Cycle Analysis Kit (No. C1052; Beyotime, Shanghai, China) was used for cell cycle assays. Briefly, cells were treated with the indicated compounds for 24 h. Cells were then collected and washed twice with cold PBS, centrifuged to discard the supernatant, and fixed in 70% ethanol for 12 h at 4 °C and centrifuged at 1200 rpm to discard the supernatant. 0.5 mL of propidium iodide staining solution was added to each tube of cell samples, and the cell precipitates were slowly and fully resuspended in a warm bath at 37 °C away from light for 30 min. Subsequently, they can be stored at 4 °C or in an ice bath protected from light. A Guava EasyCyte flow cytometer (Merck, USA) was used to analyze the percentage of cells at different stages of the cell cycle. Each experiment was repeated three times.</p></sec><sec id="advs72990-sec-0350"><title>Liver Microsome Assay</title><p>Liver microsome assay was carried out by ICE Bioscience Inc. (China). Liver microsomes (LM) were prepared at a concentration of 0.5587 mg mL<sup>−1</sup> in 100 m<sc>m</sc> PBS (pH 7.4). The incubation solution was made by adding 358 µL of the LM solution to each well. To this, 40 µL of either a 10 mM NADPH solution in PBS or 40 µL of PBS alone (for controls) was added. The plate was mixed briefly at 800 rpm for 10 s and incubated at 37 °C for 10 min. The reaction was initiated by adding 2 µL of a 10 µ<sc>m</sc> test compound solution in PBS. At designated time points (0.5, 15, 30, 45, and 60 min), 50 µL of the incubation mixture was sampled and transferred to a new plate containing 200 µL of ice‐cold MeOH with IS. The plate was then centrifuged at 3220 × g for 40 min at 4 °C. Following centrifugation, 100 µL of the supernatant was transferred to a new plate and diluted with ultrapure water as required for LC‐MS/MS analysis.</p></sec><sec id="advs72990-sec-0360"><title>Pharmacokinetics Study</title><p>All animal experiments in this study were conducted in accordance with the guidelines approved by ICE Bioscience Inc. (China). Male Sprague Dawley rats (6–8 weeks old, weighing 200–300 g, SPF grade), sourced from Beijing Biotechnology Co., Ltd., were randomly assigned to two groups (n = 3 per group). One group received the test compound via i.v. injection, while the other group was dosed p.o. For the i.v. administration, the test compound was administered at a dose of 2 mg kg<sup>−1</sup> in a 2.5 mg mL<sup>−1</sup> solution composed of 10% DMSO, 15% Solutol HS‐15, and 75% saline. The oral group was given the test compound at a dose of 20 mg kg<sup>−1</sup> in a 2 mg mL<sup>−1</sup> suspension prepared using 0.5% CMC‐Na. Blood samples were collected at the following time points: 5, 15, 30 min, and 1, 2, 4, 6, 8, and 24 h post‐dosing. The blood was drawn and immediately transferred into plastic microcentrifuge tubes containing EDTA‐K<sub>2</sub> anticoagulant. Samples were then centrifuged at 4,000 × g for 5 min at 4 °C. The supernatant was carefully transferred to fresh microcentrifuge tubes without anticoagulant and stored at −75 ± 15 °C until subsequent analysis.</p></sec><sec id="advs72990-sec-0370"><title>In Vivo Experiments</title><p>Female Balb/c nude mice (4‐5 weeks old) were purchased from Guangdong Pharmachem Biotechnology Co., Ltd. All animal experiments were conducted in accordance with the experimental protocol approved by the Ethics Committee of the Animal Experimentation Center at South China University of Technology. The animal experiment ethics approval number is AEC 2024090. Then 1 × 10<sup>7</sup> MV4‐11‐VR cells were injected subcutaneously in the right axilla of SCID mice. When the average tumor volume reached 100–200 mm<sup>3</sup>, the mice were randomly grouped according to tumor volume (n = 6). The drug was dissolved in 5% DMSO, while 0.5% CMC Na aqueous solution was added. Tumor volume and body weight were monitored once a day. Tumor volume was calculated as L × W<sup>2</sup>/2, where L is the length of the tumor and W is the width of the tumor.</p></sec><sec id="advs72990-sec-0380"><title>Statistical Analysis and Data Availability</title><p>Statistical analyses were performed using GraphPad Prism 9.5.1 (GraphPad Software, Inc., La Jolla, CA, USA). Unpaired Student's <italic toggle="yes">t</italic>‐test was used to perform statistical analysis between the two groups. One‐Way ANOVA was used for comparisons among multiple groups. The level of significance was set at <sup>*</sup>
+<italic toggle="yes">p</italic> &lt; 0.05, <sup>**</sup>
+<italic toggle="yes">p</italic> &lt; 0.01, and <sup>***</sup>
+<italic toggle="yes">p</italic> &lt; 0.001. The data generated during and/or analyzed in this study are available from the corresponding author upon reasonable request.</p></sec></sec><sec sec-type="COI-statement" id="advs72990-sec-0400"><title>Conflict of Interest</title><p>The authors declare no conflict of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="advs72990-supinfo-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>Supporting Information</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="ADVS-13-e13099-s001.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="advs72990-sec-0390"><title>Acknowledgements</title><p>The authors appreciate the financial support from the National Natural Science Foundation of China (No.22577032), the Natural Science Foundation of Guangdong Province (No. 2023B1515020042), the National Natural Science Foundation of China (No. 22371303), the 100 Talents Program of the Chinese Academy of Sciences, and Zhongshan Municipal Bureau of Science and Technology (2021B2014 and CXTD2022013). The authors are also grateful for the support from HPC Platform of South China University of Technology. Y.C., J.H., and C.L. contributed equally.</p></ack><sec sec-type="data-availability" id="advs72990-sec-0420"><title>Data Availability Statement</title><p>All source code of DualPG‐DTA and data used in this work can be obtained from https://github.com/idruglab/DualPG‐DTA. The remaining data or questions regarding this study are available to the corresponding author upon request (Ling Wang: lingwang@scut.edu.cn).</p></sec><ref-list id="advs72990-bibl-0001"><ref id="advs72990-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="advs72990-cit-0001">
+<string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Rezaei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Li</surname>
+</string-name>, <source>IEEE/ACM Trans. Comput. Biol. Bioinform.</source>
+<year>2022</year>, <volume>19</volume>, <fpage>407</fpage>.<pub-id pub-id-type="pmid">33360998</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1109/TCBB.2020.3046945</pub-id><pub-id pub-id-type="pmcid">PMC8942327</pub-id></mixed-citation></ref><ref id="advs72990-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="advs72990-cit-0002">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Öztürk</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Özgür</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Ozkirimli</surname>
+</string-name>, <source>Bioinformatics</source>
+<year>2018</year>, <volume>34</volume>, <fpage>821</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/bty287</pub-id><pub-id pub-id-type="pmcid">PMC6022674</pub-id><pub-id pub-id-type="pmid">29949957</pub-id></mixed-citation></ref><ref id="advs72990-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="advs72990-cit-0003">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Öztürk</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Ozkirimli</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Özgür</surname>
+</string-name>, <source>arXiv</source>
+<year>2019</year>, <elocation-id>190204166</elocation-id>.</mixed-citation></ref><ref id="advs72990-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="advs72990-cit-0004">
+<string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Duan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Cheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>IEEE/ACM Trans. Comput. Biol. Bioinform.</source>
+<year>2023</year>, <volume>20</volume>, <fpage>852</fpage>.<pub-id pub-id-type="pmid">35471889</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1109/TCBB.2022.3170365</pub-id></mixed-citation></ref><ref id="advs72990-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="advs72990-cit-0005">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Nguyen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Le</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. P.</given-names>
+<surname>Quinn</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Nguyen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T. D.</given-names>
+<surname>Le</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Venkatesh</surname>
+</string-name>, <source>Bioinformatics</source>
+<year>2020</year>, <volume>37</volume>, <fpage>1140</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btaa921</pub-id><pub-id pub-id-type="pmid">33119053</pub-id></mixed-citation></ref><ref id="advs72990-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="advs72990-cit-0006">
+<string-name name-style="western">
+<given-names>K.‐Y.</given-names>
+<surname>Zhong</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.‐L.</given-names>
+<surname>Wen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.‐F.</given-names>
+<surname>Meng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zeng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Li</surname>
+</string-name>, <source>J. Chem. Inf. Model.</source>
+<year>2024</year>, <volume>64</volume>, <fpage>2878</fpage>.<pub-id pub-id-type="pmid">37610162</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.jcim.3c00866</pub-id></mixed-citation></ref><ref id="advs72990-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="advs72990-cit-0007">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Yu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Luo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Jin</surname>
+</string-name>, <source>Comput. Biol. Chem.</source>
+<year>2023</year>, <volume>107</volume>, <elocation-id>107971</elocation-id>.<pub-id pub-id-type="pmid">37852036</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.compbiolchem.2023.107971</pub-id></mixed-citation></ref><ref id="advs72990-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="advs72990-cit-0008">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Devlin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. W.</given-names>
+<surname>Chang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Toutanova</surname>
+</string-name>, <source>arXiv</source>
+<year>2018</year>, <elocation-id>181004805</elocation-id>.</mixed-citation></ref><ref id="advs72990-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="advs72990-cit-0009">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Brown</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Mann</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Ryder</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Subbiah</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>Kaplan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Dhariwal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Neelakantan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Shyam</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Sastry</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Askell</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Agarwal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Herbert‐Voss</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Krueger</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Henighan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Child</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Ramesh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Ziegler</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Winter</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Hesse</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Sigler</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Litwin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Gray</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Chess</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Clark</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Berner</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>McCandlish</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Radford</surname>
+</string-name>, <string-name name-style="western">
+<given-names>I.</given-names>
+<surname>Sutskever</surname>
+</string-name>, et al., <source>Adv. Neural Inform. Process. Syst.</source>
+<year>2020</year>, <volume>33</volume>, <fpage>1877</fpage>.</mixed-citation></ref><ref id="advs72990-bib-0010"><label>10</label><mixed-citation publication-type="book" id="advs72990-cit-0010">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Ren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Sun</surname>
+</string-name>, <article-title>
+Conf. on Computer Vision and Pattern Recognition (CVPR)
+</article-title>, <publisher-name>IEEE</publisher-name>, <publisher-loc>Las Vegas, NV, USA</publisher-loc>
+<year>2016</year>, <fpage>27</fpage>–<lpage>30</lpage>.</mixed-citation></ref><ref id="advs72990-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="advs72990-cit-0011">
+<string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Simonyan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Zisserman</surname>
+</string-name>, <source>arXiv</source>
+<year>2014</year>, <elocation-id>14091556</elocation-id>.</mixed-citation></ref><ref id="advs72990-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="advs72990-cit-0012">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Jumper</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Evans</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Pritzel</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Green</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Figurnov</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Ronneberger</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Tunyasuvunakool</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Bates</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Žídek</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Potapenko</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Bridgland</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Meyer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. A. A.</given-names>
+<surname>Kohl</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. J.</given-names>
+<surname>Ballard</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Cowie</surname>
+</string-name>, <string-name name-style="western">
+<given-names>B.</given-names>
+<surname>Romera‐Paredes</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Nikolov</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Jain</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Adler</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Back</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Petersen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Reiman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>E.</given-names>
+<surname>Clancy</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Zielinski</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Steinegger</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Pacholska</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Berghammer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Bodenstein</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Silver</surname>
+</string-name>, <string-name name-style="western">
+<given-names>O.</given-names>
+<surname>Vinyals</surname>
+</string-name>, et al., <source>Nature</source>
+<year>2021</year>, <volume>596</volume>, <fpage>583</fpage>.<pub-id pub-id-type="pmid">34265844</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41586-021-03819-2</pub-id><pub-id pub-id-type="pmcid">PMC8371605</pub-id></mixed-citation></ref><ref id="advs72990-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="advs72990-cit-0013">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Pahikkala</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Airola</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Pietila</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Shakyawar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Szwajda</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Aittokallio</surname>
+</string-name>, <source>Briefings Bioinf</source>
+<year>2014</year>, <volume>16</volume>, <fpage>325</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbu010</pub-id><pub-id pub-id-type="pmcid">PMC4364066</pub-id><pub-id pub-id-type="pmid">24723570</pub-id></mixed-citation></ref><ref id="advs72990-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="advs72990-cit-0014">
+<string-name name-style="western">
+<given-names>T.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Heidemeyer</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Ban</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Cherkasov</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Ester</surname>
+</string-name>, <source>J. Cheminform.</source>
+<year>2017</year>, <volume>9</volume>, <fpage>24</fpage>.<pub-id pub-id-type="pmid">29086119</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s13321-017-0209-z</pub-id><pub-id pub-id-type="pmcid">PMC5395521</pub-id></mixed-citation></ref><ref id="advs72990-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="advs72990-cit-0015">
+<string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zeng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Luo</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Peng</surname>
+</string-name>, <source>Brief Bioinform</source>
+<year>2021</year>, <volume>22</volume>, <elocation-id>bbab117</elocation-id>.<pub-id pub-id-type="pmid">33866349</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbab117</pub-id><pub-id pub-id-type="pmcid">PMC8083346</pub-id></mixed-citation></ref><ref id="advs72990-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="advs72990-cit-0016">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Yuan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. Y.</given-names>
+<surname>Chen</surname>
+</string-name>, <source>Brief Bioinform</source>
+<year>2022</year>, <volume>23</volume>, <elocation-id>bbab506</elocation-id>.<pub-id pub-id-type="pmid">34929738</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbab506</pub-id></mixed-citation></ref><ref id="advs72990-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="advs72990-cit-0017">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Kalemati</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Zamani Emani</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Koohi</surname>
+</string-name>, <source>PLoS Comput. Biol.</source>
+<year>2023</year>, <volume>19</volume>, <elocation-id>1011036</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1371/journal.pcbi.1011036</pub-id><pub-id pub-id-type="pmcid">PMC10096306</pub-id><pub-id pub-id-type="pmid">37000857</pub-id></mixed-citation></ref><ref id="advs72990-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="advs72990-cit-0018">
+<string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Kalemati</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. Z.</given-names>
+<surname>Emani</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Koohi</surname>
+</string-name>, <source>Heliyon</source>
+<year>2025</year>, <volume>11</volume>, <elocation-id>42476</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.heliyon.2025.e42476</pub-id><pub-id pub-id-type="pmcid">PMC11850134</pub-id><pub-id pub-id-type="pmid">40007773</pub-id></mixed-citation></ref><ref id="advs72990-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="advs72990-cit-0019">
+<string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Ren</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Yang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>F.</given-names>
+<surname>Bai</surname>
+</string-name>, <source>Bioinformatics</source>
+<year>2024</year>, <volume>40</volume>, <elocation-id>btad778</elocation-id>.<pub-id pub-id-type="pmid">38141210</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bioinformatics/btad778</pub-id><pub-id pub-id-type="pmcid">PMC10777355</pub-id></mixed-citation></ref><ref id="advs72990-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="advs72990-cit-0020">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Jiang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Zou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Qi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Cui</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Tiwari</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ding</surname>
+</string-name>, <source>Neural Netw</source>
+<year>2024</year>, <volume>169</volume>, <fpage>623</fpage>.<pub-id pub-id-type="pmid">37976593</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.neunet.2023.11.018</pub-id></mixed-citation></ref><ref id="advs72990-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="advs72990-cit-0021">
+<string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kaneriya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Samudrala</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Ganesh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Moran</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Dandibhotla</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Dakshanamurthy</surname>
+</string-name>, <source>Bioengineering (Basel)</source>
+<year>2025</year>, <volume>12</volume>, <fpage>505</fpage>.<pub-id pub-id-type="pmid">40428123</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/bioengineering12050505</pub-id><pub-id pub-id-type="pmcid">PMC12109334</pub-id></mixed-citation></ref><ref id="advs72990-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="advs72990-cit-0022">
+<string-name name-style="western">
+<given-names>M. V.</given-names>
+<surname>Samudrala</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Dandibhotla</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kaneriya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Dakshanamurthy</surname>
+</string-name>, <source>ACS Bio. Med. Chem. Au</source>
+<year>2025</year>, <volume>5</volume>, <fpage>447</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acsbiomedchemau.5c00053</pub-id><pub-id pub-id-type="pmcid">PMC12183606</pub-id><pub-id pub-id-type="pmid">40556781</pub-id></mixed-citation></ref><ref id="advs72990-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="advs72990-cit-0023">
+<string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Dandibhotla</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Samudrala</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Kaneriya</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Dakshanamurthy</surname>
+</string-name>, <source>Pharmaceuticals (Basel)</source>
+<year>2025</year>, <volume>18</volume>, <fpage>329</fpage>.<pub-id pub-id-type="pmid">40143108</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/ph18030329</pub-id><pub-id pub-id-type="pmcid">PMC11945123</pub-id></mixed-citation></ref><ref id="advs72990-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="advs72990-cit-0024">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Han</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Song</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Saidahmatov</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Hu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Kan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Zhu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Zeng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Liu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>J. Med. Chem.</source>
+<year>2021</year>, <volume>64</volume>, <elocation-id>14647</elocation-id>.<pub-id pub-id-type="pmid">34477384</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/acs.jmedchem.1c01148</pub-id></mixed-citation></ref><ref id="advs72990-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="advs72990-cit-0025">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Huang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Cai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>He</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Bioorg. Med. Chem.</source>
+<year>2022</year>, <volume>72</volume>, <elocation-id>116994</elocation-id>.<pub-id pub-id-type="pmid">36087428</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.bmc.2022.116994</pub-id></mixed-citation></ref><ref id="advs72990-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="advs72990-cit-0026">
+<string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Cai</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Zhao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Wu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Wang</surname>
+</string-name>, <source>Brief Bioinform</source>
+<year>2022</year>, <volume>23</volume>, <elocation-id>bbac408</elocation-id>.<pub-id pub-id-type="pmid">36124766</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/bib/bbac408</pub-id></mixed-citation></ref><ref id="advs72990-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="advs72990-cit-0027">
+<string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Chen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. J.</given-names>
+<surname>Keating</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V.</given-names>
+<surname>Gandhi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Plunkett</surname>
+</string-name>, <source>Blood</source>
+<year>2005</year>, <volume>106</volume>, <fpage>2513</fpage>.<pub-id pub-id-type="pmid">15972445</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1182/blood-2005-04-1678</pub-id><pub-id pub-id-type="pmcid">PMC1895272</pub-id></mixed-citation></ref><ref id="advs72990-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="advs72990-cit-0028">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Bogenberger</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.</given-names>
+<surname>Whatcott</surname>
+</string-name>, <string-name name-style="western">
+<given-names>N.</given-names>
+<surname>Hansen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Delman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C.‐X.</given-names>
+<surname>Shi</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Kim</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Haws</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Soh</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y. S.</given-names>
+<surname>Lee</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Peterson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Siddiqui‐Jain</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Weitman</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Stewart</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D.</given-names>
+<surname>Bearss</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Mesa</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Warner</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R.</given-names>
+<surname>Tibes</surname>
+</string-name>, <source>Oncotarget</source>
+<year>2017</year>, <volume>8</volume>, <elocation-id>107206</elocation-id>.<pub-id pub-id-type="pmid">29291023</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.18632/oncotarget.22284</pub-id><pub-id pub-id-type="pmcid">PMC5739808</pub-id></mixed-citation></ref><ref id="advs72990-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="advs72990-cit-0029">
+<string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Dhakal</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Bates</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. H.</given-names>
+<surname>Tomasson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Sutamtewagul</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Dupuy</surname>
+</string-name>, <string-name name-style="western">
+<given-names>V. R.</given-names>
+<surname>Bhatt</surname>
+</string-name>, <source>Blood Rev.</source>
+<year>2023</year>, <volume>59</volume>, <elocation-id>101036</elocation-id>.<pub-id pub-id-type="pmid">36549969</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.blre.2022.101036</pub-id></mixed-citation></ref><ref id="advs72990-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="advs72990-cit-0030">
+<string-name name-style="western">
+<given-names>D. A.</given-names>
+<surname>Luedtke</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Su</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Ma</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. A.</given-names>
+<surname>Buck</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Edwards</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Polin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Kushner</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. H.</given-names>
+<surname>Dzinic</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>White</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Lin</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Taub</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Ge</surname>
+</string-name>, <source>Sig. Transduct. Target. Ther.</source>
+<year>2020</year>, <volume>5</volume>, <elocation-id>17</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41392-020-0112-3</pub-id><pub-id pub-id-type="pmcid">PMC7042303</pub-id><pub-id pub-id-type="pmid">32296028</pub-id></mixed-citation></ref><ref id="advs72990-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="advs72990-cit-0031">
+<string-name name-style="western">
+<given-names>M. I.</given-names>
+<surname>Davis</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. P.</given-names>
+<surname>Hunt</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Herrgard</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Ciceri</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L. M.</given-names>
+<surname>Wodicka</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Pallares</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Hocker</surname>
+</string-name>, <string-name name-style="western">
+<given-names>D. K.</given-names>
+<surname>Treiber</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P. P.</given-names>
+<surname>Zarrinkar</surname>
+</string-name>, <source>Nat. Biotechnol.</source>
+<year>2011</year>, <volume>29</volume>, <fpage>1046</fpage>.<pub-id pub-id-type="pmid">22037378</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nbt.1990</pub-id></mixed-citation></ref><ref id="advs72990-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="advs72990-cit-0032">
+<string-name name-style="western">
+<given-names>J.</given-names>
+<surname>Tang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A.</given-names>
+<surname>Szwajda</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Shakyawar</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>P.</given-names>
+<surname>Hintsanen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>K.</given-names>
+<surname>Wennerberg</surname>
+</string-name>, <string-name name-style="western">
+<given-names>T.</given-names>
+<surname>Aittokallio</surname>
+</string-name>, <source>J. Chem. Inf. Model.</source>
+<year>2014</year>, <volume>54</volume>, <fpage>735</fpage>.<pub-id pub-id-type="pmid">24521231</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1021/ci400709d</pub-id></mixed-citation></ref><ref id="advs72990-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="advs72990-cit-0033">
+<string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Zhou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Gao</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Q.</given-names>
+<surname>Ding</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Zheng</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Xu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Wei</surname>
+</string-name>, <string-name name-style="western">
+<given-names>L.</given-names>
+<surname>Zhang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Ke</surname>
+</string-name>, <source>chemRxiv</source>
+<year>2023</year>, <elocation-id>jjm0j</elocation-id>.</mixed-citation></ref><ref id="advs72990-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="advs72990-cit-0034">
+<string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Gou</surname>
+</string-name>, <string-name name-style="western">
+<given-names>W.</given-names>
+<surname>Ge</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Y.</given-names>
+<surname>Tan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M.</given-names>
+<surname>Li</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G.</given-names>
+<surname>Fan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Yu</surname>
+</string-name>, <source>bioRxiv</source>
+<year>2022</year>, <elocation-id>500902</elocation-id>.</mixed-citation></ref><ref id="advs72990-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="advs72990-cit-0035">
+<string-name name-style="western">
+<given-names>M. A.</given-names>
+<surname>Kashem</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. M.</given-names>
+<surname>Nelson</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. D.</given-names>
+<surname>Yingling</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S. S.</given-names>
+<surname>Pullen</surname>
+</string-name>, <string-name name-style="western">
+<given-names>A. S.</given-names>
+<surname>Prokopowicz</surname>
+<suffix>III</suffix>
+</string-name>, <string-name name-style="western">
+<given-names>J. W.</given-names>
+<surname>Jones</surname>
+</string-name>, <string-name name-style="western">
+<given-names>J. P.</given-names>
+<surname>Wolak</surname>
+</string-name>, <string-name name-style="western">
+<given-names>G. R.</given-names>
+<surname>Rogers</surname>
+</string-name>, <string-name name-style="western">
+<given-names>M. M.</given-names>
+<surname>Morelock</surname>
+</string-name>, <string-name name-style="western">
+<given-names>R. J.</given-names>
+<surname>Snow</surname>
+</string-name>, <string-name name-style="western">
+<given-names>C. A.</given-names>
+<surname>Homon</surname>
+</string-name>, <string-name name-style="western">
+<given-names>S.</given-names>
+<surname>Jakes</surname>
+</string-name>, <source>J. Biomol. Screen.</source>
+<year>2007</year>, <volume>12</volume>, <fpage>70</fpage>.<pub-id pub-id-type="pmid">17166826</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1177/1087057106296047</pub-id></mixed-citation></ref><ref id="advs72990-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="advs72990-cit-0036">
+<string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Qiu</surname>
+</string-name>, <string-name name-style="western">
+<given-names>H.</given-names>
+<surname>Wang</surname>
+</string-name>, <string-name name-style="western">
+<given-names>X.</given-names>
+<surname>Tan</surname>
+</string-name>, <string-name name-style="western">
+<given-names>Z.</given-names>
+<surname>Fang</surname>
+</string-name>, <source>Comput Biol Med</source>
+<year>2024</year>, <volume>173</volume>, <elocation-id>108376</elocation-id>.<pub-id pub-id-type="pmid">38552281</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.compbiomed.2024.108376</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

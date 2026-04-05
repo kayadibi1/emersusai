@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">33643072</PMID><DateRevised><Year>2021</Year><Month>03</Month><Day>03</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>12</Volume><PubDate><Year>2021</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Effect of a 12-Week Concurrent Training Intervention on Cardiometabolic Health in Obese Men: A Pilot Study.</ArticleTitle><Pagination><StartPage>630831</StartPage><MedlinePgn>630831</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">630831</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2021.630831</ELocationID><Abstract><AbstractText>The present study aimed to investigate the effects of a 12-week concurrent training intervention on cardiometabolic health in obese men. Twelve obese men (42.5 &#xb1; 5.3 years old) participated in the current 12-week randomized controlled trial with a parallel group design. The participants were randomly assigned to a concurrent training group or to a no-exercise control group. Anthropometry and body composition assessment were determined by electrical bio-impedance. Blood samples were obtained and a cardiometabolic risk Z-Score was calculated. Energy metabolism-related parameters [i.e., resting metabolic rate (RMR), respiratory quotient (RQ), and substrate oxidation in both resting conditions and during exercise] were determined by indirect calorimetry. Echocardiographic studies were performed using an ultrasound system equipped with a transducer to measure cardiac function. A significant decrease of weight (&#x394; = -4.21 kg; i.e., primary outcome), body mass index (&#x394; = -1.32 kg/m<sup>2</sup>), fat mass (FM; &#x394; = -3.27 kg), blood pressure (BP; &#x394; = -10.81 mmHg), and cardiometabolic risk Z-Score (&#x394; = -0.39) was observed in the exercise group compared with the control group (all <i>P</i> &lt; 0.05), while no significant changes were noted in waist circumference (WC), lean mass (LM), bone mineral content, glycemic and lipid profiles, liver function, nor in energy metabolism-related parameters (all <i>P</i> &gt; 0.1). Moreover, a significant increment of left ventricular (LV) end diastolic diameter (&#x394; = -4.35 mm) was observed in the exercise group compared with the control group (<i>P</i> = 0.02). A 12-week concurrent training intervention is an effective strategy to induce weight and fat loss with simultaneous reductions of BP and cardiometabolic risk, and improving cardiac function in obese men.</AbstractText><CopyrightInformation>Copyright &#xa9; 2021 Amaro-Gahete, Ponce-Gonz&#xe1;lez, Corral-P&#xe9;rez, Vel&#xe1;zquez-D&#xed;az, Lavie and Jim&#xe9;nez-Pav&#xf3;n.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Amaro-Gahete</LastName><ForeName>Francisco J</ForeName><Initials>FJ</Initials><AffiliationInfo><Affiliation>EFFECTS-262 Research group, Department of Physiology, Faculty of Medicine, University of Granada, Granada, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>PROmoting FITness and Health Through Physical Activity Research Group, Department of Physical Education and Sports, Faculty of Sport Sciences, University of Granada, Granada, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ponce-Gonz&#xe1;lez</LastName><ForeName>Jes&#xfa;s G</ForeName><Initials>JG</Initials><AffiliationInfo><Affiliation>MOVE-IT Research Group, Department of Physical Education, Faculty of Education Sciences, University of C&#xe1;diz, C&#xe1;diz, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Biomedical Research and Innovation Institute of C&#xe1;diz Research Unit, Puerta del Mar University Hospital, University of C&#xe1;diz, C&#xe1;diz, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Corral-P&#xe9;rez</LastName><ForeName>Juan</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>MOVE-IT Research Group, Department of Physical Education, Faculty of Education Sciences, University of C&#xe1;diz, C&#xe1;diz, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Biomedical Research and Innovation Institute of C&#xe1;diz Research Unit, Puerta del Mar University Hospital, University of C&#xe1;diz, C&#xe1;diz, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Vel&#xe1;zquez-D&#xed;az</LastName><ForeName>Daniel</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>MOVE-IT Research Group, Department of Physical Education, Faculty of Education Sciences, University of C&#xe1;diz, C&#xe1;diz, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Biomedical Research and Innovation Institute of C&#xe1;diz Research Unit, Puerta del Mar University Hospital, University of C&#xe1;diz, C&#xe1;diz, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lavie</LastName><ForeName>Carl J</ForeName><Initials>CJ</Initials><AffiliationInfo><Affiliation>Department of Cardiovascular Diseases, John Ochsner Heart and Vascular Institute, Ochsner Clinical School, The University of Queensland School of Medicine, New Orleans, LA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Jim&#xe9;nez-Pav&#xf3;n</LastName><ForeName>David</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>MOVE-IT Research Group, Department of Physical Education, Faculty of Education Sciences, University of C&#xe1;diz, C&#xe1;diz, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Biomedical Research and Innovation Institute of C&#xe1;diz Research Unit, Puerta del Mar University Hospital, University of C&#xe1;diz, C&#xe1;diz, Spain.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2021</Year><Month>02</Month><Day>11</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">body composition</Keyword><Keyword MajorTopicYN="N">cardiac function</Keyword><Keyword MajorTopicYN="N">concurrent training</Keyword><Keyword MajorTopicYN="N">energy metabolism</Keyword><Keyword MajorTopicYN="N">obesity</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2020</Year><Month>11</Month><Day>18</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2021</Year><Month>1</Month><Day>18</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2021</Year><Month>3</Month><Day>1</Day><Hour>5</Hour><Minute>35</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2021</Year><Month>3</Month><Day>2</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2021</Year><Month>3</Month><Day>2</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2021</Year><Month>2</Month><Day>11</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">33643072</ArticleId><ArticleId IdType="pmc">PMC7905165</ArticleId><ArticleId IdType="doi">10.3389/fphys.2021.630831</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>&#xc1;lvarez C., Ram&#xed;rez-V&#xe9;lez R., Ram&#xed;rez-Campillo R., Lucia A., Alonso-Martinez A. M., Fa&#xfa;ndez H., et al.  (2019). Improvements cardiometabolic risk factors in Latin American Amerindians (the Mapuche) with concurrent training.
+<i>Scand. J. Med. Sci. Sports</i>
+29
+886&#x2013;896. 10.1111/sms.13409
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.13409</ArticleId><ArticleId IdType="pubmed">30770586</ArticleId></ArticleIdList></Reference><Reference><Citation>Amaro-Gahete F. J., De-la-O A., Jurado-Fasoli L., Dote-Montero M., Guti&#xe9;rrez &#xc1;, Ruiz J. R., et al.  (2019a). Changes in physical fitness after 12 weeks of structured concurrent exercise training, high intensity interval training, or whole-body electromyostimulation training in sedentary middle-aged adults: a randomized controlled trial.
+<i>Front. Physiol.</i>
+10:451.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6492765</ArticleId><ArticleId IdType="pubmed">31105580</ArticleId></ArticleIdList></Reference><Reference><Citation>Amaro-Gahete F. J., De-la-O A., Jurado-Fasoli L., Martinez-Tellez B., Ruiz J. R., Castillo M. J. (2019b). Exercise training as a treatment for cardiometabolic risk in sedentary adults: are physical activity guidelines the best way to improve cardiometabolic health? the fit-ageing randomized controlled trial.
+<i>J. Clin. Med.</i>
+8:E2097.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6947226</ArticleId><ArticleId IdType="pubmed">31805736</ArticleId></ArticleIdList></Reference><Reference><Citation>Amaro-Gahete F. J., De-la-O A., Jurado-Fasoli L., Ruiz J. R., Castillo M. J., Guti&#xe9;rrez &#xc1;. (2019). Effects of different exercise training programs on body composition: a randomized control trial.
+<i>Scand. J. Med. Sci. Sports</i>
+29
+968&#x2013;979.</Citation><ArticleIdList><ArticleId IdType="pubmed">30838669</ArticleId></ArticleIdList></Reference><Reference><Citation>Amaro-Gahete F. J., De-la-O A., Jurado-Fasoli L., Sanchez-Delgado G., Ruiz J. R., Castillo M. J. (2020). Metabolic rate in sedentary adults, following different exercise training interventions: the fit-ageing randomized controlled trial.
+<i>Clin. Nutr.</i>
+39
+3230&#x2013;3240. 10.1016/j.clnu.2020.02.001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clnu.2020.02.001</ArticleId><ArticleId IdType="pubmed">32089371</ArticleId></ArticleIdList></Reference><Reference><Citation>Amaro-Gahete F. J., Sanchez-Delgado G., Alcantara J. M. A., Martinez-Tellez B., Acosta F. M., Helge J. W., et al.  (2019c). Impact of data analysis methods for maximal fat oxidation estimation during exercise in sedentary adults.
+<i>Eur. J. Sport Sci.</i>
+19
+1230&#x2013;1239. 10.1080/17461391.2019.1595160
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/17461391.2019.1595160</ArticleId><ArticleId IdType="pubmed">30922184</ArticleId></ArticleIdList></Reference><Reference><Citation>Ascaso J. F., Romero P., Real J. T., Priego A., Valdecabres C., Carmena R. (2001). [Insulin resistance quantification by fasting insulin plasma values and HOMA index in a non-diabetic population].
+<i>Med. Clin.</i>
+117
+530&#x2013;533.</Citation><ArticleIdList><ArticleId IdType="pubmed">11707218</ArticleId></ArticleIdList></Reference><Reference><Citation>Bedogni G., Bellentani S., Miglioli L., Masutti F., Passalacqua M., Castiglione A., et al.  (2006). The fatty liver index: a simple and accurate predictor of hepatic steatosis in the general population.
+<i>BMC Gastroenterol.</i>
+6:33.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC1636651</ArticleId><ArticleId IdType="pubmed">17081293</ArticleId></ArticleIdList></Reference><Reference><Citation>Bennie J. A., Ding D., Khan A., Stamatakis E., Biddle S. J., Kim J. (2018). Run, lift, or both? associations between concurrent aerobic-muscle strengthening exercise with adverse cardiometabolic biomarkers among Korean adults.
+<i>Eur. J. Prev. Cardiol.</i>
+27
+738&#x2013;748. 10.1177/2047487318817899
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/2047487318817899</ArticleId><ArticleId IdType="pubmed">30861691</ArticleId></ArticleIdList></Reference><Reference><Citation>Blundell J. E., Finlayson G., Gibbons C., Caudwell P., Hopkins M. (2015). The biology of appetite control: do resting metabolic rate and fat-free mass drive energy intake?
+<i>Physiol. Behav.</i>
+152
+473&#x2013;478. 10.1016/j.physbeh.2015.05.031
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.physbeh.2015.05.031</ArticleId><ArticleId IdType="pubmed">26037633</ArticleId></ArticleIdList></Reference><Reference><Citation>Braga de Mello D., Monteiro-Lago T., da Silva, Cardoso M., Henriques I., et al.  (2019). Impact of eight weeks of concurrent training on obesity-related biochemical parameters and cardiometabolic risk factors: a case report.
+<i>Adv. Obesity Weight Manag. Control</i>
+9
+98&#x2013;103. 10.15406/aowmc.2019.09.00281</Citation><ArticleIdList><ArticleId IdType="doi">10.15406/aowmc.2019.09.00281</ArticleId></ArticleIdList></Reference><Reference><Citation>Byrne H. K., Wilmore J. H. (2001). The effects of a 20-week exercise training program on resting metabolic rate in previously sedentary, moderately obese women.
+<i>Int. J. Sport Nutr. Exerc. Metab.</i>
+11
+15&#x2013;31. 10.1123/ijsnem.11.1.15
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijsnem.11.1.15</ArticleId><ArticleId IdType="pubmed">11255134</ArticleId></ArticleIdList></Reference><Reference><Citation>Carracher A. M., Marathe P. H., Close K. L. (2018). International diabetes federation 2017.
+<i>J. Diabetes</i>
+10
+353&#x2013;356. 10.1111/1753-0407.12644
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/1753-0407.12644</ArticleId><ArticleId IdType="pubmed">29345068</ArticleId></ArticleIdList></Reference><Reference><Citation>Cavallaro V., Petretta M., Betocchi S., Salvatore C., Morgano G., Binachi V., et al.  (1993). Effects of sustained training on left ventricular structure and function in top level rowers.
+<i>Eur. Heart J.</i>
+14
+898&#x2013;903. 10.1093/eurheartj/14.7.898
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/eurheartj/14.7.898</ArticleId><ArticleId IdType="pubmed">8375412</ArticleId></ArticleIdList></Reference><Reference><Citation>Cornelissen V. A., Fagard R. H., Coeckelberghs E., Vanhees L. (2011). Impact of resistance training on blood pressure and other cardiovascular risk factors.
+<i>Hypertension</i>
+58
+950&#x2013;958. 10.1161/hypertensionaha.111.177071
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/hypertensionaha.111.177071</ArticleId><ArticleId IdType="pubmed">21896934</ArticleId></ArticleIdList></Reference><Reference><Citation>Corso L. M. L., Macdonald H. V., Johnson B. T., Farinatti P., Livingston J., Zaleski A. L., et al.  (2016). Is concurrent training efficacious antihypertensive therapy? a meta-analysis.
+<i>Med. Sci. Sport. Exerc.</i>
+48
+2398&#x2013;2406. 10.1249/mss.0000000000001056
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0000000000001056</ArticleId><ArticleId IdType="pubmed">27471784</ArticleId></ArticleIdList></Reference><Reference><Citation>Dolezal B. A., Potteiger J. A. (1998). Concurrent resistance and endurance training influence basal metabolic rate in nondieting individuals.
+<i>J. Appl. Physiol.</i>
+85
+695&#x2013;700. 10.1152/jappl.1998.85.2.695
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1998.85.2.695</ArticleId><ArticleId IdType="pubmed">9688748</ArticleId></ArticleIdList></Reference><Reference><Citation>duManoir G., Haykowsky M., Syrotuik D., Taylor D., Bell G. (2007). The effect of high-intensity rowing and combined strength and endurance training on left ventricular systolic function and morphology.
+<i>Int. J. Sports Med.</i>
+28
+488&#x2013;494. 10.1055/s-2006-955897
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2006-955897</ArticleId><ArticleId IdType="pubmed">17373602</ArticleId></ArticleIdList></Reference><Reference><Citation>Ferreira F. C., de Medeiros A. I., Nicioli C., Nunes J. E. D., Shiguemoto G. E., Prestes J., et al.  (2010). Circuit resistance training in sedentary women: body composition and serum cytokine levels.
+<i>Appl. Physiol. Nutr. Metab.</i>
+35
+163&#x2013;171. 10.1139/h09-136
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/h09-136</ArticleId><ArticleId IdType="pubmed">20383226</ArticleId></ArticleIdList></Reference><Reference><Citation>Fullmer S., Benson-Davies S., Earthman C. P., Frankenfield D. C., Gradwell E., Lee P. S. P., et al.  (2015). Evidence analysis library review of best practices for performing indirect calorimetry in healthy and non-critically ill individuals.
+<i>J. Acad. Nutr. Diet.</i>
+115
+1417&#x2013;1446.e2.</Citation><ArticleIdList><ArticleId IdType="pubmed">26038298</ArticleId></ArticleIdList></Reference><Reference><Citation>Go A. S., Mozaffarian D., Roger V. L., Benjamin E. J., Berry J. D., Blaha M. J., et al.  (2014). Heart disease and stroke statistics&#x2013;2014 update: a report from the american heart association.
+<i>Circulation</i>
+129
+e28&#x2013;e292.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5408159</ArticleId><ArticleId IdType="pubmed">24352519</ArticleId></ArticleIdList></Reference><Reference><Citation>Goodpaster B. H., Sparks L. M. (2017). Metabolic flexibility in health and disease.
+<i>Cell Metab.</i>
+25
+1027&#x2013;1036. 10.1016/j.cmet.2017.04.015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cmet.2017.04.015</ArticleId><ArticleId IdType="pmc">PMC5513193</ArticleId><ArticleId IdType="pubmed">28467922</ArticleId></ArticleIdList></Reference><Reference><Citation>Greene N. P., Martin S. E., Crouse S. F. (2012). Acute exercise and training alter blood lipid and lipoprotein profiles differently in overweight and obese men and women.
+<i>Obesity</i>
+20
+1618&#x2013;1627. 10.1038/oby.2012.65
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/oby.2012.65</ArticleId><ArticleId IdType="pubmed">22421926</ArticleId></ArticleIdList></Reference><Reference><Citation>Hosseini M., Piri M., Agha-Alinejad H., Haj-Sadeghi S. (2012). The effect of endurance, resistance and concurrent training on the heart structure of female students.
+<i>Biol. Sport</i>
+29
+17&#x2013;21. 10.5604/20831862.979404</Citation><ArticleIdList><ArticleId IdType="doi">10.5604/20831862.979404</ArticleId></ArticleIdList></Reference><Reference><Citation>Jaacks L. M., Vandevijvere S., Pan A., McGowan C. J., Wallace C., Imamura F., et al.  (2019). The obesity transition: stages of the global epidemic.
+<i>Lancet. Diabetes Endocrinol.</i>
+7
+231&#x2013;240. 10.1016/s2213-8587(19)30026-9</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s2213-8587(19)30026-9</ArticleId><ArticleId IdType="pmc">PMC7360432</ArticleId><ArticleId IdType="pubmed">30704950</ArticleId></ArticleIdList></Reference><Reference><Citation>Jim&#xe9;nez-Pav&#xf3;n D., Lavie C. J., Blair S. N. (2019). The role of cardiorespiratory fitness on the risk of sudden cardiac death at the population level: a systematic review and meta-analysis of the available evidence.
+<i>Prog. Cardiovasc. Dis.</i>
+62
+279&#x2013;287. 10.1016/j.pcad.2019.05.003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pcad.2019.05.003</ArticleId><ArticleId IdType="pubmed">31075278</ArticleId></ArticleIdList></Reference><Reference><Citation>Kelley G. A., Kelley K. S. (2009). Impact of progressive resistance training on lipids and lipoproteins in adults: a meta-analysis of randomized controlled trials.
+<i>Prev. Med.</i>
+48
+9&#x2013;19. 10.1016/j.ypmed.2008.10.010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ypmed.2008.10.010</ArticleId><ArticleId IdType="pubmed">19013187</ArticleId></ArticleIdList></Reference><Reference><Citation>Lavie C. J., Arena R., Alpert M. A., Milani R. V., Ventura H. O. (2018a). Management of cardiovascular diseases in patients with obesity.
+<i>Nat. Rev. Cardiol.</i>
+15
+45&#x2013;56.</Citation><ArticleIdList><ArticleId IdType="pubmed">28748957</ArticleId></ArticleIdList></Reference><Reference><Citation>Lavie C. J., Laddu D., Arena R., Ortega F. B., Alpert M. A., Kushner R. F. (2018b). Healthy weight and obesity prevention.
+<i>J. Am. Coll. Cardiol.</i>
+72
+1506&#x2013;1531.</Citation><ArticleIdList><ArticleId IdType="pubmed">30236314</ArticleId></ArticleIdList></Reference><Reference><Citation>Libardi C. A., De Souza G. V., Cavaglieri C. R., Madruga V. A., Chacon-Mikahil M. P. T. (2012). Effect of resistance, endurance, and concurrent training on TNF-&#x3b1;, IL-6, and CRP.
+<i>Med. Sci. Sport. Exerc.</i>
+44
+50&#x2013;56. 10.1249/mss.0b013e318229d2e9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0b013e318229d2e9</ArticleId><ArticleId IdType="pubmed">21697747</ArticleId></ArticleIdList></Reference><Reference><Citation>Mann S., Beedie C., Jimenez A. (2014). Differential effects of aerobic exercise, resistance training and combined exercise modalities on cholesterol and the lipid profile: review, synthesis and recommendations.
+<i>Sports Med.</i>
+44
+211&#x2013;221. 10.1007/s40279-013-0110-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-013-0110-5</ArticleId><ArticleId IdType="pmc">PMC3906547</ArticleId><ArticleId IdType="pubmed">24174305</ArticleId></ArticleIdList></Reference><Reference><Citation>Michell V., Samaria C., Junior Rudy N., Danyela V., Dantas E. (2014). Effects of a concurrent physical exercise program on aerobic power and body composition in adults.
+<i>J. Sports Med. Phys. Fitness</i>
+54
+441&#x2013;446.</Citation><ArticleIdList><ArticleId IdType="pubmed">25034548</ArticleId></ArticleIdList></Reference><Reference><Citation>Midgley A. W., McNaughton L. R., Polman R., Marchant D. (2007). Criteria for determination of maximal oxygen uptake: a brief critique and recommendations for future research.
+<i>Sport. Med.</i>
+37
+1019&#x2013;1028. 10.2165/00007256-200737120-00002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200737120-00002</ArticleId><ArticleId IdType="pubmed">18027991</ArticleId></ArticleIdList></Reference><Reference><Citation>Mili&#x107; S., Luli&#x107; D., &#x160;timac D. (2014). Non-alcoholic fatty liver disease and obesity: biochemical, metabolic and clinical presentations.
+<i>World J. Gastroenterol.</i>
+20
+9330&#x2013;9337.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4110564</ArticleId><ArticleId IdType="pubmed">25071327</ArticleId></ArticleIdList></Reference><Reference><Citation>Monteiro P. A., Chen K. Y., Lira F. S., Saraiva B. T. C., Antunes B. M. M., Campos E. Z., et al.  (2015). Concurrent and aerobic exercise training promote similar benefits in body composition and metabolic profiles in obese adolescents.
+<i>Lipids Health Dis.</i>
+14:153.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4660803</ArticleId><ArticleId IdType="pubmed">26611872</ArticleId></ArticleIdList></Reference><Reference><Citation>Nagueh S. F., Appleton C. P., Gillebert T. C., Marino P. N., Oh J. K., Smiseth O. A., et al.  (2008). Recommendations for the evaluation of left ventricular diastolic function by echocardiography.
+<i>Eur. J. Echocardiogr.</i>
+10
+165&#x2013;193.</Citation><ArticleIdList><ArticleId IdType="pubmed">19270053</ArticleId></ArticleIdList></Reference><Reference><Citation>Narayanan K., Reinier K., Teodorescu C., Uy-Evanado A., Aleong R., Chugh H., et al.  (2014). Left ventricular diameter and risk stratification for sudden cardiac death.
+<i>J. Am. Heart Assoc.</i>
+3:e001193.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4323796</ArticleId><ArticleId IdType="pubmed">25227407</ArticleId></ArticleIdList></Reference><Reference><Citation>Ng M., Fleming T., Robinson M., Thomson B., Graetz N., Margono C., et al.  (2014). Global, regional, and national prevalence of overweight and obesity in children and adults during 1980-2013: a systematic analysis for the global burden of disease study 2013.
+<i>Lancet</i>
+384
+766&#x2013;781.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4624264</ArticleId><ArticleId IdType="pubmed">24880830</ArticleId></ArticleIdList></Reference><Reference><Citation>Perumareddi P. (2019). Prevention of hypertension related to cardiovascular disease.
+<i>Prim. Care</i>
+46
+27&#x2013;39.</Citation><ArticleIdList><ArticleId IdType="pubmed">30704658</ArticleId></ArticleIdList></Reference><Reference><Citation>Petridou A., Siopi A., Mougios V. (2018). Exercise in the management of obesity.
+<i>Metabolism</i>
+92
+163&#x2013;169.</Citation><ArticleIdList><ArticleId IdType="pubmed">30385379</ArticleId></ArticleIdList></Reference><Reference><Citation>Piercy K. L., Troiano R. P., Ballard R. M., Carlson S. A., Fulton J. E., Galuska D. A., et al.  (2018). The physical activity guidelines for Americans.
+<i>J. Am. Med. Assoc.</i>
+320
+2020&#x2013;2028.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC9582631</ArticleId><ArticleId IdType="pubmed">30418471</ArticleId></ArticleIdList></Reference><Reference><Citation>Rosenkilde M., Reichkendler M. H., Auerbach P., Bonne T. C., Sj&#xf6;din A., Ploug T., et al.  (2015). Changes in peak fat oxidation in response to different doses of endurance training.
+<i>Scand. J. Med. Sci. Sport.</i>
+25
+41&#x2013;52. 10.1111/sms.12151
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12151</ArticleId><ArticleId IdType="pubmed">24350597</ArticleId></ArticleIdList></Reference><Reference><Citation>Sanchez-Delgado G., Alcantara J. M. A., Ortiz-Alvarez L., Xu H., Martinez-Tellez B., Labayen I., et al.  (2018). Reliability of resting metabolic rate measurements in young adults: impact of methods for data analysis.
+<i>Clin. Nutr.</i>
+37
+1618&#x2013;1624. 10.1016/j.clnu.2017.07.026
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clnu.2017.07.026</ArticleId><ArticleId IdType="pubmed">28826698</ArticleId></ArticleIdList></Reference><Reference><Citation>Scharhag-Rosenberger F., Meyer T., Walitzek S., Kindermann W. (2010). Effects of one year aerobic endurance training on resting metabolic rate and exercise fat oxidation in previously untrained men and women. metabolic endurance training adaptations.
+<i>Int. J. Sports Med.</i>
+31
+498&#x2013;504. 10.1055/s-0030-1249621
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0030-1249621</ArticleId><ArticleId IdType="pubmed">20432193</ArticleId></ArticleIdList></Reference><Reference><Citation>Stubbs R. J., Hughes D. A., Johnstone A. M., Whybrow S., Horgan G. W., King N., et al.  (2004). Rate and extent of compensatory changes in energy intake and expenditure in response to altered exercise and diet composition in humans.
+<i>Am. J. Physiol. Integr. Comp. Physiol.</i>
+286
+R350&#x2013;R358.</Citation><ArticleIdList><ArticleId IdType="pubmed">14707013</ArticleId></ArticleIdList></Reference><Reference><Citation>Tsujimoto T., Sasai H., Miyashita M., Eto M., So R., Ohkubo H., et al.  (2011). Effect of weight loss on maximal fat oxidation rate in obese men.
+<i>Obes. Res. Clin. Pract.</i>
+6
+e111&#x2013;e119.</Citation><ArticleIdList><ArticleId IdType="pubmed">24331251</ArticleId></ArticleIdList></Reference><Reference><Citation>Umpierre D., Ribeiro P. A. B., Kramer C. K., Leit&#xe3;o C. B., Zucatti A. T. N., Azevedo M. J., et al.  (2011). Physical activity advice only or structured exercise training and association with HbA1c levels in type 2 diabetes: a systematic review and meta-analysis.
+<i>JAMA</i>
+305
+1790&#x2013;1799. 10.1001/jama.2011.576
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2011.576</ArticleId><ArticleId IdType="pubmed">21540423</ArticleId></ArticleIdList></Reference><Reference><Citation>Venables M. C., Jeukendrup A. E. (2008). Endurance training and obesity: effect on substrate metabolism and insulin sensitivity.
+<i>Med. Sci. Sports Exerc.</i>
+40
+495&#x2013;502. 10.1249/mss.0b013e31815f256f
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0b013e31815f256f</ArticleId><ArticleId IdType="pubmed">18379212</ArticleId></ArticleIdList></Reference><Reference><Citation>Voulgari C., Pagoni S., Vinik A., Poirier P. (2013). Exercise improves cardiac autonomic function in obesity and diabetes.
+<i>Metabolism</i>
+62
+609&#x2013;621. 10.1016/j.metabol.2012.09.005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.metabol.2012.09.005</ArticleId><ArticleId IdType="pubmed">23084034</ArticleId></ArticleIdList></Reference><Reference><Citation>Welch V. A., Norheim O. F., Jull J., Cookson R., Sommerfelt H., Tugwell P. (2017). CONSORT-Equity 2017 extension and elaboration for better reporting of health equity in randomised trials.
+<i>BMJ</i>
+359:j5085. 10.1136/bmj.j5085
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.j5085</ArticleId><ArticleId IdType="pubmed">29170161</ArticleId></ArticleIdList></Reference><Reference><Citation>Whelton P. K., Williams B. (2018). The 2018 european society of cardiology/european society of hypertension and 2017 american college of cardiology/american heart association blood pressure guidelines.
+<i>JAMA</i>
+320:1749. 10.1001/jama.2018.16755
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2018.16755</ArticleId><ArticleId IdType="pubmed">30398611</ArticleId></ArticleIdList></Reference><Reference><Citation>World Health Organization [WHO] (2015). <i>Global Recommendations on Physical Activity for Health.</i>
+Geneva: World Health Organization.</Citation></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

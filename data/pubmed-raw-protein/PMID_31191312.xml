@@ -1,0 +1,200 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31191312</PMID><DateRevised><Year>2024</Year><Month>04</Month><Day>15</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1663-9812</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in pharmacology</Title><ISOAbbreviation>Front Pharmacol</ISOAbbreviation></Journal><ArticleTitle>Novel Immunomodulatory Cytokine Regulates Inflammation, Diabetes, and Obesity to Protect From Diabetic Nephropathy.</ArticleTitle><Pagination><StartPage>572</StartPage><MedlinePgn>572</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">572</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphar.2019.00572</ELocationID><Abstract><AbstractText>Obesity-linked (type 2) diabetic nephropathy (T2DN) has become the largest contributor to morbidity and mortality in the modern world. Recent evidences suggest that inflammation may contribute to the pathogenesis of T2DN and T-regulatory cells (Treg) are protective. We developed a novel cytokine (named IL233) bearing IL-2 and IL-33 activities in a single molecule and demonstrated that IL233 promotes Treg and T-helper (Th) 2 immune responses to protect mice from inflammatory acute kidney injury. Here, we investigated whether through a similar enhancement of Treg and inhibition of inflammation, IL233 protects from T2DN in a genetically obese mouse model, when administered either early or late after the onset of diabetes. In the older mice with obesity and microalbuminuria, IL233 treatment reduced hyperglycemia, plasma glycated proteins, and albuminuria. Interestingly, IL233 administered before the onset of microalbuminuria not only strongly inhibited the progression of T2DN and reversed diabetes as indicated by lowering of blood glucose, normalization of glucose tolerance and insulin levels in islets, but surprisingly, also attenuated weight gain and adipogenicity despite comparable food intake. Histological examination of kidneys showed that saline control mice had severe inflammation, glomerular hypertrophy, and mesangial expansion, which were all attenuated in the IL233 treated mice. The protection correlated with greater accumulation of Tregs, group 2 innate lymphoid cells (ILC2), alternately activated macrophages and eosinophils in the adipose tissue, along with a skewing toward T-helper 2 responses. Thus, the novel IL233 cytokine bears therapeutic potential as it protects genetically obese mice from T2DN by regulating multiple contributors to pathogenesis. <b>Short Description:</b> A novel bifunctional cytokine IL233, bearing IL-2 and IL-33 activities reverses inflammation and protects from type-2 diabetic nephropathy through promoting T-regulatory cells and type 2 immune response.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Sabapathy</LastName><ForeName>Vikram</ForeName><Initials>V</Initials><AffiliationInfo><Affiliation>Center for Immunity, Inflammation and Regenerative Medicine, Division of Nephrology, Department of Medicine, University of Virginia, Charlottesville, VA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Stremska</LastName><ForeName>Marta E</ForeName><Initials>ME</Initials><AffiliationInfo><Affiliation>Department of Microbiology, Immunology, and Cancer Biology, University of Virginia, Charlottesville, VA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mohammad</LastName><ForeName>Saleh</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Center for Immunity, Inflammation and Regenerative Medicine, Division of Nephrology, Department of Medicine, University of Virginia, Charlottesville, VA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Corey</LastName><ForeName>Rebecca L</ForeName><Initials>RL</Initials><AffiliationInfo><Affiliation>Center for Immunity, Inflammation and Regenerative Medicine, Division of Nephrology, Department of Medicine, University of Virginia, Charlottesville, VA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sharma</LastName><ForeName>Poonam R</ForeName><Initials>PR</Initials><AffiliationInfo><Affiliation>Department of Biomedical Engineering, University of Virginia, Charlottesville, VA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sharma</LastName><ForeName>Rahul</ForeName><Initials>R</Initials><AffiliationInfo><Affiliation>Center for Immunity, Inflammation and Regenerative Medicine, Division of Nephrology, Department of Medicine, University of Virginia, Charlottesville, VA, United States.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><GrantList CompleteYN="Y"><Grant><GrantID>R01 DK105833</GrantID><Acronym>DK</Acronym><Agency>NIDDK NIH HHS</Agency><Country>United States</Country></Grant><Grant><GrantID>R21 DK112105</GrantID><Acronym>DK</Acronym><Agency>NIDDK NIH HHS</Agency><Country>United States</Country></Grant><Grant><GrantID>R01 AI116725</GrantID><Acronym>AI</Acronym><Agency>NIAID NIH HHS</Agency><Country>United States</Country></Grant><Grant><GrantID>R01 DK104963</GrantID><Acronym>DK</Acronym><Agency>NIDDK NIH HHS</Agency><Country>United States</Country></Grant><Grant><GrantID>S10 RR026799</GrantID><Acronym>RR</Acronym><Agency>NCRR NIH HHS</Agency><Country>United States</Country></Grant></GrantList><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>05</Month><Day>22</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Pharmacol</MedlineTA><NlmUniqueID>101548923</NlmUniqueID><ISSNLinking>1663-9812</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">IL-2</Keyword><Keyword MajorTopicYN="N">IL-33</Keyword><Keyword MajorTopicYN="N">ILC2</Keyword><Keyword MajorTopicYN="N">Treg</Keyword><Keyword MajorTopicYN="N">diabetes</Keyword><Keyword MajorTopicYN="N">inflammation</Keyword><Keyword MajorTopicYN="N">nephropathy</Keyword><Keyword MajorTopicYN="N">obesity</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>2</Month><Day>7</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>5</Month><Day>6</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>6</Month><Day>14</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>6</Month><Day>14</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>6</Month><Day>14</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>5</Month><Day>22</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31191312</ArticleId><ArticleId IdType="pmc">PMC6540785</ArticleId><ArticleId IdType="doi">10.3389/fphar.2019.00572</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Agabiti-Rosei C., Trapletti V., Piantoni S., Airo P., Tincani A., De Ciuceis C., et al.  (2018). Decreased circulating T regulatory lymphocytes in obese patients undergoing bariatric surgery.
+<i>PLoS One</i>
+13:e0197178. 10.1371/journal.pone.0197178
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0197178</ArticleId><ArticleId IdType="pmc">PMC5951588</ArticleId><ArticleId IdType="pubmed">29758052</ArticleId></ArticleIdList></Reference><Reference><Citation>Akasheh R. T., Pang J., York J. M., Fantuzzi G. (2013). New pathways to control inflammatory responses in adipose tissue.
+<i>Curr. Opin. Pharmacol.</i>
+13
+613&#x2013;617. 10.1016/j.coph.2013.04.008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.coph.2013.04.008</ArticleId><ArticleId IdType="pmc">PMC3732512</ArticleId><ArticleId IdType="pubmed">23648270</ArticleId></ArticleIdList></Reference><Reference><Citation>Bao Y. S., Na S. P., Zhang P., Jia X. B., Liu R. C., Yu C. Y., et al.  (2012). Characterization of interleukin-33 and soluble ST2 in serum and their association with disease severity in patients with chronic kidney disease.
+<i>J. Clin. Immunol.</i>
+32
+587&#x2013;594. 10.1007/s10875-011-9622-9627
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10875-011-9622-9627</ArticleId><ArticleId IdType="pubmed">22203232</ArticleId></ArticleIdList></Reference><Reference><Citation>Bayer A. L., Yu A., Malek T. R. (2007). Function of the IL-2R for thymic and peripheral CD4+CD25+ Foxp3+ T regulatory cells.
+<i>J. Immunol.</i>
+178
+4062&#x2013;4071. 10.4049/jimmunol.178.7.4062
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4049/jimmunol.178.7.4062</ArticleId><ArticleId IdType="pubmed">17371960</ArticleId></ArticleIdList></Reference><Reference><Citation>Bending J. J., Lobo-Yeo A., Vergani D., Viberti G. C. (1988). Proteinuria and activated T-lymphocytes in diabetic nephropathy.
+<i>Diabetes</i>
+37
+507&#x2013;511. 10.2337/diabetes.37.5.507</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diabetes.37.5.507</ArticleId><ArticleId IdType="pubmed">3258834</ArticleId></ArticleIdList></Reference><Reference><Citation>Brestoff J. R., Kim B. S., Saenz S. A., Stine R. R., Monticelli L. A., Sonnenberg G. F., et al.  (2015). Group 2 innate lymphoid cells promote beiging of white adipose tissue and limit obesity.
+<i>Nature</i>
+519
+242&#x2013;246. 10.1038/nature14115
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nature14115</ArticleId><ArticleId IdType="pmc">PMC4447235</ArticleId><ArticleId IdType="pubmed">25533952</ArticleId></ArticleIdList></Reference><Reference><Citation>Caner S., Usluogullari C. A., Balkan F., Buyukcam F., Kaya C., Sacikara M., et al.  (2014). Is IL-33 useful to detect early stage of renal failure?
+<i>Ren Fail</i>
+36
+78&#x2013;80. 10.3109/0886022X.2013.832313
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3109/0886022X.2013.832313</ArticleId><ArticleId IdType="pubmed">24028569</ArticleId></ArticleIdList></Reference><Reference><Citation>Cao Q., Wang Y., Niu Z., Wang C., Wang R., Zhang Z., et al.  (2018). Potentiating tissue-resident type 2 innate lymphoid cells by IL-33 to prevent renal ischemia-reperfusion injury.
+<i>J. Am. Soc. Nephrol.</i>
+29
+961&#x2013;976. 10.1681/ASN.2017070774
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1681/ASN.2017070774</ArticleId><ArticleId IdType="pmc">PMC5827602</ArticleId><ArticleId IdType="pubmed">29295873</ArticleId></ArticleIdList></Reference><Reference><Citation>Chow F., Ozols E., Nikolic-Paterson D. J., Atkins R. C., Tesch G. H. (2004). Macrophages in mouse type 2 diabetic nephropathy: correlation with diabetic state and progressive renal injury.
+<i>Kidney Int.</i>
+65
+116&#x2013;128. 10.1111/j.1523-1755.2004.00367.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1523-1755.2004.00367.x</ArticleId><ArticleId IdType="pubmed">14675042</ArticleId></ArticleIdList></Reference><Reference><Citation>Chow F. Y., Nikolic-Paterson D. J., Ma F. Y., Ozols E., Rollins B. J., Tesch G. H. (2007). Monocyte chemoattractant protein-1-induced tissue inflammation is critical for the development of renal injury but not type 2 diabetes in obese db/db mice.
+<i>Diabetologia</i>
+50
+471&#x2013;480. 10.1007/s00125-006-0497-498
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00125-006-0497-498</ArticleId><ArticleId IdType="pubmed">17160673</ArticleId></ArticleIdList></Reference><Reference><Citation>Cipolletta D., Feuerer M., Li A., Kamei N., Lee J., Shoelson S. E., et al.  (2012). PPAR-gamma is a major driver of the accumulation and phenotype of adipose tissue Treg cells.
+<i>Nature</i>
+486
+549&#x2013;553. 10.1038/nature11132
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nature11132</ArticleId><ArticleId IdType="pmc">PMC3387339</ArticleId><ArticleId IdType="pubmed">22722857</ArticleId></ArticleIdList></Reference><Reference><Citation>Collins A. J., Foley R. N., Chavers B., Gilbertson D., Herzog C., Johansen K., et al.  (2012). United States renal data system 2011 annual data report: atlas of chronic kidney disease &amp; end-stage renal disease in the united states.
+<i>Am. J. Kidney Dis.</i>
+59(1 Suppl. 1)
+e1&#x2013;e420. 10.1053/j.ajkd.2011.11.015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1053/j.ajkd.2011.11.015</ArticleId><ArticleId IdType="pubmed">22177944</ArticleId></ArticleIdList></Reference><Reference><Citation>Durant S., Coulaud J., Amrani A., el Hasnaoui A., Dardenne M., Homo-Delarche F. (1993). Effects of various environmental stress paradigms and adrenalectomy on the expression of autoimmune type 1 diabetes in the non-obese diabetic (n.d.) mouse.
+<i>J. Autoimmun.</i>
+6
+735&#x2013;751. 10.1006/jaut.1993.1061
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1006/jaut.1993.1061</ArticleId><ArticleId IdType="pubmed">8155254</ArticleId></ArticleIdList></Reference><Reference><Citation>Dwyer C. J., Ward N. C., Pugliese A., Malek T. R. (2016). Promoting immune regulation in type 1 diabetes using low-dose interleukin-2.
+<i>Curr. Diab. Rep.</i>
+16:46. 10.1007/s11892-016-0739-731
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11892-016-0739-731</ArticleId><ArticleId IdType="pmc">PMC5907489</ArticleId><ArticleId IdType="pubmed">27076179</ArticleId></ArticleIdList></Reference><Reference><Citation>Eller K., Kirsch A., Wolf A. M., Sopper S., Tagwerker A., Stanzl U., et al.  (2011). Potential role of regulatory T cells in reversing obesity-linked insulin resistance and diabetic nephropathy.
+<i>Diabetes</i>
+60
+2954&#x2013;2962. 10.2337/db11-0358
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/db11-0358</ArticleId><ArticleId IdType="pmc">PMC3198056</ArticleId><ArticleId IdType="pubmed">21911743</ArticleId></ArticleIdList></Reference><Reference><Citation>Fontenot J. D., Rasmussen J. P., Gavin M. A., Rudensky A. Y. (2005). A function for interleukin 2 in Foxp3-expressing regulatory T cells.
+<i>Nat. Immunol.</i>
+6
+1142&#x2013;1151. 10.1038/ni1263
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/ni1263</ArticleId><ArticleId IdType="pubmed">16227984</ArticleId></ArticleIdList></Reference><Reference><Citation>Gonzalez I., Romero J., Rodriguez B. L., Perez-Castro R., Rojas A. (2013). The immunobiology of the receptor of advanced glycation end-products: trends and challenges.
+<i>Immunobiology</i>
+218
+790&#x2013;797. 10.1016/j.imbio.2012.09.005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.imbio.2012.09.005</ArticleId><ArticleId IdType="pubmed">23182709</ArticleId></ArticleIdList></Reference><Reference><Citation>Hams E., Locksley R. M., McKenzie A. N., Fallon P. G. (2013). Cutting edge: IL-25 elicits innate lymphoid type 2 and type II NKT cells that regulate obesity in mice.
+<i>J. Immunol.</i>
+191
+5349&#x2013;5353. 10.4049/jimmunol.1301176
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4049/jimmunol.1301176</ArticleId><ArticleId IdType="pmc">PMC3847854</ArticleId><ArticleId IdType="pubmed">24166975</ArticleId></ArticleIdList></Reference><Reference><Citation>He J., Zhang X., Wei Y., Sun X., Chen Y., Deng J., et al.  (2016). Low-dose interleukin-2 treatment selectively modulates CD4(+) T cell subsets in patients with systemic lupus erythematosus.
+<i>Nat. Med.</i>
+22
+991&#x2013;993. 10.1038/nm.4148
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nm.4148</ArticleId><ArticleId IdType="pubmed">27500725</ArticleId></ArticleIdList></Reference><Reference><Citation>Hudkins K. L., Pichaiwong W., Wietecha T., Kowalewska J., Banas M. C., Spencer M. W., et al.  (2010). BTBR Ob/Ob mutant mice model progressive diabetic nephropathy.
+<i>J. Am. Soc. Nephrol.</i>
+21
+1533&#x2013;1542. 10.1681/ASN.2009121290
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1681/ASN.2009121290</ArticleId><ArticleId IdType="pmc">PMC3013527</ArticleId><ArticleId IdType="pubmed">20634301</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim M. G., Koo T. Y., Yan J. J., Lee E., Han K. H., Jeong J. C., et al.  (2013). IL-2/anti-IL-2 complex attenuates renal ischemia-reperfusion injury through expansion of regulatory T cells.
+<i>J. Am. Soc. Nephrol.</i>
+24
+1529&#x2013;1536. 10.1681/ASN.2012080784
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1681/ASN.2012080784</ArticleId><ArticleId IdType="pmc">PMC3785269</ArticleId><ArticleId IdType="pubmed">23833258</ArticleId></ArticleIdList></Reference><Reference><Citation>Liew F. Y. (2012). IL-33: a janus cytokine.
+<i>Ann. Rheum. Dis.</i>
+71(Suppl. 2)
+i101&#x2013;i104. 10.1136/annrheumdis-2011-200589
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/annrheumdis-2011-200589</ArticleId><ArticleId IdType="pubmed">22460136</ArticleId></ArticleIdList></Reference><Reference><Citation>Lim A. K., Ma F. Y., Nikolic-Paterson D. J., Kitching A. R., Thomas M. C., Tesch G. H. (2010). Lymphocytes promote albuminuria, but not renal dysfunction or histological damage in a mouse model of diabetic renal injury.
+<i>Diabetologia</i>
+53
+1772&#x2013;1782. 10.1007/s00125-010-1757-1751</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00125-010-1757-1751</ArticleId><ArticleId IdType="pubmed">20422398</ArticleId></ArticleIdList></Reference><Reference><Citation>Lim A. K., Ma F. Y., Nikolic-Paterson D. J., Thomas M. C., Hurst L. A., Tesch G. H. (2009). Antibody blockade of c-fms suppresses the progression of inflammation and injury in early diabetic nephropathy in obese db/db mice.
+<i>Diabetologia</i>
+52
+1669&#x2013;1679. 10.1007/s00125-009-1399-1393
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00125-009-1399-1393</ArticleId><ArticleId IdType="pubmed">19466391</ArticleId></ArticleIdList></Reference><Reference><Citation>Matarese G., Procaccini C., De Rosa V., Horvath T. L., La Cava A. (2010). Regulatory T cells in obesity: the leptin connection.
+<i>Trends Mol. Med.</i>
+16
+247&#x2013;256. 10.1016/j.molmed.2010.04.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.molmed.2010.04.002</ArticleId><ArticleId IdType="pubmed">20493774</ArticleId></ArticleIdList></Reference><Reference><Citation>Meher A. K., Sharma P. R., Lira V. A., Yamamoto M., Kensler T. W., Yan Z., et al.  (2012). Nrf2 deficiency in myeloid cells is not sufficient to protect mice from high-fat diet-induced adipose tissue inflammation and insulin resistance.
+<i>Free Radic. Biol. Med.</i>
+52
+1708&#x2013;1715. 10.1016/j.freeradbiomed.2012.02.022
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.freeradbiomed.2012.02.022</ArticleId><ArticleId IdType="pmc">PMC3383807</ArticleId><ArticleId IdType="pubmed">22370093</ArticleId></ArticleIdList></Reference><Reference><Citation>Michalek R. D., Gerriets V. A., Jacobs S. R., Macintyre A. N., MacIver N. J., Mason E. F., et al.  (2011). Cutting edge: distinct glycolytic and lipid oxidative metabolic programs are essential for effector and regulatory CD4+ T cell subsets.
+<i>J. Immunol.</i>
+186
+3299&#x2013;3303. 10.4049/jimmunol.1003613
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4049/jimmunol.1003613</ArticleId><ArticleId IdType="pmc">PMC3198034</ArticleId><ArticleId IdType="pubmed">21317389</ArticleId></ArticleIdList></Reference><Reference><Citation>Miller A. M., Asquith D. L., Hueber A. J., Anderson L. A., Holmes W. M., McKenzie A. N., et al.  (2010). Interleukin-33 induces protective effects in adipose tissue inflammation during obesity in mice.
+<i>Circ. Res.</i>
+107
+650&#x2013;658. 10.1161/CIRCRESAHA.110.218867
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/CIRCRESAHA.110.218867</ArticleId><ArticleId IdType="pmc">PMC4254700</ArticleId><ArticleId IdType="pubmed">20634488</ArticleId></ArticleIdList></Reference><Reference><Citation>Mizui M., Tsokos G. C. (2016). Low-dose IL-2 in the treatment of lupus.
+<i>Curr. Rheumatol. Rep.</i>
+18:68
+10.1007/s11926-016-0617-615</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11926-016-0617-615</ArticleId><ArticleId IdType="pubmed">27734211</ArticleId></ArticleIdList></Reference><Reference><Citation>Moon J. Y., Jeong K. H., Lee T. W., Ihm C. G., Lim S. J., Lee S. H. (2012). Aberrant recruitment and activation of T cells in diabetic nephropathy.
+<i>Am. J. Nephrol.</i>
+35
+164&#x2013;174. 10.1159/000334928
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000334928</ArticleId><ArticleId IdType="pubmed">22286547</ArticleId></ArticleIdList></Reference><Reference><Citation>Moreno J. A., Gomez-Guerrero C., Mas S., Sanz A. B., Lorenzo O., Ruiz-Ortega M., et al.  (2018). Targeting inflammation in diabetic nephropathy: a tale of hope.
+<i>Expert. Opin. Investig. Drugs</i>
+27
+917&#x2013;930. 10.1080/13543784.2018.1538352
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/13543784.2018.1538352</ArticleId><ArticleId IdType="pubmed">30334635</ArticleId></ArticleIdList></Reference><Reference><Citation>Moriwaki Y., Inokuchi T., Yamamoto A., Ka T., Tsutsumi Z., Takahashi S., et al.  (2007). Effect of TNF-alpha inhibition on urinary albumin excretion in experimental diabetic rats.
+<i>Acta Diabetol.</i>
+44
+215&#x2013;218. 10.1007/s00592-007-0007-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00592-007-0007-6</ArticleId><ArticleId IdType="pubmed">17767370</ArticleId></ArticleIdList></Reference><Reference><Citation>Navarro J. F., Mora C., Muros M., Garcia J. (2006). Urinary tumour necrosis factor-alpha excretion independently correlates with clinical markers of glomerular and tubulointerstitial injury in type 2 diabetic patients.
+<i>Nephrol. Dial. Transplant.</i>
+21
+3428&#x2013;3434. 10.1093/ndt/gfl469
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ndt/gfl469</ArticleId><ArticleId IdType="pubmed">16935891</ArticleId></ArticleIdList></Reference><Reference><Citation>Peine M., Marek R. M., Lohning M. (2016). IL-33 in T cell differentiation, function, and immune homeostasis.
+<i>Trends Immunol.</i>
+37
+321&#x2013;333. 10.1016/j.it.2016.03.007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.it.2016.03.007</ArticleId><ArticleId IdType="pubmed">27055914</ArticleId></ArticleIdList></Reference><Reference><Citation>Pichler R., Afkarian M., Dieter B. P., Tuttle K. R. (2017). Immunity and inflammation in diabetic kidney disease: translating mechanisms to biomarkers and treatment targets.
+<i>Am. J. Physiol. Renal Physiol.</i>
+312
+F716&#x2013;F731. 10.1152/ajprenal.00314.2016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajprenal.00314.2016</ArticleId><ArticleId IdType="pmc">PMC6109808</ArticleId><ArticleId IdType="pubmed">27558558</ArticleId></ArticleIdList></Reference><Reference><Citation>Priyadharshini B., Loschi M., Newton R. H., Zhang J. W., Finn K. K., Gerriets V. A., et al.  (2018). Cutting edge: TGF-beta and phosphatidylinositol 3-kinase signals modulate distinct metabolism of regulatory T cell subsets.
+<i>J. Immunol.</i>
+201
+2215&#x2013;2219. 10.4049/jimmunol.1800311
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4049/jimmunol.1800311</ArticleId><ArticleId IdType="pmc">PMC6179917</ArticleId><ArticleId IdType="pubmed">30209190</ArticleId></ArticleIdList></Reference><Reference><Citation>Procaccini C., De Rosa V., Galgani M., Abanni L., Cali G., Porcellini A., et al.  (2010). An oscillatory switch in mTOR kinase activity sets regulatory T cell responsiveness.
+<i>Immunity</i>
+33
+929&#x2013;941. 10.1016/j.immuni.2010.11.024
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.immuni.2010.11.024</ArticleId><ArticleId IdType="pmc">PMC3133602</ArticleId><ArticleId IdType="pubmed">21145759</ArticleId></ArticleIdList></Reference><Reference><Citation>Sabapathy V., Cheru N. T., Corey R., Mohammad S., Sharma R. (2019). A novel hybrid cytokine IL233 mediates regeneration following doxorubicin-induced nephrotoxic injury.
+<i>Sci. Rep.</i>
+9:3215. 10.1038/s41598-019-39886-39889
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-019-39886-39889</ArticleId><ArticleId IdType="pmc">PMC6397151</ArticleId><ArticleId IdType="pubmed">30824764</ArticleId></ArticleIdList></Reference><Reference><Citation>Sharma R., Kinsey G. R. (2018). Regulatory T cells in acute and chronic kidney diseases.
+<i>Am. J. Physiol. Renal Physiol.</i>
+314
+F679&#x2013;F698. 10.1152/ajprenal.00236.2017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajprenal.00236.2017</ArticleId><ArticleId IdType="pmc">PMC6031912</ArticleId><ArticleId IdType="pubmed">28877881</ArticleId></ArticleIdList></Reference><Reference><Citation>Stremska M. E., Jose S., Sabapathy V., Huang L., Bajwa A., Kinsey G. R., et al.  (2017). IL233, a novel IL-2 and IL-33 hybrid cytokine, ameliorates renal injury.
+<i>J. Am. Soc. Nephrol.</i>
+28
+2681&#x2013;2693. 10.1681/ASN.2016121272
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1681/ASN.2016121272</ArticleId><ArticleId IdType="pmc">PMC5576940</ArticleId><ArticleId IdType="pubmed">28539382</ArticleId></ArticleIdList></Reference><Reference><Citation>Trzonkowski P., Bacchetta R., Battaglia M., Berglund D., Bohnenkamp H. R., ten Brinke A., et al.  (2015). Hurdles in therapy with regulatory T cells.
+<i>Sci. Transl. Med.</i>
+7
+304&#x2013;318. 10.1126/scitranslmed.aaa7721
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/scitranslmed.aaa7721</ArticleId><ArticleId IdType="pubmed">26355029</ArticleId></ArticleIdList></Reference><Reference><Citation>von Spee-Mayer C., Siegert E., Abdirama D., Rose A., Klaus A., Alexander T., et al.  (2016). Low-dose interleukin-2 selectively corrects regulatory T cell defects in patients with systemic lupus erythematosus.
+<i>Ann. Rheum. Dis.</i>
+75
+1407&#x2013;1415. 10.1136/annrheumdis-2015-207776
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/annrheumdis-2015-207776</ArticleId><ArticleId IdType="pubmed">26324847</ArticleId></ArticleIdList></Reference><Reference><Citation>Wada J., Makino H. (2013). Inflammation and the pathogenesis of diabetic nephropathy.
+<i>Clin. Sci.</i>
+124
+139&#x2013;152. 10.1042/CS20120198
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1042/CS20120198</ArticleId><ArticleId IdType="pubmed">23075333</ArticleId></ArticleIdList></Reference><Reference><Citation>Wada J., Makino H. (2016). Innate immunity in diabetes and diabetic nephropathy.
+<i>Nat. Rev. Nephrol.</i>
+12
+13&#x2013;26. 10.1038/nrneph.2015.175
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nrneph.2015.175</ArticleId><ArticleId IdType="pubmed">26568190</ArticleId></ArticleIdList></Reference><Reference><Citation>Wagner N. M., Brandhorst G., Czepluch F., Lankeit M., Eberle C., Herzberg S., et al.  (2013). Circulating regulatory T cells are reduced in obesity and may identify subjects at increased metabolic and cardiovascular risk.
+<i>Obesity</i>
+21
+461&#x2013;468. 10.1002/oby.20087
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/oby.20087</ArticleId><ArticleId IdType="pubmed">23592653</ArticleId></ArticleIdList></Reference><Reference><Citation>Wu C. C., Chen J. S., Lu K. C., Chen C. C., Lin S. H., Chu P., et al.  (2010). Aberrant cytokines/chemokines production correlate with proteinuria in patients with overt diabetic nephropathy.
+<i>Clin. Chim. Acta</i>
+411
+700&#x2013;704. 10.1016/j.cca.2010.01.036
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cca.2010.01.036</ArticleId><ArticleId IdType="pubmed">20138168</ArticleId></ArticleIdList></Reference><Reference><Citation>Xu J., Su H. L., Wang J. H., Zhang C. H. (2009). Role of CD4+CD25+Foxp3+ regulatory T cells in type 2 diabetic nephropathy.
+<i>Nan Fang Yi Ke Da Xue Xue Bao</i>
+29
+137&#x2013;139.</Citation><ArticleIdList><ArticleId IdType="pubmed">19218134</ArticleId></ArticleIdList></Reference><Reference><Citation>Yu H., Paiva R., Flavell R. A. (2018). Harnessing the power of regulatory T-cells to control autoimmune diabetes: overview and perspective.
+<i>Immunology</i>
+153
+161&#x2013;170. 10.1111/imm.12867
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/imm.12867</ArticleId><ArticleId IdType="pmc">PMC5765377</ArticleId><ArticleId IdType="pubmed">29155454</ArticleId></ArticleIdList></Reference><Reference><Citation>Zeng C., Shi X., Zhang B., Liu H., Zhang L., Ding W., et al.  (2012). The imbalance of Th17/Th1/Tregs in patients with type 2 diabetes: relationship with metabolic factors and complications.
+<i>J. Mol. Med.</i>
+90
+175&#x2013;186. 10.1007/s00109-011-0816-815
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00109-011-0816-815</ArticleId><ArticleId IdType="pubmed">21964948</ArticleId></ArticleIdList></Reference><Reference><Citation>Zeyda M., Huber J., Prager G., Stulnig T. M. (2011). Inflammation correlates with markers of T-cell subsets including regulatory T cells in adipose tissue from obese patients.
+<i>Obesity</i>
+19
+743&#x2013;748. 10.1038/oby.2010.123
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/oby.2010.123</ArticleId><ArticleId IdType="pubmed">20508627</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang Y., Yang P., Cui R., Zhang M., Li H., Qian C., et al.  (2015). Eosinophils reduce chronic inflammation in adipose tissue by secreting Th2 cytokines and promoting M2 macrophages polarization.
+<i>Int. J. Endocrinol.</i>
+2015:565760. 10.1155/2015/565760
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2015/565760</ArticleId><ArticleId IdType="pmc">PMC4673347</ArticleId><ArticleId IdType="pubmed">26688684</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

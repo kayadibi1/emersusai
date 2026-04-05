@@ -1,0 +1,128 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31632301</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>30</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>3-Weeks of Exercise Training Increases Ischemic-Tolerance in Hearts From High-Fat Diet Fed Mice.</ArticleTitle><Pagination><StartPage>1274</StartPage><MedlinePgn>1274</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1274</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.01274</ELocationID><Abstract><AbstractText>Physical activity is an efficient strategy to delay development of obesity and insulin resistance, and thus the progression of obesity/diabetes-related cardiomyopathy. In support of this, experimental studies using animal models of obesity show that chronic exercise prevents the development of obesity-induced cardiac dysfunction (cardiomyopathy). Whether exercise also improves the tolerance to ischemia-reperfusion in these models is less clear, and may depend on the type of exercise procedure as well as time of initiation. We have previously shown a reduction in ischemic-injury in diet-induced obese mice, when the exercise was started prior to the development of cardiac dysfunction in this model. In the present study, we aimed to explore the effect of exercise on ischemic-tolerance when exercise was initiated after the development obesity-mediated. Male C57BL/6J mice were fed a high-fat diet (HFD) for 20-22 weeks, where they were subjected to high-intensity interval training (HIT) during the last 3 weeks of the feeding period. Sedentary HFD fed and chow fed mice served as controls. Left-ventricular (LV) post-ischemic functional recovery and infarct size were measured in isolated perfused hearts. We also assessed the effect of 3-week HIT on mitochondrial function and myocardial oxygen consumption (MVO<sub>2</sub>). Sedentary HFD fed mice developed marked obesity and insulin resistance, and demonstrated reduced post-ischemic cardiac functional recovery and increased infarct size. Three weeks of HIT did not induce cardiac hypertrophy and only had a mild effect on obesity and insulin resistance. Despite this, HIT improved post-ischemic LV functional recovery and reduced infarct size. This increase in ischemic-tolerance was accompanied by an improved mitochondrial function as well as reduced MVO<sub>2</sub>. The present study highlights the beneficial effects of exercise training with regard to improving the ischemic-tolerance in hearts with cardiomyopathy following obesity and insulin resistance. This study also emphasizes the exercise-induced improvement of cardiac energetics and mitochondrial function in obesity/diabetes.</AbstractText><CopyrightInformation>Copyright &#xa9; 2019 Boardman, Rossvoll, Lund, Hafstad and Aasum.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Boardman</LastName><ForeName>Neoma T</ForeName><Initials>NT</Initials><AffiliationInfo><Affiliation>Cardiovascular Research Group, Department of Medical Biology, Faculty of Health Sciences, UiT - The Arctic University of Norway, Troms&#xf8;, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Rossvoll</LastName><ForeName>Line</ForeName><Initials>L</Initials><AffiliationInfo><Affiliation>Cardiovascular Research Group, Department of Medical Biology, Faculty of Health Sciences, UiT - The Arctic University of Norway, Troms&#xf8;, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Lund</LastName><ForeName>Jim</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Cardiovascular Research Group, Department of Medical Biology, Faculty of Health Sciences, UiT - The Arctic University of Norway, Troms&#xf8;, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Hafstad</LastName><ForeName>Anne D</ForeName><Initials>AD</Initials><AffiliationInfo><Affiliation>Cardiovascular Research Group, Department of Medical Biology, Faculty of Health Sciences, UiT - The Arctic University of Norway, Troms&#xf8;, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Aasum</LastName><ForeName>Ellen</ForeName><Initials>E</Initials><AffiliationInfo><Affiliation>Cardiovascular Research Group, Department of Medical Biology, Faculty of Health Sciences, UiT - The Arctic University of Norway, Troms&#xf8;, Norway.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>10</Month><Day>02</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Langendorff</Keyword><Keyword MajorTopicYN="N">MVO2</Keyword><Keyword MajorTopicYN="N">exercise</Keyword><Keyword MajorTopicYN="N">functional recovery</Keyword><Keyword MajorTopicYN="N">infarct size</Keyword><Keyword MajorTopicYN="N">mice</Keyword><Keyword MajorTopicYN="N">mitochondria</Keyword><Keyword MajorTopicYN="N">obesity</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>3</Month><Day>5</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>9</Month><Day>19</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>10</Month><Day>22</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>10</Month><Day>22</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>10</Month><Day>22</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>10</Month><Day>2</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31632301</ArticleId><ArticleId IdType="pmc">PMC6783811</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.01274</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Aasum E., Hafstad A. D., Severson D. L., Larsen T. S. (2003). Age-dependent changes in metabolism, contractile function, and ischemic sensitivity in hearts from db/db mice.
+<i>Diabetes Metab. Res. Rev.</i>
+52
+434&#x2013;441. 10.2337/diabetes.52.2.434
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diabetes.52.2.434</ArticleId><ArticleId IdType="pubmed">12540618</ArticleId></ArticleIdList></Reference><Reference><Citation>Anderson E. J., Kypson A. P., Rodriguez E., Anderson C. A., Lehr E. J., Neufer P. D. (2009). Substrate-specific derangements in mitochondrial metabolism and redox balance in the atrium of the type 2 diabetic human heart.
+<i>J. Am. Coll. Cardiol.</i>
+54
+1891&#x2013;1898. 10.1016/j.jacc.2009.07.031
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jacc.2009.07.031</ArticleId><ArticleId IdType="pmc">PMC2800130</ArticleId><ArticleId IdType="pubmed">19892241</ArticleId></ArticleIdList></Reference><Reference><Citation>Belke D. D., Larsen T. S., Gibbs E. M., Severson D. L. (2000). Altered metabolism causes cardiac dysfunction in perfused hearts from diabetic (db/db) mice.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+279
+E1104&#x2013;E1113. 10.1152/ajpendo.2000.279.5.E1104
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.2000.279.5.E1104</ArticleId><ArticleId IdType="pubmed">11052966</ArticleId></ArticleIdList></Reference><Reference><Citation>Bidasee K. R., Zheng H., Shao C. H., Parbhu S. K., Rozanski G. J., Patel K. P. (2008). Exercise training initiated after the onset of diabetes preserves myocardial function: effects on expression of beta-adrenoceptors.
+<i>J. Appl. Physiol.</i>
+105
+907&#x2013;914. 10.1152/japplphysiol.00103.2008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00103.2008</ArticleId><ArticleId IdType="pmc">PMC2536823</ArticleId><ArticleId IdType="pubmed">18583384</ArticleId></ArticleIdList></Reference><Reference><Citation>Boardman N., Hafstad A. D., Larsen T. S., Severson D. L., Aasum E. (2009). Increased O2 cost of basal metabolism and excitation-contraction coupling in hearts from type 2 diabetic mice.
+<i>Am. J. Physiol. Heart Circ. Physiol.</i>
+296
+H1373&#x2013;H1379. 10.1152/ajpheart.01264.2008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpheart.01264.2008</ArticleId><ArticleId IdType="pubmed">19286944</ArticleId></ArticleIdList></Reference><Reference><Citation>Boardman N. T., Hafstad A. D., Lund J., Rossvoll L., Aasum E. (2017). Exercise of obese mice induces cardioprotection and oxygen sparing in hearts exposed to high-fat load.
+<i>Am. J. Physiol. Heart Circ. Physiol.</i>
+313
+H1054&#x2013;H1062. 10.1152/ajpheart.00382.2017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpheart.00382.2017</ArticleId><ArticleId IdType="pubmed">28801525</ArticleId></ArticleIdList></Reference><Reference><Citation>Boudina S., Sena S., Theobald H., Sheng X., Wright J. J., Hu X. X., et al.  (2007). Mitochondrial energetics in the heart in obesity-related diabetes: direct evidence for increased uncoupled respiration and activation of uncoupling proteins.
+<i>Diabetes Metab. Res. Rev.</i>
+56
+2457&#x2013;2466. 10.2337/db07-0481
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/db07-0481</ArticleId><ArticleId IdType="pubmed">17623815</ArticleId></ArticleIdList></Reference><Reference><Citation>Bugger H., Abel E. D. (2014). Molecular mechanisms of diabetic cardiomyopathy.
+<i>Diabetologia</i>
+57
+660&#x2013;671. 10.1007/s00125-014-3171-3176
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00125-014-3171-3176</ArticleId><ArticleId IdType="pmc">PMC3969857</ArticleId><ArticleId IdType="pubmed">24477973</ArticleId></ArticleIdList></Reference><Reference><Citation>Colberg S. R., Sigal R. J., Fernhall B., Regensteiner J. G., Blissmer B. J., Rubin R. R., et al.  (2010). Exercise and type 2 diabetes: the american college of sports medicine and the american diabetes association: joint position statement executive summary.
+<i>Diabetes Care</i>
+33
+2692&#x2013;2696. 10.2337/dc10-1548
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/dc10-1548</ArticleId><ArticleId IdType="pmc">PMC2992214</ArticleId><ArticleId IdType="pubmed">21115771</ArticleId></ArticleIdList></Reference><Reference><Citation>Cole M. A., Murray A. J., Cochlin L. E., Heather L. C., McAleese S., Knight N. S., et al.  (2011). A high fat diet increases mitochondrial fatty acid oxidation and uncoupling to decrease efficiency in rat heart.
+<i>Basic Res. Cardiol.</i>
+106
+447&#x2013;457. 10.1007/s00395-011-0156-151
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00395-011-0156-151</ArticleId><ArticleId IdType="pmc">PMC3071466</ArticleId><ArticleId IdType="pubmed">21318295</ArticleId></ArticleIdList></Reference><Reference><Citation>Epp R. A., Susser S. E., Morissette M. P., Kehler D. S., Jassal D. S., Duhamel T. A. (2013). Exercise training prevents the development of cardiac dysfunction in the low-dose streptozotocin diabetic rats fed a high-fat diet.
+<i>Can. J. Physiol. Pharmacol.</i>
+91
+80&#x2013;89. 10.1139/cjpp-2012-0294
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/cjpp-2012-0294</ArticleId><ArticleId IdType="pubmed">23369057</ArticleId></ArticleIdList></Reference><Reference><Citation>Fauconnier J., Andersson D. C., Zhang S. J., Lanner J. T., Wibom R., Katz A., et al.  (2007). Effects of palmitate on Ca(2+) handling in adult control and ob/ob cardiomyocytes: impact of mitochondrial reactive oxygen species.
+<i>Diabetes Metab. Res. Rev.</i>
+56
+1136&#x2013;1142. 10.2337/db06-0739
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/db06-0739</ArticleId><ArticleId IdType="pubmed">17229941</ArticleId></ArticleIdList></Reference><Reference><Citation>Fisher-Wellman K. H., Mattox T. A., Thayne K., Katunga L. A., La Favor J. D., Neufer P. D., et al.  (2013). Novel role for thioredoxin reductase-2 in mitochondrial redox adaptations to obesogenic diet and exercise in heart and skeletal muscle.
+<i>J. Physiol.</i>
+591
+3471&#x2013;3486. 10.1113/jphysiol.2013.254193
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2013.254193</ArticleId><ArticleId IdType="pmc">PMC3731608</ArticleId><ArticleId IdType="pubmed">23613536</ArticleId></ArticleIdList></Reference><Reference><Citation>Haffner S. M., Lehto S., Ronnemaa T., Pyorala K., Laakso M. (1998). Mortality from coronary heart disease in subjects with type 2 diabetes and in nondiabetic subjects with and without prior myocardial infarction.
+<i>N. Engl. J. Med.</i>
+339
+229&#x2013;234. 10.1056/nejm199807233390404
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/nejm199807233390404</ArticleId><ArticleId IdType="pubmed">9673301</ArticleId></ArticleIdList></Reference><Reference><Citation>Hafstad A. D., Boardman N., Aasum E. (2015). How exercise may amend metabolic disturbances in diabetic cardiomyopathy.
+<i>Antioxid. Redox. Signal.</i>
+22
+1587&#x2013;1605. 10.1089/ars.2015.6304
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1089/ars.2015.6304</ArticleId><ArticleId IdType="pmc">PMC4449627</ArticleId><ArticleId IdType="pubmed">25738326</ArticleId></ArticleIdList></Reference><Reference><Citation>Hafstad A. D., Boardman N. T., Lund J., Hagve M., Khalid A. M., Wisloff U., et al.  (2011). High intensity interval training alters substrate utilization and reduces oxygen consumption in the heart.
+<i>J. Appl. Physiol.</i>
+111
+1235&#x2013;1241. 10.1152/japplphysiol.00594.2011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00594.2011</ArticleId><ArticleId IdType="pubmed">21836050</ArticleId></ArticleIdList></Reference><Reference><Citation>Hafstad A. D., Lund J., Hadler-Olsen E., Hoper A. C., Larsen T. S., Aasum E. (2013). High- and moderate-intensity training normalizes ventricular function and mechanoenergetics in mice with diet-induced obesity.
+<i>Diabetes Metab. Res. Rev.</i>
+62
+2287&#x2013;2294. 10.2337/db12-1580
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/db12-1580</ArticleId><ArticleId IdType="pmc">PMC3712042</ArticleId><ArticleId IdType="pubmed">23493573</ArticleId></ArticleIdList></Reference><Reference><Citation>How O. J., Aasum E., Severson D. L., Chan W. Y., Essop M. F., Larsen T. S. (2006). Increased myocardial oxygen consumption reduces cardiac efficiency in diabetic mice.
+<i>Diabetes Metab. Res. Rev.</i>
+55
+466&#x2013;473. 10.2337/diabetes.55.02.06.db05-1164
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diabetes.55.02.06.db05-1164</ArticleId><ArticleId IdType="pubmed">16443782</ArticleId></ArticleIdList></Reference><Reference><Citation>Jia G., Hill M. A., Sowers J. R. (2018). Diabetic cardiomyopathy: an update of mechanisms contributing to this clinical entity.
+<i>Circ. Res.</i>
+122
+624&#x2013;638. 10.1161/CIRCRESAHA.117.311586
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/CIRCRESAHA.117.311586</ArticleId><ArticleId IdType="pmc">PMC5819359</ArticleId><ArticleId IdType="pubmed">29449364</ArticleId></ArticleIdList></Reference><Reference><Citation>Kannel W. B., McGee D. L. (1979). Diabetes and cardiovascular disease. Framingham study.
+<i>JAMA</i>
+241
+2035&#x2013;2038. 10.1001/jama.241.19.2035
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.241.19.2035</ArticleId><ArticleId IdType="pubmed">430798</ArticleId></ArticleIdList></Reference><Reference><Citation>Littlejohns B., Pasdois P., Duggan S., Bond A. R., Heesom K., Jackson C. L., et al.  (2014). Hearts from mice fed a non-obesogenic high-fat diet exhibit changes in their oxidative state, calcium and mitochondria in parallel with increased susceptibility to reperfusion injury.
+<i>PLoS One</i>
+9:e100579. 10.1371/journal.pone.0100579
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0100579</ArticleId><ArticleId IdType="pmc">PMC4065057</ArticleId><ArticleId IdType="pubmed">24950187</ArticleId></ArticleIdList></Reference><Reference><Citation>Lu G. Z. X., Sun Z., Shi X., Liu T., Xu X. (2017). Effects of exercise training on systolic and diastolic function of mice with diabetic cardiomyopathy.
+<i>Cardiol. Plus</i>
+2
+1&#x2013;6. 10.4103/cp.cp_1_18</Citation><ArticleIdList><ArticleId IdType="doi">10.4103/cp.cp_1_18</ArticleId></ArticleIdList></Reference><Reference><Citation>Lund J., Hafstad A. D., Boardman N. T., Rossvoll L., Rolim N. P., Ahmed M. S., et al.  (2015). Exercise training promotes cardioprotection through oxygen-sparing action in high fat-fed mice.
+<i>Am. J. Physiol. Heart Circ. Physiol.</i>
+308
+H823&#x2013;H829. 10.1152/ajpheart.00734.2014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpheart.00734.2014</ArticleId><ArticleId IdType="pubmed">25637547</ArticleId></ArticleIdList></Reference><Reference><Citation>Muthusamy V. R., Kannan S., Sadhaasivam K., Gounder S. S., Davidson C. J., Boeheme C., et al.  (2012). Acute exercise stress activates Nrf2/ARE signaling and promotes antioxidant mechanisms in the myocardium.
+<i>Free Radic Biol. Med.</i>
+52
+366&#x2013;376. 10.1016/j.freeradbiomed.2011.10.440
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.freeradbiomed.2011.10.440</ArticleId><ArticleId IdType="pmc">PMC3800165</ArticleId><ArticleId IdType="pubmed">22051043</ArticleId></ArticleIdList></Reference><Reference><Citation>Myers J., Prakash M., Froelicher V., Do D., Partington S., Atwood J. E. (2002). Exercise capacity and mortality among men referred for exercise testing.
+<i>N. Engl. J. Med.</i>
+346
+793&#x2013;801. 10.1056/nejmoa011858
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/nejmoa011858</ArticleId><ArticleId IdType="pubmed">11893790</ArticleId></ArticleIdList></Reference><Reference><Citation>Pedersen T. M., Boardman N. T., Hafstad A. D., Aasum E. (2018). Isolated perfused working hearts provide valuable additional information during phenotypic assessment of the diabetic mouse heart.
+<i>PLoS One</i>
+13:e0204843. 10.1371/journal.pone.0204843
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0204843</ArticleId><ArticleId IdType="pmc">PMC6166959</ArticleId><ArticleId IdType="pubmed">30273374</ArticleId></ArticleIdList></Reference><Reference><Citation>Pons S., Martin V., Portal L., Zini R., Morin D., Berdeaux A., et al.  (2013). Regular treadmill exercise restores cardioprotective signaling pathways in obese mice independently from improvement in associated co-morbidities.
+<i>J. Mol. Cell Cardiol.</i>
+54
+82&#x2013;89. 10.1016/j.yjmcc.2012.11.010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.yjmcc.2012.11.010</ArticleId><ArticleId IdType="pubmed">23201226</ArticleId></ArticleIdList></Reference><Reference><Citation>Qiu S., Mintz J. D., Salet C. D., Han W., Giannis A., Chen F., et al.  (2014). Increasing muscle mass improves vascular function in obese (db/db) mice.
+<i>J. Am. Heart Assoc.</i>
+3:e000854. 10.1161/JAHA.114.000854
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/JAHA.114.000854</ArticleId><ArticleId IdType="pmc">PMC4309080</ArticleId><ArticleId IdType="pubmed">24965025</ArticleId></ArticleIdList></Reference><Reference><Citation>Stolen T. O., Hoydal M. A., Kemi O. J., Catalucci D., Ceci M., Aasum E., et al.  (2009). Interval training normalizes cardiomyocyte function, diastolic Ca2+ control, and SR Ca2+ release synchronicity in a mouse model of diabetic cardiomyopathy.
+<i>Circ. Res.</i>
+105
+527&#x2013;536. 10.1161/CIRCRESAHA.109.199810
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/CIRCRESAHA.109.199810</ArticleId><ArticleId IdType="pubmed">19679837</ArticleId></ArticleIdList></Reference><Reference><Citation>Wright J. J., Kim J., Buchanan J., Boudina S., Sena S., Bakirtzi K., et al.  (2009). Mechanisms for increased myocardial fatty acid utilization following short-term high-fat feeding.
+<i>Cardiovasc. Res.</i>
+82
+351&#x2013;360. 10.1093/cvr/cvp017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/cvr/cvp017</ArticleId><ArticleId IdType="pmc">PMC2675931</ArticleId><ArticleId IdType="pubmed">19147655</ArticleId></ArticleIdList></Reference><Reference><Citation>Yi W., Sun Y., Gao E., Wei X., Lau W. B., Zheng Q., et al.  (2011). Reduced cardioprotective action of adiponectin in high-fat diet-induced type II diabetic mice and its underlying mechanisms.
+<i>Antioxid. Redox. Signal.</i>
+15
+1779&#x2013;1788. 10.1089/ars.2010.3722
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1089/ars.2010.3722</ArticleId><ArticleId IdType="pmc">PMC3159116</ArticleId><ArticleId IdType="pubmed">21091073</ArticleId></ArticleIdList></Reference><Reference><Citation>Zanuso S., Jimenez A., Pugliese G., Corigliano G., Balducci S. (2010). Exercise for the management of type 2 diabetes: a review of the evidence.
+<i>Acta Diabetol.</i>
+47
+15&#x2013;22. 10.1007/s00592-009-0126-123
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00592-009-0126-123</ArticleId><ArticleId IdType="pubmed">19495557</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

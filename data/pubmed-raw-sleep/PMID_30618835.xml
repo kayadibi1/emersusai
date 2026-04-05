@@ -1,0 +1,150 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">30618835</PMID><DateRevised><Year>2023</Year><Month>10</Month><Day>05</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>9</Volume><PubDate><Year>2018</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Long-Haul Northeast Travel Disrupts Sleep and Induces Perceived Fatigue in Endurance Athletes.</ArticleTitle><Pagination><StartPage>1826</StartPage><MedlinePgn>1826</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1826</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2018.01826</ELocationID><Abstract><AbstractText><b>Introduction:</b> Long-haul transmeridian travel is known to cause disruptions to sleep and immune status, which may increase the risk of illness. <b>Aim:</b> This study aimed to determine the effects of long-haul northeast travel for competition on sleep, illness and preparedness in endurance athletes. <b>Methods:</b> Twelve trained (13.8 &#xb1; 3.2 training h/week) masters (age: 48 &#xb1; 14 years) triathletes were monitored for sleep (quantity via actigraphy and quality via self-report), mucosal immunity (salivary immunoglobulin-A) and stress (salivary cortisol) as well as self-reported illness, fatigue, recovery and preparedness. Baseline measures were recorded for 2 weeks prior to travel for all variables except for the saliva samples, which were collected on three separate days upon waking. Participants completed normal training during the baseline period. Measures were subsequently recorded before, during and after long-haul northeast travel from the Australian winter to the Hawaiian summer, and in the lead up to an Ironman 70.3 triathlon. <b>Results:</b> All comparisons are to baseline. There was a <i>most likely</i> decrease in sleep duration on the over-night flight (-4.8 &#xb1; 1.2 h; effect size; &#xb1;90% confidence limits = 3.06; &#xb1;1.26) and a <i>very likely</i> increase in sleep duration on the first night after arrival (0.7 &#xb1; 1.0 h; 1.15; &#xb1;0.92). After this time, sleep duration returned to baseline for several days until it was <i>very likely</i> decreased on the night prior to competition (-1.2 &#xb1; 1.0 h; 1.18; &#xb1;0.93). Nap duration was <i>likely</i> increased on the first day after arrival (36 &#xb1; 65 min; 3.90; &#xb1;3.70). There was also a <i>likely</i> increase in self-reported fatigue upon waking after the first night in the new destination (1.1 &#xb1; 1.6 AU; 0.54; &#xb1;0.41) and there were three athletes (25%) who developed symptoms of illness 3-5 days after arrival. There were no changes in sleep quality or mucosal measures across study. <b>Discussion:</b> Long-haul northeast travel from a cool to a hot environment had substantial influences on sleep and self-reported fatigue, but these alterations had returned to pre-departure baseline 48 h after arrival. Endurance athletes undertaking similar journeys may benefit from optimizing sleep hygiene, especially on the first 2 days after arrival, or until sleep duration and fatigue levels return to normal.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Stevens</LastName><ForeName>Christopher J</ForeName><Initials>CJ</Initials><AffiliationInfo><Affiliation>School of Health and Human Sciences, Southern Cross University, Coffs Harbour, NSW, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Centre for Athlete Development, Experience and Performance, Southern Cross University, Coffs Harbour, NSW, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Thornton</LastName><ForeName>Heidi R</ForeName><Initials>HR</Initials><AffiliationInfo><Affiliation>Newcastle Knights Rugby League Club, Newcastle, NSW, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>La Trobe Sport and Exercise Medicine Research Centre, La Trobe University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Fowler</LastName><ForeName>Peter M</ForeName><Initials>PM</Initials><AffiliationInfo><Affiliation>School of Exercise and Nutrition Sciences, Queensland University of Technology, Brisbane, QLD, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Esh</LastName><ForeName>Christopher</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Athlete Health and Performance Research Centre, ASPETAR Qatar Orthopaedic and Sports Medicine Hospital, Doha, Qatar.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Taylor</LastName><ForeName>Lee</ForeName><Initials>L</Initials><AffiliationInfo><Affiliation>Athlete Health and Performance Research Centre, ASPETAR Qatar Orthopaedic and Sports Medicine Hospital, Doha, Qatar.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>School of Sport, Exercise and Health Sciences, Loughborough University, Loughborough, United Kingdom.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2018</Year><Month>12</Month><Day>20</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">air travel</Keyword><Keyword MajorTopicYN="N">fatigue</Keyword><Keyword MajorTopicYN="N">hot environment</Keyword><Keyword MajorTopicYN="N">illness</Keyword><Keyword MajorTopicYN="N">immunity</Keyword><Keyword MajorTopicYN="N">salivary IgA</Keyword><Keyword MajorTopicYN="N">salivary cortisol</Keyword><Keyword MajorTopicYN="N">sleep</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>10</Month><Day>19</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2018</Year><Month>12</Month><Day>6</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>1</Month><Day>9</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>1</Month><Day>9</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>1</Month><Day>9</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2018</Year><Month>12</Month><Day>20</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">30618835</ArticleId><ArticleId IdType="pmc">PMC6306418</ArticleId><ArticleId IdType="doi">10.3389/fphys.2018.01826</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Bonnar D., Bartel K., Kakoschke N., Lang C. (2018). Sleep interventions designed to improve athletic performance and recovery: a systematic review of current approaches.
+<i>Sports Med.</i>
+48
+683&#x2013;703. 10.1007/s40279-017-0832-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-017-0832-x</ArticleId><ArticleId IdType="pubmed">29352373</ArticleId></ArticleIdList></Reference><Reference><Citation>Buguet A. (2007). Sleep under extreme environments: effects of heat and cold exposure, altitude, hyperbaric pressure and microgravity in space.
+<i>J. Neurol. Sci.</i>
+262
+145&#x2013;152. 10.1016/j.jns.2007.06.040
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jns.2007.06.040</ArticleId><ArticleId IdType="pubmed">17706676</ArticleId></ArticleIdList></Reference><Reference><Citation>Coad S., Gray B., McLellan C. (2016). Seasonal analysis of mucosal immunological function and physical demands in professional Australian rules footballers.
+<i>Int. J. Sports Physiol. Perform.</i>
+11
+574&#x2013;580. 10.1123/ijspp.2015-0242
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.2015-0242</ArticleId><ArticleId IdType="pubmed">26389779</ArticleId></ArticleIdList></Reference><Reference><Citation>Coad S., McLellan C., Whitehouse T., Gray B. (2015). Validity and reliability of a novel salivary immuoassay for individual profiling in applied sport science.
+<i>Res. Sports Med.</i>
+23
+140&#x2013;150. 10.1080/15438627.2015.1005300
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15438627.2015.1005300</ArticleId><ArticleId IdType="pubmed">25639912</ArticleId></ArticleIdList></Reference><Reference><Citation>Cole R. J., Kripke D. F., Gruen W., Mullaney D. J., Gillin J. C. (1992). Automatic sleep/wake identification from wrist activity.
+<i>Sleep</i>
+15
+461&#x2013;469. 10.1093/sleep/15.5.461
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/sleep/15.5.461</ArticleId><ArticleId IdType="pubmed">1455130</ArticleId></ArticleIdList></Reference><Reference><Citation>De Pauw K., Roelands B., Cheung S. S., de Geus B., Rietjens G., Meeusen R. (2013). Guidelines to classify subject groups in sport-science research.
+<i>Int. J. Sports Physiol. Perform.</i>
+8
+111&#x2013;122. 10.1123/ijspp.8.2.111</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.8.2.111</ArticleId><ArticleId IdType="pubmed">23428482</ArticleId></ArticleIdList></Reference><Reference><Citation>Fisher R., McLellan C., Sinclair W. (2015). The validity and reliability for a salivary cortisol point of care test.
+<i>J. Athl. Enhanc.</i>
+4
+1&#x2013;6.</Citation></Reference><Reference><Citation>Forbes-Robertson S., Dudley E., Vadgama P., Cook C., Drawer S., Kilduff L. (2012). Circadian disruption and remedial interventions: effects and interventions for jet lag for athletic peak performance.
+<i>Sports Med.</i>
+42
+185&#x2013;208. 10.2165/11596850-000000000-00000
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/11596850-000000000-00000</ArticleId><ArticleId IdType="pubmed">22299812</ArticleId></ArticleIdList></Reference><Reference><Citation>Foster C., Florhaug J. A., Franklin J., Gottschall L., Hrovatin L. A., Parker S., et al.  (2001). A new approach to monitoring exercise training.
+<i>J. Strength Cond. Res.</i>
+15
+109&#x2013;115.</Citation><ArticleIdList><ArticleId IdType="pubmed">11708692</ArticleId></ArticleIdList></Reference><Reference><Citation>Fowler P., Duffield R., Vaile J. (2015). Effects of simulated domestic and international air travel on sleep, performance, and recovery for team sports.
+<i>Scand. J. Med. Sci. Sports</i>
+25
+441&#x2013;451. 10.1111/sms.12227
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12227</ArticleId><ArticleId IdType="pubmed">24750359</ArticleId></ArticleIdList></Reference><Reference><Citation>Fowler P. M., Knez W., Crowcroft S., Mendham A. E., Miller J., Sargent C., et al.  (2017). Greater effect of east versus west travel on jet lag, sleep, and team sport performance.
+<i>Med. Sci. SportsExerc.</i>
+49
+2548&#x2013;2561. 10.1249/mss.0000000000001374
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0000000000001374</ArticleId><ArticleId IdType="pubmed">28719491</ArticleId></ArticleIdList></Reference><Reference><Citation>Fullagar H. H., Duffield R., Skorski S., White D., Bloomfield J., Kolling S., et al.  (2016). Sleep, travel, and recovery responses of national footballers during and after long-haul international air travel.
+<i>Int. J. Sports Physiol. Perform.</i>
+11
+86&#x2013;95. 10.1123/ijspp.2015-0012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.2015-0012</ArticleId><ArticleId IdType="pubmed">25946072</ArticleId></ArticleIdList></Reference><Reference><Citation>Fullagar H. H., Skorski S., Duffield R., Hammes D., Coutts A. J., Meyer T. (2015). Sleep and athletic performance: the effects of sleep loss on exercise performance, and physiological and cognitive responses to exercise.
+<i>Sports Med.</i>
+45
+161&#x2013;186. 10.1007/s40279-014-0260-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0260-0</ArticleId><ArticleId IdType="pubmed">25315456</ArticleId></ArticleIdList></Reference><Reference><Citation>Gleeson M. (2007). Immune function in sport and exercise.
+<i>J. Appl. Physiol.</i>
+103
+693&#x2013;699. 10.1152/japplphysiol.00008.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00008.2007</ArticleId><ArticleId IdType="pubmed">17303714</ArticleId></ArticleIdList></Reference><Reference><Citation>Heathcote S., Hassmen P., Zhou S., Stevens C. (2019). Passive heating: reviewing practical heat acclimation strategies for endurance athletes.
+<i>Front. Physiol.</i> (in press). 10.3389/fphys.2018.01851</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.01851</ArticleId><ArticleId IdType="pmc">PMC6306444</ArticleId><ArticleId IdType="pubmed">30618849</ArticleId></ArticleIdList></Reference><Reference><Citation>Higham D. G., Hopkins W. G., Pyne D. B., Anson J. M. (2014). Performance indicators related to points scoring and winning in international rugby sevens.
+<i>J. Sports Sci. Med.</i>
+13
+358&#x2013;364. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC3990890</ArticleId><ArticleId IdType="pubmed">24790490</ArticleId></ArticleIdList></Reference><Reference><Citation>Hirshkowitz M., Whiton K., Albert S. M., Alessi C., Bruni O., DonCarlos L., et al.  (2015). National sleep foundation&#x2019;s sleep time duration recommendations: methodology and results summary.
+<i>Sleep Health</i>
+1
+40&#x2013;43. 10.1016/j.sleh.2014.12.010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.sleh.2014.12.010</ArticleId><ArticleId IdType="pubmed">29073412</ArticleId></ArticleIdList></Reference><Reference><Citation>Hopkins W., Marshall S., Batterham A., Hanin J. (2009). Progressive statistics for studies in sports medicine and exercise science.
+<i>Med. Sci. SportsExerc.</i>
+41
+3&#x2013;13. 10.1249/MSS.0b013e31818cb278
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e31818cb278</ArticleId><ArticleId IdType="pubmed">19092709</ArticleId></ArticleIdList></Reference><Reference><Citation>Hopkins W. G. (2017). Spreadsheets for analysis of controlled trials, crossovers and time series.
+<i>Sportscience</i>
+21
+1&#x2013;4.</Citation></Reference><Reference><Citation>Juliff L. E., Halson S. L., Peiffer J. J. (2015). Understanding sleep disturbance in athletes prior to important competitions.
+<i>J. Sci. Med. Sport</i>
+18
+13&#x2013;18. 10.1016/j.jsams.2014.02.007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2014.02.007</ArticleId><ArticleId IdType="pubmed">24629327</ArticleId></ArticleIdList></Reference><Reference><Citation>Mackinnon L. T., Hooper S. (1994). Mucosal (secretory) immune system responses to exercise of varying intensity and during overtraining.
+<i>Int. J. Sports Med.</i>
+15(Suppl. 3), S179&#x2013;S183. 10.1055/s-2007-1021134
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2007-1021134</ArticleId><ArticleId IdType="pubmed">7883401</ArticleId></ArticleIdList></Reference><Reference><Citation>Matthews A., Pyne D., Saunders P., Fallon K., Fricker P. (2010). A self-reported questionnaire for quantifying illness symptoms in elite athletes.
+<i>Open Access J. Sports Med.</i>
+1
+15&#x2013;22. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC3781850</ArticleId><ArticleId IdType="pubmed">24198538</ArticleId></ArticleIdList></Reference><Reference><Citation>Nedelec M., Aloulou A., Duforez F., Meyer T., Dupont G. (2018). The variability of sleep among elite athletes.
+<i>Sports Med. Open</i>
+4:34. 10.1186/s40798-018-0151-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s40798-018-0151-2</ArticleId><ArticleId IdType="pmc">PMC6063976</ArticleId><ArticleId IdType="pubmed">30054756</ArticleId></ArticleIdList></Reference><Reference><Citation>Prather A. A., Janicki-Deverts D., Hall M. H., Cohen S. (2015). Behaviorally assessed sleep and susceptibility to the common cold.
+<i>Sleep</i>
+38
+1353&#x2013;1359. 10.5665/sleep.4968
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5665/sleep.4968</ArticleId><ArticleId IdType="pmc">PMC4531403</ArticleId><ArticleId IdType="pubmed">26118561</ArticleId></ArticleIdList></Reference><Reference><Citation>Prather A. A., Leung C. W. (2016). Association of insufficient sleep with respiratory infection among adults in the United States.
+<i>JAMA Intern. Med.</i>
+176
+850&#x2013;852. 10.1001/jamainternmed.2016.0787
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamainternmed.2016.0787</ArticleId><ArticleId IdType="pmc">PMC4899278</ArticleId><ArticleId IdType="pubmed">27064773</ArticleId></ArticleIdList></Reference><Reference><Citation>Pyne D. B., Hopkins W. G., Batterham A. M., Gleeson M., Fricker P. A. (2005). Characterising the individual performance responses to mild illness in international swimmers.
+<i>Br. J. Sports Med.</i>
+39
+752&#x2013;756. 10.1136/bjsm.2004.017475
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.2004.017475</ArticleId><ArticleId IdType="pmc">PMC1725039</ArticleId><ArticleId IdType="pubmed">16183773</ArticleId></ArticleIdList></Reference><Reference><Citation>Racinais S., Alonso J. M., Coutts A. J., Flouris A. D., Girard O., Gonzalez-Alonso J., et al.  (2015). Consensus recommendations on training and competing in the heat.
+<i>Br. J. Sports Med.</i>
+49
+1164&#x2013;1173. 10.1136/bjsports-2015-094915
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2015-094915</ArticleId><ArticleId IdType="pmc">PMC4602249</ArticleId><ArticleId IdType="pubmed">26069301</ArticleId></ArticleIdList></Reference><Reference><Citation>Rae D. E., Chin T., Dikgomo K., Hill L., McKune A. J., Kohn T. A., et al.  (2017). One night of partial sleep deprivation impairs recovery from a single exercise training session.
+<i>Eur. J. Appl. Physiol.</i>
+117
+699&#x2013;712. 10.1007/s00421-017-3565-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-017-3565-5</ArticleId><ArticleId IdType="pubmed">28247026</ArticleId></ArticleIdList></Reference><Reference><Citation>Reilly T., Waterhouse J., Edwards B. (2005). Jet lag and air travel: implications for performance.
+<i>Clin. Sports Med.</i>
+24
+367&#x2013;380. 10.1016/j.csm.2004.12.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.csm.2004.12.004</ArticleId><ArticleId IdType="pubmed">15892930</ArticleId></ArticleIdList></Reference><Reference><Citation>Roach G. D., Matthews R., Naweed A. (2018). Flat-out napping: the quantity and quality of sleep obtained in a seat during the daytime increase as the angle of recline of the seat increases.
+<i>Chronobiol. Int.</i>
+35
+872&#x2013;883. 10.1080/07420528.2018.1466801
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/07420528.2018.1466801</ArticleId><ArticleId IdType="pubmed">29889574</ArticleId></ArticleIdList></Reference><Reference><Citation>Roberts S. S. H., Teo W.-P., Warmington S. A. (2018). Effects of training and competition on the sleep of elite athletes: a systematic review and meta-analysis.
+<i>Br. J. Sports Med.</i> (in press). 10.1136/bjsports-2018-099322
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2018-099322</ArticleId><ArticleId IdType="pubmed">30217831</ArticleId></ArticleIdList></Reference><Reference><Citation>Sargent C., Lastella M., Halson S. L., Roach G. D. (2016). The validity of activity monitors for measuring sleep in elite athletes.
+<i>J. Sci. Med. Sport</i>
+19
+848&#x2013;853. 10.1016/j.jsams.2015.12.007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2015.12.007</ArticleId><ArticleId IdType="pubmed">26794719</ArticleId></ArticleIdList></Reference><Reference><Citation>Schwellnus M., Derman W., Page T., Lambert M., Readhead C., Roberts C., et al.  (2012a). Illness during the 2010 super 14 rugby union tournament - a prospective study involving 22 676 player days.
+<i>Br. J. Sports Med.</i>
+46
+499&#x2013;504. 10.1136/bjsports-2012-091046
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2012-091046</ArticleId><ArticleId IdType="pubmed">22554839</ArticleId></ArticleIdList></Reference><Reference><Citation>Schwellnus M. P., Derman W. E., Jordaan E., Page T., Lambert M. I., Readhead C., et al.  (2012b). Elite athletes travelling to international destinations &gt;5 time zone differences from their home country have a 2-3-fold increased risk of illness.
+<i>Br. J. Sports Med.</i>
+46
+816&#x2013;821. 10.1136/bjsports-2012-091395
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2012-091395</ArticleId><ArticleId IdType="pubmed">22875910</ArticleId></ArticleIdList></Reference><Reference><Citation>Stevens C., Plews D. J., Laursen P., Kittel A., Taylor L. (2017). Acute physiological and perceptual responses to wearing additional clothing while cycling outdoors in a temperate environment: a practical method to increase the heat load.
+<i>Temperature</i>
+4
+414&#x2013;419. 10.1080/23328940.2017.1365108
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/23328940.2017.1365108</ArticleId><ArticleId IdType="pmc">PMC5800376</ArticleId><ArticleId IdType="pubmed">29435480</ArticleId></ArticleIdList></Reference><Reference><Citation>Svendsen I. S., Taylor I. M., Tonnessen E., Bahr R., Gleeson M. (2016). Training-related and competition-related risk factors for respiratory tract and gastrointestinal infections in elite cross-country skiers.
+<i>Br. J. Sports Med.</i>
+50
+809&#x2013;815. 10.1136/bjsports-2015-095398
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2015-095398</ArticleId><ArticleId IdType="pubmed">26941278</ArticleId></ArticleIdList></Reference><Reference><Citation>Thornton H., Duthie G., Pitchford N., Delaney J., Benton D., Dascombe B. (2017). Effects of a two-week high intensity training camp on sleep activity of professional rugby league athletes.
+<i>Int. J. Sports Physiol. Perform.</i>
+12
+928&#x2013;933. 10.1123/ijspp.2016-0414
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.2016-0414</ArticleId><ArticleId IdType="pubmed">27918662</ArticleId></ArticleIdList></Reference><Reference><Citation>Thun E., Bjorvatn B., Flo E., Harris A., Pallesen S. (2015). Sleep, circadian rhythms, and athletic performance.
+<i>Sleep Med. Rev.</i>
+23
+1&#x2013;9. 10.1016/j.smrv.2014.11.003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.smrv.2014.11.003</ArticleId><ArticleId IdType="pubmed">25645125</ArticleId></ArticleIdList></Reference><Reference><Citation>Walsh N. P., Gleeson M., Shephard R. J., Gleeson M., Woods J. A., Bishop N. C., et al.  (2011). Position statement Immune function and exercise.
+<i>Exerc. Immunol. Rev.</i>
+17
+6&#x2013;63.</Citation><ArticleIdList><ArticleId IdType="pubmed">21446352</ArticleId></ArticleIdList></Reference><Reference><Citation>Wyatt J. K., Cecco A. R.-D., Czeisler C. A., Dijk D.-J. (1999). Circadian temperature and melatonin rhythms, sleep, and neurobehavioral function in humans living on a 20-h day.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+277
+R1152&#x2013;R1163. 10.1152/ajpregu.1999.277.4.R1152
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.1999.277.4.R1152</ArticleId><ArticleId IdType="pubmed">10516257</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

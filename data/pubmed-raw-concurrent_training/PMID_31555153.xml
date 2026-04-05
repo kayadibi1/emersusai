@@ -1,0 +1,138 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31555153</PMID><DateRevised><Year>2022</Year><Month>04</Month><Day>10</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Comparison of Short-Sprint and Heavy Strength Training on Cycling Performance.</ArticleTitle><Pagination><StartPage>1132</StartPage><MedlinePgn>1132</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1132</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.01132</ELocationID><Abstract><AbstractText Label="PURPOSE" NlmCategory="OBJECTIVE">To compare the effects of short-sprint training (SST) and heavy-strength training (HST) following a 4-week strength-training period on sprint and endurance capacities in well-trained cyclists.</AbstractText><AbstractText Label="METHODS" NlmCategory="METHODS">Twenty-eight competitive cyclists (age 29 &#xb1; 6 years) with maximal oxygen uptake () of 61.1 &#xb1; 5.9 mL&#x22c5;min<sup>-1</sup>&#x22c5;kg<sup>-1</sup> participated. After a 4-weeks preparation strength-training period, the participants were randomized to add either HST or SST to their usual endurance training for the subsequent 6 weeks. Body composition, and power output at blood lactate concentration ([La<sup>-</sup>]) of 4 mmol&#x22c5;L<sup>-1</sup>, as well as a 100 min cycling test including 6 and 30-s sprints, 60 min cycling at [La<sup>-</sup>] of 2 mmol&#x22c5;L<sup>-1</sup> and 5-min all-out cycling were performed before the 4-week preparation strength-training period, and before and after the 6-week intervention period. In addition, 1 repetition maximum (RM) in half-squat and 55-m maximal sprints on the cyclists' own bikes were measured before and after the 6-week intervention.</AbstractText><AbstractText Label="RESULTS" NlmCategory="RESULTS">SST was superior to HST in 6-s sprint performance, both in a fresh state (4.7 &#xb1; 2.6% vs. 1.1 &#xb1; 3.5%) and after prolong cycling (6.1 &#xb1; 1.8% vs. 1.8 &#xb1; 4.2%), in 30-s sprint (3.7 &#xb1; 2.8% vs. 1.3 &#xb1; 2.5%) and in 55-m seated sprint on own bike (4.3 &#xb1; 2.1% vs. 0.2 &#xb1; 1.8%) (all <i>p</i> &lt; 0.002). HST induced a larger 1RM improvement in the half-squat test than SST (9.3 &#xb1; 3.6% vs. -3.9 &#xb1; 3.8%; <i>p</i> &lt; 0.001). No group differences were revealed in the 5-min all-out test, , power output at 4 mmol&#x22c5;L<sup>-1</sup> [La<sup>-</sup>], or in gross efficiency.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="CONCLUSIONS">SST led to a greater increase in average and peak power output on all sprint tests compared to HST, whereas HST led to a greater increase in maximal strength. No group differences were found in relative changes in endurance capacities. Altogether, our results show a high degree of specificity in the adaptations of both SST and HST.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Kristoffersen</LastName><ForeName>Morten</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Sport, Food and Natural Sciences, Western Norway University of Applied Sciences, Bergen, Norway.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Centre for Elite Sports Research, Department of Neuroscience and Movement Science, Norwegian University of Science and Technology, Trondheim, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sandbakk</LastName><ForeName>&#xd8;yvind</ForeName><Initials>&#xd8;</Initials><AffiliationInfo><Affiliation>Centre for Elite Sports Research, Department of Neuroscience and Movement Science, Norwegian University of Science and Technology, Trondheim, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>R&#xf8;nnestad</LastName><ForeName>Bent R</ForeName><Initials>BR</Initials><AffiliationInfo><Affiliation>Section for Sport Science, Inland Norway University of Applied Sciences, Lillehammer, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gundersen</LastName><ForeName>Hilde</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Sport, Food and Natural Sciences, Western Norway University of Applied Sciences, Bergen, Norway.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>08</Month><Day>28</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">concurrent training</Keyword><Keyword MajorTopicYN="N">power output</Keyword><Keyword MajorTopicYN="N">road cycling</Keyword><Keyword MajorTopicYN="N">short-sprint training</Keyword><Keyword MajorTopicYN="N">strength training</Keyword><Keyword MajorTopicYN="N">trained subjects</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>6</Month><Day>18</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>8</Month><Day>16</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>9</Month><Day>27</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>9</Month><Day>27</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>9</Month><Day>27</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>8</Month><Day>28</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31555153</ArticleId><ArticleId IdType="pmc">PMC6724228</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.01132</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Aagaard P., Andersen J. L., Bennekou M., Larsson B., Olesen J. L., Crameri R., et al.  (2011). Effects of resistance training on endurance capacity and muscle fiber composition in young top-level cyclists.
+<i>Scand. J. Med. Sci. Sports</i>
+21
+e298&#x2013;e307. 10.1111/j.1600-0838.2010.01283.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2010.01283.x</ArticleId><ArticleId IdType="pubmed">21362056</ArticleId></ArticleIdList></Reference><Reference><Citation>Barrett-O&#x2019;Keefe Z., Helgerud J., Wagner P. D., Richardson R. S. (2012). Maximal strength training and increased work efficiency: contribution from the trained muscle bed.
+<i>J. Appl. Physiol.</i>
+113
+1846&#x2013;1851. 10.1152/japplphysiol.00761.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00761.2012</ArticleId><ArticleId IdType="pmc">PMC3544492</ArticleId><ArticleId IdType="pubmed">22984253</ArticleId></ArticleIdList></Reference><Reference><Citation>Bertucci W., Taiar R., Grappe F. (2005). Differences between sprint tests under laboratory and actual cycling conditions.
+<i>J. Sports Med. Phys. Fitness</i>
+45
+277&#x2013;283. </Citation><ArticleIdList><ArticleId IdType="pubmed">16230977</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen J. (1988). <i>Statistical Power Analysis for the Behavioural Sciences.</i>
+Hillsdale, NJ: Lawrence Erlbaum Associates.</Citation></Reference><Reference><Citation>Faria E. W., Parker D. L., Faria I. E. (2005). The science of cycling: physiology and training - part 1.
+<i>Sports Med.</i>
+35
+285&#x2013;312. 10.2165/00007256-200535040-00002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200535040-00002</ArticleId><ArticleId IdType="pubmed">15831059</ArticleId></ArticleIdList></Reference><Reference><Citation>Fleck S. J. (2011). Non-linear periodization for general fitness &amp; athletes.
+<i>J. Hum. Kinet.</i>
+29A
+41&#x2013;45. 10.2478/v10078-011-0057-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2478/v10078-011-0057-2</ArticleId><ArticleId IdType="pmc">PMC3588896</ArticleId><ArticleId IdType="pubmed">23486658</ArticleId></ArticleIdList></Reference><Reference><Citation>Hansen E. A., Jensen K., Pedersen P. K. (2006). Performance following prolonged sub-maximal cycling at optimal versus freely chosen pedal rate.
+<i>Eur. J. Appl. Physiol.</i>
+98
+227&#x2013;233. 10.1007/s00421-006-0266-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-006-0266-x</ArticleId><ArticleId IdType="pubmed">16906415</ArticleId></ArticleIdList></Reference><Reference><Citation>Hausswirth C., Argentin S., Bieuzen F., Le Meur Y., Couturier A., Brisswalter J. (2010). Endurance and strength training effects on physiological and muscular parameters during prolonged cycling.
+<i>J. Electromyogr. Kinesiol.</i>
+20
+330&#x2013;339. 10.1016/j.jelekin.2009.04.008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jelekin.2009.04.008</ArticleId><ArticleId IdType="pubmed">19473854</ArticleId></ArticleIdList></Reference><Reference><Citation>Herbert P., Sculthorpe N., Baker J. S., Grace F. M. (2015). Validation of a six second cycle test for the determination of peak power output.
+<i>Res. Sports Med.</i>
+23
+115&#x2013;125. 10.1080/15438627.2015.1005294
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15438627.2015.1005294</ArticleId><ArticleId IdType="pubmed">25720917</ArticleId></ArticleIdList></Reference><Reference><Citation>Hickson R. C., Dvorak B. A., Gorostiaga E. M., Kurowski T. T., Foster C. (1988). Potential for strength and endurance training to amplify endurance performance.
+<i>J. Appl. Physiol.</i>
+65
+2285&#x2013;2290. 10.1152/jappl.1988.65.5.2285
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1988.65.5.2285</ArticleId><ArticleId IdType="pubmed">3209573</ArticleId></ArticleIdList></Reference><Reference><Citation>Hopker J., Myers S., Jobson S. A., Bruce W., Passfield L. (2010). Validity and reliability of the Wattbike cycle ergometer.
+<i>Int. J. Sports Med.</i>
+31
+731&#x2013;736. 10.1055/s-0030-1261968
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0030-1261968</ArticleId><ArticleId IdType="pubmed">20665423</ArticleId></ArticleIdList></Reference><Reference><Citation>Jacobs I., Tesch P. A., Bar-Or O., Karlsson J., Dotan R. (1983). Lactate in human skeletal muscle after 10 and 30 s of supramaximal exercise.
+<i>J. Appl. Physiol. Respir. Environ. Exerc. Physiol.</i>
+55
+365&#x2013;367. 10.1152/jappl.1983.55.2.365
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1983.55.2.365</ArticleId><ArticleId IdType="pubmed">6618929</ArticleId></ArticleIdList></Reference><Reference><Citation>Jakeman J., Adamson S., Babraj J. (2012). Extremely short duration high-intensity training substantially improves endurance performance in triathletes.
+<i>Appl. Physiol. Nutr. Metab.</i>
+37
+976&#x2013;981. 10.1139/h2012-083
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/h2012-083</ArticleId><ArticleId IdType="pubmed">22857018</ArticleId></ArticleIdList></Reference><Reference><Citation>Jeukendrup A. E., Craig N. P., Hawley J. A. (2000). The bioenergetics of World Class Cycling.
+<i>J. Sci. Med. Sport</i>
+3
+414&#x2013;433. 10.1016/s1440-2440(00)80008-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s1440-2440(00)80008-0</ArticleId><ArticleId IdType="pubmed">11235007</ArticleId></ArticleIdList></Reference><Reference><Citation>Koninckx E., Van Leemputte M., Hespel P. (2010). Effect of isokinetic cycling versus weight training on maximal power output and endurance performance in cycling.
+<i>Eur. J. Appl. Physiol.</i>
+109
+699&#x2013;708. 10.1007/s00421-010-1407-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-010-1407-9</ArticleId><ArticleId IdType="pubmed">20213468</ArticleId></ArticleIdList></Reference><Reference><Citation>Kraemer W. J., Patton J. F., Gordon S. E., Harman E. A., Deschenes M. R., Reynolds K., et al.  (1995). Compatibility of high-intensity strength and endurance training on hormonal and skeletal muscle adaptations.
+<i>J. Appl. Physiol.</i>
+78
+976&#x2013;989. 10.1152/jappl.1995.78.3.976
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1995.78.3.976</ArticleId><ArticleId IdType="pubmed">7775344</ArticleId></ArticleIdList></Reference><Reference><Citation>Kraemer W. J., Ratamess N. A. (2004). Fundamentals of resistance training: progression and exercise prescription.
+<i>Med. Sci. Sports Exerc.</i>
+36
+674&#x2013;688. 10.1249/01.mss.0000121945.36635.61
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000121945.36635.61</ArticleId><ArticleId IdType="pubmed">15064596</ArticleId></ArticleIdList></Reference><Reference><Citation>Kristoffersen M., Sandbakk O., Tonnessen E., Svendsen I., Paulsen G., Ersvaer E., et al.  (2018). Power production and biochemical markers of metabolic stress and muscle damage following a single bout of short-sprint and heavy strength exercise in well-trained cyclists.
+<i>Front. Physiol.</i>
+9:155. 10.3389/fphys.2018.00155
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.00155</ArticleId><ArticleId IdType="pmc">PMC5845014</ArticleId><ArticleId IdType="pubmed">29556201</ArticleId></ArticleIdList></Reference><Reference><Citation>Levin G. T., McGuigan M. R., Laursen P. B. (2009). Effect of concurrent resistance and endurance training on physiologic and performance parameters of well-trained endurance cyclists.
+<i>J. Strength Cond. Res.</i>
+23
+2280&#x2013;2286. 10.1519/JSC.0b013e3181b990c2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181b990c2</ArticleId><ArticleId IdType="pubmed">19826297</ArticleId></ArticleIdList></Reference><Reference><Citation>Linossier M. T., Denis C., Dormois D., Geyssant A., Lacour J. R. (1993). Ergometric and metabolic adaptation to a 5-s sprint training programme.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+67
+408&#x2013;414. 10.1007/bf00376456
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/bf00376456</ArticleId><ArticleId IdType="pubmed">8299612</ArticleId></ArticleIdList></Reference><Reference><Citation>Linossier M. T., Dormois D., Perier C., Frey J., Geyssant A., Denis C. (1997). Enzyme adaptations of human skeletal muscle during bicycle short-sprint training and detraining.
+<i>Acta Physiol. Scand.</i>
+161
+439&#x2013;445. 10.1046/j.1365-201X.1997.00244.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1046/j.1365-201X.1997.00244.x</ArticleId><ArticleId IdType="pubmed">9429650</ArticleId></ArticleIdList></Reference><Reference><Citation>Lloyd Jones M. C., Morris M. G., Jakeman J. R. (2017). Impact of time and work:rest ratio matched sprint interval training programmes on performance: a randomised controlled trial.
+<i>J. Sci. Med. Sport</i>
+20
+1034&#x2013;1038. 10.1016/j.jsams.2017.03.020
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2017.03.020</ArticleId><ArticleId IdType="pubmed">28410999</ArticleId></ArticleIdList></Reference><Reference><Citation>Rhea M. R., Ball S. D., Phillips W. T., Burkett L. N. (2002). A comparison of linear and daily undulating periodized programs with equated volume and intensity for strength.
+<i>J. Strength Cond. Res.</i>
+16
+250&#x2013;255. 10.1519/00124278-200205000-00013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200205000-00013</ArticleId><ArticleId IdType="pubmed">11991778</ArticleId></ArticleIdList></Reference><Reference><Citation>Ronnestad B. R. (2009). Acute effects of various whole body vibration frequencies on 1RM in trained and untrained subjects.
+<i>J. Strength Cond. Res.</i>
+23
+2068&#x2013;2072. 10.1519/JSC.0b013e3181b8652d
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181b8652d</ArticleId><ArticleId IdType="pubmed">19855332</ArticleId></ArticleIdList></Reference><Reference><Citation>Ronnestad B. R., Hansen E. A., Raastad T. (2010a). Effect of heavy strength training on thigh muscle cross-sectional area, performance determinants, and performance in well-trained cyclists.
+<i>Eur. J. Appl. Physiol.</i>
+108
+965&#x2013;975. 10.1007/s00421-009-1307-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-009-1307-z</ArticleId><ArticleId IdType="pubmed">19960350</ArticleId></ArticleIdList></Reference><Reference><Citation>Ronnestad B. R., Hansen E. A., Raastad T. (2010b). In-season strength maintenance training increases well-trained cyclists&#x2019; performance.
+<i>Eur. J. Appl. Physiol.</i>
+110
+1269&#x2013;1282. 10.1007/s00421-010-1622-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-010-1622-4</ArticleId><ArticleId IdType="pubmed">20799042</ArticleId></ArticleIdList></Reference><Reference><Citation>Ronnestad B. R., Hansen E. A., Raastad T. (2011). Strength training improves 5-min all-out performance following 185 min of cycling.
+<i>Scand. J. Med. Sci. Sports</i>
+21
+250&#x2013;259. 10.1111/j.1600-0838.2009.01035.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2009.01035.x</ArticleId><ArticleId IdType="pubmed">19903319</ArticleId></ArticleIdList></Reference><Reference><Citation>Ronnestad B. R., Hansen J., Hollan I., Ellefsen S. (2015a). Strength training improves performance and pedaling characteristics in elite cyclists.
+<i>Scand. J. Med. Sci. Sports</i>
+25
+e89&#x2013;e98. 10.1111/sms.12257
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12257</ArticleId><ArticleId IdType="pubmed">24862305</ArticleId></ArticleIdList></Reference><Reference><Citation>Ronnestad B. R., Hansen J., Hollan I., Spencer M., Ellefsen S. (2015b). In-season strength training cessation impairs performance variables in elite cyclists.
+<i>Int. J. Sports. Physiol. Perform.</i>
+11
+727&#x2013;735. 10.1123/ijspp.2015-0372
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.2015-0372</ArticleId><ArticleId IdType="pubmed">26641569</ArticleId></ArticleIdList></Reference><Reference><Citation>Ronnestad B. R., Hansen J., Nygaard H. (2016). 10 weeks of heavy strength training improves performance-related measurements in elite cyclists.
+<i>J. Sports Sci.</i>
+35
+1435&#x2013;1441. 10.1080/02640414.2016.1215499
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2016.1215499</ArticleId><ArticleId IdType="pubmed">27486014</ArticleId></ArticleIdList></Reference><Reference><Citation>Ronnestad B. R., Mujika I. (2014). Optimizing strength training for running and cycling endurance performance: a review.
+<i>Scand. J. Med. Sci. Sports</i>
+24
+603&#x2013;612. 10.1111/sms.12104
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12104</ArticleId><ArticleId IdType="pubmed">23914932</ArticleId></ArticleIdList></Reference><Reference><Citation>Ross A., Leveritt M. (2001). Long-term metabolic and skeletal muscle adaptations to short-sprint training: implications for sprint training and tapering.
+<i>Sports Med.</i>
+31
+1063&#x2013;1082. 10.2165/00007256-200131150-00003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200131150-00003</ArticleId><ArticleId IdType="pubmed">11735686</ArticleId></ArticleIdList></Reference><Reference><Citation>Skovereng K., Sylta O., Tonnessen E., Hammarstrom D., Danielsen J., Seiler S., et al.  (2018). Effects of initial performance, gross efficiency and O 2peak characteristics on subsequent adaptations to endurance training in competitive cyclists.
+<i>Front. Physiol.</i>
+9:713. 10.3389/fphys.2018.00713
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.00713</ArticleId><ArticleId IdType="pmc">PMC6010573</ArticleId><ArticleId IdType="pubmed">29962959</ArticleId></ArticleIdList></Reference><Reference><Citation>Sunde A., Storen O., Bjerkaas M., Larsen M. H., Hoff J., Helgerud J. (2010). Maximal strength training improves cycling economy in competitive cyclists.
+<i>J. Strength Cond. Res.</i>
+24
+2157&#x2013;2165. 10.1519/JSC.0b013e3181aeb16a
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181aeb16a</ArticleId><ArticleId IdType="pubmed">19855311</ArticleId></ArticleIdList></Reference><Reference><Citation>Vikmoen O., Ellefsen S., Troen O., Hollan I., Hanestadhaugen M., Raastad T., et al.  (2016). Strength training improves cycling performance, fractional utilization of VO2max and cycling economy in female cyclists.
+<i>Scand. J. Med. Sci. Sports</i>
+26
+384&#x2013;396. 10.1111/sms.12468
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12468</ArticleId><ArticleId IdType="pubmed">25892654</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

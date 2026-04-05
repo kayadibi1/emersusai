@@ -1,0 +1,252 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31607944</PMID><DateRevised><Year>2022</Year><Month>04</Month><Day>10</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Superimposed Whole-Body Electrostimulation Augments Strength Adaptations and Type II Myofiber Growth in Soccer Players During a Competitive Season.</ArticleTitle><Pagination><StartPage>1187</StartPage><MedlinePgn>1187</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1187</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.01187</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="BACKGROUND">The improvement of strength and athletic performance during a competitive season in elite soccer players is a demanding task for the coach.</AbstractText><AbstractText Label="AIMS" NlmCategory="OBJECTIVE">As whole-body electrostimulation (WB-EMS) training provides a time efficient stimulation potentially capable in exerting skeletal muscle adaptations we aimed to test this approach over 7 weeks in trained male soccer players during a competitive season.</AbstractText><AbstractText Label="HYPOTHESIS" NlmCategory="OBJECTIVE">We hypothesized that a superimposed WB-EMS will increase maximal strength and type I and type II myofiber hypertrophy.</AbstractText><AbstractText Label="METHODS" NlmCategory="METHODS">Twenty-eight male field soccer players were assigned in either a WB-EMS group (EG, <i>n</i> = 10), a training group (TG, <i>n</i> = 10), or a control group (CG, <i>n</i> = 8). The regular soccer training consists of two to four sessions and one match per week. In concurrent, the EG performed 3 &#xd7; 10 squat jumps superimposed with WB-EMS twice per week, TG performed 3 &#xd7; 10 squat jumps without EMS twice per week, and the CG only performed the regular soccer training. Muscle biopsies were collected and strength tests were performed under resting conditions before (Baseline) and after the intervention period (Posttest). Muscle biopsies were analyzed via western blotting and immunohistochemistry for skeletal muscle adaptive responses. To determine the effect of the training interventions a 2 &#xd7; 3 (time <sup>&#x2217;</sup> group) mixed ANOVA with repeated measures was conducted.</AbstractText><AbstractText Label="RESULTS" NlmCategory="RESULTS">Maximal strength in leg press (<i>p</i> = 0.009) and leg curl (<i>p</i> = 0.026) was significantly increased in EG along with a small but significant increase in type II myofiber diameter (<i>p</i> = 0.023). All of these adaptations were not observed in TG and CG.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="CONCLUSIONS">WB-EMS can serve as a time efficient training method to augment strength capacities and type II fiber myofiber growth in soccer players when combined with specific resistance training. This combination may therefore be a promising training modification compared to traditional strength training for performance enhancement.</AbstractText><CopyrightInformation>Copyright &#xa9; 2019 Filipovic, DeMarees, Grau, Hollinger, Seeger, Schiffer, Bloch and Gehlert.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Filipovic</LastName><ForeName>Andre</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Section of Molecular and Cellular Sport Medicine, Institute of Cardiology and Sports Medicine, German Sport University Cologne, Cologne, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>DeMarees</LastName><ForeName>Markus</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Section of Sports Medicine and Sports Nutrition, Faculty of Sports Science, Ruhr-University Bochum, Bochum, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Grau</LastName><ForeName>Marijke</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Section of Molecular and Cellular Sport Medicine, Institute of Cardiology and Sports Medicine, German Sport University Cologne, Cologne, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Hollinger</LastName><ForeName>Anna</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Section of Molecular and Cellular Sport Medicine, Institute of Cardiology and Sports Medicine, German Sport University Cologne, Cologne, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Seeger</LastName><ForeName>Benedikt</ForeName><Initials>B</Initials><AffiliationInfo><Affiliation>Section of Molecular and Cellular Sport Medicine, Institute of Cardiology and Sports Medicine, German Sport University Cologne, Cologne, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Schiffer</LastName><ForeName>Thorsten</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Outpatient Clinic for Sports Traumatology and Public Health Consultation, German Sport University Cologne, Cologne, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Bloch</LastName><ForeName>Wilhelm</ForeName><Initials>W</Initials><AffiliationInfo><Affiliation>Section of Molecular and Cellular Sport Medicine, Institute of Cardiology and Sports Medicine, German Sport University Cologne, Cologne, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gehlert</LastName><ForeName>Sebastian</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Section of Molecular and Cellular Sport Medicine, Institute of Cardiology and Sports Medicine, German Sport University Cologne, Cologne, Germany.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Institute of Sport Science, Biosciences of Sports, University of Hildesheim, Hildesheim, Germany.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>09</Month><Day>23</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">electrostimulation</Keyword><Keyword MajorTopicYN="N">hypertrophy</Keyword><Keyword MajorTopicYN="N">mTOR</Keyword><Keyword MajorTopicYN="N">p70s6k</Keyword><Keyword MajorTopicYN="N">soccer</Keyword><Keyword MajorTopicYN="N">strength</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>3</Month><Day>31</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>9</Month><Day>2</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>10</Month><Day>15</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>10</Month><Day>15</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>10</Month><Day>15</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>9</Month><Day>23</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31607944</ArticleId><ArticleId IdType="pmc">PMC6768094</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.01187</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Al Attar W. S. A., Soomro N., Sinclair P. J., Pappas E., Sanders R. H. (2017). Effect of injury prevention programs that include the nordic hamstring exercise on hamstring injury rates in soccer players: a systematic review and meta-analysis.
+<i>Sports Med.</i>
+47
+907&#x2013;916. 10.1007/s40279-016-0638-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-016-0638-2</ArticleId><ArticleId IdType="pubmed">27752982</ArticleId></ArticleIdList></Reference><Reference><Citation>Andersen J. L., Aagaard P. (2010). Effects of strength training on muscle fiber types and size; consequences for athletes training for high-intensity sport.
+<i>Scand. J. Med. Sci. Sports</i>
+20
+32&#x2013;38. 10.1111/j.1600-0838.2010.01196.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2010.01196.x</ArticleId><ArticleId IdType="pubmed">20840560</ArticleId></ArticleIdList></Reference><Reference><Citation>Babault N., Cometti G., Bernardin M., Pousson M., Chatard J. C. (2007). Effects of electromyostimulation training on muscle strength and power of elite rugby players.
+<i>J. Strength Cond. Res.</i>
+21
+431&#x2013;437. 10.1519/R-19365.1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/R-19365.1</ArticleId><ArticleId IdType="pubmed">17530954</ArticleId></ArticleIdList></Reference><Reference><Citation>Bagley J. R. (2014). Fibre type-specific hypertrophy mechanisms in human skeletal muscle: potential role of myonuclear addition.
+<i>J. Physiol.</i>
+592
+5147&#x2013;5148. 10.1113/jphysiol.2014.282574</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2014.282574</ArticleId><ArticleId IdType="pmc">PMC4262329</ArticleId><ArticleId IdType="pubmed">25448185</ArticleId></ArticleIdList></Reference><Reference><Citation>Baird M. F., Graham S. M., Baker J. S., Bickerstaff G. F. (2012). Creatine-kinase- and exercise-related muscle damage implications for muscle performance and recovery.
+<i>J. Nutr. Metab.</i>
+2012:960363. 10.1155/2012/960363
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2012/960363</ArticleId><ArticleId IdType="pmc">PMC3263635</ArticleId><ArticleId IdType="pubmed">22288008</ArticleId></ArticleIdList></Reference><Reference><Citation>Bamman M. M., Roberts B. M., Adams G. R. (2018). Molecular regulation of exercise-induced muscle fiber hypertrophy.
+<i>Cold Spring Harb. Perspect. Med.</i>
+8:a029751. 10.1101/cshperspect.a029751
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1101/cshperspect.a029751</ArticleId><ArticleId IdType="pmc">PMC5983156</ArticleId><ArticleId IdType="pubmed">28490543</ArticleId></ArticleIdList></Reference><Reference><Citation>Bergstrom J. (1975). Percutaneous needle biopsy of skeletal muscle in physiological and clinical research.
+<i>Scand. J. Clin. Lab. Invest.</i>
+35
+609&#x2013;616. 10.3109/00365517509095787</Citation><ArticleIdList><ArticleId IdType="doi">10.3109/00365517509095787</ArticleId><ArticleId IdType="pubmed">1108172</ArticleId></ArticleIdList></Reference><Reference><Citation>Bigard A. X., Lienhard F., Merino D., Serrurier B., Guezennec C. Y. (1993). Effects of surface electrostimulation on the structure and metabolic properties in monkey skeletal muscle.
+<i>Med. Sci. Sports Exerc.</i>
+25
+355&#x2013;362. </Citation><ArticleIdList><ArticleId IdType="pubmed">8455451</ArticleId></ArticleIdList></Reference><Reference><Citation>Billot M., Martin A., Paizis C., Cometti C., Babault N. (2010). Effects of an electrostimulation training program on strength, jumping, and kicking capacities in soccer players.
+<i>J. Strength Cond. Res.</i>
+24
+1407&#x2013;1413. 10.1519/JSC.0b013e3181d43790
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181d43790</ArticleId><ArticleId IdType="pubmed">20386476</ArticleId></ArticleIdList></Reference><Reference><Citation>Cabric M., Appell H. J. (1987). Effect of electrical stimulation of high and low frequency on maximum isometric force and some morphological characteristics in men.
+<i>Int. J. Sports Med.</i>
+8
+256&#x2013;260. 10.1055/s-2008-1025665
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2008-1025665</ArticleId><ArticleId IdType="pubmed">3667021</ArticleId></ArticleIdList></Reference><Reference><Citation>Cluff K., Miserlis D., Naganathan G. K., Pipinos I. I., Koutakis P., Samal A., et al.  (2013). Morphometric analysis of gastrocnemius muscle biopsies from patients with peripheral arterial disease: objective grading of muscle degeneration.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+305
+291&#x2013;299l. 10.1152/ajpregu.00525.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00525.2012</ArticleId><ArticleId IdType="pmc">PMC3742999</ArticleId><ArticleId IdType="pubmed">23720135</ArticleId></ArticleIdList></Reference><Reference><Citation>Coffey V. G., Hawley J. A. (2017). Concurrent exercise training: do opposites distract?
+<i>J. Physiol.</i>
+595
+2883&#x2013;2896. 10.1113/JP272270
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP272270</ArticleId><ArticleId IdType="pmc">PMC5407958</ArticleId><ArticleId IdType="pubmed">27506998</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen J. (1988). <i>Statistical Power Analysis for the Behavioral Sciences.</i>
+Hillsdale, NJ: Lawrence Erlbaum Associates.</Citation></Reference><Reference><Citation>Colson S., Martin A., Van Hoecke J. (2000). Re-examination of training effects by electrostimulation in the human elbow musculoskeletal system.
+<i>Int. J. Sports Med.</i>
+21
+281&#x2013;288. 10.1055/s-2000-8882
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2000-8882</ArticleId><ArticleId IdType="pubmed">10853700</ArticleId></ArticleIdList></Reference><Reference><Citation>Delitto A., Brown M., Strube M. J., Rose S. J., Lehman R. C. (1989). Electrical stimulation of quadriceps femoris in an elite weight lifter: a single subject experiment.
+<i>Int. J. Sports Med.</i>
+10
+187&#x2013;191. 10.1055/s-2007-1024898
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2007-1024898</ArticleId><ArticleId IdType="pubmed">2674035</ArticleId></ArticleIdList></Reference><Reference><Citation>Di Salvo V., Gregson W., Atkinson G., Tordoff P., Drust B. (2009). Analysis of high intensity activity in premier league soccer.
+<i>Int. J. Sports Med.</i>
+30, 205&#x2013;212. 10.1055/s-0028-1105950</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0028-1105950</ArticleId><ArticleId IdType="pubmed">19214939</ArticleId></ArticleIdList></Reference><Reference><Citation>Dudley G., Stevenson S. (2003). &#x201c;Use of electrical stimulation in strength and power training,&#x201d; in <i>Strength and Power in Sport</i>, 2nd Edn, ed.
+Komi P. V. (Oxford, UK: Blackwell Science Ltd; ).</Citation></Reference><Reference><Citation>Egerman M. A., Glass D. J. (2014). Signaling pathways controlling skeletal muscle mass.
+<i>Crit. Rev. Biochem. Mol. Biol.</i>
+49
+59&#x2013;68. 10.3109/10409238.2013.857291
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3109/10409238.2013.857291</ArticleId><ArticleId IdType="pmc">PMC3913083</ArticleId><ArticleId IdType="pubmed">24237131</ArticleId></ArticleIdList></Reference><Reference><Citation>Ekstrand J., Hagglund M., Walden M. (2011). Epidemiology of muscle injuries in professional football (soccer).
+<i>Am. J. Sports Med.</i>
+39
+1226&#x2013;1232. 10.1177/0363546510395879
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0363546510395879</ArticleId><ArticleId IdType="pubmed">21335353</ArticleId></ArticleIdList></Reference><Reference><Citation>Filipovic A., Grau M., Kleinoder H., Zimmer P., Hollmann W., Bloch W. (2016). Effects of a whole-body electrostimulation program on strength, sprinting, jumping, and kicking capacity in elite soccer players.
+<i>J. Sports Sci. Med.</i>
+15
+639&#x2013;648. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC5131218</ArticleId><ArticleId IdType="pubmed">27928210</ArticleId></ArticleIdList></Reference><Reference><Citation>Filipovic A., Kleinoder H., Dormann U., Mester J. (2012). Electromyostimulation&#x2013;a systematic review of the effects of different electromyostimulation methods on selected strength parameters in trained and elite athletes.
+<i>J. Strength Cond. Res.</i>
+26
+2600&#x2013;2614. 10.1519/JSC.0b013e31823f2cd1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31823f2cd1</ArticleId><ArticleId IdType="pubmed">22067247</ArticleId></ArticleIdList></Reference><Reference><Citation>Fyfe J. J., Bishop D. J., Stepto N. K. (2014). Interference between concurrent resistance and endurance exercise: molecular bases and the role of individual training variables.
+<i>Sports Med.</i>
+44
+743&#x2013;762. 10.1007/s40279-014-0162-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0162-1</ArticleId><ArticleId IdType="pubmed">24728927</ArticleId></ArticleIdList></Reference><Reference><Citation>Gehlert S., Bloch W., Suhr F. (2015a). Ca2+-dependent regulations and signaling in skeletal muscle: from electro-mechanical coupling to adaptation.
+<i>Int. J. Mol. Sci.</i>
+16
+1066&#x2013;1095. 10.3390/ijms16011066
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijms16011066</ArticleId><ArticleId IdType="pmc">PMC4307291</ArticleId><ArticleId IdType="pubmed">25569087</ArticleId></ArticleIdList></Reference><Reference><Citation>Gehlert S., Suhr F., Gutsche K., Willkomm L., Kern J., Jacko D., et al.  (2015b). High force development augments skeletal muscle signalling in resistance exercise modes equalized for time under tension.
+<i>Pflugers Arch.</i>
+467
+1343&#x2013;1356. 10.1007/s00424-014-1579-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00424-014-1579-y</ArticleId><ArticleId IdType="pubmed">25070178</ArticleId></ArticleIdList></Reference><Reference><Citation>Gehlert S., Gutsche K., Pricci A., Schiffer T., Bloch W. (2011). Zellul&#xe4;re akutantwort auf kraftbeanspruchung: analyse initialer anpassungsprozesse der muskelzelle durch krafttraining verschiedener intensit&#xe4;ten und belastungsdauern.
+<i>BISp-Jahrbuch</i>
+11
+17&#x2013;22.</Citation></Reference><Reference><Citation>Gondin J., Brocca L., Bellinzona E., D&#x2019;Antona G., Maffiuletti N. A., Miotti D., et al.  (2011). Neuromuscular electrical stimulation training induces atypical adaptations of the human skeletal muscle phenotype: a functional and proteomic analysis.
+<i>J. Appl. Physiol.</i>
+110
+433&#x2013;450. 10.1152/japplphysiol.00914.2010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00914.2010</ArticleId><ArticleId IdType="pubmed">21127206</ArticleId></ArticleIdList></Reference><Reference><Citation>Gondin J., Guette M., Ballay Y., Martin A. (2005). Electromyostimulation training effects on neural drive and muscle architecture.
+<i>Med. Sci. Sports Exerc.</i>
+37
+1291&#x2013;1299. 10.1249/01.mss.0000175090.49048.41
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000175090.49048.41</ArticleId><ArticleId IdType="pubmed">16118574</ArticleId></ArticleIdList></Reference><Reference><Citation>Goode A. P., Reiman M. P., Harris L., DeLisa L., Kauffman A., Beltramo D., et al.  (2015). Eccentric training for prevention of hamstring injuries may depend on intervention compliance: a systematic review and meta-analysis.
+<i>Br. J. Sports Med.</i>
+49
+349&#x2013;356. 10.1136/bjsports-2014-093466
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2014-093466</ArticleId><ArticleId IdType="pubmed">25227125</ArticleId></ArticleIdList></Reference><Reference><Citation>Gregory C. M., Bickel C. S. (2005). Recruitment patterns in human skeletal muscle during electrical stimulation.
+<i>Phys. Ther.</i>
+85
+358&#x2013;364. </Citation><ArticleIdList><ArticleId IdType="pubmed">15794706</ArticleId></ArticleIdList></Reference><Reference><Citation>Hortobagyi T., Maffiuletti N. A. (2011). Neural adaptations to electrical stimulation strength training.
+<i>Eur. J. Appl. Physiol.</i>
+111
+2439&#x2013;2449. 10.1007/s00421-011-2012-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2012-2</ArticleId><ArticleId IdType="pmc">PMC3175340</ArticleId><ArticleId IdType="pubmed">21643920</ArticleId></ArticleIdList></Reference><Reference><Citation>Izquierdo M., Ibanez J., Calbet J. A., Navarro-Amezqueta I., Gonzalez-Izal M., Idoate F., et al.  (2009). Cytokine and hormone responses to resistance training.
+<i>Eur. J. Appl. Physiol.</i>
+107
+397&#x2013;409. 10.1007/s00421-009-1139-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-009-1139-x</ArticleId><ArticleId IdType="pubmed">19649649</ArticleId></ArticleIdList></Reference><Reference><Citation>Jacko D., Bersiner K., Friederichs G., Ritter P., Nirenberg L., Eisenbraun J., et al.  (2018). Resistance exercise-induced muscle fatigue is not accompanied by increased phosphorylation of ryanodine receptor 1 at serine 2843.
+<i>PLoS One</i>
+13:e0199307. 10.1371/journal.pone.0199307
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0199307</ArticleId><ArticleId IdType="pmc">PMC6023196</ArticleId><ArticleId IdType="pubmed">29953482</ArticleId></ArticleIdList></Reference><Reference><Citation>Jacko D., Bersiner K., Hebchen J., de Marees M., Bloch W., Gehlert S. (2019). Phosphorylation of alphaB-crystallin and its cytoskeleton association differs in skeletal myofiber types depending on resistance exercise intensity and volume.
+<i>J. Appl. Physiol.</i>
+126
+1607&#x2013;1618. 10.1152/japplphysiol.01038.2018
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01038.2018</ArticleId><ArticleId IdType="pubmed">30920888</ArticleId></ArticleIdList></Reference><Reference><Citation>Jacobs B. L., Goodman C. A., Hornberger T. A. (2014). The mechanical activation of mTOR signaling: an emerging role for late endosome/lysosomal targeting.
+<i>J. Muscle Res. Cell Motil.</i>
+35
+11&#x2013;21. 10.1007/s10974-013-9367-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10974-013-9367-4</ArticleId><ArticleId IdType="pmc">PMC3981920</ArticleId><ArticleId IdType="pubmed">24162376</ArticleId></ArticleIdList></Reference><Reference><Citation>Jee Y.-S. (2018). The efficacy and safety of whole-body electromyostimulation in applying to human body: based from graded exercise test.
+<i>J. Exerc. Rehabil.</i>
+14
+49&#x2013;57. 10.12965/jer.1836022.011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.12965/jer.1836022.011</ArticleId><ArticleId IdType="pmc">PMC5833968</ArticleId><ArticleId IdType="pubmed">29511652</ArticleId></ArticleIdList></Reference><Reference><Citation>Jubeau M., Sartorio A., Marinone P. G., Agosti F., Van Hoecke J., Nosaka K., et al.  (2008). Comparison between voluntary and stimulated contractions of the quadriceps femoris for growth hormone response and muscle damage.
+<i>J. Appl. Physiol.</i>
+104
+75&#x2013;81. 10.1152/japplphysiol.00335.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00335.2007</ArticleId><ArticleId IdType="pubmed">17975128</ArticleId></ArticleIdList></Reference><Reference><Citation>Kemmler W., Fr&#xf6;ehlich M., von Stengel S., Klein&#x153;der H. (2016). Whole-body electromyostimulation &#x2013; The need for common sense! rationale and guideline for a safe and effective training.
+<i>German. J. Sports Med.</i>
+67
+218&#x2013;220. 10.5960/dzsm.2016.246</Citation><ArticleIdList><ArticleId IdType="doi">10.5960/dzsm.2016.246</ArticleId></ArticleIdList></Reference><Reference><Citation>Kemmler W., Teschler M., Bebenek M., von Stengel S. (2015). [(Very) high creatinkinase concentration after exertional whole-body electromyostimulation application: health risks and longitudinal adaptations]. <i>Wien. Med. Wochenschr.</i>
+165
+427&#x2013;435. 10.1007/s10354-015-0394-1</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10354-015-0394-1</ArticleId><ArticleId IdType="pubmed">26498468</ArticleId></ArticleIdList></Reference><Reference><Citation>Kemmler W., Weissenfels A., Willert S., Shojaa M., von Stengel S., Filipovic A., et al.  (2018). Efficacy and Safety of Low Frequency Whole-Body Electromyostimulation (WB-EMS) to Improve Health-Related Outcomes in Non-athletic Adults. A Systematic Review.
+<i>Front. Physiol.</i>
+9:573
+10.3389/fphys.2018.00573</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.00573</ArticleId><ArticleId IdType="pmc">PMC5974506</ArticleId><ArticleId IdType="pubmed">29875684</ArticleId></ArticleIdList></Reference><Reference><Citation>Kreuzer S., Kleinoeder H., Mester J. (2006). &#x201c;Effects of whole body electro stimulation training and traditional strength training on various strength and blood parameter in juvenile elite water polo players,&#x201d; in <i>Book of Abstracts Lausanne, ECSS</i>, Vol. 11
+eds
+Hoppeler H., Reilly T., Tsolakidis E., Gfeller L., Klossner S. (Cologne: Sportverlag Strauss; ), 264.</Citation></Reference><Reference><Citation>Maffiuletti N. A., Cometti G., Amiridis I. G., Martin A., Pousson M., Chatard J. C. (2000). The effects of electromyostimulation training and basketball practice on muscle strength and jumping ability.
+<i>Int. J. Sports Med.</i>
+21
+437&#x2013;443. 10.1055/s-2000-3837
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2000-3837</ArticleId><ArticleId IdType="pubmed">10961520</ArticleId></ArticleIdList></Reference><Reference><Citation>Maffiuletti N. A., Dugnani S., Folz M., Di Pierno E., Mauro F. (2002a). Effect of combined electrostimulation and plyometric training on vertical jump height.
+<i>Med. Sci. Sports Exerc.</i>
+34
+1638&#x2013;1644. 10.1249/01.MSS.0000031481.28915.56
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.MSS.0000031481.28915.56</ArticleId><ArticleId IdType="pubmed">12370566</ArticleId></ArticleIdList></Reference><Reference><Citation>Maffiuletti N. A., Pensini M., Martin A. (2002b). Activation of human plantar flexor muscles increases after electromyostimulation training.
+<i>J. Appl. Physiol.</i>
+92
+1383&#x2013;1392. 10.1152/japplphysiol.00884.2001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00884.2001</ArticleId><ArticleId IdType="pubmed">11896001</ArticleId></ArticleIdList></Reference><Reference><Citation>Maffiuletti N., Zory R., Miotti D., Pellegrino M., Jubeau M., Bottinelli R. (2006). Neuromuscular adaptations to electrostimulation resistance training.
+<i>Am. J. Phys. Med. Rehabil.</i>
+85
+167&#x2013;175. 10.1097/01.phm.0000197570.03343.18</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/01.phm.0000197570.03343.18</ArticleId><ArticleId IdType="pubmed">16428910</ArticleId></ArticleIdList></Reference><Reference><Citation>Malatesta D., Cattaneo F., Dugnani S., Maffiuletti N. A. (2003). Effects of electromyostimulation training and volleyball practice on jumping ability.
+<i>J. Strength Cond. Res.</i>
+17
+573&#x2013;579. 10.1519/00124278-200308000-00025
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200308000-00025</ArticleId><ArticleId IdType="pubmed">12930189</ArticleId></ArticleIdList></Reference><Reference><Citation>Martin L., Cometti G., Pousson M., Morlon B. (1994). The influence of electrostimulation on mechanical and morphological characteristics of the triceps surae.
+<i>J. Sports Sci.</i>
+12
+377&#x2013;381. 10.1080/02640419408732184
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640419408732184</ArticleId><ArticleId IdType="pubmed">7932948</ArticleId></ArticleIdList></Reference><Reference><Citation>Micke F., Kleinoder H., Dormann U., Wirtz N., Donath L. (2018). Effects of an eight-week superimposed submaximal dynamic whole-body electromyostimulation training on strength and power parameters of the leg muscles: a randomized controlled intervention study.
+<i>Front. Physiol.</i>
+9:1719. 10.3389/fphys.2018.01719
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.01719</ArticleId><ArticleId IdType="pmc">PMC6290057</ArticleId><ArticleId IdType="pubmed">30568596</ArticleId></ArticleIdList></Reference><Reference><Citation>Mohr M., Krustrup P., Bangsbo J. (2003). Match performance of high-standard soccer players with special reference to development of fatigue.
+<i>J. Sports Sci.</i>
+21
+519&#x2013;528. 10.1080/0264041031000071182
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/0264041031000071182</ArticleId><ArticleId IdType="pubmed">12848386</ArticleId></ArticleIdList></Reference><Reference><Citation>Nosaka K., Aldayel A., Jubeau M., Chen T. C. (2011). Muscle damage induced by electrical stimulation.
+<i>Eur. J. Appl. Physiol.</i>
+111
+2427&#x2013;2437. 10.1007/s00421-011-2086-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2086-x</ArticleId><ArticleId IdType="pubmed">21811767</ArticleId></ArticleIdList></Reference><Reference><Citation>Paillard T. (2008). Combined application of neuromuscular electrical stimulation and voluntary muscular contractions.
+<i>Sports Med.</i>
+38
+161&#x2013;177. 10.2165/00007256-200838020-00005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200838020-00005</ArticleId><ArticleId IdType="pubmed">18201117</ArticleId></ArticleIdList></Reference><Reference><Citation>Perez M., Lucia A., Rivero J. L., Serrano A. L., Calbet J. A., Delgado M. A., et al.  (2002). Effects of transcutaneous short-term electrical stimulation on M. vastus lateralis characteristics of healthy young men.
+<i>Pflugers Arch.</i>
+443
+866&#x2013;874. 10.1007/s00424-001-0769-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00424-001-0769-6</ArticleId><ArticleId IdType="pubmed">11889587</ArticleId></ArticleIdList></Reference><Reference><Citation>Petrella J. K., Kim J. S., Mayhew D. L., Cross J. M., Bamman M. M. (2008). Potent myofiber hypertrophy during resistance training in humans is associated with satellite cell-mediated myonuclear addition: a cluster analysis.
+<i>J. Appl. Physiol.</i>
+104
+1736&#x2013;1742. 10.1152/japplphysiol.01215.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01215.2007</ArticleId><ArticleId IdType="pubmed">18436694</ArticleId></ArticleIdList></Reference><Reference><Citation>Pettersen S. A., Johansen H. D., Baptista I. A. M., Halvorsen P., Johansen D. (2018). Quantified soccer using positional data: a case study.
+<i>Front. Physiol.</i>
+9:866. 10.3389/fphys.2018.00866
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.00866</ArticleId><ArticleId IdType="pmc">PMC6043664</ArticleId><ArticleId IdType="pubmed">30034347</ArticleId></ArticleIdList></Reference><Reference><Citation>Pichon F., Chatard J. C., Martin A., Cometti G. (1995). Electrical stimulation and swimming performance.
+<i>Med. Sci. Sports Exerc.</i>
+27
+1671&#x2013;1676. </Citation><ArticleIdList><ArticleId IdType="pubmed">8614324</ArticleId></ArticleIdList></Reference><Reference><Citation>Rassier D. E. (2017). Sarcomere mechanics in striated muscles: from molecules to sarcomeres to cells.
+<i>Am. J. Physiol. Cell Physiol.</i>
+313
+C134&#x2013;C145. 10.1152/ajpcell.00050.2017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpcell.00050.2017</ArticleId><ArticleId IdType="pubmed">28539306</ArticleId></ArticleIdList></Reference><Reference><Citation>Requena Sanchez B., Padial Puche P., Gonzalez-Badillo J. J. (2005). Percutaneous electrical stimulation in strength training: an update.
+<i>J. Strength Cond. Res.</i>
+19
+438&#x2013;448. 10.1519/13173.1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/13173.1</ArticleId><ArticleId IdType="pubmed">15903388</ArticleId></ArticleIdList></Reference><Reference><Citation>Sandilands E., Schoenherr C., Frame M. C. (2015). p70S6K is regulated by focal adhesion kinase and is required for Src-selective autophagy.
+<i>Cell Signal.</i>
+27
+1816&#x2013;1823. 10.1016/j.cellsig.2015.05.017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cellsig.2015.05.017</ArticleId><ArticleId IdType="pmc">PMC4508348</ArticleId><ArticleId IdType="pubmed">26071201</ArticleId></ArticleIdList></Reference><Reference><Citation>Schroeder E. T., Villanueva M., West D. D., Phillips S. M. (2013). Are acute post-resistance exercise increases in testosterone, growth hormone, and IGF-1 necessary to stimulate skeletal muscle anabolism and hypertrophy?
+<i>Med. Sci. Sports Exerc.</i>
+45
+2044&#x2013;2051. 10.1249/MSS.0000000000000147
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000000147</ArticleId><ArticleId IdType="pubmed">24136137</ArticleId></ArticleIdList></Reference><Reference><Citation>Schumann M., Botella J., Karavirta L., H&#xe4;kkinen K. (2017). Training-Load-Guided vs Standardized Endurance Training in Recreational Runners. <i>Int. J. Sports Physiol. Perform</i>.
+12
+295&#x2013;303. 10.1123/ijspp.2016-0093
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.2016-0093</ArticleId><ArticleId IdType="pubmed">27248704</ArticleId></ArticleIdList></Reference><Reference><Citation>Stollberger C., Finsterer J. (2019). Side effects of whole-body electro-myo-stimulation.
+<i>Wien. Med. Wochenschr.</i>
+169
+173&#x2013;180. 10.1007/s10354-018-0655-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10354-018-0655-x</ArticleId><ArticleId IdType="pubmed">30141113</ArticleId></ArticleIdList></Reference><Reference><Citation>Suarez-Arrones L., Torreno N., Requena B., Saez De Villarreal E., Casamichana D., Barbero-Alvarez J. C., et al.  (2015). Match-play activity profile in professional soccer players during official games and the relationship between external and internal load.
+<i>J. Sports Med. Phys. Fit.</i>
+55
+1417&#x2013;1422. </Citation><ArticleIdList><ArticleId IdType="pubmed">25289717</ArticleId></ArticleIdList></Reference><Reference><Citation>Suchomel T. J., Nimphius S., Bellon C. R., Stone M. H. (2018). The importance of muscular strength: training considerations.
+<i>Sports Med.</i>
+48
+765&#x2013;785. 10.1007/s40279-018-0862-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-018-0862-z</ArticleId><ArticleId IdType="pubmed">29372481</ArticleId></ArticleIdList></Reference><Reference><Citation>Terzis G., Georgiadis G., Stratakos G., Vogiatzis I., Kavouras S., Manta P., et al.  (2008). Resistance exercise-induced increase in muscle mass correlates with p70S6 kinase phosphorylation in human subjects.
+<i>Eur. J. Appl. Physiol.</i>
+102
+145&#x2013;152. 10.1007/s00421-007-0564-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-007-0564-y</ArticleId><ArticleId IdType="pubmed">17874120</ArticleId></ArticleIdList></Reference><Reference><Citation>Terzis G., Spengos K., Mascher H., Georgiadis G., Manta P., Blomstrand E. (2010). The degree of p70 S6k and S6 phosphorylation in human skeletal muscle in response to resistance exercise depends on the training volume.
+<i>Eur. J. Appl. Physiol.</i>
+110
+835&#x2013;843. 10.1007/s00421-010-1527-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-010-1527-2</ArticleId><ArticleId IdType="pubmed">20617335</ArticleId></ArticleIdList></Reference><Reference><Citation>Tiggemann C. L., Korzenowski A. L., Brentano M. A., Tartaruga M. P., Alberton C. L., Kruel L. F. (2010). Perceived exertion in different strength exercise loads in sedentary, active, and trained adults.
+<i>J. Strength Cond. Res.</i>
+24
+2032&#x2013;2041. 10.1519/JSC.0b013e3181d32e29
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181d32e29</ArticleId><ArticleId IdType="pubmed">20634752</ArticleId></ArticleIdList></Reference><Reference><Citation>Ulbricht A., Gehlert S., Leciejewski B., Schiffer T., Bloch W., Hohfeld J. (2015). Induction and adaptation of chaperone-assisted selective autophagy CASA in response to resistance exercise in human skeletal muscle.
+<i>Autophagy</i>
+11
+538&#x2013;546. 10.1080/15548627.2015.1017186
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15548627.2015.1017186</ArticleId><ArticleId IdType="pmc">PMC4502687</ArticleId><ArticleId IdType="pubmed">25714469</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilkinson S. B., Tarnopolsky M. A., Grant E. J., Correia C. E., Phillips S. M. (2006). Hypertrophy with unilateral resistance exercise occurs without increases in endogenous anabolic hormone concentration.
+<i>Eur. J. Appl. Physiol.</i>
+98
+546&#x2013;555. 10.1007/s00421-006-0300-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-006-0300-z</ArticleId><ArticleId IdType="pubmed">16972050</ArticleId></ArticleIdList></Reference><Reference><Citation>Willoughby D. S., Simpson S. (1998). Supplemental EMS and dynamic weight training: effects on knee extensor strength and vertical jump of female college track &amp; field athletes.
+<i>J. Strength Cond. Res.</i>
+12
+131&#x2013;137. 10.1519/00124278-199808000-00001</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-199808000-00001</ArticleId></ArticleIdList></Reference><Reference><Citation>Wirtz N., Wahl P., Kleinoder H., Wechsler K., Achtzehn S., Mester J. (2015). Acute metabolic, hormonal, and psychological responses to strength training with superimposed EMS at the beginning and the end of a 6 week training period.
+<i>J. Musculoskelet. Neuronal Interact.</i>
+15
+325&#x2013;332. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC5628592</ArticleId><ArticleId IdType="pubmed">26636278</ArticleId></ArticleIdList></Reference><Reference><Citation>Wirtz N., Zinner C., Doermann U., Kleinoeder H., Mester J. (2016). Effects of loaded squat exercise with and without application of superimposed EMS on physical performance.
+<i>J. Sports Sci. Med.</i>
+15
+26&#x2013;33. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC4763843</ArticleId><ArticleId IdType="pubmed">26957923</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">32362839</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>28</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>11</Volume><PubDate><Year>2020</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>The Acute Physiological Responses of Eccentric Cycling During the Recovery Periods of a High Intensity Concentric Cycling Interval Session.</ArticleTitle><Pagination><StartPage>336</StartPage><MedlinePgn>336</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">336</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2020.00336</ELocationID><Abstract><AbstractText>Eccentric and concentric exercise is associated with disparate acute and chronic responses. We uniquely interspersed workload equivalent eccentric cycling during each recovery period of a high intensity interval training (HIIT) cycling trial to determine acute cardiopulmonary, thermal and psycho-physiological responses. Twelve males [age 28 years (SD 6), peak oxygen consumption 48 mL &#x22c5; kg<sup>-1</sup> &#x22c5; min<sup>-1</sup> (SD 6)] completed two high intensity interval cycling trials [4 &#xd7; 5 min, 60% peak power output (PPO)] separated by 7-10 days. The <b>CON<sub>R</sub></b> trial required participants to cycle concentrically during each recovery period (5 min, 30% PPO). The <b>ECC</b> <sub>R</sub> trial modified the recovery to be eccentric cycling (5 min, 60% PPO). High intensity workload (<b>CON<sub>R</sub></b> : 187 &#xb1; 17; <b>ECC</b> <sub>R</sub>: 187 &#xb1; 21 W), oxygen consumption (<b>CON<sub>R</sub></b> : 2.55 &#xb1; 0.17; <b>ECC</b> <sub>R</sub>: 2.68 &#xb1; 0.20 L &#x22c5; min<sup>-1</sup>), heart rate (<b>CON<sub>R</sub></b> : 165 &#xb1; 7; <b>ECC</b> <sub>R</sub>: 171 &#xb1; 10 beats &#x22c5; min<sup>-1</sup>) and RPE legs (<b>CON<sub>R</sub></b> : 15 &#xb1; 3; <b>ECC</b> <sub>R</sub>: 15 &#xb1; 3) were equivalent between trials. Eccentric cycling recovery significantly increased external workload (<b>CON<sub>R</sub></b> : 93 &#xb1; 18; <b>ECC</b> <sub>R</sub>: 196 &#xb1; 24 W, <i>P</i> &lt; 0.01) yet lowered oxygen consumption (<b>CON<sub>R</sub></b> : 1.51 &#xb1; 0.18; <b>ECC</b> <sub>R</sub>: 1.20 &#xb1; 0.20 L &#x22c5; min<sup>-1</sup>, <i>P</i> &lt; 0.05) while heart rate (<b>CON<sub>R</sub></b> : 132 &#xb1; 13; <b>ECC</b> <sub>R</sub>: 137 &#xb1; 12 beats &#x22c5; min<sup>-1</sup>) and RPE of the legs (<b>CON<sub>R</sub></b> : 11 &#xb1; 7; <b>ECC</b> <sub>R</sub>: 12 &#xb1; 7) remained equivalent. There was no significant difference in the aural temperature between the trials (<b>ECC</b> <sub>R</sub>: 37.3 &#xb1; 0.1&#xb0;C; <b>CON<sub>R</sub></b> : 37.4 &#xb1; 0.1&#xb0;C, <i>P</i> &gt; 0.05), yet during recovery periods mean skin temperature was significantly elevated in the <b>ECC</b> <sub>R</sub> (<b>ECC</b> <sub>R</sub>: 33.9 &#xb1; 0.2&#xb0;C; <b>CON<sub>R</sub></b> : 33.3 &#xb1; 0.2&#xb0;C, <i>P</i> &lt; 0.05). Participants preferred <b>ECC</b> <sub>R</sub> (10/12) and rated the <b>ECC</b> <sub>R</sub> as more achievable (82.8 &#xb1; 11.4 mm) than <b>CON<sub>R</sub></b> (79.4 &#xb1; 15.9 mm, <i>P</i> &lt; 0.01). In conclusion, eccentric cycling during the recovery period of a HIIT training session, offers a novel approach to concurrent training methodology. The unique cardiopulmonary and skeletal muscle responses facilitate the achievement of both training stimuli within a single exercise bout.</AbstractText><CopyrightInformation>Copyright &#xa9; 2020 Harrison, Burdon, Groeller and Peoples.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Harrison</LastName><ForeName>Amelia J</ForeName><Initials>AJ</Initials><AffiliationInfo><Affiliation>Discipline of Medical and Exercise Science, School of Medicine, University of Wollongong, Wollongong, NSW, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Centre for Medical and Exercise Physiology, School of Medicine, University of Wollongong, Wollongong, NSW, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Burdon</LastName><ForeName>Catriona A</ForeName><Initials>CA</Initials><AffiliationInfo><Affiliation>Discipline of Medical and Exercise Science, School of Medicine, University of Wollongong, Wollongong, NSW, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Centre for Medical and Exercise Physiology, School of Medicine, University of Wollongong, Wollongong, NSW, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Groeller</LastName><ForeName>Herbert</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Discipline of Medical and Exercise Science, School of Medicine, University of Wollongong, Wollongong, NSW, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Centre for Medical and Exercise Physiology, School of Medicine, University of Wollongong, Wollongong, NSW, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Peoples</LastName><ForeName>Gregory E</ForeName><Initials>GE</Initials><AffiliationInfo><Affiliation>Centre for Medical and Exercise Physiology, School of Medicine, University of Wollongong, Wollongong, NSW, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Graduate Medicine, School of Medicine, University of Wollongong, Wollongong, NSW, Australia.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2020</Year><Month>04</Month><Day>17</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">HIIT</Keyword><Keyword MajorTopicYN="N">concurrent training</Keyword><Keyword MajorTopicYN="N">eccentric cycling</Keyword><Keyword MajorTopicYN="N">high intensity interval training</Keyword><Keyword MajorTopicYN="N">oxygen consumption</Keyword><Keyword MajorTopicYN="N">recovery period</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>12</Month><Day>28</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2020</Year><Month>3</Month><Day>23</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2020</Year><Month>5</Month><Day>5</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2020</Year><Month>5</Month><Day>5</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2020</Year><Month>5</Month><Day>5</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2020</Year><Month>4</Month><Day>17</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">32362839</ArticleId><ArticleId IdType="pmc">PMC7182048</ArticleId><ArticleId IdType="doi">10.3389/fphys.2020.00336</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abbott B., Bigland B., Ritchie J. (1952). The physiological cost of negative work.
+<i>J. Physiol.</i>
+117
+380&#x2013;390.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC1392548</ArticleId><ArticleId IdType="pubmed">14946742</ArticleId></ArticleIdList></Reference><Reference><Citation>&#xc5;strand I., &#xc5;strand P.-O., Christensen E. H., Hedman R. (1960). Intermittent muscular work.
+<i>Acta Physiol. Scand.</i>
+48
+448&#x2013; 453.</Citation><ArticleIdList><ArticleId IdType="pubmed">13794890</ArticleId></ArticleIdList></Reference><Reference><Citation>Borg G. (1982). Psychological basis of physical exertion.
+<i>Med. Sci. Sport Exerc.</i>
+14
+377&#x2013;381.</Citation><ArticleIdList><ArticleId IdType="pubmed">7154893</ArticleId></ArticleIdList></Reference><Reference><Citation>Buchheit M., Laursen P. B. (2013). High-intensity interval training, solutions to the programming puzzle: part I: cardiopulmonary emphasis.
+<i>Sports Med.</i>
+43
+313&#x2013;338. 10.1007/s40279-013-0029-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-013-0029-x</ArticleId><ArticleId IdType="pubmed">23539308</ArticleId></ArticleIdList></Reference><Reference><Citation>Burgomaster K. A., Howarth K. R., Phillips S. M., Rakobowchuk M., Macdonald M. J., Mcgee S. L., et al.  (2008). Similar metabolic adaptations during exercise after low volume sprint interval and traditional endurance training in humans.
+<i>J. Physiol.</i>
+586
+151&#x2013;160.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC2375551</ArticleId><ArticleId IdType="pubmed">17991697</ArticleId></ArticleIdList></Reference><Reference><Citation>Coffey V. G., Hawley J. A. (2017). Concurrent exercise training: Do opposites distract?
+<i>J. Physiol.</i>
+595
+2883&#x2013;2896. 10.1113/JP272270
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP272270</ArticleId><ArticleId IdType="pmc">PMC5407958</ArticleId><ArticleId IdType="pubmed">27506998</ArticleId></ArticleIdList></Reference><Reference><Citation>Davies C., Barnes C. J. (1972). Work. II. Physiological responses to walking uphill and downhill on a motor-driven treadmill.
+<i>Ergonomics</i>
+15
+121&#x2013;131.</Citation><ArticleIdList><ArticleId IdType="pubmed">5036082</ArticleId></ArticleIdList></Reference><Reference><Citation>Dean E. (1988). Physiology and therapeutic implications of negative work: a review.
+<i>Phys. Ther.</i>
+68
+233&#x2013;237. </Citation><ArticleIdList><ArticleId IdType="pubmed">3277210</ArticleId></ArticleIdList></Reference><Reference><Citation>Duchateau J., Enoka R. M. (2016). Neural control of lengthening contractions.
+<i>J. Exp. Biol.</i>
+219
+197&#x2013;204.</Citation><ArticleIdList><ArticleId IdType="pubmed">26792331</ArticleId></ArticleIdList></Reference><Reference><Citation>Dufour S. P., Doutreleau S., Lonsdorfer-Wolf E., Lampert E., Hirth C., Piquard F., et al.  (2007). Deciphering the metabolic and mechanical contributions to the exercise-induced circulatory response: insights from eccentric cycling.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+292
+R1641&#x2013;R1648. </Citation><ArticleIdList><ArticleId IdType="pubmed">17158264</ArticleId></ArticleIdList></Reference><Reference><Citation>Dufour S. P., Lampert E., Doutreleau S., Lonsdorfer-Wolf E., Billat V. L., Piquard F., et al.  (2004). Eccentric cycle exercise: training application of specific circulatory adjustments.
+<i>Med. Sci. Sports Exerc.</i>
+36
+1900&#x2013;1906. </Citation><ArticleIdList><ArticleId IdType="pubmed">15514505</ArticleId></ArticleIdList></Reference><Reference><Citation>Fox E. L., Bartels R. L., Billings C. E., Mathews D. K., Bason R., Webb W. M. (1973). Intensity and distance of interval training programs and changes in aerobic power.
+<i>Med. Sci. Sports Exerc.</i>
+5
+18&#x2013;22.</Citation><ArticleIdList><ArticleId IdType="pubmed">4721844</ArticleId></ArticleIdList></Reference><Reference><Citation>Fox E. L., Robinson S., Wiegman D. L. (1969). Metabolic energy sources during continuous and interval running.
+<i>J. Appl. Physiol.</i>
+27
+174&#x2013;178.</Citation><ArticleIdList><ArticleId IdType="pubmed">5796303</ArticleId></ArticleIdList></Reference><Reference><Citation>Gibala M. J., Gagnon P. J., Nindl B. C. (2015). Military applicability of interval training for health and performance.
+<i>J. Strength Cond. Res.</i>
+29
+S40&#x2013;S45. 10.1519/JSC.0000000000001119
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001119</ArticleId><ArticleId IdType="pubmed">26506197</ArticleId></ArticleIdList></Reference><Reference><Citation>Gibala M. J., Little J. P., Macdonald M. J., Hawley J. A. (2012). Physiological adaptations to low-volume, high-intensity interval training in health and disease.
+<i>J. Physiol.</i>
+590
+1077&#x2013;1084.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3381816</ArticleId><ArticleId IdType="pubmed">22289907</ArticleId></ArticleIdList></Reference><Reference><Citation>Gibala M. J., Little J. P., Van Essen M., Wilkin G. P., Burgomaster K. A., Safdar A., et al.  (2006). Short-term sprint interval versus traditional endurance training: similar initial adaptations in human skeletal muscle and exercise performance.
+<i>J. Physiol.</i>
+575
+901&#x2013;911. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC1995688</ArticleId><ArticleId IdType="pubmed">16825308</ArticleId></ArticleIdList></Reference><Reference><Citation>Hafstad A. D., Boardman N. T., Lund J., Hagve M., Khalid A. M., Wisl&#xf8;ff U., et al.  (2011). High intensity interval training alters substrate utilization and reduces oxygen consumption in the heart.
+<i>J. Appl. Physiol.</i>
+111
+1235&#x2013;1241. 10.1152/japplphysiol.00594.2011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00594.2011</ArticleId><ArticleId IdType="pubmed">21836050</ArticleId></ArticleIdList></Reference><Reference><Citation>Henriksson J., Knuttgen H., Bonde-Petersen F. (1972). Perceived exertion during exercise with concentric and eccentric muscle contractions.
+<i>Ergonomics</i>
+15
+537&#x2013;544.</Citation><ArticleIdList><ArticleId IdType="pubmed">4660277</ArticleId></ArticleIdList></Reference><Reference><Citation>Herzog W. (2014). Mechanisms of enhanced force production in lengthening (eccentric) muscle contractions.
+<i>J. Appl. Physiol.</i>
+116
+1407&#x2013;1417. 10.1152/japplphysiol.00069.2013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00069.2013</ArticleId><ArticleId IdType="pubmed">23429875</ArticleId></ArticleIdList></Reference><Reference><Citation>Hickson R. C. (1980). Interference of strength development by simultaneously training for strength and endurance.
+<i>Eur. J. Appl. Physiol.</i>
+45
+255&#x2013;263.</Citation><ArticleIdList><ArticleId IdType="pubmed">7193134</ArticleId></ArticleIdList></Reference><Reference><Citation>ISO 9886 (2004). <i>Ergonomics&#x2014;Evaluation of Thermal Strain by Physiological Measurements.</i> Avilable online at: https://www.iso.org/standard/34110.html</Citation></Reference><Reference><Citation>Katz B. (1939). The relationship between force and speed in muscle contraction.
+<i>J. Physiol.</i>
+96
+45&#x2013;64.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC1393840</ArticleId><ArticleId IdType="pubmed">16995114</ArticleId></ArticleIdList></Reference><Reference><Citation>Knuttgen H., Nadel E. R., Pandolf K. B., Patton J. F. (1982). Effects of training with eccentric muscle contraction on exercise performance, energy expenditure and body temperature.
+<i>Int. J. Sports Med.</i>
+3
+13&#x2013;17. </Citation><ArticleIdList><ArticleId IdType="pubmed">7068291</ArticleId></ArticleIdList></Reference><Reference><Citation>LaStayo P. C., Ewy G. A., Pierotti D. D., Johns R. K., Lindstedt S. (2003). The positive effects of negative work: increased muscle strength and decreased fall risk in a frail elderly population.
+<i>J. Gerontol. A Biol. Sci. and Med. Sci.</i>
+58
+419&#x2013;424. </Citation><ArticleIdList><ArticleId IdType="pubmed">12730250</ArticleId></ArticleIdList></Reference><Reference><Citation>LaStayo P. C., Pierotti D. J., Pifer J., Hoppeler H., Lindstedt S. L. (2000). Eccentric ergometry: increases in locomotor muscle size and strength at low training intensities.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+278
+R1282&#x2013;R1288. </Citation><ArticleIdList><ArticleId IdType="pubmed">10801298</ArticleId></ArticleIdList></Reference><Reference><Citation>Lewis M. C., Peoples G. E., Groeller H., Brown M. A. (2018). Eccentric cycling emphasising a low cardiopulmonary demand increases leg strength equivalent to workload matched concentric cycling in middle age sedentary males.
+<i>J. Sci. Med. Sport</i>
+21
+1238&#x2013;1243. 10.1016/j.jsams.2018.05.009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2018.05.009</ArticleId><ArticleId IdType="pubmed">29789262</ArticleId></ArticleIdList></Reference><Reference><Citation>Lipski M., Abbiss C. R., Nosaka K. (2018). Oxygen consumption, rate of perceived exertion and enjoyment in high-intensity interval eccentric cycling.
+<i>Eur. J. Sport Sci.</i>
+18
+1390&#x2013;1397. 10.1080/17461391.2018.1498131
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/17461391.2018.1498131</ArticleId><ArticleId IdType="pubmed">30041569</ArticleId></ArticleIdList></Reference><Reference><Citation>MacInnis M. J., Gibala M. J. (2017). Physiological adaptations to interval training and the role of exercise intensity.
+<i>J. Physiol.</i>
+595
+2915&#x2013;2930. 10.1113/JP273196
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP273196</ArticleId><ArticleId IdType="pmc">PMC5407969</ArticleId><ArticleId IdType="pubmed">27748956</ArticleId></ArticleIdList></Reference><Reference><Citation>McCarthy J. P., Pozniak M. A., Agre J. C. (2002). Neuromuscular adaptations to concurrent strength and endurance training.
+<i>Med. Sci. Sports Exerc.</i>
+34
+511&#x2013;519. </Citation><ArticleIdList><ArticleId IdType="pubmed">11880817</ArticleId></ArticleIdList></Reference><Reference><Citation>Muthalib M., Lee H., Millet G. Y., Ferrari M., Nosaka K. (2010). Comparison between maximal lengthening and shortening contractions for biceps brachii muscle oxygenation and hemodynamics.
+<i>J. Appl. Physiol.</i>
+109
+710&#x2013;720. 10.1152/japplphysiol.01297.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01297.2009</ArticleId><ArticleId IdType="pubmed">20595540</ArticleId></ArticleIdList></Reference><Reference><Citation>Nielsen B. (1966). Regulation of body temperature and heat dissipation at different levels of energy-and heat production in man.
+<i>Acta Physiol. Scand.</i>
+68
+215&#x2013;227.</Citation></Reference><Reference><Citation>Nielsen B., Nielsen S. L., Petersen F. B. (1972). Thermoregulation during positive and negative work at different environmental temperatures.
+<i>Acta Physiol. Scand.</i>
+85
+249&#x2013;257.</Citation><ArticleIdList><ArticleId IdType="pubmed">5049420</ArticleId></ArticleIdList></Reference><Reference><Citation>Olsen L., Nicoll J., Fry A. (2019). The skeletal muscle fiber: a mechanically sensitive cell.
+<i>Eur. J. Appl. Physiol.</i>
+119
+333&#x2013;349. 10.1007/s00421-018-04061-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-018-04061-x</ArticleId><ArticleId IdType="pubmed">30612167</ArticleId></ArticleIdList></Reference><Reference><Citation>Pahud P., Ravussin E., Acheson K. J., Jequier E. (1980). Energy expenditure during oxygen deficit of submaximal concentric and eccentric exercise.
+<i>J. Appl. Physiol.</i>
+49
+16&#x2013;21. </Citation><ArticleIdList><ArticleId IdType="pubmed">7399989</ArticleId></ArticleIdList></Reference><Reference><Citation>Penailillo L., Blazevich A. J., Nosaka K. (2015). Muscle fascicle behavior during eccentric cycling and its relation to muscle soreness.
+<i>Med. Sci. Sports Exerc.</i>
+47
+708&#x2013;717. 10.1249/MSS.0000000000000473
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000000473</ArticleId><ArticleId IdType="pubmed">25116087</ArticleId></ArticleIdList></Reference><Reference><Citation>Pe&#xf1;ailillo L., Blazevich A. J., Nosaka K. (2017). Factors contributing to lower metabolic demand of eccentric compared with concentric cycling.
+<i>J. Appl. Physiol.</i>
+123
+884&#x2013;893. 10.1152/japplphysiol.00536.2016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00536.2016</ArticleId><ArticleId IdType="pubmed">28663378</ArticleId></ArticleIdList></Reference><Reference><Citation>Perrey S., Betik A., Candau R., Rouillon J. D., Hughson R. L. (2001). Comparison of oxygen uptake kinetics during concentric and eccentric cycle exercise.
+<i>J. Appl. Physiol.</i>
+91
+2135&#x2013;2142. </Citation><ArticleIdList><ArticleId IdType="pubmed">11641354</ArticleId></ArticleIdList></Reference><Reference><Citation>Rakobowchuk M., Isacco L., Ritter O., Represas A. G., Bouhaddi M., Degano B., et al.  (2018). Muscle oxygenation responses to low-intensity steady rate concentric and eccentric cycling.
+<i>Int. J. Sports Med.</i>
+39
+173&#x2013;180. 10.1055/s-0043-121272
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0043-121272</ArticleId><ArticleId IdType="pubmed">29365337</ArticleId></ArticleIdList></Reference><Reference><Citation>Reichert F. F., Barros A. J., Domingues M. R., Hallal P. C. (2007). The role of perceived personal barriers to engagement in leisure-time physical activity.
+<i>Am. J. Public Health</i>
+97
+515&#x2013;519. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC1805028</ArticleId><ArticleId IdType="pubmed">17267731</ArticleId></ArticleIdList></Reference><Reference><Citation>Rindom E., Vissing K. (2016). Mechanosensitive molecular networks involved in transducing resistance exercise-signals into muscle protein accretion.
+<i>Front. Physiol.</i>
+7:547. 10.3389/fphys.2016.00547
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2016.00547</ArticleId><ArticleId IdType="pmc">PMC5112233</ArticleId><ArticleId IdType="pubmed">27909410</ArticleId></ArticleIdList></Reference><Reference><Citation>Tj&#xf8;nna A. E., Lee S. J., Rognmo &#xd8;., St&#xf8;len T. O., Bye A., Haram P. M., et al.  (2008). Aerobic interval training versus continuous moderate exercise as a treatment for the metabolic syndrome: a pilot study.
+<i>Circulation</i>
+118
+346&#x2013;354. 10.1161/CIRCULATIONAHA.108.772822
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/CIRCULATIONAHA.108.772822</ArticleId><ArticleId IdType="pmc">PMC2777731</ArticleId><ArticleId IdType="pubmed">18606913</ArticleId></ArticleIdList></Reference><Reference><Citation>Valladares-Ide D., Pe&#xf1;ailillo L., Collao C., Marambio H., Deldicque L., Zbinden-Foncea H. (2019). Activation of protein synthesis, regeneration, and MAPK signaling pathways following repeated bouts of eccentric cycling.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+317
+E1131&#x2013;E1139. 10.1152/ajpendo.00216.2019
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00216.2019</ArticleId><ArticleId IdType="pubmed">31593504</ArticleId></ArticleIdList></Reference><Reference><Citation>Weston M., Taylor K. L., Batterham A. M., Hopkins W. G. (2014). Effects of low-volume high-intensity interval training (HIT) on fitness in adults: a meta-analysis of controlled and non-controlled trials.
+<i>Sports Med.</i>
+44
+1005&#x2013;1017. 10.1007/s40279-014-0180-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0180-z</ArticleId><ArticleId IdType="pmc">PMC4072920</ArticleId><ArticleId IdType="pubmed">24743927</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

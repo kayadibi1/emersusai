@@ -1,0 +1,267 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">36033633</PMID><DateRevised><Year>2022</Year><Month>08</Month><Day>30</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1662-4548</ISSN><JournalIssue CitedMedium="Print"><Volume>16</Volume><PubDate><Year>2022</Year></PubDate></JournalIssue><Title>Frontiers in neuroscience</Title><ISOAbbreviation>Front Neurosci</ISOAbbreviation></Journal><ArticleTitle>The therapeutic potential of exercise and caffeine on attention-deficit/hyperactivity disorder in athletes.</ArticleTitle><Pagination><StartPage>978336</StartPage><MedlinePgn>978336</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">978336</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fnins.2022.978336</ELocationID><Abstract><AbstractText>Attention-deficit/hyperactivity disorder (ADHD) is characterized by evident and persistent inattention, hyperactivity, impulsivity, and social difficulties and is the most common childhood neuropsychiatric disorder, and which may persist into adulthood. Seventy to 80% of children and adults with ADHD are treated with stimulant medication, with positive response rates occurring for both populations. Medicated ADHD individuals generally show sustained and improved attention, inhibition control, cognitive flexibility, on-task behavior, and cognitive performance. The ethics of ADHD medication use in athletics has been a debated topic in sport performance for a long time. Stimulants are banned from competition in accordance with World Anti-Doping Association and National Collegiate Athletic Association regulations, due to their ability to not only enhance cognitive performance but also exercise performance. Limited research has been conducted looking at the differences in exercise performance variables in unmedicated ADHD verses medicated ADHD. Not all ADHD athletes choose stimulant medication in their treatment plan due to personal, financial, or other reasons. Non-stimulant treatment options include non-stimulant medication and behavioral therapy. However, the use of caffeinated compounds and exercise has both independently been shown to be effective in the management of ADHD symptoms in human studies and animal models. This mini review will discuss the effect of exercise and caffeine on neurobehavioral, cognitive, and neurophysiological factors, and exercise performance in ADHD athletes, and whether exercise and caffeine should be considered in the treatment plan for an individual with ADHD.</AbstractText><CopyrightInformation>Copyright &#xa9; 2022 Sogard and Mickleborough.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Sogard</LastName><ForeName>Abigail S</ForeName><Initials>AS</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, School of Public Health-Bloomington, Indiana University, Bloomington, IN, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mickleborough</LastName><ForeName>Timothy D</ForeName><Initials>TD</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, School of Public Health-Bloomington, Indiana University, Bloomington, IN, United States.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType><PublicationType UI="D016454">Review</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2022</Year><Month>08</Month><Day>12</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Neurosci</MedlineTA><NlmUniqueID>101478481</NlmUniqueID><ISSNLinking>1662-453X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">adult ADHD</Keyword><Keyword MajorTopicYN="N">attention-deficit/hyperactivity disorder</Keyword><Keyword MajorTopicYN="N">caffeine</Keyword><Keyword MajorTopicYN="N">exercise</Keyword><Keyword MajorTopicYN="N">performance</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2022</Year><Month>6</Month><Day>25</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2022</Year><Month>7</Month><Day>27</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2022</Year><Month>8</Month><Day>29</Day><Hour>4</Hour><Minute>56</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2022</Year><Month>8</Month><Day>30</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2022</Year><Month>8</Month><Day>30</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2022</Year><Month>1</Month><Day>1</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">36033633</ArticleId><ArticleId IdType="pmc">PMC9412016</ArticleId><ArticleId IdType="doi">10.3389/fnins.2022.978336</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>&#xc1;goston C., Urb&#xe1;n R., Horv&#xe1;th Z., van den Brink W., Demetrovics Z. (2022). Self-medication of adhd symptoms: does caffeine have a role.
+<i>Front. Psychiatry</i>
+13:813545. 10.3389/fpsyt.2022.813545
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyt.2022.813545</ArticleId><ArticleId IdType="pmc">PMC8850715</ArticleId><ArticleId IdType="pubmed">35185656</ArticleId></ArticleIdList></Reference><Reference><Citation>Aguiar A. S., Jr., Speck A. E., Canas P. M., Cunha R. A. (2021). Deletion of CD73 increases exercise power in mice.
+<i>Purinergic Signal.</i>
+17
+393&#x2013;397. 10.1007/s11302-021-09797-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11302-021-09797-4</ArticleId><ArticleId IdType="pmc">PMC8254058</ArticleId><ArticleId IdType="pubmed">34216353</ArticleId></ArticleIdList></Reference><Reference><Citation>Aguiar A. S., Speck A. E., Canas P. M., Cunha R. A. (2020). Neuronal adenosine A2A receptors signal ergogenic effects of caffeine.
+<i>Sci. Rep.</i>
+10:13414. 10.1038/s41598-020-69660-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-020-69660-1</ArticleId><ArticleId IdType="pmc">PMC7415152</ArticleId><ArticleId IdType="pubmed">32770138</ArticleId></ArticleIdList></Reference><Reference><Citation>Barbelivien A., Billy E., Lazarus C., Kelche C., Majchrzak M. (2008). Rats with different profiles of impulsive choice behavior exhibit differences in responses to caffeine and d-amphetamine and in medial prefrontal cortex 5-HT utilization.
+<i>Behav. Brain Res.</i>
+187
+273&#x2013;283. 10.1016/j.bbr.2007.09.020
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bbr.2007.09.020</ArticleId><ArticleId IdType="pubmed">18029033</ArticleId></ArticleIdList></Reference><Reference><Citation>Berezanskaya J., Cade W., Best T. M., Paultre K., Kienstra C. (2022). ADHD prescription medications and their effect on athletic performance: a systematic review and meta-analysis.
+<i>Sports Med. Open</i>
+8:5. 10.1186/s40798-021-00374-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s40798-021-00374-y</ArticleId><ArticleId IdType="pmc">PMC8755863</ArticleId><ArticleId IdType="pubmed">35022919</ArticleId></ArticleIdList></Reference><Reference><Citation>Borycz J., Pereira M. F., Melani A., Rodrigues R. J., K&#xf6;falvi A., Panlilio L., et al.  (2007). Differential glutamate-dependent and glutamate-independent adenosine A1 receptor-mediated modulation of dopamine release in different striatal compartments.
+<i>J. Neurochem.</i>
+101
+355&#x2013;363. 10.1111/j.1471-4159.2006.04386.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1471-4159.2006.04386.x</ArticleId><ArticleId IdType="pubmed">17254024</ArticleId></ArticleIdList></Reference><Reference><Citation>Caballero M., N&#xfa;&#xf1;ez F., Ahern S., Cuff&#xed; M. L., Carbonell L., S&#xe1;nchez S., et al.  (2011). Caffeine improves attention deficit in neonatal 6-OHDA lesioned rats, an animal model of attention deficit hyperactivity disorder (ADHD).
+<i>Neurosci. Lett.</i>
+494
+44&#x2013;48. 10.1016/j.neulet.2011.02.050
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neulet.2011.02.050</ArticleId><ArticleId IdType="pubmed">21362462</ArticleId></ArticleIdList></Reference><Reference><Citation>Chabreck C. N. (2015). <i>Effects of Attention-Deficit Hyperactivity Disorder (ADHD) Medications on Exercise Performance, Pain Perception, and perceived Exertion.</i> Ph.D. thesis, Hammond: Southestern Louisiana University.</Citation></Reference><Reference><Citation>Chen J. (2014). Adenosine receptor control of cognition in normal and disease.
+<i>Int. Rev. Neurobiol.</i>
+119
+257&#x2013;307. 10.1016/B978-0-12-801022-8.00012-X
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/B978-0-12-801022-8.00012-X</ArticleId><ArticleId IdType="pubmed">25175970</ArticleId></ArticleIdList></Reference><Reference><Citation>Choi J. W., Han D. H., Kang K. D., Jung H. Y., Renshaw P. F. (2015). Aerobic exercise and attention deficit hyperactivity disorder: Brain research.
+<i>Med. Sci. Sports Exerc.</i>
+47
+33&#x2013;39. 10.1249/MSS.0000000000000373
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000000373</ArticleId><ArticleId IdType="pmc">PMC5504911</ArticleId><ArticleId IdType="pubmed">24824770</ArticleId></ArticleIdList></Reference><Reference><Citation>Cipollone G., Gehrman P., Manni C., Pallucchini A., Maremmani A. G. I., Palagini L., et al.  (2020). Exploring the role of caffeine use in adult-ADHD symptom severity of us army soldiers.
+<i>J. Clin. Med.</i>
+9:3788. 10.3390/jcm9113788
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/jcm9113788</ArticleId><ArticleId IdType="pmc">PMC7700297</ArticleId><ArticleId IdType="pubmed">33238642</ArticleId></ArticleIdList></Reference><Reference><Citation>Connell C. J., Thompson B., Kuhn G., Gant N. (2016). Exercise-induced fatigue and caffeine supplementation affect psychomotor performance but not covert visuo-spatial attention.
+<i>PLoS One</i>
+11:e0165318. 10.1371/journal.pone.0165318
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0165318</ArticleId><ArticleId IdType="pmc">PMC5074788</ArticleId><ArticleId IdType="pubmed">27768747</ArticleId></ArticleIdList></Reference><Reference><Citation>Cunha R. (2016). How does adenosine control neuronal dysfunction and neurodegeneration?
+<i>J. Neurochem.</i>
+139
+1019&#x2013;1055. 10.1111/jnc.13724
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jnc.13724</ArticleId><ArticleId IdType="pubmed">27365148</ArticleId></ArticleIdList></Reference><Reference><Citation>Cunha R. A., Agostinho P. M. (2010). Chronic caffeine consumption prevents memory disturbance in different animal models of memory decline.
+<i>J. Alzheimers Dis.</i>
+20
+95&#x2013;116. 10.3233/JAD-2010-1408
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3233/JAD-2010-1408</ArticleId><ArticleId IdType="pubmed">20182043</ArticleId></ArticleIdList></Reference><Reference><Citation>Dunwiddie T. V., Masino S. A. (2001). The role and regulation of adenosine in the central nervous system.
+<i>Annu. Rev. Neurosci.</i>
+24
+31&#x2013;55. 10.1146/annurev.neuro.24.1.31
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1146/annurev.neuro.24.1.31</ArticleId><ArticleId IdType="pubmed">11283304</ArticleId></ArticleIdList></Reference><Reference><Citation>Ferr&#xe9; S. (2008). An update on the mechanisms of the psychostimulant effects of caffeine.
+<i>J. Neurochem.</i>
+105
+1067&#x2013;1079. 10.1111/j.1471-4159.2007.05196.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1471-4159.2007.05196.x</ArticleId><ArticleId IdType="pubmed">18088379</ArticleId></ArticleIdList></Reference><Reference><Citation>Forssberg H., Fernell E., Waters S., Waters N., Tedroff J. (2006). Altered pattern of brain dopamine synthesis in male adolescents with attention deficit hyperactivity disorder.
+<i>Behav. Brain Funct.</i>
+2:40. 10.1186/1744-9081-2-40
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1744-9081-2-40</ArticleId><ArticleId IdType="pmc">PMC1698925</ArticleId><ArticleId IdType="pubmed">17144907</ArticleId></ArticleIdList></Reference><Reference><Citation>Fran&#xe7;a A. P., Schamne M. G., de Souza B. S., da Luz Scheffer D., Bernardelli A. K., Corr&#xea;a T., et al.  (2020). Caffeine consumption plus physical exercise improves behavioral impairments and stimulates neuroplasticity in spontaneously hypertensive rats (SHR): an animal model of attention deficit hyperactivity disorder.
+<i>Mol. Neurobiol.</i>
+57
+3902&#x2013;3919. 10.1007/s12035-020-02002-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12035-020-02002-4</ArticleId><ArticleId IdType="pubmed">32621279</ArticleId></ArticleIdList></Reference><Reference><Citation>Franco-Alvarenga P. E., Brietzke C., Canestri R., Goethel M. F., Viana B. F., Pires F. O. (2019). Caffeine increased muscle endurance performance despite reduced cortical activation and unchanged neuromuscular efficiency and corticomuscular coherence.
+<i>Nutrients</i>
+11:2471. 10.3390/nu11102471
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu11102471</ArticleId><ArticleId IdType="pmc">PMC6836165</ArticleId><ArticleId IdType="pubmed">31618910</ArticleId></ArticleIdList></Reference><Reference><Citation>Fredholm B. B., B&#xe4;ttig K., Holm&#xe9;n J., Nehlig A., Zvartau E. E. (1999). Actions of caffeine in the brain with special reference to factors that contribute to its widespread use.
+<i>Pharmacol Rev.</i>
+51
+83&#x2013;133.</Citation><ArticleIdList><ArticleId IdType="pubmed">10049999</ArticleId></ArticleIdList></Reference><Reference><Citation>Fredholm B. B., Chen J. F., Cunha R. A., Svenningsson P., Vaugeois J. M. (2005). Adenosine and brain function.
+<i>Int. Rev. Neurobiol.</i>
+63
+191&#x2013;270. 10.1016/S0074-7742(05)63007-3</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0074-7742(05)63007-3</ArticleId><ArticleId IdType="pubmed">15797469</ArticleId></ArticleIdList></Reference><Reference><Citation>Gapin J. I., Labban J. D., Bohall S. C., Wooten J. S., Chang Y. K. (2015). Acute exercise is associated with specific executive functions in college students with ADHD: A preliminary study.
+<i>J. Sport Health Sci.</i>
+4
+89&#x2013;96. 10.1016/j.jshs.2014.11.003</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jshs.2014.11.003</ArticleId></ArticleIdList></Reference><Reference><Citation>Garfinkel B. D., Labban J. D., Cloman L. (1975). Methlyphenidate and caffeine in the treatment of children with minimal brain dysfunction.
+<i>Am. J. Psychiatry</i>
+132
+723&#x2013;728.</Citation><ArticleIdList><ArticleId IdType="pubmed">1094842</ArticleId></ArticleIdList></Reference><Reference><Citation>Harrell P. T., Juliano L. M. (2009). Caffeine expectancies influence the subjective and behavioral effects of caffeine.
+<i>Psychopharmacology</i>
+207
+335&#x2013;342. 10.1007/s00213-009-1658-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00213-009-1658-5</ArticleId><ArticleId IdType="pubmed">19760283</ArticleId></ArticleIdList></Reference><Reference><Citation>Higgins G. A., Grzelak M. E., Pond A. J., Cohen-Williams M. E., Hodgson R. A., Varty G. B. (2007). The effect of caffeine to increase reaction time in the rat during a test of attention is mediated through antagonism of adenosine A2A receptors.
+<i>Behav. Brain Res.</i>
+185
+32&#x2013;42. 10.1016/j.bbr.2007.07.013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bbr.2007.07.013</ArticleId><ArticleId IdType="pubmed">17707919</ArticleId></ArticleIdList></Reference><Reference><Citation>Hogervorst E., Bandelow S., Schmitt J., Jentjens R., Oliveira M., Allgrove J., et al.  (2008). Caffeine improves physical and cognitive performance during exhaustive exercise.
+<i>Med. Sci. Sports Exerc.</i>
+40
+1841&#x2013;1851. 10.1249/MSS.0b013e31817bb8b7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e31817bb8b7</ArticleId><ArticleId IdType="pubmed">18799996</ArticleId></ArticleIdList></Reference><Reference><Citation>Huertas F., Blasco E., Moratal C., Lupia&#xf1;ez J. (2019). Caffeine intake modulates the functioning of the attentional networks depending on consumption habits and acute exercise demands.
+<i>Sci. Rep.</i>
+9:10043. 10.1038/s41598-019-46524-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-019-46524-x</ArticleId><ArticleId IdType="pmc">PMC6624295</ArticleId><ArticleId IdType="pubmed">31296908</ArticleId></ArticleIdList></Reference><Reference><Citation>Jones H. A., Lejuez C. W. (2005). Personality correlates of caffeine dependence: The role of sensation seeking, impulsivity, and risk taking.
+<i>Exp. Clin. Psychopharmacol.</i>
+13
+259&#x2013;266. 10.1037/1064-1297.13.3.259
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1037/1064-1297.13.3.259</ArticleId><ArticleId IdType="pubmed">16173890</ArticleId></ArticleIdList></Reference><Reference><Citation>Kollins S. H., Adcock R. A. (2014). ADHD, altered dopamine neurotransmission, and disrupted reinforcement processes: Implications for smoking and nicotine dependence.
+<i>Prog. Neuropsychopharmacol. Biol. Psychiatry</i>
+52
+70&#x2013;78. 10.1016/j.pnpbp.2014.02.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pnpbp.2014.02.002</ArticleId><ArticleId IdType="pmc">PMC4004668</ArticleId><ArticleId IdType="pubmed">24560930</ArticleId></ArticleIdList></Reference><Reference><Citation>Konrad K., Eickhoff S. B. (2010). Is the ADHD brain wired differently? A review on structural and functional connectivity in attention deficit hyperactivity disorder.
+<i>Hum. Brain Mapp.</i>
+31
+904&#x2013;916. 10.1002/hbm.21058
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/hbm.21058</ArticleId><ArticleId IdType="pmc">PMC6871159</ArticleId><ArticleId IdType="pubmed">20496381</ArticleId></ArticleIdList></Reference><Reference><Citation>Leffa D. T., Ferreira S. G., Machado N. J., Souza C. M., Rosa F. D., de Carvalho C., et al.  (2019). Caffeine and cannabinoid receptors modulate impulsive behavior in an animal model of attentional deficit and hyperactivity disorder.
+<i>Eur. J. Neurosci.</i>
+49
+1673&#x2013;1683. 10.1111/ejn.14348
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/ejn.14348</ArticleId><ArticleId IdType="pubmed">30667546</ArticleId></ArticleIdList></Reference><Reference><Citation>Leffa D. T., Pandolfo P., Gon&#xe7;alves N., Machado N. J., de Souza C. M., Real J. I., et al.  (2018). Adenosine a2a receptors in the rat prelimbic medial prefrontal cortex control delay-based cost-benefit decision making.
+<i>Front. Mol. Neurosci.</i>
+11:475. 10.3389/fnmol.2018.00475
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnmol.2018.00475</ArticleId><ArticleId IdType="pmc">PMC6306464</ArticleId><ArticleId IdType="pubmed">30618621</ArticleId></ArticleIdList></Reference><Reference><Citation>Lopes J. P., Pli&#xe1;ssova A., Cunha R. A. (2019). The physiological effects of caffeine on synaptic transmission and plasticity in the mouse hippocampus selectively depend on adenosine A1 and A2A receptors.
+<i>Biochem. Pharmacol.</i>
+166
+313&#x2013;321. 10.1016/j.bcp.2019.06.008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bcp.2019.06.008</ArticleId><ArticleId IdType="pubmed">31199895</ArticleId></ArticleIdList></Reference><Reference><Citation>Lorenzo Calvo J., Fei X., Dom&#xed;nguez R., Pareja-Galeano H. (2021). Caffeine and cognitive functions in sports: a systematic review and meta-analysis.
+<i>Nutrients</i>
+13:868. 10.3390/nu13030868
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu13030868</ArticleId><ArticleId IdType="pmc">PMC8000732</ArticleId><ArticleId IdType="pubmed">33800853</ArticleId></ArticleIdList></Reference><Reference><Citation>Lou H. C., Henriksen L., Borner P., Nielsen J. B. (1989). Striatal dysfunction in Attention deficit and hyperkinetic disorder.
+<i>Arch. Neurol.</i>
+46
+48&#x2013;52.</Citation><ArticleIdList><ArticleId IdType="pubmed">2783366</ArticleId></ArticleIdList></Reference><Reference><Citation>Machado S., S&#xe1; Filho A. S., Campos C., de Paula C. C., Bernardes F., Murillo-Rodriguez E., et al.  (2020). Can caffeine intake combined with aerobic exercise lead to improvement in attentional and psychomotor performance in trained individuals?
+<i>IBRO Rep.</i>
+8
+76&#x2013;81. 10.1016/j.ibror.2020.01.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ibror.2020.01.002</ArticleId><ArticleId IdType="pmc">PMC7283292</ArticleId><ArticleId IdType="pubmed">32529114</ArticleId></ArticleIdList></Reference><Reference><Citation>Madras B. K., Miller G. M., Fischman A. J. (2005). The dopamine transporter and attention-deficit/hyperactivity disorder.
+<i>Biol. Psychiatry.</i>
+57
+1397&#x2013;1409. 10.1016/j.biopsych.2004.10.011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.biopsych.2004.10.011</ArticleId><ArticleId IdType="pubmed">15950014</ArticleId></ArticleIdList></Reference><Reference><Citation>Mehren A., &#xd6;zyurt J., Thiel C. M., Brandes M., Lam A. P., Philipsen A. (2019). Effects of acute aerobic exercise on response inhibition in adult patients with ADHD.
+<i>Sci. Rep.</i>
+9:19884. 10.1038/s41598-019-56332-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-019-56332-y</ArticleId><ArticleId IdType="pmc">PMC6934617</ArticleId><ArticleId IdType="pubmed">31882652</ArticleId></ArticleIdList></Reference><Reference><Citation>Minzenberg M. (2012). Pharmacotherapy for attention-deficit/hyperactivity disorder: From cells to circuits.
+<i>Neurotherapeutics</i>
+9
+610&#x2013;621. 10.1007/s13311-012-0128-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s13311-012-0128-7</ArticleId><ArticleId IdType="pmc">PMC3441935</ArticleId><ArticleId IdType="pubmed">22718077</ArticleId></ArticleIdList></Reference><Reference><Citation>Nunes F., Pochmann D., Almeida A. S., Marques D. M., Porci&#xfa;ncula L. O. (2018). Differential behavioral and biochemical responses to caffeine in male and female rats from a validated model of attention deficit and hyperactivity disorder.
+<i>Mol. Neurobiol.</i>
+55
+8486&#x2013;8498. 10.1007/s12035-018-1000-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12035-018-1000-5</ArticleId><ArticleId IdType="pubmed">29557061</ArticleId></ArticleIdList></Reference><Reference><Citation>Oei A., Hartley L. R. (2005). The effects of caffeine and expectancy on attention and memory.
+<i>Hum. Psychopharmacol.</i>
+20
+193&#x2013;202. 10.1002/hup.681
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/hup.681</ArticleId><ArticleId IdType="pubmed">15742338</ArticleId></ArticleIdList></Reference><Reference><Citation>Ogoh S., Ainslie P. N. (2009). Cerebral blood flow during exercise: Mechanisms of regulation.
+<i>J. Appl. Physiol.</i>
+107
+1370&#x2013;1380. 10.1152/japplphysiol.00573.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00573.2009</ArticleId><ArticleId IdType="pubmed">19729591</ArticleId></ArticleIdList></Reference><Reference><Citation>Pandolfo P., Machado N. J., K&#xf6;falvi A., Takahashi R. N., Cunha R. A. (2013). Caffeine regulates frontocorticostriatal dopamine transporter density and improves attention and cognitive deficits in an animal model of attention deficit hyperactivity disorder.
+<i>Eur. Neuropsychopharmacol.</i>
+23
+317&#x2013;328. 10.1016/j.euroneuro.2012.04.011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.euroneuro.2012.04.011</ArticleId><ArticleId IdType="pubmed">22561003</ArticleId></ArticleIdList></Reference><Reference><Citation>Pires F. O., Dos Anjos C. A. S., Covolan R. J. M., Fontes E. B., Noakes T. D., St Clair Gibson A., et al.  (2018). Caffeine and placebo improved maximal exercise performance despite unchanged motor cortex activation and greater prefrontal cortex deoxygenation.
+<i>Front. Physiol.</i>
+9:1144. 10.3389/fphys.2018.01144
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.01144</ArticleId><ArticleId IdType="pmc">PMC6113857</ArticleId><ArticleId IdType="pubmed">30246799</ArticleId></ArticleIdList></Reference><Reference><Citation>Pires V. A., Pamplona F. A., Pandolfo P., Prediger R. D., Takahashi R. N. (2010). Chronic caffeine treatment during prepubertal period confers long-term cognitive benefits in adult spontaneously hypertensive rats (SHR), an animal model of attention deficit hyperactivity disorder (ADHD).
+<i>Behav. Brain Res.</i>
+215
+39&#x2013;44. 10.1016/j.bbr.2010.06.022
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bbr.2010.06.022</ArticleId><ArticleId IdType="pubmed">20600342</ArticleId></ArticleIdList></Reference><Reference><Citation>Poysophon P., Rao A. L. (2018). Neurocognitive deficits associated with ADHD in athletes: a systematic review.
+<i>Sports Health</i>
+10
+317&#x2013;326. 10.1177/1941738117751387
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1941738117751387</ArticleId><ArticleId IdType="pmc">PMC6044120</ArticleId><ArticleId IdType="pubmed">29337649</ArticleId></ArticleIdList></Reference><Reference><Citation>Prediger R. D., Pamplona F. A., Fernandes D., Takahashi R. N. (2005). Caffeine improves spatial learning deficits in an animal model of attention deficit hyperactivity disorder (ADHD) &#x2013; the spontaneously hypertensive rat (SHR).
+<i>Int. J. Neuropsychopharmacol.</i>
+8
+583&#x2013;594. 10.1017/S1461145705005341
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1017/S1461145705005341</ArticleId><ArticleId IdType="pubmed">15877934</ArticleId></ArticleIdList></Reference><Reference><Citation>Pretus C., Picado M., Ramos-Quiroga J. A., Carmona S., Richarte V., Fauquet J., et al.  (2018). Just-in-time response to reward as a function of ADHD symptom severity.
+<i>Psychiatry Clin. Neurosci.</i>
+72
+731&#x2013;740. 10.1111/pcn.12689
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/pcn.12689</ArticleId><ArticleId IdType="pubmed">29888833</ArticleId></ArticleIdList></Reference><Reference><Citation>Ranjbar-Slamloo Y., Fazlali Z. (2020). Dopamine and noradrenaline in the brain; overlapping or dissociate functions?
+<i>Front. Mol. Neurosci.</i>
+12:334. 10.3389/fnmol.2019.00334
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnmol.2019.00334</ArticleId><ArticleId IdType="pmc">PMC6986277</ArticleId><ArticleId IdType="pubmed">32038164</ArticleId></ArticleIdList></Reference><Reference><Citation>Rassovsky Y., Alfassi T. (2018). Attention improves during physical exercise in individuals with ADHD.
+<i>Front. Psychol.</i>
+9:2747. 10.3389/fpsyg.2018.02747
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2018.02747</ArticleId><ArticleId IdType="pmc">PMC6333702</ArticleId><ArticleId IdType="pubmed">30687193</ArticleId></ArticleIdList></Reference><Reference><Citation>Reardon C. L., Factor R. M. (2016). Considerations in the use of stimulants in sport.
+<i>Sports Med.</i>
+46
+611&#x2013;617. 10.1007/s40279-015-0456-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-015-0456-y</ArticleId><ArticleId IdType="pubmed">26712509</ArticleId></ArticleIdList></Reference><Reference><Citation>Ruiz-Oliveira J., Silva P. F., Luchiari A. C. (2019). Coffee time: Low caffeine dose promotes attention and focus in zebrafish.
+<i>Learn. Behav.</i>
+47
+227&#x2013;233. 10.3758/s13420-018-0369-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3758/s13420-018-0369-3</ArticleId><ArticleId IdType="pubmed">30623296</ArticleId></ArticleIdList></Reference><Reference><Citation>Sanchis C., Blasco E., Luna F. G., Lupi&#xe1;&#xf1;ez J. (2020). Effects of caffeine intake and exercise intensity on executive and arousal vigilance.
+<i>Sci. Rep.</i>
+10:8393. 10.1038/s41598-020-65197-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-020-65197-5</ArticleId><ArticleId IdType="pmc">PMC7242431</ArticleId><ArticleId IdType="pubmed">32439849</ArticleId></ArticleIdList></Reference><Reference><Citation>Saville C. W. N., de Morree H. M., Dundon N. M., Marcora S. M., Klein C. (2018). Effects of caffeine on reaction time are mediated by attentional rather than motor processes.
+<i>Psychopharmacology</i>
+235
+749&#x2013;759. 10.1007/s00213-017-4790-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00213-017-4790-7</ArticleId><ArticleId IdType="pmc">PMC5847000</ArticleId><ArticleId IdType="pubmed">29273820</ArticleId></ArticleIdList></Reference><Reference><Citation>Schecter M. D., Timmons G. D. (1985). Objectively measured hyperactivity&#x2013;II. Caffeine and amphetamine effects.
+<i>J. Clin. Pharmacol.</i>
+25
+276&#x2013;280. 10.1002/j.1552-4604.1985.tb02838.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/j.1552-4604.1985.tb02838.x</ArticleId><ArticleId IdType="pubmed">4008672</ArticleId></ArticleIdList></Reference><Reference><Citation>Shabir A., Hooton A., Tallis J., Higgins M. F. (2018). The influence of caffeine expectancies on sport, exercise, and cognitive performance.
+<i>Nutrients</i>
+10:1528. 10.3390/nu10101528
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu10101528</ArticleId><ArticleId IdType="pmc">PMC6212857</ArticleId><ArticleId IdType="pubmed">30336606</ArticleId></ArticleIdList></Reference><Reference><Citation>Shaywitz S. E., Shaywitz B. A., Cohen D. J., Young J. G. (1983). &#x201c;Monoaminergic mchanisms in hyperactivity,&#x201d; in <i>Developmental Neuropsychiatry</i>, ed.
+Rutter M. (New York, NY: Guilford Press; ), 330&#x2013;347.</Citation></Reference><Reference><Citation>Sigurdardottir H. L., Kranz G. S., Rami-Mark C., James G. M., Vanicek T., Gryglewski G., et al.  (2016). Effects of norepinephrine transporter gene variants on NET binding in ADHD and healthy controls investigated by PET.
+<i>Hum. Brain Mapp.</i>
+37
+884&#x2013;895. 10.1002/hbm.23071
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/hbm.23071</ArticleId><ArticleId IdType="pmc">PMC4949568</ArticleId><ArticleId IdType="pubmed">26678348</ArticleId></ArticleIdList></Reference><Reference><Citation>Smith H. (2003). <i>Caffeine consumption and adult attention-deficit/hyperactivity disorder: Effects on attention, affect and behavior</i>.
+Ph.D. thesis.
+Hempstead, NY: Hoftra University.</Citation></Reference><Reference><Citation>Spencer T. J., Biederman J., Madras B. K., Dougherty D. D., Bonab A. A., Livni E., et al.  (2007). Further evidence of dopamine transporter dysregulation in ADHD: A controlled PET imaging study using altropane.
+<i>Biol. Psychiatry</i>
+62
+1059&#x2013;1061. 10.1016/j.biopsych.2006.12.008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.biopsych.2006.12.008</ArticleId><ArticleId IdType="pmc">PMC2715944</ArticleId><ArticleId IdType="pubmed">17511972</ArticleId></ArticleIdList></Reference><Reference><Citation>Stewman C. G., Liebman C., Fink L., Sandella B. (2018). Attention deficit hyperactivity disorder: unique considerations in athletes.
+<i>Sports Health</i>
+10
+40&#x2013;46. 10.1177/1941738117742906
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1941738117742906</ArticleId><ArticleId IdType="pmc">PMC5753970</ArticleId><ArticleId IdType="pubmed">29144831</ArticleId></ArticleIdList></Reference><Reference><Citation>Stibbe T., Huang J., Paucke M., Ulke C., Strauss M. (2020). Gender differences in adult ADHD: Cognitive function assessed by the test of attentional performance.
+<i>PLoS One</i>
+15:e0240810. 10.1371/journal.pone.0240810
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0240810</ArticleId><ArticleId IdType="pmc">PMC7561166</ArticleId><ArticleId IdType="pubmed">33057383</ArticleId></ArticleIdList></Reference><Reference><Citation>Szczepanik J. C., de Oliveira P. A., de Oliveira J., Mack J. M., Engel D. F., Rial D., et al.  (2016). Caffeine mitigates the locomotor hyperactivity in middle-aged low-density lipoprotein receptor (LDLr)-knockout mice.
+<i>CNS Neurosci. Ther.</i>
+22
+420&#x2013;422. 10.1111/cns.12544
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cns.12544</ArticleId><ArticleId IdType="pmc">PMC6492875</ArticleId><ArticleId IdType="pubmed">27012312</ArticleId></ArticleIdList></Reference><Reference><Citation>Tan Y. W., Liu L., Wang Y. F., Li H. M., Pan M. R., Zhao M. J., et al.  (2020). Alterations of cerebral perfusion and functional brain connectivity in medication-na&#xef;ve male adults with attention-deficit/hyperactivity disorder.
+<i>CNS Neurosci. Ther.</i>
+26
+197&#x2013;206. 10.1111/cns.13185
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cns.13185</ArticleId><ArticleId IdType="pmc">PMC6978256</ArticleId><ArticleId IdType="pubmed">31231983</ArticleId></ArticleIdList></Reference><Reference><Citation>Vallone D., Picetti R., Borrelli E. (2000). Structure and function of dopamine receptors.
+<i>Neurosci. Biobehav. Rev.</i>
+24
+125&#x2013;132. 10.1016/s0149-7634(99)00063-9</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0149-7634(99)00063-9</ArticleId><ArticleId IdType="pubmed">10654668</ArticleId></ArticleIdList></Reference><Reference><Citation>V&#xe1;zquez J. C., Martin de la Torre O., L&#xf3;pez Palom&#xe9; J., Redolar-Ripoll D. (2022). Effects of caffeine consumption on attention deficit hyperactivity disorder (ADHD) treatment: a systematic review of animal studies.
+<i>Nutrients</i>
+14:739. 10.3390/nu14040739
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu14040739</ArticleId><ArticleId IdType="pmc">PMC8875377</ArticleId><ArticleId IdType="pubmed">35215389</ArticleId></ArticleIdList></Reference><Reference><Citation>Volkow N. D., Swanson J. M. (2013). Clinical practice: Adult attention deficit-hyperactivity disorder.
+<i>N. Engl. J. Med.</i>
+369
+1935&#x2013;1944. 10.1056/NEJMcp1212625
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMcp1212625</ArticleId><ArticleId IdType="pmc">PMC4827421</ArticleId><ArticleId IdType="pubmed">24224626</ArticleId></ArticleIdList></Reference><Reference><Citation>Waldeck T. L., Miller L. S. (1997). Gender and impulsivity differences in licit substance use.
+<i>J. Subst. Abuse</i>
+9
+269&#x2013;275. 10.1016/s0899-3289(97)90021-3</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0899-3289(97)90021-3</ArticleId><ArticleId IdType="pubmed">9494954</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang C., Zhu Y., Dong C., Zhou Z., Zheng X. (2020). Effects of various doses of caffeine ingestion on intermittent exercise performance and cognition.
+<i>Brain Sci.</i>
+10:595. 10.3390/brainsci10090595
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/brainsci10090595</ArticleId><ArticleId IdType="pmc">PMC7564618</ArticleId><ArticleId IdType="pubmed">32872249</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang L., Zhu C., He Y., Zang Y., Cao Q., Zhang H., et al.  (2009). Altered small-world brain functional networks in children with attention-deficit/hyperactivity disorder.
+<i>Hum. Brain Mapp.</i>
+30
+638&#x2013;649.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6870909</ArticleId><ArticleId IdType="pubmed">18219621</ArticleId></ArticleIdList></Reference><Reference><Citation>White R. D., Harris G. D., Gibson M. E. (2014). Attention deficit hyperactivity disorder and athletes.
+<i>Sports Health</i>
+6
+149&#x2013;156. 10.1177/1941738113484679
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1941738113484679</ArticleId><ArticleId IdType="pmc">PMC3931335</ArticleId><ArticleId IdType="pubmed">24587866</ArticleId></ArticleIdList></Reference><Reference><Citation>Wolf R. C., Plichta M. M., Sambataro F., Fallgatter A. J., Jacob C., Lesch K. P., et al.  (2009). Regional brain activation changes and abnormal functional connectivity of the ventrolateral prefrontal cortex during working memory processing in adults with attention-deficit/hyperactivity disorder.
+<i>Hum. Brain Mapp.</i>
+30
+2252&#x2013;2266. 10.1002/hbm.20665
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/hbm.20665</ArticleId><ArticleId IdType="pmc">PMC6870879</ArticleId><ArticleId IdType="pubmed">19107748</ArticleId></ArticleIdList></Reference><Reference><Citation>Xie Y., Gao X., Song Y., Zhu X., Chen M., Yang L., et al.  (2021). Effectiveness of physical activity intervention on ADHD symptoms: a systematic review and meta-analysis.
+<i>Front. Psychiatry</i>
+12:706625. 10.3389/fpsyt.2021.706625
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyt.2021.706625</ArticleId><ArticleId IdType="pmc">PMC8575983</ArticleId><ArticleId IdType="pubmed">34764893</ArticleId></ArticleIdList></Reference><Reference><Citation>Zametkin A. J., Rapoport J. L. (1987). The neurobiology of attention deficit disorder: Where have we come in 50 years?
+<i>J. Am. Acad. Child Adolsec. Psychiatry</i>
+26
+676&#x2013;686. 10.1097/00004583-198709000-00011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00004583-198709000-00011</ArticleId><ArticleId IdType="pubmed">2889717</ArticleId></ArticleIdList></Reference><Reference><Citation>Zametkin A. J., Nordahl T. E., Gross M., King A. C., Semple W. E., Rumsey J., et al.  (1990). Cerebral glucose metabolism in adults with hyperactivity of childhood onset.
+<i>N. Engl. J. Med.</i>
+323
+1361&#x2013;1366. 10.1056/NEJM199011153232001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJM199011153232001</ArticleId><ArticleId IdType="pubmed">2233902</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

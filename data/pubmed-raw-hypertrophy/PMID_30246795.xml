@@ -1,0 +1,183 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">30246795</PMID><DateRevised><Year>2020</Year><Month>10</Month><Day>01</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>9</Volume><PubDate><Year>2018</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Low-Load Resistance Training With Blood Flow Restriction Improves Clinical Outcomes in Musculoskeletal Rehabilitation: A Single-Blind Randomized Controlled Trial.</ArticleTitle><Pagination><StartPage>1269</StartPage><MedlinePgn>1269</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1269</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2018.01269</ELocationID><Abstract><AbstractText><b>Background:</b> There is growing evidence to support the use of low-load blood flow restriction (LL-BFR) exercise in musculoskeletal rehabilitation. <b>Purpose:</b> The purpose of this study was to evaluate the efficacy and feasibility of low-load blood flow restricted (LL-BFR) training versus conventional high mechanical load resistance training (RT) on the clinical outcomes of patient's undergoing inpatient multidisciplinary team (MDT) rehabilitation. <b>Study design:</b> A single-blind randomized controlled study. <b>Methods:</b> Twenty-eight lower-limb injured adults completed a 3-week intensive MDT rehabilitation program. Participants were randomly allocated into a conventional RT (3-days/week) or twice-daily LL-BFR training group. Outcome measurements were taken at baseline and 3-weeks and included quadriceps and total thigh muscle cross-sectional area (CSA) and volume, muscle strength [five repetition maximum (RM) leg press and knee extension test, isometric hip extension], pain and physical function measures (Y-balance test, multistage locomotion test-MSLT). <b>Results:</b> A two-way repeated measures analysis of variance revealed no significant differences between groups for any outcome measure post-intervention (<i>p</i> &gt; 0.05). Both groups showed significant improvements in mean scores for muscle CSA/volume, 5-RM leg press, and 5-RM knee extension (<i>p</i> &lt; 0.01) after treatment. LL-BFR group participants also demonstrated significant improvements in MSLT and Y-balance scores (<i>p</i> &lt; 0.01). The Pain scores during training reduced significantly over time in the LL-BFR group (<i>p</i> = 0.024), with no adverse events reported during the study. <b>Conclusion:</b> Comparable improvements in muscle strength and hypertrophy were shown in LL-BFR and conventional training groups following in-patient rehabilitation. The LL-BFR group also achieved significant improvements in functional capacity. LL-BFR training is a rehabilitation tool that has the potential to induce positive adaptations in the absence of high mechanical loads and therefore could be considered a treatment option for patients suffering significant functional deficits for whom conventional loaded RT is contraindicated. <b>Trial Registration:</b> ISRCTN Reference: ISRCTN63585315, dated 25 April 2017.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Ladlow</LastName><ForeName>Peter</ForeName><Initials>P</Initials><AffiliationInfo><Affiliation>Academic Department of Military Rehabilitation, Defence Medical Rehabilitation Centre, Headley Court, Epsom, United Kingdom.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department for Health, University of Bath, Bath, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Coppack</LastName><ForeName>Russell J</ForeName><Initials>RJ</Initials><AffiliationInfo><Affiliation>Academic Department of Military Rehabilitation, Defence Medical Rehabilitation Centre, Headley Court, Epsom, United Kingdom.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department for Health, University of Bath, Bath, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Dharm-Datta</LastName><ForeName>Shreshth</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Academic Department of Military Rehabilitation, Defence Medical Rehabilitation Centre, Headley Court, Epsom, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Conway</LastName><ForeName>Dean</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Academic Department of Military Rehabilitation, Defence Medical Rehabilitation Centre, Headley Court, Epsom, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sellon</LastName><ForeName>Edward</ForeName><Initials>E</Initials><AffiliationInfo><Affiliation>Imaging Department, Oxford University Hospitals, Oxford, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Patterson</LastName><ForeName>Stephen D</ForeName><Initials>SD</Initials><AffiliationInfo><Affiliation>School of Sport, Health and Applied Science, St. Mary's University, London, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Bennett</LastName><ForeName>Alexander N</ForeName><Initials>AN</Initials><AffiliationInfo><Affiliation>Academic Department of Military Rehabilitation, Defence Medical Rehabilitation Centre, Headley Court, Epsom, United Kingdom.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Faculty of Medicine, National Heart and Lung Institute, Imperial College London, London, United Kingdom.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2018</Year><Month>09</Month><Day>10</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">blood flow restriction</Keyword><Keyword MajorTopicYN="N">clinical outcomes</Keyword><Keyword MajorTopicYN="N">function</Keyword><Keyword MajorTopicYN="N">hypertrophy</Keyword><Keyword MajorTopicYN="N">musculoskeletal rehabilitation</Keyword><Keyword MajorTopicYN="N">pain</Keyword><Keyword MajorTopicYN="N">strength</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>5</Month><Day>15</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2018</Year><Month>8</Month><Day>21</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2018</Year><Month>9</Month><Day>25</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2018</Year><Month>9</Month><Day>25</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2018</Year><Month>9</Month><Day>25</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2018</Year><Month>9</Month><Day>10</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">30246795</ArticleId><ArticleId IdType="pmc">PMC6139300</ArticleId><ArticleId IdType="doi">10.3389/fphys.2018.01269</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abe T., Kearns C. F., Fukunaga T. (2003). Sex differences in whole body skeletal muscle mass measured by magnetic resonance imaging and its distribution in young Japanese adults.
+<i>Br. J. Sports Med.</i>
+37
+436&#x2013;440. 10.1136/bjsm.37.5.436
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.37.5.436</ArticleId><ArticleId IdType="pmc">PMC1751351</ArticleId><ArticleId IdType="pubmed">14514537</ArticleId></ArticleIdList></Reference><Reference><Citation>Abe T., Kearns C. F., Sato Y. (2006). Muscle size and strength are increased following walk training with restricted venous blood flow from the leg muscle. Kaatsu-walk training.
+<i>J. Appl. Physiol.</i>
+100
+1460&#x2013;1466. 10.1152/japplphysiol.01267.2005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01267.2005</ArticleId><ArticleId IdType="pubmed">16339340</ArticleId></ArticleIdList></Reference><Reference><Citation>Abe T., Yasuda T., Midorikawa T., Sato Y., Kearns C. F., Inoue K., et al.  (2005). Skeletal muscle size and circulating IGF-1 are increased after two weeks of twice daily KAATSU resistance training.
+<i>Int. J. KAATSU Train. Res.</i>
+1
+6&#x2013;12. 10.3806/ijktr.1.6</Citation><ArticleIdList><ArticleId IdType="doi">10.3806/ijktr.1.6</ArticleId></ArticleIdList></Reference><Reference><Citation>American College of Sports Medicine (2009). American college of sports medicine position stand. Progression models in resistance training for healthy adults.
+<i>Med. Sci. Sports Exerc.</i>
+41
+687&#x2013;708. 10.1249/MSS.0b013e3181915670
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181915670</ArticleId><ArticleId IdType="pubmed">19204579</ArticleId></ArticleIdList></Reference><Reference><Citation>Anderson K. A., Grimshaw P. N., Kelso R. M., Bentley D. J. (2016). Musculoskeletal lower limb injury risk in Army populations.
+<i>Sports Med. Open</i>
+2:22. 10.1186/s40798-016-0046-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s40798-016-0046-z</ArticleId><ArticleId IdType="pmc">PMC4851683</ArticleId><ArticleId IdType="pubmed">27213134</ArticleId></ArticleIdList></Reference><Reference><Citation>Baechle T. R., Earle R. W. (2008). <i>Essentials of Strength Training and Conditioning</i>, 2nd Edn
+Champaign, IL: Human Kinetics.</Citation></Reference><Reference><Citation>Brandner C. R., Warmington S. A., Kidgell D. J. (2015). Corticomotor excitability is increased following an acute bout of blood flow restriction resistance exercise.
+<i>Front. Hum. Neurosci.</i>
+9:652. 10.3389/fnhum.2015.00652
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnhum.2015.00652</ArticleId><ArticleId IdType="pmc">PMC4667065</ArticleId><ArticleId IdType="pubmed">26696864</ArticleId></ArticleIdList></Reference><Reference><Citation>Bryk F. F., Dos Reis A. C., Fingerhut D., Araujo T., Schutzer M., Cury Rde P., et al.  (2016). Exercises with partial vascular occlusion in patients with knee osteoarthritis: a randomized clinical trial.
+<i>Knee Surg. Sports Traumatol. Arthrosc.</i>
+24
+1580&#x2013;1586. 10.1007/s00167-016-4064-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00167-016-4064-7</ArticleId><ArticleId IdType="pubmed">26971109</ArticleId></ArticleIdList></Reference><Reference><Citation>Casey D. P., Madery B. D., Curry T. B., Eisenach J. H., Wilkins B. W., Joyner M. J. (2010). Nitric oxide contributes to the augmented vasodilatation during hypoxic exercise.
+<i>J. Physiol.</i>
+588(Pt 2), 373&#x2013;385. 10.1113/jphysiol.2009.180489</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2009.180489</ArticleId><ArticleId IdType="pmc">PMC2821731</ArticleId><ArticleId IdType="pubmed">19948661</ArticleId></ArticleIdList></Reference><Reference><Citation>Collins S. L., Moore R. A., McQuay H. J. (1997). The visual analogue pain intensity scale: what is moderate pain in millimetres?
+<i>Pain</i>
+72
+95&#x2013;97. </Citation><ArticleIdList><ArticleId IdType="pubmed">9272792</ArticleId></ArticleIdList></Reference><Reference><Citation>Cook S. B., Murphy B. G., Labarbera K. E. (2013). Neuromuscular function after a bout of low-load blood flow restricted exercise.
+<i>Med. Sci. Sports Exerc.</i>
+45
+67&#x2013;74. 10.1249/mss.0b013e31812383d6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0b013e31812383d6</ArticleId><ArticleId IdType="pubmed">22895371</ArticleId></ArticleIdList></Reference><Reference><Citation>Dankel S. J., Jessee M. B., Abe T., Loenneke J. P. (2016). The effects of blood flow restriction on upper-body musculature located distal and proximal to applied pressure.
+<i>Sports Med.</i>
+46
+23&#x2013;33. 10.1007/s40279-015-0407-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-015-0407-7</ArticleId><ArticleId IdType="pubmed">26446893</ArticleId></ArticleIdList></Reference><Reference><Citation>Fahs C. A., Loenneke J. P., Thiebaud R. S., Rossow L. M., Kim D., Abe T., et al.  (2015). Muscular adaptations tofatiguing exercise with and without blood flow restriction.
+<i>Clin. Physiol. Funct. Imaging</i>
+35
+167&#x2013;176. 10.1111/cpf.12141
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12141</ArticleId><ArticleId IdType="pubmed">24612120</ArticleId></ArticleIdList></Reference><Reference><Citation>Fry C. S., Glynn E. L., Drummond M. J., Timmerman K. L., Fujita S., Abe T., et al.  (2010). Blood flow restriction exercise stimulates mTORC1 signaling and muscle protein synthesis in older men.
+<i>J. Appl. Physiol.</i>
+108
+1199&#x2013;1209. 10.1152/japplphysiol.01266.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01266.2009</ArticleId><ArticleId IdType="pmc">PMC2867530</ArticleId><ArticleId IdType="pubmed">20150565</ArticleId></ArticleIdList></Reference><Reference><Citation>Fujita S., Abe T., Drummond M. J., Cadenas J. G., Dreyer H. C., Sato Y., et al.  (2007). Blood flow restriction during low-intensity resistance exercise increases S6K1 phosphorylation and muscle protein synthesis.
+<i>J. Appl. Physiol.</i>
+103
+903&#x2013;910. 10.1152/japplphysiol.00195.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00195.2007</ArticleId><ArticleId IdType="pubmed">17569770</ArticleId></ArticleIdList></Reference><Reference><Citation>Garber C. E., Blissmer B., Deschenes M. R., Franklin B. A., Lamonte M. J., Lee I. M., et al.  (2011). American college of sports medicine position stand. Quantity and quality of exercise for developing and maintaining cardiorespiratory, musculoskeletal, and neuromotor fitness in apparently healthy adults: guidance for prescribing exercise.
+<i>Med. Sci. Sports Exerc.</i>
+43
+1334&#x2013;1359. 10.1249/MSS.0b013e318213fefb
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e318213fefb</ArticleId><ArticleId IdType="pubmed">21694556</ArticleId></ArticleIdList></Reference><Reference><Citation>Giles L., Webster K. E., McClelland J., Cook J. L. (2017). Quadriceps strengthening with and without blood flow restriction in the treatment of patellofemoral pain: a double-blind randomised trial.
+<i>Br. J. Sports Med.</i>
+51
+1688&#x2013;1694. 10.1136/bjsports-2016-096329
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2016-096329</ArticleId><ArticleId IdType="pubmed">28500081</ArticleId></ArticleIdList></Reference><Reference><Citation>Hassett L. M., Harmer A. R., Moseley A. M., Mackey M. G. (2007). Validity of the modified 20-metre shuttle test: assessment of cardiorespiratory fitness in people who have sustained a traumatic brain injury.
+<i>Brain Inj.</i>
+21
+1069&#x2013;1077. 10.1080/02699050701630375
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02699050701630375</ArticleId><ArticleId IdType="pubmed">17891570</ArticleId></ArticleIdList></Reference><Reference><Citation>Haun C. T., Roberts M. D., Romero M. A., Osburn S. C., Mobley C. B., Anderson R. G., et al.  (2017). Does external pneumatic compression treatment between bouts of overreaching resistance training sessions exert differential effects on molecular signalling and performance-related variables compared to passive recovery?
+<i>PLoS One</i>
+12:e0180429. 10.1371/journal.pone.0180429
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0180429</ArticleId><ArticleId IdType="pmc">PMC5491247</ArticleId><ArticleId IdType="pubmed">28662152</ArticleId></ArticleIdList></Reference><Reference><Citation>Hill E. C., Housh T. J., Keller J. L., Smith C. M., Schmidt R. J., Johnson G. O. (2018). Early phase adaptations in muscle strength and hypertrophy as a result of low-intensity blood flow restriction resistance training.
+<i>Eur. J. Appl. Physiol.</i>
+118
+1831&#x2013;1843. 10.1007/s00421-018-3918-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-018-3918-8</ArticleId><ArticleId IdType="pubmed">29934764</ArticleId></ArticleIdList></Reference><Reference><Citation>Hollander D. B., Reeves G. V., Clavier J. D., Francois M. R., Thomas C., Kraemer R. R. (2010). Partial occlusion during resistance exercise alters effort sense and pain.
+<i>J. Strength Cond. Res.</i>
+24
+235&#x2013;243. 10.1519/JSC.0b013e3181c7badf
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181c7badf</ArticleId><ArticleId IdType="pubmed">19935100</ArticleId></ArticleIdList></Reference><Reference><Citation>Hoyt B. W., Pavey G. J., Pasquina P. F., Potter B. K. (2015). Rehabilitation of lower extremity trauma: a review of principles and military perspective on future directions.
+<i>Curr. Trauma Rep.</i>
+1
+50&#x2013;60. 10.1007/s40719-014-0004-5</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40719-014-0004-5</ArticleId></ArticleIdList></Reference><Reference><Citation>Hughes L., Paton B., Rosenblatt B., Gissane C., Patterson S. D. (2017). Blood flow restriction training in clinical musculoskeletal rehabilitation: a systematic review and meta-analysis.
+<i>Br. J. Sports Med.</i>
+51
+1003&#x2013;1011. 10.1136/bjsports-2016-097071
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2016-097071</ArticleId><ArticleId IdType="pubmed">28259850</ArticleId></ArticleIdList></Reference><Reference><Citation>Hunt J. E., Galea D., Tufft G., Bunce D., Ferguson R. A. (2013). Time course of regional vascular adaptations to low load resistance training with blood flow restriction.
+<i>J. Appl. Physiol.</i>
+115
+403&#x2013;411. 10.1152/japplphysiol.00040.2013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00040.2013</ArticleId><ArticleId IdType="pubmed">23703116</ArticleId></ArticleIdList></Reference><Reference><Citation>Jessee M. B., Mattocks K. T., Buckner S. L., Dankel S. J., Mouser J. G., Abe Y., et al.  (2018). Mechanisms of blood flow restriction: the new testament.
+<i>Tech. Orthop.</i>
+33
+72&#x2013;79. 10.1097/BTO.0000000000000252</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/BTO.0000000000000252</ArticleId></ArticleIdList></Reference><Reference><Citation>Julious S. A. (2005). Sample size of 12 per group rule of thumb for a pilot study.
+<i>Pharm. Stat.</i>
+4
+287&#x2013;291. 10.1002/pst.185</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/pst.185</ArticleId></ArticleIdList></Reference><Reference><Citation>Karabulut M., Abe T., Sato Y., Bemben M. G. (2010). The effects of low-intensity resistance training with vascular restriction on leg muscle strength in older men.
+<i>Eur. J. Appl. Physiol.</i>
+108
+147&#x2013;155. 10.1007/s00421-009-1204-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-009-1204-5</ArticleId><ArticleId IdType="pubmed">19760431</ArticleId></ArticleIdList></Reference><Reference><Citation>Kawada S., Ishii N. (2005). Skeletal muscle hypertrophy after chronic restriction of venous blood flow in rats.
+<i>Med. Sci. Sports Exerc.</i>
+37
+1144&#x2013;1150. 10.1249/01.mss.0000170097.59514.bb
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000170097.59514.bb</ArticleId><ArticleId IdType="pubmed">16015131</ArticleId></ArticleIdList></Reference><Reference><Citation>Kristensen J., Franklyn-Miller A. (2012). Resistance training in musculoskeletal rehabilitation: a systematic review.
+<i>Br. J. Sports Med.</i>
+46
+719&#x2013;726. 10.1136/bjsm.2010.079376
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.2010.079376</ArticleId><ArticleId IdType="pubmed">21791457</ArticleId></ArticleIdList></Reference><Reference><Citation>Ladlow P., Coppack R. J., Dharm-Datta S., Conway D., Sellon E., Patterson S. D., et al.  (2017). The effects of low-intensity blood flow restricted exercise compared with conventional resistance training on clinical outcomes of active UK military personnel following a 3-week in-patient rehabilitation programme: protocol for a randomised controlled feasibility study.
+<i>Pilot Feasibility Stud.</i>
+3:71. 10.1186/s40814-017-0216-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s40814-017-0216-x</ArticleId><ArticleId IdType="pmc">PMC5723055</ArticleId><ArticleId IdType="pubmed">29234504</ArticleId></ArticleIdList></Reference><Reference><Citation>Laurentino G. C., Ugrinowitsch C., Roschel H., Aoki M. S., Soares A. G., Neves M., et al.  (2012). Strength training with blood flow restriction diminishes myostatin gene expression.
+<i>Med. Sci. Sports Exerc.</i>
+44
+406&#x2013;412. 10.1249/MSS.0b013e318233b4bc
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e318233b4bc</ArticleId><ArticleId IdType="pubmed">21900845</ArticleId></ArticleIdList></Reference><Reference><Citation>Lixandrao M. E., Ugrinowitsch C., Berton R., Vechin F. C., Conceicao M. S., Damas F., et al.  (2017). Magnitude of muscle strength and mass adaptations between high-load resistance training versus low-load resistance training associated with blood-flow restriction: a systematic review and meta-analysis.
+<i>Sports Med.</i>
+48
+361&#x2013;378. 10.1007/s40279-017-0795-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-017-0795-y</ArticleId><ArticleId IdType="pubmed">29043659</ArticleId></ArticleIdList></Reference><Reference><Citation>Loenneke J. P., Fahs C. A., Rossow L. M., Abe T., Bemben M. G. (2012). The anabolic benefits of venous blood flow restriction training may be induced by muscle cell swelling.
+<i>Med. Hypotheses</i>
+78
+151&#x2013;154. 10.1016/j.mehy.2011.10.014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.mehy.2011.10.014</ArticleId><ArticleId IdType="pubmed">22051111</ArticleId></ArticleIdList></Reference><Reference><Citation>Loenneke J. P., Wilson J. M., Wilson G. J., Pujol T. J., Bemben M. G. (2011). Potential safety issues with blood flow restriction training.
+<i>Scand. J. Med. Sci. Sports</i>
+21
+510&#x2013;518. 10.1111/j.1600-0838.2010.01290.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2010.01290.x</ArticleId><ArticleId IdType="pubmed">21410544</ArticleId></ArticleIdList></Reference><Reference><Citation>Noordin S., McEwen J. A., Kragh J. F., Jr., Eisen A., Masri B. A. (2009). Surgical tourniquets in orthopaedics.
+<i>J. Bone Joint Surg. Am.</i>
+91
+2958&#x2013;2967. 10.2106/JBJS.I.00634
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2106/JBJS.I.00634</ArticleId><ArticleId IdType="pubmed">19952261</ArticleId></ArticleIdList></Reference><Reference><Citation>Pearson S. J., Hussain S. R. (2015). A review on the mechanisms of blood-flow restriction resistance training-induced muscle hypertrophy.
+<i>Sports Med.</i>
+45
+187&#x2013;200. 10.1007/s40279-014-0264-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0264-9</ArticleId><ArticleId IdType="pubmed">25249278</ArticleId></ArticleIdList></Reference><Reference><Citation>Plisky P. J., Gorman P. P., Butler R. J., Kiesel K. B., Underwood F. B., Elkins B. (2009). The reliability of an instrumented device for measuring components of the star excursion balance test.
+<i>N. Am. J. Sports Phys. Ther.</i>
+4
+92&#x2013;99. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC2953327</ArticleId><ArticleId IdType="pubmed">21509114</ArticleId></ArticleIdList></Reference><Reference><Citation>Pope Z. K., Willardson J. M., Schoenfeld B. J. (2013). Exercise and blood flow restriction.
+<i>J. Strength Cond. Res.</i>
+27
+2914&#x2013;2926. 10.1519/JSC.0b013e3182874721
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3182874721</ArticleId><ArticleId IdType="pubmed">23364292</ArticleId></ArticleIdList></Reference><Reference><Citation>Scott B. R., Loenneke J. P., Slattery K. M., Dascombe B. J. (2015). Exercise with blood flow restriction: an updated evidence-based approach for enhanced muscular development.
+<i>Sports Med.</i>
+45
+313&#x2013;325. 10.1007/s40279-014-0288-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-014-0288-1</ArticleId><ArticleId IdType="pubmed">25430600</ArticleId></ArticleIdList></Reference><Reference><Citation>Segal N., Davis M. D., Mikesky A. E. (2015). Efficacy of blood flow-restricted low-load resistance training for quadriceps strengthening in men at risk of symptomatic knee osteoarthritis.
+<i>Geriatr. Orthop. Surg. Rehabil.</i>
+6
+160&#x2013;167. 10.1177/2151458515583088
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/2151458515583088</ArticleId><ArticleId IdType="pmc">PMC4536503</ArticleId><ArticleId IdType="pubmed">26328230</ArticleId></ArticleIdList></Reference><Reference><Citation>Segal N. A., Williams G. N., Davis M. C., Wallace R. B., Mikesky A. E. (2015). Efficacy of blood flow-restricted, low-load resistance training in women with risk factors for symptomatic knee osteoarthritis.
+<i>PM R</i>
+7
+376&#x2013;384. 10.1016/j.pmrj.2014.09.014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pmrj.2014.09.014</ArticleId><ArticleId IdType="pmc">PMC4385750</ArticleId><ArticleId IdType="pubmed">25289840</ArticleId></ArticleIdList></Reference><Reference><Citation>Shimizu R., Hotta K., Yamamoto S., Matsumoto T., Kamiya K., Kato M., et al.  (2016). Low-intensity resistance training with blood flow restriction improves vascular endothelial function and peripheral blood circulation in healthy elderly people.
+<i>Eur. J. Appl. Physiol.</i>
+116
+749&#x2013;757. 10.1007/s00421-016-3328-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-016-3328-8</ArticleId><ArticleId IdType="pubmed">26822582</ArticleId></ArticleIdList></Reference><Reference><Citation>Slysz J., Stultz J., Burr J. F. (2016). The efficacy of blood flow restricted exercise: a systematic review &amp; meta-analysis.
+<i>J. Sci. Med. Sport</i>
+19
+669&#x2013;675. 10.1016/j.jsams.2015.09.005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2015.09.005</ArticleId><ArticleId IdType="pubmed">26463594</ArticleId></ArticleIdList></Reference><Reference><Citation>Takarada Y., Sato Y., Ishii N. (2002). Effects of resistance exercise combined with vascular occlusion on muscle function in athletes.
+<i>Eur. J. Appl. Physiol.</i>
+86
+308&#x2013;314. 10.1007/s00421-001-0561-5</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-001-0561-5</ArticleId><ArticleId IdType="pubmed">11990743</ArticleId></ArticleIdList></Reference><Reference><Citation>Takarada Y., Takazawa H., Ishii N. (2000). Applications of vascular occlusion diminish disuse atrophy of knee extensor muscles.
+<i>Med. Sci. Sports Exerc.</i>
+32
+2035&#x2013;2039. 10.1097/00005768-200012000-00011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-200012000-00011</ArticleId><ArticleId IdType="pubmed">11128848</ArticleId></ArticleIdList></Reference><Reference><Citation>Tennent D. J., Hylden C. M., Johnson A. E., Burns T. C., Wilken J. M., Owens J. G. (2017). Blood flow restriction training after knee arthroscopy: a randomized controlled pilot study.
+<i>Clin. J. Sport Med.</i>
+27
+245&#x2013;252. 10.1097/JSM.0000000000000377
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/JSM.0000000000000377</ArticleId><ArticleId IdType="pubmed">27749358</ArticleId></ArticleIdList></Reference><Reference><Citation>Thorborg K., Petersen J., Magnusson S. P., Holmich P. (2010). Clinical assessment of hip strength using a hand-held dynamometer is reliable.
+<i>Scand. J. Med. Sci. Sports</i>
+20
+493&#x2013;501. 10.1111/j.1600-0838.2009.00958.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2009.00958.x</ArticleId><ArticleId IdType="pubmed">19558384</ArticleId></ArticleIdList></Reference><Reference><Citation>Vickers A. J., Altman D. G. (2001). Analysing controlled trials with baseline and follow up measurements.
+<i>BMJ</i>
+323
+1123&#x2013;1124. 10.1136/bmj.323.7321.1123</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmj.323.7321.1123</ArticleId><ArticleId IdType="pmc">PMC1121605</ArticleId><ArticleId IdType="pubmed">11701584</ArticleId></ArticleIdList></Reference><Reference><Citation>Vitale A. E., Jankowski L. W., Sullivan S. J. (1997). Reliability for a walk/run test to estimate aerobic capacity in a brain-injured population.
+<i>Brain Inj.</i>
+11
+67&#x2013;76. 10.1080/026990597123827
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/026990597123827</ArticleId><ArticleId IdType="pubmed">9012553</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,222 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">34803744</PMID><DateRevised><Year>2023</Year><Month>11</Month><Day>02</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>12</Volume><PubDate><Year>2021</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>The Differentiate Effects of Resistance Training With or Without External Load on Young Soccer Players' Performance and Body Composition.</ArticleTitle><Pagination><StartPage>771684</StartPage><MedlinePgn>771684</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">771684</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2021.771684</ELocationID><Abstract><AbstractText><b>Purpose:</b> The purpose of this study was to examine the effects of 15 weeks (2/week) of two different resistance training (RT) programs [the self-load group (SG) vs. the overload group (OG)] on selected measures of physical performance in young male soccer players. <b>Methods:</b> The countermovement jump (CMJ), aerobic endurance (VO<sub>2</sub> max), and body composition [body mass (BM), height (H), body fat percentage (% BF), and lean mass (LM)] were measured before and after the 15-week RT interventions. Subjects were randomized to treatments: 1. SG [age = 15.34 &#xb1; 1.34 years]; 2. OG [age = 16.28 &#xb1; 1.21 years]. <b>Results:</b> The level of significance set for the study (<i>p</i> &#x2264; 0.05). Within-group analysis did report significant differences in all variables for the SG (<i>p</i> = 0.008 to 0.001; ES = -0.33 to 1.41, small to large) as in the OG (<i>p</i> = 0.001; ES = 0.82 to 1.30, large). Between-groups analysis reported differences in CMJ (<i>F</i> = 4.32; <i>p</i> = 0.004) for the OG. <b>Conclusion:</b> The main findings of this study indicated that RT with and without external load was effective in improving the measures of physical performance in young soccer players, with special attention to jumping ability, where the OG group was more effective. Furthermore, there is no interference to aerobic endurance. It is recommended that soccer coaches implement RT without external load in the early stages of training or in players with late maturation development and in those soccer clubs with limited material resources.</AbstractText><CopyrightInformation>Copyright &#xa9; 2021 Falces-Prieto, S&#xe1;ez de Villarreal-S&#xe1;ez, Raya-Gonz&#xe1;lez, Gonz&#xe1;lez-Fern&#xe1;ndez, Clemente, Badicu and Murawska-Cia&#x142;owicz.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Falces-Prieto</LastName><ForeName>Mois&#xe9;s</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Research Center High Performance Soccer, Marcet Academy, Barcelona, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Football and Science, Pablo de Olavide University, Seville, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>S&#xe1;ez de Villarreal-S&#xe1;ez</LastName><ForeName>Eduardo</ForeName><Initials>E</Initials><AffiliationInfo><Affiliation>Department of Football and Science, Pablo de Olavide University, Seville, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Raya-Gonz&#xe1;lez</LastName><ForeName>Javier</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Faculty of Health Sciences, Universidad Isabel I, Burgos, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gonz&#xe1;lez-Fern&#xe1;ndez</LastName><ForeName>Francisco Tom&#xe1;s</ForeName><Initials>FT</Initials><AffiliationInfo><Affiliation>Department of Physical Activity and Sport Sciences, Pontifical University of Comillas, CESAG, Palma, Spain.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>SER Research Group, Pontifical University of Comillas, CESAG, Palma, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Clemente</LastName><ForeName>Filipe Manuel</ForeName><Initials>FM</Initials><AffiliationInfo><Affiliation>Escola Superior Desporto e Lazer, Instituto Polit&#xe9;cnico de Viana do Castelo, RuaEscola Industrial e Comercial de Nun'&#xc1;lvares, Viana do Castelo, Portugal.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Instituto de Telecomunica&#xe7;&#xf5;es, Delega&#xe7;&#xe3;o da Covilh&#xe3;, Lisbon, Portugal.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Badicu</LastName><ForeName>Georgian</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Department of Physical Education and Special Motricity, University Transilvania of Brasov, Brasov, Romania.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Murawska-Cia&#x142;owicz</LastName><ForeName>Eugenia</ForeName><Initials>E</Initials><AffiliationInfo><Affiliation>Department of Physiology and Biochemistry, University School of Physical Education, Wroc&#x142;aw, Poland.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2021</Year><Month>11</Month><Day>05</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">VO2 max</Keyword><Keyword MajorTopicYN="N">football</Keyword><Keyword MajorTopicYN="N">lean mass</Keyword><Keyword MajorTopicYN="N">performance</Keyword><Keyword MajorTopicYN="N">strength</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2021</Year><Month>9</Month><Day>6</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2021</Year><Month>10</Month><Day>7</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2021</Year><Month>11</Month><Day>22</Day><Hour>6</Hour><Minute>39</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2021</Year><Month>11</Month><Day>23</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2021</Year><Month>11</Month><Day>23</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2021</Year><Month>11</Month><Day>5</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">34803744</ArticleId><ArticleId IdType="pmc">PMC8602856</ArticleId><ArticleId IdType="doi">10.3389/fphys.2021.771684</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Billot M., Martin A., Paizis C., Cometti C., Babault N. (2010). Effects of an electrostimulation training program on strength, jumping, and kicking capacities in soccer players.
+<i>J. Strength Cond. Res.</i>
+24
+1407&#x2013;1413. 10.1519/JSC.0b013e3181d43790
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181d43790</ArticleId><ArticleId IdType="pubmed">20386476</ArticleId></ArticleIdList></Reference><Reference><Citation>Blais L., Trilles F. (2006). The progress achieved by judokas after strength training with a judo-specific machine.
+<i>J. Sports Sci. Med.</i>
+15
+132&#x2013;135.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3863927</ArticleId><ArticleId IdType="pubmed">24357985</ArticleId></ArticleIdList></Reference><Reference><Citation>B&#xf6;hm A., Heitmann B. L. (2013). The use of bioelectrical impedance analysis for body composition in epidemiological studies.
+<i>Eur. J. Clin. Nutr.</i>
+67
+79&#x2013;85. 10.1038/ejcn.2012.168
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/ejcn.2012.168</ArticleId><ArticleId IdType="pubmed">23299875</ArticleId></ArticleIdList></Reference><Reference><Citation>Brocherie F., Girard O., Forchino F., Al Haddad H., Dos Santos G. A., Millet G. P. (2014). Relationships between anthropometric measures and athletic performance, with special reference to repeated-sprint ability, in the Qatar national soccer team.
+<i>J. Sports Sci.</i>
+32
+1243&#x2013;1254. 10.1080/02640414.2013.862840
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2013.862840</ArticleId><ArticleId IdType="pubmed">24742185</ArticleId></ArticleIdList></Reference><Reference><Citation>Buchheit M. (2008). The 30-15 intermittent fitness test: accuracy for individualizing interval training of young intermittent sport players.
+<i>J. Strength Cond. Res.</i>
+22
+365&#x2013;374. 10.1519/JSC.0b013e3181635b2e
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181635b2e</ArticleId><ArticleId IdType="pubmed">18550949</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen J. (1988). <i>Statistical Power Analysis for the Behavioral Sciences</i>, 2nd Edn. New York, NY: Psychology Press.</Citation></Reference><Reference><Citation>Comfort P., Stewart A., Bloom L., Clarkson B. (2014). Relationships between strength, sprint, and jump performance in well-trained youth soccer players.
+<i>J. Strength Cond. Res.</i>
+28
+173&#x2013;177. 10.1519/JSC.0b013e318291b8c7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e318291b8c7</ArticleId><ArticleId IdType="pubmed">23542878</ArticleId></ArticleIdList></Reference><Reference><Citation>Conde-Corbitante I. (2016). Benefits of resistance training in Primary Education.
+<i>Magister</i>
+28
+94&#x2013;101. 10.1016/j.magis.2016.10.001</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.magis.2016.10.001</ArticleId></ArticleIdList></Reference><Reference><Citation>De Blas X., Padull&#xe9;s J. M., L&#xf3;pez-Del Amo J. L., Guerra-Balic M. (2012). Creation and validation of chronojump-boscosystem: a free tool to measure vertical jumps.
+<i>Rev. Int. Cienc. Deporte</i>
+8
+334&#x2013;356. 10.5232/ricyde2012.03004</Citation><ArticleIdList><ArticleId IdType="doi">10.5232/ricyde2012.03004</ArticleId></ArticleIdList></Reference><Reference><Citation>De Hoyo M., Gonzalo-Skok O., Sa&#xf1;udo B., Carrascal C., Plaza-Armas J. R., Camacho-Candil F., et al.  (2016). Comparative effects of in-season full-back squat, resisted sprint training, and plyometric training on explosive performance in U-19 elite soccer players.
+<i>J. Strength Cond. Res.</i>
+30
+368&#x2013;377. 10.1519/JSC.0000000000001094
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001094</ArticleId><ArticleId IdType="pubmed">26813630</ArticleId></ArticleIdList></Reference><Reference><Citation>Di Giminiani R., Visca C. (2017). Explosive strength and endurance adaptations in young elite soccer players during two soccer seasons.
+<i>PLoS One</i>
+12:e0171734. 10.1371/journal.pone.0171734
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0171734</ArticleId><ArticleId IdType="pmc">PMC5305282</ArticleId><ArticleId IdType="pubmed">28192512</ArticleId></ArticleIdList></Reference><Reference><Citation>Erdem-Cigerci A., Genc H. (2020). The effect of calisthenics exercises on body composition in soccer players.
+<i>Prog. Nutr.</i>
+22
+94&#x2013;102. 10.1038/ejcn.2012.168
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/ejcn.2012.168</ArticleId><ArticleId IdType="pubmed">23299875</ArticleId></ArticleIdList></Reference><Reference><Citation>Faigenbaum A. D., Myer G. D. (2010). Pediatric resistance training: benefits, concerns, and program design considerations.
+<i>Curr. Sports Med. Rep.</i>
+9
+161&#x2013;168. 10.1249/JSR.0b013e3181de1214
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/JSR.0b013e3181de1214</ArticleId><ArticleId IdType="pubmed">20463500</ArticleId></ArticleIdList></Reference><Reference><Citation>Faigenbaum A. D., Kraemer W. J., Blimkie C. J., Jeffreys I., Micheli L. J., Nitka M., et al.  (2009). Youth resistance training: updated position statement paper from the national strength and conditioning association.
+<i>J. Strength Cond. Res.</i>
+23
+60&#x2013;79. 10.1519/JSC.0b013e31819df407
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31819df407</ArticleId><ArticleId IdType="pubmed">19620931</ArticleId></ArticleIdList></Reference><Reference><Citation>Falces-Prieto M., Gonz&#xe1;lez-Fern&#xe1;ndez F. T., Baena Morales S., Ben&#xed;tez-Jim&#xe9;nez A., Mart&#xed;n-Barrero A., Conde-Fern&#xe1;ndez L., et al.  (2020). Effects of a strength training program with self-loading on countermovement jump performance and body composition in young soccer players.
+<i>J. Sports Health Res.</i>
+12
+112&#x2013;125.</Citation></Reference><Reference><Citation>Falces-Prieto M., Raya-Gonz&#xe1;lez J., S&#xe1;ez de Villarreal E., Rodicio-Palma J., Iglesias-Garc&#xed;a F. J., Gonz&#xe1;lez-Fern&#xe1;ndez F. T. (2021). Effects of combined plyometric and sled training on vertical jump and linear speed performance in young soccer players.
+<i>Retos</i>
+42
+228&#x2013;235. 10.47197/retos.v42i0.86423</Citation><ArticleIdList><ArticleId IdType="doi">10.47197/retos.v42i0.86423</ArticleId></ArticleIdList></Reference><Reference><Citation>Ferrete C., Requena B., Su&#xe1;rez-Arrones L., S&#xe1;ez de Villarreal E. (2014). Effect of strength and high-intensity training on jumping, sprinting, and intermittent endurance performance in prepubertal soccer players.
+<i>J. Strength Cond. Res.</i>
+28
+413&#x2013;422. 10.1519/JSC.0b013e31829b2222
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31829b2222</ArticleId><ArticleId IdType="pubmed">24473467</ArticleId></ArticleIdList></Reference><Reference><Citation>Franco-M&#xe1;rquez F., Rodr&#xed;guez-Rosell D., Gonz&#xe1;lez-Su&#xe1;rez J., Pareja-Blanco F., Mora-Custodio R., Ya&#xf1;ez-Garc&#xed;a J., et al.  (2015). Effects of combined resistance training and plyometrics on physical performance in young soccer players.
+<i>Int. J. Sports Med.</i>
+36
+906&#x2013;914. 10.1055/s-0035-1548890
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0035-1548890</ArticleId><ArticleId IdType="pubmed">26180903</ArticleId></ArticleIdList></Reference><Reference><Citation>Gardasevic J., Bjelica D., Vasiljevic I., Masanovic B. (2020). Differences in body composition between young soccer players (U19) members of the best soccer clubs in Serbia, Bosnia and Herzegovina, and North Macedonia.
+<i>Pedagogy Phys. Cult. Sports</i>
+24
+175&#x2013;180. 10.15561/26649837.2020.0404</Citation><ArticleIdList><ArticleId IdType="doi">10.15561/26649837.2020.0404</ArticleId></ArticleIdList></Reference><Reference><Citation>Grieco C. R., Cortes N., Greska E. K., Lucci S., Onate J. A. (2012). Effects of a combined resistance-plyometric training program on muscular strength, running economy, and V [combining dot above] O2peak in division I female soccer players.
+<i>J. Strength Cond. Res.</i>
+26
+2570&#x2013;2576. 10.1519/JSC.0b013e31823db1cf
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31823db1cf</ArticleId><ArticleId IdType="pubmed">22105047</ArticleId></ArticleIdList></Reference><Reference><Citation>Haghighi A., Moghadasi M., Nikseresht A., Torkfar A., Haghighi M. (2012). Effects of plyometric versus resistance training on sprint and skill performance in young soccer players.
+<i>Eur. J. Exp. Biol.</i>
+2
+2348&#x2013;2351.</Citation></Reference><Reference><Citation>Hennessy L. C., Watson A. W. (1994). The interference effects of training for strength and endurance simultaneously.
+<i>J. Strength Cond. Res.</i>
+8
+12&#x2013;19. 10.1519/00124278-199402000-00003</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-199402000-00003</ArticleId></ArticleIdList></Reference><Reference><Citation>Hori N., Newton R. U., Andrews W. A., Kawamori N., McGuigan M. R., Nosaka K. (2008). Does performance of hang power clean differentiate performance of jumping, sprinting, and changing of direction?
+<i>J. Strength Cond. Res.</i>
+22
+412&#x2013;418. 10.1519/JSC.0b013e318166052b
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e318166052b</ArticleId><ArticleId IdType="pubmed">18550955</ArticleId></ArticleIdList></Reference><Reference><Citation>Kanda K., Yoda T., Suzuki H., Okabe Y., Mori Y., Yamasaki K., et al.  (2018). Effects of low-intensity bodyweight training with slow movement on motor function in frail elderly patients: a prospective observational study.
+<i>Environ. Health Prev. Med.</i>
+23:4. 10.1186/s12199-018-0693-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12199-018-0693-4</ArticleId><ArticleId IdType="pmc">PMC5793376</ArticleId><ArticleId IdType="pubmed">29385984</ArticleId></ArticleIdList></Reference><Reference><Citation>Keiner M., Sander A., Wirth K., Schmidtbleicher D. (2014). The impact of 2 years of additional athletic training on the jump performance of young athletes.
+<i>Sci. Sports</i>
+29
+39&#x2013;46. 10.1016/j.scispo.2013.07.010</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.scispo.2013.07.010</ArticleId></ArticleIdList></Reference><Reference><Citation>Kosmatos G., Gerodimos V., Karatrandou N., Goudas M., Tsiokanos A. (2008). The effect of a combined basketball and strength training program with the body weight on performance in adolescent basketball players.
+<i>Inq. Sport Phys. Educ.</i>
+6
+249&#x2013;256.</Citation></Reference><Reference><Citation>Lesinski M., Prieske O., Granacher U. (2016). Effects and dose&#x2013;response relationships of resistance training on physical performance in youth athletes: a systematic review and meta-analysis.
+<i>Br. J. Sports Med.</i>
+50
+781&#x2013;795. 10.1136/bjsports-2015-095497
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2015-095497</ArticleId><ArticleId IdType="pmc">PMC4941165</ArticleId><ArticleId IdType="pubmed">26851290</ArticleId></ArticleIdList></Reference><Reference><Citation>Liebermann D., Katz L. (2003). On the assessment of lower-limb muscular power capability.
+<i>Isokinet. Exerc. Sci.</i>
+11
+87&#x2013;94. 10.1007/BF03324689
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF03324689</ArticleId><ArticleId IdType="pubmed">17607086</ArticleId></ArticleIdList></Reference><Reference><Citation>Loturco I., Pereira L. A., Reis V. P., Bishop C., Zanetti V., Alcaraz P. E., et al.  (2020). Power training in elite young soccer players: effects of using loads above or below the optimum power zone.
+<i>J. Sports Sci.</i>
+38
+1416&#x2013;1422. 10.1080/02640414.2019.1651614
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2019.1651614</ArticleId><ArticleId IdType="pubmed">31389308</ArticleId></ArticleIdList></Reference><Reference><Citation>Lozano-Berges G., Matute-Llorente A., G&#xf3;mez-Bruton A., Gonz&#xe1;lez-Ag&#xfc;ero A., Vicente-Rodr&#xed;guez G., Casaj&#xfa;s J. A. (2017). Body fat percentage comparisons between four methods in Young football players: are they comparable?
+<i>Nutr. Hosp.</i>
+34
+1119&#x2013;1124. 10.20960/nh.760
+</Citation><ArticleIdList><ArticleId IdType="doi">10.20960/nh.760</ArticleId><ArticleId IdType="pubmed">29130710</ArticleId></ArticleIdList></Reference><Reference><Citation>Mar&#xed;n-Pag&#xe1;n C., Blazevich A. J., Chung L. H., Romero-Arenas S., Freitas T. T., Alcaraz P. E. (2020). Acute physiological responses to high-intensity resistance circuit training vs. traditional strength training in soccer players.
+<i>Biology</i>
+9:383. 10.3390/biology9110383
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/biology9110383</ArticleId><ArticleId IdType="pmc">PMC7695212</ArticleId><ArticleId IdType="pubmed">33171830</ArticleId></ArticleIdList></Reference><Reference><Citation>Marzouki H., Ouergui I., Doua N., Gmada N., Bouassida A., Bouhlel E. (2021). Effects of 1 vs. 2 sessions per week of equal-volume sprint training on explosive, high-intensity and endurance-intensive performances in young soccer players.
+<i>Biol. Sport</i>
+38
+175&#x2013;183. 10.5114/biolsport.2020.97675
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5114/biolsport.2020.97675</ArticleId><ArticleId IdType="pmc">PMC8139356</ArticleId><ArticleId IdType="pubmed">34079162</ArticleId></ArticleIdList></Reference><Reference><Citation>Michailidis Y., Fatouros I. G., Primpa E., Michailidis C., Avloniti A., Chatzinikolaou A., et al.  (2013). Plyometrics&#x2019; trainability in preadolescent soccer athletes.
+<i>J. Strength Cond. Res.</i>
+27
+38&#x2013;49. 10.1519/JSC.0b013e3182541ec6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3182541ec6</ArticleId><ArticleId IdType="pubmed">22450257</ArticleId></ArticleIdList></Reference><Reference><Citation>Milsom J., Naughton R., O&#x2019;Boyle A., Iqbal Z., Morgans R., Drust B., et al.  (2015). Body composition assessment of English Premier League soccer players: a comparative DXA analysis of first team, U21 and U18 squads.
+<i>J. Sports Sci.</i>
+33
+1799&#x2013;1806. 10.1080/02640414.2015.1012101
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2015.1012101</ArticleId><ArticleId IdType="pubmed">25686107</ArticleId></ArticleIdList></Reference><Reference><Citation>Moran J., Sandercock G. R. H., Ram&#xed;rez-Campillo R., Meylan C., Collison J., Parry A. (2017). A meta-analysis of maturation-related variation in adolescent boy athletes&#x2019; adaptations to short-term resistance training.
+<i>J. Sports Sci.</i>
+35
+1041&#x2013;1051. 10.1080/02640414.2016.1209306
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2016.1209306</ArticleId><ArticleId IdType="pubmed">27454545</ArticleId></ArticleIdList></Reference><Reference><Citation>Nobari H., Kargarfard M., Minasian V., Cholewa J. M., P&#xe9;rez-G&#xf3;mez J. (2021a). The effects of 14-week betaine supplementation on endocrine markers, body composition and anthropometrics in professional youth soccer players: a double blind, randomized, placebo-controlled trial.
+<i>J. Int. Soc. Sports Nutr.</i>
+18
+1&#x2013;10. 10.1186/s12970-021-00417-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12970-021-00417-5</ArticleId><ArticleId IdType="pmc">PMC7934563</ArticleId><ArticleId IdType="pubmed">33663545</ArticleId></ArticleIdList></Reference><Reference><Citation>Nobari H., Ruivo-Alves A., Clemente F. M., P&#xe9;rez-G&#xf3;mez J., Clark C., Granacher U., et al.  (2021b). Associations between variations in accumulated workload and physiological variables in young male soccer players over the course of a season.
+<i>Front. Physiol.</i>
+18:638180. 10.3389/fphys.2021.638180
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2021.638180</ArticleId><ArticleId IdType="pmc">PMC8012769</ArticleId><ArticleId IdType="pubmed">33815144</ArticleId></ArticleIdList></Reference><Reference><Citation>N&#xfa;&#xf1;ez F. J., De Hoyo M., L&#xf3;pez A. M., Sa&#xf1;udo B., Otero-Esquina C., S&#xe1;nchez H., et al.  (2019). Eccentric-concentric ratio: a key factor for defining strength training in soccer.
+<i>Int. J. Sports Med.</i>
+40
+796&#x2013;802. 10.1055/a-0977-5478
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/a-0977-5478</ArticleId><ArticleId IdType="pubmed">31434138</ArticleId></ArticleIdList></Reference><Reference><Citation>Pe&#xf1;a G., Heredia J. R., Lloret C., Mart&#xed;n M., Da Silva-Grigoletto M. E. (2016). Introduction to strength training at early age: a review.
+<i>Rev. Andal. Med. Deport.</i>
+9
+41&#x2013;49. 10.1016/j.ramd.2015.01.022</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ramd.2015.01.022</ArticleId></ArticleIdList></Reference><Reference><Citation>Pe&#xf1;a-Gonz&#xe1;lez I., Fern&#xe1;ndez-Fern&#xe1;ndez J., Cervell&#xf3; E., Moya-Ram&#xf3;n M. (2019). Effect of biological maturation on strength-related adaptations in young soccer players.
+<i>PLoS One</i>
+14:e0219355. 10.1371/journal.pone.0219355
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0219355</ArticleId><ArticleId IdType="pmc">PMC6611603</ArticleId><ArticleId IdType="pubmed">31276566</ArticleId></ArticleIdList></Reference><Reference><Citation>P&#xe9;rez-Castilla A., Piepoli A., Delgado-Garc&#xed;a G., Garrido-Blanca G., Garc&#xed;a-Ramos A. (2019). Reliability and concurrent validity of seven commercially available devices for the assessment of movement velocity at different intensities during the bench press.
+<i>J. Strength Cond. Res.</i>
+33
+1258&#x2013;1265. 10.1519/JSC.0000000000003118
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000003118</ArticleId><ArticleId IdType="pubmed">31034462</ArticleId></ArticleIdList></Reference><Reference><Citation>P&#xe9;rez-G&#xf3;mez J., Olmedillas H., Delgado-Guerra S., Ara-Royo I., Vicente-Rodr&#xed;guez G., Arteaga-Ortiz R., et al.  (2008). Effects of weight lifting training combined with plyometric exercises on physical fitness, body composition, and knee extension velocity during kicking in football.
+<i>Appl. Physiol. Nutr. Metab.</i>
+33
+501&#x2013;510. 10.1139/H08-026
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/H08-026</ArticleId><ArticleId IdType="pubmed">18461103</ArticleId></ArticleIdList></Reference><Reference><Citation>Perroni F., Vetrano M., Camolese G., Guidetti L., Baldari C. (2015). Anthropometric and somatotype characteristics of young soccer players: differences among categories, subcategories, and playing position.
+<i>J. Strength Cond. Res.</i>
+29
+2097&#x2013;2104. 10.1519/JSC.0000000000000881
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000881</ArticleId><ArticleId IdType="pubmed">25734780</ArticleId></ArticleIdList></Reference><Reference><Citation>Pueo B., Jim&#xe9;nez-Olmedo J. M., Lipi&#xf1;ska P., Bu&#x15b;ko K., Penichet-Tom&#xe1;s A. (2018). Concurrent validity and reliability of proprietary and open-source jump mat systems for the assessment of vertical jumps in sport sciences.
+<i>Acta Bioeng. Biomech.</i>
+20
+51&#x2013;57.</Citation><ArticleIdList><ArticleId IdType="pubmed">30520441</ArticleId></ArticleIdList></Reference><Reference><Citation>Quagliarella L., Sasanelli N., Belgiovine G., Accettura D., Notarnicola A., Moretti B. (2011). Evaluation of counter movement jump parameters in young male soccer players.
+<i>J. Appl. Biomater.</i>
+9
+40&#x2013;46. 10.5301/JABB.2011.7732
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5301/JABB.2011.7732</ArticleId><ArticleId IdType="pubmed">21607936</ArticleId></ArticleIdList></Reference><Reference><Citation>Raya-Gonz&#xe1;lez J., S&#xe1;nchez-S&#xe1;nchez J. (2018). Strength training methods for improving actions in football.
+<i>Apunts</i>
+2
+72&#x2013;93. 10.5672/apunts.2014-0983.es.(2018/2).132.06</Citation><ArticleIdList><ArticleId IdType="doi">10.5672/apunts.2014-0983.es.(2018/2).132.06</ArticleId></ArticleIdList></Reference><Reference><Citation>Raya-Gonz&#xe1;lez J., Su&#xe1;rez-arrones L., S&#xe1;nchez-S&#xe1;nchez J., Ram&#xed;rez-Campillo R., Nakamura F. Y., S&#xe1;ez de Villarreal E. (2020). Short and long-term effects of a simple-strength-training program on injuries among elite U-19 soccer players.
+<i>Res. Q. Exerc. Sport</i>
+91
+1&#x2013;9. 10.5672/apunts.2014-0983.es.(2018/2).132.06</Citation><ArticleIdList><ArticleId IdType="doi">10.5672/apunts.2014-0983.es.(2018/2).132.06</ArticleId><ArticleId IdType="pubmed">32633681</ArticleId></ArticleIdList></Reference><Reference><Citation>Rebelo A., Brito J., Maia J., Coelho-e-Silva M., Figueiredo A., Bangsbo J., et al.  (2013). Anthropometric characteristics, physical fitness and technical performance of under-19 soccer players by competitive level and field position.
+<i>Int. J. Sports Med.</i>
+34
+312&#x2013;317. 10.1055/s-0032-1323729
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0032-1323729</ArticleId><ArticleId IdType="pubmed">23059558</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodr&#xed;guez-Rosell D., Franco-M&#xe1;rquez F., Mora-Custodio R., Gonz&#xe1;lez-Badillo J. J. (2017). Effect of high-speed strength training on physical performance in young soccer players of differrent ages.
+<i>J. Strength Cond. Res.</i>
+31
+2498&#x2013;2508. 10.1519/JSC.0000000000001706
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001706</ArticleId><ArticleId IdType="pubmed">27806013</ArticleId></ArticleIdList></Reference><Reference><Citation>Ruivo R. M., Carita A. I., Pezarat-Correia P. (2016). Effects of a 16-week strength-training program on soccer players.
+<i>Sci. Sports</i>
+31
+107&#x2013;113. 10.1016/j.scispo.2016.02.008</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.scispo.2016.02.008</ArticleId></ArticleIdList></Reference><Reference><Citation>S&#xe1;ez de Villarreal E., Su&#xe1;rez-Arrones L., Requena B., Haff G. G., Ferrete C. (2015). Effects of plyometric and sprint training on physical and technical skill performance in adolescent soccer players.
+<i>J. Strength Cond. Res.</i>
+29
+1894&#x2013;1903. 10.1519/JSC.0000000000000838
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000838</ArticleId><ArticleId IdType="pubmed">25635606</ArticleId></ArticleIdList></Reference><Reference><Citation>S&#xe1;nchez-Oliva D., Santalla A., Candela J. M., Leo F. M., Garc&#xed;a-Calvo T. (2014). Analysis of the relationship between Yo-Yo Test and maximum oxygen uptake in young football players.
+<i>Int. J. Sports Sci.</i>
+37
+180&#x2013;193. 10.5232/ricyde2014.03701</Citation><ArticleIdList><ArticleId IdType="doi">10.5232/ricyde2014.03701</ArticleId></ArticleIdList></Reference><Reference><Citation>Sander A., Keiner M., Wirth K., Schmidtbleicher D. (2013). Influence of a 2-year strength training programme on power performance in elite youth soccer players.
+<i>Eur. J. Sport Sci.</i>
+13
+445&#x2013;451. 10.1080/17461391.2012.742572
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/17461391.2012.742572</ArticleId><ArticleId IdType="pubmed">24050460</ArticleId></ArticleIdList></Reference><Reference><Citation>Silva J. R., Magalh&#xe3;es J. F., Ascens&#xe3;o A. A., Oliveira E. M., Seabra A. F., Rebelo A. N. (2011). Individual match playing time during the season affects fitness-related parameters of male professional soccer players.
+<i>J. Strength Cond. Res.</i>
+25
+2729&#x2013;2739.</Citation><ArticleIdList><ArticleId IdType="pubmed">21912284</ArticleId></ArticleIdList></Reference><Reference><Citation>Spineti J., Figueiredo T., Bastos de Oliveira V., Assis M., Fernandes de Oliveira L., Miranda H., et al.  (2016). Comparison between traditional strength training and complex contrast training on repeated sprint ability and muscle architecture in elite soccer players.
+<i>J. Sports Med. Phys. Fitness</i>
+56
+1269&#x2013;1278.</Citation><ArticleIdList><ArticleId IdType="pubmed">26609969</ArticleId></ArticleIdList></Reference><Reference><Citation>Spori&#x161; G., Jovanovic M., Krakan I., Fiorentini F. (2011). Effects of strength training on aerobic and anaerobic power in female soccer players.
+<i>Sport Sci.</i>
+4
+32&#x2013;37.</Citation></Reference><Reference><Citation>Su&#xe1;rez-Arrones L., Lara-L&#xf3;pez P., Torre&#xf1;o N., S&#xe1;ez de Villarreal E., Di Salvo V., M&#xe9;ndez-Villanueva A. (2019). Effects of strength training on body composition in young male professional soccer players.
+<i>Sports</i>
+7:104. 10.3390/sports7050104
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/sports7050104</ArticleId><ArticleId IdType="pmc">PMC6571943</ArticleId><ArticleId IdType="pubmed">31060280</ArticleId></ArticleIdList></Reference><Reference><Citation>Su&#xe1;rez-Arrones L., Petri C., Maldonado R. A., Torre&#xf1;o N., Mungu&#xed;a-Izquierdo D., Di Salvo V., et al.  (2018). Body fat assessment in elite soccer players: cross-validation of different field methods.
+<i>Sci. Med. Footb.</i>
+2
+203&#x2013;208. 10.1080/24733938.2018.1445871</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/24733938.2018.1445871</ArticleId></ArticleIdList></Reference><Reference><Citation>Sun G., French C. R., Martin G. R., Younghusband B., Green R. C., Xie Y. G., et al.  (2005). Comparison of multifrequency bioelectrical impedance analysis with dual-energy X-ray absorptiometry for assessment of percentage body fat in a large, healthy population.
+<i>Am. J. Clin. Nutr.</i>
+81
+74&#x2013;78. 10.1093/ajcn/81.1.74
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ajcn/81.1.74</ArticleId><ArticleId IdType="pubmed">15640463</ArticleId></ArticleIdList></Reference><Reference><Citation>Swinton P. A., Lloyd R., Keogh J. W., Agouris I., Stewart A. D. (2014). Regression models of sprint, vertical jump, and change of direction performance.
+<i>J. Strength Cond. Res.</i>
+28
+1839&#x2013;1848. 10.1519/JSC.0000000000000348
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000348</ArticleId><ArticleId IdType="pubmed">24345969</ArticleId></ArticleIdList></Reference><Reference><Citation>Vanderka M., Kr&#xe8;m&#xe1;r M., Longov&#xe1; K., Walker S. (2016). Acute effects of loaded half-squat jumps on sprint running speed in track and field athletes and soccer players.
+<i>J. Strength Cond. Res.</i>
+30
+1540&#x2013;1546. 10.1519/JSC.0000000000001259
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001259</ArticleId><ArticleId IdType="pubmed">26562707</ArticleId></ArticleIdList></Reference><Reference><Citation>Ziogas G. G., Patras K. N., Stergiou N., Georgoulis A. D. (2011). Velocity at lactate threshold and running economy must also be considered along with maximal oxygen uptake when testing elite soccer players during preseason.
+<i>J. Strength Cond. Res.</i>
+25
+414&#x2013;419. 10.1519/JSC.0b013e3181bac3b9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181bac3b9</ArticleId><ArticleId IdType="pubmed">20351577</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

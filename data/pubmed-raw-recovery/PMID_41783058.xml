@@ -1,0 +1,170 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41783058</PMID><DateCompleted><Year>2026</Year><Month>03</Month><Day>05</Day></DateCompleted><DateRevised><Year>2026</Year><Month>03</Month><Day>05</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">2296-858X</ISSN><JournalIssue CitedMedium="Print"><Volume>13</Volume><PubDate><Year>2026</Year></PubDate></JournalIssue><Title>Frontiers in medicine</Title><ISOAbbreviation>Front Med (Lausanne)</ISOAbbreviation></Journal><ArticleTitle>Knowledge, practice, and awareness of stroke warning signs and potential risk factors among future rehabilitation specialists in Saudi Arabia.</ArticleTitle><Pagination><StartPage>1758191</StartPage><MedlinePgn>1758191</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1758191</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fmed.2026.1758191</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">Stroke remains a leading cause of long-term disability and mortality worldwide, with a growing prevalence in Saudi Arabia. While rehabilitation plays a vital role in post-stroke recovery, improving awareness of stroke risk factors and warning signs is essential for timely recognition and management.</AbstractText><AbstractText Label="OBJECTIVES" NlmCategory="UNASSIGNED">This study aimed to evaluate knowledge, awareness, and practices regarding stroke warning signs and risk factors among rehabilitation students.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">A cross-sectional study was conducted using an anonymous online questionnaire distributed to 203 rehabilitation students. The survey assessed demographic data and participants' knowledge regarding stroke risk factors, symptoms, and management awareness.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">The findings indicated a moderate level of knowledge about stroke, with an average score of 9.24 out of 13. Participants most frequently recognized hypertension and smoking as major risk factors and identified key symptoms such as motor and speech difficulties. However, significant gaps were observed in understanding that stroke is a brain disease affecting people of all ages, as well as in knowledge of extracranial clot formation, endovascular management, and post-stroke emotional and personality changes after a stroke.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">Although this study assessed knowledge rather than clinical practice or patient outcomes, the results highlight the importance of targeted educational initiatives, integrating comprehensive stroke education modules into rehabilitation curricula, and awareness campaigns to address misconceptions and enhance stroke literacy among future healthcare professionals in Saudi Arabia.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Albishi, Almutairi, Alshehri, Almurdi and Alabdulwahab.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Albishi</LastName><ForeName>Alaa M</ForeName><Initials>AM</Initials><AffiliationInfo><Affiliation>Department of Rehabilitation Health Sciences, College of Applied Medical Sciences, King Saud University, Riyadh, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Almutairi</LastName><ForeName>Futun</ForeName><Initials>F</Initials><AffiliationInfo><Affiliation>Department of Rehabilitation Health Sciences, College of Applied Medical Sciences, King Saud University, Riyadh, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Alshehri</LastName><ForeName>Waleed M</ForeName><Initials>WM</Initials><AffiliationInfo><Affiliation>Department of Rehabilitation Health Sciences, College of Applied Medical Sciences, King Saud University, Riyadh, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Almurdi</LastName><ForeName>Muneera M</ForeName><Initials>MM</Initials><AffiliationInfo><Affiliation>Department of Rehabilitation Health Sciences, College of Applied Medical Sciences, King Saud University, Riyadh, Saudi Arabia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Alabdulwahab</LastName><ForeName>Sami S</ForeName><Initials>SS</Initials><AffiliationInfo><Affiliation>Department of Rehabilitation Health Sciences, College of Applied Medical Sciences, King Saud University, Riyadh, Saudi Arabia.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>02</Month><Day>17</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Med (Lausanne)</MedlineTA><NlmUniqueID>101648047</NlmUniqueID><ISSNLinking>2296-858X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Saudi Arabia</Keyword><Keyword MajorTopicYN="N">knowledge</Keyword><Keyword MajorTopicYN="N">rehabilitation</Keyword><Keyword MajorTopicYN="N">risk factors</Keyword><Keyword MajorTopicYN="N">stroke</Keyword><Keyword MajorTopicYN="N">warning signs</Keyword></KeywordList><CoiStatement>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>12</Month><Day>1</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2026</Year><Month>1</Month><Day>19</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>1</Month><Day>23</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>5</Day><Hour>7</Hour><Minute>10</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>5</Day><Hour>7</Hour><Minute>9</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>5</Day><Hour>4</Hour><Minute>48</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>2</Month><Day>17</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41783058</ArticleId><ArticleId IdType="pmc">PMC12953137</ArticleId><ArticleId IdType="doi">10.3389/fmed.2026.1758191</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Johnson W, Onuma O, Owolabi M, Sachdev S. Stroke: a global response is needed.
+<i>Bull World Health Organ.</i> (2016) 94:634&#x2013;634A. 10.2471/BLT.16.181636
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2471/BLT.16.181636</ArticleId><ArticleId IdType="pmc">PMC5034645</ArticleId><ArticleId IdType="pubmed">27708464</ArticleId></ArticleIdList></Reference><Reference><Citation>World Health Organization.
+<i>Stroke, Cerebrovascular Accident.</i>
+Geneva: WHO;  (2019).</Citation></Reference><Reference><Citation>GBD 2016 Stroke Collaborators.
+Global, regional, and national burden of stroke, 1990&#x2013;2016: a systematic analysis for the Global Burden of Disease Study 2016.
+<i>Lancet Neurol.</i> (2019) 18:439&#x2013;58. 10.1016/S1474-4422(19)30034-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1474-4422(19)30034-1</ArticleId><ArticleId IdType="pmc">PMC6494974</ArticleId><ArticleId IdType="pubmed">30871944</ArticleId></ArticleIdList></Reference><Reference><Citation>Al-Senani F, Al-Johani M, Salawati M, Alhazzani A, Morgenstern L, Seguel Ravest V, et al. 
+An epidemiological model for first stroke in Saudi Arabia.
+<i>J Stroke Cerebrovasc Dis.</i> (2020) 29:104465. 10.1016/j.jstrokecerebrovasdis.2019.104465
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jstrokecerebrovasdis.2019.104465</ArticleId><ArticleId IdType="pubmed">31704123</ArticleId></ArticleIdList></Reference><Reference><Citation>Yanagida T, Fujimoto S, Inoue T, Suzuki S. Prehospital delay and stroke-related symptoms.
+<i>Intern Med.</i> (2015) 54:171&#x2013;7. 10.2169/internalmedicine.54.2684
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2169/internalmedicine.54.2684</ArticleId><ArticleId IdType="pubmed">25743008</ArticleId></ArticleIdList></Reference><Reference><Citation>Pulvers J, Watson J. If time is brain where is the improvement in prehospital time after stroke?
+<i>Front Neurol.</i> (2017) 8:617. 10.3389/fneur.2017.00617
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fneur.2017.00617</ArticleId><ArticleId IdType="pmc">PMC5701972</ArticleId><ArticleId IdType="pubmed">29209269</ArticleId></ArticleIdList></Reference><Reference><Citation>Gomez C. Editorial: time is brain!
+<i>J Stroke Cerebrovasc Dis.</i> (1993) 3:1&#x2013;2. 10.1016/S1052-3057(10)80125-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1052-3057(10)80125-9</ArticleId><ArticleId IdType="pubmed">26487071</ArticleId></ArticleIdList></Reference><Reference><Citation>Brewer L, Horgan F, Hickey A, Williams D. Stroke rehabilitation: recent advances and future therapies.
+<i>QJM.</i> (2013) 106:11&#x2013;25. 10.1093/qjmed/hcs174
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/qjmed/hcs174</ArticleId><ArticleId IdType="pubmed">23019591</ArticleId></ArticleIdList></Reference><Reference><Citation>Bonifer N, Anderson K, Arciniegas D. Constraint-induced movement therapy after stroke: efficacy for patients with minimal upper-extremity motor ability.
+<i>Arch Phys Med Rehabil.</i> (2005) 86:1867&#x2013;73. 10.1016/j.apmr.2005.04.002
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.apmr.2005.04.002</ArticleId><ArticleId IdType="pubmed">16181956</ArticleId></ArticleIdList></Reference><Reference><Citation>Dobkin B. Clinical practice. Rehabilitation after stroke.
+<i>N Engl J Med.</i> (2005) 352:1677&#x2013;84. 10.1056/NEJMcp043511
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMcp043511</ArticleId><ArticleId IdType="pmc">PMC4106469</ArticleId><ArticleId IdType="pubmed">15843670</ArticleId></ArticleIdList></Reference><Reference><Citation>Pollock A, Farmer S, Brady M, Langhorne P, Mead G, Mehrholz J, et al. 
+Interventions for improving upper limb function after stroke.
+<i>Cochrane Database Syst Rev.</i> (2014) 2014:CD010820. 10.1002/14651858.CD010820.pub2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/14651858.CD010820.pub2</ArticleId><ArticleId IdType="pmc">PMC6469541</ArticleId><ArticleId IdType="pubmed">25387001</ArticleId></ArticleIdList></Reference><Reference><Citation>Johnson N, Carey J, Edelman B, Doud A, Grande A, Lakshminarayan K, et al. 
+Combined rTMS and virtual reality brain-computer interface training for motor recovery after stroke.
+<i>J Neural Eng.</i> (2018) 15:016009. 10.1088/1741-2552/aa8ce3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1088/1741-2552/aa8ce3</ArticleId><ArticleId IdType="pmc">PMC5821060</ArticleId><ArticleId IdType="pubmed">28914232</ArticleId></ArticleIdList></Reference><Reference><Citation>Singh P, Pradhan B. Study to assess the effectiveness of modified constraint-induced movement therapy in stroke subjects: a randomized controlled trial.
+<i>Ann Indian Acad Neurol.</i> (2013) 16:180&#x2013;4. 10.4103/0972-2327.112461
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4103/0972-2327.112461</ArticleId><ArticleId IdType="pmc">PMC3724070</ArticleId><ArticleId IdType="pubmed">23956560</ArticleId></ArticleIdList></Reference><Reference><Citation>Rizvi M, Ali N, Ahmed A, Adam R, Elgak S. Knowledge, attitude, and practice of stroke and its risk factors and warning signals among the students of the college of applied medicine at Majmaah University, Saudi Arabia.
+<i>Biomedicine.</i> (2023) 13:326&#x2013;32. 10.21103/Article13(2)_OA24</Citation><ArticleIdList><ArticleId IdType="doi">10.21103/Article13(2)_OA24</ArticleId></ArticleIdList></Reference><Reference><Citation>Lopez A, Mathers C, Ezzati M, Jamison D, Murray C. Global and regional burden of disease and risk factors, 2001: systematic analysis of population health data.
+<i>Lancet.</i> (2006) 367:1747&#x2013;57. 10.1016/S0140-6736(06)68770-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0140-6736(06)68770-9</ArticleId><ArticleId IdType="pubmed">16731270</ArticleId></ArticleIdList></Reference><Reference><Citation>Goodwill A, Teo W, Morgan P, Daly R, Kidgell D. Bihemispheric-tDCS and upper limb rehabilitation improves retention of motor function in chronic stroke: a pilot study.
+<i>Front Hum Neurosci.</i> (2016) 10:258. 10.3389/fnhum.2016.00258
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnhum.2016.00258</ArticleId><ArticleId IdType="pmc">PMC4899474</ArticleId><ArticleId IdType="pubmed">27375456</ArticleId></ArticleIdList></Reference><Reference><Citation>Pascual-Leone A, Amedi A, Fregni F, Merabet L. The plastic human brain cortex.
+<i>Annu Rev Neurosci.</i> (2005) 28:377&#x2013;401. 10.1146/annurev.neuro.27.070203.144216
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1146/annurev.neuro.27.070203.144216</ArticleId><ArticleId IdType="pubmed">16022601</ArticleId></ArticleIdList></Reference><Reference><Citation>Piron L, Turolla A, Agostini M, Zucconi C, Ventura L, Tonin P, et al. 
+Motor learning principles for rehabilitation: a pilot randomized controlled study in poststroke patients.
+<i>Neurorehabil Neural Repair.</i> (2010) 24:501&#x2013;8. 10.1177/1545968310362672
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1545968310362672</ArticleId><ArticleId IdType="pubmed">20581337</ArticleId></ArticleIdList></Reference><Reference><Citation>Winstein C, Varghese R. Been there, done that, so what&#x2019;s next for arm and hand rehabilitation in stroke?
+<i>NeuroRehabilitation.</i> (2018) 43:3&#x2013;18. 10.3233/NRE-172412
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3233/NRE-172412</ArticleId><ArticleId IdType="pubmed">29991146</ArticleId></ArticleIdList></Reference><Reference><Citation>Duncan P, Zorowitz R, Bates B, Choi J, Glasberg J, Graham G, et al. 
+Management of Adult <i>Stroke</i> rehabilitation care: a clinical practice guideline.
+<i>Stroke.</i> (2005) 36:e100&#x2013;43. 10.1161/01.STR.0000180861.54180.FF
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/01.STR.0000180861.54180.FF</ArticleId><ArticleId IdType="pubmed">16120836</ArticleId></ArticleIdList></Reference><Reference><Citation>Latham N, Jette D, Slavin M, Richards L, Procino A, Smout R, et al. 
+Physical therapy during stroke rehabilitation for people with different walking abilities.
+<i>Arch Phys Med Rehabil.</i> (2008) 86:2209&#x2013;15. 10.1016/j.apmr.2005.08.128
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.apmr.2005.08.128</ArticleId><ArticleId IdType="pubmed">16373139</ArticleId></ArticleIdList></Reference><Reference><Citation>Al-Johani M, Al-Johani A, Al-Khathaami A. Knowledge and attitudes of physical therapy students towards stroke rehabilitation in Saudi Arabia: a cross-sectional study.
+<i>J Stroke Cerebrovasc Dis.</i> (2018) 27:96&#x2013;102. 10.4103/jfmpc.jfmpc_64_18
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4103/jfmpc.jfmpc_64_18</ArticleId><ArticleId IdType="pmc">PMC6060932</ArticleId><ArticleId IdType="pubmed">30090781</ArticleId></ArticleIdList></Reference><Reference><Citation>Wolf P. Prevention of stroke.
+<i>Lancet.</i> (1998) 352:SIII15&#x2013;8. 10.1016/s0140-6736(98)90089-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0140-6736(98)90089-7</ArticleId><ArticleId IdType="pubmed">9803957</ArticleId></ArticleIdList></Reference><Reference><Citation>Grysiewicz R, Thomas K, Pandey D. Epidemiology of ischemic and hemorrhagic stroke: incidence, prevalence, mortality, and risk factors.
+<i>Neurol Clin.</i> (2008) 26:871&#x2013;95.vii. 10.1016/j.ncl.2008.07.003
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ncl.2008.07.003</ArticleId><ArticleId IdType="pubmed">19026895</ArticleId></ArticleIdList></Reference><Reference><Citation>Sakakibara B, Kim A, Eng JJ. A systematic review and meta-analysis on self-management for improving risk factor control in stroke patients.
+<i>Int J Behav Med.</i> (2017) 24:42&#x2013;53. 10.1007/s12529-016-9582-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12529-016-9582-7</ArticleId><ArticleId IdType="pmc">PMC5762183</ArticleId><ArticleId IdType="pubmed">27469998</ArticleId></ArticleIdList></Reference><Reference><Citation>Johansen H, Wielgosz A, Nguyen K, Fry R. Incidence, comorbidity, case fatality and readmission of hospitalized stroke patients in Canada.
+<i>Can J Cardiol.</i> (2006) 22:65&#x2013;71. 10.1016/s0828-282x(06)70242-2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0828-282x(06)70242-2</ArticleId><ArticleId IdType="pmc">PMC2538981</ArticleId><ArticleId IdType="pubmed">16450021</ArticleId></ArticleIdList></Reference><Reference><Citation>Karatepe A, Gunaydin R, Kaya T, Turkmen G. Comorbidity in patients after stroke: impact on functional outcome.
+<i>J Rehabil Med.</i> (2008) 40:831&#x2013;5. 10.2340/16501977-0269
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2340/16501977-0269</ArticleId><ArticleId IdType="pubmed">19242620</ArticleId></ArticleIdList></Reference><Reference><Citation>Sutton K, Hunter E, Logsdon B, Santella B, Kitzman P. The role of physical therapy in multiple risk factor management poststroke: a scoping review.
+<i>J Geriatr Phys Ther.</i> (2021) 44:165&#x2013;74. 10.1519/JPT.0000000000000248
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JPT.0000000000000248</ArticleId><ArticleId IdType="pubmed">32511115</ArticleId></ArticleIdList></Reference><Reference><Citation>Teasell R, Mehta S, Pereira S, McIntyre A, Janzen S, Allen L, et al. 
+Time to rethink long-term rehabilitation management of stroke patients.
+<i>Top Stroke Rehabil.</i> (2020) 19:457&#x2013;62. 10.1310/tsr1906-457
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1310/tsr1906-457</ArticleId><ArticleId IdType="pubmed">23192711</ArticleId></ArticleIdList></Reference><Reference><Citation>Bloom B. Learning for mastery. Instruction and curriculum. Regional education laboratory for the carolinas and virginia, topical papers and reprints, number 1.
+<i>Eval Comment.</i> (1968) 1:n2.</Citation></Reference><Reference><Citation>Mackay-Lyons M, Macdonald C, Howlett J. Metabolic syndrome and its components in individuals undergoing rehabilitation after stroke.
+<i>J Neurol Phys Ther.</i> (2009) 33:189&#x2013;94. 10.1097/NPT.0b013e3181c21764
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/NPT.0b013e3181c21764</ArticleId><ArticleId IdType="pubmed">20208463</ArticleId></ArticleIdList></Reference><Reference><Citation>Gunning E, Uszynski M. Effectiveness of the proprioceptive neuromuscular facilitation method on gait parameters in patients with stroke: a systematic review.
+<i>Arch Phys Med Rehabil.</i> (2019) 100:980&#x2013;6. 10.1016/j.apmr.2018.11.020
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.apmr.2018.11.020</ArticleId><ArticleId IdType="pubmed">30582917</ArticleId></ArticleIdList></Reference><Reference><Citation>Kumar A, Resnik L, Karmarkar A, Freburger J, Adhikari D, Mor V, et al. 
+Use of hospital-based rehabilitation services and hospital readmission following ischemic stroke in the United States.
+<i>Arch Phys Med Rehabil.</i> (2019) 100:1218&#x2013;25. 10.1016/j.apmr.2018.12.028
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.apmr.2018.12.028</ArticleId><ArticleId IdType="pmc">PMC6599551</ArticleId><ArticleId IdType="pubmed">30684485</ArticleId></ArticleIdList></Reference><Reference><Citation>Mason-Whitehead E, Ridgway V, Barton J. Passed without a stroke: a UK mixed method study exploring student nurses&#x2019; knowledge of stroke.
+<i>Nurse Educ Today.</i> (2013) 33:998&#x2013;1002. 10.1016/j.nedt.2012.07.021
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.nedt.2012.07.021</ArticleId><ArticleId IdType="pubmed">22981516</ArticleId></ArticleIdList></Reference><Reference><Citation>Abraham S, Krishnan S, Thaha F, Balakrishnan J, Thomas T, Palatty B. Factors delaying management of acute stroke: an Indian scenario.
+<i>Int J Crit Illn Inj Sci.</i> (2017) 7:224&#x2013;30. 10.4103/IJCIIS.IJCIIS_20_17
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4103/IJCIIS.IJCIIS_20_17</ArticleId><ArticleId IdType="pmc">PMC5737064</ArticleId><ArticleId IdType="pubmed">29291175</ArticleId></ArticleIdList></Reference><Reference><Citation>Pandian J, Kalra G, Jaison A, Deepak S, Shamsher S, Singh Y, et al. 
+Knowledge of stroke among stroke patients and their relatives in Northwest India.
+<i>Neurol India.</i> (2006) 54:152&#x2013;6. 10.1016/j.jstrokecerebrovasdis.2006.01.001
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jstrokecerebrovasdis.2006.01.001</ArticleId><ArticleId IdType="pubmed">16804258</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim H, Jeong S, Kang H. [Identification of subgroups with lower level of stroke knowledge using decision-tree analysis].
+<i>J Korean Acad Nurs.</i> (2014) 44:97&#x2013;107. 10.4040/jkan.2014.44.1.97
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4040/jkan.2014.44.1.97</ArticleId><ArticleId IdType="pubmed">24637290</ArticleId></ArticleIdList></Reference><Reference><Citation>Khalil H, Lahoud N. Knowledge of stroke warning signs, risk factors, and response to stroke among lebanese older adults in Beirut.
+<i>J Stroke Cerebrovasc Dis.</i> (2020) 29:104716. 10.1016/j.jstrokecerebrovasdis.2020.104716
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jstrokecerebrovasdis.2020.104716</ArticleId><ArticleId IdType="pubmed">32192843</ArticleId></ArticleIdList></Reference><Reference><Citation>Zafar A, Albakr A, Shahid R, Nazish S, Aljaafari D, Alkhamis F, et al. 
+Stroke literacy in the population of the Eastern Province of Saudi Arabia; immediate steps are essential to bridge the gap.
+<i>J Stroke Cerebrovasc Dis.</i> (2020) 29:105088. 10.1016/j.jstrokecerebrovasdis.2020.105088
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jstrokecerebrovasdis.2020.105088</ArticleId><ArticleId IdType="pubmed">32912552</ArticleId></ArticleIdList></Reference><Reference><Citation>Alzayer R, Barakat M, Jirjees F, Alhamdan A, Aloraifej S, Cherri S, et al. 
+Knowledge and awareness of stroke and associated factors in the Saudi general population: a cross-sectional study.
+<i>Front Neurol.</i> (2023) 14:1225980. 10.3389/fneur.2023.1225980
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fneur.2023.1225980</ArticleId><ArticleId IdType="pmc">PMC10552853</ArticleId><ArticleId IdType="pubmed">37808501</ArticleId></ArticleIdList></Reference><Reference><Citation>Yusoff MS. ABC of content validation and content validity index calculation.
+<i>Educ Med J.</i> (2019) 11:49&#x2013;54. 10.21315/eimj2019.11.2.6</Citation><ArticleIdList><ArticleId IdType="doi">10.21315/eimj2019.11.2.6</ArticleId></ArticleIdList></Reference><Reference><Citation>Albishi A. Knowledge, attitudes, and perceptions of physical therapists towards conventional physical therapy-across-sectional study.
+<i>Ann Med Surg.</i> (2024) 86:1942&#x2013;9. 10.1097/MS9.0000000000001883
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/MS9.0000000000001883</ArticleId><ArticleId IdType="pmc">PMC10990403</ArticleId><ArticleId IdType="pubmed">38576907</ArticleId></ArticleIdList></Reference><Reference><Citation>Albishi A, Al-Ageel H, AlAbdulwahab S. Knowledge and attitude towards bell&#x2019;s palsy rehabilitation among physical therapists in Saudi Arabia: a cross-sectional study.
+<i>Risk Manag Healthc Policy.</i> (2024) 17:2401&#x2013;13. 10.2147/RMHP.S481457
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/RMHP.S481457</ArticleId><ArticleId IdType="pmc">PMC11490203</ArticleId><ArticleId IdType="pubmed">39429692</ArticleId></ArticleIdList></Reference><Reference><Citation>Albishi A, Alhadlaq S, Altowairqi R, Alharbi M, Alsubiheen A, Alosaimi M, et al. 
+Knowledge and attitude toward transcranial magnetic stimulation among rehabilitation specialists in Saudi Arabia.
+<i>Front Bioeng Biotechnol.</i> (2024) 12:1352170. 10.3389/fbioe.2024.1352170
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fbioe.2024.1352170</ArticleId><ArticleId IdType="pmc">PMC10986175</ArticleId><ArticleId IdType="pubmed">38567083</ArticleId></ArticleIdList></Reference><Reference><Citation>Albishi A, Alokaily A, Altaib M, Alharbi M, Aldohbeyb A. Knowledge, attitude, and motivation regarding Transcranial direct current stimulation (tDCS) among rehabilitation specialists in Saudi Arabia: a cross-sectional study.
+<i>Healthcare.</i> (2025) 13:1300. 10.3390/healthcare13111300
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/healthcare13111300</ArticleId><ArticleId IdType="pmc">PMC12154063</ArticleId><ArticleId IdType="pubmed">40508913</ArticleId></ArticleIdList></Reference><Reference><Citation>Albishi A, Howis A, Alhusaini A. Barriers and facilitators of physical therapy homecare services for patients with stroke in Saudi Arabia.
+<i>NeuroRehabilitation.</i> (2025) 56:370&#x2013;83. 10.1177/10538135241311186
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/10538135241311186</ArticleId><ArticleId IdType="pubmed">40318661</ArticleId></ArticleIdList></Reference><Reference><Citation>Chassan J.
+<i>Research Design in Clinical Psychology and Psychiatry.</i>
+New York: Macmillan;  (1979).</Citation></Reference><Reference><Citation>Hill R. What sample size is &#x201c;enough&#x201d; in internet survey research.
+<i>Interpersonal Comput Technol Electronic J 21st Century.</i> (1998) 6:1&#x2013;2.</Citation></Reference><Reference><Citation>Kline R.
+<i>Principles and Practice of Structural Equation Modeling.</i>
+New York, NY: Guilford publications;  (2023).</Citation></Reference><Reference><Citation>Memon M, Ting H, Cheah J, Thurasamy R, Chuah F, Cham T. Sample size for survey research: review and recommendations.
+<i>J Appl Struct Eq Modeling.</i> (2020) 4:i&#x2013;xx. 10.47263/JASEM.4(2)01</Citation><ArticleIdList><ArticleId IdType="doi">10.47263/JASEM.4(2)01</ArticleId></ArticleIdList></Reference><Reference><Citation>Hussein H, Alshammari S, Alanazi I, Alenzy G, Alrashidy R. Sex-related differences in physical therapy career expectations in ha&#x2019;il, Saudi Arabia.
+<i>Acta Neuropsychol.</i> (2022) 20:385&#x2013;92. 10.5604/01.3001.0016.1050</Citation><ArticleIdList><ArticleId IdType="doi">10.5604/01.3001.0016.1050</ArticleId></ArticleIdList></Reference><Reference><Citation>Al Khathaami A, Aldriweesh M, Al Bdah B, Alhasson M, Alsaif S, Alluhidan W, et al. 
+Anterior circulation large vessel occlusion stroke in Saudi Arabia: prevalence, predictors, and outcome.
+<i>J Stroke Cerebrovasc Dis.</i> (2020) 29:105080. 10.1016/j.jstrokecerebrovasdis.2020.105080
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jstrokecerebrovasdis.2020.105080</ArticleId><ArticleId IdType="pubmed">32807477</ArticleId></ArticleIdList></Reference><Reference><Citation>Boehme A, Esenwa C, Elkind M. Stroke risk factors, genetics, and prevention.
+<i>Circ Res.</i> (2017) 120:472&#x2013;95. 10.1161/CIRCRESAHA.116.308398
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/CIRCRESAHA.116.308398</ArticleId><ArticleId IdType="pmc">PMC5321635</ArticleId><ArticleId IdType="pubmed">28154098</ArticleId></ArticleIdList></Reference><Reference><Citation>Bukhari S, Yaghi S, Bashir Z. Stroke in young adults.
+<i>J Clin Med.</i> (2023) 12:4999. 10.3390/jcm12154999
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/jcm12154999</ArticleId><ArticleId IdType="pmc">PMC10420127</ArticleId><ArticleId IdType="pubmed">37568401</ArticleId></ArticleIdList></Reference><Reference><Citation>Coleman E, Moudgal R, Lang K, Hyacinth H, Awosika O, Kissela B, et al. 
+Early rehabilitation after stroke: a narrative review.
+<i>Curr Atheroscler Rep.</i> (2017) 19:1&#x2013;2. 10.1007/s11883-017-0686-6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11883-017-0686-6</ArticleId><ArticleId IdType="pmc">PMC5802378</ArticleId><ArticleId IdType="pubmed">29116473</ArticleId></ArticleIdList></Reference><Reference><Citation>Muresanu D. Neuroplasticity and neurorecovery.
+<i>Stroke.</i> (2009) 37&#x2013;49.</Citation></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

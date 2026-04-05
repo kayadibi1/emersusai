@@ -1,0 +1,209 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">30723416</PMID><DateRevised><Year>2020</Year><Month>10</Month><Day>01</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Dynamic, Not Isometric Resistance Training Improves Muscle Inflammation, Oxidative Stress and Hypertrophy in Rats.</ArticleTitle><Pagination><StartPage>4</StartPage><MedlinePgn>4</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">4</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.00004</ELocationID><Abstract><AbstractText>This study aimed to compare the effects of dynamic (DRT) and isometric (IRT) resistance training on blood glucose, muscle redox capacity, inflammatory state, and muscle strength and hypertrophy. Fifteen 12-week-old male Wistar rats were randomly allocated into three groups: control group (CTL), DRT, and IRT, <i>n</i> = 5 animals per group. The animals were submitted to a maximal weight carried (MWC; every 15 days) and maximum isometric resistance (MIR; pre- and post-training) tests. Both training protocols were performed five times a week during 12 weeks, consisting of one set of eight uninterrupted climbs for 1 min with a 30% overload of MWC. The animals in the IRT group remained under isometry for 1 min. The DRT group experienced greater MWC from pre- to post-training compared to the CTL and IRT groups (<i>p</i> &lt; 0.0001). The DRT and IRT groups displayed similar gains in MIR (<i>p</i> = 0.3658). The DRT group exhibited improved glycemic homeostasis (<i>p</i> = 0.0111), redox (<i>p</i> &lt; 0.0001), and inflammatory (<i>p</i> &lt; 0.0001) balance as compared with CTL and IRT groups. In addition, the improved glycemic profile was associated with an increase in muscle strength and hypertrophy, improvement in redox balance and inflammation status. We conclude that DRT was more effective than IRT on increasing cross-sectional area, but not muscle strength, in parallel to improved blood glucose, inflammatory status, and redox balance.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Neves</LastName><ForeName>Rodrigo Vanerson Passos</ForeName><Initials>RVP</Initials><AffiliationInfo><Affiliation>Graduate Program in Physical Education, Catholic University of Bras&#xed;lia, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Rosa</LastName><ForeName>Thiago Santos</ForeName><Initials>TS</Initials><AffiliationInfo><Affiliation>Graduate Program in Physical Education, Catholic University of Bras&#xed;lia, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Graduate Program in Exercise Physiology, Ibirapuera University, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Souza</LastName><ForeName>Michel Kendy</ForeName><Initials>MK</Initials><AffiliationInfo><Affiliation>Graduate Program in Physical Education, Catholic University of Bras&#xed;lia, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Oliveira</LastName><ForeName>Alexsander Jos&#xe9; Costa</ForeName><Initials>AJC</Initials><AffiliationInfo><Affiliation>Physical Education School, University Center Est&#xe1;cio, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gomes</LastName><ForeName>Gustavo Neves Souza</ForeName><Initials>GNS</Initials><AffiliationInfo><Affiliation>Graduate Program in Physical Education, Catholic University of Bras&#xed;lia, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Brixi</LastName><ForeName>Bernardo</ForeName><Initials>B</Initials><AffiliationInfo><Affiliation>Graduate Program in Physical Education, Catholic University of Bras&#xed;lia, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Souza</LastName><ForeName>Luiz Humberto Rodrigues</ForeName><Initials>LHR</Initials><AffiliationInfo><Affiliation>Graduate Program in Physical Education, Catholic University of Bras&#xed;lia, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Physical Education, State of Bahia University (UNEB) - DEDC/XII Campus, Guanambi, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Deus</LastName><ForeName>Lysleine Alves</ForeName><Initials>LA</Initials><AffiliationInfo><Affiliation>Graduate Program in Physical Education, Catholic University of Bras&#xed;lia, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sim&#xf5;es</LastName><ForeName>Herbert Gustavo</ForeName><Initials>HG</Initials><AffiliationInfo><Affiliation>Graduate Program in Physical Education, Catholic University of Bras&#xed;lia, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Stone</LastName><ForeName>Whitley Jo</ForeName><Initials>WJ</Initials><AffiliationInfo><Affiliation>School of Nutrition, Kinesiology, and Psychological Sciences, University of Central Missouri, Warrensburg, MO, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Prestes</LastName><ForeName>Jonato</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Graduate Program in Physical Education, Catholic University of Bras&#xed;lia, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Moraes</LastName><ForeName>Milton Rocha</ForeName><Initials>MR</Initials><AffiliationInfo><Affiliation>Graduate Program in Physical Education, Catholic University of Bras&#xed;lia, Bras&#xed;lia, Brazil.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>01</Month><Day>22</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">antioxidant defense</Keyword><Keyword MajorTopicYN="N">blood glucose</Keyword><Keyword MajorTopicYN="N">cytokines</Keyword><Keyword MajorTopicYN="N">inflammation</Keyword><Keyword MajorTopicYN="N">muscle strength</Keyword><Keyword MajorTopicYN="N">oxidative stress</Keyword><Keyword MajorTopicYN="N">static resistance training</Keyword><Keyword MajorTopicYN="N">strength training</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>10</Month><Day>5</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>1</Month><Day>7</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>2</Month><Day>7</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>2</Month><Day>7</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>2</Month><Day>7</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>1</Month><Day>22</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">30723416</ArticleId><ArticleId IdType="pmc">PMC6349781</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.00004</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Adams G. R., Cheng D. C., Haddad F., Baldwin K. M. (2004). Skeletal muscle hypertrophy in response to isometric, lengthening, and shortening training bouts of equivalent duration.
+<i>J. Appl. Physiol.</i>
+96
+1613&#x2013;1618. 10.1152/japplphysiol.01162.2003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01162.2003</ArticleId><ArticleId IdType="pubmed">15075307</ArticleId></ArticleIdList></Reference><Reference><Citation>Ahlborg B., Bergstrom J., Ekelund L. G., Guarnieri G., Harris R. C., Hultman E., et al.  (1972). Muscle metabolism during isometric exercise performed at constant force.
+<i>J. Appl. Physiol.</i>
+33
+224&#x2013;228. 10.1152/jappl.1972.33.2.224
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1972.33.2.224</ArticleId><ArticleId IdType="pubmed">5054429</ArticleId></ArticleIdList></Reference><Reference><Citation>Akerboom T. P., Sies H. (1981). Assay of glutathione, glutathione disulfide, and glutathione mixed disulfides in biological samples.
+<i>Methods Enzymol.</i>
+77
+373&#x2013;382. 10.1016/S0076-6879(81)77050-2</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0076-6879(81)77050-2</ArticleId><ArticleId IdType="pubmed">7329314</ArticleId></ArticleIdList></Reference><Reference><Citation>Artero E. G., Lee D. C., Ruiz J. R., Sui X., Ortega F. B., Church T. S., et al.  (2011). A prospective study of muscular strength and all-cause mortality in men with hypertension.
+<i>J. Am. Coll. Cardiol.</i>
+57
+1831&#x2013;1837. 10.1016/j.jacc.2010.12.025
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jacc.2010.12.025</ArticleId><ArticleId IdType="pmc">PMC3098120</ArticleId><ArticleId IdType="pubmed">21527158</ArticleId></ArticleIdList></Reference><Reference><Citation>Bradley S. J., Kingwell B. A., McConell G. K. (1999). Nitric oxide synthase inhibition reduces leg glucose uptake but not blood flow during dynamic exercise in humans.
+<i>Diabetes</i>
+48
+1815&#x2013;1821. 10.2337/diabetes.48.9.1815</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diabetes.48.9.1815</ArticleId><ArticleId IdType="pubmed">10480613</ArticleId></ArticleIdList></Reference><Reference><Citation>Carvalho-Filho M. A., Ueno M., Hirabara S. M., Seabra A. B., Carvalheira J. B., De Oliveira M. G., et al.  (2005). S-nitrosation of the insulin receptor, insulin receptor substrate 1, and protein kinase B/Akt: a novel mechanism of insulin resistance.
+<i>Diabetes</i>
+54
+959&#x2013;967. 10.2337/diabetes.54.4.959
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diabetes.54.4.959</ArticleId><ArticleId IdType="pubmed">15793233</ArticleId></ArticleIdList></Reference><Reference><Citation>Chambers M. A., Moylan J. S., Smith J. D., Goodyear L. J., Reid M. B. (2009). Stretch-stimulated glucose uptake in skeletal muscle is mediated by reactive oxygen species and p38 MAP-kinase.
+<i>J. Physiol.</i>
+587
+3363&#x2013;3373. 10.1113/jphysiol.2008.165639
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2008.165639</ArticleId><ArticleId IdType="pmc">PMC2727043</ArticleId><ArticleId IdType="pubmed">19403598</ArticleId></ArticleIdList></Reference><Reference><Citation>Church T. S., Blair S. N., Cocreham S., Johannsen N., Johnson W., Kramer K., et al.  (2010). Effects of aerobic and resistance training on hemoglobin A1c levels in patients with type 2 diabetes: a randomized controlled trial.
+<i>JAMA</i>
+304
+2253&#x2013;2262. 10.1001/jama.2010.1710
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2010.1710</ArticleId><ArticleId IdType="pmc">PMC3174102</ArticleId><ArticleId IdType="pubmed">21098771</ArticleId></ArticleIdList></Reference><Reference><Citation>Da Silva A. S., Pauli J. R., Ropelle E. R., Oliveira A. G., Cintra D. E., De C. S., et al.  (2010). Exercise intensity, inflammatory signaling, and insulin resistance in obese rats.
+<i>Med. Sci. Sports Exerc.</i>
+42
+2180&#x2013;2188. 10.1249/MSS.0b013e3181e45d08
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181e45d08</ArticleId><ArticleId IdType="pubmed">20473230</ArticleId></ArticleIdList></Reference><Reference><Citation>D&#x2019;Alessandris C., Lauro R., Presta I., Sesti G. (2007). C-reactive protein induces phosphorylation of insulin receptor substrate-1 on Ser307 and Ser612 in L6 myocytes, thereby impairing the insulin signaling pathway that promotes glucose transport.
+<i>Diabetologia</i>
+50
+840&#x2013;849. 10.1007/s00125-006-0522-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00125-006-0522-y</ArticleId><ArticleId IdType="pubmed">17279354</ArticleId></ArticleIdList></Reference><Reference><Citation>Dudley G. A. (1988). Metabolic consequences of resistive-type exercise.
+<i>Med. Sci. Sports Exerc.</i>
+20
+S158&#x2013;S161. 10.1249/00005768-198810001-00012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00005768-198810001-00012</ArticleId><ArticleId IdType="pubmed">3057316</ArticleId></ArticleIdList></Reference><Reference><Citation>Etgen G. J., Fryburg D. A., Gibbs E. M. (1997). Nitric oxide stimulates skeletal muscle glucose transport through a calcium/contraction&#x2013;and phosphatidylinositol-3-kinase&#x2013;independent pathway.
+<i>Diabetes</i>
+46
+1915&#x2013;1919. 10.2337/diab.46.11.1915
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diab.46.11.1915</ArticleId><ArticleId IdType="pubmed">9356048</ArticleId></ArticleIdList></Reference><Reference><Citation>Figard H., Gaume V., Mougin F., Demougeot C., Berthelot A. (2006). Beneficial effects of isometric strength training on endothelial dysfunction in rats.
+<i>Appl. Physiol. Nutr. Metab.</i>
+31
+621&#x2013;630. 10.1139/h06-070
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/h06-070</ArticleId><ArticleId IdType="pubmed">17111017</ArticleId></ArticleIdList></Reference><Reference><Citation>Guizoni D. M., Dorighello G. G., Oliveira H. C., Delbin M. A., Krieger M. H., Davel A. P. (2016). Aerobic exercise training protects against endothelial dysfunction by increasing nitric oxide and hydrogen peroxide production in LDL receptor-deficient mice.
+<i>J. Transl. Med.</i>
+14:213. 10.1186/s12967-016-0972-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12967-016-0972-z</ArticleId><ArticleId IdType="pmc">PMC4950099</ArticleId><ArticleId IdType="pubmed">27435231</ArticleId></ArticleIdList></Reference><Reference><Citation>Gutteridge J. M. (1995). Lipid peroxidation and antioxidants as biomarkers of tissue damage.
+<i>Clin. Chem.</i>
+41
+1819&#x2013;1828.</Citation><ArticleIdList><ArticleId IdType="pubmed">7497639</ArticleId></ArticleIdList></Reference><Reference><Citation>Holmdahl R., Malissen B. (2012). The need for littermate controls.
+<i>Eur. J. Immunol.</i>
+42
+45&#x2013;47. 10.1002/eji.201142048
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/eji.201142048</ArticleId><ArticleId IdType="pubmed">22213045</ArticleId></ArticleIdList></Reference><Reference><Citation>Ihlemann J., Ploug T., Hellsten Y., Galbo H. (1999). Effect of tension on contraction-induced glucose transport in rat skeletal muscle.
+<i>Am. J. Physiol.</i>
+277
+E208&#x2013;E214. 10.1152/ajpendo.1999.277.2.E208
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.1999.277.2.E208</ArticleId><ArticleId IdType="pubmed">10444414</ArticleId></ArticleIdList></Reference><Reference><Citation>Jung S., Ahn N., Kim S., Byun J., Joo Y., Kim S., et al.  (2015). The effect of ladder-climbing exercise on atrophy/hypertrophy-related myokine expression in middle-aged male Wistar rats.
+<i>J. Physiol. Sci.</i>
+65
+515&#x2013;521. 10.1007/s12576-015-0388-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12576-015-0388-1</ArticleId><ArticleId IdType="pmc">PMC10717129</ArticleId><ArticleId IdType="pubmed">26223833</ArticleId></ArticleIdList></Reference><Reference><Citation>Kido K., Ato S., Yokokawa T., Makanae Y., Sato K., Fujita S. (2016). Acute resistance exercise-induced IGF1 expression and subsequent GLUT4 translocation.
+<i>Physiol. Rep.</i>
+4:e12907. 10.14814/phy2.12907
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.12907</ArticleId><ArticleId IdType="pmc">PMC5002915</ArticleId><ArticleId IdType="pubmed">27550988</ArticleId></ArticleIdList></Reference><Reference><Citation>Kilkenny C., Browne W. J., Cuthill I. C., Emerson M., Altman D. G. (2010). Improving bioscience research reporting: the ARRIVE guidelines for reporting animal research.
+<i>PLoS Biol.</i>
+8:e1000412. 10.1371/journal.pbio.1000412
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pbio.1000412</ArticleId><ArticleId IdType="pmc">PMC2893951</ArticleId><ArticleId IdType="pubmed">20613859</ArticleId></ArticleIdList></Reference><Reference><Citation>Kingwell B. A., Formosa M., Muhlmann M., Bradley S. J., McConell G. K. (2002). Nitric oxide synthase inhibition reduces glucose uptake during exercise in individuals with type 2 diabetes more than in control subjects.
+<i>Diabetes</i>
+51
+2572&#x2013;2580. 10.2337/diabetes.51.8.2572
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diabetes.51.8.2572</ArticleId><ArticleId IdType="pubmed">12145173</ArticleId></ArticleIdList></Reference><Reference><Citation>Kraemer W. J., Fleck S. J., Evans W. J. (1996). Strength and power training: physiological mechanisms of adaptation.
+<i>Exerc. Sport Sci. Rev.</i>
+24
+363&#x2013;397. 10.1249/00003677-199600240-00014</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00003677-199600240-00014</ArticleId><ArticleId IdType="pubmed">8744256</ArticleId></ArticleIdList></Reference><Reference><Citation>Kruger K., Gessner D. K., Seimetz M., Banisch J., Ringseis R., Eder K., et al.  (2013). Functional and muscular adaptations in an experimental model for isometric strength training in mice.
+<i>PLoS One</i>
+8:e79069. 10.1371/journal.pone.0079069
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0079069</ArticleId><ArticleId IdType="pmc">PMC3827300</ArticleId><ArticleId IdType="pubmed">24236089</ArticleId></ArticleIdList></Reference><Reference><Citation>Lambova S. (2017). Exercise programmes for osteoarthritis with different localization.
+<i>Curr. Rheumatol. Rev.</i>
+14
+123&#x2013;130. 10.2174/1573397113666170810153808
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2174/1573397113666170810153808</ArticleId><ArticleId IdType="pubmed">28799491</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee S., Kim Y., White D., Kuk J., Arslanian S. (2012). Relationships between insulin sensitivity, skeletal muscle mass and muscle quality in obese adolescent boys.
+<i>Eur. J. Clin. Nutr.</i>
+66
+1366&#x2013;1368. 10.1038/ejcn.2012.142
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/ejcn.2012.142</ArticleId><ArticleId IdType="pmc">PMC3656505</ArticleId><ArticleId IdType="pubmed">23073260</ArticleId></ArticleIdList></Reference><Reference><Citation>Maleki B. H., Tartibian B. (2018). resistance exercise modulates male factor infertility through anti-inflammatory and antioxidative mechanisms in infertile men: a Rct.
+<i>Life Sci.</i>
+203
+150&#x2013;160. 10.1016/j.lfs.2018.04.039
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.lfs.2018.04.039</ArticleId><ArticleId IdType="pubmed">29698651</ArticleId></ArticleIdList></Reference><Reference><Citation>McConell G. K., Rattigan S., Lee-Young R. S., Wadley G. D., Merry T. L. (2012). Skeletal muscle nitric oxide signaling and exercise: a focus on glucose metabolism.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+303
+E301&#x2013;E307. 10.1152/ajpendo.00667.2011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00667.2011</ArticleId><ArticleId IdType="pubmed">22550064</ArticleId></ArticleIdList></Reference><Reference><Citation>Merry T. L., Steinberg G. R., Lynch G. S., McConell G. K. (2009). Skeletal muscle glucose uptake during contraction is regulated by nitric oxide and ROS independently of AMPK.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+298
+E577&#x2013;E585. 10.1152/ajpendo.00239.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00239.2009</ArticleId><ArticleId IdType="pubmed">20009026</ArticleId></ArticleIdList></Reference><Reference><Citation>Millar P. J., McGowan C. L., Cornelissen V. A., Araujo C. G., Swaine I. L. (2014). Evidence for the role of isometric exercise training in reducing blood pressure: potential mechanisms and future directions.
+<i>Sports Med.</i>
+44
+345&#x2013;356. 10.1007/s40279-013-0118-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-013-0118-x</ArticleId><ArticleId IdType="pubmed">24174307</ArticleId></ArticleIdList></Reference><Reference><Citation>Miller W., Sherman W., Ivy J. (1984). Effect of strength training on glucose tolerance and post-glucose insulin response.
+<i>Med. Sci. Sports Exerc.</i>
+16
+539&#x2013;543. 10.1249/00005768-198412000-00003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00005768-198412000-00003</ArticleId><ArticleId IdType="pubmed">6392812</ArticleId></ArticleIdList></Reference><Reference><Citation>Miranda K. M., Espey M. G., Wink D. A. (2001). A rapid, simple spectrophotometric method for simultaneous detection of nitrate and nitrite.
+<i>Nitric Oxide Biol. Chem.</i>
+5
+62&#x2013;71. 10.1006/niox.2000.0319
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1006/niox.2000.0319</ArticleId><ArticleId IdType="pubmed">11178938</ArticleId></ArticleIdList></Reference><Reference><Citation>Moraes M. R., Bacurau R. F., Casarini D. E., Jara Z. P., Ronchi F. A., Almeida S. S., et al.  (2012). Chronic conventional resistance exercise reduces blood pressure in stage 1 hypertensive men.
+<i>J. Strength Condition. Res. Natl. Strength Condition. Assoc.</i>
+26
+1122&#x2013;1129. 10.1519/JSC.0b013e31822dfc5e
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31822dfc5e</ArticleId><ArticleId IdType="pubmed">22126975</ArticleId></ArticleIdList></Reference><Reference><Citation>Mounier R., Cavali&#xe9; H., Lac G., Clottes E. (2007). Molecular impact of clenbuterol and isometric strength training on rat EDL muscles.
+<i>Pfl&#xfc;g. Arch. Eur. J. Physiol.</i>
+453
+497&#x2013;507. 10.1007/s00424-006-0122-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00424-006-0122-1</ArticleId><ArticleId IdType="pubmed">17093970</ArticleId></ArticleIdList></Reference><Reference><Citation>Neves R. V., Souza M. K., Passos C. S., Bacurau R. F., Simoes H. G., Prestes J., et al.  (2016). Resistance training in spontaneously hypertensive rats with severe hypertension.
+<i>Arq. Bras. Cardiol.</i>
+106
+201&#x2013;209. 10.5935/abc.20160019
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5935/abc.20160019</ArticleId><ArticleId IdType="pmc">PMC4811275</ArticleId><ArticleId IdType="pubmed">26840054</ArticleId></ArticleIdList></Reference><Reference><Citation>Nunes P. R., Barcelos L. C., Oliveira A. A., Furlanetto Junior R., Martins F. M., Orsatti C. L., et al.  (2016). Effect of resistance training on muscular strength and indicators of abdominal adiposity, metabolic risk, and inflammation in postmenopausal women: controlled and randomized clinical trial of efficacy of training volume.
+<i>Age</i>
+38:40. 10.1007/s11357-016-9901-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11357-016-9901-6</ArticleId><ArticleId IdType="pmc">PMC5005909</ArticleId><ArticleId IdType="pubmed">26984105</ArticleId></ArticleIdList></Reference><Reference><Citation>Ohkawa H., Ohishi N., Yagi K. (1979). Assay for lipid peroxides in animal tissues by thiobarbituric acid reaction.
+<i>Anal. Biochem.</i>
+95
+351&#x2013;358. 10.1016/0003-2697(79)90738-3</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0003-2697(79)90738-3</ArticleId><ArticleId IdType="pubmed">36810</ArticleId></ArticleIdList></Reference><Reference><Citation>Ouwens D. M., Boer C., Fodor M., de Galan P., Heine R. J., Maassen J. A., et al.  (2005). Cardiac dysfunction induced by high-fat diet is associated with altered myocardial insulin signaling in rats.
+<i>Diabetologia</i>
+48
+1229&#x2013;1237. 10.1007/s00125-005-1755-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00125-005-1755-x</ArticleId><ArticleId IdType="pubmed">15864533</ArticleId></ArticleIdList></Reference><Reference><Citation>Padilha C. S., Borges F. H., Costa Mendes da Silva L. E., Frajacomo F. T. T., Jordao A. A., Duarte J. A., et al.  (2017). Resistance exercise attenuates skeletal muscle oxidative stress, systemic pro-inflammatory state, and cachexia in Walker-256 tumor-bearing rats.
+<i>Appl. Physiol. Nutr. Metab.</i>
+42
+916&#x2013;923. 10.1139/apnm-2016-0436
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/apnm-2016-0436</ArticleId><ArticleId IdType="pubmed">28475846</ArticleId></ArticleIdList></Reference><Reference><Citation>Padilha C. S., Ribeiro A. S., Fleck S. J., Nascimento M. A., Pina F. L., Okino A. M., et al.  (2015). Effect of resistance training with different frequencies and detraining on muscular strength and oxidative stress biomarkers in older women.
+<i>Age</i>
+37:104. 10.1007/s11357-015-9841-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11357-015-9841-6</ArticleId><ArticleId IdType="pmc">PMC5005843</ArticleId><ArticleId IdType="pubmed">26423425</ArticleId></ArticleIdList></Reference><Reference><Citation>Panveloski-Costa A. C., J&#xfa;nior P., Correa D. A., Brand&#xe3;o B. B., Moreira R. J., Machado U. F., et al.  (2011). Resistive training reduces inflammation in skeletal muscle and improves the peripheral insulin sensitivity in obese rats induced by hyperlipidic diet.
+<i>Arq. Bras. Endocrinol. Metab.</i>
+55
+155&#x2013;163. 10.1590/S0004-27302011000200008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1590/S0004-27302011000200008</ArticleId><ArticleId IdType="pubmed">21584433</ArticleId></ArticleIdList></Reference><Reference><Citation>Peltoniemi P., Yki-Jarvinen H., Oikonen V., Oksanen A., Takala T. O., Ronnemaa T., et al.  (2001). Resistance to exercise-induced increase in glucose uptake during hyperinsulinemia in insulin-resistant skeletal muscle of patients with type 1 diabetes.
+<i>Diabetes</i>
+50
+1371&#x2013;1377. 10.2337/diabetes.50.6.1371</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diabetes.50.6.1371</ArticleId><ArticleId IdType="pubmed">11375338</ArticleId></ArticleIdList></Reference><Reference><Citation>Peters P. G., Alessio H. M., Hagerman A. E., Ashton T., Nagy S., Wiley R. L. (2006). Short-term isometric exercise reduces systolic blood pressure in hypertensive adults: possible role of reactive oxygen species.
+<i>Int. J. Cardiol.</i>
+110
+199&#x2013;205. 10.1016/j.ijcard.2005.07.035
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ijcard.2005.07.035</ArticleId><ArticleId IdType="pubmed">16239039</ArticleId></ArticleIdList></Reference><Reference><Citation>Pion C. H., Barbat-Artigas S., St-Jean-Pelletier F., Chevalier S., Gaudreau P., Gouspillou G., et al.  (2017). Muscle strength and force development in high- and low-functioning elderly men: influence of muscular and neural factors.
+<i>Exp. Gerontol.</i>
+96
+19&#x2013;28. 10.1016/j.exger.2017.05.021
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.exger.2017.05.021</ArticleId><ArticleId IdType="pubmed">28579089</ArticleId></ArticleIdList></Reference><Reference><Citation>Ristow M., Zarse K., Oberbach A., Kl&#xf6;ting N., Birringer M., Kiehntopf M., et al.  (2009). Antioxidants prevent health-promoting effects of physical exercise in humans.
+<i>Proc. Natl. Acad. Sci. U.S.A.</i>
+106
+8665&#x2013;8670. 10.1073/pnas.0903485106
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.0903485106</ArticleId><ArticleId IdType="pmc">PMC2680430</ArticleId><ArticleId IdType="pubmed">19433800</ArticleId></ArticleIdList></Reference><Reference><Citation>Rosa T. S., Amorim C. E., Barros C. C., Haro A. S., Wasinski F., Russo F. J., et al.  (2015). Role of leptin in body temperature regulation and lipid metabolism following splenectomy.
+<i>Neuropeptides</i>
+54
+67&#x2013;72. 10.1016/j.npep.2015.10.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.npep.2015.10.006</ArticleId><ArticleId IdType="pubmed">26526226</ArticleId></ArticleIdList></Reference><Reference><Citation>Shekarchizadeh Esfahani P., Gharakhanlou R., Karimian J., Khazaei M., Feizi A., Safarzade A. (2013). Effect of resistance training on plasma nitric oxide and asymmetric dimethylarginine concentrations in type i diabetic rats.
+<i>Int. J. Prev. Med.</i>
+1
+S78&#x2013;S84. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC3665032</ArticleId><ArticleId IdType="pubmed">23717776</ArticleId></ArticleIdList></Reference><Reference><Citation>Souza L. R., Vicente J. B., Melo G. R., Moraes V. C., Olher R. R., Sousa I. C., et al.  (2018). Acute Hypotension after moderate-intensity handgrip exercise in hypertensive elderly people.
+<i>J. Strength Condition. Res.</i>
+32
+2971&#x2013;2977. 10.1519/JSC.0000000000002460
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002460</ArticleId><ArticleId IdType="pubmed">29384998</ArticleId></ArticleIdList></Reference><Reference><Citation>Souza M. K., Neves R. V. P., Rosa T. S., Cenedeze M. A., Arias S. C. A., Fujihara C. K., et al.  (2018). Resistance training attenuates inflammation and the progression of renal fibrosis in chronic renal disease.
+<i>Life Sci.</i>
+206
+93&#x2013;97. 10.1016/j.lfs.2018.05.034
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.lfs.2018.05.034</ArticleId><ArticleId IdType="pubmed">29787737</ArticleId></ArticleIdList></Reference><Reference><Citation>Stocks J., Gutteridge J. M., Sharp R. J., Dormandy T. L. (1974). Assay using brain homogenate for measuring the antioxidant activity of biological fluids.
+<i>Clin. Sci. Mol. Med.</i>
+47
+215&#x2013;222. 10.1042/cs0470215
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1042/cs0470215</ArticleId><ArticleId IdType="pubmed">4425439</ArticleId></ArticleIdList></Reference><Reference><Citation>Styskal J., Van Remmen H., Richardson A., Salmon A. B. (2012). Oxidative stress and diabetes: what can we learn about insulin resistance from antioxidant mutant mouse models?
+<i>Free Radic. Biol. Med.</i>
+52
+46&#x2013;58. 10.1016/j.freeradbiomed.2011.10.441
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.freeradbiomed.2011.10.441</ArticleId><ArticleId IdType="pmc">PMC3249484</ArticleId><ArticleId IdType="pubmed">22056908</ArticleId></ArticleIdList></Reference><Reference><Citation>Sylow L., Kleinert M., Richter E. A., Jensen T. E. (2017). Exercise-stimulated glucose uptake&#x2014;regulation and implications for glycaemic control.
+<i>Nat. Rev. Endocrinol.</i>
+13
+133&#x2013;148. 10.1038/nrendo.2016.162
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nrendo.2016.162</ArticleId><ArticleId IdType="pubmed">27739515</ArticleId></ArticleIdList></Reference><Reference><Citation>Talebi-Garakani E., Safarzade A. (2013). Resistance training decreases serum inflammatory markers in diabetic rats.
+<i>Endocrine</i>
+43
+564&#x2013;570. 10.1007/s12020-012-9786-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12020-012-9786-9</ArticleId><ArticleId IdType="pubmed">22948775</ArticleId></ArticleIdList></Reference><Reference><Citation>Tang L., Luo K., Liu C., Wang X., Zhang D., Chi A., et al.  (2014). Decrease in myostatin by ladder-climbing training is associated with insulin resistance in diet-induced obese rats.
+<i>Chin. Med. J.</i>
+127
+2342&#x2013;2349. </Citation><ArticleIdList><ArticleId IdType="pubmed">24931254</ArticleId></ArticleIdList></Reference><Reference><Citation>Xie F., Zhu J., Hou B., Wang Y., Meng F., Ren Z., et al.  (2017). Inhibition of NF-&#x3ba;B activation improves insulin resistance of L6 cells.
+<i>Endocrine J.</i>
+64
+685&#x2013;693. 10.1507/endocrj.EJ17-0012</Citation><ArticleIdList><ArticleId IdType="doi">10.1507/endocrj.EJ17-0012</ArticleId><ArticleId IdType="pubmed">28529245</ArticleId></ArticleIdList></Reference><Reference><Citation>Yang J. (2014). Enhanced skeletal muscle for effective glucose homeostasis.
+<i>Prog. Mol. Biol. Transl. Sci.</i>
+121
+133&#x2013;163. 10.1016/B978-0-12-800101-1.00005-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/B978-0-12-800101-1.00005-3</ArticleId><ArticleId IdType="pubmed">24373237</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

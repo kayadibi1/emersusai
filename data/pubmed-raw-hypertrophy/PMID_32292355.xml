@@ -1,0 +1,151 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">32292355</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>28</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>11</Volume><PubDate><Year>2020</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Skeletal Muscle Protein Composition Adaptations to 10 Weeks of High-Load Resistance Training in Previously-Trained Males.</ArticleTitle><Pagination><StartPage>259</StartPage><MedlinePgn>259</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">259</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2020.00259</ELocationID><Abstract><AbstractText>While high-load resistance training increases muscle hypertrophy, the intramuscular protein responses to this form of training remains largely unknown. In the current study, recreationally resistance-trained college-aged males (<i>N</i> = 15; mean &#xb1; SD: 23 &#xb1; 3 years old, 6 &#xb1; 5 years training) performed full-body, low-volume, high-load [68-90% of one repetition maximum (1RM)] resistance training over 10 weeks. Back squat strength testing, body composition testing, and a vastus lateralis biopsy were performed before (PRE) and 72 h after the 10-week training program (POST). Fiber type-specific cross-sectional area (fCSA), myofibrillar protein concentrations, sarcoplasmic protein concentrations, myosin heavy chain and actin protein abundances, and muscle tissue percent fluid were analyzed. The abundances of individual sarcoplasmic proteins in 10 of the 15 participants were also assessed using proteomics. Significant increases (<i>p</i> &lt; 0.05) in type II fCSA and back squat strength occurred with training, although whole-body fat-free mass paradoxically decreased (<i>p</i> = 0.026). No changes in sarcoplasmic protein concentrations or muscle tissue percent fluid were observed. Myosin heavy chain protein abundance trended downward (-2.9 &#xb1; 5.8%, <i>p</i> = 0.069) and actin protein abundance decreased (-3.2 &#xb1; 5.3%, <i>p</i> = 0.034) with training. Proteomics indicated only 13 sarcoplasmic proteins were altered with training (12 up-regulated, 1 down-regulated, <i>p</i> &lt; 0.05). Bioinformatics indicated no signaling pathways were affected, and proteins involved with metabolism (e.g., ATP-PCr, glycolysis, TCA cycle, or beta-oxidation) were not affected. These data comprehensively describe intramuscular protein adaptations that occur following 10 weeks of high-load resistance training. Although previous data from our laboratory suggests high-volume resistance training enhances the ATP-PCr and glycolytic pathways, we observed different changes in metabolism-related proteins in the current study with high-load training.</AbstractText><CopyrightInformation>Copyright &#xa9; 2020 Vann, Osburn, Mumford, Roberson, Fox, Sexton, Johnson, Johnson, Shake, Moore, Millevoi, Beck, Badisa, Mwashote, Ibeanusi, Singh and Roberts.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Vann</LastName><ForeName>Christopher G</ForeName><Initials>CG</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Osburn</LastName><ForeName>Shelby C</ForeName><Initials>SC</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mumford</LastName><ForeName>Petey W</ForeName><Initials>PW</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Roberson</LastName><ForeName>Paul A</ForeName><Initials>PA</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Fox</LastName><ForeName>Carlton D</ForeName><Initials>CD</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sexton</LastName><ForeName>Casey L</ForeName><Initials>CL</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Johnson</LastName><ForeName>McLelland-Rae</ForeName><Initials>MR</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Johnson</LastName><ForeName>Joel S</ForeName><Initials>JS</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Shake</LastName><ForeName>Jacob</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Moore</LastName><ForeName>Johnathon H</ForeName><Initials>JH</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Millevoi</LastName><ForeName>Kevin</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Exercise Science, LaGrange College, LaGrange, GA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Beck</LastName><ForeName>Darren T</ForeName><Initials>DT</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Edward Via College of Osteopathic Medicine Auburn, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Badisa</LastName><ForeName>Veera L D</ForeName><Initials>VLD</Initials><AffiliationInfo><Affiliation>School of the Environment, Florida A&amp;M University, Tallahassee, FL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mwashote</LastName><ForeName>Benjamin M</ForeName><Initials>BM</Initials><AffiliationInfo><Affiliation>School of the Environment, Florida A&amp;M University, Tallahassee, FL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ibeanusi</LastName><ForeName>Victor</ForeName><Initials>V</Initials><AffiliationInfo><Affiliation>School of the Environment, Florida A&amp;M University, Tallahassee, FL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Singh</LastName><ForeName>Rakesh K</ForeName><Initials>RK</Initials><AffiliationInfo><Affiliation>Translational Science Laboratory, College of Medicine, Florida State University, Tallahassee, FL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Roberts</LastName><ForeName>Michael D</ForeName><Initials>MD</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Edward Via College of Osteopathic Medicine Auburn, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2020</Year><Month>03</Month><Day>26</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">actin</Keyword><Keyword MajorTopicYN="N">high-load training</Keyword><Keyword MajorTopicYN="N">myosin</Keyword><Keyword MajorTopicYN="N">proteomics</Keyword><Keyword MajorTopicYN="N">skeletal muscle</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>12</Month><Day>6</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2020</Year><Month>3</Month><Day>6</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2020</Year><Month>4</Month><Day>16</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2020</Year><Month>4</Month><Day>16</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2020</Year><Month>4</Month><Day>16</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2020</Year><Month>3</Month><Day>26</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">32292355</ArticleId><ArticleId IdType="pmc">PMC7135893</ArticleId><ArticleId IdType="doi">10.3389/fphys.2020.00259</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>American College of Sports M., Sawka M. N., Burke L. M., Eichner E. R., Maughan R. J., Montain S. J., et al.  (2007). American college of sports medicine position stand. Exercise and fluid replacement.
+<i>Med. Sci. Sports Exerc.</i>
+39
+377&#x2013;390. 10.1249/mss.0b013e31802ca597
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0b013e31802ca597</ArticleId><ArticleId IdType="pubmed">17277604</ArticleId></ArticleIdList></Reference><Reference><Citation>Brook M. S., Wilkinson D. J., Mitchell W. K., Lund J. N., Szewczyk N. J., Greenhaff P. L., et al.  (2015). Skeletal muscle hypertrophy adaptations predominate in the early stages of resistance exercise training, matching deuterium oxide-derived measures of muscle protein synthesis and mechanistic target of rapamycin complex 1 signaling.
+<i>FASEB J.</i>
+29
+4485&#x2013;4496. 10.1096/fj.15-273755
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.15-273755</ArticleId><ArticleId IdType="pubmed">26169934</ArticleId></ArticleIdList></Reference><Reference><Citation>Brunelle J. L., Green R. (2014). Coomassie blue staining.
+<i>Methods Enzymol.</i>
+541
+161&#x2013;167. 10.1016/B978-0-12-420119-4.00013-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/B978-0-12-420119-4.00013-6</ArticleId><ArticleId IdType="pubmed">24674070</ArticleId></ArticleIdList></Reference><Reference><Citation>Burd N. A., West D. W., Staples A. W., Atherton P. J., Baker J. M., Moore D. R., et al.  (2010). Low-load high volume resistance exercise stimulates muscle protein synthesis more than high-load low volume resistance exercise in young men.
+<i>PLoS One</i>
+5:e12033. 10.1371/journal.pone.0012033
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0012033</ArticleId><ArticleId IdType="pmc">PMC2918506</ArticleId><ArticleId IdType="pubmed">20711498</ArticleId></ArticleIdList></Reference><Reference><Citation>Campos G. E., Luecke T. J., Wendeln H. K., Toma K., Hagerman F. C., Murray T. F., et al.  (2002). Muscular adaptations in response to three different resistance-training regimens: specificity of repetition maximum training zones.
+<i>Eur. J. Appl. Physiol.</i>
+88
+50&#x2013;60. 10.1007/s00421-002-0681-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-002-0681-6</ArticleId><ArticleId IdType="pubmed">12436270</ArticleId></ArticleIdList></Reference><Reference><Citation>Carrithers J. A., Tesch P. A., Trieschmann J., Ekberg A., Trappe T. A. (2002). Skeletal muscle protein composition following 5 weeks of ULLS and resistance exercise countermeasures.
+<i>J. Gravit. Physiol.</i>
+9
+155&#x2013;156.</Citation><ArticleIdList><ArticleId IdType="pubmed">15002527</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen S., Brault J. J., Gygi S. P., Glass D. J., Valenzuela D. M., Gartner C., et al.  (2009). During muscle atrophy, thick, but not thin, filament components are degraded by MuRF1-dependent ubiquitylation.
+<i>J. Cell Biol.</i>
+185
+1083&#x2013;1095. 10.1083/jcb.200901052
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1083/jcb.200901052</ArticleId><ArticleId IdType="pmc">PMC2711608</ArticleId><ArticleId IdType="pubmed">19506036</ArticleId></ArticleIdList></Reference><Reference><Citation>Cribb P. J., Hayes A. (2006). Effects of supplement timing and resistance exercise on skeletal muscle hypertrophy.
+<i>Med. Sci. Sports Exerc.</i>
+38
+1918&#x2013;1925. 10.1249/01.mss.0000233790.08788.3e
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000233790.08788.3e</ArticleId><ArticleId IdType="pubmed">17095924</ArticleId></ArticleIdList></Reference><Reference><Citation>Cribb P. J., Williams A. D., Hayes A. (2007). A creatine-protein-carbohydrate supplement enhances responses to resistance training.
+<i>Med. Sci. Sports Exerc.</i>
+39
+1960&#x2013;1968. 10.1249/mss.0b013e31814fb52a
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0b013e31814fb52a</ArticleId><ArticleId IdType="pubmed">17986903</ArticleId></ArticleIdList></Reference><Reference><Citation>Fry A. C. (2004). The role of resistance exercise intensity on muscle fibre adaptations.
+<i>Sports Med.</i>
+34
+663&#x2013;679. 10.2165/00007256-200434100-00004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200434100-00004</ArticleId><ArticleId IdType="pubmed">15335243</ArticleId></ArticleIdList></Reference><Reference><Citation>Grgic J., Schoenfeld B. J. (2018). Are the hypertrophic adaptations to high and low-load resistance training muscle fiber type specific?
+<i>Front. Physiol.</i>
+9:402
+10.3389/fphys.2018.00402</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.00402</ArticleId><ArticleId IdType="pmc">PMC5915697</ArticleId><ArticleId IdType="pubmed">29720946</ArticleId></ArticleIdList></Reference><Reference><Citation>Haff G. G., Triplett N. T. (eds). (2016). <i>Essentials of Stregnth Training and Conditioning.</i>
+Champaign, IL: Human Kinetics.</Citation></Reference><Reference><Citation>Harber M. P., Konopka A. R., Douglass M. D., Minchev K., Kaminsky L. A., Trappe T. A., et al.  (2009). Aerobic exercise training improves whole muscle and single myofiber size and function in older women.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+297
+R1452&#x2013;R1459. 10.1152/ajpregu.00354.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00354.2009</ArticleId><ArticleId IdType="pmc">PMC3774188</ArticleId><ArticleId IdType="pubmed">19692660</ArticleId></ArticleIdList></Reference><Reference><Citation>Haun C. T., Mumford P. W., Roberson P. A., Romero M. A., Mobley C. B., Kephart W. C., et al.  (2017). Molecular, neuromuscular, and recovery responses to light versus heavy resistance exercise in young men.
+<i>Physiol. Rep.</i>
+5:e13457. 10.14814/phy2.13457
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.13457</ArticleId><ArticleId IdType="pmc">PMC5617935</ArticleId><ArticleId IdType="pubmed">28963127</ArticleId></ArticleIdList></Reference><Reference><Citation>Haun C. T., Vann C. G., Mobley C. B., Roberson P. A., Osburn S. C., Holmes H. M., et al.  (2018). Effects of graded whey supplementation during extreme-volume resistance training.
+<i>Front. Nutr.</i>
+5:84. 10.3389/fnut.2018.00084
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnut.2018.00084</ArticleId><ArticleId IdType="pmc">PMC6141782</ArticleId><ArticleId IdType="pubmed">30255024</ArticleId></ArticleIdList></Reference><Reference><Citation>Haun C. T., Vann C. G., Osburn S. C., Mumford P. W., Roberson P. A., Romero M. A., et al.  (2019a). Muscle fiber hypertrophy in response to 6 weeks of high-volume resistance training in trained young men is largely attributed to sarcoplasmic hypertrophy.
+<i>PLoS One</i>
+14:e0215267. 10.1371/journal.pone.0215267
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0215267</ArticleId><ArticleId IdType="pmc">PMC6550381</ArticleId><ArticleId IdType="pubmed">31166954</ArticleId></ArticleIdList></Reference><Reference><Citation>Haun C. T., Vann C. G., Roberts B. M., Vigotsky A. D., Schoenfeld B. J., Roberts M. D. (2019b). A critical evaluation of the biological construct skeletal muscle hypertrophy: size matters but so does the measurement.
+<i>Front. Physiol.</i>
+10:247. 10.3389/fphys.2019.00247
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2019.00247</ArticleId><ArticleId IdType="pmc">PMC6423469</ArticleId><ArticleId IdType="pubmed">30930796</ArticleId></ArticleIdList></Reference><Reference><Citation>Haus J. M., Carrithers J. A., Carroll C. C., Tesch P. A., Trappe T. A. (2007). Contractile and connective tissue protein content of human skeletal muscle: effects of 35 and 90 days of simulated microgravity and exercise countermeasures.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+293
+R1722&#x2013;R1727. </Citation><ArticleIdList><ArticleId IdType="pubmed">17670860</ArticleId></ArticleIdList></Reference><Reference><Citation>Helms E. R., Cronin J., Storey A., Zourdos M. C. (2016). Application of the repetitions in reserve-based rating of perceived exertion scale for resistance training.
+<i>Strength Cond. J.</i>
+38
+42&#x2013;49. 10.1519/ssc.0000000000000218
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/ssc.0000000000000218</ArticleId><ArticleId IdType="pmc">PMC4961270</ArticleId><ArticleId IdType="pubmed">27531969</ArticleId></ArticleIdList></Reference><Reference><Citation>Huang D. W., Sherman B. T., Tan Q., Collins J. R., Alvord W. G., Roayaei J., et al.  (2007). The DAVID gene functional classification tool: a novel biological module-centric algorithm to functionally analyze large gene lists.
+<i>Genome Biol.</i>
+8:R183. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC2375021</ArticleId><ArticleId IdType="pubmed">17784955</ArticleId></ArticleIdList></Reference><Reference><Citation>Hyatt H. W., Toedebusch R. G., Ruegsegger G., Mobley C. B., Fox C. D., Mcginnis G. R., et al.  (2015). Comparative adaptations in oxidative and glycolytic muscle fibers in a low voluntary wheel running rat model performing three levels of physical activity.
+<i>Physiol. Rep.</i>
+3:e12619. 10.14814/phy2.12619
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.12619</ArticleId><ArticleId IdType="pmc">PMC4673647</ArticleId><ArticleId IdType="pubmed">26603455</ArticleId></ArticleIdList></Reference><Reference><Citation>Lemoine J. K., Haus J. M., Trappe S. W., Trappe T. A. (2009). Muscle proteins during 60-day bedrest in women: impact of exercise or nutrition.
+<i>Muscle Nerve</i>
+39
+463&#x2013;471. 10.1002/mus.21189
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.21189</ArticleId><ArticleId IdType="pubmed">19229964</ArticleId></ArticleIdList></Reference><Reference><Citation>Lim C., Kim H. J., Morton R. W., Harris R., Phillips S. M., Jeong T. S., et al.  (2019). Resistance exercise-induced changes in muscle phenotype are load dependent.
+<i>Med. Sci. Sports Exerc.</i>
+51
+2578&#x2013;2585. 10.1249/MSS.0000000000002088
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000002088</ArticleId><ArticleId IdType="pubmed">31306302</ArticleId></ArticleIdList></Reference><Reference><Citation>Macdougall J. D., Sale D. G., Elder G. C., Sutton J. R. (1982). Muscle ultrastructural characteristics of elite powerlifters and bodybuilders.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+48
+117&#x2013;126. 10.1007/bf00421171
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/bf00421171</ArticleId><ArticleId IdType="pubmed">7199447</ArticleId></ArticleIdList></Reference><Reference><Citation>Martin J. S., Kephart W. C., Haun C. T., Mccloskey A. E., Shake J. J., Mobley C. B., et al.  (2016). Impact of external pneumatic compression target inflation pressure on transcriptome-wide RNA expression in skeletal muscle.
+<i>Physiol. Rep.</i>
+4:e13029. 10.14814/phy2.13029
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.13029</ArticleId><ArticleId IdType="pmc">PMC5357997</ArticleId><ArticleId IdType="pubmed">27884954</ArticleId></ArticleIdList></Reference><Reference><Citation>Millward D. J. (1995). A protein-stat mechanism for regulation of growth and maintenance of the lean body mass.
+<i>Nutr. Res. Rev.</i>
+8
+93&#x2013;120. 10.1079/nrr19950008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1079/nrr19950008</ArticleId><ArticleId IdType="pubmed">19094281</ArticleId></ArticleIdList></Reference><Reference><Citation>Mobley C. B., Haun C. T., Roberson P. A., Mumford P. W., Romero M. A., Kephart W. C., et al.  (2017a). Effects of whey, soy or leucine supplementation with 12 weeks of resistance training on strength, body composition, and skeletal muscle and adipose tissue histological attributes in college-aged males.
+<i>Nutrients</i>
+9:972. 10.3390/nu9090972
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu9090972</ArticleId><ArticleId IdType="pmc">PMC5622732</ArticleId><ArticleId IdType="pubmed">28869573</ArticleId></ArticleIdList></Reference><Reference><Citation>Mobley C. B., Mumford P. W., Kephart W. C., Haun C. T., Holland A. M., Beck D. T., et al.  (2017b). Aging in rats differentially affects markers of transcriptional and translational capacity in soleus and plantaris muscle.
+<i>Front. Physiol.</i>
+8:518. 10.3389/fphys.2017.00518
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2017.00518</ArticleId><ArticleId IdType="pmc">PMC5517446</ArticleId><ArticleId IdType="pubmed">28775694</ArticleId></ArticleIdList></Reference><Reference><Citation>Moon J. R., Tobkin S. E., Roberts M. D., Dalbo V. J., Kerksick C. M., Bemben M. G., et al.  (2008). Total body water estimations in healthy men and women using bioimpedance spectroscopy: a deuterium oxide comparison.
+<i>Nutr. Metab. (Lond.)</i>
+5:7. 10.1186/1743-7075-5-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1743-7075-5-7</ArticleId><ArticleId IdType="pmc">PMC2323003</ArticleId><ArticleId IdType="pubmed">18353180</ArticleId></ArticleIdList></Reference><Reference><Citation>Moore D. R., Tang J. E., Burd N. A., Rerecich T., Tarnopolsky M. A., Phillips S. M. (2009). Differential stimulation of myofibrillar and sarcoplasmic protein synthesis with protein ingestion at rest and after resistance exercise.
+<i>J. Physiol.</i>
+587
+897&#x2013;904. 10.1113/jphysiol.2008.164087
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2008.164087</ArticleId><ArticleId IdType="pmc">PMC2669978</ArticleId><ArticleId IdType="pubmed">19124543</ArticleId></ArticleIdList></Reference><Reference><Citation>Morton R. W., Sonne M. W., Farias Zuniga A., Mohammad I. Y. Z., Jones A., Mcglory C., et al.  (2019). Muscle fibre activation is unaffected by load and repetition duration when resistance exercise is performed to task failure.
+<i>J. Physiol.</i>
+597
+4601&#x2013;4613. 10.1113/JP278056
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP278056</ArticleId><ArticleId IdType="pubmed">31294822</ArticleId></ArticleIdList></Reference><Reference><Citation>Murgia M., Nagaraj N., Deshmukh A. S., Zeiler M., Cancellara P., Moretti I., et al.  (2015). Single muscle fiber proteomics reveals unexpected mitochondrial specialization.
+<i>EMBO Rep.</i>
+16
+387&#x2013;395. 10.15252/embr.201439757
+</Citation><ArticleIdList><ArticleId IdType="doi">10.15252/embr.201439757</ArticleId><ArticleId IdType="pmc">PMC4364878</ArticleId><ArticleId IdType="pubmed">25643707</ArticleId></ArticleIdList></Reference><Reference><Citation>Netreba A., Popov D., Bravyy Y., Lyubaeva E., Terada M., Ohira T., et al.  (2013). Responses of knee extensor muscles to leg press training of various types in human.
+<i>Ross. Fiziol. Zh. Im. I M Sechenova</i>
+99
+406&#x2013;416. </Citation><ArticleIdList><ArticleId IdType="pubmed">23789443</ArticleId></ArticleIdList></Reference><Reference><Citation>Reidy P. T., Borack M. S., Markofski M. M., Dickinson J. M., Fry C. S., Deer R. R., et al.  (2017). Post-absorptive muscle protein turnover affects resistance training hypertrophy.
+<i>Eur. J. Appl. Physiol.</i>
+117
+853&#x2013;866. 10.1007/s00421-017-3566-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-017-3566-4</ArticleId><ArticleId IdType="pmc">PMC5389914</ArticleId><ArticleId IdType="pubmed">28280974</ArticleId></ArticleIdList></Reference><Reference><Citation>Roberts M. D., Romero M. A., Mobley C. B., Mumford P. W., Roberson P. A., Haun C. T., et al.  (2018). Skeletal muscle mitochondrial volume and myozenin-1 protein differences exist between high versus low anabolic responders to resistance training.
+<i>PeerJ</i>
+6:e5338. 10.7717/peerj.5338
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7717/peerj.5338</ArticleId><ArticleId IdType="pmc">PMC6065464</ArticleId><ArticleId IdType="pubmed">30065891</ArticleId></ArticleIdList></Reference><Reference><Citation>Schiaffino S., Reggiani C., Murgia M. (2019). Fiber type diversity in skeletal muscle explored by mass spectrometry-based single fiber proteomics.
+<i>Histol. Histopathol.</i>
+35
+239&#x2013;246.</Citation><ArticleIdList><ArticleId IdType="pubmed">31612964</ArticleId></ArticleIdList></Reference><Reference><Citation>Schuenke M. D., Herman J. R., Gliders R. M., Hagerman F. C., Hikida R. S., Rana S. R., et al.  (2012). Early-phase muscular adaptations in response to slow-speed versus traditional resistance-training regimens.
+<i>Eur. J. Appl. Physiol.</i>
+112
+3585&#x2013;3595. 10.1007/s00421-012-2339-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-012-2339-3</ArticleId><ArticleId IdType="pubmed">22328004</ArticleId></ArticleIdList></Reference><Reference><Citation>Soltani M., Vargas-Garcia C. A., Antunes D., Singh A. (2016). Intercellular variability in protein levels from stochastic expression and noisy cell cycle processes.
+<i>PLoS Comput. Biol.</i>
+12:e1004972. 10.1371/journal.pcbi.1004972
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pcbi.1004972</ArticleId><ArticleId IdType="pmc">PMC4990281</ArticleId><ArticleId IdType="pubmed">27536771</ArticleId></ArticleIdList></Reference><Reference><Citation>Thompson D. L., Thompson W. R., Prestridge T. J., Bailey J. G., Bean M. H., Brown S. P., et al.  (1991). Effects of hydration and dehydration on body composition analysis: a comparative study of bioelectric impedance analysis and hydrodensitometry.
+<i>J. Sports Med. Phys. Fitness</i>
+31
+565&#x2013;570. </Citation><ArticleIdList><ArticleId IdType="pubmed">1806735</ArticleId></ArticleIdList></Reference><Reference><Citation>Toth M. J., Miller M. S., Vanburen P., Bedrin N. G., Lewinter M. M., Ades P. A., et al.  (2012). Resistance training alters skeletal muscle structure and function in human heart failure: effects at the tissue, cellular and molecular levels.
+<i>J. Physiol.</i>
+590
+1243&#x2013;1259. 10.1113/jphysiol.2011.219659
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2011.219659</ArticleId><ArticleId IdType="pmc">PMC3381828</ArticleId><ArticleId IdType="pubmed">22199163</ArticleId></ArticleIdList></Reference><Reference><Citation>Vann C. G., Roberson P. A., Osburn S. C., Mumford P. W., Romero M. A., Fox C. D., et al.  (2020). Skeletal muscle myofibrillar protein abundance is higher in resistance-trained men, and aging in the absence of training may have an opposite effect.
+<i>Sports (Basel)</i>
+8:7. 10.3390/sports8010007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/sports8010007</ArticleId><ArticleId IdType="pmc">PMC7022975</ArticleId><ArticleId IdType="pubmed">31936810</ArticleId></ArticleIdList></Reference><Reference><Citation>Walker J. M. (1994). The bicinchoninic acid (BCA) assay for protein quantitation.
+<i>Methods Mol. Biol.</i>
+32
+5&#x2013;8. 10.1385/0-89603-268-x:5</Citation><ArticleIdList><ArticleId IdType="doi">10.1385/0-89603-268-x:5</ArticleId><ArticleId IdType="pubmed">7951748</ArticleId></ArticleIdList></Reference><Reference><Citation>Wen Y., Murach K. A., Vechetti I. J., Jr., Fry C. S., Vickery C., Peterson C. A., et al.  (2018). MyoVision: software for automated high-content analysis of skeletal muscle immunohistochemistry.
+<i>J. Appl. Physiol. (1985)</i>
+124
+40&#x2013;51. 10.1152/japplphysiol.00762.2017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00762.2017</ArticleId><ArticleId IdType="pmc">PMC6048460</ArticleId><ArticleId IdType="pubmed">28982947</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,234 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">34295263</PMID><DateRevised><Year>2021</Year><Month>07</Month><Day>24</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>12</Volume><PubDate><Year>2021</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Scientific Challenges on Theory of Fat Burning by Exercise.</ArticleTitle><Pagination><StartPage>685166</StartPage><MedlinePgn>685166</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">685166</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2021.685166</ELocationID><Abstract><AbstractText>Exercise training decreases abdominal fat in an intensity-dependent manner. The fat loss effect of exercise has been intuitively thought to result from increased fat burning during and after exercise, defined by conversion of fatty acid into carbon dioxide in consumption of oxygen. Nevertheless, increasing exercise intensity decreases oxidation of fatty acids derived from adipose tissue despite elevated lipolysis. The unchanged 24-h fatty acid oxidation during and after exercise does not provide support to the causality between fat burning and fat loss. In this review, alternative perspectives to explain the fat loss outcome are discussed. In brief, carbon and nitrogen redistribution to challenged tissues (muscle and lungs) for fuel replenishment and cell regeneration against abdominal adipose tissue seems to be the fundamental mechanism underlying the intensity-dependent fat loss effect of exercise. The magnitude of lipolysis (fatty acid release from adipocytes) and the amount of post-meal carbon and nitrogen returning to abdominal adipose tissue determines the final fat tissue mass. Therefore, meal arrangement at the time when muscle has the greatest reconstruction demand for carbon and nitrogen could decrease abdominal fat accumulation while increasing muscle mass and tissue repair.</AbstractText><CopyrightInformation>Copyright &#xa9; 2021 Harris and Kuo.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Harris</LastName><ForeName>M Brennan</ForeName><Initials>MB</Initials><AffiliationInfo><Affiliation>Department of Health Sciences, College of William and Mary, Williamsburg, VA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kuo</LastName><ForeName>Chia-Hua</ForeName><Initials>CH</Initials><AffiliationInfo><Affiliation>Laboratory of Exercise Biochemistry, College of Kinesiology, University of Taipei, Taipei, Taiwan.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2021</Year><Month>07</Month><Day>06</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">aerobic training</Keyword><Keyword MajorTopicYN="N">carbon and nitrogen redistribution theory</Keyword><Keyword MajorTopicYN="N">fat burner</Keyword><Keyword MajorTopicYN="N">fat loss</Keyword><Keyword MajorTopicYN="N">fatty acid oxidation</Keyword><Keyword MajorTopicYN="N">intensity</Keyword><Keyword MajorTopicYN="N">obesity</Keyword><Keyword MajorTopicYN="N">resistance training</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2021</Year><Month>3</Month><Day>24</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2021</Year><Month>5</Month><Day>19</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2021</Year><Month>7</Month><Day>23</Day><Hour>6</Hour><Minute>46</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2021</Year><Month>7</Month><Day>24</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2021</Year><Month>7</Month><Day>24</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2021</Year><Month>7</Month><Day>6</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">34295263</ArticleId><ArticleId IdType="pmc">PMC8290478</ArticleId><ArticleId IdType="doi">10.3389/fphys.2021.685166</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abbasi J. (2019). For fat burning, interval training beats continuous exercise.
+<i>JAMA</i>
+321
+2151&#x2013;2152. 10.1001/jama.2019.4607
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2019.4607</ArticleId><ArticleId IdType="pubmed">31116373</ArticleId></ArticleIdList></Reference><Reference><Citation>Adams G. R., Zaldivar F. P., Nance D. M., Kodesh E., Radom-Aizik S., Cooper D. M. (2011). Exercise and leukocyte interchange among central circulation, lung, spleen, and muscle.
+<i>Brain Behav. Immun.</i>
+25
+658&#x2013;666. 10.1016/j.bbi.2011.01.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bbi.2011.01.002</ArticleId><ArticleId IdType="pmc">PMC4666294</ArticleId><ArticleId IdType="pubmed">21238578</ArticleId></ArticleIdList></Reference><Reference><Citation>Aggel-Leijssen D. P. C. V., Saris W. H. M., Wagenmakers A. J. M., Senden J. M., Baak M. A. V. (2002). Effect of exercise training at different intensities on fat metabolism of obese men.
+<i>J. Appl. Physiol.</i>
+92
+1300&#x2013;1309. 10.1152/japplphysiol.00030.2001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00030.2001</ArticleId><ArticleId IdType="pubmed">11842071</ArticleId></ArticleIdList></Reference><Reference><Citation>Aguiari P., Leo S., Zavan B., Vindigni V., Rimessi A., Bianchi K., et al.  (2008). High glucose induces adipogenic differentiation of muscle-derived stem cells.
+<i>Proc. Natl. Acad. Sci. U S A</i>
+105
+1226&#x2013;1231. 10.1073/pnas.0711402105
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.0711402105</ArticleId><ArticleId IdType="pmc">PMC2234120</ArticleId><ArticleId IdType="pubmed">18212116</ArticleId></ArticleIdList></Reference><Reference><Citation>Allerton T. D., Savoie J. J., Fitch M. D., Hellerstein M. K., Stephens J. M., White U. (2021). Exercise reduced the formation of new adipocytes in the adipose tissue of mice in vivo.
+<i>PloS one</i>
+16:e0244804. 10.1371/journal.pone.0244804
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0244804</ArticleId><ArticleId IdType="pmc">PMC7817033</ArticleId><ArticleId IdType="pubmed">33471817</ArticleId></ArticleIdList></Reference><Reference><Citation>Barra N. G., Chew M. V., Reid S., Ashkar A. A. (2012). Interleukin-15 treatment induces weight loss independent of lymphocytes.
+<i>PloS One</i>
+7:e39553. 10.1371/journal.pone.0039553
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0039553</ArticleId><ArticleId IdType="pmc">PMC3387179</ArticleId><ArticleId IdType="pubmed">22768089</ArticleId></ArticleIdList></Reference><Reference><Citation>Chen S. Y., Chen S. M., Chang W. H., Lai C. H., Chen M. C., Chou C. H., et al.  (2006). Effect of 2-month detraining on body composition and insulin sensitivity in young female dancers.
+<i>Int. J. Obes.</i>
+30
+40&#x2013;44. 10.1038/sj.ijo.0803073
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/sj.ijo.0803073</ArticleId><ArticleId IdType="pubmed">16158083</ArticleId></ArticleIdList></Reference><Reference><Citation>Colberg S. R., Sigal R. J., Fernhall B., Regensteiner J. G., Blissmer B. J., Rubin R. R., et al.  (2010). Exercise and type 2 diabetes.
+<i>Diabetes Care</i>
+33
+e147&#x2013;e167. 10.2337/dc10-1548
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/dc10-1548</ArticleId><ArticleId IdType="pmc">PMC2992225</ArticleId><ArticleId IdType="pubmed">21115758</ArticleId></ArticleIdList></Reference><Reference><Citation>Coll-Risco I., Acosta-Manzano P., Borges-Cosic M., Camiletti-Moiron D., Aranda P., Soriano-Maldonado A., et al.  (2019). Body composition changes following a concurrent exercise intervention in perimenopausal women: The FLAMENCO Project randomized controlled trial.
+<i>J. Clin. Med.</i>
+8:1678. 10.3390/jcm8101678
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/jcm8101678</ArticleId><ArticleId IdType="pmc">PMC6832269</ArticleId><ArticleId IdType="pubmed">31615008</ArticleId></ArticleIdList></Reference><Reference><Citation>Combes A., Dekerle J., Dumont X., Twomey R., Bernard A., Daussin F., et al.  (2019). Continuous exercise induces airway epithelium damage while a matched-intensity and volume intermittent exercise does not.
+<i>Respir. Res.</i>
+20
+12&#x2013;12. 10.1186/s12931-019-0978-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12931-019-0978-1</ArticleId><ArticleId IdType="pmc">PMC6337858</ArticleId><ArticleId IdType="pubmed">30654798</ArticleId></ArticleIdList></Reference><Reference><Citation>Coppack S. W., Fisher R. M., Gibbons G. F., Humphreys S. M., Mcdonough M. J., Potts J. L., et al.  (1990). Postprandial substrate deposition in human forearm and adipose tissues in vivo.
+<i>Clin. Sci.</i>
+79
+339&#x2013;348. 10.1042/cs0790339
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1042/cs0790339</ArticleId><ArticleId IdType="pubmed">2171854</ArticleId></ArticleIdList></Reference><Reference><Citation>Cribb P. J., Hayes A. (2006). Effects of supplement timing and resistance exercise on skeletal muscle hypertrophy.
+<i>Med. Sci. Sports Exerc.</i>
+38
+1918&#x2013;1925. 10.1249/01.mss.0000233790.08788.3e
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000233790.08788.3e</ArticleId><ArticleId IdType="pubmed">17095924</ArticleId></ArticleIdList></Reference><Reference><Citation>Durschlag R. P., Layman D. K. (1983). Skeletal muscle growth in lean and obese Zucker rats.
+<i>Growth</i>
+47
+282&#x2013;291.</Citation><ArticleIdList><ArticleId IdType="pubmed">6196256</ArticleId></ArticleIdList></Reference><Reference><Citation>G&#xe9;lo&#xeb;n A., Roy P. E., Bukowiecki L. J. (1989). Regression of white adipose tissue in diabetic rats.
+<i>Am. J. Physiol.</i>
+257
+E547&#x2013;E553. 10.1152/ajpendo.1989.257.4.E547
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.1989.257.4.E547</ArticleId><ArticleId IdType="pubmed">2801936</ArticleId></ArticleIdList></Reference><Reference><Citation>Ho A., Sinick J., Esko T., Fischer K., Menni C., Zierer J., et al.  (2019). Circulating glucuronic acid predicts healthspan and longevity in humans and mice.
+<i>Aging (Albany NY)</i>
+11
+7694&#x2013;7706. 10.18632/aging.102281
+</Citation><ArticleIdList><ArticleId IdType="doi">10.18632/aging.102281</ArticleId><ArticleId IdType="pmc">PMC6781977</ArticleId><ArticleId IdType="pubmed">31557729</ArticleId></ArticleIdList></Reference><Reference><Citation>Huang S. C., Wu J. F., Saovieng S., Chien W. H., Hsu M. F., Li X. F., et al.  (2017). Doxorubicin inhibits muscle inflammation after eccentric exercise.
+<i>J. Cachexia Sarcopenia Muscle</i>
+8
+277&#x2013;284. 10.1002/jcsm.12148
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jcsm.12148</ArticleId><ArticleId IdType="pmc">PMC5377412</ArticleId><ArticleId IdType="pubmed">27897404</ArticleId></ArticleIdList></Reference><Reference><Citation>Ivy J. L., Katz A. L., Cutler C. L., Sherman W. M., Coyle E. F. (1988). Muscle glycogen synthesis after exercise: effect of time of carbohydrate ingestion.
+<i>J. Appl. Physiol.</i>
+64
+1480&#x2013;1485. 10.1152/jappl.1988.64.4.1480
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1988.64.4.1480</ArticleId><ArticleId IdType="pubmed">3132449</ArticleId></ArticleIdList></Reference><Reference><Citation>Ivy J. L., Zderic T. W., Fogt D. L. (1999). Prevention and treatment of non-insulin-dependent diabetes mellitus.
+<i>Exerc. Sport Sci. Rev.</i>
+27
+1&#x2013;35. 10.1249/00003677-199900270-00003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00003677-199900270-00003</ArticleId><ArticleId IdType="pubmed">10791012</ArticleId></ArticleIdList></Reference><Reference><Citation>Kemmler W., Schoene D., Kohl M., Von Stengel S. (2021). Changes in body composition and cardiometabolic health after detraining in older men with steosarcopenia: 6-month follow-up of the randomized controlled franconian osteopenia and sarcopenia trial (FrOST) study.
+<i>Clin. Interv. Aging</i>
+16
+571&#x2013;582. 10.2147/cia.s299867
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2147/cia.s299867</ArticleId><ArticleId IdType="pmc">PMC8039436</ArticleId><ArticleId IdType="pubmed">33854307</ArticleId></ArticleIdList></Reference><Reference><Citation>Kemmler W., Weineck M., Kohl M., Von Stengel S., Giessing J., Fr&#xf6;hlich M., et al.  (2020). High intensity resistance exercise training to improve body composition and strength in older men with osteosarcopenia. Results of the randomized controlled franconian osteopenia and sarcopenia trial (FrOST).
+<i>Front. Sports Act. Living</i>
+2:4. 10.3389/fspor.2020.00004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fspor.2020.00004</ArticleId><ArticleId IdType="pmc">PMC7739651</ArticleId><ArticleId IdType="pubmed">33344999</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim H. K., Della-Fera M. A., Hausman D. B., Baile C. A. (2010). Effect of clenbuterol on apoptosis, adipogenesis, and lipolysis in adipocytes.
+<i>J. Physiol. Biochem.</i>
+66
+197&#x2013;203. 10.1007/s13105-010-0024-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s13105-010-0024-8</ArticleId><ArticleId IdType="pubmed">20535649</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim Y. J., Hwang S. H., Cho H. H., Shin K. K., Bae Y. C., Jung J. S. (2012). MicroRNA 21 regulates the proliferation of human adipose tissue-derived mesenchymal stem cells and high-fat diet-induced obesity alters microRNA 21 expression in white adipose tissues.
+<i>J. Cell. Physiol.</i>
+227
+183&#x2013;193. 10.1002/jcp.22716
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jcp.22716</ArticleId><ArticleId IdType="pubmed">21381024</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee E. K., Lee M. J., Abdelmohsen K., Kim W., Kim M. M., Srikantan S., et al.  (2011). miR-130 suppresses adipogenesis by inhibiting peroxisome proliferator-activated receptor gamma expression.
+<i>Mol. Cell Biol.</i>
+31
+626&#x2013;638. 10.1128/MCB.00894-10
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/MCB.00894-10</ArticleId><ArticleId IdType="pmc">PMC3028659</ArticleId><ArticleId IdType="pubmed">21135128</ArticleId></ArticleIdList></Reference><Reference><Citation>Leibacher J., Henschler R. (2016). Biodistribution, migration and homing of systemically applied mesenchymal stem/stromal cells.
+<i>Stem Cell Res. Ther.</i>
+7:7. 10.1186/s13287-015-0271-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13287-015-0271-2</ArticleId><ArticleId IdType="pmc">PMC4709937</ArticleId><ArticleId IdType="pubmed">26753925</ArticleId></ArticleIdList></Reference><Reference><Citation>Leong G. M., Kee A. J., Millard S. M., Martel N., Eriksson N., Turner N., et al.  (2010). The Ski proto-oncogene regulates body composition and suppresses lipogenesis.
+<i>Int. J. Obes.</i>
+34
+524&#x2013;536. 10.1038/ijo.2009.265
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/ijo.2009.265</ArticleId><ArticleId IdType="pubmed">20029376</ArticleId></ArticleIdList></Reference><Reference><Citation>Ma E. B., Sahar N. E., Jeong M., Huh J. Y. (2019). Irisin exerts inhibitory effect on adipogenesis through regulation of Wnt signaling.
+<i>Front. Physiol.</i>
+10:1085. 10.3389/fphys.2019.01085
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2019.01085</ArticleId><ArticleId IdType="pmc">PMC6714492</ArticleId><ArticleId IdType="pubmed">31507448</ArticleId></ArticleIdList></Reference><Reference><Citation>Mcpherron A. C., Lee S. J. (2002). Suppression of body fat accumulation in myostatin-deficient mice.
+<i>J. Clin. Invest.</i>
+109
+595&#x2013;601. 10.1172/jci0213562</Citation><ArticleIdList><ArticleId IdType="doi">10.1172/jci0213562</ArticleId><ArticleId IdType="pmc">PMC150888</ArticleId><ArticleId IdType="pubmed">11877467</ArticleId></ArticleIdList></Reference><Reference><Citation>Melanson E. L., Sharp T. A., Seagle H. M., Donahoo W. T., Grunwald G. K., Peters J. C., et al.  (2002). Resistance and aerobic exercise have similar effects on 24-h nutrient oxidation.
+<i>Med. Sci. Sports Exerc.</i>
+34
+1793&#x2013;1800. 10.1097/00005768-200211000-00016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-200211000-00016</ArticleId><ArticleId IdType="pubmed">12439085</ArticleId></ArticleIdList></Reference><Reference><Citation>Mora-Rodriguez R., Coyle E. F. (2000). Effects of plasma epinephrine on fat metabolism during exercise: interactions with exercise intensity.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+278
+E669&#x2013;E676. 10.1152/ajpendo.2000.278.4.E669
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.2000.278.4.E669</ArticleId><ArticleId IdType="pubmed">10751201</ArticleId></ArticleIdList></Reference><Reference><Citation>Murphy J., Summer R., Wilson A. A., Kotton D. N., Fine A. (2008). The prolonged life-span of alveolar macrophages.
+<i>Am. J. Respir. Cell Mol. Biol.</i>
+38
+380&#x2013;385. 10.1165/rcmb.2007-0224rc
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1165/rcmb.2007-0224rc</ArticleId><ArticleId IdType="pmc">PMC2274942</ArticleId><ArticleId IdType="pubmed">18192503</ArticleId></ArticleIdList></Reference><Reference><Citation>Page K. A., Hartzell D. L., Li C., Westby A. L., Della-Fera M. A., Azain M. J., et al.  (2004). beta-Adrenergic receptor agonists increase apoptosis of adipose tissue in mice.
+<i>Domest. Anim. Endocrinol.</i>
+26
+23&#x2013;31. 10.1016/j.domaniend.2003.08.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.domaniend.2003.08.004</ArticleId><ArticleId IdType="pubmed">14732450</ArticleId></ArticleIdList></Reference><Reference><Citation>Rawlins E. L., Hogan B. L. (2008). Ciliated epithelial cell lifespan in the mouse trachea and lung.
+<i>Am. J. Physiol. Lung Cell. Mol. Physiol.</i>
+295
+L231&#x2013;L234. 10.1152/ajplung.90209.2008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajplung.90209.2008</ArticleId><ArticleId IdType="pmc">PMC2494792</ArticleId><ArticleId IdType="pubmed">18487354</ArticleId></ArticleIdList></Reference><Reference><Citation>Reilly S. M., Hung C. W., Ahmadian M., Zhao P., Keinan O., Gomez A. V., et al.  (2020). Catecholamines suppress fatty acid re-esterification and increase oxidation in white adipocytes via STAT3.
+<i>Nat. Metab.</i>
+2
+620&#x2013;634. 10.1038/s42255-020-0217-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s42255-020-0217-6</ArticleId><ArticleId IdType="pmc">PMC7384260</ArticleId><ArticleId IdType="pubmed">32694788</ArticleId></ArticleIdList></Reference><Reference><Citation>Rice B., Janssen I., Hudson R., Ross R. (1999). Effects of aerobic or resistance exercise and/or diet on glucose tolerance and plasma insulin levels in obese men.
+<i>Diabetes Care</i>
+22
+684&#x2013;691. 10.2337/diacare.22.5.684
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/diacare.22.5.684</ArticleId><ArticleId IdType="pubmed">10332666</ArticleId></ArticleIdList></Reference><Reference><Citation>Rochefort G. Y., Vaudin P., Bonnet N., Pages J. C., Domenech J., Charbord P., et al.  (2005). Influence of hypoxia on the domiciliation of mesenchymal stem cells after infusion into rats: possibilities of targeting pulmonary artery remodeling via cells therapies?
+<i>Respir. Res.</i>
+6:125. 10.1186/1465-9921-6-125
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1465-9921-6-125</ArticleId><ArticleId IdType="pmc">PMC1291404</ArticleId><ArticleId IdType="pubmed">16253136</ArticleId></ArticleIdList></Reference><Reference><Citation>Romijn J. A., Coyle E. F., Sidossis L. S., Gastaldelli A., Horowitz J. F., Endert E., et al.  (1993). Regulation of endogenous fat and carbohydrate metabolism in relation to exercise intensity and duration.
+<i>Am. J. Physiol.</i>
+265
+E380&#x2013;E391. 10.1152/ajpendo.1993.265.3.E380
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.1993.265.3.E380</ArticleId><ArticleId IdType="pubmed">8214047</ArticleId></ArticleIdList></Reference><Reference><Citation>Ruthig D. J., Meckling-Gill K. A. (1999). Both (n-3) and (n-6) fatty acids stimulate wound healing in the rat intestinal epithelial cell line, IEC-6.
+<i>J. Nutr.</i>
+129
+1791&#x2013;1798. 10.1093/jn/129.10.1791
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/jn/129.10.1791</ArticleId><ArticleId IdType="pubmed">10498749</ArticleId></ArticleIdList></Reference><Reference><Citation>Saat T. C., Van Den Engel S., Bijman-Lachger W., Korevaar S. S., Hoogduijn M. J., Ijzermans J. N. M., et al.  (2016). Fate and effect of intravenously infused mesenchymal stem cells in a mouse model of ephatic ischemia reperfusion injury and resection.
+<i>Stem Cells Int.</i>
+2016:5761487. 10.1155/2016/5761487
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2016/5761487</ArticleId><ArticleId IdType="pmc">PMC4766354</ArticleId><ArticleId IdType="pubmed">26981132</ArticleId></ArticleIdList></Reference><Reference><Citation>Scarda A., Franzin C., Milan G., Sanna M., Dal Pr&#xe0; C., Pagano C., et al.  (2010). Increased adipogenic conversion of muscle satellite cells in obese Zucker rats.
+<i>Int. J. Obes.</i>
+34
+1319&#x2013;1327. 10.1038/ijo.2010.47
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/ijo.2010.47</ArticleId><ArticleId IdType="pubmed">20231840</ArticleId></ArticleIdList></Reference><Reference><Citation>Shook B. A., Wasko R. R., Mano O., Rutenberg-Schoenberg M., Rudolph M. C., Zirak B., et al.  (2020). Dermal adipocyte lipolysis and myofibroblast conversion are required for efficient skin repair.
+<i>Cell Stem Cell</i>
+26
+880&#x2013;895. 10.1016/j.stem.2020.03.013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.stem.2020.03.013</ArticleId><ArticleId IdType="pmc">PMC7853423</ArticleId><ArticleId IdType="pubmed">32302523</ArticleId></ArticleIdList></Reference><Reference><Citation>Simsolo R. B., Ong J. M., Kern P. A. (1993). The regulation of adipose tissue and muscle lipoprotein lipase in runners by detraining.
+<i>J. Clin. Invest.</i>
+92
+2124&#x2013;2130. 10.1172/jci116813
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1172/jci116813</ArticleId><ArticleId IdType="pmc">PMC288390</ArticleId><ArticleId IdType="pubmed">8227328</ArticleId></ArticleIdList></Reference><Reference><Citation>Spalding K. L., Arner E., Westermark P. O., Bernard S., Buchholz B. A., Bergmann O., et al.  (2008). Dynamics of fat cell turnover in humans.
+<i>Nature</i>
+453
+783&#x2013;787. 10.1038/nature06902
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nature06902</ArticleId><ArticleId IdType="pubmed">18454136</ArticleId></ArticleIdList></Reference><Reference><Citation>St Pierre B. A., Tidball J. G. (1994). Differential response of macrophage subpopulations to soleus muscle reloading after rat hindlimb suspension.
+<i>J. Appl. Physiol.</i>
+77
+290&#x2013;297. 10.1152/jappl.1994.77.1.290
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1994.77.1.290</ArticleId><ArticleId IdType="pubmed">7961247</ArticleId></ArticleIdList></Reference><Reference><Citation>Su S. H., Chen H. I., Jen C. J. (2005). Exercise enhances surfactant-mediated phagocytosis in bronchoalveolar macrophages.
+<i>Chin. J. Physiol.</i>
+48
+210&#x2013;216.</Citation><ArticleIdList><ArticleId IdType="pubmed">16548423</ArticleId></ArticleIdList></Reference><Reference><Citation>Suzuki M., Doi T., Lee S., Okamura K., Shimizu S., Okano G., et al.  (1999). Effect of meal timing after resistance exercise on hindlimb muscle mass and fat accumulation in trained rats.
+<i>J. Nutr. Sci. Vitaminol.</i>
+45
+401&#x2013;409. 10.3177/jnsv.45.401
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3177/jnsv.45.401</ArticleId><ArticleId IdType="pubmed">10575631</ArticleId></ArticleIdList></Reference><Reference><Citation>Taha A., Sharifpanah F., Wartenberg M., Sauer H. (2020). Omega-3 and Omega-6 polyunsaturated fatty acids stimulate vascular differentiation of mouse embryonic stem cells.
+<i>J. Cell. Physiol.</i>
+235
+7094&#x2013;7106. 10.1002/jcp.29606
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jcp.29606</ArticleId><ArticleId IdType="pubmed">32020589</ArticleId></ArticleIdList></Reference><Reference><Citation>Thomou T., Mori M. A., Dreyfuss J. M., Konishi M., Sakaguchi M., Wolfrum C., et al.  (2017). Adipose-derived circulating miRNAs regulate gene expression in other tissues.
+<i>Nature</i>
+542
+450&#x2013;455. 10.1038/nature21365
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nature21365</ArticleId><ArticleId IdType="pmc">PMC5330251</ArticleId><ArticleId IdType="pubmed">28199304</ArticleId></ArticleIdList></Reference><Reference><Citation>Thompson D., Karpe F., Lafontan M., Frayn K. (2012). Physical activity and exercise in the regulation of human adipose tissue physiology.
+<i>Physiol. Rev.</i>
+92
+157&#x2013;191. 10.1152/physrev.00012.2011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/physrev.00012.2011</ArticleId><ArticleId IdType="pubmed">22298655</ArticleId></ArticleIdList></Reference><Reference><Citation>Tidball J. G. (2017). Regulation of muscle growth and regeneration by the immune system.
+<i>Nat. Rev. Immunol.</i>
+17
+165&#x2013;178. 10.1038/nri.2016.150
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nri.2016.150</ArticleId><ArticleId IdType="pmc">PMC5452982</ArticleId><ArticleId IdType="pubmed">28163303</ArticleId></ArticleIdList></Reference><Reference><Citation>Trapp E. G., Chisholm D. J., Freund J., Boutcher S. H. (2008). The effects of high-intensity intermittent exercise training on fat loss and fasting insulin levels of young women.
+<i>Int. J. Obes.</i>
+32
+684&#x2013;691. 10.1038/sj.ijo.0803781
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/sj.ijo.0803781</ArticleId><ArticleId IdType="pubmed">18197184</ArticleId></ArticleIdList></Reference><Reference><Citation>Urhausen A., Weiler B., Coen B., Kindermann W. (1994). Plasma catecholamines during endurance exercise of different intensities as related to the individual anaerobic threshold.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+69
+16&#x2013;20. 10.1007/bf00867921
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/bf00867921</ArticleId><ArticleId IdType="pubmed">7957150</ArticleId></ArticleIdList></Reference><Reference><Citation>Viana R. B., Naves J. P. A., Coswig V. S., De Lira C. A. B., Steele J., Fisher J. P., et al.  (2019). Is interval training the magic bullet for fat loss? A systematic review and meta-analysis comparing moderate-intensity continuous training with high-intensity interval training (HIIT).
+<i>Br. J. Sports Med.</i>
+53
+655&#x2013;664. 10.1136/bjsports-2018-099928
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2018-099928</ArticleId><ArticleId IdType="pubmed">30765340</ArticleId></ArticleIdList></Reference><Reference><Citation>Vinetti G., Mozzini C., Desenzani P., Boni E., Bulla L., Lorenzetti I., et al.  (2015). Supervised exercise training reduces oxidative stress and cardiometabolic risk in adults with type 2 diabetes: a randomized controlled trial.
+<i>Sci. Rep.</i>
+5:9238.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4363871</ArticleId><ArticleId IdType="pubmed">25783765</ArticleId></ArticleIdList></Reference><Reference><Citation>Vissers D., Hens W., Taeymans J., Baeyens J. P., Poortmans J., Van Gaal L. (2013). The effect of exercise on visceral adipose tissue in overweight adults: a systematic review and meta-analysis.
+<i>PLoS One</i>
+8:e56415. 10.1371/journal.pone.0056415
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0056415</ArticleId><ArticleId IdType="pmc">PMC3568069</ArticleId><ArticleId IdType="pubmed">23409182</ArticleId></ArticleIdList></Reference><Reference><Citation>Wahrenberg H., L&#xf6;nnqvist F., Arner P. (1989). Mechanisms underlying regional differences in lipolysis in human adipose tissue.
+<i>J. Clin. Invest.</i>
+84
+458&#x2013;467. 10.1172/jci114187
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1172/jci114187</ArticleId><ArticleId IdType="pmc">PMC548904</ArticleId><ArticleId IdType="pubmed">2503539</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang C., Zhang Y., Li F., Wei Y. (2019). Conserved roles of glucose in suppressing reactive oxygen species-induced cell death and animal survival.
+<i>Aging (Albany NY)</i>
+11
+5726&#x2013;5743. 10.18632/aging.102155
+</Citation><ArticleIdList><ArticleId IdType="doi">10.18632/aging.102155</ArticleId><ArticleId IdType="pmc">PMC6710067</ArticleId><ArticleId IdType="pubmed">31403933</ArticleId></ArticleIdList></Reference><Reference><Citation>Willis L. H., Slentz C. A., Bateman L. A., Shields A. T., Piner L. W., Bales C. W., et al.  (2012). Effects of aerobic and/or resistance training on body mass and fat mass in overweight or obese adults.
+<i>J. Appl. Physiol.</i>
+113
+1831&#x2013;1837. 10.1152/japplphysiol.01370.2011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01370.2011</ArticleId><ArticleId IdType="pmc">PMC3544497</ArticleId><ArticleId IdType="pubmed">23019316</ArticleId></ArticleIdList></Reference><Reference><Citation>Wu J., Saovieng S., Cheng I. S., Liu T., Hong S., Lin C. Y., et al.  (2019). Ginsenoside Rg1 supplementation clears senescence-associated &#x3b2;-galactosidase in exercising human skeletal muscle.
+<i>J. Ginseng Res.</i>
+43
+580&#x2013;588. 10.1016/j.jgr.2018.06.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jgr.2018.06.002</ArticleId><ArticleId IdType="pmc">PMC6823780</ArticleId><ArticleId IdType="pubmed">31695564</ArticleId></ArticleIdList></Reference><Reference><Citation>Xu T., Zhou Q., Che L., Das S., Wang L., Jiang J., et al.  (2016). Circulating miR-21, miR-378, and miR-940 increase in response to an acute exhaustive exercise in chronic heart failure patients.
+<i>Oncotarget</i>
+7
+12414&#x2013;12425. 10.18632/oncotarget.6966
+</Citation><ArticleIdList><ArticleId IdType="doi">10.18632/oncotarget.6966</ArticleId><ArticleId IdType="pmc">PMC4914295</ArticleId><ArticleId IdType="pubmed">26799589</ArticleId></ArticleIdList></Reference><Reference><Citation>Yang C., Jiao Y., Wei B., Yang Z., Wu J. F., Jensen J., et al.  (2018). Aged cells in human skeletal muscle after resistance exercise.
+<i>Aging (Albany NY)</i>
+10
+1356&#x2013;1365. 10.18632/aging.101472
+</Citation><ArticleIdList><ArticleId IdType="doi">10.18632/aging.101472</ArticleId><ArticleId IdType="pmc">PMC6046228</ArticleId><ArticleId IdType="pubmed">29953414</ArticleId></ArticleIdList></Reference><Reference><Citation>Ying W., Riopel M., Bandyopadhyay G., Dong Y., Birmingham A., Seo J. B., et al.  (2017). Adipose tissue macrophage-derived exosomal miRNAs can modulate in vivo and in vitro insulin sensitivity.
+<i>Cell</i>
+171
+372&#x2013;384. 10.1016/j.cell.2017.08.035
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cell.2017.08.035</ArticleId><ArticleId IdType="pubmed">28942920</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

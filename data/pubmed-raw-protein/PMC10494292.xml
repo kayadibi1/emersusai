@@ -1,0 +1,632 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="jcmm17910" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">J Cell Mol Med</journal-id><journal-id journal-id-type="iso-abbrev">J Cell Mol Med</journal-id><journal-id journal-id-type="pmc-domain-id">2233</journal-id><journal-id journal-id-type="pmc-domain">jcmmopen</journal-id><journal-id journal-id-type="publisher-id">JCMM</journal-id><journal-title-group><journal-title>Journal of Cellular and Molecular Medicine</journal-title></journal-title-group><issn pub-type="ppub">1582-1838</issn><issn pub-type="epub">1582-4934</issn><publisher><publisher-name>Wiley</publisher-name></publisher></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC10494292</article-id><article-id pub-id-type="pmcid-ver">PMC10494292.1</article-id><article-id pub-id-type="pmcaid">10494292</article-id><article-id pub-id-type="pmcaiid">10494292</article-id><article-id pub-id-type="pmid">37603580</article-id><article-id pub-id-type="doi">10.1111/jcmm.17910</article-id><article-id pub-id-type="publisher-id">JCMM17910</article-id><article-id pub-id-type="other">JCMM-05-2023-116.R1</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Original Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Original Articles</subject></subj-group></article-categories><title-group><article-title>
+<styled-content style="fixed-case" toggle="no">WKYMVm</styled-content> ameliorates obesity by improving lipid metabolism and leptin signalling</article-title><alt-title alt-title-type="left-running-head">Kang et al.</alt-title></title-group><contrib-group><contrib id="jcmm17910-cr-0001" contrib-type="author"><name name-style="western"><surname>Kang</surname><given-names initials="JH">Ji Hyeon</given-names></name><xref rid="jcmm17910-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="jcmm17910-cr-0002" contrib-type="author"><name name-style="western"><surname>Kim</surname><given-names initials="HS">Hyung Sik</given-names></name><xref rid="jcmm17910-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="jcmm17910-curr-0001" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="jcmm17910-cr-0003" contrib-type="author"><name name-style="western"><surname>Park</surname><given-names initials="SH">Seon Hyang</given-names></name><xref rid="jcmm17910-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="jcmm17910-cr-0004" contrib-type="author"><name name-style="western"><surname>Kim</surname><given-names initials="YS">Ye Seon</given-names></name><xref rid="jcmm17910-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref rid="jcmm17910-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="jcmm17910-cr-0005" contrib-type="author" corresp="yes"><name name-style="western"><surname>Bae</surname><given-names initials="YS">Yoe‐Sik</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-6198-4512</contrib-id><xref rid="jcmm17910-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><address><email>yoesik@skku.edu</email></address></contrib></contrib-group><aff id="jcmm17910-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Department of Biological Sciences</named-content>
+<institution>Sungkyunkwan University</institution>
+<city>Suwon</city>
+<country country="KR">Korea</country>
+</aff><aff id="jcmm17910-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">Convergence Research Center for Energy and Environmental Sciences</named-content>
+<institution>Sungkyunkwan University</institution>
+<city>Suwon</city>
+<country country="KR">Korea</country>
+</aff><aff id="jcmm17910-curr-0001"><label>
+<sup>3</sup>
+</label>Present address:
+<named-content content-type="organisation-division">Department of Target Discovery</named-content>
+<institution>LG Life Science</institution>
+<city>Seoul</city>
+<country country="KR">Korea</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>
+<bold>Correspondence</bold>
+<break/>
+Yoe‐Sik Bae, Department of Biological Sciences, Sungkyunkwan University, Suwon 16419, Korea.<break/>
+Email: <email>yoesik@skku.edu</email>
+<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>21</day><month>8</month><year>2023</year></pub-date><pub-date pub-type="collection"><month>9</month><year>2023</year></pub-date><volume>27</volume><issue seq="140">18</issue><issue-id pub-id-type="pmc-issue-id">445085</issue-id><issue-id pub-id-type="doi">10.1111/jcmm.v27.18</issue-id><fpage>2782</fpage><lpage>2791</lpage><history><date date-type="rev-recd"><day>24</day><month>7</month><year>2023</year></date><date date-type="received"><day>15</day><month>5</month><year>2023</year></date><date date-type="accepted"><day>07</day><month>8</month><year>2023</year></date></history><pub-history><event event-type="pmc-release"><date><day>21</day><month>08</month><year>2023</year></date></event><event event-type="pmc-live"><date><day>12</day><month>09</month><year>2023</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2023-09-12 10:25:10.243"><day>12</day><month>09</month><year>2023</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2023 The Authors. <italic toggle="yes">Journal of Cellular and Molecular Medicine</italic> published by Foundation for Cellular and Molecular Medicine and John Wiley &amp; Sons Ltd.</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="JCMM-27-2782.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:JCMM-27-2782.pdf"/><abstract><title>Abstract</title><p>Obesity is a metabolic disorder that results from an imbalance of energy intake and consumption. As low‐grade chronic inflammation caused by obesity can lead to various complications, it is important to develop effective treatments against obesity. In this study, we investigate the effects of WKYMVm, a strong anti‐inflammatory agent, against obesity. Administration of WKYMVm into high fat diet (HFD)‐induced obese mice significantly attenuated body weight gain, food intake and increased insulin sensitivity. HFD‐induced hepatic steatosis and adipose tissue hypertrophy were also markedly ameliorated by WKYMVm. During the maturation of adipocytes, WKYMVm improves lipid metabolism by increasing lipolysis, adipogenesis, mitochondrial biogenesis and fat browning. WKYMVm administration also elicited a decrease in leptin levels, but an increase in leptin sensitivity via regulation of hypothalamic endoplasmic reticulum stress and the leptin receptor cascade. Taken together, our results show that WKYMVm ameliorates obesity by improving lipid metabolism and leptin signalling, suggesting that WKYMVm can be a useful molecule for the development of anti‐obesity agents.</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="jcmm17910-kwd-0001">appetite</kwd><kwd id="jcmm17910-kwd-0002">leptin</kwd><kwd id="jcmm17910-kwd-0003">lipid metabolism</kwd><kwd id="jcmm17910-kwd-0004">obesity</kwd><kwd id="jcmm17910-kwd-0005">WKYMVm</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source><institution-wrap><institution>Korea Drug Development Fund
+</institution><institution-id institution-id-type="doi">10.13039/501100004080</institution-id></institution-wrap></funding-source><award-id>HN22C0255</award-id></award-group><award-group id="funding-0002"><funding-source><institution-wrap><institution>Korea Health Industry Development Institute
+</institution><institution-id institution-id-type="doi">10.13039/501100003710</institution-id></institution-wrap></funding-source><award-id>HI22C2004</award-id></award-group><award-group id="funding-0003"><funding-source><institution-wrap><institution>National Research Foundation of Korea
+</institution><institution-id institution-id-type="doi">10.13039/501100003725</institution-id></institution-wrap></funding-source><award-id>2020M3A9D3038435</award-id><award-id>2021R1A2C3011228</award-id></award-group></funding-group><counts><fig-count count="4"/><table-count count="0"/><page-count count="10"/><word-count count="5877"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>September 2023</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.3.3 mode:remove_FC converted:11.09.2023</meta-value></custom-meta></custom-meta-group></article-meta><notes><p content-type="self-citation">
+<mixed-citation publication-type="journal" id="JCMM17910-cit-2001">
+<string-name name-style="western">
+<surname>Kang</surname>
+<given-names>JH</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kim</surname>
+<given-names>HS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Park</surname>
+<given-names>SH</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kim</surname>
+<given-names>YS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bae</surname>
+<given-names>Y‐S</given-names>
+</string-name>. <article-title>
+<styled-content style="fixed-case" toggle="no">WKYMVm</styled-content> ameliorates obesity by improving lipid metabolism and leptin signalling</article-title>. <source>J Cell Mol Med</source>. <year>2023</year>;<volume>27</volume>:<fpage>2782</fpage>‐<lpage>2791</lpage>. doi:<pub-id pub-id-type="doi">10.1111/jcmm.17910</pub-id>
+<pub-id pub-id-type="pmcid">PMC10494292</pub-id><pub-id pub-id-type="pmid">37603580</pub-id></mixed-citation>
+</p></notes></front><body id="jcmm17910-body-0001"><sec id="jcmm17910-sec-0001"><label>1</label><title>INTRODUCTION</title><p>Obesity, which is defined as excessive body weight with an abnormal accumulation of adipose tissue, is caused by various factors, including eating habits, poor exercise patterns and genetic influences.<xref rid="jcmm17910-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jcmm17910-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref> The World Health Organization defines being overweight as a body mass index of 25.0–29.9 and obesity as a body mass index of 30 and above. More than 2 billion people worldwide are overweight or obese, and the numbers have almost tripled since the 1980s.<xref rid="jcmm17910-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>
+</p><p>During the pathological progression of obesity, changes in energy metabolism and the recruitment of immune cells are closely associated with adipose tissue plasticity.<xref rid="jcmm17910-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>, <xref rid="jcmm17910-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>, <xref rid="jcmm17910-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref> Excessive energy resulting from imbalance of energy intake and consumption is stored as triglycerides in adipose tissue, causing adipocyte hypertrophy and increasing adipokine production.<xref rid="jcmm17910-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>, <xref rid="jcmm17910-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref> Various immune cells, including inflammatory macrophages and neutrophils, accumulate in obese adipose tissue and secrete pro‐inflammatory cytokines.<xref rid="jcmm17910-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref> These events elicit low levels of systemic inflammation without infection, causing tissue damage and organ dysfunction. As a result, obesity remains one of the most prominent risk factors for chronic diseases such as Type 2 diabetes,<xref rid="jcmm17910-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref> fatty liver disease<xref rid="jcmm17910-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref> and cardiovascular disease.<xref rid="jcmm17910-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref> Therefore, it is important for human health to identify molecules that control obesity by focusing on the inflammatory response.</p><p>Another significant characteristic feature of obesity is high circulating levels of leptin, a phenomenon termed hyperleptinaemia.<xref rid="jcmm17910-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref> Leptin is a long‐term regulator of energy balance which is produced by adipose tissue and carries information on energy deposits to the brain.<xref rid="jcmm17910-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref> In lean mice, circulating leptin crosses the blood–brain barrier and binds to LepRb in the hypothalamic arcuate nucleus, activating the JAK2‐STA3 pathway.<xref rid="jcmm17910-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="jcmm17910-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref> During appetite regulation, leptin increases a ‘non‐eating’ peptide, proopiomelanocortin (POMC), but suppresses the production of an ‘eating’ peptide, neuropeptide Y (NPY). LepRb is also involved in the reception of inhibitory signals, which can be derived from multiple negative feedback loops, including suppressor of cytokine signalling 3 (SOCS3) and protein tyrosine phosphatase 1B (PTP1B), to prevent excessive physiological responses.<xref rid="jcmm17910-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref> In obese mice, increased circulating leptin levels and endoplasmic reticulum stress in the hypothalamus induce excessive activation of the negative feedback system, which eventually leads to a disrupted LepRb signalling cascade and eventual resistance to leptin.<xref rid="jcmm17910-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="jcmm17910-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref> For this reason, approaches to induce a partial decrease in circulating leptin and simultaneous increase in leptin sensitivity are being studied to replace other treatments for obesity with adverse effects.</p><p>Trp‐Lys‐Tyr‐Met‐Val‐D‐Met‐NH<sub>2</sub> (WKYMVm), an immune stimulating peptide, is a surrogate agonist for the formyl peptide receptor (FPR) family.<xref rid="jcmm17910-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> Previous reports demonstrated that WKYMVm administration elicits beneficial outcomes against several inflammatory diseases including polymicrobial sepsis, ulcerative colitis, noneosinophilic asthma and hypoxia‐induced lung injury.<xref rid="jcmm17910-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref> Mechanistically, WKYMVm acts as an anti‐inflammatory agent by blocking the production of inflammatory cytokines such as TNF‐α, IL‐1β, IL‐6 and CCL2 induced by LPS in mouse neutrophils and mouse macrophage cells.<xref rid="jcmm17910-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref>, <xref rid="jcmm17910-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref> WKYMVm also improves insulin sensitivity by sensitising the insulin pathway of metabolic tissue in diabetic mice and the palmitic acid‐induced insulin resistance model of L6 myotubes in an FPR2‐dependent manner.<xref rid="jcmm17910-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref> A previous study reported that WKYMVm regulates the production of inflammatory cytokines in white adipose tissue (WAT) by downregulating TNF‐α and IL‐1β.<xref rid="jcmm17910-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref> In this study, we found that WKYMVm has a therapeutic effect on the chronic inflammation environment of obesity. We also examined the mechanism involved in the WKYMVm‐induced anti‐obesity effect by focusing on the regulation of lipid metabolism and food intake.</p></sec><sec sec-type="materials-and-methods" id="jcmm17910-sec-0002"><label>2</label><title>MATERIALS AND METHODS</title><sec id="jcmm17910-sec-0003"><label>2.1</label><title>High fat diet (<styled-content style="fixed-case" toggle="no">HFD</styled-content>)‐induced obese mouse model</title><p>All animal experiments were approved by the Institutional Review Committee for Animal Care and Use at Sungkyunkwan University. Male wild‐type C57BL/6N mice (8‐week‐old, 21 ± 2 g) were purchased from Orient Bio. In order to reduce the weight variables between individuals, two mice were raised in each cage. The mice were housed on a 12 h light/dark cycle and had free access to food and water at 22°C. For the obese mouse model, C57BL/6N mice (8‐week‐old) were fed with a HFD (60% fat as kcal; Research Diets) for 6 or 10 weeks.</p></sec><sec id="jcmm17910-sec-0004"><label>2.2</label><title>
+<styled-content style="fixed-case" toggle="no">WKYMVm</styled-content> injection in obese mouse model</title><p>WKYMVm peptide was synthesized by Anygen. After 4 weeks of HFD feeding, obese mice received subcutaneous injections of vehicle (distilled water [DW]) or WKYMVm (8 mg/kg) once every 2 days. During the 2 or 5 weeks of injection, the body weight (g) and food intake (g/week) of the mice were recorded every week. The change in weight (%) was calculated as the (final weight − initial weight)/initial weight × 100. Organs including adipose tissue, liver and brain were harvested and weighed after mice were sacrificed.</p></sec><sec id="jcmm17910-sec-0005"><label>2.3</label><title>Measurement of body mass</title><p>Body composition (fat and lean body masses) was measured by 1H magnetic resonance spectroscopy (Bruker BioSpin).</p></sec><sec id="jcmm17910-sec-0006"><label>2.4</label><title>Measurement of blood glucose and insulin levels</title><p>For the oral‐glucose tolerance test (O‐GTT), the obese mice were fasted overnight for 10 h, and then injected orally with 2 g/kg glucose. Blood was drawn from the tail vein at specified time intervals, and glucose levels were measured using a glucometer. For the insulin tolerance test (ITT), the mice were fasted overnight for 10 h and then injected with 0.75 U/kg body weight of human insulin via an intraperitoneal injection. Blood glucose levels were monitored at specified time intervals. Plasma insulin levels were determined using ELISA kits manufactured by ALPCO.</p></sec><sec id="jcmm17910-sec-0007"><label>2.5</label><title>Tissue histology</title><p>Tissues were fixed in 10% (v/v) neutral buffered formalin (NBF) for 5 days at 37°C and then embedded in paraffin. Tissue blocks were cut into 4‐μm‐thick slices and deparaffinized, rehydrated, and stained with haematoxylin and eosin for histological analysis. Lipid areas (%) and adipocyte areas (μm<sup>2</sup> × 1000) were quantified using NIH ImageJ software.</p></sec><sec id="jcmm17910-sec-0008"><label>2.6</label><title>Culture of primary adipocytes</title><p>Primary adipocytes were isolated from inguinal white adipose tissue (ingWAT) of C57BL/6N (6‐week‐old) mice. Briefly, isolated ingWAT was digested with 1.5 mg/mL collagenase in 10% FBS DMEM, and then mature adipocytes and connective tissues were separated from the cell pellet via centrifugation. The remaining stromal vascular cells were then resuspended in DMEM/F12 with 10% FBS and 1% penicillin/streptomycin (P/S) and seeded in 6‐well plates for adipogenic differentiation. To induce differentiation, 90%–95% confluent cells were treated with a medium containing 5% FBS, 10 μg/mL insulin, 120 μM indomethacin, 0.2 μM dexamethasone, 0.5 mM 3‐isobutyl‐1‐methylxanthine, 1 nM 3,3′,5‐triiodo‐l‐thyronine and 1% P/S for 3 days. After this period, the medium was replaced with maintenance medium containing 10% FBS, 10 μg/mL insulin and 1% P/S for an additional 2 days. Finally, the cells were maintained in DMEM/F12 with 10% FBS and 1% P/S. To test the effects of WKYMVm on adipocyte differentiation and lipid accumulation, the adipocytes were treated with vehicle or 1 μM WKYMVm (Anygen) during the induction stage for 7 days or the maintenance stage for 2 days.</p></sec><sec id="jcmm17910-sec-0009"><label>2.7</label><title>Quantitative <styled-content style="fixed-case" toggle="no">RT‐PCR</styled-content> (<styled-content style="fixed-case" toggle="no">qRT‐PCR</styled-content>)</title><p>Total RNA was isolated by TRIzol reagent (Life Technology) according to the manufacturer's protocol. Isolated RNA was used to synthesize cDNA using a Maxime RT PreMix Kit (Intron) Quantitative polymerase chain reaction (qPCR) was performed with a Roter‐Gene SYBERGreen PCR Kit (QIAGEN) and gene‐specific primers: <italic toggle="yes">fpr1</italic>‐forward, 5′‐CCTTGGCTTTCTTCAACAGC‐3′; <italic toggle="yes">fpr1</italic>‐reverse, 5′‐ GCCCGTTCTTTACATTGCAT‐3′; <italic toggle="yes">fpr2</italic>‐forward, 5′‐GTCAAGATCAACAGAAGAAACC‐3′; <italic toggle="yes">fpr2</italic>‐reverse, 5′‐GGGCTCTCTCAAGACTATAAGG‐3′; <italic toggle="yes">pparg2</italic>‐forward, 5′‐GCATGGTGCCTTCGCTGA‐3′; <italic toggle="yes">pparg2</italic>‐reverse, 5′‐ TGGCATCTCTGTGTCAACCATG‐3′; <italic toggle="yes">ap2</italic>‐forward, GGAAGCTTGTCTCCAGTGAA‐3′; <italic toggle="yes">ap2</italic>‐reverse, 5′‐ GCGGTGATTTCATCGAATTC‐3′; <italic toggle="yes">lpl</italic>‐forward, 5′‐ CTTCTTGATTTACACGGAGGT‐3′; <italic toggle="yes">lpl</italic>‐reverse, 5′‐ATGGCATTTCACAAACACTG‐3′; <italic toggle="yes">atgl</italic>‐forward, 5′‐ TGTGGCCTCATTCCTCCTAC‐3′; <italic toggle="yes">atgl</italic>‐reverse, 5′‐TCGTGGATGTTGGTGGAGCT‐3′; <italic toggle="yes">mgl</italic>‐forward, 5′‐CATTGCTCGCTCCACTCTT‐3′; <italic toggle="yes">mgl</italic>‐reverse, 5′‐ATGGTCCTGATTTCACCTCTG −3′; <italic toggle="yes">hsl</italic>‐forward, 5′‐GCTGGGCTGTCAAGCACTGT‐3′; <italic toggle="yes">hsl</italic>‐reverse, 5′‐GTAACTGGGTAGGCTGCCAT‐3′; <italic toggle="yes">nrf1</italic>‐forward, 5′‐TGGAACAGCAGTGGCAAGATCTCA‐3′; <italic toggle="yes">nrf1</italic>‐reverse, 5′‐GGCACTGTACAGGATTTCACTTGC‐3′; t<italic toggle="yes">fam1</italic>‐forward, 5′‐GCTCAGAACCCAGATGCAAAA‐3′; t<italic toggle="yes">fam1</italic>‐reverse, 5′‐GCCACTCCGCCCTATAAGC‐3′; <italic toggle="yes">pgc1a</italic>‐forward, 5′‐AGCACACGTTTATTCACGGGT‐3′; <italic toggle="yes">pgcla</italic>‐reverse, 5′‐ GCCCCCAAGTCCTCACATG‐3′; <italic toggle="yes">ucp1</italic>‐forward, 5′‐ACTGCCACACCTCCAGTCATT‐3′; <italic toggle="yes">ucp1</italic>‐reverse, 5′‐CTTTGCCTCACTCAGGATTGG‐3′; <italic toggle="yes">obrb</italic>‐forward, 5′‐GCATGCAGAATCAGTGATATTTGG‐3′; <italic toggle="yes">obrb‐</italic>reverse, 5′‐CAAGCTGTATCGACACTGATTTCTTC‐3′; <italic toggle="yes">ptp1b</italic>‐forward, 5′‐TGGATCTCAGACATTCCACACTCAC‐3′; <italic toggle="yes">ptp1b‐</italic>reverse, 5′‐AGCTGCCTTGCTTCCAGTCC‐3′; <italic toggle="yes">ptprj</italic>‐forward, 5′‐CACAGCTGAGATAGCCGAGAACA‐3′; <italic toggle="yes">ptprj‐</italic>reverse, 5′‐GTCGAATGGGTCTGGACTGAAAG‐3′; <italic toggle="yes">pomc</italic>‐forward, 5′‐ CCCTCCTGCTTCAGACCTC‐3′; <italic toggle="yes">pomc‐</italic>reverse, 5′‐CGTTGCCAGGAAACACGG‐3′; <italic toggle="yes">npy</italic>‐forward, 5′‐CTGACCCTCGCTCTATCTCTGC‐3′; <italic toggle="yes">npy‐</italic>reverse, 5′‐CCATCACCACATGGAAGGGTCT‐3′; <italic toggle="yes">xbp1s</italic>‐forward, 5′‐ACACGCTTGGGAATGGACAC‐3′; <italic toggle="yes">xbp1s‐</italic>reverse, 5′‐CCATGGGAAGATGTTCTGGG‐3′; <italic toggle="yes">chop</italic>‐forward, 5′‐GCATGAAGGAGAAGGAGCAG‐3′; <italic toggle="yes">chop‐</italic>reverse, 5′‐ CTTCCGGAGAGACAGACAGG‐3′; <italic toggle="yes">erdj4</italic>‐forward, 5′‐CCCCAGTGTCAAACTGTACCAG‐3′; <italic toggle="yes">erdj4‐</italic>reverse, 5′‐AGCGTTTCCAATTTTCCATAAATT‐3′; <italic toggle="yes">cebpa</italic>‐forward, 5′‐GATTCCTGCTTCCTCTCGGG‐3′; <italic toggle="yes">cebpa</italic>‐reverse, 5′‐TCCCCAACACCTAAGTCCCT‐3′; <italic toggle="yes">srebp1c</italic>‐forward, 5′‐ACTTTTCCTTAACGTGGGCCT‐3′; <italic toggle="yes">srebp1c</italic>‐reverse, 5′‐ TGAGCTGGAGCATGTCTTCG‐3′; <italic toggle="yes">tfrap2b</italic>‐reverse, 5′‐GTGCCGGTCCTCATAGATGTC‐3′; <italic toggle="yes">tfrap2b</italic>‐forward, 5′‐AGCGTCGGATTTGGTGTGT‐3′; <italic toggle="yes">Gapdh</italic>‐forward, 5′‐TCCACCACCCTGTTGCTGTA‐3′; and <italic toggle="yes">Gapdh</italic>‐reverse, 5′‐AATGTGTCCGTCGTGGAT‐CT‐3′. For qPCR, 55 PCR cycles were performed in three steps including denaturation (95°C, 30 s), annealing (60°C, 30 s) and extension (72°C, 1 min). Relative gene expression levels were normalized to <italic toggle="yes">Gapdh</italic> expression levels.</p></sec><sec id="jcmm17910-sec-0010"><label>2.8</label><title>Measurement of leptin levels</title><p>To measure the levels of leptin, serum or epidermal white adipose tissue (eWAT) were collected from HFD‐induced obese mice at 7 weeks. Culture medium of primary adipocytes in the absence or presence of WKYMVm was collected. Leptin levels were measured using an enzyme‐linked immunosorbent assay (ELISA) kit (eBioscience Inc.) with antibody pairs, following the manufacturer's instructions.</p></sec><sec id="jcmm17910-sec-0011"><label>2.9</label><title>Western blot analysis</title><p>The harvested hypothalamus was lysed in radioimmunoprecipitation assay buffer (RIPA buffer) supplemented with protease inhibitor cocktails (Sigma) at a cold temperature. Extracted proteins were separated by sodium dodecyl sulphate‐polyacrylamide gel electrophoresis (SDS‐PAGE) (8%–15% gel) and transferred to a nitrocellulose membrane (Cytiva). The levels of p‐Stat3 (1:1000, Y705, #9131), p‐Akt (1:1000, S473, #9271), p‐PERK (1:1000, T980, #3179), SOCS3 (1:1000, #2932) were measured. To confirm equal loading, β‐actin was detected using an anti‐β‐actin antibody. All antibodies used for Western blot analysis were purchased from Cell Signaling Technology.</p></sec><sec id="jcmm17910-sec-0012"><label>2.10</label><title>Statistical analysis</title><p>All results were evaluated via GraphPad Prism software. Results are expressed as the mean ± SEM (standard error of the mean). Statistical analyses were performed using Student's <italic toggle="yes">t</italic>‐test or analysis of variance (<sc>anova</sc>). <italic toggle="yes">p</italic> ≤ 0.05 was considered statistically significant.</p></sec></sec><sec sec-type="results" id="jcmm17910-sec-0013"><label>3</label><title>RESULTS</title><sec id="jcmm17910-sec-0014"><label>3.1</label><title>
+<styled-content style="fixed-case" toggle="no">WKYMVm</styled-content> ameliorates <styled-content style="fixed-case" toggle="no">HFD</styled-content>‐induced obesity</title><p>To investigate the effects of WKYMVm in obese mice, C57BL/6 WT mice were fed a HFD for 4 weeks and subsequently 8 mg/kg of WKYMVm was subcutaneously injected every 2 days for 5 weeks. As shown in Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1A,B</xref>, administration of WKYMVm significantly attenuated weight gain compared to the vehicle group. Notably, the final weight gain relative to the initial weight was ~25% and ~15% in the vehicle‐ or WKYMVm‐administered group, respectively (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1C</xref>). The size and weight of metabolic tissues including adipose tissue and liver were also significantly decreased by WKYMVm administration (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1D,E</xref>). WKYMVm administration also decreases food intake compared to the vehicle (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1F</xref>). We further examined the effects of WKYMVm on several types of body masses and found that WKYMVm administration reduces fat mass and increases lean mass without affecting fluid mass (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1G</xref>).</p><fig position="float" fig-type="FIGURE" id="jcmm17910-fig-0001" orientation="portrait"><label>FIGURE 1</label><caption><p>WKYMVm ameliorates HFD‐induced obesity. (A) After housing C57BL/6 mice with a HFD for 4 weeks, 8 mg/kg of WKYMVm was subcutaneously injected every 2 days for 5 weeks. (A–C) Body weight curve (A), representative images (B) and body weight change (%) (C) of vehicle‐ or WKYMVm‐injected obese mice. (D, E) Representative images (D) and weight (E) of adipose tissue and liver from vehicle‐ or WKYMVm‐injected obese mice (<italic toggle="yes">n</italic> = 5/group). Scale bars, 1 cm. (F) Food intake (g/Week) from vehicle‐ or WKYMVm‐injected obese mice. (G) Fat mass, fluid mass and lean mass (%) of vehicle‐ or WKYMVm‐injected obese mice. (H) Blood glucose concentrations from HFD‐induced obese mice for 12 weeks. (I, J) Blood glucose concentrations during O‐GTT (I) and IP‐ITT (J) in fasted HFD‐induced control and WKYMVm‐injected mice for 12 weeks. The data are presented as the mean ± SEM. *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001 by two‐way <sc>anova</sc> (A, I and J) or Student's <italic toggle="yes">t</italic>‐test (C, E, F, G, and H). All data are representative of three independent experiments (<italic toggle="yes">n</italic> = 5 ~ 6/group, A–J). HFD, high fat diet.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="JCMM-27-2782-g002.jpg"/></fig><p>Abnormality in blood sugar (glucose) is a major feature of HFD‐induced obese mice.<xref rid="jcmm17910-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref> Our finding that WKYMVm decreases whole body weight as well as fat mass led us to investigate the effects of WKYMVm on blood glucose concentration. WKYMVm administration decreases blood glucose levels regardless of feeding or fasting compared to the vehicle control (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1H</xref>). Consistently, significant improvements in glucose metabolism and insulin sensitivity were induced by WKYMVm (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1I,J</xref>). Collectively, our results indicate that WKYMVm has beneficial effects to prevent HFD‐induced obesity and glucose intolerance.</p></sec><sec id="jcmm17910-sec-0015"><label>3.2</label><title>
+<styled-content style="fixed-case" toggle="no">WKYMVm</styled-content> improves <styled-content style="fixed-case" toggle="no">HFD</styled-content>‐induced histological damage in the liver and adipose tissues</title><p>As the size and weight of metabolic tissues were significantly reduced by WKYMVm administration (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1D,E</xref>), we performed histological analysis with haematoxylin and eosin staining. Similar to a previous report,<xref rid="jcmm17910-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref> HFD feeding causes hepatic lipid accumulation and adipose tissue hypertrophy (Figure <xref rid="jcmm17910-fig-0002" ref-type="fig">2A–C</xref>). However, administration of WKYMVm markedly reduced fat droplets in the liver. Quantitative analysis showed that WKYMVm significantly decreased the lipid area in the liver of HFD‐induced obese mice (Figure <xref rid="jcmm17910-fig-0002" ref-type="fig">2A</xref>). The results indicate that WKYMVm may attenuate hepatic steatosis in obese mice. HFD feeding markedly induced lipid accumulation in brown adipose tissue (BAT), but WKYMVm‐administered mice showed significantly reduced lipid accumulation in the BAT (Figure <xref rid="jcmm17910-fig-0002" ref-type="fig">2B</xref>). Adipocyte hypertrophy is commonly observed in HFD‐fed mice.<xref rid="jcmm17910-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref> We also found that HFD feeding induces adipocyte hypertrophy in eWAT, which was markedly attenuated by WKYMVm administration (Figure <xref rid="jcmm17910-fig-0002" ref-type="fig">2C</xref> left). Quantitative analysis shows that the area of white adipocytes was decreased from 13,000 μm<sup>2</sup> to 6000 μm<sup>2</sup> by WKYMVm administration in eWAT (Figure <xref rid="jcmm17910-fig-0002" ref-type="fig">2C</xref> right).</p><fig position="float" fig-type="FIGURE" id="jcmm17910-fig-0002" orientation="portrait"><label>FIGURE 2</label><caption><p>WKYMVm improves HFD‐induced histological damage. (A–C) Representative images of haematoxylin and eosin staining of liver (A), brown adipose tissue (BAT) (B) and epidermal white adipose tissue (eWAT) (C) from vehicle‐ or WKYMVm‐injected obese mice. Scale bar, 50 μm. Magnification, ×100 for (A) and (B); ×200 for (C). The data are presented as the mean ± SEM. *<italic toggle="yes">p</italic> &lt; 0.05; ***<italic toggle="yes">p</italic> &lt; 0.001 by Student's <italic toggle="yes">t</italic>‐test, and all data are representative of three independent experiments (<italic toggle="yes">n</italic> = 3/group, A–C). HFD, high fat diet.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="JCMM-27-2782-g004.jpg"/></fig></sec><sec id="jcmm17910-sec-0016"><label>3.3</label><title>
+<styled-content style="fixed-case" toggle="no">WKYMVm</styled-content> improves lipid metabolism in adipose tissue</title><p>As we found that WKYMVm administration reduces not only the weight but also the histological damage of adipose tissues and liver (Figures <xref rid="jcmm17910-fig-0001" ref-type="fig">1D,E</xref>, <xref rid="jcmm17910-fig-0002" ref-type="fig">2A–C</xref>), we examined the effect of WKYMVm on lipid metabolism in HFD‐induced obese mice. Administration of WKYMVm significantly increases the expression of genes associated with lipolysis including <italic toggle="yes">atgl</italic>, <italic toggle="yes">mgl</italic> and <italic toggle="yes">hsl</italic>. Some genes related to adipogenesis such as <italic toggle="yes">pparg2</italic>, <italic toggle="yes">ap2</italic> and <italic toggle="yes">lpl</italic> were also increased by WKYMVm in eWAT (Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3A</xref>). We then investigated if WKYMVm directly regulates lipid metabolism in adipocytes. For this, we examined if primary adipocytes express FPR members (<italic toggle="yes">fpr1</italic> and <italic toggle="yes">fpr2</italic>). By PCR analysis, we found that primary adipocytes express both <italic toggle="yes">fpr1</italic> and <italic toggle="yes">fpr2</italic>, although at a lower level compared to neutrophils (Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3B</xref>). Addition of WKYMVm during the differentiation of adipocytes as depicted in Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3C</xref> upregulates several genes associated with adipogenesis. As shown in Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3D</xref>, the expression of <italic toggle="yes">ppar2</italic>, <italic toggle="yes">ap2</italic> and <italic toggle="yes">lpl</italic> were significantly increased by WKYMVm. This upregulation of adipogenesis‐associated genes was induced when WKYMVm was added to mature adipocytes as well as pre‐adipocytes (Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3C,D</xref>). We also examined the effects of WKYMVm on the expression of several genes associated with mitochondrial biogenesis. Stimulation of mature adipocytes with WKYMVm significantly increases the expression of <italic toggle="yes">nrf1</italic> and <italic toggle="yes">tfam</italic> which play key roles in mitochondria biogenesis (Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3E</xref>). Two crucial genes involved in fat browning, <italic toggle="yes">pgc1</italic> and <italic toggle="yes">ucp1</italic>, are markedly upregulated by WKYMVm in mature adipocytes (Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3E</xref>). However, WKYMVm did not affect the expression of these genes associated with mitochondria biogenesis and fat browning in pre‐adipocytes (Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3E</xref>). As adipocytes mature, lipid droplets increase in size and number. However, upon WKYMVm treatment, the size and number of these lipid droplets significantly decreased (Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3F</xref>). These results align with the regulation of lipid metabolism‐related gene expression induced by WKYMVm treatment. Collectively, these results suggest that WKYMVm may directly act on adipose tissue and significantly improve lipid metabolism.</p><fig position="float" fig-type="FIGURE" id="jcmm17910-fig-0003" orientation="portrait"><label>FIGURE 3</label><caption><p>WKYMVm improves lipid metabolism in adipose tissue. (A) Relative mRNA expression of the thermogenic genes in eWAT from HFD‐induced control and WKYMVm‐injected mice for 12 weeks. (B) The expression of <italic toggle="yes">fpr1</italic>, <italic toggle="yes">fpr2</italic> and <italic toggle="yes">gapdh</italic> in neutrophils and adipocytes. (C) Schematic illustration of in vitro experiments to investigate the effects of WKYMVm in primary adipocytes. (D, E) mRNA expression measured by RT‐qPCR. Adipogenesis, lipolysis, mitochondrial biogenesis and fat browning‐related gene expression in adipocytes. (F) Representative images of mature adipocytes in the absence or presence of WKYMVm. Scale bar, 20 μm. Magnification, ×100. The data are presented as the mean ± SEM. *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001 by Student's <italic toggle="yes">t</italic>‐test, and all data are representative of three independent experiments (<italic toggle="yes">n</italic> = 3 ~ 5/group, A–E). AD, adipocyte differentiation; HFD, high fat diet; LA, lipid accumulation.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="JCMM-27-2782-g003.jpg"/></fig></sec><sec id="jcmm17910-sec-0017"><label>3.4</label><title>
+<styled-content style="fixed-case" toggle="no">WKYMVm</styled-content> improves leptin signalling in the hypothalamus</title><p>Leptin, a hormone released from adipose tissues, has been reported to play key roles to maintain normal body weight.<xref rid="jcmm17910-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref> However, leptin resistance contributes to diet‐induced obesity, showing a decreased ability of leptin to suppress food intake or increase body energy use.<xref rid="jcmm17910-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>, <xref rid="jcmm17910-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref> Considering that WKYMVm inhibits food intake in HFD‐induced obesity (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1F</xref>), we checked whether WKYMVm attenuates leptin resistance. Similar to the results in Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1</xref>, WKYMVm administration significantly attenuates body weight increases at 6–7 weeks after the start of HFD feeding (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4A</xref>). We found that WKYMVm administration significantly reduces leptin levels in the serum and eWAT at 7 weeks in HFD‐induced obese mice (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4B,C</xref>). Because excessive circulating leptin is strongly associated with defective leptin signalling and impaired POMC processing,<xref rid="jcmm17910-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref> we next investigated the leptin signalling cascade. Interestingly, the WKYMVm‐administrated group maintained higher levels of <italic toggle="yes">ptp1b</italic>, <italic toggle="yes">obrb</italic> and <italic toggle="yes">pomc</italic> mRNA in the hypothalamus compared to the vehicle group (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4D</xref>). Mechanistically, ER stress is one of the major factors that mediate leptin resistance.<xref rid="jcmm17910-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref> Therefore, we investigated the effects of WKYMVm on ER stress in HFD‐induced obese mice. As expected, the expression of ER stress‐associated genes (x<italic toggle="yes">bp1</italic>, <italic toggle="yes">chop</italic> and <italic toggle="yes">erdf4</italic>) was decreased by WKYMVm administration in hypothalamus (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4E</xref>). Moreover, phosphorylation of PERK, an ER‐resident protein mediating the ER stress response, was increased in the hypothalamus of HFD‐fed mice. However, WKYMVm administration markedly reduces phosphorylated PERK levels in the hypothalamus (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4F</xref>). A previous report demonstrated that STAT3 signalling plays a crucial role in regulating both ER stress and leptin action in hypothalamus.<xref rid="jcmm17910-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref>, <xref rid="jcmm17910-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> We also found that HFD‐fed mice showed very low levels of phosphorylated STAT3, which was markedly increased by WKYMVm administration (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4F</xref>). WKYMVm administration also increases the levels of phospho‐Akt, which promotes POMC production in hypothalamus (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4F</xref>). Furthermore, the levels of SOCS3, a negative regulator of leptin signalling, were decreased by WKYMVm administration (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4F</xref>). Considering that leptin is primarily produced by primary adipocytes of WAT,<xref rid="jcmm17910-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref> we conducted an investigation to assess the impact of WKYMVm on leptin synthesis in these adipocytes. Upon exposing mature adipocytes to WKYMVm stimulation, we observed a downregulation in the expression of <italic toggle="yes">cebpa</italic>, a gene involved in leptin synthesis. Conversely, the expression of <italic toggle="yes">tfap2b</italic>, a gene that inhibits leptin synthesis, was significantly upregulated in the adipocytes (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4G</xref>). Additionally, WKYMVm treatment led to a decrease in the expression of leptin at both mRNA and protein levels (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4H,I</xref>). Collectively, our results suggest that WKYMVm improves leptin sensitivity by comprehensive modulation of leptin secretion and signalling in adipose tissue‐hypothalamus axis.</p><fig position="float" fig-type="FIGURE" id="jcmm17910-fig-0004" orientation="portrait"><label>FIGURE 4</label><caption><p>WKYMVm improves leptin signalling in the hypothalamus. (A) Body weight change (%) of vehicle‐ or WKYMVm‐injected obese mice over 2 weeks. (B, C) Leptin concentration of serum (B) and eWAT (C) from vehicle‐ or WKYMVm‐injected obese mice. (D, E) mRNA expression measured by RT‐qPCR. Leptin signalling (D) and ER stress (E)‐related gene expression in the hypothalamus of vehicle‐ or WKYMVm‐injected obese mice. (F) Representative Western blot images of phospho‐PERK, phospho‐Stat3, phospho‐Akt, SOCS3 and β‐actin in the hypothalamus of vehicle‐ or WKYMVm‐injected obese mice. (G, H) mRNA expression measured by RT‐qPCR. Leptin synthesis‐related gene expression in mature adipocytes. (I) The concentration of leptin in the adipocyte culture medium both with and without WKYMVm treatment. The data are presented as the mean ± SEM. *<italic toggle="yes">p</italic> &lt; 0.05; **<italic toggle="yes">p</italic> &lt; 0.01; ***<italic toggle="yes">p</italic> &lt; 0.001 by two‐way <sc>anova</sc> (A [left]) or Student's <italic toggle="yes">t</italic>‐test (A [right], B–E, and G‐I). All data are representative of three independent experiments (<italic toggle="yes">n</italic> = 3 ~ 5/group, A–I). HFD, high fat diet.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="JCMM-27-2782-g001.jpg"/></fig></sec></sec><sec sec-type="discussion" id="jcmm17910-sec-0018"><label>4</label><title>DISCUSSION</title><p>Current treatments for obesity include improved eating habits and physical activity, and in severe cases, drug or surgical treatment can be used.<xref rid="jcmm17910-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref> Most drugs on the market aim to reduce 5%–10% of obese patients' weight. Pentamidine, orlistat and GLP‐1 receptor agonists are representative drugs, but they have various side effects such as neurological and digestive problems.<xref rid="jcmm17910-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref>, <xref rid="jcmm17910-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> Therefore, new treatment approaches are continuously being explored. In this study, we found that an FPR agonist, WKYMVm, has effective anti‐obesity activity in an HFD‐fed mouse model (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1A–E</xref>). WKYMVm administration also improves glucose metabolism and insulin sensitivity in the mice model (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1H–J</xref>). HFD‐induced tissue damages such as hepatic steatosis and adipose tissue hypertrophy were also attenuated by WKYMVm (Figure <xref rid="jcmm17910-fig-0002" ref-type="fig">2</xref>). Mechanistically, WKYMVm administration improves leptin resistance as well as lipid metabolism (Figures <xref rid="jcmm17910-fig-0003" ref-type="fig">3</xref> and <xref rid="jcmm17910-fig-0004" ref-type="fig">4</xref>). WKYMVm is a well known agonist for the FPR family, which are G‐protein‐coupled receptors that are expressed in various immune cells and organs.<xref rid="jcmm17910-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref> Many previous reports demonstrated that activation of FPR members by diverse agonists elicits several cellular responses including chemotactic migration, phagocytosis and superoxide anion production.<xref rid="jcmm17910-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>, <xref rid="jcmm17910-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref> Some reports revealed a relationship between FPR ligands and obesity. N‐Formyl methionyl‐leucyl‐phenylalanine and serum amyloid A are measured at very high levels in the blood of obese mice and obese patients, and promote insulin resistance as well as weight gain.<xref rid="jcmm17910-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="jcmm17910-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref> Conversely, resolvin D1, D2 and lipoxin A4 are known to attenuate obesity, by reducing chronic inflammation by polarising M1 to M2.<xref rid="jcmm17910-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="jcmm17910-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref> However, it remains unclear how FPR regulates obesity. Here we found that WKYMVm administration reduces food intake by improving leptin resistance (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1F</xref> and <xref rid="jcmm17910-fig-0004" ref-type="fig">4F</xref>). Leptin is thought to be an attractive treatment for obesity due to its role in controlling appetite.<xref rid="jcmm17910-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref> However, these clinical approaches failed in most patients due to ‘leptin resistance’, which leads to interference in leptin receptor signalling.<xref rid="jcmm17910-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="jcmm17910-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>, <xref rid="jcmm17910-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref> Recently, a major conceptual shift in leptin therapy was proposed. Rather than treating obese patients with exogenous leptin, an approach to increase leptin sensitivity by inducing a partial reduction in circulating leptin was proposed.<xref rid="jcmm17910-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>, <xref rid="jcmm17910-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref> In this study, we found that WKYMVm administration decreases leptin production from eWAT of HFD‐fed obese mice and mature adipocytes (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4C,I</xref>). This reduction in leptin production coincides with changes in the expression of genes involved in the synthesis of leptin, including <italic toggle="yes">cebpa</italic> and <italic toggle="yes">tfap2b</italic> (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4G</xref>). The reduction in total leptin production resulted in the alleviation of leptin resistance in the hypothalamus. WKYMVm administration elicited increased p‐Stat3 and p‐Akt, which are important players in the leptin receptor signalling pathways, and maintained high expression levels of leptin receptor signalling‐related genes including <italic toggle="yes">obrb</italic> and <italic toggle="yes">pomc</italic>. WKYMVm blocks inhibitory leptin signals, which are regulated by various negative feedback loops, including SOCS3 (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4F</xref>). Remarkably, WKYMVm administration also led to a significant reduction in hypothalamic ER stress, a major contributor to leptin resistance. This effect was evident from the notable decrease in both ER stress‐related gene and protein expressions in response to WKYMVm treatment (Figure <xref rid="jcmm17910-fig-0004" ref-type="fig">4E,F</xref>). Obesity is also known to induce hypothalamic inflammation, disrupting metabolic homeostasis.<xref rid="jcmm17910-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref> While the expression of Fpr1 and Fpr2 in the hypothalamus is lower compared to other tissues (data not shown), it will be necessary to investigate the potential pathway of obesity reduction through inhibiting the inflammatory response in the hypothalamus, as WKYMVm demonstrates anti‐inflammatory characteristics. Taking these findings together, we propose that WKYMVm effectively alleviates the ‘overload’ of leptin signalling and can exert significant control over excessive appetite induced by obesity.</p><p>As WKYMVm binds to FPR members and FPR members are mainly expressed in innate immune cells, previous studies on the effects and functional roles of FPR members have focused on neutrophils, monocytes and macrophages.<xref rid="jcmm17910-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>, <xref rid="jcmm17910-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref> However, FPR members are also expressed in non‐immune cells, such as adipose‐derived stem cells and mesenchymal stem cells.<xref rid="jcmm17910-bib-0034" ref-type="bibr">
+<sup>34</sup>
+</xref>, <xref rid="jcmm17910-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref> Activation of FPR1 signalling negatively regulates the differentiation of mesenchymal stem cells into adipocytes. In this study, we found that WKYMVm administration elicits reduced adipose tissue weight and hepatic steatosis/white adipose tissue hypertrophy in HFD‐induced obese mice (Figure <xref rid="jcmm17910-fig-0001" ref-type="fig">1D,E</xref>, and Figure <xref rid="jcmm17910-fig-0002" ref-type="fig">2</xref>). We also observed that WKYMVm modulates lipid metabolism in vivo as well as in vitro, showing increased expression of genes associated with adipogenesis and lipolysis (Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3A,D</xref>). Our findings that primary adipocytes express both <italic toggle="yes">fpr1</italic> and <italic toggle="yes">fpr2</italic>, and direct addition of WKYMVm into primary adipocytes effectively modulates the expression of genes in lipid metabolism suggest that WKYMVm may act on primary adipocytes, resulting in the improvement of lipid metabolism in obesity. Obesity‐induced mitochondrial stress in adipocytes can cause decreased glucose homeostasis, adipogenesis and free fatty acid oxidation which can induce insulin resistance and Type 2 diabetes.<xref rid="jcmm17910-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref>, <xref rid="jcmm17910-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref> During the maturation of primary adipocytes, WKYMVm treatment markedly enhanced mitochondrial biogenesis and fat browning (Figure <xref rid="jcmm17910-fig-0003" ref-type="fig">3D,E</xref>). Recently, stimulation of lipolysis has become a therapeutic interest for obesity.<xref rid="jcmm17910-bib-0038" ref-type="bibr">
+<sup>38</sup>
+</xref>, <xref rid="jcmm17910-bib-0039" ref-type="bibr">
+<sup>39</sup>
+</xref> Although the role of lipase is considered to worsen obesity in the gastrointestinal tract, it is advantageous to hydrolyse triglycerides to lower lipids in adipocytes. In adipose tissue, WKYMVm not only increases lipolysis but also improves the activity of mitochondria that can oxidize free fatty acid, so it could be utilized as a therapeutic agent with a new approach.</p><p>In conclusion, in this study, we demonstrated that administration of the FPR agonist WKYMVm effectively elicits anti‐obesity activity in an HFD‐induced model. Through analysis of biochemical signalling pathways, we propose that WKYMVm may improve leptin resistance, leading to reduced food intake directed by the hypothalamus. Gene expression analysis reveals that WKYMVm also directly improves lipid metabolism. Collectively, WKYMVm and its target FPR members are potentially useful material and promising targets to control obesity.</p></sec><sec id="jcmm17910-sec-0023"><title>AUTHOR CONTRIBUTIONS</title><p>
+<bold>Ji Hyeon Kang:</bold> Conceptualization (lead); data curation (lead); formal analysis (lead); investigation (lead); methodology (lead); validation (lead); visualization (lead); writing – original draft (lead); writing – review and editing (supporting). <bold>Hyung Sik Kim:</bold> Conceptualization (supporting); methodology (supporting). <bold>Seon Hyang Park:</bold> Data curation (supporting); investigation (supporting). <bold>Ye Seon Kim:</bold> Data curation (supporting); investigation (supporting). <bold>Yoe‐Sik Bae:</bold> Conceptualization (lead); funding acquisition (lead); project administration (lead); supervision (lead); writing – original draft (supporting); writing – review and editing (lead).</p></sec><sec sec-type="COI-statement" id="jcmm17910-sec-0020"><title>CONFLICT OF INTEREST STATEMENT</title><p>The authors have no conflicts of interest to disclose.</p></sec></body><back><ack id="jcmm17910-sec-0019"><title>ACKNOWLEDGEMENTS</title><p>This work was supported by a research grant of the Basic Science Research Program through the National Research Foundation of Korea (NRF) funded by the Ministry of Science, ICT and Future Planning (2020M3A9D3038435, 2021R1A2C3011228), by a grant of the Korea Health Technology R&amp;D Project through the Korea Health Industry Development Institute (KHIDI), funded by the Ministry of Health &amp; Welfare, Republic of Korea (grant number: HI22C2004) and by the Korea Drug Development Fund funded by the Ministry of Science and ICT, Ministry of Trade, Industry, and Energy and Ministry of Health and Welfare (HN22C0255, Republic of Korea).</p></ack><sec sec-type="data-availability" id="jcmm17910-sec-0022"><title>DATA AVAILABILITY STATEMENT</title><p>The data that support the findings of this study are available from the corresponding author upon reasonable request.</p></sec><ref-list content-type="cited-references" id="jcmm17910-bibl-0001"><title>REFERENCES</title><ref id="jcmm17910-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0001">
+<string-name name-style="western">
+<surname>González‐Muniesa</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mártinez‐González</surname>
+<given-names>MA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hu</surname>
+<given-names>FB</given-names>
+</string-name>, et al. <article-title>Obesity</article-title>. <source>Nat Rev Dis Primers</source>. <year>2017</year>;<volume>3</volume>:<elocation-id>17034</elocation-id>.<pub-id pub-id-type="pmid">28617414</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/nrdp.2017.34</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0002">
+<string-name name-style="western">
+<surname>Makki</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Froguel</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wolowczuk</surname>
+<given-names>I</given-names>
+</string-name>. <article-title>Adipose tissue in obesity‐related inflammation and insulin resistance: cells, cytokines, and chemokines</article-title>. <source>ISRN Inflamm</source>. <year>2013</year>;<volume>2013</volume>:<elocation-id>139239</elocation-id>.<pub-id pub-id-type="pmid">24455420</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1155/2013/139239</pub-id><pub-id pub-id-type="pmcid">PMC3881510</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0003"><label>3</label><mixed-citation publication-type="miscellaneous" id="jcmm17910-cit-0003">
+<collab collab-type="authors">World Health Organization</collab>
+. <article-title>Obesity and Overweight. Published online 2021</article-title>.</mixed-citation></ref><ref id="jcmm17910-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0004">
+<string-name name-style="western">
+<surname>Liu</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nikolajczyk</surname>
+<given-names>BS</given-names>
+</string-name>. <article-title>Tissue immune cells fuel obesity‐associated inflammation in adipose tissue and beyond</article-title>. <source>Front Immunol</source>. <year>2019</year>;<volume>10</volume>:<fpage>1587</fpage>.<pub-id pub-id-type="pmid">31379820</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fimmu.2019.01587</pub-id><pub-id pub-id-type="pmcid">PMC6653202</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0005">
+<string-name name-style="western">
+<surname>Andersen</surname>
+<given-names>CJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Murphy</surname>
+<given-names>KE</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fernandez</surname>
+<given-names>ML</given-names>
+</string-name>. <article-title>Impact of obesity and metabolic syndrome on immunity</article-title>. <source>Adv Nutr</source>. <year>2016</year>;<volume>7</volume>(<issue>1</issue>):<fpage>66</fpage>‐<lpage>75</lpage>.<pub-id pub-id-type="pmid">26773015</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3945/an.115.010207</pub-id><pub-id pub-id-type="pmcid">PMC4717890</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0006">
+<string-name name-style="western">
+<surname>Lumeng</surname>
+<given-names>CN</given-names>
+</string-name>. <article-title>Innate immune activation in obesity</article-title>. <source>Mol Aspects Med</source>. <year>2013</year>;<volume>34</volume>(<issue>1</issue>):<fpage>12</fpage>‐<lpage>29</lpage>.<pub-id pub-id-type="pmid">23068074</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.mam.2012.10.002</pub-id><pub-id pub-id-type="pmcid">PMC3888776</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0007">
+<string-name name-style="western">
+<surname>Khan</surname>
+<given-names>MZ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Al‐Goblan</surname>
+<given-names>AS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Al‐Alfi</surname>
+<given-names>M</given-names>
+</string-name>. <article-title>Mechanism linking diabetes mellitus and obesity</article-title>. <source>Metab Syndr Obes</source>. <year>2014</year>;<volume>7</volume>:<fpage>587</fpage>‐<lpage>591</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.2147/DMSO.S67400</pub-id><pub-id pub-id-type="pmcid">PMC4259868</pub-id><pub-id pub-id-type="pmid">25506234</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0008">
+<string-name name-style="western">
+<surname>Sarwar</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pierce</surname>
+<given-names>N</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Koppe</surname>
+<given-names>S</given-names>
+</string-name>. <article-title>Obesity and nonalcoholic fatty liver disease: current perspectives</article-title>. <source>Diabetes Metab Syndr Obes</source>. <year>2018</year>;<volume>11</volume>:<fpage>533</fpage>‐<lpage>542</lpage>.<pub-id pub-id-type="pmid">30288073</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.2147/DMSO.S146339</pub-id><pub-id pub-id-type="pmcid">PMC6163009</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0009">
+<string-name name-style="western">
+<surname>Ebong</surname>
+<given-names>IA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Goff</surname>
+<given-names>DC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rodriguez</surname>
+<given-names>CJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chen</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bertoni</surname>
+<given-names>AG</given-names>
+</string-name>. <article-title>Mechanisms of heart failure in obesity</article-title>. <source>Obes Res Clin Pract</source>. <year>2014</year>;<volume>8</volume>(<issue>6</issue>):<fpage>e540</fpage>‐<lpage>e548</lpage>.<pub-id pub-id-type="pmid">25434909</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.orcp.2013.12.005</pub-id><pub-id pub-id-type="pmcid">PMC4250935</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0010">
+<string-name name-style="western">
+<surname>Izquierdo</surname>
+<given-names>AG</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Crujeiras</surname>
+<given-names>AB</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Casanueva</surname>
+<given-names>FF</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Carreira</surname>
+<given-names>MC</given-names>
+</string-name>. <article-title>Leptin, obesity, and leptin resistance: where are we 25 years later?</article-title>
+<source>Nutrients</source>. <year>2019</year>;<volume>11</volume>(<issue>11</issue>):<fpage>2704</fpage>.<pub-id pub-id-type="pmid">31717265</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/nu11112704</pub-id><pub-id pub-id-type="pmcid">PMC6893721</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0011">
+<string-name name-style="western">
+<surname>Myers</surname>
+<given-names>MG</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Leibel</surname>
+<given-names>RL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Seeley</surname>
+<given-names>RJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Schwartz</surname>
+<given-names>MW</given-names>
+</string-name>. <article-title>Obesity and leptin resistance: distinguishing cause from effect</article-title>. <source>Trends Endocrinol Metab</source>. <year>2010</year>;<volume>21</volume>(<issue>11</issue>):<fpage>643</fpage>‐<lpage>651</lpage>.<pub-id pub-id-type="pmid">20846876</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.tem.2010.08.002</pub-id><pub-id pub-id-type="pmcid">PMC2967652</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0012">
+<string-name name-style="western">
+<surname>Yang</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Barouch</surname>
+<given-names>LA</given-names>
+</string-name>. <article-title>Leptin signaling and obesity: cardiovascular consequences</article-title>. <source>Circ Res</source>. <year>2007</year>;<volume>101</volume>(<issue>6</issue>):<fpage>545</fpage>‐<lpage>559</lpage>.<pub-id pub-id-type="pmid">17872473</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1161/CIRCRESAHA.107.156596</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0013">
+<string-name name-style="western">
+<surname>Liu</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lee</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hernandez</surname>
+<given-names>MAS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mazitschek</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ozcan</surname>
+<given-names>U</given-names>
+</string-name>. <article-title>Treatment of obesity with celastrol</article-title>. <source>Cell</source>. <year>2015</year>;<volume>161</volume>(<issue>5</issue>):<fpage>999</fpage>‐<lpage>1011</lpage>.<pub-id pub-id-type="pmid">26000480</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cell.2015.05.011</pub-id><pub-id pub-id-type="pmcid">PMC4768733</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0014">
+<string-name name-style="western">
+<surname>Bae</surname>
+<given-names>YS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ju</surname>
+<given-names>SA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kim</surname>
+<given-names>JY</given-names>
+</string-name>, et al. <article-title>Trp‐Lys‐Tyr‐met‐Val‐D‐met stimulates superoxide generation and killing of Staphylococcus aureus via phospholipase D activation in human monocytes</article-title>. <source>J Leukoc Biol</source>. <year>1999</year>;<volume>65</volume>(<issue>2</issue>):<fpage>241</fpage>‐<lpage>248</lpage>.<pub-id pub-id-type="pmid">10088607</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/jlb.65.2.241</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0015">
+<string-name name-style="western">
+<surname>Ma</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Guo</surname>
+<given-names>X</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wang</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Han</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Liu</surname>
+<given-names>H</given-names>
+</string-name>. <article-title>Therapeutic potential of WKYMVm in diseases</article-title>. <source>Front Pharmacol</source>. <year>2022</year>;<volume>13</volume>:<fpage>1</fpage>‐<lpage>12</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fphar.2022.986963</pub-id><pub-id pub-id-type="pmcid">PMC9479759</pub-id><pub-id pub-id-type="pmid">36120322</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0016">
+<string-name name-style="western">
+<surname>Tae</surname>
+<given-names>YM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Park</surname>
+<given-names>HT</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Moon</surname>
+<given-names>HG</given-names>
+</string-name>, et al. <article-title>Airway activation of formyl peptide receptors inhibits Th1 and Th17 cell responses via inhibition of mediator release from immune and inflammatory cells and maturation of dendritic cells</article-title>. <source>J Immunol</source>. <year>2012</year>;<volume>188</volume>(<issue>4</issue>):<fpage>1799</fpage>‐<lpage>1808</lpage>.<pub-id pub-id-type="pmid">22262660</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.4049/jimmunol.1102481</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0017">
+<string-name name-style="western">
+<surname>Kim</surname>
+<given-names>SD</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kim</surname>
+<given-names>YK</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lee</surname>
+<given-names>HY</given-names>
+</string-name>, et al. <article-title>The agonists of formyl peptide receptors prevent development of severe sepsis after microbial infection</article-title>. <source>J Immunol</source>. <year>2010</year>;<volume>185</volume>(<issue>7</issue>):<fpage>4302</fpage>‐<lpage>4310</lpage>.<pub-id pub-id-type="pmid">20817875</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.4049/jimmunol.1001310</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0018">
+<string-name name-style="western">
+<surname>Yoon</surname>
+<given-names>JH</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kim</surname>
+<given-names>D</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jang</surname>
+<given-names>JH</given-names>
+</string-name>, et al. <article-title>Proteomic analysis of the palmitate‐induced myotube secretome reveals involvement of the annexin A1‐formyl peptide receptor 2 (FPR2) pathway in insulin resistance</article-title>. <source>Mol Cell Proteomics</source>. <year>2015</year>;<volume>14</volume>(<issue>4</issue>):<fpage>882</fpage>‐<lpage>892</lpage>.<pub-id pub-id-type="pmid">25616869</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1074/mcp.M114.039651</pub-id><pub-id pub-id-type="pmcid">PMC4390267</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0019">
+<string-name name-style="western">
+<surname>Obradovic</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sudar‐Milovanovic</surname>
+<given-names>E</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Soskic</surname>
+<given-names>S</given-names>
+</string-name>, et al. <article-title>Leptin and obesity: role and clinical implication</article-title>. <source>Front Endocrinol (Lausanne)</source>. <year>2021</year>;<volume>12</volume>:<elocation-id>585887</elocation-id>.<pub-id pub-id-type="pmid">34084149</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fendo.2021.585887</pub-id><pub-id pub-id-type="pmcid">PMC8167040</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0020">
+<string-name name-style="western">
+<surname>Meares</surname>
+<given-names>GP</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Liu</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rajbhandari</surname>
+<given-names>R</given-names>
+</string-name>, et al. <article-title>PERK‐dependent activation of JAK1 and STAT3 contributes to endoplasmic reticulum stress‐induced inflammation</article-title>. <source>Mol Cell Biol</source>. <year>2014</year>;<volume>34</volume>(<issue>20</issue>):<fpage>3911</fpage>‐<lpage>3925</lpage>.<pub-id pub-id-type="pmid">25113558</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1128/MCB.00980-14</pub-id><pub-id pub-id-type="pmcid">PMC4187715</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0021">
+<string-name name-style="western">
+<surname>Liu</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Du</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Li</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yang</surname>
+<given-names>G</given-names>
+</string-name>. <article-title>STAT3 phosphorylation in central leptin resistance</article-title>. <source>Nutr Metab</source>. <year>2021</year>;<volume>18</volume>(<issue>1</issue>):<fpage>1</fpage>‐<lpage>13</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/s12986-021-00569-w</pub-id><pub-id pub-id-type="pmcid">PMC8045279</pub-id><pub-id pub-id-type="pmid">33849593</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0022">
+<string-name name-style="western">
+<surname>Ceja‐Galicia</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Calderón‐DuPont</surname>
+<given-names>D</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Daniel</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chiu</surname>
+<given-names>LM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Díaz‐Villaseñor</surname>
+<given-names>A</given-names>
+</string-name>. <article-title>Leptin and adiponectin synthesis and secretion in mature 3T3‐L1 adipocytes are differentially down‐regulated by arsenic and palmitic acid exposure throughout different stages of adipogenesis</article-title>. <source>Life Sci</source>. <year>2022</year>;<volume>291</volume>:<elocation-id>120262</elocation-id>.<pub-id pub-id-type="pmid">34968464</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.lfs.2021.120262</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0023">
+<string-name name-style="western">
+<surname>Müller</surname>
+<given-names>TD</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Blüher</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Tschöp</surname>
+<given-names>MH</given-names>
+</string-name>, <string-name name-style="western">
+<surname>DiMarchi</surname>
+<given-names>RD</given-names>
+</string-name>. <article-title>Anti‐obesity drug discovery: advances and challenges</article-title>. <source>Nat Rev Drug Discov</source>. <year>2022</year>;<volume>21</volume>(<issue>3</issue>):<fpage>201</fpage>‐<lpage>223</lpage>.<pub-id pub-id-type="pmid">34815532</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41573-021-00337-8</pub-id><pub-id pub-id-type="pmcid">PMC8609996</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0024">
+<string-name name-style="western">
+<surname>Ruban</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Stoenchev</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ashrafian</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Teare</surname>
+<given-names>J</given-names>
+</string-name>. <article-title>Current treatments for obesity</article-title>. <source>Clin Med (Northfield Il)</source>. <year>2019</year>;<volume>19</volume>(<issue>3</issue>):<fpage>205</fpage>‐<lpage>212</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.7861/clinmedicine.19-3-205</pub-id><pub-id pub-id-type="pmcid">PMC6542229</pub-id><pub-id pub-id-type="pmid">31092512</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0025">
+<string-name name-style="western">
+<surname>He</surname>
+<given-names>HQ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ye</surname>
+<given-names>RD</given-names>
+</string-name>. <article-title>The formyl peptide receptors: diversity of ligands and mechanism for recognition</article-title>. <source>Molecules</source>. <year>2017</year>;<volume>22</volume>(<issue>3</issue>):<fpage>455</fpage>.<pub-id pub-id-type="pmid">28335409</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/molecules22030455</pub-id><pub-id pub-id-type="pmcid">PMC6155412</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0026">
+<string-name name-style="western">
+<surname>Krepel</surname>
+<given-names>SA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wang</surname>
+<given-names>JM</given-names>
+</string-name>. <article-title>Chemotactic ligands that activate G‐protein‐coupled formylpeptide receptors</article-title>. <source>Int J Mol Sci</source>. <year>2019</year>;<volume>20</volume>(<issue>14</issue>):<fpage>3426</fpage>.<pub-id pub-id-type="pmid">31336833</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/ijms20143426</pub-id><pub-id pub-id-type="pmcid">PMC6678346</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0027">
+<string-name name-style="western">
+<surname>Wollam</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Riopel</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Xu</surname>
+<given-names>YJ</given-names>
+</string-name>, et al. <article-title>Microbiota‐produced n‐formyl peptide fMLF promotes obesity‐induced glucose intolerance</article-title>. <source>Diabetes</source>. <year>2019</year>;<volume>68</volume>(<issue>7</issue>):<fpage>1415</fpage>‐<lpage>1426</lpage>.<pub-id pub-id-type="pmid">31010956</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.2337/db18-1307</pub-id><pub-id pub-id-type="pmcid">PMC6609982</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0028">
+<string-name name-style="western">
+<surname>Oliveira</surname>
+<given-names>EM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ascar</surname>
+<given-names>TP</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Silva</surname>
+<given-names>JC</given-names>
+</string-name>, et al. <article-title>Serum amyloid a links endotoxaemia to weight gain and insulin resistance in mice</article-title>. <source>Diabetologia</source>. <year>2016</year>;<volume>59</volume>(<issue>8</issue>):<fpage>1760</fpage>‐<lpage>1768</lpage>.<pub-id pub-id-type="pmid">27126803</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00125-016-3970-z</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0029">
+<string-name name-style="western">
+<surname>Clària</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Dalli</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yacoubian</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gao</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Serhan</surname>
+<given-names>CN</given-names>
+</string-name>. <article-title>Resolvin D1 and Resolvin D2 govern local inflammatory tone in obese Fat1</article-title>. <source>J Immunol</source>. <year>2012</year>;<volume>189</volume>(<issue>5</issue>):<fpage>2597</fpage>‐<lpage>2605</lpage>.<pub-id pub-id-type="pmid">22844113</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.4049/jimmunol.1201272</pub-id><pub-id pub-id-type="pmcid">PMC3424332</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0030">
+<string-name name-style="western">
+<surname>Börgeson</surname>
+<given-names>E</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Johnson</surname>
+<given-names>AMF</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lee</surname>
+<given-names>YS</given-names>
+</string-name>, et al. <article-title>Lipoxin A4 attenuates obesity‐induced adipose inflammation and associated liver and kidney disease</article-title>. <source>Cell Metab</source>. <year>2015</year>;<volume>22</volume>(<issue>1</issue>):<fpage>125</fpage>‐<lpage>137</lpage>.<pub-id pub-id-type="pmid">26052006</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cmet.2015.05.003</pub-id><pub-id pub-id-type="pmcid">PMC4584026</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0031">
+<string-name name-style="western">
+<surname>Zhao</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zhu</surname>
+<given-names>Y</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Schultz</surname>
+<given-names>RD</given-names>
+</string-name>, et al. <article-title>Partial leptin reduction as an insulin sensitization and weight loss strategy</article-title>. <source>Cell Metab</source>. <year>2019</year>;<volume>30</volume>(<issue>4</issue>):<fpage>706</fpage>‐<lpage>719.e6</lpage>.<pub-id pub-id-type="pmid">31495688</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.cmet.2019.08.005</pub-id><pub-id pub-id-type="pmcid">PMC6774814</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0032">
+<string-name name-style="western">
+<surname>Jais</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Brüning</surname>
+<given-names>JC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jais</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Brüning</surname>
+<given-names>JC</given-names>
+</string-name>. <article-title>Hypothalamic inflammation in obesity and metabolic disease find the latest version: hypothalamic inflammation in obesity and metabolic disease</article-title>. <source>J Clin Invest</source>. <year>2017</year>;<volume>127</volume>(<issue>1</issue>):<fpage>24</fpage>‐<lpage>32</lpage>.<pub-id pub-id-type="pmid">28045396</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1172/JCI88878</pub-id><pub-id pub-id-type="pmcid">PMC5199695</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0033">
+<string-name name-style="western">
+<surname>Chen</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bao</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gong</surname>
+<given-names>W</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Tang</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yoshimura</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wang</surname>
+<given-names>JM</given-names>
+</string-name>. <article-title>Regulation of inflammation by members of the formyl‐peptide receptor family</article-title>. <source>J Autoimmun</source>. <year>2017</year>;<volume>85</volume>:<fpage>64</fpage>‐<lpage>77</lpage>.<pub-id pub-id-type="pmid">28689639</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jaut.2017.06.012</pub-id><pub-id pub-id-type="pmcid">PMC5705339</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0034">
+<string-name name-style="western">
+<surname>Le</surname>
+<given-names>Q</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zhu</surname>
+<given-names>D</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Dighe</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Cui</surname>
+<given-names>Q</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yang</surname>
+<given-names>X</given-names>
+</string-name>. <article-title>Association of Fpr1 gene expression with osteogenesis and adipogenesis of adipose derived stem cells</article-title>. <source>Biochem Biophys Res Commun</source>. <year>2021</year>;<volume>574</volume>:<fpage>33</fpage>‐<lpage>38</lpage>.<pub-id pub-id-type="pmid">34428707</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.bbrc.2021.08.044</pub-id><pub-id pub-id-type="pmcid">PMC8429268</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0035">
+<string-name name-style="western">
+<surname>Shin</surname>
+<given-names>MK</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jang</surname>
+<given-names>YH</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yoo</surname>
+<given-names>HJ</given-names>
+</string-name>, et al. <article-title>N‐formyl‐methionyl‐leucyl‐phenylalanine (fMLP) promotes osteoblast differentiation via the N‐formyl peptide receptor 1‐mediated signaling pathway in human mesenchymal stem cells from bone marrow</article-title>. <source>J Biol Chem</source>. <year>2011</year>;<volume>286</volume>(<issue>19</issue>):<fpage>17133</fpage>‐<lpage>17143</lpage>.<pub-id pub-id-type="pmid">21372136</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1074/jbc.M110.197772</pub-id><pub-id pub-id-type="pmcid">PMC3089557</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0036">
+<string-name name-style="western">
+<surname>Lai</surname>
+<given-names>CS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wu</surname>
+<given-names>JC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ho</surname>
+<given-names>CT</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pan</surname>
+<given-names>MH</given-names>
+</string-name>. <article-title>Chemoprevention of obesity by dietary natural compounds targeting mitochondrial regulation</article-title>. <source>Mol Nutr Food Res</source>. <year>2017</year>;<volume>61</volume>(<issue>6</issue>):<elocation-id>1600721</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/mnfr.201600721</pub-id><pub-id pub-id-type="pmid">27860374</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0037">
+<string-name name-style="western">
+<surname>Dahik</surname>
+<given-names>VD</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Frisdal</surname>
+<given-names>E</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Le</surname>
+<given-names>GW</given-names>
+</string-name>. <article-title>Rewiring of lipid metabolism in adipose tissue macrophages in obesity: impact on insulin resistance and type 2 diabetes</article-title>. <source>Int J Mol Sci</source>. <year>2020</year>;<volume>21</volume>(<issue>15</issue>):<elocation-id>5505</elocation-id>.<pub-id pub-id-type="pmid">32752107</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.3390/ijms21155505</pub-id><pub-id pub-id-type="pmcid">PMC7432680</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0038">
+<string-name name-style="western">
+<surname>Yang</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mottillo</surname>
+<given-names>EP</given-names>
+</string-name>. <article-title>Adipocyte lipolysis: from molecular mechanisms of regulation to disease and therapeutics</article-title>. <source>Biochem J</source>. <year>2020</year>;<volume>477</volume>(<issue>5</issue>):<fpage>985</fpage>‐<lpage>1008</lpage>.<pub-id pub-id-type="pmid">32168372</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1042/BCJ20190468</pub-id><pub-id pub-id-type="pmcid">PMC7187988</pub-id></mixed-citation></ref><ref id="jcmm17910-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="jcmm17910-cit-0039">
+<string-name name-style="western">
+<surname>Fang</surname>
+<given-names>JY</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Huang</surname>
+<given-names>TH</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chen</surname>
+<given-names>WJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Aljuffali</surname>
+<given-names>IA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hsu</surname>
+<given-names>CY</given-names>
+</string-name>. <article-title>Rhubarb hydroxyanthraquinones act as antiobesity agents to inhibit adipogenesis and enhance lipolysis</article-title>. <source>Biomed Pharmacother</source>. <year>2022</year>;<volume>146</volume>:<elocation-id>112497</elocation-id>.<pub-id pub-id-type="pmid">34891117</pub-id><pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.biopha.2021.112497</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

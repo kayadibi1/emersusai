@@ -1,0 +1,518 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Automated"><PMID Version="1">41858053</PMID><DateCompleted><Year>2026</Year><Month>03</Month><Day>20</Day></DateCompleted><DateRevised><Year>2026</Year><Month>03</Month><Day>22</Day></DateRevised><Article PubModel="Print"><Journal><ISSN IssnType="Electronic">1940-3372</ISSN><JournalIssue CitedMedium="Internet"><Volume>19</Volume><Issue>1</Issue><PubDate><Year>2026</Year><Month>Mar</Month></PubDate></JournalIssue><Title>The plant genome</Title><ISOAbbreviation>Plant Genome</ISOAbbreviation></Journal><ArticleTitle>Machine learning and multi-omic analysis reveal contrasting recombination landscape of A and C subgenomes of winter oilseed rape.</ArticleTitle><Pagination><StartPage>e70209</StartPage><MedlinePgn>e70209</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">e70209</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.1002/tpg2.70209</ELocationID><Abstract><AbstractText>Meiotic recombination is essential for generating genetic diversity, driving plant evolution, and enabling crop improvement, yet its uneven distribution across genomes constrains breeding efforts. Here, we investigated the multi-omic landmarks that shape the recombination landscape in Brassica napus by integrating epigenomic, genomic, and transcriptomic data with recombination maps derived from large multiparental rapeseed populations. Predictive machine learning accurately predicted recombination rates and hotspot location using only feature information. Recombination was generally suppressed in centromeres and other repeat-rich, methylated regions and enriched in gene-dense, transcriptionally active domains. Proxies for chromatin configuration-such as DNA methylation, transposable elements, or genes-consistently achieved the highest predictive power with the random forest algorithm. We discovered distinct recombination landscape patterns between subgenomes, with crossovers clustering near subtelomeres in the A subgenome and more evenly spread across the C subgenome. Models trained on A subgenome data outperformed those based on the C subgenome, although combining both subgenomes improved overall accuracy.</AbstractText><CopyrightInformation>&#xa9; 2026 The Author(s). The Plant Genome published by Wiley Periodicals LLC on behalf of Crop Science Society of America.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Montero-Tena</LastName><ForeName>Jose A</ForeName><Initials>JA</Initials><AffiliationInfo><Affiliation>Department of Agrobioinformatics, IFZ Research Center for Biosystems, Land Use and Nutrition, Justus-Liebig-University Giessen, Giessen, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Zanini</LastName><ForeName>Silvia F</ForeName><Initials>SF</Initials><Identifier Source="ORCID">0000-0002-9137-8783</Identifier><AffiliationInfo><Affiliation>Department of Agrobioinformatics, IFZ Research Center for Biosystems, Land Use and Nutrition, Justus-Liebig-University Giessen, Giessen, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Yildiz</LastName><ForeName>G&#xf6;zde</ForeName><Initials>G</Initials><Identifier Source="ORCID">0000-0003-0407-1829</Identifier><AffiliationInfo><Affiliation>Department of Agrobioinformatics, IFZ Research Center for Biosystems, Land Use and Nutrition, Justus-Liebig-University Giessen, Giessen, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kox</LastName><ForeName>Tobias</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>NPZ Innovation GmbH, Holtsee, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Abbadi</LastName><ForeName>Amine</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>NPZ Innovation GmbH, Holtsee, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Snowdon</LastName><ForeName>Rod J</ForeName><Initials>RJ</Initials><Identifier Source="ORCID">0000-0001-5577-7616</Identifier><AffiliationInfo><Affiliation>Department of Plant Breeding, IFZ Research Center for Biosystems, Land Use and Nutrition, Justus-Liebig-University Giessen, Giessen, Germany.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Golicz</LastName><ForeName>Agnieszka A</ForeName><Initials>AA</Initials><Identifier Source="ORCID">0000-0002-9711-4826</Identifier><AffiliationInfo><Affiliation>Department of Agrobioinformatics, IFZ Research Center for Biosystems, Land Use and Nutrition, Justus-Liebig-University Giessen, Giessen, Germany.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><GrantList CompleteYN="Y"><Grant><GrantID>490622210</GrantID><Agency>German Research Foundation</Agency><Country/></Grant><Grant><Agency>Hessische Ministerium f&#xfc;r Wissenschaft und Forschung, Kunst und Kultur</Agency><Country/></Grant><Grant><GrantID>031B0187</GrantID><Agency>Bundesministerium f&#xfc;r -Forschung, Technologie und Raumfahrt</Agency><Country/></Grant></GrantList><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList></Article><MedlineJournalInfo><Country>United States</Country><MedlineTA>Plant Genome</MedlineTA><NlmUniqueID>101273919</NlmUniqueID><ISSNLinking>1940-3372</ISSNLinking></MedlineJournalInfo><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D000069550" MajorTopicYN="Y">Machine Learning</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D029688" MajorTopicYN="Y">Brassica napus</DescriptorName><QualifierName UI="Q000235" MajorTopicYN="N">genetics</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D018745" MajorTopicYN="Y">Genome, Plant</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D011995" MajorTopicYN="Y">Recombination, Genetic</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D019175" MajorTopicYN="N">DNA Methylation</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D000095028" MajorTopicYN="N">Multiomics</DescriptorName></MeshHeading></MeshHeadingList><OtherAbstract Type="plain-language-summary" Language="eng"><AbstractText>Meiotic recombination creates genetic diversity, which is key for plant evolution and crop breeding, but it does not occur evenly across the genome. We studied this process in rapeseed (Brassica napus) by combining genetic maps with data on DNA, chromatin, and gene activity. Using machine learning, we could accurately predict where recombination happens. It was rare in repeat&#x2010;rich, methylated regions like centromeres but common in active, gene&#x2010;rich areas. We also found differences between the two subgenomes: crossovers clustered near chromosome ends in the A subgenome, while they were more evenly distributed in the C subgenome.</AbstractText><CopyrightInformation>&#xa9; 2026 The Author(s). The Plant Genome published by Wiley Periodicals LLC on behalf of Crop Science Society of America.</CopyrightInformation></OtherAbstract><CoiStatement>The authors declare no conflicts of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>8</Month><Day>19</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>12</Month><Day>30</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>20</Day><Hour>7</Hour><Minute>11</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>20</Day><Hour>7</Hour><Minute>10</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>20</Day><Hour>1</Hour><Minute>32</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>3</Month><Day>20</Day></PubMedPubDate></History><PublicationStatus>ppublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41858053</ArticleId><ArticleId IdType="pmc">PMC13003170</ArticleId><ArticleId IdType="doi">10.1002/tpg2.70209</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abdollahi, N. , Herzog, E. , Abbadi, A. , Snowdon, R. J. , &amp; Golicz, A. A. (2024). Analysis of the winter oilseed rape recombination landscape suggests maternal&#x2013;paternal bias. Genome, 67, 481&#x2013;497.</Citation><ArticleIdList><ArticleId IdType="pubmed">39431738</ArticleId></ArticleIdList></Reference><Reference><Citation>Albrechtsen, A. , Nielsen, F. C. , &amp; Nielsen, R. (2010). Ascertainment biases in SNP chips affect measures of population divergence. Molecular Biology and Evolution, 27(11), 2534&#x2013;2547.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3107607</ArticleId><ArticleId IdType="pubmed">20558595</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Allender, C. J.
+, &amp; 
+King, G. J.
+ (2010). Origins of the amphiploid species <i>Brassica napus</i> L. investigated by chloroplast and nuclear molecular markers. BMC Plant Biology, 10(1), Article 54.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC2923528</ArticleId><ArticleId IdType="pubmed">20350303</ArticleId></ArticleIdList></Reference><Reference><Citation>Bernstein, H. , &amp; Bernstein, C. (2010). Evolutionary origin of meiosis. Bioscience, 60(7), 498&#x2013;505.</Citation></Reference><Reference><Citation>
+
+Boideau, F.
+, 
+Richard, G.
+, 
+Coriton, O.
+, 
+Huteau, V.
+, 
+Belser, C.
+, 
+Deniot, G.
+, 
+Eber, F.
+, 
+Falentin, C.
+, 
+Ferreira De Carvalho, J.
+, 
+Gilet, M.
+, 
+Lod&#xe9;&#x2010;Taburel, M.
+, 
+Maillet, L.
+, 
+Morice, J.
+, 
+Trotoux, G.
+, 
+Aury, J.&#x2010;M.
+, 
+Ch&#xe8;vre, A.&#x2010;M.
+, &amp; 
+Rousseau&#x2010;Gueutin, M.
+ (2022). Epigenomic and structural events preclude recombination in <i>Brassica napus</i>
+. New Phytologist, 234(2), 545&#x2013;559.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">35092024</ArticleId></ArticleIdList></Reference><Reference><Citation>Bray, N. L. , Pimentel, H. , Melsted, P. , &amp; Pachter, L. (2016). Near&#x2010;optimal probabilistic RNA&#x2010;seq quantification. Nature Biotechnology, 34(5), 525&#x2013;527.</Citation><ArticleIdList><ArticleId IdType="pubmed">27043002</ArticleId></ArticleIdList></Reference><Reference><Citation>Christophorou, N. , She, W. , Long, J. , Hurel, A. , Beaubiat, S. , Idir, Y. , Tagliaro&#x2010;Jahns, M. , Chambon, A. , Solier, V. , Vezon, D. , Grelon, M. , Feng, X. , Bouch&#xe9;, N. , &amp; M&#xe9;zard, C. (2020). AXR1 affects DNA methylation independently of its role in regulating meiotic crossover localization. PLoS Genetics, 16(6), Article e1008894.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7351236</ArticleId><ArticleId IdType="pubmed">32598340</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Clarke, W. E.
+, 
+Higgins, E. E.
+, 
+Plieske, J.
+, 
+Wieseke, R.
+, 
+Sidebottom, C.
+, 
+Khedikar, Y.
+, 
+Batley, J.
+, 
+Edwards, D.
+, 
+Meng, J.
+, 
+Li, R.
+, 
+Lawley, C. T.
+, 
+Pauquet, J.
+, 
+Laga, B.
+, 
+Cheung, W.
+, 
+Iniguez&#x2010;Luy, F.
+, 
+Dyrszka, E.
+, 
+Rae, S.
+, 
+Stich, B.
+, 
+Snowdon, R. J.
+, &#x2026; 
+Parkin, I. A. P.
+ (2016). A high&#x2010;density SNP genotyping array for <i>Brassica napus</i> and its ancestral diploid species based on optimised selection of single&#x2010;locus markers in the allotetraploid genome. Theoretical and Applied Genetics, 129(10), 1887&#x2013;1899.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5025514</ArticleId><ArticleId IdType="pubmed">27364915</ArticleId></ArticleIdList></Reference><Reference><Citation>Cutter, A. D. , &amp; Payseur, B. A. (2013). Genomic signatures of selection at linked sites: Unifying the disparity among species. Nature Reviews Genetics, 14(4), 262&#x2013;274.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4066956</ArticleId><ArticleId IdType="pubmed">23478346</ArticleId></ArticleIdList></Reference><Reference><Citation>Demirci, S. , Peters, S. A. , De Ridder, D. , &amp; Van Dijk, A. D. J. (2018). DNA sequence and shape are predictive for meiotic crossovers throughout the plant kingdom. The Plant Journal, 95(4), 686&#x2013;699.</Citation><ArticleIdList><ArticleId IdType="pubmed">29808512</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Demirci, S.
+, 
+van Dijk, A. D.
+, 
+Sanchez Perez, G.
+, 
+Aflitos, S. A.
+, 
+de Ridder, D.
+, &amp; 
+Peters, S. A.
+ (2017). Distribution, position and genomic characteristics of crossovers in tomato recombinant inbred lines derived from an interspecific cross between <i>Solanum lycopersicum</i> and <i>Solanum pimpinellifolium</i>
+. The Plant Journal, 89(3), 554&#x2013;564.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">27797425</ArticleId></ArticleIdList></Reference><Reference><Citation>Friedman, J. H. , &amp; Popescu, B. E. (2008). Predictive learning via rule ensembles. The Annals of Applied Statistics, 2(3), 916&#x2013;954.</Citation></Reference><Reference><Citation>Gent, J. I. , Ellis, N. A. , Guo, L. , Harkess, A. E. , Yao, Y. , Zhang, X. , &amp; Dawe, R. K. (2013). CHH islands: De novo DNA methylation in near&#x2010;gene chromatin regulation in maize. Genome Research, 23(4), 628&#x2013;637.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3613580</ArticleId><ArticleId IdType="pubmed">23269663</ArticleId></ArticleIdList></Reference><Reference><Citation>Grandbastien, M. (2015). LTR retrotransposons, handy hitchhikers of plant regulation and stress response. Biochimica et Biophysica Acta (BBA)&#x2014;Gene Regulatory Mechanisms, 1849(4), 403&#x2013;416.</Citation><ArticleIdList><ArticleId IdType="pubmed">25086340</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Higgins, E. E.
+, 
+Clarke, W. E.
+, 
+Howell, E. C.
+, 
+Armstrong, S. J.
+, &amp; 
+Parkin, I. A. P.
+ (2018). Detecting de novo homoeologous recombination events in cultivated <i>Brassica napus</i> using a genome&#x2010;wide SNP array. G3: Genes, Genomes, Genetics, 8(8), 2673&#x2013;2683.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6071606</ArticleId><ArticleId IdType="pubmed">29907649</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Hsu, Y.&#x2010;M.
+, 
+Falque, M.
+, &amp; 
+Martin, O. C.
+ (2022). Quantitative modelling of fine&#x2010;scale variations in the <i>Arabidopsis thaliana</i> crossover landscape. Quantitative Plant Biology, 3, Article e3.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC10095869</ArticleId><ArticleId IdType="pubmed">37077963</ArticleId></ArticleIdList></Reference><Reference><Citation>Hyndman, R. J. , &amp; Khandakar, Y. (2008). Automatic time series forecasting: The forecast package for R. Journal of Statistical Software, 27(3), 1&#x2013;22.</Citation></Reference><Reference><Citation>Krenzer, D. , Frisch, M. , Beckmann, K. , Kox, T. , Flachenecker, C. , Abbadi, A. , Snowdon, R. , &amp; Herzog, E. (2024). Simulation&#x2010;based establishment of base pools for a hybrid breeding program in winter rapeseed. Theoretical and Applied Genetics, 137(1), Article 16.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC10774156</ArticleId><ArticleId IdType="pubmed">38189816</ArticleId></ArticleIdList></Reference><Reference><Citation>Krueger, F. , &amp; Andrews, S. R. (2011). Bismark: A flexible aligner and methylation caller for bisulfite&#x2010;seq applications. Bioinformatics, 27(11), 1571&#x2013;1572.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3102221</ArticleId><ArticleId IdType="pubmed">21493656</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Kuhn, M.
+, &amp; 
+Wickham, H.
+ (2020). 
+Tidymodels: A collection of packages for modeling and machine learning using tidyverse principles
+. https://www.tidymodels.org/
+</Citation></Reference><Reference><Citation>Lambing, C. , Franklin, F. C. H. , &amp; Wang, C.&#x2010;J. R. (2017). Understanding and manipulating meiotic recombination in plants. Plant Physiology, 173(3), 1530&#x2013;1542.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5338670</ArticleId><ArticleId IdType="pubmed">28108697</ArticleId></ArticleIdList></Reference><Reference><Citation>Law, J. A. , &amp; Jacobsen, S. E. (2010). Establishing, maintaining and modifying DNA methylation patterns in plants and animals. Nature Reviews Genetics, 11(3), 204&#x2013;220.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3034103</ArticleId><ArticleId IdType="pubmed">20142834</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Lee, H.
+, 
+Chawla, H. S.
+, 
+Obermeier, C.
+, 
+Dreyer, F.
+, 
+Abbadi, A.
+, &amp; 
+Snowdon, R.
+ (2020). Chromosome&#x2010;scale assembly of winter oilseed rape <i>Brassica napus</i>
+. Frontiers in Plant Science, 11, Article 496.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7202327</ArticleId><ArticleId IdType="pubmed">32411167</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Lukens, L. N.
+, 
+Pires, J. C.
+, 
+Leon, E.
+, 
+Vogelzang, R.
+, 
+Oslach, L.
+, &amp; 
+Osborn, T.
+ (2006). Patterns of sequence loss and cytosine methylation within a population of newly resynthesized <i>Brassica napus</i> allopolyploids. Plant Physiology, 140(1), 336&#x2013;348.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC1326055</ArticleId><ArticleId IdType="pubmed">16377753</ArticleId></ArticleIdList></Reference><Reference><Citation>Mar&#xe7;ais, G. , Delcher, A. L. , Phillippy, A. M. , Coston, R. , Salzberg, S. L. , &amp; Zimin, A. (2018). MUMmer4: A fast and versatile genome alignment system. PLoS Computational Biology, 14, Article e1005944.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5802927</ArticleId><ArticleId IdType="pubmed">29373581</ArticleId></ArticleIdList></Reference><Reference><Citation>Martin, G. T. , Seymour, D. K. , &amp; Gaut, B. S. (2021). CHH methylation islands: A nonconserved feature of grass genomes that is positively associated with transposable elements but negatively associated with gene&#x2011;body methylation. Genome Biology and Evolution, 13(8), Article evab144.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC8374106</ArticleId><ArticleId IdType="pubmed">34146109</ArticleId></ArticleIdList></Reference><Reference><Citation>Mason, A. S. , Rousseau&#x2010;Gueutin, M. , Morice, J. , Bayer, P. E. , Besharat, N. , Cousin, A. , Pradhan, A. , Parkin, I. A. P. , Ch&#xe8;vre, A.&#x2010;M. , Batley, J. , &amp; Nelson, M. N. (2016). Centromere locations in Brassica A and C genomes revealed through half&#x2011;tetrad analysis. Genetics, 202(2), 513&#x2013;523.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4788232</ArticleId><ArticleId IdType="pubmed">26614742</ArticleId></ArticleIdList></Reference><Reference><Citation>Molnar, C. (2018). Interpretable machine learning: A guide for making black box models explainable. Leanpub.</Citation></Reference><Reference><Citation>Montero&#x2010;Tena, J. A. , Abdollahi&#x2010;Sisi, N. , Kox, T. , Abbadi, A. , Snowdon, R. J. , &amp; Golicz, A. A. (2024). haploMAGIC: Accurate phasing and detection of recombination in multiparental populations despite genotyping errors. G3: Genes, Genomes, Genetics, 14(8), Article jkae109.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC11304941</ArticleId><ArticleId IdType="pubmed">38808682</ArticleId></ArticleIdList></Reference><Reference><Citation>Pe&#xf1;uela, M. , Finke, J. , &amp; Rocha, C. (2024). Methylomes as key features for predicting recombination in some plant species. Plant Molecular Biology, 114, Article 25.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC10924001</ArticleId><ArticleId IdType="pubmed">38457042</ArticleId></ArticleIdList></Reference><Reference><Citation>Pe&#xf1;uela, M. , Gallo&#x2010;Franco, J. J. , Finke, J. , Rocha, C. , Gkanogiannis, A. , Ghneim&#x2010;Herrera, T. , &amp; Lorieux, M. (2022). Methylation in the CHH context allows to predict recombination in rice. International Journal of Molecular Sciences, 23, Article 12505.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC9604423</ArticleId><ArticleId IdType="pubmed">36293364</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Qian, L.
+, 
+Qian, W.
+, &amp; 
+Snowdon, R. J.
+ (2014). Sub&#x2010;genomic selection patterns as a signature of breeding in the allopolyploid <i>Brassica napus</i> genome. BMC Genomics, 15(1), Article 1170.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4367848</ArticleId><ArticleId IdType="pubmed">25539568</ArticleId></ArticleIdList></Reference><Reference><Citation>Quinlan, A. R. , &amp; Hall, I. M. (2010). BEDTools: A flexible suite of utilities for comparing genomic features. Bioinformatics, 26(6), 841&#x2013;842.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC2832824</ArticleId><ArticleId IdType="pubmed">20110278</ArticleId></ArticleIdList></Reference><Reference><Citation>R Core Team . (2024). R: A language and environment for statistical computing . R Foundation for Statistical Computing.</Citation></Reference><Reference><Citation>Rodgers&#x2010;Melnick, E. , Bradbury, P. J. , Elshire, R. J. , Glaubitz, J. C. , Acharya, C. B. , Mitchell, S. E. , Li, C. , Li, Y. , &amp; Buckler, E. S. (2015). Recombination in diverse maize is stable, predictable, and associated with genetic load. Proceedings of the National Academy of Sciences of the USA, 112(12), 3823&#x2013;3828.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4378432</ArticleId><ArticleId IdType="pubmed">25775595</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Rousseau&#x2010;Gueutin, M.
+, 
+Belser, C.
+, 
+Da Silva, C.
+, 
+Richard, G.
+, 
+Istace, B.
+, 
+Cruaud, C.
+, 
+Falentin, C.
+, 
+Boideau, F.
+, 
+Boutte, J.
+, 
+Delourme, R.
+, 
+Deniot, G.
+, 
+Engelen, S.
+, 
+De Carvalho, J. F.
+, 
+Lemainque, A.
+, 
+Maillet, L.
+, 
+Morice, J.
+, 
+Wincker, P.
+, 
+Denoeud, F.
+, 
+Ch&#xe8;vre, A.&#x2010;M.
+, &amp; 
+Aury, J.&#x2010;M.
+ (2020). Long&#x2010;read assembly of the <i>Brassica napus</i> reference genome Darmor&#x2010;bzh. GigaScience, 9(12), Article giaa137.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7736779</ArticleId><ArticleId IdType="pubmed">33319912</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Salom&#xe9;, P. A.
+, 
+Bomblies, K.
+, 
+Fitz, J.
+, 
+Laitinen, R. A. E.
+, 
+Warthmann, N.
+, 
+Yant, L.
+, &amp; 
+Weigel, D.
+ (2012). The recombination landscape in <i>Arabidopsis thaliana</i> F<sub>2</sub> populations. Heredity, 108, 447&#x2013;455.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3313057</ArticleId><ArticleId IdType="pubmed">22072068</ArticleId></ArticleIdList></Reference><Reference><Citation>Schultz, M. D. , Schmitz, R. J. , &amp; Ecker, J. R. (2012). &#x2018;Leveling&#x2019; the playing field for analyses of single&#x2010;base resolution DNA methylomes. Trends in Genetics, 28(12), 583&#x2013;585.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3523709</ArticleId><ArticleId IdType="pubmed">23131467</ArticleId></ArticleIdList></Reference><Reference><Citation>Scott, M. F. , Ladejobi, O. , Amer, S. , Bentley, A. R. , Biernaskie, J. , Boden, S. A. , Clark, M. , Dell'Acqua, M. , Dixon, L. E. , Filippi, C. V. , Fradgley, N. , Gardner, K. A. , Mackay, I. J. , O'Sullivan, D. , Percival&#x2010;Alwyn, L. , Roorkiwal, M. , Singh, R. K. , Thudi, M. , Varshney, R. K. , &#x2026; Mott, R. (2020). Multi&#x2010;parent populations in crops: A toolbox integrating genomics and genetic mapping with breeding. Heredity, 125(6), 396&#x2013;416.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7784848</ArticleId><ArticleId IdType="pubmed">32616877</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Si, W.
+, 
+Yuan, Y.
+, 
+Huang, J.
+, 
+Zhang, X.
+, 
+Zhang, Y.
+, 
+Zhang, Y.
+, 
+Tian, D.
+, 
+Wang, C.
+, 
+Yang, Y.
+, &amp; 
+Yang, S.
+ (2015). Widely distributed hot and cold spots in meiotic recombination as shown by the sequencing of rice F<sub>2</sub> plants. New Phytologist, 206(4), 1491&#x2013;1502.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">25664766</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Smit, A. F. A.
+, 
+Hubley, R.
+, &amp; 
+Green, P.
+ (2013&#x2013;2023). 
+RepeatMasker open&#x2010;4.0
+. https://www.repeatmasker.org/
+</Citation></Reference><Reference><Citation>Song, Q. , &amp; Chen, Z. J. (2015). Epigenetic and developmental regulation in plant polyploids. Current Opinion in Plant Biology, 24, 101&#x2013;109.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4395545</ArticleId><ArticleId IdType="pubmed">25765928</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Stroud, H.
+, 
+Do, T.
+, 
+Du, J.
+, 
+Zhong, X.
+, 
+Feng, S.
+, 
+Johnson, L.
+, 
+Patel, D. J.
+, &amp; 
+Jacobsen, S. E.
+ (2014). Non&#x2010;CG methylation patterns shape the epigenetic landscape in <i>Arabidopsis</i>
+. Nature Structural &amp; Molecular Biology, 21(1), 64&#x2013;72.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4103798</ArticleId><ArticleId IdType="pubmed">24336224</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Stroud, H.
+, 
+Hale, C. J.
+, 
+Feng, S.
+, 
+Caro, E.
+, 
+Jacob, Y.
+, 
+Michaels, S. D.
+, &amp; 
+Jacobsen, S. E.
+ (2012). DNA methyltransferases are required to induce heterochromatic re&#x2010;replication in <i>Arabidopsis</i>
+. PLoS Genetics, 8(7), Article e1002808.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3390372</ArticleId><ArticleId IdType="pubmed">22792077</ArticleId></ArticleIdList></Reference><Reference><Citation>Su, W. , Ou, S. , Hufford, M. B. , &amp; Peterson, T. (2021). A tutorial of EDTA: Extensive de novo TE annotator. Methods in Molecular Biology, 2250, 55&#x2013;67.</Citation><ArticleIdList><ArticleId IdType="pubmed">33900591</ArticleId></ArticleIdList></Reference><Reference><Citation>Vincenten, N. , Kuhl, L.&#x2010;M. , Lam, I. , Oke, A. , Kerr, A. R. W. , Hochwagen, A. , Fung, J. , Keeney, S. , Vader, G. , &amp; Marston, A. L. (2015). The kinetochore prevents centromere&#x2010;proximal crossover recombination during meiosis. Elife, 4, Article e10850.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4749563</ArticleId><ArticleId IdType="pubmed">26653857</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Wang, M.
+, 
+King, G. J.
+, 
+Shi, L.
+, 
+Li, R.
+, 
+Zhang, Y.
+, 
+Wang, X.
+, 
+Meng, J.
+, 
+Tu, J.
+, &amp; 
+Zou, J.
+ (2023). Genome&#x2010;wide recombination variation in biparental segregating and reciprocal backcross populations provides information for introgression breeding in <i>Brassica napus</i>
+. The Crop Journal, 11(1), 208&#x2013;219.</Citation></Reference><Reference><Citation>
+
+Wang, Z.
+, 
+Wu, X.
+, 
+Wu, Z.
+, 
+An, H.
+, 
+Yi, B.
+, 
+Wen, J.
+, 
+Ma, C.
+, 
+Shen, J.
+, 
+Fu, T.
+, &amp; 
+Tu, J.
+ (2018). Genome&#x2011;wide DNA methylation comparison between <i>Brassica napus</i> genic male sterile line and restorer line. International Journal of Molecular Sciences, 19(9), Article 2689.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6165103</ArticleId><ArticleId IdType="pubmed">30201884</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Wei, L.
+, 
+Xiao, M.
+, 
+An, Z.
+, 
+Ma, B.
+, 
+Mason, A. S.
+, 
+Qian, W.
+, 
+Li, J.
+, &amp; 
+Fu, D.
+ (2013). New insights into nested long terminal repeat retrotransposons in <i>Brassica</i> species. Molecular Plant, 6(2), 470&#x2013;482.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">22930733</ArticleId></ArticleIdList></Reference><Reference><Citation>Wijnker, E. , &amp; Dejong, H. (2008). Managing meiotic recombination in plant breeding. Trends in Plant Science, 13(12), 640&#x2013;646.</Citation><ArticleIdList><ArticleId IdType="pubmed">18948054</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Wijnker, E.
+, 
+Velikkakam James, G.
+, 
+Ding, J.
+, 
+Becker, F.
+, 
+Klasen, J. R.
+, 
+Rawat, V.
+, 
+Rowan, B. A.
+, 
+De Jong, D. F.
+, 
+De Snoo, C. B.
+, 
+Zapata, L.
+, 
+Huettel, B.
+, 
+De Jong, H.
+, 
+Ossowski, S.
+, 
+Weigel, D.
+, 
+Koornneef, M.
+, 
+Keurentjes, J. J. B.
+, &amp; 
+Schneeberger, K.
+ (2013). The genomic landscape of meiotic crossovers and gene conversions in <i>Arabidopsis thaliana</i>
+. Elife, 2, Article e01426.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3865688</ArticleId><ArticleId IdType="pubmed">24347547</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Yan, S.
+, 
+He, J.
+, 
+Tang, M.
+, 
+Ming, B.
+, 
+Li, H.
+, 
+Fan, S.
+, 
+Xiong, Y.
+, 
+Chao, H.
+, 
+Zhang, L.
+, 
+Wang, A.
+, &amp; 
+Li, M.
+ (2023). Dissecting the meiotic recombination patterns in a <i>Brassica napus</i> double haploid population using 60K SNP array. International Journal of Molecular Sciences, 24, Article 4469.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC10003086</ArticleId><ArticleId IdType="pubmed">36901901</ArticleId></ArticleIdList></Reference><Reference><Citation>Yang, S. , Wang, L. , Huang, J. , Zhang, X. , Yuan, Y. , Chen, J.&#x2010;Q. , Hurst, L. D. , &amp; Tian, D. (2015). Parent&#x2013;progeny sequencing indicates higher mutation rates in heterozygotes. Nature, 523(7561), 463&#x2013;467.</Citation><ArticleIdList><ArticleId IdType="pubmed">26176923</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Yelina, N. E.
+, 
+Choi, K.
+, 
+Chelysheva, L.
+, 
+Macaulay, M.
+, 
+De Snoo, B.
+, 
+Wijnker, E.
+, 
+Miller, N.
+, 
+Drouaud, J.
+, 
+Grelon, M.
+, 
+Copenhaver, G. P.
+, 
+Mezard, C.
+, 
+Kelly, K. A.
+, &amp; 
+Henderson, I. R.
+ (2012). Epigenetic remodeling of meiotic crossover frequency in <i>Arabidopsis thaliana</i> DNA methyltransferase mutants. PLoS Genetics, 8(8), Article e1002844.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3410864</ArticleId><ArticleId IdType="pubmed">22876192</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Yelina, N. E.
+, 
+Lambing, C.
+, 
+Hardcastle, T. J.
+, 
+Zhao, X.
+, 
+Santos, B.
+, &amp; 
+Henderson, I. R.
+ (2015). DNA methylation epigenetically silences crossover hot spots and controls chromosomal domains of meiotic recombination in <i>Arabidopsis</i>
+. Genes &amp; Development, 29(20), 2183&#x2013;2202.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4617981</ArticleId><ArticleId IdType="pubmed">26494791</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Zanini, S. F.
+, 
+Rockenbach, K.
+, 
+Nguyen, A.
+, 
+Arslan, K.
+, 
+Yildiz, G.
+, 
+Snowdon, R. J.
+, &amp; 
+Golicz, A. A.
+ (2025). Integrative epigenomic analysis uncovers asymmetry of enhancer activity in <i>Brassica napus</i>
+. <i>bioRxiv</i>. 10.1101/2025.10.31.685802
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1101/2025.10.31.685802</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang, X. (2008). The epigenetic landscape of plants. Science, 320(5875), 489&#x2013;492.</Citation><ArticleIdList><ArticleId IdType="pubmed">18436779</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Zhang, Q.
+, 
+Guan, P.
+, 
+Zhao, L.
+, 
+Ma, M.
+, 
+Xie, L.
+, 
+Li, Y.
+, 
+Zheng, R.
+, 
+Ouyang, W.
+, 
+Wang, S.
+, 
+Li, H.
+, 
+Zhang, Y.
+, 
+Peng, Y.
+, 
+Cao, Z.
+, 
+Zhang, W.
+, 
+Xiao, Q.
+, 
+Xiao, Y.
+, 
+Fu, T.
+, 
+Li, G.
+, 
+Li, X.
+, &amp; 
+Shen, J.
+ (2021). Asymmetric epigenome maps of subgenomes reveal imbalanced transcription and distinct evolutionary trends in <i>Brassica napus</i>
+. Molecular Plant, 14(4), 604&#x2013;619.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">33387675</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhao, M. , Ku, J.&#x2010;C. , Liu, B. , Yang, D. , Yin, L. , Ferrell, T. J. , Stoll, C. E. , Guo, W. , Zhang, X. , Wang, D. , Wang, C. J. R. , &amp; Lisch, D. (2021). The mop1 mutation affects the recombination landscape in maize. Proceedings of the National Academy of Sciences of the USA, 118(7), Article e2009475118.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7896300</ArticleId><ArticleId IdType="pubmed">33558228</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,166 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">32848820</PMID><DateRevised><Year>2024</Year><Month>03</Month><Day>29</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>11</Volume><PubDate><Year>2020</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Effect of a Blend of <i>Zingiber officinale</i> Roscoe and <i>Bixa orellana</i> L. Herbal Supplement on the Recovery of Delayed-Onset Muscle Soreness Induced by Unaccustomed Eccentric Resistance Training: A Randomized, Triple-Blind, Placebo-Controlled Trial.</ArticleTitle><Pagination><StartPage>826</StartPage><MedlinePgn>826</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">826</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2020.00826</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="BACKGROUND">There is an increasing interest in the use of eccentric muscle exercise to improve physical condition, especially with regards to its health-related benefits. However, it is known that unaccustomed eccentric exercise causes muscle damage and delayed pain, commonly defined as "delayed onset muscle soreness" (DOMS). The efficacy of herbal preparations in subjects suffering from DOMS has been reported in a few previous studies with small or moderate outcome measures related to muscle recovery. The present study aimed to evaluate the effects of a polyherbal mixture containing whole <i>Zingiber officinale</i> Roscoe and <i>Bixa orellana</i> L., powders called ReWin(d), in young male athletes suffering from DOMS induced by a 1 h session of plyometric exercises.</AbstractText><AbstractText Label="METHODS" NlmCategory="METHODS">Thirty-three young male athletes participated in this randomized, Triple-blind, placebo-controlled trial: 17 of them assigned to the ReWin(d) group and 16 of them to the placebo group. Creatine kinase (CK) was measured as a muscle damage marker, pain was assessed using the Visual Analog Scale (VAS), muscle performance was measured through half-squat exercise (HS) monitored with an accelerometer (Encoder), and heart rate variability (HRV) was monitored for 5 min with the subjects in the supine position. All determinations were performed before and after the eccentric session and 24, 48, and 72 h after the session.</AbstractText><AbstractText Label="RESULTS" NlmCategory="RESULTS">The eccentric exercise session caused an increase in CK at 24 and 48 h after exercise intervention in both groups (<i>p</i> &lt; 0.001). There was no interaction between groups regarding muscle damage. The pain increased after the training session in both groups (<i>p</i> &lt; 0.001), and a significant interaction was observed between groups at 48 h after exercise (<i>p</i> = 0.004). Lower limb muscular power showed a significant interaction between groups 24 h after exercise (<i>p</i> = 0.049); the placebo group showed a reduction in muscle power compared to the ReWin(d) group. The LF/HF ratio decreased significantly at 72 h after exercise in the herbal group but not in the placebo group.</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="CONCLUSIONS">The herbal supplement maintained the maximum power of the lower limbs and attenuated muscle pain.</AbstractText><AbstractText Label="CLINICAL TRIAL REGISTRATION" NlmCategory="BACKGROUND">www.ClinicalTrials.gov, identifier NCT03961022.</AbstractText><CopyrightInformation>Copyright &#xa9; 2020 Dominguez-Balmaseda, Diez-Vega, Larrosa, San Juan, Issaly, Moreno-P&#xe9;rez, Burgos, Sillero-Quintana, Gonzalez, Bas, Roller and P&#xe9;rez-Ruiz.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Dominguez-Balmaseda</LastName><ForeName>Diego</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Research Group on Nutrition, Physical Activity and Health, Faculty of Biomedical Sciences Universidad Europea, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Diez-Vega</LastName><ForeName>Ignacio</ForeName><Initials>I</Initials><AffiliationInfo><Affiliation>Research Group on Exercise, Health and Applied Biomarkers, Faculty of Sport Sciences, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Larrosa</LastName><ForeName>Mar</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Research Group on Nutrition, Physical Activity and Health, Faculty of Biomedical Sciences Universidad Europea, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>San Juan</LastName><ForeName>Alejandro F</ForeName><Initials>AF</Initials><AffiliationInfo><Affiliation>Faculty of Physical Activity and Sport Sciences-INEF, Universidad Polit cnica de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Issaly</LastName><ForeName>Nicolas</ForeName><Initials>N</Initials><AffiliationInfo><Affiliation>Nicolas Issaly, Valencia, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Moreno-P&#xe9;rez</LastName><ForeName>Diego</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Departamento de Educaci&#xf3;n, M&#xe9;todos de Investigaci&#xf3;n y Evaluaci&#xf3;n, Universidad Pontificia de Comillas, Instituto Cat&#xf3;lico de Artes e Industrias-Instituto Cat&#xf3;lico de Administraci&#xf3;n y Direcci&#xf3;n de Empresas, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Burgos</LastName><ForeName>Silvia</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Research Group on Exercise, Health and Applied Biomarkers, Faculty of Sport Sciences, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sillero-Quintana</LastName><ForeName>Manuel</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Faculty of Physical Activity and Sport Sciences-INEF, Universidad Polit cnica de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gonzalez</LastName><ForeName>Cristina</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Research Group on Exercise, Health and Applied Biomarkers, Faculty of Sport Sciences, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Bas</LastName><ForeName>Andrea</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Research Group on Exercise, Health and Applied Biomarkers, Faculty of Sport Sciences, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Roller</LastName><ForeName>Marc</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Natural Origins, Lozanne, France.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>P&#xe9;rez-Ruiz</LastName><ForeName>Margarita</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Research Group on Exercise, Health and Applied Biomarkers, Faculty of Sport Sciences, Universidad Europea de Madrid, Madrid, Spain.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><DataBankList CompleteYN="Y"><DataBank><DataBankName>ClinicalTrials.gov</DataBankName><AccessionNumberList><AccessionNumber>NCT03961022</AccessionNumber></AccessionNumberList></DataBank></DataBankList><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2020</Year><Month>07</Month><Day>21</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">ReWin(d)</Keyword><Keyword MajorTopicYN="N">annatto</Keyword><Keyword MajorTopicYN="N">ginger</Keyword><Keyword MajorTopicYN="N">heart rate variability</Keyword><Keyword MajorTopicYN="N">pain</Keyword><Keyword MajorTopicYN="N">recovery</Keyword><Keyword MajorTopicYN="N">sport performance</Keyword><Keyword MajorTopicYN="N">young athletes</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2020</Year><Month>2</Month><Day>10</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2020</Year><Month>6</Month><Day>19</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2020</Year><Month>8</Month><Day>28</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2020</Year><Month>8</Month><Day>28</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2020</Year><Month>8</Month><Day>28</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2020</Year><Month>7</Month><Day>21</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">32848820</ArticleId><ArticleId IdType="pmc">PMC7396658</ArticleId><ArticleId IdType="doi">10.3389/fphys.2020.00826</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Baird M. F., Graham S. M., Baker J. S., Bickerstaff G. F. (2012). Creatine-kinase- and exercise-related muscle damage implications for muscle performance and recovery.
+<i>J. Nutr. Metab.</i>
+2012:960363.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3263635</ArticleId><ArticleId IdType="pubmed">22288008</ArticleId></ArticleIdList></Reference><Reference><Citation>Black C. D., Herring M. P., Hurley D. J., O&#x2019;Connor P. J. (2010). Ginger (<i>Zingiber officinale</i>) reduces muscle pain caused by eccentric exercise.
+<i>J. Pain</i>
+11
+894&#x2013;903. 10.1016/j.jpain.2009.12.013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jpain.2009.12.013</ArticleId><ArticleId IdType="pubmed">20418184</ArticleId></ArticleIdList></Reference><Reference><Citation>Bogdanis G. C., Tsoukos A., Veligekas P., Tsolakis C., Terzis G. (2014). Effects of muscle action type with equal impulse of conditioning activity on postactivation potentiation.
+<i>J. Strength Cond. Res.</i>
+28
+2521&#x2013;2528. 10.1519/jsc.0000000000000444
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/jsc.0000000000000444</ArticleId><ArticleId IdType="pubmed">24584048</ArticleId></ArticleIdList></Reference><Reference><Citation>Chabbey E., Martin P.-Y. (2019). [Renal risks of NSAIDs in endurance sports].
+<i>Rev. Med. Suisse.</i>
+15
+444&#x2013;447.</Citation><ArticleIdList><ArticleId IdType="pubmed">30785678</ArticleId></ArticleIdList></Reference><Reference><Citation>Chang W.-H., Tsai Y.-L., Huang C.-Y., Hsieh C. C., Chaunchaiyakul R., Fang Y., et al.  (2015). Null effect of ginsenoside Rb1 on improving glycemic status in men during a resistance training recovery.
+<i>J. Int. Soc. Sports Nutr.</i>
+12:34.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4545376</ArticleId><ArticleId IdType="pubmed">26300710</ArticleId></ArticleIdList></Reference><Reference><Citation>Cheung K., Hume P. A., Maxwell L. (2003). Delayed onset muscle soreness: treatment strategies and performance factors.
+<i>Sport Med.</i>
+33
+145&#x2013;164. 10.2165/00007256-200333020-00005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200333020-00005</ArticleId><ArticleId IdType="pubmed">12617692</ArticleId></ArticleIdList></Reference><Reference><Citation>Cipryan L., Tschakert G., Hofmann P. (2017). Acute and post-exercise physiological responses to high-intensity interval training in endurance and sprint athletes.
+<i>J. Sports Sci. Med.</i>
+16
+219&#x2013;229.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5465984</ArticleId><ArticleId IdType="pubmed">28630575</ArticleId></ArticleIdList></Reference><Reference><Citation>Connolly D. A. J., Sayers S. P., McHugh M. P. (2003). Treatment and prevention of delayed onset muscle soreness.
+<i>J. Strength Cond. Res.</i>
+17
+197&#x2013;208. 10.1519/00124278-200302000-00030</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200302000-00030</ArticleId><ArticleId IdType="pubmed">12580677</ArticleId></ArticleIdList></Reference><Reference><Citation>Conte L., Somacal S., Nichelle S. M., Rampelotto C., Robalo S. S., Roehrs M., et al.  (2019). Short-term bixin supplementation of healthy subjects decreases the susceptibility of LDL to Cu 2+ -induced oxidation ex vivo.
+<i>J. Nutr. Metab.</i>
+2019:13. 10.1155/2019/9407069
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2019/9407069</ArticleId><ArticleId IdType="pmc">PMC6421732</ArticleId><ArticleId IdType="pubmed">30944740</ArticleId></ArticleIdList></Reference><Reference><Citation>Douglas J., Pearson S., Ross A., McGuigan M. (2017). Chronic adaptations to eccentric training: a systematic review.
+<i>Sport Med.</i>
+47
+917&#x2013;941. 10.1007/s40279-016-0628-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-016-0628-4</ArticleId><ArticleId IdType="pubmed">27647157</ArticleId></ArticleIdList></Reference><Reference><Citation>Dupuy O., Douzi W., Theurot D., Bosquet L., Dugu&#xe9; B. (2018). An evidence-based approach for choosing post-exercise recovery techniques to reduce markers of muscle damage, soreness, fatigue, and inflammation: a systematic review with meta-analysis.
+<i>Front. Physiol.</i>
+9:403. 10.3389/fphys.2018.00403
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.00403</ArticleId><ArticleId IdType="pmc">PMC5932411</ArticleId><ArticleId IdType="pubmed">29755363</ArticleId></ArticleIdList></Reference><Reference><Citation>Faul A., Erdfelder E., Buchner A., Lang A. G. (2009). Statistical power analyses using G<sup>&#x2217;</sup>Power 3.1: tests for correlation and regression analyses.
+<i>Behav. Res. Methods</i>
+41
+1149&#x2013;1160. 10.3758/brm.41.4.1149
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3758/brm.41.4.1149</ArticleId><ArticleId IdType="pubmed">19897823</ArticleId></ArticleIdList></Reference><Reference><Citation>Feucht C. L., Patel D. R. (2010). Analgesics and anti-inflammatory medications in sports: use and abuse.
+<i>Pediatr. Clin. North Am.</i>
+57
+751&#x2013;774. 10.1016/j.pcl.2010.02.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pcl.2010.02.004</ArticleId><ArticleId IdType="pubmed">20538155</ArticleId></ArticleIdList></Reference><Reference><Citation>Flatt A. A., Esco M. R. (2016). Heart rate variability stabilization in athletes: towards more convenient data acquisition.
+<i>Clin. Physiol. Funct. Imaging</i>
+36
+331&#x2013;336. 10.1111/cpf.12233
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12233</ArticleId><ArticleId IdType="pubmed">25754514</ArticleId></ArticleIdList></Reference><Reference><Citation>Gagnier J. J., Boon H., Rochon P., Moher D., Barnes J., Bombardier C. (2006). <i>Ann. Intern. Med.</i>
+144, 364&#x2013;3677. 10.7326/0003-4819-144-5-200603070-00013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7326/0003-4819-144-5-200603070-00013</ArticleId><ArticleId IdType="pubmed">16520478</ArticleId></ArticleIdList></Reference><Reference><Citation>Garc&#xed;a-Flores L. A., Medina S., Cejuela-Anta R., Mart&#xed;nez-Sanz J. M., Abell&#xe1;n &#xc1;, Genieser H.-G., et al.  (2016). DNA catabolites in triathletes: effects of supplementation with an aronia-citrus juice (polyphenols-rich juice).
+<i>Food Funct.</i>
+7
+2084&#x2013;2093. 10.1039/c6fo00252h
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1039/c6fo00252h</ArticleId><ArticleId IdType="pubmed">27050256</ArticleId></ArticleIdList></Reference><Reference><Citation>Garc&#xed;a-Flores L. A., Medina S., G&#xf3;mez C., Wheelock C. E., Cejuela R., Mart&#xed;nez-Sanz J. M., et al.  (2018). Aronia-citrus juice (polyphenol-rich juice) intake and elite triathlon training: a lipidomic approach using representative oxylipins in urine.
+<i>Food Funct.</i>
+9
+463&#x2013;475. 10.1039/c7fo01409k
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1039/c7fo01409k</ArticleId><ArticleId IdType="pubmed">29231216</ArticleId></ArticleIdList></Reference><Reference><Citation>Gross M., Baum O. (2015). &#x201c;Supplemental antioxidants and adaptation to physical training,&#x201d; in <i>Antioxidants in Sport Nutrition</i>, ed.
+Lamprecht M. (Boca Raton, FL: CRC Press; ).</Citation><ArticleIdList><ArticleId IdType="pubmed">26065094</ArticleId></ArticleIdList></Reference><Reference><Citation>Haefeli M., Elfering A. (2006). Pain assessment.
+<i>Eur. Spine J.</i>
+15
+S17&#x2013;S24.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3454549</ArticleId><ArticleId IdType="pubmed">16320034</ArticleId></ArticleIdList></Reference><Reference><Citation>Harty P. S., Cottet M. L., Malloy J. K., Kerksick C. M. (2019). Nutritional and supplementation strategies to prevent and attenuate exercise-induced muscle damage: a brief review.
+<i>Sport Med Open</i>
+5:1.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6323061</ArticleId><ArticleId IdType="pubmed">30617517</ArticleId></ArticleIdList></Reference><Reference><Citation>Hawker G. A., Mian S., Kendzerska T., French M. (2011). Measures of adult pain: visual analog scale for pain (VAS Pain), numeric rating scale for pain (NRS Pain), McGill pain questionnaire (MPQ), Short-Form McGill pain questionnaire (SF-MPQ), Chronic pain grade scale (CPGS), short form-36 bodily pain scale (SF.
+<i>Arthr. Care Res.</i>
+63(Suppl. 11), 240&#x2013;252.</Citation><ArticleIdList><ArticleId IdType="pubmed">22588748</ArticleId></ArticleIdList></Reference><Reference><Citation>Heiss R., Lutter C., Freiwald J., Hoppe M., Grim C., Poettgen K., et al.  (2019). Advances in delayed-onset muscle soreness (DOMS) &#x2013; part II: treatment and prevention.
+<i>Sport Sport</i>
+33
+21&#x2013;29. 10.1055/a-0810-3516
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/a-0810-3516</ArticleId><ArticleId IdType="pubmed">30865998</ArticleId></ArticleIdList></Reference><Reference><Citation>Hitomi S., Ujihara I., Ono K. (2019). Pain mechanism of oral ulcerative mucositis and the therapeutic traditional herbal medicine hangeshashinto.
+<i>J. Oral Biosci.</i>
+61
+12&#x2013;15. 10.1016/j.job.2019.01.004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.job.2019.01.004</ArticleId><ArticleId IdType="pubmed">30929796</ArticleId></ArticleIdList></Reference><Reference><Citation>Hody S., Croisier J.-L., Bury T., Rogister B., Leprince P. (2019). Eccentric muscle contractions: risks and benefits.
+<i>Front. Physiol.</i>
+10:536. 10.3389/fphys.2019.00536
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2019.00536</ArticleId><ArticleId IdType="pmc">PMC6510035</ArticleId><ArticleId IdType="pubmed">31130877</ArticleId></ArticleIdList></Reference><Reference><Citation>Howatson G., Hoad M., Goodall S., Tallent J., Bell P. G., French D. N. (2012). Exercise-induced muscle damage is reduced in resistance-trained males by branched chain amino acids: a randomized, double-blind, placebo controlled study.
+<i>J. Int. Soc. Sports Nutr.</i>
+9:20. 10.1186/1550-2783-9-20
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1550-2783-9-20</ArticleId><ArticleId IdType="pmc">PMC3395580</ArticleId><ArticleId IdType="pubmed">22569039</ArticleId></ArticleIdList></Reference><Reference><Citation>Hyldahl R. D., Hubal M. J. (2014). Lengthening our perspective: morphological, cellular, and molecular responses to eccentric exercise.
+<i>Muscle Nerve.</i>
+49
+155&#x2013;170. 10.1002/mus.24077
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.24077</ArticleId><ArticleId IdType="pubmed">24030935</ArticleId></ArticleIdList></Reference><Reference><Citation>Hyldahl R. D., Olson T., Welling T., Groscost L., Parcell A. C. (2014). Satellite cell activity is differentially affected by contraction mode in human muscle following a work-matched bout of exercise.
+<i>Front. Physiol.</i>
+5:485. 10.3389/fphys.2014.00485
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2014.00485</ArticleId><ArticleId IdType="pmc">PMC4263080</ArticleId><ArticleId IdType="pubmed">25566087</ArticleId></ArticleIdList></Reference><Reference><Citation>Iwasaki Y., Morita A., Iwasawa T., Kobata K., Sekiwa Y., Morimitsu Y., et al.  (2006). A nonpungent component of steamed ginger&#x2013;[10]-shogaol&#x2013;increases adrenaline secretion via the activation of TRPV1.
+<i>Nutr. Neurosci.</i>
+9
+169&#x2013;178. 10.1080/10284150600955164</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10284150600955164</ArticleId><ArticleId IdType="pubmed">17176640</ArticleId></ArticleIdList></Reference><Reference><Citation>Janszky I., Ericson M., Blom M., Georgiades A., Magnusson J.-O., Alinagizadeh H., et al.  (2005). Wine drinking is associated with increased heart rate variability in women with coronary heart disease.
+<i>Heart</i>
+91
+314&#x2013;318. 10.1136/hrt.2004.035105
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/hrt.2004.035105</ArticleId><ArticleId IdType="pmc">PMC1768776</ArticleId><ArticleId IdType="pubmed">15710709</ArticleId></ArticleIdList></Reference><Reference><Citation>Julian V., Thivel D., Costes F., Touron J., Boirie Y., Pereira B., et al.  (2018). Eccentric training improves body composition by inducing mechanical and metabolic adaptations: a promising approach for overweight and obese individuals.
+<i>Front. Physiol.</i>
+9:1013. 10.3389/fphys.2018.01013
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.01013</ArticleId><ArticleId IdType="pmc">PMC6090036</ArticleId><ArticleId IdType="pubmed">30131705</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim Y., Kim D.-M., Kim J. Y. (2017). Ginger extract suppresses inflammatory response and maintains barrier function in human colonic epithelial Caco-2 cells exposed to inflammatory mediators.
+<i>J. Food Sci.</i>
+82
+1264&#x2013;1270. 10.1111/1750-3841.13695
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/1750-3841.13695</ArticleId><ArticleId IdType="pubmed">28369951</ArticleId></ArticleIdList></Reference><Reference><Citation>Kingsley J. D., Figueroa A. (2016). Acute and training effects of resistance exercise on heart rate variability.
+<i>Clin. Physiol. Funct. Imaging</i>
+36
+179&#x2013;187. 10.1111/cpf.12223
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12223</ArticleId><ArticleId IdType="pubmed">25524332</ArticleId></ArticleIdList></Reference><Reference><Citation>Matsumura M. D., Zavorsky G. S., Smoliga J. M. (2015). The effects of pre-exercise ginger supplementation on muscle damage and delayed onset muscle soreness.
+<i>Phytother. Res.</i>
+29
+887&#x2013;893. 10.1002/ptr.5328
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/ptr.5328</ArticleId><ArticleId IdType="pubmed">25787877</ArticleId></ArticleIdList></Reference><Reference><Citation>Nosaka K., Newton M. (2002). Difference in the magnitude of muscle damage between maximal and submaximal eccentric loading.
+<i>J. Strength Cond. Res.</i>
+16
+202&#x2013;208. 10.1519/00124278-200205000-00006</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200205000-00006</ArticleId><ArticleId IdType="pubmed">11991771</ArticleId></ArticleIdList></Reference><Reference><Citation>Peake J. M., Suzuki K., Coombes J. S. (2007). The influence of antioxidant supplementation on markers of inflammation and the relationship to oxidative stress after exercise.
+<i>J. Nutr. Biochem.</i>
+18
+357&#x2013;371. 10.1016/j.jnutbio.2006.10.005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jnutbio.2006.10.005</ArticleId><ArticleId IdType="pubmed">17156994</ArticleId></ArticleIdList></Reference><Reference><Citation>Ranchordas M. K., Rogerson D., Soltani H., Costello J. T. (2017). Antioxidants for preventing and reducing muscle soreness after exercise.
+<i>Cochrane Database Syst. Rev.</i>
+12:CD009789.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC6486214</ArticleId><ArticleId IdType="pubmed">29238948</ArticleId></ArticleIdList></Reference><Reference><Citation>Roehrs M., Conte L., da Silva D. T., Duarte T., Maurer L. H., de Carvalho J. A. M., et al.  (2017). Annatto carotenoids attenuate oxidative stress and inflammatory response after high-calorie meal in healthy subjects.
+<i>Food Res. Int.</i>
+100(Pt 1), 771&#x2013;779. 10.1016/j.foodres.2017.08.005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.foodres.2017.08.005</ArticleId><ArticleId IdType="pubmed">28873749</ArticleId></ArticleIdList></Reference><Reference><Citation>Sellami M., Gasmi M., Denham J., Hayes L. D., Stratton D., Padulo J., et al.  (2018). Effects of acute and chronic exercise on immunological parameters in the elderly aged: can physical activity counteract the effects of aging?
+<i>Front. Immunol.</i>
+9:2187. 10.3389/fimmu.2018.02187
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fimmu.2018.02187</ArticleId><ArticleId IdType="pmc">PMC6191490</ArticleId><ArticleId IdType="pubmed">30364079</ArticleId></ArticleIdList></Reference><Reference><Citation>Shahid-ul-Islam Rather L. J., Mohammad F. (2016). Phytochemistry, biological activities and potential of annatto in natural colorant production for industrial applications - A review.
+<i>J. Adv. Res.</i>
+7
+499&#x2013;514. 10.1016/j.jare.2015.11.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jare.2015.11.002</ArticleId><ArticleId IdType="pmc">PMC4856788</ArticleId><ArticleId IdType="pubmed">27222755</ArticleId></ArticleIdList></Reference><Reference><Citation>Suzuki K. (2018). Involvement of neutrophils in exercise-induced muscle damage and its modulation.
+<i>Gen. Intern. Med. Clin. Innov.</i>
+3
+1&#x2013;8.</Citation></Reference><Reference><Citation>Tripathi S., Maier K. G., Bruch D., Kittur D. S. (2007). Effect of 6-gingerol on pro-inflammatory cytokine production and costimulatory molecule expression in murine peritoneal macrophages.
+<i>J. Surg. Res.</i>
+138
+209&#x2013;213. 10.1016/j.jss.2006.07.051
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jss.2006.07.051</ArticleId><ArticleId IdType="pubmed">17291534</ArticleId></ArticleIdList></Reference><Reference><Citation>Williamson E. (2001). Synergy and other interactions in phytomedicines.
+<i>Phytomedicine</i>
+8
+401&#x2013;409. 10.1078/0944-7113-00060
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1078/0944-7113-00060</ArticleId><ArticleId IdType="pubmed">11695885</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilson P. B. (2015). Ginger (<i>Zingiber officinale</i>) as an analgesic and ergogenic aid in sport: a systemic review.
+<i>J. Strength Cond. Res.</i>
+29
+2980&#x2013;2995. 10.1519/jsc.0000000000001098
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/jsc.0000000000001098</ArticleId><ArticleId IdType="pubmed">26200194</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilson P. B. (2018). A randomized double-blind trial of ginger root for reducing muscle soreness and improving physical performance recovery among experienced recreational distance runners.
+<i>J. Diet Suppl.</i>
+17
+121&#x2013;132. 10.1080/19390211.2018.1492484
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/19390211.2018.1492484</ArticleId><ArticleId IdType="pubmed">30299178</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilson P. B., Fitzgerald J. S., Rhodes G. S., Lundstrom C. J., Ingraham S. J. (2015). Effectiveness of ginger root (<i>Zingiber officinale</i>) on running-induced muscle soreness and function: a pilot study.
+<i>Int. J. Athl. Ther. Train.</i>
+1
+44&#x2013;50. 10.1123/ijatt.2014-0142</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijatt.2014-0142</ArticleId></ArticleIdList></Reference><Reference><Citation>World Medical Association (2002). <i>World Medical Association Declaration of Helsinki: Ethical Principles for Medical Research Involving Human Subjects.</i>
+Ferney-Voltaire: World Medical Association.</Citation><ArticleIdList><ArticleId IdType="pubmed">16010903</ArticleId></ArticleIdList></Reference><Reference><Citation>Xin W., Wei W., Li X.-Y. (2013). Short-term effects of fish-oil supplementation on heart rate variability in humans: a meta-analysis of randomized controlled trials.
+<i>Am. J. Clin. Nutr.</i>
+97
+926&#x2013;935. 10.3945/ajcn.112.049833
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3945/ajcn.112.049833</ArticleId><ArticleId IdType="pubmed">23515005</ArticleId></ArticleIdList></Reference><Reference><Citation>Young H. A., Benton D. (2018). Heart-rate variability: a biomarker to study the influence of nutrition on physiological and psychological health?
+<i>Behav. Pharmacol.</i>
+29
+140&#x2013;151. 10.1097/fbp.0000000000000383
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/fbp.0000000000000383</ArticleId><ArticleId IdType="pmc">PMC5882295</ArticleId><ArticleId IdType="pubmed">29543648</ArticleId></ArticleIdList></Reference><Reference><Citation>Zehsaz F., Farhangi N., Mirheidari L. (2014). The effect of <i>Zingiber officinale</i> R. rhizomes (ginger) on plasma pro-inflammatory cytokine levels in well-trained male endurance runners.
+<i>Cent. Eur. J. Immunol.</i>
+39
+174&#x2013;180. 10.5114/ceji.2014.43719
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5114/ceji.2014.43719</ArticleId><ArticleId IdType="pmc">PMC4440027</ArticleId><ArticleId IdType="pubmed">26155120</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

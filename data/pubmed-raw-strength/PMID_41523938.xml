@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41523938</PMID><DateCompleted><Year>2026</Year><Month>01</Month><Day>12</Day></DateCompleted><DateRevised><Year>2026</Year><Month>01</Month><Day>14</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Electronic">2434-0790</ISSN><JournalIssue CitedMedium="Internet"><Volume>8</Volume><Issue>1</Issue><PubDate><Year>2026</Year><Month>Jan</Month><Day>09</Day></PubDate></JournalIssue><Title>Circulation reports</Title><ISOAbbreviation>Circ Rep</ISOAbbreviation></Journal><ArticleTitle>Effects of Rehabilitation Using Therapeutic Sandals for Patients With Chronic Limb-Threatening Ischemia.</ArticleTitle><Pagination><StartPage>136</StartPage><EndPage>143</EndPage><MedlinePgn>136-143</MedlinePgn></Pagination><ELocationID EIdType="doi" ValidYN="Y">10.1253/circrep.CR-25-0048</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">Studies of off-loading devices for chronic limb-threatening ischemia (CLTI) are scarce. We investigated (1) the effect of the application of early therapy sandals on changes in the Clinical Frailty Scale (CFS) scores of patients with CLTI before and after hospitalization, and (2) adverse events such as wound deterioration and reamputation.</AbstractText><AbstractText Label="METHODS AND RESULTS" NlmCategory="UNASSIGNED">We retrospectively analyzed the cases of 51 patients (51 limbs) with toe amputation after revascularization and compared 2 groups: patients who did not apply any load during the off-loading duration and focused on resistance training (the 'usual rehabilitation' group), and those who used therapeutic sandals and performed walking and aerobic exercises with partial off-loading from an early stage (the 'orthotic' rehabilitation group). The before-to-after hospitalization change in the CFS score was 0 (-1, 0) in the usual rehabilitation group, and 0 (0, 1) in the orthotic rehabilitation group (P=0.002), a significant difference. There were no significant between-group differences in wound healing duration (usual rehabilitation group, 48 [19,76.5] days; orthotic rehabilitation group, 41 [27.5,78.8] days) or reamputation rate (usual rehabilitation group, 5 [22%]; orthotic rehabilitation group, 3 [11%]).</AbstractText><AbstractText Label="CONCLUSIONS" NlmCategory="UNASSIGNED">The early postoperative use of therapeutic sandals tended to shorten the duration of complete off-loading after toe amputation due to CLTI and to help maintain CFS scores throughout the hospitalization duration. It was also shown to have a minimal impact on treatment delay and reamputation.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026, THE JAPANESE CIRCULATION SOCIETY.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Nakamura</LastName><ForeName>Yusuke</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Rehabilitation, Aso Iizuka Hospital Fukuoka Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Hara</LastName><ForeName>Takuya</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Department of Rehabilitation, Aso Iizuka Hospital Fukuoka Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kurozawa</LastName><ForeName>Manami</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Rehabilitation, Aso Iizuka Hospital Fukuoka Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ino</LastName><ForeName>Kou</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Plastic and Reconstructive Surgery, Aso Iizuka Hospital Fukuoka Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Matsumoto</LastName><ForeName>Takashi</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Department of Vascular Surgery, Aso Iizuka Hospital Fukuoka Japan.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>11</Month><Day>11</Day></ArticleDate></Article><MedlineJournalInfo><Country>Japan</Country><MedlineTA>Circ Rep</MedlineTA><NlmUniqueID>101746642</NlmUniqueID><ISSNLinking>2434-0790</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">Cardiac rehabilitation</Keyword><Keyword MajorTopicYN="N">Chronic limb threatening ischemia</Keyword><Keyword MajorTopicYN="N">Off-loading</Keyword></KeywordList><CoiStatement>This research was conducted with assistance from an Aso Iizuka Hospital Clinical Research Grant.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>3</Month><Day>24</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2025</Year><Month>8</Month><Day>14</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>8</Month><Day>31</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>1</Month><Day>12</Day><Hour>6</Hour><Minute>29</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>1</Month><Day>12</Day><Hour>6</Hour><Minute>28</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>1</Month><Day>12</Day><Hour>5</Hour><Minute>49</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>11</Month><Day>11</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41523938</ArticleId><ArticleId IdType="pmc">PMC12782914</ArticleId><ArticleId IdType="doi">10.1253/circrep.CR-25-0048</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Azuma N, Iida O, Soga Y, Ooura N, Ooki T, Ozaki M, et al.. JCS/JSVS 2022 Guideline on the management of peripheral arterial disease. https://www.j-circ.or.jp/cms/wp-content/uploads/2022/03/JCS2022_Azuma.pdf (accessed March 5, 2025).</Citation></Reference><Reference><Citation>
+Fehlmann CA, Nickel CH, Cino E, Al-Najjar Z, Langlois N, Eagles D.. 
+Frailty assessment in emergency medicine using the Clinical Frailty Scale: A scoping review. <i>Intern Emerg Med</i>
+2022; 17: 2407&#x2013;2418, doi:10.1007/s11739-022-03042-5.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC9302874</ArticleId><ArticleId IdType="pubmed">35864373</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Church S, Rogers E, Rockwood K, Theou O.. 
+A scoping review of the Clinical Frailty Scale.
+<i>BMC Geriatr</i>
+2020; 20: 393, doi:10.1186/s12877-020-01801-7.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7540438</ArticleId><ArticleId IdType="pubmed">33028215</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Matsuo H.. 
+Exercise rehabilitation for patients with PAOD (peripheral arterial occlusive disease).
+<i>Official Journal of the Japanese Association of Cardiac Rehabilitation</i>
+2009; 14: 34&#x2013;38 [in Japanese].</Citation></Reference><Reference><Citation>
+Tsuchida H.. 
+Importance of vascular rehabilitation in the treatment of chronic critical limb ischemia.
+<i>Journal of the Japanese Society of Hematology and Cardiology</i>
+2011; 20: 927&#x2013;932, doi:10.11401/jsvs.20.927.</Citation></Reference><Reference><Citation>
+Terashi H.. 
+Preserve gait in diabetic patients: Kobe classification goes to the next stage. <i>J Jpn Coll Angiol</i>
+2018; 58: 187&#x2013;193, doi:10.7133/jca.18-00026.</Citation></Reference><Reference><Citation>
+Kikuchi M.. 
+Treatment strategies for critical limb ischemia: Pathology, examinations, and treatment plans. <i>Japanese Journal of Plastic Surgery</i>
+2019; 62: 5&#x2013;13.</Citation></Reference><Reference><Citation>
+Maeshige N, Hayashi H, Kawabe N, Imaoka S, Sakaki S, Matsumoto J, et al.. 
+Effect of early rehabilitation on walking independence and health-related quality of life in patients with chronic foot wounds: A multicenter randomized clinical trial. <i>Int J Low Extrem Wounds</i>
+2023; 15347346231187178, doi:10.1177/15347346231187178.</Citation><ArticleIdList><ArticleId IdType="pubmed">37448201</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Araki E, Goto A, Kondo T, Noda M, Noto H, Origasa H, et al.. 
+Japanese clinical practice guideline for diabetes 2019.
+<i>Diabetol Int</i>
+2020; 11: 165&#x2013;223, doi:10.1007/s13340-020-00439-5.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7387396</ArticleId><ArticleId IdType="pubmed">32802702</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Bus SA, Armstrong DG, Gooday C, Jarl G, Caravaggi C, Viswanathan V, et al.; International Working Group on the Diabetic Foot (IWGDF).. 
+Guidelines on offloading foot ulcers in persons with diabetes (IWGDF 2019 update).
+<i>Diabetes Metab Res Rev</i>
+2020; 36(Suppl 1): e3274, doi:10.1002/dmrr.3274.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">32176441</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Matsumoto K, Furukawa M, Akiyama Y, Kameoka K, Ootsuka M, Tatsukawa Y, et al.. 
+Early postoperative rehabilitation by applying Total Contact Cast.
+<i>Journal of the Japanese Society of Foot and Ankle Surgery</i>
+2014; 6: 56&#x2013;65, doi:10.7792/jlspm.6.56.</Citation></Reference><Reference><Citation>
+Japanese Society of Foot Care and Podiatry, editors.. 
+Guidelines for the prevention of severe foot disease. Nankodo Publishing: Tokyo 2020; <b>6:</b> 118&#x2013;120.</Citation></Reference><Reference><Citation>
+Joseph NM, Goddy C, Okoye GC, Egwuonwu AO.. 
+Effect of twelve weeks supervised aerobic exercise on ulcer healing and changes in selected biochemical profiles of diabetic foot ulcer subjects.
+<i>Int J Diabetes Res</i>
+2014; 3: 41&#x2013;48, doi:10.5923/j.diabetes.20140303.03.</Citation></Reference><Reference><Citation>
+Flahr D.. 
+The effect of nonweight-bearing exercise and protocol adherence on diabetic foot ulcer healing: A pilot study. <i>Ostomy Wound Manage</i>
+2010; 56: 40&#x2013;50.</Citation><ArticleIdList><ArticleId IdType="pubmed">21030727</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Goldsmith JR, Lidtke RH, Shott S.. 
+The effects of range-of-motion therapy on the plantar pressures of patients with diabetes mellitus.
+<i>J Am Podiatr Med Assoc</i>
+2002; 92: 483&#x2013;490, doi:10.7547/87507315-92-9-483.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">12381797</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Lavery LA, Higgins KR, La Fontaine J, Zamorano RG, Constantinides GP, Kim PJ.. 
+Randomised clinical trial to compare total contact casts, healing sandals and a shear-reducing removable boot to heal diabetic foot ulcers.
+<i>Int Wound J</i>
+2015; 12: 710&#x2013;715, doi:10.1111/iwj.12213.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7950500</ArticleId><ArticleId IdType="pubmed">24618113</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Sano M, Yamamoto K, Seo A, Akai A, Akagi D, Takayama T, et al.. 
+Wound healing after revascularization for critical limb ischemia.
+<i>Int Angiol</i>
+2019; 38: 225&#x2013;229, doi:10.23736/S0392-9590.19.04096-3.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">31112022</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Mismar A, Yousef M, Badran D, Younes N.. 
+Ascending infection of foot tendons in diabetic patients.
+<i>Int J Low Extrem Wounds</i>
+2013; 12: 271&#x2013;275, doi:10.1177/1534734613493290.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">24043670</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Arag&#xf3;n-S&#xe1;nchez J, L&#xe1;zaro-Mart&#xed;nez JL, Pulido-Duque J, Maynar M.. 
+From the diabetic foot ulcer and beyond: How do foot infections spread in patients with diabetes? <i>Diabet Foot Ankle</i>
+2012; 3, doi:10.3402/dfa.v3i0.18693.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3464072</ArticleId><ArticleId IdType="pubmed">23050067</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Sakakibara S, Tsuji Y, Hashikawa K, Terashi H.. 
+Is immobilization of the ankle and metatarsophalangeal joint effective in suppressing the spread of infection in diabetic foot ulcers?
+<i>Int J Low Extrem Wounds</i>
+2014; 13: 226&#x2013;229, doi:10.1177/1534734614545873.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">25106445</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Miyake K, Kikuchi S, Tatsukawa T, Uchida D, Koya A, Sawa Y, et al.. 
+Predictive model for postoperative ambulatory function after lower extremity bypass in chronic limb-threatening ischemia.
+<i>Ann Vasc Surg</i>
+2021; 71: 321&#x2013;330, doi:10.1016/j.avsg.2020.07.033.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">32768542</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Khan T, Plotkin A, Magee GA, Shin L, Woelfel SL, Ziegler KR, et al.. 
+Functional ambulatory status as a potential adjunctive decision-making tool following wound, level of ischemia, and severity of foot infection assessment.
+<i>J Vasc Surg</i>
+2020; 72: 738&#x2013;746, doi:10.1016/j.jvs.2019.11.064.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC8356414</ArticleId><ArticleId IdType="pubmed">32273222</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

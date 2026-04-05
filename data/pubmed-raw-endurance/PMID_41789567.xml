@@ -1,0 +1,261 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Automated"><PMID Version="1">41789567</PMID><DateCompleted><Year>2026</Year><Month>03</Month><Day>07</Day></DateCompleted><DateRevised><Year>2026</Year><Month>03</Month><Day>08</Day></DateRevised><Article PubModel="Print"><Journal><ISSN IssnType="Electronic">1477-4054</ISSN><JournalIssue CitedMedium="Internet"><Volume>27</Volume><Issue>2</Issue><PubDate><Year>2026</Year><Month>Mar</Month><Day>01</Day></PubDate></JournalIssue><Title>Briefings in bioinformatics</Title><ISOAbbreviation>Brief Bioinform</ISOAbbreviation></Journal><ArticleTitle>Castl: robust identification of spatially variable genes in spatial transcriptomics via an ensemble-based framework.</ArticleTitle><ELocationID EIdType="pii" ValidYN="Y">bbag074</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.1093/bib/bbag074</ELocationID><Abstract><AbstractText>Spatially variable genes (SVGs) are essential for elucidating tissue organization within spatially resolved transcriptomics. While a number of computational methods have been developed for SVG identification, their reliance on algorithm-specific assumptions, such as predefined kernel functions or spatial neighborhood graphs, often results in substantial variability in sensitivity and inflated false discovery rates (FDRs) across heterogeneous datasets. To address this challenge, we here develop Castl, an ensemble-based framework for SVG identification that integrates multiple detection methods through statistically designed aggregation modules. Comprehensive evaluations on both simulated and real-world data demonstrate that Castl consistently identifies biologically meaningful spatial expression patterns, mitigates method-specific biases and effectively controls FDRs across various biological contexts, resolutions, and spatial technologies. This flexible, assumption-free framework offers a robust and standardized foundation for spatially informed feature discovery in complex biological systems.</AbstractText><CopyrightInformation>&#xa9; The Author(s) 2026. Published by Oxford University Press.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Yu</LastName><ForeName>Yiyi</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Mathematics, College of Science, Zhejiang Sci-Tech University, 928 2nd Avenue, Qiantang District, Hangzhou, Zhejiang 310018, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Yang</LastName><ForeName>Jiyuan</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>School of Mathematical Sciences, Shanghai Jiao Tong University, 800 Dongchuan Rd, Minhang District, Shanghai 200240, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>He</LastName><ForeName>Ping-An</ForeName><Initials>PA</Initials><Identifier Source="ORCID">0000-0003-3749-1483</Identifier><AffiliationInfo><Affiliation>Department of Mathematics, College of Science, Zhejiang Sci-Tech University, 928 2nd Avenue, Qiantang District, Hangzhou, Zhejiang 310018, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Zheng</LastName><ForeName>Xiaoqi</ForeName><Initials>X</Initials><Identifier Source="ORCID">0000-0002-1832-4404</Identifier><AffiliationInfo><Affiliation>Center for Single-Cell Omics, School of Public Health, Shanghai Jiao Tong University School of Medicine, 227 South Chongqing Rd, Huangpu District, Shanghai 200025, China.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Hainan International Medical Center, Shanghai Jiao Tong University School of Medicine, 41 Kangxiang Rd, Boao Lecheng International Medical Tourism Pilot Zone, Qionghai, Hainan 571400, China.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>The Guangxi Key Laboratory of Intelligent Precision Medicine, 22 Shuangyong Rd, Qingxiu District, Guangxi Zhuang Autonomous Region, Nanning 530007, China.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><GrantList CompleteYN="Y"><Grant><GrantID>2024YFC2309600 to X.Z.</GrantID><Agency>National Key R&amp;D Program of China</Agency><Country/></Grant><Grant><GrantID>62372286 to X.Z.</GrantID><Agency>National Natural Science Foundation of China</Agency><Country/></Grant><Grant><GrantID>23JC1403200 to X.Z</GrantID><Agency>Science and Technology Innovation Plan of Shanghai</Agency><Country/></Grant><Grant><Agency>Bioinformatics Core in Center for Single-Cell Omics</Agency><Country/></Grant><Grant><Agency>Shanghai Jiao Tong University School of Medicine</Agency><Country/></Grant></GrantList><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList></Article><MedlineJournalInfo><Country>England</Country><MedlineTA>Brief Bioinform</MedlineTA><NlmUniqueID>100912837</NlmUniqueID><ISSNLinking>1467-5463</ISSNLinking></MedlineJournalInfo><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D000465" MajorTopicYN="Y">Algorithms</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D059467" MajorTopicYN="Y">Transcriptome</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D020869" MajorTopicYN="Y">Gene Expression Profiling</DescriptorName><QualifierName UI="Q000379" MajorTopicYN="N">methods</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D019295" MajorTopicYN="Y">Computational Biology</DescriptorName><QualifierName UI="Q000379" MajorTopicYN="N">methods</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D012984" MajorTopicYN="Y">Software</DescriptorName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">consensus framework</Keyword><Keyword MajorTopicYN="N">spatial resolved transcriptomics</Keyword><Keyword MajorTopicYN="N">spatially variable genes</Keyword></KeywordList><CoiStatement>None declared.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>10</Month><Day>31</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2026</Year><Month>1</Month><Day>7</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2026</Year><Month>1</Month><Day>28</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>7</Day><Hour>18</Hour><Minute>37</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>6</Day><Hour>13</Hour><Minute>45</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>6</Day><Hour>6</Hour><Minute>3</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>3</Month><Day>6</Day></PubMedPubDate></History><PublicationStatus>ppublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41789567</ArticleId><ArticleId IdType="pmc">PMC12963980</ArticleId><ArticleId IdType="doi">10.1093/bib/bbag074</ArticleId><ArticleId IdType="pii">8509105</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+
+Armingol &#xa0;E, Officer &#xa0;A, Harismendy &#xa0;O &#xa0;et al.  &#xa0;Deciphering cell-cell interactions and communication from gene expression. <i>Nat Rev Genet</i> &#xa0;2021;22:71&#x2013;88. 10.1038/s41576-020-00292-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41576-020-00292-x</ArticleId><ArticleId IdType="pmc">PMC7649713</ArticleId><ArticleId IdType="pubmed">33168968</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Asp &#xa0;M, Bergenstr&#xe5;hle &#xa0;J, Lundeberg &#xa0;J. Spatially resolved transcriptomes-next generation tools for tissue exploration. <i>Bioessays</i> &#xa0;2020;42:e1900221. 10.1002/bies.201900221
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/bies.201900221</ArticleId><ArticleId IdType="pubmed">32363691</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Moses &#xa0;L, Pachter &#xa0;L. Museum of spatial transcriptomics. <i>Nat Methods</i> &#xa0;2022;19:534&#x2013;46. 10.1038/s41592-022-01409-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41592-022-01409-2</ArticleId><ArticleId IdType="pubmed">35273392</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Palla &#xa0;G, Fischer &#xa0;DS, Regev &#xa0;A &#xa0;et al.  &#xa0;Spatial components of molecular tissue biology. <i>Nat Biotechnol</i> &#xa0;2022;40:308&#x2013;18. 10.1038/s41587-021-01182-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41587-021-01182-1</ArticleId><ArticleId IdType="pubmed">35132261</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Rao &#xa0;A, Barkley &#xa0;D, Fran&#xe7;a &#xa0;GS &#xa0;et al.  &#xa0;Exploring tissue architecture using spatial transcriptomics. <i>Nature</i> &#xa0;2021;596:211&#x2013;20. 10.1038/s41586-021-03634-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41586-021-03634-9</ArticleId><ArticleId IdType="pmc">PMC8475179</ArticleId><ArticleId IdType="pubmed">34381231</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Williams &#xa0;CG, Lee &#xa0;HJ, Asatsuma &#xa0;T &#xa0;et al.  &#xa0;An introduction to spatial transcriptomics for biomedical research. <i>Genome Med</i> &#xa0;2022;14:68. 10.1186/s13073-022-01075-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13073-022-01075-1</ArticleId><ArticleId IdType="pmc">PMC9238181</ArticleId><ArticleId IdType="pubmed">35761361</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+St&#xe5;hl &#xa0;PL, Salm&#xe9;n &#xa0;F, Vickovic &#xa0;S &#xa0;et al.  &#xa0;Visualization and analysis of gene expression in tissue sections by spatial transcriptomics. <i>Science</i> &#xa0;2016;353:78&#x2013;82. 10.1126/science.aaf2403
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/science.aaf2403</ArticleId><ArticleId IdType="pubmed">27365449</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Vickovic &#xa0;S, Eraslan &#xa0;G, Salm&#xe9;n &#xa0;F &#xa0;et al.  &#xa0;High-definition spatial transcriptomics for in situ tissue profiling. <i>Nat Methods</i> &#xa0;2019;16:987&#x2013;90. 10.1038/s41592-019-0548-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41592-019-0548-y</ArticleId><ArticleId IdType="pmc">PMC6765407</ArticleId><ArticleId IdType="pubmed">31501547</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Li &#xa0;Z, Patel &#xa0;ZM, Song &#xa0;D &#xa0;et al.  &#xa0;Benchmarking computational methods to identify spatially variable genes and peaks. <i>Genome Biol</i> &#xa0;2025;26:285. 10.1186/s13059-025-03731-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13059-025-03731-2</ArticleId><ArticleId IdType="pmc">PMC12445034</ArticleId><ArticleId IdType="pubmed">40968359</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Charitakis &#xa0;N, Salim &#xa0;A, Piers &#xa0;AT &#xa0;et al.  &#xa0;Disparities in spatially variable gene calling highlight the need for benchmarking spatial transcriptomics methods. <i>Genome Biol</i> &#xa0;2023;24:209. 10.1186/s13059-023-03045-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13059-023-03045-1</ArticleId><ArticleId IdType="pmc">PMC10506280</ArticleId><ArticleId IdType="pubmed">37723583</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Svensson &#xa0;V, Teichmann &#xa0;SA, Stegle &#xa0;O. SpatialDE: identification of spatially variable genes. <i>Nat Methods</i> &#xa0;2018;15:343&#x2013;6. 10.1038/nmeth.4636
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nmeth.4636</ArticleId><ArticleId IdType="pmc">PMC6350895</ArticleId><ArticleId IdType="pubmed">29553579</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Sun &#xa0;S, Zhu &#xa0;J, Zhou &#xa0;X. Statistical analysis of spatial expression patterns for spatially resolved transcriptomic studies. <i>Nat Methods</i> &#xa0;2020;17:193&#x2013;200. 10.1038/s41592-019-0701-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41592-019-0701-7</ArticleId><ArticleId IdType="pmc">PMC7233129</ArticleId><ArticleId IdType="pubmed">31988518</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Zhu &#xa0;J, Sun &#xa0;S, Zhou &#xa0;X. SPARK-X: non-parametric modeling enables scalable and robust detection of spatial expression patterns for large spatial transcriptomic studies. <i>Genome Biol</i> &#xa0;2021;22:184. 10.1186/s13059-021-02404-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13059-021-02404-0</ArticleId><ArticleId IdType="pmc">PMC8218388</ArticleId><ArticleId IdType="pubmed">34154649</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Zhang &#xa0;K, Feng &#xa0;W, Wang &#xa0;P. Identification of spatially variable genes with graph cuts. <i>Nat Commun</i> &#xa0;2022;13:5488. 10.1038/s41467-022-33182-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41467-022-33182-3</ArticleId><ArticleId IdType="pmc">PMC9485129</ArticleId><ArticleId IdType="pubmed">36123336</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Hao &#xa0;M, Hua &#xa0;K, Zhang &#xa0;X. SOMDE: a scalable method for identifying spatially variable genes with self-organizing map. <i>Bioinformatics</i> &#xa0;2021;37:4392&#x2013;8. 10.1093/bioinformatics/btab471
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/bioinformatics/btab471</ArticleId><ArticleId IdType="pubmed">34165490</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Hu &#xa0;J, Li &#xa0;X, Coleman &#xa0;K &#xa0;et al.  &#xa0;SpaGCN: integrating gene expression, spatial location and histology to identify spatial domains and spatially variable genes by graph convolutional network. <i>Nat Methods</i> &#xa0;2021;18:1342&#x2013;51. 10.1038/s41592-021-01255-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41592-021-01255-8</ArticleId><ArticleId IdType="pubmed">34711970</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Cai &#xa0;G, Chen &#xa0;Y, Chen &#xa0;S &#xa0;et al.  &#xa0;Spanve: a statistical method for detecting downstream-friendly spatially variable genes in large-scale spatial transcriptomic data. <i>Genom Proteom Bioinf</i> &#xa0;2025;qzaf111. 10.1093/gpbjnl/qzaf111</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gpbjnl/qzaf111</ArticleId><ArticleId IdType="pubmed">41284930</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Chen &#xa0;C, Kim &#xa0;HJ, Yang &#xa0;P. Evaluating spatially variable gene detection methods for spatial transcriptomics data. <i>Genome Biol</i> &#xa0;2024;25:18. 10.1186/s13059-023-03145-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13059-023-03145-y</ArticleId><ArticleId IdType="pmc">PMC10789051</ArticleId><ArticleId IdType="pubmed">38225676</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Emerson &#xa0;P. The original Borda count and partial voting. <i>Soc Choice Welf</i> &#xa0;2013;40:353&#x2013;8. 10.1007/s00355-011-0603-9</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00355-011-0603-9</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Liu &#xa0;Y, Chen &#xa0;S, Li &#xa0;Z &#xa0;et al.  &#xa0;ACAT: a fast and powerful p value combination method for rare-variant analysis in sequencing studies. <i>Am J Hum Genet</i> &#xa0;2019;104:410&#x2013;21. 10.1016/j.ajhg.2019.01.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ajhg.2019.01.002</ArticleId><ArticleId IdType="pmc">PMC6407498</ArticleId><ArticleId IdType="pubmed">30849328</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Benjamini &#xa0;Y, Yekutieli &#xa0;D. The control of the false discovery rate in multiple testing under dependency. <i>Ann Stat</i> &#xa0;2001;29:1165&#x2013;88. http://www.jstor.org/stable/2674075</Citation></Reference><Reference><Citation>
+
+Satija &#xa0;R, Farrell &#xa0;JA, Gennert &#xa0;D &#xa0;et al.  &#xa0;Spatial reconstruction of single-cell gene expression data. <i>Nat Biotechnol</i> &#xa0;2015;33:495&#x2013;502. 10.1038/nbt.3192
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nbt.3192</ArticleId><ArticleId IdType="pmc">PMC4430369</ArticleId><ArticleId IdType="pubmed">25867923</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Yu &#xa0;G, Wang &#xa0;LG, Han &#xa0;Y &#xa0;et al.  &#xa0;clusterProfiler: an R package for comparing biological themes among gene clusters. <i>Omics</i> &#xa0;2012;16:284&#x2013;7. 10.1089/omi.2011.0118
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1089/omi.2011.0118</ArticleId><ArticleId IdType="pmc">PMC3339379</ArticleId><ArticleId IdType="pubmed">22455463</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Jain &#xa0;A, Tuteja &#xa0;G. TissueEnrich: tissue-specific gene enrichment analysis. <i>Bioinformatics</i> &#xa0;2019;35:1966&#x2013;7. 10.1093/bioinformatics/bty890
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/bioinformatics/bty890</ArticleId><ArticleId IdType="pmc">PMC6546155</ArticleId><ArticleId IdType="pubmed">30346488</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+H&#xe9;dou &#xa0;J, Mari&#x107; &#xa0;I, Bellan &#xa0;G &#xa0;et al.  &#xa0;Discovery of sparse, reliable omic biomarkers with Stabl. <i>Nat Biotechnol</i> &#xa0;2024;42:1581&#x2013;93. 10.1038/s41587-023-02033-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41587-023-02033-x</ArticleId><ArticleId IdType="pmc">PMC11217152</ArticleId><ArticleId IdType="pubmed">38168992</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Yuan &#xa0;X, Ma &#xa0;Y, Gao &#xa0;R &#xa0;et al.  &#xa0;HEARTSVG: a fast and accurate method for identifying spatially variable genes in large-scale spatial transcriptomics. <i>Nat Commun</i> &#xa0;2024;15:5700. 10.1038/s41467-024-49846-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41467-024-49846-1</ArticleId><ArticleId IdType="pmc">PMC11228050</ArticleId><ArticleId IdType="pubmed">38972896</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Zhu &#xa0;J, Shang &#xa0;L, Zhou &#xa0;X. SRTsim: spatial pattern preserving simulations for spatially resolved transcriptomics. <i>Genome Biol</i> &#xa0;2023;24:39. 10.1186/s13059-023-02879-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13059-023-02879-z</ArticleId><ArticleId IdType="pmc">PMC9983268</ArticleId><ArticleId IdType="pubmed">36869394</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Song &#xa0;D, Wang &#xa0;Q, Yan &#xa0;G &#xa0;et al.  &#xa0;scDesign3 generates realistic in silico data for multimodal single-cell and spatial omics. <i>Nat Biotechnol</i> &#xa0;2024;42:247&#x2013;52. 10.1038/s41587-023-01772-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41587-023-01772-1</ArticleId><ArticleId IdType="pmc">PMC11182337</ArticleId><ArticleId IdType="pubmed">37169966</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Wu &#xa0;Y, Yang &#xa0;S, Ma &#xa0;J &#xa0;et al.  &#xa0;Spatiotemporal immune landscape of colorectal cancer liver metastasis at single-cell level. <i>Cancer Discov</i> &#xa0;2022;12:134&#x2013;53. 10.1158/2159-8290.CD-21-0316
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1158/2159-8290.CD-21-0316</ArticleId><ArticleId IdType="pubmed">34417225</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Guinney &#xa0;J, Dienstmann &#xa0;R, Wang &#xa0;X &#xa0;et al.  &#xa0;The consensus molecular subtypes of colorectal cancer. <i>Nat Med</i> &#xa0;2015;21:1350&#x2013;6. 10.1038/nm.3967
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nm.3967</ArticleId><ArticleId IdType="pmc">PMC4636487</ArticleId><ArticleId IdType="pubmed">26457759</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Dienstmann &#xa0;R, Guinney &#xa0;J, Delorenzi &#xa0;M &#xa0;et al.  &#xa0;Colorectal cancer subtyping consortium (CRCSC) identifies consensus of molecular subtypes. <i>Ann Oncol</i> &#xa0;2014;25:ii115. 10.1093/annonc/mdu193.25</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/annonc/mdu193.25</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Roepman &#xa0;P, Schlicker &#xa0;A, Tabernero &#xa0;J &#xa0;et al.  &#xa0;Colorectal cancer intrinsic subtypes predict chemotherapy benefit, deficient mismatch repair and epithelial-to-mesenchymal transition. <i>Int J Cancer</i> &#xa0;2014;134:552&#x2013;62. 10.1002/ijc.28387
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/ijc.28387</ArticleId><ArticleId IdType="pmc">PMC4234005</ArticleId><ArticleId IdType="pubmed">23852808</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Joanito &#xa0;I, Wirapati &#xa0;P, Zhao &#xa0;N &#xa0;et al.  &#xa0;Single-cell and bulk transcriptome sequencing identifies two epithelial tumor cell states and refines the consensus molecular classification of colorectal cancer. <i>Nat Genet</i> &#xa0;2022;54:963&#x2013;75. 10.1038/s41588-022-01100-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41588-022-01100-4</ArticleId><ArticleId IdType="pmc">PMC9279158</ArticleId><ArticleId IdType="pubmed">35773407</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Lee &#xa0;HO, Hong &#xa0;Y, Etlioglu &#xa0;HE &#xa0;et al.  &#xa0;Lineage-dependent gene expression programs influence the immune landscape of colorectal cancer. <i>Nat Genet</i> &#xa0;2020;52:594&#x2013;603. 10.1038/s41588-020-0636-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41588-020-0636-z</ArticleId><ArticleId IdType="pubmed">32451460</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Pelka &#xa0;K, Hofree &#xa0;M, Chen &#xa0;JH &#xa0;et al.  &#xa0;Spatially organized multicellular immune hubs in human colorectal cancer. <i>Cell</i> &#xa0;2021;184:4734&#x2013;4752.e20. 10.1016/j.cell.2021.08.003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cell.2021.08.003</ArticleId><ArticleId IdType="pmc">PMC8772395</ArticleId><ArticleId IdType="pubmed">34450029</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Qi &#xa0;J, Sun &#xa0;H, Zhang &#xa0;Y &#xa0;et al.  &#xa0;Single-cell and spatial analysis reveal interaction of FAP(+) fibroblasts and SPP1(+) macrophages in colorectal cancer. <i>Nat Commun</i> &#xa0;2022;13:1742. 10.1038/s41467-022-29366-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41467-022-29366-6</ArticleId><ArticleId IdType="pmc">PMC8976074</ArticleId><ArticleId IdType="pubmed">35365629</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Schmitt &#xa0;M, Greten &#xa0;FR. The inflammatory pathogenesis of colorectal cancer. <i>Nat Rev Immunol</i> &#xa0;2021;21:653&#x2013;67. 10.1038/s41577-021-00534-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41577-021-00534-x</ArticleId><ArticleId IdType="pubmed">33911231</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Danielsen &#xa0;SA, Eide &#xa0;PW, Nesbakken &#xa0;A &#xa0;et al.  &#xa0;Portrait of the PI3K/AKT pathway in colorectal cancer. <i>Biochim Biophys Acta</i> &#xa0;2015;1855:104&#x2013;21. 10.1016/j.bbcan.2014.09.008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bbcan.2014.09.008</ArticleId><ArticleId IdType="pubmed">25450577</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Fang &#xa0;JY, Richardson &#xa0;BC. The MAPK signalling pathways and colorectal cancer. <i>Lancet Oncol</i> &#xa0;2005;6:322&#x2013;7. 10.1016/S1470-2045(05)70168-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S1470-2045(05)70168-6</ArticleId><ArticleId IdType="pubmed">15863380</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Landy &#xa0;J, Ronde &#xa0;E, English &#xa0;N &#xa0;et al.  &#xa0;Tight junctions in inflammatory bowel diseases and inflammatory bowel disease associated colorectal cancer. <i>World J Gastroenterol</i> &#xa0;2016;22:3117&#x2013;26. 10.3748/wjg.v22.i11.3117
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3748/wjg.v22.i11.3117</ArticleId><ArticleId IdType="pmc">PMC4789987</ArticleId><ArticleId IdType="pubmed">27003989</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Muhl &#xa0;L, Mocci &#xa0;G, Pietil&#xe4; &#xa0;R &#xa0;et al.  &#xa0;A single-cell transcriptomic inventory of murine smooth muscle cells. <i>Dev Cell</i> &#xa0;2022;57:2426&#x2013;2443.e6. 10.1016/j.devcel.2022.09.015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.devcel.2022.09.015</ArticleId><ArticleId IdType="pubmed">36283392</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Andersen &#xa0;MK, Krossa &#xa0;S, Midtbust &#xa0;E &#xa0;et al.  &#xa0;Spatial transcriptomics reveals strong association between SFRP4 and extracellular matrix remodeling in prostate cancer. <i>Commun Biol</i> &#xa0;2024;7:1462. 10.1038/s42003-024-07161-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s42003-024-07161-x</ArticleId><ArticleId IdType="pmc">PMC11543834</ArticleId><ArticleId IdType="pubmed">39511287</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Liu &#xa0;C, Li &#xa0;R, Li &#xa0;Y &#xa0;et al.  &#xa0;Spatiotemporal mapping of gene expression landscapes and developmental trajectories during zebrafish embryogenesis. <i>Dev Cell</i> &#xa0;2022;57:1284&#x2013;1298.e5. 10.1016/j.devcel.2022.04.009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.devcel.2022.04.009</ArticleId><ArticleId IdType="pubmed">35512701</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Mennillo &#xa0;E, Kim &#xa0;YJ, Lee &#xa0;G &#xa0;et al.  &#xa0;Single-cell and spatial multi-omics highlight effects of anti-integrin therapy across cellular compartments in ulcerative colitis. <i>Nat Commun</i> &#xa0;2024;15:1493. 10.1038/s41467-024-45665-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41467-024-45665-6</ArticleId><ArticleId IdType="pmc">PMC10876948</ArticleId><ArticleId IdType="pubmed">38374043</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Heiser &#xa0;CN, Simmons &#xa0;AJ, Revetta &#xa0;F &#xa0;et al.  &#xa0;Molecular cartography uncovers evolutionary and microenvironmental dynamics in sporadic colorectal tumors. <i>Cell</i> &#xa0;2023;186:5620&#x2013;5637.e16. 10.1016/j.cell.2023.11.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cell.2023.11.006</ArticleId><ArticleId IdType="pmc">PMC10756562</ArticleId><ArticleId IdType="pubmed">38065082</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Wang &#xa0;F, Long &#xa0;J, Li &#xa0;L &#xa0;et al.  &#xa0;Single-cell and spatial transcriptome analysis reveals the cellular heterogeneity of liver metastatic colorectal cancer. <i>Sci Adv</i> &#xa0;2023;9:eadf5464. 10.1126/sciadv.adf5464
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/sciadv.adf5464</ArticleId><ArticleId IdType="pmc">PMC10275599</ArticleId><ArticleId IdType="pubmed">37327339</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Wood &#xa0;CS, Pennel &#xa0;KA, Leslie &#xa0;H &#xa0;et al.  &#xa0;Spatially resolved transcriptomics deconvolutes prognostic histological subgroups in patients with colorectal cancer and synchronous liver metastases. <i>Cancer Res</i> &#xa0;2023;83:1329&#x2013;44. 10.1158/0008-5472.CAN-22-2794
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1158/0008-5472.CAN-22-2794</ArticleId><ArticleId IdType="pmc">PMC10102851</ArticleId><ArticleId IdType="pubmed">37057593</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Roulis &#xa0;M, Kaklamanos &#xa0;A, Schernthanner &#xa0;M &#xa0;et al.  &#xa0;Paracrine orchestration of intestinal tumorigenesis by a mesenchymal niche. <i>Nature</i> &#xa0;2020;580:524&#x2013;9. 10.1038/s41586-020-2166-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41586-020-2166-3</ArticleId><ArticleId IdType="pmc">PMC7490650</ArticleId><ArticleId IdType="pubmed">32322056</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Ozato &#xa0;Y, Kojima &#xa0;Y, Kobayashi &#xa0;Y &#xa0;et al.  &#xa0;Spatial and single-cell transcriptomics decipher the cellular environment containing HLA-G+ cancer cells and SPP1+ macrophages in colorectal cancer. <i>Cell Rep</i> &#xa0;2023;42:111929. 10.1016/j.celrep.2022.111929
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.celrep.2022.111929</ArticleId><ArticleId IdType="pubmed">36656712</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Makrodouli &#xa0;E, Oikonomou &#xa0;E, Koc &#xa0;M &#xa0;et al.  &#xa0;BRAF and RAS oncogenes regulate rho GTPase pathways to mediate migration and invasion properties in human colon cancer cells: a comparative study. <i>Mol Cancer</i> &#xa0;2011;10:1&#x2013;21. 10.1186/1476-4598-10-118
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1476-4598-10-118</ArticleId><ArticleId IdType="pmc">PMC3189908</ArticleId><ArticleId IdType="pubmed">21943101</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Leung &#xa0;WKC, Ching &#xa0;AKK, Chan &#xa0;AWH &#xa0;et al.  &#xa0;A novel interplay between oncogenic PFTK1 protein kinase and tumor suppressor TAGLN2 in the control of liver cancer cell motility. <i>Oncogene</i> &#xa0;2011;30:4464&#x2013;75. 10.1038/onc.2011.161
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/onc.2011.161</ArticleId><ArticleId IdType="pubmed">21577206</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Li &#xa0;D, Wang &#xa0;Y, Dong &#xa0;C &#xa0;et al.  &#xa0;CST1 inhibits ferroptosis and promotes gastric cancer metastasis by regulating GPX4 protein stability via OTUB1. <i>Oncogene</i> &#xa0;2023;42:83&#x2013;98. 10.1038/s41388-022-02537-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41388-022-02537-x</ArticleId><ArticleId IdType="pmc">PMC9816059</ArticleId><ArticleId IdType="pubmed">36369321</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Liao &#xa0;YL, Sun &#xa0;YM, Chau &#xa0;GY &#xa0;et al.  &#xa0;Identification of SOX4 target genes using phylogenetic footprinting-based prediction from expression microarrays suggests that overexpression of SOX4 potentiates metastasis in hepatocellular carcinoma. <i>Oncogene</i> &#xa0;2008;27:5578&#x2013;89. 10.1038/onc.2008.168
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/onc.2008.168</ArticleId><ArticleId IdType="pubmed">18504433</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Lai &#xa0;MD, Xu &#xa0;J. Ribosomal proteins and colorectal cancer. <i>Curr Genomics</i> &#xa0;2007;8:43&#x2013;9. 10.2174/138920207780076938
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2174/138920207780076938</ArticleId><ArticleId IdType="pmc">PMC2474683</ArticleId><ArticleId IdType="pubmed">18645623</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Liang &#xa0;Y-C, Li &#xa0;R, Bao &#xa0;S-R &#xa0;et al.  &#xa0;Artificial downregulation of ribosomal protein L34 restricts the proliferation and metastasis of colorectal cancer by suppressing the JAK2/STAT3 Signaling pathway. <i>Hum Gene Ther</i> &#xa0;2023;34:719&#x2013;31. 10.1089/hum.2023.046
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1089/hum.2023.046</ArticleId><ArticleId IdType="pubmed">37427415</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Labriet &#xa0;A, L&#xe9;vesque &#xa0;&#xc9;, Cecchin &#xa0;E &#xa0;et al.  &#xa0;Germline variability and tumor expression level of ribosomal protein gene RPL28 are associated with survival of metastatic colorectal cancer patients. <i>Sci Rep</i> &#xa0;2019;9:13008. 10.1038/s41598-019-49477-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-019-49477-3</ArticleId><ArticleId IdType="pmc">PMC6736932</ArticleId><ArticleId IdType="pubmed">31506518</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Maynard &#xa0;KR, Collado-Torres &#xa0;L, Weber &#xa0;LM &#xa0;et al.  &#xa0;Transcriptome-scale spatial gene expression in the human dorsolateral prefrontal cortex. <i>Nat Neurosci</i> &#xa0;2021;24:425&#x2013;36. 10.1038/s41593-020-00787-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41593-020-00787-0</ArticleId><ArticleId IdType="pmc">PMC8095368</ArticleId><ArticleId IdType="pubmed">33558695</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Ma &#xa0;S, Skarica &#xa0;M, Li &#xa0;Q &#xa0;et al.  &#xa0;Molecular and cellular evolution of the primate dorsolateral prefrontal cortex. <i>Science</i> &#xa0;2022;377:eabo7257. 10.1126/science.abo7257
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/science.abo7257</ArticleId><ArticleId IdType="pmc">PMC9614553</ArticleId><ArticleId IdType="pubmed">36007006</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Guillozet-Bongaarts &#xa0;A, Hyde &#xa0;T, Dalley &#xa0;R &#xa0;et al.  &#xa0;Altered gene expression in the dorsolateral prefrontal cortex of individuals with schizophrenia. <i>Mol Psychiatr</i> &#xa0;2014;19:478&#x2013;85. 10.1038/mp.2013.30</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/mp.2013.30</ArticleId><ArticleId IdType="pmc">PMC3965839</ArticleId><ArticleId IdType="pubmed">23528911</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Hu &#xa0;Z, Xiao &#xa0;X, Zhang &#xa0;Z &#xa0;et al.  &#xa0;Genetic insights and neurobiological implications from NRXN1 in neuropsychiatric disorders. <i>Mol Psychiatr</i> &#xa0;2019;24:1400&#x2013;14. 10.1038/s41380-019-0438-9</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41380-019-0438-9</ArticleId><ArticleId IdType="pubmed">31138894</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Shibata &#xa0;M, Pattabiraman &#xa0;K, Muchnik &#xa0;SK &#xa0;et al.  &#xa0;Hominini-specific regulation of CBLN2 increases prefrontal spinogenesis. <i>Nature</i> &#xa0;2021;598:489&#x2013;94. 10.1038/s41586-021-03952-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41586-021-03952-y</ArticleId><ArticleId IdType="pmc">PMC9018127</ArticleId><ArticleId IdType="pubmed">34599306</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Zimmerman &#xa0;AJ, Hafez &#xa0;AK, Amoah &#xa0;SK &#xa0;et al.  &#xa0;A psychiatric disease-related circular RNA controls synaptic gene expression and cognition. <i>Mol Psychiatr</i> &#xa0;2020;25:2712&#x2013;27. 10.1038/s41380-020-0653-4</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41380-020-0653-4</ArticleId><ArticleId IdType="pmc">PMC7577899</ArticleId><ArticleId IdType="pubmed">31988434</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Bronicki &#xa0;LM, Jasmin &#xa0;BJ. Emerging complexity of the HuD/ELAVl4 gene; implications for neuronal development, function, and dysfunction. <i>Rna</i> &#xa0;2013;19:1019. 10.1261/rna.039164.113
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1261/rna.039164.113</ArticleId><ArticleId IdType="pmc">PMC3708524</ArticleId><ArticleId IdType="pubmed">23861535</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Kumar &#xa0;S, Zomorrodi &#xa0;R, Ghazala &#xa0;Z &#xa0;et al.  &#xa0;Extent of dorsolateral prefrontal cortex plasticity and its association with working memory in patients with Alzheimer disease. <i>JAMA Psychiat</i> &#xa0;2017;74:1266&#x2013;74. 10.1001/jamapsychiatry.2017.3292</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamapsychiatry.2017.3292</ArticleId><ArticleId IdType="pmc">PMC6583382</ArticleId><ArticleId IdType="pubmed">29071355</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Cools &#xa0;R, Stefanova &#xa0;E, Barker &#xa0;RA &#xa0;et al.  &#xa0;Dopaminergic modulation of high-level cognition in Parkinson&#x2019;s disease: the role of the prefrontal cortex revealed by PET. <i>Brain</i> &#xa0;2002;125:584&#x2013;94. 10.1093/brain/awf052
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/brain/awf052</ArticleId><ArticleId IdType="pubmed">11872615</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Moghaddam &#xa0;B. Stress activation of glutamate neurotransmission in the prefrontal cortex: implications for dopamine-associated psychiatric disorders. <i>Biol Psychiatry</i> &#xa0;2002;51:775&#x2013;87. 10.1016/s0006-3223(01)01362-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0006-3223(01)01362-2</ArticleId><ArticleId IdType="pubmed">12007451</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Seamans &#xa0;JK, Yang &#xa0;CR. The principal features and mechanisms of dopamine modulation in the prefrontal cortex. <i>Prog Neurobiol</i> &#xa0;2004;74:1&#x2013;58. 10.1016/j.pneurobio.2004.05.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pneurobio.2004.05.006</ArticleId><ArticleId IdType="pubmed">15381316</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Domek-Lopacinska &#xa0;K, Strosznajder &#xa0;J. Cyclic GMP metabolism and its role in brain physiology. <i>J Physiol Pharmacol</i> &#xa0;2005;56:15.</Citation><ArticleIdList><ArticleId IdType="pubmed">16077188</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Arnsten &#xa0;AF. Stress signalling pathways that impair prefrontal cortex structure and function. <i>Nat Rev Neurosci</i> &#xa0;2009;10:410&#x2013;22. 10.1038/nrn2648
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nrn2648</ArticleId><ArticleId IdType="pmc">PMC2907136</ArticleId><ArticleId IdType="pubmed">19455173</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Moran &#xa0;PAP. Notes on continuous stochastic phenomena. <i>Biometrika</i> &#xa0;1950;37:17&#x2013;23. 10.2307/2332142
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2307/2332142</ArticleId><ArticleId IdType="pubmed">15420245</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Long &#xa0;Y, Ang &#xa0;KS, Li &#xa0;M &#xa0;et al.  &#xa0;Spatially informed clustering, integration, and deconvolution of spatial transcriptomics with GraphST. <i>Nat Commun</i> &#xa0;2023;14:1155. 10.1038/s41467-023-36796-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41467-023-36796-3</ArticleId><ArticleId IdType="pmc">PMC9977836</ArticleId><ArticleId IdType="pubmed">36859400</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Ren &#xa0;H, Walker &#xa0;BL, Cang &#xa0;Z &#xa0;et al.  &#xa0;Identifying multicellular spatiotemporal organization of cells with SpaceFlow. <i>Nat Commun</i> &#xa0;2022;13:4076. 10.1038/s41467-022-31739-w
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41467-022-31739-w</ArticleId><ArticleId IdType="pmc">PMC9283532</ArticleId><ArticleId IdType="pubmed">35835774</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+O'Connor &#xa0;J, Hemby &#xa0;S. Elevated GRIA1 mRNA expression in layer II/III and V pyramidal cells of the DLPFC in schizophrenia. <i>Schizophr Res</i> &#xa0;2007;97:277&#x2013;88. 10.1016/j.schres.2007.09.022
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.schres.2007.09.022</ArticleId><ArticleId IdType="pmc">PMC3255089</ArticleId><ArticleId IdType="pubmed">17942280</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Chadha &#xa0;R, Meador-Woodruff &#xa0;JH. Downregulated AKT-mTOR signaling pathway proteins in dorsolateral prefrontal cortex in schizophrenia. <i>Neuropsychopharmacol</i> &#xa0;2020;45:1059&#x2013;67. 10.1038/s41386-020-0614-2</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41386-020-0614-2</ArticleId><ArticleId IdType="pmc">PMC7162985</ArticleId><ArticleId IdType="pubmed">31952070</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Vanderplow &#xa0;AM, Eagle &#xa0;AL, Kermath &#xa0;BA &#xa0;et al.  &#xa0;Akt-mTOR hypoactivity in bipolar disorder gives rise to cognitive impairments associated with altered neuronal structure and function. <i>Neuron</i> &#xa0;2021;109:1479&#x2013;1496.e6. 10.1016/j.neuron.2021.03.008
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neuron.2021.03.008</ArticleId><ArticleId IdType="pmc">PMC8105282</ArticleId><ArticleId IdType="pubmed">33765445</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Piantadosi &#xa0;SC, Chamberlain &#xa0;BL, Glausier &#xa0;JR &#xa0;et al.  &#xa0;Lower excitatory synaptic gene expression in orbitofrontal cortex and striatum in an initial study of subjects with obsessive compulsive disorder. <i>Mol Psychiatr</i> &#xa0;2021;26:986&#x2013;98. 10.1038/s41380-019-0431-3</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41380-019-0431-3</ArticleId><ArticleId IdType="pubmed">31168067</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Yu &#xa0;L, Chibnik &#xa0;LB, Srivastava &#xa0;GP &#xa0;et al.  &#xa0;Association of Brain DNA methylation in SORL1, ABCA7, HLA-DRB5, SLC24A4, and BIN1 with pathological diagnosis of Alzheimer disease. <i>JAMA Neurol</i> &#xa0;2015;72:15&#x2013;24. 10.1001/jamaneurol.2014.3049
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamaneurol.2014.3049</ArticleId><ArticleId IdType="pmc">PMC4344367</ArticleId><ArticleId IdType="pubmed">25365775</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Chen &#xa0;A, Liao &#xa0;S, Cheng &#xa0;M &#xa0;et al.  &#xa0;Spatiotemporal transcriptomic atlas of mouse organogenesis using DNA nanoball-patterned arrays. <i>Cell</i> &#xa0;2022;185:1777&#x2013;1792.e21. 10.1016/j.cell.2022.04.003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cell.2022.04.003</ArticleId><ArticleId IdType="pubmed">35512705</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Stickels &#xa0;RR, Murray &#xa0;E, Kumar &#xa0;P &#xa0;et al.  &#xa0;Highly sensitive spatial transcriptomics at near-cellular resolution with slide-seqV2. <i>Nat Biotechnol</i> &#xa0;2021;39:313&#x2013;9. 10.1038/s41587-020-0739-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41587-020-0739-1</ArticleId><ArticleId IdType="pmc">PMC8606189</ArticleId><ArticleId IdType="pubmed">33288904</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Sunkin &#xa0;SM, Ng &#xa0;L, Lau &#xa0;C &#xa0;et al.  &#xa0;Allen brain atlas: an integrated spatio-temporal portal for exploring the central nervous system. <i>Nucleic Acids Res</i> &#xa0;2013;41:D996&#x2013;1008. 10.1093/nar/gks1042
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/nar/gks1042</ArticleId><ArticleId IdType="pmc">PMC3531093</ArticleId><ArticleId IdType="pubmed">23193282</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Kawano &#xa0;T, Margolis &#xa0;F. Transsynaptic regulation of olfactory bulb catecholamines in mice and rats. <i>J Neurochem</i> &#xa0;1982;39:342&#x2013;8. 10.1111/j.1471-4159.1982.tb03953.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1471-4159.1982.tb03953.x</ArticleId><ArticleId IdType="pubmed">6806447</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Kobayakawa &#xa0;K, Kobayakawa &#xa0;R, Matsumoto &#xa0;H &#xa0;et al.  &#xa0;Innate versus learned odour processing in the mouse olfactory bulb. <i>Nature</i> &#xa0;2007;450:503&#x2013;8. 10.1038/nature06281
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nature06281</ArticleId><ArticleId IdType="pubmed">17989651</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Huang &#xa0;YS, Li &#xa0;IH, Chueh &#xa0;SH &#xa0;et al.  &#xa0;Mesenchymal stem cells from rat olfactory bulbs can differentiate into cells with cardiomyocyte characteristics. <i>J Tissue Eng Regen Med</i> &#xa0;2015;9:E191&#x2013;201. 10.1002/term.1684
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/term.1684</ArticleId><ArticleId IdType="pubmed">23378029</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Moffitt &#xa0;JR, Bambah-Mukku &#xa0;D, Eichhorn &#xa0;SW &#xa0;et al.  &#xa0;Molecular, spatial, and functional single-cell profiling of the hypothalamic preoptic region. <i>Science</i> &#xa0;2018;362:eaau5324. 10.1126/science.aau5324
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/science.aau5324</ArticleId><ArticleId IdType="pmc">PMC6482113</ArticleId><ArticleId IdType="pubmed">30385464</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Brown &#xa0;RS, Aoki &#xa0;M, Ladyman &#xa0;SR &#xa0;et al.  &#xa0;Prolactin action in the medial preoptic area is necessary for postpartum maternal nursing behavior. <i>Proc Natl Acad Sci</i> &#xa0;2017;114:10779&#x2013;84. 10.1073/pnas.1708025114
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.1708025114</ArticleId><ArticleId IdType="pmc">PMC5635892</ArticleId><ArticleId IdType="pubmed">28923971</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Noriega &#xa0;NC, Eghlidi &#xa0;DH, Garyfallou &#xa0;VT &#xa0;et al.  &#xa0;Influence of 17&#x3b2;-estradiol and progesterone on GABAergic gene expression in the arcuate nucleus, amygdala and hippocampus of the rhesus macaque. <i>Brain Res</i> &#xa0;2010;1307:28&#x2013;42. 10.1016/j.brainres.2009.10.011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.brainres.2009.10.011</ArticleId><ArticleId IdType="pmc">PMC2787920</ArticleId><ArticleId IdType="pubmed">19833106</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Liu &#xa0;J, Zeng &#xa0;W, Kan &#xa0;S &#xa0;et al.  &#xa0;CAKE: a flexible self-supervised framework for enhancing cell visualization, clustering and rare cell identification. <i>Brief Bioinform</i> &#xa0;2023;25:bbad475. 10.1093/bib/bbad475
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/bib/bbad475</ArticleId><ArticleId IdType="pmc">PMC10749894</ArticleId><ArticleId IdType="pubmed">38145950</ArticleId></ArticleIdList></Reference><Reference><Citation>
+
+Yu &#xa0;Y, Yang &#xa0;J, He &#xa0;P-a &#xa0;et al.  &#xa0;Castl: a consensus framework for robust identification of spatially variable genes in spatial Transcriptomics. <i>GitHub</i> &#xa0;2025. https://github.com/TheY11/Castl</Citation></Reference><Reference><Citation>
+
+Yu &#xa0;Y, Yang &#xa0;J, He &#xa0;P-a &#xa0;et al. &#xa0;Castl: a consensus framework for robust identification of spatially variable genes in spatial Transcriptomics. <i>Zenodo</i> &#xa0;2025. https://zenodo.org/records/16751799</Citation></Reference><Reference><Citation>
+
+Xu &#xa0;H, Fu &#xa0;H, Long &#xa0;Y &#xa0;et al.  &#xa0;Unsupervised spatially embedded deep representation of spatial transcriptomics. <i>Genome Med</i> &#xa0;2024;16:12. 10.1186/s13073-024-01283-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13073-024-01283-x</ArticleId><ArticleId IdType="pmc">PMC10790257</ArticleId><ArticleId IdType="pubmed">38217035</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

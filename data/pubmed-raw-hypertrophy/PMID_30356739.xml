@@ -1,0 +1,166 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">30356739</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>29</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>9</Volume><PubDate><Year>2018</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Muscle Androgen Receptor Content but Not Systemic Hormones Is Associated With Resistance Training-Induced Skeletal Muscle Hypertrophy in Healthy, Young Men.</ArticleTitle><Pagination><StartPage>1373</StartPage><MedlinePgn>1373</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1373</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2018.01373</ELocationID><Abstract><AbstractText>The factors that underpin heterogeneity in muscle hypertrophy following resistance exercise training (RET) remain largely unknown. We examined circulating hormones, intramuscular hormones, and intramuscular hormone-related variables in resistance-trained men before and after 12 weeks of RET. Backward elimination and principal component regression evaluated the statistical significance of proposed circulating anabolic hormones (e.g., testosterone, free testosterone, dehydroepiandrosterone, dihydrotestosterone, insulin-like growth factor-1, free insulin-like growth factor-1, luteinizing hormone, and growth hormone) and RET-induced changes in muscle mass (<i>n</i> = 49). Immunoblots and immunoassays were used to evaluate intramuscular free testosterone levels, dihydrotestosterone levels, 5&#x3b1;-reductase expression, and androgen receptor content in the highest- (HIR; <i>n</i> = 10) and lowest- (LOR; <i>n</i> = 10) responders to the 12 weeks of RET. No hormone measured before exercise, after exercise, pre-intervention, or post-intervention was consistently significant or consistently selected in the final model for the change in: type 1 cross sectional area (CSA), type 2 CSA, or fat- and bone-free mass (LBM). Principal component analysis did not result in large dimension reduction and principal component regression was no more effective than unadjusted regression analyses. No hormone measured in the blood or muscle was different between HIR and LOR. The steroidogenic enzyme 5&#x3b1;-reductase increased following RET in the HIR (<i>P</i> &lt; 0.01) but not the LOR (<i>P</i> = 0.32). Androgen receptor content was unchanged with RET but was higher at all times in HIR. Unlike intramuscular free testosterone, dihydrotestosterone, or 5&#x3b1;-reductase, there was a linear relationship between androgen receptor content and change in LBM (<i>P</i> &lt; 0.01), type 1 CSA (<i>P</i> &lt; 0.05), and type 2 CSA (<i>P</i> &lt; 0.01) both pre- and post-intervention. These results indicate that intramuscular androgen receptor content, but neither circulating nor intramuscular hormones (or the enzymes regulating their intramuscular production), influence skeletal muscle hypertrophy following RET in previously trained young men.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Morton</LastName><ForeName>Robert W</ForeName><Initials>RW</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sato</LastName><ForeName>Koji</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Graduate School of Human Development and Environment, Kobe University, Kobe, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gallaugher</LastName><ForeName>Michael P B</ForeName><Initials>MPB</Initials><AffiliationInfo><Affiliation>Department of Mathematics and Statistics, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Oikawa</LastName><ForeName>Sara Y</ForeName><Initials>SY</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>McNicholas</LastName><ForeName>Paul D</ForeName><Initials>PD</Initials><AffiliationInfo><Affiliation>Department of Mathematics and Statistics, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Fujita</LastName><ForeName>Satoshi</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>College of Sport and Health Sciences, Ritsumeikan University, Shiga, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Phillips</LastName><ForeName>Stuart M</ForeName><Initials>SM</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2018</Year><Month>10</Month><Day>09</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">androgen receptor</Keyword><Keyword MajorTopicYN="N">hypertrophy</Keyword><Keyword MajorTopicYN="N">intramuscular</Keyword><Keyword MajorTopicYN="N">resistance exercise</Keyword><Keyword MajorTopicYN="N">testosterone</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>5</Month><Day>21</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2018</Year><Month>9</Month><Day>10</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2018</Year><Month>10</Month><Day>26</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2018</Year><Month>10</Month><Day>26</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2018</Year><Month>10</Month><Day>26</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2018</Year><Month>10</Month><Day>9</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">30356739</ArticleId><ArticleId IdType="pmc">PMC6189473</ArticleId><ArticleId IdType="doi">10.3389/fphys.2018.01373</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Ahtiainen J. P., Hulmi J. J., Kraemer W. J., Lehti M., Nyman K., Selanne H., et al.  (2011). Heavy resistance exercise training and skeletal muscle androgen receptor expression in younger and older men.
+<i>Steroids</i>
+76
+183&#x2013;192. 10.1016/j.steroids.2010.10.012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.steroids.2010.10.012</ArticleId><ArticleId IdType="pubmed">21070797</ArticleId></ArticleIdList></Reference><Reference><Citation>Ahtiainen J. P., Pakarinen A., Alen M., Kraemer W. J., Hakkinen K. (2003). Muscle hypertrophy, hormonal adaptations and strength development during strength training in strength-trained and untrained men.
+<i>Eur. J. Appl. Physiol.</i>
+89
+555&#x2013;563. 10.1007/s00421-003-0833-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-003-0833-3</ArticleId><ArticleId IdType="pubmed">12734759</ArticleId></ArticleIdList></Reference><Reference><Citation>Aizawa K., Iemitsu M., Maeda S., Otsuki T., Sato K., Ushida T., et al.  (2010). Acute exercise activates local bioactive androgen metabolism in skeletal muscle.
+<i>Steroids</i>
+75
+219&#x2013;223. 10.1016/j.steroids.2009.12.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.steroids.2009.12.002</ArticleId><ArticleId IdType="pubmed">20045012</ArticleId></ArticleIdList></Reference><Reference><Citation>Bamman M. M., Petrella J. K., Kim J. S., Mayhew D. L., Cross J. M. (2007). Cluster analysis tests the importance of myogenic gene expression during myofiber hypertrophy in humans.
+<i>J. Appl. Physiol.</i>
+102
+2232&#x2013;2239. 10.1152/japplphysiol.00024.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00024.2007</ArticleId><ArticleId IdType="pubmed">17395765</ArticleId></ArticleIdList></Reference><Reference><Citation>Beato M., Klug J. (2000). Steroid hormone receptors: an update.
+<i>Hum. Reprod. Update</i>
+6
+225&#x2013;236. 10.1093/humupd/6.3.225</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/humupd/6.3.225</ArticleId><ArticleId IdType="pubmed">10874567</ArticleId></ArticleIdList></Reference><Reference><Citation>Bhasin S., Storer T. W., Berman N., Yarasheski K. E., Clevenger B., Phillips J., et al.  (1997). Testosterone replacement increases fat-free mass and muscle size in hypogonadal men.
+<i>J. Clin. Endocrinol. Metab.</i>
+82
+407&#x2013;413. 10.1210/jc.82.2.407</Citation><ArticleIdList><ArticleId IdType="doi">10.1210/jc.82.2.407</ArticleId><ArticleId IdType="pubmed">9024227</ArticleId></ArticleIdList></Reference><Reference><Citation>Brook M. S., Wilkinson D. J., Mitchell W. K., Lund J. N., Phillips B. E., Szewczyk N. J., et al.  (2016). Synchronous deficits in cumulative muscle protein synthesis and ribosomal biogenesis underlie age-related anabolic resistance to exercise in humans.
+<i>J. Physiol.</i>
+594
+7399&#x2013;7417. 10.1113/JP272857
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP272857</ArticleId><ArticleId IdType="pmc">PMC5157077</ArticleId><ArticleId IdType="pubmed">27654940</ArticleId></ArticleIdList></Reference><Reference><Citation>Buckinx F., Landi F., Cesari M., Fielding R. A., Visser M., Engelke K., et al.  (2018). Pitfalls in the measurement of muscle mass: a need for a reference standard.
+<i>J. Cachexia Sarcopenia Muscle</i>
+9
+269&#x2013;278. 10.1002/jcsm.12268
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jcsm.12268</ArticleId><ArticleId IdType="pmc">PMC5879987</ArticleId><ArticleId IdType="pubmed">29349935</ArticleId></ArticleIdList></Reference><Reference><Citation>Chaillou T., Kirby T. J., McCarthy J. J. (2014). Ribosome biogenesis: emerging evidence for a central role in the regulation of skeletal muscle mass.
+<i>J. Cell. Physiol.</i>
+229
+1584&#x2013;1594. 10.1002/jcp.24604
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jcp.24604</ArticleId><ArticleId IdType="pmc">PMC4868551</ArticleId><ArticleId IdType="pubmed">24604615</ArticleId></ArticleIdList></Reference><Reference><Citation>Cheung A. S., de Rooy C., Levinger I., Rana K., Clarke M. V., How J. M., et al.  (2017). Actin alpha cardiac muscle 1 gene expression is upregulated in the skeletal muscle of men undergoing androgen deprivation therapy for prostate cancer.
+<i>J. Steroid Biochem. Mol. Biol.</i>
+174
+56&#x2013;64. 10.1016/j.jsbmb.2017.07.029
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsbmb.2017.07.029</ArticleId><ArticleId IdType="pubmed">28756295</ArticleId></ArticleIdList></Reference><Reference><Citation>R Core Team (2017). <i>R: A Language and Environment for Statistical Computing</i>.
+Vienna: R Foundation for Statistical Computing.</Citation></Reference><Reference><Citation>Davidsen P. K., Gallagher I. J., Hartman J. W., Tarnopolsky M. A., Dela F., Helge J. W., et al.  (2011). High responders to resistance exercise training demonstrate differential regulation of skeletal muscle microRNA expression.
+<i>J. Appl. Physiol.</i>
+110
+309&#x2013;317. 10.1152/japplphysiol.00901.2010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00901.2010</ArticleId><ArticleId IdType="pubmed">21030674</ArticleId></ArticleIdList></Reference><Reference><Citation>Diver M. J., Imtiaz K. E., Ahmad A. M., Vora J. P., Fraser W. D. (2003). Diurnal rhythms of serum total, free and bioavailable testosterone and of SHBG in middle-aged men compared with those in young men.
+<i>Clin. Endocrinol.</i>
+58
+710&#x2013;717. 10.1046/j.1365-2265.2003.01772.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1046/j.1365-2265.2003.01772.x</ArticleId><ArticleId IdType="pubmed">12780747</ArticleId></ArticleIdList></Reference><Reference><Citation>Dubois V., Laurent M., Boonen S., Vanderschueren D., Claessens F. (2012). Androgens and skeletal muscle: cellular and molecular action mechanisms underlying the anabolic actions.
+<i>Cell Mol. Life Sci.</i>
+69
+1651&#x2013;1667. 10.1007/s00018-011-0883-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00018-011-0883-3</ArticleId><ArticleId IdType="pmc">PMC11115174</ArticleId><ArticleId IdType="pubmed">22101547</ArticleId></ArticleIdList></Reference><Reference><Citation>Eynon N., Hanson E. D., Lucia A., Houweling P. J., Garton F., North K. N., et al.  (2013). Genes for elite power and sprint performance: ACTN3 leads the way.
+<i>Sports Med.</i>
+43
+803&#x2013;817. 10.1007/s40279-013-0059-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-013-0059-4</ArticleId><ArticleId IdType="pubmed">23681449</ArticleId></ArticleIdList></Reference><Reference><Citation>Figueiredo V. C., Caldow M. K., Massie V., Markworth J. F., Cameron-Smith D., Blazevich A. J. (2015). Ribosome biogenesis adaptation in resistance training-induced human skeletal muscle hypertrophy.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+309
+E72&#x2013;E83. 10.1152/ajpendo.00050.2015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00050.2015</ArticleId><ArticleId IdType="pubmed">25968575</ArticleId></ArticleIdList></Reference><Reference><Citation>Goodhue D. L., Lewis W., Thompson R. (2012). Does PLS have advantages for small sample size or non-normal data?
+<i>Mis. Q.</i>
+36
+982&#x2013;1002.</Citation></Reference><Reference><Citation>Handelsman D. J., Wartofsky L. (2013). Requirement for mass spectrometry sex steroid assays in the Journal of Clinical Endocrinology and Metabolism.
+<i>J. Clin. Endocrinol. Metab.</i>
+98
+3971&#x2013;3973. 10.1210/jc.2013-3375
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1210/jc.2013-3375</ArticleId><ArticleId IdType="pubmed">24098015</ArticleId></ArticleIdList></Reference><Reference><Citation>Henseler J., Ringle C. M., Sarstedt M. (2014). A new criterion for assessing discriminant validity in variance-based structural equation modeling.
+<i>J. Acad. Mark. Sci.</i>
+43
+115&#x2013;135. 10.1007/s11747-014-0403-8</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11747-014-0403-8</ArticleId></ArticleIdList></Reference><Reference><Citation>Herbst K. L., Bhasin S. (2004). Testosterone action on skeletal muscle.
+<i>Curr. Opin. Clin. Nutr. Metab. Care</i>
+7
+271&#x2013;277. 10.1097/01.mco.0000126345.96117.9c</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/01.mco.0000126345.96117.9c</ArticleId><ArticleId IdType="pubmed">15075918</ArticleId></ArticleIdList></Reference><Reference><Citation>Horii N., Sato K., Mesaki N., Iemitsu M. (2016). Increased muscular 5alpha-dihydrotestosterone in response to resistance training relates to skeletal muscle mass and glucose metabolism in type 2 diabetic rats.
+<i>PLoS One</i>
+11:e0165689. 10.1371/journal.pone.0165689
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0165689</ArticleId><ArticleId IdType="pmc">PMC5104401</ArticleId><ArticleId IdType="pubmed">27832095</ArticleId></ArticleIdList></Reference><Reference><Citation>Hubal M. J., Gordish-Dressman H., Thompson P. D., Price T. B., Hoffman E. P., Angelopoulos T. J., et al.  (2005). Variability in muscle size and strength gain after unilateral resistance training.
+<i>Med. Sci. Sports Exerc.</i>
+37
+964&#x2013;972. </Citation><ArticleIdList><ArticleId IdType="pubmed">15947721</ArticleId></ArticleIdList></Reference><Reference><Citation>Kraemer W. J., Ratamess N. A., Nindl B. C. (2017). Recovery responses of testosterone, growth hormone, and IGF-1 after resistance exercise.
+<i>J. Appl. Physiol.</i>
+122
+549&#x2013;558. 10.1152/japplphysiol.00599.2016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00599.2016</ArticleId><ArticleId IdType="pubmed">27856715</ArticleId></ArticleIdList></Reference><Reference><Citation>Kvorning T., Christensen L. L., Madsen K., Nielsen J. L., Gejl K. D., Brixen K., et al.  (2013). Mechanical muscle function and lean body mass during supervised strength training and testosterone therapy in aging men with low-normal testosterone levels.
+<i>J. Am. Geriatr. Soc.</i>
+61
+957&#x2013;962. 10.1111/jgs.12279
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jgs.12279</ArticleId><ArticleId IdType="pubmed">23730808</ArticleId></ArticleIdList></Reference><Reference><Citation>MacLean H. E., Chiu W. S., Notini A. J., Axell A. M., Davey R. A., McManus J. F., et al.  (2008). Impaired skeletal muscle development and function in male, but not female, genomic androgen receptor knockout mice.
+<i>FASEB J.</i>
+22
+2676&#x2013;2689. 10.1096/fj.08-105726
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.08-105726</ArticleId><ArticleId IdType="pubmed">18390925</ArticleId></ArticleIdList></Reference><Reference><Citation>Mangine G. T., Hoffman J. R., Gonzalez A. M., Townsend J. R., Wells A. J., Jajtner A. R., et al.  (2017). Exercise-induced hormone elevations are related to muscle growth.
+<i>J. Strength Cond. Res.</i>
+31
+45&#x2013;53. 10.1519/jsc.0000000000001491
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/jsc.0000000000001491</ArticleId><ArticleId IdType="pubmed">28005636</ArticleId></ArticleIdList></Reference><Reference><Citation>McCall G. E., Byrnes W. C., Fleck S. J., Dickinson A., Kraemer W. J. (1999). Acute and chronic hormonal responses to resistance training designed to promote muscle hypertrophy.
+<i>Can. J. Appl. Physiol.</i>
+24
+96&#x2013;107. 10.1371/journal.pone.0078636
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0078636</ArticleId><ArticleId IdType="pubmed">9916184</ArticleId></ArticleIdList></Reference><Reference><Citation>McGlory C., Devries M. C., Phillips S. M. (2017). Skeletal muscle and resistance exercise training; the role of protein synthesis in recovery and remodeling.
+<i>J. Appl. Physiol.</i>
+122
+541&#x2013;548. 10.1152/japplphysiol.00613.2016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00613.2016</ArticleId><ArticleId IdType="pmc">PMC5401959</ArticleId><ArticleId IdType="pubmed">27742803</ArticleId></ArticleIdList></Reference><Reference><Citation>McIntosh C. N., Edwards J. R., Antonakis J. (2014). Reflections on partial least squares path modeling.
+<i>Organ. Res. Methods</i>
+17
+210&#x2013;251. 10.1177/1094428114529165</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1094428114529165</ArticleId></ArticleIdList></Reference><Reference><Citation>Mitchell C. J., Churchward-Venne T. A., Bellamy L., Parise G., Baker S. K., Phillips S. M. (2013). Muscular and systemic correlates of resistance training-induced muscle hypertrophy.
+<i>PLoS One</i>
+8:e78636. 10.1371/journal.pone.0078636
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0078636</ArticleId><ArticleId IdType="pmc">PMC3793973</ArticleId><ArticleId IdType="pubmed">24130904</ArticleId></ArticleIdList></Reference><Reference><Citation>Mobley C. B., Haun C. T., Roberson P. A., Mumford P. W., Kephart W. C., Romero M. A., et al.  (2018). Biomarkers associated with low, moderate, and high vastus lateralis muscle hypertrophy following 12 weeks of resistance training.
+<i>PLoS One</i>
+13:e0195203. 10.1371/journal.pone.0195203
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0195203</ArticleId><ArticleId IdType="pmc">PMC5886420</ArticleId><ArticleId IdType="pubmed">29621305</ArticleId></ArticleIdList></Reference><Reference><Citation>Morton R. W., Murphy K. T., McKellar S. R., Schoenfeld B. J., Henselmans M., Helms E., et al.  (2017). A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults.
+<i>Br. J. Sports Med.</i>
+52
+376&#x2013;384. 10.1136/bjsports-2017-097608
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2017-097608</ArticleId><ArticleId IdType="pmc">PMC5867436</ArticleId><ArticleId IdType="pubmed">28698222</ArticleId></ArticleIdList></Reference><Reference><Citation>Morton R. W., Oikawa S. Y., Wavell C. G., Mazara N., McGlory C., Quadrilatero J., et al.  (2016). Neither load nor systemic hormones determine resistance training-mediated hypertrophy or strength gains in resistance-trained young men.
+<i>J. Appl. Physiol.</i>
+121
+129&#x2013;138. 10.1152/japplphysiol.00154.2016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00154.2016</ArticleId><ArticleId IdType="pmc">PMC4967245</ArticleId><ArticleId IdType="pubmed">27174923</ArticleId></ArticleIdList></Reference><Reference><Citation>Motulsky H. J., Brown R. E. (2006). Detecting outliers when fitting data with nonlinear regression - a new method based on robust nonlinear regression and the false discovery rate.
+<i>BMC Bioinformatics</i>
+7:123. 10.1186/1471-2105-7-123
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1471-2105-7-123</ArticleId><ArticleId IdType="pmc">PMC1472692</ArticleId><ArticleId IdType="pubmed">16526949</ArticleId></ArticleIdList></Reference><Reference><Citation>Petrella J. K., Kim J. S., Mayhew D. L., Cross J. M., Bamman M. M. (2008). Potent myofiber hypertrophy during resistance training in humans is associated with satellite cell-mediated myonuclear addition: a cluster analysis.
+<i>J. Appl. Physiol.</i>
+104
+1736&#x2013;1742. 10.1152/japplphysiol.01215.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01215.2007</ArticleId><ArticleId IdType="pubmed">18436694</ArticleId></ArticleIdList></Reference><Reference><Citation>Ratamess N. A., Alvar B. A., Evetoch T. K., Housh T. J., Kibler W. B., Kraemer W. J., et al.  (2009). American College of Sports Medicine position stand. Progression models in resistance training for healthy adults.
+<i>Med. Sci. Sports Exerc.</i>
+41
+687&#x2013;708. 10.1249/MSS.0b013e3181915670
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181915670</ArticleId><ArticleId IdType="pubmed">19204579</ArticleId></ArticleIdList></Reference><Reference><Citation>Robinson M. M., Dasari S., Konopka A. R., Johnson M. L., Manjunatha S., Esponda R. R., et al.  (2017). Enhanced protein translation underlies improved metabolic and physical adaptations to different exercise training modes in young and old humans.
+<i>Cell Metab.</i>
+25
+581&#x2013;592. 10.1016/j.cmet.2017.02.009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cmet.2017.02.009</ArticleId><ArticleId IdType="pmc">PMC5423095</ArticleId><ArticleId IdType="pubmed">28273480</ArticleId></ArticleIdList></Reference><Reference><Citation>R&#xf6;nkk&#xf6; M., Evermann J. (2013). A critical examination of common beliefs about partial least squares path modeling.
+<i>Organ. Res. Methods</i>
+16
+425&#x2013;448. 10.1177/1094428112474693</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1094428112474693</ArticleId></ArticleIdList></Reference><Reference><Citation>Sato K., Iemitsu M., Matsutani K., Kurihara T., Hamaoka T., Fujita S. (2014). Resistance training restores muscle sex steroid hormone steroidogenesis in older men.
+<i>FASEB J.</i>
+28
+1891&#x2013;1897. 10.1096/fj.13-245480
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.13-245480</ArticleId><ArticleId IdType="pubmed">24443372</ArticleId></ArticleIdList></Reference><Reference><Citation>Schwanhausser B., Busse D., Li N., Dittmar G., Schuchhardt J., Wolf J., et al.  (2011). Global quantification of mammalian gene expression control.
+<i>Nature</i>
+473
+337&#x2013;342. 10.1038/nature10098
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nature10098</ArticleId><ArticleId IdType="pubmed">21593866</ArticleId></ArticleIdList></Reference><Reference><Citation>West D. W., Burd N. A., Tang J. E., Moore D. R., Staples A. W., Holwerda A. M., et al.  (2010). Elevations in ostensibly anabolic hormones with resistance exercise enhance neither training-induced muscle hypertrophy nor strength of the elbow flexors.
+<i>J. Appl. Physiol.</i>
+108
+60&#x2013;67. 10.1152/japplphysiol.01147.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01147.2009</ArticleId><ArticleId IdType="pmc">PMC2885075</ArticleId><ArticleId IdType="pubmed">19910330</ArticleId></ArticleIdList></Reference><Reference><Citation>West D. W., Kujbida G. W., Moore D. R., Atherton P., Burd N. A., Padzik J. P., et al.  (2009). Resistance exercise-induced increases in putative anabolic hormones do not enhance muscle protein synthesis or intracellular signalling in young men.
+<i>J. Physiol.</i>
+587(Pt 21), 5239&#x2013;5247. 10.1113/jphysiol.2009.177220</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2009.177220</ArticleId><ArticleId IdType="pmc">PMC2790261</ArticleId><ArticleId IdType="pubmed">19736298</ArticleId></ArticleIdList></Reference><Reference><Citation>West D. W., Phillips S. M. (2012). Associations of exercise-induced hormone profiles and gains in strength and hypertrophy in a large cohort after weight training.
+<i>Eur. J. Appl. Physiol.</i>
+112
+2693&#x2013;2702. 10.1007/s00421-011-2246-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2246-z</ArticleId><ArticleId IdType="pmc">PMC3371329</ArticleId><ArticleId IdType="pubmed">22105707</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilson E. M., French F. S. (1976). Binding properties of androgen receptors. Evidence for identical receptors in rat testis, epididymis, and prostate.
+<i>J. Biol. Chem.</i>
+251
+5620&#x2013;5629. </Citation><ArticleIdList><ArticleId IdType="pubmed">184085</ArticleId></ArticleIdList></Reference><Reference><Citation>Wyce A., Bai Y., Nagpal S., Thompson C. C. (2010). Research resource: the androgen receptor modulates expression of genes with critical roles in muscle development and function.
+<i>Mol. Endocrinol.</i>
+24
+1665&#x2013;1674. 10.1210/me.2010-0138
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1210/me.2010-0138</ArticleId><ArticleId IdType="pmc">PMC5417449</ArticleId><ArticleId IdType="pubmed">20610535</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

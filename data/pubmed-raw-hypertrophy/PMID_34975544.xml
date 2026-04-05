@@ -1,0 +1,191 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">34975544</PMID><DateRevised><Year>2022</Year><Month>01</Month><Day>04</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>12</Volume><PubDate><Year>2021</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Comparison Between High- and Low-Intensity Static Stretching Training Program on Active and Passive Properties of Plantar Flexors.</ArticleTitle><Pagination><StartPage>796497</StartPage><MedlinePgn>796497</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">796497</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2021.796497</ELocationID><Abstract><AbstractText>The purpose of this study was to compare two static stretching (SS) training programs at high-intensity (HI-SS) and low-intensity (LI-SS) on passive and active properties of the plantar flexor muscles. Forty healthy young men were randomly allocated into three groups: HI-SS intervention group (<i>n</i> = 14), LI-SS intervention group (<i>n</i> = 13), and non-intervention control group (<i>n</i> = 13). An 11-point numerical scale (0-10; none to very painful stretching) was used to determine SS intensity. HI-SS and LI-SS stretched at 6-7 and 0-1 intensities, respectively, both in 3 sets of 60 s, 3&#xd7;/week, for 4 weeks. Dorsiflexion range of motion (ROM), gastrocnemius muscle stiffness, muscle strength, drop jump height, and muscle architecture were assessed before and after SS training program. The HI-SS group improved more than LI-SS in ROM (40 vs. 15%) and decreased muscle stiffness (-57 vs. -24%), while no significant change was observed for muscle strength, drop jump height, and muscle architecture in both groups. The control group presented no significant change in any variable. Performing HI-SS is more effective than LI-SS for increasing ROM and decreasing muscle stiffness of plantar flexor muscles following a 4-week training period in young men. However, SS may not increase muscle strength or hypertrophy, regardless of the stretching discomfort intensity.</AbstractText><CopyrightInformation>Copyright &#xa9; 2021 Nakamura, Yoshida, Sato, Yahata, Murakami, Kasahara, Fukaya, Takeuchi, Nunes and Konrad.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Nakamura</LastName><ForeName>Masatoshi</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Institute for Human Movement and Medical Sciences, Niigata University of Health and Welfare, Niigata, Japan.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Physical Therapy, Niigata University of Health and Welfare, Niigata, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Yoshida</LastName><ForeName>Riku</ForeName><Initials>R</Initials><AffiliationInfo><Affiliation>Institute for Human Movement and Medical Sciences, Niigata University of Health and Welfare, Niigata, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sato</LastName><ForeName>Shigeru</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Institute for Human Movement and Medical Sciences, Niigata University of Health and Welfare, Niigata, Japan.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Rehabilitation, Matsumura General Hospital, Iwaki, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Yahata</LastName><ForeName>Kaoru</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Institute for Human Movement and Medical Sciences, Niigata University of Health and Welfare, Niigata, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Murakami</LastName><ForeName>Yuta</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Physical Therapy, Niigata University of Health and Welfare, Niigata, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kasahara</LastName><ForeName>Kazuki</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Physical Therapy, Niigata University of Health and Welfare, Niigata, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Fukaya</LastName><ForeName>Taizan</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>Department of Rehabilitation, Kyoto Kujo Hospital, Kyoto, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Takeuchi</LastName><ForeName>Kosuke</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Physical Therapy, Faculty of Rehabilitation, Kobe International University, Kobe, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Nunes</LastName><ForeName>Jo&#xe3;o Pedro</ForeName><Initials>JP</Initials><AffiliationInfo><Affiliation>Metabolism, Nutrition, and Exercise Laboratory, Physical Education and Sport Center, Londrina State University, Londrina, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Konrad</LastName><ForeName>Andreas</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Institute of Human Movement Science, Sport and Health, University of Graz, Graz, Austria.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2021</Year><Month>12</Month><Day>17</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">ankle plantar flexors</Keyword><Keyword MajorTopicYN="N">extended-field-of-view</Keyword><Keyword MajorTopicYN="N">fascicle length</Keyword><Keyword MajorTopicYN="N">muscle thickness</Keyword><Keyword MajorTopicYN="N">pennation angle</Keyword><Keyword MajorTopicYN="N">resistance training</Keyword><Keyword MajorTopicYN="N">stretch training</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2021</Year><Month>10</Month><Day>16</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2021</Year><Month>11</Month><Day>22</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2022</Year><Month>1</Month><Day>3</Day><Hour>5</Hour><Minute>36</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2022</Year><Month>1</Month><Day>4</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2022</Year><Month>1</Month><Day>4</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2021</Year><Month>12</Month><Day>17</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">34975544</ArticleId><ArticleId IdType="pmc">PMC8718681</ArticleId><ArticleId IdType="doi">10.3389/fphys.2021.796497</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Akagi R., Takahashi H. (2013). Acute effect of static stretching on hardness of the gastrocnemius muscle.
+<i>Med. Sci. Sports Exerc.</i>
+45
+1348&#x2013;1354. 10.1249/MSS.0b013e3182850e17
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3182850e17</ArticleId><ArticleId IdType="pubmed">23299765</ArticleId></ArticleIdList></Reference><Reference><Citation>Akagi R., Takahashi H. (2014). Effect of a 5-week static stretching program on hardness of the gastrocnemius muscle.
+<i>Scand. J. Med. Sci. Sports</i>
+24
+950&#x2013;957. 10.1111/sms.12111
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12111</ArticleId><ArticleId IdType="pubmed">23944602</ArticleId></ArticleIdList></Reference><Reference><Citation>Andrade R. J., Freitas S. R., Hug F., Le Sant G., Lacourpaille L., Gross R., et al.  (2020). Chronic effects of muscle and nerve-directed stretching on tissue mechanics.
+<i>J. Appl. Physiol.</i>
+129
+1011&#x2013;1023. 10.1152/japplphysiol.00239.2019
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00239.2019</ArticleId><ArticleId IdType="pubmed">32853116</ArticleId></ArticleIdList></Reference><Reference><Citation>Apostolopoulos N., Metsios G. S., Flouris A. D., Koutedakis Y., Wyon M. A. (2015). The relevance of stretch intensity and position-a systematic review.
+<i>Front. Psychol.</i>
+6:1128. 10.3389/fpsyg.2015.01128
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fpsyg.2015.01128</ArticleId><ArticleId IdType="pmc">PMC4540085</ArticleId><ArticleId IdType="pubmed">26347668</ArticleId></ArticleIdList></Reference><Reference><Citation>Beltr&#xe3;o N. B., Ximenes Santos C., De Oliveira V. M. A., Pirau&#xe1; A. L. T., Behm D., Pitangui A. C. R., et al.  (2020). Effects of a 12-week chronic stretch training program at different intensities on joint and muscle mechanical responses: a randomized clinical trial.
+<i>J. Sport Rehabil.</i>
+29
+904&#x2013;912. 10.1123/jsr.2018-0443
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/jsr.2018-0443</ArticleId><ArticleId IdType="pubmed">31648203</ArticleId></ArticleIdList></Reference><Reference><Citation>Blazevich A. J., Cannavan D., Waugh C. M., Miller S. C., Thorlund J. B., Aagaard P., et al.  (2014). Range of motion, neuromechanical, and architectural adaptations to plantar flexor stretch training in humans.
+<i>J. Appl. Physiol.</i>
+117
+452&#x2013;462. 10.1152/japplphysiol.00204.2014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00204.2014</ArticleId><ArticleId IdType="pubmed">24947023</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen J.
+(ed.) (1988). <i>Statistical power analysis for the behavioral sciences.</i>
+Hillsdale: Routledge.</Citation></Reference><Reference><Citation>Ema R., Wakahara T., Miyamoto N., Kanehisa H., Kawakami Y. (2013). Inhomogeneous architectural changes of the quadriceps femoris induced by resistance training.
+<i>Eur. J. Appl. Physiol.</i>
+113
+2691&#x2013;2703. 10.1007/s00421-013-2700-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-013-2700-1</ArticleId><ArticleId IdType="pubmed">23949789</ArticleId></ArticleIdList></Reference><Reference><Citation>Folpp H., Deall S., Harvey L. A., Gwinn T. (2006). Can apparent increases in muscle extensibility with regular stretch be explained by changes in tolerance to stretch?
+<i>Aust. J. Physiother.</i>
+52
+45&#x2013;50. 10.1016/s0004-9514(06)70061-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0004-9514(06)70061-7</ArticleId><ArticleId IdType="pubmed">16515422</ArticleId></ArticleIdList></Reference><Reference><Citation>Freitas S. R., Mil-Homens P. (2015). Effect of 8-week high-intensity stretching training on biceps femoris architecture.
+<i>J. Strength Cond. Res.</i>
+29
+1737&#x2013;1740. 10.1519/JSC.0000000000000800
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000800</ArticleId><ArticleId IdType="pubmed">25486299</ArticleId></ArticleIdList></Reference><Reference><Citation>Freitas S. R., Vilarinho D., Rocha Vaz J., Bruno P. M., Costa P. B., Mil-Homens P. (2015). Responses to static stretching are dependent on stretch intensity and duration.
+<i>Clin. Physiol. Funct. Imag.</i>
+35
+478&#x2013;484. 10.1111/cpf.12186
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/cpf.12186</ArticleId><ArticleId IdType="pubmed">25164268</ArticleId></ArticleIdList></Reference><Reference><Citation>Fukaya T., Kiyono R., Sato S., Yahata K., Yasaka K., Onuma R., et al.  (2020a). Effects of static stretching with high-intensity and short-duration or low-intensity and long-duration on range of motion and muscle stiffness.
+<i>Front. Physiol.</i>
+11:601912. 10.3389/fphys.2020.601912
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2020.601912</ArticleId><ArticleId IdType="pmc">PMC7714915</ArticleId><ArticleId IdType="pubmed">33329054</ArticleId></ArticleIdList></Reference><Reference><Citation>Fukaya T., Matsuo S., Iwata M., Yamanaka E., Tsuchida W., Asai Y., et al.  (2020b). Acute and chronic effects of static stretching at 100% versus 120% intensity on flexibility.
+<i>Eur. J. Appl. Physiol.</i>
+121:513-523. 10.1007/s00421-020-04539-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-020-04539-7</ArticleId><ArticleId IdType="pubmed">33151438</ArticleId></ArticleIdList></Reference><Reference><Citation>Hemmerich A., Brown H., Smith S., Marthandam S. S., Wyss U. P. (2006). Hip, knee, and ankle kinematics of high range of motion activities of daily living.
+<i>J. Orthop. Res.</i>
+24
+770&#x2013;781. 10.1002/jor.20114
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jor.20114</ArticleId><ArticleId IdType="pubmed">16514664</ArticleId></ArticleIdList></Reference><Reference><Citation>Hirata K., Kanehisa H., Miyamoto N. (2017). Acute effect of static stretching on passive stiffness of the human gastrocnemius fascicle measured by ultrasound shear wave elastography.
+<i>Eur. J. Appl. Physiol.</i>
+117
+493&#x2013;499. 10.1007/s00421-017-3550-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-017-3550-z</ArticleId><ArticleId IdType="pubmed">28161870</ArticleId></ArticleIdList></Reference><Reference><Citation>Hirata K., Kanehisa H., Miyamoto-Mikami E., Miyamoto N. (2015). Evidence for intermuscle difference in slack angle in human triceps surae.
+<i>J. Biomech.</i>
+48
+1210&#x2013;1213.</Citation><ArticleIdList><ArticleId IdType="pubmed">25682539</ArticleId></ArticleIdList></Reference><Reference><Citation>Ichihashi N., Umegaki H., Ikezoe T., Nakamura M., Nishishita S., Fujita K., et al.  (2016). The effects of a 4-week static stretching programme on the individual muscles comprising the hamstrings.
+<i>J. Sports Sci.</i>
+34
+2155&#x2013;2159. 10.1080/02640414.2016.1172725
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2016.1172725</ArticleId><ArticleId IdType="pubmed">27113325</ArticleId></ArticleIdList></Reference><Reference><Citation>Konrad A., Tilp M. (2014). Increased range of motion after static stretching is not due to changes in muscle and tendon structures.
+<i>Clin. Biomech.</i>
+29
+636&#x2013;642.</Citation><ArticleIdList><ArticleId IdType="pubmed">24856792</ArticleId></ArticleIdList></Reference><Reference><Citation>Konrad A., Stafilidis S., Tilp M. (2017). Effects of acute static, ballistic, and PNF stretching exercise on the muscle and tendon tissue properties.
+<i>Scand. J. Med. Sci. Sports</i>
+27
+1070&#x2013;1080. 10.1111/sms.12725
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12725</ArticleId><ArticleId IdType="pmc">PMC5479471</ArticleId><ArticleId IdType="pubmed">27367916</ArticleId></ArticleIdList></Reference><Reference><Citation>Krause F., Wilke J., Niederer D., Vogt L., Banzer W. (2019). Acute effects of foam rolling on passive stiffness, stretch sensation and fascial sliding: a randomized controlled trial.
+<i>Hum. Mov. Sci.</i>
+67:102514. 10.1016/j.humov.2019.102514
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.humov.2019.102514</ArticleId><ArticleId IdType="pubmed">31499386</ArticleId></ArticleIdList></Reference><Reference><Citation>Kubo K., Ikebukuro T. (2019). Changes in joint, muscle, and tendon stiffness following repeated hopping exercise.
+<i>Physiol. Rep.</i>
+7:e14237. 10.14814/phy2.14237
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.14237</ArticleId><ArticleId IdType="pmc">PMC6789417</ArticleId><ArticleId IdType="pubmed">31605467</ArticleId></ArticleIdList></Reference><Reference><Citation>Kubo K., Ishigaki T., Ikebukuro T. (2017). Effects of plyometric and isometric training on muscle and tendon stiffness in vivo.
+<i>Physiol. Rep.</i>
+5:e13374. 10.14814/phy2.13374
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.13374</ArticleId><ArticleId IdType="pmc">PMC5555899</ArticleId><ArticleId IdType="pubmed">28801518</ArticleId></ArticleIdList></Reference><Reference><Citation>Kubo K., Kanehisa H., Fukunaga T. (2002). Effect of stretching training on the viscoelastic properties of human tendon structures in vivo.
+<i>J. Appl. Physiol.</i>
+92
+595&#x2013;601. 10.1152/japplphysiol.00658.2001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00658.2001</ArticleId><ArticleId IdType="pubmed">11796669</ArticleId></ArticleIdList></Reference><Reference><Citation>Kubo K., Teshima T., Hirose N., Tsunoda N. (2014). A cross-sectional study of the plantar flexor muscle and tendon during growth.
+<i>Int. J. Sports Med.</i>
+35
+828&#x2013;834. 10.1055/s-0034-1367011
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0034-1367011</ArticleId><ArticleId IdType="pubmed">24577863</ArticleId></ArticleIdList></Reference><Reference><Citation>Longo S., C&#xe8; E., Bisconti A. V., Rampichini S., Doria C., Borrelli M., et al.  (2021). The effects of 12 weeks of static stretch training on the functional, mechanical, and architectural characteristics of the triceps surae muscle-tendon complex.
+<i>Eur. J. Appl. Physiol.</i>
+121:1743-1758. 10.1007/s00421-021-04654-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-021-04654-z</ArticleId><ArticleId IdType="pmc">PMC8144166</ArticleId><ArticleId IdType="pubmed">33687531</ArticleId></ArticleIdList></Reference><Reference><Citation>Magnusson S. P., Simonsen E. B., Aagaard P., S&#xf8;rensen H., Kjaer M. (1996). A mechanism for altered flexibility in human skeletal muscle.
+<i>J. Physiol.</i>
+497
+291&#x2013;298. 10.1113/jphysiol.1996.sp021768
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.1996.sp021768</ArticleId><ArticleId IdType="pmc">PMC1160931</ArticleId><ArticleId IdType="pubmed">8951730</ArticleId></ArticleIdList></Reference><Reference><Citation>Medeiros D. M., Lima C. S. (2017). Influence of chronic stretching on muscle performance: systematic review.
+<i>Hum. Mov. Sci.</i>
+54
+220&#x2013;229. 10.1016/j.humov.2017.05.006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.humov.2017.05.006</ArticleId><ArticleId IdType="pubmed">28527424</ArticleId></ArticleIdList></Reference><Reference><Citation>Mizuno T. (2019). Combined effects of static stretching and electrical stimulation on joint range of motion and muscle strength.
+<i>J. Strength Cond. Res.</i>
+33
+2694&#x2013;2703. 10.1519/jsc.0000000000002260
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/jsc.0000000000002260</ArticleId><ArticleId IdType="pubmed">29023326</ArticleId></ArticleIdList></Reference><Reference><Citation>Mizuno T., Matsumoto M., Umemura Y. (2013). Viscoelasticity of the muscle-tendon unit is returned more rapidly than range of motion after stretching.
+<i>Scand. J. Med. Sci. Sports</i>
+23
+23&#x2013;30. 10.1111/j.1600-0838.2011.01329.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2011.01329.x</ArticleId><ArticleId IdType="pubmed">21564309</ArticleId></ArticleIdList></Reference><Reference><Citation>Moltubakk M. M., Villars F. O., Magulas M. M., Magnusson S. P., Seynnes O. R., Bojsen-M&#xf8;ller J. (2021). Altered triceps surae muscle-tendon unit properties after 6 months of static stretching. <i>Med. Sci. Sports Exerc.</i>
+53, 1975&#x2013;1986. 10.1249/MSS.0000000000002671
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000002671</ArticleId><ArticleId IdType="pubmed">34398062</ArticleId></ArticleIdList></Reference><Reference><Citation>Morse C. I., Degens H., Seynnes O. R., Maganaris C. N., Jones D. A. (2008). The acute effect of stretching on the passive stiffness of the human gastrocnemius muscle tendon unit.
+<i>J. Physiol.</i>
+586
+97&#x2013;106. 10.1113/jphysiol.2007.140434
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2007.140434</ArticleId><ArticleId IdType="pmc">PMC2375574</ArticleId><ArticleId IdType="pubmed">17884924</ArticleId></ArticleIdList></Reference><Reference><Citation>Mulholland S. J., Wyss U. P. (2001). Activities of daily living in non-Western cultures: range of motion requirements for hip and knee joint implants.
+<i>Int. J. Rehabil. Res.</i>
+24
+191&#x2013;198. 10.1097/00004356-200109000-00004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00004356-200109000-00004</ArticleId><ArticleId IdType="pubmed">11560234</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakamura M., Ikezoe T., Kobayashi T., Umegaki H., Takeno Y., Nishishita S., et al.  (2014). Acute effects of static stretching on muscle hardness of the medial gastrocnemius muscle belly in humans: an ultrasonic shear-wave elastography study.
+<i>Ultrasound Med. Biol.</i>
+40
+1991&#x2013;1997. 10.1016/j.ultrasmedbio.2014.03.024
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ultrasmedbio.2014.03.024</ArticleId><ArticleId IdType="pubmed">24973829</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakamura M., Ikezoe T., Takeno Y., Ichihashi N. (2011). Acute and prolonged effect of static stretching on the passive stiffness of the human gastrocnemius muscle tendon unit in vivo.
+<i>J. Orthop. Res.</i>
+29
+1759&#x2013;1763. 10.1002/jor.21445
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jor.21445</ArticleId><ArticleId IdType="pubmed">21520263</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakamura M., Ikezoe T., Takeno Y., Ichihashi N. (2012). Effects of a 4-week static stretch training program on passive stiffness of human gastrocnemius muscle-tendon unit in vivo.
+<i>Eur. J. Appl. Physiol.</i>
+112
+2749&#x2013;2755. 10.1007/s00421-011-2250-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2250-3</ArticleId><ArticleId IdType="pubmed">22124523</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakamura M., Ikezoe T., Umegaki H., Kobayashi T., Nishishita S., Ichihashi N. (2017). Changes in passive properties of the gastrocnemius muscle-tendon unit during a 4-week routine static-stretching program.
+<i>J. Sport Rehab.</i>
+26
+263&#x2013;268. 10.1123/jsr.2015-0198
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/jsr.2015-0198</ArticleId><ArticleId IdType="pubmed">27632863</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakamura M., Sato S., Hiraizumi K., Kiyono R., Fukaya T., Nishishita S. (2020). Effects of static stretching programs performed at different volume-equated weekly frequencies on passive properties of muscle-tendon unit.
+<i>J. Biomech.</i>
+103:109670.</Citation><ArticleIdList><ArticleId IdType="pubmed">32035662</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakamura M., Sato S., Kiyono R., Yahata K., Yoshida R., Fukaya T., et al.  (2021a). Relationship between changes in passive properties and muscle strength after static stretching.
+<i>J. Bodyw. Mov. Ther.</i>
+28
+535&#x2013;539.</Citation><ArticleIdList><ArticleId IdType="pubmed">34776191</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakamura M., Yahata K., Sato S., Kiyono R., Yoshida R., Fukaya T., et al.  (2021b). Training and detraining effects following a static stretching program on medial gastrocnemius passive properties.
+<i>Front. Physiol.</i>
+12:656579.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC8049289</ArticleId><ArticleId IdType="pubmed">33868026</ArticleId></ArticleIdList></Reference><Reference><Citation>Nojiri S., Yagi M., Mizukami Y., Ichihashi N. (2019). Static stretching time required to reduce iliacus muscle stiffness.
+<i>Sports Biomech.</i>
+20
+901&#x2013;910.</Citation><ArticleIdList><ArticleId IdType="pubmed">31232167</ArticleId></ArticleIdList></Reference><Reference><Citation>Nunes J. P., Costa B. D. V., Kassiano W., Kunevaliki G., Castro E. S. P., Rodacki A. L. F., et al.  (2020a). Different foot positioning during calf training to induce portion-specific gastrocnemius muscle hypertrophy.
+<i>J. Strength Cond. Res.</i>
+34
+2347&#x2013;2351.</Citation><ArticleIdList><ArticleId IdType="pubmed">32735428</ArticleId></ArticleIdList></Reference><Reference><Citation>Nunes J. P., Schoenfeld B. J., Nakamura M., Ribeiro A. S., Cunha P. M., Cyrino E. S. (2020b). Does stretch training induce muscle hypertrophy in humans? A review of the literature.
+<i>Clin. Physiol. Funct. Imag.</i>
+40
+148&#x2013;156.</Citation><ArticleIdList><ArticleId IdType="pubmed">31984621</ArticleId></ArticleIdList></Reference><Reference><Citation>Panidi I., Bogdanis G. C., Terzis G., Donti A., Konrad A., Gaspari V., et al.  (2021). Muscle architectural and functional adaptations following 12-weeks of stretching in adolescent female athletes.
+<i>Front. Physiol.</i>
+12:701338.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC8322691</ArticleId><ArticleId IdType="pubmed">34335307</ArticleId></ArticleIdList></Reference><Reference><Citation>Santos C. X., Beltr&#xe3;o N. B., Pirau&#xe1; A. L. T., Durigan J. L. Q., Behm D., De Ara&#xfa;jo R. C. (2020). Static stretching intensity does not influence acute range of motion. passive torque, and muscle architecture.
+<i>J. Sport Rehabil.</i>
+29
+1&#x2013;6.</Citation><ArticleIdList><ArticleId IdType="pubmed">30300070</ArticleId></ArticleIdList></Reference><Reference><Citation>Sato S., Kiyono R., Takahashi N., Yoshida T., Takeuchi K., Nakamura M. (2020). The acute and prolonged effects of 20-s static stretching on muscle strength and shear elastic modulus.
+<i>PLoS One</i>
+15:e0228583. 10.1371/journal.pone.0228583
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0228583</ArticleId><ArticleId IdType="pmc">PMC7004320</ArticleId><ArticleId IdType="pubmed">32027694</ArticleId></ArticleIdList></Reference><Reference><Citation>Simpson C. L., Kim B. D. H., Bourcet M. R., Jones G. R., Jakobi J. M. (2017). Stretch training induces unequal adaptation in muscle fascicles and thickness in medial and lateral gastrocnemii.
+<i>Scand. J. Med. Sci. Sports</i>
+27
+1597&#x2013;1604.</Citation><ArticleIdList><ArticleId IdType="pubmed">28138986</ArticleId></ArticleIdList></Reference><Reference><Citation>Takeuchi K., Akizuki K., Nakamura M. (2021a). The acute effects of high-intensity jack-knife stretching on the flexibility of the hamstrings.
+<i>Sci. Rep.</i>
+11:12115.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC8190268</ArticleId><ArticleId IdType="pubmed">34108556</ArticleId></ArticleIdList></Reference><Reference><Citation>Takeuchi K., Akizuki K., Nakamura M. (2021b). Association between static stretching load and changes in the flexibility of the hamstrings.
+<i>Sci. Rep.</i>
+11:21778.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC8571324</ArticleId><ArticleId IdType="pubmed">34741110</ArticleId></ArticleIdList></Reference><Reference><Citation>Takeuchi K., Akizuki K., Nakamura M. (2021c). Time course of changes in the range of motion and muscle-tendon unit stiffness of the hamstrings after two different intensities of static stretching.
+<i>PLoS One</i>
+16:e0257367. 10.1371/journal.pone.0257367
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0257367</ArticleId><ArticleId IdType="pmc">PMC8439484</ArticleId><ArticleId IdType="pubmed">34520498</ArticleId></ArticleIdList></Reference><Reference><Citation>Takeuchi K., Nakamura M. (2020a). Influence of high intensity 20-second static stretching on the flexibility and strength of hamstrings.
+<i>J. Sports Sci. Med.</i>
+19
+429&#x2013;435.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7196737</ArticleId><ArticleId IdType="pubmed">32390737</ArticleId></ArticleIdList></Reference><Reference><Citation>Takeuchi K., Nakamura M. (2020b). The optimal duration of high-intensity static stretching in hamstrings.
+<i>PLoS One</i>
+15:e0240181. 10.1371/journal.pone.0240181
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0240181</ArticleId><ArticleId IdType="pmc">PMC7531788</ArticleId><ArticleId IdType="pubmed">33007014</ArticleId></ArticleIdList></Reference><Reference><Citation>Takeuchi K., Takemura M., Nakamura M., Tsukuda F., Miyakawa S. (2021d). Effects of active and passive warm-ups on range of motion, strength, and muscle passive properties in ankle plantarflexor muscles.
+<i>J. Strength Cond. Res.</i>
+35
+141&#x2013;146. 10.1519/JSC.0000000000002642
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002642</ArticleId><ArticleId IdType="pubmed">29933358</ArticleId></ArticleIdList></Reference><Reference><Citation>Weppler C. H., Magnusson S. P. (2010). Increasing muscle extensibility: a matter of increasing length or modifying sensation?
+<i>Phys. Ther.</i>
+90
+438&#x2013;449. 10.2522/ptj.20090012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2522/ptj.20090012</ArticleId><ArticleId IdType="pubmed">20075147</ArticleId></ArticleIdList></Reference><Reference><Citation>Witvrouw E., Danneels L., Asselman P., D&#x2019;have T., Cambier D. (2003). Muscle flexibility as a risk factor for developing muscle injuries in male professional soccer players. a prospective study.
+<i>Am. J. Sports Med.</i>
+31
+41&#x2013;46. 10.1177/03635465030310011801
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/03635465030310011801</ArticleId><ArticleId IdType="pubmed">12531755</ArticleId></ArticleIdList></Reference><Reference><Citation>Yahata K., Konrad A., Sato S., Kiyono R., Yoshida R., Fukaya T., et al.  (2021). Effects of a high-volume static stretching programme on plantar-flexor muscle strength and architecture.
+<i>Eur. J. Appl. Physiol.</i>
+121
+1159&#x2013;1166. 10.1007/s00421-021-04608-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-021-04608-5</ArticleId><ArticleId IdType="pubmed">33502614</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

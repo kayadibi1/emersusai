@@ -1,0 +1,346 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="MEDLINE" Owner="NLM" IndexingMethod="Curated"><PMID Version="1">39263388</PMID><DateCompleted><Year>2024</Year><Month>09</Month><Day>12</Day></DateCompleted><DateRevised><Year>2024</Year><Month>09</Month><Day>14</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Electronic">2046-1402</ISSN><JournalIssue CitedMedium="Internet"><Volume>11</Volume><PubDate><Year>2022</Year></PubDate></JournalIssue><Title>F1000Research</Title><ISOAbbreviation>F1000Res</ISOAbbreviation></Journal><ArticleTitle>Feasibility Study of Community-Based Training for Musculoskeletal Health Promotion.</ArticleTitle><Pagination><StartPage>51</StartPage><MedlinePgn>51</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">51</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.12688/f1000research.73698.3</ELocationID><Abstract><AbstractText><b>Background:</b> To minimize fracture risk, multimodal training regimens are recommended. However, their effectiveness in community settings remains uncertain. This study evaluated the feasibility of 19-weeks of multimodal training in a local community center with emphasis on musculoskeletal health in postmenopausal women. <b>Methods:</b> In a controlled trial, 28 postmenopausal women (53-68-years-old) were assigned to a multimodal training group (MMT, n=15) or a control group (CON, n=13). The training consisted of high- and odd-impact, resistance and balance-coordination training 1-2 hours weekly. The outcomes were attendance rate, regional and total bone mineral density (BMD), bone mineral content (BMC), bone turnover markers (BTM), body composition, functional muscle strength and power, and dynamic balance. All were determined at baseline and after 19 weeks of training. BTM was assessed after three weeks. <b>Results:</b> Overall, 22(79%) participants (MMT, n=9; CON, n=13) completed the study, and the mean attendance rate for MMT was 65.5% of the maximum sessions (2) offered. Only right trochanter BMD increased (p&lt;0.05) by 1.0&#xb1;1.1% in MMT, which was higher(p&lt;0.05) than CON. While whole-body BMC was not changed at 19 weeks from baseline in MMT, it decreased (p&lt;0.05) in CON resulting in a significant difference (p&lt;0.05) in whole-body BMC delta values between the two groups. Compared to baseline, body fat percentage(%BF), fat mass(FM), and visceral adipose tissue (VAT)-mass and -volume were decreased (p&lt;0.01) in MMT, and were larger (p&lt;0.05) than CON. No significant changes were observed in BTM, muscle strength and power, and dynamic balance after 19 weeks. <b>Conclusions:</b> Nineteen weeks of multimodal training 1-2 hours per week in a local community had a health-enhancing effect on %BF, FM, and VAT, whereas the musculoskeletal health impact was modest. We hypothesize that the reason might be too low training volume and frequency and supposedly too low musculoskeletal training intensity for some participants. <b>Registration:</b> ClinicalTrials.gov NCT05164679 (21/12/2021).</AbstractText><CopyrightInformation>Copyright: &#xa9; 2024 Prawiradilaga RS et al.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Prawiradilaga</LastName><ForeName>Rizky Suganda</ForeName><Initials>RS</Initials><Identifier Source="ORCID">0000-0002-4489-7337</Identifier><AffiliationInfo><Affiliation>Department of Biochemistry, Nutrition and Biomolecular. Faculty of Medicine, Universitas Islam Bandung, Bandung, Jawa Barat, 40116, Indonesia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Bendtsen</LastName><ForeName>Magnus</ForeName><Initials>M</Initials><Identifier Source="ORCID">0009-0001-4858-4186</Identifier><AffiliationInfo><Affiliation>Department of Nutrition, Exercise and Sports, University of Copenhagen, Copenhagen N, 2200, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Esrup</LastName><ForeName>Simon</ForeName><Initials>S</Initials><AffiliationInfo><Affiliation>Department of Nutrition, Exercise and Sports, University of Copenhagen, Copenhagen N, 2200, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>J&#xf8;rgensen</LastName><ForeName>Niklas Rye</ForeName><Initials>NR</Initials><AffiliationInfo><Affiliation>Odense Patient data Explorative Network (OPEN), Odense University Hospital/Institute of Clinical Research, University of Southern Denmark, Odense, 50000, Denmark.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Clinical Biochemistry, Rigshospitalet Glostrup, Glostrup, 2600, Denmark.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Yulianto</LastName><ForeName>Fajar Awalia</ForeName><Initials>FA</Initials><AffiliationInfo><Affiliation>Department of Public Health, Faculty of Medicine, Universitas Islam Bandung, Bandung, Jawa Barat, 40116, Indonesia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Helge</LastName><ForeName>Eva Wulff</ForeName><Initials>EW</Initials><AffiliationInfo><Affiliation>Department of Nutrition, Exercise and Sports, University of Copenhagen, Copenhagen N, 2200, Denmark.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><DataBankList CompleteYN="Y"><DataBank><DataBankName>figshare</DataBankName><AccessionNumberList><AccessionNumber>10.6084/m9.figshare.16836940.v3</AccessionNumber></AccessionNumberList></DataBank><DataBank><DataBankName>ClinicalTrials.gov</DataBankName><AccessionNumberList><AccessionNumber>NCT05164679</AccessionNumber></AccessionNumberList></DataBank></DataBankList><PublicationTypeList><PublicationType UI="D018848">Controlled Clinical Trial</PublicationType><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2024</Year><Month>09</Month><Day>04</Day></ArticleDate></Article><MedlineJournalInfo><Country>England</Country><MedlineTA>F1000Res</MedlineTA><NlmUniqueID>101594320</NlmUniqueID><ISSNLinking>2046-1402</ISSNLinking></MedlineJournalInfo><CitationSubset>IM</CitationSubset><MeshHeadingList><MeshHeading><DescriptorName UI="D000368" MajorTopicYN="N">Aged</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005260" MajorTopicYN="N">Female</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D006801" MajorTopicYN="N">Humans</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D008875" MajorTopicYN="N">Middle Aged</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D001823" MajorTopicYN="N">Body Composition</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D015519" MajorTopicYN="Y">Bone Density</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D005240" MajorTopicYN="Y">Feasibility Studies</DescriptorName></MeshHeading><MeshHeading><DescriptorName UI="D006293" MajorTopicYN="Y">Health Promotion</DescriptorName><QualifierName UI="Q000379" MajorTopicYN="N">methods</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D053580" MajorTopicYN="Y">Muscle Strength</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D017698" MajorTopicYN="N">Postmenopause</DescriptorName><QualifierName UI="Q000502" MajorTopicYN="N">physiology</QualifierName></MeshHeading><MeshHeading><DescriptorName UI="D055070" MajorTopicYN="N">Resistance Training</DescriptorName><QualifierName UI="Q000379" MajorTopicYN="N">methods</QualifierName></MeshHeading></MeshHeadingList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">balance training</Keyword><Keyword MajorTopicYN="N">bone mineral density</Keyword><Keyword MajorTopicYN="N">bone turnover marker</Keyword><Keyword MajorTopicYN="N">high-impact</Keyword><Keyword MajorTopicYN="N">multimodal training</Keyword><Keyword MajorTopicYN="N">odd-impact</Keyword><Keyword MajorTopicYN="N">osteoporosis</Keyword><Keyword MajorTopicYN="N">resistance exercise</Keyword></KeywordList><CoiStatement>No competing interests were disclosed.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="accepted"><Year>2024</Year><Month>8</Month><Day>30</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2024</Year><Month>9</Month><Day>12</Day><Hour>8</Hour><Minute>43</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2024</Year><Month>9</Month><Day>12</Day><Hour>8</Hour><Minute>42</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2024</Year><Month>9</Month><Day>12</Day><Hour>4</Hour><Minute>37</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2024</Year><Month>9</Month><Day>4</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">39263388</ArticleId><ArticleId IdType="pmc">PMC11387933</ArticleId><ArticleId IdType="doi">10.12688/f1000research.73698.3</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+Kanis JA, Melton LJ, Christiansen C, et al. :
+The diagnosis of osteoporosis.
+
+<i>J Bone Miner Res.</i>
+
+1994 Aug 1;9(8):1137&#x2013;1141.
+10.1002/jbmr.5650090802
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jbmr.5650090802</ArticleId><ArticleId IdType="pubmed">7976495</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Facts and Statistics|International Osteoporosis Foundation:[cited 2017 Oct 4].
+Reference Source
+</Citation></Reference><Reference><Citation>
+Sinaki M, Brey RH, Hughes CA, et al. :
+Balance disorder and increased risk of falls in osteoporosis and kyphosis: significance of kyphotic posture and muscle strength.
+
+<i>Osteoporos Int.</i>
+
+2005 Aug 1;16(8):1004&#x2013;1010.
+10.1007/s00198-004-1791-2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00198-004-1791-2</ArticleId><ArticleId IdType="pubmed">15549266</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Beck BR, Daly RM, Singh MAF, et al. :
+Exercise and Sports Science Australia (ESSA) position statement on exercise prescription for the prevention and management of osteoporosis.
+
+<i>J Sci Med Sport.</i>
+
+2017 May 1;20(5):438&#x2013;445.
+10.1016/j.jsams.2016.10.001
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2016.10.001</ArticleId><ArticleId IdType="pubmed">27840033</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Zhang S, Huang X, Zhao X, et al. :
+Effect of exercise on bone mineral density among patients with osteoporosis and osteopenia: A systematic review and network meta-analysis.
+
+<i>J Clin Nurs.</i>
+
+2022 Aug;31(15&#x2013;16):2100&#x2013;2111.
+10.1111/jocn.16101
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jocn.16101</ArticleId><ArticleId IdType="pubmed">34725872</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Nikander R, Siev&#xe4;nen H, Heinonen A, et al. :
+Load-specific differences in the structure of femoral neck and tibia between world-class moguls skiers and slalom skiers.
+
+<i>Scand J Med Sci Sports.</i>
+
+2008 Apr;18(2):145&#x2013;153.
+10.1111/j.1600-0838.2007.00643.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2007.00643.x</ArticleId><ArticleId IdType="pubmed">18067528</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Nogueira RC, Weeks BK, Beck BR:
+Exercise to improve pediatric bone and fat: a systematic review and meta-analysis.
+
+<i>Med Sci Sports Exerc.</i>
+
+2014 Mar;46(3):610&#x2013;621.
+10.1249/MSS.0b013e3182a6ab0d
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3182a6ab0d</ArticleId><ArticleId IdType="pubmed">23899893</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Vainionp&#xe4;&#xe4; A, Korpelainen R, Lepp&#xe4;luoto J, et al. :
+Effects of high-impact exercise on bone mineral density: a randomized controlled trial in premenopausal women.
+
+<i>Osteoporos Int.</i>
+
+2005 Feb;16(2):191&#x2013;197.
+10.1007/s00198-004-1659-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00198-004-1659-5</ArticleId><ArticleId IdType="pubmed">15221206</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Karinkanta S, Heinonen A, Siev&#xe4;nen H, et al. :
+A multi-component exercise regimen to prevent functional decline and bone fragility in home-dwelling elderly women: randomized, controlled trial.
+
+<i>Osteoporos Int.</i>
+
+2007 Apr;18(4):453&#x2013;462.
+10.1007/s00198-006-0256-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00198-006-0256-1</ArticleId><ArticleId IdType="pubmed">17103296</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Prawiradilaga R, Madsen A, J&#xf8;rgensen N, et al. :
+Acute response of biochemical bone turnover markers and the associated ground reaction forces to high-impact exercise in postmenopausal women.
+
+<i>Biol Sport.</i>
+
+2020;37(1):41&#x2013;48.
+
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7075221</ArticleId><ArticleId IdType="pubmed">32205909</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Turner C, Robling A:
+Exercises for improving bone strength.
+
+<i>Br J Sports Med.</i>
+
+2005 Apr;39(4):188&#x2013;189.
+10.1136/bjsm.2004.016923
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.2004.016923</ArticleId><ArticleId IdType="pmc">PMC1725178</ArticleId><ArticleId IdType="pubmed">15793082</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Zehnacker CH, Bemis-Dougherty A:
+Effect of Weighted Exercises on Bone Mineral Density in Post Menopausal Women: A Systematic Review.
+
+<i>J. Geriatr. Phys. Ther.</i>
+
+2007;30(2):79&#x2013;88.
+10.1519/00139143-200708000-00007
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00139143-200708000-00007</ArticleId><ArticleId IdType="pubmed">18171491</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Dizdar M, Irdesel JF, Dizdar OS, et al. :
+Effects of Balance-Coordination, Strengthening, and Aerobic Exercises to Prevent Falls in Postmenopausal Patients With Osteoporosis: A 6-Month Randomized Parallel Prospective Study.
+
+<i>J Aging Phys Act.</i>
+
+2017 Dec 19;26(1):41&#x2013;51.
+10.1123/japa.2016-0284
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/japa.2016-0284</ArticleId><ArticleId IdType="pubmed">28422544</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Howe TE, Shea B, Dawson LJ, et al. :
+Exercise for preventing and treating osteoporosis in postmenopausal women.
+
+<i>Cochrane Database of Systematic Reviews.</i>
+
+John Wiley &amp; Sons, Ltd;2011.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC12744941</ArticleId><ArticleId IdType="pubmed">21735380</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Borer KT, Fogleman K, Gross M, et al. :
+Walking intensity for postmenopausal bone mineral preservation and accrual.
+
+<i>Bone.</i>
+
+2007 Oct;41(4):713&#x2013;721.
+10.1016/j.bone.2007.06.009
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bone.2007.06.009</ArticleId><ArticleId IdType="pubmed">17686670</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Mosti MP, Kaehler N, Stunes AK, et al. :
+Maximal strength training in postmenopausal women with osteoporosis or osteopenia.
+
+<i>J Strength Cond Res.</i>
+
+2013 Oct;27(10):2879&#x2013;2886.
+10.1519/JSC.0b013e318280d4e2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e318280d4e2</ArticleId><ArticleId IdType="pubmed">23287836</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Pereira A, Costa AM, Palmeira-de-Oliveira A, et al. :
+The effects of combined training on bone metabolic markers in postmenopausal women.
+
+<i>Sci Sports.</i>
+
+2016 Jun;31(3):152&#x2013;157.
+10.1016/j.scispo.2016.03.003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.scispo.2016.03.003</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Watson SL, Weeks BK, Weis LJ, et al. :
+High-Intensity Resistance and Impact Training Improves Bone Mineral Density and Physical Function in Postmenopausal Women With Osteopenia and Osteoporosis: The LIFTMOR Randomized Controlled Trial.
+
+<i>J Bone Miner Res.</i>
+
+2018 Feb;33(2):211&#x2013;220.
+10.1002/jbmr.3284
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jbmr.3284</ArticleId><ArticleId IdType="pubmed">28975661</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kistler-Fischbacher M, Yong JS, Weeks BK, et al. :
+A Comparison of Bone-Targeted Exercise With and Without Antiresorptive Bone Medication to Reduce Indices of Fracture Risk in Postmenopausal Women With Low Bone Mass: The MEDEX-OP Randomized Controlled Trial.
+
+<i>J Bone Miner Res.</i>
+
+2021;36(9):1680&#x2013;1693.
+10.1002/jbmr.4334
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jbmr.4334</ArticleId><ArticleId IdType="pubmed">34033146</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Kistler-Fischbacher M, Weeks BK, Beck BR:
+The effect of exercise intensity on bone in postmenopausal women (part 2): A meta-analysis.
+
+<i>Bone.</i>
+
+2021. Feb 1;143: 115697.
+10.1016/j.bone.2020.115697
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bone.2020.115697</ArticleId><ArticleId IdType="pubmed">33357834</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Shojaa M, Stengel S, Kohl M, et al. :
+Effects of dynamic resistance exercise on bone mineral density in postmenopausal women: a systematic review and meta-analysis with special emphasis on exercise parameters.
+
+<i>Osteoporos Int.</i>
+
+2020 Aug;31(8):1427&#x2013;1444.
+10.1007/s00198-020-05441-w
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00198-020-05441-w</ArticleId><ArticleId IdType="pmc">PMC7360540</ArticleId><ArticleId IdType="pubmed">32399891</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Moore M, Barker K:
+The validity and reliability of the four square step test in different adult populations: a systematic review.
+
+<i>Syst Rev.</i>
+
+2017 Sep 11;6:187.
+10.1186/s13643-017-0577-5
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13643-017-0577-5</ArticleId><ArticleId IdType="pmc">PMC5594590</ArticleId><ArticleId IdType="pubmed">28893312</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Daly RM, Giangregorio L:
+Exercise for Osteoporotic Fracture Prevention and Management.
+
+<i>Primer on the Metabolic Bone Diseases and Disorders of Mineral Metabolism.</i>
+
+John Wiley &amp; Sons, Ltd;2018. pp.517&#x2013;525.
+10.1002/9781119266594.ch67
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/9781119266594.ch67</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Gallagher JC, Goldgar D, Moy A:
+Total bone calcium in normal women: Effect of age and menopause status - Gallagher - 1987.
+
+<i>Journal of Bone and Mineral Research - Wiley Online Library.</i>
+
+[cited 2020 Jun 2];2:491&#x2013;496.
+10.1002/jbmr.5650020605
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jbmr.5650020605</ArticleId><ArticleId IdType="pubmed">3455633</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Daly RM, Gianoudis J, Kersh ME, et al. :
+Effects of a 12-Month Supervised, Community-Based, Multimodal Exercise Program Followed by a 6-Month Research-to-Practice Transition on Bone Mineral Density, Trabecular Microarchitecture, and Physical Function in Older Adults: A Randomized Controlled Trial.
+
+<i>J Bone Miner Res.</i>
+
+2019;35:419&#x2013;429.
+10.1002/jbmr.3865
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jbmr.3865</ArticleId><ArticleId IdType="pubmed">31498937</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Rizzo MR, Mari D, Barbieri M, et al. :
+Resting metabolic rate and respiratory quotient in human longevity.
+
+<i>J Clin Endocrinol Metab.</i>
+
+2005;90(1):409&#x2013;413.
+10.1210/jc.2004-0390
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1210/jc.2004-0390</ArticleId><ArticleId IdType="pubmed">15483081</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Nielsen T-T, M&#xf8;ller TK, Andersen LL, et al. :
+Feasibility and Health Effects of a 15-Week Combined Exercise Programme for Sedentary Elderly: A Randomised Controlled Trial.
+
+<i>BioMed Res Int.</i>
+
+2019 Jan 23;2019: e3081029.
+10.1155/2019/3081029
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1155/2019/3081029</ArticleId><ArticleId IdType="pmc">PMC6364114</ArticleId><ArticleId IdType="pubmed">30809536</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Yen C-J, Hung C-H, Kao C-L, et al. :
+Multimodal exercise ameliorates exercise responses and body composition in head and neck cancer patients receiving chemotherapy.
+
+<i>Support Care Cancer.</i>
+
+2019 Dec 1;27(12):4687&#x2013;4695.
+10.1007/s00520-019-04786-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00520-019-04786-1</ArticleId><ArticleId IdType="pubmed">30949831</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Clark J:
+The impact of duration on effectiveness of exercise, the implication for periodization of training and goal setting for individuals who are overfat, a meta-analysis.
+
+<i>Biol Sport.</i>
+
+2016 Dec;33(4):309&#x2013;333.
+10.5604/20831862.1212974
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5604/20831862.1212974</ArticleId><ArticleId IdType="pmc">PMC5143767</ArticleId><ArticleId IdType="pubmed">28090136</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Daly RM, Dalla Via J, Duckham RL, et al. :
+Exercise for the prevention of osteoporosis in postmenopausal women: an evidence-based guide to the optimal prescription.
+
+<i>Braz J Phys Ther.</i>
+
+2018;23(2):170&#x2013;180.
+10.1016/j.bjpt.2018.11.011
+
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bjpt.2018.11.011</ArticleId><ArticleId IdType="pmc">PMC6429007</ArticleId><ArticleId IdType="pubmed">30503353</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Prawiradilaga RS, Magnus B, Esrup S, et al. :
+Working title: A Feasibility Study of Training in a Local Community Aimed Upon Health Promotion with Special Emphasis on Musculoskeletal Health Effects. Extended data - Statistical power of the paired t-tests for body composition, regional BMD, and bone turnover markers.
+
+<i>figshare.</i>
+
+2021.
+10.6084/m9.figshare.16611655.v1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.6084/m9.figshare.16611655.v1</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Prawiradilaga RS, Bendtsen M, Esrup S, et al. :
+Working title: A Feasibility Study of Training in a Local Community Aimed Upon Health Promotion with Special Emphasis on Musculoskeletal Health Effects.
+
+<i>Raw dataset. figshare.</i>
+
+2021.
+https://figshare.com/articles/dataset/Working_title_A_Feasibility_Study_of_Training_in_a_Local_Community_Aimed_Upon_Health_Promotion_with_Special_Emphasis_on_Musculoskeletal_Health_Effects_Raw_dataset_/16836940/3
+</Citation></Reference><Reference><Citation>
+Prawiradilaga RS, Bendtsen M, Esrup S, et al. :
+Working title: A Feasibility Study of Training in a Local Community Aimed Upon Health Promotion with Special Emphasis on Musculoskeletal Health Effects. Extended data - Effect size of the Training Program.
+
+<i>figshare.</i>
+
+2021.
+10.6084/m9.figshare.16611787.v1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.6084/m9.figshare.16611787.v1</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Prawiradilaga RS, Bendtsen M, Esrup S, et al. :
+CONSORT checklist, extension for Pilot and Feasibility Trials for study &#x201c;A Feasibility Study of Training in a Local Community Aimed Upon Health Promotion with Special Emphasis on Musculoskeletal Health Effects&#x201d;.
+
+<i>figshare.</i>
+
+2021.
+10.6084/m9.figshare.16610341.v1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.6084/m9.figshare.16610341.v1</ArticleId></ArticleIdList></Reference><Reference><Citation>
+:
+High-Intensity Resistance and Impact Training Improves Bone Mineral Density and Physical Function in Postmenopausal Women With Osteopenia and Osteoporosis: The LIFTMOR Randomized Controlled Trial.
+
+<i>J Bone Miner Res</i>
+.33(2) :
+10.1002/jbmr.3284
+211-220
+10.1002/jbmr.3284
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jbmr.3284</ArticleId><ArticleId IdType="pubmed">28975661</ArticleId></ArticleIdList></Reference><Reference><Citation>
+:
+A Comparison of Bone-Targeted Exercise With and Without Antiresorptive Bone Medication to Reduce Indices of Fracture Risk in Postmenopausal Women With Low Bone Mass: The MEDEX-OP Randomized Controlled Trial.
+
+<i>J Bone Miner Res</i>
+.36(9) :
+10.1002/jbmr.4334
+1680-1693
+10.1002/jbmr.4334
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jbmr.4334</ArticleId><ArticleId IdType="pubmed">34033146</ArticleId></ArticleIdList></Reference><Reference><Citation>
+:
+The effect of exercise intensity on bone in postmenopausal women (part 2): A meta-analysis.
+
+<i>Bone</i>
+.143:
+10.1016/j.bone.2020.115697
+115697
+10.1016/j.bone.2020.115697
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bone.2020.115697</ArticleId><ArticleId IdType="pubmed">33357834</ArticleId></ArticleIdList></Reference><Reference><Citation>
+:
+A multi-component exercise regimen to prevent functional decline and bone fragility in home-dwelling elderly women: randomized, controlled trial.
+
+<i>Osteoporos Int</i>
+.2007;18(4) :
+10.1007/s00198-006-0256-1
+453-62
+10.1007/s00198-006-0256-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00198-006-0256-1</ArticleId><ArticleId IdType="pubmed">17103296</ArticleId></ArticleIdList></Reference><Reference><Citation>
+:
+Effects of dynamic resistance exercise on bone mineral density in postmenopausal women: a systematic review and meta-analysis with special emphasis on exercise parameters.
+
+<i>Osteoporos Int</i>
+.2020;31(8) :
+10.1007/s00198-020-05441-w
+1427-1444
+10.1007/s00198-020-05441-w
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00198-020-05441-w</ArticleId><ArticleId IdType="pmc">PMC7360540</ArticleId><ArticleId IdType="pubmed">32399891</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

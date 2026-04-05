@@ -1,0 +1,230 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">35784873</PMID><DateRevised><Year>2024</Year><Month>08</Month><Day>31</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>13</Volume><PubDate><Year>2022</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Eastward Jet Lag is Associated with Impaired Performance and Game Outcome in the National Basketball Association.</ArticleTitle><Pagination><StartPage>892681</StartPage><MedlinePgn>892681</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">892681</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2022.892681</ELocationID><Abstract><AbstractText><b>Objectives:</b> Elite athletes are often required to travel across time zones for national and international competitions, causing frequent jet lag. The aim of this study was to examine whether the direction of travel-related jet lag is associated with performance in the National Basketball Association (NBA), and if so, to explore potential mechanisms. <b>Methods:</b> Ten seasons comprising of 11,481 games of NBA data from the 2011/2012 to the 2020/2021 regular season were analyzed using multi-level mixed models with one fixed factor (three levels; jet lag direction: eastward vs westward vs no jet lag) and three random factors (team, opponent, game time). Predicted circadian resynchronization rate was accounted for, and home and away games were analysed separately. Mediation analyses were performed to examine potential mechanisms. <b>Results:</b> Among home teams, eastward (but not westward) jet lag was associated with reduced winning (&#x394; (i.e., change) = -6.03%, <i>p</i> = 0.051, marginal), points differential (&#x394; = -1.29 points, <i>p</i> = 0.015), rebound differential (&#x394; = -1.29 rebounds, <i>p</i> &lt; 0.0001), and effective field goal percentage differential (&#x394; = -1.2%, <i>p</i> &lt; 0.01). As the magnitude of eastward jet lag increased, home team points differential decreased (2&#xa0;h &#x394; = -4.53 points, <i>p &lt;</i> 0<i>.</i>05; 1&#xa0;h &#x394; = -0.72 points, <i>p</i> = 0.07). No significant associations were found between jet lag and away team performance. <b>Conclusion:</b> Eastward jet lag was associated with impaired performance for home (but not away) teams. Sleep and circadian disruption associated with advancing phase following eastward travel may have significant adverse consequences on performance in the NBA, particularly when recovery time is limited. Sports organisations could consider chronobiology-informed scheduling and interventions to maximise recovery and performance of their athletes.</AbstractText><CopyrightInformation>Copyright &#xa9; 2022 Leota, Hoffman, Czeisler, Mascaro, Drummond, Anderson, Rajaratnam and Facer-Childs.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Leota</LastName><ForeName>Josh</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Turner Institute for Brain and Mental Health, School of Psychological Sciences, Monash University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Hoffman</LastName><ForeName>Daniel</ForeName><Initials>D</Initials><AffiliationInfo><Affiliation>Turner Institute for Brain and Mental Health, School of Psychological Sciences, Monash University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>St Kilda Football Club, Australian Football League, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Czeisler</LastName><ForeName>Mark &#xc9;</ForeName><Initials>M&#xc9;</Initials><AffiliationInfo><Affiliation>Turner Institute for Brain and Mental Health, School of Psychological Sciences, Monash University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Institute for Breathing and Sleep, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Psychiatry, Brigham and Women's Hospital, Boston, MA, United States.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Harvard Medical School, Boston, MA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mascaro</LastName><ForeName>Luis</ForeName><Initials>L</Initials><AffiliationInfo><Affiliation>Turner Institute for Brain and Mental Health, School of Psychological Sciences, Monash University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Drummond</LastName><ForeName>Sean P A</ForeName><Initials>SPA</Initials><AffiliationInfo><Affiliation>Turner Institute for Brain and Mental Health, School of Psychological Sciences, Monash University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Anderson</LastName><ForeName>Clare</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Turner Institute for Brain and Mental Health, School of Psychological Sciences, Monash University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Rajaratnam</LastName><ForeName>Shantha M W</ForeName><Initials>SMW</Initials><AffiliationInfo><Affiliation>Turner Institute for Brain and Mental Health, School of Psychological Sciences, Monash University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Institute for Breathing and Sleep, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Departments of Medicine and Neurology, Division of Sleep and Circadian Disorders, Brigham and Women's Hospital, Boston, MA, United States.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Division of Sleep Medicine, Harvard Medical School, Boston, MA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Facer-Childs</LastName><ForeName>Elise R</ForeName><Initials>ER</Initials><AffiliationInfo><Affiliation>Turner Institute for Brain and Mental Health, School of Psychological Sciences, Monash University, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>St Kilda Football Club, Australian Football League, Melbourne, VIC, Australia.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Danny Frawley Centre for Health and Wellbeing, Moorabbin, VIC, Australia.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2022</Year><Month>06</Month><Day>16</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">NBA</Keyword><Keyword MajorTopicYN="N">circadian disruption</Keyword><Keyword MajorTopicYN="N">elite athletes</Keyword><Keyword MajorTopicYN="N">phase advance</Keyword><Keyword MajorTopicYN="N">sleep</Keyword><Keyword MajorTopicYN="N">sport</Keyword><Keyword MajorTopicYN="N">time zone</Keyword><Keyword MajorTopicYN="N">travel</Keyword></KeywordList><CoiStatement>EF-C and DH declare they are practitioners in elite sports and currently hold part time positions with St Kilda Football Club. ERF-C is the Director of Research and Translation at the Danny Frawley Centre for Health and Wellbeing. EF-C has received research support or consultancy fees from Tempur Australia Team Focus Ltd, British Athletics, Australian National Football League, Australian National Rugby League, Collingwood Football Club, Melbourne Storm Rugby Club, Henley Business School which are not related to this paper. SR, has served as a Program Leader for the CRC for Alertness, Safety and Productivity, Australia; is a Director of the Sleep Health Foundation; has received grants from Vanda Pharmaceuticals, Philips Respironics, Cephalon, Rio Tinto, BHP Billiton and Shell; and has received equipment support and consultancy fees through his institution from Optalert, Compumedics, Teva Pharmaceuticals, and Circadian Therapeutics, which are not related to this paper. M&#xc9;C reports institutional grants paid to Monash University from WHOOP, Inc. and the CDC Foundation, with funding provided by BNY Mellon; and consulting fees from Vanda Pharmaceuticals (September 2019&#x2013;January 2020), which are not related to this paper. The remaining authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2022</Year><Month>3</Month><Day>9</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2022</Year><Month>5</Month><Day>23</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2022</Year><Month>7</Month><Day>5</Day><Hour>10</Hour><Minute>31</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2022</Year><Month>7</Month><Day>6</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2022</Year><Month>7</Month><Day>6</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2022</Year><Month>6</Month><Day>16</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">35784873</ArticleId><ArticleId IdType="pmc">PMC9245584</ArticleId><ArticleId IdType="doi">10.3389/fphys.2022.892681</ArticleId><ArticleId IdType="pii">892681</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>
+Arnett M. G. (2002). Effects of Prolonged and Reduced Warm-Ups on Diurnal Variation in Body Temperature and Swim Performance. J. Strength Cond. Res.
+16 (2), 256&#x2013;261. 10.1519/1533-4287(2002)016&lt;0256:eoparw&gt;2.0.co;2
+PubMed Abstract | 10.1519/1533-4287(2002)016&lt;0256:eoparw&gt;2.0.co;2 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/1533-4287(2002)016&lt;0256:eoparw&gt;2.0.co;2</ArticleId><ArticleId IdType="pubmed">11991779</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Aschoff J., Hoffmann K., Pohl H., Wever R. (1975). Re-entrainment of Circadian Rhythms after Phase-Shifts of the Zeitgeber. Chronobiologia
+2 (1), 23&#x2013;78. PubMed Abstract | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="pubmed">1192905</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Asher G., Sassone-Corsi P. (2015). Time for Food: The Intimate Interplay between Nutrition, Metabolism, and the Circadian Clock. Cell.
+161 (1), 84&#x2013;92. 10.1016/j.cell.2015.03.015
+PubMed Abstract | 10.1016/j.cell.2015.03.015 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cell.2015.03.015</ArticleId><ArticleId IdType="pubmed">25815987</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Atkinson G., Reilly T. (1996). Circadian Variation in Sports Performance. Sports Med.
+21 (4), 292&#x2013;312. 10.2165/00007256-199621040-00005
+PubMed Abstract | 10.2165/00007256-199621040-00005 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-199621040-00005</ArticleId><ArticleId IdType="pubmed">8726347</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Barnes S. (2021). "The Best Recovery You Could Possibly Get": Sleep, Rest, and the National Basketball Association. Sociol. Sport J.
+38 (1), 16&#x2013;25. 10.1123/ssj.2019-0111
+10.1123/ssj.2019-0111 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ssj.2019-0111</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Burgess H. J., Crowley S. J., Gazda C. J., Fogg L. F., Eastman C. I. (2003). Preflight Adjustment to Eastward Travel:3 Days of Advancing Sleep with and without Morning Bright Light. J. Biol. Rhythms
+18 (4), 318&#x2013;328. 10.1177/0748730403253585
+PubMed Abstract | 10.1177/0748730403253585 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0748730403253585</ArticleId><ArticleId IdType="pmc">PMC1262683</ArticleId><ArticleId IdType="pubmed">12932084</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Burgess H. J., Revell V. L., Molina T. A., Eastman C. I. (2010). Human Phase Response Curves to Three Days of Daily Melatonin: 0.5 mgVersus3.0 Mg. J. Clin. Endocrinol. Metabolism
+95 (7), 3325&#x2013;3331. 10.1210/jc.2009-2590
+PubMed Abstract | 10.1210/jc.2009-2590 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1210/jc.2009-2590</ArticleId><ArticleId IdType="pmc">PMC2928909</ArticleId><ArticleId IdType="pubmed">20410229</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Burke T. M., Markwald R. R., Chinoy E. D., Snider J. A., Bessman S. C., Jung C. M., et al.  (2013). Combination of Light and Melatonin Time Cues for Phase Advancing the Human Circadian Clock. Sleep
+36 (11), 1617&#x2013;1624. 10.5665/sleep.3110
+PubMed Abstract | 10.5665/sleep.3110 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5665/sleep.3110</ArticleId><ArticleId IdType="pmc">PMC3792377</ArticleId><ArticleId IdType="pubmed">24179293</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Chapman D. W., Bullock N., Ross A., Rosemond D., Martin D. T. (2012). Detrimental Effects of West to East Transmeridian Flight on Jump Performance. Eur. J. Appl. Physiol.
+112 (5), 1663&#x2013;1669. 10.1007/s00421-011-2134-6
+PubMed Abstract | 10.1007/s00421-011-2134-6 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-011-2134-6</ArticleId><ArticleId IdType="pubmed">21874551</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Clements E., Fowler P. M., Duffield R. (2021). &#x201c;The Influence of Travel in the Home Advantage Effect,&#x201d; in Home Advantage in Sport (New York, NY: Routledge; ), 118&#x2013;130. 10.4324/9781003081456-14
+10.4324/9781003081456-14 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4324/9781003081456-14</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Colquhoun W. P. (1972). Aspects of Human Efficiency: Diurnal Rhythm and Loss of Sleep. London: English Universities Press. Google Scholar
+</Citation></Reference><Reference><Citation>
+Czeisler C. A., Duffy J. F., Shanahan T. L., Brown E. N., Mitchell J. F., Rimmer D. W., et al.  (1999). Stability, Precision, and Near-24-Hour Period of the Human Circadian Pacemaker. Science
+284 (5423), 2177&#x2013;2181. 10.1126/science.284.5423.2177
+PubMed Abstract | 10.1126/science.284.5423.2177 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/science.284.5423.2177</ArticleId><ArticleId IdType="pubmed">10381883</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Drust B., Waterhouse J., Atkinson G., Edwards B., Reilly T. (2005). Circadian Rhythms in Sports Performance-An Update. Chronobiology Int.
+22 (1), 21&#x2013;44. 10.1081/CBI-200041039
+PubMed Abstract | 10.1081/CBI-200041039 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1081/CBI-200041039</ArticleId><ArticleId IdType="pubmed">15865319</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Eastman C. I., Burgess H. J. (2009). How to Travel the World without Jet Lag. Sleep. Med. Clin.
+4 (2), 241&#x2013;255. 10.1016/j.jsmc.2009.02.006
+PubMed Abstract | 10.1016/j.jsmc.2009.02.006 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsmc.2009.02.006</ArticleId><ArticleId IdType="pmc">PMC2829880</ArticleId><ArticleId IdType="pubmed">20204161</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Facer-Childs E., Brandstaetter R. (2015). The Impact of Circadian Phenotype and Time since Awakening on Diurnal Performance in Athletes. Curr. Biol.
+25 (4), 518&#x2013;522. 10.1016/j.cub.2014.12.036
+PubMed Abstract | 10.1016/j.cub.2014.12.036 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cub.2014.12.036</ArticleId><ArticleId IdType="pubmed">25639241</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Facer-Childs E. R., Boiling S., Balanos G. M. (2018). The Effects of Time of Day and Chronotype on Cognitive and Physical Performance in Healthy Volunteers. Sports Med. - Open
+4 (1), 47&#x2013;58. 10.1186/s40798-018-0162-z
+PubMed Abstract | 10.1186/s40798-018-0162-z | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s40798-018-0162-z</ArticleId><ArticleId IdType="pmc">PMC6200828</ArticleId><ArticleId IdType="pubmed">30357501</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fowler P. M., Knez W., Crowcroft S., Mendham A. E., Miller J., Sargent C., et al.  (2017). Greater Effect of East versus West Travel on Jet Lag, Sleep, and Team Sport Performance. Med. Sci. Sports Exerc.
+49 (12), 2548&#x2013;2561. 10.1249/mss.0000000000001374
+PubMed Abstract | 10.1249/mss.0000000000001374 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0000000000001374</ArticleId><ArticleId IdType="pubmed">28719491</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fox J. L., Stanton R., Sargent C., Wintour S.-A., Scanlan A. T. (2018). The Association between Training Load and Performance in Team Sports: A Systematic Review. Sports Med.
+48 (12), 2743&#x2013;2774. 10.1007/s40279-018-0982-5
+PubMed Abstract | 10.1007/s40279-018-0982-5 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-018-0982-5</ArticleId><ArticleId IdType="pubmed">30225537</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Fullagar H. H. K., Duffield R., Skorski S., Coutts A. J., Julian R., Meyer T. (2015). Sleep and Recovery in Team Sport: Current Sleep-Related Issues Facing Professional Team-Sport Athletes. Int. J. Sports Physiology Perform.
+10 (8), 950&#x2013;957. 10.1123/ijspp.2014-0565
+PubMed Abstract | 10.1123/ijspp.2014-0565 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.2014-0565</ArticleId><ArticleId IdType="pubmed">25756787</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Haislop T. (2020). NBA Bubble, Explained: A Complete Guide to the Rules, Teams. schedule &amp; more for Orlando games [Online]. Sporting News. Available: https://www.sportingnews.com/us/nba/news/nba-bubble-rules-teams-schedule-orlando/zhap66a9hcwq1khmcex3ggabo (Accessed February 3, 2022). Google Scholar
+</Citation></Reference><Reference><Citation>
+Harris A. R., Roebber P. J. (2019). NBA Team Home Advantage: Identifying Key Factors Using an Artificial Neural Network. PLOS ONE
+14 (7), e0220630. 10.1371/journal.pone.0220630
+PubMed Abstract | 10.1371/journal.pone.0220630 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0220630</ArticleId><ArticleId IdType="pmc">PMC6668839</ArticleId><ArticleId IdType="pubmed">31365592</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Hoffman D. T., Dwyer D. B., Bowe S. J., Clifton P., Gastin P. B. (2020). Is Injury Associated with Team Performance in Elite Australian Football? 20 Years of Player Injury and Team Performance Data that Include Measures of Individual Player Value. Br. J. Sports Med.
+54 (8), 475&#x2013;479. 10.1136/bjsports-2018-100029
+PubMed Abstract | 10.1136/bjsports-2018-100029 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2018-100029</ArticleId><ArticleId IdType="pubmed">31242988</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Janse van Rensburg D. C., Jansen van Rensburg A., Fowler P., Fullagar H., Stevens D., Halson S., et al.  (2020). How to Manage Travel Fatigue and Jet Lag in Athletes? A Systematic Review of Interventions. Br. J. Sports Med.
+54 (16), 960&#x2013;968. 10.1136/bjsports-2019-101635
+PubMed Abstract | 10.1136/bjsports-2019-101635 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2019-101635</ArticleId><ArticleId IdType="pubmed">32303523</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Janse van Rensburg D. C., Jansen van Rensburg A., Fowler P. M., Bender A. M., Stevens D., Sullivan K. O., et al.  (2021). Managing Travel Fatigue and Jet Lag in Athletes: A Review and Consensus Statement. Sports Med.
+51 (10), 2029&#x2013;2050. 10.1007/s40279-021-01502-0
+PubMed Abstract | 10.1007/s40279-021-01502-0 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-021-01502-0</ArticleId><ArticleId IdType="pmc">PMC8279034</ArticleId><ArticleId IdType="pubmed">34263388</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Jones J. J., Kirschen G. W., Kancharla S., Hale L. (2019). Association between Late-Night Tweeting and Next-Day Game Performance Among Professional Basketball Players. Sleep. Health
+5 (1), 68&#x2013;71. 10.1016/j.sleh.2018.09.005
+PubMed Abstract | 10.1016/j.sleh.2018.09.005 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.sleh.2018.09.005</ArticleId><ArticleId IdType="pubmed">30670169</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Leatherwood W. E., Dragoo J. L. (2013). Effect of Airline Travel on Performance: a Review of the Literature. Br. J. Sports Med.
+47 (9), 561&#x2013;567. 10.1136/bjsports-2012-091449
+PubMed Abstract | 10.1136/bjsports-2012-091449 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2012-091449</ArticleId><ArticleId IdType="pubmed">23143931</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Leota J., Hoffman D., Mascaro L., Czeisler M. &#xc9;., Nash K., Drummond S. P. A., et al.  (2021). Home Is where the Hustle Is: The Influence of Crowds on Effort and Home Advantage in the National Basketball Association. SSRN J.
+10.2139/ssrn.3898283
+10.2139/ssrn.3898283 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2139/ssrn.3898283</ArticleId><ArticleId IdType="pubmed">36512468</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Lewis P., Korf H. W., Kuffer L., Gro&#xdf; J. V., Erren T. C. (2018). Exercise Time Cues (Zeitgebers) for Human Circadian Systems Can Foster Health and Improve Performance: a Systematic Review. BMJ Open Sport Exerc Med.
+4 (1), e000443. 10.1136/bmjsem-2018-000443
+PubMed Abstract | 10.1136/bmjsem-2018-000443 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bmjsem-2018-000443</ArticleId><ArticleId IdType="pmc">PMC6330200</ArticleId><ArticleId IdType="pubmed">30687511</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Loat C. E. R., Rhodes E. C. (1989). Jet-Lag and Human Performance. Sports Med.
+8 (4), 226&#x2013;238. 10.2165/00007256-198908040-00003
+PubMed Abstract | 10.2165/00007256-198908040-00003 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-198908040-00003</ArticleId><ArticleId IdType="pubmed">2692117</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Maheswaran R., Chang Y. H., Henehan A., Danesis S. (2012).Deconstructing the Rebound with Optical Tracking Data. Proceedings of the MIT Sloan Sports Analytics Conference. MIT, 1&#x2013;7. Google Scholar
+</Citation></Reference><Reference><Citation>
+Manfredini R., Manfredini F., Fersini C., Conconi F. (1998). Circadian Rhythms, Athletic Performance, and Jet Lag. Br. J. Sports Med.
+32 (2), 101&#x2013;106. 10.1136/bjsm.32.2.101
+PubMed Abstract | 10.1136/bjsm.32.2.101 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.32.2.101</ArticleId><ArticleId IdType="pmc">PMC1756080</ArticleId><ArticleId IdType="pubmed">9631214</ArticleId></ArticleIdList></Reference><Reference><Citation>
+McHill A. W., Chinoy E. D. (2020). Utilizing the National Basketball Association's COVID-19 Restart "bubble" to Uncover the Impact of Travel and Circadian Disruption on Athletic Performance. Sci. Rep.
+10 (1), 21827. 10.1038/s41598-020-78901-2
+PubMed Abstract | 10.1038/s41598-020-78901-2 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41598-020-78901-2</ArticleId><ArticleId IdType="pmc">PMC7732833</ArticleId><ArticleId IdType="pubmed">33311539</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Nutting A. W., Price J. (2017). Time Zones, Game Start Times, and Team Performance. J. Sports Econ.
+18 (5), 471&#x2013;478. 10.1177/1527002515588136
+10.1177/1527002515588136 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1527002515588136</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Recht L. D., Lew R. A., Schwartz W. J. (1995). Baseball Teams Beaten by Jet Lag. Nature
+377 (6550), 583. 10.1038/377583a0
+PubMed Abstract | 10.1038/377583a0 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/377583a0</ArticleId><ArticleId IdType="pubmed">7566168</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Reilly T., Atkinson G., Waterhouse J. (2000). in Exercise and Sport Science. Editors Garrett W.E.J., Kirkendall D.T. (Philadelphia: Lippincott Williams &amp; Wilkins; ), 351&#x2013;372.Chronobiology and Physical Performance
+Google Scholar
+</Citation></Reference><Reference><Citation>
+Reilly T., Waterhouse J. (2009). Sports Performance: Is There Evidence that the Body Clock Plays a Role?
+Eur. J. Appl. Physiol.
+106 (3), 321&#x2013;332. 10.1007/s00421-009-1066-x
+PubMed Abstract | 10.1007/s00421-009-1066-x | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-009-1066-x</ArticleId><ArticleId IdType="pubmed">19418063</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Ribeiro H. V., Mukherjee S., Zeng X. H. T. (2016). The Advantage of Playing Home in NBA: Microscopic, Team-specific and Evolving Features. PLOS ONE
+11 (3), e0152440. 10.1371/journal.pone.0152440
+PubMed Abstract | 10.1371/journal.pone.0152440 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0152440</ArticleId><ArticleId IdType="pmc">PMC4807825</ArticleId><ArticleId IdType="pubmed">27015636</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Roach G. D., Sargent C. (2019). Interventions to Minimize Jet Lag after Westward and Eastward Flight. Front. Physiol.
+10 (927), 1&#x2013;11. 10.3389/fphys.2019.00927
+PubMed Abstract | 10.3389/fphys.2019.00927 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2019.00927</ArticleId><ArticleId IdType="pmc">PMC6684967</ArticleId><ArticleId IdType="pubmed">31417411</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Roenneberg T., Kantermann T., Juda M., Vetter C., Allebrandt K. V. (2013). &#x201c;Light and the Human Circadian Clock,&#x201d; in Circadian Clocks. Editors Kramer A., Merrow M. (Berlin, Heidelberg: Springer Berlin Heidelberg; ), 311&#x2013;331. 10.1007/978-3-642-25950-0_13
+10.1007/978-3-642-25950-0_13 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/978-3-642-25950-0_13</ArticleId><ArticleId IdType="pubmed">23604485</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Roy J., Forest G. (2018). Greater Circadian Disadvantage during Evening Games for the National Basketball Association (NBA), National Hockey League (NHL) and National Football League (NFL) Teams Travelling Westward. J. Sleep. Res.
+27 (1), 86&#x2013;89. 10.1111/jsr.12565
+PubMed Abstract | 10.1111/jsr.12565 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jsr.12565</ArticleId><ArticleId IdType="pubmed">28568314</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Schmidt C., Collette F., Cajochen C., Peigneux P. (2007). A Time to Think: Circadian Rhythms in Human Cognition. Cogn. Neuropsychol.
+24 (7), 755&#x2013;789. 10.1080/02643290701754158
+PubMed Abstract | 10.1080/02643290701754158 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02643290701754158</ArticleId><ArticleId IdType="pubmed">18066734</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Seo D. Y., Lee S., Kim N., Ko K. S., Rhee B. D., Park B. J., et al.  (2013). Morning and Evening Exercise. Integr. Med. Res.
+2 (4), 139&#x2013;144. 10.1016/j.imr.2013.10.003
+PubMed Abstract | 10.1016/j.imr.2013.10.003 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.imr.2013.10.003</ArticleId><ArticleId IdType="pmc">PMC5481716</ArticleId><ArticleId IdType="pubmed">28664065</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Simmons N., Mandal S., Paton B., Ahmed I. (2022). Are Circadian Rhythms a New Frontier in Athletic Performance?
+Curr. Sports Med. Rep.
+21 (1), 5&#x2013;7. 10.1249/jsr.0000000000000929
+PubMed Abstract | 10.1249/jsr.0000000000000929 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/jsr.0000000000000929</ArticleId><ArticleId IdType="pubmed">35018891</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Singh M., Bird S., Charest J., Huyghe T., Calleja-Gonzalez J. (2021). Urgent Wake up Call for the National Basketball Association. J. Clin. Sleep Med.
+17 (2), 243&#x2013;248. 10.5664/jcsm.8938
+PubMed Abstract | 10.5664/jcsm.8938 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.5664/jcsm.8938</ArticleId><ArticleId IdType="pmc">PMC7853218</ArticleId><ArticleId IdType="pubmed">33112229</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Song A., Severini T., Allada R. (2017). How Jet Lag Impairs Major League Baseball Performance. Proc. Natl. Acad. Sci. U.S.A.
+114 (6), 1407&#x2013;1412. 10.1073/pnas.1608847114
+PubMed Abstract | 10.1073/pnas.1608847114 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.1608847114</ArticleId><ArticleId IdType="pmc">PMC5307448</ArticleId><ArticleId IdType="pubmed">28115724</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Sports Reference LLC (2017). Basketball-Reference.com - Basketball Statistics And History [Online]. Sports Reference LLC. Available: https://www.basketball-reference.com/
+(Accessed February 3, 2022). Google Scholar
+</Citation></Reference><Reference><Citation>
+Stephan F. K. (2002). The &#x201c;Other&#x201d; Circadian System: Food as a Zeitgeber. J. Biol. Rhythms
+17 (4), 284&#x2013;292. 10.1177/074873040201700402
+PubMed Abstract | 10.1177/074873040201700402 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/074873040201700402</ArticleId><ArticleId IdType="pubmed">12164245</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Takahashi T., Sasaki M., Itoh H., Sano H., Yamadera W., Ozone M., et al.  (1999). Re&#x2010;entrainment of Circadian Rhythm of Plasma Melatonin on an 8&#x2010;h Eastward Flight. Psychiatry Clin. Neurosci.
+53 (2), 257&#x2013;260. 10.1046/j.1440-1819.1999.00537.x
+PubMed Abstract | 10.1046/j.1440-1819.1999.00537.x | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1046/j.1440-1819.1999.00537.x</ArticleId><ArticleId IdType="pubmed">10459704</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Tucker R., Collins M. (2012). What Makes Champions? A Review of the Relative Contribution of Genes and Training to Sporting Success. Br. J. Sports Med.
+46 (8), 555&#x2013;561. 10.1136/bjsports-2011-090548
+PubMed Abstract | 10.1136/bjsports-2011-090548 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2011-090548</ArticleId><ArticleId IdType="pubmed">22535537</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Walsh N. P., Halson S. L., Sargent C., Roach G. D., N&#xe9;d&#xe9;lec M., Gupta L., et al.  (2021). Sleep and the Athlete: Narrative Review and 2021 Expert Consensus Recommendations. Br. J. Sports Med.
+55 (7), 356&#x2013;368. 10.1136/bjsports-2020-102025
+10.1136/bjsports-2020-102025 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2020-102025</ArticleId><ArticleId IdType="pubmed">33144349</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Waterhouse J., Edwards B., Nevill A., Carvalho S., Atkinson G., Buckley P., et al.  (2002). Identifying Some Determinants of &#x201c;Jet Lag&#x201d; and its Symptoms: a Study of Athletes and Other Travellers. Br. J. Sports Med.
+36 (1), 54&#x2013;60. 10.1136/bjsm.36.1.54
+PubMed Abstract | 10.1136/bjsm.36.1.54 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.36.1.54</ArticleId><ArticleId IdType="pmc">PMC1724441</ArticleId><ArticleId IdType="pubmed">11867494</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Waterhouse J., Reilly T., Atkinson G. (1997). Jet-lag. Lancet
+350 (9091), 1611&#x2013;1616. 10.1016/S0140-6736(97)07569-7
+PubMed Abstract | 10.1016/S0140-6736(97)07569-7 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0140-6736(97)07569-7</ArticleId><ArticleId IdType="pubmed">9393352</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Wehrens S. M. T., Christou S., Isherwood C., Middleton B., Gibbs M. A., Archer S. N., et al.  (2017). Meal Timing Regulates the Human Circadian System. Curr. Biol.
+27 (12), 1768&#x2013;1775. 10.1016/j.cub.2017.04.059
+PubMed Abstract | 10.1016/j.cub.2017.04.059 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cub.2017.04.059</ArticleId><ArticleId IdType="pmc">PMC5483233</ArticleId><ArticleId IdType="pubmed">28578930</ArticleId></ArticleIdList></Reference><Reference><Citation>
+White M. H., Sheldon K. M. (2014). The Contract Year Syndrome in the NBA and MLB: A Classic Undermining Pattern. Motiv. Emot.
+38 (2), 196&#x2013;205. 10.1007/s11031-013-9389-7
+10.1007/s11031-013-9389-7 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11031-013-9389-7</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Winter W. C., Hammond W. R., Green N. H., Zhang Z., Bliwise D. L. (2009). Measuring Circadian Advantage in Major League Baseball: A 10-Year Retrospective Study. Int. J. Sports Physiology Perform.
+4 (3), 394&#x2013;401. 10.1123/ijspp.4.3.394
+PubMed Abstract | 10.1123/ijspp.4.3.394 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.4.3.394</ArticleId><ArticleId IdType="pubmed">19953826</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Worthen J. B., Wade C. E. (1999). Direction of Travel and Visiting Team Athletic Performance: Support for a Circadian Dysrhythmia Hypothesis. J. Sport Behav.
+22 (2), 279&#x2013;287. Google Scholar
+</Citation></Reference><Reference><Citation>
+Yamazaki S., Numano R., Abe M., Hida A., Takahashi R.-i., Ueda M., et al.  (2000). Resetting Central and Peripheral Circadian Oscillators in Transgenic Rats. Science
+288 (5466), 682&#x2013;685. 10.1126/science.288.5466.682
+PubMed Abstract | 10.1126/science.288.5466.682 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/science.288.5466.682</ArticleId><ArticleId IdType="pubmed">10784453</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Youngstedt S. D., Elliott J. A., Kripke D. F. (2019). Human Circadian Phase-Response Curves for Exercise. J. Physiol.
+597 (8), 2253&#x2013;2268. 10.1113/JP276943
+PubMed Abstract | 10.1113/JP276943 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP276943</ArticleId><ArticleId IdType="pmc">PMC6462487</ArticleId><ArticleId IdType="pubmed">30784068</ArticleId></ArticleIdList></Reference><Reference><Citation>
+Zacharko M., Konefa&#x142; M., Radzimi&#x144;ski &#x141;., Chmura P., B&#x142;a&#x17c;ejczyk K., Chmura J., et al.  (2020). Direction of Travel of Time Zones Crossed and Results Achieved by Soccer Players. The Road from the 2018 FIFA World Cup to UEFA EURO 2020. Res. Sports Med.
+30, 145&#x2013;155. 10.1080/15438627.2020.1853545
+PubMed Abstract | 10.1080/15438627.2020.1853545 | Google Scholar
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15438627.2020.1853545</ArticleId><ArticleId IdType="pubmed">33251863</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

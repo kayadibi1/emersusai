@@ -1,0 +1,1083 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="tjp70462" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">J Physiol</journal-id><journal-id journal-id-type="iso-abbrev">J Physiol</journal-id><journal-id journal-id-type="pmc-domain-id">379</journal-id><journal-id journal-id-type="pmc-domain">blackwellopen</journal-id><journal-id journal-id-type="publisher-id">TJP</journal-id><journal-title-group><journal-title>The Journal of Physiology</journal-title></journal-title-group><issn pub-type="ppub">0022-3751</issn><issn pub-type="epub">1469-7793</issn><custom-meta-group><custom-meta><meta-name>pmc-is-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-collection-title</meta-name><meta-value>Wiley Open Access Collection</meta-value></custom-meta></custom-meta-group></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13039239</article-id><article-id pub-id-type="pmcid-ver">PMC13039239.1</article-id><article-id pub-id-type="pmcaid">13039239</article-id><article-id pub-id-type="pmcaiid">13039239</article-id><article-id pub-id-type="pmid">41823343</article-id><article-id pub-id-type="doi">10.1113/JP290541</article-id><article-id pub-id-type="publisher-id">TJP70462</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Exercise</subject></subj-group></article-categories><title-group><article-title>Ageing does not impair motor neuron adaptations: comparable motor unit responses to strength training in young and older adults</article-title><alt-title alt-title-type="left-running-head">A. Casolo and others</alt-title><alt-title alt-title-type="right-running-head">Neural adaptations to strength training with ageing</alt-title></title-group><contrib-group><contrib id="tjp70462-cr-0001" contrib-type="author"><name name-style="western"><surname>Casolo</surname><given-names initials="A">Andrea</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-1901-3894</contrib-id><xref rid="tjp70462-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref><xref ref-type="bio" rid="d101e47">*</xref></contrib><contrib id="tjp70462-cr-0002" contrib-type="author"><name name-style="western"><surname>Del Vecchio</surname><given-names initials="S">Stefanie</given-names></name><xref rid="tjp70462-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="tjp70462-cr-0003" contrib-type="author"><name name-style="western"><surname>Goodlich</surname><given-names initials="BI">Benjamin I.</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-7084-4143</contrib-id><xref rid="tjp70462-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="tjp70462-cr-0004" contrib-type="author"><name name-style="western"><surname>Schrader</surname><given-names initials="B">Bastian</given-names></name><xref rid="tjp70462-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib id="tjp70462-cr-0005" contrib-type="author"><name name-style="western"><surname>Nuccio</surname><given-names initials="S">Stefano</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-9234-9741</contrib-id><xref rid="tjp70462-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="tjp70462-cr-0006" contrib-type="author"><name name-style="western"><surname>Lecce</surname><given-names initials="E">Edoardo</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-2936-9456</contrib-id><xref rid="tjp70462-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="tjp70462-cr-0007" contrib-type="author"><name name-style="western"><surname>Bazzucchi</surname><given-names initials="I">Ilenia</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-6017-1683</contrib-id><xref rid="tjp70462-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="tjp70462-cr-0008" contrib-type="author"><name name-style="western"><surname>Angius</surname><given-names initials="L">Luca</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-4606-4272</contrib-id><xref rid="tjp70462-aff-0006" ref-type="aff">
+<sup>6</sup>
+</xref></contrib><contrib id="tjp70462-cr-0009" contrib-type="author"><name name-style="western"><surname>Felici</surname><given-names initials="F">Francesco</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-7228-9064</contrib-id><xref rid="tjp70462-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="tjp70462-cr-0010" contrib-type="author"><name name-style="western"><surname>Schrader</surname><given-names initials="J">Joachim</given-names></name><xref rid="tjp70462-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib id="tjp70462-cr-0011" contrib-type="author"><name name-style="western"><surname>Farina</surname><given-names initials="D">Dario</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-7883-2697</contrib-id><xref rid="tjp70462-aff-0007" ref-type="aff">
+<sup>7</sup>
+</xref></contrib><contrib id="tjp70462-cr-0012" contrib-type="author" corresp="yes"><name name-style="western"><surname>Del Vecchio</surname><given-names initials="A">Alessandro</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-7118-5554</contrib-id><xref rid="tjp70462-aff-0008" ref-type="aff">
+<sup>8</sup>
+</xref><address><email>alessandro.del.vecchio@fau.de</email></address></contrib></contrib-group><aff id="tjp70462-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Department of Biomedical Sciences</named-content>
+<institution>University of Padova</institution>
+<city>Padua</city>
+<country country="IT">Italy</country>
+</aff><aff id="tjp70462-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<institution>Klinikum Nürnberg</institution>
+<city>Nürnberg</city>
+<country country="DE">Germany</country>
+</aff><aff id="tjp70462-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<named-content content-type="organisation-division">School of Health</named-content>
+<institution>University of the Sunshine Coast</institution>
+<city>Sunshine Coast</city>
+<named-content content-type="country-part">Queensland</named-content>
+<country country="AU">Australia</country>
+</aff><aff id="tjp70462-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">Department of Cardiology</named-content>
+<institution>University of Oldenburg, Klinikum</institution>
+<city>Oldenburg</city>
+<country country="DE">Germany</country>
+</aff><aff id="tjp70462-aff-0005">
+<label>
+<sup>5</sup>
+</label>
+<named-content content-type="organisation-division">Department of Movement, Human and Health Sciences</named-content>
+<institution>University of Rome ‘Foro Italico’</institution>
+<city>Rome</city>
+<country country="IT">Italy</country>
+</aff><aff id="tjp70462-aff-0006">
+<label>
+<sup>6</sup>
+</label>
+<named-content content-type="organisation-division">Department of Sport, Exercise, and Rehabilitation, Faculty of Health and Life Sciences</named-content>
+<institution>Northumbria University</institution>
+<city>Newcastle upon Tyne</city>
+<country country="GB">UK</country>
+</aff><aff id="tjp70462-aff-0007">
+<label>
+<sup>7</sup>
+</label>
+<named-content content-type="organisation-division">Department of Bioengineering</named-content>
+<institution>Imperial College London</institution>
+<city>London</city>
+<country country="GB">UK</country>
+</aff><aff id="tjp70462-aff-0008">
+<label>
+<sup>8</sup>
+</label>
+<named-content content-type="organisation-division">Department of Artificial Intelligence in Biomedical Engineering</named-content>
+<institution>Friedrich‐Alexander University</institution>
+<city>Erlangen‐Nürnberg</city>
+<country country="DE">Germany</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>
+<bold>Corresponding author</bold> A. Del Vecchio: Department of Artificial Intelligence in Biomedical Engineering, Friedrich‐Alexander University Erlangen‐Nürnberg, Nürnberger Straße 74, 91052 Erlangen, Germany.  Email: <email>alessandro.del.vecchio@fau.de</email>
+<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>13</day><month>3</month><year>2026</year></pub-date><pub-date pub-type="ppub"><day>01</day><month>4</month><year>2026</year></pub-date><volume>604</volume><issue seq="190">7</issue><issue-id pub-id-type="pmc-issue-id">510661</issue-id><issue-id pub-id-type="doi">10.1113/tjp.v604.7</issue-id><fpage>2796</fpage><lpage>2815</lpage><history><date date-type="received"><day>13</day><month>11</month><year>2025</year></date><date date-type="accepted"><day>10</day><month>2</month><year>2026</year></date></history><pub-history><event event-type="pmc-release"><date><day>13</day><month>03</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>02</day><month>04</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-03 00:25:12.917"><day>03</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). <italic toggle="yes">The Journal of Physiology</italic> published by John Wiley &amp; Sons Ltd on behalf of The Physiological Society.</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="TJP-604-2796.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:TJP-604-2796.pdf"/><abstract><sec id="tjp70462-sec-0010"><title>Abstract</title><p>Ageing induces structural and functional changes in the neuromuscular systems that impair voluntary force production, compromising daily function and wellbeing. We examined whether older adults preserve the capacity for motor unit adaptations to a short‐term strength training intervention previously shown to enhance neural drive to muscle in young adults. Twenty‑three older adults were assigned to a training group (INT, <italic toggle="yes">n</italic> = 13, 71 ± 4 years of age) or a control group (CON, <italic toggle="yes">n</italic> = 10, 69 ± 2 years of age) and completed pre‐ and postintervention assessments of ankle dorsiflexor maximal voluntary force (MVF). Motor unit behaviour was analysed from high‑density surface EMG recorded from tibialis anterior during submaximal trapezoidal contractions. The INT group performed a 4 week supervised isometric strength training programme, whereas the CON group maintained habitual activity. High‑density surface EMG signals were decomposed into individual motor units, tracked longitudinally across sessions. Training increased MVF by 17.6% and enhanced motor unit discharge rate at recruitment (+8.2%, <italic toggle="yes">P = </italic>0.031) and constant force (+11.3%, <italic toggle="yes">P</italic> &lt; 0.001), without changes in recruitment or derecruitment thresholds. Estimates of persistent inward currents (delta frequency) increased (+1.0 pulses per second) and were positively correlated with changes in discharge rate, which, in turn, were correlated with gains in MVF (<italic toggle="yes">r</italic>
+<sub>rm</sub> = 0.54–0.57, <italic toggle="yes">P</italic> &lt; 0.05). This pattern suggests that enhanced intrinsic excitability and synaptic input to motor neurons contributed to improvements in strength. These results demonstrate that, despite age‐related motor unit remodelling, the ageing nervous system remains responsive to targeted strength training, preserving the capacity for meaningful neural adaptations.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="TJP-604-2796-g007.jpg"/></boxed-text>
+</p></sec><sec id="tjp70462-sec-0020"><title>Key points</title><p>
+<list list-type="bullet" id="tjp70462-list-0001"><list-item><p>We assessed whether a short‐term intensive strength training intervention, previously shown to increase spinal motor output to the muscle significantly in young adults, would also be effective in older adults.</p></list-item><list-item><p>High‐density surface EMG was used to identify and longitudinally track the same motor units before and after a 4 week isometric strength training intervention.</p></list-item><list-item><p>We found significant strength gains in older adults, with the increase in muscle force output being positively associated with higher motor unit discharge rate and persistent inward currents, indicating that neural drive enhancement was a key contributor to the observed improvements in force.</p></list-item><list-item><p>Despite age‐related motor neuron remodelling, the older nervous system remains highly responsive to strength training, exhibiting qualitatively similar but attenuated motor unit adaptations compared with young adults.</p></list-item></list>
+</p></sec></abstract><abstract id="tjp70462-abs-0001" abstract-type="graphical"><p>
+<bold>Abstract figure legend</bold> Ageing is associated with reduced motor neuron excitability and lower motor unit (MU) discharge rates, contributing to impaired voluntary force production. Using high‐density surface EMG and longitudinal motor unit tracking, we show that 4 weeks of isometric strength training increases discharge rates and estimates of persistent inward currents (PICs) in older adults, reflecting enhanced intrinsic motor neuron excitability and synaptic input. These neural adaptations were associated with a 17.6% increase in maximal voluntary force, demonstrating that the ageing neuromuscular system retains a robust capacity for functional adaptation in response to targeted strength training.
+<boxed-text position="anchor" content-type="graphic" orientation="portrait"><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="TJP-604-2796-g007.jpg"/></boxed-text>
+</p></abstract><kwd-group kwd-group-type="author-generated"><kwd id="tjp70462-kwd-0001">ageing</kwd><kwd id="tjp70462-kwd-0002">high‐density surface EMG</kwd><kwd id="tjp70462-kwd-0003">motor neuron</kwd><kwd id="tjp70462-kwd-0004">motor unit</kwd><kwd id="tjp70462-kwd-0005">strength training</kwd></kwd-group><funding-group><award-group id="funding-0001"><funding-source>
+<institution-wrap><institution>Volunteers</institution></institution-wrap>
+</funding-source></award-group><award-group id="funding-0002"><funding-source>
+<institution-wrap><institution>European Research Council</institution><institution-id institution-id-type="doi">10.13039/501100000781</institution-id></institution-wrap>
+</funding-source><award-id>101118089</award-id></award-group><award-group id="funding-0003"><funding-source>
+<institution-wrap><institution>German Ministry for Education and Research (BMBF)</institution></institution-wrap>
+</funding-source><award-id>01DN2300</award-id><award-id>16SV9246</award-id></award-group><award-group id="funding-0004"><funding-source>
+<institution-wrap><institution>German Research Foundation</institution><institution-id institution-id-type="doi">10.13039/501100001659</institution-id></institution-wrap>
+</funding-source><award-id>523352235</award-id></award-group><award-group id="funding-0005"><funding-source>
+<institution-wrap><institution>Bavarian Ministry of Economic Affairs, Regional Development and Energy (StMWi)</institution></institution-wrap>
+</funding-source><award-id>MV‐2303‐0006</award-id><award-id>LSM‐2303‐0003</award-id></award-group></funding-group><counts><fig-count count="9"/><table-count count="1"/><page-count count="20"/><word-count count="12310"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>1 April 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:01.04.2026</meta-value></custom-meta></custom-meta-group></article-meta><notes><fn-group><fn id="tjp70462-note-0001"><p>Handling Editors: Karyn Hamilton &amp; Kevin Murach</p></fn><fn id="tjp70462-note-0002"><p>The peer review history is available in the Supporting Information section of this article (<ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://doi.org/10.1113/JP290541#support-information-section" ext-link-type="uri">https://doi.org/10.1113/JP290541#support‐information‐section</ext-link>).</p></fn></fn-group></notes></front><body><sec id="tjp70462-sec-0030"><title>Introduction</title><p>The age‐related decline in maximal voluntary muscular strength and power (Frontera et al., <xref rid="tjp70462-bib-0022" ref-type="bibr">1991</xref>; Skelton et al., <xref rid="tjp70462-bib-0070" ref-type="bibr">1994</xref>; Van Roie et al., <xref rid="tjp70462-bib-0066" ref-type="bibr">2018</xref>) impairs functional capacity, increases fall risk and compromises the performance of daily activities (Bento et al., <xref rid="tjp70462-bib-0009" ref-type="bibr">2010</xref>; Hayashida et al., <xref rid="tjp70462-bib-0030" ref-type="bibr">2014</xref>; Rantanen et al., <xref rid="tjp70462-bib-0065" ref-type="bibr">1994</xref>; Tomás et al., <xref rid="tjp70462-bib-0071" ref-type="bibr">2018</xref>). Although traditionally attributed to reductions in muscle mass and alterations in fibre composition (Evans, <xref rid="tjp70462-bib-0020" ref-type="bibr">1995</xref>), strength loss often exceeds the degree of muscle atrophy (Delmonico et al., <xref rid="tjp70462-bib-0015" ref-type="bibr">2009</xref>), indicating neural impairments in age‐related motor decline (Clark, <xref rid="tjp70462-bib-0013" ref-type="bibr">2023</xref>; Manini et al., <xref rid="tjp70462-bib-0049" ref-type="bibr">2013</xref>). Although neural adaptations to strength training have been documented at both central and peripheral levels (Christie &amp; Kamen, <xref rid="tjp70462-bib-0012" ref-type="bibr">2010</xref>; Kamen &amp; Knight, <xref rid="tjp70462-bib-0039" ref-type="bibr">2004</xref>; Orssatto et al., <xref rid="tjp70462-bib-0062" ref-type="bibr">2023</xref>; Walker, <xref rid="tjp70462-bib-0073" ref-type="bibr">2021</xref>), the extent to which motor neurons adapt, particularly in older adults, and whether these responses differ from those in younger individuals remain unclear.</p><p>The motor unit, as the final common pathway for force generation, undergoes several ageing‐related morphological and functional alterations (Heckman &amp; Enoka, <xref rid="tjp70462-bib-0031" ref-type="bibr">2004</xref>; Hunter et al., <xref rid="tjp70462-bib-0037" ref-type="bibr">2016</xref>; Liddell &amp; Sherrington, <xref rid="tjp70462-bib-0046" ref-type="bibr">1925</xref>), including reduced excitatory input (McGinley et al., <xref rid="tjp70462-bib-0052" ref-type="bibr">2010</xref>; Opie et al., <xref rid="tjp70462-bib-0058" ref-type="bibr">2020</xref>), diminished intrinsic excitability (Hassan et al., <xref rid="tjp70462-bib-0029" ref-type="bibr">2021</xref>; Orssatto et al., <xref rid="tjp70462-bib-0059" ref-type="bibr">2021a</xref>) and structural degeneration (Hepple &amp; Rice, <xref rid="tjp70462-bib-0033" ref-type="bibr">2016</xref>), leading to motor unit remodelling (Piasecki et al., <xref rid="tjp70462-bib-0064" ref-type="bibr">2016</xref>). These changes impair the ability of motor neurons to sustain high‐frequency discharges. As a result, motor unit discharge rate, a key determinant of force modulation and rapid force generation, is typically reduced in older adults (Connelly et al., <xref rid="tjp70462-bib-0014" ref-type="bibr">1999</xref>; Klass et al., <xref rid="tjp70462-bib-0041" ref-type="bibr">2008</xref>; Orssatto et al., <xref rid="tjp70462-bib-0060" ref-type="bibr">2022</xref>).</p><p>Strength training is effective in counteracting age‐related declines in muscle strength, especially through early neural adaptations (Aagaard et al., <xref rid="tjp70462-bib-0001" ref-type="bibr">2010</xref>; Duchateau et al., <xref rid="tjp70462-bib-0019" ref-type="bibr">2006</xref>; Macaluso &amp; De Vito, <xref rid="tjp70462-bib-0048" ref-type="bibr">2004</xref>; Škarabot et al., <xref rid="tjp70462-bib-0069" ref-type="bibr">2021</xref>). In older adults, indirect evidence includes increased surface EMG amplitude after training (Häkkinen et al., <xref rid="tjp70462-bib-0028" ref-type="bibr">1998</xref>; Moritani &amp; DeVries, <xref rid="tjp70462-bib-0055" ref-type="bibr">1980</xref>), interpreted as enhanced agonist activation. This response is likely to be supported by greater descending drive, increased motor neuron excitability and reduced spinal inhibition, mechanisms that collectively promote greater motor unit recruitment and discharge rates (Lecce et al., <xref rid="tjp70462-bib-0043" ref-type="bibr">2026</xref>; Walker, <xref rid="tjp70462-bib-0073" ref-type="bibr">2021</xref>).</p><p>Despite extensive indirect evidence and emerging motor unit‐level data from interventions combining resistance training with nutritional supplementation (Nishikawa et al., <xref rid="tjp70462-bib-0057" ref-type="bibr">2025</xref>; Watanabe et al., <xref rid="tjp70462-bib-0075" ref-type="bibr">2020</xref>), direct assessments of motor unit adaptations to strength training alone in older adults remain limited. Only two studies have reported increased discharge rates during maximal (but not submaximal) efforts and reduced after‐hyperpolarization duration after short‐term resistance training (Christie &amp; Kamen, <xref rid="tjp70462-bib-0012" ref-type="bibr">2010</xref>; Kamen &amp; Knight, <xref rid="tjp70462-bib-0039" ref-type="bibr">2004</xref>), suggesting preserved motor unit adaptations. More recently, Orssatto et al. (<xref rid="tjp70462-bib-0062" ref-type="bibr">2023</xref>) reported increased estimates of persistent inward currents (PICs) after 6 weeks of training, indicative of enhanced intrinsic motor neuron excitability. Notably, PIC amplitude gains were moderately correlated with peak discharge rate changes, supporting their role in mediating initial strength gains. Collectively, these findings indicate that, although constrained by age‐related changes, motor neurons in older adults retain a meaningful capacity for positive and functionally relevant adaptation.</p><p>In young adults, a 4 week isometric strength training intervention has been shown to increase maximal force output primarily through enhanced discharge rates and reduced recruitment thresholds (Del Vecchio et al., <xref rid="tjp70462-bib-0016" ref-type="bibr">2019</xref>), with these modifications likely to be supported by enhanced PIC amplitude and a greater proportion of shared synaptic input (Lecce et al., <xref rid="tjp70462-bib-0044" ref-type="bibr">2025</xref>). Whether older adults exhibit a comparable pattern of adaptation in identical training conditions remains unknown. Recent evidence suggests that young and older adults might exhibit different neural responses even after a single bout of resistance exercise (Nishikawa et al., <xref rid="tjp70462-bib-0056" ref-type="bibr">2024</xref>), supporting the notion that age‐related differences in acute motor unit behaviour might influence long‐term adaptations. Nonetheless, previous findings of increased discharge rate and PIC estimates following short‐term training interventions (Kamen &amp; Knight, <xref rid="tjp70462-bib-0039" ref-type="bibr">2004</xref>; Orssatto et al., <xref rid="tjp70462-bib-0062" ref-type="bibr">2023</xref>) suggest that core mechanisms of motor neuron adaptations are preserved, at least in part, with ageing. Accordingly, we hypothesized that, despite being slower and less excitable, aged motor neurons would maintain the capacity for qualitatively comparable adaptation patterns to those observed in young adults.</p><p>In this study, we investigated motor unit adaptations underlying strength gains following a 4 week isometric strength training programme in older adults, applying the same experimental model used by Del Vecchio et al. (<xref rid="tjp70462-bib-0016" ref-type="bibr">2019</xref>). The primary aim was to assess changes in motor unit discharge rate, recruitment threshold and intrinsic excitability in response to short‐term training. Furthermore, by replicating the protocol and analytical approach previously used in young adults, we have compared the pattern and magnitude of adaptations across age groups using high‐density surface EMG (HDsEMG) and longitudinal motor unit tracking. We hypothesized that, although motor neurons in older adults are slower and less excitable, they would still retain the capacity to adapt and display a qualitatively similar pattern of changes to that observed in young adults.</p></sec><sec id="tjp70462-sec-0040"><title>Methods</title><sec id="tjp70462-sec-0050"><title>Ethical approval</title><p>The study was approved by the local Ethical Committee of the University Medical Centre Göttingen (protocol no. 27‐6‐19) and adhered to the principles of the <italic toggle="yes">Declaration of Helsinki</italic>, except for registration in a database. All participants provided written informed consent after being fully informed about the experimental procedures and potential risks.</p></sec><sec id="tjp70462-sec-0060"><title>Participants</title><p>A total of 26 healthy, community‐dwelling older adults volunteered to take part in this longitudinal interventional study. General inclusion criteria required participants to: (i) be aged ≥65 years; (ii) be free of any lower‐limb musculoskeletal disorders, cardiovascular and neurological diseases; (iii) not be taking medications that could influence the monoaminergic system (e.g. selective serotonin or noradrenaline reuptake inhibitors, β‐blockers); and (iv) be untrained, with no prior history of strength or resistance training.</p><p>After a familiarization session, participants were randomly assigned to either an intervention group (INT) or a control group (CON) using block randomization to ensure balanced group sizes (Kang et al., <xref rid="tjp70462-bib-0040" ref-type="bibr">2008</xref>). Three participants from the CON group were excluded for not completing the postintervention neuromuscular assessment. Consequently, 23 participants (INT, <italic toggle="yes">n</italic> = 13; CON, <italic toggle="yes">n</italic> = 10) completed all procedures and were included in the final analysis (Table <xref rid="tjp70462-tbl-0001" ref-type="table">1</xref>).</p><table-wrap position="float" id="tjp70462-tbl-0001" content-type="Table" orientation="portrait"><label>Table 1</label><caption><p>Baseline characteristics of participants by group</p></caption><table frame="hsides" rules="groups"><col align="left" span="1"/><col align="center" span="1"/><col align="center" span="1"/><col align="center" span="1"/><thead><tr><th align="left" rowspan="1" colspan="1"/><th colspan="2" style="border-bottom:solid 1px #000000" align="center" rowspan="1">Group</th><th align="center" rowspan="1" colspan="1"/></tr><tr style="border-bottom:solid 1px #000000"><th align="left" rowspan="1" colspan="1">Variable</th><th align="center" rowspan="1" colspan="1">INT</th><th align="center" rowspan="1" colspan="1">CON</th><th align="center" rowspan="1" colspan="1">
+<italic toggle="yes">P‐</italic>value</th></tr></thead><tbody><tr><td align="left" rowspan="1" colspan="1">Age (years)</td><td align="center" rowspan="1" colspan="1">71.2 ± 4.7</td><td align="center" rowspan="1" colspan="1">69.0 ± 2.7</td><td align="center" rowspan="1" colspan="1">0.209</td></tr><tr><td align="left" rowspan="1" colspan="1">Female sex [<italic toggle="yes">n</italic> (% of sample)]</td><td align="center" rowspan="1" colspan="1">4 (30.8)</td><td align="center" rowspan="1" colspan="1">4 (40.0)</td><td align="center" rowspan="1" colspan="1"/></tr><tr><td align="left" rowspan="1" colspan="1">Height (m)</td><td align="center" rowspan="1" colspan="1">1.76 ± 0.07</td><td align="center" rowspan="1" colspan="1">1.73 ± 0.09</td><td align="center" rowspan="1" colspan="1">0.297</td></tr><tr><td align="left" rowspan="1" colspan="1">Body mass (kg)</td><td align="center" rowspan="1" colspan="1">84.3 ± 14.9</td><td align="center" rowspan="1" colspan="1">85.7 ± 27.7</td><td align="center" rowspan="1" colspan="1">0.878</td></tr><tr><td align="left" rowspan="1" colspan="1">MVF (N)</td><td align="center" rowspan="1" colspan="1">258.4 ± 75.4</td><td align="center" rowspan="1" colspan="1">280.1 ± 94.4</td><td align="center" rowspan="1" colspan="1">0.548</td></tr></tbody></table><table-wrap-foot><fn id="tjp70462-tbl1-note-0001"><p>Statistical comparisons were performed with Student's unpaired <italic toggle="yes">t</italic> tests. Data are presented as the mean ± SD. INT, <italic toggle="yes">n</italic> = 13; CON, <italic toggle="yes">n</italic> = 10. Abbreviations: CON, control group; INT, intervention group; MVF, maximal voluntary force.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap></sec><sec id="tjp70462-sec-0070"><title>Overview</title><p>We replicated the experimental protocol and isometric strength training intervention adopted in previous studies (Casolo et al., <xref rid="tjp70462-bib-0011" ref-type="bibr">2020</xref>; Del Vecchio et al., <xref rid="tjp70462-bib-0016" ref-type="bibr">2019</xref>), which addressed the same research question, that is the quantification of changes in discharge characteristics of the same motor units in the tibialis anterior muscle in a cohort of healthy young adults. Accordingly, procedures are only briefly summarized here.</p><p>Participants initially completed a familiarization session (visit 1), during which they were habituated to the experimental set‐up and practised performing maximal, rapid and submaximal trapezoidal isometric contractions with the ankle dorsiflexors. Approximately 1 week later, they underwent the baseline neuromuscular assessment (visit 2), which involved simultaneous recording of ankle dorsiflexion force via isometric dynamometry and HDsEMG from the dominant tibialis anterior muscle during both maximal voluntary contractions and submaximal force‐matching trapezoidal contractions.</p><p>Following the baseline assessment, participants in the INT group undertook a 4 week supervised unilateral isometric strength training programme for the ankle dorsiflexors, consisting of a combination of rapid and sustained contractions. In contrast, participants in the CON group were instructed to maintain their habitual levels of physical activity and dietary habits. Approximately 1 week after the completion of the intervention, all participants underwent the postintervention neuromuscular assessment (visit 3).</p></sec><sec id="tjp70462-sec-0080"><title>Experimental procedures</title><sec id="tjp70462-sec-0090"><title>Baseline and postintervention neuromuscular assessment</title><p>Neuromuscular assessments were conducted using a rigid ankle ergometer (v.1.0; OT Bioelettronica, Turin, Italy) equipped with a load cell and secured to a massage table (Fig. <xref rid="tjp70462-fig-0001" ref-type="fig">1<italic toggle="yes">A</italic>
+</xref>).</p><fig position="float" fig-type="Figure" id="tjp70462-fig-0001" orientation="portrait"><label>Figure 1</label><caption><title>Overview of the experimental set‐up and procedures for data collection and analysis</title><p>
+<italic toggle="yes">A</italic>, high‐density surface EMG signals were recorded from the tibialis anterior muscle during isometric trapezoidal contractions at 35%, 50% and 70% of maximal voluntary force (MVF). <italic toggle="yes">B</italic> and <italic toggle="yes">C</italic>, the recorded signals were decomposed using a blind‐source separation algorithm to identify the discharge timings of individual motor units (<italic toggle="yes">B</italic>), which were then tracked longitudinally across the two recording sessions separated by a 4 week period (<italic toggle="yes">C</italic>). <italic toggle="yes">D</italic> shows a complete overview of the distribution and number of tracked motor units for both groups and contraction levels. In this representative participant from the intervention group, 26 (blue) and 25 (orange) motor units were identified during baseline and postintervention recordings, respectively, for a 35% MVF contraction (black line shows the force trajectory). Among these, nine motor units were tracked successfully across sessions. <italic toggle="yes">E</italic>, multichannel action potential profiles from baseline (blue) and after‐training (orange) for four representative motor units (MU #1, #3, #7 and #9) are shown to confirm the similarity of their motor unit action potential shapes. The high two‐dimensional cross‐correlation coefficients (CC) are reported for each of the four tracked motor units. <italic toggle="yes">F</italic> shows the instantaneous discharge rates for the same four motor units during the trapezoidal contraction. Note that for each motor unit, the instantaneous discharge rate was higher after the strength training intervention.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="TJP-604-2796-g005.jpg"/></fig><p>Following a standardized and progressive warm‐up, consisting of eight isometric ankle dorsiflexion efforts at self‐perceived intensities of maximal voluntary force (MVF; 4 × 50%, 3 × 70% and 1 × 90%, with 15–30 s rest), participants performed three or four maximal voluntary isometric contractions with ankle dorsiflexors of their dominant leg. During each contraction, participants were instructed to ‘pull as hard as possible’ for 3–5 s while receiving strong verbal encouragement to surpass the peak force recorded in the previous trial, which was displayed on a monitor with a horizontal cursor. Each contraction was separated by ∼30 s of rest.</p><p>The highest instantaneous force (i.e. the peak force reached at any single time point) achieved across the three or four maximal efforts was defined as the participant's maximal voluntary isometric force (MVF) of the ankle dorsiflexors and was used as the reference value to determine the submaximal force targets for the trapezoidal contractions. To ensure accurate MVF assessment, participants practised these maximal tasks during the familiarization session under the supervision of an experienced investigator.</p><p>Approximately 5 min after completing the maximal isometric contractions, participants performed six trapezoidal contractions: two trials each at 35%, 50% and 70% of MVF, in randomized order. Each contraction consisted of a linear ascending phase from rest to the target force at a constant rate of 5% MVF/s, a 10 s plateau at the target force, and a linear descending phase back to the rest at the same rate. Trials were separated by 3–5 min of rest. Participants were instructed to match a visual force template displayed on a monitor ‘as precisely as possible’, with real‐time visual feedback provided by overlying the live force output onto the reference template.</p><p>Participants were instructed to refrain from engaging in strenuous physical activity for 48 h and to avoid caffeine consumption for 24 h prior to each neuromuscular assessment session.</p></sec><sec id="tjp70462-sec-0100"><title>Training protocol</title><p>The training protocol used in the present study was identical to that used in our previous work (Del Vecchio et al., <xref rid="tjp70462-bib-0016" ref-type="bibr">2019</xref>) and consisted of a combination of rapid and sustained isometric contractions. This unilateral strength training regimen has previously been shown to induce significant neural adaptations at the motor unit level in healthy young adults. The intervention consisted of 12 supervised sessions conducted over 4 weeks (three sessions per week). Each session lasted ∼30 min, with ≥48 h between sessions. All training sessions were performed in a controlled laboratory environment using the same ankle ergometer (v.1.0; OT Bioelettronica, Turin, Italy) used for the neuromuscular assessments.</p><p>Following a standardized warm‐up (2 × 50%, 2 × 70% and 1 × 90% of perceived MVF), participants performed three maximal isometric contractions and a series of rapid and sustained isometric ankle dorsiflexion contractions with their dominant foot. For the rapid contractions (four sets of 10 repetitions; 1 min rest between sets and 5 s between repetitions), participants were instructed to contract ‘as fast and as hard as possible’ to exceed a horizontal cursor set at 75% of MVF within ∼1 s. Contractions were to be performed without any countermovement or pre‐tension, and participants were instructed to release the force immediately after reaching the target. For the sustained contractions (three sets of 10 repetitions; 2 min of rest between sets and 2 s between repetitions), participants were asked to match ‘as precisely as possible’ a visual force template. The template featured a linear increase in force at a constant rate (37.5% MVF/s) up to a target of 75% MVF, which participants were required to maintain for 3 s before returning to rest.</p></sec><sec id="tjp70462-sec-0110"><title>Force recording</title><p>During neuromuscular assessments and training sessions, participants were comfortably seated on a massage table, with their back against the seatback (Fig. <xref rid="tjp70462-fig-0001" ref-type="fig">1<italic toggle="yes">A</italic>
+</xref>). The hip was positioned at ∼120° of flexion (180° = anatomical position), the dominant knee was fully extended (∼180°), and the ankle was positioned at ∼100° of plantar flexion (90° = perpendicular to the tibia). Interindividual differences in lower‐limb length were accommodated by adjusting the position of the dynamometer on the table using two adjustable straps during the familiarization session; the same configuration was replicated precisely during all subsequent testing and training sessions. To minimize compensatory movements, the ankle and foot of the dominant leg were securely fastened to the adjustable footplate of the dynamometer using Velcro straps, while the contralateral (non‐dominant) leg rested passively on the table.</p><p>Ankle dorsiflexion force was measured using a calibrated load cell (CCT Transducer S.A.S., Turin, Italy) connected in series and positioned perpendicularly to an adjustable footplate. The analog force signal was amplified (×500), sampled at 2000 Hz, and digitized via an external 16‐bit analog‐to‐digital converter (Sessantaquattro, OT Bioelettronica, Turin, Italy). Force and HDsEMG signals were acquired and synchronized at the source using OT Biolab software (v.2.0.6352.0, OT Bioelettronica, Turin, Italy). Real‐time visual feedback of the force trace and target templates was displayed through the same software.</p></sec><sec id="tjp70462-sec-0120"><title>HDsEMG recording</title><p>Myoelectrical activity from the tibialis anterior muscle was recorded during submaximal isometric contractions using a high‐density adhesive grid consisting of 64 equally spaced electrodes arranged in 13 rows and five columns, with an interelectrode distance of 8 mm (GR08MM1305, OT Bioelettronica, Turin, Italy). Grid placement and orientation followed the procedures established in previous studies (Casolo et al., <xref rid="tjp70462-bib-0011" ref-type="bibr">2020</xref>; Del Vecchio et al., <xref rid="tjp70462-bib-0016" ref-type="bibr">2019</xref>).</p><p>Briefly, the muscle belly was identified through palpation, and its borders were outlined with a surgical marker. A 16‐electrode dry array was then used to locate the main innervation zone, which is the point along the array where the propagation direction of action potentials reversed both proximally and distally. The identified skin area overlying the muscle was then shaved, lightly abraded, and cleansed with alcohol wipes. The electrode grid was positioned while the participant's dominant leg was extended (∼180°) and the ankle held at ∼100° of plantar flexion, replicating the testing configuration (Fig. <xref rid="tjp70462-fig-0001" ref-type="fig">1<italic toggle="yes">A</italic>
+</xref>). The grid was attached to the skin using a disposable bi‐adhesive foam layer, and conductive paste (SpesMedica, Battipaglia, Italy) was applied to the cavities near the electrodes to optimize skin‐to‐electrode contact. Reference electrodes were placed on the ulnar styloid process (main ground) and the medial malleolus (grid reference) of the dominant side. To ensure consistent electrode placement across assessments, the grid profile was marked on the skin with a surgical marker after each recording and training session. HDsEMG signals were recorded in monopolar configuration, band‐pass filtered (10–500 Hz, 3 dB bandwidth), and digitized at a sampling rate of 2000 Hz using a 16‐bit analog‐to‐digital converter (Sessantaquattro, OT Bioelettronica, Turin, Italy).</p></sec></sec><sec id="tjp70462-sec-0130"><title>Data analysis</title><sec id="tjp70462-sec-0140"><title>Force signal</title><p>The raw voltage signal from the load cell was converted to force (in newtons) and corrected for gravitational offset. The signal was then low‐pass filtered using a fourth‐order, zero‐lag Butterworth filter with a cut‐off frequency of 15 Hz.</p><p>For each participant, only one of the two isometric trapezoidal contractions per force target (35%, 50% and 70% of MVF) was retained for analysis. The selected trial was the one showing the smallest deviation from the prescribed visual force template (Casolo et al., <xref rid="tjp70462-bib-0010a" ref-type="bibr">2021</xref>; Nuccio et al., <xref rid="tjp70462-bib-0057a" ref-type="bibr">2020</xref>).</p></sec><sec id="tjp70462-sec-0150"><title>HDsEMG signal</title><p>Monopolar HDsEMG signals recorded during trapezoidal contractions were first band‐pass filtered using a second‐order, zero‐lag Butterworth filter (cut‐off frequencies of 20–500 Hz). The filtered signals were then decomposed into individual motor unit spike trains using the validated Convolution Kernel Compensation algorithm implemented in the software DEMUSE (v.5.01; The University of Maribor, Slovenia) (Holobar &amp; Zazula, <xref rid="tjp70462-bib-0035" ref-type="bibr">2007</xref>; Holobar et al., <xref rid="tjp70462-bib-0034" ref-type="bibr">2014</xref>). The automatically identified spike trains were converted into binary format and subsequently inspected and manually edited by an experienced investigator to correct false positives and negatives, following established guidelines (Del Vecchio et al., <xref rid="tjp70462-bib-0018" ref-type="bibr">2020</xref>; Hug et al., <xref rid="tjp70462-bib-0036" ref-type="bibr">2021</xref>). Only motor units exhibiting a reliable discharge pattern were retained for further analysis. Inclusion criteria were a pulse‐to‐noise ratio of &gt;28 dB (indicating sensitivity of motor unit firing identification of &gt;85%), the absence of physiologically implausible interspike intervals (e.g. &lt;20 ms or &gt;250 ms), and a consistent discharge pattern without excessive irregularity (e.g. coefficient of variation of interspike intervals of &gt;0.4) (Holobar et al., <xref rid="tjp70462-bib-0034" ref-type="bibr">2014</xref>; Škarabot et al., <xref rid="tjp70462-bib-0068" ref-type="bibr">2023</xref>). Potential duplicates, defined as motor units sharing ≥30% of identical discharge instants, were identified using a temporal matching window of 0.5 ms. In such cases, the motor unit with the lower pulse‐to‐noise ratio was discarded from the dataset. An example of a force signal and the corresponding spike trains of all identified motor units during a representative contraction at 35% MVF are shown in Fig. <xref rid="tjp70462-fig-0001" ref-type="fig">1<italic toggle="yes">B</italic>
+</xref>, while Fig. <xref rid="tjp70462-fig-0001" ref-type="fig">1<italic toggle="yes">C</italic>
+</xref> illustrates the activity of the pool of motor units successfully tracked across sessions.</p><p>For each identified motor unit, basic properties were extracted. Specifically, normalized recruitment and derecruitment thresholds, in addition to average discharge rates across the full contraction and its three distinct phases, were calculated. Recruitment and derecruitment thresholds corresponded to the percentage of force (% MVF) at which the first and last motor unit action potentials were discharged, respectively. Discharge rate was computed across the entire contraction and separately for: (i) the recruitment phase (average of the first four discharges); (ii) the plateau phase (average of the first 10 discharges); and (iii) the derecruitment phase (average of the last four discharges) (Angius et al., <xref rid="tjp70462-bib-0003" ref-type="bibr">2024</xref>; Lecce et al., <xref rid="tjp70462-bib-0045" ref-type="bibr">2026</xref>).</p><p>To characterize the overall motor unit population, data from contractions at each force level (35%, 50% and 70% of MVF) were combined for each participant after duplicate removal (Del Vecchio et al., <xref rid="tjp70462-bib-0018" ref-type="bibr">2020</xref>; Martinez‐Valdes et al., <xref rid="tjp70462-bib-0051" ref-type="bibr">2017</xref>). To ensure reliable comparison between motor units across baseline and postintervention assessment, we used a validated tracking approach based on two‐dimensional cross‐correlation of motor unit action potential waveforms (Martinez‐Valdes et al., <xref rid="tjp70462-bib-0051" ref-type="bibr">2017</xref>). This procedure is known to be robust to both physiological and pharmacological manipulations of motor unit discharge characteristics (Del Vecchio &amp; Farina, <xref rid="tjp70462-bib-0017" ref-type="bibr">2020</xref>; Goodlich et al., <xref rid="tjp70462-bib-0024" ref-type="bibr">2023</xref>), ensuring reliable assessment of training‐induced changes. Motor unit action potential waveforms were extracted by spike‐triggered averaging over a 25 ms time window. A correlation threshold of ≥0.70 was applied to account for slight discrepancies in grid positioning between sessions (Borzuola et al., <xref rid="tjp70462-bib-0010" ref-type="bibr">2023</xref>; Del Vecchio et al., <xref rid="tjp70462-bib-0016" ref-type="bibr">2019</xref>; Orssatto et al., <xref rid="tjp70462-bib-0062" ref-type="bibr">2023</xref>). All motor unit matches were verified visually by an expert operator, as illustrated in Fig. <xref rid="tjp70462-fig-0001" ref-type="fig">1<italic toggle="yes"> E</italic> and <italic toggle="yes">F</italic>
+</xref>, which show four representative motor units and their corresponding instantaneous discharge rates. The distribution and number of tracked motor units as a function of recruitment threshold, contraction level and group are shown in Fig. <xref rid="tjp70462-fig-0001" ref-type="fig">1<italic toggle="yes">D</italic>
+</xref>.</p></sec><sec id="tjp70462-sec-0160"><title>Estimation of PICs</title><p>To estimate the contribution of PICs to motor neuron firing, we analysed motor unit onset–offset hysteresis using delta frequency (Δ<italic toggle="yes">F</italic>) calculation, based on the paired motor unit technique (Gorassini et al., <xref rid="tjp70462-bib-0026" ref-type="bibr">1998</xref>, <xref rid="tjp70462-bib-0025" ref-type="bibr">2002</xref>). Δ<italic toggle="yes">F</italic> is defined as the difference in the smoothed discharge rate of a lower‐threshold control unit between the recruitment and derecruitment of a higher‐threshold test unit (Gorassini et al., <xref rid="tjp70462-bib-0025" ref-type="bibr">2002</xref>). In the present study, Δ<italic toggle="yes">F</italic> values are presented as unit‐wise averages for all suitable test–control unit pairs, reducing the Δ<italic toggle="yes">F</italic> values to one per test unit (Hassan et al., <xref rid="tjp70462-bib-0029" ref-type="bibr">2021</xref>). When a test unit was paired with multiple control units, the resulting Δ<italic toggle="yes">F</italic> values were averaged (Hassan et al., <xref rid="tjp70462-bib-0029" ref-type="bibr">2021</xref>; Mesquita et al., <xref rid="tjp70462-bib-0054" ref-type="bibr">2022</xref>; Trajano et al., <xref rid="tjp70462-bib-0072" ref-type="bibr">2020</xref>). Inclusion criteria for valid motor unit pairs were as follows: (i) the test units was recruited ≥1 s after the control unit to ensure full PIC activation; (ii) test and control units had rate–rate correlations of <italic toggle="yes">r</italic>
+<sup>2</sup> &gt; 0.7 to confirm common synaptic input; and (iii) the control unit showed discharge rate modulation of ≥0.5 pulses per second (pps) while the test unit was active (Jenz et al., <xref rid="tjp70462-bib-0038" ref-type="bibr">2023</xref>). Consistent with previous studies using trapezoidal or triangular contractions of ≤40% of MVF for Δ<italic toggle="yes">F</italic> estimation (Afsharipour et al., <xref rid="tjp70462-bib-0002" ref-type="bibr">2020</xref>; Orssatto et al., <xref rid="tjp70462-bib-0061" ref-type="bibr">2021b</xref>; Wilson et al., <xref rid="tjp70462-bib-0076" ref-type="bibr">2015</xref>), Δ<italic toggle="yes">F</italic> values were only calculated for contractions at 35% MVF. Indeed, accurate Δ<italic toggle="yes">F</italic> calculation relies on low‐threshold motor units, which are difficult to decompose at higher contraction intensities owing to interference from larger, higher‐threshold units in the HDsEMG signal. Accordingly, Δ<italic toggle="yes">F</italic> analyses at 50% and 70% MVF were not performed in the present investigation.</p></sec></sec><sec id="tjp70462-sec-0170"><title>Statistical analysis</title><p>Normality of the distribution of data was tested with the Shapiro–Wilk test. When required, the assumption of sphericity was tested using Mauchly's test; if violated, the Greenhouse–Geisser correction was applied.</p><p>Baseline between‐group differences in anthropometric characteristics, ankle dorsiflexor MVF and the average number of identified motor units (both unmatched and tracked) were assessed using multiple Student's unpaired <italic toggle="yes">t</italic> tests.</p><p>The effects of the strength training intervention on MVF were assessed using a two‐way repeated‐measures ANOVA (time: before <italic toggle="yes">vs</italic>. after; group: intervention <italic toggle="yes">vs</italic>. control). When a significant time × group effect was observed, Bonferroni‐corrected <italic toggle="yes">post hoc</italic> comparisons were performed.</p><p>Separate generalized linear mixed models (GLMM) were used to evaluate the effects of the intervention on motor unit properties (recruitment/derecruitment threshold, average discharge rate and discharge rate at recruitment, at plateau and at derecruitment), with group and time as fixed effects and with participant as a random intercept [e.g. average discharge rate ∼ group × time + (1|participant ID)]. Significant main effects were followed by Bonferroni‐corrected <italic toggle="yes">post hoc</italic> comparisons. Linear mixed models (LMMs) were used to assess changes in Δ<italic toggle="yes">F</italic>. In the presence of a significant group × time interaction, <italic toggle="yes">post hoc</italic> comparisons were conducted to examine before–after differences within each group with Bonferroni correction applied.</p><p>Repeated‐measures correlation was used to assess within‐participant associations between changes in motor unit discharge rate and changes in MVF across the intervention. The same approach was used to test the association between changes in Δ<italic toggle="yes">F</italic> values and changes in motor unit discharge rate. A fixed slope was estimated to derive a single correlation coefficient across participants. Correlation magnitudes were interpreted as follows: <italic toggle="yes">r</italic> &lt; 0.1 = trivial, 0.1–0.3 = small, 0.3–0.5 = moderate, 0.5–0.7 = large, 0.7–0.9 = very large, and &gt; 0.9 = nearly perfect (Orssatto et al., <xref rid="tjp70462-bib-0062" ref-type="bibr">2023</xref>).</p><p>To compare the magnitude of training‐induced adaptations between young and older adults, we compared the present dataset of older adults with data from a previous study in young adults who underwent an identical experimental protocol (Del Vecchio et al., <xref rid="tjp70462-bib-0016" ref-type="bibr">2019</xref>). Separate GLMMs were fitted for each motor unit property, with fixed effects for age (young <italic toggle="yes">vs</italic>. older adults), time (before <italic toggle="yes">vs</italic>. after training) and their interaction, and with a random intercept for participant to account for repeated measures. When a significant age × time interaction was detected, Bonferroni‐adjusted <italic toggle="yes">post hoc</italic> comparisons were conducted to compare within‐group and between‐group differences.</p><p>The GLMMs and LMMs were performed using the GAMLj module in Jamovi (v.2.3.28; The Jamovi Project, Sydney, NSW, Australia). Repeated‐measures correlation was computed using the <italic toggle="yes">rmcorr</italic> package (Bakdash &amp; Marusich, <xref rid="tjp70462-bib-0004" ref-type="bibr">2017</xref>). Statistical significance was set at α &lt; 0.05. Results are reported as estimated marginal means (EMM) and 95% confidence intervals (CI) for linear models and as the mean ± SD for ANOVA‐based analyses. Partial eta squared (η<sup>2</sup>
+<sub>p</sub>) and Cohen's <italic toggle="yes">d</italic> effect sizes are reported to quantify the magnitude of main and interaction effects.</p></sec></sec><sec id="tjp70462-sec-0180"><title>Results</title><sec id="tjp70462-sec-0190"><title>Baseline assessment of older adults</title><p>At baseline, no significant differences were observed between the control and intervention groups in age, height, body mass and MVF of the ankle dorsiflexors (Table <xref rid="tjp70462-tbl-0001" ref-type="table">1</xref>). Likewise, baseline comparisons revealed no significant between‐group differences in any motor unit property, including normalized recruitment and derecruitment thresholds, average discharge rate and discharge rate at the recruitment, plateau and derecruitment phases (all <italic toggle="yes">P</italic> &gt; 0.05).</p></sec><sec id="tjp70462-sec-0200"><title>Motor unit decomposition and tracking</title><p>A total of 2672 unique motor units were identified from the tibialis anterior muscle across all participants, contraction intensities and experimental conditions (INT, <italic toggle="yes">n</italic> = 1605; CON, <italic toggle="yes">n</italic> = 1067). The average number of identified motor units per participant and contraction did not differ between the groups, either pre‐intervention (INT, 20.7 ± 6.7; CON, 17.5 ± 7.1; <italic toggle="yes">P</italic> = 0.058) or postintervention (INT, 20.4 ± 5.3; CON, 18.1 ± 6.9; <italic toggle="yes">P</italic> = 0.109).</p><p>A total of 403 motor units (15.1% of the total pool) were tracked successfully between the baseline and postintervention session (INT, <italic toggle="yes">n</italic> = 242; CON, <italic toggle="yes">n</italic> = 161). The average number of tracked motor units per participant and contraction was comparable between groups (INT, 6.4 ± 2.4; CON, 5.4 ± 2.7; <italic toggle="yes">P</italic> = 0.111). The average pulse‐to‐noise ratio of the tracked motor units was 38.7 ± 5.7 dB for the INT group and 37.5 ± 5.8 dB for the CON group. The average two‐dimensional cross‐correlation coefficient for the tracked motor units was 0.78 ± 0.05 for the INT group and 0.76 ± 0.05 for the CON group, supporting the reliability of the tracking procedure.</p></sec><sec id="tjp70462-sec-0210"><title>Strength training‐associated changes in muscle strength and motor unit properties</title><p>After 4 weeks of strength training, the MVF of the ankle dorsiflexors increased significantly in the INT group (group × time interaction, <italic toggle="yes">F</italic>
+<sub>1,21</sub> = 9.93, <italic toggle="yes">P</italic> = 0.005, η<sup>2</sup>
+<sub>p</sub> = 0.32), from 258.4 ± 75.4 to 305.3 ± 91.6 N (+17.6 ± 12.1%, <italic toggle="yes">P</italic> = 0.003, <italic toggle="yes">d</italic> = 1.00). In contrast, no significant changes were observed in the CON group (pre‐intervention, 280.1 ± 94.4 N; postintervention, 264.7 ± 90.6 N; <italic toggle="yes">P</italic> = 0.626, <italic toggle="yes">d</italic> = −0.33).</p><p>Scatterplots of average motor unit discharge rates before and after training revealed a clear upward shift in the INT group, with most data points falling above the line of identity (Fig. <xref rid="tjp70462-fig-0002" ref-type="fig">2<italic toggle="yes">A</italic>
+</xref>), indicating increased discharge rates in the same units tracked over time. In contrast, the CON group showed a more balanced distribution around the line of identity, suggesting no systematic change (Fig. <xref rid="tjp70462-fig-0002" ref-type="fig">2<italic toggle="yes">B</italic>
+</xref>). This visual trend was confirmed by GLMM, which revealed a significant group × time interaction [χ<sup>2</sup>(1) = 11.24, <italic toggle="yes">P</italic> &lt; 0.001, η<sup>2</sup>
+<sub>p</sub> = 0.36], indicating a differential training effect between groups. <italic toggle="yes">Post hoc</italic> comparisons showed a significant increase in discharge rate in the INT group following training, with EMM increasing from 12.8 pps [95% CI: 11.8, 13.9] pre‐intervention to 14.1 pps [13.1, 15.2] postintervention (ΔEMM = +1.28 pps, <italic toggle="yes">P</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 0.68), corresponding to a <bold>∼</bold>10.2% increase relative to baseline. In contrast, no significant change was observed in the CON group (pre‐intervention, 13.7 pps [12.5, 14.8], postintervention, 13.6 pps [12.5, 14.8]; ΔEMM = −0.1 pps; <italic toggle="yes">P</italic> = 1.000, <italic toggle="yes">d</italic> = −0.05).</p><fig position="float" fig-type="Figure" id="tjp70462-fig-0002" orientation="portrait"><label>Figure 2</label><caption><title>Changes in motor unit properties following the strength training intervention</title><p>
+<italic toggle="yes">A</italic> and <italic toggle="yes">B</italic>, scatter plots show discharge rates of the same motor units tracked from before to after the 4 week intervention for each participant in the intervention group (<italic toggle="yes">A</italic>, asterisks; <italic toggle="yes">n</italic> = 242) and control group (<italic toggle="yes">B</italic>, crosses; <italic toggle="yes">n</italic> = 161). Each participant is represented by a unique colour across all panels. Average discharge rate values were computed over the entire trapezoidal contraction, and include all three contraction intensities [35%, 50% and 70% of maximal voluntary force (MVF)]. These values are shown before (<italic toggle="yes">x</italic>‐axis) and after (<italic toggle="yes">y</italic>‐axis) the intervention or control conditions. The red line indicates the line of identity. <italic toggle="yes">C–E</italic>, swarm plots show average motor unit discharge rates at recruitment (<italic toggle="yes">C</italic>), during the plateau (<italic toggle="yes">D</italic>) and at derecruitment (<italic toggle="yes">E</italic>) of the trapezoidal contractions for both groups before and after the intervention. Individual motor units are represented by asterisks (intervention) or crosses (controls) and clustered by participants. Data are collapsed across all contraction levels. In the intervention group, average motor unit discharge rate increased significantly both at recruitment (<italic toggle="yes">P</italic> = 0.031) and during the plateau (<italic toggle="yes">P</italic> &lt; 0.001). <italic toggle="yes">F</italic> shows participant‐specific changes (before <italic toggle="yes">vs</italic>. after) in average discharge rate at recruitment and during the plateau (<italic toggle="yes">n</italic> = 13). <italic toggle="yes">G</italic> and <italic toggle="yes">H</italic> show normalized (% MVF) recruitment and derecruitment thresholds for both groups before and after the intervention. Summary data in <italic toggle="yes">C–E</italic>, <italic toggle="yes">G</italic> and <italic toggle="yes">H</italic> are presented as estimated marginal means ± 95% confidence intervals; connection lines indicate the direction of change.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="TJP-604-2796-g003.jpg"/></fig><p>When examining specific phases of the contraction, significant group × time interactions were found for discharge rate at recruitment [χ<sup>2</sup>(1) = 4.97, <italic toggle="yes">P</italic> = 0.026, η<sup>2</sup>
+<sub>p</sub> = 0.18; Fig. <xref rid="tjp70462-fig-0002" ref-type="fig">2<italic toggle="yes">C</italic>
+</xref>], during the plateau phase [χ<sup>2</sup>(1) = 12.13, <italic toggle="yes">P</italic> &lt; 0.001, η<sup>2</sup>
+<sub>p</sub> = 0.36; Fig. <xref rid="tjp70462-fig-0002" ref-type="fig">2<italic toggle="yes">D</italic>
+</xref>] and at derecruitment [χ<sup>2</sup>(1) = 6.10, <italic toggle="yes">P</italic> = 0.014, η<sup>2</sup>
+<sub>p</sub> = 0.22; Fig. <xref rid="tjp70462-fig-0002" ref-type="fig">2<italic toggle="yes">E</italic>
+</xref>]. In the INT group, discharge rate at recruitment increased from 7.73 pps [95% CI: 6.81, 8.65] pre‐intervention to 8.36 pps [7.43, 9.29] postintervention (ΔEMM = +0.63 pps; <italic toggle="yes">P</italic> = 0.031, <italic toggle="yes">d</italic> = 0.37; ∼8.2% increase relative to baseline). During the plateau phase, discharge rate increased from 14.2 pps [13.0, 15.4] to 15.8 pps [14.5, 17.0] (ΔEMM = +1.6 pps; <italic toggle="yes">P</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 0.70; ∼11.3% increase relative to baseline). In contrast, no significant changes were observed in the CON group. At recruitment, discharge rate slightly decreased from 7.90 [6.85, 8.96] to 7.80 pps [6.74, 8.87] (ΔEMM = −0.10 pps; <italic toggle="yes">P</italic> = 1.000, <italic toggle="yes">d</italic> = −0.06), and during the plateau phase, from 15.2 [13.8, 16.6] to 15.1 pps [13.7, 16.4] (ΔEMM = −0.10 pps; <italic toggle="yes">P</italic> = 1.000, <italic toggle="yes">d</italic> = −0.04). At derecruitment, <italic toggle="yes">post hoc</italic> comparisons revealed no significant within‐group changes (all <italic toggle="yes">P</italic> ≥ 0.107), and discharge rate remained unchanged between time points (INT: 5.83 [5.30, 6.36] <italic toggle="yes">vs</italic>. 6.17 pps [5.64, 6.71], <italic toggle="yes">d</italic> = 0.35; and CON: 6.04 [5.42, 6.66] <italic toggle="yes">vs</italic>. 5.86 pps [5.23, 6.48], <italic toggle="yes">d</italic> = −0.18).</p><p>As illustrated in Fig. <xref rid="tjp70462-fig-0002" ref-type="fig">2<italic toggle="yes">F</italic>
+</xref>, increases in motor unit discharge were observed across participants in the INT group following training, with 12 of 13 individuals showing an increase at recruitment and 10 of 13 during the plateau phase. Each asterisk represents a motor unit, colour‐coded by participant, and black circles indicate the participant‐level mean values. This individual‐level pattern confirms the upward shift observed at the group level. To visualize whether these adaptations were consistent across the motor unit pool, changes in discharge rate were plotted against recruitment thresholds at 35%, 50% and 70% MVF (Fig. <xref rid="tjp70462-fig-0003" ref-type="fig">3<italic toggle="yes">A–C</italic>
+</xref>). These plots, presented for illustrative purposes, show that increases in discharge rate occurred across the full range of recruitment thresholds, indicating that the training effect was not confined to early‐ or late‐recruited motor units.</p><fig position="float" fig-type="Figure" id="tjp70462-fig-0003" orientation="portrait"><label>Figure 3</label><caption><title>Changes in motor unit discharge rate as a function of recruitment threshold</title><p>Differences (Δ) in discharge rate of the tracked motor units before and after the training intervention are shown for each phase of the trapezoidal contractions, plotted relative to the normalized recruitment threshold after training [% maximal voluntary force (MVF)]. <italic toggle="yes">A</italic> shows the change in average discharge rate over the entire contraction; <italic toggle="yes">B</italic> shows the change at recruitment; and <italic toggle="yes">C</italic> shows the change during the plateau phase. Each data point represents a single motor unit identified at the corresponding force level (pink, 35% MVF; purple, 50% MVF; blue, 70% MVF). Data are presented for visualization purposes only, to illustrate the distribution of training‐induced changes across the motor unit pool.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="TJP-604-2796-g002.jpg"/></fig><p>In contrast to discharge rate parameters, normalized motor unit recruitment [χ<sup>2</sup>(1) = 0.87, <italic toggle="yes">P</italic> = 0.351, η<sup>2</sup>
+<sub>p</sub> = 0.04] and derecruitment [χ<sup>2</sup>(1) = 0.13, <italic toggle="yes">P</italic> = 0.721, η<sup>2</sup>
+<sub>p</sub> = 0.006] thresholds were not significantly affected by the strength training intervention (Fig. <xref rid="tjp70462-fig-0002" ref-type="fig">2<italic toggle="yes">G</italic> and <italic toggle="yes">H</italic>
+</xref>). Both recruitment (INT: 21.2% MVF [17.3, 25.1] <italic toggle="yes">vs</italic>. 18.9% MVF [15.3, 22.6], <italic toggle="yes">d</italic> = −0.32; and CON: 16.3% MVF [12.4, 20.3] <italic toggle="yes">vs</italic>. 16.4% MVF [12.4, 20.4], <italic toggle="yes">d</italic> = 0.02) and derecruitment thresholds (INT: 16.7% MVF [14.0, 19.4] <italic toggle="yes">vs</italic>. 18.3% MVF [15.5, 21.2], <italic toggle="yes">d</italic> = 0.32; and CON: 16.0% MVF [12.8, 19.2] <italic toggle="yes">vs</italic>. 16.9% MVF [13.7, 20.2], <italic toggle="yes">d</italic> = 0.17) remained stable over time, indicating that a similar number of motor units was recruited to produce equivalent (normalized) submaximal forces before and after training.</p><p>To investigate whether the training‐related increases in motor unit discharge rate contributed to strength gains, repeated‐measures correlations were conducted between changes in ΔMVF and changes in discharge rate at both the recruitment and plateau phases (Fig. <xref rid="tjp70462-fig-0004" ref-type="fig">4<italic toggle="yes">A</italic> and <italic toggle="yes">B</italic>
+</xref>). Results revealed large and statistically significant associations, indicating a positive within‐participant relationship between changes in discharge rate and changes in muscle strength. Specifically, increases in discharge rate at recruitment were positively associated with ΔMVF (<italic toggle="yes">r</italic>
+<sub>rm</sub> = 0.57, 95% CI [0.06, 0.85], <italic toggle="yes">P</italic> = 0.033; Fig. <xref rid="tjp70462-fig-0004" ref-type="fig">4<italic toggle="yes">A</italic>
+</xref>), as were changes in discharge rate during the plateau phase (<italic toggle="yes">r</italic>
+<sub>rm</sub> = 0.54, 95% CI [0.01, 0.83], <italic toggle="yes">P</italic> &lt; 0.05; Fig. <xref rid="tjp70462-fig-0004" ref-type="fig">4<italic toggle="yes">B</italic>
+</xref>).</p><fig position="float" fig-type="Figure" id="tjp70462-fig-0004" orientation="portrait"><label>Figure 4</label><caption><title>Associations between changes in motor unit discharge rate and maximal voluntary force</title><p>Repeated‐measures correlation plots showing within‐participant associations between changes (Δ) in motor unit discharge rate at recruitment (<italic toggle="yes">A</italic>) and during the plateau phase (<italic toggle="yes">B</italic>) and changes in maximal voluntary force (MVF). Each coloured line represents the fitted regression line for an individual participant across the two time points (before and after training), with paired dots connected accordingly (lower dot = before training, upper dot = after training). Data are shown for the intervention group only (<italic toggle="yes">n</italic> = 13). The repeated‐measures correlation coefficient (<italic toggle="yes">r</italic>
+<sub>rm</sub>) and corresponding <italic toggle="yes">P</italic>‐value are reported in the lower right corner of each panel.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-13" orientation="portrait" xlink:href="TJP-604-2796-g006.jpg"/></fig></sec><sec id="tjp70462-sec-0220"><title>Estimate of persistent inward current amplitude</title><p>Motor unit pairs that met the inclusion criteria for Δ<italic toggle="yes">F</italic> analysis were identified successfully in all 10 CON participants and 13 INT participants during the 35% MVF contractions, resulting in 99 unit‐wise comparisons in the CON group and 117 in the INT group. At baseline, mean Δ<italic toggle="yes">F</italic> values were 4.75 ± 1.57 Hz in the CON group and 3.50 ± 2.00 Hz in the INT group. Following the training intervention, Δ<italic toggle="yes">F</italic> values increased in 10 of 13 participants in the INT group, whereas in the CON group, Δ<italic toggle="yes">F</italic> increased in half of the participants and decreased in the other half.</p><p>This pattern was reflected by a significant group × time interaction (<italic toggle="yes">F</italic>
+<sub>1,129.87</sub> = 11.49, <italic toggle="yes">P</italic> &lt; 0.001). <italic toggle="yes">Post hoc</italic> analysis confirmed a significant increase in Δ<italic toggle="yes">F</italic> in the INT group (<italic toggle="yes">P &lt; </italic>0.001, <italic toggle="yes">d</italic> = 0.43, 95% CI [0.17, 0.74], with an EMM difference of +1.00 Hz, 95% CI [0.46, 1.53]; Fig. <xref rid="tjp70462-fig-0005" ref-type="fig">5<italic toggle="yes">A</italic>
+</xref>). No significant change was observed in the CON group (<italic toggle="yes">P</italic> = 0.234, <italic toggle="yes">d</italic> = −0.18, 95% CI [−0.48, 0.10]).</p><fig position="float" fig-type="Figure" id="tjp70462-fig-0005" orientation="portrait"><label>Figure 5</label><caption><title>Delta F during trapezoidal contractions at 35% of maximal voluntary force</title><p>
+<italic toggle="yes">A</italic>, for each group, the left panel shows the average delta frequency (Δ<italic toggle="yes">F)</italic> per participant before and after the 4 week strength training intervention, espressed in pulses per second (pps). Participants whose average Δ<italic toggle="yes">F</italic> increased are shown in black, whereas those whose average Δ<italic toggle="yes">F</italic> decreased are shown in grey. The middle panel displays unit‐wise Δ<italic toggle="yes">F</italic> values per test unit. Estimated marginal means are indicated by black dots, with 95% confidence interval. Kernel density estimations are shown in the right panels (blue, before; orange, after). <italic toggle="yes">B</italic> and <italic toggle="yes">C</italic>, repeated‐measures correlation plots illustrating the within‐participant association between changes in Δ<italic toggle="yes">F</italic> and motor unit discharge rate at recruitment (<italic toggle="yes">B</italic>) and during the plateau phase (<italic toggle="yes">C</italic>) of contractions at 35% maximal voluntary force. Each coloured line represents the fitted regression for an individual participant across the two measurement sessions (before and after training), with paired dots connected accordingly (lower dot = before training, upper dot = after training). Data are shown for the intervention group only (<italic toggle="yes">n</italic> = 13). The repeated‐measures correlation coefficient (<italic toggle="yes">r</italic>
+<sub>rm</sub>) and corresponding <italic toggle="yes">P</italic>‐values are reported in the lower right corner of each panel.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-15" orientation="portrait" xlink:href="TJP-604-2796-g004.jpg"/></fig><p>Additionally, repeated‐measures correlation revealed that training‐related changes in Δ<italic toggle="yes">F</italic> were positively associated with changes in motor unit discharge rate during the plateau phase of the contractions (<italic toggle="yes">r</italic>
+<sub>rm</sub> = 0.61, <italic toggle="yes">P</italic> = 0.021; Fig. <xref rid="tjp70462-fig-0005" ref-type="fig">5<italic toggle="yes">C</italic>
+</xref>). In contrast, no significant relationship was observed for the recruitment phase (<italic toggle="yes">r</italic>
+<sub>rm</sub> = 0.41, <italic toggle="yes">P</italic> = 0.148; Fig. <xref rid="tjp70462-fig-0005" ref-type="fig">5<italic toggle="yes">B</italic>
+</xref>).</p></sec><sec id="tjp70462-sec-0230"><title>Comparative analysis of motor unit adaptability to strength training between young and older adults</title><p>To assess age‐related differences in motor neuron adaptations, we compared the training‐induced changes in motor unit properties observed in the present cohort of older adults with those previously reported in young adults who underwent the same 4 week strength training protocol (Del Vecchio et al., <xref rid="tjp70462-bib-0016" ref-type="bibr">2019</xref>).</p><p>The comparative analysis included 13 older adults and 12 young adults from the previous study, all belonging to the training groups, with 242 and 253 longitudinally tracked motor units, respectively, using identical decomposition and tracking procedures.</p><p>To account for interindividual variability in baseline performance (Wunderle et al., <xref rid="tjp70462-bib-0077" ref-type="bibr">2024</xref>), we verified whether baseline MVF differed between young and older adults; no significant association with age group was observed [χ<sup>2</sup>(1) = 2.25, <italic toggle="yes">P</italic> = 0.133; Fisher's exact test, <italic toggle="yes">P</italic> = 0.187], suggesting that baseline muscle strength did not clearly differentiate participants by chronological age.</p><p>Recruitment threshold (% MVF) decreased significantly following training [time effect: χ<sup>2</sup>(1) = 10.29, <italic toggle="yes">P</italic> &lt; 0.001, η<sup>2</sup>
+<sub>p</sub> = 0.24], with no significant age × time interaction [χ<sup>2</sup>(1) = 1.57, <italic toggle="yes">P</italic> = 0.211, η<sup>2</sup>
+<sub>p</sub> = 0.04], indicating a similar pattern of reduction across age groups (Fig. <xref rid="tjp70462-fig-0006" ref-type="fig">6<italic toggle="yes">A</italic>
+</xref>). Although the decrease appeared larger in young adults (∼21.9%) than in older adults (∼12.7%), the difference between groups was not statistically significant (Fig. <xref rid="tjp70462-fig-0006" ref-type="fig">6<italic toggle="yes">A</italic>
+</xref>).</p><fig position="float" fig-type="Figure" id="tjp70462-fig-0006" orientation="portrait"><label>Figure 6</label><caption><title>Training‐induced changes in motor unit properties in young and older adults</title><p>
+<italic toggle="yes">A–C</italic>, swarm plots show motor unit recruitment threshold (<italic toggle="yes">A</italic>), discharge rate at recruitment (<italic toggle="yes">B</italic>) and discharge rate during the plateau phase (<italic toggle="yes">C</italic>) for young (pink) and older (grey) adults before and after the 4 week strength training programme. Each dot represents an individual motor unit. Black symbols and error bars indicate group estimated marginal means with 95% confidence intervals. Data are collapsed across all contraction levels. Reported <italic toggle="yes">P</italic>‑values correspond to the results of the generalized linear mixed models (GLMM): significant main effect of time in <italic toggle="yes">A</italic> and <italic toggle="yes">B</italic>, and a significant group × time interaction in <italic toggle="yes">C</italic>. <italic toggle="yes">D–F</italic> show mean percentage changes (Δ%) in the same variables, calculated for each participant, including control groups from both studies (young and older adults). Bars represent group means ± SD. Statistical annotations refer to the main effect of training status from two‐way ANOVAs.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-17" orientation="portrait" xlink:href="TJP-604-2796-g001.jpg"/></fig><p>Discharge rate at recruitment increased following training [time effect: χ<sup>2</sup>(1) = 10.29, <italic toggle="yes">P</italic> = 0.001, η<sup>2</sup>
+<sub>p</sub> = 0.17] and was lower overall in older adults [age effect: χ<sup>2</sup>(1) = 23.48, <italic toggle="yes">P</italic> &lt; 0.001, η<sup>2</sup>
+<sub>p</sub> = 0.32]. The absence of a significant age × time interaction [χ<sup>2</sup>(1) = 0.48, <italic toggle="yes">P</italic> = 0.488, η<sup>2</sup>
+<sub>p</sub> = 0.01] indicates a similar pattern of relative increase between age groups (Fig. <xref rid="tjp70462-fig-0006" ref-type="fig">6<italic toggle="yes">B</italic>
+</xref>). In absolute terms, discharge rate at recruitment increased by +0.68 pps (∼6.1%) in young adults and by +0.57 pps (∼7.1%) in older adults.</p><p>In contrast, discharge rate during the plateau phase showed a significant age × time interaction [χ<sup>2</sup>(1) = 10.8, <italic toggle="yes">P</italic> = 0.001, η<sup>2</sup>
+<sub>p</sub> = 0.13], along with significant main effects of age [χ<sup>2</sup>(1) = 43.7, <italic toggle="yes">P</italic> = 0.001, η<sup>2</sup>
+<sub>p</sub> = 0.38] and time [χ<sup>2</sup>(1) = 80.6, <italic toggle="yes">P</italic> = 0.001, η<sup>2</sup>
+<sub>p</sub> = 0.45]. These results indicate that the training‐induced increase in discharge rate differed between age groups, with greater adaptation in young adults (Fig. <xref rid="tjp70462-fig-0006" ref-type="fig">6<italic toggle="yes">C</italic>
+</xref>). <italic toggle="yes">Post hoc</italic> analyses revealed significant increases in both groups; however, the increase was more pronounced in young adults (from 19.6 [18.3, 21.0] to 23.0 pps [21.6, 24.4]; ΔEMM = +3.4 pps, +17.3%; <italic toggle="yes">P</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 1.00) compared with older adults (from 14.2 [12.8, 15.6] to 15.7 pps [14.3, 17.2]; ΔEMM = +1.5 pps, +10.6%; <italic toggle="yes">P</italic> &lt; 0.001, <italic toggle="yes">d</italic> = 0.45).</p><p>To provide a complementary, participant‐level comparison across all subgroups, including the control groups from both studies, mean percentage changes (Δ%) from pre‐ to post‐training were calculated for each participant (Fig. <xref rid="tjp70462-fig-0006" ref-type="fig">6<italic toggle="yes">D–F</italic>
+</xref>). Across recruitment threshold, discharge rate at recruitment and discharge rate during the plateau phase, two‐way ANOVA revealed significant main effects of training status (no training <italic toggle="yes">vs</italic>. training, all <italic toggle="yes">P</italic> &lt; 0.05), but no significant age × training interactions (all <italic toggle="yes">P</italic> ≥ 0.10). These findings indicate that, when expressed as mean percentage change, both young and older adults exhibited similar training‐related adaptations, whereas no systematic changes were observed in the untrained control groups.</p><p>Overall, these results demonstrate that the ageing neuromuscular system retains a substantial capacity for adaptation following short‐term strength training, showing qualitatively similar changes in motor unit discharge behaviour and recruitment strategies to those observed in young adults exposed to the same training protocol.</p></sec></sec><sec id="tjp70462-sec-0240"><title>Discussion</title><p>In this study, we examined motor unit adaptations underlying the gains in muscle strength in older adults following a 4 week isometric strength training programme. A secondary aim was to compare these adaptations between young and older adults exposed to the same training programme. Using HDsEMG and longitudinal motor unit tracking, we assessed changes in discharge rate, recruitment threshold and estimates of PICs (Δ<italic toggle="yes">F</italic>). Training induced a 17.6% increase in MVF, paralleled by a significant 11.3% increase in motor unit discharge rate during submaximal ramp contractions. In contrast, recruitment and derecruitment thresholds remained unchanged. Estimates of PICs increased after the training programme and were positively associated with changes in discharge rate, which, in turn, were correlated with improvements in maximal strength. Together, these findings indicate that aged motor neurons preserve the capacity for meaningful functional adaptation, primarily through increased discharge rates during submaximal contractions and increased intrinsic excitability, adaptations that are qualitatively similar to those previously described in young adults exposed to the same training protocol (Del Vecchio et al., <xref rid="tjp70462-bib-0016" ref-type="bibr">2019</xref>).</p><sec id="tjp70462-sec-0250"><title>Motor unit adaptations to strength training in older adults</title><p>In older adults, motor unit activation during voluntary contraction is characterized by reduced discharge rates, reflecting age‐related alterations in excitatory synaptic input, intrinsic motor neuron excitability and motor unit remodelling, which collectively impair volitional force production (Orssatto et al., <xref rid="tjp70462-bib-0059" ref-type="bibr">2021a</xref>, <xref rid="tjp70462-bib-0060" ref-type="bibr">2022</xref>; Piasecki et al., <xref rid="tjp70462-bib-0064" ref-type="bibr">2016</xref>; Watanabe et al., <xref rid="tjp70462-bib-0074" ref-type="bibr">2016</xref>). Despite these age‐related alterations, accumulating evidence indicates that aged motor neurons preserve a capacity for adaptation in response to strength training. Within this physiological context, our results suggest that a short‐term isometric strength training intervention can enhance motor neuron output in older adults, as reflected by increased discharge rates, both at recruitment (+8.2%) and during the plateau phase (+11.3%) of submaximal contractions.</p><p>Previous studies in older adults have primarily reported training‐induced increases in motor unit discharge rate during maximal contractions. For instance, Kamen and Knight (<xref rid="tjp70462-bib-0039" ref-type="bibr">2004</xref>) reported a 49% increase in maximal discharge rate from the first baseline to the post‐training test, which was conducted after 6 weeks of dynamic training. However, no significant change was observed between the second baseline and post‐test, suggesting that the increase occurred largely between the two baseline assessments (i.e. 1 week apart). This adaptation was confined to maximal contractions, with no changes at submaximal intensities. Likewise, Christie and Kamen (<xref rid="tjp70462-bib-0012" ref-type="bibr">2010</xref>) observed a 24.3% increase in discharge rate during maximal efforts and a shortened after‐hyperpolarization duration after 2 weeks of training. Together, these findings suggest that aged motor neurons remain responsive to training, particularly in conditions of high voluntary drive. Extending previous work, the present study demonstrates that motor neuron output in older adults can also be modulated at submaximal levels of activation. The absence of such adaptations in previous reports (Christie &amp; Kamen, <xref rid="tjp70462-bib-0012" ref-type="bibr">2010</xref>; Kamen &amp; Knight, <xref rid="tjp70462-bib-0039" ref-type="bibr">2004</xref>) is likely to reflect differences in training modality (dynamic <italic toggle="yes">vs</italic>. isometric) and task and training specificity (Giboin et al., <xref rid="tjp70462-bib-0023" ref-type="bibr">2018</xref>) or EMG methodology (intramuscular <italic toggle="yes">vs</italic>. HDsEMG). In this regard, the use of HDsEMG combined with longitudinal motor unit tracking enabled a more sensitive and consistent characterization of discharge rate adaptations in the same motor units over time, providing a more comprehensive estimate of the neural drive to muscle than intramuscular EMG (Farina et al., <xref rid="tjp70462-bib-0021" ref-type="bibr">2016</xref>; Lecce et al., <xref rid="tjp70462-bib-0045" ref-type="bibr">2026</xref>).</p><p>Consistent with recent evidence provided by Orssatto et al. (<xref rid="tjp70462-bib-0062" ref-type="bibr">2023</xref>), we observed a small to moderate increase in PIC estimates (Δ<italic toggle="yes">F</italic>, <italic toggle="yes">d</italic> = 0.43) following training. PICs amplify synaptic inputs and sustain motor neuron firing (Heckman et al., <xref rid="tjp70462-bib-0032" ref-type="bibr">2005</xref>). In line with this role, training‐induced increases in Δ<italic toggle="yes">F</italic> were positively correlated with changes in motor unit discharge rate during the plateau phase (Fig. <xref rid="tjp70462-fig-0005" ref-type="fig">5<italic toggle="yes">C</italic>
+</xref>), which, in turn, were associated with gains in MVF (Fig. <xref rid="tjp70462-fig-0004" ref-type="fig">4<italic toggle="yes">A</italic> and <italic toggle="yes">B</italic>
+</xref>). Repeated‐measures correlation analyses confirmed significant within‐participant associations between Δ<italic toggle="yes">F</italic> and ΔDR (delta discharge rate; <italic toggle="yes">r</italic>
+<sub>rm</sub> = 0.61, <italic toggle="yes">P</italic> = 0.021) and between ΔDR and ΔMVF (<italic toggle="yes">r</italic>
+<sub>rm</sub> = 0.54, <italic toggle="yes">P</italic> = 0.047), supporting the view that enhanced intrinsic motor neuron excitability facilitates a more effective translation of descending drive into motor neuron output in older adults (Lecce et al., <xref rid="tjp70462-bib-0044" ref-type="bibr">2025</xref>). Notably, no association was found between Δ<italic toggle="yes">F</italic> and discharge rate at recruitment, consistent with the notion that suprathreshold PICs, as estimated by the Δ<italic toggle="yes">F</italic> method, contribute minimally to the initial activation of motor neurons and are engaged primarily in sustaining firing during steady force production (Bennett et al., <xref rid="tjp70462-bib-0008" ref-type="bibr">1998</xref>; Heckman et al., <xref rid="tjp70462-bib-0032" ref-type="bibr">2005</xref>; Mesquita et al., <xref rid="tjp70462-bib-0053" ref-type="bibr">2024</xref>). This pattern indicates that the largest training‐induced adaptations in PICs are likely to occur at the suprathreshold level, enhancing self‐sustained firing rather than influencing the initial discharge activity. Accordingly, the absence of a direct association between Δ<italic toggle="yes">F</italic> and MVF further supports the interpretation of Δ<italic toggle="yes">F</italic> as an index of self‐sustained firing capacity rather than a direct measure of motor neuron gain or force output <italic toggle="yes">per se</italic>. In line with this interpretation, recruitment thresholds remained comparable before and after training, suggesting that common synaptic input and subthreshold PICs were largely unaffected (Lecce et al., <xref rid="tjp70462-bib-0045" ref-type="bibr">2026</xref>). Given the well‐documented reduction in voluntary activation in older adults (Rozand et al., <xref rid="tjp70462-bib-0067" ref-type="bibr">2020</xref>), these suprathreshold adaptations might represent a key neural mechanism supporting initial strength gains in this population. Although the precise mechanisms underlying increased PICs strength in humans remain unclear, animal studies suggest that adaptations in monoaminergic input, particularly serotonergic and noradrenergic pathways, might enhance amplification of PICs by increasing motor neuron responsiveness (Behan et al., <xref rid="tjp70462-bib-0007" ref-type="bibr">2012</xref>; Orssatto et al., <xref rid="tjp70462-bib-0062" ref-type="bibr">2023</xref>). Strength training might also modify motor neuron biophysical properties, such as somato‐dendritic excitability, as observed in rodent models (Krutki et al., <xref rid="tjp70462-bib-0042" ref-type="bibr">2017</xref>). Although speculative, these mechanisms provide a plausible physiological substrate for the observed increase in intrinsic excitability following training.</p><p>In contrast to discharge behaviour, motor unit recruitment or derecruitment thresholds did not change following training. In older adults, evidence regarding training‐induced adaptations in recruitment strategies remains inconsistent. Orssatto et al. (<xref rid="tjp70462-bib-0062" ref-type="bibr">2023</xref>) reported increased recruitment thresholds after 6 weeks of training, suggesting that resistance training might help to restore the ability to rely more on discharge rate modulation rather than early recruitment. This interpretation aligns with previous observations of lower recruitment thresholds and slower discharge rates in older adults, which might reflect a compensatory response to reduced motor neuron excitability (Orssatto et al., <xref rid="tjp70462-bib-0059" ref-type="bibr">2021a</xref>, <xref rid="tjp70462-bib-0060" ref-type="bibr">2022</xref>). Within this context, the enhanced discharge rate observed in the present study, particularly during the recruitment phase, might indicate a shift towards greater rate modulation at the onset of activation. However, recruitment thresholds represent a complex and indirect measure influenced by multiple factors beyond motor neuron properties, including antagonist co‐activation (De Luca &amp; Mambrito, <xref rid="tjp70462-bib-0047" ref-type="bibr">1987</xref>) and the cumulative force generated by previously recruited units, and should therefore be interpreted with caution. The absence of recruitment threshold adaptations in our study might also reflect the relatively short duration of the intervention, the task specificity of the isometric protocol, or might indicate that changes in discharge behaviour and intrinsic excitability represent the primary neural mechanisms supporting initial strength gains in older adults.</p><p>The strength gains observed in the present study (+17.6%) align with previous reports of short‐term training adaptations in older adults. For instance, Kamen and Knight (<xref rid="tjp70462-bib-0039" ref-type="bibr">2004</xref>) and Orssatto et al. (<xref rid="tjp70462-bib-0062" ref-type="bibr">2023</xref>) reported increases of +36% and +25%, respectively, after 6 weeks of dynamic or power‐oriented training. The slightly smaller gain in our study might reflect the shorter duration (4 <italic toggle="yes">vs</italic>. 6 weeks) and use of an isometric protocol. In contrast, Christie and Kamen (<xref rid="tjp70462-bib-0012" ref-type="bibr">2010</xref>) reported a comparable improvement (+13%) following 2 weeks of isometric strength training. Collectively, these findings indicate that short‐term, task‐specific strength training can elicit meaningful improvements in MVF in older adults, mediated, at least in part, by early motor neuron‐level adaptations. Although antagonist muscle co‐activation was not assessed directly in the present study, its potential contribution to net force output cannot be excluded entirely. However, available evidence suggests that changes in co‐activation contribute minimally to strength gains in older adults, particularly in short‐term interventions (Walker, <xref rid="tjp70462-bib-0073" ref-type="bibr">2021</xref>). Reductions in antagonist activity have been observed inconsistently and primarily in individuals with unusually high baseline co‐activation levels (Häkkinen et al., <xref rid="tjp70462-bib-0028" ref-type="bibr">1998</xref>, <xref rid="tjp70462-bib-0027" ref-type="bibr">2000</xref>). Moreover, antagonist activation might serve a stabilizing role at the knee joint level (Baratta et al., <xref rid="tjp70462-bib-0005" ref-type="bibr">1988</xref>), especially in older individuals, which might limit its adaptability in response to training.</p><p>Although muscle hypertrophy was not assessed directly in the present study, its occurrence appears unlikely given the short duration of the intervention and the use of low‐volume isometric training. Supporting this assumption, Orssatto et al. (<xref rid="tjp70462-bib-0062" ref-type="bibr">2023</xref>) reported no detectable hypertrophy, measured as muscles thickness and cross‐sectional area, of the lower‐limb musculature after a 6 week power‐oriented resistance training protocol. If structural changes were absent in those conditions, they are arguably even less likely following a shorter, lower‐volume, isometric training intervention. Accordingly, the strength gains observed in our study can be attributed primarily to neural adaptations, which typically dominate the early phase of strength training (Pearcey et al., <xref rid="tjp70462-bib-0063" ref-type="bibr">2021</xref>; Škarabot et al., <xref rid="tjp70462-bib-0069" ref-type="bibr">2021</xref>) and offer a valuable window into the neural mechanisms supporting force gains in older adults.</p></sec><sec id="tjp70462-sec-0260"><title>Comparison of motor unit adaptations between young and older adults</title><p>This study provides the first direct comparison of motor unit adaptations to an identical short‐term strength training protocol in young and older adults using HDsEMG and longitudinal motor unit tracking. This matched approach enabled the assessment of age‐related differences in motor neuron adaptations in controlled experimental conditions, allowing for a mechanistic comparison of training‐induced motor neuron changes across the adult lifespan.</p><p>Overall, both age groups exhibited clear strength training‐induced adaptations. However, the expression of these adaptations was not identical. The young adults exhibited a reduction in recruitment threshold without a concomitant increase in discharge rate at recruitment, whereas older adults displayed a distinct pattern characterized by a significant increase in discharge rate at motor unit onset. Although recruitment threshold did not change significantly in older adults compared with age‐matched control subjects (Fig. <xref rid="tjp70462-fig-0002" ref-type="fig">2<italic toggle="yes">G</italic>
+</xref>), the direction of change was similar to that observed in young adults, albeit with a smaller magnitude (−12.7% <italic toggle="yes">vs</italic>. −21.9%), suggesting a partial but attenuated modulation of recruitment strategy (Fig. <xref rid="tjp70462-fig-0006" ref-type="fig">6<italic toggle="yes">A</italic> and <italic toggle="yes">B</italic>
+</xref>). Notably, older adults exhibited a significant increase in discharge rate at recruitment, whereas no such change was observed in young adults after the same training protocol (Del Vecchio et al., <xref rid="tjp70462-bib-0016" ref-type="bibr">2019</xref>). This finding suggests an age‐specific pattern of neural adaptation, whereby older adults might increase discharge rate at motor unit recruitment when modulation of recruitment threshold is limited. Such a response might represent a compensatory strategy to enhance force contribution at motor unit onset, reflecting an alternative means of increasing motor neuron output when recruitment modulation is constrained by ageing‐related reductions in excitability or altered synaptic integration (Barry et al., <xref rid="tjp70462-bib-0006" ref-type="bibr">2007</xref>), although the precise mechanisms underlying this adaptation remain to be determined.</p><p>The only parameter showing a significant group × time interaction was motor unit discharge rate during the plateau phase of submaximal contractions, which increased in both groups (Fig. <xref rid="tjp70462-fig-0006" ref-type="fig">6<italic toggle="yes"> C</italic>
+</xref>), but to a greater extent in young adults (+16.9% <italic toggle="yes">vs</italic>. +11.3%). This phase reflects the capacity to increase and sustain motor neuron firing during constant‐force output, which relies on both intrinsic motor neuron excitability and effective central drive. Although the ageing motor neuron retains a robust capacity for adaptation, the smaller increase observed in older adults suggests that rate coding during sustained force production might be less responsive to training with advancing age. This attenuated adaptation is consistent with evidence from acute studies showing age‐related differences in neuromuscular responses following resistance training. For instance, Nishikawa et al. (<xref rid="tjp70462-bib-0056" ref-type="bibr">2024</xref>) reported a reduced ability of older adults to modulate motor unit discharge rate after an acute bout of resistance exercise, particularly in relationship to recruitment threshold. Together with previous observations of reduced motor neuron excitability and impaired central drive in older individuals (Klass et al., <xref rid="tjp70462-bib-0041" ref-type="bibr">2008</xref>; Orssatto et al., <xref rid="tjp70462-bib-0060" ref-type="bibr">2022</xref>), these findings suggest that ageing‐related constraints in sustaining high‐frequency discharges might limit the magnitude of training‐induced adaptations during the plateau phase. Nevertheless, the consistent direction of change across age groups indicates that older adults can still engage similar neural strategies to enhance force production in response to strength training, albeit to a lesser extent than young adults.</p><p>A clustering analysis based on baseline muscle strength (i.e. pretraining MVF) did not differentiate participants by age group, indicating that differences in initial strength capacity alone were not sufficient to account for the observed age‐related differences in motor unit adaptations.</p></sec><sec id="tjp70462-sec-0270"><title>Conclusion</title><p>In this study, we examined whether the motor unit adaptations contributing to initial strength gains are preserved in older adults undergoing a short‐term isometric strength training intervention. Our findings demonstrate that, despite age‐related reductions in baseline motor neuron excitability and discharge rate, the ageing neuromuscular system retains a robust capacity for functional adaptation. Specifically, we observed training‐induced increases in motor unit discharge rate and estimates of intrinsic excitability, which were associated with improvements in MVF. Although some aspects of discharge rate, particularly during the plateau phase of voluntary contractions, appear attenuated with age, the overall pattern of adaptation is qualitatively similar to that observed in young adults exposed to the same training protocol. These results underscore the relevance and efficacy of strength training in promoting neural adaptations in older individuals and highlight the preserved potential of aged motor neurons to support gains in voluntary force.</p></sec></sec><sec id="tjp70462-sec-0280"><title>Additional information</title></sec><sec sec-type="COI-statement" id="tjp70462-sec-0310"><title>Competing interests</title><p>The authors declare that they have no competing interests.</p></sec><sec id="tjp70462-sec-0320"><title>Author contributions</title><p>A.C., S.D.V., J.S., D.F. and A.D.V. conceived and designed research. A.C., S.D.V., B.S. and A.D.V. performed experiments. A.C., S.D.V., B.G., S.N., E.L., L.A. and A.D.V. analysed data. A.C., S.D.V., B.G., S.N., E.L., L.A., I.B., F.F., J.S., D.F. and A.D.V. interpreted results of experiments. A.C. prepared the figures and drafted the manuscript. All authors revised the manuscript critically for important intellectual content. All authors have read and approved the final version of manuscript and agree to be accountable for all aspects of the work in ensuring that questions related to the accuracy or integrity of any part of the work are appropriately investigated and resolved. All persons designated as authors qualify for authorship, and all those who qualify for authorship are listed.</p></sec><sec id="tjp70462-sec-0330"><title>Funding</title><p>This work was supported by European Research Council (ERC) grant 101118089 (A.D.V.), German Ministry for Education and Research (BMBF) grants 01DN2300 and 16SV9246 (A.D.V.), German Research Foundation (DFG) grant 523352235 (A.D.V.), Bavarian Ministry of Economic Affairs, Regional Development and Energy (StMWi) grant MV‐2303‐0006 (A.D.V.), and Bavarian Ministry of Economic Affairs, Regional Development and Energy (StMWi) grant LSM‐2303‐0003 (A.D.V.).</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material position="float" content-type="local-data" orientation="portrait"><caption><p>
+Peer Review History
+</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="TJP-604-2796-s001.pdf" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="tjp70462-sec-0340"><title>Acknowledgements</title><p>We would like to thank all the Volunteers for their time and efforts in completing the study.</p><p>Open access funding enabled and organized by Projekt DEAL.</p></ack><bio id="d101e47"><p>
+<bold>Andrea Casolo</bold> is an Assistant Professor at the Department of Biomedical Sciences, University of Padua, Italy. He received a BSc in Sports and Physical Education from the Catholic University of Milan in 2014, an MSc in Health and Physical Activity in 2016, and a PhD in Human Movement and Sport Sciences from the University of Rome ‘Foro Italico’ in 2020. He subsequently worked as a postdoctoral researcher at Imperial College London, gaining expertise in non‐invasive techniques to record motor unit activity <italic toggle="yes">in vivo</italic>. His research focuses on neural control of movement and neuromuscular adaptations to exercise and ageing.</p><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="TJP-604-2796-g008.gif"/></bio><sec sec-type="data-availability" id="tjp70462-sec-0300"><title>Data availability statement</title><p>All data supporting the findings of this study are available from the corresponding author upon reasonable request.</p></sec><ref-list id="tjp70462-bibl-0001"><title>References</title><ref id="tjp70462-bib-0001"><mixed-citation publication-type="journal" id="tjp70462-cite-0001">
+<string-name name-style="western">
+<surname>Aagaard</surname>, <given-names>P.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Suetta</surname>, <given-names>C.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Caserotti</surname>, <given-names>P.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Magnusson</surname>, <given-names>S. P.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Kjær</surname>, <given-names>M.</given-names>
+</string-name> (<year>2010</year>). <article-title>Role of the nervous system in sarcopenia and muscle atrophy with aging: Strength training as a countermeasure</article-title>. <source>Scandinavian Journal of Medicine &amp; Science in Sports</source>, <volume>20</volume>(<issue>1</issue>), <fpage>49</fpage>–<lpage>64</lpage>.<pub-id pub-id-type="pmid">20487503</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/j.1600-0838.2009.01084.x</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0002"><mixed-citation publication-type="journal" id="tjp70462-cite-0002">
+<string-name name-style="western">
+<surname>Afsharipour</surname>, <given-names>B.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Manzur</surname>, <given-names>N.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Duchcherer</surname>, <given-names>J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fenrich</surname>, <given-names>K. F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Thompson</surname>, <given-names>C. K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Negro</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Quinlan</surname>, <given-names>K. A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bennett</surname>, <given-names>D. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Gorassini</surname>, <given-names>M. A.</given-names>
+</string-name> (<year>2020</year>). <article-title>Estimation of self‐sustained activity produced by persistent inward currents using firing rate profiles of multiple motor units in humans</article-title>. <source>Journal of Neurophysiology</source>, <volume>124</volume>(<issue>1</issue>), <fpage>63</fpage>–<lpage>85</lpage>.<pub-id pub-id-type="pmid">32459555</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.00194.2020</pub-id><pub-id pub-id-type="pmcid">PMC7474459</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0003"><mixed-citation publication-type="journal" id="tjp70462-cite-0003">
+<string-name name-style="western">
+<surname>Angius</surname>, <given-names>L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Goodall</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Thomas</surname>, <given-names>K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ansdell</surname>, <given-names>P.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Atkinson</surname>, <given-names>E.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Howatson</surname>, <given-names>G.</given-names>
+</string-name> (<year>2024</year>). <article-title>Supraspinal, spinal, and motor unit adjustments to fatiguing isometric contractions of the knee extensors at low and high submaximal intensities in males</article-title>. <source>Journal of Applied Physiology</source>, <volume>136</volume>(<issue>6</issue>), <fpage>1546</fpage>–<lpage>1558</lpage>.<pub-id pub-id-type="pmid">38695356</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.00675.2023</pub-id><pub-id pub-id-type="pmcid">PMC11368526</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0004"><mixed-citation publication-type="journal" id="tjp70462-cite-0004">
+<string-name name-style="western">
+<surname>Bakdash</surname>, <given-names>J. Z.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Marusich</surname>, <given-names>L. R.</given-names>
+</string-name> (<year>2017</year>). <article-title>Repeated measures correlation</article-title>. <source>Frontiers in Psychology</source>, <volume>8</volume>, <fpage>1</fpage>–<lpage>13</lpage>.<pub-id pub-id-type="pmid">28439244</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fpsyg.2017.00456</pub-id><pub-id pub-id-type="pmcid">PMC5383908</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0005"><mixed-citation publication-type="journal" id="tjp70462-cite-0005">
+<string-name name-style="western">
+<surname>Baratta</surname>, <given-names>R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Solomonow</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zhou</surname>, <given-names>B. H.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Letson</surname>, <given-names>D.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chuinard</surname>, <given-names>R.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>D'Ambrosia</surname>, <given-names>R.J.T.A.</given-names>
+</string-name> (<year>1988</year>). <article-title>Muscular coactivation: the role of the antagonist musculature in maintaining knee stability</article-title>. <source>American Journal of Sports Medicine</source>, <volume>16</volume>(<issue>2</issue>), <fpage>113</fpage>–<lpage>122</lpage>.<pub-id pub-id-type="pmid">3377094</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1177/036354658801600205</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0006"><mixed-citation publication-type="journal" id="tjp70462-cite-0006">
+<string-name name-style="western">
+<surname>Barry</surname>, <given-names>B. K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pascoe</surname>, <given-names>M. A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jesunathadas</surname>, <given-names>M.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Enoka</surname>, <given-names>R. M.</given-names>
+</string-name> (<year>2007</year>). <article-title>Rate coding is compressed but variability is unaltered for motor units in a hand muscle of old adults</article-title>. <source>Journal of Neurophysiology</source>, <volume>97</volume>(<issue>5</issue>), <fpage>3206</fpage>–<lpage>3218</lpage>.<pub-id pub-id-type="pmid">17360826</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.01280.2006</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0007"><mixed-citation publication-type="journal" id="tjp70462-cite-0007">
+<string-name name-style="western">
+<surname>Behan</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Moeser</surname>, <given-names>A. E.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Thomas</surname>, <given-names>C. F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Russell</surname>, <given-names>J. A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wang</surname>, <given-names>H.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Leverson</surname>, <given-names>G. E.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Connor</surname>, <given-names>N. P.</given-names>
+</string-name> (<year>2012</year>). <article-title>The effect of tongue exercise on serotonergic input to the hypoglossal nucleus in young and old rats</article-title>. <source>Journal of Speech, Language, and Hearing Research</source>, <volume>55</volume>(<issue>3</issue>), <fpage>919</fpage>–<lpage>929</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1044/1092-4388(2011/11-0091)</pub-id><pub-id pub-id-type="pmcid">PMC3326185</pub-id><pub-id pub-id-type="pmid">22232395</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0008"><mixed-citation publication-type="journal" id="tjp70462-cite-0008">
+<string-name name-style="western">
+<surname>Bennett</surname>, <given-names>D. J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hultborn</surname>, <given-names>H.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fedirchuk</surname>, <given-names>B.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Gorassini</surname>, <given-names>M.</given-names>
+</string-name> (<year>1998</year>). <article-title>Synaptic activation of plateaus in hindlimb motoneurons of decerebrate cats</article-title>. <source>Journal of Neurophysiology</source>, <volume>80</volume>(<issue>4</issue>), <fpage>2023</fpage>–<lpage>2037</lpage>.<pub-id pub-id-type="pmid">9772258</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.1998.80.4.2023</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0009"><mixed-citation publication-type="journal" id="tjp70462-cite-0009">
+<string-name name-style="western">
+<surname>Bento</surname>, <given-names>P. C. B.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pereira</surname>, <given-names>G.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ugrinowitsch</surname>, <given-names>C.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Rodacki</surname>, <given-names>A. L. F.</given-names>
+</string-name> (<year>2010</year>). <article-title>Peak torque and rate of torque development in elderly with and without fall history</article-title>. <source>Clinical Biomechanics</source>, <volume>25</volume>(<issue>5</issue>), <fpage>450</fpage>–<lpage>454</lpage>.<pub-id pub-id-type="pmid">20350773</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.clinbiomech.2010.02.002</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0010"><mixed-citation publication-type="journal" id="tjp70462-cite-0010">
+<string-name name-style="western">
+<surname>Borzuola</surname>, <given-names>R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nuccio</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Scalia</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Parrella</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bazzucchi</surname>, <given-names>I.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Felici</surname>, <given-names>F.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Macaluso</surname>, <given-names>A.</given-names>
+</string-name> (<year>2023</year>). <article-title>Adjustments in the motor unit discharge behavior following neuromuscular electrical stimulation compared to voluntary contractions</article-title>. <source>Frontiers in Physiology</source>, <volume>14</volume>, <fpage>1</fpage>–<lpage>12</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fphys.2023.1212453</pub-id><pub-id pub-id-type="pmcid">PMC10267458</pub-id><pub-id pub-id-type="pmid">37324379</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0010a"><mixed-citation publication-type="journal" id="tjp70462-cite-0010a">
+<string-name name-style="western">
+<surname>Casolo</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Balshaw</surname>, <given-names>T. G.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Maeo</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lanza</surname>, <given-names>M. B.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Felici</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Folland</surname>, <given-names>J. P.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name> (<year>2021</year>). <article-title>Behavior of motor units during submaximal isometric contractions in chronically strength‐trained individuals</article-title>. <source>Journal of Applied Physiology</source>, <volume>131</volume>(<issue>5</issue>), <fpage>1584</fpage>–<lpage>1598</lpage>.<pub-id pub-id-type="pmid">34617822</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.00192.2021</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0011"><mixed-citation publication-type="journal" id="tjp70462-cite-0011">
+<string-name name-style="western">
+<surname>Casolo</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Falla</surname>, <given-names>D.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bazzucchi</surname>, <given-names>I.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Felici</surname>, <given-names>F.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name> (<year>2020</year>). <article-title>Strength training increases conduction velocity of high‐threshold motor units</article-title>. <source>Medicine &amp; Science in Sports &amp; Exercise</source>, <volume>52</volume>(<issue>4</issue>), <fpage>955</fpage>–<lpage>967</lpage>.<pub-id pub-id-type="pmid">31688652</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1249/MSS.0000000000002196</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0012"><mixed-citation publication-type="journal" id="tjp70462-cite-0012">
+<string-name name-style="western">
+<surname>Christie</surname>, <given-names>A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Kamen</surname>, <given-names>G.</given-names>
+</string-name> (<year>2010</year>). <article-title>Short‐term training adaptations in maximal motor unit firing rates and afterhyperpolarization duration</article-title>. <source>Muscle &amp; Nerve</source>, <volume>41</volume>(<issue>5</issue>), <fpage>651</fpage>–<lpage>660</lpage>.<pub-id pub-id-type="pmid">19941348</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/mus.21539</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0013"><mixed-citation publication-type="journal" id="tjp70462-cite-0013">
+<string-name name-style="western">
+<surname>Clark</surname>, <given-names>B. C.</given-names>
+</string-name> (<year>2023</year>). <article-title>Neural mechanisms of age‐related loss of muscle performance and physical function ed. Lipsitz LA</article-title>. <source>The Journals of Gerontology: Series A</source>, <volume>78</volume>(Supplement_<issue>1</issue>), <fpage>8</fpage>–<lpage>13</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/gerona/glad029</pub-id><pub-id pub-id-type="pmcid">PMC10272985</pub-id><pub-id pub-id-type="pmid">36738253</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0014"><mixed-citation publication-type="journal" id="tjp70462-cite-0014">
+<string-name name-style="western">
+<surname>Connelly</surname>, <given-names>D. M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rice</surname>, <given-names>C. L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Roos</surname>, <given-names>M. R.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Vandervoort</surname>, <given-names>A. A.</given-names>
+</string-name> (<year>1999</year>). <article-title>Motor unit firing rates and contractile properties in tibialis anterior of young and old men</article-title>. <source>Journal of Applied Physiology</source>, <volume>87</volume>(<issue>2</issue>), <fpage>843</fpage>–<lpage>852</lpage>.<pub-id pub-id-type="pmid">10444648</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jappl.1999.87.2.843</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0015"><mixed-citation publication-type="journal" id="tjp70462-cite-0015">
+<string-name name-style="western">
+<surname>Delmonico</surname>, <given-names>M. J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Harris</surname>, <given-names>T. B.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Visser</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Park</surname>, <given-names>S. W.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Conroy</surname>, <given-names>M. B.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Velasquez‐Mieyer</surname>, <given-names>P.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Boudreau</surname>, <given-names>R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Manini</surname>, <given-names>T. M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nevitt</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Newman</surname>, <given-names>A. B.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Goodpaster</surname>, <given-names>B. H.</given-names>
+</string-name> (<year>2009</year>). <article-title>Longitudinal study of muscle strength, quality, and adipose tissue infiltration</article-title>. <source>American Journal of Clinical Nutrition</source>, <volume>90</volume>(<issue>6</issue>), <fpage>1579</fpage>–<lpage>1585</lpage>.<pub-id pub-id-type="pmid">19864405</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3945/ajcn.2009.28047</pub-id><pub-id pub-id-type="pmcid">PMC2777469</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0016"><mixed-citation publication-type="journal" id="tjp70462-cite-0016">
+<string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Casolo</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Negro</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Scorcelletti</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bazzucchi</surname>, <given-names>I.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Enoka</surname>, <given-names>R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Felici</surname>, <given-names>F.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name> (<year>2019</year>). <article-title>The increase in muscle force after 4 weeks of strength training is mediated by adaptations in motor unit recruitment and rate coding</article-title>. <source>The Journal of Physiology</source>, <volume>597</volume>(<issue>7</issue>), <fpage>1873</fpage>–<lpage>1887</lpage>.<pub-id pub-id-type="pmid">30727028</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1113/JP277250</pub-id><pub-id pub-id-type="pmcid">PMC6441907</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0017"><mixed-citation publication-type="journal" id="tjp70462-cite-0017">
+<string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name> (<year>2020</year>). <article-title>Interfacing the neural output of the spinal cord: Robust and reliable longitudinal identification of motor neurons in humans</article-title>. <source>Journal of Neural Engineering</source>, <volume>17</volume>(<issue>1</issue>), <elocation-id>016003</elocation-id>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1088/1741-2552/ab4d05</pub-id><pub-id pub-id-type="pmid">31604338</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0018"><mixed-citation publication-type="journal" id="tjp70462-cite-0018">
+<string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Holobar</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Falla</surname>, <given-names>D.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Felici</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Enoka</surname>, <given-names>R. M.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name> (<year>2020</year>). <article-title>Tutorial: Analysis of motor unit discharge characteristics from high‐density surface EMG signals</article-title>. <source>Journal of Electromyography and Kinesiology</source>, <volume>53</volume>, <elocation-id>102426</elocation-id>.<pub-id pub-id-type="pmid">32438235</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jelekin.2020.102426</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0019"><mixed-citation publication-type="journal" id="tjp70462-cite-0019">
+<string-name name-style="western">
+<surname>Duchateau</surname>, <given-names>J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Semmler</surname>, <given-names>J. G.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Enoka</surname>, <given-names>R. M.</given-names>
+</string-name> (<year>2006</year>). <article-title>Training adaptations in the behavior of human motor units</article-title>. <source>Journal of Applied Physiology</source>, <volume>101</volume>(<issue>6</issue>), <fpage>1766</fpage>–<lpage>1775</lpage>.<pub-id pub-id-type="pmid">16794023</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.00543.2006</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0020"><mixed-citation publication-type="journal" id="tjp70462-cite-0020">
+<string-name name-style="western">
+<surname>Evans</surname>, <given-names>W. J.</given-names>
+</string-name> (<year>1995</year>). <article-title>What is Sarcopenia?</article-title>
+<source>The Journals of Gerontology Series A: Biological Sciences and Medical Sciences</source>, <volume>50A</volume>(<issue>Special</issue>), <fpage>5</fpage>–<lpage>8</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/gerona/50a.special_issue.5</pub-id><pub-id pub-id-type="pmid">7493218</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0021"><mixed-citation publication-type="journal" id="tjp70462-cite-0021">
+<string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Negro</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Muceli</surname>, <given-names>S.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Enoka</surname>, <given-names>R. M.</given-names>
+</string-name> (<year>2016</year>). <article-title>Principles of motor unit physiology evolve with advances in technology</article-title>. <source>Physiology</source>, <volume>31</volume>(<issue>2</issue>), <fpage>83</fpage>–<lpage>94</lpage>.<pub-id pub-id-type="pmid">26889014</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/physiol.00040.2015</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0022"><mixed-citation publication-type="journal" id="tjp70462-cite-0022">
+<string-name name-style="western">
+<surname>Frontera</surname>, <given-names>W. R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hughes</surname>, <given-names>V. A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lutz</surname>, <given-names>K. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Evans</surname>, <given-names>W. J.</given-names>
+</string-name> (<year>1991</year>). <article-title>A cross‐sectional study of muscle strength and mass in 45‐ to 78‐yr‐old men and women</article-title>. <source>Journal of Applied Physiology</source>, <volume>71</volume>(<issue>2</issue>), <fpage>644</fpage>–<lpage>650</lpage>.<pub-id pub-id-type="pmid">1938738</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jappl.1991.71.2.644</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0023"><mixed-citation publication-type="journal" id="tjp70462-cite-0023">
+<string-name name-style="western">
+<surname>Giboin</surname>, <given-names>L.‐S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Weiss</surname>, <given-names>B.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Thomas</surname>, <given-names>F.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Gruber</surname>, <given-names>M.</given-names>
+</string-name> (<year>2018</year>). <article-title>Neuroplasticity following short‐term strength training occurs at supraspinal level and is specific for the trained task</article-title>. <source>Acta Physiologica</source>, <volume>222</volume>(<issue>4</issue>), <fpage>1</fpage>–<lpage>11</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/apha.12998</pub-id><pub-id pub-id-type="pmid">29144602</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0024"><mixed-citation publication-type="journal" id="tjp70462-cite-0024">
+<string-name name-style="western">
+<surname>Goodlich</surname>, <given-names>B. I.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Horan</surname>, <given-names>S. A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Kavanagh</surname>, <given-names>J. J.</given-names>
+</string-name> (<year>2023</year>). <article-title>Blockade of 5‐HT2 receptors suppresses motor unit firing and estimates of persistent inward currents during voluntary muscle contraction in humans</article-title>. <source>The Journal of Physiology</source>, <volume>601</volume>(<issue>6</issue>), <fpage>1121</fpage>–<lpage>1138</lpage>.<pub-id pub-id-type="pmid">36790076</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1113/JP284164</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0025"><mixed-citation publication-type="journal" id="tjp70462-cite-0025">
+<string-name name-style="western">
+<surname>Gorassini</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yang</surname>, <given-names>J. F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Siu</surname>, <given-names>M.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Bennett</surname>, <given-names>D. J.</given-names>
+</string-name> (<year>2002</year>). <article-title>Intrinsic activation of Human motoneurons: Possible contribution to motor unit excitation</article-title>. <source>Journal of Neurophysiology</source>, <volume>87</volume>(<issue>4</issue>), <fpage>1850</fpage>–<lpage>1858</lpage>.<pub-id pub-id-type="pmid">11929906</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.00024.2001</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0026"><mixed-citation publication-type="journal" id="tjp70462-cite-0026">
+<string-name name-style="western">
+<surname>Gorassini</surname>, <given-names>M. A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bennett</surname>, <given-names>D. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Yang</surname>, <given-names>J. F.</given-names>
+</string-name> (<year>1998</year>). <article-title>Self‐sustained firing of human motor units</article-title>. <source>Neuroscience Letters</source>, <volume>247</volume>(<issue>1</issue>), <fpage>13</fpage>–<lpage>16</lpage>.<pub-id pub-id-type="pmid">9637398</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/s0304-3940(98)00277-8</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0027"><mixed-citation publication-type="journal" id="tjp70462-cite-0027">
+<string-name name-style="western">
+<surname>Häkkinen</surname>, <given-names>K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Alen</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kallinen</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Newton</surname>, <given-names>R. U.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Kraemer</surname>, <given-names>W. J.</given-names>
+</string-name> (<year>2000</year>). <article-title>Neuromuscular adaptation during prolonged strength training, detraining and re‐strength‐training in middle‐aged and elderly people</article-title>. <source>European Journal of Applied Physiology</source>, <volume>83</volume>(<issue>1</issue>), <fpage>51</fpage>–<lpage>62</lpage>.<pub-id pub-id-type="pmid">11072774</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s004210000248</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0028"><mixed-citation publication-type="journal" id="tjp70462-cite-0028">
+<string-name name-style="western">
+<surname>Häkkinen</surname>, <given-names>K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kallinen</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Izquierdo</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jokelainen</surname>, <given-names>K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lassila</surname>, <given-names>H.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mälkiä</surname>, <given-names>E.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kraemer</surname>, <given-names>W. J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Newton</surname>, <given-names>R. U.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Alen</surname>, <given-names>M.</given-names>
+</string-name> (<year>1998</year>). <article-title>Changes in agonist‐antagonist EMG, muscle CSA, and force during strength training in middle‐aged and older people</article-title>. <source>Journal of Applied Physiology</source>, <volume>84</volume>(<issue>4</issue>), <fpage>1341</fpage>–<lpage>1349</lpage>.<pub-id pub-id-type="pmid">9516202</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jappl.1998.84.4.1341</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0029"><mixed-citation publication-type="journal" id="tjp70462-cite-0029">
+<string-name name-style="western">
+<surname>Hassan</surname>, <given-names>A. S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fajardo</surname>, <given-names>M. E.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Cummings</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>McPherson</surname>, <given-names>L. M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Negro</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Dewald</surname>, <given-names>J. P. A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Heckman</surname>, <given-names>C. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Pearcey</surname>, <given-names>G. E. P.</given-names>
+</string-name> (<year>2021</year>). <article-title>Estimates of persistent inward currents are reduced in upper limb motor units of older adults</article-title>. <source>The Journal of Physiology</source>, <volume>599</volume>(<issue>21</issue>), <fpage>4865</fpage>–<lpage>4882</lpage>.<pub-id pub-id-type="pmid">34505294</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1113/JP282063</pub-id><pub-id pub-id-type="pmcid">PMC8560565</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0030"><mixed-citation publication-type="journal" id="tjp70462-cite-0030">
+<string-name name-style="western">
+<surname>Hayashida</surname>, <given-names>I.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Tanimoto</surname>, <given-names>Y.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Takahashi</surname>, <given-names>Y.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kusabiraki</surname>, <given-names>T.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Tamaki</surname>, <given-names>J.</given-names>
+</string-name> (<year>2014</year>). <article-title>Correlation between muscle strength and muscle mass, and their association with walking speed, in community‐dwelling elderly Japanese individuals</article-title>. <source>PLoS ONE</source>, <volume>9</volume>(<issue>11</issue>), <elocation-id>e111810</elocation-id>.<pub-id pub-id-type="pmid">25365291</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1371/journal.pone.0111810</pub-id><pub-id pub-id-type="pmcid">PMC4218822</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0031"><mixed-citation publication-type="book" id="tjp70462-cite-0031">
+<string-name name-style="western">
+<surname>Heckman</surname>, <given-names>C. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Enoka</surname>, <given-names>R. M.</given-names>
+</string-name> (<year>2004</year>). <part-title>Physiology of the motor neuron and the motor unit</part-title>. In <source>Handbook of Clinical Neurophysiology</source>, pp. <fpage>119</fpage>–<lpage>147</lpage>. <publisher-name>Elsevier B.V</publisher-name>. Available at: <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://linkinghub.elsevier.com/retrieve/pii/S1567423104040067" ext-link-type="uri">https://linkinghub.elsevier.com/retrieve/pii/S1567423104040067</ext-link>.</mixed-citation></ref><ref id="tjp70462-bib-0032"><mixed-citation publication-type="journal" id="tjp70462-cite-0032">
+<string-name name-style="western">
+<surname>Heckman</surname>, <given-names>C. J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gorassini</surname>, <given-names>M. A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Bennett</surname>, <given-names>D. J.</given-names>
+</string-name> (<year>2005</year>). <article-title>Persistent inward currents in motoneuron dendrites: Implications for motor output</article-title>. <source>Muscle &amp; Nerve</source>, <volume>31</volume>(<issue>2</issue>), <fpage>135</fpage>–<lpage>156</lpage>.<pub-id pub-id-type="pmid">15736297</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/mus.20261</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0033"><mixed-citation publication-type="journal" id="tjp70462-cite-0033">
+<string-name name-style="western">
+<surname>Hepple</surname>, <given-names>R. T.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Rice</surname>, <given-names>C. L.</given-names>
+</string-name> (<year>2016</year>). <article-title>Innervation and neuromuscular control in ageing skeletal muscle</article-title>. <source>The Journal of Physiology</source>, <volume>594</volume>(<issue>8</issue>), <fpage>1965</fpage>–<lpage>1978</lpage>.<pub-id pub-id-type="pmid">26437581</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1113/JP270561</pub-id><pub-id pub-id-type="pmcid">PMC4933121</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0034"><mixed-citation publication-type="journal" id="tjp70462-cite-0034">
+<string-name name-style="western">
+<surname>Holobar</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Minetto</surname>, <given-names>M. A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name> (<year>2014</year>). <article-title>Accurate identification of motor unit discharge patterns from high‐density surface EMG and validation with a novel signal‐based performance metric</article-title>. <source>Journal of Neural Engineering</source>, <volume>11</volume>(<issue>1</issue>), <elocation-id>016008</elocation-id>.<pub-id pub-id-type="pmid">24654270</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1088/1741-2560/11/1/016008</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0035"><mixed-citation publication-type="journal" id="tjp70462-cite-0035">
+<string-name name-style="western">
+<surname>Holobar</surname>, <given-names>A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Zazula</surname>, <given-names>D.</given-names>
+</string-name> (<year>2007</year>). <article-title>Multichannel blind source separation using convolution Kernel compensation</article-title>. <source>Institute of Electrical and Electronics Engineers Transactions on Signal Processing</source>, <volume>55</volume>(<issue>9</issue>), <fpage>4487</fpage>–<lpage>4496</lpage>.</mixed-citation></ref><ref id="tjp70462-bib-0036"><mixed-citation publication-type="journal" id="tjp70462-cite-0036">
+<string-name name-style="western">
+<surname>Hug</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Avrillon</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Casolo</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ibanez</surname>, <given-names>J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nuccio</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rossato</surname>, <given-names>J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Holobar</surname>, <given-names>A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name> (<year>2021</year>). <article-title>Analysis of motor unit spike trains estimated from high‐density surface electromyography is highly reliable across operators</article-title>. <source>Journal of Electromyography and Kinesiology</source>, <volume>58</volume>, <elocation-id>102548</elocation-id>.<pub-id pub-id-type="pmid">33838590</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jelekin.2021.102548</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0037"><mixed-citation publication-type="journal" id="tjp70462-cite-0037">
+<string-name name-style="western">
+<surname>Hunter</surname>, <given-names>S. K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pereira</surname>, <given-names>H. M.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Keenan</surname>, <given-names>K. G.</given-names>
+</string-name> (<year>2016</year>). <article-title>The aging neuromuscular system and motor performance</article-title>. <source>Journal of Applied Physiology</source>, <volume>121</volume>(<issue>4</issue>), <fpage>982</fpage>–<lpage>995</lpage>.<pub-id pub-id-type="pmid">27516536</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.00475.2016</pub-id><pub-id pub-id-type="pmcid">PMC5142309</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0038"><mixed-citation publication-type="journal" id="tjp70462-cite-0038">
+<string-name name-style="western">
+<surname>Jenz</surname>, <given-names>S. T.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Beauchamp</surname>, <given-names>J. A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gomes</surname>, <given-names>M. M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Negro</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Heckman</surname>, <given-names>C. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Pearcey</surname>, <given-names>G. E. P.</given-names>
+</string-name> (<year>2023</year>). <article-title>Estimates of persistent inward currents in lower limb motoneurons are larger in females than in males</article-title>. <source>Journal of Neurophysiology</source>, <volume>129</volume>(<issue>6</issue>), <fpage>1322</fpage>–<lpage>1333</lpage>.<pub-id pub-id-type="pmid">37096909</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.00043.2023</pub-id><pub-id pub-id-type="pmcid">PMC10202474</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0039"><mixed-citation publication-type="journal" id="tjp70462-cite-0039">
+<string-name name-style="western">
+<surname>Kamen</surname>, <given-names>G.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Knight</surname>, <given-names>C. A.</given-names>
+</string-name> (<year>2004</year>). <article-title>Training‐related adaptations in motor unit discharge rate in young and older adults</article-title>. <source>The Journals of Gerontology Series A: Biological Sciences and Medical Sciences</source>, <volume>59</volume>(<issue>12</issue>), <fpage>1334</fpage>–<lpage>1338</lpage>.<pub-id pub-id-type="pmid">15699535</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/gerona/59.12.1334</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0040"><mixed-citation publication-type="journal" id="tjp70462-cite-0040">
+<string-name name-style="western">
+<surname>Kang</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ragan</surname>, <given-names>B. G.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Park</surname>, <given-names>J.‐H.</given-names>
+</string-name> (<year>2008</year>). <article-title>Issues in outcomes research: An overview of randomization techniques for clinical trials</article-title>. <source>Journal of Athletic Training</source>, <volume>43</volume>(<issue>2</issue>), <fpage>215</fpage>–<lpage>221</lpage>.<pub-id pub-id-type="pmid">18345348</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.4085/1062-6050-43.2.215</pub-id><pub-id pub-id-type="pmcid">PMC2267325</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0041"><mixed-citation publication-type="journal" id="tjp70462-cite-0041">
+<string-name name-style="western">
+<surname>Klass</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Baudry</surname>, <given-names>S.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Duchateau</surname>, <given-names>J.</given-names>
+</string-name> (<year>2008</year>). <article-title>Age‐related decline in rate of torque development is accompanied by lower maximal motor unit discharge frequency during fast contractions</article-title>. <source>Journal of Applied Physiology</source>, <volume>104</volume>(<issue>3</issue>), <fpage>739</fpage>–<lpage>746</lpage>.<pub-id pub-id-type="pmid">18174392</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.00550.2007</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0042"><mixed-citation publication-type="journal" id="tjp70462-cite-0042">
+<string-name name-style="western">
+<surname>Krutki</surname>, <given-names>P.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mrówczyński</surname>, <given-names>W.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bączyk</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Łochyński</surname>, <given-names>D.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Celichowski</surname>, <given-names>J.</given-names>
+</string-name> (<year>2017</year>). <article-title>Adaptations of motoneuron properties after weight‐lifting training in rats</article-title>. <source>Journal of Applied Physiology</source>, <volume>123</volume>(<issue>3</issue>), <fpage>664</fpage>–<lpage>673</lpage>.<pub-id pub-id-type="pmid">28596267</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/japplphysiol.00121.2017</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0043"><mixed-citation publication-type="journal" id="tjp70462-cite-0043">
+<string-name name-style="western">
+<surname>Lecce</surname>, <given-names>E.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Amoruso</surname>, <given-names>P.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Felici</surname>, <given-names>F.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Bazzucchi</surname>, <given-names>I.</given-names>
+</string-name> (<year>2026</year>). <article-title>Resistance training‐induced adaptations in the neuromuscular system: Physiological mechanisms and implications for human performance</article-title>. <source>The Journal of Physiology</source>, <volume>604</volume>(<issue>1</issue>), <fpage>81</fpage>–<lpage>115</lpage>.<pub-id pub-id-type="pmid">41361993</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1113/JP289716</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0044"><mixed-citation publication-type="journal" id="tjp70462-cite-0044">
+<string-name name-style="western">
+<surname>Lecce</surname>, <given-names>E.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Amoruso</surname>, <given-names>P.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Vecchio</surname>, <given-names>A. D.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Casolo</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Felici</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Bazzucchi</surname>, <given-names>I.</given-names>
+</string-name> (<year>2025</year>). <article-title>Neural determinants of the increase in muscle strength and force steadiness of the untrained limb following a 4 week unilateral training</article-title>. <source>The Journal of Physiology</source>, <volume>603</volume>(<issue>12</issue>), <fpage>3605</fpage>–<lpage>3630</lpage>.<pub-id pub-id-type="pmid">40500979</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1113/JP288954</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0045"><mixed-citation publication-type="journal" id="tjp70462-cite-0045">
+<string-name name-style="western">
+<surname>Lecce</surname>, <given-names>E.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Casolo</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nuccio</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Felici</surname>, <given-names>F.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Bazzucchi</surname>, <given-names>I.</given-names>
+</string-name> (<year>2026</year>). <article-title>Analysis of motor units with high‐density surface electromyography: Methodological considerations and physiological significance</article-title>. <source>European Journal of Applied Physiology</source>, <volume>126</volume>(<issue>1</issue>), <fpage>61</fpage>–<lpage>86</lpage>.<pub-id pub-id-type="pmid">41065861</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-025-05996-8</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0046"><mixed-citation publication-type="journal" id="tjp70462-cite-0046">
+<string-name name-style="western">
+<surname>Liddell</surname>, <given-names>E. G. T.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Sherrington</surname>, <given-names>C. S.</given-names>
+</string-name> (<year>1925</year>). <article-title>Recruitment and some other features of reflex inhibition</article-title>. <source>Proceedings of the Royal Society B: Biological Sciences</source>, <volume>97</volume>, <fpage>488</fpage>–<lpage>518</lpage>.</mixed-citation></ref><ref id="tjp70462-bib-0047"><mixed-citation publication-type="journal" id="tjp70462-cite-0047">
+<string-name name-style="western">
+<surname>De Luca</surname>, <given-names>C. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Mambrito</surname>, <given-names>B.</given-names>
+</string-name> (<year>1987</year>). <article-title>Voluntary control of motor units in human antagonist muscles: Coactivation and reciprocal activation</article-title>. <source>Journal of Neurophysiology</source>, <volume>58</volume>(<issue>3</issue>), <fpage>525</fpage>–<lpage>542</lpage>.<pub-id pub-id-type="pmid">3655881</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.1987.58.3.525</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0048"><mixed-citation publication-type="journal" id="tjp70462-cite-0048">
+<string-name name-style="western">
+<surname>Macaluso</surname>, <given-names>A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>De Vito</surname>, <given-names>G.</given-names>
+</string-name> (<year>2004</year>). <article-title>Muscle strength, power and adaptations to resistance training in older people</article-title>. <source>European Journal of Applied Physiology</source>, <volume>91</volume>(<issue>4</issue>), <fpage>450</fpage>–<lpage>472</lpage>.<pub-id pub-id-type="pmid">14639481</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-003-0991-3</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0049"><mixed-citation publication-type="journal" id="tjp70462-cite-0049">
+<string-name name-style="western">
+<surname>Manini</surname>, <given-names>T. M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hong</surname>, <given-names>S. L.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Clark</surname>, <given-names>B. C.</given-names>
+</string-name> (<year>2013</year>). <article-title>Aging and muscle</article-title>. <source>Current Opinion in Clinical Nutrition and Metabolic Care</source>, <volume>16</volume>, <fpage>21</fpage>–<lpage>26</lpage>.<pub-id pub-id-type="pmid">23222705</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/MCO.0b013e32835b5880</pub-id><pub-id pub-id-type="pmcid">PMC3868452</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0051"><mixed-citation publication-type="journal" id="tjp70462-cite-0051">
+<string-name name-style="western">
+<surname>Martinez‐Valdes</surname>, <given-names>E.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Negro</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Laine</surname>, <given-names>C. M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Falla</surname>, <given-names>D.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mayer</surname>, <given-names>F.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name> (<year>2017</year>). <article-title>Tracking motor units longitudinally across experimental sessions with high‐density surface electromyography</article-title>. <source>The Journal of Physiology</source>, <volume>595</volume>(<issue>5</issue>), <fpage>1479</fpage>–<lpage>1496</lpage>.<pub-id pub-id-type="pmid">28032343</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1113/JP273662</pub-id><pub-id pub-id-type="pmcid">PMC5330923</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0052"><mixed-citation publication-type="journal" id="tjp70462-cite-0052">
+<string-name name-style="western">
+<surname>McGinley</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hoffman</surname>, <given-names>R. L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Russ</surname>, <given-names>D. W.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Thomas</surname>, <given-names>J. S.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Clark</surname>, <given-names>B. C.</given-names>
+</string-name> (<year>2010</year>). <article-title>Older adults exhibit more intracortical inhibition and less intracortical facilitation than young adults</article-title>. <source>Experimental Gerontology</source>, <volume>45</volume>(<issue>9</issue>), <fpage>671</fpage>–<lpage>678</lpage>.<pub-id pub-id-type="pmid">20417265</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.exger.2010.04.005</pub-id><pub-id pub-id-type="pmcid">PMC2926152</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0053"><mixed-citation publication-type="journal" id="tjp70462-cite-0053">
+<string-name name-style="western">
+<surname>Mesquita</surname>, <given-names>R. N. O.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Taylor</surname>, <given-names>J. L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Heckman</surname>, <given-names>C. J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Trajano</surname>, <given-names>G. S.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Blazevich</surname>, <given-names>A. J.</given-names>
+</string-name> (<year>2024</year>). <article-title>Persistent inward currents in human motoneurons: Emerging evidence and future directions</article-title>. <source>Journal of Neurophysiology</source>, <volume>132</volume>(<issue>4</issue>), <fpage>1278</fpage>–<lpage>1301</lpage>.<pub-id pub-id-type="pmid">39196985</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.00204.2024</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0054"><mixed-citation publication-type="journal" id="tjp70462-cite-0054">
+<string-name name-style="western">
+<surname>Mesquita</surname>, <given-names>R. N. O.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Taylor</surname>, <given-names>J. L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Trajano</surname>, <given-names>G. S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Škarabot</surname>, <given-names>J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Holobar</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gonçalves</surname>, <given-names>B. A. M.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Blazevich</surname>, <given-names>A. J.</given-names>
+</string-name> (<year>2022</year>). <article-title>Effects of reciprocal inhibition and whole‐body relaxation on persistent inward currents estimated by two different methods</article-title>. <source>The Journal of Physiology</source>, <volume>600</volume>(<issue>11</issue>), <fpage>2765</fpage>–<lpage>2787</lpage>.<pub-id pub-id-type="pmid">35436349</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1113/JP282765</pub-id><pub-id pub-id-type="pmcid">PMC9325475</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0055"><mixed-citation publication-type="journal" id="tjp70462-cite-0055">
+<string-name name-style="western">
+<surname>Moritani</surname>, <given-names>T.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>DeVries</surname>, <given-names>H. A.</given-names>
+</string-name> (<year>1980</year>). <article-title>Potential for gross muscle hypertrophy in older men</article-title>. <source>Journal of Gerontology</source>, <volume>35</volume>(<issue>5</issue>), <fpage>672</fpage>–<lpage>682</lpage>.<pub-id pub-id-type="pmid">7430562</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/geronj/35.5.672</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0056"><mixed-citation publication-type="journal" id="tjp70462-cite-0056">
+<string-name name-style="western">
+<surname>Nishikawa</surname>, <given-names>T.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Takeda</surname>, <given-names>R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hirono</surname>, <given-names>T.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Okudaira</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ohya</surname>, <given-names>T.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Watanabe</surname>, <given-names>K.</given-names>
+</string-name> (<year>2024</year>). <article-title>Differences in acute neuromuscular response after single session of resistance exercise between young and older adults</article-title>. <source>Experimental Gerontology</source>, <volume>185</volume>, <elocation-id>112346</elocation-id>.<pub-id pub-id-type="pmid">38104744</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.exger.2023.112346</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0057"><mixed-citation publication-type="journal" id="tjp70462-cite-0057">
+<string-name name-style="western">
+<surname>Nishikawa</surname>, <given-names>T.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Takeda</surname>, <given-names>R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ueda</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Igawa</surname>, <given-names>K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hirono</surname>, <given-names>T.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Okudaira</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mita</surname>, <given-names>Y.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ohya</surname>, <given-names>T.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Watanabe</surname>, <given-names>K.</given-names>
+</string-name> (<year>2025</year>). <article-title>Quercetin ingestion alters motor unit behavior and enhances improvement in muscle strength following resistance training in older adults: A randomized, double‐blind, controlled trial</article-title>. <source>European Journal of Nutrition</source>, <volume>64</volume>(<issue>3</issue>), <fpage>117</fpage>.<pub-id pub-id-type="pmid">40063125</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00394-025-03634-9</pub-id><pub-id pub-id-type="pmcid">PMC11893712</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0057a"><mixed-citation publication-type="journal" id="tjp70462-cite-0057a">
+<string-name name-style="western">
+<surname>Nuccio</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Casolo</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Labanca</surname>, <given-names>L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rocchi</surname>, <given-names>J. E.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Felici</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Macaluso</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mariani</surname>, <given-names>P. P.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Falla</surname>, <given-names>D.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Farina</surname>, <given-names>D.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Sbriccoli</surname>, <given-names>P.</given-names>
+</string-name> (<year>2020</year>). <article-title>Muscle fiber conduction velocity in the vastus lateralis and medialis muscles of soccer players after ACL reconstruction</article-title>. <source>Scandinavian Journal of Medicine &amp; Science in Sports</source>, <volume>30</volume>(<issue>10</issue>), <fpage>1976</fpage>–<lpage>1984</lpage>.<pub-id pub-id-type="pmid">32516856</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/sms.13748</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0058"><mixed-citation publication-type="journal" id="tjp70462-cite-0058">
+<string-name name-style="western">
+<surname>Opie</surname>, <given-names>G. M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hand</surname>, <given-names>B. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Semmler</surname>, <given-names>J. G.</given-names>
+</string-name> (<year>2020</year>). <article-title>Age‐related changes in late synaptic inputs to corticospinal neurons and their functional significance: A paired‐pulse TMS study</article-title>. <source>Brain Stimulation</source>, <volume>13</volume>(<issue>1</issue>), <fpage>239</fpage>–<lpage>246</lpage>.<pub-id pub-id-type="pmid">31420295</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.brs.2019.08.003</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0059"><mixed-citation publication-type="journal" id="tjp70462-cite-0059">
+<string-name name-style="western">
+<surname>Orssatto</surname>, <given-names>L. B. R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Borg</surname>, <given-names>D. N.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Blazevich</surname>, <given-names>A. J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sakugawa</surname>, <given-names>R. L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Shield</surname>, <given-names>A. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Trajano</surname>, <given-names>G. S.</given-names>
+</string-name> (<year>2021a</year>). <article-title>Intrinsic motoneuron excitability is reduced in soleus and tibialis anterior of older adults</article-title>. <source>GeroScience</source>, <volume>43</volume>(<issue>6</issue>), <fpage>2719</fpage>–<lpage>2735</lpage>.<pub-id pub-id-type="pmid">34716899</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11357-021-00478-z</pub-id><pub-id pub-id-type="pmcid">PMC8556797</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0060"><mixed-citation publication-type="journal" id="tjp70462-cite-0060">
+<string-name name-style="western">
+<surname>Orssatto</surname>, <given-names>L. B. R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Borg</surname>, <given-names>D. N.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pendrith</surname>, <given-names>L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Blazevich</surname>, <given-names>A. J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Shield</surname>, <given-names>A. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Trajano</surname>, <given-names>G. S.</given-names>
+</string-name> (<year>2022</year>). <article-title>Do motoneuron discharge rates slow with aging? A systematic review and meta‐analysis</article-title>. <source>Mechanisms of Ageing and Development</source>, <volume>203</volume>, <elocation-id>111647</elocation-id>.<pub-id pub-id-type="pmid">35218849</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.mad.2022.111647</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0061"><mixed-citation publication-type="journal" id="tjp70462-cite-0061">
+<string-name name-style="western">
+<surname>Orssatto</surname>, <given-names>L. B. R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mackay</surname>, <given-names>K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Shield</surname>, <given-names>A. J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sakugawa</surname>, <given-names>R. L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Blazevich</surname>, <given-names>A. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Trajano</surname>, <given-names>G. S.</given-names>
+</string-name> (<year>2021b</year>). <article-title>Estimates of persistent inward currents increase with the level of voluntary drive in low‐threshold motor units of plantar flexor muscles</article-title>. <source>Journal of Neurophysiology</source>, <volume>125</volume>(<issue>5</issue>), <fpage>1746</fpage>–<lpage>1754</lpage>.<pub-id pub-id-type="pmid">33788617</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.00697.2020</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0062"><mixed-citation publication-type="journal" id="tjp70462-cite-0062">
+<string-name name-style="western">
+<surname>Orssatto</surname>, <given-names>L. B. R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rodrigues</surname>, <given-names>P.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mackay</surname>, <given-names>K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Blazevich</surname>, <given-names>A. J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Borg</surname>, <given-names>D. N.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Souza</surname>, <given-names>T. R. D.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sakugawa</surname>, <given-names>R. L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Shield</surname>, <given-names>A. J.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Trajano</surname>, <given-names>G. S.</given-names>
+</string-name> (<year>2023</year>). <article-title>Intrinsic motor neuron excitability is increased after resistance training in older adults</article-title>. <source>Journal of Neurophysiology</source>, <volume>129</volume>(<issue>3</issue>), <fpage>635</fpage>–<lpage>650</lpage>.<pub-id pub-id-type="pmid">36752407</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.00462.2022</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0063"><mixed-citation publication-type="journal" id="tjp70462-cite-0063">
+<string-name name-style="western">
+<surname>Pearcey</surname>, <given-names>G. E. P.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Alizedah</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Power</surname>, <given-names>K. E.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Button</surname>, <given-names>D. C.</given-names>
+</string-name> (<year>2021</year>). <article-title>Chronic resistance training: Is it time to rethink the time course of neural contributions to strength gain?</article-title>
+<source>European Journal of Applied Physiology</source>, <volume>121</volume>(<issue>9</issue>), <fpage>2413</fpage>–<lpage>2422</lpage>.<pub-id pub-id-type="pmid">34052876</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-021-04730-4</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0064"><mixed-citation publication-type="journal" id="tjp70462-cite-0064">
+<string-name name-style="western">
+<surname>Piasecki</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ireland</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jones</surname>, <given-names>D. A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>McPhee</surname>, <given-names>J. S.</given-names>
+</string-name> (<year>2016</year>). <article-title>Age‐dependent motor unit remodelling in human limb muscles</article-title>. <source>Biogerontology</source>, <volume>17</volume>(<issue>3</issue>), <fpage>485</fpage>–<lpage>496</lpage>.<pub-id pub-id-type="pmid">26667009</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s10522-015-9627-3</pub-id><pub-id pub-id-type="pmcid">PMC4889636</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0065"><mixed-citation publication-type="journal" id="tjp70462-cite-0065">
+<string-name name-style="western">
+<surname>Rantanen</surname>, <given-names>T.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Era</surname>, <given-names>P.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Heikkinen</surname>, <given-names>E.</given-names>
+</string-name> (<year>1994</year>). <article-title>Maximal isometric strength and mobility among 75‐year‐old men and women</article-title>. <source>Age and Ageing</source>, <volume>23</volume>(<issue>2</issue>), <fpage>132</fpage>–<lpage>137</lpage>.<pub-id pub-id-type="pmid">8023721</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/ageing/23.2.132</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0066"><mixed-citation publication-type="journal" id="tjp70462-cite-0066">
+<string-name name-style="western">
+<surname>Van Roie</surname>, <given-names>E.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Van Driessche</surname>, <given-names>S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Inglis</surname>, <given-names>A. J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Thomis</surname>, <given-names>M.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Delecluse</surname>, <given-names>C.</given-names>
+</string-name> (<year>2018</year>). <article-title>Rate of power development of the knee extensors across the adult life span: A cross‐sectional study in 1387 flemish caucasians</article-title>. <source>Experimental Gerontology</source>, <volume>110</volume>, <fpage>260</fpage>–<lpage>266</lpage>.<pub-id pub-id-type="pmid">29953950</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.exger.2018.06.021</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0067"><mixed-citation publication-type="journal" id="tjp70462-cite-0067">
+<string-name name-style="western">
+<surname>Rozand</surname>, <given-names>V.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sundberg</surname>, <given-names>C. W.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hunter</surname>, <given-names>S. K.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Smith</surname>, <given-names>A. E.</given-names>
+</string-name> (<year>2020</year>). <article-title>Age‐related deficits in Voluntary Activation: A systematic review and meta‐analysis</article-title>. <source>Medicine and Science in Sports and Exercise</source>, <volume>52</volume>(<issue>3</issue>), <fpage>549</fpage>–<lpage>560</lpage>.<pub-id pub-id-type="pmid">31688647</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1249/MSS.0000000000002179</pub-id><pub-id pub-id-type="pmcid">PMC8015244</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0068"><mixed-citation publication-type="journal" id="tjp70462-cite-0068">
+<string-name name-style="western">
+<surname>Škarabot</surname>, <given-names>J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ammann</surname>, <given-names>C.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Balshaw</surname>, <given-names>T. G.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Divjak</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Urh</surname>, <given-names>F.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Murks</surname>, <given-names>N.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Foffani</surname>, <given-names>G.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Holobar</surname>, <given-names>A.</given-names>
+</string-name> (<year>2023</year>). <article-title>Decoding firings of a large population of human motor units from high‐density surface electromyogram in response to transcranial magnetic stimulation</article-title>. <source>The Journal of Physiology</source>, <volume>601</volume>(<issue>10</issue>), <fpage>1719</fpage>–<lpage>1744</lpage>.<pub-id pub-id-type="pmid">36946417</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1113/JP284043</pub-id><pub-id pub-id-type="pmcid">PMC10952962</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0069"><mixed-citation publication-type="journal" id="tjp70462-cite-0069">
+<string-name name-style="western">
+<surname>Škarabot</surname>, <given-names>J.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Brownstein</surname>, <given-names>C. G.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Casolo</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Del Vecchio</surname>, <given-names>A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Ansdell</surname>, <given-names>P.</given-names>
+</string-name> (<year>2021</year>). <article-title>The knowns and unknowns of neural adaptations to resistance training</article-title>. <source>European Journal of Applied Physiology</source>, <volume>121</volume>(<issue>3</issue>), <fpage>675</fpage>–<lpage>685</lpage>.<pub-id pub-id-type="pmid">33355714</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00421-020-04567-3</pub-id><pub-id pub-id-type="pmcid">PMC7892509</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0070"><mixed-citation publication-type="journal" id="tjp70462-cite-0070">
+<string-name name-style="western">
+<surname>Skelton</surname>, <given-names>D. A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Greig</surname>, <given-names>C. A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Davies</surname>, <given-names>J. M.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Young</surname>, <given-names>A.</given-names>
+</string-name> (<year>1994</year>). <article-title>Strength, power and related functional ability of healthy people aged 65–89 years</article-title>. <source>Age and Ageing</source>, <volume>23</volume>(<issue>5</issue>), <fpage>371</fpage>–<lpage>377</lpage>.<pub-id pub-id-type="pmid">7825481</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/ageing/23.5.371</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0071"><mixed-citation publication-type="journal" id="tjp70462-cite-0071">
+<string-name name-style="western">
+<surname>Tomás</surname>, <given-names>M. T.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Galán‐Mercant</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Carnero</surname>, <given-names>E. A.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Fernandes</surname>, <given-names>B.</given-names>
+</string-name> (<year>2018</year>). <article-title>Functional capacity and levels of physical activity in aging: A 3‐year follow‐up</article-title>. <source>Frontiers in Medicine</source>, <volume>4</volume>, <fpage>1</fpage>–<lpage>8</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fmed.2017.00244</pub-id><pub-id pub-id-type="pmcid">PMC5767296</pub-id><pub-id pub-id-type="pmid">29376052</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0072"><mixed-citation publication-type="journal" id="tjp70462-cite-0072">
+<string-name name-style="western">
+<surname>Trajano</surname>, <given-names>G. S.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Taylor</surname>, <given-names>J. L.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Orssatto</surname>, <given-names>L. B. R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>McNulty</surname>, <given-names>C. R.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Blazevich</surname>, <given-names>A. J.</given-names>
+</string-name> (<year>2020</year>). <article-title>Passive muscle stretching reduces estimates of persistent inward current strength in soleus motor units</article-title>. <source>Journal of Experimental Biology</source>, <volume>223</volume>(Pt <issue>21</issue>), <elocation-id>jeb229922</elocation-id>.<pub-id pub-id-type="pmid">32978317</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1242/jeb.229922</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0073"><mixed-citation publication-type="journal" id="tjp70462-cite-0073">
+<string-name name-style="western">
+<surname>Walker</surname>, <given-names>S.</given-names>
+</string-name> (<year>2021</year>). <article-title>Evidence of resistance training‐induced neural adaptation in older adults</article-title>. <source>Experimental Gerontology</source>, <volume>151</volume>, <elocation-id>111408</elocation-id>.<pub-id pub-id-type="pmid">34022275</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.exger.2021.111408</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0074"><mixed-citation publication-type="journal" id="tjp70462-cite-0074">
+<string-name name-style="western">
+<surname>Watanabe</surname>, <given-names>K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Holobar</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kouzaki</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ogawa</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Akima</surname>, <given-names>H.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Moritani</surname>, <given-names>T.</given-names>
+</string-name> (<year>2016</year>). <article-title>Age‐related changes in motor unit firing pattern of vastus lateralis muscle during low‐moderate contraction</article-title>. <source>Age (Omaha)</source>, <volume>38</volume>(<issue>3</issue>), <fpage>48</fpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11357-016-9915-0</pub-id><pub-id pub-id-type="pmcid">PMC5005913</pub-id><pub-id pub-id-type="pmid">27084115</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0075"><mixed-citation publication-type="journal" id="tjp70462-cite-0075">
+<string-name name-style="western">
+<surname>Watanabe</surname>, <given-names>K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Holobar</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mita</surname>, <given-names>Y.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Tomita</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yoshiko</surname>, <given-names>A.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kouzaki</surname>, <given-names>M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Uchida</surname>, <given-names>K.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Moritani</surname>, <given-names>T.</given-names>
+</string-name> (<year>2020</year>). <article-title>Modulation of neural and muscular adaptation processes during resistance training by fish protein ingestions in older adults ed. Le Couteur D</article-title>. <source>The Journals of Gerontology: Series A</source>, <volume>75</volume>(<issue>5</issue>), <fpage>867</fpage>–<lpage>874</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/gerona/glz215</pub-id><pub-id pub-id-type="pmcid">PMC7164534</pub-id><pub-id pub-id-type="pmid">31596471</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0076"><mixed-citation publication-type="journal" id="tjp70462-cite-0076">
+<string-name name-style="western">
+<surname>Wilson</surname>, <given-names>J. M.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Thompson</surname>, <given-names>C. K.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Miller</surname>, <given-names>L. C.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Heckman</surname>, <given-names>C. J.</given-names>
+</string-name> (<year>2015</year>). <article-title>Intrinsic excitability of human motoneurons in biceps brachii versus triceps brachii</article-title>. <source>Journal of Neurophysiology</source>, <volume>113</volume>(<issue>10</issue>), <fpage>3692</fpage>–<lpage>3699</lpage>.<pub-id pub-id-type="pmid">25787957</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.00960.2014</pub-id><pub-id pub-id-type="pmcid">PMC4468975</pub-id></mixed-citation></ref><ref id="tjp70462-bib-0077"><mixed-citation publication-type="journal" id="tjp70462-cite-0077">
+<string-name name-style="western">
+<surname>Wunderle</surname>, <given-names>V.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Tscherpel</surname>, <given-names>C.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fink</surname>, <given-names>G. R.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Grefkes</surname>, <given-names>C.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Weiss</surname>, <given-names>P. H.</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sánchez‐sánchez</surname>, <given-names>M. L.</given-names>
+</string-name>, &amp; <string-name name-style="western">
+<surname>Adamo</surname>, <given-names>D. E.</given-names>
+</string-name> (<year>2024</year>). <article-title>Age‐ and sex‐related changes in motor functions : A comprehensive assessment and component analysis</article-title>. <source>Frontiers in Aging Neuroscience</source>, <volume>16</volume>, <elocation-id>1368052</elocation-id>.<pub-id pub-id-type="pmid">38813530</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fnagi.2024.1368052</pub-id><pub-id pub-id-type="pmcid">PMC11133706</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

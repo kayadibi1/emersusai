@@ -1,0 +1,117 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">30013480</PMID><DateRevised><Year>2020</Year><Month>10</Month><Day>01</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>9</Volume><PubDate><Year>2018</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Higher Training Frequency Is Important for Gaining Muscular Strength Under Volume-Matched Training.</ArticleTitle><Pagination><StartPage>744</StartPage><MedlinePgn>744</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">744</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2018.00744</ELocationID><Abstract><AbstractText><b>Background:</b> This study investigated the effect of volume-matched strength training programs with different frequency and subsequent detraining on muscle size and strength. <b>Methods:</b> During a training period of 11 weeks, untrained subjects (age: 22.3 &#xb1; 0.9 years, height: 173.1 &#xb1; 4.8 cm and body mass: 66.8 &#xb1; 8.4 kg) performed knee-extension exercise at 67% of their estimated one-repetition maximum either one session per week (T1 group: 6 sets of 12 repetitions per session; <i>n</i> = 10) or three sessions per week (T3 group: 2 sets of 12 repetitions per session; <i>n</i> = 10). Rating of perceived exertion (RPE) and muscle stiffness were measured as an index of muscle fatigue and muscle damage, respectively. The magnitude of muscle hypertrophy was assessed with thigh circumference and the quadriceps muscle thickness. The changes in muscle strength were measured with isometric maximum voluntary contraction torque (MVC). <b>Results:</b> During the training period, RPE was significantly higher in the T1 than in the T3 (<i>p</i> &lt; 0.001). After 11 weeks of training, both groups exhibited significant improvements in thigh circumference, muscle thickness, and MVC compared with baseline values. However, there was a significant group difference in MVC improvement at week 11 (T1: 43.5 &#xb1; 15.5%, T3: 65.2 &#xb1; 23.2%, <i>p</i> &lt; 0.05). After 6 weeks of detraining, both groups showed the significant decreases in thigh circumference and muscle thickness from those at the end of training period, while no significant effect of detraining was observed in MVC. <b>Conclusion:</b> These results suggest that three training sessions per week with two sets are recommended for untrained subjects to improve muscle strength while minimizing fatigue compared to one session per week with six sets.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Ochi</LastName><ForeName>Eisuke</ForeName><Initials>E</Initials><AffiliationInfo><Affiliation>Faculty of Bioscience and Applied Chemistry, Hosei University, Tokyo, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Maruo</LastName><ForeName>Masataka</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Graduate School of Education, Okayama University, Okayama, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Tsuchiya</LastName><ForeName>Yosuke</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Faculty of Modern Life, Teikyo Heisei University, Tokyo, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Ishii</LastName><ForeName>Naokata</ForeName><Initials>N</Initials><AffiliationInfo><Affiliation>Graduate School of Arts and Sciences, University of Tokyo, Tokyo, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Miura</LastName><ForeName>Koji</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Physical Education, International Pacific University, Okayama, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sasaki</LastName><ForeName>Kazushige</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Faculty of Human Sciences and Design, Japan Women's University, Tokyo, Japan.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2018</Year><Month>07</Month><Day>02</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">isometric strength</Keyword><Keyword MajorTopicYN="N">muscle stiffness</Keyword><Keyword MajorTopicYN="N">muscle thickness</Keyword><Keyword MajorTopicYN="N">quadriceps</Keyword><Keyword MajorTopicYN="N">resistance training</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2017</Year><Month>8</Month><Day>19</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2018</Year><Month>5</Month><Day>28</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2018</Year><Month>7</Month><Day>18</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2018</Year><Month>7</Month><Day>18</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2018</Year><Month>7</Month><Day>18</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2018</Year><Month>7</Month><Day>2</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">30013480</ArticleId><ArticleId IdType="pmc">PMC6036131</ArticleId><ArticleId IdType="doi">10.3389/fphys.2018.00744</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Akagi R., Tanaka J., Shikiba T., Takahashi H. (2015). Muscle hardness of the triceps brachii before and after a resistance exercise session: a shear wave ultrasound elastography study.
+<i>Acta Radiol.</i>
+56
+1487&#x2013;1493. 10.1177/0284185114559765
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0284185114559765</ArticleId><ArticleId IdType="pubmed">25422513</ArticleId></ArticleIdList></Reference><Reference><Citation>American College of Sports Medicine (2009). Progression models in resistance training for healthy adults.
+<i>Med. Sci. Sports Exerc.</i>
+41
+687&#x2013;708. 10.1249/MSS.0b013e3181915670
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181915670</ArticleId><ArticleId IdType="pubmed">19204579</ArticleId></ArticleIdList></Reference><Reference><Citation>Arazi H., Asadi A. (2011). Effects of 8 weeks equal-volume resistance training with different workout frequency on maximal strength, endurance and body composition.
+<i>Int. J. Sports Sci. Eng.</i>
+5
+112&#x2013;118.</Citation></Reference><Reference><Citation>Brigatto F. A., Braz T. V., Zanini T. C. D. C., Germano M. D., Aoki M. S., Schoenfeld BJ. (2018). Effect of resistance training frequency on neuromuscular performance and muscle morphology after eight weeks in trained men.
+<i>J. Strength Cond. Res.</i>
+10.1519/JSC.0000000000002563
+[Epub ahead of print].
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002563</ArticleId><ArticleId IdType="pubmed">29528962</ArticleId></ArticleIdList></Reference><Reference><Citation>Candow D. G., Burke D. G. (2007). Effect of short-term equal-volume resistance training with different workout frequency on muscle mass and strength in untrained men and women.
+<i>J. Strength Cond. Res.</i>
+21
+204&#x2013;207. 10.1519/00124278-200702000-00037
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200702000-00037</ArticleId><ArticleId IdType="pubmed">17313289</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen J. (1988). <i>Statistical Power Analysis for the Behavioral Sciences</i>.
+2nd ed.
+Hillsdale, NJ: Erlbaum.</Citation></Reference><Reference><Citation>Colliander E. B., Tesch P. A. (1992). Effects of detraining following short term resistance training on eccentric and concentric muscle strength.
+<i>Acta Physiol. Scand.</i>
+144
+23&#x2013;29. 10.1111/j.1748-1716.1992.tb09263.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1748-1716.1992.tb09263.x</ArticleId><ArticleId IdType="pubmed">1595350</ArticleId></ArticleIdList></Reference><Reference><Citation>Damas F., Phillips S. M., Lixandr&#xe3;o M. E., Vechin F. C., Libardi C. A., Roschel H., et al.  (2016). Early resistance training-induced increases in muscle cross-sectional area are concomitant with edema-induced muscle swelling.
+<i>Eur. J. Appl. Physiol.</i>
+116
+49&#x2013;56. 10.1007/s00421-015-3243-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-015-3243-4</ArticleId><ArticleId IdType="pubmed">26280652</ArticleId></ArticleIdList></Reference><Reference><Citation>Dankel S. J., Mattocks K. T., Jessee M. B., Buckner S. L., Mouser J. G., Counts B. R., et al.  (2017). Frequency: the overlooked resistance training variable for inducing muscle hypertrophy?
+<i>Sports Med.</i>
+47
+799&#x2013;805. 10.1007/s40279-016-0640-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-016-0640-8</ArticleId><ArticleId IdType="pubmed">27752983</ArticleId></ArticleIdList></Reference><Reference><Citation>Ferri A., Scaglioni G., Pousson M., Capodaglio P., Van H. J., Narici M. V. (2003). Strength and power changes of the human plantar flexors and knee extensors in response to resistance training in old age.
+<i>Acta Physiol. Scand.</i>
+177
+69&#x2013;78. 10.1046/j.1365-201X.2003.01050.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1046/j.1365-201X.2003.01050.x</ArticleId><ArticleId IdType="pubmed">12492780</ArticleId></ArticleIdList></Reference><Reference><Citation>Fink J., Schoenfeld B. J., Kikuchi N., Nakazato K. (2017). Effects of drop set resistance training on acute stress indicators and long-term muscle hypertrophy and strength.
+<i>J. Sports Med. Phys. Fitness</i>
+58
+597&#x2013;605. 10.23736/S0022-4707.17.06838-4</Citation><ArticleIdList><ArticleId IdType="doi">10.23736/S0022-4707.17.06838-4</ArticleId><ArticleId IdType="pubmed">28474868</ArticleId></ArticleIdList></Reference><Reference><Citation>Gentil P., Fischer B., Martorelli A. S., Lima R. M., Bottaro M. (2015). Effects of equal-volume resistance training performed one or two times a week in upper body muscle size and strength of untrained young men.
+<i>J. Sports Med. Phys. Fitness</i>
+55
+144&#x2013;149.</Citation><ArticleIdList><ArticleId IdType="pubmed">24732784</ArticleId></ArticleIdList></Reference><Reference><Citation>Grgic J., Schoenfeld B. J., Davies T. B., Lazinica B., Krieger J. W., Pedisic Z. (2018). Effect of resistance training frequency on gains in muscular strength: a systematic review and meta-analysis.
+<i>Sports Med.</i>
+48
+1207&#x2013;1220. 10.1007/s40279-018-0872-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-018-0872-x</ArticleId><ArticleId IdType="pubmed">29470825</ArticleId></ArticleIdList></Reference><Reference><Citation>H&#xe4;kkinen K., Al&#xe9;n M., Komi P. V. (1985). Changes in isometric force- and relaxation-time, electromyographic and muscle fibre characteristics of human skeletal muscle during strength training and detraining.
+<i>Acta Physiol. Scand.</i>
+125
+573&#x2013;585. 10.1111/j.1748-1716.1985.tb07759.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1748-1716.1985.tb07759.x</ArticleId><ArticleId IdType="pubmed">4091001</ArticleId></ArticleIdList></Reference><Reference><Citation>H&#xe4;kkinen K. E., Komi P. V. (1982). Electromyographic changes during strength training and detraining.
+<i>Med. Sci. Sports Exerc.</i>
+15
+455&#x2013;460.</Citation><ArticleIdList><ArticleId IdType="pubmed">6656553</ArticleId></ArticleIdList></Reference><Reference><Citation>Hopkins W. G., Marshall S. W., Batterham A. M., Hanin J. (2009). Progressive statistics for studies in sports medicine and exercise science.
+<i>Med. Sci. Sports Exerc.</i>
+41
+3&#x2013;13. 10.1249/MSS.0b013e31818cb278
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e31818cb278</ArticleId><ArticleId IdType="pubmed">19092709</ArticleId></ArticleIdList></Reference><Reference><Citation>Ivey F. M., Tracy B. L., Lemmer J. T., NessAiver M., Metter E. J., Fozard J. L., et al.  (2000). Effects of strength training and detraining on muscle quality: age and gender comparisons.
+<i>J. Gerontol. A Biol. Sci. Med. Sci.</i>
+55
+152&#x2013;157. 10.1093/gerona/55.3.B152
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gerona/55.3.B152</ArticleId><ArticleId IdType="pubmed">10795719</ArticleId></ArticleIdList></Reference><Reference><Citation>Jespersen J. G., Nedergaard A., Andersen L. L., Schjerling P., Andersen J. L. (2009). Myostatin expression during human muscle hypertrophy and subsequent atrophy: increased myostatin with detraining.
+<i>Scand. J. Med. Sci. Sports</i>
+21
+215&#x2013;223. 10.1111/j.1600-0838.2009.01044.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2009.01044.x</ArticleId><ArticleId IdType="pubmed">19903317</ArticleId></ArticleIdList></Reference><Reference><Citation>Kubo K., Ikebukuro T., Yata H., Tsunoda N., Kanehisa H. (2010). Time course of changes in muscle and tendon properties during strength training and detraining.
+<i>J. Strength Cond. Res.</i>
+24
+322&#x2013;331. 10.1519/JSC.0b013e3181c865e2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181c865e2</ArticleId><ArticleId IdType="pubmed">19996769</ArticleId></ArticleIdList></Reference><Reference><Citation>Lacourpaille L., Nordez A., Hug F., Couturier A., Dibie C., Guilhem G. (2014). Time-course effect of exercise-induced muscle damage on localized muscle mechanical properties assessed using elastography.
+<i>Acta Physiol.</i>
+211
+135&#x2013;146. 10.1111/apha.12272
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/apha.12272</ArticleId><ArticleId IdType="pubmed">24602146</ArticleId></ArticleIdList></Reference><Reference><Citation>Loenneke J. P., Balapur A., Thrower A. D., Barnes J. T., Pujol T. J. (2011). The perceptual responses to occluded exercise.
+<i>Int. J. Sports Med.</i>
+32
+181&#x2013;184. 10.1055/s-0030-1268472
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0030-1268472</ArticleId><ArticleId IdType="pubmed">21165798</ArticleId></ArticleIdList></Reference><Reference><Citation>Mart&#xed;n-Hern&#xe1;ndez J., Ruiz-Aguado J., Herrero A. J., Loenneke J. P., Aagaard P., Cristi-Montero C., et al.  (2017). Adaptation of perceptual responses to low-load blood flow restriction training.
+<i>J. Strength Cond. Res.</i>
+31
+765&#x2013;772. 10.1519/JSC.0000000000001478
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000001478</ArticleId><ArticleId IdType="pubmed">27191690</ArticleId></ArticleIdList></Reference><Reference><Citation>McLester J. R., Bishop E., Guilliams M. E. (2000). Comparison of 1 day and 3 days per week of equal-volume resistance training in experienced subjects.
+<i>J. Strength Cond. Res.</i>
+14
+273&#x2013;281. 10.1519/00124278-200008000-00006</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200008000-00006</ArticleId></ArticleIdList></Reference><Reference><Citation>Moritani T., deVries H. A. (1979). Neural factors versus hypertrophy in the time course of muscle strength gain.
+<i>Am. J. Phys. Med.</i>
+58
+115&#x2013;130. </Citation><ArticleIdList><ArticleId IdType="pubmed">453338</ArticleId></ArticleIdList></Reference><Reference><Citation>Narici M. V., Hoppeler H., Kayser B., Landoni L., Claassen H., Gavardi C., et al.  (1996). Human quadriceps cross-sectional area, torque and neural activation during 6 months strength training.
+<i>Acta Physiol. Scand.</i>
+157
+175&#x2013;186. 10.1046/j.1365-201X.1996.483230000.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1046/j.1365-201X.1996.483230000.x</ArticleId><ArticleId IdType="pubmed">8800357</ArticleId></ArticleIdList></Reference><Reference><Citation>Noble B. J., Borg G. A., Jacobs I., Ceci R., Kaiser P. (1983). A category-ratio perceived exertion scale: relationship to blood and muscle lactates and heart rate.
+<i>Med. Sci. Sports Exerc.</i>
+15
+523&#x2013;528. 10.1249/00005768-198315060-00015</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00005768-198315060-00015</ArticleId><ArticleId IdType="pubmed">6656563</ArticleId></ArticleIdList></Reference><Reference><Citation>Rech A., Radaelli R., Goltz F. R., da Rosa L. H., Schneider CD Pinto RSet al.  (2014). Echo intensity is negatively associated with functional capacity in older women.
+<i>Age</i>
+36:9708. 10.1007/s11357-014-9708-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11357-014-9708-2</ArticleId><ArticleId IdType="pmc">PMC4453939</ArticleId><ArticleId IdType="pubmed">25167965</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Ogborn D., Krieger J. W. (2016). Effects of resistance training frequency on measures of muscle hypertrophy: a systematic review and meta-analysis.
+<i>Sports Med.</i>
+46
+1689&#x2013;1697. 10.1007/s40279-016-0543-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-016-0543-8</ArticleId><ArticleId IdType="pubmed">27102172</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Ratamess N. A., Peterson M. D., Contreras B., Tiryaki-Sonmez G. (2015). Influence of resistance training frequency on muscular adaptations in well-trained men.
+<i>J. Strength Cond. Res.</i>
+29
+1821&#x2013;1829. 10.1519/JSC.0000000000000970
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000970</ArticleId><ArticleId IdType="pubmed">25932981</ArticleId></ArticleIdList></Reference><Reference><Citation>Staron R. S., Karapondo D. L., Kraemer W. J., Fry A. C., Gordon S. E., Falkel J. E., et al.  (1994). Skeletal muscle adaptations during early phase of heavy-resistance training in men and women.
+<i>J. Appl. Physiol.</i>
+76
+1247&#x2013;1255. 10.1152/jappl.1994.76.3.1247
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1994.76.3.1247</ArticleId><ArticleId IdType="pubmed">8005869</ArticleId></ArticleIdList></Reference><Reference><Citation>Wilhelm E. N., Rech A., Minozzo F., Radaelli R., Botton C. E., Pinto R. S. (2014). Relationship between quadriceps femoris echo intensity, muscle power, and functional capacity of older men.
+<i>Age</i>
+36:9625. 10.1007/s11357-014-9625-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11357-014-9625-4</ArticleId><ArticleId IdType="pmc">PMC4082605</ArticleId><ArticleId IdType="pubmed">24515898</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,219 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31293449</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>30</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Neuromuscular Factors Contributing to Reductions in Muscle Force After Repeated, High-Intensity Muscular Efforts.</ArticleTitle><Pagination><StartPage>783</StartPage><MedlinePgn>783</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">783</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.00783</ELocationID><Abstract><AbstractText>Multiple neuromuscular processes contribute to the loss of force production following repeated, high-intensity muscular efforts; however, the relative contribution of each process is unclear. In Experiment 1, 16 resistance trained men performed six sets of unilateral isometric plantar flexor contractions of the right leg (3 s contraction/2 s rest; 85% maximal voluntary contraction torque; 90-s inter-set rest) until failure with and without caffeine ingestion (3 mg kg<sup>-1</sup>) on two separate days. Corticospinal excitability and cortical silent period (cSP) were assessed before and immediately, 10 and 20 min after the exercise. In Experiment 2, electrically evoked tetanic force and persistent inward current (PIC)-mediated facilitation of the motor neuron pool (estimated using neuromuscular electrical stimulation with tendon vibration) were assessed before and after the same exercise intervention in 17 resistance trained men. Results showed decreases in peak plantar flexion torque (Experiment 1: -12.2%, Experiment 2: -16.9%), electrically evoked torque (20 Hz -15.3%, 80 Hz -15.3%, variable-frequency train -17.9%), and cSP (-3.8%; i.e., reduced inhibition) post-exercise which did not recover by 20 min. Electromyographic activity (EMG; -6%), corticospinal excitability (-9%), and PIC facilitation (-24.8%) were also reduced post-exercise but recovered by 10 min. Caffeine ingestion increased torque and EMG but did not notably affect corticospinal excitability, PIC amplification, or electrically evoked torque. The data indicate that a decrease in muscle function largely underpins the loss of force after repeated, high-intensity muscular efforts, but that the loss is exacerbated immediately after the exercise by simultaneous decreases in corticospinal excitability and PIC amplitudes at the motor neurons.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Kirk</LastName><ForeName>Benjamin J C</ForeName><Initials>BJC</Initials><AffiliationInfo><Affiliation>Centre for Exercise and Sports Science Research, School of Medical and Health Sciences, Edith Cowan University, Joondalup, WA, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Trajano</LastName><ForeName>Gabriel S</ForeName><Initials>GS</Initials><AffiliationInfo><Affiliation>School of Exercise and Nutrition Sciences, Faculty of Health and Institute of Health and Biomedical Innovation, Queensland University of Technology, Brisbane, QLD, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Pulverenti</LastName><ForeName>Timothy S</ForeName><Initials>TS</Initials><AffiliationInfo><Affiliation>Department of Physical Therapy, College of Staten Island, Staten Island, NY, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Rowe</LastName><ForeName>Grant</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Centre for Exercise and Sports Science Research, School of Medical and Health Sciences, Edith Cowan University, Joondalup, WA, Australia.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Blazevich</LastName><ForeName>Anthony J</ForeName><Initials>AJ</Initials><AffiliationInfo><Affiliation>Centre for Exercise and Sports Science Research, School of Medical and Health Sciences, Edith Cowan University, Joondalup, WA, Australia.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>06</Month><Day>24</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">caffeine</Keyword><Keyword MajorTopicYN="N">corticospinal excitability</Keyword><Keyword MajorTopicYN="N">excitation&#x2013;contraction coupling</Keyword><Keyword MajorTopicYN="N">neuromuscular fatigue</Keyword><Keyword MajorTopicYN="N">persistent inward currents</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>2</Month><Day>28</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>6</Month><Day>4</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>7</Month><Day>12</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>7</Month><Day>12</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>7</Month><Day>12</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>6</Month><Day>24</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31293449</ArticleId><ArticleId IdType="pmc">PMC6601466</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.00783</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Abbate F., Bruton J., De Haan A., Westerblad H. (2002). Prolonged force increase following a high-frequency burst is not due to a sustained elevation of [Ca2+] i.
+<i>Am. J. Physiol. Cell Physiol.</i>
+283
+C42&#x2013;C47.</Citation><ArticleIdList><ArticleId IdType="pubmed">12055071</ArticleId></ArticleIdList></Reference><Reference><Citation>Allen D., Westerblad H., Lee J., L&#xe4;nnergren J. (1992). Role of excitation-contraction coupling in muscle fatigue.
+<i>Sports Med.</i>
+13
+116&#x2013;126. 10.2165/00007256-199213020-00007</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-199213020-00007</ArticleId><ArticleId IdType="pubmed">1313991</ArticleId></ArticleIdList></Reference><Reference><Citation>Allen D. G., Lamb G. D., Westerblad H. (2008). Skeletal muscle fatigue: cellular mechanisms.
+<i>Physiol. Rev.</i>
+88
+287&#x2013;332. 10.1152/physrev.00015.2007</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/physrev.00015.2007</ArticleId><ArticleId IdType="pubmed">18195089</ArticleId></ArticleIdList></Reference><Reference><Citation>Amann M., Sidhu S. K., Weavil J. C., Mangum T. S., Venturelli M. (2015). Autonomic responses to exercise: group III/IV muscle afferents and fatigue.
+<i>Auton. Neurosci.</i>
+188
+19&#x2013;23. 10.1016/j.autneu.2014.10.018</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.autneu.2014.10.018</ArticleId><ArticleId IdType="pmc">PMC4336599</ArticleId><ArticleId IdType="pubmed">25458423</ArticleId></ArticleIdList></Reference><Reference><Citation>Anrep G., Von Saalfeld E. (1935). The blood flow through the skeletal muscle in relation to its contraction.
+<i>J. Physiol.</i>
+85
+375&#x2013;399. 10.1113/jphysiol.1935.sp003326</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.1935.sp003326</ArticleId><ArticleId IdType="pmc">PMC1394548</ArticleId><ArticleId IdType="pubmed">16994720</ArticleId></ArticleIdList></Reference><Reference><Citation>Awiszus F. (2003). TMS and threshold hunting.
+<i>Suppl. Clin. Neurophysiol.</i>
+56
+13&#x2013;23. 10.1016/s1567-424x(09)70205-3</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s1567-424x(09)70205-3</ArticleId><ArticleId IdType="pubmed">14677378</ArticleId></ArticleIdList></Reference><Reference><Citation>Awiszus F., Borckardt J. (2011). <i>TMS Motor Threshold Assessment Tool (MTAT 2.0).</i>
+Charleston, SC: Medical University of South Carolina.</Citation></Reference><Reference><Citation>Bachasson D., Temesi J., Gruet M., Yokoyama K., Rupp T., Millet G., et al.  (2016). Transcranial magnetic stimulation intensity affects exercise-induced changes in corticomotoneuronal excitability and inhibition and voluntary activation.
+<i>Neuroscience</i>
+314
+125&#x2013;133. 10.1016/j.neuroscience.2015.11.056</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neuroscience.2015.11.056</ArticleId><ArticleId IdType="pubmed">26642805</ArticleId></ArticleIdList></Reference><Reference><Citation>Balog E. M. (2010). Excitation-contraction coupling and minor triadic proteins in low-frequency fatigue.
+<i>Exerc. Sport Sci. Rev.</i>
+38
+135&#x2013;142. 10.1097/JES.0b013e3181e3734d</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/JES.0b013e3181e3734d</ArticleId><ArticleId IdType="pmc">PMC2932900</ArticleId><ArticleId IdType="pubmed">20577062</ArticleId></ArticleIdList></Reference><Reference><Citation>Behrens M., Mau-Moeller A., Weippert M., Fuhrmann J., Wegner K., Skripitz R., et al.  (2015). Caffeine-induced increase in voluntary activation and strength of the quadriceps muscle during isometric, concentric and eccentric contractions.
+<i>Sci. Rep.</i>
+5:10209
+10.1038/srep10209</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/srep10209</ArticleId><ArticleId IdType="pmc">PMC4429543</ArticleId><ArticleId IdType="pubmed">25969895</ArticleId></ArticleIdList></Reference><Reference><Citation>Bentley L., Lehman S. (2005). Doublets and low-frequency fatigue in potentiated human muscle.
+<i>Acta Physiol. Scand.</i>
+185
+51&#x2013;60. 10.1111/j.1365-201x.2005.01456.x</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1365-201x.2005.01456.x</ArticleId><ArticleId IdType="pubmed">16128697</ArticleId></ArticleIdList></Reference><Reference><Citation>Bigland-Ritchie B., Woods J. (1984). Changes in muscle contractile properties and neural control during human muscular fatigue.
+<i>Muscle Nerve</i>
+7
+691&#x2013;699. 10.1002/mus.880070902</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.880070902</ArticleId><ArticleId IdType="pubmed">6100456</ArticleId></ArticleIdList></Reference><Reference><Citation>Binder M. D. (2003). Intrinsic dendritic currents make a major contribution to the control of motoneurone discharge.
+<i>J. Physiol.</i>
+552
+665&#x2013;665. 10.1113/jphysiol.2003.054817</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2003.054817</ArticleId><ArticleId IdType="pmc">PMC2343444</ArticleId><ArticleId IdType="pubmed">14514880</ArticleId></ArticleIdList></Reference><Reference><Citation>Binder-Macleod S., Kesar T. (2005). Catchlike property of skeletal muscle: recent findings and clinical implications.
+<i>Muscle Nerve</i>
+31
+681&#x2013;693. 10.1002/mus.20290</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.20290</ArticleId><ArticleId IdType="pubmed">15736271</ArticleId></ArticleIdList></Reference><Reference><Citation>Blazevich A. J., Kay A. D., Waugh C., Fath F., Miller S., Cannavan D. (2012). Plantarflexor stretch training increases reciprocal inhibition measured during voluntary dorsiflexion.
+<i>J. Neurophysiol.</i>
+107
+250&#x2013;256. 10.1152/jn.00407.2011</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.00407.2011</ArticleId><ArticleId IdType="pubmed">21975448</ArticleId></ArticleIdList></Reference><Reference><Citation>Burke R., Rudomin P., Zajac F. (1970). Catch property in single mammalian motor units.
+<i>Science</i>
+168
+122&#x2013;124. 10.1126/science.168.3927.122</Citation><ArticleIdList><ArticleId IdType="doi">10.1126/science.168.3927.122</ArticleId><ArticleId IdType="pubmed">5417051</ArticleId></ArticleIdList></Reference><Reference><Citation>Cairns S. P., Inman L. A., MacManus C. P., van de Port I. G., Ruell P. A., Thom J. M., et al.  (2017). Central activation, metabolites, and calcium handling during fatigue with repeated maximal isometric contractions in human muscle.
+<i>Eur. J. Appl. Physiol.</i>
+117
+1557&#x2013;1571. 10.1007/s00421-017-3640-y</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-017-3640-y</ArticleId><ArticleId IdType="pubmed">28527013</ArticleId></ArticleIdList></Reference><Reference><Citation>Cannavan D., Coleman D. R., Blazevich A. J. (2012). Lack of effect of moderate-duration static stretching on plantar flexor force production and series compliance.
+<i>Clin. Biomech.</i>
+27
+306&#x2013;312. 10.1016/j.clinbiomech.2011.10.003</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinbiomech.2011.10.003</ArticleId><ArticleId IdType="pubmed">22047756</ArticleId></ArticleIdList></Reference><Reference><Citation>Cotel F., Exley R., Cragg S. J., Perrier J.-F. (2013). Serotonin spillover onto the axon initial segment of motoneurons induces central fatigue by inhibiting action potential initiation.
+<i>Proc. Natl. Acad. Sci. U.S.A.</i>
+110
+4774&#x2013;4779. 10.1073/pnas.1216150110</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.1216150110</ArticleId><ArticleId IdType="pmc">PMC3607056</ArticleId><ArticleId IdType="pubmed">23487756</ArticleId></ArticleIdList></Reference><Reference><Citation>D&#x2019;Amico J. M., Butler A. A., H&#xe9;roux M. E., Butler J. E., Gandevia S. C., Taylor J. L. (2015). <i>Activation of 5HT1A Receptors Inhibits Motoneurone Excitability in Humans.</i>
+Sydney, AU: Neuroscience Research Australia.</Citation></Reference><Reference><Citation>Damron L. A., Dearth D. J., Hoffman R. L., Clark B. C. (2008). Quantification of the corticospinal silent period evoked via transcranial magnetic stimulation.
+<i>J. Neurosci. Methods</i>
+173
+121&#x2013;128. 10.1016/j.jneumeth.2008.06.001</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jneumeth.2008.06.001</ArticleId><ArticleId IdType="pubmed">18588914</ArticleId></ArticleIdList></Reference><Reference><Citation>Davis J., Green J. M. (2009). Caffeine and anaerobic performance.
+<i>Sports Med.</i>
+39
+813&#x2013;832. 10.2165/11317770-000000000-00000</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/11317770-000000000-00000</ArticleId><ArticleId IdType="pubmed">19757860</ArticleId></ArticleIdList></Reference><Reference><Citation>De Haan A., Gerrits K., De Ruiter C. (2009). Counterpoint: the interpolated twitch does not provide a valid measure of the voluntary activation of muscle.
+<i>J. Appl. Physiol.</i>
+107
+355&#x2013;357. 10.1152/japplphysiol.91220.2008a</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.91220.2008a</ArticleId><ArticleId IdType="pubmed">19567806</ArticleId></ArticleIdList></Reference><Reference><Citation>Debold E. P. (2016). Decreased myofilament calcium sensitivity plays a significant role in muscle fatigue.
+<i>Exerc. Sport Sci. Rev.</i>
+44
+144&#x2013;149. 10.1249/jes.0000000000000089</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/jes.0000000000000089</ArticleId><ArticleId IdType="pubmed">27526194</ArticleId></ArticleIdList></Reference><Reference><Citation>Edman K., Lou F. (1990). Changes in force and stiffness induced by fatigue and intracellular acidification in frog muscle fibres.
+<i>J. Physiol.</i>
+424
+133&#x2013;149. 10.1113/jphysiol.1990.sp018059</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.1990.sp018059</ArticleId><ArticleId IdType="pmc">PMC1189805</ArticleId><ArticleId IdType="pubmed">2391650</ArticleId></ArticleIdList></Reference><Reference><Citation>Fredholm B. B., B&#xe4;ttig K., Holm&#xe9;n J., Nehlig A., Zvartau E. E. (1999). Actions of caffeine in the brain with special reference to factors that contribute to its widespread use.
+<i>Pharmacol. Rev.</i>
+51
+83&#x2013;133.</Citation><ArticleIdList><ArticleId IdType="pubmed">10049999</ArticleId></ArticleIdList></Reference><Reference><Citation>Gandevia S. (1998). Neural control in human muscle fatigue: changes in muscle afferents, moto neurones and moto cortical drive.
+<i>Acta Physiol. Scand.</i>
+162
+275&#x2013;283. 10.1046/j.1365-201x.1998.0299f.x</Citation><ArticleIdList><ArticleId IdType="doi">10.1046/j.1365-201x.1998.0299f.x</ArticleId><ArticleId IdType="pubmed">9578373</ArticleId></ArticleIdList></Reference><Reference><Citation>Gandevia S. (2001). Spinal and supraspinal factors in human muscle fatigue.
+<i>Physiol. Rev.</i>
+81
+1725&#x2013;1789. 10.1152/physrev.2001.81.4.1725</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/physrev.2001.81.4.1725</ArticleId><ArticleId IdType="pubmed">11581501</ArticleId></ArticleIdList></Reference><Reference><Citation>Gandevia S., Taylor J. (2006). Supraspinal fatigue: the effects of caffeine on human muscle performance.
+<i>J. Appl. Physiol.</i>
+100
+1749&#x2013;1750. 10.1152/japplphysiol.00121.2006</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00121.2006</ArticleId><ArticleId IdType="pubmed">16714410</ArticleId></ArticleIdList></Reference><Reference><Citation>Goodall S., Charlton K., Howatson G., Thomas K. (2015). Neuromuscular fatigability during repeated-sprint exercise in male athletes.
+<i>Med. Sci. Sports Exerc.</i>
+47
+528&#x2013;536. 10.1249/MSS.0000000000000443</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000000443</ArticleId><ArticleId IdType="pubmed">25010404</ArticleId></ArticleIdList></Reference><Reference><Citation>Goodall S., Howatson G., Thomas K. (2017). Modulation of specific inhibitory networks in fatigued locomotor muscles of healthy males.
+<i>Exp. Brain Res.</i>
+236
+463&#x2013;473. 10.1007/s00221-017-5142-x</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00221-017-5142-x</ArticleId><ArticleId IdType="pmc">PMC5809538</ArticleId><ArticleId IdType="pubmed">29214392</ArticleId></ArticleIdList></Reference><Reference><Citation>Gruet M., Temesi J., Rupp T., Levy P., Verges S., Millet G. Y. (2014). Dynamics of corticospinal changes during and after high-intensity quadriceps exercise.
+<i>Exp. Physiol.</i>
+99
+1053&#x2013;1064. 10.1113/expphysiol.2014.078840</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/expphysiol.2014.078840</ArticleId><ArticleId IdType="pubmed">24907029</ArticleId></ArticleIdList></Reference><Reference><Citation>Heckman C., Enoka R. M. (2012). Motor unit.
+<i>Compr. Physiol.</i>
+2
+2629&#x2013;2682. 10.1002/cphy.c100087</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/cphy.c100087</ArticleId><ArticleId IdType="pubmed">23720261</ArticleId></ArticleIdList></Reference><Reference><Citation>Heckman C., Gorassini M. A., Bennett D. J. (2005). Persistent inward currents in motoneuron dendrites: implications for motor output.
+<i>Muscle Nerve</i>
+31
+135&#x2013;156. 10.1002/mus.20261</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.20261</ArticleId><ArticleId IdType="pubmed">15736297</ArticleId></ArticleIdList></Reference><Reference><Citation>Heckman C., Johnson M., Mottram C., Schuster J. (2008). Persistent inward currents in spinal motoneurons and their influence on human motoneuron firing patterns.
+<i>Neuroscientist</i>
+14:264
+10.1177/1073858408314986</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1073858408314986</ArticleId><ArticleId IdType="pmc">PMC3326417</ArticleId><ArticleId IdType="pubmed">18381974</ArticleId></ArticleIdList></Reference><Reference><Citation>Hill A. (1948). The pressure developed in muscle during contraction.
+<i>J. Physiol.</i>
+107
+518&#x2013;526. 10.1113/jphysiol.1948.sp004296</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.1948.sp004296</ArticleId><ArticleId IdType="pmc">PMC1392399</ArticleId><ArticleId IdType="pubmed">16991832</ArticleId></ArticleIdList></Reference><Reference><Citation>Hill C. A., Thompson M. W., Ruell P. A., Thom J. M., White M. J. (2001). Sarcoplasmic reticulum function and muscle contractile character following fatiguing exercise in humans.
+<i>J. Physiol.</i>
+531
+871&#x2013;878. 10.1111/j.1469-7793.2001.0871h.x</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1469-7793.2001.0871h.x</ArticleId><ArticleId IdType="pmc">PMC2278486</ArticleId><ArticleId IdType="pubmed">11251066</ArticleId></ArticleIdList></Reference><Reference><Citation>Hoffman B. W., Oya T., Carroll T. J., Cresswell A. G. (2009). Increases in corticospinal responsiveness during a sustained submaximal plantar flexion.
+<i>J. Appl. Physiol.</i>
+107
+112&#x2013;120. 10.1152/japplphysiol.91541.2008</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.91541.2008</ArticleId><ArticleId IdType="pubmed">19443741</ArticleId></ArticleIdList></Reference><Reference><Citation>Hultborn H., Denton M. E., Wienecke J., Nielsen J. B. (2003). Variable amplification of synaptic input to cat spinal motoneurones by dendritic persistent inward current.
+<i>J. Physiol.</i>
+552
+945&#x2013;952. 10.1113/jphysiol.2003.050971</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2003.050971</ArticleId><ArticleId IdType="pmc">PMC2343455</ArticleId><ArticleId IdType="pubmed">14500771</ArticleId></ArticleIdList></Reference><Reference><Citation>Iguchi M., Shields R. K. (2012). Cortical and segmental excitability during fatiguing contractions of the soleus muscle in humans.
+<i>Clin. Neurophysiol.</i>
+123
+335&#x2013;343. 10.1016/j.clinph.2011.06.031</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinph.2011.06.031</ArticleId><ArticleId IdType="pmc">PMC3654395</ArticleId><ArticleId IdType="pubmed">21802985</ArticleId></ArticleIdList></Reference><Reference><Citation>Jones D. (1996). High-and low-frequency fatigue revisited.
+<i>Acta Physiol.</i>
+156
+265&#x2013;270. 10.1046/j.1365-201x.1996.192000.x</Citation><ArticleIdList><ArticleId IdType="doi">10.1046/j.1365-201x.1996.192000.x</ArticleId><ArticleId IdType="pubmed">8729686</ArticleId></ArticleIdList></Reference><Reference><Citation>Jubeau M., Rupp T., Temesi J., Perrey S., Wuyam B., Millet G. Y., et al.  (2017). Neuromuscular fatigue during prolonged exercise in hypoxia.
+<i>Med. Sci. Sports Exerc.</i>
+49
+430&#x2013;439. 10.1249/MSS.0000000000001118</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000001118</ArticleId><ArticleId IdType="pubmed">27753741</ArticleId></ArticleIdList></Reference><Reference><Citation>Kalmar J. M., Cafarelli E. (2004a). Caffeine: a valuable tool to study central fatigue in humans?
+<i>Exerc. Sport Sci. Rev.</i>
+32
+143&#x2013;147. 10.1097/00003677-200410000-00004</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00003677-200410000-00004</ArticleId><ArticleId IdType="pubmed">15604932</ArticleId></ArticleIdList></Reference><Reference><Citation>Kalmar J. M., Cafarelli E. (2004b). Central fatigue and transcranial magnetic stimulation: effect of caffeine and the confound of peripheral transmission failure.
+<i>J. Neurosci. Methods</i>
+138
+15&#x2013;26. 10.1016/j.jneumeth.2004.03.006</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jneumeth.2004.03.006</ArticleId><ArticleId IdType="pubmed">15325107</ArticleId></ArticleIdList></Reference><Reference><Citation>Keeton R. B., Binder-Macleod S. A. (2006). Low-frequency fatigue.
+<i>Phys. Ther.</i>
+86:1146.</Citation><ArticleIdList><ArticleId IdType="pubmed">16879048</ArticleId></ArticleIdList></Reference><Reference><Citation>Kidgell D. J., Bonanno D. R., Frazer A. K., Howatson G., Pearce A. J. (2017). Corticospinal responses following strength training: a systematic review and meta-analysis.
+<i>Eur. J. Neurosci.</i>
+46
+2648&#x2013;2661. 10.1111/ejn.13710</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/ejn.13710</ArticleId><ArticleId IdType="pubmed">28921683</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee R., Heckman C. (1996). Influence of voltage-sensitive dendritic conductances on bistable firing and effective synaptic current in cat spinal motoneurons in vivo.
+<i>J. Neurophysiol.</i>
+76
+2107&#x2013;2110. 10.1152/jn.1996.76.3.2107</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.1996.76.3.2107</ArticleId><ArticleId IdType="pubmed">8890322</ArticleId></ArticleIdList></Reference><Reference><Citation>MacIntosh B. R., Rassier D. E. (2002). What is fatigue?
+<i>Can. J. Appl. Physiol.</i>
+27
+42&#x2013;55.</Citation><ArticleIdList><ArticleId IdType="pubmed">11880690</ArticleId></ArticleIdList></Reference><Reference><Citation>Martin V., Millet G. Y., Martin A., Deley G., Lattier G. (2004). Assessment of low-frequency fatigue with two methods of electrical stimulation.
+<i>J. Appl. Physiol.</i>
+97
+1923&#x2013;1929. 10.1152/japplphysiol.00376.2004</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00376.2004</ArticleId><ArticleId IdType="pubmed">15258127</ArticleId></ArticleIdList></Reference><Reference><Citation>Mayfield D. L., Lichtwark G. A., Cronin N. J., Avela J., Cresswell A. G. (2015). Doublet potentiation in the triceps surae is limited by series compliance and dynamic fascicle behavior.
+<i>J. Appl. Physiol.</i>
+119
+807&#x2013;816. 10.1152/japplphysiol.00403.2015</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00403.2015</ArticleId><ArticleId IdType="pubmed">26251512</ArticleId></ArticleIdList></Reference><Reference><Citation>McKenna M. J., Bangsbo J., Renaud J.-M. (2008). Muscle K+, Na+, and Cl- disturbances and Na+-K+ pump inactivation: implications for fatigue.
+<i>J. Appl. Physiol.</i>
+104
+288&#x2013;295. 10.1152/japplphysiol.01037.2007</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01037.2007</ArticleId><ArticleId IdType="pubmed">17962569</ArticleId></ArticleIdList></Reference><Reference><Citation>McNeil C. J., Martin P. G., Gandevia S. C., Taylor J. L. (2009). The response to paired motor cortical stimuli is abolished at a spinal level during human muscle fatigue.
+<i>J. Physiol.</i>
+587
+5601&#x2013;5612. 10.1113/jphysiol.2009.180968</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2009.180968</ArticleId><ArticleId IdType="pmc">PMC2805373</ArticleId><ArticleId IdType="pubmed">19805743</ArticleId></ArticleIdList></Reference><Reference><Citation>Mendes K. (2016). <i>Estimates of Persistent Inward Current Decline in Human Soleus Motor Units during Fatigue.</i>
+M.sc. dissertation, Wilfrid Laurier University, Waterloo, ON.</Citation></Reference><Reference><Citation>Neyroud D., Cheng A. J., Bourdillon N., Kayser B., Place N., Westerblad H. (2016). Muscle fatigue affects the interpolated twitch technique when assessed using electrically-induced contractions in human and rat muscles.
+<i>Front. Physiol.</i>
+7:252
+10.3389/fphys.2016.00252</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2016.00252</ArticleId><ArticleId IdType="pmc">PMC4924481</ArticleId><ArticleId IdType="pubmed">27445844</ArticleId></ArticleIdList></Reference><Reference><Citation>Pasquet B., Carpentier A., Duchateau J., Hainaut K. (2000). Muscle fatigue during concentric and eccentric contractions.
+<i>Muscle Nerve</i>
+23
+1727&#x2013;1735. 10.1002/1097-4598(200011)23:11&lt;1727::aid-mus9&gt;3.3.co;2-p</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/1097-4598(200011)23:11&lt;1727::aid-mus9&gt;3.3.co;2-p</ArticleId><ArticleId IdType="pubmed">11054752</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodriguez-Falces J., Place N. (2016). Muscle excitability during sustained maximal voluntary contractions by a separate analysis of the M-wave phases.
+<i>Scand. J. Med. Sci. Sports</i>
+27
+1761&#x2013;1775. 10.1111/sms.12819</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12819</ArticleId><ArticleId IdType="pubmed">28028847</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodriguez-Falces J., Place N. (2018). End-of-fiber signals strongly influence the first and second phases of the m wave in the vastus lateralis: implications for the study of muscle excitability.
+<i>Front. Physiol.</i>
+9:162
+10.3389/fphys.2018.00162</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.00162</ArticleId><ArticleId IdType="pmc">PMC5852100</ArticleId><ArticleId IdType="pubmed">29568271</ArticleId></ArticleIdList></Reference><Reference><Citation>S&#xe4;is&#xe4;nen L., Pirinen E., Teitti S., K&#xf6;n&#xf6;nen M., Julkunen P., M&#xe4;&#xe4;tt&#xe4; S., et al.  (2008). Factors influencing cortical silent period: optimized stimulus location, intensity and muscle contraction.
+<i>J. Neurosci. Methods</i>
+169
+231&#x2013;238. 10.1016/j.jneumeth.2007.12.005</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jneumeth.2007.12.005</ArticleId><ArticleId IdType="pubmed">18243329</ArticleId></ArticleIdList></Reference><Reference><Citation>Silbert B., Patterson H., Pevcic D., Windnagel K., Thickbroom G. (2013). A comparison of relative-frequency and threshold-hunting methods to determine stimulus intensity in transcranial magnetic stimulation.
+<i>Clin. Neurophys.</i>
+124
+708&#x2013;712. 10.1016/j.clinph.2012.09.018</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clinph.2012.09.018</ArticleId><ArticleId IdType="pubmed">23085391</ArticleId></ArticleIdList></Reference><Reference><Citation>Snyder S. H., Katims J. J., Annau Z., Bruns R. F., Daly J. W. (1981). Adenosine receptors and behavioral actions of methylxanthines.
+<i>Proc. Natl. Acad. Sci. U.S.A.</i>
+78
+3260&#x2013;3264. 10.1073/pnas.78.5.3260</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.78.5.3260</ArticleId><ArticleId IdType="pmc">PMC319541</ArticleId><ArticleId IdType="pubmed">6265942</ArticleId></ArticleIdList></Reference><Reference><Citation>Soto O., Valls-Sol&#xe9; J., Shanahan P., Rothwell J. (2006). Reduction of intracortical inhibition in soleus muscle during postural activity.
+<i>J. Neurophysiol.</i>
+96
+1711&#x2013;1717. 10.1152/jn.00133.2006</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jn.00133.2006</ArticleId><ArticleId IdType="pubmed">16790603</ArticleId></ArticleIdList></Reference><Reference><Citation>Tallis J., James R. S., Cox V. M., Duncan M. J. (2012). The effect of physiological concentrations of caffeine on the power output of maximally and submaximally stimulated mouse EDL (fast) and soleus (slow) muscle.
+<i>J. Appl. Physiol.</i>
+112
+64&#x2013;71. 10.1152/japplphysiol.00801.2011</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00801.2011</ArticleId><ArticleId IdType="pubmed">21979804</ArticleId></ArticleIdList></Reference><Reference><Citation>Taylor J. L., Allen G. M., Butler J. E., Gandevia S. (2000a). Supraspinal fatigue during intermittent maximal voluntary contractions of the human elbow flexors.
+<i>J. Appl. Physiol.</i>
+89
+305&#x2013;313. 10.1152/jappl.2000.89.1.305</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.2000.89.1.305</ArticleId><ArticleId IdType="pubmed">10904066</ArticleId></ArticleIdList></Reference><Reference><Citation>Taylor J. L., Butler J. E., Gandevia S. (2000b). Changes in muscle afferents, motoneurons and motor drive during muscle fatigue.
+<i>Eur. J. Appl. Physiol.</i>
+83
+106&#x2013;115. 10.1007/s004210000269</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s004210000269</ArticleId><ArticleId IdType="pubmed">11104051</ArticleId></ArticleIdList></Reference><Reference><Citation>Taylor J. L., Amann M., Duchateau J., Meeusen R., Rice C. L. (2016). Neural contributions to muscle fatigue: from the brain to the muscle and back again.
+<i>Med. Sci. Sports Exerc.</i>
+48:2294
+10.1249/mss.0000000000000923</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0000000000000923</ArticleId><ArticleId IdType="pmc">PMC5033663</ArticleId><ArticleId IdType="pubmed">27003703</ArticleId></ArticleIdList></Reference><Reference><Citation>Taylor J. L., Butler J. E., Allen G. M., Gandevia S. (1996). Changes in motor cortical excitability during human muscle fatigue.
+<i>J. Physiol.</i>
+490
+519&#x2013;528. 10.1113/jphysiol.1996.sp021163</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.1996.sp021163</ArticleId><ArticleId IdType="pmc">PMC1158688</ArticleId><ArticleId IdType="pubmed">8821148</ArticleId></ArticleIdList></Reference><Reference><Citation>Taylor J. L., Gandevia S. C. (2008). A comparison of central aspects of fatigue in submaximal and maximal voluntary contractions.
+<i>J. Appl. Physiol.</i>
+104
+542&#x2013;550. 10.1152/japplphysiol.01053.2007</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01053.2007</ArticleId><ArticleId IdType="pubmed">18032577</ArticleId></ArticleIdList></Reference><Reference><Citation>Trajano G. S., Seitz L., Nosaka K., Blazevich A. J. (2013). Contribution of central vs. peripheral factors to the force loss induced by passive stretch of the human plantar flexors.
+<i>J. Appl. Physiol.</i>
+115
+212&#x2013;218. 10.1152/japplphysiol.00333.2013</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00333.2013</ArticleId><ArticleId IdType="pubmed">23661620</ArticleId></ArticleIdList></Reference><Reference><Citation>Trajano G. S., Seitz L. B., Nosaka K., Blazevich A. J. (2014). Can passive stretch inhibit motoneuron facilitation in the human plantar flexors?
+<i>J. Appl. Physiol.</i>
+117
+1486&#x2013;1492. 10.1152/japplphysiol.00809.2014</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00809.2014</ArticleId><ArticleId IdType="pubmed">25342705</ArticleId></ArticleIdList></Reference><Reference><Citation>Vagg R., Mogyoros I., Kiernan M. C., Burke D. (1998). Activity-dependent hyperpolarization of human motor axons produced by natural activity.
+<i>J. Physiol.</i>
+507
+919&#x2013;925. 10.1111/j.1469-7793.1998.919bs.x</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1469-7793.1998.919bs.x</ArticleId><ArticleId IdType="pmc">PMC2230820</ArticleId><ArticleId IdType="pubmed">9508850</ArticleId></ArticleIdList></Reference><Reference><Citation>Vernillo G., Temesi J., Martin M., Millet G. Y. (2017). Mechanisms of fatigue and recovery in upper versus lower limbs in men.
+<i>Med. Sci. Sports Exerc.</i>
+50
+334&#x2013;343. 10.1249/MSS.0000000000001445</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000001445</ArticleId><ArticleId IdType="pubmed">28991037</ArticleId></ArticleIdList></Reference><Reference><Citation>Walton C., Kalmar J., Cafarelli E. (2003). Caffeine increases spinal excitability in humans.
+<i>Muscle Nerve</i>
+28
+359&#x2013;364. 10.1002/mus.10457</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.10457</ArticleId><ArticleId IdType="pubmed">12929197</ArticleId></ArticleIdList></Reference><Reference><Citation>Walton C., Kalmar J. M., Cafarelli E. (2002). Effect of caffeine on self-sustained firing in human motor units.
+<i>J. Physiol.</i>
+545
+671&#x2013;679. 10.1113/jphysiol.2002.025064</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2002.025064</ArticleId><ArticleId IdType="pmc">PMC2290683</ArticleId><ArticleId IdType="pubmed">12456842</ArticleId></ArticleIdList></Reference><Reference><Citation>Yoon T., Schlinder-Delap B., Keller M. L., Hunter S. K. (2011). Supraspinal fatigue impedes recovery from a low-intensity sustained contraction in old adults.
+<i>J. Appl. Physiol.</i>
+112
+849&#x2013;858. 10.1152/japplphysiol.00799.2011</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00799.2011</ArticleId><ArticleId IdType="pmc">PMC3311661</ArticleId><ArticleId IdType="pubmed">22174405</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

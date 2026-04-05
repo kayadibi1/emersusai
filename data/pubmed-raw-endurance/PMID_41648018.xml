@@ -1,0 +1,193 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41648018</PMID><DateCompleted><Year>2026</Year><Month>02</Month><Day>06</Day></DateCompleted><DateRevised><Year>2026</Year><Month>02</Month><Day>08</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-302X</ISSN><JournalIssue CitedMedium="Print"><Volume>16</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>Frontiers in microbiology</Title><ISOAbbreviation>Front Microbiol</ISOAbbreviation></Journal><ArticleTitle>Genetic evolution and codon usage mode of SFTSV.</ArticleTitle><Pagination><StartPage>1731572</StartPage><MedlinePgn>1731572</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1731572</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fmicb.2025.1731572</ELocationID><Abstract><AbstractText Label="INTRODUCTION" NlmCategory="UNASSIGNED">Severe fever with thrombocytopenia syndrome virus (SFTSV), first identified in Henan Province, China (2009), has since been detected in 26 Chinese provinces and remains a significant public health threat. Despite its spread, key aspects of its molecular evolution, particularly the genetic characterization and codon usage bias, remain understudied.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">In this study, we analyzed blood samples collected in 2022 from six suspected SFTS cases in Jinan, Shandong Province. This was complemented by a comprehensive analysis of whole-genome sequences obtained from the ViPR and GenBank databases, updated through July 2023. Phylogenetic analysis was employed for genotype classification. Potential recombination events were identified using RDP4. Codon usage patterns were investigated through multiple analyses, including ENC-plot, parity rule 2 (PR2) analysis, and neutral evolution analysis.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">Phylogenetic analysis revealed that the detected viral strains belonged to genotypes C3 and C1. Recombination analysis identified 99 potential recombination events among 89 viral strains. Codon usage analyses demonstrated a weak codon usage bias in SFTSV. Further evaluation indicated that both natural selection and mutational pressure shape its codon usage patterns, with natural selection being the predominant force in four SFTSV genes.</AbstractText><AbstractText Label="DISCUSSION" NlmCategory="UNASSIGNED">Our findings highlight the expanding evolutionary diversity of SFTSV, evidenced by recombination events and distinct genotypes. The elucidation of its codon usage characteristics, primarily driven by natural selection, provides critical insights for advancing SFTSV surveillance, improving disease control strategies, and informing targeted vaccine development.</AbstractText><CopyrightInformation>Copyright &#xa9; 2026 Zhang, Hu, Li, Wei, Shen, Li, Sai, Song and Xu.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y" EqualContrib="Y"><LastName>Zhang</LastName><ForeName>Yuhan</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Health Inspection and Quarantine, School of Public Health, Cheeloo College of Medicine, Shandong University, Jinan, Shandong, China.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Jinan High-Tech Zone Branch of Jinan Center for Disease Control and Prevention, Jinan, Shandong, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y" EqualContrib="Y"><LastName>Hu</LastName><ForeName>Li</ForeName><Initials>L</Initials><AffiliationInfo><Affiliation>Department of Health Inspection and Quarantine, School of Public Health, Cheeloo College of Medicine, Shandong University, Jinan, Shandong, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Li</LastName><ForeName>Chao</ForeName><Initials>C</Initials><AffiliationInfo><Affiliation>Department of Health Inspection and Quarantine, School of Public Health, Cheeloo College of Medicine, Shandong University, Jinan, Shandong, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Wei</LastName><ForeName>Xuemin</ForeName><Initials>X</Initials><AffiliationInfo><Affiliation>Department of Health Inspection and Quarantine, School of Public Health, Cheeloo College of Medicine, Shandong University, Jinan, Shandong, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Shen</LastName><ForeName>Yuanyuan</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Health Inspection and Quarantine, School of Public Health, Cheeloo College of Medicine, Shandong University, Jinan, Shandong, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Li</LastName><ForeName>Hongfeng</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Health Inspection and Quarantine, School of Public Health, Cheeloo College of Medicine, Shandong University, Jinan, Shandong, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sai</LastName><ForeName>Lintao</ForeName><Initials>L</Initials><AffiliationInfo><Affiliation>Department of Infectious Diseases, Qilu Hospital of Shandong University, Jinan, Shandong, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Song</LastName><ForeName>Li</ForeName><Initials>L</Initials><AffiliationInfo><Affiliation>Department of Infectious Diseases, Qilu Hospital of Shandong University, Jinan, Shandong, China.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Xu</LastName><ForeName>Yifei</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Department of Health Inspection and Quarantine, School of Public Health, Cheeloo College of Medicine, Shandong University, Jinan, Shandong, China.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Suzhou Research Institute of Shandong University, Suzhou, Jiangsu, China.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>01</Month><Day>21</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Microbiol</MedlineTA><NlmUniqueID>101548977</NlmUniqueID><ISSNLinking>1664-302X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">SFTSV</Keyword><Keyword MajorTopicYN="N">codon usage bias</Keyword><Keyword MajorTopicYN="N">evolution</Keyword><Keyword MajorTopicYN="N">reassortment</Keyword><Keyword MajorTopicYN="N">recombination</Keyword></KeywordList><CoiStatement>The author(s) declared that this work was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>10</Month><Day>24</Day></PubMedPubDate><PubMedPubDate PubStatus="revised"><Year>2025</Year><Month>11</Month><Day>3</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>12</Month><Day>4</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>2</Month><Day>6</Day><Hour>13</Hour><Minute>19</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>2</Month><Day>6</Day><Hour>13</Hour><Minute>18</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>2</Month><Day>6</Day><Hour>6</Hour><Minute>17</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>1</Month><Day>21</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41648018</ArticleId><ArticleId IdType="pmc">PMC12869193</ArticleId><ArticleId IdType="doi">10.3389/fmicb.2025.1731572</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Athey J., Alexaki A., Osipova E., Rostovtsev A., Santana-Quintero L. V., Katneni U., et al.  (2017). A new and updated resource for codon usage tables.
+<i>BMC Bioinform.</i>
+18:391. 10.1186/s12859-017-1793-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12859-017-1793-7</ArticleId><ArticleId IdType="pmc">PMC5581930</ArticleId><ArticleId IdType="pubmed">28865429</ArticleId></ArticleIdList></Reference><Reference><Citation>Bahir I., Fromer M., Prat Y., Linial M. (2009). Viral adaptation to host: A proteome-based analysis of codon usage and amino acid preferences.
+<i>Mol. Syst. Biol.</i>
+5:311. 10.1038/msb.2009.71
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/msb.2009.71</ArticleId><ArticleId IdType="pmc">PMC2779085</ArticleId><ArticleId IdType="pubmed">19888206</ArticleId></ArticleIdList></Reference><Reference><Citation>Boni M. F., Posada D., Feldman M. W. (2007). An exact nonparametric method for inferring mosaic structure in sequence triplets.
+<i>Genetics</i>
+176
+1035&#x2013;1047. 10.1534/genetics.106.068874
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1534/genetics.106.068874</ArticleId><ArticleId IdType="pmc">PMC1894573</ArticleId><ArticleId IdType="pubmed">17409078</ArticleId></ArticleIdList></Reference><Reference><Citation>Butt A. M., Nasrullah I., Qamar R., Tong Y. (2016). Evolution of codon usage in Zika virus genomes is host and vector specific.
+<i>Emerg. Microbes Infect.</i>
+5:e107. 10.1038/emi.2016.106
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/emi.2016.106</ArticleId><ArticleId IdType="pmc">PMC5117728</ArticleId><ArticleId IdType="pubmed">27729643</ArticleId></ArticleIdList></Reference><Reference><Citation>Comeron J. M., Aguad&#xe9; M. (1998). An evaluation of measures of synonymous codon usage bias.
+<i>J. Mol. Evol.</i>
+47
+268&#x2013;274. 10.1007/pl00006384
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/pl00006384</ArticleId><ArticleId IdType="pubmed">9732453</ArticleId></ArticleIdList></Reference><Reference><Citation>Darriba D., Taboada G. L., Doallo R., Posada D. (2012). jModelTest 2: More models, new heuristics and parallel computing.
+<i>Nat. Methods</i>
+9:772. 10.1038/nmeth.2109
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/nmeth.2109</ArticleId><ArticleId IdType="pmc">PMC4594756</ArticleId><ArticleId IdType="pubmed">22847109</ArticleId></ArticleIdList></Reference><Reference><Citation>Ding N. Z., Luo Z. F., Niu D. D., Ji W., Kang X. H., Cai S. S., et al.  (2013). Identification of two severe fever with thrombocytopenia syndrome virus strains originating from reassortment.
+<i>Virus Res.</i>
+178
+543&#x2013;546. 10.1016/j.virusres.2013.09.017
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.virusres.2013.09.017</ArticleId><ArticleId IdType="pubmed">24055465</ArticleId></ArticleIdList></Reference><Reference><Citation>Gai Z., Liang M., Zhang Y., Zhang S., Jin C., Wang S. W., et al.  (2012). Person-to-person transmission of severe fever with thrombocytopenia syndrome bunyavirus through blood contact.
+<i>Clin. Infect. Dis.</i>
+54
+249&#x2013;252. 10.1093/cid/cir776
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/cid/cir776</ArticleId><ArticleId IdType="pmc">PMC3245727</ArticleId><ArticleId IdType="pubmed">22095565</ArticleId></ArticleIdList></Reference><Reference><Citation>Hofmann H., Li X., Zhang X., Liu W., K&#xfc;hl A., Kaup F., et al.  (2013). Severe fever with thrombocytopenia virus glycoproteins are targeted by neutralizing antibodies and can use DC-SIGN as a receptor for pH-dependent entry into human and animal cell lines.
+<i>J. Virol.</i>
+87
+4384&#x2013;4394. 10.1128/JVI.02628-12
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1128/JVI.02628-12</ArticleId><ArticleId IdType="pmc">PMC3624395</ArticleId><ArticleId IdType="pubmed">23388721</ArticleId></ArticleIdList></Reference><Reference><Citation>Hoxie I., Dennehy J. J. (2021). Rotavirus a genome segments show distinct segregation and codon usage patterns.
+<i>Viruses</i>
+13:1460. 10.3390/v13081460
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/v13081460</ArticleId><ArticleId IdType="pmc">PMC8402926</ArticleId><ArticleId IdType="pubmed">34452326</ArticleId></ArticleIdList></Reference><Reference><Citation>Jiang X. L., Zhang S., Jiang M., Bi Z. Q., Liang M. F., Ding S. J., et al.  (2015). A cluster of person-to-person transmission cases caused by SFTS virus in Penglai, China.
+<i>Clin. Microbiol. Infect.</i>
+21
+274&#x2013;279. 10.1016/j.cmi.2014.10.006
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cmi.2014.10.006</ArticleId><ArticleId IdType="pubmed">25687766</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim K. H., Yi J., Kim G., Choi S. J., Jun K. I., Kim N. H., et al.  (2013). Severe fever with thrombocytopenia syndrome, South Korea, 2012.
+<i>Emerg. Infect. Dis.</i>
+19
+1892&#x2013;1894. 10.3201/eid1911.130792
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3201/eid1911.130792</ArticleId><ArticleId IdType="pmc">PMC3837670</ArticleId><ArticleId IdType="pubmed">24206586</ArticleId></ArticleIdList></Reference><Reference><Citation>Kobayashi Y., Kato H., Yamagishi T., Shimada T., Matsui T., Yoshikawa T., et al.  (2013). Severe fever with thrombocytopenia syndrome, Japan, 2013-2017.
+<i>Emerg. Infect. Dis.</i>
+26
+692&#x2013;699. 10.3201/eid2604.191011
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3201/eid2604.191011</ArticleId><ArticleId IdType="pmc">PMC7101122</ArticleId><ArticleId IdType="pubmed">32186502</ArticleId></ArticleIdList></Reference><Reference><Citation>Koski L. B., Morton R. A., Golding G. B. (2001). Codon bias and base composition are poor indicators of horizontally transferred genes.
+<i>Mol. Biol. Evol.</i>
+18
+404&#x2013;412. 10.1093/oxfordjournals.molbev.a003816
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/oxfordjournals.molbev.a003816</ArticleId><ArticleId IdType="pubmed">11230541</ArticleId></ArticleIdList></Reference><Reference><Citation>Lam T. T. Y., Liu W., Bowden T. A., Cui N., Zhuang L., Liu K., et al.  (2013). Evolutionary and molecular analysis of the emergent severe fever with thrombocytopenia syndrome virus.
+<i>Epidemics</i>
+5
+1&#x2013;10. 10.1016/j.epidem.2012.09.002
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.epidem.2012.09.002</ArticleId><ArticleId IdType="pmc">PMC4330987</ArticleId><ArticleId IdType="pubmed">23438426</ArticleId></ArticleIdList></Reference><Reference><Citation>Li A., Liu L., Wu W., Liu Y., Huang X., Li C., et al.  (2021). Molecular evolution and genetic diversity analysis of SFTS virus based on next-generation sequencing.
+<i>Biosaf. Health</i>
+3
+105&#x2013;115. 10.1016/j.bsheal.2021.02.002</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.bsheal.2021.02.002</ArticleId></ArticleIdList></Reference><Reference><Citation>Li J., Li S., Yang L., Cao P., Lu J. (2021). Severe fever with thrombocytopenia syndrome virus: A highly lethal bunyavirus.
+<i>Crit. Rev. Microbiol.</i>
+47
+112&#x2013;125. 10.1080/1040841X.2020.1847037
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/1040841X.2020.1847037</ArticleId><ArticleId IdType="pubmed">33245676</ArticleId></ArticleIdList></Reference><Reference><Citation>Luo L. M., Zhao L., Wen H. L., Zhang Z. T., Liu J. W., Fang L. Z., et al.  (2015). <i>Haemaphysalis longicornis</i> ticks as reservoir and vector of severe fever with thrombocytopenia syndrome virus in China.
+<i>Emerg. Infect. Dis.</i>
+21
+1770&#x2013;1776. 10.3201/eid2110.150126
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3201/eid2110.150126</ArticleId><ArticleId IdType="pmc">PMC4593435</ArticleId><ArticleId IdType="pubmed">26402039</ArticleId></ArticleIdList></Reference><Reference><Citation>Lv Q., Zhang H., Tian L., Zhang R., Zhang Z., Li J., et al.  (2017). Novel sub-lineages, recombinants and reassortants of severe fever with thrombocytopenia syndrome virus.
+<i>Ticks Tick Borne Dis.</i>
+8
+385&#x2013;390. 10.1016/j.ttbdis.2016.12.015
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ttbdis.2016.12.015</ArticleId><ArticleId IdType="pubmed">28117273</ArticleId></ArticleIdList></Reference><Reference><Citation>Martin D. P., Lemey P., Lott M., Moulton V., Posada D., Lefeuvre P., et al.  (2010). RDP3: A flexible and fast computer program for analyzing recombination.
+<i>Bioinformatics</i>
+26
+2462&#x2013;2463. 10.1093/bioinformatics/btq467
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/bioinformatics/btq467</ArticleId><ArticleId IdType="pmc">PMC2944210</ArticleId><ArticleId IdType="pubmed">20798170</ArticleId></ArticleIdList></Reference><Reference><Citation>McMullan L. K., Folk S. M., Kelly A. J., MacNeil A., Goldsmith C. S., Metcalfe M. G., et al.  (2012). A new phlebovirus associated with severe febrile illness in Missouri.
+<i>N. Engl. J. Med.</i>
+367
+834&#x2013;841. 10.1056/NEJMoa1203378
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJMoa1203378</ArticleId><ArticleId IdType="pubmed">22931317</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakamura T., Sugeno N., Hasegawa T., Ikeda K., Yoshida S., Ishiyama S., et al.  (2024). Alpha-synuclein promotes PRMT5-mediated H4R3me2s histone methylation by interacting with the BAF complex.
+<i>FEBS J.</i>
+291
+1892&#x2013;1908. 10.1111/febs.17037
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/febs.17037</ArticleId><ArticleId IdType="pubmed">38105619</ArticleId></ArticleIdList></Reference><Reference><Citation>Nguyen L.-T., Schmidt H. A., von Haeseler A., Minh B. Q. (2015). IQ-TREE: A fast and effective stochastic algorithm for estimating maximum-likelihood phylogenies.
+<i>Mol. Biol. Evol.</i>
+32
+268&#x2013;274. 10.1093/molbev/msu300
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/molbev/msu300</ArticleId><ArticleId IdType="pmc">PMC4271533</ArticleId><ArticleId IdType="pubmed">25371430</ArticleId></ArticleIdList></Reference><Reference><Citation>Noda K., Tsuda Y., Kozawa F., Igarashi M., Shimizu K., Arikawa J., et al.  (2020). The polarity of an amino acid at position 1891 of severe fever with thrombocytopenia syndrome virus L protein is critical for the polymerase activity.
+<i>Viruses</i>
+13:33. 10.3390/v13010033
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/v13010033</ArticleId><ArticleId IdType="pmc">PMC7823514</ArticleId><ArticleId IdType="pubmed">33375489</ArticleId></ArticleIdList></Reference><Reference><Citation>Posada D., Crandall K. A. (2001). Evaluation of methods for detecting recombination from DNA sequences: Computer simulations.
+<i>Proc. Natl. Acad. Sci. U. S. A.</i>
+98
+13757&#x2013;13762. 10.1073/pnas.241370698
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.241370698</ArticleId><ArticleId IdType="pmc">PMC61114</ArticleId><ArticleId IdType="pubmed">11717435</ArticleId></ArticleIdList></Reference><Reference><Citation>Salminen M. O., Carr J. K., Burke D. S., McCUTCHAN F. E. (1995). Identification of breakpoints in intergenotypic recombinants of HIV type 1 by bootscanning.
+<i>AIDS Res. Hum. Retroviruses</i>
+11
+1423&#x2013;1425. 10.1089/aid.1995.11.1423
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1089/aid.1995.11.1423</ArticleId><ArticleId IdType="pubmed">8573403</ArticleId></ArticleIdList></Reference><Reference><Citation>Sharp P. M., Li W.-H. (1986). Codon usage in regulatory genes in <i>Escherichia coli</i> does not reflect selection for &#x2018;rare&#x2019; codons.
+<i>Nucleic Acids Res.</i>
+14
+7737&#x2013;7749. 10.1093/nar/14.19.7737
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/nar/14.19.7737</ArticleId><ArticleId IdType="pmc">PMC311793</ArticleId><ArticleId IdType="pubmed">3534792</ArticleId></ArticleIdList></Reference><Reference><Citation>Smith J. M. (1992). Analyzing the mosaic structure of genes.
+<i>J. Mol. Evol.</i>
+34
+126&#x2013;129. 10.1007/BF00182389
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF00182389</ArticleId><ArticleId IdType="pubmed">1556748</ArticleId></ArticleIdList></Reference><Reference><Citation>Sueoka N. (1988). Directional mutation pressure and neutral molecular evolution.
+<i>Proc. Natl. Acad. Sci. U. S. A.</i>
+85
+2653&#x2013;2657. 10.1073/pnas.85.8.2653
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.85.8.2653</ArticleId><ArticleId IdType="pmc">PMC280056</ArticleId><ArticleId IdType="pubmed">3357886</ArticleId></ArticleIdList></Reference><Reference><Citation>Sun J., Zhao W., Wang R., Zhang W., Li G., Lu M., et al.  (2020). Analysis of the codon usage pattern of HA and NA genes of H7N9 influenza a virus.
+<i>Int. J. Mol. Sci.</i>
+21:7129. 10.3390/ijms21197129
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/ijms21197129</ArticleId><ArticleId IdType="pmc">PMC7583936</ArticleId><ArticleId IdType="pubmed">32992529</ArticleId></ArticleIdList></Reference><Reference><Citation>Tani H., Kawachi K., Kimura M., Taniguchi S., Shimojima M., Fukushi S., et al.  (2019). Identification of the amino acid residue important for fusion of severe fever with thrombocytopenia syndrome virus glycoprotein.
+<i>Virology</i>
+535
+102&#x2013;110. 10.1016/j.virol.2019.06.014
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.virol.2019.06.014</ArticleId><ArticleId IdType="pubmed">31299486</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang J., Selleck P., Yu M., Ha W., Rootes C., Gales R., et al.  (2014). Novel phlebovirus with zoonotic potential isolated from ticks, Australia.
+<i>Emerg. Infect. Dis.</i>
+20
+1040&#x2013;1043. 10.3201/eid2006.140003
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3201/eid2006.140003</ArticleId><ArticleId IdType="pmc">PMC4036776</ArticleId><ArticleId IdType="pubmed">24856477</ArticleId></ArticleIdList></Reference><Reference><Citation>Wold S., Esbensen K., Geladi P. (1987). Principal component analysis.
+<i>Chemometr. Intell. Lab. Syst.</i>
+2
+37&#x2013;52. 10.1016/0169-7439(87)80084-9</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0169-7439(87)80084-9</ArticleId></ArticleIdList></Reference><Reference><Citation>Wong E. H., Smith D. K., Rabadan R., Peiris M., Poon L. L. (2010). Codon usage bias and the evolution of influenza a viruses. Codon usage biases of influenza virus.
+<i>BMC Evol. Biol.</i>
+10:253. 10.1186/1471-2148-10-253
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1471-2148-10-253</ArticleId><ArticleId IdType="pmc">PMC2933640</ArticleId><ArticleId IdType="pubmed">20723216</ArticleId></ArticleIdList></Reference><Reference><Citation>Wright F. (1990). The &#x2018;effective number of codons&#x2019; used in a gene.
+<i>Gene</i>
+87
+23&#x2013;29. 10.1016/0378-1119(90)90491-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0378-1119(90)90491-9</ArticleId><ArticleId IdType="pubmed">2110097</ArticleId></ArticleIdList></Reference><Reference><Citation>Yu G., Smith D. K., Zhu H., Guan Y., Lam T. T. (2017). Ggtree: An r package for visualization and annotation of phylogenetic trees with their covariates and other associated data.
+<i>Methods Ecol. Evol.</i>
+8
+28&#x2013;36. 10.1111/2041-210x.12628</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/2041-210x.12628</ArticleId></ArticleIdList></Reference><Reference><Citation>Yun M. R., Ryou J., Choi W., Lee J. Y., Park S. W., Kim D. W. (2013). Genetic diversity and evolutionary history of Korean isolates of severe fever with thrombocytopenia syndrome virus from 2013-2016.
+<i>Arch. Virol.</i>
+165
+2599&#x2013;2603. 10.1007/s00705-020-04733-0
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00705-020-04733-0</ArticleId><ArticleId IdType="pmc">PMC7547961</ArticleId><ArticleId IdType="pubmed">32699980</ArticleId></ArticleIdList></Reference><Reference><Citation>Yun S. M., Park S. J., Kim Y. I., Park S. W., Yu M. A., Kwon H. I., et al.  (2020). Genetic and pathogenic diversity of severe fever with thrombocytopenia syndrome virus (SFTSV) in South Korea.
+<i>JCI Insight</i>
+5:e129531. 10.1172/jci.insight.129531
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1172/jci.insight.129531</ArticleId><ArticleId IdType="pmc">PMC7098714</ArticleId><ArticleId IdType="pubmed">31877113</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang Y., Li C., Wang Y., Wei X., Xu Y. (2024). Investigation of the genetic evolutionary mechanisms of <i>Dabie bandavirus</i>.
+<i>Chin. J. Zoonoses</i>
+40
+171&#x2013;178.</Citation></Reference><Reference><Citation>Zhao L., Li J., Cui X., Jia N., Wei J., Xia L., et al.  (2020). Distribution of <i>Haemaphysalis longicornis</i> and associated pathogens: Analysis of pooled data from a China field survey and global published data.
+<i>Lancet Planet. Health</i>
+4
+e320&#x2013;e329. 10.1016/S2542-5196(20)30145-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S2542-5196(20)30145-5</ArticleId><ArticleId IdType="pubmed">32800150</ArticleId></ArticleIdList></Reference><Reference><Citation>Zu Z., Lin H., Hu Y., Zheng X., Chen C., Zhao Y., et al.  (2022). The genetic evolution and codon usage pattern of severe fever with thrombocytopenia syndrome virus.
+<i>Infect. Genet. Evol.</i>
+99:105238. 10.1016/j.meegid.2022.105238
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.meegid.2022.105238</ArticleId><ArticleId IdType="pubmed">35144005</ArticleId></ArticleIdList></Reference><Reference><Citation>Zuo L. L., Miao J., He D. M., Fang Z. X., Zhang X., Sun C. Y., et al.  (2023). Development and characterization of a digital CRISPR/Cas13a based assay for rapid and sensitive diagnosis of severe fever with thrombocytopenia syndrome virus.
+<i>Sens. Actuators B Chem.</i>
+388:133789. 10.1016/j.snb.2023.133789</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.snb.2023.133789</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

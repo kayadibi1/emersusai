@@ -1,0 +1,214 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">30728780</PMID><DateRevised><Year>2020</Year><Month>09</Month><Day>30</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Periodized Resistance Training for Enhancing Skeletal Muscle Hypertrophy and Strength: A Mini-Review.</ArticleTitle><Pagination><StartPage>13</StartPage><MedlinePgn>13</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">13</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.00013</ELocationID><Abstract><AbstractText>Prescribing the proper resistance training (RT) program is critical to optimize skeletal muscle hypertrophy and strength. Periodization is a strategy that entails planned manipulations of training variables to maximize fitness adaptations while minimizing the risk of overtraining. Multiple meta-analyses have shown periodized RT to be superior to non-periodized RT for enhancing muscular strength. These findings are consistent irrespective of training status or training volume. Both the linear model and the undulating model are effective for enhancing strength, although a greater benefit might be achieved through the undulating model. Despite the suggested superiority of periodized RT for strength development, some authors suggest that this might be a consequence of the study designs employed rather than the nature of periodized training. In addition, several limitations exist in the periodization literature, making it difficult to accurately assess the efficacy of periodized RT. With regard to enhancing skeletal muscle hypertrophy, both the undulating model and the linear model appear equally effective; however, this conclusion can only be generalized to untrained populations. When comparing periodized RT to non-periodized RT programs, the research is unclear on whether periodized RT is necessary to maximize skeletal muscle hypertrophy.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Evans</LastName><ForeName>Jonathan W</ForeName><Initials>JW</Initials><AffiliationInfo><Affiliation>University of Ottawa, Ottawa, ON, Canada.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType><PublicationType UI="D016454">Review</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>01</Month><Day>23</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">exercise</Keyword><Keyword MajorTopicYN="N">muscle hypertrophy</Keyword><Keyword MajorTopicYN="N">periodization</Keyword><Keyword MajorTopicYN="N">resistance training</Keyword><Keyword MajorTopicYN="N">strength</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>11</Month><Day>12</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>1</Month><Day>8</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>2</Month><Day>8</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>2</Month><Day>8</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>2</Month><Day>8</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>1</Month><Day>23</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">30728780</ArticleId><ArticleId IdType="pmc">PMC6351492</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.00013</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Afonso J., Nikolaidis P. T., Sousa P., Mesquita I. (2017). Is empirical research on periodization trustworthy? A comprehensive review of conceptual and methodological issues.
+<i>J. Sports Sci. Med.</i>
+16
+27&#x2013;34. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC5358028</ArticleId><ArticleId IdType="pubmed">28344448</ArticleId></ArticleIdList></Reference><Reference><Citation>American College of Sports Medicine (2009). American college of sports medicine position stand. Progression models in resistance training for healthy adults.
+<i>Med. Sci. Sports Exerc.</i>
+41
+687&#x2013;708. 10.1249/MSS.0b013e3181915670
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181915670</ArticleId><ArticleId IdType="pubmed">19204579</ArticleId></ArticleIdList></Reference><Reference><Citation>Androulakis-Korakakis P., Fisher J., Kolokotronis P., Gentil P., Steele J. (2018). Reduced volume &#x2018;daily max training&#x2019; compared to higher volume periodized training in powerlifters preparing for competition&#x2014;a pilot study.
+<i>Sports</i>
+6:86. 10.3390/sports6030086
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/sports6030086</ArticleId><ArticleId IdType="pmc">PMC6162635</ArticleId><ArticleId IdType="pubmed">30158433</ArticleId></ArticleIdList></Reference><Reference><Citation>Borde R., Hortob&#xe1;gyi T., Granacher U. (2015). Dose&#x2013;response relationships of resistance training in healthy old adults: a systematic review and meta-analysis.
+<i>Sports Med.</i>
+45
+1693&#x2013;1720. 10.1007/s40279-015-0385-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-015-0385-9</ArticleId><ArticleId IdType="pmc">PMC4656698</ArticleId><ArticleId IdType="pubmed">26420238</ArticleId></ArticleIdList></Reference><Reference><Citation>Buckner S. L., Jessee M. B., Mattocks K. T., Mouser J. G., Counts B. R., Dankel S. J., et al.  (2017). Determining strength: a case for multiple methods of measurement.
+<i>Sports Med.</i>
+47
+193&#x2013;195. 10.1007/s40279-016-0580-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-016-0580-3</ArticleId><ArticleId IdType="pubmed">27380100</ArticleId></ArticleIdList></Reference><Reference><Citation>Buford T. W., Rossi S. J., Smith D. B., Warren A. J. (2007). A comparison of periodization models during nine weeks with equated volume and intensity for strength.
+<i>J. Strength Cond. Res.</i>
+21
+1245&#x2013;1250. </Citation><ArticleIdList><ArticleId IdType="pubmed">18076234</ArticleId></ArticleIdList></Reference><Reference><Citation>Caldas L. C., Guimar&#xe3;es-Ferreira L., Duncan M. J., Leopoldo A. S., Leopoldo A. P. L., Lunz W. (2016). Traditional vs. undulating periodization in the context of muscular strength and hypertrophy: a meta-analysis.
+<i>Int. J. Sports Sci.</i>
+6
+219&#x2013;229. 10.5923/j.sports.20160606.04</Citation><ArticleIdList><ArticleId IdType="doi">10.5923/j.sports.20160606.04</ArticleId></ArticleIdList></Reference><Reference><Citation>Chiu L. Z., Barnes J. L. (2003). The fitness-fatigue model revisited: implications for planning short-and long-term training.
+<i>Strength Cond. J.</i>
+25
+42&#x2013;51. 10.1519/00126548-200312000-00007</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00126548-200312000-00007</ArticleId></ArticleIdList></Reference><Reference><Citation>Cissik J., Hedrick A., Barnes M. (2008). Challenges applying the research on periodization.
+<i>Strength Cond. J.</i>
+30
+45&#x2013;51. 10.1519/SSC.0b013e3181637f83</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/SSC.0b013e3181637f83</ArticleId></ArticleIdList></Reference><Reference><Citation>Damas F., Phillips S., Vechin F. C., Ugrinowitsch C. (2015). A review of resistance training-induced changes in skeletal muscle protein synthesis and their contribution to hypertrophy.
+<i>Sports Med.</i>
+45
+801&#x2013;807. 10.1007/s40279-015-0320-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-015-0320-0</ArticleId><ArticleId IdType="pubmed">25739559</ArticleId></ArticleIdList></Reference><Reference><Citation>De Souza E. O., Tricoli V., Rauch J., Alvarez M. R., Laurentino G., Aihara A. Y., et al.  (2018). Different patterns in muscular strength and hypertrophy adaptations in untrained individuals undergoing nonperiodized and periodized strength regimens.
+<i>J. Strength Cond. Res.</i>
+32
+1238&#x2013;1244. 10.1519/JSC.0000000000002482
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002482</ArticleId><ArticleId IdType="pubmed">29683914</ArticleId></ArticleIdList></Reference><Reference><Citation>DeWeese B. H., Hornsby G., Stone M., Stone M. H. (2015). The training process: planning for strength&#x2013;power training in track and field. Part 1: theoretical aspects.
+<i>J. Sport Health Sci.</i>
+4
+308&#x2013;317. 10.1016/j.jshs.2015.07.003</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jshs.2015.07.003</ArticleId></ArticleIdList></Reference><Reference><Citation>Faigenbaum A. D., Kraemer W. J., Blimkie C. J., Jeffreys I., Micheli L. J., Nitka M., et al.  (2009). Youth resistance training: updated position statement paper from the national strength and conditioning association.
+<i>J. Strength Cond. Res.</i>
+23
+S60&#x2013;S79. 10.1519/JSC.0b013e31819df407
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31819df407</ArticleId><ArticleId IdType="pubmed">19620931</ArticleId></ArticleIdList></Reference><Reference><Citation>Fleck S. J. (2011). Non-linear periodization for general fitness &amp; athletes.
+<i>J. Hum. Kinet.</i>
+29A, 41&#x2013;45. 10.2478/v10078-011-0057-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2478/v10078-011-0057-2</ArticleId><ArticleId IdType="pmc">PMC3588896</ArticleId><ArticleId IdType="pubmed">23486658</ArticleId></ArticleIdList></Reference><Reference><Citation>Fry R. W., Morton A. R., Keast D. (1991). Overtraining in athletes. An update.
+<i>Sports Med.</i>
+12
+32&#x2013;65. 10.2165/00007256-199112010-00004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-199112010-00004</ArticleId><ArticleId IdType="pubmed">1925188</ArticleId></ArticleIdList></Reference><Reference><Citation>Grgic J., Lazinica B., Mikulic P., Schoenfeld B. J. (2018). Should resistance training programs aimed at muscular hypertrophy be periodized? A systematic review of periodized versus non-periodized approaches.
+<i>Sci. Sports</i>
+33
+e97&#x2013;e104. 10.1016/j.scispo.2017.09.005</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.scispo.2017.09.005</ArticleId></ArticleIdList></Reference><Reference><Citation>Grgic J., Mikulic P., Podnar H., Pedisic Z. (2017). Effects of linear and daily undulating periodized resistance training programs on measures of muscle hypertrophy: a systematic review and meta-analysis.
+<i>PeerJ</i>
+5:e3695. 10.7717/peerj.3695
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7717/peerj.3695</ArticleId><ArticleId IdType="pmc">PMC5571788</ArticleId><ArticleId IdType="pubmed">28848690</ArticleId></ArticleIdList></Reference><Reference><Citation>Grgic J., Schoenfeld B. J. (2018). Are the hypertrophic adaptations to high and low-load resistance training muscle fiber type specific?
+<i>Front. Physiol.</i>
+9:402. 10.3389/fphys.2018.00402
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.00402</ArticleId><ArticleId IdType="pmc">PMC5915697</ArticleId><ArticleId IdType="pubmed">29720946</ArticleId></ArticleIdList></Reference><Reference><Citation>Haff G. G. (2004). Roundtable discussion: periodization of training&#x2014;part 1.
+<i>Strength Cond. J.</i>
+26
+50&#x2013;69. 10.1519/00126548-200402000-00016</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00126548-200402000-00016</ArticleId></ArticleIdList></Reference><Reference><Citation>Harries S. K., Lubans D. R., Callister R. (2015). Systematic review and meta-analysis of linear and undulating periodized resistance training programs on muscular strength.
+<i>J. Strength Cond. Res.</i>
+29
+1113&#x2013;1125. 10.1519/JSC.0000000000000712
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000712</ArticleId><ArticleId IdType="pubmed">25268290</ArticleId></ArticleIdList></Reference><Reference><Citation>Helms E. R., Fitschen P. J., Aragon A. A., Cronin J., Schoenfeld B. J. (2015). Recommendations for natural bodybuilding contest preparation: resistance and cardiovascular training.
+<i>J. Sports Med. Phys. Fitness</i>
+55
+164&#x2013;178.</Citation><ArticleIdList><ArticleId IdType="pubmed">24998610</ArticleId></ArticleIdList></Reference><Reference><Citation>Hunter G. R., McCarthy J. P., Bamman M. M. (2004). Effects of resistance training on older adults.
+<i>Sports Med.</i>
+34
+329&#x2013;348. 10.2165/00007256-200434050-00005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200434050-00005</ArticleId><ArticleId IdType="pubmed">15107011</ArticleId></ArticleIdList></Reference><Reference><Citation>Hunter G. R., Wetzstein C. J., McLafferty J. C., Zuckerman P. A., Landers K. A., Bamman M. M. (2001). High-resistance versus variable-resistance training in older adults.
+<i>Med. Sci. Sports Exerc.</i>
+33
+1759&#x2013;1764. 10.1097/00005768-200110000-00022
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-200110000-00022</ArticleId><ArticleId IdType="pubmed">11581563</ArticleId></ArticleIdList></Reference><Reference><Citation>Kiely J. (2012). Periodization paradigms in the 21st century: evidence-led or tradition-driven?
+<i>Int. J. Sports Physiol. Perform.</i>
+7
+242&#x2013;250. 10.1123/ijspp.7.3.242</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.7.3.242</ArticleId><ArticleId IdType="pubmed">22356774</ArticleId></ArticleIdList></Reference><Reference><Citation>Kraemer W. J., Deschenes M. R., Fleck S. J. (1988). Physiological adaptations to resistance exercise. Implications for athletic conditioning.
+<i>Sports Med.</i>
+6
+246&#x2013;256. 10.2165/00007256-198806040-00006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-198806040-00006</ArticleId><ArticleId IdType="pubmed">3067312</ArticleId></ArticleIdList></Reference><Reference><Citation>Kraemer W. J., H&#xe4;kkinen K., Triplett-McBride N. T., Fry A. C., Koziris L. P., Ratamess N. A., et al.  (2003). Physiological changes with periodized resistance training in women tennis players.
+<i>Med. Sci. Sports Exerc.</i>
+35
+157&#x2013;168. 10.1097/00005768-200301000-00024</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-200301000-00024</ArticleId><ArticleId IdType="pubmed">12544650</ArticleId></ArticleIdList></Reference><Reference><Citation>Kraemer W. J., Ratamess N. A. (2004). Fundamentals of resistance training: progression and exercise prescription.
+<i>Med. Sci. Sports Exerc.</i>
+36
+674&#x2013;688. 10.1249/01.MSS.0000121945.36635.61
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.MSS.0000121945.36635.61</ArticleId><ArticleId IdType="pubmed">15064596</ArticleId></ArticleIdList></Reference><Reference><Citation>Kraemer W. J., Ratamess N. A., French D. N. (2002). Resistance training for health and performance.
+<i>Curr. Sports Med. Rep.</i>
+1
+165&#x2013;171. 10.1007/s11932-002-0017-7</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s11932-002-0017-7</ArticleId><ArticleId IdType="pubmed">12831709</ArticleId></ArticleIdList></Reference><Reference><Citation>Krieger J. W. (2009). Single versus multiple sets of resistance exercise: a meta-regression.
+<i>J. Strength Cond. Res.</i>
+23
+1890&#x2013;1901. 10.1519/JSC.0b013e3181b370be
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181b370be</ArticleId><ArticleId IdType="pubmed">19661829</ArticleId></ArticleIdList></Reference><Reference><Citation>Morton R. W., Murphy K. T., McKellar S. R., Schoenfeld B. J., Henselmans M., Helms E., et al.  (2018). A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults.
+<i>Br. J. Sports Med.</i>
+52
+376&#x2013;384. 10.1136/bjsports-2017-097608
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2017-097608</ArticleId><ArticleId IdType="pmc">PMC5867436</ArticleId><ArticleId IdType="pubmed">28698222</ArticleId></ArticleIdList></Reference><Reference><Citation>Mujika I., Padilla S. (2000). Detraining: loss of training-induced physiological and performance adaptations. Part I.
+<i>Sports Med.</i>
+30
+79&#x2013;87. 10.2165/00007256-200030020-00002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200030020-00002</ArticleId><ArticleId IdType="pubmed">10966148</ArticleId></ArticleIdList></Reference><Reference><Citation>Murach K., Bagley J. (2015). Less is more: the physiological basis for tapering in endurance, strength, and power athletes.
+<i>Sports</i>
+3
+209&#x2013;218. 10.3390/sports3030209</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/sports3030209</ArticleId></ArticleIdList></Reference><Reference><Citation>Naclerio F., Moody J., Chapman M. (2013). Applied periodization: a methodological approach.
+<i>J. Hum. Sports Exerc.</i>
+8
+350&#x2013;366. 10.4100/jhse.2012.82.04</Citation><ArticleIdList><ArticleId IdType="doi">10.4100/jhse.2012.82.04</ArticleId></ArticleIdList></Reference><Reference><Citation>Netreba A., Popov D., Bravyy Y., Lyubaeva E., Terada M., Ohira T., et al.  (2013). Responses of knee extensor muscles to leg press training of various types in human.
+<i>Ross. Fiziol. Zh. Im. I. M. Sechenova</i>
+99
+406&#x2013;416.</Citation><ArticleIdList><ArticleId IdType="pubmed">23789443</ArticleId></ArticleIdList></Reference><Reference><Citation>Nunes J. P., Ribeiro A. S., Schoenfeld B. J., Cyrino E. S. (2018). Comment on: &#x201c;comparison of periodized and non-periodized resistance training on maximal strength: a meta-analysis.&#x201d;.
+<i>Sports Med.</i>
+48
+491&#x2013;494. 10.1007/s40279-017-0824-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-017-0824-x</ArticleId><ArticleId IdType="pubmed">29178086</ArticleId></ArticleIdList></Reference><Reference><Citation>Ogasawara R., Yasuda T., Ishii N., Abe T. (2013). Comparison of muscle hypertrophy following 6-month of continuous and periodic strength training.
+<i>Eur. J. Appl. Physiol.</i>
+113
+975&#x2013;985. 10.1007/s00421-012-2511-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-012-2511-9</ArticleId><ArticleId IdType="pubmed">23053130</ArticleId></ArticleIdList></Reference><Reference><Citation>Ogborn D., Schoenfeld B. J. (2014). The role of fiber types in muscle hypertrophy: implications for loading strategies.
+<i>Strength Cond. J.</i>
+36
+20&#x2013;25. 10.1519/SSC.0000000000000030</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/SSC.0000000000000030</ArticleId></ArticleIdList></Reference><Reference><Citation>Pedemonte J. (1986). Foundations of training periodization part I: historical outline.
+<i>NSCA J.</i>
+8
+62&#x2013;66.</Citation></Reference><Reference><Citation>Peterson M. D., Rhea M. R., Alvar B. A. (2004). Maximizing strength development in athletes: a meta-analysis to determine the dose-response relationship.
+<i>J. Strength Cond. Res.</i>
+18
+377&#x2013;382. 10.1519/00124278-200405000-00031
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-200405000-00031</ArticleId><ArticleId IdType="pubmed">15142003</ArticleId></ArticleIdList></Reference><Reference><Citation>Plisk S. S., Stone M. H. (2003). Periodization strategies.
+<i>Strength Cond. J.</i>
+25
+19&#x2013;37. 10.1519/00126548-200312000-00005</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00126548-200312000-00005</ArticleId></ArticleIdList></Reference><Reference><Citation>Poliquin C. (1988). Five steps to increasing the effectiveness of your strength training program.
+<i>NSCA J.</i>
+10
+34&#x2013;39. 10.1519/0744-0049(1988)010&lt;0034:FSTITE&gt;2.3.CO;2</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/0744-0049(1988)010&lt;0034:FSTITE&gt;2.3.CO;2</ArticleId></ArticleIdList></Reference><Reference><Citation>Pritchard H., Keogh J., Barnes M., McGuigan M. (2015). Effects and mechanisms of tapering in maximizing muscular strength.
+<i>Strength Cond. J.</i>
+37
+72&#x2013;83. 10.1519/SSC.0000000000000125</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/SSC.0000000000000125</ArticleId></ArticleIdList></Reference><Reference><Citation>Ralston G. W., Kilgore L., Wyatt F. B., Baker J. S. (2017). The effect of weekly set volume on strength gain: a meta-analysis.
+<i>Sports Med.</i>
+47
+2585&#x2013;2601. 10.1007/s40279-017-0762-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-017-0762-7</ArticleId><ArticleId IdType="pmc">PMC5684266</ArticleId><ArticleId IdType="pubmed">28755103</ArticleId></ArticleIdList></Reference><Reference><Citation>Rhea M. R., Alderman B. L. (2004). A meta-analysis of periodized versus nonperiodized strength and power training programs.
+<i>Res. Quart. Exerc. Sport</i>
+75
+413&#x2013;422. 10.1080/02701367.2004.10609174
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02701367.2004.10609174</ArticleId><ArticleId IdType="pubmed">15673040</ArticleId></ArticleIdList></Reference><Reference><Citation>Rhea M. R., Alvar B. A., Burkett L. N., Ball S. D. (2003). A meta-analysis to determine the dose response for strength development.
+<i>Med. Sci. Sports Exerc.</i>
+35
+456&#x2013;464. 10.1249/01.MSS.0000053727.63505.D4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.MSS.0000053727.63505.D4</ArticleId><ArticleId IdType="pubmed">12618576</ArticleId></ArticleIdList></Reference><Reference><Citation>Rhea M. R., Ball S. D., Phillips W. T., Burkett L. N. (2002). A comparison of linear and daily undulating periodized programs with equated volume and intensity for strength.
+<i>J. Strength Cond. Res.</i>
+16
+250&#x2013;255.</Citation><ArticleIdList><ArticleId IdType="pubmed">11991778</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Contreras B., Ogborn D., Galpin A., Krieger J., Sonmez G. T. (2016). Effects of varied versus constant loading zones on muscular adaptations in trained men.
+<i>Int. J. Sports Med.</i>
+37
+442&#x2013;447. 10.1055/s-0035-1569369
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-0035-1569369</ArticleId><ArticleId IdType="pubmed">27042999</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Grgic J., Ogborn D., Krieger J. W. (2017). Strength and hypertrophy adaptations between low-vs. high-load resistance training: a systematic review and meta-analysis.
+<i>J. Strength Cond. Res.</i>
+31
+3508&#x2013;3523. 10.1519/JSC.0000000000002200
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002200</ArticleId><ArticleId IdType="pubmed">28834797</ArticleId></ArticleIdList></Reference><Reference><Citation>Smith D. J. (2003). A framework for understanding the training process leading to elite performance.
+<i>Sports Med.</i>
+33
+1103&#x2013;1126. 10.2165/00007256-200333150-00003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200333150-00003</ArticleId><ArticleId IdType="pubmed">14719980</ArticleId></ArticleIdList></Reference><Reference><Citation>Stone M. H., Keith R. E., Kearney J. T., Fleck S. J., Wilson G. D., Triplett N. T. (1991). Overtraining: a review of the signs, symptoms and possible causes.
+<i>J. Appl. Sport Sci. Res.</i>
+5
+35&#x2013;50. 10.1519/00124278-199102000-00006</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-199102000-00006</ArticleId></ArticleIdList></Reference><Reference><Citation>Stone M. H., O&#x2019;Bryant H. S., Schilling B. K., Johnson R. L., Pierce K. C., Haff G. G., et al.  (1999). Periodization: effects of manipulating volume and intensity. Part 1.
+<i>Strength Cond. J.</i>
+21
+56&#x2013;62.</Citation></Reference><Reference><Citation>Stone M. H., Wathen D. (2001). Letter to the editor.
+<i>Strength Cond. J.</i>
+23
+7&#x2013;9. 10.1519/00126548-200110000-00001</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00126548-200110000-00001</ArticleId></ArticleIdList></Reference><Reference><Citation>Suchomel T. J., Nimphius S., Bellon C. R., Stone M. H. (2018). The importance of muscular strength: training considerations.
+<i>Sports Med.</i>
+48
+765&#x2013;785. 10.1007/s40279-018-0862-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-018-0862-z</ArticleId><ArticleId IdType="pubmed">29372481</ArticleId></ArticleIdList></Reference><Reference><Citation>Suchomel T. J., Nimphius S., Stone M. H. (2016). The importance of muscular strength in athletic performance.
+<i>Sports Med.</i>
+46
+1419&#x2013;1449. 10.1007/s40279-016-0486-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-016-0486-0</ArticleId><ArticleId IdType="pubmed">26838985</ArticleId></ArticleIdList></Reference><Reference><Citation>Tan B. (1999). Manipulating resistance training program variables to optimize maximum strength in men: a review.
+<i>J. Strength Cond. Res.</i>
+13
+289&#x2013;304. 10.1519/00124278-199908000-00019</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/00124278-199908000-00019</ArticleId></ArticleIdList></Reference><Reference><Citation>Turner A. (2011). The science and practice of periodization: a brief review.
+<i>Strength Cond. J.</i>
+33
+34&#x2013;46. 10.1519/SSC.0b013e3182079cdf</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/SSC.0b013e3182079cdf</ArticleId></ArticleIdList></Reference><Reference><Citation>Vinogradova O. L., Popov D. V., Netreba A. I., Tsvirkun D. V., Kurochkina N. S., Bachinin A. V., et al.  (2013). Optimization of training: development of a new partial load mode of strength training.
+<i>Fiziol. Cheloveka.</i>
+39
+71&#x2013;85. 10.1134/S0362119713050162
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1134/S0362119713050162</ArticleId><ArticleId IdType="pubmed">25509874</ArticleId></ArticleIdList></Reference><Reference><Citation>Westcott W. L. (2012). Resistance training is medicine: effects of strength training on health.
+<i>Curr. Sports Med. Rep.</i>
+11
+209&#x2013;216. 10.1249/JSR.0b013e31825dabb8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/JSR.0b013e31825dabb8</ArticleId><ArticleId IdType="pubmed">22777332</ArticleId></ArticleIdList></Reference><Reference><Citation>Williams T. D., Tolusso D. V., Fedewa M. V., Esco M. R. (2017). Comparison of periodized and non-periodized resistance training on maximal strength: a meta-analysis.
+<i>Sports Med.</i>
+47
+2083&#x2013;2100. 10.1007/s40279-017-0734-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-017-0734-y</ArticleId><ArticleId IdType="pubmed">28497285</ArticleId></ArticleIdList></Reference><Reference><Citation>Williams T. D., Tolusso D. V., Fedewa M. V., Esco M. R. (2018). Author&#x2019;s reply to Nunes et al.: comment on: &#x201c;Comparison of periodized and non-periodized resistance training on maximal strength: a meta-analysis.&#x201d;.
+<i>Sports Med.</i>
+48
+495&#x2013;496. 10.1007/s40279-017-0822-z
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-017-0822-z</ArticleId><ArticleId IdType="pubmed">29178085</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,162 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">29967584</PMID><DateRevised><Year>2020</Year><Month>10</Month><Day>01</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>9</Volume><PubDate><Year>2018</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Effects of Consecutive Versus Non-consecutive Days of Resistance Training on Strength, Body Composition, and Red Blood Cells.</ArticleTitle><Pagination><StartPage>725</StartPage><MedlinePgn>725</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">725</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2018.00725</ELocationID><Abstract><AbstractText>Health authorities worldwide recommend 2-3 days per week of resistance training (RT) performed &#x223c;48-72 h apart. However, the influence of recovery period between RT sessions on muscle strength, body composition, and red blood cells (RBCs) are unclear. <b>Aim:</b> Examine the effects of three consecutive (C) or non-consecutive (NC) days of RT per week for 12 weeks on strength, body composition, and RBCs. <b>Methods:</b> Thirty young, healthy and recreationally active males were randomly assigned to 3 C (&#x223c;24 h between sessions) or NC (&#x223c;48-72 h between sessions) days of RT per week for 12 weeks. Both groups performed three sets of 10 repetitions at 10-repetition maximum (RM) of leg press, latissimus pulldown, leg curl, shoulder press, and leg extension for each session. Ten RM and body composition were assessed pre- and post-RT. RBC parameters were measured on the first session before RT, and 0 and 24 h post-3rd session in untrained (week 1) and trained (week 12) states. <b>Results:</b> No training &#xd7; group interaction was found for all strength and body composition parameters (<i>p</i> = 0.075-0.974). Training increased strength for all exercises, bone mineral density, and total body mass via increased lean and bone mass (<i>p</i> &lt; 0.001). There was no interaction (<i>p</i> = 0.076-0.994) and RT induced temporal changes in all RBC parameters (<i>p</i> &lt; 0.001-0.003) except RBC corrected for plasma volume changes (time &#xd7; training interaction; <i>p</i> = 0.001). Training increased hematocrit and lowered mean corpuscular hemoglobin and mean corpuscular hemoglobin concentration (<i>p</i> = 0.001-0.041) but did not alter uncorrected RBC, hemoglobin, mean corpuscular volume and RBC distribution width (<i>p</i> = 0.178-0.797). <b>Conclusion:</b> Both C and NC RT induced similar improvements in strength and body composition, and changes in RBC parameters.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Yang</LastName><ForeName>Yifan</ForeName><Initials>Y</Initials><AffiliationInfo><Affiliation>Physical Education and Sports Science, National Institute of Education, Nanyang Technological University, Singapore, Singapore.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Bay</LastName><ForeName>Pang B</ForeName><Initials>PB</Initials><AffiliationInfo><Affiliation>Physical Education and Sports Science, National Institute of Education, Nanyang Technological University, Singapore, Singapore.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Wang</LastName><ForeName>Yongtai R</ForeName><Initials>YR</Initials><AffiliationInfo><Affiliation>Physical Education and Sports Science, National Institute of Education, Nanyang Technological University, Singapore, Singapore.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Huang</LastName><ForeName>Junli</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Physical Education and Sports Science, National Institute of Education, Nanyang Technological University, Singapore, Singapore.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Teo</LastName><ForeName>Hilary W J</ForeName><Initials>HWJ</Initials><AffiliationInfo><Affiliation>Physical Education and Sports Science, National Institute of Education, Nanyang Technological University, Singapore, Singapore.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Goh</LastName><ForeName>Jorming</ForeName><Initials>J</Initials><AffiliationInfo><Affiliation>Combat Protection and Performance Program, DSO National Laboratories, Singapore, Singapore.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Department of Physiology, National University of Singapore, Singapore, Singapore.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2018</Year><Month>06</Month><Day>18</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">bone mineral density</Keyword><Keyword MajorTopicYN="N">erythrocytes</Keyword><Keyword MajorTopicYN="N">fat loss</Keyword><Keyword MajorTopicYN="N">hematology</Keyword><Keyword MajorTopicYN="N">muscle mass</Keyword><Keyword MajorTopicYN="N">muscle strength</Keyword><Keyword MajorTopicYN="N">recovery period</Keyword><Keyword MajorTopicYN="N">resistance training</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>2</Month><Day>14</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2018</Year><Month>5</Month><Day>25</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2018</Year><Month>7</Month><Day>4</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2018</Year><Month>7</Month><Day>4</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2018</Year><Month>7</Month><Day>4</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2018</Year><Month>6</Month><Day>18</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">29967584</ArticleId><ArticleId IdType="pmc">PMC6015912</ArticleId><ArticleId IdType="doi">10.3389/fphys.2018.00725</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Ahmadizad S., El-Sayed M. S. (2005). The acute effects of resistance exercise on the main determinants of blood rheology.
+<i>J. Sports Sci.</i>
+23
+243&#x2013;249. 10.1080/02640410410001730151
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640410410001730151</ArticleId><ArticleId IdType="pubmed">15966342</ArticleId></ArticleIdList></Reference><Reference><Citation>Ahmadizad S., El-Sayed M. S., MacLaren D. P. (2006). Effects of water intake on the responses of haemorheological variables to resistance exercise.
+<i>Clin. Hemorheol. Microcirc.</i>
+35
+317&#x2013;327. </Citation><ArticleIdList><ArticleId IdType="pubmed">16899951</ArticleId></ArticleIdList></Reference><Reference><Citation>Almstedt H. C., Canepa J. A., Ramirez D. A., Shoepe T. C. (2011). Changes in bone mineral density in response to 24 weeks of resistance training in college-age men and women.
+<i>J. Strength Cond. Res.</i>
+25
+1098&#x2013;1103. 10.1519/JSC.0b013e3181d09e9d
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181d09e9d</ArticleId><ArticleId IdType="pubmed">20647940</ArticleId></ArticleIdList></Reference><Reference><Citation>Aragon A. A., Schoenfeld B. J., Wildman R., Kleiner S., VanDusseldorp T., Taylor L., et al.  (2017). International society of sports nutrition position stand: diets and body composition.
+<i>J. Int. Soc. Sports Nutr.</i>
+14:16. 10.1186/s12970-017-0174-y
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12970-017-0174-y</ArticleId><ArticleId IdType="pmc">PMC5470183</ArticleId><ArticleId IdType="pubmed">28630601</ArticleId></ArticleIdList></Reference><Reference><Citation>Austin A. W., Patterson S. M., von Kanel R. (2011). Hemoconcentration and hemostasis during acute stress: interacting and independent effects.
+<i>Ann. Behav. Med.</i>
+42
+153&#x2013;173. 10.1007/s12160-011-9274-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12160-011-9274-0</ArticleId><ArticleId IdType="pubmed">21562905</ArticleId></ArticleIdList></Reference><Reference><Citation>Bickel C. S., Slade J., Mahoney E., Haddad F., Dudley G. A., Adams G. R. (2005). Time course of molecular responses of human skeletal muscle to acute bouts of resistance exercise.
+<i>J. Appl. Physiol.</i>
+98
+482&#x2013;488. 10.1152/japplphysiol.00895.2004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00895.2004</ArticleId><ArticleId IdType="pubmed">15465884</ArticleId></ArticleIdList></Reference><Reference><Citation>Cakir-Atabek H., Atsak P., Gunduz N., Bor-Kucukatay M. (2009). Effects of resistance training intensity on deformability and aggregation of red blood cells.
+<i>Clin. Hemorheol. Microcirc.</i>
+41
+251&#x2013;261. 10.3233/CH-2009-1176
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3233/CH-2009-1176</ArticleId><ArticleId IdType="pubmed">19318718</ArticleId></ArticleIdList></Reference><Reference><Citation>Carvalho A. D., Rodrigues Santos J. A. (2016). Nonconsecutive versus consecutive-day resistance training in recreationally trained subjects.
+<i>J. Sports Med. Phys. Fitness</i>
+58
+233&#x2013;240. 10.23736/S0022-4707.16.06660-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.23736/S0022-4707.16.06660-3</ArticleId><ArticleId IdType="pubmed">27682004</ArticleId></ArticleIdList></Reference><Reference><Citation>Choi L., Liu Z., Matthews C. E., Buchowski M. S. (2011). Validation of accelerometer wear and nonwear time classification algorithm.
+<i>Med. Sci. Sports Exerc.</i>
+43
+357&#x2013;364. 10.1249/MSS.0b013e3181ed61a3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3181ed61a3</ArticleId><ArticleId IdType="pmc">PMC3184184</ArticleId><ArticleId IdType="pubmed">20581716</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen B., Millett P., Mist B., Laskey M., Rushton N. (1995). Effect of exercise training programme on bone mineral density in novice college rowers.
+<i>Br. J. Sports Med.</i>
+29
+85&#x2013;88. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC1332285</ArticleId><ArticleId IdType="pubmed">7551766</ArticleId></ArticleIdList></Reference><Reference><Citation>Craig S. K., Byrnes W. C., Fleck S. J. (2008). Plasma volume during weight lifting.
+<i>Int. J. Sports Med.</i>
+29
+89&#x2013;95. 10.1055/s-2007-965108
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2007-965108</ArticleId><ArticleId IdType="pubmed">17960510</ArticleId></ArticleIdList></Reference><Reference><Citation>Dankel S. J., Counts B. R., Barnett B. E., Buckner S. L., Abe T., Loenneke J. P. (2017). Muscle adaptations following 21 consecutive days of strength test familiarization compared with traditional training.
+<i>Muscle Nerve</i>
+56
+307&#x2013;314. 10.1002/mus.25488
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/mus.25488</ArticleId><ArticleId IdType="pubmed">27875635</ArticleId></ArticleIdList></Reference><Reference><Citation>Dill D. B., Costill D. L. (1974). Calculation of percentage changes in volumes of blood, plasma, and red cells in dehydration.
+<i>J. Appl. Physiol.</i>
+37
+247&#x2013;248. </Citation><ArticleIdList><ArticleId IdType="pubmed">4850854</ArticleId></ArticleIdList></Reference><Reference><Citation>Flores D. F., Gentil P., Brown L. E., Pinto R. S., Carregaro R. L., Bottaro M. (2011). Dissociated time course of recovery between genders after resistance exercise.
+<i>J. Strength Cond. Res.</i>
+25
+3039&#x2013;3044. 10.1519/JSC.0b013e318212dea4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e318212dea4</ArticleId><ArticleId IdType="pubmed">21804429</ArticleId></ArticleIdList></Reference><Reference><Citation>Garber C. E., Blissmer B., Deschenes M. R., Franklin B. A., Lamonte M. J., Lee I. M., et al.  (2011). American College of Sports Medicine position stand. Quantity and quality of exercise for developing and maintaining cardiorespiratory, musculoskeletal, and neuromotor fitness in apparently healthy adults: guidance for prescribing exercise.
+<i>Med. Sci. Sports Exerc.</i>
+43
+1334&#x2013;1359. 10.1249/MSS.0b013e318213fefb
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e318213fefb</ArticleId><ArticleId IdType="pubmed">21694556</ArticleId></ArticleIdList></Reference><Reference><Citation>Ghanbari-Niaki A., Tayebi S. M. (2013). Effects of a low intensity circuit resistance exercise session on some hematological parameters of male collage students.
+<i>Ann. Appl. Sport Sci.</i>
+1
+6&#x2013;11.</Citation></Reference><Reference><Citation>Gillam G. M. (1981). Effects of frequency of weight training on muscle strength enhancement.
+<i>J. Sports Med. Phys. Fitness</i>
+21
+432&#x2013;436. </Citation><ArticleIdList><ArticleId IdType="pubmed">7339229</ArticleId></ArticleIdList></Reference><Reference><Citation>Haddad F., Adams G. R. (2002). Selected contribution: acute cellular and molecular responses to resistance exercise.
+<i>J. Appl. Physiol.</i>
+93
+394&#x2013;403. 10.1152/japplphysiol.01153.2001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01153.2001</ArticleId><ArticleId IdType="pubmed">12070230</ArticleId></ArticleIdList></Reference><Reference><Citation>Hu M., Finni T., Sedliak M., Zhou W., Alen M., Cheng S. (2008). Seasonal variation of red blood cell variables in physically inactive men: effects of strength training.
+<i>Int. J. Sports Med.</i>
+29
+564&#x2013;568. 10.1055/s-2007-989320
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2007-989320</ArticleId><ArticleId IdType="pubmed">18050059</ArticleId></ArticleIdList></Reference><Reference><Citation>Hu M., Lin W. (2012). Effects of exercise training on red blood cell production: implications for anemia.
+<i>Acta Haematol.</i>
+127
+156&#x2013;164. 10.1159/000335620
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1159/000335620</ArticleId><ArticleId IdType="pubmed">22301865</ArticleId></ArticleIdList></Reference><Reference><Citation>Hulmi J. J., Myllymaki T., Tenhumaki M., Mutanen N., Puurtinen R., Paulsen G., et al.  (2010). Effects of resistance exercise and protein ingestion on blood leukocytes and platelets in young and older men.
+<i>Eur. J. Appl. Physiol.</i>
+109
+343&#x2013;353. 10.1007/s00421-010-1360-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-010-1360-7</ArticleId><ArticleId IdType="pubmed">20101405</ArticleId></ArticleIdList></Reference><Reference><Citation>Hunter G. R. (1985). Research: changes in body composition, body build and performance associated with different weight training frequencies in males and females.
+<i>Strength Cond. J.</i>
+7
+26&#x2013;28.</Citation></Reference><Reference><Citation>Kilgore J. L., Pendlay G. W., Reeves J. S., Kilgore T. G. (2002). Serum chemistry and hematological adaptations to 6 weeks of moderate to intense resistance training.
+<i>J. Strength Cond. Res.</i>
+16
+509&#x2013;515. </Citation><ArticleIdList><ArticleId IdType="pubmed">12423178</ArticleId></ArticleIdList></Reference><Reference><Citation>Kilic-Toprak E., Ardic F., Erken G., Unver-Kocak F., Kucukatay V., Bor-Kucukatay M. (2012). Hemorheological responses to progressive resistance exercise training in healthy young males.
+<i>Med. Sci. Monit.</i>
+18
+351&#x2013;360. 10.12659/MSM.882878
+</Citation><ArticleIdList><ArticleId IdType="doi">10.12659/MSM.882878</ArticleId><ArticleId IdType="pmc">PMC3560717</ArticleId><ArticleId IdType="pubmed">22648250</ArticleId></ArticleIdList></Reference><Reference><Citation>Korak J. A., Green J. M., O&#x2019;Neal E. K. (2015). Resistance training recovery: considerations for single vs. multi-joint movements and upper vs. lower body muscles.
+<i>Int. J. Exerc. Sci.</i>
+8
+85&#x2013;96.</Citation></Reference><Reference><Citation>Kristal-Boneh E., Froom P., Harari G., Ribak J. (1997). Seasonal differences in blood cell parameters and the association with cigarette smoking.
+<i>Clin. Lab. Haematol.</i>
+19
+177&#x2013;181. </Citation><ArticleIdList><ArticleId IdType="pubmed">9352141</ArticleId></ArticleIdList></Reference><Reference><Citation>Lemmer J. T., Ivey F. M., Ryan A. S., Martel G. F., Hurlbut D. E., Metter J. E., et al.  (2001). Effect of strength training on resting metabolic rate and physical activity: age and gender comparisons.
+<i>Med. Exerc.</i>
+33
+532&#x2013;541.</Citation><ArticleIdList><ArticleId IdType="pubmed">11283427</ArticleId></ArticleIdList></Reference><Reference><Citation>Mairb&#xe4;url H. (2013). Red blood cells in sports: effects of exercise and training on oxygen supply by red blood cells.
+<i>Front. Physiol.</i>
+4:332
+10.3389/fphys.2013.00332</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2013.00332</ArticleId><ArticleId IdType="pmc">PMC3824146</ArticleId><ArticleId IdType="pubmed">24273518</ArticleId></ArticleIdList></Reference><Reference><Citation>McCarthy J. P., Bamman M. M., Yelle J. M., LeBlanc A. D., Rowe R. M., Greenisen M. C., et al.  (1997). Resistance exercise training and the orthostatic response.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+76
+32&#x2013;40. 10.1007/s004210050209
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s004210050209</ArticleId><ArticleId IdType="pubmed">9243167</ArticleId></ArticleIdList></Reference><Reference><Citation>Morton R. W., Murphy K. T., McKellar S. R., Schoenfeld B. J., Henselmans M., Helms E., et al.  (2017). A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults.
+<i>Br. J. Sports Med.</i>
+52
+376&#x2013;384. 10.1136/bjsports-2017-097608
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsports-2017-097608</ArticleId><ArticleId IdType="pmc">PMC5867436</ArticleId><ArticleId IdType="pubmed">28698222</ArticleId></ArticleIdList></Reference><Reference><Citation>Olson T. P., Dengel D. R., Leon A. S., Schmitz K. H. (2007). Changes in inflammatory biomarkers following one-year of moderate resistance training in overweight women.
+<i>Int. J. Obes.</i>
+31
+996&#x2013;1003. 10.1038/sj.ijo.0803534
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/sj.ijo.0803534</ArticleId><ArticleId IdType="pubmed">17299382</ArticleId></ArticleIdList></Reference><Reference><Citation>Paulsen G., Myklestad D., Raastad T. (2003). The influence of volume of exercise on early adaptations to strength training.
+<i>J. Strength Cond. Res.</i>
+17
+115&#x2013;120.</Citation><ArticleIdList><ArticleId IdType="pubmed">12580666</ArticleId></ArticleIdList></Reference><Reference><Citation>Poehlman E. T., Dvorak R. V., DeNino W. F., Brochu M., Ades P. A. (2000). Effects of resistance training and endurance training on insulin sensitivity in nonobese, young women: a controlled randomized trial.
+<i>J. Clin. Endocrinol. Metab.</i>
+85
+2463&#x2013;2468. 10.1210/jcem.85.7.6692
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1210/jcem.85.7.6692</ArticleId><ArticleId IdType="pubmed">10902794</ArticleId></ArticleIdList></Reference><Reference><Citation>Radaelli R., Bottaro M., Wilhelm E. N., Wagner D. R., Pinto R. S. (2012). Time course of strength and echo intensity recovery after resistance exercise in women.
+<i>J. Strength Cond. Res.</i>
+26
+2577&#x2013;2584. 10.1519/JSC.0b013e31823dae96
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e31823dae96</ArticleId><ArticleId IdType="pubmed">22037095</ArticleId></ArticleIdList></Reference><Reference><Citation>Ralston G. W., Kilgore L., Wyatt F. B., Baker J. S. (2017). The effect of weekly set volume on strength gain: a meta-analysis.
+<i>Sports Med.</i>
+47
+2585&#x2013;2601. 10.1007/s40279-017-0762-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-017-0762-7</ArticleId><ArticleId IdType="pmc">PMC5684266</ArticleId><ArticleId IdType="pubmed">28755103</ArticleId></ArticleIdList></Reference><Reference><Citation>Sasaki J. E., John D., Freedson P. S. (2011). Validation and comparison of ActiGraph activity monitors.
+<i>J. Sci. Med. Sport</i>
+14
+411&#x2013;416. 10.1016/j.jsams.2011.04.003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jsams.2011.04.003</ArticleId><ArticleId IdType="pubmed">21616714</ArticleId></ArticleIdList></Reference><Reference><Citation>Schobersberger W., Tschann M., Hasibeder W., Steidl M., Herold M., Nachbauer W., et al.  (1990). Consequences of 6 weeks of strength training on red cell O2 transport and iron status.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+60
+163&#x2013;168. </Citation><ArticleIdList><ArticleId IdType="pubmed">2347315</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Ogborn D., Krieger J. W. (2017). Dose-response relationship between weekly resistance training volume and increases in muscle mass: a systematic review and meta-analysis.
+<i>J. Sports Sci.</i>
+35
+1073&#x2013;1082. 10.1080/02640414.2016.1210197
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2016.1210197</ArticleId><ArticleId IdType="pubmed">27433992</ArticleId></ArticleIdList></Reference><Reference><Citation>Teixeira A. O., Franco O. S., Borges M. M., Martins C. N., Guerreiro L. F., da Rosa C. E., et al.  (2014). The importance of adjustments for changes in plasma volume in the interpretation of hematological and inflammatory responses after resistance exercise.
+<i>J. Exerc. Physiol. Online</i>
+17
+72&#x2013;83.</Citation></Reference><Reference><Citation>Troiano R. P., Berrigan D., Dodd K. W., Masse L. C., Tilert T., McDowell M. (2008). Physical activity in the United States measured by accelerometer.
+<i>Med. Sci. Sports Exerc.</i>
+40
+181&#x2013;188. 10.1249/mss.0b013e31815a51b3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0b013e31815a51b3</ArticleId><ArticleId IdType="pubmed">18091006</ArticleId></ArticleIdList></Reference><Reference><Citation>von Tempelhoff G. F., Schelkunov O., Demirhan A., Tsikouras P., Rath W., Velten E., et al.  (2016). Correlation between blood rheological properties and red blood cell indices (MCH, MCV, MCHC) in healthy women.
+<i>Clin. Hemorheol. Microcirc.</i>
+62
+45&#x2013;54. 10.3233/ch-151944
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3233/ch-151944</ArticleId><ArticleId IdType="pubmed">26410854</ArticleId></ArticleIdList></Reference><Reference><Citation>Wallace M. B., Moffatt R. J., Hancock L. A. (1990). The delayed effects of heavy resistance exercise on plasma volume shifts.
+<i>J. Strength Cond. Res.</i>
+4
+154&#x2013;159.</Citation></Reference><Reference><Citation>World Health Organization (2010). <i>Global Recommendations on Physical Activity for Health.</i>
+Available at:
+http://www.who.int/dietphysicalactivity/global-PA-recs-2010.pdf
+[accessed May 2 2017]</Citation><ArticleIdList><ArticleId IdType="pubmed">26180873</ArticleId></ArticleIdList></Reference><Reference><Citation>Zourdos M., Dolan C., Quiles J., Klemp A., Jo E., Loenneke J., et al.  (2016). Efficacy of daily 1RM training in well-trained powerlifters and weightlifters: a case series.
+<i>Nutr. Hosp.</i>
+33
+437&#x2013;443.</Citation></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,136 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">35069251</PMID><DateRevised><Year>2022</Year><Month>01</Month><Day>25</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>12</Volume><PubDate><Year>2021</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>Equal-Volume Strength Training With Different Training Frequencies Induces Similar Muscle Hypertrophy and Strength Improvement in Trained Participants.</ArticleTitle><Pagination><StartPage>789403</StartPage><MedlinePgn>789403</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">789403</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2021.789403</ELocationID><Abstract><AbstractText>The main goal of the current study was to compare the effects of volume-equated training frequency on gains in muscle mass and strength. In addition, we aimed to investigate whether the effect of training frequency was affected by the complexity, concerning the degrees of freedom, of an exercise. Participants were randomized to a moderate training frequency group (two weekly sessions) or high training frequency group (four weekly sessions). Twenty-one participants (male: 11, female: 10, age: 25.9 &#xb1; 4.0) completed the 9-week whole-body progressive heavy resistance training intervention with moderate (<i>n</i> = 13) or high (<i>n</i> = 8) training frequency. Whole-body and regional changes in lean mass were measured using dual-energy x-ray absorptiometry, while the vastus lateralis thickness was measured by ultrasound. Changes in muscle strength were measured as one repetition maximum for squat, hack squat, bench press, and chest press. No differences between groups were observed for any of the measures of muscle growth or muscle strength. Muscle strength increased to a greater extent in hack squat and chest press than squat and bench press for both moderate (50 and 21% vs. 19 and 14%, respectively) and high-frequency groups (63 and 31% vs. 19 and 16%, respectively), with no differences between groups. These results suggest that training frequency is less decisive when weekly training volume is equated. Further, familiarity with an exercise seems to be of greater importance for strength adaptations than the complexity of the exercise.</AbstractText><CopyrightInformation>Copyright &#xa9; 2022 Hamarsland, Moen, Skaar, Jorang, R&#xf8;dahl and R&#xf8;nnestad.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Hamarsland</LastName><ForeName>H&#xe5;vard</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Section for Health and Exercise Physiology, Inland Norway University of Applied Sciences, Lillehammer, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Moen</LastName><ForeName>Hermann</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Section for Health and Exercise Physiology, Inland Norway University of Applied Sciences, Lillehammer, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Skaar</LastName><ForeName>Ole Johannes</ForeName><Initials>OJ</Initials><AffiliationInfo><Affiliation>Section for Health and Exercise Physiology, Inland Norway University of Applied Sciences, Lillehammer, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Jorang</LastName><ForeName>Preben Wahlstr&#xf8;m</ForeName><Initials>PW</Initials><AffiliationInfo><Affiliation>Section for Health and Exercise Physiology, Inland Norway University of Applied Sciences, Lillehammer, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>R&#xf8;dahl</LastName><ForeName>H&#xe5;vard Saeter&#xf8;y</ForeName><Initials>HS</Initials><AffiliationInfo><Affiliation>Section for Health and Exercise Physiology, Inland Norway University of Applied Sciences, Lillehammer, Norway.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>R&#xf8;nnestad</LastName><ForeName>Bent R</ForeName><Initials>BR</Initials><AffiliationInfo><Affiliation>Section for Health and Exercise Physiology, Inland Norway University of Applied Sciences, Lillehammer, Norway.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2022</Year><Month>01</Month><Day>05</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">hypertrophy</Keyword><Keyword MajorTopicYN="N">resistance training</Keyword><Keyword MajorTopicYN="N">skeletal muscle</Keyword><Keyword MajorTopicYN="N">strength</Keyword><Keyword MajorTopicYN="N">trained individuals</Keyword><Keyword MajorTopicYN="N">training frequency</Keyword></KeywordList><CoiStatement>The authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2021</Year><Month>10</Month><Day>4</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2021</Year><Month>12</Month><Day>3</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2022</Year><Month>1</Month><Day>24</Day><Hour>8</Hour><Minute>48</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2022</Year><Month>1</Month><Day>25</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2022</Year><Month>1</Month><Day>25</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2022</Year><Month>1</Month><Day>5</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">35069251</ArticleId><ArticleId IdType="pmc">PMC8766679</ArticleId><ArticleId IdType="doi">10.3389/fphys.2021.789403</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>American College of Sports Medicine (2009). American College of Sports Medicine position stand. progression models in resistance training for healthy adults.
+<i>Med. Sci. Sport Exerc.</i>
+41
+687&#x2013;708. 10.1249/mss.0b013e3181915670
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0b013e3181915670</ArticleId><ArticleId IdType="pubmed">19204579</ArticleId></ArticleIdList></Reference><Reference><Citation>Balshaw T. G., Massey G. J., Maden-Wilkinson T. M., Lanza M. B., Folland J. P. (2019). Neural adaptations after 4 years vs 12 weeks of resistance training vs untrained.
+<i>Scand. J. Med. Sci. Sports</i>
+29
+348&#x2013;359. 10.1111/sms.13331
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.13331</ArticleId><ArticleId IdType="pubmed">30387185</ArticleId></ArticleIdList></Reference><Reference><Citation>Borg G. A. V. (1982). Psychophysical bases of perceived exertion.
+<i>Med. Sci. Sports Exerc.</i>
+14
+377&#x2013;381. </Citation><ArticleIdList><ArticleId IdType="pubmed">7154893</ArticleId></ArticleIdList></Reference><Reference><Citation>Brigatto F. A., Braz T. V., Zanini T. C. D. C., Germano M. D., Aoki M. S., Schoenfeld B. J., et al.  (2018). Effect of resistance training frequency on neuromuscular performance and muscle morphology after eight weeks in trained men.
+<i>J. Strength Cond. Res.</i>
+33
+2104&#x2013;2116. 10.1519/JSC.0000000000002563
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002563</ArticleId><ArticleId IdType="pubmed">29528962</ArticleId></ArticleIdList></Reference><Reference><Citation>Burd N. A., Holwerda A. M., Selby K. C., West D. W. D., Staples A. W., Cain N. E., et al.  (2010). Resistance exercise volume affects myofibrillar protein synthesis and anabolic signalling molecule phosphorylation in young men.
+<i>J. Physiol.</i>
+588
+3119&#x2013;3130. 10.1113/jphysiol.2010.192856
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2010.192856</ArticleId><ArticleId IdType="pmc">PMC2956949</ArticleId><ArticleId IdType="pubmed">20581041</ArticleId></ArticleIdList></Reference><Reference><Citation>Burd N. A., West D. W. D., Moore D. R., Atherton P. J., Staples A. W., Prior T., et al.  (2011). Enhanced amino acid sensitivity of myofibrillar protein synthesis persists for up to 24 h after resistance exercise in young men.
+<i>J. Nutr.</i>
+141
+568&#x2013;573. 10.3945/jn.110.135038
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3945/jn.110.135038</ArticleId><ArticleId IdType="pubmed">21289204</ArticleId></ArticleIdList></Reference><Reference><Citation>Colquhoun R. J., Gai C. M., Aguilar D., Bove D., Dolan J., Vargas A., et al.  (2018). Training volume, not frequency, indicative of maximal strength adaptations to resistance training.
+<i>J. Strength Cond. Res.</i>
+32
+1207&#x2013;1213. 10.1519/JSC.0000000000002414
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002414</ArticleId><ArticleId IdType="pubmed">29324578</ArticleId></ArticleIdList></Reference><Reference><Citation>Damas F., Angleri V., Phillips S. M., Witard O. C., Ugrinowitsch C., Santanielo N., et al.  (2019). Myofibrillar protein synthesis and muscle hypertrophy individualised responses to systematically changing resistance training variables in trained young men.
+<i>J. Appl. Physiol.</i>
+19:572. 10.1152/japplphysiol.00350.2019
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00350.2019</ArticleId><ArticleId IdType="pubmed">31268828</ArticleId></ArticleIdList></Reference><Reference><Citation>Damas F., Phillips S., Vechin F. C., Ugrinowitsch C. (2015). A review of resistance training-induced changes in skeletal muscle protein synthesis and their contribution to hypertrophy.
+<i>Sports Med.</i>
+45
+801&#x2013;807. 10.1007/s40279-015-0320-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-015-0320-0</ArticleId><ArticleId IdType="pubmed">25739559</ArticleId></ArticleIdList></Reference><Reference><Citation>Dankel S. J., Mattocks K. T., Jessee M. B., Buckner S. L., Mouser J. G., Counts B. R., et al.  (2016). Frequency: the overlooked resistance training variable for inducing muscle hypertrophy?
+<i>Sports Med.</i>
+47
+799&#x2013;805. 10.1007/s40279-016-0640-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-016-0640-8</ArticleId><ArticleId IdType="pubmed">27752983</ArticleId></ArticleIdList></Reference><Reference><Citation>El-Kotob R., Ponzano M., Chaput J.-P., Janssen I., Kho M. E., Poitras V. J., et al.  (2020). Resistance training and health in adults: an overview of systematic reviews.
+<i>Appl. Physiol. Nutr. Metab.</i>
+45
+S165&#x2013;S179. 10.1139/apnm-2020-0245
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/apnm-2020-0245</ArticleId><ArticleId IdType="pubmed">33054335</ArticleId></ArticleIdList></Reference><Reference><Citation>Figueiredo V. C. (2019). Revisiting the roles of protein synthesis during skeletal muscle hypertrophy induced by exercise.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+317
+R709&#x2013;R718. 10.1152/ajpregu.00162.2019
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00162.2019</ArticleId><ArticleId IdType="pubmed">31508978</ArticleId></ArticleIdList></Reference><Reference><Citation>Gentil P., Fisher J., Steele J., Campos M. H., Silva M. H., Paoli A., et al.  (2018). Effects of equal-volume resistance training with different training frequencies in muscle size and strength in trained men.
+<i>PeerJ</i>
+6:e5020. 10.7717/peerj.5020
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7717/peerj.5020</ArticleId><ArticleId IdType="pmc">PMC6016534</ArticleId><ArticleId IdType="pubmed">29942690</ArticleId></ArticleIdList></Reference><Reference><Citation>Gomes G. K., Franco C. M., Nunes P. R. P., Orsatti F. L. (2019). High-frequency resistance training is not more effective than low-frequency resistance training in increasing muscle mass and strength in well-trained men.
+<i>J. Strength Cond. Res.</i>
+33 (Suppl. 1), S130&#x2013;S139. 10.1519/JSC.0000000000002559
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002559</ArticleId><ArticleId IdType="pubmed">29489727</ArticleId></ArticleIdList></Reference><Reference><Citation>Grgic J., Schoenfeld B. J., Davies T. B., Lazinica B., Krieger J. W., Pedisic Z. (2018). Effect of resistance training frequency on gains in muscular strength: a systematic review and meta-analysis.
+<i>Sports Med.</i>
+48
+1207&#x2013;1220. 10.1007/s40279-018-0872-x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s40279-018-0872-x</ArticleId><ArticleId IdType="pubmed">29470825</ArticleId></ArticleIdList></Reference><Reference><Citation>Hammarstr&#xf6;m D., &#xd8;fsteng S., Koll L., Hanestadhaugen M., Hollan I., Apr&#xf3; W., et al.  (2020). Benefits of higher resistance-training volume are related to ribosome biogenesis.
+<i>J. Physiol.</i>
+598
+543&#x2013;565. 10.1113/JP278455
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP278455</ArticleId><ArticleId IdType="pubmed">31813190</ArticleId></ArticleIdList></Reference><Reference><Citation>Harris N., Cronin J., Keogh J. (2007). Contraction force specificity and its relationship to functional performance.
+<i>J. Sports Sci.</i>
+25
+201&#x2013;212. 10.1080/02640410600630910
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640410600630910</ArticleId><ArticleId IdType="pubmed">17127595</ArticleId></ArticleIdList></Reference><Reference><Citation>Johnsen E., van den Tillaar R. (2021). Effects of training frequency on muscular strength for trained men under volume matched conditions.
+<i>PeerJ</i>
+9:e10781. 10.7717/peerj.10781
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7717/peerj.10781</ArticleId><ArticleId IdType="pmc">PMC7897409</ArticleId><ArticleId IdType="pubmed">33643706</ArticleId></ArticleIdList></Reference><Reference><Citation>Lasevicius T., Schoenfeld B. J., Grgic J., Laurentino G., Tavares L. D., Tricoli V. (2019). Similar muscular adaptations in resistance training performed two versus three days per week.
+<i>J. Hum. Kinet.</i>
+68
+135&#x2013;143. 10.2478/hukin-2019-0062
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2478/hukin-2019-0062</ArticleId><ArticleId IdType="pmc">PMC6724585</ArticleId><ArticleId IdType="pubmed">31531139</ArticleId></ArticleIdList></Reference><Reference><Citation>MacDougall J. D., Gibala M. J., Tarnopolsky M. A., MacDonald J. R., Interisano S. A., Yarasheski K. E. (1995). The time course for elevated muscle protein synthesis following heavy resistance exercise.
+<i>Can. J. Appl. Physiol.</i>
+20
+480&#x2013;486. 10.1139/h95-038
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/h95-038</ArticleId><ArticleId IdType="pubmed">8563679</ArticleId></ArticleIdList></Reference><Reference><Citation>MacInnis M. J., McGlory C., Gibala M. J., Phillips S. M. (2017). Investigating human skeletal muscle physiology with unilateral exercise models: when one limb is more powerful than two.
+<i>Appl. Physiol. Nutr. Metab.</i>
+42
+563&#x2013;570. 10.1139/apnm-2016-0645
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/apnm-2016-0645</ArticleId><ArticleId IdType="pubmed">28177712</ArticleId></ArticleIdList></Reference><Reference><Citation>McGuigan M. R., Wright G. A., Fleck S. J. (2012). Strength training for athletes: does it really help sports performance?
+<i>Int. J. Sports Physiol. Perform.</i>
+7
+2&#x2013;5. 10.1123/ijspp.7.1.2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.7.1.2</ArticleId><ArticleId IdType="pubmed">22461461</ArticleId></ArticleIdList></Reference><Reference><Citation>McLester J. R. J., Bishop E., Guilliams M. E. (2000). Comparison of 1 day and 3 days per week of equal-volume resistance training in experienced subjects.
+<i>J. Strength Cond. Res.</i>
+14
+273&#x2013;281.</Citation></Reference><Reference><Citation>Morris S. B. (2008). Estimating effect sizes from pretest-posttest-control group designs. <i>Organ. Res. Methods</i>
+11, 364&#x2013;386. 10.1177/1094428106291059</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1094428106291059</ArticleId></ArticleIdList></Reference><Reference><Citation>Narici M. V., Hoppeler H., Kayser B., Landoni L., Claassen H., Gavardi C., et al.  (1996). Human quadriceps cross-sectional area, torque and neural activation during 6 months strength training.
+<i>Acta Physiol. Scand.</i>
+157
+175&#x2013;186. 10.1046/j.1365-201X.1996.483230000.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1046/j.1365-201X.1996.483230000.x</ArticleId><ArticleId IdType="pubmed">8800357</ArticleId></ArticleIdList></Reference><Reference><Citation>Pareja-Blanco F., Rodr&#xed;guez-Rosell D., Aagaard P., S&#xe1;nchez-Medina L., Ribas-Serna J., Mora-Custodio R., et al.  (2020). Time course of recovery from resistance exercise with different set configurations.
+<i>J. Strength Cond. Res.</i>
+34
+2867&#x2013;2876. 10.1519/JSC.0000000000002756
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002756</ArticleId><ArticleId IdType="pubmed">30036284</ArticleId></ArticleIdList></Reference><Reference><Citation>Phillips S. M., Tipton K. D., Aarsland A., Wolf S. E., Wolfe R. R. (1997). Mixed muscle protein synthesis and breakdown after resistance exercise in humans.
+<i>Am. J. Physiol.</i>
+273
+E99&#x2013;E107. 10.1152/ajpendo.1997.273.1.E99
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.1997.273.1.E99</ArticleId><ArticleId IdType="pubmed">9252485</ArticleId></ArticleIdList></Reference><Reference><Citation>Ralston G. W., Kilgore L., Wyatt F. B., Buchan D., Baker J. S. (2018). Weekly training frequency effects on strength gain: a meta-analysis.
+<i>Sports Med. Open</i>
+4:36. 10.1186/s40798-018-0149-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s40798-018-0149-9</ArticleId><ArticleId IdType="pmc">PMC6081873</ArticleId><ArticleId IdType="pubmed">30076500</ArticleId></ArticleIdList></Reference><Reference><Citation>Saric J., Lisica D., Orlic I., Grgic J., Krieger J. W., Vuk S., et al.  (2019). Resistance training frequencies of 3 and 6 times per week produce similar muscular adaptations in resistance-trained men.
+<i>J. Strength Cond. Res.</i>
+33 (Suppl. 1) S122&#x2013;S129. 10.1519/JSC.0000000000002909
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002909</ArticleId><ArticleId IdType="pubmed">30363041</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Grgic J., Krieger J. (2019). How many times per week should a muscle be trained to maximize muscle hypertrophy? a systematic review and meta-analysis of studies examining the effects of resistance training frequency.
+<i>J. Sports Sci.</i>
+37
+1286&#x2013;1295. 10.1080/02640414.2018.1555906
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/02640414.2018.1555906</ArticleId><ArticleId IdType="pubmed">30558493</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J., Ratamess N. A., Peterson M. D., Contreras B., Tiryaki-Sonmez G. (2015). Influence of resistance training frequency on muscular adaptations in well-trained men.
+<i>J. Strength Cond. Res.</i>
+29
+1821&#x2013;1829. 10.1519/JSC.0000000000000970
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000000970</ArticleId><ArticleId IdType="pubmed">25932981</ArticleId></ArticleIdList></Reference><Reference><Citation>Seynnes O. R., Cronin N. J. (2020). Simple muscle architecture analysis (SMA): an ImageJ macro tool to automate measurements in B-mode ultrasound scans.
+<i>PLoS One</i>
+15:e0229034. 10.1371/journal.pone.0229034
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0229034</ArticleId><ArticleId IdType="pmc">PMC7015391</ArticleId><ArticleId IdType="pubmed">32049973</ArticleId></ArticleIdList></Reference><Reference><Citation>Shad B. J., Thompson J. L., McKendry J., Holwerda A. M., Elhassan Y. S., Breen L., et al.  (2021). Daily myofibrillar protein synthesis rates in response to low- and high-frequency resistance exercise training in healthy.
+<i>Young Men. Int. J. Sport Nutr. Exerc. Metab.</i>
+31
+209&#x2013;216. 10.1123/ijsnem.2020-0274
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijsnem.2020-0274</ArticleId><ArticleId IdType="pubmed">33601335</ArticleId></ArticleIdList></Reference><Reference><Citation>Shea C. H., Lai Q., Black C., Park J.-H. (2000). Spacing practice sessions across days benefits the learning of motor skills.
+<i>Hum. Mov. Sci.</i>
+19
+737&#x2013;760. 10.1016/s0167-9457(00)00021-x</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0167-9457(00)00021-x</ArticleId></ArticleIdList></Reference><Reference><Citation>Str&#xf6;mb&#xe4;ck E., Aasa U., Gilenstam K., Berglund L. (2018). Prevalence and consequences of injuries in powerlifting: a cross-sectional study.
+<i>Orthop. J. Sports Med.</i>
+6:2325967118771016. 10.1177/2325967118771016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/2325967118771016</ArticleId><ArticleId IdType="pmc">PMC5954586</ArticleId><ArticleId IdType="pubmed">29785405</ArticleId></ArticleIdList></Reference><Reference><Citation>Varovi&#x107; D., &#x17d;ganjer K., Vuk S., Schoenfeld B. J. (2021). Drop-Set training elicits differential increases in non-uniform hypertrophy of the quadriceps in leg extension exercise.
+<i>Sports</i>
+9:119. 10.3390/sports9090119
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/sports9090119</ArticleId><ArticleId IdType="pmc">PMC8473065</ArticleId><ArticleId IdType="pubmed">34564324</ArticleId></ArticleIdList></Reference><Reference><Citation>Zaroni R. S., Brigatto F. A., Schoenfeld B. J., Braz T. V., Benvenutti J. C., Germano M. D. (2019). High resistance-training frequency enhances muscle thickness in resistance-trained men.
+<i>J. Strength Cond. Res.</i>
+33 (Suppl. 1) S140&#x2013;S151. 10.1519/JSC.0000000000002643
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0000000000002643</ArticleId><ArticleId IdType="pubmed">31260419</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

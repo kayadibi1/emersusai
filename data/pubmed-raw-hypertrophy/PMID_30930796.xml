@@ -1,0 +1,583 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">30930796</PMID><DateRevised><Year>2020</Year><Month>10</Month><Day>01</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1664-042X</ISSN><JournalIssue CitedMedium="Print"><Volume>10</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in physiology</Title><ISOAbbreviation>Front Physiol</ISOAbbreviation></Journal><ArticleTitle>A Critical Evaluation of the Biological Construct Skeletal Muscle Hypertrophy: Size Matters but So Does the Measurement.</ArticleTitle><Pagination><StartPage>247</StartPage><MedlinePgn>247</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">247</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fphys.2019.00247</ELocationID><Abstract><AbstractText>Skeletal muscle is highly adaptable and has consistently been shown to morphologically respond to exercise training. Skeletal muscle growth during periods of resistance training has traditionally been referred to as skeletal muscle hypertrophy, and this manifests as increases in muscle mass, muscle thickness, muscle area, muscle volume, and muscle fiber cross-sectional area (fCSA). Delicate electron microscopy and biochemical techniques have also been used to demonstrate that resistance exercise promotes ultrastructural adaptations within muscle fibers. Decades of research in this area of exercise physiology have promulgated a widespread hypothetical model of training-induced skeletal muscle hypertrophy; specifically, fCSA increases are accompanied by proportional increases in myofibrillar protein, leading to an expansion in the number of sarcomeres in parallel and/or an increase in myofibril number. However, there is ample evidence to suggest that myofibrillar protein concentration may be diluted through sarcoplasmic expansion as fCSA increases occur. Furthermore, and perhaps more problematic, are numerous investigations reporting that pre-to-post training change scores in macroscopic, microscopic, and molecular variables supporting this model are often poorly associated with one another. The current review first provides a brief description of skeletal muscle composition and structure. We then provide a historical overview of muscle hypertrophy assessment. Next, current-day methods commonly used to assess skeletal muscle hypertrophy at the biochemical, ultramicroscopic, microscopic, macroscopic, and whole-body levels in response to training are examined. Data from our laboratory, and others, demonstrating correlations (or the lack thereof) between these variables are also presented, and reasons for comparative discrepancies are discussed with particular attention directed to studies reporting ultrastructural and muscle protein concentration alterations. Finally, we critically evaluate the biological construct of skeletal muscle hypertrophy, propose potential operational definitions, and provide suggestions for consideration in hopes of guiding future research in this area.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Haun</LastName><ForeName>Cody T</ForeName><Initials>CT</Initials><AffiliationInfo><Affiliation>Department of Exercise Science, LaGrange College, LaGrange, GA, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Vann</LastName><ForeName>Christopher G</ForeName><Initials>CG</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Roberts</LastName><ForeName>Brandon M</ForeName><Initials>BM</Initials><AffiliationInfo><Affiliation>Department of Cell, Developmental and Integrative Biology, University of Alabama at Birmingham, Birmingham, AL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Vigotsky</LastName><ForeName>Andrew D</ForeName><Initials>AD</Initials><AffiliationInfo><Affiliation>Department of Biomedical Engineering, Northwestern University, Evanston, IL, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Schoenfeld</LastName><ForeName>Brad J</ForeName><Initials>BJ</Initials><AffiliationInfo><Affiliation>Department of Health Sciences, CUNY Lehman College, Bronx, NY, United States.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Roberts</LastName><ForeName>Michael D</ForeName><Initials>MD</Initials><AffiliationInfo><Affiliation>School of Kinesiology, Auburn University, Auburn, AL, United States.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>03</Month><Day>12</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Physiol</MedlineTA><NlmUniqueID>101549006</NlmUniqueID><ISSNLinking>1664-042X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">dual x-ray absorptiometry</Keyword><Keyword MajorTopicYN="N">fiber cross-sectional area</Keyword><Keyword MajorTopicYN="N">muscle hypertrophy</Keyword><Keyword MajorTopicYN="N">myofibrillar protein</Keyword><Keyword MajorTopicYN="N">resistance exercise</Keyword><Keyword MajorTopicYN="N">sarcoplasmic protein</Keyword><Keyword MajorTopicYN="N">skeletal muscle</Keyword><Keyword MajorTopicYN="N">ultrasound</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2018</Year><Month>11</Month><Day>28</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>2</Month><Day>25</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>4</Month><Day>2</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>4</Month><Day>2</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>4</Month><Day>2</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>3</Month><Day>12</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">30930796</ArticleId><ArticleId IdType="pmc">PMC6423469</ArticleId><ArticleId IdType="doi">10.3389/fphys.2019.00247</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Aagaard P., Andersen J. L., Dyhre-Poulsen P., Leffers A. M., Wagner A., Magnusson S. P., et al.  (2001). A mechanism for increased contractile strength of human pennate muscle in response to strength training: changes in muscle architecture.
+<i>J. Physiol.</i>
+534
+613&#x2013;623. 10.1111/j.1469-7793.2001.t01-1-00613.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1469-7793.2001.t01-1-00613.x</ArticleId><ArticleId IdType="pmc">PMC2278719</ArticleId><ArticleId IdType="pubmed">11454977</ArticleId></ArticleIdList></Reference><Reference><Citation>Adkins A. N., Franks P. W., Murray W. M. (2017). Demonstration of extended field-of-view ultrasound&#x2019;s potential to increase the pool of muscles for which in vivo fascicle length is measurable.
+<i>J. Biomech.</i>
+63
+179&#x2013;185. 10.1016/j.jbiomech.2017.08.012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jbiomech.2017.08.012</ArticleId><ArticleId IdType="pmc">PMC5648603</ArticleId><ArticleId IdType="pubmed">28882331</ArticleId></ArticleIdList></Reference><Reference><Citation>Al-Qusairi L., Laporte J. (2011). T-tubule biogenesis and triad formation in skeletal muscle and implication in human diseases.
+<i>Skelet Muscle</i>
+1:26. 10.1186/2044-5040-1-26
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/2044-5040-1-26</ArticleId><ArticleId IdType="pmc">PMC3156648</ArticleId><ArticleId IdType="pubmed">21797990</ArticleId></ArticleIdList></Reference><Reference><Citation>Alway S. E., Macdougall J. D., Sale D. G., Sutton J. R., Mccomas A. J. (1988). Functional and structural adaptations in skeletal muscle of trained athletes.
+<i>J. Appl. Physiol.</i>
+64
+1114&#x2013;1120. 10.1152/jappl.1988.64.3.1114
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1988.64.3.1114</ArticleId><ArticleId IdType="pubmed">3366734</ArticleId></ArticleIdList></Reference><Reference><Citation>Barber L., Barrett R., Lichtwark G. (2009). Validation of a freehand 3D ultrasound system for morphological measures of the medial gastrocnemius muscle.
+<i>J. Biomech.</i>
+42
+1313&#x2013;1319. 10.1016/j.jbiomech.2009.03.005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jbiomech.2009.03.005</ArticleId><ArticleId IdType="pubmed">19375081</ArticleId></ArticleIdList></Reference><Reference><Citation>Barnett A. G., Van Der Pols J. C., Dobson A. J. (2005). Regression to the mean: what it is and how to deal with it.
+<i>Int. J. Epidemiol.</i>
+34
+215&#x2013;220. 10.1093/ije/dyh299
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ije/dyh299</ArticleId><ArticleId IdType="pubmed">15333621</ArticleId></ArticleIdList></Reference><Reference><Citation>Bellamy L. M., Joanisse S., Grubb A., Mitchell C. J., Mckay B. R., Phillips S. M., et al.  (2014). The acute satellite cell response and skeletal muscle hypertrophy following resistance training.
+<i>PLoS One</i>
+9:e109739. 10.1371/journal.pone.0109739
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0109739</ArticleId><ArticleId IdType="pmc">PMC4196938</ArticleId><ArticleId IdType="pubmed">25313863</ArticleId></ArticleIdList></Reference><Reference><Citation>Birzniece V., Khaw C. H., Nelson A. E., Meinhardt U., Ho K. K. (2015). A critical evaluation of bioimpedance spectroscopy analysis in estimating body composition during GH treatment: comparison with bromide dilution and dual X-ray absorptiometry.
+<i>Eur. J. Endocrinol.</i>
+172
+21&#x2013;28. 10.1530/EJE-14-0660
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1530/EJE-14-0660</ArticleId><ArticleId IdType="pubmed">25326135</ArticleId></ArticleIdList></Reference><Reference><Citation>Brook M. S., Wilkinson D. J., Mitchell W. K., Lund J. N., Szewczyk N. J., Greenhaff P. L., et al.  (2015). Skeletal muscle hypertrophy adaptations predominate in the early stages of resistance exercise training, matching deuterium oxide-derived measures of muscle protein synthesis and mechanistic target of rapamycin complex 1 signaling.
+<i>FASEB J.</i>
+29
+4485&#x2013;4496. 10.1096/fj.15-273755
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1096/fj.15-273755</ArticleId><ArticleId IdType="pubmed">26169934</ArticleId></ArticleIdList></Reference><Reference><Citation>Burd N. A., Holwerda A. M., Selby K. C., West D. W., Staples A. W., Cain N. E., et al.  (2010). Resistance exercise volume affects myofibrillar protein synthesis and anabolic signalling molecule phosphorylation in young men.
+<i>J. Physiol.</i>
+588
+3119&#x2013;3130. 10.1113/jphysiol.2010.192856
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2010.192856</ArticleId><ArticleId IdType="pmc">PMC2956949</ArticleId><ArticleId IdType="pubmed">20581041</ArticleId></ArticleIdList></Reference><Reference><Citation>Camera D. M., West D. W., Burd N. A., Phillips S. M., Garnham A. P., Hawley J. A., et al.  (2012). Low muscle glycogen concentration does not suppress the anabolic response to resistance exercise.
+<i>J. Appl. Physiol.</i>
+113
+206&#x2013;214. 10.1152/japplphysiol.00395.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00395.2012</ArticleId><ArticleId IdType="pubmed">22628371</ArticleId></ArticleIdList></Reference><Reference><Citation>Canepari M., Pellegrino M. A., D&#x2019;antona G., Bottinelli R. (2010). Single muscle fiber properties in aging and disuse.
+<i>Scand. J. Med. Sci. Sports</i>
+20
+10&#x2013;19. 10.1111/j.1600-0838.2009.00965.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2009.00965.x</ArticleId><ArticleId IdType="pubmed">19843264</ArticleId></ArticleIdList></Reference><Reference><Citation>Carrithers J. A., Carroll C. C., Coker R. H., Sullivan D. H., Trappe T. A. (2007). Concurrent exercise and muscle protein synthesis: implications for exercise countermeasures in space.
+<i>Aviat. Space Environ. Med.</i>
+78
+457&#x2013;462. </Citation><ArticleIdList><ArticleId IdType="pubmed">17539438</ArticleId></ArticleIdList></Reference><Reference><Citation>Carrithers J. A., Tesch P. A., Trieschmann J., Ekberg A., Trappe T. A. (2002). Skeletal muscle protein composition following 5 weeks of ULLS and resistance exercise countermeasures.
+<i>J. Gravit. Physiol.</i>
+9
+P155&#x2013;P156. </Citation><ArticleIdList><ArticleId IdType="pubmed">15002527</ArticleId></ArticleIdList></Reference><Reference><Citation>Cohen S., Brault J. J., Gygi S. P., Glass D. J., Valenzuela D. M., Gartner C., et al.  (2009). During muscle atrophy, thick, but not thin, filament components are degraded by MuRF1-dependent ubiquitylation.
+<i>J. Cell Biol.</i>
+185
+1083&#x2013;1095. 10.1083/jcb.200901052
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1083/jcb.200901052</ArticleId><ArticleId IdType="pmc">PMC2711608</ArticleId><ArticleId IdType="pubmed">19506036</ArticleId></ArticleIdList></Reference><Reference><Citation>Cribb P. J., Hayes A. (2006). Effects of supplement timing and resistance exercise on skeletal muscle hypertrophy.
+<i>Med. Sci. Sports Exerc.</i>
+38
+1918&#x2013;1925. 10.1249/01.mss.0000233790.08788.3e
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000233790.08788.3e</ArticleId><ArticleId IdType="pubmed">17095924</ArticleId></ArticleIdList></Reference><Reference><Citation>Cribb P. J., Williams A. D., Hayes A. (2007). A creatine-protein-carbohydrate supplement enhances responses to resistance training.
+<i>Med. Sci. Sports Exerc.</i>
+39
+1960&#x2013;1968. 10.1249/mss.0b013e31814fb52a
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/mss.0b013e31814fb52a</ArticleId><ArticleId IdType="pubmed">17986903</ArticleId></ArticleIdList></Reference><Reference><Citation>Cuthbertson D. J., Babraj J., Smith K., Wilkes E., Fedele M. J., Esser K., et al.  (2006). Anabolic signaling and protein synthesis in human skeletal muscle after dynamic shortening or lengthening exercise.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+290
+E731&#x2013;E738. 10.1152/ajpendo.00415.2005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00415.2005</ArticleId><ArticleId IdType="pubmed">16263770</ArticleId></ArticleIdList></Reference><Reference><Citation>Damas F., Libardi C. A., Ugrinowitsch C. (2018). The development of skeletal muscle hypertrophy through resistance training: the role of muscle damage and muscle protein synthesis.
+<i>Eur. J. Appl. Physiol.</i>
+118
+485&#x2013;500. 10.1007/s00421-017-3792-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-017-3792-9</ArticleId><ArticleId IdType="pubmed">29282529</ArticleId></ArticleIdList></Reference><Reference><Citation>Dankel S. J., Kang M., Abe T., Loenneke J. P. (2018). Resistance training induced changes in strength and specific force at the fiber and whole muscle level: a meta-analysis.
+<i>Eur. J. Appl. Physiol.</i>
+119
+265&#x2013;278. 10.1007/s00421-018-4022-9
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-018-4022-9</ArticleId><ArticleId IdType="pubmed">30357517</ArticleId></ArticleIdList></Reference><Reference><Citation>D&#x2019;Antona G., Lanfranconi F., Pellegrino M. A., Brocca L., Adami R., Rossi R., et al.  (2006). Skeletal muscle hypertrophy and structure and function of skeletal muscle fibres in male body builders.
+<i>J. Physiol.</i>
+570
+611&#x2013;627. 10.1113/jphysiol.2005.101642
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2005.101642</ArticleId><ArticleId IdType="pmc">PMC1479884</ArticleId><ArticleId IdType="pubmed">16339176</ArticleId></ArticleIdList></Reference><Reference><Citation>Davidsen P. K., Gallagher I. J., Hartman J. W., Tarnopolsky M. A., Dela F., Helge J. W., et al.  (2011). High responders to resistance exercise training demonstrate differential regulation of skeletal muscle microRNA expression.
+<i>J. Appl. Physiol.</i>
+110
+309&#x2013;317. 10.1152/japplphysiol.00901.2010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00901.2010</ArticleId><ArticleId IdType="pubmed">21030674</ArticleId></ArticleIdList></Reference><Reference><Citation>DeFreitas J. M., Beck T. W., Stock M. S., Dillon M. A., Sherk V. D., Stout J. R., et al.  (2010). A comparison of techniques for estimating training-induced changes in muscle cross-sectional area.
+<i>J. Strength Cond. Res.</i>
+24
+2383&#x2013;2389. 10.1519/JSC.0b013e3181ec86f3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181ec86f3</ArticleId><ArticleId IdType="pubmed">20802282</ArticleId></ArticleIdList></Reference><Reference><Citation>Delmonico M. J., Kostek M. C., Johns J., Hurley B. F., Conway J. M. (2008). Can dual energy X-ray absorptiometry provide a valid assessment of changes in thigh muscle mass with strength training in older adults?
+<i>Eur. J. Clin. Nutr.</i>
+62
+1372&#x2013;1378. 10.1038/sj.ejcn.1602880
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/sj.ejcn.1602880</ArticleId><ArticleId IdType="pubmed">17684523</ArticleId></ArticleIdList></Reference><Reference><Citation>Ekblom B. (2017). The muscle biopsy technique. Historical and methodological considerations.
+<i>Scand. J. Med. Sci. Sports</i>
+27
+458&#x2013;461. 10.1111/sms.12808
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12808</ArticleId><ArticleId IdType="pubmed">28033689</ArticleId></ArticleIdList></Reference><Reference><Citation>Eriksson A., Lindstrom M., Carlsson L., Thornell L. E. (2006). Hypertrophic muscle fibers with fissures in power-lifters; fiber splitting or defect regeneration?
+<i>Histochem. Cell Biol.</i>
+126
+409&#x2013;417. 10.1007/s00418-006-0176-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00418-006-0176-3</ArticleId><ArticleId IdType="pubmed">16625366</ArticleId></ArticleIdList></Reference><Reference><Citation>Erlandson M. C., Lorbergs A. L., Mathur S., Cheung A. M. (2016). Muscle analysis using pQCT, DXA and MRI.
+<i>Eur. J. Radiol.</i>
+85
+1505&#x2013;1511. 10.1016/j.ejrad.2016.03.001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ejrad.2016.03.001</ArticleId><ArticleId IdType="pubmed">27005009</ArticleId></ArticleIdList></Reference><Reference><Citation>Esmarck B., Andersen J. L., Olsen S., Richter E. A., Mizuno M., Kjaer M. (2001). Timing of postexercise protein intake is important for muscle hypertrophy with resistance training in elderly humans.
+<i>J. Physiol.</i>
+535
+301&#x2013;311. 10.1111/j.1469-7793.2001.00301.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1469-7793.2001.00301.x</ArticleId><ArticleId IdType="pmc">PMC2278776</ArticleId><ArticleId IdType="pubmed">11507179</ArticleId></ArticleIdList></Reference><Reference><Citation>Farup J., Kjolhede T., Sorensen H., Dalgas U., Moller A. B., Vestergaard P. F., et al.  (2012). Muscle morphological and strength adaptations to endurance vs. resistance training.
+<i>J. Strength Cond. Res.</i>
+26
+398&#x2013;407. 10.1519/JSC.0b013e318225a26f
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e318225a26f</ArticleId><ArticleId IdType="pubmed">22266546</ArticleId></ArticleIdList></Reference><Reference><Citation>Franchi M. V., Longo S., Mallinson J., Quinlan J. I., Taylor T., Greenhaff P. L., et al.  (2018a). Muscle thickness correlates to muscle cross-sectional area in the assessment of strength training-induced hypertrophy.
+<i>Scand. J. Med. Sci. Sports</i>
+28
+846&#x2013;853. 10.1111/sms.12961
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/sms.12961</ArticleId><ArticleId IdType="pmc">PMC5873262</ArticleId><ArticleId IdType="pubmed">28805932</ArticleId></ArticleIdList></Reference><Reference><Citation>Franchi M. V., Raiteri B. J., Longo S., Sinha S., Narici M. V., Csapo R. (2018b). Muscle architecture assessment: strengths, shortcomings and new frontiers of in vivo imaging techniques.
+<i>Ultrasound Med. Biol.</i>
+44
+2492&#x2013;2504. 10.1016/j.ultrasmedbio.2018.07.010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ultrasmedbio.2018.07.010</ArticleId><ArticleId IdType="pubmed">30185385</ArticleId></ArticleIdList></Reference><Reference><Citation>Franchi M. V., Reeves N. D., Narici M. V. (2017). Skeletal muscle remodeling in response to eccentric vs. concentric loading: morphological, molecular, and metabolic adaptations.
+<i>Front. Physiol.</i>
+8:447. 10.3389/fphys.2017.00447
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2017.00447</ArticleId><ArticleId IdType="pmc">PMC5495834</ArticleId><ArticleId IdType="pubmed">28725197</ArticleId></ArticleIdList></Reference><Reference><Citation>Frontera W. R., Meredith C. N., O&#x2019;reilly K. P., Knuttgen H. G., Evans W. J. (1988). Strength conditioning in older men: skeletal muscle hypertrophy and improved function.
+<i>J. Appl. Physiol.</i>
+64
+1038&#x2013;1044. 10.1152/jappl.1988.64.3.1038
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1988.64.3.1038</ArticleId><ArticleId IdType="pubmed">3366726</ArticleId></ArticleIdList></Reference><Reference><Citation>Fry A. C. (2004). The role of resistance exercise intensity on muscle fibre adaptations.
+<i>Sports Med.</i>
+34
+663&#x2013;679. 10.2165/00007256-200434100-00004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2165/00007256-200434100-00004</ArticleId><ArticleId IdType="pubmed">15335243</ArticleId></ArticleIdList></Reference><Reference><Citation>Gallagher D., Kuznia P., Heshka S., Albu J., Heymsfield S. B., Goodpaster B., et al.  (2005). Adipose tissue in muscle: a novel depot similar in size to visceral adipose tissue.
+<i>Am. J. Clin. Nutr.</i>
+81
+903&#x2013;910. 10.1093/ajcn/81.4.903
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ajcn/81.4.903</ArticleId><ArticleId IdType="pmc">PMC1482784</ArticleId><ArticleId IdType="pubmed">15817870</ArticleId></ArticleIdList></Reference><Reference><Citation>Gasser J. A. (1995). Assessing bone quantity by pQCT.
+<i>Bone</i>
+17
+145S&#x2013;154S. 10.1016/8756-3282(95)00287-N
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/8756-3282(95)00287-N</ArticleId><ArticleId IdType="pubmed">8579910</ArticleId></ArticleIdList></Reference><Reference><Citation>Goldspink G. (1964). The combined effects of exercise and reduced food intake on skeletal muscle fibers.
+<i>J. Cell. Comp. Physiol.</i>
+63
+209&#x2013;216. 10.1002/jcp.1030630211</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jcp.1030630211</ArticleId><ArticleId IdType="pubmed">14151089</ArticleId></ArticleIdList></Reference><Reference><Citation>Goldspink G., Howells K. F. (1974). Work-induced hypertrophy in exercised normal muscles of different ages and the reversibility of hypertrophy after cessation of exercise.
+<i>J. Physiol.</i>
+239
+179&#x2013;193. 10.1113/jphysiol.1974.sp010562
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.1974.sp010562</ArticleId><ArticleId IdType="pmc">PMC1330944</ArticleId><ArticleId IdType="pubmed">4855427</ArticleId></ArticleIdList></Reference><Reference><Citation>Gollnick P. D., Piehl K., Saubert C. W. T., Armstrong R. B., Saltin B. (1972). Diet, exercise, and glycogen changes in human muscle fibers.
+<i>J. Appl. Physiol.</i>
+33
+421&#x2013;425. 10.1152/jappl.1972.33.4.421
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1972.33.4.421</ArticleId><ArticleId IdType="pubmed">4263085</ArticleId></ArticleIdList></Reference><Reference><Citation>Gonzalez-Freire M., Semba R. D., Ubaida-Mohien C., Fabbri E., Scalzo P., Hojlund K., et al.  (2017). The human skeletal muscle proteome project: a reappraisal of the current literature.
+<i>J. Cachexia Sarcopenia Muscle</i>
+8
+5&#x2013;18. 10.1002/jcsm.12121
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jcsm.12121</ArticleId><ArticleId IdType="pmc">PMC5326819</ArticleId><ArticleId IdType="pubmed">27897395</ArticleId></ArticleIdList></Reference><Reference><Citation>Gordon E. E. (1967). Anatomical and biochemical adaptations of muscle to different exercises.
+<i>JAMA</i>
+201
+755&#x2013;758. 10.1001/jama.1967.03130100053013</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.1967.03130100053013</ArticleId><ArticleId IdType="pubmed">6071882</ArticleId></ArticleIdList></Reference><Reference><Citation>Gordon E. E., Kowalski K., Fritts M. (1967). Adaptations of muscle to various exercises. Studies in rats.
+<i>JAMA</i>
+199
+103&#x2013;108. 10.1001/jama.1967.03120020097018</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.1967.03120020097018</ArticleId><ArticleId IdType="pubmed">6071140</ArticleId></ArticleIdList></Reference><Reference><Citation>Groennebaek T., Vissing K. (2017). Impact of resistance training on skeletal muscle mitochondrial biogenesis, content, and function.
+<i>Front. Physiol.</i>
+8:713
+10.3389/fphys.2017.00713</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2017.00713</ArticleId><ArticleId IdType="pmc">PMC5605648</ArticleId><ArticleId IdType="pubmed">28966596</ArticleId></ArticleIdList></Reference><Reference><Citation>Hanson J., Huxley H. E. (1957). Quantitative studies on the structure of cross-striated myofibrils. II. Investigations by biochemical techniques.
+<i>Biochim. Biophys. Acta</i>
+23
+250&#x2013;260. 10.1016/0006-3002(57)90326-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0006-3002(57)90326-8</ArticleId><ArticleId IdType="pubmed">13412719</ArticleId></ArticleIdList></Reference><Reference><Citation>Harber M. P., Konopka A. R., Douglass M. D., Minchev K., Kaminsky L. A., Trappe T. A., et al.  (2009). Aerobic exercise training improves whole muscle and single myofiber size and function in older women.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+297
+R1452&#x2013;R1459. 10.1152/ajpregu.00354.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00354.2009</ArticleId><ArticleId IdType="pmc">PMC3774188</ArticleId><ArticleId IdType="pubmed">19692660</ArticleId></ArticleIdList></Reference><Reference><Citation>Haun C. T., Mumford P. W., Roberson P. A., Romero M. A., Mobley C. B., Kephart W. C., et al.  (2017). Molecular, neuromuscular, and recovery responses to light versus heavy resistance exercise in young men.
+<i>Physiol. Rep.</i>
+5:e13457. 10.14814/phy2.13457
+</Citation><ArticleIdList><ArticleId IdType="doi">10.14814/phy2.13457</ArticleId><ArticleId IdType="pmc">PMC5617935</ArticleId><ArticleId IdType="pubmed">28963127</ArticleId></ArticleIdList></Reference><Reference><Citation>Haun C. T., Vann C. G., Mobley C. B., Roberson P. A., Osburn S. C., Holmes H. M., et al.  (2018). Effects of graded whey supplementation during extreme-volume resistance training.
+<i>Front. Nutr.</i>
+5:84. 10.3389/fnut.2018.00084
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnut.2018.00084</ArticleId><ArticleId IdType="pmc">PMC6141782</ArticleId><ArticleId IdType="pubmed">30255024</ArticleId></ArticleIdList></Reference><Reference><Citation>Haus J. M., Carrithers J. A., Carroll C. C., Tesch P. A., Trappe T. A. (2007). Contractile and connective tissue protein content of human skeletal muscle: effects of 35 and 90 days of simulated microgravity and exercise countermeasures.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+293
+R1722&#x2013;R1727. 10.1152/ajpregu.00292.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00292.2007</ArticleId><ArticleId IdType="pubmed">17670860</ArticleId></ArticleIdList></Reference><Reference><Citation>Helander E. A. (1961). Influence of exercise and restricted activity on the protein composition of skeletal muscle.
+<i>Biochem. J.</i>
+78
+478&#x2013;482. 10.1042/bj0780478</Citation><ArticleIdList><ArticleId IdType="doi">10.1042/bj0780478</ArticleId><ArticleId IdType="pmc">PMC1205363</ArticleId><ArticleId IdType="pubmed">13713052</ArticleId></ArticleIdList></Reference><Reference><Citation>Hellerstein M., Evans W. (2017). Recent advances for measurement of protein synthesis rates, use of the &#x2018;Virtual Biopsy&#x2019; approach, and measurement of muscle mass.
+<i>Curr. Opin. Clin. Nutr. Metab. Care</i>
+20
+191&#x2013;200. 10.1097/MCO.0000000000000370
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/MCO.0000000000000370</ArticleId><ArticleId IdType="pubmed">28257333</ArticleId></ArticleIdList></Reference><Reference><Citation>Heymsfield S. B., Adamek M., Gonzalez M. C., Jia G., Thomas D. M. (2014). Assessing skeletal muscle mass: historical overview and state of the art.
+<i>J. Cachexia Sarcopenia Muscle</i>
+5
+9&#x2013;18. 10.1007/s13539-014-0130-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s13539-014-0130-5</ArticleId><ArticleId IdType="pmc">PMC3953319</ArticleId><ArticleId IdType="pubmed">24532493</ArticleId></ArticleIdList></Reference><Reference><Citation>Hikida R. S., Staron R. S., Hagerman F. C., Walsh S., Kaiser E., Shell S., et al.  (2000). Effects of high-intensity resistance training on untrained older men. II. Muscle fiber characteristics and nucleo-cytoplasmic relationships.
+<i>J. Gerontol. A Biol. Sci. Med. Sci.</i>
+55
+B347&#x2013;B354. 10.1093/gerona/55.7.B347
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gerona/55.7.B347</ArticleId><ArticleId IdType="pubmed">10898248</ArticleId></ArticleIdList></Reference><Reference><Citation>Hody S., Leprince P., Sergeant K., Renaut J., Croisier J. L., Wang F., et al.  (2011). Human muscle proteome modifications after acute or repeated eccentric exercises.
+<i>Med. Sci. Sports Exerc.</i>
+43
+2281&#x2013;2296. 10.1249/MSS.0b013e318222edf3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e318222edf3</ArticleId><ArticleId IdType="pubmed">21606878</ArticleId></ArticleIdList></Reference><Reference><Citation>Holm L., Van Hall G., Rose A. J., Miller B. F., Doessing S., Richter E. A., et al.  (2010). Contraction intensity and feeding affect collagen and myofibrillar protein synthesis rates differently in human skeletal muscle.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+298
+E257&#x2013;E269. 10.1152/ajpendo.00609.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00609.2009</ArticleId><ArticleId IdType="pubmed">19903866</ArticleId></ArticleIdList></Reference><Reference><Citation>Hoppeler H., Lindstedt S. L. (1985). Malleability of skeletal muscle in overcoming limitations: structural elements.
+<i>J. Exp. Biol.</i>
+115
+355&#x2013;364. </Citation><ArticleIdList><ArticleId IdType="pubmed">4031775</ArticleId></ArticleIdList></Reference><Reference><Citation>Hounsfield G. N. (1973). Computerized transverse axial scanning (tomography). 1. Description of system.
+<i>Br. J. Radiol.</i>
+46
+1016&#x2013;1022. 10.1259/0007-1285-46-552-1016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1259/0007-1285-46-552-1016</ArticleId><ArticleId IdType="pubmed">4757352</ArticleId></ArticleIdList></Reference><Reference><Citation>Ingalls C. P., Warren G. L., Armstrong R. B. (1998). Dissociation of force production from MHC and actin contents in muscles injured by eccentric contractions.
+<i>J. Muscle Res. Cell Motil.</i>
+19
+215&#x2013;224. 10.1023/A:1005368831198
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1023/A:1005368831198</ArticleId><ArticleId IdType="pubmed">9583362</ArticleId></ArticleIdList></Reference><Reference><Citation>Johansson B. (1984). Different types of smooth muscle hypertrophy.
+<i>Hypertension</i>
+6
+III64&#x2013;III68
+10.1161/01.HYP.6.6_Pt_2.III64</Citation><ArticleIdList><ArticleId IdType="doi">10.1161/01.HYP.6.6_Pt_2.III64</ArticleId><ArticleId IdType="pubmed">6394492</ArticleId></ArticleIdList></Reference><Reference><Citation>Johnson T. L., Klueber K. M. (1991). Skeletal muscle following tonic overload: functional and structural analysis.
+<i>Med. Sci. Sports Exerc.</i>
+23
+49&#x2013;55. 10.1249/00005768-199101000-00009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/00005768-199101000-00009</ArticleId><ArticleId IdType="pubmed">1997813</ArticleId></ArticleIdList></Reference><Reference><Citation>Kadi F., Schjerling P., Andersen L. L., Charifi N., Madsen J. L., Christensen L. R., et al.  (2004). The effects of heavy resistance training and detraining on satellite cells in human skeletal muscles.
+<i>J. Physiol.</i>
+558
+1005&#x2013;1012. 10.1113/jphysiol.2004.065904
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2004.065904</ArticleId><ArticleId IdType="pmc">PMC1665027</ArticleId><ArticleId IdType="pubmed">15218062</ArticleId></ArticleIdList></Reference><Reference><Citation>Karatzaferi C., Chinn M. K., Cooke R. (2004). The force exerted by a muscle cross-bridge depends directly on the strength of the actomyosin bond.
+<i>Biophys. J.</i>
+87
+2532&#x2013;2544. 10.1529/biophysj.104.039909
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1529/biophysj.104.039909</ArticleId><ArticleId IdType="pmc">PMC1304672</ArticleId><ArticleId IdType="pubmed">15454448</ArticleId></ArticleIdList></Reference><Reference><Citation>Kephart W. C., Wachs T. D., Mac Thompson R., Brooks Mobley C., Fox C. D., Mcdonald J. R., et al.  (2016). Ten weeks of branched-chain amino acid supplementation improves select performance and immunological variables in trained cyclists.
+<i>Amino Acids</i>
+48
+779&#x2013;789. 10.1007/s00726-015-2125-8
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00726-015-2125-8</ArticleId><ArticleId IdType="pubmed">26553453</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim P. L., Staron R. S., Phillips S. M. (2005). Fasted-state skeletal muscle protein synthesis after resistance exercise is altered with training.
+<i>J. Physiol.</i>
+568
+283&#x2013;290. 10.1113/jphysiol.2005.093708
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2005.093708</ArticleId><ArticleId IdType="pmc">PMC1474760</ArticleId><ArticleId IdType="pubmed">16051622</ArticleId></ArticleIdList></Reference><Reference><Citation>Kjaer M. (2004). Role of extracellular matrix in adaptation of tendon and skeletal muscle to mechanical loading.
+<i>Physiol. Rev.</i>
+84
+649&#x2013;698. 10.1152/physrev.00031.2003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/physrev.00031.2003</ArticleId><ArticleId IdType="pubmed">15044685</ArticleId></ArticleIdList></Reference><Reference><Citation>Kopec A. M., Rivera P. D., Lacagnina M. J., Hanamsagar R., Bilbo S. D. (2017). Optimized solubilization of TRIzol-precipitated protein permits Western blotting analysis to maximize data available from brain tissue.
+<i>J. Neurosci. Methods</i>
+280
+64&#x2013;76. 10.1016/j.jneumeth.2017.02.002
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jneumeth.2017.02.002</ArticleId><ArticleId IdType="pmc">PMC5392113</ArticleId><ArticleId IdType="pubmed">28192129</ArticleId></ArticleIdList></Reference><Reference><Citation>Kosek D. J., Kim J. S., Petrella J. K., Cross J. M., Bamman M. M. (2006). Efficacy of 3 days/wk resistance training on myofiber hypertrophy and myogenic mechanisms in young vs. older adults.
+<i>J. Appl. Physiol.</i>
+101
+531&#x2013;544. 10.1152/japplphysiol.01474.2005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01474.2005</ArticleId><ArticleId IdType="pubmed">16614355</ArticleId></ArticleIdList></Reference><Reference><Citation>Kumar V., Atherton P. J., Selby A., Rankin D., Williams J., Smith K., et al.  (2012). Muscle protein synthetic responses to exercise: effects of age, volume, and intensity.
+<i>J. Gerontol. A Biol. Sci. Med. Sci.</i>
+67
+1170&#x2013;1177. 10.1093/gerona/gls141
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gerona/gls141</ArticleId><ArticleId IdType="pubmed">22859389</ArticleId></ArticleIdList></Reference><Reference><Citation>Kumar V., Selby A., Rankin D., Patel R., Atherton P., Hildebrandt W., et al.  (2009). Age-related differences in the dose-response relationship of muscle protein synthesis to resistance exercise in young and old men.
+<i>J. Physiol.</i>
+587
+211&#x2013;217. 10.1113/jphysiol.2008.164483
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2008.164483</ArticleId><ArticleId IdType="pmc">PMC2670034</ArticleId><ArticleId IdType="pubmed">19001042</ArticleId></ArticleIdList></Reference><Reference><Citation>Kwon H., Rutkove S. B., Sanchez B. (2017). Recording characteristics of electrical impedance myography needle electrodes.
+<i>Physiol. Meas.</i>
+38
+1748&#x2013;1765. 10.1088/1361-6579/aa80ac
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1088/1361-6579/aa80ac</ArticleId><ArticleId IdType="pubmed">28721951</ArticleId></ArticleIdList></Reference><Reference><Citation>Larsson L., Tesch P. A. (1986). Motor unit fibre density in extremely hypertrophied skeletal muscles in man. Electrophysiological signs of muscle fibre hyperplasia.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+55
+130&#x2013;136. 10.1007/BF00714994
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF00714994</ArticleId><ArticleId IdType="pubmed">3698998</ArticleId></ArticleIdList></Reference><Reference><Citation>Lau Y. S., Xu L., Gao Y., Han R. (2018). Automated muscle histopathology analysis using CellProfiler.
+<i>Skelet Muscle</i>
+8:32. 10.1186/s13395-018-0178-6
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s13395-018-0178-6</ArticleId><ArticleId IdType="pmc">PMC6193305</ArticleId><ArticleId IdType="pubmed">30336774</ArticleId></ArticleIdList></Reference><Reference><Citation>LeBlanc A., Lin C., Shackelford L., Sinitsyn V., Evans H., Belichenko O., et al.  (2000). Muscle volume, MRI relaxation times (T2), and body composition after spaceflight.
+<i>J. Appl. Physiol.</i>
+89
+2158&#x2013;2164. 10.1152/jappl.2000.89.6.2158
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.2000.89.6.2158</ArticleId><ArticleId IdType="pubmed">11090562</ArticleId></ArticleIdList></Reference><Reference><Citation>Levine J. A., Abboud L., Barry M., Reed J. E., Sheedy P. F., Jensen M. D. (2000). Measuring leg muscle and fat mass in humans: comparison of CT and dual-energy X-ray absorptiometry.
+<i>J. Appl. Physiol.</i>
+88
+452&#x2013;456. 10.1152/jappl.2000.88.2.452
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.2000.88.2.452</ArticleId><ArticleId IdType="pubmed">10658010</ArticleId></ArticleIdList></Reference><Reference><Citation>Lieber R. L., Ward S. R. (2011). Skeletal muscle design to meet functional demands.
+<i>Philos. Trans. R. Soc. Lond. B Biol. Sci.</i>
+366
+1466&#x2013;1476. 10.1098/rstb.2010.0316
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1098/rstb.2010.0316</ArticleId><ArticleId IdType="pmc">PMC3130443</ArticleId><ArticleId IdType="pubmed">21502118</ArticleId></ArticleIdList></Reference><Reference><Citation>Lindstedt S. L., Mcglothlin T., Percy E., Pifer J. (1998). Task-specific design of skeletal muscle: balancing muscle structural composition.
+<i>Comp. Biochem. Physiol. B Biochem. Mol. Biol.</i>
+120
+35&#x2013;40. 10.1016/S0305-0491(98)00021-2
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0305-0491(98)00021-2</ArticleId><ArticleId IdType="pubmed">9787776</ArticleId></ArticleIdList></Reference><Reference><Citation>Lloyd A. C. (2013). The regulation of cell size.
+<i>Cell</i>
+154
+1194&#x2013;1205. 10.1016/j.cell.2013.08.053
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cell.2013.08.053</ArticleId><ArticleId IdType="pubmed">24034244</ArticleId></ArticleIdList></Reference><Reference><Citation>Louis M., Poortmans J. R., Francaux M., Berre J., Boisseau N., Brassine E., et al.  (2003). No effect of creatine supplementation on human myofibrillar and sarcoplasmic protein synthesis after resistance exercise.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+285
+E1089&#x2013;E1094. 10.1152/ajpendo.00195.2003
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00195.2003</ArticleId><ArticleId IdType="pubmed">12824083</ArticleId></ArticleIdList></Reference><Reference><Citation>Luthi J. M., Howald H., Claassen H., Rosler K., Vock P., Hoppeler H. (1986). Structural changes in skeletal muscle tissue with heavy-resistance exercise.
+<i>Int. J. Sports Med.</i>
+7
+123&#x2013;127. 10.1055/s-2008-1025748
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2008-1025748</ArticleId><ArticleId IdType="pubmed">2942497</ArticleId></ArticleIdList></Reference><Reference><Citation>MacDougall J. D., Sale D. G., Elder G. C., Sutton J. R. (1982). Muscle ultrastructural characteristics of elite powerlifters and bodybuilders.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+48
+117&#x2013;126. 10.1007/BF00421171
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF00421171</ArticleId><ArticleId IdType="pubmed">7199447</ArticleId></ArticleIdList></Reference><Reference><Citation>Mackey A. L., Esmarck B., Kadi F., Koskinen S. O., Kongsgaard M., Sylvestersen A., et al.  (2007). Enhanced satellite cell proliferation with resistance training in elderly men and women.
+<i>Scand. J. Med. Sci. Sports</i>
+17
+34&#x2013;42. </Citation><ArticleIdList><ArticleId IdType="pubmed">17305939</ArticleId></ArticleIdList></Reference><Reference><Citation>Mackey A. L., Holm L., Reitelseder S., Pedersen T. G., Doessing S., Kadi F., et al.  (2011). Myogenic response of human skeletal muscle to 12 weeks of resistance training at light loading intensity.
+<i>Scand. J. Med. Sci. Sports</i>
+21
+773&#x2013;782. 10.1111/j.1600-0838.2010.01178.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1600-0838.2010.01178.x</ArticleId><ArticleId IdType="pubmed">21143306</ArticleId></ArticleIdList></Reference><Reference><Citation>Maden-Wilkinson T. M., Degens H., Jones D. A., Mcphee J. S. (2013). Comparison of MRI and DXA to measure muscle size and age-related atrophy in thigh muscles.
+<i>J. Musculoskelet. Neuronal Interact.</i>
+13
+320&#x2013;328. </Citation><ArticleIdList><ArticleId IdType="pubmed">23989253</ArticleId></ArticleIdList></Reference><Reference><Citation>Meijer J. P., Jaspers R. T., Rittweger J., Seynnes O. R., Kamandulis S., Brazaitis M., et al.  (2015). Single muscle fibre contractile properties differ between body-builders, power athletes and control subjects.
+<i>Exp. Physiol.</i>
+100
+1331&#x2013;1341. 10.1113/EP085267
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/EP085267</ArticleId><ArticleId IdType="pubmed">26388513</ArticleId></ArticleIdList></Reference><Reference><Citation>Mihl C., Dassen W. R., Kuipers H. (2008). Cardiac remodelling: concentric versus eccentric hypertrophy in strength and endurance athletes.
+<i>Neth. Heart J.</i>
+16
+129&#x2013;133. 10.1007/BF03086131</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF03086131</ArticleId><ArticleId IdType="pmc">PMC2300466</ArticleId><ArticleId IdType="pubmed">18427637</ArticleId></ArticleIdList></Reference><Reference><Citation>Mitchell C. J., Churchward-Venne T. A., West D. W., Burd N. A., Breen L., Baker S. K., et al.  (2012). Resistance exercise load does not determine training-mediated hypertrophic gains in young men.
+<i>J. Appl. Physiol.</i>
+113
+71&#x2013;77. 10.1152/japplphysiol.00307.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00307.2012</ArticleId><ArticleId IdType="pmc">PMC3404827</ArticleId><ArticleId IdType="pubmed">22518835</ArticleId></ArticleIdList></Reference><Reference><Citation>Mobley C. B., Haun C. T., Roberson P. A., Mumford P. W., Kephart W. C., Romero M. A., et al.  (2018). Biomarkers associated with low, moderate, and high vastus lateralis muscle hypertrophy following 12 weeks of resistance training.
+<i>PLoS One</i>
+13:e0195203. 10.1371/journal.pone.0195203
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0195203</ArticleId><ArticleId IdType="pmc">PMC5886420</ArticleId><ArticleId IdType="pubmed">29621305</ArticleId></ArticleIdList></Reference><Reference><Citation>Mobley C. B., Haun C. T., Roberson P. A., Mumford P. W., Romero M. A., Kephart W. C., et al.  (2017). Effects of whey, soy or leucine supplementation with 12 weeks of resistance training on strength, body composition, and skeletal muscle and adipose tissue histological attributes in college-aged males.
+<i>Nutrients</i>
+9:E972. 10.3390/nu9090972
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu9090972</ArticleId><ArticleId IdType="pmc">PMC5622732</ArticleId><ArticleId IdType="pubmed">28869573</ArticleId></ArticleIdList></Reference><Reference><Citation>Moon J. R., Tobkin S. E., Roberts M. D., Dalbo V. J., Kerksick C. M., Bemben M. G., et al.  (2008). Total body water estimations in healthy men and women using bioimpedance spectroscopy: a deuterium oxide comparison.
+<i>Nutr. Metab.</i>
+5:7. 10.1186/1743-7075-5-7
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1743-7075-5-7</ArticleId><ArticleId IdType="pmc">PMC2323003</ArticleId><ArticleId IdType="pubmed">18353180</ArticleId></ArticleIdList></Reference><Reference><Citation>Moore D. R., Phillips S. M., Babraj J. A., Smith K., Rennie M. J. (2005). Myofibrillar and collagen protein synthesis in human skeletal muscle in young men after maximal shortening and lengthening contractions.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+288
+E1153&#x2013;E1159. 10.1152/ajpendo.00387.2004
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00387.2004</ArticleId><ArticleId IdType="pubmed">15572656</ArticleId></ArticleIdList></Reference><Reference><Citation>Mora-Rodriguez R., Sanchez-Roncero A., Fernandez-Elias V. E., Guadalupe-Grau A., Ortega J. F., Dela F., et al.  (2016). Aerobic exercise training increases muscle water content in obese middle-age men.
+<i>Med. Sci. Sports Exerc.</i>
+48
+822&#x2013;828. 10.1249/MSS.0000000000000848
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000000848</ArticleId><ArticleId IdType="pubmed">26694843</ArticleId></ArticleIdList></Reference><Reference><Citation>Morpurgo B. (1897). Ueber activit&#xe4;ts-hypertrophie der willk&#xfc;rlichen muskeln.
+<i>Arch. Path. Anat. Physiol.</i>
+150
+522&#x2013;554. 10.1007/BF01924319</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF01924319</ArticleId></ArticleIdList></Reference><Reference><Citation>Morton R. W., Sato K., Gallaugher M. P. B., Oikawa S. Y., Mcnicholas P. D., Fujita S., et al.  (2018). Muscle androgen receptor content but not systemic hormones is associated with resistance training-induced skeletal muscle hypertrophy in healthy, young men.
+<i>Front. Physiol.</i>
+9:1373
+10.3389/fphys.2018.01373</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fphys.2018.01373</ArticleId><ArticleId IdType="pmc">PMC6189473</ArticleId><ArticleId IdType="pubmed">30356739</ArticleId></ArticleIdList></Reference><Reference><Citation>Mozaffari M. H., Lee W. S. (2017). Freehand 3-D ultrasound imaging: a systematic review.
+<i>Ultrasound Med. Biol.</i>
+43
+2099&#x2013;2124. 10.1016/j.ultrasmedbio.2017.06.009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ultrasmedbio.2017.06.009</ArticleId><ArticleId IdType="pubmed">28716431</ArticleId></ArticleIdList></Reference><Reference><Citation>Nana A., Slater G. J., Stewart A. D., Burke L. M. (2015). Methodology review: using dual-energy X-ray absorptiometry (DXA) for the assessment of body composition in athletes and active people.
+<i>Int. J. Sport Nutr. Exerc. Metab.</i>
+25
+198&#x2013;215. 10.1123/ijsnem.2013-0228
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijsnem.2013-0228</ArticleId><ArticleId IdType="pubmed">25029265</ArticleId></ArticleIdList></Reference><Reference><Citation>Narici M. V., Hoppeler H., Kayser B., Landoni L., Claassen H., Gavardi C., et al.  (1996). Human quadriceps cross-sectional area, torque and neural activation during 6 months strength training.
+<i>Acta Physiol. Scand.</i>
+157
+175&#x2013;186. 10.1046/j.1365-201X.1996.483230000.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1046/j.1365-201X.1996.483230000.x</ArticleId><ArticleId IdType="pubmed">8800357</ArticleId></ArticleIdList></Reference><Reference><Citation>Noorkoiv M., Nosaka K., Blazevich A. J. (2010). Assessment of quadriceps muscle cross-sectional area by ultrasound extended-field-of-view imaging.
+<i>Eur. J. Appl. Physiol.</i>
+109
+631&#x2013;639. 10.1007/s00421-010-1402-1
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-010-1402-1</ArticleId><ArticleId IdType="pubmed">20191287</ArticleId></ArticleIdList></Reference><Reference><Citation>Nystrom G. (1897). Ueber die lymphbahnen des herzens.
+<i>Arch. Anat. Physiol.</i>
+12
+361&#x2013;378.</Citation></Reference><Reference><Citation>Ogino T., Ikehira H., Arimizu N., Moriya H., Wakimoto K., Nishikawa S., et al.  (1994). Serial water changes in human skeletal muscles on exercise studied with proton magnetic resonance spectroscopy and imaging.
+<i>Ann. Nucl. Med.</i>
+8
+219&#x2013;224. 10.1007/BF03165023
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF03165023</ArticleId><ArticleId IdType="pubmed">7702966</ArticleId></ArticleIdList></Reference><Reference><Citation>Parent A. (2005). Duchenne De Boulogne: a pioneer in neurology and medical photography.
+<i>Can. J. Neurol. Sci.</i>
+32
+369&#x2013;377. 10.1017/S0317167100004315
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1017/S0317167100004315</ArticleId><ArticleId IdType="pubmed">16225184</ArticleId></ArticleIdList></Reference><Reference><Citation>Paul A. C., Rosenthal N. (2002). Different modes of hypertrophy in skeletal muscle fibers.
+<i>J. Cell Biol.</i>
+156
+751&#x2013;760. 10.1083/jcb.200105147
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1083/jcb.200105147</ArticleId><ArticleId IdType="pmc">PMC2174086</ArticleId><ArticleId IdType="pubmed">11839766</ArticleId></ArticleIdList></Reference><Reference><Citation>Penman K. A. (1969). Ultrastructural changes in human striated muscle using three methods of training.
+<i>Res. Q.</i>
+40
+764&#x2013;772. 10.1080/10671188.1969.10614916
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10671188.1969.10614916</ArticleId><ArticleId IdType="pubmed">5262107</ArticleId></ArticleIdList></Reference><Reference><Citation>Penman K. A. (1970). Human striated muscle ultrastructural changes accompanying increased strength without hypertrophy.
+<i>Res. Q.</i>
+41
+418&#x2013;424. 10.1080/10671188.1970.10614992
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/10671188.1970.10614992</ArticleId><ArticleId IdType="pubmed">5272917</ArticleId></ArticleIdList></Reference><Reference><Citation>Petrella J. K., Kim J. S., Mayhew D. L., Cross J. M., Bamman M. M. (2008). Potent myofiber hypertrophy during resistance training in humans is associated with satellite cell-mediated myonuclear addition: a cluster analysis.
+<i>J. Appl. Physiol.</i>
+104
+1736&#x2013;1742. 10.1152/japplphysiol.01215.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01215.2007</ArticleId><ArticleId IdType="pubmed">18436694</ArticleId></ArticleIdList></Reference><Reference><Citation>Prado C. M., Heymsfield S. B. (2014). Lean tissue imaging: a new era for nutritional assessment and intervention.
+<i>JPEN J. Parenter. Enteral Nutr.</i>
+38
+940&#x2013;953. 10.1177/0148607114550189
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0148607114550189</ArticleId><ArticleId IdType="pmc">PMC4361695</ArticleId><ArticleId IdType="pubmed">25239112</ArticleId></ArticleIdList></Reference><Reference><Citation>Rana M., Hamarneh G., Wakeling J. M. (2013). 3D fascicle orientations in triceps surae.
+<i>J. Appl. Physiol.</i>
+115
+116&#x2013;125. 10.1152/japplphysiol.01090.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01090.2012</ArticleId><ArticleId IdType="pubmed">23640593</ArticleId></ArticleIdList></Reference><Reference><Citation>Reidy P. T., Borack M. S., Markofski M. M., Dickinson J. M., Fry C. S., Deer R. R., et al.  (2017a). Post-absorptive muscle protein turnover affects resistance training hypertrophy.
+<i>Eur. J. Appl. Physiol.</i>
+117
+853&#x2013;866. 10.1007/s00421-017-3566-4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-017-3566-4</ArticleId><ArticleId IdType="pmc">PMC5389914</ArticleId><ArticleId IdType="pubmed">28280974</ArticleId></ArticleIdList></Reference><Reference><Citation>Reidy P. T., Fry C. S., Igbinigie S., Deer R. R., Jennings K., Cope M. B., et al.  (2017b). Protein supplementation does not affect myogenic adaptations to resistance training.
+<i>Med. Sci. Sports Exerc.</i>
+49
+1197&#x2013;1208. 10.1249/MSS.0000000000001224
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000001224</ArticleId><ArticleId IdType="pmc">PMC5433887</ArticleId><ArticleId IdType="pubmed">28346813</ArticleId></ArticleIdList></Reference><Reference><Citation>Reidy P. T., Hinkley J. M., Trappe T. A., Trappe S. W., Harber M. P. (2014). Protein composition of endurance trained human skeletal muscle.
+<i>Int. J. Sports Med.</i>
+35
+476&#x2013;481.</Citation><ArticleIdList><ArticleId IdType="pubmed">24234010</ArticleId></ArticleIdList></Reference><Reference><Citation>Riley D. A., Bain J. L., Thompson J. L., Fitts R. H., Widrick J. J., Trappe S. W., et al.  (2000). Decreased thin filament density and length in human atrophic soleus muscle fibers after spaceflight.
+<i>J. Appl. Physiol.</i>
+88
+567&#x2013;572. 10.1152/jappl.2000.88.2.567
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.2000.88.2.567</ArticleId><ArticleId IdType="pubmed">10658024</ArticleId></ArticleIdList></Reference><Reference><Citation>Roberts B. M., Lavin K. M., Many G. M., Thalacker-Mercer A., Merritt E. K., Bickel C. S., et al.  (2018). Human neuromuscular aging: sex differences revealed at the myocellular level.
+<i>Exp. Gerontol.</i>
+106
+116&#x2013;124. 10.1016/j.exger.2018.02.023
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.exger.2018.02.023</ArticleId><ArticleId IdType="pmc">PMC6031257</ArticleId><ArticleId IdType="pubmed">29481967</ArticleId></ArticleIdList></Reference><Reference><Citation>Roberts M. D., Romero M. A., Mobley C. B., Mumford P. W., Roberson P. A., Haun C. T., et al.  (2018). Skeletal muscle mitochondrial volume and myozenin-1 protein differences exist between high versus low anabolic responders to resistance training.
+<i>PeerJ</i>
+6:e5338. 10.7717/peerj.5338
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7717/peerj.5338</ArticleId><ArticleId IdType="pmc">PMC6065464</ArticleId><ArticleId IdType="pubmed">30065891</ArticleId></ArticleIdList></Reference><Reference><Citation>Rowe R. W. (1969). The effect of hypertrophy on the properties of skeletal muscle.
+<i>Comp. Biochem. Physiol.</i>
+28
+1449&#x2013;1453. 10.1016/0010-406X(69)90583-0</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0010-406X(69)90583-0</ArticleId><ArticleId IdType="pubmed">5786838</ArticleId></ArticleIdList></Reference><Reference><Citation>Rucker D. D., Mcshane B. B., Preacher K. J. (2015). A researcher&#x2019;s guide to regression, discretization, and median splits of continuous variables.
+<i>J. Consum. Psychol.</i>
+25
+666&#x2013;678. 10.1016/j.jcps.2015.04.004</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jcps.2015.04.004</ArticleId></ArticleIdList></Reference><Reference><Citation>Russell B., Motlagh D., Ashley W. W. (2000). Form follows function: how muscle shape is regulated by work.
+<i>J. Appl. Physiol.</i>
+88
+1127&#x2013;1132. 10.1152/jappl.2000.88.3.1127
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.2000.88.3.1127</ArticleId><ArticleId IdType="pubmed">10710412</ArticleId></ArticleIdList></Reference><Reference><Citation>Sale D. G., Macdougall J. D., Alway S. E., Sutton J. R. (1987). Voluntary strength and muscle characteristics in untrained men and women and male bodybuilders.
+<i>J. Appl. Physiol.</i>
+62
+1786&#x2013;1793. 10.1152/jappl.1987.62.5.1786
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1987.62.5.1786</ArticleId><ArticleId IdType="pubmed">3597252</ArticleId></ArticleIdList></Reference><Reference><Citation>Sanderson M. J., Smith I., Parker I., Bootman M. D. (2014). Fluorescence microscopy.
+<i>Cold Spring Harb. Protoc.</i>
+2014:pdb.top071795.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4711767</ArticleId><ArticleId IdType="pubmed">25275114</ArticleId></ArticleIdList></Reference><Reference><Citation>Schoenfeld B. J. (2010). The mechanisms of muscle hypertrophy and their application to resistance training.
+<i>J. Strength Cond. Res.</i>
+24
+2857&#x2013;2872. 10.1519/JSC.0b013e3181e840f3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/JSC.0b013e3181e840f3</ArticleId><ArticleId IdType="pubmed">20847704</ArticleId></ArticleIdList></Reference><Reference><Citation>Scott J. M., Martin D. S., Ploutz-Snyder R., Caine T., Matz T., Arzeno N. M., et al.  (2012). Reliability and validity of panoramic ultrasound for muscle quantification.
+<i>Ultrasound Med. Biol.</i>
+38
+1656&#x2013;1661. 10.1016/j.ultrasmedbio.2012.04.018
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ultrasmedbio.2012.04.018</ArticleId><ArticleId IdType="pubmed">22749820</ArticleId></ArticleIdList></Reference><Reference><Citation>Scott J. M., Martin D. S., Ploutz-Snyder R., Matz T., Caine T., Downs M., et al.  (2017). Panoramic ultrasound: a novel and valid tool for monitoring change in muscle mass.
+<i>J. Cachexia Sarcopenia Muscle</i>
+8
+475&#x2013;481. 10.1002/jcsm.12172
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jcsm.12172</ArticleId><ArticleId IdType="pmc">PMC5476852</ArticleId><ArticleId IdType="pubmed">28052593</ArticleId></ArticleIdList></Reference><Reference><Citation>Seiden D. (1976). Quantitative analysis of muscle cell changes in compensatory hypertrophy and work-induced hypertrophy.
+<i>Am. J. Anat.</i>
+145
+459&#x2013;465. 10.1002/aja.1001450405
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/aja.1001450405</ArticleId><ArticleId IdType="pubmed">1266779</ArticleId></ArticleIdList></Reference><Reference><Citation>Shanely R. A., Zwetsloot K. A., Triplett N. T., Meaney M. P., Farris G. E., Nieman D. C. (2014). Human skeletal muscle biopsy procedures using the modified Bergstrom technique.
+<i>J. Vis. Exp.</i>
+91:51812.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4828068</ArticleId><ArticleId IdType="pubmed">25285722</ArticleId></ArticleIdList></Reference><Reference><Citation>Shelmadine B., Cooke M., Buford T., Hudson G., Redd L., Leutholtz B., et al.  (2009). Effects of 28 days of resistance exercise and consuming a commercially available pre-workout supplement, NO-Shotgun(R), on body composition, muscle strength and mass, markers of satellite cell activation, and clinical safety markers in males.
+<i>J. Int. Soc. Sports Nutr.</i>
+6:16. 10.1186/1550-2783-6-16
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1550-2783-6-16</ArticleId><ArticleId IdType="pmc">PMC2731073</ArticleId><ArticleId IdType="pubmed">19656392</ArticleId></ArticleIdList></Reference><Reference><Citation>Sherk V. D., Thiebaud R. S., Chen Z., Karabulut M., Kim S. J., Bemben D. A. (2014). Associations between pQCT-based fat and muscle area and density and DXA-based total and leg soft tissue mass in healthy women and men.
+<i>J. Musculoskelet. Neuronal Interact.</i>
+14
+411&#x2013;417. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC4433754</ArticleId><ArticleId IdType="pubmed">25524966</ArticleId></ArticleIdList></Reference><Reference><Citation>Smeulders M. J., Van Den Berg S., Oudeman J., Nederveen A. J., Kreulen M., Maas M. (2010). Reliability of in vivo determination of forearm muscle volume using 3.0 T magnetic resonance imaging.
+<i>J. Magn. Reson. Imaging</i>
+31
+1252&#x2013;1255. 10.1002/jmri.22153
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jmri.22153</ArticleId><ArticleId IdType="pubmed">20432364</ArticleId></ArticleIdList></Reference><Reference><Citation>Snijders T., Res P. T., Smeets J. S., Van Vliet S., Van Kranenburg J., Maase K., et al.  (2015). Protein ingestion before sleep increases muscle mass and strength gains during prolonged resistance-type exercise training in healthy young men.
+<i>J. Nutr.</i>
+145
+1178&#x2013;1184. 10.3945/jn.114.208371
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3945/jn.114.208371</ArticleId><ArticleId IdType="pubmed">25926415</ArticleId></ArticleIdList></Reference><Reference><Citation>Snijders T., Smeets J. S., Van Kranenburg J., Kies A. K., Van Loon L. J., Verdijk L. B. (2016). Changes in myonuclear domain size do not precede muscle hypertrophy during prolonged resistance-type exercise training.
+<i>Acta Physiol.</i>
+216
+231&#x2013;239. 10.1111/apha.12609
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/apha.12609</ArticleId><ArticleId IdType="pubmed">26407634</ArticleId></ArticleIdList></Reference><Reference><Citation>Staron R. S., Hikida R. S., Hagerman F. C., Dudley G. A., Murray T. F. (1984). Human skeletal muscle fiber type adaptability to various workloads.
+<i>J. Histochem. Cytochem.</i>
+32
+146&#x2013;152. 10.1177/32.2.6229571
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/32.2.6229571</ArticleId><ArticleId IdType="pubmed">6229571</ArticleId></ArticleIdList></Reference><Reference><Citation>Staron R. S., Karapondo D. L., Kraemer W. J., Fry A. C., Gordon S. E., Falkel J. E., et al.  (1994). Skeletal muscle adaptations during early phase of heavy-resistance training in men and women.
+<i>J. Appl. Physiol.</i>
+76
+1247&#x2013;1255. 10.1152/jappl.1994.76.3.1247
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1994.76.3.1247</ArticleId><ArticleId IdType="pubmed">8005869</ArticleId></ArticleIdList></Reference><Reference><Citation>Staron R. S., Leonardi M. J., Karapondo D. L., Malicky E. S., Falkel J. E., Hagerman F. C., et al.  (1991). Strength and skeletal muscle adaptations in heavy-resistance-trained women after detraining and retraining.
+<i>J. Appl. Physiol.</i>
+70
+631&#x2013;640. 10.1152/jappl.1991.70.2.631
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1991.70.2.631</ArticleId><ArticleId IdType="pubmed">1827108</ArticleId></ArticleIdList></Reference><Reference><Citation>Staron R. S., Malicky E. S., Leonardi M. J., Falkel J. E., Hagerman F. C., Dudley G. A. (1990). Muscle hypertrophy and fast fiber type conversions in heavy resistance-trained women.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+60
+71&#x2013;79. 10.1007/BF00572189
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF00572189</ArticleId><ArticleId IdType="pubmed">2311599</ArticleId></ArticleIdList></Reference><Reference><Citation>Stec M. J., Kelly N. A., Many G. M., Windham S. T., Tuggle S. C., Bamman M. M. (2016). Ribosome biogenesis may augment resistance training-induced myofiber hypertrophy and is required for myotube growth in vitro.
+<i>Am. J. Physiol. Endocrinol. Metab.</i>
+310
+E652&#x2013;E661. 10.1152/ajpendo.00486.2015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpendo.00486.2015</ArticleId><ArticleId IdType="pmc">PMC4835943</ArticleId><ArticleId IdType="pubmed">26860985</ArticleId></ArticleIdList></Reference><Reference><Citation>Tagliabue A., Andreoli A., Comelli M., Bertoli S., Testolin G., Oriani G., et al.  (2001). Prediction of lean body mass from multifrequency segmental impedance: influence of adiposity.
+<i>Acta Diabetol.</i>
+38
+93&#x2013;97. 10.1007/s005920170020
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s005920170020</ArticleId><ArticleId IdType="pubmed">11757808</ArticleId></ArticleIdList></Reference><Reference><Citation>Tesch P. A., Larsson L. (1982). Muscle hypertrophy in bodybuilders.
+<i>Eur. J. Appl. Physiol. Occup. Physiol.</i>
+49
+301&#x2013;306. 10.1007/BF00441291</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF00441291</ArticleId><ArticleId IdType="pubmed">6890445</ArticleId></ArticleIdList></Reference><Reference><Citation>Tesch P. A., Thorsson A., Kaiser P. (1984). Muscle capillary supply and fiber type characteristics in weight and power lifters.
+<i>J. Appl. Physiol. Respir. Environ. Exerc. Physiol.</i>
+56
+35&#x2013;38. 10.1152/jappl.1984.56.1.35
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1984.56.1.35</ArticleId><ArticleId IdType="pubmed">6693333</ArticleId></ArticleIdList></Reference><Reference><Citation>Thoirs K., English C. (2009). Ultrasound measures of muscle thickness: intra-examiner reliability and influence of body position.
+<i>Clin. Physiol. Funct. Imaging</i>
+29
+440&#x2013;446. 10.1111/j.1475-097X.2009.00897.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1475-097X.2009.00897.x</ArticleId><ArticleId IdType="pubmed">19747211</ArticleId></ArticleIdList></Reference><Reference><Citation>Toth M. J., Miller M. S., Vanburen P., Bedrin N. G., Lewinter M. M., Ades P. A., et al.  (2012). Resistance training alters skeletal muscle structure and function in human heart failure: effects at the tissue, cellular and molecular levels.
+<i>J. Physiol.</i>
+590
+1243&#x2013;1259. 10.1113/jphysiol.2011.219659
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2011.219659</ArticleId><ArticleId IdType="pmc">PMC3381828</ArticleId><ArticleId IdType="pubmed">22199163</ArticleId></ArticleIdList></Reference><Reference><Citation>Trappe T. (2009). Influence of aging and long-term unloading on the structure and function of human skeletal muscle.
+<i>Appl. Physiol. Nutr. Metab.</i>
+34
+459&#x2013;464. 10.1139/H09-041
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/H09-041</ArticleId><ArticleId IdType="pmc">PMC3056056</ArticleId><ArticleId IdType="pubmed">19448715</ArticleId></ArticleIdList></Reference><Reference><Citation>Trappe T. A., Carroll C. C., Dickinson J. M., Lemoine J. K., Haus J. M., Sullivan B. E., et al.  (2011). Influence of acetaminophen and ibuprofen on skeletal muscle adaptations to resistance exercise in older adults.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+300
+R655&#x2013;R662. 10.1152/ajpregu.00611.2010
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00611.2010</ArticleId><ArticleId IdType="pmc">PMC3064281</ArticleId><ArticleId IdType="pubmed">21160058</ArticleId></ArticleIdList></Reference><Reference><Citation>Tyska M. J., Warshaw D. M. (2002). The myosin power stroke.
+<i>Cell Motil. Cytoskeleton</i>
+51
+1&#x2013;15. 10.1002/cm.10014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/cm.10014</ArticleId><ArticleId IdType="pubmed">11810692</ArticleId></ArticleIdList></Reference><Reference><Citation>van der Pijl R., Strom J., Conijn S., Lindqvist J., Labeit S., Granzier H., et al.  (2018). Titin-based mechanosensing modulates muscle hypertrophy.
+<i>J. Cachexia Sarcopenia Muscle</i>
+9
+947&#x2013;961. 10.1002/jcsm.12319
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/jcsm.12319</ArticleId><ArticleId IdType="pmc">PMC6204599</ArticleId><ArticleId IdType="pubmed">29978560</ArticleId></ArticleIdList></Reference><Reference><Citation>van Loon L. J., Koopman R., Stegen J. H., Wagenmakers A. J., Keizer H. A., Saris W. H. (2003). Intramyocellular lipids form an important substrate source during moderate intensity exercise in endurance-trained males in a fasted state.
+<i>J. Physiol.</i>
+553
+611&#x2013;625. 10.1113/jphysiol.2003.052431
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2003.052431</ArticleId><ArticleId IdType="pmc">PMC2343576</ArticleId><ArticleId IdType="pubmed">14514877</ArticleId></ArticleIdList></Reference><Reference><Citation>Verdijk L. B., Gleeson B. G., Jonkers R. A., Meijer K., Savelberg H. H., Dendale P., et al.  (2009). Skeletal muscle hypertrophy following resistance training is accompanied by a fiber type-specific increase in satellite cell content in elderly men.
+<i>J. Gerontol. A Biol. Sci. Med. Sci.</i>
+64
+332&#x2013;339. 10.1093/gerona/gln050
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gerona/gln050</ArticleId><ArticleId IdType="pmc">PMC2655000</ArticleId><ArticleId IdType="pubmed">19196907</ArticleId></ArticleIdList></Reference><Reference><Citation>Vigotsky A. D., Schoenfeld B. J., Than C., Brown J. M. (2018). Methods matter: the relationship between strength and hypertrophy depends on methods of measurement and analysis.
+<i>PeerJ</i>
+6:e5071. 10.7717/peerj.5071
+</Citation><ArticleIdList><ArticleId IdType="doi">10.7717/peerj.5071</ArticleId><ArticleId IdType="pmc">PMC6026459</ArticleId><ArticleId IdType="pubmed">29967737</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang J. H., Wang Q. J., Wang C., Reinholt B., Grant A. L., Gerrard D. E., et al.  (2015). Heterogeneous activation of a slow myosin gene in proliferating myoblasts and differentiated single myofibers.
+<i>Dev. Biol.</i>
+402
+72&#x2013;80. 10.1016/j.ydbio.2015.02.025
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ydbio.2015.02.025</ArticleId><ArticleId IdType="pmc">PMC4435531</ArticleId><ArticleId IdType="pubmed">25794679</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang K. (1982). Purification of titin and nebulin.
+<i>Methods Enzymol.</i>
+85(Pt B), 264&#x2013;274. 10.1016/0076-6879(82)85025-8</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0076-6879(82)85025-8</ArticleId><ArticleId IdType="pubmed">6896900</ArticleId></ArticleIdList></Reference><Reference><Citation>Wang N., Hikida R. S., Staron R. S., Simoneau J. A. (1993). Muscle fiber types of women after resistance training&#x2013;quantitative ultrastructure and enzyme activity.
+<i>Pflugers Arch.</i>
+424
+494&#x2013;502. 10.1007/BF00374913</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/BF00374913</ArticleId><ArticleId IdType="pubmed">8255733</ArticleId></ArticleIdList></Reference><Reference><Citation>Wen Y., Murach K. A., Vechetti I. J., Jr., Fry C. S., Vickery C., et al.  (2018). MyoVision: software for automated high-content analysis of skeletal muscle immunohistochemistry.
+<i>J. Appl. Physiol.</i>
+124
+40&#x2013;51. 10.1152/japplphysiol.00762.2017
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00762.2017</ArticleId><ArticleId IdType="pmc">PMC6048460</ArticleId><ArticleId IdType="pubmed">28982947</ArticleId></ArticleIdList></Reference><Reference><Citation>West D. W., Kujbida G. W., Moore D. R., Atherton P., Burd N. A., Padzik J. P., et al.  (2009). Resistance exercise-induced increases in putative anabolic hormones do not enhance muscle protein synthesis or intracellular signalling in young men.
+<i>J. Physiol.</i>
+587
+5239&#x2013;5247. 10.1113/jphysiol.2009.177220</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/jphysiol.2009.177220</ArticleId><ArticleId IdType="pmc">PMC2790261</ArticleId><ArticleId IdType="pubmed">19736298</ArticleId></ArticleIdList></Reference><Reference><Citation>Willoughby D. S., Nelson M. J. (2002). Myosin heavy-chain mRNA expression after a single session of heavy-resistance exercise.
+<i>Med. Sci. Sports Exerc.</i>
+34
+1262&#x2013;1269. 10.1097/00005768-200208000-00006
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-200208000-00006</ArticleId><ArticleId IdType="pubmed">12165680</ArticleId></ArticleIdList></Reference><Reference><Citation>Willoughby D. S., Priest J. W., Nelson M. (2002). Expression of the stress proteins, ubiquitin, heat shock protein 72, and myofibrillar protein content after 12 weeks of leg cycling in persons with spinal cord injury.
+<i>Arch. Phys. Med. Rehabil.</i>
+83
+649&#x2013;654. 10.1053/apmr.2002.31184
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1053/apmr.2002.31184</ArticleId><ArticleId IdType="pubmed">11994804</ArticleId></ArticleIdList></Reference><Reference><Citation>Willoughby D. S., Rosene J. (2001). Effects of oral creatine and resistance training on myosin heavy chain expression.
+<i>Med. Sci. Sports Exerc.</i>
+33
+1674&#x2013;1681. 10.1097/00005768-200110000-00010</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-200110000-00010</ArticleId><ArticleId IdType="pubmed">11581551</ArticleId></ArticleIdList></Reference><Reference><Citation>Wisdom K. M., Delp S. L., Kuhl E. (2015). Use it or lose it: multiscale skeletal muscle adaptation to mechanical stimuli.
+<i>Biomech. Model Mechanobiol.</i>
+14
+195&#x2013;215. 10.1007/s10237-014-0607-3
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s10237-014-0607-3</ArticleId><ArticleId IdType="pmc">PMC4352121</ArticleId><ArticleId IdType="pubmed">25199941</ArticleId></ArticleIdList></Reference><Reference><Citation>Witard O. C., Jackman S. R., Breen L., Smith K., Selby A., Tipton K. D. (2014). Myofibrillar muscle protein synthesis rates subsequent to a meal in response to increasing doses of whey protein at rest and after resistance exercise.
+<i>Am. J. Clin. Nutr.</i>
+99
+86&#x2013;95. 10.3945/ajcn.112.055517
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3945/ajcn.112.055517</ArticleId><ArticleId IdType="pubmed">24257722</ArticleId></ArticleIdList></Reference><Reference><Citation>Woolstenhulme M. T., Conlee R. K., Drummond M. J., Stites A. W., Parcell A. C. (2006). Temporal response of desmin and dystrophin proteins to progressive resistance exercise in human skeletal muscle.
+<i>J. Appl. Physiol.</i>
+100
+1876&#x2013;1882. 10.1152/japplphysiol.01592.2005
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.01592.2005</ArticleId><ArticleId IdType="pubmed">16439510</ArticleId></ArticleIdList></Reference><Reference><Citation>Yates L. D., Greaser M. L. (1983). Quantitative determination of myosin and actin in rabbit skeletal muscle.
+<i>J. Mol. Biol.</i>
+168
+123&#x2013;141. 10.1016/S0022-2836(83)80326-X</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/S0022-2836(83)80326-X</ArticleId><ArticleId IdType="pubmed">6876172</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

@@ -1,0 +1,216 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="Publisher" Owner="NLM"><PMID Version="1">41783263</PMID><DateRevised><Year>2026</Year><Month>03</Month><Day>05</Day></DateRevised><Article PubModel="Print-Electronic"><Journal><ISSN IssnType="Print">0972-7531</ISSN><JournalIssue CitedMedium="Print"><PubDate><Year>2026</Year><Month>Mar</Month><Day>01</Day></PubDate></JournalIssue><Title>Annals of neurosciences</Title><ISOAbbreviation>Ann Neurosci</ISOAbbreviation></Journal><ArticleTitle>Sound-based Meditation Alters Brain Activity: EEG Evidence for Power Reduction and Enhanced Conscious Alertness.</ArticleTitle><Pagination><StartPage>09727531261417798</StartPage><MedlinePgn>09727531261417798</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">09727531261417798</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.1177/09727531261417798</ELocationID><Abstract><AbstractText Label="BACKGROUND" NlmCategory="UNASSIGNED">Meditation is known to modulate neural activity and enhance cognitive and emotional well-being. While previous studies have largely reported increases in alpha and theta activity, the neurophysiological effects of structured sound-based meditation practices remain underexplored.</AbstractText><AbstractText Label="PURPOSE" NlmCategory="UNASSIGNED">This study investigated the neurophysiological and subjective effects of rhythmic sound meditation (RSM) compared to a resting state (RS) condition. We aimed to identify EEG spectral patterns and changes in subjective alertness during this meditation protocol.</AbstractText><AbstractText Label="METHODS" NlmCategory="UNASSIGNED">Fifteen healthy adults (mean age = 24.8 &#xb1; 3.6 years) participated in two 26-minute sessions (RSM and RS) in a randomised, counterbalanced design. EEG data were recorded using a 64-channel actiCHamp system, and power spectral density was analysed across delta, theta, alpha, beta, and gamma bands. Subjective alertness was assessed before and after the sessions using the Stanford Sleepiness Scale (SSS). Statistical analyses were conducted using Yuen's paired <i>t</i>-test with FDR correction.</AbstractText><AbstractText Label="RESULTS" NlmCategory="UNASSIGNED">RSM reduced EEG power across all frequency bands, particularly in prefrontal and frontocentral regions, compared to RS (<i>p</i> &lt; .05, FDR-corrected). Power reductions were observed across delta, theta, alpha, beta, and gamma bands, with the most pronounced effects in frontal areas. SSS scores showed increased alertness post-RSM (93.3% alert) versus decreased alertness post-RS (73.3% alert).</AbstractText><AbstractText Label="CONCLUSION" NlmCategory="UNASSIGNED">RSM induced distinct neurophysiological changes, characterised by widespread EEG power suppression in frontal regions and heightened subjective alertness. These findings support its potential for promoting altered states of consciousness, contributing to the neuroscientific understanding of sound-based meditation.</AbstractText><CopyrightInformation>&#xa9; The Author(s) 2026.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Megha</LastName><ForeName>Km</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Yoga, Central University of Rajasthan, Ajmer, Rajasthan, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Mishra</LastName><ForeName>Ankita</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>S-VYASA University, Bengaluru, Karnataka, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sharma</LastName><ForeName>Raksha</ForeName><Initials>R</Initials><AffiliationInfo><Affiliation>Lakshmibai National Institute of Physical Education, Gwalior, Madhya Pradesh, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Pal</LastName><ForeName>Pallabi</ForeName><Initials>P</Initials><AffiliationInfo><Affiliation>Department of Yoga, Central University of Rajasthan, Ajmer, Rajasthan, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Yadav</LastName><ForeName>Vijay Shanker</ForeName><Initials>VS</Initials><AffiliationInfo><Affiliation>Department of Sangyaharan, Institute of Medical Sciences, Banaras Hindu University, Varanasi, Uttar Pradesh, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Roja</LastName><ForeName>Arjun Ram</ForeName><Initials>AR</Initials><AffiliationInfo><Affiliation>Department of Yoga, Central University of Rajasthan, Ajmer, Rajasthan, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Sasidharan</LastName><ForeName>Arun</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Department of Neurophysiology, National Institute of Mental Health and Neurosciences, Bengaluru, Karnataka, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Kumar</LastName><ForeName>Gulshan</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Department of Neurophysiology, National Institute of Mental Health and Neurosciences, Bengaluru, Karnataka, India.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Patra</LastName><ForeName>Sanjib</ForeName><Initials>S</Initials><Identifier Source="ORCID">0000-0003-3275-0263</Identifier><AffiliationInfo><Affiliation>Department of Yoga, Central University of Rajasthan, Ajmer, Rajasthan, India.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2026</Year><Month>03</Month><Day>01</Day></ArticleDate></Article><MedlineJournalInfo><Country>United States</Country><MedlineTA>Ann Neurosci</MedlineTA><NlmUniqueID>101523367</NlmUniqueID><ISSNLinking>0972-7531</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">EEG</Keyword><Keyword MajorTopicYN="N">Meditation</Keyword><Keyword MajorTopicYN="N">frequency bands</Keyword><Keyword MajorTopicYN="N">neural oscillations</Keyword><Keyword MajorTopicYN="N">rhythmic sound meditation</Keyword></KeywordList><CoiStatement>The authors declared no potential conflicts of interest with respect to the research, authorship and/or publication of this article.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>8</Month><Day>7</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>12</Month><Day>24</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2026</Year><Month>3</Month><Day>5</Day><Hour>7</Hour><Minute>9</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2026</Year><Month>3</Month><Day>5</Day><Hour>7</Hour><Minute>9</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2026</Year><Month>3</Month><Day>5</Day><Hour>4</Hour><Minute>50</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2026</Year><Month>3</Month><Day>1</Day></PubMedPubDate></History><PublicationStatus>aheadofprint</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41783263</ArticleId><ArticleId IdType="pmc">PMC12953160</ArticleId><ArticleId IdType="doi">10.1177/09727531261417798</ArticleId><ArticleId IdType="pii">10.1177_09727531261417798</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Khoury B, Lecomte T, Fortin G, et al. Mindfulness-based therapy: A comprehensive meta-analysis. 
+<i>Clin Psychol Rev</i>
+
+2013; 33(6): 763&#x2013;771. DOI: 10.1016/j.cpr.2013.05.005
+</Citation><ArticleIdList><ArticleId IdType="pubmed">23796855</ArticleId></ArticleIdList></Reference><Reference><Citation>Goyal M, Singh S, Sibinga EMS, et al. Meditation programs for psychological stress and well-being: A systematic review and meta-analysis. 
+<i>JAMA Intern Med</i>
+
+2014; 174(3): 357&#x2013;368. DOI: 10.1001/jamainternmed.2013.13018
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4142584</ArticleId><ArticleId IdType="pubmed">24395196</ArticleId></ArticleIdList></Reference><Reference><Citation>Lazar SW, Kerr CE, Wasserman RH, et al. Meditation experience is associated with increased cortical thickness. 
+<i>Neuroreport</i>
+
+2005; 16(17): 1893&#x2013;1897. DOI: 10.1097/01.wnr.0000186598.66243.19
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC1361002</ArticleId><ArticleId IdType="pubmed">16272874</ArticleId></ArticleIdList></Reference><Reference><Citation>H&#xf6;lzel BK, Carmody J, Vangel M, et al. Mindfulness practice leads to increases in regional brain gray matter density. 
+<i>Psychiatry Res Neuroimaging</i>
+
+2011; 191(1): 36&#x2013;43. DOI: 10.1016/j.pscychresns.2010.08.006</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3004979</ArticleId><ArticleId IdType="pubmed">21071182</ArticleId></ArticleIdList></Reference><Reference><Citation>Tang YY, H&#xf6;lzel BK and Posner MI.. 
+The neuroscience of mindfulness meditation. 
+<i>Nat Rev Neurosci</i>
+
+2015; 16(4): 213&#x2013;225. DOI: 10.1038/nrn3916
+</Citation><ArticleIdList><ArticleId IdType="pubmed">25783612</ArticleId></ArticleIdList></Reference><Reference><Citation>Brewer JA, Worhunsky PD, Gray JR, et al. Meditation experience is associated with differences in default mode network activity and connectivity. 
+<i>Proc Natl Acad Sci U S A</i>
+
+2011; 108(50): 20254&#x2013;20259. DOI: 10.1073/pnas.1112029108
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3250176</ArticleId><ArticleId IdType="pubmed">22114193</ArticleId></ArticleIdList></Reference><Reference><Citation>Fox KCR, Nijeboer S, Dixon ML, et al. Is meditation associated with altered brain structure? A systematic review and meta-analysis of morphometric neuroimaging in meditation practitioners. 
+<i>Neurosci Biobehav Rev</i>
+
+2014; 43: 48&#x2013;73. DOI: 10.1016/j.neubiorev.2014.03.016
+</Citation><ArticleIdList><ArticleId IdType="pubmed">24705269</ArticleId></ArticleIdList></Reference><Reference><Citation>Cahn BR and Polich J.. 
+Meditation states and traits: EEG, ERP, and neuroimaging studies. 
+<i>Psychol Bull</i>
+
+2006; 132(2): 180&#x2013;211.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">16536641</ArticleId></ArticleIdList></Reference><Reference><Citation>Lomas T, Ivtzan I and Fu CHY.. 
+A systematic review of the neurophysiology of mindfulness on EEG oscillations. 
+<i>Neurosci Biobehav Rev</i>
+
+2015; 57: 401&#x2013;410.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">26441373</ArticleId></ArticleIdList></Reference><Reference><Citation>Braboszcz C and Delorme A.. 
+Lost in thoughts: Neural markers of low alertness during mind wandering. 
+<i>Neuroimage</i>
+
+2011; 54(4): 3040&#x2013;3047.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">20946963</ArticleId></ArticleIdList></Reference><Reference><Citation>Lehmann D, Faber PL, Achermann P, et al. Brain sources of EEG gamma frequency during volitionally meditation-induced altered states of consciousness. 
+<i>Psychiatry Res Neuroimaging</i>
+
+2001; 108(2): 111&#x2013;121.</Citation><ArticleIdList><ArticleId IdType="pubmed">11738545</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee DJ, Kulubya E, Goldin P, et al. Review of the neural oscillations underlying meditation. 
+<i>Front Neurosci</i>
+
+2018; 12: 178. DOI: 10.3389/fnins.2018.00178
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5890111</ArticleId><ArticleId IdType="pubmed">29662434</ArticleId></ArticleIdList></Reference><Reference><Citation>Hinterberger T, Schmidt S, Kamei T, et al. Decreased electrophysiological activity represents the conscious state of emptiness in meditation. 
+<i>Front Psychol</i>
+
+2014; 5: 99.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3925830</ArticleId><ArticleId IdType="pubmed">24596562</ArticleId></ArticleIdList></Reference><Reference><Citation>Duda AT, Clarke AR and Barry RJ.. 
+Mindfulness meditation alters neural oscillations independently of arousal. 
+<i>Int J Psychophysiol</i>
+
+2024; 205: 112439.</Citation><ArticleIdList><ArticleId IdType="pubmed">39265724</ArticleId></ArticleIdList></Reference><Reference><Citation>DeLosAngeles D, Williams G, Burston J, et al. Electroencephalographic correlates of states of concentrative meditation. 
+<i>Int J Psychophysiol</i>
+
+2016; 110: 27&#x2013;39. DOI: 10.1016/j.ijpsycho.2016.09.006
+</Citation><ArticleIdList><ArticleId IdType="pubmed">27702643</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodriguez-Larios J, Faber P, Achermann P, et al. From thoughtless awareness to effortful cognition: Alpha&#x2013;theta cross-frequency dynamics in experienced meditators during meditation, rest and arithmetic. 
+<i>Sci Rep</i>
+
+2020; 10(1): 5419. DOI: 10.1038/s41598-020-62392-2
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7096392</ArticleId><ArticleId IdType="pubmed">32214173</ArticleId></ArticleIdList></Reference><Reference><Citation>Garrison KA, Zeffiro TA, Scheinost D, et al. Meditation leads to reduced default mode network activity beyond an active task. 
+<i>Cogn Affect Behav Neurosci</i>
+
+2015; 15(3): 712&#x2013;720. DOI: 10.3758/s13415-015-0358-3
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4529365</ArticleId><ArticleId IdType="pubmed">25904238</ArticleId></ArticleIdList></Reference><Reference><Citation>Saraswati SN and Saraswati SS.. 
+
+<i>Four chapters on freedom: Commentary on the yoga sutras of Patanjali</i>
+. Munger: Yoga Publications Trust, 2002.</Citation></Reference><Reference><Citation>Mallinson J and Singleton M.. 
+
+<i>Roots of Yoga</i>
+. London: Penguin, 2017.</Citation></Reference><Reference><Citation>Beck GL.
+
+<i>Sacred sound: Experiencing music in world religions</i>
+. Waterloo: Wilfrid Laurier University Press, 2006.</Citation></Reference><Reference><Citation>Deussen P, Bedekar VM and Palsule GB.. 
+
+<i>Sixty upani&#x1e63;ads of the Vveda</i>
+. 7th ed.
+Delhi: Motilal Banarsidass, 2010.</Citation></Reference><Reference><Citation>Harne BP and Hiwale AS.. 
+EEG spectral analysis on OM mantra meditation: A pilot study. 
+<i>Appl Psychophysiol Biofeedback</i>
+
+2018; 43(2): 123&#x2013;129.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">29752573</ArticleId></ArticleIdList></Reference><Reference><Citation>Kalyani BG, Venkatasubramanian G, Arasappa R, et al. Neurohemodynamic correlates of &#x2018;OM&#x2019; chanting. 
+<i>Int J Yoga</i>
+
+2011; 4(1): 3&#x2013;6.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3099099</ArticleId><ArticleId IdType="pubmed">21654968</ArticleId></ArticleIdList></Reference><Reference><Citation>Kanwade A, Thune N, Srimaharaj W, et al. Bridging science and spirituality: Investigating the effects of OM chanting on brain waves. 
+<i>Sakarya Univ J Comput Inf Sci</i>
+
+2025; 8(4): 651&#x2013;663.</Citation></Reference><Reference><Citation>Gao J, Fan J, Wu BW, et al. Repetitive religious chanting modulates the late-stage brain response to fear- and stress-provoking pictures. 
+<i>Front Psychol</i>
+
+2017; 7: 224.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5223166</ArticleId><ArticleId IdType="pubmed">28119651</ArticleId></ArticleIdList></Reference><Reference><Citation>Perini R and Saraswati SS.. 
+
+<i>Nadabindu and Dhyanabindu upanishads: Meditations on the inner sound</i>
+. Independently Published, 2019.</Citation></Reference><Reference><Citation>Kakade S and Shirke U.. 
+Naad Bindu Upanishad: An ancient set of verses on Naad and its effect. 
+<i>J Oral Maxillofac Anesth</i>
+
+2024. Available from:
+https://journals.lww.com/joacs/fulltext/2024/12010/naad_bindu_upanishad__an_ancient_set_of_verses_on.10.aspx?context=latestarticles.</Citation></Reference><Reference><Citation>Brandmeyer T and Delorme A.. 
+Reduced mind wandering in experienced meditators and associated EEG correlates. 
+<i>Exp Brain Res</i>
+
+2018; 236(9): 2519&#x2013;2528.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">27815577</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodriguez-Larios J and Alaerts K.. 
+EEG alpha&#x2013;theta dynamics during mind wandering in the context of breath focus meditation. 
+<i>Eur J Neurosci</i>
+
+2021; 53(6): 1855&#x2013;1868.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">33289167</ArticleId></ArticleIdList></Reference><Reference><Citation>Wahbeh H, Cannard C, Kriegsman M, et al. Evaluating brain spectral and connectivity differences between silent mind-wandering and trance states. 
+<i>Prog Brain Res</i>
+
+2023; 277: 29&#x2013;61.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">37301570</ArticleId></ArticleIdList></Reference><Reference><Citation>Lagopoulos J, Xu J, Rasmussen I, et al. Increased theta and alpha EEG activity during nondirective meditation. 
+<i>J Altern Complement Med</i>
+
+2009; 15(11): 1187&#x2013;1192.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">19922249</ArticleId></ArticleIdList></Reference><Reference><Citation>Hoddes E, Zarcone V, Smythe H, et al. Quantification of sleepiness: A new approach. 
+<i>Psychophysiology</i>
+
+1973; 10(4): 431&#x2013;436.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">4719486</ArticleId></ArticleIdList></Reference><Reference><Citation>Shahid A, Wilkinson K, Marcu S, et al. Stanford Sleepiness Scale (SSS). In: 
+<i>STOP, that and one hundred other sleep scales</i>
+. New York: Springer, 2011, pp.369&#x2013;370.</Citation></Reference><Reference><Citation>Malipeddi S, Sasidharan A, R PN, et al. Relaxed alertness in novice and advanced meditators. 
+<i>Mindfulness</i>
+
+2024; 15(11): 2840&#x2013;2859.</Citation></Reference><Reference><Citation>Delorme A and Makeig S.. 
+EEGLAB: An open source toolbox for analysis of single-trial EEG dynamics. 
+<i>J Neurosci Methods</i>
+
+2004; 134(1): 9&#x2013;21.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">15102499</ArticleId></ArticleIdList></Reference><Reference><Citation>Klimesch W.
+EEG alpha and theta oscillations reflect cognitive and memory performance. 
+<i>Brain Res Rev</i>
+
+1999; 29(2&#x2013;3): 169&#x2013;195.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">10209231</ArticleId></ArticleIdList></Reference><Reference><Citation>Marzetti L, Di Lanzo C, Zappasodi F, et al. Magnetoencephalographic alpha band connectivity during meditation. 
+<i>Front Hum Neurosci</i>
+
+2014; 8: 832.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4197643</ArticleId><ArticleId IdType="pubmed">25360102</ArticleId></ArticleIdList></Reference><Reference><Citation>Harmony T.
+The functional significance of delta oscillations in cognitive processing. 
+<i>Front Integr Neurosci</i>
+
+2013; 7: 83.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3851789</ArticleId><ArticleId IdType="pubmed">24367301</ArticleId></ArticleIdList></Reference><Reference><Citation>Kam JWY, Rahnuma T, Park YE, et al. Electrophysiological markers of mind wandering. 
+<i>Neuroimage</i>
+
+2022; 258: 119372.</Citation><ArticleIdList><ArticleId IdType="pubmed">35700946</ArticleId></ArticleIdList></Reference><Reference><Citation>Dias da Silva MR, Gon&#xe7;alves F, Branco D, et al. Revisiting consciousness using EEG. 
+<i>Conscious Cogn</i>
+
+2022; 101: 103332.</Citation><ArticleIdList><ArticleId IdType="pubmed">35453102</ArticleId></ArticleIdList></Reference><Reference><Citation>Newandee DA. Measurement of EEG coherence and Schumann resonances in group meditation. PhD Thesis, New Jersey Institute of Technology, USA, 1996.</Citation></Reference><Reference><Citation>Luo Y, Zhang Y, Zhai Y, et al. The effect of brief and focused mindfulness meditation on young adults using EEG. 
+<i>Res Sq</i>
+
+2024. DOI: 10.21203/rs.3.rs-4962094</Citation></Reference><Reference><Citation>Malipeddi S, Sasidharan A, Venugopal R, et al. Time-to-onset and temporal dynamics of EEG during breath-watching meditation. 
+<i>bioRxiv</i>
+
+2025. DOI: 10.1101/2025.02.11.637771</Citation></Reference><Reference><Citation>Baijal S and Srinivasan N.. 
+Theta activity and meditative states: Spectral changes during concentrative meditation. 
+<i>Medit Percept Exp</i>
+
+2009. Available from:
+https://www.researchgate.net/publication/26689694.</Citation><ArticleIdList><ArticleId IdType="pubmed">19626355</ArticleId></ArticleIdList></Reference><Reference><Citation>Romeo Z and Spironelli C.. 
+Theta oscillations underlie emotional processing and empathy. 
+<i>Heliyon</i>
+
+2024; 10(14): e34581.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC11325776</ArticleId><ArticleId IdType="pubmed">39148968</ArticleId></ArticleIdList></Reference><Reference><Citation>Rodriguez-Larios J, Bracho Montes de Oca EA and Alaerts K.. 
+EEG spectral properties of meditation and mind wandering. 
+<i>Neuroimage</i>
+
+2021; 245: 118669.</Citation><ArticleIdList><ArticleId IdType="pubmed">34688899</ArticleId></ArticleIdList></Reference><Reference><Citation>Barone J and Rossiter HE.. 
+Understanding the role of sensorimotor beta oscillations. 
+<i>Front Syst Neurosci</i>
+
+2021; 15: 655886.</Citation><ArticleIdList><ArticleId IdType="pmc">PMC8200463</ArticleId><ArticleId IdType="pubmed">34135739</ArticleId></ArticleIdList></Reference><Reference><Citation>Amihai I and Kozhevnikov M.. 
+Arousal vs. relaxation: A comparison of the neurophysiological and cognitive correlates of Vajrayana and Theravada meditative practices. 
+<i>PLoS One</i>
+
+2014; 9(7): e102990. DOI: 10.1371/journal.pone.0102990
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4106862</ArticleId><ArticleId IdType="pubmed">25051268</ArticleId></ArticleIdList></Reference><Reference><Citation>Faber PL, Lehmann D, Gianotti LRR, et al. Zazen meditation and no-task resting EEG. 
+<i>Cogn Process</i>
+
+2015; 16(1): 87&#x2013;96.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">25284209</ArticleId></ArticleIdList></Reference><Reference><Citation>Berkovich-Ohana A, Glicksohn J and Goldstein A.. 
+Mindfulness-induced changes in gamma band activity: Implications for the default mode network, self-reference and attention. 
+<i>Clin Neurophysiol</i>
+
+2012; 123(4): 700&#x2013;710. DOI: 10.1016/j.clinph.2011.07.048
+</Citation><ArticleIdList><ArticleId IdType="pubmed">21940201</ArticleId></ArticleIdList></Reference><Reference><Citation>Lutz A, Greischar LL, Rawlings NB, et al. Long-term meditators self-induce high-amplitude gamma synchrony during mental practice. 
+<i>Proc Natl Acad Sci U S A</i>
+
+2004; 101(46): 16369&#x2013;16373. DOI: 10.1073/pnas.0407401101
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC526201</ArticleId><ArticleId IdType="pubmed">15534199</ArticleId></ArticleIdList></Reference><Reference><Citation>Mahato A, Bhalerao SV, Pachori RB, et al. Neurological responses to meditation with EEG analysis using novel empirical Fourier&#x2013;Bessel decomposition approach. 
+<i>Int Conf Signal Process Commun ICSC</i>
+
+2025; 2025: 694&#x2013;699.</Citation></Reference><Reference><Citation>Brefczynski-Lewis JA, Lutz A, Schaefer HS, et al. Neural correlates of attentional expertise in long-term meditation practitioners. 
+<i>Proc Natl Acad Sci U S A</i>
+
+2007; 104(27): 11483&#x2013;11488. DOI: 10.1073/pnas.0606552104
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC1903340</ArticleId><ArticleId IdType="pubmed">17596341</ArticleId></ArticleIdList></Reference><Reference><Citation>Mrazek MD, Smallwood J and Schooler JW.. 
+Mindfulness and mind-wandering: Finding convergence through opposing constructs. 
+<i>Emotion</i>
+
+2012; 12(3): 442&#x2013;448. DOI: 10.1037/a0026678
+</Citation><ArticleIdList><ArticleId IdType="pubmed">22309719</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

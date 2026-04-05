@@ -1,0 +1,974 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="epi18703" xml:lang="en" article-type="research-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">Epilepsia</journal-id><journal-id journal-id-type="iso-abbrev">Epilepsia</journal-id><journal-id journal-id-type="pmc-domain-id">379</journal-id><journal-id journal-id-type="pmc-domain">blackwellopen</journal-id><journal-id journal-id-type="publisher-id">EPI</journal-id><journal-title-group><journal-title>Epilepsia</journal-title></journal-title-group><issn pub-type="ppub">0013-9580</issn><issn pub-type="epub">1528-1167</issn><custom-meta-group><custom-meta><meta-name>pmc-is-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-collection-title</meta-name><meta-value>Wiley Open Access Collection</meta-value></custom-meta></custom-meta-group></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC12927697</article-id><article-id pub-id-type="pmcid-ver">PMC12927697.1</article-id><article-id pub-id-type="pmcaid">12927697</article-id><article-id pub-id-type="pmcaiid">12927697</article-id><article-id pub-id-type="pmid">41171197</article-id><article-id pub-id-type="doi">10.1111/epi.18703</article-id><article-id pub-id-type="publisher-id">EPI18703</article-id><article-id pub-id-type="other">EPI-01084-2025.R2</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Research Article</subject></subj-group><subj-group subj-group-type="heading"><subject>Research Article</subject></subj-group></article-categories><title-group><article-title>Spike–fast activity interplay: A gateway to seizure</article-title><alt-title alt-title-type="left-running-head">Aung et al.</alt-title></title-group><contrib-group><contrib id="epi18703-cr-0001" contrib-type="author"><name name-style="western"><surname>Aung</surname><given-names initials="T">Thandar</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-6770-9642</contrib-id><xref rid="epi18703-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="epi18703-cr-0002" contrib-type="author"><name name-style="western"><surname>Jegou</surname><given-names initials="A">Aude</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-4253-4284</contrib-id><xref rid="epi18703-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="epi18703-cr-0003" contrib-type="author" corresp="yes"><name name-style="western"><surname>Chauvel</surname><given-names initials="P">Patrick</given-names></name><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-2161-6077</contrib-id><xref rid="epi18703-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref><address><email>chauvep2@ccf.org</email></address></contrib></contrib-group><aff id="epi18703-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<named-content content-type="organisation-division">Epilepsy Center</named-content>
+<institution>University of Pittsburgh Medical Center</institution>
+<city>Pittsburgh</city>
+<named-content content-type="country-part">Pennsylvania</named-content>
+<country country="US">USA</country>
+</aff><aff id="epi18703-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">Epilepsy Center</named-content>
+<institution>Neurological Institute, Cleveland Clinic</institution>
+<city>Cleveland</city>
+<named-content content-type="country-part">Ohio</named-content>
+<country country="US">USA</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>
+<bold>Correspondence</bold>
+<break/>
+Patrick Chauvel, Epilepsy Center, Neurological Institute, Cleveland Clinic, 9500 Euclid Avenue, Cleveland, OH 44195, USA.<break/>
+Email: <email>chauvep2@ccf.org</email>
+<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>31</day><month>10</month><year>2025</year></pub-date><pub-date pub-type="ppub"><month>2</month><year>2026</year></pub-date><volume>67</volume><issue seq="320">2</issue><issue-id pub-id-type="pmc-issue-id">508109</issue-id><issue-id pub-id-type="doi">10.1002/epi.v67.2</issue-id><fpage>878</fpage><lpage>894</lpage><history><date date-type="rev-recd"><day>14</day><month>10</month><year>2025</year></date><date date-type="received"><day>03</day><month>8</month><year>2025</year></date><date date-type="accepted"><day>15</day><month>10</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>23</day><month>02</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>24</day><month>02</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-02-24 10:25:12.480"><day>24</day><month>02</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2025 The Author(s). <italic toggle="yes">Epilepsia</italic> published by Wiley Periodicals LLC on behalf of International League Against Epilepsy.</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbyncndlicense">https://creativecommons.org/licenses/by-nc-nd/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by-nc-nd/4.0/">http://creativecommons.org/licenses/by-nc-nd/4.0/</ext-link> License, which permits use and distribution in any medium, provided the original work is properly cited, the use is non‐commercial and no modifications or adaptations are made.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="EPI-67-878.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:EPI-67-878.pdf"/><abstract><title>Abstract</title><sec id="epi18703-sec-0001"><title>Objective</title><p>The transition from interictal discharges to ictal high‐frequency activity (HFA) remains poorly understood. We investigated whether spike‐associated high‐frequency oscillations (Sp‐HFOs) during interictal and preictal periods contribute to the emergence of ictal HFA.</p></sec><sec id="epi18703-sec-0002"><title>Methods</title><p>We retrospectively analyzed the interictal to ictal transition in seizures from six patients with drug‐resistant focal epilepsy who underwent stereo–electroencephalography (EEG) and subsequent surgical resection. Various interictal periods preceding seizure onset were selected for comparison. Time–frequency analysis (TFA) was used to characterize Sp‐HFOs and ictal HFA. Frequency overlap was measured using the Ideal Fusion (I‐Fusion) metric, a novel metric inspired by the F‐measure that integrates frequency range overlap and band matching. I‐Fusion values range from 0 (no overlap) to 1 (perfect match). Linear regression analyzed changes in I‐Fusion values over time, with <italic toggle="no">R</italic>
+<sup>2</sup> indicating the strength of the correlation.</p></sec><sec id="epi18703-sec-0003"><title>Results</title><p>Visual analysis of the time series revealed a preictal phase in all patients, during which brief HFA gradually emerged within spikes (Sp‐HFOs), ultimately transitioning into sustained ictal HFA at the same frequency. TFA demonstrated increasing frequency similarity with time between Sp‐HFOs and ictal HFA. I‐Fusion values and <italic toggle="no">R</italic>
+<sup>2</sup> coefficients rose consistently, indicating a progressive convergence in frequency content. Notably, Sp‐HFOs and ictal HFA shared narrow‐band frequency features within the same electrode contacts, especially in the epileptogenic zone (EZ).</p></sec><sec id="epi18703-sec-0004"><title>Significance</title><p>Our findings support a dynamic, frequency‐specific evolution from interictal Sp‐HFOs to ictal HFA, suggesting that seizure onset is preceded by a gradual preparatory phase rather than an abrupt transformation. The progressive nature and spectral continuity of Sp‐HFOs may reflect increasing neuronal synchrony, providing potential early biomarkers for seizure prediction and improved localization of the EZ.</p></sec></abstract><kwd-group kwd-group-type="author-generated"><kwd id="epi18703-kwd-0001">focal epilepsy</kwd><kwd id="epi18703-kwd-0002">ictal high‐frequency activity (HFA)</kwd><kwd id="epi18703-kwd-0003">interictal‐to‐ictal transition</kwd><kwd id="epi18703-kwd-0004">spike‐associated high‐frequency oscillations (Sp‐HFOs)</kwd><kwd id="epi18703-kwd-0005">stereo‐electroencephalography (SEEG)</kwd></kwd-group><counts><fig-count count="6"/><table-count count="0"/><page-count count="17"/><word-count count="9200"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY-NC-ND</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>February 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.1 mode:remove_FC converted:23.02.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body id="epi18703-body-0001"><p>
+<boxed-text position="anchor" content-type="box" id="epi18703-blkfxd-0001" orientation="portrait"><caption><title>Key points</title></caption><p>
+<list list-type="bullet" id="epi18703-list-0001"><list-item id="epi18703-li-0001"><p>Stereo‐electroencephalography (SEEG) analysis demonstrates a progressive, rather than abrupt, emergence of ictal high‐frequency activity (HFA) from interictal spike‐associated high‐frequency oscillations (Sp‐HFOs) in focal epilepsy.</p></list-item><list-item id="epi18703-li-0002"><p>We introduce Ideal Fusion (I‐Fusion), a novel quantitative metric to assess spectral overlap between spike‐associated high‐frequency oscillations (HFOs) and ictal HFA.</p></list-item><list-item id="epi18703-li-0003"><p>Spectral similarity between Sp‐HFOs and ictal HFA increases as seizure onset approaches, indicating dynamic preictal evolution.</p></list-item><list-item id="epi18703-li-0004"><p>The findings support the presence of a preictal preparatory phase that precedes the onset of sustained ictal fast activity.</p></list-item><list-item id="epi18703-li-0005"><p>Sp‐HFOs may serve as early biomarkers of seizure onset and provide new mechanistic insight into ictal network recruitment.</p></list-item></list>
+</p></boxed-text>
+</p><sec id="epi18703-sec-0007"><label>1</label><title>INTRODUCTION</title><p>The question of electrical markers for a focal seizure onset remains debated, despite their limited diversity. “High‐frequency activity” or “fast activity” (HFA or FA), detectable by stereo‐electroencephalography (SEEG) for over 60 years,<xref rid="epi18703-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref> has shown clinical and pathophysiological relevance in numerous presurgical intracranial studies, as well as in experimental and computational modeling research.<xref rid="epi18703-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>, <xref rid="epi18703-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>, <xref rid="epi18703-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref>, <xref rid="epi18703-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref>, <xref rid="epi18703-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref> Nevertheless, HFA in itself can hardly be taken as a distinctive, self‐sufficient pattern.<xref rid="epi18703-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="epi18703-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref> Instead, HFA consistently combines with other elements such as “preictal” or ictal spikes, sharp waves, electrodecrement, and infraslow activity.<xref rid="epi18703-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="epi18703-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref> Understanding the relationships between HFA and these associated elements, particularly preictal spikes, could be a pertinent approach to elucidating how HFA is generated.</p><p>A linked question concerns the relationship between ictal onset and interictal patterns. Along with spikes or sharp waves, high‐frequency oscillations (HFOs) have been recognized as part of the interictal epileptiform activities.<xref rid="epi18703-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref>, <xref rid="epi18703-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref>, <xref rid="epi18703-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="epi18703-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref>, <xref rid="epi18703-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref> The co‐localization of interictal HFOs with seizure onset, as marked by the emergence of HFA, has been debated, but recent evidence now strongly supports it.<xref rid="epi18703-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref> One challenge is the difficulty in distinguishing pathological from physiological HFOs in cortical areas,<xref rid="epi18703-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref>, <xref rid="epi18703-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> raising questions about the effectiveness of searching for epileptogenic zone (EZ) biomarkers outside the peri‐ictal period.</p><p>Moreover, statistical comparisons of interictal spikes and HFOs for EZ localization have not consistently favored fast activities.<xref rid="epi18703-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref> One reason is that not all spikes are equivalent; spiking activities have long been observed outside of the EZ.<xref rid="epi18703-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>, <xref rid="epi18703-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref> A key objective in presurgical evaluations is to differentiate “red spikes,” which are generated within the EZ, from propagated “green spikes.”<xref rid="epi18703-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref>, <xref rid="epi18703-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref> The precise analysis of SEEG is crucial to distinguish the primary irritative zone (IZ) (the origin of red spikes) from secondary IZ, or propagated IZ (the sites of green spikes).<xref rid="epi18703-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref>, <xref rid="epi18703-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref> Notably, certain electrophysiological characteristics of spike subpopulations have been shown to be specific markers of the EZ.<xref rid="epi18703-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> Classifying multiple interictal features has proven valuable for EZ localization, especially spikes accompanied by gamma activity, as confirmed by surgical outcomes.<sup>2</sup> Such findings align with research in focal cortical dysplasia (FCD), where interictal patterns often delineate the EZ more clearly than seizure onset itself.<xref rid="epi18703-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref> Nevertheless, the precise pathophysiological relationship between interictal activities and the constituent elements of ictal‐onset electrical pattern has not yet been established.</p><p>The present study aimed to reconcile various observations regarding the relative importance of spikes and HFOs recorded under different conditions and their topographic alignment with the seizure‐onset zone (SOZ). Its purpose was to analyze how spikes, whether interictal or preictal, and HFA interact during the transition from interictal to ictal activity. Using time‐frequency analysis (TFA), a focal ictal onset is characterized by narrow‐band HFA that follows either single or repetitive spike activity. The key question is: how does low‐voltage ictal HFA arise from a high‐voltage phasic spike discharge? Is it a disruption of a stable state of paroxysmal activity in scattered interictal networks that suddenly evolves into a local transformation into an unstable, spreading activity? Alternatively, does ictal HFA develop gradually from certain types of interictal spikes,<xref rid="epi18703-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> intermingled with HFOs that may appear at varying times before seizure onset? In that case, seizure onset should be viewed as a transition rather than a transformation. To address these hypotheses, we traced the evolution of the SEEG signal's frequency content backward from the onset of HFA. We measured the spectral overlap between interictal and ictal activities across sequential interictal and preictal periods using TFA. To facilitate this, we introduced a new metric, Ideal Fusion (I‐Fusion), which combines frequency range overlap and band alignment to quantify the degree of spectral similarity over time.</p></sec><sec sec-type="methods" id="epi18703-sec-0008"><label>2</label><title>METHOD</title><sec id="epi18703-sec-0009"><label>2.1</label><title>Patient selection and criteria</title><p>With institutional review board (IRB) approval from the University of Pittsburgh, we retrospectively reviewed six patients with focal drug‐resistant epilepsy who underwent SEEG followed by resection (Dec 2020 to June 2023). Inclusion criteria were (1) seizure‐onset marked by HFA preceded by “pre‐ictal” spiking and (2) a single seizure type with stereotypic semiology and electrographic features. Seizure outcome was assessed using the Engel classification<xref rid="epi18703-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref> at last follow‐up visit. SEEG electrodes (DIXI Medical, Chaudefontaine, France) made of platinum–iridium alloy with contact length of 2 mm, diameter of 0.8 mm and 1.5 mm inter‐contact spacing were implanted according to pre‐implantation hypotheses using the Talairach method. SEEG signals were recorded at a sampling rate of 2048 Hz using a NicoletOne EEG system (Natus Medical Inc.).</p></sec><sec id="epi18703-sec-0010"><label>2.2</label><title>Data selection and preprocessing</title><p>*To investigate the relationship between Sp‐HFOs during the periods of interictal, pre‐ictal, and ictal HFA, we first focused on the interictal–ictal transition period and then analyzed various background interictal periods. “Ictal” was defined as the onset of sustained HFA with concomitant low‐frequency suppression, and “preictal” as the period immediately preceding HFA onset. For each patient, two 60 s SEEG segments, starting 20 s before the onset of HFA, were selected along with four 1 min background segments at 1 h, 30, 5, and 2 min prior. SEEG electrode locations were co‐registered using General Accurate Registration for Deep Electrode Localization (GARDEL),<xref rid="epi18703-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> and a bipolar montage was created from gray matter channels. Visual spike detection was performed independently by two reviewers (T.A. and P.C.) across all 10 segments per patient. To ensure reproducibility and objectivity, the preictal period was operationally defined as the 20 s epoch immediately preceding the onset of ictal HFA. Ictal onset was marked by sustained HFA with accompanying low‐frequency suppression. This time window was chosen to capture the electrophysiological transition without encroaching into unrelated interictal activity. In this study, <italic toggle="yes">ictal HFA</italic> refers to sustained, narrow‐band high‐frequency activity emerging at seizure onset, often with low‐frequency suppression. In contrast, <italic toggle="yes">Sp‐HFOs</italic> are transient high‐frequency components time‐locked to interictal or preictal spikes. HFA marks seizure onset, whereas Sp‐HFOs occur earlier and may play a role in seizure generation. Except for the time–frequency transformation (explained below), no filtering was applied. Channels with excessive artifacts were excluded, and Sp‐HFOs were visually verified to avoid artifacts.</p></sec><sec id="epi18703-sec-0011"><label>2.3</label><title>Time–frequency analysis of background interictal, preictal, and preictal–ictal transition</title><p>Figure <xref rid="epi18703-fig-0001" ref-type="fig">1A</xref> presents data analysis flow chart. TFA was performed on both the interictal–ictal transition and background data, focusing on high‐frequency analysis using the analytic wavelet transform, as recommended by Roehri et al.,<xref rid="epi18703-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref> which is known for effectively handling HFOs. We applied the derivatives of Gaussian wavelet (2–256 Hz, 8 octaves, 12 voices) for decomposition, followed by “H0 z‐score” (<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-1" display="inline" overflow="scroll"><mml:mrow><mml:mrow><mml:msub><mml:mi>Z</mml:mi><mml:msub><mml:mi>H</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:msub></mml:mrow></mml:mrow></mml:math>) normalization (1), which fits a normal distribution to wavelet coefficients for standardization. For seizures, normalization parameters were computed from the 20 s window preceding the seizure. Channels showing the EZ fingerprint pattern, characterized by distinct transient spikes followed by narrow‐band HFA, accompanied by the suppression of low‐frequency activity,<xref rid="epi18703-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="epi18703-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref> were selected for further quantitative analyses.</p><fig position="float" fig-type="FIGURE" id="epi18703-fig-0001" orientation="portrait"><label>FIGURE 1</label><caption><p>Overview of data‐processing workflow and frequency spectral pattern comparison method. (A) Flowchart summarizing the data analysis pipeline. Raw SEEG data segments were extracted from background intervals (60, 30, 5, and 2 min prior to seizure onset) and from the seizure itself. Expert reviewers visually identified spikes across all segments. Data were preprocessed using bipolar montage and organized in BIDS format. Time–frequency analysis was computed using <mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-2" display="inline" overflow="scroll"><mml:mrow><mml:mrow><mml:msub><mml:mi>Z</mml:mi><mml:msub><mml:mi>H</mml:mi><mml:mn>0</mml:mn></mml:msub></mml:msub></mml:mrow></mml:mrow></mml:math> normalization. Channels exhibiting ictal “fingerprint” patterns were selected for further analysis. Frequency ranges of Sp‐HFOs and ictal HFA were extracted from their respective TF maps (TFmaps) and compared to assess spectral similarity. (B) Illustration of the frequency extraction and comparison method. For each Sp‐HFO, a 300‐ms TFmap window was centered on the spike peak (green box). The grayscale image represents the TFmap and the binary image shows thresholded high‐intensity frequencies. Red contours indicate the detected frequency band edges. The same method was applied to ictal HFA windows (pink box). (C) Spectral overlap between Sp‐HFOs and ictal HFA was computed and categorized into two groups: “Perfect match” (high overlap) and “Other” (partial or no overlap). The yellow blobs represent the frequency band compared to each other. The red lines show the edges of the common part from Sp‐HFO and HFA. The pink represents the amount of HFA in common with Sp‐HFO and the green represents the amount of Sp‐HFO in common with HFA. BIDS, Brain Imaging Data Structure; HFA, high‐frequency activity; SEEG, stereo‐electroencephalography; Sp‐HFO, spike‐associated high‐frequency oscillations; TF, time–frequency.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="EPI-67-878-g004.jpg"/></fig></sec><sec id="epi18703-sec-0012"><label>2.4</label><title>Quantitative correlations of Sp‐<styled-content style="fixed-case" toggle="no">HFOs</styled-content> across various interictal and preictal period with <styled-content style="fixed-case" toggle="no">HFA</styled-content> using I‐Fusion</title><p>Selected channels exhibiting HFA at the interictal to ictal transition were analyzed further for Sp‐HFOs. Visually marked spikes were centered at peak amplitude and extracted in 300 ms windows. Any HFO occurring within this window, before, during, or after the spike, was classified as an Sp‐HFO. Spikes were then extracted from the TF map. Corresponding TF maps were transformed to grayscale (0 to 255), binarized using a 99th percentile threshold derived from histogram‐based normal distribution fitting and used to delineate dominant frequency ranges (Figure <xref rid="epi18703-fig-0001" ref-type="fig">1B</xref>).</p><p>To quantify ictal HFA, a sliding window (300 ms window length with a 200 ms step size) was set manually at the HFA transition position, isolating the first four windows to exclude post‐HFA low‐frequency rebound of spiking. The same algorithm was applied to extract frequency ranges from each window of the interictal and preictal period.</p><p>Frequency ranges were extracted from each channel and compared. Two parameters were computed: (1) “amount of HFA,” the proportion of overlapping frequencies between Sp‐HFOs and HFA, divided by the total number of bins frequencies (bin = 1 Hz) in the HFA ranges, and (2) “amount of spike,” the proportion of intersecting frequencies between Sp‐HFOs and HFA, divided by the total number of bins frequencies in the Sp‐HFOs range (Figure <xref rid="epi18703-fig-0001" ref-type="fig">1C</xref>).</p><p>To integrate both frequency range overlap and band matching, I‐Fusion, a metric inspired by the F‐measure, was developed.<disp-formula id="epi18703-disp-0001">
+<mml:math xmlns:mml="http://www.w3.org/1998/Math/MathML" id="jats-math-3" display="block" overflow="scroll"><mml:mrow><mml:mrow><mml:mi mathvariant="normal">I</mml:mi><mml:mo>‐</mml:mo><mml:mtext>Fusion</mml:mtext><mml:mo linebreak="goodbreak">=</mml:mo><mml:mfrac><mml:mrow><mml:msup><mml:mn>2</mml:mn><mml:mo>*</mml:mo></mml:msup><mml:mfenced close=")" open="("><mml:mrow><mml:mtext>Amount  of</mml:mtext><mml:mspace width="0.12em"/><mml:msup><mml:mi>HFA</mml:mi><mml:mo>*</mml:mo></mml:msup><mml:mspace width="0.12em"/><mml:mtext>Amount of spike</mml:mtext></mml:mrow></mml:mfenced></mml:mrow><mml:mrow><mml:mtext>Amount of</mml:mtext><mml:mspace width="0.12em"/><mml:mi>HFA</mml:mi><mml:mo>+</mml:mo><mml:mtext>Amount of spike</mml:mtext></mml:mrow></mml:mfrac></mml:mrow></mml:mrow></mml:math>
+</disp-formula>
+</p><p>Ranging from 0 (no match) to 1 (perfect match), I‐Fusion quantifies the alignment between Sp‐HFOs and ictal HFA. Only Sp‐HFOs with I‐Fusion &gt;0.5 were included in further analysis to ensure meaningful match between Sp‐HFOs and HFA. Sp‐HFO counts were normalized per channel as a percentage of the highest count observed in each patient, with 100% indicating the channel with the highest number of Sp‐HFOs.</p><p>Sp‐HFO counts were normalized per channel as a percentage of the maximum count per patient. Each Sp‐HFO was classified as “perfect,” if it exactly matched both the frequency range and band count of ictal HFA, or “other,” if only partial overlap, where Sp‐HFOs and HFA shared some overlapping frequency ranges and frequency bands, was present.</p></sec><sec id="epi18703-sec-0013"><label>2.5</label><title>Temporal dynamics of I‐Fusion: <italic toggle="no">R</italic>‐squared analysis</title><p>To assess progressive changes in HFA from the preictal to ictal periods, Sp‐HFOs were ordered chronologically from the first baseline spike to the last preictal spike before HFA onset. To formally test the hypothesis of progressive spectral convergence, we applied linear regression to model the temporal evolution of I‐Fusion values from early interictal spikes to preictal spikes immediately preceding ictal onset. The <italic toggle="yes">R</italic>‐squared coefficient was calculated to quantify the fit of the regression model, with values close to 1 indicating a strong correlation and values near 0 suggesting a weak correlation. A positive slope indicated increasing similarity to ictal HFA as seizure onset approached.</p></sec></sec><sec sec-type="results" id="epi18703-sec-0014"><label>3</label><title>RESULTS</title><p>Six patients were included in the study (Table <xref rid="epi18703-supitem-0006" ref-type="supplementary-material">S1</xref>): two patients with mesial temporal lobe epilepsy (Patients 1 and 6) and four patients with neocortical epilepsy insular‐opercular (Patient 2), parietal (Patients 3 and 4), and occipital epilepsy (Patient 5). Two stereotypical seizures from each patient were analyzed. In all 12 seizures, the transition between interictal and ictal activities of the seizures was investigated.</p><p>Patient 1 was a 39‐year‐old man with magnetic resonance imaging (MRI)–negative right mesial temporal lobe epilepsy. Figure <xref rid="epi18703-fig-0002" ref-type="fig">2A</xref> illustrates the transition from interictal to preictal to ictal states. SEEG revealed ~8 s of preictal spiking, synchronizing progressively across the amygdala (A2–3), hippocampus (B2–3, C3–4), and entorhinal cortex (EC; E1–2). Low‐amplitude spikes first emerged in the amygdala and intensified with superimposed HFOs, which gradually appeared on the spike peak and descending slope. Spike amplitude and HFO prominence increased in the amygdala and hippocampus, whereas HFOs remained absent in the EC Sp‐HFOs continued uninterrupted into ictal HFA in the amygdala and hippocampus (Figure <xref rid="epi18703-fig-0002" ref-type="fig">2B</xref>).</p><fig position="float" fig-type="FIGURE" id="epi18703-fig-0002" orientation="portrait"><label>FIGURE 2</label><caption><p>Detailed qualitative analysis of the Patient 1 stereotyped seizure using SEEG time series (A/B) and time–frequency analysis (C). (A) Illustrates the qualitative assessment using visual inspection of the SEEG time series, 20 s before and after the ictal onset, which revealed a sequence of ≈8 s of preictal spiking activity followed by 4 s of low‐voltage fast activity. On the left‐bottom corner, the schema of the SEEG montage is illustrated to explore the MRI‐negative right mesial temporal lobe epilepsy. (B) Focuses on the time series of four channels of interest, taking 12 s before the ictal onset and 2 s after. The spiking activity gradually became synchronous across several structures, including the amygdala (A 2–3), anterior hippocampus (B 2–3), posterior hippocampus (C 3–4), and entorhinal cortex (E 1–2). Low‐amplitude spike activity was first noted in the amygdala. As the sequence progressed, the spikes became more prominent in the amygdala, accompanied by the intrusion of HFOs. At the same time, synchronous spiking was observed in the anterior hippocampus, followed by the posterior hippocampus and entorhinal cortex, all within ~2 s. Sp‐HFOs became prominent, appearing atop and on the descending slope of larger spikes in the amygdala. Similar findings were observed in the hippocampus but not in the entorhinal cortex. As the spiking stage progressed, both the amplitude of spikes and the prominence of HFOs increased in the amygdala and anterior and posterior hippocampus. Toward the end of this phase, spikes disappeared, whereas Sp‐HFOs continued uninterrupted into the ictal sustained HFA in the amygdala. A similar observation was noted in the hippocampus, but not in entorhinal cortex. (C) Displays the corresponding time–frequency analysis of the 14 s time series centered at the onset of HFA (12 s before and 2 s after). In the amygdala, a progressive 3‐Hz spiking discharge exhibited a dual frequency pattern consisting of a low‐frequency component (~10–20 Hz) and a higher‐frequency component with two distinct bands: One centered at ~85 Hz (range 70–100 Hz), and ~176 Hz (range 135–216 Hz), from –6 to 0 s. The higher frequency component gradually encroached on the spike. As the spiking stage progressed, this component split into two distinct frequencies—≈85 and ~176 Hz—by around −3 s. The subsequent ictal HFA appeared as a prolongation of the preceding Sp‐HFOs, now clearly divided into two bands. As this pattern emerged, the lower frequency band was suppressed (i.e., spike component). A similar sequence occurred synchronously in the hippocampi (anterior and posterior), although with lower frequency patterns (~100 Hz) and less signal energy, especially in the higher frequency components. In contrast, On the other hand, neither Sp‐HFOs nor ictal HFA was noted in the EC. Of interest, the sustained HFA appeared to follow the last preictal spikes' HFO component in both preictal and ictal periods were in the same frequency range. HFA, high‐frequency activity; HFO, high‐frequency oscillation; MRI, magnetic resonance imaging; SEEG, stereo‐electroencephalography; Sp‐HFOs, spike‐associated high‐frequency oscillations; s, second.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="EPI-67-878-g003.jpg"/></fig><p>Figure <xref rid="epi18703-fig-0002" ref-type="fig">2C</xref> displays the TFA (14 s window centered on seizure onset), which helps disentangle the multiple frequency patterns evolving throughout the two‐stage sequence. In the amygdala, a dual‐band frequency pattern emerged (~85 and ~176 Hz) against a background of 3 Hz spiking. As HFA onset approached, these frequencies intensified and separated, whereas lower‐frequency components faded. Similar, albeit lower‐amplitude frequency patterns were observed in the hippocampus but not in the EC. Of interest, the sustained HFA appeared to follow the last preictal spike's HFO component, with both preictal and ictal periods exhibiting similar frequency range.</p><p>In A2–3, spectral continuity across the transition was evident. Figure <xref rid="epi18703-fig-0005" ref-type="fig">5A</xref> shows that A1–A4 had the highest spike counts, with 25%–45% I‐Fusion ≥0.5. A2–A3 had consistent perfect Sp‐HFO matches, across all time intervals, and rising I‐Fusion values, peaking at 0.6 during the preictal period (boxplot). Figure <xref rid="epi18703-fig-0006" ref-type="fig">6A</xref> shows linear regression with <italic toggle="yes">R</italic>
+<sup>2</sup> = 0.29 in the amygdala, indicating clustering of perfect Sp‐HFO matches near ictal onset. This suggests that preictal Sp‐HFOs increasingly resembled the frequency characteristics of ictal HFA as the seizure approached.</p><p>Patient 2 was a 15‐year‐old boy with MRI‐negative focal epilepsy localized to the left anterior insular‐opercular cortex. Figure <xref rid="epi18703-fig-0003" ref-type="fig">3A</xref> illustrates the evolution from interictal spikes to preictal to ictal states using the SEEG time series, revealing ~16 s of preictal spiking, progressively synchronizing across the anterior insula (AI) (L′1–2, Y′1–2), anterior cingulate (AC) (Z′1–2), and posterior orbitofrontal cortex (O′8–10). Initially, low‐amplitude spikes emerged in AI, intensifying with superimposed HFOs, which gradually intruded on the spikes' peak and slope. As the spiking progressed, both spike amplitude and HFO prominence increased in insula and cingulate cortex, whereas HFOs remained sparse in the posterior orbitofrontal cortex (PFC). Sp‐HFOs then persisted uninterrupted into sustained ictal HFA from the last preictal spike in the insula and cingulate cortex, but less significantly in the orbitofrontal cortex (Figure <xref rid="epi18703-fig-0003" ref-type="fig">3B</xref>).</p><fig position="float" fig-type="FIGURE" id="epi18703-fig-0003" orientation="portrait"><label>FIGURE 3</label><caption><p>Detailed qualitative analysis of the Patient 2 stereotyped seizure using SEEG time series (A/B) and time–frequency analysis (C). (A) Illustrates the transition from interictal to preictal to ictal states during Patient 2's stereotypical seizure, 20 s before and after the ictal onset. On the left‐bottom corner, the schema of the SEEG montage is illustrated to explore the MRI‐negative left insulo‐opercular epilepsy. (B) Focuses on the time series of four channels of interest, taking 12 s before the ictal onset and 2 s after. Initial spikes were detected in the insular cortex (L′ 1–2 and Y′ 1–2) ≈16 s before the onset of ictal HFA, synchronous with activity in the anterior cingulate (Z′ 1–2) and orbitofrontal cortex (O′ 8–9). As spiking continued, Sp‐HFOs became more prominent in the insula, accompanied by increased spike amplitudes ≈1 s. Sustained HFA subsequently emerged after the last preictal spike in the insula. A similar pattern was observed in the anterior cingulate cortex, whereas in the orbitofrontal cortex, Sp‐HFOs were less prominent and ictal HFA was absent or minimal. (C) Demonstrates the corresponding time time–frequency analysis, depicting a 14 s window spanning from 12 s before to 2 s after HFA onset. In the insular cortex, a progressive 1.5‐Hz spiking discharge displayed a dual‐frequency pattern composed of low‐frequency activity (~10 Hz; range 6–12 Hz) and high‐frequency components (20–203 Hz) at ~1 s intervals. As spiking advanced, the high‐frequency components intensified and separated into two bands—~42 Hz (20–64 Hz) and ~168 Hz (133–203 Hz) by −3.5 s. Eventually, the higher frequency activity dominated, forming sustained ictal HFA, while the low‐frequency component (~10 Hz) was suppressed in the insulo‐opercular cortex. A similar, though lower intensity, sequence was observed in the anterior cingulate (Z'1–2). In contrast, the orbitofrontal cortex exhibited only rare Sp‐HFOs and low‐amplitude, short‐duration ictal HFA. Notably, the sustained HFA appeared to follow the last preictal spike's HFO component, with both preictal and ictal periods maintaining a consistent frequency range. HFA, high‐frequency activity; HFO, high‐frequency oscillation; Sp‐HFOs, spike‐associated high frequency oscillations.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-5" orientation="portrait" xlink:href="EPI-67-878-g002.jpg"/></fig><p>Figure <xref rid="epi18703-fig-0003" ref-type="fig">3C</xref> TFA shows a 14 s window centered on ictal HFA onset. In the AI, a 1.5‐Hz spiking discharge with multiple frequency activities: Low‐frequency (~10 Hz) and high‐frequency components (~42 Hz and ~168 Hz), with recurring intervals of ~1 s. As the spiking advanced, the low‐frequency activity diminished, whereas the high‐frequency components intensified and split into two distinct bands by ~3.5 s before seizure onset. A similar, though weaker, spectral pattern was observed in the AC, with minimal activity in the orbitofrontal cortex. Of interest, the sustained HFA appeared to follow the last preictal spike's HFO component in both AI and AC, whereas ictal HFA was largely absent in the orbitofrontal cortex.</p><p>Multiple spikes across the insular‐opercular and cingulate regions showed high alignment with HFA, with I‐Fusion values ≥0.5 (Figure <xref rid="epi18703-fig-0005" ref-type="fig">5B</xref>). Anterior insula (Y'1–2) demonstrated the best balance between the number of Sp‐HFOs detected and the percentage of perfect matches with ≈68% perfect matches across all interictal periods (histogram), with I‐Fusion consistently &gt;0.65. Perfect matches occurred in &gt;50% of background periods, with a modest, non‐significant increase toward the ictal transition (boxplot). Linear regression analysis revealed a positive correlation in the Y'1–Y'2 with <italic toggle="yes">R</italic>
+<sup>2</sup> &gt; 0.2 (Figure <xref rid="epi18703-fig-0006" ref-type="fig">6B</xref>).</p><p>Patient 3 was a 23‐year‐old woman with MRI‐negative left parietal epilepsy. Figure <xref rid="epi18703-supitem-0001" ref-type="supplementary-material">S1A</xref> shows that 1 Hz spikes appeared in the precuneus and gradually organized into ~4 Hz spiking as seizure approached. As the spiking stage progressed, spike amplitude and Sp‐HFO prominence increased in the precuneus (P′4–5), parieto‐occipital sulcus (O′5–6), parietal operculum (S′7–8), and posterior cingulate gyrus (Y′3–4). Sp‐HFOs then continued into the ictal HFA in the precuneus and adjacent regions (Figure <xref rid="epi18703-supitem-0001" ref-type="supplementary-material">S1B</xref>).</p><p>TFA (14 s window centered on seizure onset) helped disentangle the multiple frequency patterns evolving throughout the two‐stage sequence (Figure <xref rid="epi18703-supitem-0001" ref-type="supplementary-material">S1C</xref>). A dual‐band frequency pattern emerged (~64 and ~114 Hz) in Channels P′4–5 and O′5–6 over a background of lower‐frequency spiking of ~20 Hz (range 11–20 Hz). As HFA onset approached, the high‐frequency components (~114 Hz) intensified and low‐frequency faded. Similar patterns were noted in the parietal operculum and posterior cingulate gyrus. Sustained HFA followed the last preictal Sp‐HFO, exhibiting a consistent frequency range.</p><p>Figure <xref rid="epi18703-fig-0004" ref-type="fig">4A</xref> illustrates TFA comparisons between Sp‐HFOs across time periods and ictal HFA, with I‐Fusion arrows indicating the degree of frequency overlap (1 = perfect match, 0 = no match) across a frequency range of 2–256 Hz. Channels P′4–5 and P′5–6 exhibited the highest percentage of Sp‐HFOs matching the ictal frequency range, with I‐Fusion values exceeding 0.5 in more than 60% of detected spikes (Figure <xref rid="epi18703-fig-0004" ref-type="fig">4B</xref>). The average I‐Fusion for perfect Sp‐HFOs across all background intervals was ~0.7, increasing to ~0.8 during the preictal period, indicating stronger spectral overlap near ictal onset. Channel P′ 4–5 showed elevated I‐Fusion values in the preictal period (0.7) compared to the 5‐min background (~0.55) (boxplot). Linear regression analysis revealed five channels—P'2–3, P'3–4, P'5–6, P'6–7, and P'7–8—with positive correlation between I‐Fusion values and time, each with an <italic toggle="yes">R</italic>
+<sup>2</sup> ≥ 0.2 with a maximum reached at 0.45, indicating a strong correlation with the ictal frequency evolution (Figure <xref rid="epi18703-fig-0006" ref-type="fig">6C</xref>).</p><fig position="float" fig-type="FIGURE" id="epi18703-fig-0004" orientation="portrait"><label>FIGURE 4</label><caption><p>Spectral overlap between Sp‐HFOs and ictal HFA in Patient 3. (A) TF maps (TFmaps) illustrating Sp‐HFO events from five preictal time points (60, 30, 5, and 2 min before ictal onset, and preictal) compared to ictal HFA (top row). Each TFmap represents a 300 ms window (2–256 Hz) with SEEG time series overlaid in white; color scale reflects signal magnitude (blue: low; yellow: high). Red arrows denote I‐Fusion values, a metric of spectral similarity (0 = no match, 1 = perfect match). (B) Histogram displays, by channel, the percentage of Sp‐HFOs with I‐Fusion ≥0.5 (pink), indicating high spectral overlap with ictal HFA. Black bars show normalized Sp‐HFO detection rates across channels. The purple‐highlighted channel exhibits consistent high I‐Fusion values across time points. The inset histogram shows temporal distribution of perfect matches of selected channel P'4–5; the adjacent boxplot illustrates I‐Fusion distribution by different time periods and Sp‐HFO match types in the same channel. Highest I‐Fusion averages occurred during the preictal period (~0.8), suggesting increased spectral convergence prior to seizure onset. Bkg2, 2 min before the seizure onset, SZ: preictal activity right before the onset of the ictal high frequency activity; Bkg30, 30 min before the seizure onset; Bkg5, 5 min before the seizure onset; Bkg60, 60 min before the seizure onset; TF, time frequency.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-7" orientation="portrait" xlink:href="EPI-67-878-g005.jpg"/></fig><p>Patient 4 was a 38‐year‐old woman with a 28‐year history of parietal epilepsy post‐oligodendroglioma resection. Figure <xref rid="epi18703-supitem-0002" ref-type="supplementary-material">S2B</xref> shows initially disorganized, continuous spiking with slowing activity in the precuneus (W1–2), which later became more organized and intensified with superimposed HFOs. As the spiking stage progressed, synchronized spike activity was noted across mid‐cingulate gyrus (Z5–6), post‐cingulate gyrus (S3–4), and parietal cortex (P7–8), accompanied by increasing spike amplitude and greater HFOs prominence in all regions. Toward the end of this phase, Sp‐HFOs continued uninterrupted into the ictal sustained HFA.</p><p>TFA revealed a broadband high‐frequency pattern (36–114 Hz) in Channel W1–2 (Figure <xref rid="epi18703-supitem-0002" ref-type="supplementary-material">S2C</xref>). As HFA onset approached, the high‐frequency components intensified and persisted into the ictal period as sustained HFA following the last preictal spike's HFO component, whereas the lower‐frequency spike component gradually disappeared. Similar, lower‐amplitude patterns were observed in the parietal and cingulate cortex.</p><p>Most parietal and cingulate channels exhibited high I‐Fusion values exceeding 75%, with W1–2 maintaining ~50% perfect matches and a slight increase during the preictal period (Figure <xref rid="epi18703-fig-0005" ref-type="fig">5C</xref>, histogram). The boxplot showed the highest proportion of Sp‐HFOs aligned with ictal HFA in W1–2, with a mean I‐Fusion value of ~0.8, consistent across interictal periods. Linear regression identified a lower <italic toggle="yes">R</italic>
+<sup>2</sup> (~0.1), indicating stable Sp‐HFO patterns with minimal correlation to the ictal period (Figure <xref rid="epi18703-fig-0006" ref-type="fig">6D</xref>).</p><fig position="float" fig-type="FIGURE" id="epi18703-fig-0005" orientation="portrait"><label>FIGURE 5</label><caption><p>Channel‐wise distribution and temporal evolution of spectral similarity between Sp‐HFOs and ictal HFA across patients. Each panel represents data from a single patient. Left‐side histograms display, by channel, the percentage of Sp‐HFOs with I‐Fusion ≥0.5 (pink), indicating spectral similarity to ictal HFA. Black bars represent normalized Sp‐HFO detection rates across channels (100% = most Sp‐HFOs detected; 50% = half that number). The right‐side insets highlight representative channels (purple boxes), showing the temporal distribution of “perfect” matches by period (left histogram) and corresponding I‐Fusion distribution for perfect vs non‐perfect matches (boxplot). (A) Patient 1: All channels exhibited &lt;50% of Sp‐HFOs with I‐Fusion ≥0.5. Channel A2–A3 (amygdala), with the highest detection rate, showed ~45% spectral matches. Perfect matches remained &lt;50% across all periods, with I‐Fusion values increasing slightly toward seizure onset (max ~0.6 in the preictal period). (B) Patient 2: Multiple channels in the insular‐opercular region (Y′, L′) demonstrated &gt;60% spectral matches. Channel Y′1–2 showed the optimal balance of match rate and event count, with perfect matches &gt;50% across all periods and increasing over time. I‐Fusion values averaged ~0.75 for perfect matches and &gt;0.5 for others. (C) Patient 4: Most channels showed &gt;50% spectral overlap. In precuneus (W1–2), perfect matches approached 50% across all periods with a slight increase preictally. I‐Fusion values remained high (mean ~0.8 for perfect, ~0.7 for others) and stable across time. (D) Patient 5: Most channels exhibit ≥50% of matching. However, only mesial F channels (lingula gyrus) have many Sp‐HFOs detected. F′3–4 showed ≥75% perfect matches consistently. I‐Fusion distributions were uniform across time, averaging ~0.75 for both perfect and non‐perfect types. (E) Patient 6: Most channels showed ~50% spectral matches. Channel A'2–3 (amygdala) exhibited ≥75% perfect matches in all periods, with 100% in the 60 min background (likely due to low event count). Boxplots revealed high I‐Fusion for perfect matches (&gt;0.75), whereas non‐perfect matches remained &lt;0.5. Bkg2:: 2 min before the seizure onset, SZ: preictal activity right before the onset of the ictal high frequency activity; Bkg30 30 min before the seizure onset; Bkg5: 5 min before the seizure onset; Bkg60: 60 min before the seizure onset; HFA high‐frequency activity; Sp‐HFOs:: spike‐associated high‐frequency oscillations.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-9" orientation="portrait" xlink:href="EPI-67-878-g006.jpg"/></fig><fig position="float" fig-type="FIGURE" id="epi18703-fig-0006" orientation="portrait"><label>FIGURE 6</label><caption><p>Time–frequency analysis and correlation of Sp‐HFO spectral similarity to ictal HFA across patients. Each panel corresponds to one patient. Left panels show time–frequency maps (2–256 Hz, logarithmic scale) over a 12 s window centered on seizure onset (time 0) with SEEG time series overlaid in green. Signal magnitude is indicated by color (black = low; red = moderate; white = high). Light blue boxes highlight the transition from preictal to ictal states. Right panel displays scatter plot of <italic toggle="yes">R</italic>
+<sup>2</sup> values calculated from linear regression of I‐Fusion scores across time to quantify the correlation between Sp‐HFO spectral features and ictal HFA onset. The red dot represents the « perfect » matches, while the blue dot represents the « other » matches. (A) Patient 1: Amygdala exhibited a modest positive correlation (<italic toggle="yes">R</italic>
+<sup>2</sup> = 0.29), indicating a gradual increase in spectral alignment as seizure onset approached. (B) Patient 2: Anterior insula showed a consistent temporal relationship with ictal HFA, with a moderate <italic toggle="yes">R</italic>
+<sup>2</sup> &gt; 0.2. (C) Patient 3: Precuneus exhibited the highest <italic toggle="yes">R</italic>
+<sup>2</sup> reached 0.45, indicating strong preictal‐to‐ictal spectral convergence. (D) Patient 4: Precuneus demonstrated a low <italic toggle="yes">R</italic>
+<sup>2</sup> (~0.1), suggesting stable but non‐progressive Sp‐HFO patterns. (E) Patient 5: Lingula did not reveal a significant temporal trend; <italic toggle="yes">R</italic>
+<sup>2</sup> values remained low, consistent with a stable Sp‐HFO‐HFA relationship across time. (F) Patient 6: Amygdala exhibited the highest <italic toggle="yes">R</italic>
+<sup>2</sup> (&gt;0.6), reflecting a strong correlation between Sp‐HFO spectral features and ictal HFA.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-11" orientation="portrait" xlink:href="EPI-67-878-g001.jpg"/></fig><p>Patient 5 was a 35‐year‐old man with a 22‐year history of focal MRI‐negative occipital lobe epilepsy. Figure <xref rid="epi18703-supitem-0003" ref-type="supplementary-material">S3B</xref> shows left lingual cortex (F′1–4) had continuous interictal spikes increasing to 7–8 Hz, with superimposed HFOs. HFOs became prominent and lengthened before ictal HFA. As the seizure progressed, Sp‐HFOs became more prominent and prolonged in F′1–4. Approximately 2 s before the ictal HFA transition, the HFOs lengthened, and the spike frequency increased, leading to the persistence of the HFO component into the ictal HFA transition.</p><p>TFA complemented these findings by revealing a broadband HFO (30–203 Hz) in F′3–4 (Figure <xref rid="epi18703-supitem-0003" ref-type="supplementary-material">S3C</xref>). As the seizure approached, the higher‐frequency band (36–203 Hz) persisted and intensified, transitioning into ictal HFA within the same frequency range, whereas the lower‐frequency band (10–20 Hz) disappeared. Notably, no preictal Sp‐HFOs were detected in the EC (E′1–2), occipital cortex (O′12–13), or parieto‐occipital sulcus (POS) (D′5–6), and no clear ictal HFA was observed during the transition.</p><p>In the I‐Fusion analysis, the F' electrode exhibited that 75% of spikes were classified as perfect matches across all periods, with an average I‐Fusion value of 0.8. This indicates a strong correlation between Sp‐HFOs of the interictal and preictal, with HFA (Figure <xref rid="epi18703-fig-0005" ref-type="fig">5D</xref>). Notably, the linear regression did not reveal significant changes in I‐Fusion values over time during the preictal period (Figure <xref rid="epi18703-fig-0006" ref-type="fig">6E</xref>).</p><p>Patient 6 was a 25‐year‐old man with a 24‐year history of MRI‐negative left medio‐basal temporal lobe epilepsy. Figure <xref rid="epi18703-supitem-0004" ref-type="supplementary-material">S4A</xref> illustrates synchronous preictal spikes occurring at a rate of 1 Hz, at ≈10 s before the ictal HFA. As the seizure progressed, Sp‐HFOs became more prominent in amygdala (A′2–3), with synchronous spikes and Sp‐HFOs noted in the hippocampus (B′ 3–4, C′ 2–3), but not in the EC (E′1–2). As spike activity subsided, Sp‐HFOs continued without interruption into low gamma FA within the amygdala and hippocampus, but not in the EC (Figure <xref rid="epi18703-supitem-0004" ref-type="supplementary-material">S4B</xref>).</p><p>TFA revealed persistent low gamma components (~20 Hz, 15–25 Hz, high intensity; ~36 Hz, 30–40 Hz, lower intensity) along with an intense low‐frequency band (8–25 Hz) that disappeared at ictal onset. The ~20 Hz and ~36 Hz bands persisted and transitioned into ictal HFA in the amygdala, with similar patterns in the hippocampus and EC. Although Patient 6 demonstrated a shorter transition period compared to Patient 1, the stereotyped evolution from Sp‐HFOs to ictal HFA remained consistent—even when the dominant frequencies fall within the lower gamma range, as is often seen in mesial temporal lobe epilepsy. (Figure <xref rid="epi18703-supitem-0004" ref-type="supplementary-material">S4C</xref>).</p><p>In the I‐Fusion analysis, most channels exhibited ~50% Sp‐HFO alignment with ictal HFA, with A'2–A'3 standing out by showing ≥75% perfect matches across all periods and reaching 100% during the 60 min background. One of the explanations for the 100% may be due to the low number of detected Sp‐HFOs (Figure <xref rid="epi18703-fig-0005" ref-type="fig">5E</xref>). The boxplot revealed high I‐Fusion values for perfect matches (&gt;0.75), whereas non‐perfect types remained below 0.5. Figure <xref rid="epi18703-fig-0006" ref-type="fig">6F</xref> illustrates (A'2–A'3) showing a strong positive correlation (<italic toggle="yes">R</italic>
+<sup>2</sup> &gt; 0.6), with perfect matches clustering closer to the ictal period.</p></sec><sec sec-type="discussion" id="epi18703-sec-0015"><label>4</label><title>DISCUSSION</title><p>To figure out how the ictal HFA arises at the onset of focal seizures is the central question in this study. Since the new trend of presurgical investigation with SEEG, multiple studies have concluded that the “low‐voltage fast activity” (LVFA) at seizure onset is the most robust marker for EZ.<xref rid="epi18703-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="epi18703-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="epi18703-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref> However, this statement came from statistical analysis studies taking surgical outcome as ground truth.<xref rid="epi18703-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="epi18703-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="epi18703-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="epi18703-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref> Such reference makes sense only when surgical resections are of limited size. After identification of HFOs as IEDs, the relationship between high‐frequency interictal activity features and the EZ was also investigated based on statistical co‐localization.<xref rid="epi18703-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="epi18703-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref> Then, a debate ensued on which of the spikes or of the HFOs were the best marker for the EZ from the interictal period.<xref rid="epi18703-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref> There is now no question that both contribute to seizure triggering. Given that the LVFA per se is not a reliable marker of an EZ unless it is made of narrow high‐frequency band and combined with preictal spiking and low‐frequency suppression in the same site, the conditions of its emergence had to be studied in the context of this complex interictal to ictal transition. Our study, using I‐Fusion values and <italic toggle="yes">R</italic>
+<sup>2</sup> correlations provides insights into the relationship between preictal Sp‐HFOs and ictal HFA during the interictal‐to‐ictal transition. We observed a progressive correlation of preictal Sp‐HFOs over time, reflected by increasing <italic toggle="yes">R</italic>
+<sup>2</sup> values approaching the ictal onset. Moreover, our analysis suggests that interictal HFO components of spikes or IEDs show preparatory activity related to ictal HFA, as evidenced by increasing I‐Fusion rates and perfect matches.</p><p>A consistent time sequence was identified across all patients in this study. In a preictal phase (immediately before HFA occurrence), there was a change in the interictal activity structure. Brief bursts of HFA gradually appeared and encroached upon the spikes (Sp‐HFOs) before leading to sustained HFA at the ictal transition. The HFO component of preictal spikes and the ictal HFA in the epileptogenic zone channels fell within the same frequency range, indicating that the HFA generation is likely to be a continuation from the preictal phase rather than a sudden distinct and disruptive phenomenon. Among studies that questioned the relative specificity of interictal spikes versus HFOs in predicting the EZ location, some of them identified a peculiar pattern made of the combination of spikes and HFOs: “spike‐gamma rates in wakefulness were associated with a high probability of achieving seizure freedom.”<xref rid="epi18703-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref>, <xref rid="epi18703-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>
+</p><p>Our study confirms the interest of this association and reveals the dynamic features of a “preparatory” phenomenon. Given the prolonged spectral features of the HFA following the pre‐ictal Sp‐HFOs, the build‐up mechanism of this phenomenon needed to be explored. The fact that the spikes and the HFOs, as well as the Sp‐HFOs, could be detected and identified with SEEG macroelectrodes, denotes a high degree of synchrony among their generating neuronal assemblies. In particular, the narrow‐band aspect of the HFOs is a signature of such synchrony. Since the spike‐nested gamma oscillations observed in the current and previous studies support an interdependence of spikes and HFOs, and the ictal HFA escapes from the preictal Sp‐HFOs at the same frequency, does the ultimate synchronization subserving HFA develop only during the preictal spiking or is it already present during the interictal period, and is there an evolution of the phenomenon with time?</p><p>Therefore, how does this interplay between the spikes and the HFOs give rise to this HFA escaping from the preictal spiking stage at the same frequency? How does the Sp‐HFO structure evolve with time? To answer these questions, we undertook a comparative analysis of the frequency contents of interictal spikes and HFA at ictal onset by using the Ideal Fusion method (I‐Fusion), then the <italic toggle="yes">R</italic>
+<sup>2</sup>‐squared analysis. I‐Fusion is a dynamic measure of the frequency alignment between Sp‐HFOs and HFA, offering insights into how closely the interictal activity matches the ictal frequency range. In addition, time evolution of the I‐Fusion was essential to estimate with the <italic toggle="yes">R</italic>
+<sup>2</sup>‐squared analysis.</p><p>Evidence of an alignment gave us a dynamic view of how closely the preictal activity matches the frequency content of the impending seizure, leading to identify the traits of a preparatory phase. The <italic toggle="yes">R</italic>
+<sup>2</sup>‐squared analysis, on the other hand, measured the strength of the correlation between the preictal Sp‐HFO and ictal HFA across time, revealing how these two activity patterns evolve together building up to the seizure.</p><p>The I‐Fusion method was effective in capturing a preparatory phase of seizure onset. Across the six patients, the I‐Fusion values demonstrated varying degrees of alignment between Sp‐HFOs and HFA at seizure onset, highlighting distinct preparatory shifts in neural dynamics. Of interest, in some EZs like in amygdala and temporal pole, high I‐Fusion values remained consistent, indicating a robust relationship between Sp‐HFOs and ictal HFA. As the ictal period approached, the I‐Fusion values generally increased, suggesting a gradual shift toward preferential ictal frequencies. This trend was consistent in most patients, with some exhibiting more distinct and pronounced preictal shifts. The lack of a clear preparatory shift in Patient 5 resulted from a continuous activity of interictal spikes at the F'1–2 and F'3–4 locations, whose spectral characteristics were already the same as at seizure onset. This explained why the <italic toggle="yes">R</italic>
+<sup>2</sup>‐squared analysis did not document a consistent preparatory trend throughout the preictal period. Each of the interictal Sp‐HFOs was spectrally similar to seizure onset. This was not surprising in an FCD type II case. This demonstrates that localization of EZ in similar cases can be based upon interictal activity spectral content. This is an interictal fingerprint.</p><p>The difference in evolution of “perfect versus other” with time between Patient 5 and the other patients (Figure <xref rid="epi18703-fig-0006" ref-type="fig">6</xref>) illustrates the existence of a gradual tidying up of the relationship between the spike and the fast activity that could hitherto present some fluctuation. Figure <xref rid="epi18703-fig-0006" ref-type="fig">6</xref> also shows that there is a plateauing trend of “perfect” alignment at the end, meaning that the last Sp‐HFOs are also more rigidly aligned to each other. Of interest, the spectral pattern of the Sp‐HFOs is similar to the SWR (sharp wave ripple) supporting memory consolidation in the hippocampus.<xref rid="epi18703-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref> In this model, the generation of the gamma frequency band is explained by a mechanism of concatenation of several SWRs.<xref rid="epi18703-bib-0034" ref-type="bibr">
+<sup>34</sup>
+</xref> The time–frequency plots in Figure <xref rid="epi18703-fig-0006" ref-type="fig">6</xref> effectively show such a concatenation of HFAs at the interictal to ictal transition between Sp‐HFOs and HFA.</p><p>This study sheds new light on the genesis of the EZ fingerprint (EZF).<xref rid="epi18703-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref> Defined by the combination of preictal spiking, narrow band HFA, and suppression of low‐ frequency activity in one brain “zone,” EZF can be considered as a valid marker of an EZ, and a guidance for epilepsy surgery as a consequence. However, repetitive spiking, HFA, or suppression can also be recorded in isolation at seizure onset and the question of their relevance is debated.<xref rid="epi18703-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>, <xref rid="epi18703-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref> All the previous studies were undertaken with SEEG where a sampling bias is inherent to the method. The diverse seizure‐onset patterns described in those studies, which are made of various associations of isolated or repetitive spikes with low‐voltage activities of multiple frequency ranges, could well be due to sub‐optimal electrode placement with respect to the EZ. The current study shows how the EZF originates from a gradual development of a high‐frequency oscillatory activity initially nested within certain interictal spikes before its eventual liberation at seizure onset.</p><p>As hypothesized earlier,<xref rid="epi18703-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref>, <xref rid="epi18703-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref>, <xref rid="epi18703-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref> fast spiking, parvalbumin‐positive interneurons (PV+) inhibitory interneurons are likely to be involved in the generation of the chirping HFA at seizure onset. After a seminal experimental study demonstrating preservation of perisomatic inhibition of pyramidal neurons in pilocarpin and kainate epilepsy models, a neural mass model approach supported a failure of slow dendritic inhibition and preservation (or exacerbation) of fast perisomatic inhibition as the mechanism responsible for the emergence of HFA at the onset of focal seizures.<xref rid="epi18703-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref> This hypothesis was ultimately confirmed through microelectrode recordings in experimental models.<xref rid="epi18703-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref>, <xref rid="epi18703-bib-0038" ref-type="bibr">
+<sup>38</sup>
+</xref>, <xref rid="epi18703-bib-0039" ref-type="bibr">
+<sup>39</sup>
+</xref> In particular, a causal relationship between the high‐frequency discharge of PV+ interneurons and the HFA was clearly evidenced.<xref rid="epi18703-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref>, <xref rid="epi18703-bib-0040" ref-type="bibr">
+<sup>40</sup>
+</xref> Then, neural mass modeling showed that the combination of feed‐forward and feedback connections in a specific range of strength connectivity between pyramidal cells and PV+ interneurons was the best condition for generation of HFA and explained its chirping aspect.<xref rid="epi18703-bib-0041" ref-type="bibr">
+<sup>41</sup>
+</xref>
+</p><p>Could a similar mechanism account for the Sp‐HFO and its gradual transformation into HFA? Among the abundant literature about HFOs, few studies addressed possible common mechanisms for interictal spike and nested HFOs. In slices or isolated brain preparations, microelectrode recordings of EC showed that interictal spikes have distinct intracellular correlates from the preictal spikes; whereas the preictal spikes correlate with inhibitory interneurons discharges, the interictal spikes correlate with bursts of action potentials superimposed on a paroxysmal depolarization shift in pyramidal cells.<xref rid="epi18703-bib-0042" ref-type="bibr">
+<sup>42</sup>
+</xref>, <xref rid="epi18703-bib-0043" ref-type="bibr">
+<sup>43</sup>
+</xref> So, the role of inhibitory interneurons would be prominent only at the preictal–ictal transition. However, to the best of our knowledge there is no phenomenon like interictal spike–HFO in experimental epilepsy. Therefore, the best model for it so far could be the hippocampal pathological ripples (p‐ripples).<xref rid="epi18703-bib-0044" ref-type="bibr">
+<sup>44</sup>
+</xref> Even though the relative contribution of pyramidal cells and inhibitory interneurons is unclear, several studies show that their discharges are overlapping in time and the HFO component of the local field potential corresponds to high‐frequency bursts of action potentials in pyramidal cells.<xref rid="epi18703-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref> However, distinctive features of SWRs and IEDs were clearly demonstrated: in IEDs, the initial event was fast firing of PV+ basket cells leading to a depolarization block, and leading to increased firing of pyramidal cells maximal at the peak of the IED and the peak of the HFO power.<xref rid="epi18703-bib-0045" ref-type="bibr">
+<sup>45</sup>
+</xref> Many recent articles identified a gamma‐spike sequence<xref rid="epi18703-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref>, <xref rid="epi18703-bib-0046" ref-type="bibr">
+<sup>46</sup>
+</xref> that could reflect the same mechanism.</p><p>What is the significance of the gradual alignment of high frequency in the evolution of interictal discharge and its transition to ictal activity? The spectral aspect of the Sp‐HFOs as a narrow band indicates a high level of synchrony in a circumscribed network. The Molaee–Ardekani model supports the hypothesis that network frequency tuning depends on the relative strength of excitatory/inhibitory connections in the pyramidal/fast inhibitory neurons couple<xref rid="epi18703-bib-0041" ref-type="bibr">
+<sup>41</sup>
+</xref> (Figures <xref rid="epi18703-fig-0005" ref-type="fig">5</xref> and <xref rid="epi18703-fig-0006" ref-type="fig">6</xref>). Variation of this functional connectivity with time until adjusting to the best epileptogenic system frequency is a likely explanation. During the interictal Sp‐HFO stage, the two intermingled but distinct graphoelements might result from an alternate discharge of pyramidals and inhibitory interneurons. During the HFA stage, where the phasic slow spike has disappeared and the resonant frequency has been reached, the underlying mechanism could be a pure synchronous discharge of the fast inhibitory interneurons silencing the pyramidals (2, 3) followed by their depolarization block, or a coupled discharge of both preceding their decoupling and the post‐inhibitory rebound.</p></sec><sec id="epi18703-sec-0016"><title>AUTHOR CONTRIBUTIONS</title><p>Patrick Chauvel served as the corresponding author and led the study design, data interpretation, and manuscript preparation. Thandar Aung and Aude Jegou contributed equally to data collection, statistical analysis, and critical revision of the manuscript. All three authors were involved in drafting and revising the manuscript and approved the final version.</p></sec><sec sec-type="COI-statement" id="epi18703-sec-0018"><title>CONFLICT OF INTEREST STATEMENT</title><p>All the authors declare no conflicts of interest and received no external funding for this study.</p></sec><sec id="epi18703-sec-0021"><title>ETHICS STATEMENT</title><p>All the authors confirm that we have read the Journal's position on issues involved in ethical publication and affirm that this report is consistent with those guidelines.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="epi18703-supitem-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>
+Figure S1.
+</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="EPI-67-878-s005.tif" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="epi18703-supitem-0002" position="float" content-type="local-data" orientation="portrait"><caption><p>
+Figure S2.
+</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="EPI-67-878-s004.tif" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="epi18703-supitem-0003" position="float" content-type="local-data" orientation="portrait"><caption><p>
+Figure S3.
+</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="EPI-67-878-s001.tif" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="epi18703-supitem-0004" position="float" content-type="local-data" orientation="portrait"><caption><p>
+Figure S4.
+</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="EPI-67-878-s007.tif" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="epi18703-supitem-0005" position="float" content-type="local-data" orientation="portrait"><caption><p>
+Figure S5.
+</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="EPI-67-878-s002.tif" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="epi18703-supitem-0006" position="float" content-type="local-data" orientation="portrait"><caption><p>
+Table S1.
+</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="EPI-67-878-s003.docx" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="epi18703-supitem-0007" position="float" content-type="local-data" orientation="portrait"><caption><p>
+Figure Caption.
+</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="EPI-67-878-s006.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ack id="epi18703-sec-0017"><title>ACKNOWLEDGMENTS</title><p>We sincerely thank our colleagues in the Epilepsy Division at the Department of Neurology, University of Pittsburgh Medical Center (UPMC), including physicians and EEG technologists, for their invaluable collaboration, which made this work possible. We are especially grateful to Dr. Jorge Gonzalez‐Martinez for his skilled implantation of depth electrodes for stereo‐EEG (SEEG)—a critical contribution to this study. In addition, Dr. Gonzalez‐Martinez performed surgery on all patients included in this research.</p></ack><sec sec-type="data-availability" id="epi18703-sec-0020"><title>DATA AVAILABILITY STATEMENT</title><p>The data that support the findings of this study are available on request from the corresponding author. The data are not publicly available due to privacy or ethical restrictions.</p></sec><ref-list content-type="cited-references" id="epi18703-bibl-0001"><title>REFERENCES</title><ref id="epi18703-bib-0001"><label>1</label><mixed-citation publication-type="book" id="epi18703-cit-0001">
+<string-name name-style="western">
+<surname>Bancaud</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Talairach</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bonis</surname>
+<given-names>A</given-names>
+</string-name>. <source>La stéréoencéphalographie dans l'épilepsie. Informations neuro‐physio‐pathologiques apportées par l'investigation fonctionnelle stéréotaxique</source>. <publisher-loc>Paris</publisher-loc>: <publisher-name>Masson</publisher-name>; <year>1965</year>.</mixed-citation></ref><ref id="epi18703-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="epi18703-cit-0002">
+<string-name name-style="western">
+<surname>Sklenarova</surname>
+<given-names>B</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zatloukalova</surname>
+<given-names>E</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Cimbalnik</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Klimes</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Dolezalova</surname>
+<given-names>I</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pail</surname>
+<given-names>M</given-names>
+</string-name>, et al. <article-title>Interictal high‐frequency oscillations, spikes, and connectivity profiles: a fingerprint of epileptogenic brain pathologies</article-title>. <source>Epilepsia</source>. <year>2023</year>;<volume>64</volume>(<issue>11</issue>):<fpage>3049</fpage>–<lpage>3060</lpage>.<pub-id pub-id-type="pmid">37592755</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/epi.17749</pub-id></mixed-citation></ref><ref id="epi18703-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="epi18703-cit-0003">
+<string-name name-style="western">
+<surname>Frauscher</surname>
+<given-names>B</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bartolomei</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kobayashi</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Cimbalnik</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>van ‘t Klooster</surname>
+<given-names>MA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rampp</surname>
+<given-names>S</given-names>
+</string-name>, et al. <article-title>High‐frequency oscillations: the state of clinical research</article-title>. <source>Epilepsia</source>. <year>2017</year>;<volume>58</volume>(<issue>8</issue>):<fpage>1316</fpage>–<lpage>1329</lpage>.<pub-id pub-id-type="pmid">28666056</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/epi.13829</pub-id><pub-id pub-id-type="pmcid">PMC5806699</pub-id></mixed-citation></ref><ref id="epi18703-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="epi18703-cit-0004">
+<string-name name-style="western">
+<surname>Bartolomei</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lagarde</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wendling</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>McGonigal</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jirsa</surname>
+<given-names>V</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Guye</surname>
+<given-names>M</given-names>
+</string-name>, et al. <article-title>Defining epileptogenic networks: contribution of SEEG and signal analysis</article-title>. <source>Epilepsia</source>. <year>2017</year>;<volume>58</volume>(<issue>7</issue>):<fpage>1131</fpage>–<lpage>1147</lpage>.<pub-id pub-id-type="pmid">28543030</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/epi.13791</pub-id></mixed-citation></ref><ref id="epi18703-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="epi18703-cit-0005">
+<string-name name-style="western">
+<surname>Roehri</surname>
+<given-names>N</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lina</surname>
+<given-names>JM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mosher</surname>
+<given-names>JC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bartolomei</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Benar</surname>
+<given-names>CG</given-names>
+</string-name>. <article-title>Time‐frequency strategies for increasing high‐frequency oscillation detectability in intracerebral EEG</article-title>. <source>IEEE Trans Biomed Eng</source>. <year>2016</year>;<volume>63</volume>(<issue>12</issue>):<fpage>2595</fpage>–<lpage>2606</lpage>.<pub-id pub-id-type="pmid">27875125</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1109/TBME.2016.2556425</pub-id><pub-id pub-id-type="pmcid">PMC5134253</pub-id></mixed-citation></ref><ref id="epi18703-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="epi18703-cit-0006">
+<string-name name-style="western">
+<surname>Grinenko</surname>
+<given-names>O</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Li</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mosher</surname>
+<given-names>JC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wang</surname>
+<given-names>IZ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bulacio</surname>
+<given-names>JC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gonzalez‐Martinez</surname>
+<given-names>J</given-names>
+</string-name>, et al. <article-title>A fingerprint of the epileptogenic zone in human epilepsies</article-title>. <source>Brain</source>. <year>2018</year>;<volume>141</volume>(<issue>1</issue>):<fpage>117</fpage>–<lpage>131</lpage>.<pub-id pub-id-type="pmid">29253102</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/brain/awx306</pub-id><pub-id pub-id-type="pmcid">PMC5837527</pub-id></mixed-citation></ref><ref id="epi18703-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="epi18703-cit-0007">
+<string-name name-style="western">
+<surname>Job</surname>
+<given-names>AS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>David</surname>
+<given-names>O</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Minotti</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bartolomei</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chabardès</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kahane</surname>
+<given-names>P</given-names>
+</string-name>. <article-title>Epileptogenicity maps of intracerebral fast activities (60–100 Hz) at seizure onset in epilepsy surgery candidates</article-title>. <source>Front Neurol</source>. <year>2019</year>;<volume>10</volume>:<elocation-id>1263</elocation-id>.<pub-id pub-id-type="pmid">31849823</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fneur.2019.01263</pub-id><pub-id pub-id-type="pmcid">PMC6892969</pub-id></mixed-citation></ref><ref id="epi18703-bib-0008"><label>8</label><mixed-citation publication-type="book" id="epi18703-cit-0008">
+<string-name name-style="western">
+<surname>Chauvel</surname>
+<given-names>P</given-names>
+</string-name>. <part-title>The epileptogenic zone: a critical reconstruction</part-title>. <source>A practical approach to stereo EEG</source>. <publisher-loc>New York, NY, USA</publisher-loc>: <publisher-name>Springer Publishing Company</publisher-name>; <year>2020</year>. p. <fpage>105</fpage>–<lpage>117</lpage>.</mixed-citation></ref><ref id="epi18703-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="epi18703-cit-0009">
+<string-name name-style="western">
+<surname>Ikeda</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Takeyama</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bernard</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nakatani</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Shimotake</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Daifu</surname>
+<given-names>M</given-names>
+</string-name>, et al. <article-title>Active direct current (DC) shifts and “red slow”: two new concepts for seizure mechanisms and identification of the epileptogenic zone</article-title>. <source>Neurosci Res</source>. <year>2020</year>;<volume>156</volume>:<fpage>95</fpage>–<lpage>101</lpage>.<pub-id pub-id-type="pmid">32045575</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.neures.2020.01.014</pub-id></mixed-citation></ref><ref id="epi18703-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="epi18703-cit-0010">
+<string-name name-style="western">
+<surname>Shi</surname>
+<given-names>W</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Shaw</surname>
+<given-names>D</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Walsh</surname>
+<given-names>KG</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Han</surname>
+<given-names>X</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Eden</surname>
+<given-names>UT</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Richardson</surname>
+<given-names>RM</given-names>
+</string-name>, et al. <article-title>Spike ripples localize the epileptogenic zone best: an international intracranial study</article-title>. <source>Brain</source>. <year>2024</year>;<volume>147</volume>(<issue>7</issue>):<fpage>2496</fpage>–<lpage>2506</lpage>.<pub-id pub-id-type="pmid">38325327</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/brain/awae037</pub-id><pub-id pub-id-type="pmcid">PMC11224608</pub-id></mixed-citation></ref><ref id="epi18703-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="epi18703-cit-0011">
+<string-name name-style="western">
+<surname>Wang</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>So</surname>
+<given-names>NK</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jin</surname>
+<given-names>B</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wang</surname>
+<given-names>IZ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bulacio</surname>
+<given-names>JC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Enatsu</surname>
+<given-names>R</given-names>
+</string-name>, et al. <article-title>Interictal ripples nested in epileptiform discharge help to identify the epileptogenic zone in neocortical epilepsy</article-title>. <source>Clin Neurophysiol</source>. <year>2017</year>;<volume>128</volume>(<issue>6</issue>):<fpage>945</fpage>–<lpage>951</lpage>.<pub-id pub-id-type="pmid">28412559</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.clinph.2017.03.033</pub-id></mixed-citation></ref><ref id="epi18703-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="epi18703-cit-0012">
+<string-name name-style="western">
+<surname>Guth</surname>
+<given-names>TA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kunz</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Brandt</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Dümpelmann</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Klotz</surname>
+<given-names>KA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Reinacher</surname>
+<given-names>PC</given-names>
+</string-name>, et al. <article-title>Interictal spikes with and without high‐frequency oscillation have different single‐neuron correlates</article-title>. <source>Brain</source>. <year>2021</year>;<volume>144</volume>(<issue>10</issue>):<fpage>3078</fpage>–<lpage>3088</lpage>.<pub-id pub-id-type="pmid">34343264</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/brain/awab288</pub-id><pub-id pub-id-type="pmcid">PMC8634126</pub-id></mixed-citation></ref><ref id="epi18703-bib-0013"><label>13</label><mixed-citation publication-type="journal" id="epi18703-cit-0013">
+<string-name name-style="western">
+<surname>Matsumoto</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Brinkmann</surname>
+<given-names>BH</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Stead</surname>
+<given-names>SM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Matthew Stead</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Matsumoto</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kucewicz</surname>
+<given-names>MT</given-names>
+</string-name>, et al. <article-title>Pathological and physiological high‐frequency oscillations in focal human epilepsy</article-title>. <source>J Neurophysiol</source>. <year>2013</year>;<volume>110</volume>(<issue>8</issue>):<fpage>1958</fpage>–<lpage>1964</lpage>.<pub-id pub-id-type="pmid">23926038</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1152/jn.00341.2013</pub-id><pub-id pub-id-type="pmcid">PMC3798937</pub-id></mixed-citation></ref><ref id="epi18703-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="epi18703-cit-0014">
+<string-name name-style="western">
+<surname>Pail</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Cimbálník</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Roman</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Daniel</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Shaw</surname>
+<given-names>DJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chrastina</surname>
+<given-names>J</given-names>
+</string-name>, et al. <article-title>High frequency oscillations in epileptic and non‐epileptic human hippocampus during a cognitive task</article-title>. <source>Sci Rep</source>. <year>2020</year>;<volume>10</volume>(<issue>1</issue>):<elocation-id>18147</elocation-id>.<pub-id pub-id-type="pmid">33097749</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-020-74306-3</pub-id><pub-id pub-id-type="pmcid">PMC7585420</pub-id></mixed-citation></ref><ref id="epi18703-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="epi18703-cit-0015">
+<string-name name-style="western">
+<surname>Gerstl</surname>
+<given-names>JVE</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kiseleva</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Imbach</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sarnthein</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fedele</surname>
+<given-names>T</given-names>
+</string-name>. <article-title>High frequency oscillations in relation to interictal spikes in predicting postsurgical seizure freedom</article-title>. <source>Sci Rep</source>. <year>2023</year>;<volume>13</volume>(<issue>1</issue>):<elocation-id>21313</elocation-id>.<pub-id pub-id-type="pmid">38042925</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1038/s41598-023-48764-4</pub-id><pub-id pub-id-type="pmcid">PMC10693609</pub-id></mixed-citation></ref><ref id="epi18703-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="epi18703-cit-0016">
+<string-name name-style="western">
+<surname>De Curtis</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Avoli</surname>
+<given-names>M</given-names>
+</string-name>. <article-title>Interictal epileptiform discharges in partial epilepsy: neurobiologic mechanisms based on clinical and experimental evidence</article-title>. <source>Epilepsia</source>. <year>2010</year>;<volume>51</volume>(<issue>Suppl. 5</issue>):<fpage>22</fpage>.</mixed-citation></ref><ref id="epi18703-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="epi18703-cit-0017">
+<string-name name-style="western">
+<surname>Serafini</surname>
+<given-names>R</given-names>
+</string-name>. <article-title>Similarities and differences between the interictal epileptiform discharges of green‐spikes and red‐spikes zones of human neocortex</article-title>. <source>Clin Neurophysiol</source>. <year>2019</year>;<volume>130</volume>(<issue>3</issue>):<fpage>396</fpage>–<lpage>405</lpage>.<pub-id pub-id-type="pmid">30711894</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.clinph.2018.12.011</pub-id></mixed-citation></ref><ref id="epi18703-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="epi18703-cit-0018">
+<string-name name-style="western">
+<surname>Avoli</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Panuccio</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Herrington</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>D'Antuono</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>de Guzman</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lévesque</surname>
+<given-names>M</given-names>
+</string-name>. <article-title>Two different interictal spike patterns anticipate ictal activity in vitro</article-title>. <source>Neurobiol Dis</source>. <year>2013</year>;<volume>52</volume>:<fpage>168</fpage>–<lpage>176</lpage>.<pub-id pub-id-type="pmid">23270790</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.nbd.2012.12.004</pub-id><pub-id pub-id-type="pmcid">PMC4880481</pub-id></mixed-citation></ref><ref id="epi18703-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="epi18703-cit-0019">
+<string-name name-style="western">
+<surname>Badier</surname>
+<given-names>JM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chauvel</surname>
+<given-names>P</given-names>
+</string-name>. <article-title>Spatio‐temporal characteristics of paroxysmal interictal events in human temporal lobe epilepsy</article-title>. <source>J Physiol‐Paris</source>. <year>1995</year>;<volume>89</volume>:<fpage>255</fpage>–<lpage>264</lpage>.<pub-id pub-id-type="pmid">8861824</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/0928-4257(96)83642-4</pub-id></mixed-citation></ref><ref id="epi18703-bib-0020"><label>20</label><mixed-citation publication-type="book" id="epi18703-cit-0020">
+<string-name name-style="western">
+<surname>Chauvel</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gonzalez‐Martinez</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bulacio</surname>
+<given-names>J</given-names>
+</string-name>. <part-title>Presurgical intracranial investigations in epilepsy surgery [Internet]</part-title>. In: <person-group person-group-type="editor">
+<string-name name-style="western">
+<surname>Stefan</surname>
+<given-names>H</given-names>
+</string-name>
+</person-group>, <person-group person-group-type="editor">
+<string-name name-style="western">
+<surname>Theodore</surname>
+<given-names>WH</given-names>
+</string-name>
+</person-group>, editors. <source>Handbook of clinical neurology</source>. <publisher-loc>Amsterdam</publisher-loc>: <publisher-name>Elsevier</publisher-name>; <year>2019</year>. Vol. 161 p. <fpage>45</fpage>–<lpage>71</lpage>. <pub-id pub-id-type="doi">10.1016/B978-0-444-64142-7.00040-0</pub-id>
+<pub-id pub-id-type="pmid">31307620</pub-id></mixed-citation></ref><ref id="epi18703-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="epi18703-cit-0021">
+<string-name name-style="western">
+<surname>Thomas</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kahane</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Abdallah</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Avigdor</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zweiphenning</surname>
+<given-names>WJEM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chabardes</surname>
+<given-names>S</given-names>
+</string-name>, et al. <article-title>A subpopulation of spikes predicts successful epilepsy surgery outcome</article-title>. <source>Ann Neurol</source>. <year>2023</year>;<volume>93</volume>(<issue>3</issue>):<fpage>522</fpage>–<lpage>535</lpage>.<pub-id pub-id-type="pmid">36373178</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/ana.26548</pub-id></mixed-citation></ref><ref id="epi18703-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="epi18703-cit-0022">
+<string-name name-style="western">
+<surname>Janca</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jezdik</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ebel</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kalina</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kudr</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Jahodova</surname>
+<given-names>A</given-names>
+</string-name>, et al. <article-title>Distinct patterns of interictal intracranial EEG in focal cortical dysplasia type I and II</article-title>. <source>Clin Neurophysiol</source>. <year>2023</year>;<volume>151</volume>:<fpage>10</fpage>–<lpage>17</lpage>.<pub-id pub-id-type="pmid">37121217</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.clinph.2023.03.360</pub-id></mixed-citation></ref><ref id="epi18703-bib-0023"><label>23</label><mixed-citation publication-type="book" id="epi18703-cit-0023">
+<string-name name-style="western">
+<surname>Engel</surname>
+<given-names>JJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Van Ness</surname>
+<given-names>PC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rasmussen</surname>
+<given-names>TB</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ojemann</surname>
+<given-names>LM</given-names>
+</string-name>. <part-title>Outcome with respect to epileptic seizures [Internet]</part-title>. <source>Surgical treatment of the epilepsies</source>. <publisher-loc>New York</publisher-loc>: <publisher-name>Raven Press</publisher-name>; <year>1993</year>. p. <fpage>609</fpage>–<lpage>621</lpage>. Available from: <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://ci.nii.ac.jp/naid/10005830365/" ext-link-type="uri">http://ci.nii.ac.jp/naid/10005830365/</ext-link>
+</mixed-citation></ref><ref id="epi18703-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="epi18703-cit-0024">
+<string-name name-style="western">
+<surname>Medina Villalon</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Paz</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Roehri</surname>
+<given-names>N</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lagarde</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pizzo</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Colombet</surname>
+<given-names>B</given-names>
+</string-name>, et al. <article-title>EpiTools, a software suite for presurgical brain mapping in epilepsy: intracerebral EEG</article-title>. <source>J Neurosci Methods</source>. <year>2018</year>;<volume>303</volume>:<fpage>7</fpage>–<lpage>15</lpage>.<pub-id pub-id-type="pmid">29605667</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jneumeth.2018.03.018</pub-id></mixed-citation></ref><ref id="epi18703-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="epi18703-cit-0025">
+<string-name name-style="western">
+<surname>Li</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Grinenko</surname>
+<given-names>O</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mosher</surname>
+<given-names>JC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gonzalez‐Martinez</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Leahy</surname>
+<given-names>RM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chauvel</surname>
+<given-names>P</given-names>
+</string-name>. <article-title>Learning to define an electrical biomarker of the epileptogenic zone</article-title>. <source>Hum Brain Mapp</source>. <year>2020</year>;<volume>41</volume>(<issue>2</issue>):<fpage>429</fpage>–<lpage>441</lpage>.<pub-id pub-id-type="pmid">31609058</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/hbm.24813</pub-id><pub-id pub-id-type="pmcid">PMC7268034</pub-id></mixed-citation></ref><ref id="epi18703-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="epi18703-cit-0026">
+<string-name name-style="western">
+<surname>Abdallah</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mansilla</surname>
+<given-names>D</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Minato</surname>
+<given-names>E</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Grova</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Beniczky</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Frauscher</surname>
+<given-names>B</given-names>
+</string-name>. <article-title>Systematic review of seizure‐onset patterns in stereo‐electroencephalography: current state and future directions</article-title>. <source>Clin Neurophysiol</source>. <year>2024</year>;<volume>163</volume>:<fpage>112</fpage>–<lpage>123</lpage>. Available from: <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.sciencedirect.com/science/article/pii/S1388245724001354" ext-link-type="uri">https://www.sciencedirect.com/science/article/pii/S1388245724001354</ext-link>
+<pub-id pub-id-type="pmid">38733701</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.clinph.2024.04.016</pub-id></mixed-citation></ref><ref id="epi18703-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="epi18703-cit-0027">
+<string-name name-style="western">
+<surname>Xu</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zhang</surname>
+<given-names>X</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yan</surname>
+<given-names>X</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ma</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wang</surname>
+<given-names>X</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zhang</surname>
+<given-names>X</given-names>
+</string-name>, et al. <article-title>Multiple ictal onset patterns underlie seizure generation in seizure‐free patients with temporal lobe epilepsy surgery: an SEEG study</article-title>. <source>Acta Neurochir</source>. <year>2021</year>;<volume>163</volume>(<issue>11</issue>):<fpage>3031</fpage>–<lpage>3037</lpage>.<pub-id pub-id-type="pmid">34480655</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00701-021-04960-7</pub-id><pub-id pub-id-type="pmcid">PMC8520514</pub-id></mixed-citation></ref><ref id="epi18703-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="epi18703-cit-0028">
+<string-name name-style="western">
+<surname>Di Giacomo</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Uribe‐San‐Martin</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mai</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Francione</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nobili</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sartori</surname>
+<given-names>I</given-names>
+</string-name>. <article-title>Stereo‐EEG ictal/interictal patterns and underlying pathologies</article-title>. <source>Seizure</source>. <year>2019</year>;<volume>72</volume>:<fpage>54</fpage>–<lpage>60</lpage>.<pub-id pub-id-type="pmid">31606703</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.seizure.2019.10.001</pub-id></mixed-citation></ref><ref id="epi18703-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="epi18703-cit-0029">
+<string-name name-style="western">
+<surname>Perucca</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Dubeau</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gotman</surname>
+<given-names>J</given-names>
+</string-name>. <article-title>Intracranial electroencephalographic seizure‐onset patterns: effect of underlying pathology</article-title>. <source>Brain</source>. <year>2014</year>;<volume>137</volume>(<issue>1</issue>):<fpage>183</fpage>–<lpage>196</lpage>.<pub-id pub-id-type="pmid">24176980</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/brain/awt299</pub-id></mixed-citation></ref><ref id="epi18703-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="epi18703-cit-0030">
+<string-name name-style="western">
+<surname>Lagarde</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bonini</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>McGonigal</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chauvel</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gavaret</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Scavarda</surname>
+<given-names>D</given-names>
+</string-name>, et al. <article-title>Seizure‐onset patterns in focal cortical dysplasia and neurodevelopmental tumors: relationship with surgical prognosis and neuropathologic subtypes</article-title>. <source>Epilepsia</source>. <year>2016</year>;<volume>57</volume>(<issue>9</issue>):<fpage>1426</fpage>–<lpage>1435</lpage>.<pub-id pub-id-type="pmid">27406939</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/epi.13464</pub-id></mixed-citation></ref><ref id="epi18703-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="epi18703-cit-0031">
+<string-name name-style="western">
+<surname>Jacobs</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wu</surname>
+<given-names>JY</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Perucca</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Zelmann</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mader</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Dubeau</surname>
+<given-names>F</given-names>
+</string-name>, et al. <article-title>Removing high‐frequency oscillations: a prospective multicenter study on seizure outcome</article-title>. <source>Neurology</source>. <year>2018</year>;<volume>91</volume>(<issue>11</issue>):<fpage>e1040</fpage>–<lpage>e1052</lpage>.<pub-id pub-id-type="pmid">30120133</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1212/WNL.0000000000006158</pub-id><pub-id pub-id-type="pmcid">PMC6140372</pub-id></mixed-citation></ref><ref id="epi18703-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="epi18703-cit-0032">
+<string-name name-style="western">
+<surname>Roehri</surname>
+<given-names>N</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pizzo</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lagarde</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lambert</surname>
+<given-names>I</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nica</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>McGonigal</surname>
+<given-names>A</given-names>
+</string-name>, et al. <article-title>High‐frequency oscillations are not better biomarkers of epileptogenic tissues than spikes</article-title>. <source>Ann Neurol</source>. <year>2018</year>;<volume>83</volume>(<issue>1</issue>):<fpage>84</fpage>–<lpage>97</lpage>.<pub-id pub-id-type="pmid">29244226</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/ana.25124</pub-id></mixed-citation></ref><ref id="epi18703-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="epi18703-cit-0033">
+<string-name name-style="western">
+<surname>Buzsáki</surname>
+<given-names>G</given-names>
+</string-name>. <article-title>Hippocampal sharp wave‐ripple: a cognitive biomarker for episodic memory and planning</article-title>. <source>Hippocampus</source>. <year>2015</year>;<volume>25</volume>(<issue>10</issue>):<fpage>1073</fpage>–<lpage>1188</lpage>.<pub-id pub-id-type="pmid">26135716</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/hipo.22488</pub-id><pub-id pub-id-type="pmcid">PMC4648295</pub-id></mixed-citation></ref><ref id="epi18703-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="epi18703-cit-0034">
+<string-name name-style="western">
+<surname>Oliva</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fernández‐Ruiz</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fermino de Oliveira</surname>
+<given-names>E</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Buzsáki</surname>
+<given-names>G</given-names>
+</string-name>. <article-title>Origin of gamma frequency power during hippocampal sharp‐wave ripples</article-title>. <source>Cell Rep</source>. <year>2018</year>;<volume>25</volume>(<issue>7</issue>):<fpage>1693</fpage>–<lpage>1700.e4</lpage>.<pub-id pub-id-type="pmid">30428340</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.celrep.2018.10.066</pub-id><pub-id pub-id-type="pmcid">PMC6310484</pub-id></mixed-citation></ref><ref id="epi18703-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="epi18703-cit-0035">
+<string-name name-style="western">
+<surname>Shaker</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Li</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kobayashi</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Grinenko</surname>
+<given-names>O</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bulacio</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Leahy</surname>
+<given-names>RM</given-names>
+</string-name>, et al. <article-title>Is high‐frequency activity at seizure onset inhibitory? A stereoelectroencephalographic study of motor cortex seizures</article-title>. <source>Ann Neurol</source>. <year>2024</year>;<volume>95</volume>(<issue>6</issue>):<fpage>1127</fpage>–<lpage>1137</lpage>.<pub-id pub-id-type="pmid">38481022</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/ana.26883</pub-id></mixed-citation></ref><ref id="epi18703-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="epi18703-cit-0036">
+<string-name name-style="western">
+<surname>Wendling</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bartolomei</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bellanger</surname>
+<given-names>JJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chauvel</surname>
+<given-names>P</given-names>
+</string-name>. <article-title>Epileptic fast activity can be explained by a model of impaired GABAergic dendritic inhibition</article-title>. <source>Eur J Neurosci</source>. <year>2002</year>;<volume>15</volume>(<issue>9</issue>):<fpage>1499</fpage>–<lpage>1508</lpage>.<pub-id pub-id-type="pmid">12028360</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1046/j.1460-9568.2002.01985.x</pub-id></mixed-citation></ref><ref id="epi18703-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="epi18703-cit-0037">
+<string-name name-style="western">
+<surname>Magloire</surname>
+<given-names>V</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mercier</surname>
+<given-names>MS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kullmann</surname>
+<given-names>DM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pavlov</surname>
+<given-names>I</given-names>
+</string-name>. <article-title>GABAergic interneurons in seizures: investigating causality with optogenetics</article-title>. <source>Neuroscientist</source>. <year>2019</year>;<volume>25</volume>(<issue>4</issue>):<fpage>344</fpage>–<lpage>358</lpage>.<pub-id pub-id-type="pmid">30317911</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1177/1073858418805002</pub-id><pub-id pub-id-type="pmcid">PMC6745605</pub-id></mixed-citation></ref><ref id="epi18703-bib-0038"><label>38</label><mixed-citation publication-type="journal" id="epi18703-cit-0038">
+<string-name name-style="western">
+<surname>de Curtis</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gnatkovsky</surname>
+<given-names>V</given-names>
+</string-name>. <article-title>Reevaluating the mechanisms of focal ictogenesis: the role of low‐voltage fast activity</article-title>. <source>Epilepsia</source>. <year>2009</year>;<volume>50</volume>(<issue>12</issue>):<fpage>2514</fpage>–<lpage>2525</lpage>.<pub-id pub-id-type="pmid">19674056</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/j.1528-1167.2009.02249.x</pub-id></mixed-citation></ref><ref id="epi18703-bib-0039"><label>39</label><mixed-citation publication-type="journal" id="epi18703-cit-0039">
+<string-name name-style="western">
+<surname>Gnatkovsky</surname>
+<given-names>V</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Librizzi</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Trombin</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>De Curtis</surname>
+<given-names>M</given-names>
+</string-name>. <article-title>Fast activity at seizure onset is mediated by inhibitory circuits in the entorhinal cortex in vitro</article-title>. <source>Ann Neurol</source>. <year>2008</year>;<volume>64</volume>(<issue>6</issue>):<fpage>674</fpage>–<lpage>686</lpage>.<pub-id pub-id-type="pmid">19107991</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1002/ana.21519</pub-id></mixed-citation></ref><ref id="epi18703-bib-0040"><label>40</label><mixed-citation publication-type="journal" id="epi18703-cit-0040">
+<string-name name-style="western">
+<surname>Lévesque</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ragsdale</surname>
+<given-names>D</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Avoli</surname>
+<given-names>M</given-names>
+</string-name>. <article-title>Evolving mechanistic concepts of epileptiform synchronization and their relevance in curing focal epileptic disorders</article-title>. <source>Curr Neuropharmacol</source>. <year>2018</year>;<volume>17</volume>(<issue>9</issue>):<fpage>830</fpage>–<lpage>842</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.2174/1570159X17666181127124803</pub-id><pub-id pub-id-type="pmcid">PMC7052840</pub-id><pub-id pub-id-type="pmid">30479217</pub-id></mixed-citation></ref><ref id="epi18703-bib-0041"><label>41</label><mixed-citation publication-type="journal" id="epi18703-cit-0041">
+<string-name name-style="western">
+<surname>Molaee‐Ardekani</surname>
+<given-names>B</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Benquet</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bartolomei</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wendling</surname>
+<given-names>F</given-names>
+</string-name>. <article-title>Computational modeling of high‐frequency oscillations at the onset of neocortical partial seizures: from “altered structure” to “dysfunction.”</article-title>. <source>NeuroImage</source>. <year>2010</year>;<volume>52</volume>(<issue>3</issue>):<fpage>1109</fpage>–<lpage>1122</lpage>.<pub-id pub-id-type="pmid">20034581</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.neuroimage.2009.12.049</pub-id></mixed-citation></ref><ref id="epi18703-bib-0042"><label>42</label><mixed-citation publication-type="journal" id="epi18703-cit-0042">
+<string-name name-style="western">
+<surname>Uva</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Breschi</surname>
+<given-names>GL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gnatkovsky</surname>
+<given-names>V</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Taverna</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>de Curtis</surname>
+<given-names>M</given-names>
+</string-name>. <article-title>Synchronous inhibitory potentials precede seizure‐like events in acute models of focal limbic seizures</article-title>. <source>J Neurosci</source>. <year>2015</year>;<volume>35</volume>(<issue>7</issue>):<fpage>3048</fpage>–<lpage>3055</lpage>.<pub-id pub-id-type="pmid">25698742</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1523/JNEUROSCI.3692-14.2015</pub-id><pub-id pub-id-type="pmcid">PMC6605586</pub-id></mixed-citation></ref><ref id="epi18703-bib-0043"><label>43</label><mixed-citation publication-type="journal" id="epi18703-cit-0043">
+<string-name name-style="western">
+<surname>Librizzi</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Losi</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Marcon</surname>
+<given-names>I</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sessolo</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Scalmani</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Carmignoto</surname>
+<given-names>G</given-names>
+</string-name>, et al. <article-title>Interneuronal network activity at the onset of seizure‐like events in entorhinal cortex slices</article-title>. <source>J Neurosci</source>. <year>2017</year>;<volume>37</volume>(<issue>43</issue>):<fpage>10398</fpage>–<lpage>10407</lpage>.<pub-id pub-id-type="pmid">28947576</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1523/JNEUROSCI.3906-16.2017</pub-id><pub-id pub-id-type="pmcid">PMC6596630</pub-id></mixed-citation></ref><ref id="epi18703-bib-0044"><label>44</label><mixed-citation publication-type="journal" id="epi18703-cit-0044">
+<string-name name-style="western">
+<surname>Bragin</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Engel</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wilson</surname>
+<given-names>CL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fried</surname>
+<given-names>I</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mathern</surname>
+<given-names>GW</given-names>
+</string-name>. <article-title>Hippocampal and entorhinal cortex high‐frequency oscillations (100‐500 Hz) in human epileptic brain and in kainic acid‐treated rats with chronic seizures</article-title>. <source>Epilepsia</source>. <year>1999</year>;<volume>40</volume>(<issue>2</issue>):<fpage>127</fpage>–<lpage>137</lpage>.<pub-id pub-id-type="pmid">9952257</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/j.1528-1157.1999.tb02065.x</pub-id></mixed-citation></ref><ref id="epi18703-bib-0045"><label>45</label><mixed-citation publication-type="journal" id="epi18703-cit-0045">
+<string-name name-style="western">
+<surname>Karlócai</surname>
+<given-names>MR</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Kohus</surname>
+<given-names>Z</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Káli</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ulbert</surname>
+<given-names>I</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Szabó</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Máté</surname>
+<given-names>Z</given-names>
+</string-name>, et al. <article-title>Physiological sharp wave‐ripples and interictal events in vitro: what's the difference?</article-title>
+<source>Brain</source>. <year>2014</year>;<volume>137</volume>(<issue>2</issue>):<fpage>463</fpage>–<lpage>485</lpage>.<pub-id pub-id-type="pmid">24390441</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/brain/awt348</pub-id></mixed-citation></ref><ref id="epi18703-bib-0046"><label>46</label><mixed-citation publication-type="journal" id="epi18703-cit-0046">
+<string-name name-style="western">
+<surname>Weiss</surname>
+<given-names>SA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fried</surname>
+<given-names>I</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Engel</surname>
+<given-names>J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sperling</surname>
+<given-names>MR</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wong</surname>
+<given-names>RKS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nir</surname>
+<given-names>Y</given-names>
+</string-name>, et al. <article-title>Fast ripples reflect increased excitability that primes epileptiform spikes</article-title>. <source>Brain Commun</source>. <year>2023</year>;<volume>5</volume>(<issue>5</issue>):<elocation-id>fcad242</elocation-id>.<pub-id pub-id-type="pmid">37869578</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1093/braincomms/fcad242</pub-id><pub-id pub-id-type="pmcid">PMC10587774</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

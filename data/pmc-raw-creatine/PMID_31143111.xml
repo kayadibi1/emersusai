@@ -1,0 +1,169 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">31143111</PMID><DateRevised><Year>2020</Year><Month>10</Month><Day>01</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">1663-4365</ISSN><JournalIssue CitedMedium="Print"><Volume>11</Volume><PubDate><Year>2019</Year></PubDate></JournalIssue><Title>Frontiers in aging neuroscience</Title><ISOAbbreviation>Front Aging Neurosci</ISOAbbreviation></Journal><ArticleTitle>A Multi-Ingredient Nutritional Supplement in Combination With Resistance Exercise and High-Intensity Interval Training Improves Cognitive Function and Increases <i>N</i>-3 Index in Healthy Older Men: A Randomized Controlled Trial.</ArticleTitle><Pagination><StartPage>107</StartPage><MedlinePgn>107</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">107</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fnagi.2019.00107</ELocationID><Abstract><AbstractText>We aimed to evaluate the effect of multi-ingredient nutritional supplementation, with and without exercise training, on cognitive function in healthy older men. Forty-nine sedentary men [age: 73 &#xb1; 6 years (mean &#xb1; SD); body mass index: 28.5 &#xb1; 3.6 kg/m<sup>2</sup>] were randomized to consume a supplement (SUPP <i>n</i> = 25; 1500 mg <i>n</i>-3 polyunsaturated fatty acids, 30 g whey protein, 2.5 g creatine, 500 IU vitamin D, and 400 mg calcium) or control beverage (CON <i>n</i> = 24; 22 g maltodextrin) twice daily for 20 weeks consisting of Phase 1: SUPP/CON followed by Phase 2: 12-week resistance exercise training plus high-intensity interval training, while continuing to consume the study beverages (SUPP/CON + EX). At baseline, 6 weeks, and 19 weeks we assessed cognitive function [Montr&#xe9;al Cognitive Assessment (MOCA)], memory [word recall during the Rey Auditory Verbal Learning Test (RAVLT)], executive functions (working memory inhibition control), and nutrient bioavailability. We did not observe changes to any aspect of cognitive function after Phase 1; however, significant improvements in the following cognitive function outcomes were detected following Phase 2: MOCA scores increased (6 weeks: 23.5 &#xb1; 3.3 vs. 19 weeks: 24.4 &#xb1; 2.5, <i>p</i> = 0.013); number of words recalled during the RAVLT increased (6 weeks: 6.6 &#xb1; 3.6 vs. 19 weeks: 7.6 &#xb1; 3.8, <i>p</i> = 0.047); and reaction time improved (6 weeks: 567 &#xb1; 49 ms vs. 19 weeks: 551 &#xb1; 51 ms, <i>p</i> = 0.002). Although between-group differences in these outcomes were not significant, we observed within-group improvements in composite cognitive function scores over the course of the entire study only in the SUPP group (&#x394; = 0.58 &#xb1; 0.62, <i>p</i> = 0.004) but not in the CON group (&#x394; = 0.31 &#xb1; 0.61, <i>p</i> = 0.06). We observed a progressive increase in <i>n</i>-3 index, and a concomitant decrease in the ratio of arachidonic acid (ARA) to eicosapentaenoic acid (EPA) within erythrocyte plasma membranes, in the SUPP group only. At week 19, <i>n</i>-3 index (<i>r</i> = 0.49, <i>p</i> = 0.02) and the ARA:EPA ratio (<i>r</i> = -0.44, <i>p</i> = 0.03) were significantly correlated with composite cognitive function scores. Our results show that 12 weeks of RET + HIIT resulted in improved MOCA scores, word recall, and reaction time during an executive functions task; and suggest that a multi-ingredient supplement combined with this exercise training program may improve composite cognitive function scores in older men possibly via supplementation-mediated alterations to <i>n</i>-3 PUFA bioavailability. <b>Clinical Trial Registration</b>: http://www.ClinicalTrials.gov, identifier NCT02281331.</AbstractText></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Bell</LastName><ForeName>Kirsten E</ForeName><Initials>KE</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, University of Waterloo, Waterloo, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Fang</LastName><ForeName>Hanna</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Snijders</LastName><ForeName>Tim</ForeName><Initials>T</Initials><AffiliationInfo><Affiliation>NUTRIM, Department of Human Biology, Maastricht University Medical Centre, Maastricht, Netherlands.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Allison</LastName><ForeName>David J</ForeName><Initials>DJ</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Zulyniak</LastName><ForeName>Michael A</ForeName><Initials>MA</Initials><AffiliationInfo><Affiliation>Department of Medicine, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>School of Food Science and Nutrition, University of Leeds, Leeds, United Kingdom.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Chabowski</LastName><ForeName>Adrian</ForeName><Initials>A</Initials><AffiliationInfo><Affiliation>Department of Physiology, Medical University of Bialystok, Bialystok, Poland.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Parise</LastName><ForeName>Gianni</ForeName><Initials>G</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Phillips</LastName><ForeName>Stuart M</ForeName><Initials>SM</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Heisz</LastName><ForeName>Jennifer J</ForeName><Initials>JJ</Initials><AffiliationInfo><Affiliation>Department of Kinesiology, McMaster University, Hamilton, ON, Canada.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><DataBankList CompleteYN="Y"><DataBank><DataBankName>ClinicalTrials.gov</DataBankName><AccessionNumberList><AccessionNumber>NCT02281331</AccessionNumber></AccessionNumberList></DataBank></DataBankList><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2019</Year><Month>05</Month><Day>09</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Aging Neurosci</MedlineTA><NlmUniqueID>101525824</NlmUniqueID><ISSNLinking>1663-4365</ISSNLinking></MedlineJournalInfo><CommentsCorrectionsList><CommentsCorrections RefType="ErratumIn"><RefSource>Front Aging Neurosci. 2020 Oct 27;12:611387. doi: 10.3389/fnagi.2020.611387.</RefSource><PMID Version="1">33192494</PMID></CommentsCorrections></CommentsCorrectionsList><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">calcium</Keyword><Keyword MajorTopicYN="N">creatine</Keyword><Keyword MajorTopicYN="N">high-intensity interval training</Keyword><Keyword MajorTopicYN="N">n-3 polyunsaturated fatty acids</Keyword><Keyword MajorTopicYN="N">protein</Keyword><Keyword MajorTopicYN="N">resistance exercise training</Keyword><Keyword MajorTopicYN="N">vitamin D</Keyword></KeywordList></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2019</Year><Month>2</Month><Day>19</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2019</Year><Month>4</Month><Day>23</Day></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2019</Year><Month>5</Month><Day>31</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2019</Year><Month>5</Month><Day>31</Day><Hour>6</Hour><Minute>0</Minute></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2019</Year><Month>5</Month><Day>31</Day><Hour>6</Hour><Minute>1</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2019</Year><Month>1</Month><Day>1</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">31143111</ArticleId><ArticleId IdType="pmc">PMC6521794</ArticleId><ArticleId IdType="doi">10.3389/fnagi.2019.00107</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Alzheimer Society of Canada (2010). <i>Rising Tide: The Impact of Dementia on Canadian Society.</i>
+Toronto, CA: Alzheimer Society of Canada.</Citation></Reference><Reference><Citation>Balion C., Griffith L. E., Strifler L., Henderson M., Patterson C., Heckman G., et al.  (2012). Vitamin D, cognition, and dementia A systematic review and meta-analysis.
+<i>Neurology</i>
+79
+1397&#x2013;1405. 10.1212/wnl.0b013e31826c197f
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1212/wnl.0b013e31826c197f</ArticleId><ArticleId IdType="pmc">PMC3448747</ArticleId><ArticleId IdType="pubmed">23008220</ArticleId></ArticleIdList></Reference><Reference><Citation>Barnes D. E., Yaffe K. (2011). The projected effect of risk factor reduction on Alzheimer&#x2019;s disease prevalence.
+<i>Lancet Neurol.</i>
+10
+819&#x2013;828. 10.1016/s1474-4422(11)70072-2</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s1474-4422(11)70072-2</ArticleId><ArticleId IdType="pmc">PMC3647614</ArticleId><ArticleId IdType="pubmed">21775213</ArticleId></ArticleIdList></Reference><Reference><Citation>Bell K. E., Snijders T., Zulyniak M. A., Kumbhare D., Parise G., Chabowski A., et al.  (2017a). A multi-ingredient nutritional supplement enhances exercise training-related reductions in markers of systemic inflammation in healthy older men.
+<i>Appl. Physiol. Nutr. Metab.</i>
+43
+299&#x2013;302. 10.1139/apnm-2017-0533
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/apnm-2017-0533</ArticleId><ArticleId IdType="pubmed">29106814</ArticleId></ArticleIdList></Reference><Reference><Citation>Bell K. E., Snijders T., Zulyniak M., Kumbhare D., Parise G., Chabowski A., et al.  (2017b). A whey protein-based multi-ingredient nutritional supplement stimulates gains in lean body mass and strength in healthy older men: a randomized controlled trial.
+<i>PLoS One</i>
+12:e0181387. 10.1371/journal.pone.0181387
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0181387</ArticleId><ArticleId IdType="pmc">PMC5515445</ArticleId><ArticleId IdType="pubmed">28719669</ArticleId></ArticleIdList></Reference><Reference><Citation>Block R. C., Harris W. S., Reid K. J., Sands S. A., Spertus J. A. (2008). EPA and DHA in blood cell membranes from acute coronary syndrome patients and controls.
+<i>Atherosclerosis</i>
+197
+821&#x2013;828. 10.1016/j.atherosclerosis.2007.07.042
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.atherosclerosis.2007.07.042</ArticleId><ArticleId IdType="pubmed">17875307</ArticleId></ArticleIdList></Reference><Reference><Citation>Bradley N. S., Heigenhauser G. J., Roy B. D., Staples E. M., Inglis J. G., LeBlanc P. J., et al.  (2008). The acute effects of differential dietary fatty acids on human skeletal muscle pyruvate dehydrogenase activity.
+<i>J. Appl. Physiol.</i>
+104
+1&#x2013;9. 10.1152/japplphysiol.00636.2007
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00636.2007</ArticleId><ArticleId IdType="pubmed">17947500</ArticleId></ArticleIdList></Reference><Reference><Citation>Calabrese F., Guidotti G., Racagni G., Riva M. A. (2013). Reduced neuroplasticity in aged rats: a role for the neurotrophin brain-derived neurotrophic factor.
+<i>Neurobiol. Aging</i>
+34
+2768&#x2013;2776. 10.1016/j.neurobiolaging.2013.06.014
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.neurobiolaging.2013.06.014</ArticleId><ArticleId IdType="pubmed">23870838</ArticleId></ArticleIdList></Reference><Reference><Citation>Calder P. C. (2006). Polyunsaturated fatty acids and inflammation.
+<i>Biochem. Soc. Trans.</i>
+75
+197&#x2013;202. 10.1016/j.plefa.2006.05.012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.plefa.2006.05.012</ArticleId><ArticleId IdType="pubmed">16828270</ArticleId></ArticleIdList></Reference><Reference><Citation>Calon F. (2011). Omega-3 polyunsaturated fatty acids in Alzheimer&#x2019;s disease: key questions and partial answers.
+<i>Curr. Alzheimer Res.</i>
+8
+470&#x2013;478. 10.2174/156720511796391881</Citation><ArticleIdList><ArticleId IdType="doi">10.2174/156720511796391881</ArticleId><ArticleId IdType="pubmed">21605051</ArticleId></ArticleIdList></Reference><Reference><Citation>Capuana L. J., Dywan J., Tays W. J., Segalowitz S. J. (2012). Cardiac workload and inhibitory control in younger and older adults.
+<i>Biol. Psychol.</i>
+90
+60&#x2013;70. 10.1016/j.biopsycho.2012.02.018
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.biopsycho.2012.02.018</ArticleId><ArticleId IdType="pubmed">22410265</ArticleId></ArticleIdList></Reference><Reference><Citation>Clark I. B., Vandermorris S., Heisz J. J. (2015). Physical fitness and sociocognitive engagement are associated with different aspects of cognition in older adults.
+<i>J. Am. Geriatr. Soc.</i>
+63
+177&#x2013;179. 10.1111/jgs.13215
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jgs.13215</ArticleId><ArticleId IdType="pubmed">25597569</ArticleId></ArticleIdList></Reference><Reference><Citation>Colcombe S. J., Kramer A. F. (2003). Fitness effects on the cognitive function of older adults a meta-analytic study.
+<i>Psychol. Sci.</i>
+14
+125&#x2013;130. 10.1111/1467-9280.t01-1-01430
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/1467-9280.t01-1-01430</ArticleId><ArticleId IdType="pubmed">12661673</ArticleId></ArticleIdList></Reference><Reference><Citation>Currie K. D., Dubberley J. B., McKelvie R. S., MacDonald M. J. (2013). Low-volume, high-intensity interval training in patients with CAD.
+<i>Med. Sci. Sports Exerc.</i>
+45
+1436&#x2013;1442. 10.1249/MSS.0b013e31828bbbd4
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e31828bbbd4</ArticleId><ArticleId IdType="pubmed">23470301</ArticleId></ArticleIdList></Reference><Reference><Citation>Devries M. C., Phillips S. M. (2014). Creatine supplementation during resistance training in older adults-a meta-analysis.
+<i>Med. Sci. Sports Exerc.</i>
+46
+1194&#x2013;1203. 10.1249/MSS.0000000000000220
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000000220</ArticleId><ArticleId IdType="pubmed">24576864</ArticleId></ArticleIdList></Reference><Reference><Citation>Dirks M. L., Wall B. T., van de Valk B., Holloway T. M., Holloway G. P., Chabowski A., et al.  (2016). One week of bed rest leads to substantial muscle atrophy and induces whole-body insulin resistance in the absence of skeletal muscle lipid accumulation.
+<i>Diabetes Metab. Res. Rev.</i>
+65
+2862&#x2013;2875. 10.2337/db15-1661
+</Citation><ArticleIdList><ArticleId IdType="doi">10.2337/db15-1661</ArticleId><ArticleId IdType="pubmed">27358494</ArticleId></ArticleIdList></Reference><Reference><Citation>Dziedzic T. (2006). Systemic inflammatory markers and risk of dementia.
+<i>Am. J. Alzheimers</i>
+21
+258&#x2013;262. 10.1177/1533317506289260
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/1533317506289260</ArticleId><ArticleId IdType="pmc">PMC10833275</ArticleId><ArticleId IdType="pubmed">16948290</ArticleId></ArticleIdList></Reference><Reference><Citation>Elobeid M. A., Padilla M. A., McVie T., Thomas O., Brock D. W., Musser B., et al.  (2009). Missing data in randomized clinical trials for weight loss: scope of the problem, state of the field, and performance of statistical methods.
+<i>PLoS One</i>
+4:e6624. 10.1371/journal.pone.0006624
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0006624</ArticleId><ArticleId IdType="pmc">PMC2720539</ArticleId><ArticleId IdType="pubmed">19675667</ArticleId></ArticleIdList></Reference><Reference><Citation>F&#xe9;art C., Samieri C., Rondeau V., Amieva H., Portet F., Dartigues J.-F., et al.  (2009). Adherence to a Mediterranean diet, cognitive decline, and risk of dementia.
+<i>JAMA</i>
+302
+638&#x2013;648. 10.1001/jama.2009.1146
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jama.2009.1146</ArticleId><ArticleId IdType="pmc">PMC2850376</ArticleId><ArticleId IdType="pubmed">19671905</ArticleId></ArticleIdList></Reference><Reference><Citation>Folch J., Lees M., Sloane-Stanley G. (1957). A simple method for the isolation and purification of total lipids from animal tissues.
+<i>J. Biol. Chem.</i>
+226
+497&#x2013;509.</Citation><ArticleIdList><ArticleId IdType="pubmed">13428781</ArticleId></ArticleIdList></Reference><Reference><Citation>Franceschi C., Capri M., Monti D., Giunta S., Olivieri F., Sevini F., et al.  (2007). Inflammaging and anti-inflammaging: a systemic perspective on aging and longevity emerged from studies in humans.
+<i>Mech. Ageing Dev.</i>
+128
+92&#x2013;105. 10.1016/j.mad.2006.11.016
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.mad.2006.11.016</ArticleId><ArticleId IdType="pubmed">17116321</ArticleId></ArticleIdList></Reference><Reference><Citation>Gillen J. B., Little J. P., Punthakee Z., Tarnopolsky M. A., Riddell M. C., Gibala M. J. (2012). Acute high-intensity interval exercise reduces the postprandial glucose response and prevalence of hyperglycemia in patients with type 2 diabetes.
+<i>Diabetes. Obes. Metab.</i>
+14
+575&#x2013;577. 10.1111/j.1463-1326.2012.01564.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1463-1326.2012.01564.x</ArticleId><ArticleId IdType="pubmed">22268455</ArticleId></ArticleIdList></Reference><Reference><Citation>Gillen J. B., Percival M. E., Ludzki A., Tarnopolsky M. A., Gibala M. J. (2013). Interval training in the fed or fasted state improves body composition and muscle oxidative capacity in overweight women.
+<i>Obesity</i>
+21
+2249&#x2013;2255. 10.1002/oby.20379
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/oby.20379</ArticleId><ArticleId IdType="pubmed">23723099</ArticleId></ArticleIdList></Reference><Reference><Citation>Ginis K. A. M., Heisz J., Spence J. C., Clark I. B., Antflick J., Ardern C. I., et al.  (2017). Formulation of evidence-based messages to promote the use of physical activity to prevent and manage Alzheimer&#x2019;s disease.
+<i>BMC Public Health</i>
+17:209. 10.1186/s12889-017-4090-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12889-017-4090-5</ArticleId><ArticleId IdType="pmc">PMC5316179</ArticleId><ArticleId IdType="pubmed">28212648</ArticleId></ArticleIdList></Reference><Reference><Citation>Harris W. S., Von Schacky C. (2004). The Omega-3 Index: a new risk factor for death from coronary heart disease?
+<i>Prev. Med.</i>
+39
+212&#x2013;220. 10.1016/j.ypmed.2004.02.030
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ypmed.2004.02.030</ArticleId><ArticleId IdType="pubmed">15208005</ArticleId></ArticleIdList></Reference><Reference><Citation>Heisz J. J., Clark I. B., Bonin K., Paolucci E. M., Michalski B., Becker S., et al.  (2017). The effects of physical exercise and cognitive training on memory and neurotrophic factors.
+<i>J. Cogn. Neurosci.</i>
+29
+1895&#x2013;1907. 10.1162/jocn_a_01164
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1162/jocn_a_01164</ArticleId><ArticleId IdType="pubmed">28699808</ArticleId></ArticleIdList></Reference><Reference><Citation>Institute of Medicine (2011). <i>Dietary Reference Intakes for Calcium and Vitamin D.</i>
+Washington, DC: National Academy Press.</Citation></Reference><Reference><Citation>Karr J. E., Alexander J. E., Winningham R. G. (2011). Omega-3 polyunsaturated fatty acids and cognition throughout the lifespan: a review.
+<i>Nutr. Neurosci.</i>
+14
+216&#x2013;225. 10.1179/1476830511Y.0000000012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1179/1476830511Y.0000000012</ArticleId><ArticleId IdType="pubmed">22005286</ArticleId></ArticleIdList></Reference><Reference><Citation>Liu-Ambrose T., Donaldson M. G. (2009). Exercise and cognition in older adults: is there a role for resistance training programmes?
+<i>Br. J. Sports Med.</i>
+43
+25&#x2013;27. 10.1136/bjsm.2008.055616
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1136/bjsm.2008.055616</ArticleId><ArticleId IdType="pmc">PMC5298919</ArticleId><ArticleId IdType="pubmed">19019904</ArticleId></ArticleIdList></Reference><Reference><Citation>Mahadevappa V., Holub B. (1987). Quantitative loss of individual eicosapentaenoyl-relative to arachidonoyl-containing phospholipids in thrombin-stimulated human platelets.
+<i>J. Lipid Res.</i>
+28
+1275&#x2013;1280. </Citation><ArticleIdList><ArticleId IdType="pubmed">2828497</ArticleId></ArticleIdList></Reference><Reference><Citation>Marquez C. M. S., Vanaudenaerde B., Troosters T., Wenderoth N. (2015). High-intensity interval training evokes larger serum BDNF levels compared with intense continuous exercise.
+<i>J. Appl. Physiol.</i>
+119
+1363&#x2013;1373. 10.1152/japplphysiol.00126.2015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00126.2015</ArticleId><ArticleId IdType="pubmed">26472862</ArticleId></ArticleIdList></Reference><Reference><Citation>McGlory C., Galloway S. D., Hamilton D. L., McClintock C., Breen L., Dick J. R., et al.  (2014). Temporal changes in human skeletal muscle and blood lipid composition with fish oil supplementation.
+<i>Prostaglandins Leukot. Essent. Fatty Acids</i>
+90
+199&#x2013;206. 10.1016/j.plefa.2014.03.001
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.plefa.2014.03.001</ArticleId><ArticleId IdType="pubmed">24726616</ArticleId></ArticleIdList></Reference><Reference><Citation>Mitchell C. J., Churchward-Venne T. A., West D. W., Burd N. A., Breen L., Baker S. K., et al.  (2012). Resistance exercise load does not determine training-mediated hypertrophic gains in young men.
+<i>J. Appl. Physiol.</i>
+113
+71&#x2013;77. 10.1152/japplphysiol.00307.2012
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00307.2012</ArticleId><ArticleId IdType="pmc">PMC3404827</ArticleId><ArticleId IdType="pubmed">22518835</ArticleId></ArticleIdList></Reference><Reference><Citation>Morris M. C. (2012). Nutritional determinants of cognitive aging and dementia.
+<i>Proc. Nutr. Soc.</i>
+71
+1&#x2013;13. 10.1017/S0029665111003296
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1017/S0029665111003296</ArticleId><ArticleId IdType="pubmed">22067138</ArticleId></ArticleIdList></Reference><Reference><Citation>Nasreddine Z. S., Phillips N. A., B&#xe9;dirian V., Charbonneau S., Whitehead V., Collin I., et al.  (2005). The montreal cognitive assessment, MoCA: a brief screening tool for mild cognitive impairment.
+<i>J. Am. Geriatr. Soc.</i>
+53
+695&#x2013;699. 10.1111/j.1532-5415.2005.53221.x
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1532-5415.2005.53221.x</ArticleId><ArticleId IdType="pubmed">15817019</ArticleId></ArticleIdList></Reference><Reference><Citation>Nawrocki A., Gorski J. (2004). Effect of plasma free fatty acid concentration on the content and composition of the free fatty acid fraction in rat skeletal muscles.
+<i>Horm. Metab. Res.</i>
+36
+601&#x2013;606. 10.1055/s-2004-825922
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2004-825922</ArticleId><ArticleId IdType="pubmed">15486810</ArticleId></ArticleIdList></Reference><Reference><Citation>Peake J., Della Gatta P., Cameron-Smith D. (2010). Aging and its effects on inflammation in skeletal muscle at rest and following exercise-induced muscle injury.
+<i>Am. J. Physiol. Regul. Integr. Comp. Physiol.</i>
+298
+R1485&#x2013;R1495. 10.1152/ajpregu.00467.2009
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00467.2009</ArticleId><ArticleId IdType="pubmed">20393160</ArticleId></ArticleIdList></Reference><Reference><Citation>Pilatus U., Lais C., Rochmont Adu M., Kratzsch T., Fr&#xf6;lich L., Maurer K., et al.  (2009). Conversion to dementia in mild cognitive impairment is associated with decline of N-actylaspartate and creatine as revealed by magnetic resonance spectroscopy.
+<i>Psychiatry Res. Neuroimaging</i>
+173
+1&#x2013;7. 10.1016/j.pscychresns.2008.07.015
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.pscychresns.2008.07.015</ArticleId><ArticleId IdType="pubmed">19427767</ArticleId></ArticleIdList></Reference><Reference><Citation>Prince M., Wino A., Guerchet M., Ali G., Wu Y., Prina M. (2015). <i>World Alzheimer Report 2015. The Global Impact of Dementia: An Analysis of Prevalence, Incidence, Cost and Trends. 2015.</i>
+London: Alzheimer&#x2019;s Disease International.</Citation></Reference><Reference><Citation>Rey A. (1964). <i>Auditory-Verbal Learning Test (AVLT).</i>
+Paris: Presses Universitaires de France.</Citation></Reference><Reference><Citation>Scarmeas N., Anastasiou C. A., Yannakoulia M. (2018). Nutrition and prevention of cognitive impairment.
+<i>Lancet Neurol.</i>
+17
+1006&#x2013;1015. 10.1016/s1474-4422(18)30338-7</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s1474-4422(18)30338-7</ArticleId><ArticleId IdType="pubmed">30244829</ArticleId></ArticleIdList></Reference><Reference><Citation>Scarmeas N., Stern Y., Mayeux R., Luchsinger J. A. (2006). Mediterranean diet, Alzheimer disease, and vascular mediation.
+<i>Arch. Neurol.</i>
+63
+1709&#x2013;1717. </Citation><ArticleIdList><ArticleId IdType="pmc">PMC3024906</ArticleId><ArticleId IdType="pubmed">17030648</ArticleId></ArticleIdList></Reference><Reference><Citation>Schmidt-Kassow M., Sch&#xe4;dle S., Otterbein S., Thiel C., Doehring A., L&#xf6;tsch J., et al.  (2012). Kinetics of serum brain-derived neurotrophic factor following low-intensity versus high-intensity exercise in men and women.
+<i>Neuroreport</i>
+23
+889&#x2013;893. 10.1097/WNR.0b013e32835946ca
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/WNR.0b013e32835946ca</ArticleId><ArticleId IdType="pubmed">22964969</ArticleId></ArticleIdList></Reference><Reference><Citation>Smiley-Oyen A. L., Lowry K. A., Francois S. J., Kohut M. L., Ekkekakis P. (2008). Exercise, fitness, and neurocognitive function in older adults: the &#x201c;selective improvement&#x201d; and &#x201c;cardiovascular fitness&#x201d; hypotheses.
+<i>Ann. Behav. Med.</i>
+36
+280&#x2013;291. 10.1007/s12160-008-9064-5
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s12160-008-9064-5</ArticleId><ArticleId IdType="pmc">PMC2748860</ArticleId><ArticleId IdType="pubmed">18825471</ArticleId></ArticleIdList></Reference><Reference><Citation>Smith P. J., Blumenthal J. A., Hoffman B. M., Cooper H., Strauman T. A., Welsh-Bohmer K., et al.  (2010). Aerobic exercise and neurocognitive performance: a meta-analytic review of randomized controlled trials.
+<i>Psychosom. Med.</i>
+72:239. 10.1097/PSY.0b013e3181d14633
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/PSY.0b013e3181d14633</ArticleId><ArticleId IdType="pmc">PMC2897704</ArticleId><ArticleId IdType="pubmed">20223924</ArticleId></ArticleIdList></Reference><Reference><Citation>van de Rest O., van der Zwaluw N. L., de Groot L. C. (2013). Literature review on the role of dietary protein and amino acids in cognitive functioning and cognitive decline.
+<i>Amino Acids</i>
+45
+1035&#x2013;1045. 10.1007/s00726-013-1583-0
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00726-013-1583-0</ArticleId><ArticleId IdType="pubmed">23990160</ArticleId></ArticleIdList></Reference><Reference><Citation>Yesavage J. A., Brink T. L., Rose T. L., Lum O., Huang V., Adey M., et al.  (1982). Development and validation of a geriatric depression screening scale: a preliminary report.
+<i>J. Psychiatr. Res.</i>
+17
+37&#x2013;49. 10.1016/0022-3956(82)90033-4</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/0022-3956(82)90033-4</ArticleId><ArticleId IdType="pubmed">7183759</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>
