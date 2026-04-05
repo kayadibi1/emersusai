@@ -1,6 +1,6 @@
-const { Resend } = require("resend");
+import { Resend } from "resend";
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST");
     return res.status(405).json({ message: "Method not allowed." });
@@ -35,4 +35,4 @@ module.exports = async function handler(req, res) {
       message: error.message || "Unable to send test email.",
     });
   }
-};
+}

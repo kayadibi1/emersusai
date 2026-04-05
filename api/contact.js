@@ -1,4 +1,4 @@
-const { Resend } = require("resend");
+import { Resend } from "resend";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -26,7 +26,7 @@ function createEmailShell({ eyebrow, title, body, footer }) {
   `;
 }
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method === "OPTIONS") {
     res.setHeader("Allow", "POST, OPTIONS");
     return res.status(204).end();
@@ -149,4 +149,4 @@ module.exports = async function handler(req, res) {
   return res.status(500).json({
     message: "Unable to send your message right now.",
   });
-};
+}
