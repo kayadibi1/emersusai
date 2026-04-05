@@ -12,6 +12,14 @@ function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
 }
 
+function titleCase(value) {
+  return String(value || "")
+    .split(/[_\s-]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 function normalizeText(value, maxLength = 4000) {
   return String(value || "")
     .replace(/\s+/g, " ")
@@ -247,6 +255,18 @@ function scoreEvidenceQuality(evidenceLevel, sourceType) {
   }
 
   return 0.68;
+}
+
+function scoreTone(score) {
+  if (score >= 0.8) {
+    return "good";
+  }
+
+  if (score >= 0.6) {
+    return "medium";
+  }
+
+  return "caution";
 }
 
 function rankDatabaseEvidence(evidence) {
@@ -648,6 +668,256 @@ function buildFallbackRecommendation({ question, evidence }) {
   };
 }
 
+function determineRecencyLabel(source) {
+  const freshness = Number(source?.freshness_score ?? scoreEvidenceFreshness(source?.published_at));
+
+  if (freshness >= 0.9) {
+    return "Very recent";
+  }
+
+  if (freshness >= 0.75) {
+    return "Recent evidence";
+  }
+
+  return "Mixed recency";
+}
+
+function determineEvidenceLabel(source) {
+  const publicationType = normalizeText(
+    source?.publication_type ||
+      (Array.isArray(source?.publication_types)
+        ? source.publication_types.join(", ")
+        : source?.evidence_level),
+    80
+  );
+
+  if (/systematic|meta|guideline|consensus|review/i.test(publicationType)) {
+    return "Review-level evidence";
+  }
+
+  if (/trial|rct/i.test(publicationType)) {
+    return "Trial evidence";
+  }
+
+  if (publicationType) {
+    return publicationType;
+  }
+
+  return "Database evidence";
+}
+
+function summarizeEffect(summary) {
+  const text = normalizeText(summary, 180).toLowerCase();
+
+  if (/modest|small but meaningful/.test(text)) {
+    return "Modest but real";
+  }
+
+  if (/effective|consisten|reliable|strong support/.test(text)) {
+    return "Reliable edge";
+  }
+
+  if (/mixed|uncertain|limited/.test(text)) {
+    return "Mixed support";
+  }
+
+  return "Evidence-backed";
+}
+
+function buildVerdictTitle(summary) {
+  const firstSentence = normalizeText(String(summary || "").split(/(?<=[.!?])\s+/)[0], 110);
+  if (!firstSentence) {
+    return "Evidence-backed recommendation";
+  }
+
+  return firstSentence.replace(/^[—–-]+/, "").trim();
+}
+
+function buildActionColumns({ recommendations, topic }) {
+  const columns = [];
+
+  if (recommendations.training?.length) {
+    columns.push({
+      label: "Training",
+      tone: "good",
+      items: recommendations.training.slice(0, 3),
+    });
+  }
+
+  if (recommendations.nutrition?.length) {
+    columns.push({
+      label: "Nutrition",
+      tone: "good",
+      items: recommendations.nutrition.slice(0, 3),
+    });
+  }
+
+  if (recommendations.mental_performance?.length) {
+    columns.push({
+      label: topic === "mental_performance" ? "Mental performance" : "Recovery",
+      tone: topic === "mental_performance" ? "good" : "neutral",
+      items: recommendations.mental_performance.slice(0, 3),
+    });
+  }
+
+  return columns.slice(0, 3);
+}
+
+function cleanSourceTakeaway(value) {
+  return normalizeText(
+    String(value || "")
+      .replace(/^(introduction|background|methods|results|conclusion)\s+/i, "")
+      .replace(/\[\s*\]/g, "")
+      .replace(/\s+/g, " "),
+    180
+  );
+}
+
+function buildCards({ question, plan, synthesis, confidence, sources, evidence }) {
+  const topSource = sources[0] || evidence[0] || null;
+  const recentSourceCount = sources.filter(
+    (source) => Number(source.freshness_score || 0) >= 0.82
+  ).length;
+  const highQualitySourceCount = sources.filter(
+    (source) => Number(source.quality_score || 0) >= 0.84
+  ).length;
+  const recencyScore = sources.length ? recentSourceCount / sources.length : 0.4;
+  const qualityScore = sources.length ? highQualitySourceCount / sources.length : 0.55;
+  const consistencyScore = clamp(
+    Number(confidence.score || 0) * 0.92 + qualityScore * 0.18,
+    0,
+    1
+  );
+  const personalizationScore = clamp(
+    (plan.topic === "mental_performance" && synthesis.recommendations.mental_performance?.length
+      ? 0.74
+      : 0.62) - (plan.riskLevel === "medium" ? 0.08 : 0),
+    0.35,
+    0.9
+  );
+  const effectLabel = summarizeEffect(synthesis.summary);
+  const actionColumns = buildActionColumns({
+    recommendations: synthesis.recommendations,
+    topic: plan.topic,
+  });
+  const sourceHighlights = sources.slice(0, 3).map((source) => ({
+    title: source.title,
+    meta: [
+      source.journal,
+      source.year,
+      source.publication_type,
+      source.pmid ? `PMID ${source.pmid}` : "",
+    ]
+      .filter(Boolean)
+      .join(" · "),
+    takeaway: cleanSourceTakeaway(source.excerpt || source.why_it_matters),
+    links: [
+      source.url
+        ? {
+            label: source.doi ? "DOI" : "Open source",
+            url: source.url,
+          }
+        : null,
+      source.pmid
+        ? {
+            label: "PubMed",
+            url: `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(source.pmid)}/`,
+          }
+        : null,
+    ].filter(Boolean),
+  }));
+
+  const cards = [
+    {
+      type: "verdict_hero",
+      eyebrow: `${titleCase(plan.topic)} — Evidence Verdict`,
+      title: buildVerdictTitle(synthesis.summary),
+      body: normalizeText(synthesis.summary, 220),
+      metrics: [
+        {
+          label: "Confidence",
+          value: titleCase(confidence.label),
+          tone: scoreTone(confidence.score),
+        },
+        {
+          label: "Evidence",
+          value: determineEvidenceLabel(topSource),
+          tone: scoreTone(qualityScore),
+        },
+        {
+          label: "Recency",
+          value: determineRecencyLabel(topSource),
+          tone: scoreTone(recencyScore),
+        },
+        {
+          label: "Effect",
+          value: effectLabel,
+          tone: scoreTone(confidence.score),
+        },
+      ],
+    },
+  ];
+
+  if (actionColumns.length) {
+    cards.push({
+      type: "action_grid",
+      title: "What to do",
+      columns: actionColumns,
+    });
+  }
+
+  cards.push({
+    type: "evidence_profile",
+    title: "Evidence profile",
+    footnote: confidence.rationale,
+    items: [
+      {
+        label: "Evidence quality",
+        score: Math.round(qualityScore * 10),
+        max: 10,
+        tone: scoreTone(qualityScore),
+      },
+      {
+        label: "Consistency",
+        score: Math.round(consistencyScore * 10),
+        max: 10,
+        tone: scoreTone(consistencyScore),
+      },
+      {
+        label: "Recency",
+        score: Math.round(recencyScore * 10),
+        max: 10,
+        tone: scoreTone(recencyScore),
+      },
+      {
+        label: "Personal fit",
+        score: Math.round(personalizationScore * 10),
+        max: 10,
+        tone: scoreTone(personalizationScore),
+      },
+    ],
+  });
+
+  if (sourceHighlights.length) {
+    cards.push({
+      type: "source_highlights",
+      title: "Best sources",
+      items: sourceHighlights,
+    });
+  }
+
+  if (Array.isArray(synthesis.limitations) && synthesis.limitations.length) {
+    cards.push({
+      type: "watchouts",
+      title: "Watchouts",
+      tone: confidence.score >= 0.75 ? "medium" : "caution",
+      items: synthesis.limitations.slice(0, 4),
+    });
+  }
+
+  return cards;
+}
+
 function normalizeSources(evidence) {
   return evidence.slice(0, 6).map((source) => ({
     title: source.title,
@@ -794,6 +1064,14 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
     plan,
     evidence: databaseEvidence,
   });
+  const cards = buildCards({
+    question,
+    plan,
+    synthesis,
+    confidence,
+    sources,
+    evidence: databaseEvidence,
+  });
 
   return {
     user: {
@@ -806,6 +1084,7 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
     confidence,
     limitations: synthesis.limitations,
     sources,
+    cards,
     debug: includeDebug
       ? {
           vector_database: vectorDatabase,
