@@ -1,0 +1,309 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">41404326</PMID><DateCompleted><Year>2025</Year><Month>12</Month><Day>17</Day></DateCompleted><DateRevised><Year>2025</Year><Month>12</Month><Day>19</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">2296-861X</ISSN><JournalIssue CitedMedium="Print"><Volume>12</Volume><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>Frontiers in nutrition</Title><ISOAbbreviation>Front Nutr</ISOAbbreviation></Journal><ArticleTitle>A short review of the most common safety concerns regarding creatine ingestion.</ArticleTitle><Pagination><StartPage>1682746</StartPage><MedlinePgn>1682746</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">1682746</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.3389/fnut.2025.1682746</ELocationID><Abstract><AbstractText>Creatine monohydrate supplementation is widely used for enhancing athletic performance and improving clinical outcomes, but concerns regarding its safety persist, particularly relating to risk of cancer, impaired kidney function, dehydration, and gastrointestinal issues. This short review critically evaluates these concerns based on current scientific evidence. Although some theoretical risks, such as creatine's potential to form carcinogenic compounds, have been discussed, the available research does not support a link between creatine supplementation and cancer. In terms of kidney health, studies consistently show no adverse effects on renal function in healthy individuals, though caution is advised for those with pre-existing kidney conditions and pregnant women, as evidence is lacking for these populations. Claims that creatine leads to dehydration or muscle cramps during exercise are largely unsupported by controlled studies, which demonstrate no significant effects on hydration or thermoregulation; in fact, creatine may reduce the incidence of muscle cramps and assist in maintaining thermoregulatory balance. Gastrointestinal distress is reported in some individuals, particularly at high doses, but such effects are dose-dependent and not universally experienced. Overall, the evidence suggests that creatine monohydrate supplementation is generally safe when used appropriately, with further research needed to understand its impact on specific populations.</AbstractText><CopyrightInformation>Copyright &#xa9; 2025 Longobardi, Solis, Roschel and Gualano.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y" EqualContrib="Y"><LastName>Longobardi</LastName><ForeName>Igor</ForeName><Initials>I</Initials><AffiliationInfo><Affiliation>Applied Physiology and Nutrition Research Group, School of Physical Education and Sport, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Center of Lifestyle Medicine, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Laboratory of Assessment and Conditioning in Rheumatology, Hospital das Cl&#xed;nicas HCFMUSP, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y" EqualContrib="Y"><LastName>Solis</LastName><ForeName>Marina Yazigi</ForeName><Initials>MY</Initials><AffiliationInfo><Affiliation>Applied Physiology and Nutrition Research Group, School of Physical Education and Sport, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Center of Lifestyle Medicine, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Roschel</LastName><ForeName>Hamilton</ForeName><Initials>H</Initials><AffiliationInfo><Affiliation>Applied Physiology and Nutrition Research Group, School of Physical Education and Sport, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Center of Lifestyle Medicine, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Laboratory of Assessment and Conditioning in Rheumatology, Hospital das Cl&#xed;nicas HCFMUSP, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Gualano</LastName><ForeName>Bruno</ForeName><Initials>B</Initials><AffiliationInfo><Affiliation>Applied Physiology and Nutrition Research Group, School of Physical Education and Sport, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Center of Lifestyle Medicine, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Laboratory of Assessment and Conditioning in Rheumatology, Hospital das Cl&#xed;nicas HCFMUSP, Faculdade de Medicina FMUSP, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>Division of Rheumatology, Hospital das Clinicas HCFMUSP, Faculdade de Medicina, Universidade de S&#xe3;o Paulo, S&#xe3;o Paulo, Brazil.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType><PublicationType UI="D016454">Review</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>12</Month><Day>01</Day></ArticleDate></Article><MedlineJournalInfo><Country>Switzerland</Country><MedlineTA>Front Nutr</MedlineTA><NlmUniqueID>101642264</NlmUniqueID><ISSNLinking>2296-861X</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">adverse effects</Keyword><Keyword MajorTopicYN="N">creatinine</Keyword><Keyword MajorTopicYN="N">dietary supplements</Keyword><Keyword MajorTopicYN="N">malignancy</Keyword><Keyword MajorTopicYN="N">nutrition</Keyword><Keyword MajorTopicYN="N">pregnancy</Keyword><Keyword MajorTopicYN="N">sports</Keyword></KeywordList><CoiStatement>BG received research grants, creatine donation for scientific studies, travel support for participation in scientific conferences, and honorarium for speaking at lectures from AlzChem (a company which manufactures creatine). Additionally, he served as a member of the Scientific Advisory Board for Alzchem. HR received research grants and supplement donations for scientific studies from AlzChem, Natural Alternatives International, DuPont, J.B.S., and NotCompany. The remaining authors declare that the research was conducted in the absence of any commercial or financial relationships that could be construed as a potential conflict of interest. The author(s) declared that they were an editorial board member of Frontiers, at the time of submission. This had no impact on the peer review process and the final decision.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2025</Year><Month>8</Month><Day>9</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>10</Month><Day>31</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2025</Year><Month>12</Month><Day>17</Day><Hour>6</Hour><Minute>42</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2025</Year><Month>12</Month><Day>17</Day><Hour>6</Hour><Minute>41</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2025</Year><Month>12</Month><Day>17</Day><Hour>4</Hour><Minute>43</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>12</Month><Day>1</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">41404326</ArticleId><ArticleId IdType="pmc">PMC12702719</ArticleId><ArticleId IdType="doi">10.3389/fnut.2025.1682746</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Wyss M, Kaddurah-Daouk R. Creatine and creatinine metabolism.
+<i>Physiol Rev</i>. (2000) 80:1107&#x2013;213. 10.1152/physrev.2000.80.3.1107
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/physrev.2000.80.3.1107</ArticleId><ArticleId IdType="pubmed">10893433</ArticleId></ArticleIdList></Reference><Reference><Citation>Layton D, Bogen K, Knize M, Hatch F, Johnson V, Felton J. Cancer risk of heterocyclic amines in cooked foods: an analysis and implications for research.
+<i>Carcinogenesis</i>. (1995) 16:39&#x2013;52. 10.1093/carcin/16.1.39
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/carcin/16.1.39</ArticleId><ArticleId IdType="pubmed">7834804</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang L, Bu P. The two sides of creatine in cancer.
+<i>Trends Cell Biol</i>. (2022) 32:380&#x2013;90. 10.1016/j.tcb.2021.11.004
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.tcb.2021.11.004</ArticleId><ArticleId IdType="pubmed">34895811</ArticleId></ArticleIdList></Reference><Reference><Citation>Teicher B, Menon K, Northey D, Liu J, Kufe D, Kaddurah-Daouk R. Cyclocreatine in cancer chemotherapy.
+<i>Cancer Chemother Pharmacol</i>. (1995) 35:411&#x2013;6. 10.1007/s002800050255
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s002800050255</ArticleId><ArticleId IdType="pubmed">7850923</ArticleId></ArticleIdList></Reference><Reference><Citation>Miller E, Evans A, Cohn M. Inhibition of rate of tumor growth by creatine and cyclocreatine.
+<i>Proc Natl Acad Sci U S A</i>. (1993) 90:3304&#x2013;8. 10.1073/pnas.90.8.3304
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1073/pnas.90.8.3304</ArticleId><ArticleId IdType="pmc">PMC46288</ArticleId><ArticleId IdType="pubmed">8475072</ArticleId></ArticleIdList></Reference><Reference><Citation>Lillie J, O&#x2019;Keefe M, Valinski H, Hamlin H, Varban M, Kaddurah-Daouk R. Cyclocreatine (1-carboxymethyl-2-iminoimidazolidine) inhibits growth of a broad spectrum of cancer cells derived from solid tumors.
+<i>Cancer Res</i>. (1993) 53:3172&#x2013;8.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">8319226</ArticleId></ArticleIdList></Reference><Reference><Citation>Brosnan M, Brosnan J. The role of dietary creatine.
+<i>Amino Acids</i>. (2016) 48:1785&#x2013;91. 10.1007/s00726-016-2188-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00726-016-2188-1</ArticleId><ArticleId IdType="pubmed">26874700</ArticleId></ArticleIdList></Reference><Reference><Citation>Harris R, Nevill M, Harris D, Fallowfield J, Bogdanis G, Wise J. Absorption of creatine supplied as a drink, in meat or in solid form.
+<i>J Sports Sci</i>. (2002) 20:147&#x2013;51. 10.1080/026404102317200855
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/026404102317200855</ArticleId><ArticleId IdType="pubmed">11811571</ArticleId></ArticleIdList></Reference><Reference><Citation>Sugimura T, Wakabayashi K, Nakagama H, Nagao M. Heterocyclic amines: mutagens/carcinogens produced during cooking of meat and fish.
+<i>Cancer Sci</i>. (2004) 95:290&#x2013;9. 10.1111/j.1349-7006.2004.tb03205.x
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/j.1349-7006.2004.tb03205.x</ArticleId><ArticleId IdType="pmc">PMC11159436</ArticleId><ArticleId IdType="pubmed">15072585</ArticleId></ArticleIdList></Reference><Reference><Citation>Pereira R, D&#xf6;rr F, Pinto E, Solis M, Artioli G, Fernandes A, et al. 
+Can creatine supplementation form carcinogenic heterocyclic amines in humans?
+<i>J Physiol</i>. (2015) 593:3959&#x2013;71. 10.1113/JP270861
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1113/JP270861</ArticleId><ArticleId IdType="pmc">PMC4575580</ArticleId><ArticleId IdType="pubmed">26148133</ArticleId></ArticleIdList></Reference><Reference><Citation>Ostojic S, Grasaas E, Cvejic JJ. Dietary creatine and cancer risk in the US population: NHANES 2017&#x2013;2020.
+<i>J Funct Foods.</i> (2023) 108:105733. 10.1016/j.jff.2023.105733</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jff.2023.105733</ArticleId></ArticleIdList></Reference><Reference><Citation>Jiang J, Zhao H, Chen J, Du J, Ni W, Zheng B, et al. 
+The association between dietary creatine intake and cancer in U.S. adults: insights from NHANES 2007-2018.
+<i>Front Nutr</i>. (2024) 11:1460057. 10.3389/fnut.2024.1460057
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3389/fnut.2024.1460057</ArticleId><ArticleId IdType="pmc">PMC11757134</ArticleId><ArticleId IdType="pubmed">39867555</ArticleId></ArticleIdList></Reference><Reference><Citation>Loo J, Scherl A, Nguyen A, Man F, Weinberg E, Zeng Z, et al. 
+Extracellular metabolic energetics can promote cancer progression.
+<i>Cell</i>. (2015) 160:393&#x2013;406. 10.1016/j.cell.2014.12.018
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cell.2014.12.018</ArticleId><ArticleId IdType="pmc">PMC4312495</ArticleId><ArticleId IdType="pubmed">25601461</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang L, Zhu Z, Yan H, Wang W, Wu Z, Zhang F, et al. 
+Creatine promotes cancer metastasis through activation of Smad2/3.
+<i>Cell Metab</i>. (2021) 33:1111&#x2013;1123.e4. 10.1016/j.cmet.2021.03.009
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cmet.2021.03.009</ArticleId><ArticleId IdType="pubmed">33811821</ArticleId></ArticleIdList></Reference><Reference><Citation>Massagu&#xe9; J. TGFbeta in Cancer.
+<i>Cell</i>. (2008) 134:215&#x2013;30. 10.1016/j.cell.2008.07.001
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.cell.2008.07.001</ArticleId><ArticleId IdType="pmc">PMC3512574</ArticleId><ArticleId IdType="pubmed">18662538</ArticleId></ArticleIdList></Reference><Reference><Citation>Di Biase S, Ma X, Wang X, Yu J, Wang Y, Smith D, et al. 
+Creatine uptake regulates CD8 T cell antitumor immunity.
+<i>J Exp Med</i>. (2019) 216:2869&#x2013;82. 10.1084/jem.20182044
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1084/jem.20182044</ArticleId><ArticleId IdType="pmc">PMC6888972</ArticleId><ArticleId IdType="pubmed">31628186</ArticleId></ArticleIdList></Reference><Reference><Citation>Campos-Ferraz P, Gualano B, das Neves W, Andrade I, Hangai I, Pereira R, et al. 
+Exploratory studies of the potential anti-cancer effects of creatine.
+<i>Amino Acids</i>. (2016) 48:1993&#x2013;2001. 10.1007/s00726-016-2180-9
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00726-016-2180-9</ArticleId><ArticleId IdType="pubmed">26872655</ArticleId></ArticleIdList></Reference><Reference><Citation>Fairman C, Kendall K, Hart N, Taaffe D, Galv&#xe3;o D, Newton R. The potential therapeutic effects of creatine supplementation on body composition and muscle function in cancer.
+<i>Crit Rev Oncol Hematol</i>. (2019) 133:46&#x2013;57. 10.1016/j.critrevonc.2018.11.003
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.critrevonc.2018.11.003</ArticleId><ArticleId IdType="pubmed">30661658</ArticleId></ArticleIdList></Reference><Reference><Citation>Tucker J, Fischer T, Upjohn L, Mazzera D, Kumar M. Unapproved pharmaceutical ingredients included in dietary supplements associated with US Food and Drug Administration Warnings.
+<i>JAMA Netw Open</i>. (2018) 1:e183337. 10.1001/jamanetworkopen.2018.3337
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1001/jamanetworkopen.2018.3337</ArticleId><ArticleId IdType="pmc">PMC6324457</ArticleId><ArticleId IdType="pubmed">30646238</ArticleId></ArticleIdList></Reference><Reference><Citation>Longobardi I, Gualano B, Seguro A, Roschel H. Is it time for a requiem for creatine supplementation-induced kidney failure? A Narrative Review.
+<i>Nutrients</i>. (2023) 15:1466. 10.3390/nu15061466
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu15061466</ArticleId><ArticleId IdType="pmc">PMC10054094</ArticleId><ArticleId IdType="pubmed">36986197</ArticleId></ArticleIdList></Reference><Reference><Citation>Pritchard N, Kalra P. Renal dysfunction accompanying oral creatine supplements.
+<i>Lancet</i>. (1998) 351:1252&#x2013;3. 10.1016/s0140-6736(05)79319-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0140-6736(05)79319-3</ArticleId><ArticleId IdType="pubmed">9643752</ArticleId></ArticleIdList></Reference><Reference><Citation>Koshy K, Griswold E, Schneeberger E. Interstitial nephritis in a patient taking creatine.
+<i>N Engl J Med</i>. (1999) 340:814&#x2013;5. 10.1056/NEJM199903113401017
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1056/NEJM199903113401017</ArticleId><ArticleId IdType="pubmed">10075534</ArticleId></ArticleIdList></Reference><Reference><Citation>Robinson S. Acute quadriceps compartment syndrome and rhabdomyolysis in a weight lifter using high-dose creatine supplementation.
+<i>J Am Board Fam Pract</i>. (2000) 13:134&#x2013;7. 10.3122/15572625-13-2-134
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3122/15572625-13-2-134</ArticleId><ArticleId IdType="pubmed">10764196</ArticleId></ArticleIdList></Reference><Reference><Citation>Barisic N, Bernert G, Ipsiroglu O, Stromberger C, M&#xfc;ller T, Gruber S, et al. 
+Effects of oral creatine supplementation in a patient with MELAS phenotype and associated nephropathy.
+<i>Neuropediatrics</i>. (2002) 33:157&#x2013;61. 10.1055/s-2002-33679
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2002-33679</ArticleId><ArticleId IdType="pubmed">12200746</ArticleId></ArticleIdList></Reference><Reference><Citation>R&#xe9;vai T, S&#xe1;pi Z, Benedek S, Kov&#xe1;cs A, Kasz&#xe1;s I, Vir&#xe1;nyi M, et al. 
+Severe nephrotic syndrome in a young man taking anabolic steroid and creatine long term].
+<i>Orv Hetil</i>. (2003) 144:2425&#x2013;7.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">14725210</ArticleId></ArticleIdList></Reference><Reference><Citation>Thorsteinsdottir B, Grande J, Garovic V. Acute renal failure in a young weight lifter taking multiple food supplements, including creatine monohydrate.
+<i>J Ren Nutr</i>. (2006) 16:341&#x2013;5. 10.1053/j.jrn.2006.04.025
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1053/j.jrn.2006.04.025</ArticleId><ArticleId IdType="pubmed">17046619</ArticleId></ArticleIdList></Reference><Reference><Citation>Taner B, Aysim O, Abdulkadir U. The effects of the recommended dose of creatine monohydrate on kidney function.
+<i>NDT Plus</i>. (2011) 4:23&#x2013;4. 10.1093/ndtplus/sfq177
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ndtplus/sfq177</ArticleId><ArticleId IdType="pmc">PMC4421632</ArticleId><ArticleId IdType="pubmed">25984094</ArticleId></ArticleIdList></Reference><Reference><Citation>Edmunds J, Jayapalan S, DiMarco N, Saboorian M, Aukema H. Creatine supplementation increases renal disease progression in Han:sprd-cy rats.
+<i>Am J Kidney Dis</i>. (2001) 37:73&#x2013;8. 10.1053/ajkd.2001.20590
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1053/ajkd.2001.20590</ArticleId><ArticleId IdType="pubmed">11136170</ArticleId></ArticleIdList></Reference><Reference><Citation>Ferreira L, De Toledo Bergamaschi C, Lazaretti-Castro M, Heilberg I. Effects of creatine supplementation on body composition and renal function in rats.
+<i>Med Sci Sports Exerc</i>. (2005) 37:1525&#x2013;9. 10.1249/01.mss.0000177555.94271.44
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000177555.94271.44</ArticleId><ArticleId IdType="pubmed">16177604</ArticleId></ArticleIdList></Reference><Reference><Citation>Souza R, Miranda H, Xavier M, Lazo-Osorio R, Gouvea H, Cogo J, et al. 
+Effects of high-dose creatine supplementation on kidney and liver responses in sedentary and exercised rats.
+<i>J Sports Sci Med</i>. (2009) 8:672&#x2013;81.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3761536</ArticleId><ArticleId IdType="pubmed">24149610</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim J, Lee J, Kim S, Ryu H, Cha K, Sung D. Exercise-induced rhabdomyolysis mechanisms and prevention: a literature review.
+<i>J Sport Health Sci</i>. (2016) 5:324&#x2013;33. 10.1016/j.jshs.2015.01.012
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.jshs.2015.01.012</ArticleId><ArticleId IdType="pmc">PMC6188610</ArticleId><ArticleId IdType="pubmed">30356493</ArticleId></ArticleIdList></Reference><Reference><Citation>Burdmann E, Andoh T, Yu L, Bennett W. Cyclosporine nephrotoxicity.
+<i>Semin Nephrol</i>. (2003) 23:465&#x2013;76. 10.1016/s0270-9295(03)00090-1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0270-9295(03)00090-1</ArticleId><ArticleId IdType="pubmed">13680536</ArticleId></ArticleIdList></Reference><Reference><Citation>Parente Filho S, Gomes P, Forte G, Lima L, Silva J&#xfa;nior G, Meneses G, et al. 
+Kidney disease associated with androgenic-anabolic steroids and vitamin supplements abuse: be aware!
+<i>Nefrologia</i>. (2020) 40:26&#x2013;31. 10.1016/j.nefro.2019.06.003
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.nefro.2019.06.003</ArticleId><ArticleId IdType="pubmed">31585781</ArticleId></ArticleIdList></Reference><Reference><Citation>Tarnopolsky M, Bourgeois J, Snow R, Keys S, Roy B, Kwiecien J, et al. 
+Histological assessment of intermediate- and long-term creatine monohydrate supplementation in mice and rats.
+<i>Am J Physiol Regul Integr Comp Physiol</i>. (2003) 285:R762&#x2013;9. 10.1152/ajpregu.00270.2003
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/ajpregu.00270.2003</ArticleId><ArticleId IdType="pubmed">12959920</ArticleId></ArticleIdList></Reference><Reference><Citation>Levey A, Coresh J, Tighiouart H, Greene T, Inker L. Measured and estimated glomerular filtration rate: current status and future directions.
+<i>Nat Rev Nephrol</i>. (2020) 16:51&#x2013;64. 10.1038/s41581-019-0191-y
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/s41581-019-0191-y</ArticleId><ArticleId IdType="pubmed">31527790</ArticleId></ArticleIdList></Reference><Reference><Citation>Poortmans J, Auquier H, Renaut V, Durussel A, Saugy M, Brisson G. Effect of short-term creatine supplementation on renal responses in men.
+<i>Eur J Appl Physiol Occup Physiol</i>. (1997) 76:566&#x2013;7. 10.1007/s004210050291
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s004210050291</ArticleId><ArticleId IdType="pubmed">9404870</ArticleId></ArticleIdList></Reference><Reference><Citation>Poortmans J, Francaux M. Renal dysfunction accompanying oral creatine supplements.
+<i>Lancet</i>. (1998) 352:234. 10.1016/s0140-6736(05)77836-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0140-6736(05)77836-3</ArticleId><ArticleId IdType="pubmed">9683236</ArticleId></ArticleIdList></Reference><Reference><Citation>Poortmans J, Francaux M. Long-term oral creatine supplementation does not impair renal function in healthy athletes.
+<i>Med Sci Sports Exerc.</i> (1999) 31:1108&#x2013;10. 10.1097/00005768-199908000-00005
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-199908000-00005</ArticleId><ArticleId IdType="pubmed">10449011</ArticleId></ArticleIdList></Reference><Reference><Citation>Poortmans J, Kumps A, Duez P, Fofonka A, Carpentier A, Francaux M. Effect of oral creatine supplementation on urinary methylamine, formaldehyde, and formate.
+<i>Med Sci Sports Exerc</i>. (2005) 37:1717&#x2013;20. 10.1249/01.mss.0000176398.64189.e6
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/01.mss.0000176398.64189.e6</ArticleId><ArticleId IdType="pubmed">16260971</ArticleId></ArticleIdList></Reference><Reference><Citation>Kim H, Kim C, Carpentier A, Poortmans J. Studies on the safety of creatine supplementation.
+<i>Amino Acids</i>. (2011) 40:1409&#x2013;18. 10.1007/s00726-011-0878-2
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00726-011-0878-2</ArticleId><ArticleId IdType="pubmed">21399917</ArticleId></ArticleIdList></Reference><Reference><Citation>Bernales-Delmon W, Schulz S, Guglielmi I, Saravia C, Venegas Y, Joost J, et al. 
+Oral creatine in hemodialysis patients increases physical functional capacity and muscle mass, an open label study.
+<i>PLoS One</i>. (2025) 20:e0328757. 10.1371/journal.pone.0328757
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1371/journal.pone.0328757</ArticleId><ArticleId IdType="pmc">PMC12312878</ArticleId><ArticleId IdType="pubmed">40743209</ArticleId></ArticleIdList></Reference><Reference><Citation>Chang C, Wu C, Yang C, Huang J, Wu M. Creatine monohydrate treatment alleviates muscle cramps associated with haemodialysis.
+<i>Nephrol Dial Transplant</i>. (2002) 17:1978&#x2013;81. 10.1093/ndt/17.11.1978
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/ndt/17.11.1978</ArticleId><ArticleId IdType="pubmed">12401856</ArticleId></ArticleIdList></Reference><Reference><Citation>Lugaresi R, Leme M, de Salles Painelli V, Murai I, Roschel H, Sapienza M, et al. 
+Does long-term creatine supplementation impair kidney function in resistance-trained individuals consuming a high-protein diet?
+<i>J Int Soc Sports Nutr</i>. (2013) 10:26. 10.1186/1550-2783-10-26
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1550-2783-10-26</ArticleId><ArticleId IdType="pmc">PMC3661339</ArticleId><ArticleId IdType="pubmed">23680457</ArticleId></ArticleIdList></Reference><Reference><Citation>Neves M, Gualano B, Roschel H, Lima F, L&#xfa;cia de S&#xe1;-Pinto A, Seguro AC, et al. 
+Effect of creatine supplementation on measured glomerular filtration rate in postmenopausal women.
+<i>Appl Physiol Nutr Metab</i>. (2011) 36:419&#x2013;22. 10.1139/h11-014
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1139/h11-014</ArticleId><ArticleId IdType="pubmed">21574777</ArticleId></ArticleIdList></Reference><Reference><Citation>Lobo D, Tritto A, da Silva L, de Oliveira P, Benatti F, Roschel H, et al. 
+Effects of long-term low-dose dietary creatine supplementation in older women.
+<i>Exp Gerontol</i>. (2015) 70:97&#x2013;104. 10.1016/j.exger.2015.07.012
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.exger.2015.07.012</ArticleId><ArticleId IdType="pubmed">26192975</ArticleId></ArticleIdList></Reference><Reference><Citation>Sales L, Pinto A, Rodrigues S, Alvarenga J, Gon&#xe7;alves N, Sampaio-Barros M, et al. 
+Creatine Supplementation (3 g/d) and Bone Health in Older Women: a 2-Year, Randomized, Placebo-Controlled Trial.
+<i>J Gerontol A Biol Sci Med Sci</i>. (2020) 75:931&#x2013;8. 10.1093/gerona/glz162
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1093/gerona/glz162</ArticleId><ArticleId IdType="pubmed">31257405</ArticleId></ArticleIdList></Reference><Reference><Citation>Gualano B, Ugrinowitsch C, Novaes R, Artioli G, Shimizu M, Seguro A, et al. 
+Effects of creatine supplementation on renal function: a randomized, double-blind, placebo-controlled clinical trial.
+<i>Eur J Appl Physiol</i>. (2008) 103:33&#x2013;40. 10.1007/s00421-007-0669-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-007-0669-3</ArticleId><ArticleId IdType="pubmed">18188581</ArticleId></ArticleIdList></Reference><Reference><Citation>Gualano B, Ferreira D, Sapienza M, Seguro A, Lancha A. Effect of short-term high-dose creatine supplementation on measured GFR in a young man with a single kidney.
+<i>Am J Kidney Dis</i>. (2010) 55:e7&#x2013;9. 10.1053/j.ajkd.2009.10.053
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1053/j.ajkd.2009.10.053</ArticleId><ArticleId IdType="pubmed">20060630</ArticleId></ArticleIdList></Reference><Reference><Citation>Gualano B, de Salles Painelli V, Roschel H, Lugaresi R, Dorea E, Artioli G, et al. 
+Creatine supplementation does not impair kidney function in type 2 diabetic patients: a randomized, double-blind, placebo-controlled, clinical trial.
+<i>Eur J Appl Physiol</i>. (2011) 111:749&#x2013;56. 10.1007/s00421-010-1676-3
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00421-010-1676-3</ArticleId><ArticleId IdType="pubmed">20976468</ArticleId></ArticleIdList></Reference><Reference><Citation>Hayashi A, Solis M, Sapienza M, Otaduy M, de S&#xe1; Pinto A, Silva C, et al. 
+Efficacy and safety of creatine supplementation in childhood-onset systemic lupus erythematosus: a randomized, double-blind, placebo-controlled, crossover trial.
+<i>Lupus.</i> (2014) 23:1500&#x2013;11. 10.1177/0961203314546017
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1177/0961203314546017</ArticleId><ArticleId IdType="pubmed">25135060</ArticleId></ArticleIdList></Reference><Reference><Citation>Neves M, Gualano B, Roschel H, Fuller R, Benatti F, Pinto A, et al. 
+Beneficial effect of creatine supplementation in knee osteoarthritis.
+<i>Med Sci Sports Exerc</i>. (2011) 43:1538&#x2013;43. 10.1249/MSS.0b013e3182118592
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0b013e3182118592</ArticleId><ArticleId IdType="pubmed">21311365</ArticleId></ArticleIdList></Reference><Reference><Citation>Alves C, Santiago B, Lima F, Otaduy M, Calich A, Tritto A, et al. 
+Creatine supplementation in fibromyalgia: a randomized, double-blind, placebo-controlled trial.
+<i>Arthritis Care Res</i>. (2013) 65:1449&#x2013;59. 10.1002/acr.22020
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/acr.22020</ArticleId><ArticleId IdType="pubmed">23554283</ArticleId></ArticleIdList></Reference><Reference><Citation>Roschel H, Hayashi A, Fernandes A, Jambassi-Filho J, Hevia-Larra&#xed;n V, de Capitani M, et al. 
+Supplement-based nutritional strategies to tackle frailty: a multifactorial, double-blind, randomized placebo-controlled trial.
+<i>Clin Nutr</i>. (2021) 40:4849&#x2013;58. 10.1016/j.clnu.2021.06.024
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.clnu.2021.06.024</ArticleId><ArticleId IdType="pubmed">34358827</ArticleId></ArticleIdList></Reference><Reference><Citation>James L, Mears S. Does dehydration really impair endurance performance? Recent methodological advances helping to clarify an old question.
+<i>Sports Sci Exchange.</i> (2021) 34:1&#x2013;6.</Citation></Reference><Reference><Citation>Kellogg A, Suggs W.
+<i>Deaths of 3 College Football Players Worry Athletics Officials.</i> (2001) Washington, DC: The Chronicle of Higher Education.</Citation></Reference><Reference><Citation>Naughton J.
+<i>NCAA and Federal Agencies Investigate the Death of 3 College Wrestlers.</i> (1998) Washington, DC: The Chronicle of Higher Education.</Citation></Reference><Reference><Citation>Kraemer W, Volek J. Creatine supplementation. Its role in human performance.
+<i>Clin Sports Med</i>. (1999) 18:651&#x2013;66. 10.1016/s0278-5919(05)70174-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0278-5919(05)70174-5</ArticleId><ArticleId IdType="pubmed">10410847</ArticleId></ArticleIdList></Reference><Reference><Citation>Volek J, Duncan N, Mazzetti S, Staron R, Putukian M, G&#xf3;mez A, et al. 
+Performance and muscle fiber adaptations to creatine supplementation and heavy resistance training.
+<i>Med Sci Sports Exerc</i>. (1999) 31:1147&#x2013;56. 10.1097/00005768-199908000-00011
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-199908000-00011</ArticleId><ArticleId IdType="pubmed">10449017</ArticleId></ArticleIdList></Reference><Reference><Citation>Kern M, Podewils L, Vukovich M, Buono M. Physiological response to exercise in the heat following creatine supplementation.
+<i>J Exerc Physiol Online.</i> (2001) 4:18&#x2013;27.</Citation></Reference><Reference><Citation>Terjung R, Clarkson P, Eichner E, Greenhaff P, Hespel P, Israel R, et al. 
+American College of Sports Medicine roundtable. The physiological and health effects of oral creatine supplementation.
+<i>Med Sci Sports Exerc</i>. (2000) 32:706&#x2013;17. 10.1097/00005768-200003000-00024
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-200003000-00024</ArticleId><ArticleId IdType="pubmed">10731017</ArticleId></ArticleIdList></Reference><Reference><Citation>Juhn M, O&#x2019;Kane J, Vinci D. Oral creatine supplementation in male collegiate athletes: a survey of dosing habits and side effects.
+<i>J Am Diet Assoc</i>. (1999) 99:593&#x2013;5. 10.1016/s0002-8223(99)00145-5
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/s0002-8223(99)00145-5</ArticleId><ArticleId IdType="pubmed">10333782</ArticleId></ArticleIdList></Reference><Reference><Citation>Greenwood M, Farris J, Kreider R, Greenwood L, Byars A. Creatine supplementation patterns and perceived effects in select division I collegiate athletes.
+<i>Clin J Sport Med</i>. (2000) 10:191&#x2013;4. 10.1097/00042752-200007000-00007
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00042752-200007000-00007</ArticleId><ArticleId IdType="pubmed">10959929</ArticleId></ArticleIdList></Reference><Reference><Citation>McGuine T, Sullivan J, Bernhardt D. Creatine supplementation in high school football players.
+<i>Clin J Sport Med</i>. (2001) 11:247&#x2013;53. 10.1097/00042752-200110000-00007
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00042752-200110000-00007</ArticleId><ArticleId IdType="pubmed">11753062</ArticleId></ArticleIdList></Reference><Reference><Citation>Lopez R, Casa D, McDermott B, Ganio M, Armstrong L, Maresh C. Does creatine supplementation hinder exercise heat tolerance or hydration status? A systematic review with meta-analyses.
+<i>J Athl Train</i>. (2009) 44:215&#x2013;23. 10.4085/1062-6050-44.2.215
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.4085/1062-6050-44.2.215</ArticleId><ArticleId IdType="pmc">PMC2657025</ArticleId><ArticleId IdType="pubmed">19295968</ArticleId></ArticleIdList></Reference><Reference><Citation>Rosene J, Matthews T, Mcbride K, Galla A, Haun M, Mcdonald K, et al. 
+The effects of creatine supplementation on thermoregulation and isokinetic muscular performance following acute (3-day) supplementation.
+<i>J Sports Med Phys Fitness</i>. (2015) 55:1488&#x2013;96.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">25781214</ArticleId></ArticleIdList></Reference><Reference><Citation>Rosene J, Whitman S, Fogarty TD. A comparison of thermoregulation with creatine supplementation between the sexes in a thermoneutral environment.
+<i>J Athl Train</i>. (2004) 39:50&#x2013;5.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC385262</ArticleId><ArticleId IdType="pubmed">15085212</ArticleId></ArticleIdList></Reference><Reference><Citation>Vogel R, Webster M, Erdmann L, Clark R. Creatine supplementation: effect on supramaximal exercise performance at two levels of acute hypohydration.
+<i>J Strength Condition Res.</i> (2000) 14:214&#x2013;9.</Citation></Reference><Reference><Citation>Powers M, Arnold B, Weltman A, Perrin D, Mistry D, Kahler D, et al. 
+Creatine supplementation increases total body water without altering fluid distribution.
+<i>J Athl Train</i>. (2003) 38:44&#x2013;50.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC155510</ArticleId><ArticleId IdType="pubmed">12937471</ArticleId></ArticleIdList></Reference><Reference><Citation>Weiss B, Powers M. Creatine supplementation does not impair the thermoregulatory response during a bout of exercise in the heat.
+<i>J Sports Med Phys Fitness</i>. (2006) 46:555&#x2013;63.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">17119520</ArticleId></ArticleIdList></Reference><Reference><Citation>Wright G, Grandjean P, Pascoe D. The effects of creatine loading on thermoregulation and intermittent sprint exercise performance in a hot humid environment.
+<i>J Strength Cond Res</i>. (2007) 21:655&#x2013;60. 10.1519/R-22186.1
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1519/R-22186.1</ArticleId><ArticleId IdType="pubmed">17685723</ArticleId></ArticleIdList></Reference><Reference><Citation>Volek J, Mazzetti S, Farquhar W, Barnes B, G&#xf3;mez A, Kraemer W. Physiological responses to short-term exercise in the heat after creatine loading.
+<i>Med Sci Sports Exerc</i>. (2001) 33:1101&#x2013;8. 10.1097/00005768-200107000-00006
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1097/00005768-200107000-00006</ArticleId><ArticleId IdType="pubmed">11445756</ArticleId></ArticleIdList></Reference><Reference><Citation>Greenwood M, Kreider R, Greenwood L, Byars A. Cramping and injury incidence in collegiate football players are reduced by creatine supplementation.
+<i>J Athl Train</i>. (2003) 38:216&#x2013;9.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC233174</ArticleId><ArticleId IdType="pubmed">14608430</ArticleId></ArticleIdList></Reference><Reference><Citation>Ziegenfuss T, Lowery L, Lemon P. Acute fluid volume changes in men during three days of creatine supplementation.
+<i>Nutr Exerc.</i> (1998) 1: 1&#x2013;9.</Citation></Reference><Reference><Citation>Easton C, Turner S, Pitsiladis Y. Creatine and glycerol hyperhydration in trained subjects before exercise in the heat.
+<i>Int J Sport Nutr Exerc Metab</i>. (2007) 17:70&#x2013;91. 10.1123/ijsnem.17.1.70
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijsnem.17.1.70</ArticleId><ArticleId IdType="pubmed">17460334</ArticleId></ArticleIdList></Reference><Reference><Citation>Kilduff L, Georgiades E, James N, Minnion R, Mitchell M, Kingsmore D, et al. 
+The effects of creatine supplementation on cardiovascular, metabolic, and thermoregulatory responses during exercise in the heat in endurance-trained humans.
+<i>Int J Sport Nutr Exerc Metab</i>. (2004) 14:443&#x2013;60. 10.1123/ijsnem.14.4.443
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijsnem.14.4.443</ArticleId><ArticleId IdType="pubmed">15467102</ArticleId></ArticleIdList></Reference><Reference><Citation>Watson G, Casa D, Fiala K, Hile A, Roti M, Healey J, et al. 
+Creatine use and exercise heat tolerance in dehydrated men.
+<i>J Athl Train</i>. (2006) 41:18&#x2013;29.
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC1421496</ArticleId><ArticleId IdType="pubmed">16619091</ArticleId></ArticleIdList></Reference><Reference><Citation>Kreider R, Melton C, Rasmussen C, Greenwood M, Lancaster S, Cantler E, et al. 
+Long-term creatine supplementation does not significantly affect clinical markers of health in athletes.
+<i>Mol Cell Biochem</i>. (2003) 244:95&#x2013;104.
+</Citation><ArticleIdList><ArticleId IdType="pubmed">12701816</ArticleId></ArticleIdList></Reference><Reference><Citation>Francaux M, Poortmans J. Side effects of creatine supplementation in athletes.
+<i>Int J Sports Physiol Perform</i>. (2006) 1:311&#x2013;23. 10.1123/ijspp.1.4.311
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1123/ijspp.1.4.311</ArticleId><ArticleId IdType="pubmed">19124889</ArticleId></ArticleIdList></Reference><Reference><Citation>Williams M, Branch J. Creatine supplementation and exercise performance: an update.
+<i>J Am Coll Nutr</i>. (1998) 17:216&#x2013;34. 10.1080/07315724.1998.10718751
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/07315724.1998.10718751</ArticleId><ArticleId IdType="pubmed">9627907</ArticleId></ArticleIdList></Reference><Reference><Citation>Ostojic S, Ahmetovic Z. Gastrointestinal distress after creatine supplementation in athletes: Are side effects dose dependent?
+<i>Res Sports Med</i>. (2008) 16:15&#x2013;22. 10.1080/15438620701693280
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/15438620701693280</ArticleId><ArticleId IdType="pubmed">18373286</ArticleId></ArticleIdList></Reference><Reference><Citation>de Guingand D, Palmer K, Snow R, Davies-Tuck M, Ellery S. Risk of adverse outcomes in females taking oral creatine monohydrate: a systematic review and meta-analysis.
+<i>Nutrients</i>. (2020) 12:1780. 10.3390/nu12061780
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu12061780</ArticleId><ArticleId IdType="pmc">PMC7353222</ArticleId><ArticleId IdType="pubmed">32549301</ArticleId></ArticleIdList></Reference><Reference><Citation>Lyoo I, Yoon S, Kim T, Hwang J, Kim J, Won W, et al. 
+A randomized, double-blind placebo-controlled trial of oral creatine monohydrate augmentation for enhanced response to a selective serotonin reuptake inhibitor in women with major depressive disorder.
+<i>Am J Psychiatry</i>. (2012) 169:937&#x2013;45. 10.1176/appi.ajp.2012.12010009
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1176/appi.ajp.2012.12010009</ArticleId><ArticleId IdType="pmc">PMC4624319</ArticleId><ArticleId IdType="pubmed">22864465</ArticleId></ArticleIdList></Reference><Reference><Citation>Chilibeck P, Candow D, Landeryou T, Kaviani M, Paus-Jenssen L. Effects of creatine and resistance training on bone health in postmenopausal women.
+<i>Med Sci Sports Exerc</i>. (2015) 47:1587&#x2013;95. 10.1249/MSS.0000000000000571
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1249/MSS.0000000000000571</ArticleId><ArticleId IdType="pubmed">25386713</ArticleId></ArticleIdList></Reference><Reference><Citation>Groeneveld G, Beijer C, Veldink J, Kalmijn S, Wokke J, van den Berg L. Few adverse effects of long-term creatine supplementation in a placebo-controlled trial.
+<i>Int J Sports Med</i>. (2005) 26:307&#x2013;13. 10.1055/s-2004-817917
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1055/s-2004-817917</ArticleId><ArticleId IdType="pubmed">15795816</ArticleId></ArticleIdList></Reference><Reference><Citation>Hersch S, Schifitto G, Oakes D, Bredlau A, Meyers C, Nahin R, et al. 
+The CREST-E study of creatine for Huntington disease: a randomized controlled trial.
+<i>Neurology</i>. (2017) 89:594&#x2013;601. 10.1212/WNL.0000000000004209
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1212/WNL.0000000000004209</ArticleId><ArticleId IdType="pmc">PMC5562960</ArticleId><ArticleId IdType="pubmed">28701493</ArticleId></ArticleIdList></Reference><Reference><Citation>Kreider R, Gonzalez D, Hines K, Gil A, Bonilla D. Safety of creatine supplementation: analysis of the prevalence of reported side effects in clinical trials and adverse event reports.
+<i>J Int Soc Sports Nutr.</i> (2025) 22(sup1):2488937. 10.1080/(15502783):2025.2488937
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1080/(15502783):2025.2488937</ArticleId><ArticleId IdType="pmc">PMC11983583</ArticleId><ArticleId IdType="pubmed">40198156</ArticleId></ArticleIdList></Reference><Reference><Citation>Hespel P, Op&#x2019;t Eijnde B, Van Leemputte M. Opposite actions of caffeine and creatine on muscle relaxation time in humans.
+<i>J Appl Physiol</i>. (2002) 92:513&#x2013;8. 10.1152/japplphysiol.00255.2001
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00255.2001</ArticleId><ArticleId IdType="pubmed">11796658</ArticleId></ArticleIdList></Reference><Reference><Citation>Vandenberghe K, Gillis N, Van Leemputte M, Van Hecke P, Vanstapel F, Hespel P. Caffeine counteracts the ergogenic action of muscle creatine loading.
+<i>J Appl Physiol</i>. (1996) 80:452&#x2013;7. 10.1152/jappl.1996.80.2.452
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/jappl.1996.80.2.452</ArticleId><ArticleId IdType="pubmed">8929583</ArticleId></ArticleIdList></Reference><Reference><Citation>Muccini A, Tran N, de Guingand D, Philip M, Della Gatta P, Galinsky R, et al. 
+Creatine metabolism in female reproduction, pregnancy and newborn health.
+<i>Nutrients</i>. (2021) 13:490. 10.3390/nu13020490
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.3390/nu13020490</ArticleId><ArticleId IdType="pmc">PMC7912953</ArticleId><ArticleId IdType="pubmed">33540766</ArticleId></ArticleIdList></Reference><Reference><Citation>Dickinson H, Ellery S, Ireland Z, LaRosa D, Snow R, Walker D. Creatine supplementation during pregnancy: summary of experimental studies suggesting a treatment to improve fetal and neonatal morbidity and reduce mortality in high-risk human pregnancy.
+<i>BMC Pregnancy Childbirth</i>. (2014) 14:150. 10.1186/1471-2393-14-150
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/1471-2393-14-150</ArticleId><ArticleId IdType="pmc">PMC4007139</ArticleId><ArticleId IdType="pubmed">24766646</ArticleId></ArticleIdList></Reference><Reference><Citation>Ellery S, LaRosa D, Kett M, Della Gatta P, Snow R, Walker D, et al. 
+Dietary creatine supplementation during pregnancy: a study on the effects of creatine supplementation on creatine homeostasis and renal excretory function in spiny mice.
+<i>Amino Acids</i>. (2016) 48:1819&#x2013;30. 10.1007/s00726-015-2150-7
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1007/s00726-015-2150-7</ArticleId><ArticleId IdType="pubmed">26695944</ArticleId></ArticleIdList></Reference><Reference><Citation>LaRosa D, Ellery S, Snow R, Walker D, Dickinson H. Maternal creatine supplementation during pregnancy prevents acute and long-term deficits in skeletal muscle after birth asphyxia: a study of structure and function of hind limb muscle in the spiny mouse.
+<i>Pediatr Res</i>. (2016) 80:852&#x2013;60. 10.1038/pr.2016.153
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1038/pr.2016.153</ArticleId><ArticleId IdType="pubmed">27466898</ArticleId></ArticleIdList></Reference><Reference><Citation>Cannata D, Ireland Z, Dickinson H, Snow R, Russell A, West J, et al. 
+Maternal creatine supplementation from mid-pregnancy protects the diaphragm of the newborn spiny mouse from intrapartum hypoxia-induced damage.
+<i>Pediatr Res</i>. (2010) 68:393&#x2013;8. 10.1203/PDR.0b013e3181f1c048
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1203/PDR.0b013e3181f1c048</ArticleId><ArticleId IdType="pubmed">20639795</ArticleId></ArticleIdList></Reference><Reference><Citation>Tran N, Muccini A, Snow R, Nitsos I, Hale N, Walker D, et al. 
+The physiological effects of creatine supplementation in fetal sheep before, during, and after umbilical cord occlusion and global hypoxia.
+<i>J Appl Physiol</i>. (2021) 131:1088&#x2013;99. 10.1152/japplphysiol.00092.2021
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1152/japplphysiol.00092.2021</ArticleId><ArticleId IdType="pubmed">34382841</ArticleId></ArticleIdList></Reference><Reference><Citation>Alessandr&#xec; M, Strigini F, Cioni G, Battini R. Increased creatine demand during pregnancy in Arginine: glycine Amidino-Transferase deficiency: a case report.
+<i>BMC Pregnancy Childbirth</i>. (2020) 20:506. 10.1186/s12884-020-03192-4
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1186/s12884-020-03192-4</ArticleId><ArticleId IdType="pmc">PMC7469264</ArticleId><ArticleId IdType="pubmed">32883247</ArticleId></ArticleIdList></Reference><Reference><Citation>Ostojic S, Stea T, Ellery S, Smith-Ryan A. Association between dietary intake of creatine and female reproductive health: evidence from NHANES 2017-2020.
+<i>Food Sci Nutr</i>. (2024) 12:4893&#x2013;8. 10.1002/fsn3.4135
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1002/fsn3.4135</ArticleId><ArticleId IdType="pmc">PMC11266896</ArticleId><ArticleId IdType="pubmed">39055234</ArticleId></ArticleIdList></Reference><Reference><Citation>de Guingand D, Palmer K, Callahan D, Snow R, Davies-Tuck M, Ellery S. Creatine and pregnancy outcomes: a prospective cohort study of creatine metabolism in low-risk pregnant females.
+<i>Am J Clin Nutr</i>. (2024) 119:838&#x2013;49. 10.1016/j.ajcnut.2023.11.006
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.ajcnut.2023.11.006</ArticleId><ArticleId IdType="pubmed">38432717</ArticleId></ArticleIdList></Reference><Reference><Citation>Deborah D, Jade B, Stacey E, Kirsten P. Exploring pregnant women&#x2019;s knowledge and attitudes toward dietary/nutritional supplementation in pregnancy. Does it match with health professionals&#x2019; current clinical practice?
+<i>J Paediatr Child Health</i>. (2019) 55(S1):72. 10.1111/jpc.14410_52</Citation><ArticleIdList><ArticleId IdType="doi">10.1111/jpc.14410_52</ArticleId></ArticleIdList></Reference><Reference><Citation>de Guingand D, Palmer K, Bilardi J, Ellery S. Acceptability of dietary or nutritional supplementation in pregnancy (ADONS) - Exploring the consumer&#x2019;s perspective on introducing creatine monohydrate as a pregnancy supplement.
+<i>Midwifery</i>. (2020) 82:102599. 10.1016/j.midw.2019.102599
+
+</Citation><ArticleIdList><ArticleId IdType="doi">10.1016/j.midw.2019.102599</ArticleId><ArticleId IdType="pubmed">31877396</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>

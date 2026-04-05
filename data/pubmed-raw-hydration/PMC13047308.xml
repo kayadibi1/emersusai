@@ -1,0 +1,965 @@
+<?xml version="1.0"  ?><!DOCTYPE pmc-articleset PUBLIC "-//NLM//DTD ARTICLE SET 2.0//EN" "https://dtd.nlm.nih.gov/ncbi/pmc/articleset/nlm-articleset-2.0.dtd"><pmc-articleset><article id="jpen70050" xml:lang="en" article-type="review-article" dtd-version="1.4"><processing-meta base-tagset="archiving" mathml-version="3.0" table-model="xhtml" tagset-family="jats"><restricted-by>pmc</restricted-by></processing-meta><front><journal-meta><journal-id journal-id-type="nlm-ta">JPEN J Parenter Enteral Nutr</journal-id><journal-id journal-id-type="iso-abbrev">JPEN J Parenter Enteral Nutr</journal-id><journal-id journal-id-type="pmc-domain-id">379</journal-id><journal-id journal-id-type="pmc-domain">blackwellopen</journal-id><journal-id journal-id-type="publisher-id">JPEN</journal-id><journal-title-group><journal-title>JPEN. Journal of Parenteral and Enteral Nutrition</journal-title></journal-title-group><issn pub-type="ppub">0148-6071</issn><issn pub-type="epub">1941-2444</issn><custom-meta-group><custom-meta><meta-name>pmc-is-collection-domain</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-collection-title</meta-name><meta-value>Wiley Open Access Collection</meta-value></custom-meta></custom-meta-group></journal-meta><article-meta><article-id pub-id-type="pmcid">PMC13047308</article-id><article-id pub-id-type="pmcid-ver">PMC13047308.1</article-id><article-id pub-id-type="pmcaid">13047308</article-id><article-id pub-id-type="pmcaiid">13047308</article-id><article-id pub-id-type="pmid">41508901</article-id><article-id pub-id-type="doi">10.1002/jpen.70050</article-id><article-id pub-id-type="publisher-id">JPEN70050</article-id><article-version article-version-type="pmc-version">1</article-version><article-categories><subj-group subj-group-type="overline"><subject>Review</subject></subj-group><subj-group subj-group-type="heading"><subject>Review</subject></subj-group></article-categories><title-group><article-title>Oral rehydration solution for the management of fluid and electrolyte disturbances in patients with an ileostomy: A scoping review</article-title><alt-title alt-title-type="left-running-head">HOEG <sc>et al.</sc>
+</alt-title></title-group><contrib-group><contrib id="jpen70050-cr-0001" contrib-type="author"><name name-style="western"><surname>Hoeg</surname><given-names initials="AJ">Austin J.</given-names></name><degrees>MD, MPH</degrees><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0003-0999-1560</contrib-id><xref rid="jpen70050-aff-0001" ref-type="aff">
+<sup>1</sup>
+</xref></contrib><contrib id="jpen70050-cr-0002" contrib-type="author"><name name-style="western"><surname>Jaques</surname><given-names initials="J">Jessica</given-names></name><degrees>BS</degrees><xref rid="jpen70050-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="jpen70050-cr-0003" contrib-type="author"><name name-style="western"><surname>Johnson</surname><given-names initials="R">Remy</given-names></name><degrees>BA</degrees><xref rid="jpen70050-aff-0002" ref-type="aff">
+<sup>2</sup>
+</xref></contrib><contrib id="jpen70050-cr-0004" contrib-type="author"><name name-style="western"><surname>Kocher</surname><given-names initials="M">Megan</given-names></name><degrees>MLIS</degrees><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0001-8200-5144</contrib-id><xref rid="jpen70050-aff-0003" ref-type="aff">
+<sup>3</sup>
+</xref></contrib><contrib id="jpen70050-cr-0005" contrib-type="author"><name name-style="western"><surname>Weingarden</surname><given-names initials="A">Alexa</given-names></name><degrees>MD, PhD</degrees><xref rid="jpen70050-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib id="jpen70050-cr-0006" contrib-type="author"><name name-style="western"><surname>Vaughn</surname><given-names initials="B">Byron</given-names></name><degrees>MD, MS</degrees><xref rid="jpen70050-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib id="jpen70050-cr-0007" contrib-type="author"><name name-style="western"><surname>Khoruts</surname><given-names initials="A">Alexander</given-names></name><degrees>MD</degrees><xref rid="jpen70050-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref></contrib><contrib id="jpen70050-cr-0008" contrib-type="author"><name name-style="western"><surname>Jahansouz</surname><given-names initials="C">Cyrus</given-names></name><degrees>MD</degrees><xref rid="jpen70050-aff-0005" ref-type="aff">
+<sup>5</sup>
+</xref></contrib><contrib id="jpen70050-cr-0009" contrib-type="author"><name name-style="western"><surname>Hurt</surname><given-names initials="RT">Ryan T.</given-names></name><degrees>MD, PhD</degrees><xref rid="jpen70050-aff-0006" ref-type="aff">
+<sup>6</sup>
+</xref></contrib><contrib id="jpen70050-cr-0010" contrib-type="author" corresp="yes"><name name-style="western"><surname>Teigen</surname><given-names initials="LM">Levi M.</given-names></name><degrees>PhD, RD</degrees><contrib-id contrib-id-type="orcid" authenticated="false">https://orcid.org/0000-0002-6409-0485</contrib-id><xref rid="jpen70050-aff-0004" ref-type="aff">
+<sup>4</sup>
+</xref><xref rid="jpen70050-aff-0007" ref-type="aff">
+<sup>7</sup>
+</xref><address><email>teige027@umn.edu</email></address></contrib></contrib-group><aff id="jpen70050-aff-0001">
+<label>
+<sup>1</sup>
+</label>
+<institution>School of Graduate Medical Education, Mayo Clinic</institution>
+<city>Rochester</city>
+<named-content content-type="country-part">Minnesota</named-content>
+<country country="US">USA</country>
+</aff><aff id="jpen70050-aff-0002">
+<label>
+<sup>2</sup>
+</label>
+<named-content content-type="organisation-division">Medical School</named-content>
+<institution>University of Minnesota</institution>
+<city>Minneapolis</city>
+<named-content content-type="country-part">Minnesota</named-content>
+<country country="US">USA</country>
+</aff><aff id="jpen70050-aff-0003">
+<label>
+<sup>3</sup>
+</label>
+<institution>University of Minnesota Libraries</institution>
+<city>St. Paul</city>
+<named-content content-type="country-part">Minnesota</named-content>
+<country country="US">USA</country>
+</aff><aff id="jpen70050-aff-0004">
+<label>
+<sup>4</sup>
+</label>
+<named-content content-type="organisation-division">Department of Medicine, Division of Gastroenterology, Hepatology, and Nutrition</named-content>
+<institution>University of Minnesota</institution>
+<city>Minneapolis</city>
+<named-content content-type="country-part">Minnesota</named-content>
+<country country="US">USA</country>
+</aff><aff id="jpen70050-aff-0005">
+<label>
+<sup>5</sup>
+</label>
+<named-content content-type="organisation-division">Department of Surgery, Division of Colon and Rectal Surgery</named-content>
+<institution>University of Minnesota</institution>
+<city>Minneapolis</city>
+<named-content content-type="country-part">Minnesota</named-content>
+<country country="US">USA</country>
+</aff><aff id="jpen70050-aff-0006">
+<label>
+<sup>6</sup>
+</label>
+<institution>Division of General Internal Medicine, Mayo Clinic</institution>
+<city>Rochester</city>
+<named-content content-type="country-part">Minnesota</named-content>
+<country country="US">USA</country>
+</aff><aff id="jpen70050-aff-0007">
+<label>
+<sup>7</sup>
+</label>
+<named-content content-type="organisation-division">Department of Food Science and Nutrition</named-content>
+<institution>University of Minnesota</institution>
+<city>St. Paul</city>
+<named-content content-type="country-part">Minnesota</named-content>
+<country country="US">USA</country>
+</aff><author-notes><corresp id="correspondenceTo">
+<label>*</label>
+<bold>Correspondence</bold> Levi M. Teigen, PhD, RD, Department of Food Science and Nutrition, University of Minnesota, 1334 Eckles Ave, St. Paul, MN 55108, USA.<break/>
+Email: <email>teige027@umn.edu</email>
+<break/>
+</corresp></author-notes><pub-date pub-type="epub"><day>09</day><month>1</month><year>2026</year></pub-date><pub-date pub-type="ppub"><month>4</month><year>2026</year></pub-date><volume>50</volume><issue seq="30">3</issue><issue-id pub-id-type="pmc-issue-id">510865</issue-id><issue-id pub-id-type="doi">10.1002/jpen.v50.3</issue-id><fpage>339</fpage><lpage>351</lpage><history><date date-type="rev-recd"><day>10</day><month>11</month><year>2025</year></date><date date-type="received"><day>30</day><month>8</month><year>2025</year></date><date date-type="accepted"><day>12</day><month>12</month><year>2025</year></date></history><pub-history><event event-type="pmc-release"><date><day>03</day><month>04</month><year>2026</year></date></event><event event-type="pmc-live"><date><day>04</day><month>04</month><year>2026</year></date></event><event event-type="pmc-last-change"><date iso-8601-date="2026-04-04 00:25:13.100"><day>04</day><month>04</month><year>2026</year></date></event></pub-history><permissions><copyright-statement content-type="article-copyright">© 2026 The Author(s). <italic toggle="yes">Journal of Parenteral and Enteral Nutrition</italic> published by Wiley Periodicals LLC on behalf of American Society for Parenteral and Enteral Nutrition.</copyright-statement><license><ali:license_ref xmlns:ali="http://www.niso.org/schemas/ali/1.0/" specific-use="textmining" content-type="ccbylicense">https://creativecommons.org/licenses/by/4.0/</ali:license_ref><license-p>This is an open access article under the terms of the <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" ext-link-type="uri" xlink:href="https://creativecommons.org/licenses/by/4.0/">http://creativecommons.org/licenses/by/4.0/</ext-link> License, which permits use, distribution and reproduction in any medium, provided the original work is properly cited.</license-p></license></permissions><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pmc-pdf" xlink:href="JPEN-50-339.pdf"/><self-uri xmlns:xlink="http://www.w3.org/1999/xlink" content-type="pdf" xlink:href="file:JPEN-50-339.pdf"/><abstract><title>Abstract</title><p>Ileostomy creation is common among patients with colorectal cancer, diverticulitis, and inflammatory bowel disease. Surgical removal or diversion of the colon can result in nutrition complications, most notably dehydration—a leading cause of hospital readmission—and increased risk of kidney injury. Existing studies on fluid and electrolyte management after ileostomy largely focus on short bowel syndrome or high‐output stomas, overlooking the physiological implications of ileostomy creation, even in patients with normal output. Given the absence of standardized oral rehydration protocols and limited interventional data, a scoping review was conducted to map the current evidence on oral rehydration solutions for postoperative fluid and electrolyte management in adults without short bowel syndrome or high‐output stoma. Comprehensive searches across five databases identified 5738 articles, of which 6 met inclusion criteria. Eligible studies examined adults with ileostomy for any standard indication in which oral rehydration solution use was a study objective. The included studies were methodologically heterogeneous, encompassing randomized controlled, crossover, double‐blinded comparator, retrospective cohort, and qualitative designs. Collectively, available evidence supports a pivotal role for oral rehydration solutions in both short‐term and long‐term management after ileostomy, improving hydration and reducing complications. This review highlights the need for standardized, evidence‐based oral rehydration regimens and underscores opportunities to reduce postoperative morbidity, kidney injury, and hospital readmissions while optimizing long‐term outcomes in this growing patient population.</p></abstract><kwd-group><kwd id="jpen70050-kwd-0001">enteral formulas</kwd><kwd id="jpen70050-kwd-0002">enteral nutrition</kwd><kwd id="jpen70050-kwd-0003">fluids</kwd><kwd id="jpen70050-kwd-0004">electrolytes/acid‐base</kwd><kwd id="jpen70050-kwd-0005">GI access</kwd><kwd id="jpen70050-kwd-0006">internal medicine</kwd><kwd id="jpen70050-kwd-0007">nutrition</kwd><kwd id="jpen70050-kwd-0008">nutrition support teams</kwd><kwd id="jpen70050-kwd-0009">nutrition support practice</kwd><kwd id="jpen70050-kwd-0010">outcomes research/quality</kwd><kwd id="jpen70050-kwd-0011">gastroenterology</kwd><kwd id="jpen70050-kwd-0012">renal disease</kwd><kwd id="jpen70050-kwd-0013">research and diseases</kwd><kwd id="jpen70050-kwd-0014">surgery</kwd></kwd-group><counts><fig-count count="2"/><table-count count="4"/><page-count count="13"/><word-count count="6885"/></counts><custom-meta-group><custom-meta><meta-name>pmc-status-qastatus</meta-name><meta-value>0</meta-value></custom-meta><custom-meta><meta-name>pmc-status-live</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-status-embargo</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-status-released</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-open-access</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-olf</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-manuscript</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-legally-suppressed</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-pdf</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-has-supplement</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-pdf-only</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-suppress-copyright</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-real-version</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-is-scanned-article</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-preprint</meta-name><meta-value>no</meta-value></custom-meta><custom-meta><meta-name>pmc-prop-in-epmc</meta-name><meta-value>yes</meta-value></custom-meta><custom-meta><meta-name>pmc-license-ref</meta-name><meta-value>CC BY</meta-value></custom-meta><custom-meta><meta-name>source-schema-version-number</meta-name><meta-value>2.0</meta-value></custom-meta><custom-meta><meta-name>cover-date</meta-name><meta-value>April 2026</meta-value></custom-meta><custom-meta><meta-name>details-of-publishers-convertor</meta-name><meta-value>Converter:WILEY_ML3GV2_TO_JATSPMC version:6.7.3 mode:remove_FC converted:03.04.2026</meta-value></custom-meta></custom-meta-group></article-meta></front><body><sec id="jpen70050-sec-0010"><title>INTRODUCTION</title><p>Ileostomy creation is a standard procedure among patients with colorectal cancer, diverticulitis, and inflammatory bowel disease. Although precise global epidemiologic data on ileostomy prevalence are limited because of variations in reporting and healthcare systems, it is estimated that 750,000 to 1 million individuals in the United States are living with an ostomy, with approximately 150,000 new ostomies created each year.<xref rid="jpen70050-bib-0001" ref-type="bibr">
+<sup>1</sup>
+</xref>
+</p><p>Although the colon is not essential for life, it plays a crucial—although often underrecognized—role in maintaining fluid and electrolyte balance.<xref rid="jpen70050-bib-0002" ref-type="bibr">
+<sup>2</sup>
+</xref> Consequently, surgical procedures that divert or remove the colon (eg, colectomy, proctocolectomy) are associated with an increased risk of dehydration and electrolyte disturbances. In patients with ileostomy, the loss of colonic absorptive function correlates with higher rates of fluid and sodium depletion, particularly during the early postoperative period. This physiological vulnerability is reflected clinically, as 30‐day and 60‐day hospital readmission rates for dehydration after ileostomy have previously been shown to range from 2.1%–13.2% (mean, 5.0%) and 7.3%–14.1% (mean, 10.3%),<xref rid="jpen70050-bib-0003" ref-type="bibr">
+<sup>3</sup>
+</xref> respectively, illustrating a clear relationship between altered intestinal physiology and adverse fluid balance outcomes.</p><p>Creation of ileostomy remains an essential component of surgical management for a variety of gastrointestinal diseases and operative contexts. A diverting loop ileostomy is commonly fashioned to protect a distal colorectal or coloanal anastomosis, particularly in the setting of rectal cancer after neoadjuvant therapy in which anastomotic healing is at increased risk.<xref rid="jpen70050-bib-0004" ref-type="bibr">
+<sup>4</sup>
+</xref> End ileostomy may be created following total colectomy for ulcerative colitis, emergent colectomy for perforation or fulminant colitis, or resection of the right colon for severe pathology. Historically, the goal following colectomy in ulcerative colitis was often a restorative proctocolectomy with ileal pouch‐anal anastomosis, a staged procedure dependent on temporary diversion.<xref rid="jpen70050-bib-0005" ref-type="bibr">
+<sup>5</sup>
+</xref> However, the use of pouches has declined nationally, in part because of the effectiveness of modern biologic therapies in inflammatory bowel disease.<xref rid="jpen70050-bib-0006" ref-type="bibr">
+<sup>6</sup>
+</xref> Regardless of the indication or ultimate surgical end point, the expectation remains that the ileum will adapt to compensate for some of the absorptive and fluid regulatory functions of the colon, although this adaptation is inherently limited.<xref rid="jpen70050-bib-0007" ref-type="bibr">
+<sup>7</sup>
+</xref>, <xref rid="jpen70050-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>
+</p><p>Intestinal adaptation is the natural compensatory process by which the body enhances fluid and nutrient absorption following resection. Data on human bowel adaptation following resection are sparse. Still, long‐term ileostomy output has been shown to correlate closely with body size and with a mean daily ileostomy output of approximately 600 ml.<xref rid="jpen70050-bib-0009" ref-type="bibr">
+<sup>9</sup>
+</xref>, <xref rid="jpen70050-bib-0010" ref-type="bibr">
+<sup>10</sup>
+</xref> The site and extent of resection, luminal stimulation with nutrients, and intestinotrophic growth factors all influence intestinal adaptation. Structural adaptations can include hyperplasia, angiogenesis, as well as bowel dilation and elongation. Mucosal changes may include an increase in cell transporters, accelerated crypt cell differentiation, reduced transit time, and enhanced absorption of nutrients and fluids.<xref rid="jpen70050-bib-0011" ref-type="bibr">
+<sup>11</sup>
+</xref> Most adaptation occurs within the first 2 years following surgery. However, recent data have shown that adaptation can happen beyond this time point.<xref rid="jpen70050-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>
+</p><p>Fluid and electrolyte management are well understood to be critical in the presence of short bowel syndrome and high‐output stoma. In brief, short bowel syndrome can occur after a substantial resection of the small bowel. High‐output stoma is a significant postoperative complication following ileostomy. Generally defined as stomal output exceeding 1500–2000 ml per day for ≥2 consecutive days, high‐output stoma occurs in approximately 16%–50% of patients in the early postoperative period.<xref rid="jpen70050-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="jpen70050-bib-0013" ref-type="bibr">
+<sup>13</sup>
+</xref> Crohn disease, infections, prokinetic agents (eg, metoclopramide), and the use of other medications (eg, proton pump inhibitors) can also exacerbate stoma output over time.<xref rid="jpen70050-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref>, <xref rid="jpen70050-bib-0015" ref-type="bibr">
+<sup>15</sup>
+</xref>, <xref rid="jpen70050-bib-0016" ref-type="bibr">
+<sup>16</sup>
+</xref> Although the majority of clinically significant dehydration and electrolyte abnormalities occur in patients with high‐output stomas, one cross‐sectional study found that subclinical sodium depletion may be present in up to 45% of patients with an ileostomy without high output.<xref rid="jpen70050-bib-0017" ref-type="bibr">
+<sup>17</sup>
+</xref> As fluid and electrolyte management of short bowel syndrome and high‐output stoma has been reviewed elsewhere,<xref rid="jpen70050-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref>, <xref rid="jpen70050-bib-0018" ref-type="bibr">
+<sup>18</sup>
+</xref> it will not be the focus of this review.</p><p>In patients undergoing ileostomy, the impact of targeted interventions, such as oral rehydration solution, on clinical end points, including dehydration, is incompletely understood. Therefore, this scoping review aims to capture evidence on the fluid and electrolyte management of ileostomies, to identify gaps in current knowledge, inform best practices, and direct future research to improve both short‐term and long‐term outcomes for this vulnerable patient population, including prevention of acute kidney injury and chronic kidney disease.</p><sec id="jpen70050-sec-0020"><title>Renal implications of ileostomy creation</title><sec id="jpen70050-sec-0030"><title>Acute kidney injury</title><p>Under normal conditions, the colon reabsorbs a substantial amount of sodium and water; however, following ileostomy, these functions are lost, and although the ileum can compensate through intestinal adaptation,<xref rid="jpen70050-bib-0019" ref-type="bibr">
+<sup>19</sup>
+</xref> patients are left vulnerable to dehydration. In the immediate postoperative period, ileostomies can produce over 1.5–2 L of fluid per day, leading to significant sodium and water losses. Subsequent dehydration and a decrease in adequate circulating volume impair the kidney's ability to clear nitrogenous waste products (eg, urea, creatinine), leading to prerenal azotemia.<xref rid="jpen70050-bib-0008" ref-type="bibr">
+<sup>8</sup>
+</xref>, <xref rid="jpen70050-bib-0014" ref-type="bibr">
+<sup>14</sup>
+</xref> If left uncorrected, persistent hypoperfusion can lead to ischemic injury of the renal tubules, resulting in acute tubular necrosis—a form of intrinsic acute kidney injury.<xref rid="jpen70050-bib-0020" ref-type="bibr">
+<sup>20</sup>
+</xref> The tenuity of this physiologic cascade underscores the importance of closely monitoring and addressing changes in volume status during the early postoperative phase, in particular.</p></sec><sec id="jpen70050-sec-0040"><title>Chronic kidney disease</title><p>Although chronic kidney disease is often associated with systemic diseases like diabetes mellitus and hypertension, gastrointestinal surgical interventions such as ileostomy can also increase long‐term risk.<xref rid="jpen70050-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> Several cohort studies have identified a disproportionately high incidence of chronic kidney disease among patients with ileostomies, particularly those who experience recurrent dehydration and acute kidney injury episodes in the early postoperative period.<xref rid="jpen70050-bib-0022" ref-type="bibr">
+<sup>22</sup>
+</xref>, <xref rid="jpen70050-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref> One cohort study found that the risk of progression to new or worse chronic kidney disease in patients with ileostomies was double that of those who had undergone rectal resection without an ileostomy (16.9% vs 8.2%).<xref rid="jpen70050-bib-0023" ref-type="bibr">
+<sup>23</sup>
+</xref> Repeated insults to the renal parenchyma from unresolved acute kidney injury episodes may contribute to nephron loss and fibrosis, driving progression to chronic kidney disease. Moreover, chronic low‐grade volume depletion can sustain a state of renal hypoperfusion, exacerbating kidney injury over time.<xref rid="jpen70050-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref> Thus, the burden placed on the kidneys by altered fluid dynamics following ileostomy creation may underlie a long‐term predisposition to chronic kidney dysfunction.</p></sec></sec><sec id="jpen70050-sec-0050"><title>Potential of oral rehydration solution to support volume and electrolyte status after ileostomy creation</title><p>We posit that early postoperative oral rehydration solution administration in patients undergoing ileostomy is a practical, feasible, and cost‐effective option for preventing dehydration, acute kidney injury, and chronic kidney disease. By leveraging the preserved sodium‐glucose cotransport in the small intestine (Figure <xref rid="jpen70050-fig-0001" ref-type="fig">1</xref>),<xref rid="jpen70050-bib-0024" ref-type="bibr">
+<sup>24</sup>
+</xref> oral rehydration solution may serve as a more effective alternative to oral hypotonic solutions (eg, water) and a more cost‐effective alternative to intravenous isotonic solutions (eg, normal saline) to prevent dehydration and sodium depletion, ultimately mitigating the risk of prerenal azotemia and progression to chronic kidney disease. Thus, we postulate that early postoperative oral rehydration solution may be an underused yet cornerstone intervention for renal protection in this population.</p><fig position="float" fig-type="Figure" id="jpen70050-fig-0001" orientation="portrait"><label>Figure 1</label><caption><p>Use of the sodium‐glucose cotransporter with oral rehydration solutions to optimize fluid absorption. The rational underlying oral rehydration solutions (ORS) is that by taking advantage of the intestinal sodium‐glucose cotransporter (SGLT), uptake of glucose and sodium result in an osmotic gradient that facilitates water absorption.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-1" orientation="portrait" xlink:href="JPEN-50-339-g001.jpg"/></fig></sec></sec><sec sec-type="methods" id="jpen70050-sec-0060"><title>METHODS</title><p>The objectives, inclusion criteria, and methods for this scoping review were prespecified and published in a protocol with the Open Science Framework. We used a previously established scoping review methodology to guide our study methods and applied the Preferred Reporting Items for Systematic Reviews and Meta‐Analyses for Scoping Reviews (PRISMA‐ScR).</p><sec id="jpen70050-sec-0070"><title>Search strategy, literature sources, and supplementary data</title><p>A comprehensive search strategy was adapted from a previous protocol, run by a science librarian (MK) in collaboration with subject matter experts (LT and AH) and tested against a set of exemplar articles.<xref rid="jpen70050-bib-0025" ref-type="bibr">
+<sup>25</sup>
+</xref> Searches were run in five databases: Medline via Ovid, Agricola via Ovid, Embase Classic and Embase via Ovid, Scopus via Elsevier, and the Cochrane Library via Wiley. No date or language limits were applied in the databases. Limits were applied to remove Medline results from databases other than Medline. Searches were run on March 10, 2025. Full search strategies are available in Appendix <xref rid="jpen70050-suppl-0001" ref-type="supplementary-material">A</xref>.</p></sec><sec id="jpen70050-sec-0080"><title>Inclusion criteria</title><p>Inclusion criteria were defined based on the Patient, Concept, and Context criteria outlined by the Joanna Briggs Institute methodology for scoping reviews. These criteria encompassed any papers directly discussing adults who underwent ileostomy for any recognized treatment indication, with perioperative nutrition management as a study objective, including relevant perioperative alimentation. According to the Effective Practice and Organisation of Care reviews criteria, the following study designs were considered for inclusion: randomized controlled trials, nonrandomized controlled trials, controlled before‐and‐after studies, and interrupted time series. Case reports and case series were also considered for inclusion. Non‐English publications presented with an English language abstract were included if they had sufficient evidence for extraction. Notably, both quantitative and qualitative studies from each of these categories were included. Reviews (eg, meta‐analyses, systematic reviews, narrative reviews), chapters and books, gray literature (dissertations, reports, and conference proceedings), unpublished, non–peer‐reviewed articles, and all other nonoriginal articles were excluded.</p><p>Results from the literature search (Figure <xref rid="jpen70050-fig-0002" ref-type="fig">2</xref>) were uploaded to Covidence, a web‐based collaboration software platform that streamlines the production of systematic and other types of literature reviews. Duplicate references were removed to the extent possible, and the articles were screened for eligibility based on the inclusion and exclusion criteria before data extraction.</p><fig position="float" fig-type="Figure" id="jpen70050-fig-0002" orientation="portrait"><label>Figure 2</label><caption><p>Preferred Reporting Items for Systematic Reviews and Meta‐Analyses (PRISMA) flow diagram outlining the article selection process.</p></caption><graphic xmlns:xlink="http://www.w3.org/1999/xlink" position="anchor" id="jats-graphic-3" orientation="portrait" xlink:href="JPEN-50-339-g002.jpg"/></fig><p>The abstract stage inclusion criteria were any study that discussed some variation of the term “ileostomy” and “oral rehydration solution” (eg, oral rehydration salts, glucose‐salt solution). Article titles and abstracts were independently reviewed for eligibility by two coders (AH and JJ) out of a 10‐person research team. Titles and abstracts must have discussed ileostomy and clearly indicated their interest in perioperative nutrition management as a study objective while reporting on clinical outcomes in the findings section. Once references were determined to be potentially eligible, full articles were obtained for studies that appeared to meet the eligibility criteria based on title and abstract screening. Next, the full text was independently reviewed by two coders for eligibility and inclusion. First through third authors (AH, LT, and JJ) assumed this role and completed the title and abstract and full‐text screening. At both the abstract and full‐text stages, disagreements were resolved by bringing the senior author (LT) in for discussion if necessary.</p></sec><sec id="jpen70050-sec-0090"><title>Data extraction, synthesis, and analysis</title><p>An a priori charting table was developed by two reviewers (AH and LT). The charting table consisted of predefined data items for extraction, which included title, authors, publication year, age, sex, race and/or ethnicity, surgical indication, type of surgery, perioperative nutrition management modality, any associated clinical outcomes, as well as demographic information regarding patient and study characteristics. The charting form was revised iteratively as each of the included articles was screened. Two reviewers (AH and JJ) extracted data from the original search; the first reviewer then independently verified the data (AH). Any discrepancies were resolved through a rereview of the study or a discussion with the senior author (LT).</p></sec><sec id="jpen70050-sec-0100"><title>Patient and public involvement</title><p>No patients were involved.</p></sec></sec><sec sec-type="results" id="jpen70050-sec-0110"><title>RESULTS</title><p>As outlined in the PRISMA flow diagram (Figure <xref rid="jpen70050-fig-0002" ref-type="fig">2</xref>), 7623 records were identified through database searches. After removal of 1885 duplicates, 5738 studies underwent title and abstract screening. Of these, 20 met criteria for full‐text review based on predefined inclusion and exclusion parameters. Ultimately, five original studies<xref rid="jpen70050-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>, <xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="jpen70050-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref> and one secondary analysis<xref rid="jpen70050-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref> were included, yielding six publications summarized in Table <xref rid="jpen70050-tbl-0001" ref-type="table">1</xref>.</p><table-wrap position="float" id="jpen70050-tbl-0001" content-type="Table" orientation="portrait"><label>Table 1</label><caption><p>Overview of all studies included.</p></caption><table frame="hsides" rules="groups"><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><thead valign="bottom"><tr valign="bottom" style="border-bottom:solid 1px #000000"><th align="left" valign="bottom" rowspan="1" colspan="1">Author and location</th><th align="left" valign="bottom" rowspan="1" colspan="1">Design</th><th align="left" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">n</italic>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">Mean age, years</th><th align="left" valign="bottom" rowspan="1" colspan="1">Procedure indication, <italic toggle="yes">n</italic> (%)</th><th align="left" valign="bottom" rowspan="1" colspan="1">Time‐to‐intervention</th><th align="left" valign="bottom" rowspan="1" colspan="1">Length</th><th align="left" valign="bottom" rowspan="1" colspan="1">Intervention considerations</th><th align="left" valign="bottom" rowspan="1" colspan="1">ORS composition</th><th align="left" valign="bottom" rowspan="1" colspan="1">ORS volume</th><th align="left" valign="bottom" rowspan="1" colspan="1">Primary outcomes</th><th align="left" valign="bottom" rowspan="1" colspan="1">Secondary outcomes</th></tr></thead><tbody valign="top"><tr><td align="left" valign="top" rowspan="1" colspan="1">Rud et al,<xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref> Denmark</td><td align="left" valign="top" rowspan="1" colspan="1">Randomized, double‐blinded, active comparator‐controlled 3 × 3 crossover study</td><td align="left" valign="top" rowspan="1" colspan="1">13</td><td align="left" valign="top" rowspan="1" colspan="1">52 (averaged median)</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Ulcerative colitis: 4 (31)</p>
+<p>Crohn disease: 4 (31)</p>
+<p>Cancer: 1 (8)</p>
+<p>Diverticulitis: 1 (8)</p>
+<p>Hirschsprung disease: 1 (8)</p>
+<p>Sigmoid volvulus: 1 (8)</p>
+<p>Constipation: 1 (8)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Long‐term postileostomy; 16 years (averaged mean)</td><td align="left" valign="top" rowspan="1" colspan="1">4 weeks (±1 week)</td><td align="left" valign="top" rowspan="1" colspan="1">Not to ingest any solids or liquids for at least 30 min before and after ingesting ORS</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>(1) Whey protein isolate (Na, 34–45 mmol/L mEq/L; osmolality, 248–270 mOsm/kg; glucose, 32 g/L; protein, 40–48 g/L)</p>
+<p>(2) Caseinate protein (Na, 34–45 mmol/L mEq/L; osmolality, 248–270 mOsm/kg; glucose, 26 g/L; protein, 40–48 g/L)</p>
+<p>(3) Whey protein hydrolysate (Na, 34–45 mmol/L mEq/L; osmolality, 248–270 mOsm/kg; glucose, 22 g/L; protein, 40–48 g/L)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">500 ml/day (250 ml twice daily)</td><td align="left" valign="top" rowspan="1" colspan="1">Ileostomy output (wet weight)</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>(1) Fecal Na, K, Mg, Ca, energy content, and dry weight</p>
+<p>(2) Urine volume, Na, K, Mg, osmolality, creatinine, and carbamide</p>
+<p>(3) Plasma Na, K, Mg, osmolality, aldosterone, creatinine, carbamide, CTx, and P1PN</p>
+<p>(4) eGFR</p>
+<p>(5) Total venous carbon dioxide</p>
+<p>(6) Dietary intake</p>
+<p>(7) Palatability</p>
+<p>(8) Body weight and composition</p>
+<p>(9) HGS</p>
+<p>(10) 30‐s S2S count</p>
+<p>(11) Fatigue</p>
+<p>(12) Cognitive function</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Kudoh et al,<xref rid="jpen70050-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>
+</p>
+<p>Japan</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Prospective randomized crossover</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Group A: 9</p>
+<p>Group B: 11</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Group A: 30 ± 12</p>
+<p>Group B: 40 ± 12</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Ulcerative colitis: 20 (100)</td><td align="left" valign="top" rowspan="1" colspan="1">Immediate postileostomy; 2–3 weeks</td><td align="left" valign="top" rowspan="1" colspan="1">2 weeks</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>(1) Ad libitum solids and liquids</p>
+<p>(2) No IV fluid supplementation</p>
+<p>(3) No antidiarrheal agents</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Composition (Na, 50 mEq/L; K, 20 mEq/L; Cl, 50 mEq/L; Mg, 2 mEq/L; P, 2 mmol/L; lactate, 31 mEq/L; glucose, 1.8%)</td><td align="left" valign="top" rowspan="1" colspan="1">1000 ml/day</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>(1) Urine (osmotic pressure, Na, K, Cl, and creatinine)</p>
+<p>(2) Plasma (renin, aldosterone, vasopressin, osmotic pressure, and creatinine)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Qualitative questionnaire (thirst, fatigue, appetite, sweat, dizziness, abdominal pain, and abdominal discomfort)</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Rud et al,<xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref> Denmark</td><td align="left" valign="top" rowspan="1" colspan="1">Randomized, double‐blinded, active comparator‐controlled 2 × 2 crossover study</td><td align="left" valign="top" rowspan="1" colspan="1">8</td><td align="left" valign="top" rowspan="1" colspan="1">59</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Ulcerative colitis: 5 (62.5)</p>
+<p>Crohn disease: 2 (25)</p>
+<p>Cancer: 1 (12.5)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Long‐term postileostomy; 11.5 years (averaged median)</td><td align="left" valign="top" rowspan="1" colspan="1">2 days</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>(1) Not to ingest any solids or liquids for at least 60 min before and after ingesting ORS</p>
+<p>(2) Maintain habitual dietary intake except for substituting 800 ml of their daily fluid intake with the intervention supplement when directed</p>
+<p>(3) Reduce intake of milk or water by 800 ml/day when substituting habitual beverages</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>(1) Iso‐osmolar (energy, 142 kJ/100 g; water, 91%; osmolality, 276 mOsm/kg; sucrose, 1.45%, 42 mmol/L; sucralose [0.001%, 0.03 mmol/L]; hydrolyzed whey protein, 4.5%; cocoa powder, 3.42%)</p>
+<p>(2) Hyperosmolar (energy, 238 kJ/100 g; water, 84%; osmolality, 681 mOsm/kg; sucrose, 1.45%, 42 mmol/L; glucose, 6.25%, 347 mmol/L; hydrolyzed whey protein, 4.5%; cocoa powder, 3.42%)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">800 ml/day (200 ml four times daily)</td><td align="left" valign="top" rowspan="1" colspan="1">Ileostomy output (wet weight)</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>(1) Urine (volume, sodium, and osmolality)</p>
+<p>(2) Plasma (sodium, osmolality, and creatinine)</p>
+<p>(3) Estimated intakes of fluids (all beverages)</p>
+<p>(4) Total water intake</p>
+<p>(5) Energy intake (kJ/day)</p>
+<p>(6) Total food and fluid intake (g/day)</p>
+<p>(7) Sodium intake (mmol/day)</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Westfall et al,<xref rid="jpen70050-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref> USA</td><td align="left" valign="top" rowspan="1" colspan="1">Retrospective cohort</td><td align="left" valign="top" rowspan="1" colspan="1">312</td><td align="left" valign="top" rowspan="1" colspan="1">59.97 ± 15.09</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Ulcerative colitis: 34 (10.9)</p>
+<p>Crohn disease: 39 (12.5)</p>
+<p>Cancer: 74 (23.71)</p>
+<p>Diverticulitis: 135 (43.27)</p>
+<p>Other: 30 (9.62)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Immediate postileostomy; 0–1 days (postoperatively)</td><td align="left" valign="top" rowspan="1" colspan="1">36 days</td><td align="left" valign="top" rowspan="1" colspan="1">Review of inputs and outputs, antimotility and appliance needs, and trained nurse reeducation 4–7 days after discharge, 30 days postoperatively, and every 1–2 weeks thereafter as needed</td><td align="left" valign="top" rowspan="1" colspan="1">Composition (NaCl, 2.6 g; KCl, 1.5 g; glucose anhydrous, 13.5 g; trisodium citrate dehydrate, 2.9 g)</td><td align="left" valign="top" rowspan="1" colspan="1">946 ml/day</td><td align="left" valign="top" rowspan="1" colspan="1">Number (%) of readmissions because of dehydration and/or AKI</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>(1) ED visits because of AKI and/or dehydration</p>
+<p>(2) ED visits and readmissions because of other common readmission diagnoses (eg, ileus, surgical site infection)</p>
+<p>(3) Postoperative complications</p>
+<p>(4) Time to readmission for each readmission diagnosis</p>
+<p>(5) Inpatient and postdischarge stoma output</p>
+<p>(6) Antimotility agent and home IV fluid needs</p>
+<p>(7) Stoma reversal rates</p>
+<p>(8) Hospital postoperative length of stay</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Migdanis et al,<xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+</p>
+<p>Greece</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Randomized controlled trial</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>IG: 39</p>
+<p>CG: 41</p>
+<p>NIG: 37</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">65 ± 12</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Ulcerative colitis: 5 (4.27)</p>
+<p>Crohn disease: 4 (3.42)</p>
+<p>Cancer: 105 (89.75)</p>
+<p>Diverticulitis: 3 (2.56)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Immediate postileostomy; 0–1 days (postoperatively)</td><td align="left" valign="top" rowspan="1" colspan="1">40 days</td><td align="left" valign="top" rowspan="1" colspan="1">Restrict both hypotonic (eg, tea, coffee, water, and reduced sugar fruit juices and squash) and hypertonic (eg, fruit juices, cola, and sip feeds) fluids to 1 L/day</td><td align="left" valign="top" rowspan="1" colspan="1">Composition (NaCl, 3 g; sodium citrate, 2 g; glucose, 22 g; magnesium citrate, 3.5 g; beta‐carotene, 1 g; orange aroma extract, 1 g)</td><td align="left" valign="top" rowspan="1" colspan="1">1000 ml/day</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>(1) Serum (Na, K, Mg, P, serum albumin level, total protein, creatinine, and urea)</p>
+<p>(2) eGFR</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>(1) Hospital readmission</p>
+<p>(2) Mean ileostomy output (ml/day)</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Bradley et al,<xref rid="jpen70050-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref> USA</td><td align="left" valign="top" rowspan="1" colspan="1">Qualitative</td><td align="left" valign="top" rowspan="1" colspan="1">17</td><td align="left" valign="top" rowspan="1" colspan="1">&lt;20–70+ (age range)</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Ulcerative colitis: 5 (4.27)</p>
+<p>Crohn disease: 4 (3.42)</p>
+<p>Cancer: 105 (89.75)</p>
+<p>Diverticulitis: 3 (2.56)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Immediate postileostomy; 0–1 days (postoperatively)</td><td align="left" valign="top" rowspan="1" colspan="1">36 days</td><td align="left" valign="top" rowspan="1" colspan="1">Review of inputs and outputs, antimotility and appliance needs, and trained nurse reeducation 4–7 days after discharge, 30 days postoperatively, and every 1–2 weeks thereafter as needed</td><td align="left" valign="top" rowspan="1" colspan="1">Composition (NaCl, 2.6 g; KCl, 1.5 g; glucose anhydrous, 13.5 g; trisodium citrate dehydrate, 2.9 g)</td><td align="left" valign="top" rowspan="1" colspan="1">946 ml/day</td><td align="left" valign="top" rowspan="1" colspan="1">Barriers and facilitators to compliance with ORS kit instructions</td><td align="left" valign="top" rowspan="1" colspan="1">None</td></tr></tbody></table><table-wrap-foot><fn id="jpen70050-tbl1-note-0001"><p>Abbreviations: AKI, acute kidney injury; Ca, calcium; CG, control group; Cl, chloride; CTx, carboxy‐terminal collagen crosslinks; ED, emergency department; eGFR, estimated glomerular filtration rate; HGS, handgrip strength; IG, intervention group; IV, intravenous; KCl, potassium chloride; K, potassium; Mg, magnesium; Na, sodium; NaCl, sodium chloride; NIG, nonintervention group; ORS, oral rehydration solution; P, phosphorus; P1PN, procollagen I intact N‐terminal; S2S, sit‐to‐stand.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><p>The included studies examined ileostomy created for inflammatory bowel disease (ulcerative colitis<xref rid="jpen70050-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>, <xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="jpen70050-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>, <xref rid="jpen70050-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref> and Crohn disease<xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="jpen70050-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>, <xref rid="jpen70050-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref>), cancer, Hirschsprung disease,<xref rid="jpen70050-bib-0032" ref-type="bibr">
+<sup>32</sup>
+</xref> diverticulitis,<xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="jpen70050-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>, <xref rid="jpen70050-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref> sigmoid volvulus,<xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref> and constipation.<xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref> One study listed an “Other” category without specifying conditions.<xref rid="jpen70050-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref> Study designs were heterogeneous, including both observational and interventional trials with varying degrees of randomization and blinding. The composition, dosing, and administration of oral rehydration solution, as well as adjunctive dietary parameters and outcome measures, differed across studies. Collectively, these studies explored nutrition management immediately following ileostomy creation.</p><sec id="jpen70050-sec-0120"><title>Oral rehydration solution improves biochemical indicators of hydration status and kidney function</title><p>Four studies reported biochemical indicators of hydration<xref rid="jpen70050-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>, <xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref> (Table <xref rid="jpen70050-tbl-0002" ref-type="table">2</xref>).</p><table-wrap position="float" id="jpen70050-tbl-0002" content-type="Table" orientation="portrait"><label>Table 2</label><caption><p>Biochemical indicators.</p></caption><table frame="hsides" rules="groups"><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><thead valign="bottom"><tr valign="bottom" style="border-bottom:solid 1px #000000"><th valign="middle" rowspan="3" align="left" colspan="1">Biochemical indicator</th><th colspan="6" align="left" valign="bottom" rowspan="1">Author</th></tr><tr valign="bottom"><th align="left" valign="bottom" rowspan="1" colspan="1">Kudoh et al<xref rid="jpen70050-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>, <xref rid="jpen70050-tbl2-note-0002" ref-type="table-fn">a</xref>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">Kudoh et al<xref rid="jpen70050-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>, <xref rid="jpen70050-tbl2-note-0002" ref-type="table-fn">a</xref>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">Migdanis et al<xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">Rud et al<xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jpen70050-tbl2-note-0003" ref-type="table-fn">b</xref>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">Rud et al<xref rid="jpen70050-tbl2-note-0003" ref-type="table-fn">
+<sup>b</sup>
+</xref>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">Rud et al<xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="jpen70050-tbl2-note-0003" ref-type="table-fn">
+<sup>b</sup>
+</xref>
+</th></tr><tr valign="bottom"><th colspan="6" style="border-bottom:solid 1px #000000" align="left" valign="bottom" rowspan="1">Intervention</th></tr><tr style="border-bottom:solid 1px #000000"><th align="left" valign="bottom" rowspan="1" colspan="1"/><th align="left" valign="bottom" rowspan="1" colspan="1">
+<bold>Group A (ORS days 1–7, MW days 8–14)</bold>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">
+<bold>Group B (MW days 1–7, ORS days 8–14)</bold>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">
+<bold>Post–non‐ORS vs post‐ORS</bold>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">
+<bold>Δ (baseline vs post‐ORS)</bold>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">
+<bold>Iso‐osmolar vs hyperosmolar ORS</bold>
+</th><th align="left" valign="bottom" rowspan="1" colspan="1">
+<bold>Δ (baseline vs post‐ORS)</bold>
+</th></tr></thead><tbody valign="top"><tr><td align="left" valign="top" rowspan="1" colspan="1">Urine volume, mean (<italic toggle="yes">P</italic> value), ml/day</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Day 0: 569 (data not available)</p>
+<p>Day 7: 616 (data not available)</p>
+<p>Day 14: 589 (data not available)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Day 0: 911 (data not available)</p>
+<p>Day 7: 1449 (data not available)</p>
+<p>Day 14: 1283 (data not available)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Data not collected</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Iso‐osmolar: +305 (0.02)</p>
+<p>Hyperosmolar: −35 (0.81)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Δ: +470 (0.02)</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Whey isolate: −194 (0.07)</p>
+<p>Caseinate: +46 (0.62)</p>
+<p>Whey hydrolysate: +33 (0.76)</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Urine sodium<sup>a,b</sup>, mean (<italic toggle="yes">P</italic> value)</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Day 0: 15.2 (data not available)</p>
+<p>Day 7: 59.4 (0.005 [Δ day 0–7])</p>
+<p>Day 14: 32.6 (data not available)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Day 0: 17.4 (0.39 [Δ day 0–7])</p>
+<p>Day 7: 59.4 (0.012 [Δ day 7–14])</p>
+<p>Day 14: 103 (0.001 [Δ day 0–14])</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Data not collected</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Iso‐Osmolar: +20 (0.08)</p>
+<p>Hyperosmolar: −7 (0.09)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Δ: +36 (0.02)</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Whey isolate: 1.25 (0.68)</p>
+<p>Caseinate: 1.20 (0.68)</p>
+<p>Whey hydrolysate: 1.09 (0.79)</p>
+</td></tr></tbody></table><table-wrap-foot><fn id="jpen70050-tbl2-note-0001"><p>Abbreviations: Δ, change from baseline to post‐ORS; MW, mineral water; ORS, oral rehydration solution; SSI, surgical site infection.</p></fn><fn id="jpen70050-tbl2-note-0002"><label>
+<sup>a</sup>
+</label><p>Measured urine sodium (mmol/day).</p></fn><fn id="jpen70050-tbl2-note-0003"><label>
+<sup>b</sup>
+</label><p>Measured urine sodium (mEq/g CRE).</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><p>Kudoh et al conducted a randomized crossover trial evaluating oral rehydration solution for chronic dehydration after proctocolectomy and ileostomy because of ulcerative colitis. Twenty patients, 2–3 weeks postoperatively, alternated 7 days of oral rehydration solution and 7 days of mineral water. Compared with baseline and mineral water, oral rehydration solution increased urinary sodium and reduced plasma renin and aldosterone (Table S<xref rid="jpen70050-suppl-0002" ref-type="supplementary-material">1</xref>).</p><p>Migdanis et al performed a randomized controlled trial examining 40 days of isotonic oral rehydration solution vs standard care after ileostomy for cancer, Crohn disease, ulcerative colitis, or diverticulitis. Thirty‐nine patients received oral rehydration solution after ileostomy, 41 received no oral rehydration solution after ileostomy, and 37 served as non‐ileostomy surgical controls. By postoperative day 20, patients who did not receive oral rehydration solution following ileostomy exhibited higher serum creatinine, lower estimated glomerular filtration rate, and lower serum sodium than the cohort that received oral rehydration solution and the non‐ileostomy control cohort. Although it improved by day 40, elevated creatinine and hyponatremia persisted (Table S<xref rid="jpen70050-suppl-0003" ref-type="supplementary-material">2</xref>).</p><p>Rud et al<xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref> conducted a randomized, double‐blinded crossover trial comparing iso‐osmolar and hyperosmolar oral rehydration solutions in patients with a long‐term ileostomy (mean, 11.5 years postsurgery) with indications including cancer, inflammatory bowel disease, diverticulitis, sigmoid volvulus, Hirschsprung disease, and constipation. Eight patients received each solution for 2 days, separated by a ≥14‐day washout. The iso‐osmolar oral rehydration solution significantly increased urine volume and sodium excretion compared with baseline and the hyperosmolar formulation (Table S<xref rid="jpen70050-suppl-0004" ref-type="supplementary-material">3</xref>).</p><p>Rud et al<xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref> repeated the design using whey‐based protein oral rehydration solutions (iso‐osmolar whey isolate, caseinate, or hydrolysate; 500 ml daily) in patients with a long‐term ileostomy (mean, 16 years postsurgery). After sequential 4‐week intervention periods with 2‐week washouts, no differences in urine output or sodium were noted between formulations. However, the whey isolate solution decreased plasma renin (–38 IU/L), aldosterone (–4674 pmol/L), and creatinine (–8.3 µmol/L) and increased eGFR (+2.8 ml/min/1.73 m²) compared with the other protein solutions (Table S<xref rid="jpen70050-suppl-0005" ref-type="supplementary-material">4</xref>).</p></sec><sec id="jpen70050-sec-0130"><title>Oral rehydration solution administration may reduce stomal output postoperatively</title><p>Four studies evaluated stomal output<xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref> (Table <xref rid="jpen70050-tbl-0003" ref-type="table">3</xref>).</p><table-wrap position="float" id="jpen70050-tbl-0003" content-type="Table" orientation="portrait"><label>Table 3</label><caption><p>Stomal output.</p></caption><table frame="hsides" rules="groups"><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><thead valign="bottom"><tr valign="bottom" style="border-bottom:solid 1px #000000"><th align="left" valign="bottom" rowspan="1" colspan="1">Author</th><th align="left" valign="bottom" rowspan="1" colspan="1">Control stomal output, mean (SD), ml/day</th><th align="left" valign="bottom" rowspan="1" colspan="1">ORS stomal output, mean (SD), ml</th><th align="left" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">P</italic> value</th></tr></thead><tbody valign="top"><tr><td align="left" valign="top" rowspan="1" colspan="1">Rud et al<xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">Data not available</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Iso‐osmolar: Δ +66 (median difference from baseline)</p>
+<p>Hyperosmolar: Δ −85 (median difference from baseline)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Iso‐osmolar: 0.31</p>
+<p>Hyperosmolar: 0.31</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Rud et al<xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">1410 (247)</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Whey isolate: 1330</p>
+<p>Caseinate: 1494</p>
+<p>Whey hydrolysate: 1338</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Whey isolate: 0.39</p>
+<p>Caseinate: 0.35</p>
+<p>Whey hydrolysate: 0.44</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Migdanis et al<xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">1135 (316)</td><td align="left" valign="top" rowspan="1" colspan="1">1144 (205)</td><td align="left" valign="top" rowspan="1" colspan="1">0.92</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Westfall et al<xref rid="jpen70050-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Predischarge: 775.7 (378.5)</p>
+<p>Postdischarge: 993.2 (355.7)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Predischarge: 625 (444.5)</p>
+<p>Postdischarge: 890.7 (317.5)</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Predischarge: 0.005</p>
+<p>Postdischarge: 0.025</p>
+</td></tr></tbody></table><table-wrap-foot><fn id="jpen70050-tbl3-note-0001"><p>Abbreviations: Δ, Change from baseline to post‐ORS; ORS, oral rehydration solution.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><p>In the 2019 and 2024 trials by Rud et al, no significant differences were observed in stomal volume between oral rehydration solution formulations or from baseline. Similarly, Migdanis et al found no postoperative difference in stomal output between patients receiving oral rehydration solution and those following standard dietary guidance for 40 days.<xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+</p><p>Westfall et al conducted a retrospective cohort study comparing outcomes in patients with ileostomy for cancer, Crohn disease, ulcerative colitis, or diverticulitis. Preintervention patients followed an enhanced recovery pathway (hydration instructions and standard fluids), whereas postintervention patients received a 36‐day supply of commercial oral rehydration solution with structured nursing education and early postoperative initiation. Compared with standard care, oral rehydration solution recipients demonstrated significantly reduced stomal output 24 h before discharge and lower average postoperative outputs.</p></sec><sec id="jpen70050-sec-0140"><title>Oral rehydration solution administration reduces hospital readmissions for dehydration and acute kidney injury</title><p>Two studies assessed hospital readmission<xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>, <xref rid="jpen70050-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref> (Table <xref rid="jpen70050-tbl-0004" ref-type="table">4</xref>).</p><table-wrap position="float" id="jpen70050-tbl-0004" content-type="Table" orientation="portrait"><label>Table 4</label><caption><p>Hospital readmission.</p></caption><table frame="hsides" rules="groups"><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><col style="border-right:solid 1px #000000; border-bottom:solid 1px #000000" align="left" span="1"/><thead valign="bottom"><tr valign="bottom" style="border-bottom:solid 1px #000000"><th align="left" valign="bottom" rowspan="1" colspan="1">Author</th><th align="left" valign="bottom" rowspan="1" colspan="1">Control readmissions, %</th><th align="left" valign="bottom" rowspan="1" colspan="1">ORS readmissions, %</th><th align="left" valign="bottom" rowspan="1" colspan="1">
+<italic toggle="yes">P</italic> value</th></tr></thead><tbody valign="top"><tr><td align="left" valign="top" rowspan="1" colspan="1">Westfall et al<xref rid="jpen70050-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>AKI or dehydration: 45.7</p>
+<p>Ileus: 20.1</p>
+<p>SSI I or II: 6.5</p>
+<p>SSI III: 11.8</p>
+<p>Any reason: 24.3</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>AKI or dehydration: 16.5</p>
+<p>Ileus: 52.9</p>
+<p>SSI I or II: 0</p>
+<p>SSI III: 11.3</p>
+<p>Any reason: 10.6</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>AKI or dehydration: 0.0039</p>
+<p>Ileus: 0.029</p>
+<p>SSI I or II: 0.282</p>
+<p>SSI III: 0.96</p>
+<p>Any reason: 0.005</p>
+</td></tr><tr><td align="left" valign="top" rowspan="1" colspan="1">Migdanis et al<xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Fluid or electrolyte abnormalities: 24</p>
+<p>Any reason: 29</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Fluid or electrolyte abnormalities (IG, NIG): 0, 0</p>
+<p>Any reason (IG, NIG): 10, 8</p>
+</td><td align="left" valign="top" rowspan="1" colspan="1">
+<p>Fluid or electrolyte abnormalities: 0.001</p>
+<p>Any reason: 0.02</p>
+</td></tr></tbody></table><table-wrap-foot><fn id="jpen70050-tbl4-note-0001"><p>Abbreviations: AKI, acute kidney injury; IG, intervention group; MW, mineral water; NIG, nonintervention group; ORS, oral rehydration solution; SSI, surgical site infection.</p></fn></table-wrap-foot><permissions><copyright-holder>John Wiley &amp; Sons, Ltd.</copyright-holder></permissions></table-wrap><p>In Westfall et al, oral rehydration solution use lowered readmission rates for dehydration or acute kidney injury relative to the enhanced recovery cohort. Patients receiving oral rehydration solution also had fewer dehydration‐related emergency visits and fewer readmissions for other causes.</p><p>Migdanis et al reported higher 30‐day readmission rates for fluid or electrolyte abnormalities in patients with nonoral rehydration solution ileostomy compared with both oral rehydration solution ileostomy and nonileostomy groups.</p></sec><sec id="jpen70050-sec-0150"><title>Oral rehydration solution use is inconsistent when prescribed but can improve with patient understanding of dehydration risks</title><p>Three studies addressed qualitative aspects of oral rehydration solution.<xref rid="jpen70050-bib-0026" ref-type="bibr">
+<sup>26</sup>
+</xref>, <xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>, <xref rid="jpen70050-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref>
+</p><p>Kudoh et al collected patient feedback on oral rehydration solution vs mineral water at days 0, 7, and 14, noting comparable tolerability and no reported adverse effects such as dizziness, palpitations, or discomfort.</p><p>Rud et al recorded qualitative assessments of protein‐based oral rehydration solutions; whey isolate was rated highest for palatability and aftertaste, followed by caseinate and hydrolysate.<xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref>
+</p><p>Bradley et al performed semistructured interviews evaluating barriers and facilitators to adherence among participants from the trial of Westfall et al. Five themes influenced adherence: (1) patient‐related factors—belief in oral rehydration solution efficacy; (2) condition‐related factors—comorbidities and hydration habits; (3) therapy‐related factors—taste and texture preferences; (4) health‐system factors—clarity and consistency of provider education; and (5) social and economic factors—support from family and peers vs cost concerns. Patients who received individualized counseling and understood dehydration risks were most consistent with oral rehydration solution use.</p></sec></sec><sec sec-type="discussion" id="jpen70050-sec-0160"><title>DISCUSSION</title><p>Administration of oral rehydration solution may beneficially influence fluid and electrolyte balance in patients with an ileostomy. Findings from this scoping review suggest that, although the available evidence is limited, small, and methodologically heterogeneous, oral rehydration solution may be associated with improvements in fluid balance, natriuresis, and kidney function in both the early postoperative period and among patients with long‐term ileostomy (&gt;10 years). Furthermore, postoperative use of oral rehydration solution was associated with lower rates of hospital readmission. Further research is needed to better understand the barriers to implementing oral rehydration solutions across diverse patient populations. These may include limited clinician awareness of oral rehydration solution efficacy outside high‐output settings, variability in institutional protocols, and patient‐related factors such as palatability, adherence, and misconceptions about sodium intake. Additionally, cost, access to standardized formulations, and lack of consensus guidelines may further hinder consistent clinical adoption. Addressing these barriers through targeted education, implementation research, and guideline development could facilitate broader, evidence‐based integration of oral rehydration solution into postileostomy care.</p><p>Although most postoperative intestinal adaptation occurs within the first 2 years following surgery,<xref rid="jpen70050-bib-0012" ref-type="bibr">
+<sup>12</sup>
+</xref> the observed improvements in urine volume after iso‐osmolar oral rehydration solution and in renin, aldosterone, creatinine, and estimated glomerular filtration rate after whey protein–based oral rehydration solution in the trials by Rudd and colleagues<xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref> suggest that oral rehydration solution administration, even a decade after ileostomy, may confer ongoing physiological benefit. Although these studies demonstrated statistically significant improvements in urine and biochemical parameters, the degree to which these changes translate into clinically meaningful reductions in dehydration episodes or renal impairment remains uncertain. Future investigations should therefore aim to correlate improvements in surrogate measures such as urine sodium, volume, and estimated glomerular filtration rate with patient‐centered outcomes, including hydration status, kidney function preservation, and hospital readmissions.</p><p>These findings also raise the question of whether stoma output is the most reliable long‐term indicator of hydration status. Both of the trials by Rudd et al reported improvements in biochemical and urinary indices without significant changes in stoma output, suggesting that traditional metrics may underestimate hydration improvements in patients with a long‐term ileostomy. Further research is warranted to determine whether biochemical and urine‐based markers provide a more clinically sensitive assessment of hydration status across postoperative timepoints.</p><p>Controlling stoma output nonetheless remains an essential aspect of postoperative management. Migdanis et al found no difference in stomal volume between patients receiving oral rehydration solution and those given standard dietary advice 40 days postoperatively,<xref rid="jpen70050-bib-0027" ref-type="bibr">
+<sup>27</sup>
+</xref> and the trials by Rudd et al similarly found no difference between iso‐osmolar and hyperosmolar or protein‐based oral rehydration solution formulations.<xref rid="jpen70050-bib-0028" ref-type="bibr">
+<sup>28</sup>
+</xref>, <xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref> However, when oral rehydration solution use was integrated with structured postdischarge follow‐up—through in‐person or telemedicine visits led by enterostomal therapy nurses—Westfall et al observed not only reduced 24‐h stoma output before and after discharge but also fewer hospital readmissions because of dehydration and acute kidney injury. These findings, although preliminary, highlight the potential clinical significance of oral rehydration solution within a comprehensive, multidisciplinary postileostomy care framework and suggest possible cost savings through reduced readmission and complication rates.</p><p>Abomhya and colleagues studied the economic impact of patients who were readmitted within 30 days of their ileostomy for dehydration‐induced acute kidney injury and found significantly higher healthcare costs compared with those without acute kidney injury readmission.<xref rid="jpen70050-bib-0033" ref-type="bibr">
+<sup>33</sup>
+</xref> The median cost of hospitalization for patients readmitted with acute kidney injury was $140,544 (Interquartile Range, $85,072–$242,059) within their subset of patients studied. This substantial financial burden underscores the economic impact of acute kidney injury following ileostomy, highlighting the importance of preventive measures, such as early oral rehydration solution, to reduce unnecessary healthcare expenditures. From a quality improvement perspective, these data demonstrate the need for standardized protocols to enhance early postoperative care, with a focus on adequate fluid and electrolyte management. Implementing evidence‐based hydration strategies could reduce morbidity related to acute kidney injury and its sequelae, such as chronic kidney disease and bone metabolism disorders (eg, osteoporosis and osteomalacia),<xref rid="jpen70050-bib-0021" ref-type="bibr">
+<sup>21</sup>
+</xref>, <xref rid="jpen70050-bib-0034" ref-type="bibr">
+<sup>34</sup>
+</xref> thereby improving patient outcomes and reducing hospital readmissions. Incorporating oral rehydration solution into postoperative care pathways for patients with ileostomies represents a strategic opportunity to enhance care quality, reduce patient morbidity, and mitigate financial burdens on the healthcare system. Further economic analyses are also warranted, given the low cost of oral rehydration solution compared with the high cost of readmission, which could incentivize its widespread adoption through formal cost‐effectiveness analysis.</p><p>Patient adherence is often influenced by the palatability of products and medications, regardless of their clinical efficacy.<xref rid="jpen70050-bib-0035" ref-type="bibr">
+<sup>35</sup>
+</xref>, <xref rid="jpen70050-bib-0036" ref-type="bibr">
+<sup>36</sup>
+</xref>, <xref rid="jpen70050-bib-0037" ref-type="bibr">
+<sup>37</sup>
+</xref> Rudd et al designed their three protein‐based solutions to maximize palatability and administered them at a smaller volume (ie, 500 ml) in their 2024 trial to minimize patient burden.<xref rid="jpen70050-bib-0029" ref-type="bibr">
+<sup>29</sup>
+</xref> These factors, in concert with multiple standardized postdischarge clinic and telemedicine visits led by enterostomal nurses, may have contributed to a significantly greater adherence rate to oral rehydration solution compared with the control group (ie, 35.9% vs 88.8%). However, clinicians should be aware that patients may independently modify administration instructions to suit personal preferences—for instance, by diluting the product or reducing the recommended dose. Such adaptations may impact the effectiveness of the intervention and should be closely monitored during the follow‐up period. Bradley et al demonstrated that social support has consistently been shown to enhance adherence, both by reinforcing instruction compliance and by offering emotional encouragement.<xref rid="jpen70050-bib-0031" ref-type="bibr">
+<sup>31</sup>
+</xref> In completing the qualitative questionnaires, participants frequently cited the role of family members, friends, and online communities in facilitating consistent use of the product. Future implementations of similar interventions should consider strategies to involve patient support systems proactively, such as providing educational materials to caregivers, directing patients to reputable online forums, or integrating peer support networks where available. These measures can enhance adherence and optimize intervention outcomes, particularly for patients managing complex or ongoing self‐care routines.</p><p>Although promising, the current evidence base has notable limitations. Most studies were small, single‐center trials. Westfall et al involved a larger sample (ie, 312 patients), but their retrospective design and lack of a contemporary randomized control group limit causal inference.<xref rid="jpen70050-bib-0030" ref-type="bibr">
+<sup>30</sup>
+</xref> The short duration of interventions and follow‐up (ie, hours to weeks postdischarge) leaves long‐term outcomes unexamined but highlights the need to address the physiological implications of colon removal proactively. No study evaluated patient‐centered outcomes beyond hospitalization (eg, quality of life, long‐term kidney function). Cost‐effectiveness was also not formally assessed, although the reduction in readmissions strongly implies downstream savings. Furthermore, most participants were adults undergoing colorectal surgery; data in other groups (eg, children, temporary ileostomy) are lacking. Finally, variations in solution composition (eg, plain glucose‐saline vs protein‐enriched), concentration (eg, iso‐osmolar vs hyperosmolar), dosing (eg, 500 ml/day vs 1000 ml/day), and timing (eg, immediate postoperative window vs years after surgery) complicate synthesis. Because the comparative effectiveness of these approaches remains unclear, future trials should consider enhancing internal and external validity by standardizing aspects of oral rehydration solution interventions. Taken together, the literature currently provides a preliminary evidence base, but crucial gaps still exist. Ultimately, ongoing research is necessary to refine protocols and establish robust, evidence‐based guidelines for nutrition management in patients with ileostomies.</p></sec><sec sec-type="conclusions" id="jpen70050-sec-0170"><title>CONCLUSION</title><p>Perioperative nutrition management has emerged as a promising therapeutic approach for patients undergoing ileostomy, but it requires continued optimization. Oral rehydration solution is a low‐cost and highly efficacious intervention that can be harnessed to decrease complications after ileostomy. Exploring the effect of solution intake on ileostomy‐associated outcomes in humans represents a critical avenue of research with profound implications for clinical practice and therapeutic optimization. As part of this effort, there should also be a focus on using validated approaches to oral rehydration solution administration, including composition, dosing, timing, and adjuvant nutrition considerations. A comprehensive, evidence‐based approach to nutrition support tailored to the unique challenges faced by patients undergoing ileostomy within the perioperative window has the promising potential to improve immediate and long‐term health outcomes and enhance the quality of life for this vulnerable and often overlooked patient population.</p></sec><sec id="jpen70050-sec-0180"><title>AUTHOR CONTRIBUTIONS</title><p>
+<bold>Austin J. Hoeg</bold>: Writing—original draft; conceptualization; investigation; writing—review and editing; data curation; formal analysis. <bold>Jessica Jaques</bold>: Investigation; writing—review and editing. <bold>Remy Johnson</bold>: Visualization; writing—review and editing. <bold>Megan Kocher</bold>: Methodology; data curation; validation; resources; software. <bold>Alexa Weingarden</bold>: Writing—review and editing. <bold>Byron Vaughn</bold>: Writing—review and editing. <bold>Alexander Khoruts</bold>: Writing—review and editing. <bold>Cyrus Jahansouz</bold>: Writing—review and editing. <bold>Ryan T. Hurt</bold>: Writing—review and editing. <bold>Levi M. Teigen</bold>: Writing—original draft; writing—review and editing; supervision; conceptualization; investigation; formal analysis.</p></sec><sec sec-type="COI-statement" id="jpen70050-sec-0190"><title>CONFLICT OF INTEREST STATEMENT</title><p>Byron Vaughn: personal fees from Illuma Advisors and grants from Takeda, Roche, Celgene, Diasorin, OpenBiome Foundation, and Nestlé. Ryan T. Hurt: Nestlé—consulting, Zealand Pharma—grants. Levi M. Teigen: Nestlé Health Science—paid speaker and independent contractor (research). The remaining authors declare no conflicts of interest.</p></sec><sec sec-type="supplementary-material"><title>Supporting information</title><supplementary-material id="jpen70050-suppl-0001" position="float" content-type="local-data" orientation="portrait"><caption><p>Appendix A Full Search Strategies.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="JPEN-50-339-s005.docx" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="jpen70050-suppl-0002" position="float" content-type="local-data" orientation="portrait"><caption><p>Supplemental Table 1 Kudoh 10.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="JPEN-50-339-s001.docx" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="jpen70050-suppl-0003" position="float" content-type="local-data" orientation="portrait"><caption><p>Supplemental Table 2 Migdanis 10.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="JPEN-50-339-s003.docx" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="jpen70050-suppl-0004" position="float" content-type="local-data" orientation="portrait"><caption><p>Supplemental Table 3 Rud 2019 10.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="JPEN-50-339-s002.docx" position="float" orientation="portrait"/></supplementary-material><supplementary-material id="jpen70050-suppl-0005" position="float" content-type="local-data" orientation="portrait"><caption><p>Supplemental Table 4 Rud 2024 10.</p></caption><media xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="JPEN-50-339-s004.docx" position="float" orientation="portrait"/></supplementary-material></sec></body><back><ref-list id="jpen70050-bibl-0001" content-type="cited-references"><title>REFERENCES</title><ref id="jpen70050-bib-0001"><label>1</label><mixed-citation publication-type="journal" id="jpen70050-cit-0001">
+<string-name name-style="western">
+<surname>Davis</surname>
+<given-names>BR</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Valente</surname>
+<given-names>MA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Goldberg</surname>
+<given-names>JE</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lightner</surname>
+<given-names>AL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Feingold</surname>
+<given-names>DL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Paquette</surname>
+<given-names>IM</given-names>
+</string-name>; <collab collab-type="authors">Prepared on behalf of the Clinical Practice Guidelines Committee of the American Society of Colon and Rectal Surgeons</collab>
+. <article-title>The American Society of colon and rectal surgeons clinical practice guidelines for ostomy surgery</article-title>. <source>Dis Colon Rectum</source>. <year>2022</year>;<volume>65</volume>(<issue>10</issue>):<fpage>1173</fpage>‐<lpage>1190</lpage>.<pub-id pub-id-type="pmid">35616386</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/DCR.0000000000002498</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0002"><label>2</label><mixed-citation publication-type="journal" id="jpen70050-cit-0002">
+<string-name name-style="western">
+<surname>Debongnie</surname>
+<given-names>JC</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Phillips</surname>
+<given-names>SF</given-names>
+</string-name>. <article-title>Capacity of the human colon to absorb fluid</article-title>. <source>Gastroenterology</source>. <year>1978</year>;<volume>74</volume>(<issue>4</issue>):<fpage>698</fpage>‐<lpage>703</lpage>.<pub-id pub-id-type="pmid">631507</pub-id>
+</mixed-citation></ref><ref id="jpen70050-bib-0003"><label>3</label><mixed-citation publication-type="journal" id="jpen70050-cit-0003">
+<string-name name-style="western">
+<surname>Liu</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bhat</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sharma</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Yuan</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>O'Grady</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bissett</surname>
+<given-names>I</given-names>
+</string-name>. <article-title>Risk factors for readmission with dehydration after ileostomy formation: a systematic review and meta‐analysis</article-title>. <source>Colorectal Dis</source>. <year>2021</year>;<volume>23</volume>(<issue>5</issue>):<fpage>1071</fpage>‐<lpage>1082</lpage>.<pub-id pub-id-type="pmid">33539646</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/codi.15566</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0004"><label>4</label><mixed-citation publication-type="journal" id="jpen70050-cit-0004">
+<string-name name-style="western">
+<surname>Chudner</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Gachabayov</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Dyatlov</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lee</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Essani</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bergamaschi</surname>
+<given-names>R</given-names>
+</string-name>. <article-title>The influence of diverting loop ileostomy vs. colostomy on postoperative morbidity in restorative anterior resection for rectal cancer: a systematic review and meta‐analysis</article-title>. <source>Langenbecks Arch Surg</source>. <year>2019</year>;<volume>404</volume>(<issue>2</issue>):<fpage>129</fpage>‐<lpage>139</lpage>.<pub-id pub-id-type="pmid">30747281</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s00423-019-01758-1</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0005"><label>5</label><mixed-citation publication-type="journal" id="jpen70050-cit-0005">
+<string-name name-style="western">
+<surname>Hwang</surname>
+<given-names>JM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Varma</surname>
+<given-names>MG</given-names>
+</string-name>. <article-title>Surgery for inflammatory bowel disease</article-title>. <source>World J Gastroenterol</source>. <year>2008</year>;<volume>14</volume>(<issue>17</issue>):<fpage>2678</fpage>‐<lpage>2690</lpage>
+<pub-id pub-id-type="pmid">18461653</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3748/wjg.14.2678</pub-id><pub-id pub-id-type="pmcid">PMC2709047</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0006"><label>6</label><mixed-citation publication-type="journal" id="jpen70050-cit-0006">
+<string-name name-style="western">
+<surname>Reich</surname>
+<given-names>KM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Chang</surname>
+<given-names>H‐J</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rezaie</surname>
+<given-names>A</given-names>
+</string-name>, et al. <article-title>The incidence rate of colectomy for medically refractory ulcerative colitis has declined in parallel with increasing anti‐TNF use: a time‐trend study</article-title>. <source>Aliment Pharmacol Ther</source>. <year>2014</year>;<volume>40</volume>(<issue>6</issue>):<fpage>629</fpage>‐<lpage>638</lpage>.<pub-id pub-id-type="pmid">25039715</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/apt.12873</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0007"><label>7</label><mixed-citation publication-type="journal" id="jpen70050-cit-0007">
+<string-name name-style="western">
+<surname>Delaney</surname>
+<given-names>CP</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Fazio</surname>
+<given-names>VW</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Remzi</surname>
+<given-names>FH</given-names>
+</string-name>, et al. <article-title>Prospective, age‐related analysis of surgical results, functional outcome, and quality of life after ileal pouch‐anal anastomosis</article-title>. <source>Ann Surg</source>. <year>2003</year>;<volume>238</volume>(<issue>2</issue>):<fpage>221</fpage>‐<lpage>228</lpage>
+<pub-id pub-id-type="pmid">12894015</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/01.sla.0000080825.95166.26</pub-id><pub-id pub-id-type="pmcid">PMC1422678</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0008"><label>8</label><mixed-citation publication-type="journal" id="jpen70050-cit-0008">
+<string-name name-style="western">
+<surname>Rowe</surname>
+<given-names>KM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Schiller</surname>
+<given-names>LR</given-names>
+</string-name>. <article-title>Ileostomy diarrhea: pathophysiology and management</article-title>. <source>Proc (Bayl Univ Med Cent)</source>. <year>2020</year>;<volume>33</volume>(<issue>2</issue>):<fpage>218</fpage>‐<lpage>226</lpage>
+<pub-id pub-id-type="pmid">32313465</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1080/08998280.2020.1712926</pub-id><pub-id pub-id-type="pmcid">PMC7155987</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0009"><label>9</label><mixed-citation publication-type="journal" id="jpen70050-cit-0009">
+<string-name name-style="western">
+<surname>Hill</surname>
+<given-names>GL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Millward</surname>
+<given-names>SF</given-names>
+</string-name>, <string-name name-style="western">
+<surname>King</surname>
+<given-names>RF</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Smith</surname>
+<given-names>RC</given-names>
+</string-name>. <article-title>Normal ileostomy output: close relation to body size</article-title>. <source>BMJ</source>. <year>1979</year>;<volume>2</volume>(<issue>6194</issue>):<fpage>831.2</fpage>‐<lpage>832.2</lpage>.<pub-id pub-id-type="doi" assigning-authority="pmc">10.1136/bmj.2.6194.831-a</pub-id><pub-id pub-id-type="pmcid">PMC1596670</pub-id><pub-id pub-id-type="pmid">509117</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0010"><label>10</label><mixed-citation publication-type="journal" id="jpen70050-cit-0010">
+<string-name name-style="western">
+<surname>Kennedy</surname>
+<given-names>HJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Al‐Dujaili</surname>
+<given-names>EAS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Edwards</surname>
+<given-names>CRW</given-names>
+</string-name>, et al. <article-title>Water and electrolyte balance in subjects with a permanent ileostomy</article-title>. <source>Gut</source>. <year>1983</year>;<volume>24</volume>(<issue>8</issue>):<fpage>702</fpage>‐<lpage>705</lpage>.<pub-id pub-id-type="pmid">6347830</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1136/gut.24.8.702</pub-id><pub-id pub-id-type="pmcid">PMC1420234</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0011"><label>11</label><mixed-citation publication-type="journal" id="jpen70050-cit-0011">
+<string-name name-style="western">
+<surname>Tappenden</surname>
+<given-names>KA</given-names>
+</string-name>. <article-title>Intestinal adaptation following resection</article-title>. <source>JPEN J Parenter Enteral Nutr</source>. <year>2014</year>;<volume>38</volume>(<issue>1 suppl</issue>):<fpage>23S</fpage>‐<lpage>31S</lpage>.<pub-id pub-id-type="pmid">24586019</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1177/0148607114525210</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0012"><label>12</label><mixed-citation publication-type="journal" id="jpen70050-cit-0012">
+<string-name name-style="western">
+<surname>Austin</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bonnes</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Daniel</surname>
+<given-names>H</given-names>
+</string-name>. <article-title>Controversy in nutrition recommendations for short bowel syndrome: how type of SBS impacts response</article-title>. <source>Curr Gastroenterol Rep</source>. <year>2019</year>;<volume>21</volume>(<issue>12</issue>):<fpage>64</fpage>‐<lpage>65</lpage>.<pub-id pub-id-type="pmid">31808005</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11894-019-0731-4</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0013"><label>13</label><mixed-citation publication-type="book" id="jpen70050-cit-0013">
+<string-name name-style="western">
+<surname>Mulita</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lotfollahzadeh</surname>
+<given-names>S</given-names>
+</string-name>. <part-title>Intestinal stoma</part-title>. In <source>StatPearls</source>. <publisher-name>StatPearls Publishing</publisher-name>; <year>2025</year>. <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="http://www.ncbi.nlm.nih.gov/books/NBK565910/" ext-link-type="uri">http://www.ncbi.nlm.nih.gov/books/NBK565910/</ext-link>
+<pub-id pub-id-type="pmid">33351447</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0014"><label>14</label><mixed-citation publication-type="journal" id="jpen70050-cit-0014">
+<string-name name-style="western">
+<surname>Seifarth</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Augustin</surname>
+<given-names>LN</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lehmann</surname>
+<given-names>KS</given-names>
+</string-name>, et al. <article-title>Assessment of risk factors for the occurrence of a high‐output ileostomy</article-title>. <source>Front Surg</source>. <year>2021</year>;<volume>8</volume>:<elocation-id>642288</elocation-id>.<pub-id pub-id-type="pmid">34095201</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.3389/fsurg.2021.642288</pub-id><pub-id pub-id-type="pmcid">PMC8176110</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0015"><label>15</label><mixed-citation publication-type="journal" id="jpen70050-cit-0015">
+<string-name name-style="western">
+<surname>Berger</surname>
+<given-names>V</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Reeh</surname>
+<given-names>M</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Scherer</surname>
+<given-names>M</given-names>
+</string-name>, et al. <article-title>Enhancing drug therapy in ostomy patients: best practice recommendations for medication management</article-title>. <source>PLoS One</source>. <year>2024</year>;<volume>19</volume>(<issue>6</issue>):<elocation-id>e0305047</elocation-id>.<pub-id pub-id-type="pmid">38843261</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1371/journal.pone.0305047</pub-id><pub-id pub-id-type="pmcid">PMC11156294</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0016"><label>16</label><mixed-citation publication-type="journal" id="jpen70050-cit-0016">
+<string-name name-style="western">
+<surname>Brock</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Olesen</surname>
+<given-names>SS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Olesen</surname>
+<given-names>AE</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Frøkjaer</surname>
+<given-names>JB</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Andresen</surname>
+<given-names>T</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Drewes</surname>
+<given-names>AM</given-names>
+</string-name>. <article-title>Opioid‐induced bowel dysfunction: pathophysiology and management</article-title>. <source>Drugs</source>. <year>2012</year>;<volume>72</volume>(<issue>14</issue>):<fpage>1847</fpage>‐<lpage>1865</lpage>.<pub-id pub-id-type="pmid">22950533</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.2165/11634970-000000000-00000</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0017"><label>17</label><mixed-citation publication-type="journal" id="jpen70050-cit-0017">
+<string-name name-style="western">
+<surname>Rud</surname>
+<given-names>CL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Brantlov</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Quist</surname>
+<given-names>JR</given-names>
+</string-name>, et al. <article-title>Sodium depletion and secondary hyperaldosteronism in outpatients with an ileostomy: a cross‐sectional study</article-title>. <source>Scand J Gastroenterol</source>. <year>2023</year>;<volume>58</volume>(<issue>9</issue>):<fpage>971</fpage>‐<lpage>979</lpage>.<pub-id pub-id-type="pmid">37122121</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1080/00365521.2023.2200440</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0018"><label>18</label><mixed-citation publication-type="journal" id="jpen70050-cit-0018">
+<string-name name-style="western">
+<surname>Sundaram</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Koutkia</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Apovian</surname>
+<given-names>CM</given-names>
+</string-name>. <article-title>Nutritional management of short bowel syndrome in adults</article-title>. <source>J Clin Gastroenterol</source>. <year>2002</year>;<volume>34</volume>(<issue>3</issue>):<fpage>207</fpage>‐<lpage>220</lpage>.<pub-id pub-id-type="pmid">11873098</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/00004836-200203000-00003</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0019"><label>19</label><mixed-citation publication-type="journal" id="jpen70050-cit-0019">
+<string-name name-style="western">
+<surname>Loria</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Melucci</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Speranza</surname>
+<given-names>J</given-names>
+</string-name>, et al. <article-title>Acute kidney injury is a common and significant complication following ileostomy formation</article-title>. <source>Colorectal Dis</source>. <year>2022</year>;<volume>24</volume>(<issue>1</issue>):<fpage>102</fpage>‐<lpage>110</lpage>.<pub-id pub-id-type="pmid">34536959</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/codi.15917</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0020"><label>20</label><mixed-citation publication-type="journal" id="jpen70050-cit-0020">
+<string-name name-style="western">
+<surname>Nazar</surname>
+<given-names>CM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bashir</surname>
+<given-names>F</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Izhar</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Anderson</surname>
+<given-names>J</given-names>
+</string-name>. <article-title>Overview of management of acute renal failure and its evaluation; a case analysis</article-title>. <source>J Nephropharmacol</source>. <year>2015</year>;<volume>4</volume>(<issue>1</issue>):<fpage>17</fpage>‐<lpage>22</lpage>.<pub-id pub-id-type="pmid">28197469</pub-id>
+<pub-id pub-id-type="pmcid">PMC5297473</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0021"><label>21</label><mixed-citation publication-type="journal" id="jpen70050-cit-0021">
+<string-name name-style="western">
+<surname>Smith</surname>
+<given-names>SA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ronksley</surname>
+<given-names>PE</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Tan</surname>
+<given-names>Z</given-names>
+</string-name>, et al. <article-title>New ileostomy formation and subsequent community‐onset acute and chronic kidney disease: a population‐based cohort study</article-title>. <source>Ann Surg</source>. <year>2021</year>;<volume>274</volume>(<issue>2</issue>):<fpage>352</fpage>‐<lpage>358</lpage>.<pub-id pub-id-type="pmid">31714313</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/SLA.0000000000003617</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0022"><label>22</label><mixed-citation publication-type="journal" id="jpen70050-cit-0022">
+<string-name name-style="western">
+<surname>Li</surname>
+<given-names>L</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Lau</surname>
+<given-names>KS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ramanathan</surname>
+<given-names>V</given-names>
+</string-name>, et al. <article-title>Ileostomy creation in colorectal cancer surgery: risk of acute kidney injury and chronic kidney disease</article-title>. <source>J Surg Res</source>. <year>2017</year>;<volume>210</volume>:<fpage>204</fpage>‐<lpage>212</lpage>.<pub-id pub-id-type="pmid">28457330</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.jss.2016.11.039</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0023"><label>23</label><mixed-citation publication-type="journal" id="jpen70050-cit-0023">
+<string-name name-style="western">
+<surname>Fielding</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Woods</surname>
+<given-names>R</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Moosvi</surname>
+<given-names>SR</given-names>
+</string-name>, et al. <article-title>Renal impairment after ileostomy formation: a frequent event with long‐term consequences</article-title>. <source>Colorectal Dis</source>. <year>2020</year>;<volume>22</volume>(<issue>3</issue>):<fpage>269</fpage>‐<lpage>278</lpage>.<pub-id pub-id-type="pmid">31562789</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/codi.14866</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0024"><label>24</label><mixed-citation publication-type="journal" id="jpen70050-cit-0024">
+<string-name name-style="western">
+<surname>Binder</surname>
+<given-names>HJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Brown</surname>
+<given-names>I</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ramakrishna</surname>
+<given-names>BS</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Young</surname>
+<given-names>GP</given-names>
+</string-name>. <article-title>Oral rehydration therapy in the second decade of the twenty‐first century</article-title>. <source>Curr Gastroenterol Rep</source>. <year>2014</year>;<volume>16</volume>(<issue>3</issue>):<fpage>376</fpage>.<pub-id pub-id-type="pmid">24562469</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1007/s11894-014-0376-2</pub-id><pub-id pub-id-type="pmcid">PMC3950600</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0025"><label>25</label><mixed-citation publication-type="journal" id="jpen70050-cit-0025">
+<string-name name-style="western">
+<surname>Erin</surname>
+<given-names>Reardon</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Levi</surname>
+<given-names>Teigen</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Amanda</surname>
+<given-names>Mandarino Alves</given-names>
+</string-name>, et al. <article-title>Fluid and electrolyte implications and renal manifestations of ileostomy creation: a systematic review</article-title>. <source>PROSPERO</source>. <year>2024</year>. Available from <ext-link xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="https://www.crd.york.ac.uk/PROSPERO/view/CRD42022318062" ext-link-type="uri">https://www.crd.york.ac.uk/PROSPERO/view/CRD42022318062</ext-link>
+</mixed-citation></ref><ref id="jpen70050-bib-0026"><label>26</label><mixed-citation publication-type="journal" id="jpen70050-cit-0026">
+<string-name name-style="western">
+<surname>Kudoh</surname>
+<given-names>K</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Shibata</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Funayama</surname>
+<given-names>Y</given-names>
+</string-name>, et al. <article-title>Oral rehydration solution normalizes plasma renin and aldosterone levels in patients with ulcerative colitis after proctocolectomy</article-title>. <source>J Anus Rectum Colon</source>. <year>2018</year>;<volume>1</volume>(<issue>3</issue>):<fpage>78</fpage>‐<lpage>83</lpage>. <pub-id pub-id-type="doi">10.23922/jarc.2016-015</pub-id>
+<pub-id pub-id-type="pmid">31583305</pub-id>
+<pub-id pub-id-type="pmcid">PMC6768676</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0027"><label>27</label><mixed-citation publication-type="journal" id="jpen70050-cit-0027">
+<string-name name-style="western">
+<surname>Migdanis</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Koukoulis</surname>
+<given-names>G</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Mamaloudis</surname>
+<given-names>I</given-names>
+</string-name>, et al. <article-title>Administration of an oral hydration solution prevents electrolyte and fluid disturbances and reduces readmissions in patients with a diverting ileostomy after colorectal surgery: a prospective, randomized, controlled trial</article-title>. <source>Dis Colon Rectum</source>. <year>2018</year>;<volume>61</volume>(<issue>7</issue>):<fpage>840</fpage>‐<lpage>846</lpage>.<pub-id pub-id-type="pmid">29771807</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/DCR.0000000000001082</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0028"><label>28</label><mixed-citation publication-type="journal" id="jpen70050-cit-0028">
+<string-name name-style="western">
+<surname>Rud</surname>
+<given-names>C</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Pedersen</surname>
+<given-names>AKN</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Wilkens</surname>
+<given-names>TL</given-names>
+</string-name>, et al. <article-title>An iso‐osmolar oral supplement increases natriuresis and does not increase stomal output in patients with an ileostomy: a randomised, double‐blinded, active comparator, crossover intervention study</article-title>. <source>Clin Nutr</source>. <year>2019</year>;<volume>38</volume>(<issue>5</issue>):<fpage>2079</fpage>‐<lpage>2086</lpage>.<pub-id pub-id-type="pmid">30396772</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.clnu.2018.10.014</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0029"><label>29</label><mixed-citation publication-type="journal" id="jpen70050-cit-0029">
+<string-name name-style="western">
+<surname>Rud</surname>
+<given-names>CL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hvistendahl</surname>
+<given-names>MK</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Langdahl</surname>
+<given-names>B</given-names>
+</string-name>, et al. <article-title>Protein‐based oral rehydration solutions for patients with an ileostomy: a randomised, double‐blinded crossover study</article-title>. <source>Clin Nutr</source>. <year>2024</year>;<volume>43</volume>(<issue>7</issue>):<fpage>1747</fpage>‐<lpage>1758</lpage>.<pub-id pub-id-type="pmid">38850996</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.clnu.2024.05.038</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0030"><label>30</label><mixed-citation publication-type="journal" id="jpen70050-cit-0030">
+<string-name name-style="western">
+<surname>Westfall</surname>
+<given-names>KM</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Rivard</surname>
+<given-names>SJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Suwanabol</surname>
+<given-names>PA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Albright</surname>
+<given-names>JJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ramm</surname>
+<given-names>CA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Cleary</surname>
+<given-names>RK</given-names>
+</string-name>. <article-title>Postoperative oral rehydration and regimented follow‐up decrease readmissions after colorectal surgery that includes ileostomies</article-title>. <source>Dis Colon Rectum</source>. <year>2024</year>;<volume>67</volume>(<issue>2</issue>):<fpage>313</fpage>‐<lpage>321</lpage>.<pub-id pub-id-type="pmid">37703205</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/DCR.0000000000002935</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0031"><label>31</label><mixed-citation publication-type="journal" id="jpen70050-cit-0031">
+<string-name name-style="western">
+<surname>Bradley</surname>
+<given-names>SE</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Vitous</surname>
+<given-names>CA</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Marzoughi</surname>
+<given-names>M</given-names>
+</string-name>, et al. <article-title>Patient adherence to an oral rehydration solution intervention to prevent dehydration following ileostomy creation: a qualitative study</article-title>. <source>Am J Surg</source>. <year>2024</year>;<volume>233</volume>:<fpage>120</fpage>‐<lpage>124</lpage>.<pub-id pub-id-type="pmid">38448319</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1016/j.amjsurg.2024.02.045</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0032"><label>32</label><mixed-citation publication-type="journal" id="jpen70050-cit-0032">
+<string-name name-style="western">
+<surname>Messaris</surname>
+<given-names>E</given-names>
+</string-name>. <article-title>Expert commentary on postoperative acute kidney injury in colorectal surgery</article-title>. <source>Dis Colon Rectum</source>. <year>2022</year>;<volume>65</volume>(<issue>3</issue>):<fpage>312</fpage>‐<lpage>313</lpage>.<pub-id pub-id-type="pmid">35138284</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1097/DCR.0000000000002391</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0033"><label>33</label><mixed-citation publication-type="journal" id="jpen70050-cit-0033">
+<string-name name-style="western">
+<surname>Abomhya</surname>
+<given-names>A</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ayaz</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Haider</surname>
+<given-names>S</given-names>
+</string-name>. <article-title>Ileostomy and risk of acute kidney injury in patients with Crohn′s Disease</article-title>. <source>Gastroenterology</source>. <year>2023</year>;<volume>164</volume>(<issue>4</issue>):<fpage>S30</fpage>‐<lpage>S31</lpage>.</mixed-citation></ref><ref id="jpen70050-bib-0034"><label>34</label><mixed-citation publication-type="journal" id="jpen70050-cit-0034">
+<string-name name-style="western">
+<surname>Bryant</surname>
+<given-names>RV</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Ooi</surname>
+<given-names>S</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Schultz</surname>
+<given-names>CG</given-names>
+</string-name>, et al. <article-title>Low muscle mass and sarcopenia: common and predictive of osteopenia in inflammatory bowel disease</article-title>. <source>Aliment Pharmacol Ther</source>. <year>2015</year>;<volume>41</volume>(<issue>9</issue>):<fpage>895</fpage>‐<lpage>906</lpage>.<pub-id pub-id-type="pmid">25753216</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1111/apt.13156</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0035"><label>35</label><mixed-citation publication-type="journal" id="jpen70050-cit-0035">
+<string-name name-style="western">
+<surname>Schmid</surname>
+<given-names>H</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Hartmann</surname>
+<given-names>B</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Schiffl</surname>
+<given-names>H</given-names>
+</string-name>. <article-title>Adherence to prescribed oral medication in adult patients undergoing chronic hemodialysis: a critical review of the literature</article-title>. <source>Eur J Med Res</source>. <year>2009</year>;<volume>14</volume>(<issue>5</issue>):<fpage>185</fpage>.<pub-id pub-id-type="pmid">19541573</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1186/2047-783X-14-5-185</pub-id><pub-id pub-id-type="pmcid">PMC3351975</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0036"><label>36</label><mixed-citation publication-type="journal" id="jpen70050-cit-0036">
+<string-name name-style="western">
+<surname>Weiner</surname>
+<given-names>JR</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Toy</surname>
+<given-names>EL</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Sacco</surname>
+<given-names>P</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Duh</surname>
+<given-names>MS</given-names>
+</string-name>. <article-title>Costs, quality of life and treatment compliance associated with antibiotic therapies in patients with cystic fibrosis: a review of the literature</article-title>. <source>Expert Opin Pharmacother</source>. <year>2008</year>;<volume>9</volume>(<issue>5</issue>):<fpage>751</fpage>‐<lpage>766</lpage>.<pub-id pub-id-type="pmid">18345953</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1517/14656566.9.5.751</pub-id></mixed-citation></ref><ref id="jpen70050-bib-0037"><label>37</label><mixed-citation publication-type="journal" id="jpen70050-cit-0037">
+<string-name name-style="western">
+<surname>Mills</surname>
+<given-names>EJ</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Nachega</surname>
+<given-names>JB</given-names>
+</string-name>, <string-name name-style="western">
+<surname>Bangsberg</surname>
+<given-names>DR</given-names>
+</string-name>, et al. <article-title>Adherence to haart: a systematic review of developed and developing nation patient‐reported barriers and facilitators</article-title>. <source>PLoS Med</source>. <year>2006</year>;<volume>3</volume>(<issue>11</issue>):<elocation-id>e438</elocation-id>.<pub-id pub-id-type="pmid">17121449</pub-id>
+<pub-id pub-id-type="doi" assigning-authority="pmc">10.1371/journal.pmed.0030438</pub-id><pub-id pub-id-type="pmcid">PMC1637123</pub-id></mixed-citation></ref></ref-list></back></article></pmc-articleset>

@@ -1,0 +1,179 @@
+<?xml version="1.0" ?>
+<!DOCTYPE PubmedArticleSet PUBLIC "-//NLM//DTD PubMedArticle, 1st January 2025//EN" "https://dtd.nlm.nih.gov/ncbi/pubmed/out/pubmed_250101.dtd">
+<PubmedArticleSet>
+<PubmedArticle><MedlineCitation Status="PubMed-not-MEDLINE" Owner="NLM"><PMID Version="1">40046557</PMID><DateRevised><Year>2025</Year><Month>05</Month><Day>01</Day></DateRevised><Article PubModel="Electronic-eCollection"><Journal><ISSN IssnType="Print">2189-4779</ISSN><JournalIssue CitedMedium="Print"><Volume>22</Volume><Issue>1</Issue><PubDate><Year>2025</Year></PubDate></JournalIssue><Title>Biophysics and physicobiology</Title><ISOAbbreviation>Biophys Physicobiol</ISOAbbreviation></Journal><ArticleTitle>Improvement in positional accuracy of neural-network predicted hydration sites of proteins by incorporating atomic details of water-protein interactions and site-searching algorithm.</ArticleTitle><Pagination><StartPage>e220004</StartPage><MedlinePgn>e220004</MedlinePgn></Pagination><ELocationID EIdType="pii" ValidYN="Y">e220004</ELocationID><ELocationID EIdType="doi" ValidYN="Y">10.2142/biophysico.bppb-v22.0004</ELocationID><Abstract><AbstractText>Visualization of hydration structures over the entire protein surface is necessary to understand why the aqueous environment is essential for protein folding and functions. However, it is still difficult for experiments. Recently, we developed a convolutional neural network (CNN) to predict the probability distribution of hydration water molecules over protein surfaces and in protein cavities. The deep network was optimized using solely the distribution patterns of protein atoms surrounding each hydration water molecule in high-resolution X-ray crystal structures and successfully provided probability distributions of hydration water molecules. Despite the effectiveness of the probability distribution, the positional differences of the predicted positions obtained from the local maxima as predicted sites remained inadequate in reproducing the hydration sites in the crystal structure models. In this work, we modified the deep network by subdividing atomic classes based on the electronic properties of atoms composing amino acids. In addition, the exclusion volumes of each protein atom and hydration water molecule were taken to predict the hydration sites from the probability distribution. These information on chemical properties of atoms leads to an improvement in positional prediction accuracy. We selected the best CNN from 47 CNNs constructed by systematically varying the number of channels and layers of neural networks. Here, we report the improvements in prediction accuracy by the reorganized CNN together with the details in the architecture, training data, and peak search algorithm.</AbstractText><CopyrightInformation>2025 THE BIOPHYSICAL SOCIETY OF JAPAN.</CopyrightInformation></Abstract><AuthorList CompleteYN="Y"><Author ValidYN="Y"><LastName>Sato</LastName><ForeName>Kochi</ForeName><Initials>K</Initials><AffiliationInfo><Affiliation>Department of Physics, Faculty of Science and Technology, Keio University, Yokohama, Kanagawa 223-8522, Japan.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>RIKEN SPring-8 Center, Sayo-gun, Hyogo 679-5148, Japan.</Affiliation></AffiliationInfo></Author><Author ValidYN="Y"><LastName>Nakasako</LastName><ForeName>Masayoshi</ForeName><Initials>M</Initials><AffiliationInfo><Affiliation>Department of Physics, Faculty of Science and Technology, Keio University, Yokohama, Kanagawa 223-8522, Japan.</Affiliation></AffiliationInfo><AffiliationInfo><Affiliation>RIKEN SPring-8 Center, Sayo-gun, Hyogo 679-5148, Japan.</Affiliation></AffiliationInfo></Author></AuthorList><Language>eng</Language><PublicationTypeList><PublicationType UI="D016428">Journal Article</PublicationType></PublicationTypeList><ArticleDate DateType="Electronic"><Year>2025</Year><Month>01</Month><Day>30</Day></ArticleDate></Article><MedlineJournalInfo><Country>Japan</Country><MedlineTA>Biophys Physicobiol</MedlineTA><NlmUniqueID>101675089</NlmUniqueID><ISSNLinking>2189-4779</ISSNLinking></MedlineJournalInfo><KeywordList Owner="NOTNLM"><Keyword MajorTopicYN="N">X-ray crystallography</Keyword><Keyword MajorTopicYN="N">artificial intelligence</Keyword><Keyword MajorTopicYN="N">deep learning</Keyword><Keyword MajorTopicYN="N">hydrophobic hydration</Keyword><Keyword MajorTopicYN="N">protein hydration</Keyword></KeywordList><CoiStatement>The authors declare no conflicts of interest.</CoiStatement></MedlineCitation><PubmedData><History><PubMedPubDate PubStatus="received"><Year>2024</Year><Month>11</Month><Day>14</Day></PubMedPubDate><PubMedPubDate PubStatus="accepted"><Year>2025</Year><Month>1</Month><Day>27</Day></PubMedPubDate><PubMedPubDate PubStatus="medline"><Year>2025</Year><Month>3</Month><Day>6</Day><Hour>6</Hour><Minute>23</Minute></PubMedPubDate><PubMedPubDate PubStatus="pubmed"><Year>2025</Year><Month>3</Month><Day>6</Day><Hour>6</Hour><Minute>22</Minute></PubMedPubDate><PubMedPubDate PubStatus="entrez"><Year>2025</Year><Month>3</Month><Day>6</Day><Hour>4</Hour><Minute>42</Minute></PubMedPubDate><PubMedPubDate PubStatus="pmc-release"><Year>2025</Year><Month>1</Month><Day>30</Day></PubMedPubDate></History><PublicationStatus>epublish</PublicationStatus><ArticleIdList><ArticleId IdType="pubmed">40046557</ArticleId><ArticleId IdType="pmc">PMC11876803</ArticleId><ArticleId IdType="doi">10.2142/biophysico.bppb-v22.0004</ArticleId><ArticleId IdType="pii">JST.JSTAGE/biophysico/e220004</ArticleId></ArticleIdList><ReferenceList><Reference><Citation>Ball, P.
+Water as an active constituent in cell biology. Chem. Rev.
+108, 74&#x2013;108 (2008). https://doi.org/10.1021/cr068037a
+</Citation><ArticleIdList><ArticleId IdType="pubmed">18095715</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakasako, M., Odaka, M., Yohda, M., Dohmae, N., Takio, K., Kamiya, N., et al. 
+Tertiary and quaternary structures of photoreactive Fe-type nitrile hydratase from Rhodococcus sp. N-771: Roles of hydration water molecules in stabilizing the structures and the structural origin for the substrate specificity of the enzyme. Biochemistry
+38, 9887&#x2013;9898 (1999). https://doi.org/10.1021/bi982753s
+</Citation><ArticleIdList><ArticleId IdType="pubmed">10433695</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakasako, M., Oka, T., Mashumo, M., Takahashi, H., Shimada, I., Yamaguchi, Y., et al. 
+Conformational dynamics of complementarity-determining region H3 of an anti-dansyl Fv fragment in the presence of its hapten. J. Mol. Biol.
+351, 627&#x2013;640 (2005). https://doi.org/10.1016/j.jmb.2005.06.018
+</Citation><ArticleIdList><ArticleId IdType="pubmed">16019026</ArticleId></ArticleIdList></Reference><Reference><Citation>Breiten, B., Lockett, M. R., Sherman, W., Fujita, S., Al-Sayah, M., Lange, H., et al. 
+Water networks contribute to enthalpy/entropy compensation in protein-ligand binding. J. Am. Chem. Soc.
+135, 15579&#x2013;15584 (2013). https://doi.org/10.1021/ja4075776
+</Citation><ArticleIdList><ArticleId IdType="pubmed">24044696</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakasako, M., Fujisawa, T., Adachi, S., Kudo, T., Higuchi, S.. 
+Large-scale domain movements and hydration structure changes in the active-site cleft in unligated glutamate dehydrogenase from Thermococcus profundus studied by cryogenic X-ray crystal structure analysis and small-angle X-ray scattering. Biochemistry
+40, 3069&#x2013;3079 (2001). https://doi.org/10.1021/bi002482x
+</Citation><ArticleIdList><ArticleId IdType="pubmed">11258921</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakasako, M.
+Water-protein interactions from high-resolution protein crystallography. Phil. Trans. R. Soc. Lond. B.
+359, 1191&#x2013;1206 (2004). https://doi.org/10.1098/rstb.2004.1498
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC1693410</ArticleId><ArticleId IdType="pubmed">15306376</ArticleId></ArticleIdList></Reference><Reference><Citation>Oroguchi, T., Nakasako, M.. 
+Changes in hydration structure regulate collective motions of a multi-domain protein. Sci. Rep.
+6, 26302 (2016). https://doi.org/10.1038/srep26302
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4872039</ArticleId><ArticleId IdType="pubmed">27193111</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakasako, M.
+Hydration structures of proteins: Atomic details. (Springer, Tokyo, 2021).https://doi.org/10.1007/978-4-431-56919-0</Citation></Reference><Reference><Citation>Rupley, J. A., Careri, G.. 
+Protein hydration and function. Adv. Protein Chem.
+41, 37&#x2013;172 (1991). https://doi.org/10.1016/S0065-3233(08)60197-7
+</Citation><ArticleIdList><ArticleId IdType="pubmed">2069077</ArticleId></ArticleIdList></Reference><Reference><Citation>Otting, G., Liepinsh, E., Wuthrich, K.. 
+Protein hydration in aqueous solution. Science
+254, 974&#x2013;980 (1991). https://doi.org/10.1126/science.1948083
+</Citation><ArticleIdList><ArticleId IdType="pubmed">1948083</ArticleId></ArticleIdList></Reference><Reference><Citation>Kossiakoff, A. A., Sintchak, M. D., Shpungin, J., Presta, L. G.. 
+Analysis of solvent structure in proteins using neutron D<sub>2</sub>O-H<sub>2</sub>O solvent maps: pattern of primary and secondary hydration of trypsin. Proteins: Struct. Funct. Genet.
+12, 223&#x2013;236 (1992). https://doi.org/10.1002/prot.340120303
+</Citation><ArticleIdList><ArticleId IdType="pubmed">1557350</ArticleId></ArticleIdList></Reference><Reference><Citation>Svergun, D. I., Richard, S., Koch, M. H. J., Sayers, Z., Kuprin, S., Zaccai, G.. 
+Protein hydration in solution: Experimental observation by x&#x2010;ray and neutron scattering. Proc. Natl. Acad. Sci. U.S.A.
+95, 2267&#x2013;2272 (1998). https://doi.org/10.1073/pnas.95.5.2267
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC19315</ArticleId><ArticleId IdType="pubmed">9482874</ArticleId></ArticleIdList></Reference><Reference><Citation>Zhang, L., Kao, Y. T., Qiu, W., Wang, L., Zhong, D.. 
+Femtosecond studies of tryptophan fluorescence dynamics in proteins: Local solvation and electronic quenching. J. Phys. Chem. B.
+110, 18097&#x2013;18103 (2006). https://doi.org/10.1021/jp063025e
+</Citation><ArticleIdList><ArticleId IdType="pubmed">16970418</ArticleId></ArticleIdList></Reference><Reference><Citation>Nucci, N. V., Pometun, M. S., Wand, A. J.. 
+Site-resolved measurement of water-protein interactions by solution NMR. Nat. Struct. Mol. Biol.
+18, 245&#x2013;249 (2011). https://doi.org/10.1038/nsmb.1955
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC3058360</ArticleId><ArticleId IdType="pubmed">21196937</ArticleId></ArticleIdList></Reference><Reference><Citation>Fukuda, A., Oroguchi, T., Nakasako, M.. 
+Dipole&#x2013;dipole interactions between tryptophan side chains and hydration water molecules dominate the observed dynamic stokes shift of lysozyme. BBA &#x2013; Gen. Sub. 1864,129406 (2020). https://doi.org/10.1016/j.bbagen.2019.07.015</Citation><ArticleIdList><ArticleId IdType="pubmed">31377191</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakasako, M.
+Large-scale networks of hydration water molecules around &#x3b2;-trypsin revealed by cryogenic X-ray crystal structure analyses. J. Mol. Biol.
+289, 547&#x2013;564 (1999). https://doi.org/10.1006/jmbi.1999.2795
+</Citation><ArticleIdList><ArticleId IdType="pubmed">10356328</ArticleId></ArticleIdList></Reference><Reference><Citation>Matsuoka, D., Nakasako, M.. 
+Probability distributions of hydration water molecules around polar protein atoms obtained by a database analysis. J. Phys. Chem. B.
+113, 11274&#x2013;11292 (2009). https://doi.org/10.1021/jp902459n
+</Citation><ArticleIdList><ArticleId IdType="pubmed">19621908</ArticleId></ArticleIdList></Reference><Reference><Citation>Merk, A., Bartesaghi, A., Banerjee, S., Falconieri, V., Rao, P., Davis, M. I., et al. 
+Breaking cryo-EM resolution barriers to facilitate drug discovery. Cell
+165, 1698&#x2013;1707 (2016). https://doi.org/10.1016/j.cell.2016.05.040
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4931924</ArticleId><ArticleId IdType="pubmed">27238019</ArticleId></ArticleIdList></Reference><Reference><Citation>Scheres, S. H. W., Gao, H., Valle, M., Herman, G. T., Eggermont, P. P. B., Frank, J., et al. 
+Disentangling conformational states of macromolecules in 3D-EM through likelihood optimization. Nat. Methods
+4, 27&#x2013;29 (2007). https://doi.org/10.1038/nmeth992
+</Citation><ArticleIdList><ArticleId IdType="pubmed">17179934</ArticleId></ArticleIdList></Reference><Reference><Citation>Oide, M., Kato, T., Oroguchi, T., Nakasako, M.. 
+Energy landscape of domain motion in glutamate dehydrogenase deduced from cryo-electron microscopy. FEBS J.
+287, 3472&#x2013;3493 (2020). https://doi.org/10.1111/febs.15224
+</Citation><ArticleIdList><ArticleId IdType="pubmed">31976609</ArticleId></ArticleIdList></Reference><Reference><Citation>Beton, J. G., Cragnolini, T., Kaleel, M., Mulvaney, T., Sweeney, A., Toph, M.. 
+Integrating model simulation tools and cryo-electron microscopy. WIREs Comput. Mol. Sci.,
+13, e1642 (2022). https://doi.org/10.1002/wcms.1642</Citation></Reference><Reference><Citation>Roh, S. H., Shekhar, M., Pintilie, G., Chipot, C., Wilkens, S., Singharoy, A., et al. 
+Cryo-EM and MD infer water-mediated proton transport and autoinhibition mechanisms of Vo complex. Sci. Adv.
+6, eabb9605 (2020). https://doi.org/10.1126/sciadv.abb9605
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7541076</ArticleId><ArticleId IdType="pubmed">33028525</ArticleId></ArticleIdList></Reference><Reference><Citation>Merzel, F., Smith, J. C.. 
+Is the first hydration shell of lysozyme of higher density than bulk water? Proc. Natl. Acad. Sci. U.S.A.
+99, 5378&#x2013;5383 (2002). https://doi.org/10.1073/pnas.082335099</Citation><ArticleIdList><ArticleId IdType="pmc">PMC122777</ArticleId><ArticleId IdType="pubmed">11959992</ArticleId></ArticleIdList></Reference><Reference><Citation>Higo, J., Nakasako, M.. 
+Hydration structure of human lysozyme investigated by molecular dynamics simulation and cryogenic X-ray crystal structure analyses: On the correlation between crystal water sites, solvent density, and solvent dipole. J. Comp. Chem.
+23, 1323&#x2013;1336 (2002). https://doi.org/10.1002/jcc.10100
+</Citation><ArticleIdList><ArticleId IdType="pubmed">12214315</ArticleId></ArticleIdList></Reference><Reference><Citation>Yokomizo, T., Higo, J., Nakasako, M.. 
+Patterns and networks of hydrogen-bonds in the hydration structure of human lysozyme. Chem. Phys. Lett.
+410, 31&#x2013;35 (2005). https://doi.org/10.1016/j.cplett.2005.04.072</Citation></Reference><Reference><Citation>Oroguchi, T., Nakasako, M.. 
+Influences of lone-pair electrons on directionality of hydrogen bonds formed by hydrophilic amino acid side chains in molecular dynamics simulation. Sci. Rep.
+7, 15859 (2017). https://doi.org/10.1038/s41598-017-16203-w
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC5696464</ArticleId><ArticleId IdType="pubmed">29158598</ArticleId></ArticleIdList></Reference><Reference><Citation>Imai, T, Hiraoka, R., Kovalenko, A., Hirata, F.. 
+Locating missing water molecules in protein cavities by the three-dimensional interaction site model theory of molecular solvation. Proteins
+66, 804&#x2013;813 (2007). https://doi.org/10.1002/prot.21311
+</Citation><ArticleIdList><ArticleId IdType="pubmed">17186526</ArticleId></ArticleIdList></Reference><Reference><Citation>Hikiri, S., Hayashi, T., Inoue, M., Ekimoto, T., Ikeguchi, M., Kinoshita, M.. 
+An accurate and rapid method for calculating hydration free energies of a variety of solutes including proteins. J. Chem. Phys.
+150, 175101 (2019). https://doi.org/10.1063/1.5093110
+</Citation><ArticleIdList><ArticleId IdType="pubmed">31067910</ArticleId></ArticleIdList></Reference><Reference><Citation>Matsuoka, D., Nakasako, M.. 
+Prediction of hydration structures around hydrophilic surfaces of proteins by using the empirical hydration distribution functions from a database analysis. J. Phys. Chem. B.
+114, 4652&#x2013;4663 (2010). https://doi.org/10.1021/jp9100224
+</Citation><ArticleIdList><ArticleId IdType="pubmed">20201497</ArticleId></ArticleIdList></Reference><Reference><Citation>Matsuoka, D., Nakasako, M.. 
+Application of empirical hydration distribution functions around polar atoms for assessing hydration structures of proteins. Chem. Phys.
+419, 59&#x2013;64 (2013). https://doi.org/10.1016/j.chemphys.2012.12.040</Citation></Reference><Reference><Citation>Huang, P., Xing, H., Zou, X., Han, Q., Liu, K., Sun, X., et al. 
+Accurate prediction of hydration sites of proteins using energy model with atom embedding. Front. Mol. Biosci.
+8, 756075 (2021). https://doi.org/10.3389/fmolb.2021.756075
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC8488165</ArticleId><ArticleId IdType="pubmed">34616774</ArticleId></ArticleIdList></Reference><Reference><Citation>Park, S., Seok, C.. 
+GalaxyWater-CNN: Prediction of water positions on the protein structure by a 3D-convolutional neural network. J. Chem. Inf. Model.
+62, 3157&#x2013;3168 (2022). https://doi.org/10.1021/acs.jcim.2c00306
+</Citation><ArticleIdList><ArticleId IdType="pubmed">35749367</ArticleId></ArticleIdList></Reference><Reference><Citation>Ghanbarpour, A., Mahmoud, A. H., Lill, M. A.. 
+Instantaneous generation of protein hydration properties from static structures. Comm. Chem.
+3, 188 (2020). https://doi.org/10.1038/s42004-020-00435-5</Citation><ArticleIdList><ArticleId IdType="pmc">PMC9814540</ArticleId><ArticleId IdType="pubmed">36703451</ArticleId></ArticleIdList></Reference><Reference><Citation>Sato, K., Oide, M., Nakasako, M.. 
+Prediction of hydrophilic and hydrophobic hydration structure of protein by neural network optimized using experimental data. Sci. Rep.
+13, 2183 (2023). https://doi.org/10.1038/s41598-023-29442-x
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC9905073</ArticleId><ArticleId IdType="pubmed">36750742</ArticleId></ArticleIdList></Reference><Reference><Citation>Berman, H. M., Westbrook, J., Feng, Z., Gilliland, G., Bhat, T. N., Weissig, H., et al. 
+The protein data bank. Nucleic Acids Res.
+28, 235&#x2013;242 (2000). https://doi.org/10.1093/nar/28.1.235
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC102472</ArticleId><ArticleId IdType="pubmed">10592235</ArticleId></ArticleIdList></Reference><Reference><Citation>Steinegger, M., S&#xf6;ding, J.. 
+MMseqs2 enables sensitive protein sequence searching for the analysis of massive data sets. Nat. Biotechnol.
+35, 1026&#x2013;1028 (2017). https://doi.org/10.1038/nbt.3988
+</Citation><ArticleIdList><ArticleId IdType="pubmed">29035372</ArticleId></ArticleIdList></Reference><Reference><Citation>Nagashima, S., Nakasako, M., Dohmae, N., Tsujimura, M., Takio, K., Odaka, M., et al. 
+Novel non-heme iron center of nitrile hydratase with a claw setting of oxygen atoms. Nat. Struct. Biol.
+5, 347&#x2013;351 (1998). https://doi.org/10.1038/nsb0598-347
+</Citation><ArticleIdList><ArticleId IdType="pubmed">9586994</ArticleId></ArticleIdList></Reference><Reference><Citation>Lee, B., Richards, F. M.. 
+The interpretation of protein structures: Estimation of static accessibility. J. Mol. Biol.
+55, 379&#x2013;400 (1971). https://doi.org/10.1016/0022-2836(71)90324-X
+</Citation><ArticleIdList><ArticleId IdType="pubmed">5551392</ArticleId></ArticleIdList></Reference><Reference><Citation>Ji, S., Xu, W., Yang, M., Yu, K.. 
+3D convolutional neural networks for human action recognition. IEEE Trans. Pattern Anal. Mach. Intell.
+35, 221&#x2013;231 (2013). https://doi.org/10.1109/TPAMI.2012.59
+</Citation><ArticleIdList><ArticleId IdType="pubmed">22392705</ArticleId></ArticleIdList></Reference><Reference><Citation>Jarrett, K., Kavukcuoglu, K., Ranzato, M., LeCun, Y.. 
+What is the best multi-stage architecture for object recognition? In Proceedings of the IEEE International Conference on Computer Vision. IEEE, pp. 2146&#x2013;2153 (2009). https://doi.org/10.1109/ICCV.2009.5459469</Citation></Reference><Reference><Citation>Srivastava, N., Hinton, G., Krizhevsky, A., Sutskever, I., Salakhutdinov, R.. 
+Dropuout: A simple way to prevent neural networks from overfitting. J. Mach. Learn. Res.
+15, 1929&#x2013;1958 (2014). https://dl.acm.org/doi/10.5555/2627435.2670313
+</Citation></Reference><Reference><Citation>Glorot, X., Bordes, A., Bengio, Y.. Deep sparse rectifier neural networks. Proc. Mach. Learn. Res. 15, 315&#x2013;323 (2011).</Citation></Reference><Reference><Citation>Kingma, D. P., Ba, J. L.. Adam: A method for stochastic optimization. In 3rd International Conference on Learning Representations, ICLR 2015, 1&#x2013;15 (2015).</Citation></Reference><Reference><Citation>Nakasako, M. Large-scale networks of hydration water molecules around proteins investigated by cryogenic X-ray crystallography. Cell. Mol. Biol. 47, 767&#x2013;790 (2001).</Citation><ArticleIdList><ArticleId IdType="pubmed">11728092</ArticleId></ArticleIdList></Reference><Reference><Citation>Cheng, A., Henderson, R., Mastronarde, D., Ludtke, S. J., Schoenmakers, R. H. M., Short, J., et al. 
+MRC2014: Extensions to the MRC format header for electron cryo-microscopy and tomography. J. Struct. Biol.
+192, 146&#x2013;150 (2015). https://doi.org/10.1016/j.jsb.2015.04.002
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC4642651</ArticleId><ArticleId IdType="pubmed">25882513</ArticleId></ArticleIdList></Reference><Reference><Citation>Carugo, O.
+Statistical survey of the buried waters in the Protein Data Bank. Amino Acids
+48, 193&#x2013;202 (2016). https://doi.org/10.1007/s00726-015-2064-4
+</Citation><ArticleIdList><ArticleId IdType="pubmed">26315961</ArticleId></ArticleIdList></Reference><Reference><Citation>DeLano, W. L. The PyMOL Molecular Graphics System, version 1.5.0.1, Schr&#xf6;dinger, LLC, New York.</Citation></Reference><Reference><Citation>Gonen, T., Walz, T.. 
+The structure of aquaporins. Quat. Rev. Biophys.
+39, 361&#x2013;396 (2006). https://doi.org/10.1017/S0033583506004458</Citation><ArticleIdList><ArticleId IdType="pubmed">17156589</ArticleId></ArticleIdList></Reference><Reference><Citation>T&#xf6;rnroth-Horsefield, S., Wang, Y., Hedfalk, K., Johanson, U., Karlsson, M., Tajkhorshid, E., et al. 
+Structural mechanism of plant aquaporin gating. Nature
+439, 688&#x2013;694 (2006). https://doi.org/10.1038/nature04316
+</Citation><ArticleIdList><ArticleId IdType="pubmed">16340961</ArticleId></ArticleIdList></Reference><Reference><Citation>Teeter, M. M.
+Water structure of a hydrophobic protein at atomic resolution: Pentagon rings of water molecules in crystals of crambin. Proc. Natl. Acad. Sci. U.S.A.
+81, 6014&#x2013;6018 (1984). https://doi.org/10.1073/pnas.81.19.6014
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC391849</ArticleId><ArticleId IdType="pubmed">16593516</ArticleId></ArticleIdList></Reference><Reference><Citation>Jeffrey, G. A.
+Hydrate Inclusion Compounds. J. Incl. Phenom.
+1, 211&#x2013;222 (1984). https://doi.org/10.1007/BF00656757</Citation></Reference><Reference><Citation>Walshaw, J., Goodfellow, J. M.. 
+Distribution of solvent molecules around apolar side-chains in protein crystals. J. Mol. Biol.
+231, 392&#x2013;414 (1993). https://doi.org/10.1006/jmbi.1993.1290
+</Citation><ArticleIdList><ArticleId IdType="pubmed">8510154</ArticleId></ArticleIdList></Reference><Reference><Citation>Nakasako, M., Motoyama, T., Kurahashi, Y., Yamaguchi, I.. 
+Cryogenic X-ray crystal structure analysis for the complex of scytalone dehydratase of a rice blast fungus and its tight-binding inhibitor, carpropamid: The structural basis of tight-binding inhibition. Biochemistry
+37, 9931&#x2013;9939 (1998). https://doi.org/10.1021/bi980321b
+</Citation><ArticleIdList><ArticleId IdType="pubmed">9665698</ArticleId></ArticleIdList></Reference><Reference><Citation>Motoyama, T., Nakasako, M., Yamaguchi, I.. 
+Crystallization of scytalone dehydratase F162A mutant in the unligated state and a preliminary X-ray diffraction study at 37 K. Acta Crystallogr. D Biol. Crystallogr.
+58, 148&#x2013;150 (2002). https://doi.org/10.1107/S0907444901017371
+</Citation><ArticleIdList><ArticleId IdType="pubmed">11752795</ArticleId></ArticleIdList></Reference><Reference><Citation>Kawama, K., Fukushima, Y., Ikeguchi, M., Ohta, M., Yoshidome, T.. 
+gr Predictor: A deep learning model for predicting the hydration structures around proteins. J. Chem. Inform. Model.
+62, 4460&#x2013;4473 (2022). https://doi.org/10.1021/acs.jcim.2c00987</Citation><ArticleIdList><ArticleId IdType="pubmed">36068974</ArticleId></ArticleIdList></Reference><Reference><Citation>Baek, M., DiMaio, F., Anishchenko, I., Dauparas, J., Ovchinnikov, S., Lee, G. R., et al. 
+Accurate prediction of protein structures and interactions using a three-track neural network. Science
+373, 871&#x2013;876 (2021). https://doi.org/10.1126/science.abj8754
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7612213</ArticleId><ArticleId IdType="pubmed">34282049</ArticleId></ArticleIdList></Reference><Reference><Citation>Huddy, T. F., Hsia, Y., Kibler, R. D., Xu, J., Bethel, N., Nagarajan, D., et al. 
+Blueprinting extendable nanomaterials with standardized protein blocks. Nature
+627, 898&#x2013;904 (2024). https://doi.org/10.1038/s41586-024-07188-4
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC10972742</ArticleId><ArticleId IdType="pubmed">38480887</ArticleId></ArticleIdList></Reference><Reference><Citation>Senior, A. W., Evans, R., Jumper, J., Kirkpatrick, J., Sifre, L., Green, T., et al. 
+Improved protein structure prediction using potentials from deep learning. Nature
+577, 706&#x2013;710 (2020). https://doi.org/10.1038/s41586-019-1923-7
+</Citation><ArticleIdList><ArticleId IdType="pubmed">31942072</ArticleId></ArticleIdList></Reference><Reference><Citation>Levitt, D. G., Banaszak, L. J.. 
+POCKET: A computer graphies method for identifying and displaying protein cavities and their surrounding amino acids. J. Mol. Graph. Model.
+10, 229&#x2013;234 (1992). https://doi.org/10.1016/0263-7855(92)80074-N</Citation><ArticleIdList><ArticleId IdType="pubmed">1476996</ArticleId></ArticleIdList></Reference><Reference><Citation>Chatterjee, A., Walters, R., Shafi, Z., Ahmed, O. S., Sebek, M., Gysi, D., et al. 
+Improving the generalizability of protein-ligand binding predictions with AI-Bind. Nat. Commun.
+14, 1989 (2023). https://doi.org/10.1038/s41467-023-37572-z
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC10082765</ArticleId><ArticleId IdType="pubmed">37031187</ArticleId></ArticleIdList></Reference><Reference><Citation>Pavlovicz, R. E., Park, H., DiMaio, F.. 
+Efficient consideration of coordinated water molecules improves computational protein-protein and protein-ligand docking discrimination. PLoS Comput. Biol.
+16, e1008103 (2020). https://doi.org/10.1371/journal.pcbi.1008103
+</Citation><ArticleIdList><ArticleId IdType="pmc">PMC7529342</ArticleId><ArticleId IdType="pubmed">32956350</ArticleId></ArticleIdList></Reference><Reference><Citation>Samways, M. L., Taylor, R. D., Bruce Macdonald, H. E., Essex, J. W.. 
+Water molecules at protein-drug interfaces: Computational prediction and analysis methods. Chem. Soc. Rev.
+50, 9104&#x2013;9120 (2021). https://doi.org/10.1039/D0CS00151A
+</Citation><ArticleIdList><ArticleId IdType="pubmed">34184009</ArticleId></ArticleIdList></Reference><Reference><Citation>Hirano, Y., Takeda, K., Miki, K.. 
+Charge-density analysis of an iron-sulfur protein at an ultra-high resolution of 0.48 &#xc5;. Nature
+534, 281&#x2013;284 (2016). https://doi.org/10.1038/nature18001
+</Citation><ArticleIdList><ArticleId IdType="pubmed">27279229</ArticleId></ArticleIdList></Reference><Reference><Citation>Maki-Yonekura, S., Kawakami, K., Hamaguchi, T., Takaba, K., Yonekura, K.. 
+Measurement of charges and chemical bonding in a cryo-EM structure. Comm. Chem.
+6, 98 (2023). https://doi.org/10.1038/s42004-023-00900-x</Citation><ArticleIdList><ArticleId IdType="pmc">PMC10232537</ArticleId><ArticleId IdType="pubmed">37258702</ArticleId></ArticleIdList></Reference><Reference><Citation>O&#x2019;Dell, W. B., Bodenheimer, A. M., Meilleur, F.. 
+Neutron protein crystallography: A complementary tool for locating hydrogens in proteins. Arch. Biochem. Biophys.
+602, 48&#x2013;60 (2016). https://doi.org/10.1016/j.abb.2015.11.033
+</Citation><ArticleIdList><ArticleId IdType="pubmed">26592456</ArticleId></ArticleIdList></Reference><Reference><Citation>Chatake, T., Ostermann, A., Kurihara, K., Parak, F. G., Niimura, N.. 
+Hydration in proteins observed by high-resolution neutron crystallography. Proteins Struct. Funct. Genet.
+50, 516&#x2013;523 (2003). https://doi.org/10.1002/prot.10303
+</Citation><ArticleIdList><ArticleId IdType="pubmed">12557193</ArticleId></ArticleIdList></Reference><Reference><Citation>Ramos, J., Laux, V., Mason, S. A., Lem&#xe9;e, M.-H., Bowler, M. W., Diederichs, K., et al. 
+Structure and dynamics of the active site of hen egg-white lysozyme from atomic resolution neutron crystallography. Structure
+33, 136&#x2013;148 (2025). https://doi.org/10.1016/j.str.2024.10.030
+</Citation><ArticleIdList><ArticleId IdType="pubmed">39577430</ArticleId></ArticleIdList></Reference><Reference><Citation>Chatake, T., Tanaka, I., Kusakac, K., Fujiwara, S.. 
+Protonation states of hen egg-white lysozyme observed using D/H contrast neutron crystallography. Acta Crystallogr.
+D78, 770&#x2013;778 (2022). https://doi.org/10.1107/S2059798322004521</Citation><ArticleIdList><ArticleId IdType="pubmed">35647923</ArticleId></ArticleIdList></Reference></ReferenceList></PubmedData></PubmedArticle></PubmedArticleSet>
