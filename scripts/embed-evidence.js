@@ -4,6 +4,10 @@ const EMBEDDING_MODEL = "text-embedding-3-small";
 const BATCH_SIZE = 50;
 
 async function fetchRowsNeedingEmbeddings(limit = BATCH_SIZE) {
+  if (!supabaseAdmin) {
+    throw new Error("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY.");
+  }
+
   const { data, error } = await supabaseAdmin
     .from("evidence_chunks")
     .select("id, content")
@@ -16,6 +20,10 @@ async function fetchRowsNeedingEmbeddings(limit = BATCH_SIZE) {
 }
 
 async function generateEmbeddings(texts) {
+  if (!openai) {
+    throw new Error("Missing OPENAI_API_KEY.");
+  }
+
   const response = await openai.embeddings.create({
     model: EMBEDDING_MODEL,
     input: texts,
@@ -25,6 +33,10 @@ async function generateEmbeddings(texts) {
 }
 
 async function updateEmbedding(id, embedding) {
+  if (!supabaseAdmin) {
+    throw new Error("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY.");
+  }
+
   const { error } = await supabaseAdmin
     .from("evidence_chunks")
     .update({ embedding })
