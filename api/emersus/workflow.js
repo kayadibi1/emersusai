@@ -346,46 +346,26 @@ function formatEvidenceForModel(evidence) {
     .join("\n\n");
 }
 
-function buildSynthesisSchema() {
-  return {
-    type: "object",
-    properties: {
-      summary: { type: "string" },
-      recommendations: {
-        type: "object",
-        properties: {
-          training: {
-            type: "array",
-            items: { type: "string" },
-          },
-          nutrition: {
-            type: "array",
-            items: { type: "string" },
-          },
-          mental_performance: {
-            type: "array",
-            items: { type: "string" },
-          },
-        },
-        required: ["training", "nutrition", "mental_performance"],
-        additionalProperties: false,
-      },
-      limitations: {
-        type: "array",
-        items: { type: "string" },
-      },
-    },
-    required: ["summary", "recommendations", "limitations"],
-    additionalProperties: false,
-  };
-}
-
 function buildSynthesisInput({ question, profile, plan, evidenceForModel, today }) {
   return [
     {
       role: "system",
       content:
-        "You are Emersus AI, a science-aware performance assistant for strength training, cardio, nutrition, and mental performance. Use the provided evidence first. Keep claims tethered to the evidence. Be practical, specific, and concise. Do not invent sources. Return only structured output that matches the schema.",
+        [
+          "You are Emersus AI, a science-aware performance assistant for strength training, cardio, nutrition, and mental performance.",
+          "Use the provided evidence first. Keep claims tethered to the evidence. Be practical, specific, and concise.",
+          "Do not invent sources. Do not return JSON.",
+          "Return plain text in exactly this format:",
+          "SUMMARY: <one paragraph>",
+          "TRAINING:",
+          "- <bullet>",
+          "NUTRITION:",
+          "- <bullet>",
+          "MENTAL PERFORMANCE:",
+          "- <bullet>",
+          "LIMITATIONS:",
+          "- <bullet>",
+        ].join("\n"),
     },
     {
       role: "user",
@@ -480,25 +460,6 @@ function extractTextFromResponse(payload) {
   return "";
 }
 
-function extractJsonObject(text) {
-  const trimmed = String(text || "").trim();
-
-  if (!trimmed) {
-    throw new Error("The model returned an empty response.");
-  }
-
-  try {
-    return JSON.parse(trimmed);
-  } catch (_error) {
-    const match = trimmed.match(/\{[\s\S]*\}/);
-    if (!match) {
-      throw new Error("The model response was not valid JSON.");
-    }
-
-    return JSON.parse(match[0]);
-  }
-}
-
 async function callOpenAISynthesis({
   question,
   profile,
@@ -520,15 +481,7 @@ async function callOpenAISynthesis({
     },
     body: JSON.stringify({
       model: DEFAULT_MODEL,
-      text: {
-        format: {
-          type: "json_schema",
-          name: "emersus_synthesis",
-          schema: buildSynthesisSchema(),
-          strict: true,
-        },
-      },
-      max_output_tokens: 900,
+      max_output_tokens: 1100,
       input: buildSynthesisInput({
         question,
         profile,
@@ -550,17 +503,63 @@ async function callOpenAISynthesis({
   return payload;
 }
 
-function normalizeSynthesisPayload(payload) {
-  const recommendations = payload?.recommendations || {};
+function extractSectionBlock(text, label, nextLabels) {
+  const normalized = String(text || "");
+  const escapedNext = nextLabels.map((item) => item.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const pattern = new RegExp(
+    `${label}:\\s*([\\s\\S]*?)(?=\\n(?:${escapedNext.join("|")}):|$)`,
+    "i"
+  );
+  const match = normalized.match(pattern);
+  return match ? match[1].trim() : "";
+}
+
+function parseBulletSection(text) {
+  return String(text || "")
+    .split(/\r?\n/)
+    .map((line) => line.replace(/^\s*[-*]\s*/, "").trim())
+    .filter(Boolean);
+}
+
+function normalizeSynthesisPayload(text) {
+  const summary = extractSectionBlock(text, "SUMMARY", [
+    "TRAINING",
+    "NUTRITION",
+    "MENTAL PERFORMANCE",
+    "LIMITATIONS",
+  ]);
+  const training = parseBulletSection(
+    extractSectionBlock(text, "TRAINING", [
+      "NUTRITION",
+      "MENTAL PERFORMANCE",
+      "LIMITATIONS",
+    ])
+  );
+  const nutrition = parseBulletSection(
+    extractSectionBlock(text, "NUTRITION", [
+      "MENTAL PERFORMANCE",
+      "LIMITATIONS",
+    ])
+  );
+  const mentalPerformance = parseBulletSection(
+    extractSectionBlock(text, "MENTAL PERFORMANCE", ["LIMITATIONS"])
+  );
+  const limitations = parseBulletSection(
+    extractSectionBlock(text, "LIMITATIONS", [])
+  );
+
+  if (!summary && !training.length && !nutrition.length && !mentalPerformance.length) {
+    throw new Error("The model response was missing the required labeled sections.");
+  }
 
   return {
-    summary: normalizeText(payload?.summary, 1600),
+    summary: normalizeText(summary, 1600),
     recommendations: {
-      training: normalizeList(recommendations.training, 8),
-      nutrition: normalizeList(recommendations.nutrition, 8),
-      mental_performance: normalizeList(recommendations.mental_performance, 8),
+      training: normalizeList(training, 8),
+      nutrition: normalizeList(nutrition, 8),
+      mental_performance: normalizeList(mentalPerformance, 8),
     },
-    limitations: normalizeList(payload?.limitations, 6),
+    limitations: normalizeList(limitations, 6),
   };
 }
 
@@ -682,11 +681,11 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
 
     const structuredOutput = extractStructuredOutput(openAIResponse);
     if (structuredOutput) {
-      synthesis = normalizeSynthesisPayload(structuredOutput);
+      synthesis = normalizeSynthesisPayload(JSON.stringify(structuredOutput));
     } else {
       const extractedText = extractTextFromResponse(openAIResponse);
       if (extractedText) {
-        synthesis = normalizeSynthesisPayload(extractJsonObject(extractedText));
+        synthesis = normalizeSynthesisPayload(extractedText);
       }
     }
   } catch (error) {
