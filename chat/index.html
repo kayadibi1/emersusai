@@ -132,6 +132,41 @@
       padding-right: 0.15rem;
     }
 
+    .chat-nav-list,
+    .conversation-canvas,
+    .chat-rail {
+      scrollbar-width: thin;
+      scrollbar-color: rgba(159, 251, 0, 0.55) rgba(255, 255, 255, 0.05);
+    }
+
+    .chat-nav-list::-webkit-scrollbar,
+    .conversation-canvas::-webkit-scrollbar,
+    .chat-rail::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    .chat-nav-list::-webkit-scrollbar-track,
+    .conversation-canvas::-webkit-scrollbar-track,
+    .chat-rail::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 999px;
+    }
+
+    .chat-nav-list::-webkit-scrollbar-thumb,
+    .conversation-canvas::-webkit-scrollbar-thumb,
+    .chat-rail::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, rgba(109, 159, 255, 0.8), rgba(159, 251, 0, 0.8));
+      border-radius: 999px;
+      border: 2px solid rgba(7, 10, 14, 0.9);
+    }
+
+    .chat-nav-list::-webkit-scrollbar-thumb:hover,
+    .conversation-canvas::-webkit-scrollbar-thumb:hover,
+    .chat-rail::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, rgba(109, 159, 255, 0.95), rgba(159, 251, 0, 0.95));
+    }
+
     .chat-nav-link {
       display: flex;
       align-items: center;
@@ -198,7 +233,7 @@
       display: flex;
       flex: 1;
       min-height: 0;
-      padding: 1.25rem 1.4rem 1rem;
+      padding: 0.65rem 1.4rem 0.8rem;
       overflow-y: auto;
       overflow-x: hidden;
       scroll-behavior: smooth;
@@ -206,7 +241,7 @@
 
     .chat-thread {
       display: grid;
-      gap: 1.15rem;
+      gap: 0.65rem;
       align-content: start;
       min-height: min-content;
       width: 100%;
@@ -285,7 +320,7 @@
 
     .message-content {
       display: grid;
-      gap: 0.8rem;
+      gap: 0.45rem;
       font-size: 1rem;
     }
 
@@ -295,7 +330,7 @@
 
     .assistant-report {
       display: grid;
-      gap: 0.9rem;
+      gap: 0.45rem;
     }
 
     .narrative-section ul,
@@ -317,7 +352,7 @@
 
     .narrative-stack {
       display: grid;
-      gap: 1rem;
+      gap: 0.55rem;
     }
 
     .narrative-section {
@@ -325,8 +360,20 @@
       padding-top: 0;
     }
 
+    .narrative-section > p {
+      margin: 0;
+    }
+
+    .narrative-section > p + p {
+      margin-top: 0.35rem;
+    }
+
+    .narrative-section > ul {
+      margin-top: 0.15rem;
+    }
+
     .narrative-heading {
-      margin: 0 0 0.45rem;
+      margin: 0 0 0.18rem;
       font-family: "Space Grotesk", sans-serif;
       font-size: 0.68rem;
       font-weight: 700;
@@ -840,20 +887,6 @@
               <span class="rail-metric-note">Live</span>
             </div>
             <div class="rail-spark tone-caution" data-rail-mode-bar style="--spark-width:68%"></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="rail-card">
-        <h3 class="rail-title">Session notes</h3>
-        <div class="rail-metric-stack">
-          <div class="rail-metric">
-            <p class="rail-metric-label">Best prompt style</p>
-            <p class="chat-nav-foot-copy">Ask one focused question and include the goal or outcome you care about.</p>
-          </div>
-          <div class="rail-metric">
-            <p class="rail-metric-label">Coverage</p>
-            <p class="chat-nav-foot-copy">The corpus is strongest on training, supplements, recovery, body composition, and metabolic health.</p>
           </div>
         </div>
       </section>
