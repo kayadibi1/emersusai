@@ -90,11 +90,36 @@
       padding: 0.9rem 1rem;
       border-radius: 18px;
       background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .source-item strong {
       display: block;
       margin-bottom: 0.25rem;
+      color: var(--secondary);
+    }
+
+    .source-meta {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-bottom: 0.55rem;
+    }
+
+    .source-snippet {
+      color: var(--text);
+      font-size: 0.95rem;
+      line-height: 1.55;
+      margin-bottom: 0.65rem;
+    }
+
+    .source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.65rem;
+      font-size: 0.88rem;
+    }
+
+    .source-links a {
       color: var(--secondary);
     }
 
@@ -203,9 +228,15 @@
     function renderAssistantResponse(data) {
       const parts = [];
       parts.push(`<p><strong>Summary:</strong> ${data.summary || "No summary returned."}</p>`);
-      parts.push("<p><strong>Training</strong></p><ul>" + (data.recommendations?.training || []).map((item) => `<li>${item}</li>`).join("") + "</ul>");
-      parts.push("<p><strong>Nutrition</strong></p><ul>" + (data.recommendations?.nutrition || []).map((item) => `<li>${item}</li>`).join("") + "</ul>");
-      parts.push("<p><strong>Mental performance</strong></p><ul>" + (data.recommendations?.mental_performance || []).map((item) => `<li>${item}</li>`).join("") + "</ul>");
+      if ((data.recommendations?.training || []).length) {
+        parts.push("<p><strong>Training</strong></p><ul>" + (data.recommendations?.training || []).map((item) => `<li>${item}</li>`).join("") + "</ul>");
+      }
+      if ((data.recommendations?.nutrition || []).length) {
+        parts.push("<p><strong>Nutrition</strong></p><ul>" + (data.recommendations?.nutrition || []).map((item) => `<li>${item}</li>`).join("") + "</ul>");
+      }
+      if ((data.recommendations?.mental_performance || []).length) {
+        parts.push("<p><strong>Mental performance</strong></p><ul>" + (data.recommendations?.mental_performance || []).map((item) => `<li>${item}</li>`).join("") + "</ul>");
+      }
       parts.push(`<p><strong>Confidence:</strong> ${(data.confidence?.label || "moderate")} (${data.confidence?.score ?? "n/a"})</p>`);
       if (data.confidence?.rationale) {
         parts.push(`<p>${data.confidence.rationale}</p>`);
@@ -214,6 +245,24 @@
         parts.push("<p><strong>Limitations</strong></p><ul>" + data.limitations.map((item) => `<li>${item}</li>`).join("") + "</ul>");
       }
       return parts.join("");
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function trimSnippet(value, maxLength = 320) {
+      const text = String(value || "").replace(/\s+/g, " ").trim();
+      if (!text) {
+        return "";
+      }
+
+      return text.length > maxLength ? `${text.slice(0, maxLength - 1).trim()}…` : text;
     }
 
     function renderSources(data) {
@@ -230,13 +279,24 @@
         ]
           .filter(Boolean)
           .join(" - ");
+        const snippet = trimSnippet(source.excerpt || source.why_it_matters || "");
+        const links = [];
+        if (source.doi && source.url) {
+          links.push(`<a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">DOI</a>`);
+        } else if (source.url) {
+          links.push(`<a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">Open source</a>`);
+        }
+
+        if (source.pmid) {
+          const pubmedUrl = `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(source.pmid)}/`;
+          links.push(`<a href="${pubmedUrl}" target="_blank" rel="noreferrer">PubMed</a>`);
+        }
+
         item.innerHTML = `
-          <strong>${source.title || "Source"}</strong>
-          <div>${meta}</div>
-          <div>${source.why_it_matters || source.excerpt || ""}</div>
-          ${source.excerpt ? `<div>${source.excerpt}</div>` : ""}
-          ${source.doi ? `<div>DOI: ${source.doi}</div>` : ""}
-          ${source.url ? `<div><a href="${source.url}" target="_blank" rel="noreferrer">${source.url}</a></div>` : ""}
+          <strong>${escapeHtml(source.title || "Source")}</strong>
+          ${meta ? `<div class="source-meta">${escapeHtml(meta)}</div>` : ""}
+          ${snippet ? `<div class="source-snippet">${escapeHtml(snippet)}</div>` : ""}
+          ${links.length ? `<div class="source-links">${links.join("")}</div>` : ""}
         `;
         sources.appendChild(item);
       });
