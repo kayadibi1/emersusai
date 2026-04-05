@@ -1,6 +1,8 @@
 import { retrieveDatabaseEvidence as retrieveVectorDatabaseEvidence } from "./retrieveDatabaseEvidence.js";
 
-const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
+const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-4.1-mini";
+const SYNTHESIS_FALLBACK_MODEL =
+  process.env.OPENAI_EMERSUS_FALLBACK_MODEL || "gpt-4.1-mini";
 const MAX_QUESTION_LENGTH = 3000;
 const VECTOR_LIMIT = 6;
 const VECTOR_MATCH_THRESHOLD = 0.4;
@@ -461,6 +463,7 @@ function extractTextFromResponse(payload) {
 }
 
 async function callOpenAISynthesis({
+  model = DEFAULT_MODEL,
   question,
   profile,
   plan,
@@ -480,7 +483,7 @@ async function callOpenAISynthesis({
       Authorization: `Bearer ${apiKey}`,
     },
     body: JSON.stringify({
-      model: DEFAULT_MODEL,
+      model,
       max_output_tokens: 1100,
       input: buildSynthesisInput({
         question,
@@ -694,9 +697,11 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
   let openAIResponse = null;
   let synthesis = null;
   let synthesisMode = "not_started";
+  let synthesisModel = DEFAULT_MODEL;
 
   try {
     openAIResponse = await callOpenAISynthesis({
+      model: DEFAULT_MODEL,
       question,
       profile: mergedProfile,
       plan,
@@ -717,6 +722,39 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
         synthesisMode = "empty_model_output";
       }
     }
+
+    if (!synthesis && SYNTHESIS_FALLBACK_MODEL && SYNTHESIS_FALLBACK_MODEL !== synthesisModel) {
+      console.warn("Emersus synthesis retrying with fallback model.", {
+        primaryModel: synthesisModel,
+        fallbackModel: SYNTHESIS_FALLBACK_MODEL,
+        responseId: openAIResponse?.id || null,
+        synthesisMode,
+      });
+
+      openAIResponse = await callOpenAISynthesis({
+        model: SYNTHESIS_FALLBACK_MODEL,
+        question,
+        profile: mergedProfile,
+        plan,
+        evidenceForModel,
+        today,
+      });
+      synthesisModel = SYNTHESIS_FALLBACK_MODEL;
+
+      const retryStructuredOutput = extractStructuredOutput(openAIResponse);
+      if (retryStructuredOutput) {
+        synthesis = normalizeSynthesisPayload(JSON.stringify(retryStructuredOutput));
+        synthesisMode = "structured_output_retry";
+      } else {
+        const retryText = extractTextFromResponse(openAIResponse);
+        if (retryText) {
+          synthesis = normalizeSynthesisPayload(retryText);
+          synthesisMode = "text_output_retry";
+        } else {
+          synthesisMode = "empty_model_output_retry";
+        }
+      }
+    }
   } catch (error) {
     synthesisMode = "openai_error";
     console.error("OpenAI recommendation generation failed:", error);
@@ -726,6 +764,7 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
     if (openAIResponse) {
       console.warn("Emersus synthesis fell back after OpenAI call.", {
         responseId: openAIResponse?.id || null,
+        model: synthesisModel,
         hasStructuredOutput: Boolean(extractStructuredOutput(openAIResponse)),
         hasTextOutput: Boolean(extractTextFromResponse(openAIResponse)),
         synthesisMode,
@@ -744,6 +783,7 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
   } else {
     console.log("Emersus synthesis succeeded.", {
       responseId: openAIResponse?.id || null,
+      model: synthesisModel,
       synthesisMode,
       evidenceCount: databaseEvidence.length,
     });
@@ -773,6 +813,7 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
           openai_response_id: openAIResponse?.id || null,
           raw_output_text: extractTextFromResponse(openAIResponse) || "",
           synthesis_mode: synthesisMode,
+          synthesis_model: synthesisModel,
           has_structured_output: Boolean(extractStructuredOutput(openAIResponse)),
         }
       : undefined,
