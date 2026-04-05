@@ -52,11 +52,11 @@
 
     .chat-nav,
     .chat-rail {
-      border-radius: 38px;
+      border-radius: 22px;
     }
 
     .chat-main {
-      border-radius: 42px;
+      border-radius: 24px;
       display: grid;
       grid-template-rows: auto minmax(0, 1fr) auto;
       min-height: calc(100vh - 2rem);
@@ -254,81 +254,9 @@
 
     .conversation-canvas {
       display: grid;
-      grid-template-rows: auto minmax(0, 1fr);
+      grid-template-rows: minmax(0, 1fr);
       min-height: 0;
       padding: 1.25rem 1.4rem 1rem;
-    }
-
-    .intro-banner {
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 1rem;
-      padding: 1.3rem 1.4rem;
-      border-radius: 30px;
-      border: 1px solid rgba(255, 255, 255, 0.07);
-      background:
-        radial-gradient(circle at top right, rgba(109, 159, 255, 0.12), transparent 26%),
-        radial-gradient(circle at left center, rgba(159, 251, 0, 0.09), transparent 20%),
-        rgba(255, 255, 255, 0.03);
-    }
-
-    .intro-banner::before {
-      content: "";
-      position: absolute;
-      inset: 0 auto 0 0;
-      width: 4px;
-      background: linear-gradient(180deg, rgba(109, 159, 255, 0.9), rgba(159, 251, 0, 0.25));
-    }
-
-    .intro-badges {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.55rem;
-      margin-bottom: 0.8rem;
-    }
-
-    .signal-tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.42rem 0.65rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.03);
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.64rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
-    .signal-tag.is-live {
-      color: var(--secondary);
-      border-color: rgba(159, 251, 0, 0.16);
-      background: rgba(159, 251, 0, 0.06);
-    }
-
-    .signal-tag.is-strong {
-      color: var(--primary-dim);
-      border-color: rgba(109, 159, 255, 0.16);
-      background: rgba(109, 159, 255, 0.06);
-    }
-
-    .intro-title {
-      margin: 0;
-      max-width: 760px;
-      font-size: clamp(1.55rem, 2.6vw, 2.6rem);
-      font-weight: 300;
-      line-height: 1.14;
-      letter-spacing: -0.04em;
-    }
-
-    .intro-copy {
-      max-width: 760px;
-      margin: 0.7rem 0 0;
-      color: rgba(255, 255, 255, 0.72);
-      line-height: 1.7;
-      font-size: 1rem;
     }
 
     .chat-thread {
@@ -354,7 +282,7 @@
     .message {
       max-width: min(88%, 860px);
       padding: 1rem 1.1rem 1rem 1.25rem;
-      border-radius: 28px;
+      border-radius: 16px;
       line-height: 1.68;
       white-space: pre-wrap;
       word-break: break-word;
@@ -429,7 +357,7 @@
     }
 
     .report-card {
-      border-radius: 28px;
+      border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background:
         radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 26%),
@@ -457,7 +385,7 @@
     }
 
     .action-column {
-      border-radius: 22px;
+      border-radius: 14px;
       padding: 0.95rem 1rem;
       background: rgba(255, 255, 255, 0.03);
       border: 1px solid rgba(255, 255, 255, 0.055);
@@ -568,7 +496,7 @@
       gap: 0.55rem;
       width: fit-content;
       padding: 0.7rem 0.95rem;
-      border-radius: 999px;
+      border-radius: 14px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background: rgba(255, 255, 255, 0.04);
       color: var(--muted);
@@ -599,7 +527,7 @@
       gap: 0.85rem;
       margin-top: 1rem;
       padding: 0.85rem;
-      border-radius: 999px;
+      border-radius: 18px;
       border: 1px solid rgba(255, 255, 255, 0.08);
       background:
         radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 24%),
@@ -748,7 +676,7 @@
     }
 
     .rail-card {
-      border-radius: 30px;
+      border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.07);
       background:
         radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 28%),
@@ -847,7 +775,7 @@
 
     .source-item {
       padding: 0.95rem 1rem;
-      border-radius: 22px;
+      border-radius: 14px;
       background: rgba(255, 255, 255, 0.035);
       border: 1px solid rgba(255, 255, 255, 0.06);
     }
@@ -992,7 +920,7 @@
       }
 
       .composer {
-        border-radius: 30px;
+        border-radius: 18px;
       }
 
       .composer-row {
@@ -1081,17 +1009,6 @@
 
       <div class="chat-main-body">
         <section class="conversation-canvas">
-          <section class="intro-banner">
-            <div class="intro-badges">
-              <span class="signal-tag is-live">Synthesis Ready</span>
-              <span class="signal-tag is-strong">PubMed Indexed</span>
-            </div>
-            <h2 class="intro-title">Ask Emersus for evidence-backed guidance on performance, nutrition, recovery, and health.</h2>
-            <p class="intro-copy">
-              You ask the question once. Emersus retrieves relevant literature, synthesizes an answer, and attaches confidence and sources when the evidence supports it.
-            </p>
-          </section>
-
           <div class="chat-thread" data-chat-thread>
             <article class="message assistant">
               <div class="message-meta"><span>Emersus</span><span>Ready</span></div>
@@ -1222,7 +1139,10 @@
     const railModeBar = document.querySelector("[data-rail-mode-bar]");
 
     function scrollThreadToBottom() {
-      thread.scrollTop = thread.scrollHeight;
+      thread.scrollTo({
+        top: thread.scrollHeight,
+        behavior: "smooth",
+      });
     }
 
     function wait(ms) {
@@ -1312,95 +1232,6 @@
       return text.length > maxLength ? `${text.slice(0, maxLength - 1).trim()}...` : text;
     }
 
-    function renderCards(cards = []) {
-      if (!Array.isArray(cards) || !cards.length) {
-        return "";
-      }
-
-      const html = cards
-        .map((card) => {
-          if (card.type === "verdict_hero" || card.type === "source_highlights") {
-            return "";
-          }
-
-          if (card.type === "action_grid") {
-            return `
-              <section class="report-card">
-                <h3 class="card-title">${escapeHtml(card.title || "What to do")}</h3>
-                <div class="action-grid">
-                  ${(card.columns || [])
-                    .map(
-                      (column) => `
-                        <div class="action-column tone-${escapeHtml(column.tone || "good")}">
-                          <div class="signal-badge">${escapeHtml(column.label || "")}</div>
-                          <ul>
-                            ${(column.items || [])
-                              .map((item) => `<li>${escapeHtml(item)}</li>`)
-                              .join("")}
-                          </ul>
-                        </div>
-                      `
-                    )
-                    .join("")}
-                </div>
-              </section>
-            `;
-          }
-
-          if (card.type === "evidence_profile") {
-            return `
-              <section class="report-card">
-                <h3 class="card-title">${escapeHtml(card.title || "Evidence profile")}</h3>
-                <div class="score-list">
-                  ${(card.items || [])
-                    .map((item) => {
-                      const max = Number(item.max || 10);
-                      const score = Number(item.score || 0);
-                      const width = Math.max(0, Math.min((score / max) * 100, 100));
-                      const tone = escapeHtml(item.tone || "good");
-                      return `
-                        <div class="score-row">
-                          <div class="score-label">${escapeHtml(item.label || "")}</div>
-                          <div class="score-track">
-                            <div class="score-fill tone-${tone}" style="width:${width}%"></div>
-                          </div>
-                          <div class="score-value tone-${tone}">${escapeHtml(`${score}/${max}`)}</div>
-                        </div>
-                      `;
-                    })
-                    .join("")}
-                </div>
-                ${card.footnote ? `<p class="card-footnote">${escapeHtml(card.footnote)}</p>` : ""}
-              </section>
-            `;
-          }
-
-          if (card.type === "watchouts") {
-            return `
-              <section class="report-card">
-                <h3 class="card-title">${escapeHtml(card.title || "Watchouts")}</h3>
-                <ul class="watchout-list">
-                  ${(card.items || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-                </ul>
-              </section>
-            `;
-          }
-
-          return "";
-        })
-        .filter(Boolean)
-        .join("");
-
-      return html
-        ? `
-          <div class="card-stack">
-            <p class="card-title">Supporting view</p>
-            ${html}
-          </div>
-        `
-        : "";
-    }
-
     function renderNarrativeResponse(data) {
       const sections = [];
       sections.push(`
@@ -1461,7 +1292,6 @@
       return `
         <div class="assistant-report">
           ${renderNarrativeResponse(data)}
-          ${renderCards(data.cards || [])}
         </div>
       `;
     }
