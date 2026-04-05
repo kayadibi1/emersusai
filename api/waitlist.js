@@ -1,4 +1,4 @@
-const { Resend } = require("resend");
+import { Resend } from "resend";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -26,7 +26,7 @@ function createEmailShell({ eyebrow, title, body, footer }) {
   `;
 }
 
-module.exports = async function handler(req, res) {
+export default async function handler(req, res) {
   if (req.method === "OPTIONS") {
     res.setHeader("Allow", "POST, OPTIONS");
     return res.status(204).end();
@@ -49,8 +49,7 @@ module.exports = async function handler(req, res) {
 
   if (!supabaseUrl || !serviceRoleKey) {
     return res.status(500).json({
-      message:
-        "Server is missing Supabase environment variables.",
+      message: "Server is missing Supabase environment variables.",
     });
   }
 
@@ -212,4 +211,4 @@ module.exports = async function handler(req, res) {
 
   console.error("Supabase waitlist insert failed:", errorText);
   return res.status(500).json({ message: "Unable to save your signup right now." });
-};
+}
