@@ -2,6 +2,12 @@
   "name": "emersus-ai-site",
   "private": true,
   "type": "module",
+  "scripts": {
+    "fetch:pmc": "node scripts/fetch-pmc-fulltext.js",
+    "import:pubmed": "node scripts/import-pubmed.js",
+    "embed:evidence": "node scripts/embed-evidence.js",
+    "test:retrieval": "node scripts/test-retrieval.js"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.101.1",
     "openai": "^6.33.0",
