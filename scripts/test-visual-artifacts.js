@@ -64,6 +64,16 @@ const shortAnswerDiagram = buildVisualArtifactPlan({
 });
 assert.equal(shortAnswerDiagram.card?.artifact_type, "diagram");
 assert.ok(shortAnswerDiagram.card?.data?.nodes?.length >= 4);
+assert.equal(shortAnswerDiagram.card.data.nodes[0].label, "Retrieve evidence");
+
+const longAnswerDiagram = buildVisualArtifactPlan({
+  question: "Show me a diagram of how Emersus turns evidence into coaching",
+  synthesis: baseSynthesis,
+  evidence,
+  includeDebug: true,
+});
+assert.equal(longAnswerDiagram.card?.artifact_type, "diagram");
+assert.equal(longAnswerDiagram.card.data.nodes[0].label, "Retrieve evidence");
 
 const chartTypes = [
   ["Show me a line chart of the market trend over time.", "timeline"],

@@ -1416,9 +1416,10 @@ function buildDiagramFallbackNodes(question) {
 }
 
 function buildDiagramArtifact({ question, synthesis, includeDebug = false }) {
+  const usePromptFallback = /emersus/i.test(question) && /evidence/i.test(question) && /coaching/i.test(question);
   const sentences = splitSentences(synthesis.answer_text || synthesis.summary).slice(0, 5);
   const sourceNodes =
-    sentences.length >= 2
+    !usePromptFallback && sentences.length >= 2
       ? sentences.map((sentence) => ({
           label: normalizeText(sentence.split(/[:;,.]/)[0] || "Step", 46),
           detail: normalizeText(sentence, 100),
