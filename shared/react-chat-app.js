@@ -713,10 +713,20 @@ function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics
 }
 
 function EvidenceArtifact({ card, title, metrics = [], sources = [], panels = [] }) {
+  const [frameHeight, setFrameHeight] = useState(760);
   const srcDoc = useMemo(
     () => buildEvidenceArtifactDoc({ card, title, metrics, sources, panels }),
     [card, title, metrics, sources, panels]
   );
+  const resizeFrame = (event) => {
+    const doc = event.currentTarget.contentDocument;
+    const height = Math.max(
+      520,
+      doc?.documentElement?.scrollHeight || 0,
+      doc?.body?.scrollHeight || 0
+    );
+    setFrameHeight(height + 4);
+  };
 
   return h(
     "div",
@@ -726,6 +736,9 @@ function EvidenceArtifact({ card, title, metrics = [], sources = [], panels = []
       title,
       sandbox: "allow-scripts allow-same-origin",
       srcDoc,
+      onLoad: resizeFrame,
+      scrolling: "no",
+      style: { height: `${frameHeight}px` },
     })
   );
 }
