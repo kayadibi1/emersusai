@@ -1314,6 +1314,152 @@ function normalizeSources(evidence) {
   }));
 }
 
+function questionKeywords(question) {
+  return normalizeText(question, 600)
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter((word) => word.length >= 4)
+    .filter((word, index, words) => words.indexOf(word) === index)
+    .slice(0, 12);
+}
+
+function splitSentences(text) {
+  return normalizeText(text, 2400)
+    .split(/(?<=[.!?])\s+/)
+    .map((sentence) => sentence.trim())
+    .filter(Boolean)
+    .slice(0, 24);
+}
+
+function inferFindingLabel(sentence, question) {
+  const text = `${question} ${sentence}`.toLowerCase();
+  if (/muscle|lean mass|fat-free mass|hypertrophy|body composition/.test(text)) {
+    return "Muscle-related effect";
+  }
+  if (/strength|power|performance|capacity|repetition|sprint/.test(text)) {
+    return "Performance effect";
+  }
+  if (/recovery|soreness|damage|rehabilitation/.test(text)) {
+    return "Recovery effect";
+  }
+  if (/vo2|maximal oxygen|endurance|cardio|aerobic|threshold/.test(text)) {
+    return "Endurance effect";
+  }
+  if (/sleep|insomnia|latency|quality/.test(text)) {
+    return "Sleep-related effect";
+  }
+  if (/dose|supplement|gram|mg|kg/.test(text)) {
+    return "Dose used";
+  }
+  return "Reported finding";
+}
+
+function extractMeasurement(sentence) {
+  const patterns = [
+    {
+      kind: "percent",
+      regex: /(?:increase(?:d|s)?|decrease(?:d|s)?|improv(?:e|ed|es|ement)|gain(?:ed|s)?|loss|reduc(?:e|ed|tion)|change(?:d|s)?)?[^\d]{0,24}(\d+(?:\.\d+)?)\s?%/i,
+      format: (match) => ({
+        displayValue: `${match[1]}%`,
+        normalizedValue: Number(match[1]),
+      }),
+    },
+    {
+      kind: "mass",
+      regex: /(\d+(?:\.\d+)?)\s?(kg|lb|lbs)\b/i,
+      format: (match) => ({
+        displayValue: `${match[1]} ${match[2].toLowerCase()}`,
+        normalizedValue: Number(match[1]),
+      }),
+    },
+    {
+      kind: "duration",
+      regex: /(\d+(?:\.\d+)?)\s?(days?|weeks?|months?)\b/i,
+      format: (match) => ({
+        displayValue: `${match[1]} ${match[2].toLowerCase()}`,
+        normalizedValue: Number(match[1]),
+      }),
+    },
+    {
+      kind: "dose",
+      regex: /(\d+(?:\.\d+)?)\s?(g|mg|mcg|kg)\b/i,
+      format: (match) => ({
+        displayValue: `${match[1]} ${match[2].toLowerCase()}`,
+        normalizedValue: Number(match[1]),
+      }),
+    },
+  ];
+
+  for (const pattern of patterns) {
+    const match = sentence.match(pattern.regex);
+    if (match) {
+      return {
+        kind: pattern.kind,
+        ...pattern.format(match),
+      };
+    }
+  }
+
+  return null;
+}
+
+function buildQuantFindings({ question, evidence }) {
+  const keywords = questionKeywords(question);
+  const findings = [];
+  const seen = new Set();
+
+  for (const source of evidence.slice(0, VECTOR_LIMIT)) {
+    const candidateText = [
+      source.chunk_text,
+      source.excerpt,
+      source.summary,
+      source.why_it_matters,
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+    for (const sentence of splitSentences(candidateText)) {
+      const measurement = extractMeasurement(sentence);
+      if (!measurement) {
+        continue;
+      }
+
+      const lower = sentence.toLowerCase();
+      const keywordMatches = keywords.filter((keyword) => lower.includes(keyword)).length;
+      const relevanceScore =
+        keywordMatches +
+        (measurement.kind === "percent" || measurement.kind === "mass" ? 2 : 0) +
+        clamp(Number(source.ranking_score || source.database_score || 0), 0, 1);
+
+      if (keywords.length && keywordMatches === 0 && measurement.kind === "duration") {
+        continue;
+      }
+
+      const key = `${measurement.displayValue}:${normalizeText(sentence, 120)}`;
+      if (seen.has(key)) {
+        continue;
+      }
+      seen.add(key);
+
+      findings.push({
+        displayValue: measurement.displayValue,
+        normalizedValue: measurement.normalizedValue,
+        unitType: measurement.kind,
+        label: inferFindingLabel(sentence, question),
+        sentence: normalizeText(sentence, 320),
+        sourceTitle: normalizeText(source.title || "Article", 120),
+        sourceId: source.pmid ? `PMID ${source.pmid}` : source.doi || "",
+        detail: source.publication_year || source.published_at || "",
+        score: Number(relevanceScore.toFixed(3)),
+      });
+    }
+  }
+
+  return findings
+    .sort((left, right) => right.score - left.score)
+    .slice(0, 4);
+}
+
 async function generateRecommendation({
   question,
   profile,
@@ -1500,6 +1646,10 @@ async function generateRecommendation({
     sources,
     evidence: databaseEvidence,
   });
+  const quantFindings = buildQuantFindings({
+    question,
+    evidence: databaseEvidence,
+  });
 
   return {
     user: {
@@ -1514,6 +1664,7 @@ async function generateRecommendation({
     limitations: synthesis.limitations,
     sources,
     cards,
+    quant_findings: quantFindings,
     guardrail: {
       status: safety.status,
       response_mode: safety.responseMode,
