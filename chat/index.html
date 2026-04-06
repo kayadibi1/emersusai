@@ -1123,32 +1123,24 @@
     }
 
     async function animateBlockNodesInto(container, fragment) {
-      const textBlock = fragment.querySelector(".chat-text-block");
+      const staging = document.createElement("div");
+      staging.appendChild(fragment);
 
-      if (!textBlock) {
-        container.appendChild(fragment);
-        scrollThreadToBottom();
-        return;
-      }
-
-      const textClone = textBlock.cloneNode(true);
-      textBlock.replaceWith(document.createComment("animated-text-block"));
-      container.appendChild(fragment);
-
-      const placeholder = [...container.childNodes].find(
-        (node) => node.nodeType === Node.COMMENT_NODE && node.nodeValue === "animated-text-block"
-      );
-
-      if (!placeholder) {
-        container.appendChild(textClone);
-        scrollThreadToBottom();
-        return;
-      }
-
+      const textBlock = staging.querySelector(".chat-text-block");
       const animatedHost = document.createElement("div");
       animatedHost.className = "chat-text-block";
-      placeholder.replaceWith(animatedHost);
-      await animateHtmlInto(animatedHost, textClone.innerHTML);
+      container.appendChild(animatedHost);
+
+      if (textBlock) {
+        await animateHtmlInto(animatedHost, textBlock.innerHTML);
+        textBlock.remove();
+      }
+
+      while (staging.firstChild) {
+        container.appendChild(staging.firstChild);
+      }
+
+      scrollThreadToBottom();
     }
 
     async function appendMessage(role, content, stamp, options = {}) {
