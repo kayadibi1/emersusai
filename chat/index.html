@@ -102,10 +102,17 @@
       padding: 0.6rem 0.9rem 1.6rem;
     }
 
-    .chat-brand-actions {
+    .chat-brand-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+
+    .chat-nav-actions {
       display: flex;
       justify-content: flex-start;
-      margin-top: 1rem;
+      padding: 0.9rem 0.15rem 0;
     }
 
     .chat-brand-mark {
@@ -336,6 +343,11 @@
       opacity: 0.98;
     }
 
+    .message.assistant.is-revealing ul,
+    .message.assistant.is-revealing ol {
+      list-style: none;
+    }
+
     .assistant-report {
       display: grid;
       gap: 0.12rem;
@@ -390,32 +402,6 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--muted);
-    }
-
-    .quick-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.55rem;
-      width: fit-content;
-      padding: 0.7rem 0.95rem;
-      border-radius: 10px;
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
-      color: var(--muted);
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
-    }
-
-    .quick-chip:hover,
-    .quick-chip:focus-visible {
-      color: var(--secondary);
-      border-color: rgba(159, 251, 0, 0.18);
-      background: rgba(159, 251, 0, 0.05);
     }
 
     .chat-composer-shell {
@@ -817,17 +803,25 @@
   <div class="chat-app-shell">
     <aside class="chat-nav">
       <div class="chat-brand">
-        <h1 class="chat-brand-mark">EMERSUS</h1>
-        <p class="chat-brand-subtitle">Evidence Layer Active</p>
-        <div class="chat-brand-actions">
-          <button class="inline-button" type="button" data-chat-new>
-            <span class="material-symbols-outlined">add</span>
-            <span>New chat</span>
+        <div class="chat-brand-head">
+          <div>
+            <h1 class="chat-brand-mark">EMERSUS</h1>
+            <p class="chat-brand-subtitle">Evidence Layer Active</p>
+          </div>
+          <button class="inline-button" type="button" data-history-toggle aria-expanded="true" aria-label="Toggle conversation history">
+            <span class="material-symbols-outlined">left_panel_open</span>
           </button>
         </div>
       </div>
 
       <div class="chat-nav-list" data-chat-history aria-label="Chat history"></div>
+
+      <div class="chat-nav-actions">
+        <button class="inline-button" type="button" data-chat-new>
+          <span class="material-symbols-outlined">add</span>
+          <span>New chat</span>
+        </button>
+      </div>
     </aside>
 
     <main class="chat-main">
@@ -838,11 +832,6 @@
       </div>
 
       <div class="chat-composer-shell">
-        <div class="quick-chip" data-chat-suggest>
-          <span class="material-symbols-outlined">bolt</span>
-          <span>Try: Is creatine effective for building muscle?</span>
-        </div>
-
         <form class="composer" data-chat-form>
           <div class="composer-row">
             <label class="sr-only" for="chat-question">Question</label>
@@ -856,11 +845,7 @@
           </div>
 
           <div class="composer-utility-row">
-            <div class="composer-buttons">
-              <button class="inline-button" type="button" data-history-toggle aria-expanded="true" aria-label="Toggle conversation history">
-                <span class="material-symbols-outlined">left_panel_open</span>
-              </button>
-            </div>
+            <div class="composer-buttons"></div>
             <p class="status-text" data-chat-status></p>
           </div>
         </form>
@@ -933,7 +918,6 @@
     const submitButton = document.querySelector("[data-chat-submit]");
     const historyToggleButton = document.querySelector("[data-history-toggle]");
     const newChatButton = document.querySelector("[data-chat-new]");
-    const suggestButton = document.querySelector("[data-chat-suggest]");
     const historyList = document.querySelector("[data-chat-history]");
     const appShell = document.querySelector(".chat-app-shell");
     const conversationCanvas = document.querySelector(".conversation-canvas");
@@ -1480,12 +1464,6 @@
     historyToggleButton.addEventListener("click", () => {
       appShell.classList.toggle("history-hidden");
       updateHistoryToggleButton();
-    });
-
-    suggestButton.addEventListener("click", async () => {
-      const question = "Is creatine effective for building muscle?";
-      form.elements.namedItem("question").value = question;
-      await submitQuestion(question);
     });
 
     historyList.addEventListener("click", (event) => {
