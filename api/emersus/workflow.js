@@ -913,6 +913,106 @@ async function callOpenAISynthesis({
   return payload;
 }
 
+function parseJsonFromText(value) {
+  const text = String(value || "").trim();
+  if (!text) {
+    return null;
+  }
+
+  const fenced = text.match(/```(?:json)?\s*([\s\S]*?)```/i);
+  const candidate = fenced ? fenced[1].trim() : text;
+
+  try {
+    return JSON.parse(candidate);
+  } catch {
+    const objectMatch = candidate.match(/\{[\s\S]*\}/);
+    if (!objectMatch) {
+      return null;
+    }
+
+    try {
+      return JSON.parse(objectMatch[0]);
+    } catch {
+      return null;
+    }
+  }
+}
+
+function normalizeDiagramPlannerNodes(value) {
+  const rawNodes = Array.isArray(value?.nodes) ? value.nodes : [];
+  return rawNodes
+    .map((node, index) => ({
+      id: `node_${index + 1}`,
+      label: normalizeText(node?.label, 46),
+      detail: normalizeText(node?.detail, 118),
+      tone: index === 0 ? "blue" : index === rawNodes.length - 1 ? "green" : "amber",
+    }))
+    .filter((node) => node.label && node.detail)
+    .slice(0, 6);
+}
+
+async function callOpenAIDiagramPlanner({
+  model = DEFAULT_MODEL,
+  question,
+  synthesis,
+  evidenceForModel,
+}) {
+  const apiKey = process.env.OPENAI_API_KEY;
+
+  if (!apiKey) {
+    return [];
+  }
+
+  const response = await fetch("https://api.openai.com/v1/responses", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model,
+      max_output_tokens: 700,
+      input: [
+        {
+          role: "system",
+          content: [
+            "You plan concise diagram nodes for an in-chat SVG flowchart.",
+            "Return JSON only. Do not return markdown.",
+            "Use the user's exact topic. Do not use generic labels like Input, Interpret, Transform, or Output unless the topic itself requires them.",
+            "Prefer mechanism/process steps grounded in the answer and retrieved evidence.",
+            "Each node must have a short label under 38 characters and a detail under 95 characters.",
+            "Return 3 to 6 ordered nodes.",
+          ].join("\n"),
+        },
+        {
+          role: "user",
+          content: JSON.stringify({
+            question,
+            answer_text: synthesis?.answer_text || synthesis?.summary || "",
+            retrieved_evidence: evidenceForModel,
+            output_shape: {
+              nodes: [
+                {
+                  label: "short node title",
+                  detail: "one sentence explanation",
+                },
+              ],
+            },
+          }),
+        },
+      ],
+    }),
+  });
+
+  const payload = await response.json().catch(() => null);
+  if (!response.ok || !payload) {
+    return [];
+  }
+
+  const parsed = parseJsonFromText(extractTextFromResponse(payload));
+  return normalizeDiagramPlannerNodes(parsed);
+}
+
 function extractSectionBlock(text, label, nextLabels) {
   const normalized = String(text || "");
   const escapedLabel = label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
@@ -1395,31 +1495,6 @@ function buildDiagramFallbackNodes(question) {
     ];
   }
 
-  if (/\bcreatine\b/.test(prompt)) {
-    return [
-      {
-        label: "Creatine intake",
-        detail: "Creatine is consumed through food or supplementation.",
-      },
-      {
-        label: "Muscle uptake",
-        detail: "Muscle cells store creatine and convert part of it into phosphocreatine.",
-      },
-      {
-        label: "Phosphocreatine reserve",
-        detail: "Phosphocreatine holds a quick phosphate source near working muscle fibers.",
-      },
-      {
-        label: "ATP recycling",
-        detail: "During hard efforts, it helps regenerate ATP faster between contractions.",
-      },
-      {
-        label: "Training output",
-        detail: "The practical effect is better repeated high-intensity work capacity.",
-      },
-    ];
-  }
-
   const worksMatch = prompt.match(/(?:how|show me).*?\b([a-z][a-z0-9\s-]{2,80}?)\s+works?\b/i);
   if (worksMatch) {
     const subject = normalizeText(
@@ -1462,7 +1537,6 @@ function shouldUseDiagramFallback(question) {
   const prompt = normalizeText(question, 260).toLowerCase();
   return (
     (/emersus/.test(prompt) && /evidence/.test(prompt) && /coaching/.test(prompt)) ||
-    /\bcreatine\b/.test(prompt) ||
     /(?:how|show me).*?\b[a-z][a-z0-9\s-]{2,80}?\s+works?\b/i.test(prompt)
   );
 }
@@ -1508,6 +1582,32 @@ function buildDiagramArtifact({ question, synthesis, includeDebug = false }) {
       debug: includeDebug ? { generated: true, artifact_type: "diagram", planner_reason: "process or relationship visual request", node_count: nodes.length } : undefined,
     },
     debug: { generated: true, artifact_type: "diagram", reason: "diagram_nodes_found", node_count: nodes.length },
+  };
+}
+
+function withDiagramNodes(card, nodes) {
+  if (!card || card.artifact_type !== "diagram" || !Array.isArray(nodes) || nodes.length < 2) {
+    return card;
+  }
+
+  return {
+    ...card,
+    data: {
+      ...(card.data || {}),
+      nodes,
+      edges: nodes.slice(1).map((node, index) => ({
+        from: nodes[index].id,
+        to: node.id,
+        label: index === 0 ? "then" : "",
+      })),
+    },
+    debug: card.debug
+      ? {
+          ...card.debug,
+          planner_reason: "dynamic diagram planner",
+          node_count: nodes.length,
+        }
+      : card.debug,
   };
 }
 
@@ -2208,6 +2308,30 @@ async function generateRecommendation({
     evidence: databaseEvidence,
     includeDebug,
   });
+  if (visualPlan.card?.artifact_type === "diagram") {
+    try {
+      const dynamicNodes = await callOpenAIDiagramPlanner({
+        model: synthesisModel,
+        question,
+        synthesis,
+        evidenceForModel,
+      });
+      if (dynamicNodes.length >= 2) {
+        visualPlan.card = withDiagramNodes(visualPlan.card, dynamicNodes);
+        visualPlan.debug = {
+          ...(visualPlan.debug || {}),
+          dynamic_diagram_planner: "applied",
+          dynamic_node_count: dynamicNodes.length,
+        };
+      }
+    } catch (error) {
+      console.warn("Dynamic diagram planner failed; using deterministic fallback.", error);
+      visualPlan.debug = {
+        ...(visualPlan.debug || {}),
+        dynamic_diagram_planner: "failed",
+      };
+    }
+  }
   const cards = visualPlan.card ? [visualPlan.card] : [];
   const quantFindings = buildQuantFindings({
     question,
