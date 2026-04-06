@@ -1331,8 +1331,18 @@ function splitSentences(text) {
     .slice(0, 24);
 }
 
-function inferFindingLabel(sentence, question) {
+function inferFindingLabel(sentence, question, unitType = "") {
+  const sentenceText = sentence.toLowerCase();
   const text = `${question} ${sentence}`.toLowerCase();
+  if (unitType === "duration") {
+    return "Protocol duration";
+  }
+  if (unitType === "dose") {
+    return "Dose used";
+  }
+  if (/risk|safety|adverse|side effect|tolerat/.test(sentenceText)) {
+    return "Safety finding";
+  }
   if (/muscle|lean mass|fat-free mass|hypertrophy|body composition/.test(text)) {
     return "Muscle-related effect";
   }
@@ -1348,10 +1358,19 @@ function inferFindingLabel(sentence, question) {
   if (/sleep|insomnia|latency|quality/.test(text)) {
     return "Sleep-related effect";
   }
-  if (/dose|supplement|gram|mg|kg/.test(text)) {
-    return "Dose used";
-  }
   return "Reported finding";
+}
+
+function allowsProtocolMeasurements(question) {
+  return /dose|dosage|how much|take|timing|duration|how long|weeks?|months?|cycle|protocol|load|loading|maintenance/i.test(
+    question
+  );
+}
+
+function allowsSafetyMeasurements(question) {
+  return /safe|safety|risk|adverse|side effect|health risk|kidney|liver|blood pressure/i.test(
+    question
+  );
 }
 
 function extractMeasurement(sentence) {
@@ -1431,11 +1450,23 @@ function buildQuantFindings({ question, evidence }) {
         (measurement.kind === "percent" || measurement.kind === "mass" ? 2 : 0) +
         clamp(Number(source.ranking_score || source.database_score || 0), 0, 1);
 
-      if (keywords.length && keywordMatches === 0 && measurement.kind === "duration") {
+      if (
+        (measurement.kind === "duration" || measurement.kind === "dose") &&
+        !allowsProtocolMeasurements(question)
+      ) {
         continue;
       }
 
-      const key = `${measurement.displayValue}:${normalizeText(sentence, 120)}`;
+      if (/risk|health risks|adverse|side effect|safe|safety|tolerat/i.test(sentence) && !allowsSafetyMeasurements(question)) {
+        continue;
+      }
+
+      if (keywords.length && keywordMatches === 0) {
+        continue;
+      }
+
+      const label = inferFindingLabel(sentence, question, measurement.kind);
+      const key = `${measurement.kind}:${measurement.displayValue}:${label}`;
       if (seen.has(key)) {
         continue;
       }
@@ -1445,7 +1476,7 @@ function buildQuantFindings({ question, evidence }) {
         displayValue: measurement.displayValue,
         normalizedValue: measurement.normalizedValue,
         unitType: measurement.kind,
-        label: inferFindingLabel(sentence, question),
+        label,
         sentence: normalizeText(sentence, 320),
         sourceTitle: normalizeText(source.title || "Article", 120),
         sourceId: source.pmid ? `PMID ${source.pmid}` : source.doi || "",

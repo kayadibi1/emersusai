@@ -388,43 +388,68 @@ export function renderQuantVizCard(block) {
     return card;
   }
 
-  const maxValue = Math.max(
-    ...findings.map((finding) => Number(finding?.normalizedValue || 0)),
-    1
-  );
+  const groups = findings.reduce((map, finding) => {
+    const key = `${finding?.label || "Finding"}:${finding?.unitType || "value"}`;
+    const items = map.get(key) || [];
+    items.push(finding);
+    map.set(key, items);
+    return map;
+  }, new Map());
 
-  for (const finding of findings) {
-    const section = createNode("section", "chat-quant-row");
-
-    const head = createNode("div", "chat-quant-head");
+  for (const [key, groupFindings] of groups.entries()) {
+    const [label, unitType] = key.split(":");
+    const group = createNode("section", "chat-quant-group");
+    const head = createNode("div", "chat-quant-group-head");
     head.append(
-      createNode("h5", "chat-quant-value", normalizeText(finding?.displayValue || "", 40)),
-      createNode("span", "chat-quant-label", normalizeText(finding?.label || "", 100))
+      createNode("h5", "chat-quant-label", normalizeText(label, 100)),
+      createNode("span", "chat-quant-unit", normalizeText(unitType, 32))
     );
+    group.appendChild(head);
 
-    const track = createNode("div", "chat-quant-track");
-    const fill = createNode("div", "chat-quant-fill");
-    fill.style.width = `${Math.max(14, Math.round((Number(finding?.normalizedValue || 0) / maxValue) * 100))}%`;
-    track.appendChild(fill);
+    if (groupFindings.length >= 2) {
+      const values = groupFindings
+        .map((finding) => Number(finding?.normalizedValue || 0))
+        .filter((value) => Number.isFinite(value));
+      const min = Math.min(...values);
+      const max = Math.max(...values);
+      const spread = Math.max(max - min, 1);
+      const range = createNode("div", "chat-quant-range");
+      const rail = createNode("div", "chat-quant-range-rail");
 
-    const meta = createNode("div", "chat-quant-meta");
-    const sourceLabel = [finding?.sourceTitle, finding?.detail].filter(Boolean).join(" · ");
-    if (sourceLabel) {
-      meta.appendChild(createNode("span", "chat-quant-source", normalizeText(sourceLabel, 140)));
-    }
+      for (const finding of groupFindings) {
+        const dot = createNode("span", "chat-quant-dot");
+        dot.title = `${finding?.displayValue || ""} ${finding?.sourceTitle || ""}`.trim();
+        dot.style.left = `${Math.round(((Number(finding?.normalizedValue || 0) - min) / spread) * 100)}%`;
+        rail.appendChild(dot);
+      }
 
-    if (finding?.sentence) {
-      section.append(
-        head,
-        track,
-        createNode("p", "chat-quant-sentence", trimSnippet(finding.sentence, 180)),
-        meta
+      const scale = createNode("div", "chat-quant-scale");
+      scale.append(
+        createNode("span", "", normalizeText(groupFindings.find((item) => Number(item?.normalizedValue || 0) === min)?.displayValue || String(min), 24)),
+        createNode("span", "", normalizeText(groupFindings.find((item) => Number(item?.normalizedValue || 0) === max)?.displayValue || String(max), 24))
       );
-    } else {
-      section.append(head, track, meta);
+      range.append(rail, scale);
+      group.appendChild(range);
     }
 
-    body.appendChild(section);
+    for (const finding of groupFindings) {
+      const row = createNode("article", "chat-quant-row");
+      const value = createNode("strong", "chat-quant-value", normalizeText(finding?.displayValue || "", 40));
+      const content = createNode("div", "chat-quant-content");
+      if (finding?.sentence) {
+        content.appendChild(createNode("p", "chat-quant-sentence", trimSnippet(finding.sentence, 220)));
+      }
+      const meta = createNode("div", "chat-quant-meta");
+      const sourceLabel = [finding?.sourceTitle, finding?.sourceId, finding?.detail].filter(Boolean).join(" · ");
+      if (sourceLabel) {
+        meta.appendChild(createNode("span", "chat-quant-source", normalizeText(sourceLabel, 160)));
+      }
+      content.appendChild(meta);
+      row.append(value, content);
+      group.appendChild(row);
+    }
+
+    body.appendChild(group);
   }
 
   return card;
