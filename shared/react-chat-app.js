@@ -412,19 +412,28 @@ function buildMetricGridMarkup(metrics) {
 
 function buildDiagramMarkup(card) {
   const nodes = (Array.isArray(card?.data?.nodes) ? card.data.nodes : []).slice(0, 6);
-  const height = Math.max(360, nodes.length * 112);
+  const nodeWidth = 520;
+  const nodeHeight = 108;
+  const nodeX = 130;
+  const nodeCenterX = nodeX + nodeWidth / 2;
+  const verticalStep = 146;
+  const height = Math.max(420, nodes.length * verticalStep + 24);
   const nodeMarkup = nodes
     .map((node, index) => {
-      const y = 28 + index * 104;
+      const y = 28 + index * verticalStep;
       const tone = escapeHtml(node?.tone || (index % 2 ? "green" : "blue"));
-      const nextY = y + 78;
+      const nextY = y + nodeHeight;
       return `
         <g class="diagram-node ${tone}" tabindex="0">
-          <rect x="210" y="${y}" width="360" height="74" rx="14"></rect>
-          <text x="390" y="${y + 30}" text-anchor="middle" class="node-label">${escapeHtml(node?.label || `Step ${index + 1}`)}</text>
-          <text x="390" y="${y + 53}" text-anchor="middle" class="node-detail">${escapeHtml(trimSnippet(node?.detail || "", 62))}</text>
+          <rect x="${nodeX}" y="${y}" width="${nodeWidth}" height="${nodeHeight}" rx="16"></rect>
+          <foreignObject x="${nodeX + 18}" y="${y + 14}" width="${nodeWidth - 36}" height="${nodeHeight - 24}">
+            <div xmlns="http://www.w3.org/1999/xhtml" class="node-copy">
+              <strong>${escapeHtml(node?.label || `Step ${index + 1}`)}</strong>
+              <span>${escapeHtml(trimSnippet(node?.detail || "", 118))}</span>
+            </div>
+          </foreignObject>
         </g>
-        ${index < nodes.length - 1 ? `<path class="edge" d="M390 ${nextY} L390 ${nextY + 24}"></path><path class="arrow" d="M384 ${nextY + 18} L390 ${nextY + 26} L396 ${nextY + 18}"></path>` : ""}`;
+        ${index < nodes.length - 1 ? `<path class="edge" d="M${nodeCenterX} ${nextY + 6} L${nodeCenterX} ${nextY + 32}"></path><path class="arrow" d="M${nodeCenterX - 7} ${nextY + 25} L${nodeCenterX} ${nextY + 35} L${nodeCenterX + 7} ${nextY + 25}"></path>` : ""}`;
     })
     .join("");
   return `<section class="diagram-stage"><svg viewBox="0 0 780 ${height}" role="img" aria-label="${escapeHtml(card?.title || "Diagram")}">${nodeMarkup}</svg></section><p class="hint">Click any node to ask a follow-up about it.</p>`;
@@ -501,54 +510,55 @@ function buildMockupMarkup(card) {
 }
 
 function buildInteractiveMarkup(card) {
-  const payload = safeJson(card?.data || {});
+  const controls = Array.isArray(card?.data?.controls) ? card.data.controls.slice(0, 4) : [];
+  const outputs = Array.isArray(card?.data?.outputs) ? card.data.outputs.slice(0, 2) : ["Primary output", "Secondary output"];
+  const model = String(card?.data?.model || "");
+  const values = Object.fromEntries(controls.map((control) => [control.id, Number(control.value || control.min || 0)]));
+  const money = (value) => `$${Math.round(value).toLocaleString()}`;
+  let primaryValue = "Scenario";
+  let secondaryValue = "Model";
+
+  if (model === "compound_interest") {
+    const principal = values.principal || 10000;
+    const rate = (values.rate || 7) / 100;
+    const years = values.years || 20;
+    const final = principal * Math.pow(1 + rate, years);
+    primaryValue = money(final);
+    secondaryValue = money(final - principal);
+  } else {
+    const score = Math.round(((values.baseline || 5) * 0.4 + (values.intensity || 7) * 0.9 + (values.duration || 6) * 0.7) * 8);
+    primaryValue = `${score}/100`;
+    secondaryValue = score > 70 ? "High" : score > 45 ? "Moderate" : "Low";
+  }
+
+  const assumptionMarkup = (Array.isArray(card?.data?.assumptions) ? card.data.assumptions : [])
+    .slice(0, 4)
+    .map((assumption) => `<li>${escapeHtml(assumption)}</li>`)
+    .join("");
+  const variableMarkup = controls
+    .map((control) => {
+      const min = Number(control.min ?? 0);
+      const max = Number(control.max ?? 100);
+      const value = Number(control.value ?? min);
+      const percent = Math.max(0, Math.min(100, ((value - min) / Math.max(1, max - min)) * 100));
+      return `
+        <label>
+          <span>${escapeHtml(control.label || "Variable")}</span>
+          <i><b style="width:${percent}%"></b></i>
+          <strong>${escapeHtml(`${value}${control.unit || ""}`)}</strong>
+        </label>`;
+    })
+    .join("");
+
   return `
     <section class="interactive-stage">
       <div class="interactive-results">
-        <article><p id="out-a-label">Primary output</p><strong id="out-a">--</strong></article>
-        <article><p id="out-b-label">Secondary output</p><strong id="out-b">--</strong></article>
+        <article><p>${escapeHtml(outputs[0] || "Primary output")}</p><strong>${escapeHtml(primaryValue)}</strong></article>
+        <article><p>${escapeHtml(outputs[1] || "Secondary output")}</p><strong>${escapeHtml(secondaryValue)}</strong></article>
       </div>
-      <div id="controls" class="control-list"></div>
-      <p class="hint">${escapeHtml((card?.data?.assumptions || []).slice(0, 2).join(" - ") || "Illustrative model")}</p>
-    </section>
-    <script>
-      const model = ${payload};
-      const controlsEl = document.getElementById("controls");
-      const controls = Array.isArray(model.controls) ? model.controls : [];
-      const values = {};
-      function money(value){ return "$" + Math.round(value).toLocaleString(); }
-      function renderControls(){
-        controlsEl.innerHTML = controls.map((control) => {
-          values[control.id] = Number(control.value || control.min || 0);
-          return '<label><span>' + control.label + '</span><input type="range" min="' + control.min + '" max="' + control.max + '" step="' + control.step + '" value="' + values[control.id] + '" data-id="' + control.id + '"><strong id="label-' + control.id + '">' + values[control.id] + (control.unit || '') + '</strong></label>';
-        }).join("");
-        controlsEl.querySelectorAll("input").forEach((input) => input.addEventListener("input", (event) => {
-          values[event.target.dataset.id] = Number(event.target.value);
-          const control = controls.find((item) => item.id === event.target.dataset.id) || {};
-          document.getElementById("label-" + event.target.dataset.id).textContent = event.target.value + (control.unit || "");
-          update();
-        }));
-      }
-      function update(){
-        const outputs = Array.isArray(model.outputs) ? model.outputs : ["Output", "Secondary"];
-        document.getElementById("out-a-label").textContent = outputs[0] || "Output";
-        document.getElementById("out-b-label").textContent = outputs[1] || "Secondary";
-        if (model.model === "compound_interest") {
-          const principal = values.principal || 10000;
-          const rate = (values.rate || 7) / 100;
-          const years = values.years || 20;
-          const final = principal * Math.pow(1 + rate, years);
-          document.getElementById("out-a").textContent = money(final);
-          document.getElementById("out-b").textContent = money(final - principal);
-        } else {
-          const score = Math.round(((values.baseline || 5) * 0.4 + (values.intensity || 7) * 0.9 + (values.duration || 6) * 0.7) * 8);
-          document.getElementById("out-a").textContent = score + "/100";
-          document.getElementById("out-b").textContent = score > 70 ? "High" : score > 45 ? "Moderate" : "Low";
-        }
-      }
-      renderControls();
-      update();
-    </script>`;
+      ${variableMarkup ? `<div class="static-control-list">${variableMarkup}</div>` : ""}
+      ${assumptionMarkup ? `<ul class="assumption-list">${assumptionMarkup}</ul>` : ""}
+    </section>`;
 }
 
 function buildArtMarkup(card) {
@@ -635,8 +645,9 @@ function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics
     .diagram-node rect { fill: #134e7a; stroke: rgba(133,173,255,.9); }
     .diagram-node.green rect { fill:#075b48; stroke:#43d0a5; }
     .diagram-node.amber rect { fill:#704100; stroke:#d8b46a; }
-    .node-label { fill: var(--ink); font-size: 19px; font-weight: 800; }
-    .node-detail { fill: rgba(244,241,232,.65); font-size: 13px; font-weight: 650; }
+    .node-copy { width:100%; height:100%; display:grid; align-content:center; gap:7px; text-align:center; overflow:hidden; color:var(--ink); font-family:inherit; }
+    .node-copy strong { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; color:var(--ink); font-size:18px; line-height:1.12; font-weight:850; letter-spacing:-.025em; word-break:break-word; overflow-wrap:anywhere; }
+    .node-copy span { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; color:rgba(244,241,232,.68); font-size:13px; line-height:1.25; font-weight:650; word-break:break-word; overflow-wrap:anywhere; }
     .edge, .arrow { stroke: rgba(244,241,232,.52); stroke-width: 2; fill: none; }
     .hint { margin: 12px 2px 0; color: var(--muted); font-size: 13px; }
     .chart-stage { min-height: 310px; padding: 18px 14px 12px; }
@@ -676,9 +687,12 @@ function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics
     .interactive-results article { padding:14px; border-radius:16px; background:rgba(255,255,255,.045); }
     .interactive-results p { margin:0 0 6px; color:var(--muted); font-size:12px; font-weight:800; }
     .interactive-results strong { font-size:30px; color:var(--green); letter-spacing:-.04em; }
-    .control-list { display:grid; gap:12px; }
-    .control-list label { display:grid; grid-template-columns:120px 1fr 80px; gap:12px; align-items:center; color:var(--muted); font-weight:750; }
-    input[type=range] { width:100%; accent-color: var(--accent); }
+    .static-control-list { display:grid; gap:12px; }
+    .static-control-list label { display:grid; grid-template-columns:120px minmax(0,1fr) 80px; gap:12px; align-items:center; color:var(--muted); font-weight:750; }
+    .static-control-list i { height:10px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; }
+    .static-control-list b { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,#1f6db3,#9bdcc7); }
+    .static-control-list strong { color:var(--ink); text-align:right; }
+    .assumption-list { margin:0; padding-left:18px; color:var(--muted); font-size:13px; line-height:1.55; }
     .art-stage { min-height:320px; }
     @media (max-width: 640px) { .metric-grid, .panel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .vis-container { padding: 12px; } }
   </style>
@@ -716,6 +730,20 @@ function EvidenceArtifact({ card, title, metrics = [], sources = [], panels = []
   );
 }
 
+function InlineVisualArtifact({ card, title, metrics = [], sources = [], panels = [] }) {
+  return h(
+    "section",
+    { className: "chat-inline-artifact", "aria-label": title || card?.title || "Generated visual" },
+    h(EvidenceArtifact, {
+      card,
+      title: title || card?.title || "Generated visual",
+      metrics,
+      sources,
+      panels,
+    })
+  );
+}
+
 function VerdictHero({ card }) {
   const metrics = Array.isArray(card?.metrics) ? card.metrics.slice(0, 4) : [];
   return h(
@@ -741,23 +769,14 @@ function DashboardArtifact({ card }) {
 }
 
 function VisualArtifact({ card }) {
-  const artifactType = String(card?.artifact_type || "").replace(/_/g, " ");
   if (!card?.artifact_type) return null;
-  return h(
-    ToolCard,
-    {
-      title: card?.title || "Generated visual",
-      subtitle: `${titleCase(artifactType)} artifact`,
-      bodyClass: "chat-insight-card",
-    },
-    h(EvidenceArtifact, {
-      card,
-      title: card?.title || "Generated visual",
-      metrics: card?.data?.facts || card?.data?.metrics || [],
-      sources: card?.sources || [],
-      panels: card?.data?.panels || [],
-    })
-  );
+  return h(InlineVisualArtifact, {
+    card,
+    title: card?.title || "Generated visual",
+    metrics: card?.data?.facts || card?.data?.metrics || [],
+    sources: card?.sources || [],
+    panels: card?.data?.panels || [],
+  });
 }
 
 function EvidenceProfile({ card }) {
