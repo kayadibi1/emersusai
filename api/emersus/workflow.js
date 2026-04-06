@@ -199,6 +199,91 @@ function mergeProfile(profile, storedProfile) {
   };
 }
 
+function normalizeThreadConstraints(value) {
+  const constraints = value && typeof value === "object" ? value : {};
+  return {
+    dietary: normalizeList(constraints.dietary, 4, 80),
+    injury: normalizeList(constraints.injury, 4, 80),
+    equipment: normalizeList(constraints.equipment, 4, 80),
+    schedule: normalizeList(constraints.schedule, 4, 80),
+    sleep_stress: normalizeList(constraints.sleep_stress, 4, 80),
+    medical_caution: normalizeList(constraints.medical_caution, 4, 80),
+  };
+}
+
+function normalizeThreadState(value) {
+  const raw = value && typeof value === "object" ? value : {};
+  return {
+    version: Number(raw.version || 1),
+    primary_topic: normalizeText(raw.primary_topic, 80),
+    secondary_topics: normalizeList(raw.secondary_topics, 4, 60),
+    goal_context: normalizeText(raw.goal_context, 80),
+    question_mode: normalizeText(raw.question_mode, 40),
+    recent_entities: normalizeList(raw.recent_entities, 8, 60),
+    comparison_target: normalizeText(raw.comparison_target, 80),
+    population_context: normalizeList(raw.population_context, 4, 60),
+    constraints: normalizeThreadConstraints(raw.constraints),
+    last_user_intent: normalizeText(raw.last_user_intent, 180),
+    last_answer_summary: normalizeText(raw.last_answer_summary, 260),
+    thread_summary: normalizeText(raw.thread_summary, 420),
+    updated_at: normalizeText(raw.updated_at, 60),
+  };
+}
+
+function normalizeRecentMessages(value) {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((item) => ({
+      role: normalizeText(item?.role, 24).toLowerCase(),
+      text: normalizeText(item?.text, 320),
+    }))
+    .filter((item) => item.role && item.text)
+    .slice(-6);
+}
+
+function buildThreadMemoryBlock(threadState, recentMessages) {
+  const constraints = [];
+
+  for (const [label, values] of Object.entries(threadState.constraints || {})) {
+    if (Array.isArray(values) && values.length) {
+      constraints.push(`${titleCase(label)}: ${values.join(", ")}`);
+    }
+  }
+
+  const lines = [
+    `Primary topic: ${threadState.primary_topic || "not established"}`,
+    `Goal context: ${threadState.goal_context || "not established"}`,
+    `Current mode: ${threadState.question_mode || "not established"}`,
+    `Recent entities: ${
+      threadState.recent_entities.length ? threadState.recent_entities.join(", ") : "none"
+    }`,
+    `Population context: ${
+      threadState.population_context.length
+        ? threadState.population_context.join(", ")
+        : "none"
+    }`,
+    `Comparison target: ${threadState.comparison_target || "none"}`,
+    `Constraints: ${constraints.length ? constraints.join(" | ") : "none stated"}`,
+    `Last user intent: ${threadState.last_user_intent || "none"}`,
+    `Last answer summary: ${threadState.last_answer_summary || "none"}`,
+    `Thread summary: ${threadState.thread_summary || "none"}`,
+  ];
+
+  if (recentMessages.length) {
+    lines.push(
+      "Recent messages:",
+      ...recentMessages.map(
+        (message) => `- ${message.role}: ${message.text}`
+      )
+    );
+  }
+
+  return lines.join("\n");
+}
+
 function normalizeVectorEvidenceRow(row) {
   const publicationTypes = parsePublicationTypes(row.publication_types);
   const publicationYear = normalizeText(row.publication_year, 8);
@@ -394,7 +479,22 @@ function formatEvidenceForModel(evidence) {
     .join("\n\n");
 }
 
-function buildSynthesisInput({ question, profile, plan, evidenceForModel, today }) {
+function buildSynthesisInput({
+  question,
+  profile,
+  plan,
+  evidenceForModel,
+  today,
+  threadState,
+  recentMessages,
+}) {
+  const normalizedThreadState = normalizeThreadState(threadState);
+  const normalizedRecentMessages = normalizeRecentMessages(recentMessages);
+  const threadMemory = buildThreadMemoryBlock(
+    normalizedThreadState,
+    normalizedRecentMessages
+  );
+
   return [
     {
       role: "system",
@@ -402,6 +502,9 @@ function buildSynthesisInput({ question, profile, plan, evidenceForModel, today 
         [
           "You are Emersus AI, a science-aware performance assistant for strength training, cardio, nutrition, and mental performance.",
           "Use the provided evidence first. Keep claims tethered to the evidence. Be practical, specific, and concise.",
+          "Use thread memory only to interpret follow-up references or preserve relevant goal/constraint continuity.",
+          "Do not use thread memory as evidence, and do not let it override the user's current question.",
+          "If thread context is needed for interpretation, make the assumption briefly explicit.",
           "Do not invent sources. Do not return JSON.",
           "Return plain text in exactly this format:",
           "SUMMARY: <one paragraph>",
@@ -424,10 +527,12 @@ function buildSynthesisInput({ question, profile, plan, evidenceForModel, today 
           topic: plan.topic,
           risk_level: plan.riskLevel,
           user_profile: profile,
+          thread_memory: threadMemory,
           retrieved_evidence: evidenceForModel,
           instructions: [
             "Answer the user's question directly.",
             "Use the retrieved evidence as the main basis for the answer.",
+            "Use thread memory only to resolve references like 'it', 'that', follow-up population changes, or comparison carryover.",
             "Make the recommendations specific and useful.",
             "If the evidence is limited or mixed, say so in limitations.",
             "Do not include citations inline; the server will attach sources.",
@@ -515,6 +620,8 @@ async function callOpenAISynthesis({
   plan,
   evidenceForModel,
   today,
+  threadState,
+  recentMessages,
 }) {
   const apiKey = process.env.OPENAI_API_KEY;
 
@@ -537,6 +644,8 @@ async function callOpenAISynthesis({
         plan,
         evidenceForModel,
         today,
+        threadState,
+        recentMessages,
       }),
     }),
   });
@@ -984,7 +1093,14 @@ function normalizeSources(evidence) {
   }));
 }
 
-async function generateRecommendation({ question, profile, userId, includeDebug }) {
+async function generateRecommendation({
+  question,
+  profile,
+  userId,
+  includeDebug,
+  threadState,
+  recentMessages,
+}) {
   const { stableUserId, supabaseUserId } = parseUserId(userId);
   const supabaseUrl =
     process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
@@ -1013,6 +1129,8 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
       plan,
       evidenceForModel,
       today,
+      threadState,
+      recentMessages,
     });
 
     const structuredOutput = extractStructuredOutput(openAIResponse);
@@ -1044,6 +1162,8 @@ async function generateRecommendation({ question, profile, userId, includeDebug 
         plan,
         evidenceForModel,
         today,
+        threadState,
+        recentMessages,
       });
       synthesisModel = SYNTHESIS_FALLBACK_MODEL;
 
@@ -1160,6 +1280,8 @@ function validateRequest(body) {
         body?.profile?.medical_disclaimer_acknowledged === true,
     },
     includeDebug: body?.includeDebug === true,
+    threadState: normalizeThreadState(body?.threadState),
+    recentMessages: normalizeRecentMessages(body?.recentMessages),
   };
 }
 
