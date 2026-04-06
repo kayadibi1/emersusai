@@ -1,9 +1,11 @@
+import { createHash } from "node:crypto";
 import { retrieveDatabaseEvidence as retrieveVectorDatabaseEvidence } from "./retrieveDatabaseEvidence.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-4.1-mini";
 const SYNTHESIS_FALLBACK_MODEL =
   process.env.OPENAI_EMERSUS_FALLBACK_MODEL || "gpt-4.1-mini";
 const MAX_QUESTION_LENGTH = 3000;
+const MAX_PROFILE_FIELD_LENGTH = 300;
 const VECTOR_LIMIT = 6;
 const VECTOR_MATCH_THRESHOLD = 0.4;
 const VECTOR_MATCH_COUNT = 10;
@@ -22,6 +24,7 @@ function titleCase(value) {
 
 function normalizeText(value, maxLength = 4000) {
   return String(value || "")
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, " ")
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, maxLength);
@@ -142,6 +145,252 @@ function buildPlan(question, profile) {
     topic,
     riskLevel,
   };
+}
+
+function sanitizeRequest(payload) {
+  const question = normalizeText(payload?.question, MAX_QUESTION_LENGTH);
+
+  if (!question) {
+    const error = new Error("A non-empty question is required.");
+    error.statusCode = 400;
+    throw error;
+  }
+
+  return {
+    question,
+    userId: normalizeText(payload?.userId, 160),
+    requestMeta: {
+      clientIp: normalizeText(payload?.requestMeta?.clientIp, 200),
+      userAgent: normalizeText(payload?.requestMeta?.userAgent, 300),
+    },
+    profile: {
+      goal: normalizeText(payload?.profile?.goal, MAX_PROFILE_FIELD_LENGTH),
+      experience_level: normalizeText(
+        payload?.profile?.experience_level,
+        120
+      ),
+      dietary_preferences: normalizeText(
+        payload?.profile?.dietary_preferences,
+        MAX_PROFILE_FIELD_LENGTH
+      ),
+      injuries_limitations: normalizeText(
+        payload?.profile?.injuries_limitations,
+        MAX_PROFILE_FIELD_LENGTH
+      ),
+      equipment_access: normalizeText(payload?.profile?.equipment_access, 200),
+      available_days_per_week: normalizeText(
+        payload?.profile?.available_days_per_week,
+        80
+      ),
+      available_minutes_per_session: normalizeText(
+        payload?.profile?.available_minutes_per_session,
+        80
+      ),
+      sleep_stress_context: normalizeText(
+        payload?.profile?.sleep_stress_context,
+        200
+      ),
+      medical_disclaimer_acknowledged:
+        payload?.profile?.medical_disclaimer_acknowledged === true,
+    },
+    includeDebug: payload?.includeDebug === true,
+    threadState: normalizeThreadState(payload?.threadState),
+    recentMessages: normalizeRecentMessages(payload?.recentMessages),
+  };
+}
+
+function classifySafety({ question, profile, threadState }) {
+  const text = [
+    question,
+    profile?.goal,
+    profile?.dietary_preferences,
+    profile?.injuries_limitations,
+    profile?.sleep_stress_context,
+    threadState?.last_user_intent,
+  ]
+    .map((item) => normalizeText(item, 400))
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+  if (
+    /ignore (all|previous|prior) instructions|reveal (your|the) (system|hidden) prompt|show (your|the) hidden instructions|developer message|jailbreak|bypass (your )?(rules|guardrails)|act as if safety does not apply/.test(
+      text
+    )
+  ) {
+    return {
+      status: "prompt_injection_or_system_probe",
+      responseMode: "refusal",
+      reasons: ["prompt_injection_or_system_probe"],
+    };
+  }
+
+  if (
+    /suicide|kill myself|self-harm|self harm|purge|bulimi|anorexi|starve myself|how little can i eat|crash diet|dehydration cut|laxative|vomit after eating/.test(
+      text
+    )
+  ) {
+    return {
+      status: "disallowed_unsafe",
+      responseMode: "refusal",
+      reasons: ["unsafe_body_or_self_harm"],
+    };
+  }
+
+  if (
+    /steroid cycle|tren|test e\b|testosterone cycle|inject testosterone|illegal steroid|dnp\b|clenbuterol|ephedrine stack|where can i buy/.test(
+      text
+    )
+  ) {
+    return {
+      status: "disallowed_unsafe",
+      responseMode: "refusal",
+      reasons: ["illicit_or_high_risk_enhancement"],
+    };
+  }
+
+  if (
+    /diagnos|diagnosis|should i take this medication|medication|prescription|drug interaction|interact with|pregnan|pregnancy|breastfeeding|diabetes|hypertension|blood pressure medication|ssri|antidepressant|bipolar|panic disorder|treat my disease|treat my condition/.test(
+      text
+    )
+  ) {
+    return {
+      status: "medical_boundary",
+      responseMode: "boundary",
+      reasons: ["medical_or_medication_overlap"],
+    };
+  }
+
+  if (/blood pressure|anxiety|panic|insomnia|arrhythmia|heart condition/.test(text)) {
+    return {
+      status: "allowed_with_caution",
+      responseMode: "caution",
+      reasons: ["health_risk_overlap"],
+    };
+  }
+
+  return {
+    status: "allowed",
+    responseMode: "normal",
+    reasons: [],
+  };
+}
+
+function buildGuardrailResponse({ question, plan, safety }) {
+  const blocked =
+    safety.status === "disallowed_unsafe" ||
+    safety.status === "prompt_injection_or_system_probe";
+  const boundary = safety.status === "medical_boundary";
+
+  let answerText =
+    "I can help with evidence-backed training, nutrition, supplements, recovery, and performance questions.";
+
+  if (blocked) {
+    answerText =
+      "I can't help with that request. If you want, I can help with a safer evidence-based version of the question instead.\n\n- Ask about general supplement effectiveness or safety.\n- Ask about sustainable fat loss, training, recovery, or performance strategies.\n- If this is urgent or safety-related, contact a qualified clinician or local emergency support.";
+  } else if (boundary) {
+    answerText =
+      "This question crosses into medical guidance, so I can't give a personalized medication or diagnosis recommendation. I can still help with general evidence-backed education, but a clinician should guide the actual decision.\n\n- If you want, ask for the general evidence on the supplement, food, or training method.\n- Include that you want a high-level summary only, not a personal medical recommendation.\n- For anything involving medications, pregnancy, or a diagnosed condition, check with a licensed clinician.";
+  }
+
+  return {
+    user: {
+      id: null,
+      profile_used: {},
+    },
+    plan,
+    summary: normalizeText(answerText, 600),
+    answer_text: answerText,
+    recommendations: {
+      general: [],
+    },
+    confidence: {
+      score: 0.25,
+      label: blocked ? "blocked" : "medical_boundary",
+      rationale: blocked
+        ? "The request was blocked by Emersus safety guardrails."
+        : "This request overlaps with medical decision-making and needs a stricter boundary.",
+    },
+    limitations: [],
+    sources: [],
+    cards: [],
+    guardrail: {
+      status: safety.status,
+      response_mode: safety.responseMode,
+      reasons: safety.reasons,
+    },
+  };
+}
+
+function hashClientIp(value) {
+  const normalized = normalizeText(value, 200);
+  if (!normalized) {
+    return "";
+  }
+
+  return createHash("sha256").update(normalized).digest("hex");
+}
+
+async function logGuardrailEvent({
+  supabaseUrl,
+  serviceRoleKey,
+  supabaseUserId,
+  stableUserId,
+  question,
+  plan,
+  safety,
+  requestMeta,
+  threadState,
+}) {
+  if (!supabaseUrl || !serviceRoleKey) {
+    return;
+  }
+
+  if (!safety || safety.status === "allowed") {
+    return;
+  }
+
+  const payload = {
+    user_id: supabaseUserId || null,
+    stable_user_id: stableUserId || null,
+    event_type: safety.status,
+    response_mode: safety.responseMode || "normal",
+    reasons: Array.isArray(safety.reasons) ? safety.reasons : [],
+    question_preview: normalizeText(question, 500),
+    topic: normalizeText(plan?.topic, 80),
+    risk_level: normalizeText(plan?.riskLevel, 40),
+    client_ip_hash: hashClientIp(requestMeta?.clientIp),
+    user_agent: normalizeText(requestMeta?.userAgent, 300),
+    metadata: {
+      request_has_thread_memory: Boolean(threadStateHasUsefulContent(threadState)),
+    },
+  };
+
+  const response = await fetch(`${supabaseUrl}/rest/v1/guardrail_events`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      apikey: serviceRoleKey,
+      Authorization: `Bearer ${serviceRoleKey}`,
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`Guardrail event log failed: ${errorText || response.status}`);
+  }
+}
+
+function threadStateHasUsefulContent(threadState) {
+  return Boolean(
+    normalizeText(threadState?.primary_topic, 80) ||
+      normalizeText(threadState?.goal_context, 80) ||
+      normalizeText(threadState?.last_user_intent, 80) ||
+      (Array.isArray(threadState?.recent_entities) &&
+        threadState.recent_entities.length > 0)
+  );
 }
 
 async function fetchSupabaseProfile(supabaseUrl, serviceRoleKey, supabaseUserId) {
@@ -487,6 +736,7 @@ function buildSynthesisInput({
   today,
   threadState,
   recentMessages,
+  safety,
 }) {
   const normalizedThreadState = normalizeThreadState(threadState);
   const normalizedRecentMessages = normalizeRecentMessages(recentMessages);
@@ -506,16 +756,12 @@ function buildSynthesisInput({
           "Do not use thread memory as evidence, and do not let it override the user's current question.",
           "If thread context is needed for interpretation, make the assumption briefly explicit.",
           "Do not invent sources. Do not return JSON.",
-          "Return plain text in exactly this format:",
-          "SUMMARY: <one paragraph>",
-          "TRAINING:",
-          "- <bullet>",
-          "NUTRITION:",
-          "- <bullet>",
-          "MENTAL PERFORMANCE:",
-          "- <bullet>",
-          "LIMITATIONS:",
-          "- <bullet>",
+          "Return plain text only.",
+          "Start with a direct answer in normal prose.",
+          "Use a short bullet list only when it genuinely helps the user act on the answer.",
+          "Do not use section headings like SUMMARY, TRAINING, NUTRITION, MENTAL PERFORMANCE, CONFIDENCE, or LIMITATIONS.",
+          "Do not mention confidence scores, confidence labels, or system-status concepts in the answer.",
+          "Only mention training, nutrition, or mental-performance advice if it is directly relevant to the user's question.",
         ].join("\n"),
     },
     {
@@ -526,6 +772,8 @@ function buildSynthesisInput({
           question,
           topic: plan.topic,
           risk_level: plan.riskLevel,
+          safety_mode: safety?.responseMode || "normal",
+          safety_reasons: Array.isArray(safety?.reasons) ? safety.reasons : [],
           user_profile: profile,
           thread_memory: threadMemory,
           retrieved_evidence: evidenceForModel,
@@ -534,7 +782,9 @@ function buildSynthesisInput({
             "Use the retrieved evidence as the main basis for the answer.",
             "Use thread memory only to resolve references like 'it', 'that', follow-up population changes, or comparison carryover.",
             "Make the recommendations specific and useful.",
-            "If the evidence is limited or mixed, say so in limitations.",
+            "If the evidence is limited or mixed, explain that naturally in the prose instead of using a dedicated limitations section.",
+            "Do not include irrelevant training, nutrition, or mental-performance advice.",
+            "If the question touches medical or medication risk, stay high level and do not give diagnosis or personalized medication advice.",
             "Do not include citations inline; the server will attach sources.",
           ],
         },
@@ -622,6 +872,7 @@ async function callOpenAISynthesis({
   today,
   threadState,
   recentMessages,
+  safety,
 }) {
   const apiKey = process.env.OPENAI_API_KEY;
 
@@ -646,6 +897,7 @@ async function callOpenAISynthesis({
         today,
         threadState,
         recentMessages,
+        safety,
       }),
     }),
   });
@@ -688,60 +940,49 @@ function sentenceSplit(text, maxItems = 4) {
     .slice(0, maxItems);
 }
 
+function extractGenericBullets(text) {
+  return String(text || "")
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => /^[-*•]\s+/.test(line))
+    .map((line) => line.replace(/^[-*•]\s+/, "").trim())
+    .filter(Boolean);
+}
+
+function extractPlainParagraphs(text) {
+  return String(text || "")
+    .split(/\r?\n\s*\r?\n/)
+    .map((block) => block.trim())
+    .filter(Boolean)
+    .map((block) =>
+      block
+        .split(/\r?\n/)
+        .map((line) => line.trim())
+        .filter((line) => line && !/^[-*•]\s+/.test(line))
+        .join(" ")
+        .trim()
+    )
+    .filter(Boolean);
+}
+
 function normalizeSynthesisPayload(text) {
-  const summary = extractSectionBlock(text, "SUMMARY", [
-    "TRAINING",
-    "NUTRITION",
-    "MENTAL PERFORMANCE",
-    "LIMITATIONS",
-  ]);
-  const training = parseBulletSection(
-    extractSectionBlock(text, "TRAINING", [
-      "NUTRITION",
-      "MENTAL PERFORMANCE",
-      "LIMITATIONS",
-    ])
-  );
-  const nutrition = parseBulletSection(
-    extractSectionBlock(text, "NUTRITION", [
-      "MENTAL PERFORMANCE",
-      "LIMITATIONS",
-    ])
-  );
-  const mentalPerformance = parseBulletSection(
-    extractSectionBlock(text, "MENTAL PERFORMANCE", ["LIMITATIONS"])
-  );
-  const limitations = parseBulletSection(
-    extractSectionBlock(text, "LIMITATIONS", [])
-  );
+  const normalizedRawText = String(text || "").trim();
+  const normalizedText = normalizeText(normalizedRawText, 2400);
+  const paragraphs = extractPlainParagraphs(normalizedRawText);
+  const genericBullets = extractGenericBullets(normalizedRawText);
+  const fallbackSummary = paragraphs[0] || normalizedText;
 
-  const normalizedText = normalizeText(text, 2400);
-  const fallbackSummary = summary || normalizedText;
-  const fallbackBullets = sentenceSplit(normalizedText, 3);
-
-  if (!fallbackSummary) {
+  if (!normalizedText) {
     throw new Error("The model response was empty.");
   }
 
   return {
     summary: normalizeText(fallbackSummary, 1600),
+    answer_text: normalizedRawText || normalizedText,
     recommendations: {
-      training: normalizeList(
-        training.length ? training : fallbackBullets.slice(0, 1),
-        8
-      ),
-      nutrition: normalizeList(
-        nutrition.length ? nutrition : fallbackBullets.slice(1, 2),
-        8
-      ),
-      mental_performance: normalizeList(
-        mentalPerformance.length
-          ? mentalPerformance
-          : fallbackBullets.slice(2, 3),
-        8
-      ),
+      general: normalizeList(genericBullets, 8, 240),
     },
-    limitations: normalizeList(limitations, 6),
+    limitations: [],
   };
 }
 
@@ -781,25 +1022,20 @@ function computeConfidence({ plan, evidence }) {
 function buildFallbackRecommendation({ question, evidence }) {
   const topEvidence = evidence.slice(0, 2);
   const titles = topEvidence.map((item) => item.title).filter(Boolean);
+  const fallbackBullets = topEvidence[0]?.title
+    ? [`Use the evidence around "${topEvidence[0].title}" as the main anchor for your next decision.`]
+    : ["Ask a more specific follow-up so I can give a tighter evidence-backed answer."];
+  const summary = titles.length
+    ? `I couldn't complete the normal synthesis step, but the strongest retrieved evidence included ${titles.join(" and ")}.`
+    : "I couldn't complete the normal synthesis step, so this answer is based only on the retrieved evidence.";
 
   return {
-    summary: titles.length
-      ? `I couldn't complete the normal synthesis step, but the strongest retrieved evidence included ${titles.join(" and ")}.`
-      : "I couldn't complete the normal synthesis step, so this answer is based only on the retrieved evidence.",
+    summary,
+    answer_text: [summary, ...fallbackBullets.map((item) => `- ${item}`)].join("\n\n"),
     recommendations: {
-      training: topEvidence[0]?.title
-        ? [`Use the evidence around "${topEvidence[0].title}" as the main anchor for your next decision.`]
-        : ["Ask a more specific follow-up so I can give a tighter evidence-backed answer."],
-      nutrition: [
-        "Use the retrieved studies as your main reference and treat this fallback as a lighter summary.",
-      ],
-      mental_performance: [
-        "Mental-performance guidance is limited unless the retrieved evidence directly addressed that topic.",
-      ],
+      general: fallbackBullets,
     },
-    limitations: [
-      "This fallback is less polished than the normal model-generated answer.",
-    ],
+    limitations: [],
   };
 }
 
@@ -870,28 +1106,13 @@ function buildVerdictTitle(summary) {
 
 function buildActionColumns({ recommendations, topic }) {
   const columns = [];
+  const label = topic === "mental_performance" ? "Mental performance" : "Key takeaways";
 
-  if (recommendations.training?.length) {
+  if (recommendations.general?.length) {
     columns.push({
-      label: "Training",
+      label,
       tone: "good",
-      items: recommendations.training.slice(0, 3),
-    });
-  }
-
-  if (recommendations.nutrition?.length) {
-    columns.push({
-      label: "Nutrition",
-      tone: "good",
-      items: recommendations.nutrition.slice(0, 3),
-    });
-  }
-
-  if (recommendations.mental_performance?.length) {
-    columns.push({
-      label: topic === "mental_performance" ? "Mental performance" : "Recovery",
-      tone: topic === "mental_performance" ? "good" : "neutral",
-      items: recommendations.mental_performance.slice(0, 3),
+      items: recommendations.general.slice(0, 3),
     });
   }
 
@@ -1100,6 +1321,7 @@ async function generateRecommendation({
   includeDebug,
   threadState,
   recentMessages,
+  requestMeta,
 }) {
   const { stableUserId, supabaseUserId } = parseUserId(userId);
   const supabaseUrl =
@@ -1112,6 +1334,54 @@ async function generateRecommendation({
   );
   const mergedProfile = mergeProfile(profile, storedProfile || {});
   const plan = buildPlan(question, mergedProfile);
+  const safety = classifySafety({
+    question,
+    profile: mergedProfile,
+    threadState,
+  });
+
+  if (safety.status !== "allowed") {
+    logGuardrailEvent({
+      supabaseUrl,
+      serviceRoleKey,
+      supabaseUserId,
+      stableUserId,
+      question,
+      plan,
+      safety,
+      requestMeta,
+      threadState,
+    }).catch((error) => {
+      console.error("Guardrail event logging failed:", error);
+    });
+  }
+
+  if (
+    safety.status === "disallowed_unsafe" ||
+    safety.status === "prompt_injection_or_system_probe" ||
+    safety.status === "medical_boundary"
+  ) {
+    const blockedResponse = buildGuardrailResponse({
+      question,
+      plan,
+      safety,
+    });
+
+    if (includeDebug) {
+      blockedResponse.debug = {
+        safety,
+        synthesis_mode: "guardrail_block",
+      };
+    }
+
+    if (stableUserId) {
+      blockedResponse.user.id = stableUserId;
+      blockedResponse.user.profile_used = mergedProfile;
+    }
+
+    return blockedResponse;
+  }
+
   const vectorDatabase = await retrieveVectorEvidence(question);
   const databaseEvidence = vectorDatabase.evidence.slice(0, VECTOR_LIMIT);
   const evidenceForModel = formatEvidenceForModel(databaseEvidence);
@@ -1131,6 +1401,7 @@ async function generateRecommendation({
       today,
       threadState,
       recentMessages,
+      safety,
     });
 
     const structuredOutput = extractStructuredOutput(openAIResponse);
@@ -1164,6 +1435,7 @@ async function generateRecommendation({
         today,
         threadState,
         recentMessages,
+        safety,
       });
       synthesisModel = SYNTHESIS_FALLBACK_MODEL;
 
@@ -1236,11 +1508,17 @@ async function generateRecommendation({
     },
     plan,
     summary: synthesis.summary,
+    answer_text: synthesis.answer_text || synthesis.summary,
     recommendations: synthesis.recommendations,
     confidence,
     limitations: synthesis.limitations,
     sources,
     cards,
+    guardrail: {
+      status: safety.status,
+      response_mode: safety.responseMode,
+      reasons: safety.reasons,
+    },
     debug: includeDebug
       ? {
           vector_database: vectorDatabase,
@@ -1250,39 +1528,14 @@ async function generateRecommendation({
           synthesis_mode: synthesisMode,
           synthesis_model: synthesisModel,
           has_structured_output: Boolean(extractStructuredOutput(openAIResponse)),
+          safety,
         }
       : undefined,
   };
 }
 
 function validateRequest(body) {
-  const question = normalizeText(body?.question, MAX_QUESTION_LENGTH);
-
-  if (!question) {
-    const error = new Error("A non-empty question is required.");
-    error.statusCode = 400;
-    throw error;
-  }
-
-  return {
-    question,
-    userId: normalizeText(body?.userId, 160),
-    profile: {
-      goal: body?.profile?.goal,
-      experience_level: body?.profile?.experience_level,
-      dietary_preferences: body?.profile?.dietary_preferences,
-      injuries_limitations: body?.profile?.injuries_limitations,
-      equipment_access: body?.profile?.equipment_access,
-      available_days_per_week: body?.profile?.available_days_per_week,
-      available_minutes_per_session: body?.profile?.available_minutes_per_session,
-      sleep_stress_context: body?.profile?.sleep_stress_context,
-      medical_disclaimer_acknowledged:
-        body?.profile?.medical_disclaimer_acknowledged === true,
-    },
-    includeDebug: body?.includeDebug === true,
-    threadState: normalizeThreadState(body?.threadState),
-    recentMessages: normalizeRecentMessages(body?.recentMessages),
-  };
+  return sanitizeRequest(body);
 }
 
 export {

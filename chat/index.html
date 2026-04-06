@@ -322,7 +322,7 @@
     }
 
     .message.user {
-      text-align: left;
+      text-align: right;
     }
 
     .message.assistant {
@@ -337,6 +337,13 @@
       display: grid;
       gap: 0.12rem;
       font-size: 1rem;
+    }
+
+    .message.user .message-content {
+      justify-items: end;
+      margin-left: auto;
+      font-style: italic;
+      color: rgba(255, 255, 255, 0.88);
     }
 
     .message.assistant.is-revealing .message-content {
@@ -437,16 +444,22 @@
       min-height: 4rem;
       max-height: 9rem;
       flex: 1;
-      resize: vertical;
+      resize: none;
       border: 0;
       background: transparent;
       color: var(--ink);
       line-height: 1.6;
       padding: 0.35rem 0.25rem 0.35rem 0;
+      overflow-y: auto;
+      scrollbar-width: none;
     }
 
     .composer textarea:focus {
       outline: none;
+    }
+
+    .composer textarea::-webkit-scrollbar {
+      display: none;
     }
 
     .composer textarea::placeholder {
@@ -912,6 +925,7 @@
     } from "/shared/supabase.js";
 
     const form = document.querySelector("[data-chat-form]");
+    const questionInput = document.getElementById("chat-question");
     const thread = document.querySelector("[data-chat-thread]");
     const status = document.querySelector("[data-chat-status]");
     const sources = document.querySelector("[data-chat-sources]");
@@ -1488,66 +1502,50 @@
         });
     }
 
-    function renderNarrativeResponse(data) {
-      const sections = [];
-      sections.push(`
-        <section class="narrative-section">
-          <h3 class="narrative-heading">Summary</h3>
-          <p>${escapeHtml(data.summary || "No summary returned.")}</p>
-        </section>
-      `);
-
-      if ((data.recommendations?.training || []).length) {
-        sections.push(`
-          <section class="narrative-section">
-            <h3 class="narrative-heading">Training</h3>
-            <ul>${(data.recommendations.training || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-          </section>
-        `);
+    function renderAnswerText(text, fallbackBullets = []) {
+      const source = String(text || "").trim();
+      if (!source) {
+        const fallback = String(fallbackBullets[0] || "No answer returned.").trim();
+        return `<div class="narrative-stack"><section class="narrative-section"><p>${escapeHtml(fallback)}</p></section></div>`;
       }
 
-      if ((data.recommendations?.nutrition || []).length) {
-        sections.push(`
-          <section class="narrative-section">
-            <h3 class="narrative-heading">Nutrition</h3>
-            <ul>${(data.recommendations.nutrition || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-          </section>
-        `);
-      }
+      const blocks = source
+        .split(/\r?\n\s*\r?\n/)
+        .map((block) => block.trim())
+        .filter(Boolean)
+        .map((block) => {
+          const lines = block
+            .split(/\r?\n/)
+            .map((line) => line.trim())
+            .filter(Boolean);
 
-      if ((data.recommendations?.mental_performance || []).length) {
-        sections.push(`
-          <section class="narrative-section">
-            <h3 class="narrative-heading">Mental performance</h3>
-            <ul>${(data.recommendations.mental_performance || []).map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-          </section>
-        `);
-      }
+          const bulletLines = lines.filter((line) => /^[-*•]\s+/.test(line));
+          const proseLines = lines.filter((line) => !/^[-*•]\s+/.test(line));
 
-      sections.push(`
-        <section class="narrative-section">
-          <h3 class="narrative-heading">Confidence</h3>
-          <p>${escapeHtml(`${data.confidence?.label || "moderate"} (${data.confidence?.score ?? "n/a"})`)}</p>
-          ${data.confidence?.rationale ? `<p>${escapeHtml(data.confidence.rationale)}</p>` : ""}
-        </section>
-      `);
+          const parts = [];
 
-      if (Array.isArray(data.limitations) && data.limitations.length) {
-        sections.push(`
-          <section class="narrative-section">
-            <h3 class="narrative-heading">Limitations</h3>
-            <ul>${data.limitations.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-          </section>
-        `);
-      }
+          if (proseLines.length) {
+            parts.push(`<p>${escapeHtml(proseLines.join(" "))}</p>`);
+          }
 
-      return `<div class="narrative-stack">${sections.join("")}</div>`;
+          if (bulletLines.length) {
+            parts.push(
+              `<ul>${bulletLines
+                .map((line) => `<li>${escapeHtml(line.replace(/^[-*•]\s+/, ""))}</li>`)
+                .join("")}</ul>`
+            );
+          }
+
+          return `<section class="narrative-section">${parts.join("")}</section>`;
+        });
+
+      return `<div class="narrative-stack">${blocks.join("")}</div>`;
     }
 
     function renderAssistantResponse(data) {
       return `
         <div class="assistant-report">
-          ${renderNarrativeResponse(data)}
+          ${renderAnswerText(data.answer_text || data.summary || "", data.recommendations?.general || [])}
         </div>
       `;
     }
@@ -1594,8 +1592,9 @@
       const confidenceLabel = String(data.confidence?.label || "idle");
       const sourceCount = Array.isArray(data.sources) ? data.sources.length : 0;
       const synthesisMode = data.debug?.synthesis_mode || (data.summary ? "synthesized" : "idle");
+      const confidencePercent = Math.round(Math.max(0, Math.min(confidenceScore, 1)) * 100);
 
-      railConfidence.textContent = confidenceScore ? confidenceScore.toFixed(2) : "0.00";
+      railConfidence.textContent = `${confidencePercent}%`;
       railConfidenceLabel.textContent = confidenceLabel;
       railConfidenceBar.style.setProperty("--spark-width", `${Math.max(0, Math.min(confidenceScore * 100, 100))}%`);
 
@@ -1609,6 +1608,7 @@
       if (threadData) {
         threadData.rail = {
           confidenceScore,
+          confidencePercent,
           confidenceLabel,
           sourceCount,
           synthesisMode,
@@ -1620,7 +1620,11 @@
 
     function hydrateRailFromThread(threadData) {
       const rail = threadData?.rail || {};
-      railConfidence.textContent = rail.confidenceScore ? Number(rail.confidenceScore).toFixed(2) : "0.00";
+      const confidencePercent =
+        typeof rail.confidencePercent === "number"
+          ? rail.confidencePercent
+          : Math.round(Math.max(0, Math.min(Number(rail.confidenceScore || 0), 1)) * 100);
+      railConfidence.textContent = `${confidencePercent}%`;
       railConfidenceLabel.textContent = rail.confidenceLabel || "idle";
       railConfidenceBar.style.setProperty("--spark-width", `${Math.max(0, Math.min(Number(rail.confidenceScore || 0) * 100, 100))}%`);
       railSources.textContent = String(rail.sourceCount || 0);
@@ -1707,13 +1711,13 @@
 
         await appendMessage("assistant", renderAssistantResponse(data), "Now", {
           animate: true,
-          plainText: data.summary || "",
-          text: data.summary || "",
+          plainText: data.answer_text || data.summary || "",
+          text: data.answer_text || data.summary || "",
         });
         threadData.threadState = deriveThreadState(
           threadData,
           trimmed,
-          data.summary || ""
+          data.summary || data.answer_text || ""
         );
         renderSources(data);
         await updateRail(data);
@@ -1744,10 +1748,23 @@
       await submitQuestion(formData.get("question"));
     });
 
+    questionInput?.addEventListener("keydown", async (event) => {
+      if (event.key !== "Enter" || event.shiftKey) {
+        return;
+      }
+
+      event.preventDefault();
+      if (submitButton.disabled) {
+        return;
+      }
+
+      await submitQuestion(questionInput.value);
+    });
+
     newChatButton.addEventListener("click", () => {
       startNewChat();
       setStatus(status, "", "");
-      document.getElementById("chat-question")?.focus();
+      questionInput?.focus();
     });
 
     historyToggleButton.addEventListener("click", () => {
