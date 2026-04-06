@@ -35,6 +35,14 @@ function trimSnippet(value, maxLength = 180) {
   return text.length > maxLength ? `${text.slice(0, maxLength - 1).trim()}...` : text;
 }
 
+function titleCase(value) {
+  return String(value || "")
+    .split(/[\s_-]+/)
+    .filter(Boolean)
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
 function escapeHtml(value) {
   return String(value || "")
     .replace(/&/g, "&amp;")
@@ -383,36 +391,202 @@ function TextBlock({ text, role = "assistant" }) {
   );
 }
 
+function safeJson(value) {
+  return JSON.stringify(value || {}).replace(/</g, "\\u003c").replace(/>/g, "\\u003e");
+}
+
+function buildMetricGridMarkup(metrics) {
+  return (Array.isArray(metrics) ? metrics : [])
+    .slice(0, 6)
+    .map((metric) => {
+      const tone = toneClass(metric?.tone) || "is-medium";
+      return `
+        <div class="metric ${tone}">
+          <div class="metric-val">${escapeHtml(metric?.value || metric?.display_value || "")}</div>
+          <div class="metric-lbl">${escapeHtml(metric?.label || "")}</div>
+          <div class="metric-sub">${escapeHtml(metric?.detail || metric?.context || "")}</div>
+        </div>`;
+    })
+    .join("");
+}
+
+function buildDiagramMarkup(card) {
+  const nodes = (Array.isArray(card?.data?.nodes) ? card.data.nodes : []).slice(0, 6);
+  const height = Math.max(360, nodes.length * 112);
+  const nodeMarkup = nodes
+    .map((node, index) => {
+      const y = 28 + index * 104;
+      const tone = escapeHtml(node?.tone || (index % 2 ? "green" : "blue"));
+      const nextY = y + 78;
+      return `
+        <g class="diagram-node ${tone}" tabindex="0">
+          <rect x="210" y="${y}" width="360" height="74" rx="14"></rect>
+          <text x="390" y="${y + 30}" text-anchor="middle" class="node-label">${escapeHtml(node?.label || `Step ${index + 1}`)}</text>
+          <text x="390" y="${y + 53}" text-anchor="middle" class="node-detail">${escapeHtml(trimSnippet(node?.detail || "", 62))}</text>
+        </g>
+        ${index < nodes.length - 1 ? `<path class="edge" d="M390 ${nextY} L390 ${nextY + 24}"></path><path class="arrow" d="M384 ${nextY + 18} L390 ${nextY + 26} L396 ${nextY + 18}"></path>` : ""}`;
+    })
+    .join("");
+  return `<section class="diagram-stage"><svg viewBox="0 0 780 ${height}" role="img" aria-label="${escapeHtml(card?.title || "Diagram")}">${nodeMarkup}</svg></section><p class="hint">Click any node to ask a follow-up about it.</p>`;
+}
+
+function buildChartMarkup(card) {
+  const facts = (Array.isArray(card?.data?.facts) ? card.data.facts : []).slice(0, 6);
+  const chartType = String(card?.data?.chart_type || "metric_grid");
+  if (chartType === "metric_grid" || facts.length < 2) {
+    return `<section class="metric-grid">${buildMetricGridMarkup(facts)}</section>`;
+  }
+
+  const numericFacts = facts.map((fact) => {
+    const raw = String(fact?.value || fact?.display_value || "").replace(/[$,%]/g, "");
+    return { ...fact, number: Number.parseFloat(raw) || 0 };
+  });
+  const max = Math.max(...numericFacts.map((fact) => fact.number), 1);
+  if (chartType === "timeline") {
+    const points = numericFacts.map((fact, index) => {
+      const x = 60 + index * (680 / Math.max(1, numericFacts.length - 1));
+      const y = 260 - (fact.number / max) * 190;
+      return { fact, x, y };
+    });
+    const path = points.map((point, index) => `${index ? "L" : "M"} ${point.x} ${point.y}`).join(" ");
+    return `<section class="chart-stage"><svg viewBox="0 0 800 320" class="line-chart" role="img"><path class="grid-line" d="M50 260H760 M50 200H760 M50 140H760 M50 80H760"></path><path class="line-path" d="${path}"></path>${points.map((point) => `<circle cx="${point.x}" cy="${point.y}" r="7"></circle><text x="${point.x}" y="292" text-anchor="middle">${escapeHtml(trimSnippet(point.fact?.label || point.fact?.value || "", 14))}</text>`).join("")}</svg></section>`;
+  }
+  if (chartType === "proportion") {
+    const total = numericFacts.reduce((sum, fact) => sum + Math.max(0, fact.number), 0) || 1;
+    return `<section class="chart-stage proportion-stage">${numericFacts.map((fact, index) => {
+      const width = Math.max(4, (Math.max(0, fact.number) / total) * 100);
+      const segment = `<div class="stack-segment ${index % 2 ? "mint" : "blue"}" style="width:${width}%"><span>${escapeHtml(fact?.display_value || fact?.value || "")}</span></div>`;
+      return segment;
+    }).join("")}</section><div class="proportion-labels">${numericFacts.map((fact) => `<span>${escapeHtml(trimSnippet(fact?.label || "", 28))}</span>`).join("")}</div>`;
+  }
+  if (chartType === "range") {
+    return `<section class="chart-stage range-stage">${numericFacts.map((fact) => {
+      const width = Math.max(8, (fact.number / max) * 100);
+      return `<label><span>${escapeHtml(trimSnippet(fact?.label || "", 28))}</span><i><b style="width:${width}%"></b></i><strong>${escapeHtml(fact?.display_value || fact?.value || "")}</strong></label>`;
+    }).join("")}</section>`;
+  }
+  if (chartType === "scatter") {
+    return `<section class="chart-stage"><svg viewBox="0 0 800 320" class="scatter-chart" role="img"><path class="grid-line" d="M60 260H750 M60 80V260"></path>${numericFacts.map((fact, index) => {
+      const x = 90 + ((index + 1) / (numericFacts.length + 1)) * 620;
+      const y = 260 - (fact.number / max) * 185;
+      const radius = 8 + (index % 3) * 5;
+      return `<circle cx="${x}" cy="${y}" r="${radius}"></circle><text x="${x}" y="${Math.min(300, y + 28)}" text-anchor="middle">${escapeHtml(trimSnippet(fact?.label || "", 14))}</text>`;
+    }).join("")}</svg></section>`;
+  }
+  const bars = numericFacts
+    .map((fact, index) => {
+      const height = Math.max(10, Math.round((fact.number / max) * 220));
+      return `
+        <div class="bar-wrap">
+          <div class="bar ${index % 2 ? "mint" : "blue"}" style="height:${height}px"></div>
+          <strong>${escapeHtml(fact?.display_value || fact?.value || "")}</strong>
+          <span>${escapeHtml(trimSnippet(fact?.label || `Value ${index + 1}`, 22))}</span>
+        </div>`;
+    })
+    .join("");
+  return `<section class="chart-stage"><div class="chart-bars">${bars}</div></section>`;
+}
+
+function buildMockupMarkup(card) {
+  const sections = (Array.isArray(card?.data?.sections) ? card.data.sections : []).slice(0, 4);
+  const sectionMarkup = sections
+    .map((section, index) => `
+      <article class="mock-panel ${index === 0 ? "featured" : ""}">
+        <p>${escapeHtml(section?.title || `Panel ${index + 1}`)}</p>
+        <strong>${escapeHtml(trimSnippet(section?.body || "", 95))}</strong>
+        <button type="button">${escapeHtml(section?.action || "Review")}</button>
+      </article>`)
+    .join("");
+  return `<section class="mockup-phone"><div class="mock-header"><span></span><span></span><span></span></div><div class="mock-grid">${sectionMarkup}</div></section>`;
+}
+
+function buildInteractiveMarkup(card) {
+  const payload = safeJson(card?.data || {});
+  return `
+    <section class="interactive-stage">
+      <div class="interactive-results">
+        <article><p id="out-a-label">Primary output</p><strong id="out-a">--</strong></article>
+        <article><p id="out-b-label">Secondary output</p><strong id="out-b">--</strong></article>
+      </div>
+      <div id="controls" class="control-list"></div>
+      <p class="hint">${escapeHtml((card?.data?.assumptions || []).slice(0, 2).join(" - ") || "Illustrative model")}</p>
+    </section>
+    <script>
+      const model = ${payload};
+      const controlsEl = document.getElementById("controls");
+      const controls = Array.isArray(model.controls) ? model.controls : [];
+      const values = {};
+      function money(value){ return "$" + Math.round(value).toLocaleString(); }
+      function renderControls(){
+        controlsEl.innerHTML = controls.map((control) => {
+          values[control.id] = Number(control.value || control.min || 0);
+          return '<label><span>' + control.label + '</span><input type="range" min="' + control.min + '" max="' + control.max + '" step="' + control.step + '" value="' + values[control.id] + '" data-id="' + control.id + '"><strong id="label-' + control.id + '">' + values[control.id] + (control.unit || '') + '</strong></label>';
+        }).join("");
+        controlsEl.querySelectorAll("input").forEach((input) => input.addEventListener("input", (event) => {
+          values[event.target.dataset.id] = Number(event.target.value);
+          const control = controls.find((item) => item.id === event.target.dataset.id) || {};
+          document.getElementById("label-" + event.target.dataset.id).textContent = event.target.value + (control.unit || "");
+          update();
+        }));
+      }
+      function update(){
+        const outputs = Array.isArray(model.outputs) ? model.outputs : ["Output", "Secondary"];
+        document.getElementById("out-a-label").textContent = outputs[0] || "Output";
+        document.getElementById("out-b-label").textContent = outputs[1] || "Secondary";
+        if (model.model === "compound_interest") {
+          const principal = values.principal || 10000;
+          const rate = (values.rate || 7) / 100;
+          const years = values.years || 20;
+          const final = principal * Math.pow(1 + rate, years);
+          document.getElementById("out-a").textContent = money(final);
+          document.getElementById("out-b").textContent = money(final - principal);
+        } else {
+          const score = Math.round(((values.baseline || 5) * 0.4 + (values.intensity || 7) * 0.9 + (values.duration || 6) * 0.7) * 8);
+          document.getElementById("out-a").textContent = score + "/100";
+          document.getElementById("out-b").textContent = score > 70 ? "High" : score > 45 ? "Moderate" : "Low";
+        }
+      }
+      renderControls();
+      update();
+    </script>`;
+}
+
+function buildArtMarkup(card) {
+  const scene = String(card?.data?.scene || "abstract");
+  if (scene === "landscape") {
+    return `<section class="art-stage"><svg viewBox="0 0 900 420" role="img" aria-label="${escapeHtml(card?.title || "Illustration")}"><rect width="900" height="420" fill="#0b1726"/><circle cx="740" cy="86" r="58" fill="#d8cf7a"/><circle cx="705" cy="68" r="58" fill="#0b1726"/><polygon points="0,320 150,150 310,300 500,120 720,285 900,135 900,420 0,420" fill="#18365f"/><polygon points="0,350 210,245 430,350 590,225 760,330 900,260 900,420 0,420" fill="#25486f"/><polygon points="0,365 900,365 900,420 0,420" fill="#0a1b2b"/><g fill="#d8cf7a">${Array.from({ length: 18 }, (_, index) => `<circle cx="${50 + index * 46}" cy="${30 + (index % 5) * 28}" r="2"/>`).join("")}</g></svg></section>`;
+  }
+  return `<section class="art-stage"><svg viewBox="0 0 900 420" role="img" aria-label="${escapeHtml(card?.title || "Illustration")}"><rect width="900" height="420" fill="#11110f"/><g fill="none" stroke="#d8b46a" stroke-width="2" opacity=".7">${Array.from({ length: 8 }, (_, index) => `<circle cx="${160 + index * 80}" cy="210" r="${36 + index * 12}"/>`).join("")}</g><path d="M80 300 C220 120, 340 350, 500 180 S740 110, 820 290" stroke="#85adff" stroke-width="18" fill="none" opacity=".55"/><g fill="#9ffb00" opacity=".65">${Array.from({ length: 28 }, (_, index) => `<circle cx="${60 + (index * 67) % 820}" cy="${55 + (index * 41) % 310}" r="${2 + (index % 4)}"/>`).join("")}</g></svg></section>`;
+}
+
+function buildVisualArtifactMarkup(card) {
+  const type = String(card?.artifact_type || card?.visual_type || "").toLowerCase();
+  if (type === "diagram") return buildDiagramMarkup(card);
+  if (type === "chart") return buildChartMarkup(card);
+  if (type === "mockup") return buildMockupMarkup(card);
+  if (type === "interactive_explainer") return buildInteractiveMarkup(card);
+  if (type === "art_illustration") return buildArtMarkup(card);
+  return "";
+}
+
 function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics = [], sources = [], panels = [] }) {
   const safeTitle = escapeHtml(title);
   const safeBody = escapeHtml(trimSnippet(card?.body || card?.footnote || "", 260));
   const safeMetrics = metrics.slice(0, 4);
   const safeSources = sources.slice(0, 3);
   const safePanels = panels.slice(0, 4);
-
-  const metricMarkup = safeMetrics
-    .map((metric) => {
-      const tone = toneClass(metric?.tone) || "is-medium";
-      return `
-        <div class="metric ${tone}">
-          <div class="metric-val">${escapeHtml(metric?.value || "")}</div>
-          <div class="metric-lbl">${escapeHtml(metric?.label || "")}</div>
-          <div class="metric-sub">${escapeHtml(metric?.detail || "")}</div>
-        </div>`;
-    })
-    .join("");
-
+  const artifactMarkup = card?.type === "visual_artifact" ? buildVisualArtifactMarkup(card) : "";
+  const metricMarkup = buildMetricGridMarkup(safeMetrics);
   const sourceMarkup = safeSources
     .map((source, index) => `
       <article class="source-row">
         <span class="source-index">${index + 1}</span>
         <div>
           <strong>${escapeHtml(source?.title || "Source")}</strong>
-          <p>${escapeHtml(source?.meta || source?.takeaway || "")}</p>
+          <p>${escapeHtml(source?.meta || source?.takeaway || source?.id || "")}</p>
         </div>
       </article>`)
     .join("");
-
   const panelMarkup = safePanels
     .map((panel) => `
       <article class="signal-panel ${toneClass(panel?.tone)}">
@@ -435,7 +609,7 @@ function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics
     .hero { display: grid; gap: 10px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,.035); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
     h1 { margin: 0; max-width: 760px; color: var(--ink); font-size: clamp(22px, 3.3vw, 38px); line-height: 1.02; letter-spacing: -.045em; }
     .body { margin: 0; max-width: 760px; color: var(--muted); font-size: 14px; line-height: 1.55; }
-    .metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+    .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 10px; margin-top: 14px; }
     .metric { min-height: 112px; display: grid; align-content: end; gap: 5px; padding: 14px; border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.075); position: relative; overflow: hidden; }
     .metric::before { content:""; position:absolute; inset:auto 12px 12px auto; width:48px; height:48px; border-radius:50%; background: rgba(216,180,106,.16); filter: blur(4px); }
     .metric.is-good::before { background: rgba(159,251,0,.18); }
@@ -456,6 +630,56 @@ function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics
     .source-index { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 999px; background: rgba(216,180,106,.16); color: var(--accent); font-weight: 800; font-size: 12px; }
     .source-row strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
     .source-row p { margin: 3px 0 0; color: var(--muted); font-size: 12px; line-height: 1.35; }
+    .diagram-stage, .chart-stage, .art-stage, .interactive-stage, .mockup-phone { margin-top: 12px; border-radius: 18px; background: rgba(0,0,0,.2); box-shadow: inset 0 0 0 1px rgba(255,255,255,.075); overflow: hidden; }
+    .diagram-stage svg, .art-stage svg { display:block; width:100%; height:auto; min-height:340px; }
+    .diagram-node rect { fill: #134e7a; stroke: rgba(133,173,255,.9); }
+    .diagram-node.green rect { fill:#075b48; stroke:#43d0a5; }
+    .diagram-node.amber rect { fill:#704100; stroke:#d8b46a; }
+    .node-label { fill: var(--ink); font-size: 19px; font-weight: 800; }
+    .node-detail { fill: rgba(244,241,232,.65); font-size: 13px; font-weight: 650; }
+    .edge, .arrow { stroke: rgba(244,241,232,.52); stroke-width: 2; fill: none; }
+    .hint { margin: 12px 2px 0; color: var(--muted); font-size: 13px; }
+    .chart-stage { min-height: 310px; padding: 18px 14px 12px; }
+    .chart-bars { min-height: 270px; display:flex; align-items:end; justify-content:space-around; gap:10px; border-bottom:1px solid rgba(255,255,255,.12); background: repeating-linear-gradient(to top, transparent 0 49px, rgba(255,255,255,.055) 50px); }
+    .bar-wrap { flex:1; min-width:0; display:grid; justify-items:center; align-items:end; gap:7px; color: var(--muted); font-size:12px; }
+    .bar { width:min(48px, 70%); border-radius: 8px 8px 0 0; background:#1f6db3; }
+    .bar.mint { background:#9bdcc7; }
+    .bar-wrap strong { color:var(--ink); font-size:14px; }
+    .bar-wrap span { max-width:90px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .line-chart, .scatter-chart { width:100%; height:auto; min-height:290px; }
+    .grid-line { stroke:rgba(255,255,255,.12); stroke-width:1; fill:none; }
+    .line-path { stroke:#1f6db3; stroke-width:5; fill:none; filter:drop-shadow(0 0 10px rgba(31,109,179,.4)); }
+    .line-chart circle, .scatter-chart circle { fill:#9bdcc7; stroke:#11110f; stroke-width:3; }
+    .line-chart text, .scatter-chart text { fill:var(--muted); font-size:12px; font-weight:750; }
+    .proportion-stage { min-height:120px; display:flex; align-items:center; padding:26px; }
+    .stack-segment { min-height:72px; display:grid; place-items:center; background:#1f6db3; color:var(--ink); font-weight:850; }
+    .stack-segment:first-child { border-radius:18px 0 0 18px; }
+    .stack-segment:last-child { border-radius:0 18px 18px 0; }
+    .stack-segment.mint { background:#9bdcc7; color:#11231f; }
+    .proportion-labels { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; color:var(--muted); font-size:12px; }
+    .range-stage { min-height:220px; display:grid; align-content:center; gap:16px; padding:24px; }
+    .range-stage label { display:grid; grid-template-columns:130px minmax(0,1fr) 70px; gap:12px; align-items:center; color:var(--muted); font-size:12px; font-weight:800; }
+    .range-stage i { height:10px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; }
+    .range-stage b { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,#1f6db3,#9bdcc7); }
+    .range-stage strong { color:var(--ink); text-align:right; }
+    .mockup-phone { max-width:560px; margin:14px auto 0; padding:16px; background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025)); }
+    .mock-header { display:flex; gap:6px; margin-bottom:14px; }
+    .mock-header span { width:10px; height:10px; border-radius:99px; background:rgba(255,255,255,.18); }
+    .mock-grid { display:grid; gap:10px; }
+    .mock-panel { display:grid; gap:8px; padding:14px; border-radius:16px; background:rgba(0,0,0,.22); box-shadow:inset 0 0 0 1px rgba(255,255,255,.08); }
+    .mock-panel.featured { background:linear-gradient(135deg, rgba(216,180,106,.18), rgba(0,0,0,.2)); }
+    .mock-panel p { margin:0; color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:.1em; font-weight:800; }
+    .mock-panel strong { font-size:15px; line-height:1.4; }
+    .mock-panel button { justify-self:start; border:1px solid rgba(255,255,255,.18); border-radius:999px; background:transparent; color:var(--ink); padding:7px 12px; font-weight:750; }
+    .interactive-stage { display:grid; gap:18px; padding:18px; }
+    .interactive-results { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .interactive-results article { padding:14px; border-radius:16px; background:rgba(255,255,255,.045); }
+    .interactive-results p { margin:0 0 6px; color:var(--muted); font-size:12px; font-weight:800; }
+    .interactive-results strong { font-size:30px; color:var(--green); letter-spacing:-.04em; }
+    .control-list { display:grid; gap:12px; }
+    .control-list label { display:grid; grid-template-columns:120px 1fr 80px; gap:12px; align-items:center; color:var(--muted); font-weight:750; }
+    input[type=range] { width:100%; accent-color: var(--accent); }
+    .art-stage { min-height:320px; }
     @media (max-width: 640px) { .metric-grid, .panel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .vis-container { padding: 12px; } }
   </style>
 </head>
@@ -465,7 +689,7 @@ function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics
     <section class="hero">
       <h1>${escapeHtml(card?.title || "Generated dashboard")}</h1>
       ${safeBody ? `<p class="body">${safeBody}</p>` : ""}
-      <div class="metric-grid">${metricMarkup}</div>
+      ${artifactMarkup || (metricMarkup ? `<div class="metric-grid">${metricMarkup}</div>` : "")}
       ${panelMarkup ? `<section class="panel-grid">${panelMarkup}</section>` : ""}
       ${sourceMarkup ? `<section class="source-panel">${sourceMarkup}</section>` : ""}
     </section>
@@ -512,6 +736,26 @@ function DashboardArtifact({ card }) {
       title: card?.eyebrow || "Generated dashboard",
       metrics,
       panels,
+    })
+  );
+}
+
+function VisualArtifact({ card }) {
+  const artifactType = String(card?.artifact_type || "").replace(/_/g, " ");
+  if (!card?.artifact_type) return null;
+  return h(
+    ToolCard,
+    {
+      title: card?.title || "Generated visual",
+      subtitle: `${titleCase(artifactType)} artifact`,
+      bodyClass: "chat-insight-card",
+    },
+    h(EvidenceArtifact, {
+      card,
+      title: card?.title || "Generated visual",
+      metrics: card?.data?.facts || card?.data?.metrics || [],
+      sources: card?.sources || [],
+      panels: card?.data?.panels || [],
     })
   );
 }
@@ -577,6 +821,7 @@ function SourceHighlights({ card }) {
 function InsightCard({ block }) {
   const card = block?.data || {};
   const type = String(card?.type || "").toLowerCase();
+  if (type === "visual_artifact") return h(VisualArtifact, { card });
   if (type === "dashboard_artifact") return h(DashboardArtifact, { card });
   if (type === "verdict_hero") return h(VerdictHero, { card });
   if (type === "evidence_profile") return h(EvidenceProfile, { card });

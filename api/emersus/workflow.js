@@ -1119,10 +1119,45 @@ function buildActionColumns({ recommendations, topic }) {
   return columns.slice(0, 3);
 }
 
+const VISUAL_ARTIFACT_TYPES = new Set([
+  "diagram",
+  "chart",
+  "mockup",
+  "interactive_explainer",
+  "art_illustration",
+]);
+
 function wantsVisualCards(question) {
-  return /\b(card|cards|visual|visuals|graphic|graphics|graph|chart|diagram|dashboard|evidence card|source card|show me)\b/i.test(
+  return /\b(card|cards|visual|visuals|graphic|graphics|graph|chart|diagram|flowchart|mockup|wireframe|dashboard|widget|interactive|calculator|simulation|illustration|art|svg|show me)\b/i.test(
     String(question || "")
   );
+}
+
+function inferVisualArtifactType(question, answerText = "") {
+  const text = `${question || ""} ${answerText || ""}`.toLowerCase();
+  const questionText = String(question || "").toLowerCase();
+
+  if (/\b(mockup|wireframe|ui|interface|screen|modal|form|app screen|profile card|landing page|dashboard layout)\b/.test(questionText)) {
+    return "mockup";
+  }
+
+  if (/\b(interactive|calculator|simulate|simulation|slider|toggle|scenario explorer|step[-\s]?through|widget)\b/.test(questionText)) {
+    return "interactive_explainer";
+  }
+
+  if (/\b(illustration|art|svg|geometric|abstract|landscape|decorative|visual metaphor)\b/.test(questionText)) {
+    return "art_illustration";
+  }
+
+  if (/\b(diagram|flowchart|architecture|lifecycle|journey map|relationship map|process map|how it works|explain how|pipeline)\b/.test(questionText)) {
+    return "diagram";
+  }
+
+  if (/\b(chart|graph|plot|bar|line|pie|donut|scatter|bubble|trend|compare|comparison|market size|cagr|growth|funding|revenue|percentage|percent|metrics?|data)\b/.test(text)) {
+    return "chart";
+  }
+
+  return null;
 }
 
 function inferDashboardTitle(question) {
@@ -1139,6 +1174,25 @@ function inferDashboardTitle(question) {
   return text ? `${text.replace(/[?.!]+$/, "")} dashboard` : "Generated dashboard";
 }
 
+function inferVisualTitle(question, artifactType) {
+  const promptTitle = normalizeText(question, 120).replace(/[?.!]+$/, "");
+  if (!promptTitle) {
+    return titleCase(artifactType || "visual artifact");
+  }
+
+  if (/market|investor|funding|vc|venture|business|startup/i.test(promptTitle)) {
+    return "Market and investor viability";
+  }
+
+  if (artifactType === "diagram") return `${promptTitle} flow`;
+  if (artifactType === "chart") return `${promptTitle} data view`;
+  if (artifactType === "mockup") return `${promptTitle} mockup`;
+  if (artifactType === "interactive_explainer") return `${promptTitle} explorer`;
+  if (artifactType === "art_illustration") return `${promptTitle} illustration`;
+
+  return promptTitle;
+}
+
 function labelMetricFromContext(context, fallbackLabel) {
   const text = String(context || "").toLowerCase();
   if (/market|tam|size|segment/.test(text)) return "Market size";
@@ -1150,18 +1204,35 @@ function labelMetricFromContext(context, fallbackLabel) {
   return fallbackLabel;
 }
 
-function extractDashboardMetrics(text, maxItems = 4) {
+function inferUnitType(value, context = "") {
+  const token = String(value || "").toLowerCase();
+  const nearby = String(context || "").toLowerCase();
+  if (token.includes("$")) return "currency";
+  if (token.includes("%") || /cagr|share|percent/.test(nearby)) return "percent";
+  if (/\d+(?:\.\d+)?\s?x/i.test(token)) return "multiple";
+  if (/\b(19|20)\d{2}\b/.test(token)) return "year";
+  if (/users?|customers?|people|participants|studies|companies/.test(nearby)) return "count";
+  return "number";
+}
+
+function normalizeMetricValue(value) {
+  return normalizeText(value, 28)
+    .replace(/\s+/g, "")
+    .replace(/billion/i, "B")
+    .replace(/million/i, "M")
+    .replace(/bn/i, "B")
+    .replace(/m\b/i, "M");
+}
+
+function extractDashboardMetrics(text, maxItems = 6, source = {}) {
   const normalized = String(text || "").replace(/\s+/g, " ");
-  const pattern = /(?:[$]\s?\d+(?:\.\d+)?\s?(?:billion|million|bn|m|b)?|\d+(?:\.\d+)?\s?%|\d+(?:\.\d+)?\s?x)/gi;
+  const pattern = /(?:[$]\s?\d+(?:\.\d+)?\s?(?:billion|million|bn|m|b)?|\d+(?:\.\d+)?\s?%|\d+(?:\.\d+)?\s?x|\b(?:19|20)\d{2}\b)/gi;
   const metrics = [];
   const seen = new Set();
   let match;
 
   while ((match = pattern.exec(normalized)) && metrics.length < maxItems) {
-    const value = normalizeText(match[0].replace(/\s+/g, ""), 28)
-      .replace(/billion/i, "B")
-      .replace(/million/i, "M")
-      .replace(/bn/i, "B");
+    const value = normalizeMetricValue(match[0]);
     if (seen.has(value.toLowerCase())) {
       continue;
     }
@@ -1169,10 +1240,19 @@ function extractDashboardMetrics(text, maxItems = 4) {
     const start = Math.max(0, match.index - 95);
     const end = Math.min(normalized.length, match.index + match[0].length + 120);
     const context = normalized.slice(start, end);
+    const unitType = inferUnitType(value, context);
     metrics.push({
       label: labelMetricFromContext(context, `Metric ${metrics.length + 1}`),
       value,
+      display_value: value,
+      unit_type: unitType,
       detail: trimSentence(context.replace(match[0], ""), 72),
+      context: trimSentence(context, 180),
+      source_id: source.source_id || source.pmid || source.doi || "",
+      source_title: source.source_title || source.title || "",
+      relevance_score: Number(source.relevance_score ?? 0.6),
+      confidence: Number(source.confidence ?? 0.58),
+      derived_from: source.derived_from || "answer",
       tone: metrics.length === 0 ? "good" : metrics.length === 1 ? "medium" : "strong",
     });
   }
@@ -1194,34 +1274,259 @@ function buildDashboardPanels(text) {
   }));
 }
 
-function buildVisualDashboardCard({ question, synthesis }) {
-  if (!wantsVisualCards(question)) {
-    return null;
+function extractChartFacts({ question, synthesis, evidence = [] }) {
+  const facts = [];
+  const seen = new Set();
+
+  for (const source of evidence.slice(0, VECTOR_LIMIT)) {
+    const sourceText = [source.chunk_text, source.excerpt, source.summary, source.why_it_matters]
+      .filter(Boolean)
+      .join(" ");
+    for (const metric of extractDashboardMetrics(sourceText, 3, {
+      source_id: source.pmid ? `PMID ${source.pmid}` : source.doi || "",
+      source_title: source.title,
+      relevance_score: Number(source.ranking_score || source.database_score || 0.68),
+      confidence: 0.78,
+      derived_from: "source",
+    })) {
+      const key = `${metric.label}:${metric.value}:${metric.source_title}`;
+      if (!seen.has(key)) {
+        seen.add(key);
+        facts.push(metric);
+      }
+    }
   }
 
-  const answerText = synthesis.answer_text || synthesis.summary || "";
-  const metrics = extractDashboardMetrics(answerText);
-  const panels = buildDashboardPanels(answerText);
+  for (const metric of extractDashboardMetrics(`${synthesis.answer_text || ""} ${synthesis.summary || ""}`, 6, {
+    relevance_score: 0.58,
+    confidence: 0.54,
+    derived_from: "answer",
+  })) {
+    const key = `${metric.label}:${metric.value}`;
+    if (!seen.has(key)) {
+      seen.add(key);
+      facts.push(metric);
+    }
+  }
 
-  if (!metrics.length && !panels.length) {
+  return facts.slice(0, 8);
+}
+
+function chooseChartTemplate(facts, question = "") {
+  const prompt = String(question || "").toLowerCase();
+  if (/\b(scatter|bubble)\b/.test(prompt)) return "scatter";
+  if (/\b(pie|donut|proportion|share|part[-\s]?to[-\s]?whole)\b/.test(prompt)) return "proportion";
+  if (/\b(line|timeline|trend|over time|by year|progression)\b/.test(prompt)) return "timeline";
+  if (/\b(range|min|max|minimum|maximum|protocol)\b/.test(prompt)) return "range";
+
+  const unitTypes = facts.map((fact) => fact.unit_type).filter(Boolean);
+  const uniqueUnits = unitTypes.filter((unit, index) => unitTypes.indexOf(unit) === index);
+  if (facts.length >= 3 && uniqueUnits.length === 1 && uniqueUnits[0] === "year") return "timeline";
+  if (facts.length >= 2 && uniqueUnits.length === 1 && uniqueUnits[0] === "percent") return "bar";
+  if (facts.length >= 2 && uniqueUnits.length === 1 && uniqueUnits[0] === "currency") return "bar";
+  if (facts.length >= 2 && unitTypes.includes("percent")) return "proportion";
+  if (facts.length >= 3) return "bar";
+  return "metric_grid";
+}
+
+function buildChartArtifact({ question, synthesis, evidence, includeDebug = false }) {
+  const facts = extractChartFacts({ question, synthesis, evidence });
+  const highConfidenceFacts = facts.filter((fact) => Number(fact.confidence || 0) >= 0.5);
+
+  if (highConfidenceFacts.length < 2) {
+    return {
+      card: null,
+      debug: { generated: false, artifact_type: "chart", reason: "insufficient_quantitative_facts", fact_count: highConfidenceFacts.length },
+    };
+  }
+
+  const chartType = chooseChartTemplate(highConfidenceFacts, question);
+  const sources = highConfidenceFacts
+    .filter((fact) => fact.source_title)
+    .map((fact) => ({ title: fact.source_title, id: fact.source_id }))
+    .filter((source, index, array) => array.findIndex((item) => item.title === source.title) === index)
+    .slice(0, 3);
+
+  return {
+    card: {
+      type: "visual_artifact",
+      artifact_type: "chart",
+      title: inferVisualTitle(question, "chart"),
+      subtitle: chartType === "metric_grid" ? "Key quantitative signals" : `${titleCase(chartType)} visualization`,
+      body: normalizeText(synthesis.summary || synthesis.answer_text, 260),
+      data: {
+        chart_type: chartType,
+        facts: highConfidenceFacts.slice(0, 6),
+      },
+      sources,
+      debug: includeDebug
+        ? { generated: true, artifact_type: "chart", planner_reason: "quantitative visual request", fact_count: highConfidenceFacts.length, chart_type: chartType }
+        : undefined,
+    },
+    debug: { generated: true, artifact_type: "chart", reason: "quantitative_facts_found", fact_count: highConfidenceFacts.length, chart_type: chartType },
+  };
+}
+
+function buildDiagramArtifact({ question, synthesis, includeDebug = false }) {
+  const sentences = splitSentences(synthesis.answer_text || synthesis.summary).slice(0, 5);
+  const nodes = sentences.map((sentence, index) => ({
+    id: `node_${index + 1}`,
+    label: normalizeText(sentence.split(/[:;,.]/)[0] || `Step ${index + 1}`, 46),
+    detail: normalizeText(sentence, 100),
+    tone: index === 0 ? "blue" : index === sentences.length - 1 ? "green" : "amber",
+  }));
+
+  if (nodes.length < 2) {
+    return { card: null, debug: { generated: false, artifact_type: "diagram", reason: "insufficient_diagram_nodes", node_count: nodes.length } };
+  }
+
+  return {
+    card: {
+      type: "visual_artifact",
+      artifact_type: "diagram",
+      title: inferVisualTitle(question, "diagram"),
+      subtitle: "Flow / relationship diagram",
+      body: normalizeText(synthesis.summary || synthesis.answer_text, 220),
+      data: {
+        layout: "vertical_flow",
+        direction: "top_to_bottom",
+        nodes,
+        edges: nodes.slice(1).map((node, index) => ({
+          from: nodes[index].id,
+          to: node.id,
+          label: index === 0 ? "then" : "",
+        })),
+      },
+      debug: includeDebug ? { generated: true, artifact_type: "diagram", planner_reason: "process or relationship visual request", node_count: nodes.length } : undefined,
+    },
+    debug: { generated: true, artifact_type: "diagram", reason: "diagram_nodes_found", node_count: nodes.length },
+  };
+}
+
+function buildMockupArtifact({ question, synthesis, includeDebug = false }) {
+  const sentences = splitSentences(synthesis.answer_text || synthesis.summary);
+  const sections = (sentences.length ? sentences : [
+    "Primary insight card",
+    "Recommended next action",
+    "Progress and context panel",
+  ]).slice(0, 4).map((sentence, index) => ({
+    title: index === 0 ? "Hero card" : index === 1 ? "Action panel" : index === 2 ? "Context panel" : "Detail panel",
+    body: normalizeText(sentence, 120),
+    action: index === 0 ? "Open detail" : index === 1 ? "Apply" : "Review",
+  }));
+
+  return {
+    card: {
+      type: "visual_artifact",
+      artifact_type: "mockup",
+      title: inferVisualTitle(question, "mockup"),
+      subtitle: "Static UI mockup",
+      body: normalizeText(synthesis.summary || synthesis.answer_text, 220),
+      data: {
+        layout_type: /modal/i.test(question) ? "modal" : /form/i.test(question) ? "form" : /dashboard/i.test(question) ? "dashboard" : "card",
+        sections,
+        actions: sections.map((section) => section.action).slice(0, 3),
+      },
+      debug: includeDebug ? { generated: true, artifact_type: "mockup", planner_reason: "interface visual request", section_count: sections.length } : undefined,
+    },
+    debug: { generated: true, artifact_type: "mockup", reason: "ui_intent_found", section_count: sections.length },
+  };
+}
+
+function buildInteractiveArtifact({ question, synthesis, includeDebug = false }) {
+  const lower = String(question || "").toLowerCase();
+  const isInterest = /interest|compound|invest|return|balance/.test(lower);
+  const controls = isInterest
+    ? [
+        { id: "principal", label: "Principal", type: "range", min: 1000, max: 50000, step: 500, value: 10000, unit: "$" },
+        { id: "rate", label: "Annual rate", type: "range", min: 1, max: 15, step: 0.5, value: 7, unit: "%" },
+        { id: "years", label: "Years", type: "range", min: 1, max: 40, step: 1, value: 20, unit: "yrs" },
+      ]
+    : [
+        { id: "baseline", label: "Baseline", type: "range", min: 1, max: 10, step: 1, value: 5, unit: "" },
+        { id: "intensity", label: "Intensity", type: "range", min: 1, max: 10, step: 1, value: 7, unit: "" },
+        { id: "duration", label: "Duration", type: "range", min: 1, max: 12, step: 1, value: 6, unit: "wks" },
+      ];
+
+  return {
+    card: {
+      type: "visual_artifact",
+      artifact_type: "interactive_explainer",
+      title: inferVisualTitle(question, "interactive_explainer"),
+      subtitle: isInterest ? "Compound calculator" : "Scenario explorer",
+      body: normalizeText(synthesis.summary || synthesis.answer_text, 220),
+      data: {
+        model: isInterest ? "compound_interest" : "scenario_score",
+        controls,
+        outputs: isInterest
+          ? ["Final balance", "Total interest earned"]
+          : ["Estimated impact", "Scenario confidence"],
+        assumptions: isInterest
+          ? ["Annual compounding", "No additional contributions", "Illustrative only"]
+          : ["Illustrative scenario", "Linear approximation", "Not a medical prediction"],
+      },
+      debug: includeDebug ? { generated: true, artifact_type: "interactive_explainer", planner_reason: "interactive or calculator request", control_count: controls.length } : undefined,
+    },
+    debug: { generated: true, artifact_type: "interactive_explainer", reason: "interactive_intent_found", control_count: controls.length },
+  };
+}
+
+function buildArtArtifact({ question, synthesis, includeDebug = false }) {
+  const lower = String(question || "").toLowerCase();
+  const scene = /landscape|mountain|night|moon/.test(lower) ? "landscape" : /geometric|pattern/.test(lower) ? "geometric" : "abstract";
+  return {
+    card: {
+      type: "visual_artifact",
+      artifact_type: "art_illustration",
+      title: inferVisualTitle(question, "art_illustration"),
+      subtitle: "Decorative SVG illustration",
+      body: normalizeText(synthesis.summary || synthesis.answer_text, 180),
+      data: {
+        scene,
+        palette: scene === "landscape" ? ["#0b1726", "#18365f", "#d8cf7a", "#10261a"] : ["#11110f", "#d8b46a", "#85adff", "#9ffb00"],
+        primitives: scene === "geometric" ? ["rings", "grid", "orbits"] : scene === "landscape" ? ["moon", "mountains", "lake", "stars"] : ["blobs", "paths", "dots"],
+        decorative: true,
+      },
+      debug: includeDebug ? { generated: true, artifact_type: "art_illustration", planner_reason: "decorative or conceptual visual request", scene } : undefined,
+    },
+    debug: { generated: true, artifact_type: "art_illustration", reason: "illustration_intent_found", scene },
+  };
+}
+
+function buildVisualArtifactPlan({ question, synthesis, evidence = [], includeDebug = false }) {
+  if (!wantsVisualCards(question)) {
+    return { card: null, debug: { generated: false, reason: "no_visual_intent" } };
+  }
+
+  const answerText = `${synthesis.answer_text || ""} ${synthesis.summary || ""}`;
+  const artifactType = inferVisualArtifactType(question, answerText);
+
+  if (!VISUAL_ARTIFACT_TYPES.has(artifactType)) {
+    return { card: null, debug: { generated: false, reason: "unsupported_or_unclear_visual_family", artifact_type: artifactType || "" } };
+  }
+
+  if (artifactType === "diagram") return buildDiagramArtifact({ question, synthesis, includeDebug });
+  if (artifactType === "chart") return buildChartArtifact({ question, synthesis, evidence, includeDebug });
+  if (artifactType === "mockup") return buildMockupArtifact({ question, synthesis, includeDebug });
+  if (artifactType === "interactive_explainer") return buildInteractiveArtifact({ question, synthesis, includeDebug });
+  if (artifactType === "art_illustration") return buildArtArtifact({ question, synthesis, includeDebug });
+
+  return { card: null, debug: { generated: false, reason: "visual_family_not_implemented", artifact_type: artifactType } };
+}
+
+function buildVisualDashboardCard({ question, synthesis }) {
+  const plan = buildVisualArtifactPlan({ question, synthesis, evidence: [], includeDebug: false });
+  if (!plan.card) {
     return null;
   }
 
   return {
     type: "dashboard_artifact",
-    title: inferDashboardTitle(question),
+    title: plan.card.title || inferDashboardTitle(question),
     eyebrow: "Generated visual dashboard",
-    body: normalizeText(synthesis.summary || answerText, 260),
-    metrics:
-      metrics.length > 0
-        ? metrics
-        : panels.slice(0, 4).map((panel, index) => ({
-            label: panel.label,
-            value: index === 0 ? "High" : index === 1 ? "Medium" : "Signal",
-            detail: panel.body,
-            tone: panel.tone,
-          })),
-    panels,
+    body: plan.card.body,
+    metrics: plan.card.data?.facts || plan.card.data?.metrics || [],
+    panels: buildDashboardPanels(synthesis.answer_text || synthesis.summary),
   };
 }
 
@@ -1235,11 +1540,11 @@ function cleanSourceTakeaway(value) {
   );
 }
 
-function buildCards({ question, synthesis }) {
-  const dashboardCard = buildVisualDashboardCard({ question, synthesis });
+function buildCards({ question, synthesis, evidence = [], includeDebug = false }) {
+  const visualPlan = buildVisualArtifactPlan({ question, synthesis, evidence, includeDebug });
 
-  if (dashboardCard) {
-    return [dashboardCard];
+  if (visualPlan.card) {
+    return [visualPlan.card];
   }
 
   return [];
@@ -1789,14 +2094,13 @@ async function generateRecommendation({
     plan,
     evidence: databaseEvidence,
   });
-  const cards = buildCards({
+  const visualPlan = buildVisualArtifactPlan({
     question,
-    plan,
     synthesis,
-    confidence,
-    sources,
     evidence: databaseEvidence,
+    includeDebug,
   });
+  const cards = visualPlan.card ? [visualPlan.card] : [];
   const quantFindings = buildQuantFindings({
     question,
     evidence: databaseEvidence,
@@ -1830,6 +2134,7 @@ async function generateRecommendation({
           synthesis_mode: synthesisMode,
           synthesis_model: synthesisModel,
           has_structured_output: Boolean(extractStructuredOutput(openAIResponse)),
+          visual_generation: visualPlan.debug,
           safety,
         }
       : undefined,
@@ -1841,6 +2146,7 @@ function validateRequest(body) {
 }
 
 export {
+  buildVisualArtifactPlan,
   generateRecommendation,
   parseJsonBody,
   validateRequest,
