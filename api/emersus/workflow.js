@@ -1159,7 +1159,7 @@ function buildCards({ question, plan, synthesis, confidence, sources, evidence }
   const shouldShowCards =
     sources.length >= 2 &&
     Number(confidence.score || 0) >= 0.65 &&
-    actionColumns.length >= 2;
+    (actionColumns.length >= 1 || Array.isArray(synthesis.limitations) && synthesis.limitations.length > 0);
 
   if (!shouldShowCards) {
     return [];
