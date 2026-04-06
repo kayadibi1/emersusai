@@ -377,12 +377,14 @@
     }
 
     .chat-card {
-      border: 1px solid var(--line);
       border-radius: 12px;
       background:
-        radial-gradient(circle at top left, rgba(109, 159, 255, 0.05), transparent 26%),
-        rgba(255, 255, 255, 0.03);
+        radial-gradient(circle at top left, rgba(133, 173, 255, 0.08), transparent 32%),
+        linear-gradient(135deg, rgba(35, 38, 42, 0.82), rgba(17, 20, 23, 0.9));
       padding: 0.95rem 1rem;
+      box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.045),
+        0 22px 58px rgba(0, 0, 0, 0.18);
     }
 
     .chat-bubble {
@@ -408,8 +410,9 @@
       justify-content: space-between;
       gap: 0.9rem;
       padding: 0.8rem 0.95rem;
-      background: rgba(255, 255, 255, 0.025);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      background: linear-gradient(90deg, rgba(35, 38, 42, 0.92), rgba(17, 20, 23, 0.72));
+      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.035);
+      cursor: pointer;
     }
 
     .chat-tool-card.is-running .chat-tool-header {
@@ -432,21 +435,20 @@
       background: transparent;
       color: var(--muted);
       padding: 0;
-      font-size: 0.9rem;
+      font-size: 1.12rem;
       line-height: 1;
+      cursor: pointer;
     }
 
     .chat-tool-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-width: 1.25rem;
-      color: var(--primary-dim);
-      font-family: "Space Grotesk", sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      width: 1.35rem;
+      min-width: 1.35rem;
+      color: var(--primary);
+      font-size: 1.04rem;
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 20;
     }
 
     .chat-tool-title-group {
@@ -496,12 +498,19 @@
     }
 
     .chat-tool-status-icon {
-      font-size: 0.7rem;
+      font-size: 0.9rem;
+      font-variation-settings: "FILL" 0, "wght" 500, "GRAD" 0, "opsz" 20;
       line-height: 1;
     }
 
     .chat-tool-body {
       border-top: 0;
+      padding: 0.9rem 0.95rem 1rem;
+      background: rgba(12, 14, 17, 0.34);
+    }
+
+    .chat-tool-card.is-collapsed .chat-tool-header {
+      box-shadow: none;
     }
 
     .chat-tool-copy {
@@ -519,7 +528,7 @@
       padding: 0.7rem 0.8rem;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
       color: rgba(255, 255, 255, 0.74);
       font-size: 0.8rem;
     }
@@ -546,7 +555,7 @@
       overflow: auto;
       border-radius: 10px;
       background: rgba(8, 10, 14, 0.92);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
       padding: 0.85rem 0.9rem;
       color: rgba(255, 255, 255, 0.84);
       font-size: 0.8rem;
@@ -567,7 +576,7 @@
       padding: 0.75rem 0.8rem;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
     }
 
     .chat-search-title,
@@ -658,7 +667,7 @@
       padding: 0.72rem 0.78rem;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
     }
 
     .chat-viz-chip-label {
@@ -679,11 +688,11 @@
     .chat-viz-journal-item {
       grid-template-columns: minmax(0, 1fr) auto;
       padding: 0.42rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.035);
     }
 
     .chat-viz-journal-item:last-child {
-      border-bottom: 0;
+      box-shadow: none;
     }
 
     .chat-viz-journal-name {
@@ -703,7 +712,7 @@
       padding: 0.78rem 0.82rem;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
     }
 
     .chat-quant-group-head {
@@ -732,7 +741,7 @@
       padding: 0.25rem 0.5rem;
       border-radius: 999px;
       background: rgba(159, 251, 0, 0.08);
-      border: 1px solid rgba(159, 251, 0, 0.12);
+      box-shadow: inset 0 0 0 1px rgba(159, 251, 0, 0.12);
     }
 
     .chat-quant-label,
@@ -938,7 +947,7 @@
       padding: 0.7rem 0.8rem;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
     }
 
     .chat-data-chip.is-good,
@@ -1060,8 +1069,7 @@
       padding: 0.78rem 0.85rem;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.02);
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      box-shadow: none;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
     }
 
     .chat-action-heading {
@@ -1092,7 +1100,7 @@
       padding: 0.7rem 0.75rem;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
     }
 
     .chat-metric-label {
@@ -1120,7 +1128,7 @@
       padding: 0.8rem;
       border-radius: 10px;
       background: rgba(255, 255, 255, 0.025);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.045);
     }
 
     .chat-source-item strong {
@@ -1140,6 +1148,27 @@
       color: var(--muted);
       font-size: 0.8rem;
       line-height: 1.45;
+    }
+
+    .chat-source-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      padding-top: 0.12rem;
+    }
+
+    .chat-source-link {
+      color: var(--primary);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+
+    .chat-source-link:hover {
+      color: var(--secondary);
     }
 
     .narrative-section ul,
@@ -2345,16 +2374,17 @@
         },
       ];
 
-      if (Array.isArray(data.quant_findings) && data.quant_findings.length) {
+      const assistantCards = Array.isArray(data.cards) ? data.cards : [];
+      assistantCards.forEach((card) => {
+        if (!card || typeof card !== "object") {
+          return;
+        }
         blocks.push({
           type: "tool_result",
-          tool: "quant_viz",
-          data: {
-            title: "Quantitative findings",
-            findings: data.quant_findings,
-          },
+          tool: "insight_card",
+          data: card,
         });
-      }
+      });
 
       return blocks;
     }
