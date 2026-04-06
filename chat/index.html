@@ -1628,7 +1628,8 @@
   </style>
 </head>
 <body class="chat-page">
-  <div class="chat-app-shell">
+  <div id="chat-root"></div>
+  <div class="chat-app-shell legacy-chat-shell" hidden>
     <aside class="chat-nav">
       <div class="chat-brand">
         <div class="chat-brand-head">
@@ -1731,7 +1732,8 @@
     </aside>
   </div>
 
-  <script type="module">
+  <script type="module" src="/shared/react-chat-app.js"></script>
+  <script type="text/plain" data-legacy-chat-script>
     import {
       listChatThreads,
       requireAuth,
