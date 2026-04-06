@@ -1119,6 +1119,12 @@ function buildActionColumns({ recommendations, topic }) {
   return columns.slice(0, 3);
 }
 
+function wantsVisualCards(question) {
+  return /\b(card|cards|visual|visuals|graphic|graphics|graph|chart|diagram|dashboard|evidence card|source card|show me)\b/i.test(
+    String(question || "")
+  );
+}
+
 function cleanSourceTakeaway(value) {
   return normalizeText(
     String(value || "")
@@ -1156,9 +1162,11 @@ function buildCards({ question, plan, synthesis, confidence, sources, evidence }
     recommendations: synthesis.recommendations,
     topic: plan.topic,
   });
+  const visualRequested = wantsVisualCards(question);
+  const minimumConfidence = visualRequested ? 0.48 : 0.65;
   const shouldShowCards =
     sources.length >= 2 &&
-    Number(confidence.score || 0) >= 0.65;
+    Number(confidence.score || 0) >= minimumConfidence;
 
   if (!shouldShowCards) {
     return [];
