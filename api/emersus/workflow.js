@@ -744,6 +744,7 @@ function buildSynthesisInput({
     normalizedThreadState,
     normalizedRecentMessages
   );
+  const visualRequested = wantsVisualCards(question);
 
   return [
     {
@@ -758,6 +759,9 @@ function buildSynthesisInput({
           "Do not invent sources. Do not return JSON.",
           "Return plain text only.",
           "Start with a direct answer in normal prose.",
+          visualRequested
+            ? "The server will render any requested visual separately. Do not create ASCII diagrams, markdown diagrams, Mermaid, code blocks, flowcharts, tables, or text-only diagram layouts in the answer."
+            : "",
           "Use a short bullet list only when it genuinely helps the user act on the answer.",
           "Do not use section headings like SUMMARY, TRAINING, NUTRITION, MENTAL PERFORMANCE, CONFIDENCE, or LIMITATIONS.",
           "Do not mention confidence scores, confidence labels, or system-status concepts in the answer.",
@@ -782,6 +786,9 @@ function buildSynthesisInput({
             "Use the retrieved evidence as the main basis for the answer.",
             "Use thread memory only to resolve references like 'it', 'that', follow-up population changes, or comparison carryover.",
             "Make the recommendations specific and useful.",
+            visualRequested
+              ? "If the user asks for a visual, keep the prose answer to a concise intro/explanation and do not duplicate the visual as text."
+              : "",
             "If the evidence is limited or mixed, explain that naturally in the prose instead of using a dedicated limitations section.",
             "Do not include irrelevant training, nutrition, or mental-performance advice.",
             "If the question touches medical or medication risk, stay high level and do not give diagnosis or personalized medication advice.",
@@ -1083,6 +1090,48 @@ function normalizeSynthesisPayload(text) {
       general: normalizeList(genericBullets, 8, 240),
     },
     limitations: [],
+  };
+}
+
+function removeTextDiagramArtifacts(text) {
+  return String(text || "")
+    .replace(/```[\s\S]*?```/g, "")
+    .split(/\r?\n/)
+    .filter((line) => {
+      const trimmed = line.trim();
+      if (!trimmed) return true;
+      if (/[┌┐└┘├┤┬┴┼─│╔╗╚╝═║]/.test(trimmed)) return false;
+      if (/(-->|->|=>|→|↓|↑|⇢|➜|⟶)/.test(trimmed)) return false;
+      if (/^\s*(?:\||\+[-+]+\+|[-=]{3,})/.test(line)) return false;
+      if (/^\s*(?:step\s*)?\d+[\).\s-]+.+(?:to|then|next|->|→)/i.test(line)) return false;
+      return true;
+    })
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
+function sanitizeSynthesisForVisualIntent(question, synthesis) {
+  if (!synthesis || !wantsVisualCards(question)) {
+    return synthesis;
+  }
+
+  const artifactType = inferVisualArtifactType(
+    question,
+    `${synthesis.answer_text || ""} ${synthesis.summary || ""}`
+  );
+
+  if (artifactType !== "diagram") {
+    return synthesis;
+  }
+
+  const answerText = removeTextDiagramArtifacts(synthesis.answer_text || synthesis.summary);
+  const summary = removeTextDiagramArtifacts(synthesis.summary || answerText);
+
+  return {
+    ...synthesis,
+    summary: summary || "Here is the diagram.",
+    answer_text: answerText || summary || "Here is the diagram.",
   };
 }
 
@@ -2296,6 +2345,8 @@ async function generateRecommendation({
       evidenceCount: databaseEvidence.length,
     });
   }
+
+  synthesis = sanitizeSynthesisForVisualIntent(question, synthesis);
 
   const sources = normalizeSources(databaseEvidence);
   const confidence = computeConfidence({

@@ -580,12 +580,13 @@ function buildVisualArtifactMarkup(card) {
 }
 
 function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics = [], sources = [], panels = [] }) {
+  const isVisualArtifact = card?.type === "visual_artifact";
   const safeTitle = escapeHtml(title);
-  const safeBody = escapeHtml(trimSnippet(card?.body || card?.footnote || "", 260));
+  const safeBody = isVisualArtifact ? "" : escapeHtml(trimSnippet(card?.body || card?.footnote || "", 260));
   const safeMetrics = metrics.slice(0, 4);
   const safeSources = sources.slice(0, 3);
   const safePanels = panels.slice(0, 4);
-  const artifactMarkup = card?.type === "visual_artifact" ? buildVisualArtifactMarkup(card) : "";
+  const artifactMarkup = isVisualArtifact ? buildVisualArtifactMarkup(card) : "";
   const metricMarkup = buildMetricGridMarkup(safeMetrics);
   const sourceMarkup = safeSources
     .map((source, index) => `
@@ -699,9 +700,9 @@ function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics
 </head>
 <body>
   <main class="vis-container">
-    <p class="section-label">${safeTitle}</p>
+    ${isVisualArtifact ? "" : `<p class="section-label">${safeTitle}</p>`}
     <section class="hero">
-      <h1>${escapeHtml(card?.title || "Generated dashboard")}</h1>
+      ${isVisualArtifact ? "" : `<h1>${escapeHtml(card?.title || "Generated dashboard")}</h1>`}
       ${safeBody ? `<p class="body">${safeBody}</p>` : ""}
       ${artifactMarkup || (metricMarkup ? `<div class="metric-grid">${metricMarkup}</div>` : "")}
       ${panelMarkup ? `<section class="panel-grid">${panelMarkup}</section>` : ""}
