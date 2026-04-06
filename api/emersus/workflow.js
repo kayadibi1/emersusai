@@ -1125,6 +1125,106 @@ function wantsVisualCards(question) {
   );
 }
 
+function inferDashboardTitle(question) {
+  const text = normalizeText(question, 180);
+  if (/market|investor|funding|vc|venture|business|startup/i.test(text)) {
+    return "Market and investor viability";
+  }
+  if (/compare|versus|\bvs\b/i.test(text)) {
+    return "Comparison dashboard";
+  }
+  if (/roadmap|plan|strategy/i.test(text)) {
+    return "Strategy dashboard";
+  }
+  return text ? `${text.replace(/[?.!]+$/, "")} dashboard` : "Generated dashboard";
+}
+
+function labelMetricFromContext(context, fallbackLabel) {
+  const text = String(context || "").toLowerCase();
+  if (/market|tam|size|segment/.test(text)) return "Market size";
+  if (/cagr|growth|growing|projected|reach/.test(text)) return "Growth rate";
+  if (/funding|raised|vc|venture|capital/.test(text)) return "Funding signal";
+  if (/investor|support|backing|valuation/.test(text)) return "Investor signal";
+  if (/share|percent|captured/.test(text)) return "Share";
+  if (/valuation/.test(text)) return "Valuation";
+  return fallbackLabel;
+}
+
+function extractDashboardMetrics(text, maxItems = 4) {
+  const normalized = String(text || "").replace(/\s+/g, " ");
+  const pattern = /(?:[$]\s?\d+(?:\.\d+)?\s?(?:billion|million|bn|m|b)?|\d+(?:\.\d+)?\s?%|\d+(?:\.\d+)?\s?x)/gi;
+  const metrics = [];
+  const seen = new Set();
+  let match;
+
+  while ((match = pattern.exec(normalized)) && metrics.length < maxItems) {
+    const value = normalizeText(match[0].replace(/\s+/g, ""), 28)
+      .replace(/billion/i, "B")
+      .replace(/million/i, "M")
+      .replace(/bn/i, "B");
+    if (seen.has(value.toLowerCase())) {
+      continue;
+    }
+    seen.add(value.toLowerCase());
+    const start = Math.max(0, match.index - 95);
+    const end = Math.min(normalized.length, match.index + match[0].length + 120);
+    const context = normalized.slice(start, end);
+    metrics.push({
+      label: labelMetricFromContext(context, `Metric ${metrics.length + 1}`),
+      value,
+      detail: trimSentence(context.replace(match[0], ""), 72),
+      tone: metrics.length === 0 ? "good" : metrics.length === 1 ? "medium" : "strong",
+    });
+  }
+
+  return metrics;
+}
+
+function trimSentence(value, maxLength = 120) {
+  return normalizeText(String(value || "").replace(/^[,.;:\s-]+|[,.;:\s-]+$/g, ""), maxLength);
+}
+
+function buildDashboardPanels(text) {
+  const sentences = splitSentences(text).slice(0, 4);
+  const labels = ["Market signal", "Investor signal", "Differentiation", "Risk / nuance"];
+  return sentences.map((sentence, index) => ({
+    label: labels[index] || `Signal ${index + 1}`,
+    body: normalizeText(sentence, 180),
+    tone: index === 0 ? "good" : index === 3 ? "caution" : "medium",
+  }));
+}
+
+function buildVisualDashboardCard({ question, synthesis }) {
+  if (!wantsVisualCards(question)) {
+    return null;
+  }
+
+  const answerText = synthesis.answer_text || synthesis.summary || "";
+  const metrics = extractDashboardMetrics(answerText);
+  const panels = buildDashboardPanels(answerText);
+
+  if (!metrics.length && !panels.length) {
+    return null;
+  }
+
+  return {
+    type: "dashboard_artifact",
+    title: inferDashboardTitle(question),
+    eyebrow: "Generated visual dashboard",
+    body: normalizeText(synthesis.summary || answerText, 260),
+    metrics:
+      metrics.length > 0
+        ? metrics
+        : panels.slice(0, 4).map((panel, index) => ({
+            label: panel.label,
+            value: index === 0 ? "High" : index === 1 ? "Medium" : "Signal",
+            detail: panel.body,
+            tone: panel.tone,
+          })),
+    panels,
+  };
+}
+
 function cleanSourceTakeaway(value) {
   return normalizeText(
     String(value || "")
@@ -1135,7 +1235,20 @@ function cleanSourceTakeaway(value) {
   );
 }
 
-function buildCards({ question, plan, synthesis, confidence, sources, evidence }) {
+function buildCards({ question, synthesis }) {
+  const dashboardCard = buildVisualDashboardCard({ question, synthesis });
+
+  if (dashboardCard) {
+    return [dashboardCard];
+  }
+
+  return [];
+}
+
+/*
+Legacy evidence-card builder retained temporarily for reference while the UI
+transition moves from internal evidence widgets to prompt-specific dashboards.
+
   const topSource = sources[0] || evidence[0] || null;
   const recentSourceCount = sources.filter(
     (source) => Number(source.freshness_score || 0) >= 0.82
@@ -1287,7 +1400,7 @@ function buildCards({ question, plan, synthesis, confidence, sources, evidence }
   }
 
   return cards;
-}
+*/
 
 function normalizeSources(evidence) {
   return evidence.slice(0, 6).map((source) => ({

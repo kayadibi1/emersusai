@@ -35,6 +35,15 @@ function trimSnippet(value, maxLength = 180) {
   return text.length > maxLength ? `${text.slice(0, maxLength - 1).trim()}...` : text;
 }
 
+function escapeHtml(value) {
+  return String(value || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function normalizeCompactList(values, maxItems = 6, maxLength = 80) {
   return (Array.isArray(values) ? values : [])
     .map((value) => normalizeText(value, maxLength))
@@ -302,7 +311,7 @@ function StatusBadge({ status = "Done", isError = false, isRunning = false }) {
   );
 }
 
-function ToolCard({ tool = "insight_card", title = "", status = "Done", children, bodyClass = "" }) {
+function ToolCard({ tool = "insight_card", title = "", subtitle = "", status = "Done", children, bodyClass = "" }) {
   const [expanded, setExpanded] = useState(true);
   const Icon = tool === "sources_card" ? Library : tool === "search" ? Search : tool === "metrics_card" ? Activity : FlaskConical;
   return h(
@@ -340,7 +349,7 @@ function ToolCard({ tool = "insight_card", title = "", status = "Done", children
           "div",
           { className: "chat-tool-title-group" },
           h("strong", { className: "chat-tool-title" }, normalizeText(title || "Evidence card", 60)),
-          h("span", { className: "chat-tool-subtitle" }, tool === "sources_card" ? "Sources" : "Evidence card")
+          h("span", { className: "chat-tool-subtitle" }, subtitle || (tool === "sources_card" ? "Sources" : "Generated visual"))
         )
       ),
       h(StatusBadge, { status })
@@ -374,28 +383,136 @@ function TextBlock({ text, role = "assistant" }) {
   );
 }
 
+function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics = [], sources = [], panels = [] }) {
+  const safeTitle = escapeHtml(title);
+  const safeBody = escapeHtml(trimSnippet(card?.body || card?.footnote || "", 260));
+  const safeMetrics = metrics.slice(0, 4);
+  const safeSources = sources.slice(0, 3);
+  const safePanels = panels.slice(0, 4);
+
+  const metricMarkup = safeMetrics
+    .map((metric) => {
+      const tone = toneClass(metric?.tone) || "is-medium";
+      return `
+        <div class="metric ${tone}">
+          <div class="metric-val">${escapeHtml(metric?.value || "")}</div>
+          <div class="metric-lbl">${escapeHtml(metric?.label || "")}</div>
+          <div class="metric-sub">${escapeHtml(metric?.detail || "")}</div>
+        </div>`;
+    })
+    .join("");
+
+  const sourceMarkup = safeSources
+    .map((source, index) => `
+      <article class="source-row">
+        <span class="source-index">${index + 1}</span>
+        <div>
+          <strong>${escapeHtml(source?.title || "Source")}</strong>
+          <p>${escapeHtml(source?.meta || source?.takeaway || "")}</p>
+        </div>
+      </article>`)
+    .join("");
+
+  const panelMarkup = safePanels
+    .map((panel) => `
+      <article class="signal-panel ${toneClass(panel?.tone)}">
+        <p>${escapeHtml(panel?.label || "Signal")}</p>
+        <strong>${escapeHtml(panel?.body || "")}</strong>
+      </article>`)
+    .join("");
+
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root { color-scheme: dark; --bg:#11110f; --panel:#191917; --ink:#f4f1e8; --muted:#aaa59a; --line:#3a3833; --accent:#d8b46a; --green:#9ffb00; --blue:#85adff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 12% 0%, rgba(216,180,106,.16), transparent 32%), linear-gradient(135deg,#11110f,#171613); color: var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .vis-container { padding: 18px; min-height: 100%; }
+    .section-label { margin: 0 0 10px; color: var(--muted); font-size: 12px; letter-spacing: .02em; }
+    .hero { display: grid; gap: 10px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,.035); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
+    h1 { margin: 0; max-width: 760px; color: var(--ink); font-size: clamp(22px, 3.3vw, 38px); line-height: 1.02; letter-spacing: -.045em; }
+    .body { margin: 0; max-width: 760px; color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .metric-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; margin-top: 14px; }
+    .metric { min-height: 112px; display: grid; align-content: end; gap: 5px; padding: 14px; border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.075); position: relative; overflow: hidden; }
+    .metric::before { content:""; position:absolute; inset:auto 12px 12px auto; width:48px; height:48px; border-radius:50%; background: rgba(216,180,106,.16); filter: blur(4px); }
+    .metric.is-good::before { background: rgba(159,251,0,.18); }
+    .metric.is-medium::before { background: rgba(133,173,255,.18); }
+    .metric.is-caution::before { background: rgba(255,191,84,.18); }
+    .metric-val { position: relative; font-size: 25px; font-weight: 760; letter-spacing: -.04em; }
+    .metric-lbl { position: relative; color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; }
+    .metric-sub { position: relative; color: rgba(244,241,232,.62); font-size: 12px; min-height: 1em; }
+    .panel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
+    .signal-panel { min-height: 110px; display: grid; align-content: start; gap: 8px; padding: 14px; border-radius: 16px; background: rgba(0,0,0,.18); box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
+    .signal-panel p { margin: 0; color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .11em; }
+    .signal-panel strong { color: rgba(244,241,232,.9); font-size: 14px; line-height: 1.45; font-weight: 650; }
+    .signal-panel.is-caution p { color: #ffbf54; }
+    .signal-panel.is-good p { color: var(--green); }
+    .signal-panel.is-medium p { color: var(--blue); }
+    .source-panel { display: grid; gap: 8px; margin-top: 12px; }
+    .source-row { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 10px; align-items: start; padding: 10px 12px; border-radius: 14px; background: rgba(0,0,0,.18); }
+    .source-index { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 999px; background: rgba(216,180,106,.16); color: var(--accent); font-weight: 800; font-size: 12px; }
+    .source-row strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
+    .source-row p { margin: 3px 0 0; color: var(--muted); font-size: 12px; line-height: 1.35; }
+    @media (max-width: 640px) { .metric-grid, .panel-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } .vis-container { padding: 12px; } }
+  </style>
+</head>
+<body>
+  <main class="vis-container">
+    <p class="section-label">${safeTitle}</p>
+    <section class="hero">
+      <h1>${escapeHtml(card?.title || "Generated dashboard")}</h1>
+      ${safeBody ? `<p class="body">${safeBody}</p>` : ""}
+      <div class="metric-grid">${metricMarkup}</div>
+      ${panelMarkup ? `<section class="panel-grid">${panelMarkup}</section>` : ""}
+      ${sourceMarkup ? `<section class="source-panel">${sourceMarkup}</section>` : ""}
+    </section>
+  </main>
+</body>
+</html>`;
+}
+
+function EvidenceArtifact({ card, title, metrics = [], sources = [], panels = [] }) {
+  const srcDoc = useMemo(
+    () => buildEvidenceArtifactDoc({ card, title, metrics, sources, panels }),
+    [card, title, metrics, sources, panels]
+  );
+
+  return h(
+    "div",
+    { className: "chat-artifact-container" },
+    h("iframe", {
+      className: "chat-artifact-frame",
+      title,
+      sandbox: "allow-scripts allow-same-origin",
+      srcDoc,
+    })
+  );
+}
+
 function VerdictHero({ card }) {
   const metrics = Array.isArray(card?.metrics) ? card.metrics.slice(0, 4) : [];
   return h(
     ToolCard,
     { title: card?.eyebrow || "Evidence Verdict", bodyClass: "chat-insight-card" },
-    h("h3", { className: "chat-insight-title" }, normalizeText(card?.title || "Evidence snapshot", 180)),
-    card?.body ? h("p", { className: "chat-insight-copy" }, trimSnippet(card.body, 220)) : null,
-    metrics.length
-      ? h("div", { className: "chat-chip-row" }, metrics.map((metric, index) =>
-          h("div", { key: index, className: `chat-data-chip ${toneClass(metric?.tone)}`.trim() },
-            h("span", { className: "chat-data-chip-label" }, normalizeText(metric?.label || "", 40)),
-            h("strong", { className: "chat-data-chip-value" }, normalizeText(metric?.value || "", 60)))))
-      : null,
-    metrics.length
-      ? h("div", { className: "chat-comparison-bars" }, metrics.map((metric, index) =>
-          h("div", { key: index, className: "chat-comparison-row" },
-            h("div", { className: "chat-comparison-head" },
-              h("span", { className: "chat-comparison-label" }, normalizeText(metric?.label || "", 40)),
-              h("span", { className: "chat-comparison-value" }, normalizeText(metric?.value || "", 60))),
-            h("div", { className: "chat-comparison-track" },
-              h("div", { className: `chat-comparison-fill ${toneClass(metric?.tone)}`.trim(), style: { width: `${Math.round(toneWeight(metric?.tone) * 100)}%` } })))))
-      : null
+    h(EvidenceArtifact, { card, title: card?.eyebrow || "Evidence Verdict", metrics })
+  );
+}
+
+function DashboardArtifact({ card }) {
+  const metrics = Array.isArray(card?.metrics) ? card.metrics.slice(0, 4) : [];
+  const panels = Array.isArray(card?.panels) ? card.panels.slice(0, 4) : [];
+  return h(
+    ToolCard,
+    { title: card?.eyebrow || "Generated dashboard", subtitle: "Sandboxed visual artifact", bodyClass: "chat-insight-card" },
+    h(EvidenceArtifact, {
+      card,
+      title: card?.eyebrow || "Generated dashboard",
+      metrics,
+      panels,
+    })
   );
 }
 
@@ -439,24 +556,28 @@ function Watchouts({ card }) {
 function SourceHighlights({ card }) {
   const items = Array.isArray(card?.items) ? card.items.slice(0, 3) : [];
   if (!items.length) return null;
+  const metrics = [
+    { label: "Sources", value: String(items.length), tone: "good", detail: "Top retrieved" },
+    { label: "Evidence", value: "Ranked", tone: "medium", detail: "By retrieval score" },
+    { label: "Links", value: String(items.reduce((count, item) => count + (Array.isArray(item?.links) ? item.links.length : 0), 0)), tone: "medium", detail: "Available" },
+    { label: "Use", value: "Context", tone: "good", detail: "Best anchors" },
+  ];
   return h(
     ToolCard,
     { tool: "sources_card", title: card?.title || "Best sources", bodyClass: "chat-source-preview" },
-    items.map((item, index) =>
-      h("article", { key: index, className: "chat-source-item" },
-        h("strong", null, normalizeText(item?.title || "Source", 140)),
-        item?.meta ? h("div", { className: "chat-source-meta" }, normalizeText(item.meta, 160)) : null,
-        item?.takeaway ? h("p", null, trimSnippet(item.takeaway, 220)) : null,
-        Array.isArray(item?.links) && item.links.length
-          ? h("div", { className: "chat-source-links" }, item.links.slice(0, 2).map((link, linkIndex) =>
-              link?.url ? h("a", { key: linkIndex, className: "chat-source-link", href: link.url, target: "_blank", rel: "noopener noreferrer" }, normalizeText(link?.label || "Open", 40)) : null))
-          : null))
+    h(EvidenceArtifact, {
+      card: { ...card, title: card?.title || "Best sources", body: "Top retrieved evidence anchors for this answer." },
+      title: card?.title || "Best sources",
+      metrics,
+      sources: items,
+    })
   );
 }
 
 function InsightCard({ block }) {
   const card = block?.data || {};
   const type = String(card?.type || "").toLowerCase();
+  if (type === "dashboard_artifact") return h(DashboardArtifact, { card });
   if (type === "verdict_hero") return h(VerdictHero, { card });
   if (type === "evidence_profile") return h(EvidenceProfile, { card });
   if (type === "action_grid") return h(ActionGrid, { card });
