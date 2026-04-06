@@ -417,6 +417,238 @@
       gap: 0.75rem;
     }
 
+    .chat-insight-card {
+      gap: 0.8rem;
+    }
+
+    .chat-insight-title {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.08rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.2;
+    }
+
+    .chat-insight-copy,
+    .chat-card-footnote {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.78);
+      font-size: 0.92rem;
+      line-height: 1.55;
+    }
+
+    .chat-chip-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 0.6rem;
+    }
+
+    .chat-comparison-bars {
+      display: grid;
+      gap: 0.44rem;
+      padding-top: 0.05rem;
+    }
+
+    .chat-comparison-row {
+      display: grid;
+      gap: 0.22rem;
+    }
+
+    .chat-comparison-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .chat-comparison-label,
+    .chat-comparison-value,
+    .chat-sparkline-label {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .chat-comparison-label,
+    .chat-sparkline-label {
+      color: var(--muted);
+    }
+
+    .chat-comparison-value {
+      color: rgba(255, 255, 255, 0.72);
+    }
+
+    .chat-comparison-track {
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      overflow: hidden;
+    }
+
+    .chat-comparison-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(109, 159, 255, 0.85), rgba(159, 251, 0, 0.82));
+    }
+
+    .chat-comparison-fill.is-caution {
+      background: linear-gradient(90deg, rgba(255, 191, 84, 0.92), rgba(255, 150, 64, 0.82));
+    }
+
+    .chat-data-chip {
+      display: grid;
+      gap: 0.18rem;
+      padding: 0.7rem 0.8rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .chat-data-chip.is-good,
+    .chat-score-fill.is-good,
+    .chat-action-panel.is-good {
+      box-shadow: inset 0 0 0 1px rgba(159, 251, 0, 0.12);
+    }
+
+    .chat-data-chip.is-medium,
+    .chat-score-fill.is-medium,
+    .chat-action-panel.is-medium {
+      box-shadow: inset 0 0 0 1px rgba(109, 159, 255, 0.12);
+    }
+
+    .chat-data-chip.is-caution,
+    .chat-score-fill.is-caution,
+    .chat-action-panel.is-caution {
+      box-shadow: inset 0 0 0 1px rgba(255, 191, 84, 0.14);
+    }
+
+    .chat-data-chip-label,
+    .chat-score-label,
+    .chat-action-heading {
+      color: var(--muted);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.66rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .chat-data-chip-value {
+      color: var(--ink);
+      font-size: 0.96rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .chat-score-list {
+      display: grid;
+      gap: 0.62rem;
+    }
+
+    .chat-score-row {
+      display: grid;
+      gap: 0.32rem;
+    }
+
+    .chat-score-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .chat-score-value {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .chat-score-track {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .chat-score-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(109, 159, 255, 0.9), rgba(159, 251, 0, 0.85));
+      box-shadow: none;
+    }
+
+    .chat-score-fill.is-caution {
+      background: linear-gradient(90deg, rgba(255, 191, 84, 0.95), rgba(255, 150, 64, 0.85));
+    }
+
+    .chat-sparkline {
+      display: grid;
+      gap: 0.28rem;
+      padding-top: 0.1rem;
+    }
+
+    .chat-sparkline svg {
+      width: 100%;
+      height: 54px;
+      overflow: visible;
+    }
+
+    .chat-sparkline-line {
+      fill: none;
+      stroke: rgba(159, 251, 0, 0.92);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .chat-sparkline-area {
+      fill: rgba(109, 159, 255, 0.12);
+    }
+
+    .chat-sparkline-dot {
+      fill: rgba(255, 255, 255, 0.9);
+      stroke: rgba(159, 251, 0, 0.92);
+      stroke-width: 1.4;
+    }
+
+    .chat-action-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.65rem;
+    }
+
+    .chat-action-panel {
+      display: grid;
+      gap: 0.5rem;
+      padding: 0.78rem 0.85rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: none;
+    }
+
+    .chat-action-heading {
+      margin: 0;
+    }
+
+    .chat-action-list,
+    .chat-watchout-list {
+      margin: 0;
+      padding-left: 1rem;
+      display: grid;
+      gap: 0.28rem;
+    }
+
+    .chat-action-list li,
+    .chat-watchout-list li {
+      color: rgba(255, 255, 255, 0.84);
+      line-height: 1.5;
+    }
+
     .chat-metric-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
@@ -1680,25 +1912,28 @@
         },
       ];
 
-      if (Array.isArray(data.sources) && data.sources.length) {
+      if (Array.isArray(data.cards) && data.cards.length) {
+        data.cards
+          .filter((card) => card && card.type !== "source_highlights")
+          .forEach((card) => {
+            blocks.push({
+              type: "tool_result",
+              tool: "insight_card",
+              data: card,
+            });
+          });
+      } else {
         blocks.push({
           type: "tool_result",
-          tool: "sources_card",
-          title: "Top Sources",
-          data: data.sources.slice(0, 3),
+          tool: "metrics_card",
+          title: "System Status",
+          data: {
+            confidence: data.confidence || {},
+            sourceCount: Array.isArray(data.sources) ? data.sources.length : 0,
+            synthesisMode: data.debug?.synthesis_mode || (data.summary ? "synthesized" : "idle"),
+          },
         });
       }
-
-      blocks.push({
-        type: "tool_result",
-        tool: "metrics_card",
-        title: "System Status",
-        data: {
-          confidence: data.confidence || {},
-          sourceCount: Array.isArray(data.sources) ? data.sources.length : 0,
-          synthesisMode: data.debug?.synthesis_mode || (data.summary ? "synthesized" : "idle"),
-        },
-      });
 
       return blocks;
     }
