@@ -1367,13 +1367,68 @@ function buildChartArtifact({ question, synthesis, evidence, includeDebug = fals
   };
 }
 
+function buildDiagramFallbackNodes(question) {
+  const prompt = normalizeText(question, 260).toLowerCase();
+
+  if (/emersus|evidence|coaching/.test(prompt)) {
+    return [
+      {
+        label: "Retrieve evidence",
+        detail: "Find relevant PubMed and PMC material for the user's question.",
+      },
+      {
+        label: "Rank and filter",
+        detail: "Keep the strongest, most relevant studies and remove weak matches.",
+      },
+      {
+        label: "Synthesize answer",
+        detail: "Turn the evidence into a clear recommendation with limits and confidence.",
+      },
+      {
+        label: "Personalize coaching",
+        detail: "Adapt the recommendation to the user's goal, profile, and context.",
+      },
+      {
+        label: "Show next action",
+        detail: "Present practical coaching steps the user can follow or refine.",
+      },
+    ];
+  }
+
+  const flowMatch = prompt.match(/(?:how|show me).*?(?:turns?|goes?|converts?|from)\s+(.+?)\s+(?:into|to)\s+(.+?)(?:$|[?.!])/i);
+  if (flowMatch) {
+    const start = normalizeText(flowMatch[1], 52);
+    const end = normalizeText(flowMatch[2], 52);
+    return [
+      { label: titleCase(start), detail: "Start with the input or source material." },
+      { label: "Process", detail: "Filter, organize, and interpret the relevant information." },
+      { label: "Decision layer", detail: "Choose the most useful conclusion or path forward." },
+      { label: titleCase(end), detail: "Deliver the final output in a usable form." },
+    ];
+  }
+
+  return [
+    { label: "Input", detail: "Start with the user's request or source material." },
+    { label: "Interpret", detail: "Identify the important entities, steps, and relationships." },
+    { label: "Transform", detail: "Organize the material into a clear sequence." },
+    { label: "Output", detail: "Return a useful answer or artifact." },
+  ];
+}
+
 function buildDiagramArtifact({ question, synthesis, includeDebug = false }) {
   const sentences = splitSentences(synthesis.answer_text || synthesis.summary).slice(0, 5);
-  const nodes = sentences.map((sentence, index) => ({
+  const sourceNodes =
+    sentences.length >= 2
+      ? sentences.map((sentence) => ({
+          label: normalizeText(sentence.split(/[:;,.]/)[0] || "Step", 46),
+          detail: normalizeText(sentence, 100),
+        }))
+      : buildDiagramFallbackNodes(question);
+  const nodes = sourceNodes.map((node, index) => ({
     id: `node_${index + 1}`,
-    label: normalizeText(sentence.split(/[:;,.]/)[0] || `Step ${index + 1}`, 46),
-    detail: normalizeText(sentence, 100),
-    tone: index === 0 ? "blue" : index === sentences.length - 1 ? "green" : "amber",
+    label: normalizeText(node.label || `Step ${index + 1}`, 46),
+    detail: normalizeText(node.detail || "", 100),
+    tone: index === 0 ? "blue" : index === sourceNodes.length - 1 ? "green" : "amber",
   }));
 
   if (nodes.length < 2) {

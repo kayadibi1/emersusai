@@ -53,6 +53,18 @@ const suppressed = buildVisualArtifactPlan({
 assert.equal(suppressed.card, null);
 assert.equal(suppressed.debug.reason, "no_visual_intent");
 
+const shortAnswerDiagram = buildVisualArtifactPlan({
+  question: "Show me a diagram of how Emersus turns evidence into coaching",
+  synthesis: {
+    summary: "Here is the diagram.",
+    answer_text: "Here is the diagram.",
+  },
+  evidence: [],
+  includeDebug: true,
+});
+assert.equal(shortAnswerDiagram.card?.artifact_type, "diagram");
+assert.ok(shortAnswerDiagram.card?.data?.nodes?.length >= 4);
+
 const chartTypes = [
   ["Show me a line chart of the market trend over time.", "timeline"],
   ["Show me a proportion chart of investor share and market share.", "proportion"],
