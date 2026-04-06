@@ -10,7 +10,8 @@
     "fill:pubmed:topics": "node scripts/fill-pmc-topics.js",
     "import:pubmed": "node scripts/import-pubmed.js",
     "embed:evidence": "node scripts/embed-evidence.js",
-    "test:retrieval": "node scripts/test-retrieval.js"
+    "test:retrieval": "node scripts/test-retrieval.js",
+    "test:visual-artifacts": "node scripts/test-visual-artifacts.js"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.101.1",
