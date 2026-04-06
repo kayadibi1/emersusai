@@ -140,7 +140,9 @@ export async function listChatThreads(userId) {
   const supabase = await getSupabase();
   const { data, error } = await supabase
     .from("chat_threads")
-    .select("id,user_id,title,preview,messages,sources,rail,created_at,updated_at")
+    .select(
+      "id,user_id,title,preview,messages,sources,rail,thread_state,created_at,updated_at"
+    )
     .eq("user_id", userId)
     .order("updated_at", { ascending: false });
 
@@ -161,6 +163,10 @@ export async function upsertChatThread(userId, thread) {
     messages: Array.isArray(thread.messages) ? thread.messages : [],
     sources: Array.isArray(thread.sources) ? thread.sources : [],
     rail: thread.rail && typeof thread.rail === "object" ? thread.rail : {},
+    thread_state:
+      thread.threadState && typeof thread.threadState === "object"
+        ? thread.threadState
+        : {},
     created_at: thread.createdAt || new Date().toISOString(),
     updated_at: thread.updatedAt || new Date().toISOString(),
   };
@@ -168,7 +174,9 @@ export async function upsertChatThread(userId, thread) {
   const { data, error } = await supabase
     .from("chat_threads")
     .upsert(payload, { onConflict: "id" })
-    .select("id,user_id,title,preview,messages,sources,rail,created_at,updated_at")
+    .select(
+      "id,user_id,title,preview,messages,sources,rail,thread_state,created_at,updated_at"
+    )
     .single();
 
   if (error) {

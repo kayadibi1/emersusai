@@ -1059,6 +1059,275 @@
       return String(profileName || "there").trim();
     }
 
+    function normalizeCompactText(value, maxLength = 240) {
+      return String(value || "").replace(/\s+/g, " ").trim().slice(0, maxLength);
+    }
+
+    function normalizeCompactList(values, maxItems = 6, maxLength = 80) {
+      if (!Array.isArray(values)) {
+        return [];
+      }
+
+      return values
+        .map((value) => normalizeCompactText(value, maxLength))
+        .filter(Boolean)
+        .filter((value, index, array) => array.indexOf(value) === index)
+        .slice(0, maxItems);
+    }
+
+    function createEmptyThreadState() {
+      return {
+        version: 1,
+        primary_topic: "",
+        secondary_topics: [],
+        goal_context: "",
+        question_mode: "",
+        recent_entities: [],
+        comparison_target: "",
+        population_context: [],
+        constraints: {
+          dietary: [],
+          injury: [],
+          equipment: [],
+          schedule: [],
+          sleep_stress: [],
+          medical_caution: [],
+        },
+        last_user_intent: "",
+        last_answer_summary: "",
+        thread_summary: "",
+        updated_at: "",
+      };
+    }
+
+    function mergeThreadState(rawState) {
+      const base = createEmptyThreadState();
+      const incoming = rawState && typeof rawState === "object" ? rawState : {};
+
+      return {
+        ...base,
+        ...incoming,
+        secondary_topics: normalizeCompactList(incoming.secondary_topics, 4),
+        recent_entities: normalizeCompactList(incoming.recent_entities, 8),
+        population_context: normalizeCompactList(incoming.population_context, 4),
+        constraints: {
+          ...base.constraints,
+          ...(incoming.constraints && typeof incoming.constraints === "object" ? incoming.constraints : {}),
+          dietary: normalizeCompactList(incoming?.constraints?.dietary, 4),
+          injury: normalizeCompactList(incoming?.constraints?.injury, 4),
+          equipment: normalizeCompactList(incoming?.constraints?.equipment, 4),
+          schedule: normalizeCompactList(incoming?.constraints?.schedule, 4),
+          sleep_stress: normalizeCompactList(incoming?.constraints?.sleep_stress, 4),
+          medical_caution: normalizeCompactList(incoming?.constraints?.medical_caution, 4),
+        },
+      };
+    }
+
+    function questionLooksLikeFollowUp(question) {
+      return /^(what about|how about|and for|compare that|compare it|does that|would that|what if|and if|for women|for men|for older adults|for beginners|for me)\b/i.test(
+        String(question || "").trim()
+      );
+    }
+
+    function inferPrimaryTopic(question, previousTopic = "") {
+      const text = String(question || "").toLowerCase();
+
+      if (!text) {
+        return previousTopic || "";
+      }
+
+      const topicMatchers = [
+        [/creatine/, "creatine"],
+        [/\bvo2\b|\bvo2 max\b|maximal oxygen uptake|cardiorespiratory fitness/, "vo2 max"],
+        [/resting heart rate|rhr/, "resting heart rate"],
+        [/ashwagandha/, "ashwagandha"],
+        [/tongkat ali|eurycoma|eurycome/, "tongkat ali"],
+        [/turkesterone/, "turkesterone"],
+        [/testosterone/, "testosterone"],
+        [/caffeine/, "caffeine"],
+        [/protein|amino acid|bcaa|eaa|whey|casein/, "protein"],
+        [/sleep|circadian/, "sleep"],
+        [/beta[-\s]?alanine/, "beta-alanine"],
+        [/citrulline/, "citrulline"],
+        [/zone 2|endurance|running|cardio|interval|hiit/, "endurance"],
+        [/hypertrophy|muscle gain|build muscle/, "hypertrophy"],
+        [/fat loss|cutting|weight loss|caloric deficit/, "fat loss"],
+      ];
+
+      for (const [pattern, topic] of topicMatchers) {
+        if (pattern.test(text)) {
+          return topic;
+        }
+      }
+
+      if (questionLooksLikeFollowUp(question) && previousTopic) {
+        return previousTopic;
+      }
+
+      return previousTopic || "";
+    }
+
+    function inferGoalContext(question, previousGoal = "") {
+      const text = String(question || "").toLowerCase();
+
+      if (/hypertrophy|muscle gain|build muscle|lean mass/.test(text)) {
+        return "hypertrophy";
+      }
+      if (/fat loss|cutting|lose fat|weight loss|deficit/.test(text)) {
+        return "fat_loss";
+      }
+      if (/vo2|endurance|running|cardio|zone 2|aerobic/.test(text)) {
+        return "endurance";
+      }
+      if (/recovery|soreness|sleep|stress/.test(text)) {
+        return "recovery";
+      }
+
+      return previousGoal || "";
+    }
+
+    function inferQuestionMode(question) {
+      const text = String(question || "").toLowerCase();
+
+      if (/\bcompare\b|\bversus\b|\bvs\b/.test(text)) {
+        return "comparison";
+      }
+      if (/what should i do|how should i|plan|schedule|dose|dosage|program/.test(text)) {
+        return "action_plan";
+      }
+      if (/for women|for men|for me|if i'm|if i am|what about/.test(text)) {
+        return "personalization";
+      }
+      if (/safe|safety|risk|harm|side effect|contraindication/.test(text)) {
+        return "safety";
+      }
+
+      return "evidence";
+    }
+
+    function extractComparisonTarget(question) {
+      const text = String(question || "");
+      const match =
+        text.match(/\b(?:compare|versus|vs\.?)\s+([a-z0-9][a-z0-9\s-]{1,50})/i) ||
+        text.match(/\bhow does .* compare to\s+([a-z0-9][a-z0-9\s-]{1,50})/i);
+      return normalizeCompactText(match?.[1] || "", 60).replace(/[?.!,;:]+$/, "");
+    }
+
+    function extractPopulationContext(question) {
+      const text = String(question || "").toLowerCase();
+      const populations = [];
+
+      if (/\bwomen\b|\bfemale\b/.test(text)) populations.push("women");
+      if (/\bmen\b|\bmale\b/.test(text)) populations.push("men");
+      if (/older adults|elderly|aging/.test(text)) populations.push("older adults");
+      if (/beginner|novice/.test(text)) populations.push("beginners");
+      if (/athlete|trained|resistance-trained/.test(text)) populations.push("trained adults");
+
+      return normalizeCompactList(populations, 3, 50);
+    }
+
+    function extractRecentEntities(question, topic, comparisonTarget) {
+      const text = String(question || "").toLowerCase();
+      const entities = [];
+
+      if (topic) entities.push(topic);
+      if (comparisonTarget) entities.push(comparisonTarget);
+      if (/muscle|hypertrophy|lean mass/.test(text)) entities.push("muscle gain");
+      if (/strength/.test(text)) entities.push("strength");
+      if (/recovery|soreness/.test(text)) entities.push("recovery");
+      if (/sleep/.test(text)) entities.push("sleep");
+      if (/women|female/.test(text)) entities.push("women");
+      if (/cutting|fat loss|deficit/.test(text)) entities.push("fat loss");
+      if (/vo2|cardio|endurance|aerobic/.test(text)) entities.push("endurance");
+
+      return normalizeCompactList(entities, 8, 60);
+    }
+
+    function buildLastUserIntent(question, mode, topic) {
+      const prompt = normalizeCompactText(question, 150);
+      if (!prompt) {
+        return "";
+      }
+
+      if (mode === "comparison") {
+        return `asking for a comparison related to ${topic || "the current topic"}`;
+      }
+      if (mode === "personalization") {
+        return `asking how ${topic || "the current topic"} applies in a specific context`;
+      }
+      if (mode === "action_plan") {
+        return `asking what to do next about ${topic || "the current topic"}`;
+      }
+
+      return `asking about ${prompt}`;
+    }
+
+    function buildThreadSummary(state) {
+      const parts = [];
+
+      if (state.primary_topic) {
+        parts.push(`This thread is about ${state.primary_topic}`);
+      }
+      if (state.goal_context) {
+        parts.push(`with a ${state.goal_context.replace(/_/g, " ")} goal`);
+      }
+      if (state.population_context.length) {
+        parts.push(`focused on ${state.population_context.join(", ")}`);
+      }
+      if (state.comparison_target) {
+        parts.push(`and comparison against ${state.comparison_target}`);
+      }
+
+      const summary = parts.join(" ");
+      return summary ? `${summary}.` : "";
+    }
+
+    function deriveThreadState(threadData, question = "", answerSummary = "") {
+      const previous = mergeThreadState(threadData?.threadState);
+      const primaryTopic = inferPrimaryTopic(question, previous.primary_topic);
+      const comparisonTarget = extractComparisonTarget(question) || "";
+      const populationContext = extractPopulationContext(question);
+      const questionMode = inferQuestionMode(question);
+      const nextState = mergeThreadState({
+        ...previous,
+        primary_topic: primaryTopic,
+        secondary_topics: normalizeCompactList(
+          [
+            ...previous.secondary_topics,
+            previous.goal_context ? previous.goal_context.replace(/_/g, " ") : "",
+            comparisonTarget,
+            ...populationContext,
+          ],
+          4,
+          60
+        ),
+        goal_context: inferGoalContext(question, previous.goal_context),
+        question_mode: questionMode,
+        recent_entities: extractRecentEntities(question, primaryTopic, comparisonTarget),
+        comparison_target:
+          questionMode === "comparison" ? comparisonTarget || previous.comparison_target : "",
+        population_context:
+          populationContext.length > 0 ? populationContext : previous.population_context,
+        last_user_intent: buildLastUserIntent(question, questionMode, primaryTopic),
+        last_answer_summary:
+          normalizeCompactText(answerSummary, 220) || previous.last_answer_summary,
+        updated_at: new Date().toISOString(),
+      });
+
+      nextState.thread_summary = buildThreadSummary(nextState);
+      return nextState;
+    }
+
+    function buildRecentMessages(messages, maxItems = 6) {
+      return (Array.isArray(messages) ? messages : [])
+        .slice(-maxItems)
+        .map((message) => ({
+          role: normalizeCompactText(message?.role, 24),
+          text: normalizeCompactText(message?.plainText || message?.text || "", 320),
+        }))
+        .filter((message) => message.role && message.text);
+    }
+
     function renderWelcomeState() {
       thread.classList.add("is-empty");
       thread.innerHTML = `
@@ -1140,6 +1409,7 @@
         messages: Array.isArray(row.messages) ? row.messages : [],
         sources: Array.isArray(row.sources) ? row.sources : [],
         rail: row.rail && typeof row.rail === "object" ? row.rail : {},
+        threadState: mergeThreadState(row.thread_state),
       }));
     }
 
@@ -1162,6 +1432,7 @@
         messages: [],
         sources: [],
         rail: {},
+        threadState: createEmptyThreadState(),
       };
 
       activeThreadId = threadData.id;
@@ -1187,6 +1458,7 @@
         const saved = await upsertChatThread(session.user.id, threadData);
         threadData.createdAt = saved.created_at;
         threadData.updatedAt = saved.updated_at;
+        threadData.threadState = mergeThreadState(saved.thread_state);
       }
       renderHistory();
     }
@@ -1388,6 +1660,7 @@
       const threadData = ensureActiveThread();
       renderWelcomeState();
       sources.innerHTML = "";
+      threadData.threadState = createEmptyThreadState();
       hydrateRailFromThread(threadData);
       renderHistory();
       return threadData;
@@ -1403,11 +1676,13 @@
       submitButton.disabled = true;
       setStatus(status, "", "");
 
-      ensureActiveThread();
+      const threadData = ensureActiveThread();
       await appendMessage("user", escapeHtml(trimmed), "Now", {
         text: trimmed,
         plainText: trimmed,
       });
+      threadData.threadState = deriveThreadState(threadData, trimmed, "");
+      await persistActiveThread();
       railMode.textContent = "thinking";
 
       try {
@@ -1418,6 +1693,9 @@
           },
           body: JSON.stringify({
             question: trimmed,
+            userId: session?.user?.id ? `supabase:${session.user.id}` : "",
+            threadState: threadData.threadState,
+            recentMessages: buildRecentMessages(threadData.messages),
             includeDebug: true,
           }),
         });
@@ -1432,6 +1710,11 @@
           plainText: data.summary || "",
           text: data.summary || "",
         });
+        threadData.threadState = deriveThreadState(
+          threadData,
+          trimmed,
+          data.summary || ""
+        );
         renderSources(data);
         await updateRail(data);
         setStatus(status, "", "");
@@ -1442,6 +1725,12 @@
           plainText: error.message || "Request failed.",
           text: error.message || "Request failed.",
         });
+        threadData.threadState = deriveThreadState(
+          threadData,
+          trimmed,
+          error.message || "Request failed."
+        );
+        await persistActiveThread();
         setStatus(status, "error", error.message || "Request failed.");
         railMode.textContent = "error";
       } finally {
