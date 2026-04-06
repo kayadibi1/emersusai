@@ -37,6 +37,7 @@ function getToolLabel(name) {
     metrics_card: "System status",
     insight_card: "Evidence card",
     sources_card: "Sources",
+    group: "Grouped tools",
   };
 
   return labels[normalized] || normalizeText(name || "Tool", 40);
@@ -45,21 +46,22 @@ function getToolLabel(name) {
 function toolIcon(name) {
   const normalized = String(name || "").toLowerCase();
   const icons = {
-    bash: ">_",
-    read: "</>",
-    write: "+",
-    edit: "+/-",
-    search: "?",
-    retrieval: "?",
-    grep: "?",
-    glob: "[]",
-    rail_update: "i",
-    metrics_card: "i",
-    insight_card: "*",
-    sources_card: "#",
+    bash: "terminal",
+    read: "article",
+    write: "edit_document",
+    edit: "difference",
+    search: "search",
+    retrieval: "search_insights",
+    grep: "search",
+    glob: "folder_open",
+    rail_update: "monitoring",
+    metrics_card: "monitoring",
+    insight_card: "science",
+    sources_card: "library_books",
+    group: "account_tree",
   };
 
-  return icons[normalized] || "*";
+  return icons[normalized] || "auto_awesome";
 }
 
 function toneClass(tone) {
@@ -110,25 +112,25 @@ function renderStatusBadge({
   isRunning = false,
 } = {}) {
   const badge = createNode("span", `chat-tool-status ${toneClass(isError ? "error" : status || (isRunning ? "running" : ""))}`.trim());
-  const icon = createNode("span", "chat-tool-status-icon");
+  const icon = createNode("span", "material-symbols-outlined chat-tool-status-icon");
   const label = createNode("span", "chat-tool-status-label");
 
   const duration = formatDuration(startedAt, completedAt);
 
   if (isRunning) {
-    icon.textContent = "•••";
+    icon.textContent = "progress_activity";
     label.textContent = duration || "Running";
-  } else if (isError) {
-    icon.textContent = "x";
-    label.textContent = duration ? `${duration} Error` : "Error";
-  } else if (status || completedAt) {
-    icon.textContent = "+";
-    label.textContent = duration || normalizeText(status || "Done", 18);
-  } else {
-    icon.textContent = "i";
-    label.textContent = normalizeText(status || "", 18);
+    badge.append(icon, label);
+    return badge;
   }
-
+  if (isError) {
+    icon.textContent = "error";
+    label.textContent = duration ? `${duration} Error` : "Error";
+    badge.append(icon, label);
+    return badge;
+  }
+  icon.textContent = "check_circle";
+  label.textContent = duration || normalizeText(status || "Done", 18);
   badge.append(icon, label);
   return badge;
 }
@@ -158,12 +160,15 @@ function createToolCardShell({
   const left = createNode("div", "chat-tool-header-left");
 
   if (collapsible) {
-    const toggle = createNode("button", "chat-tool-toggle", expanded ? "▾" : "▸");
+    const toggle = createNode("button", "chat-tool-toggle");
     toggle.type = "button";
+    toggle.className = "chat-tool-toggle material-symbols-outlined";
+    toggle.textContent = expanded ? "keyboard_arrow_down" : "keyboard_arrow_right";
+    toggle.setAttribute("aria-label", expanded ? "Collapse card" : "Expand card");
     left.appendChild(toggle);
   }
 
-  left.appendChild(createNode("span", "chat-tool-icon", toolIcon(tool)));
+  left.appendChild(createNode("span", "material-symbols-outlined chat-tool-icon", toolIcon(tool)));
 
   const titleGroup = createNode("div", "chat-tool-title-group");
   titleGroup.appendChild(createNode("strong", "chat-tool-title", normalizeText(title || getToolLabel(tool), 60)));
@@ -178,26 +183,36 @@ function createToolCardShell({
 
   card.append(header, body);
 
+  if (collapsible) {
+    const toggle = left.querySelector(".chat-tool-toggle");
+    const setExpanded = (nextExpanded) => {
+      card.classList.toggle("is-collapsed", !nextExpanded);
+      body.hidden = !nextExpanded;
+      toggle.textContent = nextExpanded ? "keyboard_arrow_down" : "keyboard_arrow_right";
+      toggle.setAttribute("aria-expanded", String(nextExpanded));
+      toggle.setAttribute("aria-label", nextExpanded ? "Collapse card" : "Expand card");
+    };
+
+    setExpanded(Boolean(expanded));
+    header.addEventListener("click", () => setExpanded(card.classList.contains("is-collapsed")));
+    toggle.addEventListener("click", (event) => {
+      event.stopPropagation();
+      setExpanded(card.classList.contains("is-collapsed"));
+    });
+  }
+
   return { card, header, body };
 }
 
-function createInfoCardShell({ title = "", status = "", bodyClass = "" } = {}) {
-  const card = createNode("section", "chat-card");
-
-  if (title || status) {
-    const header = createNode("div", "chat-card-header");
-    if (title) {
-      header.appendChild(createNode("h4", "chat-card-title", normalizeText(title, 60)));
-    }
-    if (status) {
-      header.appendChild(createNode("span", "chat-card-status", normalizeText(status, 40)));
-    }
-    card.appendChild(header);
-  }
-
-  const body = createNode("div", `chat-card-body${bodyClass ? ` ${bodyClass}` : ""}`);
-  card.appendChild(body);
-  return { card, body };
+function createInfoCardShell({ title = "", status = "Done", bodyClass = "", tool = "insight_card" } = {}) {
+  return createToolCardShell({
+    tool,
+    title,
+    status,
+    bodyClass,
+    collapsible: true,
+    expanded: true,
+  });
 }
 
 export function renderTextBlock(block) {
@@ -220,8 +235,8 @@ export function renderTextBlock(block) {
       .map((line) => line.trim())
       .filter(Boolean);
 
-    const bulletLines = lines.filter((line) => /^[-*•]\s+/.test(line));
-    const proseLines = lines.filter((line) => !/^[-*•]\s+/.test(line));
+    const bulletLines = lines.filter((line) => /^(?:[-*]|\u2022)\s+/.test(line));
+    const proseLines = lines.filter((line) => !/^(?:[-*]|\u2022)\s+/.test(line));
 
     if (proseLines.length) {
       wrapper.appendChild(createNode("p", "", proseLines.join(" ")));
@@ -230,7 +245,7 @@ export function renderTextBlock(block) {
     if (bulletLines.length) {
       const list = createNode("ul");
       for (const line of bulletLines) {
-        list.appendChild(createNode("li", "", line.replace(/^[-*•]\s+/, "")));
+        list.appendChild(createNode("li", "", line.replace(/^(?:[-*]|\u2022)\s+/, "")));
       }
       wrapper.appendChild(list);
     }
@@ -372,6 +387,11 @@ export function renderArticleVizCard(block) {
 export function renderQuantVizCard(block) {
   const data = block?.data || {};
   const findings = Array.isArray(data?.findings) ? data.findings.slice(0, 4) : [];
+
+  if (!findings.length) {
+    return null;
+  }
+
   const { card, body } = createInfoCardShell({
     title: data?.title || block?.title || "Quantitative findings",
     bodyClass: "chat-quant-viz",
@@ -440,7 +460,7 @@ export function renderQuantVizCard(block) {
         content.appendChild(createNode("p", "chat-quant-sentence", trimSnippet(finding.sentence, 220)));
       }
       const meta = createNode("div", "chat-quant-meta");
-      const sourceLabel = [finding?.sourceTitle, finding?.sourceId, finding?.detail].filter(Boolean).join(" · ");
+      const sourceLabel = [finding?.sourceTitle, finding?.sourceId, finding?.detail].filter(Boolean).join(" - ");
       if (sourceLabel) {
         meta.appendChild(createNode("span", "chat-quant-source", normalizeText(sourceLabel, 160)));
       }
@@ -647,6 +667,56 @@ function renderWatchoutsGraphic(cardData) {
   return card;
 }
 
+function renderSourceHighlightsGraphic(cardData) {
+  const items = Array.isArray(cardData?.items) ? cardData.items.slice(0, 3) : [];
+
+  if (!items.length) {
+    return null;
+  }
+
+  const { card, body } = createInfoCardShell({
+    title: cardData?.title || "Best sources",
+    bodyClass: "chat-source-preview",
+    tool: "sources_card",
+  });
+
+  for (const item of items) {
+    const row = createNode("article", "chat-source-item");
+    row.appendChild(createNode("strong", "", normalizeText(item?.title || "Source", 140)));
+
+    if (item?.meta) {
+      row.appendChild(createNode("div", "chat-source-meta", normalizeText(item.meta, 160)));
+    }
+
+    const takeaway = trimSnippet(item?.takeaway || item?.summary || "", 220);
+    if (takeaway) {
+      row.appendChild(createNode("p", "", takeaway));
+    }
+
+    const links = Array.isArray(item?.links) ? item.links.slice(0, 2) : [];
+    if (links.length) {
+      const linkRow = createNode("div", "chat-source-links");
+      for (const link of links) {
+        if (!link?.url) {
+          continue;
+        }
+        const anchor = createNode("a", "chat-source-link", normalizeText(link?.label || "Open", 40));
+        anchor.href = link.url;
+        anchor.target = "_blank";
+        anchor.rel = "noopener noreferrer";
+        linkRow.appendChild(anchor);
+      }
+      if (linkRow.childNodes.length) {
+        row.appendChild(linkRow);
+      }
+    }
+
+    body.appendChild(row);
+  }
+
+  return card;
+}
+
 function renderInsightCard(block) {
   const cardData = block?.data || {};
   const type = String(cardData?.type || "").toLowerCase();
@@ -663,6 +733,9 @@ function renderInsightCard(block) {
   if (type === "watchouts") {
     return renderWatchoutsGraphic(cardData);
   }
+  if (type === "source_highlights") {
+    return renderSourceHighlightsGraphic(cardData);
+  }
 
   return null;
 }
@@ -674,6 +747,8 @@ export function renderSearchCard(block) {
     title: block?.title || block?.input?.query || "Search",
     status: results.length ? `${results.length} results` : "",
     bodyClass: "chat-search-results",
+    collapsible: true,
+    expanded: true,
   });
 
   for (const result of results.slice(0, 5)) {
@@ -703,6 +778,8 @@ export function renderBashCard(block) {
     isRunning: block?.status === "running",
     startedAt: Number(block?.startedAt || 0),
     completedAt: Number(block?.completedAt || 0),
+    collapsible: true,
+    expanded: true,
   });
 
   const commandStrip = createNode("div", "chat-command-strip");
@@ -723,6 +800,8 @@ export function renderFileReadCard(block) {
     title: block?.input?.file_path || block?.title || "File read",
     status: block?.status || "",
     bodyClass: "chat-file-read-card",
+    collapsible: true,
+    expanded: true,
   });
 
   const pathRow = createNode("div", "chat-file-path", normalizeText(block?.input?.file_path || "", 180));
@@ -737,6 +816,8 @@ export function renderDiffBlock(block) {
     title: block?.input?.file_path || block?.title || "File change",
     status: block?.status || "",
     bodyClass: "chat-diff-card",
+    collapsible: true,
+    expanded: true,
   });
 
   body.appendChild(createNode("div", "chat-file-path", normalizeText(block?.input?.file_path || "", 180)));
@@ -750,6 +831,8 @@ export function renderGroupBlock(block) {
     title: block?.label || "Grouped tools",
     status: block?.status || "",
     bodyClass: "chat-group-card",
+    collapsible: true,
+    expanded: true,
   });
 
   for (const item of Array.isArray(block?.items) ? block.items : []) {
@@ -786,7 +869,7 @@ export function renderToolResultBlock(block) {
     return renderQuantVizCard(block);
   }
   if (tool === "insight_card") {
-    return renderInsightCard(block) || renderToolUseBlock(block);
+    return renderInsightCard(block);
   }
   if (tool === "metrics_card" || tool === "rail_update") {
     return renderMetricsCard(block);
