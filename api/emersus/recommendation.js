@@ -31,6 +31,14 @@ function getClientIp(req) {
   );
 }
 
+function buildRequestMeta(req) {
+  const userAgent = req.headers["user-agent"];
+  return {
+    clientIp: getClientIp(req),
+    userAgent: Array.isArray(userAgent) ? String(userAgent[0] || "") : String(userAgent || ""),
+  };
+}
+
 function checkRateLimit(req) {
   const now = Date.now();
   const key = getClientIp(req);
@@ -95,6 +103,7 @@ export default async function handler(req, res) {
     }
 
     const body = validateRequest(parseJsonBody(req));
+    body.requestMeta = buildRequestMeta(req);
     const recommendation = await generateRecommendation(body);
 
     return res.status(200).json(recommendation);
