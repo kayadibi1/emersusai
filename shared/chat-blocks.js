@@ -298,6 +298,138 @@ export function renderMetricsCard(block) {
   return card;
 }
 
+export function renderArticleVizCard(block) {
+  const data = block?.data || {};
+  const { card, body } = createInfoCardShell({
+    title: data?.title || block?.title || "Research snapshot",
+    bodyClass: "chat-article-viz",
+  });
+
+  const sections = [];
+
+  if (Array.isArray(data?.timeline) && data.timeline.length) {
+    const section = createNode("section", "chat-viz-section");
+    section.appendChild(createNode("h5", "chat-viz-heading", "Publication timeline"));
+
+    const timeline = createNode("div", "chat-viz-bars");
+    const maxCount = Math.max(...data.timeline.map((item) => Number(item?.count || 0)), 1);
+
+    for (const item of data.timeline) {
+      const row = createNode("div", "chat-viz-row");
+      row.appendChild(createNode("span", "chat-viz-label", normalizeText(item?.label || "", 30)));
+      const track = createNode("div", "chat-viz-track");
+      const fill = createNode("div", "chat-viz-fill");
+      fill.style.width = `${Math.round((Number(item?.count || 0) / maxCount) * 100)}%`;
+      track.appendChild(fill);
+      row.append(track, createNode("span", "chat-viz-value", String(item?.count || 0)));
+      timeline.appendChild(row);
+    }
+
+    section.appendChild(timeline);
+    sections.push(section);
+  }
+
+  if (Array.isArray(data?.typeMix) && data.typeMix.length) {
+    const section = createNode("section", "chat-viz-section");
+    section.appendChild(createNode("h5", "chat-viz-heading", "Study mix"));
+
+    const chips = createNode("div", "chat-viz-chip-grid");
+    for (const item of data.typeMix) {
+      const chip = createNode("div", "chat-viz-chip");
+      chip.append(
+        createNode("span", "chat-viz-chip-label", normalizeText(item?.label || "", 44)),
+        createNode("strong", "chat-viz-chip-value", String(item?.count || 0))
+      );
+      chips.appendChild(chip);
+    }
+    section.appendChild(chips);
+    sections.push(section);
+  }
+
+  if (Array.isArray(data?.journals) && data.journals.length) {
+    const section = createNode("section", "chat-viz-section");
+    section.appendChild(createNode("h5", "chat-viz-heading", "Top journals"));
+    const list = createNode("ul", "chat-viz-journal-list");
+    for (const item of data.journals) {
+      const li = createNode("li", "chat-viz-journal-item");
+      li.append(
+        createNode("span", "chat-viz-journal-name", normalizeText(item?.label || "", 60)),
+        createNode("span", "chat-viz-journal-count", String(item?.count || 0))
+      );
+      list.appendChild(li);
+    }
+    section.appendChild(list);
+    sections.push(section);
+  }
+
+  for (const section of sections) {
+    body.appendChild(section);
+  }
+
+  return card;
+}
+
+export function renderQuantVizCard(block) {
+  const data = block?.data || {};
+  const findings = Array.isArray(data?.findings) ? data.findings.slice(0, 4) : [];
+  const { card, body } = createInfoCardShell({
+    title: data?.title || block?.title || "Quantitative findings",
+    bodyClass: "chat-quant-viz",
+  });
+
+  if (!findings.length) {
+    body.appendChild(
+      createNode(
+        "p",
+        "chat-card-footnote",
+        "No clear quantitative finding was extracted from the top retrieved excerpts."
+      )
+    );
+    return card;
+  }
+
+  const maxValue = Math.max(
+    ...findings.map((finding) => Number(finding?.normalizedValue || 0)),
+    1
+  );
+
+  for (const finding of findings) {
+    const section = createNode("section", "chat-quant-row");
+
+    const head = createNode("div", "chat-quant-head");
+    head.append(
+      createNode("h5", "chat-quant-value", normalizeText(finding?.displayValue || "", 40)),
+      createNode("span", "chat-quant-label", normalizeText(finding?.label || "", 100))
+    );
+
+    const track = createNode("div", "chat-quant-track");
+    const fill = createNode("div", "chat-quant-fill");
+    fill.style.width = `${Math.max(14, Math.round((Number(finding?.normalizedValue || 0) / maxValue) * 100))}%`;
+    track.appendChild(fill);
+
+    const meta = createNode("div", "chat-quant-meta");
+    const sourceLabel = [finding?.sourceTitle, finding?.detail].filter(Boolean).join(" · ");
+    if (sourceLabel) {
+      meta.appendChild(createNode("span", "chat-quant-source", normalizeText(sourceLabel, 140)));
+    }
+
+    if (finding?.sentence) {
+      section.append(
+        head,
+        track,
+        createNode("p", "chat-quant-sentence", trimSnippet(finding.sentence, 180)),
+        meta
+      );
+    } else {
+      section.append(head, track, meta);
+    }
+
+    body.appendChild(section);
+  }
+
+  return card;
+}
+
 function buildSparklinePath(points, width = 180, height = 54) {
   if (!points.length) {
     return "";
@@ -621,6 +753,12 @@ export function renderToolResultBlock(block) {
   }
   if (tool === "search" || tool === "retrieval" || tool === "grep" || tool === "glob") {
     return renderSearchCard(block);
+  }
+  if (tool === "article_viz") {
+    return renderArticleVizCard(block);
+  }
+  if (tool === "quant_viz") {
+    return renderQuantVizCard(block);
   }
   if (tool === "insight_card") {
     return renderInsightCard(block) || renderToolUseBlock(block);

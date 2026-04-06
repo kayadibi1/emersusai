@@ -586,6 +586,176 @@
       line-height: 1.45;
     }
 
+    .chat-article-viz {
+      gap: 0.9rem;
+    }
+
+    .chat-viz-section {
+      display: grid;
+      gap: 0.45rem;
+    }
+
+    .chat-viz-heading,
+    .chat-viz-label,
+    .chat-viz-chip-label,
+    .chat-viz-journal-name {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    .chat-viz-heading {
+      color: var(--primary-dim);
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .chat-viz-bars {
+      display: grid;
+      gap: 0.38rem;
+    }
+
+    .chat-viz-row,
+    .chat-viz-journal-item {
+      display: grid;
+      grid-template-columns: 72px minmax(0, 1fr) auto;
+      gap: 0.6rem;
+      align-items: center;
+    }
+
+    .chat-viz-label,
+    .chat-viz-value,
+    .chat-viz-journal-count,
+    .chat-viz-chip-value {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+
+    .chat-viz-track {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      overflow: hidden;
+    }
+
+    .chat-viz-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(109, 159, 255, 0.86), rgba(159, 251, 0, 0.8));
+    }
+
+    .chat-viz-chip-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 0.55rem;
+    }
+
+    .chat-viz-chip {
+      display: grid;
+      gap: 0.18rem;
+      padding: 0.72rem 0.78rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .chat-viz-chip-label {
+      color: var(--muted);
+      font-size: 0.64rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .chat-viz-journal-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.36rem;
+    }
+
+    .chat-viz-journal-item {
+      grid-template-columns: minmax(0, 1fr) auto;
+      padding: 0.42rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .chat-viz-journal-item:last-child {
+      border-bottom: 0;
+    }
+
+    .chat-viz-journal-name {
+      color: rgba(255, 255, 255, 0.74);
+      font-size: 0.8rem;
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    .chat-quant-viz {
+      gap: 0.75rem;
+    }
+
+    .chat-quant-row {
+      display: grid;
+      gap: 0.35rem;
+      padding: 0.76rem 0.82rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .chat-quant-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    .chat-quant-value {
+      margin: 0;
+      color: var(--secondary);
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.04em;
+    }
+
+    .chat-quant-label,
+    .chat-quant-source {
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.4;
+    }
+
+    .chat-quant-track {
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.055);
+      overflow: hidden;
+    }
+
+    .chat-quant-fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, rgba(109, 159, 255, 0.86), rgba(159, 251, 0, 0.82));
+    }
+
+    .chat-quant-sentence {
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: 0.86rem;
+      line-height: 1.5;
+    }
+
+    .chat-quant-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
     .chat-card-header {
       display: flex;
       justify-content: space-between;
@@ -2105,7 +2275,7 @@
         });
     }
 
-    function buildAssistantBlocks(data) {
+    function buildAssistantBlocks(data, questionText = "") {
       const blocks = [
         {
           type: "text",
@@ -2113,30 +2283,103 @@
         },
       ];
 
-      if (Array.isArray(data.cards) && data.cards.length) {
-        data.cards
-          .filter((card) => card && card.type !== "source_highlights")
-          .forEach((card) => {
-            blocks.push({
-              type: "tool_result",
-              tool: "insight_card",
-              data: card,
-            });
-          });
-      } else {
+      const quantViz = buildQuantVizData(data.sources, questionText);
+      if (quantViz.findings.length) {
         blocks.push({
           type: "tool_result",
-          tool: "metrics_card",
-          title: "System Status",
-          data: {
-            confidence: data.confidence || {},
-            sourceCount: Array.isArray(data.sources) ? data.sources.length : 0,
-            synthesisMode: data.debug?.synthesis_mode || (data.summary ? "synthesized" : "idle"),
-          },
+          tool: "quant_viz",
+          data: quantViz,
         });
       }
 
       return blocks;
+    }
+
+    function buildQuantVizData(sourceList = [], questionText = "") {
+      const sources = Array.isArray(sourceList) ? sourceList.slice(0, 6) : [];
+      const keywords = normalizeCompactText(questionText, 160)
+        .toLowerCase()
+        .split(/[^a-z0-9]+/)
+        .filter((word) => word.length >= 4)
+        .slice(0, 8);
+      const findings = [];
+
+      for (const source of sources) {
+        const text = String(source?.excerpt || source?.why_it_matters || "").replace(/\s+/g, " ").trim();
+        if (!text) {
+          continue;
+        }
+
+        const sentences = text
+          .split(/(?<=[.!?])\s+/)
+          .map((sentence) => sentence.trim())
+          .filter(Boolean);
+
+        for (const sentence of sentences) {
+          const lower = sentence.toLowerCase();
+          const keywordScore = keywords.length
+            ? keywords.filter((keyword) => lower.includes(keyword)).length
+            : 1;
+          if (keywordScore === 0) {
+            continue;
+          }
+
+          const percentMatch = sentence.match(/(\d+(?:\.\d+)?)\s?%/);
+          const durationMatch = sentence.match(/(\d+(?:\.\d+)?)\s?(days?|weeks?|months?)/i);
+          const dosageMatch = sentence.match(/(\d+(?:\.\d+)?)\s?(g|mg|kg)\b/i);
+
+          let displayValue = "";
+          let normalizedValue = 0;
+          let detail = "";
+
+          if (percentMatch) {
+            displayValue = `${percentMatch[1]}%`;
+            normalizedValue = Number(percentMatch[1]);
+          } else if (durationMatch) {
+            displayValue = `${durationMatch[1]} ${durationMatch[2]}`;
+            normalizedValue = Number(durationMatch[1]);
+          } else if (dosageMatch) {
+            displayValue = `${dosageMatch[1]} ${dosageMatch[2]}`;
+            normalizedValue = Number(dosageMatch[1]);
+          } else {
+            continue;
+          }
+
+          if (durationMatch) {
+            detail = `over ${durationMatch[1]} ${durationMatch[2]}`;
+          } else if (dosageMatch) {
+            detail = `dose ${dosageMatch[1]} ${dosageMatch[2]}`;
+          }
+
+          findings.push({
+            displayValue,
+            normalizedValue,
+            label: inferFindingLabel(sentence, questionText),
+            sentence,
+            sourceTitle: normalizeCompactText(source?.title || "Article", 64),
+            detail,
+            score: keywordScore + (percentMatch ? 2 : 0),
+          });
+          break;
+        }
+      }
+
+      findings.sort((a, b) => b.score - a.score);
+
+      return {
+        title: "Quantitative findings",
+        findings: findings.slice(0, 4),
+      };
+    }
+
+    function inferFindingLabel(sentence, questionText = "") {
+      const text = `${questionText} ${sentence}`.toLowerCase();
+      if (/muscle|lean mass|hypertrophy/.test(text)) return "Muscle-related effect";
+      if (/strength|power|performance|capacity/.test(text)) return "Performance effect";
+      if (/recovery|soreness/.test(text)) return "Recovery effect";
+      if (/vo2|max|endurance|cardio/.test(text)) return "Endurance effect";
+      if (/sleep/.test(text)) return "Sleep-related effect";
+      return "Reported finding";
     }
 
     function renderSources(data) {
