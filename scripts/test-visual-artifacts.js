@@ -75,6 +75,32 @@ const longAnswerDiagram = buildVisualArtifactPlan({
 assert.equal(longAnswerDiagram.card?.artifact_type, "diagram");
 assert.equal(longAnswerDiagram.card.data.nodes[0].label, "Retrieve evidence");
 
+const creatineDiagram = buildVisualArtifactPlan({
+  question: "show me a diagram of how creatine works flow",
+  synthesis: {
+    summary: "Here is a simple diagram of how creatine works in muscle.",
+    answer_text:
+      "Here is a simple diagram of how creatine works in muscle. Creatine helps muscle cells regenerate ATP during hard efforts.",
+  },
+  evidence,
+  includeDebug: true,
+});
+assert.equal(creatineDiagram.card?.artifact_type, "diagram");
+assert.equal(creatineDiagram.card.data.nodes[0].label, "Creatine intake");
+assert.equal(creatineDiagram.card.data.nodes.at(-1).label, "Training output");
+
+const genericWorksDiagram = buildVisualArtifactPlan({
+  question: "show me a diagram of how caffeine works flow",
+  synthesis: {
+    summary: "Here is a simple diagram.",
+    answer_text: "Here is a simple diagram.",
+  },
+  evidence: [],
+  includeDebug: true,
+});
+assert.equal(genericWorksDiagram.card?.artifact_type, "diagram");
+assert.notEqual(genericWorksDiagram.card.data.nodes[0].label, "Input");
+
 const chartTypes = [
   ["Show me a line chart of the market trend over time.", "timeline"],
   ["Show me a proportion chart of investor share and market share.", "proportion"],

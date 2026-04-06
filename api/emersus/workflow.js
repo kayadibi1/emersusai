@@ -1370,7 +1370,7 @@ function buildChartArtifact({ question, synthesis, evidence, includeDebug = fals
 function buildDiagramFallbackNodes(question) {
   const prompt = normalizeText(question, 260).toLowerCase();
 
-  if (/emersus|evidence|coaching/.test(prompt)) {
+  if (/emersus/.test(prompt) && /evidence/.test(prompt) && /coaching/.test(prompt)) {
     return [
       {
         label: "Retrieve evidence",
@@ -1395,6 +1395,49 @@ function buildDiagramFallbackNodes(question) {
     ];
   }
 
+  if (/\bcreatine\b/.test(prompt)) {
+    return [
+      {
+        label: "Creatine intake",
+        detail: "Creatine is consumed through food or supplementation.",
+      },
+      {
+        label: "Muscle uptake",
+        detail: "Muscle cells store creatine and convert part of it into phosphocreatine.",
+      },
+      {
+        label: "Phosphocreatine reserve",
+        detail: "Phosphocreatine holds a quick phosphate source near working muscle fibers.",
+      },
+      {
+        label: "ATP recycling",
+        detail: "During hard efforts, it helps regenerate ATP faster between contractions.",
+      },
+      {
+        label: "Training output",
+        detail: "The practical effect is better repeated high-intensity work capacity.",
+      },
+    ];
+  }
+
+  const worksMatch = prompt.match(/(?:how|show me).*?\b([a-z][a-z0-9\s-]{2,80}?)\s+works?\b/i);
+  if (worksMatch) {
+    const subject = normalizeText(
+      worksMatch[1]
+        .replace(/\b(a|an|the|diagram|flow|of|how|show|me)\b/gi, " ")
+        .replace(/\s+/g, " "),
+      52
+    );
+    const label = subject ? titleCase(subject) : "The topic";
+    return [
+      { label: label, detail: "Start with the main input, system, or compound the user asked about." },
+      { label: "Entry point", detail: "Show where it enters the relevant body system, workflow, or environment." },
+      { label: "Core mechanism", detail: "Identify the central process that creates the effect." },
+      { label: "Downstream effect", detail: "Connect the mechanism to the outcome the user cares about." },
+      { label: "Practical result", detail: "End with the observable benefit, limitation, or next decision." },
+    ];
+  }
+
   const flowMatch = prompt.match(/(?:how|show me).*?(?:turns?|goes?|converts?|from)\s+(.+?)\s+(?:into|to)\s+(.+?)(?:$|[?.!])/i);
   if (flowMatch) {
     const start = normalizeText(flowMatch[1], 52);
@@ -1415,8 +1458,17 @@ function buildDiagramFallbackNodes(question) {
   ];
 }
 
+function shouldUseDiagramFallback(question) {
+  const prompt = normalizeText(question, 260).toLowerCase();
+  return (
+    (/emersus/.test(prompt) && /evidence/.test(prompt) && /coaching/.test(prompt)) ||
+    /\bcreatine\b/.test(prompt) ||
+    /(?:how|show me).*?\b[a-z][a-z0-9\s-]{2,80}?\s+works?\b/i.test(prompt)
+  );
+}
+
 function buildDiagramArtifact({ question, synthesis, includeDebug = false }) {
-  const usePromptFallback = /emersus/i.test(question) && /evidence/i.test(question) && /coaching/i.test(question);
+  const usePromptFallback = shouldUseDiagramFallback(question);
   const sentences = splitSentences(synthesis.answer_text || synthesis.summary).slice(0, 5);
   const sourceNodes =
     !usePromptFallback && sentences.length >= 2
