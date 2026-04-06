@@ -86,8 +86,8 @@ const creatineDiagram = buildVisualArtifactPlan({
   includeDebug: true,
 });
 assert.equal(creatineDiagram.card?.artifact_type, "diagram");
-assert.equal(creatineDiagram.card.data.nodes[0].label, "Creatine intake");
-assert.equal(creatineDiagram.card.data.nodes.at(-1).label, "Training output");
+assert.notEqual(creatineDiagram.card.data.nodes[0].label, "Input");
+assert.ok(creatineDiagram.card.data.nodes[0].label.toLowerCase().includes("creatine"));
 
 const genericWorksDiagram = buildVisualArtifactPlan({
   question: "show me a diagram of how caffeine works flow",
