@@ -434,6 +434,19 @@
       list-style: none;
     }
 
+    .message.message-thinking .message-thinking-content {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.25rem 0;
+      animation: emersus-thinking-fade 220ms ease-out;
+    }
+
+    @keyframes emersus-thinking-fade {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
     .assistant-report {
       display: grid;
       gap: 0.65rem;
