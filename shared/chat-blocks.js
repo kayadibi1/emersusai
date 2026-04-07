@@ -497,68 +497,6 @@ function buildSparklinePath(points, width = 180, height = 54) {
     .join(" ");
 }
 
-function renderVerdictHeroGraphic(cardData) {
-  const title = normalizeText(cardData?.title || "", 180);
-  const copy = trimSnippet(cardData?.body || "", 220);
-  const metrics = Array.isArray(cardData?.metrics) ? cardData.metrics.slice(0, 4) : [];
-  const hasMetrics = metrics.some(
-    (metric) => normalizeText(metric?.label || "", 40) || normalizeText(metric?.value || "", 60),
-  );
-
-  if (!title && !copy && !hasMetrics) {
-    return null;
-  }
-
-  const { card, body } = createInfoCardShell({
-    title: cardData?.eyebrow || "Evidence Verdict",
-    bodyClass: "chat-insight-card",
-  });
-
-  if (title) {
-    body.appendChild(createNode("h3", "chat-insight-title", title));
-  }
-  if (copy) {
-    body.appendChild(createNode("p", "chat-insight-copy", copy));
-  }
-
-  const metricRow = createNode("div", "chat-chip-row");
-
-  for (const metric of metrics) {
-    const chip = createNode("div", `chat-data-chip ${toneClass(metric?.tone)}`.trim());
-    chip.append(
-      createNode("span", "chat-data-chip-label", normalizeText(metric?.label || "", 40)),
-      createNode("strong", "chat-data-chip-value", normalizeText(metric?.value || "", 60))
-    );
-    metricRow.appendChild(chip);
-  }
-
-  if (metricRow.childNodes.length) {
-    body.appendChild(metricRow);
-  }
-
-  const comparison = createNode("div", "chat-comparison-bars");
-  for (const metric of metrics) {
-    const row = createNode("div", "chat-comparison-row");
-    const head = createNode("div", "chat-comparison-head");
-    head.append(
-      createNode("span", "chat-comparison-label", normalizeText(metric?.label || "", 40)),
-      createNode("span", "chat-comparison-value", normalizeText(metric?.value || "", 60))
-    );
-    const track = createNode("div", "chat-comparison-track");
-    const fill = createNode("div", `chat-comparison-fill ${toneClass(metric?.tone)}`.trim());
-    fill.style.width = `${Math.round(toneWeight(metric?.tone) * 100)}%`;
-    track.appendChild(fill);
-    row.append(head, track);
-    comparison.appendChild(row);
-  }
-
-  if (comparison.childNodes.length) {
-    body.appendChild(comparison);
-  }
-
-  return card;
-}
-
 function renderEvidenceProfileGraphic(cardData) {
   const { card, body } = createInfoCardShell({
     title: cardData?.title || "Evidence profile",
@@ -789,8 +727,7 @@ function renderInsightCard(block) {
   const type = String(cardData?.type || "").toLowerCase();
 
   let card = null;
-  if (type === "verdict_hero") card = renderVerdictHeroGraphic(cardData);
-  else if (type === "metric_grid") card = renderMetricGridGraphic(cardData);
+  if (type === "metric_grid") card = renderMetricGridGraphic(cardData);
   else if (type === "evidence_profile") card = renderEvidenceProfileGraphic(cardData);
   else if (type === "action_grid") card = renderActionGridGraphic(cardData);
   else if (type === "watchouts") card = renderWatchoutsGraphic(cardData);

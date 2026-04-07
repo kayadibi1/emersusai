@@ -1524,15 +1524,6 @@ function summarizeEffect(summary) {
   return "Evidence-backed";
 }
 
-function buildVerdictTitle(summary) {
-  const firstSentence = normalizeText(String(summary || "").split(/(?<=[.!?])\s+/)[0], 110);
-  if (!firstSentence) {
-    return "Evidence-backed recommendation";
-  }
-
-  return firstSentence.replace(/^[—–-]+/, "").trim();
-}
-
 function buildActionColumns({ recommendations, topic }) {
   const columns = [];
   const label = topic === "mental_performance" ? "Mental performance" : "Key takeaways";
@@ -2118,21 +2109,7 @@ function buildCards({ question, synthesis, evidence = [], includeDebug = false, 
     return cards;
   }
 
-  // 2. Verdict hero — top-level summary with at-a-glance facts.
-  cards.push({
-    type: "verdict_hero",
-    eyebrow: plan?.topic ? `${titleCase(plan.topic)} - Evidence Verdict` : "Evidence Verdict",
-    title: buildVerdictTitle(synthesis.summary),
-    body: normalizeText(synthesis.summary, 220),
-    metrics: [
-      { label: "Confidence", value: titleCase(conf.label || "moderate"), tone: scoreTone(conf.score) },
-      { label: "Evidence", value: determineEvidenceLabel(topSource), tone: scoreTone(qualityScore) },
-      { label: "Recency", value: determineRecencyLabel(topSource), tone: scoreTone(recencyScore) },
-      { label: "Effect", value: effectLabel, tone: scoreTone(conf.score) },
-    ],
-  });
-
-  // 3. Metric grid — quantitative findings extracted from the evidence chunks.
+  // 2. Metric grid — quantitative findings extracted from the evidence chunks.
   const metricGrid = buildMetricGridCard({ findings: quantFindings });
   if (metricGrid) {
     cards.push(metricGrid);
@@ -2222,163 +2199,6 @@ function buildMetricGridCard({ findings }) {
     metrics: tiles,
   };
 }
-
-/*
-Legacy evidence-card builder retained temporarily for reference while the UI
-transition moves from internal evidence widgets to prompt-specific dashboards.
-
-  const topSource = sources[0] || evidence[0] || null;
-  const recentSourceCount = sources.filter(
-    (source) => Number(source.freshness_score || 0) >= 0.82
-  ).length;
-  const highQualitySourceCount = sources.filter(
-    (source) => Number(source.quality_score || 0) >= 0.84
-  ).length;
-  const recencyScore = sources.length ? recentSourceCount / sources.length : 0.4;
-  const qualityScore = sources.length ? highQualitySourceCount / sources.length : 0.55;
-  const consistencyScore = clamp(
-    Number(confidence.score || 0) * 0.92 + qualityScore * 0.18,
-    0,
-    1
-  );
-  const personalizationScore = clamp(
-    (plan.topic === "mental_performance" && synthesis.recommendations.mental_performance?.length
-      ? 0.74
-      : 0.62) - (plan.riskLevel === "medium" ? 0.08 : 0),
-    0.35,
-    0.9
-  );
-  const effectLabel = summarizeEffect(synthesis.summary);
-  const actionColumns = buildActionColumns({
-    recommendations: synthesis.recommendations,
-    topic: plan.topic,
-  });
-  const visualRequested = wantsVisualCards(question);
-  const minimumConfidence = visualRequested ? 0.48 : 0.65;
-  const shouldShowCards =
-    sources.length >= 2 &&
-    Number(confidence.score || 0) >= minimumConfidence;
-
-  if (!shouldShowCards) {
-    return [];
-  }
-  const sourceHighlights = sources.slice(0, 3).map((source) => ({
-    title: source.title,
-    meta: [
-      source.journal,
-      source.year,
-      source.publication_type,
-      source.pmid ? `PMID ${source.pmid}` : "",
-    ]
-      .filter(Boolean)
-      .join(" · "),
-    takeaway: cleanSourceTakeaway(source.excerpt || source.why_it_matters),
-    links: [
-      source.url
-        ? {
-            label: source.doi ? "DOI" : "Open source",
-            url: source.url,
-          }
-        : null,
-      source.pmid
-        ? {
-            label: "PubMed",
-            url: `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(source.pmid)}/`,
-          }
-        : null,
-    ].filter(Boolean),
-  }));
-
-  const cards = [
-    {
-      type: "verdict_hero",
-      eyebrow: `${titleCase(plan.topic)} — Evidence Verdict`,
-      title: buildVerdictTitle(synthesis.summary),
-      body: normalizeText(synthesis.summary, 220),
-      metrics: [
-        {
-          label: "Confidence",
-          value: titleCase(confidence.label),
-          tone: scoreTone(confidence.score),
-        },
-        {
-          label: "Evidence",
-          value: determineEvidenceLabel(topSource),
-          tone: scoreTone(qualityScore),
-        },
-        {
-          label: "Recency",
-          value: determineRecencyLabel(topSource),
-          tone: scoreTone(recencyScore),
-        },
-        {
-          label: "Effect",
-          value: effectLabel,
-          tone: scoreTone(confidence.score),
-        },
-      ],
-    },
-  ];
-
-  if (actionColumns.length) {
-    cards.push({
-      type: "action_grid",
-      title: "What to do",
-      columns: actionColumns,
-    });
-  }
-
-  cards.push({
-    type: "evidence_profile",
-    title: "Evidence profile",
-    footnote: confidence.rationale,
-    items: [
-      {
-        label: "Evidence quality",
-        score: Math.round(qualityScore * 10),
-        max: 10,
-        tone: scoreTone(qualityScore),
-      },
-      {
-        label: "Consistency",
-        score: Math.round(consistencyScore * 10),
-        max: 10,
-        tone: scoreTone(consistencyScore),
-      },
-      {
-        label: "Recency",
-        score: Math.round(recencyScore * 10),
-        max: 10,
-        tone: scoreTone(recencyScore),
-      },
-      {
-        label: "Personal fit",
-        score: Math.round(personalizationScore * 10),
-        max: 10,
-        tone: scoreTone(personalizationScore),
-      },
-    ],
-  });
-
-  if (sourceHighlights.length) {
-    cards.push({
-      type: "source_highlights",
-      title: "Best sources",
-      items: sourceHighlights,
-    });
-  }
-
-  if (Array.isArray(synthesis.limitations) && synthesis.limitations.length) {
-    cards.push({
-      type: "watchouts",
-      title: "Watchouts",
-      tone: confidence.score >= 0.75 ? "medium" : "caution",
-      items: synthesis.limitations.slice(0, 4),
-    });
-  }
-
-  return cards;
-*/
 
 function normalizeSources(evidence) {
   return evidence.slice(0, 6).map((source) => ({
