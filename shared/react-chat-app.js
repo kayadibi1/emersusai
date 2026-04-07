@@ -22,6 +22,7 @@ import {
   setStatus,
   upsertChatThread,
 } from "/shared/supabase.js";
+import EmersusRubiksCube from "/shared/emersus-rubiks-cube.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -1039,14 +1040,6 @@ function Message({ message }) {
   );
 }
 
-function RailMetric({ label, value, note, width = "0%", tone = "" }) {
-  return h("div", { className: "rail-metric" },
-    h("div", { className: "rail-metric-head" },
-      h("div", null, h("p", { className: "rail-metric-label" }, label), h("p", { className: "rail-metric-value" }, value)),
-      h("span", { className: "rail-metric-note" }, note)),
-    h("div", { className: `rail-spark ${tone}`.trim(), style: { "--spark-width": width } }));
-}
-
 function SourceList({ sources }) {
   return h("ul", { className: "source-list" }, (Array.isArray(sources) ? sources : []).map((source, index) => {
     const meta = [source.author_label || "", source.journal || "", source.year || source.published_at || "", source.publication_type || "", source.pmid ? `PMID ${source.pmid}` : ""].filter(Boolean).join(" - ");
@@ -1070,8 +1063,10 @@ function ChatApp() {
   const [statusTone, setStatusTone] = useState("");
   const [question, setQuestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [thinkingPhase, setThinkingPhase] = useState("hidden"); // "hidden" | "thinking" | "complete"
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
+  const prevSubmittingRef = useRef(false);
 
   const activeThread = useMemo(() => chatHistory.find((threadData) => threadData.id === activeThreadId) || null, [activeThreadId, chatHistory]);
 
@@ -1081,7 +1076,23 @@ function ChatApp() {
 
   useEffect(() => {
     canvasRef.current?.scrollTo({ top: canvasRef.current.scrollHeight, behavior: "smooth" });
-  }, [activeThread?.messages?.length, activeThreadId]);
+  }, [activeThread?.messages?.length, activeThreadId, thinkingPhase]);
+
+  // Bridge isSubmitting → thinkingPhase, with a brief "complete" burst before hiding.
+  useEffect(() => {
+    const wasSubmitting = prevSubmittingRef.current;
+    prevSubmittingRef.current = isSubmitting;
+    if (isSubmitting) {
+      setThinkingPhase("thinking");
+      return undefined;
+    }
+    if (wasSubmitting) {
+      setThinkingPhase("complete");
+      const timer = window.setTimeout(() => setThinkingPhase("hidden"), 520);
+      return () => window.clearTimeout(timer);
+    }
+    return undefined;
+  }, [isSubmitting]);
 
   useEffect(() => {
     let cancelled = false;
@@ -1240,10 +1251,6 @@ function ChatApp() {
   }
 
   const displayName = getDisplayName(session);
-  const rail = activeThread?.rail || {};
-  const confidencePercent = typeof rail.confidencePercent === "number" ? rail.confidencePercent : Math.round(Math.max(0, Math.min(Number(rail.confidenceScore || 0), 1)) * 100);
-  const sourceCount = Number(rail.sourceCount || activeThread?.sources?.length || 0);
-  const synthesisMode = String(rail.synthesisMode || (isSubmitting ? "thinking" : "idle")).replace(/[:_]/g, " ");
 
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}` },
     h("aside", { className: "chat-nav" },
@@ -1268,13 +1275,20 @@ function ChatApp() {
     h("main", { className: "chat-main" },
       h("div", { className: "chat-main-body" },
         h("section", { className: "conversation-canvas", ref: canvasRef },
-          h("div", { className: `chat-thread${!activeThread?.messages?.length ? " is-empty" : ""}` },
+          h("div", { className: `chat-thread${!activeThread?.messages?.length && thinkingPhase === "hidden" ? " is-empty" : ""}` },
             activeThread?.messages?.length
               ? activeThread.messages.map((message, index) => h(Message, { key: `${message.createdAt || ""}-${index}`, message }))
-              : h("section", { className: "thread-welcome" },
-                  h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
-                  h("h2", { className: "thread-welcome-title" }, `Welcome, ${displayName}`),
-                  h("p", { className: "thread-welcome-copy" }, "Ask about training, nutrition, supplements, recovery, cardiovascular fitness, or metabolic health and I'll keep the answer evidence-aware."))))),
+              : thinkingPhase === "hidden"
+                ? h("section", { className: "thread-welcome" },
+                    h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
+                    h("h2", { className: "thread-welcome-title" }, `Welcome, ${displayName}`),
+                    h("p", { className: "thread-welcome-copy" }, "Ask about training, nutrition, supplements, recovery, cardiovascular fitness, or metabolic health and I'll keep the answer evidence-aware."))
+                : null,
+            thinkingPhase !== "hidden"
+              ? h("article", { className: "message assistant message-thinking", "aria-live": "polite" },
+                  h("div", { className: "message-content message-thinking-content" },
+                    h(EmersusRubiksCube, { state: thinkingPhase, size: 96 })))
+              : null))),
       h("div", { className: "chat-composer-shell" },
         h("form", { className: "composer", onSubmit: submitQuestion },
           h("div", { className: "composer-row" },
@@ -1296,12 +1310,6 @@ function ChatApp() {
               h("button", { className: "submit-orb", type: "submit", disabled: isSubmitting, "aria-label": "Send question" }, h(ArrowUp, { size: 21 })))),
           h("div", { className: "composer-utility-row" }, h("div", { className: "composer-buttons" }), h("p", { className: "status-text", ref: statusRef }))))),
     h("aside", { className: "chat-rail" },
-      h("section", { className: "rail-card" },
-        h("h3", { className: "rail-title" }, "System status"),
-        h("div", { className: "rail-metric-stack" },
-          h(RailMetric, { label: "Confidence", value: `${confidencePercent}%`, note: rail.confidenceLabel || "Idle", width: `${Math.max(0, Math.min(Number(rail.confidenceScore || 0) * 100, 100))}%` }),
-          h(RailMetric, { label: "Source count", value: String(sourceCount), note: "Attached", width: `${Math.max(10, Math.min(sourceCount * 16, 100))}%`, tone: "tone-medium" }),
-          h(RailMetric, { label: "Model state", value: synthesisMode, note: "Live", width: `${activeThread?.rail?.synthesisMode ? 88 : 68}%`, tone: "tone-caution" }))),
       h("section", { className: "rail-card" }, h("h3", { className: "rail-title" }, "Retrieved sources"), h(SourceList, { sources: activeThread?.sources || [] })),
       h("div", { className: "rail-foot" },
         h("div", { className: "rail-foot-line" }, h("span", null, "Pipeline"), h("span", null, "PubMed + PMC")),
