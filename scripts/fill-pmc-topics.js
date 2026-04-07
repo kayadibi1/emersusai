@@ -46,6 +46,14 @@ const DEFAULT_TOPIC_ORDER = [
   "casein",
   "pre_workout",
   "probiotics",
+  "peptides",
+  "collagen_peptides",
+  "bioactive_peptides",
+  "bpc_157",
+  "thymosin_beta_4",
+  "growth_hormone_peptides",
+  "glp_1_peptides",
+  "ghrelin_peptides",
   "hrv",
   "stress",
   "injury_prevention",
@@ -167,6 +175,22 @@ const TOPIC_QUERIES = {
     "\"pre-workout\" OR preworkout AND (exercise performance OR resistance training)",
   probiotics:
     "probiotics AND (gut health OR athletes OR immune function OR exercise)",
+  peptides:
+    "(peptide OR peptides) AND (muscle OR exercise performance OR recovery OR metabolism OR body composition)",
+  collagen_peptides:
+    "(collagen peptides OR hydrolyzed collagen OR gelatin) AND (tendon OR joint OR muscle OR exercise OR recovery)",
+  bioactive_peptides:
+    "\"bioactive peptides\" AND (exercise OR muscle OR metabolism OR inflammation OR recovery)",
+  bpc_157:
+    "(BPC-157 OR \"body protection compound 157\") AND (tendon OR muscle OR healing OR injury OR inflammation)",
+  thymosin_beta_4:
+    "(\"thymosin beta 4\" OR thymosin beta-4 OR TB-500 OR TB500) AND (muscle OR tendon OR wound healing OR injury OR recovery)",
+  growth_hormone_peptides:
+    "(growth hormone releasing peptide OR GHRP OR CJC-1295 OR ipamorelin OR tesamorelin) AND (body composition OR muscle OR exercise OR metabolism)",
+  glp_1_peptides:
+    "(GLP-1 OR glucagon-like peptide-1 OR semaglutide OR liraglutide OR tirzepatide) AND (weight loss OR body composition OR exercise OR muscle)",
+  ghrelin_peptides:
+    "(ghrelin OR ghrelin receptor agonist OR growth hormone secretagogue) AND (appetite OR muscle OR metabolism OR exercise)",
   hrv:
     "\"heart rate variability\" OR HRV AND (recovery OR training load OR athletes)",
   stress:
