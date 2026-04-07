@@ -1768,29 +1768,33 @@ function initScaleBackground() {
   function buildHumanoid(S) {
     const fig = new THREE.Group();
     const v = (x, y, z) => new THREE.Vector3(x * S, y * S, z * S);
-    const addBox = (w, h, d, pos, color = COLORS.cyan, opacity = 0.85) => {
-      const m = new THREE.LineSegments(
-        new THREE.WireframeGeometry(new THREE.BoxGeometry(w * S, h * S, d * S)),
-        wireMat(color, opacity),
-      );
+
+    // Wireframe sphere/ovoid blob — used for fleshy volumes (chest, hips, head).
+    const addBlob = (rx, ry, rz, pos, color = COLORS.cyan, opacity = 0.85, detail = 1) => {
+      const geom = new THREE.IcosahedronGeometry(1, detail);
+      geom.scale(rx * S, ry * S, rz * S);
+      const m = new THREE.LineSegments(new THREE.WireframeGeometry(geom), wireMat(color, opacity));
       m.position.copy(pos);
       fig.add(m);
       return m;
     };
-    const addBone = (A, B, thickness = 0.1, color = COLORS.blue, opacity = 0.85) => {
+
+    // Capsule limb stretched between two anatomical points (A → B).
+    const addLimb = (A, B, radius = 0.08, color = COLORS.blue, opacity = 0.85) => {
       const dir = new THREE.Vector3().subVectors(B, A);
       const len = dir.length();
       if (len < 1e-6) return null;
-      const m = new THREE.LineSegments(
-        new THREE.WireframeGeometry(new THREE.BoxGeometry(thickness * S, len, thickness * S)),
-        wireMat(color, opacity),
-      );
+      const cyl = Math.max(len - radius * S * 2, 0.001);
+      const geom = new THREE.CapsuleGeometry(radius * S, cyl, 4, 10);
+      const m = new THREE.LineSegments(new THREE.WireframeGeometry(geom), wireMat(color, opacity));
       m.position.copy(A).add(B).multiplyScalar(0.5);
       m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.clone().normalize());
       fig.add(m);
       return m;
     };
-    const addJoint = (pos, radius = 0.08, color = COLORS.cyan, opacity = 0.95) => {
+
+    // Small spherical joint marker.
+    const addJoint = (pos, radius = 0.07, color = COLORS.cyan, opacity = 0.9) => {
       const m = new THREE.LineSegments(
         new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(radius * S, 1)),
         wireMat(color, opacity),
@@ -1799,44 +1803,68 @@ function initScaleBackground() {
       fig.add(m);
       return m;
     };
-    const HIP_L = v(0.18, -1.85, 0);
-    const HIP_R = v(-0.18, -1.85, 0);
+
+    // ----- joint positions (S units) -----
+    const HIP_L = v(0.16, -1.85, 0);
+    const HIP_R = v(-0.16, -1.85, 0);
     const KNEE_L = v(0.18, -1.85, 1.05);
     const KNEE_R = v(-0.18, -1.85, 1.05);
     const ANKLE_L = v(0.2, -3.05, 1.05);
     const ANKLE_R = v(-0.2, -3.05, 1.05);
     const TOE_L = v(0.2, -3.1, 1.32);
     const TOE_R = v(-0.2, -3.1, 1.32);
+
+    const PELVIS = v(0, -1.82, 0.02);
+    const CHEST = v(0, -1.05, 0.02);
     const NECK_BASE = v(0, -0.55, 0.02);
-    const NECK_TOP = v(0, -0.32, 0.04);
-    const SHO_L = v(0.34, -0.55, 0.02);
-    const SHO_R = v(-0.34, -0.55, 0.02);
+    const NECK_TOP = v(0, -0.34, 0.04);
+    const HEAD = v(0, -0.05, 0.05);
+
+    const SHO_L = v(0.32, -0.6, 0.02);
+    const SHO_R = v(-0.32, -0.6, 0.02);
     const ELBOW_L = v(0.4, -1.18, 0.32);
     const WRIST_L = v(0.1, -1.58, 0.95);
-    const HAND_L_TIP = v(-0.04, -1.58, 1.12);
+    const HAND_L_TIP = v(-0.02, -1.58, 1.12);
     const ELBOW_R = v(-0.62, -1.1, 0.3);
     const WRIST_R = v(-1.05, -1.58, 0.85);
     const HAND_R_TIP = v(-1.2, -1.58, 0.98);
-    addBox(0.46, 0.22, 0.36, v(0, -1.85, 0.02), COLORS.cyan, 0.9);
-    addBox(0.62, 1.3, 0.38, v(0, -1.2, 0.02), COLORS.cyan, 0.85);
-    addBox(0.8, 0.16, 0.34, v(0, -0.55, 0.02), COLORS.blue, 0.8);
-    addBox(0.5, 0.62, 0.5, v(0, 0, 0.04), COLORS.cyan, 0.95);
-    addBone(NECK_BASE, NECK_TOP, 0.14, COLORS.cyan, 0.85);
-    addBone(SHO_L, ELBOW_L, 0.14, COLORS.blue, 0.85);
-    addBone(ELBOW_L, WRIST_L, 0.12, COLORS.blue, 0.85);
-    addBone(WRIST_L, HAND_L_TIP, 0.1, COLORS.cyan, 0.9);
-    addBone(SHO_R, ELBOW_R, 0.14, COLORS.blue, 0.85);
-    addBone(ELBOW_R, WRIST_R, 0.12, COLORS.blue, 0.85);
-    addBone(WRIST_R, HAND_R_TIP, 0.1, COLORS.cyan, 0.9);
-    addBone(HIP_L, KNEE_L, 0.18, COLORS.blue, 0.85);
-    addBone(KNEE_L, ANKLE_L, 0.16, COLORS.blue, 0.85);
-    addBone(ANKLE_L, TOE_L, 0.14, COLORS.cyan, 0.9);
-    addBone(HIP_R, KNEE_R, 0.18, COLORS.blue, 0.85);
-    addBone(KNEE_R, ANKLE_R, 0.16, COLORS.blue, 0.85);
-    addBone(ANKLE_R, TOE_R, 0.14, COLORS.cyan, 0.9);
-    [HIP_L, HIP_R, KNEE_L, KNEE_R, ANKLE_L, ANKLE_R, SHO_L, SHO_R, ELBOW_L, ELBOW_R, WRIST_L, WRIST_R, NECK_BASE, NECK_TOP].forEach(
-      (p) => addJoint(p, 0.08, COLORS.cyan, 0.95),
+
+    // ----- fleshy volumes -----
+    addBlob(0.27, 0.16, 0.22, PELVIS, COLORS.cyan, 0.85, 1); // pelvis (wider, flatter)
+    addBlob(0.32, 0.42, 0.22, CHEST, COLORS.cyan, 0.85, 2);  // ribcage / torso (egg-shaped)
+    addBlob(0.10, 0.12, 0.10, NECK_BASE.clone().lerp(NECK_TOP, 0.5), COLORS.blue, 0.75, 1); // neck
+    addBlob(0.22, 0.26, 0.22, HEAD, COLORS.cyan, 0.95, 2);   // head
+
+    // Spine line — torso → neck → head, gives a clear vertical axis
+    fig.add(new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints([PELVIS, CHEST, NECK_BASE, NECK_TOP, HEAD]),
+      wireMat(COLORS.cyan, 0.4),
+    ));
+
+    // ----- limbs (capsules) -----
+    // Arms
+    addLimb(SHO_L, ELBOW_L, 0.085, COLORS.blue, 0.85);
+    addLimb(ELBOW_L, WRIST_L, 0.07, COLORS.blue, 0.85);
+    addLimb(SHO_R, ELBOW_R, 0.085, COLORS.blue, 0.85);
+    addLimb(ELBOW_R, WRIST_R, 0.07, COLORS.blue, 0.85);
+    // Hands as small ovoids
+    addBlob(0.07, 0.05, 0.07, WRIST_L.clone().lerp(HAND_L_TIP, 0.5), COLORS.cyan, 0.9, 1);
+    addBlob(0.07, 0.05, 0.07, WRIST_R.clone().lerp(HAND_R_TIP, 0.5), COLORS.cyan, 0.9, 1);
+
+    // Legs
+    addLimb(HIP_L, KNEE_L, 0.11, COLORS.blue, 0.85);
+    addLimb(KNEE_L, ANKLE_L, 0.09, COLORS.blue, 0.85);
+    addLimb(HIP_R, KNEE_R, 0.11, COLORS.blue, 0.85);
+    addLimb(KNEE_R, ANKLE_R, 0.09, COLORS.blue, 0.85);
+    // Feet as flattened ovoids
+    addBlob(0.08, 0.05, 0.16, ANKLE_L.clone().lerp(TOE_L, 0.5), COLORS.cyan, 0.9, 1);
+    addBlob(0.08, 0.05, 0.16, ANKLE_R.clone().lerp(TOE_R, 0.5), COLORS.cyan, 0.9, 1);
+
+    // ----- joints -----
+    [HIP_L, HIP_R, KNEE_L, KNEE_R, ANKLE_L, ANKLE_R, SHO_L, SHO_R, ELBOW_L, ELBOW_R, WRIST_L, WRIST_R].forEach(
+      (p) => addJoint(p, 0.07, COLORS.cyan, 0.9),
     );
+
     return fig;
   }
 
