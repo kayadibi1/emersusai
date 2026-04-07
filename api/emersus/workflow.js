@@ -2073,14 +2073,144 @@ function cleanSourceTakeaway(value) {
   );
 }
 
-function buildCards({ question, synthesis, evidence = [], includeDebug = false }) {
+function buildCards({ question, synthesis, evidence = [], includeDebug = false, plan = null, confidence = null, sources = [], quantFindings = [] }) {
   const visualPlan = buildVisualArtifactPlan({ question, synthesis, evidence, includeDebug });
+  const cards = [];
 
+  // 1. Explicit visual artifact (chart/diagram/etc.) — keep first when requested.
   if (visualPlan.card) {
-    return [visualPlan.card];
+    cards.push(visualPlan.card);
   }
 
-  return [];
+  if (!synthesis) {
+    return cards;
+  }
+
+  const conf = confidence || { score: 0.6, label: "moderate", rationale: "" };
+  const topSource = sources[0] || evidence[0] || null;
+  const recentSourceCount = sources.filter((s) => Number(s.freshness_score || 0) >= 0.82).length;
+  const highQualitySourceCount = sources.filter((s) => Number(s.quality_score || 0) >= 0.84).length;
+  const recencyScore = sources.length ? recentSourceCount / sources.length : 0.4;
+  const qualityScore = sources.length ? highQualitySourceCount / sources.length : 0.55;
+  const consistencyScore = clamp(Number(conf.score || 0) * 0.92 + qualityScore * 0.18, 0, 1);
+  const personalizationScore = clamp(
+    (plan?.topic === "mental_performance" && synthesis.recommendations?.mental_performance?.length ? 0.74 : 0.62) -
+      (plan?.riskLevel === "medium" ? 0.08 : 0),
+    0.35,
+    0.9
+  );
+  const effectLabel = summarizeEffect(synthesis.summary);
+
+  // Skip the structured deck entirely if confidence is too low or evidence is too thin.
+  const minimumConfidence = wantsVisualCards(question) ? 0.48 : 0.6;
+  const enoughEvidence = sources.length >= 2 && Number(conf.score || 0) >= minimumConfidence;
+  if (!enoughEvidence) {
+    return cards;
+  }
+
+  // 2. Verdict hero — top-level summary with at-a-glance facts.
+  cards.push({
+    type: "verdict_hero",
+    eyebrow: plan?.topic ? `${titleCase(plan.topic)} - Evidence Verdict` : "Evidence Verdict",
+    title: buildVerdictTitle(synthesis.summary),
+    body: normalizeText(synthesis.summary, 220),
+    metrics: [
+      { label: "Confidence", value: titleCase(conf.label || "moderate"), tone: scoreTone(conf.score) },
+      { label: "Evidence", value: determineEvidenceLabel(topSource), tone: scoreTone(qualityScore) },
+      { label: "Recency", value: determineRecencyLabel(topSource), tone: scoreTone(recencyScore) },
+      { label: "Effect", value: effectLabel, tone: scoreTone(conf.score) },
+    ],
+  });
+
+  // 3. Metric grid — quantitative findings extracted from the evidence chunks.
+  const metricGrid = buildMetricGridCard({ findings: quantFindings });
+  if (metricGrid) {
+    cards.push(metricGrid);
+  }
+
+  // 4. Action grid (Do / Dose / When).
+  const actionColumns = buildActionColumns({
+    recommendations: synthesis.recommendations,
+    topic: plan?.topic,
+  });
+  if (actionColumns.length) {
+    cards.push({ type: "action_grid", title: "What to do", columns: actionColumns });
+  }
+
+  // 5. Evidence profile (quality / consistency / recency / personal-fit bars).
+  cards.push({
+    type: "evidence_profile",
+    title: "Evidence profile",
+    footnote: conf.rationale,
+    items: [
+      { label: "Evidence quality", score: Math.round(qualityScore * 10), max: 10, tone: scoreTone(qualityScore) },
+      { label: "Consistency", score: Math.round(consistencyScore * 10), max: 10, tone: scoreTone(consistencyScore) },
+      { label: "Recency", score: Math.round(recencyScore * 10), max: 10, tone: scoreTone(recencyScore) },
+      { label: "Personal fit", score: Math.round(personalizationScore * 10), max: 10, tone: scoreTone(personalizationScore) },
+    ],
+  });
+
+  // 6. Source highlights — anchor citations.
+  const sourceHighlights = sources.slice(0, 3).map((source) => ({
+    title: source.title,
+    meta: [source.journal, source.year, source.publication_type, source.pmid ? `PMID ${source.pmid}` : ""]
+      .filter(Boolean)
+      .join(" - "),
+    takeaway: cleanSourceTakeaway(source.excerpt || source.why_it_matters),
+    links: [
+      source.url ? { label: source.doi ? "DOI" : "Open source", url: source.url } : null,
+      source.pmid
+        ? { label: "PubMed", url: `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(source.pmid)}/` }
+        : null,
+    ].filter(Boolean),
+  }));
+  if (sourceHighlights.length) {
+    cards.push({ type: "source_highlights", title: "Best sources", items: sourceHighlights });
+  }
+
+  // 7. Watchouts.
+  if (Array.isArray(synthesis.limitations) && synthesis.limitations.length) {
+    cards.push({
+      type: "watchouts",
+      title: "Watchouts",
+      tone: Number(conf.score || 0) >= 0.75 ? "medium" : "caution",
+      items: synthesis.limitations.slice(0, 4),
+    });
+  }
+
+  return cards;
+}
+
+function buildMetricGridCard({ findings }) {
+  if (!Array.isArray(findings) || findings.length === 0) {
+    return null;
+  }
+
+  const tiles = findings.slice(0, 4).map((finding) => {
+    const tone =
+      finding.unitType === "percent" || finding.unitType === "mass"
+        ? "positive"
+        : finding.unitType === "duration" || finding.unitType === "dose"
+        ? "neutral"
+        : "info";
+    const subParts = [finding.detail, finding.sourceId].filter(Boolean);
+    return {
+      value: finding.displayValue,
+      label: finding.label || "Reported finding",
+      sub: subParts.join(" - "),
+      tone,
+      sentence: finding.sentence || "",
+      sourceTitle: finding.sourceTitle || "",
+      sourceId: finding.sourceId || "",
+    };
+  });
+
+  return {
+    type: "metric_grid",
+    title: "Quantitative findings",
+    eyebrow: "Extracted from retrieved evidence",
+    metrics: tiles,
+  };
 }
 
 /*
@@ -2673,11 +2803,24 @@ async function generateRecommendation({
       };
     }
   }
-  const cards = visualPlan.card ? [visualPlan.card] : [];
   const quantFindings = buildQuantFindings({
     question,
     evidence: databaseEvidence,
   });
+  const cards = buildCards({
+    question,
+    synthesis,
+    evidence: databaseEvidence,
+    includeDebug,
+    plan,
+    confidence,
+    sources,
+    quantFindings,
+  });
+  // Preserve the dynamic-diagram enrichment if a visual artifact card was emitted first.
+  if (visualPlan.card && cards[0] !== visualPlan.card) {
+    cards.unshift(visualPlan.card);
+  }
   const tokenUsage = cumulativeTokenUsage;
 
   logTokenUsageEvent({

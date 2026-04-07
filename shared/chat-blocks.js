@@ -377,6 +377,9 @@ export function renderArticleVizCard(block) {
     sections.push(section);
   }
 
+  if (!sections.length) {
+    return null;
+  }
   for (const section of sections) {
     body.appendChild(section);
   }
@@ -495,22 +498,30 @@ function buildSparklinePath(points, width = 180, height = 54) {
 }
 
 function renderVerdictHeroGraphic(cardData) {
+  const title = normalizeText(cardData?.title || "", 180);
+  const copy = trimSnippet(cardData?.body || "", 220);
+  const metrics = Array.isArray(cardData?.metrics) ? cardData.metrics.slice(0, 4) : [];
+  const hasMetrics = metrics.some(
+    (metric) => normalizeText(metric?.label || "", 40) || normalizeText(metric?.value || "", 60),
+  );
+
+  if (!title && !copy && !hasMetrics) {
+    return null;
+  }
+
   const { card, body } = createInfoCardShell({
     title: cardData?.eyebrow || "Evidence Verdict",
     bodyClass: "chat-insight-card",
   });
 
-  body.appendChild(
-    createNode("h3", "chat-insight-title", normalizeText(cardData?.title || "Evidence snapshot", 180))
-  );
-
-  const copy = trimSnippet(cardData?.body || "", 220);
+  if (title) {
+    body.appendChild(createNode("h3", "chat-insight-title", title));
+  }
   if (copy) {
     body.appendChild(createNode("p", "chat-insight-copy", copy));
   }
 
   const metricRow = createNode("div", "chat-chip-row");
-  const metrics = Array.isArray(cardData?.metrics) ? cardData.metrics.slice(0, 4) : [];
 
   for (const metric of metrics) {
     const chip = createNode("div", `chat-data-chip ${toneClass(metric?.tone)}`.trim());
@@ -581,6 +592,8 @@ function renderEvidenceProfileGraphic(cardData) {
 
   if (list.childNodes.length) {
     body.appendChild(list);
+  } else if (!cardData?.footnote) {
+    return null;
   }
 
   if (scoredItems.length >= 2) {
@@ -643,9 +656,10 @@ function renderActionGridGraphic(cardData) {
     grid.appendChild(panel);
   }
 
-  if (grid.childNodes.length) {
-    body.appendChild(grid);
+  if (!grid.childNodes.length) {
+    return null;
   }
+  body.appendChild(grid);
 
   return card;
 }
@@ -659,11 +673,15 @@ function renderWatchoutsGraphic(cardData) {
 
   const list = createNode("ul", "chat-watchout-list");
   for (const item of Array.isArray(cardData?.items) ? cardData.items.slice(0, 4) : []) {
-    list.appendChild(createNode("li", "", normalizeText(item, 180)));
+    const text = normalizeText(item, 180);
+    if (text) {
+      list.appendChild(createNode("li", "", text));
+    }
   }
-  if (list.childNodes.length) {
-    body.appendChild(list);
+  if (!list.childNodes.length) {
+    return null;
   }
+  body.appendChild(list);
   return card;
 }
 
@@ -717,12 +735,64 @@ function renderSourceHighlightsGraphic(cardData) {
   return card;
 }
 
+function renderMetricGridGraphic(cardData) {
+  const metrics = Array.isArray(cardData?.metrics) ? cardData.metrics.slice(0, 4) : [];
+  const populated = metrics.filter((m) => normalizeText(m?.value || "", 40) || normalizeText(m?.label || "", 80));
+  if (!populated.length) {
+    return null;
+  }
+
+  const { card, body } = createInfoCardShell({
+    title: cardData?.eyebrow || cardData?.title || "Quantitative findings",
+    bodyClass: "chat-insight-card",
+  });
+
+  if (cardData?.title && cardData?.eyebrow) {
+    body.appendChild(createNode("h3", "chat-insight-title", normalizeText(cardData.title, 120)));
+  }
+
+  const grid = createNode("div", "chat-metric-grid chat-metric-grid-quad");
+  for (const metric of populated) {
+    const tile = createNode("div", `chat-metric-tile ${toneClass(metric?.tone)}`.trim());
+    tile.appendChild(createNode("div", "chat-metric-tile-value", normalizeText(metric?.value || "", 40)));
+    tile.appendChild(createNode("div", "chat-metric-tile-label", normalizeText(metric?.label || "", 80)));
+    if (metric?.sub) {
+      tile.appendChild(createNode("div", "chat-metric-tile-sub", normalizeText(metric.sub, 80)));
+    }
+    grid.appendChild(tile);
+  }
+  body.appendChild(grid);
+
+  // Per-tile sentence excerpts with source attribution.
+  const evidenceList = createNode("ul", "chat-metric-evidence");
+  for (const metric of populated) {
+    if (!metric?.sentence && !metric?.sourceTitle) continue;
+    const li = createNode("li", "chat-metric-evidence-item");
+    if (metric.sentence) {
+      li.appendChild(createNode("p", "chat-metric-evidence-sentence", trimSnippet(metric.sentence, 220)));
+    }
+    const sourceLabel = [metric.sourceTitle, metric.sourceId].filter(Boolean).join(" - ");
+    if (sourceLabel) {
+      li.appendChild(createNode("span", "chat-metric-evidence-source", normalizeText(sourceLabel, 160)));
+    }
+    evidenceList.appendChild(li);
+  }
+  if (evidenceList.childNodes.length) {
+    body.appendChild(evidenceList);
+  }
+
+  return card;
+}
+
 function renderInsightCard(block) {
   const cardData = block?.data || {};
   const type = String(cardData?.type || "").toLowerCase();
 
   if (type === "verdict_hero") {
     return renderVerdictHeroGraphic(cardData);
+  }
+  if (type === "metric_grid") {
+    return renderMetricGridGraphic(cardData);
   }
   if (type === "evidence_profile") {
     return renderEvidenceProfileGraphic(cardData);
