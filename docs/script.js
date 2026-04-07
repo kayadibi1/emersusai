@@ -1583,10 +1583,17 @@ function initScaleBackground() {
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
-  renderer.setSize(window.innerWidth, window.innerHeight, false);
   renderer.setClearColor(0x000000, 1);
 
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.05, 800000);
+  // Initial sizing uses whatever the canvas already has; ResizeObserver below
+  // takes over reactively the moment layout settles, so we never depend on
+  // window.innerWidth being correct at init time.
+  const initialRect = canvas.getBoundingClientRect();
+  const initialW = Math.max(initialRect.width || window.innerWidth || 1, 1);
+  const initialH = Math.max(initialRect.height || window.innerHeight || 1, 1);
+  renderer.setSize(initialW, initialH, false);
+
+  const camera = new THREE.PerspectiveCamera(60, initialW / initialH, 0.05, 800000);
   camera.position.set(0, 0, 4);
 
   const scene = new THREE.Scene();
@@ -1829,16 +1836,66 @@ function initScaleBackground() {
     const WRIST_R = v(-1.05, -1.58, 0.85);
     const HAND_R_TIP = v(-1.2, -1.58, 0.98);
 
-    // ----- fleshy volumes -----
-    addBlob(0.27, 0.16, 0.22, PELVIS, COLORS.cyan, 0.85, 1); // pelvis (wider, flatter)
-    addBlob(0.32, 0.42, 0.22, CHEST, COLORS.cyan, 0.85, 2);  // ribcage / torso (egg-shaped)
-    addBlob(0.10, 0.12, 0.10, NECK_BASE.clone().lerp(NECK_TOP, 0.5), COLORS.blue, 0.75, 1); // neck
-    addBlob(0.22, 0.26, 0.22, HEAD, COLORS.cyan, 0.95, 2);   // head
+    // Lathe helper — revolve a 2D silhouette (in S units) around Y to get a
+    // smooth, anatomical wireframe shell. Depth is squashed slightly so the
+    // body reads less spherical from the side.
+    const addLathe = (profile, center, depthScale = 0.78, color = COLORS.cyan, opacity = 0.85, segments = 18) => {
+      const pts = profile.map(([px, py]) => new THREE.Vector2(px * S, py * S));
+      const geom = new THREE.LatheGeometry(pts, segments);
+      geom.scale(1, 1, depthScale);
+      const m = new THREE.LineSegments(new THREE.WireframeGeometry(geom), wireMat(color, opacity));
+      m.position.copy(center);
+      fig.add(m);
+      return m;
+    };
 
-    // Spine line — torso → neck → head, gives a clear vertical axis
+    // ----- torso silhouette: shoulders → chest → waist → hips -----
+    // Profile is (radius, height) in S units, drawn relative to fig origin.
+    const torsoProfile = [
+      [0.001, -1.98],  // crotch / pelvic floor
+      [0.20,  -1.95],
+      [0.27,  -1.85],  // hip widest
+      [0.26,  -1.72],
+      [0.21,  -1.55],  // waist taper
+      [0.19,  -1.40],  // waist narrowest
+      [0.22,  -1.22],
+      [0.28,  -1.05],  // lower ribcage
+      [0.31,  -0.88],  // chest widest
+      [0.30,  -0.72],
+      [0.26,  -0.62],  // shoulder shelf
+      [0.14,  -0.56],  // neck base taper
+      [0.09,  -0.50],
+      [0.001, -0.48],
+    ];
+    addLathe(torsoProfile, v(0, 0, 0.02), 0.62, COLORS.cyan, 0.85, 18);
+
+    // ----- neck (short tapered cylinder) -----
+    const neckProfile = [
+      [0.001, -0.50],
+      [0.085, -0.48],
+      [0.085, -0.36],
+      [0.001, -0.34],
+    ];
+    addLathe(neckProfile, v(0, 0, 0.03), 0.85, COLORS.blue, 0.80, 14);
+
+    // ----- head silhouette (egg, slightly tapered to chin) -----
+    const headProfile = [
+      [0.001, -0.34],
+      [0.10,  -0.30],  // jaw
+      [0.16,  -0.22],
+      [0.20,  -0.10],
+      [0.22,   0.02],  // cranium widest
+      [0.21,   0.12],
+      [0.16,   0.20],
+      [0.08,   0.24],
+      [0.001,  0.25],
+    ];
+    addLathe(headProfile, v(0, 0, 0.05), 0.92, COLORS.cyan, 0.95, 18);
+
+    // Subtle spine line for read-through
     fig.add(new THREE.Line(
       new THREE.BufferGeometry().setFromPoints([PELVIS, CHEST, NECK_BASE, NECK_TOP, HEAD]),
-      wireMat(COLORS.cyan, 0.4),
+      wireMat(COLORS.cyan, 0.32),
     ));
 
     // ----- limbs (capsules) -----
@@ -2031,10 +2088,15 @@ function initScaleBackground() {
   const logMax = Math.log(Z_MAX);
 
   ScrollTrigger.create({
-    trigger: document.body,
-    start: "top top",
-    end: "bottom bottom",
+    trigger: document.documentElement,
+    // Function-form start/end so GSAP re-evaluates them on every refresh
+    // (font load, image load, React mount, viewport resize) instead of
+    // baking in numbers from a not-yet-laid-out body.
+    start: () => 0,
+    end: () => Math.max(document.documentElement.scrollHeight - window.innerHeight, 1),
     scrub: 1.2,
+    invalidateOnRefresh: true,
+    onRefresh: () => updateStageVisibility(camera.position.z),
     onUpdate: (self) => {
       const p = self.progress;
       const z = Math.exp(logMin + (logMax - logMin) * p);
@@ -2048,13 +2110,30 @@ function initScaleBackground() {
 
   updateStageVisibility(camera.position.z);
 
-  function onResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+  // ResizeObserver on the canvas itself: fires the moment the canvas gets a
+  // real box (including the very first paint after fonts/React settle) and
+  // every time the box changes. No window.resize race, no zero-size init
+  // window, no need to manually call ScrollTrigger.refresh() — the observer
+  // does it for us, and ScrollTrigger re-resolves its function-form bounds.
+  const resizeObserver = new ResizeObserver((entries) => {
+    const entry = entries[0];
+    if (!entry) return;
+    const { width, height } = entry.contentRect;
+    if (width < 1 || height < 1) return;
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight, false);
+    ScrollTrigger.refresh();
+  });
+  resizeObserver.observe(canvas);
+
+  // Also refresh once everything (fonts, images, late React mounts) is in,
+  // since document height can grow after our last observer fire.
+  if (document.readyState === "complete") {
+    ScrollTrigger.refresh();
+  } else {
+    window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
   }
-  window.addEventListener("resize", onResize);
-  onResize();
 
   renderer.setAnimationLoop(() => {
     const t = performance.now() * 0.001;
