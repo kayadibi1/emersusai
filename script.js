@@ -1,9 +1,214 @@
 import React, { useState } from "https://esm.sh/react@18.2.0";
 import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+import Lenis from "https://esm.sh/lenis@1.1.20";
+import gsap from "https://esm.sh/gsap@3.12.5";
+import { ScrollTrigger } from "https://esm.sh/gsap@3.12.5/ScrollTrigger";
+import * as THREE from "https://esm.sh/three@0.161.0";
 
 const typedTopic = document.getElementById("typed-topic");
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const h = React.createElement;
+
+gsap.registerPlugin(ScrollTrigger);
+
+function initSmoothScroll() {
+  if (reducedMotionQuery.matches) {
+    return null;
+  }
+
+  const lenis = new Lenis({
+    lerp: 0.075,
+    smoothWheel: true,
+    wheelMultiplier: 0.86,
+  });
+
+  lenis.on("scroll", ScrollTrigger.update);
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+  return lenis;
+}
+
+function createSquareTexture() {
+  const textureCanvas = document.createElement("canvas");
+  textureCanvas.width = 32;
+  textureCanvas.height = 32;
+  const textureCtx = textureCanvas.getContext("2d");
+  textureCtx.fillStyle = "#fff";
+  textureCtx.fillRect(4, 4, 24, 24);
+  const texture = new THREE.CanvasTexture(textureCanvas);
+  texture.magFilter = THREE.NearestFilter;
+  texture.minFilter = THREE.NearestFilter;
+  texture.generateMipmaps = false;
+  return texture;
+}
+
+function createPixelPoints(points, texture, size = 0.22, opacity = 0.9) {
+  const geometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(points.length * 3);
+  const colors = new Float32Array(points.length * 3);
+
+  points.forEach((point, index) => {
+    const offset = index * 3;
+    positions[offset] = point.x;
+    positions[offset + 1] = point.y;
+    positions[offset + 2] = point.z;
+    const color = new THREE.Color(point.color || "#ff4fe7");
+    colors[offset] = color.r;
+    colors[offset + 1] = color.g;
+    colors[offset + 2] = color.b;
+  });
+
+  geometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+
+  const material = new THREE.PointsMaterial({
+    map: texture,
+    size,
+    sizeAttenuation: true,
+    vertexColors: true,
+    transparent: true,
+    opacity,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    alphaTest: 0.08,
+  });
+
+  return new THREE.Points(geometry, material);
+}
+
+function curvePoint(start, control, end, t) {
+  const inv = 1 - t;
+  return new THREE.Vector3(
+    inv * inv * start.x + 2 * inv * t * control.x + t * t * end.x,
+    inv * inv * start.y + 2 * inv * t * control.y + t * t * end.y,
+    inv * inv * start.z + 2 * inv * t * control.z + t * t * end.z
+  );
+}
+
+function createNeuron({ center, scale, phase, texture }) {
+  const group = new THREE.Group();
+  const pixels = [];
+  const anchors = [];
+  const somaPalette = ["#fff0ff", "#ff72ec", "#d641ff", "#8d35ff"];
+
+  for (let ring = 0; ring < 11; ring += 1) {
+    const ringRadius = scale * (0.14 + ring * 0.095);
+    const cells = 16 + ring * 14;
+    for (let i = 0; i < cells; i += 1) {
+      const angle = (Math.PI * 2 * i) / cells + phase * 0.3;
+      const wobble = Math.sin(i * 1.7 + phase) * scale * 0.035;
+      const squash = 0.72 + Math.sin(phase) * 0.08;
+      pixels.push({
+        x: Math.cos(angle) * (ringRadius + wobble),
+        y: Math.sin(angle) * (ringRadius + wobble) * squash,
+        z: Math.sin(angle * 2 + phase) * scale * 0.08,
+        color: somaPalette[Math.min(somaPalette.length - 1, Math.floor(ring / 3))],
+      });
+    }
+  }
+
+  const branchCount = 11;
+  for (let branch = 0; branch < branchCount; branch += 1) {
+    const baseAngle = (Math.PI * 2 * branch) / branchCount + phase;
+    const branchLength = scale * (1.85 + (branch % 4) * 0.34);
+    const forkAt = 0.5 + (branch % 3) * 0.09;
+
+    for (let i = 0; i < 46; i += 1) {
+      const t = i / 45;
+      const bend = Math.sin(t * Math.PI + phase + branch) * scale * 0.34;
+      const radius = scale * 0.56 + branchLength * t;
+      const x = Math.cos(baseAngle) * radius + Math.cos(baseAngle + Math.PI / 2) * bend;
+      const y = Math.sin(baseAngle) * radius + Math.sin(baseAngle + Math.PI / 2) * bend;
+      const z = Math.sin(t * Math.PI * 1.4 + phase + branch) * scale * 0.16;
+      pixels.push({
+        x,
+        y,
+        z,
+        color: t > 0.72 ? "#a847ff" : "#f044ff",
+      });
+
+      if (i === 45 || i === 34) {
+        anchors.push(new THREE.Vector3(x, y, z).add(center));
+      }
+    }
+
+    for (let fork = -1; fork <= 1; fork += 2) {
+      const forkAngle = baseAngle + fork * (0.44 + (branch % 2) * 0.18);
+      for (let i = 0; i < 23; i += 1) {
+        const t = i / 22;
+        const parentRadius = scale * 0.56 + branchLength * forkAt;
+        const baseX = Math.cos(baseAngle) * parentRadius;
+        const baseY = Math.sin(baseAngle) * parentRadius;
+        const forkLength = scale * (0.7 + (branch % 3) * 0.18);
+        const x = baseX + Math.cos(forkAngle) * forkLength * t;
+        const y = baseY + Math.sin(forkAngle) * forkLength * t;
+        const z = Math.sin(t * Math.PI + phase + fork) * scale * 0.08;
+        pixels.push({
+          x,
+          y,
+          z,
+          color: t > 0.55 ? "#b544ff" : "#ff5aef",
+        });
+      }
+    }
+  }
+
+  const neuronPixels = createPixelPoints(pixels, texture, 0.18 * scale, 0.92);
+  group.add(neuronPixels);
+
+  const core = createPixelPoints(
+    [
+      { x: 0, y: 0, z: scale * 0.08, color: "#fff7ff" },
+      { x: scale * 0.08, y: 0, z: scale * 0.1, color: "#ffb9fb" },
+      { x: -scale * 0.08, y: 0, z: scale * 0.1, color: "#ffb9fb" },
+      { x: 0, y: scale * 0.08, z: scale * 0.1, color: "#ffffff" },
+    ],
+    texture,
+    0.38 * scale,
+    1
+  );
+  group.add(core);
+  group.position.copy(center);
+  group.userData = { phase, anchors, base: center.clone(), scale };
+  return group;
+}
+
+function createSynapse({ start, end, texture, phase }) {
+  const middle = start.clone().lerp(end, 0.5);
+  const control = middle.add(
+    new THREE.Vector3(
+      Math.sin(phase) * 3.2,
+      Math.cos(phase * 0.7) * 2.5,
+      Math.sin(phase * 1.4) * 2.1
+    )
+  );
+  const beads = [];
+  for (let i = 0; i < 130; i += 1) {
+    const t = i / 129;
+    const point = curvePoint(start, control, end, t);
+    beads.push({
+      x: point.x,
+      y: point.y,
+      z: point.z,
+      color: t < 0.5 ? "#b940ff" : "#ff46df",
+    });
+  }
+
+  const points = createPixelPoints(beads, texture, 0.18, 0.5);
+  points.geometry.setDrawRange(0, 16);
+  const signal = createPixelPoints(
+    [
+      { x: start.x, y: start.y, z: start.z, color: "#fff2ff" },
+      { x: start.x, y: start.y, z: start.z, color: "#ff8ff4" },
+      { x: start.x, y: start.y, z: start.z, color: "#d45bff" },
+    ],
+    texture,
+    0.42,
+    1
+  );
+
+  return { points, signal, start, control, end, phase, count: beads.length };
+}
 
 function initNeuronParallax() {
   const canvas = document.getElementById("neuron-parallax-canvas");
@@ -11,235 +216,114 @@ function initNeuronParallax() {
     return;
   }
 
-  const ctx = canvas.getContext("2d");
-  if (!ctx) {
-    return;
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: false,
+    alpha: true,
+    powerPreference: "high-performance",
+  });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
+  renderer.setClearColor(0x000000, 0);
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(46, 1, 0.1, 120);
+  camera.position.set(0, 0, 34);
+
+  const texture = createSquareTexture();
+  const field = new THREE.Group();
+  scene.add(field);
+
+  const neuronSpecs = [
+    { center: new THREE.Vector3(-13, 6, -8), scale: 3.2, phase: 0.1 },
+    { center: new THREE.Vector3(4, -1, 1), scale: 4.6, phase: 1.7 },
+    { center: new THREE.Vector3(16, 7, -15), scale: 3.7, phase: 2.5 },
+    { center: new THREE.Vector3(-7, -12, -4), scale: 3.9, phase: 3.2 },
+    { center: new THREE.Vector3(19, -10, 4), scale: 3.0, phase: 4.1 },
+    { center: new THREE.Vector3(-20, -2, -18), scale: 2.9, phase: 5.4 },
+  ];
+  const neurons = neuronSpecs.map((spec) => createNeuron({ ...spec, texture }));
+  neurons.forEach((neuron) => field.add(neuron));
+
+  const starPixels = [];
+  for (let i = 0; i < 380; i += 1) {
+    starPixels.push({
+      x: (Math.random() - 0.5) * 58,
+      y: (Math.random() - 0.5) * 44,
+      z: -26 + Math.random() * 22,
+      color: i % 3 === 0 ? "#ff78ef" : i % 3 === 1 ? "#a965ff" : "#ffe3ff",
+    });
   }
+  const stars = createPixelPoints(starPixels, texture, 0.12, 0.42);
+  field.add(stars);
 
-  let width = 0;
-  let height = 0;
-  let dpr = 1;
-  let scrollTarget = 0;
-  let scrollCurrent = 0;
-  let rafId = 0;
-  let time = 0;
+  const synapses = [
+    createSynapse({ start: neurons[0].userData.anchors[1], end: neurons[1].userData.anchors[3], texture, phase: 0.2 }),
+    createSynapse({ start: neurons[1].userData.anchors[4], end: neurons[2].userData.anchors[0], texture, phase: 1.3 }),
+    createSynapse({ start: neurons[1].userData.anchors[7], end: neurons[3].userData.anchors[2], texture, phase: 2.1 }),
+    createSynapse({ start: neurons[3].userData.anchors[5], end: neurons[4].userData.anchors[1], texture, phase: 3.0 }),
+    createSynapse({ start: neurons[5].userData.anchors[4], end: neurons[0].userData.anchors[6], texture, phase: 4.4 }),
+  ];
+  synapses.forEach((synapse) => {
+    field.add(synapse.points);
+    field.add(synapse.signal);
+  });
 
-  const nodeCount = reducedMotionQuery.matches ? 10 : 18;
-  const starCount = reducedMotionQuery.matches ? 90 : 180;
-  const nodes = [];
-  const stars = [];
-
-  const rand = (min, max) => Math.random() * (max - min) + min;
-  const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
-
-  function makeNode(index) {
-    const layer = index % 4;
-    return {
-      x: rand(0.08, 0.92),
-      y: rand(0.04, 0.96),
-      driftX: rand(-0.000055, 0.000055) * (layer + 1),
-      driftY: rand(-0.000045, 0.000045) * (layer + 1),
-      radius: rand(7.5, 15.5),
-      pulse: rand(0.18, 0.7),
-      phase: rand(0, Math.PI * 2),
-      dendrites: Math.floor(rand(9, 16)),
-      layer,
-    };
-  }
-
-  function makeStar() {
-    return {
-      x: rand(0, 1),
-      y: rand(0, 1),
-      size: rand(0.7, 1.8),
-      alpha: rand(0.25, 0.9),
-      layer: Math.floor(rand(0, 3)),
-      twinkle: rand(0.3, 1.5),
-      phase: rand(0, Math.PI * 2),
-    };
-  }
+  ScrollTrigger.create({
+    trigger: document.body,
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 1.35,
+    onUpdate: ({ progress }) => {
+      camera.position.y = THREE.MathUtils.lerp(0, -8.5, progress);
+      camera.position.x = Math.sin(progress * Math.PI * 2) * 2.2;
+      field.rotation.y = THREE.MathUtils.lerp(-0.08, 0.12, progress);
+      field.rotation.x = THREE.MathUtils.lerp(0.05, -0.07, progress);
+    },
+  });
 
   function resize() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
-    width = Math.max(window.innerWidth, 1);
-    height = Math.max(window.innerHeight, 1);
-    canvas.width = Math.floor(width * dpr);
-    canvas.height = Math.floor(height * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    const width = Math.max(window.innerWidth, 1);
+    const height = Math.max(window.innerHeight, 1);
+    renderer.setSize(width, height, false);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
   }
 
-  function drawStars(parallax) {
-    for (let i = 0; i < stars.length; i += 1) {
-      const star = stars[i];
-      const y = (star.y * height + parallax * (3 + star.layer * 3.4)) % (height + 12);
-      const alpha = star.alpha * (0.6 + 0.4 * Math.sin(time * star.twinkle + star.phase));
-      ctx.fillStyle = `rgba(${star.layer === 2 ? "255,63,228" : star.layer === 1 ? "184,92,255" : "255,180,244"}, ${clamp(alpha, 0.05, 0.95)})`;
-      const size = Math.max(1, Math.round(star.size + star.layer * 0.7));
-      ctx.fillRect(Math.round(star.x * width), Math.round(y - 6), size, size);
-    }
-  }
+  function animate(time = 0) {
+    const t = time * 0.00012;
 
-  function drawConnections(projectedNodes, parallax) {
-    const maxDistance = Math.min(width, height) * 0.62;
-    for (let i = 0; i < projectedNodes.length; i += 1) {
-      for (let j = i + 1; j < projectedNodes.length; j += 1) {
-        const a = projectedNodes[i];
-        const b = projectedNodes[j];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
-        const distance = Math.hypot(dx, dy);
-        if (distance > maxDistance) continue;
+    neurons.forEach((neuron, index) => {
+      const { base, phase, scale } = neuron.userData;
+      neuron.position.x = base.x + Math.sin(t * (0.5 + index * 0.05) + phase) * 0.35;
+      neuron.position.y = base.y + Math.cos(t * (0.42 + index * 0.04) + phase) * 0.28;
+      neuron.rotation.z = Math.sin(t * 0.16 + phase) * 0.025;
+      neuron.scale.setScalar(1 + Math.sin(t * 0.44 + phase) * 0.012 * scale);
+    });
 
-        const intensity = 1 - distance / maxDistance;
-        const depth = (a.depth + b.depth) / 2;
-        const alpha = clamp(intensity * (0.16 + depth * 0.48), 0.035, 0.62);
-        const hue = 287 + Math.sin((a.seed + b.seed + time) * 0.7) * 17 + parallax * 0.03;
-        ctx.strokeStyle = `hsla(${hue}, 100%, ${62 + depth * 18}%, ${alpha})`;
-        ctx.lineWidth = 0.6 + intensity * (0.8 + depth * 1.6);
-        const growth = clamp(
-          0.18 + 0.82 * ((Math.sin(time * (0.32 + depth * 0.18) + a.seed * 0.9 + b.seed) + 1) / 2),
-          0.18,
-          1
-        );
-        const endX = a.x + (b.x - a.x) * growth;
-        const endY = a.y + (b.y - a.y) * growth;
-        ctx.beginPath();
-        ctx.moveTo(a.x, a.y);
-        ctx.lineTo(endX, endY);
-        ctx.stroke();
+    synapses.forEach((synapse, index) => {
+      const growth = 0.18 + 0.82 * ((Math.sin(t * (1.2 + index * 0.12) + synapse.phase) + 1) / 2);
+      synapse.points.geometry.setDrawRange(0, Math.max(12, Math.floor(synapse.count * growth)));
 
-        if (!reducedMotionQuery.matches && intensity > 0.16 && growth > 0.42) {
-          const signalPhase = Math.min(growth, (time * (0.08 + depth * 0.18) + (a.seed + b.seed) * 0.077) % 1);
-          const sx = a.x + (b.x - a.x) * signalPhase;
-          const sy = a.y + (b.y - a.y) * signalPhase;
-          const packetSize = Math.max(3, Math.round(3 + depth * 6));
-          ctx.shadowColor = "rgba(244, 64, 255, 0.95)";
-          ctx.shadowBlur = 8 + depth * 18;
-          ctx.fillStyle = `rgba(255, ${Math.round(92 + depth * 120)}, 247, ${0.65 + depth * 0.28})`;
-          ctx.fillRect(Math.round(sx - packetSize / 2), Math.round(sy - packetSize / 2), packetSize, packetSize);
-          ctx.shadowBlur = 0;
-        }
+      const signalPositions = synapse.signal.geometry.attributes.position;
+      for (let i = 0; i < signalPositions.count; i += 1) {
+        const progress = (t * (0.42 + index * 0.05) + i * 0.055 + synapse.phase * 0.1) % Math.max(growth, 0.2);
+        const point = curvePoint(synapse.start, synapse.control, synapse.end, progress);
+        signalPositions.setXYZ(i, point.x, point.y, point.z);
       }
-    }
+      signalPositions.needsUpdate = true;
+    });
+
+    stars.rotation.z += 0.00006;
+    renderer.render(scene, camera);
+    window.requestAnimationFrame(animate);
   }
-
-  function drawNodes(projectedNodes, parallax) {
-    for (let i = 0; i < projectedNodes.length; i += 1) {
-      const node = projectedNodes[i];
-      const pixel = node.pixel;
-      const glow = 12 + node.radius * (2.8 + node.depth * 2.7) + Math.sin(time * node.pulse + node.phase) * 3.5;
-      const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, glow * 4.1);
-      gradient.addColorStop(0, `rgba(255, 130, 246, ${0.78 + node.depth * 0.16})`);
-      gradient.addColorStop(0.28, "rgba(191, 60, 255, 0.42)");
-      gradient.addColorStop(1, "rgba(81, 0, 130, 0)");
-      ctx.fillStyle = gradient;
-      ctx.beginPath();
-      ctx.arc(node.x, node.y, glow * 4.1, 0, Math.PI * 2);
-      ctx.fill();
-
-      for (let ring = 6; ring >= 0; ring -= 1) {
-        const cells = 12 + ring * 10;
-        const ringRadius = pixel * (1.7 + ring * 1.15);
-        for (let k = 0; k < cells; k += 1) {
-          const angle = (Math.PI * 2 * k) / cells + node.phase * 0.4;
-          const jitter = Math.sin(time * 0.34 + k + node.phase) * pixel * 0.28;
-          const x = Math.round(node.x + Math.cos(angle) * (ringRadius + jitter));
-          const y = Math.round(node.y + Math.sin(angle) * (ringRadius + jitter));
-          ctx.fillStyle =
-            ring <= 1
-              ? "rgba(255, 221, 255, 0.96)"
-              : ring <= 3
-                ? "rgba(255, 78, 230, 0.82)"
-                : "rgba(165, 56, 255, 0.62)";
-          ctx.fillRect(x, y, pixel, pixel);
-        }
-      }
-
-      ctx.fillStyle = "rgba(255, 234, 255, 0.98)";
-      ctx.fillRect(Math.round(node.x - pixel), Math.round(node.y - pixel), pixel * 2, pixel * 2);
-
-      for (let k = 0; k < node.dendrites; k += 1) {
-        const angle = (Math.PI * 2 * k) / node.dendrites + node.phase + parallax * 0.0009;
-        const armLength = glow * (1.55 + (k % 5) * 0.32);
-        const segments = 12 + (k % 7);
-        const armGrowth = clamp(
-          0.35 + 0.65 * ((Math.sin(time * 0.26 + node.phase + k * 0.9) + 1) / 2),
-          0.35,
-          1
-        );
-        for (let segment = 1; segment <= segments; segment += 1) {
-          const progress = segment / segments;
-          if (progress > armGrowth) continue;
-          const wiggle = Math.sin(time * 0.9 + segment + node.phase) * pixel * 0.8;
-          const sx = node.x + Math.cos(angle) * armLength * progress + wiggle;
-          const sy = node.y + Math.sin(angle) * armLength * progress - wiggle;
-          ctx.fillStyle = `rgba(${k % 2 ? "255,96,238" : "190,82,255"}, ${0.42 - progress * 0.22 + node.depth * 0.22})`;
-          ctx.fillRect(Math.round(sx), Math.round(sy), Math.max(1, pixel - 1), Math.max(1, pixel - 1));
-        }
-      }
-    }
-  }
-
-  function tick() {
-    rafId = window.requestAnimationFrame(tick);
-    time += 0.0046;
-    scrollCurrent += (scrollTarget - scrollCurrent) * 0.038;
-    const parallax = scrollCurrent;
-
-    ctx.clearRect(0, 0, width, height);
-
-    drawStars(parallax);
-
-    const projectedNodes = [];
-    for (let i = 0; i < nodes.length; i += 1) {
-      const node = nodes[i];
-      node.x += node.driftX;
-      node.y += node.driftY;
-      if (node.x < 0.04 || node.x > 0.96) node.driftX *= -1;
-      if (node.y < 0.03 || node.y > 0.97) node.driftY *= -1;
-
-      const depth = 0.42 + node.layer * 0.2;
-      const layerShift = (node.layer + 1) * 0.06;
-      const px = node.x * width + Math.sin(time * (0.18 + depth * 0.1) + node.phase) * (5 + depth * 16);
-      const py = node.y * height + parallax * layerShift + Math.cos(time * (0.16 + depth * 0.1) + node.phase) * (4 + depth * 12);
-      projectedNodes.push({
-        ...node,
-        depth,
-        pixel: Math.max(3, Math.round((4 + node.layer * 1.6) * Math.min(width, height) / 760)),
-        radius: node.radius * depth,
-        x: px,
-        y: ((py % (height + 60)) + (height + 60)) % (height + 60) - 30,
-        seed: i * 1.37,
-      });
-    }
-
-    drawConnections(projectedNodes, parallax);
-    drawNodes(projectedNodes, parallax);
-  }
-
-  for (let i = 0; i < nodeCount; i += 1) {
-    nodes.push(makeNode(i));
-  }
-  for (let i = 0; i < starCount; i += 1) {
-    stars.push(makeStar());
-  }
-
-  const onScroll = () => {
-    scrollTarget = window.scrollY || window.pageYOffset || 0;
-  };
 
   resize();
-  onScroll();
-
   window.addEventListener("resize", resize, { passive: true });
-  window.addEventListener("scroll", onScroll, { passive: true });
-  tick();
-
-  window.addEventListener("beforeunload", () => {
-    if (rafId) window.cancelAnimationFrame(rafId);
-  });
+  animate();
 }
 
+initSmoothScroll();
 initNeuronParallax();
 
 function WaitlistForm({ variant = "full", endpoint = "/api/waitlist" }) {
