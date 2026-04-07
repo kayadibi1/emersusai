@@ -497,83 +497,6 @@ function buildSparklinePath(points, width = 180, height = 54) {
     .join(" ");
 }
 
-function renderEvidenceProfileGraphic(cardData) {
-  const { card, body } = createInfoCardShell({
-    title: cardData?.title || "Evidence profile",
-    bodyClass: "chat-insight-card",
-  });
-
-  const list = createNode("div", "chat-score-list");
-  const scoredItems = [];
-
-  for (const item of Array.isArray(cardData?.items) ? cardData.items.slice(0, 4) : []) {
-    const score = Number(item?.score || 0);
-    const max = Math.max(1, Number(item?.max || 10));
-    const ratio = Math.max(0, Math.min(score / max, 1));
-    scoredItems.push(ratio);
-
-    const row = createNode("div", "chat-score-row");
-    const head = createNode("div", "chat-score-head");
-    head.append(
-      createNode("span", "chat-score-label", normalizeText(item?.label || "", 80)),
-      createNode("span", "chat-score-value", `${score}/${max}`)
-    );
-
-    const track = createNode("div", "chat-score-track");
-    const fill = createNode("div", `chat-score-fill ${toneClass(item?.tone)}`.trim());
-    fill.style.width = `${Math.round(ratio * 100)}%`;
-    track.appendChild(fill);
-
-    row.append(head, track);
-    list.appendChild(row);
-  }
-
-  if (list.childNodes.length) {
-    body.appendChild(list);
-  } else if (!cardData?.footnote) {
-    return null;
-  }
-
-  if (scoredItems.length >= 2) {
-    const sparkline = createNode("div", "chat-sparkline");
-    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-    svg.setAttribute("viewBox", "0 0 180 54");
-    svg.setAttribute("aria-hidden", "true");
-
-    const path = buildSparklinePath(scoredItems);
-    const area = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    area.setAttribute("d", `${path} L 180 54 L 0 54 Z`);
-    area.setAttribute("class", "chat-sparkline-area");
-    svg.appendChild(area);
-
-    const line = document.createElementNS("http://www.w3.org/2000/svg", "path");
-    line.setAttribute("d", path);
-    line.setAttribute("class", "chat-sparkline-line");
-    svg.appendChild(line);
-
-    for (let index = 0; index < scoredItems.length; index += 1) {
-      const point = scoredItems[index];
-      const x = (180 / (scoredItems.length - 1)) * index;
-      const y = 54 - point * 54;
-      const dot = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-      dot.setAttribute("cx", x.toFixed(2));
-      dot.setAttribute("cy", y.toFixed(2));
-      dot.setAttribute("r", "2.75");
-      dot.setAttribute("class", "chat-sparkline-dot");
-      svg.appendChild(dot);
-    }
-
-    sparkline.append(svg, createNode("span", "chat-sparkline-label", "Evidence shape"));
-    body.appendChild(sparkline);
-  }
-
-  if (cardData?.footnote) {
-    body.appendChild(createNode("p", "chat-card-footnote", trimSnippet(cardData.footnote, 180)));
-  }
-
-  return card;
-}
-
 function renderActionGridGraphic(cardData) {
   const { card, body } = createInfoCardShell({
     title: cardData?.title || "Key takeaways",
@@ -728,7 +651,6 @@ function renderInsightCard(block) {
 
   let card = null;
   if (type === "metric_grid") card = renderMetricGridGraphic(cardData);
-  else if (type === "evidence_profile") card = renderEvidenceProfileGraphic(cardData);
   else if (type === "action_grid") card = renderActionGridGraphic(cardData);
   else if (type === "watchouts") card = renderWatchoutsGraphic(cardData);
   else if (type === "source_highlights") card = renderSourceHighlightsGraphic(cardData);

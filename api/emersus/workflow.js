@@ -2125,20 +2125,7 @@ function buildCards({ question, synthesis, evidence = [], includeDebug = false, 
     cards.push({ type: "action_grid", title: "What to do", columns: actionColumns });
   }
 
-  // 5. Evidence profile (quality / consistency / recency / personal-fit bars).
-  cards.push({
-    type: "evidence_profile",
-    title: "Evidence profile",
-    footnote: conf.rationale,
-    items: [
-      { label: "Evidence quality", score: Math.round(qualityScore * 10), max: 10, tone: scoreTone(qualityScore) },
-      { label: "Consistency", score: Math.round(consistencyScore * 10), max: 10, tone: scoreTone(consistencyScore) },
-      { label: "Recency", score: Math.round(recencyScore * 10), max: 10, tone: scoreTone(recencyScore) },
-      { label: "Personal fit", score: Math.round(personalizationScore * 10), max: 10, tone: scoreTone(personalizationScore) },
-    ],
-  });
-
-  // 6. Source highlights — anchor citations.
+  // 5. Source highlights — anchor citations.
   const sourceHighlights = sources.slice(0, 3).map((source) => ({
     title: source.title,
     meta: [source.journal, source.year, source.publication_type, source.pmid ? `PMID ${source.pmid}` : ""]
