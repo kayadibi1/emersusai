@@ -1952,7 +1952,12 @@
       container.appendChild(animatedHost);
 
       if (textBlock) {
-        await animateHtmlInto(animatedHost, textBlock.innerHTML);
+        // Move the text block's child nodes (already-safe DOM) into the animated host
+        // instead of round-tripping through innerHTML, which would re-parse any
+        // HTML-looking text content as live markup.
+        while (textBlock.firstChild) {
+          animatedHost.appendChild(textBlock.firstChild);
+        }
         textBlock.remove();
       }
 
