@@ -43,34 +43,20 @@ body::-webkit-scrollbar-thumb {
   border-radius: 999px;
 }
 
-.neuron-parallax-bg {
+#bg-canvas {
   position: fixed;
   inset: 0;
+  width: 100vw;
+  height: 100vh;
   z-index: 0;
-  width: 100vw;
-  height: 100vh;
-  overflow: hidden;
   pointer-events: none;
-  background: #0d0a1a;
-}
-
-#neuron-parallax-canvas {
+  background: #000;
   display: block;
-  width: 100vw;
-  height: 100vh;
-}
-
-.neuron-parallax-vignette {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at 50% 42%, transparent 0 32%, rgba(13, 10, 26, 0.22) 62%, rgba(13, 10, 26, 0.82) 100%),
-    linear-gradient(180deg, rgba(13, 10, 26, 0.08), rgba(13, 10, 26, 0.65));
 }
 
 #landing-root {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   min-height: 100vh;
 }
 
@@ -384,6 +370,13 @@ body::-webkit-scrollbar-thumb {
 .cta {
   min-height: 92vh;
   text-align: center;
+  justify-content: center;
+}
+
+.cta .section-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .waitlist-form {

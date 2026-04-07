@@ -1108,15 +1108,6 @@ function OldCopyHero() {
         h("a", { className: "button-primary", href: "#access" }, "Get access"),
         h("a", { className: "button-secondary", href: "/chat/" }, "App / Login"),
       ),
-      h(
-        "div",
-        { className: "hero-system-strip" },
-        h("span", null, "Science-backed system"),
-        h("span", null, "mental performance"),
-        h("span", null, "physical training"),
-        h("span", null, "nutrition"),
-        h("span", null, "recovery"),
-      ),
     ),
   );
 }
@@ -1231,7 +1222,7 @@ function OldCopyFooter() {
     "footer",
     { className: "footer" },
     h("span", null, "Emersus AI"),
-    h("span", null, "2026 EMERSUS AI. Laboratory grade performance. All rights reserved. Neural link secured."),
+    h("span", null, "2026 EMERSUS AI. Laboratory grade performance. All rights reserved."),
   );
 }
 
@@ -1272,5 +1263,793 @@ function mountLanding() {
   });
 }
 
-initHelperStyleNeuronParallax();
+function initAnanNeuronBackground() {
+  const canvas = document.getElementById("bg-canvas");
+  if (!(canvas instanceof HTMLCanvasElement)) return () => {};
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: false,
+    alpha: false,
+    powerPreference: "high-performance",
+  });
+  const PIXEL_SCALE = 0.34;
+  renderer.setPixelRatio(1);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+  renderer.setClearColor(0x050008, 1);
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x050008, 0.0018);
+
+  const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 4000);
+  camera.position.set(0, 80, 620);
+  camera.lookAt(0, 0, 0);
+
+  const keyLight = new THREE.PointLight(0xff66ff, 4.0, 2000, 1.6);
+  keyLight.position.set(220, 180, 320);
+  scene.add(keyLight);
+  const fillLight = new THREE.PointLight(0x66aaff, 1.2, 2000, 1.8);
+  fillLight.position.set(-300, -100, 200);
+  scene.add(fillLight);
+  scene.add(new THREE.AmbientLight(0x2a1040, 1.2));
+
+  const neuronGroup = new THREE.Group();
+  scene.add(neuronGroup);
+
+  const VOXEL = 6.5;
+  const voxelGeo = new THREE.BoxGeometry(VOXEL, VOXEL, VOXEL);
+  const voxelMat = new THREE.MeshStandardMaterial({
+    color: 0x4a1577,
+    emissive: 0x180630,
+    emissiveIntensity: 0.6,
+    roughness: 0.45,
+    metalness: 0.2,
+    flatShading: true,
+  });
+
+  const voxels = [];
+  const PINK = new THREE.Color(0xff3df0);
+  const HOT = new THREE.Color(0xff8df8);
+  const VIO = new THREE.Color(0x6a22aa);
+  const DEEP = new THREE.Color(0x2a0844);
+  const TEAL = new THREE.Color(0x33ddee);
+
+  function buildSoma() {
+    const R = 70;
+    const SHELL = 9;
+    for (let i = 0; i < 1400; i += 1) {
+      const u = Math.random();
+      const v = Math.random();
+      const theta = 2 * Math.PI * u;
+      const phi = Math.acos(2 * v - 1);
+      const sinPhi = Math.sin(phi);
+      const dx = sinPhi * Math.cos(theta);
+      const dy = sinPhi * Math.sin(theta);
+      const dz = Math.cos(phi);
+      const n =
+        Math.sin(dx * 4.1 + dy * 2.3) * 0.5 +
+        Math.cos(dy * 3.7 + dz * 1.9) * 0.4 +
+        Math.sin(dz * 5.3 + dx * 2.1) * 0.3;
+      const r = R + n * 6 + (Math.random() - 0.5) * SHELL;
+      const x = Math.round((dx * r) / VOXEL) * VOXEL;
+      const y = Math.round((dy * r) / VOXEL) * VOXEL;
+      const z = Math.round((dz * r) / VOXEL) * VOXEL;
+      const t = Math.random();
+      const c = new THREE.Color().lerpColors(DEEP, VIO, t * 0.7 + 0.3);
+      voxels.push({ x, y, z, color: c, scale: 0.95 + Math.random() * 0.2 });
+    }
+    for (let i = 0; i < 220; i += 1) {
+      const u = Math.random();
+      const v = Math.random();
+      const theta = 2 * Math.PI * u;
+      const phi = Math.acos(2 * v - 1);
+      const r = 18 + Math.random() * 6;
+      const x = Math.round((Math.sin(phi) * Math.cos(theta) * r) / VOXEL) * VOXEL;
+      const y = Math.round((Math.sin(phi) * Math.sin(theta) * r) / VOXEL) * VOXEL;
+      const z = Math.round((Math.cos(phi) * r) / VOXEL) * VOXEL;
+      const c = new THREE.Color().lerpColors(PINK, HOT, Math.random());
+      voxels.push({ x, y, z, color: c, scale: 1.1, glow: true });
+    }
+  }
+
+  function buildBranch(origin, dir, length, radius, depth, isAxon) {
+    if (depth > 4) return;
+    const points = [origin.clone()];
+    const segs = 6;
+    for (let i = 1; i <= segs; i += 1) {
+      const t = i / segs;
+      const p = origin.clone().add(dir.clone().multiplyScalar(length * t));
+      p.x += Math.sin(t * 6 + depth) * length * 0.08;
+      p.y += Math.cos(t * 5 + depth * 1.7) * length * 0.08;
+      p.z += Math.sin(t * 4 + depth * 0.9) * length * 0.08;
+      points.push(p);
+    }
+    const curve = new THREE.CatmullRomCurve3(points);
+    const COUNT = Math.floor(length * 0.9);
+    for (let i = 0; i < COUNT; i += 1) {
+      const t = i / COUNT;
+      const center = curve.getPointAt(t);
+      const tangent = curve.getTangentAt(t).normalize();
+      const rad = radius * (1 - t * 0.4);
+      const ringCount = Math.max(1, Math.floor((rad / VOXEL) * 2.4));
+      for (let j = 0; j < ringCount; j += 1) {
+        const a = Math.random() * Math.PI * 2;
+        const rr = Math.random() * rad;
+        const up = Math.abs(tangent.y) < 0.9
+          ? new THREE.Vector3(0, 1, 0)
+          : new THREE.Vector3(1, 0, 0);
+        const side = new THREE.Vector3().crossVectors(tangent, up).normalize();
+        const norm = new THREE.Vector3().crossVectors(tangent, side).normalize();
+        const offset = side
+          .multiplyScalar(Math.cos(a) * rr)
+          .add(norm.multiplyScalar(Math.sin(a) * rr));
+        const p = center.clone().add(offset);
+        const x = Math.round(p.x / VOXEL) * VOXEL;
+        const y = Math.round(p.y / VOXEL) * VOXEL;
+        const z = Math.round(p.z / VOXEL) * VOXEL;
+        const c = new THREE.Color().lerpColors(DEEP, VIO, 0.4 + Math.random() * 0.5);
+        voxels.push({ x, y, z, color: c, scale: 0.9 + Math.random() * 0.2 });
+      }
+    }
+    const end = curve.getPointAt(1);
+    if (depth >= 2 || isAxon) {
+      for (let k = 0; k < 25; k += 1) {
+        const off = new THREE.Vector3(
+          (Math.random() - 0.5) * 14,
+          (Math.random() - 0.5) * 14,
+          (Math.random() - 0.5) * 14,
+        );
+        const p = end.clone().add(off);
+        const x = Math.round(p.x / VOXEL) * VOXEL;
+        const y = Math.round(p.y / VOXEL) * VOXEL;
+        const z = Math.round(p.z / VOXEL) * VOXEL;
+        voxels.push({
+          x, y, z,
+          color: new THREE.Color().lerpColors(PINK, TEAL, Math.random() * 0.6),
+          scale: 1.0 + Math.random() * 0.4,
+          glow: true,
+        });
+      }
+    }
+    const childCount = isAxon ? 1 : depth < 2 ? 2 : Math.random() < 0.6 ? 1 : 0;
+    for (let i = 0; i < childCount; i += 1) {
+      const newDir = dir
+        .clone()
+        .add(
+          new THREE.Vector3(
+            (Math.random() - 0.5) * 1.2,
+            (Math.random() - 0.5) * 1.2,
+            (Math.random() - 0.5) * 1.2,
+          ),
+        )
+        .normalize();
+      buildBranch(end, newDir, length * (isAxon ? 0.95 : 0.62), radius * 0.7, depth + 1, isAxon && depth < 1);
+    }
+  }
+
+  buildSoma();
+  const DENDRITE_DIRS = [
+    new THREE.Vector3(1.0, 0.7, 0.2),
+    new THREE.Vector3(-0.9, 1.0, 0.3),
+    new THREE.Vector3(-1.0, -0.1, 0.6),
+    new THREE.Vector3(0.5, -0.9, 0.4),
+    new THREE.Vector3(0.3, 1.1, -0.8),
+    new THREE.Vector3(-0.6, 0.4, -1.0),
+    new THREE.Vector3(0.9, -0.3, -0.6),
+    new THREE.Vector3(-0.2, -1.0, -0.3),
+  ];
+  for (const d of DENDRITE_DIRS) {
+    const dir = d.clone().normalize();
+    const start = dir.clone().multiplyScalar(60);
+    buildBranch(start, dir, 180, 14, 0, false);
+  }
+  buildBranch(
+    new THREE.Vector3(-30, -55, 0),
+    new THREE.Vector3(-0.6, -1.0, -0.3).normalize(),
+    320, 10, 0, true,
+  );
+
+  const FLOATERS = [];
+  for (let i = 0; i < 90; i += 1) {
+    const r = 200 + Math.random() * 380;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    const x = Math.sin(phi) * Math.cos(theta) * r;
+    const y = Math.sin(phi) * Math.sin(theta) * r * 0.8;
+    const z = Math.cos(phi) * r;
+    const palette = [PINK, VIO, TEAL, HOT];
+    const c = palette[Math.floor(Math.random() * palette.length)];
+    const idx = voxels.length;
+    voxels.push({
+      x, y, z,
+      color: c.clone(),
+      scale: 0.6 + Math.random() * 1.6,
+      glow: Math.random() > 0.6,
+    });
+    FLOATERS.push({
+      idx,
+      baseX: x, baseY: y, baseZ: z,
+      speed: 0.2 + Math.random() * 0.8,
+      phase: Math.random() * Math.PI * 2,
+      amp: 6 + Math.random() * 18,
+    });
+  }
+
+  const instCount = voxels.length;
+  const instMesh = new THREE.InstancedMesh(voxelGeo, voxelMat, instCount);
+  instMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  const _m = new THREE.Matrix4();
+  const _q = new THREE.Quaternion();
+  const _s = new THREE.Vector3();
+  const _p = new THREE.Vector3();
+  for (let i = 0; i < instCount; i += 1) {
+    const v = voxels[i];
+    _p.set(v.x, v.y, v.z);
+    _s.set(v.scale, v.scale, v.scale);
+    _q.setFromEuler(new THREE.Euler(Math.random() * 0.4, Math.random() * 0.4, Math.random() * 0.4));
+    _m.compose(_p, _q, _s);
+    instMesh.setMatrixAt(i, _m);
+    instMesh.setColorAt(i, v.color);
+  }
+  instMesh.instanceMatrix.needsUpdate = true;
+  if (instMesh.instanceColor) instMesh.instanceColor.needsUpdate = true;
+  neuronGroup.add(instMesh);
+
+  const haloGeo = new THREE.CircleGeometry(140, 48);
+  const haloMat = new THREE.MeshBasicMaterial({
+    color: 0xff3df0,
+    transparent: true,
+    opacity: 0.18,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  });
+  const halo = new THREE.Mesh(haloGeo, haloMat);
+  halo.position.set(0, 0, -30);
+  neuronGroup.add(halo);
+  neuronGroup.userData.halo = halo;
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: document.body,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1.2,
+    },
+  });
+  tl.to(camera.position, { x: -180, y: 60, z: 460, ease: "none" }, 0)
+    .to(camera.position, { x: 220, y: -40, z: 380, ease: "none" }, 0.5)
+    .to(camera.position, { x: 0, y: 0, z: 280, ease: "none" }, 1);
+  tl.to(neuronGroup.rotation, { y: Math.PI * 1.6, x: 0.4, ease: "none" }, 0);
+  tl.to(voxelMat, { emissiveIntensity: 1.6, ease: "power2.in" }, 0.7);
+  tl.to(halo.material, { opacity: 0.55, ease: "power2.in" }, 0.7);
+  tl.to(halo.scale, { x: 2.2, y: 2.2, ease: "power2.in" }, 0.7);
+
+  function resize() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(Math.floor(w * PIXEL_SCALE), Math.floor(h * PIXEL_SCALE), false);
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  const clock = new THREE.Clock();
+  function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+    neuronGroup.rotation.z = Math.sin(t * 0.3) * 0.08;
+    keyLight.position.x = Math.cos(t * 0.6) * 320;
+    keyLight.position.z = Math.sin(t * 0.6) * 320;
+    keyLight.position.y = 180 + Math.sin(t * 0.9) * 60;
+    fillLight.position.x = Math.sin(t * 0.4) * 280;
+    fillLight.position.y = Math.cos(t * 0.5) * 220;
+    for (let i = 0; i < FLOATERS.length; i += 1) {
+      const f = FLOATERS[i];
+      const v = voxels[f.idx];
+      const a = t * f.speed + f.phase;
+      const nx = f.baseX + Math.sin(a) * f.amp;
+      const ny = f.baseY + Math.cos(a * 1.3) * f.amp;
+      const nz = f.baseZ + Math.sin(a * 0.7) * f.amp;
+      _p.set(nx, ny, nz);
+      _s.set(v.scale, v.scale, v.scale);
+      _q.setFromEuler(new THREE.Euler(a * 0.3, a * 0.5, a * 0.2));
+      _m.compose(_p, _q, _s);
+      instMesh.setMatrixAt(f.idx, _m);
+    }
+    instMesh.instanceMatrix.needsUpdate = true;
+    halo.lookAt(camera.position);
+    renderer.render(scene, camera);
+  }
+  animate();
+  return () => {};
+}
+
+function initScaleBackground() {
+  const canvas = document.getElementById("bg-canvas");
+  if (!(canvas instanceof HTMLCanvasElement)) return;
+
+  const COLORS = {
+    blue: 0x4fa8ff,
+    cyan: 0x6fe9ff,
+    grey: 0x808890,
+    dim: 0x3a4250,
+    white: 0xffffff,
+  };
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight, false);
+  renderer.setClearColor(0x000000, 1);
+
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.05, 800000);
+  camera.position.set(0, 0, 4);
+
+  const scene = new THREE.Scene();
+
+  function wireMat(color = COLORS.blue, opacity = 0.7) {
+    return new THREE.LineBasicMaterial({ color, transparent: true, opacity, depthTest: false });
+  }
+  function makeBoxHelper(min, max, color = COLORS.dim, opacity = 0.3) {
+    const box = new THREE.Box3(new THREE.Vector3(...min), new THREE.Vector3(...max));
+    const helper = new THREE.Box3Helper(box, color);
+    helper.material.transparent = true;
+    helper.material.opacity = opacity;
+    helper.material.depthTest = false;
+    return helper;
+  }
+
+  function buildAtom() {
+    const g = new THREE.Group();
+    g.userData.electrons = [];
+    const nuc = new THREE.LineSegments(
+      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(0.5, 1)),
+      wireMat(COLORS.cyan, 0.95),
+    );
+    g.add(nuc);
+    for (let i = 0; i < 6; i += 1) {
+      const m = new THREE.Mesh(
+        new THREE.SphereGeometry(0.08, 8, 6),
+        new THREE.MeshBasicMaterial({ color: i % 2 ? COLORS.cyan : COLORS.blue }),
+      );
+      const a = (i / 6) * Math.PI * 2;
+      m.position.set(Math.cos(a) * 0.22, Math.sin(a) * 0.22, Math.sin(a * 1.7) * 0.18);
+      g.add(m);
+    }
+    for (let i = 0; i < 4; i += 1) {
+      const r = 1.5 + i * 0.15;
+      const pts = [];
+      for (let k = 0; k <= 96; k += 1) {
+        const a = (k / 96) * Math.PI * 2;
+        pts.push(new THREE.Vector3(Math.cos(a) * r, 0, Math.sin(a) * r));
+      }
+      const orbit = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints(pts),
+        wireMat(COLORS.blue, 0.55),
+      );
+      orbit.rotation.x = (i * Math.PI) / 4 + 0.4;
+      orbit.rotation.y = (i * Math.PI) / 3;
+      orbit.rotation.z = i * 0.3;
+      g.add(orbit);
+      const electron = new THREE.Mesh(
+        new THREE.SphereGeometry(0.07, 10, 8),
+        new THREE.MeshBasicMaterial({ color: COLORS.cyan }),
+      );
+      g.add(electron);
+      g.userData.electrons.push({ mesh: electron, orbit, radius: r, speed: 0.7 + i * 0.6, offset: i * 1.7 });
+    }
+    g.add(makeBoxHelper([-2, -2, -2], [2, 2, 2], COLORS.dim, 0.35));
+    return g;
+  }
+
+  function buildDNA() {
+    const g = new THREE.Group();
+    const N = 140;
+    const step = 0.45;
+    const R = 4;
+    const twist = 0.32;
+    const a1 = [];
+    const a2 = [];
+    for (let i = 0; i < N; i += 1) {
+      const a = i * twist;
+      const y = (i - N / 2) * step;
+      a1.push(new THREE.Vector3(Math.cos(a) * R, y, Math.sin(a) * R));
+      a2.push(new THREE.Vector3(Math.cos(a + Math.PI) * R, y, Math.sin(a + Math.PI) * R));
+    }
+    g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(a1), wireMat(COLORS.blue, 0.85)));
+    g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(a2), wireMat(COLORS.cyan, 0.85)));
+    const rung = [];
+    for (let i = 0; i < N; i += 2) rung.push(a1[i], a2[i]);
+    g.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(rung), wireMat(COLORS.grey, 0.45)));
+    for (let i = 0; i < N; i += 4) {
+      for (const p of [a1[i], a2[i]]) {
+        const s = new THREE.LineSegments(
+          new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(0.32, 0)),
+          wireMat(COLORS.blue, 0.7),
+        );
+        s.position.copy(p);
+        g.add(s);
+      }
+    }
+    g.add(makeBoxHelper([-R * 1.3, (-N / 2) * step, -R * 1.3], [R * 1.3, (N / 2) * step, R * 1.3], COLORS.dim, 0.3));
+    return g;
+  }
+
+  function mulberry32(seed) {
+    return function () {
+      let t = (seed += 0x6d2b79f5);
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function buildCell() {
+    const g = new THREE.Group();
+    g.add(new THREE.LineSegments(
+      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(220, 3)),
+      wireMat(COLORS.blue, 0.55),
+    ));
+    g.add(new THREE.LineSegments(
+      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(60, 2)),
+      wireMat(COLORS.cyan, 0.85),
+    ));
+    g.add(new THREE.LineSegments(
+      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(20, 1)),
+      wireMat(COLORS.cyan, 0.95),
+    ));
+    const rng = mulberry32(42);
+    for (let i = 0; i < 22; i += 1) {
+      const r = 6 + rng() * 14;
+      const o = new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(r, 1)),
+        wireMat(rng() > 0.5 ? COLORS.grey : COLORS.blue, 0.6),
+      );
+      const phi = rng() * Math.PI * 2;
+      const theta = Math.acos(rng() * 2 - 1);
+      const dist = 90 + rng() * 100;
+      o.position.set(
+        Math.sin(theta) * Math.cos(phi) * dist,
+        Math.cos(theta) * dist,
+        Math.sin(theta) * Math.sin(phi) * dist,
+      );
+      g.add(o);
+    }
+    g.add(makeBoxHelper([-240, -240, -240], [240, 240, 240], COLORS.dim, 0.3));
+    return g;
+  }
+
+  function buildBrain() {
+    const g = new THREE.Group();
+    const geom = new THREE.IcosahedronGeometry(3000, 4);
+    const pos = geom.attributes.position;
+    for (let i = 0; i < pos.count; i += 1) {
+      const x = pos.getX(i);
+      const y = pos.getY(i);
+      const z = pos.getZ(i);
+      const len = Math.sqrt(x * x + y * y + z * z);
+      const nx = x / len;
+      const ny = y / len;
+      const nz = z / len;
+      const n =
+        Math.sin(nx * 9 + ny * 4) * Math.cos(ny * 7) * 0.1 +
+        Math.sin(nz * 11) * Math.cos(nx * 8) * 0.06 +
+        Math.sin(nx * 22 + nz * 18) * 0.03;
+      const newLen = len * (1 + n);
+      pos.setXYZ(i, nx * newLen, ny * newLen, nz * newLen);
+    }
+    geom.computeVertexNormals();
+    geom.scale(1.15, 0.95, 1.0);
+    g.add(new THREE.LineSegments(new THREE.WireframeGeometry(geom), wireMat(COLORS.blue, 0.45)));
+    const splitPts = [];
+    for (let k = 0; k <= 64; k += 1) {
+      const a = (k / 64) * Math.PI * 2;
+      splitPts.push(new THREE.Vector3(0, Math.cos(a) * 2900, Math.sin(a) * 3500));
+    }
+    g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(splitPts), wireMat(COLORS.cyan, 0.7)));
+    const cere = new THREE.LineSegments(
+      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(900, 2)),
+      wireMat(COLORS.cyan, 0.55),
+    );
+    cere.position.set(0, -1900, -2200);
+    g.add(cere);
+    const stemGeom = new THREE.CylinderGeometry(280, 380, 1500, 14, 1, true);
+    const stem = new THREE.LineSegments(new THREE.WireframeGeometry(stemGeom), wireMat(COLORS.grey, 0.5));
+    stem.position.set(0, -2900, -1800);
+    g.add(stem);
+    g.add(makeBoxHelper([-3800, -3800, -3500], [3800, 3500, 3500], COLORS.dim, 0.3));
+    return g;
+  }
+
+  function buildHumanoid(S) {
+    const fig = new THREE.Group();
+    const v = (x, y, z) => new THREE.Vector3(x * S, y * S, z * S);
+    const addBox = (w, h, d, pos, color = COLORS.cyan, opacity = 0.85) => {
+      const m = new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.BoxGeometry(w * S, h * S, d * S)),
+        wireMat(color, opacity),
+      );
+      m.position.copy(pos);
+      fig.add(m);
+      return m;
+    };
+    const addBone = (A, B, thickness = 0.1, color = COLORS.blue, opacity = 0.85) => {
+      const dir = new THREE.Vector3().subVectors(B, A);
+      const len = dir.length();
+      if (len < 1e-6) return null;
+      const m = new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.BoxGeometry(thickness * S, len, thickness * S)),
+        wireMat(color, opacity),
+      );
+      m.position.copy(A).add(B).multiplyScalar(0.5);
+      m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.clone().normalize());
+      fig.add(m);
+      return m;
+    };
+    const addJoint = (pos, radius = 0.08, color = COLORS.cyan, opacity = 0.95) => {
+      const m = new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(radius * S, 1)),
+        wireMat(color, opacity),
+      );
+      m.position.copy(pos);
+      fig.add(m);
+      return m;
+    };
+    const HIP_L = v(0.18, -1.85, 0);
+    const HIP_R = v(-0.18, -1.85, 0);
+    const KNEE_L = v(0.18, -1.85, 1.05);
+    const KNEE_R = v(-0.18, -1.85, 1.05);
+    const ANKLE_L = v(0.2, -3.05, 1.05);
+    const ANKLE_R = v(-0.2, -3.05, 1.05);
+    const TOE_L = v(0.2, -3.1, 1.32);
+    const TOE_R = v(-0.2, -3.1, 1.32);
+    const NECK_BASE = v(0, -0.55, 0.02);
+    const NECK_TOP = v(0, -0.32, 0.04);
+    const SHO_L = v(0.34, -0.55, 0.02);
+    const SHO_R = v(-0.34, -0.55, 0.02);
+    const ELBOW_L = v(0.4, -1.18, 0.32);
+    const WRIST_L = v(0.1, -1.58, 0.95);
+    const HAND_L_TIP = v(-0.04, -1.58, 1.12);
+    const ELBOW_R = v(-0.62, -1.1, 0.3);
+    const WRIST_R = v(-1.05, -1.58, 0.85);
+    const HAND_R_TIP = v(-1.2, -1.58, 0.98);
+    addBox(0.46, 0.22, 0.36, v(0, -1.85, 0.02), COLORS.cyan, 0.9);
+    addBox(0.62, 1.3, 0.38, v(0, -1.2, 0.02), COLORS.cyan, 0.85);
+    addBox(0.8, 0.16, 0.34, v(0, -0.55, 0.02), COLORS.blue, 0.8);
+    addBox(0.5, 0.62, 0.5, v(0, 0, 0.04), COLORS.cyan, 0.95);
+    addBone(NECK_BASE, NECK_TOP, 0.14, COLORS.cyan, 0.85);
+    addBone(SHO_L, ELBOW_L, 0.14, COLORS.blue, 0.85);
+    addBone(ELBOW_L, WRIST_L, 0.12, COLORS.blue, 0.85);
+    addBone(WRIST_L, HAND_L_TIP, 0.1, COLORS.cyan, 0.9);
+    addBone(SHO_R, ELBOW_R, 0.14, COLORS.blue, 0.85);
+    addBone(ELBOW_R, WRIST_R, 0.12, COLORS.blue, 0.85);
+    addBone(WRIST_R, HAND_R_TIP, 0.1, COLORS.cyan, 0.9);
+    addBone(HIP_L, KNEE_L, 0.18, COLORS.blue, 0.85);
+    addBone(KNEE_L, ANKLE_L, 0.16, COLORS.blue, 0.85);
+    addBone(ANKLE_L, TOE_L, 0.14, COLORS.cyan, 0.9);
+    addBone(HIP_R, KNEE_R, 0.18, COLORS.blue, 0.85);
+    addBone(KNEE_R, ANKLE_R, 0.16, COLORS.blue, 0.85);
+    addBone(ANKLE_R, TOE_R, 0.14, COLORS.cyan, 0.9);
+    [HIP_L, HIP_R, KNEE_L, KNEE_R, ANKLE_L, ANKLE_R, SHO_L, SHO_R, ELBOW_L, ELBOW_R, WRIST_L, WRIST_R, NECK_BASE, NECK_TOP].forEach(
+      (p) => addJoint(p, 0.08, COLORS.cyan, 0.95),
+    );
+    return fig;
+  }
+
+  function buildMan() {
+    const g = new THREE.Group();
+    const S = 8000;
+    const FLOOR_Y = -S * 3.15;
+    const wbox = (w, h, d, color = COLORS.blue, opacity = 0.65) =>
+      new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.BoxGeometry(w, h, d)),
+        wireMat(color, opacity),
+      );
+
+    const grid = new THREE.GridHelper(S * 28, 56, COLORS.blue, COLORS.dim);
+    grid.position.y = FLOOR_Y;
+    grid.material.transparent = true;
+    grid.material.opacity = 0.4;
+    grid.material.depthTest = false;
+    g.add(grid);
+
+    const polar = new THREE.PolarGridHelper(S * 9, 16, 8, 64, COLORS.blue, COLORS.dim);
+    polar.position.set(0, FLOOR_Y + 1, -S * 7);
+    polar.rotation.x = Math.PI / 2;
+    polar.material.transparent = true;
+    polar.material.opacity = 0.3;
+    polar.material.depthTest = false;
+    g.add(polar);
+
+    const desk = wbox(S * 6.2, S * 0.22, S * 3.0, COLORS.blue, 0.75);
+    desk.position.set(0, -S * 1.85, S * 1.4);
+    g.add(desk);
+
+    {
+      const deskBottomY = -S * 1.85 - S * 0.11;
+      const legHeight = deskBottomY - FLOOR_Y;
+      const legCenterY = (deskBottomY + FLOOR_Y) * 0.5;
+      for (const [dx, dz] of [[-2.8, 0.05], [2.8, 0.05], [-2.8, 2.75], [2.8, 2.75]]) {
+        const leg = wbox(S * 0.18, legHeight, S * 0.18, COLORS.grey, 0.55);
+        leg.position.set(dx * S, legCenterY, dz * S);
+        g.add(leg);
+      }
+    }
+
+    const monitor = wbox(S * 3.4, S * 2.0, S * 0.18, COLORS.cyan, 0.95);
+    monitor.position.set(0, -S * 0.25, S * 2.4);
+    g.add(monitor);
+
+    for (let i = 0; i < 8; i += 1) {
+      const wScale = 0.6 + Math.sin(i * 1.7) * 0.35;
+      const line = new THREE.LineSegments(
+        new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(-S * 1.5 * wScale, -S * 1.0 + i * S * 0.22, S * 2.31),
+          new THREE.Vector3(S * 1.5 * wScale, -S * 1.0 + i * S * 0.22, S * 2.31),
+        ]),
+        wireMat(COLORS.cyan, 0.55),
+      );
+      g.add(line);
+    }
+
+    const stand = wbox(S * 0.18, S * 0.9, S * 0.18, COLORS.grey, 0.6);
+    stand.position.set(0, -S * 1.35, S * 2.4);
+    g.add(stand);
+    const base = wbox(S * 1.0, S * 0.08, S * 0.5, COLORS.grey, 0.6);
+    base.position.set(0, -S * 1.75, S * 2.4);
+    g.add(base);
+
+    const kb = wbox(S * 1.8, S * 0.08, S * 0.6, COLORS.blue, 0.75);
+    kb.position.set(0, -S * 1.65, S * 0.85);
+    g.add(kb);
+
+    const mouse = wbox(S * 0.22, S * 0.1, S * 0.34, COLORS.cyan, 0.85);
+    mouse.position.set(-S * 1.05, -S * 1.64, S * 0.85);
+    g.add(mouse);
+    const mouseCable = new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(-S * 1.05, -S * 1.64, S * 0.85 + S * 0.17),
+        new THREE.Vector3(-S * 1.05, -S * 1.64, S * 1.5),
+      ]),
+      wireMat(COLORS.grey, 0.5),
+    );
+    g.add(mouseCable);
+    const pad = wbox(S * 0.7, S * 0.02, S * 0.55, COLORS.dim, 0.55);
+    pad.position.set(-S * 1.05, -S * 1.73, S * 0.85);
+    g.add(pad);
+
+    const seat = wbox(S * 1.4, S * 0.2, S * 1.4, COLORS.grey, 0.65);
+    seat.position.set(0, -S * 1.95, -S * 0.5);
+    g.add(seat);
+    const back = wbox(S * 1.4, S * 2.6, S * 0.18, COLORS.grey, 0.65);
+    back.position.set(0, -S * 0.65, -S * 1.15);
+    g.add(back);
+    {
+      const seatBottomY = -S * 1.95 - S * 0.1;
+      const poleHeight = seatBottomY - FLOOR_Y;
+      const poleCenterY = (seatBottomY + FLOOR_Y) * 0.5;
+      const pole = wbox(S * 0.18, poleHeight, S * 0.18, COLORS.grey, 0.5);
+      pole.position.set(0, poleCenterY, -S * 0.5);
+      g.add(pole);
+    }
+    for (let i = 0; i < 5; i += 1) {
+      const a = (i / 5) * Math.PI * 2;
+      const foot = wbox(S * 1.0, S * 0.08, S * 0.18, COLORS.grey, 0.55);
+      foot.position.set(Math.cos(a) * S * 0.7, FLOOR_Y + S * 0.04, -S * 0.5 + Math.sin(a) * S * 0.7);
+      foot.rotation.y = a;
+      g.add(foot);
+    }
+
+    g.add(buildHumanoid(S));
+    g.add(makeBoxHelper([-S * 5, FLOOR_Y - S * 0.05, -S * 4], [S * 5, S * 1.5, S * 4], COLORS.dim, 0.3));
+    g.add(makeBoxHelper([-S * 14, FLOOR_Y - S * 0.5, -S * 14], [S * 14, S * 9, S * 14], COLORS.dim, 0.18));
+    return g;
+  }
+
+  const atomGroup = buildAtom();
+  scene.add(atomGroup);
+  const dnaGroup = buildDNA();
+  scene.add(dnaGroup);
+  const cellGroup = buildCell();
+  scene.add(cellGroup);
+  const brainGroup = buildBrain();
+  scene.add(brainGroup);
+  brainGroup.scale.setScalar(0.45);
+  const manGroup = buildMan();
+  scene.add(manGroup);
+
+  const stages = [
+    { name: "01 atom", group: atomGroup, near: 0, far: 25 },
+    { name: "02 dna", group: dnaGroup, near: 8, far: 500 },
+    { name: "03 cell", group: cellGroup, near: 200, far: 7000 },
+    { name: "04 brain", group: brainGroup, near: 3500, far: 55000 },
+    { name: "05 human", group: manGroup, near: 28000, far: 800000 },
+  ];
+  for (const s of stages) {
+    s.materials = [];
+    s.group.traverse((o) => {
+      if (o.material) {
+        const mats = Array.isArray(o.material) ? o.material : [o.material];
+        for (const m of mats) {
+          m.transparent = true;
+          s.materials.push({ mat: m, base: m.opacity ?? 1 });
+        }
+      }
+    });
+  }
+
+  function updateStageVisibility(z) {
+    for (const s of stages) {
+      const { near, far, materials } = s;
+      let opacity;
+      if (near > 0 && z < near * 0.5) opacity = 0;
+      else if (z > far * 2) opacity = 0;
+      else if (near > 0 && z < near) opacity = (z - near * 0.5) / (near * 0.5);
+      else if (z > far) opacity = 1 - (z - far) / far;
+      else opacity = 1;
+      opacity = Math.max(0, Math.min(1, opacity));
+      s.group.visible = opacity > 0.005;
+      for (const m of materials) m.mat.opacity = m.base * opacity;
+    }
+  }
+
+  const Z_MIN = 3.5;
+  const Z_MAX = 180000;
+  const logMin = Math.log(Z_MIN);
+  const logMax = Math.log(Z_MAX);
+
+  ScrollTrigger.create({
+    trigger: document.body,
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 1.2,
+    onUpdate: (self) => {
+      const p = self.progress;
+      const z = Math.exp(logMin + (logMax - logMin) * p);
+      camera.position.z = z;
+      camera.position.x = Math.sin(p * Math.PI * 2.4) * z * 0.06;
+      camera.position.y = -Math.cos(p * Math.PI * 1.6) * z * 0.04;
+      camera.lookAt(0, 0, 0);
+      updateStageVisibility(z);
+    },
+  });
+
+  updateStageVisibility(camera.position.z);
+
+  function onResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight, false);
+  }
+  window.addEventListener("resize", onResize);
+  onResize();
+
+  renderer.setAnimationLoop(() => {
+    const t = performance.now() * 0.001;
+    if (atomGroup.userData.electrons) {
+      for (const e of atomGroup.userData.electrons) {
+        const a = t * e.speed + e.offset;
+        const local = new THREE.Vector3(Math.cos(a) * e.radius, 0, Math.sin(a) * e.radius);
+        local.applyEuler(e.orbit.rotation);
+        e.mesh.position.copy(local);
+      }
+    }
+    dnaGroup.rotation.y = t * 0.18;
+    cellGroup.rotation.y = t * 0.05;
+    cellGroup.rotation.x = Math.sin(t * 0.2) * 0.08;
+    brainGroup.rotation.y = Math.sin(t * 0.1) * 0.25;
+    manGroup.rotation.y = Math.sin(t * 0.06) * 0.04;
+    renderer.render(scene, camera);
+  });
+}
+
 mountLanding();
+try {
+  initScaleBackground();
+} catch (err) {
+  console.error("[scaleBackground] init failed", err);
+}

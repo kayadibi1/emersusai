@@ -1,108 +1,2055 @@
-const typedTopic = document.getElementById("typed-topic");
+import React, { useState } from "https://esm.sh/react@18.2.0";
+import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+import Lenis from "https://esm.sh/lenis@1.1.20";
+import gsap from "https://esm.sh/gsap@3.12.5";
+import { ScrollTrigger } from "https://esm.sh/gsap@3.12.5/ScrollTrigger";
+import * as THREE from "https://esm.sh/three@0.161.0";
+import { EffectComposer } from "https://esm.sh/three@0.161.0/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "https://esm.sh/three@0.161.0/examples/jsm/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "https://esm.sh/three@0.161.0/examples/jsm/postprocessing/UnrealBloomPass.js";
+
+const h = React.createElement;
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 
-if (typedTopic) {
-  const topics = [
-    "hypertrophy",
-    "mental performance",
-    "micronutrient intake",
-    "supplements",
-    "optimal work hours",
-    "morning routines",
-    "sleep habits",
-  ];
+gsap.registerPlugin(ScrollTrigger);
 
-  if (reducedMotionQuery.matches) {
-    typedTopic.textContent = topics[0];
-  } else {
-    let topicIndex = 0;
-    let charIndex = 0;
-    let deleting = false;
-
-    const tick = () => {
-      const currentTopic = topics[topicIndex];
-      charIndex += deleting ? -1 : 1;
-      typedTopic.textContent = currentTopic.slice(0, charIndex);
-
-      let delay = deleting ? 45 : 85;
-
-      if (!deleting && charIndex === currentTopic.length) {
-        deleting = true;
-        delay = 1300;
-      } else if (deleting && charIndex === 0) {
-        deleting = false;
-        topicIndex = (topicIndex + 1) % topics.length;
-        delay = 250;
-      }
-
-      window.setTimeout(tick, delay);
-    };
-
-    typedTopic.textContent = "";
-    window.setTimeout(tick, 500);
-  }
+function createSeededRandom(seed) {
+  let state = seed;
+  return () => {
+    state = (state * 9301 + 49297) % 233280;
+    return state / 233280;
+  };
 }
 
-document.querySelectorAll("[data-waitlist-form]").forEach((form) => {
-  const emailField = form.elements.email;
-  const feedback = form.nextElementSibling;
-  const endpoint = form.dataset.formEndpoint?.trim();
-  const submitButton = form.querySelector('button[type="submit"]');
-
-  if (!(emailField instanceof HTMLInputElement) || !(feedback instanceof HTMLElement)) {
-    return;
+function initSmoothScroll(onScrollActivity) {
+  if (reducedMotionQuery.matches) {
+    return null;
   }
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    feedback.classList.remove("is-success", "is-error");
-    feedback.textContent = "";
+  const lenis = new Lenis({
+    lerp: 0.075,
+    smoothWheel: true,
+    wheelMultiplier: 0.86,
+  });
 
-    if (!emailField.value.trim()) {
-      feedback.textContent = "Enter your email to join the waitlist.";
-      feedback.classList.add("is-error");
-      emailField.focus();
+  lenis.on("scroll", () => {
+    onScrollActivity?.();
+    ScrollTrigger.update();
+  });
+  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  gsap.ticker.lagSmoothing(0);
+  return lenis;
+}
+
+function createPixelBoxInstance(points, opacity = 0.9) {
+  const geometry = new THREE.BoxGeometry(1, 1, 1);
+  const material = new THREE.MeshBasicMaterial({
+    transparent: true,
+    opacity,
+    vertexColors: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+  });
+  const mesh = new THREE.InstancedMesh(geometry, material, points.length);
+  const matrix = new THREE.Matrix4();
+  const rotation = new THREE.Quaternion();
+  const color = new THREE.Color();
+
+  points.forEach((point, index) => {
+    matrix.compose(
+      new THREE.Vector3(point.x, point.y, point.z),
+      rotation,
+      new THREE.Vector3(point.size, point.size, point.size),
+    );
+    mesh.setMatrixAt(index, matrix);
+    color.set(point.color);
+    if (point.boost) {
+      color.multiplyScalar(point.boost);
+    }
+    mesh.setColorAt(index, color);
+  });
+
+  mesh.instanceMatrix.needsUpdate = true;
+  if (mesh.instanceColor) {
+    mesh.instanceColor.needsUpdate = true;
+  }
+  return mesh;
+}
+
+function createSquareSpriteTexture() {
+  const canvas = document.createElement("canvas");
+  canvas.width = 32;
+  canvas.height = 32;
+  const ctx = canvas.getContext("2d");
+  ctx.fillStyle = "#fff";
+  ctx.fillRect(7, 7, 18, 18);
+  const texture = new THREE.CanvasTexture(canvas);
+  texture.magFilter = THREE.NearestFilter;
+  texture.minFilter = THREE.NearestFilter;
+  texture.generateMipmaps = false;
+  return texture;
+}
+
+function createNeuron({ center, scale, seed, hidden = false }) {
+  const random = createSeededRandom(seed);
+  const group = new THREE.Group();
+  const points = [];
+  const anchors = [];
+  const palette = ["#ffffff", "#ff88f7", "#ff44cc", "#cc44ff", "#9933cc", "#401066"];
+
+  for (let ring = 0; ring < 16; ring += 1) {
+    const t = ring / 15;
+    const ringRadius = scale * (0.12 + t * 0.96);
+    const cells = 22 + ring * 12;
+    const color = palette[Math.min(palette.length - 1, Math.floor(t * palette.length))];
+    for (let i = 0; i < cells; i += 1) {
+      const angle = (i / cells) * Math.PI * 2 + seed * 0.01;
+      const crossPull = Math.max(Math.abs(Math.cos(angle)), Math.abs(Math.sin(angle)));
+      const wobble = 0.72 + crossPull * 0.28 + Math.sin(i * 1.7 + seed) * 0.08;
+      points.push({
+        x: Math.cos(angle) * ringRadius * wobble,
+        y: Math.sin(angle) * ringRadius * (0.64 + crossPull * 0.18),
+        z: Math.sin(angle * 2 + seed) * scale * 0.12,
+        size: scale * (0.08 + (1 - t) * 0.08),
+        color,
+        boost: 1.35 + (1 - t) * 2.3,
+      });
+    }
+  }
+
+  const branchCount = 10;
+  for (let branch = 0; branch < branchCount; branch += 1) {
+    const baseAngle = (branch / branchCount) * Math.PI * 2 + random() * 0.35;
+    const branchLength = scale * (2.4 + random() * 1.8);
+    const bendFactor = (random() - 0.5) * 0.9;
+    let finalPoint = new THREE.Vector3();
+
+    for (let i = 0; i < 84; i += 1) {
+      const t = i / 83;
+      const bend = Math.sin(t * Math.PI * 1.45 + seed + branch) * bendFactor * scale;
+      const radius = scale * 0.72 + branchLength * t;
+      finalPoint = new THREE.Vector3(
+        Math.cos(baseAngle) * radius + Math.cos(baseAngle + Math.PI / 2) * bend,
+        Math.sin(baseAngle) * radius * 0.84 + Math.sin(baseAngle + Math.PI / 2) * bend,
+        Math.sin(t * Math.PI * 2 + branch) * scale * 0.18,
+      );
+      points.push({
+        x: finalPoint.x,
+        y: finalPoint.y,
+        z: finalPoint.z,
+        size: scale * (0.11 - t * 0.045),
+        color: t > 0.72 ? "#7722cc" : t > 0.36 ? "#cc44ff" : "#ff44cc",
+        boost: 1.05 + (1 - t) * 0.45,
+      });
+    }
+
+    anchors.push(finalPoint.clone().add(center));
+
+    for (let fork = 0; fork < 2; fork += 1) {
+      const forkSign = fork === 0 ? -1 : 1;
+      const forkStart = 0.44 + random() * 0.28;
+      const forkAngle = baseAngle + forkSign * (0.42 + random() * 0.35);
+      const forkLength = scale * (0.85 + random() * 0.95);
+      const parentRadius = scale * 0.72 + branchLength * forkStart;
+      const baseX = Math.cos(baseAngle) * parentRadius;
+      const baseY = Math.sin(baseAngle) * parentRadius * 0.84;
+
+      for (let i = 0; i < 34; i += 1) {
+        const t = i / 33;
+        points.push({
+          x: baseX + Math.cos(forkAngle) * forkLength * t,
+          y: baseY + Math.sin(forkAngle) * forkLength * t,
+          z: Math.sin(t * Math.PI + forkSign) * scale * 0.08,
+          size: scale * 0.056,
+          color: t > 0.55 ? "#7d2bff" : "#d83dff",
+          boost: 1.05,
+        });
+      }
+    }
+  }
+
+  const pixelMesh = createPixelBoxInstance(points, hidden ? 0 : 0.95);
+  group.add(pixelMesh);
+
+  const core = new THREE.PointLight("#ff44cc", hidden ? 0 : 24, scale * 13, 1.6);
+  group.add(core);
+
+  const coreCube = new THREE.Mesh(
+    new THREE.BoxGeometry(scale * 0.9, scale * 0.9, scale * 0.9),
+    new THREE.MeshBasicMaterial({
+      color: "#ffffff",
+      transparent: true,
+      opacity: hidden ? 0 : 0.72,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    }),
+  );
+  group.add(coreCube);
+
+  group.position.copy(center);
+  group.userData = {
+    anchors,
+    base: center.clone(),
+    core,
+    coreMaterial: coreCube.material,
+    hidden,
+    phase: seed,
+    pixelMaterial: pixelMesh.material,
+  };
+  return group;
+}
+
+function createSynapse(start, end, phase) {
+  const midpoint = start.clone().lerp(end, 0.5);
+  const control = midpoint.add(
+    new THREE.Vector3(
+      Math.sin(phase) * 5.5,
+      Math.cos(phase * 0.7) * 4.2,
+      Math.sin(phase * 1.4) * 2.1,
+    ),
+  );
+  const curve = new THREE.CatmullRomCurve3([start, control, end]);
+  const tube = new THREE.Mesh(
+    new THREE.TubeGeometry(curve, 90, 0.045, 6, false),
+    new THREE.MeshBasicMaterial({
+      color: "#7722cc",
+      transparent: true,
+      opacity: 0.3,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    }),
+  );
+
+  const beads = [];
+  for (let i = 0; i < 150; i += 1) {
+    const t = i / 149;
+    const point = curve.getPointAt(t);
+    const endpointProximity = Math.abs(t - 0.5) * 2;
+    beads.push({
+      x: point.x,
+      y: point.y,
+      z: point.z,
+      size: 0.1 + Math.pow(endpointProximity, 1.9) * 0.36,
+      color: endpointProximity > 0.7 ? "#cc44ff" : "#7722cc",
+      boost: 1.15 + endpointProximity * 1.25,
+    });
+  }
+  const beadMesh = createPixelBoxInstance(beads, 0.74);
+
+  const pulseGeometry = new THREE.BufferGeometry();
+  const pulsePositions = new Float32Array(150 * 3);
+  const pulseT = new Float32Array(150);
+  for (let i = 0; i < 150; i += 1) {
+    const t = i / 149;
+    const point = curve.getPointAt(t);
+    pulsePositions[i * 3] = point.x;
+    pulsePositions[i * 3 + 1] = point.y;
+    pulsePositions[i * 3 + 2] = point.z;
+    pulseT[i] = t;
+  }
+  pulseGeometry.setAttribute("position", new THREE.BufferAttribute(pulsePositions, 3));
+  pulseGeometry.setAttribute("aT", new THREE.BufferAttribute(pulseT, 1));
+  const pulseMaterial = new THREE.ShaderMaterial({
+    transparent: true,
+    depthWrite: false,
+    blending: THREE.AdditiveBlending,
+    uniforms: {
+      uPulse: { value: 0 },
+      uSize: { value: 12 },
+    },
+    vertexShader: `
+      attribute float aT;
+      uniform float uPulse;
+      uniform float uSize;
+      varying float vAlpha;
+      void main() {
+        float d = abs(aT - uPulse);
+        d = min(d, 1.0 - d);
+        vAlpha = smoothstep(0.045, 0.0, d);
+        vec4 mvPosition = modelViewMatrix * vec4(position, 1.0);
+        gl_PointSize = uSize * (300.0 / -mvPosition.z) * (0.35 + vAlpha);
+        gl_Position = projectionMatrix * mvPosition;
+      }
+    `,
+    fragmentShader: `
+      varying float vAlpha;
+      void main() {
+        vec2 p = gl_PointCoord - vec2(0.5);
+        float shape = step(max(abs(p.x), abs(p.y)), 0.42);
+        vec3 color = mix(vec3(0.0, 1.0, 0.8), vec3(1.0), vAlpha);
+        gl_FragColor = vec4(color, shape * vAlpha);
+      }
+    `,
+  });
+  const pulse = new THREE.Points(pulseGeometry, pulseMaterial);
+
+  return { curve, tube, beads: beadMesh, pulse, phase, pulseMaterial };
+}
+
+function initNeuronParallax() {
+  const canvas = document.getElementById("neuron-parallax-canvas");
+  if (!(canvas instanceof HTMLCanvasElement)) {
+    return () => {};
+  }
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: false,
+    alpha: false,
+    powerPreference: "high-performance",
+  });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
+  renderer.setClearColor(0x0d0a1a, 1);
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color("#0d0a1a");
+  const camera = new THREE.PerspectiveCamera(46, 1, 0.1, 140);
+  camera.position.set(0, 0, 38);
+
+  const field = new THREE.Group();
+  scene.add(field);
+
+  const neurons = [
+    createNeuron({ center: new THREE.Vector3(-15, 6, -7), scale: 3.4, seed: 17 }),
+    createNeuron({ center: new THREE.Vector3(1, -1, 1), scale: 4.7, seed: 31 }),
+    createNeuron({ center: new THREE.Vector3(17, 7, -14), scale: 3.6, seed: 47 }),
+    createNeuron({ center: new THREE.Vector3(-8, -12, -4), scale: 3.9, seed: 63 }),
+    createNeuron({ center: new THREE.Vector3(10, 13, -18), scale: 3.1, seed: 79, hidden: true }),
+  ];
+  neurons.forEach((neuron) => field.add(neuron));
+
+  const synapses = [
+    createSynapse(neurons[0].userData.anchors[2], neurons[1].userData.anchors[6], 0.2),
+    createSynapse(neurons[1].userData.anchors[3], neurons[2].userData.anchors[7], 1.3),
+    createSynapse(neurons[1].userData.anchors[1], neurons[3].userData.anchors[5], 2.1),
+    createSynapse(neurons[2].userData.anchors[8], neurons[4].userData.anchors[4], 3.0),
+    createSynapse(neurons[3].userData.anchors[0], neurons[0].userData.anchors[4], 4.4),
+  ];
+  synapses.forEach((synapse) => {
+    field.add(synapse.tube, synapse.beads, synapse.pulse);
+  });
+
+  const particleTexture = createSquareSpriteTexture();
+  const particleCount = 460;
+  const particleGeometry = new THREE.BufferGeometry();
+  const positions = new Float32Array(particleCount * 3);
+  const basePositions = new Float32Array(particleCount * 3);
+  const colors = new Float32Array(particleCount * 3);
+  const phases = new Float32Array(particleCount);
+  const random = createSeededRandom(204);
+  const particlePalette = ["#ffdd00", "#00ffcc", "#ff6644", "#cc44ff"];
+
+  for (let i = 0; i < particleCount; i += 1) {
+    const offset = i * 3;
+    const x = (random() - 0.5) * 74;
+    const y = (random() - 0.5) * 46;
+    const z = -30 + random() * 38;
+    positions[offset] = x;
+    positions[offset + 1] = y;
+    positions[offset + 2] = z;
+    basePositions[offset] = x;
+    basePositions[offset + 1] = y;
+    basePositions[offset + 2] = z;
+    phases[i] = random() * Math.PI * 2;
+    const color = new THREE.Color(particlePalette[i % particlePalette.length]);
+    colors[offset] = color.r;
+    colors[offset + 1] = color.g;
+    colors[offset + 2] = color.b;
+  }
+
+  particleGeometry.setAttribute("position", new THREE.BufferAttribute(positions, 3));
+  particleGeometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
+  const particles = new THREE.Points(
+    particleGeometry,
+    new THREE.PointsMaterial({
+      map: particleTexture,
+      size: 0.16,
+      sizeAttenuation: true,
+      transparent: true,
+      opacity: 0.78,
+      vertexColors: true,
+      depthWrite: false,
+      blending: THREE.AdditiveBlending,
+    }),
+  );
+  field.add(particles);
+
+  const composer = new EffectComposer(renderer);
+  const renderPass = new RenderPass(scene, camera);
+  const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.8, 0.8, 0.2);
+  composer.addPass(renderPass);
+  composer.addPass(bloomPass);
+
+  const scrollState = {
+    cameraX: 0,
+    cameraY: 0,
+    cameraZ: 38,
+    fieldX: 0.05,
+    fieldY: -0.08,
+    fieldScale: 1,
+    hiddenNeuronOpacity: 0,
+    particleOpacity: 0.78,
+    pulseSpeed: 0.22,
+    bloom: 1.8,
+    warmth: 0,
+    allPulse: 0,
+  };
+
+  let renderMode = "always";
+  let scrollActiveUntil = performance.now() + 2400;
+  const markScrollActive = () => {
+    scrollActiveUntil = performance.now() + 1200;
+    renderMode = "always";
+  };
+  initSmoothScroll(markScrollActive);
+
+  if (!reducedMotionQuery.matches) {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: document.body,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.15,
+      },
+    })
+      .to(scrollState, { cameraZ: 22, fieldScale: 1.16, bloom: 2.15, duration: 0.25, ease: "none" }, 0)
+      .to(scrollState, { cameraX: 8.5, cameraY: 1.4, pulseSpeed: 0.46, particleOpacity: 0.9, duration: 0.25, ease: "none" }, 0.25)
+      .to(scrollState, { fieldY: 0.26, fieldX: 0.08, warmth: 1, hiddenNeuronOpacity: 1, duration: 0.25, ease: "none" }, 0.5)
+      .to(scrollState, { cameraZ: 40, cameraX: 0, cameraY: -1.5, fieldY: 0.02, fieldX: -0.02, fieldScale: 0.98, pulseSpeed: 0.68, particleOpacity: 1, allPulse: 1, bloom: 2.25, duration: 0.25, ease: "none" }, 0.75);
+  }
+
+  function resize() {
+    const width = Math.max(window.innerWidth, 1);
+    const height = Math.max(window.innerHeight, 1);
+    renderer.setSize(width, height, false);
+    composer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  }
+
+  let lastRenderAt = 0;
+  let rafId = 0;
+  function animate(time = 0) {
+    rafId = window.requestAnimationFrame(animate);
+    const now = performance.now();
+    if (renderMode === "demand" && now - lastRenderAt < 180) {
+      return;
+    }
+
+    const t = time * 0.001;
+    camera.position.set(scrollState.cameraX, scrollState.cameraY, scrollState.cameraZ);
+    camera.lookAt(0, 0, 0);
+    field.rotation.y = scrollState.fieldY + Math.sin(t * 0.08) * 0.015;
+    field.rotation.x = scrollState.fieldX + Math.cos(t * 0.07) * 0.012;
+    field.scale.setScalar(scrollState.fieldScale);
+    bloomPass.strength = scrollState.bloom;
+
+    neurons.forEach((neuron, index) => {
+      const pulse = 1 + Math.sin(t * (0.55 + scrollState.allPulse * 1.6) + neuron.userData.phase) * 0.018;
+      neuron.scale.setScalar(pulse);
+      neuron.position.x = neuron.userData.base.x + Math.sin(t * 0.12 + index) * 0.22;
+      neuron.position.y = neuron.userData.base.y + Math.cos(t * 0.1 + index) * 0.18;
+
+      if (neuron.userData.hidden) {
+        neuron.userData.pixelMaterial.opacity = scrollState.hiddenNeuronOpacity * 0.88;
+        neuron.userData.coreMaterial.opacity = scrollState.hiddenNeuronOpacity * 0.96;
+        neuron.userData.core.intensity = scrollState.hiddenNeuronOpacity * 22;
+      } else {
+        neuron.userData.core.intensity = 16 + Math.sin(t * 1.4 + index) * 2 + scrollState.allPulse * 6;
+      }
+    });
+
+    synapses.forEach((synapse, index) => {
+      synapse.pulseMaterial.uniforms.uPulse.value = (t * (0.05 + scrollState.pulseSpeed * 0.1) + index * 0.19) % 1;
+    });
+
+    const particlePositionAttr = particles.geometry.attributes.position;
+    for (let i = 0; i < particlePositionAttr.count; i += 1) {
+      const offset = i * 3;
+      const phase = phases[i];
+      particlePositionAttr.setXYZ(
+        i,
+        basePositions[offset] + Math.sin(t * 0.18 + phase) * (0.5 + scrollState.particleOpacity * 0.8),
+        basePositions[offset + 1] + Math.cos(t * 0.14 + phase) * 0.55,
+        basePositions[offset + 2] + Math.sin(t * 0.12 + phase) * 0.38,
+      );
+    }
+    particlePositionAttr.needsUpdate = true;
+    particles.material.opacity = scrollState.particleOpacity;
+
+    composer.render();
+    lastRenderAt = now;
+
+    if (now > scrollActiveUntil && renderMode === "always") {
+      renderMode = "demand";
+    }
+  }
+
+  resize();
+  window.addEventListener("resize", resize, { passive: true });
+  animate();
+
+  window.__EMERSUS_NEURON_DEBUG = {
+    loadedAt: new Date().toISOString(),
+    renderer: "three-react-neural-scene",
+    neuronCount: neurons.length,
+    synapseCount: synapses.length,
+    scriptVersion: "three-react-neuron-restore-20260407",
+  };
+
+  return () => {
+    window.cancelAnimationFrame(rafId);
+    window.removeEventListener("resize", resize);
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    renderer.dispose();
+    composer.dispose();
+    particleGeometry.dispose();
+    particleTexture.dispose();
+    scene.traverse((object) => {
+      if (object.geometry) object.geometry.dispose();
+      if (object.material) {
+        if (Array.isArray(object.material)) {
+          object.material.forEach((material) => material.dispose());
+        } else {
+          object.material.dispose();
+        }
+      }
+    });
+  };
+}
+
+function createNeuronCurveHelper(curve, color = "#00ffcc", scale = 0.58) {
+  const geometry = new THREE.BufferGeometry();
+  const positions = [];
+
+  for (let i = 6; i < 72; i += 9) {
+    const t = i / 80;
+    const point = curve.getPointAt(t);
+    const tangent = curve.getTangentAt(t).normalize();
+    positions.push(point.x, point.y, point.z);
+    positions.push(point.x + tangent.x * scale, point.y + tangent.y * scale, point.z + tangent.z * scale);
+  }
+
+  geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  return new THREE.LineSegments(
+    geometry,
+    new THREE.LineBasicMaterial({
+      color,
+      transparent: true,
+      opacity: 0.72,
+      depthTest: false,
+    }),
+  );
+}
+
+function createSomaNormalHelper(mesh, size = 0.72, color = "#9bff00") {
+  const geometry = mesh.geometry;
+  const position = geometry.getAttribute("position");
+  const normal = geometry.getAttribute("normal");
+  const positions = [];
+  const step = Math.max(1, Math.floor(position.count / 220));
+  const vertex = new THREE.Vector3();
+  const direction = new THREE.Vector3();
+
+  for (let i = 0; i < position.count; i += step) {
+    vertex.fromBufferAttribute(position, i);
+    direction.fromBufferAttribute(normal, i).normalize();
+    positions.push(vertex.x, vertex.y, vertex.z);
+    positions.push(vertex.x + direction.x * size, vertex.y + direction.y * size, vertex.z + direction.z * size);
+  }
+
+  const helperGeometry = new THREE.BufferGeometry();
+  helperGeometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  return new THREE.LineSegments(
+    helperGeometry,
+    new THREE.LineBasicMaterial({
+      color,
+      transparent: true,
+      opacity: 0.76,
+      depthTest: false,
+    }),
+  );
+}
+
+function createHelperStyleNeuron(seed = 31) {
+  const random = createSeededRandom(seed);
+  const group = new THREE.Group();
+  group.name = "Procedural 3D helper neuron";
+
+  const neuronMaterial = new THREE.MeshStandardMaterial({
+    color: "#cc44ff",
+    emissive: "#7a168f",
+    emissiveIntensity: 1.8,
+    roughness: 0.42,
+    metalness: 0.12,
+  });
+
+  const soma = new THREE.Mesh(new THREE.IcosahedronGeometry(3.2, 4), neuronMaterial);
+  soma.name = "Soma";
+  soma.scale.set(1.18, 0.92, 1);
+  soma.geometry.computeVertexNormals();
+  group.add(soma);
+
+  const core = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(1.08, 2),
+    new THREE.MeshBasicMaterial({
+      color: "#ffffff",
+      transparent: true,
+      opacity: 0.82,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    }),
+  );
+  group.add(core);
+
+  const wireframe = new THREE.LineSegments(
+    new THREE.WireframeGeometry(soma.geometry),
+    new THREE.LineBasicMaterial({
+      color: "#ffffff",
+      transparent: true,
+      opacity: 0.22,
+      depthTest: false,
+    }),
+  );
+  wireframe.position.x = 0.34;
+  soma.add(wireframe);
+
+  const edges = new THREE.LineSegments(
+    new THREE.EdgesGeometry(soma.geometry, 18),
+    new THREE.LineBasicMaterial({
+      color: "#00ffcc",
+      transparent: true,
+      opacity: 0.42,
+      depthTest: false,
+    }),
+  );
+  edges.position.x = -0.34;
+  soma.add(edges);
+  soma.add(createSomaNormalHelper(soma, 0.52));
+
+  const tubeMaterial = neuronMaterial.clone();
+  const axonMaterial = neuronMaterial.clone();
+  axonMaterial.color.set("#ff44cc");
+  axonMaterial.emissive.set("#a01472");
+
+  function addTube(curve, radius, material, radialSegments = 9) {
+    const tube = new THREE.Mesh(new THREE.TubeGeometry(curve, 96, radius, radialSegments, false), material);
+    group.add(tube);
+
+    const tubeWire = new THREE.LineSegments(
+      new THREE.WireframeGeometry(tube.geometry),
+      new THREE.LineBasicMaterial({
+        color: "#ffffff",
+        transparent: true,
+        opacity: 0.12,
+        depthTest: false,
+      }),
+    );
+    tube.add(tubeWire);
+    group.add(createNeuronCurveHelper(curve));
+    return tube;
+  }
+
+  for (let branch = 0; branch < 12; branch += 1) {
+    const angle = (branch / 12) * Math.PI * 2 + random() * 0.28;
+    const zLift = (random() - 0.5) * 5.4;
+    const length = 8.6 + random() * 5.8;
+    const start = new THREE.Vector3(Math.cos(angle) * 2.4, Math.sin(angle) * 2.0, zLift * 0.18);
+    const mid = new THREE.Vector3(
+      Math.cos(angle + (random() - 0.5) * 0.55) * (length * 0.58),
+      Math.sin(angle + (random() - 0.5) * 0.55) * (length * 0.48),
+      zLift + Math.sin(branch) * 1.4,
+    );
+    const end = new THREE.Vector3(
+      Math.cos(angle + (random() - 0.5) * 0.75) * length,
+      Math.sin(angle + (random() - 0.5) * 0.75) * (length * 0.82),
+      zLift + (random() - 0.5) * 5,
+    );
+    const curve = new THREE.CatmullRomCurve3([start, mid, end]);
+    addTube(curve, 0.16 + random() * 0.08, tubeMaterial);
+
+    for (let fork = 0; fork < 2; fork += 1) {
+      const forkSign = fork === 0 ? -1 : 1;
+      const forkStart = curve.getPointAt(0.48 + random() * 0.22);
+      const forkAngle = angle + forkSign * (0.38 + random() * 0.54);
+      const forkLength = 3.1 + random() * 3.6;
+      const forkEnd = forkStart.clone().add(new THREE.Vector3(
+        Math.cos(forkAngle) * forkLength,
+        Math.sin(forkAngle) * forkLength * 0.78,
+        (random() - 0.5) * 3.4,
+      ));
+      const forkControl = forkStart.clone().lerp(forkEnd, 0.55).add(new THREE.Vector3(0, 0, forkSign * 1.1));
+      addTube(new THREE.CatmullRomCurve3([forkStart, forkControl, forkEnd]), 0.07, tubeMaterial, 7);
+    }
+  }
+
+  const axonCurve = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(-2.2, -0.3, -0.4),
+    new THREE.Vector3(-7.4, -2.5, 1.4),
+    new THREE.Vector3(-13.5, -5.4, -1.8),
+    new THREE.Vector3(-20.2, -8.4, 2.2),
+  ]);
+  addTube(axonCurve, 0.28, axonMaterial, 12);
+
+  for (let terminal = 0; terminal < 5; terminal += 1) {
+    const angle = (terminal / 5) * Math.PI * 2;
+    const end = axonCurve.getPointAt(1).clone();
+    const terminalCurve = new THREE.CatmullRomCurve3([
+      end,
+      end.clone().add(new THREE.Vector3(Math.cos(angle) * 1.8, Math.sin(angle) * 1.2, Math.sin(angle) * 1.6)),
+      end.clone().add(new THREE.Vector3(Math.cos(angle) * 3.2, Math.sin(angle) * 2.0, Math.sin(angle) * 2.2)),
+    ]);
+    addTube(terminalCurve, 0.09, axonMaterial, 7);
+  }
+
+  const glow = new THREE.PointLight("#ff44cc", 180, 54, 1.6);
+  group.add(glow);
+  group.userData = { core, glow, soma };
+  return group;
+}
+
+function initHelperStyleNeuronParallax() {
+  const canvas = document.getElementById("neuron-parallax-canvas");
+  if (!(canvas instanceof HTMLCanvasElement)) {
+    return () => {};
+  }
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: false,
+    powerPreference: "high-performance",
+  });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
+  renderer.setClearColor(0x0d0a1a, 1);
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color("#0d0a1a");
+  const camera = new THREE.PerspectiveCamera(58, 1, 0.1, 1000);
+  camera.position.set(0, 18, 46);
+
+  const neuron = createHelperStyleNeuron();
+  neuron.scale.setScalar(1.35);
+  scene.add(neuron);
+
+  const light = new THREE.PointLight("#ffffff", 650, 180);
+  light.position.set(24, 18, 22);
+  scene.add(light);
+  scene.add(new THREE.PointLightHelper(light, 1.6, "#ffffff"));
+  scene.add(new THREE.AmbientLight("#442255", 2.2));
+
+  const gridHelper = new THREE.GridHelper(70, 28, 0x0000ff, 0x5b5566);
+  gridHelper.position.y = -16;
+  gridHelper.position.x = -15;
+  scene.add(gridHelper);
+
+  const polarGridHelper = new THREE.PolarGridHelper(24, 16, 8, 64, 0x0000ff, 0x5b5566);
+  polarGridHelper.position.y = -16;
+  polarGridHelper.position.x = 28;
+  scene.add(polarGridHelper);
+
+  const somaBoxHelper = new THREE.BoxHelper(neuron.userData.soma, "#ffdd00");
+  const neuronBoxHelper = new THREE.BoxHelper(neuron, "#00ffcc");
+  const sceneBoxHelper = new THREE.BoxHelper(scene, "#7755ff");
+  scene.add(somaBoxHelper, neuronBoxHelper, sceneBoxHelper);
+
+  const composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.25, 0.42, 0.2);
+  composer.addPass(bloomPass);
+
+  const scrollState = {
+    cameraX: 0,
+    cameraY: 0,
+    cameraZ: 46,
+    fieldX: 0.05,
+    fieldY: -0.08,
+    fieldScale: 1,
+    bloom: 1.25,
+    allPulse: 0,
+  };
+
+  let renderMode = "always";
+  let scrollActiveUntil = performance.now() + 2400;
+  const markScrollActive = () => {
+    scrollActiveUntil = performance.now() + 1200;
+    renderMode = "always";
+  };
+  initSmoothScroll(markScrollActive);
+
+  if (!reducedMotionQuery.matches) {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: document.body,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.15,
+      },
+    })
+      .to(scrollState, { cameraZ: 30, fieldScale: 1.12, bloom: 1.7, duration: 0.25, ease: "none" }, 0)
+      .to(scrollState, { cameraX: 8.5, cameraY: 4.4, fieldY: 0.16, duration: 0.25, ease: "none" }, 0.25)
+      .to(scrollState, { fieldY: 0.42, fieldX: 0.18, duration: 0.25, ease: "none" }, 0.5)
+      .to(scrollState, { cameraZ: 44, cameraX: 0, cameraY: -1.5, fieldY: 0.02, fieldX: -0.02, fieldScale: 0.98, allPulse: 1, bloom: 1.85, duration: 0.25, ease: "none" }, 0.75);
+  }
+
+  function resize() {
+    const width = Math.max(window.innerWidth, 1);
+    const height = Math.max(window.innerHeight, 1);
+    renderer.setSize(width, height, false);
+    composer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  }
+
+  let lastRenderAt = 0;
+  let rafId = 0;
+  function animate(time = 0) {
+    rafId = window.requestAnimationFrame(animate);
+    const now = performance.now();
+    if (renderMode === "demand" && now - lastRenderAt < 180) {
+      return;
+    }
+
+    const t = time * 0.001;
+    camera.position.set(scrollState.cameraX, scrollState.cameraY, scrollState.cameraZ);
+    camera.lookAt(0, 0, 0);
+    neuron.rotation.y = scrollState.fieldY + t * 0.12;
+    neuron.rotation.x = scrollState.fieldX + Math.cos(t * 0.28) * 0.035;
+    neuron.rotation.z = Math.sin(t * 0.2) * 0.025;
+    neuron.scale.setScalar(1.35 * scrollState.fieldScale * (1 + Math.sin(t * 1.15) * 0.012));
+    bloomPass.strength = scrollState.bloom;
+    light.position.x = Math.sin(t * 0.72) * 34;
+    light.position.y = Math.cos(t * 0.64) * 26;
+    light.position.z = 26 + Math.cos(t * 0.55) * 18;
+    neuron.userData.core.scale.setScalar(1 + Math.sin(t * 2.4) * 0.12 + scrollState.allPulse * 0.08);
+    neuron.userData.glow.intensity = 140 + Math.sin(t * 1.7) * 36 + scrollState.allPulse * 80;
+    somaBoxHelper.update();
+    neuronBoxHelper.update();
+
+    composer.render();
+    lastRenderAt = now;
+
+    if (now > scrollActiveUntil && renderMode === "always") {
+      renderMode = "demand";
+    }
+  }
+
+  resize();
+  window.addEventListener("resize", resize, { passive: true });
+  animate();
+
+  window.__EMERSUS_NEURON_DEBUG = {
+    loadedAt: new Date().toISOString(),
+    renderer: "three-helper-style-3d-neuron",
+    neuronCount: 1,
+    helperStyle: "grid-polar-box-wire-normal-tangent",
+    scriptVersion: "three-helper-neuron-20260407",
+  };
+
+  return () => {
+    window.cancelAnimationFrame(rafId);
+    window.removeEventListener("resize", resize);
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    renderer.dispose();
+    composer.dispose();
+    scene.traverse((object) => {
+      if (object.geometry) object.geometry.dispose();
+      if (object.material) {
+        if (Array.isArray(object.material)) {
+          object.material.forEach((material) => material.dispose());
+        } else {
+          object.material.dispose();
+        }
+      }
+    });
+  };
+}
+
+function WaitlistForm({ variant = "full", endpoint = "/api/waitlist" }) {
+  const [status, setStatus] = useState({ tone: "", message: "" });
+  const [submitting, setSubmitting] = useState(false);
+
+  async function submit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const emailField = form.elements.email;
+    setStatus({ tone: "", message: "" });
+
+    if (!(emailField instanceof HTMLInputElement) || !emailField.value.trim()) {
+      setStatus({ tone: "error", message: "Enter your email to join the waitlist." });
+      emailField?.focus();
       return;
     }
 
     if (!emailField.checkValidity()) {
-      feedback.textContent = "Enter a valid email address.";
-      feedback.classList.add("is-error");
+      setStatus({ tone: "error", message: "Enter a valid email address." });
       emailField.focus();
       return;
     }
 
-    if (!endpoint) {
-      feedback.textContent =
-        "Add a real waitlist endpoint in data-form-endpoint before launch.";
-      feedback.classList.add("is-error");
-      return;
-    }
-
-    submitButton?.setAttribute("disabled", "disabled");
-
+    setSubmitting(true);
     try {
+      const formData = new FormData(form);
+      const payload = Object.fromEntries(formData.entries());
+      payload.page_url = window.location.href;
+      payload.referrer = document.referrer || "";
+
       const response = await fetch(endpoint, {
         method: "POST",
-        body: new FormData(form),
-        headers: {
-          Accept: "application/json",
-        },
+        headers: { Accept: "application/json", "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
-
+      const result = await response.json().catch(() => ({}));
       if (!response.ok) {
-        throw new Error("Submission failed");
+        throw new Error(result.message || "Submission failed");
       }
-
       form.reset();
-      feedback.textContent = "You're on the list. We'll keep you posted.";
-      feedback.classList.add("is-success");
+      setStatus({ tone: "success", message: result.message || "You're on the list. We'll send access details soon." });
     } catch (error) {
-      feedback.textContent =
-        "Something went wrong while sending your signup. Verify the endpoint and try again.";
-      feedback.classList.add("is-error");
+      setStatus({ tone: "error", message: error.message || "Something went wrong. Try again." });
     } finally {
-      submitButton?.removeAttribute("disabled");
+      setSubmitting(false);
     }
+  }
+
+  return h(
+    "form",
+    { className: `waitlist-form waitlist-form-${variant}`, onSubmit: submit },
+    h("input", {
+      name: "email",
+      type: "email",
+      inputMode: "email",
+      autoComplete: "email",
+      placeholder: "you@example.com",
+      "aria-label": "Email address",
+      required: true,
+    }),
+    h("button", { type: "submit", disabled: submitting }, submitting ? "Joining" : "Get access"),
+    h("p", { className: `waitlist-feedback ${status.tone ? `is-${status.tone}` : ""}`, "aria-live": "polite" }, status.message),
+  );
+}
+
+function Nav() {
+  return h(
+    "nav",
+    { className: "nav" },
+    h("a", { className: "brand", href: "#hero" }, "Emersus AI"),
+    h(
+      "div",
+      { className: "nav-links" },
+      h("a", { href: "#features" }, "Features"),
+      h("a", { href: "#how" }, "How it works"),
+      h("a", { href: "#proof" }, "Proof"),
+      h("a", { href: "#access" }, "Access"),
+    ),
+    h("a", { className: "nav-cta", href: "#access" }, "Get access"),
+  );
+}
+
+function Hero() {
+  return h(
+    "section",
+    { className: "section hero", id: "hero" },
+    h(
+      "div",
+      { className: "section-inner" },
+      h("p", { className: "eyebrow" }, "Bioluminescent evidence engine"),
+      h("h1", { className: "headline" }, "Optimize ", h("span", { className: "gradient" }, "your biology")),
+      h("p", { className: "subtitle" }, "Emersus turns research into protocols for performance, recovery, nutrition, and focus, wrapped in a neural interface that feels alive."),
+      h(
+        "div",
+        { className: "hero-actions" },
+        h("a", { className: "button-primary", href: "#access" }, "Join waitlist"),
+        h("a", { className: "button-secondary", href: "/chat/" }, "Open app"),
+      ),
+    ),
+  );
+}
+
+function Features() {
+  const features = [
+    ["✦", "Evidence substrate", "Retrieve relevant studies and convert them into practical, citation-aware guidance without burying the signal."],
+    ["◈", "Adaptive protocols", "Turn a question into a plan that can respond to context, constraints, and new research over time."],
+    ["✺", "Human-first interface", "Chat with a system that keeps the answer readable while preserving sources, confidence, and guardrails."],
+  ];
+
+  return h(
+    "section",
+    { className: "section", id: "features" },
+    h(
+      "div",
+      { className: "section-inner" },
+      h("p", { className: "eyebrow" }, "Features"),
+      h("h2", { className: "section-title" }, "A living interface for evidence-backed self-optimization."),
+      h(
+        "div",
+        { className: "grid-3" },
+        ...features.map(([icon, title, copy]) => h(
+          "article",
+          { className: "glass-card", key: title },
+          h("div", { className: "icon" }, icon),
+          h("h3", { className: "card-title" }, title),
+          h("p", { className: "card-copy" }, copy),
+        )),
+      ),
+    ),
+  );
+}
+
+function HowItWorks() {
+  const steps = [
+    ["01", "Ask", "Start with a goal, symptom, supplement, training question, or recovery constraint."],
+    ["02", "Retrieve", "Emersus searches the evidence layer and filters noisy matches before synthesis."],
+    ["03", "Synthesize", "The model explains what the literature supports, what is uncertain, and what to do next."],
+    ["04", "Iterate", "Follow up naturally while the thread keeps relevant context without over-assuming stale goals."],
+  ];
+
+  return h(
+    "section",
+    { className: "section", id: "how" },
+    h(
+      "div",
+      { className: "section-inner" },
+      h("p", { className: "eyebrow" }, "How it works"),
+      h("h2", { className: "section-title" }, "From question to protocol in four signal passes."),
+      h(
+        "div",
+        { className: "steps" },
+        ...steps.map(([number, title, copy]) => h(
+          "article",
+          { className: "step-card", key: number },
+          h("span", { className: "step-number" }, number),
+          h("h3", { className: "step-title" }, title),
+          h("p", { className: "step-copy" }, copy),
+        )),
+      ),
+    ),
+  );
+}
+
+function Testimonials() {
+  return h(
+    "section",
+    { className: "section", id: "proof" },
+    h(
+      "div",
+      { className: "section-inner quote-grid" },
+      h(
+        "article",
+        { className: "quote-card large" },
+        h("p", { className: "eyebrow" }, "Field note"),
+        h("p", { className: "quote-copy" }, "The best health interface is not a dashboard. It is a nervous system for decisions: alive, responsive, and grounded in evidence."),
+        h("p", { className: "quote-author" }, "Emersus research principle"),
+      ),
+      h(
+        "article",
+        { className: "quote-card" },
+        h("p", { className: "eyebrow" }, "Why it matters"),
+        h("p", { className: "section-copy" }, "Most optimization tools flatten the body into generic checklists. Emersus is built to preserve context, uncertainty, and the difference between what is promising and what is proven."),
+      ),
+    ),
+  );
+}
+
+function FinalCta() {
+  return h(
+    "section",
+    { className: "section cta", id: "access" },
+    h(
+      "div",
+      { className: "section-inner" },
+      h("p", { className: "eyebrow" }, "Private access"),
+      h("h2", { className: "section-title" }, "Plug into the next evidence layer."),
+      h("p", { className: "subtitle" }, "Join the waitlist for early access to Emersus AI."),
+      h(WaitlistForm, { variant: "full" }),
+    ),
+  );
+}
+
+function Footer() {
+  return h(
+    "footer",
+    { className: "footer" },
+    h("span", null, "Emersus AI"),
+    h("span", null, "Evidence layer active"),
+  );
+}
+
+function OldCopyNav() {
+  return h(
+    "nav",
+    { className: "nav" },
+    h("a", { className: "brand", href: "#hero" }, "Emersus AI"),
+    h(
+      "div",
+      { className: "nav-links" },
+      h("a", { href: "/auth/login/" }, "App / Login"),
+      h("a", { href: "/privacy/" }, "Privacy"),
+      h("a", { href: "/terms/" }, "Terms"),
+      h("a", { href: "/contact/" }, "Contact"),
+    ),
+    h("a", { className: "nav-cta", href: "#access" }, "Get access"),
+  );
+}
+
+function OldCopyHero() {
+  return h(
+    "section",
+    { className: "section hero", id: "hero" },
+    h(
+      "div",
+      { className: "section-inner" },
+      h("p", { className: "eyebrow" }, "EMERSUS"),
+      h("h1", { className: "headline" }, h("span", { className: "gradient" }, "Optimize"), " or ", h("span", { className: "danger-word" }, "obsolete")),
+      h("p", { className: "subtitle" }, "Scientifically grounded optimization AI for peak mental and physical performance. For those who take life seriously."),
+      h(
+        "div",
+        { className: "hero-actions" },
+        h("a", { className: "button-primary", href: "#access" }, "Get access"),
+        h("a", { className: "button-secondary", href: "/chat/" }, "App / Login"),
+      ),
+    ),
+  );
+}
+
+function OldCopyFeatures() {
+  const features = [
+    ["01", "Cognitive Focus", "Modern science produces novel ways to improve mental performance every single day. EMERSUS tracks new publications, judges relevance and confidence, and tailors routines to your specific circumstances."],
+    ["02", "Physical aptitude", "Weight-lifting, doing cardio, or simply looking for a way to get more restful sleep? EMERSUS cuts through the folklore and myths to deliver replicable and verifiable protocols using the collective output of all human sciences."],
+    ["03", "Data integration", "EMERSUS supports data integration from smartphones and wearable technology to identify what you need to accomplish your goals. Track relevant performance markers and ignore the noise."],
+  ];
+
+  return h(
+    "section",
+    { className: "section", id: "features" },
+    h(
+      "div",
+      { className: "section-inner" },
+      h("p", { className: "eyebrow" }, "AI & science synthesis for peak performance"),
+      h("h2", { className: "section-title" }, "Life is too short to not be your best"),
+      h("p", { className: "section-copy" }, "EMERSUS offers optimization routines based on peer-reviewed research ranging from muscle hypertrophy to mental focus, without the jargon. Completely tailored to you."),
+      h(
+        "div",
+        { className: "grid-3" },
+        ...features.map(([icon, title, copy]) => h(
+          "article",
+          { className: "glass-card", key: title },
+          h("div", { className: "icon" }, icon),
+          h("h3", { className: "card-title" }, title),
+          h("p", { className: "card-copy" }, copy),
+        )),
+      ),
+    ),
+  );
+}
+
+function OldCopyOptimization() {
+  const topics = [
+    ["01", "Mental performance", "Focus, stress regulation, learning, and cognitive routines grounded in current research."],
+    ["02", "Physical training", "Replicable and verifiable protocols for lifting, cardio, performance, and recovery."],
+    ["03", "Nutrition", "Practical nutrition guidance that cuts through folklore and tracks what evidence supports."],
+    ["04", "Recovery", "Sleep, rest, and regeneration strategies tailored to the circumstances that matter."],
+  ];
+
+  return h(
+    "section",
+    { className: "section", id: "how" },
+    h(
+      "div",
+      { className: "section-inner" },
+      h("p", { className: "eyebrow" }, "EMERSUS can help you with"),
+      h("h2", { className: "section-title" }, "Mental performance, physical training, nutrition, and recovery."),
+      h(
+        "div",
+        { className: "steps" },
+        ...topics.map(([number, title, copy]) => h(
+          "article",
+          { className: "step-card", key: number },
+          h("span", { className: "step-number" }, number),
+          h("h3", { className: "step-title" }, title),
+          h("p", { className: "step-copy" }, copy),
+        )),
+      ),
+    ),
+  );
+}
+
+function OldCopyProtocol() {
+  return h(
+    "section",
+    { className: "section", id: "proof" },
+    h(
+      "div",
+      { className: "section-inner quote-grid" },
+      h(
+        "article",
+        { className: "quote-card large" },
+        h("p", { className: "eyebrow" }, "Bio-hacking life"),
+        h("p", { className: "quote-copy" }, "AI Protocol Bot"),
+        h("p", { className: "section-copy" }, "Competition in the modern world is more intense than ever in every aspect of life. You need the best information, in a digestible format, delivered when and where you need it to stay on top. EMERSUS delivers."),
+        h("p", { className: "quote-author" }, "View methodology"),
+      ),
+      h(
+        "article",
+        { className: "quote-card" },
+        h("p", { className: "eyebrow" }, "User Query"),
+        h("p", { className: "section-copy" }, "\"How can I control my nerves for my upcoming sales pitch next week?\""),
+        h("p", { className: "eyebrow quote-gap" }, "Protocol Response"),
+        h("p", { className: "section-copy" }, "PUBLIC SPEAKING: Evidence on exposure, rehearsal structure, and cognitive reframing suggests a combined routine works best. Given your timeframe, I can build a short protocol to reduce anticipatory stress and sharpen delivery before your sales pitch."),
+      ),
+    ),
+  );
+}
+
+function OldCopyFinalCta() {
+  return h(
+    "section",
+    { className: "section cta", id: "access" },
+    h(
+      "div",
+      { className: "section-inner" },
+      h("p", { className: "eyebrow" }, "Private beta"),
+      h("h2", { className: "section-title" }, "Ready to transcend limitations?"),
+      h("p", { className: "subtitle" }, "Join the private beta. Validated human optimization for the modern elite. Experience revolutionary breakthroughs."),
+      h(WaitlistForm, { variant: "full" }),
+      h("div", { className: "hero-actions" }, h("a", { className: "button-secondary", href: "#features" }, "Explore science")),
+    ),
+  );
+}
+
+function OldCopyFooter() {
+  return h(
+    "footer",
+    { className: "footer" },
+    h("span", null, "Emersus AI"),
+    h("span", null, "2026 EMERSUS AI. Laboratory grade performance. All rights reserved."),
+  );
+}
+
+function LandingPage() {
+  return h(
+    "div",
+    { className: "landing-shell" },
+    h(OldCopyNav),
+    h(OldCopyHero),
+    h(OldCopyFeatures),
+    h(OldCopyOptimization),
+    h(OldCopyProtocol),
+    h(OldCopyFinalCta),
+    h(OldCopyFooter),
+  );
+}
+
+function mountLanding() {
+  const root = document.getElementById("landing-root");
+  if (!root) {
+    return;
+  }
+
+  createRoot(root).render(h(LandingPage));
+
+  requestAnimationFrame(() => {
+    gsap.to(".step-card", {
+      scrollTrigger: {
+        trigger: "#how",
+        start: "top 68%",
+      },
+      opacity: 1,
+      y: 0,
+      stagger: 0.12,
+      duration: 0.85,
+      ease: "power3.out",
+    });
   });
-});
+}
+
+function initAnanNeuronBackground() {
+  const canvas = document.getElementById("bg-canvas");
+  if (!(canvas instanceof HTMLCanvasElement)) return () => {};
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: false,
+    alpha: false,
+    powerPreference: "high-performance",
+  });
+  const PIXEL_SCALE = 0.34;
+  renderer.setPixelRatio(1);
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.15;
+  renderer.setClearColor(0x050008, 1);
+
+  const scene = new THREE.Scene();
+  scene.fog = new THREE.FogExp2(0x050008, 0.0018);
+
+  const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 1, 4000);
+  camera.position.set(0, 80, 620);
+  camera.lookAt(0, 0, 0);
+
+  const keyLight = new THREE.PointLight(0xff66ff, 4.0, 2000, 1.6);
+  keyLight.position.set(220, 180, 320);
+  scene.add(keyLight);
+  const fillLight = new THREE.PointLight(0x66aaff, 1.2, 2000, 1.8);
+  fillLight.position.set(-300, -100, 200);
+  scene.add(fillLight);
+  scene.add(new THREE.AmbientLight(0x2a1040, 1.2));
+
+  const neuronGroup = new THREE.Group();
+  scene.add(neuronGroup);
+
+  const VOXEL = 6.5;
+  const voxelGeo = new THREE.BoxGeometry(VOXEL, VOXEL, VOXEL);
+  const voxelMat = new THREE.MeshStandardMaterial({
+    color: 0x4a1577,
+    emissive: 0x180630,
+    emissiveIntensity: 0.6,
+    roughness: 0.45,
+    metalness: 0.2,
+    flatShading: true,
+  });
+
+  const voxels = [];
+  const PINK = new THREE.Color(0xff3df0);
+  const HOT = new THREE.Color(0xff8df8);
+  const VIO = new THREE.Color(0x6a22aa);
+  const DEEP = new THREE.Color(0x2a0844);
+  const TEAL = new THREE.Color(0x33ddee);
+
+  function buildSoma() {
+    const R = 70;
+    const SHELL = 9;
+    for (let i = 0; i < 1400; i += 1) {
+      const u = Math.random();
+      const v = Math.random();
+      const theta = 2 * Math.PI * u;
+      const phi = Math.acos(2 * v - 1);
+      const sinPhi = Math.sin(phi);
+      const dx = sinPhi * Math.cos(theta);
+      const dy = sinPhi * Math.sin(theta);
+      const dz = Math.cos(phi);
+      const n =
+        Math.sin(dx * 4.1 + dy * 2.3) * 0.5 +
+        Math.cos(dy * 3.7 + dz * 1.9) * 0.4 +
+        Math.sin(dz * 5.3 + dx * 2.1) * 0.3;
+      const r = R + n * 6 + (Math.random() - 0.5) * SHELL;
+      const x = Math.round((dx * r) / VOXEL) * VOXEL;
+      const y = Math.round((dy * r) / VOXEL) * VOXEL;
+      const z = Math.round((dz * r) / VOXEL) * VOXEL;
+      const t = Math.random();
+      const c = new THREE.Color().lerpColors(DEEP, VIO, t * 0.7 + 0.3);
+      voxels.push({ x, y, z, color: c, scale: 0.95 + Math.random() * 0.2 });
+    }
+    for (let i = 0; i < 220; i += 1) {
+      const u = Math.random();
+      const v = Math.random();
+      const theta = 2 * Math.PI * u;
+      const phi = Math.acos(2 * v - 1);
+      const r = 18 + Math.random() * 6;
+      const x = Math.round((Math.sin(phi) * Math.cos(theta) * r) / VOXEL) * VOXEL;
+      const y = Math.round((Math.sin(phi) * Math.sin(theta) * r) / VOXEL) * VOXEL;
+      const z = Math.round((Math.cos(phi) * r) / VOXEL) * VOXEL;
+      const c = new THREE.Color().lerpColors(PINK, HOT, Math.random());
+      voxels.push({ x, y, z, color: c, scale: 1.1, glow: true });
+    }
+  }
+
+  function buildBranch(origin, dir, length, radius, depth, isAxon) {
+    if (depth > 4) return;
+    const points = [origin.clone()];
+    const segs = 6;
+    for (let i = 1; i <= segs; i += 1) {
+      const t = i / segs;
+      const p = origin.clone().add(dir.clone().multiplyScalar(length * t));
+      p.x += Math.sin(t * 6 + depth) * length * 0.08;
+      p.y += Math.cos(t * 5 + depth * 1.7) * length * 0.08;
+      p.z += Math.sin(t * 4 + depth * 0.9) * length * 0.08;
+      points.push(p);
+    }
+    const curve = new THREE.CatmullRomCurve3(points);
+    const COUNT = Math.floor(length * 0.9);
+    for (let i = 0; i < COUNT; i += 1) {
+      const t = i / COUNT;
+      const center = curve.getPointAt(t);
+      const tangent = curve.getTangentAt(t).normalize();
+      const rad = radius * (1 - t * 0.4);
+      const ringCount = Math.max(1, Math.floor((rad / VOXEL) * 2.4));
+      for (let j = 0; j < ringCount; j += 1) {
+        const a = Math.random() * Math.PI * 2;
+        const rr = Math.random() * rad;
+        const up = Math.abs(tangent.y) < 0.9
+          ? new THREE.Vector3(0, 1, 0)
+          : new THREE.Vector3(1, 0, 0);
+        const side = new THREE.Vector3().crossVectors(tangent, up).normalize();
+        const norm = new THREE.Vector3().crossVectors(tangent, side).normalize();
+        const offset = side
+          .multiplyScalar(Math.cos(a) * rr)
+          .add(norm.multiplyScalar(Math.sin(a) * rr));
+        const p = center.clone().add(offset);
+        const x = Math.round(p.x / VOXEL) * VOXEL;
+        const y = Math.round(p.y / VOXEL) * VOXEL;
+        const z = Math.round(p.z / VOXEL) * VOXEL;
+        const c = new THREE.Color().lerpColors(DEEP, VIO, 0.4 + Math.random() * 0.5);
+        voxels.push({ x, y, z, color: c, scale: 0.9 + Math.random() * 0.2 });
+      }
+    }
+    const end = curve.getPointAt(1);
+    if (depth >= 2 || isAxon) {
+      for (let k = 0; k < 25; k += 1) {
+        const off = new THREE.Vector3(
+          (Math.random() - 0.5) * 14,
+          (Math.random() - 0.5) * 14,
+          (Math.random() - 0.5) * 14,
+        );
+        const p = end.clone().add(off);
+        const x = Math.round(p.x / VOXEL) * VOXEL;
+        const y = Math.round(p.y / VOXEL) * VOXEL;
+        const z = Math.round(p.z / VOXEL) * VOXEL;
+        voxels.push({
+          x, y, z,
+          color: new THREE.Color().lerpColors(PINK, TEAL, Math.random() * 0.6),
+          scale: 1.0 + Math.random() * 0.4,
+          glow: true,
+        });
+      }
+    }
+    const childCount = isAxon ? 1 : depth < 2 ? 2 : Math.random() < 0.6 ? 1 : 0;
+    for (let i = 0; i < childCount; i += 1) {
+      const newDir = dir
+        .clone()
+        .add(
+          new THREE.Vector3(
+            (Math.random() - 0.5) * 1.2,
+            (Math.random() - 0.5) * 1.2,
+            (Math.random() - 0.5) * 1.2,
+          ),
+        )
+        .normalize();
+      buildBranch(end, newDir, length * (isAxon ? 0.95 : 0.62), radius * 0.7, depth + 1, isAxon && depth < 1);
+    }
+  }
+
+  buildSoma();
+  const DENDRITE_DIRS = [
+    new THREE.Vector3(1.0, 0.7, 0.2),
+    new THREE.Vector3(-0.9, 1.0, 0.3),
+    new THREE.Vector3(-1.0, -0.1, 0.6),
+    new THREE.Vector3(0.5, -0.9, 0.4),
+    new THREE.Vector3(0.3, 1.1, -0.8),
+    new THREE.Vector3(-0.6, 0.4, -1.0),
+    new THREE.Vector3(0.9, -0.3, -0.6),
+    new THREE.Vector3(-0.2, -1.0, -0.3),
+  ];
+  for (const d of DENDRITE_DIRS) {
+    const dir = d.clone().normalize();
+    const start = dir.clone().multiplyScalar(60);
+    buildBranch(start, dir, 180, 14, 0, false);
+  }
+  buildBranch(
+    new THREE.Vector3(-30, -55, 0),
+    new THREE.Vector3(-0.6, -1.0, -0.3).normalize(),
+    320, 10, 0, true,
+  );
+
+  const FLOATERS = [];
+  for (let i = 0; i < 90; i += 1) {
+    const r = 200 + Math.random() * 380;
+    const theta = Math.random() * Math.PI * 2;
+    const phi = Math.acos(2 * Math.random() - 1);
+    const x = Math.sin(phi) * Math.cos(theta) * r;
+    const y = Math.sin(phi) * Math.sin(theta) * r * 0.8;
+    const z = Math.cos(phi) * r;
+    const palette = [PINK, VIO, TEAL, HOT];
+    const c = palette[Math.floor(Math.random() * palette.length)];
+    const idx = voxels.length;
+    voxels.push({
+      x, y, z,
+      color: c.clone(),
+      scale: 0.6 + Math.random() * 1.6,
+      glow: Math.random() > 0.6,
+    });
+    FLOATERS.push({
+      idx,
+      baseX: x, baseY: y, baseZ: z,
+      speed: 0.2 + Math.random() * 0.8,
+      phase: Math.random() * Math.PI * 2,
+      amp: 6 + Math.random() * 18,
+    });
+  }
+
+  const instCount = voxels.length;
+  const instMesh = new THREE.InstancedMesh(voxelGeo, voxelMat, instCount);
+  instMesh.instanceMatrix.setUsage(THREE.DynamicDrawUsage);
+  const _m = new THREE.Matrix4();
+  const _q = new THREE.Quaternion();
+  const _s = new THREE.Vector3();
+  const _p = new THREE.Vector3();
+  for (let i = 0; i < instCount; i += 1) {
+    const v = voxels[i];
+    _p.set(v.x, v.y, v.z);
+    _s.set(v.scale, v.scale, v.scale);
+    _q.setFromEuler(new THREE.Euler(Math.random() * 0.4, Math.random() * 0.4, Math.random() * 0.4));
+    _m.compose(_p, _q, _s);
+    instMesh.setMatrixAt(i, _m);
+    instMesh.setColorAt(i, v.color);
+  }
+  instMesh.instanceMatrix.needsUpdate = true;
+  if (instMesh.instanceColor) instMesh.instanceColor.needsUpdate = true;
+  neuronGroup.add(instMesh);
+
+  const haloGeo = new THREE.CircleGeometry(140, 48);
+  const haloMat = new THREE.MeshBasicMaterial({
+    color: 0xff3df0,
+    transparent: true,
+    opacity: 0.18,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+  });
+  const halo = new THREE.Mesh(haloGeo, haloMat);
+  halo.position.set(0, 0, -30);
+  neuronGroup.add(halo);
+  neuronGroup.userData.halo = halo;
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: document.body,
+      start: "top top",
+      end: "bottom bottom",
+      scrub: 1.2,
+    },
+  });
+  tl.to(camera.position, { x: -180, y: 60, z: 460, ease: "none" }, 0)
+    .to(camera.position, { x: 220, y: -40, z: 380, ease: "none" }, 0.5)
+    .to(camera.position, { x: 0, y: 0, z: 280, ease: "none" }, 1);
+  tl.to(neuronGroup.rotation, { y: Math.PI * 1.6, x: 0.4, ease: "none" }, 0);
+  tl.to(voxelMat, { emissiveIntensity: 1.6, ease: "power2.in" }, 0.7);
+  tl.to(halo.material, { opacity: 0.55, ease: "power2.in" }, 0.7);
+  tl.to(halo.scale, { x: 2.2, y: 2.2, ease: "power2.in" }, 0.7);
+
+  function resize() {
+    const w = window.innerWidth;
+    const h = window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(Math.floor(w * PIXEL_SCALE), Math.floor(h * PIXEL_SCALE), false);
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
+  }
+  window.addEventListener("resize", resize);
+  resize();
+
+  const clock = new THREE.Clock();
+  function animate() {
+    requestAnimationFrame(animate);
+    const t = clock.getElapsedTime();
+    neuronGroup.rotation.z = Math.sin(t * 0.3) * 0.08;
+    keyLight.position.x = Math.cos(t * 0.6) * 320;
+    keyLight.position.z = Math.sin(t * 0.6) * 320;
+    keyLight.position.y = 180 + Math.sin(t * 0.9) * 60;
+    fillLight.position.x = Math.sin(t * 0.4) * 280;
+    fillLight.position.y = Math.cos(t * 0.5) * 220;
+    for (let i = 0; i < FLOATERS.length; i += 1) {
+      const f = FLOATERS[i];
+      const v = voxels[f.idx];
+      const a = t * f.speed + f.phase;
+      const nx = f.baseX + Math.sin(a) * f.amp;
+      const ny = f.baseY + Math.cos(a * 1.3) * f.amp;
+      const nz = f.baseZ + Math.sin(a * 0.7) * f.amp;
+      _p.set(nx, ny, nz);
+      _s.set(v.scale, v.scale, v.scale);
+      _q.setFromEuler(new THREE.Euler(a * 0.3, a * 0.5, a * 0.2));
+      _m.compose(_p, _q, _s);
+      instMesh.setMatrixAt(f.idx, _m);
+    }
+    instMesh.instanceMatrix.needsUpdate = true;
+    halo.lookAt(camera.position);
+    renderer.render(scene, camera);
+  }
+  animate();
+  return () => {};
+}
+
+function initScaleBackground() {
+  const canvas = document.getElementById("bg-canvas");
+  if (!(canvas instanceof HTMLCanvasElement)) return;
+
+  const COLORS = {
+    blue: 0x4fa8ff,
+    cyan: 0x6fe9ff,
+    grey: 0x808890,
+    dim: 0x3a4250,
+    white: 0xffffff,
+  };
+
+  const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight, false);
+  renderer.setClearColor(0x000000, 1);
+
+  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.05, 800000);
+  camera.position.set(0, 0, 4);
+
+  const scene = new THREE.Scene();
+
+  function wireMat(color = COLORS.blue, opacity = 0.7) {
+    return new THREE.LineBasicMaterial({ color, transparent: true, opacity, depthTest: false });
+  }
+  function makeBoxHelper(min, max, color = COLORS.dim, opacity = 0.3) {
+    const box = new THREE.Box3(new THREE.Vector3(...min), new THREE.Vector3(...max));
+    const helper = new THREE.Box3Helper(box, color);
+    helper.material.transparent = true;
+    helper.material.opacity = opacity;
+    helper.material.depthTest = false;
+    return helper;
+  }
+
+  function buildAtom() {
+    const g = new THREE.Group();
+    g.userData.electrons = [];
+    const nuc = new THREE.LineSegments(
+      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(0.5, 1)),
+      wireMat(COLORS.cyan, 0.95),
+    );
+    g.add(nuc);
+    for (let i = 0; i < 6; i += 1) {
+      const m = new THREE.Mesh(
+        new THREE.SphereGeometry(0.08, 8, 6),
+        new THREE.MeshBasicMaterial({ color: i % 2 ? COLORS.cyan : COLORS.blue }),
+      );
+      const a = (i / 6) * Math.PI * 2;
+      m.position.set(Math.cos(a) * 0.22, Math.sin(a) * 0.22, Math.sin(a * 1.7) * 0.18);
+      g.add(m);
+    }
+    for (let i = 0; i < 4; i += 1) {
+      const r = 1.5 + i * 0.15;
+      const pts = [];
+      for (let k = 0; k <= 96; k += 1) {
+        const a = (k / 96) * Math.PI * 2;
+        pts.push(new THREE.Vector3(Math.cos(a) * r, 0, Math.sin(a) * r));
+      }
+      const orbit = new THREE.Line(
+        new THREE.BufferGeometry().setFromPoints(pts),
+        wireMat(COLORS.blue, 0.55),
+      );
+      orbit.rotation.x = (i * Math.PI) / 4 + 0.4;
+      orbit.rotation.y = (i * Math.PI) / 3;
+      orbit.rotation.z = i * 0.3;
+      g.add(orbit);
+      const electron = new THREE.Mesh(
+        new THREE.SphereGeometry(0.07, 10, 8),
+        new THREE.MeshBasicMaterial({ color: COLORS.cyan }),
+      );
+      g.add(electron);
+      g.userData.electrons.push({ mesh: electron, orbit, radius: r, speed: 0.7 + i * 0.6, offset: i * 1.7 });
+    }
+    g.add(makeBoxHelper([-2, -2, -2], [2, 2, 2], COLORS.dim, 0.35));
+    return g;
+  }
+
+  function buildDNA() {
+    const g = new THREE.Group();
+    const N = 140;
+    const step = 0.45;
+    const R = 4;
+    const twist = 0.32;
+    const a1 = [];
+    const a2 = [];
+    for (let i = 0; i < N; i += 1) {
+      const a = i * twist;
+      const y = (i - N / 2) * step;
+      a1.push(new THREE.Vector3(Math.cos(a) * R, y, Math.sin(a) * R));
+      a2.push(new THREE.Vector3(Math.cos(a + Math.PI) * R, y, Math.sin(a + Math.PI) * R));
+    }
+    g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(a1), wireMat(COLORS.blue, 0.85)));
+    g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(a2), wireMat(COLORS.cyan, 0.85)));
+    const rung = [];
+    for (let i = 0; i < N; i += 2) rung.push(a1[i], a2[i]);
+    g.add(new THREE.LineSegments(new THREE.BufferGeometry().setFromPoints(rung), wireMat(COLORS.grey, 0.45)));
+    for (let i = 0; i < N; i += 4) {
+      for (const p of [a1[i], a2[i]]) {
+        const s = new THREE.LineSegments(
+          new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(0.32, 0)),
+          wireMat(COLORS.blue, 0.7),
+        );
+        s.position.copy(p);
+        g.add(s);
+      }
+    }
+    g.add(makeBoxHelper([-R * 1.3, (-N / 2) * step, -R * 1.3], [R * 1.3, (N / 2) * step, R * 1.3], COLORS.dim, 0.3));
+    return g;
+  }
+
+  function mulberry32(seed) {
+    return function () {
+      let t = (seed += 0x6d2b79f5);
+      t = Math.imul(t ^ (t >>> 15), t | 1);
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  function buildCell() {
+    const g = new THREE.Group();
+    g.add(new THREE.LineSegments(
+      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(220, 3)),
+      wireMat(COLORS.blue, 0.55),
+    ));
+    g.add(new THREE.LineSegments(
+      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(60, 2)),
+      wireMat(COLORS.cyan, 0.85),
+    ));
+    g.add(new THREE.LineSegments(
+      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(20, 1)),
+      wireMat(COLORS.cyan, 0.95),
+    ));
+    const rng = mulberry32(42);
+    for (let i = 0; i < 22; i += 1) {
+      const r = 6 + rng() * 14;
+      const o = new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(r, 1)),
+        wireMat(rng() > 0.5 ? COLORS.grey : COLORS.blue, 0.6),
+      );
+      const phi = rng() * Math.PI * 2;
+      const theta = Math.acos(rng() * 2 - 1);
+      const dist = 90 + rng() * 100;
+      o.position.set(
+        Math.sin(theta) * Math.cos(phi) * dist,
+        Math.cos(theta) * dist,
+        Math.sin(theta) * Math.sin(phi) * dist,
+      );
+      g.add(o);
+    }
+    g.add(makeBoxHelper([-240, -240, -240], [240, 240, 240], COLORS.dim, 0.3));
+    return g;
+  }
+
+  function buildBrain() {
+    const g = new THREE.Group();
+    const geom = new THREE.IcosahedronGeometry(3000, 4);
+    const pos = geom.attributes.position;
+    for (let i = 0; i < pos.count; i += 1) {
+      const x = pos.getX(i);
+      const y = pos.getY(i);
+      const z = pos.getZ(i);
+      const len = Math.sqrt(x * x + y * y + z * z);
+      const nx = x / len;
+      const ny = y / len;
+      const nz = z / len;
+      const n =
+        Math.sin(nx * 9 + ny * 4) * Math.cos(ny * 7) * 0.1 +
+        Math.sin(nz * 11) * Math.cos(nx * 8) * 0.06 +
+        Math.sin(nx * 22 + nz * 18) * 0.03;
+      const newLen = len * (1 + n);
+      pos.setXYZ(i, nx * newLen, ny * newLen, nz * newLen);
+    }
+    geom.computeVertexNormals();
+    geom.scale(1.15, 0.95, 1.0);
+    g.add(new THREE.LineSegments(new THREE.WireframeGeometry(geom), wireMat(COLORS.blue, 0.45)));
+    const splitPts = [];
+    for (let k = 0; k <= 64; k += 1) {
+      const a = (k / 64) * Math.PI * 2;
+      splitPts.push(new THREE.Vector3(0, Math.cos(a) * 2900, Math.sin(a) * 3500));
+    }
+    g.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(splitPts), wireMat(COLORS.cyan, 0.7)));
+    const cere = new THREE.LineSegments(
+      new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(900, 2)),
+      wireMat(COLORS.cyan, 0.55),
+    );
+    cere.position.set(0, -1900, -2200);
+    g.add(cere);
+    const stemGeom = new THREE.CylinderGeometry(280, 380, 1500, 14, 1, true);
+    const stem = new THREE.LineSegments(new THREE.WireframeGeometry(stemGeom), wireMat(COLORS.grey, 0.5));
+    stem.position.set(0, -2900, -1800);
+    g.add(stem);
+    g.add(makeBoxHelper([-3800, -3800, -3500], [3800, 3500, 3500], COLORS.dim, 0.3));
+    return g;
+  }
+
+  function buildHumanoid(S) {
+    const fig = new THREE.Group();
+    const v = (x, y, z) => new THREE.Vector3(x * S, y * S, z * S);
+    const addBox = (w, h, d, pos, color = COLORS.cyan, opacity = 0.85) => {
+      const m = new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.BoxGeometry(w * S, h * S, d * S)),
+        wireMat(color, opacity),
+      );
+      m.position.copy(pos);
+      fig.add(m);
+      return m;
+    };
+    const addBone = (A, B, thickness = 0.1, color = COLORS.blue, opacity = 0.85) => {
+      const dir = new THREE.Vector3().subVectors(B, A);
+      const len = dir.length();
+      if (len < 1e-6) return null;
+      const m = new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.BoxGeometry(thickness * S, len, thickness * S)),
+        wireMat(color, opacity),
+      );
+      m.position.copy(A).add(B).multiplyScalar(0.5);
+      m.quaternion.setFromUnitVectors(new THREE.Vector3(0, 1, 0), dir.clone().normalize());
+      fig.add(m);
+      return m;
+    };
+    const addJoint = (pos, radius = 0.08, color = COLORS.cyan, opacity = 0.95) => {
+      const m = new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.IcosahedronGeometry(radius * S, 1)),
+        wireMat(color, opacity),
+      );
+      m.position.copy(pos);
+      fig.add(m);
+      return m;
+    };
+    const HIP_L = v(0.18, -1.85, 0);
+    const HIP_R = v(-0.18, -1.85, 0);
+    const KNEE_L = v(0.18, -1.85, 1.05);
+    const KNEE_R = v(-0.18, -1.85, 1.05);
+    const ANKLE_L = v(0.2, -3.05, 1.05);
+    const ANKLE_R = v(-0.2, -3.05, 1.05);
+    const TOE_L = v(0.2, -3.1, 1.32);
+    const TOE_R = v(-0.2, -3.1, 1.32);
+    const NECK_BASE = v(0, -0.55, 0.02);
+    const NECK_TOP = v(0, -0.32, 0.04);
+    const SHO_L = v(0.34, -0.55, 0.02);
+    const SHO_R = v(-0.34, -0.55, 0.02);
+    const ELBOW_L = v(0.4, -1.18, 0.32);
+    const WRIST_L = v(0.1, -1.58, 0.95);
+    const HAND_L_TIP = v(-0.04, -1.58, 1.12);
+    const ELBOW_R = v(-0.62, -1.1, 0.3);
+    const WRIST_R = v(-1.05, -1.58, 0.85);
+    const HAND_R_TIP = v(-1.2, -1.58, 0.98);
+    addBox(0.46, 0.22, 0.36, v(0, -1.85, 0.02), COLORS.cyan, 0.9);
+    addBox(0.62, 1.3, 0.38, v(0, -1.2, 0.02), COLORS.cyan, 0.85);
+    addBox(0.8, 0.16, 0.34, v(0, -0.55, 0.02), COLORS.blue, 0.8);
+    addBox(0.5, 0.62, 0.5, v(0, 0, 0.04), COLORS.cyan, 0.95);
+    addBone(NECK_BASE, NECK_TOP, 0.14, COLORS.cyan, 0.85);
+    addBone(SHO_L, ELBOW_L, 0.14, COLORS.blue, 0.85);
+    addBone(ELBOW_L, WRIST_L, 0.12, COLORS.blue, 0.85);
+    addBone(WRIST_L, HAND_L_TIP, 0.1, COLORS.cyan, 0.9);
+    addBone(SHO_R, ELBOW_R, 0.14, COLORS.blue, 0.85);
+    addBone(ELBOW_R, WRIST_R, 0.12, COLORS.blue, 0.85);
+    addBone(WRIST_R, HAND_R_TIP, 0.1, COLORS.cyan, 0.9);
+    addBone(HIP_L, KNEE_L, 0.18, COLORS.blue, 0.85);
+    addBone(KNEE_L, ANKLE_L, 0.16, COLORS.blue, 0.85);
+    addBone(ANKLE_L, TOE_L, 0.14, COLORS.cyan, 0.9);
+    addBone(HIP_R, KNEE_R, 0.18, COLORS.blue, 0.85);
+    addBone(KNEE_R, ANKLE_R, 0.16, COLORS.blue, 0.85);
+    addBone(ANKLE_R, TOE_R, 0.14, COLORS.cyan, 0.9);
+    [HIP_L, HIP_R, KNEE_L, KNEE_R, ANKLE_L, ANKLE_R, SHO_L, SHO_R, ELBOW_L, ELBOW_R, WRIST_L, WRIST_R, NECK_BASE, NECK_TOP].forEach(
+      (p) => addJoint(p, 0.08, COLORS.cyan, 0.95),
+    );
+    return fig;
+  }
+
+  function buildMan() {
+    const g = new THREE.Group();
+    const S = 8000;
+    const FLOOR_Y = -S * 3.15;
+    const wbox = (w, h, d, color = COLORS.blue, opacity = 0.65) =>
+      new THREE.LineSegments(
+        new THREE.WireframeGeometry(new THREE.BoxGeometry(w, h, d)),
+        wireMat(color, opacity),
+      );
+
+    const grid = new THREE.GridHelper(S * 28, 56, COLORS.blue, COLORS.dim);
+    grid.position.y = FLOOR_Y;
+    grid.material.transparent = true;
+    grid.material.opacity = 0.4;
+    grid.material.depthTest = false;
+    g.add(grid);
+
+    const polar = new THREE.PolarGridHelper(S * 9, 16, 8, 64, COLORS.blue, COLORS.dim);
+    polar.position.set(0, FLOOR_Y + 1, -S * 7);
+    polar.rotation.x = Math.PI / 2;
+    polar.material.transparent = true;
+    polar.material.opacity = 0.3;
+    polar.material.depthTest = false;
+    g.add(polar);
+
+    const desk = wbox(S * 6.2, S * 0.22, S * 3.0, COLORS.blue, 0.75);
+    desk.position.set(0, -S * 1.85, S * 1.4);
+    g.add(desk);
+
+    {
+      const deskBottomY = -S * 1.85 - S * 0.11;
+      const legHeight = deskBottomY - FLOOR_Y;
+      const legCenterY = (deskBottomY + FLOOR_Y) * 0.5;
+      for (const [dx, dz] of [[-2.8, 0.05], [2.8, 0.05], [-2.8, 2.75], [2.8, 2.75]]) {
+        const leg = wbox(S * 0.18, legHeight, S * 0.18, COLORS.grey, 0.55);
+        leg.position.set(dx * S, legCenterY, dz * S);
+        g.add(leg);
+      }
+    }
+
+    const monitor = wbox(S * 3.4, S * 2.0, S * 0.18, COLORS.cyan, 0.95);
+    monitor.position.set(0, -S * 0.25, S * 2.4);
+    g.add(monitor);
+
+    for (let i = 0; i < 8; i += 1) {
+      const wScale = 0.6 + Math.sin(i * 1.7) * 0.35;
+      const line = new THREE.LineSegments(
+        new THREE.BufferGeometry().setFromPoints([
+          new THREE.Vector3(-S * 1.5 * wScale, -S * 1.0 + i * S * 0.22, S * 2.31),
+          new THREE.Vector3(S * 1.5 * wScale, -S * 1.0 + i * S * 0.22, S * 2.31),
+        ]),
+        wireMat(COLORS.cyan, 0.55),
+      );
+      g.add(line);
+    }
+
+    const stand = wbox(S * 0.18, S * 0.9, S * 0.18, COLORS.grey, 0.6);
+    stand.position.set(0, -S * 1.35, S * 2.4);
+    g.add(stand);
+    const base = wbox(S * 1.0, S * 0.08, S * 0.5, COLORS.grey, 0.6);
+    base.position.set(0, -S * 1.75, S * 2.4);
+    g.add(base);
+
+    const kb = wbox(S * 1.8, S * 0.08, S * 0.6, COLORS.blue, 0.75);
+    kb.position.set(0, -S * 1.65, S * 0.85);
+    g.add(kb);
+
+    const mouse = wbox(S * 0.22, S * 0.1, S * 0.34, COLORS.cyan, 0.85);
+    mouse.position.set(-S * 1.05, -S * 1.64, S * 0.85);
+    g.add(mouse);
+    const mouseCable = new THREE.Line(
+      new THREE.BufferGeometry().setFromPoints([
+        new THREE.Vector3(-S * 1.05, -S * 1.64, S * 0.85 + S * 0.17),
+        new THREE.Vector3(-S * 1.05, -S * 1.64, S * 1.5),
+      ]),
+      wireMat(COLORS.grey, 0.5),
+    );
+    g.add(mouseCable);
+    const pad = wbox(S * 0.7, S * 0.02, S * 0.55, COLORS.dim, 0.55);
+    pad.position.set(-S * 1.05, -S * 1.73, S * 0.85);
+    g.add(pad);
+
+    const seat = wbox(S * 1.4, S * 0.2, S * 1.4, COLORS.grey, 0.65);
+    seat.position.set(0, -S * 1.95, -S * 0.5);
+    g.add(seat);
+    const back = wbox(S * 1.4, S * 2.6, S * 0.18, COLORS.grey, 0.65);
+    back.position.set(0, -S * 0.65, -S * 1.15);
+    g.add(back);
+    {
+      const seatBottomY = -S * 1.95 - S * 0.1;
+      const poleHeight = seatBottomY - FLOOR_Y;
+      const poleCenterY = (seatBottomY + FLOOR_Y) * 0.5;
+      const pole = wbox(S * 0.18, poleHeight, S * 0.18, COLORS.grey, 0.5);
+      pole.position.set(0, poleCenterY, -S * 0.5);
+      g.add(pole);
+    }
+    for (let i = 0; i < 5; i += 1) {
+      const a = (i / 5) * Math.PI * 2;
+      const foot = wbox(S * 1.0, S * 0.08, S * 0.18, COLORS.grey, 0.55);
+      foot.position.set(Math.cos(a) * S * 0.7, FLOOR_Y + S * 0.04, -S * 0.5 + Math.sin(a) * S * 0.7);
+      foot.rotation.y = a;
+      g.add(foot);
+    }
+
+    g.add(buildHumanoid(S));
+    g.add(makeBoxHelper([-S * 5, FLOOR_Y - S * 0.05, -S * 4], [S * 5, S * 1.5, S * 4], COLORS.dim, 0.3));
+    g.add(makeBoxHelper([-S * 14, FLOOR_Y - S * 0.5, -S * 14], [S * 14, S * 9, S * 14], COLORS.dim, 0.18));
+    return g;
+  }
+
+  const atomGroup = buildAtom();
+  scene.add(atomGroup);
+  const dnaGroup = buildDNA();
+  scene.add(dnaGroup);
+  const cellGroup = buildCell();
+  scene.add(cellGroup);
+  const brainGroup = buildBrain();
+  scene.add(brainGroup);
+  brainGroup.scale.setScalar(0.45);
+  const manGroup = buildMan();
+  scene.add(manGroup);
+
+  const stages = [
+    { name: "01 atom", group: atomGroup, near: 0, far: 25 },
+    { name: "02 dna", group: dnaGroup, near: 8, far: 500 },
+    { name: "03 cell", group: cellGroup, near: 200, far: 7000 },
+    { name: "04 brain", group: brainGroup, near: 3500, far: 55000 },
+    { name: "05 human", group: manGroup, near: 28000, far: 800000 },
+  ];
+  for (const s of stages) {
+    s.materials = [];
+    s.group.traverse((o) => {
+      if (o.material) {
+        const mats = Array.isArray(o.material) ? o.material : [o.material];
+        for (const m of mats) {
+          m.transparent = true;
+          s.materials.push({ mat: m, base: m.opacity ?? 1 });
+        }
+      }
+    });
+  }
+
+  function updateStageVisibility(z) {
+    for (const s of stages) {
+      const { near, far, materials } = s;
+      let opacity;
+      if (near > 0 && z < near * 0.5) opacity = 0;
+      else if (z > far * 2) opacity = 0;
+      else if (near > 0 && z < near) opacity = (z - near * 0.5) / (near * 0.5);
+      else if (z > far) opacity = 1 - (z - far) / far;
+      else opacity = 1;
+      opacity = Math.max(0, Math.min(1, opacity));
+      s.group.visible = opacity > 0.005;
+      for (const m of materials) m.mat.opacity = m.base * opacity;
+    }
+  }
+
+  const Z_MIN = 3.5;
+  const Z_MAX = 180000;
+  const logMin = Math.log(Z_MIN);
+  const logMax = Math.log(Z_MAX);
+
+  ScrollTrigger.create({
+    trigger: document.body,
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 1.2,
+    onUpdate: (self) => {
+      const p = self.progress;
+      const z = Math.exp(logMin + (logMax - logMin) * p);
+      camera.position.z = z;
+      camera.position.x = Math.sin(p * Math.PI * 2.4) * z * 0.06;
+      camera.position.y = -Math.cos(p * Math.PI * 1.6) * z * 0.04;
+      camera.lookAt(0, 0, 0);
+      updateStageVisibility(z);
+    },
+  });
+
+  updateStageVisibility(camera.position.z);
+
+  function onResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight, false);
+  }
+  window.addEventListener("resize", onResize);
+  onResize();
+
+  renderer.setAnimationLoop(() => {
+    const t = performance.now() * 0.001;
+    if (atomGroup.userData.electrons) {
+      for (const e of atomGroup.userData.electrons) {
+        const a = t * e.speed + e.offset;
+        const local = new THREE.Vector3(Math.cos(a) * e.radius, 0, Math.sin(a) * e.radius);
+        local.applyEuler(e.orbit.rotation);
+        e.mesh.position.copy(local);
+      }
+    }
+    dnaGroup.rotation.y = t * 0.18;
+    cellGroup.rotation.y = t * 0.05;
+    cellGroup.rotation.x = Math.sin(t * 0.2) * 0.08;
+    brainGroup.rotation.y = Math.sin(t * 0.1) * 0.25;
+    manGroup.rotation.y = Math.sin(t * 0.06) * 0.04;
+    renderer.render(scene, camera);
+  });
+}
+
+mountLanding();
+try {
+  initScaleBackground();
+} catch (err) {
+  console.error("[scaleBackground] init failed", err);
+}
