@@ -1151,6 +1151,73 @@
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
+    .chat-metric-grid-quad {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 0.55rem;
+      margin: 0.6rem 0 0.85rem;
+    }
+
+    @media (max-width: 720px) {
+      .chat-metric-grid-quad {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .chat-metric-tile {
+      padding: 0.85rem 0.8rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.035);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.055);
+      display: grid;
+      gap: 0.2rem;
+    }
+
+    .chat-metric-tile.tone-positive { box-shadow: inset 0 0 0 1px rgba(29, 158, 117, 0.45); }
+    .chat-metric-tile.tone-neutral  { box-shadow: inset 0 0 0 1px rgba(186, 117, 23, 0.4); }
+    .chat-metric-tile.tone-info     { box-shadow: inset 0 0 0 1px rgba(96, 165, 250, 0.4); }
+
+    .chat-metric-tile-value {
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.05;
+    }
+    .chat-metric-tile-label {
+      font-size: 0.72rem;
+      color: var(--muted);
+      line-height: 1.3;
+    }
+    .chat-metric-tile-sub {
+      font-size: 0.65rem;
+      color: var(--muted);
+      opacity: 0.7;
+    }
+
+    .chat-metric-evidence {
+      list-style: none;
+      margin: 0.4rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.45rem;
+    }
+    .chat-metric-evidence-item {
+      padding: 0.55rem 0.65rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .chat-metric-evidence-sentence {
+      margin: 0 0 0.2rem;
+      font-size: 0.78rem;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+    .chat-metric-evidence-source {
+      font-size: 0.65rem;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
     .chat-metric-item {
       display: grid;
       gap: 0.25rem;
@@ -2490,6 +2557,39 @@
         });
     }
 
+    function isInsightCardPopulated(card) {
+      const type = String(card?.type || "").toLowerCase();
+      const hasText = (value) => typeof value === "string" && value.trim().length > 0;
+      const nonEmptyArray = (value) => Array.isArray(value) && value.some((item) => {
+        if (!item) return false;
+        if (typeof item === "string") return item.trim().length > 0;
+        if (typeof item === "object") {
+          return Object.values(item).some((v) => (typeof v === "string" ? v.trim().length > 0 : v != null && v !== ""));
+        }
+        return false;
+      });
+      if (type === "verdict_hero") {
+        return hasText(card?.title) || hasText(card?.body) || nonEmptyArray(card?.metrics);
+      }
+      if (type === "metric_grid") {
+        return nonEmptyArray(card?.metrics);
+      }
+      if (type === "evidence_profile") {
+        return nonEmptyArray(card?.items) || hasText(card?.footnote);
+      }
+      if (type === "action_grid") {
+        return Array.isArray(card?.columns) && card.columns.some((col) => nonEmptyArray(col?.items));
+      }
+      if (type === "watchouts") {
+        return nonEmptyArray(card?.items);
+      }
+      if (type === "source_highlights") {
+        return nonEmptyArray(card?.items);
+      }
+      // Unknown types: only keep if they have *some* content to render.
+      return hasText(card?.title) || hasText(card?.body) || nonEmptyArray(card?.items) || nonEmptyArray(card?.metrics);
+    }
+
     function buildAssistantBlocks(data) {
       const blocks = [
         {
@@ -2501,6 +2601,9 @@
       const assistantCards = Array.isArray(data.cards) ? data.cards : [];
       assistantCards.forEach((card) => {
         if (!card || typeof card !== "object") {
+          return;
+        }
+        if (!isInsightCardPopulated(card)) {
           return;
         }
         blocks.push({
