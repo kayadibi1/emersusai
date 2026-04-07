@@ -518,6 +518,353 @@ function initNeuronParallax() {
   };
 }
 
+function createNeuronCurveHelper(curve, color = "#00ffcc", scale = 0.58) {
+  const geometry = new THREE.BufferGeometry();
+  const positions = [];
+
+  for (let i = 6; i < 72; i += 9) {
+    const t = i / 80;
+    const point = curve.getPointAt(t);
+    const tangent = curve.getTangentAt(t).normalize();
+    positions.push(point.x, point.y, point.z);
+    positions.push(point.x + tangent.x * scale, point.y + tangent.y * scale, point.z + tangent.z * scale);
+  }
+
+  geometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  return new THREE.LineSegments(
+    geometry,
+    new THREE.LineBasicMaterial({
+      color,
+      transparent: true,
+      opacity: 0.72,
+      depthTest: false,
+    }),
+  );
+}
+
+function createSomaNormalHelper(mesh, size = 0.72, color = "#9bff00") {
+  const geometry = mesh.geometry;
+  const position = geometry.getAttribute("position");
+  const normal = geometry.getAttribute("normal");
+  const positions = [];
+  const step = Math.max(1, Math.floor(position.count / 220));
+  const vertex = new THREE.Vector3();
+  const direction = new THREE.Vector3();
+
+  for (let i = 0; i < position.count; i += step) {
+    vertex.fromBufferAttribute(position, i);
+    direction.fromBufferAttribute(normal, i).normalize();
+    positions.push(vertex.x, vertex.y, vertex.z);
+    positions.push(vertex.x + direction.x * size, vertex.y + direction.y * size, vertex.z + direction.z * size);
+  }
+
+  const helperGeometry = new THREE.BufferGeometry();
+  helperGeometry.setAttribute("position", new THREE.Float32BufferAttribute(positions, 3));
+  return new THREE.LineSegments(
+    helperGeometry,
+    new THREE.LineBasicMaterial({
+      color,
+      transparent: true,
+      opacity: 0.76,
+      depthTest: false,
+    }),
+  );
+}
+
+function createHelperStyleNeuron(seed = 31) {
+  const random = createSeededRandom(seed);
+  const group = new THREE.Group();
+  group.name = "Procedural 3D helper neuron";
+
+  const neuronMaterial = new THREE.MeshStandardMaterial({
+    color: "#cc44ff",
+    emissive: "#7a168f",
+    emissiveIntensity: 1.8,
+    roughness: 0.42,
+    metalness: 0.12,
+  });
+
+  const soma = new THREE.Mesh(new THREE.IcosahedronGeometry(3.2, 4), neuronMaterial);
+  soma.name = "Soma";
+  soma.scale.set(1.18, 0.92, 1);
+  soma.geometry.computeVertexNormals();
+  group.add(soma);
+
+  const core = new THREE.Mesh(
+    new THREE.IcosahedronGeometry(1.08, 2),
+    new THREE.MeshBasicMaterial({
+      color: "#ffffff",
+      transparent: true,
+      opacity: 0.82,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    }),
+  );
+  group.add(core);
+
+  const wireframe = new THREE.LineSegments(
+    new THREE.WireframeGeometry(soma.geometry),
+    new THREE.LineBasicMaterial({
+      color: "#ffffff",
+      transparent: true,
+      opacity: 0.22,
+      depthTest: false,
+    }),
+  );
+  wireframe.position.x = 0.34;
+  soma.add(wireframe);
+
+  const edges = new THREE.LineSegments(
+    new THREE.EdgesGeometry(soma.geometry, 18),
+    new THREE.LineBasicMaterial({
+      color: "#00ffcc",
+      transparent: true,
+      opacity: 0.42,
+      depthTest: false,
+    }),
+  );
+  edges.position.x = -0.34;
+  soma.add(edges);
+  soma.add(createSomaNormalHelper(soma, 0.52));
+
+  const tubeMaterial = neuronMaterial.clone();
+  const axonMaterial = neuronMaterial.clone();
+  axonMaterial.color.set("#ff44cc");
+  axonMaterial.emissive.set("#a01472");
+
+  function addTube(curve, radius, material, radialSegments = 9) {
+    const tube = new THREE.Mesh(new THREE.TubeGeometry(curve, 96, radius, radialSegments, false), material);
+    group.add(tube);
+
+    const tubeWire = new THREE.LineSegments(
+      new THREE.WireframeGeometry(tube.geometry),
+      new THREE.LineBasicMaterial({
+        color: "#ffffff",
+        transparent: true,
+        opacity: 0.12,
+        depthTest: false,
+      }),
+    );
+    tube.add(tubeWire);
+    group.add(createNeuronCurveHelper(curve));
+    return tube;
+  }
+
+  for (let branch = 0; branch < 12; branch += 1) {
+    const angle = (branch / 12) * Math.PI * 2 + random() * 0.28;
+    const zLift = (random() - 0.5) * 5.4;
+    const length = 8.6 + random() * 5.8;
+    const start = new THREE.Vector3(Math.cos(angle) * 2.4, Math.sin(angle) * 2.0, zLift * 0.18);
+    const mid = new THREE.Vector3(
+      Math.cos(angle + (random() - 0.5) * 0.55) * (length * 0.58),
+      Math.sin(angle + (random() - 0.5) * 0.55) * (length * 0.48),
+      zLift + Math.sin(branch) * 1.4,
+    );
+    const end = new THREE.Vector3(
+      Math.cos(angle + (random() - 0.5) * 0.75) * length,
+      Math.sin(angle + (random() - 0.5) * 0.75) * (length * 0.82),
+      zLift + (random() - 0.5) * 5,
+    );
+    const curve = new THREE.CatmullRomCurve3([start, mid, end]);
+    addTube(curve, 0.16 + random() * 0.08, tubeMaterial);
+
+    for (let fork = 0; fork < 2; fork += 1) {
+      const forkSign = fork === 0 ? -1 : 1;
+      const forkStart = curve.getPointAt(0.48 + random() * 0.22);
+      const forkAngle = angle + forkSign * (0.38 + random() * 0.54);
+      const forkLength = 3.1 + random() * 3.6;
+      const forkEnd = forkStart.clone().add(new THREE.Vector3(
+        Math.cos(forkAngle) * forkLength,
+        Math.sin(forkAngle) * forkLength * 0.78,
+        (random() - 0.5) * 3.4,
+      ));
+      const forkControl = forkStart.clone().lerp(forkEnd, 0.55).add(new THREE.Vector3(0, 0, forkSign * 1.1));
+      addTube(new THREE.CatmullRomCurve3([forkStart, forkControl, forkEnd]), 0.07, tubeMaterial, 7);
+    }
+  }
+
+  const axonCurve = new THREE.CatmullRomCurve3([
+    new THREE.Vector3(-2.2, -0.3, -0.4),
+    new THREE.Vector3(-7.4, -2.5, 1.4),
+    new THREE.Vector3(-13.5, -5.4, -1.8),
+    new THREE.Vector3(-20.2, -8.4, 2.2),
+  ]);
+  addTube(axonCurve, 0.28, axonMaterial, 12);
+
+  for (let terminal = 0; terminal < 5; terminal += 1) {
+    const angle = (terminal / 5) * Math.PI * 2;
+    const end = axonCurve.getPointAt(1).clone();
+    const terminalCurve = new THREE.CatmullRomCurve3([
+      end,
+      end.clone().add(new THREE.Vector3(Math.cos(angle) * 1.8, Math.sin(angle) * 1.2, Math.sin(angle) * 1.6)),
+      end.clone().add(new THREE.Vector3(Math.cos(angle) * 3.2, Math.sin(angle) * 2.0, Math.sin(angle) * 2.2)),
+    ]);
+    addTube(terminalCurve, 0.09, axonMaterial, 7);
+  }
+
+  const glow = new THREE.PointLight("#ff44cc", 180, 54, 1.6);
+  group.add(glow);
+  group.userData = { core, glow, soma };
+  return group;
+}
+
+function initHelperStyleNeuronParallax() {
+  const canvas = document.getElementById("neuron-parallax-canvas");
+  if (!(canvas instanceof HTMLCanvasElement)) {
+    return () => {};
+  }
+
+  const renderer = new THREE.WebGLRenderer({
+    canvas,
+    antialias: true,
+    alpha: false,
+    powerPreference: "high-performance",
+  });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.6));
+  renderer.setClearColor(0x0d0a1a, 1);
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color("#0d0a1a");
+  const camera = new THREE.PerspectiveCamera(58, 1, 0.1, 1000);
+  camera.position.set(0, 18, 46);
+
+  const neuron = createHelperStyleNeuron();
+  neuron.scale.setScalar(1.35);
+  scene.add(neuron);
+
+  const light = new THREE.PointLight("#ffffff", 650, 180);
+  light.position.set(24, 18, 22);
+  scene.add(light);
+  scene.add(new THREE.PointLightHelper(light, 1.6, "#ffffff"));
+  scene.add(new THREE.AmbientLight("#442255", 2.2));
+
+  const gridHelper = new THREE.GridHelper(70, 28, 0x0000ff, 0x5b5566);
+  gridHelper.position.y = -16;
+  gridHelper.position.x = -15;
+  scene.add(gridHelper);
+
+  const polarGridHelper = new THREE.PolarGridHelper(24, 16, 8, 64, 0x0000ff, 0x5b5566);
+  polarGridHelper.position.y = -16;
+  polarGridHelper.position.x = 28;
+  scene.add(polarGridHelper);
+
+  const somaBoxHelper = new THREE.BoxHelper(neuron.userData.soma, "#ffdd00");
+  const neuronBoxHelper = new THREE.BoxHelper(neuron, "#00ffcc");
+  const sceneBoxHelper = new THREE.BoxHelper(scene, "#7755ff");
+  scene.add(somaBoxHelper, neuronBoxHelper, sceneBoxHelper);
+
+  const composer = new EffectComposer(renderer);
+  composer.addPass(new RenderPass(scene, camera));
+  const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.25, 0.42, 0.2);
+  composer.addPass(bloomPass);
+
+  const scrollState = {
+    cameraX: 0,
+    cameraY: 0,
+    cameraZ: 46,
+    fieldX: 0.05,
+    fieldY: -0.08,
+    fieldScale: 1,
+    bloom: 1.25,
+    allPulse: 0,
+  };
+
+  let renderMode = "always";
+  let scrollActiveUntil = performance.now() + 2400;
+  const markScrollActive = () => {
+    scrollActiveUntil = performance.now() + 1200;
+    renderMode = "always";
+  };
+  initSmoothScroll(markScrollActive);
+
+  if (!reducedMotionQuery.matches) {
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: document.body,
+        start: "top top",
+        end: "bottom bottom",
+        scrub: 1.15,
+      },
+    })
+      .to(scrollState, { cameraZ: 30, fieldScale: 1.12, bloom: 1.7, duration: 0.25, ease: "none" }, 0)
+      .to(scrollState, { cameraX: 8.5, cameraY: 4.4, fieldY: 0.16, duration: 0.25, ease: "none" }, 0.25)
+      .to(scrollState, { fieldY: 0.42, fieldX: 0.18, duration: 0.25, ease: "none" }, 0.5)
+      .to(scrollState, { cameraZ: 44, cameraX: 0, cameraY: -1.5, fieldY: 0.02, fieldX: -0.02, fieldScale: 0.98, allPulse: 1, bloom: 1.85, duration: 0.25, ease: "none" }, 0.75);
+  }
+
+  function resize() {
+    const width = Math.max(window.innerWidth, 1);
+    const height = Math.max(window.innerHeight, 1);
+    renderer.setSize(width, height, false);
+    composer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+  }
+
+  let lastRenderAt = 0;
+  let rafId = 0;
+  function animate(time = 0) {
+    rafId = window.requestAnimationFrame(animate);
+    const now = performance.now();
+    if (renderMode === "demand" && now - lastRenderAt < 180) {
+      return;
+    }
+
+    const t = time * 0.001;
+    camera.position.set(scrollState.cameraX, scrollState.cameraY, scrollState.cameraZ);
+    camera.lookAt(0, 0, 0);
+    neuron.rotation.y = scrollState.fieldY + t * 0.12;
+    neuron.rotation.x = scrollState.fieldX + Math.cos(t * 0.28) * 0.035;
+    neuron.rotation.z = Math.sin(t * 0.2) * 0.025;
+    neuron.scale.setScalar(1.35 * scrollState.fieldScale * (1 + Math.sin(t * 1.15) * 0.012));
+    bloomPass.strength = scrollState.bloom;
+    light.position.x = Math.sin(t * 0.72) * 34;
+    light.position.y = Math.cos(t * 0.64) * 26;
+    light.position.z = 26 + Math.cos(t * 0.55) * 18;
+    neuron.userData.core.scale.setScalar(1 + Math.sin(t * 2.4) * 0.12 + scrollState.allPulse * 0.08);
+    neuron.userData.glow.intensity = 140 + Math.sin(t * 1.7) * 36 + scrollState.allPulse * 80;
+    somaBoxHelper.update();
+    neuronBoxHelper.update();
+
+    composer.render();
+    lastRenderAt = now;
+
+    if (now > scrollActiveUntil && renderMode === "always") {
+      renderMode = "demand";
+    }
+  }
+
+  resize();
+  window.addEventListener("resize", resize, { passive: true });
+  animate();
+
+  window.__EMERSUS_NEURON_DEBUG = {
+    loadedAt: new Date().toISOString(),
+    renderer: "three-helper-style-3d-neuron",
+    neuronCount: 1,
+    helperStyle: "grid-polar-box-wire-normal-tangent",
+    scriptVersion: "three-helper-neuron-20260407",
+  };
+
+  return () => {
+    window.cancelAnimationFrame(rafId);
+    window.removeEventListener("resize", resize);
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    renderer.dispose();
+    composer.dispose();
+    scene.traverse((object) => {
+      if (object.geometry) object.geometry.dispose();
+      if (object.material) {
+        if (Array.isArray(object.material)) {
+          object.material.forEach((material) => material.dispose());
+        } else {
+          object.material.dispose();
+        }
+      }
+    });
+  };
+}
+
 function WaitlistForm({ variant = "full", endpoint = "/api/waitlist" }) {
   const [status, setStatus] = useState({ tone: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
@@ -925,5 +1272,5 @@ function mountLanding() {
   });
 }
 
-initNeuronParallax();
+initHelperStyleNeuronParallax();
 mountLanding();
