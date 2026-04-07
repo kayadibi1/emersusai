@@ -1289,6 +1289,10 @@ function ChatApp() {
               h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "No messages yet"}`))))),
       h("div", { className: "chat-nav-actions" },
         h("button", { className: "inline-button", type: "button", onClick: startNewChat }, h(Plus, { size: 18 }), h("span", null, "New chat")))),
+    historyHidden
+      ? h("button", { className: "history-restore-button", type: "button", "aria-expanded": false, "aria-label": "Show conversation history", onClick: () => setHistoryHidden(false) },
+          h(PanelLeftOpen, { size: 18 }))
+      : null,
     h("main", { className: "chat-main" },
       h("div", { className: "chat-main-body" },
         h("section", { className: "conversation-canvas", ref: canvasRef },
