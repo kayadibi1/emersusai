@@ -109,9 +109,122 @@
         .tracking-ultra {
             letter-spacing: 0.15em;
         }
+        .glitch-obsolete {
+            position: relative;
+            display: inline-block;
+            color: #ff4a5a;
+            text-shadow: 0 0 18px rgba(215, 56, 59, 0.35);
+            animation: obsolete-jitter 9.5s infinite linear;
+        }
+        .glitch-obsolete::before,
+        .glitch-obsolete::after {
+            content: attr(data-text);
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .glitch-obsolete::before {
+            color: #7ab3ff;
+            transform: translate(0, 0);
+            text-shadow: -2px 0 rgba(122, 179, 255, 0.8);
+            animation: obsolete-glitch-a 9.5s infinite linear;
+        }
+        .glitch-obsolete::after {
+            color: #9ffb00;
+            transform: translate(0, 0);
+            text-shadow: 2px 0 rgba(159, 251, 0, 0.75);
+            animation: obsolete-glitch-b 9.5s infinite linear;
+        }
+        @keyframes obsolete-jitter {
+            0%, 86%, 100% {
+                transform: none;
+                filter: none;
+            }
+            87% {
+                transform: translate(0.5px, -0.5px) skewX(-1deg);
+                filter: brightness(1.15);
+            }
+            88% {
+                transform: translate(-1px, 0.5px) skewX(1.5deg);
+                filter: brightness(0.9);
+            }
+            89% {
+                transform: translate(0.5px, -0.25px);
+                filter: brightness(1.2);
+            }
+            90%, 97% {
+                transform: none;
+                filter: none;
+            }
+            98% {
+                transform: translate(-0.6px, 0.4px) skewX(-1deg);
+            }
+            99% {
+                transform: translate(0.4px, -0.4px);
+            }
+        }
+        @keyframes obsolete-glitch-a {
+            0%, 86%, 100% {
+                opacity: 0;
+                clip-path: inset(0 0 0 0);
+                transform: translate(0, 0);
+            }
+            87% {
+                opacity: 0.9;
+                clip-path: inset(8% 0 62% 0);
+                transform: translate(-2px, -1px);
+            }
+            88% {
+                opacity: 0.75;
+                clip-path: inset(40% 0 25% 0);
+                transform: translate(2px, 1px);
+            }
+            89% {
+                opacity: 0.6;
+                clip-path: inset(72% 0 8% 0);
+                transform: translate(-1px, 0);
+            }
+            90%, 100% {
+                opacity: 0;
+                clip-path: inset(0 0 0 0);
+                transform: translate(0, 0);
+            }
+        }
+        @keyframes obsolete-glitch-b {
+            0%, 96%, 100% {
+                opacity: 0;
+                clip-path: inset(0 0 0 0);
+                transform: translate(0, 0);
+            }
+            97% {
+                opacity: 0.8;
+                clip-path: inset(16% 0 54% 0);
+                transform: translate(2px, 0);
+            }
+            98% {
+                opacity: 0.65;
+                clip-path: inset(58% 0 18% 0);
+                transform: translate(-2px, 1px);
+            }
+            99% {
+                opacity: 0.7;
+                clip-path: inset(28% 0 38% 0);
+                transform: translate(1px, -1px);
+            }
+            100% {
+                opacity: 0;
+                clip-path: inset(0 0 0 0);
+                transform: translate(0, 0);
+            }
+        }
     </style>
 </head>
 <body class="bg-background text-on-surface font-body selection:bg-secondary selection:text-on-secondary-fixed" id="top">
+<div aria-hidden="true" class="neuron-parallax-bg">
+<canvas id="neuron-parallax-canvas"></canvas>
+<div class="neuron-parallax-vignette"></div>
+</div>
 <nav class="bg-[#0c0e12]/60 backdrop-blur-3xl fixed top-0 w-full z-[100] border-b border-white/5">
 <div class="flex justify-between items-center h-20 px-12 max-w-screen-2xl mx-auto">
 <div class="text-2xl font-bold tracking-tighter text-white uppercase font-headline" style="">
@@ -130,14 +243,13 @@
 </nav>
 <section class="relative min-h-screen flex items-center overflow-hidden" id="hero">
 <div class="absolute inset-0 z-0">
-<img alt="Neuron network background" class="w-full h-full object-cover scale-105 opacity-70" decoding="async" fetchpriority="high" src="./neuron-hero-upscaled.png" style="">
 <div class="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/30"></div>
 <div class="absolute inset-0 holographic-overlay"></div>
 </div>
 <div class="relative z-20 max-w-screen-2xl mx-auto w-full px-12 pt-32">
 <div class="max-w-6xl">
 <span class="text-secondary font-headline font-bold tracking-[0.5em] uppercase mb-10 block text-xs md:text-sm animate-pulse" style="">eMERSUS</span>
-<h1 class="font-headline text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-[0.85] mb-12 uppercase" style=""><span class="text-gradient-primary" style="">OPTIMIZE</span> OR <br><span class="text-error-container" style="">OBSOLETE</span></h1>
+<h1 class="font-headline text-6xl md:text-8xl lg:text-[10rem] font-black tracking-tighter leading-[0.85] mb-12 uppercase" style=""><span class="text-gradient-primary" style="">OPTIMIZE</span> OR <br><span class="text-error-container glitch-obsolete" data-text="OBSOLETE" style="">OBSOLETE</span></h1>
 <p class="text-on-surface-variant text-xl md:text-2xl max-w-3xl mb-16 font-light leading-relaxed tracking-wider" style="">Scientifically grounded optimization AI for peak mental and physical performance. For those who take life seriously.</p>
 <form class="flex flex-col sm:flex-row gap-0 w-full max-w-2xl border-l border-secondary/30 pl-8 py-4" data-form-endpoint="/api/waitlist" data-waitlist-form id="hero-waitlist-form" method="post" novalidate>
 <div class="flex-1">

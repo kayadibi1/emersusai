@@ -2,6 +2,39 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.neuron-parallax-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 25% 20%, rgba(125, 35, 180, 0.22) 0%, transparent 46%),
+    radial-gradient(circle at 70% 65%, rgba(8, 115, 235, 0.15) 0%, transparent 44%),
+    linear-gradient(180deg, #07050f 0%, #080716 48%, #07050f 100%);
+}
+
+#neuron-parallax-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0.9;
+}
+
+.neuron-parallax-vignette {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at center, transparent 36%, rgba(7, 5, 15, 0.35) 70%, rgba(7, 5, 15, 0.7) 100%),
+    linear-gradient(180deg, rgba(7, 5, 15, 0.28) 0%, rgba(7, 5, 15, 0.5) 100%);
+  mix-blend-mode: screen;
+}
+
 section {
   scroll-margin-top: 6rem;
 }
@@ -26,6 +59,10 @@ section {
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+
+  #neuron-parallax-canvas {
+    opacity: 0.45;
   }
 
   .animate-pulse {
