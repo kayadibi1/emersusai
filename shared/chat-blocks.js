@@ -788,26 +788,19 @@ function renderInsightCard(block) {
   const cardData = block?.data || {};
   const type = String(cardData?.type || "").toLowerCase();
 
-  if (type === "verdict_hero") {
-    return renderVerdictHeroGraphic(cardData);
-  }
-  if (type === "metric_grid") {
-    return renderMetricGridGraphic(cardData);
-  }
-  if (type === "evidence_profile") {
-    return renderEvidenceProfileGraphic(cardData);
-  }
-  if (type === "action_grid") {
-    return renderActionGridGraphic(cardData);
-  }
-  if (type === "watchouts") {
-    return renderWatchoutsGraphic(cardData);
-  }
-  if (type === "source_highlights") {
-    return renderSourceHighlightsGraphic(cardData);
-  }
+  let card = null;
+  if (type === "verdict_hero") card = renderVerdictHeroGraphic(cardData);
+  else if (type === "metric_grid") card = renderMetricGridGraphic(cardData);
+  else if (type === "evidence_profile") card = renderEvidenceProfileGraphic(cardData);
+  else if (type === "action_grid") card = renderActionGridGraphic(cardData);
+  else if (type === "watchouts") card = renderWatchoutsGraphic(cardData);
+  else if (type === "source_highlights") card = renderSourceHighlightsGraphic(cardData);
 
-  return null;
+  if (card && type) {
+    card.classList.add(`chat-insight--${type}`);
+    card.dataset.cardType = type;
+  }
+  return card;
 }
 
 export function renderSearchCard(block) {
