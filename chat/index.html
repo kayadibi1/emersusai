@@ -434,19 +434,6 @@
       list-style: none;
     }
 
-    .message.message-thinking .message-thinking-content {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 0.25rem 0;
-      animation: emersus-thinking-fade 220ms ease-out;
-    }
-
-    @keyframes emersus-thinking-fade {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
     .assistant-report {
       display: grid;
       gap: 0.65rem;
@@ -1403,6 +1390,59 @@
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       background: linear-gradient(180deg, rgba(12, 14, 18, 0), rgba(12, 14, 18, 0.58));
       flex-shrink: 0;
+      position: relative;
+    }
+
+    .thinking-glyph-mount {
+      width: min(100%, 720px);
+      margin: 0 auto;
+      padding: 0.4rem 0.4rem 0.3rem;
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      pointer-events: none;
+      min-height: 56px;
+    }
+
+    .thinking-glyph-mount canvas {
+      display: block;
+      filter: drop-shadow(0 0 18px rgba(83, 74, 183, 0.35));
+      transition: opacity 240ms ease, transform 240ms ease;
+    }
+
+    .thinking-glyph-mount[data-state="idle"] canvas {
+      opacity: 0.55;
+      transform: scale(0.85);
+    }
+
+    .thinking-glyph-mount[data-state="thinking"] canvas,
+    .thinking-glyph-mount[data-state="responding"] canvas {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .thinking-glyph-label {
+      font-family: "Space Grotesk", sans-serif;
+      font-size: 0.66rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(200, 195, 220, 0.55);
+      transition: color 220ms ease, opacity 220ms ease;
+      opacity: 0;
+    }
+
+    .thinking-glyph-mount[data-state="thinking"] .thinking-glyph-label,
+    .thinking-glyph-mount[data-state="responding"] .thinking-glyph-label {
+      opacity: 1;
+    }
+
+    .thinking-glyph-mount[data-state="thinking"] .thinking-glyph-label {
+      color: rgba(159, 251, 0, 0.78);
+    }
+
+    .thinking-glyph-mount[data-state="responding"] .thinking-glyph-label {
+      color: rgba(140, 200, 255, 0.72);
     }
 
     .composer {

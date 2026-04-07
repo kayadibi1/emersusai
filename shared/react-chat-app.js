@@ -10,7 +10,6 @@ import {
   FlaskConical,
   History,
   Library,
-  LoaderCircle,
   PanelLeftClose,
   PanelLeftOpen,
   Plus,
@@ -22,7 +21,7 @@ import {
   setStatus,
   upsertChatThread,
 } from "/shared/supabase.js";
-import EmersusRubiksCube from "/shared/emersus-rubiks-cube.js";
+import { createThinkingGlyph } from "/shared/thinking-glyph.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -487,12 +486,12 @@ function railFromData(data = {}) {
 }
 
 function StatusBadge({ status = "Done", isError = false, isRunning = false }) {
-  const Icon = isRunning ? LoaderCircle : isError ? CircleAlert : CheckCircle2;
+  const Icon = isError ? CircleAlert : CheckCircle2;
   const label = isRunning ? "Running" : isError ? "Error" : normalizeText(status || "Done", 18);
   return h(
     "span",
     { className: `chat-tool-status ${toneClass(isError ? "error" : status)}`.trim() },
-    h(Icon, { className: `chat-tool-status-icon${isRunning ? " is-spinning" : ""}`, size: 15, "aria-hidden": true }),
+    h(Icon, { className: "chat-tool-status-icon", size: 15, "aria-hidden": true }),
     h("span", { className: "chat-tool-status-label" }, label)
   );
 }
@@ -1054,6 +1053,37 @@ function SourceList({ sources }) {
   }));
 }
 
+function ThinkingGlyph({ state = "idle", size = 64, color = "#534AB7" }) {
+  const canvasRef = useRef(null);
+  const glyphRef = useRef(null);
+
+  useEffect(() => {
+    if (!canvasRef.current) return undefined;
+    glyphRef.current = createThinkingGlyph(canvasRef.current, { size, color, state });
+    return () => {
+      glyphRef.current?.destroy();
+      glyphRef.current = null;
+    };
+  }, [size, color]);
+
+  useEffect(() => {
+    glyphRef.current?.setState(state);
+  }, [state]);
+
+  const labelText = state === "thinking" ? "Thinking" : state === "responding" ? "Responding" : "";
+
+  return h(
+    "div",
+    {
+      className: "thinking-glyph-mount",
+      "data-state": state,
+      "aria-hidden": true,
+    },
+    h("canvas", { ref: canvasRef }),
+    h("span", { className: "thinking-glyph-label" }, labelText)
+  );
+}
+
 function ChatApp() {
   const [session, setSession] = useState(null);
   const [chatHistory, setChatHistory] = useState([]);
@@ -1063,10 +1093,9 @@ function ChatApp() {
   const [statusTone, setStatusTone] = useState("");
   const [question, setQuestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [thinkingPhase, setThinkingPhase] = useState("hidden"); // "hidden" | "thinking" | "complete"
+  const [glyphState, setGlyphState] = useState("idle");
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
-  const prevSubmittingRef = useRef(false);
 
   const activeThread = useMemo(() => chatHistory.find((threadData) => threadData.id === activeThreadId) || null, [activeThreadId, chatHistory]);
 
@@ -1076,23 +1105,7 @@ function ChatApp() {
 
   useEffect(() => {
     canvasRef.current?.scrollTo({ top: canvasRef.current.scrollHeight, behavior: "smooth" });
-  }, [activeThread?.messages?.length, activeThreadId, thinkingPhase]);
-
-  // Bridge isSubmitting → thinkingPhase, with a brief "complete" burst before hiding.
-  useEffect(() => {
-    const wasSubmitting = prevSubmittingRef.current;
-    prevSubmittingRef.current = isSubmitting;
-    if (isSubmitting) {
-      setThinkingPhase("thinking");
-      return undefined;
-    }
-    if (wasSubmitting) {
-      setThinkingPhase("complete");
-      const timer = window.setTimeout(() => setThinkingPhase("hidden"), 520);
-      return () => window.clearTimeout(timer);
-    }
-    return undefined;
-  }, [isSubmitting]);
+  }, [activeThread?.messages?.length, activeThreadId]);
 
   useEffect(() => {
     let cancelled = false;
@@ -1168,6 +1181,7 @@ function ChatApp() {
 
     setQuestion("");
     setIsSubmitting(true);
+    setGlyphState("thinking");
     setActiveThreadId(threadWithUser.id);
     setChatHistory((history) => [threadWithUser, ...history.filter((item) => item.id !== threadWithUser.id)]);
     let persistedThread = await persistThread(threadWithUser);
@@ -1187,6 +1201,7 @@ function ChatApp() {
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.message || "Unable to generate a recommendation.");
+      setGlyphState("responding");
       const assistantRaw = String(data.answer_text || data.summary || "");
       const structuredHtml = looksLikeStructuredHtml(assistantRaw)
         ? sanitizeAssistantHtml(assistantRaw)
@@ -1247,10 +1262,14 @@ function ChatApp() {
       setStatusMessage(errorMessage);
     } finally {
       setIsSubmitting(false);
+      setGlyphState("idle");
     }
   }
 
   const displayName = getDisplayName(session);
+  const rail = activeThread?.rail || {};
+  const confidencePercent = typeof rail.confidencePercent === "number" ? rail.confidencePercent : Math.round(Math.max(0, Math.min(Number(rail.confidenceScore || 0), 1)) * 100);
+  const sourceCount = Number(rail.sourceCount || activeThread?.sources?.length || 0);
 
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}` },
     h("aside", { className: "chat-nav" },
@@ -1275,21 +1294,15 @@ function ChatApp() {
     h("main", { className: "chat-main" },
       h("div", { className: "chat-main-body" },
         h("section", { className: "conversation-canvas", ref: canvasRef },
-          h("div", { className: `chat-thread${!activeThread?.messages?.length && thinkingPhase === "hidden" ? " is-empty" : ""}` },
+          h("div", { className: `chat-thread${!activeThread?.messages?.length ? " is-empty" : ""}` },
             activeThread?.messages?.length
               ? activeThread.messages.map((message, index) => h(Message, { key: `${message.createdAt || ""}-${index}`, message }))
-              : thinkingPhase === "hidden"
-                ? h("section", { className: "thread-welcome" },
-                    h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
-                    h("h2", { className: "thread-welcome-title" }, `Welcome, ${displayName}`),
-                    h("p", { className: "thread-welcome-copy" }, "Ask about training, nutrition, supplements, recovery, cardiovascular fitness, or metabolic health and I'll keep the answer evidence-aware."))
-                : null,
-            thinkingPhase !== "hidden"
-              ? h("article", { className: "message assistant message-thinking", "aria-live": "polite" },
-                  h("div", { className: "message-content message-thinking-content" },
-                    h(EmersusRubiksCube, { state: thinkingPhase, size: 96 })))
-              : null))),
+              : h("section", { className: "thread-welcome" },
+                  h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
+                  h("h2", { className: "thread-welcome-title" }, `Welcome, ${displayName}`),
+                  h("p", { className: "thread-welcome-copy" }, "Ask about training, nutrition, supplements, recovery, cardiovascular fitness, or metabolic health and I'll keep the answer evidence-aware."))))),
       h("div", { className: "chat-composer-shell" },
+        h(ThinkingGlyph, { state: glyphState, size: 64, color: "#534AB7" }),
         h("form", { className: "composer", onSubmit: submitQuestion },
           h("div", { className: "composer-row" },
             h("label", { className: "sr-only", htmlFor: "chat-question" }, "Question"),
@@ -1310,6 +1323,11 @@ function ChatApp() {
               h("button", { className: "submit-orb", type: "submit", disabled: isSubmitting, "aria-label": "Send question" }, h(ArrowUp, { size: 21 })))),
           h("div", { className: "composer-utility-row" }, h("div", { className: "composer-buttons" }), h("p", { className: "status-text", ref: statusRef }))))),
     h("aside", { className: "chat-rail" },
+      h("section", { className: "rail-card" },
+        h("h3", { className: "rail-title" }, "System status"),
+        h("div", { className: "rail-metric-stack" },
+          h(RailMetric, { label: "Confidence", value: `${confidencePercent}%`, note: rail.confidenceLabel || "Idle", width: `${Math.max(0, Math.min(Number(rail.confidenceScore || 0) * 100, 100))}%` }),
+          h(RailMetric, { label: "Source count", value: String(sourceCount), note: "Attached", width: `${Math.max(10, Math.min(sourceCount * 16, 100))}%`, tone: "tone-medium" }))),
       h("section", { className: "rail-card" }, h("h3", { className: "rail-title" }, "Retrieved sources"), h(SourceList, { sources: activeThread?.sources || [] })),
       h("div", { className: "rail-foot" },
         h("div", { className: "rail-foot-line" }, h("span", null, "Pipeline"), h("span", null, "PubMed + PMC")),
