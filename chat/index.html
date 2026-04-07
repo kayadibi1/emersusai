@@ -397,8 +397,7 @@
     }
 
     .message.assistant .chat-insight--metric_grid  { grid-column: span 12; }
-    .message.assistant .chat-insight--action_grid  { grid-column: span 8; }
-    .message.assistant .chat-insight--evidence_profile { grid-column: span 4; }
+    .message.assistant .chat-insight--action_grid  { grid-column: span 12; }
     .message.assistant .chat-insight--source_highlights { grid-column: span 7; }
     .message.assistant .chat-insight--watchouts { grid-column: span 5; }
 
@@ -409,7 +408,6 @@
         grid-template-columns: repeat(6, minmax(0, 1fr));
       }
       .message.assistant .chat-insight--action_grid,
-      .message.assistant .chat-insight--evidence_profile,
       .message.assistant .chat-insight--source_highlights,
       .message.assistant .chat-insight--watchouts { grid-column: span 6; }
     }
@@ -2616,9 +2614,6 @@
       });
       if (type === "metric_grid") {
         return nonEmptyArray(card?.metrics);
-      }
-      if (type === "evidence_profile") {
-        return nonEmptyArray(card?.items) || hasText(card?.footnote);
       }
       if (type === "action_grid") {
         return Array.isArray(card?.columns) && card.columns.some((col) => nonEmptyArray(col?.items));

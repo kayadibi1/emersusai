@@ -965,23 +965,6 @@ function VisualArtifact({ card }) {
   });
 }
 
-function EvidenceProfile({ card }) {
-  const items = Array.isArray(card?.items) ? card.items.slice(0, 4) : [];
-  return h(
-    ToolCard,
-    { title: card?.title || "Evidence profile", bodyClass: "chat-insight-card" },
-    h("div", { className: "chat-score-list" }, items.map((item, index) => {
-      const score = Number(item?.score || 0);
-      const max = Math.max(1, Number(item?.max || 10));
-      const ratio = Math.max(0, Math.min(score / max, 1));
-      return h("div", { key: index, className: "chat-score-row" },
-        h("div", { className: "chat-score-head" }, h("span", { className: "chat-score-label" }, normalizeText(item?.label || "", 80)), h("span", { className: "chat-score-value" }, `${score}/${max}`)),
-        h("div", { className: "chat-score-track" }, h("div", { className: `chat-score-fill ${toneClass(item?.tone)}`.trim(), style: { width: `${Math.round(ratio * 100)}%` } })));
-    })),
-    card?.footnote ? h("p", { className: "chat-card-footnote" }, trimSnippet(card.footnote, 180)) : null
-  );
-}
-
 function ActionGrid({ card }) {
   const columns = Array.isArray(card?.columns) ? card.columns.slice(0, 3) : [];
   return h(
@@ -1028,7 +1011,6 @@ function InsightCard({ block }) {
   const type = String(card?.type || "").toLowerCase();
   if (type === "visual_artifact") return h(VisualArtifact, { card });
   if (type === "dashboard_artifact") return h(DashboardArtifact, { card });
-  if (type === "evidence_profile") return h(EvidenceProfile, { card });
   if (type === "action_grid") return h(ActionGrid, { card });
   if (type === "watchouts") return h(Watchouts, { card });
   if (type === "source_highlights") return h(SourceHighlights, { card });
