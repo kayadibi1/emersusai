@@ -107,7 +107,18 @@ function stripHtmlToPlainText(value, maxLength = 4000) {
   if (!html.trim()) return "";
   const parser = new DOMParser();
   const doc = parser.parseFromString(html, "text/html");
+  doc.querySelectorAll("style,script,noscript,template").forEach((node) => node.remove());
   return normalizeText(doc.body?.textContent || "", maxLength);
+}
+
+function sanitizeHistoryText(value, maxLength = 120) {
+  const text = normalizeText(value, maxLength * 3)
+    .replace(/[.#][a-zA-Z0-9_-]+\s*\{[^}]*\}/g, " ")
+    .replace(/\b[a-z-]+\s*:\s*[^;]+;/gi, " ")
+    .replace(/[{}]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+  return normalizeText(text, maxLength);
 }
 
 function normalizeCompactList(values, maxItems = 6, maxLength = 80) {
@@ -174,7 +185,42 @@ function createEmptyThreadState() {
     last_user_intent: "",
     last_answer_summary: "",
     thread_summary: "",
+    token_usage: {
+      prompt_tokens: 0,
+      completion_tokens: 0,
+      total_tokens: 0,
+      requests: 0,
+      last_updated_at: "",
+    },
     updated_at: "",
+  };
+}
+
+function normalizeTokenUsage(value) {
+  const usage = value && typeof value === "object" ? value : {};
+  const promptTokens = Math.max(0, Number(usage.prompt_tokens || 0));
+  const completionTokens = Math.max(0, Number(usage.completion_tokens || 0));
+  const totalTokensRaw = Number(usage.total_tokens || promptTokens + completionTokens);
+  const totalTokens = Math.max(0, Number.isFinite(totalTokensRaw) ? totalTokensRaw : promptTokens + completionTokens);
+  const requests = Math.max(0, Number(usage.requests || 0));
+  return {
+    prompt_tokens: Math.round(promptTokens),
+    completion_tokens: Math.round(completionTokens),
+    total_tokens: Math.round(totalTokens),
+    requests: Math.round(requests),
+    last_updated_at: normalizeText(usage.last_updated_at || "", 60),
+  };
+}
+
+function mergeTokenUsage(baseValue, nextValue) {
+  const base = normalizeTokenUsage(baseValue);
+  const next = normalizeTokenUsage(nextValue);
+  return {
+    prompt_tokens: base.prompt_tokens + next.prompt_tokens,
+    completion_tokens: base.completion_tokens + next.completion_tokens,
+    total_tokens: base.total_tokens + next.total_tokens,
+    requests: base.requests + (next.total_tokens > 0 ? 1 : 0),
+    last_updated_at: new Date().toISOString(),
   };
 }
 
@@ -197,6 +243,7 @@ function mergeThreadState(rawState) {
       sleep_stress: normalizeCompactList(incoming?.constraints?.sleep_stress, 4),
       medical_caution: normalizeCompactList(incoming?.constraints?.medical_caution, 4),
     },
+    token_usage: normalizeTokenUsage(incoming?.token_usage),
   };
 }
 
@@ -360,7 +407,11 @@ function buildRecentMessages(messages, maxItems = 6) {
 }
 
 function buildAssistantBlocks(data) {
-  const blocks = [{ type: "text", text: data.answer_text || data.summary || "" }];
+  const primaryText = normalizeText(
+    data.answer_text || data.summary || "Here is the plain-language answer before the visual.",
+    4000
+  );
+  const blocks = [{ type: "text", text: primaryText }];
   (Array.isArray(data.cards) ? data.cards : []).forEach((card) => {
     if (card && typeof card === "object") {
       blocks.push({ type: "tool_result", tool: "insight_card", data: card });
@@ -378,7 +429,7 @@ function formatHistoryTime(isoString) {
 
 function deriveThreadTitle(threadData) {
   const firstUserMessage = (threadData?.messages || []).find((message) => message.role === "user");
-  const source = normalizeText(firstUserMessage?.text || firstUserMessage?.plainText || "", 80);
+  const source = sanitizeHistoryText(firstUserMessage?.text || firstUserMessage?.plainText || "", 80);
   if (!source) return "New chat";
   return source.length > 42 ? `${source.slice(0, 41).trim()}...` : source;
 }
@@ -386,12 +437,17 @@ function deriveThreadTitle(threadData) {
 function deriveThreadPreview(threadData) {
   const latestAssistant = [...(threadData?.messages || [])].reverse().find((message) => message.role === "assistant");
   const fallback = (threadData?.messages || []).find((message) => message.role === "user");
-  const source = normalizeText(latestAssistant?.plainText || latestAssistant?.text || fallback?.text || "", 80);
+  const source = sanitizeHistoryText(
+    latestAssistant?.plainText || latestAssistant?.text || fallback?.text || "",
+    80
+  );
   if (!source) return "No messages yet";
   return source.length > 52 ? `${source.slice(0, 51).trim()}...` : source;
 }
 
 function mapSavedThread(row) {
+  const normalizedThreadState = mergeThreadState(row.thread_state);
+  const usage = normalizeTokenUsage(normalizedThreadState?.token_usage);
   return {
     id: row.id,
     title: row.title || "New chat",
@@ -400,8 +456,13 @@ function mapSavedThread(row) {
     updatedAt: row.updated_at,
     messages: Array.isArray(row.messages) ? row.messages : [],
     sources: Array.isArray(row.sources) ? row.sources : [],
-    rail: row.rail && typeof row.rail === "object" ? row.rail : {},
-    threadState: mergeThreadState(row.thread_state),
+    rail: {
+      ...(row.rail && typeof row.rail === "object" ? row.rail : {}),
+      tokenUsage: usage,
+      totalTokens: usage.total_tokens,
+      requestCount: usage.requests,
+    },
+    threadState: normalizedThreadState,
   };
 }
 
@@ -411,7 +472,17 @@ function railFromData(data = {}) {
   const sourceCount = Array.isArray(data.sources) ? data.sources.length : 0;
   const synthesisMode = data.debug?.synthesis_mode || (data.summary ? "synthesized" : "idle");
   const confidencePercent = Math.round(Math.max(0, Math.min(confidenceScore, 1)) * 100);
-  return { confidenceScore, confidencePercent, confidenceLabel, sourceCount, synthesisMode };
+  const tokenUsage = normalizeTokenUsage(data.token_usage);
+  return {
+    confidenceScore,
+    confidencePercent,
+    confidenceLabel,
+    sourceCount,
+    synthesisMode,
+    tokenUsage,
+    totalTokens: tokenUsage.total_tokens,
+    requestCount: tokenUsage.total_tokens > 0 ? 1 : 0,
+  };
 }
 
 function StatusBadge({ status = "Done", isError = false, isRunning = false }) {
@@ -504,6 +575,10 @@ function safeJson(value) {
 function buildMetricGridMarkup(metrics) {
   return (Array.isArray(metrics) ? metrics : [])
     .slice(0, 6)
+    .filter((metric) =>
+      normalizeText(metric?.value || metric?.display_value || "", 80) &&
+      normalizeText(metric?.label || "", 80)
+    )
     .map((metric) => {
       const tone = toneClass(metric?.tone) || "is-medium";
       return `
@@ -1120,6 +1195,7 @@ function ChatApp() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           question: trimmed,
+          threadId: persistedThread.id,
           userId: session?.user?.id ? `supabase:${session.user.id}` : "",
           threadState: persistedThread.threadState,
           recentMessages: buildRecentMessages(persistedThread.messages),
@@ -1145,12 +1221,33 @@ function ChatApp() {
       const nextThread = {
         ...persistedThread,
         messages: [...(persistedThread.messages || []), assistantMessage],
-        threadState: deriveThreadState(
-          persistedThread,
-          trimmed,
-          assistantPlainText || data.summary || data.answer_text || ""
-        ),
-        rail: railFromData(data),
+        threadState: (() => {
+          const baseState = deriveThreadState(
+            persistedThread,
+            trimmed,
+            assistantPlainText || data.summary || data.answer_text || ""
+          );
+          return {
+            ...baseState,
+            token_usage: mergeTokenUsage(
+              persistedThread?.threadState?.token_usage,
+              data.token_usage
+            ),
+          };
+        })(),
+        rail: (() => {
+          const nextRail = railFromData(data);
+          const mergedUsage = mergeTokenUsage(
+            persistedThread?.threadState?.token_usage,
+            data.token_usage
+          );
+          return {
+            ...nextRail,
+            tokenUsage: mergedUsage,
+            totalTokens: mergedUsage.total_tokens,
+            requestCount: mergedUsage.requests,
+          };
+        })(),
         sources: Array.isArray(data.sources) ? data.sources : [],
       };
       persistedThread = await persistThread(nextThread);

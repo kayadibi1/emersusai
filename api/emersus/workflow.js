@@ -146,6 +146,16 @@ function parseUserId(rawUserId) {
   };
 }
 
+function normalizeUuid(value) {
+  const text = normalizeText(value, 120).toLowerCase();
+  if (!text) return "";
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/.test(
+    text
+  )
+    ? text
+    : "";
+}
+
 function inferTopic(question) {
   const text = question.toLowerCase();
 
@@ -220,6 +230,7 @@ function sanitizeRequest(payload) {
   return {
     question,
     userId: normalizeText(payload?.userId, 160),
+    threadId: normalizeUuid(payload?.threadId),
     requestMeta: {
       clientIp: normalizeText(payload?.requestMeta?.clientIp, 200),
       userAgent: normalizeText(payload?.requestMeta?.userAgent, 300),
@@ -257,6 +268,47 @@ function sanitizeRequest(payload) {
     includeDebug: payload?.includeDebug === true,
     threadState: normalizeThreadState(payload?.threadState),
     recentMessages: normalizeRecentMessages(payload?.recentMessages),
+  };
+}
+
+function extractTokenUsage(payload) {
+  const usage = payload && typeof payload === "object" ? payload.usage || {} : {};
+  const promptTokens = Number(
+    usage.input_tokens ?? usage.prompt_tokens ?? usage.promptTokens ?? 0
+  );
+  const completionTokens = Number(
+    usage.output_tokens ?? usage.completion_tokens ?? usage.completionTokens ?? 0
+  );
+  const totalTokens = Number(
+    usage.total_tokens ??
+      usage.totalTokens ??
+      (Number.isFinite(promptTokens) && Number.isFinite(completionTokens)
+        ? promptTokens + completionTokens
+        : 0)
+  );
+
+  const normalizedPrompt = Number.isFinite(promptTokens) ? Math.max(0, Math.round(promptTokens)) : 0;
+  const normalizedCompletion = Number.isFinite(completionTokens)
+    ? Math.max(0, Math.round(completionTokens))
+    : 0;
+  const normalizedTotal = Number.isFinite(totalTokens)
+    ? Math.max(0, Math.round(totalTokens))
+    : normalizedPrompt + normalizedCompletion;
+
+  return {
+    prompt_tokens: normalizedPrompt,
+    completion_tokens: normalizedCompletion,
+    total_tokens: normalizedTotal,
+  };
+}
+
+function mergeTokenUsageTotals(baseUsage, nextUsage) {
+  const base = extractTokenUsage({ usage: baseUsage });
+  const next = extractTokenUsage({ usage: nextUsage });
+  return {
+    prompt_tokens: base.prompt_tokens + next.prompt_tokens,
+    completion_tokens: base.completion_tokens + next.completion_tokens,
+    total_tokens: base.total_tokens + next.total_tokens,
   };
 }
 
@@ -441,6 +493,65 @@ async function logGuardrailEvent({
   if (!response.ok) {
     const errorText = await response.text().catch(() => "");
     throw new Error(`Guardrail event log failed: ${errorText || response.status}`);
+  }
+}
+
+async function logTokenUsageEvent({
+  supabaseUrl,
+  serviceRoleKey,
+  supabaseUserId,
+  stableUserId,
+  threadId,
+  question,
+  plan,
+  requestMeta,
+  tokenUsage,
+  responseId,
+  model,
+}) {
+  if (!supabaseUrl || !serviceRoleKey) {
+    return;
+  }
+
+  const totalTokens = Number(tokenUsage?.total_tokens || 0);
+  if (!totalTokens) {
+    return;
+  }
+
+  const payload = {
+    user_id: supabaseUserId || null,
+    stable_user_id: stableUserId || null,
+    thread_id: normalizeUuid(threadId) || null,
+    question_preview: normalizeText(question, 320),
+    topic: normalizeText(plan?.topic, 80) || null,
+    risk_level: normalizeText(plan?.riskLevel, 40) || null,
+    model: normalizeText(model, 80) || null,
+    openai_response_id: normalizeText(responseId, 120) || null,
+    prompt_tokens: Math.max(0, Number(tokenUsage?.prompt_tokens || 0)),
+    completion_tokens: Math.max(0, Number(tokenUsage?.completion_tokens || 0)),
+    total_tokens: Math.max(0, Number(tokenUsage?.total_tokens || 0)),
+    client_ip_hash: hashClientIp(requestMeta?.clientIp),
+    user_agent: normalizeText(requestMeta?.userAgent, 300),
+    metadata: {
+      source: "emersus.recommendation",
+      generated_at: new Date().toISOString(),
+    },
+  };
+
+  const response = await fetch(`${supabaseUrl}/rest/v1/chat_token_usage_events`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      apikey: serviceRoleKey,
+      Authorization: `Bearer ${serviceRoleKey}`,
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify(payload),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text().catch(() => "");
+    throw new Error(`Token usage log failed: ${errorText || response.status}`);
   }
 }
 
@@ -822,7 +933,13 @@ function buildSynthesisInput({
           "If thread context is needed for interpretation, make the assumption briefly explicit.",
           "Do not invent sources. Do not return JSON.",
           visualRequested
-            ? "If visual intent is present, do not return ASCII diagrams, markdown diagrams, Mermaid, or code-fenced pseudo-graphics. Use either concise prose plus structured HTML layout, or concise prose alone."
+            ? "If visual intent is present, start with a direct plain-text answer first (at least 2 to 5 sentences), then optionally provide structured HTML layout support."
+            : "",
+          visualRequested
+            ? "The plain-text answer and any generated visual must complement each other. Do not repeat the same items verbatim across prose and visual blocks."
+            : "",
+          visualRequested
+            ? "Do not return empty sections, empty nodes, or placeholder labels in visual-oriented output."
             : "",
           "Use a short bullet list only when it genuinely helps the user act on the answer.",
           "Do not use section headings like SUMMARY, TRAINING, NUTRITION, MENTAL PERFORMANCE, CONFIDENCE, or LIMITATIONS.",
@@ -1220,12 +1337,72 @@ function sanitizeSynthesisForVisualIntent(question, synthesis) {
 
   const answerText = removeTextDiagramArtifacts(synthesis.answer_text || synthesis.summary);
   const summary = removeTextDiagramArtifacts(synthesis.summary || answerText);
+  const fallback = normalizeText(
+    synthesis.summary ||
+      synthesis.answer_text ||
+      "Here is a direct plain-language explanation before the visual.",
+    700
+  );
+  const safeAnswer = normalizeText(answerText || summary || fallback, 2400);
+  const safeSummary = normalizeText(summary || answerText || fallback, 1600);
 
   return {
     ...synthesis,
-    summary: summary || "Here is the diagram.",
-    answer_text: answerText || summary || "Here is the diagram.",
+    summary: safeSummary,
+    answer_text: safeAnswer,
   };
+}
+
+function sanitizeDiagramNodes(nodes) {
+  const cleaned = (Array.isArray(nodes) ? nodes : [])
+    .map((node, index) => ({
+      id: normalizeText(node?.id || `node_${index + 1}`, 28) || `node_${index + 1}`,
+      label: normalizeText(node?.label, 46),
+      detail: normalizeText(node?.detail, 100),
+      tone: normalizeText(node?.tone, 16) || (index === 0 ? "blue" : "amber"),
+    }))
+    .filter((node) => node.label && node.detail);
+
+  const unique = [];
+  const seen = new Set();
+  for (const node of cleaned) {
+    const key = `${node.label.toLowerCase()}|${node.detail.toLowerCase()}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push(node);
+  }
+
+  return unique.slice(0, 6).map((node, index, array) => ({
+    ...node,
+    id: `node_${index + 1}`,
+    tone: index === 0 ? "blue" : index === array.length - 1 ? "green" : node.tone || "amber",
+  }));
+}
+
+function dedupeVisualFacts(facts, maxItems = 6) {
+  const ranked = (Array.isArray(facts) ? facts : [])
+    .filter((fact) => fact && typeof fact === "object")
+    .map((fact) => ({
+      ...fact,
+      display_value: normalizeText(fact.display_value || fact.value, 24),
+      label: normalizeText(fact.label, 72),
+      detail: normalizeText(fact.detail || fact.context || "", 110),
+      context: normalizeText(fact.context || fact.detail || "", 180),
+      source_title: normalizeText(fact.source_title || "", 140),
+    }))
+    .filter((fact) => fact.display_value && fact.label);
+
+  const unique = [];
+  const seen = new Set();
+  for (const fact of ranked) {
+    const compactLabel = fact.label.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    const key = `${fact.display_value.toLowerCase()}|${compactLabel}|${fact.source_title.toLowerCase()}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push(fact);
+    if (unique.length >= maxItems) break;
+  }
+  return unique;
 }
 
 function computeConfidence({ plan, evidence }) {
@@ -1573,7 +1750,10 @@ function chooseChartTemplate(facts, question = "") {
 
 function buildChartArtifact({ question, synthesis, evidence, includeDebug = false }) {
   const facts = extractChartFacts({ question, synthesis, evidence });
-  const highConfidenceFacts = facts.filter((fact) => Number(fact.confidence || 0) >= 0.5);
+  const highConfidenceFacts = dedupeVisualFacts(
+    facts.filter((fact) => Number(fact.confidence || 0) >= 0.5),
+    6
+  );
 
   if (highConfidenceFacts.length < 2) {
     return {
@@ -1693,12 +1873,14 @@ function buildDiagramArtifact({ question, synthesis, includeDebug = false }) {
           detail: normalizeText(sentence, 100),
         }))
       : buildDiagramFallbackNodes(question);
-  const nodes = sourceNodes.map((node, index) => ({
-    id: `node_${index + 1}`,
-    label: normalizeText(node.label || `Step ${index + 1}`, 46),
-    detail: normalizeText(node.detail || "", 100),
-    tone: index === 0 ? "blue" : index === sourceNodes.length - 1 ? "green" : "amber",
-  }));
+  const nodes = sanitizeDiagramNodes(
+    sourceNodes.map((node, index) => ({
+      id: `node_${index + 1}`,
+      label: normalizeText(node.label || `Step ${index + 1}`, 46),
+      detail: normalizeText(node.detail || "", 100),
+      tone: index === 0 ? "blue" : index === sourceNodes.length - 1 ? "green" : "amber",
+    }))
+  );
 
   if (nodes.length < 2) {
     return { card: null, debug: { generated: false, artifact_type: "diagram", reason: "insufficient_diagram_nodes", node_count: nodes.length } };
@@ -1728,7 +1910,8 @@ function buildDiagramArtifact({ question, synthesis, includeDebug = false }) {
 }
 
 function withDiagramNodes(card, nodes) {
-  if (!card || card.artifact_type !== "diagram" || !Array.isArray(nodes) || nodes.length < 2) {
+  const cleanedNodes = sanitizeDiagramNodes(nodes);
+  if (!card || card.artifact_type !== "diagram" || cleanedNodes.length < 2) {
     return card;
   }
 
@@ -1736,9 +1919,9 @@ function withDiagramNodes(card, nodes) {
     ...card,
     data: {
       ...(card.data || {}),
-      nodes,
-      edges: nodes.slice(1).map((node, index) => ({
-        from: nodes[index].id,
+      nodes: cleanedNodes,
+      edges: cleanedNodes.slice(1).map((node, index) => ({
+        from: cleanedNodes[index].id,
         to: node.id,
         label: index === 0 ? "then" : "",
       })),
@@ -2270,6 +2453,7 @@ async function generateRecommendation({
   question,
   profile,
   userId,
+  threadId,
   includeDebug,
   threadState,
   recentMessages,
@@ -2342,6 +2526,11 @@ async function generateRecommendation({
   let synthesis = null;
   let synthesisMode = "not_started";
   let synthesisModel = DEFAULT_MODEL;
+  let cumulativeTokenUsage = {
+    prompt_tokens: 0,
+    completion_tokens: 0,
+    total_tokens: 0,
+  };
 
   try {
     openAIResponse = await callOpenAISynthesis({
@@ -2355,6 +2544,10 @@ async function generateRecommendation({
       recentMessages,
       safety,
     });
+    cumulativeTokenUsage = mergeTokenUsageTotals(
+      cumulativeTokenUsage,
+      extractTokenUsage(openAIResponse)
+    );
 
     const structuredOutput = extractStructuredOutput(openAIResponse);
     if (structuredOutput) {
@@ -2389,6 +2582,10 @@ async function generateRecommendation({
         recentMessages,
         safety,
       });
+      cumulativeTokenUsage = mergeTokenUsageTotals(
+        cumulativeTokenUsage,
+        extractTokenUsage(openAIResponse)
+      );
       synthesisModel = SYNTHESIS_FALLBACK_MODEL;
 
       const retryStructuredOutput = extractStructuredOutput(openAIResponse);
@@ -2481,6 +2678,23 @@ async function generateRecommendation({
     question,
     evidence: databaseEvidence,
   });
+  const tokenUsage = cumulativeTokenUsage;
+
+  logTokenUsageEvent({
+    supabaseUrl,
+    serviceRoleKey,
+    supabaseUserId,
+    stableUserId,
+    threadId,
+    question,
+    plan,
+    requestMeta,
+    tokenUsage,
+    responseId: openAIResponse?.id || null,
+    model: synthesisModel,
+  }).catch((error) => {
+    console.error("Token usage event logging failed:", error);
+  });
 
   return {
     user: {
@@ -2496,6 +2710,7 @@ async function generateRecommendation({
     sources,
     cards,
     quant_findings: quantFindings,
+    token_usage: tokenUsage,
     guardrail: {
       status: safety.status,
       response_mode: safety.responseMode,
@@ -2512,6 +2727,7 @@ async function generateRecommendation({
           has_structured_output: Boolean(extractStructuredOutput(openAIResponse)),
           visual_generation: visualPlan.debug,
           safety,
+          token_usage: tokenUsage,
         }
       : undefined,
   };
