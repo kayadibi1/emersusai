@@ -1039,6 +1039,14 @@ function Message({ message }) {
   );
 }
 
+function RailMetric({ label, value, note, width = "0%", tone = "" }) {
+  return h("div", { className: "rail-metric" },
+    h("div", { className: "rail-metric-head" },
+      h("div", null, h("p", { className: "rail-metric-label" }, label), h("p", { className: "rail-metric-value" }, value)),
+      h("span", { className: "rail-metric-note" }, note)),
+    h("div", { className: `rail-spark ${tone}`.trim(), style: { "--spark-width": width } }));
+}
+
 function SourceList({ sources }) {
   return h("ul", { className: "source-list" }, (Array.isArray(sources) ? sources : []).map((source, index) => {
     const meta = [source.author_label || "", source.journal || "", source.year || source.published_at || "", source.publication_type || "", source.pmid ? `PMID ${source.pmid}` : ""].filter(Boolean).join(" - ");
