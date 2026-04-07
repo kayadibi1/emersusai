@@ -1279,8 +1279,18 @@ function htmlToPlainText(value) {
     .trim();
 }
 
+function stripCodeFences(value) {
+  return String(value || "")
+    .replace(/^\s*```(?:html|json|markdown|md)?\s*\n?/i, "")
+    .replace(/\n?\s*```\s*$/i, "")
+    .replace(/```(?:html|json|markdown|md)?\s*\n?/gi, "")
+    .replace(/```/g, "")
+    .trim();
+}
+
 function normalizeSynthesisPayload(text) {
-  const normalizedRawText = String(text || "").trim();
+  const fenceStripped = stripCodeFences(String(text || "").trim());
+  const normalizedRawText = fenceStripped;
   const plainText = looksLikeStructuredHtml(normalizedRawText)
     ? htmlToPlainText(normalizedRawText)
     : normalizedRawText;
@@ -1295,7 +1305,7 @@ function normalizeSynthesisPayload(text) {
 
   return {
     summary: normalizeText(fallbackSummary, 1600),
-    answer_text: normalizedRawText || normalizedText,
+    answer_text: normalizedText || normalizedRawText,
     recommendations: {
       general: normalizeList(genericBullets, 8, 240),
     },
