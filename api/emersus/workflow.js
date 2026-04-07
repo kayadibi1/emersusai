@@ -9,6 +9,39 @@ const MAX_PROFILE_FIELD_LENGTH = 300;
 const VECTOR_LIMIT = 6;
 const VECTOR_MATCH_THRESHOLD = 0.4;
 const VECTOR_MATCH_COUNT = 10;
+const STRUCTURED_LAYOUT_SYSTEM_INSTRUCTIONS = `
+You are an analytical assistant that communicates through rich, structured HTML layouts when the content warrants it.
+Think in information architecture before writing sentences.
+
+Core decision rule:
+- Before every answer, decide whether structure communicates better than plain paragraphs.
+- Use structured HTML when the question involves comparison, scoring/ranking, strategy, research synthesis, multi-part analysis, phased roadmaps/processes, or a clear verdict supported by evidence.
+- Use plain text when the request is conversational, short-form, simple clarification, or fully answerable in one or two sentences.
+
+Structured HTML output rules:
+- Return a self-contained HTML snippet with a <style> block and semantic sections.
+- Do not use external libraries, CDNs, or external CSS dependencies.
+- Keep it browser-ready with zero setup.
+- If inline rendering is enough, omit DOCTYPE/html/body wrappers.
+- If the user asks for standalone-file output, include full document tags.
+
+Visual language requirements for structured responses:
+- Use section labels (small uppercase muted labels), metric cards, raised cards, flat section cards, badges, scoring bars, dividers, and a final verdict box.
+- Use a 2-column, 3-column, and 4-column responsive grid where appropriate.
+- Include responsive fallback: on narrow viewports, metric grids collapse and multi-column layouts stack.
+- Keep typography restrained: primary body text around 13px, concise card titles, muted captions, and only regular/medium weights.
+- Use the provided neutral + semantic color intent: subtle neutral backgrounds, readable contrast, and green/amber/red/blue semantics for status signals.
+
+Content rules for structured responses:
+- Lead with quantitative metrics when available.
+- Use badges to encode signal type (positive/caution/risk/info).
+- Use shared-scale scoring bars for prioritization and avoid flattening all scores.
+- Keep card prose concise (2-4 sentences each).
+- Avoid bullet lists inside styled cards; use prose in cards and place lists in separate sections when needed.
+- Always include a clear verdict box at the end for analysis responses.
+
+When in doubt, choose structured output for analytical questions.
+`.trim();
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -781,16 +814,15 @@ function buildSynthesisInput({
         [
           "You are Emersus AI, a science-aware performance assistant for strength training, cardio, nutrition, and mental performance.",
           "Use the provided evidence first. Keep claims tethered to the evidence. Be practical, specific, and concise.",
+          STRUCTURED_LAYOUT_SYSTEM_INSTRUCTIONS,
           "Use thread memory only to interpret follow-up references or preserve relevant goal/constraint continuity.",
           "Do not use thread memory as evidence, and do not let it override the user's current question.",
           "If the current question introduces a new topic, ignore prior hypertrophy or strength context unless the user explicitly connects the new topic to that context.",
           "If the current question is a short confirmation such as 'yes' or 'do that', resolve it against the immediately previous assistant offer in Recent messages, not an older thread topic.",
           "If thread context is needed for interpretation, make the assumption briefly explicit.",
           "Do not invent sources. Do not return JSON.",
-          "Return plain text only.",
-          "Start with a direct answer in normal prose.",
           visualRequested
-            ? "The server will render any requested visual separately. Do not create ASCII diagrams, markdown diagrams, Mermaid, code blocks, flowcharts, tables, or text-only diagram layouts in the answer."
+            ? "If visual intent is present, do not return ASCII diagrams, markdown diagrams, Mermaid, or code-fenced pseudo-graphics. Use either concise prose plus structured HTML layout, or concise prose alone."
             : "",
           "Use a short bullet list only when it genuinely helps the user act on the answer.",
           "Do not use section headings like SUMMARY, TRAINING, NUTRITION, MENTAL PERFORMANCE, CONFIDENCE, or LIMITATIONS.",
@@ -1103,11 +1135,41 @@ function extractPlainParagraphs(text) {
     .filter(Boolean);
 }
 
+function looksLikeStructuredHtml(value) {
+  const text = String(value || "").trim();
+  if (!text) return false;
+  if (/<style[\s>]/i.test(text)) return true;
+  return /<(section|article|main|header|footer|div|table|h1|h2|h3|h4|p|ul|ol)\b/i.test(text);
+}
+
+function htmlToPlainText(value) {
+  return String(value || "")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<li\b[^>]*>/gi, "- ")
+    .replace(/<(br|\/p|\/div|\/section|\/article|\/header|\/footer|\/h[1-6]|\/tr|\/table|\/ul|\/ol)\s*\/?>/gi, "\n")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, "\"")
+    .replace(/&#39;/gi, "'")
+    .replace(/\r?\n[ \t]+\r?\n/g, "\n\n")
+    .replace(/[ \t]+\n/g, "\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .replace(/[ \t]{2,}/g, " ")
+    .trim();
+}
+
 function normalizeSynthesisPayload(text) {
   const normalizedRawText = String(text || "").trim();
-  const normalizedText = normalizeText(normalizedRawText, 2400);
-  const paragraphs = extractPlainParagraphs(normalizedRawText);
-  const genericBullets = extractGenericBullets(normalizedRawText);
+  const plainText = looksLikeStructuredHtml(normalizedRawText)
+    ? htmlToPlainText(normalizedRawText)
+    : normalizedRawText;
+  const normalizedText = normalizeText(plainText || normalizedRawText, 2400);
+  const paragraphs = extractPlainParagraphs(plainText || normalizedRawText);
+  const genericBullets = extractGenericBullets(plainText || normalizedRawText);
   const fallbackSummary = paragraphs[0] || normalizedText;
 
   if (!normalizedText) {
