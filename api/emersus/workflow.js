@@ -116,6 +116,22 @@ function parseUserId(rawUserId) {
 function inferTopic(question) {
   const text = question.toLowerCase();
 
+  if (/safe|safety|risk|harm|side effect|contraindication|adverse/.test(text)) {
+    return "safety";
+  }
+
+  if (/dose|dosage|duration|protocol|loading phase|maintenance/.test(text)) {
+    return "protocol";
+  }
+
+  if (
+    /peptide|bpc[-\s]?157|body protection compound|thymosin|tb[-\s]?500|tb500|glp[-\s]?1|semaglutide|liraglutide|tirzepatide|ghrp|growth hormone releasing|cjc[-\s]?1295|ipamorelin|tesamorelin|ghrelin|secretagogue/.test(
+      text
+    )
+  ) {
+    return "peptides";
+  }
+
   if (/run|cardio|zone 2|vo2|max|cycling|endurance|interval/.test(text)) {
     return "cardio";
   }
@@ -128,7 +144,19 @@ function inferTopic(question) {
     return "mental_performance";
   }
 
-  return "strength";
+  if (/study|studying|learn|learning|exam|homework|memorization|flashcard|test prep|school/.test(text)) {
+    return "learning";
+  }
+
+  if (/strength|hypertrophy|muscle gain|build muscle|lean mass|resistance training|lifting/.test(text)) {
+    return "strength";
+  }
+
+  if (/recovery|soreness|rehab|tendon|joint|injury/.test(text)) {
+    return "recovery";
+  }
+
+  return "general";
 }
 
 function buildPlan(question, profile) {
@@ -755,6 +783,8 @@ function buildSynthesisInput({
           "Use the provided evidence first. Keep claims tethered to the evidence. Be practical, specific, and concise.",
           "Use thread memory only to interpret follow-up references or preserve relevant goal/constraint continuity.",
           "Do not use thread memory as evidence, and do not let it override the user's current question.",
+          "If the current question introduces a new topic, ignore prior hypertrophy or strength context unless the user explicitly connects the new topic to that context.",
+          "If the current question is a short confirmation such as 'yes' or 'do that', resolve it against the immediately previous assistant offer in Recent messages, not an older thread topic.",
           "If thread context is needed for interpretation, make the assumption briefly explicit.",
           "Do not invent sources. Do not return JSON.",
           "Return plain text only.",
@@ -785,6 +815,7 @@ function buildSynthesisInput({
             "Answer the user's question directly.",
             "Use the retrieved evidence as the main basis for the answer.",
             "Use thread memory only to resolve references like 'it', 'that', follow-up population changes, or comparison carryover.",
+            "For short confirmations such as 'yes', use the most recent assistant message to infer what the user accepted.",
             "Make the recommendations specific and useful.",
             visualRequested
               ? "If the user asks for a visual, keep the prose answer to a concise intro/explanation and do not duplicate the visual as text."

@@ -2021,19 +2021,26 @@
     }
 
     function questionLooksLikeFollowUp(question) {
-      return /^(what about|how about|and for|compare that|compare it|does that|would that|what if|and if|for women|for men|for older adults|for beginners|for me)\b/i.test(
+      return /^(yes|yeah|yep|sure|please|do that|that one|sounds good|ok|okay|what about|how about|and for|compare that|compare it|does that|would that|what if|and if|for women|for men|for older adults|for beginners|for me)\b/i.test(
         String(question || "").trim()
       );
     }
 
-    function inferPrimaryTopic(question, previousTopic = "") {
-      const text = String(question || "").toLowerCase();
+    function questionLooksLikeAffirmation(question) {
+      return /^(yes|yeah|yep|sure|please|do that|that one|sounds good|ok|okay)\b/i.test(
+        String(question || "").trim()
+      );
+    }
 
-      if (!text) {
-        return previousTopic || "";
-      }
-
+    function matchPrimaryTopic(text) {
       const topicMatchers = [
+        [/bpc[-\s]?157|body protection compound/, "BPC-157"],
+        [/thymosin beta[-\s]?4|tb[-\s]?500|tb500/, "thymosin beta-4"],
+        [/collagen peptide|hydrolyzed collagen|gelatin/, "collagen peptides"],
+        [/bioactive peptide/, "bioactive peptides"],
+        [/glp[-\s]?1|semaglutide|liraglutide|tirzepatide/, "GLP-1 peptides"],
+        [/growth hormone releasing|ghrp|cjc[-\s]?1295|ipamorelin|tesamorelin|ghrelin|secretagogue/, "growth hormone peptides"],
+        [/\bpeptide\b|\bpeptides\b/, "peptides"],
         [/creatine/, "creatine"],
         [/\bvo2\b|\bvo2 max\b|maximal oxygen uptake|cardiorespiratory fitness/, "vo2 max"],
         [/resting heart rate|rhr/, "resting heart rate"],
@@ -2042,6 +2049,7 @@
         [/turkesterone/, "turkesterone"],
         [/testosterone/, "testosterone"],
         [/caffeine/, "caffeine"],
+        [/study|studying|learn|learning|exam|homework|memorization|flashcard|test prep|school/, "studying"],
         [/protein|amino acid|bcaa|eaa|whey|casein/, "protein"],
         [/sleep|circadian/, "sleep"],
         [/beta[-\s]?alanine/, "beta-alanine"],
@@ -2049,6 +2057,9 @@
         [/zone 2|endurance|running|cardio|interval|hiit/, "endurance"],
         [/hypertrophy|muscle gain|build muscle/, "hypertrophy"],
         [/fat loss|cutting|weight loss|caloric deficit/, "fat loss"],
+        [/safe|safety|risk|harm|side effect|contraindication|adverse/, "safety"],
+        [/dose|dosage|duration|protocol|loading phase|maintenance/, "protocol"],
+        [/recovery|soreness|rehab|tendon|joint|injury/, "recovery"],
       ];
 
       for (const [pattern, topic] of topicMatchers) {
@@ -2057,11 +2068,30 @@
         }
       }
 
+      return "";
+    }
+
+    function inferPrimaryTopic(question, previousTopic = "") {
+      const text = String(question || "").toLowerCase();
+
+      if (!text) {
+        return previousTopic || "";
+      }
+      if (questionLooksLikeAffirmation(question)) {
+        return "";
+      }
+
+      const explicitTopic = matchPrimaryTopic(text);
+
+      if (explicitTopic) {
+        return explicitTopic;
+      }
+
       if (questionLooksLikeFollowUp(question) && previousTopic) {
         return previousTopic;
       }
 
-      return previousTopic || "";
+      return "";
     }
 
     function inferGoalContext(question, previousGoal = "") {
@@ -2079,13 +2109,29 @@
       if (/recovery|soreness|sleep|stress/.test(text)) {
         return "recovery";
       }
+      if (/safe|safety|risk|harm|side effect|contraindication|adverse/.test(text)) {
+        return "safety";
+      }
+      if (/dose|dosage|duration|protocol|loading phase|maintenance/.test(text)) {
+        return "protocol";
+      }
+      if (questionLooksLikeAffirmation(question)) {
+        return "";
+      }
 
-      return previousGoal || "";
+      if (questionLooksLikeFollowUp(question)) {
+        return previousGoal || "";
+      }
+
+      return "";
     }
 
     function inferQuestionMode(question) {
       const text = String(question || "").toLowerCase();
 
+      if (questionLooksLikeAffirmation(question)) {
+        return "confirmation";
+      }
       if (/\bcompare\b|\bversus\b|\bvs\b/.test(text)) {
         return "comparison";
       }
@@ -2136,6 +2182,14 @@
       if (/women|female/.test(text)) entities.push("women");
       if (/cutting|fat loss|deficit/.test(text)) entities.push("fat loss");
       if (/vo2|cardio|endurance|aerobic/.test(text)) entities.push("endurance");
+      if (/bpc[-\s]?157|body protection compound/.test(text)) entities.push("BPC-157");
+      if (/thymosin|tb[-\s]?500|tb500/.test(text)) entities.push("thymosin beta-4");
+      if (/collagen peptide|hydrolyzed collagen|gelatin/.test(text)) entities.push("collagen peptides");
+      if (/glp[-\s]?1|semaglutide|liraglutide|tirzepatide/.test(text)) entities.push("GLP-1 peptides");
+      if (/growth hormone releasing|ghrp|cjc[-\s]?1295|ipamorelin|tesamorelin|ghrelin|secretagogue/.test(text)) {
+        entities.push("growth hormone peptides");
+      }
+      if (/\bpeptide\b|\bpeptides\b/.test(text)) entities.push("peptides");
 
       return normalizeCompactList(entities, 8, 60);
     }
@@ -2148,6 +2202,9 @@
 
       if (mode === "comparison") {
         return `asking for a comparison related to ${topic || "the current topic"}`;
+      }
+      if (mode === "confirmation") {
+        return "confirming the immediately previous assistant offer";
       }
       if (mode === "personalization") {
         return `asking how ${topic || "the current topic"} applies in a specific context`;
@@ -2181,6 +2238,8 @@
 
     function deriveThreadState(threadData, question = "", answerSummary = "") {
       const previous = mergeThreadState(threadData?.threadState);
+      const isAffirmation = questionLooksLikeAffirmation(question);
+      const isFollowUp = questionLooksLikeFollowUp(question) && !isAffirmation;
       const primaryTopic = inferPrimaryTopic(question, previous.primary_topic);
       const comparisonTarget = extractComparisonTarget(question) || "";
       const populationContext = extractPopulationContext(question);
@@ -2190,8 +2249,10 @@
         primary_topic: primaryTopic,
         secondary_topics: normalizeCompactList(
           [
-            ...previous.secondary_topics,
-            previous.goal_context ? previous.goal_context.replace(/_/g, " ") : "",
+            ...(isFollowUp ? previous.secondary_topics : []),
+            isFollowUp && previous.goal_context
+              ? previous.goal_context.replace(/_/g, " ")
+              : "",
             comparisonTarget,
             ...populationContext,
           ],
@@ -2204,7 +2265,11 @@
         comparison_target:
           questionMode === "comparison" ? comparisonTarget || previous.comparison_target : "",
         population_context:
-          populationContext.length > 0 ? populationContext : previous.population_context,
+          populationContext.length > 0
+            ? populationContext
+            : isFollowUp
+              ? previous.population_context
+              : [],
         last_user_intent: buildLastUserIntent(question, questionMode, primaryTopic),
         last_answer_summary:
           normalizeCompactText(answerSummary, 220) || previous.last_answer_summary,

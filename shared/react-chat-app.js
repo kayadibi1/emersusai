@@ -156,22 +156,59 @@ function createEmptyThread() {
   };
 }
 
-function inferPrimaryTopic(question, previousTopic = "") {
-  const text = String(question || "").toLowerCase();
+function questionLooksLikeFollowUp(question) {
+  return /^(yes|yeah|yep|sure|please|do that|that one|sounds good|ok|okay|what about|how about|and for|compare that|compare it|does that|would that|what if|and if|for women|for men|for older adults|for beginners|for me)\b/i.test(
+    String(question || "").trim()
+  );
+}
+
+function questionLooksLikeAffirmation(question) {
+  return /^(yes|yeah|yep|sure|please|do that|that one|sounds good|ok|okay)\b/i.test(
+    String(question || "").trim()
+  );
+}
+
+function matchPrimaryTopic(text) {
   const topicMatchers = [
+    [/bpc[-\s]?157|body protection compound/, "BPC-157"],
+    [/thymosin beta[-\s]?4|tb[-\s]?500|tb500/, "thymosin beta-4"],
+    [/collagen peptide|hydrolyzed collagen|gelatin/, "collagen peptides"],
+    [/bioactive peptide/, "bioactive peptides"],
+    [/glp[-\s]?1|semaglutide|liraglutide|tirzepatide/, "GLP-1 peptides"],
+    [/growth hormone releasing|ghrp|cjc[-\s]?1295|ipamorelin|tesamorelin|ghrelin|secretagogue/, "growth hormone peptides"],
+    [/\bpeptide\b|\bpeptides\b/, "peptides"],
     [/creatine/, "creatine"],
     [/beta[-\s]?alanine/, "beta-alanine"],
     [/protein|whey|casein|amino acid|bcaa|eaa/, "protein"],
     [/caffeine/, "caffeine"],
+    [/study|studying|learn|learning|exam|homework|memorization|flashcard|test prep|school/, "studying"],
     [/sleep|circadian/, "sleep"],
     [/zone 2|endurance|running|cardio|interval|hiit|vo2/, "endurance"],
     [/hypertrophy|muscle gain|build muscle/, "hypertrophy"],
     [/fat loss|cutting|weight loss|caloric deficit/, "fat loss"],
+    [/safe|safety|risk|harm|side effect|contraindication|adverse/, "safety"],
+    [/dose|dosage|duration|protocol|loading phase|maintenance/, "protocol"],
+    [/recovery|soreness|rehab|tendon|joint|injury/, "recovery"],
   ];
   for (const [pattern, topic] of topicMatchers) {
     if (pattern.test(text)) return topic;
   }
-  return previousTopic || "";
+  return "";
+}
+
+function inferPrimaryTopic(question, previousTopic = "") {
+  const text = String(question || "").toLowerCase();
+  if (!text) return previousTopic || "";
+  if (questionLooksLikeAffirmation(question)) return "";
+
+  const explicitTopic = matchPrimaryTopic(text);
+  if (explicitTopic) return explicitTopic;
+
+  if (questionLooksLikeFollowUp(question) && previousTopic) {
+    return previousTopic;
+  }
+
+  return "";
 }
 
 function inferGoalContext(question, previousGoal = "") {
@@ -180,11 +217,15 @@ function inferGoalContext(question, previousGoal = "") {
   if (/fat loss|cutting|lose fat|weight loss|deficit/.test(text)) return "fat_loss";
   if (/vo2|endurance|running|cardio|zone 2|aerobic/.test(text)) return "endurance";
   if (/recovery|soreness|sleep|stress/.test(text)) return "recovery";
-  return previousGoal || "";
+  if (/safe|safety|risk|harm|side effect|contraindication|adverse/.test(text)) return "safety";
+  if (/dose|dosage|duration|protocol|loading phase|maintenance/.test(text)) return "protocol";
+  if (questionLooksLikeAffirmation(question)) return "";
+  return questionLooksLikeFollowUp(question) ? previousGoal || "" : "";
 }
 
 function inferQuestionMode(question) {
   const text = String(question || "").toLowerCase();
+  if (questionLooksLikeAffirmation(question)) return "confirmation";
   if (/\bcompare\b|\bversus\b|\bvs\b/.test(text)) return "comparison";
   if (/what should i do|how should i|plan|schedule|dose|dosage|program/.test(text)) return "action_plan";
   if (/for women|for men|for me|if i'm|if i am|what about/.test(text)) return "personalization";
@@ -213,6 +254,8 @@ function extractPopulationContext(question) {
 
 function deriveThreadState(threadData, question = "", answerSummary = "") {
   const previous = mergeThreadState(threadData?.threadState);
+  const isAffirmation = questionLooksLikeAffirmation(question);
+  const isFollowUp = questionLooksLikeFollowUp(question) && !isAffirmation;
   const primaryTopic = inferPrimaryTopic(question, previous.primary_topic);
   const comparisonTarget = extractComparisonTarget(question) || "";
   const populationContext = extractPopulationContext(question);
@@ -221,8 +264,8 @@ function deriveThreadState(threadData, question = "", answerSummary = "") {
     ...previous,
     primary_topic: primaryTopic,
     secondary_topics: normalizeCompactList([
-      ...previous.secondary_topics,
-      previous.goal_context ? previous.goal_context.replace(/_/g, " ") : "",
+      ...(isFollowUp ? previous.secondary_topics : []),
+      isFollowUp && previous.goal_context ? previous.goal_context.replace(/_/g, " ") : "",
       comparisonTarget,
       ...populationContext,
     ], 4, 60),
@@ -230,8 +273,13 @@ function deriveThreadState(threadData, question = "", answerSummary = "") {
     question_mode: questionMode,
     recent_entities: normalizeCompactList([primaryTopic, comparisonTarget, ...populationContext], 8, 60),
     comparison_target: questionMode === "comparison" ? comparisonTarget || previous.comparison_target : "",
-    population_context: populationContext.length > 0 ? populationContext : previous.population_context,
-    last_user_intent: questionMode === "comparison" ? `asking for a comparison related to ${primaryTopic || "the current topic"}` : `asking about ${normalizeText(question, 150)}`,
+    population_context: populationContext.length > 0 ? populationContext : isFollowUp ? previous.population_context : [],
+    last_user_intent:
+      questionMode === "confirmation"
+        ? "confirming the immediately previous assistant offer"
+        : questionMode === "comparison"
+          ? `asking for a comparison related to ${primaryTopic || "the current topic"}`
+          : `asking about ${normalizeText(question, 150)}`,
     last_answer_summary: normalizeText(answerSummary, 220) || previous.last_answer_summary,
     updated_at: new Date().toISOString(),
   });
