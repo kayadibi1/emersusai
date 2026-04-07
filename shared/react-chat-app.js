@@ -939,15 +939,6 @@ function InlineVisualArtifact({ card, title, metrics = [], sources = [], panels 
   );
 }
 
-function VerdictHero({ card }) {
-  const metrics = Array.isArray(card?.metrics) ? card.metrics.slice(0, 4) : [];
-  return h(
-    ToolCard,
-    { title: card?.eyebrow || "Evidence Verdict", bodyClass: "chat-insight-card" },
-    h(EvidenceArtifact, { card, title: card?.eyebrow || "Evidence Verdict", metrics })
-  );
-}
-
 function DashboardArtifact({ card }) {
   const metrics = Array.isArray(card?.metrics) ? card.metrics.slice(0, 4) : [];
   const panels = Array.isArray(card?.panels) ? card.panels.slice(0, 4) : [];
@@ -1037,7 +1028,6 @@ function InsightCard({ block }) {
   const type = String(card?.type || "").toLowerCase();
   if (type === "visual_artifact") return h(VisualArtifact, { card });
   if (type === "dashboard_artifact") return h(DashboardArtifact, { card });
-  if (type === "verdict_hero") return h(VerdictHero, { card });
   if (type === "evidence_profile") return h(EvidenceProfile, { card });
   if (type === "action_grid") return h(ActionGrid, { card });
   if (type === "watchouts") return h(Watchouts, { card });

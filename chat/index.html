@@ -388,7 +388,6 @@
       grid-column: span 12;
     }
 
-    .message.assistant .chat-insight--verdict_hero { grid-column: span 12; }
     .message.assistant .chat-insight--metric_grid  { grid-column: span 12; }
     .message.assistant .chat-insight--action_grid  { grid-column: span 8; }
     .message.assistant .chat-insight--evidence_profile { grid-column: span 4; }
@@ -2607,9 +2606,6 @@
         }
         return false;
       });
-      if (type === "verdict_hero") {
-        return hasText(card?.title) || hasText(card?.body) || nonEmptyArray(card?.metrics);
-      }
       if (type === "metric_grid") {
         return nonEmptyArray(card?.metrics);
       }
