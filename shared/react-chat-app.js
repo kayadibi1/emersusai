@@ -52,6 +52,64 @@ function escapeHtml(value) {
     .replace(/'/g, "&#39;");
 }
 
+function unwrapHtmlFence(value) {
+  const text = String(value || "").trim();
+  const fenced = text.match(/^```(?:html)?\s*([\s\S]*?)```$/i);
+  return fenced ? fenced[1].trim() : text;
+}
+
+function looksLikeStructuredHtml(value) {
+  const text = unwrapHtmlFence(value);
+  if (!text) return false;
+  if (/<style[\s>]/i.test(text)) return true;
+  return /<(section|article|main|header|footer|div|table|h1|h2|h3|h4|p|ul|ol)\b/i.test(text);
+}
+
+function sanitizeAssistantHtml(value) {
+  const raw = unwrapHtmlFence(value);
+  if (!raw) return "";
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(raw, "text/html");
+
+  doc
+    .querySelectorAll("script, iframe, object, embed, form, meta[http-equiv='refresh']")
+    .forEach((node) => node.remove());
+
+  doc.querySelectorAll("*").forEach((element) => {
+    for (const attribute of [...element.attributes]) {
+      const name = attribute.name.toLowerCase();
+      const attributeValue = String(attribute.value || "");
+      if (name.startsWith("on")) {
+        element.removeAttribute(attribute.name);
+        continue;
+      }
+      if (
+        (name === "href" || name === "src" || name === "xlink:href") &&
+        /^\s*javascript:/i.test(attributeValue)
+      ) {
+        element.removeAttribute(attribute.name);
+        continue;
+      }
+      if (
+        name === "style" &&
+        /(expression\s*\(|url\s*\(\s*['"]?\s*javascript:)/i.test(attributeValue)
+      ) {
+        element.removeAttribute(attribute.name);
+      }
+    }
+  });
+
+  return (doc.body?.innerHTML || "").trim();
+}
+
+function stripHtmlToPlainText(value, maxLength = 4000) {
+  const html = String(value || "");
+  if (!html.trim()) return "";
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+  return normalizeText(doc.body?.textContent || "", maxLength);
+}
+
 function normalizeCompactList(values, maxItems = 6, maxLength = 80) {
   return (Array.isArray(values) ? values : [])
     .map((value) => normalizeText(value, maxLength))
@@ -929,7 +987,7 @@ function Message({ message }) {
       Array.isArray(message.blocks)
         ? h(MessageBlocks, { blocks: message.blocks })
         : message.html
-          ? h("div", { dangerouslySetInnerHTML: { __html: message.html } })
+          ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
           : h(TextBlock, { text: message.text || message.plainText || "", role: message.role }))
   );
 }
@@ -1070,17 +1128,28 @@ function ChatApp() {
       });
       const data = await response.json().catch(() => ({}));
       if (!response.ok) throw new Error(data.message || "Unable to generate a recommendation.");
+      const assistantRaw = String(data.answer_text || data.summary || "");
+      const structuredHtml = looksLikeStructuredHtml(assistantRaw)
+        ? sanitizeAssistantHtml(assistantRaw)
+        : "";
+      const assistantPlainText = structuredHtml
+        ? stripHtmlToPlainText(structuredHtml, 4000)
+        : assistantRaw;
       const assistantMessage = {
         role: "assistant",
-        blocks: buildAssistantBlocks(data),
-        plainText: data.answer_text || data.summary || "",
-        text: data.answer_text || data.summary || "",
+        ...(structuredHtml ? { html: structuredHtml } : { blocks: buildAssistantBlocks(data) }),
+        plainText: assistantPlainText || normalizeText(assistantRaw, 4000),
+        text: assistantPlainText || normalizeText(assistantRaw, 4000),
         createdAt: new Date().toISOString(),
       };
       const nextThread = {
         ...persistedThread,
         messages: [...(persistedThread.messages || []), assistantMessage],
-        threadState: deriveThreadState(persistedThread, trimmed, data.summary || data.answer_text || ""),
+        threadState: deriveThreadState(
+          persistedThread,
+          trimmed,
+          assistantPlainText || data.summary || data.answer_text || ""
+        ),
         rail: railFromData(data),
         sources: Array.isArray(data.sources) ? data.sources : [],
       };
