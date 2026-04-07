@@ -1281,10 +1281,11 @@ function htmlToPlainText(value) {
 
 function stripCodeFences(value) {
   return String(value || "")
-    .replace(/^\s*```(?:html|json|markdown|md)?\s*\n?/i, "")
-    .replace(/\n?\s*```\s*$/i, "")
-    .replace(/```(?:html|json|markdown|md)?\s*\n?/gi, "")
-    .replace(/```/g, "")
+    .replace(/^\uFEFF/, "")
+    .replace(/^[\s\u200B-\u200D\uFEFF]*(?:```|~~~)\s*[a-zA-Z0-9_-]*\s*\n?/i, "")
+    .replace(/\n?\s*(?:```|~~~)\s*$/i, "")
+    .replace(/(?:```|~~~)\s*[a-zA-Z0-9_-]*\s*\n?/g, "")
+    .replace(/```|~~~/g, "")
     .trim();
 }
 

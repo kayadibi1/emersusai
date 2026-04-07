@@ -386,6 +386,14 @@
     .message.assistant .chat-text-block,
     .message.assistant .chat-bubble {
       grid-column: span 12;
+      max-width: none;
+      width: 100%;
+      min-width: 0;
+    }
+
+    .message.assistant .message-content > * {
+      min-width: 0;
+      max-width: 100%;
     }
 
     .message.assistant .chat-insight--metric_grid  { grid-column: span 12; }
