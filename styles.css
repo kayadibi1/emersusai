@@ -10,13 +10,13 @@ body {
 .neuron-parallax-bg {
   position: fixed;
   inset: 0;
-  z-index: -1;
+  z-index: 0;
   pointer-events: none;
   overflow: hidden;
   background:
-    radial-gradient(circle at 25% 20%, rgba(125, 35, 180, 0.22) 0%, transparent 46%),
-    radial-gradient(circle at 70% 65%, rgba(8, 115, 235, 0.15) 0%, transparent 44%),
-    linear-gradient(180deg, #07050f 0%, #080716 48%, #07050f 100%);
+    radial-gradient(circle at 18% 12%, rgba(176, 0, 255, 0.26) 0%, transparent 42%),
+    radial-gradient(circle at 74% 70%, rgba(255, 33, 214, 0.2) 0%, transparent 38%),
+    linear-gradient(180deg, #08020f 0%, #0d0618 48%, #07020d 100%);
 }
 
 #neuron-parallax-canvas {
@@ -24,6 +24,7 @@ body {
   height: 100%;
   display: block;
   opacity: 0.9;
+  image-rendering: pixelated;
 }
 
 .neuron-parallax-vignette {
@@ -33,6 +34,17 @@ body {
     radial-gradient(circle at center, transparent 36%, rgba(7, 5, 15, 0.35) 70%, rgba(7, 5, 15, 0.7) 100%),
     linear-gradient(180deg, rgba(7, 5, 15, 0.28) 0%, rgba(7, 5, 15, 0.5) 100%);
   mix-blend-mode: screen;
+}
+
+body > nav,
+body > section,
+body > footer {
+  position: relative;
+  z-index: 1;
+}
+
+body > section {
+  background-color: transparent !important;
 }
 
 section {

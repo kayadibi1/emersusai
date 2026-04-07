@@ -20,8 +20,8 @@ function initNeuronParallax() {
   let rafId = 0;
   let time = 0;
 
-  const nodeCount = reducedMotionQuery.matches ? 18 : 34;
-  const starCount = reducedMotionQuery.matches ? 100 : 240;
+  const nodeCount = reducedMotionQuery.matches ? 18 : 42;
+  const starCount = reducedMotionQuery.matches ? 120 : 300;
   const nodes = [];
   const stars = [];
 
@@ -29,15 +29,17 @@ function initNeuronParallax() {
   const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
   function makeNode(index) {
+    const layer = index % 4;
     return {
       x: rand(0.08, 0.92),
       y: rand(0.04, 0.96),
-      driftX: rand(-0.00035, 0.00035),
-      driftY: rand(-0.00028, 0.00028),
-      radius: rand(1.8, 3.9),
+      driftX: rand(-0.00024, 0.00024) * (layer + 1),
+      driftY: rand(-0.00018, 0.00018) * (layer + 1),
+      radius: rand(2.2, 5.2),
       pulse: rand(0.4, 1.8),
       phase: rand(0, Math.PI * 2),
-      layer: index % 3,
+      dendrites: Math.floor(rand(5, 10)),
+      layer,
     };
   }
 
@@ -67,13 +69,14 @@ function initNeuronParallax() {
       const star = stars[i];
       const y = (star.y * height + parallax * (3 + star.layer * 3.4)) % (height + 12);
       const alpha = star.alpha * (0.6 + 0.4 * Math.sin(time * star.twinkle + star.phase));
-      ctx.fillStyle = `rgba(${star.layer === 2 ? "159,251,0" : star.layer === 1 ? "117,217,255" : "246,121,255"}, ${clamp(alpha, 0.05, 0.95)})`;
-      ctx.fillRect(star.x * width, y - 6, star.size, star.size);
+      ctx.fillStyle = `rgba(${star.layer === 2 ? "255,63,228" : star.layer === 1 ? "184,92,255" : "255,180,244"}, ${clamp(alpha, 0.05, 0.95)})`;
+      const size = Math.max(1, Math.round(star.size + star.layer * 0.7));
+      ctx.fillRect(Math.round(star.x * width), Math.round(y - 6), size, size);
     }
   }
 
   function drawConnections(projectedNodes, parallax) {
-    const maxDistance = Math.min(width, height) * 0.28;
+    const maxDistance = Math.min(width, height) * 0.34;
     for (let i = 0; i < projectedNodes.length; i += 1) {
       for (let j = i + 1; j < projectedNodes.length; j += 1) {
         const a = projectedNodes[i];
@@ -84,14 +87,27 @@ function initNeuronParallax() {
         if (distance > maxDistance) continue;
 
         const intensity = 1 - distance / maxDistance;
-        const alpha = clamp(intensity * 0.5, 0.04, 0.45);
-        const hue = 280 + Math.sin((a.seed + b.seed + time) * 0.6) * 40 + parallax * 0.06;
-        ctx.strokeStyle = `hsla(${hue}, 100%, 72%, ${alpha})`;
-        ctx.lineWidth = 0.7 + intensity * 1.25;
+        const depth = (a.depth + b.depth) / 2;
+        const alpha = clamp(intensity * (0.16 + depth * 0.48), 0.035, 0.62);
+        const hue = 287 + Math.sin((a.seed + b.seed + time) * 0.7) * 17 + parallax * 0.03;
+        ctx.strokeStyle = `hsla(${hue}, 100%, ${62 + depth * 18}%, ${alpha})`;
+        ctx.lineWidth = 0.6 + intensity * (0.8 + depth * 1.6);
         ctx.beginPath();
         ctx.moveTo(a.x, a.y);
         ctx.lineTo(b.x, b.y);
         ctx.stroke();
+
+        if (!reducedMotionQuery.matches && intensity > 0.22) {
+          const signalPhase = (time * (0.18 + depth * 0.34) + (a.seed + b.seed) * 0.077) % 1;
+          const sx = a.x + (b.x - a.x) * signalPhase;
+          const sy = a.y + (b.y - a.y) * signalPhase;
+          const packetSize = Math.max(2, Math.round(2 + depth * 5));
+          ctx.shadowColor = "rgba(244, 64, 255, 0.95)";
+          ctx.shadowBlur = 8 + depth * 18;
+          ctx.fillStyle = `rgba(255, ${Math.round(92 + depth * 120)}, 247, ${0.65 + depth * 0.28})`;
+          ctx.fillRect(Math.round(sx - packetSize / 2), Math.round(sy - packetSize / 2), packetSize, packetSize);
+          ctx.shadowBlur = 0;
+        }
       }
     }
   }
@@ -99,27 +115,50 @@ function initNeuronParallax() {
   function drawNodes(projectedNodes, parallax) {
     for (let i = 0; i < projectedNodes.length; i += 1) {
       const node = projectedNodes[i];
-      const glow = 6 + node.radius * 2.2 + Math.sin(time * node.pulse + node.phase) * 2.2;
-      const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, glow * 3.4);
-      gradient.addColorStop(0, "rgba(255, 137, 235, 0.85)");
-      gradient.addColorStop(0.35, "rgba(194, 113, 255, 0.42)");
-      gradient.addColorStop(1, "rgba(90, 26, 168, 0)");
+      const pixel = node.pixel;
+      const glow = 8 + node.radius * (2.4 + node.depth * 2.2) + Math.sin(time * node.pulse + node.phase) * 2.4;
+      const gradient = ctx.createRadialGradient(node.x, node.y, 0, node.x, node.y, glow * 4.1);
+      gradient.addColorStop(0, `rgba(255, 130, 246, ${0.78 + node.depth * 0.16})`);
+      gradient.addColorStop(0.28, "rgba(191, 60, 255, 0.42)");
+      gradient.addColorStop(1, "rgba(81, 0, 130, 0)");
       ctx.fillStyle = gradient;
       ctx.beginPath();
-      ctx.arc(node.x, node.y, glow * 3.4, 0, Math.PI * 2);
+      ctx.arc(node.x, node.y, glow * 4.1, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.fillStyle = "rgba(255, 207, 255, 0.95)";
-      ctx.fillRect(node.x - node.radius, node.y - node.radius, node.radius * 2, node.radius * 2);
+      for (let ring = 2; ring >= 0; ring -= 1) {
+        const cells = 6 + ring * 6;
+        const ringRadius = pixel * (1.6 + ring * 1.35);
+        for (let k = 0; k < cells; k += 1) {
+          const angle = (Math.PI * 2 * k) / cells + node.phase * 0.4;
+          const jitter = Math.sin(time * 0.8 + k + node.phase) * pixel * 0.34;
+          const x = Math.round(node.x + Math.cos(angle) * (ringRadius + jitter));
+          const y = Math.round(node.y + Math.sin(angle) * (ringRadius + jitter));
+          ctx.fillStyle =
+            ring === 0
+              ? "rgba(255, 221, 255, 0.96)"
+              : ring === 1
+                ? "rgba(255, 78, 230, 0.82)"
+                : "rgba(165, 56, 255, 0.62)";
+          ctx.fillRect(x, y, pixel, pixel);
+        }
+      }
 
-      const synapseCount = 6;
-      for (let k = 0; k < synapseCount; k += 1) {
-        const angle = (Math.PI * 2 * k) / synapseCount + node.phase + parallax * 0.0015;
-        const distance = glow * (1.8 + k * 0.32);
-        const sx = node.x + Math.cos(angle) * distance;
-        const sy = node.y + Math.sin(angle) * distance;
-        ctx.fillStyle = `rgba(${k % 2 ? "141,221,255" : "159,251,0"}, ${0.24 + k * 0.08})`;
-        ctx.fillRect(sx, sy, 1.4, 1.4);
+      ctx.fillStyle = "rgba(255, 234, 255, 0.98)";
+      ctx.fillRect(Math.round(node.x - pixel), Math.round(node.y - pixel), pixel * 2, pixel * 2);
+
+      for (let k = 0; k < node.dendrites; k += 1) {
+        const angle = (Math.PI * 2 * k) / node.dendrites + node.phase + parallax * 0.0009;
+        const armLength = glow * (1.45 + (k % 4) * 0.24);
+        const segments = 5 + (k % 4);
+        for (let segment = 1; segment <= segments; segment += 1) {
+          const progress = segment / segments;
+          const wiggle = Math.sin(time * 0.9 + segment + node.phase) * pixel * 0.8;
+          const sx = node.x + Math.cos(angle) * armLength * progress + wiggle;
+          const sy = node.y + Math.sin(angle) * armLength * progress - wiggle;
+          ctx.fillStyle = `rgba(${k % 2 ? "255,96,238" : "190,82,255"}, ${0.42 - progress * 0.22 + node.depth * 0.22})`;
+          ctx.fillRect(Math.round(sx), Math.round(sy), Math.max(1, pixel - 1), Math.max(1, pixel - 1));
+        }
       }
     }
   }
@@ -142,10 +181,19 @@ function initNeuronParallax() {
       if (node.x < 0.04 || node.x > 0.96) node.driftX *= -1;
       if (node.y < 0.03 || node.y > 0.97) node.driftY *= -1;
 
-      const layerShift = (node.layer + 1) * 0.06;
-      const px = node.x * width + Math.sin(time * 0.6 + node.phase) * 11;
-      const py = node.y * height + parallax * layerShift + Math.cos(time * 0.5 + node.phase) * 8;
-      projectedNodes.push({ ...node, x: px, y: ((py % (height + 40)) + (height + 40)) % (height + 40) - 20, seed: i * 1.37 });
+      const depth = 0.42 + node.layer * 0.2;
+      const layerShift = (node.layer + 1) * 0.085;
+      const px = node.x * width + Math.sin(time * (0.38 + depth * 0.2) + node.phase) * (8 + depth * 20);
+      const py = node.y * height + parallax * layerShift + Math.cos(time * (0.34 + depth * 0.18) + node.phase) * (6 + depth * 14);
+      projectedNodes.push({
+        ...node,
+        depth,
+        pixel: Math.max(2, Math.round((2 + node.layer) * Math.min(width, height) / 760)),
+        radius: node.radius * depth,
+        x: px,
+        y: ((py % (height + 60)) + (height + 60)) % (height + 60) - 30,
+        seed: i * 1.37,
+      });
     }
 
     drawConnections(projectedNodes, parallax);
