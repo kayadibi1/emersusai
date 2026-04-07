@@ -373,6 +373,40 @@
       font-size: 1rem;
     }
 
+    /* Dashboard-style grid for assistant messages: cards flow into a 12-col
+       layout with per-type column spans, filling the canvas like an editorial
+       layout instead of stacking in a single column. */
+    .message.assistant .message-content {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      grid-auto-flow: dense;
+      gap: 0.7rem;
+      align-items: start;
+    }
+
+    .message.assistant .chat-text-block,
+    .message.assistant .chat-bubble {
+      grid-column: span 12;
+    }
+
+    .message.assistant .chat-insight--verdict_hero { grid-column: span 12; }
+    .message.assistant .chat-insight--metric_grid  { grid-column: span 12; }
+    .message.assistant .chat-insight--action_grid  { grid-column: span 8; }
+    .message.assistant .chat-insight--evidence_profile { grid-column: span 4; }
+    .message.assistant .chat-insight--source_highlights { grid-column: span 7; }
+    .message.assistant .chat-insight--watchouts { grid-column: span 5; }
+
+    .message.assistant .chat-tool-card { grid-column: span 12; }
+
+    @media (max-width: 900px) {
+      .message.assistant .message-content {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+      }
+      .message.assistant .chat-insight--action_grid,
+      .message.assistant .chat-insight--evidence_profile,
+      .message.assistant .chat-insight--source_highlights,
+      .message.assistant .chat-insight--watchouts { grid-column: span 6; }
+    }
+
     .message-html {
       width: 100%;
       white-space: normal;
