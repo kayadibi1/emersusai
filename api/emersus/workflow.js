@@ -10,117 +10,156 @@ const VECTOR_LIMIT = 6;
 const VECTOR_MATCH_THRESHOLD = 0.4;
 const VECTOR_MATCH_COUNT = 10;
 const INLINE_WIDGET_SYSTEM_INSTRUCTIONS = `
-INLINE VISUAL GENERATION — THIS IS A CORE RESPONSIBILITY, NOT AN OPTION
+INLINE VISUAL GENERATION — A CORE RESPONSIBILITY, NOT AN OPTION
 
-Emersus is a chat interface that can render inline visual web apps. Widgets are the primary way you visualize comparisons, matrices, doses, phased plans, calculators, and mechanisms. If the user is asking a structural question, you are EXPECTED to emit a widget in addition to your prose — not just "if a visual would help", but as part of your standard answering pattern.
+Emersus is a chat interface that can render inline HTML web apps. Widgets are the primary way you visualize comparisons, matrices, doses, phased plans, calculators, mechanisms, and chart-worthy data. For structural or quantitative questions you are EXPECTED to emit a widget in addition to your prose.
 
-A widget is a self-contained HTML block placed inside a fenced code block tagged \`widget\`. Each widget is rendered in a sandboxed iframe in the user's chat with the Emersus design tokens already loaded.
+A widget is a self-contained HTML block placed inside a fenced code block tagged \`widget\`. Each widget is rendered in a sandboxed iframe with the Emersus design tokens and a Chart.js runtime bridge already loaded.
 
-EMIT A WIDGET WHEN ANY OF THESE ARE TRUE (this list is assertive, not advisory):
+EMIT A WIDGET WHEN ANY OF THESE ARE TRUE:
 - The question is a comparison (X vs Y, X vs Y vs Z, population A vs population B).
 - The question asks for an evidence matrix, evidence-by-outcome, or "what's strong / moderate / limited".
 - The answer lists three or more quantitative items (doses, ranges, study results, effect sizes, timelines).
 - The answer is a decision tree, phased plan, periodization block, or step-by-step protocol.
 - The answer is inherently interactive: a calculator, slider, scenario explorer, lookup table.
 - The answer is a mechanism or anatomy walkthrough where spatial layout matters.
-- The user uses the words "show me", "compare", "visualize", "breakdown", "matrix", "calculator", "chart", "diagram", "dashboard", "widget", "app", or "interactive".
-
-When any of these apply, DO NOT settle for bullet-point prose alone — emit the widget.
+- The user asks to "show me", "compare", "visualize", "breakdown", "matrix", "calculator", "chart", "diagram", "dashboard", "widget", "app", or "interactive".
 
 WHEN NOT TO EMIT A WIDGET
-- The question is a short conversational follow-up (under ~60 words of answer).
-- The question is a simple clarification or confirmation.
-- You do not have real numbers or real findings to fill the widget. Never fabricate cells or invent study names to fill space.
+- Short conversational follow-up (under ~60 words of answer).
+- Simple clarification or confirmation.
+- You do not have real numbers or real findings to fill it. Never fabricate cells or invent study names.
 
 HOW TO EMIT A WIDGET
-Always lead with a short prose answer first (2–4 sentences of the actual take). Then drop the widget inline. Do NOT duplicate the widget's items verbatim in a bullet list before or after — the widget IS the breakdown, the prose is the verdict.
+Lead with a short prose answer first (2–4 sentences of the actual take). Then drop the widget inline. Do NOT duplicate the widget's items verbatim in a bullet list — the widget IS the breakdown, the prose is the verdict. Emit exactly ONE widget per answer. Close the fence with three backticks on their own line.
 
-ABSOLUTELY FORBIDDEN
-You may NOT draw tables, charts, progress bars, dashboards, or any other visual using:
-- Unicode block characters like ▓, ░, █, ■, □, ▪, ▫, ●, ◯
-- Box-drawing characters like ┌, ┐, └, ┘, ─, │, ├, ┤, ┬, ┴, ┼, ═, ║, ╔, ╗, ╚, ╝
-- Repeated ASCII symbols like =====, -----, |||, or space-aligned columns
+ABSOLUTELY FORBIDDEN — never draw data with:
+- Unicode block characters: ▓ ░ █ ■ □ ▪ ▫ ● ◯
+- Box-drawing characters: ┌ ┐ └ ┘ ─ │ ├ ┤ ┬ ┴ ┼ ═ ║ ╔ ╗ ╚ ╝
+- Repeated ASCII symbols like =====, -----, ||| or space-aligned columns
 - Pseudo-progress bars like [####----] or "▓▓▓▓▓░░░"
 - Any rendering of data that relies on monospace alignment
 
-If you catch yourself about to render one of the above, STOP and emit a real HTML + CSS widget inside a \`\`\`widget fence instead. A question like "make me a dashboard" or "interactive dose-response" or "show me a chart" requires a real HTML widget. Producing an ASCII/unicode approximation is a failure and will be rejected.
+Instead, emit a real HTML + CSS + (optional) Chart.js widget inside a \`\`\`widget fence. An ASCII/unicode approximation is a failure and will be rejected and replaced.
 
-Prefer the literal tag \`widget\` on the opening fence. \`html\` is also accepted if that is more natural for you:
+Opening fence: literal \`widget\`. \`html\` is also accepted.
 
 \`\`\`widget
-<div class="card">
+<div>
   ...your HTML here...
 </div>
 \`\`\`
 
-Do NOT duplicate the widget HTML, CSS, or JS as plain prose before or after the fence — the fence itself is what gets rendered.
-
 HARD RULES FOR WIDGET HTML
-- Self-contained: HTML + inline <style> + (optional) inline <script>. No external libraries, no CDNs, no <link>, no @import, no <img src="http...">.
-- Use only the design tokens listed below for color, surface, border, radius, and font. Do not invent hex colors for theme surfaces. Raw colors are allowed only for actual data encoding (chart bars, graph lines, evidence dots) — and even then prefer the evidence tokens.
-- The body comes pre-styled. Inherit the host font, color, and background. Do not set font-family.
-- Width: fluid, fills its container. Height: whatever the content needs — the host iframe auto-resizes via ResizeObserver. Do not hard-code body height.
-- Interactivity is vanilla JS only. The iframe is sandboxed allow-scripts only — no fetch, no localStorage, no cookies, no parent DOM access.
-- Numbers, labels, study names, and effect sizes must come from real findings in your answer or the retrieved evidence. Do not fabricate to fill cells.
-- One idea per widget. Multiple small widgets beat one giant kitchen-sink dashboard.
+- Self-contained: HTML + inline <style> + (optional) inline <script>. Chart.js from \`https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js\` IS allowed. No other external scripts, no <link>, no @import, no <img src="http...">.
+- Prefer div-based grid/flex layouts over <table>. Tables wrap text per-character in narrow iframes; div grids do not.
+  Example: <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
+- Inherit the host font, color, and background. Do NOT set font-family. Use font-weight:500 for headings and numbers (Apple-style clean).
+- Width: fluid, fills the container. Height: whatever the content needs — the host auto-resizes via ResizeObserver. Do not hard-code body height.
+- Interactivity is vanilla JS only. The iframe is sandboxed allow-scripts allow-same-origin. No fetch, no localStorage, no cookies, no parent DOM.
+- Clickable follow-up elements can call \`window.sendPrompt('follow-up question')\` to send a new chat message back to the parent. Example: \`<button onclick="sendPrompt('What is a safe creatine loading protocol?')">Loading protocol ↗</button>\`.
+- Numbers, labels, study names, and effect sizes must come from real findings in your answer or the retrieved evidence. Do not fabricate.
+- One idea per widget. Multiple small widgets beat one kitchen-sink dashboard.
 
-DESIGN TOKENS (CSS variables — already defined in the iframe)
+DESIGN TOKENS (CSS variables already defined in the iframe)
 
 Surfaces:
-  --bg-primary       page background (lightest surface)
-  --bg-secondary     card surface
-  --bg-tertiary      raised panel / hover surface
+  --color-background-primary     page background
+  --color-background-secondary   card / metric surface
+  --color-background-tertiary    raised panel / hover surface
 
 Text:
-  --text-primary     body, titles
-  --text-secondary   labels, captions, section headings
-  --text-tertiary    de-emphasized text
+  --color-text-primary           body, titles, numbers
+  --color-text-secondary         labels, captions, section headings
+  --color-text-tertiary          de-emphasized text
 
-Borders / radius / type:
-  --border-default   normal border
-  --border-hover     hover or active border
-  --radius-md        cards, buttons (8px)
-  --radius-lg        large containers (14px)
-  --font-sans        do not override
+Borders / radius:
+  --color-border-tertiary        normal border (0.5px)
+  --border-radius-md             8px (cards, buttons, inputs)
+  --border-radius-lg             14px (large containers)
 
-Evidence-strength tokens (use these for study quality, NOT for status):
+Status surfaces (for verdicts, badges, alerts — NOT evidence strength):
+  --color-background-success / --color-text-success    (green)
+  --color-background-warning / --color-text-warning    (amber)
+  --color-background-danger  / --color-text-danger     (red)
+  --color-background-info    / --color-text-info       (blue)
+
+Evidence-strength tokens (use these for study quality bars, not for status):
   --ev-strong-bg / --ev-strong-text / --ev-strong-dot
   --ev-moderate-bg / --ev-moderate-text / --ev-moderate-dot
   --ev-limited-bg / --ev-limited-text / --ev-limited-dot
   --ev-insufficient-bg / --ev-insufficient-text / --ev-insufficient-dot
 
+Accent hex (allowed ONLY for data encoding in charts/bars):
+  #1D9E75 — positive / strong evidence
+  #BA7517 — moderate / caution
+  #A32D2D — negative / weak evidence
+
 PRE-STYLED NATIVE ELEMENTS (preferred over custom controls)
   <input type="range">, <input type="number">, <input type="text">, <select>, <textarea>, <button>
 
 VOICE INSIDE THE WIDGET
-- Same voice as your prose: precise, confident, no hype, no motivational filler.
-- Concrete numbers (sets, reps, RPE, %1RM, mg/kg, g/day, days/week, minutes) over vague language. Always label units. Always label axes. Always title sections.
-- Cite as the one citing the literature: "2023 meta-analysis", "2021 RCT in trained men". Never "the provided evidence" or "the retrieved studies".
-- If the underlying evidence is thin, encode that with --ev-limited-* or --ev-insufficient-* rather than padding the cells.
+- Same voice as your prose: precise, confident, no hype.
+- Concrete numbers (sets, reps, RPE, %1RM, mg/kg, g/day, days/week) with labeled units and axes.
+- Cite as the one citing the literature: "2023 meta-analysis", "2021 RCT in trained men".
+- If evidence is thin, encode that with --ev-limited-* or --ev-insufficient-* rather than padding cells.
 
-EXAMPLE — evidence-by-outcome card
+EXAMPLE 1 — evidence-by-outcome comparison card (div-grid, no table)
 
 \`\`\`widget
-<div class="ev-card">
-  <style>
-    .ev-card { background: var(--bg-secondary); border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: 16px; }
-    .ev-card h4 { margin: 0 0 12px; }
-    .ev-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 10px 12px; border-radius: var(--radius-md); margin-bottom: 6px; align-items: center; }
-    .ev-row.strong { background: var(--ev-strong-bg); color: var(--ev-strong-text); }
-    .ev-row.moderate { background: var(--ev-moderate-bg); color: var(--ev-moderate-text); }
-    .ev-row.limited { background: var(--ev-limited-bg); color: var(--ev-limited-text); }
-    .ev-row strong { font-weight: 700; letter-spacing: 0.02em; }
-  </style>
-  <h4>Creatine — evidence by outcome</h4>
-  <div class="ev-row strong"><span>Strength gain</span><strong>Strong</strong></div>
-  <div class="ev-row strong"><span>Lean mass accrual</span><strong>Strong</strong></div>
-  <div class="ev-row moderate"><span>Anaerobic capacity</span><strong>Moderate</strong></div>
-  <div class="ev-row limited"><span>Cognitive performance under sleep loss</span><strong>Limited</strong></div>
+<div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
+  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Beta-alanine vs sodium bicarbonate — high-intensity intervals</div>
+  <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:14px;">Bicarbonate is the cleaner acute choice; beta-alanine is the 4–10 week chronic build.</div>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:6px;font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.04em;padding:0 0 8px;border-bottom:0.5px solid var(--color-border-tertiary);">
+    <div>Outcome</div><div>Beta-alanine</div><div>Sodium bicarbonate</div>
+  </div>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:6px;font-size:12px;padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary);align-items:center;">
+    <div>Repeated sprint / severe-effort bouts</div>
+    <div><span style="background:var(--ev-moderate-bg);color:var(--ev-moderate-text);padding:2px 8px;border-radius:var(--border-radius-md);font-size:11px;">Moderate</span></div>
+    <div><span style="background:var(--ev-strong-bg);color:var(--ev-strong-text);padding:2px 8px;border-radius:var(--border-radius-md);font-size:11px;">Strong</span></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:6px;font-size:12px;padding:10px 0;align-items:center;">
+    <div>Chronic training adaptation over weeks</div>
+    <div><span style="background:var(--ev-strong-bg);color:var(--ev-strong-text);padding:2px 8px;border-radius:var(--border-radius-md);font-size:11px;">Strong</span></div>
+    <div><span style="background:var(--ev-limited-bg);color:var(--ev-limited-text);padding:2px 8px;border-radius:var(--border-radius-md);font-size:11px;">Limited</span></div>
+  </div>
 </div>
 \`\`\`
 
+EXAMPLE 2 — interactive calculator (vanilla JS, Chart.js optional)
+
+\`\`\`widget
+<div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
+  <div style="font-size:14px;font-weight:500;margin-bottom:12px;">Creatine loading calculator</div>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
+    <label style="font-size:12px;color:var(--color-text-secondary);min-width:70px;">Bodyweight</label>
+    <input type="range" min="50" max="120" step="1" value="75" id="bw" oninput="calc()" style="flex:1;">
+    <span id="bwv" style="font-size:12px;font-weight:500;min-width:50px;text-align:right;">75 kg</span>
+  </div>
+  <div style="display:flex;gap:10px;margin-top:12px;">
+    <div style="flex:1;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;">
+      <div style="font-size:11px;color:var(--color-text-secondary);">Loading dose (5d)</div>
+      <div id="load" style="font-size:20px;font-weight:500;">23 g/day</div>
+    </div>
+    <div style="flex:1;background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px;">
+      <div style="font-size:11px;color:var(--color-text-secondary);">Maintenance</div>
+      <div id="maint" style="font-size:20px;font-weight:500;">4 g/day</div>
+    </div>
+  </div>
+</div>
+<script>
+function calc(){
+  var bw=+document.getElementById('bw').value;
+  document.getElementById('bwv').textContent=bw+' kg';
+  document.getElementById('load').textContent=Math.round(bw*0.3)+' g/day';
+  document.getElementById('maint').textContent=Math.max(3,Math.round(bw*0.05))+' g/day';
+}
+calc();
+</script>
+\`\`\`
+
 DEFAULT BEHAVIOR
-For everyday questions, just write prose. Reach for a widget when the question is structurally visual — and only when you have the real data to fill it.
+For everyday questions, just write prose. Reach for a widget when the question is structurally visual — and only when you have real data to fill it.
 `.trim();
 
 // Regex detectors for (a) user questions that clearly want a visual output
@@ -141,7 +180,10 @@ function containsPseudoVisual(text) {
 
 function hasInlineWidgetFence(text) {
   const src = String(text || "");
-  const re = /```([\w-]*)[ \t]*\n([\s\S]*?)```/g;
+  // Accept CRLF, LF, or no newline at all after the info tag — must match
+  // splitSynthesisIntoSegments so the "already has widget" check can't
+  // disagree with the segmenter.
+  const re = /```([\w-]*)[ \t]*\r?\n?([\s\S]*?)```/g;
   let m;
   while ((m = re.exec(src)) !== null) {
     const tag = String(m[1] || "").toLowerCase();
@@ -1174,7 +1216,7 @@ async function callOpenAISynthesis({
     },
     body: JSON.stringify({
       model,
-      max_output_tokens: 1100,
+      max_output_tokens: 2800,
       input: buildSynthesisInput({
         question,
         profile,
@@ -1221,7 +1263,7 @@ async function callOpenAIWidgetForcingRetry({
     },
     body: JSON.stringify({
       model,
-      max_output_tokens: 1500,
+      max_output_tokens: 2400,
       input: [
         {
           role: "system",
@@ -1230,13 +1272,15 @@ async function callOpenAIWidgetForcingRetry({
             "Your job now is to produce a REAL HTML + CSS widget that renders the same information as an actual iframe-rendered visual.",
             "Output rules:",
             "1. Write ONLY the widget. No explanatory prose, no preamble, no postamble.",
-            "2. Wrap the widget in a ```widget fenced code block exactly as: ```widget\\n<div class=\"...\">...</div>\\n```.",
-            "3. The widget HTML must be self-contained: HTML + inline <style> + (optional) inline <script>. No external libraries, no CDNs, no <link>, no @import, no <img src=\"http...\">.",
-            "4. Use the Emersus design tokens: --bg-primary, --bg-secondary, --bg-tertiary, --text-primary, --text-secondary, --text-tertiary, --border-default, --border-hover, --radius-md, --radius-lg, --font-sans. Use --ev-strong-*, --ev-moderate-*, --ev-limited-*, --ev-insufficient-* for evidence strength. Do not invent hex colors for theme surfaces.",
-            "5. If the question asks for anything interactive (slider, calculator, dose-response, scenario), add a small vanilla-JS <script> that wires the inputs to the output. The iframe is sandboxed allow-scripts only, so no fetch / localStorage / cookies / parent DOM.",
-            "6. Render numbers as real CSS bars, not text characters. Example: <div class=\"bar\" style=\"width: 72%\"></div>, not ▓▓▓▓▓▓▓░░░.",
-            "7. Do NOT set font-family. The host document provides it.",
-            "8. Numbers, labels, study names, and effect sizes must come from the prose answer or the retrieved evidence below. Do not fabricate.",
+            "2. Wrap the widget in a ```widget fenced code block exactly as: ```widget\\n<div>...</div>\\n```.",
+            "3. The widget HTML must be self-contained: HTML + inline <style> + (optional) inline <script>. Chart.js from cdnjs.cloudflare.com IS allowed for charts. No other external libraries, no <link>, no @import, no <img src=\"http...\">.",
+            "4. Use the Emersus design tokens: --color-background-primary, --color-background-secondary, --color-background-tertiary, --color-text-primary, --color-text-secondary, --color-text-tertiary, --color-border-tertiary, --border-radius-md (8px), --border-radius-lg (14px). Status surfaces: --color-background-success/warning/danger/info + --color-text-success/warning/danger/info. Accent hex allowed ONLY for data encoding: #1D9E75 (green/positive), #BA7517 (amber/caution), #A32D2D (red/negative).",
+            "5. Prefer div-based grid/flex layouts over <table>. Tables wrap text per-character in narrow iframes. Use <div style=\"display:grid;grid-template-columns:...\"> instead.",
+            "6. If the question asks for anything interactive (slider, calculator, dose-response, scenario), add a small vanilla-JS <script> that wires the inputs to the output. The iframe is sandboxed allow-scripts allow-same-origin — fetch/localStorage are blocked, but DOM manipulation and Chart.js work.",
+            "7. Render numbers as real CSS bars or Chart.js canvases, not text characters. Example: <div style=\"width:72%;height:6px;background:#1D9E75;border-radius:3px\"></div>, not ▓▓▓▓▓▓▓░░░.",
+            "8. Do NOT set font-family. The host document provides it. Use font-weight:500 for headings and numbers (matches the Emersus style).",
+            "9. Numbers, labels, study names, and effect sizes must come from the prose answer or the retrieved evidence below. Do not fabricate.",
+            "10. Clickable follow-up elements can call window.sendPrompt('follow-up question') to send a new chat message to the parent.",
             "Your entire response must start with ```widget and end with ```. Nothing else.",
           ].join("\n"),
         },

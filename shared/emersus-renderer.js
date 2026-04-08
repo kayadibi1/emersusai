@@ -129,17 +129,43 @@ export function hasWidgetFences(text) {
 export const EMERSUS_THEME_CSS = `
   :root {
     color-scheme: light;
-    --bg-primary: #fafaf9;
-    --bg-secondary: #ffffff;
-    --bg-tertiary: #f4f3f0;
-    --text-primary: #0f0f0e;
-    --text-secondary: #555248;
-    --text-tertiary: #8b8778;
-    --border-default: rgba(15, 15, 14, 0.10);
-    --border-hover: rgba(15, 15, 14, 0.22);
-    --radius-md: 8px;
-    --radius-lg: 14px;
+    /* --color-* namespace (preferred — matches the Emersus design system) */
+    --color-background-primary: #fafaf9;
+    --color-background-secondary: #ffffff;
+    --color-background-tertiary: #f4f3f0;
+    --color-text-primary: #0f0f0e;
+    --color-text-secondary: #555248;
+    --color-text-tertiary: #8b8778;
+    --color-border-primary: rgba(15, 15, 14, 0.22);
+    --color-border-secondary: rgba(15, 15, 14, 0.14);
+    --color-border-tertiary: rgba(15, 15, 14, 0.10);
+    --color-background-success: #e7f4d8;
+    --color-text-success: #2f5a13;
+    --color-background-warning: #fff3d0;
+    --color-text-warning: #6b4a00;
+    --color-background-danger: #ffe1d0;
+    --color-text-danger: #7a3300;
+    --color-background-info: #dfeaf9;
+    --color-text-info: #1e3f72;
+    --color-border-info: rgba(30, 63, 114, 0.28);
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 14px;
+
+    /* --bg-* / --text-* aliases (backward compatible with older widgets) */
+    --bg-primary: var(--color-background-primary);
+    --bg-secondary: var(--color-background-secondary);
+    --bg-tertiary: var(--color-background-tertiary);
+    --text-primary: var(--color-text-primary);
+    --text-secondary: var(--color-text-secondary);
+    --text-tertiary: var(--color-text-tertiary);
+    --border-default: var(--color-border-tertiary);
+    --border-hover: var(--color-border-primary);
+    --radius-md: var(--border-radius-md);
+    --radius-lg: var(--border-radius-lg);
     --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+    /* Evidence-strength tokens */
     --ev-strong-bg: #e7f4d8;
     --ev-strong-text: #2f5a13;
     --ev-strong-dot: #6db830;
@@ -156,14 +182,24 @@ export const EMERSUS_THEME_CSS = `
   @media (prefers-color-scheme: dark) {
     :root {
       color-scheme: dark;
-      --bg-primary: #11110f;
-      --bg-secondary: #18181614;
-      --bg-tertiary: #1f1e1a;
-      --text-primary: #f4f1e8;
-      --text-secondary: #aaa59a;
-      --text-tertiary: #6f6c63;
-      --border-default: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.20);
+      --color-background-primary: #11110f;
+      --color-background-secondary: rgba(255, 255, 255, 0.04);
+      --color-background-tertiary: #1f1e1a;
+      --color-text-primary: #f4f1e8;
+      --color-text-secondary: #aaa59a;
+      --color-text-tertiary: #6f6c63;
+      --color-border-primary: rgba(255, 255, 255, 0.20);
+      --color-border-secondary: rgba(255, 255, 255, 0.12);
+      --color-border-tertiary: rgba(255, 255, 255, 0.08);
+      --color-background-success: rgba(29, 158, 117, 0.14);
+      --color-text-success: #5dcaa5;
+      --color-background-warning: rgba(216, 180, 106, 0.14);
+      --color-text-warning: #e7c98a;
+      --color-background-danger: rgba(224, 122, 58, 0.14);
+      --color-text-danger: #f2a877;
+      --color-background-info: rgba(133, 183, 235, 0.12);
+      --color-text-info: #b5d4f4;
+      --color-border-info: rgba(133, 183, 235, 0.32);
       --ev-strong-bg: rgba(159, 251, 0, 0.10);
       --ev-strong-text: #b9f47a;
       --ev-strong-dot: #9ffb00;
@@ -178,71 +214,90 @@ export const EMERSUS_THEME_CSS = `
       --ev-insufficient-dot: #6f6c63;
     }
   }
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; min-width: 0; }
   html, body {
     margin: 0;
     padding: 0;
     background: transparent;
-    color: var(--text-primary);
-    font-family: var(--font-sans);
+    color: var(--color-text-primary);
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     font-size: 13px;
     line-height: 1.45;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
   }
   body {
     padding: 14px;
   }
   h1, h2, h3, h4 {
     margin: 0 0 8px;
-    color: var(--text-primary);
-    font-weight: 700;
+    color: var(--color-text-primary);
+    font-weight: 500;
     letter-spacing: -0.01em;
   }
   h1 { font-size: 18px; }
   h2 { font-size: 16px; }
-  h3 { font-size: 14px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--text-secondary); }
-  h4 { font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-secondary); }
-  p { margin: 0 0 8px; color: var(--text-primary); }
-  small, .muted { color: var(--text-tertiary); font-size: 12px; }
-  hr { border: 0; border-top: 1px solid var(--border-default); margin: 12px 0; }
-  a { color: var(--text-primary); text-decoration: underline; text-underline-offset: 2px; }
+  h3 { font-size: 14px; color: var(--color-text-primary); }
+  h4 { font-size: 12px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
+  p { margin: 0 0 8px; color: var(--color-text-primary); }
+  small, .muted { color: var(--color-text-tertiary); font-size: 12px; }
+  hr { border: 0; border-top: 0.5px solid var(--color-border-tertiary); margin: 12px 0; }
+  a { color: var(--color-text-primary); text-decoration: underline; text-underline-offset: 2px; }
   input[type="text"], input[type="number"], input[type="search"], select, textarea {
     width: 100%;
     padding: 8px 10px;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    background: var(--bg-secondary);
-    color: var(--text-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
     font: inherit;
     transition: border-color 120ms ease;
   }
   input[type="text"]:hover, input[type="number"]:hover, select:hover, textarea:hover {
-    border-color: var(--border-hover);
+    border-color: var(--color-border-primary);
   }
   input[type="range"] {
     width: 100%;
-    accent-color: var(--text-primary);
+    accent-color: #1D9E75;
   }
   button {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 6px;
     padding: 8px 14px;
-    border: 1px solid var(--border-default);
-    border-radius: var(--radius-md);
-    background: var(--bg-secondary);
-    color: var(--text-primary);
+    border: 0.5px solid var(--color-border-tertiary);
+    border-radius: var(--border-radius-md);
+    background: var(--color-background-secondary);
+    color: var(--color-text-primary);
     font: inherit;
-    font-weight: 600;
+    font-weight: 500;
     cursor: pointer;
     transition: border-color 120ms ease, background 120ms ease;
   }
   button:hover {
-    border-color: var(--border-hover);
-    background: var(--bg-tertiary);
+    border-color: var(--color-border-primary);
+    background: var(--color-background-tertiary);
   }
-  table { border-collapse: collapse; width: 100%; }
-  th, td { padding: 8px 10px; border-bottom: 1px solid var(--border-default); text-align: left; vertical-align: top; }
-  th { color: var(--text-secondary); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 700; }
+  /* Tables are discouraged but must at least not collapse in narrow iframes. */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  th, td {
+    padding: 8px 10px;
+    border-bottom: 0.5px solid var(--color-border-tertiary);
+    text-align: left;
+    vertical-align: top;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  th { color: var(--color-text-secondary); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+  canvas { max-width: 100%; }
 `;
 
 // ---------------------------------------------------------------------------
@@ -283,6 +338,18 @@ ${code}
 <script>
 (function () {
   var id = ${safeId};
+  // Bridge: widgets can call window.sendPrompt('follow-up question') to send
+  // a new chat message to the parent. The parent listens for the
+  // 'emersus:sendPrompt' message and feeds it into the composer.
+  window.sendPrompt = function (prompt) {
+    try {
+      parent.postMessage({
+        type: "emersus:sendPrompt",
+        frameId: id,
+        prompt: String(prompt || "")
+      }, "*");
+    } catch (e) { /* noop */ }
+  };
   function send() {
     var h = Math.max(
       document.documentElement.scrollHeight || 0,
@@ -297,6 +364,7 @@ ${code}
   window.addEventListener("load", send);
   setTimeout(send, 50);
   setTimeout(send, 250);
+  setTimeout(send, 600);
 })();
 </script>
 </body>
