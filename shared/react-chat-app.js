@@ -1013,7 +1013,8 @@ function InsightCard({ block }) {
   if (type === "dashboard_artifact") return h(DashboardArtifact, { card });
   if (type === "action_grid") return h(ActionGrid, { card });
   if (type === "watchouts") return h(Watchouts, { card });
-  if (type === "source_highlights") return h(SourceHighlights, { card });
+  // source_highlights renders in the side rail, not inline.
+  if (type === "source_highlights") return null;
   return null;
 }
 
