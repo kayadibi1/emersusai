@@ -218,6 +218,75 @@ const KEYFRAMES = [
 ];
 
 // ---------------------------------------------------------------------------
+// Idle "weak heartbeat" EKG — procedurally animated each frame so the line
+// physically spikes up with the beat instead of cycling pre-baked keyframes.
+// ---------------------------------------------------------------------------
+function idleEkgShapeRaw(beatT) {
+  // Period = 1s (~60 BPM). Sharp lub at 0.10s, softer dub at 0.26s.
+  const lub = Math.exp(-Math.pow((beatT - 0.10) * 14, 2));
+  const dub = 0.55 * Math.exp(-Math.pow((beatT - 0.26) * 16, 2));
+
+  const pts = [];
+  const topN = 32;
+  const botN = N_POINTS - topN;
+  const spikePos = 0.50;
+
+  for (let i = 0; i < topN; i++) {
+    let u = i / (topN - 1);
+    // Cluster points near the center so the spike has resolution
+    const d0 = u - 0.5;
+    u = 0.5 + Math.sign(d0) * Math.pow(Math.abs(d0 * 2), 1.6) * 0.5;
+    const x = -0.95 + u * 1.9;
+    const dx = u - spikePos;
+
+    let y = 0.12;
+    // P (small bump before)
+    y -= 0.10 * lub * Math.exp(-Math.pow((dx + 0.10) * 18, 2));
+    // Q (small dip)
+    y += 0.06 * lub * Math.exp(-Math.pow((dx + 0.03) * 35, 2));
+    // R (big spike up)
+    y -= 0.95 * lub * Math.exp(-Math.pow(dx * 32, 2));
+    // S (small dip after)
+    y += 0.32 * lub * Math.exp(-Math.pow((dx - 0.04) * 30, 2));
+    // T (dub bump)
+    y -= 0.30 * dub * Math.exp(-Math.pow((dx - 0.20) * 10, 2));
+
+    pts.push({ x, y });
+  }
+
+  for (let i = 0; i < botN; i++) {
+    const u = i / (botN - 1);
+    pts.push({ x: 0.95 - u * 1.9, y: 0.55 });
+  }
+
+  return pts;
+}
+
+// Precompute normalization against the peak-spike frame so the geometry
+// stays at a constant overall scale; only the spike itself moves.
+const IDLE_EKG_NORM = (() => {
+  const maxShape = idleEkgShapeRaw(0.10);
+  let minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  for (const p of maxShape) {
+    if (p.x < minX) minX = p.x;
+    if (p.x > maxX) maxX = p.x;
+    if (p.y < minY) minY = p.y;
+    if (p.y > maxY) maxY = p.y;
+  }
+  const cx = (minX + maxX) / 2;
+  const cy = (minY + maxY) / 2;
+  const halfW = (maxX - minX) / 2;
+  const halfH = (maxY - minY) / 2;
+  return { cx, cy, scale: 0.88 / Math.max(halfW, halfH) };
+})();
+
+function idleEkgShapeAt(beatT) {
+  const raw = idleEkgShapeRaw(beatT);
+  const { cx, cy, scale } = IDLE_EKG_NORM;
+  return raw.map((p) => ({ x: (p.x - cx) * scale, y: (p.y - cy) * scale }));
+}
+
+// ---------------------------------------------------------------------------
 // Helpers
 // ---------------------------------------------------------------------------
 function lerp(a, b, t) {
@@ -418,13 +487,14 @@ export function createThinkingGlyph(canvas, options = {}) {
     const t = easeInOutCubic(morph.progress);
     const fromShape = KEYFRAMES[morph.from];
     const toShape = KEYFRAMES[morph.to];
-    const ekg = KEYFRAMES[0];
+    const beatT = ((now - startTime) / 1000) % 1;
+    const idleShape = idleEkgShapeAt(beatT);
     const shape = fromShape.map((p, i) => {
       const morphX = lerp(p.x, toShape[i].x, t);
       const morphY = lerp(p.y, toShape[i].y, t);
       return {
-        x: lerp(morphX, ekg[i].x, params.idleness),
-        y: lerp(morphY, ekg[i].y, params.idleness),
+        x: lerp(morphX, idleShape[i].x, params.idleness),
+        y: lerp(morphY, idleShape[i].y, params.idleness),
       };
     });
 
@@ -492,16 +562,15 @@ export function createThinkingGlyph(canvas, options = {}) {
 
     if (params.idleness > 0.01) {
       // Heartbeat: ~60 BPM, sharp lub at 0.10s with a softer dub trailing it.
-      const beatT = (now / 1000) % 1;
       const lub = Math.exp(-Math.pow((beatT - 0.10) * 16, 2));
       const dub = 0.55 * Math.exp(-Math.pow((beatT - 0.26) * 18, 2));
       const heartbeat = Math.min(1, lub + dub);
-      const baseAlpha = 0.22;
-      const peakAlpha = 0.85;
+      const baseAlpha = 0.32;
+      const peakAlpha = 0.80;
       const alpha = (baseAlpha + (peakAlpha - baseAlpha) * heartbeat) * params.idleness;
       // Faint outer glow that pulses with the beat
       drawShape(shape, {
-        strokeStyle: rgba(primary, 0.18 * heartbeat * params.idleness),
+        strokeStyle: rgba(primary, 0.20 * heartbeat * params.idleness),
         strokeWidth: Math.max(3, size * 0.07),
         scale: 1.15,
       });
