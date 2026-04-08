@@ -1,46 +1,19 @@
 import { supabaseAdmin } from "../lib/clients.js";
 import { embedText } from "./embeddings.js";
 
-function scorePublicationType(publicationTypes = []) {
-  const normalized = publicationTypes.map((x) => String(x).toLowerCase());
-
-  if (normalized.some((x) => x.includes("guideline"))) return 5;
-  if (
-    normalized.some(
-      (x) => x.includes("systematic review") || x.includes("meta-analysis")
-    )
-  ) {
-    return 4;
-  }
-  if (normalized.some((x) => x.includes("randomized controlled trial"))) {
-    return 3;
-  }
-  if (
-    normalized.some(
-      (x) =>
-        x.includes("cohort") ||
-        x.includes("observational") ||
-        x.includes("clinical trial")
-    )
-  ) {
-    return 2;
-  }
-  return 1;
-}
-
-function rerankMatch(match) {
-  const article = match.article || {};
-  const publicationTypes = article.publication_types || [];
-  const evidenceWeight = scorePublicationType(publicationTypes);
-  const similarity = Number(match.similarity || 0);
-
-  return similarity + evidenceWeight * 0.03;
-}
-
+// Pure candidate fetcher: embeds the prompt, runs the pgvector RPC, joins
+// each matched chunk to its pubmed_articles row, and returns the raw set.
+// All ranking happens downstream in rerank.js — this function deliberately
+// does not sort or slice so the rerank operates on the full candidate
+// pool from the RPC.
+//
+// The matchThreshold default mirrors the value every production caller
+// actually passes. The previous default (0.65) was dead code: the only
+// call site (workflow.js) always passes VECTOR_MATCH_THRESHOLD = 0.4, so
+// the signature was lying about how strict retrieval actually is.
 export async function retrieveDatabaseEvidence({
   prompt,
-  limit = 6,
-  matchThreshold = 0.65,
+  matchThreshold = 0.4,
   matchCount = 10,
 }) {
   const queryEmbedding = await embedText(prompt);
@@ -78,28 +51,25 @@ export async function retrieveDatabaseEvidence({
 
   const byPmid = new Map((articles || []).map((a) => [a.pmid, a]));
 
-  const joined = matches
+  return matches
     .map((match) => ({
       ...match,
       article: byPmid.get(match.pmid) || null,
     }))
-    .filter((row) => row.article);
-
-  joined.sort((a, b) => rerankMatch(b) - rerankMatch(a));
-
-  return joined.slice(0, limit).map((row) => ({
-    pmid: row.pmid,
-    similarity: row.similarity,
-    chunk_type: row.chunk_type,
-    chunk_text: row.content,
-    title: row.article.title,
-    doi: row.article.doi,
-    pmcid: row.article.pmcid,
-    authors: Array.isArray(row.article.authors) ? row.article.authors : [],
-    journal: row.article.journal,
-    publication_date: row.article.publication_date,
-    publication_year: row.article.publication_year,
-    publication_types: row.article.publication_types || [],
-    mesh_terms: row.article.mesh_terms || [],
-  }));
+    .filter((row) => row.article)
+    .map((row) => ({
+      pmid: row.pmid,
+      similarity: row.similarity,
+      chunk_type: row.chunk_type,
+      chunk_text: row.content,
+      title: row.article.title,
+      doi: row.article.doi,
+      pmcid: row.article.pmcid,
+      authors: Array.isArray(row.article.authors) ? row.article.authors : [],
+      journal: row.article.journal,
+      publication_date: row.article.publication_date,
+      publication_year: row.article.publication_year,
+      publication_types: row.article.publication_types || [],
+      mesh_terms: row.article.mesh_terms || [],
+    }));
 }

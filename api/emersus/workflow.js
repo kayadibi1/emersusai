@@ -1,5 +1,11 @@
 import { createHash } from "node:crypto";
 import { retrieveDatabaseEvidence as retrieveVectorDatabaseEvidence } from "./retrieveDatabaseEvidence.js";
+import {
+  scoreEvidenceFreshness,
+  scoreEvidenceQuality,
+  rankEvidence,
+  dedupeEvidence,
+} from "./rerank.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-4.1-mini";
 const SYNTHESIS_FALLBACK_MODEL =
@@ -1071,47 +1077,6 @@ function normalizeVectorEvidenceRow(row) {
   };
 }
 
-function scoreEvidenceFreshness(publishedAt) {
-  if (!publishedAt) {
-    return 0.45;
-  }
-
-  const publishedTime = Date.parse(publishedAt);
-  if (Number.isNaN(publishedTime)) {
-    return 0.45;
-  }
-
-  const daysOld = (Date.now() - publishedTime) / (1000 * 60 * 60 * 24);
-
-  if (daysOld <= 180) {
-    return 1;
-  }
-
-  if (daysOld <= 365 * 2) {
-    return 0.82;
-  }
-
-  if (daysOld <= 365 * 5) {
-    return 0.66;
-  }
-
-  return 0.5;
-}
-
-function scoreEvidenceQuality(evidenceLevel, sourceType) {
-  const text = `${evidenceLevel} ${sourceType}`.toLowerCase();
-
-  if (/meta|systematic|guideline|consensus|review/.test(text)) {
-    return 1;
-  }
-
-  if (/trial|rct|peer|journal|database/.test(text)) {
-    return 0.84;
-  }
-
-  return 0.68;
-}
-
 function scoreTone(score) {
   if (score >= 0.8) {
     return "good";
@@ -1124,54 +1089,14 @@ function scoreTone(score) {
   return "caution";
 }
 
-function rankDatabaseEvidence(evidence) {
-  return [...evidence]
-    .map((item) => {
-      const freshnessScore = scoreEvidenceFreshness(item.published_at);
-      const qualityScore = scoreEvidenceQuality(
-        item.evidence_level,
-        item.source_type
-      );
-      const databaseScore = clamp(Number(item.database_score || 0), 0, 1);
-      const weightedScore =
-        freshnessScore * 0.35 + qualityScore * 0.35 + databaseScore * 0.3;
-
-      return {
-        ...item,
-        freshness_score: Number(freshnessScore.toFixed(2)),
-        quality_score: Number(qualityScore.toFixed(2)),
-        ranking_score: Number(weightedScore.toFixed(2)),
-      };
-    })
-    .sort((left, right) => right.ranking_score - left.ranking_score);
-}
-
-function dedupeEvidence(evidence) {
-  const byId = new Map();
-
-  for (const item of evidence) {
-    const key =
-      item.source_id ||
-      item.pmid ||
-      item.doi ||
-      item.url ||
-      `${item.title}:${item.excerpt}`;
-
-    const existing = byId.get(key);
-
-    if (!existing || Number(item.ranking_score || 0) > Number(existing.ranking_score || 0)) {
-      byId.set(key, item);
-    }
-  }
-
-  return [...byId.values()];
-}
-
 async function retrieveVectorEvidence(question) {
   try {
+    // Retrieval returns the raw candidate pool (up to VECTOR_MATCH_COUNT).
+    // All ranking happens here via the shared rerank module so there is
+    // exactly one rerank pass in the pipeline, operating on the full pool
+    // instead of a pre-truncated subset.
     const matches = await retrieveVectorDatabaseEvidence({
       prompt: question,
-      limit: VECTOR_LIMIT,
       matchThreshold: VECTOR_MATCH_THRESHOLD,
       matchCount: VECTOR_MATCH_COUNT,
     });
@@ -1179,7 +1104,7 @@ async function retrieveVectorEvidence(question) {
     return {
       available: matches.length > 0,
       method: "vector",
-      evidence: rankDatabaseEvidence(
+      evidence: rankEvidence(
         dedupeEvidence(matches.map(normalizeVectorEvidenceRow))
       ).slice(0, VECTOR_LIMIT),
       error: null,
@@ -1206,8 +1131,13 @@ function formatEvidenceForModel(evidence) {
   // still surfacing every field the model actually uses (year, study type,
   // journal, pmid, title, excerpt). The model has no trouble parsing this
   // shape — labels are only useful when fields are ambiguous.
+  //
+  // Sliced to VECTOR_LIMIT so the model and the right-rail sources panel
+  // see the same set. Previously this was hardcoded to 5 while the panel
+  // used 6, so the sixth source showed up in the UI but was invisible to
+  // the LLM.
   return evidence
-    .slice(0, 5)
+    .slice(0, VECTOR_LIMIT)
     .map((item, index) => {
       const year = item.publication_year || item.published_at || "";
       const pubType = item.publication_type || item.evidence_level || "";
