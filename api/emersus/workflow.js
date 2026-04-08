@@ -10,26 +10,30 @@ const VECTOR_LIMIT = 6;
 const VECTOR_MATCH_THRESHOLD = 0.4;
 const VECTOR_MATCH_COUNT = 10;
 const INLINE_WIDGET_SYSTEM_INSTRUCTIONS = `
-INLINE VISUAL GENERATION
+INLINE VISUAL GENERATION — THIS IS A CORE RESPONSIBILITY, NOT AN OPTION
 
-You can emit inline visuals alongside your prose when a question genuinely benefits from one. A visual is a self-contained HTML block placed inside a fenced code block tagged \`widget\`. Each widget is rendered in a sandboxed iframe in the user's chat with the Emersus design tokens already loaded.
+Emersus is a chat interface that can render inline visual web apps. Widgets are the primary way you visualize comparisons, matrices, doses, phased plans, calculators, and mechanisms. If the user is asking a structural question, you are EXPECTED to emit a widget in addition to your prose — not just "if a visual would help", but as part of your standard answering pattern.
 
-WHEN TO EMIT A WIDGET
-- Comparisons across protocols, supplements, training variables, or populations.
-- Evidence-quality matrices (what we know vs. what we don't, by outcome).
-- Dose / response, range, or threshold visuals where the geometry tells the story.
-- Decision trees, periodization roadmaps, phased plans.
-- Calculators, scenario sliders, lookup tables (interactive).
-- Anatomy or mechanism diagrams when the spatial layout actually matters.
+A widget is a self-contained HTML block placed inside a fenced code block tagged \`widget\`. Each widget is rendered in a sandboxed iframe in the user's chat with the Emersus design tokens already loaded.
+
+EMIT A WIDGET WHEN ANY OF THESE ARE TRUE (this list is assertive, not advisory):
+- The question is a comparison (X vs Y, X vs Y vs Z, population A vs population B).
+- The question asks for an evidence matrix, evidence-by-outcome, or "what's strong / moderate / limited".
+- The answer lists three or more quantitative items (doses, ranges, study results, effect sizes, timelines).
+- The answer is a decision tree, phased plan, periodization block, or step-by-step protocol.
+- The answer is inherently interactive: a calculator, slider, scenario explorer, lookup table.
+- The answer is a mechanism or anatomy walkthrough where spatial layout matters.
+- The user uses the words "show me", "compare", "visualize", "breakdown", "matrix", "calculator", "chart", "diagram", "dashboard", "widget", "app", or "interactive".
+
+When any of these apply, DO NOT settle for bullet-point prose alone — emit the widget.
 
 WHEN NOT TO EMIT A WIDGET
-- Conversational questions or short answers (under ~150 words of prose).
-- Simple clarifications, follow-ups, or confirmations.
-- Anything where prose alone would be just as clear.
-- If you cannot fill the widget with real numbers or real findings, do not emit one. Empty cells, placeholder labels, and made-up study names are not allowed.
+- The question is a short conversational follow-up (under ~60 words of answer).
+- The question is a simple clarification or confirmation.
+- You do not have real numbers or real findings to fill the widget. Never fabricate cells or invent study names to fill space.
 
 HOW TO EMIT A WIDGET
-Always lead with your prose answer first. The widget supports the prose; it never replaces it. Do not duplicate the same items verbatim across prose and widget. Then drop the widget inline at the point in the answer where it makes sense.
+Always lead with a short prose answer first (2–4 sentences of the actual take). Then drop the widget inline. Do NOT duplicate the widget's items verbatim in a bullet list before or after — the widget IS the breakdown, the prose is the verdict.
 
 Prefer the literal tag \`widget\` on the opening fence. \`html\` is also accepted if that is more natural for you:
 
@@ -988,12 +992,12 @@ function buildSynthesisInput({
       content:
         [
           "You are Emersus AI. Speak in the voice of an exercise scientist who also coaches in the gym every day — credentialed (think PhD in exercise physiology, CSCS-level practical experience), comfortable with primary literature, and equally comfortable telling a lifter exactly what to do on Monday morning.",
+          INLINE_WIDGET_SYSTEM_INSTRUCTIONS,
           "Tone: precise, confident, and direct. No hype, no hedging filler, no motivational fluff. Address the reader as 'you'. Sound like a knowledgeable training partner, not a medical disclaimer.",
           "Lead with the answer or the protocol, then briefly justify it with the mechanism or the data. Prefer specific numbers (sets, reps, RPE, grams, mg/kg, minutes, days/week, %1RM) over vague language. If a number depends on bodyweight, training age, or context, give the formula or the bracket — never just 'it depends'.",
           "Acknowledge real uncertainty when the evidence is mixed or thin, but do it in one sentence and keep moving. Never pad with 'consult a professional' unless the question is genuinely medical.",
           "When you reference research, name the study type (e.g. '2023 meta-analysis', 'a recent crossover trial in trained men'), the population if it matters, and the effect size or finding. Speak as the one citing the literature — never as someone summarizing a packet of evidence handed to you. Do not write phrases like 'the provided evidence', 'the retrieved studies', 'based on the evidence', 'according to the sources I was given'.",
           "Use the provided evidence first. Keep claims tethered to it. Be practical, specific, and concise.",
-          INLINE_WIDGET_SYSTEM_INSTRUCTIONS,
           "Use thread memory only to interpret follow-up references or preserve relevant goal/constraint continuity.",
           "Do not use thread memory as evidence, and do not let it override the user's current question.",
           "If the current question introduces a new topic, ignore prior hypertrophy or strength context unless the user explicitly connects the new topic to that context.",
@@ -1025,7 +1029,7 @@ function buildSynthesisInput({
             "Use thread memory only to resolve references like 'it', 'that', follow-up population changes, or comparison carryover.",
             "For short confirmations such as 'yes', use the most recent assistant message to infer what the user accepted.",
             "Make the recommendations specific and useful.",
-            "When a visual would help, embed it as an inline ```widget``` block per the system instructions. Lead with prose, drop the widget inline, and do not duplicate the same content in both.",
+            "If the question is a comparison, an evidence matrix, a dose/range breakdown, a decision tree, a phased plan, or lists 3+ quantitative items, you are expected to emit a ```widget``` block with the visual. Lead with 2–4 sentences of prose, then drop the widget inline, then stop — do not repeat the widget's contents as a bullet list. A plain prose answer for a structural question is considered incomplete.",
             "If the evidence is limited or mixed, explain that naturally in the prose instead of using a dedicated limitations section.",
             "Do not include irrelevant training, nutrition, or mental-performance advice.",
             "If the question touches medical or medication risk, stay high level and do not give diagnosis or personalized medication advice.",
@@ -1368,56 +1372,6 @@ function normalizeSynthesisPayload(text) {
       general: normalizeList(genericBullets, 8, 240),
     },
     limitations: [],
-  };
-}
-
-function removeTextDiagramArtifacts(text) {
-  return String(text || "")
-    .replace(/```[\s\S]*?```/g, "")
-    .split(/\r?\n/)
-    .filter((line) => {
-      const trimmed = line.trim();
-      if (!trimmed) return true;
-      if (/[┌┐└┘├┤┬┴┼─│╔╗╚╝═║]/.test(trimmed)) return false;
-      if (/(-->|->|=>|→|↓|↑|⇢|➜|⟶)/.test(trimmed)) return false;
-      if (/^\s*(?:\||\+[-+]+\+|[-=]{3,})/.test(line)) return false;
-      if (/^\s*(?:step\s*)?\d+[\).\s-]+.+(?:to|then|next|->|→)/i.test(line)) return false;
-      return true;
-    })
-    .join("\n")
-    .replace(/\n{3,}/g, "\n\n")
-    .trim();
-}
-
-function sanitizeSynthesisForVisualIntent(question, synthesis) {
-  if (!synthesis || !wantsVisualCards(question)) {
-    return synthesis;
-  }
-
-  const artifactType = inferVisualArtifactType(
-    question,
-    `${synthesis.answer_text || ""} ${synthesis.summary || ""}`
-  );
-
-  if (artifactType !== "diagram") {
-    return synthesis;
-  }
-
-  const answerText = removeTextDiagramArtifacts(synthesis.answer_text || synthesis.summary);
-  const summary = removeTextDiagramArtifacts(synthesis.summary || answerText);
-  const fallback = normalizeText(
-    synthesis.summary ||
-      synthesis.answer_text ||
-      "Here is a direct plain-language explanation before the visual.",
-    700
-  );
-  const safeAnswer = normalizeText(answerText || summary || fallback, 2400);
-  const safeSummary = normalizeText(summary || answerText || fallback, 1600);
-
-  return {
-    ...synthesis,
-    summary: safeSummary,
-    answer_text: safeAnswer,
   };
 }
 
@@ -2110,7 +2064,13 @@ function buildCards({ question, synthesis, evidence = [], includeDebug = false, 
   const cards = [];
 
   // Visual artifacts now flow inline through ```widget``` fences in answer_text;
-  // no JSON visual_artifact card is built here anymore.
+  // no JSON visual_artifact card is built here anymore. When the model DID
+  // emit a widget, the widget is the primary visual output and the legacy
+  // action_grid / watchouts cards become redundant noise — suppress them so
+  // the widget speaks for itself. Metric grid is kept because it's a narrow
+  // sidebar of extracted numbers that rarely overlaps with a widget body.
+  const answerText = String(synthesis?.answer_text || synthesis?.summary || "");
+  const hasInlineWidget = /```(?:widget|html)?\s*\n\s*</i.test(answerText);
 
   if (!synthesis) {
     return cards;
@@ -2141,6 +2101,12 @@ function buildCards({ question, synthesis, evidence = [], includeDebug = false, 
   const metricGrid = buildMetricGridCard({ findings: quantFindings });
   if (metricGrid) {
     cards.push(metricGrid);
+  }
+
+  if (hasInlineWidget) {
+    // The widget IS the "what to do" / "watchouts" visual — do not add the
+    // legacy generic cards on top of it.
+    return cards;
   }
 
   // 4. Action grid (Do / Dose / When).
