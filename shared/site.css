@@ -289,6 +289,136 @@ button {
   padding: 3rem;
 }
 
+.auth-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1rem 4.5rem;
+}
+
+.auth-card {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  max-width: 420px;
+  padding: 2.25rem 2rem 2rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background:
+    linear-gradient(180deg, rgba(14, 17, 21, 0.92), rgba(9, 11, 14, 0.96)),
+    linear-gradient(135deg, rgba(109, 159, 255, 0.05), rgba(159, 251, 0, 0.04));
+  box-shadow: var(--shadow);
+}
+
+.auth-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% -10%, rgba(109, 159, 255, 0.14), transparent 55%);
+}
+
+.auth-card > * {
+  position: relative;
+}
+
+.auth-card-head {
+  text-align: center;
+  gap: 0.4rem;
+  margin-bottom: 0.25rem;
+}
+
+.auth-card-title {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--ink);
+}
+
+.auth-card-sub {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.auth-card-foot {
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.auth-card-foot a {
+  color: var(--primary-dim);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.auth-card-foot a:hover,
+.auth-card-foot a:focus-visible {
+  color: #ffffff;
+}
+
+.field-label-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.field-aside-link {
+  color: var(--primary-dim);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.field-aside-link:hover,
+.field-aside-link:focus-visible {
+  color: #ffffff;
+}
+
+.field-hint {
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.45;
+}
+
+.button-block {
+  width: 100%;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  color: var(--primary-dim);
+  font-family: inherit;
+  font-size: 0.82rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+.link-button:hover,
+.link-button:focus-visible {
+  color: #ffffff;
+}
+
+.link-button[hidden] {
+  display: none;
+}
+
 .auth-layout {
   display: grid;
   grid-template-columns: minmax(0, 1.1fr) minmax(360px, 0.85fr);
