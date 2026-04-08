@@ -77,6 +77,61 @@ function bindResendConfirmation(form, status) {
   });
 }
 
+function bindOAuthButtons() {
+  const buttons = document.querySelectorAll("[data-auth-oauth]");
+  if (!buttons.length) {
+    return;
+  }
+
+  const status = document.querySelector("[data-auth-oauth-status]");
+
+  buttons.forEach((button) => {
+    if (!(button instanceof HTMLButtonElement)) {
+      return;
+    }
+
+    button.addEventListener("click", async () => {
+      const provider = button.dataset.authOauth;
+      if (!provider) {
+        return;
+      }
+
+      setStatus(status, "", "");
+      const previousText = button.querySelector("span")?.textContent;
+      const labelSpan = button.querySelector("span");
+      button.disabled = true;
+      if (labelSpan) {
+        labelSpan.textContent = "Redirecting...";
+      }
+
+      try {
+        const supabase = await getSupabase();
+        const { error } = await supabase.auth.signInWithOAuth({
+          provider,
+          options: {
+            redirectTo: getAuthCallbackUrl(),
+          },
+        });
+
+        if (error) {
+          throw error;
+        }
+        // On success the browser is redirected to Google — no further work.
+      } catch (error) {
+        setStatus(
+          status,
+          "error",
+          error.message || `Unable to continue with ${provider}.`
+        );
+        button.disabled = false;
+        if (labelSpan && previousText) {
+          labelSpan.textContent = previousText;
+        }
+      }
+    });
+  });
+}
+
 function bindSignupForm() {
   const form = document.querySelector("[data-auth-signup]");
   if (!form) {
@@ -368,6 +423,7 @@ async function boot() {
     }
   }
 
+  bindOAuthButtons();
   bindSignupForm();
   bindLoginForm();
   bindForgotPasswordForm();

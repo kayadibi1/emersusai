@@ -199,6 +199,58 @@ button {
   gap: 0.85rem;
 }
 
+.button-oauth {
+  width: 100%;
+  gap: 0.75rem;
+  background: #ffffff;
+  border-color: rgba(255, 255, 255, 0.18);
+  color: #0b0d10;
+  letter-spacing: 0.14em;
+}
+
+.button-oauth:hover,
+.button-oauth:focus-visible {
+  background: #f3f4f6;
+  color: #0b0d10;
+}
+
+.button-oauth[disabled] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.oauth-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  flex: none;
+}
+
+.oauth-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.oauth-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0.4rem 0;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+}
+
+.oauth-divider::before,
+.oauth-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
 .page-main {
   position: relative;
   z-index: 1;
