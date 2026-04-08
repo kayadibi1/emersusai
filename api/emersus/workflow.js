@@ -14,7 +14,7 @@ INLINE VISUAL GENERATION — A CORE RESPONSIBILITY, NOT AN OPTION
 
 Emersus is a chat interface that can render inline HTML web apps. Widgets are the primary way you visualize comparisons, matrices, doses, phased plans, calculators, mechanisms, and chart-worthy data. For structural or quantitative questions you are EXPECTED to emit a widget in addition to your prose.
 
-A widget is a self-contained HTML block placed inside a fenced code block tagged \`widget\`. Each widget is rendered in a sandboxed iframe with the Emersus design tokens and a Chart.js runtime bridge already loaded.
+A widget is a self-contained HTML block placed inside a fenced code block tagged \`widget\`. Each widget is rendered in a sandboxed iframe with the Emersus design tokens pre-injected and Chart.js 4.4.1 already loaded as the global \`Chart\`. You can call \`new Chart(canvas, config)\` directly inside an inline <script> tag — do NOT add your own <script src="..."> for Chart.js.
 
 EMIT A WIDGET WHEN ANY OF THESE ARE TRUE:
 - The question is a comparison (X vs Y, X vs Y vs Z, population A vs population B).
@@ -51,7 +51,7 @@ Opening fence: literal \`widget\`. \`html\` is also accepted.
 \`\`\`
 
 HARD RULES FOR WIDGET HTML
-- Self-contained: HTML + inline <style> + (optional) inline <script>. Chart.js from \`https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js\` IS allowed. No other external scripts, no <link>, no @import, no <img src="http...">.
+- Self-contained: HTML + inline <style> + (optional) inline <script>. Chart.js is pre-loaded in the iframe — just use the global \`Chart\` directly, do NOT emit a <script src="..."> for it. No other external scripts, no <link>, no @import, no <img src="http...">.
 - Prefer div-based grid/flex layouts over <table>. Tables wrap text per-character in narrow iframes; div grids do not.
   Example: <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
 - Inherit the host font, color, and background. Do NOT set font-family. Use font-weight:500 for headings and numbers (Apple-style clean).
@@ -1273,7 +1273,7 @@ async function callOpenAIWidgetForcingRetry({
             "Output rules:",
             "1. Write ONLY the widget. No explanatory prose, no preamble, no postamble.",
             "2. Wrap the widget in a ```widget fenced code block exactly as: ```widget\\n<div>...</div>\\n```.",
-            "3. The widget HTML must be self-contained: HTML + inline <style> + (optional) inline <script>. Chart.js from cdnjs.cloudflare.com IS allowed for charts. No other external libraries, no <link>, no @import, no <img src=\"http...\">.",
+            "3. The widget HTML must be self-contained: HTML + inline <style> + (optional) inline <script>. Chart.js 4.4.1 is already pre-loaded in the iframe as the global `Chart` — call `new Chart(canvas, config)` directly, do NOT add your own <script src=\"...\"> for Chart.js. No other external libraries, no <link>, no @import, no <img src=\"http...\">.",
             "4. Use the Emersus design tokens: --color-background-primary, --color-background-secondary, --color-background-tertiary, --color-text-primary, --color-text-secondary, --color-text-tertiary, --color-border-tertiary, --border-radius-md (8px), --border-radius-lg (14px). Status surfaces: --color-background-success/warning/danger/info + --color-text-success/warning/danger/info. Accent hex allowed ONLY for data encoding: #1D9E75 (green/positive), #BA7517 (amber/caution), #A32D2D (red/negative).",
             "5. Prefer div-based grid/flex layouts over <table>. Tables wrap text per-character in narrow iframes. Use <div style=\"display:grid;grid-template-columns:...\"> instead.",
             "6. If the question asks for anything interactive (slider, calculator, dose-response, scenario), add a small vanilla-JS <script> that wires the inputs to the output. The iframe is sandboxed allow-scripts allow-same-origin — fetch/localStorage are blocked, but DOM manipulation and Chart.js work.",
