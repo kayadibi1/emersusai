@@ -1167,17 +1167,32 @@ function MessageBlocks({ blocks, typewrite = false }) {
   const list = Array.isArray(blocks) ? blocks : [];
   const firstTextBlock = list.find((b) => b && b.type === "text");
   const firstTextFull = String(firstTextBlock?.text || "");
+  // Only typewriter the prose BEFORE the first widget fence. If we let the
+  // hook walk through the entire firstTextFull, it would silently "type" the
+  // ~4k chars of hidden widget HTML after the prose ends, which made the
+  // iframe appear a long beat after the last visible word. Cutting the target
+  // at the first ``` means isComplete flips as soon as the prose is done, and
+  // the segment-aware layout (with the WidgetFrame) renders immediately.
+  const firstFenceIndex = firstTextFull.indexOf("```");
+  const typeTarget =
+    firstFenceIndex >= 0 && hasWidgetFences(firstTextFull)
+      ? firstTextFull.slice(0, firstFenceIndex).replace(/\s+$/, "")
+      : firstTextFull;
   // Hoist the typewriter to the parent so we know when to reveal cards.
-  const visible = useTypewriter(firstTextFull, typewrite && !!firstTextBlock);
-  const isComplete = !typewrite || !firstTextBlock || visible.length >= firstTextFull.length;
+  const visibleProse = useTypewriter(typeTarget, typewrite && !!firstTextBlock);
+  const isComplete = !typewrite || !firstTextBlock || visibleProse.length >= typeTarget.length;
   return h(React.Fragment, null, list.map((block, index) => {
     if (!block || typeof block !== "object") return null;
     if (block.type === "text") {
       const isFirstText = block === firstTextBlock;
-      if (isFirstText && typewrite) {
-        // Render with the typed substring; reuse TextBlock parsing.
-        return h(TextBlock, { key: index, text: visible, role: block.role || "assistant", typingActive: !isComplete });
+      if (isFirstText && typewrite && !isComplete) {
+        // Still typing prose — render the partial prose substring only, with
+        // the typing cursor. The widget is NOT in this text, so TextBlock's
+        // pure-prose branch handles it.
+        return h(TextBlock, { key: index, text: visibleProse, role: block.role || "assistant", typingActive: true });
       }
+      // Prose done (or no typewriter) — hand TextBlock the full text so it
+      // switches into the segment-aware layout and mounts the WidgetFrame.
       return h(TextBlock, { key: index, text: block.text, role: block.role || "assistant" });
     }
     if (block.type === "tool_result" || block.type === "tool_use") {
