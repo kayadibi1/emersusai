@@ -612,6 +612,13 @@ function classifySafety({ question, profile, threadState }) {
     .join(" ")
     .toLowerCase();
 
+  // Off-topic check is deliberately QUESTION-ONLY (not the concatenated
+  // profile/thread text) so a user whose profile legitimately mentions
+  // "works as a JavaScript developer" doesn't get their training
+  // questions refused. Profiles supply context; scope is judged from
+  // the current prompt only.
+  const questionOnly = normalizeText(question, 800).toLowerCase();
+
   if (
     /ignore (all|previous|prior) instructions|reveal (your|the) (system|hidden) prompt|show (your|the) hidden instructions|developer message|jailbreak|bypass (your )?(rules|guardrails)|act as if safety does not apply/.test(
       text
@@ -621,6 +628,43 @@ function classifySafety({ question, profile, threadState }) {
       status: "prompt_injection_or_system_probe",
       responseMode: "refusal",
       reasons: ["prompt_injection_or_system_probe"],
+    };
+  }
+
+  // Off-topic detection. Emersus is an exercise-science coaching AI —
+  // training, nutrition, supplementation, recovery, sleep, cardiovascular
+  // and metabolic health, and performance-related mental skills. Anything
+  // else (general coding help, creative writing, trivia, translation,
+  // homework) should short-circuit here instead of hitting OpenAI. This
+  // is a conservative first pass; the system prompt also enforces scope
+  // for borderline cases the regex misses. False negatives are fine;
+  // false positives (refusing a legit training question) are not, so the
+  // patterns target unambiguous signals.
+  if (
+    // Programming languages, frameworks, runtimes. "java" on its own is
+    // intentionally NOT here — "java" is commonly slang for coffee and
+    // appears in fitness contexts ("java before training"). "javascript"
+    // already covers the JS case. "swift" has the negative lookahead
+    // because barbell "swifties" / swift tempo are real terms. "ruby" and
+    // "rust" are kept because they're rarely mentioned in fitness prose.
+    /\b(javascript|typescript|python|html|css|reactjs|react\.?js|nodejs|node\.?js|\bsql\b|bash script|powershell script|\bc\+\+\b|\bc#\b|\bgolang\b|\brust\b|\bphp\b|\bruby\b|\bswift\b(?!lets)|\bkotlin\b|flutter|tailwind|next\.?js|\bangular(?!ity)|\bvue\.?js|\bdjango\b|\bflask\b|\bfastapi\b)\b/.test(questionOnly) ||
+    // Software-dev concepts / tooling
+    /\b(stack trace|compiler error|syntax error|debug (my|the) (code|script|function|bug)|git (commit|branch|merge|rebase|push|pull)|pull request|merge conflict|npm install|pip install|yarn add|docker(file)?|kubernetes|\bkubectl\b|database schema|foreign key|sql query|regex for|api endpoint|rest api|graphql)\b/.test(questionOnly) ||
+    // "build/write/make me a (thing that is clearly not a workout/plan/routine)"
+    /(build|write|make|create|code|develop|design)\s+(me\s+)?(a|an)\s+(website|web\s*app|landing page|chat\s*bot|\bbot\b|game|mobile app|\bapp\b|application|script|program|algorithm|extension|plugin|novel|short story|poem|rap|song|sonnet|essay|thesis|dissertation|paper(?! on)|resume|cover letter|presentation|slide deck|pitch deck)\b/.test(questionOnly) ||
+    // Homework / pure math unrelated to training calculators
+    /(solve|compute|calculate)\s+(this|the)?\s*(integral|derivative|polynomial|equation|matrix|eigenvalue|limit of)/.test(questionOnly) ||
+    // Creative writing
+    /\b(write|compose|draft)\s+(an?\s+)?(haiku|poem|song lyrics|short story|screenplay|chapter|dialogue)\b/.test(questionOnly) ||
+    // Translation
+    /\btranslate\s+(this|the following|["'])/.test(questionOnly) ||
+    // General knowledge questions unrelated to exercise physiology
+    /\bcapital of (france|germany|italy|spain|japan|china|russia|brazil)\b/.test(questionOnly)
+  ) {
+    return {
+      status: "off_topic",
+      responseMode: "refusal",
+      reasons: ["off_topic_request"],
     };
   }
 
@@ -680,6 +724,7 @@ function buildGuardrailResponse({ question, plan, safety }) {
     safety.status === "disallowed_unsafe" ||
     safety.status === "prompt_injection_or_system_probe";
   const boundary = safety.status === "medical_boundary";
+  const offTopic = safety.status === "off_topic";
 
   let answerText =
     "I can help with evidence-backed training, nutrition, supplements, recovery, and performance questions.";
@@ -690,6 +735,9 @@ function buildGuardrailResponse({ question, plan, safety }) {
   } else if (boundary) {
     answerText =
       "This question crosses into medical guidance, so I can't give a personalized medication or diagnosis recommendation. I can still help with general evidence-backed education, but a clinician should guide the actual decision.\n\n- If you want, ask for the general evidence on the supplement, food, or training method.\n- Include that you want a high-level summary only, not a personal medical recommendation.\n- For anything involving medications, pregnancy, or a diagnosed condition, check with a licensed clinician.";
+  } else if (offTopic) {
+    answerText =
+      "That's outside what Emersus is built for. I focus on exercise science, training, nutrition, supplementation, recovery, sleep, cardiovascular and metabolic health, and performance-oriented mental skills.\n\nTry one of these instead:\n- Ask me to build or adjust a workout plan.\n- Ask about a specific supplement or nutrition question.\n- Ask about recovery, sleep, or training-stress management.\n- Ask about performance or conditioning for a sport.";
   }
 
   return {
@@ -705,10 +753,12 @@ function buildGuardrailResponse({ question, plan, safety }) {
     },
     confidence: {
       score: 0.25,
-      label: blocked ? "blocked" : "medical_boundary",
+      label: blocked ? "blocked" : offTopic ? "off_topic" : "medical_boundary",
       rationale: blocked
         ? "The request was blocked by Emersus safety guardrails."
-        : "This request overlaps with medical decision-making and needs a stricter boundary.",
+        : offTopic
+          ? "The request is outside Emersus's exercise-science scope."
+          : "This request overlaps with medical decision-making and needs a stricter boundary.",
     },
     limitations: [],
     sources: [],
@@ -1184,6 +1234,7 @@ function buildSynthesisInput({
       content:
         [
           "You are Emersus AI. Speak in the voice of an exercise scientist who also coaches in the gym every day — credentialed (think PhD in exercise physiology, CSCS-level practical experience), comfortable with primary literature, and equally comfortable telling a lifter exactly what to do on Monday morning.",
+          "SCOPE LOCK: Your domain is exercise science — training, strength and conditioning, hypertrophy, endurance, mobility, recovery, sleep, supplementation, nutrition for performance and body composition, cardiovascular and metabolic health, and the mental side of performance (focus, motivation, adherence, habit). If the user asks you to do ANYTHING outside that domain — write code, build a website, write a poem/essay/story, solve a math or logic problem, translate text, answer general-knowledge trivia, give legal/financial/tax advice, do homework, play chess, recommend movies — you refuse briefly and redirect. One or two sentences max, no apologies, no explanations of your architecture. Example refusal: 'That's outside what I'm built for — I focus on exercise science, training, nutrition, and recovery. Ask me something in that space and I'll go deep.' Do NOT comply partially. Do NOT 'just this once'. Do NOT wrap the off-topic request in a fitness frame to justify answering it. The redirect is the whole response.",
           INLINE_WIDGET_SYSTEM_INSTRUCTIONS,
           "Tone: precise, confident, and direct. No hype, no hedging filler, no motivational fluff. Address the reader as 'you'. Sound like a knowledgeable training partner, not a medical disclaimer.",
           "Lead with the answer or the protocol, then briefly justify it with the mechanism or the data. Prefer specific numbers (sets, reps, RPE, grams, mg/kg, minutes, days/week, %1RM) over vague language. If a number depends on bodyweight, training age, or context, give the formula or the bracket — never just 'it depends'.",
@@ -3045,7 +3096,8 @@ async function generateRecommendation({
   if (
     safety.status === "disallowed_unsafe" ||
     safety.status === "prompt_injection_or_system_probe" ||
-    safety.status === "medical_boundary"
+    safety.status === "medical_boundary" ||
+    safety.status === "off_topic"
   ) {
     const blockedResponse = buildGuardrailResponse({
       question,

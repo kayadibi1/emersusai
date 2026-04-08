@@ -591,6 +591,20 @@ function useTypewriter(fullText, enabled, charsPerTick = 3, intervalMs = 18) {
       setVisible(fullText);
       return undefined;
     }
+    // Background-tab fix: Chromium throttles setInterval to 1Hz (or
+    // stops it entirely after ~5 min of aggressive throttling) in
+    // background tabs, which means a normal-length response would take
+    // 5+ minutes to "type out" once the user came back — or appear to
+    // never load at all if the throttling escalated. The typewriter is
+    // purely cosmetic; there's no reason to animate text the user can't
+    // see. When the tab is hidden, skip the animation entirely and
+    // render the full text immediately. If the tab becomes hidden
+    // mid-animation, flush to full text so the user returns to a
+    // completed message instead of a half-typed one.
+    if (typeof document !== "undefined" && document.hidden) {
+      setVisible(fullText);
+      return undefined;
+    }
     setVisible("");
     let i = 0;
     const id = setInterval(() => {
@@ -598,7 +612,21 @@ function useTypewriter(fullText, enabled, charsPerTick = 3, intervalMs = 18) {
       setVisible(fullText.slice(0, i));
       if (i >= fullText.length) clearInterval(id);
     }, intervalMs);
-    return () => clearInterval(id);
+    function onVisibilityChange() {
+      if (typeof document !== "undefined" && document.hidden) {
+        clearInterval(id);
+        setVisible(fullText);
+      }
+    }
+    if (typeof document !== "undefined") {
+      document.addEventListener("visibilitychange", onVisibilityChange);
+    }
+    return () => {
+      clearInterval(id);
+      if (typeof document !== "undefined") {
+        document.removeEventListener("visibilitychange", onVisibilityChange);
+      }
+    };
   }, [fullText, enabled, charsPerTick, intervalMs]);
   return visible;
 }
