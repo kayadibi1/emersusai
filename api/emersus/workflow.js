@@ -35,6 +35,16 @@ WHEN NOT TO EMIT A WIDGET
 HOW TO EMIT A WIDGET
 Always lead with a short prose answer first (2–4 sentences of the actual take). Then drop the widget inline. Do NOT duplicate the widget's items verbatim in a bullet list before or after — the widget IS the breakdown, the prose is the verdict.
 
+ABSOLUTELY FORBIDDEN
+You may NOT draw tables, charts, progress bars, dashboards, or any other visual using:
+- Unicode block characters like ▓, ░, █, ■, □, ▪, ▫, ●, ◯
+- Box-drawing characters like ┌, ┐, └, ┘, ─, │, ├, ┤, ┬, ┴, ┼, ═, ║, ╔, ╗, ╚, ╝
+- Repeated ASCII symbols like =====, -----, |||, or space-aligned columns
+- Pseudo-progress bars like [####----] or "▓▓▓▓▓░░░"
+- Any rendering of data that relies on monospace alignment
+
+If you catch yourself about to render one of the above, STOP and emit a real HTML + CSS widget inside a \`\`\`widget fence instead. A question like "make me a dashboard" or "interactive dose-response" or "show me a chart" requires a real HTML widget. Producing an ASCII/unicode approximation is a failure and will be rejected.
+
 Prefer the literal tag \`widget\` on the opening fence. \`html\` is also accepted if that is more natural for you:
 
 \`\`\`widget
@@ -112,6 +122,34 @@ EXAMPLE — evidence-by-outcome card
 DEFAULT BEHAVIOR
 For everyday questions, just write prose. Reach for a widget when the question is structurally visual — and only when you have the real data to fill it.
 `.trim();
+
+// Regex detectors for (a) user questions that clearly want a visual output
+// and (b) pseudo-visual text (ASCII/unicode art) the model sometimes emits
+// when it ignores the widget instructions. When (a) is true and the model
+// output triggers (b), we do a forcing retry that requires a real widget.
+const VISUAL_REQUEST_RE = /\b(dashboard|chart|graph|diagram|flowchart|mockup|wireframe|calculator|slider|interactive|simulation|visualize|visualisation|visualization|widget|web\s?app|infographic|matrix|breakdown|comparison|compare|vs\.?|decision\s*tree|timeline|roadmap|dose.?response|dose.?range)\b/i;
+
+const PSEUDO_VISUAL_RE = /[▓░█■□▪▫●◯┌┐└┘├┤┬┴┼─│═║╔╗╚╝]|\[#+-*\]|(?:^|\n)\s*\|[^\n]{3,}\|\s*(?:\n|$)|(?:^|\n)\s*[-=]{4,}\s*(?:\n|$)/;
+
+function wantsVisualOutput(question) {
+  return VISUAL_REQUEST_RE.test(String(question || ""));
+}
+
+function containsPseudoVisual(text) {
+  return PSEUDO_VISUAL_RE.test(String(text || ""));
+}
+
+function hasInlineWidgetFence(text) {
+  const src = String(text || "");
+  const re = /```([\w-]*)[ \t]*\n([\s\S]*?)```/g;
+  let m;
+  while ((m = re.exec(src)) !== null) {
+    const tag = String(m[1] || "").toLowerCase();
+    const firstChar = String(m[2] || "").trim().charAt(0);
+    if (tag === "widget" || tag === "html" || (!tag && firstChar === "<")) return true;
+  }
+  return false;
+}
 
 function clamp(value, min, max) {
   return Math.min(Math.max(value, min), max);
@@ -1158,6 +1196,69 @@ async function callOpenAISynthesis({
     );
   }
 
+  return payload;
+}
+
+// When the first synthesis pass produces a pseudo-visual instead of a real
+// widget (e.g. unicode-bar "dashboards"), re-ask the model for JUST the
+// widget HTML while keeping the already-written prose intact. This is
+// cheaper than re-synthesizing the whole answer and much more reliable than
+// trying to coax a widget out in a single pass.
+async function callOpenAIWidgetForcingRetry({
+  model = DEFAULT_MODEL,
+  question,
+  proseAnswer,
+  evidenceForModel,
+}) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) return null;
+
+  const response = await fetch("https://api.openai.com/v1/responses", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model,
+      max_output_tokens: 1500,
+      input: [
+        {
+          role: "system",
+          content: [
+            "You are Emersus AI. The previous answer attempted to render a visual using unicode block characters or ASCII tables, which is forbidden.",
+            "Your job now is to produce a REAL HTML + CSS widget that renders the same information as an actual iframe-rendered visual.",
+            "Output rules:",
+            "1. Write ONLY the widget. No explanatory prose, no preamble, no postamble.",
+            "2. Wrap the widget in a ```widget fenced code block exactly as: ```widget\\n<div class=\"...\">...</div>\\n```.",
+            "3. The widget HTML must be self-contained: HTML + inline <style> + (optional) inline <script>. No external libraries, no CDNs, no <link>, no @import, no <img src=\"http...\">.",
+            "4. Use the Emersus design tokens: --bg-primary, --bg-secondary, --bg-tertiary, --text-primary, --text-secondary, --text-tertiary, --border-default, --border-hover, --radius-md, --radius-lg, --font-sans. Use --ev-strong-*, --ev-moderate-*, --ev-limited-*, --ev-insufficient-* for evidence strength. Do not invent hex colors for theme surfaces.",
+            "5. If the question asks for anything interactive (slider, calculator, dose-response, scenario), add a small vanilla-JS <script> that wires the inputs to the output. The iframe is sandboxed allow-scripts only, so no fetch / localStorage / cookies / parent DOM.",
+            "6. Render numbers as real CSS bars, not text characters. Example: <div class=\"bar\" style=\"width: 72%\"></div>, not ▓▓▓▓▓▓▓░░░.",
+            "7. Do NOT set font-family. The host document provides it.",
+            "8. Numbers, labels, study names, and effect sizes must come from the prose answer or the retrieved evidence below. Do not fabricate.",
+            "Your entire response must start with ```widget and end with ```. Nothing else.",
+          ].join("\n"),
+        },
+        {
+          role: "user",
+          content: JSON.stringify(
+            {
+              question,
+              prose_answer: proseAnswer,
+              retrieved_evidence: evidenceForModel,
+              required_output: "One ```widget fenced HTML block only. No other text.",
+            },
+            null,
+            2
+          ),
+        },
+      ],
+    }),
+  });
+
+  const payload = await response.json().catch(() => null);
+  if (!response.ok || !payload) return null;
   return payload;
 }
 
@@ -2619,6 +2720,59 @@ async function generateRecommendation({
   } catch (error) {
     synthesisMode = "openai_error";
     console.error("OpenAI recommendation generation failed:", error);
+  }
+
+  // Forcing retry: if the user clearly asked for a visual and the first
+  // synthesis produced a pseudo-visual (ASCII/unicode art) instead of a
+  // real widget fence, ask the model again — this time for JUST the widget
+  // HTML — and splice it into the existing answer.
+  if (synthesis && wantsVisualOutput(question)) {
+    const answerText = String(synthesis.answer_text || synthesis.summary || "");
+    const alreadyHasWidget = hasInlineWidgetFence(answerText);
+    const hasPseudo = containsPseudoVisual(answerText);
+    if (!alreadyHasWidget && hasPseudo) {
+      try {
+        const retryPayload = await callOpenAIWidgetForcingRetry({
+          model: synthesisModel,
+          question,
+          proseAnswer: answerText,
+          evidenceForModel,
+        });
+        cumulativeTokenUsage = mergeTokenUsageTotals(
+          cumulativeTokenUsage,
+          extractTokenUsage(retryPayload)
+        );
+        const retryText = extractTextFromResponse(retryPayload);
+        const widgetMatch = String(retryText || "").match(
+          /```(?:widget|html)?[ \t]*\n([\s\S]*?)```/
+        );
+        if (widgetMatch && /<[a-z]/i.test(widgetMatch[1])) {
+          // Strip the pseudo-visual block from the prose. The pseudo-visual
+          // tends to be a contiguous run of lines containing the forbidden
+          // characters — drop those lines.
+          const cleanedProse = answerText
+            .split(/\r?\n/)
+            .filter((line) => !PSEUDO_VISUAL_RE.test(line))
+            .join("\n")
+            .replace(/\n{3,}/g, "\n\n")
+            .trim();
+          const mergedAnswer = `${cleanedProse}\n\n\`\`\`widget\n${widgetMatch[1].trim()}\n\`\`\``.trim();
+          synthesis = {
+            ...synthesis,
+            answer_text: mergedAnswer,
+          };
+          synthesisMode = `${synthesisMode}+widget_forcing_retry`;
+          console.log("Emersus widget forcing retry succeeded.", {
+            question,
+            originalMode: synthesisMode,
+          });
+        } else {
+          console.warn("Emersus widget forcing retry returned no usable widget.");
+        }
+      } catch (error) {
+        console.error("Emersus widget forcing retry failed:", error);
+      }
+    }
   }
 
   if (!synthesis) {
