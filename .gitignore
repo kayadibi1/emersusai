@@ -18,3 +18,14 @@ pnpm-debug.log*
 
 # Generated evidence import staging/cache artifacts
 data/
+
+# Scratch / experimental clones that should never enter the deploy artifact.
+# tmp/claude-code was once accidentally added as a bare gitlink without a
+# .gitmodules entry, which broke Vercel's checkout (git exit 128). Keeping
+# the entire nested clone out of the index fixes the Vercel build and
+# prevents a future accidental re-add.
+tmp/claude-code/
+# Other ad-hoc test harnesses live in tmp/; only pubmed-sample.jsonl is
+# intentionally tracked there.
+tmp/*.html
+tmp/*.mjs
