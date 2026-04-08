@@ -540,7 +540,13 @@ function ToolCard({ tool = "insight_card", title = "", subtitle = "", status = "
           "div",
           { className: "chat-tool-title-group" },
           h("strong", { className: "chat-tool-title" }, normalizeText(title || "Evidence card", 60)),
-          h("span", { className: "chat-tool-subtitle" }, subtitle || (tool === "sources_card" ? "Sources" : "Generated visual"))
+          subtitle || tool === "sources_card"
+            ? h(
+                "span",
+                { className: "chat-tool-subtitle" },
+                subtitle || (tool === "sources_card" ? "Sources" : ""),
+              )
+            : null,
         )
       ),
       h(StatusBadge, { status })
@@ -1100,7 +1106,7 @@ function ActionGrid({ card }) {
     h("div", { className: "chat-action-columns" }, columns.map((column, index) =>
       h("section", { key: index, className: `chat-action-panel ${toneClass(column?.tone)}`.trim() },
         h("h4", { className: "chat-action-heading" }, normalizeText(column?.label || "Actions", 80)),
-        h("ul", { className: "chat-action-list" }, (Array.isArray(column?.items) ? column.items.slice(0, 4) : []).map((item, itemIndex) => h("li", { key: itemIndex }, normalizeText(item, 180)))))))
+        h("ul", { className: "chat-action-list" }, (Array.isArray(column?.items) ? column.items.slice(0, 4) : []).map((item, itemIndex) => h("li", { key: itemIndex }, ...renderInlineMarkdown(normalizeText(item, 180))))))))
   );
 }
 
@@ -1108,7 +1114,7 @@ function Watchouts({ card }) {
   return h(
     ToolCard,
     { title: card?.title || "Watchouts", status: String(card?.tone || "caution").toUpperCase(), bodyClass: "chat-insight-card" },
-    h("ul", { className: "chat-watchout-list" }, (Array.isArray(card?.items) ? card.items.slice(0, 4) : []).map((item, index) => h("li", { key: index }, normalizeText(item, 180))))
+    h("ul", { className: "chat-watchout-list" }, (Array.isArray(card?.items) ? card.items.slice(0, 4) : []).map((item, index) => h("li", { key: index }, ...renderInlineMarkdown(normalizeText(item, 180)))))
   );
 }
 
