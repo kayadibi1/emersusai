@@ -4,8 +4,9 @@
     {
       "name": "static-http",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8000"],
-      "port": 8000
+      "runtimeArgs": ["-c", "import os, http.server, socketserver; port = int(os.environ.get('PORT', '8000')); httpd = socketserver.TCPServer(('127.0.0.1', port), http.server.SimpleHTTPRequestHandler); print(f'serving on {port}', flush=True); httpd.serve_forever()"],
+      "port": 8000,
+      "autoPort": true
     },
     {
       "name": "vercel-dev",
