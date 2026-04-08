@@ -2139,9 +2139,8 @@ function buildCards({ question, synthesis, evidence = [], includeDebug = false, 
         : null,
     ].filter(Boolean),
   }));
-  if (sourceHighlights.length) {
-    cards.push({ type: "source_highlights", title: "Best sources", items: sourceHighlights });
-  }
+  // source_highlights are rendered in the side rail (from response.sources),
+  // not as an inline card. Intentionally not pushed to cards.
 
   // 7. Watchouts.
   if (Array.isArray(synthesis.limitations) && synthesis.limitations.length) {
