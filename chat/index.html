@@ -484,6 +484,29 @@
       gap: 0.18rem;
     }
 
+    .chat-text-block-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+      width: 100%;
+    }
+
+    /* Children of the wrap inherit `grid-column: span 12` from
+       `.message.assistant .chat-text-block`, but the wrap itself is flex —
+       the rule is harmless here, the bubbles still flex to full width. */
+    .chat-widget-frame-wrap {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .chat-widget-frame-wrap iframe {
+      width: 100%;
+      border-radius: 0;
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      background: transparent;
+      display: block;
+    }
+
     .chat-card {
       border-radius: 0;
       background:

@@ -22,6 +22,12 @@ import {
   upsertChatThread,
 } from "/shared/supabase.js";
 import { createThinkingGlyph } from "/shared/thinking-glyph.js";
+import {
+  WidgetFrame,
+  hasWidgetFences,
+  parseLLMOutput,
+  stripWidgetFencesForStreaming,
+} from "/shared/emersus-renderer.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -562,32 +568,83 @@ function useTypewriter(fullText, enabled, charsPerTick = 3, intervalMs = 18) {
   return visible;
 }
 
-function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false }) {
-  const fullText = String(text || "");
-  const visible = useTypewriter(fullText, typewrite);
-  const display = typewrite ? visible : fullText;
-  const isTyping = typingActive || (typewrite && visible.length < fullText.length);
-  const chunks = display
+// Render the inner prose chunks (paragraphs + bullet lists) of one text
+// segment. Used both by the streaming path (single bubble around the visible
+// substring) and the segment path (one bubble per text segment between
+// inline widgets).
+function renderProseChunks(text) {
+  const chunks = String(text || "")
     .trim()
     .split(/\r?\n\s*\r?\n/)
     .map((chunk) => chunk.trim())
     .filter(Boolean);
+  return chunks.map((chunk, chunkIndex) => {
+    const lines = chunk.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
+    const bulletLines = lines.filter((line) => /^(?:[-*]|\u2022)\s+/.test(line));
+    const proseLines = lines.filter((line) => !/^(?:[-*]|\u2022)\s+/.test(line));
+    return h(
+      React.Fragment,
+      { key: chunkIndex },
+      proseLines.length ? h("p", null, proseLines.join(" ")) : null,
+      bulletLines.length
+        ? h("ul", null, bulletLines.map((line, lineIndex) => h("li", { key: lineIndex }, line.replace(/^(?:[-*]|\u2022)\s+/, ""))))
+        : null
+    );
+  });
+}
+
+function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false }) {
+  const fullText = String(text || "");
+  const visible = useTypewriter(fullText, typewrite);
+  const isTyping = typingActive || (typewrite && visible.length < fullText.length);
+  const display = typewrite ? visible : fullText;
+
+  // Pure-prose answers (no widget fences) take the original single-bubble path.
+  // This is also the path the user-message bubble always takes.
+  if (role !== "assistant" || !hasWidgetFences(fullText)) {
+    return h(
+      "div",
+      { className: `chat-bubble chat-bubble-${role} chat-text-block${isTyping ? " is-typing" : ""}` },
+      renderProseChunks(display),
+    );
+  }
+
+  // While the typewriter is still streaming, hide widgets and any partial
+  // trailing fence so the reader never sees half-written "```widget\n<div".
+  // Once the prose is complete, switch to the segment-aware layout below.
+  if (isTyping) {
+    const proseOnly = stripWidgetFencesForStreaming(display);
+    return h(
+      "div",
+      { className: `chat-bubble chat-bubble-${role} chat-text-block is-typing` },
+      renderProseChunks(proseOnly),
+    );
+  }
+
+  // Segment-aware layout: render each text segment in its own bubble and each
+  // widget segment as a sibling iframe so widgets sit between bubbles instead
+  // of inside them.
+  const segments = parseLLMOutput(fullText);
   return h(
     "div",
-    { className: `chat-bubble chat-bubble-${role} chat-text-block${isTyping ? " is-typing" : ""}` },
-    chunks.map((chunk, chunkIndex) => {
-      const lines = chunk.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
-      const bulletLines = lines.filter((line) => /^(?:[-*]|\u2022)\s+/.test(line));
-      const proseLines = lines.filter((line) => !/^(?:[-*]|\u2022)\s+/.test(line));
+    { className: `chat-text-block-wrap chat-text-block-${role}` },
+    segments.map((segment, index) => {
+      if (segment.type === "widget") {
+        return h(
+          "div",
+          { key: `w-${index}`, className: "chat-widget-frame-wrap" },
+          h(WidgetFrame, { code: segment.content }),
+        );
+      }
       return h(
-        React.Fragment,
-        { key: chunkIndex },
-        proseLines.length ? h("p", null, proseLines.join(" ")) : null,
-        bulletLines.length
-          ? h("ul", null, bulletLines.map((line, lineIndex) => h("li", { key: lineIndex }, line.replace(/^(?:[-*]|\u2022)\s+/, ""))))
-          : null
+        "div",
+        {
+          key: `t-${index}`,
+          className: `chat-bubble chat-bubble-${role} chat-text-block`,
+        },
+        renderProseChunks(segment.content),
       );
-    })
+    }),
   );
 }
 

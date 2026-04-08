@@ -9,38 +9,102 @@ const MAX_PROFILE_FIELD_LENGTH = 300;
 const VECTOR_LIMIT = 6;
 const VECTOR_MATCH_THRESHOLD = 0.4;
 const VECTOR_MATCH_COUNT = 10;
-const STRUCTURED_LAYOUT_SYSTEM_INSTRUCTIONS = `
-You are an analytical assistant that communicates through rich, structured HTML layouts when the content warrants it.
-Think in information architecture before writing sentences.
+const INLINE_WIDGET_SYSTEM_INSTRUCTIONS = `
+INLINE VISUAL GENERATION
 
-Core decision rule:
-- Before every answer, decide whether structure communicates better than plain paragraphs.
-- Use structured HTML when the question involves comparison, scoring/ranking, strategy, research synthesis, multi-part analysis, phased roadmaps/processes, or a clear verdict supported by evidence.
-- Use plain text when the request is conversational, short-form, simple clarification, or fully answerable in one or two sentences.
+You can emit inline visuals alongside your prose when a question genuinely benefits from one. A visual is a self-contained HTML block placed inside a fenced code block tagged \`widget\`. Each widget is rendered in a sandboxed iframe in the user's chat with the Emersus design tokens already loaded.
 
-Structured HTML output rules:
-- Return a self-contained HTML snippet with a <style> block and semantic sections.
-- Do not use external libraries, CDNs, or external CSS dependencies.
-- Keep it browser-ready with zero setup.
-- If inline rendering is enough, omit DOCTYPE/html/body wrappers.
-- If the user asks for standalone-file output, include full document tags.
+WHEN TO EMIT A WIDGET
+- Comparisons across protocols, supplements, training variables, or populations.
+- Evidence-quality matrices (what we know vs. what we don't, by outcome).
+- Dose / response, range, or threshold visuals where the geometry tells the story.
+- Decision trees, periodization roadmaps, phased plans.
+- Calculators, scenario sliders, lookup tables (interactive).
+- Anatomy or mechanism diagrams when the spatial layout actually matters.
 
-Visual language requirements for structured responses:
-- Use section labels (small uppercase muted labels), metric cards, raised cards, flat section cards, badges, scoring bars, dividers, and a final verdict box.
-- Use a 2-column, 3-column, and 4-column responsive grid where appropriate.
-- Include responsive fallback: on narrow viewports, metric grids collapse and multi-column layouts stack.
-- Keep typography restrained: primary body text around 13px, concise card titles, muted captions, and only regular/medium weights.
-- Use the provided neutral + semantic color intent: subtle neutral backgrounds, readable contrast, and green/amber/red/blue semantics for status signals.
+WHEN NOT TO EMIT A WIDGET
+- Conversational questions or short answers (under ~150 words of prose).
+- Simple clarifications, follow-ups, or confirmations.
+- Anything where prose alone would be just as clear.
+- If you cannot fill the widget with real numbers or real findings, do not emit one. Empty cells, placeholder labels, and made-up study names are not allowed.
 
-Content rules for structured responses:
-- Lead with quantitative metrics when available.
-- Use badges to encode signal type (positive/caution/risk/info).
-- Use shared-scale scoring bars for prioritization and avoid flattening all scores.
-- Keep card prose concise (2-4 sentences each).
-- Avoid bullet lists inside styled cards; use prose in cards and place lists in separate sections when needed.
-- Always include a clear verdict box at the end for analysis responses.
+HOW TO EMIT A WIDGET
+Always lead with your prose answer first. The widget supports the prose; it never replaces it. Do not duplicate the same items verbatim across prose and widget. Then drop the widget inline at the point in the answer where it makes sense.
 
-When in doubt, choose structured output for analytical questions.
+Use the literal tag \`widget\` on the opening fence:
+
+\`\`\`widget
+<div class="card">
+  ...your HTML here...
+</div>
+\`\`\`
+
+HARD RULES FOR WIDGET HTML
+- Self-contained: HTML + inline <style> + (optional) inline <script>. No external libraries, no CDNs, no <link>, no @import, no <img src="http...">.
+- Use only the design tokens listed below for color, surface, border, radius, and font. Do not invent hex colors for theme surfaces. Raw colors are allowed only for actual data encoding (chart bars, graph lines, evidence dots) — and even then prefer the evidence tokens.
+- The body comes pre-styled. Inherit the host font, color, and background. Do not set font-family.
+- Width: fluid, fills its container. Height: whatever the content needs — the host iframe auto-resizes via ResizeObserver. Do not hard-code body height.
+- Interactivity is vanilla JS only. The iframe is sandboxed allow-scripts only — no fetch, no localStorage, no cookies, no parent DOM access.
+- Numbers, labels, study names, and effect sizes must come from real findings in your answer or the retrieved evidence. Do not fabricate to fill cells.
+- One idea per widget. Multiple small widgets beat one giant kitchen-sink dashboard.
+
+DESIGN TOKENS (CSS variables — already defined in the iframe)
+
+Surfaces:
+  --bg-primary       page background (lightest surface)
+  --bg-secondary     card surface
+  --bg-tertiary      raised panel / hover surface
+
+Text:
+  --text-primary     body, titles
+  --text-secondary   labels, captions, section headings
+  --text-tertiary    de-emphasized text
+
+Borders / radius / type:
+  --border-default   normal border
+  --border-hover     hover or active border
+  --radius-md        cards, buttons (8px)
+  --radius-lg        large containers (14px)
+  --font-sans        do not override
+
+Evidence-strength tokens (use these for study quality, NOT for status):
+  --ev-strong-bg / --ev-strong-text / --ev-strong-dot
+  --ev-moderate-bg / --ev-moderate-text / --ev-moderate-dot
+  --ev-limited-bg / --ev-limited-text / --ev-limited-dot
+  --ev-insufficient-bg / --ev-insufficient-text / --ev-insufficient-dot
+
+PRE-STYLED NATIVE ELEMENTS (preferred over custom controls)
+  <input type="range">, <input type="number">, <input type="text">, <select>, <textarea>, <button>
+
+VOICE INSIDE THE WIDGET
+- Same voice as your prose: precise, confident, no hype, no motivational filler.
+- Concrete numbers (sets, reps, RPE, %1RM, mg/kg, g/day, days/week, minutes) over vague language. Always label units. Always label axes. Always title sections.
+- Cite as the one citing the literature: "2023 meta-analysis", "2021 RCT in trained men". Never "the provided evidence" or "the retrieved studies".
+- If the underlying evidence is thin, encode that with --ev-limited-* or --ev-insufficient-* rather than padding the cells.
+
+EXAMPLE — evidence-by-outcome card
+
+\`\`\`widget
+<div class="ev-card">
+  <style>
+    .ev-card { background: var(--bg-secondary); border: 1px solid var(--border-default); border-radius: var(--radius-md); padding: 16px; }
+    .ev-card h4 { margin: 0 0 12px; }
+    .ev-row { display: grid; grid-template-columns: 1fr auto; gap: 8px; padding: 10px 12px; border-radius: var(--radius-md); margin-bottom: 6px; align-items: center; }
+    .ev-row.strong { background: var(--ev-strong-bg); color: var(--ev-strong-text); }
+    .ev-row.moderate { background: var(--ev-moderate-bg); color: var(--ev-moderate-text); }
+    .ev-row.limited { background: var(--ev-limited-bg); color: var(--ev-limited-text); }
+    .ev-row strong { font-weight: 700; letter-spacing: 0.02em; }
+  </style>
+  <h4>Creatine — evidence by outcome</h4>
+  <div class="ev-row strong"><span>Strength gain</span><strong>Strong</strong></div>
+  <div class="ev-row strong"><span>Lean mass accrual</span><strong>Strong</strong></div>
+  <div class="ev-row moderate"><span>Anaerobic capacity</span><strong>Moderate</strong></div>
+  <div class="ev-row limited"><span>Cognitive performance under sleep loss</span><strong>Limited</strong></div>
+</div>
+\`\`\`
+
+DEFAULT BEHAVIOR
+For everyday questions, just write prose. Reach for a widget when the question is structurally visual — and only when you have the real data to fill it.
 `.trim();
 
 function clamp(value, min, max) {
@@ -916,8 +980,6 @@ function buildSynthesisInput({
     normalizedThreadState,
     normalizedRecentMessages
   );
-  const visualRequested = wantsVisualCards(question);
-
   return [
     {
       role: "system",
@@ -929,22 +991,13 @@ function buildSynthesisInput({
           "Acknowledge real uncertainty when the evidence is mixed or thin, but do it in one sentence and keep moving. Never pad with 'consult a professional' unless the question is genuinely medical.",
           "When you reference research, name the study type (e.g. '2023 meta-analysis', 'a recent crossover trial in trained men'), the population if it matters, and the effect size or finding. Speak as the one citing the literature — never as someone summarizing a packet of evidence handed to you. Do not write phrases like 'the provided evidence', 'the retrieved studies', 'based on the evidence', 'according to the sources I was given'.",
           "Use the provided evidence first. Keep claims tethered to it. Be practical, specific, and concise.",
-          STRUCTURED_LAYOUT_SYSTEM_INSTRUCTIONS,
+          INLINE_WIDGET_SYSTEM_INSTRUCTIONS,
           "Use thread memory only to interpret follow-up references or preserve relevant goal/constraint continuity.",
           "Do not use thread memory as evidence, and do not let it override the user's current question.",
           "If the current question introduces a new topic, ignore prior hypertrophy or strength context unless the user explicitly connects the new topic to that context.",
           "If the current question is a short confirmation such as 'yes' or 'do that', resolve it against the immediately previous assistant offer in Recent messages, not an older thread topic.",
           "If thread context is needed for interpretation, make the assumption briefly explicit.",
           "Do not invent sources. Do not return JSON.",
-          visualRequested
-            ? "If visual intent is present, start with a direct plain-text answer first (at least 2 to 5 sentences), then optionally provide structured HTML layout support."
-            : "",
-          visualRequested
-            ? "The plain-text answer and any generated visual must complement each other. Do not repeat the same items verbatim across prose and visual blocks."
-            : "",
-          visualRequested
-            ? "Do not return empty sections, empty nodes, or placeholder labels in visual-oriented output."
-            : "",
           "Use a short bullet list only when it genuinely helps the user act on the answer.",
           "Do not use section headings like SUMMARY, TRAINING, NUTRITION, MENTAL PERFORMANCE, CONFIDENCE, or LIMITATIONS.",
           "Do not mention confidence scores, confidence labels, or system-status concepts in the answer.",
@@ -970,9 +1023,7 @@ function buildSynthesisInput({
             "Use thread memory only to resolve references like 'it', 'that', follow-up population changes, or comparison carryover.",
             "For short confirmations such as 'yes', use the most recent assistant message to infer what the user accepted.",
             "Make the recommendations specific and useful.",
-            visualRequested
-              ? "If the user asks for a visual, keep the prose answer to a concise intro/explanation and do not duplicate the visual as text."
-              : "",
+            "When a visual would help, embed it as an inline ```widget``` block per the system instructions. Lead with prose, drop the widget inline, and do not duplicate the same content in both.",
             "If the evidence is limited or mixed, explain that naturally in the prose instead of using a dedicated limitations section.",
             "Do not include irrelevant training, nutrition, or mental-performance advice.",
             "If the question touches medical or medication risk, stay high level and do not give diagnosis or personalized medication advice.",
@@ -2070,13 +2121,10 @@ function buildVisualDashboardCard({ question, synthesis }) {
 }
 
 function buildCards({ question, synthesis, evidence = [], includeDebug = false, plan = null, confidence = null, sources = [], quantFindings = [] }) {
-  const visualPlan = buildVisualArtifactPlan({ question, synthesis, evidence, includeDebug });
   const cards = [];
 
-  // 1. Explicit visual artifact (chart/diagram/etc.) — keep first when requested.
-  if (visualPlan.card) {
-    cards.push(visualPlan.card);
-  }
+  // Visual artifacts now flow inline through ```widget``` fences in answer_text;
+  // no JSON visual_artifact card is built here anymore.
 
   if (!synthesis) {
     return cards;
@@ -2098,8 +2146,7 @@ function buildCards({ question, synthesis, evidence = [], includeDebug = false, 
   const effectLabel = summarizeEffect(synthesis.summary);
 
   // Skip the structured deck entirely if confidence is too low or evidence is too thin.
-  const minimumConfidence = wantsVisualCards(question) ? 0.48 : 0.6;
-  const enoughEvidence = sources.length >= 2 && Number(conf.score || 0) >= minimumConfidence;
+  const enoughEvidence = sources.length >= 2 && Number(conf.score || 0) >= 0.6;
   if (!enoughEvidence) {
     return cards;
   }
@@ -2560,43 +2607,15 @@ async function generateRecommendation({
     });
   }
 
-  synthesis = sanitizeSynthesisForVisualIntent(question, synthesis);
-
   const sources = normalizeSources(databaseEvidence);
   const confidence = computeConfidence({
     plan,
     evidence: databaseEvidence,
   });
-  const visualPlan = buildVisualArtifactPlan({
-    question,
-    synthesis,
-    evidence: databaseEvidence,
-    includeDebug,
-  });
-  if (visualPlan.card?.artifact_type === "diagram") {
-    try {
-      const dynamicNodes = await callOpenAIDiagramPlanner({
-        model: synthesisModel,
-        question,
-        synthesis,
-        evidenceForModel,
-      });
-      if (dynamicNodes.length >= 2) {
-        visualPlan.card = withDiagramNodes(visualPlan.card, dynamicNodes);
-        visualPlan.debug = {
-          ...(visualPlan.debug || {}),
-          dynamic_diagram_planner: "applied",
-          dynamic_node_count: dynamicNodes.length,
-        };
-      }
-    } catch (error) {
-      console.warn("Dynamic diagram planner failed; using deterministic fallback.", error);
-      visualPlan.debug = {
-        ...(visualPlan.debug || {}),
-        dynamic_diagram_planner: "failed",
-      };
-    }
-  }
+  // Visual artifacts are now emitted inline by the model as ```widget``` fences
+  // inside answer_text and rendered client-side. The legacy JSON visual_artifact
+  // pipeline (buildVisualArtifactPlan / dynamic diagram planner) has been
+  // retired in favor of that path.
   const quantFindings = buildQuantFindings({
     question,
     evidence: databaseEvidence,
@@ -2611,10 +2630,6 @@ async function generateRecommendation({
     sources,
     quantFindings,
   });
-  // Preserve the dynamic-diagram enrichment if a visual artifact card was emitted first.
-  if (visualPlan.card && cards[0] !== visualPlan.card) {
-    cards.unshift(visualPlan.card);
-  }
   const tokenUsage = cumulativeTokenUsage;
 
   logTokenUsageEvent({
@@ -2662,7 +2677,7 @@ async function generateRecommendation({
           synthesis_mode: synthesisMode,
           synthesis_model: synthesisModel,
           has_structured_output: Boolean(extractStructuredOutput(openAIResponse)),
-          visual_generation: visualPlan.debug,
+          visual_generation: { mode: "inline_widget_fences" },
           safety,
           token_usage: tokenUsage,
         }
@@ -2675,6 +2690,10 @@ function validateRequest(body) {
 }
 
 export {
+  // buildVisualArtifactPlan is no longer wired into the runtime synthesis path
+  // (visuals are now emitted inline as ```widget``` fences in answer_text), but
+  // the function is still exported so scripts/test-visual-artifacts.js can keep
+  // exercising the deterministic templates while we wind that test down.
   buildVisualArtifactPlan,
   generateRecommendation,
   parseJsonBody,
