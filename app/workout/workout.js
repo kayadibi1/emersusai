@@ -285,7 +285,11 @@ function renderDetail() {
     detail.appendChild(
       el(
         "p",
-        { class: "detail-sub", style: "font-size:12px;color:var(--color-text-secondary);white-space:pre-wrap" },
+        {
+          class: "detail-sub plan-notes",
+          style:
+            "font-size:13px;color:var(--ink);line-height:1.55;white-space:pre-wrap;background:var(--surface-soft);border:1px solid var(--line);border-radius:10px;padding:12px 14px;margin:0 0 18px",
+        },
         plan.notes
       )
     );
