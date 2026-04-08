@@ -1240,6 +1240,7 @@ function ChatApp() {
   const [streamingMessageKey, setStreamingMessageKey] = useState("");
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
+  const submitQuestionRef = useRef(null);
 
   const activeThread = useMemo(() => chatHistory.find((threadData) => threadData.id === activeThreadId) || null, [activeThreadId, chatHistory]);
 
@@ -1250,6 +1251,28 @@ function ChatApp() {
   useEffect(() => {
     canvasRef.current?.scrollTo({ top: canvasRef.current.scrollHeight, behavior: "smooth" });
   }, [activeThread?.messages?.length, activeThreadId]);
+
+  // Widget -> parent bridge. Widgets inside sandboxed iframes call
+  // window.sendPrompt(text), which posts an "emersus:sendPrompt" message
+  // to the parent. We feed that text into submitQuestion the same as if
+  // the user typed it. The ref pattern avoids stale closures over
+  // submitQuestion / isSubmitting.
+  useEffect(() => {
+    function handleMessage(event) {
+      const data = event && event.data;
+      if (!data || typeof data !== "object") return;
+      if (data.type !== "emersus:sendPrompt") return;
+      const prompt = String(data.prompt || "").trim();
+      if (!prompt) return;
+      setQuestion(prompt);
+      const submit = submitQuestionRef.current;
+      if (typeof submit === "function") {
+        submit(null, prompt);
+      }
+    }
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -1306,14 +1329,16 @@ function ChatApp() {
     setStatusMessage("");
   }
 
-  async function submitQuestion(event) {
+  async function submitQuestion(event, promptOverride) {
     event?.preventDefault();
-    const trimmed = String(question || "").trim();
+    const source = promptOverride != null ? String(promptOverride) : String(question || "");
+    const trimmed = source.trim();
     if (!trimmed) {
       setStatusTone("error");
       setStatusMessage("Type a question first.");
       return;
     }
+    if (isSubmitting) return;
 
     const baseThread = activeThread || createEmptyThread();
     const userMessage = { role: "user", text: trimmed, plainText: trimmed, createdAt: new Date().toISOString() };
@@ -1414,6 +1439,12 @@ function ChatApp() {
       setGlyphState("idle");
     }
   }
+
+  // Keep the ref pointed at the latest submitQuestion closure so the
+  // iframe-bridge listener in useEffect above can call it without
+  // re-subscribing on every render. Safe to write during render: React
+  // allows refs to be updated inline as long as the value is deterministic.
+  submitQuestionRef.current = submitQuestion;
 
   const displayName = getDisplayName(session);
   const rail = activeThread?.rail || {};
