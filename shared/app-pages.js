@@ -1,10 +1,16 @@
 import {
   getProfile,
   getSupabase,
+  listWorkoutPlans,
   requireAuth,
   setStatus,
   upsertProfile,
 } from "/shared/supabase.js";
+import {
+  findTodaysSession,
+  formatTodaysSessionCopy,
+  sessionHasLoggedActuals,
+} from "/shared/workout-plan-selectors.js";
 
 async function hydrateUserSummary() {
   const session = await requireAuth();
@@ -123,7 +129,112 @@ async function hydrateDashboard() {
     return;
   }
 
-  await hydrateUserSummary();
+  const summary = await hydrateUserSummary();
+  if (!summary) return;
+
+  await hydrateTodaysWorkoutCard(summary.session);
+}
+
+// Phase 1.5 dashboard "Today's workout" card. Reads the user's saved
+// plans, picks the most relevant session via findTodaysSession(), and
+// renders into the data-today-card slot. Four states:
+//   - no plans:        empty state, link to chat
+//   - today + logged:  success chip, link to /app/workout/ detail
+//   - today + open:    big primary CTA into the mobile session view
+//   - upcoming only:   "Next up" copy with date + link to mobile view
+async function hydrateTodaysWorkoutCard(session) {
+  const card = document.querySelector("[data-today-card]");
+  if (!card) return;
+  const labelEl = card.querySelector("[data-today-label]");
+  const titleEl = card.querySelector("[data-today-title]");
+  const metaEl = card.querySelector("[data-today-meta]");
+  const actionsEl = card.querySelector("[data-today-actions]");
+  if (!titleEl || !metaEl || !actionsEl) return;
+
+  function setEmpty() {
+    if (labelEl) labelEl.textContent = "Workout planner";
+    titleEl.textContent = "No plans yet";
+    metaEl.textContent = "Generate your first workout plan in chat. Emersus will build it around your goal, experience, and available days.";
+    actionsEl.innerHTML = "";
+    const cta = document.createElement("a");
+    cta.className = "button button-primary";
+    cta.href = "/chat/";
+    cta.textContent = "Generate a plan";
+    actionsEl.appendChild(cta);
+  }
+
+  function setError(message) {
+    if (labelEl) labelEl.textContent = "Today's workout";
+    titleEl.textContent = "Couldn't load your plans";
+    metaEl.textContent = message || "Try refreshing in a moment.";
+    actionsEl.innerHTML = "";
+  }
+
+  let plans = [];
+  try {
+    plans = await listWorkoutPlans(session.user.id);
+  } catch (error) {
+    setError(error?.message || "Could not reach Supabase.");
+    return;
+  }
+
+  if (!plans.length) {
+    setEmpty();
+    return;
+  }
+
+  const result = findTodaysSession(plans);
+  if (!result) {
+    // User has plans but every session is in the past. Treat as "all caught up".
+    if (labelEl) labelEl.textContent = "Workout planner";
+    titleEl.textContent = "All caught up";
+    metaEl.textContent = "No upcoming sessions in your saved plans. Generate a fresh block in chat when you're ready.";
+    actionsEl.innerHTML = "";
+    const link = document.createElement("a");
+    link.className = "button button-secondary";
+    link.href = "/app/workout/";
+    link.textContent = "Open planner";
+    actionsEl.appendChild(link);
+    return;
+  }
+
+  const { plan: planRow, session: targetSession, status } = result;
+  const copy = formatTodaysSessionCopy(result);
+  const sessionDeepLink = `/app/workout/session/?plan=${encodeURIComponent(planRow.id)}&session=${encodeURIComponent(targetSession.id)}`;
+
+  const isLogged = sessionHasLoggedActuals(targetSession) || targetSession.completion_status === "completed";
+
+  if (labelEl) labelEl.textContent = status === "today" ? "Today's workout" : "Up next";
+  titleEl.textContent = copy.title;
+  metaEl.textContent = copy.meta || (planRow.title || "");
+
+  actionsEl.innerHTML = "";
+
+  if (isLogged) {
+    // Already done — render a calmer card with a check label.
+    if (labelEl) labelEl.textContent = "Today · Completed";
+    metaEl.textContent = `${targetSession.title || "Workout"} is in the bag. Open the planner to review your sets.`;
+    const link = document.createElement("a");
+    link.className = "button button-secondary";
+    link.href = "/app/workout/";
+    link.textContent = "View session";
+    actionsEl.appendChild(link);
+    return;
+  }
+
+  // Big primary CTA into the mobile session view.
+  const startBtn = document.createElement("a");
+  startBtn.className = "button button-primary";
+  startBtn.href = sessionDeepLink;
+  startBtn.textContent = status === "today" ? "Start session" : "Open session";
+  actionsEl.appendChild(startBtn);
+
+  // Secondary "open planner" link, in case the user wants the calendar view.
+  const plannerLink = document.createElement("a");
+  plannerLink.className = "button button-secondary";
+  plannerLink.href = "/app/workout/";
+  plannerLink.textContent = "Open planner";
+  actionsEl.appendChild(plannerLink);
 }
 
 Promise.resolve()
