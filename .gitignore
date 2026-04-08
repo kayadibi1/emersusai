@@ -29,3 +29,7 @@ tmp/claude-code/
 # intentionally tracked there.
 tmp/*.html
 tmp/*.mjs
+
+# Claude Code per-machine settings (permissions, local config). Never
+# belongs in the repo — each dev has their own grants.
+.claude/
