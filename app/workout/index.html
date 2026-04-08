@@ -9,6 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/site.css">
   <style>
+    /* All tokens come from shared/site.css :root — --ink, --muted, --line,
+       --surface, --surface-soft, --secondary, --danger, --primary-dim.
+       The earlier version of this block hardcoded light-mode fallbacks
+       (#0f0f0e text on #ffffff cards) which rendered as near-invisible
+       dark text on the site's actual dark background. */
+
     .workout-layout {
       display: grid;
       grid-template-columns: 280px 1fr;
@@ -18,18 +24,21 @@
     @media (max-width: 860px) {
       .workout-layout { grid-template-columns: 1fr; }
     }
+
     .workout-sidebar {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
     .workout-sidebar h2 {
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--color-text-secondary, #555248);
-      margin: 0;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin: 0 0 2px;
+      font-weight: 600;
     }
+
     .workout-plan-list {
       display: flex;
       flex-direction: column;
@@ -42,113 +51,143 @@
       width: 100%;
       text-align: left;
       padding: 12px 14px;
-      border: 0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10));
-      border-radius: 8px;
-      background: var(--color-background-secondary, #ffffff);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-soft);
       cursor: pointer;
       font: inherit;
-      color: inherit;
+      color: var(--ink);
+      transition: border-color 140ms ease, background 140ms ease;
     }
-    .workout-plan-list li button:hover,
+    .workout-plan-list li button:hover {
+      border-color: rgba(159, 251, 0, 0.38);
+      background: rgba(255, 255, 255, 0.06);
+    }
     .workout-plan-list li button.is-active {
-      border-color: var(--color-text-primary, #0f0f0e);
+      border-color: var(--secondary);
+      background: var(--secondary-soft);
+      color: var(--ink);
     }
-    .workout-plan-list li button.is-active {
-      background: var(--color-background-tertiary, #f4f3f0);
-    }
-    .workout-plan-list .plan-title { font-weight: 500; font-size: 13px; }
-    .workout-plan-list .plan-meta { font-size: 11px; color: var(--color-text-tertiary, #8b8778); margin-top: 4px; }
+    .workout-plan-list .plan-title { font-weight: 500; font-size: 13px; color: var(--ink); }
+    .workout-plan-list .plan-meta { font-size: 11px; color: var(--muted); margin-top: 4px; }
+
     .workout-detail {
-      background: var(--color-background-secondary, #ffffff);
-      border: 0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10));
-      border-radius: 14px;
-      padding: 24px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 26px 28px;
       min-height: 320px;
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(20px);
     }
     .workout-detail.empty {
-      color: var(--color-text-tertiary, #8b8778);
+      color: var(--muted);
       text-align: center;
       padding: 80px 24px;
     }
     .workout-detail h1 {
-      font-size: 20px;
-      font-weight: 500;
-      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 600;
+      margin: 0 0 8px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
     }
     .workout-detail .detail-meta {
       font-size: 12px;
-      color: var(--color-text-secondary, #555248);
+      color: var(--muted);
       margin-bottom: 4px;
     }
     .workout-detail .detail-sub {
       font-size: 12px;
-      color: var(--color-text-tertiary, #8b8778);
+      color: var(--muted);
       margin-bottom: 16px;
     }
+
     .workout-action-row {
       display: flex;
       flex-wrap: wrap;
       gap: 8px;
       padding: 14px 0;
-      border-top: 0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10));
-      border-bottom: 0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10));
-      margin: 6px 0 18px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin: 12px 0 18px;
     }
     .workout-action-row button,
     .workout-action-row a {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 8px 14px;
-      border: 0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10));
-      border-radius: 8px;
-      background: var(--color-background-primary, #fafaf9);
-      color: var(--color-text-primary, #0f0f0e);
+      padding: 9px 16px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-soft);
+      color: var(--ink);
       font-size: 12px;
       font-weight: 500;
       cursor: pointer;
       text-decoration: none;
+      transition: border-color 140ms ease, background 140ms ease;
     }
+    .workout-action-row button:hover,
+    .workout-action-row a:hover {
+      border-color: rgba(159, 251, 0, 0.38);
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .workout-action-row a.primary,
     .workout-action-row button.primary {
-      background: var(--color-text-primary, #0f0f0e);
-      color: var(--color-background-primary, #fafaf9);
-      border-color: var(--color-text-primary, #0f0f0e);
+      background: var(--secondary);
+      color: #0c0e11;
+      border-color: var(--secondary);
+    }
+    .workout-action-row a.primary:hover,
+    .workout-action-row button.primary:hover {
+      background: #c8ff4a;
+      border-color: #c8ff4a;
     }
     .workout-action-row button[disabled] { opacity: 0.4; cursor: not-allowed; }
+
     .workout-week {
       margin-bottom: 18px;
     }
     .workout-week h3 {
-      font-size: 12px;
+      font-size: 11px;
       text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--color-text-secondary, #555248);
-      margin: 0 0 8px;
-      font-weight: 500;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin: 0 0 10px;
+      font-weight: 600;
     }
+
     .workout-session {
       display: grid;
-      grid-template-columns: 68px 1fr auto;
-      gap: 12px;
-      padding: 10px 12px;
-      border-bottom: 0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10));
-      align-items: baseline;
+      grid-template-columns: 86px 1fr auto;
+      gap: 14px;
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: var(--surface-soft);
+      align-items: start;
       font-size: 12px;
+      margin-bottom: 6px;
+      color: var(--ink);
     }
-    .workout-session:last-child { border-bottom: 0; }
     .workout-session .day {
-      font-size: 11px;
-      font-weight: 500;
+      font-size: 10px;
+      font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.04em;
-      color: var(--color-text-secondary, #555248);
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      white-space: pre-line;
+      line-height: 1.5;
     }
-    .workout-session .details { color: var(--color-text-primary, #0f0f0e); }
-    .workout-session .details .title { font-weight: 500; }
+    .workout-session .details { color: var(--ink); }
+    .workout-session .details .title { font-weight: 500; font-size: 13px; color: var(--ink); }
     .workout-session .details .blocks {
-      margin-top: 4px;
+      margin-top: 6px;
       font-size: 11px;
-      color: var(--color-text-tertiary, #8b8778);
+      color: var(--muted);
+      line-height: 1.6;
       white-space: pre-line;
     }
     .workout-session .status {
@@ -157,38 +196,53 @@
     }
     .workout-session .status button {
       font-size: 10px;
-      padding: 3px 8px;
-      border: 0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10));
-      border-radius: 4px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
       background: transparent;
       cursor: pointer;
-      color: var(--color-text-tertiary, #8b8778);
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      transition: border-color 140ms ease, background 140ms ease, color 140ms ease;
+    }
+    .workout-session .status button:hover {
+      color: var(--ink);
+      border-color: rgba(255, 255, 255, 0.22);
     }
     .workout-session .status button.active {
-      background: var(--color-background-success, #e7f4d8);
-      color: var(--color-text-success, #2f5a13);
-      border-color: var(--color-text-success, #2f5a13);
+      background: var(--secondary-soft);
+      color: var(--secondary);
+      border-color: var(--secondary);
     }
     .workout-session .status button.active-missed {
-      background: var(--color-background-danger, #ffe1d0);
-      color: var(--color-text-danger, #7a3300);
-      border-color: var(--color-text-danger, #7a3300);
+      background: rgba(255, 143, 157, 0.14);
+      color: var(--danger);
+      border-color: rgba(255, 143, 157, 0.5);
     }
     .workout-session .status button.active-skipped {
-      background: var(--color-background-warning, #fff3d0);
-      color: var(--color-text-warning, #6b4a00);
-      border-color: var(--color-text-warning, #6b4a00);
+      background: rgba(240, 179, 74, 0.14);
+      color: #f0b34a;
+      border-color: rgba(240, 179, 74, 0.5);
     }
+
     .workout-toast {
-      font-size: 11px;
-      margin-top: 12px;
+      font-size: 12px;
+      margin-top: 14px;
+      min-height: 1.2em;
     }
-    .workout-toast[data-tone="success"] { color: var(--color-text-success, #2f5a13); }
-    .workout-toast[data-tone="error"] { color: var(--color-text-danger, #7a3300); }
+    .workout-toast[data-tone="success"] { color: var(--secondary); }
+    .workout-toast[data-tone="error"] { color: var(--danger); }
+
     .workout-empty-state {
       text-align: center;
       padding: 80px 24px;
-      color: var(--color-text-tertiary, #8b8778);
+      color: var(--muted);
+    }
+    .workout-empty-state p {
+      margin: 0 0 16px;
+      color: var(--muted);
     }
     .workout-empty-state .button {
       margin-top: 16px;
