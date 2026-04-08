@@ -1281,6 +1281,20 @@ function ChatApp() {
     canvasRef.current?.scrollTo({ top: canvasRef.current.scrollHeight, behavior: "smooth" });
   }, [activeThread?.messages?.length, activeThreadId]);
 
+  // When the user navigates to a different thread, clear streamingMessageKey
+  // so the previous thread's last assistant message doesn't re-typewriter
+  // itself when we navigate back to it. streamingMessageKey is only set
+  // during a fresh submit (which happens within the SAME thread), so this
+  // effect only fires on manual thread switches and "new chat" actions —
+  // never mid-submit.
+  const previousThreadIdRef = useRef(activeThreadId);
+  useEffect(() => {
+    if (previousThreadIdRef.current !== activeThreadId) {
+      previousThreadIdRef.current = activeThreadId;
+      setStreamingMessageKey("");
+    }
+  }, [activeThreadId]);
+
   // Widget -> parent bridge. Widgets inside sandboxed iframes call
   // window.sendPrompt(text), which posts an "emersus:sendPrompt" message
   // to the parent. We feed that text into submitQuestion the same as if
