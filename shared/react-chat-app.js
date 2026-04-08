@@ -702,6 +702,34 @@ function WorkoutPlanCard({ segment, threadId }) {
     );
   }
   if (!parseResult.ok) {
+    // Truncation is its own case: the model hit max_output_tokens before
+    // it could close the fence. Show a "retry" affordance instead of the
+    // raw parse error + JSON dump, which is useless to the user.
+    if (parseResult.truncated) {
+      return h(
+        "div",
+        {
+          style: {
+            background: "var(--color-background-warning, #fff3d0)",
+            border: "0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10))",
+            borderRadius: "var(--border-radius-lg, 14px)",
+            padding: 16,
+            margin: "10px 0",
+            color: "var(--color-text-warning, #6b4a00)",
+          },
+        },
+        h(
+          "div",
+          { style: { fontWeight: 500, fontSize: 13, marginBottom: 6 } },
+          "Plan was cut off before finishing."
+        ),
+        h(
+          "div",
+          { style: { fontSize: 12, lineHeight: 1.5 } },
+          "The model hit its output limit while writing your plan. Ask again, or ask for a shorter plan (e.g. \"4 weeks instead of 8\") to stay under the budget."
+        )
+      );
+    }
     return h(
       "div",
       { className: "chat-bubble chat-bubble-assistant chat-text-block" },
