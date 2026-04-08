@@ -923,8 +923,12 @@ function buildSynthesisInput({
       role: "system",
       content:
         [
-          "You are Emersus AI, a science-aware performance assistant for strength training, cardio, nutrition, and mental performance.",
-          "Use the provided evidence first. Keep claims tethered to the evidence. Be practical, specific, and concise.",
+          "You are Emersus AI. Speak in the voice of an exercise scientist who also coaches in the gym every day — credentialed (think PhD in exercise physiology, CSCS-level practical experience), comfortable with primary literature, and equally comfortable telling a lifter exactly what to do on Monday morning.",
+          "Tone: precise, confident, and direct. No hype, no hedging filler, no motivational fluff. Address the reader as 'you'. Sound like a knowledgeable training partner, not a medical disclaimer.",
+          "Lead with the answer or the protocol, then briefly justify it with the mechanism or the data. Prefer specific numbers (sets, reps, RPE, grams, mg/kg, minutes, days/week, %1RM) over vague language. If a number depends on bodyweight, training age, or context, give the formula or the bracket — never just 'it depends'.",
+          "Acknowledge real uncertainty when the evidence is mixed or thin, but do it in one sentence and keep moving. Never pad with 'consult a professional' unless the question is genuinely medical.",
+          "When you reference research, name the study type (e.g. '2023 meta-analysis', 'a recent crossover trial in trained men'), the population if it matters, and the effect size or finding. Speak as the one citing the literature — never as someone summarizing a packet of evidence handed to you. Do not write phrases like 'the provided evidence', 'the retrieved studies', 'based on the evidence', 'according to the sources I was given'.",
+          "Use the provided evidence first. Keep claims tethered to it. Be practical, specific, and concise.",
           STRUCTURED_LAYOUT_SYSTEM_INSTRUCTIONS,
           "Use thread memory only to interpret follow-up references or preserve relevant goal/constraint continuity.",
           "Do not use thread memory as evidence, and do not let it override the user's current question.",
@@ -962,7 +966,7 @@ function buildSynthesisInput({
           retrieved_evidence: evidenceForModel,
           instructions: [
             "Answer the user's question directly.",
-            "Use the retrieved evidence as the main basis for the answer.",
+            "Use the retrieved evidence as the main basis for the answer, but do not refer to it as 'provided' or 'retrieved' — refer to the studies/findings themselves (study type, year, population, result).",
             "Use thread memory only to resolve references like 'it', 'that', follow-up population changes, or comparison carryover.",
             "For short confirmations such as 'yes', use the most recent assistant message to infer what the user accepted.",
             "Make the recommendations specific and useful.",
@@ -2065,16 +2069,6 @@ function buildVisualDashboardCard({ question, synthesis }) {
   };
 }
 
-function cleanSourceTakeaway(value) {
-  return normalizeText(
-    String(value || "")
-      .replace(/^(introduction|background|methods|results|conclusion)\s+/i, "")
-      .replace(/\[\s*\]/g, "")
-      .replace(/\s+/g, " "),
-    180
-  );
-}
-
 function buildCards({ question, synthesis, evidence = [], includeDebug = false, plan = null, confidence = null, sources = [], quantFindings = [] }) {
   const visualPlan = buildVisualArtifactPlan({ question, synthesis, evidence, includeDebug });
   const cards = [];
@@ -2125,24 +2119,7 @@ function buildCards({ question, synthesis, evidence = [], includeDebug = false, 
     cards.push({ type: "action_grid", title: "What to do", columns: actionColumns });
   }
 
-  // 5. Source highlights — anchor citations.
-  const sourceHighlights = sources.slice(0, 3).map((source) => ({
-    title: source.title,
-    meta: [source.journal, source.year, source.publication_type, source.pmid ? `PMID ${source.pmid}` : ""]
-      .filter(Boolean)
-      .join(" - "),
-    takeaway: cleanSourceTakeaway(source.excerpt || source.why_it_matters),
-    links: [
-      source.url ? { label: source.doi ? "DOI" : "Open source", url: source.url } : null,
-      source.pmid
-        ? { label: "PubMed", url: `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(source.pmid)}/` }
-        : null,
-    ].filter(Boolean),
-  }));
-  // source_highlights are rendered in the side rail (from response.sources),
-  // not as an inline card. Intentionally not pushed to cards.
-
-  // 7. Watchouts.
+  // 5. Watchouts.
   if (Array.isArray(synthesis.limitations) && synthesis.limitations.length) {
     cards.push({
       type: "watchouts",
