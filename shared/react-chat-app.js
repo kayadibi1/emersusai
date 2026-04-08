@@ -1283,9 +1283,12 @@ function ChatApp() {
         })(),
         sources: Array.isArray(data.sources) ? data.sources : [],
       };
+      // Mark the message as streaming BEFORE persist runs setChatHistory.
+      // Both updates batch into a single render, so the message renders with
+      // typewrite=true on its very first frame — no flash of full text.
+      setStreamingMessageKey(assistantMessage.createdAt);
       persistedThread = await persistThread(nextThread);
       setActiveThreadId(persistedThread.id);
-      setStreamingMessageKey(assistantMessage.createdAt);
     } catch (error) {
       const errorMessage = error.message || "Request failed.";
       await persistThread({
@@ -1332,17 +1335,23 @@ function ChatApp() {
         h("section", { className: "conversation-canvas", ref: canvasRef },
           h("div", { className: `chat-thread${!activeThread?.messages?.length ? " is-empty" : ""}` },
             activeThread?.messages?.length
-              ? activeThread.messages.map((message, index) => h(Message, {
-                  key: `${message.createdAt || ""}-${index}`,
-                  message,
-                  typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
-                }))
+              ? [
+                  ...activeThread.messages.map((message, index) => h(Message, {
+                    key: `${message.createdAt || ""}-${index}`,
+                    message,
+                    typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
+                  })),
+                  isSubmitting && activeThread.messages[activeThread.messages.length - 1]?.role === "user"
+                    ? h("article", { key: "pending-glyph", className: "message assistant message-pending" },
+                        h("div", { className: "message-content" },
+                          h(ThinkingGlyph, { state: glyphState, size: 56, color: "#534AB7" })))
+                    : null,
+                ]
               : h("section", { className: "thread-welcome" },
                   h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
                   h("h2", { className: "thread-welcome-title" }, `Welcome, ${displayName}`),
                   h("p", { className: "thread-welcome-copy" }, "Ask about training, nutrition, supplements, recovery, cardiovascular fitness, or metabolic health and I'll keep the answer evidence-aware."))))),
       h("div", { className: "chat-composer-shell" },
-        h(ThinkingGlyph, { state: glyphState, size: 64, color: "#534AB7" }),
         h("form", { className: "composer", onSubmit: submitQuestion },
           h("div", { className: "composer-row" },
             h("label", { className: "sr-only", htmlFor: "chat-question" }, "Question"),
