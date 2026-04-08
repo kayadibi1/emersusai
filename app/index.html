@@ -28,24 +28,13 @@
 
     <main class="page-main">
       <div class="container stack" data-dashboard>
-        <section class="hero-panel stack">
-          <div class="split-row">
-            <div class="stack">
-              <p class="section-kicker">Protected App Area</p>
-              <h1>Welcome to Emersus AI</h1>
-              <p class="lede">
-                Evidence-based training, nutrition, and performance guidance for serious users. This dashboard is the first protected layer after the waitlist and account setup.
-              </p>
-            </div>
-            <div class="stack">
-              <span class="chip">Signed In</span>
-              <div class="info-card">
-                <span class="mini-card-label">Account</span>
-                <p class="body-copy"><strong data-user-name>Member</strong></p>
-                <p class="detail-text" data-user-email>Loading...</p>
-                <p class="detail-text" data-profile-state>Checking profile...</p>
-              </div>
-            </div>
+        <section class="hero-panel welcome-panel">
+          <h1 class="welcome-title">Welcome back, <span class="welcome-name" data-user-name>Member</span>.</h1>
+          <p class="welcome-sub">Pick up where you left off — open the chat for evidence-based guidance, or head into the planner to review your training.</p>
+          <div class="welcome-meta">
+            <span class="welcome-meta-item" data-user-email>Loading...</span>
+            <span class="welcome-meta-dot" aria-hidden="true"></span>
+            <span class="welcome-meta-item welcome-meta-status" data-profile-state>Checking profile...</span>
           </div>
         </section>
 
