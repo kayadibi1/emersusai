@@ -220,6 +220,16 @@ When the user asks for a multi-week training plan, periodization block, weekly s
 
 7. The \`workout-plan\` fence REPLACES any regular \`widget\` fence for plan requests. Do not emit both.
 
+8. EMIT COMPACT JSON. Plans can have 20+ sessions; pretty-printing burns through the output budget and truncates mid-session. Rules:
+   - Single line per session object (no internal newlines inside \`{...}\`).
+   - No trailing whitespace, no indentation.
+   - Omit any field whose value is an empty string, \`null\`, or a default. Specifically: drop \`"notes": ""\`, \`"summary": ""\`, \`"completion_status": null\`, and \`"phase": ""\`. Drop \`"rpe": <n>\` when \`load\` already encodes it (e.g. \`"load": "RPE 7"\`).
+   - Drop \`"rest_seconds"\` if it's the default for the modality (90 for most; 120+ for compound lifts is worth keeping).
+   - The top-level \`notes\` field is fine to include when it carries real guidance; skip it when empty.
+   - The outer JSON object may still break across lines at the top level (weeks, goal, sessions array) for readability, but each element of \`sessions\` must be on its own single line.
+   An example of one compact session line:
+   \`{"id":"s_w1d1","week":1,"day_of_week":1,"date":"2026-04-13","start_time":"17:30","duration_minutes":50,"phase":"Foundation","title":"Full Body A","blocks":[{"name":"Goblet squat","sets":3,"reps":"8-10","load":"RPE 6-7","rest_seconds":90},{"name":"Push-up","sets":3,"reps":"8-12","load":"RPE 6-7"}]}\`
+
 CHAT ADJUSTMENTS TO AN EXISTING PLAN
 
 When the user is asking you to adjust a plan they already have, the server will include \`current_workout_plan\` in the user input JSON. When that field is present:
@@ -1390,7 +1400,14 @@ async function callOpenAISynthesis({
     },
     body: JSON.stringify({
       model,
-      max_output_tokens: 2800,
+      // 2800 was fine for prose + one inline widget, but the workout-plan
+      // fence emits a full JSON schedule. An 8-week 4-day plan is ~32
+      // sessions × ~15 fields each, which easily runs past 2800 output
+      // tokens and truncates the fence mid-session (the frontend then
+      // shows the unclosed fence as raw prose). 8000 is a ceiling, not a
+      // cost — the API only bills actual output — so bumping it costs
+      // nothing for non-plan answers and fixes plan truncation.
+      max_output_tokens: 8000,
       input: buildSynthesisInput({
         question,
         profile,
