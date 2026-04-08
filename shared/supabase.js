@@ -7,6 +7,16 @@ import {
 } from "/shared/workout-plan-schema.js";
 
 const CONTACT_EMAIL = "support@emersus.ai";
+
+// Hardcoded admin allowlist for the unlisted /app/_debug/ page. Anyone whose
+// Supabase auth email is in this list can access the debug panel; everyone
+// else (including signed-in users) is redirected to /app/. The page itself
+// is not linked anywhere in the UI. Keep entries lowercase to make the
+// comparison in requireAdmin case-insensitive without re-normalizing each
+// time. To add or remove admins, edit this array directly — there is no
+// database-backed role table in Phase 1 and intentionally so (see plans/).
+const ADMIN_EMAILS = ["sidarvig@gmail.com"];
+
 let clientPromise;
 let configPromise;
 
@@ -87,6 +97,27 @@ export async function requireAuth({ redirectTo = "/auth/login/" } = {}) {
     const returnTo = `${window.location.pathname}${window.location.search}`;
     const target = `${redirectTo}?next=${encodeURIComponent(returnTo)}`;
     window.location.replace(target);
+    return null;
+  }
+
+  return session;
+}
+
+// Same as requireAuth, but also enforces that the signed-in email is in
+// ADMIN_EMAILS. Used only by /app/_debug/ right now. Non-admin users are
+// redirected to the normal dashboard with a toast-worthy query param so
+// the dashboard page (if it wants to) can surface a "not authorized"
+// message. Admins get the session back, identical to requireAuth.
+export async function requireAdmin({
+  redirectTo = "/auth/login/",
+  nonAdminRedirect = "/app/?msg=admin-only",
+} = {}) {
+  const session = await requireAuth({ redirectTo });
+  if (!session) return null;
+
+  const email = String(session.user?.email || "").trim().toLowerCase();
+  if (!ADMIN_EMAILS.includes(email)) {
+    window.location.replace(nonAdminRedirect);
     return null;
   }
 
