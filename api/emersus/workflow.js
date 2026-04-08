@@ -437,6 +437,27 @@ function extractTokenUsage(payload) {
         : 0)
   );
 
+  // OpenAI's Responses API automatically caches stable prompt prefixes ≥1024
+  // tokens at $0.10/1M (75% off the $0.40/1M base rate for gpt-4.1-mini). The
+  // Emersus system prompt is byte-identical across requests and ~3.2k tokens
+  // long, so this caching should be firing on every request after warmup. The
+  // count appears under usage.input_tokens_details.cached_tokens on the
+  // Responses API and under usage.prompt_tokens_details.cached_tokens on the
+  // Chat Completions API — read both shapes so we don't silently miss it if
+  // the SDK swaps them. Without this, our token-cost dashboards undercount
+  // savings by ~40%.
+  const inputDetails =
+    (usage.input_tokens_details && typeof usage.input_tokens_details === "object"
+      ? usage.input_tokens_details
+      : null) ||
+    (usage.prompt_tokens_details && typeof usage.prompt_tokens_details === "object"
+      ? usage.prompt_tokens_details
+      : null) ||
+    {};
+  const cachedPromptTokens = Number(
+    inputDetails.cached_tokens ?? inputDetails.cachedTokens ?? 0
+  );
+
   const normalizedPrompt = Number.isFinite(promptTokens) ? Math.max(0, Math.round(promptTokens)) : 0;
   const normalizedCompletion = Number.isFinite(completionTokens)
     ? Math.max(0, Math.round(completionTokens))
@@ -444,11 +465,15 @@ function extractTokenUsage(payload) {
   const normalizedTotal = Number.isFinite(totalTokens)
     ? Math.max(0, Math.round(totalTokens))
     : normalizedPrompt + normalizedCompletion;
+  const normalizedCached = Number.isFinite(cachedPromptTokens)
+    ? Math.max(0, Math.min(normalizedPrompt, Math.round(cachedPromptTokens)))
+    : 0;
 
   return {
     prompt_tokens: normalizedPrompt,
     completion_tokens: normalizedCompletion,
     total_tokens: normalizedTotal,
+    cached_prompt_tokens: normalizedCached,
   };
 }
 
@@ -459,6 +484,7 @@ function mergeTokenUsageTotals(baseUsage, nextUsage) {
     prompt_tokens: base.prompt_tokens + next.prompt_tokens,
     completion_tokens: base.completion_tokens + next.completion_tokens,
     total_tokens: base.total_tokens + next.total_tokens,
+    cached_prompt_tokens: base.cached_prompt_tokens + next.cached_prompt_tokens,
   };
 }
 
@@ -668,6 +694,10 @@ async function logTokenUsageEvent({
     return;
   }
 
+  const cachedPromptTokens = Math.max(
+    0,
+    Number(tokenUsage?.cached_prompt_tokens || 0)
+  );
   const payload = {
     user_id: supabaseUserId || null,
     stable_user_id: stableUserId || null,
@@ -680,6 +710,7 @@ async function logTokenUsageEvent({
     prompt_tokens: Math.max(0, Number(tokenUsage?.prompt_tokens || 0)),
     completion_tokens: Math.max(0, Number(tokenUsage?.completion_tokens || 0)),
     total_tokens: Math.max(0, Number(tokenUsage?.total_tokens || 0)),
+    cached_prompt_tokens: cachedPromptTokens,
     client_ip_hash: hashClientIp(requestMeta?.clientIp),
     user_agent: normalizeText(requestMeta?.userAgent, 300),
     metadata: {
@@ -824,24 +855,28 @@ function buildThreadMemoryBlock(threadState, recentMessages) {
     }
   }
 
-  const lines = [
-    `Primary topic: ${threadState.primary_topic || "not established"}`,
-    `Goal context: ${threadState.goal_context || "not established"}`,
-    `Current mode: ${threadState.question_mode || "not established"}`,
-    `Recent entities: ${
-      threadState.recent_entities.length ? threadState.recent_entities.join(", ") : "none"
-    }`,
-    `Population context: ${
-      threadState.population_context.length
-        ? threadState.population_context.join(", ")
-        : "none"
-    }`,
-    `Comparison target: ${threadState.comparison_target || "none"}`,
-    `Constraints: ${constraints.length ? constraints.join(" | ") : "none stated"}`,
-    `Last user intent: ${threadState.last_user_intent || "none"}`,
-    `Last answer summary: ${threadState.last_answer_summary || "none"}`,
-    `Thread summary: ${threadState.thread_summary || "none"}`,
-  ];
+  // Only emit fields that have actual content. The previous version always
+  // emitted every label with "none" / "not established" placeholders, which
+  // cost ~80 input tokens per request on threads with sparse memory (i.e.
+  // most of them). The model gets the same information; empty fields are
+  // simply absent.
+  const lines = [];
+  if (threadState.primary_topic) lines.push(`Primary topic: ${threadState.primary_topic}`);
+  if (threadState.goal_context) lines.push(`Goal context: ${threadState.goal_context}`);
+  if (threadState.question_mode) lines.push(`Current mode: ${threadState.question_mode}`);
+  if (threadState.recent_entities.length)
+    lines.push(`Recent entities: ${threadState.recent_entities.join(", ")}`);
+  if (threadState.population_context.length)
+    lines.push(`Population context: ${threadState.population_context.join(", ")}`);
+  if (threadState.comparison_target)
+    lines.push(`Comparison target: ${threadState.comparison_target}`);
+  if (constraints.length) lines.push(`Constraints: ${constraints.join(" | ")}`);
+  if (threadState.last_user_intent)
+    lines.push(`Last user intent: ${threadState.last_user_intent}`);
+  if (threadState.last_answer_summary)
+    lines.push(`Last answer summary: ${threadState.last_answer_summary}`);
+  if (threadState.thread_summary)
+    lines.push(`Thread summary: ${threadState.thread_summary}`);
 
   if (recentMessages.length) {
     lines.push(
@@ -1026,27 +1061,27 @@ function formatEvidenceForModel(evidence) {
     return "No database evidence retrieved.";
   }
 
+  // Compact two-line shape per doc: a single pipe-separated metadata header
+  // followed by the excerpt. Saves ~35 input tokens per doc vs the old
+  // labelled "Authors:/PMID:/Journal:/Year:/Publication type:" stack while
+  // still surfacing every field the model actually uses (year, study type,
+  // journal, pmid, title, excerpt). The model has no trouble parsing this
+  // shape — labels are only useful when fields are ambiguous.
   return evidence
     .slice(0, 5)
-    .map((item, index) =>
-      [
-        `[${index + 1}] ${item.title || "Untitled evidence"}`,
-        item.author_label ? `Authors: ${item.author_label}` : null,
-        item.pmid ? `PMID: ${item.pmid}` : null,
-        item.journal ? `Journal: ${item.journal}` : null,
-        item.publication_year
-          ? `Year: ${item.publication_year}`
-          : item.published_at
-            ? `Year: ${item.published_at}`
-            : null,
-        item.publication_type || item.evidence_level
-          ? `Publication type: ${item.publication_type || item.evidence_level}`
-          : null,
-        item.excerpt ? `Excerpt: ${item.excerpt}` : null,
-      ]
-        .filter(Boolean)
-        .join("\n")
-    )
+    .map((item, index) => {
+      const year = item.publication_year || item.published_at || "";
+      const pubType = item.publication_type || item.evidence_level || "";
+      const headerParts = [
+        year || null,
+        pubType || null,
+        item.journal || null,
+        item.pmid ? `pmid ${item.pmid}` : null,
+        item.author_label || null,
+      ].filter(Boolean);
+      const header = `[${index + 1}] ${headerParts.length ? `${headerParts.join(" · ")} — ` : ""}${item.title || "Untitled evidence"}`;
+      return item.excerpt ? `${header}\n${item.excerpt}` : header;
+    })
     .join("\n\n");
 }
 
@@ -1092,33 +1127,32 @@ function buildSynthesisInput({
     },
     {
       role: "user",
-      content: JSON.stringify(
-        {
-          today,
-          question,
-          topic: plan.topic,
-          risk_level: plan.riskLevel,
-          safety_mode: safety?.responseMode || "normal",
-          safety_reasons: Array.isArray(safety?.reasons) ? safety.reasons : [],
-          user_profile: profile,
-          thread_memory: threadMemory,
-          retrieved_evidence: evidenceForModel,
-          instructions: [
-            "Answer the user's question directly.",
-            "Use the retrieved evidence as the main basis for the answer, but do not refer to it as 'provided' or 'retrieved' — refer to the studies/findings themselves (study type, year, population, result).",
-            "Use thread memory only to resolve references like 'it', 'that', follow-up population changes, or comparison carryover.",
-            "For short confirmations such as 'yes', use the most recent assistant message to infer what the user accepted.",
-            "Make the recommendations specific and useful.",
-            "If the question is a comparison, an evidence matrix, a dose/range breakdown, a decision tree, a phased plan, or lists 3+ quantitative items, you are expected to emit a ```widget``` block with the visual. Lead with 2–4 sentences of prose, then drop the widget inline, then stop — do not repeat the widget's contents as a bullet list. A plain prose answer for a structural question is considered incomplete.",
-            "If the evidence is limited or mixed, explain that naturally in the prose instead of using a dedicated limitations section.",
-            "Do not include irrelevant training, nutrition, or mental-performance advice.",
-            "If the question touches medical or medication risk, stay high level and do not give diagnosis or personalized medication advice.",
-            "Do not include citations inline; the server will attach sources.",
-          ],
-        },
-        null,
-        2
-      ),
+      // Minified JSON (no `null, 2` indenting): the model parses JSON the same
+      // way regardless of whitespace, but pretty-printing was costing ~60 input
+      // tokens per request for zero benefit.
+      //
+      // The instructions[] list was also pruned: every item that purely
+      // restated something already in the system prompt above (use evidence
+      // first, thread memory only for reference resolution, evidence-limited
+      // language, no irrelevant advice, the comparison-→-widget directive
+      // which is already covered exhaustively in INLINE_WIDGET_SYSTEM_INSTRUCTIONS)
+      // was deleted. Only per-request specifics that aren't in the system
+      // prompt remain: medical-risk handling and inline-citation suppression.
+      content: JSON.stringify({
+        today,
+        question,
+        topic: plan.topic,
+        risk_level: plan.riskLevel,
+        safety_mode: safety?.responseMode || "normal",
+        safety_reasons: Array.isArray(safety?.reasons) ? safety.reasons : [],
+        user_profile: profile,
+        thread_memory: threadMemory,
+        retrieved_evidence: evidenceForModel,
+        instructions: [
+          "If the question touches medical or medication risk, stay high level and do not give diagnosis or personalized medication advice.",
+          "Do not include citations inline; the server will attach sources.",
+        ],
+      }),
     },
   ];
 }
