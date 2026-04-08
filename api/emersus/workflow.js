@@ -1350,24 +1350,115 @@ function stripCodeFences(value) {
     .trim();
 }
 
+// Parse the raw model response into (text, widget, text, ...) segments so
+// normalization runs on prose only and widget HTML passes through intact.
+// A "widget fence" is ```widget, ```html, or a bare ``` fence whose body
+// starts with "<" — matches the renderer's isWidgetFenceBody heuristic.
+function splitSynthesisIntoSegments(text) {
+  const src = String(text || "");
+  const segments = [];
+  const re = /```([\w-]*)[ \t]*\n([\s\S]*?)```/g;
+  let cursor = 0;
+  let match;
+  while ((match = re.exec(src)) !== null) {
+    const [whole, info, body] = match;
+    const tag = String(info || "").toLowerCase();
+    const firstChar = String(body || "").trim().charAt(0);
+    const isWidget = tag === "widget" || tag === "html" || (!tag && firstChar === "<");
+    if (!isWidget) continue;
+    if (match.index > cursor) {
+      segments.push({ type: "text", content: src.slice(cursor, match.index) });
+    }
+    segments.push({ type: "widget", content: body });
+    cursor = match.index + whole.length;
+  }
+  if (cursor < src.length) {
+    segments.push({ type: "text", content: src.slice(cursor) });
+  }
+  return segments;
+}
+
+// Defensive auto-wrap: if a prose segment contains a contiguous block of
+// structured HTML (starts with <div/<style/<section/etc.), wrap that block
+// in a widget fence. This catches the common model failure mode where it
+// emits raw HTML inline without the fence markers.
+function autoWrapBareHtml(proseText) {
+  const text = String(proseText || "");
+  // Find the first block-level HTML tag at a paragraph boundary.
+  const openRe = /(^|\n{2,})\s*(<(?:style|div|section|article|header|footer|main|table|ul|ol|form|h[1-4])\b)/i;
+  const openMatch = text.match(openRe);
+  if (!openMatch) return text;
+  const openIndex = openMatch.index + openMatch[1].length;
+  // Grab everything from there to the end of the text — in practice the
+  // widget is the tail of the answer because the model emits prose first,
+  // then the HTML block. This is a heuristic, not a parser.
+  const before = text.slice(0, openIndex).replace(/\s+$/, "");
+  const htmlBody = text.slice(openIndex).trim();
+  if (!htmlBody) return text;
+  // Sanity check: if the body has a closing tag matching the opening, or a
+  // closing </div>, </section>, etc., treat it as a widget candidate.
+  if (!/<\/(?:style|div|section|article|header|footer|main|table|ul|ol|form|h[1-4])\s*>/i.test(htmlBody)) {
+    return text;
+  }
+  return `${before}\n\n\`\`\`widget\n${htmlBody}\n\`\`\``;
+}
+
 function normalizeSynthesisPayload(text) {
-  const fenceStripped = stripCodeFences(String(text || "").trim());
-  const normalizedRawText = fenceStripped;
-  const plainText = looksLikeStructuredHtml(normalizedRawText)
-    ? htmlToPlainText(normalizedRawText)
-    : normalizedRawText;
-  const normalizedText = normalizeText(plainText || normalizedRawText, 2400);
-  const paragraphs = extractPlainParagraphs(plainText || normalizedRawText);
-  const genericBullets = extractGenericBullets(plainText || normalizedRawText);
+  const raw = String(text || "").trim();
+  if (!raw) {
+    throw new Error("The model response was empty.");
+  }
+
+  // Extract widget fences first so stripCodeFences / htmlToPlainText never
+  // touch them. Prose segments go through the legacy cleanup path; widget
+  // segments pass through untouched and get re-fenced on reassembly.
+  const segments = splitSynthesisIntoSegments(raw);
+  const cleanedSegments = segments.map((segment) => {
+    if (segment.type === "widget") return segment;
+    let prose = stripCodeFences(segment.content);
+    // Only collapse HTML to plain text for prose that *wasn't* already a
+    // fenced widget (the fenced ones are preserved above). This is the
+    // legacy fallback for when the model emits a stray HTML fragment
+    // without a fence — we first try to recover it as a widget.
+    prose = autoWrapBareHtml(prose);
+    return { type: "text", content: prose };
+  });
+
+  // Re-extract widget fences AFTER auto-wrap so any HTML we just wrapped
+  // is also preserved for reassembly.
+  const reassembledRaw = cleanedSegments
+    .map((s) => (s.type === "widget" ? `\`\`\`widget\n${s.content}\n\`\`\`` : s.content))
+    .join("\n\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+  const finalSegments = splitSynthesisIntoSegments(reassembledRaw);
+
+  // Build the prose-only view for summary/bullets/paragraphs extraction.
+  // Widgets are replaced with a blank line so paragraph splitting still
+  // works correctly.
+  const proseOnly = finalSegments
+    .map((s) => (s.type === "widget" ? "" : s.content))
+    .join("\n")
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+  const proseForLegacy = looksLikeStructuredHtml(proseOnly)
+    ? htmlToPlainText(proseOnly)
+    : proseOnly;
+
+  const normalizedText = normalizeText(proseForLegacy || proseOnly, 2400);
+  const paragraphs = extractPlainParagraphs(proseForLegacy || proseOnly);
+  const genericBullets = extractGenericBullets(proseForLegacy || proseOnly);
   const fallbackSummary = paragraphs[0] || normalizedText;
 
-  if (!normalizedText) {
+  if (!reassembledRaw) {
     throw new Error("The model response was empty.");
   }
 
   return {
     summary: normalizeText(fallbackSummary, 1600),
-    answer_text: normalizedText || normalizedRawText,
+    // answer_text carries the FULL reassembled text including widget fences
+    // so the client-side renderer can segment it into bubbles + iframes.
+    answer_text: reassembledRaw,
     recommendations: {
       general: normalizeList(genericBullets, 8, 240),
     },
