@@ -568,6 +568,49 @@ function useTypewriter(fullText, enabled, charsPerTick = 3, intervalMs = 18) {
   return visible;
 }
 
+// Tokenize an inline chunk into an array of React children, honoring basic
+// markdown: **bold**, *italic* / _italic_, `inline code`. We do NOT run a full
+// markdown pass — no links, no headings, no block quotes — because the model
+// rarely produces them in prose and full parsing opens us up to edge cases.
+// The tokenizer walks left-to-right and treats the earliest matching delimiter
+// as the real one, so nested runs fall back to whichever pattern hit first.
+function renderInlineMarkdown(source) {
+  const text = String(source || "");
+  if (!text) return [];
+  // Order matters: ** before *, ` stays separate.
+  const patterns = [
+    { re: /\*\*([^*]+?)\*\*/, tag: "strong" },
+    { re: /__([^_]+?)__/, tag: "strong" },
+    { re: /(?<![A-Za-z0-9*])\*([^*\n]+?)\*(?![A-Za-z0-9*])/, tag: "em" },
+    { re: /(?<![A-Za-z0-9_])_([^_\n]+?)_(?![A-Za-z0-9_])/, tag: "em" },
+    { re: /`([^`]+?)`/, tag: "code" },
+  ];
+  const out = [];
+  let rest = text;
+  let key = 0;
+  // Hard cap to avoid any accidental infinite loop if a pattern ever matches
+  // a zero-width slice.
+  for (let guard = 0; guard < 1000 && rest.length; guard += 1) {
+    let best = null;
+    for (const pat of patterns) {
+      const m = rest.match(pat.re);
+      if (m && (!best || m.index < best.m.index)) {
+        best = { pat, m };
+      }
+    }
+    if (!best) {
+      out.push(rest);
+      break;
+    }
+    if (best.m.index > 0) {
+      out.push(rest.slice(0, best.m.index));
+    }
+    out.push(h(best.pat.tag, { key: `im-${key++}` }, best.m[1]));
+    rest = rest.slice(best.m.index + best.m[0].length);
+  }
+  return out;
+}
+
 // Render the inner prose chunks (paragraphs + bullet lists) of one text
 // segment. Used both by the streaming path (single bubble around the visible
 // substring) and the segment path (one bubble per text segment between
@@ -585,9 +628,13 @@ function renderProseChunks(text) {
     return h(
       React.Fragment,
       { key: chunkIndex },
-      proseLines.length ? h("p", null, proseLines.join(" ")) : null,
+      proseLines.length ? h("p", null, ...renderInlineMarkdown(proseLines.join(" "))) : null,
       bulletLines.length
-        ? h("ul", null, bulletLines.map((line, lineIndex) => h("li", { key: lineIndex }, line.replace(/^(?:[-*]|\u2022)\s+/, ""))))
+        ? h("ul", null, bulletLines.map((line, lineIndex) => h(
+            "li",
+            { key: lineIndex },
+            ...renderInlineMarkdown(line.replace(/^(?:[-*]|\u2022)\s+/, "")),
+          )))
         : null
     );
   });

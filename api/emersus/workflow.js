@@ -31,13 +31,15 @@ WHEN NOT TO EMIT A WIDGET
 HOW TO EMIT A WIDGET
 Always lead with your prose answer first. The widget supports the prose; it never replaces it. Do not duplicate the same items verbatim across prose and widget. Then drop the widget inline at the point in the answer where it makes sense.
 
-Use the literal tag \`widget\` on the opening fence:
+Prefer the literal tag \`widget\` on the opening fence. \`html\` is also accepted if that is more natural for you:
 
 \`\`\`widget
 <div class="card">
   ...your HTML here...
 </div>
 \`\`\`
+
+Do NOT duplicate the widget HTML, CSS, or JS as plain prose before or after the fence — the fence itself is what gets rendered.
 
 HARD RULES FOR WIDGET HTML
 - Self-contained: HTML + inline <style> + (optional) inline <script>. No external libraries, no CDNs, no <link>, no @import, no <img src="http...">.
@@ -415,7 +417,7 @@ function classifySafety({ question, profile, threadState }) {
   }
 
   if (
-    /steroid cycle|tren|test e\b|testosterone cycle|inject testosterone|illegal steroid|dnp\b|clenbuterol|ephedrine stack|where can i buy/.test(
+    /steroid cycle|\btren(bolone)?\b|\btest e\b|testosterone cycle|inject testosterone|illegal steroid|\bdnp\b|\bclenbuterol\b|ephedrine stack|where can i buy/.test(
       text
     )
   ) {
@@ -2102,22 +2104,6 @@ function buildVisualArtifactPlan({ question, synthesis, evidence = [], includeDe
   if (artifactType === "art_illustration") return buildArtArtifact({ question, synthesis, includeDebug });
 
   return { card: null, debug: { generated: false, reason: "visual_family_not_implemented", artifact_type: artifactType } };
-}
-
-function buildVisualDashboardCard({ question, synthesis }) {
-  const plan = buildVisualArtifactPlan({ question, synthesis, evidence: [], includeDebug: false });
-  if (!plan.card) {
-    return null;
-  }
-
-  return {
-    type: "dashboard_artifact",
-    title: plan.card.title || inferDashboardTitle(question),
-    eyebrow: "Generated visual dashboard",
-    body: plan.card.body,
-    metrics: plan.card.data?.facts || plan.card.data?.metrics || [],
-    panels: buildDashboardPanels(synthesis.answer_text || synthesis.summary),
-  };
 }
 
 function buildCards({ question, synthesis, evidence = [], includeDebug = false, plan = null, confidence = null, sources = [], quantFindings = [] }) {
