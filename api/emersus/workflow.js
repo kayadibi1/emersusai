@@ -1546,7 +1546,12 @@ function splitSynthesisIntoSegments(text) {
 // in a widget fence. This catches the common model failure mode where it
 // emits raw HTML inline without the fence markers.
 function autoWrapBareHtml(proseText) {
-  const text = String(proseText || "");
+  // Normalize CRLF -> LF up front so the paragraph-boundary regex below
+  // (\n{2,}) actually matches paragraph breaks emitted by models that use
+  // Windows line endings. Without this, a CRLF answer like "consistency.\r\n
+  // \r\n<div..." was leaking the entire HTML body as plain text because no
+  // \n\n could ever match between the prose and the bare HTML block.
+  const text = String(proseText || "").replace(/\r\n/g, "\n");
   // Find the first block-level HTML tag at a paragraph boundary.
   const openRe = /(^|\n{2,})\s*(<(?:style|div|section|article|header|footer|main|table|ul|ol|form|h[1-4])\b)/i;
   const openMatch = text.match(openRe);
@@ -2967,4 +2972,8 @@ export {
   generateRecommendation,
   parseJsonBody,
   validateRequest,
+  // Exposed so scripts/test-widget-fence-routing.js can replay real model
+  // outputs (CRLF endings, truncated bodies, inline-fence variants) end-to-end
+  // through the same code path the live request handler uses.
+  normalizeSynthesisPayload,
 };

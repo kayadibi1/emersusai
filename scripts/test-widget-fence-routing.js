@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 // test runs in plain Node without an HTTPS-import loader. The renderer
 // re-exports the same functions, so we're testing the same code path.
 import { hasWidgetFences, parseLLMOutput } from "../shared/widget-fence-parser.js";
+import { normalizeSynthesisPayload } from "../api/emersus/workflow.js";
 
 // Shape that matches what the server sends for a comparison widget.
 const answerText = [
@@ -46,6 +47,41 @@ const inlineWidgets = inlineSegments.filter((s) => s.type === "widget");
 assert.equal(inlineWidgets.length, 1);
 for (const t of inlineSegments.filter((s) => s.type === "text")) {
   assert.ok(!t.content.includes("```"), `inline-fence leak: ${t.content}`);
+}
+
+// Server-side regression: a real model output captured from production
+// where the answer used CRLF line endings, the opening fence was inline
+// ("```widget <div...") with no newline, and max_output_tokens cut off the
+// closing ``` mid-tag. Before the autoWrapBareHtml CRLF fix, normalize
+// returned the entire HTML body as plain text because the \n{2,} regex
+// could not match \r\n\r\n paragraph breaks, so the auto-wrap step never
+// fired and the client rendered raw HTML escaped into the chat.
+const crlfTruncated =
+  "Ashwagandha has the better evidence for reducing stress physiology.\r\n" +
+  "\r\n" +
+  '```widget <div style="background:var(--color-background-primary);padding:12px;">\r\n' +
+  "<div>row 1</div>\r\n" +
+  "<div>row 2</div>\r\n" +
+  '<div style="padding-bottom:6px;">Typical study dose</div';
+const normalized = normalizeSynthesisPayload(crlfTruncated);
+assert.equal(typeof normalized.answer_text, "string");
+assert.equal(
+  hasWidgetFences(normalized.answer_text),
+  true,
+  "CRLF + truncated answer must end up with a complete widget fence after normalize",
+);
+const normalizedSegments = parseLLMOutput(normalized.answer_text);
+const normalizedWidgets = normalizedSegments.filter((s) => s.type === "widget");
+assert.equal(
+  normalizedWidgets.length,
+  1,
+  "expected exactly one widget segment after normalize",
+);
+for (const t of normalizedSegments.filter((s) => s.type === "text")) {
+  assert.ok(
+    !t.content.includes("```widget"),
+    `normalize leaked opening fence into prose: ${t.content}`,
+  );
 }
 
 console.log("widget fence routing: ok");
