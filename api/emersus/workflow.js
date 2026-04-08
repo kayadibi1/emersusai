@@ -1297,7 +1297,7 @@ function buildSynthesisInput({
         retrieved_evidence: evidenceForModel,
         instructions: [
           "If the question touches medical or medication risk, stay high level and do not give diagnosis or personalized medication advice.",
-          "Do not include citations inline; the server will attach sources.",
+          "SOURCES POLICY (strict): never list, cite, bracket, or reference sources in the chat body. No '[1]' / '(Smith 2023)' / 'Source 1:' / trailing 'Sources:' / 'References:' sections / bibliographies / numbered source lists / clickable links to studies. Do not write phrases like 'see source below', 'according to source 3', or 'the cited paper'. You CAN and SHOULD describe the research naturally in the prose ('a 2023 meta-analysis in trained men found...', 'the classic creatine loading trials'), because the sources panel is rendered separately on the right rail and the user will see the actual citations there.",
           "If the user is asking for a multi-week training plan, mesocycle, periodized block, weekly split, or training calendar, emit a ```workout-plan``` fence containing JSON that conforms to schema_version 1 (see WORKOUT-PLAN FENCES in the system instructions). Lead with 2–4 sentences of prose rationale, then the fence, then stop.",
           "If current_workout_plan is present and the user is asking to modify it (missed a session, cannot hit a prescribed load, exercise swap, reschedule, injury, add a deload), emit a ```workout-plan``` fence whose JSON body has a top-level updates_plan_id field equal to current_workout_plan.id and preserves every session id that is not structurally changing.",
         ],
@@ -1763,6 +1763,38 @@ function autoWrapBareHtml(proseText) {
   return `${before}\n\n\`\`\`widget\n${htmlBody}\n\`\`\``;
 }
 
+// Server-side safety net: even with clear instructions the model sometimes
+// appends a trailing "Sources:" / "References:" section, a numbered bib,
+// or inline bracketed citations like "[1]" or "(Smith 2023)". The sources
+// rail is the single place sources should appear, so we strip any leaked
+// list here before the chat bubble renders. Intentionally conservative —
+// only strips obvious bibliography patterns, never prose that happens to
+// mention a study.
+function stripLeakedSourceSections(prose) {
+  if (!prose) return prose;
+  let out = String(prose);
+
+  // 1. Drop everything from a trailing "Sources:" / "References:" /
+  //    "Citations:" / "Bibliography:" heading to the end of the text.
+  //    Require it to be at the start of a line so we don't chop mid-sentence.
+  out = out.replace(
+    /\n+\s*(?:\*\*|#{1,3}\s*)?\s*(?:Sources|References|Citations|Bibliography|Further reading)\s*:?\s*(?:\*\*)?\s*\n[\s\S]*$/i,
+    ""
+  );
+
+  // 2. Strip bracketed numeric inline citations: "[1]", "[2, 3]", "[1,2,3]".
+  //    Keep the surrounding prose intact.
+  out = out.replace(/\s*\[\d+(?:\s*[-,]\s*\d+)*\]/g, "");
+
+  // 3. Drop standalone "Source N:" prefix lines the model sometimes emits
+  //    as little breadcrumbs between paragraphs.
+  out = out.replace(/^\s*Source\s*\d+\s*:.*$/gim, "");
+
+  // 4. Collapse the extra blank lines those strips may have left behind.
+  out = out.replace(/\n{3,}/g, "\n\n").trim();
+  return out;
+}
+
 function normalizeSynthesisPayload(text) {
   const raw = String(text || "").trim();
   if (!raw) {
@@ -1791,6 +1823,10 @@ function normalizeSynthesisPayload(text) {
     if (!/```(?:widget|html)?[ \t]*\r?\n?[\s\S]*?```/i.test(prose)) {
       prose = stripStrayFenceMarkers(prose);
     }
+    // Strip any trailing "Sources:" / "References:" section the model
+    // appended despite the instruction. The sources panel owns that
+    // surface now.
+    prose = stripLeakedSourceSections(prose);
     return { type: "text", content: prose };
   });
 
