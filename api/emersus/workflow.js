@@ -1588,7 +1588,10 @@ function normalizeSynthesisPayload(text) {
     // "```" markers that a malformed fence might have left behind. Do this
     // AFTER autoWrapBareHtml so we don't accidentally destroy the fence we
     // just added.
-    if (!/```(?:widget|html)?[ \t]*\r?\n[\s\S]*?```/i.test(prose)) {
+    // Use the same \r?\n? pattern as splitSynthesisIntoSegments so the
+    // safety-net check can never disagree with the segmenter about what
+    // counts as a valid fence (inline / CRLF / no-newline variants).
+    if (!/```(?:widget|html)?[ \t]*\r?\n?[\s\S]*?```/i.test(prose)) {
       prose = stripStrayFenceMarkers(prose);
     }
     return { type: "text", content: prose };

@@ -413,10 +413,16 @@ function buildRecentMessages(messages, maxItems = 6) {
 }
 
 function buildAssistantBlocks(data) {
-  const primaryText = normalizeText(
-    data.answer_text || data.summary || "Here is the plain-language answer before the visual.",
-    4000
-  );
+  // Preserve newlines so widget fences and paragraph boundaries survive into
+  // parseLLMOutput / renderProseChunks. normalizeText collapses \s+ to single
+  // spaces, which would flatten multi-paragraph prose and remove the newlines
+  // that separate widget fences from surrounding prose.
+  const primaryText = String(
+    data.answer_text || data.summary || "Here is the plain-language answer before the visual."
+  )
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, " ")
+    .trim()
+    .slice(0, 4000);
   const blocks = [{ type: "text", text: primaryText }];
   (Array.isArray(data.cards) ? data.cards : []).forEach((card) => {
     if (card && typeof card === "object") {
@@ -1373,7 +1379,12 @@ function ChatApp() {
       if (!response.ok) throw new Error(data.message || "Unable to generate a recommendation.");
       setGlyphState("responding");
       const assistantRaw = String(data.answer_text || data.summary || "");
-      const structuredHtml = looksLikeStructuredHtml(assistantRaw)
+      // If the answer contains a widget fence, route through the segment-aware
+      // TextBlock + WidgetFrame pipeline. The legacy structured-HTML dump path
+      // would otherwise hijack any answer containing <div> (i.e. every widget)
+      // and render the fence markers as literal prose.
+      const hasFences = hasWidgetFences(assistantRaw);
+      const structuredHtml = !hasFences && looksLikeStructuredHtml(assistantRaw)
         ? sanitizeAssistantHtml(assistantRaw)
         : "";
       const assistantPlainText = structuredHtml
