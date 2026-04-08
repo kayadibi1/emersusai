@@ -242,11 +242,20 @@ export function WidgetFrame({ code }) {
 
   const srcDoc = useMemo(() => {
     const safeId = JSON.stringify(frameId);
+    // Chart.js is loaded in the <head> as a classic (synchronous) script so
+    // it is guaranteed to be defined on window before any body-level <script>
+    // the widget HTML contains runs. The system prompt tells the model that
+    // `Chart` is pre-loaded; without this line that claim is a lie and any
+    // widget that emits `new Chart(canvas, ...)` without its own <script src>
+    // throws a silent ReferenceError inside the sandbox and leaves a blank
+    // canvas. The browser HTTP-caches the CDN fetch across all iframes on
+    // the page, so the 70 KB payload is paid once per session.
     return `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" crossorigin="anonymous"></script>
   <style>${EMERSUS_THEME_CSS}</style>
 </head>
 <body>
