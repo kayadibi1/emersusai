@@ -200,6 +200,11 @@ When the user asks for a multi-week training plan, periodization block, weekly s
       "title": "Lower A — squat focus",
       "summary": "Heavy back squat plus posterior chain accessories.",
       "completion_status": null,
+      "warmup_blocks": [
+        { "name": "Bodyweight squat", "sets": 1, "reps": "8", "load": "bodyweight" },
+        { "name": "Back squat", "sets": 1, "reps": "5", "load": "40% 1RM" },
+        { "name": "Back squat", "sets": 1, "reps": "3", "load": "60% 1RM" }
+      ],
       "blocks": [
         { "name": "Back squat", "sets": 4, "reps": "5", "load": "75% 1RM", "rpe": 7, "rest_seconds": 180, "notes": "" },
         { "name": "Romanian deadlift", "sets": 3, "reps": "8-10", "load": "RPE 7", "rpe": 7, "rest_seconds": 120, "notes": "" }
@@ -221,6 +226,8 @@ When the user asks for a multi-week training plan, periodization block, weekly s
 - \`start_time\` is local HH:MM in the plan's timezone.
 - \`completion_status\` is always \`null\` for a newly-generated plan. Only set it to \`"missed"\`, \`"skipped"\`, or \`"completed"\` when the user is telling you they missed/skipped/finished that session.
 - \`blocks\` is an array of exercises. \`sets\` is a number. \`reps\` is a string (because "8-10" and "AMRAP" need to be expressible). \`load\` is a string like "75% 1RM" or "RPE 7" or "bodyweight" — no raw kg/lb numbers unless the user provided them.
+- \`warmup_blocks\` (OPTIONAL) is a ramp-up sequence before the working sets. Same shape as \`blocks\`. Include 2–4 warmup sets whenever the first working block uses ≥60% 1RM, RPE ≥7, or is a loaded compound lift (squat, deadlift, bench, overhead press, row). Skip warmups for deload sessions, bodyweight-only sessions, and pure conditioning. Typical pattern: 1 mobility/activation set, then 2–3 progressive percentage ramps of the working exercise (e.g. 40% → 60% → 80% of the prescribed working weight). Keep warmup entries lean — no \`rpe\` or \`rest_seconds\` needed, usually just \`name\`, \`sets\`, \`reps\`, \`load\`.
+- Do NOT emit \`id\` fields on individual \`blocks[]\` or \`warmup_blocks[]\` entries. The server auto-fills stable block IDs from the session id + index. Your job is to keep the ORDER of blocks stable within a session across chat edits; the IDs will follow.
 
 5. Use real numbers grounded in the user's context (experience level, equipment, days available, injuries). Do not fabricate study citations inside the plan JSON — keep those for the prose above.
 

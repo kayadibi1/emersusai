@@ -16,6 +16,11 @@
 
 export const SCHEMA_VERSION = 1;
 
+// Bumped independently of SCHEMA_VERSION so the logging shape can evolve
+// without invalidating stored plans. Phase 1.5 ships v1; v2 would require
+// a client-side migration helper similar to ensureBlockIds().
+export const COMPLETED_BLOCK_SCHEMA_VERSION = 1;
+
 export const GOALS = ["hypertrophy", "strength", "endurance", "general", "sport_specific"];
 export const EXPERIENCE_LEVELS = ["beginner", "intermediate", "advanced"];
 export const COMPLETION_STATUSES = [null, "completed", "skipped", "missed"];
@@ -27,6 +32,15 @@ export function createSessionId(week, dayOfWeek) {
   const w = Math.max(1, Math.floor(Number(week) || 0));
   const d = Math.max(1, Math.min(7, Math.floor(Number(dayOfWeek) || 0)));
   return `s_w${w}d${d}`;
+}
+
+// Stable per-block id format. Used so actual-set logging in Phase 1.5 can
+// key its entries against a specific prescribed block and survive an
+// exercise swap (the swap changes .name but keeps .id). Warmup blocks
+// use the same helper but with a "w_" prefix via the caller — see
+// ensureBlockIds below.
+export function createBlockId(sessionId, index, prefix = "b") {
+  return `${prefix}_${sessionId}_${index}`;
 }
 
 // Browser-side default timezone. Falls back to UTC if Intl is unavailable
@@ -56,6 +70,100 @@ export function summarizeBlocks(blocks) {
       return `${b.name}: ${setsReps}${load}${rpe}${rest}`.trim();
     })
     .join("\n");
+}
+
+// Walks every session in the plan and fills in missing block.id fields
+// for both blocks[] and warmup_blocks[]. Idempotent: running it twice on
+// the same plan is a no-op after the first pass. Used to silently upgrade
+// pre-1.5 plans on first load without forcing a database migration.
+// Mutates-then-returns for caller convenience; callers should treat it
+// as returning a fresh plan object.
+export function ensureBlockIds(plan) {
+  if (!plan || typeof plan !== "object") return plan;
+  const sessions = Array.isArray(plan.sessions) ? plan.sessions : [];
+  return {
+    ...plan,
+    sessions: sessions.map((session) => {
+      if (!session || typeof session !== "object") return session;
+      const sessionId = session.id || "unknown";
+      const blocks = Array.isArray(session.blocks) ? session.blocks : [];
+      const warmupBlocks = Array.isArray(session.warmup_blocks) ? session.warmup_blocks : null;
+      return {
+        ...session,
+        blocks: blocks.map((block, index) => {
+          if (!block || typeof block !== "object") return block;
+          if (block.id && typeof block.id === "string") return block;
+          return { ...block, id: createBlockId(sessionId, index, "b") };
+        }),
+        ...(warmupBlocks
+          ? {
+              warmup_blocks: warmupBlocks.map((block, index) => {
+                if (!block || typeof block !== "object") return block;
+                if (block.id && typeof block.id === "string") return block;
+                return { ...block, id: createBlockId(sessionId, index, "w") };
+              }),
+            }
+          : {}),
+      };
+    }),
+  };
+}
+
+// Build a blank "actual set" row to seed the mobile session view. Pulls
+// the prescribed reps string as the default (user just confirms it) and
+// leaves load/rpe/notes empty so the user fills them in. The caller is
+// responsible for knowing how many actual_sets to pre-create — usually
+// Number(prescribedBlock.sets) or 1.
+export function createEmptyActualSet(prescribedBlock) {
+  return {
+    reps: prescribedBlock && prescribedBlock.reps ? String(prescribedBlock.reps) : "",
+    load: "",
+    rpe: null,
+    notes: "",
+  };
+}
+
+// Validates a session's completed_blocks array. Returns { ok, errors }.
+// Absent completed_blocks is valid — sessions without logged actuals are
+// the default, not an error. Used inside validatePlan; callable
+// standalone for per-session validation from the mobile view.
+export function validateCompletedBlocks(session, sessionLabel = "session") {
+  const errors = [];
+  if (!session || typeof session !== "object") return { ok: true };
+  if (session.completed_blocks == null) return { ok: true };
+  if (!Array.isArray(session.completed_blocks)) {
+    errors.push(`${sessionLabel}.completed_blocks must be an array when present`);
+    return { ok: false, errors };
+  }
+  session.completed_blocks.forEach((entry, i) => {
+    if (!entry || typeof entry !== "object") {
+      errors.push(`${sessionLabel}.completed_blocks[${i}] must be an object`);
+      return;
+    }
+    if (!entry.block_id || typeof entry.block_id !== "string") {
+      errors.push(`${sessionLabel}.completed_blocks[${i}].block_id is required`);
+    }
+    if (entry.actual_sets != null) {
+      if (!Array.isArray(entry.actual_sets)) {
+        errors.push(`${sessionLabel}.completed_blocks[${i}].actual_sets must be an array`);
+      } else {
+        entry.actual_sets.forEach((set, j) => {
+          if (set == null) return;
+          if (typeof set !== "object") {
+            errors.push(`${sessionLabel}.completed_blocks[${i}].actual_sets[${j}] must be an object`);
+            return;
+          }
+          if (set.rpe != null && typeof set.rpe !== "number" && typeof set.rpe !== "string") {
+            errors.push(`${sessionLabel}.completed_blocks[${i}].actual_sets[${j}].rpe must be a number or string`);
+          }
+        });
+      }
+    }
+    if (entry.logged_at != null && typeof entry.logged_at !== "string") {
+      errors.push(`${sessionLabel}.completed_blocks[${i}].logged_at must be an ISO string`);
+    }
+  });
+  return errors.length ? { ok: false, errors } : { ok: true };
 }
 
 // Returns { ok: true } or { ok: false, errors: [...] }. Cheap structural
@@ -99,6 +207,16 @@ export function validatePlan(plan) {
       }
       if (s.completion_status != null && !COMPLETION_STATUSES.includes(s.completion_status)) {
         errors.push(`sessions[${i}].completion_status invalid`);
+      }
+      // Phase 1.5: warmup_blocks is optional. When present it must be
+      // an array of block-shaped objects.
+      if (s.warmup_blocks != null && !Array.isArray(s.warmup_blocks)) {
+        errors.push(`sessions[${i}].warmup_blocks must be an array when present`);
+      }
+      // Phase 1.5: per-session logged actuals.
+      const completedCheck = validateCompletedBlocks(s, `sessions[${i}]`);
+      if (!completedCheck.ok) {
+        errors.push(...completedCheck.errors);
       }
     });
   }
@@ -149,26 +267,40 @@ export function validatePlanUpdate(newPlan, oldPlan) {
 }
 
 // Trim and lightly normalize a plan before storage. Idempotent. Does not
-// validate — call validatePlan separately if you care.
+// validate — call validatePlan separately if you care. Phase 1.5 note:
+// this also runs ensureBlockIds so pre-1.5 plans get their block IDs
+// filled in on first save, without needing a database migration.
 export function normalizePlan(plan) {
   if (!plan || typeof plan !== "object") return plan;
   const sessions = Array.isArray(plan.sessions) ? plan.sessions : [];
-  return {
+  const normalized = {
     ...plan,
     schema_version: SCHEMA_VERSION,
     title: String(plan.title || "").trim().slice(0, 200),
     notes: String(plan.notes || "").slice(0, 4000),
     timezone: String(plan.timezone || "UTC").trim(),
-    sessions: sessions.map((s, i) => ({
-      ...s,
-      id: s && s.id ? String(s.id) : createSessionId(s?.week || 1, s?.day_of_week || 1) + `_${i}`,
-      week: Number(s?.week) || 1,
-      day_of_week: Number(s?.day_of_week) || 1,
-      duration_minutes: Number(s?.duration_minutes) || 60,
-      completion_status: COMPLETION_STATUSES.includes(s?.completion_status) ? s.completion_status : null,
-      blocks: Array.isArray(s?.blocks) ? s.blocks : [],
-    })),
+    sessions: sessions.map((s, i) => {
+      const baseSessionId = s && s.id ? String(s.id) : createSessionId(s?.week || 1, s?.day_of_week || 1) + `_${i}`;
+      return {
+        ...s,
+        id: baseSessionId,
+        week: Number(s?.week) || 1,
+        day_of_week: Number(s?.day_of_week) || 1,
+        duration_minutes: Number(s?.duration_minutes) || 60,
+        completion_status: COMPLETION_STATUSES.includes(s?.completion_status) ? s.completion_status : null,
+        blocks: Array.isArray(s?.blocks) ? s.blocks : [],
+        // Preserve warmup_blocks and completed_blocks when present.
+        // Absence is valid — these are Phase 1.5 additions and every
+        // pre-1.5 plan will simply not have them.
+        ...(Array.isArray(s?.warmup_blocks) ? { warmup_blocks: s.warmup_blocks } : {}),
+        ...(Array.isArray(s?.completed_blocks) ? { completed_blocks: s.completed_blocks } : {}),
+      };
+    }),
   };
+  // Auto-heal missing block IDs. This has to run AFTER the session-level
+  // normalization above because ensureBlockIds needs the session id to
+  // be stable.
+  return ensureBlockIds(normalized);
 }
 
 // Convert "1..7" day-of-week to a short label. Used by the ICS exporter

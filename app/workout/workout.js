@@ -221,6 +221,25 @@ function renderDetail() {
       "Discuss in chat"
     )
   );
+  // Phase 1.5: Open in mobile view → /app/workout/session/?plan=...&session=...
+  // Picks the next un-logged session as the deep-link target so the user can
+  // jump straight into their next workout. Falls back to the first session
+  // if everything's already logged.
+  const nextUnlogged =
+    sessions.find(
+      (s) => !Array.isArray(s.completed_blocks) || s.completed_blocks.length === 0
+    ) || sessions[0];
+  if (nextUnlogged) {
+    actions.appendChild(
+      el(
+        "a",
+        {
+          href: `/app/workout/session/?plan=${encodeURIComponent(row.id)}&session=${encodeURIComponent(nextUnlogged.id)}`,
+        },
+        "Open mobile session view"
+      )
+    );
+  }
   actions.appendChild(
     el(
       "button",
@@ -305,6 +324,13 @@ function renderDetail() {
     const weekEl = el("div", { class: "workout-week" }, el("h3", {}, `Week ${weekNum}`));
     for (const session of weekSessions) {
       const blocksText = summarizeBlocks(session.blocks);
+      const warmupsText =
+        Array.isArray(session.warmup_blocks) && session.warmup_blocks.length > 0
+          ? summarizeBlocks(session.warmup_blocks)
+          : "";
+      const hasLoggedActuals =
+        Array.isArray(session.completed_blocks) && session.completed_blocks.length > 0;
+      const sessionDeepLink = `/app/workout/session/?plan=${encodeURIComponent(row.id)}&session=${encodeURIComponent(session.id)}`;
       const sessionEl = el(
         "div",
         { class: "workout-session" },
@@ -316,9 +342,51 @@ function renderDetail() {
         el(
           "div",
           { class: "details" },
-          el("div", { class: "title" }, session.title || "Workout"),
+          el(
+            "div",
+            { class: "title" },
+            // Click the title to open this session in the mobile view.
+            el(
+              "a",
+              {
+                href: sessionDeepLink,
+                style: "color:var(--ink);text-decoration:none",
+                title: "Open in mobile session view",
+              },
+              session.title || "Workout"
+            )
+          ),
           session.summary ? el("div", {}, session.summary) : null,
-          blocksText ? el("div", { class: "blocks" }, blocksText) : null
+          warmupsText
+            ? el(
+                "div",
+                {
+                  class: "blocks",
+                  style: "margin-top:6px;color:var(--muted);font-size:11px",
+                },
+                "Warm-up:\n" + warmupsText
+              )
+            : null,
+          blocksText
+            ? el(
+                "div",
+                {
+                  class: "blocks",
+                  style: warmupsText ? "margin-top:6px" : "",
+                },
+                (warmupsText ? "Working sets:\n" : "") + blocksText
+              )
+            : null,
+          hasLoggedActuals
+            ? el(
+                "div",
+                {
+                  class: "blocks",
+                  style: "margin-top:8px;color:var(--secondary);font-size:11px;font-weight:500",
+                },
+                `\u2713 ${session.completed_blocks.length} block${session.completed_blocks.length === 1 ? "" : "s"} logged`
+              )
+            : null
         ),
         el(
           "div",
