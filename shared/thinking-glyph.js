@@ -254,6 +254,7 @@ function getTargets(state) {
       drawOn: 0,
       thinkingness: 1,
       shimmerSpeed: 1.0,
+      idleness: 0,
     };
   }
   if (state === "responding") {
@@ -267,18 +268,20 @@ function getTargets(state) {
       drawOn: 1,
       thinkingness: 0,
       shimmerSpeed: 0.6,
+      idleness: 0,
     };
   }
   return {
     morphDuration: 2800,
-    chromaticOffset: 1.5,
+    chromaticOffset: 0,
     jitterAmplitude: 0,
-    glowIntensity: 0.55,
-    scanlineOpacity: 0.05,
+    glowIntensity: 0,
+    scanlineOpacity: 0,
     glitchRate: 0,
     drawOn: 0,
     thinkingness: 0,
-    shimmerSpeed: 0.35,
+    shimmerSpeed: 0,
+    idleness: 1,
   };
 }
 
@@ -404,19 +407,26 @@ export function createThinkingGlyph(canvas, options = {}) {
       jitter[i].y = lerp(jitter[i].y, jitterTarget[i].y, 0.15);
     }
 
-    morph.progress += dt / params.morphDuration;
-    while (morph.progress >= 1) {
-      morph.progress -= 1;
-      morph.from = morph.to;
-      morph.to = (morph.to + 1) % KEYFRAMES.length;
+    if (params.idleness < 0.99) {
+      morph.progress += dt / params.morphDuration;
+      while (morph.progress >= 1) {
+        morph.progress -= 1;
+        morph.from = morph.to;
+        morph.to = (morph.to + 1) % KEYFRAMES.length;
+      }
     }
     const t = easeInOutCubic(morph.progress);
     const fromShape = KEYFRAMES[morph.from];
     const toShape = KEYFRAMES[morph.to];
-    const shape = fromShape.map((p, i) => ({
-      x: lerp(p.x, toShape[i].x, t),
-      y: lerp(p.y, toShape[i].y, t),
-    }));
+    const ekg = KEYFRAMES[0];
+    const shape = fromShape.map((p, i) => {
+      const morphX = lerp(p.x, toShape[i].x, t);
+      const morphY = lerp(p.y, toShape[i].y, t);
+      return {
+        x: lerp(morphX, ekg[i].x, params.idleness),
+        y: lerp(morphY, ekg[i].y, params.idleness),
+      };
+    });
 
     if (params.glitchRate > 0.05) {
       let prob = params.glitchRate * (dt / 1000);
@@ -447,37 +457,60 @@ export function createThinkingGlyph(canvas, options = {}) {
 
     const pulse = 0.55 + 0.45 * Math.sin(morph.progress * Math.PI * 2);
     const glow = params.glowIntensity * lerp(1, pulse, params.thinkingness);
+    const activeness = 1 - params.idleness;
 
     drawShape(shape, {
-      strokeStyle: rgba(primary, 0.05 * glow),
+      strokeStyle: rgba(primary, 0.05 * glow * activeness),
       strokeWidth: Math.max(6, size * 0.14),
       scale: 1.5,
     });
     drawShape(shape, {
-      strokeStyle: rgba(primary, 0.08 * glow),
+      strokeStyle: rgba(primary, 0.08 * glow * activeness),
       strokeWidth: Math.max(4, size * 0.09),
       scale: 1.32,
     });
 
     drawShape(shape, {
-      strokeStyle: rgba(cyan, 0.30),
+      strokeStyle: rgba(cyan, 0.30 * activeness),
       strokeWidth: Math.max(1.25, size * 0.025),
       offsetX: -chromX,
       offsetY: -chromY,
     });
 
     drawShape(shape, {
-      strokeStyle: rgba(magenta, 0.25),
+      strokeStyle: rgba(magenta, 0.25 * activeness),
       strokeWidth: Math.max(1.25, size * 0.025),
       offsetX: chromX,
       offsetY: chromY,
     });
 
     drawShape(shape, {
-      fillStyle: rgba(primary, 0.12),
-      strokeStyle: rgba(primary, 0.9 * (1 - params.drawOn)),
+      fillStyle: rgba(primary, 0.12 * activeness),
+      strokeStyle: rgba(primary, 0.9 * (1 - params.drawOn) * activeness),
       strokeWidth: Math.max(1.5, size * 0.028),
     });
+
+    if (params.idleness > 0.01) {
+      // Heartbeat: ~60 BPM, sharp lub at 0.10s with a softer dub trailing it.
+      const beatT = (now / 1000) % 1;
+      const lub = Math.exp(-Math.pow((beatT - 0.10) * 16, 2));
+      const dub = 0.55 * Math.exp(-Math.pow((beatT - 0.26) * 18, 2));
+      const heartbeat = Math.min(1, lub + dub);
+      const baseAlpha = 0.22;
+      const peakAlpha = 0.85;
+      const alpha = (baseAlpha + (peakAlpha - baseAlpha) * heartbeat) * params.idleness;
+      // Faint outer glow that pulses with the beat
+      drawShape(shape, {
+        strokeStyle: rgba(primary, 0.18 * heartbeat * params.idleness),
+        strokeWidth: Math.max(3, size * 0.07),
+        scale: 1.15,
+      });
+      // Main faint EKG trace
+      drawShape(shape, {
+        strokeStyle: rgba(primary, alpha),
+        strokeWidth: Math.max(1.25, size * 0.022),
+      });
+    }
 
     if (params.drawOn > 0.01) {
       const perimeter = size * 2.6;
@@ -494,7 +527,7 @@ export function createThinkingGlyph(canvas, options = {}) {
 
     shimmerPhase += (dt / 1200) * params.shimmerSpeed;
     shimmerPhase = shimmerPhase % 1;
-    {
+    if (activeness > 0.01) {
       const bandWidth = 0.18;
       const range = 1 + bandWidth * 2;
       const pos = -bandWidth + shimmerPhase * range;
@@ -504,12 +537,12 @@ export function createThinkingGlyph(canvas, options = {}) {
 
       const grad = ctx.createLinearGradient(0, 0, size, size);
       grad.addColorStop(stop0, rgba(NEON_GREEN, 0));
-      grad.addColorStop(stop1, rgba(NEON_GREEN, 0.95));
+      grad.addColorStop(stop1, rgba(NEON_GREEN, 0.95 * activeness));
       grad.addColorStop(stop2, rgba(NEON_GREEN, 0));
 
       const gradBloom = ctx.createLinearGradient(0, 0, size, size);
       gradBloom.addColorStop(stop0, rgba(NEON_GREEN, 0));
-      gradBloom.addColorStop(stop1, rgba(NEON_GREEN, 0.35));
+      gradBloom.addColorStop(stop1, rgba(NEON_GREEN, 0.35 * activeness));
       gradBloom.addColorStop(stop2, rgba(NEON_GREEN, 0));
 
       const prevComp = ctx.globalCompositeOperation;
