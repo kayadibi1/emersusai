@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chat Debug | Emersus AI</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/site.css">
+  <style>
+    /* Reuse the chat page's shell variables so the embedded ChatApp looks
+       identical. The debug-specific layout wraps it in a two-column grid
+       where the right column carries the debug panel. */
+    :root {
+      --chat-shell-padding: 1rem;
+      --chat-history-width: 260px;
+      --chat-glass: linear-gradient(180deg, rgba(11, 13, 16, 0.92), rgba(9, 11, 14, 0.88));
+      --chat-panel: rgba(255, 255, 255, 0.035);
+      --chat-panel-strong: rgba(255, 255, 255, 0.055);
+      --chat-blur: blur(28px);
+      --debug-panel-width: minmax(360px, 460px);
+    }
+
+    body.debug-page {
+      overflow-x: hidden;
+      overflow-y: hidden;
+    }
+
+    /* Outer layout: ChatApp on the left, debug panel on the right. The
+       ChatApp itself carries its own internal grid (history | thread |
+       rail) — the debug page uses minmax(0, 1fr) so that whole block
+       compresses gracefully when the debug panel gets wide. */
+    .debug-shell {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) var(--debug-panel-width);
+      gap: 1rem;
+      height: calc(100vh - 2rem);
+      min-height: calc(100vh - 2rem);
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+
+    /* The mount point for ChatApp. Must be a flex container because the
+       inner .chat-app-shell uses height: 100% on itself. */
+    #debug-chat-root {
+      display: flex;
+      min-height: 0;
+      min-width: 0;
+    }
+    #debug-chat-root > .chat-app-shell {
+      width: 100%;
+    }
+
+    /* Debug panel — right column. Dark glass card, monospace for code
+       blocks, scrolls vertically when content overflows. */
+    .debug-panel {
+      background:
+        radial-gradient(circle at top right, rgba(159, 251, 0, 0.04), transparent 40%),
+        var(--chat-glass);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 14px;
+      padding: 1.2rem 1.1rem 1.4rem;
+      overflow-y: auto;
+      overflow-x: hidden;
+      min-height: 0;
+    }
+
+    .debug-panel h2 {
+      margin: 0 0 0.6rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .debug-panel h3 {
+      margin: 1.1rem 0 0.35rem;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(159, 251, 0, 0.78);
+    }
+
+    .debug-empty {
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+      line-height: 1.5;
+      padding: 1rem 0;
+    }
+
+    .debug-status {
+      display: inline-block;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      font-size: 0.64rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(159, 251, 0, 0.1);
+      color: rgba(159, 251, 0, 0.9);
+      border: 1px solid rgba(159, 251, 0, 0.28);
+    }
+    .debug-status[data-state="loading"] { background: rgba(108, 159, 255, 0.1); color: rgba(138, 179, 255, 0.95); border-color: rgba(108, 159, 255, 0.3); }
+    .debug-status[data-state="error"] { background: rgba(255, 120, 120, 0.1); color: rgba(255, 180, 180, 0.95); border-color: rgba(255, 120, 120, 0.32); }
+    .debug-status[data-state="idle"] { background: rgba(255, 255, 255, 0.05); color: rgba(255, 255, 255, 0.55); border-color: rgba(255, 255, 255, 0.12); }
+
+    .debug-stage-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.6rem;
+      padding: 0.3rem 0;
+      font-size: 0.82rem;
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.06);
+    }
+    .debug-stage-row:last-child { border-bottom: 0; }
+    .debug-stage-row .label { color: rgba(255, 255, 255, 0.7); }
+    .debug-stage-row .value { color: rgba(255, 255, 255, 0.95); font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; }
+
+    .debug-code {
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      word-break: break-word;
+      font-family: ui-monospace, "SF Mono", "Menlo", "Consolas", monospace;
+      font-size: 0.72rem;
+      line-height: 1.5;
+      background: rgba(0, 0, 0, 0.38);
+      border: 0.5px solid rgba(255, 255, 255, 0.08);
+      border-radius: 6px;
+      padding: 0.6rem 0.75rem;
+      color: rgba(255, 255, 255, 0.92);
+      max-height: 240px;
+      overflow: auto;
+    }
+
+    .debug-evidence-item {
+      border: 0.5px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 0.7rem 0.85rem;
+      margin-bottom: 0.55rem;
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .debug-evidence-item .title {
+      font-size: 0.84rem;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.92);
+      margin-bottom: 0.25rem;
+    }
+    .debug-evidence-item .meta {
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.55);
+      margin-bottom: 0.4rem;
+    }
+    .debug-evidence-item .snippet {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.82);
+      line-height: 1.45;
+    }
+    .debug-evidence-item details summary {
+      cursor: pointer;
+      font-size: 0.7rem;
+      color: rgba(138, 179, 255, 0.9);
+      margin-top: 0.45rem;
+    }
+    .debug-evidence-item details[open] summary {
+      margin-bottom: 0.35rem;
+    }
+
+    .debug-token-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 0.8rem;
+      font-size: 0.82rem;
+      padding: 0.25rem 0;
+    }
+    .debug-token-row .label { color: rgba(255, 255, 255, 0.65); }
+    .debug-token-row .value { color: rgba(255, 255, 255, 0.95); font-variant-numeric: tabular-nums; }
+
+    details.debug-raw {
+      margin-top: 1rem;
+      border-top: 0.5px solid rgba(255, 255, 255, 0.08);
+      padding-top: 0.85rem;
+    }
+    details.debug-raw summary {
+      cursor: pointer;
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.55);
+    }
+    details.debug-raw[open] summary {
+      margin-bottom: 0.65rem;
+    }
+
+    .debug-warn {
+      margin-top: 0.6rem;
+      padding: 0.55rem 0.7rem;
+      border-radius: 6px;
+      border: 0.5px solid rgba(255, 180, 80, 0.35);
+      background: rgba(255, 180, 80, 0.08);
+      color: rgba(255, 200, 130, 0.95);
+      font-size: 0.72rem;
+    }
+
+    .debug-section:first-of-type h3 {
+      margin-top: 0;
+    }
+
+    @media (max-width: 1100px) {
+      .debug-shell {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-rows: minmax(0, 1fr) auto;
+        height: auto;
+      }
+      #debug-chat-root {
+        min-height: 70vh;
+      }
+      .debug-panel {
+        min-height: 400px;
+        max-height: 80vh;
+      }
+    }
+
+    /* Also pull in all the chat-page styling that the embedded ChatApp
+       relies on. This is a copy of /chat/index.html's <style> block
+       (minus root :root vars which we already set above). Without this,
+       ChatApp renders into #debug-chat-root without its classes wired
+       up and looks completely unstyled. */
+    .chat-nav, .chat-main, .chat-rail {
+      position: relative;
+      overflow: visible;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 30%),
+        radial-gradient(circle at top right, rgba(159, 251, 0, 0.05), transparent 28%),
+        var(--chat-glass);
+      box-shadow: var(--shadow);
+      backdrop-filter: var(--chat-blur);
+    }
+  </style>
+</head>
+<body class="debug-page">
+  <div class="debug-shell">
+    <div id="debug-chat-root"></div>
+    <aside class="debug-panel" id="debug-panel-root"></aside>
+  </div>
+  <!-- The debug entry imports ChatApp from /shared/react-chat-app.js via
+       ESM, so we only need one script tag. react-chat-app.js' default
+       mount-at-#chat-root code is a no-op on this page because no element
+       with that id exists; the debug entry owns mounting. -->
+  <script type="module" src="/shared/react-chat-app-debug.js"></script>
+</body>
+</html>

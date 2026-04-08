@@ -1742,7 +1742,33 @@ function ThinkingGlyph({ state = "idle", size = 64, color = "#534AB7" }) {
   );
 }
 
-function ChatApp() {
+// ChatApp is exported so /app/_debug/ can render the same UI inside a
+// two-column layout and observe debug events as they arrive. Props are
+// all optional — the production /chat/ page renders <ChatApp /> with no
+// arguments and nothing about its behavior changes.
+//
+//   onDebugData(data)        Called with the full `data` object after each
+//                            /api/emersus/recommendation response lands.
+//                            Passed verbatim (includes debug.stage_timings,
+//                            debug.openai_input, etc.).
+//   onProgress(event)        Called once per SSE frame from the streaming
+//                            endpoint, when a custom `fetcher` is in use.
+//                            event.stage ∈ {connected, profile_loaded,
+//                            planning_done, retrieval_done, prompt_built,
+//                            synthesis_primary_done, synthesis_fallback_done,
+//                            final, complete, error}. Ignored entirely
+//                            when the default (non-stream) fetcher runs.
+//   fetcher(requestBody)     If provided, called instead of the default
+//                            POST to /api/emersus/recommendation. Should
+//                            return an object shaped like { data } where
+//                            `data` is the final API response. Used by the
+//                            debug page to swap in SSE streaming + fall
+//                            back to the regular endpoint on error.
+export function ChatApp({
+  onDebugData = null,
+  onProgress = null,
+  fetcher = null,
+} = {}) {
   const [session, setSession] = useState(null);
   const [chatHistory, setChatHistory] = useState([]);
   const [activeThreadId, setActiveThreadId] = useState("");
@@ -1966,20 +1992,46 @@ function ChatApp() {
     let persistedThread = await persistThread(threadWithUser);
 
     try {
-      const response = await fetch("/api/emersus/recommendation", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          question: trimmed,
-          threadId: persistedThread.id,
-          userId: session?.user?.id ? `supabase:${session.user.id}` : "",
-          threadState: persistedThread.threadState,
-          recentMessages: buildRecentMessages(persistedThread.messages),
-          includeDebug: true,
-        }),
-      });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.message || "Unable to generate a recommendation.");
+      const requestBody = {
+        question: trimmed,
+        threadId: persistedThread.id,
+        userId: session?.user?.id ? `supabase:${session.user.id}` : "",
+        threadState: persistedThread.threadState,
+        recentMessages: buildRecentMessages(persistedThread.messages),
+        includeDebug: true,
+      };
+
+      let data;
+      if (typeof fetcher === "function") {
+        // The debug page supplies its own fetcher (SSE + fallback). It
+        // forwards SSE frames to our onProgress prop internally, so we
+        // just await the final resolved data here.
+        const result = await fetcher(requestBody);
+        if (!result || !result.data) {
+          throw new Error(result?.error || "Unable to generate a recommendation.");
+        }
+        data = result.data;
+      } else {
+        const response = await fetch("/api/emersus/recommendation", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(requestBody),
+        });
+        data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.message || "Unable to generate a recommendation.");
+      }
+
+      // Give the debug page a chance to show the full response. We fire
+      // the callback BEFORE any further state updates so the debug panel
+      // can render while the chat bubble is still animating. Wrapped in
+      // a try/catch because a buggy observer should never break chat.
+      if (typeof onDebugData === "function") {
+        try {
+          onDebugData(data);
+        } catch (debugError) {
+          console.error("onDebugData callback failed:", debugError);
+        }
+      }
       setGlyphState("responding");
       const assistantRaw = String(data.answer_text || data.summary || "");
       // If the answer contains a widget fence, route through the segment-aware
@@ -2179,5 +2231,13 @@ function ChatApp() {
         h("div", { className: "rail-foot-line" }, h("span", null, "Interface"), h("span", null, "React + Lucide")))));
 }
 
-const root = createRoot(document.getElementById("chat-root"));
-root.render(h(ChatApp));
+// Default mount: the production /chat/ page has #chat-root in its HTML.
+// Other pages (e.g. /app/_debug/) import this module for ChatApp and
+// provide their own root, so skip the default render when #chat-root is
+// missing. This lets a single bundle power both pages without either
+// duplicating state or double-mounting.
+const defaultRootEl = document.getElementById("chat-root");
+if (defaultRootEl) {
+  const root = createRoot(defaultRootEl);
+  root.render(h(ChatApp));
+}

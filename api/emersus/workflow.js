@@ -1387,11 +1387,31 @@ async function callOpenAISynthesis({
   recentMessages,
   safety,
   currentWorkoutPlan = null,
+  captureDebug = null, // { onInput?: (input) => void } — lets callers observe the actual OpenAI input array for the debug page.
 }) {
   const apiKey = process.env.OPENAI_API_KEY;
 
   if (!apiKey) {
     throw new Error("Missing OPENAI_API_KEY.");
+  }
+
+  const synthesisInput = buildSynthesisInput({
+    question,
+    profile,
+    plan,
+    evidenceForModel,
+    today,
+    threadState,
+    recentMessages,
+    safety,
+    currentWorkoutPlan,
+  });
+  if (captureDebug && typeof captureDebug.onInput === "function") {
+    try {
+      captureDebug.onInput(synthesisInput);
+    } catch (_err) {
+      // Debug capture should never break synthesis.
+    }
   }
 
   const response = await fetch("https://api.openai.com/v1/responses", {
@@ -1410,17 +1430,7 @@ async function callOpenAISynthesis({
       // cost — the API only bills actual output — so bumping it costs
       // nothing for non-plan answers and fixes plan truncation.
       max_output_tokens: 8000,
-      input: buildSynthesisInput({
-        question,
-        profile,
-        plan,
-        evidenceForModel,
-        today,
-        threadState,
-        recentMessages,
-        safety,
-        currentWorkoutPlan,
-      }),
+      input: synthesisInput,
     }),
   });
 
@@ -2997,22 +3007,56 @@ async function generateRecommendation({
   threadState,
   recentMessages,
   requestMeta,
+  // Optional progress callback used by the streaming debug endpoint. When
+  // provided, it's invoked after each pipeline stage completes with a
+  // { stage, ...payload } object. The chat endpoint passes nothing, so
+  // these events are purely additive — the non-streaming code path is
+  // unchanged when onProgress is null. Errors inside the callback are
+  // swallowed so a buggy observer can't break synthesis.
+  onProgress = null,
 }) {
+  const runStartedAt = Date.now();
+  const stageTimings = {};
+  let capturedOpenAIInput = null;
+
+  function recordStage(name, ms) {
+    if (typeof ms === "number" && Number.isFinite(ms)) {
+      stageTimings[name] = Math.max(0, Math.round(ms));
+    }
+  }
+
+  function emitProgress(stage, payload) {
+    if (typeof onProgress !== "function") return;
+    try {
+      onProgress({
+        stage,
+        at_ms: Date.now() - runStartedAt,
+        ...payload,
+      });
+    } catch (_err) {
+      // Never let a buggy observer break synthesis.
+    }
+  }
+
   const { stableUserId, supabaseUserId } = parseUserId(userId);
   const supabaseUrl =
     process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const profileStartedAt = Date.now();
   const storedProfile = await fetchSupabaseProfile(
     supabaseUrl,
     serviceRoleKey,
     supabaseUserId
   );
   const mergedProfile = mergeProfile(profile, storedProfile || {});
+  recordStage("profile_load_ms", Date.now() - profileStartedAt);
+
   // Load the user's active workout plan when the frontend stamped it into
   // thread_state. This lets Emersus reason about "I missed Friday" and
   // similar adjustments in the same chat turn. Defense-in-depth: the fetch
   // double-checks the plan belongs to supabaseUserId so a spoofed thread
   // state can't leak someone else's plan into the prompt.
+  const planLoadStartedAt = Date.now();
   const activeWorkoutPlanId = normalizeUuid(threadState?.active_workout_plan_id);
   let currentWorkoutPlan = null;
   if (activeWorkoutPlanId) {
@@ -3030,12 +3074,20 @@ async function generateRecommendation({
       };
     }
   }
+  if (activeWorkoutPlanId) {
+    recordStage("workout_plan_load_ms", Date.now() - planLoadStartedAt);
+  }
+  emitProgress("profile_loaded", {
+    has_active_plan: Boolean(currentWorkoutPlan),
+  });
+
   const plan = buildPlan(question, mergedProfile);
   const safety = classifySafety({
     question,
     profile: mergedProfile,
     threadState,
   });
+  emitProgress("planning_done", { topic: plan.topic, risk_level: plan.riskLevel, safety_status: safety.status });
 
   if (safety.status !== "allowed") {
     logGuardrailEvent({
@@ -3079,9 +3131,16 @@ async function generateRecommendation({
     return blockedResponse;
   }
 
+  const retrievalStartedAt = Date.now();
   const vectorDatabase = await retrieveVectorEvidence(question);
   const databaseEvidence = vectorDatabase.evidence.slice(0, VECTOR_LIMIT);
   const evidenceForModel = formatEvidenceForModel(databaseEvidence);
+  recordStage("retrieval_ms", Date.now() - retrievalStartedAt);
+  emitProgress("retrieval_done", {
+    evidence_count: databaseEvidence.length,
+    evidence_for_model: evidenceForModel,
+    vector_database: vectorDatabase,
+  });
   const today = new Date().toISOString().slice(0, 10);
   let openAIResponse = null;
   let synthesis = null;
@@ -3094,6 +3153,7 @@ async function generateRecommendation({
   };
 
   try {
+    const synthesisStartedAt = Date.now();
     openAIResponse = await callOpenAISynthesis({
       model: DEFAULT_MODEL,
       question,
@@ -3105,11 +3165,23 @@ async function generateRecommendation({
       recentMessages,
       safety,
       currentWorkoutPlan,
+      captureDebug: {
+        onInput: (input) => {
+          capturedOpenAIInput = input;
+          emitProgress("prompt_built", { openai_input: input });
+        },
+      },
     });
+    recordStage("synthesis_primary_ms", Date.now() - synthesisStartedAt);
     cumulativeTokenUsage = mergeTokenUsageTotals(
       cumulativeTokenUsage,
       extractTokenUsage(openAIResponse)
     );
+    emitProgress("synthesis_primary_done", {
+      response_id: openAIResponse?.id || null,
+      token_usage: cumulativeTokenUsage,
+      raw_output_text: extractTextFromResponse(openAIResponse) || "",
+    });
 
     const structuredOutput = extractStructuredOutput(openAIResponse);
     if (structuredOutput) {
@@ -3133,6 +3205,7 @@ async function generateRecommendation({
         synthesisMode,
       });
 
+      const fallbackStartedAt = Date.now();
       openAIResponse = await callOpenAISynthesis({
         model: SYNTHESIS_FALLBACK_MODEL,
         question,
@@ -3145,11 +3218,16 @@ async function generateRecommendation({
         safety,
         currentWorkoutPlan,
       });
+      recordStage("synthesis_fallback_ms", Date.now() - fallbackStartedAt);
       cumulativeTokenUsage = mergeTokenUsageTotals(
         cumulativeTokenUsage,
         extractTokenUsage(openAIResponse)
       );
       synthesisModel = SYNTHESIS_FALLBACK_MODEL;
+      emitProgress("synthesis_fallback_done", {
+        response_id: openAIResponse?.id || null,
+        token_usage: cumulativeTokenUsage,
+      });
 
       const retryStructuredOutput = extractStructuredOutput(openAIResponse);
       if (retryStructuredOutput) {
@@ -3180,12 +3258,14 @@ async function generateRecommendation({
     const hasPseudo = containsPseudoVisual(answerText);
     if (!alreadyHasWidget && hasPseudo) {
       try {
+        const forcingStartedAt = Date.now();
         const retryPayload = await callOpenAIWidgetForcingRetry({
           model: synthesisModel,
           question,
           proseAnswer: answerText,
           evidenceForModel,
         });
+        recordStage("widget_forcing_retry_ms", Date.now() - forcingStartedAt);
         cumulativeTokenUsage = mergeTokenUsageTotals(
           cumulativeTokenUsage,
           extractTokenUsage(retryPayload)
@@ -3252,6 +3332,7 @@ async function generateRecommendation({
     });
   }
 
+  const postProcessingStartedAt = Date.now();
   const sources = normalizeSources(databaseEvidence);
   const confidence = computeConfidence({
     plan,
@@ -3275,6 +3356,8 @@ async function generateRecommendation({
     sources,
     quantFindings,
   });
+  recordStage("post_processing_ms", Date.now() - postProcessingStartedAt);
+  recordStage("total_server_ms", Date.now() - runStartedAt);
   const tokenUsage = cumulativeTokenUsage;
 
   logTokenUsageEvent({
@@ -3293,7 +3376,7 @@ async function generateRecommendation({
     console.error("Token usage event logging failed:", error);
   });
 
-  return {
+  const finalResponse = {
     user: {
       id: stableUserId || null,
       profile_used: mergedProfile,
@@ -3325,9 +3408,26 @@ async function generateRecommendation({
           visual_generation: { mode: "inline_widget_fences" },
           safety,
           token_usage: tokenUsage,
+          // Stage timings captured via the recordStage() checkpoints above.
+          // Keys: profile_load_ms, workout_plan_load_ms (only when an
+          // active plan was loaded), retrieval_ms, synthesis_primary_ms,
+          // synthesis_fallback_ms (only when the primary failed),
+          // widget_forcing_retry_ms (only when a forcing retry fired),
+          // post_processing_ms, total_server_ms.
+          stage_timings: stageTimings,
+          // The exact input array the server sent to OpenAI's /v1/responses,
+          // captured via callOpenAISynthesis({ captureDebug: { onInput } }).
+          // Includes the full system prompt + user content with
+          // current_workout_plan, evidence, etc. — the ground truth of
+          // "what the model actually saw" for this request.
+          openai_input: capturedOpenAIInput,
+          current_workout_plan: currentWorkoutPlan,
         }
       : undefined,
   };
+
+  emitProgress("final", { response: finalResponse });
+  return finalResponse;
 }
 
 function validateRequest(body) {
