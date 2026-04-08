@@ -417,12 +417,20 @@ function buildAssistantBlocks(data) {
   // parseLLMOutput / renderProseChunks. normalizeText collapses \s+ to single
   // spaces, which would flatten multi-paragraph prose and remove the newlines
   // that separate widget fences from surrounding prose.
+  //
+  // DO NOT slice this text. A typical comparison-widget answer is ~4–7k chars
+  // (prose + an HTML widget body with inline styles). The previous .slice(0,
+  // 4000) was lopping the closing ``` off the widget fence, which made
+  // hasWidgetFences() return false on the rendering side and caused the raw
+  // ```widget <div...> markup to be displayed as literal prose. The model's
+  // max_output_tokens is 2800 (~11k chars worst case), so we cap at a value
+  // that comfortably accommodates the largest possible model output instead.
   const primaryText = String(
     data.answer_text || data.summary || "Here is the plain-language answer before the visual."
   )
     .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, " ")
     .trim()
-    .slice(0, 4000);
+    .slice(0, 32000);
   const blocks = [{ type: "text", text: primaryText }];
   (Array.isArray(data.cards) ? data.cards : []).forEach((card) => {
     if (card && typeof card === "object") {

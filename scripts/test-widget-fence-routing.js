@@ -84,4 +84,72 @@ for (const t of normalizedSegments.filter((s) => s.type === "text")) {
   );
 }
 
+// Client-side regression: buildAssistantBlocks used to slice answer_text to
+// 4000 chars before handing it to TextBlock. Real comparison-widget answers
+// are 4–7k chars (prose + a styled HTML widget), so the slice was lopping
+// the closing ``` off the fence — hasWidgetFences then returned false on the
+// rendering side and the raw "```widget <div...>" markup was rendered as
+// literal prose. We mirror buildAssistantBlocks's text construction here so
+// the test guards the rendering pipeline, not just the parser.
+function buildAssistantBlocksText(answerText) {
+  return String(answerText || "")
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, " ")
+    .trim()
+    .slice(0, 32000);
+}
+
+const longProse =
+  "Ashwagandha has the stronger case for stress markers and recovery/training tolerance. " +
+  "The better human data are chronic, not acute: a 2026 RCT in team-sport athletes used " +
+  "600 mg/day during pre-season and found improvements in physiological stress biomarkers, " +
+  "perceived recovery, strength, and aerobic capacity. Rhodiola is more of a short-term " +
+  "fatigue and performance herb, with thinner training-adaptation evidence.";
+// Realistic widget body — many nested divs with inline styles, like the model
+// actually emits. Padded to push the total above 4000 chars on purpose.
+const longWidgetBody =
+  '<div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">' +
+  '<div style="font-size:14px;font-weight:500;margin-bottom:4px;">Ashwagandha vs rhodiola</div>' +
+  '<div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:14px;">Best fit by outcome.</div>' +
+  Array.from({ length: 6 })
+    .map(
+      (_, i) =>
+        '<div style="display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:8px;align-items:center;padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary);font-size:12px;">' +
+        `<div>Outcome row ${i + 1} with a moderately long descriptive label</div>` +
+        '<div><span style="background:var(--ev-strong-bg);color:var(--ev-strong-text);padding:3px 8px;border-radius:var(--border-radius-md);">Strong</span></div>' +
+        '<div><span style="background:var(--ev-limited-bg);color:var(--ev-limited-text);padding:3px 8px;border-radius:var(--border-radius-md);">Limited</span></div>' +
+        "</div>",
+    )
+    .join("") +
+  "</div>";
+const realisticAnswer = `${longProse}\n\n\`\`\`widget\n${longWidgetBody}\n\`\`\``;
+assert.ok(
+  realisticAnswer.length > 4000,
+  `expected the realistic answer to exceed the old 4000-char cap, got ${realisticAnswer.length}`,
+);
+assert.equal(
+  hasWidgetFences(realisticAnswer),
+  true,
+  "raw realistic answer must contain widget fences",
+);
+const builtText = buildAssistantBlocksText(realisticAnswer);
+assert.equal(
+  hasWidgetFences(builtText),
+  true,
+  "buildAssistantBlocks output must preserve the widget fence (no 4000-char truncation)",
+);
+const builtSegments = parseLLMOutput(builtText);
+assert.equal(
+  builtSegments.filter((s) => s.type === "widget").length,
+  1,
+  "buildAssistantBlocks output must yield exactly one widget segment",
+);
+// And the old 4000-char slice would still fail — proving the regression
+// targets the right thing.
+const oldSliced = realisticAnswer.slice(0, 4000);
+assert.equal(
+  hasWidgetFences(oldSliced),
+  false,
+  "sanity: the old 4000-char slice would have dropped the closing fence",
+);
+
 console.log("widget fence routing: ok");
