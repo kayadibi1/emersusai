@@ -2069,7 +2069,21 @@ function ChatApp() {
     h("aside", { className: "chat-nav" },
       h("div", { className: "chat-brand" },
         h("div", { className: "chat-brand-head" },
-          h("div", null, h("h1", { className: "chat-brand-mark" }, "EMERSUS"), h("p", { className: "chat-brand-subtitle" }, "Evidence Layer Active")),
+          // Clickable brand — takes you back to the public landing page.
+          // Keep the same visual treatment as the old non-interactive <h1>
+          // by styling the anchor as-is; site.css / chat/index.html already
+          // carries .chat-brand-mark so we just reuse the class on an <a>.
+          h(
+            "a",
+            {
+              href: "/",
+              className: "chat-brand-link",
+              "aria-label": "Emersus AI home",
+              style: { textDecoration: "none", color: "inherit", display: "block" },
+            },
+            h("h1", { className: "chat-brand-mark" }, "EMERSUS"),
+            h("p", { className: "chat-brand-subtitle" }, "Evidence Layer Active")
+          ),
           h("button", { className: "inline-button", type: "button", "aria-expanded": !historyHidden, "aria-label": "Toggle conversation history", onClick: () => setHistoryHidden((value) => !value) },
             historyHidden ? h(PanelLeftOpen, { size: 18 }) : h(PanelLeftClose, { size: 18 })))),
       h("div", { className: "chat-nav-list", "aria-label": "Chat history" },
@@ -2079,7 +2093,33 @@ function ChatApp() {
             h("span", null,
               h("span", { className: "chat-nav-label" }, threadData.title || "New chat"),
               h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "No messages yet"}`))))),
+      // Cross-page nav row. The chat page was a dead-end before — no way to
+      // get back to the dashboard, the workout planner, or anywhere else —
+      // so these three anchors sit above the "New chat" button in the
+      // sidebar footer and use the same .inline-button visual language.
       h("div", { className: "chat-nav-actions" },
+        h(
+          "a",
+          {
+            href: "/app/",
+            className: "inline-button",
+            "aria-label": "Go to dashboard",
+            style: { textDecoration: "none", color: "inherit" },
+          },
+          h(PanelLeftOpen, { size: 16, "aria-hidden": true }),
+          h("span", null, "Dashboard")
+        ),
+        h(
+          "a",
+          {
+            href: "/app/workout/",
+            className: "inline-button",
+            "aria-label": "Open workout planner",
+            style: { textDecoration: "none", color: "inherit" },
+          },
+          h(Activity, { size: 16, "aria-hidden": true }),
+          h("span", null, "Workout planner")
+        ),
         h("button", { className: "inline-button", type: "button", onClick: startNewChat }, h(Plus, { size: 18 }), h("span", null, "New chat")))),
     historyHidden
       ? h("button", { className: "history-restore-button", type: "button", "aria-expanded": false, "aria-label": "Show conversation history", onClick: () => setHistoryHidden(false) },

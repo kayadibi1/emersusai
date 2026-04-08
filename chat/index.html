@@ -145,8 +145,27 @@
 
     .chat-nav-actions {
       display: flex;
-      justify-content: flex-start;
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0.45rem;
       padding: 0.9rem 0.15rem 0;
+    }
+
+    .chat-nav-actions .inline-button {
+      justify-content: flex-start;
+      gap: 0.55rem;
+    }
+
+    /* Brand-mark is now an anchor. Reset the default underline / color so
+       it visually matches the old static <h1> treatment. */
+    .chat-brand-link,
+    .chat-brand-link:hover,
+    .chat-brand-link:focus-visible {
+      text-decoration: none;
+      color: inherit;
+    }
+    .chat-brand-link:hover .chat-brand-mark {
+      color: var(--secondary);
     }
 
     .chat-brand-mark {
