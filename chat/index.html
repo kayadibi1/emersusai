@@ -1667,7 +1667,10 @@
 
     .chat-rail {
       display: grid;
-      grid-template-rows: auto auto auto;
+      /* Auto-fit so adding a third rail-card (e.g. Sources) doesn't require
+         another explicit row and the rail-foot still sinks to the bottom. */
+      grid-auto-rows: auto;
+      grid-template-rows: auto;
       gap: 1rem;
       min-height: 0;
       height: 100%;

@@ -1636,6 +1636,73 @@ function Message({ message, typewrite = false, threadId = null }) {
   );
 }
 
+// Right-rail sources card. Displays up to 4 attached sources for the
+// currently active assistant message. Intentionally thin — title, one-line
+// meta (journal / year / pub type), short excerpt, and a "Read" link
+// when we have a URL. The model is instructed to NEVER inline citations
+// in the chat prose (see instructions in api/emersus/workflow.js), so
+// this panel is the single place sources appear.
+function SourcesRailCard({ sources }) {
+  const items = Array.isArray(sources) ? sources.slice(0, 6) : [];
+  if (!items.length) {
+    return h(
+      "section",
+      { className: "rail-card" },
+      h("h3", { className: "rail-title" }, "Sources"),
+      h(
+        "p",
+        { className: "rail-metric-note", style: { textTransform: "none", letterSpacing: "normal" } },
+        "No sources attached to this answer yet."
+      )
+    );
+  }
+  return h(
+    "section",
+    { className: "rail-card" },
+    h("h3", { className: "rail-title" }, `Sources · ${items.length}`),
+    h(
+      "ul",
+      { className: "source-list" },
+      items.map((source, index) => {
+        const title = normalizeText(source?.title || "Untitled source", 160);
+        const metaParts = [];
+        const year = source?.year || source?.publication_year || source?.published_at || "";
+        if (year) metaParts.push(String(year).slice(0, 4));
+        if (source?.journal) metaParts.push(normalizeText(source.journal, 80));
+        const pubType =
+          source?.publication_type ||
+          source?.evidence_level ||
+          (Array.isArray(source?.publication_types) ? source.publication_types.join(", ") : "");
+        if (pubType) metaParts.push(normalizeText(pubType, 60));
+        const meta = metaParts.join(" · ");
+        const snippet = normalizeText(
+          source?.why_it_matters || source?.excerpt || source?.summary || "",
+          240
+        );
+        const href = source?.url || (source?.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${source.pmid}/` : "");
+        return h(
+          "li",
+          { key: `${source?.pmid || source?.doi || index}`, className: "source-item" },
+          h("strong", null, title),
+          meta ? h("div", { className: "source-meta" }, meta) : null,
+          snippet ? h("div", { className: "source-snippet" }, snippet) : null,
+          href
+            ? h(
+                "div",
+                { className: "source-links" },
+                h(
+                  "a",
+                  { href, target: "_blank", rel: "noopener noreferrer" },
+                  "Read source ↗"
+                )
+              )
+            : null
+        );
+      })
+    )
+  );
+}
+
 function RailMetric({ label, value, note, width = "0%", tone = "" }) {
   return h("div", { className: "rail-metric" },
     h("div", { className: "rail-metric-head" },
@@ -2066,6 +2133,7 @@ function ChatApp() {
         h("div", { className: "rail-metric-stack" },
           h(RailMetric, { label: "Confidence", value: `${confidencePercent}%`, note: rail.confidenceLabel || "Idle", width: `${Math.max(0, Math.min(Number(rail.confidenceScore || 0) * 100, 100))}%` }),
           h(RailMetric, { label: "Source count", value: String(sourceCount), note: "Attached", width: `${Math.max(10, Math.min(sourceCount * 16, 100))}%`, tone: "tone-medium" }))),
+      h(SourcesRailCard, { sources: activeThread?.sources || [] }),
       h("div", { className: "rail-foot" },
         h("div", { className: "rail-foot-line" }, h("span", null, "Pipeline"), h("span", null, "PubMed + PMC")),
         h("div", { className: "rail-foot-line" }, h("span", null, "Interface"), h("span", null, "React + Lucide")))));
