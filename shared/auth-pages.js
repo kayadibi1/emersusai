@@ -6,8 +6,11 @@ import {
   resolveNextPath,
   setStatus,
 } from "/shared/supabase.js";
+import { isAllowedEmailDomain } from "/shared/auth-email-allowlist.js";
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const BLOCKED_PROVIDER_MESSAGE =
+  "That email provider isn't supported yet. Please use a mainstream provider like Gmail, Outlook, iCloud, or your ISP's address.";
 
 function normalizeAuthMessage(message = "") {
   return String(message || "").toLowerCase();
@@ -153,6 +156,11 @@ function bindSignupForm() {
 
     if (!emailPattern.test(email)) {
       setStatus(status, "error", "Enter a valid email address.");
+      return;
+    }
+
+    if (!isAllowedEmailDomain(email)) {
+      setStatus(status, "error", BLOCKED_PROVIDER_MESSAGE);
       return;
     }
 
@@ -362,6 +370,23 @@ function bindResetPasswordForm() {
   });
 }
 
+function readOAuthErrorFromUrl() {
+  const searchParams = new URLSearchParams(window.location.search);
+  const hashParams = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+  const error =
+    searchParams.get("error") ||
+    searchParams.get("error_code") ||
+    hashParams.get("error") ||
+    hashParams.get("error_code");
+  const description =
+    searchParams.get("error_description") || hashParams.get("error_description");
+  if (!error && !description) return null;
+  return {
+    code: error || "",
+    description: description ? decodeURIComponent(description).replace(/\+/g, " ") : "",
+  };
+}
+
 async function handleCallbackPage() {
   const callbackNode = document.querySelector("[data-auth-callback]");
   if (!callbackNode) {
@@ -369,6 +394,27 @@ async function handleCallbackPage() {
   }
 
   const status = document.querySelector("[data-auth-status]");
+
+  // Supabase redirects here with error params in the URL when an OAuth
+  // signup is blocked by a server-side trigger (e.g. the email-provider
+  // allowlist). Catch those before attempting the code exchange so the
+  // user sees a useful message instead of getting stuck.
+  const oauthError = readOAuthErrorFromUrl();
+  if (oauthError) {
+    const desc = oauthError.description.toLowerCase();
+    const looksLikeAllowlistRejection =
+      desc.includes("database error saving new user") ||
+      desc.includes("email provider") ||
+      desc.includes("not supported for signups");
+    const message = looksLikeAllowlistRejection
+      ? "That email provider isn't supported for signups yet. Please use a mainstream provider like Gmail, Outlook, iCloud, or your ISP's address."
+      : oauthError.description || "We couldn't finish signing you in. Please try again.";
+    setStatus(status, "error", message);
+    window.setTimeout(() => {
+      window.location.replace("/auth/login/");
+    }, 4500);
+    return;
+  }
 
   try {
     const supabase = await getSupabase();
