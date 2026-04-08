@@ -1407,12 +1407,13 @@
     .thinking-glyph-mount canvas {
       display: block;
       filter: drop-shadow(0 0 18px rgba(83, 74, 183, 0.35));
-      transition: opacity 240ms ease, transform 240ms ease;
+      transition: opacity 240ms ease, transform 240ms ease, filter 240ms ease;
     }
 
     .thinking-glyph-mount[data-state="idle"] canvas {
-      opacity: 0.55;
-      transform: scale(0.85);
+      opacity: 0.85;
+      transform: scale(0.9);
+      filter: drop-shadow(0 0 6px rgba(83, 74, 183, 0.18));
     }
 
     .thinking-glyph-mount[data-state="thinking"] canvas,
