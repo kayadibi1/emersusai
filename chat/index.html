@@ -384,7 +384,8 @@
     }
 
     .message.assistant .chat-text-block,
-    .message.assistant .chat-bubble {
+    .message.assistant .chat-bubble,
+    .message.assistant .message-html {
       grid-column: span 12;
       max-width: none;
       width: 100%;
@@ -394,12 +395,16 @@
     .message.assistant .message-content > * {
       min-width: 0;
       max-width: 100%;
+      grid-column: span 12;
+    }
+
+    .message.assistant .chat-text-block p {
+      max-width: 72ch;
     }
 
     .message.assistant .chat-insight--metric_grid  { grid-column: span 12; }
     .message.assistant .chat-insight--action_grid  { grid-column: span 12; }
-    .message.assistant .chat-insight--source_highlights { grid-column: span 7; }
-    .message.assistant .chat-insight--watchouts { grid-column: span 5; }
+    .message.assistant .chat-insight--watchouts { grid-column: span 12; }
 
     .message.assistant .chat-tool-card { grid-column: span 12; }
 
@@ -408,7 +413,6 @@
         grid-template-columns: repeat(6, minmax(0, 1fr));
       }
       .message.assistant .chat-insight--action_grid,
-      .message.assistant .chat-insight--source_highlights,
       .message.assistant .chat-insight--watchouts { grid-column: span 6; }
     }
 
@@ -421,8 +425,11 @@
     .message.user .message-content {
       justify-items: end;
       margin-left: auto;
-      font-style: italic;
-      color: rgba(255, 255, 255, 0.88);
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .message.user + .message.assistant {
+      margin-top: -0.12rem;
     }
 
     .message.assistant.is-revealing .message-content {
@@ -446,6 +453,20 @@
 
     .chat-text-block p {
       margin: 0;
+    }
+
+    .chat-text-block.is-typing p:last-of-type::after {
+      content: "\u258D";
+      display: inline-block;
+      margin-left: 1px;
+      color: rgba(83, 74, 183, 0.85);
+      animation: emersus-caret-blink 1s steps(2, end) infinite;
+      transform: translateY(0.06em);
+    }
+
+    @keyframes emersus-caret-blink {
+      0%, 50% { opacity: 1; }
+      50.01%, 100% { opacity: 0; }
     }
 
     .chat-text-block ul {
@@ -474,8 +495,30 @@
     }
 
     .chat-bubble-user {
-      border-radius: 22px 22px 14px 22px;
-      background: transparent;
+      display: inline-block;
+      max-width: 76%;
+      padding: 0.55rem 0.95rem;
+      background: linear-gradient(135deg, #5a4fc7 0%, #7765e0 100%);
+      border: none;
+      border-radius: 20px 20px 6px 20px;
+      color: #ffffff;
+      text-align: left;
+      font-style: normal;
+      font-size: 0.96rem;
+      letter-spacing: -0.005em;
+      line-height: 1.45;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.12) inset,
+        0 6px 18px rgba(83, 74, 183, 0.28),
+        0 1px 3px rgba(0, 0, 0, 0.22);
+    }
+
+    .chat-bubble-user p {
+      margin: 0;
+    }
+
+    .chat-bubble-user p + p {
+      margin-top: 0.35rem;
     }
 
     .chat-tool-card {
@@ -2673,9 +2716,6 @@
         return Array.isArray(card?.columns) && card.columns.some((col) => nonEmptyArray(col?.items));
       }
       if (type === "watchouts") {
-        return nonEmptyArray(card?.items);
-      }
-      if (type === "source_highlights") {
         return nonEmptyArray(card?.items);
       }
       // Unknown types: only keep if they have *some* content to render.

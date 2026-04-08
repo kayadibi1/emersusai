@@ -653,7 +653,6 @@ function renderInsightCard(block) {
   if (type === "metric_grid") card = renderMetricGridGraphic(cardData);
   else if (type === "action_grid") card = renderActionGridGraphic(cardData);
   else if (type === "watchouts") card = renderWatchoutsGraphic(cardData);
-  // source_highlights is rendered in the side rail, not inline.
 
   if (card && type) {
     card.classList.add(`chat-insight--${type}`);

@@ -543,15 +543,38 @@ function ToolCard({ tool = "insight_card", title = "", subtitle = "", status = "
   );
 }
 
-function TextBlock({ text, role = "assistant" }) {
-  const chunks = String(text || "")
+function useTypewriter(fullText, enabled, charsPerTick = 3, intervalMs = 18) {
+  const [visible, setVisible] = useState(enabled ? "" : fullText);
+  useEffect(() => {
+    if (!enabled) {
+      setVisible(fullText);
+      return undefined;
+    }
+    setVisible("");
+    let i = 0;
+    const id = setInterval(() => {
+      i = Math.min(fullText.length, i + charsPerTick);
+      setVisible(fullText.slice(0, i));
+      if (i >= fullText.length) clearInterval(id);
+    }, intervalMs);
+    return () => clearInterval(id);
+  }, [fullText, enabled, charsPerTick, intervalMs]);
+  return visible;
+}
+
+function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false }) {
+  const fullText = String(text || "");
+  const visible = useTypewriter(fullText, typewrite);
+  const display = typewrite ? visible : fullText;
+  const isTyping = typingActive || (typewrite && visible.length < fullText.length);
+  const chunks = display
     .trim()
     .split(/\r?\n\s*\r?\n/)
     .map((chunk) => chunk.trim())
     .filter(Boolean);
   return h(
     "div",
-    { className: `chat-bubble chat-bubble-${role} chat-text-block` },
+    { className: `chat-bubble chat-bubble-${role} chat-text-block${isTyping ? " is-typing" : ""}` },
     chunks.map((chunk, chunkIndex) => {
       const lines = chunk.split(/\r?\n/).map((line) => line.trim()).filter(Boolean);
       const bulletLines = lines.filter((line) => /^(?:[-*]|\u2022)\s+/.test(line));
@@ -1013,30 +1036,45 @@ function InsightCard({ block }) {
   if (type === "dashboard_artifact") return h(DashboardArtifact, { card });
   if (type === "action_grid") return h(ActionGrid, { card });
   if (type === "watchouts") return h(Watchouts, { card });
-  // source_highlights renders in the side rail, not inline.
-  if (type === "source_highlights") return null;
   return null;
 }
 
-function MessageBlocks({ blocks }) {
-  return h(React.Fragment, null, (Array.isArray(blocks) ? blocks : []).map((block, index) => {
+function MessageBlocks({ blocks, typewrite = false }) {
+  const list = Array.isArray(blocks) ? blocks : [];
+  const firstTextBlock = list.find((b) => b && b.type === "text");
+  const firstTextFull = String(firstTextBlock?.text || "");
+  // Hoist the typewriter to the parent so we know when to reveal cards.
+  const visible = useTypewriter(firstTextFull, typewrite && !!firstTextBlock);
+  const isComplete = !typewrite || !firstTextBlock || visible.length >= firstTextFull.length;
+  return h(React.Fragment, null, list.map((block, index) => {
     if (!block || typeof block !== "object") return null;
-    if (block.type === "text") return h(TextBlock, { key: index, text: block.text, role: block.role || "assistant" });
-    if (block.type === "tool_result" || block.type === "tool_use") return h(InsightCard, { key: index, block });
+    if (block.type === "text") {
+      const isFirstText = block === firstTextBlock;
+      if (isFirstText && typewrite) {
+        // Render with the typed substring; reuse TextBlock parsing.
+        return h(TextBlock, { key: index, text: visible, role: block.role || "assistant", typingActive: !isComplete });
+      }
+      return h(TextBlock, { key: index, text: block.text, role: block.role || "assistant" });
+    }
+    if (block.type === "tool_result" || block.type === "tool_use") {
+      // Hold cards back until the typewriter finishes the prose.
+      if (!isComplete) return null;
+      return h(InsightCard, { key: index, block });
+    }
     return null;
   }));
 }
 
-function Message({ message }) {
+function Message({ message, typewrite = false }) {
   return h(
     "article",
     { className: `message ${message.role}` },
     h("div", { className: "message-content" },
       Array.isArray(message.blocks)
-        ? h(MessageBlocks, { blocks: message.blocks })
+        ? h(MessageBlocks, { blocks: message.blocks, typewrite })
         : message.html
           ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
-          : h(TextBlock, { text: message.text || message.plainText || "", role: message.role }))
+          : h(TextBlock, { text: message.text || message.plainText || "", role: message.role, typewrite }))
   );
 }
 
@@ -1046,20 +1084,6 @@ function RailMetric({ label, value, note, width = "0%", tone = "" }) {
       h("div", null, h("p", { className: "rail-metric-label" }, label), h("p", { className: "rail-metric-value" }, value)),
       h("span", { className: "rail-metric-note" }, note)),
     h("div", { className: `rail-spark ${tone}`.trim(), style: { "--spark-width": width } }));
-}
-
-function SourceList({ sources }) {
-  return h("ul", { className: "source-list" }, (Array.isArray(sources) ? sources : []).map((source, index) => {
-    const meta = [source.author_label || "", source.journal || "", source.year || source.published_at || "", source.publication_type || "", source.pmid ? `PMID ${source.pmid}` : ""].filter(Boolean).join(" - ");
-    const snippet = trimSnippet(source.excerpt || source.why_it_matters || "", 320);
-    return h("li", { key: index, className: "source-item" },
-      h("strong", null, source.title || "Source"),
-      meta ? h("div", { className: "source-meta" }, meta) : null,
-      snippet ? h("div", { className: "source-snippet" }, snippet) : null,
-      h("div", { className: "source-links" },
-        source.url ? h("a", { href: source.url, target: "_blank", rel: "noreferrer" }, source.doi ? "DOI" : "Open source") : null,
-        source.pmid ? h("a", { href: `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(source.pmid)}/`, target: "_blank", rel: "noreferrer" }, "PubMed") : null));
-  }));
 }
 
 function ThinkingGlyph({ state = "idle", size = 64, color = "#534AB7" }) {
@@ -1103,6 +1127,7 @@ function ChatApp() {
   const [question, setQuestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [glyphState, setGlyphState] = useState("idle");
+  const [streamingMessageKey, setStreamingMessageKey] = useState("");
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
 
@@ -1191,6 +1216,7 @@ function ChatApp() {
     setQuestion("");
     setIsSubmitting(true);
     setGlyphState("thinking");
+    setStreamingMessageKey("");
     setActiveThreadId(threadWithUser.id);
     setChatHistory((history) => [threadWithUser, ...history.filter((item) => item.id !== threadWithUser.id)]);
     let persistedThread = await persistThread(threadWithUser);
@@ -1259,6 +1285,7 @@ function ChatApp() {
       };
       persistedThread = await persistThread(nextThread);
       setActiveThreadId(persistedThread.id);
+      setStreamingMessageKey(assistantMessage.createdAt);
     } catch (error) {
       const errorMessage = error.message || "Request failed.";
       await persistThread({
@@ -1305,7 +1332,11 @@ function ChatApp() {
         h("section", { className: "conversation-canvas", ref: canvasRef },
           h("div", { className: `chat-thread${!activeThread?.messages?.length ? " is-empty" : ""}` },
             activeThread?.messages?.length
-              ? activeThread.messages.map((message, index) => h(Message, { key: `${message.createdAt || ""}-${index}`, message }))
+              ? activeThread.messages.map((message, index) => h(Message, {
+                  key: `${message.createdAt || ""}-${index}`,
+                  message,
+                  typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
+                }))
               : h("section", { className: "thread-welcome" },
                   h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
                   h("h2", { className: "thread-welcome-title" }, `Welcome, ${displayName}`),
@@ -1337,7 +1368,6 @@ function ChatApp() {
         h("div", { className: "rail-metric-stack" },
           h(RailMetric, { label: "Confidence", value: `${confidencePercent}%`, note: rail.confidenceLabel || "Idle", width: `${Math.max(0, Math.min(Number(rail.confidenceScore || 0) * 100, 100))}%` }),
           h(RailMetric, { label: "Source count", value: String(sourceCount), note: "Attached", width: `${Math.max(10, Math.min(sourceCount * 16, 100))}%`, tone: "tone-medium" }))),
-      h("section", { className: "rail-card" }, h("h3", { className: "rail-title" }, "Retrieved sources"), h(SourceList, { sources: activeThread?.sources || [] })),
       h("div", { className: "rail-foot" },
         h("div", { className: "rail-foot-line" }, h("span", null, "Pipeline"), h("span", null, "PubMed + PMC")),
         h("div", { className: "rail-foot-line" }, h("span", null, "Interface"), h("span", null, "React + Lucide")))));
