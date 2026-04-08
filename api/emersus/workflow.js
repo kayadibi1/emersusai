@@ -1455,10 +1455,28 @@ function stripCodeFences(value) {
 // normalization runs on prose only and widget HTML passes through intact.
 // A "widget fence" is ```widget, ```html, or a bare ``` fence whose body
 // starts with "<" — matches the renderer's isWidgetFenceBody heuristic.
+// Strip stray triple-backtick fence markers from a text segment. This is
+// a safety net for cases where the model emits a malformed fence that the
+// splitter couldn't parse (e.g. missing newline after the info tag, extra
+// spaces, the closing fence was dropped by truncation). Without this, the
+// markers leak into the chat as literal "```widget" / "```" prose.
+function stripStrayFenceMarkers(text) {
+  return String(text || "")
+    // Opening fence on its own line or at end of a prose line.
+    .replace(/(^|[ \t])```(?:widget|html)?[ \t]*(?:\r?\n|$)/gi, "$1")
+    // Closing or lone bare fence on its own line.
+    .replace(/(^|\n)[ \t]*```[ \t]*(?:\r?\n|$)/g, "$1\n")
+    // Collapse leftover triple-newlines from the substitutions.
+    .replace(/\n{3,}/g, "\n\n")
+    .trim();
+}
+
 function splitSynthesisIntoSegments(text) {
   const src = String(text || "");
   const segments = [];
-  const re = /```([\w-]*)[ \t]*\n([\s\S]*?)```/g;
+  // Accept CR/LF, LF, or no newline at all after the info tag (some models
+  // inline the opening fence with the body on the same line: "```widget<div>").
+  const re = /```([\w-]*)[ \t]*\r?\n?([\s\S]*?)```/g;
   let cursor = 0;
   let match;
   while ((match = re.exec(src)) !== null) {
@@ -1522,6 +1540,13 @@ function normalizeSynthesisPayload(text) {
     // legacy fallback for when the model emits a stray HTML fragment
     // without a fence — we first try to recover it as a widget.
     prose = autoWrapBareHtml(prose);
+    // Safety net: strip any leftover "```widget" / "```html" / stand-alone
+    // "```" markers that a malformed fence might have left behind. Do this
+    // AFTER autoWrapBareHtml so we don't accidentally destroy the fence we
+    // just added.
+    if (!/```(?:widget|html)?[ \t]*\r?\n[\s\S]*?```/i.test(prose)) {
+      prose = stripStrayFenceMarkers(prose);
+    }
     return { type: "text", content: prose };
   });
 

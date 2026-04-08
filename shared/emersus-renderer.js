@@ -47,10 +47,12 @@ function isWidgetFenceBody(info, body) {
   return false;
 }
 
-// Matches any fenced block: opening ``` + optional info string + newline +
-// body + closing ```. Non-greedy body, multiline. We pick the widget-looking
-// ones ourselves via isWidgetFenceBody so we never swallow unrelated fences.
-const ANY_FENCE_RE = /```([\w-]*)[ \t]*\n([\s\S]*?)```/g;
+// Matches any fenced block: opening ``` + optional info string + optional
+// newline (CR/LF, LF, or none — some models inline the body on the same
+// line as the opening fence) + body + closing ```. Non-greedy body,
+// multiline. We pick the widget-looking ones ourselves via
+// isWidgetFenceBody so we never swallow unrelated fences.
+const ANY_FENCE_RE = /```([\w-]*)[ \t]*\r?\n?([\s\S]*?)```/g;
 
 export function parseLLMOutput(markdown) {
   const text = String(markdown || "");
