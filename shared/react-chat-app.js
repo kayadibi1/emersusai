@@ -16,8 +16,11 @@ import {
   Search,
 } from "https://esm.sh/lucide-react@0.468.0?deps=react@18.2.0";
 import {
+  applyWorkoutPlanUpdate,
+  getSession,
   listChatThreads,
   requireAuth,
+  saveNewWorkoutPlan,
   setStatus,
   upsertChatThread,
 } from "/shared/supabase.js";
@@ -28,6 +31,12 @@ import {
   parseLLMOutput,
   stripWidgetFencesForStreaming,
 } from "/shared/emersus-renderer.js";
+import {
+  DAY_LABELS,
+  summarizePlan,
+} from "/shared/workout-plan-schema.js";
+import { downloadPlanIcs } from "/shared/workout-plan-ics.js";
+import { summarizePlanDiff } from "/shared/workout-plan-diff.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -191,6 +200,12 @@ function createEmptyThreadState() {
     last_user_intent: "",
     last_answer_summary: "",
     thread_summary: "",
+    // When set, generateRecommendation loads the plan from Supabase and
+    // feeds it to the model as current_workout_plan so Emersus can reason
+    // about adjustments like "I missed Friday". Stamped when the user
+    // clicks Save on a WorkoutPlanCard, or when the chat page is opened
+    // from /app/workout/ with ?open_plan=<id>.
+    active_workout_plan_id: "",
     token_usage: {
       prompt_tokens: 0,
       completion_tokens: 0,
@@ -660,7 +675,375 @@ function renderProseChunks(text) {
   });
 }
 
-function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false }) {
+// Window-level ref set by ChatApp so WorkoutPlanCard can tell the chat
+// "a plan was saved, stamp active_workout_plan_id on the current thread".
+// Follows the same ref-passthrough pattern submitQuestionRef uses for the
+// iframe sendPrompt bridge — avoids drilling an onSave prop through
+// Message → MessageBlocks → TextBlock → WorkoutPlanCard.
+const workoutPlanActionRef = { current: null };
+
+function WorkoutPlanCard({ segment, threadId }) {
+  const parseResult = segment && segment.content;
+  const plan = parseResult && parseResult.ok ? parseResult.plan : null;
+
+  const [busy, setBusy] = useState(false);
+  const [toast, setToast] = useState("");
+  const [error, setError] = useState("");
+  // Once the user clicks "Save plan" / "Apply update" / "Discard", we hide
+  // the primary CTAs so the card doesn't offer a stale action. Download
+  // stays available — the user might want the .ics after saving too.
+  const [resolved, setResolved] = useState("");
+
+  if (!parseResult) {
+    return h(
+      "div",
+      { className: "chat-bubble chat-bubble-assistant chat-text-block" },
+      "Workout plan missing."
+    );
+  }
+  if (!parseResult.ok) {
+    return h(
+      "div",
+      { className: "chat-bubble chat-bubble-assistant chat-text-block" },
+      h(
+        "div",
+        { style: { color: "var(--color-text-danger, #7a3300)" } },
+        `Workout plan could not be parsed: ${parseResult.error || "invalid JSON"}`
+      ),
+      h(
+        "pre",
+        {
+          style: {
+            whiteSpace: "pre-wrap",
+            fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+            fontSize: 11,
+            color: "var(--color-text-tertiary, #8b8778)",
+            marginTop: 8,
+            maxHeight: 120,
+            overflow: "auto",
+          },
+        },
+        String(parseResult.raw || "").slice(0, 800)
+      )
+    );
+  }
+
+  const isUpdate = Boolean(plan.updates_plan_id);
+  const summary = summarizePlan(plan);
+  // Week-1 sessions become the card preview. If the plan only has 1 week
+  // we show all of it; otherwise week 1 is enough to signal the structure.
+  const previewSessions = (plan.sessions || [])
+    .filter((s) => Number(s.week) === 1)
+    .slice(0, 7);
+
+  async function handleSave() {
+    if (busy) return;
+    setError("");
+    setBusy(true);
+    try {
+      const session = await getSession();
+      if (!session?.user?.id) {
+        throw new Error("Sign in to save this plan.");
+      }
+      const saved = await saveNewWorkoutPlan(session.user.id, plan, {
+        sourceThreadId: threadId || null,
+      });
+      if (workoutPlanActionRef.current) {
+        workoutPlanActionRef.current({ type: "saved", planId: saved.id });
+      }
+      setToast("Plan saved. Open it in the workout planner anytime.");
+      setResolved("saved");
+    } catch (err) {
+      setError(String(err?.message || err) || "Save failed.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  async function handleApplyUpdate() {
+    if (busy) return;
+    setError("");
+    setBusy(true);
+    try {
+      const session = await getSession();
+      if (!session?.user?.id) {
+        throw new Error("Sign in to apply this update.");
+      }
+      await applyWorkoutPlanUpdate(session.user.id, plan.updates_plan_id, plan);
+      if (workoutPlanActionRef.current) {
+        workoutPlanActionRef.current({ type: "updated", planId: plan.updates_plan_id });
+      }
+      setToast("Plan updated.");
+      setResolved("updated");
+    } catch (err) {
+      setError(String(err?.message || err) || "Update failed.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  function handleDiscard() {
+    setResolved("discarded");
+    setToast("Update discarded.");
+  }
+
+  function handleDownload() {
+    try {
+      downloadPlanIcs(plan);
+      setToast("ICS download started — works with Google, Apple, and Outlook.");
+    } catch (err) {
+      setError(String(err?.message || err) || "Could not generate .ics.");
+    }
+  }
+
+  // Diff preview for update cards: we don't have the previous plan state
+  // directly in the chat message, but the card still shows a sensible
+  // count based on the sessions the model is sending. For a richer diff
+  // the user clicks through to /app/workout/<id> where the server has
+  // both old and new.
+  let diffLines = [];
+  if (isUpdate) {
+    // We rely on segment.previousPlanHint being set by TextBlock; if we
+    // don't have it, show a generic label.
+    const prev = segment.previousPlanHint;
+    if (prev) {
+      diffLines = summarizePlanDiff(plan, prev);
+    }
+  }
+
+  const style = {
+    card: {
+      background: "var(--color-background-secondary, #ffffff)",
+      border: "0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10))",
+      borderRadius: "var(--border-radius-lg, 14px)",
+      padding: 18,
+      margin: "10px 0",
+    },
+    header: { display: "flex", flexDirection: "column", gap: 4, marginBottom: 12 },
+    title: { fontSize: 15, fontWeight: 500, color: "var(--color-text-primary, #0f0f0e)" },
+    subtitle: { fontSize: 12, color: "var(--color-text-secondary, #555248)" },
+    chip: {
+      display: "inline-block",
+      fontSize: 11,
+      fontWeight: 500,
+      padding: "3px 8px",
+      borderRadius: "var(--border-radius-sm, 4px)",
+      background: isUpdate
+        ? "var(--color-background-info, #dfeaf9)"
+        : "var(--color-background-success, #e7f4d8)",
+      color: isUpdate
+        ? "var(--color-text-info, #1e3f72)"
+        : "var(--color-text-success, #2f5a13)",
+      marginTop: 4,
+      width: "fit-content",
+    },
+    meta: {
+      fontSize: 11,
+      color: "var(--color-text-tertiary, #8b8778)",
+      marginTop: 2,
+    },
+    sessionsWrap: {
+      display: "flex",
+      flexDirection: "column",
+      gap: 6,
+      margin: "12px 0 14px",
+      paddingTop: 10,
+      borderTop: "0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10))",
+    },
+    sessionRow: {
+      display: "grid",
+      gridTemplateColumns: "52px 1fr auto",
+      gap: 10,
+      fontSize: 12,
+      alignItems: "baseline",
+      color: "var(--color-text-primary, #0f0f0e)",
+    },
+    sessionDay: {
+      fontSize: 11,
+      color: "var(--color-text-secondary, #555248)",
+      fontWeight: 500,
+      textTransform: "uppercase",
+      letterSpacing: "0.04em",
+    },
+    sessionDuration: {
+      fontSize: 11,
+      color: "var(--color-text-tertiary, #8b8778)",
+    },
+    moreHint: {
+      fontSize: 11,
+      color: "var(--color-text-tertiary, #8b8778)",
+      marginTop: 2,
+    },
+    diffWrap: {
+      fontSize: 11,
+      color: "var(--color-text-secondary, #555248)",
+      marginBottom: 10,
+      padding: "8px 10px",
+      background: "var(--color-background-tertiary, #f4f3f0)",
+      borderRadius: "var(--border-radius-md, 8px)",
+    },
+    buttonRow: { display: "flex", gap: 8, flexWrap: "wrap" },
+    button: {
+      display: "inline-flex",
+      alignItems: "center",
+      gap: 6,
+      padding: "8px 14px",
+      border: "0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10))",
+      borderRadius: "var(--border-radius-md, 8px)",
+      background: "var(--color-background-primary, #fafaf9)",
+      color: "var(--color-text-primary, #0f0f0e)",
+      fontSize: 12,
+      fontWeight: 500,
+      cursor: busy ? "wait" : "pointer",
+      opacity: busy ? 0.6 : 1,
+    },
+    buttonPrimary: {
+      background: "var(--color-text-primary, #0f0f0e)",
+      color: "var(--color-background-primary, #fafaf9)",
+      borderColor: "var(--color-text-primary, #0f0f0e)",
+    },
+    buttonDisabled: { opacity: 0.4, cursor: "not-allowed" },
+    toast: {
+      fontSize: 11,
+      color: "var(--color-text-success, #2f5a13)",
+      marginTop: 8,
+    },
+    error: {
+      fontSize: 11,
+      color: "var(--color-text-danger, #7a3300)",
+      marginTop: 8,
+    },
+  };
+
+  const meta = [];
+  if (plan.start_date) meta.push(`Starts ${plan.start_date}`);
+  if (plan.timezone) meta.push(plan.timezone);
+
+  return h(
+    "div",
+    { style: style.card, className: "chat-workout-plan-card" },
+    h(
+      "div",
+      { style: style.header },
+      h("div", { style: style.title }, plan.title || "Workout plan"),
+      summary ? h("div", { style: style.subtitle }, summary) : null,
+      meta.length ? h("div", { style: style.meta }, meta.join(" · ")) : null,
+      h("span", { style: style.chip }, isUpdate ? "Plan update" : "New plan")
+    ),
+    isUpdate && diffLines.length
+      ? h(
+          "div",
+          { style: style.diffWrap },
+          diffLines.join(" · ")
+        )
+      : null,
+    previewSessions.length
+      ? h(
+          "div",
+          { style: style.sessionsWrap },
+          previewSessions.map((session, index) =>
+            h(
+              "div",
+              { key: session.id || index, style: style.sessionRow },
+              h("div", { style: style.sessionDay }, DAY_LABELS[session.day_of_week] || ""),
+              h(
+                "div",
+                null,
+                h("div", null, session.title || "Workout"),
+                session.summary
+                  ? h(
+                      "div",
+                      { style: { fontSize: 11, color: "var(--color-text-tertiary, #8b8778)" } },
+                      session.summary
+                    )
+                  : null
+              ),
+              h(
+                "div",
+                { style: style.sessionDuration },
+                session.start_time ? `${session.start_time} · ${session.duration_minutes || 60}m` : ""
+              )
+            )
+          ),
+          (plan.sessions || []).length > previewSessions.length
+            ? h(
+                "div",
+                { style: style.moreHint },
+                `+ ${(plan.sessions || []).length - previewSessions.length} more sessions across ${plan.weeks || "upcoming"} weeks`
+              )
+            : null
+        )
+      : null,
+    h(
+      "div",
+      { style: style.buttonRow },
+      isUpdate && !resolved
+        ? h(
+            "button",
+            {
+              type: "button",
+              onClick: handleApplyUpdate,
+              disabled: busy,
+              style: { ...style.button, ...style.buttonPrimary },
+            },
+            busy ? "Applying..." : "Apply update"
+          )
+        : null,
+      isUpdate && !resolved
+        ? h(
+            "button",
+            {
+              type: "button",
+              onClick: handleDiscard,
+              disabled: busy,
+              style: style.button,
+            },
+            "Discard"
+          )
+        : null,
+      !isUpdate && !resolved
+        ? h(
+            "button",
+            {
+              type: "button",
+              onClick: handleSave,
+              disabled: busy,
+              style: { ...style.button, ...style.buttonPrimary },
+            },
+            busy ? "Saving..." : "Save plan"
+          )
+        : null,
+      h(
+        "button",
+        {
+          type: "button",
+          onClick: handleDownload,
+          disabled: busy,
+          style: style.button,
+        },
+        "Add to calendar (.ics)"
+      )
+    ),
+    toast ? h("div", { style: style.toast }, toast) : null,
+    error ? h("div", { style: style.error }, error) : null,
+    resolved === "saved"
+      ? h(
+          "div",
+          { style: { ...style.meta, marginTop: 6 } },
+          h(
+            "a",
+            {
+              href: "/app/workout/",
+              style: { color: "var(--color-text-primary, #0f0f0e)", textDecoration: "underline" },
+            },
+            "Open workout planner →"
+          )
+        )
+      : null
+  );
+}
+
+function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false, threadId = null }) {
   const fullText = String(text || "");
   const visible = useTypewriter(fullText, typewrite);
   const isTyping = typingActive || (typewrite && visible.length < fullText.length);
@@ -688,9 +1071,10 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
     );
   }
 
-  // Segment-aware layout: render each text segment in its own bubble and each
-  // widget segment as a sibling iframe so widgets sit between bubbles instead
-  // of inside them.
+  // Segment-aware layout: render each text segment in its own bubble, each
+  // widget segment as a sibling iframe, and each workout-plan segment as a
+  // WorkoutPlanCard. Widgets and plan cards sit between bubbles instead of
+  // inside them so they get full-width.
   const segments = parseLLMOutput(fullText);
   return h(
     "div",
@@ -701,6 +1085,13 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
           "div",
           { key: `w-${index}`, className: "chat-widget-frame-wrap" },
           h(WidgetFrame, { code: segment.content }),
+        );
+      }
+      if (segment.type === "workout-plan") {
+        return h(
+          "div",
+          { key: `wp-${index}`, className: "chat-workout-plan-wrap" },
+          h(WorkoutPlanCard, { segment, threadId }),
         );
       }
       return h(
@@ -1163,7 +1554,7 @@ function InsightCard({ block }) {
   return null;
 }
 
-function MessageBlocks({ blocks, typewrite = false }) {
+function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
   const list = Array.isArray(blocks) ? blocks : [];
   const firstTextBlock = list.find((b) => b && b.type === "text");
   const firstTextFull = String(firstTextBlock?.text || "");
@@ -1189,11 +1580,11 @@ function MessageBlocks({ blocks, typewrite = false }) {
         // Still typing prose — render the partial prose substring only, with
         // the typing cursor. The widget is NOT in this text, so TextBlock's
         // pure-prose branch handles it.
-        return h(TextBlock, { key: index, text: visibleProse, role: block.role || "assistant", typingActive: true });
+        return h(TextBlock, { key: index, text: visibleProse, role: block.role || "assistant", typingActive: true, threadId });
       }
       // Prose done (or no typewriter) — hand TextBlock the full text so it
       // switches into the segment-aware layout and mounts the WidgetFrame.
-      return h(TextBlock, { key: index, text: block.text, role: block.role || "assistant" });
+      return h(TextBlock, { key: index, text: block.text, role: block.role || "assistant", threadId });
     }
     if (block.type === "tool_result" || block.type === "tool_use") {
       // Hold cards back until the typewriter finishes the prose.
@@ -1204,16 +1595,16 @@ function MessageBlocks({ blocks, typewrite = false }) {
   }));
 }
 
-function Message({ message, typewrite = false }) {
+function Message({ message, typewrite = false, threadId = null }) {
   return h(
     "article",
     { className: `message ${message.role}` },
     h("div", { className: "message-content" },
       Array.isArray(message.blocks)
-        ? h(MessageBlocks, { blocks: message.blocks, typewrite })
+        ? h(MessageBlocks, { blocks: message.blocks, typewrite, threadId })
         : message.html
           ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
-          : h(TextBlock, { text: message.text || message.plainText || "", role: message.role, typewrite }))
+          : h(TextBlock, { text: message.text || message.plainText || "", role: message.role, typewrite, threadId }))
   );
 }
 
@@ -1335,6 +1726,35 @@ function ChatApp() {
         setActiveThreadId(firstThread.id);
         await upsertChatThread(authSession.user.id, firstThread);
       }
+
+      // Deep link from /app/workout/<id>: open a fresh chat thread already
+      // "attached" to a saved workout plan so the user can type natural
+      // adjustment requests ("I missed Friday") and the backend loads the
+      // plan into current_workout_plan automatically. We always open a new
+      // thread rather than mutating the most recent one — the user's
+      // latest chat might be about something unrelated.
+      try {
+        const url = new URL(window.location.href);
+        const openPlanId = url.searchParams.get("open_plan");
+        if (openPlanId) {
+          const attachedThread = createEmptyThread();
+          attachedThread.threadState = {
+            ...attachedThread.threadState,
+            active_workout_plan_id: openPlanId,
+          };
+          attachedThread.title = "Adjust plan";
+          if (!cancelled) {
+            setChatHistory((history) => [attachedThread, ...history].slice(0, MAX_HISTORY_ITEMS));
+            setActiveThreadId(attachedThread.id);
+            await upsertChatThread(authSession.user.id, attachedThread);
+          }
+          // Clean the URL so a page reload doesn't keep spawning threads.
+          url.searchParams.delete("open_plan");
+          window.history.replaceState({}, "", url.toString());
+        }
+      } catch (error) {
+        console.error("open_plan deep-link failed:", error);
+      }
     }
     boot().catch((error) => {
       console.error(error);
@@ -1345,6 +1765,57 @@ function ChatApp() {
       cancelled = true;
     };
   }, []);
+
+  // Expose a "workout plan action happened" hook to <WorkoutPlanCard> via
+  // the module-level ref. The card calls workoutPlanActionRef.current({ type, planId })
+  // after a successful save/update so the chat thread can stamp
+  // active_workout_plan_id. Without this the next user message ("I missed
+  // Friday") would have no active plan to reason about, and Emersus would
+  // have to guess from the chat history.
+  useEffect(() => {
+    workoutPlanActionRef.current = async function handleWorkoutPlanAction(action) {
+      if (!action || !action.planId) return;
+      const nextPlanId = action.type === "updated" || action.type === "saved" ? action.planId : "";
+
+      setChatHistory((history) => {
+        if (!history.length) return history;
+        return history.map((thread) => {
+          if (thread.id !== activeThreadId) return thread;
+          return {
+            ...thread,
+            threadState: {
+              ...(thread.threadState || createEmptyThreadState()),
+              active_workout_plan_id: nextPlanId,
+            },
+            updatedAt: new Date().toISOString(),
+          };
+        });
+      });
+
+      // Persist the change so reloading the chat keeps the active plan.
+      // We re-read chatHistory via a functional update above; for persist
+      // we need a stable snapshot. Grab it from the latest closure.
+      try {
+        if (!session?.user?.id) return;
+        const target = chatHistory.find((t) => t.id === activeThreadId);
+        if (!target) return;
+        const stamped = {
+          ...target,
+          threadState: {
+            ...(target.threadState || createEmptyThreadState()),
+            active_workout_plan_id: nextPlanId,
+          },
+          updatedAt: new Date().toISOString(),
+        };
+        await upsertChatThread(session.user.id, stamped);
+      } catch (error) {
+        console.error("Failed to persist active_workout_plan_id:", error);
+      }
+    };
+    return () => {
+      workoutPlanActionRef.current = null;
+    };
+  }, [activeThreadId, chatHistory, session]);
 
   async function persistThread(nextThread) {
     const savedThread = {
@@ -1529,6 +2000,7 @@ function ChatApp() {
                     key: `${message.createdAt || ""}-${index}`,
                     message,
                     typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
+                    threadId: activeThread?.id || null,
                   })),
                   isSubmitting && activeThread.messages[activeThread.messages.length - 1]?.role === "user"
                     ? h("article", { key: "pending-glyph", className: "message assistant message-pending" },
