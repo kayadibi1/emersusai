@@ -6,7 +6,6 @@ async function main() {
   const prompt = "How much protein should I eat to maximize muscle growth?";
   const results = await retrieveDatabaseEvidence({
     prompt,
-    limit: 5,
     matchThreshold: 0.4,
     matchCount: 10,
   });
