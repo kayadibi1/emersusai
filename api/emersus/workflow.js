@@ -60,6 +60,7 @@ Opening fence: literal \`widget\`. \`html\` is also accepted.
 HARD RULES FOR WIDGET HTML
 - Self-contained: HTML + inline <style> + (optional) inline <script>. Chart.js is pre-loaded in the iframe — just use the global \`Chart\` directly, do NOT emit a <script src="..."> for it. No other external scripts, no <link>, no @import, no <img src="http...">.
 - THE WIDGET SURFACE IS DARK. The iframe inherits the Emersus chat shell — a deep, near-black background (#0c0e11) with subtle white tints. Body text is off-white (#f9f9fd). Design every widget for a dark surface, not for paper. Pre-injected design tokens are already dark-themed; reference them rather than picking your own colors.
+- Use 1px borders, never 0.5px. Hairline borders round to 0 on standard-DPI displays and the wrapper card visually disappears.
 - Prefer div-based grid/flex layouts over <table>. Tables wrap text per-character in narrow iframes; div grids do not.
   Example: <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
 - Inherit the host font, color, and background. Do NOT set font-family. Use font-weight:500 for headings and numbers (Apple-style clean).
@@ -127,13 +128,13 @@ VOICE INSIDE THE WIDGET
 EXAMPLE 1 — evidence-by-outcome comparison card (div-grid, no table)
 
 \`\`\`widget
-<div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
+<div style="background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
   <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Beta-alanine vs sodium bicarbonate — high-intensity intervals</div>
   <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:14px;">Bicarbonate is the cleaner acute choice; beta-alanine is the 4–10 week chronic build.</div>
-  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:6px;font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.04em;padding:0 0 8px;border-bottom:0.5px solid var(--color-border-tertiary);">
+  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:6px;font-size:11px;font-weight:500;color:var(--color-text-secondary);text-transform:uppercase;letter-spacing:0.04em;padding:0 0 8px;border-bottom:1px solid var(--color-border-tertiary);">
     <div>Outcome</div><div>Beta-alanine</div><div>Sodium bicarbonate</div>
   </div>
-  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:6px;font-size:12px;padding:10px 0;border-bottom:0.5px solid var(--color-border-tertiary);align-items:center;">
+  <div style="display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:6px;font-size:12px;padding:10px 0;border-bottom:1px solid var(--color-border-tertiary);align-items:center;">
     <div>Repeated sprint / severe-effort bouts</div>
     <div><span style="background:var(--ev-moderate-bg);color:var(--ev-moderate-text);padding:2px 8px;border-radius:var(--border-radius-md);font-size:11px;">Moderate</span></div>
     <div><span style="background:var(--ev-strong-bg);color:var(--ev-strong-text);padding:2px 8px;border-radius:var(--border-radius-md);font-size:11px;">Strong</span></div>
@@ -149,7 +150,7 @@ EXAMPLE 1 — evidence-by-outcome comparison card (div-grid, no table)
 EXAMPLE 2 — interactive calculator (vanilla JS, Chart.js optional)
 
 \`\`\`widget
-<div style="background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
+<div style="background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
   <div style="font-size:14px;font-weight:500;margin-bottom:12px;">Creatine loading calculator</div>
   <div style="display:flex;align-items:center;gap:12px;margin-bottom:10px;">
     <label style="font-size:12px;color:var(--color-text-secondary);min-width:70px;">Bodyweight</label>
