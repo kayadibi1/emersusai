@@ -2075,12 +2075,13 @@
     </aside>
   </div>
 
-  <!-- Version query string busts browser + Vercel edge cache whenever the
-       bundle's semantics change. Bump this when you change any file in
-       /shared/ that react-chat-app.js imports. Static imports of
+  <!-- Version query string busts the browser cache whenever the bundle's
+       semantics change. Bump this when you change any file in /shared/
+       that react-chat-app.js imports. Static imports of
        /shared/widget-fence-parser.js etc. don't inherit this param, so
-       the vercel.json headers block is the real backstop (see repo
-       root); this query is belt-and-suspenders for the entry point. -->
+       the right long-term fix is reverse-proxy cache headers in
+       infra/Caddyfile; this query is belt-and-suspenders for the entry
+       point. -->
   <script type="module" src="/shared/react-chat-app.js?v=2026-04-08-workout-plan"></script>
   <script type="text/plain" data-legacy-chat-script>
     import {
