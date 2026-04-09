@@ -37,3 +37,13 @@ tmp/
 # Claude Code per-machine settings (permissions, local config).
 # Never belongs in the repo — each dev has their own grants.
 .claude/
+
+# AI memory / project-scope satellite docs — kept local-only by
+# convention. CLAUDE.md is the entry point; the rest are deep-dive
+# references the AI reads when working on unfamiliar subsystems.
+CLAUDE.md
+changelog.md
+checkpoint.md
+docs/overview.md
+docs/schema.md
+docs/scripts.md
