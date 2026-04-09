@@ -319,8 +319,7 @@ ${code}
     style: {
       width: "100%",
       height: "260px",
-      border: "1px solid rgba(255, 255, 255, 0.08)",
-      borderRadius: "0",
+      border: "none",
       background: "transparent",
       display: "block",
     },
