@@ -1100,7 +1100,7 @@ function OldCopyHero() {
       "div",
       { className: "section-inner" },
       h("p", { className: "eyebrow" }, "EMERSUS"),
-      h("h1", { className: "headline" }, h("span", { className: "gradient" }, "Optimize"), " or ", h("span", { className: "danger-word" }, "obsoletetest")),
+      h("h1", { className: "headline" }, h("span", { className: "gradient" }, "Optimize"), " or ", h("span", { className: "danger-word" }, "obsoletetest222")),
       h("p", { className: "subtitle" }, "Scientifically grounded optimization AI for peak mental and physical performance. For those who take life seriously."),
       h(
         "div",
