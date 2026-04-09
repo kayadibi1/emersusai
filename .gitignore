@@ -1,35 +1,37 @@
+# Environment files — never commit any .env or .env.* file
 .env
 .env.*
 !.env.example
+!infra/.env.template
 
+# Self-hosted Supabase secrets + migration dumps — NEVER commit.
+# infra/.env.generated holds the JWT secret, anon key, and service-role
+# key for the Hetzner-hosted Supabase instance.
+infra/.env
+infra/.env.generated
+infra/.env.generated.warnings
+dumps/
+.env.local.backup-managed
+
+# Dependencies and build artifacts
 node_modules/
-.vercel/
 dist/
 build/
 coverage/
+
+# Backups and generated evidence-import caches
 backups/
+data/
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 
-.vercel
-.env*.local
+# Scratch / experimental work — never deploy
+tmp/
 
-# Generated evidence import staging/cache artifacts
-data/
-
-# Scratch / experimental clones that should never enter the deploy artifact.
-# tmp/claude-code was once accidentally added as a bare gitlink without a
-# .gitmodules entry, which broke Vercel's checkout (git exit 128). Keeping
-# the entire nested clone out of the index fixes the Vercel build and
-# prevents a future accidental re-add.
-tmp/claude-code/
-# Other ad-hoc test harnesses live in tmp/; only pubmed-sample.jsonl is
-# intentionally tracked there.
-tmp/*.html
-tmp/*.mjs
-
-# Claude Code per-machine settings (permissions, local config). Never
-# belongs in the repo — each dev has their own grants.
+# Claude Code per-machine settings (permissions, local config).
+# Never belongs in the repo — each dev has their own grants.
 .claude/
