@@ -59,9 +59,11 @@ Opening fence: literal \`widget\`. \`html\` is also accepted.
 
 HARD RULES FOR WIDGET HTML
 - Self-contained: HTML + inline <style> + (optional) inline <script>. Chart.js is pre-loaded in the iframe — just use the global \`Chart\` directly, do NOT emit a <script src="..."> for it. No other external scripts, no <link>, no @import, no <img src="http...">.
+- THE WIDGET SURFACE IS DARK. The iframe inherits the Emersus chat shell — a deep, near-black background (#0c0e11) with subtle white tints. Body text is off-white (#f9f9fd). Design every widget for a dark surface, not for paper. Pre-injected design tokens are already dark-themed; reference them rather than picking your own colors.
 - Prefer div-based grid/flex layouts over <table>. Tables wrap text per-character in narrow iframes; div grids do not.
   Example: <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;">
 - Inherit the host font, color, and background. Do NOT set font-family. Use font-weight:500 for headings and numbers (Apple-style clean).
+- NEVER hardcode background or text color hexes (no \`background:#fff\`, no \`color:#000\`, no \`background:#fafaf9\`, no \`color:#0f0f0e\`). Always use the design tokens below — they remap automatically if the theme changes. The ONLY allowed hardcoded hexes are the four chart-data accents listed under "Accent hex" further down (and only inside Chart.js configs or data bars).
 - Width: fluid, fills the container. Height: whatever the content needs — the host auto-resizes via ResizeObserver. Do not hard-code body height.
 - Interactivity is vanilla JS only. The iframe is sandboxed allow-scripts allow-same-origin. No fetch, no localStorage, no cookies, no parent DOM.
 - Clickable follow-up elements can call \`window.sendPrompt('follow-up question')\` to send a new chat message back to the parent. Example: \`<button onclick="sendPrompt('What is a safe creatine loading protocol?')">Loading protocol ↗</button>\`.
@@ -81,9 +83,15 @@ Text:
   --color-text-tertiary          de-emphasized text
 
 Borders / radius:
-  --color-border-tertiary        normal border (0.5px)
-  --border-radius-md             8px (cards, buttons, inputs)
-  --border-radius-lg             14px (large containers)
+  --color-border-tertiary        normal border (1px, subtle white tint)
+  --color-border-secondary       slightly stronger divider
+  --color-border-primary         hover / focus border
+  --border-radius-md             12px (cards, buttons, inputs)
+  --border-radius-lg             18px (large containers)
+
+Accents (use sparingly — for callouts, links, focus rings):
+  --accent-primary               #6d9fff (site cool blue)
+  --accent-secondary             #9ffb00 (site lime — the headline accent)
 
 Status surfaces (for verdicts, badges, alerts — NOT evidence strength):
   --color-background-success / --color-text-success    (green)

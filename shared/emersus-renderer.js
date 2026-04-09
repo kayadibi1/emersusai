@@ -267,6 +267,25 @@ export function WidgetFrame({ code }) {
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" crossorigin="anonymous"></script>
+  <script>
+    // Pre-set Chart.js global defaults so every chart the model emits inherits
+    // the dark Emersus surface palette without each widget having to remember.
+    // This runs synchronously after Chart.js loads but before any body-level
+    // <script> the model writes, so new Chart(...) calls pick these up.
+    if (typeof Chart !== "undefined") {
+      Chart.defaults.color = "rgba(255, 255, 255, 0.65)";
+      Chart.defaults.borderColor = "rgba(255, 255, 255, 0.08)";
+      Chart.defaults.font.family = '"Inter", ui-sans-serif, system-ui, sans-serif';
+      Chart.defaults.font.size = 11;
+      if (Chart.defaults.scale && Chart.defaults.scale.grid) {
+        Chart.defaults.scale.grid.color = "rgba(255, 255, 255, 0.06)";
+      }
+      if (Chart.defaults.plugins && Chart.defaults.plugins.legend) {
+        Chart.defaults.plugins.legend.labels = Chart.defaults.plugins.legend.labels || {};
+        Chart.defaults.plugins.legend.labels.color = "rgba(255, 255, 255, 0.75)";
+      }
+    }
+  </script>
   <style>${EMERSUS_THEME_CSS}</style>
 </head>
 <body>
