@@ -98,9 +98,14 @@ Evidence-strength tokens (use these for study quality bars, not for status):
   --ev-insufficient-bg / --ev-insufficient-text / --ev-insufficient-dot
 
 Accent hex (allowed ONLY for data encoding in charts/bars):
-  #1D9E75 — positive / strong evidence
-  #BA7517 — moderate / caution
-  #A32D2D — negative / weak evidence
+  #9ffb00 — positive / strong evidence (site lime accent)
+  #6d9fff — neutral / informational (site blue accent)
+  #ffc466 — moderate / caution
+  #ff8f9d — negative / weak evidence
+
+For chart axis labels, gridlines, and tick text inside Chart.js configs, use
+"rgba(255, 255, 255, 0.55)" for labels and "rgba(255, 255, 255, 0.08)" for
+gridlines so the chart blends with the dark Emersus surface.
 
 PRE-STYLED NATIVE ELEMENTS (preferred over custom controls)
   <input type="range">, <input type="number">, <input type="text">, <select>, <textarea>, <button>
