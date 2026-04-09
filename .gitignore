@@ -4,12 +4,14 @@
 !.env.example
 !infra/.env.template
 
-# Self-hosted Supabase secrets + migration dumps — NEVER commit.
-# infra/.env.generated holds the JWT secret, anon key, and service-role
-# key for the Hetzner-hosted Supabase instance.
-infra/.env
-infra/.env.generated
-infra/.env.generated.warnings
+# Self-hosted infrastructure — NEVER commit.
+# infra/ contains the Hetzner deploy stack: docker-compose.yml, Caddyfile,
+# Postgres tuning, generated Supabase JWT secret + service-role key, kong
+# config, etc. Blanket-ignored so a stray `git add infra/` cannot leak
+# secrets. The exception below allows the secret-free template to be
+# explicitly tracked if you ever want to.
+infra/*
+!infra/.env.template
 dumps/
 .env.local.backup-managed
 
