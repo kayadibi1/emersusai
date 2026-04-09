@@ -2217,11 +2217,9 @@ export function ChatApp({
                     typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
                     threadId: activeThread?.id || null,
                   })),
-                  isSubmitting && activeThread.messages[activeThread.messages.length - 1]?.role === "user"
-                    ? h("article", { key: "pending-glyph", className: "message assistant message-pending" },
-                        h("div", { className: "message-content" },
-                          h(ThinkingGlyph, { state: glyphState, size: 56, color: "#534AB7" })))
-                    : null,
+                  h("article", { key: "persistent-glyph", className: "message assistant message-pending" },
+                    h("div", { className: "message-content" },
+                      h(ThinkingGlyph, { state: glyphState, size: 56, color: "#534AB7" }))),
                 ]
               : h("section", { className: "thread-welcome" },
                   h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
