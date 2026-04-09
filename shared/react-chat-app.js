@@ -30,7 +30,7 @@ import {
   hasWidgetFences,
   parseLLMOutput,
   stripWidgetFencesForStreaming,
-} from "/shared/emersus-renderer.js";
+} from "/shared/emersus-renderer.js?v=2026-04-09-dark-theme";
 import {
   DAY_LABELS,
   summarizePlan,
