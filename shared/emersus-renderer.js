@@ -50,17 +50,17 @@ export const EMERSUS_THEME_CSS = `
   :root {
     color-scheme: dark;
     /* --color-* namespace (preferred — matches the Emersus design system).
-       The primary surface is a multi-layer glass panel mimicking
-       .chat-main / .chat-nav in shared/site.css: a top-left blue radial
-       glow + a subtle vertical gradient on top of a near-transparent
-       white tint. This makes wrapper cards read as native Emersus
-       panels instead of generic dark plates. */
+       The primary surface is a multi-layer liquid-glass panel: top-left
+       blue radial highlight + bottom-right lime tint + bright top edge
+       fading to a near-transparent base. The actual backdrop-filter
+       blur lives in the [style*="--color-background-primary"] selector
+       below — CSS variables cannot carry filter functions. */
     --color-background-primary:
-      radial-gradient(circle at top left, rgba(109, 159, 255, 0.10), transparent 55%),
-      radial-gradient(circle at bottom right, rgba(159, 251, 0, 0.05), transparent 50%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+      radial-gradient(circle at 0% 0%, rgba(109, 159, 255, 0.18), transparent 50%),
+      radial-gradient(circle at 100% 100%, rgba(159, 251, 0, 0.08), transparent 55%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.025));
     --color-background-secondary: rgba(255, 255, 255, 0.06);
-    --color-background-tertiary: rgba(255, 255, 255, 0.10);
+    --color-background-tertiary: rgba(255, 255, 255, 0.11);
     --color-text-primary: #f9f9fd;
     --color-text-secondary: #a7adb4;
     --color-text-tertiary: #6f7480;
@@ -129,7 +129,32 @@ export const EMERSUS_THEME_CSS = `
     -moz-osx-font-smoothing: grayscale;
   }
   body {
-    padding: 16px;
+    padding: 0;
+  }
+  /* Liquid-glass treatment for the model's wrapper card. The model emits
+     <div style="background:var(--color-background-primary);..."> as the
+     outer container of (almost) every widget; we use an attribute
+     selector to retroactively layer backdrop-filter, a soft inset
+     highlight on the top edge, and an outer drop shadow onto it. CSS
+     variables can hold gradients but not filter functions, so the blur
+     has to live here, not on the token itself. */
+  [style*="--color-background-primary"],
+  [style*="background:var(--color-background-primary)"],
+  [style*="background: var(--color-background-primary)"] {
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    box-shadow:
+      0 20px 60px rgba(0, 0, 0, 0.45),
+      0 1px 0 rgba(255, 255, 255, 0.10) inset,
+      0 0 0 0.5px rgba(255, 255, 255, 0.06) inset;
+  }
+  [style*="background:var(--color-background-secondary)"],
+  [style*="background: var(--color-background-secondary)"],
+  [style*="background:var(--color-background-tertiary)"],
+  [style*="background: var(--color-background-tertiary)"] {
+    backdrop-filter: blur(14px) saturate(160%);
+    -webkit-backdrop-filter: blur(14px) saturate(160%);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
   }
   h1, h2, h3, h4 {
     margin: 0 0 10px;
