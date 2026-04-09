@@ -162,8 +162,8 @@ body::-webkit-scrollbar-thumb {
   line-height: 0.82;
   text-transform: uppercase;
   text-shadow:
-    0 0 22px rgba(204, 68, 255, 0.72),
-    0 0 62px rgba(255, 68, 204, 0.35);
+    0 0 14px rgba(204, 68, 255, 0.32),
+    0 0 40px rgba(255, 68, 204, 0.15);
 }
 
 .headline .gradient {
@@ -183,7 +183,7 @@ body::-webkit-scrollbar-thumb {
 .subtitle {
   width: min(780px, 100%);
   margin: 38px auto 0;
-  color: #c8a8ff;
+  color: rgba(240, 232, 255, 0.88);
   font-size: clamp(1.1rem, 2vw, 1.45rem);
   line-height: 1.75;
 }
