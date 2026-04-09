@@ -88,10 +88,10 @@ function checkRateLimit(req) {
 function sendSSE(res, payload) {
   try {
     res.write(`data: ${JSON.stringify(payload)}\n\n`);
-    // Vercel's runtime doesn't guarantee the response stream flushes on
-    // every write; this explicit flush is a no-op if the underlying
-    // socket doesn't support it (e.g. Vercel serverless Node), but it's
-    // harmless and helps on platforms that do support it.
+    // Explicit flush so each SSE chunk reaches the client immediately
+    // instead of sitting in Node's response buffer until the next write.
+    // res.flush() is added by the `compression` middleware (and a no-op
+    // on plain Node sockets), so this is safe regardless of stack.
     if (typeof res.flush === "function") {
       res.flush();
     }
@@ -135,9 +135,9 @@ export default async function handler(req, res) {
     res.setHeader("Content-Type", "text/event-stream; charset=utf-8");
     res.setHeader("Cache-Control", "no-cache, no-transform");
     res.setHeader("Connection", "keep-alive");
-    // Disable Nginx buffering for deployments that sit behind it (Vercel's
-    // CDN also respects this header on some routes). Without it, the
-    // progress events buffer until the response closes — which completely
+    // Disable upstream buffering when sitting behind a reverse proxy
+    // (Caddy on Hetzner; also honored by Nginx). Without it, progress
+    // events buffer until the response closes — which completely
     // defeats the point of streaming.
     res.setHeader("X-Accel-Buffering", "no");
     if (typeof res.flushHeaders === "function") {
