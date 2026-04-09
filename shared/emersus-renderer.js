@@ -49,16 +49,24 @@ export const EMERSUS_THEME_CSS = `
   @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
   :root {
     color-scheme: dark;
-    /* --color-* namespace (preferred — matches the Emersus design system) */
-    --color-background-primary: rgba(255, 255, 255, 0.025);
-    --color-background-secondary: rgba(255, 255, 255, 0.05);
-    --color-background-tertiary: rgba(255, 255, 255, 0.08);
+    /* --color-* namespace (preferred — matches the Emersus design system).
+       The primary surface is a multi-layer glass panel mimicking
+       .chat-main / .chat-nav in shared/site.css: a top-left blue radial
+       glow + a subtle vertical gradient on top of a near-transparent
+       white tint. This makes wrapper cards read as native Emersus
+       panels instead of generic dark plates. */
+    --color-background-primary:
+      radial-gradient(circle at top left, rgba(109, 159, 255, 0.10), transparent 55%),
+      radial-gradient(circle at bottom right, rgba(159, 251, 0, 0.05), transparent 50%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.025));
+    --color-background-secondary: rgba(255, 255, 255, 0.06);
+    --color-background-tertiary: rgba(255, 255, 255, 0.10);
     --color-text-primary: #f9f9fd;
     --color-text-secondary: #a7adb4;
     --color-text-tertiary: #6f7480;
-    --color-border-primary: rgba(255, 255, 255, 0.20);
-    --color-border-secondary: rgba(255, 255, 255, 0.12);
-    --color-border-tertiary: rgba(255, 255, 255, 0.08);
+    --color-border-primary: rgba(255, 255, 255, 0.22);
+    --color-border-secondary: rgba(255, 255, 255, 0.14);
+    --color-border-tertiary: rgba(255, 255, 255, 0.12);
     --color-background-success: rgba(159, 251, 0, 0.10);
     --color-text-success: #b9f47a;
     --color-background-warning: rgba(255, 196, 102, 0.12);
