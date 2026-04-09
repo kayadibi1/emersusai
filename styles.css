@@ -86,6 +86,7 @@ body::-webkit-scrollbar-thumb {
   font-weight: 900;
   letter-spacing: -0.08em;
   text-transform: uppercase;
+  text-decoration: none;
 }
 
 .nav-links {
