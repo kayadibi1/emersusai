@@ -39,34 +39,38 @@ export {
 // expected to reference and provides baseline element styles so the model can
 // emit raw <input>, <button>, <select>, etc. without restating typography.
 //
-// Default surface is light; the dark variant is gated on prefers-color-scheme.
-// We deliberately keep this independent of the parent chat shell so widgets
-// remain self-contained when copied or exported.
+// The theme is dark-only and tracks the host site palette in shared/site.css
+// (--bg #0c0e11, --ink #f9f9fd, --primary #6d9fff lime/blue accent #9ffb00).
+// We previously shipped a warm-beige light default that turned every widget
+// wrapper into a stark cream card on the dark chat surface — visually
+// alien to the rest of the app. The token names below are unchanged so any
+// older widgets the model emits keep working; only the values are remapped.
 export const EMERSUS_THEME_CSS = `
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
   :root {
-    color-scheme: light;
+    color-scheme: dark;
     /* --color-* namespace (preferred — matches the Emersus design system) */
-    --color-background-primary: #fafaf9;
-    --color-background-secondary: #ffffff;
-    --color-background-tertiary: #f4f3f0;
-    --color-text-primary: #0f0f0e;
-    --color-text-secondary: #555248;
-    --color-text-tertiary: #8b8778;
-    --color-border-primary: rgba(15, 15, 14, 0.22);
-    --color-border-secondary: rgba(15, 15, 14, 0.14);
-    --color-border-tertiary: rgba(15, 15, 14, 0.10);
-    --color-background-success: #e7f4d8;
-    --color-text-success: #2f5a13;
-    --color-background-warning: #fff3d0;
-    --color-text-warning: #6b4a00;
-    --color-background-danger: #ffe1d0;
-    --color-text-danger: #7a3300;
-    --color-background-info: #dfeaf9;
-    --color-text-info: #1e3f72;
-    --color-border-info: rgba(30, 63, 114, 0.28);
-    --border-radius-sm: 4px;
-    --border-radius-md: 8px;
-    --border-radius-lg: 14px;
+    --color-background-primary: rgba(255, 255, 255, 0.025);
+    --color-background-secondary: rgba(255, 255, 255, 0.05);
+    --color-background-tertiary: rgba(255, 255, 255, 0.08);
+    --color-text-primary: #f9f9fd;
+    --color-text-secondary: #a7adb4;
+    --color-text-tertiary: #6f7480;
+    --color-border-primary: rgba(255, 255, 255, 0.20);
+    --color-border-secondary: rgba(255, 255, 255, 0.12);
+    --color-border-tertiary: rgba(255, 255, 255, 0.08);
+    --color-background-success: rgba(159, 251, 0, 0.10);
+    --color-text-success: #b9f47a;
+    --color-background-warning: rgba(255, 196, 102, 0.12);
+    --color-text-warning: #ffd57a;
+    --color-background-danger: rgba(255, 143, 157, 0.12);
+    --color-text-danger: #ff8f9d;
+    --color-background-info: rgba(109, 159, 255, 0.12);
+    --color-text-info: #b5d4f4;
+    --color-border-info: rgba(109, 159, 255, 0.32);
+    --border-radius-sm: 6px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 18px;
 
     /* --bg-* / --text-* aliases (backward compatible with older widgets) */
     --bg-primary: var(--color-background-primary);
@@ -79,56 +83,27 @@ export const EMERSUS_THEME_CSS = `
     --border-hover: var(--color-border-primary);
     --radius-md: var(--border-radius-md);
     --radius-lg: var(--border-radius-lg);
-    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+    /* Site accent tokens — exposed so widgets can pick up the lime/blue
+       gradient that defines the rest of the Emersus surface. */
+    --accent-primary: #6d9fff;
+    --accent-secondary: #9ffb00;
 
     /* Evidence-strength tokens */
-    --ev-strong-bg: #e7f4d8;
-    --ev-strong-text: #2f5a13;
-    --ev-strong-dot: #6db830;
-    --ev-moderate-bg: #fff3d0;
-    --ev-moderate-text: #6b4a00;
-    --ev-moderate-dot: #d8b46a;
-    --ev-limited-bg: #ffe1d0;
-    --ev-limited-text: #7a3300;
-    --ev-limited-dot: #e07a3a;
-    --ev-insufficient-bg: #ececea;
-    --ev-insufficient-text: #555248;
-    --ev-insufficient-dot: #8b8778;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      color-scheme: dark;
-      --color-background-primary: #11110f;
-      --color-background-secondary: rgba(255, 255, 255, 0.04);
-      --color-background-tertiary: #1f1e1a;
-      --color-text-primary: #f4f1e8;
-      --color-text-secondary: #aaa59a;
-      --color-text-tertiary: #6f6c63;
-      --color-border-primary: rgba(255, 255, 255, 0.20);
-      --color-border-secondary: rgba(255, 255, 255, 0.12);
-      --color-border-tertiary: rgba(255, 255, 255, 0.08);
-      --color-background-success: rgba(29, 158, 117, 0.14);
-      --color-text-success: #5dcaa5;
-      --color-background-warning: rgba(216, 180, 106, 0.14);
-      --color-text-warning: #e7c98a;
-      --color-background-danger: rgba(224, 122, 58, 0.14);
-      --color-text-danger: #f2a877;
-      --color-background-info: rgba(133, 183, 235, 0.12);
-      --color-text-info: #b5d4f4;
-      --color-border-info: rgba(133, 183, 235, 0.32);
-      --ev-strong-bg: rgba(159, 251, 0, 0.10);
-      --ev-strong-text: #b9f47a;
-      --ev-strong-dot: #9ffb00;
-      --ev-moderate-bg: rgba(216, 180, 106, 0.12);
-      --ev-moderate-text: #e7c98a;
-      --ev-moderate-dot: #d8b46a;
-      --ev-limited-bg: rgba(224, 122, 58, 0.12);
-      --ev-limited-text: #f2a877;
-      --ev-limited-dot: #e07a3a;
-      --ev-insufficient-bg: rgba(255, 255, 255, 0.05);
-      --ev-insufficient-text: #aaa59a;
-      --ev-insufficient-dot: #6f6c63;
-    }
+    --ev-strong-bg: rgba(159, 251, 0, 0.10);
+    --ev-strong-text: #b9f47a;
+    --ev-strong-dot: #9ffb00;
+    --ev-moderate-bg: rgba(255, 196, 102, 0.12);
+    --ev-moderate-text: #ffd57a;
+    --ev-moderate-dot: #ffc466;
+    --ev-limited-bg: rgba(255, 143, 157, 0.12);
+    --ev-limited-text: #ff8f9d;
+    --ev-limited-dot: #ff8f9d;
+    --ev-insufficient-bg: rgba(255, 255, 255, 0.05);
+    --ev-insufficient-text: #a7adb4;
+    --ev-insufficient-dot: #6f7480;
   }
   * { box-sizing: border-box; min-width: 0; }
   html, body {
@@ -136,66 +111,95 @@ export const EMERSUS_THEME_CSS = `
     padding: 0;
     background: transparent;
     color: var(--color-text-primary);
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    font-family: var(--font-sans);
     font-size: 13px;
-    line-height: 1.45;
+    line-height: 1.5;
+    letter-spacing: -0.005em;
     overflow-wrap: break-word;
     word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
   body {
-    padding: 14px;
+    padding: 16px;
   }
   h1, h2, h3, h4 {
-    margin: 0 0 8px;
+    margin: 0 0 10px;
     color: var(--color-text-primary);
+    font-family: var(--font-display);
     font-weight: 500;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
   }
   h1 { font-size: 18px; }
   h2 { font-size: 16px; }
   h3 { font-size: 14px; color: var(--color-text-primary); }
-  h4 { font-size: 12px; color: var(--color-text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
+  h4 {
+    font-size: 11px;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+  }
   .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0; }
   p { margin: 0 0 8px; color: var(--color-text-primary); }
   small, .muted { color: var(--color-text-tertiary); font-size: 12px; }
-  hr { border: 0; border-top: 0.5px solid var(--color-border-tertiary); margin: 12px 0; }
-  a { color: var(--color-text-primary); text-decoration: underline; text-underline-offset: 2px; }
+  hr { border: 0; border-top: 1px solid var(--color-border-tertiary); margin: 14px 0; }
+  a {
+    color: var(--accent-primary);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(109, 159, 255, 0.35);
+    transition: color 140ms ease, border-color 140ms ease;
+  }
+  a:hover { color: var(--accent-secondary); border-bottom-color: rgba(159, 251, 0, 0.5); }
   input[type="text"], input[type="number"], input[type="search"], select, textarea {
     width: 100%;
-    padding: 8px 10px;
-    border: 0.5px solid var(--color-border-tertiary);
+    padding: 9px 12px;
+    border: 1px solid var(--color-border-secondary);
     border-radius: var(--border-radius-md);
-    background: var(--color-background-secondary);
+    background: rgba(255, 255, 255, 0.03);
     color: var(--color-text-primary);
     font: inherit;
-    transition: border-color 120ms ease;
+    transition: border-color 140ms ease, background 140ms ease;
   }
   input[type="text"]:hover, input[type="number"]:hover, select:hover, textarea:hover {
     border-color: var(--color-border-primary);
+    background: rgba(255, 255, 255, 0.05);
+  }
+  input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent-primary);
+    background: rgba(109, 159, 255, 0.06);
   }
   input[type="range"] {
     width: 100%;
-    accent-color: #1D9E75;
+    accent-color: var(--accent-secondary);
   }
   button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     gap: 6px;
-    padding: 8px 14px;
-    border: 0.5px solid var(--color-border-tertiary);
+    padding: 9px 16px;
+    border: 1px solid var(--color-border-secondary);
     border-radius: var(--border-radius-md);
-    background: var(--color-background-secondary);
+    background: rgba(255, 255, 255, 0.04);
     color: var(--color-text-primary);
     font: inherit;
+    font-family: var(--font-display);
+    font-size: 11px;
     font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
     cursor: pointer;
-    transition: border-color 120ms ease, background 120ms ease;
+    transition: border-color 140ms ease, background 140ms ease, color 140ms ease, transform 140ms ease;
   }
   button:hover {
-    border-color: var(--color-border-primary);
-    background: var(--color-background-tertiary);
+    border-color: rgba(159, 251, 0, 0.45);
+    background: rgba(159, 251, 0, 0.08);
+    color: var(--accent-secondary);
+    transform: translateY(-1px);
   }
+  button:active { transform: translateY(0); }
   /* Tables are discouraged but must at least not collapse in narrow iframes. */
   table {
     border-collapse: collapse;
@@ -205,14 +209,21 @@ export const EMERSUS_THEME_CSS = `
     overflow-wrap: break-word;
   }
   th, td {
-    padding: 8px 10px;
-    border-bottom: 0.5px solid var(--color-border-tertiary);
+    padding: 9px 12px;
+    border-bottom: 1px solid var(--color-border-tertiary);
     text-align: left;
     vertical-align: top;
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
-  th { color: var(--color-text-secondary); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em; font-weight: 500; }
+  th {
+    color: var(--color-text-secondary);
+    font-family: var(--font-display);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 500;
+  }
   canvas { max-width: 100%; }
 `;
 
