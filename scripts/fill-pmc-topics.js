@@ -36,15 +36,29 @@ const DEFAULT_TOPIC_ORDER = [
   "amino_acids",
   "beta_alanine",
   "citrulline",
+  "taurine",
+  "betaine_tmg",
+  "tyrosine",
+  "alpha_gpc",
+  "l_carnitine",
+  "hmb",
   "omega_3",
   "vitamin_d",
   "magnesium",
+  "glycine_sleep",
   "beetroot_nitrate",
   "sodium_bicarbonate",
   "collagen",
   "whey_protein",
   "casein",
   "pre_workout",
+  "pde5_pump",
+  "nac_tudca",
+  "glutathione",
+  "cerebrolysin",
+  "shilajit",
+  "rhodiola",
+  "cordyceps",
   "probiotics",
   "peptides",
   "collagen_peptides",
@@ -54,6 +68,15 @@ const DEFAULT_TOPIC_ORDER = [
   "growth_hormone_peptides",
   "glp_1_peptides",
   "ghrelin_peptides",
+  "tesofensine",
+  "metabolic_peptides",
+  "nootropic_peptides",
+  "longevity_peptides",
+  "melanocortin_peptides",
+  "copper_peptides",
+  "nad_longevity",
+  "sarms_and_research_compounds",
+  "anabolic_agents",
   "hrv",
   "stress",
   "injury_prevention",
@@ -82,6 +105,19 @@ const DEFAULT_TOPIC_ORDER = [
   "frequency",
   "intensity",
   "exercise_selection",
+  "hinge_exercises",
+  "unilateral_leg_exercises",
+  "glute_training",
+  "machine_leg_training",
+  "upper_push_exercises",
+  "upper_pull_exercises",
+  "arm_shoulder_isolation",
+  "bodyweight_training",
+  "dumbbell_training",
+  "training_splits",
+  "progressive_overload",
+  "barbell_training",
+  "fitness_programs",
   "adherence",
   "habit_formation",
   "mental_fatigue",
@@ -155,12 +191,26 @@ const TOPIC_QUERIES = {
     "(beta-alanine OR carnosine) AND (exercise performance OR fatigue OR resistance training)",
   citrulline:
     "(citrulline OR citrulline malate) AND (exercise performance OR blood flow OR resistance training)",
+  taurine:
+    "taurine AND (exercise performance OR fatigue OR endurance OR resistance training)",
+  betaine_tmg:
+    "(betaine OR trimethylglycine OR TMG) AND (exercise performance OR power OR strength OR body composition)",
+  tyrosine:
+    "(\"L-tyrosine\" OR tyrosine OR \"N-acetyl L-tyrosine\") AND (exercise performance OR cognition OR focus OR stress)",
+  alpha_gpc:
+    "(\"alpha-GPC\" OR \"alpha glycerylphosphorylcholine\" OR choline) AND (exercise performance OR power OR cognition)",
+  l_carnitine:
+    "(\"L-carnitine\" OR carnitine) AND (exercise performance OR recovery OR fat oxidation OR body composition)",
+  hmb:
+    "(HMB OR \"beta-hydroxy-beta-methylbutyrate\") AND (muscle OR hypertrophy OR resistance training OR recovery)",
   omega_3:
     "(omega-3 OR fish oil OR EPA OR DHA) AND (recovery OR inflammation OR muscle OR exercise)",
   vitamin_d:
     "\"vitamin D\" AND (muscle OR athletic performance OR recovery OR testosterone)",
   magnesium:
     "magnesium AND (sleep OR recovery OR exercise performance OR muscle)",
+  glycine_sleep:
+    "(glycine OR \"magnesium glycinate\" OR \"magnesium bisglycinate\" OR \"magnesium threonate\" OR \"magnesium taurate\" OR \"L-theanine\" OR GABA) AND (sleep OR insomnia OR recovery OR exercise)",
   beetroot_nitrate:
     "(beetroot OR nitrate supplementation OR dietary nitrate) AND (exercise performance OR endurance OR blood flow)",
   sodium_bicarbonate:
@@ -173,6 +223,20 @@ const TOPIC_QUERIES = {
     "casein AND (muscle protein synthesis OR overnight recovery OR hypertrophy)",
   pre_workout:
     "\"pre-workout\" OR preworkout AND (exercise performance OR resistance training)",
+  pde5_pump:
+    "(tadalafil OR Cialis OR sildenafil) AND (exercise performance OR blood flow OR muscle OR athletes)",
+  nac_tudca:
+    "(\"N-acetylcysteine\" OR NAC OR TUDCA OR \"tauroursodeoxycholic acid\" OR \"milk thistle\" OR silymarin) AND (exercise OR oxidative stress OR liver OR recovery)",
+  glutathione:
+    "(glutathione OR \"reduced glutathione\") AND (exercise OR oxidative stress OR recovery OR inflammation)",
+  cerebrolysin:
+    "cerebrolysin AND (cognition OR recovery OR traumatic brain injury OR neuroprotection)",
+  shilajit:
+    "(shilajit OR fulvic acid) AND (testosterone OR exercise OR fatigue OR muscle)",
+  rhodiola:
+    "(rhodiola OR \"Rhodiola rosea\") AND (exercise OR fatigue OR endurance OR stress)",
+  cordyceps:
+    "(cordyceps OR \"Cordyceps militaris\" OR \"Cordyceps sinensis\") AND (exercise OR endurance OR fatigue)",
   probiotics:
     "probiotics AND (gut health OR athletes OR immune function OR exercise)",
   peptides:
@@ -182,15 +246,33 @@ const TOPIC_QUERIES = {
   bioactive_peptides:
     "\"bioactive peptides\" AND (exercise OR muscle OR metabolism OR inflammation OR recovery)",
   bpc_157:
-    "(BPC-157 OR \"body protection compound 157\") AND (tendon OR muscle OR healing OR injury OR inflammation)",
+    "(BPC-157 OR \"body protection compound 157\" OR \"Wolverine stack\") AND (tendon OR muscle OR healing OR injury OR inflammation)",
   thymosin_beta_4:
-    "(\"thymosin beta 4\" OR thymosin beta-4 OR TB-500 OR TB500) AND (muscle OR tendon OR wound healing OR injury OR recovery)",
+    "(\"thymosin beta 4\" OR thymosin beta-4 OR TB-500 OR TB500 OR TB4) AND (muscle OR tendon OR wound healing OR injury OR recovery)",
   growth_hormone_peptides:
-    "(growth hormone releasing peptide OR GHRP OR CJC-1295 OR ipamorelin OR tesamorelin) AND (body composition OR muscle OR exercise OR metabolism)",
+    "(growth hormone releasing peptide OR GHRP OR GHRH OR CJC-1295 OR ipamorelin OR tesamorelin OR sermorelin OR \"human growth hormone\" OR HGH OR IGF-1) AND (body composition OR muscle OR exercise OR metabolism)",
   glp_1_peptides:
-    "(GLP-1 OR glucagon-like peptide-1 OR semaglutide OR liraglutide OR tirzepatide) AND (weight loss OR body composition OR exercise OR muscle)",
+    "(GLP-1 OR glucagon-like peptide-1 OR semaglutide OR liraglutide OR tirzepatide OR retatrutide OR dulaglutide OR exenatide) AND (weight loss OR body composition OR exercise OR muscle OR lean mass)",
   ghrelin_peptides:
     "(ghrelin OR ghrelin receptor agonist OR growth hormone secretagogue) AND (appetite OR muscle OR metabolism OR exercise)",
+  tesofensine:
+    "tesofensine AND (weight loss OR appetite OR obesity OR body composition)",
+  metabolic_peptides:
+    "(\"MOTS-C\" OR \"MOTS-c\" OR \"SS-31\" OR elamipretide OR \"5-amino-1MQ\" OR \"5-amino-1-methylquinolinium\" OR \"SLU-PP-332\" OR \"SLU-PP-32\" OR AOD-9604 OR \"fragment 176-191\") AND (metabolism OR exercise OR mitochondrial OR body composition OR weight loss)",
+  nootropic_peptides:
+    "(Semax OR Selank OR DSIP OR Dihexa) AND (sleep OR stress OR cognition OR exercise OR neuroprotection)",
+  longevity_peptides:
+    "(epitalon OR epithalon OR \"thymosin alpha 1\" OR LL-37 OR kisspeptin OR sirolimus OR rapamycin) AND (aging OR immune OR metabolism OR exercise OR recovery)",
+  melanocortin_peptides:
+    "(\"Melanotan II\" OR melanotan OR \"PT-141\" OR bremelanotide) AND (metabolism OR appetite OR sexual function OR body composition)",
+  copper_peptides:
+    "(\"GHK-Cu\" OR \"glycyl-L-histidyl-L-lysine\" OR KPV OR \"Glow stack\") AND (wound healing OR inflammation OR recovery OR skin)",
+  nad_longevity:
+    "(NAD OR \"nicotinamide riboside\" OR \"nicotinamide mononucleotide\" OR NMN OR NR) AND (exercise OR mitochondrial OR metabolism OR aging)",
+  sarms_and_research_compounds:
+    "(SARM OR SARMs OR ostarine OR enobosarm OR \"MK-2866\" OR ligandrol OR \"LGD-4033\" OR testolone OR \"RAD-140\" OR ibutamoren OR \"MK-677\" OR cardarine OR GW501516) AND (muscle OR body composition OR exercise OR performance OR metabolism)",
+  anabolic_agents:
+    "(oxandrolone OR Anavar OR clenbuterol OR \"testosterone enanthate\" OR \"testosterone cypionate\" OR HCG OR enclomiphene) AND (muscle OR body composition OR exercise OR performance OR weight loss)",
   hrv:
     "\"heart rate variability\" OR HRV AND (recovery OR training load OR athletes)",
   stress:
@@ -245,6 +327,32 @@ const TOPIC_QUERIES = {
     "\"training intensity\" AND (hypertrophy OR strength OR endurance)",
   exercise_selection:
     "\"exercise selection\" AND (hypertrophy OR strength OR resistance training)",
+  hinge_exercises:
+    "(\"Romanian deadlift\" OR \"Romanian deadlifts\" OR \"stiff-leg deadlift\" OR \"stiff-legged deadlift\" OR \"hip hinge\" OR deadlift) AND (resistance training OR strength OR hypertrophy OR biomechanics)",
+  unilateral_leg_exercises:
+    "(\"Bulgarian split squat\" OR \"split squat\" OR lunge OR lunges OR \"single-leg squat\") AND (resistance training OR strength OR hypertrophy OR biomechanics)",
+  glute_training:
+    "(\"hip thrust\" OR \"barbell hip thrust\" OR \"glute bridge\" OR gluteal OR gluteus) AND (hypertrophy OR strength OR resistance training OR biomechanics)",
+  machine_leg_training:
+    "(\"leg press\" OR \"leg extension\" OR \"knee extension\" OR \"leg curl\" OR \"hamstring curl\" OR \"calf raise\" OR \"plantar flexion\") AND (resistance training OR hypertrophy OR strength)",
+  upper_push_exercises:
+    "(\"bench press\" OR \"incline bench press\" OR \"chest press\" OR \"push-up\" OR pushup OR dips OR \"overhead press\" OR \"shoulder press\") AND (resistance training OR strength OR hypertrophy OR biomechanics)",
+  upper_pull_exercises:
+    "(\"lat pulldown\" OR \"pull-up\" OR pullup OR \"chin-up\" OR \"seated row\" OR \"cable row\" OR \"barbell row\") AND (resistance training OR strength OR hypertrophy OR biomechanics)",
+  arm_shoulder_isolation:
+    "(\"lateral raise\" OR \"rear delt\" OR \"face pull\" OR \"triceps pushdown\" OR \"triceps extension\" OR \"preacher curl\" OR \"hammer curl\" OR \"biceps curl\") AND (resistance training OR hypertrophy OR strength)",
+  bodyweight_training:
+    "(\"bodyweight training\" OR calisthenics OR \"push-up\" OR \"pull-up\" OR \"dip exercise\") AND (strength OR hypertrophy OR resistance training OR physical fitness)",
+  dumbbell_training:
+    "(dumbbell OR dumbbells OR \"free weights\") AND (resistance training OR strength OR hypertrophy OR home exercise)",
+  training_splits:
+    "(\"push pull legs\" OR PPL OR \"upper lower split\" OR \"full body routine\" OR \"split routine\" OR \"training split\") AND (resistance training OR hypertrophy OR strength)",
+  progressive_overload:
+    "(\"progressive overload\" OR \"progressive resistance training\" OR \"repetitions in reserve\" OR RIR OR \"training to failure\" OR \"reps to failure\") AND (hypertrophy OR strength OR resistance training)",
+  barbell_training:
+    "(barbell OR \"bench press\" OR squat OR deadlift OR \"overhead press\" OR \"bent-over row\" OR \"Pendlay row\" OR \"military press\") AND (resistance training OR strength OR hypertrophy OR biomechanics)",
+  fitness_programs:
+    "(\"5/3/1\" OR Wendler OR GZCLP OR nSuns OR PHUL OR PHAT OR \"linear progression\" OR \"power hypertrophy\" OR \"beginner resistance training program\" OR \"periodized resistance training\") AND (resistance training OR strength OR hypertrophy)",
   adherence:
     "adherence AND (exercise program OR nutrition intervention OR athletes)",
   habit_formation:
