@@ -1,9 +1,47 @@
 import { openai, supabaseAdmin } from "../api/lib/clients.js";
 
 const EMBEDDING_MODEL = "text-embedding-3-small";
-const BATCH_SIZE = 50;
+const DEFAULT_FETCH_BATCH_SIZE = 50;
+const DEFAULT_WRITE_BATCH_SIZE = 25;
 const MAX_DB_RETRIES = 6;
 const BASE_RETRY_DELAY_MS = 1000;
+
+function parseArgs(argv) {
+  const args = {
+    fetchBatchSize: DEFAULT_FETCH_BATCH_SIZE,
+    writeBatchSize: DEFAULT_WRITE_BATCH_SIZE,
+    sleepMs: 0,
+    maxRows: 0,
+  };
+
+  for (const rawArg of argv) {
+    const [key, ...rest] = String(rawArg || "").split("=");
+    const value = rest.join("=");
+
+    if (key === "--fetch-batch-size" || key === "--batch-size") {
+      args.fetchBatchSize = Number(value || DEFAULT_FETCH_BATCH_SIZE);
+    } else if (key === "--write-batch-size") {
+      args.writeBatchSize = Number(value || DEFAULT_WRITE_BATCH_SIZE);
+    } else if (key === "--sleep-ms" || key === "--pause-ms") {
+      args.sleepMs = Number(value || 0);
+    } else if (key === "--max-rows") {
+      args.maxRows = Number(value || 0);
+    }
+  }
+
+  args.fetchBatchSize = Math.max(
+    1,
+    Math.min(2048, Math.floor(args.fetchBatchSize || DEFAULT_FETCH_BATCH_SIZE))
+  );
+  args.writeBatchSize = Math.max(
+    1,
+    Math.min(args.fetchBatchSize, Math.floor(args.writeBatchSize || DEFAULT_WRITE_BATCH_SIZE))
+  );
+  args.sleepMs = Math.max(0, Math.floor(args.sleepMs || 0));
+  args.maxRows = Math.max(0, Math.floor(args.maxRows || 0));
+
+  return args;
+}
 
 function isRetryableSupabaseError(error) {
   const message = String(error?.message || error || "");
@@ -52,7 +90,17 @@ async function withDbRetry(label, operation) {
   }
 }
 
-async function fetchRowsNeedingEmbeddings(limit = BATCH_SIZE) {
+function chunkArray(items, size) {
+  const chunks = [];
+
+  for (let index = 0; index < items.length; index += size) {
+    chunks.push(items.slice(index, index + size));
+  }
+
+  return chunks;
+}
+
+async function fetchRowsNeedingEmbeddings(limit = DEFAULT_FETCH_BATCH_SIZE) {
   if (!supabaseAdmin) {
     throw new Error("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY.");
   }
@@ -60,7 +108,7 @@ async function fetchRowsNeedingEmbeddings(limit = BATCH_SIZE) {
   const { data, error } = await withDbRetry("Fetching rows needing embeddings", async () =>
     supabaseAdmin
       .from("evidence_chunks")
-      .select("id, content")
+      .select("id, pmid, chunk_type, content")
       .is("embedding", null)
       .order("id", { ascending: true })
       .limit(limit)
@@ -83,46 +131,122 @@ async function generateEmbeddings(texts) {
   return response.data.map((item) => item.embedding);
 }
 
-async function updateEmbedding(id, embedding) {
+async function updateEmbeddingsBatch(rows, embeddings) {
   if (!supabaseAdmin) {
     throw new Error("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY.");
   }
 
-  const { error } = await withDbRetry(`Updating chunk ${id}`, async () =>
+  const payload = rows.map((row, index) => ({
+    id: row.id,
+    pmid: row.pmid,
+    chunk_type: row.chunk_type,
+    content: row.content,
+    embedding: embeddings[index],
+  }));
+
+  const { error } = await withDbRetry(
+    `Updating chunks ${rows[0]?.id || "?"}-${rows[rows.length - 1]?.id || "?"}`,
+    async () =>
     supabaseAdmin
       .from("evidence_chunks")
-      .update({ embedding })
-      .eq("id", id)
+      .upsert(payload, {
+        onConflict: "id",
+        ignoreDuplicates: false,
+      })
   );
 
   if (error) {
-    throw new Error(`Failed updating chunk ${id}: ${error.message}`);
+    throw new Error(`Failed updating embedding batch: ${error.message}`);
   }
 }
 
 async function main() {
   console.log("embed-evidence.js started");
+  const args = parseArgs(process.argv.slice(2));
+  console.log(
+    `Options: fetchBatchSize=${args.fetchBatchSize}, writeBatchSize=${args.writeBatchSize}, sleepMs=${args.sleepMs}, maxRows=${args.maxRows || "unlimited"}`
+  );
 
   let totalUpdated = 0;
+  let batchNum = 0;
+  const totals = { fetch: 0, openai: 0, db: 0, sleep: 0 };
+  const startedAt = Date.now();
 
   while (true) {
-    const rows = await fetchRowsNeedingEmbeddings(BATCH_SIZE);
-    console.log(`Fetched ${rows.length} rows needing embeddings`);
+    if (args.maxRows > 0 && totalUpdated >= args.maxRows) {
+      console.log(`Reached maxRows=${args.maxRows}. Stopping after ${totalUpdated} updates.`);
+      break;
+    }
+
+    batchNum += 1;
+    const batchStart = Date.now();
+
+    const remainingLimit =
+      args.maxRows > 0
+        ? Math.min(args.fetchBatchSize, args.maxRows - totalUpdated)
+        : args.fetchBatchSize;
+
+    const fetchStart = Date.now();
+    const rows = await fetchRowsNeedingEmbeddings(remainingLimit);
+    const fetchMs = Date.now() - fetchStart;
 
     if (rows.length === 0) {
-      console.log(`Done. Updated ${totalUpdated} rows.`);
+      const elapsedSec = ((Date.now() - startedAt) / 1000).toFixed(1);
+      console.log(`Done. Updated ${totalUpdated} rows in ${elapsedSec}s.`);
+      console.log(
+        `Cumulative: fetch=${(totals.fetch / 1000).toFixed(1)}s  openai=${(totals.openai / 1000).toFixed(1)}s  db=${(totals.db / 1000).toFixed(1)}s  sleep=${(totals.sleep / 1000).toFixed(1)}s`
+      );
+      const dom = Math.max(totals.fetch, totals.openai, totals.db);
+      const bottleneck =
+        dom === totals.db
+          ? "DB writes (round-trip latency to Supabase)"
+          : dom === totals.openai
+            ? "OpenAI embeddings call"
+            : "DB fetch";
+      console.log(`Dominant phase: ${bottleneck}`);
       break;
     }
 
     const texts = rows.map((row) => row.content);
-    const embeddings = await generateEmbeddings(texts);
 
-    for (let i = 0; i < rows.length; i += 1) {
-      await updateEmbedding(rows[i].id, embeddings[i]);
-      totalUpdated += 1;
+    const openaiStart = Date.now();
+    const embeddings = await generateEmbeddings(texts);
+    const openaiMs = Date.now() - openaiStart;
+
+    const rowChunks = chunkArray(rows, args.writeBatchSize);
+    const embeddingChunks = chunkArray(embeddings, args.writeBatchSize);
+
+    let dbMs = 0;
+    let sleepMs = 0;
+    const writeCount = rowChunks.length;
+
+    for (let index = 0; index < rowChunks.length; index += 1) {
+      const rowChunk = rowChunks[index];
+      const embeddingChunk = embeddingChunks[index];
+
+      const writeStart = Date.now();
+      await updateEmbeddingsBatch(rowChunk, embeddingChunk);
+      dbMs += Date.now() - writeStart;
+
+      totalUpdated += rowChunk.length;
+
+      if (args.sleepMs > 0) {
+        const sleepStart = Date.now();
+        await wait(args.sleepMs);
+        sleepMs += Date.now() - sleepStart;
+      }
     }
 
-    console.log(`Updated ${totalUpdated} chunks so far...`);
+    const totalMs = Date.now() - batchStart;
+    totals.fetch += fetchMs;
+    totals.openai += openaiMs;
+    totals.db += dbMs;
+    totals.sleep += sleepMs;
+
+    const avgWriteMs = writeCount > 0 ? Math.round(dbMs / writeCount) : 0;
+    console.log(
+      `[batch ${batchNum}] rows=${rows.length} fetch=${fetchMs}ms openai=${openaiMs}ms db=${dbMs}ms (${writeCount} writes × ${args.writeBatchSize}, avg ${avgWriteMs}ms each) total=${totalMs}ms | updated=${totalUpdated}`
+    );
   }
 }
 
