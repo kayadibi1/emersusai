@@ -612,7 +612,7 @@ function mergeTokenUsageTotals(baseUsage, nextUsage) {
   };
 }
 
-function classifySafety({ question, profile, threadState }) {
+function classifySafety({ question, profile, threadState, recentMessages }) {
   // QUESTION-ONLY for off-topic, self-harm, PED, and medication checks.
   // Profile and thread context can legitimately mention chronic conditions,
   // a user's day job, or past struggles — those should never trigger a
@@ -875,6 +875,31 @@ function classifySafety({ question, profile, threadState }) {
   const wordCount = questionOnly.split(/\s+/).filter(Boolean).length;
   if (wordCount >= 5 && !FITNESS_AFFINITY.test(questionOnly)) {
     return hardRefusal("off_topic_non_fitness");
+  }
+
+  // --- Layer C: thread drift detection ---
+  //
+  // When the current message is short (< 5 words) and therefore skipped
+  // Layer B, check the recent conversation window. If the last few user
+  // messages also have zero fitness terms, this short message is riding
+  // off-topic drift, not following up on a fitness conversation.
+  //
+  // New threads (no history) get a pass — "hi" or "hey" as an opener
+  // should never be refused.
+  if (wordCount < 5 && Array.isArray(recentMessages) && recentMessages.length > 0) {
+    const recentUserTexts = recentMessages
+      .filter((m) => m.role === "user")
+      .slice(-3)
+      .map((m) => normalizeText(m.text, 320))
+      .filter(Boolean);
+
+    if (recentUserTexts.length > 0) {
+      const recentWindow = recentUserTexts.join(" ").toLowerCase();
+
+      if (!FITNESS_AFFINITY.test(recentWindow)) {
+        return hardRefusal("off_topic_non_fitness");
+      }
+    }
   }
 
   return {
@@ -3422,6 +3447,7 @@ async function generateRecommendation({
     question,
     profile: mergedProfile,
     threadState,
+    recentMessages,
   });
   emitProgress("planning_done", { topic: plan.topic, risk_level: plan.riskLevel, safety_status: safety.status });
 
