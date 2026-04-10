@@ -457,3 +457,44 @@ export async function archiveWorkoutPlan(userId, planId) {
   }
   return data;
 }
+
+/**
+ * Flatten completed_blocks into workout_logs via the upsert_workout_logs RPC.
+ * Called after applyManualWorkoutPlanEdit succeeds.
+ * Non-blocking — errors are logged but don't fail the save.
+ */
+export async function upsertWorkoutLogs(userId, planId, plan) {
+  const supabase = await getSupabase();
+
+  for (const session of (plan.sessions || [])) {
+    const completed = session.completed_blocks;
+    if (!completed || completed.length === 0) continue;
+
+    // Enrich each block with its exercise name from the plan's blocks array
+    const blocks = completed.map(cb => {
+      const planBlock =
+        (session.blocks || []).find(b => b.id === cb.block_id) ||
+        (session.warmup_blocks || []).find(b => b.id === cb.block_id);
+      return {
+        ...cb,
+        exercise_name: planBlock?.name || "",
+      };
+    }).filter(b => b.exercise_name);
+
+    if (blocks.length === 0) continue;
+
+    const performedAt = session.date || new Date().toISOString().slice(0, 10);
+
+    try {
+      await supabase.rpc("upsert_workout_logs", {
+        p_user_id: userId,
+        p_plan_id: planId,
+        p_session_id: session.id,
+        p_performed_at: performedAt,
+        p_blocks: blocks,
+      });
+    } catch (err) {
+      console.error("[upsertWorkoutLogs] Failed for session", session.id, err);
+    }
+  }
+}
