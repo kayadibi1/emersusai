@@ -29,9 +29,9 @@
       <div class="container stack">
         <section class="hero-panel stack">
           <p class="section-kicker">Profile</p>
-          <h1>Complete your app profile.</h1>
+          <h1>Your profile</h1>
           <p class="lede">
-            This information is stored in your profile row and helps future product features personalize guidance without storing any password data outside Supabase Auth.
+            This is what Emersus knows about you. To update anything, just mention it in the <a href="/chat/">chat</a>.
           </p>
           <div class="chip">Signed in as <span data-user-email>Loading...</span></div>
         </section>
@@ -42,32 +42,45 @@
             <div class="form-grid two-up">
               <label class="field">
                 <span class="field-label">Full Name</span>
-                <input type="text" name="full_name" autocomplete="name">
+                <input type="text" name="full_name" disabled>
               </label>
               <label class="field">
                 <span class="field-label">Experience Level</span>
-                <select name="experience_level">
-                  <option value="">Select one</option>
-                  <option value="beginner">Beginner</option>
-                  <option value="intermediate">Intermediate</option>
-                  <option value="advanced">Advanced</option>
-                </select>
+                <input type="text" name="experience_level" disabled>
               </label>
             </div>
             <label class="field">
-              <span class="field-label">Primary Goal</span>
-              <input type="text" name="goal" placeholder="Examples: hypertrophy, mental performance, recovery">
+              <span class="field-label">Primary Use Case</span>
+              <input type="text" name="primary_use_case" disabled>
             </label>
             <label class="field">
+              <span class="field-label">Primary Goal</span>
+              <input type="text" name="goal" disabled>
+            </label>
+            <div class="form-grid two-up">
+              <label class="field">
+                <span class="field-label">Equipment Access</span>
+                <input type="text" name="equipment_access" disabled>
+              </label>
+              <label class="field">
+                <span class="field-label">Training Schedule</span>
+                <input type="text" name="training_schedule" disabled>
+              </label>
+            </div>
+            <label class="field">
               <span class="field-label">Dietary Preferences</span>
-              <textarea name="dietary_preferences" placeholder="Anything relevant about food preferences, restrictions, or routines."></textarea>
+              <textarea name="dietary_preferences" disabled></textarea>
             </label>
             <label class="field">
               <span class="field-label">Injuries / Limitations</span>
-              <textarea name="injuries_limitations" placeholder="Anything that should shape future training or habit guidance."></textarea>
+              <textarea name="injuries_limitations" disabled></textarea>
+            </label>
+            <label class="field">
+              <span class="field-label">Sleep / Stress Context</span>
+              <textarea name="sleep_stress_context" disabled></textarea>
             </label>
             <div class="button-row">
-              <button class="button button-primary" type="submit">Save Profile</button>
+              <a class="button button-primary" href="/chat/">Update via Chat</a>
               <a class="button button-secondary" href="/app/">Back to Dashboard</a>
             </div>
             <p class="status-text" data-profile-status></p>

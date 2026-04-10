@@ -66,15 +66,10 @@ async function bindLogout() {
 
 async function bindProfileForm() {
   const form = document.querySelector("[data-profile-form]");
-  if (!form) {
-    return;
-  }
+  if (!form) return;
 
-  const status = document.querySelector("[data-profile-status]");
   const hydrated = await hydrateUserSummary();
-  if (!hydrated) {
-    return;
-  }
+  if (!hydrated) return;
 
   const { session, profile } = hydrated;
 
@@ -85,42 +80,25 @@ async function bindProfileForm() {
         field.value = value;
       }
     }
+
+    // Compose training schedule from days + minutes for display.
+    const days = profile.available_days_per_week;
+    const mins = profile.available_minutes_per_session;
+    const scheduleField = form.elements.namedItem("training_schedule");
+    if (scheduleField && (days || mins)) {
+      const parts = [];
+      if (days) parts.push(`${days} days/week`);
+      if (mins) parts.push(`${mins} min/session`);
+      scheduleField.value = parts.join(", ");
+    }
   }
 
   if (!form.elements.namedItem("email").value) {
     form.elements.namedItem("email").value = session.user.email || "";
   }
 
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const submitButton = form.querySelector('button[type="submit"]');
-    const formData = new FormData(form);
-
-    submitButton.disabled = true;
-    submitButton.textContent = "Saving...";
-    setStatus(status, "", "");
-
-    try {
-      await upsertProfile(session.user.id, {
-        email: String(formData.get("email") || session.user.email || "").trim().toLowerCase(),
-        full_name: String(formData.get("full_name") || "").trim() || null,
-        goal: String(formData.get("goal") || "").trim() || null,
-        experience_level: String(formData.get("experience_level") || "").trim() || null,
-        dietary_preferences:
-          String(formData.get("dietary_preferences") || "").trim() || null,
-        injuries_limitations:
-          String(formData.get("injuries_limitations") || "").trim() || null,
-        onboarding_completed: true,
-      });
-
-      setStatus(status, "success", "Profile saved.");
-    } catch (error) {
-      setStatus(status, "error", error.message || "Unable to save your profile.");
-    } finally {
-      submitButton.disabled = false;
-      submitButton.textContent = "Save Profile";
-    }
-  });
+  // No submit handler — the form is read-only. The submit button has been
+  // replaced with a link to chat.
 }
 
 async function hydrateDashboard() {
