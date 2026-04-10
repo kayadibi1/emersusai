@@ -459,8 +459,8 @@ async function main() {
   for (let index = 0; index < args.topics.length; index += 1) {
     const topic = args.topics[index];
     const query = TOPIC_QUERIES[topic];
-    const output = `data\\pubmed-${topic}-corpus.jsonl`;
-    const rawDir = `data\\pubmed-raw-${topic}`;
+    const output = `data/pubmed-${topic}-corpus.jsonl`;
+    const rawDir = `data/pubmed-raw-${topic}`;
     const topicArgs = [
       `--query=${query}`,
       `--target=${args.targetPerTopic}`,

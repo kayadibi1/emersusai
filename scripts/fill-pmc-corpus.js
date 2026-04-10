@@ -9,8 +9,8 @@ const DEFAULT_SEARCH_BATCH = 200;
 const DEFAULT_LINK_BATCH_SIZE = 100;
 const DEFAULT_REQUESTS_PER_SECOND = 8;
 const DEFAULT_ANON_REQUESTS_PER_SECOND = 3;
-const DEFAULT_OUTPUT = "data\\pmc-corpus.jsonl";
-const DEFAULT_RAW_DIR = "data\\pmc-corpus-raw";
+const DEFAULT_OUTPUT = "data/pmc-corpus.jsonl";
+const DEFAULT_RAW_DIR = "data/pmc-corpus-raw";
 
 function parseArgs(argv) {
   const args = {
@@ -87,20 +87,33 @@ function normalizeText(value, maxLength = 120000) {
 
 function decodeXmlEntities(value) {
   return String(value || "")
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCodePoint(parseInt(hex, 16)))
+    .replace(/&#(\d+);/g, (_, dec) => String.fromCodePoint(parseInt(dec, 10)))
     .replace(/&lt;/g, "<")
     .replace(/&gt;/g, ">")
-    .replace(/&amp;/g, "&")
     .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&#x2013;/gi, "-")
-    .replace(/&#x2014;/gi, "-");
+    .replace(/&apos;/g, "'")
+    .replace(/&amp;/g, "&");
+}
+
+const SUBSCRIPTS = "\u2080\u2081\u2082\u2083\u2084\u2085\u2086\u2087\u2088\u2089";
+const SUPERSCRIPTS = "\u2070\u00B9\u00B2\u00B3\u2074\u2075\u2076\u2077\u2078\u2079";
+
+function toSubscript(innerXml) {
+  return decodeXmlEntities(String(innerXml || "").replace(/<[^>]+>/g, ""))
+    .replace(/[0-9]/g, (d) => SUBSCRIPTS[d]);
+}
+
+function toSuperscript(innerXml) {
+  return decodeXmlEntities(String(innerXml || "").replace(/<[^>]+>/g, ""))
+    .replace(/[0-9]/g, (d) => SUPERSCRIPTS[d]);
 }
 
 function stripXmlTags(xml) {
   return decodeXmlEntities(
     String(xml || "")
-      .replace(/<sup[^>]*>.*?<\/sup>/gis, " ")
-      .replace(/<sub[^>]*>.*?<\/sub>/gis, " ")
+      .replace(/<sub[^>]*>(.*?)<\/sub>/gis, (_, c) => toSubscript(c))
+      .replace(/<sup[^>]*>(.*?)<\/sup>/gis, (_, c) => toSuperscript(c))
       .replace(/<xref[^>]*>.*?<\/xref>/gis, " ")
       .replace(/<label[^>]*>.*?<\/label>/gis, " ")
       .replace(/<[^>]+>/g, " ")
@@ -418,12 +431,25 @@ class RateLimitedNcbiClient {
       }
 
       this.nextAllowedAt = Date.now() + this.intervalMs;
-      const response = await fetch(url, {
-        headers: {
-          Accept: "application/xml, application/json, text/plain;q=0.8, */*;q=0.5",
-        },
-      });
-      const text = await response.text();
+
+      let response;
+      let text;
+      try {
+        response = await fetch(url, {
+          headers: {
+            Accept: "application/xml, application/json, text/plain;q=0.8, */*;q=0.5",
+          },
+        });
+        text = await response.text();
+      } catch (networkError) {
+        const backoffMs = Math.min(30000, 2000 * 2 ** attempt);
+        console.warn(
+          `Network error (attempt ${attempt + 1}/5): ${networkError.cause?.code || networkError.message}. Retrying in ${formatDuration(backoffMs)}...`
+        );
+        this.nextAllowedAt = Date.now() + backoffMs;
+        attempt += 1;
+        continue;
+      }
 
       if (response.ok) {
         return text;
@@ -435,13 +461,13 @@ class RateLimitedNcbiClient {
           text
         );
 
-      if (response.status === 429 || isRetryableTimeout) {
+      if (response.status === 429 || response.status === 503 || isRetryableTimeout) {
         const retryAfterHeader = Number(response.headers.get("retry-after") || 0);
         const backoffMs =
           retryAfterHeader > 0
             ? retryAfterHeader * 1000
             : Math.min(30000, 1500 * 2 ** attempt);
-        const reason = response.status === 429 ? "rate limit" : "transient timeout";
+        const reason = response.status === 429 ? "rate limit" : response.status === 503 ? "service unavailable" : "transient timeout";
         console.warn(
           `NCBI ${reason} hit. Backing off for ${formatDuration(backoffMs)} before retrying...`
         );
@@ -453,12 +479,16 @@ class RateLimitedNcbiClient {
       throw new Error(`NCBI request failed (${response.status}): ${text.slice(0, 300)}`);
     }
 
-    throw new Error("NCBI rate limit persisted after multiple retries.");
+    throw new Error("NCBI request failed after 5 retries.");
   }
 
   async fetchJson(url) {
     const text = await this.fetchText(url);
-    return JSON.parse(text);
+    // NCBI occasionally returns control chars inside JSON string values
+    const sanitized = text.replace(/[\x00-\x1f\x7f]/g, (ch) =>
+      ch === "\n" || ch === "\r" || ch === "\t" ? " " : ""
+    );
+    return JSON.parse(sanitized);
   }
 }
 
@@ -631,25 +661,56 @@ function formatDuration(ms) {
   return `${seconds}s`;
 }
 
+const PROGRESS_BAR_WIDTH = 30;
+const ROLLING_WINDOW = 20;
+const _recentFetchTimestamps = [];
+
+function trackFetch() {
+  _recentFetchTimestamps.push(Date.now());
+  if (_recentFetchTimestamps.length > ROLLING_WINDOW + 1) {
+    _recentFetchTimestamps.shift();
+  }
+}
+
+function getRollingAvgMs() {
+  if (_recentFetchTimestamps.length < 2) return 0;
+  const oldest = _recentFetchTimestamps[0];
+  const newest = _recentFetchTimestamps[_recentFetchTimestamps.length - 1];
+  return (newest - oldest) / (_recentFetchTimestamps.length - 1);
+}
+
+function renderProgressBar(percent) {
+  const filled = Math.round((percent / 100) * PROGRESS_BAR_WIDTH);
+  const empty = PROGRESS_BAR_WIDTH - filled;
+  return "\u2588".repeat(filled) + "\u2591".repeat(empty);
+}
+
 function logProgress({ fetchedUnique, target, searchOffset, currentId, title, startedAt }) {
+  trackFetch();
+
   const elapsedMs = Date.now() - startedAt;
-  const averageMsPerRecord = fetchedUnique > 0 ? elapsedMs / fetchedUnique : 0;
   const remaining = Math.max(target - fetchedUnique, 0);
-  const etaMs = averageMsPerRecord * remaining;
-  const suffix = title ? ` | ${title}` : "";
-  const percent = ((fetchedUnique / target) * 100).toFixed(1);
+  const avgMs = getRollingAvgMs();
+  const etaMs = avgMs > 0 ? avgMs * remaining : 0;
+  const percent = Math.min(100, (fetchedUnique / target) * 100);
+
+  const bar = renderProgressBar(percent);
+  const maxTitleLen = 50;
+  const shortTitle = title
+    ? title.length > maxTitleLen
+      ? title.slice(0, maxTitleLen - 3) + "..."
+      : title
+    : currentId;
 
   console.log(
-    `[${fetchedUnique}/${target} | ${percent}%] ETA ${formatDuration(etaMs)} | elapsed ${formatDuration(
-      elapsedMs
-    )} | search offset ${searchOffset} | ${currentId}${suffix}`
+    `  ${bar} ${percent.toFixed(1).padStart(5)}%  ${String(fetchedUnique).padStart(String(target).length)}/${target}  ETA ${formatDuration(etaMs).padEnd(10)}  elapsed ${formatDuration(elapsedMs).padEnd(10)}  ${shortTitle}`
   );
 }
 
 function printUsage() {
   console.log("Usage:");
   console.log(
-    '  node scripts/fill-pmc-corpus.js --query="creatine AND resistance training" [--target=1000] [--search-batch=200] [--output="data\\pubmed-corpus.jsonl"] [--raw-dir="data\\pubmed-raw"] [--requests-per-second=8] [--skip-import] [--skip-embed] [--dry-run]'
+    '  node scripts/fill-pmc-corpus.js --query="creatine AND resistance training" [--target=1000] [--search-batch=200] [--output="data/pubmed-corpus.jsonl"] [--raw-dir="data/pubmed-raw"] [--requests-per-second=8] [--skip-import] [--skip-embed] [--dry-run]'
   );
 }
 
@@ -864,7 +925,8 @@ async function main() {
   }
 
   if (records.length === 0) {
-    throw new Error("No new unique PMC articles were found to import.");
+    console.log("All matching articles are already in the corpus — nothing to import.");
+    return;
   }
 
   console.log(`Collected ${records.length} new unique articles.`);
@@ -886,7 +948,7 @@ async function main() {
 
   if (!args.skipEmbed) {
     console.log("Starting evidence embedding...");
-    await runCommand(process.execPath, ["scripts/embed-evidence.js"]);
+    await runCommand(process.execPath, ["scripts/embed-evidence.js", "--fetch-batch-size=200", "--write-batch-size=50"]);
   }
 
   console.log("Corpus fill complete.");
