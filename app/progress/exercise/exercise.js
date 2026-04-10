@@ -1,13 +1,14 @@
 import React, { useCallback, useEffect, useState } from "https://esm.sh/react@18.2.0";
 import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
-import { requireAuth } from "/shared/supabase.js";
+import { requireAuth, getProfile } from "/shared/supabase.js";
 import { fetchExerciseBySlug, fetchExerciseHistory } from "/shared/progress-helpers.js";
-import { progressionLineChart, formatVolume, formatE1rm } from "/shared/progress-charts.js";
+import { progressionLineChart, formatVolume, formatLoad, formatE1rm } from "/shared/progress-charts.js";
 import { ICONS, ICON_COLORS } from "/shared/exercise-icons.js";
+import { resolveWeightUnit, fromKg } from "/shared/unit-conversion.js";
 
 const h = React.createElement;
 
-function ExerciseDetail({ session }) {
+function ExerciseDetail({ session, weightUnit }) {
   const userId = session.user.id;
   const slug = new URLSearchParams(window.location.search).get("slug");
   const [exercise, setExercise] = useState(null);
@@ -73,16 +74,16 @@ function ExerciseDetail({ session }) {
     h("div", { className: "stat-row" },
       !isCardio && h("div", { className: "mini-stat" },
         h("div", { className: "mini-stat-label" }, "Best e1RM"),
-        h("div", { className: "mini-stat-value" }, bestE1rm ? `${bestE1rm}kg` : "-"),
+        h("div", { className: "mini-stat-value" }, bestE1rm ? formatLoad(bestE1rm, weightUnit) : "-"),
         prDate && h("div", { className: "mini-stat-sub" }, prDate),
       ),
       !isCardio && h("div", { className: "mini-stat" },
         h("div", { className: "mini-stat-label" }, "Heaviest Set"),
-        h("div", { className: "mini-stat-value" }, bestLoad ? `${bestLoad}kg` : "-"),
+        h("div", { className: "mini-stat-value" }, bestLoad ? formatLoad(bestLoad, weightUnit) : "-"),
       ),
       !isCardio && h("div", { className: "mini-stat" },
         h("div", { className: "mini-stat-label" }, "Total Volume"),
-        h("div", { className: "mini-stat-value" }, totalVol ? formatVolume(totalVol) : "-"),
+        h("div", { className: "mini-stat-value" }, totalVol ? formatVolume(totalVol, weightUnit) : "-"),
       ),
       isCardio && h("div", { className: "mini-stat" },
         h("div", { className: "mini-stat-label" }, "Total Time"),
@@ -123,12 +124,12 @@ function ExerciseDetail({ session }) {
               h("td", null, row.performed_at),
               h("td", null, row.set_count),
               !isCardio && h("td", null,
-                row.max_load_kg ? `${row.max_load_kg}kg x ${row.max_reps}` : "-",
+                row.max_load_kg ? `${formatLoad(row.max_load_kg, weightUnit)} x ${row.max_reps}` : "-",
                 row.e1rm_kg === bestE1rm && bestE1rm > 0
                   ? h("span", { className: "pr-flag" }, "PR") : null,
               ),
-              !isCardio && h("td", null, row.volume_kg ? formatVolume(row.volume_kg) : "-"),
-              !isCardio && h("td", null, row.e1rm_kg ? `${row.e1rm_kg}kg` : "-"),
+              !isCardio && h("td", null, row.volume_kg ? formatVolume(row.volume_kg, weightUnit) : "-"),
+              !isCardio && h("td", null, row.e1rm_kg ? formatLoad(row.e1rm_kg, weightUnit) : "-"),
               isCardio && h("td", null, row.total_duration_seconds
                 ? `${Math.round(row.total_duration_seconds / 60)}min` : "-"),
               isCardio && h("td", null, row.total_distance_meters
@@ -146,8 +147,17 @@ async function boot() {
   if (!rootEl) return;
   const session = await requireAuth();
   if (!session) return;
+
+  let weightUnit = "kg";
+  try {
+    const profile = await getProfile(session.user.id);
+    weightUnit = resolveWeightUnit(profile?.weight_unit);
+  } catch (err) {
+    weightUnit = resolveWeightUnit(null);
+  }
+
   const root = createRoot(rootEl);
-  root.render(h(ExerciseDetail, { session }));
+  root.render(h(ExerciseDetail, { session, weightUnit }));
 }
 
 boot().catch(err => {

@@ -17,6 +17,7 @@
 import {
   applyManualWorkoutPlanEdit,
   archiveWorkoutPlan,
+  getProfile,
   getSession,
   getSupabase,
   listWorkoutPlans,
@@ -28,11 +29,13 @@ import { DAY_LABELS, summarizeBlocks, summarizePlan } from "/shared/workout-plan
 import { downloadPlanIcs } from "/shared/workout-plan-ics.js";
 import { fetchDashboard, dateRange } from "/shared/progress-helpers.js";
 import { formatVolume } from "/shared/progress-charts.js";
+import { resolveWeightUnit } from "/shared/unit-conversion.js";
 
 const state = {
   session: null,
   plans: [],
   selectedPlanId: null,
+  weightUnit: "kg",
 };
 
 function el(tag, attrs = {}, ...children) {
@@ -227,7 +230,7 @@ function renderDetail() {
   fetchDashboard(state.session.user.id, start, end)
     .then((d) => {
       if (d) {
-        statsText.textContent = `${d.sessions_completed || 0} sessions · ${formatVolume(d.total_volume_kg || 0)} volume`;
+        statsText.textContent = `${d.sessions_completed || 0} sessions · ${formatVolume(d.total_volume_kg || 0, state.weightUnit)} volume`;
       } else {
         statsText.textContent = "";
       }
@@ -460,6 +463,13 @@ async function boot() {
   await bindLogout();
   const session = await hydrateUser();
   if (!session) return;
+  // Resolve weight unit from profile (or locale fallback)
+  try {
+    const profile = await getProfile(session.user.id);
+    state.weightUnit = resolveWeightUnit(profile?.weight_unit);
+  } catch (_err) {
+    state.weightUnit = resolveWeightUnit(null);
+  }
   try {
     await reloadPlans({ preserveSelection: false });
   } catch (error) {

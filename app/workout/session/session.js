@@ -29,10 +29,17 @@ import React, {
 import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
 import {
   applyManualWorkoutPlanEdit,
+  getProfile,
   getWorkoutPlan,
   requireAuth,
   upsertWorkoutLogs,
 } from "/shared/supabase.js";
+import {
+  resolveWeightUnit,
+  fromKg,
+  toKg,
+  displayLoadString,
+} from "/shared/unit-conversion.js";
 import {
   COMPLETED_BLOCK_SCHEMA_VERSION,
   createEmptyActualSet,
@@ -123,15 +130,24 @@ function findCompletedBlock(session, blockId) {
 
 // Initialize the local state for a block: either rehydrate from saved
 // actuals or create N empty rows from the prescribed sets count.
-function initActualSets(prescribedBlock, savedEntry) {
+// Load values are stored in kg canonical; convert to the user's unit for display.
+function initActualSets(prescribedBlock, savedEntry, weightUnit = "kg") {
   if (savedEntry && Array.isArray(savedEntry.actual_sets) && savedEntry.actual_sets.length > 0) {
-    return savedEntry.actual_sets.map((s) => ({
-      reps: s?.reps != null ? String(s.reps) : "",
-      load: s?.load != null ? String(s.load) : "",
-      rpe: s?.rpe != null ? String(s.rpe) : "",
-      notes: s?.notes ? String(s.notes) : "",
-      done: Boolean(s?.done),
-    }));
+    return savedEntry.actual_sets.map((s) => {
+      // Stored load is kg canonical (since weight_unit introduced).
+      // Convert to the user's display unit for the input field.
+      const loadKgNum = s?.load != null && s.load !== "" ? parseFloat(s.load) : null;
+      const loadDisplay = loadKgNum != null && !isNaN(loadKgNum)
+        ? String(Math.round(fromKg(loadKgNum, weightUnit) * 10) / 10).replace(/\.0$/, "")
+        : "";
+      return {
+        reps: s?.reps != null ? String(s.reps) : "",
+        load: loadDisplay,
+        rpe: s?.rpe != null ? String(s.rpe) : "",
+        notes: s?.notes ? String(s.notes) : "",
+        done: Boolean(s?.done),
+      };
+    });
   }
   const count = Math.max(1, Math.floor(Number(prescribedBlock?.sets) || 1));
   return Array.from({ length: count }, () => ({
@@ -144,20 +160,32 @@ function initActualSets(prescribedBlock, savedEntry) {
 // Convert local state back into the persistable shape used by the
 // completed_blocks array. Strips empty trailing rows so we don't
 // store noise, but keeps any row the user touched.
-function serializeBlockEntry(blockId, localSets, blockNotes) {
+// User-typed load values are converted from their unit to kg canonical before storage.
+function serializeBlockEntry(blockId, localSets, blockNotes, weightUnit = "kg") {
   const trimmed = localSets.filter((set) => {
     return set.reps !== "" || set.load !== "" || set.rpe !== "" || set.notes !== "" || set.done;
   });
   return {
     block_id: blockId,
     schema_version: COMPLETED_BLOCK_SCHEMA_VERSION,
-    actual_sets: trimmed.map((set) => ({
-      reps: set.reps,
-      load: set.load,
-      rpe: set.rpe === "" ? null : set.rpe,
-      notes: set.notes,
-      done: Boolean(set.done),
-    })),
+    actual_sets: trimmed.map((set) => {
+      // Canonicalize load to kg before storing
+      let loadKg = "";
+      if (set.load !== "" && set.load != null) {
+        const num = parseFloat(set.load);
+        if (!isNaN(num)) {
+          const kgValue = toKg(num, weightUnit);
+          loadKg = String(Math.round(kgValue * 100) / 100);
+        }
+      }
+      return {
+        reps: set.reps,
+        load: loadKg,
+        rpe: set.rpe === "" ? null : set.rpe,
+        notes: set.notes,
+        done: Boolean(set.done),
+      };
+    }),
     session_notes: blockNotes || "",
     logged_at: new Date().toISOString(),
   };
@@ -167,7 +195,7 @@ function serializeBlockEntry(blockId, localSets, blockNotes) {
 // SessionView component
 // ---------------------------------------------------------------------------
 
-function SessionView({ session: authSession, planRow, sessionId }) {
+function SessionView({ session: authSession, planRow, sessionId, weightUnit }) {
   const planRef = useRef(planRow);
   const [plan, setPlan] = useState(() => ensureBlockIds(planRow.plan));
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -203,14 +231,14 @@ function SessionView({ session: authSession, planRow, sessionId }) {
   const currentBlockId = currentEntry?.block?.id || `unknown_${currentIndex}`;
   const savedForBlock = currentEntry ? findCompletedBlock(targetSession, currentBlockId) : null;
   const [localSets, setLocalSets] = useState(() =>
-    currentEntry ? initActualSets(currentEntry.block, savedForBlock) : []
+    currentEntry ? initActualSets(currentEntry.block, savedForBlock, weightUnit) : []
   );
   const [blockNotes, setBlockNotes] = useState(() => savedForBlock?.session_notes || "");
 
   // Re-init local state whenever the user navigates to a different block.
   useEffect(() => {
     if (!currentEntry) return;
-    setLocalSets(initActualSets(currentEntry.block, savedForBlock));
+    setLocalSets(initActualSets(currentEntry.block, savedForBlock, weightUnit));
     setBlockNotes(savedForBlock?.session_notes || "");
     // Scroll the page back to the top of the new block for muscle memory.
     if (typeof window !== "undefined") {
@@ -270,7 +298,7 @@ function SessionView({ session: authSession, planRow, sessionId }) {
   // mutates `plan`. Called from any input change or Done tap.
   const persistCurrentBlock = useCallback((sets, notes, options = {}) => {
     if (!currentEntry) return;
-    const entry = serializeBlockEntry(currentBlockId, sets, notes);
+    const entry = serializeBlockEntry(currentBlockId, sets, notes, weightUnit);
     const nextSessions = plan.sessions.map((s, idx) => {
       if (idx !== targetSessionIndex) return s;
       const existing = Array.isArray(s.completed_blocks) ? s.completed_blocks : [];
@@ -464,7 +492,7 @@ function SessionView({ session: authSession, planRow, sessionId }) {
         [
           block.sets ? `${block.sets} sets` : "",
           block.reps ? `× ${block.reps}` : "",
-          block.load ? `@ ${block.load}` : "",
+          block.load ? `@ ${displayLoadString(block.load, weightUnit)}` : "",
         ]
           .filter(Boolean)
           .join(" ")
@@ -486,7 +514,7 @@ function SessionView({ session: authSession, planRow, sessionId }) {
         { className: "set-headers" },
         h("span", null, "#"),
         h("span", null, "Reps"),
-        h("span", null, "Load"),
+        h("span", null, `Load (${weightUnit})`),
         h("span", null, "RPE"),
         h("span", { className: "header-done" }, "Done")
       ),
@@ -664,8 +692,17 @@ async function boot() {
     return;
   }
 
+  // Resolve weight unit preference (profile override or locale fallback)
+  let weightUnit = "kg";
+  try {
+    const profile = await getProfile(session.user.id);
+    weightUnit = resolveWeightUnit(profile?.weight_unit);
+  } catch (_err) {
+    weightUnit = resolveWeightUnit(null);
+  }
+
   const root = createRoot(rootEl);
-  root.render(h(SessionView, { session, planRow, sessionId }));
+  root.render(h(SessionView, { session, planRow, sessionId, weightUnit }));
 }
 
 boot().catch((error) => {

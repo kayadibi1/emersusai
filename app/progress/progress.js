@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from "https://esm.sh/react@18.2.0";
 import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
-import { requireAuth } from "/shared/supabase.js";
+import { requireAuth, getProfile } from "/shared/supabase.js";
 import {
   fetchDashboard,
   fetchWeeklyActivity,
@@ -10,8 +10,9 @@ import {
   fetchPersonalRecords,
   dateRange,
 } from "/shared/progress-helpers.js";
-import { weeklyActivityChart, muscleBar, formatVolume, formatDuration } from "/shared/progress-charts.js";
+import { weeklyActivityChart, muscleBar, formatVolume, formatLoad, formatDuration } from "/shared/progress-charts.js";
 import { ICONS, ICON_COLORS, DOT_COLORS } from "/shared/exercise-icons.js";
+import { resolveWeightUnit } from "/shared/unit-conversion.js";
 
 const h = React.createElement;
 
@@ -22,7 +23,7 @@ const RANGES = [
   { label: "All", weeks: 520 },
 ];
 
-function ProgressDashboard({ session }) {
+function ProgressDashboard({ session, weightUnit }) {
   const userId = session.user.id;
   const [rangeIdx, setRangeIdx] = useState(1); // default 8W
   const [dashboard, setDashboard] = useState(null);
@@ -87,7 +88,7 @@ function ProgressDashboard({ session }) {
     // Stat cards
     dashboard && h("div", { className: "stats-grid" },
       statCard("Sessions", dashboard.sessions_completed || 0, null, "neutral"),
-      statCard("Volume", formatVolume(dashboard.total_volume_kg || 0), null, "positive"),
+      statCard("Volume", formatVolume(dashboard.total_volume_kg || 0, weightUnit), null, "positive"),
       statCard("Cardio", formatDuration(dashboard.total_cardio_seconds || 0),
         `${dashboard.cardio_session_count || 0} sessions`, "neutral"),
       statCard("PRs", String(prs.length), "this period", "neutral",
@@ -118,7 +119,7 @@ function ProgressDashboard({ session }) {
           h("div", { key: m.muscle_group, className: "muscle-row" },
             h("div", { className: "muscle-meta" },
               h("span", { className: "muscle-name" }, formatMuscleName(m.muscle_group)),
-              h("span", { className: "muscle-vol" }, formatVolume(m.volume_kg)),
+              h("span", { className: "muscle-vol" }, formatVolume(m.volume_kg, weightUnit)),
             ),
             h("div", { dangerouslySetInnerHTML: {
               __html: muscleBar((m.volume_kg / maxMuscleVol) * 100)
@@ -152,7 +153,7 @@ function ProgressDashboard({ session }) {
               h("span", { className: "session-status done" }, "completed"),
             ),
             h("div", { className: "session-detail" },
-              `${s.performed_at} \u00b7 ${s.exercise_count} exercises \u00b7 ${formatVolume(s.volume_kg)}`
+              `${s.performed_at} \u00b7 ${s.exercise_count} exercises \u00b7 ${formatVolume(s.volume_kg, weightUnit)}`
             ),
           )
         ),
@@ -185,8 +186,8 @@ function ProgressDashboard({ session }) {
             h("div", { className: "exercise-stat" },
               ex.category !== "cardio"
                 ? h(React.Fragment, null,
-                    h("div", { className: "exercise-primary" }, ex.best_load_kg ? `${ex.best_load_kg}kg` : "-"),
-                    h("div", { className: "exercise-secondary" }, ex.best_e1rm_kg ? `e1RM ${ex.best_e1rm_kg}kg` : ""),
+                    h("div", { className: "exercise-primary" }, ex.best_load_kg ? formatLoad(ex.best_load_kg, weightUnit) : "-"),
+                    h("div", { className: "exercise-secondary" }, ex.best_e1rm_kg ? `e1RM ${formatLoad(ex.best_e1rm_kg, weightUnit)}` : ""),
                   )
                 : h(React.Fragment, null,
                     h("div", { className: "exercise-primary" }, formatDuration(ex.total_duration_seconds)),
@@ -209,7 +210,7 @@ function ProgressDashboard({ session }) {
         ...prs.slice(0, 5).map((pr, i) =>
           h("div", { key: i, className: "pr-item" },
             h("span", { className: "pr-exercise" }, pr.exercise_name),
-            h("span", { className: "pr-value" }, `e1RM ${pr.value}kg`),
+            h("span", { className: "pr-value" }, `e1RM ${formatLoad(pr.value, weightUnit)}`),
             h("span", { className: "pr-date" }, pr.achieved_at),
           )
         ),
@@ -241,8 +242,18 @@ async function boot() {
   const session = await requireAuth();
   if (!session) return;
 
+  // Fetch profile to determine weight unit preference
+  let weightUnit = "kg";
+  try {
+    const profile = await getProfile(session.user.id);
+    weightUnit = resolveWeightUnit(profile?.weight_unit);
+  } catch (err) {
+    console.warn("[progress] Failed to fetch profile, defaulting weight unit:", err);
+    weightUnit = resolveWeightUnit(null);
+  }
+
   const root = createRoot(rootEl);
-  root.render(h(ProgressDashboard, { session }));
+  root.render(h(ProgressDashboard, { session, weightUnit }));
 }
 
 boot().catch(err => {

@@ -149,8 +149,30 @@ function emptyChart(w, h, msg) {
 
 // ── Formatting helpers ──────────────────────────────────────────────
 
-export function formatVolume(kg) {
+/**
+ * Format a volume (total kg) for display. Unit-aware.
+ * @param {number} kg
+ * @param {"kg"|"lbs"} unit - Defaults to kg for backwards compatibility
+ */
+export function formatVolume(kg, unit = "kg") {
+  if (kg == null || isNaN(kg)) return "0" + unit;
+  if (unit === "lbs") {
+    const lbs = kg * 2.20462;
+    if (lbs >= 10000) return `${(lbs / 1000).toFixed(1)}k lbs`;
+    return `${Math.round(lbs)} lbs`;
+  }
   if (kg >= 1000) return `${(kg / 1000).toFixed(1)}t`;
+  return `${Math.round(kg)}kg`;
+}
+
+/**
+ * Format a single weight value (load) for display. Unit-aware.
+ * @param {number} kg
+ * @param {"kg"|"lbs"} unit
+ */
+export function formatLoad(kg, unit = "kg") {
+  if (kg == null || isNaN(kg)) return "-";
+  if (unit === "lbs") return `${Math.round(kg * 2.20462)}lbs`;
   return `${Math.round(kg)}kg`;
 }
 

@@ -11,6 +11,7 @@ import {
   formatTodaysSessionCopy,
   sessionHasLoggedActuals,
 } from "/shared/workout-plan-selectors.js";
+import { resolveWeightUnit } from "/shared/unit-conversion.js";
 
 async function hydrateUserSummary() {
   const session = await requireAuth();
@@ -95,6 +96,23 @@ async function bindProfileForm() {
 
   if (!form.elements.namedItem("email").value) {
     form.elements.namedItem("email").value = session.user.email || "";
+  }
+
+  // Weight unit: editable select that saves on change.
+  const weightSelect = form.querySelector("[data-weight-unit-select]");
+  if (weightSelect) {
+    // Initialize: explicit profile value wins, else locale default
+    weightSelect.value = resolveWeightUnit(profile?.weight_unit);
+    weightSelect.addEventListener("change", async () => {
+      const newValue = weightSelect.value;
+      const statusEl = document.querySelector("[data-profile-status]");
+      try {
+        await upsertProfile(session.user.id, { weight_unit: newValue });
+        setStatus(statusEl, "success", `Weight unit set to ${newValue}.`);
+      } catch (err) {
+        setStatus(statusEl, "error", `Could not save: ${err.message || err}`);
+      }
+    });
   }
 
   // No submit handler — the form is read-only. The submit button has been
