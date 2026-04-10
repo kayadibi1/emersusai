@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "https://esm.sh/react@18.2.0";
 import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
-import { requireAuth } from "/shared/supabase.js";
+import { requireAuth, getProfile } from "/shared/supabase.js";
 import { fetchSessionDetail } from "/shared/progress-helpers.js";
-import { formatVolume, formatDuration } from "/shared/progress-charts.js";
+import { formatVolume, formatLoad, formatDuration } from "/shared/progress-charts.js";
 import { DOT_COLORS } from "/shared/exercise-icons.js";
+import { resolveWeightUnit } from "/shared/unit-conversion.js";
 
 const h = React.createElement;
 
-function SessionDetail({ session }) {
+function SessionDetail({ session, weightUnit }) {
   const userId = session.user.id;
   const params = new URLSearchParams(window.location.search);
   const planId = params.get("plan");
@@ -72,7 +73,7 @@ function SessionDetail({ session }) {
       ),
       !isCardio && h("div", { className: "mini-stat" },
         h("div", { className: "mini-stat-label" }, "Volume"),
-        h("div", { className: "mini-stat-value" }, formatVolume(totalVolume)),
+        h("div", { className: "mini-stat-value" }, formatVolume(totalVolume, weightUnit)),
       ),
       totalCardioSec > 0 && h("div", { className: "mini-stat" },
         h("div", { className: "mini-stat-label" }, "Cardio"),
@@ -112,13 +113,13 @@ function SessionDetail({ session }) {
             h("div", { className: "exercise-block-header" },
               h("span", { className: "exercise-block-name" }, ex.exercise_name),
               h("span", { className: "exercise-block-vol" },
-                formatVolume(ex.sets.reduce((s, r) => s + ((r.reps || 0) * (r.load_kg || 0)), 0)) + " vol"),
+                formatVolume(ex.sets.reduce((s, r) => s + ((r.reps || 0) * (r.load_kg || 0)), 0), weightUnit) + " vol"),
             ),
             ...ex.sets.map((set, i) =>
               h("div", { key: i, className: "set-row" },
                 h("span", { className: "set-label" }, `Set ${set.set_number || i + 1}`),
                 h("span", { className: "set-data" },
-                  set.load_kg ? `${set.load_kg}kg x ${set.reps}` : `${set.reps} reps`),
+                  set.load_kg ? `${formatLoad(set.load_kg, weightUnit)} x ${set.reps}` : `${set.reps} reps`),
                 set.rpe && h("span", { className: "set-rpe" }, `RPE ${set.rpe}`),
               )
             ),
@@ -132,8 +133,17 @@ async function boot() {
   if (!rootEl) return;
   const session = await requireAuth();
   if (!session) return;
+
+  let weightUnit = "kg";
+  try {
+    const profile = await getProfile(session.user.id);
+    weightUnit = resolveWeightUnit(profile?.weight_unit);
+  } catch (err) {
+    weightUnit = resolveWeightUnit(null);
+  }
+
   const root = createRoot(rootEl);
-  root.render(h(SessionDetail, { session }));
+  root.render(h(SessionDetail, { session, weightUnit }));
 }
 
 boot().catch(err => {
