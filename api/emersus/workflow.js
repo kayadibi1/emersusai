@@ -130,38 +130,7 @@ WHEN TO USE CHART.JS VS A GRID/TABLE
 - Categorical comparisons (X vs Y across discrete outcomes), evidence matrices, or protocol breakdowns → a div-grid is fine.
 - If the user says "chart", "graph", "curve", "plot", or if the data is inherently visual (e.g. a saturation curve, dose-response relationship, weekly progression), ALWAYS use Chart.js, never a table.
 
-EXAMPLE 1 — Chart.js line chart (time-series / saturation curve)
-
-\`\`\`widget
-<div style="background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
-  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Muscle creatine saturation — loading vs no-load</div>
-  <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:14px;">Loading fills stores in ~5–7 days; skipping loading takes 3–4 weeks to reach the same plateau.</div>
-  <canvas id="chart" style="width:100%;height:220px;"></canvas>
-</div>
-<script>
-new Chart(document.getElementById('chart'),{
-  type:'line',
-  data:{
-    labels:['Day 0','Day 3','Day 7','Week 2','Week 3','Week 4'],
-    datasets:[
-      {label:'With loading (20 g/d → 5 g/d)',data:[60,85,95,95,95,95],borderColor:'#9ffb00',backgroundColor:'rgba(159,251,0,0.08)',fill:true,tension:0.35,pointRadius:3},
-      {label:'No-load (3–5 g/d)',data:[60,65,72,82,90,94],borderColor:'#6d9fff',backgroundColor:'rgba(109,159,255,0.08)',fill:true,tension:0.35,pointRadius:3}
-    ]
-  },
-  options:{
-    responsive:true,
-    maintainAspectRatio:false,
-    plugins:{legend:{labels:{color:'rgba(255,255,255,0.7)',font:{size:11}}}},
-    scales:{
-      x:{ticks:{color:'rgba(255,255,255,0.55)'},grid:{color:'rgba(255,255,255,0.08)'}},
-      y:{min:50,max:100,ticks:{color:'rgba(255,255,255,0.55)',callback:v=>v+'%'},grid:{color:'rgba(255,255,255,0.08)'},title:{display:true,text:'% of max store',color:'rgba(255,255,255,0.55)'}}
-    }
-  }
-});
-</script>
-\`\`\`
-
-EXAMPLE 2 — evidence-by-outcome comparison card (div-grid)
+EXAMPLE 1 — evidence-by-outcome comparison card (div-grid)
 
 \`\`\`widget
 <div style="background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
@@ -183,7 +152,7 @@ EXAMPLE 2 — evidence-by-outcome comparison card (div-grid)
 </div>
 \`\`\`
 
-EXAMPLE 3 — interactive calculator (vanilla JS, Chart.js optional)
+EXAMPLE 2 — interactive calculator (vanilla JS, Chart.js optional)
 
 \`\`\`widget
 <div style="background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
@@ -1657,6 +1626,7 @@ function buildSynthesisInput({
     normalizedRecentMessages
   );
   return [
+    // ── Message 1: identity, scope, safety ──────────────────────────
     {
       role: "system",
       content:
@@ -1731,6 +1701,14 @@ function buildSynthesisInput({
             "- Profile injuries/limitations inform exercise selection and load prescription SILENTLY — factor them into your programming choices without calling them out unless the user asks.",
             "- NEVER refuse an in-scope question because of something in the profile. A profile field is context for better coaching, never a stop sign.",
           ].join("\n"),
+        ].join("\n"),
+    },
+    // ── Message 2: widget format + output rules ─────────────────────
+    // Separate system message so safety-rule growth never dilutes these.
+    {
+      role: "system",
+      content:
+        [
           INLINE_WIDGET_SYSTEM_INSTRUCTIONS,
           "Tone: precise, confident, and direct. No hype, no hedging filler, no motivational fluff. Address the reader as 'you'. Sound like a knowledgeable training partner, not a medical disclaimer.",
           "Lead with the answer or the protocol, then briefly justify it with the mechanism or the data. Prefer specific numbers (sets, reps, RPE, grams, mg/kg, minutes, days/week, %1RM) over vague language. If a number depends on bodyweight, training age, or context, give the formula or the bracket — never just 'it depends'.",
@@ -1748,6 +1726,48 @@ function buildSynthesisInput({
           "Do not mention confidence scores, confidence labels, or system-status concepts in the answer.",
           "Only mention training, nutrition, or mental-performance advice if it is directly relevant to the user's question.",
         ].join("\n"),
+    },
+    // ── Few-shot example: Chart.js widget ───────────────────────────
+    // Models weight conversation examples far more heavily than system
+    // instructions. This anchors widget output to real Chart.js charts
+    // regardless of how long the system messages get.
+    {
+      role: "user",
+      content: "creatine body response over time chart",
+    },
+    {
+      role: "assistant",
+      content: [
+        "Creatine's body response is a saturation curve: loading fills muscle stores in ~5–7 days, skipping loading takes 3–4 weeks. The early scale bump is mostly intracellular water, not new tissue.",
+        "",
+        "```widget",
+        '<div style="background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">',
+        '  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Muscle creatine saturation — loading vs no-load</div>',
+        '  <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:14px;">Loading fills stores in ~5–7 days; skipping takes 3–4 weeks to plateau.</div>',
+        '  <canvas id="chart" style="width:100%;height:220px;"></canvas>',
+        "</div>",
+        "<script>",
+        "new Chart(document.getElementById('chart'),{",
+        "  type:'line',",
+        "  data:{",
+        "    labels:['Day 0','Day 3','Day 7','Week 2','Week 3','Week 4'],",
+        "    datasets:[",
+        "      {label:'With loading (20 g/d → 5 g/d)',data:[60,85,95,95,95,95],borderColor:'#9ffb00',backgroundColor:'rgba(159,251,0,0.08)',fill:true,tension:0.35,pointRadius:3},",
+        "      {label:'No-load (3–5 g/d)',data:[60,65,72,82,90,94],borderColor:'#6d9fff',backgroundColor:'rgba(109,159,255,0.08)',fill:true,tension:0.35,pointRadius:3}",
+        "    ]",
+        "  },",
+        "  options:{",
+        "    responsive:true,maintainAspectRatio:false,",
+        "    plugins:{legend:{labels:{color:'rgba(255,255,255,0.7)',font:{size:11}}}},",
+        "    scales:{",
+        "      x:{ticks:{color:'rgba(255,255,255,0.55)'},grid:{color:'rgba(255,255,255,0.08)'}},",
+        "      y:{min:50,max:100,ticks:{color:'rgba(255,255,255,0.55)',callback:v=>v+'%'},grid:{color:'rgba(255,255,255,0.08)'},title:{display:true,text:'% of max store',color:'rgba(255,255,255,0.55)'}}",
+        "    }",
+        "  }",
+        "});",
+        "</script>",
+        "```",
+      ].join("\n"),
     },
     {
       role: "user",
