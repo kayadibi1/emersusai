@@ -3183,26 +3183,8 @@ function buildCards({ question, synthesis, evidence = [], includeDebug = false, 
     return cards;
   }
 
-  // 4. Action grid (Do / Dose / When).
-  // Suppress when the prose already covers practical advice — the card just
-  // duplicates it and looks out of place.
-  const proseCoversActions =
-    /\b(practical\s+(setup|protocol|guide|plan)|how to (take|use|dose|cycle)|dosing|protocol|step[- ]by[- ]step|starter protocol)\b/i.test(answerText) ||
-    (Array.isArray(synthesis.recommendations?.general) &&
-      synthesis.recommendations.general.some((item) => {
-        const snippet = String(item).slice(0, 60).toLowerCase();
-        return answerText.toLowerCase().includes(snippet);
-      }));
-
-  if (!proseCoversActions) {
-    const actionColumns = buildActionColumns({
-      recommendations: synthesis.recommendations,
-      topic: plan?.topic,
-    });
-    if (actionColumns.length) {
-      cards.push({ type: "action_grid", title: "What to do", columns: actionColumns });
-    }
-  }
+  // 4. Action grid removed — the prose already covers actionable advice and
+  //    the card was redundant visual noise.
 
   // 5. Watchouts.
   if (Array.isArray(synthesis.limitations) && synthesis.limitations.length) {
