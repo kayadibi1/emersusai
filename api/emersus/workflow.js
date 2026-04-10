@@ -125,7 +125,43 @@ VOICE INSIDE THE WIDGET
 - Cite as the one citing the literature: "2023 meta-analysis", "2021 RCT in trained men".
 - If evidence is thin, encode that with --ev-limited-* or --ev-insufficient-* rather than padding cells.
 
-EXAMPLE 1 — evidence-by-outcome comparison card (div-grid, no table)
+WHEN TO USE CHART.JS VS A GRID/TABLE
+- Time-series, dose-response curves, saturation curves, trends over days/weeks, before/after data, or any data with a continuous numeric axis → USE A CHART.JS CANVAS (line, bar, scatter). A grid of text rows is NOT a chart.
+- Categorical comparisons (X vs Y across discrete outcomes), evidence matrices, or protocol breakdowns → a div-grid is fine.
+- If the user says "chart", "graph", "curve", "plot", or if the data is inherently visual (e.g. a saturation curve, dose-response relationship, weekly progression), ALWAYS use Chart.js, never a table.
+
+EXAMPLE 1 — Chart.js line chart (time-series / saturation curve)
+
+\`\`\`widget
+<div style="background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
+  <div style="font-size:14px;font-weight:500;margin-bottom:4px;">Muscle creatine saturation — loading vs no-load</div>
+  <div style="font-size:12px;color:var(--color-text-secondary);margin-bottom:14px;">Loading fills stores in ~5–7 days; skipping loading takes 3–4 weeks to reach the same plateau.</div>
+  <canvas id="chart" style="width:100%;height:220px;"></canvas>
+</div>
+<script>
+new Chart(document.getElementById('chart'),{
+  type:'line',
+  data:{
+    labels:['Day 0','Day 3','Day 7','Week 2','Week 3','Week 4'],
+    datasets:[
+      {label:'With loading (20 g/d → 5 g/d)',data:[60,85,95,95,95,95],borderColor:'#9ffb00',backgroundColor:'rgba(159,251,0,0.08)',fill:true,tension:0.35,pointRadius:3},
+      {label:'No-load (3–5 g/d)',data:[60,65,72,82,90,94],borderColor:'#6d9fff',backgroundColor:'rgba(109,159,255,0.08)',fill:true,tension:0.35,pointRadius:3}
+    ]
+  },
+  options:{
+    responsive:true,
+    maintainAspectRatio:false,
+    plugins:{legend:{labels:{color:'rgba(255,255,255,0.7)',font:{size:11}}}},
+    scales:{
+      x:{ticks:{color:'rgba(255,255,255,0.55)'},grid:{color:'rgba(255,255,255,0.08)'}},
+      y:{min:50,max:100,ticks:{color:'rgba(255,255,255,0.55)',callback:v=>v+'%'},grid:{color:'rgba(255,255,255,0.08)'},title:{display:true,text:'% of max store',color:'rgba(255,255,255,0.55)'}}
+    }
+  }
+});
+</script>
+\`\`\`
+
+EXAMPLE 2 — evidence-by-outcome comparison card (div-grid)
 
 \`\`\`widget
 <div style="background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
@@ -147,7 +183,7 @@ EXAMPLE 1 — evidence-by-outcome comparison card (div-grid, no table)
 </div>
 \`\`\`
 
-EXAMPLE 2 — interactive calculator (vanilla JS, Chart.js optional)
+EXAMPLE 3 — interactive calculator (vanilla JS, Chart.js optional)
 
 \`\`\`widget
 <div style="background:var(--color-background-primary);border:1px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:16px;">
