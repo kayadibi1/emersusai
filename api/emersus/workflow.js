@@ -1243,7 +1243,7 @@ async function fetchSupabaseProfile(supabaseUrl, serviceRoleKey, supabaseUserId)
   }
 
   const response = await fetch(
-    `${supabaseUrl}/rest/v1/profiles?select=goal,experience_level,dietary_preferences,injuries_limitations,full_name,email&id=eq.${encodeURIComponent(
+    `${supabaseUrl}/rest/v1/profiles?select=goal,experience_level,dietary_preferences,injuries_limitations,full_name,email,onboarding_completed,primary_use_case,equipment_access,available_days_per_week,available_minutes_per_session,sleep_stress_context&id=eq.${encodeURIComponent(
       supabaseUserId
     )}&limit=1`,
     {
@@ -1381,13 +1381,26 @@ function mergeProfile(profile, storedProfile) {
       profile?.injuries_limitations || storedProfile?.injuries_limitations,
       300
     ),
-    equipment_access: sanitizeProfileField(profile?.equipment_access, 200),
-    available_days_per_week: sanitizeProfileField(profile?.available_days_per_week, 80),
-    available_minutes_per_session: sanitizeProfileField(
-      profile?.available_minutes_per_session,
+    equipment_access: sanitizeProfileField(
+      profile?.equipment_access || storedProfile?.equipment_access,
+      200
+    ),
+    available_days_per_week: sanitizeProfileField(
+      profile?.available_days_per_week ?? storedProfile?.available_days_per_week,
       80
     ),
-    sleep_stress_context: sanitizeProfileField(profile?.sleep_stress_context, 200),
+    available_minutes_per_session: sanitizeProfileField(
+      profile?.available_minutes_per_session ?? storedProfile?.available_minutes_per_session,
+      80
+    ),
+    sleep_stress_context: sanitizeProfileField(
+      profile?.sleep_stress_context || storedProfile?.sleep_stress_context,
+      200
+    ),
+    primary_use_case: sanitizeProfileField(
+      profile?.primary_use_case || storedProfile?.primary_use_case,
+      300
+    ),
     medical_disclaimer_acknowledged:
       profile?.medical_disclaimer_acknowledged === true,
   };
