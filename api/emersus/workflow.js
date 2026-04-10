@@ -3184,12 +3184,24 @@ function buildCards({ question, synthesis, evidence = [], includeDebug = false, 
   }
 
   // 4. Action grid (Do / Dose / When).
-  const actionColumns = buildActionColumns({
-    recommendations: synthesis.recommendations,
-    topic: plan?.topic,
-  });
-  if (actionColumns.length) {
-    cards.push({ type: "action_grid", title: "What to do", columns: actionColumns });
+  // Suppress when the prose already covers practical advice — the card just
+  // duplicates it and looks out of place.
+  const proseCoversActions =
+    /\b(practical\s+(setup|protocol|guide|plan)|how to (take|use|dose|cycle)|dosing|protocol|step[- ]by[- ]step|starter protocol)\b/i.test(answerText) ||
+    (Array.isArray(synthesis.recommendations?.general) &&
+      synthesis.recommendations.general.some((item) => {
+        const snippet = String(item).slice(0, 60).toLowerCase();
+        return answerText.toLowerCase().includes(snippet);
+      }));
+
+  if (!proseCoversActions) {
+    const actionColumns = buildActionColumns({
+      recommendations: synthesis.recommendations,
+      topic: plan?.topic,
+    });
+    if (actionColumns.length) {
+      cards.push({ type: "action_grid", title: "What to do", columns: actionColumns });
+    }
   }
 
   // 5. Watchouts.
