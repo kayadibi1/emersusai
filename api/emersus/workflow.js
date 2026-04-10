@@ -3782,6 +3782,25 @@ async function generateRecommendation({
     serviceRoleKey,
     supabaseUserId
   );
+
+  // --- Onboarding intercept ---
+  // New users have onboarding_completed === false (set by the DB trigger).
+  // Route them through the conversational onboarding flow instead of
+  // the full RAG pipeline.
+  if (storedProfile && storedProfile.onboarding_completed === false) {
+    return await handleOnboarding({
+      question,
+      userId,
+      recentMessages,
+      supabaseUrl,
+      serviceRoleKey,
+      supabaseUserId,
+      stableUserId,
+      includeDebug,
+    });
+  }
+  // --- End onboarding intercept ---
+
   const mergedProfile = mergeProfile(profile, storedProfile || {});
   recordStage("profile_load_ms", Date.now() - profileStartedAt);
 
