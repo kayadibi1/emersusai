@@ -571,10 +571,8 @@ async function upsertArticleBatch(records, articleColumns) {
   });
 }
 
-async function replaceChunkBatch(records, chunkColumns, abstractChunkSize) {
+async function deleteOldChunks(pmids) {
   const supabaseAdmin = await getSupabaseAdmin();
-  const pmids = records.map((record) => record.pmid);
-
   const { error: deleteError } = await supabaseAdmin
     .from(CHUNK_TABLE)
     .delete()
@@ -583,7 +581,9 @@ async function replaceChunkBatch(records, chunkColumns, abstractChunkSize) {
   if (deleteError) {
     throw new Error(`Chunk cleanup failed: ${deleteError.message}`);
   }
+}
 
+async function insertChunkBatch(records, chunkColumns, abstractChunkSize) {
   let insertedCount = 0;
 
   await withSchemaCacheRetry({
@@ -749,22 +749,42 @@ async function main() {
 
   let importedArticles = 0;
   let importedChunks = 0;
+  const dbTimings = { upsertMs: 0, chunkDeleteMs: 0, chunkInsertMs: 0, batches: 0 };
+  const importStartedAt = Date.now();
 
   try {
     for (let index = 0; index < uniqueRecords.length; index += args.batchSize) {
       const batch = uniqueRecords.slice(index, index + args.batchSize);
-      await upsertArticleBatch(batch, articleColumns);
-      const chunkCount = await replaceChunkBatch(
+      const pmids = batch.map((record) => record.pmid);
+
+      // Upsert articles and delete old chunks in parallel (independent tables).
+      // Chunk insert must wait for the delete to finish.
+      const upsertStart = Date.now();
+      await Promise.all([
+        upsertArticleBatch(batch, articleColumns),
+        deleteOldChunks(pmids),
+      ]);
+      const upsertMs = Date.now() - upsertStart;
+      dbTimings.upsertMs += upsertMs;
+
+      const chunkStart = Date.now();
+      const chunkCount = await insertChunkBatch(
         batch,
         chunkColumns,
         args.abstractChunkSize
       );
+      const chunkMs = Date.now() - chunkStart;
+      dbTimings.chunkDeleteMs += chunkMs;
+      dbTimings.batches += 1;
 
       importedArticles += batch.length;
       importedChunks += chunkCount;
 
+      const avgUpsertMs = Math.round(dbTimings.upsertMs / dbTimings.batches);
+      const avgChunkMs = Math.round(dbTimings.chunkDeleteMs / dbTimings.batches);
+
       console.log(
-        `Imported ${importedArticles}/${uniqueRecords.length} articles and ${importedChunks} chunks so far...`
+        `  ${importedArticles}/${uniqueRecords.length} articles, ${importedChunks} chunks | batch: upsert+delete ${upsertMs}ms, insert ${chunkMs}ms | avg: upsert+delete ${avgUpsertMs}ms, insert ${avgChunkMs}ms`
       );
     }
 
@@ -788,9 +808,16 @@ async function main() {
     throw error;
   }
 
+  const totalImportMs = Date.now() - importStartedAt;
+  const totalDbMs = dbTimings.upsertMs + dbTimings.chunkDeleteMs;
+  console.log("");
   console.log("Import complete.");
-  console.log(`Articles upserted: ${importedArticles}`);
-  console.log(`Chunks inserted: ${importedChunks}`);
+  console.log(`  Articles upserted: ${importedArticles}`);
+  console.log(`  Chunks inserted:   ${importedChunks}`);
+  console.log(`  Total time:        ${(totalImportMs / 1000).toFixed(1)}s`);
+  console.log(`  DB write time:     ${(totalDbMs / 1000).toFixed(1)}s (${((totalDbMs / totalImportMs) * 100).toFixed(0)}% of total)`);
+  console.log(`  Avg upsert/batch:  ${dbTimings.batches > 0 ? Math.round(dbTimings.upsertMs / dbTimings.batches) : 0}ms`);
+  console.log(`  Avg chunks/batch:  ${dbTimings.batches > 0 ? Math.round(dbTimings.chunkDeleteMs / dbTimings.batches) : 0}ms`);
   console.log("Next step: run node scripts/embed-evidence.js");
 }
 
