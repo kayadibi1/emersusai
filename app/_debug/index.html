@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@200;300;400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/site.css">
+  <link rel="stylesheet" href="/shared/chat.css">
   <style>
     /* Reuse the chat page's shell variables so the embedded ChatApp looks
        identical. The debug-specific layout wraps it in a two-column grid
@@ -51,6 +52,9 @@
     }
     #debug-chat-root > .chat-app-shell {
       width: 100%;
+      height: 100%;
+      min-height: 0;
+      padding: 0;
     }
 
     /* Debug panel — right column. Dark glass card, monospace for code
@@ -224,22 +228,6 @@
       }
     }
 
-    /* Also pull in all the chat-page styling that the embedded ChatApp
-       relies on. This is a copy of /chat/index.html's <style> block
-       (minus root :root vars which we already set above). Without this,
-       ChatApp renders into #debug-chat-root without its classes wired
-       up and looks completely unstyled. */
-    .chat-nav, .chat-main, .chat-rail {
-      position: relative;
-      overflow: visible;
-      border: 1px solid var(--line);
-      background:
-        radial-gradient(circle at top left, rgba(109, 159, 255, 0.06), transparent 30%),
-        radial-gradient(circle at top right, rgba(159, 251, 0, 0.05), transparent 28%),
-        var(--chat-glass);
-      box-shadow: var(--shadow);
-      backdrop-filter: var(--chat-blur);
-    }
   </style>
 </head>
 <body class="debug-page">
