@@ -198,7 +198,17 @@ export async function upsertChatThread(userId, thread) {
     title: thread.title || "New chat",
     preview: thread.preview || "No messages yet",
     messages: Array.isArray(thread.messages) ? thread.messages : [],
-    sources: Array.isArray(thread.sources) ? thread.sources : [],
+    sources: (() => {
+      // Derive thread-level sources from the latest assistant message for
+      // backward compatibility with older clients that read thread.sources.
+      const msgs = Array.isArray(thread.messages) ? thread.messages : [];
+      for (let i = msgs.length - 1; i >= 0; i--) {
+        if (msgs[i].role === "assistant" && Array.isArray(msgs[i].sources) && msgs[i].sources.length) {
+          return msgs[i].sources;
+        }
+      }
+      return Array.isArray(thread.sources) ? thread.sources : [];
+    })(),
     rail: thread.rail && typeof thread.rail === "object" ? thread.rail : {},
     thread_state:
       thread.threadState && typeof thread.threadState === "object"
