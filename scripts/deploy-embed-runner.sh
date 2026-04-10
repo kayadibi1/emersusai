@@ -1,24 +1,14 @@
 #!/usr/bin/env bash
 # Bundles the minimal files needed to run all data-pipeline scripts on Hetzner.
-# Usage: bash scripts/deploy-embed-runner.sh <ssh-host>
-#   e.g. bash scripts/deploy-embed-runner.sh root@your-hetzner-ip
+# Usage: bash scripts/deploy-embed-runner.sh [ssh-host]
+#   Default host: emersus@46.225.58.187
 #
-# Included scripts:
-#   scripts/embed-evidence.js    — generate & write embeddings
-#   scripts/import-pubmed.js     — import PubMed JSON/JSONL into Supabase
-#   scripts/fill-pmc-corpus.js   — search PubMed, fetch PMC full text, import + embed
-#   scripts/fill-pmc-topics.js   — run fill-pmc-corpus for a list of topics
-#   scripts/fetch-pmc-fulltext.js — backfill PMC full text for existing articles
-#   scripts/test-retrieval.js    — test vector similarity search
-#
-# After deploy, SSH in and:
-#   cd ~/embed-runner
-#   nano .env.local              # paste your real keys
-#   node scripts/embed-evidence.js --fetch-batch-size=200 --write-batch-size=50
+# Auto-copies keys from ~/app/.env on the server and rewrites SUPABASE_URL
+# to http://localhost:8000 (Kong on the same box). No manual editing needed.
 
 set -euo pipefail
 
-HOST="${1:?Usage: deploy-embed-runner.sh <ssh-host>}"
+HOST="${1:-emersus@46.225.58.187}"
 BUNDLE_DIR="$(mktemp -d)"
 trap 'rm -rf "$BUNDLE_DIR"' EXIT
 
@@ -35,13 +25,6 @@ cat > "$BUNDLE_DIR/package.json" <<'PKGJSON'
   }
 }
 PKGJSON
-
-cat > "$BUNDLE_DIR/.env.local" <<'ENVEOF'
-# Supabase PostgREST running on the same Hetzner box
-SUPABASE_URL=http://localhost:8000
-SUPABASE_SERVICE_ROLE_KEY=<PASTE_YOUR_SERVICE_ROLE_KEY>
-OPENAI_API_KEY=<PASTE_YOUR_OPENAI_KEY>
-ENVEOF
 
 mkdir -p "$BUNDLE_DIR/api/lib" "$BUNDLE_DIR/api/emersus" "$BUNDLE_DIR/scripts"
 
@@ -62,6 +45,9 @@ echo "Uploading to $HOST:~/embed-runner ..."
 ssh "$HOST" "rm -rf ~/embed-runner"
 scp -r "$BUNDLE_DIR" "$HOST:~/embed-runner"
 
+echo "Copying keys from ~/app/.env and setting SUPABASE_URL to localhost..."
+ssh "$HOST" "cp ~/app/.env ~/embed-runner/.env.local && sed -i 's|SUPABASE_URL=.*|SUPABASE_URL=http://localhost:8000|' ~/embed-runner/.env.local"
+
 echo "Installing dependencies on remote..."
 ssh "$HOST" "cd ~/embed-runner && npm install --production"
 
@@ -69,7 +55,6 @@ echo ""
 echo "Done! SSH in and run:"
 echo "  ssh $HOST"
 echo "  cd ~/embed-runner"
-echo "  nano .env.local   # paste your real keys"
 echo ""
 echo "Examples:"
 echo "  node scripts/embed-evidence.js --fetch-batch-size=200 --write-batch-size=50"
