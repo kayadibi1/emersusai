@@ -64,7 +64,7 @@ using (auth.uid() = user_id);
 -- ── Exercise matching + log upsert RPC ─────────────────────────────
 --
 -- resolve_exercise_id(p_name text) → uuid
--- Tries: exact name → alias → pg_trgm fuzzy (>= 0.5) → auto-create.
+-- Tries: exact name → alias → pg_trgm fuzzy (>= 0.6) → auto-create.
 -- Called internally by upsert_workout_logs. SECURITY DEFINER so it can
 -- insert into exercises (which is service_role-only for regular users).
 
@@ -153,6 +153,11 @@ declare
   v_matched   int := 0;
   v_inserted  int := 0;
 begin
+  -- Auth guard: caller can only upsert their own logs
+  if p_user_id <> auth.uid() then
+    raise exception 'Unauthorized: user_id mismatch';
+  end if;
+
   -- Delete existing logs for this session to handle re-saves cleanly
   delete from public.workout_logs
   where user_id = p_user_id

@@ -241,7 +241,7 @@ function SessionView({ session: authSession, planRow, sessionId }) {
         planToSave
       );
       // Sync completed_blocks to workout_logs (fire and forget — don't block the save UX)
-      upsertWorkoutLogs(authSession.user.id, planRef.current.id, planToSave).catch(err =>
+      upsertWorkoutLogs(authSession.user.id, planRef.current.id, planToSave, sessionId).catch(err =>
         console.error("[workout-logs sync]", err)
       );
       planRef.current = updated;

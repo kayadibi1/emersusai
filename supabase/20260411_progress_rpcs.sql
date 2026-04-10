@@ -12,7 +12,7 @@ create or replace function public.get_progress_dashboard(
 returns jsonb
 language plpgsql
 stable
-security definer
+security invoker
 set search_path = public
 as $$
 declare
@@ -82,7 +82,7 @@ create or replace function public.get_weekly_activity(
 returns jsonb
 language plpgsql
 stable
-security definer
+security invoker
 set search_path = public
 as $$
 begin
@@ -118,7 +118,7 @@ create or replace function public.get_muscle_volume(
 returns jsonb
 language plpgsql
 stable
-security definer
+security invoker
 set search_path = public
 as $$
 begin
@@ -151,7 +151,7 @@ create or replace function public.get_recent_sessions(
 returns jsonb
 language plpgsql
 stable
-security definer
+security invoker
 set search_path = public
 as $$
 begin
@@ -204,7 +204,7 @@ create or replace function public.get_top_exercises(
 returns jsonb
 language plpgsql
 stable
-security definer
+security invoker
 set search_path = public
 as $$
 begin
@@ -254,7 +254,7 @@ create or replace function public.get_exercise_history(
 returns jsonb
 language plpgsql
 stable
-security definer
+security invoker
 set search_path = public
 as $$
 begin
@@ -296,7 +296,7 @@ create or replace function public.get_session_detail(
 returns jsonb
 language plpgsql
 stable
-security definer
+security invoker
 set search_path = public
 as $$
 begin
@@ -338,7 +338,7 @@ create or replace function public.get_personal_records(
 returns jsonb
 language plpgsql
 stable
-security definer
+security invoker
 set search_path = public
 as $$
 begin
