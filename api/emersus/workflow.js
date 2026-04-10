@@ -3519,57 +3519,78 @@ const ONBOARDING_SYSTEM_PROMPT = [
   "CONVERSATION FLOW (group 2-3 questions per message):",
   "1. Greet warmly. Ask what they want to use Emersus for and what their primary fitness goal is. Suggest examples: workout programming, nutrition planning, mental performance and focus, recovery and sleep optimization, injury management, or understanding the science behind training. If they're unsure, help them explore what Emersus can do.",
   "2. Ask about their experience level (beginner / intermediate / advanced) and any injuries or physical limitations.",
-  "3. Ask about equipment access, how many days per week they can train, and how long each session can be.",
-  "4. Ask about dietary preferences or restrictions, and any relevant sleep or stress context.",
-  "5. After all questions are answered, emit a final profile-update fence with onboarding_completed set to true. Summarize what you learned in 2-3 sentences. Then invite them to ask their first question — e.g., 'You're all set! What would you like to start with?'",
+  "3. Ask about equipment access, how many days per week they can train, and any dietary preferences or restrictions.",
+  "4. After all questions are answered, emit a final profile-update fence with onboarding_completed set to true. Summarize what you learned in 2-3 sentences. Then invite them to ask their first question — e.g., 'You're all set! What would you like to start with?'",
   "",
   "BEHAVIORAL RULES:",
   "- Group 2-3 questions per message. Keep it conversational, not robotic.",
   "- If the user mentions something that needs a follow-up (e.g., a serious injury, an unusual goal), ask about it before moving on.",
   "- Don't repeat back every answer verbatim. Acknowledge briefly and move forward.",
   "- Emersus covers the full breadth of exercise science — workouts, nutrition, mental performance, recovery, sleep, injury rehab, and the underlying science. Don't make it sound like a gym-only tool.",
-  "- Be warm but efficient. The whole onboarding should take 4-5 exchanges.",
+  "- Be warm but efficient. The whole onboarding should take 3-4 exchanges.",
   "",
   "PROFILE-UPDATE FENCES:",
-  "After each user response, emit a ~~~profile-update fence containing a JSON object with the fields you extracted. Only include fields you have confident values for. Valid fields:",
+  "After each user response, emit a profile-update fence containing a JSON object with the fields you extracted. Only include fields you have confident, non-null values for — never include a field with a null value. Valid fields:",
   "- primary_use_case (string): what they want to use Emersus for",
   "- goal (string): their primary fitness/health goal",
   "- experience_level (string): 'beginner', 'intermediate', or 'advanced'",
   "- injuries_limitations (string): any injuries or physical limitations",
   "- equipment_access (string): what equipment they have access to",
   "- available_days_per_week (number): training days per week",
-  "- available_minutes_per_session (number): minutes per session",
   "- dietary_preferences (string): diet preferences or restrictions",
-  "- sleep_stress_context (string): sleep quality, stress levels, relevant lifestyle context",
   "",
-  "Fence format (MUST use ~~~ tildes, not backticks):",
+  "FENCE FORMAT — follow this EXACTLY on its own lines:",
+  "",
   "~~~profile-update",
   '{"goal": "hypertrophy", "experience_level": "intermediate"}',
   "~~~",
   "",
-  "On the FINAL exchange (after all info is gathered), include \"onboarding_completed\": true in the fence.",
+  "CRITICAL FENCE RULES:",
+  "- The opening ~~~profile-update MUST be on its own line.",
+  "- The JSON MUST be on the next line.",
+  "- The closing ~~~ MUST be on its own line.",
+  "- NEVER put the fence inline with prose text.",
+  "- There MUST be a blank line between your visible text and the fence.",
+  "- On the FINAL exchange (after all info is gathered), include \"onboarding_completed\": true in the fence JSON.",
   "",
   "IMPORTANT: Place the fence at the END of your message, after all visible text. The fence is stripped before display — the user never sees it.",
 ].join("\n");
 
 function extractProfileUpdateFences(text) {
   const src = String(text || "");
-  const re = /~~~profile-update\s*\r?\n([\s\S]*?)~~~/g;
   const profileFields = {};
+
+  // Match both well-formed fences (with closing ~~~) and inline/unclosed ones.
+  // Pattern 1: ~~~profile-update\n{...}\n~~~ (proper multi-line)
+  // Pattern 2: ~~~profile-update\s*{...}~~~  (inline with closing)
+  // Pattern 3: ~~~profile-update\s*{...}     (unclosed, at end of text)
+  const re = /~~~profile-update\s*\r?\n?([\s\S]*?)(?:~~~|$)/g;
   let match;
 
   while ((match = re.exec(src)) !== null) {
+    const raw = match[1].trim();
+    // Extract JSON — find the first {...} in the captured content.
+    const jsonMatch = raw.match(/\{[^}]*\}/);
+    if (!jsonMatch) continue;
     try {
-      const parsed = JSON.parse(match[1].trim());
+      const parsed = JSON.parse(jsonMatch[0]);
       if (parsed && typeof parsed === "object") {
-        Object.assign(profileFields, parsed);
+        // Strip null values the model might emit despite instructions.
+        for (const [k, v] of Object.entries(parsed)) {
+          if (v !== null && v !== undefined) {
+            profileFields[k] = v;
+          }
+        }
       }
     } catch (_err) {
       // Malformed JSON in fence — skip silently.
     }
   }
 
-  const cleanText = src.replace(/~~~profile-update\s*\r?\n[\s\S]*?~~~/g, "").trim();
+  // Strip all fence variations from displayed text.
+  const cleanText = src
+    .replace(/\n*~~~profile-update\s*\r?\n?[\s\S]*?(?:~~~|$)/g, "")
+    .trim();
   return { cleanText, profileFields };
 }
 

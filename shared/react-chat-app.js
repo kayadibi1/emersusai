@@ -2021,12 +2021,18 @@ export function ChatApp({
     if (isSubmitting) return;
 
     const baseThread = activeThread || createEmptyThread();
-    const userMessage = { role: "user", text: trimmed, plainText: trimmed, createdAt: new Date().toISOString() };
-    const threadWithUser = {
-      ...baseThread,
-      messages: [...(baseThread.messages || []), userMessage],
-      threadState: deriveThreadState(baseThread, trimmed, ""),
-    };
+    const isOnboardingTrigger = trimmed === "__onboarding_start__";
+    // Don't show the onboarding trigger as a visible user message.
+    const threadWithUser = isOnboardingTrigger
+      ? baseThread
+      : (() => {
+          const userMessage = { role: "user", text: trimmed, plainText: trimmed, createdAt: new Date().toISOString() };
+          return {
+            ...baseThread,
+            messages: [...(baseThread.messages || []), userMessage],
+            threadState: deriveThreadState(baseThread, trimmed, ""),
+          };
+        })();
 
     setQuestion("");
     setIsSubmitting(true);
@@ -2084,7 +2090,7 @@ export function ChatApp({
       }
       setGlyphState("responding");
       const assistantRaw = String(data.answer_text || data.summary || "")
-        .replace(/~~~profile-update\s*\r?\n[\s\S]*?~~~/g, "")
+        .replace(/\n*~~~profile-update\s*\r?\n?[\s\S]*?(?:~~~|$)/g, "")
         .trim();
       // If the answer contains a widget fence, route through the segment-aware
       // TextBlock + WidgetFrame pipeline. The legacy structured-HTML dump path
