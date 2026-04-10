@@ -106,7 +106,7 @@ begin
     ) as sim
     from public.exercises
   ) sub
-  where sub.sim >= 0.5
+  where sub.sim >= 0.6
   order by sub.sim desc
   limit 1;
   if v_id is not null then return v_id; end if;
