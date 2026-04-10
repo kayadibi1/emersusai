@@ -584,6 +584,7 @@ async function deleteOldChunks(pmids) {
 }
 
 async function insertChunkBatch(records, chunkColumns, abstractChunkSize) {
+  const supabaseAdmin = await getSupabaseAdmin();
   let insertedCount = 0;
 
   await withSchemaCacheRetry({
@@ -652,6 +653,7 @@ async function logIngestIfAvailable({
           {
             file_name: path.basename(inputPath),
             filename: path.basename(inputPath),
+            file_kind: "pubmed",
             source_path: path.resolve(process.cwd(), inputPath),
             status,
             article_count: articleCount,
