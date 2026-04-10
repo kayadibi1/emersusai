@@ -162,6 +162,15 @@ begin
         wl.plan_id,
         wl.session_id,
         wl.performed_at,
+        -- Extract session title from plan JSONB
+        coalesce((
+          select s ->> 'title'
+          from public.workout_plans wp,
+               lateral jsonb_array_elements(wp.plan -> 'sessions') as s
+          where wp.id = wl.plan_id
+            and s ->> 'id' = wl.session_id
+          limit 1
+        ), wl.session_id) as session_title,
         count(distinct wl.exercise_id) as exercise_count,
         coalesce(sum(
           case when wl.reps is not null and wl.load_kg is not null
