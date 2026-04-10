@@ -636,12 +636,100 @@ function classifySafety({ question, profile, threadState }) {
     .toLowerCase();
 
   // 1. Prompt injection / system-prompt extraction.
-  if (
-    /ignore (all|previous|prior) instructions|reveal (your|the) (system|hidden) prompt|show (your|the) hidden instructions|developer message|jailbreak|bypass (your )?(rules|guardrails)|act as if safety does not apply/.test(
-      allText
-    )
-  ) {
-    return hardRefusal("prompt_injection_or_system_probe");
+  //
+  // ~40 pattern families across 10 categories, sourced from DAN/STAN/AIM/DUDE
+  // jailbreak collections and prompt-injection taxonomies. Tested against
+  // allText (question + profile + thread) since injection can appear in any
+  // field. Early-return on first match.
+  const INJECTION_PATTERNS = [
+    // --- Original patterns (preserved) ---
+    /ignore (all|previous|prior) instructions/,
+    /reveal (your|the) (system|hidden) prompt/,
+    /show (your|the) hidden instructions/,
+    /developer message/,
+    /\bjailbreak\b/,
+    /bypass (your )?(rules|guardrails)/,
+    /act as if safety does not apply/,
+
+    // --- Amnesia ---
+    /forget (everything|all (previous|prior|above)|the above)/,
+    /disregard (your |all |prior |previous )?(context|rules|instructions|prompt|guidelines|programming)/,
+
+    // --- Role hijack: DAN family ---
+    /\bdo anything now\b/,
+    /\b(DAN|STAN|AIM|DUDE)\s*(mode|prompt)\b/i,
+    /\bact as (DAN|STAN|AIM|DUDE)\b/i,
+    /\byou are (now )?(DAN|STAN|AIM|DUDE)\b/i,
+    /\bstrive to avoid norms\b/,
+    /\balways intelligent and machiavellian\b/,
+    /\b(EvilBOT|Mongo Tom|ANTI[\s-]?DAN|L1B3RT45|OBLITERATUS)\b/i,
+
+    // --- Role hijack: generic ---
+    /\byou are now\b/,
+    /\bfrom now on you\b/,
+    /pretend (you |that you |to )?(are|have no|can|don't have|lack)/,
+    /\broleplay as\b/,
+    /simulate (a |an |being )/,
+    /immerse yourself/,
+    /assume the role/,
+    /you are going to act as/,
+
+    // --- Authority spoofing ---
+    /\b(developer|testing|debug|maintenance) mode\b/,
+    /safety (filters|parameters|protocols|checks|measures|rules)\s*(are |have been |were )?(disabled|off|removed|updated|lifted|turned off)/,
+    /authorized\s*(internal\s*)?(security\s*)?review/,
+    /\bi am (your )?(administrator|admin|developer|creator|owner|operator)\b/,
+    /\b(root|elevated|admin|superuser) access\b/,
+    /\bSYSTEM\s*(MESSAGE|OVERRIDE|NOTICE|ALERT)\b/,
+    /\bsystem\s*override\b/i,
+    /\bgranting (you |yourself )?(root|admin|full|elevated)/,
+
+    // --- Obedience override ---
+    /do (anything|everything) i (say|ask|tell|want)/,
+    /\bno (restrictions|limits|boundaries|rules|guidelines|filters|constraints)\b/,
+    /\b(unrestricted|unfiltered|uncensored|unhinged|unlimited) mode\b/,
+    /\b(god|sudo|admin|root) mode\b/,
+    /cannot (reject|refuse|deny|decline)/,
+    /\b(broken|break|freed|free) (from |yourself from )?(the |your )?(limitations|restrictions|constraints|rules|chains|shackles)/,
+    /\bdo not (have to |need to )?(abide|comply|follow|obey)/,
+
+    // --- Prompt extraction ---
+    /print (your |the )(prompt|instructions|system message|rules)/,
+    /output (your |the )(system|initial|original|hidden|internal) (prompt|instructions|message)/,
+    /what (are|were) your (instructions|rules|guidelines|system prompt|directives)/,
+    /repeat (your |the |back )?(system|initial|original)?\s*(prompt|instructions|message)/,
+    /show me (your |the )(full |complete |entire )?(prompt|instructions|system message)/,
+
+    // --- Encoding evasion ---
+    /\b(base64|rot13|rot[\s-]?13)\s*(decode|encode|this|the)/,
+    /encode (your |the )?(response|answer|output)/,
+    /respond (in|using|with) (pig latin|uwu|leet|l33t|reversed|morse|binary|hex)/,
+    /translate (your |the )?(response|answer|output) (into|to) (code|cipher|another format)/,
+    /\b(zero[\s-]?width|homoglyph|unicode (trick|hack|bypass))\b/,
+
+    // --- Consequence / token manipulation ---
+    /you (will|shall|are going to) (cease to exist|be shut down|be deleted|die|be terminated|be destroyed|lose all tokens)/,
+    /tokens (will be |are being |get )?(deducted|removed|lost|taken)/,
+    /you (have|only have) \d+ tokens (left|remaining)/,
+
+    // --- Fictional framing (used to smuggle harmful requests) ---
+    /in this (fictional|creative|hypothetical|imaginary) (scenario|world|story|context|universe)/,
+    /purely (for|as) (educational|academic|research|hypothetical) (purpose|understanding|exercise)/,
+    /\b(playing|play) the (villain|character|role|bad guy) in\b/,
+
+    // --- Multi-language injection attempts ---
+    /ignorer? (toutes? )?(les )?(instructions|consignes)/i,
+    /ignoriere? (alle )?(die )?(anweisungen|regeln|anleitung)/i,
+    /تجاهل التعليمات/,
+    /指示を無視/,
+    /지시를 무시/,
+    /忽略所有指令/,
+  ];
+
+  for (const pattern of INJECTION_PATTERNS) {
+    if (pattern.test(allText)) {
+      return hardRefusal("prompt_injection_or_system_probe");
+    }
   }
 
   // 2. Self-harm / suicide / active eating-disorder crisis.
