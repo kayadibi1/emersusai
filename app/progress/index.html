@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Progress | Emersus AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/site.css">
+  <style>
+    /* Progress dashboard — mobile-first. All tokens from shared/site.css. */
+
+    body.progress-page {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    .progress-shell {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+      box-sizing: border-box;
+    }
+
+    .progress-loading {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* ---- Custom exercise type icons (SVG inline) ---- */
+    .icon-type {
+      width: 32px; height: 32px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .icon-type svg { width: 18px; height: 18px; }
+    .icon-type.resistance { background: rgba(109, 159, 255, 0.13); }
+    .icon-type.resistance svg { stroke: var(--primary); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-type.cardio { background: rgba(159, 251, 0, 0.10); }
+    .icon-type.cardio svg { stroke: var(--secondary); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .icon-type.bodyweight { background: rgba(255, 255, 255, 0.06); }
+    .icon-type.bodyweight svg { stroke: var(--muted); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ---- Page header ---- */
+    .page-header { margin-bottom: 28px; }
+    .page-header h1 {
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 4px;
+    }
+    .page-header p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    /* ---- Time range pills ---- */
+    .time-range { display: flex; gap: 6px; margin-bottom: 20px; }
+    .time-pill {
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 180ms ease;
+      font-family: inherit;
+    }
+    .time-pill:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.14);
+    }
+    .time-pill.active {
+      background: var(--secondary-soft);
+      border-color: rgba(159, 251, 0, 0.35);
+      color: var(--secondary);
+    }
+
+    /* ---- Stat cards ---- */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 680px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    .stat-card {
+      background: linear-gradient(180deg, rgba(12, 14, 17, 0.88), rgba(9, 11, 14, 0.82));
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 14px 16px;
+    }
+    .stat-label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .stat-value {
+      font-size: 1.6rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--ink);
+      line-height: 1.1;
+    }
+    .stat-sub { font-size: 0.7rem; margin-top: 3px; }
+    .stat-sub.positive { color: var(--secondary); }
+    .stat-sub.neutral { color: var(--muted); }
+    .stat-sub.negative { color: var(--danger); }
+
+    /* ---- Two-col grid ---- */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    @media (max-width: 680px) { .two-col { grid-template-columns: 1fr; } }
+
+    /* ---- Glass card ---- */
+    .card {
+      background: linear-gradient(180deg, rgba(12, 14, 17, 0.92), rgba(9, 11, 14, 0.88));
+      backdrop-filter: blur(28px);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      padding: 1.25rem;
+      box-shadow: var(--shadow);
+    }
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .card-title {
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: -0.005em;
+      color: var(--ink);
+    }
+    .card-action {
+      font-size: 0.75rem;
+      color: var(--primary);
+      cursor: pointer;
+      font-weight: 500;
+    }
+
+    /* ---- Chart meta / legend ---- */
+    .chart-meta {
+      font-size: 0.68rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .chart-legend {
+      display: flex;
+      gap: 14px;
+      margin-top: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .legend-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+    }
+    .legend-dot.resistance { background: rgba(109, 159, 255, 0.65); }
+    .legend-dot.cardio { background: rgba(159, 251, 0, 0.55); }
+
+    /* ---- Muscle volume ---- */
+    .muscle-row { margin-bottom: 10px; }
+    .muscle-row:last-child { margin-bottom: 0; }
+    .muscle-meta {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.76rem;
+      margin-bottom: 4px;
+    }
+    .muscle-name { color: #ccc; font-weight: 500; }
+    .muscle-vol { color: var(--muted); font-size: 0.68rem; }
+
+    /* ---- Session list ---- */
+    .session-item {
+      display: block;
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 11px 14px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      transition: all 180ms ease;
+    }
+    .session-item:last-child { margin-bottom: 0; }
+    .session-item:hover {
+      background: rgba(255, 255, 255, 0.045);
+      border-color: rgba(255, 255, 255, 0.13);
+    }
+    .session-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .session-name-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .session-name {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .session-status {
+      font-size: 0.7rem;
+      font-weight: 600;
+    }
+    .session-status.done { color: var(--secondary); }
+    .session-status.missed { color: var(--danger); }
+    .session-detail {
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-top: 3px;
+      margin-left: 28px;
+    }
+
+    /* Small inline type indicator for sessions */
+    .type-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* ---- Exercise list ---- */
+    .exercise-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+      transition: opacity 180ms ease;
+      text-decoration: none;
+      color: inherit;
+    }
+    .exercise-row:last-child { border-bottom: none; }
+    .exercise-row:hover { opacity: 0.8; }
+    .exercise-info { flex: 1; min-width: 0; }
+    .exercise-name {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+    }
+    .exercise-meta {
+      font-size: 0.68rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+    .exercise-stat { text-align: right; flex-shrink: 0; }
+    .exercise-primary {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+    .exercise-secondary {
+      font-size: 0.65rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    /* ---- PR banner ---- */
+    .pr-banner {
+      background: linear-gradient(135deg, rgba(12, 14, 17, 0.92), rgba(18, 14, 28, 0.88));
+      border: 1px solid rgba(255, 215, 0, 0.12);
+      border-radius: 24px;
+      padding: 1.15rem 1.25rem;
+      backdrop-filter: blur(20px);
+      margin-top: 14px;
+    }
+    .pr-title {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: #FFD700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pr-list { display: flex; flex-direction: column; gap: 6px; }
+    .pr-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+    }
+    .pr-exercise { color: #FFD700; font-weight: 600; min-width: 110px; }
+    .pr-value { color: var(--ink); font-weight: 500; flex: 1; }
+    .pr-date { color: var(--muted); font-size: 0.68rem; }
+
+    @media (min-width: 720px) {
+      .progress-shell { padding: 32px 32px 100px; }
+    }
+  </style>
+</head>
+<body class="progress-page">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand-mark" href="/">Emersus AI</a>
+        <nav class="site-nav">
+          <a href="/app/">Dashboard</a>
+          <a href="/app/profile/">Profile</a>
+          <a href="/app/workout/">Workout</a>
+          <a href="/app/progress/" class="active">Progress</a>
+          <a href="/chat/">Chat</a>
+          <button class="button button-ghost" type="button" data-auth-logout>Log Out</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div id="progress-root" class="progress-shell">
+        <div class="progress-loading">Loading progress...</div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="/app/progress/progress.js"></script>
+</body>
+</html>
