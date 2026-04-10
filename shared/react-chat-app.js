@@ -2078,6 +2078,7 @@ export function ChatApp({
         ...(structuredHtml ? { html: structuredHtml } : { blocks: buildAssistantBlocks(data) }),
         plainText: assistantPlainText || normalizeText(assistantRaw, 4000),
         text: assistantPlainText || normalizeText(assistantRaw, 4000),
+        sources: Array.isArray(data.sources) ? data.sources : [],
         createdAt: new Date().toISOString(),
       };
       const nextThread = {
@@ -2110,7 +2111,6 @@ export function ChatApp({
             requestCount: mergedUsage.requests,
           };
         })(),
-        sources: Array.isArray(data.sources) ? data.sources : [],
       };
       // Mark the message as streaming BEFORE persist runs setChatHistory.
       // Both updates batch into a single render, so the message renders with
@@ -2143,7 +2143,17 @@ export function ChatApp({
   const displayName = getDisplayName(session);
   const rail = activeThread?.rail || {};
   const confidencePercent = typeof rail.confidencePercent === "number" ? rail.confidencePercent : Math.round(Math.max(0, Math.min(Number(rail.confidenceScore || 0), 1)) * 100);
-  const sourceCount = Number(rail.sourceCount || activeThread?.sources?.length || 0);
+  const latestAssistantSources = useMemo(() => {
+    const msgs = activeThread?.messages || [];
+    for (let i = msgs.length - 1; i >= 0; i--) {
+      if (msgs[i].role === "assistant" && Array.isArray(msgs[i].sources) && msgs[i].sources.length) {
+        return msgs[i].sources;
+      }
+    }
+    // Backward compat: fall back to thread-level sources for old threads
+    return Array.isArray(activeThread?.sources) ? activeThread.sources : [];
+  }, [activeThread]);
+  const sourceCount = Number(rail.sourceCount || latestAssistantSources.length || 0);
 
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}` },
     h("aside", { className: "chat-nav" },
@@ -2251,7 +2261,7 @@ export function ChatApp({
         h("div", { className: "rail-metric-stack" },
           h(RailMetric, { label: "Confidence", value: `${confidencePercent}%`, note: rail.confidenceLabel || "Idle", width: `${Math.max(0, Math.min(Number(rail.confidenceScore || 0) * 100, 100))}%` }),
           h(RailMetric, { label: "Source count", value: String(sourceCount), note: "Attached", width: `${Math.max(10, Math.min(sourceCount * 16, 100))}%`, tone: "tone-medium" }))),
-      h(SourcesRailCard, { sources: activeThread?.sources || [] }),
+      h(SourcesRailCard, { sources: latestAssistantSources }),
       h("div", { className: "rail-foot" },
         h("div", { className: "rail-foot-line" }, h("span", null, "Pipeline"), h("span", null, "PubMed + PMC")),
         h("div", { className: "rail-foot-line" }, h("span", null, "Interface"), h("span", null, "React + Lucide")))));
