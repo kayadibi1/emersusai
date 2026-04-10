@@ -463,10 +463,13 @@ export async function archiveWorkoutPlan(userId, planId) {
  * Called after applyManualWorkoutPlanEdit succeeds.
  * Non-blocking — errors are logged but don't fail the save.
  */
-export async function upsertWorkoutLogs(userId, planId, plan) {
+export async function upsertWorkoutLogs(userId, planId, plan, targetSessionId) {
   const supabase = await getSupabase();
 
   for (const session of (plan.sessions || [])) {
+    // If a target session is specified, only process that one
+    if (targetSessionId && session.id !== targetSessionId) continue;
+
     const completed = session.completed_blocks;
     if (!completed || completed.length === 0) continue;
 
