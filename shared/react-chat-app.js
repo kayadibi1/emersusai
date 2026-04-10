@@ -17,6 +17,7 @@ import {
 } from "https://esm.sh/lucide-react@0.468.0?deps=react@18.2.0";
 import {
   applyWorkoutPlanUpdate,
+  getProfile,
   getSession,
   listChatThreads,
   requireAuth,
@@ -1807,6 +1808,7 @@ export function ChatApp({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [glyphState, setGlyphState] = useState("idle");
   const [streamingMessageKey, setStreamingMessageKey] = useState("");
+  const [onboardingActive, setOnboardingActive] = useState(false);
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
   const submitQuestionRef = useRef(null);
@@ -1863,6 +1865,11 @@ export function ChatApp({
       const authSession = await requireAuth();
       if (!authSession || cancelled) return;
       setSession(authSession);
+      // Check if user needs onboarding.
+      const userProfile = await getProfile(authSession.user.id);
+      if (cancelled) return;
+      const needsOnboarding = !userProfile || userProfile.onboarding_completed === false;
+      setOnboardingActive(needsOnboarding);
       const rows = await listChatThreads(authSession.user.id);
       if (cancelled) return;
       const loaded = rows.map(mapSavedThread);
@@ -1874,6 +1881,16 @@ export function ChatApp({
         setChatHistory([firstThread]);
         setActiveThreadId(firstThread.id);
         await upsertChatThread(authSession.user.id, firstThread);
+      }
+
+      // Auto-trigger onboarding for new users on their first empty thread.
+      if (needsOnboarding) {
+        setTimeout(() => {
+          const submit = submitQuestionRef.current;
+          if (typeof submit === "function") {
+            submit(null, "__onboarding_start__");
+          }
+        }, 300);
       }
 
       // Deep link from /app/workout/<id>: open a fresh chat thread already
@@ -2060,8 +2077,15 @@ export function ChatApp({
           console.error("onDebugData callback failed:", debugError);
         }
       }
+      // If the backend signals onboarding is complete, update local state
+      // so the placeholder reverts and future messages go through normal flow.
+      if (data.onboarding_completed) {
+        setOnboardingActive(false);
+      }
       setGlyphState("responding");
-      const assistantRaw = String(data.answer_text || data.summary || "");
+      const assistantRaw = String(data.answer_text || data.summary || "")
+        .replace(/~~~profile-update\s*\r?\n[\s\S]*?~~~/g, "")
+        .trim();
       // If the answer contains a widget fence, route through the segment-aware
       // TextBlock + WidgetFrame pipeline. The legacy structured-HTML dump path
       // would otherwise hijack any answer containing <div> (i.e. every widget)
@@ -2242,7 +2266,9 @@ export function ChatApp({
             h("textarea", {
               id: "chat-question",
               name: "question",
-              placeholder: "Ask me anything about training, nutrition, recovery, or performance.",
+              placeholder: onboardingActive
+                ? "Tell me about yourself..."
+                : "Ask me anything about training, nutrition, recovery, or performance.",
               value: question,
               onChange: (event) => setQuestion(event.target.value),
               onKeyDown: (event) => {
