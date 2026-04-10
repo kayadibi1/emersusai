@@ -100,19 +100,25 @@ function chunkArray(items, size) {
   return chunks;
 }
 
-async function fetchRowsNeedingEmbeddings(limit = DEFAULT_FETCH_BATCH_SIZE) {
+async function fetchRowsNeedingEmbeddings(limit = DEFAULT_FETCH_BATCH_SIZE, afterId = 0) {
   if (!supabaseAdmin) {
     throw new Error("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY.");
   }
 
-  const { data, error } = await withDbRetry("Fetching rows needing embeddings", async () =>
-    supabaseAdmin
+  const { data, error } = await withDbRetry("Fetching rows needing embeddings", async () => {
+    let query = supabaseAdmin
       .from("evidence_chunks")
       .select("id, pmid, chunk_type, content")
       .is("embedding", null)
       .order("id", { ascending: true })
-      .limit(limit)
-  );
+      .limit(limit);
+
+    if (afterId > 0) {
+      query = query.gt("id", afterId);
+    }
+
+    return query;
+  });
 
   if (error) throw error;
   return data || [];
@@ -172,6 +178,9 @@ async function main() {
   const totals = { fetch: 0, openai: 0, db: 0, sleep: 0 };
   const startedAt = Date.now();
 
+  // Pipeline: prefetch the first batch, then overlap fetch+embed with writes
+  let prefetchedRows = null;
+
   while (true) {
     if (args.maxRows > 0 && totalUpdated >= args.maxRows) {
       console.log(`Reached maxRows=${args.maxRows}. Stopping after ${totalUpdated} updates.`);
@@ -186,9 +195,17 @@ async function main() {
         ? Math.min(args.fetchBatchSize, args.maxRows - totalUpdated)
         : args.fetchBatchSize;
 
-    const fetchStart = Date.now();
-    const rows = await fetchRowsNeedingEmbeddings(remainingLimit);
-    const fetchMs = Date.now() - fetchStart;
+    let rows;
+    let fetchMs;
+    if (prefetchedRows !== null) {
+      rows = prefetchedRows;
+      fetchMs = 0;
+      prefetchedRows = null;
+    } else {
+      const fetchStart = Date.now();
+      rows = await fetchRowsNeedingEmbeddings(remainingLimit);
+      fetchMs = Date.now() - fetchStart;
+    }
 
     if (rows.length === 0) {
       const elapsedSec = ((Date.now() - startedAt) / 1000).toFixed(1);
@@ -220,21 +237,41 @@ async function main() {
     let sleepMs = 0;
     const writeCount = rowChunks.length;
 
-    for (let index = 0; index < rowChunks.length; index += 1) {
-      const rowChunk = rowChunks[index];
-      const embeddingChunk = embeddingChunks[index];
+    // Pipeline: start fetching next batch while writing current embeddings.
+    // Use afterId to guarantee no overlap regardless of transaction timing.
+    const lastId = rows[rows.length - 1].id;
+    const nextRemainingLimit =
+      args.maxRows > 0
+        ? Math.min(args.fetchBatchSize, args.maxRows - totalUpdated - rows.length)
+        : args.fetchBatchSize;
+    const shouldPrefetch = nextRemainingLimit > 0;
 
-      const writeStart = Date.now();
-      await updateEmbeddingsBatch(rowChunk, embeddingChunk);
-      dbMs += Date.now() - writeStart;
+    const writeStart = Date.now();
+    const writePromises = rowChunks.map((rowChunk, index) =>
+      updateEmbeddingsBatch(rowChunk, embeddingChunks[index])
+    );
+    const prefetchPromise = shouldPrefetch
+      ? fetchRowsNeedingEmbeddings(nextRemainingLimit, lastId)
+      : Promise.resolve(null);
 
+    const [, nextRows] = await Promise.all([
+      Promise.all(writePromises),
+      prefetchPromise,
+    ]);
+    dbMs = Date.now() - writeStart;
+
+    if (nextRows !== null) {
+      prefetchedRows = nextRows;
+    }
+
+    for (const rowChunk of rowChunks) {
       totalUpdated += rowChunk.length;
+    }
 
-      if (args.sleepMs > 0) {
-        const sleepStart = Date.now();
-        await wait(args.sleepMs);
-        sleepMs += Date.now() - sleepStart;
-      }
+    if (args.sleepMs > 0) {
+      const sleepStart = Date.now();
+      await wait(args.sleepMs);
+      sleepMs = Date.now() - sleepStart;
     }
 
     const totalMs = Date.now() - batchStart;
