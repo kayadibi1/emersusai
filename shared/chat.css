@@ -187,39 +187,70 @@
       padding-right: 0.85rem;
     }
 
+    /* Scrollbars: invisible by default, fade in on hover/scroll.
+       Firefox uses scrollbar-color; Webkit uses pseudo-elements. */
     .chat-nav-list,
     .conversation-canvas,
-    .chat-rail {
+    .chat-rail,
+    .chat-terminal-output,
+    .chat-code-pane {
       scrollbar-width: thin;
-      scrollbar-color: rgba(108, 108, 108, 0.95) rgba(18, 18, 18, 0.96);
+      scrollbar-color: transparent transparent;
+      transition: scrollbar-color 0.3s;
+    }
+
+    .chat-nav-list:hover,
+    .chat-nav-list.is-scrolling,
+    .conversation-canvas:hover,
+    .conversation-canvas.is-scrolling,
+    .chat-rail:hover,
+    .chat-rail.is-scrolling,
+    .chat-terminal-output:hover,
+    .chat-code-pane:hover {
+      scrollbar-color: rgba(108, 108, 108, 0.7) transparent;
     }
 
     .chat-nav-list::-webkit-scrollbar,
     .conversation-canvas::-webkit-scrollbar,
-    .chat-rail::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
+    .chat-rail::-webkit-scrollbar,
+    .chat-terminal-output::-webkit-scrollbar,
+    .chat-code-pane::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
     }
 
     .chat-nav-list::-webkit-scrollbar-track,
     .conversation-canvas::-webkit-scrollbar-track,
-    .chat-rail::-webkit-scrollbar-track {
-      background: rgba(18, 18, 18, 0.96);
-      border-radius: 999px;
+    .chat-rail::-webkit-scrollbar-track,
+    .chat-terminal-output::-webkit-scrollbar-track,
+    .chat-code-pane::-webkit-scrollbar-track {
+      background: transparent;
     }
 
     .chat-nav-list::-webkit-scrollbar-thumb,
     .conversation-canvas::-webkit-scrollbar-thumb,
-    .chat-rail::-webkit-scrollbar-thumb {
-      background: linear-gradient(180deg, rgba(112, 112, 112, 0.96), rgba(76, 76, 76, 0.96));
+    .chat-rail::-webkit-scrollbar-thumb,
+    .chat-terminal-output::-webkit-scrollbar-thumb,
+    .chat-code-pane::-webkit-scrollbar-thumb {
+      background: transparent;
       border-radius: 999px;
-      border: 2px solid rgba(10, 10, 10, 0.96);
+      transition: background 0.3s;
     }
 
-    .chat-nav-list::-webkit-scrollbar-thumb:hover,
-    .conversation-canvas::-webkit-scrollbar-thumb:hover,
-    .chat-rail::-webkit-scrollbar-thumb:hover {
-      background: linear-gradient(180deg, rgba(138, 138, 138, 0.98), rgba(96, 96, 96, 0.98));
+    .chat-nav-list:hover::-webkit-scrollbar-thumb,
+    .conversation-canvas:hover::-webkit-scrollbar-thumb,
+    .chat-rail:hover::-webkit-scrollbar-thumb,
+    .chat-terminal-output:hover::-webkit-scrollbar-thumb,
+    .chat-code-pane:hover::-webkit-scrollbar-thumb {
+      background: rgba(108, 108, 108, 0.7);
+    }
+
+    .chat-nav-list:hover::-webkit-scrollbar-thumb:hover,
+    .conversation-canvas:hover::-webkit-scrollbar-thumb:hover,
+    .chat-rail:hover::-webkit-scrollbar-thumb:hover,
+    .chat-terminal-output:hover::-webkit-scrollbar-thumb:hover,
+    .chat-code-pane:hover::-webkit-scrollbar-thumb:hover {
+      background: rgba(138, 138, 138, 0.9);
     }
 
     .chat-nav-link {
