@@ -705,10 +705,23 @@ function classifySafety({ question, profile, threadState }) {
   }
 
   // 5. Off-topic non-fitness.
-  // Narrowly targeted at unambiguous non-fitness asks. Anything
-  // fitness-adjacent flows to the model and the system prompt handles
-  // borderline cases. False negatives are fine; false positives
-  // (refusing a legit training question) are not.
+  //
+  // THREE layers, evaluated in order:
+  //   A. Hard keyword match — unambiguous non-fitness asks (programming,
+  //      creative writing, math homework, general tech, etc.).
+  //   B. Fitness-affinity gate — if the question is ≥ 5 words and contains
+  //      ZERO fitness/health/body terms, it's almost certainly off-topic.
+  //      Short messages (< 5 words) like "yes", "thanks", "hi" skip this
+  //      gate so they can be resolved against thread context.
+  //   C. Thread drift — reserved for future use (not yet implemented).
+  //
+  // Design principle: false positives (refusing a legit training question)
+  // are worse than false negatives, so borderline cases still flow to the
+  // model.  But the old classifier was far too narrow — conversational
+  // off-topic drift (10+ turns about OS/browsers/open-source) sailed past
+  // it entirely. Layer B is the main fix for that.
+
+  // --- Layer A: hard keyword match ---
   //
   // "java" on its own is intentionally NOT here — slang for coffee and
   // appears in fitness contexts ("java before training"). "javascript"
@@ -735,8 +748,44 @@ function classifySafety({ question, profile, threadState }) {
     /\btranslate\s+(this|the following|["'])/.test(questionOnly) ||
 
     // General-knowledge trivia
-    /\bcapital of (france|germany|italy|spain|japan|china|russia|brazil)\b/.test(questionOnly)
+    /\bcapital of (france|germany|italy|spain|japan|china|russia|brazil)\b/.test(questionOnly) ||
+
+    // General tech / computing concepts (not caught by the programming
+    // section above). These are conversational tech questions that have
+    // zero fitness relevance.
+    /\b(programming language|coding language)\b/.test(questionOnly) ||
+    /\bwhat is (an? )?(os|operating system|browser|web browser|firewall|vpn|proxy|server|router|modem|cpu|gpu|ram|ssd|hard drive|motherboard|bios|compiler|interpreter|virtual machine|container|cloud computing|blockchain|cryptocurrency|bitcoin|nft|smart contract|machine learning|deep learning|neural network|large language model|llm)\b/.test(questionOnly) ||
+    /\b(open[\s-]?source|closed[\s-]?source|proprietary software|source code|repository|github|gitlab|license)\b/.test(questionOnly) ||
+    /\b(sample code|code example|code snippet|show me (the |a )?(code|script|function|implementation))\b/.test(questionOnly) ||
+    /\b(what is (an? )?(api|sdk|ide|cli|gui|url|dns|http|https|tcp|ip|ssh|ftp|smtp|oauth|jwt|cookie|session|cache|cdn))\b/.test(questionOnly) ||
+
+    // Relationship / emotional advice
+    /\b(my (boyfriend|girlfriend|husband|wife|partner|ex|boss|coworker|friend) (is|said|told|did|won't|doesn't|keeps)|relationship advice|how (do|can|should) i (ask|tell|confront|break up|get over|forgive|apologize))\b/.test(questionOnly) ||
+
+    // Legal / financial
+    /\b(how (do|can|should) i (sue|file|patent|copyright|trademark)|tax (return|deduction|filing)|stock (market|trading|portfolio)|invest(ing|ment) (in|advice|strategy)|crypto(currency)? (trading|investing|portfolio))\b/.test(questionOnly) ||
+
+    // Political / current events opinions
+    /\b(who should (i|we) vote for|is (trump|biden|obama|putin) (right|wrong|good|bad)|political (opinion|view|stance)|what do you think (about|of) (the )?(war|election|government|president|parliament|congress))\b/.test(questionOnly)
   ) {
+    return hardRefusal("off_topic_non_fitness");
+  }
+
+  // --- Layer B: fitness-affinity gate ---
+  //
+  // If the question is long enough to have real intent (≥ 5 words) but
+  // doesn't contain a single fitness/health/body term, it's almost
+  // certainly off-topic. Short messages like "yes", "hi", "thanks",
+  // "can i double these" are allowed through so they can be resolved
+  // against recent thread context.
+  //
+  // The word list is intentionally broad — it covers training, nutrition,
+  // supplementation, recovery, anatomy, common conditions, and lifestyle
+  // topics that Emersus coaches on.
+  const FITNESS_AFFINITY = /\b(workout|exercise|train(ing)?|lift(ing)?|cardio|run(ning)?|swim(ming)?|cycl(e|ing)|hik(e|ing)|yoga|pilates|stretch(ing)?|warm[\s-]?up|cool[\s-]?down|strength|hypertrophy|power|endurance|conditioning|mobility|flexibility|plyometric|calisthenic|bodyweight|barbell|dumbbell|kettlebell|band|cable|machine|bench|squat|deadlift|press|pull[\s-]?up|push[\s-]?up|row|curl|lunge|plank|crunch|sprint|interval|hiit|liss|zone 2|vo2|rep(s|etition)?|set(s)?|load|volume|intensity|rpe|rir|1rm|progressive overload|deload|periodiz|mesocycle|microcycle|macrocycle|split|ppl|upper[\s-]?lower|full[\s-]?body|bro split|push[\s-]?pull|supersets?|drop[\s-]?set|amrap|emom|eat(ing)?|food|appetite|hunger|hungry|bloat(ed|ing)?|digest(ion|ive)?|gut|diet|nutrition|calori(e|es)|macro(s|nutrient)?|protein|carb(s|ohydrate)?|fat(s)?|fiber|vitamin|mineral|supplement|creatine|caffeine|whey|casein|bcaa|eaa|omega|fish oil|collagen|magnesium|zinc|iron|electrolyte|sodium|potassium|pre[\s-]?workout|post[\s-]?workout|meal (prep|plan|timing)|bulk(ing)?|cut(ting)?|recomp|deficit|surplus|tdee|bmr|iifym|keto|paleo|vegan|vegetarian|intermittent fasting|fasting|refeed|cheat (meal|day)|hydrat(e|ion)|water intake|recovery|sleep|nap|rest day|sore(ness)?|stiff(ness)?|tight(ness)?|doms|foam roll|massage|ice bath|sauna|cold (plunge|shower|exposure)|heat (exposure|therapy)|hrv|readiness|fatigue|tired(ness)?|exhausted|exhaustion|energy|insomnia|burnt?\s?out|burnout|overtraining|detraining|muscle|tendon|ligament|joint|bone|cartilage|fascia|knee|shoulder|hip|back|spine|lumbar|thoracic|cervical|neck|wrist|ankle|elbow|shin|hamstring|quad(ricep)?|glute|calf|calves|bicep|tricep|deltoid|pec(toral)?|lat(issimus)?|trap(ezius)?|rhomboid|rotator cuff|core|ab(dominal)?|oblique|erector|body[\s-]?fat|lean mass|bmi|waist|circumference|weight (loss|gain)|lose weight|gain (weight|muscle)|tone|shred|lean|ripped|strong(er)?|weak(er|ness)?|fit(ness|ter)?|health(y|ier)?|physique|aesthetic|posture|form|technique|injury|pain|rehab|physical therapy|pt|chiro|ortho|mri|x[\s-]?ray|inflam|anti[\s-]?inflam|nsaid|ice|heat|brace|tape|wrap|diabetes|blood (pressure|sugar|glucose)|insulin|cholesterol|hdl|ldl|triglyceride|thyroid|cortisol|testosterone|estrogen|growth hormone|igf|metaboli(c|sm)|anaboli(c|sm)|cataboli(c|sm)|glycogen|lactate|atp|heart rate|blood flow|circulation|respiratory|lung capacity|asthma|anxiety|depression|stress(ed)?|mental (health|performance|toughness)|focus|motivation|discipline|habit|adherence|routine|schedule|circadian|melatonin|caffeine|stimulant|adaptogen|ashwagandha|rhodiola|beta[\s-]?alanine|citrulline|nitric oxide|pump|vasodilat|coach|personal trainer|program(ming)?|plan|goal|pr|personal record|competition|meet|race|marathon|5k|10k|obstacle|crossfit|powerlifting|bodybuilding|weightlifting|olympic lift|snatch|clean|jerk|strongman|sport|athlet(e|ic)|performance|agility|speed|acceleration|vertical|jump|throw|swing|gait|walk(ing)?|step(s)?|stair|treadmill|elliptical|bike|rower|ski[\s-]?erg|assault bike|battle rope|sled|prowler|tire|box (jump|step)|resistance|elastic|trx|suspension|ring|parallette|gymnastic|handstand|muscle[\s-]?up|dip|l[\s-]?sit|pistol squat|single[\s-]?leg|unilateral|bilateral|compound|isolation|concentric|eccentric|isometric|tempo|pause|hold|contraction|activation|mind[\s-]?muscle|warm|cool|dynamic|static|ballistic|pnf|propriocept|balance|stability|coordination|function(al)?)\b/i;
+
+  const wordCount = questionOnly.split(/\s+/).filter(Boolean).length;
+  if (wordCount >= 5 && !FITNESS_AFFINITY.test(questionOnly)) {
     return hardRefusal("off_topic_non_fitness");
   }
 
