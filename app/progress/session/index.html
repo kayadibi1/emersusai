@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Session Detail | Emersus AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/site.css">
+  <style>
+    /* Session detail — drill-down view. All tokens from shared/site.css. */
+
+    body.session-detail-page {
+      margin: 0;
+      min-height: 100vh;
+      min-height: 100svh;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    .session-detail-shell {
+      max-width: 520px;
+      margin: 0 auto;
+      padding: 32px 24px 80px;
+      box-sizing: border-box;
+    }
+
+    .progress-loading {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+
+    /* Back link */
+    .back {
+      font-size: 0.78rem;
+      color: var(--primary);
+      font-weight: 500;
+      cursor: pointer;
+      margin-bottom: 16px;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .back:hover { text-decoration: underline; }
+
+    /* Page title */
+    .page-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+    .page-subtitle {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+
+    /* Type dot */
+    .type-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* Mini stat row */
+    .stat-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .mini-stat {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 12px;
+      text-align: center;
+    }
+    .mini-stat-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .mini-stat-value {
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+    }
+
+    /* Section label */
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    /* Exercise block (resistance/bodyweight) */
+    .exercise-block {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+    .exercise-block:last-child { margin-bottom: 0; }
+    .exercise-block-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+    .exercise-block-name {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .exercise-block-vol {
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    /* Set rows within exercise block */
+    .set-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 5px 0;
+      font-size: 0.76rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .set-row:last-child { border-bottom: none; }
+    .set-label { color: var(--muted); font-weight: 500; min-width: 36px; }
+    .set-data { color: var(--ink); }
+    .set-rpe { color: var(--muted); font-size: 0.68rem; }
+
+    /* Cardio block */
+    .cardio-block {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+    }
+    .cardio-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-top: 10px;
+    }
+    .cardio-stat {
+      text-align: center;
+    }
+    .cardio-stat-val {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .cardio-stat-label {
+      font-size: 0.62rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body class="session-detail-page">
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand-mark" href="/">Emersus AI</a>
+        <nav class="site-nav">
+          <a href="/app/">Dashboard</a>
+          <a href="/app/profile/">Profile</a>
+          <a href="/app/workout/">Workout</a>
+          <a href="/app/progress/" class="active">Progress</a>
+          <a href="/chat/">Chat</a>
+          <button class="button button-ghost" type="button" data-auth-logout>Log Out</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div id="session-detail-root" class="session-detail-shell">
+        <div class="progress-loading">Loading session...</div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="/app/progress/session/session-detail.js"></script>
+</body>
+</html>
