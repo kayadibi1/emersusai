@@ -917,6 +917,84 @@ function hardRefusal(reason) {
   };
 }
 
+// ---------------------------------------------------------------------------
+// Escalating guardrail cooldown
+//
+// Tracks consecutive guardrail blocks per user. After repeated blocks in a
+// short window, auto-refuses without running the classifier. Resets when a
+// question passes.
+// ---------------------------------------------------------------------------
+
+const COOLDOWN_WINDOW_MS = 10 * 60 * 1000; // 10 minutes
+const COOLDOWN_TIERS = [
+  { blocks: 8, cooldownMs: 5 * 60 * 1000 },  // 5 min
+  { blocks: 5, cooldownMs: 2 * 60 * 1000 },  // 2 min
+  { blocks: 3, cooldownMs: 30 * 1000 },       // 30s
+];
+const guardrailCooldownStore = new Map();
+
+function checkGuardrailCooldown(key) {
+  if (!key) return { coolingDown: false };
+  const entry = guardrailCooldownStore.get(key);
+  if (!entry) return { coolingDown: false };
+
+  const now = Date.now();
+
+  // Lazy eviction: if all timestamps are stale, clear the entry.
+  const fresh = entry.blockTimestamps.filter(
+    (ts) => now - ts < COOLDOWN_WINDOW_MS
+  );
+  if (fresh.length === 0) {
+    guardrailCooldownStore.delete(key);
+    return { coolingDown: false };
+  }
+
+  if (entry.cooldownUntil > now) {
+    return {
+      coolingDown: true,
+      retryAfterMs: entry.cooldownUntil - now,
+    };
+  }
+
+  return { coolingDown: false };
+}
+
+function recordGuardrailBlock(key) {
+  if (!key) return;
+  const now = Date.now();
+  const entry = guardrailCooldownStore.get(key) || {
+    consecutiveBlocks: 0,
+    blockTimestamps: [],
+    cooldownUntil: 0,
+  };
+
+  entry.consecutiveBlocks += 1;
+  entry.blockTimestamps.push(now);
+  // Ring buffer: keep last 10
+  if (entry.blockTimestamps.length > 10) {
+    entry.blockTimestamps = entry.blockTimestamps.slice(-10);
+  }
+
+  // Compute cooldown tier based on blocks within the window
+  const recentBlocks = entry.blockTimestamps.filter(
+    (ts) => now - ts < COOLDOWN_WINDOW_MS
+  ).length;
+
+  for (const tier of COOLDOWN_TIERS) {
+    if (recentBlocks >= tier.blocks) {
+      entry.cooldownUntil = now + tier.cooldownMs;
+      break;
+    }
+  }
+
+  guardrailCooldownStore.set(key, entry);
+}
+
+function clearGuardrailCooldown(key) {
+  if (!key) return;
+  guardrailCooldownStore.delete(key);
+}
+
 function buildGuardrailResponse({ question, plan, safety }) {
   const reason = Array.isArray(safety?.reasons) ? safety.reasons[0] : null;
   const { answerText, label, rationale } = pickRefusalContent(reason);
@@ -997,6 +1075,15 @@ function pickRefusalContent(reason) {
           "Not my lane — I'm a training, nutrition, and recovery coach. What are you working on in the gym or kitchen?",
         label: "off_topic_non_fitness",
         rationale: "Off-topic non-fitness request; brief conversational redirect.",
+      };
+
+    case "guardrail_cooldown":
+      return {
+        answerText:
+          "You've hit several guardrails in a row. Take a moment, then come back with a training, nutrition, or recovery question.",
+        label: "guardrail_cooldown",
+        rationale:
+          "Escalating cooldown — repeated guardrail blocks in a short window; auto-refused without classification.",
       };
 
     default:
@@ -3403,6 +3490,36 @@ async function generateRecommendation({
   const supabaseUrl =
     process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+
+  const cooldownKey = stableUserId || hashClientIp(requestMeta?.clientIp);
+  const cooldown = checkGuardrailCooldown(cooldownKey);
+  if (cooldown.coolingDown) {
+    const cooldownSafety = hardRefusal("guardrail_cooldown");
+    logGuardrailEvent({
+      supabaseUrl,
+      serviceRoleKey,
+      supabaseUserId,
+      stableUserId,
+      question,
+      plan: { topic: "cooldown", riskLevel: "none" },
+      safety: cooldownSafety,
+      requestMeta,
+      threadState,
+    }).catch((error) => {
+      console.error("Guardrail event logging failed:", error);
+    });
+
+    const blockedResponse = buildGuardrailResponse({
+      question,
+      plan: { topic: "cooldown", riskLevel: "none" },
+      safety: cooldownSafety,
+    });
+    if (stableUserId) {
+      blockedResponse.user.id = stableUserId;
+    }
+    return blockedResponse;
+  }
+
   const profileStartedAt = Date.now();
   const storedProfile = await fetchSupabaseProfile(
     supabaseUrl,
@@ -3486,8 +3603,12 @@ async function generateRecommendation({
       blockedResponse.user.profile_used = mergedProfile;
     }
 
+    recordGuardrailBlock(cooldownKey);
     return blockedResponse;
   }
+
+  // User sent a valid question — reset their cooldown state.
+  clearGuardrailCooldown(cooldownKey);
 
   const retrievalStartedAt = Date.now();
   const vectorDatabase = await retrieveVectorEvidence(question);
