@@ -26,6 +26,8 @@ import {
 } from "/shared/supabase.js";
 import { DAY_LABELS, summarizeBlocks, summarizePlan } from "/shared/workout-plan-schema.js";
 import { downloadPlanIcs } from "/shared/workout-plan-ics.js";
+import { fetchDashboard, dateRange } from "/shared/progress-helpers.js";
+import { formatVolume } from "/shared/progress-charts.js";
 
 const state = {
   session: null,
@@ -211,6 +213,28 @@ function renderDetail() {
       )
     );
   }
+
+  // Stats strip — async, updates text once data arrives.
+  const statsText = el("span", { class: "plan-stats-text", id: "plan-stats-text" }, "Loading stats…");
+  const statsStrip = el(
+    "div",
+    { class: "plan-stats-strip" },
+    statsText,
+    el("a", { href: "/app/progress/", class: "plan-stats-link" }, "View progress")
+  );
+  detail.appendChild(statsStrip);
+  const { start, end } = dateRange(52);
+  fetchDashboard(state.session.user.id, start, end)
+    .then((d) => {
+      if (d) {
+        statsText.textContent = `${d.sessions_completed || 0} sessions · ${formatVolume(d.total_volume_kg || 0)} volume`;
+      } else {
+        statsText.textContent = "";
+      }
+    })
+    .catch(() => {
+      statsText.textContent = "";
+    });
 
   // Action row: discuss in chat, .ics download, undo, archive.
   const actions = el("div", { class: "workout-action-row" });
