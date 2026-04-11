@@ -128,14 +128,42 @@ async function fetchRowsNeedingEmbeddings(limit = DEFAULT_FETCH_BATCH_SIZE, afte
   return data || [];
 }
 
+// Strip characters that break JSON serialization downstream of the
+// OpenAI SDK. The most common offender on real PubMed text is lone
+// surrogate pairs (from truncated UTF-8 somewhere upstream), which
+// JSON.stringify accepts but OpenAI's server-side JSON parser rejects
+// with "could not parse JSON body". A Buffer round-trip replaces
+// lone surrogates with U+FFFD. Also strips NUL bytes — rare but
+// fatal when they appear.
+function sanitizeForJson(text) {
+  if (typeof text !== "string") return "";
+  const roundTripped = Buffer.from(text, "utf-8").toString("utf-8");
+  return roundTripped.replace(/\u0000/g, "");
+}
+
+function isFatalEmbeddingPayloadError(err) {
+  return (
+    err?.code === "invalid_request_error" ||
+    err?.type === "invalid_request_error" ||
+    err?.status === 400
+  );
+}
+
+// Embed an array of texts, handling three error classes:
+//   - Rate limits (429 / type='tokens'):  retry with backoff + hint
+//   - Invalid payload (400 / could-not-parse):  bisect the batch to
+//     isolate the bad text(s); single-item failures return `null` in
+//     that slot so the caller can skip the upsert for that chunk.
+//   - Other errors:  propagate (fatal)
 async function generateEmbeddings(texts) {
   if (!openai) {
     throw new Error("Missing OPENAI_API_KEY.");
   }
+  const sanitized = texts.map(sanitizeForJson);
+  return embedWithRetry(sanitized);
+}
 
-  // Retry on 429 / rate_limit_exceeded. OpenAI returns a retry-after
-  // hint in the error message ("try again in 445ms") — we honor it
-  // if parseable, otherwise fall back to exponential backoff.
+async function embedWithRetry(texts) {
   let lastError;
   for (let attempt = 1; attempt <= 6; attempt++) {
     try {
@@ -150,13 +178,34 @@ async function generateEmbeddings(texts) {
         err?.code === "rate_limit_exceeded" ||
         err?.status === 429 ||
         err?.type === "tokens";
-      if (!isRateLimit || attempt >= 6) throw err;
-      const hintMs = extractRetryHintMs(err?.message || err?.error?.message);
-      const waitMs = hintMs || Math.min(30000, 1000 * 2 ** attempt);
-      console.warn(
-        `[embed] rate limited (attempt ${attempt}/6). Waiting ${waitMs}ms before retrying...`
-      );
-      await new Promise((r) => setTimeout(r, waitMs));
+      if (isRateLimit && attempt < 6) {
+        const hintMs = extractRetryHintMs(
+          err?.message || err?.error?.message
+        );
+        const waitMs = hintMs || Math.min(30000, 1000 * 2 ** attempt);
+        console.warn(
+          `[embed] rate limited (attempt ${attempt}/6). Waiting ${waitMs}ms before retrying...`
+        );
+        await new Promise((r) => setTimeout(r, waitMs));
+        continue;
+      }
+      // Permanent bad-payload error: bisect to isolate bad items.
+      if (isFatalEmbeddingPayloadError(err) && texts.length > 1) {
+        const mid = Math.floor(texts.length / 2);
+        console.warn(
+          `[embed] invalid payload error on batch of ${texts.length}; bisecting`
+        );
+        const leftEmb = await embedWithRetry(texts.slice(0, mid));
+        const rightEmb = await embedWithRetry(texts.slice(mid));
+        return [...leftEmb, ...rightEmb];
+      }
+      if (isFatalEmbeddingPayloadError(err) && texts.length === 1) {
+        console.warn(
+          `[embed] dropping unembeddable chunk (${texts[0]?.length || 0} chars): ${err?.message?.slice(0, 120) || err}`
+        );
+        return [null];
+      }
+      throw err;
     }
   }
   throw lastError;
@@ -177,13 +226,20 @@ async function updateEmbeddingsBatch(rows, embeddings) {
     throw new Error("Missing SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY.");
   }
 
-  const payload = rows.map((row, index) => ({
-    id: row.id,
-    pmid: row.pmid,
-    chunk_type: row.chunk_type,
-    content: row.content,
-    embedding: embeddings[index],
-  }));
+  // Drop rows whose embedding came back null (bisect-on-invalid-payload
+  // dropped them). Leaving their embedding NULL is the correct state —
+  // they stay out of retrieval until someone manually fixes them.
+  const payload = rows
+    .map((row, index) => ({
+      id: row.id,
+      pmid: row.pmid,
+      chunk_type: row.chunk_type,
+      content: row.content,
+      embedding: embeddings[index],
+    }))
+    .filter((entry) => entry.embedding != null);
+
+  if (payload.length === 0) return;
 
   const { error } = await withDbRetry(
     `Updating chunks ${rows[0]?.id || "?"}-${rows[rows.length - 1]?.id || "?"}`,
