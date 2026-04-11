@@ -20,7 +20,11 @@ import "dotenv/config";
 import { supabaseAdmin } from "../api/lib/clients.js";
 import { buildIciteUrl, parseIciteResponse } from "./lib/icite.js";
 
-const DEFAULT_BATCH_SIZE = 1000;   // iCite cap; also DB-select page size
+// iCite documents a 1000-PMID cap but its infra returns HTTP 413 well
+// before that — the URL length limit bites first. 200 per request fits
+// comfortably and is still fast enough to finish a 200k-row backfill
+// in ~10 minutes at DEFAULT_PAUSE_MS.
+const DEFAULT_BATCH_SIZE = 200;
 const DEFAULT_PAUSE_MS = 300;      // between HTTP calls
 const RETRY_DELAY_MS = 2000;
 const MAX_RETRIES = 3;
