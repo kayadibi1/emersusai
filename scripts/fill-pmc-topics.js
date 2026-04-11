@@ -1064,6 +1064,9 @@ async function main() {
   console.log(`Target per topic: ${args.targetPerTopic} new unique articles`);
   console.log(`Topic order: ${args.topics.join(", ")}`);
 
+  const failures = [];
+  const succeeded = [];
+
   for (let index = 0; index < args.topics.length; index += 1) {
     const topic = args.topics[index];
     const query = TOPIC_QUERIES[topic];
@@ -1098,16 +1101,37 @@ async function main() {
     );
     console.log(`Query: ${query}`);
 
-    await runNodeScript("scripts/fill-pmc-corpus.js", topicArgs);
+    // Non-fatal topic failures: a transient NCBI 500, a network blip,
+    // or a malformed query on one topic should NOT wreck a multi-day
+    // fill run. Catch the child's non-zero exit, log it, and move on
+    // to the next topic. Failed topics are summarized at the end so
+    // the operator can re-run just those with --topics=.
+    try {
+      await runNodeScript("scripts/fill-pmc-corpus.js", topicArgs);
+      succeeded.push(topic);
+    } catch (err) {
+      console.warn(`\n[fill-pmc-topics] TOPIC ${topic} FAILED: ${err.message}`);
+      console.warn(`[fill-pmc-topics] continuing to next topic; will list failures at end.`);
+      failures.push(topic);
+    }
+  }
+
+  console.log("");
+  console.log(
+    `Summary: ${succeeded.length} succeeded, ${failures.length} failed out of ${args.topics.length} total.`
+  );
+  if (failures.length > 0) {
+    console.log(`Failed topics: ${failures.join(", ")}`);
+    console.log(
+      `Re-run just the failures with: node scripts/fill-pmc-topics.js --topics=${failures.join(",")}`
+    );
   }
 
   if (args.skipEmbed) {
-    console.log("");
     console.log("Topic fill complete. Embeddings were skipped by request.");
     return;
   }
 
-  console.log("");
   console.log("All topic fills complete.");
 }
 
