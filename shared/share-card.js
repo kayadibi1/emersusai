@@ -6,8 +6,8 @@
 // Variant-specific fields documented inline.
 
 import { privacyCrop, mapboxStaticUrl } from "/shared/mapbox.js";
-import { formatDistance, formatPaceUnit, formatWeight } from "/shared/unit-conversion.js";
-import { hardestSent } from "/shared/climbing-grades.js";
+import { formatDistance, formatPaceUnit, formatWeight, formatVolumeWithUnit } from "/shared/unit-conversion.js";
+import { hardestSent, compareGrades } from "/shared/climbing-grades.js";
 
 const CARD_W = 1080;
 const CARD_H = 1350;
@@ -576,9 +576,10 @@ export function buildClimbCardData(session, completedBlock, profile) {
   const flashes = routes.filter(r => r.send_type === "flash").length;
 
   const topRoutes = [...sent].sort((a, b) => {
-    // Sort by grade index desc within same system
+    // Sort by grade index desc within same system (harder first).
+    // localeCompare would treat "V10" as less than "V9" because '1' < '9'.
     if (a.grade_system !== b.grade_system) return 0;
-    return b.grade.localeCompare(a.grade);
+    return compareGrades(b.grade, a.grade, a.grade_system);
   }).slice(0, 3);
 
   return {
@@ -601,9 +602,7 @@ export function buildGymCardData(session, profile, summary) {
     title: session.title || "Workout",
     date: formatDate(new Date()),
     user_name: profile?.display_name_public || "",
-    total_volume_display: formatWeight(summary.totalVolumeKg, weightUnit, { decimals: 0 })
-      .replace("kg", "kg")
-      .replace("lbs", "lbs"),
+    total_volume_display: formatVolumeWithUnit(summary.totalVolumeKg, weightUnit),
     set_count: summary.setCount,
     exercise_count: summary.exerciseCount,
     duration_display: formatDurationMMSS(summary.durationSeconds),

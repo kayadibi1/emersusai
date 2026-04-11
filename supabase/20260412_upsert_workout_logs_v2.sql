@@ -45,11 +45,17 @@ BEGIN
     END IF;
 
     v_ex_id := resolve_exercise_id(v_ex_name);
-    SELECT category INTO v_category FROM public.exercises WHERE id = v_ex_id;
+
+    -- Trust the client's block_category if provided (authoritative),
+    -- otherwise fall back to the exercise catalog's category.
+    v_category := v_block ->> 'block_category';
+    IF v_category IS NULL OR v_category = '' THEN
+      SELECT category INTO v_category FROM public.exercises WHERE id = v_ex_id;
+    END IF;
     v_matched := v_matched + 1;
 
     -- CARDIO branch
-    IF v_category = 'cardio' OR v_block ? 'gps_path' OR v_block ? 'total_distance_m' THEN
+    IF v_category = 'cardio' THEN
       INSERT INTO public.workout_logs (
         user_id, exercise_id, plan_id, session_id, performed_at,
         duration_seconds, distance_meters, activity_type, gps_path, notes

@@ -473,7 +473,17 @@ export async function upsertWorkoutLogs(userId, planId, plan, targetSessionId) {
     const completed = session.completed_blocks;
     if (!completed || completed.length === 0) continue;
 
-    // Enrich each block with its exercise name from the plan's blocks array
+    // Enrich each block with its exercise name + category from the plan's blocks array.
+    // block_category is the authoritative signal for the RPC's branch selection,
+    // so the RPC doesn't have to infer category from field presence.
+    const inferCategoryFromBlock = (cb) => {
+      if (cb.routes) return "climbing";
+      if (cb.lap_count != null || cb.pool_length_m != null) return "swimming";
+      if (cb.gps_path || cb.activity_type || cb.total_distance_m != null) return "cardio";
+      if (cb.actual_sets) return "resistance";
+      return null;
+    };
+
     const blocks = completed.map(cb => {
       const planBlock =
         (session.blocks || []).find(b => b.id === cb.block_id) ||
@@ -481,6 +491,11 @@ export async function upsertWorkoutLogs(userId, planId, plan, targetSessionId) {
       return {
         ...cb,
         exercise_name: planBlock?.name || "",
+        block_category:
+          session.category ||
+          planBlock?.category ||
+          inferCategoryFromBlock(cb) ||
+          "resistance",
       };
     }).filter(b => b.exercise_name);
 

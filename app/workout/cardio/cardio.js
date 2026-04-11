@@ -208,17 +208,18 @@ function CardioSessionView({ session: authSession, planRow, sessionIndex, profil
     return Math.round(elapsedS / (totalDistanceM / 1000));
   }, [totalDistanceM, elapsedS]);
 
-  // Crash-recovery persistence
+  // Cleanup on unmount: release GPS watcher and wake lock.
+  // Covers the "user navigates back / closes tab / reloads mid-session" cases.
   useEffect(() => {
-    if (phase !== "live") return;
-    const key = `cardio_session:${planRow.id}:${targetSession.id}`;
-    const t = setInterval(() => {
-      localStorage.setItem(key, JSON.stringify({
-        startedAt, pausedSeconds, gpsPath, totalDistanceM, activityType, titleValue,
-      }));
-    }, 10000);
-    return () => clearInterval(t);
-  }, [phase, startedAt, pausedSeconds, gpsPath, totalDistanceM, activityType, titleValue]);
+    return () => {
+      trackerRef.current?.stop();
+      trackerRef.current = null;
+      if (wakeLockRef.current) {
+        wakeLockRef.current.release().catch(() => {});
+        wakeLockRef.current = null;
+      }
+    };
+  }, []);
 
   const startTracking = useCallback(async () => {
     // Request wake lock
@@ -307,9 +308,6 @@ function CardioSessionView({ session: authSession, planRow, sessionIndex, profil
     upsertWorkoutLogs(authSession.user.id, planRow.id, nextPlan, targetSession.id).catch((e) =>
       console.error("[cardio] log sync", e)
     );
-
-    // Clear localStorage crash recovery
-    localStorage.removeItem(`cardio_session:${planRow.id}:${targetSession.id}`);
 
     // Build share card data
     const cardData = buildCardioCardData(
