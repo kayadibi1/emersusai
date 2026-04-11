@@ -83,15 +83,17 @@ async function fetchSemanticScholarWithRetry(pmids) {
 }
 
 async function fetchNextPmidPage(cursor, limit) {
-  // citation_count has a DEFAULT 0, so "never backfilled" rows are
-  // exactly those where citation_count = 0. Legitimately-zero-cited
-  // papers will stay at zero after the backfill too, but they will
-  // also have updated_at bumped — so a future run that needs to
-  // distinguish could gate on "updated_at < X".
+  // Gate on influential_citation_count IS NULL as the "never
+  // backfilled" marker. citation_count has a DEFAULT 0, so papers that
+  // S2 processed-and-returned-zero become indistinguishable from
+  // never-processed — using that column as the gate makes the resume
+  // redundantly re-process tens of thousands of already-done papers.
+  // influential_citation_count has NO default, so NULL reliably
+  // means "no successful S2 response has landed here yet".
   let query = supabaseAdmin
     .from("pubmed_articles")
     .select("pmid")
-    .eq("citation_count", 0)
+    .is("influential_citation_count", null)
     .order("pmid", { ascending: true })
     .limit(limit);
   if (cursor != null) query = query.gt("pmid", cursor);
