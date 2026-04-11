@@ -5,27 +5,14 @@
 //   1. Query pgboss.job for failure clusters in last 10 minutes (≥5 failures/name)
 //   2. For each cluster, check alert_log for a prior failure_cluster alert
 //      for the same job name in the last hour
-//   3. If none, insert alert_log row and call maybeSendAlert (dynamic import
-//      of api/lib/alerts.js — may not exist until Milestone 10, so wrapped
-//      in try/catch to prevent crashes)
+//   3. If none, insert alert_log row and call sendAlert
 //
 // Returns: { clustersDetected, alertsSent }
 
-// Dynamic import wrapper so this handler doesn't crash when alerts.js
-// doesn't yet exist (Milestone 10).
-async function maybeSendAlert(payload) {
-  try {
-    const { sendAlert } = await import("../api/lib/alerts.js");
-    await sendAlert(payload);
-    return true;
-  } catch (_err) {
-    // alerts.js not yet implemented (Milestone 10) — log and continue
-    return false;
-  }
-}
+import { sendAlert as _sendAlert } from "../api/lib/alerts.js";
 
 export async function detectFailureClustersHandler(ctx, deps) {
-  const { sql } = deps;
+  const { sql, sendAlert = _sendAlert } = deps;
 
   // Query pg-boss for failure clusters in the last 10 minutes
   const clusterResult = await sql`
@@ -69,8 +56,8 @@ export async function detectFailureClustersHandler(ctx, deps) {
     const subject = `[Emersus] Failure cluster: ${cluster.name} (${cluster.failure_count} failures in 10min)`;
     const body = `Job "${cluster.name}" has failed ${cluster.failure_count} times in the last 10 minutes.\n\nCheck worker logs for details.`;
 
-    const sent = await maybeSendAlert({ type: "failure_cluster", subject, body });
-    if (sent) alertsSent++;
+    await sendAlert({ type: "failure_cluster", subject, body });
+    alertsSent++;
 
     await ctx.progress(`alerted on failure cluster: ${cluster.name} (${cluster.failure_count} failures)`);
   }

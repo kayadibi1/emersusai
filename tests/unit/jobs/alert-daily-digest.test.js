@@ -5,6 +5,13 @@ import { alertDailyDigestHandler } from "../../../jobs/alert-daily-digest.js";
 
 // --- Helpers ---
 
+function makeSendAlert() {
+  const calls = [];
+  const fn = async (payload) => { calls.push(payload); return { sent: true }; };
+  fn.calls = calls;
+  return fn;
+}
+
 function makeSql({
   jobStats = [],
   pendingCount = 0,
@@ -54,13 +61,17 @@ test("alertDailyDigestHandler is a function", () => {
   assert.equal(typeof alertDailyDigestHandler, "function");
 });
 
-test("returns {sent} shape", async () => {
+test("returns {sent: true} when sendAlert succeeds", async () => {
   const sql = makeSql();
   const ctx = makeCtx();
+  const sendAlert = makeSendAlert();
 
-  const out = await alertDailyDigestHandler(ctx, { sql });
+  const out = await alertDailyDigestHandler(ctx, { sql, sendAlert });
 
   assert.ok("sent" in out, "should return {sent}");
+  assert.equal(out.sent, true);
+  assert.equal(sendAlert.calls.length, 1, "sendAlert should be called once");
+  assert.equal(sendAlert.calls[0].type, "daily_digest");
 });
 
 test("digest contains job stats section", async () => {
@@ -71,8 +82,9 @@ test("digest contains job stats section", async () => {
   ];
   const sql = makeSql({ jobStats });
   const ctx = makeCtx();
+  const sendAlert = makeSendAlert();
 
-  await alertDailyDigestHandler(ctx, { sql });
+  await alertDailyDigestHandler(ctx, { sql, sendAlert });
 
   const progressLog = ctx.log.join(" ");
   assert.ok(progressLog.includes("digest"), "progress should mention digest");
@@ -86,10 +98,9 @@ test("digest body contains all required sections", async () => {
     failFeeds: [{ id: "feed-1", consecutive_failures: 2 }],
   });
 
-  // Capture the body that would be passed to maybeSendAlert by
-  // intercepting progress calls + checking the return value
   const ctx = makeCtx();
-  const out = await alertDailyDigestHandler(ctx, { sql });
+  const sendAlert = makeSendAlert();
+  const out = await alertDailyDigestHandler(ctx, { sql, sendAlert });
 
   // The handler runs all 5 queries — verify all were issued
   assert.ok(sql.calls.find(c => c.query.includes("pgboss.job") && c.query.includes("state")),
@@ -102,23 +113,31 @@ test("digest body contains all required sections", async () => {
     "should query failing feeds");
   assert.ok(sql.calls.find(c => c.query.includes("hour")),
     "should query hourly job counts for sparkline");
+
+  // sendAlert should be called with the composed body
+  assert.equal(sendAlert.calls.length, 1);
+  assert.ok(sendAlert.calls[0].body.includes("fetch-feed"), "body should include job name");
+  assert.ok(sendAlert.calls[0].body.includes("pubmed"), "body should include corpus source");
+  assert.ok(sendAlert.calls[0].body.includes("feed-1"), "body should include failing feed");
 });
 
-test("healthy environment produces no failure mentions in progress", async () => {
+test("healthy environment produces no failure feed mentions", async () => {
   const sql = makeSql({ failFeeds: [] });
   const ctx = makeCtx();
+  const sendAlert = makeSendAlert();
 
-  const out = await alertDailyDigestHandler(ctx, { sql });
+  const out = await alertDailyDigestHandler(ctx, { sql, sendAlert });
 
-  // Should complete without error regardless of alert delivery status
-  assert.ok(typeof out.sent === "boolean");
+  assert.equal(out.sent, true);
+  assert.ok(sendAlert.calls[0].body.includes("All feeds healthy."), "should say all feeds healthy");
 });
 
 test("pending candidates count is queried", async () => {
   const sql = makeSql({ pendingCount: 7 });
   const ctx = makeCtx();
+  const sendAlert = makeSendAlert();
 
-  await alertDailyDigestHandler(ctx, { sql });
+  await alertDailyDigestHandler(ctx, { sql, sendAlert });
 
   const candidatesQuery = sql.calls.find(c => c.query.includes("topic_candidates"));
   assert.ok(candidatesQuery, "should query topic_candidates for pending count");

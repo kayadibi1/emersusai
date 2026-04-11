@@ -1,6 +1,6 @@
 // jobs/alert-daily-digest.js
 // Daily summary email. Composes a 24h digest from several SQL queries
-// and sends via maybeSendAlert (dynamic import of api/lib/alerts.js).
+// and sends via sendAlert (api/lib/alerts.js).
 // Always sends, even on quiet days.
 //
 // Digest sections:
@@ -12,17 +12,7 @@
 //
 // Returns: { sent: boolean }
 
-// Dynamic import wrapper — same pattern as detect-failure-clusters.js.
-// alerts.js will exist after Milestone 10.
-async function maybeSendAlert(payload) {
-  try {
-    const { sendAlert } = await import("../api/lib/alerts.js");
-    await sendAlert(payload);
-    return true;
-  } catch (_err) {
-    return false;
-  }
-}
+import { sendAlert as _sendAlert } from "../api/lib/alerts.js";
 
 // Sparkline: render a jobs-per-hour histogram for the last 24h
 // using Unicode block characters (▁▂▃▄▅▆▇█).
@@ -36,7 +26,7 @@ function buildSparkline(hourlyCounts) {
 }
 
 export async function alertDailyDigestHandler(ctx, deps) {
-  const { sql } = deps;
+  const { sql, sendAlert = _sendAlert } = deps;
 
   await ctx.progress("composing daily digest");
 
@@ -145,8 +135,8 @@ export async function alertDailyDigestHandler(ctx, deps) {
   const body = lines.join("\n");
   const subject = `[Emersus] Daily Digest — ${new Date().toISOString().slice(0, 10)}`;
 
-  const sent = await maybeSendAlert({ type: "daily_digest", subject, body });
-  await ctx.progress(`daily digest composed and ${sent ? "sent" : "logged (alerts.js pending)"}`);
+  await sendAlert({ type: "daily_digest", subject, body });
+  await ctx.progress("daily digest composed and sent");
 
-  return { sent };
+  return { sent: true };
 }
