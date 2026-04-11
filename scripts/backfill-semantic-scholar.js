@@ -25,6 +25,7 @@ import {
 const DEFAULT_BATCH_SIZE = 500;   // S2 API cap
 const DEFAULT_PAUSE_MS = 3500;    // stay under free-tier rate limit
 const RETRY_DELAY_MS = 10000;     // longer backoff than iCite because 429s
+const REQUEST_TIMEOUT_MS = 25000; // abort fetches that hang silently
 const MAX_RETRIES = 4;
 
 function parseArgs(argv) {
@@ -64,15 +65,28 @@ async function fetchSemanticScholarWithRetry(pmids) {
   let lastError;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
+    // Node's native fetch has no default timeout — if S2 silently
+    // drops our connection (soft rate-limiting, Cloudflare WAF, etc.)
+    // the request hangs forever. AbortController fires after
+    // REQUEST_TIMEOUT_MS so the retry loop can make progress.
+    const ac = new AbortController();
+    const timer = setTimeout(() => ac.abort(), REQUEST_TIMEOUT_MS);
     try {
       const response = await fetch(url, {
         method: "POST",
         headers: {
           Accept: "application/json",
           "Content-Type": "application/json",
+          // S2 / Cloudflare silently drops connections from unrecognized
+          // clients — a real UA string avoids the hang we'd otherwise
+          // see from Node's native fetch (which doesn't handle the
+          // dropped connection and waits forever without a signal).
+          "User-Agent": "emersus-backfill/1.0 (+https://emersus.ai)",
         },
         body,
+        signal: ac.signal,
       });
+      clearTimeout(timer);
       if (response.status === 429) {
         // Rate limited — wait longer and try again.
         await sleep(RETRY_DELAY_MS * attempt);
@@ -92,9 +106,16 @@ async function fetchSemanticScholarWithRetry(pmids) {
       }
       return await response.json();
     } catch (err) {
+      clearTimeout(timer);
       // Don't retry skips — let them propagate immediately.
       if (err instanceof SemanticScholarBatchSkip) throw err;
       lastError = err;
+      const isAbort = err?.name === "AbortError";
+      if (isAbort) {
+        console.warn(
+          `[s2-backfill] request timed out after ${REQUEST_TIMEOUT_MS}ms (attempt ${attempt}/${MAX_RETRIES})`
+        );
+      }
       if (attempt < MAX_RETRIES) {
         await sleep(RETRY_DELAY_MS * attempt);
       }
