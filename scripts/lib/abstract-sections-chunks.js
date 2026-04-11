@@ -1,5 +1,5 @@
 // Pure helpers for turning a structured abstract's labeled sections
-// (from pubmed_articles.abstract_sections jsonb) into evidence_chunks
+// (from research_articles.abstract_sections jsonb) into evidence_chunks
 // rows, one per section (or more if a section exceeds the chunk-length
 // budget).
 //

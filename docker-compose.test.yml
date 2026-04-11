@@ -1,0 +1,21 @@
+# docker-compose.test.yml
+# Local test Postgres for integration tests. Matches prod schema (pg 15 + pgvector).
+# Usage: docker compose -f docker-compose.test.yml up -d
+#        npm test
+#        docker compose -f docker-compose.test.yml down -v
+services:
+  postgres-test:
+    image: pgvector/pgvector:pg15
+    environment:
+      POSTGRES_PASSWORD: testpass
+      POSTGRES_DB: emersus_test
+      POSTGRES_USER: testuser
+    ports:
+      - "54329:5432"
+    tmpfs:
+      - /var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "testuser", "-d", "emersus_test"]
+      interval: 1s
+      timeout: 2s
+      retries: 20

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Topics | Emersus Admin</title>
+  <link rel="stylesheet" href="/shared/admin.css">
+</head>
+<body data-admin>
+  <div class="admin-shell">
+    <nav class="admin-nav">
+      <a class="admin-nav-brand" href="/admin/">Emersus Admin</a>
+      <div class="admin-nav-links">
+        <a href="/admin/">Dashboard</a>
+        <a href="/admin/candidates/">Candidates</a>
+        <a href="/admin/topics/" aria-current="page">Topics</a>
+        <a href="/admin/feeds/">Feeds</a>
+        <a href="/admin/jobs/">Jobs</a>
+        <a href="/admin/alerts/">Alerts</a>
+      </div>
+      <span class="admin-nav-end" id="nav-user"></span>
+    </nav>
+    <main class="admin-main">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+        <h1 class="admin-page-title" style="margin:0">Research Topics</h1>
+        <select id="status-filter" class="admin-input" style="width:auto;">
+          <option value="">All</option>
+          <option value="active" selected>Active</option>
+          <option value="paused">Paused</option>
+          <option value="done">Done</option>
+        </select>
+        <button class="btn btn-ghost btn-sm" id="refresh-btn">Refresh</button>
+      </div>
+      <div id="topics-wrap"><div class="admin-loading">Loading…</div></div>
+    </main>
+  </div>
+
+  <!-- Edit modal -->
+  <div class="modal-overlay" id="edit-modal" hidden>
+    <div class="modal-box">
+      <div class="modal-head">
+        <span>Edit Topic</span>
+        <button class="modal-close" id="edit-modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="edit-id">
+        <div style="display:grid;gap:0.75rem;">
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Query</span>
+            <input type="text" id="edit-query" class="admin-input" style="width:100%;">
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Domain</span>
+            <input type="text" id="edit-domain" class="admin-input" style="width:100%;">
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Status</span>
+            <select id="edit-status" class="admin-input">
+              <option value="active">active</option>
+              <option value="paused">paused</option>
+              <option value="done">done</option>
+            </select>
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Target paper count</span>
+            <input type="number" id="edit-target" class="admin-input" style="width:120px;">
+          </label>
+        </div>
+        <div style="margin-top:1.25rem;display:flex;gap:0.75rem;">
+          <button class="btn btn-primary" id="edit-save-btn">Save</button>
+          <button class="btn btn-ghost" id="edit-cancel-btn">Cancel</button>
+        </div>
+        <p id="edit-status-msg" style="margin-top:0.75rem;font-size:0.82rem;color:var(--muted);"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { requireAdmin } from "/shared/supabase.js";
+
+    const session = await requireAdmin({ redirectTo: "/auth/login/", nonAdminRedirect: "/auth/login/" });
+    if (!session) throw new Error("no session");
+
+    document.getElementById("nav-user").textContent = session.user.email;
+    const token = session.access_token;
+
+    async function apiFetch(path, opts = {}) {
+      const r = await fetch(path, {
+        ...opts,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+          ...(opts.headers ?? {}),
+        },
+      });
+      if (r.status === 401 || r.status === 403) {
+        window.location.replace(`/auth/login/?next=${encodeURIComponent(window.location.pathname)}`);
+        return null;
+      }
+      return r;
+    }
+
+    function esc(s) { return String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+    function badge(s) { return `<span class="badge badge-${esc(s)}">${esc(s)}</span>`; }
+    function shortDate(iso) {
+      if (!iso) return "—";
+      return new Date(iso).toLocaleDateString("en-US", { month:"short", day:"numeric", year:"numeric" });
+    }
+
+    let currentStatus = "active";
+
+    async function load() {
+      const wrap = document.getElementById("topics-wrap");
+      wrap.innerHTML = '<div class="admin-loading">Loading…</div>';
+      const qs = currentStatus ? `?status=${currentStatus}&limit=200` : "?limit=200";
+      const r = await apiFetch(`/api/admin/topics${qs}`);
+      if (!r) return;
+      if (!r.ok) { wrap.innerHTML = `<div class="admin-empty">Error: ${await r.text()}</div>`; return; }
+      const { topics } = await r.json();
+      if (!topics.length) { wrap.innerHTML = `<div class="admin-empty">No ${currentStatus || ""} topics.</div>`; return; }
+      wrap.innerHTML = `
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>ID</th><th>Key</th><th>Query</th><th>Domain</th>
+                <th>Status</th><th>Target</th><th>Origin</th><th>Created</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              ${topics.map(t => `
+                <tr>
+                  <td>${esc(t.id)}</td>
+                  <td>${esc(t.topic_key)}</td>
+                  <td style="max-width:280px;word-break:break-word;">${esc(t.query)}</td>
+                  <td>${esc(t.domain ?? "—")}</td>
+                  <td>${badge(t.status ?? "active")}</td>
+                  <td>${esc(t.target_paper_count ?? "—")}</td>
+                  <td>${esc(t.origin ?? "—")}</td>
+                  <td>${shortDate(t.created_at)}</td>
+                  <td style="white-space:nowrap;">
+                    <button class="btn btn-ghost btn-sm" onclick="openEdit(${t.id})">Edit</button>
+                    <button class="btn btn-primary btn-sm" onclick="doIngest(${t.id}, this)">Fill Now</button>
+                  </td>
+                </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>`;
+    }
+
+    window.openEdit = function(id) {
+      const wrap = document.getElementById("topics-wrap");
+      const row = wrap.querySelector(`button[onclick="openEdit(${id})"]`)?.closest("tr");
+      // Read values from table cells
+      const cells = row?.querySelectorAll("td");
+      if (cells) {
+        document.getElementById("edit-query").value = cells[2]?.textContent.trim() ?? "";
+        document.getElementById("edit-domain").value = cells[3]?.textContent === "—" ? "" : (cells[3]?.textContent.trim() ?? "");
+        document.getElementById("edit-status").value = cells[4]?.querySelector(".badge")?.textContent.trim() ?? "active";
+        document.getElementById("edit-target").value = cells[5]?.textContent === "—" ? "" : (cells[5]?.textContent.trim() ?? "");
+      }
+      document.getElementById("edit-id").value = id;
+      document.getElementById("edit-status-msg").textContent = "";
+      document.getElementById("edit-modal").hidden = false;
+    };
+
+    document.getElementById("edit-modal-close").onclick = () => { document.getElementById("edit-modal").hidden = true; };
+    document.getElementById("edit-cancel-btn").onclick = () => { document.getElementById("edit-modal").hidden = true; };
+    document.getElementById("edit-save-btn").onclick = async () => {
+      const id = document.getElementById("edit-id").value;
+      const body = {
+        query: document.getElementById("edit-query").value.trim(),
+        domain: document.getElementById("edit-domain").value.trim() || null,
+        status: document.getElementById("edit-status").value,
+        target_paper_count: Number(document.getElementById("edit-target").value) || undefined,
+      };
+      const btn = document.getElementById("edit-save-btn");
+      const msg = document.getElementById("edit-status-msg");
+      btn.disabled = true;
+      msg.textContent = "Saving…";
+      const r = await apiFetch(`/api/admin/topics/${id}`, { method: "PATCH", body: JSON.stringify(body) });
+      if (r && r.ok) {
+        msg.textContent = "Saved!";
+        await load();
+        setTimeout(() => { document.getElementById("edit-modal").hidden = true; }, 800);
+      } else {
+        msg.textContent = "Error: " + (r ? await r.text() : "request failed");
+        btn.disabled = false;
+      }
+    };
+
+    window.doIngest = async function(id, btn) {
+      if (!confirm(`Enqueue ingest job for topic #${id}?`)) return;
+      btn.disabled = true;
+      const r = await apiFetch(`/api/admin/topics/${id}/ingest`, { method: "POST", body: "{}" });
+      if (r && r.ok) {
+        const d = await r.json();
+        alert(`Job enqueued: ${d.jobId ?? "queued"}`);
+      } else {
+        alert("Failed to enqueue job.");
+      }
+      btn.disabled = false;
+    };
+
+    document.getElementById("status-filter").addEventListener("change", e => {
+      currentStatus = e.target.value;
+      load();
+    });
+    document.getElementById("refresh-btn").addEventListener("click", load);
+
+    load();
+  </script>
+</body>
+</html>

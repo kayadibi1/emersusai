@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard | Emersus AI</title>
+  <link rel="stylesheet" href="/shared/admin.css">
+</head>
+<body data-admin>
+  <div class="admin-shell">
+    <nav class="admin-nav">
+      <a class="admin-nav-brand" href="/admin/">Emersus Admin</a>
+      <div class="admin-nav-links">
+        <a href="/admin/" aria-current="page">Dashboard</a>
+        <a href="/admin/candidates/">Candidates</a>
+        <a href="/admin/topics/">Topics</a>
+        <a href="/admin/feeds/">Feeds</a>
+        <a href="/admin/jobs/">Jobs</a>
+        <a href="/admin/alerts/">Alerts</a>
+      </div>
+      <span class="admin-nav-end" id="nav-user"></span>
+    </nav>
+    <main class="admin-main">
+      <h1 class="admin-page-title">Dashboard</h1>
+      <div class="stat-grid" id="stats">
+        <div class="stat-card"><div class="stat-card-label">Pending Candidates</div><div class="stat-card-value" id="stat-pending">—</div></div>
+        <div class="stat-card"><div class="stat-card-label">Active Topics</div><div class="stat-card-value" id="stat-topics">—</div></div>
+        <div class="stat-card"><div class="stat-card-label">Active Feeds</div><div class="stat-card-value" id="stat-feeds">—</div></div>
+        <div class="stat-card"><div class="stat-card-label">Running Jobs</div><div class="stat-card-value" id="stat-jobs">—</div></div>
+        <div class="stat-card"><div class="stat-card-label">Alerts (30d)</div><div class="stat-card-value" id="stat-alerts">—</div></div>
+      </div>
+
+      <h2 style="font-size:1.05rem;font-weight:600;margin-bottom:0.75rem;">Recent Candidates</h2>
+      <div id="recent-candidates"><div class="admin-loading">Loading…</div></div>
+    </main>
+  </div>
+
+  <script type="module">
+    import { getSession, requireAdmin } from "/shared/supabase.js";
+
+    const session = await requireAdmin({ redirectTo: "/auth/login/", nonAdminRedirect: "/auth/login/" });
+    if (!session) throw new Error("no session");
+
+    document.getElementById("nav-user").textContent = session.user.email;
+    const token = session.access_token;
+
+    async function apiFetch(path) {
+      const r = await fetch(path, { headers: { Authorization: `Bearer ${token}` } });
+      if (r.status === 401 || r.status === 403) {
+        window.location.replace(`/auth/login/?next=${encodeURIComponent(window.location.pathname)}`);
+        return null;
+      }
+      if (!r.ok) throw new Error(await r.text());
+      return r.json();
+    }
+
+    // Fetch all stats in parallel
+    const [candidates, topics, feeds, jobs, alerts] = await Promise.allSettled([
+      apiFetch("/api/admin/candidates?status=pending&limit=200"),
+      apiFetch("/api/admin/topics?status=active&limit=200"),
+      apiFetch("/api/admin/feeds?limit=200"),
+      apiFetch("/api/admin/jobs?state=active&limit=200"),
+      apiFetch("/api/admin/alerts?days=30&limit=1"),
+    ]);
+
+    function val(settled, extract) {
+      return settled.status === "fulfilled" && settled.value ? extract(settled.value) : "?";
+    }
+
+    document.getElementById("stat-pending").textContent = val(candidates, d => d.candidates.length);
+    document.getElementById("stat-topics").textContent = val(topics, d => d.topics.length);
+    document.getElementById("stat-feeds").textContent = val(feeds, d => d.feeds.filter(f => f.active).length);
+    document.getElementById("stat-jobs").textContent = val(jobs, d => d.jobs.length);
+
+    // Alerts: need count — refetch with higher limit
+    apiFetch("/api/admin/alerts?days=30&limit=1000").then(d => {
+      if (d) document.getElementById("stat-alerts").textContent = d.alerts.length;
+    }).catch(() => {});
+
+    // Recent pending candidates
+    const recentEl = document.getElementById("recent-candidates");
+    if (candidates.status === "fulfilled" && candidates.value) {
+      const rows = candidates.value.candidates.slice(0, 10);
+      if (rows.length === 0) {
+        recentEl.innerHTML = '<div class="admin-empty">No pending candidates.</div>';
+      } else {
+        recentEl.innerHTML = `
+          <div class="admin-table-wrap">
+            <table class="admin-table">
+              <thead>
+                <tr>
+                  <th>Topic Key</th>
+                  <th>Suggested Query</th>
+                  <th>Confidence</th>
+                  <th>Source</th>
+                  <th>Created</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                ${rows.map(c => `
+                  <tr>
+                    <td>${esc(c.topic_key)}</td>
+                    <td style="max-width:320px;word-break:break-word;">${esc(c.suggested_query ?? "—")}</td>
+                    <td>${c.confidence != null ? (c.confidence * 100).toFixed(0) + "%" : "—"}</td>
+                    <td>${esc(c.source ?? "—")}</td>
+                    <td>${shortDate(c.created_at)}</td>
+                    <td><a class="btn btn-ghost btn-sm" href="/admin/candidates/">Review</a></td>
+                  </tr>
+                `).join("")}
+              </tbody>
+            </table>
+          </div>`;
+      }
+    } else {
+      recentEl.innerHTML = '<div class="admin-empty">Could not load candidates.</div>';
+    }
+
+    function esc(s) {
+      return String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+    function shortDate(iso) {
+      if (!iso) return "—";
+      return new Date(iso).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+    }
+  </script>
+</body>
+</html>

@@ -1,5 +1,9 @@
 import "dotenv/config";
 import express from "express";
+import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 app.use(express.json());
@@ -13,6 +17,14 @@ const { default: notifySignupHandler } = await import("./api/notify-signup.js");
 const { default: recommendationHandler } = await import("./api/emersus/recommendation.js");
 const { default: recommendationStreamHandler } = await import("./api/emersus/recommendation-stream.js");
 
+// Import admin API routers + middleware
+import adminCandidates from "./api/admin/candidates.js";
+import adminTopics from "./api/admin/topics.js";
+import adminFeeds from "./api/admin/feeds.js";
+import adminJobs from "./api/admin/jobs.js";
+import adminAlerts from "./api/admin/alerts.js";
+import { requireAdmin } from "./api/admin/_middleware.js";
+
 // Mount API routes
 app.all("/api/config", configHandler);
 app.all("/api/contact", contactHandler);
@@ -23,6 +35,16 @@ app.all("/api/emersus/recommendation-stream", recommendationStreamHandler);
 
 // Health check
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
+
+// Admin API (auth-gated)
+app.use("/api/admin/candidates", requireAdmin, adminCandidates);
+app.use("/api/admin/topics",     requireAdmin, adminTopics);
+app.use("/api/admin/feeds",      requireAdmin, adminFeeds);
+app.use("/api/admin/jobs",       requireAdmin, adminJobs);
+app.use("/api/admin/alerts",     requireAdmin, adminAlerts);
+
+// Serve admin HTML pages as static files
+app.use("/admin", express.static(path.join(__dirname, "admin")));
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, "127.0.0.1", () => {

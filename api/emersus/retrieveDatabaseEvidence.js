@@ -2,7 +2,7 @@ import { supabaseAdmin } from "../lib/clients.js";
 import { embedText } from "./embeddings.js";
 
 // Pure candidate fetcher: embeds the prompt, runs the pgvector RPC, joins
-// each matched chunk to its pubmed_articles row, and returns the raw set.
+// each matched chunk to its research_articles row, and returns the raw set.
 // All ranking happens downstream in rerank.js — this function deliberately
 // does not sort or slice so the rerank operates on the full candidate
 // pool from the RPC.
@@ -38,7 +38,7 @@ export async function retrieveDatabaseEvidence({
   const pmids = [...new Set(matches.map((m) => m.pmid).filter(Boolean))];
 
   const { data: articles, error: articleError } = await supabaseAdmin
-    .from("pubmed_articles")
+    .from("research_articles")
     .select(
       "pmid,doi,pmcid,title,abstract,authors,journal,publication_date,publication_year,publication_types,mesh_terms,is_deleted,rcr,citation_count,influential_citation_count,publication_country"
     )

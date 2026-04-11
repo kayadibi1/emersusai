@@ -1,0 +1,74 @@
+{
+  "messages": [
+    {
+      "status": "ok",
+      "category": "all",
+      "interval": "2026-01-01:2026-04-11",
+      "funder": "all",
+      "cursor": 0,
+      "count": 3,
+      "count_new_papers": "14167",
+      "total": 3
+    }
+  ],
+  "collection": [
+    {
+      "title": "Insulin receptor trafficking and interactions in muscle cells",
+      "authors": "Cen, H. H.; Mattison, A. J.; Omidi, A.; Rogalski, J.; Abraham, L.; Gao, G.; Gold, M. R.; Foster, L.; Gsponer, J.; Johnson, J. D.",
+      "author_corresponding": "James D Johnson",
+      "author_corresponding_institution": "University of British Columbia",
+      "doi": "10.1101/2021.06.29.450241",
+      "date": "2026-01-24",
+      "version": "3",
+      "type": "new results",
+      "license": "cc_by_nc_nd",
+      "category": "cell biology",
+      "jatsxml": "https://www.biorxiv.org/content/early/2026/01/24/2021.06.29.450241.source.xml",
+      "abstract": "Insulin resistance contributes to type 2 diabetes and can be driven by hyperinsulinemia. Insulin receptor (INSR) internalization and cell-surface dynamics at rest and during insulin exposure are incompletely understood in muscle cells. Using surface labelling and live-cell imaging, we observed robust basal internalization of INSR in C2C12 myoblasts, without an effect of added insulin. Mass-spectrometry using INSR knockout cells as controls, identified high-confidence binding partners, including proteins associated with internalization. We confirmed known interactors, including IGF1R, but also identified underappreciated INSR-binding factors such as ANXA2. AlphaFold-Multimer analysis of these INSR-binding proteins predicted potential INSR binding sites of these proteins. Protein-protein interaction network mapping suggested links between INSR and caveolin-mediated endocytosis. INSR interacted with both caveolin and clathrin heavy chain (CLTC) in mouse skeletal muscle and C2C12 myoblasts. Whole cell 2D super-resolution imaging revealed that high levels of insulin (20 nM) increased INSR colocalization with CAV1 but decreased its colocalization with CLTC. Single particle tracking confirmed the colocalization of cell-surface INSR with both over-expressed CAV1-mRFP and CLTC-mRFP. INSR tracks that colocalized with CAV1 exhibited longer radii and lifetimes, regardless of insulin exposure, compared to non-colocalized tracks, whereas insulin further increased the lifetime of INSR/CLTC colocalized tracks. Overall, these data suggest that muscle cells utilize both CAV1 and CLTC-dependent pathways for INSR dynamics and internalization.",
+      "funder": [
+        {
+          "name": "Canadian Institutes of Health Research",
+          "id": "https://ror.org/01gavpb45",
+          "id-type": "ROR",
+          "award": "MOP-133692;"
+        }
+      ],
+      "published": "NA",
+      "server": "bioRxiv"
+    },
+    {
+      "title": "WITHDRAWN: Moderate-Throughput Identification and Comparison of Campylobacter-Infecting Bacteriophages",
+      "authors": "Johnson, T. J.; Shank, J. M.; Patel, K. M.; Paredes, M. D.; Lee, E. D.; Mitchell, M. K.; Denes, T. G.; Johnson, J.",
+      "author_corresponding": "Jeremiah G Johnson",
+      "author_corresponding_institution": "University of Tennessee",
+      "doi": "10.1101/201822",
+      "date": "2026-02-20",
+      "version": "2",
+      "type": "withdrawn",
+      "license": "cc_by_nc_nd",
+      "category": "microbiology",
+      "jatsxml": "https://www.biorxiv.org/content/early/2026/02/20/201822.source.xml",
+      "abstract": "Withdrawal StatementThe authors have withdrawn their manuscript as they have discovered errors in the results reported. Therefore, the authors do not wish this work to be cited as reference for the project. If you have any questions, please contact the corresponding author.",
+      "funder": "NA",
+      "published": "NA",
+      "server": "bioRxiv"
+    },
+    {
+      "title": "Dorsal/NF-κB exhibits a dorsal-to-ventral mobility gradient in the Drosophila embryo",
+      "authors": "Al Asafen, H.; Clark, N. M.; Goyal, E.; Dima, S.; Chen, H.-Y.; Jacobsen, T.; Sozzani, R.; Reeves, G. T.",
+      "author_corresponding": "Gregory  Reeves",
+      "author_corresponding_institution": "North Carolina State University",
+      "doi": "10.1101/320754",
+      "date": "2026-02-14",
+      "version": "3",
+      "type": "new results",
+      "license": "cc_no",
+      "category": "developmental biology",
+      "jatsxml": "https://www.biorxiv.org/content/early/2026/02/14/320754.source.xml",
+      "abstract": "Morphogen-mediated patterning is a highly dynamic developmental process. To obtain an accurate understanding of morphogen gradient formation and downstream gene expression, biophysical parameters such as protein mobilities must be quantified in vivo. The dorsal-ventral (DV) patterning of early Drosophila embryos by the NF-{kappa}B homolog Dorsal (Dl) is an excellent system for understanding morphogen gradient formation. Dl gradient formation is controlled by the inhibitor Cactus/I{kappa}B (Cact), which regulates the nuclear import and diffusion of Dl protein. However, quantitative measurements of Dl mobility and binding are currently lacking. Here, we use scanning fluorescence correlation spectroscopy to quantify the mobility of GFP-tagged Dl. We find that the DNA binding of Dl-GFP, which affects its mobility, varies along the DV axis, with highest DNA binding on the ventral side. Moreover, we also observe that the time scale for Dl-GFP to exit the nucleus is longer in the ventral and lateral regions of the embryo, which is consistent with stronger DNA binding. Using analysis of mutant alleles of dl tagged with GFP, we conclude that Dl-GFP/Cact interactions in the nuclei are responsible for the variation in Dl-GFP/DNA binding along the DV axis, which impacts our understanding of the spatial range of the Dl gradient and the robustness and precision of downstream gene expression. Thus, our results highlight the complexity of morphogen gradient dynamics and the ability of quantitative measurements of biophysical interactions to drive biological discovery.",
+      "funder": "NA",
+      "published": "NA",
+      "server": "bioRxiv"
+    }
+  ]
+}
