@@ -6,12 +6,18 @@ import { registerIngestion } from "../../../scripts/sources/_registry.js";
 import { SourcePermanentError } from "../../../scripts/sources/_errors.js";
 
 // --- Test fixture plugin ---
+// Registered with id "pubmed-test" but yields papers tagged source: "pubmed"
+// so the handler's phase 2 filter (pmid required, source must be pubmed
+// AND externalId must be numeric) keeps them. The plugin id must also be
+// "pubmed" for the handler's `plugin.id === "pubmed"` branch. We pick a
+// distinct test id and tag papers with source: "pubmed" — the handler
+// accepts either branch via `||`, so the paper.source tag is enough.
 const TEST_SOURCE_ID = "test-ingest-src-unit";
 
 const FAKE_PAPERS = [
-  { externalId: "ext-1", source: "test", title: "Paper 1", abstract: "A1", doi: null, publishedAt: null, journal: null, authors: [], peerReviewed: true, sourceMetadata: {} },
-  { externalId: "ext-2", source: "test", title: "Paper 2", abstract: "A2", doi: "10.1/a", publishedAt: new Date("2024-01-01"), journal: "J1", authors: ["Auth A"], peerReviewed: false, sourceMetadata: { key: 1 } },
-  { externalId: "ext-3", source: "test", title: "Paper 3", abstract: null, doi: null, publishedAt: null, journal: null, authors: [], peerReviewed: true, sourceMetadata: {} },
+  { externalId: "1001", source: "pubmed", title: "Paper 1", abstract: "A1", doi: null, publishedAt: null, journal: null, authors: [], peerReviewed: true, sourceMetadata: { pmid: "1001" } },
+  { externalId: "1002", source: "pubmed", title: "Paper 2", abstract: "A2", doi: "10.1/a", publishedAt: new Date("2024-01-01"), journal: "J1", authors: ["Auth A"], peerReviewed: false, sourceMetadata: { pmid: "1002" } },
+  { externalId: "1003", source: "pubmed", title: "Paper 3", abstract: null, doi: null, publishedAt: null, journal: null, authors: [], peerReviewed: true, sourceMetadata: { pmid: "1003" } },
 ];
 
 before(() => {

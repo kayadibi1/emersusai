@@ -51,6 +51,14 @@ export async function ingestTopicHandler(ctx, deps) {
       {
         singletonKey: `ingest-${topicId}-${sourceId}`,
         singletonHours: 24,
+        // Phase 2 hardening: NCBI periodically TCP-drops under sustained
+        // load. pg-boss's default retryLimit: 2 burned through retries
+        // during the 2026-04-11 deploy and left 14 topics permanently
+        // failed. Bump retries + enable exponential backoff so transient
+        // upstream failures recover without hand-requeuing.
+        retryLimit: 5,
+        retryBackoff: true,
+        retryDelay: 15,
       }
     );
   }

@@ -126,7 +126,11 @@ async function embedWithRetry(texts, openaiClient) {
 export async function embedBatchHandler(ctx, deps) {
   const { limit } = ctx.data;
   const { sql } = deps;
-  const openaiClient = deps.openaiClient ?? defaultOpenai;
+  // Honor an explicit `null` (callers signalling "no client available") as
+  // distinct from `undefined` (caller didn't specify → use default). `??`
+  // would fall through on both, which hides bugs in callers that pass null
+  // by mistake and masks the OPENAI_API_KEY misconfig error in tests.
+  const openaiClient = deps.openaiClient === undefined ? defaultOpenai : deps.openaiClient;
 
   if (!openaiClient) {
     throw new Error("OPENAI client not configured — set OPENAI_API_KEY");
