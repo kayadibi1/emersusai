@@ -1,0 +1,146 @@
+// Pure helpers that extract enrichment fields from PubMed efetch XML.
+// Zero external dependencies so they're unit-testable in plain node
+// without touching the DB or the Supabase client.
+//
+// The rest of the codebase uses regex-based extraction for PubMed XML
+// (see scripts/fill-pmc-corpus.js) — we follow the same style here
+// rather than introducing a new XML parser dependency for four fields.
+// The patterns deliberately use non-greedy matching and tolerate
+// attributes on the container elements.
+
+/**
+ * Decode a small set of XML entities back to plain text. PubMed's
+ * abstracts routinely contain &lt; &gt; &amp; in numeric-symbol
+ * contexts (e.g. "p&lt;0.01"), and we want the stored abstract to
+ * look like normal text.
+ */
+function decodeEntities(text) {
+  if (typeof text !== "string" || text.length === 0) return "";
+  return text
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&quot;/g, '"')
+    .replace(/&apos;/g, "'")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCharCode(parseInt(h, 16)))
+    .replace(/&amp;/g, "&");
+}
+
+function stripTags(text) {
+  if (typeof text !== "string") return "";
+  return text.replace(/<[^>]+>/g, "");
+}
+
+function cleanInner(text) {
+  return decodeEntities(stripTags(String(text))).replace(/\s+/g, " ").trim();
+}
+
+/**
+ * Was this article retracted?
+ *
+ * A retracted paper carries a <CommentsCorrectionsList> that contains
+ * at least one <CommentsCorrections RefType="RetractionIn"> child,
+ * which points forward to the retraction notice article. We intentionally
+ * do NOT flag articles whose only CommentsCorrections is a "RetractionOf"
+ * — those are the retraction notices themselves, not retracted papers.
+ *
+ * Returns { isRetracted: boolean, retractionNotes: string | null }.
+ * retractionNotes is the human-readable RefSource from the first
+ * RetractionIn element if present.
+ */
+export function parseRetractionStatus(xml) {
+  const empty = { isRetracted: false, retractionNotes: null };
+  if (typeof xml !== "string" || xml.length === 0) return empty;
+
+  // Find the RetractionIn CommentsCorrections block (attributes can be in
+  // any order; RefType may be single- or double-quoted).
+  const retractionInMatch = xml.match(
+    /<CommentsCorrections\b[^>]*\bRefType\s*=\s*["']RetractionIn["'][^>]*>([\s\S]*?)<\/CommentsCorrections>/i
+  );
+  if (!retractionInMatch) return empty;
+
+  // Pull the <RefSource> text inside that block for the notes field.
+  const refSourceMatch = retractionInMatch[1].match(
+    /<RefSource\b[^>]*>([\s\S]*?)<\/RefSource>/i
+  );
+  const notes = refSourceMatch ? cleanInner(refSourceMatch[1]) : null;
+
+  return { isRetracted: true, retractionNotes: notes || null };
+}
+
+/**
+ * Extract a structured abstract keyed by section label.
+ *
+ * Looks for <AbstractText Label="..."> elements and returns an object
+ * like { BACKGROUND: "...", METHODS: "...", RESULTS: "...", CONCLUSIONS: "..." }.
+ * Labels are uppercased and trimmed for consistency.
+ *
+ * Returns null if the abstract has no labeled sections (caller should
+ * fall back to the plain abstract string).
+ */
+export function parseStructuredAbstract(xml) {
+  if (typeof xml !== "string" || xml.length === 0) return null;
+
+  const sections = {};
+  const re =
+    /<AbstractText\b([^>]*)>([\s\S]*?)<\/AbstractText>/gi;
+  let match;
+  while ((match = re.exec(xml)) !== null) {
+    const attrs = match[1] || "";
+    const body = match[2] || "";
+    const labelMatch = attrs.match(/\bLabel\s*=\s*["']([^"']+)["']/i);
+    if (!labelMatch) continue;
+    const label = labelMatch[1].trim().toUpperCase();
+    if (!label) continue;
+    const cleaned = cleanInner(body);
+    if (!cleaned) continue;
+    // If the same label repeats (rare but legal), concatenate with a space.
+    sections[label] = sections[label]
+      ? `${sections[label]} ${cleaned}`
+      : cleaned;
+  }
+
+  return Object.keys(sections).length > 0 ? sections : null;
+}
+
+/**
+ * Extract the publication country from <MedlineJournalInfo><Country>.
+ * Returns a trimmed string, or null if not present.
+ */
+export function parsePublicationCountry(xml) {
+  if (typeof xml !== "string" || xml.length === 0) return null;
+  const match = xml.match(
+    /<MedlineJournalInfo\b[^>]*>[\s\S]*?<Country\b[^>]*>([\s\S]*?)<\/Country>[\s\S]*?<\/MedlineJournalInfo>/i
+  );
+  if (!match) return null;
+  const value = cleanInner(match[1]);
+  return value || null;
+}
+
+/**
+ * Extract author-supplied keywords from <KeywordList><Keyword> elements.
+ * Returns an array of lowercased, trimmed, deduplicated strings.
+ * Returns [] if no KeywordList is present.
+ */
+export function parseAuthorKeywords(xml) {
+  if (typeof xml !== "string" || xml.length === 0) return [];
+  const listMatches = xml.match(
+    /<KeywordList\b[^>]*>([\s\S]*?)<\/KeywordList>/gi
+  );
+  if (!listMatches) return [];
+
+  const seen = new Set();
+  const out = [];
+  for (const list of listMatches) {
+    const inner = list.replace(/<KeywordList\b[^>]*>|<\/KeywordList>/gi, "");
+    const kwRe = /<Keyword\b[^>]*>([\s\S]*?)<\/Keyword>/gi;
+    let m;
+    while ((m = kwRe.exec(inner)) !== null) {
+      const value = cleanInner(m[1]).toLowerCase();
+      if (!value || seen.has(value)) continue;
+      seen.add(value);
+      out.push(value);
+    }
+  }
+  return out;
+}

@@ -21,6 +21,10 @@ const ARTICLE_COLUMNS = new Set([
   "publication_types",
   "mesh_terms",
   "is_deleted",
+  "is_retracted",
+  "retraction_notes",
+  "abstract_sections",
+  "publication_country",
 ]);
 const CHUNK_COLUMNS = new Set([
   "pmid",
@@ -342,6 +346,23 @@ function normalizeRecord(rawRecord) {
       25
     ),
     is_deleted: false,
+    is_retracted: Boolean(rawRecord.is_retracted),
+    retraction_notes: normalizeText(
+      firstNonEmpty(rawRecord.retraction_notes, rawRecord.retractionNotes),
+      2000
+    ) || null,
+    abstract_sections:
+      rawRecord.abstract_sections && typeof rawRecord.abstract_sections === "object"
+        ? rawRecord.abstract_sections
+        : null,
+    publication_country: normalizeText(
+      firstNonEmpty(
+        rawRecord.publication_country,
+        rawRecord.publicationCountry,
+        rawRecord.country
+      ),
+      100
+    ) || null,
   };
 }
 

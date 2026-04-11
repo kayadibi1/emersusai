@@ -2,6 +2,11 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { spawn } from "node:child_process";
 import { supabaseAdmin } from "../api/lib/clients.js";
+import {
+  parseRetractionStatus,
+  parseStructuredAbstract,
+  parsePublicationCountry,
+} from "./lib/pubmed-xml.js";
 
 const BASE_EUTILS_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils";
 const DEFAULT_TARGET = 1000;
@@ -377,6 +382,10 @@ function parsePubMedArticle(xml) {
         .join("-")
     : "";
 
+  const retraction = parseRetractionStatus(xml);
+  const abstractSections = parseStructuredAbstract(xml);
+  const publicationCountry = parsePublicationCountry(xml);
+
   return {
     pmid,
     pmcid,
@@ -390,6 +399,10 @@ function parsePubMedArticle(xml) {
     publication_year: publicationYear,
     publication_types: publicationTypes,
     mesh_terms: meshTerms,
+    is_retracted: retraction.isRetracted,
+    retraction_notes: retraction.retractionNotes,
+    abstract_sections: abstractSections,
+    publication_country: publicationCountry,
   };
 }
 
