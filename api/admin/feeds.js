@@ -1,12 +1,11 @@
 // api/admin/feeds.js
 import express from "express";
 import { supabaseAdmin } from "../lib/clients.js";
+import PgBoss from "pg-boss";
 
 const router = express.Router();
 
-// ---------------------------------------------------------------------------
-// GET /  — list all feeds
-// ---------------------------------------------------------------------------
+// GET / — list all feeds
 router.get("/", async (req, res) => {
   const limit = Math.min(Number(req.query.limit ?? 100), 500);
   const { data, error } = await supabaseAdmin
@@ -18,44 +17,44 @@ router.get("/", async (req, res) => {
   res.json({ feeds: data });
 });
 
-// ---------------------------------------------------------------------------
-// POST /  — create a new feed
-// ---------------------------------------------------------------------------
+// POST / — create a new feed
 router.post("/", async (req, res) => {
-  const {
-    name,
-    source_type,
-    config,
-    active = true,
-  } = req.body ?? {};
-
+  const { id, name, kind, url, source_plugin, status = "active" } = req.body ?? {};
+  if (!id) return res.status(400).json({ error: "id required" });
   if (!name) return res.status(400).json({ error: "name required" });
-  if (!source_type) return res.status(400).json({ error: "source_type required" });
+  if (!kind || !["rss", "atom", "api"].includes(kind)) {
+    return res.status(400).json({ error: "kind must be rss|atom|api" });
+  }
+  if (!url) return res.status(400).json({ error: "url required" });
+  if (!source_plugin) return res.status(400).json({ error: "source_plugin required" });
+  if (!["active", "disabled"].includes(status)) {
+    return res.status(400).json({ error: "status must be active|disabled" });
+  }
 
   const { data, error } = await supabaseAdmin
     .from("discovery_feeds")
-    .insert({ name, source_type, config: config ?? {}, active })
+    .insert({ id, name, kind, url, source_plugin, status })
     .select()
     .single();
   if (error) return res.status(500).json({ error: error.message });
   res.status(201).json({ feed: data });
 });
 
-// ---------------------------------------------------------------------------
-// PATCH /:id  — update name, config, active, source_type
-// ---------------------------------------------------------------------------
+// PATCH /:id — update mutable fields
 router.patch("/:id", async (req, res) => {
-  const id = Number(req.params.id);
-  const allowed = ["name", "source_type", "config", "active"];
+  const id = req.params.id; // text PK
+  const allowed = ["name", "kind", "url", "source_plugin", "status"];
   const updates = {};
-  for (const key of allowed) {
-    if (key in (req.body ?? {})) {
-      updates[key] = req.body[key];
-    }
+  for (const k of allowed) {
+    if (req.body?.[k] !== undefined) updates[k] = req.body[k];
   }
-  if (Object.keys(updates).length === 0) {
-    return res.status(400).json({ error: "no updatable fields provided" });
+  if (updates.kind && !["rss", "atom", "api"].includes(updates.kind)) {
+    return res.status(400).json({ error: "invalid kind" });
   }
+  if (updates.status && !["active", "disabled"].includes(updates.status)) {
+    return res.status(400).json({ error: "invalid status" });
+  }
+  updates.updated_at = new Date().toISOString();
 
   const { data, error } = await supabaseAdmin
     .from("discovery_feeds")
@@ -64,39 +63,27 @@ router.patch("/:id", async (req, res) => {
     .select()
     .single();
   if (error) return res.status(500).json({ error: error.message });
-  if (!data) return res.status(404).json({ error: "feed not found" });
   res.json({ feed: data });
 });
 
-// ---------------------------------------------------------------------------
-// POST /:id/fetch-now  — enqueue fetch-feed job
-// ---------------------------------------------------------------------------
+// POST /:id/fetch-now — enqueue a one-off fetch-feed job
 router.post("/:id/fetch-now", async (req, res) => {
-  const id = Number(req.params.id);
-
-  // Verify feed exists
-  const { data: feed, error: fetchErr } = await supabaseAdmin
-    .from("discovery_feeds")
-    .select("id, name, source_type")
-    .eq("id", id)
-    .single();
-  if (fetchErr || !feed)
-    return res.status(404).json({ error: "feed not found" });
-
-  let jobId = null;
-  if (process.env.DATABASE_URL) {
-    const { default: PgBoss } = await import("pg-boss");
-    const boss = new PgBoss(process.env.DATABASE_URL);
-    try {
-      await boss.start();
-      await boss.createQueue("fetch-feed").catch(() => {});
-      jobId = await boss.send("fetch-feed", { feedId: id });
-    } finally {
-      await boss.stop({ graceful: false }).catch(() => {});
-    }
+  const id = req.params.id;
+  if (!process.env.DATABASE_URL) {
+    return res.status(503).json({ error: "DATABASE_URL not configured" });
   }
 
-  res.json({ feedId: id, jobId });
+  const boss = new PgBoss(process.env.DATABASE_URL);
+  try {
+    await boss.start();
+    await boss.createQueue("fetch-feed").catch(() => {});
+    const jobId = await boss.send("fetch-feed", { feedId: id });
+    res.json({ jobId });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  } finally {
+    await boss.stop({ graceful: true }).catch(() => {});
+  }
 });
 
 export default router;
