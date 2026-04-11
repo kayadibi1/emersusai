@@ -179,7 +179,10 @@ async function main() {
   const startedAt = Date.now();
 
   while (batchNum < args.maxBatches) {
+    const stepStart = Date.now();
+    console.log(`[s2-backfill] step: fetchNextPmidPage cursor=${cursor}`);
     const page = await fetchNextPmidPage(cursor, args.batchSize);
+    console.log(`[s2-backfill] step: fetchNextPmidPage returned ${page.length} rows in ${Date.now() - stepStart}ms`);
     if (page.length === 0) {
       console.log("[s2-backfill] no more rows with s2_checked_at IS NULL; done");
       break;
@@ -190,7 +193,10 @@ async function main() {
     batchNum++;
     totalSeen += pmids.length;
 
+    console.log(`[s2-backfill] step: calling S2 API with ${pmids.length} pmids`);
+    const apiStart = Date.now();
     const { updates, dead } = await processBatchWithBisect(pmids);
+    console.log(`[s2-backfill] step: S2 API returned ${updates.length} updates, ${dead.length} dead in ${Date.now() - apiStart}ms`);
 
     if (updates.length > 0) {
       const { data, error } = await supabaseAdmin.rpc(
