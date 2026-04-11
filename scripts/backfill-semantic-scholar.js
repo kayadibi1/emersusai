@@ -10,9 +10,11 @@
 //   node scripts/backfill-semantic-scholar.js --max-batches=2 # smoke test
 //   node scripts/backfill-semantic-scholar.js --batch-size=200 --pause-ms=5000
 //
-// Rate limits: free tier is ~100 req / 5 min (no API key). Default
-// pause is 3.5s between requests, which stays well within that
-// budget and leaves headroom for retries on 429.
+// Rate limits:
+//   - No API key   → ~100 req / 5 min shared (default pause 3500ms)
+//   - With API key → 1 req / sec per key     (default pause 1100ms)
+// Set SEMANTIC_SCHOLAR_API_KEY in the environment to opt into the
+// authenticated tier. The key is sent as `x-api-key` on every batch.
 
 import "dotenv/config";
 import { spawn } from "node:child_process";
@@ -23,8 +25,11 @@ import {
   parseSemanticScholarResponse,
 } from "./lib/semantic-scholar.js";
 
-const DEFAULT_BATCH_SIZE = 500;   // S2 API cap
-const DEFAULT_PAUSE_MS = 3500;    // stay under free-tier rate limit
+const S2_API_KEY = (process.env.SEMANTIC_SCHOLAR_API_KEY || "").trim();
+const HAS_API_KEY = S2_API_KEY.length > 0;
+
+const DEFAULT_BATCH_SIZE = 500;                   // S2 API cap
+const DEFAULT_PAUSE_MS = HAS_API_KEY ? 1100 : 3500; // 1 RPS (keyed) vs free-tier budget
 const RETRY_DELAY_MS = 10000;     // longer backoff than iCite because 429s
 const REQUEST_TIMEOUT_MS = 25000; // abort fetches that hang silently
 const MAX_RETRIES = 4;
@@ -78,9 +83,14 @@ function curlSemanticScholarBatch(url, body, timeoutMs) {
       "-H", "Content-Type: application/json",
       "-H", "Accept: application/json",
       "-H", "User-Agent: emersus-backfill/1.0 (+https://emersus.ai)",
+    ];
+    if (HAS_API_KEY) {
+      args.push("-H", `x-api-key: ${S2_API_KEY}`);
+    }
+    args.push(
       "--data-binary", "@-",                   // body from stdin
       url,
-    ];
+    );
     const child = spawn("curl", args, { stdio: ["pipe", "pipe", "pipe"] });
     let stdout = "";
     let stderr = "";
@@ -209,7 +219,7 @@ async function main() {
   }
   const args = parseArgs(process.argv.slice(2));
   console.log(
-    `[s2-backfill] batch_size=${args.batchSize} pause_ms=${args.pauseMs} max_batches=${args.maxBatches}`
+    `[s2-backfill] batch_size=${args.batchSize} pause_ms=${args.pauseMs} max_batches=${args.maxBatches} api_key=${HAS_API_KEY ? "set" : "unset"}`
   );
 
   let cursor = null;
