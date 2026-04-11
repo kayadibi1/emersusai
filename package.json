@@ -17,6 +17,10 @@
     "dotenv": "^17.4.1",
     "express": "^5.2.1",
     "openai": "^6.33.0",
+    "pg-boss": "^10.4.2",
     "resend": "^4.1.0"
+  },
+  "devDependencies": {
+    "nock": "^13.5.6"
   }
 }
