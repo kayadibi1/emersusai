@@ -25,7 +25,7 @@ Supplements are treated as **a polymorphic specialization of foods**: same data 
 - **Tiered meal plan:** macro + fiber targets at the top, day-type meal prescriptions below.
 - **Day-type templates** (`training_day` / `rest_day` / `refeed_day`) auto-linked to the active workout plan's session calendar, with per-date user override.
 - **Per-food journal entries** with `meal_slot` tag and timestamp.
-- **Food catalog** imported from USDA FoodData Central (Foundation + SR Legacy + FNDDS Survey, ~15k items, ~200 MB).
+- **Food catalog** imported from USDA FoodData Central — **all four datasets**: Foundation (~200), SR Legacy (~7,800), FNDDS Survey (~7,000), and **Branded Foods** (~1.8 M). Total ~1.82 M foods, ~5–10 GB database footprint including `food_nutrients`. Branded items enable per-brand logging ("Quest chocolate chip cookie dough bar", "Chobani strawberry Greek yogurt") on day one without chain crawls.
 - **LLM natural-language parser** for free-form logging ("I had a chicken caesar wrap and an iced latte for lunch").
 - **Chat integration:** new `meal-plan` widget fence for plan generation, new `nutrition-log-confirm` widget fence for journal entry confirmation. Confirmation is mandatory in v1 — no silent writes from chat.
 - **Single `/app/nutrition/` page** for active work (today + plan + journal + supplements), internal tab routing, food detail as a slide-over drawer.
@@ -37,8 +37,7 @@ Supplements are treated as **a polymorphic specialization of foods**: same data 
 
 ### Out of scope (deferred, some documented as future paths)
 
-- **Restaurant chain nutrition data.** Deferred to v1.5 via one of two paths: (a) MenuStat.org bulk import, contingent on a license check for commercial use; (b) targeted polite crawls of the top ~20 US chains' public nutrition pages, storing only numeric facts with provenance (`source_url`, `scraped_at`). Neither ships in v1. UI shows a "log individual components" helper for users trying to log chain items.
-- **USDA Branded Foods** (~1 M rows). Opt-in v1.5 import.
+- **Restaurant chain nutrition data (explicit chain coverage).** USDA Branded Foods already includes a subset of quick-service and packaged-restaurant items (via manufacturer submissions) in v1, which partially covers this gap. Dedicated chain scraping — MenuStat.org bulk import (license permitting) and targeted polite crawls of chains like McDonald's, Chipotle, Starbucks, Chick-fil-A that don't submit to USDA — is deferred to v1.5. UI shows a "log individual components" helper for chain items not in Branded Foods.
 - **Photo / OCR food logging, barcode scanning.**
 - **Hydration tracking, body composition tracking.**
 - **Meal-prep lists, grocery-list generation, recipe-from-URL import.**
@@ -90,24 +89,30 @@ One row per food or supplement. USDA imports, user-contributed entries, suppleme
 | `fdc_id` | int UNIQUE nullable | USDA FDC ID (null for user-contributed, supplements, chain entries) |
 | `description` | text NOT NULL | "Chicken, broiler, breast, cooked, roasted" |
 | `kind` | text NOT NULL DEFAULT `'food'` | `food` · `supplement` (CHECK constraint) |
-| `source` | text NOT NULL | `usda_foundation` · `usda_sr_legacy` · `usda_fndds` · `seed_supplement` · `user_contributed` · `chain_scrape` |
-| `category` | text | USDA food group, supplement class, or chain name |
+| `source` | text NOT NULL | `usda_foundation` · `usda_sr_legacy` · `usda_fndds` · `usda_branded` · `seed_supplement` · `user_contributed` · `chain_scrape` |
+| `category` | text | USDA food group, supplement class, brand category (FDC `branded_food_category`), or chain name |
+| `gtin_upc` | text | Nullable. GTIN/UPC barcode from USDA Branded Foods. Populated for `usda_branded` rows where available. Enables future barcode scanning without a schema change. Indexed. |
+| `ingredients_text` | text | Nullable. Raw ingredients list as published by the manufacturer (branded rows only). Useful for allergen/dietary filtering. |
+| `data_points` | int | Nullable. FDC's `data_points` field — for branded items this reflects the manufacturer's own reporting quality; used as a tiebreaker to prefer more complete entries. |
 | `common_unit` | text | `medium` · `cup` · `slice` · `piece` · `tablespoon` · `capsule` · `scoop` · `ml` |
 | `common_unit_grams` | numeric | Grams per one common unit (nullable when not applicable, e.g. liquids, capsules where mass is not the dose-driver) |
 | `base_unit` | text NOT NULL DEFAULT `'100g'` | `100g` (foods, powder supplements measured by mass) or `serving` (discrete-unit supplements: capsules, tablets, softgels, gummies). Determines how `food_nutrients.amount_per_base` is interpreted. |
 | `base_amount` | numeric NOT NULL DEFAULT 100 | Default `100` when `base_unit='100g'`. Default `1` when `base_unit='serving'`. Multiplier used in snapshot math. |
 | `form` | text | Supplements only: `capsule` · `tablet` · `softgel` · `scoop` · `powder_g` · `liquid_ml` · `gummy`. Null for foods. |
-| `brand_name` | text | Nullable; for user-contributed or v1.5 chain entries |
+| `brand_name` | text | Populated for `usda_branded` rows (~1.8 M) from FDC's `brand_owner` field. Also used for user-contributed branded items and v1.5 chain entries. Nullable for generic USDA foods and seed supplements. |
 | `created_by` | uuid | FK `auth.users`, nullable, set only for `source = 'user_contributed'` |
 | `search_vector` | tsvector | `GENERATED ALWAYS AS (to_tsvector('english', coalesce(description,'') || ' ' || coalesce(brand_name,''))) STORED` |
 | `created_at` | timestamptz | `default now()` |
 
 **Indexes:**
-- Unique on `fdc_id`
+- Unique on `fdc_id` (where not null)
 - B-tree on `source`, `kind`
-- GIN on `search_vector`
-- GIN (`gin_trgm_ops`) on `description`
+- GIN on `search_vector` — critical at 1.8 M rows; typeahead search must hit this index
+- GIN (`gin_trgm_ops`) on `description` — used for parser fuzzy matching on generic food names
+- GIN (`gin_trgm_ops`) on `brand_name` where `brand_name is not null` — partial index keeps it small while enabling fast "Quest bar" style brand lookups
+- B-tree on `gtin_upc` where `gtin_upc is not null` — partial index for future barcode scanning
 - Partial B-tree on `(created_by)` where `source = 'user_contributed'`
+- Composite `(kind, source)` for filtered listings
 
 **RLS:**
 - `SELECT` allowed if `source != 'user_contributed'` OR `created_by = auth.uid()`
@@ -293,34 +298,57 @@ All nullable. `biological_sex` is documented explicitly as an input to the Miffl
 
 ### One-time import script: `scripts/import-usda-foods.js`
 
-Pulls and loads three USDA FDC dataset bundles.
+Pulls and loads **all four** USDA FDC dataset bundles.
 
 **Sources:**
-- **Foundation Foods** (~200 items, research-grade nutrient data)
-- **SR Legacy** (~7,800 items, classic USDA national nutrient database)
-- **Survey FNDDS** (~7,000 items, prepared/mixed foods from national food survey)
 
-Downloaded from `https://fdc.nal.usda.gov/fdc-datasets.html` as JSON bundles per dataset.
+| Dataset | Approx items | Size (JSON) | Notes |
+|---|---|---|---|
+| **Foundation Foods** | ~200 | ~5 MB | Research-grade nutrient data, most complete micronutrient profiles |
+| **SR Legacy** | ~7,800 | ~50 MB | Classic USDA National Nutrient Database |
+| **Survey FNDDS** | ~7,000 | ~40 MB | Prepared / mixed foods from the national food survey (e.g. "Lasagna, homemade") |
+| **Branded Foods** | ~1,800,000 | ~1.5 GB | Manufacturer-submitted packaged goods with brand names and UPC/GTIN barcodes |
+
+Downloaded from `https://fdc.nal.usda.gov/fdc-datasets.html` as gzipped JSON bundles per dataset.
 
 **Behavior:**
-1. Download and unzip each dataset to a temp directory.
-2. For each food:
+
+1. **Pre-flight disk check.** Verify at least 15 GB free on the Hetzner box before starting (download ~2 GB + unzipped ~5 GB + Postgres temp + margin). Bail out with a clear error if insufficient.
+2. **Download and unzip each dataset** to a temp directory (`/var/tmp/emersus-usda-import/<dataset>/`). Branded is downloaded last because it's the biggest and the most prone to connection interruption.
+3. **Checkpointing.** Before importing each dataset, write a `.progress.json` file in the temp dir tracking which foods have been committed. On restart, skip to the first uncommitted food. Lets the import resume across SSH disconnects or Postgres hiccups.
+4. **Stream-parse** each dataset using a streaming JSON parser (`stream-json` or similar) rather than loading the whole file into memory. Branded alone is 1.5 GB unzipped — Node's default 1.75 GB heap cannot load it whole safely.
+5. **For each food:**
    - Upsert into `foods` keyed on `fdc_id`. Sets `source` to the dataset type, `kind = 'food'`, `base_unit = '100g'`, `base_amount = 100`.
-   - Compute `common_unit` / `common_unit_grams` from FDC's `portions` field when available.
-3. For each food's nutrient rows:
+   - For Branded rows: also populate `brand_name` (from FDC's `brand_owner`), `category` (from `branded_food_category`), `gtin_upc` (from `gtin_upc`), `ingredients_text` (from `ingredients`), and `data_points` (where available).
+   - Compute `common_unit` / `common_unit_grams` from FDC's `portions` or `servingSize` fields when available.
+6. **For each food's nutrient rows:**
    - Look up the local `nutrient_id` via the seeded `nutrients.fdc_nutrient_id` mapping. Skip any nutrient not in our curated 31-entry set.
    - FDC ships nutrient amounts in units of "per 100 g edible portion," so values map directly into `amount_per_base` under our `base_unit='100g'` convention.
    - Upsert into `food_nutrients` keyed on `(food_id, nutrient_id)`.
-4. Transactional in batches of 500 foods for resumability.
-5. Reports: foods inserted/updated, food_nutrients rows written, skipped nutrients, elapsed time.
+7. **Quality filter for Branded rows** — reject and log rows that have:
+   - No `kcal` nutrient row (zero calories with zero other nutrients = garbage row)
+   - No macro nutrients at all (kcal + P + C + F all missing)
+   - Malformed or negative nutrient amounts
+   - Obviously broken descriptions (empty, single character, non-ASCII garbage)
+   Roughly 5–15% of Branded rows get filtered — a pre-import dry run on a sample validates the filter thresholds before full ingest.
+8. **Batching:** 1000 foods per transaction for Foundation/SR/FNDDS, 500 per transaction for Branded (larger batches hit lock contention as search_vector GIN gets updated).
+9. **Reports:** per-dataset counts of foods inserted / updated / skipped-for-quality, food_nutrients rows written, elapsed time, peak memory.
 
-**Tiebreaker priority in match ranking** (used later by the parser): `usda_foundation` > `usda_sr_legacy` > `usda_fndds` > `seed_supplement` > `user_contributed`. This prefers research-grade over survey data and prefers components over mixed dishes when scores are close.
+**Tiebreaker priority in match ranking** (used later by the parser):
+`usda_foundation` > `usda_sr_legacy` > `usda_fndds` > `usda_branded` > `seed_supplement` > `user_contributed` > `chain_scrape`.
 
-**Expected output:** ~15 k foods × ~25 nutrients per food on average ≈ 350–500 k `food_nutrients` rows. Comfortably within Postgres' capacity.
+This prefers research-grade data over branded, which matters because a user typing "oats" should match the generic Foundation entry ("Oats, raw") rather than an arbitrary branded oatmeal product. Brand matches surface naturally when the user includes a brand name in their query — the FTS index weights brand-name hits strongly through the generated `search_vector`. Within `usda_branded`, a secondary tiebreak on `data_points desc` prefers manufacturers with more complete nutrient reporting.
 
-**Expected run time:** 5–15 minutes on the Hetzner box (8 vCPU / 16 GB).
+**Expected output:** ~1.82 M foods × ~12 nutrients per food on average (Branded items typically report only the nutrition-label panel, not micronutrients) ≈ **20–25 M `food_nutrients` rows**. Plus ~500 k rows from Foundation/SR/FNDDS. Postgres can handle this; the GIN indexes on `search_vector` and `description` are the hot spots.
 
-**Invocation:** runs on the Hetzner box via `ssh hetzner && cd ~/app && node scripts/import-usda-foods.js`. Idempotent — safe to re-run for USDA annual refreshes.
+**Expected disk footprint after import:**
+- `foods` table + indexes: ~1–2 GB
+- `food_nutrients` table + indexes: ~4–7 GB
+- **Total: ~5–10 GB** in Postgres, plus ~2 GB temporary download space during import.
+
+**Expected run time:** **2–4 hours** on the Hetzner box (8 vCPU / 16 GB) for the full ingest. Foundation + SR Legacy + FNDDS together are ~10 minutes. Branded is the long tail.
+
+**Invocation:** runs on the Hetzner box via `ssh hetzner && cd ~/app && node scripts/import-usda-foods.js [--datasets=foundation,sr_legacy,fndds,branded] [--resume]`. Default is all four. `--resume` honors the checkpoint file. Idempotent — safe to re-run for USDA refreshes (Foundation/SR annual, Branded quarterly).
 
 ### Supplement seed: `supabase/20260413_supplements_seed.sql`
 
@@ -380,7 +408,7 @@ A **separate OpenAI call** from the main chat completion. Deterministic, tool-sc
          "confidence": "number 0..1" }
    ]}
    ```
-   System prompt (abbreviated): "Parse into discrete items with canonical units. For foods, always produce `amount` in grams — convert common household units (1 cup cooked white rice = 195 g, 1 medium banana = 118 g, 1 slice bread = 28 g). Set `amount_unit = 'g'`. For powder or mass-measured supplements (creatine, whey, BCAA, caffeine powder, collagen), also produce grams and set `amount_unit = 'g'`. For discrete-unit supplements (vitamin D3 capsules, omega-3 softgels, magnesium tablets, multivitamin, probiotic capsules), produce the count of units taken and set `amount_unit = 'serving'`. Distinguish foods from supplements in the `kind` field. Descriptions must be generic — no brand unless the user explicitly named one. Do not invent items. If you cannot determine a canonical amount, set `confidence` below 0.5 so the user can correct it in the confirmation widget."
+   System prompt (abbreviated): "Parse into discrete items with canonical units. For foods, always produce `amount` in grams — convert common household units (1 cup cooked white rice = 195 g, 1 medium banana = 118 g, 1 slice bread = 28 g). Set `amount_unit = 'g'`. For powder or mass-measured supplements (creatine, whey, BCAA, caffeine powder, collagen), also produce grams and set `amount_unit = 'g'`. For discrete-unit supplements (vitamin D3 capsules, omega-3 softgels, magnesium tablets, multivitamin, probiotic capsules), produce the count of units taken and set `amount_unit = 'serving'`. Distinguish foods from supplements in the `kind` field. **If the user named a brand** ('Quest bar', 'Chobani yogurt', 'Trader Joe's frozen burrito'), preserve it in the `description` verbatim so the matcher can look it up against the branded USDA catalog. If the user did NOT name a brand, keep the description generic. Do not invent items. If you cannot determine a canonical amount, set `confidence` below 0.5 so the user can correct it in the confirmation widget."
    Temperature `0`. Model via `OPENAI_EMERSUS_PARSER_MODEL` env with a cheaper default (`gpt-4.1-mini`-class).
 
 2. For each parsed item, run the **match pipeline** against `foods`:
@@ -390,7 +418,9 @@ A **separate OpenAI call** from the main chat completion. Deterministic, tool-sc
    - Filter by `kind` from the parser output (don't match a supplement phrase to a food row and vice versa)
    - Combined score ≥ 0.35 → auto-match
    - Below threshold → flag as `needs_review` with top 5 candidates for the confirmation widget
-   - Source-tier tiebreaker: `usda_foundation` > `usda_sr_legacy` > `usda_fndds` > `seed_supplement` > `user_contributed`
+   - Source-tier tiebreaker: `usda_foundation` > `usda_sr_legacy` > `usda_fndds` > `usda_branded` > `seed_supplement` > `user_contributed` > `chain_scrape`
+   - Branded-only rows are de-prioritized unless the user's query includes a brand token (FTS automatically surfaces brand hits via the generated `search_vector`, which concatenates `description` and `brand_name`)
+   - Within `usda_branded`, secondary tiebreak on `data_points desc` so manufacturers with more complete nutrient reporting outrank skeleton entries
 
 3. Returns:
    ```json
@@ -556,7 +586,7 @@ When `intent === 'log_food'`:
 
 For users who prefer clicking:
 
-- **Search typeahead** hits `GET /api/emersus/foods/search?q=...&kind=food|supplement|any&limit=20`. Same FTS + trigram ranking as the parser. `kind` parameter lets the supplement tab filter to supplements.
+- **Search typeahead** hits `GET /api/emersus/foods/search?q=...&kind=food|supplement|any&generic_only=false&limit=20`. Same FTS + trigram ranking as the parser. `kind` parameter lets the supplement tab filter to supplements. `generic_only=true` excludes `usda_branded` rows for users who want a less cluttered list (setting is remembered per user in `localStorage`; default is `false` so brand coverage is visible out of the box). Results show `brand_name` as a secondary label below the description — "Cookie dough bar · Quest Nutrition" — so branded and generic entries are visually disambiguated in the picker.
 - User picks a food → enters amount (grams for foods; amount + unit for supplements, with `common_unit` presets: "1 medium", "1 cup", "1 capsule", "1 scoop") → picks meal_slot (pre-filled from time) → POST.
 - **`[Copy yesterday]`** — one-click clone of yesterday's entries for the selected meal_slot.
 - **`[Quick add]`** — raw kcal + macros without picking a food. Stored with a synthetic "Manual entry" food row and `source = 'quick_add'`.
@@ -829,6 +859,7 @@ All migrations applied via `infra/apply-migrations.sh` against the Hetzner Postg
 | `docs/overview.md` | Edit | Add nutrition subsystem section |
 | `docs/schema.md` | Edit | Document new tables, columns, RPCs, migration list |
 | `docs/scripts.md` | Edit | Document the USDA import script |
+| `package.json` | Edit | Add `stream-json` dependency for the Branded Foods import script (streaming JSON parse — Branded is 1.5 GB unzipped, too large to load whole) and add `import:usda` npm script alias |
 
 ---
 
@@ -836,14 +867,17 @@ All migrations applied via `infra/apply-migrations.sh` against the Hetzner Postg
 
 1. **Parser latency.** Each chat-initiated log operation incurs a dedicated OpenAI call for the parser on top of the main chat completion. Budget: ~1–2 s added latency at a cheaper model tier. If a user journals 5 times per day that is ~5 extra API calls. Acceptable at current scale; re-evaluate at 10 k DAU.
 2. **DRI granularity.** The `default_dri_male` / `default_dri_female` split is a simplification — real DRIs vary by age bracket (14–18, 19–50, 51+) and life stage. v1 uses adult averages; v2 can add age-bracket logic.
-3. **FNDDS mixed dishes.** USDA's Survey dataset includes prepared mixes like "Lasagna, meat, homemade" that have good data but can compete with component foods in matching. The source-tier tiebreaker (`usda_foundation` > `usda_sr_legacy` > `usda_fndds`) prefers components when scores are close. Acceptable trade-off.
-4. **Restaurant chain gap.** Users will notice day one. Mitigation: in-UI helper text ("log individual components"), user-contributed foods path, roadmap mention. v1.5 adds real chain data via MenuStat (license-permitting) or polite crawls.
-5. **`dietary_preferences` is still freeform text.** The LLM reads the existing field and honors "vegan" / "halal" / "no pork" / "lactose intolerant" in plan generation. Structured allergy/restriction enforcement (dangerous allergen flags, "do not show any food containing peanuts" hard filters) is deferred. v1 relies on LLM instruction-following.
-6. **Progress dashboard refactor.** Adding the `[Workouts | Nutrition]` tab switcher is an edit to shipped code. Testing focus: the existing Workouts pane must continue to work exactly as today — no regressions in time-range pills, stat cards, chart rendering, or drill-down links. A visual regression check on `/app/progress/` is part of the merge checklist.
-7. **USDA refresh cadence.** USDA ships FDC updates annually. No scheduled auto-refresh in v1 — we run `import-usda-foods.js` manually when we want the latest data.
-8. **Supplement liability.** The supplement protocol in plan generation is conservative and evidence-gated, but it is not medical advice. The existing medical-advice guardrail continues to route condition-specific supplement questions through the refusal path. The design avoids dosing recommendations for anyone with a named condition.
-9. **Production uses `gpt-5.4-mini`.** Per `memory/reference_production_openai_model.md`, the `OPENAI_EMERSUS_MODEL` env override is what production actually runs — the `workflow.js` default is `gpt-4.1-mini`. The parser uses a separate `OPENAI_EMERSUS_PARSER_MODEL` env with its own default, so they can be tuned independently.
-10. **One active meal plan per user.** Matches workout-plan convention but may feel tight. Archived plans remain in the table, queryable; a future `/app/nutrition/plans/archive/` page can surface them read-only if users ask.
+3. **FNDDS mixed dishes.** USDA's Survey dataset includes prepared mixes like "Lasagna, meat, homemade" that have good data but can compete with component foods in matching. The source-tier tiebreaker prefers components when scores are close. Acceptable trade-off.
+4. **Branded Foods data quality.** USDA Branded is manufacturer-submitted, quality varies, ~5–15% of rows get filtered during import as malformed or incomplete. Some legitimate items have only the nutrition-label macros (no micronutrients), which is fine — they still contribute to macro tracking and their micronutrient join simply returns zero rows. The `data_points` tiebreaker pushes more complete entries to the top of search results. Risk: a user logs a branded item whose reported macros are wrong because the manufacturer misreported them. Mitigation: users can correct via inline edit; the snapshot preserves their corrected values.
+5. **Restaurant chain coverage (partial).** Branded Foods includes a subset of packaged-goods from restaurant brands (some Starbucks bottled items, some Chipotle retail products, etc.) but not the full in-store menus of most chains. Users trying to log "Big Mac" or "Chipotle burrito bowl" will still hit a gap on day one. Mitigation: in-UI helper text ("not seeing your chain item? log individual components"), user-contributed foods, and v1.5 chain data path.
+6. **Storage footprint on Hetzner.** The Branded import adds ~5–10 GB to the Postgres footprint. The Hetzner box needs free disk for the download (~2 GB), unzipped JSON (~5 GB), and the final Postgres growth. The import script does a pre-flight disk check and bails if insufficient. **Verified 2026-04-11:** Hetzner `/` has 242 GB free of 301 GB (`df -h` on the live box) — plenty of headroom for the full import and future growth.
+7. **Branded refresh cadence.** USDA refreshes Branded quarterly (more often than SR Legacy/Foundation, which are annual). No auto-refresh in v1 — `import-usda-foods.js` is run manually. Each refresh takes 2–4 hours. The checkpointed `--resume` flag means partial imports can be completed later if they hit a disconnect.
+8. **Search performance at 1.8 M rows.** The GIN index on `search_vector` handles typeahead in sub-100 ms for normal queries, but very short queries (1–2 characters) can return tens of thousands of hits before ranking. The foods-search endpoint enforces a minimum query length of 2 characters and defaults to `limit=20` so the client never pulls oversized result sets. Monitor p95 query time on the search endpoint post-launch.
+9. **`dietary_preferences` is still freeform text.** The LLM reads the existing field and honors "vegan" / "halal" / "no pork" / "lactose intolerant" in plan generation. Structured allergy/restriction enforcement (dangerous allergen flags, "do not show any food containing peanuts" hard filters) is deferred. v1 relies on LLM instruction-following. Note: Branded Foods' `ingredients_text` column means structured allergen filtering becomes straightforward in v2 — the raw data is already there.
+10. **Progress dashboard refactor.** Adding the `[Workouts | Nutrition]` tab switcher is an edit to shipped code. Testing focus: the existing Workouts pane must continue to work exactly as today — no regressions in time-range pills, stat cards, chart rendering, or drill-down links. A visual regression check on `/app/progress/` is part of the merge checklist.
+11. **Supplement liability.** The supplement protocol in plan generation is conservative and evidence-gated, but it is not medical advice. The existing medical-advice guardrail continues to route condition-specific supplement questions through the refusal path. The design avoids dosing recommendations for anyone with a named condition.
+12. **Production uses `gpt-5.4-mini`.** Per `memory/reference_production_openai_model.md`, the `OPENAI_EMERSUS_MODEL` env override is what production actually runs — the `workflow.js` default is `gpt-4.1-mini`. The parser uses a separate `OPENAI_EMERSUS_PARSER_MODEL` env with its own default, so they can be tuned independently.
+13. **One active meal plan per user.** Matches workout-plan convention but may feel tight. Archived plans remain in the table, queryable; a future `/app/nutrition/plans/archive/` page can surface them read-only if users ask.
 
 ---
 
@@ -858,3 +892,6 @@ All migrations applied via `infra/apply-migrations.sh` against the Hetzner Postg
 7. **Plan generation integration test** — with a complete profile, the chat returns a `meal-plan` fence whose JSON parses successfully against `shared/meal-plan-schema.js`; with a missing profile field, no fence is emitted and the assistant asks for the missing value.
 8. **Progress dashboard regression check** — manual walkthrough of the workout-progress view on a fresh deploy to confirm the tab switcher refactor did not break existing charts, pills, drill-downs, or the session detail links.
 9. **Supplement evidence gate smoke test** — ask the LLM for a "fat burner stack" and verify it refuses or returns a conservative protocol-compliant answer, not a megadose recommendation.
+10. **Branded import quality filter** — run the importer on a sampled subset (~10 k Branded rows) first and verify the quality filter rejects the expected 5–15% of malformed rows. Spot-check 20 random accepted rows against the source FDC JSON.
+11. **Branded search ranking** — query fixture of 30 terms that test ranking: generic terms ("oats", "chicken breast", "banana") must surface Foundation/SR Legacy entries first; brand terms ("Quest bar", "Chobani", "Optimum Nutrition") must surface their Branded entries first; ambiguous short terms ("bar", "milk") must return a diverse mix with the most complete entries (highest `data_points`) on top.
+12. **Search-endpoint latency benchmark** — measure p50 and p95 for the foods-search endpoint across 100 representative queries against the full 1.8 M-row index before marking the feature ready.
