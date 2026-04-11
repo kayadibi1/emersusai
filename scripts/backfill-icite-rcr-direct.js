@@ -1,4 +1,4 @@
-// Populate pubmed_articles.rcr from the NIH iCite API.
+// Populate research_articles.rcr from the NIH iCite API.
 //
 // Idempotent: only processes rows where rcr IS NULL, so re-running is
 // safe and cheap. Paginates by PMID to avoid loading all 200k+ rows
@@ -71,7 +71,7 @@ function sleep(ms) {
 
 async function fetchNextPmidPage(cursor, limit) {
   let query = supabaseAdmin
-    .from("pubmed_articles")
+    .from("research_articles")
     .select("pmid")
     .is("rcr", null)
     .order("pmid", { ascending: true })
