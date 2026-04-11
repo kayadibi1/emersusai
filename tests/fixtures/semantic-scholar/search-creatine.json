@@ -1,0 +1,42 @@
+{
+  "total": 2,
+  "offset": 0,
+  "next": 2,
+  "data": [
+    {
+      "paperId": "c7f3e9a2b4d5c8f1a3e6b8d2c4f9a1e3b5c7d8f2",
+      "externalIds": {
+        "DOI": "10.1186/1550-2783-4-6",
+        "PubMed": "17908288",
+        "MAG": "2087402540"
+      },
+      "title": "International Society of Sports Nutrition position stand: creatine supplementation and exercise",
+      "abstract": "Creatine monohydrate is the most effective ergogenic nutritional supplement currently available to athletes in terms of increasing high-intensity exercise capacity and lean body mass during training.",
+      "year": 2007,
+      "venue": "Journal of the International Society of Sports Nutrition",
+      "authors": [
+        { "authorId": "1720322", "name": "Richard B. Kreider" },
+        { "authorId": "2098712", "name": "Chad M. Kerksick" }
+      ],
+      "isOpenAccess": true,
+      "publicationTypes": ["JournalArticle", "Review"]
+    },
+    {
+      "paperId": "a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0",
+      "externalIds": {
+        "DOI": "10.1186/s12970-021-00412-w",
+        "PubMed": "34184744"
+      },
+      "title": "International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation",
+      "abstract": "Following the original International Society of Sports Nutrition position stand on creatine published in 2007, significant new research has been conducted.",
+      "year": 2021,
+      "venue": "Journal of the International Society of Sports Nutrition",
+      "authors": [
+        { "authorId": "1720322", "name": "Richard B. Kreider" },
+        { "authorId": "3210987", "name": "Tim N. Ziegenfuss" }
+      ],
+      "isOpenAccess": true,
+      "publicationTypes": ["JournalArticle", "Review"]
+    }
+  ]
+}
