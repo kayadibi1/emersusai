@@ -329,6 +329,22 @@ const DEFAULT_TOPIC_ORDER = [
   "ampk_mtor_signaling",
   "zone_2_mitochondria",
   "sauna_longevity",
+
+  // ── 21. Mobility / movement prep ─────────────────────────────
+  "dynamic_warmup_protocols",
+  "static_stretching_performance",
+  "pnf_stretching",
+  "foam_rolling_smr",
+  "movement_screens",
+  "joint_mobility_drills",
+  "hip_mobility_lifters",
+  "thoracic_spine_mobility",
+  "ankle_dorsiflexion_squat",
+  "shoulder_mobility_overhead",
+  "controlled_articular_rotations",
+  "neural_tension_mobilization",
+  "active_isolated_stretching",
+  "breath_work_mobility",
 ];
 
 const TOPIC_QUERIES = {
@@ -924,6 +940,36 @@ const TOPIC_QUERIES = {
     "(\"zone 2 training\" OR \"low intensity training\" OR \"aerobic base training\") AND (mitochondrial OR \"mitochondrial biogenesis\" OR \"fat oxidation\")",
   sauna_longevity:
     "(sauna OR \"heat therapy\" OR \"Finnish sauna\" OR \"sauna bathing\") AND (longevity OR \"cardiovascular health\" OR mortality OR recovery)",
+
+  // ── 21. Mobility / movement prep ─────────────────────────────
+  dynamic_warmup_protocols:
+    "(\"dynamic warm-up\" OR \"dynamic stretching\" OR \"movement preparation\") AND (\"exercise performance\" OR \"power output\" OR \"injury prevention\" OR athletes)",
+  static_stretching_performance:
+    "(\"static stretching\" OR \"pre-exercise stretching\") AND (\"resistance training\" OR \"power output\" OR \"sprint performance\" OR \"strength performance\")",
+  pnf_stretching:
+    "(\"PNF stretching\" OR \"proprioceptive neuromuscular facilitation\") AND (flexibility OR \"range of motion\" OR \"muscle performance\")",
+  foam_rolling_smr:
+    "(\"foam rolling\" OR \"self-myofascial release\" OR \"self myofascial release\") AND (recovery OR \"range of motion\" OR \"exercise performance\" OR soreness)",
+  movement_screens:
+    "(\"functional movement screen\" OR FMS OR \"movement screen\" OR \"movement quality\") AND (\"injury prediction\" OR \"injury risk\" OR athletes)",
+  joint_mobility_drills:
+    "(\"joint mobility\" OR \"hip mobility\" OR \"thoracic mobility\" OR \"ankle mobility\") AND (\"resistance training\" OR \"movement quality\" OR athletes)",
+  hip_mobility_lifters:
+    "(\"hip mobility\" OR \"hip flexibility\" OR \"hip internal rotation\" OR \"hip external rotation\") AND (squat OR \"resistance training\" OR lifter)",
+  thoracic_spine_mobility:
+    "(\"thoracic spine\" OR \"T-spine mobility\" OR \"thoracic extension\") AND (\"overhead press\" OR posture OR mobility OR \"resistance training\")",
+  ankle_dorsiflexion_squat:
+    "(\"ankle dorsiflexion\" OR \"ankle mobility\" OR \"weight-bearing lunge test\") AND (squat OR \"resistance training\" OR biomechanics)",
+  shoulder_mobility_overhead:
+    "(\"shoulder mobility\" OR \"shoulder flexion\" OR \"overhead position\") AND (\"overhead press\" OR \"snatch\" OR biomechanics OR athletes)",
+  controlled_articular_rotations:
+    "(\"controlled articular rotations\" OR \"CARs\" OR \"functional range conditioning\" OR FRC) AND (mobility OR \"joint health\" OR \"range of motion\")",
+  neural_tension_mobilization:
+    "(\"neural tension\" OR \"nerve mobilization\" OR \"neurodynamic\") AND (exercise OR \"range of motion\" OR rehabilitation)",
+  active_isolated_stretching:
+    "(\"active isolated stretching\" OR \"active stretching\" OR \"dynamic range of motion\") AND (flexibility OR \"range of motion\" OR performance)",
+  breath_work_mobility:
+    "(\"breathing exercises\" OR \"diaphragmatic breathing\" OR \"breath work\") AND (mobility OR \"core stability\" OR \"postural control\" OR performance)",
 };
 
 function parseArgs(argv) {
