@@ -296,6 +296,22 @@ const DEFAULT_TOPIC_ORDER = [
   "flow_state_performance",
   "exercise_addiction",
   "social_support_training",
+
+  // ── 19. Nutrition subfields ──────────────────────────────────
+  "vegan_athlete_nutrition",
+  "intermittent_fasting_performance",
+  "keto_endurance",
+  "ultra_endurance_fueling",
+  "protein_quality_sources",
+  "meal_frequency_body_composition",
+  "protein_distribution_mps",
+  "fasted_training",
+  "refeeds_diet_breaks",
+  "caloric_cycling",
+  "mediterranean_diet_athletes",
+  "post_workout_nutrition_window",
+  "pre_race_carbohydrate_loading",
+  "gut_training_race_fueling",
 ];
 
 const TOPIC_QUERIES = {
@@ -829,6 +845,36 @@ const TOPIC_QUERIES = {
     "(\"exercise addiction\" OR \"exercise dependence\" OR \"compulsive exercise\") AND (overtraining OR \"eating disorders\" OR \"body image\")",
   social_support_training:
     "(\"social support\" OR \"training partner\" OR \"exercise group\") AND (adherence OR \"exercise behavior\" OR motivation OR \"physical activity\")",
+
+  // ── 19. Nutrition subfields ──────────────────────────────────
+  vegan_athlete_nutrition:
+    "(\"vegan athlete\" OR \"vegetarian athlete\" OR \"plant-based diet\") AND (\"resistance training\" OR performance OR \"protein intake\" OR hypertrophy)",
+  intermittent_fasting_performance:
+    "(\"intermittent fasting\" OR \"time-restricted eating\" OR \"time-restricted feeding\") AND (\"exercise performance\" OR \"resistance training\" OR \"body composition\")",
+  keto_endurance:
+    "(\"ketogenic diet\" OR \"low carbohydrate diet\" OR \"high-fat diet\") AND (\"endurance performance\" OR \"VO2 max\" OR \"fat oxidation\" OR athletes)",
+  ultra_endurance_fueling:
+    "(\"ultra-endurance\" OR ultramarathon OR ironman) AND (nutrition OR fueling OR \"carbohydrate intake\" OR \"gut training\")",
+  protein_quality_sources:
+    "(\"protein quality\" OR \"essential amino acids\" OR DIAAS OR \"leucine content\") AND (\"muscle protein synthesis\" OR hypertrophy OR \"resistance training\")",
+  meal_frequency_body_composition:
+    "(\"meal frequency\" OR \"eating frequency\" OR \"snacking frequency\") AND (\"body composition\" OR hypertrophy OR \"protein distribution\" OR \"muscle protein synthesis\")",
+  protein_distribution_mps:
+    "(\"protein distribution\" OR \"per meal protein\" OR \"protein spread\") AND (\"muscle protein synthesis\" OR hypertrophy OR \"resistance training\")",
+  fasted_training:
+    "(\"fasted training\" OR \"fasted exercise\" OR \"overnight fasted\" OR \"pre-breakfast exercise\") AND (\"fat oxidation\" OR \"insulin sensitivity\" OR performance)",
+  refeeds_diet_breaks:
+    "(\"diet break\" OR \"refeed\" OR \"matador study\" OR \"carbohydrate refeed\") AND (\"fat loss\" OR \"metabolic adaptation\" OR \"body composition\")",
+  caloric_cycling:
+    "(\"calorie cycling\" OR \"energy cycling\" OR \"intermittent caloric restriction\") AND (\"body composition\" OR \"fat loss\" OR athletes)",
+  mediterranean_diet_athletes:
+    "(\"mediterranean diet\" OR \"mediterranean-style diet\") AND (athletes OR exercise OR performance OR recovery)",
+  post_workout_nutrition_window:
+    "(\"post-exercise nutrition\" OR \"post-workout nutrition\" OR \"anabolic window\" OR \"recovery nutrition\") AND (\"muscle protein synthesis\" OR hypertrophy OR glycogen)",
+  pre_race_carbohydrate_loading:
+    "(\"carbohydrate loading\" OR \"glycogen loading\" OR \"carb loading protocol\") AND (marathon OR endurance OR \"race performance\")",
+  gut_training_race_fueling:
+    "(\"gut training\" OR \"gastrointestinal training\" OR \"carbohydrate tolerance\") AND (endurance OR ultramarathon OR \"race nutrition\")",
 };
 
 function parseArgs(argv) {
