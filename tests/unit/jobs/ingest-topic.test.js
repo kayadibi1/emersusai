@@ -1,6 +1,9 @@
 // tests/unit/jobs/ingest-topic.test.js
 import { test } from "node:test";
 import assert from "node:assert/strict";
+// Side-effect import: ensure the pubmed plugin is in the registry so the
+// handler's available-source intersection keeps pubmed entries.
+import "../../../scripts/sources/pubmed.js";
 
 // We import the handler factory via createIngestTopic so we can inject
 // a mock listIngestionSources without touching the real registry singleton.
@@ -67,7 +70,10 @@ const FAKE_TOPIC = {
   target_paper_count: 500,
 };
 
-test("fans out to explicitly provided sourceIds", async () => {
+test("fans out to explicitly provided sourceIds (phase 2: pubmed only)", async () => {
+  // Phase 2 constraint: SUPPORTED_SOURCE_IDS = ["pubmed"] in the handler.
+  // Non-pubmed entries in requestedSourceIds are filtered out. europepmc
+  // will come back when the multi-source schema rework lands.
   const handler = await makeHandler(null);
   const sql = makeSql({ topicRows: [FAKE_TOPIC] });
   const boss = makeBoss();
@@ -76,13 +82,12 @@ test("fans out to explicitly provided sourceIds", async () => {
   const out = await handler(ctx, { sql, boss });
 
   assert.equal(out.topicId, 42);
-  assert.equal(out.sourceCount, 2);
-  assert.equal(boss.sent.length, 2);
+  assert.equal(out.sourceCount, 1, "only pubmed survives the phase 2 filter");
+  assert.equal(boss.sent.length, 1);
   assert.equal(boss.sent[0].name, "ingest-topic-from-source");
   assert.equal(boss.sent[0].payload.topicId, 42);
   assert.equal(boss.sent[0].payload.sourceId, "pubmed");
   assert.equal(boss.sent[0].payload.target, 500);
-  assert.equal(boss.sent[1].payload.sourceId, "europepmc");
 });
 
 test("uses singletonKey with topicId+sourceId", async () => {
@@ -98,6 +103,24 @@ test("uses singletonKey with topicId+sourceId", async () => {
   assert.ok(opts.singletonKey.includes("42"), "singletonKey should include topicId");
   assert.ok(opts.singletonKey.includes("pubmed"), "singletonKey should include sourceId");
   assert.equal(opts.singletonHours, 24, "singletonHours should be 24");
+});
+
+test("sends ingest-topic-from-source with retryLimit 5 + backoff", async () => {
+  // Regression: the 2026-04-11 phase 2 deploy landed 14 permanently-failed
+  // ingest-topic-from-source jobs because pg-boss's default retryLimit: 2
+  // plus no backoff couldn't absorb NCBI's TCP-drop throttling. Fix B
+  // bumps retry to 5 with exponential backoff.
+  const handler = await makeHandler(null);
+  const sql = makeSql({ topicRows: [FAKE_TOPIC] });
+  const boss = makeBoss();
+  const ctx = makeCtx({ topicId: 42, sourceIds: ["pubmed"] });
+
+  await handler(ctx, { sql, boss });
+
+  const opts = boss.sent[0].options;
+  assert.equal(opts.retryLimit, 5, "retryLimit should be 5");
+  assert.equal(opts.retryBackoff, true, "retryBackoff should be true");
+  assert.equal(opts.retryDelay, 15, "retryDelay should be 15 seconds");
 });
 
 test("topic not found throws SourcePermanentError", async () => {

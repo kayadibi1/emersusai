@@ -1,6 +1,10 @@
 // scripts/sources/pubmed.js
 // Ingestion adapter for PubMed eutils. Two-phase: esearch → efetch.
-// Rate-limited to 3 RPS unauthenticated (NCBI's stated limit).
+//
+// Rate limits:
+//   - Unauthenticated: 3 RPS (NCBI's stated limit).
+//   - With api_key: 10 RPS (we use 9 for safety margin).
+// NCBI policy also requires tool + email params when a key is sent.
 import { fetchWithTimeoutAndUA } from "./_http.js";
 import { createLimiter } from "./_ratelimit.js";
 import { SourcePermanentError } from "./_errors.js";
@@ -9,12 +13,30 @@ import { registerIngestion } from "./_registry.js";
 const ESEARCH_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi";
 const EFETCH_URL  = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi";
 const BATCH_SIZE = 100;
+const NCBI_TOOL = "emersus";
+const NCBI_EMAIL = "info@emersus.ai";
 
-const waitSlot = createLimiter(3); // 3 RPS
+// Read the key at module load to size the limiter. The URL builders re-read
+// it on every call (lazy) so tests can flip the env var per-test.
+const HAS_API_KEY_AT_LOAD = Boolean(process.env.NCBI_API_KEY);
+const waitSlot = createLimiter(HAS_API_KEY_AT_LOAD ? 9 : 3);
+
+/**
+ * Append api_key, tool, email to a URL when NCBI_API_KEY is set in env.
+ * Read env lazily so tests can set it per-call.
+ */
+function appendAuth(url) {
+  const apiKey = process.env.NCBI_API_KEY;
+  if (!apiKey) return url;
+  const params = `&api_key=${encodeURIComponent(apiKey)}&tool=${encodeURIComponent(NCBI_TOOL)}&email=${encodeURIComponent(NCBI_EMAIL)}`;
+  return url + params;
+}
 
 async function esearchPmids(query, retmax, retstart) {
   await waitSlot();
-  const url = `${ESEARCH_URL}?db=pubmed&retmax=${retmax}&retstart=${retstart}&term=${encodeURIComponent(query)}`;
+  const url = appendAuth(
+    `${ESEARCH_URL}?db=pubmed&retmax=${retmax}&retstart=${retstart}&term=${encodeURIComponent(query)}`
+  );
   const resp = await fetchWithTimeoutAndUA(url, { accept: "application/xml" });
   const xml = await resp.text();
   const idList = [...xml.matchAll(/<Id>(\d+)<\/Id>/g)].map(m => m[1]);
@@ -26,7 +48,9 @@ async function esearchPmids(query, retmax, retstart) {
 async function efetchBatch(pmids) {
   if (pmids.length === 0) return [];
   await waitSlot();
-  const url = `${EFETCH_URL}?db=pubmed&id=${pmids.join(",")}&retmode=xml`;
+  const url = appendAuth(
+    `${EFETCH_URL}?db=pubmed&id=${pmids.join(",")}&retmode=xml`
+  );
   const resp = await fetchWithTimeoutAndUA(url, { accept: "application/xml" });
   const xml = await resp.text();
   return parsePubmedXml(xml);

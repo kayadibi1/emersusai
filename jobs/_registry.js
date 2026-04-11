@@ -78,7 +78,10 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   await register("fetch-feed",                fetchFeedHandler,               { teamSize: 4,  teamConcurrency: 4 });
   await register("classify-candidates",       classifyCandidatesHandler,      { teamSize: 2,  teamConcurrency: 2 });
   await register("ingest-topic",              ingestTopicHandler,             { teamSize: 4,  teamConcurrency: 4 });
-  await register("ingest-topic-from-source",  ingestTopicFromSourceHandler,   { teamSize: 14, teamConcurrency: 14 });
+  // Concurrency capped at 4 so the pubmed limiter (9 RPS with api_key, 3
+  // RPS without) doesn't get stampeded. The 2026-04-11 deploy ran with
+  // teamSize: 14 and NCBI TCP-dropped ~5% of requests under the burst.
+  await register("ingest-topic-from-source",  ingestTopicFromSourceHandler,   { teamSize: 4,  teamConcurrency: 4 });
   await register("embed-batch",               embedBatchHandler);
   await register("s2-citation-backfill",      s2CitationBackfillHandler);
   await register("rcr-backfill",              rcrBackfillHandler);
