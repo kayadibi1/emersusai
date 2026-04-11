@@ -81,7 +81,21 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   await register("alert-daily-digest",        alertDailyDigestHandler);
   await register("cleanup-job-progress",      cleanupJobProgressHandler);
 
-  // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness)
+  // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness).
+  // boss.schedule() foreign-keys against pgboss.queue which is only populated
+  // when a queue is explicitly created or a job is sent/fetched. We call
+  // boss.createQueue() for each scheduled job to ensure the row exists before
+  // scheduling. This is idempotent — pg-boss ignores duplicate createQueue calls.
+  const scheduledQueues = [
+    "discovery-weekly",
+    "detect-failure-clusters",
+    "alert-daily-digest",
+    "cleanup-job-progress",
+  ];
+  for (const qname of scheduledQueues) {
+    await boss.createQueue(qname);
+  }
+
   await boss.schedule("discovery-weekly",        "0 3 * * 1", {},                          { tz: "America/New_York" });
   await boss.schedule("detect-failure-clusters", "*/5 * * * *", {},                        { tz: "America/New_York" });
   await boss.schedule("alert-daily-digest",      "0 8 * * *",  {},                         { tz: "America/New_York" });
