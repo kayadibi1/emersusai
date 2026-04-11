@@ -25,15 +25,21 @@ const PAGE_SIZE = 50;
 
 const waitSlot = createLimiter(2); // 2 RPS, polite
 
+// OpenAIRE Graph AND-matches keywords passed to `search`, so a 9-keyword
+// query collapses the result set to near zero. Cap to the first few most
+// important keywords from the upstream topic query.
+const MAX_KEYWORDS = 3;
+
 /**
  * Collapse a boolean research query (`(creatine OR "creatine monohydrate")
  * AND ("resistance training" OR strength)`) into plain whitespace-separated
- * keywords. OpenAIRE Graph's `search` param does keyword relevance
- * matching, not boolean parsing — a complex query causes a 25s timeout.
+ * keywords, capped at MAX_KEYWORDS. OpenAIRE Graph's `search` param
+ * does AND matching across whitespace-separated terms, so we can't
+ * pass everything or numFound drops to 1.
  */
 export function sanitizeToKeywords(query) {
   if (!query || typeof query !== "string") return "";
-  return query
+  const words = query
     // Drop boolean operators (as whole words)
     .replace(/\b(AND|OR|NOT)\b/g, " ")
     // Drop quotes
@@ -42,7 +48,20 @@ export function sanitizeToKeywords(query) {
     .replace(/[()]/g, " ")
     // Collapse whitespace
     .replace(/\s+/g, " ")
-    .trim();
+    .trim()
+    .split(" ")
+    .filter(Boolean);
+  // De-dup while preserving order
+  const seen = new Set();
+  const unique = [];
+  for (const w of words) {
+    const key = w.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push(w);
+    if (unique.length >= MAX_KEYWORDS) break;
+  }
+  return unique.join(" ");
 }
 
 function buildSearchUrl(query, page) {
