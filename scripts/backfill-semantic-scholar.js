@@ -12,9 +12,15 @@
 //
 // Rate limits:
 //   - No API key   → ~100 req / 5 min shared (default pause 3500ms)
-//   - With API key → 1 req / sec per key     (default pause 1100ms)
+//   - With API key → 1 req / sec per key     (default pause 1500ms)
 // Set SEMANTIC_SCHOLAR_API_KEY in the environment to opt into the
 // authenticated tier. The key is sent as `x-api-key` on every batch.
+//
+// S2's 1 RPS limit is enforced with a small token bucket that permits
+// ~4 burst requests then clamps. 1100ms spacing looked safe on paper
+// (~0.83 RPS average) but drained the bucket within 5 batches and
+// started 429-ing. 1500ms (~0.67 RPS) leaves enough headroom for
+// clock jitter + network latency variance.
 
 import "dotenv/config";
 import { spawn } from "node:child_process";
@@ -29,8 +35,11 @@ const S2_API_KEY = (process.env.SEMANTIC_SCHOLAR_API_KEY || "").trim();
 const HAS_API_KEY = S2_API_KEY.length > 0;
 
 const DEFAULT_BATCH_SIZE = 500;                   // S2 API cap
-const DEFAULT_PAUSE_MS = HAS_API_KEY ? 1100 : 3500; // 1 RPS (keyed) vs free-tier budget
-const RETRY_DELAY_MS = 10000;     // longer backoff than iCite because 429s
+const DEFAULT_PAUSE_MS = HAS_API_KEY ? 1500 : 3500; // under 1 RPS (keyed) vs free-tier budget
+// 429 backoff: if we hit the rate limit, the bucket refills in ~1s, so
+// a short wait is enough. Previous 10s * attempt was pessimistic and
+// came from the anonymous-tier era where throttling was unpredictable.
+const RETRY_DELAY_MS = HAS_API_KEY ? 2000 : 10000;
 const REQUEST_TIMEOUT_MS = 25000; // abort fetches that hang silently
 const MAX_RETRIES = 4;
 
