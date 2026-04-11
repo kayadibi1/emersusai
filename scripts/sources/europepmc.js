@@ -4,6 +4,7 @@
 // Rate-limited to 5 RPS (unauthenticated).
 import { fetchWithTimeoutAndUA } from "./_http.js";
 import { createLimiter } from "./_ratelimit.js";
+import { SourcePermanentError } from "./_errors.js";
 import { registerIngestion } from "./_registry.js";
 
 const SEARCH_URL = "https://www.ebi.ac.uk/europepmc/webservices/rest/search";
@@ -69,11 +70,19 @@ export const europepmc = {
     const target = opts?.target ?? 2000;
     let yielded = 0;
     let cursorMark = "*";
-    let previousCursor = null;
+    let firstPage = true;
 
     while (yielded < target) {
       const { results, nextCursorMark } = await searchPage(query, cursorMark);
-      if (results.length === 0) return;
+      if (results.length === 0) {
+        // Signal bad/empty queries as permanent — matches pubmed.js behavior.
+        // Only on the first page — later empty pages just mean end-of-results.
+        if (firstPage) {
+          throw new SourcePermanentError(`europepmc search returned 0 results for query: ${query}`);
+        }
+        return;
+      }
+      firstPage = false;
 
       for (const r of results) {
         const paper = mapResult(r);
@@ -86,7 +95,6 @@ export const europepmc = {
 
       // pagination: stop when nextCursorMark equals current cursor
       if (!nextCursorMark || nextCursorMark === cursorMark) return;
-      previousCursor = cursorMark;
       cursorMark = nextCursorMark;
     }
   },

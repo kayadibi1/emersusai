@@ -4,6 +4,7 @@
 // Rate-limited to 2 RPS.
 import { fetchWithTimeoutAndUA } from "./_http.js";
 import { createLimiter } from "./_ratelimit.js";
+import { SourcePermanentError } from "./_errors.js";
 import { registerIngestion } from "./_registry.js";
 
 const BASE_URL = "https://doaj.org/api/v2/search/articles";
@@ -78,6 +79,9 @@ export const doaj = {
     while (yielded < target) {
       const { results, total: t } = await fetchPage(query, page);
       total = t;
+      if (page === 1 && total === 0) {
+        throw new SourcePermanentError(`doaj search returned 0 total results for query: ${query}`);
+      }
       if (results.length === 0) return;
 
       for (const result of results) {

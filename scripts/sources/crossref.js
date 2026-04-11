@@ -4,6 +4,7 @@
 // Rate-limited to 10 RPS via the "polite pool" (requires Mailto header).
 import { fetchWithTimeoutAndUA } from "./_http.js";
 import { createLimiter } from "./_ratelimit.js";
+import { SourcePermanentError } from "./_errors.js";
 import { registerIngestion } from "./_registry.js";
 
 const BASE_URL = "https://api.crossref.org/works";
@@ -97,6 +98,9 @@ export const crossref = {
     while (yielded < target && offset < totalResults) {
       const { items, totalResults: total } = await fetchPage(query, offset);
       totalResults = total;
+      if (offset === 0 && total === 0) {
+        throw new SourcePermanentError(`crossref search returned 0 total results for query: ${query}`);
+      }
       if (items.length === 0) return;
 
       for (const item of items) {
