@@ -240,6 +240,24 @@ const DEFAULT_TOPIC_ORDER = [
   "glycogen_supercompensation",
   "race_pacing_strategy",
   "endurance_periodization",
+
+  // ── 16. Advanced programming methodologies ───────────────────
+  "block_periodization",
+  "conjugate_method",
+  "bulgarian_method",
+  "autoregulation_rpe_rir",
+  "daily_undulating_periodization",
+  "peaking_for_competition",
+  "accumulation_intensification",
+  "mesocycle_design",
+  "microcycle_design",
+  "velocity_based_training",
+  "cluster_sets",
+  "drop_sets_hypertrophy",
+  "rest_pause_training",
+  "mechanical_tension_vs_metabolic_stress",
+  "prilepin_chart_strength",
+  "training_to_failure",
 ];
 
 const TOPIC_QUERIES = {
@@ -667,6 +685,40 @@ const TOPIC_QUERIES = {
     "(\"pacing strategy\" OR \"pacing pattern\" OR \"race pacing\") AND (marathon OR triathlon OR endurance OR performance)",
   endurance_periodization:
     "(\"endurance periodization\" OR \"reverse periodization\" OR \"traditional periodization endurance\") AND (marathon OR cycling OR running OR triathlon)",
+
+  // ── 16. Advanced programming methodologies ───────────────────
+  block_periodization:
+    "(\"block periodization\" OR \"block training\") AND (\"resistance training\" OR \"strength training\" OR \"athletic performance\" OR adaptation)",
+  conjugate_method:
+    "(\"conjugate method\" OR \"Westside Barbell\" OR \"max effort training\" OR \"dynamic effort\") AND (\"strength training\" OR powerlifting OR \"resistance training\")",
+  bulgarian_method:
+    "(\"Bulgarian method\" OR \"daily max training\" OR \"daily singles\" OR \"maximum daily attempt\") AND (weightlifting OR powerlifting OR \"strength training\")",
+  autoregulation_rpe_rir:
+    "(autoregulation OR \"rating of perceived exertion\" OR RPE OR \"repetitions in reserve\" OR RIR) AND (\"resistance training\" OR \"strength training\" OR load)",
+  daily_undulating_periodization:
+    "(\"daily undulating periodization\" OR DUP OR \"undulating periodization\") AND (\"resistance training\" OR hypertrophy OR strength OR adaptation)",
+  peaking_for_competition:
+    "(peaking OR \"competition preparation\" OR \"pre-competition\") AND (powerlifting OR weightlifting OR \"strength athletes\" OR tapering)",
+  accumulation_intensification:
+    "(\"accumulation phase\" OR \"intensification phase\" OR \"training phases\") AND (\"resistance training\" OR periodization OR adaptation)",
+  mesocycle_design:
+    "(mesocycle OR \"training block\" OR \"training cycle\") AND (\"resistance training\" OR periodization OR \"volume progression\")",
+  microcycle_design:
+    "(microcycle OR \"weekly training\" OR \"training week\") AND (\"resistance training\" OR periodization OR \"training load\" OR recovery)",
+  velocity_based_training:
+    "(\"velocity based training\" OR VBT OR \"bar velocity\" OR \"lifting velocity\") AND (\"resistance training\" OR strength OR power)",
+  cluster_sets:
+    "(\"cluster sets\" OR \"cluster training\" OR \"intra-set rest\") AND (\"resistance training\" OR power OR strength OR hypertrophy)",
+  drop_sets_hypertrophy:
+    "(\"drop sets\" OR \"descending sets\" OR \"strip sets\") AND (hypertrophy OR \"muscle growth\" OR \"resistance training\")",
+  rest_pause_training:
+    "(\"rest pause\" OR \"rest-pause\" OR \"myo-reps\") AND (hypertrophy OR \"resistance training\" OR \"muscle growth\")",
+  mechanical_tension_vs_metabolic_stress:
+    "(\"mechanical tension\" OR \"metabolic stress\" OR \"muscle damage hypertrophy\") AND (hypertrophy OR \"muscle growth\" OR \"resistance training\")",
+  prilepin_chart_strength:
+    "(\"Prilepin chart\" OR \"Prilepin's table\" OR \"training volume prescription\") AND (\"strength training\" OR weightlifting OR powerlifting)",
+  training_to_failure:
+    "(\"training to failure\" OR \"muscular failure\" OR \"momentary failure\") AND (hypertrophy OR strength OR \"resistance training\")",
 };
 
 function parseArgs(argv) {
