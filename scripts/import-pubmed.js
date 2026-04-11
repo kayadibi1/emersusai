@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import path from "node:path";
+import { sectionsToChunks } from "./lib/abstract-sections-chunks.js";
 const DEFAULT_BATCH_SIZE = 100;
 const DEFAULT_ABSTRACT_CHUNK_SIZE = 1200;
 const ARTICLE_TABLE = "pubmed_articles";
@@ -422,21 +423,51 @@ function buildEvidenceChunks(record, abstractChunkSize) {
     });
   }
 
-  const abstractChunks = splitAbstractIntoChunks(
-    record.abstract,
-    abstractChunkSize
-  );
+  // Prefer per-section chunks when the parser extracted a structured
+  // abstract (abstract_sections jsonb on the record). Sectioned chunks
+  // carry chunk_type='abstract_background' / 'abstract_methods' /
+  // 'abstract_results' / 'abstract_conclusions' / 'abstract_other'
+  // instead of the generic 'abstract', which lets retrieval boost
+  // results/conclusions over methods for findings-type questions.
+  //
+  // Falls back to the flat-abstract splitter when the record has no
+  // sections (unstructured abstracts — very common for older papers).
+  // The two code paths are mutually exclusive: we never emit BOTH
+  // sectioned and flat 'abstract' chunks for the same record, to
+  // avoid duplicating the same text in the index.
+  const sectionedChunks = record.abstract_sections
+    ? sectionsToChunks(record.abstract_sections, abstractChunkSize)
+    : [];
 
-  for (let index = 0; index < abstractChunks.length; index += 1) {
-    chunks.push({
-      pmid: record.pmid,
-      chunk_type: "abstract",
-      content: abstractChunks[index],
-      metadata: {
-        source: "pubmed_import",
-        field: "abstract",
-      },
-    });
+  if (sectionedChunks.length > 0) {
+    for (const chunk of sectionedChunks) {
+      chunks.push({
+        pmid: record.pmid,
+        chunk_type: chunk.chunk_type,
+        content: chunk.content,
+        metadata: {
+          source: "pubmed_import",
+          field: "abstract_sections",
+        },
+      });
+    }
+  } else {
+    const abstractChunks = splitAbstractIntoChunks(
+      record.abstract,
+      abstractChunkSize
+    );
+
+    for (let index = 0; index < abstractChunks.length; index += 1) {
+      chunks.push({
+        pmid: record.pmid,
+        chunk_type: "abstract",
+        content: abstractChunks[index],
+        metadata: {
+          source: "pubmed_import",
+          field: "abstract",
+        },
+      });
+    }
   }
 
   const fullTextChunks = splitAbstractIntoChunks(
