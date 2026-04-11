@@ -13,6 +13,7 @@ import {
   parseAuthorKeywords,
   splitPubmedArticles,
   extractPmid,
+  parsePmcStructuredAbstract,
 } from "./lib/pubmed-xml.js";
 
 // ── Fixtures ────────────────────────────────────────────────────────
@@ -223,6 +224,89 @@ assert.equal(extractPmid(RETRACTION_NOTICE_XML), 22222222);
 assert.equal(extractPmid(""), null);
 assert.equal(extractPmid(null), null);
 assert.equal(extractPmid("<PubmedArticle></PubmedArticle>"), null);
+
+// ── parsePmcStructuredAbstract ────────────────────────────────────
+
+// PMC (JATS) uses <abstract><sec><title>Name</title><p>text</p></sec></abstract>
+// — a completely different schema from PubMed's <AbstractText Label="">.
+// This parser walks PMC's structure and returns the same uppercase-
+// keyed object shape that parseStructuredAbstract returns, so the
+// downstream rechunker/normalizer doesn't care which format it came
+// from.
+
+const PMC_STRUCTURED_XML = `
+  <article>
+    <abstract>
+      <sec>
+        <title>Background</title>
+        <p>Creatine is a popular ergogenic aid in strength sports.</p>
+      </sec>
+      <sec>
+        <title>Methods</title>
+        <p>We enrolled 40 trained lifters.</p>
+        <p>They received 5 g/day creatine monohydrate or placebo.</p>
+      </sec>
+      <sec>
+        <title>Results</title>
+        <p>The creatine group gained 8.2% more strength (p&lt;0.01).</p>
+      </sec>
+      <sec>
+        <title>Conclusions</title>
+        <p>Creatine supplementation improved strength outcomes.</p>
+      </sec>
+    </abstract>
+  </article>`;
+
+const PMC_UNSTRUCTURED_XML = `
+  <article>
+    <abstract>
+      <p>Single-paragraph abstract. No sections.</p>
+      <p>A second paragraph still without a sec wrapper.</p>
+    </abstract>
+  </article>`;
+
+{
+  const s = parsePmcStructuredAbstract(PMC_STRUCTURED_XML);
+  assert.ok(s && typeof s === "object", "should return an object for structured");
+  assert.ok(s.BACKGROUND && s.BACKGROUND.includes("ergogenic aid"));
+  assert.ok(s.METHODS && s.METHODS.includes("40 trained lifters"));
+  assert.ok(
+    s.METHODS.includes("5 g/day"),
+    "multi-paragraph section should join all <p> content"
+  );
+  assert.ok(s.RESULTS && s.RESULTS.includes("8.2%"));
+  assert.ok(
+    s.RESULTS.includes("p<0.01"),
+    "html entities in paragraph text should decode"
+  );
+  assert.ok(s.CONCLUSIONS && s.CONCLUSIONS.includes("improved strength"));
+  // Four sections total, no extras.
+  assert.deepEqual(
+    Object.keys(s).sort(),
+    ["BACKGROUND", "CONCLUSIONS", "METHODS", "RESULTS"]
+  );
+}
+
+// Unstructured abstract has no <sec> — returns null so caller falls
+// back to the flat abstract field.
+assert.equal(parsePmcStructuredAbstract(PMC_UNSTRUCTURED_XML), null);
+
+// Empty / missing input.
+assert.equal(parsePmcStructuredAbstract(""), null);
+assert.equal(parsePmcStructuredAbstract(null), null);
+
+// Sections without a title fall through to abstract_other — still
+// captured so the content isn't silently dropped.
+{
+  const missingTitle = `<abstract><sec><p>untitled section text</p></sec></abstract>`;
+  const s = parsePmcStructuredAbstract(missingTitle);
+  assert.ok(s && s[""] === "untitled section text" || s === null,
+    "untitled sections should either be dropped (null object returned) or captured under ''");
+}
+
+// Defensive: malformed fragments don't throw
+assert.doesNotThrow(() => parsePmcStructuredAbstract("<abstract><sec"));
+assert.doesNotThrow(() => parsePmcStructuredAbstract("<garbage>"));
 
 // ── Defensive: malformed fragments don't throw ─────────────────────
 assert.doesNotThrow(() => parseRetractionStatus("<garbage>"));

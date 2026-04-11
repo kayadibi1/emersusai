@@ -6,6 +6,7 @@ import {
   parseRetractionStatus,
   parseStructuredAbstract,
   parsePublicationCountry,
+  parsePmcStructuredAbstract,
 } from "./lib/pubmed-xml.js";
 
 const BASE_EUTILS_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils";
@@ -275,6 +276,11 @@ function parsePmcArticle(xml) {
     publication_year: choosePublicationYear(xml),
     publication_types: publicationTypes,
     mesh_terms: meshTerms,
+    // PMC JATS uses <abstract><sec><title>Name</title><p>text</p></sec>
+    // for structured abstracts. parsePmcStructuredAbstract returns the
+    // same uppercase-keyed shape as the PubMed path, so downstream
+    // sectionsToChunks() handles both transparently.
+    abstract_sections: parsePmcStructuredAbstract(xml),
   };
 }
 
