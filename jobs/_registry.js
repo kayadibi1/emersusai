@@ -25,6 +25,7 @@ import "../scripts/sources/sportrxiv.js";
 import "../scripts/sources/crossref.js";
 import "../scripts/sources/doaj.js";
 import "../scripts/sources/openalex.js";
+import "../scripts/sources/semantic-scholar.js";
 
 // Discovery plugins
 import "../scripts/sources/rss-sbs.js";
