@@ -1963,14 +1963,20 @@ async function callOpenAISynthesis({
     },
     body: JSON.stringify({
       model,
-      // 2800 was fine for prose + one inline widget, but the workout-plan
-      // fence emits a full JSON schedule. An 8-week 4-day plan is ~32
-      // sessions × ~15 fields each, which easily runs past 2800 output
-      // tokens and truncates the fence mid-session (the frontend then
-      // shows the unclosed fence as raw prose). 8000 is a ceiling, not a
-      // cost — the API only bills actual output — so bumping it costs
-      // nothing for non-plan answers and fixes plan truncation.
-      max_output_tokens: 8000,
+      // Ceiling only — the API bills actual output tokens, so raising
+      // this costs nothing for short answers. History:
+      //   2800  → truncated anything bigger than a 3-week plan
+      //   8000  → fine until warmup_blocks were added; now an 8-week
+      //           4-day plan emits 4 full warmup entries per session,
+      //           which at ~150 tokens each pushes a 32-session plan
+      //           to ~10-11k output tokens and still truncates (see
+      //           response resp_09fea4231f7d919f... in prod logs,
+      //           status=incomplete, reason=max_output_tokens).
+      //   16000 → gives 8-week plans ~5k headroom, comfortably handles
+      //           12-week plans, and stays well under any of the
+      //           gpt-5.x-mini / gpt-4.1-mini family's model-level
+      //           output ceilings. Probed live: 20000 is accepted.
+      max_output_tokens: 16000,
       input: synthesisInput,
     }),
   });
