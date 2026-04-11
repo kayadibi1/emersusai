@@ -198,6 +198,28 @@ const DEFAULT_TOPIC_ORDER = [
   "power_training_aging",
   "reaction_time_aging",
   "masters_hypertrophy",
+
+  // ── 14. Injury rehab / return to play ────────────────────────
+  "acl_rehab",
+  "rotator_cuff_rehab",
+  "low_back_rehab",
+  "achilles_tendinopathy",
+  "patellar_tendinopathy",
+  "tennis_elbow_rehab",
+  "hamstring_strain_rehab",
+  "concussion_return_to_play",
+  "tendinopathy_loading",
+  "pain_science_exercise",
+  "meniscus_rehab",
+  "shoulder_impingement_rehab",
+  "ankle_sprain_rtp",
+  "plantar_fasciitis_loading",
+  "hip_labrum_rehab",
+  "mcl_lcl_rehab",
+  "groin_strain_rehab",
+  "adductor_rehab",
+  "piriformis_syndrome",
+  "si_joint_dysfunction",
 ];
 
 const TOPIC_QUERIES = {
@@ -545,6 +567,48 @@ const TOPIC_QUERIES = {
     "(\"reaction time\" OR \"reaction speed\" OR \"response time\") AND (aging OR \"older adults\" OR exercise OR training)",
   masters_hypertrophy:
     "(\"masters hypertrophy\" OR \"older adult hypertrophy\" OR \"aging hypertrophy\") AND (\"resistance training\" OR \"muscle cross-sectional area\" OR \"lean body mass\")",
+
+  // ── 14. Injury rehab / return to play ────────────────────────
+  acl_rehab:
+    "(\"anterior cruciate ligament\" OR ACL) AND (reconstruction OR rehabilitation OR \"return to sport\" OR \"return to play\" OR prehabilitation)",
+  rotator_cuff_rehab:
+    "(\"rotator cuff\" OR supraspinatus OR subscapularis OR infraspinatus) AND (rehabilitation OR \"resistance training\" OR \"return to play\" OR \"exercise therapy\")",
+  low_back_rehab:
+    "(\"low back pain\" OR LBP OR \"lumbar spine\") AND (exercise OR rehabilitation OR \"resistance training\" OR \"motor control\" OR \"core stability\")",
+  achilles_tendinopathy:
+    "(\"achilles tendinopathy\" OR \"achilles tendinitis\" OR \"Achilles tendon\") AND (\"eccentric loading\" OR \"heavy slow resistance\" OR rehabilitation OR \"exercise therapy\")",
+  patellar_tendinopathy:
+    "(\"patellar tendinopathy\" OR \"jumper's knee\" OR \"patellar tendinitis\") AND (\"eccentric loading\" OR \"heavy slow resistance\" OR rehabilitation)",
+  tennis_elbow_rehab:
+    "(\"lateral epicondylitis\" OR \"tennis elbow\" OR \"lateral elbow tendinopathy\") AND (rehabilitation OR \"eccentric training\" OR \"exercise therapy\")",
+  hamstring_strain_rehab:
+    "(\"hamstring strain\" OR \"hamstring injury\" OR \"hamstring tear\") AND (rehabilitation OR \"Nordic hamstring\" OR \"eccentric training\" OR \"return to play\")",
+  concussion_return_to_play:
+    "(concussion OR \"mild traumatic brain injury\" OR mTBI) AND (\"return to play\" OR \"return to sport\" OR \"graded exercise\" OR rehabilitation)",
+  tendinopathy_loading:
+    "(tendinopathy OR \"tendon loading\" OR \"tendon rehabilitation\") AND (\"eccentric loading\" OR \"heavy slow resistance\" OR isometric OR \"progressive loading\")",
+  pain_science_exercise:
+    "(\"pain neuroscience education\" OR \"pain science\" OR \"central sensitization\") AND (exercise OR rehabilitation OR \"chronic pain\")",
+  meniscus_rehab:
+    "(meniscus OR meniscal OR \"meniscus tear\") AND (rehabilitation OR \"return to sport\" OR \"exercise therapy\" OR \"meniscal repair\")",
+  shoulder_impingement_rehab:
+    "(\"shoulder impingement\" OR \"subacromial impingement\" OR \"impingement syndrome\") AND (rehabilitation OR \"exercise therapy\" OR \"scapular stabilization\")",
+  ankle_sprain_rtp:
+    "(\"ankle sprain\" OR \"lateral ankle sprain\" OR \"chronic ankle instability\") AND (\"return to play\" OR rehabilitation OR balance OR proprioception)",
+  plantar_fasciitis_loading:
+    "(\"plantar fasciitis\" OR \"plantar fasciopathy\" OR \"plantar heel pain\") AND (\"high load\" OR rehabilitation OR exercise OR \"eccentric loading\")",
+  hip_labrum_rehab:
+    "(\"hip labrum\" OR \"acetabular labrum\" OR \"femoroacetabular impingement\" OR FAI) AND (rehabilitation OR \"exercise therapy\" OR \"return to sport\")",
+  mcl_lcl_rehab:
+    "(\"medial collateral ligament\" OR MCL OR \"lateral collateral ligament\" OR LCL) AND (rehabilitation OR \"return to sport\" OR injury OR \"exercise therapy\")",
+  groin_strain_rehab:
+    "(\"groin strain\" OR \"groin injury\" OR \"athletic pubalgia\" OR \"sports hernia\") AND (rehabilitation OR \"return to sport\" OR \"exercise therapy\")",
+  adductor_rehab:
+    "(\"adductor strain\" OR \"adductor injury\" OR \"Copenhagen adduction\") AND (rehabilitation OR strengthening OR \"return to play\")",
+  piriformis_syndrome:
+    "(\"piriformis syndrome\" OR \"deep gluteal syndrome\") AND (exercise OR rehabilitation OR stretching OR strengthening)",
+  si_joint_dysfunction:
+    "(\"sacroiliac joint\" OR \"SI joint\" OR \"sacroiliac dysfunction\") AND (exercise OR rehabilitation OR \"pelvic stability\")",
 };
 
 function parseArgs(argv) {
