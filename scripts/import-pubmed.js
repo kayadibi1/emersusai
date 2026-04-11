@@ -3,7 +3,7 @@ import path from "node:path";
 import { sectionsToChunks } from "./lib/abstract-sections-chunks.js";
 const DEFAULT_BATCH_SIZE = 100;
 const DEFAULT_ABSTRACT_CHUNK_SIZE = 1200;
-const ARTICLE_TABLE = "pubmed_articles";
+const ARTICLE_TABLE = "research_articles";
 const CHUNK_TABLE = "evidence_chunks";
 const INGEST_TABLE = "pubmed_ingest_files";
 const ARTICLE_COLUMNS = new Set([

@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feeds | Emersus Admin</title>
+  <link rel="stylesheet" href="/shared/admin.css">
+</head>
+<body data-admin>
+  <div class="admin-shell">
+    <nav class="admin-nav">
+      <a class="admin-nav-brand" href="/admin/">Emersus Admin</a>
+      <div class="admin-nav-links">
+        <a href="/admin/">Dashboard</a>
+        <a href="/admin/candidates/">Candidates</a>
+        <a href="/admin/topics/">Topics</a>
+        <a href="/admin/feeds/" aria-current="page">Feeds</a>
+        <a href="/admin/jobs/">Jobs</a>
+        <a href="/admin/alerts/">Alerts</a>
+      </div>
+      <span class="admin-nav-end" id="nav-user"></span>
+    </nav>
+    <main class="admin-main">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+        <h1 class="admin-page-title" style="margin:0">Discovery Feeds</h1>
+        <button class="btn btn-primary btn-sm" id="add-btn">+ Add Feed</button>
+        <button class="btn btn-ghost btn-sm" id="refresh-btn">Refresh</button>
+      </div>
+      <div id="feeds-wrap"><div class="admin-loading">Loading&hellip;</div></div>
+    </main>
+  </div>
+
+  <!-- Add/Edit Feed Modal -->
+  <div class="modal-overlay" id="feed-modal" hidden>
+    <div class="modal-box">
+      <div class="modal-head">
+        <span id="feed-modal-title">Add Feed</span>
+        <button class="modal-close" id="feed-modal-close">&#x2715;</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="feed-id">
+        <div style="display:grid;gap:0.75rem;">
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">ID * (slug, e.g. pubmed-rss)</span>
+            <input type="text" id="feed-id-input" class="admin-input" style="width:100%;" placeholder="e.g. pubmed-rss">
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Name *</span>
+            <input type="text" id="feed-name" class="admin-input" style="width:100%;">
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Kind *</span>
+            <select id="feed-kind" class="admin-input" style="width:100%;">
+              <option value="rss">rss</option>
+              <option value="atom">atom</option>
+              <option value="api">api</option>
+            </select>
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">URL *</span>
+            <input type="url" id="feed-url" class="admin-input" style="width:100%;" placeholder="https://...">
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Source plugin *</span>
+            <input type="text" id="feed-source-plugin" class="admin-input" style="width:100%;" placeholder="e.g. pubmed, biorxiv, rss-generic">
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Status</span>
+            <select id="feed-status" class="admin-input" style="width:100%;">
+              <option value="active">active</option>
+              <option value="disabled">disabled</option>
+            </select>
+          </label>
+        </div>
+        <div style="margin-top:1.25rem;display:flex;gap:0.75rem;">
+          <button class="btn btn-primary" id="feed-save-btn">Save</button>
+          <button class="btn btn-ghost" id="feed-cancel-btn">Cancel</button>
+        </div>
+        <p id="feed-status-msg" style="margin-top:0.75rem;font-size:0.82rem;color:var(--muted);"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { requireAdmin } from "/shared/supabase.js";
+
+    const session = await requireAdmin({ redirectTo: "/auth/login/", nonAdminRedirect: "/auth/login/" });
+    if (!session) throw new Error("no session");
+
+    document.getElementById("nav-user").textContent = session.user.email;
+    const token = session.access_token;
+
+    async function apiFetch(path, opts = {}) {
+      const r = await fetch(path, {
+        ...opts,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+          ...(opts.headers ?? {}),
+        },
+      });
+      if (r.status === 401 || r.status === 403) {
+        window.location.replace(`/auth/login/?next=${encodeURIComponent(window.location.pathname)}`);
+        return null;
+      }
+      return r;
+    }
+
+    function esc(s) { return String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+    function shortDate(iso) {
+      if (!iso) return "\u2014";
+      return new Date(iso).toLocaleDateString("en-US", { month:"short", day:"numeric", year:"numeric" });
+    }
+
+    async function load() {
+      const wrap = document.getElementById("feeds-wrap");
+      wrap.innerHTML = '<div class="admin-loading">Loading&hellip;</div>';
+      const r = await apiFetch("/api/admin/feeds?limit=200");
+      if (!r) return;
+      if (!r.ok) { wrap.innerHTML = `<div class="admin-empty">Error: ${await r.text()}</div>`; return; }
+      const { feeds } = await r.json();
+      if (!feeds.length) { wrap.innerHTML = '<div class="admin-empty">No feeds yet.</div>'; return; }
+      wrap.innerHTML = `
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>ID</th><th>Name</th><th>Kind</th><th>Source Plugin</th><th>Status</th>
+                <th>Failures</th><th>Last Run</th><th>Items</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              ${feeds.map(f => `
+                <tr>
+                  <td style="font-family:monospace;font-size:0.82rem;">${esc(f.id)}</td>
+                  <td>${esc(f.name)}</td>
+                  <td style="font-family:monospace;font-size:0.82rem;">${esc(f.kind)}</td>
+                  <td style="font-family:monospace;font-size:0.82rem;">${esc(f.source_plugin)}</td>
+                  <td>${f.status === "active"
+                    ? '<span class="badge badge-active">active</span>'
+                    : '<span class="badge badge-inactive">disabled</span>'}</td>
+                  <td>${esc(f.consecutive_failures ?? 0)}</td>
+                  <td>${shortDate(f.last_run_at)}</td>
+                  <td>${esc(f.last_item_count ?? 0)}</td>
+                  <td style="white-space:nowrap;">
+                    <button class="btn btn-ghost btn-sm" onclick="openEdit(${JSON.stringify(esc(f.id))})">Edit</button>
+                    <button class="btn btn-primary btn-sm" onclick="doFetchNow(${JSON.stringify(esc(f.id))}, this)">Fetch Now</button>
+                    <button class="btn btn-ghost btn-sm" onclick="toggleStatus(${JSON.stringify(esc(f.id))}, ${JSON.stringify(f.status)}, this)">${f.status === "active" ? "Disable" : "Enable"}</button>
+                  </td>
+                </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>`;
+    }
+
+    // Reset modal to empty state for add
+    document.getElementById("add-btn").onclick = () => {
+      document.getElementById("feed-id").value = "";
+      document.getElementById("feed-id-input").value = "";
+      document.getElementById("feed-id-input").disabled = false;
+      document.getElementById("feed-name").value = "";
+      document.getElementById("feed-kind").value = "rss";
+      document.getElementById("feed-url").value = "";
+      document.getElementById("feed-source-plugin").value = "";
+      document.getElementById("feed-status").value = "active";
+      document.getElementById("feed-status-msg").textContent = "";
+      document.getElementById("feed-modal-title").textContent = "Add Feed";
+      document.getElementById("feed-modal").hidden = false;
+    };
+
+    window.openEdit = function(id) {
+      // Find row by id text match
+      const btn = Array.from(document.querySelectorAll("button.btn-ghost.btn-sm")).find(
+        b => b.getAttribute("onclick") === `openEdit(${JSON.stringify(id)})`
+      );
+      const tds = btn?.closest("tr")?.querySelectorAll("td");
+      if (tds) {
+        document.getElementById("feed-id-input").value = tds[0]?.textContent.trim() ?? "";
+        document.getElementById("feed-name").value = tds[1]?.textContent.trim() ?? "";
+        document.getElementById("feed-kind").value = tds[2]?.textContent.trim() ?? "rss";
+        document.getElementById("feed-source-plugin").value = tds[3]?.textContent.trim() ?? "";
+        document.getElementById("feed-status").value =
+          tds[4]?.textContent.trim().includes("active") ? "active" : "disabled";
+      }
+      document.getElementById("feed-url").value = "";
+      document.getElementById("feed-id").value = id;
+      document.getElementById("feed-id-input").disabled = true; // id is PK, not editable
+      document.getElementById("feed-status-msg").textContent = "";
+      document.getElementById("feed-modal-title").textContent = "Edit Feed";
+      document.getElementById("feed-modal").hidden = false;
+    };
+
+    document.getElementById("feed-modal-close").onclick = () => { document.getElementById("feed-modal").hidden = true; };
+    document.getElementById("feed-cancel-btn").onclick = () => { document.getElementById("feed-modal").hidden = true; };
+
+    document.getElementById("feed-save-btn").onclick = async () => {
+      const existingId = document.getElementById("feed-id").value;
+      const idInput = document.getElementById("feed-id-input").value.trim();
+      const body = {
+        name: document.getElementById("feed-name").value.trim(),
+        kind: document.getElementById("feed-kind").value,
+        url: document.getElementById("feed-url").value.trim(),
+        source_plugin: document.getElementById("feed-source-plugin").value.trim(),
+        status: document.getElementById("feed-status").value,
+      };
+      if (!existingId) {
+        // POST requires id
+        body.id = idInput;
+      }
+      const btn = document.getElementById("feed-save-btn");
+      const msg = document.getElementById("feed-status-msg");
+      btn.disabled = true;
+      msg.textContent = "Saving\u2026";
+      const r = existingId
+        ? await apiFetch(`/api/admin/feeds/${existingId}`, { method: "PATCH", body: JSON.stringify(body) })
+        : await apiFetch("/api/admin/feeds", { method: "POST", body: JSON.stringify(body) });
+      if (r && r.ok) {
+        msg.textContent = "Saved!";
+        await load();
+        setTimeout(() => { document.getElementById("feed-modal").hidden = true; }, 800);
+      } else {
+        msg.textContent = "Error: " + (r ? await r.text() : "request failed");
+        btn.disabled = false;
+      }
+    };
+
+    window.toggleStatus = async function(id, currentStatus, btn) {
+      const newStatus = currentStatus === "active" ? "disabled" : "active";
+      if (!confirm(`Set feed "${id}" to ${newStatus}?`)) return;
+      btn.disabled = true;
+      const r = await apiFetch(`/api/admin/feeds/${id}`, {
+        method: "PATCH",
+        body: JSON.stringify({ status: newStatus }),
+      });
+      if (r && r.ok) {
+        await load();
+      } else {
+        alert("Failed to update status.");
+        btn.disabled = false;
+      }
+    };
+
+    window.doFetchNow = async function(id, btn) {
+      if (!confirm(`Enqueue fetch-now for feed "${id}"?`)) return;
+      btn.disabled = true;
+      const r = await apiFetch(`/api/admin/feeds/${id}/fetch-now`, { method: "POST", body: "{}" });
+      if (r && r.ok) {
+        const d = await r.json();
+        alert(`Job enqueued: ${d.jobId ?? "queued"}`);
+      } else {
+        alert("Failed to enqueue job.");
+      }
+      btn.disabled = false;
+    };
+
+    document.getElementById("refresh-btn").addEventListener("click", load);
+    load();
+  </script>
+</body>
+</html>

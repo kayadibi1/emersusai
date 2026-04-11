@@ -1,0 +1,670 @@
+{
+  "data": [
+    {
+      "id": "9x6ha_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2021-08-18T15:34:38.777592",
+        "date_modified": "2021-08-29T17:59:42.712210",
+        "date_published": "2021-08-24T02:13:02.316402",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "PROFESSIONAL MARTIAL ARTISTS’ KINEMATIC AND KINETIC CHANGES IN VERTICAL JUMP PERFORMANCE AND BODY COMPOSITION BEFORE AND AFTER COVID-19 LOCKDOWN",
+        "description": "The COVID-19 pandemic has caused mandatory lockdowns leading to disruptions in sports training programs. This study aimed to determine the effects of a 16-week COVID-19 lockdown on body composition as well as kinetic and kinematic parameters of the countermovement jump (CMJ) for professional martial artists. Thirteen (n=13) professional martial artists participated in this retrospective cohort study. Subjects were tested on the CMJ at four timepoints: 1) pre-lockdown (pre), 2) immediately post-lockdown (post), 3) two weeks post-lockdown (post+2), and 4) four weeks post-lockdown (post+4). Body composition was measured via bioelectrical impedance and jump data were collected using a force platform sampling at 1,000 Hz. Individual repeated-measures ANOVAs were conducted with pairwise post-hoc analyzes. Differences were observed in vertical jump height (VJH) of 10.33%, peak velocity (PV) of 3.10%, reactive strength index modified (RSImod) of 13.8%, and peak propulsive power (PPP) of 6.00% (p&lt;0.05). There as an increase from post to post+2 of 13.06% in VJ, 4.12% for PV, 14.0% for RSImod, and PPP of 4.66%. There was an increase from post to post+2 of 10.8% in VJH, 3.1% for PV, 14.0% for RSImod, and PPP of 3.0%. Fat mass (FM) and BF% increased from pre to post by 13% and 11%, respectively, and decreased 8% and 11% from post to post+4 respectively (p&lt;0.05). In contrast, there was an decrease in fat-free mass (FFM) from pre to post of 11% and a decrease of 8% from post to post+4. There were moderate associations between FFM and VJH (rmc=0.47), FMM and PPP (rmc=0.47), FFM and PV (rmc=0.47), BF% and PV (rmc=-0.42), and FM and PV (rmc=0.42). While the lockdown resulted in a significant decrease in CMJ performance and increases in BF and FM, subjects’ performance returned to pre-lockdown levels after only 2-4 weeks of post-lockdown training by decreasing BF, FM, and increasing FFM.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            "Samuel Montalvo"
+          ],
+          "year": "2021"
+        },
+        "tags": [
+          "Coronavirus",
+          "COVID-19",
+          "Detraining",
+          "Kung Fu",
+          "repeated measures correlation",
+          "Vertical Jump",
+          "Wushu"
+        ],
+        "preprint_doi_created": "2021-08-24T02:13:23.059362",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2021-08-24T02:13:02.316402",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "available",
+        "why_no_data": null,
+        "data_links": [
+          "https://github.com/Samuelmontalvo/Wushu_Covid/blob/main/Wushu_Covid_open.xlsx"
+        ],
+        "has_prereg_links": "not_applicable",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5995e3a754be8104361ac1c3",
+              "text": "Sport and Exercise Science"
+            },
+            {
+              "id": "5995e3a754be8104361ac1c6",
+              "text": "Sport and Exercise Biomechanics"
+            }
+          ],
+          [
+            {
+              "id": "5995e3a754be8104361ac1c3",
+              "text": "Sport and Exercise Science"
+            },
+            {
+              "id": "5995e3a754be8104361ac1cd",
+              "text": "Strength and Conditioning"
+            }
+          ],
+          [
+            {
+              "id": "5995e3a754be8104361ac1c3",
+              "text": "Sport and Exercise Science"
+            },
+            {
+              "id": "5995e3a754be8104361ac1d5",
+              "text": "Performance Analysis"
+            }
+          ],
+          [
+            {
+              "id": "5995e3a754be8104361ac1c3",
+              "text": "Sport and Exercise Science"
+            },
+            {
+              "id": "5995e3a754be8104361ac1d6",
+              "text": "Sport and Exercise Physiology"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "9x6ha_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/2byme/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "2byme",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e965/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e965",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/sportrxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "sportrxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/611d28922dab24009225b42e/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "611d28922dab24009225b42e",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/9x6ha_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/9x6ha_v1/",
+        "html": "https://osf.io/preprints/sportrxiv/9x6ha_v1/",
+        "preprint_doi": "https://doi.org/10.31236/osf.io/9x6ha",
+        "iri": "https://osf.io/9x6ha"
+      }
+    },
+    {
+      "id": "fkdby_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2021-08-09T13:35:04.692398",
+        "date_modified": "2021-08-11T15:14:46.260574",
+        "date_published": "2021-08-11T15:14:14.476222",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "The Demands of a Professional Ballet Schedule: A Five-Season Analysis",
+        "description": "Periodizing rehearsal and performance schedules in professional ballet is difficult given a lack of published longitudinal data. We aimed to describe the structure of a professional ballet season, and identify factors associated with inter-dancer and inter-production variation in dance hours. Scheduling data were collected from 123 dancers over five seasons at The Royal Ballet. Linear mixed effects models were used to evaluate differences in weekly dance hours and performance counts across sexes, company ranks, and months. Random forest regressions were used to investigate factors associated with the variation in rehearsal hours across different productions. Performance congestion was observed in December, whereas total dance hours peaked between January and April. Differences in weekly dance hours were observed between company ranks (p &lt; .001, range in means: 19.1–27.5 h·week-1). Seasonal performance counts varied across company ranks (p &lt; .001), ranging from 28, 95% CI [22, 35] in principals, to 113, 95% CI [108, 118] in artists. Rehearsal durations were greatest in preparation for newly choreographed and longer ballets. Dancers creating roles in new ballets completed considerably more rehearsal hours than for existing ballet. These results provide a basis for the implementation of rehearsal and repertoire\nperiodization in professional ballet.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            "Joseph Shaw"
+          ],
+          "year": "2021"
+        },
+        "tags": [
+          "Athlete Monitoring",
+          "Dance",
+          "Injury and Prevention",
+          "Periodization",
+          "Training Load"
+        ],
+        "preprint_doi_created": "2021-08-11T15:14:46.239467",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2021-08-11T15:14:14.476222",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "no",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "no",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5995e3a754be8104361ac1bf",
+              "text": "Theatre and Performance Studies"
+            },
+            {
+              "id": "5995e3a754be8104361ac1c0",
+              "text": "Dance"
+            }
+          ],
+          [
+            {
+              "id": "5995e3a754be8104361ac1c3",
+              "text": "Sport and Exercise Science"
+            },
+            {
+              "id": "5995e3a754be8104361ac1d0",
+              "text": "Other Sport and Exercise Science"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "fkdby_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/relationships/node/",
+              "meta": {}
+            }
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e965/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e965",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/sportrxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "sportrxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/61112f14e38013042f960b92/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "61112f14e38013042f960b92",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/fkdby_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/fkdby_v1/",
+        "html": "https://osf.io/preprints/sportrxiv/fkdby_v1/",
+        "preprint_doi": "https://doi.org/10.31236/osf.io/fkdby",
+        "iri": "https://osf.io/fkdby"
+      }
+    },
+    {
+      "id": "ue96z_v1",
+      "type": "preprints",
+      "attributes": {
+        "date_created": "2021-08-02T18:08:57.668734",
+        "date_modified": "2021-08-12T17:44:09.002509",
+        "date_published": "2021-08-12T17:43:34.871088",
+        "original_publication_date": null,
+        "custom_publication_citation": null,
+        "doi": null,
+        "title": "Cross-sectional associations between wake-time movement behaviour compositions and indicators of mental health among preschool children",
+        "description": "Movement behaviours have been found to be important correlates of health for children and may be particularly important for children with Developmental Coordination Disorder (DCD) who often experience greater mental health problems. To date, however, little research has investigated the daily movement composition of preschool children with Developmental Coordination Disorder (DCD) and/or its association with mental health.  The purpose of the current study was to: 1) examine whether differences in movement compositions (i.e., sedentary time, light physical activity, moderate-to-vigorous activity) exist between typically developing (TD) preschool-age children and those at risk for DCD (rDCD); and 2) investigate associations between movement compositions and mental health indicators. This cross-sectional study used the baseline cohort data from the Coordination and Activity Tracking in CHildren (CATCH) study. A total of 589 preschool-age children (Mage = 4.94 ± 0.59 years; 57.4% boys) were included in this analysis, of which 288 were classified as rDCD. Wake time movement behaviours were measured using accelerometers and parents completed the Child Behavior Checklist to assess their child’s mental health (i.e., internalizing and externalizing problems). Compositional data analysis techniques were used. After adjusting for potential confounders, the results demonstrated similar movement compositions between TD and rDCD children. Among the full sample, findings revealed a significant association between sedentary time and externalizing problems, however, each of the other associations did not reach statistical significance. These results are consistent with emerging evidence demonstrating similar patterns of physical activity and sedentary time among TD children and those classified as rDCD during the preschool years. Although movement behaviours explained little variance in mental health during this period, future research should investigate when movement compositions diverge, and how these changes may impact the mental health of TD children and those classified as rDCD later in childhood.",
+        "is_published": true,
+        "is_preprint_orphan": false,
+        "license_record": {
+          "copyright_holders": [
+            ""
+          ],
+          "year": "2021"
+        },
+        "tags": [
+          "daily time use",
+          "Developmental Coordination Disorder",
+          "mental ill-being",
+          "physical activity",
+          "sedentary behavior"
+        ],
+        "preprint_doi_created": "2021-08-12T17:44:08.980685",
+        "date_withdrawn": null,
+        "current_user_permissions": [],
+        "public": true,
+        "reviews_state": "accepted",
+        "date_last_transitioned": "2021-08-12T17:43:34.871088",
+        "version": 1,
+        "is_latest_version": true,
+        "has_coi": false,
+        "conflict_of_interest_statement": null,
+        "has_data_links": "no",
+        "why_no_data": null,
+        "data_links": [],
+        "has_prereg_links": "no",
+        "why_no_prereg": null,
+        "prereg_links": [],
+        "prereg_link_info": "",
+        "default_license_id": "563c1cf88c5e4a3877f9e96a",
+        "subjects": [
+          [
+            {
+              "id": "5995e3a754be8104361ac1c3",
+              "text": "Sport and Exercise Science"
+            },
+            {
+              "id": "5995e3a754be8104361ac1ca",
+              "text": "Sport and Exercise Medicine"
+            }
+          ],
+          [
+            {
+              "id": "5995e3a754be8104361ac1c3",
+              "text": "Sport and Exercise Science"
+            },
+            {
+              "id": "5995e3a754be8104361ac1cc",
+              "text": "Physical Activity"
+            }
+          ],
+          [
+            {
+              "id": "5995e3a754be8104361ac1c3",
+              "text": "Sport and Exercise Science"
+            },
+            {
+              "id": "5995e3a754be8104361ac1d1",
+              "text": "Motor Control and Development"
+            }
+          ]
+        ]
+      },
+      "relationships": {
+        "contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "bibliographic_contributors": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/bibliographic_contributors/",
+              "meta": {}
+            }
+          }
+        },
+        "versions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/versions/",
+              "meta": {}
+            }
+          }
+        },
+        "citation": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/citation/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "ue96z_v1",
+            "type": "citation"
+          }
+        },
+        "identifiers": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/identifiers/",
+              "meta": {}
+            }
+          }
+        },
+        "node": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/nodes/wqkn5/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/relationships/node/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "wqkn5",
+            "type": "nodes"
+          }
+        },
+        "license": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/licenses/563c1cf88c5e4a3877f9e96a/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "563c1cf88c5e4a3877f9e96a",
+            "type": "licenses"
+          }
+        },
+        "provider": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/providers/preprints/sportrxiv/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "sportrxiv",
+            "type": "preprint-providers"
+          }
+        },
+        "files": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/files/",
+              "meta": {}
+            }
+          }
+        },
+        "primary_file": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/files/610834bbe380130024960002/",
+              "meta": {}
+            }
+          },
+          "data": {
+            "id": "610834bbe380130024960002",
+            "type": "files"
+          }
+        },
+        "review_actions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/review_actions/",
+              "meta": {}
+            }
+          }
+        },
+        "requests": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/requests/",
+              "meta": {}
+            }
+          }
+        },
+        "affiliated_institutions": {
+          "links": {
+            "related": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/institutions/",
+              "meta": {}
+            },
+            "self": {
+              "href": "https://api.osf.io/v2/preprints/ue96z_v1/relationships/institutions/",
+              "meta": {}
+            }
+          }
+        }
+      },
+      "links": {
+        "self": "https://api.osf.io/v2/preprints/ue96z_v1/",
+        "html": "https://osf.io/preprints/sportrxiv/ue96z_v1/",
+        "preprint_doi": "https://doi.org/10.31236/osf.io/ue96z",
+        "iri": "https://osf.io/ue96z"
+      }
+    }
+  ],
+  "links": {
+    "first": null,
+    "last": "https://api.osf.io/v2/preprints/?filter%5Bprovider%5D=sportrxiv&page=126&page%5Bsize%5D=3",
+    "prev": null,
+    "next": null,
+    "meta": {
+      "total": 377,
+      "per_page": 3
+    }
+  },
+  "meta": {
+    "version": "2.0"
+  }
+}

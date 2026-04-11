@@ -10,13 +10,21 @@
     "embed:evidence": "node scripts/embed-evidence.js",
     "test:retrieval": "node scripts/test-retrieval.js",
     "test:visual-artifacts": "node scripts/test-visual-artifacts.js",
-    "test:widget-fence": "node scripts/test-widget-fence-routing.js"
+    "test:widget-fence": "node scripts/test-widget-fence-routing.js",
+    "test": "node --test --test-concurrency=1 \"tests/unit/**/*.js\" \"tests/integration/**/*.js\"",
+    "test:unit": "node --test \"tests/unit/**/*.js\"",
+    "test:integration": "node --test --test-concurrency=1 \"tests/integration/**/*.js\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.101.1",
     "dotenv": "^17.4.1",
     "express": "^5.2.1",
     "openai": "^6.33.0",
+    "pg": "^8.20.0",
+    "pg-boss": "^10.4.2",
     "resend": "^4.1.0"
+  },
+  "devDependencies": {
+    "nock": "^13.5.6"
   }
 }

@@ -1,4 +1,4 @@
-// Retroactive reparse of the existing ~210k pubmed_articles rows to
+// Retroactive reparse of the existing ~210k research_articles rows to
 // populate the XML-derived enrichment fields that were added after
 // initial ingest:
 //
@@ -106,7 +106,7 @@ async function fetchEfetchWithRetry(pmids) {
 
 async function fetchNextPmidPage(cursor, limit) {
   let query = supabaseAdmin
-    .from("pubmed_articles")
+    .from("research_articles")
     .select("pmid")
     .is("metadata_reparsed_at", null)
     .order("pmid", { ascending: true })
