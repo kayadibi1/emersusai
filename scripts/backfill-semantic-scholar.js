@@ -117,6 +117,9 @@ async function fetchSemanticScholarWithRetry(pmids) {
         REQUEST_TIMEOUT_MS
       );
       if (status === 429) {
+        console.warn(
+          `[s2-backfill] HTTP 429 on attempt ${attempt}/${MAX_RETRIES}, sleeping ${RETRY_DELAY_MS * attempt}ms`
+        );
         await sleep(RETRY_DELAY_MS * attempt);
         continue;
       }
