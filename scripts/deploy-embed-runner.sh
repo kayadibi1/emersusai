@@ -42,8 +42,8 @@ cp scripts/fetch-pmc-fulltext.js   "$BUNDLE_DIR/scripts/fetch-pmc-fulltext.js"
 cp scripts/test-retrieval.js       "$BUNDLE_DIR/scripts/test-retrieval.js"
 
 echo "Uploading to $HOST:~/embed-runner ..."
-ssh "$HOST" "rm -rf ~/embed-runner"
-scp -r "$BUNDLE_DIR" "$HOST:~/embed-runner"
+ssh "$HOST" "rm -rf ~/embed-runner; mkdir -p ~/embed-runner"
+scp -r "$BUNDLE_DIR"/* "$HOST:~/embed-runner/"
 
 echo "Copying keys from ~/app/.env and setting SUPABASE_URL to localhost..."
 ssh "$HOST" "cp ~/app/.env ~/embed-runner/.env.local && sed -i 's|SUPABASE_URL=.*|SUPABASE_URL=http://localhost:8000|' ~/embed-runner/.env.local"
