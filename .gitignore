@@ -34,6 +34,13 @@ pnpm-debug.log*
 # Scratch / experimental work — never deploy
 tmp/
 
+# Superpowers plugin cache — per-session working state, not code
+.superpowers/
+
+# Graphify knowledge-graph output — regenerated from source on demand,
+# source of truth is the code it was built from, not this directory
+graphify-out/
+
 # Claude Code per-machine settings (permissions, local config).
 # Never belongs in the repo — each dev has their own grants.
 .claude/
