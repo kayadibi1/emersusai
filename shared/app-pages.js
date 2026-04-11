@@ -115,6 +115,51 @@ async function bindProfileForm() {
     });
   }
 
+  // Sharing & tracking settings — editable selects that save on change
+  const sharingFields = [
+    "display_name_public",
+    "mapbox_privacy_radius_m",
+    "default_pool_length_m",
+    "default_grade_system",
+    "distance_unit",
+  ];
+
+  for (const fieldName of sharingFields) {
+    const el = form.elements.namedItem(fieldName);
+    if (!el) continue;
+
+    // Initialize from profile
+    if (profile && profile[fieldName] != null) {
+      el.value = String(profile[fieldName]);
+    } else if (fieldName === "distance_unit") {
+      // Locale fallback for distance_unit
+      const { resolveDistanceUnit } = await import("/shared/unit-conversion.js");
+      el.value = resolveDistanceUnit(null);
+    }
+
+    el.addEventListener("change", async () => {
+      const raw = el.value;
+      const statusEl = document.querySelector("[data-profile-status]");
+      let value = raw;
+
+      // Cast numbers
+      if (fieldName === "mapbox_privacy_radius_m" || fieldName === "default_pool_length_m") {
+        value = raw === "" ? null : Number(raw);
+      }
+      // Empty string → null for optional text fields
+      if (raw === "" && fieldName === "display_name_public") value = null;
+      if (raw === "" && fieldName === "default_grade_system") value = null;
+      if (raw === "" && fieldName === "default_pool_length_m") value = null;
+
+      try {
+        await upsertProfile(session.user.id, { [fieldName]: value });
+        setStatus(statusEl, "success", "Saved.");
+      } catch (err) {
+        setStatus(statusEl, "error", `Could not save: ${err.message || err}`);
+      }
+    });
+  }
+
   // No submit handler — the form is read-only. The submit button has been
   // replaced with a link to chat.
 }

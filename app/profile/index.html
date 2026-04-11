@@ -87,6 +87,56 @@
                 <option value="lbs">Pounds (lbs)</option>
               </select>
             </label>
+            <div class="sharing-section" style="margin-top:24px; padding-top:20px; border-top:1px solid var(--line);">
+              <h3 style="font-size:0.78rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px;">Sharing &amp; Tracking</h3>
+
+              <label class="field">
+                <span class="field-label">Display name on share cards</span>
+                <input type="text" name="display_name_public" placeholder="(leave blank for anonymous)">
+              </label>
+
+              <label class="field">
+                <span class="field-label">Path privacy radius</span>
+                <select name="mapbox_privacy_radius_m">
+                  <option value="0">Show full path</option>
+                  <option value="50">50 m</option>
+                  <option value="100" selected>100 m (recommended)</option>
+                  <option value="200">200 m</option>
+                  <option value="500">500 m</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field-label">Default pool length</span>
+                <select name="default_pool_length_m">
+                  <option value="">—</option>
+                  <option value="25">25 m</option>
+                  <option value="50">50 m</option>
+                  <option value="22.86">25 yd</option>
+                  <option value="30.48">33⅓ yd</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field-label">Default grade system</span>
+                <select name="default_grade_system">
+                  <option value="">—</option>
+                  <option value="V">V-scale (bouldering)</option>
+                  <option value="YDS">YDS (sport)</option>
+                  <option value="Font">Fontainebleau</option>
+                  <option value="French">French</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span class="field-label">Distance unit</span>
+                <select name="distance_unit">
+                  <option value="km">Kilometers (km)</option>
+                  <option value="mi">Miles (mi)</option>
+                </select>
+              </label>
+            </div>
+
             <div class="button-row">
               <a class="button button-primary" href="/chat/">Update via Chat</a>
               <a class="button button-secondary" href="/app/">Back to Dashboard</a>
