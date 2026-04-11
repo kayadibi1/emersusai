@@ -28,33 +28,29 @@ router.get("/", async (req, res) => {
   const state = req.query.state ?? null;
 
   try {
-    const params = [limit];
-    const stateClause = state ? `WHERE j.state = $2` : "";
-    if (state) params.push(state);
-
+    const args = [limit];
+    let where = "";
+    if (state) {
+      args.unshift(state);
+      where = "WHERE j.state = $1";
+    }
     const { rows } = await pool.query(
       `SELECT
           j.id,
           j.name,
           j.state,
-          j.createdon,
-          j.startedon,
-          j.completedon,
+          j.created_on,
+          j.started_on,
+          j.completed_on,
+          j.retry_count,
+          j.retry_limit,
           j.output,
-          j.data,
-          j.retrylimit,
-          j.retrycount,
-          COALESCE(p.progress_count, 0) AS progress_count
+          (SELECT COUNT(*) FROM public.job_progress p WHERE p.job_id = j.id) AS progress_lines
         FROM pgboss.job j
-        LEFT JOIN (
-          SELECT job_id, COUNT(*) AS progress_count
-          FROM job_progress
-          GROUP BY job_id
-        ) p ON p.job_id::text = j.id::text
-        ${stateClause}
-        ORDER BY j.createdon DESC
-        LIMIT $1`,
-      params
+        ${where}
+        ORDER BY j.created_on DESC
+        LIMIT $${args.length}`,
+      args
     );
     res.json({ jobs: rows });
   } catch (err) {
@@ -75,8 +71,8 @@ router.get("/:id/progress", async (req, res) => {
 
   try {
     const { rows } = await pool.query(
-      `SELECT seq, job_id, step, message, pct, created_at
-         FROM job_progress
+      `SELECT seq, level, message, ts
+         FROM public.job_progress
         WHERE job_id = $1
           AND seq > $2
         ORDER BY seq ASC`,
