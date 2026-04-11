@@ -118,6 +118,67 @@ export function parsePublicationCountry(xml) {
 }
 
 /**
+ * Parse a PMC (JATS) abstract into a section-keyed object, using the
+ * same uppercase-label shape as parseStructuredAbstract so downstream
+ * chunkers/normalizers don't have to know which format the article
+ * came from.
+ *
+ * PMC abstracts look like:
+ *   <abstract>
+ *     <sec>
+ *       <title>Background</title>
+ *       <p>...</p><p>...</p>
+ *     </sec>
+ *     <sec><title>Methods</title><p>...</p></sec>
+ *     ...
+ *   </abstract>
+ *
+ * Returns null if no <abstract> element is present, or if the abstract
+ * has no <sec> children (unstructured — caller uses the plain abstract
+ * string). Sections without a <title> are dropped rather than being
+ * captured under an empty key, because PMC sometimes uses untitled
+ * outer <sec> wrappers around intro paragraphs.
+ */
+export function parsePmcStructuredAbstract(xml) {
+  if (typeof xml !== "string" || xml.length === 0) return null;
+
+  // Find the first <abstract> block. PMC articles can have multiple
+  // <abstract> elements (translated language variants); we take the
+  // first, which is the primary language.
+  const abstractMatch = xml.match(/<abstract\b[^>]*>([\s\S]*?)<\/abstract>/i);
+  if (!abstractMatch) return null;
+  const abstractInner = abstractMatch[1];
+
+  const sections = {};
+  const secRe = /<sec\b[^>]*>([\s\S]*?)<\/sec>/gi;
+  let secMatch;
+  while ((secMatch = secRe.exec(abstractInner)) !== null) {
+    const secInner = secMatch[1];
+    const titleMatch = secInner.match(/<title\b[^>]*>([\s\S]*?)<\/title>/i);
+    if (!titleMatch) continue; // Skip untitled sections
+    const label = cleanInner(titleMatch[1]).toUpperCase();
+    if (!label) continue;
+
+    // Concatenate all <p> children's text content.
+    const paragraphs = [];
+    const pRe = /<p\b[^>]*>([\s\S]*?)<\/p>/gi;
+    let pMatch;
+    while ((pMatch = pRe.exec(secInner)) !== null) {
+      const cleaned = cleanInner(pMatch[1]);
+      if (cleaned) paragraphs.push(cleaned);
+    }
+    if (paragraphs.length === 0) continue;
+
+    const body = paragraphs.join(" ");
+    sections[label] = sections[label]
+      ? `${sections[label]} ${body}`
+      : body;
+  }
+
+  return Object.keys(sections).length > 0 ? sections : null;
+}
+
+/**
  * Split a multi-article efetch response into an array of individual
  * <PubmedArticle>...</PubmedArticle> XML strings. Returns [] if none
  * are present.
