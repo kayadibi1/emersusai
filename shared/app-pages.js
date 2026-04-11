@@ -13,29 +13,166 @@ import {
 } from "/shared/workout-plan-selectors.js";
 import { resolveWeightUnit } from "/shared/unit-conversion.js";
 
+// ── Display cache ─────────────────────────────────────────────────────
+//
+// The /app/ pages need the user's name + email + profile-state in the
+// welcome hero / "Signed in as" chip. The source of truth is a network
+// fetch (supabase.auth.getSession → getProfile RPC), which on a cold
+// cache takes 300–800ms. That produced a flash where the HTML shipped
+// "Welcome back, Member." / "Loading..." / "Checking profile..." for
+// most of a second before the real data arrived.
+//
+// Fix: cache the display fields in localStorage and paint them
+// synchronously at module load, *before* the async hydrate runs. For
+// returning users this eliminates the flash entirely. For first-time
+// users on a cleared browser we additionally fast-path via
+// session.user.user_metadata (available right after getSession, which
+// reads from localStorage) so the name appears as soon as auth resolves
+// — no waiting for the profile RPC, which only matters for the
+// "Profile complete" state.
+const DISPLAY_CACHE_KEY = "emersus:display-cache";
+
+function readDisplayCache() {
+  try {
+    const raw = localStorage.getItem(DISPLAY_CACHE_KEY);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object") return null;
+    return parsed;
+  } catch (_err) {
+    return null;
+  }
+}
+
+function writeDisplayCache(data) {
+  try {
+    localStorage.setItem(DISPLAY_CACHE_KEY, JSON.stringify(data));
+  } catch (_err) {
+    // localStorage may be disabled in private mode — just skip.
+  }
+}
+
+// Paint any display fields that are present on the page. Safe to call
+// multiple times with different/updated values. Also unhides any parent
+// marked [data-reveal-on-hydrate] so the HTML can ship with the name
+// wrap / chip hidden (no "Welcome back, ." comma dangle on first paint).
+//
+// Two reveal scopes:
+//   [data-reveal-on-hydrate]          → base, revealed on any paint
+//   [data-reveal-when-profile-known]  → narrow, revealed only when a
+//     non-empty profileState is supplied. Prevents the dashboard meta
+//     row from showing "email · " with a dangling bullet on first-time
+//     cold-cache loads while the getProfile() RPC is still in flight.
+function paintDisplay({ name, email, profileState }) {
+  if (typeof name === "string") {
+    document.querySelectorAll("[data-user-name]").forEach((node) => {
+      node.textContent = name;
+    });
+  }
+
+  if (typeof email === "string") {
+    document.querySelectorAll("[data-user-email]").forEach((node) => {
+      node.textContent = email;
+    });
+  }
+
+  if (typeof profileState === "string") {
+    document.querySelectorAll("[data-profile-state]").forEach((node) => {
+      node.textContent = profileState;
+    });
+  }
+
+  document.querySelectorAll("[data-reveal-on-hydrate]").forEach((node) => {
+    node.removeAttribute("hidden");
+  });
+
+  if (typeof profileState === "string" && profileState.length > 0) {
+    document
+      .querySelectorAll("[data-reveal-when-profile-known]")
+      .forEach((node) => {
+        node.removeAttribute("hidden");
+      });
+  }
+}
+
+function clearDisplayCache() {
+  try {
+    localStorage.removeItem(DISPLAY_CACHE_KEY);
+  } catch (_err) {
+    // noop
+  }
+}
+
+// Module-load synchronous paint. ES modules run after DOMContentLoaded
+// so the DOM is already parsed — this runs before the first awaited
+// call below and before the user can visually perceive the placeholder.
+// Cache is keyed by userId in the value so we can reject it post-hydrate
+// if the signed-in user changed (e.g. user B logs in after user A on
+// the same browser). The first paint still uses whatever's cached — we
+// can't know the current userId synchronously — but the async hydrate
+// below overwrites it as soon as requireAuth returns.
+const cachedDisplay = readDisplayCache();
+if (cachedDisplay) {
+  paintDisplay(cachedDisplay);
+}
+
 async function hydrateUserSummary() {
   const session = await requireAuth();
   if (!session) {
     return null;
   }
 
-  const profile = await getProfile(session.user.id);
-  const fallbackName =
-    profile?.full_name ||
+  // Fast path: session.user.user_metadata is populated by Google OAuth
+  // (full_name, name) and is available the moment getSession() returns.
+  // Paint it immediately so the welcome hero has the real name without
+  // waiting for the profile RPC.
+  const metadataName =
     session.user.user_metadata?.full_name ||
-    session.user.email ||
-    "Member";
+    session.user.user_metadata?.name ||
+    null;
+  const email = session.user.email || "";
+  const fastName =
+    metadataName || cachedDisplay?.name || email || "";
 
-  document.querySelectorAll("[data-user-email]").forEach((node) => {
-    node.textContent = session.user.email || "Authenticated user";
+  paintDisplay({
+    name: fastName,
+    email,
+    // Keep the cached profile-state during the fast-path paint so we
+    // don't flicker from "Profile complete" → blank → "Profile complete"
+    // while the profile RPC is in flight.
+    profileState:
+      typeof cachedDisplay?.profileState === "string"
+        ? cachedDisplay.profileState
+        : "",
   });
 
-  document.querySelectorAll("[data-user-name]").forEach((node) => {
-    node.textContent = fallbackName;
+  // Cross-user guard: if the cache was written for a different userId
+  // (User B logs in on the same browser after User A), the module-load
+  // paint above briefly showed stale data. Overwrite immediately with
+  // the fast-path values so the flash is capped at a single frame.
+  if (cachedDisplay && cachedDisplay.userId && cachedDisplay.userId !== session.user.id) {
+    clearDisplayCache();
+  }
+
+  // Slow path: fetch profile for the canonical full_name (user may have
+  // overridden the Google-provided name) and the onboarding state.
+  const profile = await getProfile(session.user.id);
+  const finalName = profile?.full_name || fastName;
+  const finalProfileState = profile?.onboarding_completed
+    ? "Profile complete"
+    : "Profile incomplete";
+
+  paintDisplay({
+    name: finalName,
+    email,
+    profileState: finalProfileState,
   });
 
-  document.querySelectorAll("[data-profile-state]").forEach((node) => {
-    node.textContent = profile?.onboarding_completed ? "Profile complete" : "Profile incomplete";
+  writeDisplayCache({
+    userId: session.user.id,
+    name: finalName,
+    email,
+    profileState: finalProfileState,
   });
 
   return {
@@ -55,6 +192,10 @@ async function bindLogout() {
     button.textContent = "Logging Out...";
 
     try {
+      // Drop cached display fields before signOut so the next
+      // authenticated session on this browser doesn't briefly paint the
+      // previous user's name / email.
+      clearDisplayCache();
       const supabase = await getSupabase();
       await supabase.auth.signOut();
       window.location.replace("/auth/login/");

@@ -318,6 +318,39 @@ button {
   color: transparent;
 }
 
+/* Hydration reveal: containers that hold user display fields (name,
+   email, profile state) ship with the `hidden` attribute so the first
+   paint doesn't flash a placeholder like "Welcome back, Member." or
+   "Signed in as Loading...". shared/app-pages.js strips the hidden
+   attribute in paintDisplay() once the cache-or-session data is in.
+   Needs !important because some of the wrapped containers (e.g.
+   .welcome-meta, .chip) set their own display: flex which otherwise
+   wins over the UA [hidden] rule.
+   `data-reveal-when-profile-known` is a narrower scope for fields that
+   depend on the profile RPC (e.g. "Profile complete/incomplete"). The
+   base scope unhides on the fast path once session metadata is in;
+   this narrower scope waits for the getProfile() round-trip so the
+   dashboard doesn't flash a dangling bullet between email and state. */
+[data-reveal-on-hydrate][hidden],
+[data-reveal-when-profile-known][hidden] {
+  display: none !important;
+}
+
+/* Auth redirect flicker guard: login/signup/forgot-password pages call
+   redirectIfAuthenticated() on boot — if a signed-in user visits
+   /auth/login/, they briefly saw the full form paint before the async
+   redirect kicked in (~300-500ms for /api/config + supabase client +
+   getSession). This hides the form during that check; shared/auth-pages.js
+   sets `data-auth-ready` on <body> when the check resolves without a
+   redirect, revealing the form. If a redirect happens the attribute is
+   never set and the page just unloads. visibility: hidden (not display)
+   so the layout is already reserved — no shift on reveal. */
+body[data-page="login"]:not([data-auth-ready]) .auth-main,
+body[data-page="signup"]:not([data-auth-ready]) .auth-main,
+body[data-page="forgot-password"]:not([data-auth-ready]) .auth-main {
+  visibility: hidden;
+}
+
 .welcome-sub {
   margin: 0;
   color: var(--muted);

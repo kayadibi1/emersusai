@@ -49,12 +49,25 @@
     <main class="page-main">
       <div class="container stack" data-dashboard>
         <section class="hero-panel welcome-panel">
-          <h1 class="welcome-title">Welcome back, <span class="welcome-name" data-user-name>Member</span>.</h1>
+          <!-- The ", <name>" is wrapped and hidden until shared/app-pages.js
+               has a cached or just-loaded display name. Paint order:
+                 1. First paint: "Welcome back."
+                 2. Module load: cache hit → full "Welcome back, Name."
+                 3. Session load: fast-path fills name from user_metadata
+                 4. Profile RPC: final update if DB name differs
+               Previously shipped "Welcome back, Member." which looked like
+               real copy and then abruptly morphed to the real name. -->
+          <h1 class="welcome-title">Welcome back<span data-reveal-on-hydrate hidden>, <span class="welcome-name" data-user-name></span></span>.</h1>
           <p class="welcome-sub">Pick up where you left off — open the chat for evidence-based guidance, or head into the planner to review your training.</p>
-          <div class="welcome-meta">
-            <span class="welcome-meta-item" data-user-email>Loading...</span>
-            <span class="welcome-meta-dot" aria-hidden="true"></span>
-            <span class="welcome-meta-item welcome-meta-status" data-profile-state>Checking profile...</span>
+          <div class="welcome-meta" data-reveal-on-hydrate hidden>
+            <span class="welcome-meta-item" data-user-email></span>
+            <!-- The dot + profile-state are held back until the profile
+                 RPC resolves (~300ms after the email paints on a cold
+                 cache) so first-time users don't see "email · " with a
+                 dangling bullet. Returning users hit the cache and both
+                 halves reveal together. -->
+            <span class="welcome-meta-dot" aria-hidden="true" data-reveal-when-profile-known hidden></span>
+            <span class="welcome-meta-item welcome-meta-status" data-reveal-when-profile-known hidden data-profile-state></span>
           </div>
         </section>
 
