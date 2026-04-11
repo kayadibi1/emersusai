@@ -15,6 +15,7 @@
 // budget and leaves headroom for retries on 429.
 
 import "dotenv/config";
+import { spawn } from "node:child_process";
 import { supabaseAdmin } from "../api/lib/clients.js";
 import {
   buildSemanticScholarBatchUrl,
@@ -59,63 +60,80 @@ class SemanticScholarBatchSkip extends Error {
   }
 }
 
+// POST to Semantic Scholar via curl instead of Node's native fetch.
+// Why: Node's fetch hangs indefinitely on this specific endpoint —
+// likely HTTP/2 multiplexing against Cloudflare combined with a
+// silently-dropped connection. AbortController + timeout didn't
+// rescue it (the abort signal was never honored). curl has its
+// own --max-time enforcement and returns quickly with the same
+// endpoint + headers. Same script, reliable transport.
+function curlSemanticScholarBatch(url, body, timeoutMs) {
+  return new Promise((resolve, reject) => {
+    const args = [
+      "-s",                                    // silent
+      "-o", "-",                               // body to stdout
+      "-w", "\\n%{http_code}",                 // append status code on new line
+      "--max-time", String(Math.ceil(timeoutMs / 1000)),
+      "-X", "POST",
+      "-H", "Content-Type: application/json",
+      "-H", "Accept: application/json",
+      "-H", "User-Agent: emersus-backfill/1.0 (+https://emersus.ai)",
+      "--data-binary", "@-",                   // body from stdin
+      url,
+    ];
+    const child = spawn("curl", args, { stdio: ["pipe", "pipe", "pipe"] });
+    let stdout = "";
+    let stderr = "";
+    child.stdout.on("data", (d) => (stdout += d.toString()));
+    child.stderr.on("data", (d) => (stderr += d.toString()));
+    child.on("error", reject);
+    child.on("close", (code) => {
+      if (code !== 0) {
+        reject(new Error(`curl exit ${code}: ${stderr.trim() || "no stderr"}`));
+        return;
+      }
+      // Last line of stdout is the status code (from -w).
+      const newlineIdx = stdout.lastIndexOf("\n");
+      const statusLine = newlineIdx >= 0 ? stdout.slice(newlineIdx + 1) : "";
+      const bodyText = newlineIdx >= 0 ? stdout.slice(0, newlineIdx) : stdout;
+      const status = Number(statusLine.trim()) || 0;
+      resolve({ status, bodyText });
+    });
+    child.stdin.write(body);
+    child.stdin.end();
+  });
+}
+
 async function fetchSemanticScholarWithRetry(pmids) {
   const url = buildSemanticScholarBatchUrl();
   const body = JSON.stringify(buildSemanticScholarBatchBody(pmids));
   let lastError;
 
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
-    // Node's native fetch has no default timeout — if S2 silently
-    // drops our connection (soft rate-limiting, Cloudflare WAF, etc.)
-    // the request hangs forever. AbortController fires after
-    // REQUEST_TIMEOUT_MS so the retry loop can make progress.
-    const ac = new AbortController();
-    const timer = setTimeout(() => ac.abort(), REQUEST_TIMEOUT_MS);
     try {
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          // S2 / Cloudflare silently drops connections from unrecognized
-          // clients — a real UA string avoids the hang we'd otherwise
-          // see from Node's native fetch (which doesn't handle the
-          // dropped connection and waits forever without a signal).
-          "User-Agent": "emersus-backfill/1.0 (+https://emersus.ai)",
-        },
+      const { status, bodyText } = await curlSemanticScholarBatch(
+        url,
         body,
-        signal: ac.signal,
-      });
-      clearTimeout(timer);
-      if (response.status === 429) {
-        // Rate limited — wait longer and try again.
+        REQUEST_TIMEOUT_MS
+      );
+      if (status === 429) {
         await sleep(RETRY_DELAY_MS * attempt);
         continue;
       }
-      if (response.status === 400) {
-        // Permanent bad-batch — no amount of retries will fix it.
-        // Throw a SKIP sentinel so the caller can advance past it.
+      if (status === 400) {
         throw new SemanticScholarBatchSkip(
           `Semantic Scholar HTTP 400 on batch of ${pmids.length} PMIDs; skipping.`
         );
       }
-      if (!response.ok) {
+      if (status < 200 || status >= 300) {
         throw new Error(
-          `Semantic Scholar HTTP ${response.status} ${response.statusText}`
+          `Semantic Scholar HTTP ${status}: ${bodyText.slice(0, 200)}`
         );
       }
-      return await response.json();
+      return JSON.parse(bodyText);
     } catch (err) {
-      clearTimeout(timer);
-      // Don't retry skips — let them propagate immediately.
       if (err instanceof SemanticScholarBatchSkip) throw err;
       lastError = err;
-      const isAbort = err?.name === "AbortError";
-      if (isAbort) {
-        console.warn(
-          `[s2-backfill] request timed out after ${REQUEST_TIMEOUT_MS}ms (attempt ${attempt}/${MAX_RETRIES})`
-        );
-      }
       if (attempt < MAX_RETRIES) {
         await sleep(RETRY_DELAY_MS * attempt);
       }
