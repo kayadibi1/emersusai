@@ -1,3 +1,7 @@
+// Load env from .env BEFORE importing clients.js — clients.js's
+// loadLocalEnv() only checks .env.local, which doesn't exist in ~/app
+// on Hetzner (prod uses ~/app/.env). Same fix as backfill-icite-rcr.js.
+import "dotenv/config";
 import { openai, supabaseAdmin } from "../api/lib/clients.js";
 
 const EMBEDDING_MODEL = "text-embedding-3-small";
