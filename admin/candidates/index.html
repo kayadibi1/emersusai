@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Candidates | Emersus Admin</title>
+  <link rel="stylesheet" href="/shared/admin.css">
+</head>
+<body data-admin>
+  <div class="admin-shell">
+    <nav class="admin-nav">
+      <a class="admin-nav-brand" href="/admin/">Emersus Admin</a>
+      <div class="admin-nav-links">
+        <a href="/admin/">Dashboard</a>
+        <a href="/admin/candidates/" aria-current="page">Candidates</a>
+        <a href="/admin/topics/">Topics</a>
+        <a href="/admin/feeds/">Feeds</a>
+        <a href="/admin/jobs/">Jobs</a>
+        <a href="/admin/alerts/">Alerts</a>
+      </div>
+      <span class="admin-nav-end" id="nav-user"></span>
+    </nav>
+    <main class="admin-main">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+        <h1 class="admin-page-title" style="margin:0">Topic Candidates</h1>
+        <select id="status-filter" class="admin-input" style="width:auto;">
+          <option value="pending">Pending</option>
+          <option value="accepted">Accepted</option>
+          <option value="rejected">Rejected</option>
+          <option value="snoozed">Snoozed</option>
+        </select>
+        <button class="btn btn-ghost btn-sm" id="refresh-btn">Refresh</button>
+      </div>
+
+      <div id="candidates-list"><div class="admin-loading">Loading…</div></div>
+    </main>
+  </div>
+
+  <!-- Accept modal -->
+  <div class="modal-overlay" id="accept-modal" hidden>
+    <div class="modal-box">
+      <div class="modal-head">
+        <span>Accept Candidate</span>
+        <button class="modal-close" id="accept-modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">
+          Override fields below or leave blank to use the suggested values.
+        </p>
+        <input type="hidden" id="accept-id">
+        <div style="display:grid;gap:0.75rem;">
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Query override</span>
+            <input type="text" id="accept-query" class="admin-input" style="width:100%;" placeholder="Leave blank to use suggested_query">
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Domain</span>
+            <input type="text" id="accept-domain" class="admin-input" style="width:100%;" placeholder="e.g. exercise_physiology">
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Target paper count</span>
+            <input type="number" id="accept-target" class="admin-input" style="width:120px;" placeholder="2000">
+          </label>
+        </div>
+        <div style="margin-top:1.25rem;display:flex;gap:0.75rem;">
+          <button class="btn btn-success" id="accept-confirm-btn">Accept &amp; Enqueue</button>
+          <button class="btn btn-ghost" id="accept-cancel-btn">Cancel</button>
+        </div>
+        <p id="accept-status" style="margin-top:0.75rem;font-size:0.82rem;color:var(--muted);"></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Snooze modal -->
+  <div class="modal-overlay" id="snooze-modal" hidden>
+    <div class="modal-box" style="width:min(400px,95vw);">
+      <div class="modal-head">
+        <span>Snooze Candidate</span>
+        <button class="modal-close" id="snooze-modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="snooze-id">
+        <label style="font-size:0.85rem;">
+          <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Snooze until</span>
+          <input type="date" id="snooze-until" class="admin-input">
+        </label>
+        <div style="margin-top:1.25rem;display:flex;gap:0.75rem;">
+          <button class="btn btn-primary" id="snooze-confirm-btn">Snooze</button>
+          <button class="btn btn-ghost" id="snooze-cancel-btn">Cancel</button>
+        </div>
+        <p id="snooze-status" style="margin-top:0.75rem;font-size:0.82rem;color:var(--muted);"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { requireAdmin } from "/shared/supabase.js";
+
+    const session = await requireAdmin({ redirectTo: "/auth/login/", nonAdminRedirect: "/auth/login/" });
+    if (!session) throw new Error("no session");
+
+    document.getElementById("nav-user").textContent = session.user.email;
+    const token = session.access_token;
+
+    async function apiFetch(path, opts = {}) {
+      const r = await fetch(path, {
+        ...opts,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+          ...(opts.headers ?? {}),
+        },
+      });
+      if (r.status === 401 || r.status === 403) {
+        window.location.replace(`/auth/login/?next=${encodeURIComponent(window.location.pathname)}`);
+        return null;
+      }
+      return r;
+    }
+
+    function esc(s) {
+      return String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    }
+    function badge(status) {
+      return `<span class="badge badge-${esc(status)}">${esc(status)}</span>`;
+    }
+    function shortDate(iso) {
+      if (!iso) return "—";
+      return new Date(iso).toLocaleDateString("en-US", { month:"short", day:"numeric", year:"numeric" });
+    }
+
+    let currentStatus = "pending";
+    let candidates = [];
+
+    async function load() {
+      const list = document.getElementById("candidates-list");
+      list.innerHTML = '<div class="admin-loading">Loading…</div>';
+      const r = await apiFetch(`/api/admin/candidates?status=${currentStatus}&limit=200`);
+      if (!r) return;
+      if (!r.ok) { list.innerHTML = `<div class="admin-empty">Error: ${await r.text()}</div>`; return; }
+      const { candidates: rows } = await r.json();
+      candidates = rows;
+      render(rows);
+    }
+
+    function render(rows) {
+      const list = document.getElementById("candidates-list");
+      if (rows.length === 0) {
+        list.innerHTML = `<div class="admin-empty">No ${currentStatus} candidates.</div>`;
+        return;
+      }
+      list.innerHTML = `<div class="candidate-grid">${rows.map(c => renderCard(c)).join("")}</div>`;
+    }
+
+    function renderCard(c) {
+      const isPending = c.status === "pending";
+      return `
+        <div class="candidate-card" data-id="${c.id}">
+          <div class="candidate-card-body">
+            <div class="candidate-card-key">${esc(c.topic_key)} ${badge(c.status)}</div>
+            <div class="candidate-card-meta">
+              Confidence: ${c.confidence != null ? (c.confidence * 100).toFixed(0)+"%" : "—"}
+              · Source: ${esc(c.source ?? "—")}
+              · Created: ${shortDate(c.created_at)}
+              ${c.decided_by ? ` · Decided by: ${esc(c.decided_by)}` : ""}
+            </div>
+            ${c.suggested_query ? `<div class="candidate-card-query">Query: ${esc(c.suggested_query)}</div>` : ""}
+            ${c.summary ? `<div style="font-size:0.82rem;color:var(--muted);">${esc(c.summary)}</div>` : ""}
+          </div>
+          ${isPending ? `
+          <div class="candidate-card-actions">
+            <button class="btn btn-success btn-sm" onclick="openAccept(${c.id})">Accept</button>
+            <button class="btn btn-danger btn-sm" onclick="doReject(${c.id}, this)">Reject</button>
+            <button class="btn btn-ghost btn-sm" onclick="openSnooze(${c.id})">Snooze</button>
+          </div>` : ""}
+        </div>`;
+    }
+
+    // --- Accept ---
+    window.openAccept = function(id) {
+      document.getElementById("accept-id").value = id;
+      document.getElementById("accept-query").value = "";
+      document.getElementById("accept-domain").value = "";
+      document.getElementById("accept-target").value = "";
+      document.getElementById("accept-status").textContent = "";
+      document.getElementById("accept-modal").hidden = false;
+    };
+    document.getElementById("accept-modal-close").onclick = () => { document.getElementById("accept-modal").hidden = true; };
+    document.getElementById("accept-cancel-btn").onclick = () => { document.getElementById("accept-modal").hidden = true; };
+    document.getElementById("accept-confirm-btn").onclick = async () => {
+      const id = document.getElementById("accept-id").value;
+      const query = document.getElementById("accept-query").value.trim() || undefined;
+      const domain = document.getElementById("accept-domain").value.trim() || undefined;
+      const target = document.getElementById("accept-target").value ? Number(document.getElementById("accept-target").value) : undefined;
+      const statusEl = document.getElementById("accept-status");
+      const btn = document.getElementById("accept-confirm-btn");
+      btn.disabled = true;
+      statusEl.textContent = "Accepting…";
+      try {
+        const r = await apiFetch(`/api/admin/candidates/${id}/accept`, {
+          method: "POST",
+          body: JSON.stringify({ query, domain, target }),
+        });
+        if (!r) return;
+        if (!r.ok) { statusEl.textContent = "Error: " + (await r.text()); btn.disabled = false; return; }
+        const d = await r.json();
+        statusEl.textContent = `Accepted! Topic #${d.topic.id} created. Job: ${d.jobId ?? "not enqueued"}`;
+        await load();
+        setTimeout(() => { document.getElementById("accept-modal").hidden = true; }, 1500);
+      } catch (e) {
+        statusEl.textContent = "Error: " + e.message;
+        btn.disabled = false;
+      }
+    };
+
+    // --- Reject ---
+    window.doReject = async function(id, btn) {
+      if (!confirm("Reject this candidate?")) return;
+      btn.disabled = true;
+      const r = await apiFetch(`/api/admin/candidates/${id}/reject`, { method: "POST" });
+      if (r && r.ok) { await load(); } else { btn.disabled = false; alert("Reject failed"); }
+    };
+
+    // --- Snooze ---
+    window.openSnooze = function(id) {
+      document.getElementById("snooze-id").value = id;
+      document.getElementById("snooze-status").textContent = "";
+      // Default: 2 weeks from now
+      const d = new Date(); d.setDate(d.getDate() + 14);
+      document.getElementById("snooze-until").value = d.toISOString().slice(0, 10);
+      document.getElementById("snooze-modal").hidden = false;
+    };
+    document.getElementById("snooze-modal-close").onclick = () => { document.getElementById("snooze-modal").hidden = true; };
+    document.getElementById("snooze-cancel-btn").onclick = () => { document.getElementById("snooze-modal").hidden = true; };
+    document.getElementById("snooze-confirm-btn").onclick = async () => {
+      const id = document.getElementById("snooze-id").value;
+      const until = document.getElementById("snooze-until").value;
+      if (!until) { document.getElementById("snooze-status").textContent = "Pick a date."; return; }
+      const btn = document.getElementById("snooze-confirm-btn");
+      btn.disabled = true;
+      const r = await apiFetch(`/api/admin/candidates/${id}/snooze`, {
+        method: "POST",
+        body: JSON.stringify({ until: new Date(until).toISOString() }),
+      });
+      if (r && r.ok) {
+        await load();
+        document.getElementById("snooze-modal").hidden = true;
+      } else {
+        document.getElementById("snooze-status").textContent = "Snooze failed.";
+        btn.disabled = false;
+      }
+    };
+
+    // --- Filter ---
+    document.getElementById("status-filter").addEventListener("change", e => {
+      currentStatus = e.target.value;
+      load();
+    });
+    document.getElementById("refresh-btn").addEventListener("click", load);
+
+    load();
+  </script>
+</body>
+</html>

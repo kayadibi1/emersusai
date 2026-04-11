@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feeds | Emersus Admin</title>
+  <link rel="stylesheet" href="/shared/admin.css">
+</head>
+<body data-admin>
+  <div class="admin-shell">
+    <nav class="admin-nav">
+      <a class="admin-nav-brand" href="/admin/">Emersus Admin</a>
+      <div class="admin-nav-links">
+        <a href="/admin/">Dashboard</a>
+        <a href="/admin/candidates/">Candidates</a>
+        <a href="/admin/topics/">Topics</a>
+        <a href="/admin/feeds/" aria-current="page">Feeds</a>
+        <a href="/admin/jobs/">Jobs</a>
+        <a href="/admin/alerts/">Alerts</a>
+      </div>
+      <span class="admin-nav-end" id="nav-user"></span>
+    </nav>
+    <main class="admin-main">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+        <h1 class="admin-page-title" style="margin:0">Discovery Feeds</h1>
+        <button class="btn btn-primary btn-sm" id="add-btn">+ Add Feed</button>
+        <button class="btn btn-ghost btn-sm" id="refresh-btn">Refresh</button>
+      </div>
+      <div id="feeds-wrap"><div class="admin-loading">Loading…</div></div>
+    </main>
+  </div>
+
+  <!-- Add/Edit Feed Modal -->
+  <div class="modal-overlay" id="feed-modal" hidden>
+    <div class="modal-box">
+      <div class="modal-head">
+        <span id="feed-modal-title">Add Feed</span>
+        <button class="modal-close" id="feed-modal-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="feed-id">
+        <div style="display:grid;gap:0.75rem;">
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Name *</span>
+            <input type="text" id="feed-name" class="admin-input" style="width:100%;">
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Source type *</span>
+            <input type="text" id="feed-source-type" class="admin-input" style="width:100%;" placeholder="e.g. rss, pubmed, biorxiv">
+          </label>
+          <label style="font-size:0.85rem;">
+            <span style="display:block;margin-bottom:0.25rem;color:var(--muted);">Config (JSON)</span>
+            <textarea id="feed-config" class="admin-input" style="width:100%;height:80px;font-family:monospace;font-size:0.8rem;">{}</textarea>
+          </label>
+          <label style="font-size:0.85rem;display:flex;align-items:center;gap:0.5rem;">
+            <input type="checkbox" id="feed-active" checked>
+            <span>Active</span>
+          </label>
+        </div>
+        <div style="margin-top:1.25rem;display:flex;gap:0.75rem;">
+          <button class="btn btn-primary" id="feed-save-btn">Save</button>
+          <button class="btn btn-ghost" id="feed-cancel-btn">Cancel</button>
+        </div>
+        <p id="feed-status-msg" style="margin-top:0.75rem;font-size:0.82rem;color:var(--muted);"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { requireAdmin } from "/shared/supabase.js";
+
+    const session = await requireAdmin({ redirectTo: "/auth/login/", nonAdminRedirect: "/auth/login/" });
+    if (!session) throw new Error("no session");
+
+    document.getElementById("nav-user").textContent = session.user.email;
+    const token = session.access_token;
+
+    async function apiFetch(path, opts = {}) {
+      const r = await fetch(path, {
+        ...opts,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+          ...(opts.headers ?? {}),
+        },
+      });
+      if (r.status === 401 || r.status === 403) {
+        window.location.replace(`/auth/login/?next=${encodeURIComponent(window.location.pathname)}`);
+        return null;
+      }
+      return r;
+    }
+
+    function esc(s) { return String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+    function shortDate(iso) {
+      if (!iso) return "—";
+      return new Date(iso).toLocaleDateString("en-US", { month:"short", day:"numeric", year:"numeric" });
+    }
+
+    async function load() {
+      const wrap = document.getElementById("feeds-wrap");
+      wrap.innerHTML = '<div class="admin-loading">Loading…</div>';
+      const r = await apiFetch("/api/admin/feeds?limit=200");
+      if (!r) return;
+      if (!r.ok) { wrap.innerHTML = `<div class="admin-empty">Error: ${await r.text()}</div>`; return; }
+      const { feeds } = await r.json();
+      if (!feeds.length) { wrap.innerHTML = '<div class="admin-empty">No feeds yet.</div>'; return; }
+      wrap.innerHTML = `
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>ID</th><th>Name</th><th>Type</th><th>Active</th>
+                <th>Failures</th><th>Last Fetch</th><th>Created</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              ${feeds.map(f => `
+                <tr>
+                  <td>${esc(f.id)}</td>
+                  <td>${esc(f.name)}</td>
+                  <td style="font-family:monospace;font-size:0.82rem;">${esc(f.source_type)}</td>
+                  <td>${f.active
+                    ? '<span class="badge badge-active">yes</span>'
+                    : '<span class="badge badge-inactive">no</span>'}</td>
+                  <td>${esc(f.consecutive_failures ?? 0)}</td>
+                  <td>${shortDate(f.last_fetched_at)}</td>
+                  <td>${shortDate(f.created_at)}</td>
+                  <td style="white-space:nowrap;">
+                    <button class="btn btn-ghost btn-sm" onclick="openEdit(${f.id})">Edit</button>
+                    <button class="btn btn-primary btn-sm" onclick="doFetchNow(${f.id}, this)">Fetch Now</button>
+                  </td>
+                </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>`;
+    }
+
+    // Add feed
+    document.getElementById("add-btn").onclick = () => {
+      document.getElementById("feed-id").value = "";
+      document.getElementById("feed-name").value = "";
+      document.getElementById("feed-source-type").value = "";
+      document.getElementById("feed-config").value = "{}";
+      document.getElementById("feed-active").checked = true;
+      document.getElementById("feed-status-msg").textContent = "";
+      document.getElementById("feed-modal-title").textContent = "Add Feed";
+      document.getElementById("feed-modal").hidden = false;
+    };
+
+    window.openEdit = function(id) {
+      // Populate from the table row
+      const tds = document.querySelectorAll(`button[onclick="openEdit(${id})"]`)[0]?.closest("tr")?.querySelectorAll("td");
+      if (tds) {
+        document.getElementById("feed-name").value = tds[1]?.textContent.trim() ?? "";
+        document.getElementById("feed-source-type").value = tds[2]?.textContent.trim() ?? "";
+        document.getElementById("feed-active").checked = tds[3]?.textContent.includes("yes");
+      }
+      document.getElementById("feed-config").value = "{}";
+      document.getElementById("feed-id").value = id;
+      document.getElementById("feed-status-msg").textContent = "";
+      document.getElementById("feed-modal-title").textContent = "Edit Feed";
+      document.getElementById("feed-modal").hidden = false;
+    };
+
+    document.getElementById("feed-modal-close").onclick = () => { document.getElementById("feed-modal").hidden = true; };
+    document.getElementById("feed-cancel-btn").onclick = () => { document.getElementById("feed-modal").hidden = true; };
+
+    document.getElementById("feed-save-btn").onclick = async () => {
+      const id = document.getElementById("feed-id").value;
+      let config;
+      try { config = JSON.parse(document.getElementById("feed-config").value || "{}"); }
+      catch { document.getElementById("feed-status-msg").textContent = "Invalid JSON in config."; return; }
+      const body = {
+        name: document.getElementById("feed-name").value.trim(),
+        source_type: document.getElementById("feed-source-type").value.trim(),
+        config,
+        active: document.getElementById("feed-active").checked,
+      };
+      const btn = document.getElementById("feed-save-btn");
+      const msg = document.getElementById("feed-status-msg");
+      btn.disabled = true;
+      msg.textContent = "Saving…";
+      const r = id
+        ? await apiFetch(`/api/admin/feeds/${id}`, { method: "PATCH", body: JSON.stringify(body) })
+        : await apiFetch("/api/admin/feeds", { method: "POST", body: JSON.stringify(body) });
+      if (r && (r.ok)) {
+        msg.textContent = "Saved!";
+        await load();
+        setTimeout(() => { document.getElementById("feed-modal").hidden = true; }, 800);
+      } else {
+        msg.textContent = "Error: " + (r ? await r.text() : "request failed");
+        btn.disabled = false;
+      }
+    };
+
+    window.doFetchNow = async function(id, btn) {
+      if (!confirm(`Enqueue fetch-now for feed #${id}?`)) return;
+      btn.disabled = true;
+      const r = await apiFetch(`/api/admin/feeds/${id}/fetch-now`, { method: "POST", body: "{}" });
+      if (r && r.ok) {
+        const d = await r.json();
+        alert(`Job enqueued: ${d.jobId ?? "queued"}`);
+      } else {
+        alert("Failed to enqueue job.");
+      }
+      btn.disabled = false;
+    };
+
+    document.getElementById("refresh-btn").addEventListener("click", load);
+    load();
+  </script>
+</body>
+</html>

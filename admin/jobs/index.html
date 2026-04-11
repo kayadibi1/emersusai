@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jobs | Emersus Admin</title>
+  <link rel="stylesheet" href="/shared/admin.css">
+</head>
+<body data-admin>
+  <div class="admin-shell">
+    <nav class="admin-nav">
+      <a class="admin-nav-brand" href="/admin/">Emersus Admin</a>
+      <div class="admin-nav-links">
+        <a href="/admin/">Dashboard</a>
+        <a href="/admin/candidates/">Candidates</a>
+        <a href="/admin/topics/">Topics</a>
+        <a href="/admin/feeds/">Feeds</a>
+        <a href="/admin/jobs/" aria-current="page">Jobs</a>
+        <a href="/admin/alerts/">Alerts</a>
+      </div>
+      <span class="admin-nav-end" id="nav-user"></span>
+    </nav>
+    <main class="admin-main">
+      <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;flex-wrap:wrap;">
+        <h1 class="admin-page-title" style="margin:0">Jobs</h1>
+        <select id="state-filter" class="admin-input" style="width:auto;">
+          <option value="">All</option>
+          <option value="active">Active</option>
+          <option value="created">Created</option>
+          <option value="completed">Completed</option>
+          <option value="failed">Failed</option>
+          <option value="expired">Expired</option>
+          <option value="cancelled">Cancelled</option>
+        </select>
+        <button class="btn btn-ghost btn-sm" id="refresh-btn">Refresh</button>
+      </div>
+      <div id="jobs-wrap"><div class="admin-loading">Loading…</div></div>
+    </main>
+  </div>
+
+  <!-- Progress modal -->
+  <div class="modal-overlay" id="progress-modal" hidden>
+    <div class="modal-box">
+      <div class="modal-head">
+        <span id="progress-title">Job Progress</span>
+        <button class="modal-close" id="progress-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <pre class="progress-log" id="progress-log">Loading…</pre>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { requireAdmin } from "/shared/supabase.js";
+
+    const session = await requireAdmin({ redirectTo: "/auth/login/", nonAdminRedirect: "/auth/login/" });
+    if (!session) throw new Error("no session");
+
+    document.getElementById("nav-user").textContent = session.user.email;
+    const token = session.access_token;
+
+    async function apiFetch(path, opts = {}) {
+      const r = await fetch(path, {
+        ...opts,
+        headers: { Authorization: `Bearer ${token}`, ...(opts.headers ?? {}) },
+      });
+      if (r.status === 401 || r.status === 403) {
+        window.location.replace(`/auth/login/?next=${encodeURIComponent(window.location.pathname)}`);
+        return null;
+      }
+      return r;
+    }
+
+    function esc(s) { return String(s ?? "").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+    function badge(s) { return `<span class="badge badge-${esc(s)}">${esc(s)}</span>`; }
+    function shortDate(iso) {
+      if (!iso) return "—";
+      return new Date(iso).toLocaleString("en-US", { month:"short", day:"numeric", hour:"2-digit", minute:"2-digit" });
+    }
+
+    let currentState = "";
+
+    async function load() {
+      const wrap = document.getElementById("jobs-wrap");
+      wrap.innerHTML = '<div class="admin-loading">Loading…</div>';
+      const qs = currentState ? `?state=${currentState}&limit=100` : "?limit=100";
+      const r = await apiFetch(`/api/admin/jobs${qs}`);
+      if (!r) return;
+      if (!r.ok) { wrap.innerHTML = `<div class="admin-empty">Error: ${await r.text()}</div>`; return; }
+      const { jobs } = await r.json();
+      if (!jobs.length) { wrap.innerHTML = '<div class="admin-empty">No jobs found.</div>'; return; }
+      wrap.innerHTML = `
+        <div class="admin-table-wrap">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Name</th><th>State</th><th>Progress</th><th>Retries</th>
+                <th>Created</th><th>Started</th><th>Completed</th><th></th>
+              </tr>
+            </thead>
+            <tbody>
+              ${jobs.map(j => `
+                <tr>
+                  <td style="font-family:monospace;font-size:0.82rem;">${esc(j.name)}</td>
+                  <td>${badge(j.state)}</td>
+                  <td>${esc(j.progress_count)}</td>
+                  <td>${esc(j.retrycount ?? 0)}/${esc(j.retrylimit ?? 0)}</td>
+                  <td>${shortDate(j.createdon)}</td>
+                  <td>${shortDate(j.startedon)}</td>
+                  <td>${shortDate(j.completedon)}</td>
+                  <td><button class="btn btn-ghost btn-sm" onclick="openProgress('${esc(j.id)}', '${esc(j.name)}')">Logs</button></td>
+                </tr>`).join("")}
+            </tbody>
+          </table>
+        </div>`;
+    }
+
+    // Progress modal
+    let pollInterval = null;
+
+    window.openProgress = async function(jobId, jobName) {
+      document.getElementById("progress-title").textContent = `Progress: ${jobName}`;
+      document.getElementById("progress-log").textContent = "Loading…";
+      document.getElementById("progress-modal").hidden = false;
+      clearInterval(pollInterval);
+      let lastSeq = 0;
+      let log = "";
+
+      async function fetchProgress() {
+        const r = await apiFetch(`/api/admin/jobs/${jobId}/progress?since=${lastSeq}`);
+        if (!r || !r.ok) return;
+        const { progress } = await r.json();
+        for (const row of progress) {
+          log += `[${row.seq}] ${row.step ?? ""} ${row.message ?? ""} ${row.pct != null ? `(${row.pct}%)` : ""}\n`;
+          lastSeq = Math.max(lastSeq, row.seq);
+        }
+        if (log) document.getElementById("progress-log").textContent = log;
+        else document.getElementById("progress-log").textContent = "(no progress rows yet)";
+      }
+
+      await fetchProgress();
+      pollInterval = setInterval(fetchProgress, 3000);
+    };
+
+    document.getElementById("progress-close").onclick = () => {
+      clearInterval(pollInterval);
+      document.getElementById("progress-modal").hidden = true;
+    };
+
+    document.getElementById("state-filter").addEventListener("change", e => {
+      currentState = e.target.value;
+      load();
+    });
+    document.getElementById("refresh-btn").addEventListener("click", load);
+
+    load();
+  </script>
+</body>
+</html>
