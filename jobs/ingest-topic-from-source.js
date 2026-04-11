@@ -41,17 +41,23 @@ export async function ingestTopicFromSourceHandler(ctx, deps) {
     if (ctx.signal.aborted) break;
 
     // Map IngestedPaper → research_articles columns
-    // For pubmed sources, pmid is the externalId cast to integer (if numeric).
-    const pmidVal = (plugin.id === "pubmed" || paper.source === "pubmed")
-      ? (Number.isFinite(Number(paper.externalId)) ? Number(paper.externalId) : null)
+    // Extract the real PubMed ID when the source is pubmed AND the externalId
+    // is numeric. Everything else gets a synthetic pmid allocated from the
+    // research_articles_synthetic_pmid_seq sequence, which keeps
+    // research_articles.pmid NOT NULL PRIMARY KEY happy without requiring a
+    // schema migration. See
+    // docs/superpowers/specs/2026-04-11-multi-source-enablement-design.md
+    const isPubmedSource = plugin.id === "pubmed" || paper.source === "pubmed";
+    const realPmid = isPubmedSource && Number.isFinite(Number(paper.externalId))
+      ? Number(paper.externalId)
       : null;
 
-    // Phase 2 constraint: pmid is the PK of research_articles, so only
-    // pubmed-sourced rows can be inserted. Other sources are filtered
-    // out in ingest-topic.js but guard here too.
+    let pmidVal = realPmid;
     if (pmidVal == null) {
-      skippedCount++;
-      continue;
+      const seqResult = await sql`
+        SELECT nextval('research_articles_synthetic_pmid_seq')::bigint AS id
+      `;
+      pmidVal = Number(seqResult.rows[0].id);
     }
 
     const pubDate = paper.publishedAt instanceof Date

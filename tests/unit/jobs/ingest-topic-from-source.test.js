@@ -153,6 +153,74 @@ test("topic not found throws SourcePermanentError", async () => {
   );
 });
 
+test("allocates a synthetic pmid for non-pubmed sources via the sequence", async () => {
+  // Register a fake non-pubmed source that yields one paper
+  const FAKE_SOURCE_ID = "test-nonpubmed-src";
+  const FAKE_PAPER = {
+    externalId: "10.1101/2024.01.15.00042",
+    source: "biorxiv",
+    title: "Synthetic pmid test paper",
+    abstract: "Testing non-pubmed ingestion",
+    doi: "10.1101/2024.01.15.00042",
+    publishedAt: new Date("2024-01-15"),
+    journal: "bioRxiv",
+    authors: ["Test Author"],
+    peerReviewed: false,
+    sourceMetadata: { biorxiv_id: "2024.01.15.00042" },
+  };
+
+  registerIngestion({
+    id: FAKE_SOURCE_ID,
+    name: "Test non-pubmed",
+    peerReviewed: false,
+    async *fetchPapers() {
+      yield FAKE_PAPER;
+    },
+  });
+
+  // sql mock that returns a fixed synthetic id when asked for nextval,
+  // and returns a row on insert so the handler counts it as inserted.
+  const syntheticId = 10000000042;
+  const seenQueries = [];
+  const sql = function (strings, ...values) {
+    const query = strings.join("?");
+    seenQueries.push({ query, values });
+    if (query.includes("research_topics") && query.includes("SELECT")) {
+      return Promise.resolve({ rows: [FAKE_TOPIC] });
+    }
+    if (query.includes("nextval") && query.includes("research_articles_synthetic_pmid_seq")) {
+      return Promise.resolve({ rows: [{ id: syntheticId }] });
+    }
+    if (query.includes("research_articles") && query.includes("INSERT")) {
+      return Promise.resolve({ rows: [{ pmid: syntheticId }] });
+    }
+    return Promise.resolve({ rows: [] });
+  };
+  sql.calls = seenQueries;
+
+  const boss = makeBoss();
+  const ctx = makeCtx({ topicId: 1, sourceId: FAKE_SOURCE_ID, target: 10 });
+
+  const out = await ingestTopicFromSourceHandler(ctx, { sql, boss });
+
+  // The handler should have asked for a synthetic pmid
+  const nextvalCall = seenQueries.find(c => c.query.includes("nextval"));
+  assert.ok(nextvalCall, "handler should query nextval() for synthetic pmid");
+
+  // And the insert should have used the synthetic value
+  const insertCall = seenQueries.find(c =>
+    c.query.includes("research_articles") && c.query.includes("INSERT")
+  );
+  assert.ok(insertCall, "handler should issue an INSERT");
+  assert.ok(
+    insertCall.values.includes(syntheticId),
+    `INSERT values should include the synthetic pmid ${syntheticId}, got ${JSON.stringify(insertCall.values)}`
+  );
+
+  assert.equal(out.inserted, 1, "one paper should be counted as inserted");
+  assert.equal(out.skipped, 0, "zero papers should be skipped");
+});
+
 test("aborted signal stops iteration early (signal pre-aborted)", async () => {
   // Plugin that checks the signal on each yield
   const ABORT_SOURCE = "test-abort-src-pre";
