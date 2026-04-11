@@ -109,14 +109,20 @@ export function ensureBlockIds(plan) {
   };
 }
 
-// Build a blank "actual set" row to seed the mobile session view. Pulls
-// the prescribed reps string as the default (user just confirms it) and
-// leaves load/rpe/notes empty so the user fills them in. The caller is
-// responsible for knowing how many actual_sets to pre-create — usually
-// Number(prescribedBlock.sets) or 1.
-export function createEmptyActualSet(prescribedBlock) {
+// Build a blank "actual set" row to seed the mobile session view. Every
+// field starts empty — the prescribed reps/load are shown to the user as
+// placeholder text in the inputs, not as prefilled values. We used to
+// prefill `reps` with `String(prescribedBlock.reps)`, but the LLM-prescribed
+// `reps` is free-form ("8-12", "20-40 sec", "AMRAP") and persisted into
+// `completed_blocks.actual_sets[].reps` verbatim when users didn't overwrite
+// it — which broke the `workout_logs.reps::smallint` cast in the
+// upsert_workout_logs RPC and meant the Progress page silently dropped those
+// sessions. Logged reps must be a user-typed integer count.
+// The caller is responsible for knowing how many actual_sets to pre-create —
+// usually Number(prescribedBlock.sets) or 1.
+export function createEmptyActualSet(_prescribedBlock) {
   return {
-    reps: prescribedBlock && prescribedBlock.reps ? String(prescribedBlock.reps) : "",
+    reps: "",
     load: "",
     rpe: null,
     notes: "",
