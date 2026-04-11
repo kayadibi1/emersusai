@@ -104,23 +104,61 @@ async function fetchSemanticScholarWithRetry(pmids) {
 }
 
 async function fetchNextPmidPage(cursor, limit) {
-  // Gate on influential_citation_count IS NULL as the "never
-  // backfilled" marker. citation_count has a DEFAULT 0, so papers that
-  // S2 processed-and-returned-zero become indistinguishable from
-  // never-processed — using that column as the gate makes the resume
-  // redundantly re-process tens of thousands of already-done papers.
-  // influential_citation_count has NO default, so NULL reliably
-  // means "no successful S2 response has landed here yet".
+  // Gate on s2_checked_at IS NULL — a dedicated "we tried" timestamp
+  // that covers both (a) successful updates with real data and (b)
+  // PMIDs that S2 returned nothing for OR 400'd on a batch containing
+  // them. This is the only selector that converges: a cursor run
+  // strictly reduces the eligible set, regardless of whether S2 has
+  // data for a given PMID or not.
   let query = supabaseAdmin
     .from("pubmed_articles")
     .select("pmid")
-    .is("influential_citation_count", null)
+    .is("s2_checked_at", null)
     .order("pmid", { ascending: true })
     .limit(limit);
   if (cursor != null) query = query.gt("pmid", cursor);
   const { data, error } = await query;
   if (error) throw new Error(`Supabase select failed: ${error.message}`);
   return data || [];
+}
+
+async function markChecked(pmids) {
+  if (!pmids || pmids.length === 0) return 0;
+  const { data, error } = await supabaseAdmin.rpc(
+    "mark_pubmed_s2_checked",
+    { pmid_list: pmids }
+  );
+  if (error) {
+    throw new Error(`mark_pubmed_s2_checked failed: ${error.message}`);
+  }
+  return data || 0;
+}
+
+// Process a batch of PMIDs with recursive bisect on HTTP 400.
+// Returns { updates: [{pmid, citation_count, influential_citation_count}],
+//           dead: [pmid, ...] } — the caller updates the live ones
+// and marks the dead ones as checked (failed) so they stop appearing
+// in future runs. If ANY non-skip error propagates up, it's fatal —
+// only permanent bad-batch 400s are bisected-and-dropped.
+async function processBatchWithBisect(pmids) {
+  try {
+    const body = await fetchSemanticScholarWithRetry(pmids);
+    const updates = parseSemanticScholarResponse(body);
+    return { updates, dead: [] };
+  } catch (err) {
+    if (!(err instanceof SemanticScholarBatchSkip)) throw err;
+    // Can't narrow further — mark this single PMID as checked-but-no-data.
+    if (pmids.length === 1) {
+      return { updates: [], dead: [pmids[0]] };
+    }
+    const mid = Math.floor(pmids.length / 2);
+    const left = await processBatchWithBisect(pmids.slice(0, mid));
+    const right = await processBatchWithBisect(pmids.slice(mid));
+    return {
+      updates: [...left.updates, ...right.updates],
+      dead: [...left.dead, ...right.dead],
+    };
+  }
 }
 
 async function main() {
@@ -136,12 +174,14 @@ async function main() {
   let batchNum = 0;
   let totalSeen = 0;
   let totalUpdated = 0;
+  let totalUnmatched = 0; // PMIDs S2 omitted from an otherwise-successful batch
+  let totalDead = 0;       // PMIDs that bisected down to a permanent 400
   const startedAt = Date.now();
 
   while (batchNum < args.maxBatches) {
     const page = await fetchNextPmidPage(cursor, args.batchSize);
     if (page.length === 0) {
-      console.log("[s2-backfill] no more rows with citation_count = 0; done");
+      console.log("[s2-backfill] no more rows with s2_checked_at IS NULL; done");
       break;
     }
 
@@ -150,8 +190,7 @@ async function main() {
     batchNum++;
     totalSeen += pmids.length;
 
-    const body = await fetchSemanticScholarWithRetry(pmids);
-    const updates = parseSemanticScholarResponse(body);
+    const { updates, dead } = await processBatchWithBisect(pmids);
 
     if (updates.length > 0) {
       const { data, error } = await supabaseAdmin.rpc(
@@ -166,16 +205,29 @@ async function main() {
       totalUpdated += data || 0;
     }
 
+    // Stamp any PMID that was in the batch but NOT in the returned
+    // updates (either S2 omitted it, or it bisected down to a
+    // permanent 400). These rows are now "checked" and won't be
+    // re-selected on future runs.
+    const matchedPmids = new Set(updates.map((u) => u.pmid));
+    const unmatched = pmids.filter((p) => !matchedPmids.has(p) && !dead.includes(p));
+    const toMark = [...unmatched, ...dead];
+    if (toMark.length > 0) {
+      await markChecked(toMark);
+      totalUnmatched += unmatched.length;
+      totalDead += dead.length;
+    }
+
     const elapsedSec = Math.round((Date.now() - startedAt) / 1000);
     console.log(
-      `[s2-backfill] batch=${batchNum} seen=${totalSeen} updated=${totalUpdated} elapsed=${elapsedSec}s last_pmid=${cursor}`
+      `[s2-backfill] batch=${batchNum} seen=${totalSeen} updated=${totalUpdated} unmatched=${totalUnmatched} dead=${totalDead} elapsed=${elapsedSec}s last_pmid=${cursor}`
     );
 
     await sleep(args.pauseMs);
   }
 
   console.log(
-    `[s2-backfill] finished. total_seen=${totalSeen} total_updated=${totalUpdated}`
+    `[s2-backfill] finished. seen=${totalSeen} updated=${totalUpdated} unmatched=${totalUnmatched} dead=${totalDead}`
   );
 }
 
