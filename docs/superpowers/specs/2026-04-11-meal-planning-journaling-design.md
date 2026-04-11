@@ -335,9 +335,9 @@ Downloaded from `https://fdc.nal.usda.gov/fdc-datasets.html` as gzipped JSON bun
 9. **Reports:** per-dataset counts of foods inserted / updated / skipped-for-quality, food_nutrients rows written, elapsed time, peak memory.
 
 **Tiebreaker priority in match ranking** (used later by the parser):
-`usda_foundation` > `usda_sr_legacy` > `usda_fndds` > `usda_branded` > `seed_supplement` > `user_contributed` > `chain_scrape`.
+`usda_foundation` > `usda_sr_legacy` > `usda_branded` > `usda_fndds` > `seed_supplement` > `user_contributed` > `chain_scrape`.
 
-This prefers research-grade data over branded, which matters because a user typing "oats" should match the generic Foundation entry ("Oats, raw") rather than an arbitrary branded oatmeal product. Brand matches surface naturally when the user includes a brand name in their query — the FTS index weights brand-name hits strongly through the generated `search_vector`. Within `usda_branded`, a secondary tiebreak on `data_points desc` prefers manufacturers with more complete nutrient reporting.
+Rationale: research-grade generics (Foundation, SR Legacy) still win for pure ingredients like "oats" or "chicken breast." Branded sits directly below SR Legacy because a manufacturer-reported specific product ("Quest chocolate chip cookie dough bar") is usually more accurate for *that specific item* than an FNDDS generic mixed dish ("protein bar, chocolate flavor, unspecified brand"). FNDDS still outranks seeded supplements and user-contributed rows because it's USDA research data, useful when someone logs a homemade mixed dish without a branded equivalent. Within `usda_branded`, a secondary tiebreak on `data_points desc` prefers manufacturers with more complete nutrient reporting. Brand matches surface naturally when the user includes a brand name — the FTS index weights brand-name hits strongly through the generated `search_vector`.
 
 **Expected output:** ~1.82 M foods × ~12 nutrients per food on average (Branded items typically report only the nutrition-label panel, not micronutrients) ≈ **20–25 M `food_nutrients` rows**. Plus ~500 k rows from Foundation/SR/FNDDS. Postgres can handle this; the GIN indexes on `search_vector` and `description` are the hot spots.
 
@@ -418,7 +418,7 @@ A **separate OpenAI call** from the main chat completion. Deterministic, tool-sc
    - Filter by `kind` from the parser output (don't match a supplement phrase to a food row and vice versa)
    - Combined score ≥ 0.35 → auto-match
    - Below threshold → flag as `needs_review` with top 5 candidates for the confirmation widget
-   - Source-tier tiebreaker: `usda_foundation` > `usda_sr_legacy` > `usda_fndds` > `usda_branded` > `seed_supplement` > `user_contributed` > `chain_scrape`
+   - Source-tier tiebreaker: `usda_foundation` > `usda_sr_legacy` > `usda_branded` > `usda_fndds` > `seed_supplement` > `user_contributed` > `chain_scrape`
    - Branded-only rows are de-prioritized unless the user's query includes a brand token (FTS automatically surfaces brand hits via the generated `search_vector`, which concatenates `description` and `brand_name`)
    - Within `usda_branded`, secondary tiebreak on `data_points desc` so manufacturers with more complete nutrient reporting outrank skeleton entries
 
