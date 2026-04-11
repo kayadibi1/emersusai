@@ -312,6 +312,23 @@ const DEFAULT_TOPIC_ORDER = [
   "post_workout_nutrition_window",
   "pre_race_carbohydrate_loading",
   "gut_training_race_fueling",
+
+  // ── 20. Metabolic health / longevity ─────────────────────────
+  "cgm_exercise_response",
+  "vo2_max_longevity",
+  "strength_mortality",
+  "muscle_mass_longevity",
+  "metabolic_flexibility",
+  "grip_strength_predictor",
+  "exercise_lifespan",
+  "hba1c_exercise",
+  "visceral_fat_exercise",
+  "telomeres_exercise",
+  "autophagy_exercise",
+  "mitohormesis_exercise",
+  "ampk_mtor_signaling",
+  "zone_2_mitochondria",
+  "sauna_longevity",
 ];
 
 const TOPIC_QUERIES = {
@@ -875,6 +892,38 @@ const TOPIC_QUERIES = {
     "(\"carbohydrate loading\" OR \"glycogen loading\" OR \"carb loading protocol\") AND (marathon OR endurance OR \"race performance\")",
   gut_training_race_fueling:
     "(\"gut training\" OR \"gastrointestinal training\" OR \"carbohydrate tolerance\") AND (endurance OR ultramarathon OR \"race nutrition\")",
+
+  // ── 20. Metabolic health / longevity ─────────────────────────
+  cgm_exercise_response:
+    "(\"continuous glucose monitoring\" OR CGM OR \"glucose dynamics\" OR \"glycemic response\") AND (exercise OR \"resistance training\" OR endurance OR athletes)",
+  vo2_max_longevity:
+    "(\"VO2 max\" OR \"cardiorespiratory fitness\") AND (mortality OR longevity OR \"all-cause mortality\" OR lifespan)",
+  strength_mortality:
+    "(\"muscular strength\" OR \"grip strength\" OR \"leg strength\") AND (mortality OR \"all-cause mortality\" OR longevity OR \"cardiovascular mortality\")",
+  muscle_mass_longevity:
+    "(\"muscle mass\" OR \"lean body mass\" OR \"skeletal muscle\") AND (longevity OR mortality OR aging OR \"quality of life\")",
+  metabolic_flexibility:
+    "(\"metabolic flexibility\" OR \"fuel switching\" OR \"substrate oxidation\") AND (exercise OR \"insulin sensitivity\" OR \"endurance training\")",
+  grip_strength_predictor:
+    "(\"grip strength\" OR \"handgrip strength\" OR \"hand grip\") AND (mortality OR predictor OR biomarker OR \"cardiovascular risk\")",
+  exercise_lifespan:
+    "(\"physical activity\" OR exercise OR \"resistance training\") AND (lifespan OR \"healthy aging\" OR healthspan OR \"all-cause mortality\")",
+  hba1c_exercise:
+    "(HbA1c OR \"glycated hemoglobin\" OR \"glycosylated hemoglobin\") AND (exercise OR \"resistance training\" OR \"aerobic training\" OR HIIT)",
+  visceral_fat_exercise:
+    "(\"visceral fat\" OR \"visceral adipose tissue\" OR \"abdominal obesity\") AND (exercise OR \"resistance training\" OR HIIT OR endurance)",
+  telomeres_exercise:
+    "(telomere OR \"telomere length\") AND (exercise OR \"physical activity\" OR aging OR athletes)",
+  autophagy_exercise:
+    "(autophagy OR \"autophagic flux\" OR mitophagy) AND (exercise OR \"resistance training\" OR \"endurance training\" OR fasting)",
+  mitohormesis_exercise:
+    "(mitohormesis OR \"mitochondrial hormesis\" OR \"oxidative stress adaptation\") AND (exercise OR training OR \"reactive oxygen species\")",
+  ampk_mtor_signaling:
+    "(AMPK OR mTOR OR \"mTORC1\" OR \"mechanistic target of rapamycin\") AND (exercise OR \"resistance training\" OR \"muscle protein synthesis\")",
+  zone_2_mitochondria:
+    "(\"zone 2 training\" OR \"low intensity training\" OR \"aerobic base training\") AND (mitochondrial OR \"mitochondrial biogenesis\" OR \"fat oxidation\")",
+  sauna_longevity:
+    "(sauna OR \"heat therapy\" OR \"Finnish sauna\" OR \"sauna bathing\") AND (longevity OR \"cardiovascular health\" OR mortality OR recovery)",
 };
 
 function parseArgs(argv) {
