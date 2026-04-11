@@ -13,6 +13,10 @@
 // short pause between batches to be polite and leave headroom for
 // transient slowdowns.
 
+// Load env from .env BEFORE importing clients.js, because clients.js's
+// loadLocalEnv() only checks .env.local (which doesn't exist in ~/app
+// on Hetzner — prod uses ~/app/.env, see reference_hetzner_env_file).
+import "dotenv/config";
 import { supabaseAdmin } from "../api/lib/clients.js";
 import { buildIciteUrl, parseIciteResponse } from "./lib/icite.js";
 
