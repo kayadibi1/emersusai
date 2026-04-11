@@ -118,6 +118,37 @@ export function parsePublicationCountry(xml) {
 }
 
 /**
+ * Split a multi-article efetch response into an array of individual
+ * <PubmedArticle>...</PubmedArticle> XML strings. Returns [] if none
+ * are present.
+ */
+export function splitPubmedArticles(xml) {
+  if (typeof xml !== "string" || xml.length === 0) return [];
+  const matches = xml.match(
+    /<PubmedArticle\b[^>]*>[\s\S]*?<\/PubmedArticle>/g
+  );
+  return matches || [];
+}
+
+/**
+ * Extract the PMID from a single PubmedArticle XML block. Returns a
+ * number (not a string) so it matches the bigint column type, or
+ * null if no PMID is present.
+ *
+ * PubMed XML has multiple <PMID> elements (one inside MedlineCitation,
+ * and additional ones inside CommentsCorrections or DeleteCitation).
+ * The MedlineCitation PMID is always the first one in the document
+ * order, so we take the first match.
+ */
+export function extractPmid(xml) {
+  if (typeof xml !== "string" || xml.length === 0) return null;
+  const match = xml.match(/<PMID\b[^>]*>(\d+)<\/PMID>/);
+  if (!match) return null;
+  const n = Number(match[1]);
+  return Number.isFinite(n) && n > 0 ? n : null;
+}
+
+/**
  * Extract author-supplied keywords from <KeywordList><Keyword> elements.
  * Returns an array of lowercased, trimmed, deduplicated strings.
  * Returns [] if no KeywordList is present.
