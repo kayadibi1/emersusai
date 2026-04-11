@@ -133,12 +133,43 @@ async function generateEmbeddings(texts) {
     throw new Error("Missing OPENAI_API_KEY.");
   }
 
-  const response = await openai.embeddings.create({
-    model: EMBEDDING_MODEL,
-    input: texts,
-  });
+  // Retry on 429 / rate_limit_exceeded. OpenAI returns a retry-after
+  // hint in the error message ("try again in 445ms") — we honor it
+  // if parseable, otherwise fall back to exponential backoff.
+  let lastError;
+  for (let attempt = 1; attempt <= 6; attempt++) {
+    try {
+      const response = await openai.embeddings.create({
+        model: EMBEDDING_MODEL,
+        input: texts,
+      });
+      return response.data.map((item) => item.embedding);
+    } catch (err) {
+      lastError = err;
+      const isRateLimit =
+        err?.code === "rate_limit_exceeded" ||
+        err?.status === 429 ||
+        err?.type === "tokens";
+      if (!isRateLimit || attempt >= 6) throw err;
+      const hintMs = extractRetryHintMs(err?.message || err?.error?.message);
+      const waitMs = hintMs || Math.min(30000, 1000 * 2 ** attempt);
+      console.warn(
+        `[embed] rate limited (attempt ${attempt}/6). Waiting ${waitMs}ms before retrying...`
+      );
+      await new Promise((r) => setTimeout(r, waitMs));
+    }
+  }
+  throw lastError;
+}
 
-  return response.data.map((item) => item.embedding);
+function extractRetryHintMs(message) {
+  if (typeof message !== "string") return 0;
+  // OpenAI format: "Please try again in 445ms" or "in 2.34s"
+  const msMatch = message.match(/try again in (\d+(?:\.\d+)?)ms/i);
+  if (msMatch) return Math.ceil(Number(msMatch[1]));
+  const sMatch = message.match(/try again in (\d+(?:\.\d+)?)s/i);
+  if (sMatch) return Math.ceil(Number(sMatch[1]) * 1000);
+  return 0;
 }
 
 async function updateEmbeddingsBatch(rows, embeddings) {
