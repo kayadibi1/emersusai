@@ -1,3 +1,4 @@
+import "dotenv/config";
 import { spawn } from "node:child_process";
 
 const DEFAULT_TARGET_PER_TOPIC = 2000;
