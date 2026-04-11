@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import nock from "nock";
-import { openaire } from "../../../scripts/sources/openaire.js";
+import { openaire, sanitizeToKeywords } from "../../../scripts/sources/openaire.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -13,11 +13,11 @@ function loadFixture(name) {
   return readFileSync(resolve(__dirname, `../../fixtures/openaire/${name}`), "utf8");
 }
 
-test("openaire.fetchPapers yields normalized IngestedPaper items", async () => {
+test("openaire.fetchPapers yields normalized IngestedPaper items from Graph v1", async () => {
   const fixture = loadFixture("publications-creatine.json");
 
   nock("https://api.openaire.eu")
-    .get("/search/publications")
+    .get("/graph/v1/researchProducts")
     .query(true)
     .reply(200, fixture);
 
@@ -34,12 +34,36 @@ test("openaire.fetchPapers yields normalized IngestedPaper items", async () => {
   }
 
   assert.equal(results[0].title, "Creatine supplementation and muscle strength: a meta-analysis");
+  assert.equal(results[0].externalId, "doi_dedup___::f2ef26f432cc9e0b8cedaba451799145");
   assert.equal(results[0].doi, "10.1519/JSC.0b013e318028a73d");
   assert.equal(results[0].journal, "Journal of Strength and Conditioning Research");
   assert.deepEqual(results[0].authors, ["Branch JD", "Smith KA"]);
   assert.equal(results[0].publishedAt.getFullYear(), 2003);
+  assert.equal(results[0].sourceMetadata.pubmed_id, "12831472");
+  assert.equal(results[0].sourceMetadata.publisher, "Human Kinetics");
+  // <jats:p> wrappers should be stripped
+  assert.ok(!/jats:/.test(results[0].abstract), "jats: tags should be stripped");
+  assert.ok(results[0].abstract.includes("meta-analysis"));
 
-  assert.ok(nock.isDone(), "openaire /search/publications should have been called");
+  assert.ok(nock.isDone(), "openaire graph v1 endpoint should have been called");
+});
+
+test("sanitizeToKeywords strips boolean operators, quotes, and parens", () => {
+  const query = '(creatine OR "creatine monohydrate" OR phosphocreatine) AND ("resistance training" OR strength OR hypertrophy)';
+  const clean = sanitizeToKeywords(query);
+  assert.ok(!clean.includes(" OR "), "no OR");
+  assert.ok(!clean.includes(" AND "), "no AND");
+  assert.ok(!clean.includes('"'), "no double quotes");
+  assert.ok(!clean.includes("("), "no open parens");
+  assert.ok(!clean.includes(")"), "no close parens");
+  assert.ok(clean.includes("creatine"));
+  assert.ok(clean.includes("hypertrophy"));
+});
+
+test("sanitizeToKeywords handles empty and non-string input", () => {
+  assert.equal(sanitizeToKeywords(""), "");
+  assert.equal(sanitizeToKeywords(null), "");
+  assert.equal(sanitizeToKeywords(undefined), "");
 });
 
 test("openaire adapter registers itself", async () => {

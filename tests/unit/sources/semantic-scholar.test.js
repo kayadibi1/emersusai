@@ -5,7 +5,7 @@ import { readFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 import nock from "nock";
-import { semanticScholar } from "../../../scripts/sources/semantic-scholar.js";
+import { semanticScholar, sanitizeToKeywords } from "../../../scripts/sources/semantic-scholar.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
@@ -71,6 +71,32 @@ test("semanticScholar sends x-api-key header when SEMANTIC_SCHOLAR_API_KEY is se
     else process.env.SEMANTIC_SCHOLAR_API_KEY = originalKey;
     nock.cleanAll();
   }
+});
+
+test("semanticScholar sanitizes boolean queries down to keywords before sending", async () => {
+  let capturedQuery = null;
+  nock("https://api.semanticscholar.org")
+    .get("/graph/v1/paper/search")
+    .query((q) => { capturedQuery = q; return true; })
+    .reply(200, { total: 0, offset: 0, data: [] });
+
+  try {
+    for await (const _p of semanticScholar.fetchPapers(
+      '(creatine OR "creatine monohydrate") AND ("resistance training" OR strength)',
+      { target: 1 },
+    )) {
+      break;
+    }
+  } catch (_) {
+    // throws SourcePermanentError on 0 results; ignore
+  }
+
+  assert.ok(capturedQuery, "capturedQuery should be set");
+  assert.ok(!capturedQuery.query.includes(" OR "), "no OR in sent query");
+  assert.ok(!capturedQuery.query.includes(" AND "), "no AND in sent query");
+  assert.ok(!capturedQuery.query.includes('"'), "no quotes in sent query");
+  assert.ok(capturedQuery.query.includes("creatine"), "keywords preserved");
+  nock.cleanAll();
 });
 
 test("semanticScholar adapter registers itself", async () => {
