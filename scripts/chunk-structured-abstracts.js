@@ -1,4 +1,4 @@
-// Rechunk pubmed_articles with structured abstracts into per-section
+// Rechunk research_articles with structured abstracts into per-section
 // evidence_chunks.
 //
 // Why: the initial ingest stores the whole abstract as a single
@@ -61,7 +61,7 @@ function sleep(ms) {
 
 async function fetchNextPage(cursor, limit) {
   let query = supabaseAdmin
-    .from("pubmed_articles")
+    .from("research_articles")
     .select("pmid,abstract_sections")
     .not("abstract_sections", "is", null)
     .is("chunks_sectioned_at", null)
