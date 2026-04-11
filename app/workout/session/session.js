@@ -45,6 +45,15 @@ import {
   createEmptyActualSet,
   ensureBlockIds,
 } from "/shared/workout-plan-schema.js";
+import { ShareModal, SHARE_MODAL_CSS } from "/shared/share-modal.js";
+import { buildGymCardData } from "/shared/share-card.js";
+
+if (!document.getElementById("share-modal-css")) {
+  const style = document.createElement("style");
+  style.id = "share-modal-css";
+  style.textContent = SHARE_MODAL_CSS;
+  document.head.appendChild(style);
+}
 
 const h = React.createElement;
 
@@ -192,17 +201,67 @@ function serializeBlockEntry(blockId, localSets, blockNotes, weightUnit = "kg") 
 }
 
 // ---------------------------------------------------------------------------
+// Gym summary for share card
+// ---------------------------------------------------------------------------
+
+function computeGymSummary(session) {
+  const completed = session.completed_blocks || [];
+  let totalVolumeKg = 0;
+  let setCount = 0;
+  const exerciseMap = new Map();
+
+  for (const cb of completed) {
+    const block = (session.blocks || []).find((b) => b.id === cb.block_id);
+    if (!block) continue;
+    const name = block.name || "Exercise";
+    let best = { loadKg: 0, reps: 0 };
+    for (const set of cb.actual_sets || []) {
+      if (!set.done) continue;
+      const reps = parseInt(set.reps, 10);
+      const load = parseFloat(set.load);
+      if (!isNaN(reps) && !isNaN(load)) {
+        totalVolumeKg += reps * load;
+        setCount += 1;
+        if (load > best.loadKg) best = { loadKg: load, reps };
+      } else if (!isNaN(reps)) {
+        setCount += 1;
+      }
+    }
+    exerciseMap.set(name, best);
+  }
+
+  const topExercises = [...exerciseMap.entries()]
+    .sort((a, b) => (b[1].loadKg || 0) - (a[1].loadKg || 0))
+    .slice(0, 3)
+    .map(([name, best]) => ({
+      name,
+      best_set_display: best.loadKg ? `${best.loadKg}kg × ${best.reps}` : `${best.reps} reps`,
+      is_pr: false, // PR detection requires historical lookup; left false for v1
+    }));
+
+  return {
+    totalVolumeKg,
+    setCount,
+    exerciseCount: exerciseMap.size,
+    durationSeconds: 0, // not tracked for resistance
+    topExercises,
+  };
+}
+
+// ---------------------------------------------------------------------------
 // SessionView component
 // ---------------------------------------------------------------------------
 
-function SessionView({ session: authSession, planRow, sessionId, weightUnit }) {
+function SessionView({ session: authSession, planRow, sessionId, profile, weightUnit }) {
   const planRef = useRef(planRow);
+  const profileRef = useRef(profile);
   const [plan, setPlan] = useState(() => ensureBlockIds(planRow.plan));
   const [currentIndex, setCurrentIndex] = useState(0);
   const [restRemaining, setRestRemaining] = useState(0);
   const [restActive, setRestActive] = useState(false);
   const [toast, setToast] = useState({ message: "", tone: "" });
   const [savingState, setSavingState] = useState("idle"); // idle | saving | error
+  const [shareCardData, setShareCardData] = useState(null);
   const restEndRef = useRef(0); // absolute ms timestamp via performance.now()
   const restTickRef = useRef(0);
 
@@ -407,9 +466,8 @@ function SessionView({ session: authSession, planRow, sessionId, weightUnit }) {
   }
 
   // ---- Finish session ----
-  async function finishSession() {
+  async function finishSession({ share = false } = {}) {
     if (pendingPlanRef.current) flushSave();
-    // Mark the session completion_status and save synchronously.
     const nextSessions = plan.sessions.map((s, idx) => {
       if (idx !== targetSessionIndex) return s;
       return { ...s, completion_status: "completed" };
@@ -417,10 +475,23 @@ function SessionView({ session: authSession, planRow, sessionId, weightUnit }) {
     const nextPlan = { ...plan, sessions: nextSessions };
     pendingPlanRef.current = nextPlan;
     await flushSave();
+
+    if (share) {
+      // Compute summary stats for the gym card
+      const savedSession = nextPlan.sessions[targetSessionIndex];
+      const summary = computeGymSummary(savedSession);
+      const profile = profileRef.current || {};
+      const cardData = buildGymCardData(
+        { title: savedSession.title },
+        profile,
+        summary
+      );
+      setShareCardData(cardData);
+      return;
+    }
+
     setToast({ message: "Session logged. Nice work.", tone: "success" });
-    setTimeout(() => {
-      window.location.href = `/app/workout/`;
-    }, 900);
+    setTimeout(() => { window.location.href = `/app/workout/`; }, 900);
   }
 
   // ---- Toast auto-dismiss ----
@@ -598,13 +669,25 @@ function SessionView({ session: authSession, planRow, sessionId, weightUnit }) {
       ? h(
           "div",
           { className: "finish-row" },
-          h(
-            "button",
-            { type: "button", onClick: finishSession },
-            "Finish session"
-          )
+          h("button", {
+            type: "button",
+            className: "finish-btn",
+            onClick: () => finishSession({ share: false }),
+          }, "Finish session"),
+          h("button", {
+            type: "button",
+            className: "finish-share-btn",
+            onClick: () => finishSession({ share: true }),
+          }, "Finish & share")
         )
       : null,
+
+    // Share modal
+    shareCardData && h(ShareModal, {
+      cardData: shareCardData,
+      cardOpts: {},
+      onClose: () => { window.location.href = "/app/workout/"; },
+    }),
 
     // Rest timer pill
     restActive
@@ -692,17 +775,18 @@ async function boot() {
     return;
   }
 
-  // Resolve weight unit preference (profile override or locale fallback)
+  // Resolve weight unit preference and fetch profile (for share card)
   let weightUnit = "kg";
+  let profile = null;
   try {
-    const profile = await getProfile(session.user.id);
+    profile = await getProfile(session.user.id);
     weightUnit = resolveWeightUnit(profile?.weight_unit);
   } catch (_err) {
     weightUnit = resolveWeightUnit(null);
   }
 
   const root = createRoot(rootEl);
-  root.render(h(SessionView, { session, planRow, sessionId, weightUnit }));
+  root.render(h(SessionView, { session, planRow, sessionId, profile, weightUnit }));
 }
 
 boot().catch((error) => {

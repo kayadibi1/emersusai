@@ -31,6 +31,38 @@ import { fetchDashboard, dateRange } from "/shared/progress-helpers.js";
 import { formatVolume } from "/shared/progress-charts.js";
 import { resolveWeightUnit } from "/shared/unit-conversion.js";
 
+// ---------------------------------------------------------------------------
+// Session view routing helpers
+// ---------------------------------------------------------------------------
+
+// Map session category → session view URL
+function sessionViewUrl(plan, session) {
+  const firstBlock = session.blocks?.[0];
+  const category =
+    session.category ||
+    firstBlock?.category ||
+    inferCategoryFromName(firstBlock?.name || "") ||
+    "resistance";
+
+  const params = `?plan=${encodeURIComponent(plan.id)}&session=${encodeURIComponent(session.id)}`;
+
+  switch (category) {
+    case "cardio":   return `/app/workout/cardio/${params}`;
+    case "swimming": return `/app/workout/swim/${params}`;
+    case "climbing": return `/app/workout/climb/${params}`;
+    default:         return `/app/workout/session/${params}`;
+  }
+}
+
+function inferCategoryFromName(name) {
+  const n = (name || "").toLowerCase();
+  if (!n) return null;
+  if (/run|jog|cycl|bike|walk|hike|elliptic|row|stair|treadmill/.test(n)) return "cardio";
+  if (/swim|freestyle|backstroke|breaststroke|butterfly|medley/.test(n)) return "swimming";
+  if (/climb|boulder|sport.+route|trad|top.?rope/.test(n)) return "climbing";
+  return null;
+}
+
 const state = {
   session: null,
   plans: [],
@@ -261,7 +293,7 @@ function renderDetail() {
       el(
         "a",
         {
-          href: `/app/workout/session/?plan=${encodeURIComponent(row.id)}&session=${encodeURIComponent(nextUnlogged.id)}`,
+          href: sessionViewUrl(row, nextUnlogged),
         },
         "Open mobile session view"
       )
@@ -357,7 +389,7 @@ function renderDetail() {
           : "";
       const hasLoggedActuals =
         Array.isArray(session.completed_blocks) && session.completed_blocks.length > 0;
-      const sessionDeepLink = `/app/workout/session/?plan=${encodeURIComponent(row.id)}&session=${encodeURIComponent(session.id)}`;
+      const sessionDeepLink = sessionViewUrl(row, session);
       const sessionEl = el(
         "div",
         { class: "workout-session" },
