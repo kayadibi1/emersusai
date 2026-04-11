@@ -74,6 +74,22 @@ class SemanticScholarBatchSkip extends Error {
   }
 }
 
+// Sentinel: S2 returned 400 with the specific error message
+// "No valid paper ids given" — every single PMID in the batch is
+// unknown to S2 (common for the tail, which is mostly very recent
+// papers S2 hasn't ingested yet). Unlike SemanticScholarBatchSkip,
+// this short-circuits bisection: we know log2(N) levels of halving
+// will just prove every single PMID is unknown, so we mark the whole
+// batch as dead immediately and move on. Carries the pmid list so
+// the caller can hand them straight to markChecked.
+class SemanticScholarBatchAllInvalid extends Error {
+  constructor(message, pmids) {
+    super(message);
+    this.name = "SemanticScholarBatchAllInvalid";
+    this.pmids = pmids;
+  }
+}
+
 // POST to Semantic Scholar via curl instead of Node's native fetch.
 // Why: Node's fetch hangs indefinitely on this specific endpoint —
 // likely HTTP/2 multiplexing against Cloudflare combined with a
@@ -143,6 +159,23 @@ async function fetchSemanticScholarWithRetry(pmids) {
         continue;
       }
       if (status === 400) {
+        // Two flavors of 400:
+        //   1. "No valid paper ids given" — S2 doesn't recognize any of
+        //      the PMIDs in this batch (typical for the recent-papers
+        //      tail, where ingestion lag means nothing in the batch is
+        //      in S2's corpus yet). Short-circuit: mark the whole batch
+        //      as dead, don't bisect.
+        //   2. Any other 400 — usually one malformed/poisoning ID in an
+        //      otherwise-valid batch. Caller bisects to isolate it.
+        if (bodyText.includes("No valid paper ids given")) {
+          console.warn(
+            `[s2-backfill] HTTP 400 "No valid paper ids given" on batch of ${pmids.length}; marking all as dead.`
+          );
+          throw new SemanticScholarBatchAllInvalid(
+            `Semantic Scholar rejected all ${pmids.length} PMIDs as unrecognized.`,
+            pmids
+          );
+        }
         throw new SemanticScholarBatchSkip(
           `Semantic Scholar HTTP 400 on batch of ${pmids.length} PMIDs; skipping.`
         );
@@ -154,7 +187,12 @@ async function fetchSemanticScholarWithRetry(pmids) {
       }
       return JSON.parse(bodyText);
     } catch (err) {
+      // Both sentinel errors bubble out immediately — retrying a 400
+      // isn't going to make S2 suddenly recognize PMIDs it rejected a
+      // second ago. Only transient errors (network, 5xx, JSON parse)
+      // fall through to the retry path.
       if (err instanceof SemanticScholarBatchSkip) throw err;
+      if (err instanceof SemanticScholarBatchAllInvalid) throw err;
       lastError = err;
       if (attempt < MAX_RETRIES) {
         await sleep(RETRY_DELAY_MS * attempt);
@@ -207,6 +245,13 @@ async function processBatchWithBisect(pmids) {
     const updates = parseSemanticScholarResponse(body);
     return { updates, dead: [] };
   } catch (err) {
+    // Fast path: S2 explicitly told us EVERY id in this batch is
+    // unknown. Mark them all dead and return — bisecting to prove
+    // what we already know would take log2(N) levels of failed
+    // recursion and burn through the rate limit.
+    if (err instanceof SemanticScholarBatchAllInvalid) {
+      return { updates: [], dead: err.pmids };
+    }
     if (!(err instanceof SemanticScholarBatchSkip)) throw err;
     // Can't narrow further — mark this single PMID as checked-but-no-data.
     if (pmids.length === 1) {
