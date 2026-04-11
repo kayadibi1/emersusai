@@ -211,12 +211,20 @@ function computeGymSummary(session) {
   const exerciseMap = new Map();
 
   for (const cb of completed) {
-    const block = (session.blocks || []).find((b) => b.id === cb.block_id);
+    // Match upsertWorkoutLogs: look up the block in working blocks first,
+    // then warmup_blocks. Previously warmup volume was silently dropped.
+    const block =
+      (session.blocks || []).find((b) => b.id === cb.block_id) ||
+      (session.warmup_blocks || []).find((b) => b.id === cb.block_id);
     if (!block) continue;
     const name = block.name || "Exercise";
     let best = { loadKg: 0, reps: 0 };
     for (const set of cb.actual_sets || []) {
-      if (!set.done) continue;
+      // Count any set the user logged, not just ones where they tapped
+      // the "Done" button. The Done tap is a UI concern (rest-timer,
+      // auto-advance); upsertWorkoutLogs already stores every populated
+      // row regardless of `done`, so the share card must match that
+      // ground truth or it reads 0 for users who log-then-finish.
       const reps = parseInt(set.reps, 10);
       const load = parseFloat(set.load);
       if (!isNaN(reps) && !isNaN(load)) {
@@ -467,12 +475,22 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
 
   // ---- Finish session ----
   async function finishSession({ share = false } = {}) {
-    if (pendingPlanRef.current) flushSave();
-    const nextSessions = plan.sessions.map((s, idx) => {
+    // Flush any pending debounced save FIRST and await it, so planRef.current
+    // reflects the user's latest typed data. Without this await, the code
+    // below would read the stale `plan` closure (React state lags behind
+    // pendingPlanRef until setPlan re-renders), producing an empty share
+    // card ("0kg") for anyone who taps Finish & share within the 800ms
+    // debounce window of their last input.
+    if (pendingPlanRef.current) await flushSave();
+
+    // Read the fresh plan from planRef (updated inside flushSave on success),
+    // not from the `plan` closure which may be one render behind.
+    const freshPlan = planRef.current?.plan || plan;
+    const nextSessions = (freshPlan.sessions || []).map((s, idx) => {
       if (idx !== targetSessionIndex) return s;
       return { ...s, completion_status: "completed" };
     });
-    const nextPlan = { ...plan, sessions: nextSessions };
+    const nextPlan = { ...freshPlan, sessions: nextSessions };
     pendingPlanRef.current = nextPlan;
     await flushSave();
 
