@@ -7,6 +7,10 @@ import {
   rankEvidence,
   dedupeEvidence,
 } from "./rerank.js";
+import {
+  formatCitationUrl,
+  formatCitationLabel,
+} from "../../shared/citation-format.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-4.1-mini";
 const SYNTHESIS_FALLBACK_MODEL =
@@ -1613,9 +1617,22 @@ function normalizeVectorEvidenceRow(row) {
   const publicationDate = normalizeText(row.publication_date, 40);
   const pmid = normalizeText(row.pmid, 32);
   const doi = normalizeText(row.doi, 160);
+  const sourceTag = row.source || "pubmed";
+  // Build a citation-source object that formatCitationUrl/Label understands.
+  // row.pmid is numeric; pass it as-is so the SYNTHETIC_PMID_FLOOR guard works.
+  const citationSource = {
+    source: sourceTag,
+    pmid: typeof row.pmid === "number" ? row.pmid : Number(row.pmid) || null,
+    doi,
+    external_id: row.external_id ?? null,
+  };
+  const citationLabel = formatCitationLabel(citationSource);
+  const citationUrl = formatCitationUrl(citationSource);
 
   return {
-    source_id: pmid ? `pmid:${pmid}` : null,
+    source_id: citationLabel || (pmid ? `pmid:${pmid}` : null),
+    source: sourceTag,
+    external_id: row.external_id ?? null,
     pmid,
     doi,
     pmcid: normalizeText(row.pmcid, 40),
@@ -1643,11 +1660,7 @@ function normalizeVectorEvidenceRow(row) {
     source_type: "pubmed_vector",
     evidence_level: publicationTypes.join(", "),
     published_at: publicationDate || publicationYear,
-    url: doi
-      ? `https://doi.org/${doi}`
-      : pmid
-        ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`
-        : "",
+    url: citationUrl || "",
     why_it_matters: normalizeText(
       row.chunk_text || `Matched a PubMed evidence chunk with similarity ${Number(row.similarity || 0).toFixed(2)}.`,
       240
@@ -2991,7 +3004,7 @@ function extractDashboardMetrics(text, maxItems = 6, source = {}) {
       unit_type: unitType,
       detail: trimSentence(context.replace(match[0], ""), 72),
       context: trimSentence(context, 180),
-      source_id: source.source_id || source.pmid || source.doi || "",
+      source_id: source.source_id || formatCitationLabel(source) || "",
       source_title: source.source_title || source.title || "",
       relevance_score: Number(source.relevance_score ?? 0.6),
       confidence: Number(source.confidence ?? 0.58),
@@ -3026,7 +3039,7 @@ function extractChartFacts({ question, synthesis, evidence = [] }) {
       .filter(Boolean)
       .join(" ");
     for (const metric of extractDashboardMetrics(sourceText, 3, {
-      source_id: source.pmid ? `PMID ${source.pmid}` : source.doi || "",
+      source_id: formatCitationLabel(source) || "",
       source_title: source.title,
       relevance_score: Number(source.ranking_score || source.database_score || 0.68),
       confidence: 0.78,
@@ -3482,7 +3495,14 @@ function normalizeSources(evidence) {
     journal: source.journal || "",
     year: source.publication_year || source.year || source.published_at || "",
     doi: source.doi || "",
+    // pmid is kept raw (not formatted) because the LLM's source tracking
+    // uses it as a stable id, not as a user-facing label. Synthetic pmids
+    // (for non-pubmed sources) are also opaque ids here.
     pmid: source.pmid || "",
+    source: source.source || "pubmed",
+    external_id: source.external_id || "",
+    citation_label: formatCitationLabel(source) || "",
+    citation_url: formatCitationUrl(source) || "",
     excerpt: source.excerpt || source.chunk_text || source.summary || "",
     publication_type:
       source.publication_type ||
@@ -3665,7 +3685,7 @@ function buildQuantFindings({ question, evidence }) {
         label,
         sentence: normalizeText(sentence, 320),
         sourceTitle: normalizeText(source.title || "Article", 120),
-        sourceId: source.pmid ? `PMID ${source.pmid}` : source.doi || "",
+        sourceId: formatCitationLabel(source) || "",
         detail: source.publication_year || source.published_at || "",
         score: Number(relevanceScore.toFixed(3)),
       });

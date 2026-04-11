@@ -38,6 +38,10 @@ import {
 } from "/shared/workout-plan-schema.js";
 import { downloadPlanIcs } from "/shared/workout-plan-ics.js";
 import { summarizePlanDiff } from "/shared/workout-plan-diff.js";
+import {
+  formatCitationLabel,
+  formatCitationUrl,
+} from "/shared/citation-format.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -1708,7 +1712,7 @@ function SourcesRailCard({ sources }) {
           source?.why_it_matters || source?.excerpt || source?.summary || "",
           240
         );
-        const href = source?.url || (source?.pmid ? `https://pubmed.ncbi.nlm.nih.gov/${source.pmid}/` : "");
+        const href = formatCitationUrl(source) || "";
         return h(
           "li",
           { key: `${source?.pmid || source?.doi || index}`, className: "source-item" },
