@@ -40,7 +40,7 @@ export async function retrieveDatabaseEvidence({
   const { data: articles, error: articleError } = await supabaseAdmin
     .from("pubmed_articles")
     .select(
-      "pmid,doi,pmcid,title,abstract,authors,journal,publication_date,publication_year,publication_types,mesh_terms,is_deleted"
+      "pmid,doi,pmcid,title,abstract,authors,journal,publication_date,publication_year,publication_types,mesh_terms,is_deleted,rcr,citation_count,influential_citation_count,publication_country"
     )
     .in("pmid", pmids)
     .eq("is_deleted", false);
@@ -71,5 +71,12 @@ export async function retrieveDatabaseEvidence({
       publication_year: row.article.publication_year,
       publication_types: row.article.publication_types || [],
       mesh_terms: row.article.mesh_terms || [],
+      // Credibility/impact signals for downstream rerank. NULL is a
+      // valid state (NIH iCite hasn't computed RCR for recent papers);
+      // the impact scorer treats it as neutral.
+      rcr: row.article.rcr ?? null,
+      citation_count: row.article.citation_count ?? null,
+      influential_citation_count: row.article.influential_citation_count ?? null,
+      publication_country: row.article.publication_country ?? null,
     }));
 }
