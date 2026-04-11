@@ -12,7 +12,10 @@ import { createLimiter } from "./_ratelimit.js";
 import { SourcePermanentError } from "./_errors.js";
 import { registerIngestion } from "./_registry.js";
 
-const SEARCH_URL = "https://api.core.ac.uk/v3/search/works";
+// Note the trailing slash: CORE's v3 API 301-redirects the slashless URL to
+// the slash variant, which breaks Bearer auth on some HTTP clients that
+// strip auth headers across redirects.
+const SEARCH_URL = "https://api.core.ac.uk/v3/search/works/";
 const PAGE_SIZE = 50;
 
 const waitSlot = createLimiter(8); // 8 RPS with key (ceiling is 10)
@@ -43,9 +46,27 @@ async function searchPage(query, offset) {
   return resp.json();
 }
 
+/** CORE wraps some publisher strings in single quotes ("'Human Kinetics'"). Strip them. */
+function stripWrappingQuotes(s) {
+  if (typeof s !== "string") return s;
+  const trimmed = s.trim();
+  if (trimmed.length >= 2 && trimmed.startsWith("'") && trimmed.endsWith("'")) {
+    return trimmed.slice(1, -1).trim();
+  }
+  return trimmed;
+}
+
 function normalize(work) {
   const dateStr = work.publishedDate || (work.yearPublished ? `${work.yearPublished}-01-01` : null);
   const publishedAt = dateStr ? new Date(dateStr) : null;
+  // CORE returns the journal name in `journals[0].title`; `publisher` is the
+  // publishing organization ("Public Library of Science (PLoS)") which is a
+  // different field. Prefer the real journal title, fall back to publisher.
+  const rawJournal = Array.isArray(work.journals) && work.journals[0]?.title
+    ? work.journals[0].title
+    : (work.publisher || null);
+  const journalTitle = rawJournal ? stripWrappingQuotes(rawJournal) : null;
+  const publisherClean = work.publisher ? stripWrappingQuotes(work.publisher) : null;
   return {
     externalId: String(work.id),
     source: "core",
@@ -53,12 +74,15 @@ function normalize(work) {
     abstract: (work.abstract || "").trim() || null,
     doi: work.doi || null,
     publishedAt,
-    journal: work.publisher || null,
+    journal: journalTitle,
     authors: (work.authors || []).map((a) => a.name).filter(Boolean),
     peerReviewed: true, // CORE indexes primarily peer-reviewed journals; not perfect but a reasonable default
     sourceMetadata: {
       core_id: String(work.id),
       download_url: work.downloadUrl || null,
+      publisher: publisherClean,
+      pubmed_id: work.pubmedId || null,
+      document_type: work.documentType || null,
     },
   };
 }
