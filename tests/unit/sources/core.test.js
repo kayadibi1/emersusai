@@ -24,7 +24,7 @@ test("core.fetchPapers yields normalized IngestedPaper items", async () => {
         authorization: "Bearer test-core-bearer-token",
       },
     })
-      .get("/v3/search/works")
+      .get("/v3/search/works/")
       .query(true)
       .reply(200, fixture);
 
@@ -44,9 +44,13 @@ test("core.fetchPapers yields normalized IngestedPaper items", async () => {
     assert.equal(results[0].doi, "10.1139/apnm-2012-0060");
     assert.deepEqual(results[0].authors, ["Rawson, Eric S.", "Volek, Jeff S."]);
     assert.equal(results[0].publishedAt.getFullYear(), 2013);
+    // journal should come from journals[0].title, not publisher
+    assert.equal(results[0].journal, "Applied Physiology, Nutrition, and Metabolism");
+    assert.equal(results[0].sourceMetadata.publisher, "Canadian Science Publishing");
 
-    // Second has null doi — should survive
+    // Second has null doi and empty journals[] — should fall back to publisher
     assert.equal(results[1].doi, null);
+    assert.equal(results[1].journal, "Elsevier");
   } finally {
     if (originalKey === undefined) delete process.env.CORE_API_KEY;
     else process.env.CORE_API_KEY = originalKey;

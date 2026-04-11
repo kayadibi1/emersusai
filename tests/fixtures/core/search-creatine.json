@@ -4,13 +4,18 @@
   "offset": 0,
   "results": [
     {
-      "id": "987654321",
+      "id": 987654321,
       "doi": "10.1139/apnm-2012-0060",
       "title": "Effects of creatine supplementation on performance and training adaptations",
       "abstract": "The efficacy of creatine as an ergogenic aid has been extensively studied. This review synthesizes the evidence for its effects on strength, power, and lean mass adaptations.",
-      "publishedDate": "2013-03-15",
+      "publishedDate": "2013-03-15T00:00:00",
       "yearPublished": 2013,
       "publisher": "Canadian Science Publishing",
+      "journals": [
+        { "title": "Applied Physiology, Nutrition, and Metabolism", "identifiers": ["issn:1715-5312"] }
+      ],
+      "documentType": "research",
+      "pubmedId": null,
       "authors": [
         { "name": "Rawson, Eric S." },
         { "name": "Volek, Jeff S." }
@@ -18,13 +23,16 @@
       "downloadUrl": "https://core.ac.uk/download/123.pdf"
     },
     {
-      "id": "876543210",
+      "id": 876543210,
       "doi": null,
       "title": "Creatine and high-intensity interval training",
       "abstract": "This study examined the combined effects of creatine supplementation and HIIT on VO2max and anaerobic power in 30 trained cyclists.",
-      "publishedDate": "2018-09-01",
+      "publishedDate": "2018-09-01T00:00:00",
       "yearPublished": 2018,
-      "publisher": "Elsevier",
+      "publisher": "'Elsevier'",
+      "journals": [],
+      "documentType": "research",
+      "pubmedId": null,
       "authors": [
         { "name": "Patel, Anjali" }
       ],
