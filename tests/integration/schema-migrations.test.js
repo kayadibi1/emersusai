@@ -10,12 +10,23 @@ import { withTestClient, resetSchema } from "../_helpers/test-db.js";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const MIGRATIONS_DIR = resolve(__dirname, "../../supabase");
-const MIGRATION_PREFIX = "20260412_";
+// Explicit list of the six pipeline-specific migrations.
+// We only apply these in the test — not other 20260412_* files that depend
+// on unrelated tables (exercises, profiles, workout_logs) not present in the
+// test database.
+const PIPELINE_MIGRATIONS = [
+  "20260412_research_articles_rename_and_columns.sql",
+  "20260412_research_topics_and_candidates.sql",
+  "20260412_discovery_feeds.sql",
+  "20260412_job_progress.sql",
+  "20260412_alerts_and_heartbeat.sql",
+  "20260412_match_evidence_chunks_v2.sql",
+];
 
 function listMigrationsInOrder() {
-  return readdirSync(MIGRATIONS_DIR)
-    .filter(f => f.startsWith(MIGRATION_PREFIX) && f.endsWith(".sql"))
-    .sort();
+  return PIPELINE_MIGRATIONS.filter(f =>
+    readdirSync(MIGRATIONS_DIR).includes(f)
+  );
 }
 
 test("all 20260412 migrations apply cleanly to an empty DB", async () => {
