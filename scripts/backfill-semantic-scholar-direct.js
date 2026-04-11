@@ -1,4 +1,4 @@
-// Populate pubmed_articles.citation_count and influential_citation_count
+// Populate research_articles.citation_count and influential_citation_count
 // from the Semantic Scholar Graph API.
 //
 // Idempotent: selects rows where citation_count = 0 (the default,
@@ -210,7 +210,7 @@ async function fetchNextPmidPage(cursor, limit) {
   // strictly reduces the eligible set, regardless of whether S2 has
   // data for a given PMID or not.
   let query = supabaseAdmin
-    .from("pubmed_articles")
+    .from("research_articles")
     .select("pmid")
     .is("s2_checked_at", null)
     .order("pmid", { ascending: true })
