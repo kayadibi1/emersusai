@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "count": 3,
+    "db_response_time_ms": 42,
+    "page": 1,
+    "per_page": 3
+  },
+  "results": [
+    {
+      "id": "https://openalex.org/W2087402540",
+      "doi": "https://doi.org/10.1186/1550-2783-4-6",
+      "title": "International Society of Sports Nutrition position stand: creatine supplementation and exercise",
+      "abstract_inverted_index": {
+        "Creatine": [0],
+        "monohydrate": [1],
+        "is": [2],
+        "the": [3],
+        "most": [4],
+        "effective": [5],
+        "ergogenic": [6],
+        "nutritional": [7],
+        "supplement": [8],
+        "currently": [9],
+        "available": [10]
+      },
+      "publication_date": "2007-08-30",
+      "publication_year": 2007,
+      "type": "article",
+      "primary_location": {
+        "source": {
+          "display_name": "Journal of the International Society of Sports Nutrition"
+        }
+      },
+      "authorships": [
+        { "author": { "display_name": "Richard B. Kreider" } },
+        { "author": { "display_name": "Chad M. Kerksick" } }
+      ]
+    },
+    {
+      "id": "https://openalex.org/W4212900001",
+      "doi": "https://doi.org/10.1186/s12970-021-00412-w",
+      "title": "International Society of Sports Nutrition position stand: safety and efficacy of creatine supplementation in exercise, sport, and medicine",
+      "abstract_inverted_index": {
+        "Following": [0],
+        "the": [1],
+        "original": [2],
+        "ISSN": [3],
+        "creatine": [4],
+        "position": [5],
+        "stand": [6],
+        "significant": [7],
+        "new": [8],
+        "research": [9]
+      },
+      "publication_date": "2021-06-01",
+      "publication_year": 2021,
+      "type": "article",
+      "primary_location": {
+        "source": {
+          "display_name": "Journal of the International Society of Sports Nutrition"
+        }
+      },
+      "authorships": [
+        { "author": { "display_name": "Richard B. Kreider" } },
+        { "author": { "display_name": "Tim N. Ziegenfuss" } }
+      ]
+    },
+    {
+      "id": "https://openalex.org/W3148900002",
+      "doi": null,
+      "title": "Creatine supplementation in young athletes",
+      "abstract_inverted_index": {
+        "This": [0],
+        "review": [1],
+        "examines": [2],
+        "creatine": [3],
+        "safety": [4],
+        "in": [5],
+        "pediatric": [6],
+        "populations": [7]
+      },
+      "publication_date": "2019-03-15",
+      "publication_year": 2019,
+      "type": "review",
+      "primary_location": {
+        "source": {
+          "display_name": "Pediatric Exercise Science"
+        }
+      },
+      "authorships": [
+        { "author": { "display_name": "Jane Researcher" } }
+      ]
+    }
+  ]
+}

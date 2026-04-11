@@ -24,6 +24,7 @@ import "../scripts/sources/medrxiv.js";
 import "../scripts/sources/sportrxiv.js";
 import "../scripts/sources/crossref.js";
 import "../scripts/sources/doaj.js";
+import "../scripts/sources/openalex.js";
 
 // Discovery plugins
 import "../scripts/sources/rss-sbs.js";
