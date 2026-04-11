@@ -162,6 +162,24 @@ const DEFAULT_TOPIC_ORDER = [
   "female_hypertrophy_protocols",
   "female_sex_hormones_performance",
   "breast_support_exercise",
+
+  // ── 12. Youth / long-term athletic development ───────────────
+  "youth_resistance_training",
+  "peak_height_velocity",
+  "long_term_athletic_development",
+  "youth_endurance_training",
+  "growth_plate_safety",
+  "early_specialization",
+  "physical_literacy",
+  "youth_power_training",
+  "motor_skill_acquisition",
+  "youth_hypertrophy",
+  "pediatric_athlete_nutrition",
+  "adolescent_sleep_athlete",
+  "youth_plyometrics",
+  "youth_sprint_training",
+  "biological_maturation",
+  "prepubescent_strength",
 ];
 
 const TOPIC_QUERIES = {
@@ -441,6 +459,40 @@ const TOPIC_QUERIES = {
     "(estrogen OR estradiol OR progesterone OR \"sex hormones\") AND (\"exercise performance\" OR \"resistance training\" OR \"muscle protein synthesis\" OR endurance)",
   breast_support_exercise:
     "(\"sports bra\" OR \"breast support\" OR \"breast pain exercise\" OR \"breast biomechanics\") AND (exercise OR running OR \"physical activity\")",
+
+  // ── 12. Youth / long-term athletic development ───────────────
+  youth_resistance_training:
+    "(\"youth resistance training\" OR \"pediatric strength training\" OR \"children resistance training\" OR \"adolescent strength training\") AND (safety OR strength OR adaptation OR development)",
+  peak_height_velocity:
+    "(\"peak height velocity\" OR PHV OR \"biological maturation\" OR \"growth spurt\") AND (\"athletic development\" OR \"injury risk\" OR \"training load\" OR youth)",
+  long_term_athletic_development:
+    "(\"long-term athletic development\" OR LTAD OR \"youth athletic development\") AND (periodization OR training OR sport OR \"talent development\")",
+  youth_endurance_training:
+    "(\"youth endurance\" OR \"pediatric endurance\" OR \"child endurance training\" OR \"adolescent aerobic training\") AND (\"VO2 max\" OR \"aerobic capacity\" OR adaptation)",
+  growth_plate_safety:
+    "(\"growth plate\" OR physis OR epiphysis OR \"epiphyseal plate\") AND (\"resistance training\" OR \"youth strength\" OR injury OR safety OR loading)",
+  early_specialization:
+    "(\"early sport specialization\" OR \"early specialization\" OR \"sport diversification\" OR \"sport sampling\") AND (youth OR adolescent OR \"injury risk\" OR burnout)",
+  physical_literacy:
+    "(\"physical literacy\" OR \"fundamental movement skills\" OR \"motor competence\") AND (youth OR children OR development OR \"physical activity\")",
+  youth_power_training:
+    "(\"youth power training\" OR \"adolescent power\" OR \"pediatric plyometrics\") AND (\"vertical jump\" OR \"power output\" OR \"athletic performance\" OR \"rate of force development\")",
+  motor_skill_acquisition:
+    "(\"motor skill acquisition\" OR \"motor learning\" OR \"skill acquisition\" OR \"movement learning\") AND (youth OR children OR athletes OR sport)",
+  youth_hypertrophy:
+    "(\"adolescent hypertrophy\" OR \"youth muscle growth\" OR \"pediatric resistance training\") AND (hypertrophy OR \"lean mass\" OR \"muscle cross-sectional area\")",
+  pediatric_athlete_nutrition:
+    "(\"pediatric athlete nutrition\" OR \"young athlete nutrition\" OR \"adolescent sports nutrition\") AND (\"protein intake\" OR hydration OR \"energy requirements\" OR growth)",
+  adolescent_sleep_athlete:
+    "(\"adolescent sleep\" OR \"youth athlete sleep\") AND (\"athletic performance\" OR recovery OR training OR \"sleep duration\")",
+  youth_plyometrics:
+    "(\"youth plyometrics\" OR \"plyometric training children\" OR \"pediatric plyometric\") AND (\"vertical jump\" OR power OR performance OR safety)",
+  youth_sprint_training:
+    "(\"youth sprint\" OR \"adolescent sprint\" OR \"pediatric sprint training\") AND (\"sprint performance\" OR speed OR development OR adaptation)",
+  biological_maturation:
+    "(\"biological maturation\" OR \"somatic maturation\" OR \"skeletal age\") AND (athletes OR training OR \"talent identification\" OR performance)",
+  prepubescent_strength:
+    "(prepubescent OR \"pre-pubertal\" OR \"before puberty\") AND (\"strength training\" OR \"resistance training\" OR \"neural adaptation\")",
 };
 
 function parseArgs(argv) {
