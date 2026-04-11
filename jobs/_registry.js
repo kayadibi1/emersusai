@@ -27,6 +27,7 @@ import "../scripts/sources/doaj.js";
 import "../scripts/sources/openalex.js";
 import "../scripts/sources/semantic-scholar.js";
 import "../scripts/sources/epistemonikos.js";
+import "../scripts/sources/openaire.js";
 
 // Discovery plugins
 import "../scripts/sources/rss-sbs.js";

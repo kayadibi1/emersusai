@@ -1,0 +1,48 @@
+{
+  "response": {
+    "header": { "query": { "value": "creatine" }, "locale": { "value": "en_US" } },
+    "results": {
+      "result": [
+        {
+          "metadata": {
+            "oaf:entity": {
+              "oaf:result": {
+                "title": { "$": "Creatine supplementation and muscle strength: a meta-analysis" },
+                "description": { "$": "This meta-analysis pooled data from 28 studies on creatine supplementation and strength outcomes." },
+                "pid": [
+                  { "@classid": "doi", "$": "10.1519/JSC.0b013e318028a73d" }
+                ],
+                "creator": [
+                  { "$": "Branch JD" },
+                  { "$": "Smith KA" }
+                ],
+                "dateofacceptance": { "$": "2003-08-15" },
+                "journal": { "$": "Journal of Strength and Conditioning Research" },
+                "resulttype": { "@classid": "publication", "@classname": "publication" }
+              }
+            }
+          }
+        },
+        {
+          "metadata": {
+            "oaf:entity": {
+              "oaf:result": {
+                "title": { "$": "Creatine loading protocols compared" },
+                "description": { "$": "Comparison of fast-loading (20g/day for 5 days) vs slow-loading (3g/day) protocols in 40 resistance-trained males." },
+                "pid": [
+                  { "@classid": "doi", "$": "10.1519/00124278-200205000-00031" }
+                ],
+                "creator": [
+                  { "$": "Hultman E" }
+                ],
+                "dateofacceptance": { "$": "2002-05-01" },
+                "journal": { "$": "Journal of Strength and Conditioning Research" },
+                "resulttype": { "@classid": "publication", "@classname": "publication" }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
