@@ -31,6 +31,8 @@ async function applyAllMigrations() {
         doi text,
         title text,
         abstract text,
+        is_retracted boolean NOT NULL DEFAULT false,
+        is_deleted   boolean NOT NULL DEFAULT false,
         created_at timestamptz NOT NULL DEFAULT now()
       );
       CREATE INDEX IF NOT EXISTS pubmed_articles_pmid_idx ON public.pubmed_articles(pmid);
