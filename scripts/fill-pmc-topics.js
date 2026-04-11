@@ -180,6 +180,24 @@ const DEFAULT_TOPIC_ORDER = [
   "youth_sprint_training",
   "biological_maturation",
   "prepubescent_strength",
+
+  // ── 13. Masters / 40+ athletes ───────────────────────────────
+  "sarcopenia",
+  "strength_training_older_adults",
+  "vo2_max_preservation",
+  "bone_density_exercise",
+  "balance_fall_prevention",
+  "masters_endurance_training",
+  "recovery_older_athletes",
+  "anabolic_resistance_aging",
+  "age_adjusted_programming",
+  "masters_powerlifting",
+  "testosterone_replacement_training",
+  "growth_hormone_aging",
+  "frailty_prevention",
+  "power_training_aging",
+  "reaction_time_aging",
+  "masters_hypertrophy",
 ];
 
 const TOPIC_QUERIES = {
@@ -493,6 +511,40 @@ const TOPIC_QUERIES = {
     "(\"biological maturation\" OR \"somatic maturation\" OR \"skeletal age\") AND (athletes OR training OR \"talent identification\" OR performance)",
   prepubescent_strength:
     "(prepubescent OR \"pre-pubertal\" OR \"before puberty\") AND (\"strength training\" OR \"resistance training\" OR \"neural adaptation\")",
+
+  // ── 13. Masters / 40+ athletes ───────────────────────────────
+  sarcopenia:
+    "(sarcopenia OR \"age-related muscle loss\" OR \"muscle wasting aging\" OR \"skeletal muscle aging\") AND (\"resistance training\" OR exercise OR \"protein supplementation\" OR \"older adults\")",
+  strength_training_older_adults:
+    "(\"strength training older adults\" OR \"resistance training elderly\" OR \"resistance training aging\") AND (muscle OR strength OR function OR \"quality of life\")",
+  vo2_max_preservation:
+    "(\"VO2 max\" OR \"cardiorespiratory fitness\") AND (aging OR \"older adults\" OR preservation OR \"masters athletes\" OR \"age-related decline\")",
+  bone_density_exercise:
+    "(\"bone mineral density\" OR \"bone density\" OR osteoporosis) AND (\"resistance training\" OR \"impact loading\" OR exercise OR \"older adults\")",
+  balance_fall_prevention:
+    "(balance OR \"fall prevention\" OR \"falls in older adults\" OR \"postural stability\") AND (\"resistance training\" OR exercise OR \"older adults\" OR \"tai chi\")",
+  masters_endurance_training:
+    "(\"masters athlete\" OR \"older endurance athlete\" OR \"veteran athlete\") AND (\"endurance training\" OR marathon OR cycling OR adaptation OR recovery)",
+  recovery_older_athletes:
+    "(\"recovery older athletes\" OR \"aging recovery\" OR \"age-related recovery\") AND (\"resistance training\" OR exercise OR sleep OR inflammation)",
+  anabolic_resistance_aging:
+    "(\"anabolic resistance\" OR \"age-related anabolic resistance\") AND (\"muscle protein synthesis\" OR leucine OR \"protein intake\" OR \"older adults\")",
+  age_adjusted_programming:
+    "(\"age-adjusted\" OR \"masters training programming\" OR \"older adult programming\") AND (\"resistance training\" OR periodization OR recovery OR \"training load\")",
+  masters_powerlifting:
+    "(\"masters powerlifting\" OR \"masters powerlifter\" OR \"masters strength sport\") AND (\"resistance training\" OR strength OR \"age-related decline\")",
+  testosterone_replacement_training:
+    "(\"testosterone replacement therapy\" OR TRT OR \"testosterone supplementation\") AND (\"resistance training\" OR \"lean mass\" OR \"muscle strength\" OR \"older men\")",
+  growth_hormone_aging:
+    "(\"growth hormone\" OR GH OR \"human growth hormone\") AND (aging OR \"older adults\" OR sarcopenia OR \"muscle mass\")",
+  frailty_prevention:
+    "(frailty OR \"frailty prevention\" OR \"pre-frail\" OR \"frailty reversal\") AND (exercise OR \"resistance training\" OR \"physical activity\")",
+  power_training_aging:
+    "(\"power training\" OR \"explosive training\" OR \"high-velocity resistance training\") AND (aging OR \"older adults\" OR \"muscle power\" OR \"functional capacity\")",
+  reaction_time_aging:
+    "(\"reaction time\" OR \"reaction speed\" OR \"response time\") AND (aging OR \"older adults\" OR exercise OR training)",
+  masters_hypertrophy:
+    "(\"masters hypertrophy\" OR \"older adult hypertrophy\" OR \"aging hypertrophy\") AND (\"resistance training\" OR \"muscle cross-sectional area\" OR \"lean body mass\")",
 };
 
 function parseArgs(argv) {
