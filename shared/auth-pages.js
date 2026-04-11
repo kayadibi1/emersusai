@@ -16,6 +16,73 @@ function normalizeAuthMessage(message = "") {
   return String(message || "").toLowerCase();
 }
 
+const NOTIFY_SIGNUP_FLAG_PREFIX = "emersus:signup-notified:";
+
+/**
+ * Fire a non-blocking POST to /api/notify-signup so the operator gets an
+ * email alert for each new account. Server-side validates by checking
+ * Supabase auth.users for a recently-created match — the client is not
+ * trusted. Failures are silently swallowed (logged server-side).
+ */
+function notifyAdminOfSignup({ email, full_name, provider }) {
+  if (!email) return;
+  try {
+    // Debounce: don't ping twice for the same email within a session.
+    const key = NOTIFY_SIGNUP_FLAG_PREFIX + email.toLowerCase();
+    if (sessionStorage.getItem(key)) return;
+    sessionStorage.setItem(key, String(Date.now()));
+  } catch (_err) {
+    // sessionStorage unavailable (private mode etc.) — proceed anyway
+  }
+  // Fire and forget — don't await, don't block
+  fetch("/api/notify-signup", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      email: email.toLowerCase(),
+      full_name: full_name || null,
+      provider: provider || "email",
+    }),
+    keepalive: true,
+  }).catch(() => {
+    // Suppress — server logs failures
+  });
+}
+
+/**
+ * After an OAuth redirect lands on /auth/callback/ or wherever the
+ * user ends up, check whether this session's user is brand new (created
+ * within the last 5 minutes). If so, fire the signup notification once.
+ * Idempotent per email via sessionStorage.
+ */
+async function maybeNotifyFreshOAuthUser() {
+  try {
+    const supabase = await getSupabase();
+    const { data, error } = await supabase.auth.getUser();
+    if (error || !data?.user) return;
+    const user = data.user;
+    if (!user.email) return;
+
+    const createdAt = user.created_at ? new Date(user.created_at).getTime() : 0;
+    const ageMs = Date.now() - createdAt;
+    // Only notify for users created in the last 5 minutes — matches the
+    // server-side recency window in api/notify-signup.js.
+    if (!createdAt || ageMs > 5 * 60 * 1000) return;
+
+    const provider =
+      user.app_metadata?.provider ||
+      user.identities?.[0]?.provider ||
+      "oauth";
+    notifyAdminOfSignup({
+      email: user.email,
+      full_name: user.user_metadata?.full_name || user.user_metadata?.name || null,
+      provider,
+    });
+  } catch (_err) {
+    // Non-fatal
+  }
+}
+
 function updateResendButton(form, email = "", visible = false) {
   const resendButton = form?.querySelector("[data-auth-resend]");
   if (!(resendButton instanceof HTMLButtonElement)) {
@@ -188,6 +255,11 @@ function bindSignupForm() {
       if (error) {
         throw error;
       }
+
+      // Fire-and-forget admin notification. We don't await it, don't
+      // handle errors, don't block the signup UX — notify-signup is
+      // server-validated and failures are logged server-side.
+      notifyAdminOfSignup({ email, full_name: fullName, provider: "email" });
 
       if (data.session) {
         window.location.replace(resolveNextPath("/app/"));
@@ -443,6 +515,11 @@ async function handleCallbackPage() {
       window.location.replace("/auth/reset-password/");
       return;
     }
+
+    // If this OAuth round-trip produced a brand-new user, fire the
+    // admin signup notification. Non-blocking and idempotent per email
+    // via sessionStorage, so replayed callbacks don't double-send.
+    maybeNotifyFreshOAuthUser();
 
     setStatus(status, "success", "Authentication confirmed. Redirecting...");
     window.location.replace(resolveNextPath("/app/"));

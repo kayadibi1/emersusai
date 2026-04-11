@@ -6,7 +6,7 @@ import {
   validatePlanUpdate,
 } from "/shared/workout-plan-schema.js";
 
-const CONTACT_EMAIL = "support@emersus.ai";
+const CONTACT_EMAIL = "info@emersus.ai";
 
 // Hardcoded admin allowlist for the unlisted /app/_debug/ page. Anyone whose
 // Supabase auth email is in this list can access the debug panel; everyone
