@@ -130,3 +130,49 @@ export function displayLoadString(loadStr, targetUnit) {
   if (parsed.sourceUnit === targetUnit) return loadStr;
   return formatWeight(parsed.kg, targetUnit);
 }
+
+// ── Distance conversion (km / mi) ───────────────────────────────────
+
+const KM_TO_MI = 0.621371;
+const MI_TO_KM = 1.609344;
+
+const MI_LOCALES = new Set(["en-US", "en-GB", "my-MM", "en-LR"]);
+
+export function detectDistanceUnitFromLocale() {
+  if (typeof navigator === "undefined") return "km";
+  const lang = navigator.language || "";
+  if (MI_LOCALES.has(lang)) return "mi";
+  if (lang.startsWith("en-US") || lang.startsWith("en-GB")) return "mi";
+  return "km";
+}
+
+export function resolveDistanceUnit(profileUnit) {
+  if (profileUnit === "km" || profileUnit === "mi") return profileUnit;
+  return detectDistanceUnitFromLocale();
+}
+
+export function metersToDisplay(m, unit) {
+  if (m == null || isNaN(m)) return null;
+  if (unit === "mi") return (m / 1000) * KM_TO_MI;
+  return m / 1000;
+}
+
+/**
+ * Format meters as "X.XX km" or "X.XX mi"
+ */
+export function formatDistance(m, unit, { decimals = 2 } = {}) {
+  if (m == null || isNaN(m)) return "--";
+  const value = metersToDisplay(m, unit);
+  return `${value.toFixed(decimals)} ${unit}`;
+}
+
+/**
+ * Format pace (seconds per km) in user's unit as "M:SS /km" or "M:SS /mi"
+ */
+export function formatPaceUnit(secPerKm, unit) {
+  if (secPerKm == null || !isFinite(secPerKm)) return `-- /${unit}`;
+  const secInUnit = unit === "mi" ? secPerKm * MI_TO_KM : secPerKm;
+  const m = Math.floor(secInUnit / 60);
+  const s = Math.round(secInUnit % 60);
+  return `${m}:${String(s).padStart(2, "0")} /${unit}`;
+}
