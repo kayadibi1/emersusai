@@ -3,8 +3,18 @@
 
 import React, { useEffect, useState } from "https://esm.sh/react@18.2.0";
 import { renderShareCard } from "/shared/share-card.js";
+import { computeCanShareFiles } from "/shared/share-capability.js";
 
 const h = React.createElement;
+
+// Cache the Web Share API capability check at module-load time. The
+// result depends only on navigator + File constructor, both stable for
+// the lifetime of the page, so recomputing per render (or even per
+// component mount via useMemo) is wasted work.
+const CAN_SHARE_FILES =
+  typeof navigator !== "undefined" && typeof File !== "undefined"
+    ? computeCanShareFiles(navigator, File)
+    : false;
 
 /**
  * Props:
@@ -103,11 +113,6 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
     }
   }
 
-  const canShareFiles =
-    typeof navigator !== "undefined" &&
-    navigator.canShare &&
-    navigator.canShare({ files: [new File([""], "test.png", { type: "image/png" })] });
-
   return h(
     "div",
     { className: "share-modal-backdrop", onClick: onClose },
@@ -132,7 +137,7 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
       (state === "ready") && h(
         "div",
         { className: "share-modal-buttons" },
-        canShareFiles && h("button", { className: "share-btn-primary", onClick: doShare }, "Share"),
+        CAN_SHARE_FILES && h("button", { className: "share-btn-primary", onClick: doShare }, "Share"),
         h("button", { className: "share-btn-secondary", onClick: doDownload }, "Download"),
         h("button", {
           className: "share-btn-secondary",
