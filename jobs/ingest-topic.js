@@ -9,13 +9,26 @@
 import { listIngestionSources } from "../scripts/sources/_registry.js";
 import { SourcePermanentError } from "../scripts/sources/_errors.js";
 
-// Phase 2 constraint: research_articles has `pmid bigint NOT NULL PK`.
-// Non-pubmed sources (biorxiv, medrxiv, etc.) have no pmid, so they
-// can't be inserted until the schema is reworked (drop pmid PK, add
-// surrogate id, make pmid UNIQUE-nullable). Until then, restrict the
-// fanout to pubmed-only. Multi-source ingestion is tracked as a
-// follow-up.
-const SUPPORTED_SOURCE_IDS = ["pubmed"];
+// Phase 2 originally restricted ingestion to pubmed because
+// research_articles.pmid was NOT NULL PK. That's now handled by the
+// synthetic pmid sequence (see
+// supabase/20260412_research_articles_synthetic_pmid_sequence.sql and
+// jobs/ingest-topic-from-source.js). The filter below is now a feature
+// flag guarding the multi-source rollout for revertibility.
+//
+// MULTI_SOURCE_ENABLED=true enables fanout to every registered source
+// the caller requests, except deprioritized sources (crossref, doaj —
+// metadata-only, no abstracts to chunk) and sources disabled via the
+// INGEST_DISABLED_SOURCES env var.
+const LEGACY_SUPPORTED_SOURCE_IDS = ["pubmed"];
+const DEPRIORITIZED_SOURCE_IDS = ["crossref", "doaj"];
+
+function readEnvList(name) {
+  return (process.env[name] || "")
+    .split(",")
+    .map((s) => s.trim())
+    .filter(Boolean);
+}
 
 export async function ingestTopicHandler(ctx, deps) {
   const { topicId, sourceIds: requestedSourceIds } = ctx.data;
@@ -30,16 +43,25 @@ export async function ingestTopicHandler(ctx, deps) {
     throw new SourcePermanentError(`research_topics row not found: id=${topicId}`);
   }
 
-  // Intersect the requested sources with the phase 2 supported set.
-  // If the caller didn't specify, use the supported set directly.
-  const available = listIngestionSources().map(s => s.id);
+  const multiSourceEnabled = process.env.MULTI_SOURCE_ENABLED === "true";
+  const disabledSources = readEnvList("INGEST_DISABLED_SOURCES");
+  const available = listIngestionSources().map((s) => s.id);
   const requested = requestedSourceIds ?? available;
-  const sourceIds = requested.filter(id =>
-    SUPPORTED_SOURCE_IDS.includes(id) && available.includes(id)
-  );
+
+  const isCandidate = (id) =>
+    available.includes(id) &&
+    !DEPRIORITIZED_SOURCE_IDS.includes(id) &&
+    !disabledSources.includes(id);
+
+  const sourceIds = multiSourceEnabled
+    ? requested.filter(isCandidate)
+    : requested.filter((id) => LEGACY_SUPPORTED_SOURCE_IDS.includes(id) && isCandidate(id));
 
   if (sourceIds.length === 0) {
-    await ctx.progress(`no supported sources to dispatch (phase 2 supports: ${SUPPORTED_SOURCE_IDS.join(", ")})`, "warn");
+    const reason = multiSourceEnabled
+      ? `no candidate sources to dispatch (requested=${requested.join(",")}, disabled=${disabledSources.join(",")}, deprioritized=${DEPRIORITIZED_SOURCE_IDS.join(",")})`
+      : `no supported sources to dispatch (MULTI_SOURCE_ENABLED=false, legacy supports: ${LEGACY_SUPPORTED_SOURCE_IDS.join(", ")})`;
+    await ctx.progress(reason, "warn");
     return { topicId, sourceCount: 0 };
   }
   await ctx.progress(`dispatching ${sourceIds.length} source jobs for topic ${topicId}`);
