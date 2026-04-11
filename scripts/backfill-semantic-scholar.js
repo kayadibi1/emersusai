@@ -46,6 +46,18 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+// Sentinel: a non-fatal 400 from Semantic Scholar. Some batches
+// include a PMID that their API rejects (reason unclear — possibly
+// malformed external ID, possibly a paper their pipeline failed to
+// index). We surface this as a SKIP instead of dying so the backfill
+// can make progress on the rest of the corpus.
+class SemanticScholarBatchSkip extends Error {
+  constructor(message) {
+    super(message);
+    this.name = "SemanticScholarBatchSkip";
+  }
+}
+
 async function fetchSemanticScholarWithRetry(pmids) {
   const url = buildSemanticScholarBatchUrl();
   const body = JSON.stringify(buildSemanticScholarBatchBody(pmids));
@@ -66,6 +78,13 @@ async function fetchSemanticScholarWithRetry(pmids) {
         await sleep(RETRY_DELAY_MS * attempt);
         continue;
       }
+      if (response.status === 400) {
+        // Permanent bad-batch — no amount of retries will fix it.
+        // Throw a SKIP sentinel so the caller can advance past it.
+        throw new SemanticScholarBatchSkip(
+          `Semantic Scholar HTTP 400 on batch of ${pmids.length} PMIDs; skipping.`
+        );
+      }
       if (!response.ok) {
         throw new Error(
           `Semantic Scholar HTTP ${response.status} ${response.statusText}`
@@ -73,6 +92,8 @@ async function fetchSemanticScholarWithRetry(pmids) {
       }
       return await response.json();
     } catch (err) {
+      // Don't retry skips — let them propagate immediately.
+      if (err instanceof SemanticScholarBatchSkip) throw err;
       lastError = err;
       if (attempt < MAX_RETRIES) {
         await sleep(RETRY_DELAY_MS * attempt);
