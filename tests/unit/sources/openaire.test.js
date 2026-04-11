@@ -48,7 +48,7 @@ test("openaire.fetchPapers yields normalized IngestedPaper items from Graph v1",
   assert.ok(nock.isDone(), "openaire graph v1 endpoint should have been called");
 });
 
-test("sanitizeToKeywords strips boolean operators, quotes, and parens", () => {
+test("sanitizeToKeywords strips boolean operators and caps to 3 unique keywords", () => {
   const query = '(creatine OR "creatine monohydrate" OR phosphocreatine) AND ("resistance training" OR strength OR hypertrophy)';
   const clean = sanitizeToKeywords(query);
   assert.ok(!clean.includes(" OR "), "no OR");
@@ -56,8 +56,11 @@ test("sanitizeToKeywords strips boolean operators, quotes, and parens", () => {
   assert.ok(!clean.includes('"'), "no double quotes");
   assert.ok(!clean.includes("("), "no open parens");
   assert.ok(!clean.includes(")"), "no close parens");
-  assert.ok(clean.includes("creatine"));
-  assert.ok(clean.includes("hypertrophy"));
+  // Should contain the first 3 unique keywords: "creatine creatine monohydrate"
+  // → de-duped → "creatine monohydrate phosphocreatine"
+  const keywords = clean.split(" ").filter(Boolean);
+  assert.equal(keywords.length, 3, `expected 3 keywords, got ${JSON.stringify(keywords)}`);
+  assert.equal(keywords[0], "creatine");
 });
 
 test("sanitizeToKeywords handles empty and non-string input", () => {
