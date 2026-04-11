@@ -46,34 +46,54 @@ export async function ingestTopicFromSourceHandler(ctx, deps) {
       ? (Number.isFinite(Number(paper.externalId)) ? Number(paper.externalId) : null)
       : null;
 
+    // Phase 2 constraint: pmid is the PK of research_articles, so only
+    // pubmed-sourced rows can be inserted. Other sources are filtered
+    // out in ingest-topic.js but guard here too.
+    if (pmidVal == null) {
+      skippedCount++;
+      continue;
+    }
+
+    const pubDate = paper.publishedAt instanceof Date
+      ? paper.publishedAt.toISOString().slice(0, 10)
+      : (paper.publishedAt ?? null);
+    const pubYear = paper.publishedAt instanceof Date
+      ? paper.publishedAt.getFullYear()
+      : null;
+    // authors on research_articles is jsonb (not text[])
+    const authorsJson = JSON.stringify(paper.authors ?? []);
+    const metadataJson = JSON.stringify(paper.sourceMetadata ?? {});
+
     const insertResult = await sql`
       INSERT INTO research_articles (
+        pmid,
         source,
         external_id,
         title,
         abstract,
         doi,
-        published_at,
+        publication_date,
+        publication_year,
         journal,
         authors,
         peer_reviewed,
-        source_metadata,
-        pmid
+        source_metadata
       ) VALUES (
+        ${pmidVal},
         ${paper.source ?? plugin.id},
         ${paper.externalId},
         ${paper.title},
         ${paper.abstract ?? null},
         ${paper.doi ?? null},
-        ${paper.publishedAt ?? null},
+        ${pubDate},
+        ${pubYear},
         ${paper.journal ?? null},
-        ${paper.authors ?? []},
+        ${authorsJson}::jsonb,
         ${paper.peerReviewed ?? plugin.peerReviewed ?? true},
-        ${paper.sourceMetadata ?? {}},
-        ${pmidVal}
+        ${metadataJson}::jsonb
       )
-      ON CONFLICT (source, external_id) DO NOTHING
-      RETURNING id
+      ON CONFLICT (pmid) DO NOTHING
+      RETURNING pmid
     `;
 
     if (insertResult.rows.length > 0) {

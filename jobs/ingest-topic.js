@@ -9,6 +9,14 @@
 import { listIngestionSources } from "../scripts/sources/_registry.js";
 import { SourcePermanentError } from "../scripts/sources/_errors.js";
 
+// Phase 2 constraint: research_articles has `pmid bigint NOT NULL PK`.
+// Non-pubmed sources (biorxiv, medrxiv, etc.) have no pmid, so they
+// can't be inserted until the schema is reworked (drop pmid PK, add
+// surrogate id, make pmid UNIQUE-nullable). Until then, restrict the
+// fanout to pubmed-only. Multi-source ingestion is tracked as a
+// follow-up.
+const SUPPORTED_SOURCE_IDS = ["pubmed"];
+
 export async function ingestTopicHandler(ctx, deps) {
   const { topicId, sourceIds: requestedSourceIds } = ctx.data;
   const { sql, boss } = deps;
@@ -22,7 +30,18 @@ export async function ingestTopicHandler(ctx, deps) {
     throw new SourcePermanentError(`research_topics row not found: id=${topicId}`);
   }
 
-  const sourceIds = requestedSourceIds ?? listIngestionSources().map(s => s.id);
+  // Intersect the requested sources with the phase 2 supported set.
+  // If the caller didn't specify, use the supported set directly.
+  const available = listIngestionSources().map(s => s.id);
+  const requested = requestedSourceIds ?? available;
+  const sourceIds = requested.filter(id =>
+    SUPPORTED_SOURCE_IDS.includes(id) && available.includes(id)
+  );
+
+  if (sourceIds.length === 0) {
+    await ctx.progress(`no supported sources to dispatch (phase 2 supports: ${SUPPORTED_SOURCE_IDS.join(", ")})`, "warn");
+    return { topicId, sourceCount: 0 };
+  }
   await ctx.progress(`dispatching ${sourceIds.length} source jobs for topic ${topicId}`);
 
   for (const sourceId of sourceIds) {
