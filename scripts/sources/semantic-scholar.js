@@ -31,9 +31,26 @@ const FIELDS = [
 
 const waitSlot = createLimiter(8); // 8 RPS with key (ceiling is 10)
 
+/**
+ * S2's /paper/search expects plain keyword queries — it doesn't parse
+ * Lucene boolean syntax. Our topic queries look like
+ * `(creatine OR "creatine monohydrate") AND ("resistance training" OR strength)`
+ * which S2 treats as a literal phrase match and returns 0 results.
+ * Strip the operators/quotes/parens and send just the keywords.
+ */
+export function sanitizeToKeywords(query) {
+  if (!query || typeof query !== "string") return "";
+  return query
+    .replace(/\b(AND|OR|NOT)\b/g, " ")
+    .replace(/["']/g, " ")
+    .replace(/[()]/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function buildSearchUrl(query, offset) {
   const params = new URLSearchParams({
-    query,
+    query: sanitizeToKeywords(query),
     limit: String(PAGE_SIZE),
     offset: String(offset),
     fields: FIELDS,
