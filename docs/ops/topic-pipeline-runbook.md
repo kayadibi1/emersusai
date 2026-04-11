@@ -6,10 +6,18 @@
 
 ## Prerequisites before phase 1
 
-1. The in-flight `npm run fill:pmc:topics` run on Hetzner has completed (check with `ssh hetzner 'pgrep -af "fill-pmc"'` — empty output means done).
-2. Hetzner Postgres has an automated nightly backup configured. Verify with `ssh hetzner 'ls -lah /var/backups/emersus/ | tail -5'` — should show dumps from last 7 days. If absent, configure before proceeding (see "Configuring backup" below).
+1. The in-flight `npm run fill:pmc:topics` run on Hetzner has completed (check with `ssh hetzner 'ps -ef | grep -v grep | grep fill-pmc'` — empty output means done).
+2. **Fresh DB backup on Hetzner exists.** As of 2026-04-11 there is a manual backup at `~/backups/db_20260409_061520.sql.gz` (1.4G, 2 days stale) but **no automated cron**. Before deploying phase 1, take a fresh manual backup:
+
+   ```bash
+   ssh hetzner 'docker exec supabase-db pg_dump -U supabase_admin -d postgres --no-owner --no-privileges 2>~/backups/emersus-backup.log | gzip > ~/backups/db_$(date +%Y%m%d_%H%M%S).sql.gz && ls -lh ~/backups/ | tail -3'
+   ```
+
+   Verify the new dump is present and non-zero.
+
+   **Follow-up (not a phase-1 blocker):** set up an automated nightly backup — see "Configuring automated backup" below. This is the right long-term practice.
 3. The `feat/topic-discovery-pipeline` branch has been merged to `main` on GitHub and deployed to Hetzner via the git webhook (verify with `ssh hetzner 'cd ~/app && git log --oneline -3'`).
-4. `~/app/.env` on Hetzner contains: `ADMIN_EMAILS`, optionally `ALERT_EMAILS`, `S2_API_KEY`, all existing keys.
+4. `~/app/.env` on Hetzner contains: `ADMIN_EMAILS`, optionally `ALERT_EMAILS`, `S2_API_KEY`, `RESEND_API_KEY`, all existing keys.
 
 ## Phase 1 — Schema & seed
 
@@ -37,12 +45,12 @@ Expected: each `=== Applying ... ===` is followed by a `COMMIT` or table-creatio
 **Rollback if a migration fails halfway**:
 
 ```bash
-# Restore from most recent backup (listed in /var/backups/emersus/)
+# Restore from the pre-deploy manual backup in ~/backups/
 ssh hetzner
-sudo gunzip -c /var/backups/emersus/emersus-YYYY-MM-DD.sql.gz | docker exec -i supabase-db psql -U supabase_admin -d postgres
+gunzip -c ~/backups/db_YYYYMMDD_HHMMSS.sql.gz | docker exec -i supabase-db psql -U supabase_admin -d postgres
 ```
 
-(If you don't have a backup, you're in trouble — see "Configuring backup" below to prevent this.)
+(If you don't have a backup, you're in trouble — see "Configuring automated backup" below to prevent this.)
 
 ### Seed data
 
@@ -162,7 +170,7 @@ If retrieval broke or a migration is bad:
 ```bash
 # Restore from backup (fastest, cleanest)
 ssh hetzner
-sudo gunzip -c /var/backups/emersus/emersus-YYYY-MM-DD.sql.gz | docker exec -i supabase-db psql -U supabase_admin -d postgres
+sudo gunzip -c ~/backups/emersus-YYYY-MM-DD.sql.gz | docker exec -i supabase-db psql -U supabase_admin -d postgres
 pm2 restart emersus-api  # force re-read of search_path etc
 ```
 
@@ -213,7 +221,7 @@ DELETE FROM pgboss.schedule;
 
 Restart the worker to recreate them, or leave deleted if you want to stop the pipeline entirely.
 
-## Configuring backup (if absent)
+## Configuring automated backup (if absent)
 
 Add to Hetzner crontab:
 
@@ -223,12 +231,12 @@ sudo mkdir -p /var/backups/emersus
 sudo chown emersus:emersus /var/backups/emersus
 crontab -e
 # Add:
-0 3 * * * docker exec supabase-db pg_dump -U supabase_admin -d postgres --no-owner --no-privileges 2>/var/log/emersus-backup.log | gzip > /var/backups/emersus/emersus-$(date +\%Y-\%m-\%d).sql.gz
+0 3 * * * docker exec supabase-db pg_dump -U supabase_admin -d postgres --no-owner --no-privileges 2>/var/log/emersus-backup.log | gzip > ~/backups/emersus-$(date +\%Y-\%m-\%d).sql.gz
 # Optional retention (keep last 14):
-5 3 * * * find /var/backups/emersus/ -name 'emersus-*.sql.gz' -mtime +14 -delete
+5 3 * * * find ~/backups/ -name 'emersus-*.sql.gz' -mtime +14 -delete
 ```
 
-Verify first run: `sudo ls -lah /var/backups/emersus/ | head -5` next morning.
+Verify first run: `sudo ls -lah ~/backups/ | head -5` next morning.
 
 ## Monitoring & observability
 
