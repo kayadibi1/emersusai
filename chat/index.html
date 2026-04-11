@@ -2807,6 +2807,32 @@
 
     function renderSources(data) {
       sources.innerHTML = "";
+      // Inline port of shared/citation-format.js — this script block is
+      // type="text/plain" (parked legacy code), so we can't import the
+      // real module. Keep the logic in sync.
+      const SYNTHETIC_PMID_FLOOR = 10000000000;
+      const formatCitationLabel = (source) => {
+        if (!source) return "";
+        const pmid = source.pmid;
+        const isPubmedSource = source.source === "pubmed";
+        const isRealPmid = typeof pmid === "number" && pmid > 0 && pmid < SYNTHETIC_PMID_FLOOR;
+        if (isPubmedSource && isRealPmid) return `PMID ${pmid}`;
+        const sourceLabel = source.source || "source";
+        if (source.doi) return `${sourceLabel}: ${source.doi}`;
+        if (source.external_id) return `${sourceLabel}: ${source.external_id}`;
+        return "";
+      };
+      const formatCitationUrl = (source) => {
+        if (!source) return null;
+        if (typeof source.url === "string" && source.url) return source.url;
+        const pmid = source.pmid;
+        const isPubmedSource = source.source === "pubmed";
+        const isRealPmid = typeof pmid === "number" && pmid > 0 && pmid < SYNTHETIC_PMID_FLOOR;
+        if (isPubmedSource && isRealPmid) return `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
+        if (source.doi) return `https://doi.org/${source.doi}`;
+        return null;
+      };
+
       (data.sources || []).forEach((source) => {
         const item = document.createElement("li");
         item.className = "source-item";
@@ -2815,21 +2841,22 @@
           source.journal || "",
           source.year || source.published_at || "",
           source.publication_type || "",
-          source.pmid ? `PMID ${source.pmid}` : "",
+          formatCitationLabel(source),
         ]
           .filter(Boolean)
           .join(" - ");
         const snippet = trimSnippet(source.excerpt || source.why_it_matters || "");
         const links = [];
+        const citationUrl = formatCitationUrl(source);
         if (source.doi && source.url) {
           links.push(`<a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">DOI</a>`);
         } else if (source.url) {
           links.push(`<a href="${escapeHtml(source.url)}" target="_blank" rel="noreferrer">Open source</a>`);
         }
 
-        if (source.pmid) {
-          const pubmedUrl = `https://pubmed.ncbi.nlm.nih.gov/${encodeURIComponent(source.pmid)}/`;
-          links.push(`<a href="${pubmedUrl}" target="_blank" rel="noreferrer">PubMed</a>`);
+        if (citationUrl && !links.length) {
+          const label = source.source === "pubmed" ? "PubMed" : "Open source";
+          links.push(`<a href="${escapeHtml(citationUrl)}" target="_blank" rel="noreferrer">${label}</a>`);
         }
 
         item.innerHTML = `
