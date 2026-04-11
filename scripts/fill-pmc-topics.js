@@ -280,6 +280,22 @@ const DEFAULT_TOPIC_ORDER = [
   "trail_running_biomechanics",
   "powerlifting_technique_squat",
   "powerlifting_technique_deadlift",
+
+  // ── 18. Mental / behavioral ──────────────────────────────────
+  "exercise_adherence",
+  "gym_anxiety",
+  "body_image_training",
+  "goal_setting_fitness",
+  "self_efficacy_exercise",
+  "training_burnout",
+  "habit_formation_exercise",
+  "motivational_interviewing_fitness",
+  "pre_performance_routines",
+  "visualization_imagery_sport",
+  "mindfulness_athletes",
+  "flow_state_performance",
+  "exercise_addiction",
+  "social_support_training",
 ];
 
 const TOPIC_QUERIES = {
@@ -783,6 +799,36 @@ const TOPIC_QUERIES = {
     "(\"squat technique\" OR \"squat biomechanics\" OR \"low-bar squat\" OR \"high-bar squat\") AND (powerlifting OR strength OR \"barbell squat\")",
   powerlifting_technique_deadlift:
     "(\"deadlift technique\" OR \"deadlift biomechanics\" OR \"conventional deadlift\" OR \"sumo deadlift\") AND (powerlifting OR strength OR \"barbell deadlift\")",
+
+  // ── 18. Mental / behavioral ──────────────────────────────────
+  exercise_adherence:
+    "(\"exercise adherence\" OR \"training adherence\" OR \"exercise compliance\") AND (intervention OR \"behavior change\" OR motivation OR \"long-term\")",
+  gym_anxiety:
+    "(\"gym anxiety\" OR \"exercise anxiety\" OR \"social physique anxiety\") AND (exercise OR \"resistance training\" OR motivation OR adherence)",
+  body_image_training:
+    "(\"body image\" OR \"body dissatisfaction\" OR \"body satisfaction\") AND (\"resistance training\" OR exercise OR \"physical activity\" OR athletes)",
+  goal_setting_fitness:
+    "(\"goal setting\" OR \"SMART goals\" OR \"process goals\") AND (exercise OR \"physical activity\" OR \"resistance training\" OR adherence)",
+  self_efficacy_exercise:
+    "(\"self-efficacy\" OR \"exercise self-efficacy\") AND (exercise OR \"physical activity\" OR \"behavior change\" OR adherence)",
+  training_burnout:
+    "(\"athlete burnout\" OR overtraining OR \"training burnout\" OR \"sport burnout\") AND (recovery OR prevention OR \"psychological stress\" OR motivation)",
+  habit_formation_exercise:
+    "(\"habit formation\" OR \"exercise habit\" OR automaticity) AND (\"physical activity\" OR \"behavior change\" OR exercise OR intervention)",
+  motivational_interviewing_fitness:
+    "(\"motivational interviewing\" OR \"brief motivational intervention\") AND (\"physical activity\" OR exercise OR \"behavior change\")",
+  pre_performance_routines:
+    "(\"pre-performance routine\" OR \"pre-shot routine\" OR \"warm up ritual\") AND (athlete OR sport OR performance OR anxiety)",
+  visualization_imagery_sport:
+    "(\"mental imagery\" OR \"sport imagery\" OR visualization OR \"motor imagery\") AND (athletes OR sport OR performance OR skill)",
+  mindfulness_athletes:
+    "(mindfulness OR \"mindfulness-based\" OR \"present-moment awareness\") AND (athletes OR sport OR \"exercise performance\" OR anxiety)",
+  flow_state_performance:
+    "(\"flow state\" OR \"flow experience\" OR \"optimal experience\") AND (sport OR athletes OR exercise OR performance)",
+  exercise_addiction:
+    "(\"exercise addiction\" OR \"exercise dependence\" OR \"compulsive exercise\") AND (overtraining OR \"eating disorders\" OR \"body image\")",
+  social_support_training:
+    "(\"social support\" OR \"training partner\" OR \"exercise group\") AND (adherence OR \"exercise behavior\" OR motivation OR \"physical activity\")",
 };
 
 function parseArgs(argv) {
