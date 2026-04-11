@@ -929,152 +929,6 @@ function WaitlistForm({ variant = "full", endpoint = "/api/waitlist" }) {
   );
 }
 
-function Nav() {
-  return h(
-    "nav",
-    { className: "nav" },
-    h("a", { className: "brand", href: "#hero" }, "Emersus AI"),
-    h(
-      "div",
-      { className: "nav-links" },
-      h("a", { href: "#features" }, "Features"),
-      h("a", { href: "#how" }, "How it works"),
-      h("a", { href: "#proof" }, "Proof"),
-      h("a", { href: "#access" }, "Access"),
-    ),
-    h("a", { className: "nav-cta", href: "#access" }, "Get access"),
-  );
-}
-
-function Hero() {
-  return h(
-    "section",
-    { className: "section hero", id: "hero" },
-    h(
-      "div",
-      { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "Bioluminescent evidence engine"),
-      h("h1", { className: "headline" }, "Optimize ", h("span", { className: "gradient" }, "your biology")),
-      h("p", { className: "subtitle" }, "Emersus turns research into protocols for performance, recovery, nutrition, and focus, wrapped in a neural interface that feels alive."),
-      h(
-        "div",
-        { className: "hero-actions" },
-        h("a", { className: "button-primary", href: "#access" }, "Join waitlist"),
-        h("a", { className: "button-secondary", href: "/chat/" }, "Open app"),
-      ),
-    ),
-  );
-}
-
-function Features() {
-  const features = [
-    ["✦", "Evidence substrate", "Retrieve relevant studies and convert them into practical, citation-aware guidance without burying the signal."],
-    ["◈", "Adaptive protocols", "Turn a question into a plan that can respond to context, constraints, and new research over time."],
-    ["✺", "Human-first interface", "Chat with a system that keeps the answer readable while preserving sources, confidence, and guardrails."],
-  ];
-
-  return h(
-    "section",
-    { className: "section", id: "features" },
-    h(
-      "div",
-      { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "Features"),
-      h("h2", { className: "section-title" }, "A living interface for evidence-backed self-optimization."),
-      h(
-        "div",
-        { className: "grid-3" },
-        ...features.map(([icon, title, copy]) => h(
-          "article",
-          { className: "glass-card", key: title },
-          h("div", { className: "icon" }, icon),
-          h("h3", { className: "card-title" }, title),
-          h("p", { className: "card-copy" }, copy),
-        )),
-      ),
-    ),
-  );
-}
-
-function HowItWorks() {
-  const steps = [
-    ["01", "Ask", "Start with a goal, symptom, supplement, training question, or recovery constraint."],
-    ["02", "Retrieve", "Emersus searches the evidence layer and filters noisy matches before synthesis."],
-    ["03", "Synthesize", "The model explains what the literature supports, what is uncertain, and what to do next."],
-    ["04", "Iterate", "Follow up naturally while the thread keeps relevant context without over-assuming stale goals."],
-  ];
-
-  return h(
-    "section",
-    { className: "section", id: "how" },
-    h(
-      "div",
-      { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "How it works"),
-      h("h2", { className: "section-title" }, "From question to protocol in four signal passes."),
-      h(
-        "div",
-        { className: "steps" },
-        ...steps.map(([number, title, copy]) => h(
-          "article",
-          { className: "step-card", key: number },
-          h("span", { className: "step-number" }, number),
-          h("h3", { className: "step-title" }, title),
-          h("p", { className: "step-copy" }, copy),
-        )),
-      ),
-    ),
-  );
-}
-
-function Testimonials() {
-  return h(
-    "section",
-    { className: "section", id: "proof" },
-    h(
-      "div",
-      { className: "section-inner quote-grid" },
-      h(
-        "article",
-        { className: "quote-card large" },
-        h("p", { className: "eyebrow" }, "Field note"),
-        h("p", { className: "quote-copy" }, "The best health interface is not a dashboard. It is a nervous system for decisions: alive, responsive, and grounded in evidence."),
-        h("p", { className: "quote-author" }, "Emersus research principle"),
-      ),
-      h(
-        "article",
-        { className: "quote-card" },
-        h("p", { className: "eyebrow" }, "Why it matters"),
-        h("p", { className: "section-copy" }, "Most optimization tools flatten the body into generic checklists. Emersus is built to preserve context, uncertainty, and the difference between what is promising and what is proven."),
-      ),
-    ),
-  );
-}
-
-function FinalCta() {
-  return h(
-    "section",
-    { className: "section cta", id: "access" },
-    h(
-      "div",
-      { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "Private access"),
-      h("h2", { className: "section-title" }, "Plug into the next evidence layer."),
-      h("p", { className: "subtitle" }, "Join the waitlist for early access to Emersus AI."),
-      h(WaitlistForm, { variant: "full" }),
-    ),
-  );
-}
-
-function Footer() {
-  return h(
-    "footer",
-    { className: "footer" },
-    h("span", null, "Emersus AI"),
-    h("span", null, "Evidence layer active"),
-  );
-}
-
 function OldCopyNav() {
   return h(
     "nav",
@@ -1100,8 +954,8 @@ function OldCopyHero() {
       "div",
       { className: "section-inner" },
       h("p", { className: "eyebrow" }, "EMERSUS"),
-      h("h1", { className: "headline" }, h("span", { className: "gradient" }, "Optimize"), " or ", h("span", { className: "danger-word" }, "obsolete")),
-      h("p", { className: "subtitle" }, "Scientifically grounded optimization AI for peak mental and physical performance. For those who take life seriously."),
+      h("h1", { className: "headline" }, "Stop ", h("span", { className: "gradient" }, "training"), " on ", h("span", { className: "danger-word" }, "vibes"), "."),
+      h("p", { className: "subtitle" }, "AI fitness coaching grounded in peer-reviewed research. Plans you can actually train against. One tracker for lifting, cardio, swimming, and climbing. Built for people who want answers, not guesses."),
       h(
         "div",
         { className: "hero-actions" },
@@ -1114,9 +968,9 @@ function OldCopyHero() {
 
 function OldCopyFeatures() {
   const features = [
-    ["01", "Cognitive Focus", "Modern science produces novel ways to improve mental performance every single day. EMERSUS tracks new publications, judges relevance and confidence, and tailors routines to your specific circumstances."],
-    ["02", "Physical aptitude", "Weight-lifting, doing cardio, or simply looking for a way to get more restful sleep? EMERSUS cuts through the folklore and myths to deliver replicable and verifiable protocols using the collective output of all human sciences."],
-    ["03", "Data integration", "EMERSUS supports data integration from smartphones and wearable technology to identify what you need to accomplish your goals. Track relevant performance markers and ignore the noise."],
+    ["01", "Evidence-grounded answers", "120+ indexed scientific topics from PubMed and PMC. Every response pulls from real studies, ranked by relevance — not from whatever an LLM absorbed off Reddit. You get what the research actually supports, including where it's still unclear."],
+    ["02", "Plans that survive contact", "Ask for a program and get a structured, multi-week plan with sets, reps, load, RPE, rest, and warmups. Then say \"swap deadlifts for RDLs on day 2\" and the plan updates surgically — not regenerated from scratch. Your plan is a living object, not a PDF that ghosts you."],
+    ["03", "One tracker for everything", "Per-set logging with rest timers for lifting. Live GPS pace tracking for runs and rides. Lap counting for pool swims. V-scale, YDS, Font, and French grades for climbing. One app that respects how athletes actually train — across disciplines, not inside silos."],
   ];
 
   return h(
@@ -1125,9 +979,9 @@ function OldCopyFeatures() {
     h(
       "div",
       { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "AI & science synthesis for peak performance"),
-      h("h2", { className: "section-title" }, "Life is too short to not be your best"),
-      h("p", { className: "section-copy" }, "EMERSUS offers optimization routines based on peer-reviewed research ranging from muscle hypertrophy to mental focus, without the jargon. Completely tailored to you."),
+      h("p", { className: "eyebrow" }, "What you're actually getting"),
+      h("h2", { className: "section-title" }, "Research in. Bro-science out."),
+      h("p", { className: "section-copy" }, "Every answer Emersus gives is retrieved from a curated corpus of exercise science literature — not hallucinated from general training data. When the evidence is strong, we cite it. When it's uncertain, we say so. No confident-sounding guesses. No generic checklists."),
       h(
         "div",
         { className: "grid-3" },
@@ -1145,10 +999,10 @@ function OldCopyFeatures() {
 
 function OldCopyOptimization() {
   const topics = [
-    ["01", "Mental performance", "Focus, stress regulation, learning, and cognitive routines grounded in current research."],
-    ["02", "Physical training", "Replicable and verifiable protocols for lifting, cardio, performance, and recovery."],
-    ["03", "Nutrition", "Practical nutrition guidance that cuts through folklore and tracks what evidence supports."],
-    ["04", "Recovery", "Sleep, rest, and regeneration strategies tailored to the circumstances that matter."],
+    ["01", "Physical training", "Structured programs for resistance, bodyweight, cardio, swimming, and climbing — generated from research, editable through conversation, trackable in the same app."],
+    ["02", "Nutrition", "Practical guidance pulled from the literature, not influencer folklore. What evidence actually supports, calibrated to your goals and context."],
+    ["03", "Recovery", "Sleep, stress, and regeneration protocols grounded in current science. Tailored to your training load, not copy-pasted from a blog."],
+    ["04", "Cognitive performance", "Focus, stress regulation, and mental preparation strategies backed by research. When you need to perform beyond the gym."],
   ];
 
   return h(
@@ -1157,8 +1011,8 @@ function OldCopyOptimization() {
     h(
       "div",
       { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "EMERSUS can help you with"),
-      h("h2", { className: "section-title" }, "Mental performance, physical training, nutrition, and recovery."),
+      h("p", { className: "eyebrow" }, "Built for the full picture"),
+      h("h2", { className: "section-title" }, "Training. Nutrition. Recovery. Focus."),
       h(
         "div",
         { className: "steps" },
@@ -1184,18 +1038,18 @@ function OldCopyProtocol() {
       h(
         "article",
         { className: "quote-card large" },
-        h("p", { className: "eyebrow" }, "Bio-hacking life"),
-        h("p", { className: "quote-copy" }, "AI Protocol Bot"),
-        h("p", { className: "section-copy" }, "Competition in the modern world is more intense than ever in every aspect of life. You need the best information, in a digestible format, delivered when and where you need it to stay on top. EMERSUS delivers."),
+        h("p", { className: "eyebrow" }, "How it works"),
+        h("p", { className: "quote-copy" }, "Ask a question. Get the science."),
+        h("p", { className: "section-copy" }, "Your \"AI coach\" read the internet and now has opinions. Emersus is different — it retrieves from a curated scientific corpus per question, renders interactive visuals when a chart explains it better than text, and builds workout plans you can open, edit, and train against. The plan, the tracker, the analytics, and the evidence all share state."),
         h("p", { className: "quote-author" }, "View methodology"),
       ),
       h(
         "article",
         { className: "quote-card" },
-        h("p", { className: "eyebrow" }, "User Query"),
-        h("p", { className: "section-copy" }, "\"How can I control my nerves for my upcoming sales pitch next week?\""),
-        h("p", { className: "eyebrow quote-gap" }, "Protocol Response"),
-        h("p", { className: "section-copy" }, "PUBLIC SPEAKING: Evidence on exposure, rehearsal structure, and cognitive reframing suggests a combined routine works best. Given your timeframe, I can build a short protocol to reduce anticipatory stress and sharpen delivery before your sales pitch."),
+        h("p", { className: "eyebrow" }, "User"),
+        h("p", { className: "section-copy" }, "\"I want a 4-week hypertrophy program for upper body, 3 days a week. I have dumbbells and a pull-up bar.\""),
+        h("p", { className: "eyebrow quote-gap" }, "Emersus"),
+        h("p", { className: "section-copy" }, "Built. 4-week upper-body hypertrophy plan — 3 sessions per week, progressive overload, RPE targets, warmups included. Each session is trackable in-app. Want me to adjust volume or swap any exercises before you start?"),
       ),
     ),
   );
@@ -1208,11 +1062,11 @@ function OldCopyFinalCta() {
     h(
       "div",
       { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "Private beta"),
-      h("h2", { className: "section-title" }, "Ready to transcend limitations?"),
-      h("p", { className: "subtitle" }, "Join the private beta. Validated human optimization for the modern elite. Experience revolutionary breakthroughs."),
+      h("p", { className: "eyebrow" }, "Early access"),
+      h("h2", { className: "section-title" }, "Tired of guessing?"),
+      h("p", { className: "subtitle" }, "Emersus is invite-only. We're building with a small cohort of athletes, coaches, and researchers who want their tools grounded in science, not marketing."),
       h(WaitlistForm, { variant: "full" }),
-      h("div", { className: "hero-actions" }, h("a", { className: "button-secondary", href: "#features" }, "Explore science")),
+      h("div", { className: "hero-actions" }, h("a", { className: "button-secondary", href: "#features" }, "See how it works")),
     ),
   );
 }
@@ -1222,7 +1076,7 @@ function OldCopyFooter() {
     "footer",
     { className: "footer" },
     h("span", null, "Emersus AI"),
-    h("span", null, "2026 EMERSUS AI. Laboratory grade performance. All rights reserved."),
+    h("span", null, "\u00a9 2026 Emersus AI. All rights reserved."),
   );
 }
 
