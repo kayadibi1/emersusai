@@ -24,7 +24,7 @@ export function getContactEmail() {
   return CONTACT_EMAIL;
 }
 
-async function getPublicConfig() {
+export async function getPublicConfig() {
   if (!configPromise) {
     configPromise = fetch("/api/config", {
       headers: {
