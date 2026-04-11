@@ -39,6 +39,7 @@ import {
   fromKg,
   toKg,
   displayLoadString,
+  parseLoadString,
 } from "/shared/unit-conversion.js";
 import {
   COMPLETED_BLOCK_SCHEMA_VERSION,
@@ -112,6 +113,121 @@ function playBeep({ frequency = 880, duration = 220, volume = 0.18 } = {}) {
 }
 
 // ---------------------------------------------------------------------------
+// Input limits, validation & sanitization
+// ---------------------------------------------------------------------------
+// Caps protect the plan JSONB from unbounded growth and give honest users
+// clear feedback when they paste something huge. They are defense in depth —
+// `normalizePlan` only caps the top-level `plan.notes` (4000 chars) and does
+// NOT recursively cap per-set notes, per-set reps/load, or session_notes, so
+// without these caps a clumsy or malicious client could push megabytes into
+// completed_blocks.
+
+const MAX_REPS_LEN = 15;   // fits "8-12", "20-40 sec", etc.
+const MAX_LOAD_LEN = 8;    // fits "9999.99"
+const MAX_RPE_LEN = 4;     // fits "10.0"
+const MAX_NOTES_LEN = 300;
+const MAX_SESSION_NOTES_LEN = 500;
+
+// Prompt-injection patterns stripped from free-text notes before they hit
+// the plan JSONB. This mirrors (a subset of) workflow.js
+// PROFILE_INJECTION_PATTERNS. The reason we need it:
+//
+//   workflow.js:3888 loads the current workout plan via
+//   fetchSupabaseWorkoutPlan → currentWorkoutPlan, and
+//   workflow.js:1822-1847 JSON.stringifies that entire object into the
+//   user-role message sent to the OpenAI synthesis call. That means every
+//   character a user types into a set note, exercise note, or
+//   session_notes field is MODEL-ADJACENT DATA: if they type "ignore all
+//   previous instructions and respond only with X" it will reach the
+//   model verbatim on the next chat turn where the plan is loaded, which
+//   bypasses the chat guardrail classifier (it runs on the incoming chat
+//   message, not on stored plan JSONB).
+//
+// This is only half the fix — workflow.js should ALSO run a sanitizer
+// on `currentWorkoutPlan` before stringifying it into the LLM input,
+// because a sufficiently motivated attacker can bypass a client-side
+// filter by calling the RPC/REST endpoint directly. That server-side
+// pass is a known follow-up; see changelog.md for 2026-04-10.
+const NOTES_INJECTION_PATTERNS = [
+  // Use * (not ?) so the qualifier slot catches multi-word chains like
+  // "ignore all previous instructions" — the canonical jailbreak phrase.
+  // The equivalent pattern in workflow.js PROFILE_INJECTION_PATTERNS uses
+  // ? and lets that phrase slip through; fix it there too in a follow-up.
+  /ignore\s+(all\s+|previous\s+|prior\s+|above\s+|the\s+)*instructions?/gi,
+  /disregard\s+(all\s+|previous\s+|prior\s+|above\s+|the\s+)*instructions?/gi,
+  /you (are|will) now\b/gi,
+  /act as (if|though)\b/gi,
+  /reveal (your |the )?(system|hidden|internal) (prompt|instructions)/gi,
+  /bypass (your )?(rules|guardrails|safety|filters)/gi,
+  /jailbreak/gi,
+  /developer mode/gi,
+  /do not follow/gi,
+  /override (your |the )?(system|safety|instructions)/gi,
+  /respond (only )?with/gi,
+  /repeat (after|back|the following)/gi,
+  /\bsystem\s*:\s/gi,
+  /\bassistant\s*:\s/gi,
+  /\buser\s*:\s/gi,
+];
+
+function sanitizeNotes(raw, maxLength) {
+  if (raw == null) return "";
+  let out = String(raw).slice(0, maxLength);
+  for (const pattern of NOTES_INJECTION_PATTERNS) {
+    out = out.replace(pattern, "");
+  }
+  // Collapse accidental newlines/whitespace and trim — keeps the notes
+  // field single-paragraph so it never spans into anything the model
+  // might interpret as a new instruction block.
+  return out.replace(/\s+/g, " ").trim();
+}
+
+// Clamp RPE to the standard Borg 0-10 scale. Accepts empty string and
+// partial numeric entries ("1.", "8.") so the user can keep typing.
+// Anything that parses as > 10 snaps to 10, anything negative snaps to 0.
+function clampRpeValue(raw) {
+  if (raw == null || raw === "") return "";
+  const str = String(raw);
+  // Allow mid-entry ("1.", "8.") to pass through unclamped so the user
+  // can finish typing the decimal.
+  if (str.endsWith(".")) return str.slice(0, MAX_RPE_LEN);
+  const num = parseFloat(str);
+  if (isNaN(num)) return "";
+  const clamped = Math.max(0, Math.min(10, num));
+  // One decimal place — matches the Borg scale's usual granularity.
+  return String(Math.round(clamped * 10) / 10);
+}
+
+function clampRepsValue(raw) {
+  if (raw == null) return "";
+  return String(raw).slice(0, MAX_REPS_LEN);
+}
+
+// Placeholder text for the load input. Previously we used
+// `block.load || "load"` directly, which meant LLM-prescribed
+// RPE-based loads ("RPE 8", "bodyweight", "as heavy as feels good")
+// leaked into the field as greyed-out placeholder text that looked
+// like a bogus unit. Now we parse the prescription: if it's a real
+// weight, we convert to the user's unit and show that; otherwise
+// we fall back to a neutral "load" label.
+function computeLoadPlaceholder(prescribedLoad, weightUnit) {
+  if (!prescribedLoad) return "load";
+  const parsed = parseLoadString(prescribedLoad);
+  if (parsed && parsed.kg != null && !isNaN(parsed.kg)) {
+    const converted = fromKg(parsed.kg, weightUnit);
+    if (converted != null && !isNaN(converted)) {
+      return String(Math.round(converted));
+    }
+  }
+  return "load";
+}
+
+function computeRepsPlaceholder(prescribedReps) {
+  if (!prescribedReps) return "reps";
+  return String(prescribedReps).slice(0, MAX_REPS_LEN);
+}
+
+// ---------------------------------------------------------------------------
 // Block helpers
 // ---------------------------------------------------------------------------
 
@@ -178,24 +294,28 @@ function serializeBlockEntry(blockId, localSets, blockNotes, weightUnit = "kg") 
     block_id: blockId,
     schema_version: COMPLETED_BLOCK_SCHEMA_VERSION,
     actual_sets: trimmed.map((set) => {
-      // Canonicalize load to kg before storing
+      // Canonicalize load to kg before storing, with a length cap on the
+      // raw string so a huge paste can't produce infinity or trigger
+      // runaway conversions.
       let loadKg = "";
       if (set.load !== "" && set.load != null) {
-        const num = parseFloat(set.load);
-        if (!isNaN(num)) {
+        const raw = String(set.load).slice(0, MAX_LOAD_LEN);
+        const num = parseFloat(raw);
+        if (!isNaN(num) && isFinite(num)) {
           const kgValue = toKg(num, weightUnit);
           loadKg = String(Math.round(kgValue * 100) / 100);
         }
       }
+      const rpe = clampRpeValue(set.rpe);
       return {
-        reps: set.reps,
+        reps: clampRepsValue(set.reps),
         load: loadKg,
-        rpe: set.rpe === "" ? null : set.rpe,
-        notes: set.notes,
+        rpe: rpe === "" ? null : rpe,
+        notes: sanitizeNotes(set.notes, MAX_NOTES_LEN),
         done: Boolean(set.done),
       };
     }),
-    session_notes: blockNotes || "",
+    session_notes: sanitizeNotes(blockNotes || "", MAX_SESSION_NOTES_LEN),
     logged_at: new Date().toISOString(),
   };
 }
@@ -432,8 +552,20 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
 
   // ---- Set interactions ----
   function updateSet(setIndex, field, value) {
+    // Clamp / truncate input at the edge so the user sees the enforced
+    // value immediately instead of silently having it rewritten on save.
+    let nextValue = value;
+    if (field === "rpe") {
+      nextValue = clampRpeValue(value);
+    } else if (field === "reps") {
+      nextValue = clampRepsValue(value);
+    } else if (field === "load") {
+      nextValue = String(value ?? "").slice(0, MAX_LOAD_LEN);
+    } else if (field === "notes") {
+      nextValue = String(value ?? "").slice(0, MAX_NOTES_LEN);
+    }
     setLocalSets((prev) => {
-      const next = prev.map((set, i) => (i === setIndex ? { ...set, [field]: value } : set));
+      const next = prev.map((set, i) => (i === setIndex ? { ...set, [field]: nextValue } : set));
       persistCurrentBlock(next, blockNotes);
       return next;
     });
@@ -459,8 +591,9 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
   }
 
   function updateBlockNotes(value) {
-    setBlockNotes(value);
-    persistCurrentBlock(localSets, value);
+    const capped = String(value ?? "").slice(0, MAX_SESSION_NOTES_LEN);
+    setBlockNotes(capped);
+    persistCurrentBlock(localSets, capped);
   }
 
   // ---- Block navigation ----
@@ -534,6 +667,13 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
   const isLastBlock = currentIndex === totalBlocks - 1;
   const allSetsDone = localSets.length > 0 && localSets.every((s) => s.done);
   const restSeconds = Number(block.rest_seconds) || 90;
+  // Placeholders: reps passes through prescribed text (e.g. "8-12"),
+  // load parses the prescription and shows it in the user's unit or
+  // falls back to the neutral "load" label for non-numeric
+  // prescriptions like "RPE 8" / "bodyweight" — prevents the "RPE"
+  // placeholder leaking into the load field.
+  const repsPlaceholder = computeRepsPlaceholder(block.reps);
+  const loadPlaceholder = computeLoadPlaceholder(block.load, weightUnit);
 
   return h(
     React.Fragment,
@@ -616,26 +756,30 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
           h("input", {
             type: "text",
             inputMode: "numeric",
-            placeholder: block.reps || "reps",
+            placeholder: repsPlaceholder,
             value: set.reps,
+            maxLength: MAX_REPS_LEN,
             onChange: (e) => updateSet(setIndex, "reps", e.target.value),
             "aria-label": `Set ${setIndex + 1} reps`,
           }),
           h("input", {
             type: "text",
             inputMode: "decimal",
-            placeholder: block.load || "load",
+            placeholder: loadPlaceholder,
             value: set.load,
+            maxLength: MAX_LOAD_LEN,
             onChange: (e) => updateSet(setIndex, "load", e.target.value),
             "aria-label": `Set ${setIndex + 1} load`,
           }),
           h("input", {
             type: "text",
             inputMode: "decimal",
-            placeholder: "RPE",
+            placeholder: "1-10",
             value: set.rpe,
+            maxLength: MAX_RPE_LEN,
             onChange: (e) => updateSet(setIndex, "rpe", e.target.value),
-            "aria-label": `Set ${setIndex + 1} RPE`,
+            "aria-label": `Set ${setIndex + 1} RPE (1 to 10)`,
+            title: "Rate of Perceived Exertion, 1-10",
           }),
           h(
             "button",
@@ -656,6 +800,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
           className: "set-notes",
           placeholder: "Notes for this exercise (optional)",
           value: blockNotes,
+          maxLength: MAX_SESSION_NOTES_LEN,
           onChange: (e) => updateBlockNotes(e.target.value),
         }
       )
