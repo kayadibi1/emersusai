@@ -288,7 +288,9 @@
           <p class="lede">
             Plans generated in chat are saved here. Edit sessions, mark them missed or completed, and export to any calendar app — Google, Apple, Outlook, or anything that imports .ics.
           </p>
-          <div class="chip">Signed in as <span data-user-email>Loading...</span></div>
+          <!-- Hidden until shared/app-pages.js has painted the real email
+               (cache or session) — avoids "Signed in as Loading..." flash. -->
+          <div class="chip" data-reveal-on-hydrate hidden>Signed in as <span data-user-email></span></div>
         </section>
 
         <section>

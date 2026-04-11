@@ -34,7 +34,9 @@
           <p class="lede">
             This is what Emersus knows about you. To update anything, just mention it in the <a href="/chat/">chat</a>.
           </p>
-          <div class="chip">Signed in as <span data-user-email>Loading...</span></div>
+          <!-- Hidden until shared/app-pages.js has painted the real email
+               (cache or session) — avoids "Signed in as Loading..." flash. -->
+          <div class="chip" data-reveal-on-hydrate hidden>Signed in as <span data-user-email></span></div>
         </section>
 
         <section class="form-panel stack">

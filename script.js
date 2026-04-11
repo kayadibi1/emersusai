@@ -960,7 +960,7 @@ function OldCopyHero() {
         "div",
         { className: "hero-actions" },
         h("a", { className: "button-primary", href: "#access" }, "Get access"),
-        h("a", { className: "button-secondary", href: "/chat/" }, "App / Login"),
+        h("a", { className: "button-secondary", href: "/auth/login/" }, "App / Login"),
       ),
     ),
   );
@@ -1066,7 +1066,7 @@ function OldCopyFinalCta() {
       h("h2", { className: "section-title" }, "Tired of guessing?"),
       h("p", { className: "subtitle" }, "Emersus is invite-only. We're building with a small cohort of athletes, coaches, and researchers who want their tools grounded in science, not marketing."),
       h(WaitlistForm, { variant: "full" }),
-      h("div", { className: "hero-actions" }, h("a", { className: "button-secondary", href: "#features" }, "See how it works")),
+      h("div", { className: "hero-actions" }, h("a", { className: "button-secondary", href: "#how" }, "See how it works")),
     ),
   );
 }
