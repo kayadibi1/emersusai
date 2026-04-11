@@ -220,6 +220,26 @@ const DEFAULT_TOPIC_ORDER = [
   "adductor_rehab",
   "piriformis_syndrome",
   "si_joint_dysfunction",
+
+  // ── 15. Endurance specialization ─────────────────────────────
+  "marathon_training",
+  "triathlon_training",
+  "cycling_training",
+  "altitude_training",
+  "polarized_training",
+  "pyramidal_training",
+  "race_tapering",
+  "heat_acclimation",
+  "cold_water_immersion_endurance",
+  "ftp_testing",
+  "critical_power",
+  "training_zones_endurance",
+  "lactate_testing",
+  "fat_oxidation_max",
+  "running_form_drills",
+  "glycogen_supercompensation",
+  "race_pacing_strategy",
+  "endurance_periodization",
 ];
 
 const TOPIC_QUERIES = {
@@ -609,6 +629,44 @@ const TOPIC_QUERIES = {
     "(\"piriformis syndrome\" OR \"deep gluteal syndrome\") AND (exercise OR rehabilitation OR stretching OR strengthening)",
   si_joint_dysfunction:
     "(\"sacroiliac joint\" OR \"SI joint\" OR \"sacroiliac dysfunction\") AND (exercise OR rehabilitation OR \"pelvic stability\")",
+
+  // ── 15. Endurance specialization ─────────────────────────────
+  marathon_training:
+    "(\"marathon training\" OR \"marathon runners\" OR \"long-distance running\") AND (\"training volume\" OR pacing OR \"race performance\" OR periodization)",
+  triathlon_training:
+    "(triathlon OR triathlete OR \"multi-sport training\") AND (\"training volume\" OR \"brick workout\" OR performance OR periodization)",
+  cycling_training:
+    "(\"cycling training\" OR cyclist OR \"road cycling\") AND (\"power output\" OR FTP OR \"functional threshold\" OR \"training zones\" OR periodization)",
+  altitude_training:
+    "(\"altitude training\" OR \"hypoxic training\" OR \"live high train low\") AND (\"endurance performance\" OR \"VO2 max\" OR hemoglobin OR adaptation)",
+  polarized_training:
+    "(\"polarized training\" OR \"polarised training\" OR \"80/20 training\" OR \"training intensity distribution\") AND (endurance OR running OR cycling OR \"VO2 max\" OR performance)",
+  pyramidal_training:
+    "(\"pyramidal training\" OR \"training intensity distribution\") AND (endurance OR \"lactate threshold\" OR \"training zones\" OR performance)",
+  race_tapering:
+    "(taper OR tapering OR \"pre-competition taper\") AND (\"endurance performance\" OR \"race performance\" OR \"training load\" OR recovery)",
+  heat_acclimation:
+    "(\"heat acclimation\" OR \"heat acclimatization\" OR \"thermal tolerance\") AND (\"endurance performance\" OR athletes OR \"core temperature\" OR adaptation)",
+  cold_water_immersion_endurance:
+    "(\"cold water immersion\" OR \"ice bath\" OR cryotherapy) AND (recovery OR \"endurance performance\" OR inflammation OR \"muscle damage\")",
+  ftp_testing:
+    "(\"functional threshold power\" OR FTP OR \"20-minute test\" OR \"critical power test\") AND (cycling OR endurance OR \"power output\" OR \"training zones\")",
+  critical_power:
+    "(\"critical power\" OR \"critical velocity\" OR \"W prime\" OR W') AND (endurance OR \"exercise tolerance\" OR cycling OR running)",
+  training_zones_endurance:
+    "(\"training zones\" OR \"training intensity\" OR \"heart rate zones\" OR \"power zones\") AND (endurance OR aerobic OR \"lactate threshold\" OR \"VO2 max\")",
+  lactate_testing:
+    "(\"lactate threshold testing\" OR \"lactate profiling\" OR \"blood lactate\") AND (endurance OR cycling OR running OR athletes)",
+  fat_oxidation_max:
+    "(\"fat oxidation\" OR \"maximal fat oxidation\" OR Fatmax OR \"lipid oxidation\") AND (exercise OR endurance OR \"metabolic flexibility\")",
+  running_form_drills:
+    "(\"running drills\" OR \"running form\" OR \"running technique drills\" OR \"A-skip\" OR \"B-skip\") AND (\"running economy\" OR \"running biomechanics\" OR performance)",
+  glycogen_supercompensation:
+    "(\"glycogen supercompensation\" OR \"carbohydrate loading\" OR \"glycogen loading\") AND (endurance OR marathon OR \"race performance\" OR athletes)",
+  race_pacing_strategy:
+    "(\"pacing strategy\" OR \"pacing pattern\" OR \"race pacing\") AND (marathon OR triathlon OR endurance OR performance)",
+  endurance_periodization:
+    "(\"endurance periodization\" OR \"reverse periodization\" OR \"traditional periodization endurance\") AND (marathon OR cycling OR running OR triathlon)",
 };
 
 function parseArgs(argv) {
