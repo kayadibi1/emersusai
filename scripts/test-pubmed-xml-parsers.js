@@ -11,6 +11,8 @@ import {
   parseStructuredAbstract,
   parsePublicationCountry,
   parseAuthorKeywords,
+  splitPubmedArticles,
+  extractPmid,
 } from "./lib/pubmed-xml.js";
 
 // ── Fixtures ────────────────────────────────────────────────────────
@@ -187,10 +189,47 @@ assert.equal(parsePublicationCountry(""), null);
   assert.deepEqual(parseAuthorKeywords(""), []);
 }
 
+// ── splitPubmedArticles ────────────────────────────────────────────
+
+{
+  // A realistic multi-article efetch envelope
+  const multi = `
+    <PubmedArticleSet>
+      ${ENRICHED_XML}
+      ${PLAIN_XML}
+      ${NO_ABSTRACT_XML}
+    </PubmedArticleSet>`;
+  const parts = splitPubmedArticles(multi);
+  assert.equal(parts.length, 3, `expected 3 articles, got ${parts.length}`);
+  assert.ok(parts[0].includes("12345678"), "first block should contain first pmid");
+  assert.ok(parts[1].includes("11111111"));
+  assert.ok(parts[2].includes("44444444"));
+}
+{
+  assert.deepEqual(splitPubmedArticles(""), []);
+  assert.deepEqual(splitPubmedArticles(null), []);
+  assert.deepEqual(splitPubmedArticles("<PubmedArticleSet></PubmedArticleSet>"), []);
+}
+
+// ── extractPmid ────────────────────────────────────────────────────
+
+assert.equal(extractPmid(ENRICHED_XML), 12345678);
+assert.equal(extractPmid(PLAIN_XML), 11111111);
+assert.equal(extractPmid(NO_ABSTRACT_XML), 44444444);
+// Retraction notice has its own PMID (22222222) PLUS a child RetractionOf
+// PMID (33333333). We must take the MedlineCitation PMID, which is the
+// first one in document order.
+assert.equal(extractPmid(RETRACTION_NOTICE_XML), 22222222);
+assert.equal(extractPmid(""), null);
+assert.equal(extractPmid(null), null);
+assert.equal(extractPmid("<PubmedArticle></PubmedArticle>"), null);
+
 // ── Defensive: malformed fragments don't throw ─────────────────────
 assert.doesNotThrow(() => parseRetractionStatus("<garbage>"));
 assert.doesNotThrow(() => parseStructuredAbstract("<Abstract><AbstractText"));
 assert.doesNotThrow(() => parsePublicationCountry("<MedlineJournalInfo>"));
 assert.doesNotThrow(() => parseAuthorKeywords("<KeywordList>"));
+assert.doesNotThrow(() => splitPubmedArticles("<garbage"));
+assert.doesNotThrow(() => extractPmid("<garbage"));
 
 console.log("pubmed xml parser tests: OK");
