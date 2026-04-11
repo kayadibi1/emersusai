@@ -1,6 +1,37 @@
 import { supabaseAdmin } from "../lib/clients.js";
 import { embedText } from "./embeddings.js";
 
+/**
+ * Group matches by DOI and keep the highest-similarity chunk per DOI.
+ * Matches without a DOI (preprints without an assigned DOI, etc.) are
+ * preserved as-is. Used to dedup cross-source results — e.g., a paper
+ * with DOI 10.1/foo indexed by both pubmed and openalex as separate
+ * research_articles rows should collapse to one in retrieval.
+ *
+ * Operates on the flat row shape returned by retrieveDatabaseEvidence:
+ *   { pmid, source, doi, similarity, title, ... }
+ *
+ * @param {Array<object>} rows
+ * @returns {Array<object>} deduped rows
+ */
+export function dedupByDoi(rows) {
+  if (!Array.isArray(rows) || rows.length === 0) return [];
+  const byDoi = new Map();
+  const withoutDoi = [];
+  for (const row of rows) {
+    const doi = row?.doi;
+    if (!doi) {
+      withoutDoi.push(row);
+      continue;
+    }
+    const existing = byDoi.get(doi);
+    if (!existing || (row.similarity ?? 0) > (existing.similarity ?? 0)) {
+      byDoi.set(doi, row);
+    }
+  }
+  return [...byDoi.values(), ...withoutDoi];
+}
+
 // Pure candidate fetcher: embeds the prompt, runs the pgvector RPC, joins
 // each matched chunk to its research_articles row, and returns the raw set.
 // All ranking happens downstream in rerank.js — this function deliberately
@@ -51,7 +82,7 @@ export async function retrieveDatabaseEvidence({
 
   const byPmid = new Map((articles || []).map((a) => [a.pmid, a]));
 
-  return matches
+  const enriched = matches
     .map((match) => ({
       ...match,
       article: byPmid.get(match.pmid) || null,
@@ -81,4 +112,8 @@ export async function retrieveDatabaseEvidence({
       influential_citation_count: row.article.influential_citation_count ?? null,
       publication_country: row.article.publication_country ?? null,
     }));
+
+  // Cross-source dedup: collapse duplicates of the same DOI down to the
+  // highest-similarity occurrence. See spec §"Cross-source dedup".
+  return dedupByDoi(enriched);
 }

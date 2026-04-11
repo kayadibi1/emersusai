@@ -1,0 +1,63 @@
+// tests/unit/api/emersus/retrieveDatabaseEvidence-dedup.test.js
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import { dedupByDoi } from "../../../../api/emersus/retrieveDatabaseEvidence.js";
+
+// The rows returned by retrieveDatabaseEvidence are flat objects shaped
+// like { pmid, source, doi, similarity, title, ... } — dedupByDoi operates
+// on that flat shape, NOT on nested {article: {...}} matches.
+
+test("dedupByDoi keeps the highest-similarity chunk per DOI", () => {
+  const rows = [
+    { pmid: 1, source: "pubmed", similarity: 0.90, doi: "10.1/a" },
+    { pmid: 10000000001, source: "openalex", similarity: 0.95, doi: "10.1/a" },
+    { pmid: 2, source: "pubmed", similarity: 0.85, doi: "10.1/b" },
+  ];
+
+  const result = dedupByDoi(rows);
+
+  assert.equal(result.length, 2);
+  // DOI 10.1/a should be represented by the openalex version (similarity 0.95)
+  const aMatch = result.find((m) => m.doi === "10.1/a");
+  assert.equal(aMatch.similarity, 0.95);
+  assert.equal(aMatch.source, "openalex");
+  // DOI 10.1/b is unique, survives as-is
+  const bMatch = result.find((m) => m.doi === "10.1/b");
+  assert.equal(bMatch.similarity, 0.85);
+});
+
+test("dedupByDoi preserves rows without DOI", () => {
+  const rows = [
+    { pmid: 1, source: "biorxiv", similarity: 0.80, doi: null, external_id: "bx-1" },
+    { pmid: 2, source: "biorxiv", similarity: 0.75, doi: null, external_id: "bx-2" },
+    { pmid: 3, source: "pubmed", similarity: 0.90, doi: "10.1/c" },
+  ];
+
+  const result = dedupByDoi(rows);
+
+  assert.equal(result.length, 3, "both null-doi rows should survive alongside the DOI row");
+});
+
+test("dedupByDoi handles empty input", () => {
+  assert.deepEqual(dedupByDoi([]), []);
+});
+
+test("dedupByDoi treats empty-string doi as missing", () => {
+  const rows = [
+    { pmid: 1, source: "biorxiv", similarity: 0.80, doi: "" },
+    { pmid: 2, source: "pubmed", similarity: 0.90, doi: "10.1/d" },
+  ];
+  const result = dedupByDoi(rows);
+  assert.equal(result.length, 2, "empty-string doi should be treated as no-DOI");
+});
+
+test("dedupByDoi handles missing similarity as 0", () => {
+  const rows = [
+    { pmid: 1, source: "pubmed", doi: "10.1/e" }, // no similarity
+    { pmid: 2, source: "openalex", similarity: 0.01, doi: "10.1/e" },
+  ];
+  const result = dedupByDoi(rows);
+  assert.equal(result.length, 1);
+  // The one with similarity 0.01 wins over the undefined (treated as 0)
+  assert.equal(result[0].source, "openalex");
+});
