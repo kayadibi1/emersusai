@@ -1544,6 +1544,13 @@ function normalizeVectorEvidenceRow(row) {
     summary: normalizeText(row.chunk_text, 600),
     similarity: clamp(Number(row.similarity || 0), 0, 1),
     database_score: clamp(Number(row.similarity || 0), 0, 1),
+    // Credibility/impact signals from retrieveDatabaseEvidence — flow
+    // into rankEvidence's scoreEvidenceImpact() + get surfaced in the
+    // final evidence object so the UI / confidence score can show them.
+    rcr: row.rcr ?? null,
+    citation_count: row.citation_count ?? null,
+    influential_citation_count: row.influential_citation_count ?? null,
+    publication_country: row.publication_country ?? null,
     source_type: "pubmed_vector",
     evidence_level: publicationTypes.join(", "),
     published_at: publicationDate || publicationYear,
