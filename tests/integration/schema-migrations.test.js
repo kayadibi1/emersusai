@@ -47,7 +47,8 @@ test("all 20260412 migrations apply cleanly to an empty DB", async () => {
       CREATE INDEX pubmed_articles_pmid_idx ON public.pubmed_articles(pmid);
       CREATE TABLE IF NOT EXISTS public.evidence_chunks (
         id bigserial PRIMARY KEY,
-        article_id bigint,
+        pmid bigint,
+        chunk_type text,
         content text,
         embedding vector(1536)
       );
