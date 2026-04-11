@@ -1,0 +1,25 @@
+{
+  "total": 2,
+  "documents": [
+    {
+      "id": "ep-123456",
+      "doi": "10.1002/14651858.CD009832.pub2",
+      "title": "Creatine supplementation for muscle growth: a systematic review",
+      "abstract": "Background: Creatine is widely used as an ergogenic aid. This systematic review evaluates the efficacy of creatine supplementation for increasing muscle mass in healthy adults.",
+      "publication_year": 2020,
+      "journal": "Cochrane Database of Systematic Reviews",
+      "authors": ["Smith J", "Jones K", "Brown L"],
+      "document_type": "systematic-review"
+    },
+    {
+      "id": "ep-234567",
+      "doi": "10.1016/j.clnu.2019.04.007",
+      "title": "Creatine supplementation in endurance athletes: a meta-analysis",
+      "abstract": "Purpose: To assess the effect of creatine on endurance performance. Methods: Pooled analysis of 14 randomized controlled trials.",
+      "publication_year": 2019,
+      "journal": "Clinical Nutrition",
+      "authors": ["Garcia M", "Lopez R"],
+      "document_type": "systematic-review"
+    }
+  ]
+}
