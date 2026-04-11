@@ -1,0 +1,67 @@
+{
+  "messages": [
+    {
+      "status": "ok",
+      "category": "all",
+      "interval": "2026-01-01:2026-04-11",
+      "funder": "all",
+      "cursor": 0,
+      "count": 3,
+      "count_new_papers": "4264",
+      "total": 3
+    }
+  ],
+  "collection": [
+    {
+      "title": "Neuromechanical gait signatures reveal holistic biomechanical responses to walking speed modulation in stroke survivors",
+      "authors": "Rosenberg, M. C.; Winner, T. S.; Berman, G. J.; Ting, L. H.; Kesar, T. M.",
+      "author_corresponding": "Trisha M Kesar",
+      "author_corresponding_institution": "Emory University",
+      "doi": "10.1101/2022.12.14.22283438",
+      "date": "2026-01-01",
+      "version": "4",
+      "type": "PUBLISHAHEADOFPRINT",
+      "license": "cc_by",
+      "category": "rehabilitation medicine and physical therapy",
+      "jatsxml": "https://www.medrxiv.org/content/early/2026/01/01/2022.12.14.22283438.source.xml",
+      "abstract": "During gait rehabilitation, determining the walking speed that optimizes an individuals biomechanical gait quality is challenging because discrete biomechanical variables used to quantify gait quality change differentially with speed. We recently developed gait signatures that may provide a holistic representation of biomechanical gait quality by implicitly modeling the neuromechanical dynamics of walking. Here, we characterized speed-induced changes in post-stroke gait signatures and their relationship to 14 discrete biomechanical variables in 19 stroke survivors and 5 able-bodied adults walking at 6 speeds. With increasing speed, post-stroke gait signatures became more like able-bodied gait signatures, suggesting improved gait quality. Inter-individual differences in the direction that post-stroke gait signatures changed with speed relative to able-bodied signatures were correlated with walking function (e.g., walking speed; r2=0.53) and discrete biomechanical variables (e.g., paretic-leg propulsion; r2=0.57). These findings suggest that how post-stroke gait signatures change with speed relative to able-bodied signatures reflects neuromechanical constraints that also impact biomechanical gait quality. Across speeds, gait signatures captured holistic biomechanical gait quality, balancing tradeoffs between improved paretic-leg biomechanics and worsened inter-limb asymmetry and gait compensations (r2=0.77). Gait signatures may, therefore, be useful in holistic assessment of inter-and intra-individual differences in biomechanical gait quality, potentially informing rehabilitation personalization.",
+      "funder": "NA",
+      "published": "NA",
+      "server": "medRxiv"
+    },
+    {
+      "title": "Prodromal Lewy body disorder features in REM sleep behavior disorder with synuclein disease",
+      "authors": "Weintraub, D.",
+      "author_corresponding": "Daniel Weintraub",
+      "author_corresponding_institution": "U. of Pennsylvania",
+      "doi": "10.64898/2025.12.24.25342976",
+      "date": "2026-01-01",
+      "version": "1",
+      "type": "PUBLISHAHEADOFPRINT",
+      "license": "cc_by_nc_nd",
+      "category": "neurology",
+      "jatsxml": "https://www.medrxiv.org/content/early/2026/01/01//2025.12.24.25342976.source.xml",
+      "abstract": "Isolated rapid eye movement sleep behavior disorder (iRBD) is a prodromal state for Lewy body disorders, with the highest likelihood of long-term conversion to a clinical diagnosis of either Parkinsons disease (PD) or dementia with Lewy bodies (DLB). There is heterogeneity in the neuropathophysiology of iRBD that may have prognostic significance regarding the ultimate clinical features, and previous research has not focused on iRBD biologically defined as having neuronal synuclein disease (NSD) present.\n\nParkinsons Progression Markers Initiative (PPMI) is a longitudinal, observational, multi-center natural history study. PPMI participants with recently-diagnosed, polysomnogram-confirmed iRBD and who were cerebrospinal fluid neuronal -synuclein seed amplification assay positive without a clinical diagnosis of PD or DLB, were examined for the clinical characteristics of prodromal PD and DLB, including mild cognitive impairment (MCI), subthreshold parkinsonism, and a range of neuropsychiatric, autonomic and sensory symptoms, and compared with a group of internal, robust healthy controls (HCs). iRBD participants (N=197) performed worse cognitively than the HC group (N=136), including on a cognitive summary score (p<0.0003, effect size = 0.41). In addition, the iRBD group was more likely to have subthreshold parkinsonism (odds ratio = 24.5, p<0.0001), neuropsychiatric symptoms (odds ratio = 3.5, p<0.0001), autonomic symptoms (odds ratio = 7.2, p<0.0001) and sensory symptoms (odds ratio = 13.2, p<0.0001) compared with the HCs. In the iRBD group, the most common symptoms or features were hyposmia (75%), pain (54%), urinary problems (52%), constipation (49%), lightheadedness (40%) and anxiety (36%). In contrast, rates of mild cognitive impairment (MCI; 32%), subthreshold parkinsonism (27%) and psychosis (7%) were lower. iRBD participants with an abnormal dopamine transporter SPECT scan (DaTscan) had higher anxiety scores and more frequent antidepressant use than those with a normal DaTscan. Only 10% of iRBD participants met diagnostic criteria for prodromal DLB criteria due to the requirement for MCI as a defining feature. However, treating MCI as just one of five possible clinical domains, multi-domain impairment in wide-ranging combinations affected the majority of iRBD participants.\n\nIn summary, persons with iRBD and positive CSF neuronal -synuclein testing, but without a clinically-diagnosed neurodegenerative disorder, have cognitive deficits of moderate effect size, and also have elevated rates of subthreshold parkinsonism and symptoms across neuropsychiatric, autonomic, and sensory domains, compared with healthy controls. These findings highlight the importance of assessing multiple clinical domains and symptoms in early biologically-defined synuclein disease without a formal neurodegenerative disease diagnosis, and not anchoring diagnostic criteria solely to motor symptoms or cognitive impairment.",
+      "funder": "NA",
+      "published": "NA",
+      "server": "medRxiv"
+    },
+    {
+      "title": "Genomic profiling implicates candidate genes and mutagenic pathways driving lung cancer recurrence",
+      "authors": "Luhari, L.; Valter, A.; Bahcheli, A. T.; Cheng, K. C.; Bayati, M.; Ustav, A.; Velthut-Meikas, A.; Oselin, K.; Reimand, J.",
+      "author_corresponding": "Jüri Reimand",
+      "author_corresponding_institution": "Ontario Institute for Cancer Research",
+      "doi": "10.64898/2025.12.24.25342926",
+      "date": "2026-01-01",
+      "version": "1",
+      "type": "PUBLISHAHEADOFPRINT",
+      "license": "cc_by_nc",
+      "category": "oncology",
+      "jatsxml": "https://www.medrxiv.org/content/early/2026/01/01//2025.12.24.25342926.source.xml",
+      "abstract": "Lung cancer remains the leading cause of cancer-related deaths worldwide, with tumor recurrence a major contributor to its high mortality. The genetic and molecular mechanisms of recurrence remain poorly understood. Using whole-exome sequencing of 155 primary non-small cell lung cancers, we studied the mutational landscape and driver alterations associated with recurrence. Primary tumors that developed recurrence had higher mutational burden, including hypermutated tumors explained by mutations in DNA polymerase or mismatch repair pathways. Mutational signatures of reactive oxygen species were associated with recurrence. Combined mutations in TP53 and CDKN2A were enriched in non-recurrent tumors, while ATRNL1 mutations were enriched in recurrent tumors. Pathway analyses implicated DNA repair and cilium organisation processes with tumor recurrence and highlighted 50 additional candidate genes including BRCA2. Recurrence-associated genes showed essentiality in lung cancer cell lines and included known therapeutic markers, indicating their functional and translational relevance. This analysis provides insights into the molecular basis of lung cancer recurrence and informs experiments to develop diagnostic and therapeutic strategies.",
+      "funder": "NA",
+      "published": "NA",
+      "server": "medRxiv"
+    }
+  ]
+}
