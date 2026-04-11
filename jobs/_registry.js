@@ -53,7 +53,12 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
    * The work callback receives a job or array of jobs (pg-boss v10 batch mode).
    * Constructs ctx via makeContext, calls handler(ctx, deps), and tracks throughput.
    */
-  const register = (name, handler, options = {}) => {
+  const register = async (name, handler, options = {}) => {
+    // pg-boss v10: boss.work() registers the handler but does NOT create
+    // the queue row. Calls to boss.send(name, ...) from a handler silently
+    // no-op if the queue doesn't exist. Call createQueue explicitly for
+    // every registered handler. Idempotent — duplicate creates are fine.
+    await boss.createQueue(name);
     return boss.work(name, options, async (job) => {
       const jobRow = Array.isArray(job) ? job[0] : job;
       const { makeContext } = await import("../worker/context.js");
@@ -84,20 +89,8 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   await register("send-alert",               sendAlertHandler);
 
   // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness).
-  // boss.schedule() foreign-keys against pgboss.queue which is only populated
-  // when a queue is explicitly created or a job is sent/fetched. We call
-  // boss.createQueue() for each scheduled job to ensure the row exists before
-  // scheduling. This is idempotent — pg-boss ignores duplicate createQueue calls.
-  const scheduledQueues = [
-    "discovery-weekly",
-    "detect-failure-clusters",
-    "alert-daily-digest",
-    "cleanup-job-progress",
-  ];
-  for (const qname of scheduledQueues) {
-    await boss.createQueue(qname);
-  }
-
+  // Queues were already created above in register() so schedule() can
+  // attach its FK cleanly.
   await boss.schedule("discovery-weekly",        "0 3 * * 1", {},                          { tz: "America/New_York" });
   await boss.schedule("detect-failure-clusters", "*/5 * * * *", {},                        { tz: "America/New_York" });
   await boss.schedule("alert-daily-digest",      "0 8 * * *",  {},                         { tz: "America/New_York" });
