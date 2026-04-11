@@ -3,6 +3,7 @@ import { retrieveDatabaseEvidence as retrieveVectorDatabaseEvidence } from "./re
 import {
   scoreEvidenceFreshness,
   scoreEvidenceQuality,
+  scoreEvidenceImpact,
   rankEvidence,
   dedupeEvidence,
 } from "./rerank.js";
@@ -2603,13 +2604,33 @@ function computeConfidence({ plan, evidence }) {
     (source) =>
       scoreEvidenceQuality(source.evidence_level, source.source_type) >= 0.84
   ).length;
+  // High-impact = field-normalized citation rate meaningfully above
+  // average. scoreEvidenceImpact(RCR ~3.5) ≈ 0.7; any source with an
+  // iCite RCR of roughly 3.5+ clears the bar. Papers with no RCR data
+  // (NULL → scorer returns 0.5) do NOT count toward impactSupport,
+  // which is the right behavior: they're neither a positive nor a
+  // negative confidence signal.
+  const highImpactSourceCount = sources.filter(
+    (source) => scoreEvidenceImpact(source.rcr) >= 0.7
+  ).length;
   const recencySupport = totalSources ? recentSourceCount / totalSources : 0;
   const qualitySupport = totalSources ? highQualitySourceCount / totalSources : 0;
+  const impactSupport = totalSources ? highImpactSourceCount / totalSources : 0;
   const coverageSupport = Math.min(totalSources / 4, 1);
   const riskPenalty = plan.riskLevel === "medium" ? 0.08 : 0;
 
+  // Weights sum (pre-clamp): 0.20 base + 0.30 recency + 0.25 quality +
+  // 0.10 impact + 0.20 coverage = 1.05, matching the previous total
+  // before impact was added. Impact took 0.05 each from recency and
+  // quality rather than diluting coverage, which is already doing
+  // double duty as a "did we retrieve enough sources" check.
   const score = clamp(
-    0.2 + recencySupport * 0.35 + qualitySupport * 0.3 + coverageSupport * 0.2 - riskPenalty,
+    0.2 +
+      recencySupport * 0.3 +
+      qualitySupport * 0.25 +
+      impactSupport * 0.1 +
+      coverageSupport * 0.2 -
+      riskPenalty,
     0.18,
     0.95
   );
