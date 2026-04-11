@@ -147,12 +147,115 @@ test("uses all ingestion sources when sourceIds not provided (registry seeded ex
   // Only run this test if at least one source is registered
   if (allSources.length === 0) return;
 
+  // Filter out deprioritized + disabled sources that the handler skips
+  const DEPRIORITIZED = new Set(["crossref", "doaj"]);
+  const disabled = new Set(
+    (process.env.INGEST_DISABLED_SOURCES || "").split(",").map((s) => s.trim()).filter(Boolean),
+  );
+  const legacySupported = new Set(["pubmed"]);
+  const expected = process.env.MULTI_SOURCE_ENABLED === "true"
+    ? allSources.filter((s) => !DEPRIORITIZED.has(s.id) && !disabled.has(s.id))
+    : allSources.filter((s) => legacySupported.has(s.id) && !DEPRIORITIZED.has(s.id) && !disabled.has(s.id));
+
   const sql = makeSql({ topicRows: [FAKE_TOPIC] });
   const boss = makeBoss();
   const ctx = makeCtx({ topicId: 42 }); // no sourceIds → use all
 
   const out = await ingestTopicHandler(ctx, { sql, boss });
 
-  assert.equal(out.sourceCount, allSources.length);
-  assert.equal(boss.sent.length, allSources.length);
+  assert.equal(out.sourceCount, expected.length);
+  assert.equal(boss.sent.length, expected.length);
+});
+
+test("when MULTI_SOURCE_ENABLED is unset, only pubmed source is routed", async () => {
+  const originalFlag = process.env.MULTI_SOURCE_ENABLED;
+  delete process.env.MULTI_SOURCE_ENABLED;
+  try {
+    // Register biorxiv + europepmc alongside pubmed so the available list
+    // has multiple sources. The handler should still filter to pubmed.
+    await import("../../../scripts/sources/europepmc.js");
+    await import("../../../scripts/sources/biorxiv.js");
+    const { ingestTopicHandler } = await import("../../../jobs/ingest-topic.js");
+
+    const sql = makeSql({ topicRows: [FAKE_TOPIC] });
+    const boss = makeBoss();
+    const ctx = makeCtx({ topicId: 42, sourceIds: ["pubmed", "europepmc", "biorxiv"] });
+
+    await ingestTopicHandler(ctx, { sql, boss });
+
+    assert.equal(boss.sent.length, 1, "only one source should fan out");
+    assert.equal(boss.sent[0].payload.sourceId, "pubmed");
+  } finally {
+    if (originalFlag !== undefined) process.env.MULTI_SOURCE_ENABLED = originalFlag;
+  }
+});
+
+test("when MULTI_SOURCE_ENABLED=true, all non-deprioritized sources are routed", async () => {
+  const originalFlag = process.env.MULTI_SOURCE_ENABLED;
+  process.env.MULTI_SOURCE_ENABLED = "true";
+  try {
+    await import("../../../scripts/sources/europepmc.js");
+    await import("../../../scripts/sources/biorxiv.js");
+    const { ingestTopicHandler } = await import("../../../jobs/ingest-topic.js");
+
+    const sql = makeSql({ topicRows: [FAKE_TOPIC] });
+    const boss = makeBoss();
+    const ctx = makeCtx({ topicId: 42, sourceIds: ["pubmed", "europepmc", "biorxiv"] });
+
+    await ingestTopicHandler(ctx, { sql, boss });
+
+    const sentIds = boss.sent.map(j => j.payload.sourceId).sort();
+    assert.deepEqual(sentIds, ["biorxiv", "europepmc", "pubmed"]);
+  } finally {
+    if (originalFlag !== undefined) process.env.MULTI_SOURCE_ENABLED = originalFlag;
+    else delete process.env.MULTI_SOURCE_ENABLED;
+  }
+});
+
+test("crossref and doaj are filtered out even when MULTI_SOURCE_ENABLED=true", async () => {
+  const originalFlag = process.env.MULTI_SOURCE_ENABLED;
+  process.env.MULTI_SOURCE_ENABLED = "true";
+  try {
+    await import("../../../scripts/sources/crossref.js");
+    await import("../../../scripts/sources/doaj.js");
+    const { ingestTopicHandler } = await import("../../../jobs/ingest-topic.js");
+
+    const sql = makeSql({ topicRows: [FAKE_TOPIC] });
+    const boss = makeBoss();
+    const ctx = makeCtx({ topicId: 42, sourceIds: ["pubmed", "crossref", "doaj"] });
+
+    await ingestTopicHandler(ctx, { sql, boss });
+
+    const sentIds = boss.sent.map(j => j.payload.sourceId);
+    assert.deepEqual(sentIds, ["pubmed"], "only pubmed should survive the deprioritized filter");
+  } finally {
+    if (originalFlag !== undefined) process.env.MULTI_SOURCE_ENABLED = originalFlag;
+    else delete process.env.MULTI_SOURCE_ENABLED;
+  }
+});
+
+test("INGEST_DISABLED_SOURCES env var excludes listed sources", async () => {
+  const originalFlag = process.env.MULTI_SOURCE_ENABLED;
+  const originalDisabled = process.env.INGEST_DISABLED_SOURCES;
+  process.env.MULTI_SOURCE_ENABLED = "true";
+  process.env.INGEST_DISABLED_SOURCES = "biorxiv, europepmc";
+  try {
+    await import("../../../scripts/sources/europepmc.js");
+    await import("../../../scripts/sources/biorxiv.js");
+    const { ingestTopicHandler } = await import("../../../jobs/ingest-topic.js");
+
+    const sql = makeSql({ topicRows: [FAKE_TOPIC] });
+    const boss = makeBoss();
+    const ctx = makeCtx({ topicId: 42, sourceIds: ["pubmed", "europepmc", "biorxiv"] });
+
+    await ingestTopicHandler(ctx, { sql, boss });
+
+    const sentIds = boss.sent.map(j => j.payload.sourceId);
+    assert.deepEqual(sentIds, ["pubmed"], "both biorxiv and europepmc should be filtered out");
+  } finally {
+    if (originalFlag !== undefined) process.env.MULTI_SOURCE_ENABLED = originalFlag;
+    else delete process.env.MULTI_SOURCE_ENABLED;
+    if (originalDisabled !== undefined) process.env.INGEST_DISABLED_SOURCES = originalDisabled;
+    else delete process.env.INGEST_DISABLED_SOURCES;
+  }
 });
