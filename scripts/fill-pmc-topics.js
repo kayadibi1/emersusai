@@ -258,6 +258,28 @@ const DEFAULT_TOPIC_ORDER = [
   "mechanical_tension_vs_metabolic_stress",
   "prilepin_chart_strength",
   "training_to_failure",
+
+  // ── 17. Sport-specific technique / conditioning ──────────────
+  "running_gait_mechanics",
+  "swimming_stroke_mechanics",
+  "climbing_finger_strength",
+  "climbing_forearm_endurance",
+  "bjj_conditioning",
+  "martial_arts_weight_cuts",
+  "olympic_lifting_technique",
+  "rowing_mechanics",
+  "sprint_mechanics",
+  "swim_catch_phase",
+  "underwater_dolphin_kick",
+  "wrestling_conditioning",
+  "boxing_conditioning",
+  "mma_striking_training",
+  "mma_grappling_conditioning",
+  "cycling_aerodynamics",
+  "triathlon_transitions",
+  "trail_running_biomechanics",
+  "powerlifting_technique_squat",
+  "powerlifting_technique_deadlift",
 ];
 
 const TOPIC_QUERIES = {
@@ -719,6 +741,48 @@ const TOPIC_QUERIES = {
     "(\"Prilepin chart\" OR \"Prilepin's table\" OR \"training volume prescription\") AND (\"strength training\" OR weightlifting OR powerlifting)",
   training_to_failure:
     "(\"training to failure\" OR \"muscular failure\" OR \"momentary failure\") AND (hypertrophy OR strength OR \"resistance training\")",
+
+  // ── 17. Sport-specific technique / conditioning ──────────────
+  running_gait_mechanics:
+    "(\"running gait\" OR \"running biomechanics\" OR \"footstrike pattern\" OR \"running kinematics\") AND (performance OR \"injury risk\" OR economy OR cadence)",
+  swimming_stroke_mechanics:
+    "(\"swimming stroke\" OR \"stroke mechanics\" OR \"freestyle technique\") AND (efficiency OR performance OR \"stroke rate\" OR biomechanics)",
+  climbing_finger_strength:
+    "(\"finger strength\" OR \"hangboard training\" OR \"finger flexor\" OR \"grip strength climbing\") AND (climbing OR bouldering OR \"rock climbing\")",
+  climbing_forearm_endurance:
+    "(\"forearm endurance\" OR \"forearm fatigue\" OR \"flexor digitorum\") AND (climbing OR bouldering OR \"rock climbing\")",
+  bjj_conditioning:
+    "(\"brazilian jiu-jitsu\" OR BJJ OR grappling) AND (conditioning OR \"strength training\" OR \"aerobic capacity\" OR performance)",
+  martial_arts_weight_cuts:
+    "(\"weight cutting\" OR \"rapid weight loss\" OR \"weight manipulation\") AND (\"combat sports\" OR \"mixed martial arts\" OR MMA OR boxing OR judo OR wrestling)",
+  olympic_lifting_technique:
+    "(\"olympic weightlifting\" OR \"snatch technique\" OR \"clean and jerk\") AND (biomechanics OR performance OR \"power output\" OR technique)",
+  rowing_mechanics:
+    "(rowing OR \"rowing biomechanics\" OR \"rowing stroke\") AND (performance OR \"aerobic capacity\" OR technique OR \"rowing ergometer\")",
+  sprint_mechanics:
+    "(sprinting OR \"sprint mechanics\" OR \"sprint biomechanics\" OR \"ground contact time\") AND (performance OR speed OR \"maximum velocity\" OR \"force-velocity\")",
+  swim_catch_phase:
+    "(\"swimming catch\" OR \"catch phase swimming\" OR \"entry phase swimming\") AND (technique OR propulsion OR efficiency OR freestyle)",
+  underwater_dolphin_kick:
+    "(\"underwater dolphin kick\" OR \"underwater kick\" OR \"fifth stroke\") AND (swimming OR performance OR \"streamline position\")",
+  wrestling_conditioning:
+    "(wrestling OR wrestler OR \"freestyle wrestling\" OR \"Greco-Roman wrestling\") AND (conditioning OR \"strength training\" OR \"aerobic capacity\")",
+  boxing_conditioning:
+    "(boxing OR boxer OR \"pugilistic conditioning\") AND (conditioning OR \"strength training\" OR \"aerobic capacity\" OR \"punch force\")",
+  mma_striking_training:
+    "(\"mixed martial arts\" OR MMA OR striking) AND (\"punch force\" OR \"kick velocity\" OR conditioning OR \"combat sports\")",
+  mma_grappling_conditioning:
+    "(\"mixed martial arts\" OR MMA) AND (grappling OR \"ground fighting\" OR \"isometric strength\" OR \"anaerobic conditioning\")",
+  cycling_aerodynamics:
+    "(\"cycling aerodynamics\" OR \"drag coefficient cycling\" OR \"aero position\") AND (\"time trial\" OR performance OR \"power output\")",
+  triathlon_transitions:
+    "(triathlon OR triathlete OR \"multi-sport\") AND (\"brick workout\" OR \"brick training\" OR \"run off the bike\" OR \"cycle-run transition\" OR \"transition running\")",
+  trail_running_biomechanics:
+    "(\"trail running\" OR \"off-road running\" OR \"mountain running\") AND (biomechanics OR \"injury risk\" OR terrain OR performance)",
+  powerlifting_technique_squat:
+    "(\"squat technique\" OR \"squat biomechanics\" OR \"low-bar squat\" OR \"high-bar squat\") AND (powerlifting OR strength OR \"barbell squat\")",
+  powerlifting_technique_deadlift:
+    "(\"deadlift technique\" OR \"deadlift biomechanics\" OR \"conventional deadlift\" OR \"sumo deadlift\") AND (powerlifting OR strength OR \"barbell deadlift\")",
 };
 
 function parseArgs(argv) {
