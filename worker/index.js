@@ -73,7 +73,12 @@ async function main() {
         `;
         log.info("job_progress FK verified");
       } else {
-        log.warn("job_progress FK skipped — pgboss.job uses composite PK (partitioned table); FK on id alone not possible");
+        // Orphan rows (job_progress entries pointing at deleted pgboss.job ids)
+        // accumulate instead of cascading. The scheduled cleanup-job-progress
+        // handler (Milestone 6, Task 6.10) sweeps rows older than 30 days as a
+        // blunt but sufficient remedy. Don't try to ALTER pgboss.job — that's
+        // pg-boss's schema, not ours.
+        log.warn("job_progress FK skipped — pgboss.job uses composite PK (partitioned table); FK on id alone not possible; orphans cleaned up by cleanup-job-progress job");
       }
     }
   } catch (err) {
@@ -95,7 +100,13 @@ async function main() {
   await registerHandlers({ boss, sql, log, incrementJobsProcessed: hb.incrementJobsProcessed });
   log.info("handlers registered");
 
+  // Re-entrant guard: rapid Ctrl+C or overlapping signals would otherwise
+  // call boss.stop() and pool.end() concurrently. First call wins; subsequent
+  // signals are silently ignored.
+  let shuttingDown = false;
   const shutdown = async (sig) => {
+    if (shuttingDown) return;
+    shuttingDown = true;
     log.info(`received ${sig}, shutting down`);
     stopHeartbeat(hb);
     await boss.stop({ graceful: true, wait: true });

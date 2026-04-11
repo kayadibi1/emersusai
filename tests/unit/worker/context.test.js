@@ -20,6 +20,21 @@ test("makeContext exposes data, signal, progress, abort", () => {
   assert.equal(ctx.signal.aborted, true);
 });
 
+test("makeContext defaults data to {} when jobRow.data is undefined", () => {
+  const fakeSql = async () => ({ rows: [] });
+  const ctx = makeContext({ id: "job-no-data" }, fakeSql);
+  assert.deepEqual(ctx.data, {});
+});
+
+test("makeContext rejects invalid progress levels", async () => {
+  const fakeSql = async () => ({ rows: [] });
+  const ctx = makeContext({ id: "job-bad-level", data: {} }, fakeSql);
+  await assert.rejects(
+    () => ctx.progress("oops", "critical"),
+    /bad level/
+  );
+});
+
 test("progress() inserts into job_progress via the sql tag", async () => {
   const inserts = [];
   const fakeSql = async (strings, ...vals) => {
