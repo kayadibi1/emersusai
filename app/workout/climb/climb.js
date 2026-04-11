@@ -8,6 +8,7 @@ import {
   upsertWorkoutLogs,
 } from "/shared/supabase.js";
 import { GRADE_SYSTEMS, defaultSystemForStyle } from "/shared/climbing-grades.js";
+import { reconcileSendTypeForAttempts } from "/shared/climbing-send-type.js";
 import { ShareModal, SHARE_MODAL_CSS } from "/shared/share-modal.js";
 import { buildClimbCardData } from "/shared/share-card.js";
 
@@ -47,6 +48,14 @@ function AddRouteModal({ initial, gradeSystem, onSave, onCancel }) {
     if (type === "flash" && attempts !== 1) setAttempts(1);
   };
 
+  const changeAttempts = (delta) => {
+    const next = Math.max(1, attempts + delta);
+    if (next === attempts) return;
+    setAttempts(next);
+    const reconciled = reconcileSendTypeForAttempts(sendType, next);
+    if (reconciled !== sendType) setSendType(reconciled);
+  };
+
   const canSave = !!grade;
 
   return h(
@@ -69,9 +78,9 @@ function AddRouteModal({ initial, gradeSystem, onSave, onCancel }) {
       h("div", { className: "counter-row" },
         h("span", null, "Attempts"),
         h("div", { className: "counter-controls" },
-          h("button", { className: "counter-btn", onClick: () => setAttempts((a) => Math.max(1, a - 1)) }, "−"),
+          h("button", { className: "counter-btn", onClick: () => changeAttempts(-1) }, "−"),
           h("span", { style: { fontSize: "1.05rem", fontWeight: 800, minWidth: 24, textAlign: "center" } }, attempts),
-          h("button", { className: "counter-btn", onClick: () => setAttempts((a) => a + 1) }, "+"),
+          h("button", { className: "counter-btn", onClick: () => changeAttempts(1) }, "+"),
         )
       ),
       h("div", { className: "toggle-row" },
@@ -103,7 +112,7 @@ function AddRouteModal({ initial, gradeSystem, onSave, onCancel }) {
           grade,
           grade_system: gradeSystem,
           attempts,
-          send_type: sendType,
+          send_type: reconcileSendTypeForAttempts(sendType, attempts),
           name: routeName.trim() || null,
         }),
       }, "Log route"),
