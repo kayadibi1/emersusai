@@ -142,6 +142,26 @@ const DEFAULT_TOPIC_ORDER = [
   "mental_fatigue",
   "focus",
   "circadian_rhythm",
+
+  // ══ NEW DOMAINS ══
+
+  // ── 11. Women's health / female physiology ───────────────────
+  "menstrual_cycle_training",
+  "perimenopause_training",
+  "postmenopause_training",
+  "pregnancy_exercise",
+  "postpartum_return_to_training",
+  "pcos_and_exercise",
+  "low_energy_availability",
+  "hormonal_contraception_training",
+  "female_strength_norms",
+  "female_athlete_triad",
+  "menarche_training",
+  "pelvic_floor_training",
+  "diastasis_recti",
+  "female_hypertrophy_protocols",
+  "female_sex_hormones_performance",
+  "breast_support_exercise",
 ];
 
 const TOPIC_QUERIES = {
@@ -387,6 +407,40 @@ const TOPIC_QUERIES = {
     "(focus OR attention OR concentration OR \"cognitive performance\") AND (exercise OR caffeine OR \"pre-workout\" OR \"athletic performance\")",
   circadian_rhythm:
     "(\"circadian rhythm\" OR chronobiology OR \"time of day\" OR chronotype) AND (exercise OR \"resistance training\" OR performance OR sleep)",
+
+  // ── 11. Women's health / female physiology ───────────────────
+  menstrual_cycle_training:
+    "(\"menstrual cycle\" OR luteal OR follicular OR \"menstrual phase\" OR \"ovarian hormones\") AND (\"resistance training\" OR strength OR endurance OR \"exercise performance\" OR \"athletic performance\")",
+  perimenopause_training:
+    "(perimenopause OR \"menopausal transition\" OR \"menopause transition\") AND (\"resistance training\" OR exercise OR \"bone density\" OR \"body composition\" OR \"physical activity\")",
+  postmenopause_training:
+    "(postmenopause OR \"post-menopausal\" OR \"postmenopausal women\") AND (\"resistance training\" OR exercise OR \"bone density\" OR sarcopenia OR \"body composition\")",
+  pregnancy_exercise:
+    "(pregnancy OR \"pregnant women\" OR gestation OR gestational) AND (exercise OR \"resistance training\" OR \"aerobic exercise\" OR \"physical activity\" OR safety)",
+  postpartum_return_to_training:
+    "(postpartum OR \"post-natal\" OR \"postnatal recovery\") AND (\"return to exercise\" OR \"return to sport\" OR \"resistance training\" OR \"pelvic floor\")",
+  pcos_and_exercise:
+    "(\"polycystic ovary syndrome\" OR PCOS) AND (exercise OR \"resistance training\" OR \"insulin sensitivity\" OR \"body composition\")",
+  low_energy_availability:
+    "(\"relative energy deficiency in sport\" OR \"RED-S\" OR \"REDs\" OR \"low energy availability\") AND (athlete OR training OR \"bone health\" OR \"menstrual dysfunction\")",
+  hormonal_contraception_training:
+    "(\"oral contraceptive\" OR \"hormonal contraception\" OR \"combined contraceptive pill\") AND (\"exercise performance\" OR \"resistance training\" OR \"muscle protein synthesis\" OR strength)",
+  female_strength_norms:
+    "(\"female athletes\" OR \"women's strength\" OR \"female strength\" OR \"sex differences strength\") AND (\"resistance training\" OR \"strength training\" OR hypertrophy OR \"muscle quality\")",
+  female_athlete_triad:
+    "(\"female athlete triad\" OR \"athlete triad\") AND (\"bone health\" OR \"menstrual dysfunction\" OR \"energy availability\" OR \"stress fracture\")",
+  menarche_training:
+    "(menarche OR \"menstrual onset\" OR \"premenarcheal\" OR \"peri-menarcheal\") AND (training OR \"physical activity\" OR \"youth athletes\" OR \"bone development\")",
+  pelvic_floor_training:
+    "(\"pelvic floor\" OR \"pelvic floor muscle training\" OR \"Kegel exercise\") AND (exercise OR \"return to sport\" OR postpartum OR incontinence)",
+  diastasis_recti:
+    "(\"diastasis recti\" OR \"diastasis rectus abdominis\" OR \"abdominal separation\") AND (exercise OR postpartum OR rehabilitation OR \"core training\")",
+  female_hypertrophy_protocols:
+    "(\"female hypertrophy\" OR \"women hypertrophy\" OR \"sex-specific training\") AND (\"resistance training\" OR \"muscle growth\" OR \"protein synthesis\")",
+  female_sex_hormones_performance:
+    "(estrogen OR estradiol OR progesterone OR \"sex hormones\") AND (\"exercise performance\" OR \"resistance training\" OR \"muscle protein synthesis\" OR endurance)",
+  breast_support_exercise:
+    "(\"sports bra\" OR \"breast support\" OR \"breast pain exercise\" OR \"breast biomechanics\") AND (exercise OR running OR \"physical activity\")",
 };
 
 function parseArgs(argv) {
