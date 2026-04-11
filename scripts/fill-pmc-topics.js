@@ -145,9 +145,12 @@ const DEFAULT_TOPIC_ORDER = [
 ];
 
 const TOPIC_QUERIES = {
-  creatine: "creatine AND resistance training",
-  protein: "protein intake AND hypertrophy",
-  hypertrophy: "hypertrophy AND resistance training",
+  creatine:
+    "(creatine OR \"creatine monohydrate\" OR phosphocreatine) AND (\"resistance training\" OR strength OR hypertrophy OR \"exercise performance\")",
+  protein:
+    "(\"protein intake\" OR \"dietary protein\" OR \"protein supplementation\" OR \"whey protein\") AND (hypertrophy OR \"muscle protein synthesis\" OR \"lean mass\" OR \"resistance training\")",
+  hypertrophy:
+    "(hypertrophy OR \"muscle growth\" OR \"muscle hypertrophy\" OR \"lean mass gain\") AND (\"resistance training\" OR \"strength training\" OR \"muscle protein synthesis\")",
   strength: "strength training OR maximal strength OR resistance training adaptation",
   power: "power training OR explosive performance OR rate of force development",
   fat_loss: "fat loss AND body composition AND resistance training",
@@ -156,26 +159,28 @@ const TOPIC_QUERIES = {
   endurance: "zone 2 OR vo2 max OR endurance training",
   concurrent_training:
     "\"concurrent training\" OR ((endurance training) AND (resistance training) AND interference)",
-  sleep: "sleep AND athletic recovery",
+  sleep:
+    "(sleep OR \"sleep duration\" OR \"sleep quality\" OR \"sleep deprivation\" OR \"sleep extension\") AND (\"athletic recovery\" OR \"exercise performance\" OR \"muscle protein synthesis\" OR \"muscle recovery\")",
   recovery:
-    "athletic recovery OR exercise recovery OR post-exercise recovery OR training recovery",
-  caffeine: "caffeine AND exercise performance",
+    "(\"athletic recovery\" OR \"exercise recovery\" OR \"post-exercise recovery\" OR \"muscle recovery\" OR \"training recovery\") AND (sleep OR nutrition OR \"cold water immersion\" OR \"active recovery\")",
+  caffeine:
+    "(caffeine OR \"caffeine ingestion\" OR \"caffeine supplementation\") AND (\"exercise performance\" OR endurance OR \"time trial\" OR \"resistance training\" OR fatigue)",
   hydration:
-    "hydration AND (exercise performance OR athletes OR training)",
+    "(hydration OR \"fluid balance\" OR \"water intake\" OR dehydration) AND (\"exercise performance\" OR athletes OR \"thermal regulation\" OR \"endurance performance\")",
   electrolytes:
-    "(electrolytes OR sodium OR potassium) AND (exercise performance OR hydration OR athletes)",
+    "(electrolytes OR sodium OR potassium OR \"sodium chloride\" OR \"electrolyte replacement\") AND (\"exercise performance\" OR hydration OR athletes OR \"muscle cramps\")",
   meal_timing:
-    "\"meal timing\" OR nutrient timing OR pre-workout nutrition OR post-workout nutrition",
+    "(\"meal timing\" OR \"nutrient timing\" OR \"protein timing\" OR \"pre-workout nutrition\" OR \"post-workout nutrition\") AND (hypertrophy OR \"muscle protein synthesis\" OR \"exercise performance\")",
   carbohydrates:
-    "(carbohydrate intake OR glycogen OR carbohydrates) AND (exercise performance OR endurance OR resistance training)",
+    "(carbohydrate OR glycogen OR \"carbohydrate loading\" OR \"glycogen resynthesis\" OR \"carbohydrate ingestion\") AND (\"exercise performance\" OR endurance OR \"resistance training\" OR \"glucose metabolism\")",
   fiber:
-    "fiber AND (satiety OR gut health OR glycemic control OR body composition)",
+    "(fiber OR \"dietary fiber\" OR \"soluble fiber\" OR \"fermentable fiber\") AND (satiety OR \"gut health\" OR \"glycemic control\" OR \"body composition\" OR microbiome)",
   caloric_deficit:
-    "\"caloric deficit\" OR energy deficit AND (fat loss OR body composition OR resistance training)",
+    "(\"caloric deficit\" OR \"energy deficit\" OR \"hypocaloric diet\") AND (\"fat loss\" OR \"lean mass\" OR \"body composition\" OR \"resistance training\")",
   caloric_surplus:
-    "\"caloric surplus\" OR energy surplus AND (muscle gain OR hypertrophy OR resistance training)",
+    "(\"caloric surplus\" OR \"energy surplus\" OR \"hypercaloric diet\") AND (\"muscle gain\" OR hypertrophy OR \"resistance training\" OR \"lean mass\")",
   body_composition:
-    "\"body composition\" AND (exercise OR resistance training OR nutrition OR athletes)",
+    "(\"body composition\" OR \"body fat percentage\" OR \"lean body mass\" OR \"fat free mass\") AND (exercise OR \"resistance training\" OR nutrition OR athletes)",
   resting_heart_rate:
     "\"resting heart rate\" AND (exercise OR training OR fitness OR athlete)",
   vo2_max:
@@ -293,25 +298,25 @@ const TOPIC_QUERIES = {
   anabolic_agents:
     "(oxandrolone OR Anavar OR clenbuterol OR \"testosterone enanthate\" OR \"testosterone cypionate\" OR HCG OR enclomiphene) AND (muscle OR body composition OR exercise OR performance OR weight loss)",
   hrv:
-    "\"heart rate variability\" OR HRV AND (recovery OR training load OR athletes)",
+    "(\"heart rate variability\" OR HRV OR \"vagal tone\") AND (training OR overtraining OR recovery OR \"exercise performance\" OR athletes)",
   stress:
-    "stress AND (athletes OR exercise performance OR recovery OR cortisol)",
+    "(\"psychological stress\" OR \"cortisol response\" OR \"perceived stress\" OR \"allostatic load\") AND (exercise OR \"resistance training\" OR recovery OR athletes)",
   injury_prevention:
-    "\"injury prevention\" AND (athletes OR exercise OR resistance training OR sport)",
+    "(\"injury prevention\" OR \"injury reduction\" OR \"injury risk\") AND (exercise OR training OR athletes OR \"warm up\" OR \"strength training\")",
   muscle_soreness:
-    "\"muscle soreness\" OR DOMS AND (recovery OR exercise OR resistance training)",
+    "(\"delayed onset muscle soreness\" OR DOMS OR \"muscle soreness\" OR \"muscle damage\") AND (\"eccentric exercise\" OR recovery OR \"resistance training\")",
   motivation:
-    "motivation AND (exercise adherence OR training adherence OR physical activity)",
+    "(motivation OR \"exercise motivation\" OR \"self-determination theory\" OR \"autonomous motivation\") AND (\"exercise adherence\" OR \"physical activity\" OR training)",
   insulin_sensitivity:
-    "\"insulin sensitivity\" AND (exercise OR resistance training OR endurance training OR nutrition)",
+    "(\"insulin sensitivity\" OR \"insulin resistance\" OR \"glucose tolerance\") AND (\"resistance training\" OR exercise OR \"aerobic training\" OR \"HIIT\")",
   blood_glucose:
-    "(\"blood glucose\" OR glycemic control) AND (exercise OR nutrition OR athletes OR training)",
+    "(\"blood glucose\" OR glycemia OR \"postprandial glucose\" OR \"glycemic response\") AND (exercise OR \"resistance training\" OR endurance OR \"insulin sensitivity\")",
   appetite:
-    "appetite AND (exercise OR protein intake OR weight loss OR satiety)",
+    "(appetite OR \"appetite regulation\" OR satiety OR \"hunger hormones\" OR ghrelin OR leptin) AND (exercise OR \"resistance training\" OR \"energy intake\" OR \"body composition\")",
   gut_health:
-    "(gut health OR gut microbiome OR microbiota) AND (exercise OR nutrition OR athletes)",
+    "(\"gut health\" OR microbiome OR \"gut microbiota\" OR \"intestinal permeability\") AND (exercise OR athletes OR nutrition OR \"endurance training\")",
   inflammation:
-    "inflammation AND (exercise recovery OR muscle damage OR athletic performance OR training)",
+    "(inflammation OR \"inflammatory response\" OR \"exercise induced inflammation\" OR cytokines) AND (exercise OR recovery OR \"resistance training\" OR \"endurance training\")",
   blood_pressure:
     "\"blood pressure\" AND (exercise OR aerobic training OR resistance training OR nutrition)",
   cholesterol:
@@ -321,31 +326,31 @@ const TOPIC_QUERIES = {
   metabolic_syndrome:
     "\"metabolic syndrome\" AND (exercise OR diet OR physical activity)",
   mitochondrial_function:
-    "\"mitochondrial function\" OR mitochondrial biogenesis AND (exercise OR endurance training OR metabolism)",
+    "(\"mitochondrial function\" OR \"mitochondrial biogenesis\" OR \"mitochondrial density\") AND (exercise OR \"endurance training\" OR \"resistance training\" OR aging)",
   bone_density:
-    "\"bone density\" OR BMD AND (resistance training OR exercise OR vitamin D)",
+    "(\"bone density\" OR \"bone mineral density\" OR BMD OR osteoporosis OR osteopenia) AND (exercise OR \"resistance training\" OR \"impact loading\" OR \"weight bearing\")",
   joint_health:
-    "\"joint health\" AND (exercise OR supplementation OR recovery)",
+    "(\"joint health\" OR \"joint function\" OR \"cartilage health\" OR osteoarthritis) AND (exercise OR \"resistance training\" OR \"joint loading\" OR supplementation)",
   tendon_health:
-    "\"tendon health\" OR tendinopathy AND (loading OR collagen OR exercise)",
+    "(\"tendon health\" OR \"tendon stiffness\" OR \"tendon adaptation\" OR \"tendon loading\" OR tendinopathy) AND (exercise OR \"resistance training\" OR \"eccentric loading\" OR collagen)",
   mobility:
-    "mobility AND (range of motion OR flexibility OR resistance training OR performance)",
+    "(mobility OR \"range of motion\" OR flexibility OR \"dynamic flexibility\") AND (exercise OR \"resistance training\" OR \"athletic performance\" OR aging)",
   warm_up:
-    "\"warm up\" OR warm-up AND (performance OR injury prevention OR exercise)",
+    "(\"warm up\" OR \"warm-up\" OR \"dynamic warm-up\" OR \"movement preparation\") AND (\"exercise performance\" OR \"injury prevention\" OR \"power output\")",
   cool_down:
-    "\"cool down\" OR cooldown AND (recovery OR exercise)",
+    "(\"cool down\" OR cooldown OR \"active recovery\") AND (\"exercise recovery\" OR \"lactate clearance\" OR \"muscle soreness\")",
   deload:
-    "deload AND (resistance training OR periodization OR recovery)",
+    "(deload OR \"deload week\" OR \"training tapering\" OR \"recovery week\") AND (\"resistance training\" OR periodization OR recovery OR overtraining)",
   periodization:
-    "periodization AND (resistance training OR endurance training OR performance)",
+    "(periodization OR \"periodized training\" OR \"training periodization\") AND (\"resistance training\" OR \"endurance training\" OR \"strength training\" OR performance)",
   volume:
-    "\"training volume\" AND (hypertrophy OR strength OR endurance)",
+    "(\"training volume\" OR \"weekly volume\" OR \"total tonnage\" OR \"sets per muscle\" OR \"hard sets\") AND (hypertrophy OR strength OR \"resistance training\" OR \"dose response\")",
   frequency:
-    "\"training frequency\" AND (hypertrophy OR strength OR resistance training)",
+    "(\"training frequency\" OR \"weekly frequency\" OR \"session frequency\") AND (hypertrophy OR strength OR \"resistance training\" OR adaptation)",
   intensity:
-    "\"training intensity\" AND (hypertrophy OR strength OR endurance)",
+    "(\"training intensity\" OR \"relative intensity\" OR \"percent of 1RM\" OR \"one repetition maximum\") AND (hypertrophy OR strength OR endurance)",
   exercise_selection:
-    "\"exercise selection\" AND (hypertrophy OR strength OR resistance training)",
+    "(\"exercise selection\" OR \"exercise variation\" OR \"exercise rotation\" OR \"compound exercises\") AND (hypertrophy OR strength OR \"resistance training\" OR \"muscle activation\")",
   hinge_exercises:
     "(\"Romanian deadlift\" OR \"Romanian deadlifts\" OR \"stiff-leg deadlift\" OR \"stiff-legged deadlift\" OR \"hip hinge\" OR deadlift) AND (resistance training OR strength OR hypertrophy OR biomechanics)",
   unilateral_leg_exercises:
@@ -373,15 +378,15 @@ const TOPIC_QUERIES = {
   fitness_programs:
     "(\"5/3/1\" OR Wendler OR GZCLP OR nSuns OR PHUL OR PHAT OR \"linear progression\" OR \"power hypertrophy\" OR \"beginner resistance training program\" OR \"periodized resistance training\") AND (resistance training OR strength OR hypertrophy)",
   adherence:
-    "adherence AND (exercise program OR nutrition intervention OR athletes)",
+    "(\"exercise adherence\" OR \"training adherence\" OR \"physical activity maintenance\") AND (intervention OR behavior OR habit OR motivation)",
   habit_formation:
-    "\"habit formation\" AND (exercise adherence OR physical activity OR nutrition behavior)",
+    "(\"habit formation\" OR \"behavior change\" OR \"habit automaticity\") AND (exercise OR \"physical activity\" OR diet OR \"health behavior\")",
   mental_fatigue:
-    "\"mental fatigue\" AND (exercise performance OR endurance OR cognitive performance)",
+    "(\"mental fatigue\" OR \"cognitive fatigue\" OR \"central fatigue\") AND (\"exercise performance\" OR endurance OR \"resistance training\" OR \"perceived exertion\")",
   focus:
-    "focus AND (exercise performance OR cognition OR caffeine OR athletes)",
+    "(focus OR attention OR concentration OR \"cognitive performance\") AND (exercise OR caffeine OR \"pre-workout\" OR \"athletic performance\")",
   circadian_rhythm:
-    "\"circadian rhythm\" AND (sleep OR exercise timing OR athletic performance OR sunlight)",
+    "(\"circadian rhythm\" OR chronobiology OR \"time of day\" OR chronotype) AND (exercise OR \"resistance training\" OR performance OR sleep)",
 };
 
 function parseArgs(argv) {
