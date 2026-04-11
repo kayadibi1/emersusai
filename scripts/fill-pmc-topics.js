@@ -1,6 +1,6 @@
 import "dotenv/config";
 import { parseArgs } from "node:util";
-import { runAsJob } from "./lib/run-as-job.js";
+import PgBoss from "pg-boss";
 import pg from "pg";
 
 const DEFAULT_TARGET_PER_TOPIC = 2000;
@@ -990,19 +990,15 @@ const { values } = parseArgs({
   },
 });
 
-// Lightweight helper: enqueue without tailing (used in the batch loop below)
-// so we don't serialize per-topic tail output. For full tail, use the admin
-// UI's jobs view or run `scripts/jobs-tail.js <jobId>` on one specific job.
-async function runAsJobDetached(jobName, payload) {
-  await runAsJob(jobName, payload, { detach: true });
-}
-
 if (import.meta.url === `file://${process.argv[1].replace(/\\\\/g, "/")}` || process.argv[1].endsWith("fill-pmc-topics.js")) {
   const dbUrl = process.env.DATABASE_URL;
   if (!dbUrl) {
     console.error("DATABASE_URL not set");
     process.exit(2);
   }
+
+  // Load the target topic list from research_topics (single source of
+  // truth at runtime per spec §4.3). Use --topic=key to filter.
   const client = new pg.Client({ connectionString: dbUrl });
   await client.connect();
   let topicRows;
@@ -1023,11 +1019,42 @@ if (import.meta.url === `file://${process.argv[1].replace(/\\\\/g, "/")}` || pro
     await client.end();
   }
 
-  console.error(`[fill-pmc-topics] enqueueing ingest-topic for ${topicRows.length} topics`);
-  for (const row of topicRows) {
-    console.error(`  ${row.topic_key} (id=${row.id})`);
-    await runAsJobDetached("ingest-topic", { topicId: row.id });
+  if (topicRows.length === 0) {
+    console.error("[fill-pmc-topics] no active topics matched the filter");
+    process.exit(1);
   }
-  console.error("[fill-pmc-topics] all topics enqueued");
+
+  // Direct pg-boss enqueue loop — we don't use runAsJob here because its
+  // detach mode process.exit()s after one enqueue and would kill the loop
+  // on iteration 1. Bulk enqueue needs a single long-lived pg-boss
+  // instance that lives across all sends in the loop.
+  const boss = new PgBoss(dbUrl);
+  boss.on("error", err => console.error(`[fill-pmc-topics] pg-boss error: ${err.message}`));
+  await boss.start();
+  await boss.createQueue("ingest-topic").catch(() => {});
+
+  console.error(`[fill-pmc-topics] enqueueing ingest-topic for ${topicRows.length} topics`);
+  let enqueued = 0;
+  for (const row of topicRows) {
+    const jobId = await boss.send(
+      "ingest-topic",
+      { topicId: row.id },
+      {
+        // singletonKey guards against duplicate in-flight jobs for the
+        // same topic (idempotent re-runs of this script).
+        singletonKey: `bulk-ingest-${row.id}`,
+        singletonHours: 24,
+      }
+    );
+    enqueued += 1;
+    if (jobId) {
+      console.error(`  [${enqueued}/${topicRows.length}] ${row.topic_key} (id=${row.id}) → ${jobId}`);
+    } else {
+      console.error(`  [${enqueued}/${topicRows.length}] ${row.topic_key} (id=${row.id}) → SKIPPED (singleton active)`);
+    }
+  }
+  console.error(`[fill-pmc-topics] done — ${enqueued}/${topicRows.length} topics enqueued`);
+
+  await boss.stop({ graceful: true });
   process.exit(0);
 }
