@@ -31,14 +31,12 @@ const CHUNK_COLUMNS = new Set([
 ]);
 const INGEST_COLUMNS = new Set([
   "file_name",
-  "filename",
   "source_path",
   "status",
   "article_count",
   "chunk_count",
   "error_message",
   "metadata",
-  "completed_at",
   "updated_at",
 ]);
 
@@ -652,15 +650,12 @@ async function logIngestIfAvailable({
         const row = pickColumns(
           {
             file_name: path.basename(inputPath),
-            filename: path.basename(inputPath),
-            file_kind: "pubmed",
             source_path: path.resolve(process.cwd(), inputPath),
             status,
             article_count: articleCount,
             chunk_count: chunkCount,
             error_message: errorMessage || null,
             metadata,
-            completed_at: new Date().toISOString(),
             updated_at: new Date().toISOString(),
           },
           ingestColumns
