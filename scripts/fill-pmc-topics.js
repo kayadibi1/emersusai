@@ -1,5 +1,7 @@
 import "dotenv/config";
-import { spawn } from "node:child_process";
+import { parseArgs } from "node:util";
+import { runAsJob } from "./lib/run-as-job.js";
+import pg from "pg";
 
 const DEFAULT_TARGET_PER_TOPIC = 2000;
 const DEFAULT_TOPIC_ORDER = [
@@ -973,170 +975,59 @@ const TOPIC_QUERIES = {
     "(\"breathing exercises\" OR \"diaphragmatic breathing\" OR \"breath work\") AND (mobility OR \"core stability\" OR \"postural control\" OR performance)",
 };
 
-function parseArgs(argv) {
-  const args = {
-    targetPerTopic: DEFAULT_TARGET_PER_TOPIC,
-    topics: [...DEFAULT_TOPIC_ORDER],
-    requestsPerSecond: undefined,
-    searchBatch: undefined,
-    skipEmbed: false,
-    dryRun: false,
-  };
+// The old per-topic spawn logic has moved into the ingest-topic +
+// ingest-topic-from-source pg-boss jobs (Milestones 5–6). This
+// wrapper now enqueues ingest-topic jobs for the topics listed in
+// the research_topics DB table — the TOPIC_QUERIES object above
+// is kept as permanent disaster-recovery seed data, consumed by
+// scripts/seed-research-topics.js.
 
-  for (const rawArg of argv) {
-    if (rawArg === "--skip-embed") {
-      args.skipEmbed = true;
-      continue;
-    }
-
-    if (rawArg === "--dry-run") {
-      args.dryRun = true;
-      continue;
-    }
-
-    const [key, ...rest] = rawArg.split("=");
-    const value = rest.join("=");
-
-    if (key === "--target-per-topic") {
-      args.targetPerTopic = Number(value || DEFAULT_TARGET_PER_TOPIC);
-    } else if (key === "--topics") {
-      args.topics = String(value || "")
-        .split(",")
-        .map((item) => item.trim().toLowerCase())
-        .filter(Boolean);
-    } else if (key === "--requests-per-second") {
-      args.requestsPerSecond = Number(value || 0);
-    } else if (key === "--search-batch") {
-      args.searchBatch = Number(value || 0);
-    }
-  }
-
-  args.targetPerTopic = Math.max(1, Math.floor(args.targetPerTopic || DEFAULT_TARGET_PER_TOPIC));
-  args.topics = args.topics.filter((topic) => TOPIC_QUERIES[topic]);
-
-  return args;
-}
-
-function printUsage() {
-  console.log("Usage:");
-  console.log(
-    '  node scripts/fill-pmc-topics.js [--target-per-topic=2000] [--topics=creatine,protein,hypertrophy] [--requests-per-second=8] [--search-batch=200] [--skip-embed] [--dry-run]'
-  );
-  console.log("");
-  console.log("Available topics:");
-  Object.keys(TOPIC_QUERIES).forEach((topic) => {
-    console.log(`  - ${topic}: ${TOPIC_QUERIES[topic]}`);
-  });
-}
-
-async function runNodeScript(scriptPath, args) {
-  await new Promise((resolve, reject) => {
-    const child = spawn(process.execPath, [scriptPath, ...args], {
-      cwd: process.cwd(),
-      env: process.env,
-      stdio: "inherit",
-      shell: false,
-    });
-
-    child.on("exit", (code) => {
-      if (code === 0) {
-        resolve();
-        return;
-      }
-
-      reject(new Error(`${scriptPath} exited with code ${code}.`));
-    });
-
-    child.on("error", reject);
-  });
-}
-
-async function main() {
-  const args = parseArgs(process.argv.slice(2));
-
-  if (!args.topics.length) {
-    printUsage();
-    process.exitCode = 1;
-    return;
-  }
-
-  console.log(`Starting multi-topic PubMed corpus fill for ${args.topics.length} topics...`);
-  console.log(`Target per topic: ${args.targetPerTopic} new unique articles`);
-  console.log(`Topic order: ${args.topics.join(", ")}`);
-
-  const failures = [];
-  const succeeded = [];
-
-  for (let index = 0; index < args.topics.length; index += 1) {
-    const topic = args.topics[index];
-    const query = TOPIC_QUERIES[topic];
-    const output = `data/pubmed-${topic}-corpus.jsonl`;
-    const rawDir = `data/pubmed-raw-${topic}`;
-    const topicArgs = [
-      `--query=${query}`,
-      `--target=${args.targetPerTopic}`,
-      `--output=${output}`,
-      `--raw-dir=${rawDir}`,
-    ];
-
-    if (args.requestsPerSecond) {
-      topicArgs.push(`--requests-per-second=${args.requestsPerSecond}`);
-    }
-
-    if (args.searchBatch) {
-      topicArgs.push(`--search-batch=${args.searchBatch}`);
-    }
-
-    if (args.skipEmbed) {
-      topicArgs.push("--skip-embed");
-    }
-
-    if (args.dryRun) {
-      topicArgs.push("--dry-run");
-    }
-
-    console.log("");
-    console.log(
-      `=== Topic ${index + 1}/${args.topics.length}: ${topic} ===`
-    );
-    console.log(`Query: ${query}`);
-
-    // Non-fatal topic failures: a transient NCBI 500, a network blip,
-    // or a malformed query on one topic should NOT wreck a multi-day
-    // fill run. Catch the child's non-zero exit, log it, and move on
-    // to the next topic. Failed topics are summarized at the end so
-    // the operator can re-run just those with --topics=.
-    try {
-      await runNodeScript("scripts/fill-pmc-corpus.js", topicArgs);
-      succeeded.push(topic);
-    } catch (err) {
-      console.warn(`\n[fill-pmc-topics] TOPIC ${topic} FAILED: ${err.message}`);
-      console.warn(`[fill-pmc-topics] continuing to next topic; will list failures at end.`);
-      failures.push(topic);
-    }
-  }
-
-  console.log("");
-  console.log(
-    `Summary: ${succeeded.length} succeeded, ${failures.length} failed out of ${args.topics.length} total.`
-  );
-  if (failures.length > 0) {
-    console.log(`Failed topics: ${failures.join(", ")}`);
-    console.log(
-      `Re-run just the failures with: node scripts/fill-pmc-topics.js --topics=${failures.join(",")}`
-    );
-  }
-
-  if (args.skipEmbed) {
-    console.log("Topic fill complete. Embeddings were skipped by request.");
-    return;
-  }
-
-  console.log("All topic fills complete.");
-}
-
-main().catch((error) => {
-  console.error("TOPIC FILL ERROR:");
-  console.error(error);
-  process.exit(1);
+const { values } = parseArgs({
+  options: {
+    topic:  { type: "string",  multiple: true },
+    all:    { type: "boolean", default: false },
+    detach: { type: "boolean", default: false },
+  },
 });
+
+// Lightweight helper: enqueue without tailing (used in the batch loop below)
+// so we don't serialize per-topic tail output. For full tail, use the admin
+// UI's jobs view or run `scripts/jobs-tail.js <jobId>` on one specific job.
+async function runAsJobDetached(jobName, payload) {
+  await runAsJob(jobName, payload, { detach: true });
+}
+
+if (import.meta.url === `file://${process.argv[1].replace(/\\\\/g, "/")}` || process.argv[1].endsWith("fill-pmc-topics.js")) {
+  const dbUrl = process.env.DATABASE_URL;
+  if (!dbUrl) {
+    console.error("DATABASE_URL not set");
+    process.exit(2);
+  }
+  const client = new pg.Client({ connectionString: dbUrl });
+  await client.connect();
+  let topicRows;
+  try {
+    if (values.all || (!values.topic || values.topic.length === 0)) {
+      const r = await client.query(
+        "SELECT id, topic_key FROM research_topics WHERE status='active' ORDER BY id"
+      );
+      topicRows = r.rows;
+    } else {
+      const r = await client.query(
+        "SELECT id, topic_key FROM research_topics WHERE topic_key = ANY($1::text[]) AND status='active'",
+        [values.topic]
+      );
+      topicRows = r.rows;
+    }
+  } finally {
+    await client.end();
+  }
+
+  console.error(`[fill-pmc-topics] enqueueing ingest-topic for ${topicRows.length} topics`);
+  for (const row of topicRows) {
+    console.error(`  ${row.topic_key} (id=${row.id})`);
+    await runAsJobDetached("ingest-topic", { topicId: row.id });
+  }
+  console.error("[fill-pmc-topics] all topics enqueued");
+  process.exit(0);
+}
