@@ -9,6 +9,7 @@ app.use(express.urlencoded({ extended: true }));
 const { default: configHandler } = await import("./api/config.js");
 const { default: contactHandler } = await import("./api/contact.js");
 const { default: waitlistHandler } = await import("./api/waitlist.js");
+const { default: notifySignupHandler } = await import("./api/notify-signup.js");
 const { default: recommendationHandler } = await import("./api/emersus/recommendation.js");
 const { default: recommendationStreamHandler } = await import("./api/emersus/recommendation-stream.js");
 
@@ -16,6 +17,7 @@ const { default: recommendationStreamHandler } = await import("./api/emersus/rec
 app.all("/api/config", configHandler);
 app.all("/api/contact", contactHandler);
 app.all("/api/waitlist", waitlistHandler);
+app.all("/api/notify-signup", notifySignupHandler);
 app.all("/api/emersus/recommendation", recommendationHandler);
 app.all("/api/emersus/recommendation-stream", recommendationStreamHandler);
 
