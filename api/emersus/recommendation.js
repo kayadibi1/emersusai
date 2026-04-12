@@ -1,8 +1,8 @@
 import {
-  generateRecommendation,
+  generateRecommendationStream,
   parseJsonBody,
   validateRequest,
-} from "./workflow.js";
+} from "./workflow-v2.js";
 import {
   buildRequestMeta,
   checkRateLimit,
@@ -29,10 +29,7 @@ export default async function handler(req, res) {
     res.setHeader("X-RateLimit-Reset", Math.ceil(rateLimit.resetAt / 1000));
 
     if (!rateLimit.allowed) {
-      const retryAfterSeconds = Math.max(
-        1,
-        Math.ceil((rateLimit.resetAt - Date.now()) / 1000)
-      );
+      const retryAfterSeconds = Math.max(1, Math.ceil((rateLimit.resetAt - Date.now()) / 1000));
       res.setHeader("Retry-After", retryAfterSeconds);
       return res.status(429).json({
         message: rateLimit.botFlagged
@@ -42,19 +39,17 @@ export default async function handler(req, res) {
     }
 
     body.requestMeta = buildRequestMeta(req);
-    const recommendation = await generateRecommendation(body);
 
-    // Track guardrail blocks for bot scoring
-    if (recommendation?.guardrail?.status === "hard_refusal") {
-      recordGuardrailBlockForRateLimit(req);
-    }
-
-    return res.status(200).json(recommendation);
+    // Stream SSE directly to the client.
+    // ShortCircuit responses (onboarding, guardrail refusal) are sent as JSON
+    // by generateRecommendationStream — the client detects via Content-Type.
+    await generateRecommendationStream(body, res);
   } catch (error) {
-    const statusCode = Number(error.statusCode || error.status || 500);
-
-    return res.status(statusCode).json({
-      message: error.message || "Unable to generate an Emersus recommendation.",
-    });
+    if (!res.headersSent) {
+      const statusCode = Number(error.statusCode || error.status || 500);
+      return res.status(statusCode).json({
+        message: error.message || "Unable to generate an Emersus recommendation.",
+      });
+    }
   }
 }
