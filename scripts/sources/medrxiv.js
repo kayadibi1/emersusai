@@ -14,6 +14,13 @@ import { parseQueryIntoGroups, matchesQueryGroups } from "./_query-match.js";
 const BASE_URL = "https://api.biorxiv.org/details/medrxiv";
 const PAGE_SIZE = 100;
 
+// Early-termination knobs. Same rationale as biorxiv.js — the medRxiv
+// API has no keyword search, so we pull chunked date ranges and filter
+// client-side. Bail after N consecutive zero-match chunks and cap pages
+// per chunk. See biorxiv.js and checkpoint.md 2026-04-12 notes.
+const MAX_CONSECUTIVE_EMPTY_CHUNKS = 3;
+const MAX_PAGES_PER_CHUNK = 5;
+
 const waitSlot = biorxivLimiter;
 
 /**
@@ -68,23 +75,29 @@ export const medrxiv = {
     const target = opts?.target ?? 2000;
     const groups = parseQueryIntoGroups(query);
     let yielded = 0;
+    let consecutiveEmptyChunks = 0;
 
-    // Fetch last 365 days in 30-day chunks, oldest to newest
+    // Scan last 365 days in 30-day chunks, NEWEST to OLDEST. Bails out
+    // after MAX_CONSECUTIVE_EMPTY_CHUNKS so niche topics don't spin
+    // forever.
     const totalDays = 365;
     const chunkDays = 30;
 
-    for (let daysAgo = totalDays; daysAgo > 0 && yielded < target; daysAgo -= chunkDays) {
-      const chunkEnd = daysAgo;
-      const chunkStart = Math.max(0, daysAgo - chunkDays);
+    for (let daysAgo = 0; daysAgo < totalDays && yielded < target; daysAgo += chunkDays) {
+      const chunkStart = daysAgo;
+      const chunkEnd = Math.min(totalDays, daysAgo + chunkDays);
       const to = new Date(Date.now() - chunkStart * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
       const from = new Date(Date.now() - chunkEnd * 24 * 60 * 60 * 1000).toISOString().slice(0, 10);
 
       let cursor = 0;
+      let pagesInThisChunk = 0;
       let total = Infinity;
+      let chunkYielded = 0;
 
-      while (cursor <= total - 1 && yielded < target) {
+      while (cursor <= total - 1 && yielded < target && pagesInThisChunk < MAX_PAGES_PER_CHUNK) {
         const { collection, total: t, count } = await fetchPage(from, to, cursor);
         total = t;
+        pagesInThisChunk += 1;
 
         for (const c of collection) {
           if (opts?.signal?.aborted) return;
@@ -93,11 +106,19 @@ export const medrxiv = {
           if (!paper) continue;
           yield paper;
           yielded += 1;
+          chunkYielded += 1;
           if (yielded >= target) return;
         }
 
         if (collection.length === 0 || count === 0) break;
         cursor += PAGE_SIZE;
+      }
+
+      if (chunkYielded === 0) {
+        consecutiveEmptyChunks += 1;
+        if (consecutiveEmptyChunks >= MAX_CONSECUTIVE_EMPTY_CHUNKS) return;
+      } else {
+        consecutiveEmptyChunks = 0;
       }
     }
   },

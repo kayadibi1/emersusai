@@ -47,6 +47,33 @@ test("biorxiv.fetchPapers yields normalized IngestedPaper items matching query",
   nock.cleanAll();
 });
 
+test("biorxiv.fetchPapers early-terminates after 3 consecutive empty chunks", async () => {
+  // Every chunk response is an empty collection → every chunk yields
+  // 0 matches. The adapter should bail out after 3 consecutive empty
+  // chunks instead of walking all 12. Total fetches expected: ~3.
+  // We nock a generous 50 but assert consumption is bounded.
+  const emptyResp = JSON.stringify({ messages: [{ status: "ok", total: 0, count: 0 }], collection: [] });
+  let callCount = 0;
+  nock("https://api.biorxiv.org")
+    .get(/\/details\/biorxiv\//)
+    .times(50)
+    .reply(() => { callCount += 1; return [200, emptyResp]; });
+
+  const results = [];
+  for await (const paper of biorxiv.fetchPapers("creatine", { target: 5 })) {
+    results.push(paper);
+  }
+
+  assert.equal(results.length, 0, "no matches expected from empty fixtures");
+  // Early termination: we should have stopped after ~3 chunks, not scanned all 12.
+  // Allow up to 5 to tolerate minor variations in how the early-exit counter ticks.
+  assert.ok(
+    callCount <= 5,
+    `expected early termination within ~3 chunks, but adapter made ${callCount} fetches`,
+  );
+  nock.cleanAll();
+});
+
 test("biorxiv adapter registers itself in ingestion and discovery registries", async () => {
   const { listIngestionSources, listDiscoverySources } = await import(
     "../../../scripts/sources/_registry.js"
