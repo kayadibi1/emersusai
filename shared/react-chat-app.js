@@ -42,6 +42,11 @@ import {
   TargetCard,
   SLOT_ORDER,
 } from "/shared/meal-plan-widget.js";
+import {
+  MEAL_SLOT_LABELS,
+  ResolvedRow,
+  UnresolvedRow,
+} from "/shared/nutrition-log-confirm-widget.js";
 import { downloadPlanIcs } from "/shared/workout-plan-ics.js";
 import { summarizePlanDiff } from "/shared/workout-plan-diff.js";
 import {
@@ -1382,6 +1387,327 @@ function MealPlanCard({ segment, threadId }) {
   );
 }
 
+// ─── NutritionLogConfirmCard ─────────────────────────────────────────────────
+//
+// Inline renderer for `nutrition-log-confirm` chat fences. Mirrors MealPlanCard
+// (per Amendment A8): parses segment.content (raw JSON string from
+// widget-fence-parser), renders per-row amount + meal_slot editors for
+// resolved items, read-only unresolved rows, and a "Confirm log (N)" button
+// that POSTs to /api/emersus/meal-journal/entries with a Bearer token from
+// getSession(). This is the production code path — the iframe-hosted
+// shared/nutrition-log-confirm-widget.js is for the theoretical iframe path.
+//
+// Sub-components (ResolvedRow, UnresolvedRow, MEAL_SLOT_LABELS) are imported
+// from the widget file to avoid duplication.
+function NutritionLogConfirmCard({ segment, threadId }) {
+  // ── Parse ──────────────────────────────────────────────────────────────────
+  // All hooks before any early returns (rules of hooks).
+  const [parseError, setParseError] = useState("");
+  const [payload, setPayload] = useState(null);
+
+  useEffect(() => {
+    if (!segment?.content) {
+      setParseError("Food log missing.");
+      setPayload(null);
+      return;
+    }
+    try {
+      const parsed = JSON.parse(segment.content);
+      setPayload(parsed);
+      setParseError("");
+    } catch (err) {
+      setParseError(`Food log could not be parsed: ${err?.message || "invalid JSON"}`);
+      setPayload(null);
+    }
+  }, [segment?.content]);
+
+  // ── Editable state ─────────────────────────────────────────────────────────
+  const [items, setItems] = useState([]);
+  const [submitState, setSubmitState] = useState("idle"); // idle | saving | saved | error
+  const [error, setError] = useState("");
+
+  // Initialise editable items once the payload is available.
+  useEffect(() => {
+    if (!payload) return;
+    const resolved = Array.isArray(payload.resolved_items) ? payload.resolved_items : [];
+    setItems(
+      resolved.map((it) => ({
+        ...it,
+        meal_slot: it.meal_slot || payload.meal_slot_default || "lunch",
+      }))
+    );
+  }, [payload]);
+
+  // ── Callbacks ──────────────────────────────────────────────────────────────
+  function handleUpdate(index, field, value) {
+    setItems((prev) => {
+      const next = prev.slice();
+      next[index] = { ...next[index], [field]: value };
+      return next;
+    });
+  }
+
+  function handleRemove(index) {
+    setItems((prev) => prev.filter((_, i) => i !== index));
+  }
+
+  async function handleConfirm() {
+    if (submitState === "saving" || submitState === "saved") return;
+    if (items.length === 0) return;
+    setSubmitState("saving");
+    setError("");
+    try {
+      const session = await getSession();
+      if (!session?.user?.id || !session?.access_token) {
+        throw new Error("Sign in to log food.");
+      }
+      const entries = items.map((it) => ({
+        food_id: it.food_id,
+        logged_date: payload.logged_date,
+        meal_slot: it.meal_slot,
+        amount: it.amount,
+        amount_unit: it.amount_unit,
+        source: "chat_parser",
+        confidence: it.confidence,
+      }));
+      const res = await fetch("/api/emersus/meal-journal/entries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ entries }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body?.error || `Log failed (HTTP ${res.status}).`);
+      }
+      setSubmitState("saved");
+    } catch (err) {
+      setError(String(err?.message || err) || "Log failed.");
+      setSubmitState("error");
+    }
+  }
+
+  // ── Early returns ──────────────────────────────────────────────────────────
+  if (parseError) {
+    return h(
+      "div",
+      { className: "chat-bubble chat-bubble-assistant chat-text-block" },
+      h("div", { style: { color: "var(--color-text-danger, #7a3300)" } }, parseError),
+      segment?.content
+        ? h(
+            "pre",
+            {
+              style: {
+                whiteSpace: "pre-wrap",
+                fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+                fontSize: 11,
+                color: "var(--color-text-tertiary, #8b8778)",
+                marginTop: 8,
+                maxHeight: 120,
+                overflow: "auto",
+              },
+            },
+            String(segment.content).slice(0, 800)
+          )
+        : null
+    );
+  }
+
+  if (!payload) return null; // transient — waiting for the parse effect
+
+  // ── Success state ──────────────────────────────────────────────────────────
+  if (submitState === "saved") {
+    return h(
+      "div",
+      { className: "chat-nutrition-log-card" },
+      h(
+        "div",
+        {
+          style: {
+            padding: "10px 14px",
+            background: "var(--color-background-success, rgba(159,251,0,0.10))",
+            border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.08))",
+            borderRadius: "var(--border-radius-md, 12px)",
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            fontSize: 13,
+            color: "var(--color-text-success, #b9f47a)",
+            fontWeight: 500,
+          },
+        },
+        "\u2713 Logged ",
+        items.length,
+        " item",
+        items.length !== 1 ? "s" : ""
+      )
+    );
+  }
+
+  const unresolved = Array.isArray(payload.unresolved) ? payload.unresolved : [];
+
+  // ── Main render ────────────────────────────────────────────────────────────
+  return h(
+    "div",
+    { className: "chat-nutrition-log-card" },
+    h(
+      "div",
+      {
+        style: {
+          background: "var(--color-background-secondary, rgba(255,255,255,0.06))",
+          border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.08))",
+          borderRadius: "var(--border-radius-lg, 14px)",
+          padding: 16,
+          margin: "10px 0",
+        },
+      },
+      // Header row
+      h(
+        "div",
+        {
+          style: {
+            display: "flex",
+            alignItems: "center",
+            gap: 8,
+            marginBottom: 10,
+          },
+        },
+        h(
+          "div",
+          {
+            style: {
+              fontSize: 12,
+              fontWeight: 600,
+              color: "var(--color-text-primary, #f9f9fd)",
+              textTransform: "uppercase",
+              letterSpacing: "0.08em",
+              flex: 1,
+            },
+          },
+          "Confirm food log"
+        ),
+        payload.logged_date
+          ? h(
+              "span",
+              { style: { fontSize: 11, color: "var(--color-text-tertiary, #6f7480)" } },
+              payload.logged_date
+            )
+          : null
+      ),
+      // Parse-error banner
+      payload.parse_error
+        ? h(
+            "div",
+            {
+              style: {
+                padding: "6px 10px",
+                background: "var(--color-background-warning, rgba(255,196,102,0.12))",
+                borderRadius: 6,
+                fontSize: 12,
+                color: "var(--color-text-warning, #ffd57a)",
+                marginBottom: 10,
+              },
+            },
+            "\u26a0 Some items could not be parsed: ",
+            payload.parse_error
+          )
+        : null,
+      // Resolved items
+      items.length > 0
+        ? h(
+            "div",
+            { style: { marginBottom: 8 } },
+            items.map((item, i) =>
+              h(ResolvedRow, {
+                key: item.food_id ? `r-${item.food_id}-${i}` : `r-${i}`,
+                item,
+                index: i,
+                onUpdate: handleUpdate,
+                onRemove: handleRemove,
+              })
+            )
+          )
+        : h(
+            "div",
+            {
+              style: {
+                fontSize: 12,
+                color: "var(--color-text-tertiary, #6f7480)",
+                padding: "6px 0",
+                fontStyle: "italic",
+              },
+            },
+            "No items to log \u2014 all items removed."
+          ),
+      // Unresolved items
+      unresolved.length > 0
+        ? h(
+            "div",
+            { style: { marginTop: 8 } },
+            h(
+              "div",
+              {
+                style: {
+                  fontSize: 11,
+                  color: "var(--color-text-tertiary, #6f7480)",
+                  textTransform: "uppercase",
+                  letterSpacing: "0.08em",
+                  marginBottom: 4,
+                },
+              },
+              "Couldn't find in database"
+            ),
+            unresolved.map((item, i) =>
+              h(UnresolvedRow, { key: `u-${i}`, item, index: i })
+            )
+          )
+        : null,
+      // Confirm button + error
+      h(
+        "div",
+        { style: { marginTop: 14, display: "flex", flexDirection: "column", gap: 6 } },
+        h(
+          "button",
+          {
+            onClick: handleConfirm,
+            disabled: submitState === "saving" || items.length === 0,
+            style: {
+              alignSelf: "flex-start",
+              padding: "7px 16px",
+              background:
+                items.length === 0
+                  ? "rgba(255,255,255,0.04)"
+                  : "var(--color-accent-primary, #6d9fff)",
+              color:
+                items.length === 0
+                  ? "var(--color-text-tertiary, #6f7480)"
+                  : "var(--color-text-inverse, #0c0e11)",
+              border: "none",
+              borderRadius: 8,
+              fontSize: 13,
+              fontWeight: 600,
+              cursor: submitState === "saving" || items.length === 0 ? "default" : "pointer",
+              opacity: submitState === "saving" ? 0.7 : 1,
+            },
+          },
+          submitState === "saving"
+            ? "Logging\u2026"
+            : `Confirm log (${items.length})`
+        ),
+        error
+          ? h(
+              "div",
+              { style: { fontSize: 12, color: "var(--color-text-danger, #ff6b6b)" } },
+              error
+            )
+          : null
+      )
+    )
+  );
+}
+
 function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false, threadId = null }) {
   const fullText = String(text || "");
   const visible = useTypewriter(fullText, typewrite);
@@ -1438,6 +1764,13 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
           "div",
           { key: `mp-${index}`, className: "chat-meal-plan-wrap" },
           h(MealPlanCard, { segment, threadId }),
+        );
+      }
+      if (segment.type === "nutrition-log-confirm") {
+        return h(
+          "div",
+          { key: `nlc-${index}`, className: "chat-nutrition-log-wrap" },
+          h(NutritionLogConfirmCard, { segment, threadId }),
         );
       }
       return h(
