@@ -15,7 +15,7 @@ import React, {
   useRef,
 } from "https://esm.sh/react@18.2.0";
 import MealPlanWidget from "./meal-plan-widget.js";
-// NutritionLogConfirmWidget is added in Task 15 (Phase 3).
+import NutritionLogConfirmWidget from "./nutrition-log-confirm-widget.js";
 
 const h = React.createElement;
 
@@ -421,7 +421,22 @@ export function LLMResponse({ markdown, renderText }) {
           );
         }
       }
-      // nutrition-log-confirm dispatch is added in Task 15.
+      if (segment.type === "nutrition-log-confirm") {
+        try {
+          const payload = JSON.parse(segment.content);
+          return h(NutritionLogConfirmWidget, { key: `nlc-${index}`, payload });
+        } catch (err) {
+          console.error("[emersus-renderer] failed to parse nutrition-log-confirm fence:", err);
+          return h(
+            "div",
+            {
+              key: `nlc-err-${index}`,
+              style: { whiteSpace: "pre-wrap", color: "var(--text-primary)" },
+            },
+            "\u26a0 log preview could not be parsed",
+          );
+        }
+      }
       if (typeof renderText === "function") {
         return renderText(segment.content, index);
       }
