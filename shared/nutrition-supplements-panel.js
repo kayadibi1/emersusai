@@ -5,6 +5,7 @@
 // and exposes an "Add supplement" search.
 
 import React from "https://esm.sh/react@18.2.0";
+import { localDateStr } from "./date-utils.js";
 const { useEffect, useState } = React;
 const h = React.createElement;
 
@@ -24,7 +25,7 @@ export default function NutritionSupplementsPanel({ onOpenFoodDetail }) {
   const [mealPlan, setMealPlan] = useState(null);
   const [todayLogged, setTodayLogged] = useState([]);
   const [loading, setLoading] = useState(true);
-  const todayStr = new Date().toISOString().slice(0, 10);
+  const todayStr = localDateStr();
 
   async function load() {
     setLoading(true);
