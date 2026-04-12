@@ -138,6 +138,16 @@ The memory reference `project_supabase_admin_role.md` says migrations must use `
 
 Task 25 Step 2 restarts `emersus-api` only. Do NOT restart `emersus-worker` as part of the nutrition deploy — it runs the pg-boss topic discovery pipeline and is unrelated. `pm2 restart emersus-api --update-env` is correct as written.
 
+### A8: Task 10 requires a react-chat-app.js inline renderer, not emersus-renderer.js LLMResponse
+
+The plan told Task 10 to wire the `meal-plan` fence into `shared/emersus-renderer.js::LLMResponse`. That component is defined but imported by nothing — the production chat renderer is `shared/react-chat-app.js`, which imports only the parser primitives from `emersus-renderer.js` and has its own segment walker (lines 1139–1167) that dispatches `widget` and `workout-plan` inline. A `meal-plan` segment falls through to the default prose case.
+
+Task 10 therefore has a second part (shipped on top of `f07a7a49`): a `MealPlanCard` component defined inline in `react-chat-app.js` that mirrors the existing `WorkoutPlanCard` pattern, and a `meal-plan` case added to the segment walker. The component parses `segment.content` (raw JSON string per the widget-fence-parser contract for nutrition fences), renders target cards + day-type tabs + meal cards + supplement stack, and exposes a Save button that calls `POST /api/emersus/meal-plans` with `Authorization: Bearer <session.access_token>` pulled via the existing `getSession()` helper.
+
+The `emersus-renderer.js::LLMResponse` dispatch added in `f07a7a49` is left in place (it does no harm) but is not the production path. A later cleanup can remove `LLMResponse` entirely if nothing else grows to use it.
+
+The iframe-hosted `shared/meal-plan-widget.js` from `f07a7a49` is retained as the presentational component library — its sub-components (`MealCard`, `SupplementStack`, `TargetCard`, `SLOT_ORDER`) are re-exported so `MealPlanCard` in react-chat-app.js can reuse them. Its default export (the iframe widget with `window.EMERSUS_AUTH`-based save) is kept for a hypothetical future iframe integration and is currently unused.
+
 ---
 
 ## File Structure
