@@ -2850,7 +2850,9 @@ export function ChatApp({
             ...persistedThread,
             messages: [...(persistedThread.messages || []), placeholderMessage],
           };
-          setStreamingMessageKey(streamCreatedAt);
+          // Do NOT set streamingMessageKey here — SSE deltas ARE the
+          // streaming animation. Setting it would trigger the typewriter
+          // hook which fights the real-time delta updates (text flickers).
           setChatHistory((prev) =>
             [threadWithPlaceholder, ...prev.filter((t) => t.id !== threadWithPlaceholder.id)].slice(0, MAX_HISTORY_ITEMS)
           );
@@ -2911,6 +2913,8 @@ export function ChatApp({
             _toolErrors: toolErrors.length ? toolErrors : undefined,
             // If the backend sent an updated thread state, forward it.
             _sseThreadState: sseThreadState,
+            // Flag so the post-stream code knows to skip the typewriter.
+            _sse: true,
           };
 
           // Clear the streaming key so the placeholder stops being treated
@@ -3006,10 +3010,11 @@ export function ChatApp({
           };
         })(),
       };
-      // For non-SSE responses, mark the message as streaming so the
-      // typewriter animates on first render. SSE responses already
-      // streamed in real-time, so we skip the typewriter.
-      if (!data._toolResults) {
+      // For non-SSE responses (JSON onboarding/refusal), mark the message
+      // as streaming so the typewriter animates. SSE responses already
+      // streamed in real-time, so we always skip the typewriter for them.
+      // data._sse is set by the SSE path above to distinguish from JSON.
+      if (!data._sse) {
         setStreamingMessageKey(assistantMessage.createdAt);
       }
       persistedThread = await persistThread(nextThread);
