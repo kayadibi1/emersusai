@@ -1234,7 +1234,7 @@ function MealPlanCard({ segment, threadId }) {
 
   return h(
     "div",
-    { className: "chat-meal-plan-wrap" },
+    { className: "chat-meal-plan-card" },
     h(
       "div",
       {
