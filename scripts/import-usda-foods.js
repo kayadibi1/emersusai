@@ -177,9 +177,16 @@ async function downloadDataset(dataset) {
   await pipeline(Readable.fromWeb(res.body), createWriteStream(zipPath));
   console.log(`  ${dataset.slug}: downloaded ${(statSync(zipPath).size / 1e6).toFixed(1)} MB`);
 
-  // Use unzip via child_process (avoids another npm dep for zip handling)
+  // Extract via python3 zipfile (available on all servers; avoids unzip dep)
   const { execSync } = await import("node:child_process");
-  execSync(`unzip -p "${zipPath}" > "${jsonPath}"`, { stdio: "inherit" });
+  execSync(`python3 -c "
+import zipfile, sys, os
+with zipfile.ZipFile('${zipPath}') as z:
+    names = [n for n in z.namelist() if n.endswith('.json')]
+    if not names: sys.exit('no .json in zip')
+    with z.open(names[0]) as src, open('${jsonPath}', 'wb') as dst:
+        import shutil; shutil.copyfileobj(src, dst)
+"`, { stdio: "inherit" });
   console.log(`  ${dataset.slug}: unzipped to ${jsonPath}`);
   return jsonPath;
 }
