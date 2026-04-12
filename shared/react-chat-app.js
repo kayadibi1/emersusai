@@ -1864,8 +1864,8 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
         const confirmPayload = {
           resolved_items: (toolData.foods || []).map((f) => ({
             food_name: f.description,
-            amount: f.grams,
-            amount_unit: "g",
+            amount: f.amount ?? f.grams,
+            amount_unit: f.amount_unit || "g",
             kcal: f.kcal,
             protein_g: f.protein_g,
             carbs_g: f.carbs_g,
