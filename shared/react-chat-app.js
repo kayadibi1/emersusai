@@ -792,12 +792,12 @@ function WorkoutPlanCard({ segment, threadId }) {
         "div",
         {
           style: {
-            background: "var(--color-background-warning, #fff3d0)",
-            border: "0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10))",
+            background: "var(--color-background-warning, rgba(255,196,102,0.10))",
+            border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
             borderRadius: "var(--border-radius-lg, 14px)",
             padding: 16,
             margin: "10px 0",
-            color: "var(--color-text-warning, #6b4a00)",
+            color: "var(--color-text-warning, #ffd57a)",
           },
         },
         h(
@@ -817,7 +817,7 @@ function WorkoutPlanCard({ segment, threadId }) {
       { className: "chat-bubble chat-bubble-assistant chat-text-block" },
       h(
         "div",
-        { style: { color: "var(--color-text-danger, #7a3300)" } },
+        { style: { color: "var(--color-text-danger, #ff6b6b)" } },
         `Workout plan could not be parsed: ${parseResult.error || "invalid JSON"}`
       ),
       h(
@@ -825,9 +825,9 @@ function WorkoutPlanCard({ segment, threadId }) {
         {
           style: {
             whiteSpace: "pre-wrap",
-            fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+            fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
             fontSize: 11,
-            color: "var(--color-text-tertiary, #8b8778)",
+            color: "var(--color-text-tertiary, #3a3a3a)",
             marginTop: 8,
             maxHeight: 120,
             overflow: "auto",
@@ -923,15 +923,15 @@ function WorkoutPlanCard({ segment, threadId }) {
 
   const style = {
     card: {
-      background: "var(--color-background-secondary, #ffffff)",
-      border: "0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10))",
+      background: "var(--color-background-secondary, rgba(255,255,255,0.03))",
+      border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
       borderRadius: "var(--border-radius-lg, 14px)",
       padding: 18,
       margin: "10px 0",
     },
     header: { display: "flex", flexDirection: "column", gap: 4, marginBottom: 12 },
-    title: { fontSize: 15, fontWeight: 500, color: "var(--color-text-primary, #0f0f0e)" },
-    subtitle: { fontSize: 12, color: "var(--color-text-secondary, #555248)" },
+    title: { fontSize: 15, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)" },
+    subtitle: { fontSize: 12, color: "var(--color-text-secondary, #666)" },
     chip: {
       display: "inline-block",
       fontSize: 11,
@@ -939,17 +939,17 @@ function WorkoutPlanCard({ segment, threadId }) {
       padding: "3px 8px",
       borderRadius: "var(--border-radius-sm, 4px)",
       background: isUpdate
-        ? "var(--color-background-info, #dfeaf9)"
-        : "var(--color-background-success, #e7f4d8)",
+        ? "var(--color-background-info, rgba(120,220,20,0.08))"
+        : "var(--color-background-success, rgba(120,220,20,0.10))",
       color: isUpdate
-        ? "var(--color-text-info, #1e3f72)"
-        : "var(--color-text-success, #2f5a13)",
+        ? "var(--color-text-info, #78dc14)"
+        : "var(--color-text-success, #78dc14)",
       marginTop: 4,
       width: "fit-content",
     },
     meta: {
       fontSize: 11,
-      color: "var(--color-text-tertiary, #8b8778)",
+      color: "var(--color-text-tertiary, #3a3a3a)",
       marginTop: 2,
     },
     sessionsWrap: {
@@ -958,7 +958,7 @@ function WorkoutPlanCard({ segment, threadId }) {
       gap: 6,
       margin: "12px 0 14px",
       paddingTop: 10,
-      borderTop: "0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10))",
+      borderTop: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
     },
     sessionRow: {
       display: "grid",
@@ -966,27 +966,27 @@ function WorkoutPlanCard({ segment, threadId }) {
       gap: 10,
       fontSize: 12,
       alignItems: "baseline",
-      color: "var(--color-text-primary, #0f0f0e)",
+      color: "var(--color-text-primary, #e8e8e8)",
     },
     sessionDay: {
       fontSize: 11,
-      color: "var(--color-text-secondary, #555248)",
+      color: "var(--color-text-secondary, #666)",
       fontWeight: 500,
       textTransform: "uppercase",
       letterSpacing: "0.04em",
     },
     sessionDuration: {
       fontSize: 11,
-      color: "var(--color-text-tertiary, #8b8778)",
+      color: "var(--color-text-tertiary, #3a3a3a)",
     },
     moreHint: {
       fontSize: 11,
-      color: "var(--color-text-tertiary, #8b8778)",
+      color: "var(--color-text-tertiary, #3a3a3a)",
       marginTop: 2,
     },
     diffWrap: {
       fontSize: 11,
-      color: "var(--color-text-secondary, #555248)",
+      color: "var(--color-text-secondary, #666)",
       marginBottom: 10,
       padding: "8px 10px",
       background: "var(--color-background-tertiary, #f4f3f0)",
@@ -998,29 +998,29 @@ function WorkoutPlanCard({ segment, threadId }) {
       alignItems: "center",
       gap: 6,
       padding: "8px 14px",
-      border: "0.5px solid var(--color-border-tertiary, rgba(15,15,14,0.10))",
+      border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
       borderRadius: "var(--border-radius-md, 8px)",
-      background: "var(--color-background-primary, #fafaf9)",
-      color: "var(--color-text-primary, #0f0f0e)",
+      background: "var(--color-background-primary, #08080a)",
+      color: "var(--color-text-primary, #e8e8e8)",
       fontSize: 12,
       fontWeight: 500,
       cursor: busy ? "wait" : "pointer",
       opacity: busy ? 0.6 : 1,
     },
     buttonPrimary: {
-      background: "var(--color-text-primary, #0f0f0e)",
-      color: "var(--color-background-primary, #fafaf9)",
-      borderColor: "var(--color-text-primary, #0f0f0e)",
+      background: "var(--color-text-primary, #e8e8e8)",
+      color: "var(--color-background-primary, #08080a)",
+      borderColor: "var(--color-text-primary, #e8e8e8)",
     },
     buttonDisabled: { opacity: 0.4, cursor: "not-allowed" },
     toast: {
       fontSize: 11,
-      color: "var(--color-text-success, #2f5a13)",
+      color: "var(--color-text-success, #78dc14)",
       marginTop: 8,
     },
     error: {
       fontSize: 11,
-      color: "var(--color-text-danger, #7a3300)",
+      color: "var(--color-text-danger, #ff6b6b)",
       marginTop: 8,
     },
   };
@@ -1063,7 +1063,7 @@ function WorkoutPlanCard({ segment, threadId }) {
                 session.summary
                   ? h(
                       "div",
-                      { style: { fontSize: 11, color: "var(--color-text-tertiary, #8b8778)" } },
+                      { style: { fontSize: 11, color: "var(--color-text-tertiary, #3a3a3a)" } },
                       session.summary
                     )
                   : null
@@ -1144,7 +1144,7 @@ function WorkoutPlanCard({ segment, threadId }) {
             "a",
             {
               href: "/app/workout/",
-              style: { color: "var(--color-text-primary, #0f0f0e)", textDecoration: "underline" },
+              style: { color: "var(--color-text-primary, #e8e8e8)", textDecoration: "underline" },
             },
             "Open workout planner →"
           )
@@ -1207,16 +1207,16 @@ function MealPlanCard({ segment, threadId }) {
     return h(
       "div",
       { className: "chat-bubble chat-bubble-assistant chat-text-block" },
-      h("div", { style: { color: "var(--color-text-danger, #7a3300)" } }, parseError),
+      h("div", { style: { color: "var(--color-text-danger, #ff6b6b)" } }, parseError),
       segment?.content
         ? h(
             "pre",
             {
               style: {
                 whiteSpace: "pre-wrap",
-                fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+                fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
                 fontSize: 11,
-                color: "var(--color-text-tertiary, #8b8778)",
+                color: "var(--color-text-tertiary, #3a3a3a)",
                 marginTop: 8,
                 maxHeight: 120,
                 overflow: "auto",
@@ -1282,8 +1282,8 @@ function MealPlanCard({ segment, threadId }) {
       "div",
       {
         style: {
-          background: "var(--color-background-secondary, #16181d)",
-          border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.08))",
+          background: "var(--color-background-secondary, rgba(255,255,255,0.03))",
+          border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
           borderRadius: "var(--border-radius-lg, 14px)",
           padding: 16,
           margin: "10px 0",
@@ -1309,14 +1309,14 @@ function MealPlanCard({ segment, threadId }) {
               style: {
                 background:
                   dt.slug === activeSlug
-                    ? "var(--color-accent-primary, #6d9fff)"
+                    ? "var(--color-accent-primary, #78dc14)"
                     : "transparent",
                 color:
                   dt.slug === activeSlug
-                    ? "var(--color-text-inverse, #0c0e11)"
-                    : "var(--color-text-primary, #f9f9fd)",
+                    ? "var(--color-text-inverse, #08080a)"
+                    : "var(--color-text-primary, #e8e8e8)",
                 border:
-                  "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.16))",
+                  "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
                 borderRadius: 999,
                 padding: "4px 12px",
                 fontSize: 12,
@@ -1330,13 +1330,13 @@ function MealPlanCard({ segment, threadId }) {
       ),
       // Target card — inline styled (not from shared module, which has cross-module caching issues)
       activeTargets
-        ? h("div", { style: { background: "var(--color-background-tertiary, rgba(255,255,255,0.04))", borderRadius: 10, padding: "12px 16px", marginBottom: 12 } },
-            activeDayType?.name ? h("div", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #f9f9fd)", marginBottom: 10 } }, activeDayType.name) : null,
+        ? h("div", { style: { background: "var(--color-background-tertiary, rgba(255,255,255,0.03))", borderRadius: 10, padding: "12px 16px", marginBottom: 12 } },
+            activeDayType?.name ? h("div", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)", marginBottom: 10 } }, activeDayType.name) : null,
             h("div", { style: { display: "flex", gap: 12, flexWrap: "wrap" } },
               [["kcal", activeTargets.kcal], ["protein", `${activeTargets.protein_g}g`], ["carbs", `${activeTargets.carbs_g}g`], ["fat", `${activeTargets.fat_g}g`], ["fiber", `${activeTargets.fiber_g}g`]].map(([label, val]) =>
                 h("div", { key: label, style: { flex: 1, minWidth: 56, textAlign: "center" } },
-                  h("div", { style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, rgba(255,255,255,0.55))" } }, label),
-                  h("div", { style: { fontSize: 18, fontWeight: 500, color: "var(--color-text-primary, #f9f9fd)" } }, val),
+                  h("div", { style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, #666)" } }, label),
+                  h("div", { style: { fontSize: 18, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)" } }, val),
                 )
               )
             ),
@@ -1345,12 +1345,12 @@ function MealPlanCard({ segment, threadId }) {
       // Meals — inline styled
       h("div", { style: { marginTop: 12 } },
         sortedMeals.map((m, i) =>
-          h("div", { key: `m-${i}`, style: { marginBottom: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.04))", borderRadius: 10 } },
+          h("div", { key: `m-${i}`, style: { marginBottom: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.03))", borderRadius: 10 } },
             h("div", { style: { display: "flex", gap: 8, alignItems: "baseline", marginBottom: 6 } },
-              h("span", { style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, rgba(255,255,255,0.55))" } }, (m.slot || "").replace(/_/g, " ")),
-              h("span", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #f9f9fd)" } }, m.name),
+              h("span", { style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, #666)" } }, (m.slot || "").replace(/_/g, " ")),
+              h("span", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)" } }, m.name),
             ),
-            h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, rgba(255,255,255,0.7))", lineHeight: 1.6 } },
+            h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, #666)", lineHeight: 1.6 } },
               (m.foods || []).map((f, j) => h("li", { key: j }, `${f.description} — ${f.grams} g`))
             ),
           )
@@ -1358,9 +1358,9 @@ function MealPlanCard({ segment, threadId }) {
       ),
       // Supplement stack — inline styled
       activeDayType?.supplements?.length
-        ? h("div", { style: { marginTop: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.04))", borderRadius: 10 } },
-            h("div", { style: { fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, rgba(255,255,255,0.55))", marginBottom: 6 } }, "Supplements"),
-            h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, rgba(255,255,255,0.7))", lineHeight: 1.6 } },
+        ? h("div", { style: { marginTop: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.03))", borderRadius: 10 } },
+            h("div", { style: { fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, #666)", marginBottom: 6 } }, "Supplements"),
+            h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, #666)", lineHeight: 1.6 } },
               activeDayType.supplements.map((s, i) =>
                 h("li", { key: i }, `${s.description} — ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " · " + s.timing.replace(/_/g, " ") : ""}`)
               )
@@ -1386,9 +1386,9 @@ function MealPlanCard({ segment, threadId }) {
           disabled: busy || resolved === "saved",
           style: {
             flex: 1,
-            background: "var(--color-background-primary, #0c0e11)",
-            color: "var(--color-text-primary, #f9f9fd)",
-            border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.16))",
+            background: "var(--color-background-primary, #08080a)",
+            color: "var(--color-text-primary, #e8e8e8)",
+            border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
             borderRadius: 8,
             padding: "6px 10px",
             fontSize: 13,
@@ -1400,8 +1400,8 @@ function MealPlanCard({ segment, threadId }) {
             onClick: handleSave,
             disabled: busy || resolved === "saved",
             style: {
-              background: "var(--color-accent-primary, #6d9fff)",
-              color: "var(--color-text-inverse, #0c0e11)",
+              background: "var(--color-accent-primary, #78dc14)",
+              color: "var(--color-text-inverse, #08080a)",
               border: "none",
               borderRadius: 8,
               padding: "6px 14px",
@@ -1593,16 +1593,16 @@ function NutritionLogConfirmCard({ segment, threadId }) {
     return h(
       "div",
       { className: "chat-bubble chat-bubble-assistant chat-text-block" },
-      h("div", { style: { color: "var(--color-text-danger, #7a3300)" } }, parseError),
+      h("div", { style: { color: "var(--color-text-danger, #ff6b6b)" } }, parseError),
       segment?.content
         ? h(
             "pre",
             {
               style: {
                 whiteSpace: "pre-wrap",
-                fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+                fontFamily: "'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace",
                 fontSize: 11,
-                color: "var(--color-text-tertiary, #8b8778)",
+                color: "var(--color-text-tertiary, #3a3a3a)",
                 marginTop: 8,
                 maxHeight: 120,
                 overflow: "auto",
@@ -1626,14 +1626,14 @@ function NutritionLogConfirmCard({ segment, threadId }) {
         {
           style: {
             padding: "10px 14px",
-            background: "var(--color-background-success, rgba(159,251,0,0.10))",
-            border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.08))",
+            background: "var(--color-background-success, rgba(120,220,20,0.10))",
+            border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
             borderRadius: "var(--border-radius-md, 12px)",
             display: "flex",
             alignItems: "center",
             gap: 8,
             fontSize: 13,
-            color: "var(--color-text-success, #b9f47a)",
+            color: "var(--color-text-success, #78dc14)",
             fontWeight: 500,
           },
         },
@@ -1655,8 +1655,8 @@ function NutritionLogConfirmCard({ segment, threadId }) {
       "div",
       {
         style: {
-          background: "var(--color-background-secondary, rgba(255,255,255,0.06))",
-          border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.08))",
+          background: "var(--color-background-secondary, rgba(255,255,255,0.03))",
+          border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
           borderRadius: "var(--border-radius-lg, 14px)",
           padding: 16,
           margin: "10px 0",
@@ -1679,7 +1679,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
             style: {
               fontSize: 12,
               fontWeight: 600,
-              color: "var(--color-text-primary, #f9f9fd)",
+              color: "var(--color-text-primary, #e8e8e8)",
               textTransform: "uppercase",
               letterSpacing: "0.08em",
               flex: 1,
@@ -1690,7 +1690,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
         payload.logged_date
           ? h(
               "span",
-              { style: { fontSize: 11, color: "var(--color-text-tertiary, #6f7480)" } },
+              { style: { fontSize: 11, color: "var(--color-text-tertiary, #3a3a3a)" } },
               payload.logged_date
             )
           : null
@@ -1733,7 +1733,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
             {
               style: {
                 fontSize: 12,
-                color: "var(--color-text-tertiary, #6f7480)",
+                color: "var(--color-text-tertiary, #3a3a3a)",
                 padding: "6px 0",
                 fontStyle: "italic",
               },
@@ -1750,7 +1750,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
               {
                 style: {
                   fontSize: 11,
-                  color: "var(--color-text-tertiary, #6f7480)",
+                  color: "var(--color-text-tertiary, #3a3a3a)",
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                   marginBottom: 4,
@@ -1777,12 +1777,12 @@ function NutritionLogConfirmCard({ segment, threadId }) {
               padding: "7px 16px",
               background:
                 items.length === 0
-                  ? "rgba(255,255,255,0.04)"
-                  : "var(--color-accent-primary, #6d9fff)",
+                  ? "rgba(255,255,255,0.03)"
+                  : "var(--color-accent-primary, #78dc14)",
               color:
                 items.length === 0
-                  ? "var(--color-text-tertiary, #6f7480)"
-                  : "var(--color-text-inverse, #0c0e11)",
+                  ? "var(--color-text-tertiary, #3a3a3a)"
+                  : "var(--color-text-inverse, #08080a)",
               border: "none",
               borderRadius: 8,
               fontSize: 13,
@@ -2150,9 +2150,9 @@ function buildInteractiveMarkup(card) {
 function buildArtMarkup(card) {
   const scene = String(card?.data?.scene || "abstract");
   if (scene === "landscape") {
-    return `<section class="art-stage"><svg viewBox="0 0 900 420" role="img" aria-label="${escapeHtml(card?.title || "Illustration")}"><rect width="900" height="420" fill="#0b1726"/><circle cx="740" cy="86" r="58" fill="#d8cf7a"/><circle cx="705" cy="68" r="58" fill="#0b1726"/><polygon points="0,320 150,150 310,300 500,120 720,285 900,135 900,420 0,420" fill="#18365f"/><polygon points="0,350 210,245 430,350 590,225 760,330 900,260 900,420 0,420" fill="#25486f"/><polygon points="0,365 900,365 900,420 0,420" fill="#0a1b2b"/><g fill="#d8cf7a">${Array.from({ length: 18 }, (_, index) => `<circle cx="${50 + index * 46}" cy="${30 + (index % 5) * 28}" r="2"/>`).join("")}</g></svg></section>`;
+    return `<section class="art-stage"><svg viewBox="0 0 900 420" role="img" aria-label="${escapeHtml(card?.title || "Illustration")}"><rect width="900" height="420" fill="#08080a"/><circle cx="740" cy="86" r="58" fill="#78dc14" opacity=".3"/><circle cx="705" cy="68" r="58" fill="#08080a"/><polygon points="0,320 150,150 310,300 500,120 720,285 900,135 900,420 0,420" fill="#0f0f12"/><polygon points="0,350 210,245 430,350 590,225 760,330 900,260 900,420 0,420" fill="#141418"/><polygon points="0,365 900,365 900,420 0,420" fill="#0a0a0d"/><g fill="#78dc14" opacity=".4">${Array.from({ length: 18 }, (_, index) => `<circle cx="${50 + index * 46}" cy="${30 + (index % 5) * 28}" r="2"/>`).join("")}</g></svg></section>`;
   }
-  return `<section class="art-stage"><svg viewBox="0 0 900 420" role="img" aria-label="${escapeHtml(card?.title || "Illustration")}"><rect width="900" height="420" fill="#11110f"/><g fill="none" stroke="#d8b46a" stroke-width="2" opacity=".7">${Array.from({ length: 8 }, (_, index) => `<circle cx="${160 + index * 80}" cy="210" r="${36 + index * 12}"/>`).join("")}</g><path d="M80 300 C220 120, 340 350, 500 180 S740 110, 820 290" stroke="#85adff" stroke-width="18" fill="none" opacity=".55"/><g fill="#9ffb00" opacity=".65">${Array.from({ length: 28 }, (_, index) => `<circle cx="${60 + (index * 67) % 820}" cy="${55 + (index * 41) % 310}" r="${2 + (index % 4)}"/>`).join("")}</g></svg></section>`;
+  return `<section class="art-stage"><svg viewBox="0 0 900 420" role="img" aria-label="${escapeHtml(card?.title || "Illustration")}"><rect width="900" height="420" fill="#08080a"/><g fill="none" stroke="#78dc14" stroke-width="2" opacity=".5">${Array.from({ length: 8 }, (_, index) => `<circle cx="${160 + index * 80}" cy="210" r="${36 + index * 12}"/>`).join("")}</g><path d="M80 300 C220 120, 340 350, 500 180 S740 110, 820 290" stroke="#78dc14" stroke-width="18" fill="none" opacity=".35"/><g fill="#78dc14" opacity=".5">${Array.from({ length: 28 }, (_, index) => `<circle cx="${60 + (index * 67) % 820}" cy="${55 + (index * 41) % 310}" r="${2 + (index % 4)}"/>`).join("")}</g></svg></section>`;
 }
 
 function buildVisualArtifactMarkup(card) {
@@ -2198,86 +2198,86 @@ function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    :root { color-scheme: dark; --bg:#11110f; --panel:#191917; --ink:#f4f1e8; --muted:#aaa59a; --line:#3a3833; --accent:#d8b46a; --green:#9ffb00; --blue:#85adff; }
+    :root { color-scheme: dark; --bg:#08080a; --panel:rgba(255,255,255,0.03); --ink:#e8e8e8; --muted:#666; --line:#3a3a3a; --accent:#78dc14; --green:#78dc14; --blue:#78dc14; }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; background: radial-gradient(circle at 12% 0%, rgba(216,180,106,.16), transparent 32%), linear-gradient(135deg,#11110f,#171613); color: var(--ink); font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    body { margin: 0; min-height: 100vh; background: #08080a; color: var(--ink); font-family: system-ui, -apple-system, sans-serif; }
     .vis-container { padding: 18px; min-height: 100%; }
-    .section-label { margin: 0 0 10px; color: var(--muted); font-size: 12px; letter-spacing: .02em; }
-    .hero { display: grid; gap: 10px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,.035); box-shadow: inset 0 0 0 1px rgba(255,255,255,.08); }
-    h1 { margin: 0; max-width: 760px; color: var(--ink); font-size: clamp(22px, 3.3vw, 38px); line-height: 1.02; letter-spacing: -.045em; }
+    .section-label { margin: 0 0 10px; color: var(--muted); font-size: 12px; letter-spacing: .02em; font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .hero { display: grid; gap: 10px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,.03); box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
+    h1 { margin: 0; max-width: 760px; color: var(--ink); font-family: Georgia, serif; font-size: clamp(22px, 3.3vw, 38px); line-height: 1.02; letter-spacing: -.045em; }
     .body { margin: 0; max-width: 760px; color: var(--muted); font-size: 14px; line-height: 1.55; }
     .metric-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(145px, 1fr)); gap: 10px; margin-top: 14px; }
-    .metric { min-height: 112px; display: grid; align-content: end; gap: 5px; padding: 14px; border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025)); box-shadow: inset 0 0 0 1px rgba(255,255,255,.075); position: relative; overflow: hidden; }
-    .metric::before { content:""; position:absolute; inset:auto 12px 12px auto; width:48px; height:48px; border-radius:50%; background: rgba(216,180,106,.16); filter: blur(4px); }
-    .metric.is-good::before { background: rgba(159,251,0,.18); }
-    .metric.is-medium::before { background: rgba(133,173,255,.18); }
+    .metric { min-height: 112px; display: grid; align-content: end; gap: 5px; padding: 14px; border-radius: 16px; background: rgba(255,255,255,.03); box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); position: relative; overflow: hidden; }
+    .metric::before { content:""; position:absolute; inset:auto 12px 12px auto; width:48px; height:48px; border-radius:50%; background: rgba(120,220,20,.12); filter: blur(4px); }
+    .metric.is-good::before { background: rgba(120,220,20,.18); }
+    .metric.is-medium::before { background: rgba(120,220,20,.10); }
     .metric.is-caution::before { background: rgba(255,191,84,.18); }
     .metric-val { position: relative; font-size: 25px; font-weight: 760; letter-spacing: -.04em; }
-    .metric-lbl { position: relative; color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; }
-    .metric-sub { position: relative; color: rgba(244,241,232,.62); font-size: 12px; min-height: 1em; }
+    .metric-lbl { position: relative; color: var(--muted); font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .11em; font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .metric-sub { position: relative; color: #3a3a3a; font-size: 12px; min-height: 1em; }
     .panel-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 12px; }
     .signal-panel { min-height: 110px; display: grid; align-content: start; gap: 8px; padding: 14px; border-radius: 16px; background: rgba(0,0,0,.18); box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
-    .signal-panel p { margin: 0; color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .11em; }
-    .signal-panel strong { color: rgba(244,241,232,.9); font-size: 14px; line-height: 1.45; font-weight: 650; }
+    .signal-panel p { margin: 0; color: var(--accent); font-size: 12px; font-weight: 800; text-transform: uppercase; letter-spacing: .11em; font-family: 'JetBrains Mono', ui-monospace, monospace; }
+    .signal-panel strong { color: rgba(232,232,232,.9); font-size: 14px; line-height: 1.45; font-weight: 650; }
     .signal-panel.is-caution p { color: #ffbf54; }
     .signal-panel.is-good p { color: var(--green); }
-    .signal-panel.is-medium p { color: var(--blue); }
+    .signal-panel.is-medium p { color: var(--accent); }
     .source-panel { display: grid; gap: 8px; margin-top: 12px; }
     .source-row { display: grid; grid-template-columns: 28px minmax(0,1fr); gap: 10px; align-items: start; padding: 10px 12px; border-radius: 14px; background: rgba(0,0,0,.18); }
-    .source-index { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 999px; background: rgba(216,180,106,.16); color: var(--accent); font-weight: 800; font-size: 12px; }
+    .source-index { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 999px; background: rgba(120,220,20,.12); color: var(--accent); font-weight: 800; font-size: 12px; }
     .source-row strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 13px; }
     .source-row p { margin: 3px 0 0; color: var(--muted); font-size: 12px; line-height: 1.35; }
-    .diagram-stage, .chart-stage, .art-stage, .interactive-stage, .mockup-phone { margin-top: 12px; border-radius: 18px; background: rgba(0,0,0,.2); box-shadow: inset 0 0 0 1px rgba(255,255,255,.075); overflow: hidden; }
+    .diagram-stage, .chart-stage, .art-stage, .interactive-stage, .mockup-phone { margin-top: 12px; border-radius: 18px; background: rgba(0,0,0,.2); box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); overflow: hidden; }
     .diagram-stage svg, .art-stage svg { display:block; width:100%; height:auto; min-height:340px; }
-    .diagram-node rect { fill: #134e7a; stroke: rgba(133,173,255,.9); }
-    .diagram-node.green rect { fill:#075b48; stroke:#43d0a5; }
-    .diagram-node.amber rect { fill:#704100; stroke:#d8b46a; }
+    .diagram-node rect { fill: #0a2a0a; stroke: rgba(120,220,20,.7); }
+    .diagram-node.green rect { fill:#0a2a0a; stroke:#78dc14; }
+    .diagram-node.amber rect { fill:#2a1a00; stroke:#ffbf54; }
     .node-copy { width:100%; height:100%; display:grid; align-content:center; gap:7px; text-align:center; overflow:hidden; color:var(--ink); font-family:inherit; }
     .node-copy strong { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; color:var(--ink); font-size:18px; line-height:1.12; font-weight:850; letter-spacing:-.025em; word-break:break-word; overflow-wrap:anywhere; }
-    .node-copy span { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; color:rgba(244,241,232,.68); font-size:13px; line-height:1.25; font-weight:650; word-break:break-word; overflow-wrap:anywhere; }
-    .edge, .arrow { stroke: rgba(244,241,232,.52); stroke-width: 2; fill: none; }
+    .node-copy span { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; color:rgba(232,232,232,.68); font-size:13px; line-height:1.25; font-weight:650; word-break:break-word; overflow-wrap:anywhere; }
+    .edge, .arrow { stroke: rgba(232,232,232,.52); stroke-width: 2; fill: none; }
     .hint { margin: 12px 2px 0; color: var(--muted); font-size: 13px; }
     .chart-stage { min-height: 310px; padding: 18px 14px 12px; }
-    .chart-bars { min-height: 270px; display:flex; align-items:end; justify-content:space-around; gap:10px; border-bottom:1px solid rgba(255,255,255,.12); background: repeating-linear-gradient(to top, transparent 0 49px, rgba(255,255,255,.055) 50px); }
+    .chart-bars { min-height: 270px; display:flex; align-items:end; justify-content:space-around; gap:10px; border-bottom:1px solid rgba(255,255,255,.06); background: repeating-linear-gradient(to top, transparent 0 49px, rgba(255,255,255,.03) 50px); }
     .bar-wrap { flex:1; min-width:0; display:grid; justify-items:center; align-items:end; gap:7px; color: var(--muted); font-size:12px; }
-    .bar { width:min(48px, 70%); border-radius: 8px 8px 0 0; background:#1f6db3; }
-    .bar.mint { background:#9bdcc7; }
+    .bar { width:min(48px, 70%); border-radius: 8px 8px 0 0; background:#78dc14; }
+    .bar.mint { background:rgba(120,220,20,.5); }
     .bar-wrap strong { color:var(--ink); font-size:14px; }
     .bar-wrap span { max-width:90px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
     .line-chart, .scatter-chart { width:100%; height:auto; min-height:290px; }
-    .grid-line { stroke:rgba(255,255,255,.12); stroke-width:1; fill:none; }
-    .line-path { stroke:#1f6db3; stroke-width:5; fill:none; filter:drop-shadow(0 0 10px rgba(31,109,179,.4)); }
-    .line-chart circle, .scatter-chart circle { fill:#9bdcc7; stroke:#11110f; stroke-width:3; }
+    .grid-line { stroke:rgba(255,255,255,.06); stroke-width:1; fill:none; }
+    .line-path { stroke:#78dc14; stroke-width:5; fill:none; filter:drop-shadow(0 0 10px rgba(120,220,20,.4)); }
+    .line-chart circle, .scatter-chart circle { fill:rgba(120,220,20,.5); stroke:#08080a; stroke-width:3; }
     .line-chart text, .scatter-chart text { fill:var(--muted); font-size:12px; font-weight:750; }
     .proportion-stage { min-height:120px; display:flex; align-items:center; padding:26px; }
-    .stack-segment { min-height:72px; display:grid; place-items:center; background:#1f6db3; color:var(--ink); font-weight:850; }
+    .stack-segment { min-height:72px; display:grid; place-items:center; background:#78dc14; color:#08080a; font-weight:850; }
     .stack-segment:first-child { border-radius:18px 0 0 18px; }
     .stack-segment:last-child { border-radius:0 18px 18px 0; }
-    .stack-segment.mint { background:#9bdcc7; color:#11231f; }
+    .stack-segment.mint { background:rgba(120,220,20,.5); color:#08080a; }
     .proportion-labels { display:flex; flex-wrap:wrap; gap:8px; margin-top:8px; color:var(--muted); font-size:12px; }
     .range-stage { min-height:220px; display:grid; align-content:center; gap:16px; padding:24px; }
     .range-stage label { display:grid; grid-template-columns:130px minmax(0,1fr) 70px; gap:12px; align-items:center; color:var(--muted); font-size:12px; font-weight:800; }
-    .range-stage i { height:10px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; }
-    .range-stage b { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,#1f6db3,#9bdcc7); }
+    .range-stage i { height:10px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden; }
+    .range-stage b { display:block; height:100%; border-radius:inherit; background:#78dc14; }
     .range-stage strong { color:var(--ink); text-align:right; }
-    .mockup-phone { max-width:560px; margin:14px auto 0; padding:16px; background:linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.025)); }
+    .mockup-phone { max-width:560px; margin:14px auto 0; padding:16px; background:rgba(255,255,255,.03); }
     .mock-header { display:flex; gap:6px; margin-bottom:14px; }
-    .mock-header span { width:10px; height:10px; border-radius:99px; background:rgba(255,255,255,.18); }
+    .mock-header span { width:10px; height:10px; border-radius:99px; background:rgba(255,255,255,.12); }
     .mock-grid { display:grid; gap:10px; }
-    .mock-panel { display:grid; gap:8px; padding:14px; border-radius:16px; background:rgba(0,0,0,.22); box-shadow:inset 0 0 0 1px rgba(255,255,255,.08); }
-    .mock-panel.featured { background:linear-gradient(135deg, rgba(216,180,106,.18), rgba(0,0,0,.2)); }
+    .mock-panel { display:grid; gap:8px; padding:14px; border-radius:16px; background:rgba(0,0,0,.22); box-shadow:inset 0 0 0 1px rgba(255,255,255,.06); }
+    .mock-panel.featured { background:rgba(120,220,20,.06); }
     .mock-panel p { margin:0; color:var(--accent); font-size:12px; text-transform:uppercase; letter-spacing:.1em; font-weight:800; }
     .mock-panel strong { font-size:15px; line-height:1.4; }
-    .mock-panel button { justify-self:start; border:1px solid rgba(255,255,255,.18); border-radius:999px; background:transparent; color:var(--ink); padding:7px 12px; font-weight:750; }
+    .mock-panel button { justify-self:start; border:1px solid rgba(255,255,255,.12); border-radius:999px; background:transparent; color:var(--ink); padding:7px 12px; font-weight:750; }
     .interactive-stage { display:grid; gap:18px; padding:18px; }
     .interactive-results { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
-    .interactive-results article { padding:14px; border-radius:16px; background:rgba(255,255,255,.045); }
+    .interactive-results article { padding:14px; border-radius:16px; background:rgba(255,255,255,.03); }
     .interactive-results p { margin:0 0 6px; color:var(--muted); font-size:12px; font-weight:800; }
     .interactive-results strong { font-size:30px; color:var(--green); letter-spacing:-.04em; }
     .static-control-list { display:grid; gap:12px; }
     .static-control-list label { display:grid; grid-template-columns:120px minmax(0,1fr) 80px; gap:12px; align-items:center; color:var(--muted); font-weight:750; }
-    .static-control-list i { height:10px; border-radius:999px; background:rgba(255,255,255,.08); overflow:hidden; }
-    .static-control-list b { display:block; height:100%; border-radius:inherit; background:linear-gradient(90deg,#1f6db3,#9bdcc7); }
+    .static-control-list i { height:10px; border-radius:999px; background:rgba(255,255,255,.06); overflow:hidden; }
+    .static-control-list b { display:block; height:100%; border-radius:inherit; background:#78dc14; }
     .static-control-list strong { color:var(--ink); text-align:right; }
     .assumption-list { margin:0; padding-left:18px; color:var(--muted); font-size:13px; line-height:1.55; }
     .art-stage { min-height:320px; }
