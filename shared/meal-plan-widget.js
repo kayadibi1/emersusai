@@ -62,6 +62,10 @@ function TargetCard({ targets, dayTypeName }) {
   ]);
 }
 
+// Named exports for inline reuse by MealPlanCard in react-chat-app.js.
+// These are presentational-only and depend on nothing but React.createElement.
+export { MealCard, SupplementStack, TargetCard, SLOT_ORDER };
+
 export default function MealPlanWidget({ plan }) {
   const dayTypes = plan?.day_types ?? [];
   const [activeSlug, setActiveSlug] = useState(dayTypes[0]?.slug ?? null);

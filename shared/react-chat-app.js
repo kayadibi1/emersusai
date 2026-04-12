@@ -36,6 +36,12 @@ import {
   DAY_LABELS,
   summarizePlan,
 } from "/shared/workout-plan-schema.js";
+import {
+  MealCard,
+  SupplementStack,
+  TargetCard,
+  SLOT_ORDER,
+} from "/shared/meal-plan-widget.js";
 import { downloadPlanIcs } from "/shared/workout-plan-ics.js";
 import { summarizePlanDiff } from "/shared/workout-plan-diff.js";
 import {
@@ -1104,6 +1110,278 @@ function WorkoutPlanCard({ segment, threadId }) {
   );
 }
 
+// ─── MealPlanCard ────────────────────────────────────────────────────────────
+//
+// Inline renderer for `meal-plan` chat fences. Mirrors WorkoutPlanCard: parses
+// segment.content (raw JSON string per widget-fence-parser), renders the plan
+// with day-type tabs / target card / meal cards / supplement stack, and
+// exposes a Save button that POSTs to /api/emersus/meal-plans with a Bearer
+// token from the current supabase session.
+//
+// The iframe-hosted shared/meal-plan-widget.js remains as the presentational
+// component library — its sub-components (MealCard, SupplementStack,
+// TargetCard) are re-exported and reused here so there's exactly one
+// implementation of each piece of plan UI.
+//
+function MealPlanCard({ segment, threadId }) {
+  const [parseError, setParseError] = useState("");
+  const [plan, setPlan] = useState(null);
+
+  // Parse once per unique segment. segment.content is the raw JSON string
+  // the model emitted inside the ```meal-plan fence. Invalid JSON renders
+  // an inline error card, matching WorkoutPlanCard's parse-failure branch.
+  useEffect(() => {
+    if (!segment?.content) {
+      setParseError("Meal plan missing.");
+      setPlan(null);
+      return;
+    }
+    try {
+      const parsed = JSON.parse(segment.content);
+      setPlan(parsed);
+      setParseError("");
+    } catch (err) {
+      setParseError(`Meal plan could not be parsed: ${err?.message || "invalid JSON"}`);
+      setPlan(null);
+    }
+  }, [segment?.content]);
+
+  const [activeSlug, setActiveSlug] = useState(null);
+  const [busy, setBusy] = useState(false);
+  const [toast, setToast] = useState("");
+  const [error, setError] = useState("");
+  const [resolved, setResolved] = useState(""); // "saved" once save succeeds
+  const [planTitle, setPlanTitle] = useState("");
+
+  // Once plan arrives, pick the first day-type as the default active tab
+  useEffect(() => {
+    if (plan?.day_types?.length && !activeSlug) {
+      setActiveSlug(plan.day_types[0].slug);
+    }
+  }, [plan, activeSlug]);
+
+  if (parseError) {
+    return h(
+      "div",
+      { className: "chat-bubble chat-bubble-assistant chat-text-block" },
+      h("div", { style: { color: "var(--color-text-danger, #7a3300)" } }, parseError),
+      segment?.content
+        ? h(
+            "pre",
+            {
+              style: {
+                whiteSpace: "pre-wrap",
+                fontFamily: "ui-monospace, SFMono-Regular, Menlo, monospace",
+                fontSize: 11,
+                color: "var(--color-text-tertiary, #8b8778)",
+                marginTop: 8,
+                maxHeight: 120,
+                overflow: "auto",
+              },
+            },
+            String(segment.content).slice(0, 800)
+          )
+        : null
+    );
+  }
+
+  if (!plan) return null; // transient — waiting for the parse effect
+
+  const dayTypes = Array.isArray(plan.day_types) ? plan.day_types : [];
+  const activeDayType = dayTypes.find((dt) => dt.slug === activeSlug) || null;
+  const activeTargets = plan.targets?.[activeSlug] || null;
+
+  const sortedMeals = (activeDayType?.meals ?? [])
+    .slice()
+    .sort((a, b) => SLOT_ORDER.indexOf(a.slot) - SLOT_ORDER.indexOf(b.slot));
+
+  async function handleSave() {
+    if (busy || resolved === "saved") return;
+    setError("");
+    setBusy(true);
+    try {
+      const session = await getSession();
+      if (!session?.user?.id || !session?.access_token) {
+        throw new Error("Sign in to save this plan.");
+      }
+      const title =
+        planTitle.trim() ||
+        `${plan.provenance?.profile_snapshot?.goal ?? "Meal"} plan`;
+      const res = await fetch("/api/emersus/meal-plans", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({
+          title,
+          plan,
+          source_thread_id: threadId || null,
+        }),
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body?.error || `Save failed (HTTP ${res.status}).`);
+      }
+      setToast("Meal plan saved. Open it in the nutrition panel anytime.");
+      setResolved("saved");
+    } catch (err) {
+      setError(String(err?.message || err) || "Save failed.");
+    } finally {
+      setBusy(false);
+    }
+  }
+
+  return h(
+    "div",
+    { className: "chat-meal-plan-wrap" },
+    h(
+      "div",
+      {
+        style: {
+          background: "var(--color-background-secondary, #16181d)",
+          border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.08))",
+          borderRadius: "var(--border-radius-lg, 14px)",
+          padding: 16,
+          margin: "10px 0",
+        },
+      },
+      // Day-type tabs
+      h(
+        "div",
+        {
+          style: {
+            display: "flex",
+            gap: 8,
+            marginBottom: 12,
+            flexWrap: "wrap",
+          },
+        },
+        dayTypes.map((dt) =>
+          h(
+            "button",
+            {
+              key: dt.slug,
+              onClick: () => setActiveSlug(dt.slug),
+              style: {
+                background:
+                  dt.slug === activeSlug
+                    ? "var(--color-accent-primary, #6d9fff)"
+                    : "transparent",
+                color:
+                  dt.slug === activeSlug
+                    ? "var(--color-text-inverse, #0c0e11)"
+                    : "var(--color-text-primary, #f9f9fd)",
+                border:
+                  "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.16))",
+                borderRadius: 999,
+                padding: "4px 12px",
+                fontSize: 12,
+                fontWeight: 500,
+                cursor: "pointer",
+              },
+            },
+            dt.name || dt.slug
+          )
+        )
+      ),
+      // Target card for active day type
+      activeTargets
+        ? h(TargetCard, {
+            targets: activeTargets,
+            dayTypeName: activeDayType?.name ?? "",
+          })
+        : null,
+      // Meals
+      h(
+        "div",
+        { className: "meal-plan-meals", style: { marginTop: 12 } },
+        sortedMeals.map((m, i) => h(MealCard, { key: `m-${i}`, meal: m }))
+      ),
+      // Supplement stack
+      h(SupplementStack, { supplements: activeDayType?.supplements }),
+      // Save row
+      h(
+        "div",
+        {
+          style: {
+            display: "flex",
+            gap: 8,
+            marginTop: 16,
+            alignItems: "center",
+          },
+        },
+        h("input", {
+          type: "text",
+          value: planTitle,
+          onChange: (e) => setPlanTitle(e.target.value),
+          placeholder: "Plan title (optional)",
+          disabled: busy || resolved === "saved",
+          style: {
+            flex: 1,
+            background: "var(--color-background-primary, #0c0e11)",
+            color: "var(--color-text-primary, #f9f9fd)",
+            border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.16))",
+            borderRadius: 8,
+            padding: "6px 10px",
+            fontSize: 13,
+          },
+        }),
+        h(
+          "button",
+          {
+            onClick: handleSave,
+            disabled: busy || resolved === "saved",
+            style: {
+              background: "var(--color-accent-primary, #6d9fff)",
+              color: "var(--color-text-inverse, #0c0e11)",
+              border: "none",
+              borderRadius: 8,
+              padding: "6px 14px",
+              fontSize: 13,
+              fontWeight: 500,
+              cursor: busy || resolved === "saved" ? "default" : "pointer",
+              opacity: busy || resolved === "saved" ? 0.6 : 1,
+            },
+          },
+          busy
+            ? "Saving..."
+            : resolved === "saved"
+            ? "\u2713 Saved"
+            : "Save plan"
+        )
+      ),
+      // Toast / error
+      toast
+        ? h(
+            "div",
+            {
+              style: {
+                marginTop: 8,
+                fontSize: 12,
+                color: "var(--color-text-secondary, #a8a8b2)",
+              },
+            },
+            toast
+          )
+        : null,
+      error
+        ? h(
+            "div",
+            {
+              style: {
+                marginTop: 8,
+                fontSize: 12,
+                color: "var(--color-text-danger, #ff6b6b)",
+              },
+            },
+            error
+          )
+        : null
+    )
+  );
+}
+
 function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false, threadId = null }) {
   const fullText = String(text || "");
   const visible = useTypewriter(fullText, typewrite);
@@ -1153,6 +1431,13 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
           "div",
           { key: `wp-${index}`, className: "chat-workout-plan-wrap" },
           h(WorkoutPlanCard, { segment, threadId }),
+        );
+      }
+      if (segment.type === "meal-plan") {
+        return h(
+          "div",
+          { key: `mp-${index}`, className: "chat-meal-plan-wrap" },
+          h(MealPlanCard, { segment, threadId }),
         );
       }
       return h(
