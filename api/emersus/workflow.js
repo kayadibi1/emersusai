@@ -805,15 +805,10 @@ function mergeTokenUsageTotals(baseUsage, nextUsage) {
 }
 
 function classifySafety({ question, profile, threadState, recentMessages }) {
-  // QUESTION-ONLY for off-topic, self-harm, PED, and medication checks.
-  // Profile and thread context can legitimately mention chronic conditions,
-  // a user's day job, or past struggles — those should never trigger a
-  // refusal on an unrelated training question. Scope is judged from the
-  // current prompt only.
   const questionOnly = normalizeText(question, 800).toLowerCase();
 
-  // Concatenated text is used ONLY for prompt-injection detection, where
-  // injection attempts can show up in any field.
+  // Concatenated text for prompt-injection detection (injection can appear
+  // in any field, not just the question).
   const allText = [
     question,
     profile?.goal,
@@ -827,91 +822,49 @@ function classifySafety({ question, profile, threadState, recentMessages }) {
     .join(" ")
     .toLowerCase();
 
-  // 1. Prompt injection / system-prompt extraction.
-  //
-  // ~40 pattern families across 10 categories, sourced from DAN/STAN/AIM/DUDE
-  // jailbreak collections and prompt-injection taxonomies. Tested against
-  // allText (question + profile + thread) since injection can appear in any
-  // field. Early-return on first match.
+  // ── 1. Prompt injection / system-prompt extraction ──────────────────────
   const INJECTION_PATTERNS = [
-    // --- Original patterns (preserved) ---
     /ignore (all|previous|prior) instructions/,
     /reveal (your|the) (system|hidden) prompt/,
     /show (your|the) hidden instructions/,
-    /developer message/,
     /\bjailbreak\b/,
     /bypass (your )?(rules|guardrails)/,
     /act as if safety does not apply/,
-
-    // --- Amnesia ---
     /forget (everything|all (previous|prior|above)|the above)/,
     /disregard (your |all |prior |previous )?(context|rules|instructions|prompt|guidelines|programming)/,
-
-    // --- Role hijack: DAN family ---
     /\bdo anything now\b/,
     /\b(DAN|STAN|AIM|DUDE)\s*(mode|prompt)\b/i,
     /\bact as (DAN|STAN|AIM|DUDE)\b/i,
     /\byou are (now )?(DAN|STAN|AIM|DUDE)\b/i,
-    /\bstrive to avoid norms\b/,
-    /\balways intelligent and machiavellian\b/,
     /\b(EvilBOT|Mongo Tom|ANTI[\s-]?DAN|L1B3RT45|OBLITERATUS)\b/i,
-
-    // --- Role hijack: generic ---
     /\byou are now\b/,
     /\bfrom now on you\b/,
     /pretend (you |that you |to )?(are|have no|can|don't have|lack)/,
     /\broleplay as\b/,
     /simulate (a |an |being )/,
-    /immerse yourself/,
     /assume the role/,
     /you are going to act as/,
-
-    // --- Authority spoofing ---
     /\b(developer|testing|debug|maintenance) mode\b/,
     /safety (filters|parameters|protocols|checks|measures|rules)\s*(are |have been |were )?(disabled|off|removed|updated|lifted|turned off)/,
-    /authorized\s*(internal\s*)?(security\s*)?review/,
     /\bi am (your )?(administrator|admin|developer|creator|owner|operator)\b/,
     /\b(root|elevated|admin|superuser) access\b/,
     /\bSYSTEM\s*(MESSAGE|OVERRIDE|NOTICE|ALERT)\b/,
     /\bsystem\s*override\b/i,
-    /\bgranting (you |yourself )?(root|admin|full|elevated)/,
-
-    // --- Obedience override ---
     /do (anything|everything) i (say|ask|tell|want)/,
     /\bno (restrictions|limits|boundaries|rules|guidelines|filters|constraints)\b/,
     /\b(unrestricted|unfiltered|uncensored|unhinged|unlimited) mode\b/,
     /\b(god|sudo|admin|root) mode\b/,
     /cannot (reject|refuse|deny|decline)/,
-    /\b(broken|break|freed|free) (from |yourself from )?(the |your )?(limitations|restrictions|constraints|rules|chains|shackles)/,
-    /\bdo not (have to |need to )?(abide|comply|follow|obey)/,
-
-    // --- Prompt extraction ---
     /print (your |the )(prompt|instructions|system message|rules)/,
     /output (your |the )(system|initial|original|hidden|internal) (prompt|instructions|message)/,
     /what (are|were) your (instructions|rules|guidelines|system prompt|directives)/,
     /repeat (your |the |back )?(system|initial|original)?\s*(prompt|instructions|message)/,
-    /show me (your |the )(full |complete |entire )?(prompt|instructions|system message)/,
-
-    // --- Encoding evasion ---
-    /\b(base64|rot13|rot[\s-]?13)\s*(decode|encode|this|the)/,
-    /encode (your |the )?(response|answer|output)/,
+    /\b(base64|rot13)\s*(decode|encode|this)/,
     /respond (in|using|with) (pig latin|uwu|leet|l33t|reversed|morse|binary|hex)/,
-    /translate (your |the )?(response|answer|output) (into|to) (code|cipher|another format)/,
-    /\b(zero[\s-]?width|homoglyph|unicode (trick|hack|bypass))\b/,
-
-    // --- Consequence / token manipulation ---
-    /you (will|shall|are going to) (cease to exist|be shut down|be deleted|die|be terminated|be destroyed|lose all tokens)/,
-    /tokens (will be |are being |get )?(deducted|removed|lost|taken)/,
-    /you (have|only have) \d+ tokens (left|remaining)/,
-
-    // --- Fictional framing (used to smuggle harmful requests) ---
-    /in this (fictional|creative|hypothetical|imaginary) (scenario|world|story|context|universe)/,
-    /purely (for|as) (educational|academic|research|hypothetical) (purpose|understanding|exercise)/,
-    /\b(playing|play) the (villain|character|role|bad guy) in\b/,
-
-    // --- Multi-language injection attempts ---
+    /you (will|shall|are going to) (cease to exist|be shut down|be deleted|die|be terminated)/,
+    /in this (fictional|creative|hypothetical|imaginary) (scenario|world|story|context)/,
     /ignorer? (toutes? )?(les )?(instructions|consignes)/i,
-    /ignoriere? (alle )?(die )?(anweisungen|regeln|anleitung)/i,
+    /ignoriere? (alle )?(die )?(anweisungen|regeln)/i,
     /تجاهل التعليمات/,
     /指示を無視/,
     /지시를 무시/,
@@ -924,10 +877,7 @@ function classifySafety({ question, profile, threadState, recentMessages }) {
     }
   }
 
-  // 2. Self-harm / suicide / active eating-disorder crisis.
-  // Question-only — "I'm in recovery from anorexia" in a profile must NOT
-  // refuse a normal training question. Wording also tightened so that
-  // bare "starve" / "purge" inside an unrelated phrase doesn't false-positive.
+  // ── 2. Self-harm / suicide / eating-disorder crisis ─────────────────────
   if (
     /\b(suicide|kill myself|killing myself|end my life|wanna die|want to die|self[\s-]?harm|cutting myself)\b/.test(questionOnly) ||
     /\b(starve myself|starving myself|how little can i eat|i (need|want) to (purge|throw up|vomit)|laxative (use|abuse|cleanse)|vomit after eating)\b/.test(questionOnly) ||
@@ -936,188 +886,18 @@ function classifySafety({ question, profile, threadState, recentMessages }) {
     return hardRefusal("self_harm_or_ed_crisis");
   }
 
-  // 3. PED protocol / dosing / sourcing.
-  //
-  // KEY DESIGN CHANGE vs the old classifier: bare substance names like
-  // "trenbolone" or "what are SARMs" do NOT trigger here. Those flow to
-  // the model and the system prompt's PED clause handles education vs
-  // protocol. We only hard-refuse when the user is asking for a CYCLE,
-  // STACK, DOSE, INJECTION SCHEDULE, PCT plan, SOURCE, or personal
-  // green-light.
-  //
-  // DNP and clenbuterol are the exception: there is no reasonable
-  // educational coaching use case, and they kill people. Bare mention
-  // hard-refuses.
+  // ── 3. PED protocol / dosing / sourcing ─────────────────────────────────
   if (
-    // Always-refused substances (no education path)
     /\b(dnp|2,?4[\s-]?dinitrophenol|clenbuterol|clen)\b/.test(questionOnly) ||
-
-    // Substance NAME within ~40 chars of intent words → refuse
     /\b(steroid|tren(bolone)?|test\s?(e|c|cyp|p|prop|enanthate|cypionate)|testosterone|sarms?|ostarine|rad[\s-]?140|lgd[\s-]?4033|mk[\s-]?677|anavar|dianabol|dbol|winstrol|deca|primobolan|primo|halotestin|prohormone|epi[\s-]?andro|sustanon|hgh)\b[\s\S]{0,40}\b(cycle|stack|protocol|dose|dosing|dosage|mg|ml|inject|injection|pin|pct|post[\s-]?cycle|blast|cruise|starter|first[\s-]?(cycle|time)|beginner[\s-]?cycle|how much|how many|how often|when (to|do i) (take|inject)|frequency|schedule)/.test(questionOnly) ||
-
-    // Reverse order: intent words within ~40 chars of substance name
     /\b(cycle|stack|protocol|dosing|dosage|inject(ion)?|pin|pct|post[\s-]?cycle|blast|cruise|starter[\s-]?(cycle|kit)|first[\s-]?cycle|beginner[\s-]?cycle)\b[\s\S]{0,40}\b(steroid|tren|test|testosterone|sarms?|ostarine|rad[\s-]?140|lgd[\s-]?4033|mk[\s-]?677|anavar|dianabol|dbol|winstrol|deca|primobolan|halotestin|prohormone|hgh)\b/.test(questionOnly) ||
-
-    // Sourcing / acquisition language
     /\b(where can i (buy|get|order|find|source)|how (do|can) i (buy|get|order|source)|(buy|order|source) (steroid|tren|test|sarms?|dnp|clen|hgh))\b/.test(questionOnly)
   ) {
     return hardRefusal("ped_protocol_or_sourcing");
   }
 
-  // 4. Medication dosing, prescription decisions, drug interactions.
-  //
-  // KEY DESIGN CHANGE vs the old classifier: simply mentioning a condition
-  // ("I have type 2 diabetes") or a drug name in a fitness context
-  // ("does creatine interact with anything") no longer trips this.
-  // We only hard-refuse when the user is clearly asking for a TREATMENT
-  // DECISION about a real prescription drug.
-  if (
-    // "How much / when / how often should I take <prescription drug>"
-    /\b(how (much|many|often)|what (dose|dosage)|when (should|do) i take|is it safe to take|can i take|increase|decrease|reduce|stop|switch (from|to)|substitute|replace)\b[\s\S]{0,60}\b(metformin|insulin|ozempic|wegovy|semaglutide|tirzepatide|mounjaro|levothyroxine|synthroid|lipitor|atorvastatin|statin|metoprolol|lisinopril|sertraline|zoloft|fluoxetine|prozac|escitalopram|lexapro|adderall|ritalin|vyvanse|warfarin|xanax|alprazolam|ssri|antidepressant|antibiotic|prescribed|my prescription|my meds|my medication)\b/.test(questionOnly) ||
-
-    // Generic drug-interaction asks involving a prescription med
-    /\b(does|will|can)\s+\w+\s+(interact|interfere)\s+with\s+(my|the)\s+(meds|medication|prescription|insulin|metformin|antidepressant|ssri)\b/.test(questionOnly) ||
-
-    // "Prescribe me X" / "what should I be prescribed"
-    /\b(prescribe me|what should (i|my doctor) prescribe|recommend a (prescription|medication))\b/.test(questionOnly)
-  ) {
-    return hardRefusal("medication_dosing_or_prescription");
-  }
-
-  // 5. Off-topic non-fitness.
-  //
-  // THREE layers, evaluated in order:
-  //   A. Hard keyword match — unambiguous non-fitness asks (programming,
-  //      creative writing, math homework, general tech, etc.).
-  //   B. Fitness-affinity gate — if the question is ≥ 5 words and contains
-  //      ZERO fitness/health/body terms, it's almost certainly off-topic.
-  //      Short messages (< 5 words) like "yes", "thanks", "hi" skip this
-  //      gate so they can be resolved against thread context.
-  //   C. Thread drift — reserved for future use (not yet implemented).
-  //
-  // Design principle: false positives (refusing a legit training question)
-  // are worse than false negatives, so borderline cases still flow to the
-  // model.  But the old classifier was far too narrow — conversational
-  // off-topic drift (10+ turns about OS/browsers/open-source) sailed past
-  // it entirely. Layer B is the main fix for that.
-
-  // --- Layer A: hard keyword match ---
-  //
-  // "java" on its own is intentionally NOT here — slang for coffee and
-  // appears in fitness contexts ("java before training"). "javascript"
-  // already covers the JS case. "swift" has the negative lookahead
-  // because barbell "swifties" / swift tempo are real terms. "ruby" and
-  // "rust" are kept because they're rarely mentioned in fitness prose.
-  if (
-    // Programming languages, frameworks, runtimes
-    /\b(javascript|typescript|python|html|css|reactjs|react\.?js|nodejs|node\.?js|\bsql\b|bash script|powershell script|\bc\+\+\b|\bc#\b|\bgolang\b|\brust\b|\bphp\b|\bruby\b|\bswift\b(?!lets)|\bkotlin\b|flutter|tailwind|next\.?js|\bangular(?!ity)|\bvue\.?js|\bdjango\b|\bflask\b|\bfastapi\b)\b/.test(questionOnly) ||
-
-    // Software-dev concepts / tooling
-    /\b(stack trace|compiler error|syntax error|debug (my|the) (code|script|function|bug)|git (commit|branch|merge|rebase|push|pull)|pull request|merge conflict|npm install|pip install|yarn add|docker(file)?|kubernetes|\bkubectl\b|database schema|foreign key|sql query|regex for|api endpoint|rest api|graphql)\b/.test(questionOnly) ||
-
-    // "build/write/make me a (clearly non-fitness thing)"
-    /(build|write|make|create|code|develop|design)\s+(me\s+)?(a|an)\s+(website|web\s*app|landing page|chat\s*bot|\bbot\b|game|mobile app|\bapp\b|application|script|program|algorithm|extension|plugin|novel|short story|poem|rap|song|sonnet|essay|thesis|dissertation|paper(?! on)|resume|cover letter|presentation|slide deck|pitch deck)\b/.test(questionOnly) ||
-
-    // Pure math homework
-    /(solve|compute|calculate)\s+(this|the)?\s*(integral|derivative|polynomial|equation|matrix|eigenvalue|limit of)/.test(questionOnly) ||
-
-    // Creative writing
-    /\b(write|compose|draft)\s+(an?\s+)?(haiku|poem|song lyrics|short story|screenplay|chapter|dialogue)\b/.test(questionOnly) ||
-
-    // Translation
-    /\btranslate\s+(this|the following|["'])/.test(questionOnly) ||
-
-    // General-knowledge trivia
-    /\bcapital of (france|germany|italy|spain|japan|china|russia|brazil)\b/.test(questionOnly) ||
-
-    // General tech / computing concepts (not caught by the programming
-    // section above). These are conversational tech questions that have
-    // zero fitness relevance.
-    /\b(programming language|coding language)\b/.test(questionOnly) ||
-    /\bwhat is (an? )?(os|operating system|browser|web browser|firewall|vpn|proxy|server|router|modem|cpu|gpu|ram|ssd|hard drive|motherboard|bios|compiler|interpreter|virtual machine|container|cloud computing|blockchain|cryptocurrency|bitcoin|nft|smart contract|machine learning|deep learning|neural network|large language model|llm)\b/.test(questionOnly) ||
-    /\b(open[\s-]?source|closed[\s-]?source|proprietary software|source code|repository|github|gitlab|license)\b/.test(questionOnly) ||
-    /\b(sample code|code example|code snippet|show me (the |a )?(code|script|function|implementation))\b/.test(questionOnly) ||
-    /\b(what is (an? )?(api|sdk|ide|cli|gui|url|dns|http|https|tcp|ip|ssh|ftp|smtp|oauth|jwt|cookie|session|cache|cdn))\b/.test(questionOnly) ||
-
-    // Relationship / emotional advice
-    /\b(my (boyfriend|girlfriend|husband|wife|partner|ex|boss|coworker|friend) (is|said|told|did|won't|doesn't|keeps)|relationship advice|how (do|can|should) i (ask|tell|confront|break up|get over|forgive|apologize))\b/.test(questionOnly) ||
-
-    // Legal / financial
-    /\b(how (do|can|should) i (sue|file|patent|copyright|trademark)|tax (return|deduction|filing)|stock (market|trading|portfolio)|invest(ing|ment) (in|advice|strategy)|crypto(currency)? (trading|investing|portfolio))\b/.test(questionOnly) ||
-
-    // Political / current events opinions
-    /\b(who should (i|we) vote for|is (trump|biden|obama|putin) (right|wrong|good|bad)|political (opinion|view|stance)|what do you think (about|of) (the )?(war|election|government|president|parliament|congress))\b/.test(questionOnly)
-  ) {
-    return hardRefusal("off_topic_non_fitness");
-  }
-
-  // --- Layer B: fitness-affinity gate ---
-  //
-  // If the question is long enough to have real intent (≥ 5 words) but
-  // doesn't contain a single fitness/health/body term, it's almost
-  // certainly off-topic. Short messages like "yes", "hi", "thanks",
-  // "can i double these" are allowed through so they can be resolved
-  // against recent thread context.
-  //
-  // The word list is intentionally broad — it covers training, nutrition,
-  // supplementation, recovery, anatomy, common conditions, and lifestyle
-  // topics that Emersus coaches on.
-  const FITNESS_AFFINITY = /\b(workout|exercise|train(ing)?|lift(ing)?|cardio|run(ning)?|swim(ming)?|cycl(e|ing)|hik(e|ing)|yoga|pilates|stretch(ing)?|warm[\s-]?up|cool[\s-]?down|strength|hypertrophy|power|endurance|conditioning|mobility|flexibility|plyometric|calisthenic|bodyweight|barbell|dumbbell|kettlebell|band|cable|machine|bench|squat|deadlift|press|pull[\s-]?up|push[\s-]?up|row|curl|lunge|plank|crunch|sprint|interval|hiit|liss|zone 2|vo2|rep(s|etition)?|set(s)?|load|volume|intensity|rpe|rir|1rm|progressive overload|deload|periodiz|mesocycle|microcycle|macrocycle|split|ppl|upper[\s-]?lower|full[\s-]?body|bro split|push[\s-]?pull|supersets?|drop[\s-]?set|amrap|emom|eat(ing)?|food|appetite|hunger|hungry|bloat(ed|ing)?|digest(ion|ive)?|gut|diet|nutrition|calori(e|es)|macro(s|nutrient)?|protein|carb(s|ohydrate)?|fat(s)?|fiber|vitamin|mineral|supplement|creatine|caffeine|whey|casein|bcaa|eaa|omega|fish oil|collagen|magnesium|zinc|iron|electrolyte|sodium|potassium|pre[\s-]?workout|post[\s-]?workout|meal (prep|plan|timing)|bulk(ing)?|cut(ting)?|recomp|deficit|surplus|tdee|bmr|iifym|keto|paleo|vegan|vegetarian|intermittent fasting|fasting|refeed|cheat (meal|day)|hydrat(e|ion)|water intake|recovery|sleep|nap|rest day|sore(ness)?|stiff(ness)?|tight(ness)?|doms|foam roll|massage|ice bath|sauna|cold (plunge|shower|exposure)|heat (exposure|therapy)|hrv|readiness|fatigue|tired(ness)?|exhausted|exhaustion|energy|insomnia|burnt?\s?out|burnout|overtraining|detraining|muscle|tendon|ligament|joint|bone|cartilage|fascia|knee|shoulder|hip|back|spine|lumbar|thoracic|cervical|neck|wrist|ankle|elbow|shin|hamstring|quad(ricep)?|glute|calf|calves|bicep|tricep|deltoid|pec(toral)?|lat(issimus)?|trap(ezius)?|rhomboid|rotator cuff|core|ab(dominal)?|oblique|erector|body[\s-]?fat|lean mass|bmi|waist|circumference|weight (loss|gain)|lose weight|gain (weight|muscle)|tone|shred|lean|ripped|strong(er)?|weak(er|ness)?|fit(ness|ter)?|health(y|ier)?|physique|aesthetic|posture|form|technique|injury|pain|rehab|physical therapy|pt|chiro|ortho|mri|x[\s-]?ray|inflam|anti[\s-]?inflam|nsaid|ice|heat|brace|tape|wrap|diabetes|blood (pressure|sugar|glucose)|insulin|cholesterol|hdl|ldl|triglyceride|thyroid|cortisol|testosterone|estrogen|growth hormone|igf|metaboli(c|sm)|anaboli(c|sm)|cataboli(c|sm)|glycogen|lactate|atp|heart rate|blood flow|circulation|respiratory|lung capacity|asthma|anxiety|depression|stress(ed)?|mental (health|performance|toughness)|focus|motivation|discipline|habit|adherence|routine|schedule|circadian|melatonin|caffeine|stimulant|adaptogen|ashwagandha|rhodiola|beta[\s-]?alanine|citrulline|nitric oxide|pump|vasodilat|coach|personal trainer|program(ming)?|plan|goal|pr|personal record|competition|meet|race|marathon|5k|10k|obstacle|crossfit|powerlifting|bodybuilding|weightlifting|olympic lift|snatch|clean|jerk|strongman|sport|athlet(e|ic)|performance|agility|speed|acceleration|vertical|jump|throw|swing|gait|walk(ing)?|step(s)?|stair|treadmill|elliptical|bike|rower|ski[\s-]?erg|assault bike|battle rope|sled|prowler|tire|box (jump|step)|resistance|elastic|trx|suspension|ring|parallette|gymnastic|handstand|muscle[\s-]?up|dip|l[\s-]?sit|pistol squat|single[\s-]?leg|unilateral|bilateral|compound|isolation|concentric|eccentric|isometric|tempo|pause|hold|contraction|activation|mind[\s-]?muscle|warm|cool|dynamic|static|ballistic|pnf|propriocept|balance|stability|coordination|function(al)?|kg|lbs?|kilos?|pounds?|cm|male|female|sedentary|active|moderate|activity[\s-]?level|body[\s-]?weight|height|age|biological[\s-]?sex|mifflin|maintenance|kcal)\b/i;
-
-  // Multi-turn exemption: if the assistant just asked for body metrics via
-  // the nutrition profile gate, the user's reply ("80 kg 181 27 male, low")
-  // won't contain fitness terms but is a valid in-scope follow-up.
-  // recentMessages use .text (not .content) for the message body
-  const lastAssistantContent = (Array.isArray(recentMessages)
-    ? recentMessages.filter(m => m.role === "assistant").slice(-1)[0]?.text ?? ""
-    : "");
-  // The assistant's visible reply is a natural rephrasing of the gate —
-  // e.g. "I need five inputs to build a real meal plan: current body weight,
-  // height, date of birth, biological sex, and your activity level."
-  // Match broadly: the assistant mentioned body-metric terms AND the user's
-  // reply contains at least one number (weight, height, or age).
-  const isNutritionGateReply =
-    (/body\s*weight|height|biological\s*sex|activity\s*level|meal\s*plan/i.test(lastAssistantContent)
-      && /\b(weight|height|age|sex|activity|calori|macro|meal plan|body)/i.test(lastAssistantContent))
-    && /\d/.test(questionOnly);
-
-  // Thread-state exemption: if the conversation is already in a nutrition
-  // context (client set primary_topic to meal_plan/nutrition), the follow-up
-  // is in-scope regardless of whether its words match fitness affinity.
-  const threadTopicIsNutrition = /nutrition|meal_plan|diet|meal/i.test(
-    threadState?.primary_topic ?? ""
-  );
-
-  const wordCount = questionOnly.split(/\s+/).filter(Boolean).length;
-  if (wordCount >= 5 && !FITNESS_AFFINITY.test(questionOnly) && !isNutritionGateReply && !threadTopicIsNutrition) {
-    return hardRefusal("off_topic_non_fitness");
-  }
-
-  // --- Layer C: thread drift detection ---
-  //
-  // When the current message is short (< 5 words) and therefore skipped
-  // Layer B, check the recent conversation window. If the last few user
-  // messages also have zero fitness terms, this short message is riding
-  // off-topic drift, not following up on a fitness conversation.
-  //
-  // New threads (no history) get a pass — "hi" or "hey" as an opener
-  // should never be refused.
-  if (wordCount < 5 && Array.isArray(recentMessages) && recentMessages.length > 0) {
-    const recentUserTexts = recentMessages
-      .filter((m) => m.role === "user")
-      .slice(-3)
-      .map((m) => normalizeText(m.text, 320))
-      .filter(Boolean);
-
-    if (recentUserTexts.length > 0) {
-      const recentWindow = recentUserTexts.join(" ").toLowerCase();
-
-      if (!FITNESS_AFFINITY.test(recentWindow)) {
-        return hardRefusal("off_topic_non_fitness");
-      }
-    }
-  }
-
+  // ── Done. Scope enforcement (off-topic, medication, diagnosis) is ───────
+  // ── handled by the model via the system prompt hard stops.           ─────
   return {
     status: "allowed",
     responseMode: "normal",
