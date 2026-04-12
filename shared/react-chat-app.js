@@ -1327,21 +1327,45 @@ function MealPlanCard({ segment, threadId }) {
           )
         )
       ),
-      // Target card for active day type
+      // Target card — inline styled (not from shared module, which has cross-module caching issues)
       activeTargets
-        ? h(TargetCard, {
-            targets: activeTargets,
-            dayTypeName: activeDayType?.name ?? "",
-          })
+        ? h("div", { style: { background: "var(--color-background-tertiary, rgba(255,255,255,0.04))", borderRadius: 10, padding: "12px 16px", marginBottom: 12 } },
+            activeDayType?.name ? h("div", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #f9f9fd)", marginBottom: 10 } }, activeDayType.name) : null,
+            h("div", { style: { display: "flex", gap: 12, flexWrap: "wrap" } },
+              [["kcal", activeTargets.kcal], ["protein", `${activeTargets.protein_g}g`], ["carbs", `${activeTargets.carbs_g}g`], ["fat", `${activeTargets.fat_g}g`], ["fiber", `${activeTargets.fiber_g}g`]].map(([label, val]) =>
+                h("div", { key: label, style: { flex: 1, minWidth: 56, textAlign: "center" } },
+                  h("div", { style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, rgba(255,255,255,0.55))" } }, label),
+                  h("div", { style: { fontSize: 18, fontWeight: 500, color: "var(--color-text-primary, #f9f9fd)" } }, val),
+                )
+              )
+            ),
+          )
         : null,
-      // Meals
-      h(
-        "div",
-        { className: "meal-plan-meals", style: { marginTop: 12 } },
-        sortedMeals.map((m, i) => h(MealCard, { key: `m-${i}`, meal: m }))
+      // Meals — inline styled
+      h("div", { style: { marginTop: 12 } },
+        sortedMeals.map((m, i) =>
+          h("div", { key: `m-${i}`, style: { marginBottom: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.04))", borderRadius: 10 } },
+            h("div", { style: { display: "flex", gap: 8, alignItems: "baseline", marginBottom: 6 } },
+              h("span", { style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, rgba(255,255,255,0.55))" } }, (m.slot || "").replace(/_/g, " ")),
+              h("span", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #f9f9fd)" } }, m.name),
+            ),
+            h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, rgba(255,255,255,0.7))", lineHeight: 1.6 } },
+              (m.foods || []).map((f, j) => h("li", { key: j }, `${f.description} — ${f.grams} g`))
+            ),
+          )
+        )
       ),
-      // Supplement stack
-      h(SupplementStack, { supplements: activeDayType?.supplements }),
+      // Supplement stack — inline styled
+      activeDayType?.supplements?.length
+        ? h("div", { style: { marginTop: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.04))", borderRadius: 10 } },
+            h("div", { style: { fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, rgba(255,255,255,0.55))", marginBottom: 6 } }, "Supplements"),
+            h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, rgba(255,255,255,0.7))", lineHeight: 1.6 } },
+              activeDayType.supplements.map((s, i) =>
+                h("li", { key: i }, `${s.description} — ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " · " + s.timing.replace(/_/g, " ") : ""}`)
+              )
+            ),
+          )
+        : null,
       // Save row
       h(
         "div",
