@@ -4442,11 +4442,14 @@ async function generateRecommendation({
 
   let systemPromptAddendum = "";
   if (plan.topic === "nutrition") {
-    // Intent priority: thread-state meal_plan hint > legacy gate follow-up > regex classification
+    // Intent priority: thread-state meal_plan > legacy gate follow-up > regex
+    // If threadState says meal_plan, we're in a plan-generation conversation —
+    // every turn is generate_plan unless the user explicitly asks to log food.
+    const regexIntent = classifyNutritionIntent(question);
     const intent =
-      (threadSaysMealPlan && /\d/.test(question)) ? "generate_plan" :
+      (threadSaysMealPlan && regexIntent !== "log_food") ? "generate_plan" :
       isProfileGateFollowUp ? "generate_plan" :
-      classifyNutritionIntent(question);
+      regexIntent;
 
     if (intent === "generate_plan") {
       const missingFields = checkNutritionProfileGate(mergedProfile);
