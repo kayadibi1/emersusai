@@ -5,6 +5,7 @@
 // shared/nutrition-charts.js.
 
 import React from "https://esm.sh/react@18.2.0";
+import { localDateStr, localDateOffset } from "/shared/date-utils.js";
 import {
   WeeklyMacroBars,
   MicronutrientCard,
@@ -55,8 +56,8 @@ export default function NutritionPane() {
       setState({ loading: true, error: null });
       try {
         const days = RANGES.find(r => r.id === range)?.days ?? 28;
-        const end = new Date().toISOString().slice(0, 10);
-        const start = new Date(Date.now() - days * 86400_000).toISOString().slice(0, 10);
+        const end = localDateStr();
+        const start = localDateOffset(-days);
 
         // Load the active plan id for adherence
         const planRes = await authFetch("/api/emersus/meal-plans/active");

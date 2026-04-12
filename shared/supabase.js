@@ -5,6 +5,7 @@ import {
   validatePlan,
   validatePlanUpdate,
 } from "/shared/workout-plan-schema.js";
+import { localDateStr } from "/shared/date-utils.js";
 
 const CONTACT_EMAIL = "info@emersus.ai";
 
@@ -501,7 +502,7 @@ export async function upsertWorkoutLogs(userId, planId, plan, targetSessionId) {
 
     if (blocks.length === 0) continue;
 
-    const performedAt = session.date || new Date().toISOString().slice(0, 10);
+    const performedAt = session.date || localDateStr();
 
     try {
       await supabase.rpc("upsert_workout_logs", {

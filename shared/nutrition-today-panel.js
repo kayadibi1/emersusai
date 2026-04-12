@@ -8,6 +8,7 @@ import React from "https://esm.sh/react@18.2.0";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.101.1";
 import { MacroRing, MACRO_COLORS, StreakBanner } from "./nutrition-charts.js";
 import { resolveDayType } from "./meal-plan-day-type.js";
+import { localDateStr } from "./date-utils.js";
 
 const { useEffect, useState } = React;
 const h = React.createElement;
@@ -34,7 +35,7 @@ export default function NutritionTodayPanel({
   const [workoutPlan, setWorkoutPlan] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const todayStr = new Date().toISOString().slice(0, 10);
+  const todayStr = localDateStr();
 
   useEffect(() => {
     let cancelled = false;

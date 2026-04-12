@@ -2,6 +2,7 @@
 // Thin layer over supabase.rpc() — handles auth and date range defaults.
 
 import { getSupabase, getSession } from "/shared/supabase.js";
+import { localDateStr } from "/shared/date-utils.js";
 
 export async function fetchDashboard(userId, rangeStart, rangeEnd) {
   const supabase = await getSupabase();
@@ -109,7 +110,7 @@ export function dateRange(weeks) {
   const start = new Date();
   start.setDate(start.getDate() - weeks * 7);
   return {
-    start: start.toISOString().slice(0, 10),
-    end: end.toISOString().slice(0, 10),
+    start: localDateStr(start),
+    end: localDateStr(end),
   };
 }

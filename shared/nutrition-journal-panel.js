@@ -4,6 +4,7 @@
 // with inline edit/delete, and the search-first "Log food" modal.
 
 import React from "https://esm.sh/react@18.2.0";
+import { localDateStr } from "./date-utils.js";
 const { useEffect, useState } = React;
 const h = React.createElement;
 
@@ -140,7 +141,7 @@ function LogFoodModal({ onClose, onLogged, date, kindFilter }) {
 }
 
 export default function NutritionJournalPanel({ onOpenFoodDetail }) {
-  const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
+  const [date, setDate] = useState(localDateStr());
   const [day, setDay] = useState(null);
   const [loading, setLoading] = useState(true);
   const [modal, setModal] = useState(null);  // null | "food" | "supplement"

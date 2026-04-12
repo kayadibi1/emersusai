@@ -8,6 +8,7 @@
 // Used by: all four nutrition tabs (Today, Plan, Journal, Supplements).
 
 import React from "https://esm.sh/react@18.2.0";
+import { localDateOffset } from "./date-utils.js";
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2.101.1";
 import {
   NutritionFactsPanel,
@@ -78,7 +79,7 @@ export default function FoodDetailDrawer({ foodId, onClose, onLog }) {
           })));
 
           // Mini history: entries over last 30 days for this food
-          const since = new Date(Date.now() - 30 * 86400_000).toISOString().slice(0, 10);
+          const since = localDateOffset(-30);
           const { data: histData } = await sb
             .from("meal_journal_entries")
             .select("logged_date")
@@ -92,7 +93,7 @@ export default function FoodDetailDrawer({ foodId, onClose, onLog }) {
           }
           const days = [];
           for (let i = 29; i >= 0; i--) {
-            const d = new Date(Date.now() - i * 86400_000).toISOString().slice(0, 10);
+            const d = localDateOffset(-i);
             days.push(counts[d] ?? 0);
           }
           setHistory(days);

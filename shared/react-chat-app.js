@@ -26,6 +26,7 @@ import {
   upsertChatThread,
 } from "/shared/supabase.js";
 import { createThinkingGlyph } from "/shared/thinking-glyph.js";
+import { localDateStr } from "/shared/date-utils.js";
 import {
   WidgetFrame,
   hasWidgetFences,
@@ -1474,6 +1475,10 @@ function NutritionLogConfirmCard({ segment, threadId }) {
     }
     try {
       const parsed = JSON.parse(segment.content);
+      // Server fast-path computes logged_date in UTC — override with
+      // the client's local calendar date so the entry lands on the
+      // correct day for western-hemisphere users.
+      parsed.logged_date = localDateStr();
       setPayload(parsed);
       setParseError("");
     } catch (err) {
@@ -1875,7 +1880,7 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
           })),
           unresolved: [],
           meal_slot_default: toolData.meal_slot || "lunch",
-          logged_date: new Date().toISOString().slice(0, 10),
+          logged_date: localDateStr(),
         };
         const segment = { content: JSON.stringify(confirmPayload) };
         children.push(

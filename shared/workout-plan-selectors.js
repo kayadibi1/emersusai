@@ -6,13 +6,10 @@
 // well. Every function is a pure transform from a list of plan rows
 // to either a structured result or null.
 //
-// "today" everywhere defaults to the local YYYY-MM-DD computed via
-// new Date().toISOString().slice(0, 10) — UTC date, NOT plan-local.
-// Phase 1.5 caveat: a plan in America/Los_Angeles whose user opens
-// the dashboard at 11pm Pacific will see the next session as
-// "tomorrow" (which is true in UTC) instead of "today" (true locally).
-// Acceptable for v1; if anyone complains we can pass through the
-// plan timezone and rebuild the date in that zone.
+// "today" everywhere defaults to the browser-local YYYY-MM-DD via
+// localDateStr() from date-utils.js — uses getFullYear/getMonth/getDate
+// so it matches the user's wall clock, not UTC.
+import { localDateStr } from "./date-utils.js";
 
 // Returns the most-relevant session for "what should I do right now"
 // across all of the user's non-archived plans. Returns:
@@ -30,7 +27,7 @@
 // Tie-breakers when multiple plans have a session today: pick the
 // most-recently-updated plan. This matches what users would expect —
 // the plan they were just looking at wins.
-export function findTodaysSession(plans, today = new Date().toISOString().slice(0, 10)) {
+export function findTodaysSession(plans, today = localDateStr()) {
   if (!Array.isArray(plans) || plans.length === 0) return null;
 
   // Build (planRow, session, date) tuples for every future or today
@@ -75,7 +72,7 @@ export function findTodaysSession(plans, today = new Date().toISOString().slice(
 // every session is already logged or completed.
 export function nextUnloggedSession(plan) {
   if (!plan || !Array.isArray(plan.sessions) || plan.sessions.length === 0) return null;
-  const today = new Date().toISOString().slice(0, 10);
+  const today = localDateStr();
   // Pass 1: future or today, no logged actuals, not completed
   for (const session of plan.sessions) {
     if (!session) continue;
