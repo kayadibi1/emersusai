@@ -1,0 +1,92 @@
+{
+  "description": "Cross-fixture test cases for shared/meal-plan-day-type.js and the SQL sibling get_day_type_for_date(). Both implementations must return the same output for each case. Run via scripts/test-day-type-resolver.js.",
+  "cases": [
+    {
+      "name": "override wins over everything",
+      "date": "2026-04-15",
+      "meal_plan": {
+        "day_types": [{"slug": "training_day"}, {"slug": "rest_day"}, {"slug": "refeed_day"}],
+        "assignments": {
+          "mode": "auto_from_workout",
+          "default_day_type": "rest_day",
+          "overrides": {"2026-04-15": "refeed_day"}
+        }
+      },
+      "workout_plan": {"schedule": [{"date": "2026-04-15"}]},
+      "expected": "refeed_day"
+    },
+    {
+      "name": "auto_from_workout: session today => training_day",
+      "date": "2026-04-14",
+      "meal_plan": {
+        "day_types": [{"slug": "training_day"}, {"slug": "rest_day"}],
+        "assignments": {"mode": "auto_from_workout", "default_day_type": "rest_day", "overrides": {}}
+      },
+      "workout_plan": {"schedule": [{"date": "2026-04-14"}]},
+      "expected": "training_day"
+    },
+    {
+      "name": "auto_from_workout: no session today => default (rest_day)",
+      "date": "2026-04-14",
+      "meal_plan": {
+        "day_types": [{"slug": "training_day"}, {"slug": "rest_day"}],
+        "assignments": {"mode": "auto_from_workout", "default_day_type": "rest_day", "overrides": {}}
+      },
+      "workout_plan": {"schedule": [{"date": "2026-04-15"}]},
+      "expected": "rest_day"
+    },
+    {
+      "name": "auto_from_workout but meal plan has no training_day => default",
+      "date": "2026-04-14",
+      "meal_plan": {
+        "day_types": [{"slug": "rest_day"}],
+        "assignments": {"mode": "auto_from_workout", "default_day_type": "rest_day", "overrides": {}}
+      },
+      "workout_plan": {"schedule": [{"date": "2026-04-14"}]},
+      "expected": "rest_day"
+    },
+    {
+      "name": "no workout plan at all => default",
+      "date": "2026-04-14",
+      "meal_plan": {
+        "day_types": [{"slug": "training_day"}, {"slug": "rest_day"}],
+        "assignments": {"mode": "auto_from_workout", "default_day_type": "rest_day", "overrides": {}}
+      },
+      "workout_plan": null,
+      "expected": "rest_day"
+    },
+    {
+      "name": "manual mode ignores workout sessions",
+      "date": "2026-04-14",
+      "meal_plan": {
+        "day_types": [{"slug": "training_day"}, {"slug": "rest_day"}],
+        "assignments": {"mode": "manual", "default_day_type": "rest_day", "overrides": {}}
+      },
+      "workout_plan": {"schedule": [{"date": "2026-04-14"}]},
+      "expected": "rest_day"
+    },
+    {
+      "name": "override beats auto even when session exists",
+      "date": "2026-04-14",
+      "meal_plan": {
+        "day_types": [{"slug": "training_day"}, {"slug": "rest_day"}],
+        "assignments": {
+          "mode": "auto_from_workout",
+          "default_day_type": "rest_day",
+          "overrides": {"2026-04-14": "rest_day"}
+        }
+      },
+      "workout_plan": {"schedule": [{"date": "2026-04-14"}]},
+      "expected": "rest_day"
+    },
+    {
+      "name": "missing assignments => default to rest_day",
+      "date": "2026-04-14",
+      "meal_plan": {
+        "day_types": [{"slug": "training_day"}, {"slug": "rest_day"}]
+      },
+      "workout_plan": null,
+      "expected": "rest_day"
+    }
+  ]
+}
