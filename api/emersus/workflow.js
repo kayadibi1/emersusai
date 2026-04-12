@@ -4265,9 +4265,24 @@ async function generateRecommendation({
   // When topic === "nutrition", classify the sub-intent and build an addendum
   // that is appended to the system prompt. Retrieval still runs below so the
   // model can cite evidence inside both the gate-ask and the plan itself.
+  //
+  // Multi-turn continuity: if the last assistant message was the profile gate
+  // ("NUTRITION PROFILE GATE:"), the user's follow-up (body metrics) won't
+  // match the nutrition regex in inferTopic. Force the topic + intent so the
+  // plan generation path runs on the second turn.
+  const lastAssistantMsg = (Array.isArray(recentMessages)
+    ? recentMessages.filter(m => m.role === "assistant").slice(-1)[0]?.content
+    : "") || "";
+  const isProfileGateFollowUp =
+    plan.topic !== "nutrition"
+    && /NUTRITION PROFILE GATE:|asked for a meal plan.*missing/i.test(lastAssistantMsg);
+  if (isProfileGateFollowUp) {
+    plan.topic = "nutrition";
+  }
+
   let systemPromptAddendum = "";
   if (plan.topic === "nutrition") {
-    const intent = classifyNutritionIntent(question);
+    const intent = isProfileGateFollowUp ? "generate_plan" : classifyNutritionIntent(question);
 
     if (intent === "generate_plan") {
       const missingFields = checkNutritionProfileGate(mergedProfile);
