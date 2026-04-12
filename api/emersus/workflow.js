@@ -11,6 +11,7 @@ import {
   formatCitationUrl,
   formatCitationLabel,
 } from "../../shared/citation-format.js";
+import { validateMealPlan } from "../../shared/meal-plan-schema.js";
 import { parseFoodDescription } from "./nutrition-parser.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-4.1-mini";
@@ -2319,6 +2320,65 @@ function extractTextFromResponse(payload) {
   }
 
   return "";
+}
+
+// Extract function_call items from an OpenAI Responses API payload.
+// Returns an array of { name, arguments (parsed object), callId }.
+function extractToolCalls(payload) {
+  if (!payload || !Array.isArray(payload.output)) return [];
+  const calls = [];
+  for (const item of payload.output) {
+    if (item?.type === "function_call" && item.name && item.arguments) {
+      let parsed = null;
+      try {
+        parsed = typeof item.arguments === "string"
+          ? JSON.parse(item.arguments)
+          : item.arguments;
+      } catch {
+        console.error(`[tools] failed to parse arguments for ${item.name}:`, item.arguments);
+        continue;
+      }
+      calls.push({ name: item.name, arguments: parsed, callId: item.call_id || null });
+    }
+  }
+  return calls;
+}
+
+// Validate a meal-plan tool call and produce a fenced string for the client.
+// Returns { ok: true, fence: string } or { ok: false, fallbackText: string }.
+// Accepts extra context for profile extraction + patching in the multi-turn flow.
+async function processMealPlanToolCall(toolCall, mergedProfile, { question, supabaseUserId, supabaseUrl, serviceRoleKey } = {}) {
+  const plan = toolCall.arguments;
+
+  // Belt-and-suspenders profile gate: even though the tool description tells
+  // the model not to call without a complete profile, enforce server-side.
+  const missingFields = [];
+  if (mergedProfile?.body_weight_kg == null) missingFields.push("body weight");
+  if (mergedProfile?.height_cm == null)      missingFields.push("height");
+  if (mergedProfile?.date_of_birth == null)  missingFields.push("date of birth");
+  if (mergedProfile?.biological_sex == null) missingFields.push("biological sex");
+  if (mergedProfile?.activity_level == null) missingFields.push("activity level");
+
+  if (missingFields.length > 0) {
+    return {
+      ok: false,
+      fallbackText: `I need a few more details before I can build the plan: ${missingFields.join(", ")}. What are your numbers?`,
+    };
+  }
+
+  // Validate against the existing schema
+  const validation = validateMealPlan(plan);
+  if (!validation.valid) {
+    console.error("[tools] emit_meal_plan validation failed:", validation.errors);
+    return {
+      ok: false,
+      fallbackText: "I generated a meal plan but it had structural issues. Let me try again — could you repeat your request?",
+    };
+  }
+
+  // Wrap validated JSON in a meal-plan fence for the client
+  const fence = "```meal-plan\n" + JSON.stringify(plan) + "\n```";
+  return { ok: true, fence };
 }
 
 async function callOpenAISynthesis({
