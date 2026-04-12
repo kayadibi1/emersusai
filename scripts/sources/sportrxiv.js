@@ -18,6 +18,12 @@ import { parseQueryIntoGroups, matchesQueryGroups } from "./_query-match.js";
 const BASE_URL = "https://api.osf.io/v2/preprints/";
 const PAGE_SIZE = 100;
 
+// SportRxiv's total corpus is small (~400 preprints) so natural
+// pagination usually terminates quickly, but we still want a hard cap
+// so a future expansion of the corpus or an OSF pagination hiccup
+// can't spin the handler indefinitely.
+const MAX_PAGES = 10;
+
 const waitSlot = createLimiter(2); // 2 RPS
 
 /**
@@ -78,9 +84,11 @@ export const sportrxiv = {
     const groups = parseQueryIntoGroups(query);
     let yielded = 0;
     let url = buildFirstPageUrl();
+    let pagesFetched = 0;
 
-    while (url && yielded < target) {
+    while (url && yielded < target && pagesFetched < MAX_PAGES) {
       const { items, nextUrl } = await fetchPage(url);
+      pagesFetched += 1;
       if (items.length === 0) break;
 
       for (const item of items) {

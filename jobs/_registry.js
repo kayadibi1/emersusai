@@ -55,38 +55,84 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
 
   /**
    * Register a named handler with pg-boss.
-   * The work callback receives a job or array of jobs (pg-boss v10 batch mode).
-   * Constructs ctx via makeContext, calls handler(ctx, deps), and tracks throughput.
+   *
+   * pg-boss v10 notes:
+   *   - Removed the v9 `teamSize` / `teamConcurrency` options. The only
+   *     fetch option is `batchSize` (default 1). Passing v9 names is
+   *     silently ignored and the queue falls back to batchSize=1.
+   *   - The work callback ALWAYS receives an array of job rows — even
+   *     when batchSize=1. An older version of this helper did
+   *     `const jobRow = Array.isArray(job) ? job[0] : job;`, which
+   *     only processed the first row and silently dropped the rest if
+   *     batchSize was ever >1. pg-boss then marked every id in the
+   *     batch as complete, causing silent data loss.
+   *
+   * Our concurrency model: pg-boss fetches batches via one worker's
+   * polling loop, and each worker processes its batch sequentially. For
+   * true parallelism across many jobs in a single queue, we register N
+   * independent workers — each polls on its own interval, each grabs
+   * its own batch, and multiple handler invocations run in parallel.
+   *
+   * Concurrency tuning notes per queue (see call sites below):
+   *   - ingest-topic-from-source: capped at 4 so the pubmed limiter
+   *     (9 RPS with NCBI_API_KEY, 3 RPS without) doesn't get
+   *     stampeded. The 2026-04-11 deploy ran with 14 parallel workers
+   *     and NCBI TCP-dropped ~5% of requests.
+   *   - Slow preprint sources (biorxiv/medrxiv/sportrxiv) share this
+   *     queue, so concurrency across the fleet matters: a slow job
+   *     no longer holds up fast siblings because each of the 4
+   *     workers has its own fetch cycle. See the 2026-04-12 fanout
+   *     post-mortem in checkpoint.md.
    */
-  const register = async (name, handler, options = {}) => {
+  const register = async (name, handler, { concurrency = 1, ...workOptions } = {}) => {
     // pg-boss v10: boss.work() registers the handler but does NOT create
     // the queue row. Calls to boss.send(name, ...) from a handler silently
     // no-op if the queue doesn't exist. Call createQueue explicitly for
     // every registered handler. Idempotent — duplicate creates are fine.
     await boss.createQueue(name);
-    return boss.work(name, options, async (job) => {
-      const jobRow = Array.isArray(job) ? job[0] : job;
+
+    const workCallback = async (jobs) => {
+      // pg-boss v10 passes an array of job rows (length = batchSize);
+      // defensively accept a single object too in case a future version
+      // changes this.
+      const jobList = Array.isArray(jobs) ? jobs : [jobs];
       const { makeContext } = await import("../worker/context.js");
-      const ctx = makeContext(jobRow, sql);
-      try {
-        const result = await handler(ctx, deps);
-        incrementJobsProcessed?.();
-        return result;
-      } catch (err) {
-        log.error(`handler ${name} failed`, { err: err.message });
-        throw err;
-      }
-    });
+      // Process the batch concurrently. pg-boss will mark all ids in
+      // the batch complete iff the callback resolves; if any handler
+      // throws we let it propagate and pg-boss retries the whole batch.
+      const results = await Promise.all(jobList.map(async (jobRow) => {
+        const ctx = makeContext(jobRow, sql);
+        try {
+          const result = await handler(ctx, deps);
+          incrementJobsProcessed?.();
+          return result;
+        } catch (err) {
+          log.error(`handler ${name} failed`, { err: err.message });
+          throw err;
+        }
+      }));
+      return results.length === 1 ? results[0] : results;
+    };
+
+    // Register `concurrency` independent workers for this queue. Each
+    // worker has its own fetch loop and processes its batch, which
+    // gives us true across-job parallelism without depending on the
+    // v9 batching semantics.
+    const workerIds = [];
+    for (let i = 0; i < Math.max(1, concurrency); i++) {
+      workerIds.push(await boss.work(name, workOptions, workCallback));
+    }
+    return workerIds;
   };
 
   await register("discovery-weekly",          discoveryWeeklyHandler);
-  await register("fetch-feed",                fetchFeedHandler,               { teamSize: 4,  teamConcurrency: 4 });
-  await register("classify-candidates",       classifyCandidatesHandler,      { teamSize: 2,  teamConcurrency: 2 });
-  await register("ingest-topic",              ingestTopicHandler,             { teamSize: 4,  teamConcurrency: 4 });
+  await register("fetch-feed",                fetchFeedHandler,               { concurrency: 4 });
+  await register("classify-candidates",       classifyCandidatesHandler,      { concurrency: 2 });
+  await register("ingest-topic",              ingestTopicHandler,             { concurrency: 4 });
   // Concurrency capped at 4 so the pubmed limiter (9 RPS with api_key, 3
   // RPS without) doesn't get stampeded. The 2026-04-11 deploy ran with
   // teamSize: 14 and NCBI TCP-dropped ~5% of requests under the burst.
-  await register("ingest-topic-from-source",  ingestTopicFromSourceHandler,   { teamSize: 4,  teamConcurrency: 4 });
+  await register("ingest-topic-from-source",  ingestTopicFromSourceHandler,   { concurrency: 4 });
   await register("embed-batch",               embedBatchHandler);
   await register("s2-citation-backfill",      s2CitationBackfillHandler);
   await register("rcr-backfill",              rcrBackfillHandler);
