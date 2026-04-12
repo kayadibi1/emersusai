@@ -4,7 +4,13 @@
 // data.sourceIds is specified).
 //
 // Uses singletonKey + singletonHours so duplicate in-flight jobs for
-// the same topic+source are de-duped within a 24h window.
+// the same topic+source are de-duped within a 24h window. Callers can
+// bypass the 24h window for a single run by passing `keySuffix` in
+// ctx.data — the suffix is appended to both the parent and child
+// singletonKeys so a fresh manual run doesn't collide with the most
+// recent scheduled run. See docs/ops/topic-pipeline-runbook.md and
+// `reference_manual_topic_fill.md` in the auto-memory for the
+// canonical manual-fill command.
 
 import { listIngestionSources } from "../scripts/sources/_registry.js";
 import { SourcePermanentError } from "../scripts/sources/_errors.js";
@@ -30,8 +36,24 @@ function readEnvList(name) {
     .filter(Boolean);
 }
 
+/**
+ * Build a child singletonKey that's optionally namespaced by a per-run
+ * suffix. Without a suffix, behavior is identical to the legacy form
+ * (`ingest-${topicId}-${sourceId}`) so scheduled runs keep dedup'ing
+ * themselves within their 24h window. With a suffix, the key becomes
+ * `ingest-${topicId}-${sourceId}-${suffix}` which is disjoint from
+ * the unsuffixed slot — a manual force-rerun can proceed without
+ * stomping on the live-schedule lockout.
+ *
+ * Exported for unit-test access.
+ */
+export function buildChildSingletonKey(topicId, sourceId, keySuffix) {
+  const base = `ingest-${topicId}-${sourceId}`;
+  return keySuffix ? `${base}-${keySuffix}` : base;
+}
+
 export async function ingestTopicHandler(ctx, deps) {
-  const { topicId, sourceIds: requestedSourceIds } = ctx.data;
+  const { topicId, sourceIds: requestedSourceIds, keySuffix = "" } = ctx.data;
   const { sql, boss } = deps;
 
   // Load the topic row
@@ -69,9 +91,11 @@ export async function ingestTopicHandler(ctx, deps) {
   for (const sourceId of sourceIds) {
     await boss.send(
       "ingest-topic-from-source",
-      { topicId, sourceId, target: topic.target_paper_count },
+      // Forward keySuffix so nested re-dispatches (none today, but
+      // future proofing) can carry the same namespace.
+      { topicId, sourceId, target: topic.target_paper_count, keySuffix },
       {
-        singletonKey: `ingest-${topicId}-${sourceId}`,
+        singletonKey: buildChildSingletonKey(topicId, sourceId, keySuffix),
         singletonHours: 24,
         // Phase 2 hardening: NCBI periodically TCP-drops under sustained
         // load. pg-boss's default retryLimit: 2 burned through retries
