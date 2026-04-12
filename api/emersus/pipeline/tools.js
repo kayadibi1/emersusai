@@ -280,6 +280,9 @@ const LOG_FOOD = {
     "",
     "Parse the food description into structured items with macros (kcal, protein_g, carbs_g, fat_g). Use USDA FDC reference data for macro estimates.",
     "Infer meal_slot from context or time of day if not stated.",
+    "For supplements (creatine, vitamin D, omega-3, etc.), set amount to the dose number and amount_unit to the appropriate unit (g, mg, IU, mcg, capsule). Set macros to 0.",
+    "For liquids (coffee, milk, shakes), use ml as amount_unit and set amount to the volume.",
+    "For solid foods, use g as amount_unit.",
   ].join("\n"),
   parameters: {
     type: "object",
@@ -294,11 +297,12 @@ const LOG_FOOD = {
         type: "array",
         items: {
           type: "object",
-          required: ["description", "grams", "kcal", "protein_g", "carbs_g", "fat_g"],
+          required: ["description", "amount", "amount_unit", "kcal", "protein_g", "carbs_g", "fat_g"],
           additionalProperties: false,
           properties: {
             description: { type: "string" },
-            grams:       { type: "number" },
+            amount:      { type: "number", description: "Quantity in the unit specified by amount_unit" },
+            amount_unit: { type: "string", enum: ["g", "ml", "mg", "mcg", "IU", "capsule", "tablet", "scoop", "serving"] },
             kcal:        { type: "number" },
             protein_g:   { type: "number" },
             carbs_g:     { type: "number" },
