@@ -1098,8 +1098,9 @@ function classifySafety({ question, profile, threadState, recentMessages }) {
   // Multi-turn exemption: if the assistant just asked for body metrics via
   // the nutrition profile gate, the user's reply ("80 kg 181 27 male, low")
   // won't contain fitness terms but is a valid in-scope follow-up.
+  // recentMessages use .text (not .content) for the message body
   const lastAssistantContent = (Array.isArray(recentMessages)
-    ? recentMessages.filter(m => m.role === "assistant").slice(-1)[0]?.content ?? ""
+    ? recentMessages.filter(m => m.role === "assistant").slice(-1)[0]?.text ?? ""
     : "");
   // The assistant's visible reply is a natural rephrasing of the gate —
   // e.g. "I need five inputs to build a real meal plan: current body weight,
@@ -4352,7 +4353,7 @@ async function generateRecommendation({
   // match the nutrition regex in inferTopic. Force the topic + intent so the
   // plan generation path runs on the second turn.
   const lastAssistantMsg = (Array.isArray(recentMessages)
-    ? recentMessages.filter(m => m.role === "assistant").slice(-1)[0]?.content
+    ? recentMessages.filter(m => m.role === "assistant").slice(-1)[0]?.text
     : "") || "";
   const isProfileGateFollowUp =
     plan.topic !== "nutrition"
