@@ -1228,7 +1228,7 @@ button.primary {
 
 .slot-kcal {
   font-family: var(--mono);
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   color: var(--muted);
 }
 
@@ -1244,7 +1244,7 @@ button.primary {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
+  font-size: 1.2rem;
   color: #bbb;
   padding: 0.3rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
@@ -1617,7 +1617,7 @@ button.primary {
 
 .journal-slot .slot-header .total {
   font-family: var(--mono);
-  font-size: 1.0rem;
+  font-size: 1.2rem;
   color: var(--muted);
 }
 
@@ -1633,7 +1633,7 @@ button.primary {
   gap: 0.8rem;
   padding: 0.4rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-  font-size: 0.85rem;
+  font-size: 1.2rem;
 }
 
 .journal-slot .entries li:last-child { border-bottom: none; }
