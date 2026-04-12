@@ -299,9 +299,12 @@ function createEmptyThread() {
 }
 
 function questionLooksLikeFollowUp(question) {
-  return /^(yes|yeah|yep|sure|please|do that|that one|sounds good|ok|okay|what about|how about|and for|compare that|compare it|does that|would that|what if|and if|for women|for men|for older adults|for beginners|for me)\b/i.test(
-    String(question || "").trim()
-  );
+  const q = String(question || "").trim();
+  // Explicit follow-up phrases
+  if (/^(yes|yeah|yep|sure|please|do that|that one|sounds good|ok|okay|what about|how about|and for|compare that|compare it|does that|would that|what if|and if|for women|for men|for older adults|for beginners|for me)\b/i.test(q)) return true;
+  // Short messages that are mostly numbers + body-metric terms (responding to a profile gate)
+  if (/\d/.test(q) && q.split(/\s+/).length <= 10 && /\b(kg|lbs?|cm|ft|male|female|sedentary|light|moderate|active|low)\b/i.test(q)) return true;
+  return false;
 }
 
 function questionLooksLikeAffirmation(question) {
@@ -331,6 +334,8 @@ function matchPrimaryTopic(text) {
     [/safe|safety|risk|harm|side effect|contraindication|adverse/, "safety"],
     [/dose|dosage|duration|protocol|loading phase|maintenance/, "protocol"],
     [/recovery|soreness|rehab|tendon|joint|injury/, "recovery"],
+    [/meal[\s-]?plan|diet[\s-]?plan|nutrition[\s-]?plan|eating[\s-]?plan|macros for|what should i eat|tdee|bmr|mifflin/, "meal_plan"],
+    [/\b(diet|nutrition|calori|meal prep|bulk|cut|recomp|deficit|surplus)\b/, "nutrition"],
   ];
   for (const [pattern, topic] of topicMatchers) {
     if (pattern.test(text)) return topic;
