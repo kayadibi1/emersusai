@@ -1939,11 +1939,39 @@ async function processMealPlanToolCall(toolCall, mergedProfile, { question, supa
     }
   }
 
+  // ── Normalize model output to match the validator's expected shape ──────
+  // The model naturally embeds targets inside each day_type object rather
+  // than as a separate top-level targets map. Extract them if missing.
+  if (!plan.targets && Array.isArray(plan.day_types)) {
+    plan.targets = {};
+    for (const dt of plan.day_types) {
+      if (dt?.slug) {
+        // The model may use "targets", "macro_targets", "macros", or
+        // "macro_adjustments" as the key name inside the day_type.
+        const embedded = dt.targets || dt.macro_targets || dt.macros || dt.macro_adjustments;
+        if (embedded && typeof embedded === "object") {
+          plan.targets[dt.slug] = embedded;
+        }
+      }
+    }
+  }
+
+  // Ensure assignments exists with sensible defaults
+  if (!plan.assignments) {
+    plan.assignments = {
+      mode: "manual",
+      default_day_type: plan.day_types?.[0]?.slug || "rest_day",
+    };
+  }
+
   // Validate against the existing schema
   const validation = validateMealPlan(plan);
   if (!validation.valid) {
     console.error("[tools] emit_meal_plan validation failed:", validation.errors);
     console.error("[tools] emit_meal_plan raw keys:", Object.keys(plan));
+    if (Array.isArray(plan.day_types) && plan.day_types[0]) {
+      console.error("[tools] emit_meal_plan day_types[0] keys:", Object.keys(plan.day_types[0]));
+    }
     return {
       ok: false,
       fallbackText: "I generated a meal plan but it had structural issues. Let me try again — could you repeat your request?",
