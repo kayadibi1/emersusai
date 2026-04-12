@@ -34,8 +34,8 @@ export const MACRO_COLORS = {
 };
 
 // ─── Macro progress ring ───────────────────────────────────────────────────
-export function MacroRing({ actual, target, label, color = TOKENS.primary, size = 88 }) {
-  const stroke = 10;
+export function MacroRing({ actual, target, label, color = TOKENS.primary, size = 132 }) {
+  const stroke = 14;
   const r = (size - stroke) / 2;
   const cx = size / 2;
   const cy = size / 2;
@@ -62,20 +62,20 @@ export function MacroRing({ actual, target, label, color = TOKENS.primary, size 
     }),
     h("text", {
       key: "v",
-      x: cx, y: cy - 3,
+      x: cx, y: cy - 4,
       textAnchor: "middle",
       fill: TOKENS.ink,
-      fontSize: 14,
+      fontSize: 21,
       fontWeight: 600,
-      fontFamily: "Inter, sans-serif",
+      fontFamily: "Georgia, serif",
     }, `${Math.round(actual)}`),
     h("text", {
       key: "l",
-      x: cx, y: cy + 14,
+      x: cx, y: cy + 18,
       textAnchor: "middle",
       fill: TOKENS.muted,
-      fontSize: 10,
-      fontFamily: "Inter, sans-serif",
+      fontSize: 15,
+      fontFamily: "'JetBrains Mono', monospace",
     }, label),
   ]);
 }
@@ -125,8 +125,8 @@ export function NutritionFactsPanel({ nutrients, servingGrams, width = 320 }) {
 
   function addRow(label, value, unit, indent = 0) {
     rows.push(h("g", { key: `${label}-${y}` }, [
-      h("text", { x: 14 + indent, y, fill: TOKENS.ink, fontSize: 13, fontFamily: "Inter" }, label),
-      h("text", { x: width - 14, y, fill: TOKENS.ink, fontSize: 13, textAnchor: "end", fontFamily: "Inter" },
+      h("text", { x: 14 + indent, y, fill: TOKENS.ink, fontSize: 13, fontFamily: "system-ui, sans-serif" }, label),
+      h("text", { x: width - 14, y, fill: TOKENS.ink, fontSize: 13, textAnchor: "end", fontFamily: "system-ui, sans-serif" },
         `${value} ${unit}`),
       h("line", { x1: 10, y1: y + 4, x2: width - 10, y2: y + 4, stroke: "rgba(255,255,255,0.1)" }),
     ]));
@@ -137,7 +137,7 @@ export function NutritionFactsPanel({ nutrients, servingGrams, width = 320 }) {
   if (vitamins.length > 0) {
     rows.push(h("text", {
       key: "vit-h", x: 14, y,
-      fill: TOKENS.muted, fontSize: 11, fontFamily: "Inter", fontWeight: 600,
+      fill: TOKENS.muted, fontSize: 11, fontFamily: "system-ui, sans-serif", fontWeight: 600,
     }, "VITAMINS"));
     y += 18;
     for (const v of vitamins) addRow(v.name, v.amount?.toFixed(1) ?? "—", v.unit);
@@ -145,7 +145,7 @@ export function NutritionFactsPanel({ nutrients, servingGrams, width = 320 }) {
   if (minerals.length > 0) {
     rows.push(h("text", {
       key: "min-h", x: 14, y,
-      fill: TOKENS.muted, fontSize: 11, fontFamily: "Inter", fontWeight: 600,
+      fill: TOKENS.muted, fontSize: 11, fontFamily: "system-ui, sans-serif", fontWeight: 600,
     }, "MINERALS"));
     y += 18;
     for (const m of minerals) addRow(m.name, m.amount?.toFixed(1) ?? "—", m.unit);
@@ -157,11 +157,11 @@ export function NutritionFactsPanel({ nutrients, servingGrams, width = 320 }) {
     h("rect", { key: "bg", x: 0, y: 0, width, height, rx: 12, fill: "rgba(15,20,28,0.6)" }),
     h("text", {
       key: "title", x: 14, y: 28,
-      fill: TOKENS.ink, fontSize: 18, fontWeight: 700, fontFamily: "Inter",
+      fill: TOKENS.ink, fontSize: 18, fontWeight: 700, fontFamily: "system-ui, sans-serif",
     }, "Nutrition Facts"),
     h("text", {
       key: "sz", x: 14, y: 48,
-      fill: TOKENS.muted, fontSize: 12, fontFamily: "Inter",
+      fill: TOKENS.muted, fontSize: 12, fontFamily: "system-ui, sans-serif",
     }, `Serving: ${servingGrams} g`),
     ...rows,
   ]);
@@ -175,10 +175,10 @@ export function SupplementFactsPanel({ nutrients, form, width = 320 }) {
   for (const n of nutrients) {
     const pctDv = n.dri ? Math.round((n.amount / n.dri) * 100) : null;
     rows.push(h("g", { key: n.slug }, [
-      h("text", { x: 14, y, fill: TOKENS.ink, fontSize: 13, fontFamily: "Inter" }, n.name),
-      h("text", { x: width - 80, y, fill: TOKENS.ink, fontSize: 13, textAnchor: "end", fontFamily: "Inter" },
+      h("text", { x: 14, y, fill: TOKENS.ink, fontSize: 13, fontFamily: "system-ui, sans-serif" }, n.name),
+      h("text", { x: width - 80, y, fill: TOKENS.ink, fontSize: 13, textAnchor: "end", fontFamily: "system-ui, sans-serif" },
         `${n.amount?.toFixed(1) ?? "—"} ${n.unit}`),
-      h("text", { x: width - 14, y, fill: TOKENS.muted, fontSize: 12, textAnchor: "end", fontFamily: "Inter" },
+      h("text", { x: width - 14, y, fill: TOKENS.muted, fontSize: 12, textAnchor: "end", fontFamily: "system-ui, sans-serif" },
         pctDv != null ? `${pctDv}%` : "†"),
       h("line", { x1: 10, y1: y + 4, x2: width - 10, y2: y + 4, stroke: "rgba(255,255,255,0.1)" }),
     ]));
@@ -189,15 +189,15 @@ export function SupplementFactsPanel({ nutrients, form, width = 320 }) {
     h("rect", { key: "bg", x: 0, y: 0, width, height, rx: 12, fill: "rgba(15,20,28,0.6)" }),
     h("text", {
       key: "title", x: 14, y: 28,
-      fill: TOKENS.ink, fontSize: 18, fontWeight: 700, fontFamily: "Inter",
+      fill: TOKENS.ink, fontSize: 18, fontWeight: 700, fontFamily: "system-ui, sans-serif",
     }, "Supplement Facts"),
     h("text", {
       key: "form", x: 14, y: 48,
-      fill: TOKENS.muted, fontSize: 12, fontFamily: "Inter",
+      fill: TOKENS.muted, fontSize: 12, fontFamily: "system-ui, sans-serif",
     }, `Serving: 1 ${form ?? "unit"}`),
     h("text", {
       key: "dv", x: width - 14, y: 48,
-      fill: TOKENS.muted, fontSize: 11, textAnchor: "end", fontFamily: "Inter",
+      fill: TOKENS.muted, fontSize: 11, textAnchor: "end", fontFamily: "system-ui, sans-serif",
     }, "% DV"),
     ...rows,
   ]);
@@ -256,7 +256,7 @@ export function WeeklyMacroBars({ days, width = 420, height = 180 }) {
         }),
         h("text", {
           x: x + colWidth / 2, y: height - 6,
-          fill: TOKENS.muted, fontSize: 10, textAnchor: "middle", fontFamily: "Inter",
+          fill: TOKENS.muted, fontSize: 10, textAnchor: "middle", fontFamily: "system-ui, sans-serif",
         }, d.date.slice(5)),
       ]);
     }),
