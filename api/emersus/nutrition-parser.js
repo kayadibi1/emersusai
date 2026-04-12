@@ -19,7 +19,7 @@ function getOpenAI() {
   if (!_openai) _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
   return _openai;
 }
-const PARSER_MODEL = process.env.OPENAI_EMERSUS_PARSER_MODEL || "gpt-4.1-mini";
+const PARSER_MODEL = process.env.OPENAI_EMERSUS_PARSER_MODEL || "gpt-5.4-mini";
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const ANON_KEY = process.env.SUPABASE_ANON_KEY;
