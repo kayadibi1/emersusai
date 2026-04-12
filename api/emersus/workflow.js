@@ -642,56 +642,70 @@ export function checkNutritionProfileGate(profile) {
 // extract (may be partial).
 //
 function extractBodyMetrics(text) {
-  const t = (text || "").toLowerCase().replace(/,/g, " ").replace(/\s+/g, " ").trim();
+  const t = (text || "").toLowerCase().replace(/,/g, " ").replace(/\./g, " ").replace(/\s+/g, " ").trim();
   const result = {};
 
-  // Weight: "80 kg", "80kg", "176 lbs", "176lbs", "176 pounds"
-  const wMatch = t.match(/(\d+(?:\.\d+)?)\s*(?:kg|kilos?|kilograms?)\b/);
+  // ── 1. Explicit-unit extraction (highest confidence) ──────────────────
+  const wKg = t.match(/(\d+(?:\.\d+)?)\s*(?:kg|kilos?|kilograms?)\b/);
   const wLbs = t.match(/(\d+(?:\.\d+)?)\s*(?:lbs?|pounds?)\b/);
-  if (wMatch) result.body_weight_kg = parseFloat(wMatch[1]);
+  if (wKg) result.body_weight_kg = parseFloat(wKg[1]);
   else if (wLbs) result.body_weight_kg = Math.round(parseFloat(wLbs[1]) * 0.453592 * 10) / 10;
 
-  // Height: "181 cm", "181cm", "5'11", "5ft 11in", "5 foot 11"
   const hCm = t.match(/(\d{2,3})\s*(?:cm|centimeters?)\b/);
-  const hFt = t.match(/(\d)'?\s*(\d{1,2})(?:"|''|in)?/) || t.match(/(\d)\s*(?:ft|foot|feet)\s*(\d{1,2})/);
+  // Require an actual indicator for feet: apostrophe OR "ft"/"foot"/"feet"
+  const hFt = t.match(/(\d)\s*'\s*(\d{1,2})\s*"?/) || t.match(/(\d)\s*(?:ft|foot|feet)\s*(\d{1,2})/);
   if (hCm) result.height_cm = parseFloat(hCm[1]);
   else if (hFt) result.height_cm = Math.round((parseInt(hFt[1]) * 30.48 + parseInt(hFt[2]) * 2.54) * 10) / 10;
-  // Bare 3-digit number > 140 that wasn't caught as weight → likely cm
-  if (!result.height_cm && !hCm) {
-    const bare3 = t.match(/\b(1[4-9]\d|2[0-2]\d)\b/);
-    if (bare3 && !result.body_weight_kg?.toString().includes(bare3[1])) {
-      result.height_cm = parseFloat(bare3[1]);
+
+  const ageExplicit = t.match(/\b(\d{1,2})\s*(?:years?\s*old|yo|y\/o|yrs?)\b/)
+    || t.match(/(?:age|aged?)\s*(\d{1,2})\b/);
+  if (ageExplicit) {
+    result.date_of_birth = `${new Date().getFullYear() - parseInt(ageExplicit[1])}-01-01`;
+  }
+
+  // ── 2. Bare-number heuristic (no units — common in terse replies) ─────
+  // Collect all bare numbers not yet claimed by explicit-unit matches.
+  // Assign by range: 140-230 → height_cm, 30-150 → weight_kg, 14-65 → age.
+  const usedNumbers = new Set();
+  if (result.body_weight_kg != null) usedNumbers.add(result.body_weight_kg);
+  if (result.height_cm != null) usedNumbers.add(result.height_cm);
+  if (result.date_of_birth) {
+    const extractedAge = new Date().getFullYear() - parseInt(result.date_of_birth);
+    usedNumbers.add(extractedAge);
+  }
+
+  const bareNums = [...t.matchAll(/\b(\d{1,3}(?:\.\d+)?)\b/g)]
+    .map(m => parseFloat(m[1]))
+    .filter(n => !usedNumbers.has(n));
+
+  // Height: 3-digit number 140-230 (nobody weighs 140+ kg in typical use)
+  if (result.height_cm == null) {
+    const h = bareNums.find(n => n >= 140 && n <= 230);
+    if (h != null) { result.height_cm = h; usedNumbers.add(h); }
+  }
+
+  // Weight: number 30-150 not yet used
+  if (result.body_weight_kg == null) {
+    const w = bareNums.find(n => n >= 30 && n <= 150 && !usedNumbers.has(n));
+    if (w != null) { result.body_weight_kg = w; usedNumbers.add(w); }
+  }
+
+  // Age: number 14-65 not yet used
+  if (result.date_of_birth == null) {
+    const a = bareNums.find(n => n >= 14 && n <= 65 && !usedNumbers.has(n));
+    if (a != null) {
+      result.date_of_birth = `${new Date().getFullYear() - a}-01-01`;
+      usedNumbers.add(a);
     }
   }
 
-  // Age → date_of_birth (approximate: assume birthday already passed this year)
-  const ageMatch = t.match(/\b(\d{1,2})\s*(?:years?\s*old|yo|y\/o|yrs?)\b/) ||
-    t.match(/(?:age|aged?)\s*(\d{1,2})\b/);
-  // Also try bare 2-digit number 15-65 that isn't weight/height
-  if (!ageMatch) {
-    const nums = [...t.matchAll(/\b(\d{1,3})\b/g)].map(m => parseInt(m[1]));
-    const age = nums.find(n => n >= 15 && n <= 65
-      && n !== result.body_weight_kg
-      && n !== result.height_cm);
-    if (age) {
-      const now = new Date();
-      result.date_of_birth = `${now.getFullYear() - age}-01-01`;
-    }
-  } else {
-    const age = parseInt(ageMatch[1]);
-    const now = new Date();
-    result.date_of_birth = `${now.getFullYear() - age}-01-01`;
-  }
-
-  // Sex: "male", "female", "m", "f"
+  // ── 3. Sex ────────────────────────────────────────────────────────────
   if (/\b(male|man|guy|dude)\b/.test(t) && !/\bfemale\b/.test(t)) result.biological_sex = "male";
   else if (/\b(female|woman|girl)\b/.test(t)) result.biological_sex = "female";
-  else if (/\bm\b/.test(t) && !/\bfemale\b/.test(t) && t.length < 40) result.biological_sex = "male";
-  else if (/\bf\b/.test(t) && t.length < 40) result.biological_sex = "female";
 
-  // Activity level
+  // ── 4. Activity level ─────────────────────────────────────────────────
   if (/\b(very\s*active|athlete|intense)\b/.test(t)) result.activity_level = "very_active";
-  else if (/\b(active|regular)\b/.test(t)) result.activity_level = "active";
+  else if (/\bactive\b/.test(t) && !/\binactive\b/.test(t)) result.activity_level = "active";
   else if (/\b(moderate|moderately)\b/.test(t)) result.activity_level = "moderate";
   else if (/\b(light|lightly|low)\b/.test(t)) result.activity_level = "light";
   else if (/\b(sedentary|inactive|couch|desk)\b/.test(t)) result.activity_level = "sedentary";
