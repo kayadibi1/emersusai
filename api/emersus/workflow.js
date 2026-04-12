@@ -620,6 +620,22 @@ function inferTopic(question) {
   return "general";
 }
 
+// Detect food-logging intent. This is a server-side fast-path that skips
+// the LLM call entirely — the server parses the food description and emits
+// a nutrition-log-confirm fence. Kept as a regex because the operation is
+// deterministic and the LLM adds nothing.
+function isLogFoodIntent(text) {
+  const t = (text || "").toLowerCase().trim();
+  if (!t) return false;
+  return (
+    /^(log|track|record)\s+/.test(t) ||
+    /^i\s+(just\s+)?(had|ate|drank|took)\b/.test(t) ||
+    /^(took|taking)\s+(my\s+)?(supps?|stack|vitamins?|supplements?)\b/.test(t) ||
+    /^(for|at)\s+(breakfast|lunch|dinner|snack|supper)\b.*[:\-]/.test(t) ||
+    /\blog\s+(this|these|it|that)\b/.test(t)
+  );
+}
+
 // ─── Nutrition intent sub-classifier ───────────────────────────────────────
 //
 // When topic === "nutrition", this classifier picks one of four sub-intents.
@@ -4657,6 +4673,86 @@ will run plan generation.
     // intent === 'query' falls through to the default retrieval path.
   }
   // ── End nutrition intent sub-routing ────────────────────────────────────
+
+  // ── log_food fast-path: skip retrieval + LLM ──────────────────────────────
+  // Detect food logging intent via regex. This is a server-side shortcut:
+  // parseFoodDescription handles the parsing, no LLM call needed.
+  if (plan.topic === "nutrition" && isLogFoodIntent(question)) {
+    const parseResult = await parseFoodDescription(question, {
+      authHeader: `Bearer ${serviceRoleKey}`,
+    });
+
+    const now = new Date();
+    const h = now.getHours();
+    const timeSlot =
+      h < 10 ? "breakfast"   :
+      h < 12 ? "mid_morning" :
+      h < 15 ? "lunch"       :
+      h < 17 ? "afternoon"   :
+      h < 21 ? "dinner"      :
+               "evening";
+
+    const filledItems = (parseResult.items || []).map(i => ({
+      ...i,
+      meal_slot: i.meal_slot ?? (
+        i.kind === "supplement" && h < 12 ? "supplements_am" :
+        i.kind === "supplement"            ? "supplements_pm" :
+        timeSlot
+      ),
+    }));
+    const loggedDate = now.toISOString().slice(0, 10);
+
+    const fencePayload = {
+      resolved_items: filledItems,
+      unresolved: parseResult.unresolved ?? [],
+      meal_slot_default: filledItems[0]?.meal_slot ?? timeSlot,
+      logged_date: loggedDate,
+      parse_error: parseResult.error ?? null,
+    };
+
+    const confirmFence =
+      "```nutrition-log-confirm\n" +
+      JSON.stringify(fencePayload, null, 2) +
+      "\n```";
+
+    const prefix = parseResult.error
+      ? "I couldn't parse that automatically — you can log it from the Log food button in Nutrition. "
+      : filledItems.length === 0
+        ? "I couldn't match any foods — try again with more detail, or log manually. "
+        : "Here's what I pulled from that — review and confirm to log:\n\n";
+
+    const answerText = prefix + confirmFence;
+
+    const logFoodResponse = {
+      user: {
+        id: stableUserId || null,
+        profile_used: mergedProfile,
+      },
+      plan,
+      summary: filledItems.length > 0
+        ? `Parsed ${filledItems.length} food item(s) for logging.`
+        : "No foods matched — manual log required.",
+      answer_text: answerText,
+      recommendations: { general: [] },
+      confidence: {
+        score: 1,
+        label: "deterministic",
+        rationale: "Food log confirm — no LLM synthesis, no retrieval.",
+      },
+      limitations: [],
+      sources: [],
+      cards: [],
+      guardrail: {
+        status: safety.status,
+        response_mode: safety.responseMode,
+        reasons: safety.reasons,
+      },
+    };
+
+    recordStage("total_server_ms", Date.now() - runStartedAt);
+    emitProgress("final", { response: logFoodResponse });
+    return logFoodResponse;
+  }
 
   const retrievalStartedAt = Date.now();
   const vectorDatabase = await retrieveVectorEvidence(question);
