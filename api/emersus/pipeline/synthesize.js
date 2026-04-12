@@ -3,10 +3,14 @@ import { TOOL_DEFINITIONS } from "./tools.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-4.1-mini";
 
-// Simple intent detection — when the user clearly asks for a structured
-// output (meal plan, workout plan, food log), we set tool_choice to
-// "required" so the model MUST call a tool instead of prose-only.
-const TOOL_REQUIRED_RE = /\b(meal\s*plan|diet\s*plan|macro\s*plan|eating\s*plan|nutrition\s*plan|cut\s*plan|bulk\s*plan|recomp\s*plan|workout\s*plan|training\s*plan|program|training\s*block|split)\b/i;
+// Intent → forced tool mapping. When the user clearly asks for a specific
+// structured output, we use the Responses API `allowed_tools` tool_choice
+// to force the exact tool — not just "required" (which lets the model pick
+// any tool), but constrained to the one matching tool.
+const FORCED_TOOL_PATTERNS = [
+  { re: /\b(meal\s*plan|diet\s*plan|macro\s*plan|eating\s*plan|nutrition\s*plan|cut\s*(meal\s*)?plan|bulk\s*(meal\s*)?plan|recomp\s*plan|cutting\s*plan|bulking\s*plan)\b/i, tool: "emit_meal_plan" },
+  { re: /\b(workout\s*plan|training\s*plan|training\s*program|workout\s*program|training\s*block|workout\s*split|PPL|push.pull.legs|upper.lower)\b/i, tool: "emit_workout_plan" },
+];
 
 export function buildRequestBody({ messages, tools, model, toolChoice }) {
   const body = {
@@ -44,9 +48,19 @@ export async function synthesize(ctx) {
     ctx.debug.openai_input = messages;
   }
 
-  // When the user clearly asks for a structured plan, force the model to
-  // call a tool instead of writing everything as prose.
-  const toolChoice = TOOL_REQUIRED_RE.test(ctx.question) ? "required" : undefined;
+  // When the user clearly asks for a specific structured output, force the
+  // exact tool via allowed_tools so the model can't skip or substitute.
+  let toolChoice;
+  for (const { re, tool } of FORCED_TOOL_PATTERNS) {
+    if (re.test(ctx.question)) {
+      toolChoice = {
+        type: "allowed_tools",
+        mode: "required",
+        tools: [{ type: "function", name: tool }],
+      };
+      break;
+    }
+  }
 
   const requestBody = buildRequestBody({ messages, tools: TOOL_DEFINITIONS, model, toolChoice });
 
