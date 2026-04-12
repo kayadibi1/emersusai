@@ -19,20 +19,141 @@
 
 ---
 
+## ⚠ AMENDMENTS (applied 2026-04-13 pre-execution pre-flight)
+
+Between when this plan was written and when execution starts, the following codebase realities were verified and the plan adjusted. **All subagents executing tasks must honor these amendments over the original task text when they conflict.**
+
+### A1: Migration prefix bumped `20260413_*` → `20260414_*`
+
+The existing tree already has `supabase/20260413_upsert_workout_logs_v3.sql`. All nine nutrition migrations now use `20260414_*` as their prefix. Task 25's `infra/apply-migrations.sh` command reflects the new names. The plan has been globally updated — the 20260413 prefix no longer appears anywhere.
+
+### A2: Server.js convention — use dynamic imports + Express routers, not static imports + verb-specific `app.post/get`
+
+The live `server.js` uses this pattern throughout:
+
+```js
+// Global JSON middleware (line 9 of server.js, already in place):
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+// Single handlers (unchanged convention):
+const { default: mealPlansRouter } = await import("./api/emersus/meal-plans.js");
+app.use("/api/emersus/meal-plans", mealPlansRouter);
+
+// For simple single-route handlers like foods-search:
+const { default: foodsSearchHandler } = await import("./api/emersus/foods-search.js");
+app.all("/api/emersus/foods/search", foodsSearchHandler);
+```
+
+**Per-route `express.json()` middleware is redundant** — remove it wherever the plan shows `app.post("...", express.json(), handler)`.
+
+**Task 8 (meal-plans.js) and Task 12 (meal-journal.js) must export Express Routers, not individual handler functions.** Example structure for `api/emersus/meal-plans.js`:
+
+```js
+// api/emersus/meal-plans.js
+import { Router } from "express";
+import { createClient } from "@supabase/supabase-js";
+import { validateMealPlan } from "../../shared/meal-plan-schema.js";
+
+const router = Router();
+
+function clientForRequest(req) {
+  const authHeader = req.headers.authorization || "";
+  return createClient(process.env.SUPABASE_URL, process.env.SUPABASE_ANON_KEY, {
+    global: { headers: { Authorization: authHeader } },
+    auth: { persistSession: false, autoRefreshToken: false },
+  });
+}
+
+router.post("/", async (req, res) => {
+  // saveMealPlan body — see Task 8 Step 2
+});
+
+router.get("/active", async (req, res) => {
+  // getActiveMealPlan body — see Task 8 Step 2
+});
+
+router.patch("/:id/assignments", async (req, res) => {
+  // patchAssignments body — see Task 8 Step 2
+});
+
+router.post("/:id/archive", async (req, res) => {
+  // archiveMealPlan body — see Task 8 Step 2
+});
+
+router.post("/:id/undo", async (req, res) => {
+  // undoMealPlan body — see Task 8 Step 2
+});
+
+export default router;
+```
+
+And in `server.js`, mount with:
+```js
+const { default: mealPlansRouter } = await import("./api/emersus/meal-plans.js");
+app.use("/api/emersus/meal-plans", mealPlansRouter);
+```
+
+Same refactor applies to `api/emersus/meal-journal.js` in Task 12. The implementation code inside each route handler stays exactly as written in the original task body.
+
+For `foods-search.js` (Task 5), `nutrition-parser.js` is called from workflow.js so it's not an HTTP handler and doesn't need a router — keep the `export default` function signature the plan shows. `rpc-proxy.js` (Task 23) is a single handler, so mount it with `app.all("/api/emersus/rpc/:name", rpcProxy)`.
+
+### A3: `/api/emersus/workout-plans/active` does NOT exist — read workout plans directly via Supabase
+
+The workout page loads `workout_plans` via direct Supabase client queries from the browser (`app/workout/workout.js`), not a REST endpoint. My Today panel (Task 17) and Plan panel (Task 18) originally called `authFetch("/api/emersus/workout-plans/active")` — **replace those calls with direct Supabase queries**:
+
+```js
+// Instead of:
+const wpRes = await authFetch("/api/emersus/workout-plans/active");
+const wp = wpRes.ok ? await wpRes.json() : { workout_plan: null };
+
+// Use this pattern (matches app/workout/workout.js conventions):
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2.101.1";
+const sb = window.EMERSUS_SUPABASE ?? createClient(window.EMERSUS_SUPABASE_URL, window.EMERSUS_ANON_KEY);
+if (!window.EMERSUS_SUPABASE) window.EMERSUS_SUPABASE = sb;
+const { data: workoutPlan } = await sb
+  .from("workout_plans")
+  .select("id, title, plan, previous_plan, archived_at")
+  .is("archived_at", null)
+  .order("updated_at", { ascending: false })
+  .limit(1)
+  .maybeSingle();
+```
+
+RLS on `workout_plans` is already self-only, so browser-side reads work with the user's JWT. The `authFetch` wrapper in the shared panels is still the right pattern for OUR nutrition endpoints — this amendment only affects the workout-plans fetch.
+
+### A4: `shared/supabase.js` client pattern
+
+Before writing any new browser-side module that talks to Supabase directly (notably the workout plan reads in A3 and the food detail drawer in Task 17), check if `shared/supabase.js` or a similar helper already wraps the Supabase client constructor. If it does, import that helper instead of re-instantiating. Use `Read`/`Glob` before adding imports.
+
+### A5: Test file path `tests/fixtures/day-type-resolution.json`
+
+No `tests/` directory currently exists at the repo root. Task 7 creates `tests/fixtures/day-type-resolution.json` — the directory will be created by the `Write` tool automatically; no `mkdir` step needed. This is just a note for the executing subagent so it doesn't get confused looking for an existing tests/ tree.
+
+### A6: Production Postgres access
+
+The memory reference `project_supabase_admin_role.md` says migrations must use `-U supabase_admin`, not `postgres`. Task 25 Step 1 uses `infra/apply-migrations.sh` which already handles this per the memory entry. The direct `docker compose exec` verification command in Task 25 Step 1 also uses `-U supabase_admin`. Do not substitute `-U postgres`.
+
+### A7: emersus-worker is a separate pm2 process
+
+Task 25 Step 2 restarts `emersus-api` only. Do NOT restart `emersus-worker` as part of the nutrition deploy — it runs the pg-boss topic discovery pipeline and is unrelated. `pm2 restart emersus-api --update-env` is correct as written.
+
+---
+
 ## File Structure
 
 ### New files
 
 | File | Responsibility |
 |------|---------------|
-| `supabase/20260413_profile_nutrition_columns.sql` | Add `body_weight_kg`, `height_cm`, `date_of_birth`, `biological_sex`, `activity_level` columns to `profiles` |
-| `supabase/20260413_nutrients.sql` | `nutrients` lookup table + 31-entry seed with FDC nutrient ID mapping + DRI defaults |
-| `supabase/20260413_foods.sql` | `foods` table + `kind`/`form`/`base_unit`/`base_amount`/`gtin_upc`/`ingredients_text`/`data_points` columns + 7 indexes + RLS + `pg_trgm` extension |
-| `supabase/20260413_food_nutrients.sql` | Normalized nutrient storage: `(food_id, nutrient_id, amount_per_base)` |
-| `supabase/20260413_supplements_seed.sql` | ~60 curated generic supplements as `foods` rows + `food_nutrients` rows |
-| `supabase/20260413_meal_plans.sql` | `meal_plans` table mirroring `workout_plans` + unique-partial index for one-active-plan-per-user |
-| `supabase/20260413_meal_journal_entries.sql` | Journal log rows with macro snapshots + 5 indexes + RLS |
-| `supabase/20260413_nutrition_rpcs.sql` | 9 Postgres analytics functions, each with `SET search_path = public, extensions` |
+| `supabase/20260414_profile_nutrition_columns.sql` | Add `body_weight_kg`, `height_cm`, `date_of_birth`, `biological_sex`, `activity_level` columns to `profiles` |
+| `supabase/20260414_nutrients.sql` | `nutrients` lookup table + 31-entry seed with FDC nutrient ID mapping + DRI defaults |
+| `supabase/20260414_foods.sql` | `foods` table + `kind`/`form`/`base_unit`/`base_amount`/`gtin_upc`/`ingredients_text`/`data_points` columns + 7 indexes + RLS + `pg_trgm` extension |
+| `supabase/20260414_food_nutrients.sql` | Normalized nutrient storage: `(food_id, nutrient_id, amount_per_base)` |
+| `supabase/20260414_supplements_seed.sql` | ~60 curated generic supplements as `foods` rows + `food_nutrients` rows |
+| `supabase/20260414_meal_plans.sql` | `meal_plans` table mirroring `workout_plans` + unique-partial index for one-active-plan-per-user |
+| `supabase/20260414_meal_journal_entries.sql` | Journal log rows with macro snapshots + 5 indexes + RLS |
+| `supabase/20260414_nutrition_rpcs.sql` | 9 Postgres analytics functions, each with `SET search_path = public, extensions` |
 | `scripts/import-usda-foods.js` | Four-dataset USDA FDC import with streaming JSON, checkpointing, quality filter |
 | `scripts/test-day-type-resolver.js` | Cross-fixture test: JS resolver output == SQL resolver output |
 | `scripts/test-nutrition-parser.js` | Golden-fixture test for natural-language food/supplement parser |
@@ -93,16 +214,16 @@ The plan is organized into **6 sequential phases**. Each phase produces working,
 ## Task 1: Profile nutrition columns migration
 
 **Files:**
-- Create: `supabase/20260413_profile_nutrition_columns.sql`
+- Create: `supabase/20260414_profile_nutrition_columns.sql`
 
 The LLM-driven meal plan generator needs Mifflin-St Jeor inputs (weight, height, age, sex, activity). These get populated conversationally by the chat when missing; the schema just needs to accept them.
 
 - [ ] **Step 1: Write the migration**
 
-Create `supabase/20260413_profile_nutrition_columns.sql`:
+Create `supabase/20260414_profile_nutrition_columns.sql`:
 
 ```sql
--- 20260413_profile_nutrition_columns.sql
+-- 20260414_profile_nutrition_columns.sql
 -- Add Mifflin-St Jeor inputs for the meal plan generator.
 --
 -- All columns nullable: the chat fills them in conversationally when the
@@ -131,7 +252,7 @@ Run:
 ```bash
 psql --version  # confirm psql exists
 # Dry-parse the migration without applying:
-psql -f supabase/20260413_profile_nutrition_columns.sql --variable=ON_ERROR_STOP=1 -h /dev/null -U nobody 2>&1 | grep -i "error" || echo "parse ok"
+psql -f supabase/20260414_profile_nutrition_columns.sql --variable=ON_ERROR_STOP=1 -h /dev/null -U nobody 2>&1 | grep -i "error" || echo "parse ok"
 ```
 
 Expected: "parse ok" (or a connection error — we just want no syntax errors).
@@ -143,7 +264,7 @@ Expected: "parse ok" (or a connection error — we just want no syntax errors).
 docker run --rm -d --name emersus-scratch-pg -e POSTGRES_PASSWORD=x -p 55432:5432 postgres:15
 sleep 3
 psql -h 127.0.0.1 -p 55432 -U postgres -c "create table public.profiles (id uuid primary key);"
-psql -h 127.0.0.1 -p 55432 -U postgres -f supabase/20260413_profile_nutrition_columns.sql
+psql -h 127.0.0.1 -p 55432 -U postgres -f supabase/20260414_profile_nutrition_columns.sql
 # Verify CHECK rejects bad values
 psql -h 127.0.0.1 -p 55432 -U postgres -c "insert into profiles (id, biological_sex) values (gen_random_uuid(), 'xyz');" 2>&1 | grep -q "violates check constraint" && echo "check ok"
 psql -h 127.0.0.1 -p 55432 -U postgres -c "insert into profiles (id, activity_level) values (gen_random_uuid(), 'lazy');" 2>&1 | grep -q "violates check constraint" && echo "check ok"
@@ -155,7 +276,7 @@ Expected: Two "check ok" lines.
 - [ ] **Step 4: Commit**
 
 ```bash
-git add supabase/20260413_profile_nutrition_columns.sql
+git add supabase/20260414_profile_nutrition_columns.sql
 git commit -m "feat(nutrition): add profile columns for BMR inputs
 
 - body_weight_kg, height_cm, date_of_birth
@@ -171,16 +292,16 @@ Part of the meal planning / journaling feature (Phase 1)."
 ## Task 2: Nutrients + Foods + Food_nutrients schema
 
 **Files:**
-- Create: `supabase/20260413_nutrients.sql`
-- Create: `supabase/20260413_foods.sql`
-- Create: `supabase/20260413_food_nutrients.sql`
+- Create: `supabase/20260414_nutrients.sql`
+- Create: `supabase/20260414_foods.sql`
+- Create: `supabase/20260414_food_nutrients.sql`
 
 These three migrations are applied together — they form one coherent schema unit and referential integrity ties them. Splitting the task across them keeps each migration focused on a single table.
 
-- [ ] **Step 1: Write `supabase/20260413_nutrients.sql` with the 31-entry seed**
+- [ ] **Step 1: Write `supabase/20260414_nutrients.sql` with the 31-entry seed**
 
 ```sql
--- 20260413_nutrients.sql
+-- 20260414_nutrients.sql
 -- Curated nutrient lookup table + seed. 31 entries covering:
 --   energy (kcal), 7 macros, 13 vitamins, 10 minerals.
 -- fdc_nutrient_id maps to USDA FoodData Central nutrient IDs, used by
@@ -273,13 +394,13 @@ on conflict (fdc_nutrient_id) do update set
   display_order      = excluded.display_order;
 ```
 
-- [ ] **Step 2: Write `supabase/20260413_foods.sql`**
+- [ ] **Step 2: Write `supabase/20260414_foods.sql`**
 
 ```sql
--- 20260413_foods.sql
+-- 20260414_foods.sql
 -- Polymorphic foods + supplements catalog. Populated by:
 --   - scripts/import-usda-foods.js (USDA FDC: Foundation, SR Legacy, FNDDS, Branded)
---   - supabase/20260413_supplements_seed.sql (curated ~60 supplements)
+--   - supabase/20260414_supplements_seed.sql (curated ~60 supplements)
 --   - User-contributed rows inserted at runtime via api/emersus/foods-search.js
 --
 -- kind='food' vs kind='supplement' is the polymorphism switch.
@@ -384,10 +505,10 @@ using (true)
 with check (true);
 ```
 
-- [ ] **Step 3: Write `supabase/20260413_food_nutrients.sql`**
+- [ ] **Step 3: Write `supabase/20260414_food_nutrients.sql`**
 
 ```sql
--- 20260413_food_nutrients.sql
+-- 20260414_food_nutrients.sql
 -- Normalized nutrient storage. amount_per_base is interpreted via the parent
 -- food's base_unit + base_amount:
 --   base_unit='100g', base_amount=100  => amount per 100 g
@@ -471,9 +592,9 @@ insert into auth.users (id) values (gen_random_uuid());
 SQL
 
 psql -h 127.0.0.1 -p 55432 -U postgres -v ON_ERROR_STOP=1 \
-  -f supabase/20260413_nutrients.sql \
-  -f supabase/20260413_foods.sql \
-  -f supabase/20260413_food_nutrients.sql
+  -f supabase/20260414_nutrients.sql \
+  -f supabase/20260414_foods.sql \
+  -f supabase/20260414_food_nutrients.sql
 
 # Verify the seed
 psql -h 127.0.0.1 -p 55432 -U postgres -c "select count(*) from public.nutrients;"
@@ -490,7 +611,7 @@ Expected: 31 rows, search_vector shown as a generated column.
 - [ ] **Step 5: Commit**
 
 ```bash
-git add supabase/20260413_nutrients.sql supabase/20260413_foods.sql supabase/20260413_food_nutrients.sql
+git add supabase/20260414_nutrients.sql supabase/20260414_foods.sql supabase/20260414_food_nutrients.sql
 git commit -m "feat(nutrition): nutrients + foods + food_nutrients schema
 
 - nutrients: 31-entry curated lookup (1 energy + 7 macros + 13 vitamins + 10 minerals)
@@ -509,16 +630,16 @@ Part of the meal planning / journaling feature (Phase 1)."
 ## Task 3: Supplements seed migration
 
 **Files:**
-- Create: `supabase/20260413_supplements_seed.sql`
+- Create: `supabase/20260414_supplements_seed.sql`
 
 ~60 curated generic supplements as `foods` rows (`kind='supplement'`, `source='seed_supplement'`) with their `food_nutrients` rows for active ingredients. Powder supplements use `base_unit='100g'`; discrete-unit supplements use `base_unit='serving'`.
 
 - [ ] **Step 1: Write the seed migration (first half — powders + liquids)**
 
-Create `supabase/20260413_supplements_seed.sql`:
+Create `supabase/20260414_supplements_seed.sql`:
 
 ```sql
--- 20260413_supplements_seed.sql
+-- 20260414_supplements_seed.sql
 -- Curated supplement seed: ~60 common generic supplements.
 -- All entries use source='seed_supplement', kind='supplement'.
 --
@@ -763,7 +884,7 @@ select f.id, n.id, v.amount from f
 
 - [ ] **Step 2: Append the discrete-unit supplements (capsules / tablets / softgels) to the same file**
 
-Append to `supabase/20260413_supplements_seed.sql`:
+Append to `supabase/20260414_supplements_seed.sql`:
 
 ```sql
 
@@ -1195,10 +1316,10 @@ create schema if not exists auth;
 create table if not exists auth.users (id uuid primary key);
 SQL
 psql -h 127.0.0.1 -p 55432 -U postgres -v ON_ERROR_STOP=1 \
-  -f supabase/20260413_nutrients.sql \
-  -f supabase/20260413_foods.sql \
-  -f supabase/20260413_food_nutrients.sql \
-  -f supabase/20260413_supplements_seed.sql
+  -f supabase/20260414_nutrients.sql \
+  -f supabase/20260414_foods.sql \
+  -f supabase/20260414_food_nutrients.sql \
+  -f supabase/20260414_supplements_seed.sql
 
 psql -h 127.0.0.1 -p 55432 -U postgres -c "select count(*) from public.foods where source = 'seed_supplement';"
 # Expected: around 40 (powders + discretes; exact count depends on final list)
@@ -1228,7 +1349,7 @@ docker stop emersus-scratch-pg
 - [ ] **Step 4: Commit**
 
 ```bash
-git add supabase/20260413_supplements_seed.sql
+git add supabase/20260414_supplements_seed.sql
 git commit -m "feat(nutrition): seed ~40 curated supplement entries
 
 Polymorphic on foods table: kind='supplement', source='seed_supplement'.
@@ -1847,7 +1968,7 @@ export default async function foodsSearch(req, res) {
 
 The full RPC file is written in Task 21 (Phase 5), but `foods_search` is needed now for the API handler. Add just this one function as part of the foods migration so Phase 1 is self-contained.
 
-Append to `supabase/20260413_foods.sql` (at the bottom):
+Append to `supabase/20260414_foods.sql` (at the bottom):
 
 ```sql
 
@@ -2036,10 +2157,10 @@ create role authenticated;
 create role service_role;
 SQL
 psql -h 127.0.0.1 -p 55432 -U postgres -v ON_ERROR_STOP=1 \
-  -f supabase/20260413_nutrients.sql \
-  -f supabase/20260413_foods.sql \
-  -f supabase/20260413_food_nutrients.sql \
-  -f supabase/20260413_supplements_seed.sql
+  -f supabase/20260414_nutrients.sql \
+  -f supabase/20260414_foods.sql \
+  -f supabase/20260414_food_nutrients.sql \
+  -f supabase/20260414_supplements_seed.sql
 
 # Verify the function exists and returns something for 'creatine'
 psql -h 127.0.0.1 -p 55432 -U postgres -c "select description, rank from public.foods_search('creatine', 'supplement', false, 5);"
@@ -2053,7 +2174,7 @@ The fetch-based test (`scripts/test-foods-search.js`) runs against the live Expr
 - [ ] **Step 7: Commit**
 
 ```bash
-git add api/emersus/foods-search.js server.js scripts/test-foods-search.js supabase/20260413_foods.sql package.json
+git add api/emersus/foods-search.js server.js scripts/test-foods-search.js supabase/20260414_foods.sql package.json
 git commit -m "feat(nutrition): foods_search RPC + API endpoint
 
 - foods_search() Postgres function: FTS + trigram + source-tier ranking
@@ -2076,16 +2197,16 @@ Part of the meal planning / journaling feature (Phase 1 — final)."
 ## Task 6: Meal plans table migration
 
 **Files:**
-- Create: `supabase/20260413_meal_plans.sql`
+- Create: `supabase/20260414_meal_plans.sql`
 
 Structural twin of `workout_plans`. Stores the plan document as JSONB, tracks `previous_plan` for one-step undo, enforces one-active-plan-per-user via a unique partial index.
 
 - [ ] **Step 1: Write the migration**
 
-Create `supabase/20260413_meal_plans.sql`:
+Create `supabase/20260414_meal_plans.sql`:
 
 ```sql
--- 20260413_meal_plans.sql
+-- 20260414_meal_plans.sql
 -- Mirrors supabase/20260408_workout_plans.sql. Stores the plan document as
 -- JSONB with previous_plan for undo and archived_at for soft delete.
 --
@@ -2176,7 +2297,7 @@ create or replace function public.set_current_timestamp_updated_at() returns tri
 begin new.updated_at = now(); return new; end $$ language plpgsql;
 insert into auth.users (id) values ('00000000-0000-0000-0000-000000000001');
 SQL
-psql -h 127.0.0.1 -p 55432 -U postgres -v ON_ERROR_STOP=1 -f supabase/20260413_meal_plans.sql
+psql -h 127.0.0.1 -p 55432 -U postgres -v ON_ERROR_STOP=1 -f supabase/20260414_meal_plans.sql
 
 # Insert one active plan — should succeed
 psql -h 127.0.0.1 -p 55432 -U postgres -c "
@@ -2204,7 +2325,7 @@ docker stop emersus-scratch-pg
 - [ ] **Step 3: Commit**
 
 ```bash
-git add supabase/20260413_meal_plans.sql
+git add supabase/20260414_meal_plans.sql
 git commit -m "feat(nutrition): meal_plans table mirroring workout_plans
 
 - JSONB plan document with previous_plan for one-step undo
@@ -2246,7 +2367,7 @@ Create `shared/meal-plan-day-type.js`:
 //   3. Otherwise return meal_plan.assignments.default_day_type (or 'rest_day'
 //      if missing)
 //
-// The SQL sibling get_day_type_for_date() in supabase/20260413_nutrition_rpcs.sql
+// The SQL sibling get_day_type_for_date() in supabase/20260414_nutrition_rpcs.sql
 // MUST produce byte-identical output for the same inputs. The cross-fixture
 // test at scripts/test-day-type-resolver.js locks this contract.
 
@@ -2421,7 +2542,7 @@ Create `scripts/test-day-type-resolver.js`:
 //
 // Runs every case in tests/fixtures/day-type-resolution.json against
 // both the JS resolver (shared/meal-plan-day-type.js) and the SQL
-// resolver (get_day_type_for_date, defined in supabase/20260413_nutrition_rpcs.sql).
+// resolver (get_day_type_for_date, defined in supabase/20260414_nutrition_rpcs.sql).
 // Both must produce the same output for each case.
 //
 // The SQL half is skipped if no local DB is available — JS half runs unconditionally.
@@ -3703,16 +3824,16 @@ Part of the meal planning / journaling feature (Phase 2 — final)."
 ## Task 11: Meal journal entries table migration
 
 **Files:**
-- Create: `supabase/20260413_meal_journal_entries.sql`
+- Create: `supabase/20260414_meal_journal_entries.sql`
 
 Denormalized per-food log rows with frozen macro snapshots, RLS self-only, and five indexes for the common read paths (today, timeline, food history, plan adherence, meal-slot suggestions).
 
 - [ ] **Step 1: Write the migration**
 
-Create `supabase/20260413_meal_journal_entries.sql`:
+Create `supabase/20260414_meal_journal_entries.sql`:
 
 ```sql
--- 20260413_meal_journal_entries.sql
+-- 20260414_meal_journal_entries.sql
 -- Per-food/per-supplement log rows. Mirrors workout_logs structure.
 --
 -- Snapshots (kcal/protein/carbs/fat/fiber) are frozen at write time and
@@ -3823,11 +3944,11 @@ begin new.updated_at = now(); return new; end $$ language plpgsql;
 insert into auth.users (id) values ('00000000-0000-0000-0000-000000000001');
 SQL
 psql -h 127.0.0.1 -p 55432 -U postgres -v ON_ERROR_STOP=1 \
-  -f supabase/20260413_nutrients.sql \
-  -f supabase/20260413_foods.sql \
-  -f supabase/20260413_food_nutrients.sql \
-  -f supabase/20260413_meal_plans.sql \
-  -f supabase/20260413_meal_journal_entries.sql
+  -f supabase/20260414_nutrients.sql \
+  -f supabase/20260414_foods.sql \
+  -f supabase/20260414_food_nutrients.sql \
+  -f supabase/20260414_meal_plans.sql \
+  -f supabase/20260414_meal_journal_entries.sql
 
 # Bad meal_slot should be rejected
 psql -h 127.0.0.1 -p 55432 -U postgres -c "
@@ -3850,7 +3971,7 @@ Expected: two "check ok" lines.
 - [ ] **Step 3: Commit**
 
 ```bash
-git add supabase/20260413_meal_journal_entries.sql
+git add supabase/20260414_meal_journal_entries.sql
 git commit -m "feat(nutrition): meal_journal_entries table
 
 - Per-item log rows (foods and supplements) with frozen macro snapshots
@@ -4052,10 +4173,10 @@ export async function getDayJournal(req, res) {
 
 - [ ] **Step 2: Add the three RPCs `insert_meal_journal_entries`, `update_meal_journal_entry`, `copy_meal_journal_day` as a new migration**
 
-Create `supabase/20260413_meal_journal_rpcs.sql`:
+Create `supabase/20260414_meal_journal_rpcs.sql`:
 
 ```sql
--- 20260413_meal_journal_rpcs.sql
+-- 20260414_meal_journal_rpcs.sql
 -- Write-path RPCs for meal_journal_entries. All run SECURITY INVOKER so
 -- RLS on public.meal_journal_entries gates access automatically.
 --
@@ -4329,13 +4450,13 @@ Expected: "meal-journal imports ok".
 - [ ] **Step 5: Commit**
 
 ```bash
-git add api/emersus/meal-journal.js server.js supabase/20260413_meal_journal_rpcs.sql
+git add api/emersus/meal-journal.js server.js supabase/20260414_meal_journal_rpcs.sql
 git commit -m "feat(nutrition): meal-journal write path + RPCs
 
 - api/emersus/meal-journal.js: addEntries/update/delete/copyDay/getDay
   HTTP handlers, each wrapping a SECURITY INVOKER RPC so RLS enforces
   auth automatically
-- 20260413_meal_journal_rpcs.sql:
+- 20260414_meal_journal_rpcs.sql:
   * insert_meal_journal_entries(jsonb): bulk insert with server-computed
     macro snapshots from food_nutrients × amount / base_amount
   * update_meal_journal_entry(): re-snapshots when amount changes
@@ -6508,16 +6629,16 @@ Part of the meal planning / journaling feature (Phase 4 — final)."
 ## Task 21: Analytics RPCs migration
 
 **Files:**
-- Create: `supabase/20260413_nutrition_rpcs.sql`
+- Create: `supabase/20260414_nutrition_rpcs.sql`
 
 Nine Postgres functions: dashboard, daily journal, weekly macro averages, streak, micronutrient status, top foods, plan adherence, day-type resolver, and a test helper that mirrors the JS resolver for the cross-fixture test. Every function sets `search_path = public, extensions`.
 
 - [ ] **Step 1: Write the migration — dashboard + daily journal + weekly macros**
 
-Create `supabase/20260413_nutrition_rpcs.sql`:
+Create `supabase/20260414_nutrition_rpcs.sql`:
 
 ```sql
--- 20260413_nutrition_rpcs.sql
+-- 20260414_nutrition_rpcs.sql
 -- Analytics RPCs for the nutrition feature.
 -- All functions run SECURITY INVOKER; RLS on the underlying tables gates access.
 -- search_path is set explicitly per the match_evidence_chunks lesson.
@@ -6656,7 +6777,7 @@ grant execute on function public.get_weekly_macro_averages(date, date) to authen
 
 - [ ] **Step 2: Append streak + micronutrient status + top foods + plan adherence**
 
-Append to `supabase/20260413_nutrition_rpcs.sql`:
+Append to `supabase/20260414_nutrition_rpcs.sql`:
 
 ```sql
 
@@ -7005,13 +7126,13 @@ create or replace function auth.uid() returns uuid as $$
 $$ language sql;
 SQL
 psql -h 127.0.0.1 -p 55432 -U postgres -v ON_ERROR_STOP=1 \
-  -f supabase/20260413_nutrients.sql \
-  -f supabase/20260413_foods.sql \
-  -f supabase/20260413_food_nutrients.sql \
-  -f supabase/20260413_meal_plans.sql \
-  -f supabase/20260413_meal_journal_entries.sql \
-  -f supabase/20260413_meal_journal_rpcs.sql \
-  -f supabase/20260413_nutrition_rpcs.sql
+  -f supabase/20260414_nutrients.sql \
+  -f supabase/20260414_foods.sql \
+  -f supabase/20260414_food_nutrients.sql \
+  -f supabase/20260414_meal_plans.sql \
+  -f supabase/20260414_meal_journal_entries.sql \
+  -f supabase/20260414_meal_journal_rpcs.sql \
+  -f supabase/20260414_nutrition_rpcs.sql
 
 # Smoke-test resolve_day_type_from_jsonb
 psql -h 127.0.0.1 -p 55432 -U postgres -c "
@@ -7029,7 +7150,7 @@ docker stop emersus-scratch-pg
 - [ ] **Step 4: Commit**
 
 ```bash
-git add supabase/20260413_nutrition_rpcs.sql
+git add supabase/20260414_nutrition_rpcs.sql
 git commit -m "feat(nutrition): analytics RPCs + day-type test helper
 
 - get_nutrition_dashboard(p_date): today summary with actuals + meal_breakdown
@@ -7539,7 +7660,7 @@ Append a new section listing the new tables, RPCs, and migrations:
 
 ### `nutrients` (lookup)
 31 curated entries: energy, macros (7), vitamins (13), minerals (10).
-Seeded in `20260413_nutrients.sql`. `fdc_nutrient_id` maps to USDA FDC.
+Seeded in `20260414_nutrients.sql`. `fdc_nutrient_id` maps to USDA FDC.
 
 ### `foods`
 Polymorphic catalog (`kind in {food, supplement}`). ~1.82 M rows after
@@ -7594,15 +7715,15 @@ user_slot_date, user_logged_at).
 
 ### Migration files (apply in order)
 
-1. `20260413_profile_nutrition_columns.sql`
-2. `20260413_nutrients.sql`
-3. `20260413_foods.sql` (includes `foods_search` RPC)
-4. `20260413_food_nutrients.sql`
-5. `20260413_supplements_seed.sql`
-6. `20260413_meal_plans.sql`
-7. `20260413_meal_journal_entries.sql`
-8. `20260413_meal_journal_rpcs.sql`
-9. `20260413_nutrition_rpcs.sql`
+1. `20260414_profile_nutrition_columns.sql`
+2. `20260414_nutrients.sql`
+3. `20260414_foods.sql` (includes `foods_search` RPC)
+4. `20260414_food_nutrients.sql`
+5. `20260414_supplements_seed.sql`
+6. `20260414_meal_plans.sql`
+7. `20260414_meal_journal_entries.sql`
+8. `20260414_meal_journal_rpcs.sql`
+9. `20260414_nutrition_rpcs.sql`
 ```
 
 - [ ] **Step 3: Update `docs/scripts.md`**
@@ -7643,7 +7764,7 @@ Append to `changelog.md`:
 
 ```markdown
 - 2026-04-13 — Nutrition subsystem: meal planning, journaling, supplements (Phases 1–6)
-  — `supabase/20260413_*.sql`, `api/emersus/meal-plans.js`, `api/emersus/meal-journal.js`,
+  — `supabase/20260414_*.sql`, `api/emersus/meal-plans.js`, `api/emersus/meal-journal.js`,
     `api/emersus/nutrition-parser.js`, `api/emersus/foods-search.js`, `api/emersus/rpc-proxy.js`,
     `shared/meal-plan-*.js`, `shared/nutrition-*.js`, `shared/food-detail-drawer.js`,
     `app/nutrition/`, `app/progress/nutrition-pane.js` + `progress.js` tab switcher,
@@ -7673,15 +7794,15 @@ Part of the meal planning / journaling feature (Phase 6)."
 
 ```bash
 ssh hetzner "cd ~/app && bash infra/apply-migrations.sh \
-  supabase/20260413_profile_nutrition_columns.sql \
-  supabase/20260413_nutrients.sql \
-  supabase/20260413_foods.sql \
-  supabase/20260413_food_nutrients.sql \
-  supabase/20260413_supplements_seed.sql \
-  supabase/20260413_meal_plans.sql \
-  supabase/20260413_meal_journal_entries.sql \
-  supabase/20260413_meal_journal_rpcs.sql \
-  supabase/20260413_nutrition_rpcs.sql"
+  supabase/20260414_profile_nutrition_columns.sql \
+  supabase/20260414_nutrients.sql \
+  supabase/20260414_foods.sql \
+  supabase/20260414_food_nutrients.sql \
+  supabase/20260414_supplements_seed.sql \
+  supabase/20260414_meal_plans.sql \
+  supabase/20260414_meal_journal_entries.sql \
+  supabase/20260414_meal_journal_rpcs.sql \
+  supabase/20260414_nutrition_rpcs.sql"
 ```
 
 Expected: all migrations apply cleanly. Verify with:
