@@ -1826,11 +1826,13 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
         );
       } else if (toolName === "log_food" && toolData) {
         // Transform log_food tool shape { foods, meal_slot } into the
-        // resolved_items shape NutritionLogConfirmCard expects.
+        // resolved_items shape NutritionLogConfirmCard/ResolvedRow expects.
+        // ResolvedRow reads: food_name, amount, amount_unit, meal_slot.
         const confirmPayload = {
           resolved_items: (toolData.foods || []).map((f) => ({
-            description: f.description,
-            grams: f.grams,
+            food_name: f.description,
+            amount: f.grams,
+            amount_unit: "g",
             kcal: f.kcal,
             protein_g: f.protein_g,
             carbs_g: f.carbs_g,
