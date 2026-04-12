@@ -12,7 +12,7 @@
 create table if not exists public.food_nutrients (
   food_id          uuid not null references public.foods(id) on delete cascade,
   nutrient_id      uuid not null references public.nutrients(id),
-  amount_per_base  numeric(12,4) not null,
+  amount_per_base  numeric not null,
   primary key (food_id, nutrient_id)
 );
 
