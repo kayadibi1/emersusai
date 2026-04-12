@@ -117,7 +117,7 @@ body::before {
 .brand {
   color: #aaa;
   font-family: var(--mono);
-  font-size: 0.88rem;
+  font-size: clamp(0.88rem, 1.2vw, 1.3rem);
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
@@ -126,10 +126,10 @@ body::before {
 
 .nav-links {
   display: flex;
-  gap: clamp(18px, 4vw, 2.5rem);
+  gap: clamp(18px, 4vw, 3.5rem);
   align-items: center;
   font-family: var(--mono);
-  font-size: 0.68rem;
+  font-size: clamp(0.68rem, 0.9vw, 1rem);
   font-weight: 400;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -154,9 +154,9 @@ body::before {
   letter-spacing: 0.15em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 0.45rem 1.3rem;
+  padding: clamp(0.45rem, 0.6vw, 0.7rem) clamp(1.3rem, 1.8vw, 2rem);
   border-radius: 4px;
-  font-size: 0.68rem;
+  font-size: clamp(0.68rem, 0.9vw, 1rem);
 }
 
 /* ─── SECTIONS ─── */
@@ -170,7 +170,7 @@ body::before {
 }
 
 .section-inner {
-  width: min(1100px, 100%);
+  width: min(1400px, 100%);
   margin: 0 auto;
 }
 
@@ -191,7 +191,7 @@ body::before {
   margin: 0 0 1.8rem;
   color: var(--accent);
   font-family: var(--mono);
-  font-size: 0.78rem;
+  font-size: clamp(0.78rem, 1vw, 1.15rem);
   font-weight: 500;
   letter-spacing: 0.35em;
   text-transform: uppercase;
@@ -201,7 +201,7 @@ body::before {
   margin: 0;
   color: var(--ink);
   font-family: var(--serif);
-  font-size: clamp(2.8rem, 6vw, 4.2rem);
+  font-size: clamp(2.8rem, 6vw, 6.5rem);
   font-weight: 400;
   letter-spacing: -0.03em;
   line-height: 1.06;
@@ -217,10 +217,10 @@ body::before {
 }
 
 .subtitle {
-  width: min(460px, 100%);
+  width: min(680px, 100%);
   margin: 1.8rem 0 0;
   color: var(--muted);
-  font-size: 1.05rem;
+  font-size: clamp(1.05rem, 1.4vw, 1.5rem);
   line-height: 1.7;
 }
 
@@ -254,13 +254,13 @@ body::before {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 2.2rem;
+  padding: clamp(0.75rem, 1vw, 1.1rem) clamp(2.2rem, 2.8vw, 3.2rem);
   border: none;
   border-radius: 4px;
   background: var(--accent);
   color: var(--bg);
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: clamp(0.72rem, 0.95vw, 1.05rem);
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -278,7 +278,7 @@ body::before {
   background: transparent;
   color: var(--ink);
   font-family: var(--mono);
-  font-size: 0.72rem;
+  font-size: clamp(0.72rem, 0.95vw, 1.05rem);
   font-weight: 500;
   letter-spacing: 0.18em;
   text-decoration: none;
@@ -295,10 +295,10 @@ body::before {
 /* ─── SECTION TITLES ─── */
 
 .section-title {
-  max-width: 780px;
+  max-width: 900px;
   margin: 0 0 1.2rem;
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  font-size: clamp(1.8rem, 4vw, 3.4rem);
   font-weight: 400;
   letter-spacing: -0.02em;
   line-height: 1.1;
@@ -306,9 +306,9 @@ body::before {
 }
 
 .section-copy {
-  max-width: 460px;
+  max-width: 580px;
   color: var(--muted);
-  font-size: 0.95rem;
+  font-size: clamp(0.95rem, 1.2vw, 1.3rem);
   line-height: 1.7;
 }
 
@@ -343,7 +343,7 @@ body::before {
   margin-bottom: 1.2rem;
   color: var(--accent);
   font-family: var(--mono);
-  font-size: 0.58rem;
+  font-size: clamp(0.58rem, 0.8vw, 0.85rem);
   font-weight: 500;
   letter-spacing: 0.2em;
 }
@@ -352,7 +352,7 @@ body::before {
 .step-title {
   margin: 0 0 0.8rem;
   font-family: var(--serif);
-  font-size: 1.3rem;
+  font-size: clamp(1.3rem, 1.6vw, 1.8rem);
   font-weight: 400;
   letter-spacing: -0.02em;
 }
@@ -361,7 +361,7 @@ body::before {
 .step-copy {
   margin: 0;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: clamp(0.88rem, 1.1vw, 1.15rem);
   line-height: 1.65;
 }
 
@@ -369,7 +369,7 @@ body::before {
   margin: 0;
   color: #ccc;
   font-family: var(--serif);
-  font-size: clamp(1.2rem, 2.4vw, 1.6rem);
+  font-size: clamp(1.2rem, 2.4vw, 2.4rem);
   line-height: 1.35;
   letter-spacing: -0.02em;
 }
@@ -395,7 +395,7 @@ body::before {
   margin-bottom: 1rem;
   color: var(--accent);
   font-family: var(--mono);
-  font-size: 0.52rem;
+  font-size: clamp(0.52rem, 0.7vw, 0.8rem);
   font-weight: 700;
   letter-spacing: 0.25em;
 }
@@ -420,7 +420,7 @@ body::before {
   margin-top: 1.5rem;
   color: var(--accent);
   font-family: var(--mono);
-  font-size: 0.62rem;
+  font-size: clamp(0.62rem, 0.85vw, 0.95rem);
   font-weight: 500;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -512,7 +512,7 @@ body::before {
   border-top: 1px solid var(--line);
   color: #444;
   font-family: var(--mono);
-  font-size: 0.58rem;
+  font-size: clamp(0.58rem, 0.8vw, 0.85rem);
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }

@@ -937,9 +937,9 @@ function OldCopyNav() {
     h(
       "div",
       { className: "nav-links" },
-      h("a", { className: "text-blur", href: "/auth/login/" }, "Science"),
-      h("a", { className: "text-blur", href: "/privacy/" }, "Platform"),
-      h("a", { className: "text-blur", href: "/contact/" }, "About"),
+      h("a", { className: "text-blur", href: "#features" }, "Science"),
+      h("a", { className: "text-blur", href: "#how" }, "Platform"),
+      h("a", { className: "text-blur", href: "/auth/login/" }, "App / Login"),
     ),
     h("a", { className: "nav-cta", href: "#access" }, "Get started"),
   );
