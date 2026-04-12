@@ -1672,7 +1672,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
           "button",
           {
             onClick: handleConfirm,
-            disabled: submitState === "saving" || items.length === 0,
+            disabled: submitState === "saving" || submitState === "saved" || items.length === 0,
             style: {
               alignSelf: "flex-start",
               padding: "7px 16px",
