@@ -1101,9 +1101,15 @@ function classifySafety({ question, profile, threadState, recentMessages }) {
   const lastAssistantContent = (Array.isArray(recentMessages)
     ? recentMessages.filter(m => m.role === "assistant").slice(-1)[0]?.content ?? ""
     : "");
+  // The assistant's visible reply is a natural rephrasing of the gate —
+  // e.g. "I need five inputs to build a real meal plan: current body weight,
+  // height, date of birth, biological sex, and your activity level."
+  // Match broadly: the assistant mentioned body-metric terms AND the user's
+  // reply contains at least one number (weight, height, or age).
   const isNutritionGateReply =
-    /NUTRITION PROFILE GATE|body weight|height.*age.*sex|meal plan.*missing/i.test(lastAssistantContent)
-    && /\b\d+\s*(kg|lbs?|cm|ft|in)?\b/.test(questionOnly);
+    (/body\s*weight|height|biological\s*sex|activity\s*level|meal\s*plan/i.test(lastAssistantContent)
+      && /\b(weight|height|age|sex|activity|calori|macro|meal plan|body)/i.test(lastAssistantContent))
+    && /\d/.test(questionOnly);
 
   const wordCount = questionOnly.split(/\s+/).filter(Boolean).length;
   if (wordCount >= 5 && !FITNESS_AFFINITY.test(questionOnly) && !isNutritionGateReply) {
@@ -4350,7 +4356,9 @@ async function generateRecommendation({
     : "") || "";
   const isProfileGateFollowUp =
     plan.topic !== "nutrition"
-    && /NUTRITION PROFILE GATE:|asked for a meal plan.*missing/i.test(lastAssistantMsg);
+    && /body\s*weight|height|biological\s*sex|activity\s*level/i.test(lastAssistantMsg)
+    && /\b(weight|height|age|sex|activity|meal plan)/i.test(lastAssistantMsg)
+    && /\d/.test(question);
   if (isProfileGateFollowUp) {
     plan.topic = "nutrition";
   }
