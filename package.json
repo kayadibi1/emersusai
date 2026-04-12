@@ -7,6 +7,7 @@
     "fill:pmc": "node scripts/fill-pmc-corpus.js",
     "fill:pmc:topics": "node scripts/fill-pmc-topics.js",
     "import:pubmed": "node scripts/import-pubmed.js",
+    "import:usda": "node scripts/import-usda-foods.js",
     "embed:evidence": "node scripts/embed-evidence.js",
     "test:retrieval": "node scripts/test-retrieval.js",
     "test:visual-artifacts": "node scripts/test-visual-artifacts.js",
@@ -22,7 +23,8 @@
     "openai": "^6.33.0",
     "pg": "^8.20.0",
     "pg-boss": "^10.4.2",
-    "resend": "^4.1.0"
+    "resend": "^4.1.0",
+    "stream-json": "^1.8.0"
   },
   "devDependencies": {
     "nock": "^13.5.6"
