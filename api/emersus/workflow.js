@@ -11,6 +11,7 @@ import {
   formatCitationUrl,
   formatCitationLabel,
 } from "../../shared/citation-format.js";
+import { parseFoodDescription } from "./nutrition-parser.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-4.1-mini";
 const SYNTHESIS_FALLBACK_MODEL =
@@ -602,7 +603,7 @@ export function classifyNutritionIntent(text) {
 
   // Logging
   if (
-    /^(log|track|add|record)\s+/.test(t) ||
+    /^(log|track|record)\s+/.test(t) ||
     /^i\s+(just\s+)?(had|ate|drank|took)\b/.test(t) ||
     /^(took|taking)\s+(my\s+)?(supps?|stack|vitamins?|supplements?)\b/.test(t) ||
     /^(for|at)\s+(breakfast|lunch|dinner|snack|supper)\b.*[:\-]/.test(t) ||
@@ -4290,7 +4291,86 @@ will run plan generation.
       }
     }
 
-    // intent === 'log_food' branch is wired in Task 14 (Phase 3).
+    // ── log_food: skip retrieval + LLM, parse and emit a confirm fence ──────
+    if (intent === "log_food") {
+      const parseResult = await parseFoodDescription(question, {
+        authHeader: `Bearer ${serviceRoleKey}`,
+      });
+
+      // Infer meal_slot from time-of-day for items without one.
+      const now = new Date();
+      const h = now.getHours();
+      const timeSlot =
+        h < 10 ? "breakfast"   :
+        h < 12 ? "mid_morning" :
+        h < 15 ? "lunch"       :
+        h < 17 ? "afternoon"   :
+        h < 21 ? "dinner"      :
+                 "evening";
+
+      const filledItems = (parseResult.items || []).map(i => ({
+        ...i,
+        meal_slot: i.meal_slot ?? (
+          i.kind === "supplement" && h < 12 ? "supplements_am" :
+          i.kind === "supplement"            ? "supplements_pm" :
+          timeSlot
+        ),
+      }));
+      const loggedDate = now.toISOString().slice(0, 10);
+
+      const fencePayload = {
+        resolved_items: filledItems,
+        unresolved: parseResult.unresolved ?? [],
+        meal_slot_default: filledItems[0]?.meal_slot ?? timeSlot,
+        logged_date: loggedDate,
+        parse_error: parseResult.error ?? null,
+      };
+
+      const confirmFence =
+        "```nutrition-log-confirm\n" +
+        JSON.stringify(fencePayload, null, 2) +
+        "\n```";
+
+      const prefix = parseResult.error
+        ? "I couldn't parse that automatically — you can log it from the Log food button in Nutrition. "
+        : filledItems.length === 0
+          ? "I couldn't match any foods — try again with more detail, or log manually. "
+          : "Here's what I pulled from that — review and confirm to log:\n\n";
+
+      const answerText = prefix + confirmFence;
+
+      const logFoodResponse = {
+        user: {
+          id: stableUserId || null,
+          profile_used: mergedProfile,
+        },
+        plan,
+        summary: filledItems.length > 0
+          ? `Parsed ${filledItems.length} food item(s) for logging.`
+          : "No foods matched — manual log required.",
+        answer_text: answerText,
+        recommendations: { general: [] },
+        confidence: {
+          score: 1,
+          label: "deterministic",
+          rationale: "Food log confirm — no LLM synthesis, no retrieval.",
+        },
+        limitations: [],
+        sources: [],
+        cards: [],
+        guardrail: {
+          status: safety.status,
+          response_mode: safety.responseMode,
+          reasons: safety.reasons,
+        },
+      };
+
+      recordStage("total_server_ms", Date.now() - runStartedAt);
+      emitProgress("final", { response: logFoodResponse });
+      return logFoodResponse;
+    }
+    // ── end log_food branch ──────────────────────────────────────────────────
+
     // intent === 'query' falls through to the default retrieval path.
   }
   // ── End nutrition intent sub-routing ────────────────────────────────────
