@@ -5,29 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Nutrition · Emersus</title>
   <link rel="icon" type="image/svg+xml" href="/emersus_mark_fibonacci_blue.svg" />
-  <link rel="stylesheet" href="/shared/site.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/site.css" />
 </head>
 <body>
-  <div id="root">Loading…</div>
+  <div class="site-shell">
+    <header class="site-header">
+      <div class="container site-header-inner">
+        <a class="brand-mark" href="/">Emersus AI</a>
+        <nav class="site-nav">
+          <a href="/app/">Dashboard</a>
+          <a href="/app/profile/">Profile</a>
+          <a href="/app/workout/">Workout</a>
+          <a href="/app/nutrition/" aria-current="page">Nutrition</a>
+          <a href="/app/progress/">Progress</a>
+          <a href="/chat/">Chat</a>
+          <button class="button button-ghost" type="button" data-auth-logout>Log Out</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="page-main">
+      <div class="container" id="root">Loading...</div>
+    </main>
+  </div>
+
   <script type="module">
-    // Use the standard shared/supabase.js auth — same pattern as all other
-    // /app/ pages. requireAuth() reads the Supabase client's internal session
-    // (not a custom localStorage key) and redirects to /auth/login if absent.
     import { getSupabase, requireAuth } from "/shared/supabase.js";
 
     const session = await requireAuth();
     if (!session) throw new Error("redirect in progress");
 
-    // Populate the window globals the nutrition panel modules expect.
     const sb = await getSupabase();
     window.EMERSUS_SUPABASE = sb;
     window.EMERSUS_AUTH = session.access_token;
 
-    // Load the app AFTER auth is resolved so panels see the globals.
     await import("./nutrition.js");
+
+    // Bind the shared Log Out button (same pattern as app-pages.js)
+    const logoutBtn = document.querySelector("[data-auth-logout]");
+    if (logoutBtn) {
+      logoutBtn.addEventListener("click", async () => {
+        logoutBtn.disabled = true;
+        logoutBtn.textContent = "Logging Out...";
+        await sb.auth.signOut();
+        window.location.href = "/auth/login/";
+      });
+    }
   </script>
 </body>
 </html>
