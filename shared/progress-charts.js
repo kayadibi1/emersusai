@@ -54,7 +54,7 @@ export function weeklyActivityChart(data, { width = 400, height = 120 } = {}) {
  * @param {{width?: number, height?: number, color?: string, prDate?: string}} opts
  * @returns {string} SVG markup
  */
-export function progressionLineChart(data, { width = 400, height = 140, color = "#6d9fff", prDate = null } = {}) {
+export function progressionLineChart(data, { width = 400, height = 140, color = "#78dc14", prDate = null } = {}) {
   if (!data || data.length < 2) return emptyChart(width, height, "Not enough data");
 
   const pad = { top: 12, bottom: 24, left: 8, right: 8 };

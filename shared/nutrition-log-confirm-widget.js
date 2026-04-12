@@ -470,7 +470,7 @@ export default function NutritionLogConfirmWidget({ payload }) {
             background:
               items.length === 0
                 ? "rgba(255,255,255,0.04)"
-                : "var(--accent-primary, #6d9fff)",
+                : "var(--accent-primary, #78dc14)",
             color:
               items.length === 0
                 ? "var(--color-text-tertiary, #6f7480)"

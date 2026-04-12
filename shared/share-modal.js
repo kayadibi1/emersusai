@@ -211,7 +211,7 @@ export const SHARE_MODAL_CSS = `
   gap: 8px;
 }
 .share-btn-primary {
-  background: linear-gradient(90deg, #85adff, #9ffb00);
+  background: #78dc14;
   color: #0c0e11;
   font-weight: 800;
   font-size: 0.82rem;
