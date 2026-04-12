@@ -31,33 +31,21 @@
 <body>
   <div id="root">Loading…</div>
   <script type="module">
-    // Fetch Supabase connection info from /api/config, then inject into window
-    // so the shared modules can authenticate without each module re-reading.
-    // Also check for an existing session in localStorage.
-    async function initAuth() {
-      try {
-        const configRes = await fetch("/api/config");
-        if (!configRes.ok) throw new Error("Config fetch failed");
-        const config = await configRes.json();
+    // Use the standard shared/supabase.js auth — same pattern as all other
+    // /app/ pages. requireAuth() reads the Supabase client's internal session
+    // (not a custom localStorage key) and redirects to /auth/login if absent.
+    import { getSupabase, requireAuth } from "/shared/supabase.js";
 
-        window.EMERSUS_SUPABASE_URL = config.supabaseUrl;
-        window.EMERSUS_ANON_KEY = config.supabaseAnonKey;
+    const session = await requireAuth();
+    if (!session) throw new Error("redirect in progress");
 
-        // Inject session from localStorage if present
-        const session = JSON.parse(localStorage.getItem("emersus-session") ?? "null");
-        window.EMERSUS_AUTH = session?.access_token ?? null;
+    // Populate the window globals the nutrition panel modules expect.
+    const sb = await getSupabase();
+    window.EMERSUS_SUPABASE = sb;
+    window.EMERSUS_AUTH = session.access_token;
 
-        if (!window.EMERSUS_AUTH) {
-          location.href = "/auth/login";
-        }
-      } catch (err) {
-        console.error("Auth init failed:", err);
-        location.href = "/auth/login";
-      }
-    }
-
-    initAuth();
+    // Load the app AFTER auth is resolved so panels see the globals.
+    await import("./nutrition.js");
   </script>
-  <script type="module" src="./nutrition.js"></script>
 </body>
 </html>
