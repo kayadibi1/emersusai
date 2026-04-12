@@ -111,29 +111,7 @@ export function parseLLMOutput(markdown) {
   if (lastIndex < text.length) {
     const tail = text.slice(lastIndex);
     if (tail.trim()) {
-      // Detect an UNCLOSED workout-plan fence at the end of the stream.
-      // This happens when OpenAI hits max_output_tokens mid-plan and the
-      // closing ``` never arrives. Without this branch the tail would
-      // render as raw JSON prose, which is confusing. With it, the user
-      // gets a clear "truncated — retry" card instead of dumped JSON.
-      const unclosed = tail.match(/```workout-plan[ \t]*\r?\n?([\s\S]*)$/i);
-      if (unclosed) {
-        const beforeFence = tail.slice(0, unclosed.index);
-        if (beforeFence.trim()) {
-          segments.push({ type: "text", content: beforeFence });
-        }
-        segments.push({
-          type: "workout-plan",
-          content: {
-            ok: false,
-            error: "truncated — the plan was cut off before the model finished emitting it. Try asking again, or ask for a shorter plan (fewer weeks).",
-            raw: String(unclosed[1] || ""),
-            truncated: true,
-          },
-        });
-      } else {
-        segments.push({ type: "text", content: tail });
-      }
+      segments.push({ type: "text", content: tail });
     }
   }
   return segments;
@@ -159,12 +137,11 @@ export function stripWidgetFencesForStreaming(text) {
     cursor = match.index + whole.length;
   }
   out += src.slice(cursor);
-  // Trailing unclosed fence — only strip if the info tag signals a widget,
-  // workout-plan, or nutrition fence, or if the first content char looks like HTML.
+  // Trailing unclosed fence — only strip if the info tag signals a widget
+  // or nutrition fence, or if the first content char looks like HTML.
   out = out.replace(
     /```([\w-]*)[ \t]*\n?([\s\S]*)$/,
     (whole, info, body) => {
-      if (isWorkoutPlanFenceInfo(info)) return "";
       if (isNutritionFenceInfo(info)) return "";
       if (isWidgetFenceBody(info, body)) return "";
       return whole;
@@ -175,10 +152,7 @@ export function stripWidgetFencesForStreaming(text) {
 
 // Quick check used by callers to decide whether the segment-aware code path
 // is needed at all. Pure prose answers stay on the existing rendering path.
-// Returns true if ANY widget OR workout-plan fence is present — including
-// an UNCLOSED trailing workout-plan fence, so the truncation fallback in
-// parseLLMOutput gets a chance to render a retry card instead of the raw
-// JSON leaking into prose.
+// Returns true if ANY widget, workout-plan, or nutrition fence is present.
 export function hasWidgetFences(text) {
   const src = String(text || "");
   const re = new RegExp(ANY_FENCE_RE.source, "g");
@@ -187,11 +161,6 @@ export function hasWidgetFences(text) {
     if (isWidgetFenceBody(match[1], match[2])) return true;
     if (isWorkoutPlanFenceInfo(match[1])) return true;
     if (isNutritionFenceInfo(match[1])) return true;
-  }
-  // No closed fence found — check for an unclosed trailing workout-plan
-  // fence (max_output_tokens cutoff case).
-  if (/```workout-plan[ \t]*\r?\n?[\s\S]*$/i.test(src) && !/```workout-plan[\s\S]*```/i.test(src)) {
-    return true;
   }
   return false;
 }
