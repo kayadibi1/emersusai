@@ -2292,7 +2292,7 @@ function htmlToPlainText(value) {
 // structured fence is present in the input, we leave the string untouched.
 function stripCodeFences(value) {
   const input = String(value || "");
-  if (/```(?:widget|html|meal-plan|nutrition-log-confirm)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
+  if (/```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
     return input;
   }
   return input
@@ -2319,12 +2319,12 @@ function stripStrayFenceMarkers(text) {
   // If any valid structured fence is present, do nothing — the caller
   // already guards on this, but we double-check so a direct call from
   // anywhere else can't destroy a real fence.
-  if (/```(?:widget|html|meal-plan|nutrition-log-confirm)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
+  if (/```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
     return input;
   }
   return input
     // Opening fence on its own line or at end of a prose line.
-    .replace(/(^|[ \t])```(?:widget|html|meal-plan|nutrition-log-confirm)?[ \t]*(?:\r?\n|$)/gi, "$1")
+    .replace(/(^|[ \t])```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)?[ \t]*(?:\r?\n|$)/gi, "$1")
     // Closing or lone bare fence on its own line.
     .replace(/(^|\n)[ \t]*```[ \t]*(?:\r?\n|$)/g, "$1\n")
     // Collapse leftover triple-newlines from the substitutions.
@@ -2345,13 +2345,13 @@ function splitSynthesisIntoSegments(text) {
     const tag = String(info || "").toLowerCase();
     const firstChar = String(body || "").trim().charAt(0);
     const isWidget = tag === "widget" || tag === "html" || (!tag && firstChar === "<");
-    const isNutrition = tag === "meal-plan" || tag === "nutrition-log-confirm";
-    if (!isWidget && !isNutrition) continue;
+    const isStructured = tag === "workout-plan" || tag === "meal-plan" || tag === "nutrition-log-confirm";
+    if (!isWidget && !isStructured) continue;
     if (match.index > cursor) {
       segments.push({ type: "text", content: src.slice(cursor, match.index) });
     }
     segments.push({
-      type: isNutrition ? tag : "widget",
+      type: isStructured ? tag : "widget",
       content: body,
     });
     cursor = match.index + whole.length;
@@ -2406,12 +2406,12 @@ function normalizeSynthesisPayload(text) {
   // untouched and get re-fenced on reassembly.
   const segments = splitSynthesisIntoSegments(raw);
   const cleanedSegments = segments.map((segment) => {
-    if (segment.type === "widget" || segment.type === "meal-plan" || segment.type === "nutrition-log-confirm") return segment;
+    if (segment.type === "widget" || segment.type === "workout-plan" || segment.type === "meal-plan" || segment.type === "nutrition-log-confirm") return segment;
     let prose = segment.content;
     prose = stripCodeFences(prose);
     // Safety net: strip any leftover "```widget" / "```html" / stand-alone
     // "```" markers that a malformed fence might have left behind.
-    if (!/```(?:widget|html|meal-plan|nutrition-log-confirm)?[ \t]*\r?\n?[\s\S]*?```/i.test(prose)) {
+    if (!/```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)?[ \t]*\r?\n?[\s\S]*?```/i.test(prose)) {
       prose = stripStrayFenceMarkers(prose);
     }
     // Strip any trailing "Sources:" / "References:" section the model
@@ -2426,6 +2426,7 @@ function normalizeSynthesisPayload(text) {
   const reassembledRaw = cleanedSegments
     .map((s) => {
       if (s.type === "widget") return `\`\`\`widget\n${s.content}\n\`\`\``;
+      if (s.type === "workout-plan") return `\`\`\`workout-plan\n${s.content}\n\`\`\``;
       if (s.type === "meal-plan") return `\`\`\`meal-plan\n${s.content}\n\`\`\``;
       if (s.type === "nutrition-log-confirm") return `\`\`\`nutrition-log-confirm\n${s.content}\n\`\`\``;
       return s.content;
@@ -4020,7 +4021,7 @@ async function generateRecommendation({
               : result.fence;
           } else {
             // Profile incomplete or validation failed — use fallback text
-            combined = result.fallbackText;
+            combined = combined ? combined + "\n\n" + result.fallbackText : result.fallbackText;
           }
         }
         else if (tc.name === "emit_workout_plan") {
@@ -4028,7 +4029,7 @@ async function generateRecommendation({
           if (result.ok) {
             combined = combined ? combined + "\n\n" + result.fence : result.fence;
           } else {
-            combined = result.fallbackText;
+            combined = combined ? combined + "\n\n" + result.fallbackText : result.fallbackText;
           }
         }
       }
@@ -4091,7 +4092,7 @@ async function generateRecommendation({
             if (result.ok) {
               combined = combined ? combined + "\n\n" + result.fence : result.fence;
             } else {
-              combined = result.fallbackText;
+              combined = combined ? combined + "\n\n" + result.fallbackText : result.fallbackText;
             }
           }
           else if (tc.name === "emit_workout_plan") {
@@ -4099,7 +4100,7 @@ async function generateRecommendation({
             if (result.ok) {
               combined = combined ? combined + "\n\n" + result.fence : result.fence;
             } else {
-              combined = result.fallbackText;
+              combined = combined ? combined + "\n\n" + result.fallbackText : result.fallbackText;
             }
           }
         }
