@@ -9,6 +9,7 @@
 import { fetchWithTimeoutAndUA } from "./_http.js";
 import { biorxivLimiter } from "./_shared-limiters.js";
 import { registerIngestion, registerDiscovery } from "./_registry.js";
+import { parseQueryIntoGroups, matchesQueryGroups } from "./_query-match.js";
 
 const BASE_URL = "https://api.biorxiv.org/details/medrxiv";
 const PAGE_SIZE = 100;
@@ -32,25 +33,6 @@ async function fetchPage(from, to, cursor) {
     total: Number(msg.total ?? 0),
     count: Number(msg.count ?? 0),
   };
-}
-
-/**
- * Extract meaningful search terms from a PubMed-style query string.
- * Strips boolean operators and short stopwords; lowercases.
- * TODO: upgrade to a proper relevance score
- */
-const STOPWORDS = new Set(["and", "or", "not", "with", "from", "this", "that"]);
-function extractTerms(query) {
-  return query
-    .toLowerCase()
-    .replace(/[^\w\s]/g, " ")
-    .split(/\s+/)
-    .filter(t => t.length >= 4 && !STOPWORDS.has(t));
-}
-
-function matchesQuery(terms, title, abstract) {
-  const haystack = `${title} ${abstract ?? ""}`.toLowerCase();
-  return terms.some(t => haystack.includes(t));
 }
 
 function mapRecord(c) {
@@ -84,7 +66,7 @@ export const medrxiv = {
 
   async *fetchPapers(query, opts) {
     const target = opts?.target ?? 2000;
-    const terms = extractTerms(query);
+    const groups = parseQueryIntoGroups(query);
     let yielded = 0;
 
     // Fetch last 365 days in 30-day chunks, oldest to newest
@@ -106,7 +88,7 @@ export const medrxiv = {
 
         for (const c of collection) {
           if (opts?.signal?.aborted) return;
-          if (!matchesQuery(terms, c.title ?? "", c.abstract ?? "")) continue;
+          if (!matchesQueryGroups(groups, c.title ?? "", c.abstract ?? "")) continue;
           const paper = mapRecord(c);
           if (!paper) continue;
           yield paper;

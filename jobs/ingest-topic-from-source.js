@@ -70,6 +70,13 @@ export async function ingestTopicFromSourceHandler(ctx, deps) {
     const authorsJson = JSON.stringify(paper.authors ?? []);
     const metadataJson = JSON.stringify(paper.sourceMetadata ?? {});
 
+    // ON CONFLICT DO NOTHING with no target catches unique violations on ANY
+    // constraint — both the `pmid` PK and the `(source, external_id)` UNIQUE
+    // index added in the original phase-2 rename migration. The earlier
+    // targeted form `ON CONFLICT (pmid) DO NOTHING` only caught pmid PK
+    // collisions, so a re-ingestion that yielded the same external_id as
+    // an existing row would abort the whole handler with a 23505 error
+    // and exhaust the pg-boss retry budget.
     const insertResult = await sql`
       INSERT INTO research_articles (
         pmid,
@@ -98,7 +105,7 @@ export async function ingestTopicFromSourceHandler(ctx, deps) {
         ${paper.peerReviewed ?? plugin.peerReviewed ?? true},
         ${metadataJson}::jsonb
       )
-      ON CONFLICT (pmid) DO NOTHING
+      ON CONFLICT DO NOTHING
       RETURNING pmid
     `;
 
