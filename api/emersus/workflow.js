@@ -1969,8 +1969,10 @@ async function processMealPlanToolCall(toolCall, mergedProfile, { question, supa
   if (!validation.valid) {
     console.error("[tools] emit_meal_plan validation failed:", validation.errors);
     console.error("[tools] emit_meal_plan raw keys:", Object.keys(plan));
+    console.error("[tools] emit_meal_plan targets:", JSON.stringify(plan.targets)?.slice(0, 500));
     if (Array.isArray(plan.day_types) && plan.day_types[0]) {
       console.error("[tools] emit_meal_plan day_types[0] keys:", Object.keys(plan.day_types[0]));
+      console.error("[tools] emit_meal_plan day_types[0].meals[0]:", JSON.stringify(plan.day_types[0].meals?.[0])?.slice(0, 500));
     }
     return {
       ok: false,
