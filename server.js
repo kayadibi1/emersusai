@@ -17,6 +17,7 @@ const { default: notifySignupHandler } = await import("./api/notify-signup.js");
 const { default: recommendationHandler } = await import("./api/emersus/recommendation.js");
 const { default: recommendationStreamHandler } = await import("./api/emersus/recommendation-stream.js");
 const { default: foodsSearchHandler } = await import("./api/emersus/foods-search.js");
+const { default: mealPlansRouter } = await import("./api/emersus/meal-plans.js");
 
 // Import admin API routers + middleware
 import adminCandidates from "./api/admin/candidates.js";
@@ -34,6 +35,7 @@ app.all("/api/notify-signup", notifySignupHandler);
 app.all("/api/emersus/recommendation", recommendationHandler);
 app.all("/api/emersus/recommendation-stream", recommendationStreamHandler);
 app.all("/api/emersus/foods/search", foodsSearchHandler);
+app.use("/api/emersus/meal-plans", mealPlansRouter);
 
 // Health check
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
