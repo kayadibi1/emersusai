@@ -2088,9 +2088,10 @@ function buildSynthesisInput({
       }),
     },
   ];
-  // Append the nutrition addendum as a final system message when present so
-  // the stable prefix (messages 1-2 + few-shot + user request) stays
-  // byte-identical across requests and the OpenAI prompt cache fires normally.
+  // Append the nutrition addendum as a final system message when present.
+  // The static prefix (messages 1–3: identity, widget rules, few-shot pair)
+  // stays byte-identical; message 4 (the user request) already varies per
+  // call, so the addendum at position 5 adds no additional cache disruption.
   if (systemPromptAddendum) {
     messages.push({ role: "system", content: systemPromptAddendum });
   }
