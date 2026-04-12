@@ -933,16 +933,15 @@ function OldCopyNav() {
   return h(
     "nav",
     { className: "nav" },
-    h("a", { className: "brand", href: "#hero" }, "Emersus AI"),
+    h("a", { className: "brand text-blur", href: "#hero" }, "Emersus"),
     h(
       "div",
       { className: "nav-links" },
-      h("a", { href: "/auth/login/" }, "App / Login"),
-      h("a", { href: "/privacy/" }, "Privacy"),
-      h("a", { href: "/terms/" }, "Terms"),
-      h("a", { href: "/contact/" }, "Contact"),
+      h("a", { className: "text-blur", href: "/auth/login/" }, "Science"),
+      h("a", { className: "text-blur", href: "/privacy/" }, "Platform"),
+      h("a", { className: "text-blur", href: "/contact/" }, "About"),
     ),
-    h("a", { className: "nav-cta", href: "#access" }, "Get access"),
+    h("a", { className: "nav-cta", href: "#access" }, "Get started"),
   );
 }
 
@@ -953,14 +952,14 @@ function OldCopyHero() {
     h(
       "div",
       { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "EMERSUS"),
-      h("h1", { className: "headline" }, "Stop ", h("span", { className: "gradient" }, "training"), " on ", h("span", { className: "danger-word" }, "vibes"), "."),
-      h("p", { className: "subtitle" }, "AI fitness coaching grounded in peer-reviewed research. Plans you can actually train against. One tracker for lifting, cardio, swimming, and climbing. Built for people who want answers, not guesses."),
+      h("p", { className: "eyebrow text-blur" }, "Evidence-Based Fitness Intelligence"),
+      h("h1", { className: "headline text-blur-strong" }, "Your body deserves better than guesswork."),
+      h("p", { className: "subtitle text-blur" }, "Training and nutrition decisions backed by peer-reviewed research. Not influencer opinions, not bro science \u2014 the actual evidence."),
       h(
         "div",
         { className: "hero-actions" },
-        h("a", { className: "button-primary", href: "#access" }, "Get access"),
-        h("a", { className: "button-secondary", href: "/auth/login/" }, "App / Login"),
+        h("a", { className: "button-primary", href: "#access" }, "Get started"),
+        h("a", { className: "button-secondary text-blur", href: "#features" }, "See the science \u2192"),
       ),
     ),
   );
@@ -968,9 +967,9 @@ function OldCopyHero() {
 
 function OldCopyFeatures() {
   const features = [
-    ["01", "Evidence-grounded answers", "120+ indexed scientific topics from PubMed and PMC. Every response pulls from real studies, ranked by relevance — not from whatever an LLM absorbed off Reddit. You get what the research actually supports, including where it's still unclear."],
-    ["02", "Plans that survive contact", "Ask for a program and get a structured, multi-week plan with sets, reps, load, RPE, rest, and warmups. Then say \"swap deadlifts for RDLs on day 2\" and the plan updates surgically — not regenerated from scratch. Your plan is a living object, not a PDF that ghosts you."],
-    ["03", "One tracker for everything", "Per-set logging with rest timers for lifting. Live GPS pace tracking for runs and rides. Lap counting for pool swims. V-scale, YDS, Font, and French grades for climbing. One app that respects how athletes actually train — across disciplines, not inside silos."],
+    ["01", "Research-backed answers", "Every recommendation cites peer-reviewed sources. See the evidence strength, read the abstracts, verify the claims yourself."],
+    ["02", "Personalized protocols", "Workout plans and nutrition guidance adapted to your goals, equipment, schedule, and injury history. Not cookie-cutter templates."],
+    ["03", "Honest uncertainty", "When the evidence is mixed or insufficient, we say so. No false confidence. The model knows what it doesn't know."],
   ];
 
   return h(
@@ -979,9 +978,7 @@ function OldCopyFeatures() {
     h(
       "div",
       { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "What you're actually getting"),
-      h("h2", { className: "section-title" }, "Research in. Bro-science out."),
-      h("p", { className: "section-copy" }, "Every answer Emersus gives is retrieved from a curated corpus of exercise science literature — not hallucinated from general training data. When the evidence is strong, we cite it. When it's uncertain, we say so. No confident-sounding guesses. No generic checklists."),
+      h("p", { className: "eyebrow text-blur" }, "What you get"),
       h(
         "div",
         { className: "grid-3" },
@@ -989,8 +986,8 @@ function OldCopyFeatures() {
           "article",
           { className: "glass-card", key: title },
           h("div", { className: "icon" }, icon),
-          h("h3", { className: "card-title" }, title),
-          h("p", { className: "card-copy" }, copy),
+          h("h3", { className: "card-title text-blur" }, title),
+          h("p", { className: "card-copy text-blur" }, copy),
         )),
       ),
     ),
@@ -999,10 +996,10 @@ function OldCopyFeatures() {
 
 function OldCopyOptimization() {
   const topics = [
-    ["01", "Physical training", "Structured programs for resistance, bodyweight, cardio, swimming, and climbing — generated from research, editable through conversation, trackable in the same app."],
-    ["02", "Nutrition", "Practical guidance pulled from the literature, not influencer folklore. What evidence actually supports, calibrated to your goals and context."],
-    ["03", "Recovery", "Sleep, stress, and regeneration protocols grounded in current science. Tailored to your training load, not copy-pasted from a blog."],
-    ["04", "Cognitive performance", "Focus, stress regulation, and mental preparation strategies backed by research. When you need to perform beyond the gym."],
+    ["STEP 01", "Ask anything", "Exercise science, nutrition, recovery \u2014 in natural language."],
+    ["STEP 02", "We search the literature", "Semantic search across 200k+ papers finds relevant evidence."],
+    ["STEP 03", "Synthesize and cite", "AI distills findings into actionable guidance with sources."],
+    ["STEP 04", "Track and adapt", "Log workouts and meals. Your plans evolve as you progress."],
   ];
 
   return h(
@@ -1011,8 +1008,7 @@ function OldCopyOptimization() {
     h(
       "div",
       { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "Built for the full picture"),
-      h("h2", { className: "section-title" }, "Training. Nutrition. Recovery. Focus."),
+      h("p", { className: "eyebrow text-blur" }, "How it works"),
       h(
         "div",
         { className: "steps" },
@@ -1020,8 +1016,8 @@ function OldCopyOptimization() {
           "article",
           { className: "step-card", key: number },
           h("span", { className: "step-number" }, number),
-          h("h3", { className: "step-title" }, title),
-          h("p", { className: "step-copy" }, copy),
+          h("h3", { className: "step-title text-blur" }, title),
+          h("p", { className: "step-copy text-blur" }, copy),
         )),
       ),
     ),
@@ -1038,18 +1034,13 @@ function OldCopyProtocol() {
       h(
         "article",
         { className: "quote-card large" },
-        h("p", { className: "eyebrow" }, "How it works"),
-        h("p", { className: "quote-copy" }, "Ask a question. Get the science."),
-        h("p", { className: "section-copy" }, "Your \"AI coach\" read the internet and now has opinions. Emersus is different — it retrieves from a curated scientific corpus per question, renders interactive visuals when a chart explains it better than text, and builds workout plans you can open, edit, and train against. The plan, the tracker, the analytics, and the evidence all share state."),
-        h("p", { className: "quote-author" }, "View methodology"),
+        h("p", { className: "quote-copy text-blur-strong" }, "\u201CI stopped guessing and started training with actual evidence. The difference in my results has been night and day.\u201D"),
+        h("p", { className: "quote-author" }, "Early beta user \u00b7 6 months"),
       ),
       h(
         "article",
         { className: "quote-card" },
-        h("p", { className: "eyebrow" }, "User"),
-        h("p", { className: "section-copy" }, "\"I want a 4-week hypertrophy program for upper body, 3 days a week. I have dumbbells and a pull-up bar.\""),
-        h("p", { className: "eyebrow quote-gap" }, "Emersus"),
-        h("p", { className: "section-copy" }, "Built. 4-week upper-body hypertrophy plan — 3 sessions per week, progressive overload, RPE targets, warmups included. Each session is trackable in-app. Want me to adjust volume or swap any exercises before you start?"),
+        h("p", { className: "section-copy text-blur" }, "Built for people who take their training seriously enough to want the truth \u2014 even when the truth is \u201Cwe don't know yet.\u201D"),
       ),
     ),
   );
@@ -1062,11 +1053,9 @@ function OldCopyFinalCta() {
     h(
       "div",
       { className: "section-inner" },
-      h("p", { className: "eyebrow" }, "Early access"),
-      h("h2", { className: "section-title" }, "Tired of guessing?"),
-      h("p", { className: "subtitle" }, "Emersus is invite-only. We're building with a small cohort of athletes, coaches, and researchers who want their tools grounded in science, not marketing."),
+      h("h2", { className: "section-title text-blur-strong" }, "Ready to train smarter?"),
+      h("p", { className: "subtitle text-blur" }, "Join the waitlist for early access."),
       h(WaitlistForm, { variant: "full" }),
-      h("div", { className: "hero-actions" }, h("a", { className: "button-secondary", href: "#how" }, "See how it works")),
     ),
   );
 }
@@ -1075,8 +1064,14 @@ function OldCopyFooter() {
   return h(
     "footer",
     { className: "footer" },
-    h("span", null, "Emersus AI"),
-    h("span", null, "\u00a9 2026 Emersus AI. All rights reserved."),
+    h("span", { className: "text-blur" }, "Emersus \u00a9 2025"),
+    h(
+      "div",
+      { style: { display: "flex", gap: "2rem" } },
+      h("a", { className: "text-blur", href: "/privacy/" }, "Privacy"),
+      h("a", { className: "text-blur", href: "/terms/" }, "Terms"),
+      h("a", { className: "text-blur", href: "/contact/" }, "Contact"),
+    ),
   );
 }
 
