@@ -1943,6 +1943,7 @@ async function processMealPlanToolCall(toolCall, mergedProfile, { question, supa
   const validation = validateMealPlan(plan);
   if (!validation.valid) {
     console.error("[tools] emit_meal_plan validation failed:", validation.errors);
+    console.error("[tools] emit_meal_plan raw keys:", Object.keys(plan));
     return {
       ok: false,
       fallbackText: "I generated a meal plan but it had structural issues. Let me try again — could you repeat your request?",
