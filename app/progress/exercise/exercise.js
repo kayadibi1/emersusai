@@ -97,7 +97,7 @@ function ExerciseDetail({ session, weightUnit }) {
         isCardio ? "Duration Over Time" : "Weight Progression (e1RM)"),
       h("div", { className: "chart-area", dangerouslySetInnerHTML: {
         __html: progressionLineChart(chartData, {
-          color: isCardio ? "#9ffb00" : "#6d9fff",
+          color: "#78dc14",
           prDate,
         }),
       }}),

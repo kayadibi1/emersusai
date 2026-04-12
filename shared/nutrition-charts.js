@@ -15,12 +15,12 @@ const h = React.createElement;
 
 // Design tokens (mirrors workout-tracking spec's palette)
 export const TOKENS = {
-  bg:        "#0c0e11",
-  ink:       "#f9f9fd",
-  primary:   "#6d9fff",
-  secondary: "#9ffb00",
+  bg:        "#08080a",
+  ink:       "#e8e8e8",
+  primary:   "#78dc14",
+  secondary: "#78dc14",
   danger:    "#ff8f9d",
-  muted:     "#a7adb4",
+  muted:     "#666",
   gold:      "#FFD700",
   warm:      "#f5b74a",
 };
