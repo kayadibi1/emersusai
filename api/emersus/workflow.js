@@ -2701,7 +2701,7 @@ function htmlToPlainText(value) {
 // auto-wrapped workout-plan JSON block survives the cleanup pass.
 function stripCodeFences(value) {
   const input = String(value || "");
-  if (/```(?:widget|html|workout-plan)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
+  if (/```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
     return input;
   }
   return input
@@ -2729,12 +2729,12 @@ function stripStrayFenceMarkers(text) {
   // we rescued via autoWrapBareWorkoutPlan. The caller already guards
   // on this, but we double-check so a direct call from anywhere else
   // can't destroy a real fence.
-  if (/```(?:widget|html|workout-plan)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
+  if (/```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
     return input;
   }
   return input
     // Opening fence on its own line or at end of a prose line.
-    .replace(/(^|[ \t])```(?:widget|html|workout-plan)?[ \t]*(?:\r?\n|$)/gi, "$1")
+    .replace(/(^|[ \t])```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)?[ \t]*(?:\r?\n|$)/gi, "$1")
     // Closing or lone bare fence on its own line.
     .replace(/(^|\n)[ \t]*```[ \t]*(?:\r?\n|$)/g, "$1\n")
     // Collapse leftover triple-newlines from the substitutions.
@@ -2756,7 +2756,8 @@ function splitSynthesisIntoSegments(text) {
     const firstChar = String(body || "").trim().charAt(0);
     const isWidget = tag === "widget" || tag === "html" || (!tag && firstChar === "<");
     const isWorkoutPlan = tag === "workout-plan";
-    if (!isWidget && !isWorkoutPlan) continue;
+    const isNutrition = tag === "meal-plan" || tag === "nutrition-log-confirm";
+    if (!isWidget && !isWorkoutPlan && !isNutrition) continue;
     if (match.index > cursor) {
       segments.push({ type: "text", content: src.slice(cursor, match.index) });
     }
@@ -2766,7 +2767,7 @@ function splitSynthesisIntoSegments(text) {
     // workout-plan segments the same way it treats widgets: preserve
     // verbatim and re-fence on reassembly.
     segments.push({
-      type: isWorkoutPlan ? "workout-plan" : "widget",
+      type: isWorkoutPlan ? "workout-plan" : isNutrition ? tag : "widget",
       content: body,
     });
     cursor = match.index + whole.length;
@@ -2943,7 +2944,7 @@ function normalizeSynthesisPayload(text) {
   // untouched and get re-fenced on reassembly.
   const segments = splitSynthesisIntoSegments(raw);
   const cleanedSegments = segments.map((segment) => {
-    if (segment.type === "widget" || segment.type === "workout-plan") return segment;
+    if (segment.type === "widget" || segment.type === "workout-plan" || segment.type === "meal-plan" || segment.type === "nutrition-log-confirm") return segment;
     let prose = segment.content;
     // Rescue any bare workout-plan JSON the model emitted without the
     // fence markers — this is the #1 failure mode of a prompt-only
@@ -2966,7 +2967,7 @@ function normalizeSynthesisPayload(text) {
     // workout-plan fences too — without the workout-plan branch here,
     // stripStrayFenceMarkers would delete the closing ``` of a plan we
     // just rescued with autoWrapBareWorkoutPlan.
-    if (!/```(?:widget|html|workout-plan)?[ \t]*\r?\n?[\s\S]*?```/i.test(prose)) {
+    if (!/```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)?[ \t]*\r?\n?[\s\S]*?```/i.test(prose)) {
       prose = stripStrayFenceMarkers(prose);
     }
     // Strip any trailing "Sources:" / "References:" section the model
@@ -2985,12 +2986,11 @@ function normalizeSynthesisPayload(text) {
     .map((s) => {
       if (s.type === "widget") return `\`\`\`widget\n${s.content}\n\`\`\``;
       if (s.type === "workout-plan") {
-        // Truncation case: preserve the unclosed state so the client-side
-        // parser fires its "Plan was cut off" fallback instead of trying
-        // to parse unbalanced JSON.
         if (s._unclosed) return `\`\`\`workout-plan\n${s.content}`;
         return `\`\`\`workout-plan\n${s.content}\n\`\`\``;
       }
+      if (s.type === "meal-plan") return `\`\`\`meal-plan\n${s.content}\n\`\`\``;
+      if (s.type === "nutrition-log-confirm") return `\`\`\`nutrition-log-confirm\n${s.content}\n\`\`\``;
       return s.content;
     })
     .join("\n\n")
@@ -3004,7 +3004,7 @@ function normalizeSynthesisPayload(text) {
   // bled into this view the "summary" field of the response would be
   // a truncated blob of JSON characters.
   const proseOnly = finalSegments
-    .map((s) => (s.type === "widget" || s.type === "workout-plan" ? "" : s.content))
+    .map((s) => (s.type === "text" ? s.content : ""))
     .join("\n")
     .replace(/\n{3,}/g, "\n\n")
     .trim();
