@@ -2333,6 +2333,7 @@ async function callOpenAISynthesis({
   safety,
   currentWorkoutPlan = null,
   systemPromptAddendum = "",
+  tools = null,
   captureDebug = null, // { onInput?: (input) => void } — lets callers observe the actual OpenAI input array for the debug page.
 }) {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -2369,21 +2370,9 @@ async function callOpenAISynthesis({
     },
     body: JSON.stringify({
       model,
-      // Ceiling only — the API bills actual output tokens, so raising
-      // this costs nothing for short answers. History:
-      //   2800  → truncated anything bigger than a 3-week plan
-      //   8000  → fine until warmup_blocks were added; now an 8-week
-      //           4-day plan emits 4 full warmup entries per session,
-      //           which at ~150 tokens each pushes a 32-session plan
-      //           to ~10-11k output tokens and still truncates (see
-      //           response resp_09fea4231f7d919f... in prod logs,
-      //           status=incomplete, reason=max_output_tokens).
-      //   16000 → gives 8-week plans ~5k headroom, comfortably handles
-      //           12-week plans, and stays well under any of the
-      //           gpt-5.x-mini / gpt-4.1-mini family's model-level
-      //           output ceilings. Probed live: 20000 is accepted.
       max_output_tokens: 16000,
       input: synthesisInput,
+      ...(tools && tools.length > 0 ? { tools } : {}),
     }),
   });
 
