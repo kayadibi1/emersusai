@@ -4693,6 +4693,7 @@ will run plan generation.
       safety,
       currentWorkoutPlan,
       systemPromptAddendum,
+      tools: buildTools(),
       captureDebug: {
         onInput: (input) => {
           capturedOpenAIInput = input;
@@ -4712,17 +4713,39 @@ will run plan generation.
     });
 
     const structuredOutput = extractStructuredOutput(openAIResponse);
+    const toolCalls = extractToolCalls(openAIResponse);
+    const extractedText = extractTextFromResponse(openAIResponse);
+
     if (structuredOutput) {
       synthesis = normalizeSynthesisPayload(JSON.stringify(structuredOutput));
       synthesisMode = "structured_output";
-    } else {
-      const extractedText = extractTextFromResponse(openAIResponse);
-      if (extractedText) {
-        synthesis = normalizeSynthesisPayload(extractedText);
-        synthesisMode = "text_output";
+    } else if (extractedText || toolCalls.length > 0) {
+      // Combine prose content with any tool call fences
+      let combined = extractedText || "";
+
+      for (const tc of toolCalls) {
+        if (tc.name === "emit_meal_plan") {
+          const result = await processMealPlanToolCall(tc, mergedProfile, { question, supabaseUserId, supabaseUrl, serviceRoleKey });
+          if (result.ok) {
+            combined = combined
+              ? combined + "\n\n" + result.fence
+              : result.fence;
+          } else {
+            // Profile incomplete or validation failed — use fallback text
+            combined = result.fallbackText;
+          }
+        }
+        // Stage 2 will add: else if (tc.name === "emit_workout_plan") { ... }
+      }
+
+      if (combined) {
+        synthesis = normalizeSynthesisPayload(combined);
+        synthesisMode = toolCalls.length > 0 ? "tool_call" : "text_output";
       } else {
         synthesisMode = "empty_model_output";
       }
+    } else {
+      synthesisMode = "empty_model_output";
     }
 
     if (!synthesis && SYNTHESIS_FALLBACK_MODEL && SYNTHESIS_FALLBACK_MODEL !== synthesisModel) {
@@ -4746,6 +4769,7 @@ will run plan generation.
         safety,
         currentWorkoutPlan,
         systemPromptAddendum,
+        tools: buildTools(),
       });
       recordStage("synthesis_fallback_ms", Date.now() - fallbackStartedAt);
       cumulativeTokenUsage = mergeTokenUsageTotals(
@@ -4759,17 +4783,32 @@ will run plan generation.
       });
 
       const retryStructuredOutput = extractStructuredOutput(openAIResponse);
+      const retryToolCalls = extractToolCalls(openAIResponse);
+      const retryText = extractTextFromResponse(openAIResponse);
+
       if (retryStructuredOutput) {
         synthesis = normalizeSynthesisPayload(JSON.stringify(retryStructuredOutput));
         synthesisMode = "structured_output_retry";
-      } else {
-        const retryText = extractTextFromResponse(openAIResponse);
-        if (retryText) {
-          synthesis = normalizeSynthesisPayload(retryText);
-          synthesisMode = "text_output_retry";
+      } else if (retryText || retryToolCalls.length > 0) {
+        let combined = retryText || "";
+        for (const tc of retryToolCalls) {
+          if (tc.name === "emit_meal_plan") {
+            const result = await processMealPlanToolCall(tc, mergedProfile, { question, supabaseUserId, supabaseUrl, serviceRoleKey });
+            if (result.ok) {
+              combined = combined ? combined + "\n\n" + result.fence : result.fence;
+            } else {
+              combined = result.fallbackText;
+            }
+          }
+        }
+        if (combined) {
+          synthesis = normalizeSynthesisPayload(combined);
+          synthesisMode = retryToolCalls.length > 0 ? "tool_call_retry" : "text_output_retry";
         } else {
           synthesisMode = "empty_model_output_retry";
         }
+      } else {
+        synthesisMode = "empty_model_output_retry";
       }
     }
   } catch (error) {
