@@ -1755,6 +1755,12 @@ function mergeProfile(profile, storedProfile) {
     default_grade_system: sanitizeProfileField(profile?.default_grade_system || storedProfile?.default_grade_system, 10),
     medical_disclaimer_acknowledged:
       profile?.medical_disclaimer_acknowledged === true,
+    // Nutrition profile fields (Task 1 — Mifflin-St Jeor inputs)
+    body_weight_kg: profile?.body_weight_kg ?? storedProfile?.body_weight_kg ?? null,
+    height_cm: profile?.height_cm ?? storedProfile?.height_cm ?? null,
+    date_of_birth: profile?.date_of_birth ?? storedProfile?.date_of_birth ?? null,
+    biological_sex: sanitizeProfileField(profile?.biological_sex || storedProfile?.biological_sex, 20),
+    activity_level: sanitizeProfileField(profile?.activity_level || storedProfile?.activity_level, 20),
   };
 }
 
