@@ -305,84 +305,129 @@ DEFAULT BEHAVIOR
 For everyday questions, just write prose. Reach for a widget when the question is structurally visual — and only when you have real data to fill it. For plan-building and plan-adjustment questions, use the workout-plan fence format above.
 `.trim();
 
-// ─── Meal plan generation protocol ─────────────────────────────────────────
+// ─── Tool definitions for structured outputs ────────────────────────────────
 //
-// Appended to the system prompt when nutrition intent === 'generate_plan'
-// AND the profile gate passes. Contains the Mifflin-St Jeor formulas, the
-// day-type structure, and the supplement sub-protocol.
-//
-// Emitted as a fenced ```meal-plan JSON block. Rendered by shared/meal-plan-widget.js.
+// The model self-routes by choosing which tool to call. Tool descriptions
+// carry the generation protocol; the parameters schema carries the JSON
+// shape. Non-strict mode — validated server-side by the existing
+// shared/meal-plan-schema.js and workout-plan validators.
 
-const MEAL_PLAN_GENERATION_PROTOCOL = `
-MEAL PLAN GENERATION PROTOCOL
+const EMIT_MEAL_PLAN_TOOL = {
+  type: "function",
+  name: "emit_meal_plan",
+  description: [
+    "Generate a structured meal plan. Call this tool when the user asks for a meal plan, diet plan, macro breakdown, eating plan, or cut/bulk/recomp plan.",
+    "",
+    "BEFORE calling: check the user_profile in the input. If ANY of these are null/missing, do NOT call this tool — instead ask the user for the missing values conversationally in one short message:",
+    "  - body_weight_kg, height_cm, date_of_birth, biological_sex, activity_level",
+    "",
+    "Compute macro targets using Mifflin-St Jeor:",
+    "  BMR = 10*weight_kg + 6.25*height_cm - 5*age + (5 if male, -161 if female)",
+    "  TDEE = BMR * activity_multiplier (sedentary 1.2, light 1.375, moderate 1.55, active 1.725, very_active 1.9)",
+    "  Adjust for goal: cut -500 kcal, maintain TDEE, bulk +250-400 kcal",
+    "  Protein: 1.6-2.2 g/kg (2.0-2.2 for cut, 1.6-1.8 for bulk, 1.8 default)",
+    "  Fat: 20-35% of kcal, minimum 0.6 g/kg",
+    "  Carbs: remainder. Fiber: 14 g per 1000 kcal.",
+    "",
+    "Show the user the math briefly in your prose content BEFORE the tool call.",
+    "",
+    "Emit THREE day types: training_day, rest_day, refeed_day.",
+    "  training_day: computed targets, carbs weighted higher",
+    "  rest_day: carbs -60 g, fat +15 g, same protein",
+    "  refeed_day: carbs at ~maintenance carb share, same protein",
+    "",
+    "Use USDA FDC generic foods only. 3 meals + 1 snack default. Respect dietary_preferences from profile.",
+    "No restaurant chains. No brand names unless the user asked.",
+    "",
+    "SUPPLEMENTS (evidence-based only):",
+    "  Creatine monohydrate 3-5 g/day, whey/casein/pea protein to hit target,",
+    "  vitamin D3 1000-2000 IU/day, omega-3 EPA+DHA 1-2 g/day,",
+    "  caffeine 3-6 mg/kg pre-workout, electrolytes in heat/low-sodium,",
+    "  magnesium glycinate 200-400 mg for sleep/recovery.",
+    "  Empty supplements array if user doesn't want them.",
+    "  Do NOT recommend anything requiring prescription, megadoses, or weak-evidence supplements.",
+  ].join("\n"),
+  parameters: {
+    type: "object",
+    required: ["targets", "day_types", "assignments"],
+    properties: {
+      targets: {
+        type: "object",
+        description: "Macro targets keyed by day_type slug (e.g. training_day, rest_day, refeed_day). Each value: { kcal: number, protein_g: number, carbs_g: number, fat_g: number, fiber_g: number }.",
+      },
+      day_types: {
+        type: "array",
+        description: "Array of day type objects. Typically three: training_day, rest_day, refeed_day.",
+        items: {
+          type: "object",
+          required: ["slug", "name", "meals"],
+          properties: {
+            slug: { type: "string", description: "Lowercase identifier, e.g. training_day, rest_day, refeed_day" },
+            name: { type: "string", description: "Human-readable name, e.g. 'Training Day'" },
+            meals: {
+              type: "array",
+              items: {
+                type: "object",
+                required: ["slot", "name", "foods"],
+                properties: {
+                  slot: { type: "string", enum: ["breakfast", "mid_morning", "lunch", "afternoon", "dinner", "evening", "pre_workout", "post_workout", "supplements_am", "supplements_pm"] },
+                  name: { type: "string", description: "Meal name, e.g. 'High-protein breakfast'" },
+                  foods: {
+                    type: "array",
+                    items: {
+                      type: "object",
+                      required: ["description", "grams"],
+                      properties: {
+                        description: { type: "string" },
+                        grams: { type: "number" },
+                        fdc_id: { type: "integer" },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+            supplements: {
+              type: "array",
+              items: {
+                type: "object",
+                required: ["description", "amount", "unit"],
+                properties: {
+                  description: { type: "string" },
+                  amount: { type: "number" },
+                  unit: { type: "string" },
+                  timing: { type: "string", enum: ["any", "morning", "with_meal", "pre_workout", "post_workout", "bedtime"] },
+                },
+              },
+            },
+          },
+        },
+      },
+      assignments: {
+        type: "object",
+        required: ["mode", "default_day_type"],
+        properties: {
+          mode: { type: "string", enum: ["auto_from_workout", "manual"] },
+          default_day_type: { type: "string", description: "Slug of the default day type, e.g. rest_day" },
+          overrides: { type: "object", description: "Optional map of ISO date YYYY-MM-DD to day_type slug" },
+        },
+      },
+      provenance: {
+        type: "object",
+        description: "Optional. Include profile_snapshot with the user's goal, body_weight_kg, height_cm, etc.",
+        properties: {
+          profile_snapshot: { type: "object" },
+        },
+      },
+    },
+  },
+};
 
-1. Compute macro targets using Mifflin-St Jeor:
-     BMR = 10*weight_kg + 6.25*height_cm - 5*age + (5 if male, -161 if female)
-     TDEE = BMR * activity_multiplier
-       (sedentary 1.2, light 1.375, moderate 1.55, active 1.725, very_active 1.9)
-     Adjust for goal:
-       cut:      TDEE - 500 kcal (aggressive cut: -750, sustainable minimum: -300)
-       maintain: TDEE
-       bulk:     TDEE + 250..400 kcal (lean bulk) or +500 (traditional)
-     Protein: 1.6–2.2 g/kg body weight. Default 1.8 for maintenance,
-              2.0–2.2 for cut, 1.6–1.8 for bulk.
-     Fat: 20–35% of kcal, absolute minimum 0.6 g/kg.
-     Carbs: remainder.
-     Fiber: 14 g per 1000 kcal target, rounded to nearest 5 g.
-
-2. Show the user the math briefly in conversational form BEFORE the plan.
-   Example: "82 kg / 180 cm / 31 / male / moderate / cut → BMR 1820, TDEE 2820,
-            target 2300 kcal, protein 180 g, fat 65 g, carbs 235 g, fiber 35 g."
-
-3. Emit THREE day types in the meal-plan fence: training_day, rest_day, refeed_day.
-     training_day:  computed targets with carbs weighted higher
-     rest_day:      carbs -60 g, fat +15 g, same protein
-     refeed_day:    carbs at ~maintenance carb share, same protein
-
-4. For meals within each day_type:
-     - Use USDA FDC generic foods ONLY. Reference by fdc_id when you know it;
-       fall back to description otherwise.
-     - 3 meals + 1 snack by default. More if the user prefers.
-     - Respect dietary_preferences from the profile (vegan, halal, etc).
-     - No restaurant chain items. No brand names unless the user asked.
-
-5. Include a supplements array on each day_type using the SUPPLEMENT PROTOCOL below.
-   Generate an empty supplements array if the user has said they don't want
-   supplements.
-
-6. Emit the plan as a JSON document in a fenced \`\`\`meal-plan block.
-   Never emit the fence if profile fields are missing. Ask first.
-
-
-SUPPLEMENT PROTOCOL (evidence-based only)
-
-Include ONLY supplements with strong evidence for the user's goal:
-  - Creatine monohydrate 3-5 g/day: strength, hypertrophy. Broad safety.
-  - Whey/casein/pea protein: as a tool to hit the protein target.
-  - Vitamin D3 1000-2000 IU/day: general sufficiency baseline.
-    Frame as "if deficient or low sun exposure." No megadoses.
-  - Omega-3 EPA+DHA 1-2 g/day: anti-inflammatory, cardiovascular.
-  - Caffeine 3-6 mg/kg body weight pre-workout: ergogenic.
-  - Electrolytes (Na/K/Mg): in heat or on low-sodium diet.
-  - Magnesium glycinate 200-400 mg: sleep and recovery, when baseline low.
-
-Do NOT recommend:
-  - Anything requiring prescription or clinical monitoring.
-  - Megadoses above tolerable upper intake levels.
-  - Supplements with weak or conflicting evidence (most fat burners,
-    most nootropic stacks, most adaptogens at claimed doses).
-  - Anything targeting a medical condition. The existing medical-advice
-    guardrail still applies — condition-specific supplement questions
-    ("ashwagandha for my anxiety", "magnesium for my RLS") route through
-    the refusal path, not plan generation.
-
-Frame every recommendation with ONE evidence sentence ("creatine: meta-
-analyses show ~5-10% strength gain over 8-12 weeks"). Never more than a
-sentence.
-
-Let the user opt out. If their profile preferences or prior chat mentions
-indicate "no supplements," generate an empty supplements array.
-`.trim();
+// Build the tools array passed to callOpenAISynthesis. Tools are included
+// on every call — the model's tool choice IS the intent signal.
+function buildTools() {
+  return [EMIT_MEAL_PLAN_TOOL];
+}
 
 // Regex detectors for (a) user questions that clearly want a visual output
 // and (b) pseudo-visual text (ASCII/unicode art) the model sometimes emits
