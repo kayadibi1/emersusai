@@ -2656,16 +2656,13 @@ function htmlToPlainText(value) {
 }
 
 // Legacy cleanup: remove stray bare ``` / ~~~ fences from text segments.
-// This intentionally DOES NOT touch ```widget / ```html / ```workout-plan
-// fences — those are handled by splitSynthesisIntoSegments and must
-// survive this function. If any structured fence is present in the
-// input, we leave the string untouched; the caller (normalizeSynthesisPayload)
-// only calls this on text segments after structured fences have already
-// been extracted, but we still belt-and-suspender it here so a newly
-// auto-wrapped workout-plan JSON block survives the cleanup pass.
+// This intentionally DOES NOT touch ```widget / ```html / ```meal-plan /
+// ```nutrition-log-confirm fences — those are handled by
+// splitSynthesisIntoSegments and must survive this function. If any
+// structured fence is present in the input, we leave the string untouched.
 function stripCodeFences(value) {
   const input = String(value || "");
-  if (/```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
+  if (/```(?:widget|html|meal-plan|nutrition-log-confirm)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
     return input;
   }
   return input
@@ -2677,10 +2674,11 @@ function stripCodeFences(value) {
     .trim();
 }
 
-// Parse the raw model response into (text, widget, text, ...) segments so
-// normalization runs on prose only and widget HTML passes through intact.
-// A "widget fence" is ```widget, ```html, or a bare ``` fence whose body
-// starts with "<" — matches the renderer's isWidgetFenceBody heuristic.
+// Parse the raw model response into (text, widget, meal-plan,
+// nutrition-log-confirm, text, ...) segments so normalization runs on
+// prose only and structured fences pass through intact. A "widget fence"
+// is ```widget, ```html, or a bare ``` fence whose body starts with "<"
+// — matches the renderer's isWidgetFenceBody heuristic.
 // Strip stray triple-backtick fence markers from a text segment. This is
 // a safety net for cases where the model emits a malformed fence that the
 // splitter couldn't parse (e.g. missing newline after the info tag, extra
@@ -2688,17 +2686,15 @@ function stripCodeFences(value) {
 // markers leak into the chat as literal "```widget" / "```" prose.
 function stripStrayFenceMarkers(text) {
   const input = String(text || "");
-  // If any valid structured fence is present, do nothing. This prevents
-  // the function from shredding a well-formed workout-plan fence that
-  // we rescued via autoWrapBareWorkoutPlan. The caller already guards
-  // on this, but we double-check so a direct call from anywhere else
-  // can't destroy a real fence.
-  if (/```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
+  // If any valid structured fence is present, do nothing — the caller
+  // already guards on this, but we double-check so a direct call from
+  // anywhere else can't destroy a real fence.
+  if (/```(?:widget|html|meal-plan|nutrition-log-confirm)[ \t]*\r?\n?[\s\S]*?```/i.test(input)) {
     return input;
   }
   return input
     // Opening fence on its own line or at end of a prose line.
-    .replace(/(^|[ \t])```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)?[ \t]*(?:\r?\n|$)/gi, "$1")
+    .replace(/(^|[ \t])```(?:widget|html|meal-plan|nutrition-log-confirm)?[ \t]*(?:\r?\n|$)/gi, "$1")
     // Closing or lone bare fence on its own line.
     .replace(/(^|\n)[ \t]*```[ \t]*(?:\r?\n|$)/g, "$1\n")
     // Collapse leftover triple-newlines from the substitutions.
@@ -2719,149 +2715,21 @@ function splitSynthesisIntoSegments(text) {
     const tag = String(info || "").toLowerCase();
     const firstChar = String(body || "").trim().charAt(0);
     const isWidget = tag === "widget" || tag === "html" || (!tag && firstChar === "<");
-    const isWorkoutPlan = tag === "workout-plan";
     const isNutrition = tag === "meal-plan" || tag === "nutrition-log-confirm";
-    if (!isWidget && !isWorkoutPlan && !isNutrition) continue;
+    if (!isWidget && !isNutrition) continue;
     if (match.index > cursor) {
       segments.push({ type: "text", content: src.slice(cursor, match.index) });
     }
-    // "workout-plan" segments are a distinct passthrough type. They must
-    // NOT go through stripCodeFences / autoWrapBareHtml / htmlToPlainText
-    // — those would mutate the JSON. normalizeSynthesisPayload treats
-    // workout-plan segments the same way it treats widgets: preserve
-    // verbatim and re-fence on reassembly.
     segments.push({
-      type: isWorkoutPlan ? "workout-plan" : isNutrition ? tag : "widget",
+      type: isNutrition ? tag : "widget",
       content: body,
     });
     cursor = match.index + whole.length;
   }
   if (cursor < src.length) {
-    const tail = src.slice(cursor);
-    // Detect an UNCLOSED trailing workout-plan fence. This happens when
-    // OpenAI hits max_output_tokens while the model is mid-JSON — the
-    // closing ``` never arrives. Without this branch, the tail falls
-    // into a plain text segment, then the prose cleanup runs
-    // stripStrayFenceMarkers on it, erases the opening ```workout-plan,
-    // and naked JSON leaks all the way to the client's chat bubble.
-    // Promoting the tail to an _unclosed workout-plan segment keeps
-    // the fence marker intact through reassembly so the client-side
-    // parser (shared/widget-fence-parser.js) can detect it and render
-    // a "Plan was cut off" warning card instead of dumped JSON.
-    const unclosed = tail.match(/^([\s\S]*?)```workout-plan[ \t]*\r?\n?([\s\S]*)$/i);
-    if (unclosed) {
-      const [, before, body] = unclosed;
-      if (before && before.trim()) {
-        segments.push({ type: "text", content: before });
-      }
-      segments.push({
-        type: "workout-plan",
-        content: body,
-        _unclosed: true,
-      });
-    } else {
-      segments.push({ type: "text", content: tail });
-    }
+    segments.push({ type: "text", content: src.slice(cursor) });
   }
   return segments;
-}
-
-// Defensive auto-wrap: if a prose segment contains a bare JSON object that
-// looks like a workout plan (has "schema_version" and "sessions" keys but
-// no enclosing fence), wrap it in a ```workout-plan fence so the frontend
-// renders a WorkoutPlanCard instead of letting the raw JSON leak into the
-// chat bubble as prose. This is the #1 failure mode of a prompt-only
-// capability — the model intermittently "forgets" to add the fence
-// markers, especially after a long answer. Detection is intentionally
-// strict: both markers must be present and the JSON must start at a
-// paragraph boundary.
-function autoWrapBareWorkoutPlan(proseText) {
-  const text = String(proseText || "").replace(/\r\n/g, "\n");
-  // Quick reject: only scan if both marker keys appear.
-  if (!/"schema_version"\s*:\s*1/.test(text)) return text;
-  if (!/"sessions"\s*:\s*\[/.test(text)) return text;
-
-  // Find a bare JSON object that starts at a paragraph boundary and
-  // begins with the schema_version marker within its first few fields.
-  // We don't try to be a JSON parser — just balance curly braces until
-  // the top-level object closes.
-  const openRe = /(^|\n{2,})\s*(\{\s*"schema_version"\s*:\s*1)/;
-  const openMatch = text.match(openRe);
-  if (!openMatch) return text;
-  const jsonStart = openMatch.index + openMatch[1].length + (openMatch[0].length - openMatch[1].length - openMatch[2].length);
-  // Actually, compute the "{" index more robustly: find the first "{"
-  // on/after the matched position.
-  const braceStart = text.indexOf("{", openMatch.index + openMatch[1].length);
-  if (braceStart < 0) return text;
-
-  // Walk the text balancing braces, respecting string literals so a "}"
-  // inside "load":"RPE 7" doesn't close the object prematurely.
-  let depth = 0;
-  let inString = false;
-  let escape = false;
-  let endIndex = -1;
-  for (let i = braceStart; i < text.length; i++) {
-    const ch = text[i];
-    if (escape) { escape = false; continue; }
-    if (ch === "\\") { escape = true; continue; }
-    if (ch === '"') { inString = !inString; continue; }
-    if (inString) continue;
-    if (ch === "{") depth++;
-    else if (ch === "}") {
-      depth--;
-      if (depth === 0) {
-        endIndex = i + 1;
-        break;
-      }
-    }
-  }
-  if (endIndex < 0) return text; // unclosed — the truncation branch will handle it
-
-  const before = text.slice(0, braceStart).replace(/\s+$/, "");
-  const json = text.slice(braceStart, endIndex);
-  const after = text.slice(endIndex).replace(/^\s+/, "");
-
-  // Final sanity: verify the extracted JSON actually parses. If it doesn't,
-  // leave the text alone — we'd rather show raw JSON than destroy real
-  // prose that happened to match our markers.
-  try {
-    JSON.parse(json);
-  } catch (_err) {
-    return text;
-  }
-
-  const wrapped = `${before}\n\n\`\`\`workout-plan\n${json}\n\`\`\``;
-  return after ? `${wrapped}\n\n${after}` : wrapped;
-}
-
-// Defensive auto-wrap: if a prose segment contains a contiguous block of
-// structured HTML (starts with <div/<style/<section/etc.), wrap that block
-// in a widget fence. This catches the common model failure mode where it
-// emits raw HTML inline without the fence markers.
-function autoWrapBareHtml(proseText) {
-  // Normalize CRLF -> LF up front so the paragraph-boundary regex below
-  // (\n{2,}) actually matches paragraph breaks emitted by models that use
-  // Windows line endings. Without this, a CRLF answer like "consistency.\r\n
-  // \r\n<div..." was leaking the entire HTML body as plain text because no
-  // \n\n could ever match between the prose and the bare HTML block.
-  const text = String(proseText || "").replace(/\r\n/g, "\n");
-  // Find the first block-level HTML tag at a paragraph boundary.
-  const openRe = /(^|\n{2,})\s*(<(?:style|div|section|article|header|footer|main|table|ul|ol|form|h[1-4])\b)/i;
-  const openMatch = text.match(openRe);
-  if (!openMatch) return text;
-  const openIndex = openMatch.index + openMatch[1].length;
-  // Grab everything from there to the end of the text — in practice the
-  // widget is the tail of the answer because the model emits prose first,
-  // then the HTML block. This is a heuristic, not a parser.
-  const before = text.slice(0, openIndex).replace(/\s+$/, "");
-  const htmlBody = text.slice(openIndex).trim();
-  if (!htmlBody) return text;
-  // Sanity check: if the body has a closing tag matching the opening, or a
-  // closing </div>, </section>, etc., treat it as a widget candidate.
-  if (!/<\/(?:style|div|section|article|header|footer|main|table|ul|ol|form|h[1-4])\s*>/i.test(htmlBody)) {
-    return text;
-  }
-  return `${before}\n\n\`\`\`widget\n${htmlBody}\n\`\`\``;
 }
 
 // Server-side safety net: even with clear instructions the model sometimes
@@ -2902,36 +2770,18 @@ function normalizeSynthesisPayload(text) {
     throw new Error("The model response was empty.");
   }
 
-  // Extract widget / workout-plan fences first so stripCodeFences /
-  // htmlToPlainText never touch them. Prose segments go through the
-  // legacy cleanup path; widget and workout-plan segments pass through
+  // Extract widget / meal-plan / nutrition-log-confirm fences first so
+  // stripCodeFences / htmlToPlainText never touch them. Prose segments
+  // go through the legacy cleanup path; structured segments pass through
   // untouched and get re-fenced on reassembly.
   const segments = splitSynthesisIntoSegments(raw);
   const cleanedSegments = segments.map((segment) => {
-    if (segment.type === "widget" || segment.type === "workout-plan" || segment.type === "meal-plan" || segment.type === "nutrition-log-confirm") return segment;
+    if (segment.type === "widget" || segment.type === "meal-plan" || segment.type === "nutrition-log-confirm") return segment;
     let prose = segment.content;
-    // Rescue any bare workout-plan JSON the model emitted without the
-    // fence markers — this is the #1 failure mode of a prompt-only
-    // capability. stripCodeFences would otherwise delete any fence
-    // markers we'd add later, so wrap first. After re-assembly, the
-    // final splitSynthesisIntoSegments pass will pick up the injected
-    // fence and promote it to a workout-plan segment. Common failure
-    // pattern: "Intro prose.\n\n{\"schema_version\":1,...}".
-    prose = autoWrapBareWorkoutPlan(prose);
     prose = stripCodeFences(prose);
-    // Only collapse HTML to plain text for prose that *wasn't* already a
-    // fenced widget (the fenced ones are preserved above). This is the
-    // legacy fallback for when the model emits a stray HTML fragment
-    // without a fence — we first try to recover it as a widget.
-    prose = autoWrapBareHtml(prose);
     // Safety net: strip any leftover "```widget" / "```html" / stand-alone
-    // "```" markers that a malformed fence might have left behind. Do this
-    // AFTER autoWrapBareHtml / autoWrapBareWorkoutPlan so we don't
-    // accidentally destroy a fence we just added. The guard must cover
-    // workout-plan fences too — without the workout-plan branch here,
-    // stripStrayFenceMarkers would delete the closing ``` of a plan we
-    // just rescued with autoWrapBareWorkoutPlan.
-    if (!/```(?:widget|html|workout-plan|meal-plan|nutrition-log-confirm)?[ \t]*\r?\n?[\s\S]*?```/i.test(prose)) {
+    // "```" markers that a malformed fence might have left behind.
+    if (!/```(?:widget|html|meal-plan|nutrition-log-confirm)?[ \t]*\r?\n?[\s\S]*?```/i.test(prose)) {
       prose = stripStrayFenceMarkers(prose);
     }
     // Strip any trailing "Sources:" / "References:" section the model
@@ -2941,18 +2791,11 @@ function normalizeSynthesisPayload(text) {
     return { type: "text", content: prose };
   });
 
-  // Re-extract widget / workout-plan fences AFTER auto-wrap so any
-  // HTML or bare plan JSON we just wrapped is also preserved. Segments
-  // marked _needsResplit (the bare-JSON → auto-wrapped path) need to be
-  // re-segmented so the newly-injected workout-plan fence becomes its
-  // own segment instead of sitting inside a text blob.
+  // Re-fence structured segments after prose cleanup so widget / nutrition
+  // fences survive reassembly intact.
   const reassembledRaw = cleanedSegments
     .map((s) => {
       if (s.type === "widget") return `\`\`\`widget\n${s.content}\n\`\`\``;
-      if (s.type === "workout-plan") {
-        if (s._unclosed) return `\`\`\`workout-plan\n${s.content}`;
-        return `\`\`\`workout-plan\n${s.content}\n\`\`\``;
-      }
       if (s.type === "meal-plan") return `\`\`\`meal-plan\n${s.content}\n\`\`\``;
       if (s.type === "nutrition-log-confirm") return `\`\`\`nutrition-log-confirm\n${s.content}\n\`\`\``;
       return s.content;
@@ -2963,10 +2806,8 @@ function normalizeSynthesisPayload(text) {
   const finalSegments = splitSynthesisIntoSegments(reassembledRaw);
 
   // Build the prose-only view for summary/bullets/paragraphs extraction.
-  // Widgets AND workout-plan segments are replaced with a blank line so
-  // paragraph splitting still works correctly. If workout-plan JSON
-  // bled into this view the "summary" field of the response would be
-  // a truncated blob of JSON characters.
+  // Structured segments are replaced with a blank line so paragraph
+  // splitting still works correctly.
   const proseOnly = finalSegments
     .map((s) => (s.type === "text" ? s.content : ""))
     .join("\n")
