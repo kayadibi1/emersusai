@@ -21,12 +21,12 @@ const SLOT_ORDER = [
 
 function MealCard({ meal }) {
   const foods = Array.isArray(meal.foods) ? meal.foods : [];
-  return h("div", { className: "meal-card" }, [
-    h("div", { className: "meal-card-header", key: "h" }, [
-      h("span", { className: "meal-slot", key: "slot" }, meal.slot.replace(/_/g, " ")),
-      h("span", { className: "meal-name", key: "name" }, meal.name),
+  return h("div", { className: "meal-card", style: { marginBottom: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.04))", borderRadius: "var(--border-radius-md, 10px)" } }, [
+    h("div", { className: "meal-card-header", key: "h", style: { display: "flex", gap: 8, alignItems: "baseline", marginBottom: 6 } }, [
+      h("span", { className: "meal-slot", key: "slot", style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, rgba(255,255,255,0.55))" } }, meal.slot.replace(/_/g, " ")),
+      h("span", { className: "meal-name", key: "name", style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #f9f9fd)" } }, meal.name),
     ]),
-    h("ul", { className: "meal-foods", key: "l" },
+    h("ul", { className: "meal-foods", key: "l", style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, rgba(255,255,255,0.7))", lineHeight: 1.6 } },
       foods.map((f, i) =>
         h("li", { key: i }, `${f.description} — ${f.grams} g`)
       )
@@ -36,9 +36,9 @@ function MealCard({ meal }) {
 
 function SupplementStack({ supplements }) {
   if (!supplements || supplements.length === 0) return null;
-  return h("div", { className: "supplement-stack" }, [
-    h("h4", { key: "h" }, "Supplement stack"),
-    h("ul", { key: "l" },
+  return h("div", { className: "supplement-stack", style: { marginTop: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.04))", borderRadius: "var(--border-radius-md, 10px)" } }, [
+    h("div", { key: "h", style: { fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, rgba(255,255,255,0.55))", marginBottom: 6 } }, "Supplement stack"),
+    h("ul", { key: "l", style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, rgba(255,255,255,0.7))", lineHeight: 1.6 } },
       supplements.map((s, i) =>
         h("li", { key: i },
           `${s.description} — ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " · " + s.timing.replace(/_/g, " ") : ""}`
@@ -50,14 +50,17 @@ function SupplementStack({ supplements }) {
 
 function TargetCard({ targets, dayTypeName }) {
   if (!targets) return null;
-  return h("div", { className: "target-card" }, [
-    h("div", { className: "target-card-title", key: "t" }, dayTypeName),
-    h("dl", { className: "target-macros", key: "m" }, [
-      h("dt", { key: "1" }, "kcal"),  h("dd", { key: "2" }, targets.kcal),
-      h("dt", { key: "3" }, "P"),     h("dd", { key: "4" }, `${targets.protein_g} g`),
-      h("dt", { key: "5" }, "C"),     h("dd", { key: "6" }, `${targets.carbs_g} g`),
-      h("dt", { key: "7" }, "F"),     h("dd", { key: "8" }, `${targets.fat_g} g`),
-      h("dt", { key: "9" }, "fiber"), h("dd", { key: "10" }, `${targets.fiber_g} g`),
+  const labelStyle = { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, rgba(255,255,255,0.55))", margin: 0 };
+  const valueStyle = { fontSize: 18, fontWeight: 500, color: "var(--color-text-primary, #f9f9fd)", margin: 0 };
+  const cellStyle = { flex: 1, minWidth: 60, textAlign: "center" };
+  return h("div", { className: "target-card", style: { background: "var(--color-background-tertiary, rgba(255,255,255,0.04))", borderRadius: "var(--border-radius-md, 10px)", padding: "12px 16px", marginBottom: 12 } }, [
+    dayTypeName ? h("div", { className: "target-card-title", key: "t", style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #f9f9fd)", marginBottom: 10 } }, dayTypeName) : null,
+    h("div", { className: "target-macros", key: "m", style: { display: "flex", gap: 8, flexWrap: "wrap" } }, [
+      h("div", { key: "1", style: cellStyle }, h("div", { style: labelStyle }, "kcal"), h("div", { style: valueStyle }, targets.kcal)),
+      h("div", { key: "2", style: cellStyle }, h("div", { style: labelStyle }, "protein"), h("div", { style: valueStyle }, `${targets.protein_g}g`)),
+      h("div", { key: "3", style: cellStyle }, h("div", { style: labelStyle }, "carbs"), h("div", { style: valueStyle }, `${targets.carbs_g}g`)),
+      h("div", { key: "4", style: cellStyle }, h("div", { style: labelStyle }, "fat"), h("div", { style: valueStyle }, `${targets.fat_g}g`)),
+      h("div", { key: "5", style: cellStyle }, h("div", { style: labelStyle }, "fiber"), h("div", { style: valueStyle }, `${targets.fiber_g}g`)),
     ]),
   ]);
 }
