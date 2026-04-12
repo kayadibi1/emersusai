@@ -14,6 +14,7 @@
     "test:widget-fence": "node scripts/test-widget-fence-routing.js",
     "test:foods-search": "node scripts/test-foods-search.js",
     "test:day-type": "node scripts/test-day-type-resolver.js",
+    "test:meal-plan-schema": "node scripts/test-meal-plan-schema.js",
     "test": "node --test --test-concurrency=1 \"tests/unit/**/*.js\" \"tests/integration/**/*.js\"",
     "test:unit": "node --test \"tests/unit/**/*.js\"",
     "test:integration": "node --test --test-concurrency=1 \"tests/integration/**/*.js\""
