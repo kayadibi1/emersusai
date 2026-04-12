@@ -153,10 +153,10 @@ const EMIT_MEAL_PLAN = {
 
 const BLOCK_SCHEMA = {
   type: "object",
-  required: ["exercise", "sets", "reps", "load", "rpe", "rest_seconds", "category", "notes"],
+  required: ["name", "sets", "reps", "load", "rpe", "rest_seconds", "category", "notes"],
   additionalProperties: false,
   properties: {
-    exercise:     { type: "string" },
+    name:         { type: "string", description: "Exercise name, e.g. 'Barbell Back Squat', 'Romanian Deadlift'" },
     sets:         { type: "integer" },
     reps:         { type: "string" },
     load:         { type: "string" },
@@ -198,7 +198,7 @@ const EMIT_WORKOUT_PLAN = {
     "Write 2-4 sentences of prose rationale BEFORE calling this tool.",
     "",
     "Session id format: s_w{week}d{day_of_week} (day_of_week 1=Monday, 7=Sunday).",
-    "Each block: exercise, sets, reps (string like '8-10'), load (string like '75kg' or 'bodyweight'), RPE, rest_seconds, category.",
+    "Each block: name (the exercise name, e.g. 'Barbell Back Squat'), sets, reps (string like '8-10'), load (string like '75kg' or 'bodyweight'), RPE, rest_seconds, category.",
     "Include warmup_blocks for compound lifts >= 60% 1RM.",
     "",
     "If current_workout_plan is non-null, you are ADJUSTING the existing plan:",

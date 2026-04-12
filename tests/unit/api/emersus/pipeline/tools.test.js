@@ -101,7 +101,7 @@ describe("validateToolCall", () => {
       sessions: [{
         id: "s_w1d1", week: 1, day_of_week: 1, date: "2026-04-14",
         title: "Push A",
-        blocks: [{ exercise: "Bench Press", sets: 4, reps: "8-10", load: "75kg", rpe: 8, rest_seconds: 120, category: "resistance" }],
+        blocks: [{ name: "Bench Press", sets: 4, reps: "8-10", load: "75kg", rpe: 8, rest_seconds: 120, category: "resistance", notes: null }],
       }],
     });
     assert.equal(result.valid, true);
