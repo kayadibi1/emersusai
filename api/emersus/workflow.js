@@ -634,6 +634,71 @@ export function checkNutritionProfileGate(profile) {
   return missing.length === 0 ? null : missing;
 }
 
+// ─── Body-metric extraction (regex, no LLM call) ─────────────────────────
+//
+// Parses freeform text like "80 kg 181 cm 27 male low activity" into
+// structured profile fields. Handles common variants: lbs→kg, ft/in→cm,
+// age→date_of_birth. Returns an object with only the fields it could
+// extract (may be partial).
+//
+function extractBodyMetrics(text) {
+  const t = (text || "").toLowerCase().replace(/,/g, " ").replace(/\s+/g, " ").trim();
+  const result = {};
+
+  // Weight: "80 kg", "80kg", "176 lbs", "176lbs", "176 pounds"
+  const wMatch = t.match(/(\d+(?:\.\d+)?)\s*(?:kg|kilos?|kilograms?)\b/);
+  const wLbs = t.match(/(\d+(?:\.\d+)?)\s*(?:lbs?|pounds?)\b/);
+  if (wMatch) result.body_weight_kg = parseFloat(wMatch[1]);
+  else if (wLbs) result.body_weight_kg = Math.round(parseFloat(wLbs[1]) * 0.453592 * 10) / 10;
+
+  // Height: "181 cm", "181cm", "5'11", "5ft 11in", "5 foot 11"
+  const hCm = t.match(/(\d{2,3})\s*(?:cm|centimeters?)\b/);
+  const hFt = t.match(/(\d)'?\s*(\d{1,2})(?:"|''|in)?/) || t.match(/(\d)\s*(?:ft|foot|feet)\s*(\d{1,2})/);
+  if (hCm) result.height_cm = parseFloat(hCm[1]);
+  else if (hFt) result.height_cm = Math.round((parseInt(hFt[1]) * 30.48 + parseInt(hFt[2]) * 2.54) * 10) / 10;
+  // Bare 3-digit number > 140 that wasn't caught as weight → likely cm
+  if (!result.height_cm && !hCm) {
+    const bare3 = t.match(/\b(1[4-9]\d|2[0-2]\d)\b/);
+    if (bare3 && !result.body_weight_kg?.toString().includes(bare3[1])) {
+      result.height_cm = parseFloat(bare3[1]);
+    }
+  }
+
+  // Age → date_of_birth (approximate: assume birthday already passed this year)
+  const ageMatch = t.match(/\b(\d{1,2})\s*(?:years?\s*old|yo|y\/o|yrs?)\b/) ||
+    t.match(/(?:age|aged?)\s*(\d{1,2})\b/);
+  // Also try bare 2-digit number 15-65 that isn't weight/height
+  if (!ageMatch) {
+    const nums = [...t.matchAll(/\b(\d{1,3})\b/g)].map(m => parseInt(m[1]));
+    const age = nums.find(n => n >= 15 && n <= 65
+      && n !== result.body_weight_kg
+      && n !== result.height_cm);
+    if (age) {
+      const now = new Date();
+      result.date_of_birth = `${now.getFullYear() - age}-01-01`;
+    }
+  } else {
+    const age = parseInt(ageMatch[1]);
+    const now = new Date();
+    result.date_of_birth = `${now.getFullYear() - age}-01-01`;
+  }
+
+  // Sex: "male", "female", "m", "f"
+  if (/\b(male|man|guy|dude)\b/.test(t) && !/\bfemale\b/.test(t)) result.biological_sex = "male";
+  else if (/\b(female|woman|girl)\b/.test(t)) result.biological_sex = "female";
+  else if (/\bm\b/.test(t) && !/\bfemale\b/.test(t) && t.length < 40) result.biological_sex = "male";
+  else if (/\bf\b/.test(t) && t.length < 40) result.biological_sex = "female";
+
+  // Activity level
+  if (/\b(very\s*active|athlete|intense)\b/.test(t)) result.activity_level = "very_active";
+  else if (/\b(active|regular)\b/.test(t)) result.activity_level = "active";
+  else if (/\b(moderate|moderately)\b/.test(t)) result.activity_level = "moderate";
+  else if (/\b(light|lightly|low)\b/.test(t)) result.activity_level = "light";
+  else if (/\b(sedentary|inactive|couch|desk)\b/.test(t)) result.activity_level = "sedentary";
+
+  return result;
+}
+
 function buildPlan(question, profile) {
   const topic = inferTopic(question);
   const lowerQuestion = question.toLowerCase();
@@ -4278,6 +4343,46 @@ async function generateRecommendation({
     && /NUTRITION PROFILE GATE:|asked for a meal plan.*missing/i.test(lastAssistantMsg);
   if (isProfileGateFollowUp) {
     plan.topic = "nutrition";
+  }
+
+  // If this is a profile-gate follow-up, try to extract body metrics from the
+  // user's reply and persist them to the profile so the gate passes this turn.
+  if (isProfileGateFollowUp && supabaseUserId) {
+    const extracted = extractBodyMetrics(question);
+    if (Object.keys(extracted).length > 0) {
+      try {
+        const patchBody = {};
+        if (extracted.body_weight_kg != null) patchBody.body_weight_kg = extracted.body_weight_kg;
+        if (extracted.height_cm != null)      patchBody.height_cm = extracted.height_cm;
+        if (extracted.date_of_birth != null)  patchBody.date_of_birth = extracted.date_of_birth;
+        if (extracted.biological_sex != null) patchBody.biological_sex = extracted.biological_sex;
+        if (extracted.activity_level != null) patchBody.activity_level = extracted.activity_level;
+
+        if (Object.keys(patchBody).length > 0) {
+          const patchRes = await fetch(
+            `${supabaseUrl}/rest/v1/profiles?id=eq.${encodeURIComponent(supabaseUserId)}`,
+            {
+              method: "PATCH",
+              headers: {
+                "Content-Type": "application/json",
+                apikey: serviceRoleKey,
+                Authorization: `Bearer ${serviceRoleKey}`,
+                Prefer: "return=minimal",
+              },
+              body: JSON.stringify(patchBody),
+            }
+          );
+          if (patchRes.ok) {
+            // Merge into the in-memory profile so the gate check below sees them
+            Object.assign(mergedProfile, patchBody);
+          } else {
+            console.error("[nutrition] profile patch failed:", await patchRes.text().catch(() => ""));
+          }
+        }
+      } catch (err) {
+        console.error("[nutrition] profile extraction error:", err);
+      }
+    }
   }
 
   let systemPromptAddendum = "";
