@@ -83,7 +83,8 @@ function processEvent(event, state) {
         const toolName = event.item.name || toolBuf?.name || "unknown";
         const argsStr = event.item.arguments || (toolBuf?.chunks.join("") ?? "");
         let args;
-        try { args = JSON.parse(argsStr); } catch {
+        try { args = JSON.parse(argsStr); } catch (parseErr) {
+          console.error(`Tool JSON parse failed for ${toolName}:`, parseErr.message, argsStr.slice(0, 200));
           if (state.onToolError) state.onToolError(toolName, ["Failed to parse tool arguments"]);
           break;
         }
@@ -92,7 +93,12 @@ function processEvent(event, state) {
           state.ctx.toolResults[toolName] = validation.data;
           if (state.onTool) state.onTool(toolName, validation.data);
         } else {
+          console.error(`Tool validation failed for ${toolName}:`, validation.errors);
           if (state.onToolError) state.onToolError(toolName, validation.errors);
+          // Store the raw data anyway so the client can still render it
+          // (strict mode already validated the schema on the OpenAI side)
+          state.ctx.toolResults[toolName] = args;
+          if (state.onTool) state.onTool(toolName, args);
         }
       }
       break;
