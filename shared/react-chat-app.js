@@ -89,6 +89,38 @@ function unwrapHtmlFence(value) {
   return fenced ? fenced[1].trim() : text;
 }
 
+// ---------------------------------------------------------------------------
+// SSE stream reader
+// ---------------------------------------------------------------------------
+// Reads an SSE (text/event-stream) response body and fires `onEvent` for each
+// parsed `data: {...}` line. Handles buffering across chunk boundaries and
+// ignores malformed frames. Used by submitQuestion when the backend streams
+// prose + tool results instead of returning a single JSON blob.
+async function readSSEStream(response, { onEvent, signal }) {
+  const reader = response.body.getReader();
+  const decoder = new TextDecoder();
+  let buffer = "";
+  try {
+    while (true) {
+      if (signal?.aborted) break;
+      const { done, value } = await reader.read();
+      if (done) break;
+      buffer += decoder.decode(value, { stream: true });
+      const lines = buffer.split("\n");
+      buffer = lines.pop() || "";
+      for (const line of lines) {
+        const trimmed = line.trim();
+        if (!trimmed || !trimmed.startsWith("data: ")) continue;
+        const payload = trimmed.slice(6);
+        if (payload === "[DONE]") continue;
+        try { onEvent(JSON.parse(payload)); } catch { /* skip malformed */ }
+      }
+    }
+  } finally {
+    reader.releaseLock();
+  }
+}
+
 function looksLikeStructuredHtml(value) {
   const text = unwrapHtmlFence(value);
   if (!text) return false;
@@ -1713,11 +1745,82 @@ function NutritionLogConfirmCard({ segment, threadId }) {
   );
 }
 
-function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false, threadId = null }) {
+function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false, threadId = null, toolResults = null }) {
   const fullText = String(text || "");
   const visible = useTypewriter(fullText, typewrite);
   const isTyping = typingActive || (typewrite && visible.length < fullText.length);
   const display = typewrite ? visible : fullText;
+
+  // ── New SSE path: toolResults present ─────────────────────────────
+  // When the message was built from SSE events, tool outputs arrive as
+  // structured objects in toolResults rather than fenced code blocks in
+  // the prose. Render prose in a bubble, then each tool result as the
+  // appropriate card component after it.
+  if (role === "assistant" && toolResults && typeof toolResults === "object" && Object.keys(toolResults).length > 0) {
+    const children = [];
+
+    // Prose bubble
+    if (fullText.trim()) {
+      children.push(
+        h(
+          "div",
+          { key: "prose", className: `chat-bubble chat-bubble-${role} chat-text-block` },
+          renderProseChunks(fullText),
+        ),
+      );
+    }
+
+    // Tool result cards
+    for (const [toolName, toolData] of Object.entries(toolResults)) {
+      if (toolName === "emit_widget" && toolData) {
+        children.push(
+          h(
+            "div",
+            { key: `tr-widget`, className: "chat-widget-frame-wrap" },
+            h(WidgetFrame, { code: toolData.html || "", title: toolData.title }),
+          ),
+        );
+      } else if (toolName === "emit_workout_plan" && toolData) {
+        // Wrap in the same shape WorkoutPlanCard expects from a parsed fence
+        const segment = { content: { ok: true, plan: toolData } };
+        children.push(
+          h(
+            "div",
+            { key: `tr-workout`, className: "chat-workout-plan-wrap" },
+            h(WorkoutPlanCard, { segment, threadId }),
+          ),
+        );
+      } else if (toolName === "emit_meal_plan" && toolData) {
+        // MealPlanCard parses JSON from segment.content — pass pre-stringified
+        const segment = { content: JSON.stringify(toolData) };
+        children.push(
+          h(
+            "div",
+            { key: `tr-meal`, className: "chat-meal-plan-wrap" },
+            h(MealPlanCard, { segment, threadId }),
+          ),
+        );
+      } else if (toolName === "log_food" && toolData) {
+        // NutritionLogConfirmCard parses JSON from segment.content
+        const segment = { content: JSON.stringify(toolData) };
+        children.push(
+          h(
+            "div",
+            { key: `tr-logfood`, className: "chat-nutrition-log-wrap" },
+            h(NutritionLogConfirmCard, { segment, threadId }),
+          ),
+        );
+      }
+    }
+
+    return h(
+      "div",
+      { className: `chat-text-block-wrap chat-text-block-${role}` },
+      children,
+    );
+  }
+
+  // ── Legacy paths (fence-based + pure prose) ───────────────────────
 
   // Pure-prose answers (no widget fences) take the original single-bubble path.
   // This is also the path the user-message bubble always takes.
@@ -2280,15 +2383,23 @@ function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
 }
 
 function Message({ message, typewrite = false, threadId = null }) {
+  // Choose rendering strategy:
+  // 1. toolResults present → SSE path (prose + structured tool outputs)
+  // 2. blocks array → legacy fence-parsed path
+  // 3. html → legacy structured-HTML dump
+  // 4. plain text fallback
+  const hasToolResults = message.toolResults && typeof message.toolResults === "object" && Object.keys(message.toolResults).length > 0;
   return h(
     "article",
     { className: `message ${message.role}` },
     h("div", { className: "message-content" },
-      Array.isArray(message.blocks)
-        ? h(MessageBlocks, { blocks: message.blocks, typewrite, threadId })
-        : message.html
-          ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
-          : h(TextBlock, { text: message.text || message.plainText || "", role: message.role, typewrite, threadId }))
+      hasToolResults
+        ? h(TextBlock, { text: message.text || message.plainText || "", role: message.role, typewrite, threadId, toolResults: message.toolResults })
+        : Array.isArray(message.blocks)
+          ? h(MessageBlocks, { blocks: message.blocks, typewrite, threadId })
+          : message.html
+            ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
+            : h(TextBlock, { text: message.text || message.plainText || "", role: message.role, typewrite, threadId }))
   );
 }
 
@@ -2679,6 +2790,14 @@ export function ChatApp({
         includeDebug: true,
       };
 
+      // ── Fetch ─────────────────────────────────────────────────────────
+      // The backend returns EITHER:
+      //   • application/json — ShortCircuit responses (onboarding, guardrail
+      //     refusal). Handled exactly like the old single-JSON code path.
+      //   • text/event-stream — SSE with prose/tool/tool_error/done events.
+      //     Prose is streamed into the chat bubble in real-time; tool results
+      //     and sources arrive as discrete events and are attached to the
+      //     final message.
       let data;
       if (typeof fetcher === "function") {
         // The debug page supplies its own fetcher (SSE + fallback). It
@@ -2695,8 +2814,112 @@ export function ChatApp({
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(requestBody),
         });
-        data = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error(data.message || "Unable to generate a recommendation.");
+        if (!response.ok) {
+          const errBody = await response.json().catch(() => ({}));
+          throw new Error(errBody.message || "Unable to generate a recommendation.");
+        }
+
+        const contentType = (response.headers.get("content-type") || "").toLowerCase();
+
+        if (contentType.includes("text/event-stream")) {
+          // ── SSE streaming path ────────────────────────────────────────
+          // Create a placeholder assistant message so prose appears in
+          // real-time as delta events arrive.
+          const streamCreatedAt = new Date().toISOString();
+          let accumulatedProse = "";
+          const toolResults = {};
+          const toolErrors = [];
+          let sseSources = [];
+          let sseUsage = {};
+          let sseThreadState = null;
+          let sseOnboardingCompleted = false;
+          let sseConfidence = null;
+          let sseDebug = null;
+
+          // Insert the streaming placeholder into chat history immediately
+          // so the user sees the bubble appear as prose arrives.
+          const placeholderMessage = {
+            role: "assistant",
+            text: "",
+            plainText: "",
+            toolResults: {},
+            sources: [],
+            createdAt: streamCreatedAt,
+          };
+          const threadWithPlaceholder = {
+            ...persistedThread,
+            messages: [...(persistedThread.messages || []), placeholderMessage],
+          };
+          setStreamingMessageKey(streamCreatedAt);
+          setChatHistory((prev) =>
+            [threadWithPlaceholder, ...prev.filter((t) => t.id !== threadWithPlaceholder.id)].slice(0, MAX_HISTORY_ITEMS)
+          );
+          setGlyphState("responding");
+
+          await readSSEStream(response, {
+            onEvent(event) {
+              if (event.type === "prose") {
+                accumulatedProse += event.delta || "";
+                // Update the streaming message in-place so the user sees
+                // text arrive in real-time (no typewriter animation needed —
+                // the SSE deltas ARE the streaming effect).
+                setChatHistory((prev) =>
+                  prev.map((thread) => {
+                    if (thread.id !== persistedThread.id) return thread;
+                    const msgs = [...thread.messages];
+                    const lastIdx = msgs.length - 1;
+                    if (lastIdx >= 0 && msgs[lastIdx].role === "assistant" && msgs[lastIdx].createdAt === streamCreatedAt) {
+                      msgs[lastIdx] = { ...msgs[lastIdx], text: accumulatedProse, plainText: accumulatedProse };
+                    }
+                    return { ...thread, messages: msgs };
+                  })
+                );
+                if (typeof onProgress === "function") {
+                  try { onProgress({ type: "prose", delta: event.delta }); } catch { /* noop */ }
+                }
+              } else if (event.type === "tool") {
+                toolResults[event.name] = event.data;
+              } else if (event.type === "tool_error") {
+                toolErrors.push({ name: event.name, errors: event.errors });
+              } else if (event.type === "done") {
+                sseSources = Array.isArray(event.sources) ? event.sources : [];
+                sseUsage = event.usage || {};
+                sseThreadState = event.thread_state || null;
+                sseOnboardingCompleted = !!event.onboarding_completed;
+                sseConfidence = event.confidence || null;
+                sseDebug = event.debug || null;
+              }
+            },
+          });
+
+          // Strip ~~~profile-update fences that may appear in streamed prose
+          const cleanedProse = accumulatedProse
+            .replace(/\n*~~~profile-update\s*\r?\n?[\s\S]*?(?:~~~|$)/g, "")
+            .trim();
+
+          // Synthesise a `data` object that matches the shape the rest of
+          // the function expects (thread state, rail, persist, etc.).
+          data = {
+            answer_text: cleanedProse,
+            sources: sseSources,
+            token_usage: sseUsage,
+            onboarding_completed: sseOnboardingCompleted,
+            confidence: sseConfidence,
+            debug: sseDebug,
+            // Carry tool results so the message builder below can attach them.
+            _toolResults: Object.keys(toolResults).length ? toolResults : undefined,
+            _toolErrors: toolErrors.length ? toolErrors : undefined,
+            // If the backend sent an updated thread state, forward it.
+            _sseThreadState: sseThreadState,
+          };
+
+          // Clear the streaming key so the placeholder stops being treated
+          // as "currently streaming" once we build the final message below.
+          setStreamingMessageKey("");
+        } else {
+          // ── JSON path (ShortCircuit: onboarding / guardrail refusal) ──
+          data = await response.json().catch(() => ({}));
+        }
       }
 
       // Give the debug page a chance to show the full response. We fire
@@ -2716,13 +2939,16 @@ export function ChatApp({
         setOnboardingActive(false);
       }
       setGlyphState("responding");
+
       const assistantRaw = String(data.answer_text || data.summary || "")
         .replace(/\n*~~~profile-update\s*\r?\n?[\s\S]*?(?:~~~|$)/g, "")
         .trim();
-      // If the answer contains a widget fence, route through the segment-aware
-      // TextBlock + WidgetFrame pipeline. The legacy structured-HTML dump path
-      // would otherwise hijack any answer containing <div> (i.e. every widget)
-      // and render the fence markers as literal prose.
+
+      // If the answer contains a widget fence (legacy path), route through
+      // the segment-aware TextBlock + WidgetFrame pipeline. The legacy
+      // structured-HTML dump path would otherwise hijack any answer
+      // containing <div> (i.e. every widget) and render the fence markers
+      // as literal prose.
       const hasFences = hasWidgetFences(assistantRaw);
       const structuredHtml = !hasFences && looksLikeStructuredHtml(assistantRaw)
         ? sanitizeAssistantHtml(assistantRaw)
@@ -2730,23 +2956,34 @@ export function ChatApp({
       const assistantPlainText = structuredHtml
         ? stripHtmlToPlainText(structuredHtml, 4000)
         : assistantRaw;
+
+      // Build the assistant message. New SSE responses attach toolResults
+      // directly; legacy JSON responses use the blocks/html path.
       const assistantMessage = {
         role: "assistant",
-        ...(structuredHtml ? { html: structuredHtml } : { blocks: buildAssistantBlocks(data) }),
+        ...(data._toolResults
+          ? { text: assistantPlainText || normalizeText(assistantRaw, 4000), toolResults: data._toolResults }
+          : structuredHtml
+            ? { html: structuredHtml }
+            : { blocks: buildAssistantBlocks(data) }),
         plainText: assistantPlainText || normalizeText(assistantRaw, 4000),
         text: assistantPlainText || normalizeText(assistantRaw, 4000),
         sources: Array.isArray(data.sources) ? data.sources : [],
+        ...(data._toolErrors?.length ? { toolErrors: data._toolErrors } : {}),
         createdAt: new Date().toISOString(),
       };
+
       const nextThread = {
         ...persistedThread,
         messages: [...(persistedThread.messages || []), assistantMessage],
         threadState: (() => {
-          const baseState = deriveThreadState(
-            persistedThread,
-            trimmed,
-            assistantPlainText || data.summary || data.answer_text || ""
-          );
+          const baseState = data._sseThreadState
+            ? mergeThreadState(data._sseThreadState)
+            : deriveThreadState(
+                persistedThread,
+                trimmed,
+                assistantPlainText || data.summary || data.answer_text || ""
+              );
           return {
             ...baseState,
             token_usage: mergeTokenUsage(
@@ -2769,10 +3006,12 @@ export function ChatApp({
           };
         })(),
       };
-      // Mark the message as streaming BEFORE persist runs setChatHistory.
-      // Both updates batch into a single render, so the message renders with
-      // typewrite=true on its very first frame — no flash of full text.
-      setStreamingMessageKey(assistantMessage.createdAt);
+      // For non-SSE responses, mark the message as streaming so the
+      // typewriter animates on first render. SSE responses already
+      // streamed in real-time, so we skip the typewriter.
+      if (!data._toolResults) {
+        setStreamingMessageKey(assistantMessage.createdAt);
+      }
       persistedThread = await persistThread(nextThread);
       setActiveThreadId(persistedThread.id);
     } catch (error) {

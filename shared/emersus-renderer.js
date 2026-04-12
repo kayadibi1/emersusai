@@ -279,7 +279,13 @@ export const EMERSUS_THEME_CSS = `
 //   - Each instance generates a random frameId so multiple widgets on the
 //     same page never cross-size each other.
 //   - Iframe wrapper has border-radius: 0 to match the sharp-edge chat shell.
-export function WidgetFrame({ code }) {
+// Accepts either:
+//   { code: "<html>..." }               — legacy fence-parsed widget body
+//   { html: "<html>...", title: "..." }  — SSE tool result (emit_widget)
+// Both paths produce the same sandboxed iframe. `code` takes precedence for
+// backwards compatibility; if absent, `html` is used instead.
+export function WidgetFrame({ code, html, title }) {
+  const widgetBody = code || html || "";
   const iframeRef = useRef(null);
   const frameId = useMemo(
     () => `wf_${Math.random().toString(36).slice(2, 10)}_${Date.now().toString(36)}`,
@@ -324,7 +330,7 @@ export function WidgetFrame({ code }) {
   <style>${EMERSUS_THEME_CSS}</style>
 </head>
 <body>
-${code}
+${widgetBody}
 <script>
 (function () {
   var id = ${safeId};
@@ -359,7 +365,7 @@ ${code}
 </script>
 </body>
 </html>`;
-  }, [code, frameId]);
+  }, [widgetBody, frameId]);
 
   useEffect(() => {
     function onMessage(event) {
@@ -377,7 +383,7 @@ ${code}
 
   return h("iframe", {
     ref: iframeRef,
-    title: "Inline visual",
+    title: title || "Inline visual",
     sandbox: "allow-scripts allow-same-origin",
     srcDoc,
     scrolling: "no",
