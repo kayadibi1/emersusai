@@ -2,7 +2,7 @@ import {
   generateRecommendationStream,
   parseJsonBody,
   validateRequest,
-} from "./workflow-v2.js";
+} from "./workflow.js";
 import {
   buildRequestMeta,
   checkRateLimit,

@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { parseJsonBody } from "../../../../../api/emersus/workflow-v2.js";
+import { parseJsonBody } from "../../../../../api/emersus/workflow.js";
 
 describe("parseJsonBody", () => {
   it("parses string body", () => {
