@@ -103,6 +103,33 @@ test("ON CONFLICT skips are counted as skipped", async () => {
   assert.equal(out.skipped, 3);
 });
 
+test("INSERT uses targetless ON CONFLICT DO NOTHING (catches pmid + (source,external_id) unique violations)", async () => {
+  // Regression: previously `ON CONFLICT (pmid) DO NOTHING` only caught
+  // pmid PK collisions, so a re-ingestion whose external_id collided with
+  // an existing row aborted the whole handler with Postgres error 23505.
+  // The fix was to use a targetless ON CONFLICT that catches ANY unique
+  // violation.
+  const sql = makeSql();
+  const boss = makeBoss();
+  const ctx = makeCtx();
+
+  await ingestTopicFromSourceHandler(ctx, { sql, boss });
+
+  const insertCall = sql.calls.find(c =>
+    c.query.includes("research_articles") && c.query.includes("INSERT")
+  );
+  assert.ok(insertCall, "handler should issue an INSERT");
+  // Match the specific targetless form — must NOT contain "ON CONFLICT (pmid)"
+  assert.ok(
+    /ON CONFLICT\s+DO NOTHING/i.test(insertCall.query),
+    `INSERT should use targetless ON CONFLICT DO NOTHING, got: ${insertCall.query}`
+  );
+  assert.ok(
+    !/ON CONFLICT\s*\(\s*pmid/i.test(insertCall.query),
+    "INSERT should NOT use targeted ON CONFLICT (pmid) — that only catches PK collisions",
+  );
+});
+
 test("enqueues embed-batch follow-up job", async () => {
   const sql = makeSql();
   const boss = makeBoss();

@@ -13,6 +13,7 @@
 import { fetchWithTimeoutAndUA } from "./_http.js";
 import { createLimiter } from "./_ratelimit.js";
 import { registerIngestion, registerDiscovery } from "./_registry.js";
+import { parseQueryIntoGroups, matchesQueryGroups } from "./_query-match.js";
 
 const BASE_URL = "https://api.osf.io/v2/preprints/";
 const PAGE_SIZE = 100;
@@ -31,24 +32,6 @@ async function fetchPage(url) {
     items: data.data ?? [],
     nextUrl: data.links?.next ?? null,
   };
-}
-
-/**
- * Extract meaningful search terms from a query string.
- * TODO: upgrade to a proper relevance score
- */
-const STOPWORDS = new Set(["and", "or", "not", "with", "from", "this", "that"]);
-function extractTerms(query) {
-  return query
-    .toLowerCase()
-    .replace(/[^\w\s]/g, " ")
-    .split(/\s+/)
-    .filter(t => t.length >= 4 && !STOPWORDS.has(t));
-}
-
-function matchesQuery(terms, title, description) {
-  const haystack = `${title} ${description ?? ""}`.toLowerCase();
-  return terms.some(t => haystack.includes(t));
 }
 
 function mapItem(item) {
@@ -92,7 +75,7 @@ export const sportrxiv = {
 
   async *fetchPapers(query, opts) {
     const target = opts?.target ?? 2000;
-    const terms = extractTerms(query);
+    const groups = parseQueryIntoGroups(query);
     let yielded = 0;
     let url = buildFirstPageUrl();
 
@@ -103,7 +86,7 @@ export const sportrxiv = {
       for (const item of items) {
         if (opts?.signal?.aborted) return;
         const attr = item.attributes ?? {};
-        if (!matchesQuery(terms, attr.title ?? "", attr.description ?? "")) continue;
+        if (!matchesQueryGroups(groups, attr.title ?? "", attr.description ?? "")) continue;
         const paper = mapItem(item);
         yield paper;
         yielded += 1;
