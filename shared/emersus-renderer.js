@@ -14,6 +14,8 @@ import React, {
   useMemo,
   useRef,
 } from "https://esm.sh/react@18.2.0";
+import MealPlanWidget from "./meal-plan-widget.js";
+// NutritionLogConfirmWidget is added in Task 15 (Phase 3).
 
 const h = React.createElement;
 
@@ -406,6 +408,20 @@ export function LLMResponse({ markdown, renderText }) {
       if (segment.type === "widget") {
         return h(WidgetFrame, { key: `w-${index}`, code: segment.content });
       }
+      if (segment.type === "meal-plan") {
+        try {
+          const plan = JSON.parse(segment.content);
+          return h(MealPlanWidget, { key: `mp-${index}`, plan });
+        } catch (err) {
+          console.error("[emersus-renderer] failed to parse meal-plan fence:", err);
+          return h(
+            "div",
+            { key: `mp-err-${index}`, style: { whiteSpace: "pre-wrap", color: "var(--text-primary)" } },
+            "\u26a0 meal plan could not be parsed",
+          );
+        }
+      }
+      // nutrition-log-confirm dispatch is added in Task 15.
       if (typeof renderText === "function") {
         return renderText(segment.content, index);
       }
