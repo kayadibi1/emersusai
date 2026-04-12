@@ -12,7 +12,13 @@
 import OpenAI from "openai";
 import { createClient } from "@supabase/supabase-js";
 
-const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+// Lazy-init: defer OpenAI client creation to first use so the module can
+// be imported before env vars are loaded (test scripts, import checks).
+let _openai;
+function getOpenAI() {
+  if (!_openai) _openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
+  return _openai;
+}
 const PARSER_MODEL = process.env.OPENAI_EMERSUS_PARSER_MODEL || "gpt-4.1-mini";
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
@@ -97,7 +103,7 @@ export async function parseFoodDescription(text, { authHeader }) {
 
   let parsed;
   try {
-    const completion = await openai.chat.completions.create({
+    const completion = await getOpenAI().chat.completions.create({
       model: PARSER_MODEL,
       temperature: 0,
       messages: [
