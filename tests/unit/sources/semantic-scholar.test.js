@@ -99,6 +99,54 @@ test("semanticScholar sanitizes boolean queries down to keywords before sending"
   nock.cleanAll();
 });
 
+test("semanticScholar stops paginating before offset+limit hits S2's 1000 cap", async () => {
+  // Regression: S2's /paper/search endpoint returns 400
+  // `Relevance search offset + limit must be < 1000` once you
+  // paginate past ~9 pages. The adapter should stop early rather
+  // than hitting the error. We simulate 20 non-empty pages and
+  // verify that at most 9 requests fire (offsets 0, 100, ..., 800).
+  let requestCount = 0;
+  const makePage = (offset) => ({
+    total: 5000, // fake huge total so the pagination doesn't terminate naturally
+    offset,
+    next: offset + 100,
+    data: Array.from({ length: 100 }, (_, i) => ({
+      paperId: `p-${offset + i}`,
+      title: `Fake paper ${offset + i}`,
+      year: 2024,
+      authors: [],
+      externalIds: {},
+      publicationTypes: ["JournalArticle"],
+    })),
+  });
+  nock("https://api.semanticscholar.org")
+    .get("/graph/v1/paper/search")
+    .query(true)
+    .times(20)
+    .reply((uri) => {
+      requestCount += 1;
+      const m = uri.match(/offset=(\d+)/);
+      const offset = m ? Number(m[1]) : 0;
+      return [200, makePage(offset)];
+    });
+
+  const yielded = [];
+  for await (const paper of semanticScholar.fetchPapers("fake-query", { target: 2000 })) {
+    yielded.push(paper);
+  }
+
+  // We expect at most 9 requests (offsets 0, 100, 200, ..., 800). The
+  // 10th request would be at offset=900 which produces 900+100=1000
+  // and hits the cap.
+  assert.ok(
+    requestCount <= 9,
+    `expected ≤9 requests before hitting S2 offset cap, got ${requestCount}`,
+  );
+  // And at most 900 papers yielded (9 pages × 100).
+  assert.ok(yielded.length <= 900);
+  nock.cleanAll();
+});
+
 test("semanticScholar adapter registers itself", async () => {
   const { listIngestionSources } = await import("../../../scripts/sources/_registry.js");
   assert.ok(listIngestionSources().find(s => s.id === "semantic-scholar"), "semantic-scholar should be in registry");

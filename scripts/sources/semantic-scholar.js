@@ -17,6 +17,13 @@ import { registerIngestion } from "./_registry.js";
 
 const SEARCH_URL = "https://api.semanticscholar.org/graph/v1/paper/search";
 const PAGE_SIZE = 100; // S2 search max is 100
+// S2's /paper/search endpoint enforces `offset + limit < 1000`. With
+// PAGE_SIZE=100, the last valid request is offset=800 (800 + 100 = 900
+// < 1000); offset=900 would produce 900 + 100 = 1000 which S2 rejects
+// with a 400. /paper/search/bulk has no offset cap but returns fewer
+// fields — enough of our target topics stay well under 1000 results
+// that we live with the cap for now.
+const S2_SEARCH_OFFSET_CAP = 1000;
 const FIELDS = [
   "paperId",
   "externalIds",
@@ -105,6 +112,10 @@ export const semanticScholar = {
     let offset = 0;
     let yielded = 0;
     while (yielded < target) {
+      // Hard cap on S2 /paper/search offset+limit. If the NEXT request
+      // would push us to or past the cap, stop — returning < target
+      // papers is fine since we're just one source among many.
+      if (offset + PAGE_SIZE >= S2_SEARCH_OFFSET_CAP) return;
       const body = await searchPage(query, offset);
       const papers = Array.isArray(body?.data) ? body.data : [];
       if (papers.length === 0) {
