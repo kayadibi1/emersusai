@@ -527,52 +527,6 @@ function normalizeUuid(value) {
     : "";
 }
 
-function inferTopic(question) {
-  const text = question.toLowerCase();
-
-  if (/safe|safety|risk|harm|side effect|contraindication|adverse/.test(text)) {
-    return "safety";
-  }
-
-  if (/dose|dosage|duration|protocol|loading phase|maintenance/.test(text)) {
-    return "protocol";
-  }
-
-  if (
-    /peptide|bpc[-\s]?157|body protection compound|thymosin|tb[-\s]?500|tb500|glp[-\s]?1|semaglutide|liraglutide|tirzepatide|ghrp|growth hormone releasing|cjc[-\s]?1295|ipamorelin|tesamorelin|ghrelin|secretagogue/.test(
-      text
-    )
-  ) {
-    return "peptides";
-  }
-
-  if (/run|cardio|zone 2|vo2|max|cycling|endurance|interval/.test(text)) {
-    return "cardio";
-  }
-
-  if (/protein|calorie|diet|nutrition|supplement|macro|meal|cut|bulk/.test(text)) {
-    return "nutrition";
-  }
-
-  if (/focus|sleep|stress|mental|cognitive|motivation|discipline/.test(text)) {
-    return "mental_performance";
-  }
-
-  if (/study|studying|learn|learning|exam|homework|memorization|flashcard|test prep|school/.test(text)) {
-    return "learning";
-  }
-
-  if (/strength|hypertrophy|muscle gain|build muscle|lean mass|resistance training|lifting/.test(text)) {
-    return "strength";
-  }
-
-  if (/recovery|soreness|rehab|tendon|joint|injury/.test(text)) {
-    return "recovery";
-  }
-
-  return "general";
-}
-
 // Detect food-logging intent. This is a server-side fast-path that skips
 // the LLM call entirely — the server parses the food description and emits
 // a nutrition-log-confirm fence. Kept as a regex because the operation is
@@ -668,8 +622,9 @@ function extractBodyMetrics(text) {
   return result;
 }
 
+// buildPlan still provides risk_level to the model.
+// topic is no longer classified server-side — the model self-routes via tools.
 function buildPlan(question, profile) {
-  const topic = inferTopic(question);
   const lowerQuestion = question.toLowerCase();
   const riskLevel =
     /injur|pain|depress|anx|panic|eating disorder|blood pressure|diabetes|medication|pregnan/.test(
@@ -679,7 +634,7 @@ function buildPlan(question, profile) {
       : "low";
 
   return {
-    topic,
+    topic: "general",
     riskLevel,
   };
 }
@@ -3914,7 +3869,8 @@ async function generateRecommendation({
   // ── log_food fast-path: skip retrieval + LLM ──────────────────────────────
   // Detect food logging intent via regex. This is a server-side shortcut:
   // parseFoodDescription handles the parsing, no LLM call needed.
-  if (plan.topic === "nutrition" && isLogFoodIntent(question)) {
+  const looksLikeNutrition = /\b(ate|had|drank|took|log|track|breakfast|lunch|dinner|snack|supps?|supplements?|vitamins?)\b/i.test(question);
+  if (looksLikeNutrition && isLogFoodIntent(question)) {
     const parseResult = await parseFoodDescription(question, {
       authHeader: `Bearer ${serviceRoleKey}`,
     });
