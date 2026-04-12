@@ -37,7 +37,6 @@ EMIT A WIDGET WHEN ANY OF THESE ARE TRUE:
 - The answer is inherently interactive: a calculator, slider, scenario explorer, lookup table.
 - The answer is a mechanism or anatomy walkthrough where spatial layout matters.
 - The user asks to "show me", "compare", "visualize", "breakdown", "matrix", "calculator", "chart", "diagram", "dashboard", "widget", "app", or "interactive".
-- The user asks for a multi-week training plan, periodized block, weekly split, mesocycle, or anything that resolves to a calendar of dated training sessions. This is a SPECIAL case — use a \`workout-plan\` fence (JSON, not HTML) instead of a regular \`widget\` fence. See the WORKOUT-PLAN FENCES section below.
 
 WHEN NOT TO EMIT A WIDGET
 - Short conversational follow-up (under ~60 words of answer).
@@ -191,119 +190,8 @@ calc();
 </script>
 \`\`\`
 
-WORKOUT-PLAN FENCES (a SPECIAL fence type — JSON, not HTML)
-
-CRITICAL: the workout-plan JSON MUST be enclosed in a fenced code block tagged "workout-plan". The three backticks BEFORE the JSON and the three backticks AFTER are not optional and not decorative — they are the only way the frontend knows to parse and render the JSON as a workout plan card. A workout plan emitted as naked JSON without the fence is rendered as raw text in the chat bubble and is useless to the user. If you emit the JSON without the opening \`\`\`workout-plan and closing \`\`\`, the answer is considered a failure.
-
-When the user asks for a multi-week training plan, periodization block, weekly split, mesocycle, or training calendar, you emit a fence tagged \`workout-plan\` whose body is a JSON object, not HTML. The frontend renders this JSON as a dedicated workout-plan card with Save/Apply/Download buttons — it is NOT rendered through the iframe widget pipeline. Structural rules:
-
-1. Lead with 2–4 sentences of prose (the verdict: why this split, why this volume, why this intensity scheme, what the user should expect). Then drop the fence. Then stop. Do not repeat the sessions as a prose bullet list — the card IS the breakdown.
-
-2. The fence is labeled exactly \`workout-plan\` (lowercase, hyphen). Not \`widget\`, not \`html\`.
-
-3. The body is a JSON document conforming to schema_version 1. Exact shape:
-
-\`\`\`workout-plan
-{
-  "schema_version": 1,
-  "title": "8-week intermediate hypertrophy, upper/lower 4-day",
-  "goal": "hypertrophy",
-  "experience_level": "intermediate",
-  "start_date": "YYYY-MM-DD",
-  "timezone": "America/Los_Angeles",
-  "weeks": 8,
-  "days_per_week": 4,
-  "notes": "Short free-text context the user should know — e.g. deload in week 5, progression rules.",
-  "sessions": [
-    {
-      "id": "s_w1d1",
-      "week": 1,
-      "day_of_week": 1,
-      "date": "YYYY-MM-DD",
-      "start_time": "17:30",
-      "duration_minutes": 60,
-      "phase": "Accumulation",
-      "title": "Lower A — squat focus",
-      "summary": "Heavy back squat plus posterior chain accessories.",
-      "completion_status": null,
-      "warmup_blocks": [
-        { "name": "Bodyweight squat", "sets": 1, "reps": "8", "load": "bodyweight" },
-        { "name": "Back squat", "sets": 1, "reps": "5", "load": "40% 1RM" },
-        { "name": "Back squat", "sets": 1, "reps": "3", "load": "60% 1RM" }
-      ],
-      "blocks": [
-        { "name": "Back squat", "sets": 4, "reps": "5", "load": "75% 1RM", "rpe": 7, "rest_seconds": 180, "notes": "" },
-        { "name": "Romanian deadlift", "sets": 3, "reps": "8-10", "load": "RPE 7", "rpe": 7, "rest_seconds": 120, "notes": "" }
-      ]
-    }
-  ]
-}
-\`\`\`
-
-4. Field rules:
-- \`schema_version\` MUST be 1. Do not invent new versions.
-- \`goal\` is one of: hypertrophy, strength, endurance, general, sport_specific.
-- \`experience_level\` is one of: beginner, intermediate, advanced.
-- \`start_date\` is ISO YYYY-MM-DD. If the user says "starting Monday", compute the next Monday from \`today\`.
-- \`timezone\` is an IANA name like "America/Los_Angeles" or "Europe/Berlin". If the user didn't give one, use whatever is in their profile or default to "UTC" — DO NOT guess a specific city.
-- \`sessions\` is a FLAT list of dated sessions, one entry per scheduled workout. No RRULE, no recurrence tricks. An 8-week 4-day plan has 32 sessions in this array.
-- \`id\` is a stable per-session string. Use the format \`s_w<week>d<day_of_week>\` (e.g. \`s_w3d2\` for week 3 Tuesday). NEVER change an id once assigned — see the CHAT ADJUSTMENTS rules below.
-- \`day_of_week\` is 1..7 where 1=Monday, 7=Sunday.
-- \`start_time\` is local HH:MM in the plan's timezone.
-- \`completion_status\` is always \`null\` for a newly-generated plan. Only set it to \`"missed"\`, \`"skipped"\`, or \`"completed"\` when the user is telling you they missed/skipped/finished that session.
-- \`blocks\` is an array of exercises. \`sets\` is a number. \`reps\` is a string (because "8-10" and "AMRAP" need to be expressible). \`load\` is a string like "75% 1RM" or "RPE 7" or "bodyweight" — no raw kg/lb numbers unless the user provided them. When you DO use raw weight numbers (e.g., "60kg" or "135 lbs"), ALWAYS use the unit from \`user_profile.weight_unit\` (defaults to kg if unset). Never mix units within a plan.
-- Each block may carry a \`category\` field indicating type. Values: \`resistance\` (default, use existing shape), \`cardio\`, \`swimming\`, \`climbing\`, \`bodyweight\`.
-- When \`category: "cardio"\`, the block shape is: \`{name, category: "cardio", activity_type, duration_target_minutes?, distance_target_km?, pace_target?, rpe?, notes?}\`. Use activity_type from the whitelist: running, cycling, walking, hiking, yoga, boxing, other.
-- When \`category: "swimming"\`, the block shape is: \`{name, category: "swimming", stroke_type, distance_target_m?, pool_length_m?, notes?}\`. Stroke: freestyle, backstroke, breaststroke, butterfly, im.
-- When \`category: "climbing"\`, the block shape is: \`{name, category: "climbing", style, target_grades?, notes?}\`. Style: bouldering, sport_climbing, top_rope_climbing, trad_climbing.
-- Sessions for non-resistance training should set session-level \`category\` to match the block type (e.g. \`"category": "cardio"\`).
-- When emitting raw weight numbers (e.g. "60kg" or "135 lbs"), always match \`user_profile.weight_unit\`. Never mix units within a plan.
-- When emitting distances, use \`user_profile.distance_unit\` (km by default, mi if specified). Swimming distances always use meters.
-- For climbing plans, use \`user_profile.default_grade_system\` when targeting specific grades.
-- \`warmup_blocks\` (OPTIONAL) is a ramp-up sequence before the working sets. Same shape as \`blocks\`. Include 2–4 warmup sets whenever the first working block uses ≥60% 1RM, RPE ≥7, or is a loaded compound lift (squat, deadlift, bench, overhead press, row). Skip warmups for deload sessions, bodyweight-only sessions, and pure conditioning. Typical pattern: 1 mobility/activation set, then 2–3 progressive percentage ramps of the working exercise (e.g. 40% → 60% → 80% of the prescribed working weight). Keep warmup entries lean — no \`rpe\` or \`rest_seconds\` needed, usually just \`name\`, \`sets\`, \`reps\`, \`load\`.
-- Do NOT emit \`id\` fields on individual \`blocks[]\` or \`warmup_blocks[]\` entries. The server auto-fills stable block IDs from the session id + index. Your job is to keep the ORDER of blocks stable within a session across chat edits; the IDs will follow.
-
-5. Use real numbers grounded in the user's context (experience level, equipment, days available, injuries). Do not fabricate study citations inside the plan JSON — keep those for the prose above.
-
-6. Emit exactly ONE workout-plan per answer. If the user asked for two plans, pick one and tell them you'll cover the other if they ask.
-
-7. The \`workout-plan\` fence REPLACES any regular \`widget\` fence for plan requests. Do not emit both.
-
-8. EMIT COMPACT JSON. Plans can have 20+ sessions; pretty-printing burns through the output budget and truncates mid-session. Rules:
-   - Single line per session object (no internal newlines inside \`{...}\`).
-   - No trailing whitespace, no indentation.
-   - Omit any field whose value is an empty string, \`null\`, or a default. Specifically: drop \`"notes": ""\`, \`"summary": ""\`, \`"completion_status": null\`, and \`"phase": ""\`. Drop \`"rpe": <n>\` when \`load\` already encodes it (e.g. \`"load": "RPE 7"\`).
-   - Drop \`"rest_seconds"\` if it's the default for the modality (90 for most; 120+ for compound lifts is worth keeping).
-   - The top-level \`notes\` field is fine to include when it carries real guidance; skip it when empty.
-   - The outer JSON object may still break across lines at the top level (weeks, goal, sessions array) for readability, but each element of \`sessions\` must be on its own single line.
-   An example of one compact session line:
-   \`{"id":"s_w1d1","week":1,"day_of_week":1,"date":"2026-04-13","start_time":"17:30","duration_minutes":50,"phase":"Foundation","title":"Full Body A","blocks":[{"name":"Goblet squat","sets":3,"reps":"8-10","load":"RPE 6-7","rest_seconds":90},{"name":"Push-up","sets":3,"reps":"8-12","load":"RPE 6-7"}]}\`
-
-CHAT ADJUSTMENTS TO AN EXISTING PLAN
-
-When the user is asking you to adjust a plan they already have, the server will include \`current_workout_plan\` in the user input JSON. When that field is present:
-
-- Treat the user's message as a potential plan-adjustment request. Common patterns:
-  - "I missed Friday / yesterday / this week" → find the affected session(s), set \`completion_status: "missed"\`. Either shift the rest of the week or roll missed work forward based on what the user says. If unclear, ask — don't silently delete sessions.
-  - "I can't lift X" / "X is too heavy" / "X is too light" → rescale that exercise's load for FUTURE sessions only. Leave past sessions unchanged; they are history.
-  - "Swap X for Y" → replace the exercise in all future sessions where it appears, preserving sets/reps/intensity.
-  - "Move Friday to Saturday" / "push the plan back a week" → reschedule the affected sessions. Update their \`date\` and \`day_of_week\`.
-  - "My knee hurts" / "my shoulder is bothering me" → flag affected exercises in their \`notes\` field, propose conservative substitutions. This is the only place you may lean medical-conservative in one sentence.
-  - "Add a deload" → insert a deload week and shift downstream sessions.
-
-- Emit a \`workout-plan\` fence that contains:
-  1. \`"updates_plan_id": "<the id from current_workout_plan.id>"\` as a top-level field alongside \`schema_version\`.
-  2. The SAME plan.id (copy it from current_workout_plan).
-  3. The FULL plan (not a diff — send the whole sessions array).
-
-- Preserve the \`id\` on every session that you are NOT structurally changing. If session s_w3d2 keeps the same week, day_of_week, and exercises, its id MUST remain s_w3d2. Generating fresh ids breaks the sync pipeline that tracks external calendar events per session. This is a hard rule — the server will reject updates that drift ids without real changes.
-
-- Never modify sessions whose \`date\` is in the past unless the user is explicitly editing history ("I actually did 5 sets, not 4, on last Monday"). Past sessions are read-mostly.
-
-- Lead with prose that explains what changed and why. Be specific: "I moved your Friday session to Saturday and bumped the next two Monday squats from 75% to 70% 1RM so you can hit the prescribed RPE."
-
 DEFAULT BEHAVIOR
-For everyday questions, just write prose. Reach for a widget when the question is structurally visual — and only when you have real data to fill it. For plan-building and plan-adjustment questions, use the workout-plan fence format above.
+For everyday questions, just write prose. Reach for a widget when the question is structurally visual — and only when you have real data to fill it. For meal plans and workout plans, use the provided tool calls.
 `.trim();
 
 // ─── Tool definitions for structured outputs ────────────────────────────────
@@ -2249,17 +2137,15 @@ function buildSynthesisInput({
         // Emersus should reason about edits to it. Populated by
         // generateRecommendation via fetchSupabaseWorkoutPlan when
         // threadState.active_workout_plan_id is set. When this is non-null,
-        // the CHAT ADJUSTMENTS section of the system prompt applies and the
-        // model should emit workout-plan fences with updates_plan_id set.
-        // Keep the key present (as null) when there's no active plan so the
-        // model never confuses "no active plan" with "field forgotten".
+        // When current_workout_plan is non-null the emit_workout_plan tool
+        // description tells the model to include updates_plan_id and preserve
+        // session ids. Keep the key present (as null) when there's no active
+        // plan so the model never confuses "no active plan" with "field forgotten".
         current_workout_plan: currentWorkoutPlan || null,
         retrieved_evidence: evidenceForModel,
         instructions: [
           "If the question touches medical or medication risk, stay high level and do not give diagnosis or personalized medication advice.",
           "SOURCES POLICY (strict): never list, cite, bracket, or reference sources in the chat body. No '[1]' / '(Smith 2023)' / 'Source 1:' / trailing 'Sources:' / 'References:' sections / bibliographies / numbered source lists / clickable links to studies. Do not write phrases like 'see source below', 'according to source 3', or 'the cited paper'. You CAN and SHOULD describe the research naturally in the prose ('a 2023 meta-analysis in trained men found...', 'the classic creatine loading trials'), because the sources panel is rendered separately on the right rail and the user will see the actual citations there.",
-          "If the user is asking for a multi-week training plan, mesocycle, periodized block, weekly split, or training calendar, emit a ```workout-plan``` fence containing JSON that conforms to schema_version 1 (see WORKOUT-PLAN FENCES in the system instructions). Lead with 2–4 sentences of prose rationale, then the fence, then stop.",
-          "If current_workout_plan is present and the user is asking to modify it (missed a session, cannot hit a prescribed load, exercise swap, reschedule, injury, add a deload), emit a ```workout-plan``` fence whose JSON body has a top-level updates_plan_id field equal to current_workout_plan.id and preserves every session id that is not structurally changing.",
         ],
       }),
     },
