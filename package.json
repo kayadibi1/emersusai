@@ -12,6 +12,7 @@
     "test:retrieval": "node scripts/test-retrieval.js",
     "test:visual-artifacts": "node scripts/test-visual-artifacts.js",
     "test:widget-fence": "node scripts/test-widget-fence-routing.js",
+    "test:foods-search": "node scripts/test-foods-search.js",
     "test": "node --test --test-concurrency=1 \"tests/unit/**/*.js\" \"tests/integration/**/*.js\"",
     "test:unit": "node --test \"tests/unit/**/*.js\"",
     "test:integration": "node --test --test-concurrency=1 \"tests/integration/**/*.js\""

@@ -104,3 +104,88 @@ for all
 to service_role
 using (true)
 with check (true);
+
+-- ───── foods_search RPC ────────────────────────────────────────────────────
+-- Used by api/emersus/foods-search.js for typeahead, and by the nutrition
+-- parser's match pipeline. Runs SECURITY INVOKER so RLS on public.foods
+-- enforces user-contributed visibility.
+--
+-- Ranking formula:
+--   primary  = ts_rank_cd(search_vector, tsquery)      -- FTS relevance
+--   fuzz     = similarity(description, query)          -- pg_trgm on description
+--   brand    = similarity(brand_name, query)           -- pg_trgm on brand
+--   tie      = source rank CASE (foundation=7 .. chain_scrape=1)
+--   data_pts = COALESCE(data_points, 0) / 1000.0       -- prefer complete branded
+--
+-- Final order: (primary + fuzz + brand) desc, tie desc, data_pts desc, description asc
+
+create or replace function public.foods_search(
+  p_query         text,
+  p_kind          text default 'any',
+  p_generic_only  boolean default false,
+  p_limit         int default 20
+) returns table (
+  id            uuid,
+  description   text,
+  brand_name    text,
+  source        text,
+  kind          text,
+  category      text,
+  common_unit   text,
+  common_unit_grams numeric,
+  base_unit     text,
+  base_amount   numeric,
+  form          text,
+  rank          numeric
+)
+language sql
+stable
+security invoker
+set search_path = public, extensions
+as $$
+  with q as (
+    select
+      plainto_tsquery('english', p_query) as tsq,
+      lower(p_query) as lq
+  )
+  select
+    f.id,
+    f.description,
+    f.brand_name,
+    f.source,
+    f.kind,
+    f.category,
+    f.common_unit,
+    f.common_unit_grams,
+    f.base_unit,
+    f.base_amount,
+    f.form,
+    (
+      ts_rank_cd(f.search_vector, q.tsq)
+      + greatest(similarity(f.description, q.lq), 0) * 0.5
+      + greatest(similarity(coalesce(f.brand_name, ''), q.lq), 0) * 0.5
+    )::numeric as rank
+  from public.foods f, q
+  where (f.search_vector @@ q.tsq
+         or f.description % q.lq
+         or (f.brand_name is not null and f.brand_name % q.lq))
+    and (p_kind = 'any' or f.kind = p_kind)
+    and (not p_generic_only or f.source <> 'usda_branded')
+  order by
+    rank desc,
+    case f.source
+      when 'usda_foundation'  then 7
+      when 'usda_sr_legacy'   then 6
+      when 'usda_branded'     then 5
+      when 'usda_fndds'       then 4
+      when 'seed_supplement'  then 3
+      when 'user_contributed' then 2
+      when 'chain_scrape'     then 1
+      else 0
+    end desc,
+    coalesce(f.data_points, 0) desc,
+    f.description asc
+  limit p_limit
+$$;
+
+grant execute on function public.foods_search(text, text, boolean, int) to authenticated, service_role;
