@@ -12,7 +12,6 @@
 
 import { fetchWithTimeoutAndUA } from "./_http.js";
 import { createLimiter } from "./_ratelimit.js";
-import { SourcePermanentError } from "./_errors.js";
 import { registerIngestion } from "./_registry.js";
 
 const SEARCH_URL = "https://api.semanticscholar.org/graph/v1/paper/search";
@@ -36,7 +35,7 @@ const FIELDS = [
   "publicationTypes",
 ].join(",");
 
-const waitSlot = createLimiter(8); // 8 RPS with key (ceiling is 10)
+const waitSlot = createLimiter(1); // 1 RPS — S2 docs say 1 req/s with API key
 
 /**
  * S2's /paper/search expects plain keyword queries — it doesn't parse
@@ -119,9 +118,8 @@ export const semanticScholar = {
       const body = await searchPage(query, offset);
       const papers = Array.isArray(body?.data) ? body.data : [];
       if (papers.length === 0) {
-        if (offset === 0) {
-          throw new SourcePermanentError(`semantic-scholar returned 0 results for query: ${query}`);
-        }
+        // 0 results is a valid outcome — S2 search is keyword-based and
+        // many niche exercise-science topics simply have no coverage.
         return;
       }
       for (const p of papers) {
