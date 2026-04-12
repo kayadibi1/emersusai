@@ -2308,10 +2308,54 @@ async function processMealPlanToolCall(toolCall, mergedProfile, { question, supa
   if (mergedProfile?.activity_level == null) missingFields.push("activity level");
 
   if (missingFields.length > 0) {
-    return {
-      ok: false,
-      fallbackText: `I need a few more details before I can build the plan: ${missingFields.join(", ")}. What are your numbers?`,
-    };
+    // Try to extract body metrics from the current message. This handles
+    // the multi-turn flow: model asked for fields → user replied with
+    // numbers → model called emit_meal_plan → we extract + patch here.
+    if (question) {
+      const extracted = extractBodyMetrics(question);
+      if (Object.keys(extracted).length > 0) {
+        Object.assign(mergedProfile, extracted);
+        // Persist to Supabase so future turns see the updated profile
+        if (supabaseUserId && supabaseUrl && serviceRoleKey) {
+          const patchBody = {};
+          for (const [k, v] of Object.entries(extracted)) {
+            if (v != null) patchBody[k] = v;
+          }
+          if (Object.keys(patchBody).length > 0) {
+            try {
+              await fetch(
+                `${supabaseUrl}/rest/v1/profiles?id=eq.${encodeURIComponent(supabaseUserId)}`,
+                {
+                  method: "PATCH",
+                  headers: {
+                    "Content-Type": "application/json",
+                    apikey: serviceRoleKey,
+                    Authorization: `Bearer ${serviceRoleKey}`,
+                    Prefer: "return=minimal",
+                  },
+                  body: JSON.stringify(patchBody),
+                }
+              );
+            } catch (err) {
+              console.error("[tools] profile patch failed:", err);
+            }
+          }
+        }
+        // Re-check the gate after extraction
+        missingFields.length = 0;
+        if (mergedProfile?.body_weight_kg == null) missingFields.push("body weight");
+        if (mergedProfile?.height_cm == null)      missingFields.push("height");
+        if (mergedProfile?.date_of_birth == null)  missingFields.push("date of birth");
+        if (mergedProfile?.biological_sex == null) missingFields.push("biological sex");
+        if (mergedProfile?.activity_level == null) missingFields.push("activity level");
+      }
+    }
+    if (missingFields.length > 0) {
+      return {
+        ok: false,
+        fallbackText: `I need a few more details before I can build the plan: ${missingFields.join(", ")}. What are your numbers?`,
+      };
+    }
   }
 
   // Validate against the existing schema
