@@ -4298,6 +4298,7 @@ will run plan generation.
       });
 
       // Infer meal_slot from time-of-day for items without one.
+      // Infer meal_slot from server time of day (UTC on Hetzner). User timezone correction deferred to v1.5.
       const now = new Date();
       const h = now.getHours();
       const timeSlot =
