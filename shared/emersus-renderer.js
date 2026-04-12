@@ -42,35 +42,27 @@ export {
 // emit raw <input>, <button>, <select>, etc. without restating typography.
 //
 // The theme is dark-only and tracks the host site palette in shared/site.css
-// (--bg #0c0e11, --ink #f9f9fd, --primary #6d9fff lime/blue accent #9ffb00).
+// (#08080a base, #78dc14 green accent, Georgia display + JetBrains Mono code).
 // We previously shipped a warm-beige light default that turned every widget
 // wrapper into a stark cream card on the dark chat surface — visually
 // alien to the rest of the app. The token names below are unchanged so any
 // older widgets the model emits keep working; only the values are remapped.
 export const EMERSUS_THEME_CSS = `
-  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
   :root {
     color-scheme: dark;
-    /* --color-* namespace (preferred — matches the Emersus design system).
-       The primary surface is a multi-layer liquid-glass panel: top-left
-       blue radial highlight + bottom-right lime tint + bright top edge
-       fading to a near-transparent base. The actual backdrop-filter
-       blur lives in the [style*="--color-background-primary"] selector
-       below — CSS variables cannot carry filter functions. */
-    --color-background-primary:
-      radial-gradient(circle at 0% 0%, rgba(109, 159, 255, 0.18), transparent 50%),
-      radial-gradient(circle at 100% 100%, rgba(159, 251, 0, 0.08), transparent 55%),
-      linear-gradient(180deg, rgba(255, 255, 255, 0.10), rgba(255, 255, 255, 0.025));
-    --color-background-secondary: rgba(255, 255, 255, 0.06);
-    --color-background-tertiary: rgba(255, 255, 255, 0.11);
-    --color-text-primary: #f9f9fd;
-    --color-text-secondary: #a7adb4;
-    --color-text-tertiary: #6f7480;
-    --color-border-primary: rgba(255, 255, 255, 0.22);
-    --color-border-secondary: rgba(255, 255, 255, 0.14);
-    --color-border-tertiary: rgba(255, 255, 255, 0.12);
-    --color-background-success: rgba(159, 251, 0, 0.10);
-    --color-text-success: #b9f47a;
+    /* --color-* namespace (preferred — matches the Emersus design system). */
+    --color-background-primary: #08080a;
+    --color-background-secondary: rgba(255,255,255,0.06);
+    --color-background-tertiary: rgba(255,255,255,0.10);
+    --color-text-primary: #e8e8e8;
+    --color-text-secondary: #888;
+    --color-text-tertiary: #555;
+    --color-border-primary: rgba(255,255,255,0.08);
+    --color-border-secondary: rgba(255,255,255,0.06);
+    --color-border-tertiary: rgba(255,255,255,0.06);
+    --color-background-success: rgba(120,220,20,0.10);
+    --color-text-success: #78dc14;
     --color-background-warning: rgba(255, 196, 102, 0.12);
     --color-text-warning: #ffd57a;
     --color-background-danger: rgba(255, 143, 157, 0.12);
@@ -79,8 +71,8 @@ export const EMERSUS_THEME_CSS = `
     --color-text-info: #b5d4f4;
     --color-border-info: rgba(109, 159, 255, 0.32);
     --border-radius-sm: 6px;
-    --border-radius-md: 12px;
-    --border-radius-lg: 18px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 10px;
 
     /* --bg-* / --text-* aliases (backward compatible with older widgets) */
     --bg-primary: var(--color-background-primary);
@@ -93,18 +85,18 @@ export const EMERSUS_THEME_CSS = `
     --border-hover: var(--color-border-primary);
     --radius-md: var(--border-radius-md);
     --radius-lg: var(--border-radius-lg);
-    --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    --font-display: "Space Grotesk", "Inter", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: system-ui, -apple-system, sans-serif;
+    --font-display: Georgia, "Times New Roman", serif;
 
-    /* Site accent tokens — exposed so widgets can pick up the lime/blue
-       gradient that defines the rest of the Emersus surface. */
-    --accent-primary: #6d9fff;
-    --accent-secondary: #9ffb00;
+    /* Site accent tokens — exposed so widgets can pick up the green
+       accent that defines the rest of the Emersus surface. */
+    --accent-primary: #78dc14;
+    --accent-secondary: #78dc14;
 
     /* Evidence-strength tokens */
-    --ev-strong-bg: rgba(159, 251, 0, 0.10);
-    --ev-strong-text: #b9f47a;
-    --ev-strong-dot: #9ffb00;
+    --ev-strong-bg: rgba(120,220,20,0.10);
+    --ev-strong-text: #78dc14;
+    --ev-strong-dot: #78dc14;
     --ev-moderate-bg: rgba(255, 196, 102, 0.12);
     --ev-moderate-text: #ffd57a;
     --ev-moderate-dot: #ffc466;
@@ -133,30 +125,11 @@ export const EMERSUS_THEME_CSS = `
   body {
     padding: 0;
   }
-  /* Liquid-glass treatment for the model's wrapper card. The model emits
-     <div style="background:var(--color-background-primary);..."> as the
-     outer container of (almost) every widget; we use an attribute
-     selector to retroactively layer backdrop-filter, a soft inset
-     highlight on the top edge, and an outer drop shadow onto it. CSS
-     variables can hold gradients but not filter functions, so the blur
-     has to live here, not on the token itself. */
+  /* Minimal card treatment for the model's wrapper card. */
   [style*="--color-background-primary"],
   [style*="background:var(--color-background-primary)"],
   [style*="background: var(--color-background-primary)"] {
-    backdrop-filter: blur(28px) saturate(180%);
-    -webkit-backdrop-filter: blur(28px) saturate(180%);
-    box-shadow:
-      0 20px 60px rgba(0, 0, 0, 0.45),
-      0 1px 0 rgba(255, 255, 255, 0.10) inset,
-      0 0 0 0.5px rgba(255, 255, 255, 0.06) inset;
-  }
-  [style*="background:var(--color-background-secondary)"],
-  [style*="background: var(--color-background-secondary)"],
-  [style*="background:var(--color-background-tertiary)"],
-  [style*="background: var(--color-background-tertiary)"] {
-    backdrop-filter: blur(14px) saturate(160%);
-    -webkit-backdrop-filter: blur(14px) saturate(160%);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06) inset;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
   }
   h1, h2, h3, h4 {
     margin: 0 0 10px;
@@ -182,10 +155,10 @@ export const EMERSUS_THEME_CSS = `
   a {
     color: var(--accent-primary);
     text-decoration: none;
-    border-bottom: 1px solid rgba(109, 159, 255, 0.35);
+    border-bottom: 1px solid rgba(120, 220, 20, 0.35);
     transition: color 140ms ease, border-color 140ms ease;
   }
-  a:hover { color: var(--accent-secondary); border-bottom-color: rgba(159, 251, 0, 0.5); }
+  a:hover { color: var(--accent-secondary); border-bottom-color: rgba(120, 220, 20, 0.5); }
   input[type="text"], input[type="number"], input[type="search"], select, textarea {
     width: 100%;
     padding: 9px 12px;
@@ -203,7 +176,7 @@ export const EMERSUS_THEME_CSS = `
   input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--accent-primary);
-    background: rgba(109, 159, 255, 0.06);
+    background: rgba(120, 220, 20, 0.06);
   }
   input[type="range"] {
     width: 100%;
@@ -229,8 +202,8 @@ export const EMERSUS_THEME_CSS = `
     transition: border-color 140ms ease, background 140ms ease, color 140ms ease, transform 140ms ease;
   }
   button:hover {
-    border-color: rgba(159, 251, 0, 0.45);
-    background: rgba(159, 251, 0, 0.08);
+    border-color: rgba(120, 220, 20, 0.45);
+    background: rgba(120, 220, 20, 0.08);
     color: var(--accent-secondary);
     transform: translateY(-1px);
   }
@@ -316,7 +289,7 @@ export function WidgetFrame({ code, html, title }) {
     if (typeof Chart !== "undefined") {
       Chart.defaults.color = "rgba(255, 255, 255, 0.65)";
       Chart.defaults.borderColor = "rgba(255, 255, 255, 0.08)";
-      Chart.defaults.font.family = '"Inter", ui-sans-serif, system-ui, sans-serif';
+      Chart.defaults.font.family = 'system-ui, -apple-system, sans-serif';
       Chart.defaults.font.size = 11;
       if (Chart.defaults.scale && Chart.defaults.scale.grid) {
         Chart.defaults.scale.grid.color = "rgba(255, 255, 255, 0.06)";
