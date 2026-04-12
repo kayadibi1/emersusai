@@ -1825,8 +1825,24 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
           ),
         );
       } else if (toolName === "log_food" && toolData) {
-        // NutritionLogConfirmCard parses JSON from segment.content
-        const segment = { content: JSON.stringify(toolData) };
+        // Transform log_food tool shape { foods, meal_slot } into the
+        // resolved_items shape NutritionLogConfirmCard expects.
+        const confirmPayload = {
+          resolved_items: (toolData.foods || []).map((f) => ({
+            description: f.description,
+            grams: f.grams,
+            kcal: f.kcal,
+            protein_g: f.protein_g,
+            carbs_g: f.carbs_g,
+            fat_g: f.fat_g,
+            meal_slot: toolData.meal_slot || "lunch",
+            kind: "food",
+          })),
+          unresolved: [],
+          meal_slot_default: toolData.meal_slot || "lunch",
+          logged_date: new Date().toISOString().slice(0, 10),
+        };
+        const segment = { content: JSON.stringify(confirmPayload) };
         children.push(
           h(
             "div",
