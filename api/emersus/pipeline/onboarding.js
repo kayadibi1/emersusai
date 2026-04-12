@@ -3,7 +3,7 @@
 // Conversational profile capture for new users — replaces the RAG pipeline.
 // ---------------------------------------------------------------------------
 
-const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-4.1-mini";
+const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
 
 function extractTextFromResponse(payload) {
   if (payload?.output_text) return payload.output_text;

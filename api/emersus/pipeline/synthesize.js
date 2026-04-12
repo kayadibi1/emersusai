@@ -1,7 +1,7 @@
 import { buildMessages } from "./prompt.js";
 import { TOOL_DEFINITIONS } from "./tools.js";
 
-const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-4.1-mini";
+const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
 
 // Intent → forced tool mapping. When the user clearly asks for a specific
 // structured output, we use the Responses API `allowed_tools` tool_choice
