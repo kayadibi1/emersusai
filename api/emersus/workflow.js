@@ -424,10 +424,75 @@ const EMIT_MEAL_PLAN_TOOL = {
   },
 };
 
+const EMIT_WORKOUT_PLAN_TOOL = {
+  type: "function",
+  name: "emit_workout_plan",
+  description: [
+    "Generate a structured workout plan. Call this tool when the user asks for a multi-week training plan, periodized block, mesocycle, weekly split, or training calendar.",
+    "",
+    "Lead with 2-4 sentences of prose rationale in your content (why this split, volume, intensity). Then call this tool with the plan JSON. Do not repeat sessions as a prose list.",
+    "",
+    "SESSION SHAPE: flat array of dated sessions. An 8-week 4-day plan has 32 sessions.",
+    "  id: s_w{week}d{day_of_week} (e.g. s_w3d2). NEVER change an id once assigned.",
+    "  day_of_week: 1=Monday, 7=Sunday.",
+    "  blocks[]: { name, sets (number), reps (string like '8-10' or 'AMRAP'), load (string like '75% 1RM' or 'RPE 7'), rpe?, rest_seconds?, notes?, category? }",
+    "  warmup_blocks[]: same shape, include 2-4 entries for compounds >=60% 1RM.",
+    "  Block categories: resistance (default), cardio, swimming, climbing, bodyweight.",
+    "  Cardio blocks: { name, category: 'cardio', activity_type, duration_target_minutes?, distance_target_km?, pace_target?, rpe?, notes? }",
+    "",
+    "COMPACT JSON: single line per session object, no indentation. Omit empty strings, null values, and default rest_seconds.",
+    "",
+    "CHAT ADJUSTMENTS: if current_workout_plan is in the user input, the user wants to modify it.",
+    "  Include updates_plan_id equal to current_workout_plan.id.",
+    "  Emit the FULL plan (not a diff). Preserve session ids that aren't structurally changing.",
+    "  Never modify sessions whose date is in the past unless the user explicitly edits history.",
+    "",
+    "Use weight_unit from user_profile (default kg). Use distance_unit from user_profile (default km, swimming always meters).",
+  ].join("\n"),
+  parameters: {
+    type: "object",
+    required: ["schema_version", "title", "goal", "experience_level", "start_date", "weeks", "days_per_week", "sessions"],
+    properties: {
+      schema_version: { type: "integer", description: "Must be 1" },
+      title: { type: "string" },
+      goal: { type: "string", enum: ["hypertrophy", "strength", "endurance", "general", "sport_specific"] },
+      experience_level: { type: "string", enum: ["beginner", "intermediate", "advanced"] },
+      start_date: { type: "string", description: "ISO YYYY-MM-DD" },
+      timezone: { type: "string", description: "IANA timezone, default UTC" },
+      weeks: { type: "integer" },
+      days_per_week: { type: "integer" },
+      notes: { type: "string" },
+      updates_plan_id: { type: "string", description: "Present only when updating an existing plan" },
+      sessions: {
+        type: "array",
+        items: {
+          type: "object",
+          required: ["id", "week", "day_of_week", "date", "title", "blocks"],
+          properties: {
+            id: { type: "string" },
+            week: { type: "integer" },
+            day_of_week: { type: "integer" },
+            date: { type: "string" },
+            start_time: { type: "string" },
+            duration_minutes: { type: "integer" },
+            phase: { type: "string" },
+            title: { type: "string" },
+            summary: { type: "string" },
+            category: { type: "string" },
+            completion_status: { type: "string" },
+            warmup_blocks: { type: "array", items: { type: "object" } },
+            blocks: { type: "array", items: { type: "object" } },
+          },
+        },
+      },
+    },
+  },
+};
+
 // Build the tools array passed to callOpenAISynthesis. Tools are included
 // on every call — the model's tool choice IS the intent signal.
 function buildTools() {
-  return [EMIT_MEAL_PLAN_TOOL];
+  return [EMIT_MEAL_PLAN_TOOL, EMIT_WORKOUT_PLAN_TOOL];
 }
 
 // Regex detectors for (a) user questions that clearly want a visual output
@@ -2370,6 +2435,29 @@ async function processMealPlanToolCall(toolCall, mergedProfile, { question, supa
 
   // Wrap validated JSON in a meal-plan fence for the client
   const fence = "```meal-plan\n" + JSON.stringify(plan) + "\n```";
+  return { ok: true, fence };
+}
+
+function processWorkoutPlanToolCall(toolCall) {
+  const plan = toolCall.arguments;
+
+  // Basic structural validation
+  if (!plan || typeof plan !== "object" || !Array.isArray(plan.sessions)) {
+    console.error("[tools] emit_workout_plan: invalid structure");
+    return {
+      ok: false,
+      fallbackText: "I generated a workout plan but it had structural issues. Could you try again?",
+    };
+  }
+  if (plan.schema_version !== 1) {
+    console.error("[tools] emit_workout_plan: unexpected schema_version", plan.schema_version);
+    return {
+      ok: false,
+      fallbackText: "I generated a workout plan but it had structural issues. Could you try again?",
+    };
+  }
+
+  const fence = "```workout-plan\n" + JSON.stringify(plan) + "\n```";
   return { ok: true, fence };
 }
 
@@ -4610,7 +4698,14 @@ async function generateRecommendation({
             combined = result.fallbackText;
           }
         }
-        // Stage 2 will add: else if (tc.name === "emit_workout_plan") { ... }
+        else if (tc.name === "emit_workout_plan") {
+          const result = processWorkoutPlanToolCall(tc);
+          if (result.ok) {
+            combined = combined ? combined + "\n\n" + result.fence : result.fence;
+          } else {
+            combined = result.fallbackText;
+          }
+        }
       }
 
       if (combined) {
@@ -4668,6 +4763,14 @@ async function generateRecommendation({
         for (const tc of retryToolCalls) {
           if (tc.name === "emit_meal_plan") {
             const result = await processMealPlanToolCall(tc, mergedProfile, { question, supabaseUserId, supabaseUrl, serviceRoleKey });
+            if (result.ok) {
+              combined = combined ? combined + "\n\n" + result.fence : result.fence;
+            } else {
+              combined = result.fallbackText;
+            }
+          }
+          else if (tc.name === "emit_workout_plan") {
+            const result = processWorkoutPlanToolCall(tc);
             if (result.ok) {
               combined = combined ? combined + "\n\n" + result.fence : result.fence;
             } else {
