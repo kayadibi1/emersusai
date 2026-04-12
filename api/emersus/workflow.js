@@ -636,66 +636,6 @@ function isLogFoodIntent(text) {
   );
 }
 
-// ─── Nutrition intent sub-classifier ───────────────────────────────────────
-//
-// When topic === "nutrition", this classifier picks one of four sub-intents.
-// Regex-only, no extra LLM call. False positives are harmless because both
-// plan generation and logging paths have explicit UI confirmation.
-//
-//   generate_plan — "meal plan", "macros for", "cut/bulk/recomp", "diet plan", etc.
-//   log_food      — "I had X", "log Y", "took my supps", "for lunch: ...", etc.
-//   query         — any other nutrition question; normal retrieval path
-//   none          — not nutrition; this function isn't called
-//
-export function classifyNutritionIntent(text) {
-  const t = (text || "").toLowerCase().trim();
-  if (!t) return "query";
-
-  // Plan generation
-  if (
-    /\b(meal\s*plan|diet\s*plan|nutrition\s*plan|eating\s*plan)\b/.test(t) ||
-    /\bmacros?\s+(for|to)\b/.test(t) ||
-    /\bwhat\s+should\s+i\s+eat\b/.test(t) ||
-    /\b(cut|bulk|recomp|maintenance)\b.*\b(plan|macros|diet)\b/.test(t) ||
-    /\bset\s+(up\s+)?my\s+(macros|diet|nutrition)\b/.test(t) ||
-    /\bgenerate\s+.*(meal|diet|nutrition)\b/.test(t)
-  ) {
-    return "generate_plan";
-  }
-
-  // Logging
-  if (
-    /^(log|track|record)\s+/.test(t) ||
-    /^i\s+(just\s+)?(had|ate|drank|took)\b/.test(t) ||
-    /^(took|taking)\s+(my\s+)?(supps?|stack|vitamins?|supplements?)\b/.test(t) ||
-    /^(for|at)\s+(breakfast|lunch|dinner|snack|supper)\b.*[:\-]/.test(t) ||
-    /\blog\s+(this|these|it|that)\b/.test(t)
-  ) {
-    return "log_food";
-  }
-
-  return "query";
-}
-
-// ─── Nutrition profile gate ────────────────────────────────────────────────
-//
-// Plan generation requires: body_weight_kg, height_cm, date_of_birth,
-// biological_sex, activity_level. If any are missing, the LLM must ASK the
-// user for them conversationally before emitting a meal-plan fence.
-//
-// Returns null if all required fields are present, otherwise an array of
-// missing field names (human-readable) for the system prompt to use.
-//
-export function checkNutritionProfileGate(profile) {
-  const missing = [];
-  if (profile?.body_weight_kg == null) missing.push("current body weight (kg or lbs)");
-  if (profile?.height_cm == null)      missing.push("height (cm or ft/in)");
-  if (profile?.date_of_birth == null)  missing.push("date of birth (for age)");
-  if (profile?.biological_sex == null) missing.push("biological sex (for BMR formula — male or female)");
-  if (profile?.activity_level == null) missing.push("activity level (sedentary, light, moderate, active, very active)");
-  return missing.length === 0 ? null : missing;
-}
-
 // ─── Body-metric extraction (regex, no LLM call) ─────────────────────────
 //
 // Parses freeform text like "80 kg 181 cm 27 male low activity" into
@@ -2067,7 +2007,6 @@ function buildSynthesisInput({
   recentMessages,
   safety,
   currentWorkoutPlan = null,
-  systemPromptAddendum = "",
 }) {
   const normalizedThreadState = normalizeThreadState(threadState);
   const normalizedRecentMessages = normalizeRecentMessages(recentMessages);
@@ -2170,7 +2109,7 @@ function buildSynthesisInput({
           "If the current question introduces a new topic, ignore prior hypertrophy or strength context unless the user explicitly connects the new topic to that context.",
           "If the current question is a short confirmation such as 'yes' or 'do that', resolve it against the immediately previous assistant offer in Recent messages, not an older thread topic.",
           "If thread context is needed for interpretation, make the assumption briefly explicit.",
-          "Do not invent sources. Do not return JSON.",
+          "Do not invent sources. Do not return raw JSON in prose — structured data (meal plans, workout plans) goes through tool calls.",
           "Use a short bullet list only when it genuinely helps the user act on the answer.",
           "Do not use section headings like SUMMARY, TRAINING, NUTRITION, MENTAL PERFORMANCE, CONFIDENCE, or LIMITATIONS.",
           "Do not mention confidence scores, confidence labels, or system-status concepts in the answer.",
@@ -2260,13 +2199,6 @@ function buildSynthesisInput({
       }),
     },
   ];
-  // Append the nutrition addendum as a final system message when present.
-  // The static prefix (messages 1–3: identity, widget rules, few-shot pair)
-  // stays byte-identical; message 4 (the user request) already varies per
-  // call, so the addendum at position 5 adds no additional cache disruption.
-  if (systemPromptAddendum) {
-    messages.push({ role: "system", content: systemPromptAddendum });
-  }
   return messages;
 }
 
@@ -2408,7 +2340,6 @@ async function callOpenAISynthesis({
   recentMessages,
   safety,
   currentWorkoutPlan = null,
-  systemPromptAddendum = "",
   tools = null,
   captureDebug = null, // { onInput?: (input) => void } — lets callers observe the actual OpenAI input array for the debug page.
 }) {
@@ -2428,7 +2359,6 @@ async function callOpenAISynthesis({
     recentMessages,
     safety,
     currentWorkoutPlan,
-    systemPromptAddendum,
   });
   if (captureDebug && typeof captureDebug.onInput === "function") {
     try {
@@ -4480,200 +4410,6 @@ async function generateRecommendation({
   // User sent a valid question — reset their cooldown state.
   clearGuardrailCooldown(cooldownKey);
 
-  // ── Nutrition intent sub-routing ─────────────────────────────────────────
-  // When topic === "nutrition", classify the sub-intent and build an addendum
-  // that is appended to the system prompt. Retrieval still runs below so the
-  // model can cite evidence inside both the gate-ask and the plan itself.
-  //
-  // Multi-turn continuity: if the last assistant message was the profile gate
-  // ("NUTRITION PROFILE GATE:"), the user's follow-up (body metrics) won't
-  // match the nutrition regex in inferTopic. Force the topic + intent so the
-  // plan generation path runs on the second turn.
-  const lastAssistantMsg = (Array.isArray(recentMessages)
-    ? recentMessages.filter(m => m.role === "assistant").slice(-1)[0]?.text
-    : "") || "";
-  // Thread-state override: if the client's threadState says we're in a
-  // nutrition/meal_plan conversation, trust it over the stateless inferTopic()
-  // result. This is the primary mechanism for multi-turn meal plan generation.
-  const threadTopicHint = (threadState?.primary_topic ?? "").toLowerCase();
-  const threadIntentHint = (threadState?.last_user_intent ?? "").toLowerCase();
-  const threadSaysNutrition = /nutrition|meal.plan|diet|meal_plan/.test(threadTopicHint);
-  const threadSaysMealPlan = /meal.plan|meal_plan/.test(threadTopicHint)
-    || /meal.plan/.test(threadIntentHint);
-
-  if (plan.topic !== "nutrition" && threadSaysNutrition) {
-    plan.topic = "nutrition";
-  }
-
-  // Legacy regex-based follow-up detection (backup for clients that don't
-  // send threadState or for edge cases where threadState lost the topic)
-  const isProfileGateFollowUp =
-    plan.topic !== "nutrition"
-    && /body\s*weight|height|biological\s*sex|activity\s*level/i.test(lastAssistantMsg)
-    && /\b(weight|height|age|sex|activity|meal plan)/i.test(lastAssistantMsg)
-    && /\d/.test(question);
-  if (isProfileGateFollowUp) {
-    plan.topic = "nutrition";
-  }
-
-  // If this is a profile-gate follow-up, try to extract body metrics from the
-  // user's reply and persist them to the profile so the gate passes this turn.
-  if (isProfileGateFollowUp && supabaseUserId) {
-    const extracted = extractBodyMetrics(question);
-    if (Object.keys(extracted).length > 0) {
-      try {
-        const patchBody = {};
-        if (extracted.body_weight_kg != null) patchBody.body_weight_kg = extracted.body_weight_kg;
-        if (extracted.height_cm != null)      patchBody.height_cm = extracted.height_cm;
-        if (extracted.date_of_birth != null)  patchBody.date_of_birth = extracted.date_of_birth;
-        if (extracted.biological_sex != null) patchBody.biological_sex = extracted.biological_sex;
-        if (extracted.activity_level != null) patchBody.activity_level = extracted.activity_level;
-
-        if (Object.keys(patchBody).length > 0) {
-          const patchRes = await fetch(
-            `${supabaseUrl}/rest/v1/profiles?id=eq.${encodeURIComponent(supabaseUserId)}`,
-            {
-              method: "PATCH",
-              headers: {
-                "Content-Type": "application/json",
-                apikey: serviceRoleKey,
-                Authorization: `Bearer ${serviceRoleKey}`,
-                Prefer: "return=minimal",
-              },
-              body: JSON.stringify(patchBody),
-            }
-          );
-          if (patchRes.ok) {
-            // Merge into the in-memory profile so the gate check below sees them
-            Object.assign(mergedProfile, patchBody);
-          } else {
-            console.error("[nutrition] profile patch failed:", await patchRes.text().catch(() => ""));
-          }
-        }
-      } catch (err) {
-        console.error("[nutrition] profile extraction error:", err);
-      }
-    }
-  }
-
-  let systemPromptAddendum = "";
-  if (plan.topic === "nutrition") {
-    // Intent priority: thread-state meal_plan > legacy gate follow-up > regex
-    // If threadState says meal_plan, we're in a plan-generation conversation —
-    // every turn is generate_plan unless the user explicitly asks to log food.
-    const regexIntent = classifyNutritionIntent(question);
-    const intent =
-      (threadSaysMealPlan && regexIntent !== "log_food") ? "generate_plan" :
-      isProfileGateFollowUp ? "generate_plan" :
-      regexIntent;
-
-    if (intent === "generate_plan") {
-      const missingFields = checkNutritionProfileGate(mergedProfile);
-      if (missingFields) {
-        // Profile incomplete — instruct the model to ask for the missing
-        // fields and suppress meal-plan fence emission this turn.
-        systemPromptAddendum = `
-NUTRITION PROFILE GATE: the user asked for a meal plan but the following
-profile fields are missing: ${missingFields.join(", ")}.
-
-Ask the user for these values conversationally in ONE short message.
-Do NOT guess. Do NOT emit a \`\`\`meal-plan fence this turn. After the
-user replies, the client will update the profile and a subsequent turn
-will run plan generation.
-`.trim();
-      } else {
-        // Profile is complete — append the full generation protocol.
-        // Retrieval runs above; the protocol appears after the retrieved
-        // evidence block in the system prompt.
-        systemPromptAddendum = "\n\n" + MEAL_PLAN_GENERATION_PROTOCOL;
-      }
-    }
-
-    // ── log_food: skip retrieval + LLM, parse and emit a confirm fence ──────
-    if (intent === "log_food") {
-      const parseResult = await parseFoodDescription(question, {
-        authHeader: `Bearer ${serviceRoleKey}`,
-      });
-
-      // Infer meal_slot from time-of-day for items without one.
-      // Infer meal_slot from server time of day (UTC on Hetzner). User timezone correction deferred to v1.5.
-      const now = new Date();
-      const h = now.getHours();
-      const timeSlot =
-        h < 10 ? "breakfast"   :
-        h < 12 ? "mid_morning" :
-        h < 15 ? "lunch"       :
-        h < 17 ? "afternoon"   :
-        h < 21 ? "dinner"      :
-                 "evening";
-
-      const filledItems = (parseResult.items || []).map(i => ({
-        ...i,
-        meal_slot: i.meal_slot ?? (
-          i.kind === "supplement" && h < 12 ? "supplements_am" :
-          i.kind === "supplement"            ? "supplements_pm" :
-          timeSlot
-        ),
-      }));
-      const loggedDate = now.toISOString().slice(0, 10);
-
-      const fencePayload = {
-        resolved_items: filledItems,
-        unresolved: parseResult.unresolved ?? [],
-        meal_slot_default: filledItems[0]?.meal_slot ?? timeSlot,
-        logged_date: loggedDate,
-        parse_error: parseResult.error ?? null,
-      };
-
-      const confirmFence =
-        "```nutrition-log-confirm\n" +
-        JSON.stringify(fencePayload, null, 2) +
-        "\n```";
-
-      const prefix = parseResult.error
-        ? "I couldn't parse that automatically — you can log it from the Log food button in Nutrition. "
-        : filledItems.length === 0
-          ? "I couldn't match any foods — try again with more detail, or log manually. "
-          : "Here's what I pulled from that — review and confirm to log:\n\n";
-
-      const answerText = prefix + confirmFence;
-
-      const logFoodResponse = {
-        user: {
-          id: stableUserId || null,
-          profile_used: mergedProfile,
-        },
-        plan,
-        summary: filledItems.length > 0
-          ? `Parsed ${filledItems.length} food item(s) for logging.`
-          : "No foods matched — manual log required.",
-        answer_text: answerText,
-        recommendations: { general: [] },
-        confidence: {
-          score: 1,
-          label: "deterministic",
-          rationale: "Food log confirm — no LLM synthesis, no retrieval.",
-        },
-        limitations: [],
-        sources: [],
-        cards: [],
-        guardrail: {
-          status: safety.status,
-          response_mode: safety.responseMode,
-          reasons: safety.reasons,
-        },
-      };
-
-      recordStage("total_server_ms", Date.now() - runStartedAt);
-      emitProgress("final", { response: logFoodResponse });
-      return logFoodResponse;
-    }
-    // ── end log_food branch ──────────────────────────────────────────────────
-
-    // intent === 'query' falls through to the default retrieval path.
-  }
-  // ── End nutrition intent sub-routing ────────────────────────────────────
-
   // ── log_food fast-path: skip retrieval + LLM ──────────────────────────────
   // Detect food logging intent via regex. This is a server-side shortcut:
   // parseFoodDescription handles the parsing, no LLM call needed.
@@ -4788,7 +4524,6 @@ will run plan generation.
       recentMessages,
       safety,
       currentWorkoutPlan,
-      systemPromptAddendum,
       tools: buildTools(),
       captureDebug: {
         onInput: (input) => {
@@ -4864,7 +4599,6 @@ will run plan generation.
         recentMessages,
         safety,
         currentWorkoutPlan,
-        systemPromptAddendum,
         tools: buildTools(),
       });
       recordStage("synthesis_fallback_ms", Date.now() - fallbackStartedAt);
