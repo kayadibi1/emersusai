@@ -133,7 +133,7 @@ function ResolvedRow({ item, index, onUpdate, onRemove }) {
         },
       },
       Object.entries(MEAL_SLOT_LABELS).map(([value, label]) =>
-        h("option", { key: value, value }, label)
+        h("option", { key: value, value, style: { background: "#1a1d23", color: "#f9f9fd" } }, label)
       )
     ),
     // Remove button
