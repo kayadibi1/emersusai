@@ -17,6 +17,11 @@ const WIDGET_INFO_TAGS = /^(widget|html)$/i;
 // collides with widget fences.
 const WORKOUT_PLAN_INFO_TAGS = /^workout-plan$/i;
 
+// Fence types used by the nutrition feature.
+// - `meal-plan`: meal plan document (see shared/meal-plan-schema.js)
+// - `nutrition-log-confirm`: chat-parsed journal entries awaiting user confirmation
+const NUTRITION_INFO_TAGS = /^(meal-plan|nutrition-log-confirm)$/i;
+
 export function isWidgetFenceBody(info, body) {
   if (WIDGET_INFO_TAGS.test(info)) return true;
   // Untagged fence: only treat as a widget if it really looks like HTML.
@@ -29,6 +34,10 @@ export function isWidgetFenceBody(info, body) {
 
 export function isWorkoutPlanFenceInfo(info) {
   return WORKOUT_PLAN_INFO_TAGS.test(String(info || ""));
+}
+
+export function isNutritionFenceInfo(info) {
+  return NUTRITION_INFO_TAGS.test(String(info || ""));
 }
 
 // Matches any fenced block: opening ``` + optional info string + optional
@@ -75,7 +84,8 @@ export function parseLLMOutput(markdown) {
     const [whole, info, body] = match;
     const isWidget = isWidgetFenceBody(info, body);
     const isWorkoutPlan = isWorkoutPlanFenceInfo(info);
-    if (!isWidget && !isWorkoutPlan) continue;
+    const isNutrition = isNutritionFenceInfo(info);
+    if (!isWidget && !isWorkoutPlan && !isNutrition) continue;
 
     if (match.index > lastIndex) {
       const chunk = text.slice(lastIndex, match.index);
@@ -87,6 +97,11 @@ export function parseLLMOutput(markdown) {
         type: "workout-plan",
         content: parseWorkoutPlanBody(body),
       });
+    } else if (isNutrition) {
+      // Nutrition fences carry raw JSON bodies; the renderer or component
+      // is responsible for parsing. info is normalised to lower-case so the
+      // segment type is stable regardless of model capitalisation drift.
+      segments.push({ type: String(info).toLowerCase(), content: body.trim() });
     } else {
       segments.push({ type: "widget", content: body });
     }
@@ -138,17 +153,19 @@ export function stripWidgetFencesForStreaming(text) {
     const [whole, info, body] = match;
     const isWidget = isWidgetFenceBody(info, body);
     const isWorkoutPlan = isWorkoutPlanFenceInfo(info);
-    if (!isWidget && !isWorkoutPlan) continue;
+    const isNutrition = isNutritionFenceInfo(info);
+    if (!isWidget && !isWorkoutPlan && !isNutrition) continue;
     out += src.slice(cursor, match.index);
     cursor = match.index + whole.length;
   }
   out += src.slice(cursor);
-  // Trailing unclosed fence — only strip if the info tag signals a widget
-  // or workout-plan fence, or if the first content char looks like HTML.
+  // Trailing unclosed fence — only strip if the info tag signals a widget,
+  // workout-plan, or nutrition fence, or if the first content char looks like HTML.
   out = out.replace(
     /```([\w-]*)[ \t]*\n?([\s\S]*)$/,
     (whole, info, body) => {
       if (isWorkoutPlanFenceInfo(info)) return "";
+      if (isNutritionFenceInfo(info)) return "";
       if (isWidgetFenceBody(info, body)) return "";
       return whole;
     },
@@ -169,6 +186,7 @@ export function hasWidgetFences(text) {
   while ((match = re.exec(src)) !== null) {
     if (isWidgetFenceBody(match[1], match[2])) return true;
     if (isWorkoutPlanFenceInfo(match[1])) return true;
+    if (isNutritionFenceInfo(match[1])) return true;
   }
   // No closed fence found — check for an unclosed trailing workout-plan
   // fence (max_output_tokens cutoff case).
