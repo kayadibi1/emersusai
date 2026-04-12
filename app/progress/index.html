@@ -329,6 +329,33 @@
     @media (min-width: 720px) {
       .progress-shell { padding: 32px 32px 100px; }
     }
+
+    /* ---- Top-level tab switcher ---- */
+    .progress-top-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 8px;
+    }
+    .progress-top-tabs .top-tab {
+      padding: 12px 20px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      transition: color 180ms ease;
+    }
+    .progress-top-tabs .top-tab:hover {
+      color: var(--ink);
+    }
+    .progress-top-tabs .top-tab.active {
+      color: var(--ink);
+      border-bottom: 2px solid var(--primary);
+    }
   </style>
 </head>
 <body class="progress-page">
@@ -348,7 +375,7 @@
     </header>
 
     <main class="page-main">
-      <div id="progress-root" class="progress-shell">
+      <div id="progress-root">
         <div class="progress-loading">Loading progress...</div>
       </div>
     </main>

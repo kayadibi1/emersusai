@@ -13,6 +13,7 @@ import {
 import { weeklyActivityChart, muscleBar, formatVolume, formatLoad, formatDuration } from "/shared/progress-charts.js";
 import { ICONS, ICON_COLORS, DOT_COLORS } from "/shared/exercise-icons.js";
 import { resolveWeightUnit } from "/shared/unit-conversion.js";
+import NutritionPane from "./nutrition-pane.js";
 
 const h = React.createElement;
 
@@ -233,6 +234,43 @@ function formatMuscleName(slug) {
   return slug.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
 }
 
+// -- Tab switcher shell -------------------------------------------------------
+
+function parseProgressTab() {
+  const hash = window.location.hash.replace("#", "");
+  return ["workouts", "nutrition"].includes(hash) ? hash : "workouts";
+}
+
+function ProgressShell({ session, weightUnit }) {
+  const [tab, setTab] = useState(parseProgressTab());
+
+  useEffect(() => {
+    function onHash() { setTab(parseProgressTab()); }
+    window.addEventListener("hashchange", onHash);
+    return () => window.removeEventListener("hashchange", onHash);
+  }, []);
+
+  function navigate(t) {
+    setTab(t);
+    window.location.hash = t;
+  }
+
+  return h("div", { className: "progress-shell" },
+    h("nav", { className: "progress-top-tabs" },
+      h("button", {
+        className: tab === "workouts" ? "top-tab active" : "top-tab",
+        onClick: () => navigate("workouts"),
+      }, "Workouts"),
+      h("button", {
+        className: tab === "nutrition" ? "top-tab active" : "top-tab",
+        onClick: () => navigate("nutrition"),
+      }, "Nutrition"),
+    ),
+    tab === "workouts"  && h(ProgressDashboard, { key: "workouts", session, weightUnit }),
+    tab === "nutrition" && h(NutritionPane, { key: "nutrition" }),
+  );
+}
+
 // -- Boot ---------------------------------------------------------------------
 
 async function boot() {
@@ -253,7 +291,7 @@ async function boot() {
   }
 
   const root = createRoot(rootEl);
-  root.render(h(ProgressDashboard, { session, weightUnit }));
+  root.render(h(ProgressShell, { session, weightUnit }));
 }
 
 boot().catch(err => {
