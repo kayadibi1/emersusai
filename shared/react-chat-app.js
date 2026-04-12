@@ -1522,14 +1522,33 @@ function NutritionLogConfirmCard({ segment, threadId }) {
       if (!session?.user?.id || !session?.access_token) {
         throw new Error("Sign in to log food.");
       }
-      const entries = items.map((it) => ({
-        food_id: it.food_id,
-        logged_date: payload.logged_date,
-        meal_slot: it.meal_slot,
-        amount: it.amount,
-        amount_unit: it.amount_unit,
-        source: "chat_parser",
-        confidence: it.confidence,
+      // Resolve food_ids for items that don't have one (LLM tool path
+      // provides descriptions but not USDA FDC IDs). Search the foods API
+      // for each missing food_id and use the top result.
+      const entries = await Promise.all(items.map(async (it) => {
+        let foodId = it.food_id;
+        if (!foodId && it.food_name) {
+          try {
+            const searchRes = await fetch(
+              `/api/emersus/foods/search?q=${encodeURIComponent(it.food_name)}&limit=1`,
+              { headers: { Authorization: `Bearer ${session.access_token}` } }
+            );
+            if (searchRes.ok) {
+              const searchData = await searchRes.json();
+              const top = Array.isArray(searchData) ? searchData[0] : searchData?.results?.[0];
+              if (top?.id) foodId = top.id;
+            }
+          } catch { /* use null — API will reject, but better than silent skip */ }
+        }
+        return {
+          food_id: foodId || null,
+          logged_date: payload.logged_date,
+          meal_slot: it.meal_slot,
+          amount: it.amount,
+          amount_unit: it.amount_unit || "g",
+          source: "chat_ai",
+          confidence: it.confidence ?? 0.7,
+        };
       }));
       const res = await fetch("/api/emersus/meal-journal/entries", {
         method: "POST",
