@@ -1126,8 +1126,15 @@ function classifySafety({ question, profile, threadState, recentMessages }) {
       && /\b(weight|height|age|sex|activity|calori|macro|meal plan|body)/i.test(lastAssistantContent))
     && /\d/.test(questionOnly);
 
+  // Thread-state exemption: if the conversation is already in a nutrition
+  // context (client set primary_topic to meal_plan/nutrition), the follow-up
+  // is in-scope regardless of whether its words match fitness affinity.
+  const threadTopicIsNutrition = /nutrition|meal_plan|diet|meal/i.test(
+    threadState?.primary_topic ?? ""
+  );
+
   const wordCount = questionOnly.split(/\s+/).filter(Boolean).length;
-  if (wordCount >= 5 && !FITNESS_AFFINITY.test(questionOnly) && !isNutritionGateReply) {
+  if (wordCount >= 5 && !FITNESS_AFFINITY.test(questionOnly) && !isNutritionGateReply && !threadTopicIsNutrition) {
     return hardRefusal("off_topic_non_fitness");
   }
 
@@ -4369,6 +4376,21 @@ async function generateRecommendation({
   const lastAssistantMsg = (Array.isArray(recentMessages)
     ? recentMessages.filter(m => m.role === "assistant").slice(-1)[0]?.text
     : "") || "";
+  // Thread-state override: if the client's threadState says we're in a
+  // nutrition/meal_plan conversation, trust it over the stateless inferTopic()
+  // result. This is the primary mechanism for multi-turn meal plan generation.
+  const threadTopicHint = (threadState?.primary_topic ?? "").toLowerCase();
+  const threadIntentHint = (threadState?.last_user_intent ?? "").toLowerCase();
+  const threadSaysNutrition = /nutrition|meal.plan|diet|meal_plan/.test(threadTopicHint);
+  const threadSaysMealPlan = /meal.plan|meal_plan/.test(threadTopicHint)
+    || /meal.plan/.test(threadIntentHint);
+
+  if (plan.topic !== "nutrition" && threadSaysNutrition) {
+    plan.topic = "nutrition";
+  }
+
+  // Legacy regex-based follow-up detection (backup for clients that don't
+  // send threadState or for edge cases where threadState lost the topic)
   const isProfileGateFollowUp =
     plan.topic !== "nutrition"
     && /body\s*weight|height|biological\s*sex|activity\s*level/i.test(lastAssistantMsg)
@@ -4420,7 +4442,11 @@ async function generateRecommendation({
 
   let systemPromptAddendum = "";
   if (plan.topic === "nutrition") {
-    const intent = isProfileGateFollowUp ? "generate_plan" : classifyNutritionIntent(question);
+    // Intent priority: thread-state meal_plan hint > legacy gate follow-up > regex classification
+    const intent =
+      (threadSaysMealPlan && /\d/.test(question)) ? "generate_plan" :
+      isProfileGateFollowUp ? "generate_plan" :
+      classifyNutritionIntent(question);
 
     if (intent === "generate_plan") {
       const missingFields = checkNutritionProfileGate(mergedProfile);
