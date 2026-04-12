@@ -1543,8 +1543,9 @@ function NutritionLogConfirmCard({ segment, threadId }) {
           }
         } catch { /* proceed without food_ids — will fail at insert */ }
       }
-      const entries = items.map((it) => ({
+      const allEntries = items.map((it) => ({
         food_id: it.food_id || foodIdMap[it.food_name]?.id || null,
+        food_name: it.food_name,
         logged_date: payload.logged_date,
         meal_slot: it.meal_slot,
         amount: it.amount,
@@ -1552,6 +1553,14 @@ function NutritionLogConfirmCard({ segment, threadId }) {
         source: "chat_parser",
         confidence: it.confidence ?? 0.7,
       }));
+      // Filter out items with no food_id (no USDA match found).
+      const entries = allEntries.filter((e) => e.food_id);
+      const skipped = allEntries.filter((e) => !e.food_id);
+      if (entries.length === 0) {
+        throw new Error(
+          `Could not match any foods in the catalog: ${skipped.map((s) => s.food_name).join(", ")}. Try logging manually.`
+        );
+      }
       const res = await fetch("/api/emersus/meal-journal/entries", {
         method: "POST",
         headers: {
@@ -1565,6 +1574,9 @@ function NutritionLogConfirmCard({ segment, threadId }) {
         throw new Error(body?.error || `Log failed (HTTP ${res.status}).`);
       }
       setSubmitState("saved");
+      if (skipped.length > 0) {
+        setError(`Logged ${entries.length} item(s). Could not match: ${skipped.map((s) => s.food_name).join(", ")}`);
+      }
     } catch (err) {
       setError(String(err?.message || err) || "Log failed.");
       setSubmitState("error");
