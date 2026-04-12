@@ -1546,7 +1546,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
           meal_slot: it.meal_slot,
           amount: it.amount,
           amount_unit: it.amount_unit || "g",
-          source: "chat_ai",
+          source: "chat_parser",
           confidence: it.confidence ?? 0.7,
         };
       }));
