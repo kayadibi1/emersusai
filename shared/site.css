@@ -1246,11 +1246,13 @@ button.primary {
   align-items: center;
   font-size: 1.2rem;
   color: #bbb;
+  text-transform: lowercase;
   padding: 0.3rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .meal-slot-card .entries li:last-child { border-bottom: none; }
+.meal-slot-card .entries li::first-letter { text-transform: uppercase; }
 
 .meal-slot-card .empty {
   color: var(--dim);
@@ -1642,6 +1644,12 @@ button.primary {
   flex: 1;
   color: #bbb;
   cursor: pointer;
+  text-transform: lowercase;
+  display: inline-block;
+}
+
+.journal-slot .desc::first-letter {
+  text-transform: uppercase;
 }
 
 .journal-slot .desc:hover { color: var(--ink); }
@@ -1746,7 +1754,12 @@ button.primary {
   color: var(--ink);
 }
 
-.log-food-modal .results .desc { color: var(--ink); }
+.log-food-modal .results .desc {
+  color: var(--ink);
+  text-transform: lowercase;
+  display: inline-block;
+}
+.log-food-modal .results .desc::first-letter { text-transform: uppercase; }
 .log-food-modal .results .brand { color: var(--dim); font-size: 0.75rem; }
 
 .log-food-modal .log-form {
@@ -1869,6 +1882,11 @@ button.primary {
   font-size: 1.3rem;
   font-weight: 400;
   margin: 0;
+  text-transform: lowercase;
+}
+
+.food-detail-drawer .food-desc::first-letter {
+  text-transform: uppercase;
 }
 
 .food-detail-drawer .brand {
@@ -2415,7 +2433,10 @@ button.primary {
 .top-list .desc {
   flex: 1;
   color: #bbb;
+  text-transform: lowercase;
+  display: inline-block;
 }
+.top-list .desc::first-letter { text-transform: uppercase; }
 
 .top-list .count {
   font-family: var(--mono);
