@@ -304,6 +304,85 @@ DEFAULT BEHAVIOR
 For everyday questions, just write prose. Reach for a widget when the question is structurally visual — and only when you have real data to fill it. For plan-building and plan-adjustment questions, use the workout-plan fence format above.
 `.trim();
 
+// ─── Meal plan generation protocol ─────────────────────────────────────────
+//
+// Appended to the system prompt when nutrition intent === 'generate_plan'
+// AND the profile gate passes. Contains the Mifflin-St Jeor formulas, the
+// day-type structure, and the supplement sub-protocol.
+//
+// Emitted as a fenced ```meal-plan JSON block. Rendered by shared/meal-plan-widget.js.
+
+const MEAL_PLAN_GENERATION_PROTOCOL = `
+MEAL PLAN GENERATION PROTOCOL
+
+1. Compute macro targets using Mifflin-St Jeor:
+     BMR = 10*weight_kg + 6.25*height_cm - 5*age + (5 if male, -161 if female)
+     TDEE = BMR * activity_multiplier
+       (sedentary 1.2, light 1.375, moderate 1.55, active 1.725, very_active 1.9)
+     Adjust for goal:
+       cut:      TDEE - 500 kcal (aggressive cut: -750, sustainable minimum: -300)
+       maintain: TDEE
+       bulk:     TDEE + 250..400 kcal (lean bulk) or +500 (traditional)
+     Protein: 1.6–2.2 g/kg body weight. Default 1.8 for maintenance,
+              2.0–2.2 for cut, 1.6–1.8 for bulk.
+     Fat: 20–35% of kcal, absolute minimum 0.6 g/kg.
+     Carbs: remainder.
+     Fiber: 14 g per 1000 kcal target, rounded to nearest 5 g.
+
+2. Show the user the math briefly in conversational form BEFORE the plan.
+   Example: "82 kg / 180 cm / 31 / male / moderate / cut → BMR 1820, TDEE 2820,
+            target 2300 kcal, protein 180 g, fat 65 g, carbs 235 g, fiber 35 g."
+
+3. Emit THREE day types in the meal-plan fence: training_day, rest_day, refeed_day.
+     training_day:  computed targets with carbs weighted higher
+     rest_day:      carbs -60 g, fat +15 g, same protein
+     refeed_day:    carbs at ~maintenance carb share, same protein
+
+4. For meals within each day_type:
+     - Use USDA FDC generic foods ONLY. Reference by fdc_id when you know it;
+       fall back to description otherwise.
+     - 3 meals + 1 snack by default. More if the user prefers.
+     - Respect dietary_preferences from the profile (vegan, halal, etc).
+     - No restaurant chain items. No brand names unless the user asked.
+
+5. Include a supplements array on each day_type using the SUPPLEMENT PROTOCOL below.
+   Generate an empty supplements array if the user has said they don't want
+   supplements.
+
+6. Emit the plan as a JSON document in a fenced \`\`\`meal-plan block.
+   Never emit the fence if profile fields are missing. Ask first.
+
+
+SUPPLEMENT PROTOCOL (evidence-based only)
+
+Include ONLY supplements with strong evidence for the user's goal:
+  - Creatine monohydrate 3-5 g/day: strength, hypertrophy. Broad safety.
+  - Whey/casein/pea protein: as a tool to hit the protein target.
+  - Vitamin D3 1000-2000 IU/day: general sufficiency baseline.
+    Frame as "if deficient or low sun exposure." No megadoses.
+  - Omega-3 EPA+DHA 1-2 g/day: anti-inflammatory, cardiovascular.
+  - Caffeine 3-6 mg/kg body weight pre-workout: ergogenic.
+  - Electrolytes (Na/K/Mg): in heat or on low-sodium diet.
+  - Magnesium glycinate 200-400 mg: sleep and recovery, when baseline low.
+
+Do NOT recommend:
+  - Anything requiring prescription or clinical monitoring.
+  - Megadoses above tolerable upper intake levels.
+  - Supplements with weak or conflicting evidence (most fat burners,
+    most nootropic stacks, most adaptogens at claimed doses).
+  - Anything targeting a medical condition. The existing medical-advice
+    guardrail still applies — condition-specific supplement questions
+    ("ashwagandha for my anxiety", "magnesium for my RLS") route through
+    the refusal path, not plan generation.
+
+Frame every recommendation with ONE evidence sentence ("creatine: meta-
+analyses show ~5-10% strength gain over 8-12 weeks"). Never more than a
+sentence.
+
+Let the user opt out. If their profile preferences or prior chat mentions
+indicate "no supplements," generate an empty supplements array.
+`.trim();
+
 // Regex detectors for (a) user questions that clearly want a visual output
 // and (b) pseudo-visual text (ASCII/unicode art) the model sometimes emits
 // when it ignores the widget instructions. When (a) is true and the model
@@ -492,6 +571,66 @@ function inferTopic(question) {
   }
 
   return "general";
+}
+
+// ─── Nutrition intent sub-classifier ───────────────────────────────────────
+//
+// When topic === "nutrition", this classifier picks one of four sub-intents.
+// Regex-only, no extra LLM call. False positives are harmless because both
+// plan generation and logging paths have explicit UI confirmation.
+//
+//   generate_plan — "meal plan", "macros for", "cut/bulk/recomp", "diet plan", etc.
+//   log_food      — "I had X", "log Y", "took my supps", "for lunch: ...", etc.
+//   query         — any other nutrition question; normal retrieval path
+//   none          — not nutrition; this function isn't called
+//
+export function classifyNutritionIntent(text) {
+  const t = (text || "").toLowerCase().trim();
+  if (!t) return "query";
+
+  // Plan generation
+  if (
+    /\b(meal\s*plan|diet\s*plan|nutrition\s*plan|eating\s*plan)\b/.test(t) ||
+    /\bmacros?\s+(for|to)\b/.test(t) ||
+    /\bwhat\s+should\s+i\s+eat\b/.test(t) ||
+    /\b(cut|bulk|recomp|maintenance)\b.*\b(plan|macros|diet)\b/.test(t) ||
+    /\bset\s+(up\s+)?my\s+(macros|diet|nutrition)\b/.test(t) ||
+    /\bgenerate\s+.*(meal|diet|nutrition)\b/.test(t)
+  ) {
+    return "generate_plan";
+  }
+
+  // Logging
+  if (
+    /^(log|track|add|record)\s+/.test(t) ||
+    /^i\s+(just\s+)?(had|ate|drank|took)\b/.test(t) ||
+    /^(took|taking)\s+(my\s+)?(supps?|stack|vitamins?|supplements?)\b/.test(t) ||
+    /^(for|at)\s+(breakfast|lunch|dinner|snack|supper)\b.*[:\-]/.test(t) ||
+    /\blog\s+(this|these|it|that)\b/.test(t)
+  ) {
+    return "log_food";
+  }
+
+  return "query";
+}
+
+// ─── Nutrition profile gate ────────────────────────────────────────────────
+//
+// Plan generation requires: body_weight_kg, height_cm, date_of_birth,
+// biological_sex, activity_level. If any are missing, the LLM must ASK the
+// user for them conversationally before emitting a meal-plan fence.
+//
+// Returns null if all required fields are present, otherwise an array of
+// missing field names (human-readable) for the system prompt to use.
+//
+export function checkNutritionProfileGate(profile) {
+  const missing = [];
+  if (profile?.body_weight_kg == null) missing.push("current body weight (kg or lbs)");
+  if (profile?.height_cm == null)      missing.push("height (cm or ft/in)");
+  if (profile?.date_of_birth == null)  missing.push("date of birth (for age)");
+  if (profile?.biological_sex == null) missing.push("biological sex (for BMR formula — male or female)");
+  if (profile?.activity_level == null) missing.push("activity level (sedentary, light, moderate, active, very active)");
+  return missing.length === 0 ? null : missing;
 }
 
 function buildPlan(question, profile) {
@@ -1256,7 +1395,7 @@ async function fetchSupabaseProfile(supabaseUrl, serviceRoleKey, supabaseUserId)
   }
 
   const response = await fetch(
-    `${supabaseUrl}/rest/v1/profiles?select=goal,experience_level,dietary_preferences,injuries_limitations,full_name,email,onboarding_completed,primary_use_case,equipment_access,available_days_per_week,available_minutes_per_session,sleep_stress_context,weight_unit,distance_unit,preferred_sports,default_pool_length_m,default_grade_system&id=eq.${encodeURIComponent(
+    `${supabaseUrl}/rest/v1/profiles?select=goal,experience_level,dietary_preferences,injuries_limitations,full_name,email,onboarding_completed,primary_use_case,equipment_access,available_days_per_week,available_minutes_per_session,sleep_stress_context,weight_unit,distance_unit,preferred_sports,default_pool_length_m,default_grade_system,body_weight_kg,height_cm,date_of_birth,biological_sex,activity_level&id=eq.${encodeURIComponent(
       supabaseUserId
     )}&limit=1`,
     {
@@ -1756,6 +1895,7 @@ function buildSynthesisInput({
   recentMessages,
   safety,
   currentWorkoutPlan = null,
+  systemPromptAddendum = "",
 }) {
   const normalizedThreadState = normalizeThreadState(threadState);
   const normalizedRecentMessages = normalizeRecentMessages(recentMessages);
@@ -1763,7 +1903,7 @@ function buildSynthesisInput({
     normalizedThreadState,
     normalizedRecentMessages
   );
-  return [
+  const messages = [
     // ── Message 1: identity, scope, safety ──────────────────────────
     {
       role: "system",
@@ -1948,6 +2088,13 @@ function buildSynthesisInput({
       }),
     },
   ];
+  // Append the nutrition addendum as a final system message when present so
+  // the stable prefix (messages 1-2 + few-shot + user request) stays
+  // byte-identical across requests and the OpenAI prompt cache fires normally.
+  if (systemPromptAddendum) {
+    messages.push({ role: "system", content: systemPromptAddendum });
+  }
+  return messages;
 }
 
 function extractStructuredOutput(payload) {
@@ -2029,6 +2176,7 @@ async function callOpenAISynthesis({
   recentMessages,
   safety,
   currentWorkoutPlan = null,
+  systemPromptAddendum = "",
   captureDebug = null, // { onInput?: (input) => void } — lets callers observe the actual OpenAI input array for the debug page.
 }) {
   const apiKey = process.env.OPENAI_API_KEY;
@@ -2047,6 +2195,7 @@ async function callOpenAISynthesis({
     recentMessages,
     safety,
     currentWorkoutPlan,
+    systemPromptAddendum,
   });
   if (captureDebug && typeof captureDebug.onInput === "function") {
     try {
@@ -4110,6 +4259,41 @@ async function generateRecommendation({
   // User sent a valid question — reset their cooldown state.
   clearGuardrailCooldown(cooldownKey);
 
+  // ── Nutrition intent sub-routing ─────────────────────────────────────────
+  // When topic === "nutrition", classify the sub-intent and build an addendum
+  // that is appended to the system prompt. Retrieval still runs below so the
+  // model can cite evidence inside both the gate-ask and the plan itself.
+  let systemPromptAddendum = "";
+  if (plan.topic === "nutrition") {
+    const intent = classifyNutritionIntent(question);
+
+    if (intent === "generate_plan") {
+      const missingFields = checkNutritionProfileGate(mergedProfile);
+      if (missingFields) {
+        // Profile incomplete — instruct the model to ask for the missing
+        // fields and suppress meal-plan fence emission this turn.
+        systemPromptAddendum = `
+NUTRITION PROFILE GATE: the user asked for a meal plan but the following
+profile fields are missing: ${missingFields.join(", ")}.
+
+Ask the user for these values conversationally in ONE short message.
+Do NOT guess. Do NOT emit a \`\`\`meal-plan fence this turn. After the
+user replies, the client will update the profile and a subsequent turn
+will run plan generation.
+`.trim();
+      } else {
+        // Profile is complete — append the full generation protocol.
+        // Retrieval runs above; the protocol appears after the retrieved
+        // evidence block in the system prompt.
+        systemPromptAddendum = "\n\n" + MEAL_PLAN_GENERATION_PROTOCOL;
+      }
+    }
+
+    // intent === 'log_food' branch is wired in Task 14 (Phase 3).
+    // intent === 'query' falls through to the default retrieval path.
+  }
+  // ── End nutrition intent sub-routing ────────────────────────────────────
+
   const retrievalStartedAt = Date.now();
   const vectorDatabase = await retrieveVectorEvidence(question);
   const databaseEvidence = vectorDatabase.evidence.slice(0, VECTOR_LIMIT);
@@ -4144,6 +4328,7 @@ async function generateRecommendation({
       recentMessages,
       safety,
       currentWorkoutPlan,
+      systemPromptAddendum,
       captureDebug: {
         onInput: (input) => {
           capturedOpenAIInput = input;
@@ -4196,6 +4381,7 @@ async function generateRecommendation({
         recentMessages,
         safety,
         currentWorkoutPlan,
+        systemPromptAddendum,
       });
       recordStage("synthesis_fallback_ms", Date.now() - fallbackStartedAt);
       cumulativeTokenUsage = mergeTokenUsageTotals(
