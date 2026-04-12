@@ -6,27 +6,8 @@
   <title>App Dashboard | Emersus AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/site.css">
-  <style>
-    /* Phase 1.5: visual accent for the "Today's workout" card so it
-       stands out from the rest of the dashboard grid. Reuses the
-       site's --secondary token (lime) for the border tint and a
-       slightly larger title. The card class itself is .dashboard-card
-       so it inherits all existing card styles. */
-    .dashboard-card.today-card {
-      border-color: rgba(159, 251, 0, 0.32);
-      background:
-        radial-gradient(circle at top right, rgba(159, 251, 0, 0.06), transparent 40%),
-        var(--surface);
-    }
-    .dashboard-card.today-card h3 {
-      font-size: 1.45rem;
-    }
-    .dashboard-card.today-card .mini-card-label {
-      color: var(--secondary);
-    }
-  </style>
 </head>
 <body>
   <div class="site-shell">
