@@ -39,7 +39,9 @@ const waitSlot = biorxivLimiter;
 async function fetchPage(from, to, cursor) {
   await waitSlot();
   const url = `${BASE_URL}/${from}/${to}/${cursor}`;
-  const resp = await fetchWithTimeoutAndUA(url, { accept: "application/json" });
+  // bioRxiv API is slow — single-day queries take 7+ seconds, multi-month
+  // date ranges routinely exceed 25s. Use 45s to avoid spurious timeouts.
+  const resp = await fetchWithTimeoutAndUA(url, { accept: "application/json", timeoutMs: 45_000 });
   const data = await resp.json();
   const msg = data.messages?.[0] ?? {};
   return {

@@ -17,7 +17,6 @@
 
 import { fetchWithTimeoutAndUA } from "./_http.js";
 import { createLimiter } from "./_ratelimit.js";
-import { SourcePermanentError } from "./_errors.js";
 import { registerIngestion } from "./_registry.js";
 
 const SEARCH_URL = "https://api.openaire.eu/graph/v1/researchProducts";
@@ -77,7 +76,8 @@ function buildSearchUrl(query, page) {
 async function searchPage(query, page) {
   await waitSlot();
   const url = buildSearchUrl(query, page);
-  const resp = await fetchWithTimeoutAndUA(url, { accept: "application/json" });
+  // OpenAIRE deep pages (20+) routinely exceed 25s — use 45s.
+  const resp = await fetchWithTimeoutAndUA(url, { accept: "application/json", timeoutMs: 45_000 });
   return resp.json();
 }
 
@@ -160,9 +160,8 @@ export const openaire = {
       const body = await searchPage(query, page);
       const results = Array.isArray(body?.results) ? body.results : [];
       if (results.length === 0) {
-        if (page === 1) {
-          throw new SourcePermanentError(`openaire returned 0 results for query: ${query}`);
-        }
+        // 0 results is a valid outcome — OpenAIRE AND-matches keywords,
+        // so niche topics with >3 keywords often collapse to zero.
         return;
       }
       for (const product of results) {

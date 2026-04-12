@@ -2,21 +2,21 @@
 // Ingestion adapter for OpenAlex (https://openalex.org).
 //
 // OpenAlex is a free, open-access research index with ~250M works.
-// Their "polite pool" gives priority access when a contact email is
-// passed via the mailto= query param. Limit: 10 req/sec polite,
-// we self-limit to 8 for safety margin.
+// As of 2025, OpenAlex migrated from the old mailto= polite pool to a
+// freemium API-key model. Without an api_key, budget is $0.01/day
+// (~100 list calls). Free API key gives $1/day (~10,000 list calls,
+// 1,000 full-text searches). Register at https://openalex.org/settings/api.
 //
-// API docs: https://docs.openalex.org/api-entities/works
+// Docs: https://developers.openalex.org
 
 import { fetchWithTimeoutAndUA } from "./_http.js";
 import { createLimiter } from "./_ratelimit.js";
-import { SourcePermanentError } from "./_errors.js";
 import { registerIngestion } from "./_registry.js";
 
 const WORKS_URL = "https://api.openalex.org/works";
-const PER_PAGE = 50; // OpenAlex max per_page is 200 but 50 is friendlier
+const PER_PAGE = 200; // OpenAlex max — minimizes search calls ($1/1000)
 
-const waitSlot = createLimiter(8); // 8 RPS with polite pool
+const waitSlot = createLimiter(8); // 8 RPS — no published per-second cap with API key
 
 /**
  * OpenAlex stores abstracts as an "inverted index" — a map of word →
@@ -57,6 +57,9 @@ function buildSearchUrl(query, page) {
     page: String(page),
     "per-page": String(PER_PAGE),
   });
+  const apiKey = process.env.OPENALEX_API_KEY;
+  if (apiKey) params.set("api_key", apiKey);
+  // Legacy mailto= polite pool — still accepted alongside api_key
   const mailto = process.env.OPENALEX_POLITE_EMAIL;
   if (mailto) params.set("mailto", mailto);
   return `${WORKS_URL}?${params.toString()}`;
@@ -104,9 +107,7 @@ export const openalex = {
       const body = await fetchPage(query, page);
       const results = Array.isArray(body?.results) ? body.results : [];
       if (results.length === 0) {
-        if (page === 1) {
-          throw new SourcePermanentError(`openalex returned 0 results for query: ${query}`);
-        }
+        // 0 results is a valid outcome — not every topic has OpenAlex coverage.
         return;
       }
       for (const work of results) {

@@ -32,7 +32,8 @@ const waitSlot = biorxivLimiter;
 async function fetchPage(from, to, cursor) {
   await waitSlot();
   const url = `${BASE_URL}/${from}/${to}/${cursor}`;
-  const resp = await fetchWithTimeoutAndUA(url, { accept: "application/json" });
+  // medRxiv shares api.biorxiv.org which is slow — 7+ seconds baseline.
+  const resp = await fetchWithTimeoutAndUA(url, { accept: "application/json", timeoutMs: 45_000 });
   const data = await resp.json();
   const msg = data.messages?.[0] ?? {};
   return {
