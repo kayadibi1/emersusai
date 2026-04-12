@@ -28,12 +28,12 @@ const MACROS_SCHEMA = {
 
 const FOOD_ITEM_SCHEMA = {
   type: "object",
-  required: ["description", "grams"],
+  required: ["description", "grams", "fdc_id"],
   additionalProperties: false,
   properties: {
     description: { type: "string" },
     grams:       { type: "number" },
-    fdc_id:      { type: "integer" },
+    fdc_id:      { type: ["integer", "null"] },
   },
 };
 
@@ -56,15 +56,15 @@ const MEAL_SCHEMA = {
 
 const SUPPLEMENT_SCHEMA = {
   type: "object",
-  required: ["description", "amount", "unit"],
+  required: ["description", "amount", "unit", "timing"],
   additionalProperties: false,
   properties: {
     description: { type: "string" },
     amount:      { type: "number" },
     unit:        { type: "string" },
     timing: {
-      type: "string",
-      enum: ["any", "morning", "with_meal", "pre_workout", "post_workout", "bedtime"],
+      type: ["string", "null"],
+      enum: ["any", "morning", "with_meal", "pre_workout", "post_workout", "bedtime", null],
     },
   },
 };
@@ -153,7 +153,7 @@ const EMIT_MEAL_PLAN = {
 
 const BLOCK_SCHEMA = {
   type: "object",
-  required: ["exercise", "sets", "reps", "load", "rpe", "rest_seconds", "category"],
+  required: ["exercise", "sets", "reps", "load", "rpe", "rest_seconds", "category", "notes"],
   additionalProperties: false,
   properties: {
     exercise:     { type: "string" },
@@ -163,13 +163,13 @@ const BLOCK_SCHEMA = {
     rpe:          { type: "number" },
     rest_seconds: { type: "integer" },
     category:     { type: "string", enum: ["resistance", "cardio", "swimming", "climbing", "bodyweight"] },
-    notes:        { type: "string" },
+    notes:        { type: ["string", "null"] },
   },
 };
 
 const SESSION_SCHEMA = {
   type: "object",
-  required: ["id", "week", "day_of_week", "date", "title", "blocks"],
+  required: ["id", "week", "day_of_week", "date", "title", "blocks", "warmup_blocks"],
   additionalProperties: false,
   properties: {
     id:            { type: "string" },
@@ -178,7 +178,7 @@ const SESSION_SCHEMA = {
     date:          { type: "string" },
     title:         { type: "string" },
     blocks:        { type: "array", items: BLOCK_SCHEMA },
-    warmup_blocks: { type: "array", items: BLOCK_SCHEMA },
+    warmup_blocks: { type: ["array", "null"], items: BLOCK_SCHEMA },
   },
 };
 
@@ -202,7 +202,7 @@ const EMIT_WORKOUT_PLAN = {
   ].join("\n"),
   parameters: {
     type: "object",
-    required: ["schema_version", "title", "goal", "experience_level", "start_date", "weeks", "days_per_week", "sessions"],
+    required: ["schema_version", "title", "goal", "experience_level", "start_date", "weeks", "days_per_week", "sessions", "updates_plan_id"],
     additionalProperties: false,
     properties: {
       schema_version:   { type: "integer" },
@@ -213,7 +213,7 @@ const EMIT_WORKOUT_PLAN = {
       weeks:            { type: "integer" },
       days_per_week:    { type: "integer" },
       sessions:         { type: "array", items: SESSION_SCHEMA },
-      updates_plan_id:  { type: "string" },
+      updates_plan_id:  { type: ["string", "null"] },
     },
   },
 };
