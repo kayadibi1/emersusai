@@ -6,26 +6,957 @@
   <title>Nutrition · Emersus</title>
   <link rel="icon" type="image/svg+xml" href="/emersus_mark_fibonacci_blue.svg" />
   <link rel="stylesheet" href="/shared/site.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    /* Nutrition-specific additions. Global app styles are in /shared/site.css. */
-    :root { --warm: #f5b74a; }
-    .nutrition-shell { max-width: 900px; margin: 0 auto; padding: 24px; }
-    .nut-tabs { display: flex; gap: 8px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 20px; }
-    .nut-tabs .tab { padding: 10px 16px; background: none; border: none; color: var(--muted); cursor: pointer; font-family: Inter, sans-serif; font-size: 14px; font-weight: 500; }
-    .nut-tabs .tab.active { color: var(--ink); border-bottom: 2px solid var(--primary); }
-    .day-type-badge { display: inline-block; padding: 4px 10px; border-radius: 999px; background: rgba(109,159,255,0.15); color: var(--primary); font-size: 12px; text-transform: capitalize; }
-    .macro-rings { display: flex; gap: 16px; justify-content: center; margin: 24px 0; flex-wrap: wrap; }
-    .meal-slot-card, .plan-meal-card, .target-card, .assignments-calendar, .streak-banner {
-      background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 24px;
-      padding: 20px;
-      margin-bottom: 16px;
-      backdrop-filter: blur(28px);
+    /* ═══════════════════════════════════════════════════════════════════
+       EMERSUS NUTRITION — "Warm Amber Glass"
+       Cohesive with the site's liquid-glass dark theme but shifts the
+       accent from cool-blue to warm amber/gold. Food is warm, not
+       clinical. Macro rings breathe. Panels reveal on entrance.
+       ═══════════════════════════════════════════════════════════════════ */
+
+    :root {
+      --warm: #f5b74a;
+      --warm-dim: rgba(245, 183, 74, 0.12);
+      --warm-glow: rgba(245, 183, 74, 0.06);
+      --nut-protein: #6d9fff;
+      --nut-carbs: #9ffb00;
+      --nut-fat: #f5b74a;
+      --nut-fiber: #a7adb4;
+      --nut-kcal: #f9f9fd;
+      --nut-surface: rgba(13, 16, 20, 0.72);
+      --nut-card: linear-gradient(168deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+      --nut-border: rgba(255, 255, 255, 0.07);
+      --nut-radius: 20px;
+      --nut-font-display: 'Playfair Display', Georgia, serif;
+      --nut-font-body: 'DM Sans', 'Inter', system-ui, sans-serif;
     }
-    .food-detail-drawer { position: fixed; top: 0; right: 0; width: 420px; height: 100vh; background: #0f1319; border-left: 1px solid rgba(255,255,255,0.1); padding: 24px; overflow-y: auto; z-index: 100; }
-    .food-detail-drawer .close-btn { position: absolute; top: 16px; right: 16px; background: none; border: none; color: var(--ink); font-size: 24px; cursor: pointer; }
-    @media (max-width: 680px) { .macro-rings { gap: 8px; } .food-detail-drawer { width: 100vw; } }
+
+    /* ── Entrance animation ───────────────────────────────────────── */
+    @keyframes nut-fade-up {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes nut-ring-pulse {
+      0%, 100% { filter: drop-shadow(0 0 0px transparent); }
+      50%      { filter: drop-shadow(0 0 6px rgba(245, 183, 74, 0.15)); }
+    }
+    @keyframes nut-shimmer {
+      from { background-position: -200% center; }
+      to   { background-position: 200% center; }
+    }
+
+    /* ── Shell & header ───────────────────────────────────────────── */
+    .nutrition-shell {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 32px 24px 60px;
+      font-family: var(--nut-font-body);
+    }
+    .nut-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 8px;
+      animation: nut-fade-up 0.5s ease both;
+    }
+    .nut-header h1 {
+      font-family: var(--nut-font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+    .nut-header .progress-link {
+      font-size: 13px;
+      color: var(--warm);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+    .nut-header .progress-link:hover { opacity: 1; }
+
+    /* ── Tab bar ───────────────────────────────────────────────────── */
+    .nut-tabs {
+      display: flex;
+      gap: 4px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--nut-border);
+      padding-bottom: 0;
+      animation: nut-fade-up 0.5s ease 0.05s both;
+    }
+    .nut-tabs .tab {
+      padding: 11px 18px 13px;
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-family: var(--nut-font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      transition: color 0.2s, border-color 0.25s;
+      position: relative;
+    }
+    .nut-tabs .tab:hover { color: var(--ink); }
+    .nut-tabs .tab.active {
+      color: var(--ink);
+      border-bottom-color: var(--warm);
+    }
+
+    /* ── Shared card mixin ────────────────────────────────────────── */
+    .meal-slot-card, .plan-meal-card, .target-card,
+    .assignments-calendar, .streak-banner, .journal-slot,
+    .supps-group, .micro-card, .stat-card, .card {
+      background: var(--nut-card);
+      border: 1px solid var(--nut-border);
+      border-radius: var(--nut-radius);
+      padding: 18px 20px;
+      margin-bottom: 14px;
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      animation: nut-fade-up 0.45s ease both;
+    }
+
+    /* ── Day-type badge ────────────────────────────────────────────── */
+    .day-type-badge {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-family: var(--nut-font-body);
+      background: var(--warm-dim);
+      color: var(--warm);
+      margin-bottom: 20px;
+      animation: nut-fade-up 0.5s ease 0.1s both;
+    }
+
+    /* ── Macro rings ──────────────────────────────────────────────── */
+    .macro-rings {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin: 28px 0 32px;
+      flex-wrap: wrap;
+      animation: nut-fade-up 0.5s ease 0.15s both;
+    }
+    .macro-rings svg {
+      animation: nut-ring-pulse 4s ease-in-out infinite;
+      transition: transform 0.25s ease;
+    }
+    .macro-rings svg:hover {
+      transform: scale(1.08);
+      animation-play-state: paused;
+    }
+
+    /* ── Quick actions ────────────────────────────────────────────── */
+    .quick-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      animation: nut-fade-up 0.5s ease 0.2s both;
+    }
+    .quick-actions button {
+      padding: 9px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--nut-border);
+      background: var(--nut-surface);
+      color: var(--ink);
+      font-family: var(--nut-font-body);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .quick-actions button:hover {
+      border-color: rgba(245, 183, 74, 0.3);
+      background: rgba(245, 183, 74, 0.06);
+    }
+    .quick-actions button.primary {
+      background: linear-gradient(135deg, var(--warm), #e8a030);
+      color: #0c0e11;
+      border-color: transparent;
+      font-weight: 600;
+    }
+    .quick-actions button.primary:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 4px 20px rgba(245, 183, 74, 0.25);
+    }
+
+    /* ── Streak banner ────────────────────────────────────────────── */
+    .streak-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 20px;
+      border-left: 3px solid var(--warm);
+      background: linear-gradient(135deg, var(--warm-glow), transparent 60%);
+    }
+    .streak-banner .current {
+      font-family: var(--nut-font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--warm);
+    }
+    .streak-banner .best {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* ── Meal timeline (Today tab) ────────────────────────────────── */
+    .meal-timeline { animation: nut-fade-up 0.5s ease 0.25s both; }
+    .meal-timeline h3 {
+      font-family: var(--nut-font-display);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 16px;
+    }
+    .meal-slot-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .meal-slot-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, var(--warm), transparent);
+      border-radius: 3px 0 0 3px;
+    }
+    .meal-slot-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 10px;
+    }
+    .meal-slot-header .slot-name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--ink);
+      text-transform: capitalize;
+    }
+    .meal-slot-header .slot-kcal {
+      font-size: 13px;
+      color: var(--warm);
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+    .meal-slot-card .entries,
+    .journal-slot .entries {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .meal-slot-card .entries li,
+    .journal-slot .entries li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+      font-size: 13px;
+      color: var(--ink);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .meal-slot-card .entries li:hover { color: var(--warm); }
+    .meal-slot-card .entries li:last-child,
+    .journal-slot .entries li:last-child { border-bottom: none; }
+    .meal-timeline .empty, .journal-panel .empty, .supps-panel .empty,
+    .plan-empty, .today-loading, .plan-loading, .supps-loading, .np-loading {
+      text-align: center;
+      padding: 48px 20px;
+      color: var(--muted);
+      font-size: 14px;
+      animation: nut-fade-up 0.5s ease both;
+    }
+
+    /* ── Plan panel ───────────────────────────────────────────────── */
+    .plan-panel { animation: nut-fade-up 0.45s ease both; }
+    .plan-header {
+      margin-bottom: 20px;
+    }
+    .plan-header h2 {
+      font-family: var(--nut-font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 4px;
+    }
+    .plan-header span {
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .plan-empty h3 {
+      font-family: var(--nut-font-display);
+      font-size: 1.3rem;
+      color: var(--ink);
+    }
+    .plan-empty p { color: var(--muted); margin: 8px 0 20px; }
+
+    /* Day-type tabs (plan + meal-plan widget) */
+    .day-type-tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .day-type-tabs .tab, .day-type-tabs button {
+      padding: 7px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--nut-border);
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--nut-font-body);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .day-type-tabs .tab:hover, .day-type-tabs button:hover {
+      border-color: rgba(245,183,74,0.25);
+      color: var(--ink);
+    }
+    .day-type-tabs .tab.active, .day-type-tabs button.active {
+      background: var(--warm);
+      color: #0c0e11;
+      border-color: var(--warm);
+      font-weight: 600;
+    }
+
+    /* Target card */
+    .target-card .tc-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .target-card .tc-header h3 {
+      font-family: var(--nut-font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0;
+      flex: 1;
+    }
+    .target-card .tc-header button {
+      padding: 5px 14px;
+      border-radius: 10px;
+      border: 1px solid var(--nut-border);
+      background: transparent;
+      color: var(--muted);
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .target-card .tc-header button:hover { color: var(--ink); border-color: var(--warm); }
+    .target-card .tc-header button.primary {
+      background: var(--warm);
+      color: #0c0e11;
+      border-color: transparent;
+    }
+    .target-card .tc-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 6px 16px;
+      font-size: 14px;
+      margin: 0;
+    }
+    .target-card .tc-grid dt {
+      color: var(--muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      align-self: center;
+    }
+    .target-card .tc-grid dd {
+      margin: 0;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+      font-weight: 600;
+    }
+    .target-card .tc-grid dd input {
+      width: 80px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      border: 1px solid var(--nut-border);
+      background: rgba(0,0,0,0.3);
+      color: var(--ink);
+      font-family: var(--nut-font-body);
+      font-size: 14px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Plan meals */
+    .plan-meals { margin-bottom: 16px; }
+    .plan-meal-card .mh {
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--ink);
+      text-transform: capitalize;
+      margin-bottom: 8px;
+    }
+    .plan-meal-card ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .plan-meal-card li {
+      font-size: 13px;
+      color: var(--muted);
+      padding: 3px 0;
+    }
+
+    /* Plan supplements */
+    .plan-supplements h3, .supps-panel h2 {
+      font-family: var(--nut-font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 12px;
+    }
+    .plan-supplements ul, .supps-group ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .plan-supplements li, .supps-group li {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      font-size: 13px;
+      color: var(--ink);
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .plan-supplements li:last-child, .supps-group li:last-child { border-bottom: none; }
+
+    /* Plan actions */
+    .plan-actions {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+    }
+    .plan-actions button {
+      padding: 9px 18px;
+      border-radius: 12px;
+      border: 1px solid var(--nut-border);
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--nut-font-body);
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .plan-actions button:hover { color: var(--ink); border-color: var(--warm); }
+
+    /* ── Assignments calendar ─────────────────────────────────────── */
+    .assignments-calendar .month-label {
+      font-family: var(--nut-font-display);
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+    .assignments-calendar .grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 4px;
+    }
+    .assignments-calendar .cell {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.15s;
+      position: relative;
+    }
+    .assignments-calendar .cell:not(.empty):hover {
+      background: rgba(255,255,255,0.06);
+    }
+    .assignments-calendar .cell.day-type-training_day {
+      background: rgba(109, 159, 255, 0.12);
+      color: var(--nut-protein);
+    }
+    .assignments-calendar .cell.day-type-rest_day {
+      background: rgba(255, 255, 255, 0.03);
+    }
+    .assignments-calendar .cell.day-type-refeed_day {
+      background: rgba(159, 251, 0, 0.08);
+      color: var(--nut-carbs);
+    }
+    .assignments-calendar .cell .dot {
+      position: absolute;
+      bottom: 2px;
+      font-size: 8px;
+      color: var(--warm);
+      line-height: 1;
+    }
+
+    /* ── Journal panel ────────────────────────────────────────────── */
+    .journal-panel { animation: nut-fade-up 0.45s ease both; }
+    .journal-header {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      animation: nut-fade-up 0.5s ease 0.05s both;
+    }
+    .journal-header input[type="date"] {
+      padding: 8px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--nut-border);
+      background: var(--nut-surface);
+      color: var(--ink);
+      font-family: var(--nut-font-body);
+      font-size: 14px;
+      color-scheme: dark;
+    }
+    .journal-header button {
+      padding: 8px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--nut-border);
+      background: transparent;
+      color: var(--ink);
+      font-family: var(--nut-font-body);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .journal-header button:hover { border-color: var(--warm); }
+    .journal-header button.primary {
+      background: linear-gradient(135deg, var(--warm), #e8a030);
+      color: #0c0e11;
+      border-color: transparent;
+      font-weight: 600;
+    }
+    .journal-slot {
+      position: relative;
+      overflow: hidden;
+    }
+    .journal-slot::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: var(--warm);
+      border-radius: 3px 0 0 3px;
+      opacity: 0.5;
+    }
+    .journal-slot .slot-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 8px;
+    }
+    .journal-slot .slot-header .name {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--ink);
+      text-transform: capitalize;
+    }
+    .journal-slot .slot-header .total {
+      font-size: 12px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+    }
+    .journal-slot .entries li .desc {
+      flex: 1;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .journal-slot .entries li .desc:hover { color: var(--warm); }
+    .journal-slot .entries li .amt {
+      font-size: 12px;
+      color: var(--muted);
+      font-variant-numeric: tabular-nums;
+      min-width: 60px;
+      text-align: right;
+    }
+    .journal-slot .entries li .del {
+      background: none;
+      border: none;
+      color: var(--danger);
+      cursor: pointer;
+      font-size: 14px;
+      padding: 0 4px;
+      opacity: 0;
+      transition: opacity 0.15s;
+    }
+    .journal-slot .entries li:hover .del { opacity: 0.7; }
+    .journal-slot .entries li .del:hover { opacity: 1; }
+
+    /* ── Log food modal ───────────────────────────────────────────── */
+    .log-food-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(8px);
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: nut-fade-up 0.2s ease both;
+    }
+    .log-food-modal {
+      background: #12151a;
+      border: 1px solid var(--nut-border);
+      border-radius: 24px;
+      padding: 28px;
+      width: 90vw;
+      max-width: 480px;
+      max-height: 80vh;
+      overflow-y: auto;
+      box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+    }
+    .log-food-modal h3 {
+      font-family: var(--nut-font-display);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 16px;
+    }
+    .log-food-modal input[type="text"],
+    .log-food-modal input[type="number"] {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 1px solid var(--nut-border);
+      background: rgba(0, 0, 0, 0.3);
+      color: var(--ink);
+      font-family: var(--nut-font-body);
+      font-size: 14px;
+      margin-bottom: 12px;
+      box-sizing: border-box;
+    }
+    .log-food-modal input:focus {
+      outline: none;
+      border-color: var(--warm);
+      box-shadow: 0 0 0 2px rgba(245, 183, 74, 0.15);
+    }
+    .log-food-modal .results {
+      list-style: none;
+      margin: 0 0 12px;
+      padding: 0;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+    .log-food-modal .results li {
+      padding: 10px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 13px;
+      color: var(--ink);
+      transition: background 0.15s;
+    }
+    .log-food-modal .results li:hover { background: rgba(255, 255, 255, 0.04); }
+    .log-food-modal .results li.selected {
+      background: var(--warm-dim);
+      border: 1px solid rgba(245, 183, 74, 0.2);
+    }
+    .log-food-modal .results .brand { color: var(--muted); font-size: 12px; }
+    .log-food-modal .log-form {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 14px 0;
+      border-top: 1px solid var(--nut-border);
+    }
+    .log-food-modal .log-form label {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .log-food-modal .log-form input[type="number"] {
+      width: 90px;
+      margin: 0;
+    }
+    .log-food-modal .log-form select {
+      padding: 6px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--nut-border);
+      background: rgba(0, 0, 0, 0.3);
+      color: var(--ink);
+      font-family: var(--nut-font-body);
+      font-size: 13px;
+    }
+    .log-food-modal .log-form button.primary {
+      padding: 10px 20px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, var(--warm), #e8a030);
+      color: #0c0e11;
+      border: none;
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: filter 0.2s;
+    }
+    .log-food-modal .log-form button.primary:hover { filter: brightness(1.1); }
+    .log-food-modal .log-form button.primary:disabled { opacity: 0.5; cursor: default; }
+    .log-food-modal .cancel {
+      display: block;
+      width: 100%;
+      margin-top: 8px;
+      padding: 8px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .log-food-modal .cancel:hover { color: var(--ink); }
+
+    /* ── Supplements panel ────────────────────────────────────────── */
+    .supps-panel { animation: nut-fade-up 0.45s ease both; }
+    .supps-group h3 {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0 0 10px;
+    }
+    .supps-group li .desc { flex: 1; }
+    .supps-group li .check {
+      font-size: 12px;
+      color: var(--nut-carbs);
+      font-weight: 500;
+    }
+    .supps-group li.logged { opacity: 0.6; }
+    .supps-group li button {
+      padding: 4px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--nut-border);
+      background: transparent;
+      color: var(--warm);
+      font-size: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .supps-group li button:hover {
+      background: var(--warm-dim);
+      border-color: var(--warm);
+    }
+
+    /* ── Food detail drawer ───────────────────────────────────────── */
+    .food-detail-drawer {
+      position: fixed;
+      top: 0; right: 0;
+      width: 420px;
+      height: 100vh;
+      background: linear-gradient(180deg, #0f1319 0%, #0c0e11 100%);
+      border-left: 1px solid var(--nut-border);
+      padding: 28px 24px;
+      overflow-y: auto;
+      z-index: 150;
+      box-shadow: -20px 0 60px rgba(0, 0, 0, 0.4);
+      animation: nut-fade-up 0.3s ease both;
+    }
+    .food-detail-drawer .close-btn {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 22px;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .food-detail-drawer .close-btn:hover { color: var(--ink); }
+    .food-detail-drawer .food-desc {
+      font-family: var(--nut-font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin: 0 0 4px;
+    }
+    .food-detail-drawer .brand {
+      font-size: 13px;
+      color: var(--warm);
+      margin-bottom: 4px;
+    }
+    .food-detail-drawer .source, .food-detail-drawer .common-unit {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+    .food-detail-drawer .history {
+      margin-top: 20px;
+    }
+    .food-detail-drawer .history .label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .food-detail-drawer .log-btn {
+      display: block;
+      width: 100%;
+      margin-top: 20px;
+      padding: 12px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--warm), #e8a030);
+      color: #0c0e11;
+      border: none;
+      font-family: var(--nut-font-body);
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: filter 0.2s, box-shadow 0.2s;
+      text-transform: capitalize;
+    }
+    .food-detail-drawer .log-btn:hover {
+      filter: brightness(1.1);
+      box-shadow: 0 6px 24px rgba(245, 183, 74, 0.3);
+    }
+
+    /* ── Micronutrient grid ───────────────────────────────────────── */
+    .micro-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+    .micro-card {
+      padding: 12px 14px;
+      border-radius: 14px;
+    }
+    .micro-card .micro-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .micro-card .micro-amount {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .micro-card .micro-pct {
+      font-size: 11px;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+    .micro-card.status-ok .micro-pct { color: var(--nut-carbs); }
+    .micro-card.status-low .micro-pct { color: var(--warm); }
+    .micro-card.status-under .micro-pct { color: var(--danger); }
+    .micro-card.status-high .micro-pct { color: var(--warm); }
+    .micro-card.status-excess .micro-pct { color: var(--danger); }
+
+    /* ── Progress nutrition pane ───────────────────────────────────── */
+    .nutrition-pane { animation: nut-fade-up 0.45s ease both; }
+    .range-pills {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 24px;
+    }
+    .range-pills .pill {
+      padding: 6px 16px;
+      border-radius: 999px;
+      border: 1px solid var(--nut-border);
+      background: transparent;
+      color: var(--muted);
+      font-family: var(--nut-font-body);
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .range-pills .pill:hover { color: var(--ink); }
+    .range-pills .pill.active {
+      background: var(--warm);
+      color: #0c0e11;
+      border-color: var(--warm);
+      font-weight: 600;
+    }
+    .stat-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+    .stat-cards .card {
+      text-align: center;
+      padding: 16px;
+    }
+    .stat-cards .card .label {
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .stat-cards .card .value {
+      font-family: var(--nut-font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+    .section-weekly h3, .section-top-foods h3, .section-micros h3 {
+      font-family: var(--nut-font-display);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin: 0 0 14px;
+    }
+    .top-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .top-list li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+      font-size: 13px;
+    }
+    .top-list li:last-child { border-bottom: none; }
+    .top-list .desc { flex: 1; color: var(--ink); }
+    .top-list .count { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .top-list .kcal { color: var(--warm); font-variant-numeric: tabular-nums; font-weight: 500; }
+
+    /* ── Progress tab switcher ────────────────────────────────────── */
+    .progress-top-tabs .top-tab.active {
+      border-bottom-color: var(--warm);
+    }
+
+    /* ── Responsive ───────────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .nutrition-shell { padding: 16px 12px 40px; }
+      .macro-rings { gap: 10px; }
+      .macro-rings svg { width: 72px; height: 72px; }
+      .food-detail-drawer { width: 100vw; border-left: none; }
+      .log-food-modal { width: 96vw; max-width: none; border-radius: 18px; }
+      .stat-cards { grid-template-columns: repeat(2, 1fr); }
+      .micro-grid { grid-template-columns: repeat(2, 1fr); }
+      .assignments-calendar .grid { gap: 2px; }
+      .assignments-calendar .cell { font-size: 10px; }
+    }
   </style>
 </head>
 <body>
