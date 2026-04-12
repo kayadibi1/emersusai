@@ -234,6 +234,82 @@ test("crossref and doaj are filtered out even when MULTI_SOURCE_ENABLED=true", a
   }
 });
 
+test("buildChildSingletonKey returns the legacy key when keySuffix is empty", async () => {
+  const { buildChildSingletonKey } = await import("../../../jobs/ingest-topic.js");
+  assert.equal(buildChildSingletonKey(42, "pubmed", ""), "ingest-42-pubmed");
+  assert.equal(buildChildSingletonKey(42, "pubmed", undefined), "ingest-42-pubmed");
+});
+
+test("buildChildSingletonKey appends keySuffix when present", async () => {
+  const { buildChildSingletonKey } = await import("../../../jobs/ingest-topic.js");
+  assert.equal(
+    buildChildSingletonKey(42, "pubmed", "2026-04-12b"),
+    "ingest-42-pubmed-2026-04-12b",
+  );
+});
+
+test("ingestTopicHandler propagates keySuffix into child singletonKey + ctx.data", async () => {
+  const originalFlag = process.env.MULTI_SOURCE_ENABLED;
+  process.env.MULTI_SOURCE_ENABLED = "true";
+  try {
+    await import("../../../scripts/sources/europepmc.js");
+    const { ingestTopicHandler } = await import("../../../jobs/ingest-topic.js");
+
+    const sql = makeSql({ topicRows: [FAKE_TOPIC] });
+    const boss = makeBoss();
+    const ctx = makeCtx({
+      topicId: 42,
+      sourceIds: ["pubmed", "europepmc"],
+      keySuffix: "manual-2026-04-12",
+    });
+
+    await ingestTopicHandler(ctx, { sql, boss });
+
+    // Every child send should have the suffix in both the singletonKey
+    // AND the forwarded ctx.data.keySuffix payload.
+    assert.equal(boss.sent.length, 2);
+    for (const job of boss.sent) {
+      assert.ok(
+        job.options.singletonKey.endsWith("-manual-2026-04-12"),
+        `child singletonKey should end with -manual-2026-04-12, got ${job.options.singletonKey}`,
+      );
+      assert.equal(
+        job.payload.keySuffix,
+        "manual-2026-04-12",
+        "child payload should forward keySuffix",
+      );
+    }
+  } finally {
+    if (originalFlag !== undefined) process.env.MULTI_SOURCE_ENABLED = originalFlag;
+    else delete process.env.MULTI_SOURCE_ENABLED;
+  }
+});
+
+test("ingestTopicHandler without keySuffix uses the legacy singletonKey form", async () => {
+  const originalFlag = process.env.MULTI_SOURCE_ENABLED;
+  delete process.env.MULTI_SOURCE_ENABLED;
+  try {
+    const { ingestTopicHandler } = await import("../../../jobs/ingest-topic.js");
+    const sql = makeSql({ topicRows: [FAKE_TOPIC] });
+    const boss = makeBoss();
+    const ctx = makeCtx({ topicId: 42, sourceIds: ["pubmed"] });
+
+    await ingestTopicHandler(ctx, { sql, boss });
+
+    assert.equal(boss.sent.length, 1);
+    assert.equal(
+      boss.sent[0].options.singletonKey,
+      "ingest-42-pubmed",
+      "no-suffix path should produce the legacy singletonKey form",
+    );
+    // Payload's keySuffix should default to an empty string (not undefined,
+    // so that downstream handlers can pattern-match consistently).
+    assert.equal(boss.sent[0].payload.keySuffix, "");
+  } finally {
+    if (originalFlag !== undefined) process.env.MULTI_SOURCE_ENABLED = originalFlag;
+  }
+});
+
 test("INGEST_DISABLED_SOURCES env var excludes listed sources", async () => {
   const originalFlag = process.env.MULTI_SOURCE_ENABLED;
   const originalDisabled = process.env.INGEST_DISABLED_SOURCES;

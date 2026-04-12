@@ -984,9 +984,19 @@ const TOPIC_QUERIES = {
 
 const { values } = parseArgs({
   options: {
-    topic:  { type: "string",  multiple: true },
-    all:    { type: "boolean", default: false },
-    detach: { type: "boolean", default: false },
+    topic:       { type: "string",  multiple: true },
+    all:         { type: "boolean", default: false },
+    detach:      { type: "boolean", default: false },
+    // --key-suffix=<str> bypasses the 24h singletonKey lockout from a
+    // previous run by namespacing both parent and child singleton keys.
+    // Pair with a date-based suffix like --key-suffix=2026-04-12b for
+    // clear auditing. Without this flag the script uses the legacy
+    // `bulk-ingest-${id}` key, which respects the 24h singleton window
+    // and is the right default for scheduled cron runs.
+    "key-suffix": { type: "string",  default: "" },
+    // --limit=<n> caps the number of topics processed (handy for smoke
+    // tests). Applied after --topic filtering and --all expansion.
+    limit:       { type: "string" },
   },
 });
 
@@ -1019,6 +1029,19 @@ if (import.meta.url === `file://${process.argv[1].replace(/\\\\/g, "/")}` || pro
     await client.end();
   }
 
+  // Apply --limit (truncate after DB filter)
+  if (values.limit !== undefined) {
+    const n = Number(values.limit);
+    if (!Number.isFinite(n) || n <= 0) {
+      console.error(`[fill-pmc-topics] --limit must be a positive integer, got ${values.limit}`);
+      process.exit(2);
+    }
+    if (topicRows.length > n) {
+      console.error(`[fill-pmc-topics] --limit=${n}: truncating ${topicRows.length} → ${n} topics`);
+      topicRows = topicRows.slice(0, n);
+    }
+  }
+
   if (topicRows.length === 0) {
     console.error("[fill-pmc-topics] no active topics matched the filter");
     process.exit(1);
@@ -1033,16 +1056,32 @@ if (import.meta.url === `file://${process.argv[1].replace(/\\\\/g, "/")}` || pro
   await boss.start();
   await boss.createQueue("ingest-topic").catch(() => {});
 
-  console.error(`[fill-pmc-topics] enqueueing ingest-topic for ${topicRows.length} topics`);
+  // --key-suffix makes BOTH parent (bulk-ingest-) and child
+  // (ingest-topicId-sourceId-) singletonKeys unique to this run. The
+  // handler reads ctx.data.keySuffix and propagates it into the child
+  // key via buildChildSingletonKey(). See jobs/ingest-topic.js.
+  const keySuffix = values["key-suffix"] || "";
+  const suffixTag = keySuffix ? `-${keySuffix}` : "";
+
+  const runLabel = keySuffix
+    ? `force-rerun (key-suffix=${keySuffix})`
+    : "default 24h-singleton run";
+  console.error(
+    `[fill-pmc-topics] enqueueing ingest-topic for ${topicRows.length} topics — ${runLabel}`,
+  );
   let enqueued = 0;
+  let skipped = 0;
   for (const row of topicRows) {
     const jobId = await boss.send(
       "ingest-topic",
-      { topicId: row.id },
+      { topicId: row.id, keySuffix },
       {
         // singletonKey guards against duplicate in-flight jobs for the
-        // same topic (idempotent re-runs of this script).
-        singletonKey: `bulk-ingest-${row.id}`,
+        // same topic (idempotent re-runs of this script). Append
+        // keySuffix so manual force-reruns don't collide with the
+        // legacy `bulk-ingest-${id}` slot still held by the most
+        // recent scheduled run.
+        singletonKey: `bulk-ingest-${row.id}${suffixTag}`,
         singletonHours: 24,
       }
     );
@@ -1050,10 +1089,14 @@ if (import.meta.url === `file://${process.argv[1].replace(/\\\\/g, "/")}` || pro
     if (jobId) {
       console.error(`  [${enqueued}/${topicRows.length}] ${row.topic_key} (id=${row.id}) → ${jobId}`);
     } else {
+      skipped += 1;
       console.error(`  [${enqueued}/${topicRows.length}] ${row.topic_key} (id=${row.id}) → SKIPPED (singleton active)`);
     }
   }
-  console.error(`[fill-pmc-topics] done — ${enqueued}/${topicRows.length} topics enqueued`);
+  const accepted = enqueued - skipped;
+  console.error(
+    `[fill-pmc-topics] done — ${accepted}/${topicRows.length} topics enqueued (${skipped} deduped by singleton lockout)`,
+  );
 
   await boss.stop({ graceful: true });
   process.exit(0);
