@@ -50,7 +50,7 @@ const DATASETS = {
     source: "usda_foundation",
     // USDA publishes these as a single zipped JSON bundle per dataset.
     // URL format changes periodically; these are as of 2026-04.
-    url: "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2025-10-31.zip",
+    url: "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_foundation_food_json_2024-10-31.zip",
     batchSize: 1000,
     jsonKey: "FoundationFoods",
   },
@@ -71,7 +71,7 @@ const DATASETS = {
   branded: {
     slug: "branded",
     source: "usda_branded",
-    url: "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_branded_food_json_2025-10-31.zip",
+    url: "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_branded_food_json_2024-10-31.zip",
     batchSize: 500,
     jsonKey: "BrandedFoods",
     streaming: true, // stream-parse instead of loading whole JSON
