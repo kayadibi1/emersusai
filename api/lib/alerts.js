@@ -8,7 +8,10 @@
 //   - Silent mode: ALERT_SILENT=1 logs but does not send
 //   - Rate ceiling: > 10 alerts in last hour → suppress
 import { supabaseAdmin } from "./clients.js";
-import { Resend } from "resend";
+import {
+  getResendTemplateId,
+  sendResendEmail,
+} from "./resend-mail.js";
 
 const RATE_CEILING_PER_HOUR = 10;
 const FROM_ADDR = process.env.ALERT_FROM_EMAIL ?? "Emersus Alerts <alerts@emersus.ai>";
@@ -16,12 +19,6 @@ const FROM_ADDR = process.env.ALERT_FROM_EMAIL ?? "Emersus Alerts <alerts@emersu
 function parseRecipients() {
   const raw = (process.env.ALERT_EMAILS ?? process.env.ADMIN_EMAILS ?? "");
   return raw.split(",").map(s => s.trim()).filter(Boolean);
-}
-
-function getResendClient() {
-  const key = process.env.RESEND_API_KEY;
-  if (!key) return null;
-  return new Resend(key);
 }
 
 /**
@@ -60,19 +57,27 @@ export async function sendAlert({ type, subject, body, html }) {
     return { sent: false, suppressed: "no_recipients", alertLogId: logRow?.id };
   }
 
-  // Resend client
-  const resend = getResendClient();
-  if (!resend) {
+  if (!process.env.RESEND_API_KEY) {
     return { sent: false, suppressed: "no_resend_key", alertLogId: logRow?.id };
   }
 
   try {
-    const result = await resend.emails.send({
+    const fallbackHtml =
+      html ??
+      `<pre style="font-family:monospace;white-space:pre-wrap">${body.replace(/[<>&]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]))}</pre>`;
+    const result = await sendResendEmail({
       from: FROM_ADDR,
       to,
       subject,
       text: body,
-      html: html ?? `<pre style="font-family:monospace;white-space:pre-wrap">${body.replace(/[<>&]/g, c => ({ "<": "&lt;", ">": "&gt;", "&": "&amp;" }[c]))}</pre>`,
+      html: fallbackHtml,
+      templateId: getResendTemplateId("ALERT"),
+      templateVariables: {
+        alert_type: type,
+        subject,
+        body,
+        body_html: fallbackHtml,
+      },
     });
     return { sent: true, resendId: result?.data?.id, alertLogId: logRow?.id };
   } catch (err) {
