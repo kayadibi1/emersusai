@@ -1,22 +1,33 @@
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+const finePointerQuery = window.matchMedia("(pointer: fine)");
+const hoverQuery = window.matchMedia("(hover: hover)");
 let smoothScrollController = null;
 let landingBackgroundPromise = null;
-let gsapBundlePromise = null;
 let lenisModulePromise = null;
 
-function loadGsapBundle() {
-  if (!gsapBundlePromise) {
-    gsapBundlePromise = Promise.all([
-      import("gsap"),
-      import("gsap/ScrollTrigger"),
-    ]).then(([gsapModule, scrollTriggerModule]) => {
-      const gsap = gsapModule.default;
-      const { ScrollTrigger } = scrollTriggerModule;
-      gsap.registerPlugin(ScrollTrigger);
-      return { gsap, ScrollTrigger };
-    });
+function getConnectionSettings() {
+  return navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+}
+
+function shouldUseRichLandingEffects() {
+  if (reducedMotionQuery.matches) {
+    return false;
   }
-  return gsapBundlePromise;
+
+  const connection = getConnectionSettings();
+  if (connection?.saveData) {
+    return false;
+  }
+
+  const deviceMemory = navigator.deviceMemory ?? 8;
+  const hardwareConcurrency = navigator.hardwareConcurrency ?? 8;
+
+  return (
+    finePointerQuery.matches &&
+    hoverQuery.matches &&
+    deviceMemory >= 4 &&
+    hardwareConcurrency >= 6
+  );
 }
 
 function loadLenisModule() {
@@ -27,7 +38,7 @@ function loadLenisModule() {
 }
 
 async function initSmoothScroll(onScrollActivity) {
-  if (reducedMotionQuery.matches) {
+  if (!shouldUseRichLandingEffects()) {
     return null;
   }
 
@@ -38,10 +49,7 @@ async function initSmoothScroll(onScrollActivity) {
     return smoothScrollController.lenis;
   }
 
-  const [{ gsap, ScrollTrigger }, Lenis] = await Promise.all([
-    loadGsapBundle(),
-    loadLenisModule(),
-  ]);
+  const Lenis = await loadLenisModule();
 
   if (smoothScrollController) {
     if (onScrollActivity) {
@@ -65,20 +73,23 @@ async function initSmoothScroll(onScrollActivity) {
 
   const handleScroll = () => {
     listeners.forEach((listener) => listener?.());
-    ScrollTrigger.update();
   };
-  const tick = (time) => lenis.raf(time * 1000);
+  let rafId = 0;
+
+  const tick = (time) => {
+    lenis.raf(time);
+    rafId = window.requestAnimationFrame(tick);
+  };
 
   lenis.on("scroll", handleScroll);
-  gsap.ticker.add(tick);
-  gsap.ticker.lagSmoothing(0);
+  rafId = window.requestAnimationFrame(tick);
 
-  smoothScrollController = { lenis, listeners, tick };
+  smoothScrollController = { lenis, listeners, tick, rafId };
   return lenis;
 }
 
 function loadLandingBackground() {
-  if (reducedMotionQuery.matches) {
+  if (!shouldUseRichLandingEffects()) {
     return Promise.resolve();
   }
   if (landingBackgroundPromise) {
@@ -94,22 +105,37 @@ function loadLandingBackground() {
   return landingBackgroundPromise;
 }
 
-async function initStepCards() {
-  if (reducedMotionQuery.matches || !document.querySelector(".step-card")) {
+function initStepCards() {
+  const cards = Array.from(document.querySelectorAll(".step-card"));
+  if (!cards.length || reducedMotionQuery.matches) {
     return;
   }
 
-  const { gsap } = await loadGsapBundle();
-  gsap.to(".step-card", {
-    scrollTrigger: {
-      trigger: "#how",
-      start: "top 68%",
+  if (!("IntersectionObserver" in window) || !shouldUseRichLandingEffects()) {
+    return;
+  }
+
+  document.documentElement.classList.add("motion-ready");
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+          return;
+        }
+        entry.target.classList.add("is-visible");
+        observer.unobserve(entry.target);
+      });
     },
-    opacity: 1,
-    y: 0,
-    stagger: 0.12,
-    duration: 0.85,
-    ease: "power3.out",
+    {
+      threshold: 0.2,
+      rootMargin: "0px 0px -10% 0px",
+    },
+  );
+
+  cards.forEach((card, index) => {
+    card.style.setProperty("--step-delay", `${index * 90}ms`);
+    observer.observe(card);
   });
 }
 
@@ -129,6 +155,7 @@ function initWaitlistForm() {
   let turnstileSiteKey = "";
   let turnstileToken = "";
   let widgetId = null;
+  let captchaLoadRequested = false;
 
   function setStatus(tone, message) {
     if (!(statusEl instanceof HTMLElement)) {
@@ -200,6 +227,41 @@ function initWaitlistForm() {
     document.head.appendChild(script);
   }
 
+  function requestTurnstileLoad() {
+    if (captchaLoadRequested) {
+      return;
+    }
+    captchaLoadRequested = true;
+    ensureTurnstileScript();
+  }
+
+  function scheduleTurnstileLoad() {
+    if (!turnstileSiteKey) {
+      return;
+    }
+
+    form.addEventListener("focusin", requestTurnstileLoad, { once: true });
+
+    if (!("IntersectionObserver" in window)) {
+      requestTurnstileLoad();
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const isVisible = entries.some((entry) => entry.isIntersecting);
+        if (!isVisible) {
+          return;
+        }
+        observer.disconnect();
+        requestTurnstileLoad();
+      },
+      { rootMargin: "200px 0px" },
+    );
+
+    observer.observe(form);
+  }
+
   fetch("/api/config", {
     headers: { Accept: "application/json" },
   })
@@ -207,7 +269,7 @@ function initWaitlistForm() {
     .then((config) => {
       if (config?.turnstileSiteKey) {
         turnstileSiteKey = String(config.turnstileSiteKey);
-        ensureTurnstileScript();
+        scheduleTurnstileLoad();
         syncSubmitState();
       }
     })
@@ -274,10 +336,10 @@ function scheduleEnhancements() {
 
   const startEnhancements = () => {
     void initSmoothScroll();
-    void initStepCards();
+    initStepCards();
     window.setTimeout(() => {
       void loadLandingBackground();
-    }, 1200);
+    }, 900);
   };
 
   if (document.readyState === "complete") {

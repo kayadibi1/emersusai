@@ -388,11 +388,23 @@ body::before {
   margin-top: 3rem;
 }
 
-/* CRITICAL: keep initial state for GSAP scroll animation */
 .step-card {
   padding: 1.8rem;
+}
+
+.motion-ready .step-card {
   opacity: 0;
-  transform: translateY(34px);
+  transform: translateY(24px);
+  transition:
+    opacity 620ms ease,
+    transform 620ms ease,
+    border-color 140ms ease;
+  transition-delay: var(--step-delay, 0ms);
+}
+
+.motion-ready .step-card.is-visible {
+  opacity: 1;
+  transform: none;
 }
 
 .step-number {
