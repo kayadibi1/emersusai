@@ -104,7 +104,8 @@ app.use("/api/admin/alerts",     requireAdmin, adminAlerts);
 app.use("/admin", express.static(path.join(__dirname, "admin")));
 
 // ── Catch-all 404 for unmatched API routes ──
-app.use("/api/*", (req, res) => {
+// Express 5 uses path-to-regexp v8 which requires named wildcards.
+app.use("/api/{*path}", (req, res) => {
   res.status(404).json({ error: "Not found." });
 });
 
