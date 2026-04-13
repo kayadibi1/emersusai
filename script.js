@@ -933,7 +933,9 @@ function OldCopyNav() {
   return h(
     "nav",
     { className: "nav" },
-    h("a", { className: "brand text-blur", href: "#hero" }, "Emersus"),
+    h("a", { className: "brand text-blur", href: "#hero" },
+      h("img", { src: "/emersus-logo.png", alt: "Emersus", className: "brand-logo" })
+    ),
     h(
       "div",
       { className: "nav-links" },
