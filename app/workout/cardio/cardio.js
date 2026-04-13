@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "https://esm.sh/react@18.2.0";
-import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createRoot } from "react-dom/client";
 import {
   applyManualWorkoutPlanEdit,
   getProfile,
@@ -23,7 +23,7 @@ if (!document.getElementById("share-modal-css")) {
   document.head.appendChild(style);
 }
 
-// ── Utilities ─────────────────────────────────────────────────────
+// â”€â”€ Utilities â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function readQuery() {
   const p = new URLSearchParams(window.location.search);
@@ -46,7 +46,7 @@ const ACTIVITY_CHIPS = [
   { id: "hiking", label: "Hiking" },
 ];
 
-// ── Pre-start screen ──────────────────────────────────────────────
+// â”€â”€ Pre-start screen â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function PreStart({ session, activityType, setActivityType, titleValue, setTitleValue, onStart }) {
   const prescribed =
@@ -58,7 +58,7 @@ function PreStart({ session, activityType, setActivityType, titleValue, setTitle
     React.Fragment,
     null,
     h("div", { className: "cardio-topbar" },
-      h("a", { href: "/app/workout/" }, "← Back"),
+      h("a", { href: "/app/workout/" }, "â† Back"),
       h("span", null, "")
     ),
     h("div", { className: "title-field" },
@@ -87,7 +87,7 @@ function PreStart({ session, activityType, setActivityType, titleValue, setTitle
   );
 }
 
-// ── Live screen ───────────────────────────────────────────────────
+// â”€â”€ Live screen â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function LiveScreen({
   elapsedS, pathLength, totalDistanceM, currentPaceSec, avgPaceSec,
@@ -100,7 +100,7 @@ function LiveScreen({
 
   const gpsLabel =
     gpsDenied ? "GPS unavailable" :
-    gpsState === "locked" ? `GPS locked · ${pathLength} pts` :
+    gpsState === "locked" ? `GPS locked Â· ${pathLength} pts` :
     gpsState === "warn" ? "GPS weak" :
     "GPS searching...";
 
@@ -115,7 +115,7 @@ function LiveScreen({
       )
     ),
     gpsDenied &&
-      h("div", { className: "banner" }, "GPS permission denied — tracking time only. Switch to the planner to retry with GPS."),
+      h("div", { className: "banner" }, "GPS permission denied â€” tracking time only. Switch to the planner to retry with GPS."),
     h("div", { className: "live-timer", style: paused ? { color: "var(--muted)" } : null },
       formatTimer(elapsedS)
     ),
@@ -149,7 +149,7 @@ function LiveScreen({
   );
 }
 
-// ── Main component ────────────────────────────────────────────────
+// â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function CardioSessionView({ session: authSession, planRow, sessionIndex, profile, config }) {
   const planRef = useRef(planRow);
@@ -360,7 +360,7 @@ function CardioSessionView({ session: authSession, planRow, sessionIndex, profil
   );
 }
 
-// ── Boot ──────────────────────────────────────────────────────────
+// â”€â”€ Boot â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 async function boot() {
   const rootEl = document.getElementById("cardio-root");

@@ -4,7 +4,7 @@
 // analytics RPCs from Task 21 and composes the charts from
 // shared/nutrition-charts.js.
 
-import React from "https://esm.sh/react@18.2.0";
+import React from "react";
 import { localDateStr, localDateOffset } from "/shared/date-utils.js";
 import {
   WeeklyMacroBars,

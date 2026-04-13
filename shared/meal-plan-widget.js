@@ -5,10 +5,10 @@
 // cards for the selected day-type, and the supplement stack. Exposes a
 // `[Save plan]` button that POSTs to /api/emersus/meal-plans.
 //
-// This module is loaded inside the widget iframe — it imports React from
+// This module is loaded inside the widget iframe â€” it imports React from
 // esm.sh and writes JSX via React.createElement (no JSX transform).
 
-import React from "https://esm.sh/react@18.2.0";
+import React from "react";
 
 const { useState } = React;
 const h = React.createElement;
@@ -28,7 +28,7 @@ function MealCard({ meal }) {
     ]),
     h("ul", { className: "meal-foods", key: "l", style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, rgba(255,255,255,0.7))", lineHeight: 1.6 } },
       foods.map((f, i) =>
-        h("li", { key: i }, `${f.description} — ${f.grams} g`)
+        h("li", { key: i }, `${f.description} â€” ${f.grams} g`)
       )
     ),
   ]);
@@ -41,7 +41,7 @@ function SupplementStack({ supplements }) {
     h("ul", { key: "l", style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, rgba(255,255,255,0.7))", lineHeight: 1.6 } },
       supplements.map((s, i) =>
         h("li", { key: i },
-          `${s.description} — ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " · " + s.timing.replace(/_/g, " ") : ""}`
+          `${s.description} â€” ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " Â· " + s.timing.replace(/_/g, " ") : ""}`
         )
       )
     ),

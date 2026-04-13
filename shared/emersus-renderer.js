@@ -13,7 +13,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
-} from "https://esm.sh/react@18.2.0";
+} from "react";
 import MealPlanWidget from "./meal-plan-widget.js";
 import NutritionLogConfirmWidget from "./nutrition-log-confirm-widget.js";
 
@@ -44,14 +44,14 @@ export {
 // The theme is dark-only and tracks the host site palette in shared/site.css
 // (#08080a base, #78dc14 green accent, Georgia display + JetBrains Mono code).
 // We previously shipped a warm-beige light default that turned every widget
-// wrapper into a stark cream card on the dark chat surface — visually
+// wrapper into a stark cream card on the dark chat surface â€” visually
 // alien to the rest of the app. The token names below are unchanged so any
 // older widgets the model emits keep working; only the values are remapped.
 export const EMERSUS_THEME_CSS = `
   @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
   :root {
     color-scheme: dark;
-    /* --color-* namespace (preferred — matches the Emersus design system). */
+    /* --color-* namespace (preferred â€” matches the Emersus design system). */
     --color-background-primary: #08080a;
     --color-background-secondary: rgba(255,255,255,0.06);
     --color-background-tertiary: rgba(255,255,255,0.10);
@@ -88,7 +88,7 @@ export const EMERSUS_THEME_CSS = `
     --font-sans: system-ui, -apple-system, sans-serif;
     --font-display: Georgia, "Times New Roman", serif;
 
-    /* Site accent tokens — exposed so widgets can pick up the green
+    /* Site accent tokens â€” exposed so widgets can pick up the green
        accent that defines the rest of the Emersus surface. */
     --accent-primary: #78dc14;
     --accent-secondary: #78dc14;
@@ -253,8 +253,8 @@ export const EMERSUS_THEME_CSS = `
 //     same page never cross-size each other.
 //   - Iframe wrapper has border-radius: 0 to match the sharp-edge chat shell.
 // Accepts either:
-//   { code: "<html>..." }               — legacy fence-parsed widget body
-//   { html: "<html>...", title: "..." }  — SSE tool result (emit_widget)
+//   { code: "<html>..." }               â€” legacy fence-parsed widget body
+//   { html: "<html>...", title: "..." }  â€” SSE tool result (emit_widget)
 // Both paths produce the same sandboxed iframe. `code` takes precedence for
 // backwards compatibility; if absent, `html` is used instead.
 export function WidgetFrame({ code, html, title }) {

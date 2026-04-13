@@ -1,4 +1,4 @@
-// Mobile session view — Phase 1.5 of the workout planner.
+// Mobile session view â€” Phase 1.5 of the workout planner.
 //
 // Reads ?plan=<planId>&session=<sessionId> from the URL, loads the
 // plan, finds the requested session, and renders one block at a time
@@ -25,8 +25,8 @@ import React, {
   useMemo,
   useRef,
   useState,
-} from "https://esm.sh/react@18.2.0";
-import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+} from "react";
+import { createRoot } from "react-dom/client";
 import {
   applyManualWorkoutPlanEdit,
   getProfile,
@@ -116,7 +116,7 @@ function playBeep({ frequency = 880, duration = 220, volume = 0.18 } = {}) {
 // Input limits, validation & sanitization
 // ---------------------------------------------------------------------------
 // Caps protect the plan JSONB from unbounded growth and give honest users
-// clear feedback when they paste something huge. They are defense in depth —
+// clear feedback when they paste something huge. They are defense in depth â€”
 // `normalizePlan` only caps the top-level `plan.notes` (4000 chars) and does
 // NOT recursively cap per-set notes, per-set reps/load, or session_notes, so
 // without these caps a clumsy or malicious client could push megabytes into
@@ -133,7 +133,7 @@ const MAX_SESSION_NOTES_LEN = 500;
 // PROFILE_INJECTION_PATTERNS. The reason we need it:
 //
 //   workflow.js:3888 loads the current workout plan via
-//   fetchSupabaseWorkoutPlan → currentWorkoutPlan, and
+//   fetchSupabaseWorkoutPlan â†’ currentWorkoutPlan, and
 //   workflow.js:1822-1847 JSON.stringifies that entire object into the
 //   user-role message sent to the OpenAI synthesis call. That means every
 //   character a user types into a set note, exercise note, or
@@ -143,14 +143,14 @@ const MAX_SESSION_NOTES_LEN = 500;
 //   bypasses the chat guardrail classifier (it runs on the incoming chat
 //   message, not on stored plan JSONB).
 //
-// This is only half the fix — workflow.js should ALSO run a sanitizer
+// This is only half the fix â€” workflow.js should ALSO run a sanitizer
 // on `currentWorkoutPlan` before stringifying it into the LLM input,
 // because a sufficiently motivated attacker can bypass a client-side
 // filter by calling the RPC/REST endpoint directly. That server-side
 // pass is a known follow-up; see changelog.md for 2026-04-10.
 const NOTES_INJECTION_PATTERNS = [
   // Use * (not ?) so the qualifier slot catches multi-word chains like
-  // "ignore all previous instructions" — the canonical jailbreak phrase.
+  // "ignore all previous instructions" â€” the canonical jailbreak phrase.
   // The equivalent pattern in workflow.js PROFILE_INJECTION_PATTERNS uses
   // ? and lets that phrase slip through; fix it there too in a follow-up.
   /ignore\s+(all\s+|previous\s+|prior\s+|above\s+|the\s+)*instructions?/gi,
@@ -176,7 +176,7 @@ function sanitizeNotes(raw, maxLength) {
   for (const pattern of NOTES_INJECTION_PATTERNS) {
     out = out.replace(pattern, "");
   }
-  // Collapse accidental newlines/whitespace and trim — keeps the notes
+  // Collapse accidental newlines/whitespace and trim â€” keeps the notes
   // field single-paragraph so it never spans into anything the model
   // might interpret as a new instruction block.
   return out.replace(/\s+/g, " ").trim();
@@ -194,7 +194,7 @@ function clampRpeValue(raw) {
   const num = parseFloat(str);
   if (isNaN(num)) return "";
   const clamped = Math.max(0, Math.min(10, num));
-  // One decimal place — matches the Borg scale's usual granularity.
+  // One decimal place â€” matches the Borg scale's usual granularity.
   return String(Math.round(clamped * 10) / 10);
 }
 
@@ -363,7 +363,7 @@ function computeGymSummary(session) {
     .slice(0, 3)
     .map(([name, best]) => ({
       name,
-      best_set_display: best.loadKg ? `${best.loadKg}kg × ${best.reps}` : `${best.reps} reps`,
+      best_set_display: best.loadKg ? `${best.loadKg}kg Ã— ${best.reps}` : `${best.reps} reps`,
       is_pr: false, // PR detection requires historical lookup; left false for v1
     }));
 
@@ -455,7 +455,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
         planRef.current.id,
         planToSave
       );
-      // Sync completed_blocks to workout_logs (fire and forget — don't block the save UX)
+      // Sync completed_blocks to workout_logs (fire and forget â€” don't block the save UX)
       upsertWorkoutLogs(authSession.user.id, planRef.current.id, planToSave, sessionId).catch(err =>
         console.error("[workout-logs sync]", err)
       );
@@ -481,7 +481,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
   }, [flushSave]);
 
   // Build a fresh plan object with the current block's localSets baked
-  // into completed_blocks, then schedule it. Pure function — never
+  // into completed_blocks, then schedule it. Pure function â€” never
   // mutates `plan`. Called from any input change or Done tap.
   const persistCurrentBlock = useCallback((sets, notes, options = {}) => {
     if (!currentEntry) return;
@@ -670,7 +670,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
   // Placeholders: reps passes through prescribed text (e.g. "8-12"),
   // load parses the prescription and shows it in the user's unit or
   // falls back to the neutral "load" label for non-numeric
-  // prescriptions like "RPE 8" / "bodyweight" — prevents the "RPE"
+  // prescriptions like "RPE 8" / "bodyweight" â€” prevents the "RPE"
   // placeholder leaking into the load field.
   const repsPlaceholder = computeRepsPlaceholder(block.reps);
   const loadPlaceholder = computeLoadPlaceholder(block.load, weightUnit);
@@ -685,7 +685,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
       h(
         "a",
         { className: "session-back", href: `/app/workout/` },
-        "← Back"
+        "â† Back"
       ),
       h(
         "span",
@@ -695,7 +695,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
     ),
 
     // Session crumbs
-    h("div", { className: "session-crumb" }, `Week ${targetSession.week} · ${["", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][targetSession.day_of_week]} · ${targetSession.date || ""}`),
+    h("div", { className: "session-crumb" }, `Week ${targetSession.week} Â· ${["", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][targetSession.day_of_week]} Â· ${targetSession.date || ""}`),
     h("h1", { className: "session-title" }, targetSession.title || "Workout"),
     targetSession.summary
       ? h("p", { className: "session-summary" }, targetSession.summary)
@@ -707,7 +707,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
       { className: `phase-band ${currentEntry.kind === "warmup" ? "warmup" : ""}` },
       currentEntry.kind === "warmup"
         ? `Warm-up ${currentIndex + 1} / ${blockEntries.filter((b) => b.kind === "warmup").length}`
-        : `Working set · ${block.name || "Exercise"}`
+        : `Working set Â· ${block.name || "Exercise"}`
     ),
 
     // Block card
@@ -720,7 +720,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
         { className: "block-prescription" },
         [
           block.sets ? `${block.sets} sets` : "",
-          block.reps ? `× ${block.reps}` : "",
+          block.reps ? `Ã— ${block.reps}` : "",
           block.load ? `@ ${displayLoadString(block.load, weightUnit)}` : "",
         ]
           .filter(Boolean)
@@ -734,7 +734,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
           restSeconds ? `Rest ${restSeconds}s` : "",
         ]
           .filter(Boolean)
-          .join(" · ")
+          .join(" Â· ")
       ),
       block.notes ? h("div", { className: "block-notes" }, block.notes) : null,
 
@@ -789,7 +789,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
               onClick: () => toggleSetDone(setIndex),
               "aria-label": set.done ? "Unmark set" : "Mark set done",
             },
-            set.done ? "✓" : "Done"
+            set.done ? "âœ“" : "Done"
           )
         )
       ),
@@ -813,7 +813,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
       h(
         "button",
         { type: "button", onClick: goPrev, disabled: currentIndex === 0 },
-        "← Previous"
+        "â† Previous"
       ),
       h(
         "button",
@@ -823,7 +823,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
           disabled: isLastBlock,
           className: allSetsDone && !isLastBlock ? "primary" : "",
         },
-        "Next →"
+        "Next â†’"
       )
     ),
 

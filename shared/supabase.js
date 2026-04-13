@@ -1,4 +1,4 @@
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { createClient } from "@supabase/supabase-js";
 import {
   SCHEMA_VERSION,
   normalizePlan,
@@ -271,7 +271,7 @@ export function readAuthFlowFromUrl() {
 // All writes go through upsertWorkoutPlan, which:
 //   - normalizes the plan via workout-plan-schema.js,
 //   - validates structural correctness (and, for updates, checks that the
-//     model didn't drift session ids — see one-way street #11),
+//     model didn't drift session ids â€” see one-way street #11),
 //   - rotates previous_plan when updates_plan_id is set, so Undo works.
 //
 // Manual edits from /app/workout/ go through applyManualEdit instead, which
@@ -380,7 +380,7 @@ export async function applyWorkoutPlanUpdate(userId, planId, newPlan) {
   return data;
 }
 
-// Manual edit from /app/workout/ — a user changed a session's date, time,
+// Manual edit from /app/workout/ â€” a user changed a session's date, time,
 // completion status, etc. Does not require updates_plan_id on the payload.
 // Rotates previous_plan so Undo still works.
 export async function applyManualWorkoutPlanEdit(userId, planId, newPlan) {
@@ -464,7 +464,7 @@ export async function archiveWorkoutPlan(userId, planId) {
 /**
  * Flatten completed_blocks into workout_logs via the upsert_workout_logs RPC.
  * Called after applyManualWorkoutPlanEdit succeeds.
- * Non-blocking — errors are logged but don't fail the save.
+ * Non-blocking â€” errors are logged but don't fail the save.
  */
 export async function upsertWorkoutLogs(userId, planId, plan, targetSessionId) {
   const supabase = await getSupabase();

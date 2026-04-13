@@ -12,15 +12,15 @@
 // else is redirected to /app/ before React mounts, so the debug panel
 // never appears for unauthorized users.
 
-import React, { useEffect, useMemo, useState } from "https://esm.sh/react@18.2.0";
-import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+import React, { useEffect, useMemo, useState } from "react";
+import { createRoot } from "react-dom/client";
 import { ChatApp } from "/shared/react-chat-app.js";
 import { getSession, requireAdmin } from "/shared/supabase.js";
 
 const h = React.createElement;
 
 // ---------------------------------------------------------------------------
-// Streaming fetcher — SSE with automatic fallback
+// Streaming fetcher â€” SSE with automatic fallback
 // ---------------------------------------------------------------------------
 //
 // Returns an object like { data, error? }. On success the `data` field is
@@ -57,7 +57,7 @@ function createStreamingFetcher({ onProgress }) {
 
       if (!response.ok) {
         // If we get a non-200 BEFORE streaming starts, fall back to the
-        // classic endpoint. Server rejected the request somehow — maybe
+        // classic endpoint. Server rejected the request somehow â€” maybe
         // rate limit, maybe bad payload. Parse the JSON error for the
         // fallback to re-throw if it also fails.
         const err = await response.json().catch(() => ({}));
@@ -116,7 +116,7 @@ function createStreamingFetcher({ onProgress }) {
             continue;
           }
 
-          // All other stages are live progress updates — forward them
+          // All other stages are live progress updates â€” forward them
           // to onProgress so the debug panel fills in.
           if (typeof onProgress === "function") {
             try {
@@ -159,7 +159,7 @@ function createStreamingFetcher({ onProgress }) {
 }
 
 // ---------------------------------------------------------------------------
-// DebugPanel — the right-hand inspector
+// DebugPanel â€” the right-hand inspector
 // ---------------------------------------------------------------------------
 //
 // State model: we keep one "current run" object in React state. The
@@ -205,7 +205,7 @@ function DebugPanel({ progress, data, runState }) {
   const tokenUsage = (finalDebug && finalDebug.token_usage) || (progress.synthesis_primary_done && progress.synthesis_primary_done.token_usage) || null;
   const rawOutput = (finalDebug && finalDebug.raw_output_text) || (progress.synthesis_primary_done && progress.synthesis_primary_done.raw_output_text) || "";
 
-  // Empty state — nothing has happened yet.
+  // Empty state â€” nothing has happened yet.
   if (!progress || (Object.keys(progress).length === 0 && !data)) {
     return h(
       "div",
@@ -242,7 +242,7 @@ function DebugPanel({ progress, data, runState }) {
       ? h(
           "div",
           { className: "debug-warn" },
-          "Streaming endpoint failed — showing data from the non-streaming fallback. ",
+          "Streaming endpoint failed â€” showing data from the non-streaming fallback. ",
           progress.fallback_engaged.reason ? h("span", { style: { opacity: 0.8 } }, `(${progress.fallback_engaged.reason})`) : null
         )
       : null,
@@ -251,7 +251,7 @@ function DebugPanel({ progress, data, runState }) {
     h(
       "section",
       { className: "debug-section" },
-      h("h3", null, `Stage timings${finalDebug ? "" : ` · ${stageCount} stages received`}`),
+      h("h3", null, `Stage timings${finalDebug ? "" : ` Â· ${stageCount} stages received`}`),
       Object.entries(stageTimings).length
         ? Object.entries(stageTimings).map(([key, value]) =>
             h(
@@ -310,7 +310,7 @@ function DebugPanel({ progress, data, runState }) {
       ? h(
           "section",
           { className: "debug-section" },
-          h("h3", null, `Retrieved evidence · ${evidence.length}`),
+          h("h3", null, `Retrieved evidence Â· ${evidence.length}`),
           evidence.slice(0, 10).map((source, index) =>
             h(
               "div",
@@ -326,7 +326,7 @@ function DebugPanel({ progress, data, runState }) {
                   typeof source.similarity === "number" ? `sim ${source.similarity.toFixed(3)}` : "",
                 ]
                   .filter(Boolean)
-                  .join(" · ")
+                  .join(" Â· ")
               ),
               source.why_it_matters
                 ? h("div", { className: "snippet" }, truncate(source.why_it_matters, 240))
@@ -358,7 +358,7 @@ function DebugPanel({ progress, data, runState }) {
                   h(
                     "summary",
                     { style: { cursor: "pointer", fontSize: "0.75rem", color: "rgba(138, 179, 255, 0.9)", marginBottom: 4 } },
-                    `${(message.role || "unknown").toUpperCase()} · ${String(message.content || "").length.toLocaleString()} chars`
+                    `${(message.role || "unknown").toUpperCase()} Â· ${String(message.content || "").length.toLocaleString()} chars`
                   ),
                   h(
                     "div",
@@ -406,13 +406,13 @@ function formatTimingLabel(key) {
 }
 
 function formatMs(value) {
-  if (typeof value !== "number" || !Number.isFinite(value)) return "—";
+  if (typeof value !== "number" || !Number.isFinite(value)) return "â€”";
   if (value < 1000) return `${Math.round(value)} ms`;
   return `${(value / 1000).toFixed(2)} s`;
 }
 
 function formatNumber(value) {
-  if (typeof value !== "number" || !Number.isFinite(value)) return "—";
+  if (typeof value !== "number" || !Number.isFinite(value)) return "â€”";
   return value.toLocaleString();
 }
 
@@ -420,7 +420,7 @@ function formatNumber(value) {
 //   input:  $0.40 / 1M tokens    (cached: $0.10 / 1M)
 //   output: $1.60 / 1M tokens
 // Adjusts automatically to the fallback model if the synthesis model differs.
-// This is a sanity check, not an invoice — don't use it for billing.
+// This is a sanity check, not an invoice â€” don't use it for billing.
 const COST_TABLE = {
   "gpt-4.1-mini": { input: 0.40, cached: 0.10, output: 1.60 },
   "gpt-4.1": { input: 2.00, cached: 0.50, output: 8.00 },
@@ -436,18 +436,18 @@ function estimateCostLabel(usage, model) {
     (promptNoCache / 1_000_000) * rates.input +
     (cached / 1_000_000) * rates.cached +
     (completion / 1_000_000) * rates.output;
-  if (costUsd < 0.0001) return `~$0 · ${model}`;
-  return `$${costUsd.toFixed(4)} · ${model}`;
+  if (costUsd < 0.0001) return `~$0 Â· ${model}`;
+  return `$${costUsd.toFixed(4)} Â· ${model}`;
 }
 
 function truncate(value, max) {
   const s = String(value || "");
   if (s.length <= max) return s;
-  return s.slice(0, max - 1).trim() + "…";
+  return s.slice(0, max - 1).trim() + "â€¦";
 }
 
 // ---------------------------------------------------------------------------
-// DebugPage — the actual React root component
+// DebugPage â€” the actual React root component
 // ---------------------------------------------------------------------------
 //
 // Renders nothing directly; it owns the live progress/data state and
@@ -481,7 +481,7 @@ function DebugPage() {
     []
   );
 
-  // Reset for the next request — ChatApp calls onProgress for the first
+  // Reset for the next request â€” ChatApp calls onProgress for the first
   // frame of a new message, but we want to clear stale stage data BEFORE
   // that first frame arrives. Trigger on the user hitting Enter in the
   // chat composer by watching for a "connected" or "profile_loaded"
@@ -547,7 +547,7 @@ function DebugPage() {
         if (progressSetter) {
           progressSetter((prev) => {
             // A "connected" or "profile_loaded" event on top of existing
-            // progress means a new request — clear the old state.
+            // progress means a new request â€” clear the old state.
             const isFirstFrame = event.stage === "connected" || event.stage === "profile_loaded";
             if (isFirstFrame && Object.keys(prev).length > 0) {
               if (dataSetter) dataSetter(null);

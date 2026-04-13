@@ -1,7 +1,7 @@
-// Share modal — reusable React component for all session views.
+// Share modal â€” reusable React component for all session views.
 // Renders a card preview, then Web Share API / Download / Copy / Close.
 
-import React, { useEffect, useState } from "https://esm.sh/react@18.2.0";
+import React, { useEffect, useState } from "react";
 import { renderShareCard } from "/shared/share-card.js";
 import { computeCanShareFiles } from "/shared/share-capability.js";
 
@@ -18,9 +18,9 @@ const CAN_SHARE_FILES =
 
 /**
  * Props:
- *   cardData    — variant-specific data object for renderShareCard
- *   cardOpts    — { mapboxToken, weightUnit, distanceUnit }
- *   onClose     — function to call on dismiss
+ *   cardData    â€” variant-specific data object for renderShareCard
+ *   cardOpts    â€” { mapboxToken, weightUnit, distanceUnit }
+ *   onClose     â€” function to call on dismiss
  */
 export function ShareModal({ cardData, cardOpts, onClose }) {
   const [state, setState] = useState("rendering"); // rendering | ready | sharing | shared | error
@@ -78,7 +78,7 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
         setState("ready");
       }
     } catch (err) {
-      // User cancelled or share failed — return to ready
+      // User cancelled or share failed â€” return to ready
       setState("ready");
     }
   }
@@ -109,7 +109,7 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
         }
       }
     } catch (_err) {
-      // Silent — some browsers block programmatic clipboard image writes
+      // Silent â€” some browsers block programmatic clipboard image writes
     }
   }
 
@@ -126,7 +126,7 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
       ),
 
       state === "rendering" &&
-        h("div", { className: "share-modal-spinner" }, "…"),
+        h("div", { className: "share-modal-spinner" }, "â€¦"),
 
       state === "error" &&
         h("div", { className: "share-modal-error" }, error || "Unknown error"),
@@ -156,7 +156,7 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
   );
 }
 
-// CSS for the modal — callers should include this or equivalent
+// CSS for the modal â€” callers should include this or equivalent
 export const SHARE_MODAL_CSS = `
 .share-modal-backdrop {
   position: fixed;
