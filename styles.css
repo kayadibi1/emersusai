@@ -23,7 +23,12 @@
 /* ─── RESETS ─── */
 
 * { box-sizing: border-box; }
-html { min-height: 100%; background: var(--bg); }
+html {
+  min-height: 100%;
+  background: var(--bg);
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
 
 body {
   margin: 0;
