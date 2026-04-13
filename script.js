@@ -1,9 +1,7 @@
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 const finePointerQuery = window.matchMedia("(pointer: fine)");
 const hoverQuery = window.matchMedia("(hover: hover)");
-let smoothScrollController = null;
 let landingBackgroundPromise = null;
-let lenisModulePromise = null;
 
 function getConnectionSettings() {
   return navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
@@ -28,64 +26,6 @@ function shouldUseRichLandingEffects() {
     deviceMemory >= 4 &&
     hardwareConcurrency >= 6
   );
-}
-
-function loadLenisModule() {
-  if (!lenisModulePromise) {
-    lenisModulePromise = import("lenis").then((module) => module.default);
-  }
-  return lenisModulePromise;
-}
-
-async function initSmoothScroll(onScrollActivity) {
-  if (!shouldUseRichLandingEffects()) {
-    return null;
-  }
-
-  if (smoothScrollController) {
-    if (onScrollActivity) {
-      smoothScrollController.listeners.add(onScrollActivity);
-    }
-    return smoothScrollController.lenis;
-  }
-
-  const Lenis = await loadLenisModule();
-
-  if (smoothScrollController) {
-    if (onScrollActivity) {
-      smoothScrollController.listeners.add(onScrollActivity);
-    }
-    return smoothScrollController.lenis;
-  }
-
-  const lenis = new Lenis({
-    lerp: 0.075,
-    smoothWheel: true,
-    wheelMultiplier: 0.86,
-    syncTouch: true,
-    anchors: true,
-  });
-
-  const listeners = new Set();
-  if (onScrollActivity) {
-    listeners.add(onScrollActivity);
-  }
-
-  const handleScroll = () => {
-    listeners.forEach((listener) => listener?.());
-  };
-  let rafId = 0;
-
-  const tick = (time) => {
-    lenis.raf(time);
-    rafId = window.requestAnimationFrame(tick);
-  };
-
-  lenis.on("scroll", handleScroll);
-  rafId = window.requestAnimationFrame(tick);
-
-  smoothScrollController = { lenis, listeners, tick, rafId };
-  return lenis;
 }
 
 function loadLandingBackground() {
@@ -335,7 +275,6 @@ function scheduleEnhancements() {
   initWaitlistForm();
 
   const startEnhancements = () => {
-    void initSmoothScroll();
     initStepCards();
     window.setTimeout(() => {
       void loadLandingBackground();
