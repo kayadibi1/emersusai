@@ -491,6 +491,19 @@ body::before {
   cursor: pointer;
 }
 
+.waitlist-captcha {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  min-height: 70px;
+}
+
+.waitlist-captcha > div {
+  min-height: 65px;
+}
+
 .waitlist-feedback {
   min-height: 1.4rem;
   margin-top: 0.8rem;
