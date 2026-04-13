@@ -85,7 +85,7 @@ export function initScaleBackground() {
     }
 
     for (let i = 0; i < 4; i += 1) {
-      const radius = 1.5 + i * 0.15;
+      const radius = 0.9 + i * 0.08;
       const points = [];
       for (let k = 0; k <= 96; k += 1) {
         const angle = (k / 96) * Math.PI * 2;
