@@ -1,4 +1,7 @@
-import { Resend } from "resend";
+import {
+  getResendTemplateId,
+  sendResendEmail,
+} from "./lib/resend-mail.js";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -50,7 +53,6 @@ export default async function handler(req, res) {
   const supabaseUrl =
     process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  const resendApiKey = process.env.RESEND_API_KEY;
   const resendFromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
   const contactNotificationEmail = process.env.CONTACT_NOTIFICATION_EMAIL || "";
 
@@ -97,7 +99,7 @@ export default async function handler(req, res) {
   });
 
   if (response.ok) {
-    if (!resendApiKey || !contactNotificationEmail) {
+    if (!process.env.RESEND_API_KEY || !contactNotificationEmail) {
       console.error("Contact notification email is not configured.");
       return res.status(500).json({
         message:
@@ -105,14 +107,24 @@ export default async function handler(req, res) {
       });
     }
 
-    const resend = new Resend(resendApiKey);
+    const contactTemplateId = getResendTemplateId("CONTACT_ALERT");
+    const escapedMessageHtml = esc(message).replace(/\n/g, "<br>");
 
     try {
-      await resend.emails.send({
+      await sendResendEmail({
         from: resendFromEmail,
         to: contactNotificationEmail,
         replyTo: email,
         subject: `New Emersus contact submission: ${esc(category)}`,
+        templateId: contactTemplateId,
+        templateVariables: {
+          name,
+          email,
+          category,
+          page_url: pageUrl || "Not provided",
+          message,
+          message_html: escapedMessageHtml,
+        },
         html: createEmailShell({
           eyebrow: "Contact Alert",
           title: "New contact submission",
@@ -137,7 +149,7 @@ export default async function handler(req, res) {
             </div>
             <div style="padding:20px 22px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
               <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:10px;">Message</div>
-              <div style="font-size:16px; color:#f9f9fd;">${esc(message).replace(/\n/g, "<br>")}</div>
+              <div style="font-size:16px; color:#f9f9fd;">${escapedMessageHtml}</div>
             </div>
           `,
           footer: "Reply directly to this email to respond to the sender.",

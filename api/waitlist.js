@@ -1,10 +1,13 @@
-import { Resend } from "resend";
 import { randomUUID } from "node:crypto";
 import {
   createWaitlistVerificationToken,
   getPublicBaseUrl,
   getWaitlistVerificationSecret,
 } from "./lib/waitlist-verification.js";
+import {
+  getResendTemplateId,
+  sendResendEmail,
+} from "./lib/resend-mail.js";
 import {
   getTurnstileConfig,
   isTurnstileEnabled,
@@ -61,7 +64,6 @@ export default async function handler(req, res) {
   const supabaseUrl =
     process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  const resendApiKey = process.env.RESEND_API_KEY;
   const resendFromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
   const verificationSecret = getWaitlistVerificationSecret();
   const turnstileToken = String(req.body?.turnstileToken || "").trim();
@@ -96,7 +98,7 @@ export default async function handler(req, res) {
     return res.status(400).json({ message: "Please provide a valid email." });
   }
 
-  if (!resendApiKey || !verificationSecret) {
+  if (!process.env.RESEND_API_KEY || !verificationSecret) {
     return res.status(500).json({
       message: "Waitlist email verification is not configured yet.",
     });
@@ -166,15 +168,22 @@ export default async function handler(req, res) {
   );
   const baseUrl = getPublicBaseUrl(req);
   const confirmUrl = `${baseUrl}/api/waitlist/confirm?token=${encodeURIComponent(token)}`;
-  const resend = new Resend(resendApiKey);
   const displayName =
     [name, surname].filter(Boolean).join(" ").trim() || "there";
+  const waitlistTemplateId = getResendTemplateId("WAITLIST_CONFIRM");
 
   try {
-    await resend.emails.send({
+    await sendResendEmail({
       from: resendFromEmail,
       to: email,
       subject: "Confirm your Emersus waitlist signup",
+      templateId: waitlistTemplateId,
+      templateVariables: {
+        display_name: displayName,
+        email,
+        confirm_url: confirmUrl,
+        expires_in: "3 days",
+      },
       html: createEmailShell({
         eyebrow: "Emersus Waitlist",
         title: "Confirm your email to join.",

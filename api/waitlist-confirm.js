@@ -1,8 +1,11 @@
-import { Resend } from "resend";
 import {
   getWaitlistVerificationSecret,
   verifyWaitlistVerificationToken,
 } from "./lib/waitlist-verification.js";
+import {
+  getResendTemplateId,
+  sendResendEmail,
+} from "./lib/resend-mail.js";
 
 function esc(str) {
   return String(str || "")
@@ -144,21 +147,27 @@ async function upsertWaitlistSignup({ supabaseUrl, serviceRoleKey, payload }) {
 }
 
 async function sendInternalNotification({
-  resendApiKey,
   resendFromEmail,
   waitlistNotificationEmail,
   payload,
 }) {
-  if (!resendApiKey || !waitlistNotificationEmail) {
+  if (!process.env.RESEND_API_KEY || !waitlistNotificationEmail) {
     return;
   }
 
-  const resend = new Resend(resendApiKey);
-  await resend.emails.send({
+  await sendResendEmail({
     from: resendFromEmail,
     to: waitlistNotificationEmail,
     replyTo: payload.email,
     subject: "New confirmed Emersus waitlist signup",
+    templateId: getResendTemplateId("WAITLIST_CONFIRMED_ALERT"),
+    templateVariables: {
+      email: payload.email,
+      name: payload.name || "Not provided",
+      surname: payload.surname || "",
+      company: payload.company || "Not provided",
+      source: payload.source,
+    },
     html: createEmailShell({
       eyebrow: "Waitlist Alert",
       title: "Confirmed waitlist signup",
@@ -199,7 +208,6 @@ export default async function handler(req, res) {
 
   const supabaseUrl = process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  const resendApiKey = process.env.RESEND_API_KEY;
   const resendFromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
   const waitlistNotificationEmail =
     process.env.WAITLIST_NOTIFICATION_EMAIL ||
@@ -243,7 +251,6 @@ export default async function handler(req, res) {
 
     if (result.created) {
       await sendInternalNotification({
-        resendApiKey,
         resendFromEmail,
         waitlistNotificationEmail,
         payload,

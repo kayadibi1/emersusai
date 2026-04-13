@@ -12,7 +12,10 @@
 // anyway so the signup UX isn't tied to alert delivery. Errors are
 // logged to stderr for debugging.
 
-import { Resend } from "resend";
+import {
+  getResendTemplateId,
+  sendResendEmail,
+} from "./lib/resend-mail.js";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const RECENT_SIGNUP_WINDOW_MS = 5 * 60 * 1000; // 5 minutes
@@ -88,7 +91,6 @@ export default async function handler(req, res) {
   const supabaseUrl =
     process.env.SUPABASE_URL || process.env.NEXT_PUBLIC_SUPABASE_URL;
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
-  const resendApiKey = process.env.RESEND_API_KEY;
   const resendFromEmail =
     process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
   const notificationEmail =
@@ -112,7 +114,7 @@ export default async function handler(req, res) {
     console.error("[notify-signup] Missing Supabase env vars — skipping notify");
     return res.status(200).json({ notified: false, reason: "supabase_not_configured" });
   }
-  if (!resendApiKey) {
+  if (!process.env.RESEND_API_KEY) {
     console.error("[notify-signup] Missing RESEND_API_KEY — skipping notify");
     return res.status(200).json({ notified: false, reason: "resend_not_configured" });
   }
@@ -146,16 +148,25 @@ export default async function handler(req, res) {
   }
 
   // Send the notification via Resend
-  const resend = new Resend(resendApiKey);
   const displayName = fullName || user.user_metadata?.full_name || "(not provided)";
   const confirmed = user.email_confirmed_at ? "yes" : "pending confirmation";
+  const signupTemplateId = getResendTemplateId("SIGNUP_ALERT");
 
   try {
-    await resend.emails.send({
+    await sendResendEmail({
       from: resendFromEmail,
       to: notificationEmail,
       replyTo: email,
       subject: `[Emersus] New signup: ${esc(email)}`,
+      templateId: signupTemplateId,
+      templateVariables: {
+        email,
+        full_name: displayName,
+        provider,
+        email_confirmed: confirmed,
+        user_id: user.id,
+        created_at: user.created_at,
+      },
       html: createEmailShell({
         eyebrow: "Signup Alert",
         title: "New account created",
