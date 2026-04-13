@@ -116,13 +116,15 @@ body::before {
 }
 
 .brand {
-  color: #aaa;
-  font-family: var(--mono);
-  font-size: clamp(0.88rem, 1.2vw, 1.3rem);
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.brand-logo {
+  height: clamp(28px, 3.5vw, 44px);
+  width: auto;
+  display: block;
 }
 
 .nav-links {

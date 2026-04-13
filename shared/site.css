@@ -93,12 +93,14 @@ button { cursor: pointer; }
 }
 
 .brand-mark {
-  font-family: var(--mono);
-  font-size: 0.88rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.3em;
-  color: #aaa;
+  display: flex;
+  align-items: center;
+}
+
+.brand-mark img {
+  height: 28px;
+  width: auto;
+  display: block;
 }
 
 .site-nav {
