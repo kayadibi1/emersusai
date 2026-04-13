@@ -109,7 +109,7 @@ export function initScaleBackground() {
         mesh: electron,
         orbit,
         radius,
-        speed: 0.7 + i * 0.6,
+        speed: 0.3 + i * 0.22,
         offset: i * 1.7,
       });
     }
