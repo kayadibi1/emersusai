@@ -11,8 +11,10 @@
   --surface-strong: rgba(255, 255, 255, 0.05);
   --line: rgba(255, 255, 255, 0.06);
   --ink: #e8e8e8;
-  --muted: #666;
-  --dim: #3a3a3a;
+  --muted: #8f97a3;
+  --dim: #6f7782;
+  --soft-label: #98a1ad;
+  --soft-label-strong: #c8ced7;
   --accent: #78dc14;
   --accent-soft: rgba(120, 220, 20, 0.08);
   --accent-line: rgba(120, 220, 20, 0.18);
@@ -109,9 +111,9 @@ button { cursor: pointer; }
   align-items: center;
   gap: 0.85rem 2rem;
   font-family: var(--mono);
-  color: #444;
-  font-size: 0.6rem;
-  font-weight: 400;
+  color: var(--soft-label-strong);
+  font-size: 0.72rem;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
@@ -388,12 +390,12 @@ h3 {
 .welcome-title {
   margin: 0;
   font-family: var(--serif);
-  font-size: clamp(1.8rem, 3.6vw, 2.2rem);
+  font-size: clamp(2.15rem, 4vw, 2.8rem);
   font-weight: 400;
   line-height: 1.12;
   letter-spacing: -0.02em;
   text-transform: none;
-  color: var(--ink);
+  color: #f0f3f7;
 }
 
 .welcome-title .welcome-name {
@@ -1985,10 +1987,11 @@ button.primary {
 
 .page-header h1 {
   font-family: var(--serif);
-  font-size: 1.8rem;
+  font-size: clamp(1.95rem, 3vw, 2.35rem);
   font-weight: 400;
   letter-spacing: -0.02em;
   margin-bottom: 0.3rem;
+  color: #eef2f6;
 }
 
 .page-header p {
