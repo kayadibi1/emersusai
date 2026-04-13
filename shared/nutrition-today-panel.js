@@ -4,8 +4,8 @@
 // Shows quick actions, 5-macro rings, today's meal timeline, supplements card,
 // and a micronutrient snapshot pill.
 
-import React from "https://esm.sh/react@18.2.0";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.101.1";
+import React from "react";
+import { createClient } from "@supabase/supabase-js";
 import { MacroRing, MACRO_COLORS, StreakBanner } from "./nutrition-charts.js";
 import { resolveDayType } from "./meal-plan-day-type.js";
 import { localDateStr } from "./date-utils.js";
@@ -80,7 +80,7 @@ export default function NutritionTodayPanel({
     return () => { cancelled = true; };
   }, [todayStr]);
 
-  if (loading) return h("div", { className: "today-loading" }, "Loading today…");
+  if (loading) return h("div", { className: "today-loading" }, "Loading todayâ€¦");
 
   const dayType = mealPlan
     ? resolveDayType({ date: todayStr, mealPlan: mealPlan.plan, workoutPlan: workoutPlan?.plan })
@@ -120,7 +120,7 @@ export default function NutritionTodayPanel({
           h("ul", { className: "entries", key: "e" },
             (meal.entries ?? []).map((e, i) =>
               h("li", { key: i, onClick: () => onOpenFoodDetail?.(e.food_id) },
-                `${e.food_description} — ${e.amount} ${e.amount_unit}`
+                `${e.food_description} â€” ${e.amount} ${e.amount_unit}`
               )
             )
           ),

@@ -7,9 +7,9 @@
 //
 // Used by: all four nutrition tabs (Today, Plan, Journal, Supplements).
 
-import React from "https://esm.sh/react@18.2.0";
+import React from "react";
 import { localDateOffset } from "./date-utils.js";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.101.1";
+import { createClient } from "@supabase/supabase-js";
 import {
   NutritionFactsPanel,
   SupplementFactsPanel,
@@ -110,15 +110,15 @@ export default function FoodDetailDrawer({ foodId, onClose, onLog }) {
   if (!foodId) return null;
 
   return h("aside", { className: "food-detail-drawer" }, [
-    h("button", { key: "close", className: "close-btn", onClick: onClose }, "×"),
-    loading && h("div", { key: "l", className: "loading" }, "Loading…"),
+    h("button", { key: "close", className: "close-btn", onClick: onClose }, "Ã—"),
+    loading && h("div", { key: "l", className: "loading" }, "Loadingâ€¦"),
     !loading && !food && h("div", { key: "err", className: "error" }, "Food not found"),
     !loading && food && h("div", { key: "body", className: "body" }, [
       h("h2", { key: "desc", className: "food-desc" }, food.description),
       food.brand_name && h("div", { key: "brand", className: "brand" }, food.brand_name),
       h("div", { key: "src", className: "source" }, `Source: ${food.source.replace("_", " ")}`),
       food.common_unit && h("div", { key: "cu", className: "common-unit" },
-        `1 ${food.common_unit} ≈ ${food.common_unit_grams ?? "—"} g`),
+        `1 ${food.common_unit} â‰ˆ ${food.common_unit_grams ?? "â€”"} g`),
       food.kind === "supplement"
         ? h(SupplementFactsPanel, { key: "facts", nutrients, form: food.form })
         : h(NutritionFactsPanel, { key: "facts", nutrients, servingGrams: food.common_unit_grams ?? 100 }),

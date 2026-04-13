@@ -9,7 +9,7 @@
 //   - Resolved items: per-row amount + meal_slot editors with remove buttons
 //   - Unresolved items: read-only info rows explaining why they weren't matched
 //   - A "Confirm log (N)" button that POSTs to /api/emersus/meal-journal/entries
-//   - Post-save: "✓ Logged N items" confirmation banner
+//   - Post-save: "âœ“ Logged N items" confirmation banner
 //
 // Auth: reads window.EMERSUS_AUTH (injected by the iframe bootstrap) since
 // there is no supabase.js in the iframe sandbox.
@@ -17,7 +17,7 @@
 // Sub-components are named-exported at the bottom so NutritionLogConfirmCard
 // in react-chat-app.js can import and reuse them directly without duplication.
 
-import React, { useState } from "https://esm.sh/react@18.2.0";
+import React, { useState } from "react";
 
 const h = React.createElement;
 
@@ -44,10 +44,10 @@ const MEAL_SLOT_LABELS = {
 // the amount (number input) and meal slot (select), or remove the item.
 //
 // Props:
-//   item     — the resolved item object
-//   index    — position in the resolved list (used for keys / callbacks)
-//   onUpdate — (index, field, value) → void
-//   onRemove — (index) → void
+//   item     â€” the resolved item object
+//   index    â€” position in the resolved list (used for keys / callbacks)
+//   onUpdate â€” (index, field, value) â†’ void
+//   onRemove â€” (index) â†’ void
 function ResolvedRow({ item, index, onUpdate, onRemove }) {
   return h(
     "div",
@@ -165,8 +165,8 @@ function ResolvedRow({ item, index, onUpdate, onRemove }) {
 // a food in the database. Shows the raw text and a reason if provided.
 //
 // Props:
-//   item  — the unresolved item object
-//   index — position in the unresolved list (used for keys)
+//   item  â€” the unresolved item object
+//   index â€” position in the unresolved list (used for keys)
 function UnresolvedRow({ item, index }) {
   return h(
     "div",
@@ -241,7 +241,7 @@ function UnresolvedRow({ item, index }) {
 }
 
 // ---------------------------------------------------------------------------
-// NutritionLogConfirmWidget (default export — iframe path)
+// NutritionLogConfirmWidget (default export â€” iframe path)
 // ---------------------------------------------------------------------------
 export default function NutritionLogConfirmWidget({ payload }) {
   const resolvedInit = Array.isArray(payload?.resolved_items)
@@ -275,7 +275,7 @@ export default function NutritionLogConfirmWidget({ payload }) {
     setSubmitState("saving");
     setError("");
     try {
-      // Iframe context — auth token is injected by the parent page.
+      // Iframe context â€” auth token is injected by the parent page.
       const auth = window.EMERSUS_AUTH || {};
       const accessToken = auth.access_token || "";
       if (!accessToken) throw new Error("Sign in to log food.");
@@ -426,7 +426,7 @@ export default function NutritionLogConfirmWidget({ payload }) {
               fontStyle: "italic",
             },
           },
-          "No items to log — all items removed."
+          "No items to log â€” all items removed."
         ),
     // Unresolved items
     unresolved.length > 0

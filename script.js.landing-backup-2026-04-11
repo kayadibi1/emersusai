@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { createRoot } from "react-dom/client";
-import Lenis from "lenis";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import * as THREE from "three";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
+import React, { useState } from "https://esm.sh/react@18.2.0";
+import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+import Lenis from "https://esm.sh/lenis@1.1.20";
+import gsap from "https://esm.sh/gsap@3.12.5";
+import { ScrollTrigger } from "https://esm.sh/gsap@3.12.5/ScrollTrigger";
+import * as THREE from "https://esm.sh/three@0.161.0";
+import { EffectComposer } from "https://esm.sh/three@0.161.0/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "https://esm.sh/three@0.161.0/examples/jsm/postprocessing/RenderPass.js";
+import { UnrealBloomPass } from "https://esm.sh/three@0.161.0/examples/jsm/postprocessing/UnrealBloomPass.js";
 
 const h = React.createElement;
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -933,17 +933,16 @@ function OldCopyNav() {
   return h(
     "nav",
     { className: "nav" },
-    h("a", { className: "brand text-blur", href: "#hero" },
-      h("img", { src: "/emersus-logo.png", alt: "Emersus", className: "brand-logo" })
-    ),
+    h("a", { className: "brand", href: "#hero" }, "Emersus AI"),
     h(
       "div",
       { className: "nav-links" },
-      h("a", { className: "text-blur", href: "#features" }, "Science"),
-      h("a", { className: "text-blur", href: "#how" }, "Platform"),
-      h("a", { className: "text-blur", href: "/auth/login/" }, "App / Login"),
+      h("a", { href: "/auth/login/" }, "App / Login"),
+      h("a", { href: "/privacy/" }, "Privacy"),
+      h("a", { href: "/terms/" }, "Terms"),
+      h("a", { href: "/contact/" }, "Contact"),
     ),
-    h("a", { className: "nav-cta", href: "#access" }, "Get started"),
+    h("a", { className: "nav-cta", href: "#access" }, "Get access"),
   );
 }
 
@@ -954,14 +953,14 @@ function OldCopyHero() {
     h(
       "div",
       { className: "section-inner" },
-      h("p", { className: "eyebrow text-blur" }, "Evidence-Based Fitness Intelligence"),
-      h("h1", { className: "headline text-blur-strong" }, "Your body deserves better than guesswork."),
-      h("p", { className: "subtitle text-blur" }, "Training and nutrition decisions backed by peer-reviewed research. Not influencer opinions, not bro science \u2014 the actual evidence."),
+      h("p", { className: "eyebrow" }, "EMERSUS"),
+      h("h1", { className: "headline" }, h("span", { className: "gradient" }, "Optimize"), " or ", h("span", { className: "danger-word" }, "obsolete")),
+      h("p", { className: "subtitle" }, "Scientifically grounded optimization AI for peak mental and physical performance. For those who take life seriously."),
       h(
         "div",
         { className: "hero-actions" },
-        h("a", { className: "button-primary", href: "#access" }, "Get started"),
-        h("a", { className: "button-secondary text-blur", href: "#features" }, "See the science \u2192"),
+        h("a", { className: "button-primary", href: "#access" }, "Get access"),
+        h("a", { className: "button-secondary", href: "/chat/" }, "App / Login"),
       ),
     ),
   );
@@ -969,9 +968,9 @@ function OldCopyHero() {
 
 function OldCopyFeatures() {
   const features = [
-    ["01", "Research-backed answers", "Every recommendation cites peer-reviewed sources. See the evidence strength, read the abstracts, verify the claims yourself."],
-    ["02", "Personalized protocols", "Workout plans and nutrition guidance adapted to your goals, equipment, schedule, and injury history. Not cookie-cutter templates."],
-    ["03", "Honest uncertainty", "When the evidence is mixed or insufficient, we say so. No false confidence. The model knows what it doesn't know."],
+    ["01", "Cognitive Focus", "Modern science produces novel ways to improve mental performance every single day. EMERSUS tracks new publications, judges relevance and confidence, and tailors routines to your specific circumstances."],
+    ["02", "Physical aptitude", "Weight-lifting, doing cardio, or simply looking for a way to get more restful sleep? EMERSUS cuts through the folklore and myths to deliver replicable and verifiable protocols using the collective output of all human sciences."],
+    ["03", "Data integration", "EMERSUS supports data integration from smartphones and wearable technology to identify what you need to accomplish your goals. Track relevant performance markers and ignore the noise."],
   ];
 
   return h(
@@ -980,7 +979,9 @@ function OldCopyFeatures() {
     h(
       "div",
       { className: "section-inner" },
-      h("p", { className: "eyebrow text-blur" }, "What you get"),
+      h("p", { className: "eyebrow" }, "AI & science synthesis for peak performance"),
+      h("h2", { className: "section-title" }, "Life is too short to not be your best"),
+      h("p", { className: "section-copy" }, "EMERSUS offers optimization routines based on peer-reviewed research ranging from muscle hypertrophy to mental focus, without the jargon. Completely tailored to you."),
       h(
         "div",
         { className: "grid-3" },
@@ -988,8 +989,8 @@ function OldCopyFeatures() {
           "article",
           { className: "glass-card", key: title },
           h("div", { className: "icon" }, icon),
-          h("h3", { className: "card-title text-blur" }, title),
-          h("p", { className: "card-copy text-blur" }, copy),
+          h("h3", { className: "card-title" }, title),
+          h("p", { className: "card-copy" }, copy),
         )),
       ),
     ),
@@ -998,10 +999,10 @@ function OldCopyFeatures() {
 
 function OldCopyOptimization() {
   const topics = [
-    ["STEP 01", "Ask anything", "Exercise science, nutrition, recovery \u2014 in natural language."],
-    ["STEP 02", "We search the literature", "Semantic search across 200k+ papers finds relevant evidence."],
-    ["STEP 03", "Synthesize and cite", "AI distills findings into actionable guidance with sources."],
-    ["STEP 04", "Track and adapt", "Log workouts and meals. Your plans evolve as you progress."],
+    ["01", "Mental performance", "Focus, stress regulation, learning, and cognitive routines grounded in current research."],
+    ["02", "Physical training", "Replicable and verifiable protocols for lifting, cardio, performance, and recovery."],
+    ["03", "Nutrition", "Practical nutrition guidance that cuts through folklore and tracks what evidence supports."],
+    ["04", "Recovery", "Sleep, rest, and regeneration strategies tailored to the circumstances that matter."],
   ];
 
   return h(
@@ -1010,7 +1011,8 @@ function OldCopyOptimization() {
     h(
       "div",
       { className: "section-inner" },
-      h("p", { className: "eyebrow text-blur" }, "How it works"),
+      h("p", { className: "eyebrow" }, "EMERSUS can help you with"),
+      h("h2", { className: "section-title" }, "Mental performance, physical training, nutrition, and recovery."),
       h(
         "div",
         { className: "steps" },
@@ -1018,8 +1020,8 @@ function OldCopyOptimization() {
           "article",
           { className: "step-card", key: number },
           h("span", { className: "step-number" }, number),
-          h("h3", { className: "step-title text-blur" }, title),
-          h("p", { className: "step-copy text-blur" }, copy),
+          h("h3", { className: "step-title" }, title),
+          h("p", { className: "step-copy" }, copy),
         )),
       ),
     ),
@@ -1036,13 +1038,18 @@ function OldCopyProtocol() {
       h(
         "article",
         { className: "quote-card large" },
-        h("p", { className: "quote-copy text-blur-strong" }, "\u201CI stopped guessing and started training with actual evidence. The difference in my results has been night and day.\u201D"),
-        h("p", { className: "quote-author" }, "Early beta user \u00b7 6 months"),
+        h("p", { className: "eyebrow" }, "Bio-hacking life"),
+        h("p", { className: "quote-copy" }, "AI Protocol Bot"),
+        h("p", { className: "section-copy" }, "Competition in the modern world is more intense than ever in every aspect of life. You need the best information, in a digestible format, delivered when and where you need it to stay on top. EMERSUS delivers."),
+        h("p", { className: "quote-author" }, "View methodology"),
       ),
       h(
         "article",
         { className: "quote-card" },
-        h("p", { className: "section-copy text-blur" }, "Built for people who take their training seriously enough to want the truth \u2014 even when the truth is \u201Cwe don't know yet.\u201D"),
+        h("p", { className: "eyebrow" }, "User Query"),
+        h("p", { className: "section-copy" }, "\"How can I control my nerves for my upcoming sales pitch next week?\""),
+        h("p", { className: "eyebrow quote-gap" }, "Protocol Response"),
+        h("p", { className: "section-copy" }, "PUBLIC SPEAKING: Evidence on exposure, rehearsal structure, and cognitive reframing suggests a combined routine works best. Given your timeframe, I can build a short protocol to reduce anticipatory stress and sharpen delivery before your sales pitch."),
       ),
     ),
   );
@@ -1055,9 +1062,11 @@ function OldCopyFinalCta() {
     h(
       "div",
       { className: "section-inner" },
-      h("h2", { className: "section-title text-blur-strong" }, "Ready to train smarter?"),
-      h("p", { className: "subtitle text-blur" }, "Join the waitlist for early access."),
+      h("p", { className: "eyebrow" }, "Private beta"),
+      h("h2", { className: "section-title" }, "Ready to transcend limitations?"),
+      h("p", { className: "subtitle" }, "Join the private beta. Validated human optimization for the modern elite. Experience revolutionary breakthroughs."),
       h(WaitlistForm, { variant: "full" }),
+      h("div", { className: "hero-actions" }, h("a", { className: "button-secondary", href: "#features" }, "Explore science")),
     ),
   );
 }
@@ -1066,14 +1075,8 @@ function OldCopyFooter() {
   return h(
     "footer",
     { className: "footer" },
-    h("span", { className: "text-blur" }, "Emersus \u00a9 2025"),
-    h(
-      "div",
-      { style: { display: "flex", gap: "2rem" } },
-      h("a", { className: "text-blur", href: "/privacy/" }, "Privacy"),
-      h("a", { className: "text-blur", href: "/terms/" }, "Terms"),
-      h("a", { className: "text-blur", href: "/contact/" }, "Contact"),
-    ),
+    h("span", null, "Emersus AI"),
+    h("span", null, "2026 EMERSUS AI. Laboratory grade performance. All rights reserved."),
   );
 }
 

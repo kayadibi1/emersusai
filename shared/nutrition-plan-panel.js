@@ -5,8 +5,8 @@
 // from Supabase per A3. Lets the user switch day types, edit targets,
 // override assignments on specific dates, and regenerate the plan from chat.
 
-import React from "https://esm.sh/react@18.2.0";
-import { createClient } from "https://esm.sh/@supabase/supabase-js@2.101.1";
+import React from "react";
+import { createClient } from "@supabase/supabase-js";
 import { resolveDayType } from "./meal-plan-day-type.js";
 
 const { useEffect, useState } = React;
@@ -33,7 +33,7 @@ function TargetCard({ targets, dayTypeName, editing, onChange, onToggleEdit, onS
   ];
   return h("div", { className: "target-card" }, [
     h("div", { className: "tc-header", key: "h" }, [
-      h("h3", { key: "t" }, `Targets — ${dayTypeName}`),
+      h("h3", { key: "t" }, `Targets â€” ${dayTypeName}`),
       h("button", { key: "e", onClick: onToggleEdit }, editing ? "Cancel" : "Edit targets"),
       editing && h("button", { key: "s", className: "primary", onClick: onSave }, "Save"),
     ]),
@@ -49,7 +49,7 @@ function TargetCard({ targets, dayTypeName, editing, onChange, onToggleEdit, onS
                 onChange: (e) => onChange(key, parseFloat(e.target.value) || 0),
               })
             )
-          : h("dd", { key: `${key}-dd` }, targets[key] ?? "—"),
+          : h("dd", { key: `${key}-dd` }, targets[key] ?? "â€”"),
       ])
     ),
   ]);
@@ -88,7 +88,7 @@ function AssignmentsCalendar({ mealPlan, workoutPlan, onOverride }) {
               title: c.hasWorkout ? "Workout session scheduled" : "",
             }, [
               h("span", { className: "dom", key: "d" }, c.d),
-              c.hasWorkout && h("span", { className: "dot", key: "wk" }, "•"),
+              c.hasWorkout && h("span", { className: "dot", key: "wk" }, "â€¢"),
             ])
       )
     ),
@@ -135,7 +135,7 @@ export default function NutritionPlanPanel({ onRegenerateViaChat }) {
 
   useEffect(() => { load(); }, []);
 
-  if (loading) return h("div", { className: "plan-loading" }, "Loading plan…");
+  if (loading) return h("div", { className: "plan-loading" }, "Loading planâ€¦");
 
   if (!mealPlan) {
     return h("div", { className: "plan-empty" }, [
@@ -187,7 +187,7 @@ export default function NutritionPlanPanel({ onRegenerateViaChat }) {
       h("h2", { key: "t" }, mealPlan.title),
       h("span", { key: "p" },
         mealPlan.plan.provenance?.profile_snapshot
-          ? `Based on ${mealPlan.plan.provenance.profile_snapshot.goal ?? ""} — ${mealPlan.plan.provenance.profile_snapshot.body_weight_kg} kg`
+          ? `Based on ${mealPlan.plan.provenance.profile_snapshot.goal ?? ""} â€” ${mealPlan.plan.provenance.profile_snapshot.body_weight_kg} kg`
           : ""
       ),
     ]),
@@ -224,10 +224,10 @@ export default function NutritionPlanPanel({ onRegenerateViaChat }) {
       (activeDayType?.meals ?? []).map((m, i) =>
         h("div", { key: i, className: "plan-meal-card" }, [
           h("div", { className: "mh", key: "h" },
-            `${m.slot.replace(/_/g, " ")} — ${m.name}`),
+            `${m.slot.replace(/_/g, " ")} â€” ${m.name}`),
           h("ul", { key: "l" },
             (m.foods ?? []).map((f, j) =>
-              h("li", { key: j }, `${f.description} — ${f.grams} g`)
+              h("li", { key: j }, `${f.description} â€” ${f.grams} g`)
             )
           ),
         ])
@@ -240,7 +240,7 @@ export default function NutritionPlanPanel({ onRegenerateViaChat }) {
       h("ul", { key: "l" },
         activeDayType.supplements.map((s, i) =>
           h("li", { key: i },
-            `${s.description} — ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " · " + s.timing.replace(/_/g, " ") : ""}`
+            `${s.description} â€” ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " Â· " + s.timing.replace(/_/g, " ") : ""}`
           )
         )
       ),

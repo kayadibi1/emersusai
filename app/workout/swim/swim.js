@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "https://esm.sh/react@18.2.0";
-import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { createRoot } from "react-dom/client";
 import {
   applyManualWorkoutPlanEdit,
   getProfile,
@@ -43,17 +43,17 @@ const POOL_CHIPS = [
   { id: 25, label: "25m" },
   { id: 50, label: "50m" },
   { id: 22.86, label: "25yd" },
-  { id: 30.48, label: "33⅓yd" },
+  { id: 30.48, label: "33â…“yd" },
 ];
 
-// ── Pre-start ─────────────────────────────────────────────────────
+// â”€â”€ Pre-start â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function PreStart({ titleValue, setTitleValue, stroke, setStroke, poolLen, setPoolLen, prescribed, onStart }) {
   return h(
     React.Fragment,
     null,
     h("div", { className: "swim-topbar" },
-      h("a", { href: "/app/workout/" }, "← Back"),
+      h("a", { href: "/app/workout/" }, "â† Back"),
       h("span", null, "")
     ),
     h("div", { className: "title-field" },
@@ -90,7 +90,7 @@ function PreStart({ titleValue, setTitleValue, stroke, setStroke, poolLen, setPo
   );
 }
 
-// ── Live ──────────────────────────────────────────────────────────
+// â”€â”€ Live â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function LiveScreen({
   elapsedS, lapCount, poolLen, stroke, splits, paused,
@@ -106,10 +106,10 @@ function LiveScreen({
     null,
     h("div", { className: "swim-topbar-live" },
       h("span", null, formatTimer(elapsedS), " elapsed"),
-      h("span", null, `${poolLen}m pool · ${stroke}`)
+      h("span", null, `${poolLen}m pool Â· ${stroke}`)
     ),
     h("div", { className: "lap-big" }, lapCount),
-    h("div", { className: "lap-label" }, `LAPS · ${totalDistance}m`),
+    h("div", { className: "lap-label" }, `LAPS Â· ${totalDistance}m`),
     h("button", { className: "lap-tap-btn", onClick: onTapLap, disabled: paused }, "TAP FOR LAP"),
     lapCount > 0 && h("button", { className: "lap-undo", onClick: onUndoLap }, "Undo last lap"),
     h("div", { className: "stat-row-swim" },
@@ -135,7 +135,7 @@ function LiveScreen({
   );
 }
 
-// ── Main component ────────────────────────────────────────────────
+// â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 const LAP_CAP = 500;
 

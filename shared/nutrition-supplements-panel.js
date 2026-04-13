@@ -4,7 +4,7 @@
 // plan, grouped by timing), lets the user check off each for one-tap logging,
 // and exposes an "Add supplement" search.
 
-import React from "https://esm.sh/react@18.2.0";
+import React from "react";
 import { localDateStr } from "./date-utils.js";
 const { useEffect, useState } = React;
 const h = React.createElement;
@@ -45,7 +45,7 @@ export default function NutritionSupplementsPanel({ onOpenFoodDetail }) {
 
   useEffect(() => { load(); }, []);
 
-  if (loading) return h("div", { className: "supps-loading" }, "Loading…");
+  if (loading) return h("div", { className: "supps-loading" }, "Loadingâ€¦");
 
   const prescribed = [];
   if (mealPlan?.plan?.day_types) {
@@ -112,9 +112,9 @@ export default function NutritionSupplementsPanel({ onOpenFoodDetail }) {
               className: alreadyLogged ? "logged" : "",
             }, [
               h("span", { className: "desc", key: "d" },
-                `${s.description} — ${s.amount} ${s.unit}`),
+                `${s.description} â€” ${s.amount} ${s.unit}`),
               alreadyLogged
-                ? h("span", { key: "c", className: "check" }, "✓ logged")
+                ? h("span", { key: "c", className: "check" }, "âœ“ logged")
                 : h("button", { key: "b", onClick: () => logSupplement(s) }, "Log"),
             ]);
           })

@@ -1,5 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from "https://esm.sh/react@18.2.0";
-import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+import React, { useEffect, useMemo, useRef, useState } from "react";
+import { createRoot } from "react-dom/client";
 import {
   Activity,
   ArrowUp,
@@ -14,7 +14,7 @@ import {
   PanelLeftOpen,
   Plus,
   Search,
-} from "https://esm.sh/lucide-react@0.468.0?deps=react@18.2.0";
+} from "lucide-react";
 import {
   applyWorkoutPlanUpdate,
   getProfile,
@@ -487,7 +487,7 @@ function buildAssistantBlocks(data) {
   // spaces, which would flatten multi-paragraph prose and remove the newlines
   // that separate widget fences from surrounding prose.
   //
-  // DO NOT slice this text. A typical comparison-widget answer is ~4–7k chars
+  // DO NOT slice this text. A typical comparison-widget answer is ~4â€“7k chars
   // (prose + an HTML widget body with inline styles). The previous .slice(0,
   // 4000) was lopping the closing ``` off the widget fence, which made
   // hasWidgetFences() return false on the rendering side and caused the raw
@@ -648,7 +648,7 @@ function useTypewriter(fullText, enabled, charsPerTick = 3, intervalMs = 18) {
     // Background-tab fix: Chromium throttles setInterval to 1Hz (or
     // stops it entirely after ~5 min of aggressive throttling) in
     // background tabs, which means a normal-length response would take
-    // 5+ minutes to "type out" once the user came back — or appear to
+    // 5+ minutes to "type out" once the user came back â€” or appear to
     // never load at all if the throttling escalated. The typewriter is
     // purely cosmetic; there's no reason to animate text the user can't
     // see. When the tab is hidden, skip the animation entirely and
@@ -687,7 +687,7 @@ function useTypewriter(fullText, enabled, charsPerTick = 3, intervalMs = 18) {
 
 // Tokenize an inline chunk into an array of React children, honoring basic
 // markdown: **bold**, *italic* / _italic_, `inline code`. We do NOT run a full
-// markdown pass — no links, no headings, no block quotes — because the model
+// markdown pass â€” no links, no headings, no block quotes â€” because the model
 // rarely produces them in prose and full parsing opens us up to edge cases.
 // The tokenizer walks left-to-right and treats the earliest matching delimiter
 // as the real one, so nested runs fall back to whichever pattern hit first.
@@ -760,8 +760,8 @@ function renderProseChunks(text) {
 // Window-level ref set by ChatApp so WorkoutPlanCard can tell the chat
 // "a plan was saved, stamp active_workout_plan_id on the current thread".
 // Follows the same ref-passthrough pattern submitQuestionRef uses for the
-// iframe sendPrompt bridge — avoids drilling an onSave prop through
-// Message → MessageBlocks → TextBlock → WorkoutPlanCard.
+// iframe sendPrompt bridge â€” avoids drilling an onSave prop through
+// Message â†’ MessageBlocks â†’ TextBlock â†’ WorkoutPlanCard.
 const workoutPlanActionRef = { current: null };
 
 function WorkoutPlanCard({ segment, threadId }) {
@@ -773,7 +773,7 @@ function WorkoutPlanCard({ segment, threadId }) {
   const [error, setError] = useState("");
   // Once the user clicks "Save plan" / "Apply update" / "Discard", we hide
   // the primary CTAs so the card doesn't offer a stale action. Download
-  // stays available — the user might want the .ics after saving too.
+  // stays available â€” the user might want the .ics after saving too.
   const [resolved, setResolved] = useState("");
 
   if (!parseResult) {
@@ -900,7 +900,7 @@ function WorkoutPlanCard({ segment, threadId }) {
   function handleDownload() {
     try {
       downloadPlanIcs(plan);
-      setToast("ICS download started — works with Google, Apple, and Outlook.");
+      setToast("ICS download started â€” works with Google, Apple, and Outlook.");
     } catch (err) {
       setError(String(err?.message || err) || "Could not generate .ics.");
     }
@@ -1037,14 +1037,14 @@ function WorkoutPlanCard({ segment, threadId }) {
       { style: style.header },
       h("div", { style: style.title }, plan.title || "Workout plan"),
       summary ? h("div", { style: style.subtitle }, summary) : null,
-      meta.length ? h("div", { style: style.meta }, meta.join(" · ")) : null,
+      meta.length ? h("div", { style: style.meta }, meta.join(" Â· ")) : null,
       h("span", { style: style.chip }, isUpdate ? "Plan update" : "New plan")
     ),
     isUpdate && diffLines.length
       ? h(
           "div",
           { style: style.diffWrap },
-          diffLines.join(" · ")
+          diffLines.join(" Â· ")
         )
       : null,
     previewSessions.length
@@ -1071,7 +1071,7 @@ function WorkoutPlanCard({ segment, threadId }) {
               h(
                 "div",
                 { style: style.sessionDuration },
-                session.start_time ? `${session.start_time} · ${session.duration_minutes || 60}m` : ""
+                session.start_time ? `${session.start_time} Â· ${session.duration_minutes || 60}m` : ""
               )
             )
           ),
@@ -1146,14 +1146,14 @@ function WorkoutPlanCard({ segment, threadId }) {
               href: "/app/workout/",
               style: { color: "var(--color-text-primary, #e8e8e8)", textDecoration: "underline" },
             },
-            "Open workout planner →"
+            "Open workout planner â†’"
           )
         )
       : null
   );
 }
 
-// ─── MealPlanCard ────────────────────────────────────────────────────────────
+// â”€â”€â”€ MealPlanCard â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 //
 // Inline renderer for `meal-plan` chat fences. Mirrors WorkoutPlanCard: parses
 // segment.content (raw JSON string per widget-fence-parser), renders the plan
@@ -1162,7 +1162,7 @@ function WorkoutPlanCard({ segment, threadId }) {
 // token from the current supabase session.
 //
 // The iframe-hosted shared/meal-plan-widget.js remains as the presentational
-// component library — its sub-components (MealCard, SupplementStack,
+// component library â€” its sub-components (MealCard, SupplementStack,
 // TargetCard) are re-exported and reused here so there's exactly one
 // implementation of each piece of plan UI.
 //
@@ -1228,7 +1228,7 @@ function MealPlanCard({ segment, threadId }) {
     );
   }
 
-  if (!plan) return null; // transient — waiting for the parse effect
+  if (!plan) return null; // transient â€” waiting for the parse effect
 
   const dayTypes = Array.isArray(plan.day_types) ? plan.day_types : [];
   const activeDayType = dayTypes.find((dt) => dt.slug === activeSlug) || null;
@@ -1328,7 +1328,7 @@ function MealPlanCard({ segment, threadId }) {
           )
         )
       ),
-      // Target card — inline styled (not from shared module, which has cross-module caching issues)
+      // Target card â€” inline styled (not from shared module, which has cross-module caching issues)
       activeTargets
         ? h("div", { style: { background: "var(--color-background-tertiary, rgba(255,255,255,0.03))", borderRadius: 10, padding: "12px 16px", marginBottom: 12 } },
             activeDayType?.name ? h("div", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)", marginBottom: 10 } }, activeDayType.name) : null,
@@ -1342,7 +1342,7 @@ function MealPlanCard({ segment, threadId }) {
             ),
           )
         : null,
-      // Meals — inline styled
+      // Meals â€” inline styled
       h("div", { style: { marginTop: 12 } },
         sortedMeals.map((m, i) =>
           h("div", { key: `m-${i}`, style: { marginBottom: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.03))", borderRadius: 10 } },
@@ -1351,18 +1351,18 @@ function MealPlanCard({ segment, threadId }) {
               h("span", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)" } }, m.name),
             ),
             h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, #666)", lineHeight: 1.6 } },
-              (m.foods || []).map((f, j) => h("li", { key: j }, `${f.description} — ${f.grams} g`))
+              (m.foods || []).map((f, j) => h("li", { key: j }, `${f.description} â€” ${f.grams} g`))
             ),
           )
         )
       ),
-      // Supplement stack — inline styled
+      // Supplement stack â€” inline styled
       activeDayType?.supplements?.length
         ? h("div", { style: { marginTop: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.03))", borderRadius: 10 } },
             h("div", { style: { fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, #666)", marginBottom: 6 } }, "Supplements"),
             h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, #666)", lineHeight: 1.6 } },
               activeDayType.supplements.map((s, i) =>
-                h("li", { key: i }, `${s.description} — ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " · " + s.timing.replace(/_/g, " ") : ""}`)
+                h("li", { key: i }, `${s.description} â€” ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " Â· " + s.timing.replace(/_/g, " ") : ""}`)
               )
             ),
           )
@@ -1449,20 +1449,20 @@ function MealPlanCard({ segment, threadId }) {
   );
 }
 
-// ─── NutritionLogConfirmCard ─────────────────────────────────────────────────
+// â”€â”€â”€ NutritionLogConfirmCard â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 //
 // Inline renderer for `nutrition-log-confirm` chat fences. Mirrors MealPlanCard
 // (per Amendment A8): parses segment.content (raw JSON string from
 // widget-fence-parser), renders per-row amount + meal_slot editors for
 // resolved items, read-only unresolved rows, and a "Confirm log (N)" button
 // that POSTs to /api/emersus/meal-journal/entries with a Bearer token from
-// getSession(). This is the production code path — the iframe-hosted
+// getSession(). This is the production code path â€” the iframe-hosted
 // shared/nutrition-log-confirm-widget.js is for the theoretical iframe path.
 //
 // Sub-components (ResolvedRow, UnresolvedRow, MEAL_SLOT_LABELS) are imported
 // from the widget file to avoid duplication.
 function NutritionLogConfirmCard({ segment, threadId }) {
-  // ── Parse ──────────────────────────────────────────────────────────────────
+  // â”€â”€ Parse â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // All hooks before any early returns (rules of hooks).
   const [parseError, setParseError] = useState("");
   const [payload, setPayload] = useState(null);
@@ -1475,7 +1475,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
     }
     try {
       const parsed = JSON.parse(segment.content);
-      // Server fast-path computes logged_date in UTC — override with
+      // Server fast-path computes logged_date in UTC â€” override with
       // the client's local calendar date so the entry lands on the
       // correct day for western-hemisphere users.
       parsed.logged_date = localDateStr();
@@ -1487,7 +1487,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
     }
   }, [segment?.content]);
 
-  // ── Editable state ─────────────────────────────────────────────────────────
+  // â”€â”€ Editable state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   const [items, setItems] = useState([]);
   const [submitState, setSubmitState] = useState("idle"); // idle | saving | saved | error
   const [error, setError] = useState("");
@@ -1504,7 +1504,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
     );
   }, [payload]);
 
-  // ── Callbacks ──────────────────────────────────────────────────────────────
+  // â”€â”€ Callbacks â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   function handleUpdate(index, field, value) {
     setItems((prev) => {
       const next = prev.slice();
@@ -1529,7 +1529,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
       }
       // Resolve food_ids for items missing them (LLM tool path gives
       // descriptions but not USDA FDC IDs). Single batch request instead
-      // of N individual searches — one HTTP round trip, parallel on server.
+      // of N individual searches â€” one HTTP round trip, parallel on server.
       const needsLookup = items.filter((it) => !it.food_id && it.food_name);
       let foodIdMap = {};
       if (needsLookup.length > 0) {
@@ -1546,7 +1546,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
             const batchData = await batchRes.json();
             foodIdMap = batchData.results || {};
           }
-        } catch { /* proceed without food_ids — will fail at insert */ }
+        } catch { /* proceed without food_ids â€” will fail at insert */ }
       }
       const allEntries = items.map((it) => ({
         food_id: it.food_id || foodIdMap[it.food_name]?.id || null,
@@ -1588,7 +1588,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
     }
   }
 
-  // ── Early returns ──────────────────────────────────────────────────────────
+  // â”€â”€ Early returns â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (parseError) {
     return h(
       "div",
@@ -1614,9 +1614,9 @@ function NutritionLogConfirmCard({ segment, threadId }) {
     );
   }
 
-  if (!payload) return null; // transient — waiting for the parse effect
+  if (!payload) return null; // transient â€” waiting for the parse effect
 
-  // ── Success state ──────────────────────────────────────────────────────────
+  // â”€â”€ Success state â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   if (submitState === "saved") {
     return h(
       "div",
@@ -1647,7 +1647,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
 
   const unresolved = Array.isArray(payload.unresolved) ? payload.unresolved : [];
 
-  // ── Main render ────────────────────────────────────────────────────────────
+  // â”€â”€ Main render â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   return h(
     "div",
     { className: "chat-nutrition-log-card" },
@@ -1813,7 +1813,7 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
   const isTyping = typingActive || (typewrite && visible.length < fullText.length);
   const display = typewrite ? visible : fullText;
 
-  // ── New SSE path: toolResults present ─────────────────────────────
+  // â”€â”€ New SSE path: toolResults present â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // When the message was built from SSE events, tool outputs arrive as
   // structured objects in toolResults rather than fenced code blocks in
   // the prose. Render prose in a bubble, then each tool result as the
@@ -1853,7 +1853,7 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
           ),
         );
       } else if (toolName === "emit_meal_plan" && toolData) {
-        // MealPlanCard parses JSON from segment.content — pass pre-stringified
+        // MealPlanCard parses JSON from segment.content â€” pass pre-stringified
         const segment = { content: JSON.stringify(toolData) };
         children.push(
           h(
@@ -1900,7 +1900,7 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
     );
   }
 
-  // ── Legacy paths (fence-based + pure prose) ───────────────────────
+  // â”€â”€ Legacy paths (fence-based + pure prose) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
   // Pure-prose answers (no widget fences) take the original single-bubble path.
   // This is also the path the user-message bubble always takes.
@@ -2444,12 +2444,12 @@ function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
     if (block.type === "text") {
       const isFirstText = block === firstTextBlock;
       if (isFirstText && typewrite && !isComplete) {
-        // Still typing prose — render the partial prose substring only, with
+        // Still typing prose â€” render the partial prose substring only, with
         // the typing cursor. The widget is NOT in this text, so TextBlock's
         // pure-prose branch handles it.
         return h(TextBlock, { key: index, text: visibleProse, role: block.role || "assistant", typingActive: true, threadId });
       }
-      // Prose done (or no typewriter) — hand TextBlock the full text so it
+      // Prose done (or no typewriter) â€” hand TextBlock the full text so it
       // switches into the segment-aware layout and mounts the WidgetFrame.
       return h(TextBlock, { key: index, text: block.text, role: block.role || "assistant", threadId });
     }
@@ -2464,9 +2464,9 @@ function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
 
 function Message({ message, typewrite = false, threadId = null }) {
   // Choose rendering strategy:
-  // 1. toolResults present → SSE path (prose + structured tool outputs)
-  // 2. blocks array → legacy fence-parsed path
-  // 3. html → legacy structured-HTML dump
+  // 1. toolResults present â†’ SSE path (prose + structured tool outputs)
+  // 2. blocks array â†’ legacy fence-parsed path
+  // 3. html â†’ legacy structured-HTML dump
   // 4. plain text fallback
   const hasToolResults = message.toolResults && typeof message.toolResults === "object" && Object.keys(message.toolResults).length > 0;
   return h(
@@ -2484,7 +2484,7 @@ function Message({ message, typewrite = false, threadId = null }) {
 }
 
 // Right-rail sources card. Displays up to 4 attached sources for the
-// currently active assistant message. Intentionally thin — title, one-line
+// currently active assistant message. Intentionally thin â€” title, one-line
 // meta (journal / year / pub type), short excerpt, and a "Read" link
 // when we have a URL. The model is instructed to NEVER inline citations
 // in the chat prose (see instructions in api/emersus/workflow.js), so
@@ -2506,7 +2506,7 @@ function SourcesRailCard({ sources }) {
   return h(
     "section",
     { className: "rail-card" },
-    h("h3", { className: "rail-title" }, `Sources · ${items.length}`),
+    h("h3", { className: "rail-title" }, `Sources Â· ${items.length}`),
     h(
       "ul",
       { className: "source-list" },
@@ -2521,7 +2521,7 @@ function SourcesRailCard({ sources }) {
           source?.evidence_level ||
           (Array.isArray(source?.publication_types) ? source.publication_types.join(", ") : "");
         if (pubType) metaParts.push(normalizeText(pubType, 60));
-        const meta = metaParts.join(" · ");
+        const meta = metaParts.join(" Â· ");
         const snippet = normalizeText(
           source?.why_it_matters || source?.excerpt || source?.summary || "",
           240
@@ -2540,7 +2540,7 @@ function SourcesRailCard({ sources }) {
                 h(
                   "a",
                   { href, target: "_blank", rel: "noopener noreferrer" },
-                  "Read source ↗"
+                  "Read source â†—"
                 )
               )
             : null
@@ -2591,7 +2591,7 @@ function ThinkingGlyph({ state = "idle", size = 64, color = "#534AB7" }) {
 
 // ChatApp is exported so /app/_debug/ can render the same UI inside a
 // two-column layout and observe debug events as they arrive. Props are
-// all optional — the production /chat/ page renders <ChatApp /> with no
+// all optional â€” the production /chat/ page renders <ChatApp /> with no
 // arguments and nothing about its behavior changes.
 //
 //   onDebugData(data)        Called with the full `data` object after each
@@ -2600,7 +2600,7 @@ function ThinkingGlyph({ state = "idle", size = 64, color = "#534AB7" }) {
 //                            debug.openai_input, etc.).
 //   onProgress(event)        Called once per SSE frame from the streaming
 //                            endpoint, when a custom `fetcher` is in use.
-//                            event.stage ∈ {connected, profile_loaded,
+//                            event.stage âˆˆ {connected, profile_loaded,
 //                            planning_done, retrieval_done, prompt_built,
 //                            synthesis_primary_done, synthesis_fallback_done,
 //                            final, complete, error}. Ignored entirely
@@ -2645,7 +2645,7 @@ export function ChatApp({
   // so the previous thread's last assistant message doesn't re-typewriter
   // itself when we navigate back to it. streamingMessageKey is only set
   // during a fresh submit (which happens within the SAME thread), so this
-  // effect only fires on manual thread switches and "new chat" actions —
+  // effect only fires on manual thread switches and "new chat" actions â€”
   // never mid-submit.
   const previousThreadIdRef = useRef(activeThreadId);
   useEffect(() => {
@@ -2715,7 +2715,7 @@ export function ChatApp({
       // "attached" to a saved workout plan so the user can type natural
       // adjustment requests ("I missed Friday") and the backend loads the
       // plan into current_workout_plan automatically. We always open a new
-      // thread rather than mutating the most recent one — the user's
+      // thread rather than mutating the most recent one â€” the user's
       // latest chat might be about something unrelated.
       try {
         const url = new URL(window.location.href);
@@ -2870,11 +2870,11 @@ export function ChatApp({
         includeDebug: true,
       };
 
-      // ── Fetch ─────────────────────────────────────────────────────────
+      // â”€â”€ Fetch â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       // The backend returns EITHER:
-      //   • application/json — ShortCircuit responses (onboarding, guardrail
+      //   â€¢ application/json â€” ShortCircuit responses (onboarding, guardrail
       //     refusal). Handled exactly like the old single-JSON code path.
-      //   • text/event-stream — SSE with prose/tool/tool_error/done events.
+      //   â€¢ text/event-stream â€” SSE with prose/tool/tool_error/done events.
       //     Prose is streamed into the chat bubble in real-time; tool results
       //     and sources arrive as discrete events and are attached to the
       //     final message.
@@ -2906,7 +2906,7 @@ export function ChatApp({
         const contentType = (response.headers.get("content-type") || "").toLowerCase();
 
         if (contentType.includes("text/event-stream")) {
-          // ── SSE streaming path ────────────────────────────────────────
+          // â”€â”€ SSE streaming path â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
           // Create a placeholder assistant message so prose appears in
           // real-time as delta events arrive.
           const streamCreatedAt = new Date().toISOString();
@@ -2934,7 +2934,7 @@ export function ChatApp({
             ...persistedThread,
             messages: [...(persistedThread.messages || []), placeholderMessage],
           };
-          // Do NOT set streamingMessageKey here — SSE deltas ARE the
+          // Do NOT set streamingMessageKey here â€” SSE deltas ARE the
           // streaming animation. Setting it would trigger the typewriter
           // hook which fights the real-time delta updates (text flickers).
           setChatHistory((prev) =>
@@ -2947,7 +2947,7 @@ export function ChatApp({
               if (event.type === "prose") {
                 accumulatedProse += event.delta || "";
                 // Update the streaming message in-place so the user sees
-                // text arrive in real-time (no typewriter animation needed —
+                // text arrive in real-time (no typewriter animation needed â€”
                 // the SSE deltas ARE the streaming effect).
                 setChatHistory((prev) =>
                   prev.map((thread) => {
@@ -3005,7 +3005,7 @@ export function ChatApp({
           // as "currently streaming" once we build the final message below.
           setStreamingMessageKey("");
         } else {
-          // ── JSON path (ShortCircuit: onboarding / guardrail refusal) ──
+          // â”€â”€ JSON path (ShortCircuit: onboarding / guardrail refusal) â”€â”€
           data = await response.json().catch(() => ({}));
         }
       }
@@ -3144,7 +3144,7 @@ export function ChatApp({
     h("aside", { className: "chat-nav" },
       h("div", { className: "chat-brand" },
         h("div", { className: "chat-brand-head" },
-          // Clickable brand — takes you back to the public landing page.
+          // Clickable brand â€” takes you back to the public landing page.
           // Keep the same visual treatment as the old non-interactive <h1>
           // by styling the anchor as-is; site.css / chat/index.html already
           // carries .chat-brand-mark so we just reuse the class on an <a>.
@@ -3170,8 +3170,8 @@ export function ChatApp({
             h("span", null,
               h("span", { className: "chat-nav-label" }, threadData.title || "New chat"),
               h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "No messages yet"}`))))),
-      // Cross-page nav row. The chat page was a dead-end before — no way to
-      // get back to the dashboard, the workout planner, or anywhere else —
+      // Cross-page nav row. The chat page was a dead-end before â€” no way to
+      // get back to the dashboard, the workout planner, or anywhere else â€”
       // so these three anchors sit above the "New chat" button in the
       // sidebar footer and use the same .inline-button visual language.
       h("div", { className: "chat-nav-actions" },

@@ -1,5 +1,5 @@
-import React, { useCallback, useEffect, useMemo, useState } from "https://esm.sh/react@18.2.0";
-import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import { createRoot } from "react-dom/client";
 import {
   applyManualWorkoutPlanEdit,
   getProfile,
@@ -33,7 +33,7 @@ const STYLE_CHIPS = [
   { id: "trad_climbing", label: "Trad" },
 ];
 
-// ── Add route modal ───────────────────────────────────────────────
+// â”€â”€ Add route modal â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function AddRouteModal({ initial, gradeSystem, onSave, onCancel }) {
   const [grade, setGrade] = useState(initial?.grade || null);
@@ -78,7 +78,7 @@ function AddRouteModal({ initial, gradeSystem, onSave, onCancel }) {
       h("div", { className: "counter-row" },
         h("span", null, "Attempts"),
         h("div", { className: "counter-controls" },
-          h("button", { className: "counter-btn", onClick: () => changeAttempts(-1) }, "−"),
+          h("button", { className: "counter-btn", onClick: () => changeAttempts(-1) }, "âˆ’"),
           h("span", { style: { fontSize: "1.05rem", fontWeight: 800, minWidth: 24, textAlign: "center" } }, attempts),
           h("button", { className: "counter-btn", onClick: () => changeAttempts(1) }, "+"),
         )
@@ -124,7 +124,7 @@ function AddRouteModal({ initial, gradeSystem, onSave, onCancel }) {
   );
 }
 
-// ── Main component ────────────────────────────────────────────────
+// â”€â”€ Main component â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 
 function ClimbSessionView({ session: authSession, planRow, sessionIndex, profile }) {
   const [plan, setPlan] = useState(planRow.plan);
@@ -210,7 +210,7 @@ function ClimbSessionView({ session: authSession, planRow, sessionIndex, profile
       React.Fragment,
       null,
       h("div", { className: "climb-topbar" },
-        h("a", { href: "/app/workout/" }, "← Back"),
+        h("a", { href: "/app/workout/" }, "â† Back"),
       ),
       h("div", { className: "title-field" },
         h("div", { className: "label" }, "SESSION"),
@@ -235,7 +235,7 @@ function ClimbSessionView({ session: authSession, planRow, sessionIndex, profile
       React.Fragment,
       null,
       h("div", { className: "climb-topbar" },
-        h("a", { href: "/app/workout/" }, "← Back"),
+        h("a", { href: "/app/workout/" }, "â† Back"),
         h("span", null, startedAt ? new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }) : "")
       ),
       h("div", { className: "title-field" },
@@ -255,7 +255,7 @@ function ClimbSessionView({ session: authSession, planRow, sessionIndex, profile
               r.name && h("div", { className: "route-name" }, r.name),
             ),
             h("span", { className: `send-badge ${r.send_type}` },
-              r.send_type === "send" && r.attempts > 1 ? `SEND · ${r.attempts} tries` : r.send_type.toUpperCase()
+              r.send_type === "send" && r.attempts > 1 ? `SEND Â· ${r.attempts} tries` : r.send_type.toUpperCase()
             )
           )
         )

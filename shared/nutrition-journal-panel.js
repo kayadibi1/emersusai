@@ -3,7 +3,7 @@
 // Journal tab composition. Date picker, day totals card, meal sections
 // with inline edit/delete, and the search-first "Log food" modal.
 
-import React from "https://esm.sh/react@18.2.0";
+import React from "react";
 import { localDateStr } from "./date-utils.js";
 const { useEffect, useState } = React;
 const h = React.createElement;
@@ -87,7 +87,7 @@ function LogFoodModal({ onClose, onLogged, date, kindFilter }) {
       h("input", {
         key: "q",
         type: "text",
-        placeholder: "Search foods…",
+        placeholder: "Search foodsâ€¦",
         value: query,
         autoFocus: true,
         onChange: (e) => setQuery(e.target.value),
@@ -100,7 +100,7 @@ function LogFoodModal({ onClose, onLogged, date, kindFilter }) {
             onClick: () => setSelected(r),
           }, [
             h("span", { className: "desc", key: "d" }, r.description),
-            r.brand_name && h("span", { className: "brand", key: "b" }, ` · ${r.brand_name}`),
+            r.brand_name && h("span", { className: "brand", key: "b" }, ` Â· ${r.brand_name}`),
           ])
         )
       ),
@@ -133,7 +133,7 @@ function LogFoodModal({ onClose, onLogged, date, kindFilter }) {
           className: "primary",
           disabled: submitting || !amount,
           onClick: log,
-        }, submitting ? "Saving…" : "Log"),
+        }, submitting ? "Savingâ€¦" : "Log"),
       ]),
       h("button", { key: "c", className: "cancel", onClick: onClose }, "Cancel"),
     ]),
@@ -196,10 +196,10 @@ export default function NutritionJournalPanel({ onOpenFoodDetail }) {
       }),
       h("button", { key: "l", className: "primary", onClick: () => setModal("food") }, "Log food"),
       h("button", { key: "s", onClick: () => setModal("supplement") }, "Log supplement"),
-      h("button", { key: "c", onClick: copyDay }, "Copy day from…"),
+      h("button", { key: "c", onClick: copyDay }, "Copy day fromâ€¦"),
     ]),
 
-    loading && h("div", { key: "loading" }, "Loading…"),
+    loading && h("div", { key: "loading" }, "Loadingâ€¦"),
 
     !loading && MEAL_SLOT_ORDER.map(slot => {
       const list = bySlot[slot] ?? [];
@@ -215,7 +215,7 @@ export default function NutritionJournalPanel({ onOpenFoodDetail }) {
         h("div", { className: "slot-header", key: "h" }, [
           h("span", { className: "name", key: "n" }, slot.replace(/_/g, " ")),
           h("span", { className: "total", key: "t" },
-            `${Math.round(total.kcal)} kcal · P${Math.round(total.protein)} · C${Math.round(total.carbs)} · F${Math.round(total.fat)}`
+            `${Math.round(total.kcal)} kcal Â· P${Math.round(total.protein)} Â· C${Math.round(total.carbs)} Â· F${Math.round(total.fat)}`
           ),
         ]),
         h("ul", { className: "entries", key: "e" },
@@ -227,7 +227,7 @@ export default function NutritionJournalPanel({ onOpenFoodDetail }) {
                 onClick: () => onOpenFoodDetail?.(e.food?.id),
               }, e.food?.description ?? "(unknown)"),
               h("span", { className: "amt", key: "a" }, `${e.amount} ${e.amount_unit}`),
-              h("button", { key: "del", className: "del", onClick: () => del(e.id) }, "×"),
+              h("button", { key: "del", className: "del", onClick: () => del(e.id) }, "Ã—"),
             ])
           )
         ),

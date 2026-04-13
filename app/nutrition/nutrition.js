@@ -5,8 +5,8 @@
 // page navigation). The food detail drawer mounts globally and reads
 // its state from the ?food= query param.
 
-import React from "https://esm.sh/react@18.2.0";
-import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
+import React from "react";
+import { createRoot } from "react-dom/client";
 
 import NutritionTodayPanel from "/shared/nutrition-today-panel.js";
 import NutritionPlanPanel from "/shared/nutrition-plan-panel.js";
@@ -73,7 +73,7 @@ function App() {
   return h("div", { className: "nutrition-shell" }, [
     h("header", { key: "h", className: "nut-header" }, [
       h("h1", { key: "t" }, "Nutrition"),
-      h("a", { key: "p", href: "/app/progress/#nutrition", className: "progress-link" }, "View progress →"),
+      h("a", { key: "p", href: "/app/progress/#nutrition", className: "progress-link" }, "View progress â†’"),
     ]),
     h("nav", { key: "nav", className: "nut-tabs" },
       TABS.map(t =>

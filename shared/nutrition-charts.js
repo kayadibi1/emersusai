@@ -10,7 +10,7 @@
 //   - shared/food-detail-drawer.js      (nutrition-facts panel, supplement-facts panel)
 //   - app/progress/nutrition-pane.js    (streak banner, micro grid, weekly bars)
 
-import React from "https://esm.sh/react@18.2.0";
+import React from "react";
 const h = React.createElement;
 
 // Design tokens (mirrors workout-tracking spec's palette)
@@ -33,7 +33,7 @@ export const MACRO_COLORS = {
   fiber:   TOKENS.muted,
 };
 
-// ─── Macro progress ring ───────────────────────────────────────────────────
+// â”€â”€â”€ Macro progress ring â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function MacroRing({ actual, target, label, color = TOKENS.primary, size = 132 }) {
   const stroke = 14;
   const r = (size - stroke) / 2;
@@ -80,7 +80,7 @@ export function MacroRing({ actual, target, label, color = TOKENS.primary, size 
   ]);
 }
 
-// ─── Horizontal macro bar ──────────────────────────────────────────────────
+// â”€â”€â”€ Horizontal macro bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function MacroBar({ actual, target, color = TOKENS.primary, width = 200, height = 8 }) {
   const pct = target > 0 ? Math.min(actual / target, 1.2) : 0;
   const fillWidth = pct * width;
@@ -90,7 +90,7 @@ export function MacroBar({ actual, target, color = TOKENS.primary, width = 200, 
   ]);
 }
 
-// ─── Mini sparkline ───────────────────────────────────────────────────────
+// â”€â”€â”€ Mini sparkline â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function Sparkline({ values, width = 140, height = 32, color = TOKENS.primary }) {
   if (!values || values.length === 0) return null;
   const max = Math.max(...values, 1);
@@ -113,7 +113,7 @@ export function Sparkline({ values, width = 140, height = 32, color = TOKENS.pri
   ]);
 }
 
-// ─── Nutrition facts panel ─────────────────────────────────────────────────
+// â”€â”€â”€ Nutrition facts panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function NutritionFactsPanel({ nutrients, servingGrams, width = 320 }) {
   const macros = nutrients.filter(n => n.category === "macro" || n.category === "energy");
   const vitamins = nutrients.filter(n => n.category === "vitamin");
@@ -133,14 +133,14 @@ export function NutritionFactsPanel({ nutrients, servingGrams, width = 320 }) {
     y += rowHeight;
   }
 
-  for (const m of macros) addRow(m.name, m.amount?.toFixed(1) ?? "—", m.unit);
+  for (const m of macros) addRow(m.name, m.amount?.toFixed(1) ?? "â€”", m.unit);
   if (vitamins.length > 0) {
     rows.push(h("text", {
       key: "vit-h", x: 14, y,
       fill: TOKENS.muted, fontSize: 11, fontFamily: "system-ui, sans-serif", fontWeight: 600,
     }, "VITAMINS"));
     y += 18;
-    for (const v of vitamins) addRow(v.name, v.amount?.toFixed(1) ?? "—", v.unit);
+    for (const v of vitamins) addRow(v.name, v.amount?.toFixed(1) ?? "â€”", v.unit);
   }
   if (minerals.length > 0) {
     rows.push(h("text", {
@@ -148,7 +148,7 @@ export function NutritionFactsPanel({ nutrients, servingGrams, width = 320 }) {
       fill: TOKENS.muted, fontSize: 11, fontFamily: "system-ui, sans-serif", fontWeight: 600,
     }, "MINERALS"));
     y += 18;
-    for (const m of minerals) addRow(m.name, m.amount?.toFixed(1) ?? "—", m.unit);
+    for (const m of minerals) addRow(m.name, m.amount?.toFixed(1) ?? "â€”", m.unit);
   }
 
   const height = y + 20;
@@ -167,7 +167,7 @@ export function NutritionFactsPanel({ nutrients, servingGrams, width = 320 }) {
   ]);
 }
 
-// ─── Supplement facts panel ─────────────────────────────────────────────────
+// â”€â”€â”€ Supplement facts panel â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function SupplementFactsPanel({ nutrients, form, width = 320 }) {
   const rows = [];
   let y = 64;
@@ -177,9 +177,9 @@ export function SupplementFactsPanel({ nutrients, form, width = 320 }) {
     rows.push(h("g", { key: n.slug }, [
       h("text", { x: 14, y, fill: TOKENS.ink, fontSize: 13, fontFamily: "system-ui, sans-serif" }, n.name),
       h("text", { x: width - 80, y, fill: TOKENS.ink, fontSize: 13, textAnchor: "end", fontFamily: "system-ui, sans-serif" },
-        `${n.amount?.toFixed(1) ?? "—"} ${n.unit}`),
+        `${n.amount?.toFixed(1) ?? "â€”"} ${n.unit}`),
       h("text", { x: width - 14, y, fill: TOKENS.muted, fontSize: 12, textAnchor: "end", fontFamily: "system-ui, sans-serif" },
-        pctDv != null ? `${pctDv}%` : "†"),
+        pctDv != null ? `${pctDv}%` : "â€ "),
       h("line", { x1: 10, y1: y + 4, x2: width - 10, y2: y + 4, stroke: "rgba(255,255,255,0.1)" }),
     ]));
     y += rowHeight;
@@ -203,7 +203,7 @@ export function SupplementFactsPanel({ nutrients, form, width = 320 }) {
   ]);
 }
 
-// ─── Streak banner ─────────────────────────────────────────────────────────
+// â”€â”€â”€ Streak banner â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function StreakBanner({ current, best }) {
   if (!current || current === 0) return null;
   return h("div", { className: "streak-banner" }, [
@@ -212,7 +212,7 @@ export function StreakBanner({ current, best }) {
   ]);
 }
 
-// ─── Micronutrient grid card ───────────────────────────────────────────────
+// â”€â”€â”€ Micronutrient grid card â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function MicronutrientCard({ nutrient }) {
   const pct = nutrient.pct_dri ?? 0;
   const status =
@@ -238,7 +238,7 @@ export function MicronutrientCard({ nutrient }) {
   ]);
 }
 
-// ─── Weekly stacked bar ──────────────────────────────────────────────────
+// â”€â”€â”€ Weekly stacked bar â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 export function WeeklyMacroBars({ days, width = 420, height = 180 }) {
   if (!days || days.length === 0) return null;
   const maxKcal = Math.max(...days.map(d => d.kcal_actual ?? 0), 1);
