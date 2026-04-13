@@ -3,14 +3,11 @@ import { createRoot } from "react-dom/client";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import * as THREE from "three";
-import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
-import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 
 const h = React.createElement;
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
 let smoothScrollController = null;
+let landingBackgroundPromise = null;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -59,6 +56,43 @@ function initSmoothScroll(onScrollActivity) {
 
   smoothScrollController = { lenis, listeners, tick };
   return lenis;
+}
+
+function loadLandingBackground() {
+  if (reducedMotionQuery.matches) {
+    return Promise.resolve();
+  }
+  if (landingBackgroundPromise) {
+    return landingBackgroundPromise;
+  }
+
+  landingBackgroundPromise = new Promise((resolve) => {
+    const start = () => {
+      import("./landing-background.js")
+        .then(({ initScaleBackground }) => resolve(initScaleBackground()))
+        .catch((err) => {
+          console.error("[landingBackground] init failed", err);
+          resolve();
+        });
+    };
+
+    const schedule = () => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(start, { timeout: 1200 });
+        return;
+      }
+      window.setTimeout(start, 280);
+    };
+
+    if (document.readyState === "complete") {
+      schedule();
+      return;
+    }
+
+    window.addEventListener("load", schedule, { once: true });
+  });
+
+  return landingBackgroundPromise;
 }
 
 function createPixelBoxInstance(points, opacity = 0.9) {
@@ -2145,8 +2179,4 @@ function initScaleBackground() {
 
 mountLanding();
 initSmoothScroll();
-try {
-  initScaleBackground();
-} catch (err) {
-  console.error("[scaleBackground] init failed", err);
-}
+loadLandingBackground();
