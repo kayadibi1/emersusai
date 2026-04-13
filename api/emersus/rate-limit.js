@@ -167,10 +167,95 @@ function recordGuardrailBlockForRateLimit(req) {
   }
 }
 
+// --- Stale entry cleanup ---
+// Prevents unbounded growth of the in-memory rate limit store.
+// Runs every 10 minutes, evicts entries whose window has expired.
+const CLEANUP_INTERVAL_MS = 10 * 60 * 1000;
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, entry] of rateLimitStore) {
+    if (entry.resetAt <= now) rateLimitStore.delete(key);
+  }
+}, CLEANUP_INTERVAL_MS).unref();
+
+// --- General-purpose rate limiter for public endpoints ---
+// Lighter than the recommendation rate limiter: no bot scoring, no
+// question hashing. Used for unauthenticated POST endpoints like
+// contact, waitlist, check-email, notify-signup.
+
+const publicRateLimitStore = new Map();
+
+const PUBLIC_RATE_LIMIT_WINDOW_MS = 15 * 60 * 1000; // 15 minutes
+const PUBLIC_RATE_LIMIT_MAX = {
+  default: 10,          // generic endpoints
+  "check-email": 20,    // signup flow may hit this a few times
+};
+
+function checkPublicRateLimit(req, endpointName = "default") {
+  const now = Date.now();
+  const ip = getClientIp(req);
+  const storeKey = `${ip}:${endpointName}`;
+  let entry = publicRateLimitStore.get(storeKey);
+
+  if (!entry || entry.resetAt <= now) {
+    entry = { count: 0, resetAt: now + PUBLIC_RATE_LIMIT_WINDOW_MS };
+  }
+
+  entry.count += 1;
+  publicRateLimitStore.set(storeKey, entry);
+
+  const max = PUBLIC_RATE_LIMIT_MAX[endpointName] || PUBLIC_RATE_LIMIT_MAX.default;
+
+  if (entry.count > max) {
+    return {
+      allowed: false,
+      remaining: 0,
+      resetAt: entry.resetAt,
+      limit: max,
+    };
+  }
+
+  return {
+    allowed: true,
+    remaining: Math.max(max - entry.count, 0),
+    resetAt: entry.resetAt,
+    limit: max,
+  };
+}
+
+// Cleanup for public rate limit store too
+setInterval(() => {
+  const now = Date.now();
+  for (const [key, entry] of publicRateLimitStore) {
+    if (entry.resetAt <= now) publicRateLimitStore.delete(key);
+  }
+}, CLEANUP_INTERVAL_MS).unref();
+
+/**
+ * Express middleware factory for public endpoint rate limiting.
+ * Usage: app.post("/api/contact", publicRateLimitMiddleware("contact"), handler)
+ */
+function publicRateLimitMiddleware(endpointName = "default") {
+  return (req, res, next) => {
+    const result = checkPublicRateLimit(req, endpointName);
+    res.setHeader("X-RateLimit-Limit", result.limit);
+    res.setHeader("X-RateLimit-Remaining", result.remaining);
+    res.setHeader("X-RateLimit-Reset", Math.ceil(result.resetAt / 1000));
+    if (!result.allowed) {
+      const retryAfter = Math.max(1, Math.ceil((result.resetAt - Date.now()) / 1000));
+      res.setHeader("Retry-After", retryAfter);
+      return res.status(429).json({ message: "Too many requests. Please try again later." });
+    }
+    next();
+  };
+}
+
 export {
   getClientIp,
   buildRequestMeta,
   checkRateLimit,
   recordGuardrailBlockForRateLimit,
+  checkPublicRateLimit,
+  publicRateLimitMiddleware,
   RATE_LIMIT_MAX_REQUESTS,
 };

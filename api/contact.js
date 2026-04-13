@@ -2,6 +2,16 @@ import { Resend } from "resend";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** Escape HTML entities to prevent XSS in email clients. */
+function esc(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function createEmailShell({ eyebrow, title, body, footer }) {
   return `
     <div style="margin:0; padding:32px 16px; background:#090b0e;">
@@ -50,14 +60,17 @@ export default async function handler(req, res) {
     });
   }
 
-  const name = String(req.body?.name || "").trim();
+  const name = String(req.body?.name || "").trim().slice(0, 255);
   const email = String(req.body?.email || "")
     .trim()
-    .toLowerCase();
-  const category = String(req.body?.category || "").trim();
-  const message = String(req.body?.message || "").trim();
-  const pageUrl = req.body?.page_url ? String(req.body.page_url).trim() : null;
-  const userAgent = req.headers["user-agent"] || null;
+    .toLowerCase()
+    .slice(0, 320);
+  const category = String(req.body?.category || "").trim().slice(0, 100);
+  const message = String(req.body?.message || "").trim().slice(0, 3000);
+  const pageUrl = req.body?.page_url ? String(req.body.page_url).trim().slice(0, 2000) : null;
+  const userAgent = req.headers["user-agent"]
+    ? String(req.headers["user-agent"]).slice(0, 500)
+    : null;
 
   if (!name || !email || !category || !message || !EMAIL_PATTERN.test(email)) {
     return res.status(400).json({
@@ -99,7 +112,7 @@ export default async function handler(req, res) {
         from: resendFromEmail,
         to: contactNotificationEmail,
         replyTo: email,
-        subject: `New Emersus contact submission: ${category}`,
+        subject: `New Emersus contact submission: ${esc(category)}`,
         html: createEmailShell({
           eyebrow: "Contact Alert",
           title: "New contact submission",
@@ -107,24 +120,24 @@ export default async function handler(req, res) {
             <div style="display:grid; gap:12px; margin-bottom:20px;">
               <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
                 <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Name</div>
-                <div style="font-size:16px; color:#f9f9fd;">${name}</div>
+                <div style="font-size:16px; color:#f9f9fd;">${esc(name)}</div>
               </div>
               <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
                 <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Email</div>
-                <div style="font-size:16px; color:#f9f9fd;">${email}</div>
+                <div style="font-size:16px; color:#f9f9fd;">${esc(email)}</div>
               </div>
               <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
                 <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Category</div>
-                <div style="font-size:16px; color:#f9f9fd;">${category}</div>
+                <div style="font-size:16px; color:#f9f9fd;">${esc(category)}</div>
               </div>
               <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
                 <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Page URL</div>
-                <div style="font-size:16px; color:#f9f9fd;">${pageUrl || "Not provided"}</div>
+                <div style="font-size:16px; color:#f9f9fd;">${esc(pageUrl || "Not provided")}</div>
               </div>
             </div>
             <div style="padding:20px 22px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
               <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:10px;">Message</div>
-              <div style="font-size:16px; color:#f9f9fd;">${message.replace(/\n/g, "<br>")}</div>
+              <div style="font-size:16px; color:#f9f9fd;">${esc(message).replace(/\n/g, "<br>")}</div>
             </div>
           `,
           footer: "Reply directly to this email to respond to the sender.",

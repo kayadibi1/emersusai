@@ -7,8 +7,41 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
 app.set("trust proxy", 1); // Caddy is the single reverse proxy
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.disable("x-powered-by");   // Don't advertise Express
+
+// ── Body parsing with explicit size limits ──
+app.use(express.json({ limit: "100kb" }));
+app.use(express.urlencoded({ extended: true, limit: "100kb" }));
+
+// ── Security response headers ──
+// Caddy handles HSTS/TLS, but these headers protect regardless of proxy.
+app.use((req, res, next) => {
+  res.setHeader("X-Content-Type-Options", "nosniff");
+  res.setHeader("X-Frame-Options", "DENY");
+  res.setHeader("Referrer-Policy", "strict-origin-when-cross-origin");
+  res.setHeader("Permissions-Policy", "camera=(), microphone=(), geolocation=()");
+  next();
+});
+
+// ── Request timeout ──
+// Abort non-streaming requests that hang longer than 30s. SSE endpoints
+// (/recommendation, /recommendation-stream) manage their own lifecycle
+// via OpenAI stream completion + res.on("close") and are exempt.
+const REQUEST_TIMEOUT_MS = Number(process.env.REQUEST_TIMEOUT_MS || 30_000);
+const SSE_PATHS = new Set([
+  "/api/emersus/recommendation",
+  "/api/emersus/recommendation-stream",
+]);
+app.use((req, res, next) => {
+  if (SSE_PATHS.has(req.path)) return next();
+  req.setTimeout(REQUEST_TIMEOUT_MS);
+  res.setTimeout(REQUEST_TIMEOUT_MS, () => {
+    if (!res.headersSent) {
+      res.status(408).json({ error: "Request timeout." });
+    }
+  });
+  next();
+});
 
 // Import API handlers (each is a default-exported (req, res) function)
 const { default: configHandler } = await import("./api/config.js");
@@ -28,6 +61,9 @@ const { default: meRoleHandler } = await import("./api/me/role.js");
 // Import auth middleware for recommendation endpoints
 import { requireAuth, requireAuthAdmin } from "./api/emersus/auth-middleware.js";
 
+// Import public rate limiting middleware
+import { publicRateLimitMiddleware } from "./api/emersus/rate-limit.js";
+
 // Import admin API routers + middleware
 import adminCandidates from "./api/admin/candidates.js";
 import adminTopics from "./api/admin/topics.js";
@@ -36,22 +72,23 @@ import adminJobs from "./api/admin/jobs.js";
 import adminAlerts from "./api/admin/alerts.js";
 import { requireAdmin } from "./api/admin/_middleware.js";
 
-// Mount API routes
-app.all("/api/config", configHandler);
-app.all("/api/contact", contactHandler);
-app.all("/api/waitlist", waitlistHandler);
-app.all("/api/notify-signup", notifySignupHandler);
-app.all("/api/emersus/recommendation", requireAuth, recommendationHandler);
-app.all("/api/emersus/recommendation-stream", requireAuthAdmin, recommendationStreamHandler);
-app.all("/api/emersus/foods/search", foodsSearchHandler);
-app.all("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
+// Mount API routes — use specific HTTP methods instead of app.all()
+// to reject unexpected methods at the routing layer.
+app.get("/api/config", configHandler);
+app.post("/api/contact", publicRateLimitMiddleware("contact"), contactHandler);
+app.post("/api/waitlist", publicRateLimitMiddleware("waitlist"), waitlistHandler);
+app.post("/api/notify-signup", publicRateLimitMiddleware("notify-signup"), notifySignupHandler);
+app.post("/api/emersus/recommendation", requireAuth, recommendationHandler);
+app.post("/api/emersus/recommendation-stream", requireAuthAdmin, recommendationStreamHandler);
+app.get("/api/emersus/foods/search", foodsSearchHandler);
+app.get("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
 app.use("/api/emersus/meal-plans", mealPlansRouter);
 app.use("/api/emersus/meal-journal", mealJournalRouter);
 app.all("/api/emersus/rpc/:name", rpcProxy);
 
 // Auth + user endpoints
-app.all("/api/auth/check-email", checkEmailHandler);
-app.all("/api/me/role", meRoleHandler);
+app.post("/api/auth/check-email", publicRateLimitMiddleware("check-email"), checkEmailHandler);
+app.get("/api/me/role", meRoleHandler);
 
 // Health check
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
@@ -65,6 +102,11 @@ app.use("/api/admin/alerts",     requireAdmin, adminAlerts);
 
 // Serve admin HTML pages as static files
 app.use("/admin", express.static(path.join(__dirname, "admin")));
+
+// ── Catch-all 404 for unmatched API routes ──
+app.use("/api/*", (req, res) => {
+  res.status(404).json({ error: "Not found." });
+});
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, "127.0.0.1", () => {
