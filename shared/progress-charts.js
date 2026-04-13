@@ -41,7 +41,7 @@ export function weeklyActivityChart(data, { width = 400, height = 120 } = {}) {
     if (b.rH > 0) {
       svg += `<rect x="${b.x}" y="${b.rY}" width="${b.barW}" height="${b.rH}" rx="3" fill="rgba(109,159,255,0.55)"/>`;
     }
-    svg += `<text x="${b.x + b.barW / 2}" y="${height - 4}" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.3)" font-family="Inter,system-ui,sans-serif">${b.label}</text>`;
+    svg += `<text x="${b.x + b.barW / 2}" y="${height - 4}" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.3)" font-family="system-ui,sans-serif">${b.label}</text>`;
   }
 
   svg += `</svg>`;
@@ -109,7 +109,7 @@ export function progressionLineChart(data, { width = 400, height = 140, color = 
   const labelIndices = [0, Math.floor(points.length / 2), points.length - 1];
   for (const idx of [...new Set(labelIndices)]) {
     const p = points[idx];
-    svg += `<text x="${p.x}" y="${height - 4}" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.3)" font-family="Inter,system-ui,sans-serif">${shortDate(p.date)}</text>`;
+    svg += `<text x="${p.x}" y="${height - 4}" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.3)" font-family="system-ui,sans-serif">${shortDate(p.date)}</text>`;
   }
 
   svg += `</svg>`;
@@ -143,7 +143,7 @@ function shortDate(dateStr) {
 
 function emptyChart(w, h, msg) {
   return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
-    <text x="${w / 2}" y="${h / 2}" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.2)" font-family="Inter,system-ui,sans-serif">${msg}</text>
+    <text x="${w / 2}" y="${h / 2}" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.2)" font-family="system-ui,sans-serif">${msg}</text>
   </svg>`;
 }
 

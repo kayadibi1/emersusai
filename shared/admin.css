@@ -7,7 +7,7 @@
 body[data-admin] {
   background: var(--bg);
   color: var(--ink);
-  font-family: Inter, system-ui, sans-serif;
+  font-family: var(--sans);
   font-size: 0.9375rem;
   line-height: 1.55;
   margin: 0;
