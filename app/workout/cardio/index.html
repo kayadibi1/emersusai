@@ -7,33 +7,33 @@
   <title>Cardio Session | Emersus AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
   <style>
-    body { background: var(--bg); color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+    body { background: var(--bg); color: var(--ink); font-family: system-ui, -apple-system, sans-serif; }
     .cardio-wrap { max-width: 480px; margin: 0 auto; padding: 24px 18px 140px; min-height: 100vh; display: flex; flex-direction: column; }
     .cardio-topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; font-size: 0.78rem; color: var(--muted); }
-    .cardio-topbar a { color: var(--primary); text-decoration: none; }
-    .title-field { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; margin-bottom: 14px; }
+    .cardio-topbar a { color: var(--accent); text-decoration: none; }
+    .title-field { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; }
     .title-field .label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
     .title-field input { background: transparent; border: none; color: var(--ink); font-size: 1.08rem; font-weight: 700; width: 100%; padding: 4px 0 0; outline: none; letter-spacing: -0.01em; }
     .chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
     .chip { padding: 8px 14px; border-radius: 999px; font-size: 0.72rem; font-weight: 600; border: 1px solid var(--line); background: rgba(255,255,255,0.03); color: var(--muted); cursor: pointer; }
-    .chip.active { background: rgba(159,251,0,0.14); border-color: rgba(159,251,0,0.38); color: var(--secondary); }
-    .prescribed { background: rgba(109,159,255,0.07); border: 1px solid rgba(109,159,255,0.18); border-radius: 14px; padding: 12px 14px; margin-bottom: 18px; }
-    .prescribed .label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--primary-dim); }
+    .chip.active { background: rgba(159,251,0,0.14); border-color: rgba(159,251,0,0.38); color: var(--accent); }
+    .prescribed { background: rgba(109,159,255,0.07); border: 1px solid rgba(109,159,255,0.18); border-radius: 8px; padding: 12px 14px; margin-bottom: 18px; }
+    .prescribed .label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); }
     .prescribed .target { font-size: 0.92rem; font-weight: 600; margin-top: 4px; color: var(--ink); }
-    .big-btn { background: #78dc14; color: #08080a; font-weight: 800; font-size: 0.84rem; text-transform: uppercase; letter-spacing: 0.15em; padding: 18px; border-radius: 999px; border: none; margin-top: auto; cursor: pointer; width: 100%; }
-    .secondary-btn { background: rgba(255,255,255,0.04); color: var(--ink); font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px; border-radius: 999px; border: 1px solid var(--line); cursor: pointer; flex: 1; }
-    .danger-btn { background: rgba(255,143,157,0.1); color: var(--danger); font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px; border-radius: 999px; border: 1px solid rgba(255,143,157,0.3); cursor: pointer; flex: 1; }
+    .big-btn { background: #78dc14; color: #08080a; font-weight: 800; font-size: 0.84rem; text-transform: uppercase; letter-spacing: 0.15em; padding: 18px; border-radius: 4px; border: none; margin-top: auto; cursor: pointer; width: 100%; }
+    .secondary-btn { background: rgba(255,255,255,0.04); color: var(--ink); font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px; border-radius: 4px; border: 1px solid var(--line); cursor: pointer; flex: 1; }
+    .danger-btn { background: rgba(255,143,157,0.1); color: var(--danger); font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px; border-radius: 4px; border: 1px solid rgba(255,143,157,0.3); cursor: pointer; flex: 1; }
     .live-timer { font-size: 4.2rem; font-weight: 900; letter-spacing: -0.05em; text-align: center; margin: 18px 0 4px; font-variant-numeric: tabular-nums; }
     .live-timer-label { text-align: center; font-size: 0.62rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 24px; }
     .live-stat-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 24px; }
-    .live-stat { background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 14px; padding: 14px 10px; text-align: center; }
+    .live-stat { background: rgba(255,255,255,0.03); border: 1px solid var(--line); border-radius: 8px; padding: 14px 10px; text-align: center; }
     .live-stat-val { font-size: 1.3rem; font-weight: 800; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--ink); }
     .live-stat-label { font-size: 0.56rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 2px; }
     .live-btn-row { margin-top: auto; display: flex; gap: 10px; }
-    .gps-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 0.64rem; color: var(--secondary); padding: 4px 10px; background: rgba(159,251,0,0.14); border-radius: 999px; }
+    .gps-pill { display: inline-flex; align-items: center; gap: 6px; font-size: 0.64rem; color: var(--accent); padding: 4px 10px; background: rgba(159,251,0,0.14); border-radius: 999px; }
     .gps-pill.warn { color: #ffbf54; background: rgba(255,191,84,0.1); }
     .gps-pill.error { color: var(--danger); background: rgba(255,143,157,0.1); }
     .gps-dot { width: 7px; height: 7px; background: currentColor; border-radius: 50%; }

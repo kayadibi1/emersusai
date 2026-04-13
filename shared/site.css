@@ -24,6 +24,12 @@
   --mono: "JetBrains Mono", monospace;
   --sans: system-ui, -apple-system, sans-serif;
   --content-width: 1100px;
+
+  /* Legacy aliases — old code references these; map to new tokens */
+  --primary: var(--accent);
+  --primary-dim: var(--accent);
+  --secondary: var(--accent);
+  --secondary-soft: var(--accent-soft);
 }
 
 /* ─── RESETS ─── */

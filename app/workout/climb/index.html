@@ -6,29 +6,29 @@
   <meta name="robots" content="noindex">
   <title>Climb Session | Emersus AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
   <style>
-    body { background: var(--bg); color: var(--ink); font-family: Inter, system-ui, sans-serif; }
+    body { background: var(--bg); color: var(--ink); font-family: system-ui, -apple-system, sans-serif; }
     .climb-wrap { max-width: 480px; margin: 0 auto; padding: 24px 18px 140px; min-height: 100vh; display: flex; flex-direction: column; }
     .climb-topbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 18px; font-size: 0.78rem; color: var(--muted); }
-    .climb-topbar a { color: var(--primary); text-decoration: none; }
-    .title-field { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 14px; padding: 12px 14px; margin-bottom: 14px; }
+    .climb-topbar a { color: var(--accent); text-decoration: none; }
+    .title-field { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; margin-bottom: 14px; }
     .title-field .label { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
     .title-field input { background: transparent; border: none; color: var(--ink); font-size: 1.08rem; font-weight: 700; width: 100%; padding: 4px 0 0; outline: none; }
     .chip-row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; }
     .chip { padding: 8px 14px; border-radius: 999px; font-size: 0.72rem; font-weight: 600; border: 1px solid var(--line); background: rgba(255,255,255,0.03); color: var(--muted); cursor: pointer; }
     .chip.active { background: rgba(120,220,20,0.08); border-color: rgba(120,220,20,0.18); color: #78dc14; }
-    .big-btn { background: #78dc14; color: #08080a; font-weight: 800; font-size: 0.84rem; text-transform: uppercase; letter-spacing: 0.15em; padding: 18px; border-radius: 999px; border: none; margin-top: auto; cursor: pointer; width: 100%; }
-    .climb-add-btn { background: #78dc14; color: #08080a; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px; border-radius: 14px; border: none; width: 100%; margin-bottom: 14px; cursor: pointer; }
-    .danger-btn { background: rgba(255,143,157,0.1); color: var(--danger); font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px; border-radius: 999px; border: 1px solid rgba(255,143,157,0.3); cursor: pointer; width: 100%; margin-top: 10px; }
+    .big-btn { background: #78dc14; color: #08080a; font-weight: 800; font-size: 0.84rem; text-transform: uppercase; letter-spacing: 0.15em; padding: 18px; border-radius: 4px; border: none; margin-top: auto; cursor: pointer; width: 100%; }
+    .climb-add-btn { background: #78dc14; color: #08080a; font-weight: 800; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px; border-radius: 4px; border: none; width: 100%; margin-bottom: 14px; cursor: pointer; }
+    .danger-btn { background: rgba(255,143,157,0.1); color: var(--danger); font-weight: 700; font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.1em; padding: 14px; border-radius: 4px; border: 1px solid rgba(255,143,157,0.3); cursor: pointer; width: 100%; margin-top: 10px; }
     .route-list { flex: 1; overflow-y: auto; }
     .route-item { background: rgba(255,255,255,0.035); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 8px; display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
     .route-grade { font-size: 1.02rem; font-weight: 800; color: var(--ink); letter-spacing: -0.01em; }
     .route-name { font-size: 0.74rem; color: var(--muted); margin-top: 2px; }
     .send-badge { font-size: 0.58rem; font-weight: 800; letter-spacing: 0.1em; padding: 4px 9px; border-radius: 999px; }
-    .send-badge.flash { background: rgba(159,251,0,0.14); color: var(--secondary); }
-    .send-badge.send { background: rgba(109,159,255,0.15); color: var(--primary-dim); }
+    .send-badge.flash { background: rgba(120,220,20,0.14); color: var(--accent); }
+    .send-badge.send { background: rgba(109,159,255,0.15); color: var(--accent); }
     .send-badge.project { background: rgba(255,143,157,0.12); color: var(--danger); }
     .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.7); backdrop-filter: blur(6px); z-index: 500; display: flex; align-items: flex-end; padding: 16px; }
     .modal-sheet { background: #161922; border-radius: 20px; padding: 22px 20px; width: 100%; max-width: 480px; margin: 0 auto; }
@@ -36,14 +36,14 @@
     .modal-sub { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
     .grade-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
     .grade-cell { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 10px; padding: 10px 0; text-align: center; font-size: 0.78rem; font-weight: 700; cursor: pointer; color: var(--ink); }
-    .grade-cell.selected { background: rgba(159,251,0,0.14); border-color: var(--secondary); color: var(--secondary); }
+    .grade-cell.selected { background: rgba(120,220,20,0.14); border-color: var(--accent); color: var(--accent); }
     .counter-row { display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; }
     .counter-controls { display: flex; align-items: center; gap: 12px; }
-    .counter-btn { width: 30px; height: 30px; border-radius: 999px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); color: var(--ink); font-weight: 800; font-size: 1rem; cursor: pointer; }
+    .counter-btn { width: 30px; height: 30px; border-radius: 4px; background: rgba(255,255,255,0.06); border: 1px solid var(--line); color: var(--ink); font-weight: 800; font-size: 1rem; cursor: pointer; }
     .toggle-row { display: flex; gap: 8px; margin-bottom: 14px; }
     .toggle-cell { flex: 1; padding: 11px; border-radius: 10px; border: 1px solid var(--line); background: rgba(255,255,255,0.04); text-align: center; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; cursor: pointer; color: var(--muted); }
-    .toggle-cell.selected.flash { background: rgba(159,251,0,0.14); border-color: var(--secondary); color: var(--secondary); }
-    .toggle-cell.selected.send { background: rgba(109,159,255,0.15); border-color: var(--primary); color: var(--primary); }
+    .toggle-cell.selected.flash { background: rgba(120,220,20,0.14); border-color: var(--accent); color: var(--accent); }
+    .toggle-cell.selected.send { background: rgba(109,159,255,0.15); border-color: var(--accent); color: var(--accent); }
     .toggle-cell.selected.project { background: rgba(255,143,157,0.12); border-color: var(--danger); color: var(--danger); }
     .name-input { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 10px; padding: 10px 14px; color: var(--ink); width: 100%; font-size: 0.84rem; margin-bottom: 14px; outline: none; }
   </style>

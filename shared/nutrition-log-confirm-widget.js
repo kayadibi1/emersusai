@@ -343,7 +343,7 @@ export default function NutritionLogConfirmWidget({ payload }) {
         border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.08))",
         borderRadius: "var(--border-radius-md, 12px)",
         padding: 14,
-        fontFamily: "var(--font-sans, Inter, sans-serif)",
+        fontFamily: "var(--font-sans, system-ui, sans-serif)",
       },
     },
     // Header
