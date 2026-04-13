@@ -7,12 +7,142 @@
   <title>Emersus AI | Research-backed training</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="/emersus-logo.png" as="image">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="./styles.css" rel="stylesheet">
 </head>
 <body>
   <canvas id="bg-canvas" aria-hidden="true"></canvas>
-  <main id="landing-root"></main>
+  <main id="landing-root">
+    <div class="landing-shell">
+      <nav class="nav">
+        <a class="brand text-blur" href="#hero">
+          <img src="/emersus-logo.png" alt="Emersus" class="brand-logo">
+        </a>
+        <div class="nav-links">
+          <a class="text-blur" href="#features">Science</a>
+          <a class="text-blur" href="#how">Platform</a>
+          <a class="text-blur" href="/auth/login/">App / Login</a>
+        </div>
+        <a class="nav-cta" href="#access">Get started</a>
+      </nav>
+
+      <section class="section hero" id="hero">
+        <div class="section-inner">
+          <p class="eyebrow text-blur">Evidence-Based Fitness Intelligence</p>
+          <h1 class="headline text-blur-strong">Your body deserves better than guesswork.</h1>
+          <p class="subtitle text-blur">Training and nutrition decisions backed by peer-reviewed research. Not influencer opinions, not bro science - the actual evidence.</p>
+          <div class="hero-actions">
+            <a class="button-primary" href="#access">Get started</a>
+            <a class="button-secondary text-blur" href="#features">See the science →</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="features">
+        <div class="section-inner">
+          <p class="eyebrow text-blur">What you get</p>
+          <div class="grid-3">
+            <article class="glass-card">
+              <div class="icon">01</div>
+              <h3 class="card-title text-blur">Research-backed answers</h3>
+              <p class="card-copy text-blur">Every recommendation cites peer-reviewed sources. See the evidence strength, read the abstracts, verify the claims yourself.</p>
+            </article>
+            <article class="glass-card">
+              <div class="icon">02</div>
+              <h3 class="card-title text-blur">Personalized protocols</h3>
+              <p class="card-copy text-blur">Workout plans and nutrition guidance adapted to your goals, equipment, schedule, and injury history. Not cookie-cutter templates.</p>
+            </article>
+            <article class="glass-card">
+              <div class="icon">03</div>
+              <h3 class="card-title text-blur">Honest uncertainty</h3>
+              <p class="card-copy text-blur">When the evidence is mixed or insufficient, we say so. No false confidence. The model knows what it doesn't know.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="how">
+        <div class="section-inner">
+          <p class="eyebrow text-blur">How it works</p>
+          <div class="steps">
+            <article class="step-card">
+              <span class="step-number">STEP 01</span>
+              <h3 class="step-title text-blur">Ask anything</h3>
+              <p class="step-copy text-blur">Exercise science, nutrition, recovery - in natural language.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">STEP 02</span>
+              <h3 class="step-title text-blur">We search the literature</h3>
+              <p class="step-copy text-blur">Semantic search across 200k+ papers finds relevant evidence.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">STEP 03</span>
+              <h3 class="step-title text-blur">Synthesize and cite</h3>
+              <p class="step-copy text-blur">AI distills findings into actionable guidance with sources.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-number">STEP 04</span>
+              <h3 class="step-title text-blur">Track and adapt</h3>
+              <p class="step-copy text-blur">Log workouts and meals. Your plans evolve as you progress.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="proof">
+        <div class="section-inner quote-grid">
+          <article class="quote-card large">
+            <p class="quote-copy text-blur-strong">"I stopped guessing and started training with actual evidence. The difference in my results has been night and day."</p>
+            <p class="quote-author">Early beta user · 6 months</p>
+          </article>
+          <article class="quote-card">
+            <p class="section-copy text-blur">Built for people who take their training seriously enough to want the truth - even when the truth is "we don't know yet."</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section cta" id="access">
+        <div class="section-inner">
+          <h2 class="section-title text-blur-strong">Ready to train smarter?</h2>
+          <p class="subtitle text-blur">Join the waitlist for early access.</p>
+          <form class="waitlist-form waitlist-form-full">
+            <input
+              name="email"
+              type="email"
+              inputmode="email"
+              autocomplete="email"
+              placeholder="you@example.com"
+              aria-label="Email address"
+              required
+            >
+            <div class="waitlist-captcha" hidden>
+              <div data-turnstile></div>
+            </div>
+            <input
+              name="website"
+              type="text"
+              tabindex="-1"
+              autocomplete="off"
+              aria-hidden="true"
+              style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;"
+            >
+            <button type="submit">Get access</button>
+            <p class="waitlist-feedback" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span class="text-blur">Emersus © 2025</span>
+        <div style="display:flex;gap:2rem;">
+          <a class="text-blur" href="/privacy/">Privacy</a>
+          <a class="text-blur" href="/terms/">Terms</a>
+          <a class="text-blur" href="/contact/">Contact</a>
+        </div>
+      </footer>
+    </div>
+  </main>
   <script type="module" src="./script.js?v=anan-scale-bg-20260407d"></script>
 </body>
 </html>
