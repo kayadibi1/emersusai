@@ -15,7 +15,7 @@
 import React, { useEffect, useMemo, useState } from "https://esm.sh/react@18.2.0";
 import { createRoot } from "https://esm.sh/react-dom@18.2.0/client";
 import { ChatApp } from "/shared/react-chat-app.js";
-import { requireAdmin } from "/shared/supabase.js";
+import { getSession, requireAdmin } from "/shared/supabase.js";
 
 const h = React.createElement;
 
@@ -34,12 +34,22 @@ const h = React.createElement;
 // expects from its fetcher prop.
 function createStreamingFetcher({ onProgress }) {
   return async function streamingFetcher(requestBody) {
+    const session = await getSession();
+    if (!session?.access_token) {
+      throw new Error("Sign in again to use the debug panel.");
+    }
+
+    const authHeaders = {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${session.access_token}`,
+    };
+
     // Attempt SSE first.
     try {
       const response = await fetch("/api/emersus/recommendation-stream", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          ...authHeaders,
           Accept: "text/event-stream",
         },
         body: JSON.stringify(requestBody),
@@ -136,7 +146,7 @@ function createStreamingFetcher({ onProgress }) {
       }
       const fallbackResponse = await fetch("/api/emersus/recommendation", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: authHeaders,
         body: JSON.stringify(requestBody),
       });
       const fallbackData = await fallbackResponse.json().catch(() => ({}));
