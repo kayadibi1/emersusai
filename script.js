@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import Lenis from "lenis";
 import gsap from "gsap";
@@ -868,6 +868,88 @@ function initHelperStyleNeuronParallax() {
 function WaitlistForm({ variant = "full", endpoint = "/api/waitlist" }) {
   const [status, setStatus] = useState({ tone: "", message: "" });
   const [submitting, setSubmitting] = useState(false);
+  const [turnstileSiteKey, setTurnstileSiteKey] = useState("");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileStatus, setTurnstileStatus] = useState("idle");
+  const widgetRef = useRef(null);
+  const widgetIdRef = useRef(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/config", {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => (response.ok ? response.json() : null))
+      .then((config) => {
+        if (!cancelled && config?.turnstileSiteKey) {
+          setTurnstileSiteKey(String(config.turnstileSiteKey));
+        }
+      })
+      .catch(() => {});
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!turnstileSiteKey || !widgetRef.current) {
+      return;
+    }
+
+    let cancelled = false;
+
+    function renderWidget() {
+      if (cancelled || !window.turnstile || widgetIdRef.current || !widgetRef.current) {
+        return;
+      }
+      setTurnstileStatus("ready");
+      widgetIdRef.current = window.turnstile.render(widgetRef.current, {
+        sitekey: turnstileSiteKey,
+        callback: (token) => {
+          setTurnstileToken(String(token || ""));
+          setTurnstileStatus("solved");
+        },
+        "expired-callback": () => {
+          setTurnstileToken("");
+          setTurnstileStatus("expired");
+        },
+        "error-callback": () => {
+          setTurnstileToken("");
+          setTurnstileStatus("error");
+        },
+      });
+    }
+
+    if (window.turnstile) {
+      renderWidget();
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    const existingScript = document.querySelector('script[data-turnstile-script="true"]');
+    if (existingScript) {
+      existingScript.addEventListener("load", renderWidget, { once: true });
+      return () => {
+        cancelled = true;
+      };
+    }
+
+    const script = document.createElement("script");
+    script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit";
+    script.async = true;
+    script.defer = true;
+    script.dataset.turnstileScript = "true";
+    script.addEventListener("load", renderWidget, { once: true });
+    document.head.appendChild(script);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [turnstileSiteKey]);
 
   async function submit(event) {
     event.preventDefault();
@@ -893,6 +975,7 @@ function WaitlistForm({ variant = "full", endpoint = "/api/waitlist" }) {
       const payload = Object.fromEntries(formData.entries());
       payload.page_url = window.location.href;
       payload.referrer = document.referrer || "";
+      payload.turnstileToken = turnstileToken;
 
       const response = await fetch(endpoint, {
         method: "POST",
@@ -924,7 +1007,42 @@ function WaitlistForm({ variant = "full", endpoint = "/api/waitlist" }) {
       "aria-label": "Email address",
       required: true,
     }),
-    h("button", { type: "submit", disabled: submitting }, submitting ? "Joining" : "Get access"),
+    turnstileSiteKey
+      ? h(
+          "div",
+          { className: "waitlist-captcha" },
+          h("div", { ref: widgetRef }),
+          turnstileStatus === "expired"
+            ? h("p", { className: "waitlist-feedback is-error", "aria-live": "polite" }, "CAPTCHA expired. Please retry.")
+            : null,
+          turnstileStatus === "error"
+            ? h("p", { className: "waitlist-feedback is-error", "aria-live": "polite" }, "CAPTCHA failed to load. Refresh and try again.")
+            : null,
+        )
+      : null,
+    h("input", {
+      name: "website",
+      type: "text",
+      tabIndex: -1,
+      autoComplete: "off",
+      "aria-hidden": "true",
+      style: {
+        position: "absolute",
+        left: "-9999px",
+        width: "1px",
+        height: "1px",
+        opacity: 0,
+        pointerEvents: "none",
+      },
+    }),
+    h(
+      "button",
+      {
+        type: "submit",
+        disabled: submitting || Boolean(turnstileSiteKey && !turnstileToken),
+      },
+      submitting ? "Joining" : "Get access"
+    ),
     h("p", { className: `waitlist-feedback ${status.tone ? `is-${status.tone}` : ""}`, "aria-live": "polite" }, status.message),
   );
 }

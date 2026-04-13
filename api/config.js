@@ -22,5 +22,6 @@ export default async function handler(req, res) {
     supabaseUrl,
     supabaseAnonKey,
     mapboxPublicToken: process.env.MAPBOX_PUBLIC_TOKEN || null,
+    turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || null,
   });
 }

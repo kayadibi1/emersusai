@@ -1,4 +1,15 @@
 import { Resend } from "resend";
+import { randomUUID } from "node:crypto";
+import {
+  createWaitlistVerificationToken,
+  getPublicBaseUrl,
+  getWaitlistVerificationSecret,
+} from "./lib/waitlist-verification.js";
+import {
+  getTurnstileConfig,
+  isTurnstileEnabled,
+  verifyTurnstileToken,
+} from "./lib/turnstile.js";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -52,10 +63,9 @@ export default async function handler(req, res) {
   const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
   const resendApiKey = process.env.RESEND_API_KEY;
   const resendFromEmail = process.env.RESEND_FROM_EMAIL || "onboarding@resend.dev";
-  const waitlistNotificationEmail =
-    process.env.WAITLIST_NOTIFICATION_EMAIL ||
-    process.env.CONTACT_NOTIFICATION_EMAIL ||
-    "";
+  const verificationSecret = getWaitlistVerificationSecret();
+  const turnstileToken = String(req.body?.turnstileToken || "").trim();
+  const { secretKey: turnstileSecretKey } = getTurnstileConfig();
 
   if (!supabaseUrl || !serviceRoleKey) {
     return res.status(500).json({
@@ -76,9 +86,46 @@ export default async function handler(req, res) {
   const userAgent = req.headers["user-agent"]
     ? String(req.headers["user-agent"]).slice(0, 500)
     : null;
+  const honeypot = req.body?.website ? String(req.body.website).trim() : "";
+
+  if (honeypot) {
+    return res.status(200).json({ message: "Check your inbox to confirm your waitlist spot." });
+  }
 
   if (!email || !EMAIL_PATTERN.test(email)) {
     return res.status(400).json({ message: "Please provide a valid email." });
+  }
+
+  if (!resendApiKey || !verificationSecret) {
+    return res.status(500).json({
+      message: "Waitlist email verification is not configured yet.",
+    });
+  }
+
+  if (isTurnstileEnabled()) {
+    if (!turnstileToken) {
+      return res.status(400).json({ message: "Complete the CAPTCHA to continue." });
+    }
+
+    try {
+      const turnstileResult = await verifyTurnstileToken({
+        token: turnstileToken,
+        secretKey: turnstileSecretKey,
+        remoteIp: req.ip || req.socket?.remoteAddress || "",
+        idempotencyKey: randomUUID(),
+      });
+
+      if (!turnstileResult?.success) {
+        return res.status(400).json({
+          message: "CAPTCHA verification failed. Please try again.",
+        });
+      }
+    } catch (error) {
+      console.error("[waitlist] turnstile verification failed:", error);
+      return res.status(500).json({
+        message: "We couldn't verify the CAPTCHA right now. Please try again.",
+      });
+    }
   }
 
   const existingResponse = await fetch(
@@ -104,124 +151,57 @@ export default async function handler(req, res) {
     return res.status(409).json({ message: "This email is already on the waitlist." });
   }
 
-  const response = await fetch(`${supabaseUrl}/rest/v1/waitlist_signups`, {
-    method: "POST",
-    headers: {
-      apikey: serviceRoleKey,
-      Authorization: `Bearer ${serviceRoleKey}`,
-      "Content-Type": "application/json",
-      Prefer: "return=minimal",
-    },
-    body: JSON.stringify({
+  const token = createWaitlistVerificationToken(
+    {
       name,
       surname,
       company,
       email,
       source,
-      page_url: pageUrl,
+      pageUrl,
       referrer,
-      user_agent: userAgent,
-    }),
+      userAgent,
+    },
+    verificationSecret
+  );
+  const baseUrl = getPublicBaseUrl(req);
+  const confirmUrl = `${baseUrl}/api/waitlist/confirm?token=${encodeURIComponent(token)}`;
+  const resend = new Resend(resendApiKey);
+  const displayName =
+    [name, surname].filter(Boolean).join(" ").trim() || "there";
+
+  try {
+    await resend.emails.send({
+      from: resendFromEmail,
+      to: email,
+      subject: "Confirm your Emersus waitlist signup",
+      html: createEmailShell({
+        eyebrow: "Emersus Waitlist",
+        title: "Confirm your email to join.",
+        body: `
+          <p style="margin:0 0 16px;">Hi ${esc(displayName)},</p>
+          <p style="margin:0 0 16px;">Someone requested early access to Emersus with this email address.</p>
+          <p style="margin:0 0 24px;">To confirm your waitlist spot, click the button below. We only add confirmed addresses to the waitlist.</p>
+          <div style="margin:0 0 24px;">
+            <a href="${esc(confirmUrl)}" style="display:inline-block; padding:14px 22px; background:#9ffb00; color:#090b0e; text-decoration:none; font-weight:700; text-transform:uppercase; letter-spacing:0.12em;">
+              Confirm waitlist signup
+            </a>
+          </div>
+          <p style="margin:0 0 16px;">If the button doesn't work, copy and paste this link into your browser:</p>
+          <p style="margin:0; word-break:break-all; color:#f9f9fd;">${esc(confirmUrl)}</p>
+        `,
+        footer: "This confirmation link expires in 3 days.",
+      }),
+    });
+  } catch (error) {
+    console.error("Resend waitlist verification email failed:", error);
+    return res.status(500).json({
+      message:
+        "We couldn't send the confirmation email right now. Please try again.",
+    });
+  }
+
+  return res.status(200).json({
+    message: "Check your inbox to confirm your waitlist spot.",
   });
-
-  if (response.ok) {
-    if (!resendApiKey) {
-      return res.status(500).json({
-        message:
-          "Your signup was saved, but waitlist email delivery is not configured yet.",
-      });
-    }
-
-    const resend = new Resend(resendApiKey);
-    const displayName =
-      [name, surname].filter(Boolean).join(" ").trim() || "there";
-
-    try {
-      await resend.emails.send({
-        from: resendFromEmail,
-        to: email,
-        subject: "You are on the Emersus waitlist",
-        html: createEmailShell({
-          eyebrow: "Emersus Waitlist",
-          title: "You're on the list.",
-          body: `
-            <p style="margin:0 0 16px;">Hi ${esc(displayName)},</p>
-            <p style="margin:0 0 16px;">Thanks for joining the Emersus AI waitlist.</p>
-            <p style="margin:0 0 24px;">We will reach out as soon as we open the next round of access.</p>
-            <div style="margin:0 0 24px; padding:20px 22px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
-              <div style="font-family:'Space Grotesk',Inter,Arial,sans-serif; font-size:11px; font-weight:700; letter-spacing:0.24em; text-transform:uppercase; color:#85adff; margin-bottom:12px;">
-                What Emersus covers
-              </div>
-              <ul style="margin:0; padding-left:20px; color:#f9f9fd;">
-                <li style="margin-bottom:8px;">hypertrophy planning and workout adaptation</li>
-                <li style="margin-bottom:8px;">nutrition and recovery guidance</li>
-                <li>mental performance support for focus, studying, and preparation</li>
-              </ul>
-            </div>
-            <p style="margin:0;">We appreciate your interest.</p>
-          `,
-          footer: "2026 Emersus AI. Optimize or obsolete.",
-        }),
-      });
-
-      if (waitlistNotificationEmail) {
-        await resend.emails.send({
-          from: resendFromEmail,
-          to: waitlistNotificationEmail,
-          replyTo: email,
-          subject: "New Emersus waitlist signup",
-          html: createEmailShell({
-            eyebrow: "Waitlist Alert",
-            title: "New waitlist signup",
-            body: `
-              <div style="display:grid; gap:12px;">
-                <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
-                  <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Email</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${esc(email)}</div>
-                </div>
-                <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
-                  <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Name</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${esc(name || "Not provided")} ${esc(surname || "")}</div>
-                </div>
-                <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
-                  <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Company</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${esc(company || "Not provided")}</div>
-                </div>
-                <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
-                  <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Source</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${esc(source)}</div>
-                </div>
-                <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
-                  <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Page URL</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${esc(pageUrl || "Not provided")}</div>
-                </div>
-                <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
-                  <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Referrer</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${esc(referrer || "Not provided")}</div>
-                </div>
-              </div>
-            `,
-            footer: "Incoming lead from emersus.ai",
-          }),
-        });
-      }
-    } catch (error) {
-      console.error("Resend waitlist email failed:", error);
-      return res.status(500).json({
-        message:
-          "Your signup was saved, but the waitlist confirmation email failed to send.",
-      });
-    }
-
-    return res.status(200).json({ message: "You are on the list." });
-  }
-
-  const errorText = await response.text();
-
-  if (response.status === 409) {
-    return res.status(409).json({ message: "This email is already on the waitlist." });
-  }
-
-  console.error("Supabase waitlist insert failed:", errorText);
-  return res.status(500).json({ message: "Unable to save your signup right now." });
 }
