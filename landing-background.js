@@ -17,12 +17,33 @@ export function initScaleBackground() {
     alpha: false,
     powerPreference: "high-performance",
   });
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.25));
+  const idlePixelRatio = Math.min(window.devicePixelRatio || 1, 1);
+  const scrollPixelRatio = Math.max(0.65, idlePixelRatio * 0.72);
+  let currentPixelRatio = 0;
+  let viewportWidth = 1;
+  let viewportHeight = 1;
+
+  function applyRendererScale(nextPixelRatio) {
+    if (
+      Math.abs(currentPixelRatio - nextPixelRatio) < 0.01 &&
+      renderer.domElement.width > 0 &&
+      renderer.domElement.height > 0
+    ) {
+      return;
+    }
+    currentPixelRatio = nextPixelRatio;
+    renderer.setPixelRatio(nextPixelRatio);
+    renderer.setSize(viewportWidth, viewportHeight, false);
+  }
+
+  applyRendererScale(idlePixelRatio);
   renderer.setClearColor(0x000000, 1);
 
   const initialRect = canvas.getBoundingClientRect();
   const initialW = Math.max(initialRect.width || window.innerWidth || 1, 1);
   const initialH = Math.max(initialRect.height || window.innerHeight || 1, 1);
+  viewportWidth = initialW;
+  viewportHeight = initialH;
   renderer.setSize(initialW, initialH, false);
 
   const camera = new THREE.PerspectiveCamera(60, initialW / initialH, 0.05, 800000);
@@ -528,6 +549,7 @@ export function initScaleBackground() {
   let maxScroll = 1;
   let targetProgress = 0;
   let currentProgress = 0;
+  let scrollRestoreTimer = 0;
 
   function syncCamera(progress) {
     const z = Math.exp(logMin + (logMax - logMin) * progress);
@@ -549,6 +571,11 @@ export function initScaleBackground() {
 
   const handleScroll = () => {
     targetProgress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
+    applyRendererScale(scrollPixelRatio);
+    window.clearTimeout(scrollRestoreTimer);
+    scrollRestoreTimer = window.setTimeout(() => {
+      applyRendererScale(idlePixelRatio);
+    }, 160);
   };
 
   refreshScrollBounds();
@@ -560,6 +587,8 @@ export function initScaleBackground() {
     const width = Math.max(Math.round(entry.contentRect.width), 1);
     const height = Math.max(Math.round(entry.contentRect.height), 1);
     if (width < 1 || height < 1) return;
+    viewportWidth = width;
+    viewportHeight = height;
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
