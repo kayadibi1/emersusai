@@ -17,6 +17,16 @@ import { Resend } from "resend";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const RECENT_SIGNUP_WINDOW_MS = 5 * 60 * 1000; // 5 minutes
 
+/** Escape HTML entities to prevent XSS in email clients. */
+function esc(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function createEmailShell({ eyebrow, title, body, footer }) {
   return `
     <div style="margin:0; padding:32px 16px; background:#090b0e;">
@@ -87,9 +97,9 @@ export default async function handler(req, res) {
     "";
 
   // Basic request validation
-  const email = String(req.body?.email || "").trim().toLowerCase();
-  const provider = String(req.body?.provider || "email").trim(); // 'email' | 'google'
-  const fullName = req.body?.full_name ? String(req.body.full_name).trim() : null;
+  const email = String(req.body?.email || "").trim().toLowerCase().slice(0, 320);
+  const provider = String(req.body?.provider || "email").trim().slice(0, 20);
+  const fullName = req.body?.full_name ? String(req.body.full_name).trim().slice(0, 255) : null;
 
   if (!email || !EMAIL_PATTERN.test(email)) {
     return res.status(400).json({ message: "Invalid email." });
@@ -145,7 +155,7 @@ export default async function handler(req, res) {
       from: resendFromEmail,
       to: notificationEmail,
       replyTo: email,
-      subject: `[Emersus] New signup: ${email}`,
+      subject: `[Emersus] New signup: ${esc(email)}`,
       html: createEmailShell({
         eyebrow: "Signup Alert",
         title: "New account created",
@@ -153,27 +163,27 @@ export default async function handler(req, res) {
           <div style="display:grid; gap:12px;">
             <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
               <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Email</div>
-              <div style="font-size:16px; color:#f9f9fd;">${email}</div>
+              <div style="font-size:16px; color:#f9f9fd;">${esc(email)}</div>
             </div>
             <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
               <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Name</div>
-              <div style="font-size:16px; color:#f9f9fd;">${displayName}</div>
+              <div style="font-size:16px; color:#f9f9fd;">${esc(displayName)}</div>
             </div>
             <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
               <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Provider</div>
-              <div style="font-size:16px; color:#f9f9fd;">${provider}</div>
+              <div style="font-size:16px; color:#f9f9fd;">${esc(provider)}</div>
             </div>
             <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
               <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Email confirmed</div>
-              <div style="font-size:16px; color:#f9f9fd;">${confirmed}</div>
+              <div style="font-size:16px; color:#f9f9fd;">${esc(confirmed)}</div>
             </div>
             <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
               <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Supabase user id</div>
-              <div style="font-size:13px; color:#f9f9fd; font-family:ui-monospace,monospace;">${user.id}</div>
+              <div style="font-size:13px; color:#f9f9fd; font-family:ui-monospace,monospace;">${esc(user.id)}</div>
             </div>
             <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
               <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Created at</div>
-              <div style="font-size:16px; color:#f9f9fd;">${user.created_at}</div>
+              <div style="font-size:16px; color:#f9f9fd;">${esc(user.created_at)}</div>
             </div>
           </div>
         `,

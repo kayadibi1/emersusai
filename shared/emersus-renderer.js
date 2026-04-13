@@ -280,6 +280,7 @@ export function WidgetFrame({ code, html, title }) {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data: blob:; connect-src 'none'">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" crossorigin="anonymous"></script>
   <script>
     // Pre-set Chart.js global defaults so every chart the model emits inherits
@@ -310,13 +311,19 @@ ${widgetBody}
   // Bridge: widgets can call window.sendPrompt('follow-up question') to send
   // a new chat message to the parent. The parent listens for the
   // 'emersus:sendPrompt' message and feeds it into the composer.
+  // Derive parent origin for postMessage targeting. srcdoc iframes
+  // inherit the parent's origin when sandbox includes allow-same-origin,
+  // so location.origin matches the parent. Avoids wildcard "*" which
+  // would let any window receive these messages if the iframe were ever
+  // re-hosted.
+  var _origin = location.origin || "*";
   window.sendPrompt = function (prompt) {
     try {
       parent.postMessage({
         type: "emersus:sendPrompt",
         frameId: id,
-        prompt: String(prompt || "")
-      }, "*");
+        prompt: String(prompt || "").slice(0, 2000)
+      }, _origin);
     } catch (e) { /* noop */ }
   };
   function send() {
@@ -324,7 +331,7 @@ ${widgetBody}
       document.documentElement.scrollHeight || 0,
       document.body ? document.body.scrollHeight : 0
     );
-    parent.postMessage({ frameId: id, height: h }, "*");
+    parent.postMessage({ frameId: id, height: h }, _origin);
   }
   if (typeof ResizeObserver === "function" && document.body) {
     var ro = new ResizeObserver(send);
@@ -342,13 +349,16 @@ ${widgetBody}
 
   useEffect(() => {
     function onMessage(event) {
+      // Only accept messages from our own origin (srcdoc iframes inherit it)
+      if (event.origin !== window.location.origin) return;
       const data = event && event.data;
       if (!data || data.frameId !== frameId) return;
       if (typeof data.height !== "number") return;
+      // Cap height to prevent DoS via absurdly large values
+      const clampedHeight = Math.min(Math.max(80, data.height + 6), 5000);
       const node = iframeRef.current;
       if (!node) return;
-      // Add a small slack so the inner content never grows the body scrollbar.
-      node.style.height = `${Math.max(80, data.height + 6)}px`;
+      node.style.height = `${clampedHeight}px`;
     }
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);

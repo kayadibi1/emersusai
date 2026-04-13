@@ -2,6 +2,16 @@ import { Resend } from "resend";
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+/** Escape HTML entities to prevent XSS in email clients. */
+function esc(str) {
+  return String(str || "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function createEmailShell({ eyebrow, title, body, footer }) {
   return `
     <div style="margin:0; padding:32px 16px; background:#090b0e;">
@@ -55,14 +65,17 @@ export default async function handler(req, res) {
 
   const email = String(req.body?.email || "")
     .trim()
-    .toLowerCase();
-  const name = req.body?.name ? String(req.body.name).trim() : null;
-  const surname = req.body?.surname ? String(req.body.surname).trim() : null;
-  const company = req.body?.company ? String(req.body.company).trim() : null;
-  const source = String(req.body?.source || "landing-page").trim();
-  const pageUrl = req.body?.page_url ? String(req.body.page_url).trim() : null;
-  const referrer = req.body?.referrer ? String(req.body.referrer).trim() : null;
-  const userAgent = req.headers["user-agent"] || null;
+    .toLowerCase()
+    .slice(0, 320);
+  const name = req.body?.name ? String(req.body.name).trim().slice(0, 255) : null;
+  const surname = req.body?.surname ? String(req.body.surname).trim().slice(0, 255) : null;
+  const company = req.body?.company ? String(req.body.company).trim().slice(0, 255) : null;
+  const source = String(req.body?.source || "landing-page").trim().slice(0, 100);
+  const pageUrl = req.body?.page_url ? String(req.body.page_url).trim().slice(0, 2000) : null;
+  const referrer = req.body?.referrer ? String(req.body.referrer).trim().slice(0, 2000) : null;
+  const userAgent = req.headers["user-agent"]
+    ? String(req.headers["user-agent"]).slice(0, 500)
+    : null;
 
   if (!email || !EMAIL_PATTERN.test(email)) {
     return res.status(400).json({ message: "Please provide a valid email." });
@@ -132,7 +145,7 @@ export default async function handler(req, res) {
           eyebrow: "Emersus Waitlist",
           title: "You're on the list.",
           body: `
-            <p style="margin:0 0 16px;">Hi ${displayName},</p>
+            <p style="margin:0 0 16px;">Hi ${esc(displayName)},</p>
             <p style="margin:0 0 16px;">Thanks for joining the Emersus AI waitlist.</p>
             <p style="margin:0 0 24px;">We will reach out as soon as we open the next round of access.</p>
             <div style="margin:0 0 24px; padding:20px 22px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
@@ -164,27 +177,27 @@ export default async function handler(req, res) {
               <div style="display:grid; gap:12px;">
                 <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
                   <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Email</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${email}</div>
+                  <div style="font-size:16px; color:#f9f9fd;">${esc(email)}</div>
                 </div>
                 <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
                   <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Name</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${name || "Not provided"} ${surname || ""}</div>
+                  <div style="font-size:16px; color:#f9f9fd;">${esc(name || "Not provided")} ${esc(surname || "")}</div>
                 </div>
                 <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
                   <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Company</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${company || "Not provided"}</div>
+                  <div style="font-size:16px; color:#f9f9fd;">${esc(company || "Not provided")}</div>
                 </div>
                 <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
                   <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Source</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${source}</div>
+                  <div style="font-size:16px; color:#f9f9fd;">${esc(source)}</div>
                 </div>
                 <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
                   <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Page URL</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${pageUrl || "Not provided"}</div>
+                  <div style="font-size:16px; color:#f9f9fd;">${esc(pageUrl || "Not provided")}</div>
                 </div>
                 <div style="padding:16px 18px; background:#12161b; border:1px solid rgba(255,255,255,0.06);">
                   <div style="font-size:12px; text-transform:uppercase; letter-spacing:0.18em; color:#8f96a0; margin-bottom:6px;">Referrer</div>
-                  <div style="font-size:16px; color:#f9f9fd;">${referrer || "Not provided"}</div>
+                  <div style="font-size:16px; color:#f9f9fd;">${esc(referrer || "Not provided")}</div>
                 </div>
               </div>
             `,
