@@ -264,9 +264,17 @@ export function WidgetFrame({ code, html, title }) {
     () => `wf_${Math.random().toString(36).slice(2, 10)}_${Date.now().toString(36)}`,
     [],
   );
+  const parentOrigin = useMemo(() => {
+    if (typeof window === "undefined") {
+      return "*";
+    }
+    const origin = window.location && window.location.origin;
+    return origin && origin !== "null" ? origin : "*";
+  }, []);
 
   const srcDoc = useMemo(() => {
     const safeId = JSON.stringify(frameId);
+    const safeParentOrigin = JSON.stringify(parentOrigin);
     // Chart.js is loaded in the <head> as a classic (synchronous) script so
     // it is guaranteed to be defined on window before any body-level <script>
     // the widget HTML contains runs. The system prompt tells the model that
@@ -311,12 +319,10 @@ ${widgetBody}
   // Bridge: widgets can call window.sendPrompt('follow-up question') to send
   // a new chat message to the parent. The parent listens for the
   // 'emersus:sendPrompt' message and feeds it into the composer.
-  // Derive parent origin for postMessage targeting. srcdoc iframes
-  // inherit the parent's origin when sandbox includes allow-same-origin,
-  // so location.origin matches the parent. Avoids wildcard "*" which
-  // would let any window receive these messages if the iframe were ever
-  // re-hosted.
-  var _origin = location.origin || "*";
+  // The parent page injects its real origin here. about:srcdoc documents
+  // can report location.origin as the literal string "null", which is not
+  // a valid targetOrigin and breaks resize/sendPrompt messages.
+  var _origin = ${safeParentOrigin};
   window.sendPrompt = function (prompt) {
     try {
       parent.postMessage({
@@ -345,19 +351,23 @@ ${widgetBody}
 </script>
 </body>
 </html>`;
-  }, [widgetBody, frameId]);
+  }, [widgetBody, frameId, parentOrigin]);
 
   useEffect(() => {
     function onMessage(event) {
-      // Only accept messages from our own origin (srcdoc iframes inherit it)
-      if (event.origin !== window.location.origin) return;
+      const node = iframeRef.current;
+      if (!node || event.source !== node.contentWindow) return;
+      // about:srcdoc iframes may report an opaque "null" origin even when
+      // sandboxed with allow-same-origin, so allow either the host origin
+      // or the opaque-origin case from this exact iframe only.
+      if (event.origin && event.origin !== "null" && event.origin !== window.location.origin) {
+        return;
+      }
       const data = event && event.data;
       if (!data || data.frameId !== frameId) return;
       if (typeof data.height !== "number") return;
       // Cap height to prevent DoS via absurdly large values
       const clampedHeight = Math.min(Math.max(80, data.height + 6), 5000);
-      const node = iframeRef.current;
-      if (!node) return;
       node.style.height = `${clampedHeight}px`;
     }
     window.addEventListener("message", onMessage);
