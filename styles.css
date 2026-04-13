@@ -122,9 +122,11 @@ body::before {
 }
 
 .brand-logo {
-  height: clamp(28px, 3.5vw, 44px);
+  height: clamp(32px, 4vw, 52px);
   width: auto;
   display: block;
+  /* Ensure no background bleeds through on transparent nav */
+  mix-blend-mode: normal;
 }
 
 .nav-links {

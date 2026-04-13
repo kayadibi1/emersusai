@@ -3153,7 +3153,7 @@ export function ChatApp({
               style: { textDecoration: "none", color: "inherit", display: "block" },
             },
             h("h1", { className: "chat-brand-mark" },
-              h("img", { src: "/emersus-logo.png", alt: "Emersus", style: { height: "24px", width: "auto" } })
+              h("img", { src: "/emersus-logo.png", alt: "Emersus", style: { height: "28px", width: "auto" } })
             ),
             h("p", { className: "chat-brand-subtitle" }, "Evidence Layer Active")
           ),
