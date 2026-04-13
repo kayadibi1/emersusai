@@ -88,11 +88,14 @@ export default async function handler(req, res) {
     }
 
     body.requestMeta = buildRequestMeta(req);
-    // The debug page needs the full debug payload regardless of what
-    // the client asked for. This is safe because access is gated by
-    // the page-level admin check; any non-admin who reaches this
-    // endpoint only sees their own data anyway (the backend respects
-    // the user id from the request).
+
+    // Override self-asserted userId with the verified one from JWT
+    if (req.verifiedUserId) {
+      body.userId = `supabase:${req.verifiedUserId}`;
+    }
+
+    // Debug payload is only enabled for admin-authenticated requests
+    // (server-side admin check is enforced by requireAuthAdmin middleware).
     body.includeDebug = true;
 
     // SSE headers. Important: must be set BEFORE the first res.write.
@@ -132,19 +135,20 @@ export default async function handler(req, res) {
     res.end();
     return;
   } catch (error) {
+    console.error("Recommendation-stream handler error:", error);
     // If we haven't started streaming yet, respond with a normal JSON
     // error so the client can detect it via response.ok. If we're already
     // mid-stream, emit an error frame and end.
     if (!res.headersSent) {
       const statusCode = Number(error.statusCode || error.status || 500);
-      return res.status(statusCode).json({
-        message:
-          error.message || "Unable to generate an Emersus recommendation.",
-      });
+      const safeMessage = statusCode < 500
+        ? (error.message || "Bad request.")
+        : "Unable to generate a recommendation. Please try again.";
+      return res.status(statusCode).json({ message: safeMessage });
     }
     sendSSE(res, {
       stage: "error",
-      message: String((error && error.message) || error),
+      message: "An internal error occurred. Please try again.",
     });
     res.end();
     return;

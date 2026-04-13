@@ -182,7 +182,7 @@ export default async function handler(req, res) {
     });
   } catch (err) {
     console.error("[notify-signup] Resend send failed:", err.message);
-    return res.status(200).json({ notified: false, reason: "send_failed", error: err.message });
+    return res.status(200).json({ notified: false, reason: "send_failed" });
   }
 
   return res.status(200).json({ notified: true });

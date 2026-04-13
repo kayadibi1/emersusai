@@ -197,9 +197,8 @@ async function handleOnboarding({
 
   const payload = await response.json().catch(() => null);
   if (!response.ok || !payload) {
-    throw new Error(
-      payload?.error?.message || "Onboarding request to OpenAI failed."
-    );
+    console.error("OpenAI onboarding error:", payload?.error?.message || response.status);
+    throw new Error("Onboarding request failed. Please try again.");
   }
 
   const rawText = extractTextFromResponse(payload);

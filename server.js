@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();
+app.set("trust proxy", 1); // Caddy is the single reverse proxy
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,6 +22,11 @@ const { default: foodsSearchBatchHandler } = await import("./api/emersus/foods-s
 const { default: mealPlansRouter } = await import("./api/emersus/meal-plans.js");
 const { default: mealJournalRouter } = await import("./api/emersus/meal-journal.js");
 const { default: rpcProxy } = await import("./api/emersus/rpc-proxy.js");
+const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
+const { default: meRoleHandler } = await import("./api/me/role.js");
+
+// Import auth middleware for recommendation endpoints
+import { requireAuth, requireAuthAdmin } from "./api/emersus/auth-middleware.js";
 
 // Import admin API routers + middleware
 import adminCandidates from "./api/admin/candidates.js";
@@ -35,13 +41,17 @@ app.all("/api/config", configHandler);
 app.all("/api/contact", contactHandler);
 app.all("/api/waitlist", waitlistHandler);
 app.all("/api/notify-signup", notifySignupHandler);
-app.all("/api/emersus/recommendation", recommendationHandler);
-app.all("/api/emersus/recommendation-stream", recommendationStreamHandler);
+app.all("/api/emersus/recommendation", requireAuth, recommendationHandler);
+app.all("/api/emersus/recommendation-stream", requireAuthAdmin, recommendationStreamHandler);
 app.all("/api/emersus/foods/search", foodsSearchHandler);
 app.all("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
 app.use("/api/emersus/meal-plans", mealPlansRouter);
 app.use("/api/emersus/meal-journal", mealJournalRouter);
 app.all("/api/emersus/rpc/:name", rpcProxy);
+
+// Auth + user endpoints
+app.all("/api/auth/check-email", checkEmailHandler);
+app.all("/api/me/role", meRoleHandler);
 
 // Health check
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));

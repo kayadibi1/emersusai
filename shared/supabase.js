@@ -9,15 +9,6 @@ import { localDateStr } from "/shared/date-utils.js";
 
 const CONTACT_EMAIL = "info@emersus.ai";
 
-// Hardcoded admin allowlist for the unlisted /app/_debug/ page. Anyone whose
-// Supabase auth email is in this list can access the debug panel; everyone
-// else (including signed-in users) is redirected to /app/. The page itself
-// is not linked anywhere in the UI. Keep entries lowercase to make the
-// comparison in requireAdmin case-insensitive without re-normalizing each
-// time. To add or remove admins, edit this array directly — there is no
-// database-backed role table in Phase 1 and intentionally so (see plans/).
-const ADMIN_EMAILS = ["sidarvig@gmail.com"];
-
 let clientPromise;
 let configPromise;
 
@@ -104,11 +95,10 @@ export async function requireAuth({ redirectTo = "/auth/login/" } = {}) {
   return session;
 }
 
-// Same as requireAuth, but also enforces that the signed-in email is in
-// ADMIN_EMAILS. Used only by /app/_debug/ right now. Non-admin users are
-// redirected to the normal dashboard with a toast-worthy query param so
-// the dashboard page (if it wants to) can surface a "not authorized"
-// message. Admins get the session back, identical to requireAuth.
+// Same as requireAuth, but also enforces that the signed-in user has the
+// admin role. The check is done server-side via /api/me/role so the admin
+// email list is never shipped to the browser. Non-admin users are
+// redirected to the normal dashboard.
 export async function requireAdmin({
   redirectTo = "/auth/login/",
   nonAdminRedirect = "/app/?msg=admin-only",
@@ -116,8 +106,20 @@ export async function requireAdmin({
   const session = await requireAuth({ redirectTo });
   if (!session) return null;
 
-  const email = String(session.user?.email || "").trim().toLowerCase();
-  if (!ADMIN_EMAILS.includes(email)) {
+  try {
+    const res = await fetch("/api/me/role", {
+      headers: { Authorization: `Bearer ${session.access_token}` },
+    });
+    if (!res.ok) {
+      window.location.replace(nonAdminRedirect);
+      return null;
+    }
+    const { role } = await res.json();
+    if (role !== "admin") {
+      window.location.replace(nonAdminRedirect);
+      return null;
+    }
+  } catch {
     window.location.replace(nonAdminRedirect);
     return null;
   }
@@ -140,7 +142,7 @@ export async function getProfile(userId) {
   const supabase = await getSupabase();
   const { data, error } = await supabase
     .from("profiles")
-    .select("*")
+    .select("id,goal,experience_level,dietary_preferences,injuries_limitations,onboarding_completed,primary_use_case,equipment_access,available_days_per_week,available_minutes_per_session,sleep_stress_context,weight_unit,distance_unit,preferred_sports,default_pool_length_m,default_grade_system,body_weight_kg,height_cm,date_of_birth,biological_sex,activity_level,mapbox_privacy_radius_m,created_at,updated_at")
     .eq("id", userId)
     .maybeSingle();
 

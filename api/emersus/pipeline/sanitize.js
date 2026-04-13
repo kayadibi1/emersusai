@@ -534,7 +534,7 @@ async function fetchSupabaseProfile(supabaseUrl, serviceRoleKey, supabaseUserId)
   }
 
   const response = await fetch(
-    `${supabaseUrl}/rest/v1/profiles?select=goal,experience_level,dietary_preferences,injuries_limitations,full_name,email,onboarding_completed,primary_use_case,equipment_access,available_days_per_week,available_minutes_per_session,sleep_stress_context,weight_unit,distance_unit,preferred_sports,default_pool_length_m,default_grade_system,body_weight_kg,height_cm,date_of_birth,biological_sex,activity_level&id=eq.${encodeURIComponent(
+    `${supabaseUrl}/rest/v1/profiles?select=goal,experience_level,dietary_preferences,injuries_limitations,onboarding_completed,primary_use_case,equipment_access,available_days_per_week,available_minutes_per_session,sleep_stress_context,weight_unit,distance_unit,preferred_sports,default_pool_length_m,default_grade_system,body_weight_kg,height_cm,date_of_birth,biological_sex,activity_level&id=eq.${encodeURIComponent(
       supabaseUserId
     )}&limit=1`,
     {

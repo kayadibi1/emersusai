@@ -14,19 +14,10 @@ const rateLimitStore = new Map();
 // --- Helpers ---
 
 function getClientIp(req) {
-  const forwardedFor = req.headers["x-forwarded-for"];
-  if (typeof forwardedFor === "string" && forwardedFor.trim()) {
-    return forwardedFor.split(",")[0].trim();
-  }
-  if (Array.isArray(forwardedFor) && forwardedFor.length > 0) {
-    return String(forwardedFor[0]).split(",")[0].trim();
-  }
-  return (
-    req.headers["x-real-ip"] ||
-    req.socket?.remoteAddress ||
-    req.connection?.remoteAddress ||
-    "unknown"
-  );
+  // Use req.ip which respects Express's "trust proxy" setting.
+  // With trust proxy = 1 (Caddy), Express reads the rightmost
+  // X-Forwarded-For entry set by Caddy, ignoring client-spoofed values.
+  return req.ip || req.socket?.remoteAddress || "unknown";
 }
 
 function buildRequestMeta(req) {

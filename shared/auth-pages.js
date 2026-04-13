@@ -226,7 +226,7 @@ function bindSignupForm() {
       return;
     }
 
-    if (!isAllowedEmailDomain(email)) {
+    if (!(await isAllowedEmailDomain(email))) {
       setStatus(status, "error", BLOCKED_PROVIDER_MESSAGE);
       return;
     }

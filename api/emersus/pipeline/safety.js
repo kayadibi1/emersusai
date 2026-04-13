@@ -335,7 +335,7 @@ export async function safety(ctx) {
   if (result.status === "hard_refusal") {
     const response = buildGuardrailResponse({ question: ctx.question, plan: ctx.plan, safety: result });
     if (ctx.stableUserId) {
-      response.user = { id: ctx.stableUserId, profile_used: ctx.profile };
+      response.user = { id: ctx.stableUserId };
     }
     if (ctx.includeDebug) {
       response.debug = { safety: result, synthesis_mode: "guardrail_block" };

@@ -53,7 +53,7 @@ router.post("/entries", async (req, res) => {
     });
     if (error) {
       console.error("[meal-journal:addEntries]", error);
-      res.status(500).json({ error: "insert_failed", detail: error.message });
+      res.status(500).json({ error: "insert_failed" });
       return;
     }
     res.json({ entries: data ?? [] });
@@ -88,7 +88,7 @@ router.patch("/entries/:id", async (req, res) => {
     });
     if (error) {
       console.error("[meal-journal:updateEntry]", error);
-      res.status(500).json({ error: "update_failed", detail: error.message });
+      res.status(500).json({ error: "update_failed" });
       return;
     }
     res.json({ entry: data ?? null });
@@ -109,7 +109,7 @@ router.delete("/entries/:id", async (req, res) => {
       .eq("id", id);
     if (error) {
       console.error("[meal-journal:deleteEntry]", error);
-      res.status(500).json({ error: "delete_failed", detail: error.message });
+      res.status(500).json({ error: "delete_failed" });
       return;
     }
     res.json({ ok: true });
@@ -137,7 +137,7 @@ router.post("/copy-day", async (req, res) => {
     });
     if (error) {
       console.error("[meal-journal:copyDay]", error);
-      res.status(500).json({ error: "copy_failed", detail: error.message });
+      res.status(500).json({ error: "copy_failed" });
       return;
     }
     res.json({ entries: data ?? [] });
@@ -175,7 +175,7 @@ router.get("/day", async (req, res) => {
 
     if (error) {
       console.error("[meal-journal:getDayJournal]", error);
-      res.status(500).json({ error: "fetch_failed", detail: error.message });
+      res.status(500).json({ error: "fetch_failed" });
       return;
     }
     res.json({ date, entries: data ?? [] });

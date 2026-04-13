@@ -34,7 +34,8 @@ async function generateRecommendationStream(rawInput, res) {
     if (err instanceof ShortCircuit) return sendResponse(res, err.response);
     if (res.headersSent) {
       try {
-        res.write(`data: ${JSON.stringify({ type: "error", message: err.message })}\n\n`);
+        console.error("Pipeline error (mid-stream):", err);
+        res.write(`data: ${JSON.stringify({ type: "error", message: "An internal error occurred. Please try again." })}\n\n`);
         res.end();
       } catch { /* client gone */ }
       return;
@@ -56,7 +57,7 @@ async function generateRecommendationJSON(rawInput) {
     throw err;
   }
   return {
-    user: { id: ctx.stableUserId || null, profile_used: ctx.profile },
+    user: { id: ctx.stableUserId || null },
     plan: ctx.plan,
     summary: ctx.prose.slice(0, 600),
     answer_text: ctx.prose,
