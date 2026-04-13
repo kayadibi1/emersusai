@@ -92,17 +92,14 @@ body::before {
 
 .text-blur {
   text-shadow:
-    0 0 30px rgba(8, 8, 10, 0.9),
-    0 0 60px rgba(8, 8, 10, 0.7),
-    0 0 100px rgba(8, 8, 10, 0.5);
+    0 0 10px rgba(8, 8, 10, 0.78),
+    0 0 24px rgba(8, 8, 10, 0.52);
 }
 
 .text-blur-strong {
   text-shadow:
-    0 0 40px rgba(8, 8, 10, 0.95),
-    0 0 80px rgba(8, 8, 10, 0.8),
-    0 0 120px rgba(8, 8, 10, 0.6),
-    0 0 200px rgba(8, 8, 10, 0.4);
+    0 0 14px rgba(8, 8, 10, 0.84),
+    0 0 34px rgba(8, 8, 10, 0.58);
 }
 
 /* ─── NAV ─── */
@@ -177,6 +174,8 @@ body::before {
   display: flex;
   align-items: center;
   background: transparent;
+  content-visibility: auto;
+  contain-intrinsic-size: 100vh;
 }
 
 .section-inner {

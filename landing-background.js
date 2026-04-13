@@ -1,8 +1,4 @@
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import * as THREE from "three";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function initScaleBackground() {
   const canvas = document.getElementById("bg-canvas");
@@ -529,26 +525,34 @@ export function initScaleBackground() {
   const zMax = 180000;
   const logMin = Math.log(zMin);
   const logMax = Math.log(zMax);
+  let maxScroll = 1;
+  let targetProgress = 0;
+  let currentProgress = 0;
 
-  ScrollTrigger.create({
-    trigger: document.documentElement,
-    start: () => 0,
-    end: () => Math.max(document.documentElement.scrollHeight - window.innerHeight, 1),
-    scrub: 1.2,
-    invalidateOnRefresh: true,
-    onRefresh: () => updateStageVisibility(camera.position.z),
-    onUpdate: (self) => {
-      const progress = self.progress;
-      const z = Math.exp(logMin + (logMax - logMin) * progress);
-      camera.position.z = z;
-      camera.position.x = Math.sin(progress * Math.PI * 2.4) * z * 0.06;
-      camera.position.y = -Math.cos(progress * Math.PI * 1.6) * z * 0.04;
-      camera.lookAt(0, 0, 0);
-      updateStageVisibility(z);
-    },
-  });
+  function syncCamera(progress) {
+    const z = Math.exp(logMin + (logMax - logMin) * progress);
+    camera.position.z = z;
+    camera.position.x = Math.sin(progress * Math.PI * 2.4) * z * 0.06;
+    camera.position.y = -Math.cos(progress * Math.PI * 1.6) * z * 0.04;
+    camera.lookAt(0, 0, 0);
+    updateStageVisibility(z);
+  }
 
-  updateStageVisibility(camera.position.z);
+  function refreshScrollBounds() {
+    maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
+    targetProgress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
+    if (Math.abs(targetProgress - currentProgress) < 0.001) {
+      currentProgress = targetProgress;
+      syncCamera(currentProgress);
+    }
+  }
+
+  const handleScroll = () => {
+    targetProgress = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
+  };
+
+  refreshScrollBounds();
+  syncCamera(currentProgress);
 
   const resizeObserver = new ResizeObserver((entries) => {
     const entry = entries[0];
@@ -559,15 +563,17 @@ export function initScaleBackground() {
     renderer.setSize(width, height, false);
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    ScrollTrigger.refresh();
+    refreshScrollBounds();
   });
   resizeObserver.observe(canvas);
 
   if (document.readyState === "complete") {
-    ScrollTrigger.refresh();
+    refreshScrollBounds();
   } else {
-    window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
+    window.addEventListener("load", refreshScrollBounds, { once: true });
   }
+  window.addEventListener("resize", refreshScrollBounds, { passive: true });
+  window.addEventListener("scroll", handleScroll, { passive: true });
 
   let lastFrameAt = 0;
   const targetFrameMs = 1000 / 30;
@@ -578,6 +584,11 @@ export function initScaleBackground() {
     }
     lastFrameAt = now;
     const t = now * 0.001;
+    currentProgress += (targetProgress - currentProgress) * 0.12;
+    if (Math.abs(targetProgress - currentProgress) < 0.0005) {
+      currentProgress = targetProgress;
+    }
+    syncCamera(currentProgress);
 
     if (atomGroup.userData.electrons) {
       for (const electron of atomGroup.userData.electrons) {
