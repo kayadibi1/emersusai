@@ -528,8 +528,18 @@ async function handleCallbackPage() {
   }
 }
 
+function markAuthReady() {
+  document.body.setAttribute("data-auth-ready", "true");
+}
+
 async function boot() {
   const page = document.body.dataset.page;
+
+  bindOAuthButtons();
+  bindSignupForm();
+  bindLoginForm();
+  bindForgotPasswordForm();
+  bindResetPasswordForm();
 
   // login/signup/forgot-password pages ship with .auth-main hidden via
   // CSS (site.css — "Auth redirect flicker guard") so a signed-in user
@@ -540,7 +550,13 @@ async function boot() {
   // ever setting data-auth-ready — the hidden form stays hidden until
   // the page unloads.
   if (page === "login" || page === "signup" || page === "forgot-password") {
+    // If the session probe stalls, reveal the form anyway so the page
+    // never gets stuck showing only the header/banner.
+    const revealTimer = window.setTimeout(() => {
+      markAuthReady();
+    }, 1200);
     const redirected = await redirectIfAuthenticated("/app/");
+    window.clearTimeout(revealTimer);
     if (redirected) {
       return;
     }
@@ -558,13 +574,7 @@ async function boot() {
     }
   }
 
-  document.body.setAttribute("data-auth-ready", "true");
-
-  bindOAuthButtons();
-  bindSignupForm();
-  bindLoginForm();
-  bindForgotPasswordForm();
-  bindResetPasswordForm();
+  markAuthReady();
   await handleCallbackPage();
 }
 
@@ -573,7 +583,7 @@ boot().catch((error) => {
   // assignment, reveal the form anyway so the user isn't stuck staring
   // at a blank page. The error (if any) will still surface via the
   // auth-status line below.
-  document.body.setAttribute("data-auth-ready", "true");
+  markAuthReady();
   const status = document.querySelector("[data-auth-status]");
   setStatus(status, "error", error.message || "Authentication setup failed.");
 });
