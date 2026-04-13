@@ -51,33 +51,9 @@ function initSmoothScroll(onScrollActivity) {
 }
 
 function loadLandingBackground() {
-  if (reducedMotionQuery.matches) {
-    return Promise.resolve();
+  if (!landingBackgroundPromise) {
+    landingBackgroundPromise = Promise.resolve();
   }
-  if (landingBackgroundPromise) {
-    return landingBackgroundPromise;
-  }
-
-  landingBackgroundPromise = new Promise((resolve) => {
-    const start = () => {
-      import("./landing-background.js")
-        .then(({ initScaleBackground }) => resolve(initScaleBackground()))
-        .catch((err) => {
-          console.error("[landingBackground] init failed", err);
-          resolve();
-        });
-    };
-
-    const schedule = () => window.requestAnimationFrame(() => window.setTimeout(start, 0));
-
-    if (document.readyState === "complete") {
-      schedule();
-      return;
-    }
-
-    window.addEventListener("load", schedule, { once: true });
-  });
-
   return landingBackgroundPromise;
 }
 
