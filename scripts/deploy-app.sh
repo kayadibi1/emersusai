@@ -91,6 +91,7 @@ git fetch $REMOTE_NAME
 git checkout $BRANCH
 git pull --ff-only $REMOTE_NAME $BRANCH
 npm install
+npm run build
 pm2 restart emersus-api --update-env
 pm2 status
 EOF
