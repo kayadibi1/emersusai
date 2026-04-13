@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
+    "deploy": "bash scripts/deploy-app.sh",
     "fetch:pmc": "node scripts/fetch-pmc-fulltext.js",
     "fill:pmc": "node scripts/fill-pmc-corpus.js",
     "fill:pmc:topics": "node scripts/fill-pmc-topics.js",

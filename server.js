@@ -47,6 +47,7 @@ app.use((req, res, next) => {
 const { default: configHandler } = await import("./api/config.js");
 const { default: contactHandler } = await import("./api/contact.js");
 const { default: waitlistHandler } = await import("./api/waitlist.js");
+const { default: waitlistConfirmHandler } = await import("./api/waitlist-confirm.js");
 const { default: notifySignupHandler } = await import("./api/notify-signup.js");
 const { default: recommendationHandler } = await import("./api/emersus/recommendation.js");
 const { default: recommendationStreamHandler } = await import("./api/emersus/recommendation-stream.js");
@@ -77,6 +78,7 @@ import { requireAdmin } from "./api/admin/_middleware.js";
 app.get("/api/config", configHandler);
 app.post("/api/contact", publicRateLimitMiddleware("contact"), contactHandler);
 app.post("/api/waitlist", publicRateLimitMiddleware("waitlist"), waitlistHandler);
+app.get("/api/waitlist/confirm", waitlistConfirmHandler);
 app.post("/api/notify-signup", publicRateLimitMiddleware("notify-signup"), notifySignupHandler);
 app.post("/api/emersus/recommendation", requireAuth, recommendationHandler);
 app.post("/api/emersus/recommendation-stream", requireAuthAdmin, recommendationStreamHandler);
