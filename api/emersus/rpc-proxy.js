@@ -54,7 +54,7 @@ export default async function rpcProxy(req, res) {
     const { data, error } = await supabase.rpc(name, params);
     if (error) {
       console.error(`[rpc-proxy:${name}] error:`, error);
-      res.status(500).json({ error: "rpc_failed", detail: error.message });
+      res.status(500).json({ error: "rpc_failed" });
       return;
     }
     res.json(data ?? null);

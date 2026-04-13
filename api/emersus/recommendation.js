@@ -40,16 +40,26 @@ export default async function handler(req, res) {
 
     body.requestMeta = buildRequestMeta(req);
 
+    // Override self-asserted userId with the verified one from JWT
+    if (req.verifiedUserId) {
+      body.userId = `supabase:${req.verifiedUserId}`;
+    }
+
     // Stream SSE directly to the client.
     // ShortCircuit responses (onboarding, guardrail refusal) are sent as JSON
     // by generateRecommendationStream — the client detects via Content-Type.
     await generateRecommendationStream(body, res);
   } catch (error) {
     if (!res.headersSent) {
+      console.error("Recommendation handler error:", error);
       const statusCode = Number(error.statusCode || error.status || 500);
-      return res.status(statusCode).json({
-        message: error.message || "Unable to generate an Emersus recommendation.",
-      });
+      // Only forward .message for client errors (4xx) created by our own
+      // validation code. Never forward 5xx errors which may contain
+      // upstream API details (OpenAI key echoes, Supabase internals).
+      const safeMessage = statusCode < 500
+        ? (error.message || "Bad request.")
+        : "Unable to generate a recommendation. Please try again.";
+      return res.status(statusCode).json({ message: safeMessage });
     }
   }
 }

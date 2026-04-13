@@ -58,7 +58,8 @@ export async function synthesize(ctx) {
 
   if (!response.ok) {
     const errBody = await response.text().catch(() => "");
-    throw new Error(`OpenAI API error ${response.status}: ${errBody}`);
+    console.error(`OpenAI API error ${response.status}:`, errBody);
+    throw new Error(`Synthesis failed (status ${response.status}). Please try again.`);
   }
 
   ctx._timer.record("synthesis_ttfb_ms", Date.now() - start);

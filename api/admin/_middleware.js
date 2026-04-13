@@ -29,6 +29,7 @@ export async function requireAdmin(req, res, next) {
     req.adminUser = data.user;
     next();
   } catch (err) {
-    return res.status(500).json({ error: "auth failure", detail: err.message });
+    console.error("[admin-auth] error:", err);
+    return res.status(500).json({ error: "auth failure" });
   }
 }

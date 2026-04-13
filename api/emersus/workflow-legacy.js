@@ -1084,7 +1084,7 @@ async function fetchSupabaseProfile(supabaseUrl, serviceRoleKey, supabaseUserId)
   }
 
   const response = await fetch(
-    `${supabaseUrl}/rest/v1/profiles?select=goal,experience_level,dietary_preferences,injuries_limitations,full_name,email,onboarding_completed,primary_use_case,equipment_access,available_days_per_week,available_minutes_per_session,sleep_stress_context,weight_unit,distance_unit,preferred_sports,default_pool_length_m,default_grade_system,body_weight_kg,height_cm,date_of_birth,biological_sex,activity_level&id=eq.${encodeURIComponent(
+    `${supabaseUrl}/rest/v1/profiles?select=goal,experience_level,dietary_preferences,injuries_limitations,onboarding_completed,primary_use_case,equipment_access,available_days_per_week,available_minutes_per_session,sleep_stress_context,weight_unit,distance_unit,preferred_sports,default_pool_length_m,default_grade_system,body_weight_kg,height_cm,date_of_birth,biological_sex,activity_level&id=eq.${encodeURIComponent(
       supabaseUserId
     )}&limit=1`,
     {
@@ -2064,9 +2064,8 @@ async function callOpenAISynthesis({
   const payload = await response.json().catch(() => null);
 
   if (!response.ok || !payload) {
-    throw new Error(
-      payload?.error?.message || "The OpenAI recommendation request failed."
-    );
+    console.error("OpenAI API error:", payload?.error?.message || response.status);
+    throw new Error("Synthesis failed. Please try again.");
   }
 
   return payload;
@@ -3695,9 +3694,8 @@ async function handleOnboarding({
 
   const payload = await response.json().catch(() => null);
   if (!response.ok || !payload) {
-    throw new Error(
-      payload?.error?.message || "Onboarding request to OpenAI failed."
-    );
+    console.error("OpenAI onboarding error:", payload?.error?.message || response.status);
+    throw new Error("Onboarding request failed. Please try again.");
   }
 
   const rawText = extractTextFromResponse(payload);
@@ -3892,7 +3890,6 @@ async function generateRecommendation({
 
     if (stableUserId) {
       blockedResponse.user.id = stableUserId;
-      blockedResponse.user.profile_used = mergedProfile;
     }
 
     return blockedResponse;
@@ -3951,7 +3948,6 @@ async function generateRecommendation({
     const logFoodResponse = {
       user: {
         id: stableUserId || null,
-        profile_used: mergedProfile,
       },
       plan,
       summary: filledItems.length > 0
@@ -4281,7 +4277,6 @@ async function generateRecommendation({
   const finalResponse = {
     user: {
       id: stableUserId || null,
-      profile_used: mergedProfile,
     },
     plan,
     summary: synthesis.summary,
