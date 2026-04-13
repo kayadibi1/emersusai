@@ -2889,9 +2889,13 @@ export function ChatApp({
         }
         data = result.data;
       } else {
+        const authHeaders = { "Content-Type": "application/json" };
+        if (session?.access_token) {
+          authHeaders["Authorization"] = `Bearer ${session.access_token}`;
+        }
         const response = await fetch("/api/emersus/recommendation", {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: authHeaders,
           body: JSON.stringify(requestBody),
         });
         if (!response.ok) {
