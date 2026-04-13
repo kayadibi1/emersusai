@@ -10,6 +10,7 @@ import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPa
 
 const h = React.createElement;
 const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+let smoothScrollController = null;
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -26,18 +27,37 @@ function initSmoothScroll(onScrollActivity) {
     return null;
   }
 
+  if (smoothScrollController) {
+    if (onScrollActivity) {
+      smoothScrollController.listeners.add(onScrollActivity);
+    }
+    return smoothScrollController.lenis;
+  }
+
   const lenis = new Lenis({
     lerp: 0.075,
     smoothWheel: true,
     wheelMultiplier: 0.86,
+    syncTouch: true,
+    anchors: true,
   });
 
-  lenis.on("scroll", () => {
-    onScrollActivity?.();
+  const listeners = new Set();
+  if (onScrollActivity) {
+    listeners.add(onScrollActivity);
+  }
+
+  const handleScroll = () => {
+    listeners.forEach((listener) => listener?.());
     ScrollTrigger.update();
-  });
-  gsap.ticker.add((time) => lenis.raf(time * 1000));
+  };
+  const tick = (time) => lenis.raf(time * 1000);
+
+  lenis.on("scroll", handleScroll);
+  gsap.ticker.add(tick);
   gsap.ticker.lagSmoothing(0);
+
+  smoothScrollController = { lenis, listeners, tick };
   return lenis;
 }
 
@@ -2124,6 +2144,7 @@ function initScaleBackground() {
 }
 
 mountLanding();
+initSmoothScroll();
 try {
   initScaleBackground();
 } catch (err) {
