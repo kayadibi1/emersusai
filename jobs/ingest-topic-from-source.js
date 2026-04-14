@@ -7,12 +7,14 @@
 
 import { getIngestionSource } from "../scripts/sources/_registry.js";
 import { SourcePermanentError } from "../scripts/sources/_errors.js";
+import { buildGenericChunks } from "../scripts/lib/build-evidence-chunks-generic.js";
 
 const PROGRESS_INTERVAL = 50; // emit progress every N papers
 
 export async function ingestTopicFromSourceHandler(ctx, deps) {
   const { topicId, sourceId, target } = ctx.data;
-  const { sql, boss } = deps;
+  const { sql, boss, log } = deps;
+  const insertedChunkRows = [];
 
   // Load topic row
   const topicResult = await sql`
@@ -111,6 +113,14 @@ export async function ingestTopicFromSourceHandler(ctx, deps) {
 
     if (insertResult.rows.length > 0) {
       insertedCount++;
+      insertedChunkRows.push({
+        pmid: pmidVal,
+        title: paper.title,
+        abstract: paper.abstract ?? null,
+        source: paper.source ?? plugin.id,
+        external_id: paper.externalId,
+        doi: paper.doi ?? null,
+      });
     } else {
       skippedCount++;
     }
@@ -128,6 +138,40 @@ export async function ingestTopicFromSourceHandler(ctx, deps) {
         updated_at = now()
     WHERE id = ${topicId}
   `;
+
+  // Write evidence_chunks for freshly inserted rows. If this fails, log and
+  // continue — the chunk-articles-gc cron will pick up any misses. Ingest
+  // must never regress because chunking is flaky. Pubmed rows with JATS
+  // sections still go through the legacy chunker in scripts/import-pubmed.js;
+  // this source-agnostic path emits title + flat-abstract chunks, matching
+  // pubmed's unsectioned branch.
+  if (insertedChunkRows.length > 0) {
+    const allChunks = [];
+    for (const row of insertedChunkRows) {
+      try {
+        for (const c of buildGenericChunks(row)) allChunks.push(c);
+      } catch (err) {
+        log?.warn?.({ pmid: row.pmid, err: err.message }, "chunk build failed in ingest");
+      }
+    }
+    if (allChunks.length > 0) {
+      try {
+        const pmids = allChunks.map((c) => c.pmid);
+        const types = allChunks.map((c) => c.chunk_type);
+        const contents = allChunks.map((c) => c.content);
+        const metas = allChunks.map((c) => JSON.stringify(c.metadata));
+        await sql`
+          INSERT INTO evidence_chunks (pmid, chunk_type, content, metadata)
+          SELECT unnest(${pmids}::bigint[]),
+                 unnest(${types}::text[]),
+                 unnest(${contents}::text[]),
+                 unnest(${metas}::jsonb[])
+        `;
+      } catch (err) {
+        log?.warn?.({ err: err.message }, "chunk insert in ingest failed; GC will retry");
+      }
+    }
+  }
 
   // Enqueue follow-up embed-batch job
   await boss.send("embed-batch", { limit: 1000 });
