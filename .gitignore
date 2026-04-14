@@ -20,6 +20,7 @@ node_modules/
 dist/
 build/
 coverage/
+.DS_Store
 
 # Backups and generated evidence-import caches
 backups/
