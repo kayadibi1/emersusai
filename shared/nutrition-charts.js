@@ -39,12 +39,16 @@ export function MacroRing({ actual, target, label, color = TOKENS.primary, size 
   const r = (size - stroke) / 2;
   const cx = size / 2;
   const cy = size / 2;
-  const circ = 2 * Math.PI * r;
-  const pct = target > 0 ? Math.min(actual / target, 1.5) : 0;
-  const arc = pct * circ;
-  const overflow = pct > 1.1;
-  const perfect = pct >= 0.95 && pct <= 1.05;
+  const safeActual = Math.max(Number(actual) || 0, 0);
+  const safeTarget = Math.max(Number(target) || 0, 0);
+  const rawPct = safeTarget > 0 ? safeActual / safeTarget : 0;
+  const pct = Math.min(rawPct, 1);
+  const visiblePct = pct > 0 ? Math.max(pct, 0.02) : 0;
+  const overflowPct = Math.max(Math.min(rawPct - 1, 0.5), 0);
+  const overflow = rawPct > 1.1;
+  const perfect = rawPct >= 0.95 && rawPct <= 1.05;
   const strokeColor = overflow ? TOKENS.danger : perfect ? TOKENS.gold : color;
+  const targetText = safeTarget > 0 ? `/${Math.round(safeTarget)}` : "";
 
   return h("svg", { width: size, height: size, viewBox: `0 0 ${size} ${size}` }, [
     h("circle", {
@@ -57,8 +61,24 @@ export function MacroRing({ actual, target, label, color = TOKENS.primary, size 
       stroke: strokeColor,
       strokeWidth: stroke,
       strokeLinecap: "round",
-      strokeDasharray: `${arc} ${circ}`,
+      pathLength: 100,
+      strokeDasharray: `${visiblePct * 100} 100`,
+      strokeDashoffset: 25,
       transform: `rotate(-90 ${cx} ${cy})`,
+      style: { transition: "stroke-dasharray 220ms ease, stroke 220ms ease" },
+    }),
+    overflowPct > 0 && h("circle", {
+      key: "overflow", cx, cy, r: r + 8,
+      fill: "none",
+      stroke: TOKENS.danger,
+      strokeWidth: 4,
+      strokeLinecap: "round",
+      opacity: 0.7,
+      pathLength: 100,
+      strokeDasharray: `${overflowPct * 100} 100`,
+      strokeDashoffset: 25,
+      transform: `rotate(-90 ${cx} ${cy})`,
+      style: { transition: "stroke-dasharray 220ms ease, stroke 220ms ease" },
     }),
     h("text", {
       key: "v",
@@ -68,15 +88,23 @@ export function MacroRing({ actual, target, label, color = TOKENS.primary, size 
       fontSize: 21,
       fontWeight: 600,
       fontFamily: "Georgia, serif",
-    }, `${Math.round(actual)}`),
+    }, `${Math.round(safeActual)}`),
     h("text", {
       key: "l",
-      x: cx, y: cy + 18,
+      x: cx, y: cy + 14,
       textAnchor: "middle",
       fill: TOKENS.muted,
       fontSize: 15,
       fontFamily: "'JetBrains Mono', monospace",
     }, label),
+    targetText && h("text", {
+      key: "t",
+      x: cx, y: cy + 31,
+      textAnchor: "middle",
+      fill: "rgba(232,232,232,0.52)",
+      fontSize: 11,
+      fontFamily: "'JetBrains Mono', monospace",
+    }, targetText),
   ]);
 }
 
@@ -133,14 +161,14 @@ export function NutritionFactsPanel({ nutrients, servingGrams, width = 320 }) {
     y += rowHeight;
   }
 
-  for (const m of macros) addRow(m.name, m.amount?.toFixed(1) ?? "â€”", m.unit);
+  for (const m of macros) addRow(m.name, m.amount?.toFixed(1) ?? "-", m.unit);
   if (vitamins.length > 0) {
     rows.push(h("text", {
       key: "vit-h", x: 14, y,
       fill: TOKENS.muted, fontSize: 11, fontFamily: "system-ui, sans-serif", fontWeight: 600,
     }, "VITAMINS"));
     y += 18;
-    for (const v of vitamins) addRow(v.name, v.amount?.toFixed(1) ?? "â€”", v.unit);
+    for (const v of vitamins) addRow(v.name, v.amount?.toFixed(1) ?? "-", v.unit);
   }
   if (minerals.length > 0) {
     rows.push(h("text", {
@@ -148,7 +176,7 @@ export function NutritionFactsPanel({ nutrients, servingGrams, width = 320 }) {
       fill: TOKENS.muted, fontSize: 11, fontFamily: "system-ui, sans-serif", fontWeight: 600,
     }, "MINERALS"));
     y += 18;
-    for (const m of minerals) addRow(m.name, m.amount?.toFixed(1) ?? "â€”", m.unit);
+    for (const m of minerals) addRow(m.name, m.amount?.toFixed(1) ?? "-", m.unit);
   }
 
   const height = y + 20;
@@ -177,9 +205,9 @@ export function SupplementFactsPanel({ nutrients, form, width = 320 }) {
     rows.push(h("g", { key: n.slug }, [
       h("text", { x: 14, y, fill: TOKENS.ink, fontSize: 13, fontFamily: "system-ui, sans-serif" }, n.name),
       h("text", { x: width - 80, y, fill: TOKENS.ink, fontSize: 13, textAnchor: "end", fontFamily: "system-ui, sans-serif" },
-        `${n.amount?.toFixed(1) ?? "â€”"} ${n.unit}`),
+        `${n.amount?.toFixed(1) ?? "-"} ${n.unit}`),
       h("text", { x: width - 14, y, fill: TOKENS.muted, fontSize: 12, textAnchor: "end", fontFamily: "system-ui, sans-serif" },
-        pctDv != null ? `${pctDv}%` : "â€ "),
+        pctDv != null ? `${pctDv}%` : "-"),
       h("line", { x1: 10, y1: y + 4, x2: width - 10, y2: y + 4, stroke: "rgba(255,255,255,0.1)" }),
     ]));
     y += rowHeight;

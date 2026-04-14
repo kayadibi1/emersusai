@@ -426,7 +426,7 @@ export default function NutritionLogConfirmWidget({ payload }) {
               fontStyle: "italic",
             },
           },
-          "No items to log â€” all items removed."
+          "No items to log - all items removed."
         ),
     // Unresolved items
     unresolved.length > 0
