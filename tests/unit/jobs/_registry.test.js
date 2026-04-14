@@ -128,7 +128,7 @@ test("fetch-feed gets 4 workers, classify-candidates gets 2", async () => {
   );
 });
 
-test("default (no concurrency option) gets a single worker", async () => {
+test("default (no concurrency option) gets a single worker — chunk-articles-gc", async () => {
   const boss = makeFakeBoss();
   await registerHandlers({
     boss,
@@ -136,10 +136,24 @@ test("default (no concurrency option) gets a single worker", async () => {
     log: makeFakeLog(),
     incrementJobsProcessed: () => {},
   });
-  // embed-batch is registered without a concurrency option → 1 worker
+  // chunk-articles-gc registered without a concurrency option → 1 worker
+  assert.equal(
+    boss.workRegistrations.filter((r) => r.name === "chunk-articles-gc").length,
+    1,
+  );
+});
+
+test("embed-batch gets 2 independent workers (concurrency=2)", async () => {
+  const boss = makeFakeBoss();
+  await registerHandlers({
+    boss,
+    sql: makeFakeSql(),
+    log: makeFakeLog(),
+    incrementJobsProcessed: () => {},
+  });
   assert.equal(
     boss.workRegistrations.filter((r) => r.name === "embed-batch").length,
-    1,
+    2,
   );
 });
 

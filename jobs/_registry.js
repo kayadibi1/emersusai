@@ -134,7 +134,11 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   // RPS without) doesn't get stampeded. The 2026-04-11 deploy ran with
   // teamSize: 14 and NCBI TCP-dropped ~5% of requests under the burst.
   await register("ingest-topic-from-source",  ingestTopicFromSourceHandler,   { concurrency: 4 });
-  await register("embed-batch",               embedBatchHandler);
+  // embed-batch concurrency=2: second worker lets the OpenAI TPM cap
+  // (tier-2 ≈ 1M/min for text-embedding-3-small) be approached steadily
+  // from two parallel fetch loops. 4+ workers fight each other with 429s
+  // faster than they process, per the 2026-04-14 backfill observations.
+  await register("embed-batch",               embedBatchHandler,              { concurrency: 2 });
   await register("s2-citation-backfill",      s2CitationBackfillHandler);
   await register("rcr-backfill",              rcrBackfillHandler);
   await register("validate-queries",          validateQueriesHandler);
