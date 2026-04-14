@@ -134,11 +134,13 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   // RPS without) doesn't get stampeded. The 2026-04-11 deploy ran with
   // teamSize: 14 and NCBI TCP-dropped ~5% of requests under the burst.
   await register("ingest-topic-from-source",  ingestTopicFromSourceHandler,   { concurrency: 4 });
-  // embed-batch concurrency=2: second worker lets the OpenAI TPM cap
-  // (tier-2 ≈ 1M/min for text-embedding-3-small) be approached steadily
-  // from two parallel fetch loops. 4+ workers fight each other with 429s
-  // faster than they process, per the 2026-04-14 backfill observations.
-  await register("embed-batch",               embedBatchHandler,              { concurrency: 2 });
+  // embed-batch concurrency=1: concurrent UPDATEs serialize on the HNSW
+  // index (each INSERT/UPDATE holds a lock on index pages). The 2026-04-14
+  // non-pubmed backfill showed 2 workers contending on transactionid locks
+  // for ~1 min per UPDATE, cutting throughput 10x vs a single worker. The
+  // real throughput win came from the batched-UPDATE-via-unnest change in
+  // embed-batch.js; parallelism adds nothing here.
+  await register("embed-batch",               embedBatchHandler);
   await register("s2-citation-backfill",      s2CitationBackfillHandler);
   await register("rcr-backfill",              rcrBackfillHandler);
   await register("validate-queries",          validateQueriesHandler);
