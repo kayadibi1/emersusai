@@ -943,43 +943,33 @@ Co-Authored-By: Claude Opus 4.6 (1M context) <noreply@anthropic.com>"
 
 ---
 
-## Task 10: Push + deploy to Hetzner (USER-GATED)
+## Task 10: Push + deploy to Hetzner
 
-**USER APPROVAL REQUIRED BEFORE THIS TASK.** Per the user's autonomous-mode preference, confirm before push + prod deploy.
+User explicitly authorized autonomous push + prod backfill for this plan (overrides the standard "confirm before push" preference).
 
 **Files:** no code changes, deploy only
 
-- [ ] **Step 1: Confirm with user**
-
-> "Task 9 done — all code committed locally on `feat/nonpubmed-chunking`. Ready to merge → push → deploy to Hetzner. This makes the code live in prod but does NOT run the backfill yet (that's Task 11-12). Confirm?"
-
-- [ ] **Step 2: Merge the feature branch into main**
+- [ ] **Step 1: Merge the feature branch into main**
 
 ```bash
 cd /c/Users/Sidar/Desktop/emersus
 git fetch origin
 git checkout main
 git pull --ff-only origin main
-git merge --ff-only ../worktree-chunking feat/nonpubmed-chunking \
-  || git merge --no-ff ../worktree-chunking feat/nonpubmed-chunking \
+git merge --ff-only feat/nonpubmed-chunking \
+  || git merge --no-ff feat/nonpubmed-chunking \
        -m "merge: non-pubmed chunking + embedding backfill"
 ```
 
-If the worktree path doesn't resolve as a remote, use:
-```bash
-cd /c/Users/Sidar/Desktop/worktree-chunking && git log --oneline main..HEAD
-cd /c/Users/Sidar/Desktop/emersus
-git cherry-pick <each sha from above in order>
-```
-(fall-back; worktrees share a common object store so `git merge` usually works with the branch name directly).
+(Worktrees share the common object store — the branch name resolves.)
 
-- [ ] **Step 3: Push to origin**
+- [ ] **Step 2: Push to origin**
 
 ```bash
 git push origin main
 ```
 
-- [ ] **Step 4: Wait for Hetzner auto-deploy via webhook**
+- [ ] **Step 3: Wait for Hetzner auto-deploy via webhook**
 
 The GitHub webhook at `webhook.js` on Hetzner auto-pulls + runs `scripts/deploy-app.sh`. Monitor:
 ```bash
@@ -988,7 +978,7 @@ ssh hetzner 'cd ~/app && git log --oneline -5'
 ```
 Expected: Hetzner `~/app` now at the new HEAD.
 
-- [ ] **Step 5: Restart worker so it picks up the new handler registration**
+- [ ] **Step 4: Restart worker so it picks up the new handler registration**
 
 ```bash
 ssh hetzner 'pm2 restart emersus-worker --update-env'
@@ -997,7 +987,7 @@ ssh hetzner 'pm2 logs emersus-worker --nostream --lines 20'
 ```
 Expected: startup log shows `"all 14 handlers registered + 5 schedules"`.
 
-- [ ] **Step 6: Sanity-check worker heartbeat**
+- [ ] **Step 5: Sanity-check worker heartbeat**
 
 ```bash
 ssh hetzner 'export PGPASSWORD=$(grep "^POSTGRES_PASSWORD=" ~/supabase-docker/.env | cut -d= -f2); psql -h 127.0.0.1 -p 5433 -U supabase_admin -d postgres -c "SELECT worker_id, last_beat_at, now() - last_beat_at AS age FROM worker_heartbeats ORDER BY last_beat_at DESC LIMIT 1;"'
@@ -1008,7 +998,7 @@ No commit — this task is deploy-only.
 
 ---
 
-## Task 11: Canary on sportrxiv + retrieval validation (USER-OBSERVED)
+## Task 11: Canary on sportrxiv + retrieval validation
 
 **Files:** no code changes
 
@@ -1069,38 +1059,32 @@ import(\"./api/emersus/retrieveDatabaseEvidence.js\").then(async (m) => {
 ```
 Expected: `synthetic-pmid hits: >= 1`. If zero, investigate `match_evidence_chunks` / `dedupByDoi` — do NOT proceed to full backfill.
 
-- [ ] **Step 7: Report to user + gate**
+- [ ] **Step 7: Self-check before proceeding to full backfill**
 
-> "Canary green: ~650 sportrxiv chunks inserted + embedded + retrievable. Ready for full 719k backfill (~$3, ~2 hours)?"
-
-Wait for confirmation.
+If `synthetic-pmid hits >= 1` AND `embedded ≈ 650`, proceed directly to Task 12. If either is wrong, stop and report.
 
 No commit — this task is rollout-validation only.
 
 ---
 
-## Task 12: Full 719k backfill (USER-GATED)
+## Task 12: Full 719k backfill
 
 **Files:** no code changes
 
-- [ ] **Step 1: Confirm with user**
-
-See Task 11 step 7. Do not run Step 2 until user approves.
-
-- [ ] **Step 2: Baseline**
+- [ ] **Step 1: Baseline**
 
 ```bash
 ssh hetzner 'export PGPASSWORD=$(grep "^POSTGRES_PASSWORD=" ~/supabase-docker/.env | cut -d= -f2); psql -h 127.0.0.1 -p 5433 -U supabase_admin -d postgres -c "SELECT count(*) AS eligible FROM research_articles ra WHERE ra.abstract IS NOT NULL AND length(ra.abstract) >= 50 AND NOT EXISTS (SELECT 1 FROM evidence_chunks ec WHERE ec.pmid = ra.pmid);"'
 ```
 Expected: ~690,000 rows (719k total minus the ~26k without abstracts, minus the ~325 sportrxiv rows already done).
 
-- [ ] **Step 3: Launch the full backfill in the background**
+- [ ] **Step 2: Launch the full backfill in the background**
 
 ```bash
 ssh hetzner 'cd ~/app && nohup node scripts/backfill-chunks.js --loop > /tmp/backfill-chunks-$(date +%Y%m%d).log 2>&1 &'
 ```
 
-- [ ] **Step 4: Monitor progress every 15 minutes**
+- [ ] **Step 3: Monitor progress every 15 minutes**
 
 ```bash
 ssh hetzner 'tail -5 /tmp/backfill-chunks-*.log'
@@ -1108,14 +1092,14 @@ ssh hetzner 'export PGPASSWORD=$(grep "^POSTGRES_PASSWORD=" ~/supabase-docker/.e
 ```
 Expected: per-source chunks rising monotonically. Full completion in 1–3 hours (Postgres-bound on the unnest inserts).
 
-- [ ] **Step 5: Verify final state**
+- [ ] **Step 4: Verify final state**
 
 ```bash
 ssh hetzner 'export PGPASSWORD=$(grep "^POSTGRES_PASSWORD=" ~/supabase-docker/.env | cut -d= -f2); psql -h 127.0.0.1 -p 5433 -U supabase_admin -d postgres -c "SELECT ra.source, count(ra.*) AS articles, count(ec.id) FILTER (WHERE ec.id IS NOT NULL) AS with_chunks, count(*) FILTER (WHERE ec.id IS NULL AND ra.abstract IS NOT NULL AND length(ra.abstract) >= 50) AS eligible_missing FROM research_articles ra LEFT JOIN evidence_chunks ec ON ec.pmid = ra.pmid GROUP BY ra.source ORDER BY ra.source;"'
 ```
 Expected: `eligible_missing = 0` for all non-pubmed sources.
 
-- [ ] **Step 6: Wait for embed-batch to drain all new chunks**
+- [ ] **Step 5: Wait for embed-batch to drain all new chunks**
 
 This can run for hours separately — every chunk-articles-gc tick enqueued one embed-batch job. Monitor:
 
@@ -1124,7 +1108,7 @@ ssh hetzner 'export PGPASSWORD=$(grep "^POSTGRES_PASSWORD=" ~/supabase-docker/.e
 ```
 Expected: `pending` counts down over ~2 hours at ~50 chunks per batch. OpenAI cost ledger should show ~$3 at completion.
 
-- [ ] **Step 7: Sample retrieval probe to confirm full coverage**
+- [ ] **Step 6: Sample retrieval probe to confirm full coverage**
 
 ```bash
 ssh hetzner 'cd ~/app && node -e "
