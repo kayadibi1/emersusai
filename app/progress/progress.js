@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { requireAuth, getProfile } from "/shared/supabase.js";
+import { getSupabase, requireAuth, getProfile } from "/shared/supabase.js";
 import {
   fetchDashboard,
   fetchWeeklyActivity,
@@ -279,6 +279,20 @@ async function boot() {
 
   const session = await requireAuth();
   if (!session) return;
+  const supabase = await getSupabase();
+  window.EMERSUS_SUPABASE = supabase;
+  window.EMERSUS_AUTH = session.access_token;
+
+  const logoutBtn = document.querySelector("[data-auth-logout]");
+  if (logoutBtn && !logoutBtn.dataset.bound) {
+    logoutBtn.dataset.bound = "true";
+    logoutBtn.addEventListener("click", async () => {
+      logoutBtn.disabled = true;
+      logoutBtn.textContent = "Logging Out...";
+      await supabase.auth.signOut();
+      window.location.href = "/auth/login/";
+    });
+  }
 
   // Fetch profile to determine weight unit preference
   let weightUnit = "kg";

@@ -1,4 +1,5 @@
 import { ShortCircuit, createContext } from "./pipeline/context.js";
+import { computeConfidence } from "./pipeline/confidence.js";
 import { sanitize, validateRequest } from "./pipeline/sanitize.js";
 import { safety } from "./pipeline/safety.js";
 import { retrieve } from "./pipeline/retrieve.js";
@@ -28,6 +29,7 @@ async function generateRecommendationStream(rawInput, res) {
     ctx = await sanitize(ctx);
     ctx = await safety(ctx);
     ctx = await retrieve(ctx);
+    ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence?.items });
     ctx = await synthesize(ctx);
     await stream(ctx, res);
   } catch (err) {
@@ -50,6 +52,7 @@ async function generateRecommendationJSON(rawInput) {
     ctx = await sanitize(ctx);
     ctx = await safety(ctx);
     ctx = await retrieve(ctx);
+    ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence?.items });
     ctx = await synthesize(ctx);
     ctx = await streamToBuffer(ctx);
   } catch (err) {
@@ -63,6 +66,7 @@ async function generateRecommendationJSON(rawInput) {
     answer_text: ctx.prose,
     tool_results: ctx.toolResults,
     sources: ctx.sources,
+    confidence: ctx.confidence,
     token_usage: ctx.tokenUsage,
     guardrail: { status: "allowed", response_mode: "normal", reasons: [] },
     debug: ctx.includeDebug ? {

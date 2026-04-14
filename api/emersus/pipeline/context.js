@@ -34,6 +34,7 @@ export function createContext(raw) {
     prose:          "",
     toolResults:    {},
     sources:        [],
+    confidence:     null,
     tokenUsage:     { input_tokens: 0, output_tokens: 0, total_tokens: 0, cached_tokens: 0 },
     debug:          {},
 
