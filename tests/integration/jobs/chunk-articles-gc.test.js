@@ -14,6 +14,8 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const MIGRATIONS_DIR = resolve(__dirname, "../../../supabase");
 const PIPELINE_MIGRATIONS = [
   "20260412_research_articles_rename_and_columns.sql",
+  "20260412_research_articles_source_check_expand.sql",
+  "20260412_research_articles_synthetic_pmid_sequence.sql",
   "20260412_research_topics_and_candidates.sql",
   "20260412_discovery_feeds.sql",
   "20260412_job_progress.sql",
@@ -48,6 +50,25 @@ async function applyAllMigrations(client) {
       metadata jsonb NOT NULL DEFAULT '{}'::jsonb,
       created_at timestamptz NOT NULL DEFAULT now()
     );
+    -- Stub roles that prod migrations GRANT to. The minimal local test
+    -- Postgres runs as testuser and has no supabase_admin/postgres role.
+    DO $$ BEGIN
+      IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'supabase_admin') THEN
+        CREATE ROLE supabase_admin;
+      END IF;
+      IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'postgres') THEN
+        CREATE ROLE postgres;
+      END IF;
+      IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'authenticated') THEN
+        CREATE ROLE authenticated;
+      END IF;
+      IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'service_role') THEN
+        CREATE ROLE service_role;
+      END IF;
+      IF NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname = 'anon') THEN
+        CREATE ROLE anon;
+      END IF;
+    END $$;
   `);
   for (const f of files) {
     await client.query(readFileSync(resolve(MIGRATIONS_DIR, f), "utf8"));
