@@ -80,7 +80,7 @@ export default function NutritionTodayPanel({
     return () => { cancelled = true; };
   }, [todayStr]);
 
-  if (loading) return h("div", { className: "today-loading" }, "Loading todayâ€¦");
+  if (loading) return h("div", { className: "today-loading" }, "Loading today...");
 
   const dayType = mealPlan
     ? resolveDayType({ date: todayStr, mealPlan: mealPlan.plan, workoutPlan: workoutPlan?.plan })
@@ -120,7 +120,7 @@ export default function NutritionTodayPanel({
           h("ul", { className: "entries", key: "e" },
             (meal.entries ?? []).map((e, i) =>
               h("li", { key: i, onClick: () => onOpenFoodDetail?.(e.food_id) },
-                `${e.food_description} â€” ${e.amount} ${e.amount_unit}`
+                `${e.food_description} - ${e.amount} ${e.amount_unit}`
               )
             )
           ),

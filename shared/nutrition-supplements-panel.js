@@ -45,7 +45,7 @@ export default function NutritionSupplementsPanel({ onOpenFoodDetail }) {
 
   useEffect(() => { load(); }, []);
 
-  if (loading) return h("div", { className: "supps-loading" }, "Loadingâ€¦");
+  if (loading) return h("div", { className: "supps-loading" }, "Loading...");
 
   const prescribed = [];
   if (mealPlan?.plan?.day_types) {
@@ -112,9 +112,9 @@ export default function NutritionSupplementsPanel({ onOpenFoodDetail }) {
               className: alreadyLogged ? "logged" : "",
             }, [
               h("span", { className: "desc", key: "d" },
-                `${s.description} â€” ${s.amount} ${s.unit}`),
+                `${s.description} - ${s.amount} ${s.unit}`),
               alreadyLogged
-                ? h("span", { key: "c", className: "check" }, "âœ“ logged")
+                ? h("span", { key: "c", className: "check" }, "Logged")
                 : h("button", { key: "b", onClick: () => logSupplement(s) }, "Log"),
             ]);
           })
