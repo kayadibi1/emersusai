@@ -1,6 +1,6 @@
 // jobs/_registry.js
-// Central handler registry. Imports all 13 handlers and registers them
-// with pg-boss. Also sets up 4 cron schedules.
+// Central handler registry. Imports all 14 handlers and registers them
+// with pg-boss. Also sets up 5 cron schedules.
 
 import { discoveryWeeklyHandler }        from "./discovery-weekly.js";
 import { fetchFeedHandler }              from "./fetch-feed.js";
@@ -15,6 +15,7 @@ import { detectFailureClustersHandler }  from "./detect-failure-clusters.js";
 import { alertDailyDigestHandler }       from "./alert-daily-digest.js";
 import { cleanupJobProgressHandler }     from "./cleanup-job-progress.js";
 import { sendAlertHandler }              from "./send-alert.js";
+import { chunkArticlesGcHandler }        from "./chunk-articles-gc.js";
 
 // Side-effect imports: ingestion plugins self-register on import
 import "../scripts/sources/pubmed.js";
@@ -141,6 +142,7 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   await register("alert-daily-digest",        alertDailyDigestHandler);
   await register("cleanup-job-progress",      cleanupJobProgressHandler);
   await register("send-alert",               sendAlertHandler);
+  await register("chunk-articles-gc",        chunkArticlesGcHandler);
 
   // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness).
   // Queues were already created above in register() so schedule() can
@@ -149,6 +151,7 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   await boss.schedule("detect-failure-clusters", "*/5 * * * *", {},                        { tz: "America/New_York" });
   await boss.schedule("alert-daily-digest",      "0 8 * * *",  {},                         { tz: "America/New_York" });
   await boss.schedule("cleanup-job-progress",    "0 2 * * *",  { olderThanDays: 30 },      { tz: "America/New_York" });
+  await boss.schedule("chunk-articles-gc",       "30 3 * * *", { limit: 5000 },            { tz: "America/New_York" });
 
-  log.info("all 13 handlers registered + 4 schedules");
+  log.info("all 14 handlers registered + 5 schedules");
 }
