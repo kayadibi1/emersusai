@@ -15,7 +15,14 @@
 import { openai as defaultOpenai } from "../api/lib/clients.js";
 
 const EMBEDDING_MODEL = "text-embedding-3-small";
-const DEFAULT_FETCH_BATCH_SIZE = 50;
+// Batch size tuned for tier-2 OpenAI TPM. 200 inputs × ~200 tokens/chunk ≈
+// 40k tokens per call. With ~15 calls/min per worker, one worker runs at
+// roughly 600k TPM — safely under the 1M TPM cap. Combined with
+// concurrency=2 in the registry, aggregate ≈ 1.2M TPM which 429-smooths
+// to near the ceiling via the retry-hint pacing in embedBatchWithRetries.
+// 50 was the original (tested) value — change revisited 2026-04-14 after
+// the ~45 chunks/sec observed ceiling during the non-pubmed backfill.
+const DEFAULT_FETCH_BATCH_SIZE = 200;
 const MAX_DB_RETRIES = 6;
 const BASE_RETRY_DELAY_MS = 1000;
 
