@@ -181,15 +181,24 @@ export async function embedBatchHandler(ctx, deps) {
       .filter((e) => e.embedding != null);
 
     if (toUpsert.length > 0) {
-      for (const entry of toUpsert) {
-        await withDbRetry(`update embedding ${entry.id}`, () =>
-          sql`
-            UPDATE evidence_chunks
-            SET embedding = ${JSON.stringify(entry.embedding)}
-            WHERE id = ${entry.id}
-          `
-        );
-      }
+      // Batch-update in a single SQL statement via unnest. The old
+      // per-row UPDATE loop was N sequential round-trips (~5-10ms each),
+      // which dominated the per-batch wall clock for any batch size above
+      // ~50. Measured 2026-04-14 during the non-pubmed backfill: 200-row
+      // batches spent ~2s in DB writes vs ~1s in OpenAI.
+      const ids = toUpsert.map((e) => e.id);
+      const embStrs = toUpsert.map((e) => "[" + e.embedding.join(",") + "]");
+      await withDbRetry("batch update embeddings", () =>
+        sql`
+          UPDATE evidence_chunks AS ec
+             SET embedding = v.emb::vector
+             FROM (
+               SELECT unnest(${ids}::bigint[]) AS id,
+                      unnest(${embStrs}::text[]) AS emb
+             ) v
+          WHERE ec.id = v.id
+        `
+      );
       totalUpdated += toUpsert.length;
     }
 

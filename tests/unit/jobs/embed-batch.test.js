@@ -73,11 +73,17 @@ test("embeds a batch of chunks and updates them", async () => {
   assert.equal(out.embedded, 2, "should embed both chunks");
   assert.equal(out.batches, 1, "should process 1 batch");
 
-  // Should have issued UPDATE for each chunk
+  // Should have issued a single batched UPDATE via unnest covering both
+  // chunks. The old implementation used a per-row UPDATE loop (2 calls);
+  // the batched form is 1 call for any N rows.
   const updateCalls = sql.calls.filter(c =>
     c.query.includes("evidence_chunks") && c.query.includes("UPDATE")
   );
-  assert.equal(updateCalls.length, 2, "should UPDATE 2 rows");
+  assert.equal(updateCalls.length, 1, "should issue 1 batched UPDATE for N rows");
+  assert.ok(
+    updateCalls[0].query.includes("unnest"),
+    "batched UPDATE should use unnest(...) pattern"
+  );
 });
 
 test("no unembedded chunks → returns embedded=0", async () => {
