@@ -143,7 +143,7 @@ test("default (no concurrency option) gets a single worker — chunk-articles-gc
   );
 });
 
-test("embed-batch gets 2 independent workers (concurrency=2)", async () => {
+test("embed-batch gets 1 worker (concurrency=1 — HNSW serialization)", async () => {
   const boss = makeFakeBoss();
   await registerHandlers({
     boss,
@@ -153,7 +153,7 @@ test("embed-batch gets 2 independent workers (concurrency=2)", async () => {
   });
   assert.equal(
     boss.workRegistrations.filter((r) => r.name === "embed-batch").length,
-    2,
+    1,
   );
 });
 
