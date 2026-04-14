@@ -14,9 +14,13 @@ import { SourcePermanentError } from "../../../scripts/sources/_errors.js";
 // accepts either branch via `||`, so the paper.source tag is enough.
 const TEST_SOURCE_ID = "test-ingest-src-unit";
 
+const LONG_ABSTRACT_1 =
+  "A randomized controlled trial demonstrating that creatine monohydrate supplementation significantly increases lean body mass in resistance-trained adults over 8 weeks.";
+const LONG_ABSTRACT_2 =
+  "Meta-analysis showing beta-alanine supplementation improves muscular endurance during high-intensity exercise across multiple trained populations.";
 const FAKE_PAPERS = [
-  { externalId: "1001", source: "pubmed", title: "Paper 1", abstract: "A1", doi: null, publishedAt: null, journal: null, authors: [], peerReviewed: true, sourceMetadata: { pmid: "1001" } },
-  { externalId: "1002", source: "pubmed", title: "Paper 2", abstract: "A2", doi: "10.1/a", publishedAt: new Date("2024-01-01"), journal: "J1", authors: ["Auth A"], peerReviewed: false, sourceMetadata: { pmid: "1002" } },
+  { externalId: "1001", source: "pubmed", title: "Paper 1", abstract: LONG_ABSTRACT_1, doi: null, publishedAt: null, journal: null, authors: [], peerReviewed: true, sourceMetadata: { pmid: "1001" } },
+  { externalId: "1002", source: "pubmed", title: "Paper 2", abstract: LONG_ABSTRACT_2, doi: "10.1/a", publishedAt: new Date("2024-01-01"), journal: "J1", authors: ["Auth A"], peerReviewed: false, sourceMetadata: { pmid: "1002" } },
   { externalId: "1003", source: "pubmed", title: "Paper 3", abstract: null, doi: null, publishedAt: null, journal: null, authors: [], peerReviewed: true, sourceMetadata: { pmid: "1003" } },
 ];
 
@@ -41,7 +45,12 @@ const FAKE_TOPIC = {
   target_paper_count: 100,
 };
 
-function makeSql({ topicRows = [FAKE_TOPIC], insertReturnsId = true } = {}) {
+function makeSql({
+  topicRows = [FAKE_TOPIC],
+  insertReturnsId = true,
+  onEvidenceChunksInsert,
+  throwOnEvidenceChunksInsert,
+} = {}) {
   const calls = [];
   const tag = function (strings, ...values) {
     const query = strings.join("?");
@@ -52,6 +61,11 @@ function makeSql({ topicRows = [FAKE_TOPIC], insertReturnsId = true } = {}) {
     }
     if (query.includes("research_articles") && query.includes("INSERT")) {
       return Promise.resolve({ rows: insertReturnsId ? [{ id: Math.random() }] : [] });
+    }
+    if (query.includes("evidence_chunks") && query.includes("INSERT")) {
+      if (throwOnEvidenceChunksInsert) throw throwOnEvidenceChunksInsert;
+      onEvidenceChunksInsert?.(values);
+      return Promise.resolve({ rows: [], rowCount: 0 });
     }
     return Promise.resolve({ rows: [] });
   };
@@ -281,4 +295,39 @@ test("aborted signal stops iteration early (signal pre-aborted)", async () => {
   // and the generator checks opts.signal.aborted before each yield.
   // Either way we get 0 inserted because the outer loop breaks on ctx.signal.aborted.
   assert.equal(out.inserted + out.skipped, 0, "pre-aborted signal should produce 0 inserts");
+});
+
+test("inserts evidence_chunks for inserted research_articles rows", async () => {
+  // Papers 1 and 2 have abstracts >= 50 chars; paper 3 has null. Expect chunk
+  // insert to be called at least once (the handler may batch them into one
+  // insert, or call N times — either is fine).
+  const chunkInsertCalls = [];
+  const sql = makeSql({
+    insertReturnsId: true,
+    onEvidenceChunksInsert: (values) => chunkInsertCalls.push(values),
+  });
+  const boss = makeBoss();
+  const ctx = makeCtx();
+
+  const out = await ingestTopicFromSourceHandler(ctx, { sql, boss });
+
+  assert.equal(out.inserted, 3, "3 papers inserted");
+  assert.ok(
+    chunkInsertCalls.length >= 1,
+    `expected >= 1 evidence_chunks insert, got ${chunkInsertCalls.length}`
+  );
+});
+
+test("chunk insert failure does NOT fail parent ingest", async () => {
+  // Two papers have usable abstracts → chunk insert is exercised. Force it to
+  // throw; handler must still return normally with inserted=3.
+  const sql = makeSql({
+    insertReturnsId: true,
+    throwOnEvidenceChunksInsert: new Error("simulated chunk-insert failure"),
+  });
+  const boss = makeBoss();
+  const ctx = makeCtx();
+
+  const result = await ingestTopicFromSourceHandler(ctx, { sql, boss, log: { warn: () => {} } });
+  assert.equal(result.inserted, 3, "ingest still succeeds despite chunk failure");
 });
