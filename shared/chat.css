@@ -84,7 +84,7 @@ body.chat-page {
 /* Brand */
 
 .chat-brand {
-  padding: 0 0.4rem 1.6rem;
+  padding: 0 0.4rem 1.8rem;
 }
 
 .chat-brand-head {
@@ -115,10 +115,16 @@ body.chat-page {
   text-transform: uppercase;
 }
 
+.chat-brand-mark img {
+  display: block;
+  height: 38px;
+  width: auto;
+}
+
 .chat-brand-subtitle {
-  margin: 0.35rem 0 0;
+  margin: 0.45rem 0 0;
   font-family: var(--mono);
-  font-size: 0.5rem;
+  font-size: 0.58rem;
   font-weight: 500;
   letter-spacing: 0.22em;
   text-transform: uppercase;
@@ -137,7 +143,11 @@ body.chat-page {
 
 .chat-nav-actions .inline-button {
   justify-content: flex-start;
-  gap: 0.55rem;
+  gap: 0.7rem;
+  padding: 0.68rem 0.92rem;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
 }
 
 /* Thread list */

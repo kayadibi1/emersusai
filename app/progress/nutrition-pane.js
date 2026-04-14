@@ -25,6 +25,14 @@ function authFetch(path, init = {}) {
   });
 }
 
+async function jsonOrThrow(response, fallbackMessage) {
+  const payload = await response.json().catch(() => null);
+  if (!response.ok) {
+    throw new Error(payload?.error || payload?.message || fallbackMessage);
+  }
+  return payload;
+}
+
 const RANGES = [
   { id: "4w",  label: "4W",  days: 28 },
   { id: "8w",  label: "8W",  days: 56 },
@@ -61,7 +69,8 @@ export default function NutritionPane() {
 
         // Load the active plan id for adherence
         const planRes = await authFetch("/api/emersus/meal-plans/active");
-        const activePlanId = planRes.ok ? (await planRes.json()).meal_plan?.id : null;
+        const activePlan = await jsonOrThrow(planRes, "Failed to load active meal plan.");
+        const activePlanId = activePlan?.meal_plan?.id ?? null;
 
         // Parallel fan-out
         const [weeklyRes, streakRes, topRes, adherenceRes, microRes] = await Promise.all([
@@ -73,12 +82,20 @@ export default function NutritionPane() {
         ]);
 
         if (cancelled) return;
+        const weekly = await jsonOrThrow(weeklyRes, "Failed to load weekly nutrition averages.");
+        const streak = await jsonOrThrow(streakRes, "Failed to load macro streak.");
+        const topFoods = await jsonOrThrow(topRes, "Failed to load top foods.");
+        const micros = await jsonOrThrow(microRes, "Failed to load micronutrient status.");
+        const adherence = adherenceRes
+          ? await jsonOrThrow(adherenceRes, "Failed to load meal plan adherence.")
+          : null;
+
         setData({
-          weekly: weeklyRes.ok ? await weeklyRes.json() : [],
-          streak: streakRes.ok ? await streakRes.json() : { current: 0, best: 0 },
-          topFoods: topRes.ok ? await topRes.json() : [],
-          adherence: adherenceRes && adherenceRes.ok ? await adherenceRes.json() : null,
-          micros: microRes.ok ? await microRes.json() : [],
+          weekly: Array.isArray(weekly) ? weekly : [],
+          streak: streak && typeof streak === "object" ? streak : { current: 0, best: 0 },
+          topFoods: Array.isArray(topFoods) ? topFoods : [],
+          adherence: adherence && typeof adherence === "object" ? adherence : null,
+          micros: Array.isArray(micros) ? micros : [],
           activePlanId,
         });
         setState({ loading: false, error: null });
@@ -91,6 +108,9 @@ export default function NutritionPane() {
   }, [range]);
 
   if (state.loading) return h("div", { className: "np-loading" }, "Loading nutrition analytics\u2026");
+  if (state.error) {
+    return h("div", { className: "progress-loading" }, `Nutrition analytics failed to load: ${state.error}`);
+  }
 
   return h("div", { className: "nutrition-pane" }, [
     h("div", { className: "range-pills", key: "r" },

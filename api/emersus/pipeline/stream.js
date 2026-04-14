@@ -159,6 +159,7 @@ export async function stream(ctx, res) {
   sendSSE(res, {
     type: "done",
     sources: ctx.sources,
+    confidence: ctx.confidence,
     usage: ctx.tokenUsage,
     debug: ctx.includeDebug ? {
       openai_response_id: ctx._openaiResponseId,

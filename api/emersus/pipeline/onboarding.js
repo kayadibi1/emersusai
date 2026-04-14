@@ -218,7 +218,11 @@ async function handleOnboarding({
     summary: cleanText,
     answer_text: cleanText,
     recommendations: [],
-    confidence: 1,
+    confidence: {
+      score: 1,
+      label: "high",
+      rationale: "Onboarding responses come from the deterministic onboarding flow.",
+    },
     limitations: [],
     sources: [],
     cards: [],

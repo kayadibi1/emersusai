@@ -555,9 +555,32 @@ function mapSavedThread(row) {
   };
 }
 
+function normalizeConfidence(confidence) {
+  if (typeof confidence === "number") {
+    const score = Math.max(0, Math.min(confidence, 1));
+    return {
+      score,
+      label: score >= 0.75 ? "high" : score >= 0.5 ? "moderate" : score > 0 ? "low" : "idle",
+    };
+  }
+
+  if (confidence && typeof confidence === "object") {
+    const rawScore = Number(confidence.score);
+    const score = Number.isFinite(rawScore) ? Math.max(0, Math.min(rawScore, 1)) : 0;
+    const rawLabel = normalizeText(confidence.label || "", 24).toLowerCase();
+    return {
+      score,
+      label: rawLabel || (score >= 0.75 ? "high" : score >= 0.5 ? "moderate" : score > 0 ? "low" : "idle"),
+    };
+  }
+
+  return { score: 0, label: "idle" };
+}
+
 function railFromData(data = {}) {
-  const confidenceScore = Number(data.confidence?.score || 0);
-  const confidenceLabel = String(data.confidence?.label || "idle");
+  const normalizedConfidence = normalizeConfidence(data.confidence);
+  const confidenceScore = normalizedConfidence.score;
+  const confidenceLabel = normalizedConfidence.label;
   const sourceCount = Array.isArray(data.sources) ? data.sources.length : 0;
   const synthesisMode = data.debug?.synthesis_mode || (data.summary ? "synthesized" : "idle");
   const confidencePercent = Math.round(Math.max(0, Math.min(confidenceScore, 1)) * 100);
@@ -2683,6 +2706,14 @@ export function ChatApp({
       const authSession = await requireAuth();
       if (!authSession || cancelled) return;
       setSession(authSession);
+      let openPlanId = "";
+      let currentUrl = null;
+      try {
+        currentUrl = new URL(window.location.href);
+        openPlanId = currentUrl.searchParams.get("open_plan") || "";
+      } catch (error) {
+        console.error("Failed to parse chat URL:", error);
+      }
       // Check if user needs onboarding.
       const userProfile = await getProfile(authSession.user.id);
       if (cancelled) return;
@@ -2692,10 +2723,35 @@ export function ChatApp({
       if (cancelled) return;
       const loaded = rows.map(mapSavedThread);
       if (loaded.length) {
-        setChatHistory(loaded);
-        setActiveThreadId(loaded[0].id);
+        if (openPlanId) {
+          const attachedThread = createEmptyThread();
+          attachedThread.threadState = {
+            ...attachedThread.threadState,
+            active_workout_plan_id: openPlanId,
+          };
+          attachedThread.title = "Adjust plan";
+          setChatHistory([attachedThread, ...loaded].slice(0, MAX_HISTORY_ITEMS));
+          setActiveThreadId(attachedThread.id);
+          await upsertChatThread(authSession.user.id, attachedThread);
+        } else if (needsOnboarding) {
+          setChatHistory(loaded);
+          setActiveThreadId(loaded[0].id);
+        } else {
+          // Returning users should land on a clean composer instead of
+          // being dropped into the most recent thread by default.
+          const freshThread = createEmptyThread();
+          setChatHistory([freshThread, ...loaded].slice(0, MAX_HISTORY_ITEMS));
+          setActiveThreadId(freshThread.id);
+        }
       } else {
         const firstThread = createEmptyThread();
+        if (openPlanId) {
+          firstThread.threadState = {
+            ...firstThread.threadState,
+            active_workout_plan_id: openPlanId,
+          };
+          firstThread.title = "Adjust plan";
+        }
         setChatHistory([firstThread]);
         setActiveThreadId(firstThread.id);
         await upsertChatThread(authSession.user.id, firstThread);
@@ -2717,27 +2773,10 @@ export function ChatApp({
       // plan into current_workout_plan automatically. We always open a new
       // thread rather than mutating the most recent one â€” the user's
       // latest chat might be about something unrelated.
-      try {
-        const url = new URL(window.location.href);
-        const openPlanId = url.searchParams.get("open_plan");
-        if (openPlanId) {
-          const attachedThread = createEmptyThread();
-          attachedThread.threadState = {
-            ...attachedThread.threadState,
-            active_workout_plan_id: openPlanId,
-          };
-          attachedThread.title = "Adjust plan";
-          if (!cancelled) {
-            setChatHistory((history) => [attachedThread, ...history].slice(0, MAX_HISTORY_ITEMS));
-            setActiveThreadId(attachedThread.id);
-            await upsertChatThread(authSession.user.id, attachedThread);
-          }
-          // Clean the URL so a page reload doesn't keep spawning threads.
-          url.searchParams.delete("open_plan");
-          window.history.replaceState({}, "", url.toString());
-        }
-      } catch (error) {
-        console.error("open_plan deep-link failed:", error);
+      if (openPlanId && currentUrl) {
+        // Clean the URL so a page reload doesn't keep spawning threads.
+        currentUrl.searchParams.delete("open_plan");
+        window.history.replaceState({}, "", currentUrl.toString());
       }
     }
     boot().catch((error) => {
@@ -3157,7 +3196,7 @@ export function ChatApp({
               style: { textDecoration: "none", color: "inherit", display: "block" },
             },
             h("h1", { className: "chat-brand-mark" },
-              h("img", { src: "/emersus-logo.png", alt: "Emersus", style: { height: "28px", width: "auto" } })
+              h("img", { src: "/emersus-logo.png", alt: "Emersus", style: { height: "38px", width: "auto" } })
             ),
             h("p", { className: "chat-brand-subtitle" }, "Evidence Layer Active")
           ),
