@@ -12,6 +12,7 @@
 
 import React from "react";
 const h = React.createElement;
+const { useEffect, useState } = React;
 
 // Design tokens (mirrors workout-tracking spec's palette)
 export const TOKENS = {
@@ -39,6 +40,9 @@ export function MacroRing({ actual, target, label, color = TOKENS.primary, size 
   const r = (size - stroke) / 2;
   const cx = size / 2;
   const cy = size / 2;
+  const circ = 2 * Math.PI * r;
+  const overflowR = r + 8;
+  const overflowCirc = 2 * Math.PI * overflowR;
   const safeActual = Math.max(Number(actual) || 0, 0);
   const safeTarget = Math.max(Number(target) || 0, 0);
   const rawPct = safeTarget > 0 ? safeActual / safeTarget : 0;
@@ -49,6 +53,16 @@ export function MacroRing({ actual, target, label, color = TOKENS.primary, size 
   const perfect = rawPct >= 0.95 && rawPct <= 1.05;
   const strokeColor = overflow ? TOKENS.danger : perfect ? TOKENS.gold : color;
   const targetText = safeTarget > 0 ? `/${Math.round(safeTarget)}` : "";
+  const [animatedPct, setAnimatedPct] = useState(0);
+  const [animatedOverflowPct, setAnimatedOverflowPct] = useState(0);
+
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => {
+      setAnimatedPct(visiblePct);
+      setAnimatedOverflowPct(overflowPct);
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [visiblePct, overflowPct]);
 
   return h("svg", { width: size, height: size, viewBox: `0 0 ${size} ${size}` }, [
     h("circle", {
@@ -61,11 +75,10 @@ export function MacroRing({ actual, target, label, color = TOKENS.primary, size 
       stroke: strokeColor,
       strokeWidth: stroke,
       strokeLinecap: "round",
-      pathLength: 100,
-      strokeDasharray: `${visiblePct * 100} 100`,
-      strokeDashoffset: 25,
+      strokeDasharray: circ,
+      strokeDashoffset: circ * (1 - animatedPct),
       transform: `rotate(-90 ${cx} ${cy})`,
-      style: { transition: "stroke-dasharray 220ms ease, stroke 220ms ease" },
+      style: { transition: "stroke-dashoffset 360ms ease, stroke 220ms ease" },
     }),
     overflowPct > 0 && h("circle", {
       key: "overflow", cx, cy, r: r + 8,
@@ -74,11 +87,10 @@ export function MacroRing({ actual, target, label, color = TOKENS.primary, size 
       strokeWidth: 4,
       strokeLinecap: "round",
       opacity: 0.7,
-      pathLength: 100,
-      strokeDasharray: `${overflowPct * 100} 100`,
-      strokeDashoffset: 25,
+      strokeDasharray: overflowCirc,
+      strokeDashoffset: overflowCirc * (1 - animatedOverflowPct),
       transform: `rotate(-90 ${cx} ${cy})`,
-      style: { transition: "stroke-dasharray 220ms ease, stroke 220ms ease" },
+      style: { transition: "stroke-dashoffset 360ms ease, stroke 220ms ease" },
     }),
     h("text", {
       key: "v",
