@@ -12,8 +12,9 @@
   <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
   <link rel="stylesheet" href="/shared/landing-v2.css?v=redesign-10">
   <script type="module">
-    import { bootTheme } from '/shared/theme.js?v=redesign-1';
+    import { bootTheme, bindSwitcher } from '/shared/theme.js?v=redesign-1';
     bootTheme();
+    document.addEventListener('DOMContentLoaded', () => bindSwitcher(document));
   </script>
 </head>
 <body class="landing-v2-body">
@@ -27,7 +28,13 @@
         <a href="#corpus">Corpus</a>
         <a href="/auth/">Log in</a>
       </div>
-      <a class="btn btn-accent" href="/auth/?panel=request">Request access</a>
+      <div class="nav-right">
+        <div class="theme-switch" role="group" aria-label="Theme">
+          <button type="button" class="theme-swatch theme-swatch-mint"  data-theme-swatch="mint"  aria-label="Graphite · Jade (dark)"></button>
+          <button type="button" class="theme-swatch theme-swatch-paper" data-theme-swatch="paper" aria-label="Paper · Royal (light)"></button>
+        </div>
+        <a class="btn btn-accent" href="/auth/?panel=request">Request access</a>
+      </div>
     </nav>
   </div>
 
