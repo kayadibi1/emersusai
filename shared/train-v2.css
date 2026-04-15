@@ -233,7 +233,15 @@
   -webkit-appearance: none; margin: 0;
 }
 [data-train-v2="1"] .tr-set-times { color: var(--dim); }
-[data-train-v2="1"] .tr-rpe-chips { display: flex; gap: 4px; }
+[data-train-v2="1"] .tr-rpe-chips { display: flex; align-items: center; gap: 6px; }
+[data-train-v2="1"] .tr-rpe-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  margin-right: 2px;
+}
 [data-train-v2="1"] .tr-rpe-chip {
   background: var(--bg);
   border: 1px solid var(--line);
