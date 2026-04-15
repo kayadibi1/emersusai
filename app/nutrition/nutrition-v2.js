@@ -158,7 +158,7 @@ function MealsList({ data }) {
   if (!meals.length) {
     return h("div", { className: "nu-meals-empty" },
       h("p", null, "No meals logged or planned for this day."),
-      h("a", { className: "nu-meals-cta", href: "/chat/?prompt=Build me a meal plan" }, "Ask Emersus to plan a day →"),
+      h("a", { className: "nu-meals-cta", href: "/app/?prompt=Build me a meal plan" }, "Ask Emersus to plan a day →"),
     );
   }
   return h("div", { className: "nu-meals-list" },
@@ -281,14 +281,14 @@ function NutritionApp() {
               h(MealsList, { data: day.data }),
               h("a", {
                 className: "nu-meals-cta nu-meals-cta-bottom",
-                href: "/chat/?prompt=Log a meal",
+                href: "/app/?prompt=Log a meal",
               }, "+ Log a meal via chat"),
             ),
     ) : null,
 
     tab === "plans" ? h("div", { className: "nu-tab-body" },
       h("p", { className: "nu-helper" }, "MEAL PLANS LIVE IN /CHAT — saved plans appear here automatically."),
-      h("a", { className: "nu-primary", href: "/chat/?prompt=Build me a meal plan for today" }, "Build a plan in chat →"),
+      h("a", { className: "nu-primary", href: "/app/?prompt=Build me a meal plan for today" }, "Build a plan in chat →"),
     ) : null,
 
     tab === "log" ? h("div", { className: "nu-tab-body" },
@@ -300,7 +300,7 @@ function NutritionApp() {
 
     h("footer", { className: "nu-bottom-bar" },
       h(QuickLogDropdown, { accessToken, onLog: day.reload }),
-      h("a", { className: "nu-bottom-cta", href: "/chat/?prompt=I want to log a meal" }, "Ask Emersus →"),
+      h("a", { className: "nu-bottom-cta", href: "/app/?prompt=I want to log a meal" }, "Ask Emersus →"),
     ),
   );
 }

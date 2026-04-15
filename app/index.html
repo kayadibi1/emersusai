@@ -3,131 +3,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>App Dashboard | Emersus AI</title>
+  <title>Emersus | Emersus AI</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
   <link rel="stylesheet" href="/shared/chrome.css?v=redesign-1">
+  <!-- chat-v2.css ships unconditionally — every rule is scoped under
+       [data-chat-v2="1"], so it's a no-op until the boot script below sets
+       the attribute. -->
+  <link rel="stylesheet" href="/shared/chat-v2.css?v=redesign-2">
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
-    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-9';
+    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-1';
     bootTheme();
-    // Per the redesign spec, /app is the chat. Redirect there (preserve any
-    // query string like ?onboarding=1 so the chat boot logic still triggers).
     if (resolveFlag('chat_v2')) {
-      window.location.replace('/chat/' + window.location.search);
+      document.documentElement.dataset.chatV2 = '1';
     }
   </script>
   <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
+  <link rel="stylesheet" href="/shared/chat.css?v=redesign-20260412">
 </head>
-<body>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container site-header-inner">
-        <a class="brand-mark" href="/"><img src="/emersus-logo.png" alt="Emersus"></a>
-        <nav class="site-nav">
-          <a href="/app/" aria-current="page">Dashboard</a>
-          <a href="/chat/">Chat</a>
-          <a href="/app/workout/">Workout</a>
-          <a href="/app/nutrition/">Nutrition</a>
-          <a href="/app/progress/">Progress</a>
-          <button class="button button-ghost" type="button" data-auth-logout>Log Out</button>
-        </nav>
-      </div>
-    </header>
+<body class="chat-page">
+  <!-- /app is the chat. Per the 2026-04-15 redesign spec ("Chat (/app, default
+       home)"). The chat React app mounts on #chat-root via react-chat-app.js. -->
+  <div id="chat-root"></div>
 
-    <main class="page-main">
-      <div class="container stack" data-dashboard>
-        <section class="hero-panel welcome-panel">
-          <!-- The ", <name>" is wrapped and hidden until shared/app-pages.js
-               has a cached or just-loaded display name. Paint order:
-                 1. First paint: "Welcome back."
-                 2. Module load: cache hit → full "Welcome back, Name."
-                 3. Session load: fast-path fills name from user_metadata
-                 4. Profile RPC: final update if DB name differs
-               Previously shipped "Welcome back, Member." which looked like
-               real copy and then abruptly morphed to the real name. -->
-          <h1 class="welcome-title">Welcome back<span data-reveal-on-hydrate hidden>, <span class="welcome-name" data-user-name></span></span>.</h1>
-          <p class="welcome-sub">Pick up where you left off — open the chat for evidence-based guidance, or head into the planner to review your training.</p>
-          <div class="welcome-meta" data-reveal-on-hydrate hidden>
-            <span class="welcome-meta-item" data-user-email></span>
-            <!-- The dot + profile-state are held back until the profile
-                 RPC resolves (~300ms after the email paints on a cold
-                 cache) so first-time users don't see "email · " with a
-                 dangling bullet. Returning users hit the cache and both
-                 halves reveal together. -->
-            <span class="welcome-meta-dot" aria-hidden="true" data-reveal-when-profile-known hidden></span>
-            <span class="welcome-meta-item welcome-meta-status" data-reveal-when-profile-known hidden data-profile-state></span>
-          </div>
-        </section>
-
-        <section class="dashboard-grid">
-          <!-- Today's workout (Phase 1.5). Hydrated by shared/app-pages.js
-               via findTodaysSession() over the user's saved plans. The
-               default contents below render briefly while Supabase loads. -->
-          <article class="dashboard-card today-card" data-today-card>
-            <span class="mini-card-label" data-today-label>Today's workout</span>
-            <h3 data-today-title>Loading your plan...</h3>
-            <p class="body-copy" data-today-meta>Checking for an active workout session.</p>
-            <div class="button-row" data-today-actions></div>
-          </article>
-          <article class="dashboard-card">
-            <span class="mini-card-label">Profile</span>
-            <h3>Complete Profile</h3>
-            <p class="body-copy">Capture your goal, experience level, and practical constraints so future guidance has useful context.</p>
-            <div class="button-row">
-              <a class="button button-primary" href="/app/profile/">Complete Profile</a>
-            </div>
-          </article>
-          <article class="dashboard-card">
-            <span class="mini-card-label">Conversation</span>
-            <h3>Start Chat</h3>
-            <p class="body-copy">Open the direct Emersus recommendation chat that returns sources, confidence, and structured guidance.</p>
-            <div class="button-row">
-              <a class="button button-secondary" href="/chat/">Start Chat</a>
-            </div>
-          </article>
-          <article class="dashboard-card">
-            <span class="mini-card-label">Planner</span>
-            <h3>Workout Plans</h3>
-            <p class="body-copy">Long-term training plans generated in chat. Edit sessions, mark them missed or completed, and export to any calendar app.</p>
-            <div class="button-row">
-              <a class="button button-secondary" href="/app/workout/">Open Planner</a>
-            </div>
-          </article>
-          <article class="dashboard-card">
-            <span class="mini-card-label">Nutrition</span>
-            <h3>Track Nutrition</h3>
-            <p class="body-copy">Log meals, track macros, follow your meal plan, and monitor supplement intake — all in one place.</p>
-            <div class="button-row">
-              <a class="button button-secondary" href="/app/nutrition/">Open Nutrition</a>
-            </div>
-          </article>
-          <article class="dashboard-card">
-            <span class="mini-card-label">Progress</span>
-            <h3>View Analytics</h3>
-            <p class="body-copy">Volume trends, strength curves, nutrition adherence, and session history across all your training.</p>
-            <div class="button-row">
-              <a class="button button-secondary" href="/app/progress/">View Progress</a>
-            </div>
-          </article>
-        </section>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container site-footer-inner">
-        <span class="footer-copy" style="font-family:'JetBrains Mono',monospace;font-weight:300;">Emersus</span>
-        <nav class="footer-links">
-          <a href="/privacy/">Privacy</a>
-          <a href="/terms/">Terms</a>
-          <a href="/contact/">Contact</a>
-        </nav>
-      </div>
-    </footer>
-  </div>
-
-  <script type="module" src="/shared/app-pages.js"></script>
+  <script type="module" src="/shared/react-chat-app.js?v=2026-04-15-chat-memory"></script>
 </body>
 </html>
