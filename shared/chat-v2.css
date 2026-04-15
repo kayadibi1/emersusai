@@ -1,0 +1,23 @@
+/* shared/chat-v2.css
+ * Chat page styles for the 2026-04-15 redesign.
+ * Loaded ONLY when the `chat_v2` feature flag is enabled.
+ * Depends on design-tokens.css + chrome.css (loaded first in chat/index.html).
+ *
+ * Subsequent Phase 2 tasks (4–12) will populate this file with:
+ *   - Top bar layout + thread-heading + pills + top-actions
+ *   - Messages layout (article.msg + msg-head + msg-body + msg-actions)
+ *   - Citation card (.cite / .cite-head / .cite-body / .cite-actions)
+ *   - Meal widget (.meal-widget / .meal-widget-row / .meal-widget-actions)
+ *   - Macros widget (.macros-widget / .macro-row / .macro-bar)
+ *   - Composer shell (.composer-wrap / .composer / .composer-bar / chip-btn / stop-btn)
+ *   - Empty-state prompt chips (.empty-state / .empty-prompts)
+ *   - Streaming caret keyframe
+ *
+ * Reference mockup: .superpowers/brainstorm/linear-landing/chat.html
+ * Plan: docs/superpowers/plans/2026-04-15-redesign-phase-2-chat.md
+ *
+ * Current state: empty shell. The `data-chat-v2` attribute on <html> is set by
+ * the bootstrap script in chat/index.html and allows override selectors later
+ * (e.g. `[data-chat-v2="1"] .msg { ... }`) without fighting the legacy
+ * shared/chat.css until the old styles are retired in Task 13.
+ */
