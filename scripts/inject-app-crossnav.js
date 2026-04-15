@@ -15,9 +15,9 @@ const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..")
 
 const TARGETS = [
   "app/train/index.html",
-  "app/nutrition/index-v2.html",
-  "app/progress/index-v2.html",
-  "app/profile/index-v2.html",
+  "app/nutrition/index.html",
+  "app/progress/index.html",
+  "app/profile/index.html",
 ];
 
 const SENTINEL = "<!-- app-crossnav: fixed top bar linking app sections -->";

@@ -1,13 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-    <!-- no-cache-legacy: defeat browser cache on redirect page -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Nutrition · Emersus</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nutrition | Emersus AI</title>
     <!-- no-flash-boot: resolves data-theme + v2 flags pre-paint -->
   <script>
     (function () {
@@ -38,76 +34,47 @@
       }
     })();
   </script>
-<link rel="icon" type="image/png" href="/emersus-logo.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
   <link rel="stylesheet" href="/shared/chrome.css?v=redesign-1">
+  <link rel="stylesheet" href="/shared/nutrition-v2.css?v=redesign-9">
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
-    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-9';
     bootTheme();
-    if (resolveFlag('nutrition_v2')) {
-      window.location.replace('/app/nutrition/index-v2.html' + window.location.search);
-    }
+    document.documentElement.dataset.nutritionV2 = '1';
   </script>
-  <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412" />
 </head>
-<body>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container site-header-inner">
-        <a class="brand-mark" href="/"><img src="/emersus-logo.png" alt="Emersus"></a>
-        <nav class="site-nav">
-          <a href="/app/">Dashboard</a>
-          <a href="/chat/">Chat</a>
-          <a href="/app/workout/">Workout</a>
-          <a href="/app/nutrition/" aria-current="page">Nutrition</a>
-          <a href="/app/progress/">Progress</a>
-          <button class="button button-ghost" type="button" data-auth-logout>Log Out</button>
-        </nav>
-      </div>
-    </header>
-
-    <main class="page-main">
-      <div class="container" id="root">Loading...</div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container site-footer-inner">
-        <span class="footer-copy" style="font-family:'JetBrains Mono',monospace;font-weight:300;">Emersus</span>
-        <nav class="footer-links">
-          <a href="/privacy/">Privacy</a>
-          <a href="/terms/">Terms</a>
-          <a href="/contact/">Contact</a>
-        </nav>
-      </div>
-    </footer>
-  </div>
-
-  <script type="module">
-    import { getSupabase, requireAuth } from "/shared/supabase.js";
-
-    const session = await requireAuth();
-    if (!session) throw new Error("redirect in progress");
-
-    const sb = await getSupabase();
-    window.EMERSUS_SUPABASE = sb;
-    window.EMERSUS_AUTH = session.access_token;
-
-    await import("./nutrition.js");
-
-    // Bind the shared Log Out button (same pattern as app-pages.js)
-    const logoutBtn = document.querySelector("[data-auth-logout]");
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", async () => {
-        logoutBtn.disabled = true;
-        logoutBtn.textContent = "Logging Out...";
-        await sb.auth.signOut();
-        window.location.href = "/auth/login/";
-      });
-    }
-  </script>
+<body class="nutrition-v2-body">
+  <!-- app-sidebar: left nav bar linking app sections -->
+  <aside class="app-sidebar" aria-label="App navigation">
+    <div class="app-sidebar-head">
+      <a class="app-sidebar-brand" href="/">EMERSUS</a>
+    </div>
+    <nav class="app-sidebar-sections">
+      <div class="app-sidebar-sections-label">Sections</div>
+      <a class="app-sidebar-section" data-section="chat" href="/app/"><span class="app-sidebar-section-dot"></span>Chat</a>
+      <a class="app-sidebar-section" data-section="train" href="/app/train/"><span class="app-sidebar-section-dot"></span>Train</a>
+      <a class="app-sidebar-section" data-section="nutrition" href="/app/nutrition/"><span class="app-sidebar-section-dot"></span>Nutrition</a>
+      <a class="app-sidebar-section" data-section="progress" href="/app/progress/"><span class="app-sidebar-section-dot"></span>Progress</a>
+      <a class="app-sidebar-section" data-section="profile" href="/app/profile/"><span class="app-sidebar-section-dot"></span>Profile</a>
+    </nav>
+    <script>
+      (function () {
+        var p = location.pathname;
+        var key = /^\/app\/train/.test(p) ? 'train'
+          : /^\/app\/nutrition/.test(p) ? 'nutrition'
+          : /^\/app\/progress/.test(p) ? 'progress'
+          : /^\/app\/profile/.test(p) ? 'profile'
+          : 'chat';
+        var host = document.currentScript.parentElement;
+        var el = host.querySelector('[data-section="' + key + '"]');
+        if (el) el.classList.add('is-active');
+      })();
+    </script>
+  </aside>
+<div id="nutrition-v2-root"></div>
+  <script type="module" src="/app/nutrition/nutrition-v2.js?v=redesign-9"></script>
 </body>
 </html>

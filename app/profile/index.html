@@ -2,11 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-    <!-- no-cache-legacy: defeat browser cache on redirect page -->
-  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-  <meta http-equiv="Pragma" content="no-cache">
-  <meta http-equiv="Expires" content="0">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Profile | Emersus AI</title>
     <!-- no-flash-boot: resolves data-theme + v2 flags pre-paint -->
   <script>
@@ -40,170 +36,45 @@
   </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
   <link rel="stylesheet" href="/shared/chrome.css?v=redesign-1">
+  <link rel="stylesheet" href="/shared/profile-v2.css?v=redesign-7">
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
-    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-7';
     bootTheme();
-    if (resolveFlag('profile_v2')) {
-      window.location.replace('/app/profile/index-v2.html' + window.location.search);
-    }
+    document.documentElement.dataset.profileV2 = '1';
   </script>
-  <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
 </head>
-<body>
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container site-header-inner">
-        <a class="brand-mark" href="/"><img src="/emersus-logo.png" alt="Emersus"></a>
-        <nav class="site-nav">
-          <a href="/app/">Dashboard</a>
-          <a href="/chat/">Chat</a>
-          <a href="/app/workout/">Workout</a>
-          <a href="/app/nutrition/">Nutrition</a>
-          <a href="/app/progress/">Progress</a>
-          <button class="button button-ghost" type="button" data-auth-logout>Log Out</button>
-        </nav>
-      </div>
-    </header>
-
-    <main class="page-main">
-      <div class="container stack">
-        <section class="hero-panel stack">
-          <p class="section-kicker">Profile</p>
-          <h1>Your profile</h1>
-          <p class="lede">
-            This is what Emersus knows about you. To update anything, just mention it in the <a href="/chat/">chat</a>.
-          </p>
-          <!-- Hidden until shared/app-pages.js has painted the real email
-               (cache or session) — avoids "Signed in as Loading..." flash. -->
-          <div class="chip" data-reveal-on-hydrate hidden>Signed in as <span data-user-email></span></div>
-        </section>
-
-        <section class="form-panel stack">
-          <form class="form-grid" data-profile-form>
-            <input type="hidden" name="email">
-            <div class="form-grid two-up">
-              <label class="field">
-                <span class="field-label">Full Name</span>
-                <input type="text" name="full_name" disabled>
-              </label>
-              <label class="field">
-                <span class="field-label">Experience Level</span>
-                <input type="text" name="experience_level" disabled>
-              </label>
-            </div>
-            <label class="field">
-              <span class="field-label">Primary Use Case</span>
-              <input type="text" name="primary_use_case" disabled>
-            </label>
-            <label class="field">
-              <span class="field-label">Primary Goal</span>
-              <input type="text" name="goal" disabled>
-            </label>
-            <div class="form-grid two-up">
-              <label class="field">
-                <span class="field-label">Equipment Access</span>
-                <input type="text" name="equipment_access" disabled>
-              </label>
-              <label class="field">
-                <span class="field-label">Training Schedule</span>
-                <input type="text" name="training_schedule" disabled>
-              </label>
-            </div>
-            <label class="field">
-              <span class="field-label">Dietary Preferences</span>
-              <textarea name="dietary_preferences" disabled></textarea>
-            </label>
-            <label class="field">
-              <span class="field-label">Injuries / Limitations</span>
-              <textarea name="injuries_limitations" disabled></textarea>
-            </label>
-            <label class="field">
-              <span class="field-label">Sleep / Stress Context</span>
-              <textarea name="sleep_stress_context" disabled></textarea>
-            </label>
-            <label class="field">
-              <span class="field-label">Weight Unit (editable)</span>
-              <select name="weight_unit" data-weight-unit-select>
-                <option value="kg">Kilograms (kg)</option>
-                <option value="lbs">Pounds (lbs)</option>
-              </select>
-            </label>
-            <div style="margin-top:1.5rem; padding-top:1.25rem; border-top:1px solid var(--line);">
-              <p class="section-kicker">Sharing &amp; Tracking</p>
-
-              <label class="field">
-                <span class="field-label">Display name on share cards</span>
-                <input type="text" name="display_name_public" placeholder="(leave blank for anonymous)">
-              </label>
-
-              <label class="field">
-                <span class="field-label">Path privacy radius</span>
-                <select name="mapbox_privacy_radius_m">
-                  <option value="0">Show full path</option>
-                  <option value="50">50 m</option>
-                  <option value="100" selected>100 m (recommended)</option>
-                  <option value="200">200 m</option>
-                  <option value="500">500 m</option>
-                </select>
-              </label>
-
-              <label class="field">
-                <span class="field-label">Default pool length</span>
-                <select name="default_pool_length_m">
-                  <option value="">—</option>
-                  <option value="25">25 m</option>
-                  <option value="50">50 m</option>
-                  <option value="22.86">25 yd</option>
-                  <option value="30.48">33⅓ yd</option>
-                </select>
-              </label>
-
-              <label class="field">
-                <span class="field-label">Default grade system</span>
-                <select name="default_grade_system">
-                  <option value="">—</option>
-                  <option value="V">V-scale (bouldering)</option>
-                  <option value="YDS">YDS (sport)</option>
-                  <option value="Font">Fontainebleau</option>
-                  <option value="French">French</option>
-                </select>
-              </label>
-
-              <label class="field">
-                <span class="field-label">Distance unit</span>
-                <select name="distance_unit">
-                  <option value="km">Kilometers (km)</option>
-                  <option value="mi">Miles (mi)</option>
-                </select>
-              </label>
-            </div>
-
-            <div class="button-row">
-              <a class="button button-primary" href="/chat/">Update via Chat</a>
-              <a class="button button-secondary" href="/app/">Back to Dashboard</a>
-            </div>
-            <p class="status-text" data-profile-status></p>
-          </form>
-        </section>
-      </div>
-    </main>
-
-    <footer class="site-footer">
-      <div class="container site-footer-inner">
-        <span class="footer-copy" style="font-family:'JetBrains Mono',monospace;font-weight:300;">Emersus</span>
-        <nav class="footer-links">
-          <a href="/privacy/">Privacy</a>
-          <a href="/terms/">Terms</a>
-          <a href="/contact/">Contact</a>
-        </nav>
-      </div>
-    </footer>
-  </div>
-
-  <script type="module" src="/shared/app-pages.js"></script>
+<body class="profile-v2-body">
+  <!-- app-sidebar: left nav bar linking app sections -->
+  <aside class="app-sidebar" aria-label="App navigation">
+    <div class="app-sidebar-head">
+      <a class="app-sidebar-brand" href="/">EMERSUS</a>
+    </div>
+    <nav class="app-sidebar-sections">
+      <div class="app-sidebar-sections-label">Sections</div>
+      <a class="app-sidebar-section" data-section="chat" href="/app/"><span class="app-sidebar-section-dot"></span>Chat</a>
+      <a class="app-sidebar-section" data-section="train" href="/app/train/"><span class="app-sidebar-section-dot"></span>Train</a>
+      <a class="app-sidebar-section" data-section="nutrition" href="/app/nutrition/"><span class="app-sidebar-section-dot"></span>Nutrition</a>
+      <a class="app-sidebar-section" data-section="progress" href="/app/progress/"><span class="app-sidebar-section-dot"></span>Progress</a>
+      <a class="app-sidebar-section" data-section="profile" href="/app/profile/"><span class="app-sidebar-section-dot"></span>Profile</a>
+    </nav>
+    <script>
+      (function () {
+        var p = location.pathname;
+        var key = /^\/app\/train/.test(p) ? 'train'
+          : /^\/app\/nutrition/.test(p) ? 'nutrition'
+          : /^\/app\/progress/.test(p) ? 'progress'
+          : /^\/app\/profile/.test(p) ? 'profile'
+          : 'chat';
+        var host = document.currentScript.parentElement;
+        var el = host.querySelector('[data-section="' + key + '"]');
+        if (el) el.classList.add('is-active');
+      })();
+    </script>
+  </aside>
+<div id="profile-v2-root"></div>
+  <script type="module" src="/app/profile/profile.js?v=redesign-7"></script>
 </body>
 </html>
