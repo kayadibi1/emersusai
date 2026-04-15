@@ -228,6 +228,69 @@
 [data-nutrition-v2="1"] .nu-strip-btn:hover {
   color: var(--accent); border-color: var(--accent);
 }
+[data-nutrition-v2="1"] .nu-strip-btn-primary {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+[data-nutrition-v2="1"] .nu-strip-btn-primary:hover { filter: brightness(1.08); }
+[data-nutrition-v2="1"] .nu-strip-btn-primary:disabled {
+  opacity: 0.45; cursor: not-allowed; filter: none;
+}
+
+/* Water progress bar */
+[data-nutrition-v2="1"] .nu-water-bar {
+  height: 6px;
+  background: var(--line);
+  border-radius: 3px;
+  overflow: hidden;
+}
+[data-nutrition-v2="1"] .nu-water-bar-fill {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 3px;
+  transition: width .3s ease;
+}
+
+/* Inline supplement form */
+[data-nutrition-v2="1"] .nu-supp-form {
+  display: flex; flex-direction: column; gap: 8px;
+}
+[data-nutrition-v2="1"] .nu-supp-input {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 8px 10px;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  transition: border-color .14s;
+}
+[data-nutrition-v2="1"] .nu-supp-input:focus {
+  outline: none; border-color: var(--accent-line);
+}
+[data-nutrition-v2="1"] .nu-supp-input::placeholder { color: var(--dim); }
+[data-nutrition-v2="1"] .nu-supp-presets {
+  display: flex; flex-wrap: wrap; gap: 4px;
+}
+[data-nutrition-v2="1"] .nu-supp-chip {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all .12s;
+}
+[data-nutrition-v2="1"] .nu-supp-chip:hover {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
 
 /* ===== Meals list ===== */
 [data-nutrition-v2="1"] .nu-meals-list { display: flex; flex-direction: column; gap: 4px; }
