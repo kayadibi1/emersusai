@@ -1,0 +1,102 @@
+/* shared/design-tokens.css
+ * Canonical source for the Emersus redesign palettes + typography.
+ * Consumed by every other stylesheet via @import at top of file.
+ * Two palettes, runtime-switchable via data-theme on <html>.
+ */
+
+/* ---------- FONT LOADING ---------- */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+/* ---------- PALETTE: GRAPHITE · JADE (dark, default) ---------- */
+[data-theme="mint"] {
+  --bg: #0a0a0b;
+  --sidebar-bg: #0c0c0e;
+  --surface: #141417;
+  --surface-faint: rgba(255,255,255,0.02);
+  --recessed: rgba(0,0,0,0.20);
+  --composer-bg: rgba(255,255,255,0.015);
+  --ink: #ededee;
+  --muted: #8a8a8f;
+  --dim: #55555a;
+  --line: rgba(255,255,255,0.06);
+  --line-strong: rgba(255,255,255,0.10);
+  --grid-line: rgba(255,255,255,0.018);
+  --nav-bg: rgba(10,10,11,0.72);
+  --switch-bg: rgba(15,15,17,0.92);
+  --accent: #34d399;
+  --accent-text: #04221a;
+  --accent-soft: rgba(52,211,153,0.10);
+  --accent-line: rgba(52,211,153,0.34);
+  --accent-glow: rgba(52,211,153,0.10);
+  --citation: #8ab4f8;
+  --warning: #fbbf24;
+  --danger: #f87171;
+  --info: #60a5fa;
+  --protein: #4d8df5;
+  --carbs: #78dc14;
+  --fat: #e8a838;
+  --frame-from: #141416;
+  --frame-to: #0d0d10;
+  --head-from: #ffffff;
+  --head-to: #b4b4b8;
+}
+
+/* ---------- PALETTE: PAPER · ROYAL (light) ---------- */
+[data-theme="paper"] {
+  --bg: #f4efe5;
+  --sidebar-bg: #ece5d6;
+  --surface: #ece5d6;
+  --surface-faint: rgba(26,24,19,0.025);
+  --recessed: rgba(0,0,0,0.025);
+  --composer-bg: rgba(26,24,19,0.02);
+  --ink: #1a1813;
+  --muted: #5e564a;
+  --dim: #8f8676;
+  --line: rgba(26,24,19,0.10);
+  --line-strong: rgba(26,24,19,0.18);
+  --grid-line: rgba(26,24,19,0.035);
+  --nav-bg: rgba(244,239,229,0.82);
+  --switch-bg: rgba(250,246,237,0.94);
+  --accent: #3b82f6;
+  --accent-text: #ffffff;
+  --accent-soft: rgba(59,130,246,0.10);
+  --accent-line: rgba(59,130,246,0.36);
+  --accent-glow: rgba(59,130,246,0.11);
+  --citation: #b37214;
+  --warning: #c78a0a;
+  --danger: #c53030;
+  --info: #2563eb;
+  --protein: #2d5bda;
+  --carbs: #4a7c0f;
+  --fat: #a66a14;
+  --frame-from: #faf6ee;
+  --frame-to: #ece5d6;
+  --head-from: #1a1813;
+  --head-to: #6e6557;
+}
+
+/* ---------- BASE RESET + TYPOGRAPHY ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  transition: background .4s, color .4s;
+}
+
+body {
+  font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.55;
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Utility: opt-in monospace */
+.mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+
+/* Tabular-nums for numeric displays */
+.nums { font-variant-numeric: tabular-nums; }
