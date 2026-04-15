@@ -60,6 +60,7 @@ import { ChatTopBar } from "/shared/chat/top-bar.js";
 import { MessageActions } from "/shared/chat/message-actions.js";
 import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
 import { buildFollowUpPrompt, citationLinks } from "/shared/chat/widget-footers.js";
+import { EmptyPrompts } from "/shared/chat/empty-prompts.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -3694,7 +3695,15 @@ export function ChatApp() {
               : h("section", { className: "thread-welcome" },
                   h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
                   h("h2", { className: "thread-welcome-title" }, `Welcome, ${displayName}`),
-                  h("p", { className: "thread-welcome-copy" }, "Ask about training, nutrition, supplements, recovery, cardiovascular fitness, or metabolic health and I'll keep the answer evidence-aware."))))),
+                  h("p", { className: "thread-welcome-copy" }, "Ask about training, nutrition, supplements, recovery, cardiovascular fitness, or metabolic health and I'll keep the answer evidence-aware."),
+                  chatV2On
+                    ? h(EmptyPrompts, {
+                        profileId: session?.user?.id || "",
+                        accessToken: session?.access_token || "",
+                        onPick: (prompt) => setQuestion(prompt),
+                      })
+                    : null,
+                )))),
       h("div", { className: "chat-composer-shell" },
         h("form", { className: "composer", onSubmit: submitQuestion },
           h("div", { className: "composer-row" },

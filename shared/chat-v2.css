@@ -441,3 +441,45 @@
 [data-chat-v2="1"] .cite-action-followup {
   margin-left: auto;
 }
+
+/* ========== EMPTY-STATE PROMPT CHIPS (Task 9) ========== */
+
+[data-chat-v2="1"] .empty-prompts {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+[data-chat-v2="1"] .empty-prompts-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+[data-chat-v2="1"] .empty-prompts-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+[data-chat-v2="1"] .empty-prompt-chip {
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  transition: border-color .14s, background .14s, color .14s;
+}
+[data-chat-v2="1"] .empty-prompt-chip:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
