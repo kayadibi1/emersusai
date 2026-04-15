@@ -10,6 +10,13 @@
  */
 
 import { validateMealPlan } from "../../../shared/meal-plan-schema.js";
+import {
+  EXPERIENCE_LEVELS,
+  GOALS,
+  SCHEMA_VERSION as WORKOUT_PLAN_SCHEMA_VERSION,
+  normalizePlan as normalizeWorkoutPlan,
+  validatePlan as validateWorkoutPlan,
+} from "../../../shared/workout-plan-schema.js";
 
 // ── Shared sub-schemas (inlined for strict mode) ────────────────────────
 
@@ -250,6 +257,7 @@ const EMIT_WIDGET = {
     "- Accent hex for chart data ONLY: #9ffb00 (positive), #6d9fff (neutral), #ffc466 (moderate), #ff8f9d (negative).",
     "- Chart axis labels: rgba(255,255,255,0.55). Chart gridlines: rgba(255,255,255,0.08).",
     "- No external scripts/links/imports. No hardcoded bg/text colors (use CSS vars). 1px min borders. Fluid width. Div grids over tables.",
+    "- The host auto-resizes iframe height to content. Do NOT use viewport-sized layouts: no `vh`/`dvh`/`svh`/`lvh` heights, no `html/body/root { height:100%; min-height:100%; }`, no full-screen fixed wrappers.",
     "- window.sendPrompt('...') for clickable follow-ups.",
     "- Numbers, labels, study names must come from real evidence. Do not fabricate.",
   ].join("\n"),
@@ -321,6 +329,10 @@ export const TOOL_DEFINITIONS = [EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET,
 // ── Validators ──────────────────────────────────────────────────────────
 
 const VALID_MEAL_SLOTS = new Set(["breakfast", "lunch", "dinner", "snack", "pre_workout", "post_workout"]);
+const VALID_FOOD_AMOUNT_UNITS = new Set(["g", "ml", "mg", "mcg", "IU", "capsule", "tablet", "scoop", "serving"]);
+const VALID_WORKOUT_BLOCK_CATEGORIES = new Set(["resistance", "cardio", "swimming", "climbing", "bodyweight"]);
+const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
+const WORKOUT_SESSION_ID_PATTERN = /^s_w\d+d[1-7]$/;
 
 const WIDGET_FORBIDDEN_PATTERNS = [
   /<script\s+src\s*=/i,
@@ -328,6 +340,9 @@ const WIDGET_FORBIDDEN_PATTERNS = [
   /@import\b/i,
   /\bfetch\s*\(/i,
   /\blocalStorage\b/i,
+  /\b(?:min-height|height)\s*:\s*[^;{}]*(?:dvh|svh|lvh|vh)\b/i,
+  /\b(?:html|body|:root)\s*\{[^}]*\b(?:min-height|height)\s*:\s*[^;{}]*100%\b/i,
+  /\bposition\s*:\s*fixed\b[\s\S]{0,120}\binset\s*:\s*0\b/i,
 ];
 
 function validateEmitWidget(args) {
@@ -357,7 +372,13 @@ function validateLogFood(args) {
       if (typeof food.description !== "string" || !food.description) {
         errors.push(`foods[${i}].description required`);
       }
-      for (const field of ["grams", "kcal", "protein_g", "carbs_g", "fat_g"]) {
+      if (typeof food.amount !== "number" || !Number.isFinite(food.amount)) {
+        errors.push(`foods[${i}].amount must be a number`);
+      }
+      if (!VALID_FOOD_AMOUNT_UNITS.has(food.amount_unit)) {
+        errors.push(`foods[${i}].amount_unit invalid: ${food.amount_unit}`);
+      }
+      for (const field of ["kcal", "protein_g", "carbs_g", "fat_g"]) {
         if (typeof food[field] !== "number") {
           errors.push(`foods[${i}].${field} must be a number`);
         }
@@ -376,15 +397,169 @@ function validateEmitMealPlan(args) {
     : { valid: false, errors: result.errors };
 }
 
+function isNonEmptyString(value) {
+  return typeof value === "string" && value.trim().length > 0;
+}
+
+function isPositiveInteger(value) {
+  return Number.isInteger(value) && value > 0;
+}
+
+function normalizeWorkoutToolArgs(args) {
+  return {
+    ...args,
+    updates_plan_id: args.updates_plan_id ?? null,
+    sessions: Array.isArray(args.sessions)
+      ? args.sessions.map((session) => (
+        session && typeof session === "object"
+          ? { ...session, warmup_blocks: session.warmup_blocks ?? null }
+          : session
+      ))
+      : args.sessions,
+  };
+}
+
+function validateWorkoutBlock(block, label, errors) {
+  if (!block || typeof block !== "object") {
+    errors.push(`${label} must be an object`);
+    return;
+  }
+  if (!isNonEmptyString(block.name)) errors.push(`${label}.name is required`);
+  if (!isPositiveInteger(block.sets)) errors.push(`${label}.sets must be a positive integer`);
+  if (!isNonEmptyString(block.reps)) errors.push(`${label}.reps is required`);
+  if (!isNonEmptyString(block.load)) errors.push(`${label}.load is required`);
+  if (typeof block.rpe !== "number" || !Number.isFinite(block.rpe) || block.rpe < 0 || block.rpe > 10) {
+    errors.push(`${label}.rpe must be a finite number between 0 and 10`);
+  }
+  if (!Number.isInteger(block.rest_seconds) || block.rest_seconds < 0) {
+    errors.push(`${label}.rest_seconds must be a non-negative integer`);
+  }
+  if (!VALID_WORKOUT_BLOCK_CATEGORIES.has(block.category)) {
+    errors.push(`${label}.category invalid: ${block.category}`);
+  }
+  if (block.notes != null && typeof block.notes !== "string") {
+    errors.push(`${label}.notes must be a string or null`);
+  }
+}
+
 function validateEmitWorkoutPlan(args) {
   const errors = [];
   if (!args || typeof args !== "object") return { valid: false, errors: ["args must be an object"] };
-  if (args.schema_version !== 1) errors.push("schema_version must be 1");
-  if (typeof args.title !== "string" || !args.title) errors.push("title required");
-  if (!Array.isArray(args.sessions) || args.sessions.length === 0) {
+
+  const candidate = normalizeWorkoutToolArgs(args);
+
+  if (candidate.schema_version !== WORKOUT_PLAN_SCHEMA_VERSION) {
+    errors.push(`schema_version must be ${WORKOUT_PLAN_SCHEMA_VERSION}`);
+  }
+  if (!isNonEmptyString(candidate.title)) errors.push("title required");
+  if (!GOALS.includes(candidate.goal)) errors.push(`goal invalid: ${candidate.goal}`);
+  if (!EXPERIENCE_LEVELS.includes(candidate.experience_level)) {
+    errors.push(`experience_level invalid: ${candidate.experience_level}`);
+  }
+  if (!isNonEmptyString(candidate.start_date) || !ISO_DATE_PATTERN.test(candidate.start_date)) {
+    errors.push("start_date must be YYYY-MM-DD");
+  }
+  if (!isPositiveInteger(candidate.weeks)) errors.push("weeks must be a positive integer");
+  if (!Number.isInteger(candidate.days_per_week) || candidate.days_per_week < 1 || candidate.days_per_week > 7) {
+    errors.push("days_per_week must be an integer between 1 and 7");
+  }
+  if (candidate.updates_plan_id != null && !isNonEmptyString(candidate.updates_plan_id)) {
+    errors.push("updates_plan_id must be a non-empty string or null");
+  }
+  if (!Array.isArray(candidate.sessions) || candidate.sessions.length === 0) {
     errors.push("sessions array required");
   }
-  return errors.length ? { valid: false, errors } : { valid: true, data: args };
+
+  if (Array.isArray(candidate.sessions)) {
+    const sessionIds = new Set();
+    const sessionSlots = new Set();
+    const sessionsPerWeek = new Map();
+
+    candidate.sessions.forEach((session, index) => {
+      const sessionLabel = `sessions[${index}]`;
+      if (!session || typeof session !== "object") {
+        errors.push(`${sessionLabel} must be an object`);
+        return;
+      }
+
+      if (!isNonEmptyString(session.id)) {
+        errors.push(`${sessionLabel}.id is required`);
+      } else {
+        if (!WORKOUT_SESSION_ID_PATTERN.test(session.id)) {
+          errors.push(`${sessionLabel}.id must match s_w{week}d{day_of_week}`);
+        }
+        if (sessionIds.has(session.id)) {
+          errors.push(`${sessionLabel}.id duplicated: ${session.id}`);
+        } else {
+          sessionIds.add(session.id);
+        }
+      }
+
+      if (!isPositiveInteger(session.week)) {
+        errors.push(`${sessionLabel}.week must be a positive integer`);
+      } else {
+        if (isPositiveInteger(candidate.weeks) && session.week > candidate.weeks) {
+          errors.push(`${sessionLabel}.week exceeds weeks (${candidate.weeks})`);
+        }
+        sessionsPerWeek.set(session.week, (sessionsPerWeek.get(session.week) || 0) + 1);
+      }
+
+      if (!Number.isInteger(session.day_of_week) || session.day_of_week < 1 || session.day_of_week > 7) {
+        errors.push(`${sessionLabel}.day_of_week must be an integer between 1 and 7`);
+      }
+
+      if (isPositiveInteger(session.week) && Number.isInteger(session.day_of_week) && session.day_of_week >= 1 && session.day_of_week <= 7) {
+        const slotKey = `${session.week}:${session.day_of_week}`;
+        if (sessionSlots.has(slotKey)) {
+          errors.push(`${sessionLabel} duplicates week/day slot ${slotKey}`);
+        } else {
+          sessionSlots.add(slotKey);
+        }
+      }
+
+      if (!isNonEmptyString(session.date) || !ISO_DATE_PATTERN.test(session.date)) {
+        errors.push(`${sessionLabel}.date must be YYYY-MM-DD`);
+      }
+      if (!isNonEmptyString(session.title)) errors.push(`${sessionLabel}.title is required`);
+      if (!Array.isArray(session.blocks) || session.blocks.length === 0) {
+        errors.push(`${sessionLabel}.blocks must be a non-empty array`);
+      } else {
+        session.blocks.forEach((block, blockIndex) => {
+          validateWorkoutBlock(block, `${sessionLabel}.blocks[${blockIndex}]`, errors);
+        });
+      }
+
+      if (session.warmup_blocks != null && !Array.isArray(session.warmup_blocks)) {
+        errors.push(`${sessionLabel}.warmup_blocks must be an array or null`);
+      } else if (Array.isArray(session.warmup_blocks)) {
+        session.warmup_blocks.forEach((block, blockIndex) => {
+          validateWorkoutBlock(block, `${sessionLabel}.warmup_blocks[${blockIndex}]`, errors);
+        });
+      }
+    });
+
+    if (Number.isInteger(candidate.days_per_week) && candidate.days_per_week >= 1 && candidate.days_per_week <= 7) {
+      for (const [week, count] of sessionsPerWeek.entries()) {
+        if (count > candidate.days_per_week) {
+          errors.push(`week ${week} has ${count} sessions, exceeds days_per_week ${candidate.days_per_week}`);
+        }
+      }
+    }
+  }
+
+  if (errors.length) {
+    return { valid: false, errors };
+  }
+
+  const normalizedPlan = normalizeWorkoutPlan({
+    ...candidate,
+    timezone: "UTC",
+  });
+  const sharedValidation = validateWorkoutPlan(normalizedPlan);
+
+  return sharedValidation.ok
+    ? { valid: true, data: candidate }
+    : { valid: false, errors: sharedValidation.errors };
 }
 
 const VALIDATORS = {

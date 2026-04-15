@@ -17,9 +17,10 @@ import {
 } from "lucide-react";
 import {
   applyWorkoutPlanUpdate,
+  getChatThread,
   getProfile,
   getSession,
-  listChatThreads,
+  listChatThreadSummaries,
   requireAuth,
   saveNewWorkoutPlan,
   setStatus,
@@ -57,6 +58,8 @@ import {
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
+const DEFAULT_VISIBLE_MESSAGE_COUNT = 40;
+const VISIBLE_MESSAGE_COUNT_STEP = 40;
 
 function normalizeText(value, maxLength = 400) {
   return String(value || "").replace(/\s+/g, " ").trim().slice(0, maxLength);
@@ -328,6 +331,8 @@ function createEmptyThread() {
     sources: [],
     rail: {},
     threadState: createEmptyThreadState(),
+    isHydrated: true,
+    isHydrating: false,
   };
 }
 
@@ -476,7 +481,7 @@ function buildRecentMessages(messages, maxItems = 6) {
     .slice(-maxItems)
     .map((message) => ({
       role: normalizeText(message?.role, 24),
-      text: normalizeText(message?.plainText || message?.text || "", 320),
+      text: normalizeText(readMessageText(message), 320),
     }))
     .filter((message) => message.role && message.text);
 }
@@ -518,7 +523,7 @@ function formatHistoryTime(isoString) {
 
 function deriveThreadTitle(threadData) {
   const firstUserMessage = (threadData?.messages || []).find((message) => message.role === "user");
-  const source = sanitizeHistoryText(firstUserMessage?.text || firstUserMessage?.plainText || "", 80);
+  const source = sanitizeHistoryText(readMessageText(firstUserMessage), 80);
   if (!source) return "New chat";
   return source.length > 42 ? `${source.slice(0, 41).trim()}...` : source;
 }
@@ -527,23 +532,79 @@ function deriveThreadPreview(threadData) {
   const latestAssistant = [...(threadData?.messages || [])].reverse().find((message) => message.role === "assistant");
   const fallback = (threadData?.messages || []).find((message) => message.role === "user");
   const source = sanitizeHistoryText(
-    latestAssistant?.plainText || latestAssistant?.text || fallback?.text || "",
+    readMessageText(latestAssistant) || readMessageText(fallback),
     80
   );
   if (!source) return "No messages yet";
   return source.length > 52 ? `${source.slice(0, 51).trim()}...` : source;
 }
 
+function readMessageText(message) {
+  return String(message?.text || message?.plainText || "");
+}
+
+function normalizeMessageRecord(message) {
+  if (!message || typeof message !== "object") return message;
+  const text = typeof message.text === "string" ? message.text : "";
+  const plainText = typeof message.plainText === "string" ? message.plainText : "";
+  if (!plainText) {
+    if (!("plainText" in message)) return message;
+    const nextMessage = { ...message };
+    delete nextMessage.plainText;
+    return nextMessage;
+  }
+  const nextMessage = { ...message };
+  if (!text) {
+    nextMessage.text = plainText;
+  }
+  if (nextMessage.text === plainText) {
+    delete nextMessage.plainText;
+  }
+  return nextMessage;
+}
+
+function normalizeMessageRecords(messages) {
+  const list = Array.isArray(messages) ? messages : [];
+  let changed = false;
+  const nextMessages = list.map((message) => {
+    const normalized = normalizeMessageRecord(message);
+    if (normalized !== message) changed = true;
+    return normalized;
+  });
+  return changed ? nextMessages : list;
+}
+
+function dehydrateThreadForHistory(thread) {
+  if (!thread || typeof thread !== "object" || thread.isHydrated === false) {
+    return thread;
+  }
+  return {
+    id: thread.id,
+    title: thread.title || "New chat",
+    preview: thread.preview || deriveThreadPreview(thread),
+    createdAt: thread.createdAt || new Date().toISOString(),
+    updatedAt: thread.updatedAt || thread.createdAt || new Date().toISOString(),
+    messages: [],
+    sources: [],
+    rail: {},
+    threadState: createEmptyThreadState(),
+    isHydrated: false,
+    isHydrating: false,
+  };
+}
+
 function mapSavedThread(row) {
+  const hasMessages = Array.isArray(row.messages);
   const normalizedThreadState = mergeThreadState(row.thread_state);
   const usage = normalizeTokenUsage(normalizedThreadState?.token_usage);
+  const normalizedMessages = hasMessages ? normalizeMessageRecords(row.messages) : [];
   return {
     id: row.id,
     title: row.title || "New chat",
     preview: row.preview || "No messages yet",
     createdAt: row.created_at,
     updatedAt: row.updated_at,
-    messages: Array.isArray(row.messages) ? row.messages : [],
+    messages: normalizedMessages,
     sources: Array.isArray(row.sources) ? row.sources : [],
     rail: {
       ...(row.rail && typeof row.rail === "object" ? row.rail : {}),
@@ -552,7 +613,52 @@ function mapSavedThread(row) {
       requestCount: usage.requests,
     },
     threadState: normalizedThreadState,
+    isHydrated: hasMessages,
+    isHydrating: false,
   };
+}
+
+function mergeThreadIntoHistory(history, nextThread, { promote = false } = {}) {
+  const list = Array.isArray(history) ? history : [];
+  const existingIndex = list.findIndex((thread) => thread.id === nextThread.id);
+  if (promote) {
+    return [nextThread, ...list.filter((thread) => thread.id !== nextThread.id)].slice(0, MAX_HISTORY_ITEMS);
+  }
+  if (existingIndex === -1) {
+    return [nextThread, ...list].slice(0, MAX_HISTORY_ITEMS);
+  }
+  const nextHistory = [...list];
+  nextHistory[existingIndex] = nextThread;
+  return nextHistory;
+}
+
+function patchThreadInHistory(history, threadId, updater) {
+  return (Array.isArray(history) ? history : []).map((thread) => {
+    if (thread.id !== threadId) return thread;
+    return updater(thread);
+  });
+}
+
+function updateStreamingAssistantText(history, threadId, createdAt, nextText) {
+  return patchThreadInHistory(history, threadId, (thread) => {
+    const messages = Array.isArray(thread.messages) ? thread.messages : [];
+    const lastIdx = messages.length - 1;
+    if (lastIdx < 0) return thread;
+    const lastMessage = messages[lastIdx];
+    if (lastMessage.role !== "assistant" || lastMessage.createdAt !== createdAt) {
+      return thread;
+    }
+    if (readMessageText(lastMessage) === nextText) {
+      return thread;
+    }
+    const nextMessages = [...messages];
+    nextMessages[lastIdx] = normalizeMessageRecord({
+      ...lastMessage,
+      text: nextText,
+      plainText: nextText,
+    });
+    return { ...thread, messages: nextMessages };
+  });
 }
 
 function normalizeConfidence(confidence) {
@@ -582,7 +688,7 @@ function railFromData(data = {}) {
   const confidenceScore = normalizedConfidence.score;
   const confidenceLabel = normalizedConfidence.label;
   const sourceCount = Array.isArray(data.sources) ? data.sources.length : 0;
-  const synthesisMode = data.debug?.synthesis_mode || (data.summary ? "synthesized" : "idle");
+  const synthesisMode = data.summary ? "synthesized" : "idle";
   const confidencePercent = Math.round(Math.max(0, Math.min(confidenceScore, 1)) * 100);
   const tokenUsage = normalizeTokenUsage(data.token_usage);
   return {
@@ -2223,7 +2329,7 @@ function buildEvidenceArtifactDoc({ card, title = "Generated dashboard", metrics
   <style>
     :root { color-scheme: dark; --bg:#08080a; --panel:rgba(255,255,255,0.03); --ink:#e8e8e8; --muted:#666; --line:#3a3a3a; --accent:#78dc14; --green:#78dc14; --blue:#78dc14; }
     * { box-sizing: border-box; }
-    body { margin: 0; min-height: 100vh; background: #08080a; color: var(--ink); font-family: system-ui, -apple-system, sans-serif; }
+    body { margin: 0; background: #08080a; color: var(--ink); font-family: system-ui, -apple-system, sans-serif; }
     .vis-container { padding: 18px; min-height: 100%; }
     .section-label { margin: 0 0 10px; color: var(--muted); font-size: 12px; letter-spacing: .02em; font-family: 'JetBrains Mono', ui-monospace, monospace; }
     .hero { display: grid; gap: 10px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,.03); box-shadow: inset 0 0 0 1px rgba(255,255,255,.06); }
@@ -2485,7 +2591,7 @@ function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
   }));
 }
 
-function Message({ message, typewrite = false, threadId = null }) {
+const Message = React.memo(function Message({ message, typewrite = false, threadId = null }) {
   // Choose rendering strategy:
   // 1. toolResults present â†’ SSE path (prose + structured tool outputs)
   // 2. blocks array â†’ legacy fence-parsed path
@@ -2497,14 +2603,18 @@ function Message({ message, typewrite = false, threadId = null }) {
     { className: `message ${message.role}` },
     h("div", { className: "message-content" },
       hasToolResults
-        ? h(TextBlock, { text: message.text || message.plainText || "", role: message.role, typewrite, threadId, toolResults: message.toolResults })
+        ? h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId, toolResults: message.toolResults })
         : Array.isArray(message.blocks)
           ? h(MessageBlocks, { blocks: message.blocks, typewrite, threadId })
           : message.html
             ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
-            : h(TextBlock, { text: message.text || message.plainText || "", role: message.role, typewrite, threadId }))
+            : h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId }))
   );
-}
+}, (prevProps, nextProps) =>
+  prevProps.message === nextProps.message &&
+  prevProps.typewrite === nextProps.typewrite &&
+  prevProps.threadId === nextProps.threadId
+);
 
 // Right-rail sources card. Displays up to 4 attached sources for the
 // currently active assistant message. Intentionally thin â€” title, one-line
@@ -2612,33 +2722,8 @@ function ThinkingGlyph({ state = "idle", size = 64, color = "#534AB7" }) {
   );
 }
 
-// ChatApp is exported so /app/_debug/ can render the same UI inside a
-// two-column layout and observe debug events as they arrive. Props are
-// all optional â€” the production /chat/ page renders <ChatApp /> with no
-// arguments and nothing about its behavior changes.
-//
-//   onDebugData(data)        Called with the full `data` object after each
-//                            /api/emersus/recommendation response lands.
-//                            Passed verbatim (includes debug.stage_timings,
-//                            debug.openai_input, etc.).
-//   onProgress(event)        Called once per SSE frame from the streaming
-//                            endpoint, when a custom `fetcher` is in use.
-//                            event.stage âˆˆ {connected, profile_loaded,
-//                            planning_done, retrieval_done, prompt_built,
-//                            synthesis_primary_done, synthesis_fallback_done,
-//                            final, complete, error}. Ignored entirely
-//                            when the default (non-stream) fetcher runs.
-//   fetcher(requestBody)     If provided, called instead of the default
-//                            POST to /api/emersus/recommendation. Should
-//                            return an object shaped like { data } where
-//                            `data` is the final API response. Used by the
-//                            debug page to swap in SSE streaming + fall
-//                            back to the regular endpoint on error.
-export function ChatApp({
-  onDebugData = null,
-  onProgress = null,
-  fetcher = null,
-} = {}) {
+// ChatApp powers the main authenticated chat experience.
+export function ChatApp() {
   const [session, setSession] = useState(null);
   const [chatHistory, setChatHistory] = useState([]);
   const [activeThreadId, setActiveThreadId] = useState("");
@@ -2647,14 +2732,27 @@ export function ChatApp({
   const [statusTone, setStatusTone] = useState("");
   const [question, setQuestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [visibleMessageCount, setVisibleMessageCount] = useState(DEFAULT_VISIBLE_MESSAGE_COUNT);
   const [glyphState, setGlyphState] = useState("idle");
   const [streamingMessageKey, setStreamingMessageKey] = useState("");
   const [onboardingActive, setOnboardingActive] = useState(false);
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
   const submitQuestionRef = useRef(null);
+  const activeThreadIdRef = useRef(activeThreadId);
+  const chatHistoryRef = useRef(chatHistory);
+  const threadLoadPromisesRef = useRef(new Map());
 
   const activeThread = useMemo(() => chatHistory.find((threadData) => threadData.id === activeThreadId) || null, [activeThreadId, chatHistory]);
+  const activeMessages = Array.isArray(activeThread?.messages) ? activeThread.messages : [];
+  const visibleMessageStartIndex = Math.max(0, activeMessages.length - visibleMessageCount);
+  const visibleMessages = activeMessages.slice(visibleMessageStartIndex);
+  const hiddenMessageCount = visibleMessageStartIndex;
+  const activeThreadNeedsHydration = !!activeThread && activeThread.isHydrated === false;
+
+  useEffect(() => {
+    chatHistoryRef.current = chatHistory;
+  }, [chatHistory]);
 
   useEffect(() => {
     setStatus(statusRef.current, statusTone, statusMessage);
@@ -2672,11 +2770,69 @@ export function ChatApp({
   // never mid-submit.
   const previousThreadIdRef = useRef(activeThreadId);
   useEffect(() => {
+    activeThreadIdRef.current = activeThreadId;
     if (previousThreadIdRef.current !== activeThreadId) {
       previousThreadIdRef.current = activeThreadId;
       setStreamingMessageKey("");
+      setVisibleMessageCount(DEFAULT_VISIBLE_MESSAGE_COUNT);
+      setChatHistory((history) =>
+        history.map((thread) => {
+          if (thread.id === activeThreadId || thread.isHydrated === false) {
+            return thread;
+          }
+          return dehydrateThreadForHistory(thread);
+        })
+      );
     }
   }, [activeThreadId]);
+
+  async function hydrateThread(threadId) {
+    if (!threadId || !session?.user?.id) return null;
+    const currentThread = chatHistoryRef.current.find((thread) => thread.id === threadId) || null;
+    if (!currentThread || currentThread.isHydrated !== false) {
+      return currentThread;
+    }
+    const existingPromise = threadLoadPromisesRef.current.get(threadId);
+    if (existingPromise) {
+      return existingPromise;
+    }
+    setChatHistory((history) =>
+      patchThreadInHistory(history, threadId, (thread) =>
+        thread.isHydrated === false && !thread.isHydrating ? { ...thread, isHydrating: true } : thread
+      )
+    );
+    const loadPromise = getChatThread(session.user.id, threadId)
+      .then((row) => {
+        if (!row) {
+          const fallbackThread = activeThreadIdRef.current === threadId
+            ? {
+                ...currentThread,
+                isHydrated: true,
+                isHydrating: false,
+              }
+            : dehydrateThreadForHistory(currentThread);
+          setChatHistory((history) => mergeThreadIntoHistory(history, fallbackThread));
+          return fallbackThread;
+        }
+        const mapped = mapSavedThread(row);
+        const nextThread = activeThreadIdRef.current === threadId
+          ? mapped
+          : dehydrateThreadForHistory(mapped);
+        setChatHistory((history) => mergeThreadIntoHistory(history, nextThread));
+        return nextThread;
+      })
+      .catch((error) => {
+        setChatHistory((history) =>
+          patchThreadInHistory(history, threadId, (thread) => ({ ...thread, isHydrating: false }))
+        );
+        throw error;
+      })
+      .finally(() => {
+        threadLoadPromisesRef.current.delete(threadId);
+      });
+    threadLoadPromisesRef.current.set(threadId, loadPromise);
+    return loadPromise;
+  }
 
   // Widget -> parent bridge. Widgets inside sandboxed iframes call
   // window.sendPrompt(text), which posts an "emersus:sendPrompt" message
@@ -2719,7 +2875,7 @@ export function ChatApp({
       if (cancelled) return;
       const needsOnboarding = !userProfile || userProfile.onboarding_completed === false;
       setOnboardingActive(needsOnboarding);
-      const rows = await listChatThreads(authSession.user.id);
+      const rows = await listChatThreadSummaries(authSession.user.id);
       if (cancelled) return;
       const loaded = rows.map(mapSavedThread);
       if (loaded.length) {
@@ -2789,6 +2945,22 @@ export function ChatApp({
     };
   }, []);
 
+  useEffect(() => {
+    if (!activeThreadId || !session?.user?.id || !activeThreadNeedsHydration) {
+      return undefined;
+    }
+    let cancelled = false;
+    hydrateThread(activeThreadId).catch((error) => {
+      if (cancelled) return;
+      console.error("Failed to hydrate chat thread:", error);
+      setStatusTone("error");
+      setStatusMessage(error.message || "Unable to load conversation.");
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [activeThreadId, activeThreadNeedsHydration, session?.user?.id]);
+
   // Expose a "workout plan action happened" hook to <WorkoutPlanCard> via
   // the module-level ref. The card calls workoutPlanActionRef.current({ type, planId })
   // after a successful save/update so the chat thread can stamp
@@ -2841,17 +3013,30 @@ export function ChatApp({
   }, [activeThreadId, chatHistory, session]);
 
   async function persistThread(nextThread) {
-    const savedThread = {
+    const normalizedMessages = normalizeMessageRecords(nextThread.messages);
+    const normalizedThread = {
       ...nextThread,
-      title: deriveThreadTitle(nextThread),
-      preview: deriveThreadPreview(nextThread),
-      updatedAt: new Date().toISOString(),
+      messages: normalizedMessages,
     };
-    setChatHistory((history) => [savedThread, ...history.filter((item) => item.id !== savedThread.id)].slice(0, MAX_HISTORY_ITEMS));
+    const savedThread = {
+      ...normalizedThread,
+      title: deriveThreadTitle(normalizedThread),
+      preview: deriveThreadPreview(normalizedThread),
+      updatedAt: new Date().toISOString(),
+      isHydrated: true,
+      isHydrating: false,
+    };
+    setChatHistory((history) => mergeThreadIntoHistory(history, savedThread, { promote: true }));
     if (session?.user?.id) {
       const saved = await upsertChatThread(session.user.id, savedThread);
       const mapped = mapSavedThread(saved);
-      setChatHistory((history) => [mapped, ...history.filter((item) => item.id !== mapped.id)].slice(0, MAX_HISTORY_ITEMS));
+      setChatHistory((history) =>
+        mergeThreadIntoHistory(
+          history,
+          activeThreadIdRef.current === mapped.id ? mapped : dehydrateThreadForHistory(mapped),
+          { promote: true }
+        )
+      );
       return mapped;
     }
     return savedThread;
@@ -2877,13 +3062,32 @@ export function ChatApp({
     }
     if (isSubmitting) return;
 
-    const baseThread = activeThread || createEmptyThread();
+    let baseThread = activeThread || createEmptyThread();
+    if (baseThread.isHydrated === false) {
+      try {
+        baseThread = (await hydrateThread(baseThread.id)) || baseThread;
+      } catch (error) {
+        setStatusTone("error");
+        setStatusMessage(error.message || "Unable to load conversation.");
+        return;
+      }
+    }
+    if (baseThread.isHydrated === false) {
+      setStatusTone("error");
+      setStatusMessage("Conversation is still loading. Please try again.");
+      return;
+    }
     const isOnboardingTrigger = trimmed === "__onboarding_start__";
     // Don't show the onboarding trigger as a visible user message.
     const threadWithUser = isOnboardingTrigger
       ? baseThread
       : (() => {
-          const userMessage = { role: "user", text: trimmed, plainText: trimmed, createdAt: new Date().toISOString() };
+          const userMessage = normalizeMessageRecord({
+            role: "user",
+            text: trimmed,
+            plainText: trimmed,
+            createdAt: new Date().toISOString(),
+          });
           return {
             ...baseThread,
             messages: [...(baseThread.messages || []), userMessage],
@@ -2896,7 +3100,7 @@ export function ChatApp({
     setGlyphState("thinking");
     setStreamingMessageKey("");
     setActiveThreadId(threadWithUser.id);
-    setChatHistory((history) => [threadWithUser, ...history.filter((item) => item.id !== threadWithUser.id)]);
+    setChatHistory((history) => mergeThreadIntoHistory(history, threadWithUser, { promote: true }));
     let persistedThread = await persistThread(threadWithUser);
 
     try {
@@ -2906,10 +3110,8 @@ export function ChatApp({
         userId: session?.user?.id ? `supabase:${session.user.id}` : "",
         threadState: persistedThread.threadState,
         recentMessages: buildRecentMessages(persistedThread.messages),
-        includeDebug: true,
       };
 
-      // â”€â”€ Fetch â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
       // The backend returns EITHER:
       //   â€¢ application/json â€” ShortCircuit responses (onboarding, guardrail
       //     refusal). Handled exactly like the old single-JSON code path.
@@ -2918,147 +3120,129 @@ export function ChatApp({
       //     and sources arrive as discrete events and are attached to the
       //     final message.
       let data;
-      if (typeof fetcher === "function") {
-        // The debug page supplies its own fetcher (SSE + fallback). It
-        // forwards SSE frames to our onProgress prop internally, so we
-        // just await the final resolved data here.
-        const result = await fetcher(requestBody);
-        if (!result || !result.data) {
-          throw new Error(result?.error || "Unable to generate a recommendation.");
-        }
-        data = result.data;
-      } else {
-        const authHeaders = { "Content-Type": "application/json" };
-        if (session?.access_token) {
-          authHeaders["Authorization"] = `Bearer ${session.access_token}`;
-        }
-        const response = await fetch("/api/emersus/recommendation", {
-          method: "POST",
-          headers: authHeaders,
-          body: JSON.stringify(requestBody),
-        });
-        if (!response.ok) {
-          const errBody = await response.json().catch(() => ({}));
-          throw new Error(errBody.message || "Unable to generate a recommendation.");
-        }
-
-        const contentType = (response.headers.get("content-type") || "").toLowerCase();
-
-        if (contentType.includes("text/event-stream")) {
-          // â”€â”€ SSE streaming path â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-          // Create a placeholder assistant message so prose appears in
-          // real-time as delta events arrive.
-          const streamCreatedAt = new Date().toISOString();
-          let accumulatedProse = "";
-          const toolResults = {};
-          const toolErrors = [];
-          let sseSources = [];
-          let sseUsage = {};
-          let sseThreadState = null;
-          let sseOnboardingCompleted = false;
-          let sseConfidence = null;
-          let sseDebug = null;
-
-          // Insert the streaming placeholder into chat history immediately
-          // so the user sees the bubble appear as prose arrives.
-          const placeholderMessage = {
-            role: "assistant",
-            text: "",
-            plainText: "",
-            toolResults: {},
-            sources: [],
-            createdAt: streamCreatedAt,
-          };
-          const threadWithPlaceholder = {
-            ...persistedThread,
-            messages: [...(persistedThread.messages || []), placeholderMessage],
-          };
-          // Do NOT set streamingMessageKey here â€” SSE deltas ARE the
-          // streaming animation. Setting it would trigger the typewriter
-          // hook which fights the real-time delta updates (text flickers).
-          setChatHistory((prev) =>
-            [threadWithPlaceholder, ...prev.filter((t) => t.id !== threadWithPlaceholder.id)].slice(0, MAX_HISTORY_ITEMS)
-          );
-          setGlyphState("responding");
-
-          await readSSEStream(response, {
-            onEvent(event) {
-              if (event.type === "prose") {
-                accumulatedProse += event.delta || "";
-                // Update the streaming message in-place so the user sees
-                // text arrive in real-time (no typewriter animation needed â€”
-                // the SSE deltas ARE the streaming effect).
-                setChatHistory((prev) =>
-                  prev.map((thread) => {
-                    if (thread.id !== persistedThread.id) return thread;
-                    const msgs = [...thread.messages];
-                    const lastIdx = msgs.length - 1;
-                    if (lastIdx >= 0 && msgs[lastIdx].role === "assistant" && msgs[lastIdx].createdAt === streamCreatedAt) {
-                      msgs[lastIdx] = { ...msgs[lastIdx], text: accumulatedProse, plainText: accumulatedProse };
-                    }
-                    return { ...thread, messages: msgs };
-                  })
-                );
-                if (typeof onProgress === "function") {
-                  try { onProgress({ type: "prose", delta: event.delta }); } catch { /* noop */ }
-                }
-              } else if (event.type === "tool") {
-                toolResults[event.name] = event.data;
-              } else if (event.type === "tool_error") {
-                toolErrors.push({ name: event.name, errors: event.errors });
-              } else if (event.type === "done") {
-                sseSources = Array.isArray(event.sources) ? event.sources : [];
-                sseUsage = event.usage || {};
-                sseThreadState = event.thread_state || null;
-                sseOnboardingCompleted = !!event.onboarding_completed;
-                sseConfidence = event.confidence || null;
-                sseDebug = event.debug || null;
-              }
-            },
-          });
-
-          // Strip ~~~profile-update fences that may appear in streamed prose
-          const cleanedProse = accumulatedProse
-            .replace(/\n*~~~profile-update\s*\r?\n?[\s\S]*?(?:~~~|$)/g, "")
-            .trim();
-
-          // Synthesise a `data` object that matches the shape the rest of
-          // the function expects (thread state, rail, persist, etc.).
-          data = {
-            answer_text: cleanedProse,
-            sources: sseSources,
-            token_usage: sseUsage,
-            onboarding_completed: sseOnboardingCompleted,
-            confidence: sseConfidence,
-            debug: sseDebug,
-            // Carry tool results so the message builder below can attach them.
-            _toolResults: Object.keys(toolResults).length ? toolResults : undefined,
-            _toolErrors: toolErrors.length ? toolErrors : undefined,
-            // If the backend sent an updated thread state, forward it.
-            _sseThreadState: sseThreadState,
-            // Flag so the post-stream code knows to skip the typewriter.
-            _sse: true,
-          };
-
-          // Clear the streaming key so the placeholder stops being treated
-          // as "currently streaming" once we build the final message below.
-          setStreamingMessageKey("");
-        } else {
-          // â”€â”€ JSON path (ShortCircuit: onboarding / guardrail refusal) â”€â”€
-          data = await response.json().catch(() => ({}));
-        }
+      const authHeaders = { "Content-Type": "application/json" };
+      if (session?.access_token) {
+        authHeaders["Authorization"] = `Bearer ${session.access_token}`;
+      }
+      const response = await fetch("/api/emersus/recommendation", {
+        method: "POST",
+        headers: authHeaders,
+        body: JSON.stringify(requestBody),
+      });
+      if (!response.ok) {
+        const errBody = await response.json().catch(() => ({}));
+        throw new Error(errBody.message || "Unable to generate a recommendation.");
       }
 
-      // Give the debug page a chance to show the full response. We fire
-      // the callback BEFORE any further state updates so the debug panel
-      // can render while the chat bubble is still animating. Wrapped in
-      // a try/catch because a buggy observer should never break chat.
-      if (typeof onDebugData === "function") {
-        try {
-          onDebugData(data);
-        } catch (debugError) {
-          console.error("onDebugData callback failed:", debugError);
-        }
+      const contentType = (response.headers.get("content-type") || "").toLowerCase();
+
+      if (contentType.includes("text/event-stream")) {
+        // Create a placeholder assistant message so prose appears in
+        // real-time as delta events arrive.
+        const streamCreatedAt = new Date().toISOString();
+        let accumulatedProse = "";
+        let renderedProse = "";
+        let proseFlushTimer = null;
+        const toolResults = {};
+        const toolErrors = [];
+        let sseSources = [];
+        let sseUsage = {};
+        let sseThreadState = null;
+        let sseOnboardingCompleted = false;
+        let sseConfidence = null;
+        const flushAccumulatedProse = ({ force = false } = {}) => {
+          const commit = () => {
+            proseFlushTimer = null;
+            if (renderedProse === accumulatedProse) return;
+            renderedProse = accumulatedProse;
+            setChatHistory((prev) =>
+              updateStreamingAssistantText(prev, persistedThread.id, streamCreatedAt, renderedProse)
+            );
+          };
+          if (force) {
+            if (proseFlushTimer != null) {
+              clearTimeout(proseFlushTimer);
+              proseFlushTimer = null;
+            }
+            commit();
+            return;
+          }
+          if (proseFlushTimer != null) return;
+          proseFlushTimer = setTimeout(commit, 48);
+        };
+
+        // Insert the streaming placeholder into chat history immediately
+        // so the user sees the bubble appear as prose arrives.
+        const placeholderMessage = normalizeMessageRecord({
+          role: "assistant",
+          text: "",
+          plainText: "",
+          toolResults: {},
+          sources: [],
+          createdAt: streamCreatedAt,
+        });
+        const threadWithPlaceholder = {
+          ...persistedThread,
+          messages: [...(persistedThread.messages || []), placeholderMessage],
+        };
+        // Do NOT set streamingMessageKey here â€” SSE deltas ARE the
+        // streaming animation. Setting it would trigger the typewriter
+        // hook which fights the real-time delta updates (text flickers).
+        setChatHistory((prev) =>
+          mergeThreadIntoHistory(prev, threadWithPlaceholder, { promote: true })
+        );
+        setGlyphState("responding");
+
+        await readSSEStream(response, {
+          onEvent(event) {
+            if (event.type === "prose") {
+              accumulatedProse += event.delta || "";
+              // Batch prose updates so tiny token bursts do not rewrite the
+              // whole active thread state on every frame.
+              flushAccumulatedProse();
+            } else if (event.type === "tool") {
+              toolResults[event.name] = event.data;
+            } else if (event.type === "tool_error") {
+              toolErrors.push({ name: event.name, errors: event.errors });
+            } else if (event.type === "done") {
+              sseSources = Array.isArray(event.sources) ? event.sources : [];
+              sseUsage = event.usage || {};
+              sseThreadState = event.thread_state || null;
+              sseOnboardingCompleted = !!event.onboarding_completed;
+              sseConfidence = event.confidence || null;
+            }
+          },
+        });
+        flushAccumulatedProse({ force: true });
+
+        // Strip ~~~profile-update fences that may appear in streamed prose
+        const cleanedProse = accumulatedProse
+          .replace(/\n*~~~profile-update\s*\r?\n?[\s\S]*?(?:~~~|$)/g, "")
+          .trim();
+
+        // Synthesise a `data` object that matches the shape the rest of
+        // the function expects (thread state, rail, persist, etc.).
+        data = {
+          answer_text: cleanedProse,
+          sources: sseSources,
+          token_usage: sseUsage,
+          onboarding_completed: sseOnboardingCompleted,
+          confidence: sseConfidence,
+          // Carry tool results so the message builder below can attach them.
+          _toolResults: Object.keys(toolResults).length ? toolResults : undefined,
+          _toolErrors: toolErrors.length ? toolErrors : undefined,
+          // If the backend sent an updated thread state, forward it.
+          _sseThreadState: sseThreadState,
+          // Flag so the post-stream code knows to skip the typewriter.
+          _sse: true,
+        };
+
+        // Clear the streaming key so the placeholder stops being treated
+        // as "currently streaming" once we build the final message below.
+        setStreamingMessageKey("");
+      } else {
+        // â”€â”€ JSON path (ShortCircuit: onboarding / guardrail refusal) â”€â”€
+        data = await response.json().catch(() => ({}));
       }
       // If the backend signals onboarding is complete, update local state
       // so the placeholder reverts and future messages go through normal flow.
@@ -3086,7 +3270,7 @@ export function ChatApp({
 
       // Build the assistant message. New SSE responses attach toolResults
       // directly; legacy JSON responses use the blocks/html path.
-      const assistantMessage = {
+      const assistantMessage = normalizeMessageRecord({
         role: "assistant",
         ...(data._toolResults
           ? { text: assistantPlainText || normalizeText(assistantRaw, 4000), toolResults: data._toolResults }
@@ -3098,7 +3282,7 @@ export function ChatApp({
         sources: Array.isArray(data.sources) ? data.sources : [],
         ...(data._toolErrors?.length ? { toolErrors: data._toolErrors } : {}),
         createdAt: new Date().toISOString(),
-      };
+      });
 
       const nextThread = {
         ...persistedThread,
@@ -3141,12 +3325,19 @@ export function ChatApp({
         setStreamingMessageKey(assistantMessage.createdAt);
       }
       persistedThread = await persistThread(nextThread);
-      setActiveThreadId(persistedThread.id);
     } catch (error) {
       const errorMessage = error.message || "Request failed.";
       await persistThread({
         ...persistedThread,
-        messages: [...(persistedThread.messages || []), { role: "assistant", text: errorMessage, plainText: errorMessage, createdAt: new Date().toISOString() }],
+        messages: [
+          ...(persistedThread.messages || []),
+          normalizeMessageRecord({
+            role: "assistant",
+            text: errorMessage,
+            plainText: errorMessage,
+            createdAt: new Date().toISOString(),
+          }),
+        ],
         threadState: deriveThreadState(persistedThread, trimmed, errorMessage),
         rail: { ...(persistedThread.rail || {}), synthesisMode: "error" },
       });
@@ -3165,6 +3356,11 @@ export function ChatApp({
   submitQuestionRef.current = submitQuestion;
 
   const displayName = getDisplayName(session);
+  const composerDisabled = isSubmitting || activeThreadNeedsHydration;
+  const visibleMessageEntries = visibleMessages.map((message, index) => ({
+    message,
+    index: visibleMessageStartIndex + index,
+  }));
   const rail = activeThread?.rail || {};
   const confidencePercent = typeof rail.confidencePercent === "number" ? rail.confidencePercent : Math.round(Math.max(0, Math.min(Number(rail.confidenceScore || 0), 1)) * 100);
   const latestAssistantSources = useMemo(() => {
@@ -3244,10 +3440,23 @@ export function ChatApp({
     h("main", { className: "chat-main" },
       h("div", { className: "chat-main-body" },
         h("section", { className: "conversation-canvas", ref: canvasRef },
-          h("div", { className: `chat-thread${!activeThread?.messages?.length ? " is-empty" : ""}` },
-            activeThread?.messages?.length
+          h("div", { className: `chat-thread${!activeMessages.length ? " is-empty" : ""}` },
+            activeThreadNeedsHydration
+              ? h("section", { className: "thread-welcome" },
+                  h("p", { className: "thread-welcome-eyebrow" }, "Loading"),
+                  h("h2", { className: "thread-welcome-title" }, activeThread?.title || "Conversation"),
+                  h("p", { className: "thread-welcome-copy" }, "Fetching the full conversation so we can render the chat history without loading every thread up front."))
+              : activeMessages.length
               ? [
-                  ...activeThread.messages.map((message, index) => h(Message, {
+                  hiddenMessageCount
+                    ? h("div", { key: "load-earlier", style: { display: "flex", justifyContent: "center", marginBottom: "12px" } },
+                        h("button", {
+                          className: "inline-button",
+                          type: "button",
+                          onClick: () => setVisibleMessageCount((count) => Math.min(activeMessages.length, count + VISIBLE_MESSAGE_COUNT_STEP)),
+                        }, `Load ${Math.min(VISIBLE_MESSAGE_COUNT_STEP, hiddenMessageCount)} earlier messages`))
+                    : null,
+                  ...visibleMessageEntries.map(({ message, index }) => h(Message, {
                     key: `${message.createdAt || ""}-${index}`,
                     message,
                     typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
@@ -3268,20 +3477,23 @@ export function ChatApp({
             h("textarea", {
               id: "chat-question",
               name: "question",
-              placeholder: onboardingActive
+              placeholder: activeThreadNeedsHydration
+                ? "Loading conversation..."
+                : onboardingActive
                 ? "Tell me about yourself..."
                 : "Ask me anything about training, nutrition, recovery, or performance.",
+              disabled: composerDisabled,
               value: question,
               onChange: (event) => setQuestion(event.target.value),
               onKeyDown: (event) => {
                 if (event.key === "Enter" && !event.shiftKey) {
                   event.preventDefault();
-                  if (!isSubmitting) submitQuestion(event);
+                  if (!composerDisabled) submitQuestion(event);
                 }
               },
             }),
             h("div", { className: "composer-actions" },
-              h("button", { className: "submit-orb", type: "submit", disabled: isSubmitting, "aria-label": "Send question" }, h(ArrowUp, { size: 21 })))),
+              h("button", { className: "submit-orb", type: "submit", disabled: composerDisabled, "aria-label": "Send question" }, h(ArrowUp, { size: 21 })))),
           h("div", { className: "composer-utility-row" }, h("div", { className: "composer-buttons" }), h("p", { className: "status-text", ref: statusRef }))))),
     h("aside", { className: "chat-rail" },
       h("section", { className: "rail-card" },
@@ -3296,10 +3508,8 @@ export function ChatApp({
 }
 
 // Default mount: the production /chat/ page has #chat-root in its HTML.
-// Other pages (e.g. /app/_debug/) import this module for ChatApp and
-// provide their own root, so skip the default render when #chat-root is
-// missing. This lets a single bundle power both pages without either
-// duplicating state or double-mounting.
+// Other pages can import this module for ChatApp and provide their own
+// root, so skip the default render when #chat-root is missing.
 const defaultRootEl = document.getElementById("chat-root");
 if (defaultRootEl) {
   const root = createRoot(defaultRootEl);

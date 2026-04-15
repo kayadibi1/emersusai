@@ -193,18 +193,83 @@ export async function listChatThreads(userId) {
   return Array.isArray(data) ? data : [];
 }
 
+function compactChatMessage(message) {
+  if (!message || typeof message !== "object") return message;
+  const text = typeof message.text === "string" ? message.text : "";
+  const plainText = typeof message.plainText === "string" ? message.plainText : "";
+  if (!plainText) {
+    if (!("plainText" in message)) return message;
+    const nextMessage = { ...message };
+    delete nextMessage.plainText;
+    return nextMessage;
+  }
+  const nextMessage = { ...message };
+  if (!text) {
+    nextMessage.text = plainText;
+  }
+  if (nextMessage.text === plainText) {
+    delete nextMessage.plainText;
+  }
+  return nextMessage;
+}
+
+function compactChatMessages(messages) {
+  const list = Array.isArray(messages) ? messages : [];
+  let changed = false;
+  const nextMessages = list.map((message) => {
+    const compacted = compactChatMessage(message);
+    if (compacted !== message) changed = true;
+    return compacted;
+  });
+  return changed ? nextMessages : list;
+}
+
+export async function listChatThreadSummaries(userId) {
+  const supabase = await getSupabase();
+  const { data, error } = await supabase
+    .from("chat_threads")
+    .select("id,user_id,title,preview,created_at,updated_at")
+    .eq("user_id", userId)
+    .order("updated_at", { ascending: false });
+
+  if (error) {
+    throw error;
+  }
+
+  return Array.isArray(data) ? data : [];
+}
+
+export async function getChatThread(userId, threadId) {
+  const supabase = await getSupabase();
+  const { data, error } = await supabase
+    .from("chat_threads")
+    .select(
+      "id,user_id,title,preview,messages,sources,rail,thread_state,created_at,updated_at"
+    )
+    .eq("user_id", userId)
+    .eq("id", threadId)
+    .maybeSingle();
+
+  if (error) {
+    throw error;
+  }
+
+  return data || null;
+}
+
 export async function upsertChatThread(userId, thread) {
   const supabase = await getSupabase();
+  const messages = compactChatMessages(Array.isArray(thread.messages) ? thread.messages : []);
   const payload = {
     id: thread.id,
     user_id: userId,
     title: thread.title || "New chat",
     preview: thread.preview || "No messages yet",
-    messages: Array.isArray(thread.messages) ? thread.messages : [],
+    messages,
     sources: (() => {
       // Derive thread-level sources from the latest assistant message for
       // backward compatibility with older clients that read thread.sources.
-      const msgs = Array.isArray(thread.messages) ? thread.messages : [];
+      const msgs = messages;
       for (let i = msgs.length - 1; i >= 0; i--) {
         if (msgs[i].role === "assistant" && Array.isArray(msgs[i].sources) && msgs[i].sources.length) {
           return msgs[i].sources;

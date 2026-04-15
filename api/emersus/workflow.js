@@ -2,6 +2,7 @@ import { ShortCircuit, createContext } from "./pipeline/context.js";
 import { computeConfidence } from "./pipeline/confidence.js";
 import { sanitize, validateRequest } from "./pipeline/sanitize.js";
 import { safety } from "./pipeline/safety.js";
+import { planRetrieval } from "./pipeline/retrieval-policy.js";
 import { retrieve } from "./pipeline/retrieve.js";
 import { synthesize } from "./pipeline/synthesize.js";
 import { stream, streamToBuffer } from "./pipeline/stream.js";
@@ -28,8 +29,9 @@ async function generateRecommendationStream(rawInput, res) {
   try {
     ctx = await sanitize(ctx);
     ctx = await safety(ctx);
+    ctx = await planRetrieval(ctx);
     ctx = await retrieve(ctx);
-    ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence?.items });
+    ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence });
     ctx = await synthesize(ctx);
     await stream(ctx, res);
   } catch (err) {
@@ -51,8 +53,9 @@ async function generateRecommendationJSON(rawInput) {
   try {
     ctx = await sanitize(ctx);
     ctx = await safety(ctx);
+    ctx = await planRetrieval(ctx);
     ctx = await retrieve(ctx);
-    ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence?.items });
+    ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence });
     ctx = await synthesize(ctx);
     ctx = await streamToBuffer(ctx);
   } catch (err) {
@@ -69,12 +72,6 @@ async function generateRecommendationJSON(rawInput) {
     confidence: ctx.confidence,
     token_usage: ctx.tokenUsage,
     guardrail: { status: "allowed", response_mode: "normal", reasons: [] },
-    debug: ctx.includeDebug ? {
-      openai_response_id: ctx._openaiResponseId,
-      synthesis_model: ctx._synthesisModel,
-      stage_timings: ctx._timer.all(),
-      openai_input: ctx.debug.openai_input,
-    } : undefined,
   };
 }
 

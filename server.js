@@ -24,13 +24,12 @@ app.use((req, res, next) => {
 });
 
 // ── Request timeout ──
-// Abort non-streaming requests that hang longer than 30s. SSE endpoints
-// (/recommendation, /recommendation-stream) manage their own lifecycle
+// Abort non-streaming requests that hang longer than 30s. The chat SSE
+// endpoint (/recommendation) manages its own lifecycle
 // via OpenAI stream completion + res.on("close") and are exempt.
 const REQUEST_TIMEOUT_MS = Number(process.env.REQUEST_TIMEOUT_MS || 30_000);
 const SSE_PATHS = new Set([
   "/api/emersus/recommendation",
-  "/api/emersus/recommendation-stream",
 ]);
 app.use((req, res, next) => {
   if (SSE_PATHS.has(req.path)) return next();
@@ -50,7 +49,6 @@ const { default: waitlistHandler } = await import("./api/waitlist.js");
 const { default: waitlistConfirmHandler } = await import("./api/waitlist-confirm.js");
 const { default: notifySignupHandler } = await import("./api/notify-signup.js");
 const { default: recommendationHandler } = await import("./api/emersus/recommendation.js");
-const { default: recommendationStreamHandler } = await import("./api/emersus/recommendation-stream.js");
 const { default: foodsSearchHandler } = await import("./api/emersus/foods-search.js");
 const { default: foodsSearchBatchHandler } = await import("./api/emersus/foods-search-batch.js");
 const { default: mealPlansRouter } = await import("./api/emersus/meal-plans.js");
@@ -60,7 +58,7 @@ const { default: checkEmailHandler } = await import("./api/auth/check-email.js")
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
 // Import auth middleware for recommendation endpoints
-import { requireAuth, requireAuthAdmin } from "./api/emersus/auth-middleware.js";
+import { requireAuth } from "./api/emersus/auth-middleware.js";
 
 // Import public rate limiting middleware
 import { publicRateLimitMiddleware } from "./api/emersus/rate-limit.js";
@@ -81,9 +79,8 @@ app.post("/api/waitlist", publicRateLimitMiddleware("waitlist"), waitlistHandler
 app.get("/api/waitlist/confirm", waitlistConfirmHandler);
 app.post("/api/notify-signup", publicRateLimitMiddleware("notify-signup"), notifySignupHandler);
 app.post("/api/emersus/recommendation", requireAuth, recommendationHandler);
-app.post("/api/emersus/recommendation-stream", requireAuthAdmin, recommendationStreamHandler);
 app.get("/api/emersus/foods/search", foodsSearchHandler);
-app.get("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
+app.post("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
 app.use("/api/emersus/meal-plans", mealPlansRouter);
 app.use("/api/emersus/meal-journal", mealJournalRouter);
 app.all("/api/emersus/rpc/:name", rpcProxy);
