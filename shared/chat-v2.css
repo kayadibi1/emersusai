@@ -187,3 +187,51 @@
   color: var(--ink);
   border-color: var(--line);
 }
+
+/* ========== COMPOSER STOP BUTTON + HINT (Task 5) ========== */
+
+[data-chat-v2="1"] .stop-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-faint);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  color: var(--ink);
+  padding: 7px 12px;
+  margin-right: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background .14s, border-color .14s;
+}
+[data-chat-v2="1"] .stop-btn:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+[data-chat-v2="1"] .stop-btn-icon {
+  font-size: 10px;
+  line-height: 1;
+}
+
+[data-chat-v2="1"] .composer-hint {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+[data-chat-v2="1"] .composer-hint kbd {
+  font: inherit;
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  padding: 1px 4px;
+  color: var(--muted);
+}
