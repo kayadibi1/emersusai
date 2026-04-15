@@ -6,16 +6,18 @@
   <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
 <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nutrition | Emersus AI</title>
-    <!-- no-flash-boot: resolves data-theme + v2 flags pre-paint -->
+  <!-- no-flash-boot: resolves data-theme + v2 flags pre-paint -->
   <script>
     (function () {
       var H = document.documentElement;
       try {
         var saved = localStorage.getItem('emersus-theme');
-        var theme = (saved === 'mint' || saved === 'paper') ? saved
-          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'paper' : 'mint');
+        // Default to Paper·Royal (light) for new visitors. Existing users keep
+        // whatever they've saved. System prefers-color-scheme is ignored by
+        // design — the product ships light-first; users switch in Settings.
+        var theme = (saved === 'mint' || saved === 'paper') ? saved : 'paper';
         H.setAttribute('data-theme', theme);
-      } catch (_) { H.setAttribute('data-theme', 'mint'); }
+      } catch (_) { H.setAttribute('data-theme', 'paper'); }
       try {
         var url = new URLSearchParams(location.search);
         var stored = {};
