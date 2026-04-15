@@ -1386,6 +1386,7 @@
 [data-chat-v2="1"] .chat-composer-shell {
   position: relative;
   padding: 18px 40px 28px;
+  padding-bottom: max(28px, calc(28px + env(safe-area-inset-bottom)));
   background: var(--bg);
   margin: 0;
   border: 0;
@@ -1736,5 +1737,12 @@
   html.is-nav-open,
   html.is-nav-open body {
     overflow: hidden;
+  }
+
+  /* Composer keyboard guard: add bottom padding to chat thread
+   * so the last message clears the fixed composer when the iOS
+   * software keyboard slides up. */
+  [data-chat-v2="1"] .chat-thread {
+    padding-bottom: calc(140px + env(safe-area-inset-bottom));
   }
 }
