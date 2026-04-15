@@ -47,13 +47,19 @@
   </script>
 </head>
 <body class="nutrition-v2-body">
-    <!-- app-crossnav: fixed top bar linking app sections -->
-  <aside class="app-crossnav" aria-label="App sections">
-    <a href="/app/" data-section="chat">Chat</a>
-    <a href="/app/train/" data-section="train">Train</a>
-    <a href="/app/nutrition/" data-section="nutrition">Nutrition</a>
-    <a href="/app/progress/" data-section="progress">Progress</a>
-    <a href="/app/profile/" data-section="profile">Profile</a>
+  <!-- app-sidebar: left nav bar linking app sections -->
+  <aside class="app-sidebar" aria-label="App navigation">
+    <div class="app-sidebar-head">
+      <a class="app-sidebar-brand" href="/">EMERSUS</a>
+    </div>
+    <nav class="app-sidebar-sections">
+      <div class="app-sidebar-sections-label">Sections</div>
+      <a class="app-sidebar-section" data-section="chat" href="/app/"><span class="app-sidebar-section-dot"></span>Chat</a>
+      <a class="app-sidebar-section" data-section="train" href="/app/train/"><span class="app-sidebar-section-dot"></span>Train</a>
+      <a class="app-sidebar-section" data-section="nutrition" href="/app/nutrition/"><span class="app-sidebar-section-dot"></span>Nutrition</a>
+      <a class="app-sidebar-section" data-section="progress" href="/app/progress/"><span class="app-sidebar-section-dot"></span>Progress</a>
+      <a class="app-sidebar-section" data-section="profile" href="/app/profile/"><span class="app-sidebar-section-dot"></span>Profile</a>
+    </nav>
     <script>
       (function () {
         var p = location.pathname;
