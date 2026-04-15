@@ -41,25 +41,13 @@
   <!-- chat-v2.css ships unconditionally — every rule is scoped under
        [data-chat-v2="1"], so it's a no-op until the boot script below sets
        the attribute. -->
-  <link rel="stylesheet" href="/shared/chat-v2.css?v=redesign-4">
+  <link rel="stylesheet" href="/shared/chat-v2.css?v=redesign-5">
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
-    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-1';
     bootTheme();
-    if (resolveFlag('chat_v2')) {
-      document.documentElement.dataset.chatV2 = '1';
-    } else {
-      // Legacy path only: load site.css + chat.css. When chat_v2 is on (default),
-      // these never load, so chat-v2.css owns the cascade with no fight.
-      const site = document.createElement('link');
-      site.rel = 'stylesheet';
-      site.href = '/shared/site.css?v=redesign-20260412';
-      document.head.appendChild(site);
-      const chat = document.createElement('link');
-      chat.rel = 'stylesheet';
-      chat.href = '/shared/chat.css?v=redesign-20260412';
-      document.head.appendChild(chat);
-    }
+    // data-chat-v2 and data-theme are already resolved by the synchronous
+    // pre-paint script above. Module boot only re-syncs the theme in case
+    // the user flipped it between the pre-paint run and this tick.
   </script>
 </head>
 <body class="chat-page">
