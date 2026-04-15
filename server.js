@@ -64,6 +64,9 @@ const { default: integrationsWaitlistHandler } = await import("./api/emersus/int
 const { default: workoutSessionsRouter } = await import("./api/emersus/workout-sessions.js");
 const { default: setsHandler } = await import("./api/emersus/sets.js");
 const { default: exercisesCatalogHandler } = await import("./api/emersus/exercises-catalog.js");
+const { default: nutritionDayHandler } = await import("./api/emersus/nutrition-day.js");
+const { default: nutritionWaterHandler } = await import("./api/emersus/nutrition-water.js");
+const { default: nutritionSupplementsHandler } = await import("./api/emersus/nutrition-supplements.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
@@ -117,6 +120,11 @@ app.post("/api/integrations/waitlist", requireAuth, integrationsWaitlistHandler)
 app.use("/api/workout-sessions", workoutSessionsRouter());
 app.post("/api/sets", requireAuth, setsHandler);
 app.get("/api/exercises", exercisesCatalogHandler);
+
+// nutrition_v2 (Phase 4): day aggregator + water + supplements.
+app.get("/api/nutrition/day", requireAuth, nutritionDayHandler);
+app.post("/api/nutrition/water", requireAuth, nutritionWaterHandler);
+app.post("/api/nutrition/supplements", requireAuth, nutritionSupplementsHandler);
 
 // Auth + user endpoints
 app.post("/api/auth/check-email", publicRateLimitMiddleware("check-email"), checkEmailHandler);

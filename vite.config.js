@@ -13,6 +13,7 @@ const htmlEntries = [
   "admin/topics/index.html",
   "app/index.html",
   "app/nutrition/index.html",
+  "app/nutrition/index-v2.html",
   "app/profile/index.html",
   "app/profile/index-v2.html",
   "app/train/index.html",
