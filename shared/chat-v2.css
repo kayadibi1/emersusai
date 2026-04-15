@@ -483,3 +483,92 @@
   border-color: var(--accent);
   color: var(--accent);
 }
+
+/* ========== SIDEBAR — primary button + search + grouping (Task 10) ========== */
+
+[data-chat-v2="1"] .side-primary-row {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 12px 14px;
+  border-bottom: 1px solid var(--line);
+}
+
+[data-chat-v2="1"] .side-primary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--accent);
+  color: var(--bg);
+  border: 0;
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter .14s, transform .14s;
+}
+[data-chat-v2="1"] .side-primary-btn:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+[data-chat-v2="1"] .side-search {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+[data-chat-v2="1"] .side-search-icon {
+  position: absolute;
+  left: 10px;
+  color: var(--dim);
+  pointer-events: none;
+}
+[data-chat-v2="1"] .side-search-input {
+  width: 100%;
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 7px 10px 7px 30px;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  outline: none;
+  transition: border-color .14s, background .14s;
+}
+[data-chat-v2="1"] .side-search-input:focus {
+  border-color: var(--accent);
+  background: var(--bg);
+}
+[data-chat-v2="1"] .side-search-input::placeholder { color: var(--dim); }
+
+[data-chat-v2="1"] .chat-nav-grouped {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px 8px;
+}
+
+[data-chat-v2="1"] .chat-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+[data-chat-v2="1"] .chat-nav-group-label {
+  padding: 4px 10px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+[data-chat-v2="1"] .chat-nav-empty {
+  padding: 16px 12px;
+  font-size: 13px;
+  color: var(--dim);
+  text-align: center;
+}
