@@ -1821,3 +1821,41 @@
     padding: 6px 10px;
   }
 }
+
+/* ========================================================================== */
+/* MOBILE — responsive message padding + welcome scale (Phase C)               */
+/* ========================================================================== */
+
+@media (max-width: 640px) {
+  [data-chat-v2="1"] .message {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 500px) {
+  /* Welcome/empty-state scales down so it doesn't dominate the short screen. */
+  [data-chat-v2="1"] .thread-welcome-title {
+    font-size: 22px;
+  }
+  [data-chat-v2="1"] .thread-welcome-copy {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 400px) {
+  [data-chat-v2="1"] .message {
+    padding: 16px 12px;
+  }
+  [data-chat-v2="1"] .msg-body {
+    font-size: 14.5px;
+  }
+  /* Empty-state prompt chips go single-column so each is thumb-tappable
+   * without horizontal crowding. */
+  [data-chat-v2="1"] .empty-prompts-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  [data-chat-v2="1"] .empty-prompt-chip {
+    width: 100%;
+  }
+}
