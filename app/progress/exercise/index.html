@@ -49,7 +49,7 @@
     import { resolveFlag } from '/shared/feature-flags.js?v=redesign-9';
     bootTheme();
     if (resolveFlag('progress_v2')) {
-      window.location.replace('/app/progress/index-v2.html?drill=exercise' + window.location.search.replace(/^\?/, '&'));
+      window.location.replace('/app/progress/?drill=exercise' + window.location.search.replace(/^\?/, '&'));
     }
   </script>
   <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
