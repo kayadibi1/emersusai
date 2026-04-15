@@ -156,7 +156,6 @@ async function handleOnboarding({
   serviceRoleKey,
   supabaseUserId,
   stableUserId,
-  includeDebug,
 }) {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) {
@@ -234,13 +233,6 @@ async function handleOnboarding({
       reasons: [],
     },
     onboarding_completed: Boolean(profileFields.onboarding_completed),
-    debug: includeDebug
-      ? {
-          synthesis_mode: "onboarding",
-          openai_input: input,
-          raw_output_text: rawText,
-        }
-      : undefined,
   };
 }
 

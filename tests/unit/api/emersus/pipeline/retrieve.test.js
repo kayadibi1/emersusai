@@ -1,24 +1,10 @@
-import { describe, it, mock } from "node:test";
+import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 
-// Stub external modules that require runtime infra (DB, openai, etc.)
-await mock.module("../../../../../api/emersus/retrieveDatabaseEvidence.js", {
-  namedExports: { retrieveDatabaseEvidence: async () => [] },
-});
-await mock.module("../../../../../api/emersus/rerank.js", {
-  namedExports: {
-    rankEvidence: (arr) => arr,
-    dedupeEvidence: (arr) => arr,
-  },
-});
-await mock.module("../../../../../shared/citation-format.js", {
-  namedExports: {
-    formatCitationUrl: () => "",
-    formatCitationLabel: () => "",
-  },
-});
-
 const { formatEvidenceForModel } = await import(
+  "../../../../../api/emersus/pipeline/retrieve.js"
+);
+const { retrieve } = await import(
   "../../../../../api/emersus/pipeline/retrieve.js"
 );
 
@@ -37,5 +23,24 @@ describe("formatEvidenceForModel", () => {
     assert.ok(out.includes("2023"));
     assert.ok(out.includes("Smith et al."));
     assert.ok(out.includes("Creatine improved"));
+  });
+});
+
+describe("retrieve", () => {
+  it("skips vector retrieval when retrievalPolicy says skip", async () => {
+    const ctx = {
+      question: "log this",
+      retrievalPolicy: { mode: "skip", reason: "food_log_request" },
+      _timer: {
+        record() {},
+      },
+    };
+
+    const next = await retrieve(ctx);
+
+    assert.equal(next.evidence.status, "skipped");
+    assert.equal(next.evidence.reason, "food_log_request");
+    assert.deepStrictEqual(next.evidence.items, []);
+    assert.equal(next.evidence.formatted, null);
   });
 });

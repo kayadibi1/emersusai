@@ -95,10 +95,14 @@ function processEvent(event, state) {
         } else {
           console.error(`Tool validation failed for ${toolName}:`, validation.errors);
           if (state.onToolError) state.onToolError(toolName, validation.errors);
-          // Store the raw data anyway so the client can still render it
-          // (strict mode already validated the schema on the OpenAI side)
-          state.ctx.toolResults[toolName] = args;
-          if (state.onTool) state.onTool(toolName, args);
+          // Invalid widgets should not render. The most common failure mode is
+          // viewport-sized HTML that turns iframe auto-sizing into a runaway
+          // growth loop in the chat. Other tool payloads still fall back to
+          // raw data so the client can attempt a best-effort render.
+          if (toolName !== "emit_widget") {
+            state.ctx.toolResults[toolName] = args;
+            if (state.onTool) state.onTool(toolName, args);
+          }
         }
       }
       break;
@@ -161,11 +165,6 @@ export async function stream(ctx, res) {
     sources: ctx.sources,
     confidence: ctx.confidence,
     usage: ctx.tokenUsage,
-    debug: ctx.includeDebug ? {
-      openai_response_id: ctx._openaiResponseId,
-      synthesis_model: ctx._synthesisModel,
-      stage_timings: ctx._timer.all(),
-    } : undefined,
   });
   res.end();
 

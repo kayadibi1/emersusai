@@ -18,6 +18,7 @@ import MealPlanWidget from "./meal-plan-widget.js";
 import NutritionLogConfirmWidget from "./nutrition-log-confirm-widget.js";
 
 const h = React.createElement;
+const MAX_WIDGET_FRAME_HEIGHT = 1400;
 
 // ---------------------------------------------------------------------------
 // parseLLMOutput
@@ -366,9 +367,13 @@ ${widgetBody}
       const data = event && event.data;
       if (!data || data.frameId !== frameId) return;
       if (typeof data.height !== "number") return;
-      // Cap height to prevent DoS via absurdly large values
-      const clampedHeight = Math.min(Math.max(80, data.height + 6), 5000);
+      // Safety fuse: a widget that uses viewport-height CSS can feed the
+      // auto-resizer back into itself and keep ratcheting upward. Clamp the
+      // surface to a large but finite height and allow internal scrolling.
+      const requestedHeight = Math.max(80, data.height + 6);
+      const clampedHeight = Math.min(requestedHeight, MAX_WIDGET_FRAME_HEIGHT);
       node.style.height = `${clampedHeight}px`;
+      node.setAttribute("scrolling", requestedHeight > MAX_WIDGET_FRAME_HEIGHT ? "auto" : "no");
     }
     window.addEventListener("message", onMessage);
     return () => window.removeEventListener("message", onMessage);
@@ -383,6 +388,7 @@ ${widgetBody}
     style: {
       width: "100%",
       height: "260px",
+      maxHeight: `${MAX_WIDGET_FRAME_HEIGHT}px`,
       border: "none",
       background: "transparent",
       display: "block",

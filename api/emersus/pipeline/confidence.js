@@ -11,7 +11,16 @@ function clamp(value, min, max) {
 }
 
 export function computeConfidence({ plan, evidence }) {
-  const sources = Array.isArray(evidence) ? evidence.slice(0, 5) : [];
+  if (evidence?.status === "skipped") {
+    return null;
+  }
+
+  const evidenceItems = Array.isArray(evidence?.items)
+    ? evidence.items
+    : Array.isArray(evidence)
+      ? evidence
+      : [];
+  const sources = evidenceItems.slice(0, 5);
   const totalSources = sources.length;
   const recentSourceCount = sources.filter(
     (source) =>

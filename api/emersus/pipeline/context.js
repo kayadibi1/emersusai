@@ -24,10 +24,10 @@ export function createContext(raw) {
     requestMeta:    raw.requestMeta    ?? {},
     profile:        raw.profile        ?? {},
     workoutPlan:    null,
-    includeDebug:   raw.includeDebug   === true,
 
     // ── Populated by stages ──
     plan:           null,
+    retrievalPolicy: null,
     evidence:       null,
 
     // ── Output (populated by synthesize + stream) ──
@@ -36,7 +36,6 @@ export function createContext(raw) {
     sources:        [],
     confidence:     null,
     tokenUsage:     { input_tokens: 0, output_tokens: 0, total_tokens: 0, cached_tokens: 0 },
-    debug:          {},
 
     // ── Internals ──
     _timer:         new TimeTracker(),

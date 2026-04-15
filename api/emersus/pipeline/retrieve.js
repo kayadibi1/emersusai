@@ -186,13 +186,33 @@ export function formatEvidenceForModel(evidence) {
     .join("\n\n");
 }
 
+function buildSkippedEvidence(reason) {
+  return {
+    status: "skipped",
+    reason,
+    available: false,
+    method: null,
+    items: [],
+    formatted: null,
+    error: null,
+  };
+}
+
 // ─── Pipeline stage ───────────────────────────────────────────────────────────
 
 export async function retrieve(ctx) {
+  if (ctx.retrievalPolicy?.mode === "skip") {
+    ctx._timer.record("retrieval_ms", 0);
+    ctx.evidence = buildSkippedEvidence(ctx.retrievalPolicy.reason);
+    return ctx;
+  }
+
   const start = Date.now();
   const result = await retrieveVectorEvidence(ctx.question);
   ctx._timer.record("retrieval_ms", Date.now() - start);
   ctx.evidence = {
+    status: "completed",
+    reason: null,
     available: result.available,
     method: result.method,
     items: result.evidence.slice(0, VECTOR_LIMIT),

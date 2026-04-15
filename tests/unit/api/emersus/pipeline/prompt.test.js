@@ -34,6 +34,21 @@ describe("buildMessages", () => {
     assert.ok(lastMsg.content.includes("creatine loading protocol"));
   });
 
+  it("includes retrieval metadata in the final user message", () => {
+    const msgs = buildMessages({
+      question: "log this breakfast",
+      profile: {},
+      threadState: {},
+      recentMessages: [],
+      evidence: { status: "skipped", reason: "food_log_request", formatted: null },
+      workoutPlan: null,
+    });
+    const payload = JSON.parse(msgs[msgs.length - 1].content);
+    assert.equal(payload.retrieval_status, "skipped");
+    assert.equal(payload.retrieval_reason, "food_log_request");
+    assert.equal(payload.retrieved_evidence, null);
+  });
+
   it("system prompt contains identity and wheelhouse", () => {
     const msgs = buildMessages({
       question: "test", profile: {}, threadState: {},

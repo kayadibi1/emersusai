@@ -201,7 +201,6 @@ function sanitizeRequest(payload) {
       medical_disclaimer_acknowledged:
         payload?.profile?.medical_disclaimer_acknowledged === true,
     },
-    includeDebug: payload?.includeDebug === true,
     threadState: normalizeThreadState(payload?.threadState),
     recentMessages: normalizeRecentMessages(payload?.recentMessages),
   };
@@ -619,7 +618,7 @@ export async function sanitize(ctx) {
     const { handleOnboarding } = await import("./onboarding.js");
     const onboardingResponse = await handleOnboarding({
       question: ctx.question, userId: ctx.userId, recentMessages: ctx.recentMessages,
-      supabaseUrl, serviceRoleKey, supabaseUserId, stableUserId, includeDebug: ctx.includeDebug,
+      supabaseUrl, serviceRoleKey, supabaseUserId, stableUserId,
     });
     throw new ShortCircuit(onboardingResponse);
   }

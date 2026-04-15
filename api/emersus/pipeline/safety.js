@@ -337,9 +337,6 @@ export async function safety(ctx) {
     if (ctx.stableUserId) {
       response.user = { id: ctx.stableUserId };
     }
-    if (ctx.includeDebug) {
-      response.debug = { safety: result, synthesis_mode: "guardrail_block" };
-    }
     throw new ShortCircuit(response);
   }
 

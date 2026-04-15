@@ -39,10 +39,6 @@ export async function synthesize(ctx) {
     workoutPlan: ctx.workoutPlan,
   });
 
-  if (ctx.includeDebug) {
-    ctx.debug.openai_input = messages;
-  }
-
   const requestBody = buildRequestBody({ messages, tools: TOOL_DEFINITIONS, model });
 
   const start = Date.now();

@@ -248,6 +248,56 @@ function buildProfile(userId, opts) {
   };
 }
 
+function buildMealPlan(profile) {
+  return {
+    targets: {
+      training_day: { kcal: 2225, protein_g: 150, carbs_g: 235, fat_g: 68, fiber_g: 32 },
+      rest_day: { kcal: 2050, protein_g: 150, carbs_g: 180, fat_g: 74, fiber_g: 30 },
+    },
+    day_types: [
+      {
+        slug: "training_day",
+        name: "Training day",
+        meals: [
+          { slot: "breakfast", name: "Oats and yogurt bowl", foods: [{ description: "Oats, raw", grams: 65 }, { description: "Yogurt, Greek, plain, nonfat", grams: 180 }, { description: "Blueberries, raw", grams: 100 }] },
+          { slot: "lunch", name: "Chicken rice bowl", foods: [{ description: "Chicken, breast, cooked", grams: 160 }, { description: "Rice, white, cooked", grams: 220 }, { description: "Broccoli, cooked", grams: 120 }] },
+          { slot: "afternoon", name: "Protein snack", foods: [{ description: "Whey protein isolate, powder", grams: 30 }, { description: "Banana, raw", grams: 118 }] },
+          { slot: "dinner", name: "Salmon and sweet potato", foods: [{ description: "Fish, salmon, Atlantic, farmed, cooked, dry heat", grams: 160 }, { description: "Sweet potato, baked, no added fat", grams: 240 }, { description: "Broccoli, cooked", grams: 140 }] },
+        ],
+        supplements: [
+          { description: "Creatine monohydrate", amount: 5, unit: "g", timing: "any" },
+        ],
+      },
+      {
+        slug: "rest_day",
+        name: "Rest day",
+        meals: [
+          { slot: "breakfast", name: "Eggs, oats, and berries", foods: [{ description: "Egg, whole, boiled or poached", grams: 100 }, { description: "Oats, raw", grams: 55 }, { description: "Blueberries, raw", grams: 100 }] },
+          { slot: "lunch", name: "Chicken avocado plate", foods: [{ description: "Chicken, breast, cooked", grams: 160 }, { description: "Avocado, raw", grams: 80 }, { description: "Broccoli, cooked", grams: 140 }] },
+          { slot: "afternoon", name: "Greek yogurt and almonds", foods: [{ description: "Yogurt, Greek, plain, nonfat", grams: 180 }, { description: "Nuts, almonds", grams: 24 }] },
+          { slot: "dinner", name: "Salmon and potato", foods: [{ description: "Fish, salmon, Atlantic, farmed, cooked, dry heat", grams: 150 }, { description: "Sweet potato, baked, no added fat", grams: 200 }] },
+        ],
+        supplements: [
+          { description: "Creatine monohydrate", amount: 5, unit: "g", timing: "any" },
+        ],
+      },
+    ],
+    assignments: {
+      mode: "manual",
+      default_day_type: "training_day",
+      overrides: {},
+    },
+    provenance: {
+      seeded_demo: true,
+      profile_snapshot: {
+        goal: "lean muscle gain",
+        body_weight_kg: profile.body_weight_kg,
+        activity_level: profile.activity_level,
+      },
+    },
+  };
+}
+
 function buildMealRows(userId, foods, macroMap, startDate, endDate) {
   const rows = [];
   const dates = enumerateDates(startDate, endDate);
@@ -586,6 +636,29 @@ async function deleteExistingHistory(admin, userId) {
   if (workoutError) throw workoutError;
 }
 
+async function replaceExistingMealPlan(admin, userId, profile) {
+  const { error: deleteError } = await admin
+    .from("meal_plans")
+    .delete()
+    .eq("user_id", userId);
+  if (deleteError) throw deleteError;
+
+  const plan = buildMealPlan(profile);
+  const { error: insertError } = await admin
+    .from("meal_plans")
+    .insert({
+      user_id: userId,
+      title: "Lean muscle nutrition plan",
+      plan,
+      previous_plan: null,
+      source_thread_id: null,
+      last_adjusted_via: "seed",
+      last_adjusted_at: new Date().toISOString(),
+      archived_at: null,
+    });
+  if (insertError) throw insertError;
+}
+
 async function insertBatches(admin, table, rows, size = 500) {
   for (const batch of chunk(rows, size)) {
     const { error } = await admin.from(table).insert(batch);
@@ -749,18 +822,25 @@ async function main() {
   const { error: profileError } = await admin.from("profiles").upsert(profile);
   if (profileError) throw profileError;
 
+  await replaceExistingMealPlan(admin, user.id, profile);
   await insertBatches(admin, "meal_journal_entries", mealRows, 400);
   await insertBatches(admin, "workout_logs", workoutRows, 400);
 
   const verifiedUserId = await verifyLogin(opts.email, opts.password);
 
-  const [{ count: mealCount, error: mealCountError }, { count: workoutCount, error: workoutCountError }] =
+  const [
+    { count: mealCount, error: mealCountError },
+    { count: workoutCount, error: workoutCountError },
+    { count: mealPlanCount, error: mealPlanCountError },
+  ] =
     await Promise.all([
       admin.from("meal_journal_entries").select("id", { count: "exact", head: true }).eq("user_id", user.id),
       admin.from("workout_logs").select("id", { count: "exact", head: true }).eq("user_id", user.id),
+      admin.from("meal_plans").select("id", { count: "exact", head: true }).eq("user_id", user.id).is("archived_at", null),
     ]);
   if (mealCountError) throw mealCountError;
   if (workoutCountError) throw workoutCountError;
+  if (mealPlanCountError) throw mealPlanCountError;
 
   console.log(
     JSON.stringify(
@@ -778,6 +858,7 @@ async function main() {
         rows: {
           mealJournalEntries: mealCount,
           workoutLogs: workoutCount,
+          activeMealPlans: mealPlanCount,
         },
       },
       null,

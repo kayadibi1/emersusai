@@ -30,12 +30,13 @@ describe("createContext", () => {
       recentMessages: [{ role: "user", text: "hi" }],
       requestMeta: { clientIp: "1.2.3.4" },
       profile: { goal: "hypertrophy" },
-      includeDebug: true,
     };
     const ctx = createContext(raw);
     assert.equal(ctx.threadId, "t");
     assert.deepStrictEqual(ctx.threadState, { primary_topic: "creatine" });
-    assert.equal(ctx.includeDebug, true);
+    assert.deepStrictEqual(ctx.recentMessages, [{ role: "user", text: "hi" }]);
+    assert.deepStrictEqual(ctx.requestMeta, { clientIp: "1.2.3.4" });
+    assert.deepStrictEqual(ctx.profile, { goal: "hypertrophy" });
   });
 });
 
