@@ -56,6 +56,9 @@ const { default: mealJournalRouter } = await import("./api/emersus/meal-journal.
 const { default: rpcProxy } = await import("./api/emersus/rpc-proxy.js");
 const { threadsShareApiRouter, publicShareRouter } = await import("./api/emersus/threads-share.js");
 const { default: suggestPromptsHandler } = await import("./api/emersus/suggest-prompts.js");
+const { default: requestAccessHandler } = await import("./api/auth/request-access.js");
+const { default: validateInviteHandler } = await import("./api/auth/validate-invite.js");
+const { default: acceptInviteHandler } = await import("./api/auth/accept-invite.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
@@ -95,6 +98,11 @@ app.use(publicShareRouter());
 
 // chat_v2 empty-state suggested prompts (profile-aware, falls back to generic).
 app.get("/api/emersus/suggest-prompts", suggestPromptsHandler);
+
+// auth_v2: request access + invite landing endpoints.
+app.post("/api/auth/request-access", publicRateLimitMiddleware("request-access"), requestAccessHandler);
+app.get("/api/auth/validate-invite", validateInviteHandler);
+app.post("/api/auth/accept-invite", acceptInviteHandler);
 
 // Auth + user endpoints
 app.post("/api/auth/check-email", publicRateLimitMiddleware("check-email"), checkEmailHandler);

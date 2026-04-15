@@ -11,6 +11,10 @@
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
     bootTheme();
+    // Reset-password flow stays on the legacy page even with auth_v2 — the
+    // password-reset form is bound to a one-time token URL that Supabase emits;
+    // duplicating it under the v2 shell would require a 5th panel + token plumbing.
+    // Tracked as a Phase 7 follow-up.
   </script>
   <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
 </head>
