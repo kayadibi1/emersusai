@@ -59,6 +59,7 @@ import { resolveFlag } from "/shared/feature-flags.js";
 import { ChatTopBar } from "/shared/chat/top-bar.js";
 import { MessageActions } from "/shared/chat/message-actions.js";
 import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
+import { buildFollowUpPrompt, citationLinks } from "/shared/chat/widget-footers.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -1302,6 +1303,12 @@ function WorkoutPlanCard({ segment, threadId }) {
 function MealPlanCard({ segment, threadId }) {
   const [parseError, setParseError] = useState("");
   const [plan, setPlan] = useState(null);
+  // chat_v2 swaps the "Save plan" label to "Save to Nutrition →" and adds an
+  // "Adjust meals" button that dispatches `emersus:seed-prompt`. The host
+  // ChatApp listens for that event and seeds the composer.
+  const chatV2On = useMemo(() => {
+    try { return resolveFlag("chat_v2"); } catch { return false; }
+  }, []);
 
   // Parse once per unique segment. segment.content is the raw JSON string
   // the model emitted inside the ```meal-plan fence. Invalid JSON renders
@@ -1527,6 +1534,30 @@ function MealPlanCard({ segment, threadId }) {
             fontSize: 13,
           },
         }),
+        chatV2On
+          ? h(
+              "button",
+              {
+                type: "button",
+                onClick: () => {
+                  const dayName = activeDayType?.name || "the plan";
+                  const prompt = `Adjust ${dayName} above. Swap one meal but keep the daily targets.`;
+                  window.dispatchEvent(new CustomEvent("emersus:seed-prompt", { detail: { prompt } }));
+                },
+                style: {
+                  background: "transparent",
+                  color: "var(--color-text-primary, #e8e8e8)",
+                  border: "0.5px solid var(--color-border-primary, rgba(255,255,255,0.18))",
+                  borderRadius: 8,
+                  padding: "6px 14px",
+                  fontSize: 13,
+                  fontWeight: 500,
+                  cursor: "pointer",
+                },
+              },
+              "Adjust meals",
+            )
+          : null,
         h(
           "button",
           {
@@ -1548,7 +1579,9 @@ function MealPlanCard({ segment, threadId }) {
             ? "Saving..."
             : resolved === "saved"
             ? "\u2713 Saved"
-            : "Save plan"
+            : chatV2On
+              ? "Save to Nutrition →"
+              : "Save plan"
         )
       ),
       // Toast / error
@@ -2649,7 +2682,7 @@ const Message = React.memo(function Message({
 // when we have a URL. The model is instructed to NEVER inline citations
 // in the chat prose (see instructions in api/emersus/workflow.js), so
 // this panel is the single place sources appear.
-function SourcesRailCard({ sources }) {
+function SourcesRailCard({ sources, chatV2On = false, onAskFollowUp }) {
   const items = Array.isArray(sources) ? sources.slice(0, 6) : [];
   if (!items.length) {
     return h(
@@ -2687,23 +2720,51 @@ function SourcesRailCard({ sources }) {
           240
         );
         const href = formatCitationUrl(source) || "";
+        const v2Links = chatV2On ? citationLinks(source) : [];
         return h(
           "li",
           { key: `${source?.pmid || source?.doi || index}`, className: "source-item" },
           h("strong", null, title),
           meta ? h("div", { className: "source-meta" }, meta) : null,
           snippet ? h("div", { className: "source-snippet" }, snippet) : null,
-          href
+          chatV2On
             ? h(
                 "div",
-                { className: "source-links" },
+                { className: "cite-actions" },
+                v2Links.map((link) =>
+                  h(
+                    "a",
+                    {
+                      key: link.label,
+                      className: "cite-action cite-action-link",
+                      href: link.href,
+                      target: "_blank",
+                      rel: "noopener noreferrer",
+                    },
+                    `${link.label} ↗`,
+                  ),
+                ),
                 h(
-                  "a",
-                  { href, target: "_blank", rel: "noopener noreferrer" },
-                  "Read source â†—"
-                )
+                  "button",
+                  {
+                    type: "button",
+                    className: "cite-action cite-action-followup",
+                    onClick: () => onAskFollowUp?.(source),
+                  },
+                  "ASK FOLLOW-UP",
+                ),
               )
-            : null
+            : href
+              ? h(
+                  "div",
+                  { className: "source-links" },
+                  h(
+                    "a",
+                    { href, target: "_blank", rel: "noopener noreferrer" },
+                    "Read source â†—"
+                  )
+                )
+              : null
         );
       })
     )
@@ -3427,6 +3488,19 @@ export function ChatApp() {
   const [chatV2On] = useState(() => resolveFlag("chat_v2"));
   const [shareModalOpen, setShareModalOpen] = useState(false);
 
+  // Listen for `emersus:seed-prompt` events — fired from inline widget
+  // footers (e.g. MealPlanCard "Adjust meals") so they can seed the
+  // composer without prop-drilling setQuestion through every renderer.
+  useEffect(() => {
+    function onSeed(event) {
+      const prompt = String(event?.detail?.prompt || "").trim();
+      if (!prompt) return;
+      setQuestion(prompt);
+    }
+    window.addEventListener("emersus:seed-prompt", onSeed);
+    return () => window.removeEventListener("emersus:seed-prompt", onSeed);
+  }, []);
+
   const handleRenameThread = useCallback(async (nextTitle) => {
     if (!activeThreadId || !session?.user?.id) return;
     const current = chatHistoryRef.current.find((t) => t.id === activeThreadId);
@@ -3677,7 +3751,15 @@ export function ChatApp() {
         h("div", { className: "rail-metric-stack" },
           h(RailMetric, { label: "Confidence", value: `${confidencePercent}%`, note: rail.confidenceLabel || "Idle", width: `${Math.max(0, Math.min(Number(rail.confidenceScore || 0) * 100, 100))}%` }),
           h(RailMetric, { label: "Source count", value: String(sourceCount), note: "Attached", width: `${Math.max(10, Math.min(sourceCount * 16, 100))}%`, tone: "tone-medium" }))),
-      h(SourcesRailCard, { sources: latestAssistantSources }),
+      h(SourcesRailCard, {
+        sources: latestAssistantSources,
+        chatV2On,
+        onAskFollowUp: (source) => {
+          const prompt = buildFollowUpPrompt(source);
+          if (!prompt) return;
+          setQuestion(prompt);
+        },
+      }),
       h("div", { className: "rail-foot" },
         h("div", { className: "rail-foot-line" }, h("span", null, "Pipeline"), h("span", null, "PubMed + PMC")),
         h("div", { className: "rail-foot-line" }, h("span", null, "Interface"), h("span", null, "React + Lucide")))),
