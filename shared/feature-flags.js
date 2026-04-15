@@ -25,6 +25,15 @@ export const KNOWN_FLAGS = [
   'integrations_waitlist',
 ];
 
+/**
+ * Default ON/OFF baseline per flag. Any flag not in this map defaults to
+ * false. Phase 2 Task 13 flips chat_v2 to ON by default — users without an
+ * explicit ?chat_v2=0 override or stored false now see the new chat chrome.
+ */
+export const DEFAULT_FLAGS = Object.freeze({
+  chat_v2: true,
+});
+
 const STORAGE_KEY = 'emersus-flags';
 
 /**
@@ -109,6 +118,7 @@ export function setFlag(flag, value) {
 
 /**
  * Bootstrap helper: resolve a flag using real localStorage + URL. DOM effect.
+ * Caller-supplied defaults override the global DEFAULT_FLAGS baseline.
  * @param {string} flag
  * @param {{ defaults?: Record<string, boolean> }} ctx
  * @returns {boolean}
@@ -119,6 +129,6 @@ export function resolveFlag(flag, ctx = {}) {
   return readFlag(flag, {
     saved: typeof saved === 'boolean' ? saved : null,
     url,
-    defaults: ctx.defaults || {},
+    defaults: { ...DEFAULT_FLAGS, ...(ctx.defaults || {}) },
   });
 }

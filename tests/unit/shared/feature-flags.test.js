@@ -5,6 +5,7 @@ import {
   KNOWN_FLAGS,
   isKnownFlag,
   parseUrlFlagOverride,
+  DEFAULT_FLAGS,
 } from '../../../shared/feature-flags.js';
 
 describe('feature-flags — pure logic', () => {
@@ -64,5 +65,22 @@ describe('feature-flags — pure logic', () => {
   test('readFlag with default override honors per-flag defaults', () => {
     assert.equal(readFlag('chat_v2', { saved: null, url: null, defaults: { chat_v2: true } }), true);
     assert.equal(readFlag('chat_v2', { saved: null, url: null, defaults: { chat_v2: false } }), false);
+  });
+
+  test('DEFAULT_FLAGS flips chat_v2 to true (Phase 2 Task 13)', () => {
+    assert.equal(DEFAULT_FLAGS.chat_v2, true);
+  });
+
+  test('DEFAULT_FLAGS does NOT pre-enable other v2 flags', () => {
+    assert.equal(DEFAULT_FLAGS.train_v2, undefined);
+    assert.equal(DEFAULT_FLAGS.nutrition_v2, undefined);
+    assert.equal(DEFAULT_FLAGS.progress_v2, undefined);
+    assert.equal(DEFAULT_FLAGS.profile_v2, undefined);
+    assert.equal(DEFAULT_FLAGS.auth_v2, undefined);
+    assert.equal(DEFAULT_FLAGS.public_v2, undefined);
+  });
+
+  test('DEFAULT_FLAGS is frozen so callers cannot mutate the baseline', () => {
+    assert.throws(() => { DEFAULT_FLAGS.chat_v2 = false; }, /Cannot assign|read only/i);
   });
 });

@@ -2,6 +2,12 @@
    Emersus Chat — chat.css
    Typographic Minimalist: Georgia + JetBrains Mono + #78dc14 on #08080a
    Inherits design tokens from site.css — no :root redefinitions here.
+   ═══════════════════════════════════════════════════════════════════════
+   ⚠️ DEPRECATED 2026-04-15 (Phase 2 Task 13): chat_v2 is now ON by default.
+   Visual rules below are overridden by /shared/chat-v2.css under
+   [data-chat-v2="1"]. This file remains loaded as a fallback for
+   ?chat_v2=0. Plan to delete in a follow-up commit once v2 has
+   shipped without regressions in production. Do not add new rules here.
    ═══════════════════════════════════════════════════════════════════════ */
 
 /* ─── BODY OVERRIDES (chat page) ─── */
