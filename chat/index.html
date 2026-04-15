@@ -39,6 +39,28 @@
           H.setAttribute('data-' + f, '1');
         });
       }
+      // Auth pre-paint gate for /app/**. Without this, an unauthenticated
+      // visitor clicking "Chat" sees the full chat UI flash for ~300 ms
+      // (React mounts before the async requireAuth() -> config fetch chain
+      // finishes). Probe for any sb-*-auth-token key in localStorage; if
+      // absent, redirect to /auth/login/ synchronously with a next= param.
+      // A stale token still hits the async redirect from requireAuth()
+      // later — but the cold-visitor path no longer flashes.
+      try {
+        if (location.pathname.indexOf('/app/') === 0) {
+          var hasSession = false;
+          for (var i = 0; i < localStorage.length; i++) {
+            var k = localStorage.key(i);
+            if (k && k.indexOf('sb-') === 0 && k.indexOf('auth-token') >= 0) {
+              hasSession = true; break;
+            }
+          }
+          if (!hasSession) {
+            var returnTo = location.pathname + location.search;
+            location.replace('/auth/login/?next=' + encodeURIComponent(returnTo));
+          }
+        }
+      } catch (_) { /* localStorage disabled; async requireAuth will handle */ }
     })();
   </script>
 <link rel="canonical" href="https://emersus.ai/app/">
