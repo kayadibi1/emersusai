@@ -8,7 +8,12 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 /* ---------- PALETTE: GRAPHITE · JADE (dark, default) ---------- */
-[data-theme="mint"] {
+/* Both palette blocks use :root[data-theme=...] instead of [data-theme=...]
+ * so specificity is (0,2,0) — beats legacy site.css :root (0,1,0) which is
+ * still loaded on /privacy, /terms, /contact, /consumer-health-data, /demo
+ * AFTER design-tokens.css. Without this bump, site.css's :root declarations
+ * win the cascade and force dark tokens regardless of data-theme. */
+:root[data-theme="mint"] {
   --bg: #0a0a0b;
   --sidebar-bg: #0c0c0e;
   --surface: #141417;
@@ -42,7 +47,7 @@
 }
 
 /* ---------- PALETTE: PAPER · ROYAL (light) ---------- */
-[data-theme="paper"] {
+:root[data-theme="paper"] {
   --bg: #f4efe5;
   --sidebar-bg: #ece5d6;
   --surface: #ece5d6;
