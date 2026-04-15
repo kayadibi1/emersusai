@@ -126,6 +126,11 @@ body.landing-v2-body main { position: relative; z-index: 1; }
 .theme-swatch-paper::after { background: #3b82f6; box-shadow: 0 0 4px #3b82f6; }
 @media (max-width: 700px) {
   .nav-links { display: none; }
+  /* Bento card visuals: stack the multi-column inner grids so the
+   * Protocols card's three mini-plans and the Preprint vs Peer-reviewed
+   * pair flow vertically instead of crushing to unreadable widths. */
+  .mini-plans { grid-template-columns: 1fr; }
+  .paper-compare { grid-template-columns: 1fr; }
 }
 
 /* ===== HERO ===== */
