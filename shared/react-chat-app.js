@@ -2744,6 +2744,9 @@ export function ChatApp() {
   const activeThreadIdRef = useRef(activeThreadId);
   const chatHistoryRef = useRef(chatHistory);
   const threadLoadPromisesRef = useRef(new Map());
+  // Holds the in-flight AbortController so the chat_v2 Stop button can cancel
+  // the SSE stream mid-flight. Cleared in submitQuestion's finally block.
+  const streamAbortRef = useRef(null);
 
   const activeThread = useMemo(() => chatHistory.find((threadData) => threadData.id === activeThreadId) || null, [activeThreadId, chatHistory]);
   const activeMessages = Array.isArray(activeThread?.messages) ? activeThread.messages : [];
@@ -3105,6 +3108,11 @@ export function ChatApp() {
     setChatHistory((history) => mergeThreadIntoHistory(history, threadWithUser, { promote: true }));
     let persistedThread = await persistThread(threadWithUser);
 
+    // AbortController wires the chat_v2 Stop button to the SSE fetch. The
+    // server's stream.js closes the OpenAI upstream on `res.on("close")`.
+    const abortController = new AbortController();
+    streamAbortRef.current = abortController;
+
     try {
       const requestBody = {
         question: trimmed,
@@ -3130,6 +3138,7 @@ export function ChatApp() {
         method: "POST",
         headers: authHeaders,
         body: JSON.stringify(requestBody),
+        signal: abortController.signal,
       });
       if (!response.ok) {
         const errBody = await response.json().catch(() => ({}));
@@ -3196,6 +3205,7 @@ export function ChatApp() {
         setGlyphState("responding");
 
         await readSSEStream(response, {
+          signal: abortController.signal,
           onEvent(event) {
             if (event.type === "prose") {
               accumulatedProse += event.delta || "";
@@ -3328,24 +3338,34 @@ export function ChatApp() {
       }
       persistedThread = await persistThread(nextThread);
     } catch (error) {
-      const errorMessage = error.message || "Request failed.";
-      await persistThread({
-        ...persistedThread,
-        messages: [
-          ...(persistedThread.messages || []),
-          normalizeMessageRecord({
-            role: "assistant",
-            text: errorMessage,
-            plainText: errorMessage,
-            createdAt: new Date().toISOString(),
-          }),
-        ],
-        threadState: deriveThreadState(persistedThread, trimmed, errorMessage),
-        rail: { ...(persistedThread.rail || {}), synthesisMode: "error" },
-      });
-      setStatusTone("error");
-      setStatusMessage(errorMessage);
+      // User-initiated aborts (chat_v2 Stop button) are expected, not errors.
+      // The placeholder message already holds whatever prose streamed before
+      // the abort, so we just flash a tiny status and leave the thread as-is.
+      const aborted = error?.name === "AbortError" || abortController.signal.aborted;
+      if (aborted) {
+        setStatusTone("info");
+        setStatusMessage("Generation stopped.");
+      } else {
+        const errorMessage = error.message || "Request failed.";
+        await persistThread({
+          ...persistedThread,
+          messages: [
+            ...(persistedThread.messages || []),
+            normalizeMessageRecord({
+              role: "assistant",
+              text: errorMessage,
+              plainText: errorMessage,
+              createdAt: new Date().toISOString(),
+            }),
+          ],
+          threadState: deriveThreadState(persistedThread, trimmed, errorMessage),
+          rail: { ...(persistedThread.rail || {}), synthesisMode: "error" },
+        });
+        setStatusTone("error");
+        setStatusMessage(errorMessage);
+      }
     } finally {
+      if (streamAbortRef.current === abortController) streamAbortRef.current = null;
       setIsSubmitting(false);
       setGlyphState("idle");
     }
@@ -3415,6 +3435,13 @@ export function ChatApp() {
   const handleDeleteThread = useCallback(() => {
     setStatusTone("info");
     setStatusMessage("Delete action coming soon.");
+  }, []);
+
+  const handleStopStreaming = useCallback(() => {
+    const controller = streamAbortRef.current;
+    if (!controller) return;
+    controller.abort();
+    streamAbortRef.current = null;
   }, []);
 
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}${chatV2On ? " chat-v2" : ""}` },
@@ -3546,8 +3573,33 @@ export function ChatApp() {
               },
             }),
             h("div", { className: "composer-actions" },
+              chatV2On && isSubmitting
+                ? h(
+                    "button",
+                    {
+                      type: "button",
+                      className: "stop-btn",
+                      "aria-label": "Stop generating",
+                      onClick: handleStopStreaming,
+                    },
+                    h("span", { className: "stop-btn-icon", "aria-hidden": true }, "■"),
+                    h("span", { className: "stop-btn-label" }, "Stop"),
+                  )
+                : null,
               h("button", { className: "submit-orb", type: "submit", disabled: composerDisabled, "aria-label": "Send question" }, h(ArrowUp, { size: 21 })))),
-          h("div", { className: "composer-utility-row" }, h("div", { className: "composer-buttons" }), h("p", { className: "status-text", ref: statusRef }))))),
+          h("div", { className: "composer-utility-row" },
+            h("div", { className: "composer-buttons" },
+              chatV2On
+                ? h("span", { className: "composer-hint" },
+                    isSubmitting
+                      ? "GENERATING…"
+                      : h(React.Fragment, null,
+                          h("kbd", null, "⏎"), " SEND · ",
+                          h("kbd", null, "⇧⏎"), " NEWLINE"),
+                  )
+                : null,
+            ),
+            h("p", { className: "status-text", ref: statusRef }))))),
     h("aside", { className: "chat-rail" },
       h("section", { className: "rail-card" },
         h("h3", { className: "rail-title" }, "System status"),
