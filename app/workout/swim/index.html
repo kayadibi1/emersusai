@@ -12,7 +12,11 @@
   <link rel="stylesheet" href="/shared/chrome.css?v=redesign-1">
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
+    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-9';
     bootTheme();
+    if (resolveFlag('train_v2')) {
+      window.location.replace('/app/train/?modality=swim' + window.location.search.replace(/^\?/, '&'));
+    }
   </script>
   <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
   <style>
