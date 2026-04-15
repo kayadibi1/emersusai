@@ -3,17 +3,22 @@
  * Loaded ONLY when the `chat_v2` feature flag is enabled.
  * Depends on design-tokens.css + chrome.css (loaded first in chat/index.html).
  *
- * Subsequent Phase 2 tasks (5–12) will populate this file with:
- *   - Messages layout (article.msg + msg-head + msg-body + msg-actions)
- *   - Citation card (.cite / .cite-head / .cite-body / .cite-actions)
- *   - Meal widget (.meal-widget / .meal-widget-row / .meal-widget-actions)
- *   - Macros widget (.macros-widget / .macro-row / .macro-bar)
- *   - Composer shell (.composer-wrap / .composer / .composer-bar / chip-btn / stop-btn)
- *   - Empty-state prompt chips (.empty-state / .empty-prompts)
- *   - Streaming caret keyframe
- *
  * Reference mockup: .superpowers/brainstorm/linear-landing/chat.html
  * Plan: docs/superpowers/plans/2026-04-15-redesign-phase-2-chat.md
+ *
+ * Sections:
+ *   1. Top bar           (Task 4)  — .top-bar.chat-top
+ *   2. Composer Stop btn (Task 5)  — .stop-btn, .composer-hint
+ *   3. Message actions   (Task 6)  — .msg-actions, .msg-action
+ *   4. Share modal       (Task 7)  — .share-modal-*
+ *   5. Citation footer   (Task 8)  — .cite-actions, .cite-action
+ *   6. Empty prompts     (Task 9)  — .empty-prompts, .empty-prompt-chip
+ *   7. Sidebar polish    (Task 10) — .side-primary-row, .chat-nav-grouped
+ *   8. Palette switcher  (Task 11) — .chat-side-palette
+ *   9. Layout polish     (Task 12) — .chat-main, .message overrides
+ *
+ * Audit: every selector below is referenced by code in either
+ * shared/react-chat-app.js or shared/chat/*.js (verified 2026-04-15).
  */
 
 /* ========== TOP BAR (Task 4) ========== */
@@ -640,3 +645,126 @@
   background: #3b82f6;
   box-shadow: 0 0 4px #3b82f6;
 }
+
+/* ========== LAYOUT POLISH (Task 12) ========== */
+
+/* Sidebar gets a stable background + border to match the new chrome. */
+[data-chat-v2="1"] .chat-app-shell.chat-v2 .chat-nav {
+  background: var(--bg);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Make the chat-nav-list area scrollable so the palette switcher stays
+   pinned to the bottom even with many threads. */
+[data-chat-v2="1"] .chat-app-shell.chat-v2 .chat-nav-list {
+  flex: 1 1 auto;
+  overflow-y: auto;
+  min-height: 0;
+}
+
+/* Composer — Mockup-style rounded card with a soft top fade. */
+[data-chat-v2="1"] .chat-composer-shell {
+  position: relative;
+  padding: 18px 28px 24px;
+  background: var(--bg);
+}
+[data-chat-v2="1"] .chat-composer-shell::before {
+  content: "";
+  position: absolute;
+  top: -32px;
+  left: 0;
+  right: 0;
+  height: 32px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+}
+[data-chat-v2="1"] .chat-composer-shell .composer {
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--surface-faint);
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  padding: 12px 14px 8px;
+  transition: border-color .14s;
+}
+[data-chat-v2="1"] .chat-composer-shell .composer:focus-within {
+  border-color: var(--accent);
+}
+[data-chat-v2="1"] .chat-composer-shell .composer textarea {
+  background: transparent;
+  border: 0;
+  outline: 0;
+}
+[data-chat-v2="1"] .chat-composer-shell .composer-utility-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 6px;
+}
+
+/* Stop-btn label spacing inside the button. */
+[data-chat-v2="1"] .stop-btn-label { letter-spacing: 0.16em; }
+
+/* Welcome card — quieter, mockup-aligned. */
+[data-chat-v2="1"] .thread-welcome {
+  max-width: 720px;
+  margin: 80px auto 0;
+  padding: 0 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+[data-chat-v2="1"] .thread-welcome-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+[data-chat-v2="1"] .thread-welcome-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0;
+}
+[data-chat-v2="1"] .thread-welcome-copy {
+  font-size: 15px;
+  color: var(--muted);
+  margin: 0;
+  max-width: 520px;
+  line-height: 1.6;
+}
+
+/* Message bubbles — flatten to mockup's text-block style. */
+[data-chat-v2="1"] .conversation-canvas .chat-thread {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 32px 28px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+[data-chat-v2="1"] .message {
+  background: transparent !important;
+  border: 0 !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+[data-chat-v2="1"] .message .message-content {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+[data-chat-v2="1"] .message.user .message-content { color: var(--ink); font-weight: 450; }
+[data-chat-v2="1"] .message.assistant .message-content strong { color: var(--accent); font-weight: 600; }
+[data-chat-v2="1"] .message-pending { display: none; }
