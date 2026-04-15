@@ -13,6 +13,7 @@ import React, {
   useEffect,
   useMemo,
   useRef,
+  useState,
 } from "react";
 import MealPlanWidget from "./meal-plan-widget.js";
 import NutritionLogConfirmWidget from "./nutrition-log-confirm-widget.js";
@@ -42,38 +43,26 @@ export {
 // expected to reference and provides baseline element styles so the model can
 // emit raw <input>, <button>, <select>, etc. without restating typography.
 //
-// The theme is dark-only and tracks the host site palette in shared/site.css
-// (#08080a base, #78dc14 green accent, Georgia display + JetBrains Mono code).
-// We previously shipped a warm-beige light default that turned every widget
-// wrapper into a stark cream card on the dark chat surface â€” visually
-// alien to the rest of the app. The token names below are unchanged so any
-// older widgets the model emits keep working; only the values are remapped.
+// Tracks the app's Graphite·Jade (dark) + Paper·Royal (light) palettes — both
+// token sets are emitted, scoped on :root[data-theme=...]. The iframe <html>
+// element gets the current theme attribute, so widgets follow the parent
+// palette. On palette switch, WidgetFrame re-renders the srcDoc so Chart.js
+// defaults pick up the new CSS vars too. Token names are unchanged so older
+// widgets (#color-background-primary etc.) keep working; only the values are
+// remapped per-palette.
 export const EMERSUS_THEME_CSS = `
-  @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
   :root {
-    color-scheme: dark;
-    /* --color-* namespace (preferred â€” matches the Emersus design system). */
-    --color-background-primary: #08080a;
-    --color-background-secondary: rgba(255,255,255,0.06);
-    --color-background-tertiary: rgba(255,255,255,0.10);
-    --color-text-primary: #e8e8e8;
-    --color-text-secondary: #888;
-    --color-text-tertiary: #555;
-    --color-border-primary: rgba(255,255,255,0.08);
-    --color-border-secondary: rgba(255,255,255,0.06);
-    --color-border-tertiary: rgba(255,255,255,0.06);
-    --color-background-success: rgba(120,220,20,0.10);
-    --color-text-success: #78dc14;
-    --color-background-warning: rgba(255, 196, 102, 0.12);
-    --color-text-warning: #ffd57a;
-    --color-background-danger: rgba(255, 143, 157, 0.12);
-    --color-text-danger: #ff8f9d;
-    --color-background-info: rgba(109, 159, 255, 0.12);
-    --color-text-info: #b5d4f4;
-    --color-border-info: rgba(109, 159, 255, 0.32);
+    /* Static tokens (shared across palettes). Palette-specific tokens live
+       in the :root[data-theme=...] blocks below. */
     --border-radius-sm: 6px;
     --border-radius-md: 8px;
     --border-radius-lg: 10px;
+    --radius-md: var(--border-radius-md);
+    --radius-lg: var(--border-radius-lg);
+    --font-sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-display: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
 
     /* --bg-* / --text-* aliases (backward compatible with older widgets) */
     --bg-primary: var(--color-background-primary);
@@ -84,29 +73,104 @@ export const EMERSUS_THEME_CSS = `
     --text-tertiary: var(--color-text-tertiary);
     --border-default: var(--color-border-tertiary);
     --border-hover: var(--color-border-primary);
-    --radius-md: var(--border-radius-md);
-    --radius-lg: var(--border-radius-lg);
-    --font-sans: system-ui, -apple-system, sans-serif;
-    --font-display: Georgia, "Times New Roman", serif;
+  }
 
-    /* Site accent tokens â€” exposed so widgets can pick up the green
-       accent that defines the rest of the Emersus surface. */
-    --accent-primary: #78dc14;
-    --accent-secondary: #78dc14;
-
-    /* Evidence-strength tokens */
-    --ev-strong-bg: rgba(120,220,20,0.10);
-    --ev-strong-text: #78dc14;
-    --ev-strong-dot: #78dc14;
-    --ev-moderate-bg: rgba(255, 196, 102, 0.12);
-    --ev-moderate-text: #ffd57a;
-    --ev-moderate-dot: #ffc466;
-    --ev-limited-bg: rgba(255, 143, 157, 0.12);
-    --ev-limited-text: #ff8f9d;
-    --ev-limited-dot: #ff8f9d;
-    --ev-insufficient-bg: rgba(255, 255, 255, 0.05);
+  /* ---------- GRAPHITE · JADE (dark, default) ---------- */
+  :root[data-theme="mint"] {
+    color-scheme: dark;
+    --color-background-primary: #0a0a0b;
+    --color-background-secondary: rgba(255,255,255,0.06);
+    --color-background-tertiary: rgba(255,255,255,0.10);
+    --color-surface-faint: rgba(255,255,255,0.025);
+    --color-text-primary: #ededee;
+    --color-text-secondary: #8a8a8f;
+    --color-text-tertiary: #55555a;
+    --color-border-primary: rgba(255,255,255,0.10);
+    --color-border-secondary: rgba(255,255,255,0.06);
+    --color-border-tertiary: rgba(255,255,255,0.06);
+    --accent-primary: #34d399;
+    --accent-secondary: #34d399;
+    --accent-soft: rgba(52,211,153,0.10);
+    --accent-line: rgba(52,211,153,0.34);
+    --color-background-success: rgba(52,211,153,0.12);
+    --color-text-success: #34d399;
+    --color-background-warning: rgba(251,191,36,0.14);
+    --color-text-warning: #fbbf24;
+    --color-background-danger: rgba(248,113,113,0.12);
+    --color-text-danger: #f87171;
+    --color-background-info: rgba(96,165,250,0.12);
+    --color-text-info: #60a5fa;
+    --color-border-info: rgba(96,165,250,0.32);
+    --ev-strong-bg: rgba(52,211,153,0.12);
+    --ev-strong-text: #34d399;
+    --ev-strong-dot: #34d399;
+    --ev-moderate-bg: rgba(251,191,36,0.14);
+    --ev-moderate-text: #fbbf24;
+    --ev-moderate-dot: #fbbf24;
+    --ev-limited-bg: rgba(248,113,113,0.12);
+    --ev-limited-text: #f87171;
+    --ev-limited-dot: #f87171;
+    --ev-insufficient-bg: rgba(255,255,255,0.05);
     --ev-insufficient-text: #a7adb4;
     --ev-insufficient-dot: #6f7480;
+    /* interactive / chart palette */
+    --input-bg: rgba(255,255,255,0.03);
+    --input-bg-hover: rgba(255,255,255,0.05);
+    --input-bg-focus: rgba(52,211,153,0.06);
+    --button-bg: rgba(255,255,255,0.04);
+    --chart-axis: rgba(255,255,255,0.65);
+    --chart-grid: rgba(255,255,255,0.06);
+    --chart-border: rgba(255,255,255,0.08);
+    --card-inset: rgba(255,255,255,0.04);
+  }
+
+  /* ---------- PAPER · ROYAL (light) ---------- */
+  :root[data-theme="paper"] {
+    color-scheme: light;
+    --color-background-primary: #f4efe5;
+    --color-background-secondary: rgba(26,24,19,0.06);
+    --color-background-tertiary: rgba(26,24,19,0.10);
+    --color-surface-faint: rgba(26,24,19,0.025);
+    --color-text-primary: #1a1813;
+    --color-text-secondary: #5e564a;
+    --color-text-tertiary: #8f8676;
+    --color-border-primary: rgba(26,24,19,0.18);
+    --color-border-secondary: rgba(26,24,19,0.10);
+    --color-border-tertiary: rgba(26,24,19,0.10);
+    --accent-primary: #3b82f6;
+    --accent-secondary: #3b82f6;
+    --accent-soft: rgba(59,130,246,0.10);
+    --accent-line: rgba(59,130,246,0.36);
+    --color-background-success: rgba(74,124,15,0.12);
+    --color-text-success: #4a7c0f;
+    --color-background-warning: rgba(199,138,10,0.14);
+    --color-text-warning: #c78a0a;
+    --color-background-danger: rgba(197,48,48,0.12);
+    --color-text-danger: #c53030;
+    --color-background-info: rgba(37,99,235,0.12);
+    --color-text-info: #2563eb;
+    --color-border-info: rgba(37,99,235,0.32);
+    --ev-strong-bg: rgba(74,124,15,0.14);
+    --ev-strong-text: #4a7c0f;
+    --ev-strong-dot: #4a7c0f;
+    --ev-moderate-bg: rgba(199,138,10,0.14);
+    --ev-moderate-text: #c78a0a;
+    --ev-moderate-dot: #c78a0a;
+    --ev-limited-bg: rgba(197,48,48,0.12);
+    --ev-limited-text: #c53030;
+    --ev-limited-dot: #c53030;
+    --ev-insufficient-bg: rgba(26,24,19,0.05);
+    --ev-insufficient-text: #8f8676;
+    --ev-insufficient-dot: #8f8676;
+    /* interactive / chart palette */
+    --input-bg: rgba(26,24,19,0.025);
+    --input-bg-hover: rgba(26,24,19,0.05);
+    --input-bg-focus: rgba(59,130,246,0.06);
+    --button-bg: rgba(26,24,19,0.04);
+    --chart-axis: #5e564a;
+    --chart-grid: rgba(26,24,19,0.10);
+    --chart-border: rgba(26,24,19,0.18);
+    --card-inset: rgba(26,24,19,0.04);
   }
   * { box-sizing: border-box; min-width: 0; }
   html, body {
@@ -130,7 +194,7 @@ export const EMERSUS_THEME_CSS = `
   [style*="--color-background-primary"],
   [style*="background:var(--color-background-primary)"],
   [style*="background: var(--color-background-primary)"] {
-    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+    box-shadow: 0 1px 0 var(--card-inset) inset;
   }
   h1, h2, h3, h4 {
     margin: 0 0 10px;
@@ -156,28 +220,28 @@ export const EMERSUS_THEME_CSS = `
   a {
     color: var(--accent-primary);
     text-decoration: none;
-    border-bottom: 1px solid rgba(120, 220, 20, 0.35);
+    border-bottom: 1px solid var(--accent-line);
     transition: color 140ms ease, border-color 140ms ease;
   }
-  a:hover { color: var(--accent-secondary); border-bottom-color: rgba(120, 220, 20, 0.5); }
+  a:hover { color: var(--accent-secondary); border-bottom-color: var(--accent-primary); }
   input[type="text"], input[type="number"], input[type="search"], select, textarea {
     width: 100%;
     padding: 9px 12px;
     border: 1px solid var(--color-border-secondary);
     border-radius: var(--border-radius-md);
-    background: rgba(255, 255, 255, 0.03);
+    background: var(--input-bg);
     color: var(--color-text-primary);
     font: inherit;
     transition: border-color 140ms ease, background 140ms ease;
   }
   input[type="text"]:hover, input[type="number"]:hover, select:hover, textarea:hover {
     border-color: var(--color-border-primary);
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--input-bg-hover);
   }
   input[type="text"]:focus, input[type="number"]:focus, select:focus, textarea:focus {
     outline: none;
     border-color: var(--accent-primary);
-    background: rgba(120, 220, 20, 0.06);
+    background: var(--input-bg-focus);
   }
   input[type="range"] {
     width: 100%;
@@ -191,7 +255,7 @@ export const EMERSUS_THEME_CSS = `
     padding: 9px 16px;
     border: 1px solid var(--color-border-secondary);
     border-radius: var(--border-radius-md);
-    background: rgba(255, 255, 255, 0.04);
+    background: var(--button-bg);
     color: var(--color-text-primary);
     font: inherit;
     font-family: var(--font-display);
@@ -203,8 +267,8 @@ export const EMERSUS_THEME_CSS = `
     transition: border-color 140ms ease, background 140ms ease, color 140ms ease, transform 140ms ease;
   }
   button:hover {
-    border-color: rgba(120, 220, 20, 0.45);
-    background: rgba(120, 220, 20, 0.08);
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
     color: var(--accent-secondary);
     transform: translateY(-1px);
   }
@@ -258,6 +322,12 @@ export const EMERSUS_THEME_CSS = `
 //   { html: "<html>...", title: "..." }  â€” SSE tool result (emit_widget)
 // Both paths produce the same sandboxed iframe. `code` takes precedence for
 // backwards compatibility; if absent, `html` is used instead.
+function readCurrentTheme() {
+  if (typeof document === "undefined") return "mint";
+  const attr = document.documentElement.getAttribute("data-theme");
+  return attr === "paper" ? "paper" : "mint";
+}
+
 export function WidgetFrame({ code, html, title }) {
   const widgetBody = code || html || "";
   const iframeRef = useRef(null);
@@ -273,9 +343,23 @@ export function WidgetFrame({ code, html, title }) {
     return origin && origin !== "null" ? origin : "*";
   }, []);
 
+  // Follow the host palette. Re-rendering srcDoc reloads the iframe with the
+  // new data-theme attr, and Chart.js defaults re-read the updated CSS vars
+  // so freshly drawn charts match too.
+  const [theme, setTheme] = useState(readCurrentTheme);
+  useEffect(() => {
+    function onThemeChange(e) {
+      const next = e && e.detail && e.detail.theme;
+      if (next === "mint" || next === "paper") setTheme(next);
+    }
+    document.addEventListener("emersus:themechange", onThemeChange);
+    return () => document.removeEventListener("emersus:themechange", onThemeChange);
+  }, []);
+
   const srcDoc = useMemo(() => {
     const safeId = JSON.stringify(frameId);
     const safeParentOrigin = JSON.stringify(parentOrigin);
+    const safeTheme = theme === "paper" ? "paper" : "mint";
     // Chart.js is loaded in the <head> as a classic (synchronous) script so
     // it is guaranteed to be defined on window before any body-level <script>
     // the widget HTML contains runs. The system prompt tells the model that
@@ -285,32 +369,40 @@ export function WidgetFrame({ code, html, title }) {
     // canvas. The browser HTTP-caches the CDN fetch across all iframes on
     // the page, so the 70 KB payload is paid once per session.
     return `<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="${safeTheme}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data: blob:; connect-src 'none'">
+  <style>${EMERSUS_THEME_CSS}</style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js" crossorigin="anonymous"></script>
   <script>
     // Pre-set Chart.js global defaults so every chart the model emits inherits
-    // the dark Emersus surface palette without each widget having to remember.
-    // This runs synchronously after Chart.js loads but before any body-level
-    // <script> the model writes, so new Chart(...) calls pick these up.
+    // the current Emersus palette without each widget having to remember. The
+    // values are read from the CSS custom properties we just injected, so
+    // Graphite·Jade (dark) and Paper·Royal (light) both work without per-palette
+    // JS. Re-read happens on every iframe load — WidgetFrame re-renders srcDoc
+    // when the host theme flips, so new Chart(...) calls after a flip pick up
+    // the updated vars. Existing Chart instances stay in the old palette (the
+    // widget would need to redraw to pick up new defaults, which is rare).
     if (typeof Chart !== "undefined") {
-      Chart.defaults.color = "rgba(255, 255, 255, 0.65)";
-      Chart.defaults.borderColor = "rgba(255, 255, 255, 0.08)";
-      Chart.defaults.font.family = 'system-ui, -apple-system, sans-serif';
+      var _rs = getComputedStyle(document.documentElement);
+      var _axis = (_rs.getPropertyValue('--chart-axis') || '').trim() || 'rgba(255,255,255,0.65)';
+      var _grid = (_rs.getPropertyValue('--chart-grid') || '').trim() || 'rgba(255,255,255,0.06)';
+      var _border = (_rs.getPropertyValue('--chart-border') || '').trim() || 'rgba(255,255,255,0.08)';
+      Chart.defaults.color = _axis;
+      Chart.defaults.borderColor = _border;
+      Chart.defaults.font.family = "'Space Grotesk', system-ui, -apple-system, sans-serif";
       Chart.defaults.font.size = 11;
       if (Chart.defaults.scale && Chart.defaults.scale.grid) {
-        Chart.defaults.scale.grid.color = "rgba(255, 255, 255, 0.06)";
+        Chart.defaults.scale.grid.color = _grid;
       }
       if (Chart.defaults.plugins && Chart.defaults.plugins.legend) {
         Chart.defaults.plugins.legend.labels = Chart.defaults.plugins.legend.labels || {};
-        Chart.defaults.plugins.legend.labels.color = "rgba(255, 255, 255, 0.75)";
+        Chart.defaults.plugins.legend.labels.color = _axis;
       }
     }
   </script>
-  <style>${EMERSUS_THEME_CSS}</style>
 </head>
 <body>
 ${widgetBody}
@@ -352,7 +444,7 @@ ${widgetBody}
 </script>
 </body>
 </html>`;
-  }, [widgetBody, frameId, parentOrigin]);
+  }, [widgetBody, frameId, parentOrigin, theme]);
 
   useEffect(() => {
     function onMessage(event) {
