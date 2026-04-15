@@ -57,6 +57,7 @@ import {
 } from "/shared/citation-format.js";
 import { resolveFlag } from "/shared/feature-flags.js";
 import { ChatTopBar } from "/shared/chat/top-bar.js";
+import { MessageActions } from "/shared/chat/message-actions.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -2593,7 +2594,16 @@ function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
   }));
 }
 
-const Message = React.memo(function Message({ message, typewrite = false, threadId = null }) {
+const Message = React.memo(function Message({
+  message,
+  typewrite = false,
+  threadId = null,
+  chatV2On = false,
+  onRegenerate,
+  onSavePlan,
+  onSwapMeal,
+  onExport,
+}) {
   // Choose rendering strategy:
   // 1. toolResults present â†’ SSE path (prose + structured tool outputs)
   // 2. blocks array â†’ legacy fence-parsed path
@@ -2610,12 +2620,26 @@ const Message = React.memo(function Message({ message, typewrite = false, thread
           ? h(MessageBlocks, { blocks: message.blocks, typewrite, threadId })
           : message.html
             ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
-            : h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId }))
+            : h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId })),
+    chatV2On && message.role === "assistant"
+      ? h(MessageActions, {
+          message,
+          onRegenerate,
+          onSavePlan,
+          onSwapMeal,
+          onExport,
+        })
+      : null,
   );
 }, (prevProps, nextProps) =>
   prevProps.message === nextProps.message &&
   prevProps.typewrite === nextProps.typewrite &&
-  prevProps.threadId === nextProps.threadId
+  prevProps.threadId === nextProps.threadId &&
+  prevProps.chatV2On === nextProps.chatV2On &&
+  prevProps.onRegenerate === nextProps.onRegenerate &&
+  prevProps.onSavePlan === nextProps.onSavePlan &&
+  prevProps.onSwapMeal === nextProps.onSwapMeal &&
+  prevProps.onExport === nextProps.onExport
 );
 
 // Right-rail sources card. Displays up to 4 attached sources for the
@@ -3444,6 +3468,46 @@ export function ChatApp() {
     streamAbortRef.current = null;
   }, []);
 
+  // Regenerate: find the user message that preceded `message` and re-run
+  // inference using its text. Uses submitQuestionRef so this closure stays
+  // stable even after submitQuestion re-creates itself on re-renders.
+  const handleRegenerateMessage = useCallback((message) => {
+    if (isSubmitting) return;
+    const thread = chatHistoryRef.current.find((t) => t.id === activeThreadIdRef.current);
+    const messages = Array.isArray(thread?.messages) ? thread.messages : [];
+    const index = messages.findIndex((m) => m === message || m.createdAt === message?.createdAt);
+    if (index <= 0) return;
+    let parent = null;
+    for (let i = index - 1; i >= 0; i--) {
+      if (messages[i].role === "user") { parent = messages[i]; break; }
+    }
+    if (!parent) return;
+    const prompt = String(parent.text || parent.plainText || "").trim();
+    if (!prompt) return;
+    submitQuestionRef.current?.({}, prompt);
+  }, [isSubmitting]);
+
+  const handleSavePlanFromMessage = useCallback(() => {
+    // Workout plans already expose their own Save button via WorkoutPlanCard;
+    // this action is a hint for users scrolling the message actions row.
+    setStatusTone("info");
+    setStatusMessage("Use the Save plan button on the workout card below.");
+  }, []);
+
+  const handleSwapMealFromMessage = useCallback((message) => {
+    const text = String(message?.text || message?.plainText || "").slice(0, 200);
+    const seed = text
+      ? `Swap a meal in the plan above. Keep the daily targets and show the updated cards.`
+      : "Swap a meal in the plan above.";
+    setQuestion(seed);
+  }, []);
+
+  const handleExportMessage = useCallback(() => {
+    // Real export / share modal arrives in Task 7.
+    setStatusTone("info");
+    setStatusMessage("Export modal coming in Phase 2 · Task 7.");
+  }, []);
+
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}${chatV2On ? " chat-v2" : ""}` },
     h("aside", { className: "chat-nav" },
       h("div", { className: "chat-brand" },
@@ -3541,6 +3605,11 @@ export function ChatApp() {
                     message,
                     typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
                     threadId: activeThread?.id || null,
+                    chatV2On,
+                    onRegenerate: handleRegenerateMessage,
+                    onSavePlan: handleSavePlanFromMessage,
+                    onSwapMeal: handleSwapMealFromMessage,
+                    onExport: handleExportMessage,
                   })),
                   h("article", { key: "persistent-glyph", className: "message assistant message-pending" },
                     h("div", { className: "message-content" },
