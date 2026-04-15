@@ -18,7 +18,19 @@ import { registerIngestion } from "./_registry.js";
 const SEARCH_URL = "https://api.core.ac.uk/v3/search/works/";
 const PAGE_SIZE = 50;
 
-const waitSlot = createLimiter(8); // 8 RPS with key (ceiling is 10)
+// CORE uses a token-based rate limit: complex boolean queries cost 3-5 tokens,
+// simple ones cost 1. Observed on our key: 150 tokens per 1-minute window.
+// At 5 tokens/call worst case → 30 calls/min ceiling → 1 call every 2s.
+// 0.4 RPS (1 every 2.5s) gives ~24/min = ~120 tokens/min = 20% headroom.
+// Prior value of 8 RPS produced ~2400 tokens/min, 16× over budget — this was
+// contributing to the HTTP 500 saturation we saw during the 2026-04-15
+// recovery attempt, not just CORE-side ES problems. See
+// project_core_recovery_pending.md for the full postmortem.
+const waitSlot = createLimiter(0.4);
+
+// Proactive throttle: when remaining tokens drop below this threshold we
+// sleep until the window resets, rather than forcing CORE to 429 us.
+const LOW_TOKEN_THRESHOLD = 10;
 
 function buildSearchUrl(query, offset) {
   const params = new URLSearchParams({
@@ -27,6 +39,26 @@ function buildSearchUrl(query, offset) {
     offset: String(offset),
   });
   return `${SEARCH_URL}?${params.toString()}`;
+}
+
+async function sleep(ms) {
+  if (ms > 0) await new Promise((r) => setTimeout(r, ms));
+}
+
+/**
+ * Inspect CORE's X-RateLimit-* headers and sleep if we're near empty on the
+ * current window. Called after every response so the next caller already
+ * waits the window out instead of racing CORE to the 429.
+ */
+async function maybePauseForRateLimit(resp) {
+  const remaining = Number(resp.get("x-ratelimit-remaining"));
+  if (!Number.isFinite(remaining) || remaining > LOW_TOKEN_THRESHOLD) return;
+  const retryAfterRaw = resp.get("x-ratelimit-retry-after");
+  if (!retryAfterRaw) return;
+  const resetAt = Date.parse(retryAfterRaw);
+  if (!Number.isFinite(resetAt)) return;
+  const delay = resetAt - Date.now() + 500; // small slack
+  if (delay > 0 && delay < 120_000) await sleep(delay);
 }
 
 async function searchPage(query, offset) {
@@ -43,7 +75,9 @@ async function searchPage(query, offset) {
     accept: "application/json",
     headers: { authorization: `Bearer ${apiKey}` },
   });
-  return resp.json();
+  const body = await resp.json();
+  await maybePauseForRateLimit(resp);
+  return body;
 }
 
 /** CORE wraps some publisher strings in single quotes ("'Human Kinetics'"). Strip them. */
