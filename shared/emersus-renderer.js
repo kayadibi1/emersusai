@@ -202,6 +202,8 @@ export const EMERSUS_THEME_CSS = `
     word-wrap: break-word;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    max-width: 100vw;
+    overflow-x: hidden;
   }
   body {
     padding: 0;
@@ -537,6 +539,7 @@ ${widgetBody}
     scrolling: "no",
     style: {
       width: "100%",
+      maxWidth: "100%",
       height: "260px",
       maxHeight: `${MAX_WIDGET_FRAME_HEIGHT}px`,
       border: "none",
