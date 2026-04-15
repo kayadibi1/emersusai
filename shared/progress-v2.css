@@ -5,7 +5,7 @@
 [data-progress-v2="1"] body.progress-v2-body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased; min-height: 100vh;
+  -webkit-font-smoothing: antialiased; min-height: 100vh; overflow-x: hidden;
 }
 
 [data-progress-v2="1"] .pg-shell {
