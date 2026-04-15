@@ -33,6 +33,7 @@ export const KNOWN_FLAGS = [
 export const DEFAULT_FLAGS = Object.freeze({
   chat_v2: true,
   auth_v2: true,
+  profile_v2: true,
 });
 
 const STORAGE_KEY = 'emersus-flags';

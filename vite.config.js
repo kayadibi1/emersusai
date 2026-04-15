@@ -14,6 +14,7 @@ const htmlEntries = [
   "app/index.html",
   "app/nutrition/index.html",
   "app/profile/index.html",
+  "app/profile/index-v2.html",
   "app/progress/index.html",
   "app/progress/exercise/index.html",
   "app/progress/session/index.html",
