@@ -414,14 +414,214 @@
 }
 
 /* ========== CITATION FOOTER (Task 8) ========== */
+/* Compact per-message citation footer. Replaces the right-rail SourcesRailCard
+ * as the surface where evidence lives in chat_v2. See SourcesFooter in
+ * shared/react-chat-app.js. Layout: header (count + expand-all + copy-all) →
+ * chip strip (numbered jumps) → bordered row list (one line each, first 3
+ * visible, rest behind "Show N more") → inline detail panel per row.
+ */
 
+[data-chat-v2="1"] .msg-sources {
+  margin-top: 18px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  max-width: 74ch;
+}
+
+[data-chat-v2="1"] .srcs-head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+}
+[data-chat-v2="1"] .srcs-lbl { color: var(--ink); }
+[data-chat-v2="1"] .srcs-spacer { flex: 1; }
+[data-chat-v2="1"] .srcs-head-btn {
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  color: var(--dim);
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+  transition: color .14s;
+}
+[data-chat-v2="1"] .srcs-head-btn:hover { color: var(--accent); }
+[data-chat-v2="1"] .srcs-head-sep { color: var(--dim); }
+
+[data-chat-v2="1"] .srcs-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+[data-chat-v2="1"] .srcs-chip {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--dim);
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  width: 26px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: color .14s, border-color .14s, background .14s;
+  padding: 0;
+}
+[data-chat-v2="1"] .srcs-chip:hover {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+[data-chat-v2="1"] .srcs-chip.is-open {
+  color: var(--accent);
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+[data-chat-v2="1"] .srcs-rows {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+[data-chat-v2="1"] .srcs-rows > li + li { border-top: 1px solid var(--line); }
+[data-chat-v2="1"] .srcs-rows.is-collapsed > li.is-hidden { display: none; }
+
+[data-chat-v2="1"] .srcs-row {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background .14s;
+}
+[data-chat-v2="1"] .srcs-row:hover { background: var(--surface-faint); }
+[data-chat-v2="1"] .srcs-row.is-open { background: var(--surface-faint); }
+[data-chat-v2="1"] .srcs-row .idx {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  color: var(--accent);
+}
+[data-chat-v2="1"] .srcs-row .headline {
+  min-width: 0;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+[data-chat-v2="1"] .srcs-row .ttl {
+  font-size: 13px;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  flex: 1;
+}
+[data-chat-v2="1"] .srcs-row .meta {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  color: var(--dim);
+  flex-shrink: 0;
+}
+[data-chat-v2="1"] .srcs-row .mini-links {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+  flex-shrink: 0;
+}
+[data-chat-v2="1"] .srcs-row .mini-link {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  color: var(--dim);
+  text-decoration: none;
+  padding: 2px 6px;
+  border-radius: 3px;
+  transition: color .14s, background .14s;
+}
+[data-chat-v2="1"] .srcs-row .mini-link:hover {
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+[data-chat-v2="1"] .srcs-row .caret {
+  color: var(--dim);
+  font-size: 9px;
+  transition: transform .14s, color .14s;
+}
+[data-chat-v2="1"] .srcs-row:hover .caret { color: var(--accent); }
+[data-chat-v2="1"] .srcs-row.is-open .caret {
+  transform: rotate(90deg);
+  color: var(--accent);
+}
+
+[data-chat-v2="1"] .srcs-detail {
+  display: none;
+  padding: 0 12px 12px 46px;
+  background: var(--surface-faint);
+  border-top: 1px solid var(--line);
+}
+[data-chat-v2="1"] .srcs-detail.is-open { display: block; }
+[data-chat-v2="1"] .srcs-detail p {
+  font-size: 12.5px;
+  color: var(--muted);
+  line-height: 1.55;
+  margin: 10px 0;
+}
+
+[data-chat-v2="1"] .srcs-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 9px 12px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.20em;
+  text-transform: uppercase;
+  color: var(--dim);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  transition: color .14s, border-color .14s, background .14s;
+}
+[data-chat-v2="1"] .srcs-more:hover {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+[data-chat-v2="1"] .srcs-more .n { color: var(--ink); }
+
+@media (max-width: 640px) {
+  [data-chat-v2="1"] .srcs-row .meta { display: none; }
+  [data-chat-v2="1"] .srcs-row .mini-links { display: none; }
+}
+
+/* Inline action row (inside the expanded detail panel). Reused by older
+ * SourcesRailCard (off-v2) as well. */
 [data-chat-v2="1"] .cite-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-top: 8px;
-  padding-top: 8px;
-  border-top: 1px solid var(--line);
 }
 
 [data-chat-v2="1"] .cite-action {
