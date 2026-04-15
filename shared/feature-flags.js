@@ -38,6 +38,7 @@ export const DEFAULT_FLAGS = Object.freeze({
   conversational_onboarding: true,
   nutrition_v2: true,
   train_v2: true,
+  progress_v2: true,
 });
 
 const STORAGE_KEY = 'emersus-flags';
