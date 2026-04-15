@@ -53,11 +53,34 @@ body.landing-v2-body main { position: relative; z-index: 1; }
   background: var(--nav-bg);
   border-bottom: 1px solid var(--line);
 }
-.nav { max-width: 1200px; margin: 0 auto; padding: 14px 32px; display: flex; align-items: center; justify-content: space-between; }
-.brand { font-family: var(--font-mono); font-weight: 600; font-size: 13px; letter-spacing: 0.28em; color: var(--ink); text-decoration: none; }
-.nav-links { display: flex; gap: 28px; }
-.nav-links a { font-size: 13.5px; color: var(--muted); text-decoration: none; font-weight: 450; transition: color .14s; }
+.nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+.brand {
+  justify-self: start;
+  font-family: var(--font-mono); font-weight: 600;
+  font-size: 13px; letter-spacing: 0.28em;
+  color: var(--ink); text-decoration: none;
+  line-height: 1;
+}
+.nav-links {
+  justify-self: center;
+  display: flex; align-items: center; gap: 40px;
+}
+.nav-links a {
+  font-size: 14px; color: var(--muted);
+  text-decoration: none; font-weight: 500;
+  letter-spacing: -0.005em; line-height: 1;
+  transition: color .14s;
+}
 .nav-links a:hover { color: var(--ink); }
+.nav-right { justify-self: end; }
 .btn {
   display: inline-flex; align-items: center; gap: 8px;
   font-size: 13.5px; font-weight: 500;
@@ -73,7 +96,7 @@ body.landing-v2-body main { position: relative; z-index: 1; }
 .btn-accent:hover { filter: brightness(1.08); background: var(--accent); }
 
 /* ===== Theme switcher (in nav) ===== */
-.nav-right { display: flex; align-items: center; gap: 14px; }
+.nav-right { display: flex; align-items: center; gap: 14px; justify-self: end; }
 .theme-switch {
   display: inline-flex; gap: 6px;
   padding: 4px; border-radius: 8px;
