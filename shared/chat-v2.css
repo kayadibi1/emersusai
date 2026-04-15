@@ -1386,7 +1386,9 @@
 [data-chat-v2="1"] .chat-composer-shell {
   position: relative;
   padding: 18px 40px 28px;
-  padding-bottom: max(28px, calc(28px + env(safe-area-inset-bottom)));
+  /* On iOS home-indicator devices, take the inset when it exceeds 28 px;
+   * on everything else this falls back to the static 28 px. */
+  padding-bottom: max(28px, env(safe-area-inset-bottom));
   background: var(--bg);
   margin: 0;
   border: 0;
