@@ -9,16 +9,16 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
   <link rel="stylesheet" href="/shared/chrome.css?v=redesign-1">
+  <!-- chat-v2.css ships unconditionally — every rule is scoped under
+       [data-chat-v2="1"], so it's a no-op until the inline boot script
+       below sets that attribute (or the bundled JS does at mount time). -->
+  <link rel="stylesheet" href="/shared/chat-v2.css?v=redesign-2">
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
     import { resolveFlag } from '/shared/feature-flags.js?v=redesign-1';
     bootTheme();
     if (resolveFlag('chat_v2')) {
       document.documentElement.dataset.chatV2 = '1';
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
-      link.href = '/shared/chat-v2.css?v=redesign-2';
-      document.head.appendChild(link);
     }
   </script>
   <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
