@@ -241,3 +241,175 @@
   .app-shell { grid-template-columns: 1fr; }
   .sidebar { display: none; }
 }
+
+/* ========== TOP BAR (inside .main) ========== */
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+  gap: 16px;
+}
+
+/* ========== TAB BARS ========== */
+/* Centered tabs (modality/filter tabs on Train/Nutrition/Progress) */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  border-bottom: 1px solid var(--line);
+  padding: 0 28px;
+  background: var(--bg);
+}
+.tab {
+  background: transparent;
+  border: 0;
+  padding: 18px 2px 16px;
+  font-family: 'JetBrains Mono';
+  font-size: 11px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color .14s, border-color .14s;
+  font-weight: 500;
+}
+.tab:hover { color: var(--ink); }
+.tab.active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+.tab.soon::after {
+  content: "SOON";
+  font-size: 8.5px; letter-spacing: 0.2em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: 600;
+  margin-left: 6px;
+}
+
+/* Sub-tabs (smaller, inside a page, e.g., Active/History) */
+.sub-tabs {
+  display: flex; gap: 6px;
+  padding: 12px 28px;
+  border-bottom: 1px solid var(--line);
+}
+.sub-tab {
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: 'Space Grotesk';
+  font-size: 12.5px;
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 500;
+  transition: all .14s;
+}
+.sub-tab:hover { color: var(--ink); background: var(--surface-faint); }
+.sub-tab.active {
+  color: var(--ink);
+  background: var(--surface-faint);
+  border-color: var(--line);
+}
+
+/* Period pill group (Week · Month · 3M · Year) */
+.period-group {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--surface-faint);
+}
+.period-group button {
+  background: transparent;
+  border: 0;
+  padding: 7px 14px;
+  font-family: 'JetBrains Mono';
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .14s;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+.period-group button:not(:last-child) {
+  border-right: 1px solid var(--line);
+}
+.period-group button:hover { color: var(--ink); }
+.period-group button.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ========== BUTTONS ========== */
+.btn {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--ink);
+  padding: 8px 14px;
+  border-radius: 7px;
+  font-family: 'Space Grotesk';
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .14s;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+}
+.btn:hover {
+  background: var(--surface-faint);
+  border-color: var(--accent-line);
+}
+.btn-sm  { padding: 6px 10px; font-size: 12px; }
+.btn-icon { padding: 8px 10px; }
+.btn-accent {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+.btn-accent:hover {
+  filter: brightness(1.08);
+  background: var(--accent);
+}
+.btn-danger {
+  border-color: rgba(248,113,113,0.3);
+  color: var(--danger);
+}
+.btn-danger:hover {
+  background: rgba(248,113,113,0.08);
+  border-color: rgba(248,113,113,0.5);
+}
+
+/* Auto-save indicator */
+.autosave-hint {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-family: 'JetBrains Mono';
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--dim);
+}
+.autosave-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: emersus-pulse 2.5s infinite;
+}
+@keyframes emersus-pulse {
+  0%   { box-shadow: 0 0 0 0 var(--accent-line); }
+  70%  { box-shadow: 0 0 0 8px transparent; }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
