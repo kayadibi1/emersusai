@@ -10,6 +10,7 @@
   font-family: 'Space Grotesk', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 [data-profile-v2="1"] .pf-shell {
