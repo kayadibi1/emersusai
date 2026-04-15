@@ -61,6 +61,9 @@ const { default: validateInviteHandler } = await import("./api/auth/validate-inv
 const { default: acceptInviteHandler } = await import("./api/auth/accept-invite.js");
 const { default: profileRouter } = await import("./api/emersus/profile.js");
 const { default: integrationsWaitlistHandler } = await import("./api/emersus/integrations-waitlist.js");
+const { default: workoutSessionsRouter } = await import("./api/emersus/workout-sessions.js");
+const { default: setsHandler } = await import("./api/emersus/sets.js");
+const { default: exercisesCatalogHandler } = await import("./api/emersus/exercises-catalog.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
@@ -109,6 +112,11 @@ app.post("/api/auth/accept-invite", acceptInviteHandler);
 // profile_v2: structured profile read/write + integrations waitlist.
 app.use("/api/profile", profileRouter());
 app.post("/api/integrations/waitlist", requireAuth, integrationsWaitlistHandler);
+
+// train_v2 (Phase 3): workout-sessions + sets + exercises catalog.
+app.use("/api/workout-sessions", workoutSessionsRouter());
+app.post("/api/sets", requireAuth, setsHandler);
+app.get("/api/exercises", exercisesCatalogHandler);
 
 // Auth + user endpoints
 app.post("/api/auth/check-email", publicRateLimitMiddleware("check-email"), checkEmailHandler);
