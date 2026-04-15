@@ -20,21 +20,23 @@ describe('theme.js — pure logic', () => {
   });
 
   test('resolveInitialTheme prefers saved value when valid', () => {
-    const result = resolveInitialTheme({ saved: 'paper', systemPrefersLight: false });
-    assert.equal(result, 'paper');
+    assert.equal(resolveInitialTheme({ saved: 'paper' }), 'paper');
+    assert.equal(resolveInitialTheme({ saved: 'mint' }), 'mint');
   });
 
-  test('resolveInitialTheme falls back to system preference when saved is invalid', () => {
-    assert.equal(resolveInitialTheme({ saved: 'neon', systemPrefersLight: true }), 'paper');
-    assert.equal(resolveInitialTheme({ saved: 'neon', systemPrefersLight: false }), 'mint');
+  test('resolveInitialTheme ignores an invalid saved value and returns the default', () => {
+    assert.equal(resolveInitialTheme({ saved: 'neon' }), 'paper');
+    assert.equal(resolveInitialTheme({ saved: '' }), 'paper');
   });
 
-  test('resolveInitialTheme defaults to mint when nothing is known', () => {
-    assert.equal(resolveInitialTheme({ saved: null, systemPrefersLight: false }), 'mint');
-    assert.equal(resolveInitialTheme({ saved: undefined, systemPrefersLight: undefined }), 'mint');
+  test('resolveInitialTheme defaults to paper when nothing is saved', () => {
+    assert.equal(resolveInitialTheme({ saved: null }), 'paper');
+    assert.equal(resolveInitialTheme({ saved: undefined }), 'paper');
+    assert.equal(resolveInitialTheme({}), 'paper');
   });
 
-  test('resolveInitialTheme picks paper when system prefers light and no saved value', () => {
+  test('resolveInitialTheme ignores systemPrefersLight (product ships light-first)', () => {
+    assert.equal(resolveInitialTheme({ saved: null, systemPrefersLight: false }), 'paper');
     assert.equal(resolveInitialTheme({ saved: null, systemPrefersLight: true }), 'paper');
   });
 });

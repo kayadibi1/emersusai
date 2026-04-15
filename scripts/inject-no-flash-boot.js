@@ -14,6 +14,7 @@ import { fileURLToPath } from "node:url";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 const dryRun = process.argv.includes("--dry-run");
+const force = process.argv.includes("--force");
 
 const HTML_ENTRIES = [
   "index.html",
@@ -57,10 +58,12 @@ const BOOT_BLOCK = `  ${SENTINEL}
       var H = document.documentElement;
       try {
         var saved = localStorage.getItem('emersus-theme');
-        var theme = (saved === 'mint' || saved === 'paper') ? saved
-          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'paper' : 'mint');
+        // Default to Paper·Royal (light) for new visitors. Existing users keep
+        // whatever they've saved. System prefers-color-scheme is ignored by
+        // design — the product ships light-first; users switch in Settings.
+        var theme = (saved === 'mint' || saved === 'paper') ? saved : 'paper';
         H.setAttribute('data-theme', theme);
-      } catch (_) { H.setAttribute('data-theme', 'mint'); }
+      } catch (_) { H.setAttribute('data-theme', 'paper'); }
       try {
         var url = new URLSearchParams(location.search);
         var stored = {};
@@ -109,8 +112,22 @@ for (const rel of HTML_ENTRIES) {
   }
 
   if (html.includes(SENTINEL)) {
-    skipped++;
-    continue;
+    if (!force) {
+      skipped++;
+      continue;
+    }
+    // --force: strip the existing sentinel block so we can re-insert the
+    // canonical BOOT_BLOCK below. Matches from the sentinel comment through
+    // the closing </script> greedily, including the leading indentation.
+    const stripped = html.replace(
+      /[ \t]*<!-- no-flash-boot:[\s\S]*?<\/script>\s*/,
+      ""
+    );
+    if (stripped === html) {
+      problems.push(`sentinel present but regex failed on ${rel}`);
+      continue;
+    }
+    html = stripped;
   }
 
   // Insert right after </title>. Preserves the line break + indentation.
