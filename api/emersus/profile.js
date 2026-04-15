@@ -99,6 +99,9 @@ export function validateProfilePatch(body) {
       out.macros_overridden_at = new Date().toISOString();
     }
   }
+  if (body.onboarding_completed !== undefined) {
+    out.onboarding_completed = Boolean(body.onboarding_completed);
+  }
 
   return { patch: out };
 }
