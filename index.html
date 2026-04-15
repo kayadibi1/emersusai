@@ -10,9 +10,22 @@
   <link rel="preload" href="/emersus-logo.png" as="image">
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
+  <link rel="stylesheet" href="/shared/landing-v2.css?v=redesign-8">
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
+    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-8';
     bootTheme();
+    if (resolveFlag('public_v2')) {
+      document.documentElement.dataset.publicV2 = '1';
+      // Hydrate corpus stats live from /api/config (best-effort).
+      fetch('/api/config').then((r) => r.ok ? r.json() : null).then((cfg) => {
+        if (!cfg) return;
+        const fmt = (n) => n >= 1_000_000 ? (n/1_000_000).toFixed(1) + 'M+' : (n/1_000).toFixed(0) + 'K+';
+        const set = (sel, v) => { const el = document.querySelector(sel); if (el && v) el.textContent = v; };
+        if (cfg.corpus_papers) set('[data-stat="papers"]', fmt(cfg.corpus_papers));
+        if (cfg.corpus_topics) set('[data-stat="topics"]', String(cfg.corpus_topics));
+      }).catch(() => {});
+    }
   </script>
   <link href="./styles.css" rel="stylesheet">
 </head>
@@ -138,7 +151,115 @@
         </div>
       </section>
 
-      <footer class="footer">
+      <!-- ===== Phase 8 additions (visible only when public_v2 flag is on) ===== -->
+      <section class="section pv-section" id="trust" data-public-v2-only>
+        <div class="pv-section-inner">
+          <div class="pv-section-head">
+            <p class="pv-section-eyebrow">Trust the corpus</p>
+            <h2 class="pv-section-title">Built on the literature</h2>
+            <p class="pv-section-sub">Every recommendation traces back to peer-reviewed studies. Live counts:</p>
+          </div>
+          <div class="pv-stats-strip" role="list">
+            <div class="pv-stat" role="listitem"><span class="pv-stat-num" data-stat="papers">1M+</span><span class="pv-stat-lbl">Papers indexed</span></div>
+            <div class="pv-stat" role="listitem"><span class="pv-stat-num" data-stat="topics">302</span><span class="pv-stat-lbl">Topics covered</span></div>
+            <div class="pv-stat" role="listitem"><span class="pv-stat-num">8</span><span class="pv-stat-lbl">Evidence sources</span></div>
+            <div class="pv-stat" role="listitem"><span class="pv-stat-num">100%</span><span class="pv-stat-lbl">Verifiable claims</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section pv-section" id="evidence" data-public-v2-only>
+        <div class="pv-section-inner">
+          <div class="pv-section-head">
+            <p class="pv-section-eyebrow">Evidence grading</p>
+            <h2 class="pv-section-title">When we know — and when we don't</h2>
+            <p class="pv-section-sub">Every answer carries a confidence label. We don't pretend to know what the literature can't yet support.</p>
+          </div>
+          <div class="pv-grades">
+            <div class="pv-grade">
+              <span class="pv-grade-tag strong">Strong</span>
+              <p class="pv-grade-copy">Multiple meta-analyses agree. Recommendation is safe to act on.</p>
+            </div>
+            <div class="pv-grade">
+              <span class="pv-grade-tag moderate">Moderate</span>
+              <p class="pv-grade-copy">Evidence is leaning but not decisive. Weigh against context.</p>
+            </div>
+            <div class="pv-grade">
+              <span class="pv-grade-tag limited">Limited</span>
+              <p class="pv-grade-copy">A few small studies. Personal experimentation may be needed.</p>
+            </div>
+            <div class="pv-grade">
+              <span class="pv-grade-tag insufficient">Insufficient</span>
+              <p class="pv-grade-copy">Not enough rigorous evidence yet. We say so explicitly.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section pv-section" id="compare" data-public-v2-only>
+        <div class="pv-section-inner">
+          <div class="pv-section-head">
+            <p class="pv-section-eyebrow">Why Emersus</p>
+            <h2 class="pv-section-title">vs. ChatGPT &amp; personal trainers</h2>
+          </div>
+          <table class="pv-compare">
+            <thead>
+              <tr>
+                <th></th>
+                <th class="us">Emersus</th>
+                <th>ChatGPT</th>
+                <th>Personal trainer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td class="row-label">Cites peer-reviewed studies</td><td class="us">Every claim</td><td class="muted">Hallucinates</td><td class="muted">Rarely</td></tr>
+              <tr><td class="row-label">Says "I don't know" when warranted</td><td class="us">Yes</td><td class="muted">Confidently wrong</td><td class="muted">Depends</td></tr>
+              <tr><td class="row-label">Tracks your training over time</td><td class="us">Yes</td><td class="muted">No</td><td class="muted">Yes</td></tr>
+              <tr><td class="row-label">Adjusts to your equipment + injuries</td><td class="us">Yes</td><td class="muted">Generic</td><td class="muted">Yes</td></tr>
+              <tr><td class="row-label">Available 24/7</td><td class="us">Yes</td><td class="muted">Yes</td><td class="muted">No</td></tr>
+              <tr><td class="row-label">Cost</td><td class="us">Private beta</td><td class="muted">$20/mo</td><td class="muted">$200+/hr</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="section pv-section" id="faq" data-public-v2-only>
+        <div class="pv-section-inner">
+          <div class="pv-section-head">
+            <p class="pv-section-eyebrow">FAQ</p>
+            <h2 class="pv-section-title">Common questions</h2>
+          </div>
+          <div class="pv-faq">
+            <details>
+              <summary>How is this different from ChatGPT?</summary>
+              <p class="pv-faq-body">ChatGPT is a general-purpose model. Emersus is grounded in over a million peer-reviewed exercise-science and nutrition papers. When you ask a question, we retrieve the actual evidence first, then synthesize. Every claim is traceable.</p>
+            </details>
+            <details>
+              <summary>What kind of training does it cover?</summary>
+              <p class="pv-faq-body">Strength &amp; hypertrophy, endurance (running, cycling, rowing), swimming, and climbing. Plus nutrition, supplements, recovery, sleep, and metabolic health.</p>
+            </details>
+            <details>
+              <summary>Is this medical advice?</summary>
+              <p class="pv-faq-body">No. Emersus is an evidence-aware fitness coaching tool. Always consult a clinician for medical decisions, especially around injuries, medications, or chronic conditions.</p>
+            </details>
+            <details>
+              <summary>Can I see the actual studies?</summary>
+              <p class="pv-faq-body">Yes — every cited source links to PubMed or DOI. You can read the abstract, check the methodology, and verify the claim yourself.</p>
+            </details>
+            <details>
+              <summary>How do you handle data privacy?</summary>
+              <p class="pv-faq-body">All training and nutrition data is encrypted, scoped to your account, and never sold. See our <a href="/privacy/">Privacy Policy</a> and <a href="/consumer-health-data/">Consumer Health Data Privacy Policy</a> for full details.</p>
+            </details>
+            <details>
+              <summary>When can I sign up?</summary>
+              <p class="pv-faq-body">Emersus is in private beta. Request access above and we'll email you when a spot opens.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Legacy footer (visible when public_v2 is OFF) -->
+      <footer class="footer" data-public-v2-hide>
         <span class="text-blur">Emersus © 2025</span>
         <div style="display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:flex-end;">
           <a class="text-blur" href="/privacy/">Privacy</a>
@@ -147,8 +268,51 @@
           <a class="text-blur" href="/contact/">Contact</a>
         </div>
       </footer>
+
+      <!-- Rich footer (visible when public_v2 is ON) -->
+      <footer class="pv-footer" data-public-v2-only>
+        <div class="pv-footer-grid">
+          <div class="pv-footer-col pv-footer-brand">
+            <img src="/emersus-logo.png" alt="Emersus" />
+            <p>Evidence-based fitness coaching grounded in over a million peer-reviewed studies.</p>
+          </div>
+          <div class="pv-footer-col">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="/auth/">Log in</a></li>
+              <li><a href="/auth/?panel=request">Request access</a></li>
+              <li><a href="/demo/">See the demo</a></li>
+            </ul>
+          </div>
+          <div class="pv-footer-col">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="#evidence">Evidence grading</a></li>
+              <li><a href="#faq">FAQ</a></li>
+              <li><a href="/contact/">Contact</a></li>
+            </ul>
+          </div>
+          <div class="pv-footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="/privacy/">Privacy</a></li>
+              <li><a href="/terms/">Terms</a></li>
+              <li><a href="/consumer-health-data/">Consumer health data</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="pv-footer-bottom">
+          <span>Emersus © 2026</span>
+          <span><a href="mailto:info@emersus.ai" style="color:inherit;">info@emersus.ai</a></span>
+        </div>
+      </footer>
     </div>
   </main>
+  <style>
+    /* Reciprocal hide: only the legacy or v2 chrome at a time. */
+    [data-public-v2="1"] [data-public-v2-hide] { display: none !important; }
+    html:not([data-public-v2="1"]) [data-public-v2-only] { display: none !important; }
+  </style>
   <script type="module" src="./script.js?v=anan-scale-bg-20260407d"></script>
 </body>
 </html>

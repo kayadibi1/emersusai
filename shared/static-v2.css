@@ -1,0 +1,327 @@
+/* shared/static-v2.css — Phase 8 static-page chrome.
+ * Loaded on /contact, /privacy, /terms, /consumer-health-data, /demo
+ * when public_v2 flag is on. Provides:
+ *   - Sticky top nav (matches landing-v2)
+ *   - Sub-tab row (Contact · Privacy · Terms)
+ *   - Sticky TOC for legal pages
+ *   - Numbered article sections
+ *   - ⚠ IMPORTANT callout block for Terms
+ * All scoped under [data-public-v2="1"].
+ */
+
+[data-public-v2="1"] body.static-v2 {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ========== Top nav ========== */
+[data-public-v2="1"] .sv-nav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--line);
+}
+[data-public-v2="1"] .sv-nav-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+[data-public-v2="1"] .sv-nav-brand img { height: 28px; display: block; }
+[data-public-v2="1"] .sv-nav-links {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+[data-public-v2="1"] .sv-nav-links a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13px;
+  transition: color .14s;
+}
+[data-public-v2="1"] .sv-nav-links a:hover { color: var(--ink); }
+[data-public-v2="1"] .sv-nav-cta {
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+  font-size: 13px;
+  padding: 8px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: filter .14s, transform .14s;
+}
+[data-public-v2="1"] .sv-nav-cta:hover { filter: brightness(1.08); transform: translateY(-1px); }
+
+/* ========== Sub-tabs ========== */
+[data-public-v2="1"] .sv-subtabs {
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding: 0 24px;
+}
+[data-public-v2="1"] .sv-subtabs-inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+}
+[data-public-v2="1"] .sv-subtab {
+  padding: 16px 4px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-decoration: none;
+  border-bottom: 2px solid transparent;
+  transition: color .14s, border-color .14s;
+}
+[data-public-v2="1"] .sv-subtab:hover { color: var(--ink); }
+[data-public-v2="1"] .sv-subtab.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ========== Hero ========== */
+[data-public-v2="1"] .sv-hero {
+  padding: 64px 24px 32px;
+  text-align: center;
+}
+[data-public-v2="1"] .sv-hero h1 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+[data-public-v2="1"] .sv-hero p {
+  color: var(--muted);
+  font-size: 15px;
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+[data-public-v2="1"] .sv-hero .sv-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* ========== Page grid (TOC + article) ========== */
+[data-public-v2="1"] .sv-page-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 48px;
+}
+@media (max-width: 800px) {
+  [data-public-v2="1"] .sv-page-grid { grid-template-columns: 1fr; }
+  [data-public-v2="1"] .sv-toc { position: static; }
+}
+
+[data-public-v2="1"] .sv-toc {
+  position: sticky;
+  top: 80px;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+[data-public-v2="1"] .sv-toc a {
+  color: var(--dim);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-left: 2px solid transparent;
+  transition: color .14s, border-color .14s;
+}
+[data-public-v2="1"] .sv-toc a:hover { color: var(--ink); }
+[data-public-v2="1"] .sv-toc a.is-active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+/* ========== Article ========== */
+[data-public-v2="1"] .sv-article {
+  font-size: 15px;
+  line-height: 1.72;
+  color: var(--ink);
+}
+[data-public-v2="1"] .sv-article h2 {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  margin: 36px 0 12px;
+  color: var(--ink);
+  scroll-margin-top: 96px;
+}
+[data-public-v2="1"] .sv-article h2:first-child { margin-top: 0; }
+[data-public-v2="1"] .sv-article h2::before {
+  content: counter(sv-section, decimal-leading-zero) " · ";
+  counter-increment: sv-section;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 14px;
+  color: var(--accent);
+  margin-right: 4px;
+}
+[data-public-v2="1"] .sv-article { counter-reset: sv-section; }
+[data-public-v2="1"] .sv-article p { color: var(--ink); margin: 0 0 12px; }
+[data-public-v2="1"] .sv-article p.muted { color: var(--muted); }
+[data-public-v2="1"] .sv-article ul, [data-public-v2="1"] .sv-article ol {
+  padding-left: 24px;
+  margin: 0 0 12px;
+}
+[data-public-v2="1"] .sv-article a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* ========== ⚠ IMPORTANT callout (Terms) ========== */
+[data-public-v2="1"] .sv-warning {
+  background: rgba(239,68,68,0.05);
+  border-left: 3px solid var(--danger, #ef4444);
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin: 24px 0;
+}
+[data-public-v2="1"] .sv-warning strong {
+  display: block;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--danger, #ef4444);
+  margin-bottom: 8px;
+}
+
+/* ========== Contact form ========== */
+[data-public-v2="1"] .sv-contact-grid {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  gap: 32px;
+}
+@media (max-width: 800px) {
+  [data-public-v2="1"] .sv-contact-grid { grid-template-columns: 1fr; }
+}
+[data-public-v2="1"] .sv-contact-form {
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+[data-public-v2="1"] .sv-contact-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+[data-public-v2="1"] .sv-contact-form input,
+[data-public-v2="1"] .sv-contact-form textarea {
+  background: var(--composer-bg);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  outline: 0;
+  letter-spacing: 0;
+  text-transform: none;
+}
+[data-public-v2="1"] .sv-contact-form input:focus,
+[data-public-v2="1"] .sv-contact-form textarea:focus {
+  border-color: var(--accent);
+}
+[data-public-v2="1"] .sv-contact-form textarea { min-height: 140px; resize: vertical; }
+[data-public-v2="1"] .sv-contact-form button {
+  align-self: flex-start;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: 0;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0;
+  text-transform: none;
+}
+[data-public-v2="1"] .sv-subject-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+[data-public-v2="1"] .sv-subject-pill {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  color: var(--muted);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-family: inherit;
+  font-size: 12px;
+  cursor: pointer;
+  letter-spacing: 0;
+  text-transform: none;
+}
+[data-public-v2="1"] .sv-subject-pill.is-active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+[data-public-v2="1"] .sv-contact-aside {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+[data-public-v2="1"] .sv-aside-card {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+[data-public-v2="1"] .sv-aside-card h3 {
+  margin: 0 0 6px;
+  font-size: 13px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+[data-public-v2="1"] .sv-aside-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink);
+}
+[data-public-v2="1"] .sv-aside-card a { color: var(--accent); font-weight: 600; }
