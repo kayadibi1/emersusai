@@ -897,6 +897,13 @@
   border: 0;
   outline: 0;
 }
+/* Fade the placeholder away on focus so the caret lands on a clean field. */
+[data-chat-v2="1"] .chat-composer-shell .composer textarea::placeholder {
+  transition: color .14s ease, opacity .14s ease;
+}
+[data-chat-v2="1"] .chat-composer-shell .composer textarea:focus::placeholder {
+  color: transparent;
+}
 [data-chat-v2="1"] .chat-composer-shell .composer-utility-row {
   display: flex;
   align-items: center;

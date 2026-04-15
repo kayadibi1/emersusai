@@ -4063,10 +4063,10 @@ export function ChatApp() {
       h("div", { className: "chat-composer-shell" },
         h("form", { className: "composer", onSubmit: submitQuestion },
           h("div", { className: "composer-row" },
-            h("label", { className: "sr-only", htmlFor: "chat-question" }, "Question"),
             h("textarea", {
               id: "chat-question",
               name: "question",
+              "aria-label": "Ask Emersus",
               placeholder: activeThreadNeedsHydration
                 ? "Loading conversation..."
                 : onboardingActive
