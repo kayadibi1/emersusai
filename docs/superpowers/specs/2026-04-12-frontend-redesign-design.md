@@ -1,7 +1,7 @@
 # Frontend Redesign — Design Spec
 
 **Date:** 2026-04-12
-**Status:** Approved
+**Status:** Superseded by `2026-04-15-frontend-redesign-design.md` (Linear-inspired chat-first IA, Space Grotesk + JetBrains Mono, Graphite · Jade / Paper · Royal palettes). The "Typographic Minimalist · Georgia serif · Monster Acid green" direction below was abandoned on 2026-04-15 before implementation.
 **Scope:** Complete frontend visual redesign (all pages except 3D scroll animation / canvas background on landing page)
 
 ## Motivation
