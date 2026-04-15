@@ -58,6 +58,7 @@ import {
 import { resolveFlag } from "/shared/feature-flags.js";
 import { ChatTopBar } from "/shared/chat/top-bar.js";
 import { MessageActions } from "/shared/chat/message-actions.js";
+import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -3424,6 +3425,7 @@ export function ChatApp() {
   // chat_v2 feature flag — resolved once on mount. Drives whether the new
   // ChatTopBar renders and the `.chat-main` uses the v2 chrome classes.
   const [chatV2On] = useState(() => resolveFlag("chat_v2"));
+  const [shareModalOpen, setShareModalOpen] = useState(false);
 
   const handleRenameThread = useCallback(async (nextTitle) => {
     if (!activeThreadId || !session?.user?.id) return;
@@ -3446,10 +3448,11 @@ export function ChatApp() {
   }, [activeThreadId]);
 
   const handleShareThread = useCallback(() => {
-    // Real share modal arrives in Task 7; Task 4 wires the button as a stub.
-    setStatusTone("info");
-    setStatusMessage("Share modal coming in Phase 2 · Task 7.");
-  }, []);
+    if (!activeThreadId) return;
+    setShareModalOpen(true);
+  }, [activeThreadId]);
+
+  const closeShareModal = useCallback(() => setShareModalOpen(false), []);
 
   const handleArchiveThread = useCallback(() => {
     setStatusTone("info");
@@ -3503,10 +3506,9 @@ export function ChatApp() {
   }, []);
 
   const handleExportMessage = useCallback(() => {
-    // Real export / share modal arrives in Task 7.
-    setStatusTone("info");
-    setStatusMessage("Export modal coming in Phase 2 · Task 7.");
-  }, []);
+    if (!activeThreadId) return;
+    setShareModalOpen(true);
+  }, [activeThreadId]);
 
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}${chatV2On ? " chat-v2" : ""}` },
     h("aside", { className: "chat-nav" },
@@ -3678,7 +3680,16 @@ export function ChatApp() {
       h(SourcesRailCard, { sources: latestAssistantSources }),
       h("div", { className: "rail-foot" },
         h("div", { className: "rail-foot-line" }, h("span", null, "Pipeline"), h("span", null, "PubMed + PMC")),
-        h("div", { className: "rail-foot-line" }, h("span", null, "Interface"), h("span", null, "React + Lucide")))));
+        h("div", { className: "rail-foot-line" }, h("span", null, "Interface"), h("span", null, "React + Lucide")))),
+    chatV2On
+      ? h(ChatShareModal, {
+          open: shareModalOpen,
+          thread: activeThread,
+          accessToken: session?.access_token || "",
+          onClose: closeShareModal,
+        })
+      : null,
+  );
 }
 
 // Default mount: the production /chat/ page has #chat-root in its HTML.

@@ -54,6 +54,7 @@ const { default: foodsSearchBatchHandler } = await import("./api/emersus/foods-s
 const { default: mealPlansRouter } = await import("./api/emersus/meal-plans.js");
 const { default: mealJournalRouter } = await import("./api/emersus/meal-journal.js");
 const { default: rpcProxy } = await import("./api/emersus/rpc-proxy.js");
+const { threadsShareApiRouter, publicShareRouter } = await import("./api/emersus/threads-share.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
@@ -84,6 +85,12 @@ app.post("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
 app.use("/api/emersus/meal-plans", mealPlansRouter);
 app.use("/api/emersus/meal-journal", mealJournalRouter);
 app.all("/api/emersus/rpc/:name", rpcProxy);
+
+// Thread sharing (chat_v2): create token + export transcript + public render.
+// The public /share/t/:token view is mounted BEFORE static/admin routes so it
+// wins over catch-alls.
+app.use("/api/threads", threadsShareApiRouter());
+app.use(publicShareRouter());
 
 // Auth + user endpoints
 app.post("/api/auth/check-email", publicRateLimitMiddleware("check-email"), checkEmailHandler);
