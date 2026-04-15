@@ -18,6 +18,7 @@ const htmlEntries = [
   "app/profile/index-v2.html",
   "app/train/index.html",
   "app/progress/index.html",
+  "app/progress/index-v2.html",
   "app/progress/exercise/index.html",
   "app/progress/session/index.html",
   "app/workout/index.html",

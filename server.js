@@ -67,6 +67,7 @@ const { default: exercisesCatalogHandler } = await import("./api/emersus/exercis
 const { default: nutritionDayHandler } = await import("./api/emersus/nutrition-day.js");
 const { default: nutritionWaterHandler } = await import("./api/emersus/nutrition-water.js");
 const { default: nutritionSupplementsHandler } = await import("./api/emersus/nutrition-supplements.js");
+const { default: progressHandler } = await import("./api/emersus/progress.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
@@ -125,6 +126,9 @@ app.get("/api/exercises", exercisesCatalogHandler);
 app.get("/api/nutrition/day", requireAuth, nutritionDayHandler);
 app.post("/api/nutrition/water", requireAuth, nutritionWaterHandler);
 app.post("/api/nutrition/supplements", requireAuth, nutritionSupplementsHandler);
+
+// progress_v2 (Phase 5): batched dashboard data.
+app.get("/api/progress", requireAuth, progressHandler);
 
 // Auth + user endpoints
 app.post("/api/auth/check-email", publicRateLimitMiddleware("check-email"), checkEmailHandler);

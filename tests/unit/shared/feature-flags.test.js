@@ -95,8 +95,16 @@ describe('feature-flags — pure logic', () => {
     assert.equal(DEFAULT_FLAGS.train_v2, true);
   });
 
-  test('DEFAULT_FLAGS does NOT pre-enable other v2 flags', () => {
-    assert.equal(DEFAULT_FLAGS.progress_v2, undefined);
+  test('DEFAULT_FLAGS flips progress_v2 to true (Phase 5 Task 14)', () => {
+    assert.equal(DEFAULT_FLAGS.progress_v2, true);
+  });
+
+  test('DEFAULT_FLAGS does NOT pre-enable any non-redesign flags', () => {
+    assert.equal(DEFAULT_FLAGS.chat_model_selector, undefined);
+    assert.equal(DEFAULT_FLAGS.progress_benchmarks, undefined);
+    assert.equal(DEFAULT_FLAGS.progress_training_load, undefined);
+    assert.equal(DEFAULT_FLAGS.nutrition_quick_log, undefined);
+    assert.equal(DEFAULT_FLAGS.integrations_waitlist, undefined);
   });
 
   test('DEFAULT_FLAGS is frozen so callers cannot mutate the baseline', () => {

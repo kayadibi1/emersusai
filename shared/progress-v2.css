@@ -1,0 +1,271 @@
+/* shared/progress-v2.css — Phase 5 Progress v2 page styles.
+ * Loaded by /app/progress/index-v2.html. Scoped under [data-progress-v2="1"].
+ */
+
+[data-progress-v2="1"] body.progress-v2-body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased; min-height: 100vh;
+}
+
+[data-progress-v2="1"] .pg-shell {
+  max-width: 980px; margin: 0 auto; padding: 32px 24px 80px;
+  display: flex; flex-direction: column; gap: 24px;
+}
+
+[data-progress-v2="1"] .pg-loading,
+[data-progress-v2="1"] .pg-error { text-align: center; padding: 40px 16px; color: var(--muted); }
+[data-progress-v2="1"] .pg-error { color: var(--danger, #ef4444); }
+
+/* ===== Page head ===== */
+[data-progress-v2="1"] .pg-page-head h1 {
+  margin: 0 0 4px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 28px; font-weight: 500; letter-spacing: -0.02em;
+}
+[data-progress-v2="1"] .pg-page-head p { margin: 0; color: var(--muted); font-size: 14px; }
+
+/* ===== Filters ===== */
+[data-progress-v2="1"] .pg-modality-tabs {
+  display: flex; flex-wrap: wrap; gap: 28px;
+  border-bottom: 1px solid var(--line); padding-bottom: 4px;
+}
+[data-progress-v2="1"] .pg-modality-tab {
+  background: transparent; border: 0; padding: 12px 4px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--muted); cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: color .14s, border-color .14s;
+}
+[data-progress-v2="1"] .pg-modality-tab:hover { color: var(--ink); }
+[data-progress-v2="1"] .pg-modality-tab.is-active { color: var(--accent); border-bottom-color: var(--accent); }
+
+[data-progress-v2="1"] .pg-period-pills {
+  display: inline-flex; align-self: flex-start;
+  background: var(--surface-faint);
+  border: 1px solid var(--line); border-radius: 8px; overflow: hidden;
+}
+[data-progress-v2="1"] .pg-period-pill {
+  background: transparent; border: 0;
+  padding: 7px 14px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--muted); cursor: pointer;
+}
+[data-progress-v2="1"] .pg-period-pill:not(:last-child) { border-right: 1px solid var(--line); }
+[data-progress-v2="1"] .pg-period-pill.is-active {
+  background: var(--accent-soft); color: var(--accent); font-weight: 600;
+}
+
+/* ===== Section ===== */
+[data-progress-v2="1"] .pg-section { display: flex; flex-direction: column; gap: 12px; }
+[data-progress-v2="1"] .pg-section h2 {
+  margin: 0; font-size: 18px; font-weight: 500;
+  letter-spacing: -0.01em; color: var(--ink);
+}
+
+/* ===== PR cards ===== */
+[data-progress-v2="1"] .pg-pr-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+}
+@media (max-width: 700px) { [data-progress-v2="1"] .pg-pr-grid { grid-template-columns: 1fr; } }
+[data-progress-v2="1"] .pg-pr-card {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 12px; padding: 16px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+[data-progress-v2="1"] .pg-pr-tag {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px; letter-spacing: 0.22em; color: var(--accent); font-weight: 600;
+}
+[data-progress-v2="1"] .pg-pr-name { font-size: 13px; color: var(--ink); font-weight: 500; }
+[data-progress-v2="1"] .pg-pr-value {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 28px; font-weight: 600; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+[data-progress-v2="1"] .pg-pr-delta {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; color: var(--accent);
+}
+
+/* ===== Streak tracker ===== */
+[data-progress-v2="1"] .pg-streak {
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 14px; padding: 24px;
+  display: flex; flex-direction: column; gap: 18px;
+}
+[data-progress-v2="1"] .pg-streak-head {
+  display: flex; align-items: baseline; gap: 14px;
+}
+[data-progress-v2="1"] .pg-streak-num {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 64px; font-weight: 600;
+  font-variant-numeric: tabular-nums; color: var(--ink); line-height: 1;
+}
+[data-progress-v2="1"] .pg-streak-flame {
+  font-size: 36px; color: var(--dim);
+  transition: color .3s;
+}
+[data-progress-v2="1"] .pg-streak-flame.is-on {
+  color: var(--accent);
+  filter: drop-shadow(0 0 8px var(--accent));
+  animation: pg-pulse 2s ease-in-out infinite;
+}
+@keyframes pg-pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
+[data-progress-v2="1"] .pg-streak-row {
+  display: grid; grid-template-columns: repeat(14, 1fr); gap: 4px;
+}
+[data-progress-v2="1"] .pg-streak-dot {
+  height: 14px; border-radius: 3px;
+  background: var(--bg); border: 1px solid var(--line);
+}
+[data-progress-v2="1"] .pg-streak-dot.is-active {
+  background: var(--accent); border-color: var(--accent);
+}
+[data-progress-v2="1"] .pg-streak-stats {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+}
+[data-progress-v2="1"] .pg-streak-stats > div {
+  display: flex; flex-direction: column; gap: 2px;
+}
+[data-progress-v2="1"] .pg-stat-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px; letter-spacing: 0.18em; color: var(--dim);
+}
+[data-progress-v2="1"] .pg-stat-value {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 16px; font-weight: 500; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+[data-progress-v2="1"] .pg-streak-cta {
+  align-self: flex-start;
+  color: var(--accent); font-weight: 600;
+  text-decoration: none; font-size: 14px;
+}
+
+/* ===== Recent sessions ===== */
+[data-progress-v2="1"] .pg-recent-list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 4px;
+}
+[data-progress-v2="1"] .pg-recent-row {
+  display: grid; grid-template-columns: 80px 1fr 24px;
+  align-items: center; gap: 12px;
+  padding: 12px 14px;
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: border-color .14s, background .14s;
+}
+[data-progress-v2="1"] .pg-recent-row:hover {
+  border-color: var(--accent); background: var(--bg);
+}
+[data-progress-v2="1"] .pg-recent-pill {
+  display: inline-block; text-align: center;
+  padding: 3px 0;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px; letter-spacing: 0.18em;
+  color: var(--accent-text, var(--bg));
+  font-weight: 600;
+}
+[data-progress-v2="1"] .pg-recent-title { font-size: 14px; color: var(--ink); }
+[data-progress-v2="1"] .pg-recent-meta {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; letter-spacing: 0.12em; color: var(--dim);
+  margin-top: 2px;
+}
+[data-progress-v2="1"] .pg-recent-chev { color: var(--dim); font-size: 18px; text-align: right; }
+
+/* ===== Coming soon grid ===== */
+[data-progress-v2="1"] .pg-section-soon-grid {
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px;
+}
+@media (max-width: 700px) { [data-progress-v2="1"] .pg-section-soon-grid { grid-template-columns: 1fr; } }
+[data-progress-v2="1"] .pg-soon {
+  background: var(--surface-faint);
+  border: 1px dashed var(--line-strong);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+[data-progress-v2="1"] .pg-soon h3 {
+  margin: 0; font-size: 14px; font-weight: 500; color: var(--ink);
+}
+[data-progress-v2="1"] .pg-soon p {
+  margin: 0; font-size: 13px; color: var(--muted);
+}
+
+/* ===== Benchmarks ===== */
+[data-progress-v2="1"] .pg-bench-list {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 6px;
+}
+[data-progress-v2="1"] .pg-bench-row {
+  display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 12px;
+  padding: 10px 12px;
+  background: var(--surface-faint);
+  border: 1px solid var(--line); border-radius: 8px;
+  font-size: 13px;
+}
+[data-progress-v2="1"] .pg-bench-metric { color: var(--ink); font-weight: 500; }
+[data-progress-v2="1"] .pg-bench-range { color: var(--muted); }
+[data-progress-v2="1"] .pg-bench-cite {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; letter-spacing: 0.14em; color: var(--dim);
+  text-align: right;
+}
+
+/* ===== Drill-down panel ===== */
+[data-progress-v2="1"] .pg-drill-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 90;
+}
+[data-progress-v2="1"] .pg-drill-panel {
+  position: fixed; top: 0; right: 0; bottom: 0;
+  width: 540px; max-width: 90vw;
+  background: var(--bg);
+  border-left: 1px solid var(--line);
+  padding: 20px 24px;
+  overflow-y: auto;
+  display: flex; flex-direction: column; gap: 14px;
+  box-shadow: -10px 0 40px rgba(0,0,0,0.32);
+  animation: pg-drill-in 200ms ease-out;
+}
+@keyframes pg-drill-in { from { transform: translateX(40px); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+[data-progress-v2="1"] .pg-drill-head {
+  display: flex; justify-content: space-between; align-items: center;
+}
+[data-progress-v2="1"] .pg-drill-head h2 { margin: 0; font-size: 18px; font-weight: 500; }
+[data-progress-v2="1"] .pg-drill-close {
+  background: transparent; border: 0; cursor: pointer;
+  font-size: 24px; color: var(--muted);
+}
+[data-progress-v2="1"] .pg-drill-close:hover { color: var(--ink); }
+[data-progress-v2="1"] .pg-drill-meta {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; letter-spacing: 0.16em; color: var(--dim);
+}
+[data-progress-v2="1"] .pg-drill-sets {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 4px;
+  font-size: 13px; color: var(--ink);
+}
+[data-progress-v2="1"] .pg-drill-sets li {
+  padding: 6px 10px;
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+[data-progress-v2="1"] .pg-drill-ask {
+  align-self: flex-start; margin-top: 8px;
+  background: var(--accent); color: var(--accent-text);
+  padding: 8px 14px; border-radius: 8px;
+  text-decoration: none; font-weight: 600; font-size: 13px;
+}
