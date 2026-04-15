@@ -768,3 +768,45 @@
 [data-chat-v2="1"] .message.user .message-content { color: var(--ink); font-weight: 450; }
 [data-chat-v2="1"] .message.assistant .message-content strong { color: var(--accent); font-weight: 600; }
 [data-chat-v2="1"] .message-pending { display: none; }
+
+/* ========== ONBOARDING BANNER (Phase 9) ========== */
+[data-chat-v2="1"] .onboarding-banner {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 24px;
+  background: var(--accent-soft);
+  border-bottom: 1px solid var(--accent-line);
+  color: var(--ink);
+  font-size: 13px;
+}
+[data-chat-v2="1"] .onboarding-banner-eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+[data-chat-v2="1"] .onboarding-banner-copy {
+  flex: 1;
+  color: var(--muted);
+}
+[data-chat-v2="1"] .onboarding-banner-skip {
+  background: transparent;
+  border: 1px solid var(--accent-line);
+  color: var(--accent);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .14s, border-color .14s;
+}
+[data-chat-v2="1"] .onboarding-banner-skip:hover {
+  background: var(--accent);
+  color: var(--accent-text);
+  border-color: var(--accent);
+}

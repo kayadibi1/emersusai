@@ -3566,6 +3566,26 @@ export function ChatApp() {
     streamAbortRef.current = null;
   }, []);
 
+  // Phase 9: skip the conversational onboarding flow. Calls PATCH /api/profile
+  // to set onboarding_completed=true server-side, then clears the local flag.
+  const handleSkipOnboarding = useCallback(async () => {
+    if (!session?.access_token) return;
+    setOnboardingActive(false);
+    try {
+      await fetch("/api/profile", {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({ onboarding_completed: true }),
+      });
+    } catch (err) {
+      // Local state already cleared — server will catch up next reload.
+      console.warn("skip-onboarding patch failed:", err);
+    }
+  }, [session]);
+
   // Regenerate: find the user message that preceded `message` and re-run
   // inference using its text. Uses submitQuestionRef so this closure stays
   // stable even after submitQuestion re-creates itself on re-renders.
@@ -3718,6 +3738,17 @@ export function ChatApp() {
           h(PanelLeftOpen, { size: 18 }))
       : null,
     h("main", { className: "chat-main" },
+      chatV2On && onboardingActive
+        ? h("div", { className: "onboarding-banner", role: "status" },
+            h("span", { className: "onboarding-banner-eyebrow" }, "ONBOARDING"),
+            h("span", { className: "onboarding-banner-copy" }, "Tell me a bit about yourself so I can personalize future advice."),
+            h("button", {
+              type: "button",
+              className: "onboarding-banner-skip",
+              onClick: handleSkipOnboarding,
+            }, "Skip setup →"),
+          )
+        : null,
       chatV2On
         ? h(ChatTopBar, {
             thread: activeThread,
