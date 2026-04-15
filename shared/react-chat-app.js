@@ -61,6 +61,7 @@ import { MessageActions } from "/shared/chat/message-actions.js";
 import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
 import { buildFollowUpPrompt, citationLinks } from "/shared/chat/widget-footers.js";
 import { EmptyPrompts } from "/shared/chat/empty-prompts.js";
+import { groupThreadsByDate, filterThreadsBySearch, GROUP_ORDER } from "/shared/chat/sidebar-helpers.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -3488,6 +3489,15 @@ export function ChatApp() {
   // ChatTopBar renders and the `.chat-main` uses the v2 chrome classes.
   const [chatV2On] = useState(() => resolveFlag("chat_v2"));
   const [shareModalOpen, setShareModalOpen] = useState(false);
+  // chat_v2 sidebar search — debounced 300ms via a separate state pair so the
+  // input stays responsive while filtering recomputes only after typing pauses.
+  const [searchInput, setSearchInput] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  useEffect(() => {
+    if (!chatV2On) return undefined;
+    const handle = window.setTimeout(() => setSearchQuery(searchInput), 300);
+    return () => window.clearTimeout(handle);
+  }, [searchInput, chatV2On]);
 
   // Listen for `emersus:seed-prompt` events — fired from inline widget
   // footers (e.g. MealPlanCard "Adjust meals") so they can seed the
@@ -3608,13 +3618,56 @@ export function ChatApp() {
           ),
           h("button", { className: "inline-button", type: "button", "aria-expanded": !historyHidden, "aria-label": "Toggle conversation history", onClick: () => setHistoryHidden((value) => !value) },
             historyHidden ? h(PanelLeftOpen, { size: 18 }) : h(PanelLeftClose, { size: 18 })))),
-      h("div", { className: "chat-nav-list", "aria-label": "Chat history" },
-        chatHistory.map((threadData) =>
-          h("button", { key: threadData.id, type: "button", className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`, onClick: () => setActiveThreadId(threadData.id) },
-            h(History, { size: 17, "aria-hidden": true }),
-            h("span", null,
-              h("span", { className: "chat-nav-label" }, threadData.title || "New chat"),
-              h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "No messages yet"}`))))),
+      chatV2On
+        ? h("div", { className: "side-primary-row" },
+            h("button", { className: "side-primary-btn", type: "button", onClick: startNewChat },
+              h(Plus, { size: 16, "aria-hidden": true }),
+              h("span", null, "New thread")),
+            h("div", { className: "side-search" },
+              h(Search, { size: 14, "aria-hidden": true, className: "side-search-icon" }),
+              h("input", {
+                type: "search",
+                className: "side-search-input",
+                placeholder: "Search threads",
+                value: searchInput,
+                onChange: (e) => setSearchInput(e.target.value),
+                "aria-label": "Search threads",
+              })))
+        : null,
+      chatV2On
+        ? (() => {
+            const filtered = filterThreadsBySearch(chatHistory, searchQuery);
+            const grouped = groupThreadsByDate(filtered);
+            return h("div", { className: "chat-nav-list chat-nav-grouped", "aria-label": "Chat history" },
+              GROUP_ORDER.map((bucket) => {
+                const items = grouped[bucket];
+                if (!items.length) return null;
+                return h("div", { key: bucket, className: "chat-nav-group" },
+                  h("div", { className: "chat-nav-group-label" }, bucket),
+                  items.map((threadData) =>
+                    h("button", {
+                      key: threadData.id,
+                      type: "button",
+                      className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`,
+                      onClick: () => setActiveThreadId(threadData.id),
+                    },
+                      h("span", null,
+                        h("span", { className: "chat-nav-label" }, threadData.title || "New thread"),
+                        h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "No messages yet"}`)))),
+                );
+              }),
+              !filtered.length
+                ? h("div", { className: "chat-nav-empty" }, searchQuery ? "No matching threads." : "No threads yet.")
+                : null,
+            );
+          })()
+        : h("div", { className: "chat-nav-list", "aria-label": "Chat history" },
+            chatHistory.map((threadData) =>
+              h("button", { key: threadData.id, type: "button", className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`, onClick: () => setActiveThreadId(threadData.id) },
+                h(History, { size: 17, "aria-hidden": true }),
+                h("span", null,
+                  h("span", { className: "chat-nav-label" }, threadData.title || "New chat"),
+                  h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "No messages yet"}`))))),
       // Cross-page nav row. The chat page was a dead-end before â€” no way to
       // get back to the dashboard, the workout planner, or anywhere else â€”
       // so these three anchors sit above the "New chat" button in the
