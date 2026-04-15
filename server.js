@@ -55,6 +55,7 @@ const { default: mealPlansRouter } = await import("./api/emersus/meal-plans.js")
 const { default: mealJournalRouter } = await import("./api/emersus/meal-journal.js");
 const { default: rpcProxy } = await import("./api/emersus/rpc-proxy.js");
 const { threadsShareApiRouter, publicShareRouter } = await import("./api/emersus/threads-share.js");
+const { default: suggestPromptsHandler } = await import("./api/emersus/suggest-prompts.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
@@ -91,6 +92,9 @@ app.all("/api/emersus/rpc/:name", rpcProxy);
 // wins over catch-alls.
 app.use("/api/threads", threadsShareApiRouter());
 app.use(publicShareRouter());
+
+// chat_v2 empty-state suggested prompts (profile-aware, falls back to generic).
+app.get("/api/emersus/suggest-prompts", suggestPromptsHandler);
 
 // Auth + user endpoints
 app.post("/api/auth/check-email", publicRateLimitMiddleware("check-email"), checkEmailHandler);
