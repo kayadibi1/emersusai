@@ -3849,6 +3849,29 @@ export function ChatApp() {
     setQuestion(prompt);
   }, []);
 
+  // Auto-hide sidebar scrollbar. The .chat-nav-list element is rendered
+  // conditionally in two branches (v2 + legacy), so use a capture-phase
+  // document listener instead of a ref — one-time setup that catches any
+  // matching scroll target. Class is added on scroll, cleared after 800 ms
+  // idle. CSS in chat-v2.css fades the thumb in/out off this class.
+  useEffect(() => {
+    const timers = new WeakMap();
+    function onAnyScroll(event) {
+      const t = event.target;
+      if (!t || t.nodeType !== 1 || !t.classList) return;
+      if (!t.classList.contains("chat-nav-list")) return;
+      t.classList.add("is-scrolling");
+      const prev = timers.get(t);
+      if (prev) clearTimeout(prev);
+      timers.set(
+        t,
+        setTimeout(() => t.classList.remove("is-scrolling"), 800)
+      );
+    }
+    document.addEventListener("scroll", onAnyScroll, { capture: true, passive: true });
+    return () => document.removeEventListener("scroll", onAnyScroll, { capture: true });
+  }, []);
+
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}${chatV2On ? " chat-v2" : ""}` },
     h("aside", { className: "chat-nav" },
       h("div", { className: "chat-brand" },

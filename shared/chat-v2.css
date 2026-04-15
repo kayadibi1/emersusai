@@ -1142,13 +1142,43 @@
   color: var(--muted);
 }
 
-/* Sidebar thread list */
+/* Sidebar thread list
+ * - overflow-x: hidden kills the horizontal scrollbar that would otherwise
+ *   appear when a long chat title pushed the flex row past the container.
+ * - padding-right gives chat titles breathing room from the right edge so
+ *   the ellipsis truncates before reaching the panel border / scrollbar.
+ * - Scrollbar is themed slim + palette-aware and fades in only while the
+ *   user is actively scrolling (JS toggles .is-scrolling) or hovering the
+ *   list. See auto-hide effect in shared/react-chat-app.js.
+ */
 [data-chat-v2="1"] .chat-nav-list {
   flex: 1 1 auto;
   overflow-y: auto;
+  overflow-x: hidden;
   min-height: 0;
-  padding: 4px 8px 14px;
+  padding: 4px 14px 14px 8px;
   background: transparent;
+  /* Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+[data-chat-v2="1"] .chat-nav-list::-webkit-scrollbar { width: 8px; background: transparent; }
+[data-chat-v2="1"] .chat-nav-list::-webkit-scrollbar-track { background: transparent; }
+[data-chat-v2="1"] .chat-nav-list::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 4px;
+  transition: background .25s ease;
+}
+[data-chat-v2="1"] .chat-nav-list.is-scrolling,
+[data-chat-v2="1"] .chat-nav-list:hover {
+  scrollbar-color: var(--line-strong) transparent;
+}
+[data-chat-v2="1"] .chat-nav-list.is-scrolling::-webkit-scrollbar-thumb,
+[data-chat-v2="1"] .chat-nav-list:hover::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+}
+[data-chat-v2="1"] .chat-nav-list::-webkit-scrollbar-thumb:hover {
+  background: var(--dim);
 }
 [data-chat-v2="1"] .chat-nav-grouped { padding: 4px 8px 14px; }
 [data-chat-v2="1"] .chat-nav-group { margin-bottom: 14px; }
@@ -1190,8 +1220,18 @@
   padding-left: 9px;
 }
 [data-chat-v2="1"] .chat-nav-link svg { display: none; }
-[data-chat-v2="1"] .chat-nav-label {
+/* The React tree wraps the label in an intermediate <span>, so ellipsis
+ * on .chat-nav-label needs its parent wrapper to be a flex item with
+ * min-width: 0 — otherwise the wrapper sizes to content and long titles
+ * spill past the panel. */
+[data-chat-v2="1"] .chat-nav-link > span {
   flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  display: block;
+}
+[data-chat-v2="1"] .chat-nav-label {
+  display: block;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
