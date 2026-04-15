@@ -12,18 +12,18 @@
 -- (self-hosted Supabase requires supabase_admin role — see memory note
 --  project_supabase_admin_role.md)
 
-alter table public.threads
+alter table public.chat_threads
   add column if not exists model text not null default 'emersus-0.5',
   add column if not exists shared_token text unique,
   add column if not exists shared_expires_at timestamptz;
 
-create index if not exists threads_shared_token_idx
-  on public.threads (shared_token)
+create index if not exists chat_threads_shared_token_idx
+  on public.chat_threads (shared_token)
   where shared_token is not null;
 
-comment on column public.threads.model
+comment on column public.chat_threads.model
   is 'Per-thread model override. Maps to OPENAI_EMERSUS_MODEL tier. Defaults to emersus-0.5.';
-comment on column public.threads.shared_token
+comment on column public.chat_threads.shared_token
   is 'Opaque token for /share/t/<token> read-only public render. Null means not shared.';
-comment on column public.threads.shared_expires_at
+comment on column public.chat_threads.shared_expires_at
   is 'Expiry for shared_token. After this timestamp /share/t/<token> returns 410 Gone.';
