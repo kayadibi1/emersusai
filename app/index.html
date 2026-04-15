@@ -4,6 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Emersus | Emersus AI</title>
+  <!-- No-flash theme + chat_v2 attributes. Sync blocking; must run before
+       CSS paints. Mirrors bootTheme (shared/theme.js) + resolveFlag
+       (shared/feature-flags.js) for the pre-paint set; the deferred module
+       below still runs to keep the two paths in sync if either is extended. -->
+  <script>
+    (function () {
+      try {
+        var saved = localStorage.getItem('emersus-theme');
+        var theme = (saved === 'mint' || saved === 'paper') ? saved
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'paper' : 'mint');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (_) {
+        document.documentElement.setAttribute('data-theme', 'mint');
+      }
+      try {
+        var url = new URLSearchParams(location.search);
+        var urlFlag = url.get('chat_v2');
+        var flags = {};
+        try { flags = JSON.parse(localStorage.getItem('emersus-flags') || '{}') || {}; } catch (_) {}
+        var chatV2 = (urlFlag === '0' || urlFlag === 'false') ? false
+          : (urlFlag === '1' || urlFlag === 'true') ? true
+          : (typeof flags.chat_v2 === 'boolean') ? flags.chat_v2
+          : true;
+        if (chatV2) document.documentElement.setAttribute('data-chat-v2', '1');
+      } catch (_) {
+        document.documentElement.setAttribute('data-chat-v2', '1');
+      }
+    })();
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
