@@ -597,59 +597,105 @@
 }
 .card-body { padding: 8px 24px; }
 
-/* ========== APP CROSS-NAV (non-chat v2 pages) ==========
- * Fixed top bar showing the 5 app sections so users can navigate between
- * Train / Nutrition / Progress / Profile / Chat without a sidebar. The
- * chat page has its own sidebar SECTIONS list, so it should NOT render
- * .app-crossnav. All other v2 pages inject the markup near the top of
- * <body> and include <script> that tags the active link.
+/* ========== APP SIDEBAR (non-chat v2 pages) ==========
+ * Left sidebar that matches chat's sidebar style — brand mark + SECTIONS
+ * list. The chat page has its own React-rendered sidebar which is a
+ * superset (adds + New thread, search, thread history, user card); these
+ * pages get the minimal shared shell.
  *
- * Page content lives under the bar via body padding keyed off the
- * page-specific body class so the chat page is unaffected.
+ * Keyed off page-specific body classes so the chat page (body.chat-page)
+ * is unaffected and keeps its full-bleed layout.
  */
-.app-crossnav {
+.app-sidebar {
   position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 44px;
-  background: var(--bg);
-  border-bottom: 1px solid var(--line);
+  top: 0; left: 0; bottom: 0;
+  width: 280px;
+  background: var(--sidebar-bg);
+  border-right: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  z-index: 50;
+  overflow-y: auto;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+.app-sidebar-head {
+  padding: 18px 18px 12px;
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 0 20px;
-  z-index: 50;
-  font-family: 'Space Grotesk', system-ui, sans-serif;
-  backdrop-filter: saturate(140%) blur(8px);
-  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  justify-content: space-between;
 }
-.app-crossnav a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 13.5px;
-  font-weight: 500;
-  letter-spacing: -0.005em;
-  padding: 6px 12px;
-  border-radius: 6px;
-  border: 1px solid transparent;
-  transition: color .12s, background .12s, border-color .12s;
-}
-.app-crossnav a:hover {
+.app-sidebar-brand {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 600;
+  font-size: 12.5px;
+  letter-spacing: 0.28em;
   color: var(--ink);
-  background: var(--surface-faint);
-  border-color: var(--line);
+  text-decoration: none;
+  transition: color .14s;
 }
-.app-crossnav a.is-active {
-  color: var(--accent);
+.app-sidebar-brand:hover { color: var(--accent); }
+
+.app-sidebar-sections {
+  padding: 0 8px 14px;
+  display: flex;
+  flex-direction: column;
+}
+.app-sidebar-sections-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding: 8px 10px 6px;
+}
+.app-sidebar-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border-radius: 7px;
+  font-size: 13.5px;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .12s;
+  border: 1px solid transparent;
+  text-decoration: none;
+}
+.app-sidebar-section:hover {
+  background: var(--surface-faint);
+  color: var(--ink);
+}
+.app-sidebar-section.is-active {
   background: var(--accent-soft);
+  color: var(--ink);
   border-color: var(--accent-line);
+  border-left: 2px solid var(--accent);
+  padding-left: 9px;
+  font-weight: 500;
+}
+.app-sidebar-section-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--muted);
+  flex-shrink: 0;
+}
+.app-sidebar-section.is-active .app-sidebar-section-dot {
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent);
 }
 
-/* Page padding so fixed bar doesn't overlap content. Keyed off the
- * page-specific body class so the chat page (body.chat-page) is
- * unaffected and keeps its full-bleed layout. */
+/* Page content sits to the right of the 280px sidebar. Keyed off
+ * page-specific body classes so the chat page is unaffected. */
 body.train-v2-body,
 body.nutrition-v2-body,
 body.progress-v2-body,
 body.profile-v2-body {
-  padding-top: 44px;
+  padding-left: 280px;
+}
+@media (max-width: 900px) {
+  .app-sidebar { display: none; }
+  body.train-v2-body,
+  body.nutrition-v2-body,
+  body.progress-v2-body,
+  body.profile-v2-body { padding-left: 0; }
 }
