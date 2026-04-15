@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   Activity,
@@ -55,6 +55,8 @@ import {
   formatCitationLabel,
   formatCitationUrl,
 } from "/shared/citation-format.js";
+import { resolveFlag } from "/shared/feature-flags.js";
+import { ChatTopBar } from "/shared/chat/top-bar.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -3375,7 +3377,47 @@ export function ChatApp() {
   }, [activeThread]);
   const sourceCount = Number(rail.sourceCount || latestAssistantSources.length || 0);
 
-  return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}` },
+  // chat_v2 feature flag — resolved once on mount. Drives whether the new
+  // ChatTopBar renders and the `.chat-main` uses the v2 chrome classes.
+  const [chatV2On] = useState(() => resolveFlag("chat_v2"));
+
+  const handleRenameThread = useCallback(async (nextTitle) => {
+    if (!activeThreadId || !session?.user?.id) return;
+    const current = chatHistoryRef.current.find((t) => t.id === activeThreadId);
+    if (!current || current.title === nextTitle) return;
+    const nextThread = { ...current, title: nextTitle, updatedAt: new Date().toISOString() };
+    setChatHistory((history) => patchThreadInHistory(history, activeThreadId, () => nextThread));
+    try {
+      await upsertChatThread(session.user.id, nextThread);
+    } catch (error) {
+      setStatusMessage(`Could not rename thread: ${error?.message || "unknown error"}`);
+      setStatusTone("error");
+    }
+  }, [activeThreadId, session]);
+
+  const handleModelChange = useCallback((modelId) => {
+    if (!activeThreadId) return;
+    setChatHistory((history) => patchThreadInHistory(history, activeThreadId, (t) => ({ ...t, model: modelId })));
+    // Persistence to threads.model lands once the Phase 2 DB migration is applied.
+  }, [activeThreadId]);
+
+  const handleShareThread = useCallback(() => {
+    // Real share modal arrives in Task 7; Task 4 wires the button as a stub.
+    setStatusTone("info");
+    setStatusMessage("Share modal coming in Phase 2 · Task 7.");
+  }, []);
+
+  const handleArchiveThread = useCallback(() => {
+    setStatusTone("info");
+    setStatusMessage("Archive action coming soon.");
+  }, []);
+
+  const handleDeleteThread = useCallback(() => {
+    setStatusTone("info");
+    setStatusMessage("Delete action coming soon.");
+  }, []);
+
+  return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}${chatV2On ? " chat-v2" : ""}` },
     h("aside", { className: "chat-nav" },
       h("div", { className: "chat-brand" },
         h("div", { className: "chat-brand-head" },
@@ -3438,6 +3480,17 @@ export function ChatApp() {
           h(PanelLeftOpen, { size: 18 }))
       : null,
     h("main", { className: "chat-main" },
+      chatV2On
+        ? h(ChatTopBar, {
+            thread: activeThread,
+            onRename: handleRenameThread,
+            onModelChange: handleModelChange,
+            onShare: handleShareThread,
+            onArchive: handleArchiveThread,
+            onDelete: handleDeleteThread,
+            sourceCount,
+          })
+        : null,
       h("div", { className: "chat-main-body" },
         h("section", { className: "conversation-canvas", ref: canvasRef },
           h("div", { className: `chat-thread${!activeMessages.length ? " is-empty" : ""}` },
