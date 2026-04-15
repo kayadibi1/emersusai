@@ -434,7 +434,10 @@ h1.headline {
 
 /* ===== COMPARISON ===== */
 .compare-table { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-top: 24px; }
-.compare-row { display: grid; grid-template-columns: 2.5fr 1fr 1fr 1fr; border-bottom: 1px solid var(--line); }
+/* minmax(0, 1fr) on the mark columns disables min-content flooring, so a
+ * row with long text ("Training cutoff", "One-size") wraps inside its cell
+ * instead of widening the column and shifting every other row's cells. */
+.compare-row { display: grid; grid-template-columns: 2.5fr minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); border-bottom: 1px solid var(--line); }
 .compare-row:last-child { border-bottom: 0; }
 .compare-row.head { background: var(--surface-faint); }
 .compare-cell { padding: 16px 22px; font-size: 13.5px; color: var(--ink); border-right: 1px solid var(--line); }
@@ -514,7 +517,7 @@ h1.headline {
 
 @media (max-width: 900px) {
   .steps-grid, .evidence-scale, .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .compare-row { grid-template-columns: 2fr 1fr 1fr 1fr; }
+  .compare-row { grid-template-columns: 2fr minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
 }
 @media (max-width: 860px) {
