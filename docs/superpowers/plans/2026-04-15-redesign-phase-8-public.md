@@ -1,71 +1,171 @@
-# Frontend Redesign · Phase 8 · Public / Static (`/`, `/contact`, `/privacy`, `/terms`, `/consumer-health-data`, `/demo`) Implementation Plan — Outline
+# Frontend Redesign · Phase 8 · Public / Static Implementation Plan
 
-> **Status:** Outline. Expand before executing.
+> **For agentic workers:** REQUIRED SUB-SKILL: `superpowers:executing-plans`.
 
-**Goal:** Full landing page redesign (hero · autoplay chat demo · bento · five-things spotlights · marquee · how-it-works · evidence grading · corpus stats · testimonials · comparison · coming-soon · FAQ · final CTA · rich footer). Plus static/legal shell with sub-tabs and sticky TOC.
+**Goal:** Full landing page redesign (`/`) + new static shell for `/contact`, `/privacy`, `/terms`, `/consumer-health-data`, `/demo`. This is the **marketing surface** — highest immediate visual impact for visitors who don't have an account.
 
-**Spec:** `2026-04-15-frontend-redesign-design.md` § "1. Landing", "8. Static" + "Behaviors · 7. Static".
-**Mockup:** `.superpowers/brainstorm/linear-landing/mockup-themes.html` (landing) and `static.html` (legal).
-**Feature flag:** `public_v2`.
+**Scope rule:** No backend changes. The contact form already POSTs to `/api/contact` and that endpoint stays. Static legal copy lives in HTML; treat it as content-only edits. The neuron animation (`script.js`) stays unless explicitly requested otherwise.
 
-**Note:** `consumer-health-data/index.html` was added in WIP 2026-04-15; it uses the current static shell. This phase rebuilds the static shell so the CHD page will auto-inherit it.
+**Spec:** § "1. Landing", § "8. Static" + "Behaviors · 7. Static".
+**Mockups:** `.superpowers/brainstorm/linear-landing/mockup-themes.html` (landing) + `static.html` (legal).
+**Prerequisite:** Phases 1+2 shipped. Phase 1 already loads design-tokens + chrome.css on these pages.
 
-## File structure (proposed)
+**Branch strategy:** `public_v2` flag for risk reduction. Old landing stays available via `?public_v2=0`.
 
-- **New:** `shared/public-chrome.css` — marketing-specific styles (sticky blur nav, bento grid, spotlights, marquee, FAQ expanders, footer)
-- **New:** `shared/public-demo.js` — autoplay chat demo (macOS frame, loops every 16s)
-- **Modify:** `index.html` — rebuild landing using the new chrome
-- **Modify:** `script.js` — keep the 3D neuron background but make it an opt-in module as before (already done 2026-04-13)
-- **New:** `contact/contact.js` — subject pills + form + success state
-- **Modify:** `contact/index.html` — use the shared static shell
-- **New:** `shared/static-shell.js` — TOC + sub-tabs + numbered sections + Download PDF link
-- **New:** `api/contact.js` — already exists; add subject routing + HCaptcha/Turnstile
-- **Modify:** `privacy/index.html`, `terms/index.html`, `consumer-health-data/index.html` — wrap existing legal copy in the new static shell
-- **Build:** `/privacy.pdf`, `/terms.pdf`, `/consumer-health-data.pdf` generated at build time
+---
 
-## Task outline (~20 tasks)
+## File structure
 
-### Landing
+- **Modify:** `index.html` — full landing redesign (hero, autoplay chat demo, bento, five-things spotlights, marquee, how-it-works, evidence grading, corpus stats, testimonials, comparison, coming-soon, FAQ, final CTA, rich footer)
+- **Modify:** `contact/index.html` — sub-tab shell + 2-col contact layout
+- **Modify:** `privacy/index.html` — sub-tab shell + sticky TOC + numbered sections
+- **Modify:** `terms/index.html` — sub-tab shell + sticky TOC + ⚠ medical-advice callout
+- **Modify:** `consumer-health-data/index.html` — sub-tab shell (sub-page of legal)
+- **Modify:** `demo/index.html` — light reskin matching new landing chrome
+- **New:** `shared/landing-v2.css` — landing-specific styles
+- **New:** `shared/static-v2.css` — legal/contact shell styles
+- **New:** `shared/landing/autoplay-chat-demo.js` — typewriter chat scene that plays in the hero
+- **New:** `shared/landing/bento-cards.js` — bento grid component (or pure HTML if no JS needed)
+- **New:** `shared/landing/marquee.js` — infinite scroll of source logos / journals
+- **New:** `shared/landing/faq.js` — `<details>`-based accordion (no JS framework needed)
+- **New:** `shared/landing/cta-button.js` — single source of truth for the accent button used 8x
 
-1. `public_v2` flag + route guard
-2. Sticky top nav with backdrop-blur
-3. Hero — eyebrow pill + gradient-fade headline + subhead + 2 CTAs + papers-indexed mono meta
-4. Autoplay chat demo module (macOS frame, loops, mocked streaming)
-5. "What you get" bento (6 cards asymmetric grid)
-6. "Five things" spotlights (5 alternating rows)
-7. Counter-directional marquee (sample questions)
-8. How-it-works (4 numbered steps)
-9. Evidence grading (4-tier deep-dive)
-10. Corpus stats (3 big numbers — dynamic from API)
-11. Testimonials (3 cards)
-12. Comparison table (Emersus vs Generic AI vs Influencer)
-13. Coming soon (4 roadmap cards)
-14. FAQ (5 expandable questions)
-15. Final CTA
-16. Rich footer (4-column)
+---
 
-### Static / legal
+## Task 1: Feature flag + landing shell
 
-17. Static shell — sticky top nav + sub-tabs (Contact / Privacy / Terms / Consumer Health Data)
-18. Contact — subject pills + form + aside card + success state + Turnstile integration
-19. Privacy / Terms / CHD — sticky TOC on the left + numbered sections on the right + Download PDF link
-20. PDF build step — generate `/privacy.pdf`, `/terms.pdf`, `/consumer-health-data.pdf`
+- [ ] **Step 1:** `index.html` — wrap in `[data-public-v2="1"]` block when flag on. Inline boot script sets the attribute via `resolveFlag('public_v2')`. Static `<link rel="stylesheet" href="/shared/landing-v2.css">` so Vite bundles it.
+- [ ] **Step 2:** Old structure stays inside `[data-public-v2="0"]` blocks (or fallback when attribute is missing).
+- [ ] **Step 3: Commit** `feat(public-v2): feature flag + landing shell`
 
-### Wrap-up
+---
 
-21. Flip flag default + tag
+## Task 2: Hero section
+
+- [ ] **Step 1:** Hero copy: H1 "Trained on the literature." + subhead. Stat strip ("1M+ papers · 302 topics · 100% verifiable"). Primary CTA `Request access →` (accent) + secondary `See the chat in action ↓` (anchors to demo section).
+- [ ] **Step 2:** Background: subtle grid + radial accent glow. Reuse `shared/site.css` layer or refactor into landing-v2.css.
+- [ ] **Step 3: Commit** `feat(public-v2): hero section`
+
+---
+
+## Task 3: Autoplay chat demo
+
+**Files:**
+- Create: `shared/landing/autoplay-chat-demo.js`
+- Create: `tests/unit/shared/landing/autoplay-chat-demo.test.js`
+
+- [ ] **Step 1:** Pure helpers: `nextScript(state)` advances the typewriter state machine (queue of {role, text, delay_ms}). `formatPartial(text, charsShown)` returns the current visible substring.
+- [ ] **Step 2:** `<AutoplayChatDemo/>` — replays a curated 3-message conversation (user question → Emersus prose answer → cited source card). Loops every 30s with a `Skip → ` link.
+- [ ] **Step 3:** `prefers-reduced-motion` honored — render the final state instead of typing.
+- [ ] **Step 4: Commit** `feat(public-v2): autoplay chat demo`
+
+---
+
+## Task 4: Bento grid + Five-things spotlights
+
+- [ ] **Step 1:** Bento grid: 6-card asymmetric layout highlighting features (Chat · Train · Nutrition · Progress · Cited · Themed). Pure HTML (no JS state).
+- [ ] **Step 2:** Five-things spotlights: vertical sequence of 5 large feature blocks alternating image + copy. Each has its own short heading + 2-3 sentence body + small CTA.
+- [ ] **Step 3: Commit** `feat(public-v2): bento + spotlights`
+
+---
+
+## Task 5: Marquee (source logos)
+
+- [ ] **Step 1:** `<Marquee items/>` — CSS keyframe scroll, infinite via duplicated content. Pause on hover. Items: PubMed · NIH · Cochrane · JISSN · BJSM · Sports Med · etc.
+- [ ] **Step 2: Commit** `feat(public-v2): marquee of evidence sources`
+
+---
+
+## Task 6: How-it-works section
+
+- [ ] **Step 1:** 4-step horizontal flow: Ask → Retrieve evidence → Synthesize → Cite. Each step has a glyph + label + 1-line description.
+- [ ] **Step 2: Commit** `feat(public-v2): how-it-works section`
+
+---
+
+## Task 7: Evidence grading + corpus stats
+
+- [ ] **Step 1:** Evidence grading section: 4 cards (Strong / Moderate / Limited / Insufficient) explaining the badge taxonomy used in chat answers.
+- [ ] **Step 2:** Corpus stats: 4 large numbers (papers / topics / studies indexed last 30d / verifiable %) pulled from `/api/config` (already an endpoint).
+- [ ] **Step 3: Commit** `feat(public-v2): evidence grading + corpus stats`
+
+---
+
+## Task 8: Testimonials + comparison + coming-soon
+
+- [ ] **Step 1:** Testimonials: 3 quote cards with attribution (private beta members; consent must be in hand before launching). Stub copy for now.
+- [ ] **Step 2:** Comparison table: Emersus vs ChatGPT vs Personal trainer (4-5 rows, simple 3-column table).
+- [ ] **Step 3:** Coming-soon: dashed-border tiles for Wearable sync · Recipes · Exercise videos · Mobile app — `Join waitlist →` per tile (reuses `/api/integrations/waitlist` from Phase 6).
+- [ ] **Step 4: Commit** `feat(public-v2): testimonials + comparison + coming-soon`
+
+---
+
+## Task 9: FAQ + final CTA + footer
+
+- [ ] **Step 1:** FAQ: 8-10 `<details>`-based accordion entries (no JS).
+- [ ] **Step 2:** Final CTA: full-width accent block — `Ready to train with the literature? → Request access`.
+- [ ] **Step 3:** Rich footer: 4 columns (Product / Resources / Legal / Company) + bottom row with copyright + version + `info@emersus.ai`. Single contact email per memory `reference_contact_email.md`.
+- [ ] **Step 4: Commit** `feat(public-v2): FAQ + final CTA + footer`
+
+---
+
+## Task 10: Static shell (Contact / Privacy / Terms / Consumer-health-data)
+
+- [ ] **Step 1:** Shared sticky top nav (EMERSUS wordmark + sparse links + `Request access` CTA).
+- [ ] **Step 2:** Sub-tabs row: Contact · Privacy · Terms (active state highlighting based on current path). Consumer-health-data tab is a sub-page of Privacy (linked from there, not a top-level tab).
+- [ ] **Step 3:** Fixed grid background + mask.
+- [ ] **Step 4: Commit** `feat(public-v2): static shell + sub-tabs`
+
+---
+
+## Task 11: Contact page
+
+- [ ] **Step 1:** Hero + 2-column grid: form on left (subject pills: General / Beta support / Partnership / Press / Bug report, name, email, message) + aside on right with 2 cards (`info@emersus.ai` routing hub + subject-routing explainer).
+- [ ] **Step 2:** Existing `POST /api/contact` flow stays. Success state replaces form: `✓ MESSAGE SENT · TICKET #<id> · WE'LL REPLY TO <email>` + `Send another →` link.
+- [ ] **Step 3: Commit** `feat(public-v2): contact page`
+
+---
+
+## Task 12: Privacy / Terms / Consumer-health-data
+
+- [ ] **Step 1:** Hero + 2-column grid: sticky TOC (left, 7+ section anchors with accent-active state via `IntersectionObserver`) + numbered article sections (right).
+- [ ] **Step 2:** Terms includes prominent `⚠ IMPORTANT` callout in left-bordered red block: "Not medical advice."
+- [ ] **Step 3:** All current legal copy preserved verbatim — this is purely a chrome rebuild.
+- [ ] **Step 4:** `Download PDF` footer link (defer real PDF generation; for now, stub to `/privacy.pdf` 404 placeholder).
+- [ ] **Step 5: Commit** `feat(public-v2): privacy/terms/cdh pages`
+
+---
+
+## Task 13: Demo page reskin
+
+- [ ] **Step 1:** Existing demo page (`demo/index.html`) gets the new top nav + accent CTA. Content stays — chat-demo embed continues to work.
+- [ ] **Step 2: Commit** `feat(public-v2): demo page reskin`
+
+---
+
+## Task 14: landing-v2.css + static-v2.css
+
+- [ ] **Step 1:** Port mockup CSS into `shared/landing-v2.css` + `shared/static-v2.css`, scoped `[data-public-v2="1"]`.
+- [ ] **Step 2:** Audit pass.
+- [ ] **Step 3: Commit** `feat(public-v2): landing + static styles`
+
+---
+
+## Task 15: Flip default + tag
+
+- [ ] **Step 1:** `DEFAULT_FLAGS.public_v2 = true`. Update flag tests.
+- [ ] **Step 2:** Tag `redesign-phase-8-public`.
+- [ ] **Step 3:** Commit + push (the marketing surface is the highest-impact deploy of the redesign).
+
+---
 
 ## Acceptance criteria
 
-- Landing scrolls cleanly on low-end hardware (no jank).
-- Autoplay demo doesn't stall (preload assets, use CSS for animation where possible).
-- Marquee is counter-directional and pauses on hover.
-- Legal pages render both themes correctly.
-- `Download PDF` works for all 3 legal pages.
-- Contact form validates client-side + inline server errors.
-
-## Open questions
-
-- 3D neuron background — keep opt-in only (default off per 2026-04-13 perf pass)? → Yes.
-- PDF generation step — add to deploy pipeline or on-demand server render? → Build-time is simplest; server-side render if we want "live" updates.
-- Marketing-copy cadence — who owns landing copy when it changes? → Spec is source; changes go through Design sign-off.
+1. Landing renders end-to-end on both palettes with no console errors.
+2. Autoplay chat demo loops + respects `prefers-reduced-motion`.
+3. Marquee scrolls + pauses on hover.
+4. FAQ accordion expands without JS.
+5. All CTAs route correctly: `Request access →` opens `/auth/?panel=request`; secondary anchors smoothly scroll.
+6. Contact form submits + shows the success state.
+7. Privacy / Terms TOC highlights the active section as you scroll.
+8. `public_v2=0` falls back to existing landing.
