@@ -529,11 +529,24 @@ function formatHistoryTime(isoString) {
   return date.toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
-function deriveThreadTitle(threadData) {
+// Fallback title: first user message, truncated. Used when the thread has
+// no custom title set (either the LLM auto-title hasn't arrived yet, or the
+// first message is still pending).
+function deriveDefaultThreadTitle(threadData) {
   const firstUserMessage = (threadData?.messages || []).find((message) => message.role === "user");
   const source = sanitizeHistoryText(readMessageText(firstUserMessage), 80);
   if (!source) return "New chat";
   return source.length > 42 ? `${source.slice(0, 41).trim()}...` : source;
+}
+
+// Preserve a custom thread title (manual rename via top-bar, or LLM-generated
+// auto-title) across subsequent persistThread calls. Only fall back to the
+// first-message derivation when the current title is empty or one of the
+// placeholder defaults.
+function deriveThreadTitle(threadData) {
+  const raw = typeof threadData?.title === "string" ? threadData.title.trim() : "";
+  if (raw && raw !== "New chat" && raw !== "New thread") return raw;
+  return deriveDefaultThreadTitle(threadData);
 }
 
 function deriveThreadPreview(threadData) {
@@ -3644,6 +3657,15 @@ export function ChatApp() {
         setStreamingMessageKey(assistantMessage.createdAt);
       }
       persistedThread = await persistThread(nextThread);
+      // First-turn LLM title — fire-and-forget after the first assistant
+      // reply lands. `deriveDefaultThreadTitle(persistedThread)` reproduces
+      // the auto-derived title we just persisted; only rename if the thread
+      // still has that default (guards against a user rename racing this).
+      maybeGenerateThreadTitle({
+        thread: persistedThread,
+        question: trimmed,
+        answer: readMessageText(assistantMessage),
+      });
     } catch (error) {
       // User-initiated aborts (chat_v2 Stop button) are expected, not errors.
       // The placeholder message already holds whatever prose streamed before
@@ -3753,6 +3775,46 @@ export function ChatApp() {
       setStatusTone("error");
     }
   }, [activeThreadId, session]);
+
+  // First-turn auto-title: fire one cheap LLM call per thread after the
+  // first user+assistant exchange lands, so the sidebar gets a real topical
+  // title instead of the truncated first message. Silent on failure.
+  // Thread-id-scoped (not activeThreadId-scoped) so renaming works even if
+  // the user has already switched to a different thread by the time the
+  // title LLM call returns.
+  const maybeGenerateThreadTitle = useCallback(async ({ thread, question, answer }) => {
+    if (!thread || !thread.id || !session?.user?.id || !session?.access_token) return;
+    const messages = Array.isArray(thread.messages) ? thread.messages : [];
+    if (messages.length !== 2) return;
+    const defaultTitle = deriveDefaultThreadTitle(thread);
+    if ((thread.title || "") !== defaultTitle) return; // already custom-titled
+    try {
+      const response = await fetch("/api/emersus/thread-title", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.access_token}`,
+        },
+        body: JSON.stringify({
+          question: String(question || "").slice(0, 500),
+          answer: String(answer || "").slice(0, 1500),
+        }),
+      });
+      if (!response.ok) return;
+      const data = await response.json();
+      const title = typeof data?.title === "string" ? data.title.trim() : "";
+      if (!title) return;
+      // Re-check in the current history snapshot before overwriting — user
+      // may have renamed (via top-bar) between the fetch and this callback.
+      const current = chatHistoryRef.current.find((t) => t.id === thread.id);
+      if (!current || current.title !== defaultTitle) return;
+      const renamed = { ...current, title, updatedAt: new Date().toISOString() };
+      setChatHistory((history) => patchThreadInHistory(history, thread.id, () => renamed));
+      await upsertChatThread(session.user.id, renamed);
+    } catch (_) {
+      /* silent: keep the default derived title */
+    }
+  }, [session]);
 
   const handleModelChange = useCallback((modelId) => {
     if (!activeThreadId) return;

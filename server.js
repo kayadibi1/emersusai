@@ -56,6 +56,7 @@ const { default: mealJournalRouter } = await import("./api/emersus/meal-journal.
 const { default: rpcProxy } = await import("./api/emersus/rpc-proxy.js");
 const { threadsShareApiRouter, publicShareRouter } = await import("./api/emersus/threads-share.js");
 const { default: suggestPromptsHandler } = await import("./api/emersus/suggest-prompts.js");
+const { default: threadTitleHandler } = await import("./api/emersus/thread-title.js");
 const { default: requestAccessHandler } = await import("./api/auth/request-access.js");
 const { default: validateInviteHandler } = await import("./api/auth/validate-invite.js");
 const { default: acceptInviteHandler } = await import("./api/auth/accept-invite.js");
@@ -107,6 +108,10 @@ app.use(publicShareRouter());
 
 // chat_v2 empty-state suggested prompts (profile-aware, falls back to generic).
 app.get("/api/emersus/suggest-prompts", suggestPromptsHandler);
+
+// chat_v2 thread-title generator — one-shot LLM call fired after the first
+// assistant reply to give the sidebar a meaningful title.
+app.post("/api/emersus/thread-title", requireAuth, threadTitleHandler);
 
 // auth_v2: request access + invite landing endpoints.
 app.post("/api/auth/request-access", publicRateLimitMiddleware("request-access"), requestAccessHandler);
