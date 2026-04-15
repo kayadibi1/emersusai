@@ -49,7 +49,7 @@ export function LiftActive({
     session?.source_thread_id
       ? h("div", { className: "tr-plan-banner" },
           h("span", null, "Started from a chat plan."),
-          h("a", { href: `/chat/?thread=${encodeURIComponent(session.source_thread_id)}`, target: "_blank", rel: "noopener" }, "Open original thread →"),
+          h("a", { href: `/app/?thread=${encodeURIComponent(session.source_thread_id)}`, target: "_blank", rel: "noopener" }, "Open original thread →"),
         )
       : null,
     exercises.map((entry, i) =>

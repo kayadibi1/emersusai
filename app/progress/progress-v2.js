@@ -123,7 +123,7 @@ function DrillDownPanel({ open, kind, id, accessToken, onClose }) {
                 ))),
               h("a", {
                 className: "pg-drill-ask",
-                href: `/chat/?prompt=${encodeURIComponent(`Review my ${data.modality} session from ${new Date(data.started_at).toLocaleDateString()}`)}`,
+                href: `/app/?prompt=${encodeURIComponent(`Review my ${data.modality} session from ${new Date(data.started_at).toLocaleDateString()}`)}`,
               }, "Ask Emersus →"),
             ),
     ),

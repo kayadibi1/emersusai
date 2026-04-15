@@ -3,32 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Emersus Chat | Emersus AI</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
-  <link rel="stylesheet" href="/shared/chrome.css?v=redesign-1">
-  <!-- chat-v2.css ships unconditionally — every rule is scoped under
-       [data-chat-v2="1"], so it's a no-op until the inline boot script
-       below sets that attribute (or the bundled JS does at mount time). -->
-  <link rel="stylesheet" href="/shared/chat-v2.css?v=redesign-2">
-  <script type="module">
-    import { bootTheme } from '/shared/theme.js?v=redesign-1';
-    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-1';
-    bootTheme();
-    if (resolveFlag('chat_v2')) {
-      document.documentElement.dataset.chatV2 = '1';
-    }
+  <meta http-equiv="refresh" content="0; url=/app/">
+  <title>Redirecting to /app/ — Emersus AI</title>
+  <link rel="canonical" href="https://emersus.ai/app/">
+  <script>
+    // /chat/ → /app/  (the chat is now the default home per the 2026-04-15
+    // redesign spec). Preserves any query string and hash so deep links keep
+    // working: /chat/?prompt=... → /app/?prompt=...
+    (function () {
+      var qs = window.location.search || "";
+      var hash = window.location.hash || "";
+      window.location.replace("/app/" + qs + hash);
+    })();
   </script>
-  <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
-  <link rel="stylesheet" href="/shared/chat.css?v=redesign-20260412">
 </head>
-<body class="chat-page">
-  <div id="chat-root"></div>
-
-  <!-- Version query string busts the browser cache whenever the chat app or
-       one of its shared imports changes. -->
-  <script type="module" src="/shared/react-chat-app.js?v=2026-04-15-chat-memory"></script>
+<body>
+  <p>Redirecting to <a href="/app/">/app/</a>…</p>
 </body>
 </html>
