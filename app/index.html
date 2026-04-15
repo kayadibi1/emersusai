@@ -12,17 +12,26 @@
   <!-- chat-v2.css ships unconditionally — every rule is scoped under
        [data-chat-v2="1"], so it's a no-op until the boot script below sets
        the attribute. -->
-  <link rel="stylesheet" href="/shared/chat-v2.css?v=redesign-2">
+  <link rel="stylesheet" href="/shared/chat-v2.css?v=redesign-4">
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
     import { resolveFlag } from '/shared/feature-flags.js?v=redesign-1';
     bootTheme();
     if (resolveFlag('chat_v2')) {
       document.documentElement.dataset.chatV2 = '1';
+    } else {
+      // Legacy path only: load site.css + chat.css. When chat_v2 is on (default),
+      // these never load, so chat-v2.css owns the cascade with no fight.
+      const site = document.createElement('link');
+      site.rel = 'stylesheet';
+      site.href = '/shared/site.css?v=redesign-20260412';
+      document.head.appendChild(site);
+      const chat = document.createElement('link');
+      chat.rel = 'stylesheet';
+      chat.href = '/shared/chat.css?v=redesign-20260412';
+      document.head.appendChild(chat);
     }
   </script>
-  <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
-  <link rel="stylesheet" href="/shared/chat.css?v=redesign-20260412">
 </head>
 <body class="chat-page">
   <!-- /app is the chat. Per the 2026-04-15 redesign spec ("Chat (/app, default
