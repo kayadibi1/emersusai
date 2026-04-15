@@ -1049,7 +1049,8 @@
 [data-chat-v2="1"] .chat-app-shell {
   display: grid;
   grid-template-columns: 280px 1fr;
-  height: 100vh;
+  height: 100vh;            /* fallback for browsers without dvh support */
+  height: 100dvh;
   background: var(--bg);
   overflow: hidden;
 }
