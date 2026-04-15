@@ -235,3 +235,44 @@
   padding: 1px 4px;
   color: var(--muted);
 }
+
+/* ========== MESSAGE ACTION ROW (Task 6) ========== */
+
+[data-chat-v2="1"] .message.assistant .msg-actions {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  opacity: 0.55;
+  transition: opacity .18s;
+}
+[data-chat-v2="1"] .message.assistant:hover .msg-actions,
+[data-chat-v2="1"] .message.assistant .msg-actions:focus-within {
+  opacity: 1;
+}
+[data-chat-v2="1"] .msg-action {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+  background: transparent;
+  border: 1px solid transparent;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: color .14s, background .14s, border-color .14s;
+}
+[data-chat-v2="1"] .msg-action:hover {
+  color: var(--ink);
+  background: var(--surface-faint);
+  border-color: var(--line);
+}
+[data-chat-v2="1"] .msg-action-toast {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  margin-left: 8px;
+  text-transform: uppercase;
+}
