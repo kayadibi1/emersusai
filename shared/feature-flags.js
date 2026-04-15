@@ -36,6 +36,7 @@ export const DEFAULT_FLAGS = Object.freeze({
   profile_v2: true,
   public_v2: true,
   conversational_onboarding: true,
+  nutrition_v2: true,
 });
 
 const STORAGE_KEY = 'emersus-flags';

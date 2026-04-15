@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nutrition | Emersus AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
+  <link rel="stylesheet" href="/shared/chrome.css?v=redesign-1">
+  <link rel="stylesheet" href="/shared/nutrition-v2.css?v=redesign-9">
+  <script type="module">
+    import { bootTheme } from '/shared/theme.js?v=redesign-1';
+    bootTheme();
+    document.documentElement.dataset.nutritionV2 = '1';
+  </script>
+</head>
+<body class="nutrition-v2-body">
+  <div id="nutrition-v2-root"></div>
+  <script type="module" src="/app/nutrition/nutrition-v2.js?v=redesign-9"></script>
+</body>
+</html>
