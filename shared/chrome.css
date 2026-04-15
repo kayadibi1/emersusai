@@ -248,7 +248,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 28px;
+  /* env(safe-area-inset-*) falls through to the static values on desktops;
+   * on iPhone X+ the notch and rounded corners get their proper inset. */
+  padding:
+    max(14px, env(safe-area-inset-top))
+    max(20px, env(safe-area-inset-right))
+    14px
+    max(20px, env(safe-area-inset-left));
   border-bottom: 1px solid var(--line);
   background: var(--bg);
   gap: 16px;
