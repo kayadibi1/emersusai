@@ -23,5 +23,10 @@ export default async function handler(req, res) {
     supabaseAnonKey,
     mapboxPublicToken: process.env.MAPBOX_PUBLIC_TOKEN || null,
     turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || null,
+    // Marketing-display corpus stats. Operator overrides via env var when
+    // the figures move; otherwise falls back to the figures used on the
+    // public landing page.
+    corpus_papers: Number(process.env.EMERSUS_CORPUS_PAPERS) || 1041448,
+    corpus_topics: Number(process.env.EMERSUS_CORPUS_TOPICS) || 302,
   });
 }
