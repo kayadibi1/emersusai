@@ -1,0 +1,316 @@
+// shared/chat/top-bar.js — ChatTopBar for the chat_v2 redesign.
+//
+// Layout (left → right):
+//   - Editable thread title (click to edit, Enter commits, Esc cancels)
+//   - Emersus 0.5 model pill → dropdown (Emersus 0.5 · Fast · Deep)
+//   - N SOURCES CITED non-interactive pill
+//   - Share button
+//   - ⋯ overflow menu (Rename · Archive · Delete)
+//
+// Pure helpers (normalizeThreadTitle, resolveTitleKeyAction, MODEL_OPTIONS,
+// isKnownModel) are unit-tested. The React component is the thin shell.
+
+import React from "react";
+
+const { useCallback, useEffect, useRef, useState } = React;
+const h = React.createElement;
+
+const TITLE_MAX_LENGTH = 120;
+
+export const MODEL_OPTIONS = [
+  { id: "emersus-0.5", label: "Emersus 0.5", tier: "balanced" },
+  { id: "emersus-0.5-fast", label: "Emersus 0.5 · Fast", tier: "fast" },
+  { id: "emersus-0.5-deep", label: "Emersus 0.5 · Deep", tier: "deep" },
+];
+
+const MODEL_IDS = new Set(MODEL_OPTIONS.map((m) => m.id));
+
+export function isKnownModel(id) {
+  return typeof id === "string" && MODEL_IDS.has(id);
+}
+
+export function normalizeThreadTitle(raw) {
+  if (raw === null || raw === undefined) return null;
+  const str = String(raw).replace(/\s+/g, " ").trim();
+  if (!str) return null;
+  return str.slice(0, TITLE_MAX_LENGTH);
+}
+
+/**
+ * Decide what the editable title should do on a given key event.
+ * @param {string} key
+ * @param {{ shiftKey?: boolean }} modifiers
+ * @param {{ draft: string, original: string }} ctx
+ * @returns {'commit' | 'cancel' | null}
+ */
+export function resolveTitleKeyAction(key, modifiers, ctx) {
+  if (key === "Escape") return "cancel";
+  if (key === "Enter") {
+    if (modifiers?.shiftKey) return null;
+    const normalized = normalizeThreadTitle(ctx.draft);
+    if (!normalized || normalized === ctx.original) return "cancel";
+    return "commit";
+  }
+  return null;
+}
+
+function findModelOption(id) {
+  return MODEL_OPTIONS.find((m) => m.id === id) || MODEL_OPTIONS[0];
+}
+
+export function ChatTopBar({
+  thread,
+  onRename,
+  onModelChange,
+  onShare,
+  onArchive,
+  onDelete,
+  sourceCount = 0,
+}) {
+  const title = thread?.title || "New thread";
+  const modelId = isKnownModel(thread?.model) ? thread.model : MODEL_OPTIONS[0].id;
+  const activeModel = findModelOption(modelId);
+
+  const [editing, setEditing] = useState(false);
+  const [draft, setDraft] = useState(title);
+  const [modelOpen, setModelOpen] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const inputRef = useRef(null);
+  const modelBtnRef = useRef(null);
+  const menuBtnRef = useRef(null);
+
+  useEffect(() => {
+    if (editing) {
+      inputRef.current?.focus();
+      inputRef.current?.select();
+    }
+  }, [editing]);
+
+  // Sync draft when thread switches.
+  useEffect(() => {
+    setDraft(title);
+    setEditing(false);
+  }, [thread?.id, title]);
+
+  // Close dropdowns on outside click / Escape.
+  useEffect(() => {
+    if (!modelOpen && !menuOpen) return undefined;
+    function handle(event) {
+      if (event.type === "keydown" && event.key !== "Escape") return;
+      setModelOpen(false);
+      setMenuOpen(false);
+    }
+    document.addEventListener("mousedown", handle);
+    document.addEventListener("keydown", handle);
+    return () => {
+      document.removeEventListener("mousedown", handle);
+      document.removeEventListener("keydown", handle);
+    };
+  }, [modelOpen, menuOpen]);
+
+  const commit = useCallback(() => {
+    const next = normalizeThreadTitle(draft);
+    if (!next || next === title) {
+      setDraft(title);
+      setEditing(false);
+      return;
+    }
+    setEditing(false);
+    if (typeof onRename === "function") onRename(next);
+  }, [draft, title, onRename]);
+
+  const cancel = useCallback(() => {
+    setDraft(title);
+    setEditing(false);
+  }, [title]);
+
+  const handleKeyDown = useCallback(
+    (event) => {
+      const action = resolveTitleKeyAction(event.key, { shiftKey: event.shiftKey }, { draft, original: title });
+      if (action === "commit") {
+        event.preventDefault();
+        commit();
+      } else if (action === "cancel") {
+        event.preventDefault();
+        cancel();
+      }
+    },
+    [draft, title, commit, cancel],
+  );
+
+  const handleModelSelect = (id) => {
+    setModelOpen(false);
+    if (!isKnownModel(id) || id === modelId) return;
+    if (typeof onModelChange === "function") onModelChange(id);
+  };
+
+  const handleMenuAction = (action) => {
+    setMenuOpen(false);
+    if (action === "rename") {
+      setEditing(true);
+      return;
+    }
+    if (action === "archive" && typeof onArchive === "function") onArchive();
+    if (action === "delete" && typeof onDelete === "function") onDelete();
+  };
+
+  // `.top-bar` is defined in chrome.css; `.chat-top` adds chat-specific tweaks
+  // in chat-v2.css (Task 12). Both classes stay on the element.
+  return h(
+    "header",
+    { className: "top-bar chat-top", "data-chat-top-bar": "v2" },
+    h(
+      "div",
+      { className: "top-left" },
+      editing
+        ? h("input", {
+            ref: inputRef,
+            className: "thread-heading thread-heading-input",
+            value: draft,
+            maxLength: TITLE_MAX_LENGTH,
+            "aria-label": "Thread title",
+            onChange: (event) => setDraft(event.target.value),
+            onKeyDown: handleKeyDown,
+            onBlur: commit,
+          })
+        : h(
+            "button",
+            {
+              type: "button",
+              className: "thread-heading thread-heading-button",
+              title: "Rename thread",
+              onClick: () => setEditing(true),
+            },
+            title,
+          ),
+      h(
+        "div",
+        { className: "top-badges" },
+        h(
+          "div",
+          { className: "model-pill-wrap", onMouseDown: (e) => e.stopPropagation() },
+          h(
+            "button",
+            {
+              ref: modelBtnRef,
+              type: "button",
+              className: "pill model",
+              title: "Change model for this thread",
+              "aria-haspopup": "listbox",
+              "aria-expanded": modelOpen,
+              onClick: () => setModelOpen((v) => !v),
+            },
+            activeModel.label.toUpperCase(),
+            " ",
+            h("span", { className: "chev" }, "▾"),
+          ),
+          modelOpen
+            ? h(
+                "ul",
+                { className: "model-pill-menu", role: "listbox" },
+                MODEL_OPTIONS.map((option) =>
+                  h(
+                    "li",
+                    { key: option.id, role: "presentation" },
+                    h(
+                      "button",
+                      {
+                        type: "button",
+                        role: "option",
+                        "aria-selected": option.id === modelId,
+                        className: `model-pill-option${option.id === modelId ? " is-active" : ""}`,
+                        onClick: () => handleModelSelect(option.id),
+                      },
+                      option.label,
+                    ),
+                  ),
+                ),
+              )
+            : null,
+        ),
+        h(
+          "span",
+          {
+            className: "pill pill-sources",
+            title: "Papers cited so far in this thread",
+            "data-sources": String(sourceCount),
+          },
+          `${sourceCount} SOURCE${sourceCount === 1 ? "" : "S"} CITED`,
+        ),
+      ),
+    ),
+    h(
+      "div",
+      { className: "top-actions" },
+      h(
+        "button",
+        {
+          type: "button",
+          className: "icon-btn",
+          onClick: () => {
+            if (typeof onShare === "function") onShare();
+          },
+        },
+        "Share",
+      ),
+      h(
+        "div",
+        { className: "menu-wrap", onMouseDown: (e) => e.stopPropagation() },
+        h(
+          "button",
+          {
+            ref: menuBtnRef,
+            type: "button",
+            className: "icon-btn icon-btn-menu",
+            "aria-haspopup": "menu",
+            "aria-expanded": menuOpen,
+            title: "Thread actions",
+            onClick: () => setMenuOpen((v) => !v),
+          },
+          "⋯",
+        ),
+        menuOpen
+          ? h(
+              "ul",
+              { className: "menu-pop", role: "menu" },
+              h(
+                "li",
+                { role: "presentation" },
+                h(
+                  "button",
+                  { type: "button", role: "menuitem", onClick: () => handleMenuAction("rename") },
+                  "Rename",
+                ),
+              ),
+              h(
+                "li",
+                { role: "presentation" },
+                h(
+                  "button",
+                  { type: "button", role: "menuitem", onClick: () => handleMenuAction("archive") },
+                  "Archive",
+                ),
+              ),
+              h(
+                "li",
+                { role: "presentation" },
+                h(
+                  "button",
+                  {
+                    type: "button",
+                    role: "menuitem",
+                    className: "menu-pop-danger",
+                    onClick: () => handleMenuAction("delete"),
+                  },
+                  "Delete",
+                ),
+              ),
+            )
+          : null,
+      ),
+    ),
+  );
+}
+
+export default ChatTopBar;

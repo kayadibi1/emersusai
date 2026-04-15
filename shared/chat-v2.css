@@ -3,8 +3,7 @@
  * Loaded ONLY when the `chat_v2` feature flag is enabled.
  * Depends on design-tokens.css + chrome.css (loaded first in chat/index.html).
  *
- * Subsequent Phase 2 tasks (4–12) will populate this file with:
- *   - Top bar layout + thread-heading + pills + top-actions
+ * Subsequent Phase 2 tasks (5–12) will populate this file with:
  *   - Messages layout (article.msg + msg-head + msg-body + msg-actions)
  *   - Citation card (.cite / .cite-head / .cite-body / .cite-actions)
  *   - Meal widget (.meal-widget / .meal-widget-row / .meal-widget-actions)
@@ -15,9 +14,176 @@
  *
  * Reference mockup: .superpowers/brainstorm/linear-landing/chat.html
  * Plan: docs/superpowers/plans/2026-04-15-redesign-phase-2-chat.md
- *
- * Current state: empty shell. The `data-chat-v2` attribute on <html> is set by
- * the bootstrap script in chat/index.html and allows override selectors later
- * (e.g. `[data-chat-v2="1"] .msg { ... }`) without fighting the legacy
- * shared/chat.css until the old styles are retired in Task 13.
  */
+
+/* ========== TOP BAR (Task 4) ========== */
+
+.top-bar.chat-top {
+  gap: 16px;
+}
+
+.top-bar .top-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+  flex: 1;
+}
+
+.top-bar .thread-heading {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-width: 0;
+  max-width: 340px;
+}
+
+.top-bar .thread-heading-button {
+  background: transparent;
+  border: 0;
+  padding: 4px 6px;
+  margin: -4px -6px;
+  border-radius: 6px;
+  color: inherit;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  transition: background .14s, color .14s;
+}
+.top-bar .thread-heading-button:hover {
+  background: var(--surface-faint);
+  color: var(--ink);
+}
+
+.top-bar .thread-heading-input {
+  background: var(--surface-faint);
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font: inherit;
+  color: var(--ink);
+  outline: none;
+}
+.top-bar .thread-heading-input:focus {
+  border-color: var(--accent);
+}
+
+.top-bar .top-badges {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+  align-items: center;
+}
+
+.top-bar .pill {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--dim);
+  padding: 4px 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  text-transform: uppercase;
+  background: transparent;
+  cursor: default;
+}
+
+.top-bar .pill.model {
+  color: var(--accent);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: background .14s, border-color .14s;
+}
+.top-bar .pill.model:hover {
+  border-color: var(--accent);
+}
+.top-bar .pill.model .chev {
+  font-size: 9px;
+  opacity: 0.8;
+}
+
+.top-bar .model-pill-wrap,
+.top-bar .menu-wrap {
+  position: relative;
+}
+
+.top-bar .model-pill-menu,
+.top-bar .menu-pop {
+  position: absolute;
+  top: calc(100% + 6px);
+  list-style: none;
+  margin: 0;
+  padding: 6px;
+  min-width: 180px;
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.22);
+  z-index: 20;
+}
+
+.top-bar .model-pill-menu { left: 0; }
+.top-bar .menu-pop { right: 0; }
+
+.top-bar .model-pill-menu li,
+.top-bar .menu-pop li {
+  list-style: none;
+}
+
+.top-bar .model-pill-option,
+.top-bar .menu-pop button {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  cursor: pointer;
+  transition: background .12s;
+}
+.top-bar .model-pill-option:hover,
+.top-bar .menu-pop button:hover {
+  background: var(--surface-faint);
+}
+.top-bar .model-pill-option.is-active {
+  color: var(--accent);
+  font-weight: 600;
+}
+.top-bar .menu-pop-danger { color: var(--danger, #ef4444); }
+
+.top-bar .top-actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.top-bar .icon-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--muted);
+  padding: 7px 10px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 12.5px;
+  font-weight: 500;
+  transition: background .14s, color .14s, border-color .14s;
+}
+.top-bar .icon-btn:hover {
+  background: var(--surface-faint);
+  color: var(--ink);
+  border-color: var(--line);
+}
