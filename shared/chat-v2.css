@@ -1778,3 +1778,46 @@
     display: none;
   }
 }
+
+/* ========================================================================== */
+/* MOBILE — touch targets ≥ 44x44 (Phase C)                                    */
+/* ========================================================================== */
+
+@media (max-width: 768px) {
+  /* Primary tap target on every chat turn. Was 36x36. */
+  [data-chat-v2="1"] .submit-orb {
+    width: 44px;
+    height: 44px;
+  }
+  /* Stop button paired with submit orb while streaming. */
+  [data-chat-v2="1"] .stop-btn {
+    min-height: 40px;
+    min-width: 88px;
+  }
+  /* Sources footer chip strip — was 26x22. */
+  [data-chat-v2="1"] .srcs-chip {
+    width: 32px;
+    height: 30px;
+    font-size: 11px;
+  }
+  /* Top-bar pills (model / sources-count / generic). Keep padding tight
+   * horizontally; the bump is in min-height. */
+  [data-chat-v2="1"] .top-bar .pill,
+  [data-chat-v2="1"] .top-bar .pill.model,
+  [data-chat-v2="1"] .top-bar .pill.pill-sources {
+    padding: 6px 10px;
+    min-height: 32px;
+  }
+  /* Tiny PubMed/DOI link stubs inside source rows — still mono, still
+   * small, but tall enough to fat-finger. */
+  [data-chat-v2="1"] .srcs-row .mini-link {
+    min-height: 32px;
+    display: inline-flex;
+    align-items: center;
+  }
+  /* Copy / Regenerate / Export under each assistant message. */
+  [data-chat-v2="1"] .msg-action {
+    min-height: 32px;
+    padding: 6px 10px;
+  }
+}
