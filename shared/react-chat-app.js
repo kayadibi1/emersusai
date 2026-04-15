@@ -2631,6 +2631,214 @@ function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
   }));
 }
 
+const SOURCES_FOOTER_VISIBLE_BY_DEFAULT = 3;
+
+function SourcesFooter({ sources, onAskFollowUp }) {
+  const items = Array.isArray(sources) ? sources : [];
+  const [openSet, setOpenSet] = useState(() => new Set());
+  const [listOpen, setListOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  if (!items.length) return null;
+
+  const hiddenCount = Math.max(0, items.length - SOURCES_FOOTER_VISIBLE_BY_DEFAULT);
+  const allOpen = openSet.size === items.length;
+
+  const toggleRow = (i) => {
+    setOpenSet((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i); else next.add(i);
+      return next;
+    });
+  };
+
+  const handleChipClick = (i) => {
+    if (i >= SOURCES_FOOTER_VISIBLE_BY_DEFAULT) setListOpen(true);
+    toggleRow(i);
+  };
+
+  const handleExpandAll = () => {
+    if (allOpen) {
+      setOpenSet(new Set());
+    } else {
+      setListOpen(true);
+      setOpenSet(new Set(items.map((_, i) => i)));
+    }
+  };
+
+  const handleCopyAll = async () => {
+    const lines = items.map((s, i) => {
+      const title = s?.title || "Untitled source";
+      const year = s?.year || s?.publication_year || s?.published_at || "";
+      const metaParts = [year ? String(year).slice(0, 4) : null, s?.journal || null].filter(Boolean);
+      const url = formatCitationUrl(s) || "";
+      const suffix = [metaParts.join(" · "), url].filter(Boolean).join(" — ");
+      return `[${i + 1}] ${title}${suffix ? " — " + suffix : ""}`;
+    });
+    try {
+      await navigator.clipboard.writeText(lines.join("\n"));
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    } catch (_) {
+      /* clipboard API unavailable — silent */
+    }
+  };
+
+  return h(
+    "section",
+    { className: "msg-sources", "aria-label": "Sources" },
+    h(
+      "div",
+      { className: "srcs-head" },
+      h("span", { className: "srcs-lbl" }, `Sources · ${items.length}`),
+      h("span", { className: "srcs-spacer" }),
+      h(
+        "button",
+        { type: "button", className: "srcs-head-btn", onClick: handleExpandAll },
+        allOpen ? "Collapse all" : "Expand all"
+      ),
+      h("span", { className: "srcs-head-sep", "aria-hidden": true }, "·"),
+      h(
+        "button",
+        { type: "button", className: "srcs-head-btn", onClick: handleCopyAll },
+        copied ? "Copied ↗" : "Copy all ↗"
+      )
+    ),
+    items.length > 1
+      ? h(
+          "div",
+          { className: "srcs-chips" },
+          items.map((_, i) =>
+            h(
+              "button",
+              {
+                key: i,
+                type: "button",
+                className: `srcs-chip${openSet.has(i) ? " is-open" : ""}`,
+                onClick: () => handleChipClick(i),
+                "aria-label": `Jump to source ${i + 1}`,
+              },
+              String(i + 1)
+            )
+          )
+        )
+      : null,
+    h(
+      "ul",
+      { className: `srcs-rows${listOpen ? "" : " is-collapsed"}` },
+      items.map((source, i) => {
+        const isOpen = openSet.has(i);
+        const isHidden = i >= SOURCES_FOOTER_VISIBLE_BY_DEFAULT;
+        const title = source?.title || "Untitled source";
+        const year = source?.year || source?.publication_year || source?.published_at || "";
+        const metaParts = [];
+        if (year) metaParts.push(String(year).slice(0, 4));
+        if (source?.journal) metaParts.push(source.journal);
+        const meta = metaParts.join(" · ");
+        const snippet = source?.why_it_matters || source?.excerpt || source?.summary || "";
+        const links = citationLinks(source);
+        return h(
+          "li",
+          {
+            key: `${source?.pmid || source?.doi || i}`,
+            className: isHidden ? "is-hidden" : "",
+          },
+          h(
+            "div",
+            {
+              className: `srcs-row${isOpen ? " is-open" : ""}`,
+              onClick: () => toggleRow(i),
+              role: "button",
+              tabIndex: 0,
+              onKeyDown: (e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                  e.preventDefault();
+                  toggleRow(i);
+                }
+              },
+            },
+            h("span", { className: "idx" }, `[${i + 1}]`),
+            h(
+              "span",
+              { className: "headline" },
+              h("span", { className: "ttl" }, title),
+              meta ? h("span", { className: "meta" }, meta) : null
+            ),
+            h(
+              "span",
+              { className: "mini-links" },
+              links.map((link) =>
+                h(
+                  "a",
+                  {
+                    key: link.label,
+                    className: "mini-link",
+                    href: link.href,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    onClick: (e) => e.stopPropagation(),
+                  },
+                  `${link.label} ↗`
+                )
+              ),
+              h("span", { className: "caret", "aria-hidden": true }, "▸")
+            )
+          ),
+          h(
+            "div",
+            { className: `srcs-detail${isOpen ? " is-open" : ""}` },
+            snippet ? h("p", null, snippet) : null,
+            h(
+              "div",
+              { className: "cite-actions" },
+              links.map((link) =>
+                h(
+                  "a",
+                  {
+                    key: link.label,
+                    className: "cite-action cite-action-link",
+                    href: link.href,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                  },
+                  `${link.label} ↗`
+                )
+              ),
+              h(
+                "button",
+                {
+                  type: "button",
+                  className: "cite-action cite-action-followup",
+                  onClick: () => onAskFollowUp?.(source),
+                },
+                "Ask follow-up"
+              )
+            )
+          )
+        );
+      })
+    ),
+    hiddenCount > 0
+      ? h(
+          "button",
+          {
+            type: "button",
+            className: "srcs-more",
+            onClick: () => setListOpen((v) => !v),
+          },
+          listOpen
+            ? "Show fewer sources ↑"
+            : h(
+                React.Fragment,
+                null,
+                "Show ",
+                h("span", { className: "n" }, String(hiddenCount)),
+                " more sources ↓"
+              )
+        )
+      : null
+  );
+}
+
 const Message = React.memo(function Message({
   message,
   typewrite = false,
@@ -2640,6 +2848,7 @@ const Message = React.memo(function Message({
   onSavePlan,
   onSwapMeal,
   onExport,
+  onAskFollowUp,
 }) {
   // Choose rendering strategy:
   // 1. toolResults present â†’ SSE path (prose + structured tool outputs)
@@ -2647,6 +2856,11 @@ const Message = React.memo(function Message({
   // 3. html â†’ legacy structured-HTML dump
   // 4. plain text fallback
   const hasToolResults = message.toolResults && typeof message.toolResults === "object" && Object.keys(message.toolResults).length > 0;
+  const showSourcesFooter =
+    chatV2On &&
+    message.role === "assistant" &&
+    Array.isArray(message.sources) &&
+    message.sources.length > 0;
   return h(
     "article",
     { className: `message ${message.role}` },
@@ -2658,6 +2872,9 @@ const Message = React.memo(function Message({
           : message.html
             ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
             : h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId })),
+    showSourcesFooter
+      ? h(SourcesFooter, { sources: message.sources, onAskFollowUp })
+      : null,
     chatV2On && message.role === "assistant"
       ? h(MessageActions, {
           message,
@@ -2676,7 +2893,8 @@ const Message = React.memo(function Message({
   prevProps.onRegenerate === nextProps.onRegenerate &&
   prevProps.onSavePlan === nextProps.onSavePlan &&
   prevProps.onSwapMeal === nextProps.onSwapMeal &&
-  prevProps.onExport === nextProps.onExport
+  prevProps.onExport === nextProps.onExport &&
+  prevProps.onAskFollowUp === nextProps.onAskFollowUp
 );
 
 // Right-rail sources card. Displays up to 4 attached sources for the
@@ -3625,6 +3843,12 @@ export function ChatApp() {
     setShareModalOpen(true);
   }, [activeThreadId]);
 
+  const handleAskSourceFollowUp = useCallback((source) => {
+    const prompt = buildFollowUpPrompt(source);
+    if (!prompt) return;
+    setQuestion(prompt);
+  }, []);
+
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}${chatV2On ? " chat-v2" : ""}` },
     h("aside", { className: "chat-nav" },
       h("div", { className: "chat-brand" },
@@ -3818,6 +4042,7 @@ export function ChatApp() {
                     onSavePlan: handleSavePlanFromMessage,
                     onSwapMeal: handleSwapMealFromMessage,
                     onExport: handleExportMessage,
+                    onAskFollowUp: handleAskSourceFollowUp,
                   })),
                   h("article", { key: "persistent-glyph", className: "message assistant message-pending" },
                     h("div", { className: "message-content" },
