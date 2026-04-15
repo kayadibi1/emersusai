@@ -31,8 +31,16 @@ export default async function acceptInviteHandler(req, res) {
       user_metadata: { invite_accepted_at: new Date().toISOString() },
     });
     if (createError) {
+      const code = createError.code || "";
       const msg = String(createError.message || "");
-      if (/already registered|already exists/i.test(msg)) {
+      // Supabase returns code: "email_exists" / "user_already_exists" with
+      // status 422 when the account is already in auth.users. Fall back to a
+      // message-pattern check for older versions / local Supabase forks.
+      if (
+        code === "email_exists" ||
+        code === "user_already_exists" ||
+        /already registered|already exists|email_exists/i.test(msg)
+      ) {
         return res.status(409).json({ error: "An account with this email already exists. Please log in." });
       }
       throw createError;
