@@ -1,0 +1,37 @@
+/* shared/chrome.css
+ * Shared component patterns used by authenticated app pages.
+ * Depends on design-tokens.css (must be loaded first).
+ * Subsequent redesign phases add page-specific styles on top.
+ */
+@import url('./design-tokens.css');
+
+/* ========== PALETTE SWITCHER ========== */
+.palette-switch {
+  position: fixed; top: 16px; right: 16px; z-index: 100;
+  background: var(--switch-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  padding: 8px;
+  display: flex; gap: 6px;
+  box-shadow: 0 8px 24px -12px rgba(0,0,0,0.4);
+}
+.palette-swatch {
+  width: 28px; height: 22px; border-radius: 5px;
+  background: var(--sw-bg);
+  border: 1px solid rgba(128,128,128,0.25);
+  cursor: pointer; position: relative;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition: transform .15s;
+}
+.palette-swatch:hover { transform: scale(1.06); }
+.palette-swatch.active { outline-color: var(--accent); }
+.palette-swatch::after {
+  content: ""; position: absolute;
+  bottom: 3px; right: 3px;
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--sw-accent);
+  box-shadow: 0 0 4px var(--sw-accent);
+}
