@@ -62,6 +62,7 @@ import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
 import { buildFollowUpPrompt, citationLinks } from "/shared/chat/widget-footers.js";
 import { EmptyPrompts } from "/shared/chat/empty-prompts.js";
 import { groupThreadsByDate, filterThreadsBySearch, GROUP_ORDER } from "/shared/chat/sidebar-helpers.js";
+import { bindSwitcher } from "/shared/theme.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -3512,6 +3513,15 @@ export function ChatApp() {
     return () => window.removeEventListener("emersus:seed-prompt", onSeed);
   }, []);
 
+  // chat_v2 palette switcher — bind once after the swatches mount so theme.js
+  // can wire click handlers + active-state tracking.
+  const paletteRef = useRef(null);
+  useEffect(() => {
+    if (!chatV2On || !paletteRef.current) return undefined;
+    bindSwitcher(paletteRef.current);
+    return undefined;
+  }, [chatV2On]);
+
   const handleRenameThread = useCallback(async (nextTitle) => {
     if (!activeThreadId || !session?.user?.id) return;
     const current = chatHistoryRef.current.find((t) => t.id === activeThreadId);
@@ -3695,7 +3705,14 @@ export function ChatApp() {
           h(Activity, { size: 16, "aria-hidden": true }),
           h("span", null, "Workout planner")
         ),
-        h("button", { className: "inline-button", type: "button", onClick: startNewChat }, h(Plus, { size: 18 }), h("span", null, "New chat")))),
+        h("button", { className: "inline-button", type: "button", onClick: startNewChat }, h(Plus, { size: 18 }), h("span", null, "New chat"))),
+      chatV2On
+        ? h("div", { className: "chat-side-palette", ref: paletteRef, "aria-label": "Theme" },
+            h("span", { className: "chat-side-palette-label" }, "Theme"),
+            h("div", { className: "chat-side-palette-swatches" },
+              h("button", { type: "button", className: "palette-swatch chat-side-swatch chat-side-swatch-mint", "data-theme-swatch": "mint", "aria-label": "Graphite · Jade (dark)" }),
+              h("button", { type: "button", className: "palette-swatch chat-side-swatch chat-side-swatch-paper", "data-theme-swatch": "paper", "aria-label": "Paper · Royal (light)" })))
+        : null),
     historyHidden
       ? h("button", { className: "history-restore-button", type: "button", "aria-expanded": false, "aria-label": "Show conversation history", onClick: () => setHistoryHidden(false) },
           h(PanelLeftOpen, { size: 18 }))
