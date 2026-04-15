@@ -3658,11 +3658,25 @@ export function ChatApp() {
               h("input", {
                 type: "search",
                 className: "side-search-input",
-                placeholder: "Search threads",
+                placeholder: "Search emersus…",
                 value: searchInput,
                 onChange: (e) => setSearchInput(e.target.value),
                 "aria-label": "Search threads",
               })))
+        : null,
+      chatV2On
+        ? h("div", { className: "chat-side-sections" },
+            h("div", { className: "chat-side-sections-label" }, "Sections"),
+            h("a", { className: "chat-side-section is-active", href: "/app/" },
+              h("span", { className: "chat-side-section-dot" }), "Chat"),
+            h("a", { className: "chat-side-section", href: "/app/train/" },
+              h("span", { className: "chat-side-section-dot" }), "Train"),
+            h("a", { className: "chat-side-section", href: "/app/nutrition/" },
+              h("span", { className: "chat-side-section-dot" }), "Nutrition"),
+            h("a", { className: "chat-side-section", href: "/app/progress/" },
+              h("span", { className: "chat-side-section-dot" }), "Progress"),
+            h("a", { className: "chat-side-section", href: "/app/profile/" },
+              h("span", { className: "chat-side-section-dot" }), "Profile"))
         : null,
       chatV2On
         ? (() => {
@@ -3732,6 +3746,22 @@ export function ChatApp() {
             h("div", { className: "chat-side-palette-swatches" },
               h("button", { type: "button", className: "palette-swatch chat-side-swatch chat-side-swatch-mint", "data-theme-swatch": "mint", "aria-label": "Graphite · Jade (dark)" }),
               h("button", { type: "button", className: "palette-swatch chat-side-swatch chat-side-swatch-paper", "data-theme-swatch": "paper", "aria-label": "Paper · Royal (light)" })))
+        : null,
+      chatV2On
+        ? (() => {
+            const fullName = displayName || "—";
+            const initials = String(fullName).split(/\s+/).map((p) => p[0]).filter(Boolean).slice(0, 2).join("").toUpperCase() || "?";
+            return h("a", {
+              className: "chat-side-user",
+              href: "/app/profile/",
+              "aria-label": "Open profile",
+            },
+              h("span", { className: "chat-side-user-avatar" }, initials),
+              h("span", { className: "chat-side-user-meta" },
+                h("span", { className: "chat-side-user-name" }, fullName),
+                h("span", { className: "chat-side-user-plan" }, "PRIVATE BETA")),
+              h("span", { className: "chat-side-user-menu" }, "⋯"));
+          })()
         : null),
     historyHidden
       ? h("button", { className: "history-restore-button", type: "button", "aria-expanded": false, "aria-label": "Show conversation history", onClick: () => setHistoryHidden(false) },
