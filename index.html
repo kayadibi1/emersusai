@@ -3,316 +3,511 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="AI fitness coaching grounded in peer-reviewed research. Plans, tracking, and evidence-based answers across lifting, cardio, swimming, and climbing.">
-  <title>Emersus AI | Research-backed training</title>
+  <meta name="description" content="Evidence-based fitness intelligence. Every answer cited. Every protocol grounded in peer-reviewed research.">
+  <title>Emersus AI — Evidence-based fitness intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" href="/emersus-logo.png" as="image">
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
-  <link rel="stylesheet" href="/shared/landing-v2.css?v=redesign-8">
+  <link rel="stylesheet" href="/shared/landing-v2.css?v=redesign-10">
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
-    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-8';
     bootTheme();
-    if (resolveFlag('public_v2')) {
-      document.documentElement.dataset.publicV2 = '1';
-      // Hydrate corpus stats live from /api/config (best-effort).
-      fetch('/api/config').then((r) => r.ok ? r.json() : null).then((cfg) => {
-        if (!cfg) return;
-        const fmt = (n) => n >= 1_000_000 ? (n/1_000_000).toFixed(1) + 'M+' : (n/1_000).toFixed(0) + 'K+';
-        const set = (sel, v) => { const el = document.querySelector(sel); if (el && v) el.textContent = v; };
-        if (cfg.corpus_papers) set('[data-stat="papers"]', fmt(cfg.corpus_papers));
-        if (cfg.corpus_topics) set('[data-stat="topics"]', String(cfg.corpus_topics));
-      }).catch(() => {});
-    }
   </script>
-  <link href="./styles.css" rel="stylesheet">
 </head>
-<body>
-  <canvas id="bg-canvas" aria-hidden="true"></canvas>
-  <main id="landing-root">
-    <div class="landing-shell">
-      <nav class="nav">
-        <a class="brand text-blur" href="#hero">
-          <img src="/emersus-logo.png" alt="Emersus" class="brand-logo">
-        </a>
-        <div class="nav-links">
-          <a class="text-blur" href="#features">Science</a>
-          <a class="text-blur" href="#how">Platform</a>
-          <a class="text-blur" href="/auth/login/">App / Login</a>
-        </div>
-        <a class="nav-cta" href="#access">Get started</a>
-      </nav>
+<body class="landing-v2-body">
 
-      <section class="section hero" id="hero">
-        <div class="section-inner">
-          <p class="eyebrow text-blur">Evidence-Based Fitness Intelligence</p>
-          <h1 class="headline text-blur-strong">Your body deserves better than guesswork.</h1>
-          <p class="subtitle text-blur">Training and nutrition decisions backed by peer-reviewed research. Not influencer opinions, not bro science - the actual evidence.</p>
-          <div class="hero-actions">
-            <a class="button-primary" href="#access">Get started</a>
-            <a class="button-secondary text-blur" href="#features">See the science →</a>
-          </div>
-        </div>
-      </section>
+  <div class="nav-wrap">
+    <nav class="nav">
+      <a class="brand" href="/">EMERSUS</a>
+      <div class="nav-links">
+        <a href="#what">Science</a>
+        <a href="#flow">How it works</a>
+        <a href="#corpus">Corpus</a>
+        <a href="/auth/">Log in</a>
+      </div>
+      <a class="btn btn-accent" href="/auth/?panel=request">Request access</a>
+    </nav>
+  </div>
 
-      <section class="section" id="features">
-        <div class="section-inner">
-          <p class="eyebrow text-blur">What you get</p>
-          <div class="grid-3">
-            <article class="glass-card">
-              <div class="icon">01</div>
-              <h3 class="card-title text-blur">Research-backed answers</h3>
-              <p class="card-copy text-blur">Every recommendation cites peer-reviewed sources. See the evidence strength, read the abstracts, verify the claims yourself.</p>
-            </article>
-            <article class="glass-card">
-              <div class="icon">02</div>
-              <h3 class="card-title text-blur">Personalized protocols</h3>
-              <p class="card-copy text-blur">Workout plans and nutrition guidance adapted to your goals, equipment, schedule, and injury history. Not cookie-cutter templates.</p>
-            </article>
-            <article class="glass-card">
-              <div class="icon">03</div>
-              <h3 class="card-title text-blur">Honest uncertainty</h3>
-              <p class="card-copy text-blur">When the evidence is mixed or insufficient, we say so. No false confidence. The model knows what it doesn't know.</p>
-            </article>
-          </div>
-        </div>
-      </section>
+  <main>
+    <section class="hero">
+      <div class="eyebrow"><span class="dot"></span>Evidence-Based Fitness Intelligence</div>
+      <h1 class="headline">Your body deserves better<br>than guesswork.</h1>
+      <p class="subhead">Every answer cited. Every protocol backed by peer-reviewed research. No influencer takes, no bro science — the actual evidence.</p>
+      <div class="hero-actions">
+        <a class="btn btn-accent" href="/auth/?panel=request">Request access →</a>
+        <a class="btn" href="#demo">See it work</a>
+      </div>
+      <div class="hero-meta">1,041,448 PAPERS INDEXED · UPDATED DAILY</div>
+    </section>
 
-      <section class="section" id="how">
-        <div class="section-inner">
-          <p class="eyebrow text-blur">How it works</p>
-          <div class="steps">
-            <article class="step-card">
-              <span class="step-number">STEP 01</span>
-              <h3 class="step-title text-blur">Ask anything</h3>
-              <p class="step-copy text-blur">Exercise science, nutrition, recovery - in natural language.</p>
-            </article>
-            <article class="step-card">
-              <span class="step-number">STEP 02</span>
-              <h3 class="step-title text-blur">We search the literature</h3>
-              <p class="step-copy text-blur">Semantic search across 200k+ papers finds relevant evidence.</p>
-            </article>
-            <article class="step-card">
-              <span class="step-number">STEP 03</span>
-              <h3 class="step-title text-blur">Synthesize and cite</h3>
-              <p class="step-copy text-blur">AI distills findings into actionable guidance with sources.</p>
-            </article>
-            <article class="step-card">
-              <span class="step-number">STEP 04</span>
-              <h3 class="step-title text-blur">Track and adapt</h3>
-              <p class="step-copy text-blur">Log workouts and meals. Your plans evolve as you progress.</p>
-            </article>
-          </div>
+    <section class="demo-wrap" id="demo">
+      <div class="demo-frame">
+        <div class="demo-chrome">
+          <div class="dot-row"><span></span><span></span><span></span></div>
+          <div class="chrome-title">emersus.ai — protein intake</div>
         </div>
-      </section>
-
-      <section class="section" id="proof">
-        <div class="section-inner quote-grid">
-          <article class="quote-card large">
-            <p class="quote-copy text-blur-strong">"I stopped guessing and started training with actual evidence. The difference in my results has been night and day."</p>
-            <p class="quote-author">Early beta user · 6 months</p>
-          </article>
-          <article class="quote-card">
-            <p class="section-copy text-blur">Built for people who take their training seriously enough to want the truth - even when the truth is "we don't know yet."</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section cta" id="access">
-        <div class="section-inner">
-          <h2 class="section-title text-blur-strong">Ready to train smarter?</h2>
-          <p class="subtitle text-blur">Join the waitlist for early access.</p>
-          <form class="waitlist-form waitlist-form-full">
-            <input
-              name="email"
-              type="email"
-              inputmode="email"
-              autocomplete="email"
-              placeholder="you@example.com"
-              aria-label="Email address"
-              required
-            >
-            <div class="waitlist-captcha" hidden>
-              <div data-turnstile></div>
+        <div class="demo-body">
+          <aside class="demo-side">
+            <div class="side-group">
+              <div class="side-label">Today</div>
+              <div class="side-item active"><span class="mini-dot"></span>Protein intake</div>
+              <div class="side-item"><span class="mini-dot"></span>Creatine loading</div>
             </div>
-            <input
-              name="website"
-              type="text"
-              tabindex="-1"
-              autocomplete="off"
-              aria-hidden="true"
-              style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;pointer-events:none;"
-            >
-            <button type="submit">Get access</button>
-            <p class="waitlist-feedback" aria-live="polite"></p>
-          </form>
-        </div>
-      </section>
-
-      <!-- ===== Phase 8 additions (visible only when public_v2 flag is on) ===== -->
-      <section class="section pv-section" id="trust" data-public-v2-only>
-        <div class="pv-section-inner">
-          <div class="pv-section-head">
-            <p class="pv-section-eyebrow">Trust the corpus</p>
-            <h2 class="pv-section-title">Built on the literature</h2>
-            <p class="pv-section-sub">Every recommendation traces back to peer-reviewed studies. Live counts:</p>
-          </div>
-          <div class="pv-stats-strip" role="list">
-            <div class="pv-stat" role="listitem"><span class="pv-stat-num" data-stat="papers">1M+</span><span class="pv-stat-lbl">Papers indexed</span></div>
-            <div class="pv-stat" role="listitem"><span class="pv-stat-num" data-stat="topics">302</span><span class="pv-stat-lbl">Topics covered</span></div>
-            <div class="pv-stat" role="listitem"><span class="pv-stat-num">8</span><span class="pv-stat-lbl">Evidence sources</span></div>
-            <div class="pv-stat" role="listitem"><span class="pv-stat-num">100%</span><span class="pv-stat-lbl">Verifiable claims</span></div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section pv-section" id="evidence" data-public-v2-only>
-        <div class="pv-section-inner">
-          <div class="pv-section-head">
-            <p class="pv-section-eyebrow">Evidence grading</p>
-            <h2 class="pv-section-title">When we know — and when we don't</h2>
-            <p class="pv-section-sub">Every answer carries a confidence label. We don't pretend to know what the literature can't yet support.</p>
-          </div>
-          <div class="pv-grades">
-            <div class="pv-grade">
-              <span class="pv-grade-tag strong">Strong</span>
-              <p class="pv-grade-copy">Multiple meta-analyses agree. Recommendation is safe to act on.</p>
+            <div class="side-group">
+              <div class="side-label">Yesterday</div>
+              <div class="side-item"><span class="mini-dot"></span>Hypertrophy volume</div>
+              <div class="side-item"><span class="mini-dot"></span>Sleep &amp; recovery</div>
+              <div class="side-item"><span class="mini-dot"></span>Zone 2 protocol</div>
             </div>
-            <div class="pv-grade">
-              <span class="pv-grade-tag moderate">Moderate</span>
-              <p class="pv-grade-copy">Evidence is leaning but not decisive. Weigh against context.</p>
+          </aside>
+          <div class="demo-main">
+            <div class="demo-header">
+              <div class="thread-title">Protein intake for hypertrophy</div>
+              <div class="thread-meta">EMERSUS 0.5 · 3 SOURCES</div>
             </div>
-            <div class="pv-grade">
-              <span class="pv-grade-tag limited">Limited</span>
-              <p class="pv-grade-copy">A few small studies. Personal experimentation may be needed.</p>
+            <div class="msgs">
+              <div class="msg msg-user show">
+                <div class="msg-who">You</div>
+                <div class="bubble">How much protein do I actually need per day for muscle growth?</div>
+              </div>
+              <div class="msg msg-assist show">
+                <div class="msg-who">Emersus</div>
+                <div class="bubble">For hypertrophy in resistance-trained adults, the evidence-based range is <strong>1.6–2.2 g/kg/day</strong>. At 78 kg, that's <strong>125–172 g/day</strong> split across 3–5 meals. Going beyond 2.2 g/kg shows diminishing returns.</div>
+                <div class="cite-card show">
+                  <div class="cite-head">
+                    <span class="cite-tag">Citation · 01</span>
+                    <span class="cite-strength"><span class="bar"></span>HIGH EVIDENCE</span>
+                  </div>
+                  <div class="cite-body">
+                    <div class="cite-title">A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength.</div>
+                    <div class="cite-authors">Morton RW, Murphy KT, McKellar SR, et al. — Br J Sports Med, 2018</div>
+                    <div class="cite-stats">
+                      <span><b>n</b>49 RCTs</span>
+                      <span><b>N</b>1,863 participants</span>
+                      <span><b>effect</b>d=0.10 beyond 1.6 g/kg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="pv-grade">
-              <span class="pv-grade-tag insufficient">Insufficient</span>
-              <p class="pv-grade-copy">Not enough rigorous evidence yet. We say so explicitly.</p>
+            <div class="composer">
+              <div class="composer-input">Ask a follow-up…</div>
+              <div class="composer-hint">⏎ SEND</div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section pv-section" id="compare" data-public-v2-only>
-        <div class="pv-section-inner">
-          <div class="pv-section-head">
-            <p class="pv-section-eyebrow">Why Emersus</p>
-            <h2 class="pv-section-title">vs. ChatGPT &amp; personal trainers</h2>
-          </div>
-          <table class="pv-compare">
-            <thead>
-              <tr>
-                <th></th>
-                <th class="us">Emersus</th>
-                <th>ChatGPT</th>
-                <th>Personal trainer</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td class="row-label">Cites peer-reviewed studies</td><td class="us">Every claim</td><td class="muted">Hallucinates</td><td class="muted">Rarely</td></tr>
-              <tr><td class="row-label">Says "I don't know" when warranted</td><td class="us">Yes</td><td class="muted">Confidently wrong</td><td class="muted">Depends</td></tr>
-              <tr><td class="row-label">Tracks your training over time</td><td class="us">Yes</td><td class="muted">No</td><td class="muted">Yes</td></tr>
-              <tr><td class="row-label">Adjusts to your equipment + injuries</td><td class="us">Yes</td><td class="muted">Generic</td><td class="muted">Yes</td></tr>
-              <tr><td class="row-label">Available 24/7</td><td class="us">Yes</td><td class="muted">Yes</td><td class="muted">No</td></tr>
-              <tr><td class="row-label">Cost</td><td class="us">Private beta</td><td class="muted">$20/mo</td><td class="muted">$200+/hr</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
+    <section class="section" id="what">
+      <div class="sec-eyebrow">What you get</div>
+      <h2 class="sec-title">A research assistant that shows its work.</h2>
+      <p class="sec-intro">Not another chat box. A retrieval-grounded system that cites, grades, and personalizes — so you can trust what you're reading.</p>
+      <div class="bento">
 
-      <section class="section pv-section" id="faq" data-public-v2-only>
-        <div class="pv-section-inner">
-          <div class="pv-section-head">
-            <p class="pv-section-eyebrow">FAQ</p>
-            <h2 class="pv-section-title">Common questions</h2>
+        <article class="bento-card wide">
+          <div class="bento-label">Citations</div>
+          <h3 class="bento-title">Every claim, sourced.</h3>
+          <p class="bento-desc">Responses aren't opinions. Each claim points back to a real, resolvable DOI or PubMed ID — not a fabricated reference.</p>
+          <div class="bento-visual">
+            <div class="mini-cite">
+              <div class="mini-cite-head">
+                <span class="mini-cite-tag">MORTON RW · BR J SPORTS MED · 2018</span>
+                <span class="mini-cite-grade"><span class="bar"></span>HIGH</span>
+              </div>
+              <div class="mini-cite-body">Effect of protein supplementation on resistance-training-induced gains in muscle mass and strength.</div>
+              <div class="mini-cite-stats">
+                <span><b>n</b>49 RCTs</span>
+                <span><b>N</b>1,863</span>
+                <span><b>d</b>0.10</span>
+              </div>
+            </div>
           </div>
-          <div class="pv-faq">
-            <details>
-              <summary>How is this different from ChatGPT?</summary>
-              <p class="pv-faq-body">ChatGPT is a general-purpose model. Emersus is grounded in over a million peer-reviewed exercise-science and nutrition papers. When you ask a question, we retrieve the actual evidence first, then synthesize. Every claim is traceable.</p>
-            </details>
-            <details>
-              <summary>What kind of training does it cover?</summary>
-              <p class="pv-faq-body">Strength &amp; hypertrophy, endurance (running, cycling, rowing), swimming, and climbing. Plus nutrition, supplements, recovery, sleep, and metabolic health.</p>
-            </details>
-            <details>
-              <summary>Is this medical advice?</summary>
-              <p class="pv-faq-body">No. Emersus is an evidence-aware fitness coaching tool. Always consult a clinician for medical decisions, especially around injuries, medications, or chronic conditions.</p>
-            </details>
-            <details>
-              <summary>Can I see the actual studies?</summary>
-              <p class="pv-faq-body">Yes — every cited source links to PubMed or DOI. You can read the abstract, check the methodology, and verify the claim yourself.</p>
-            </details>
-            <details>
-              <summary>How do you handle data privacy?</summary>
-              <p class="pv-faq-body">All training and nutrition data is encrypted, scoped to your account, and never sold. See our <a href="/privacy/">Privacy Policy</a> and <a href="/consumer-health-data/">Consumer Health Data Privacy Policy</a> for full details.</p>
-            </details>
-            <details>
-              <summary>When can I sign up?</summary>
-              <p class="pv-faq-body">Emersus is in private beta. Request access above and we'll email you when a spot opens.</p>
-            </details>
-          </div>
-        </div>
-      </section>
+        </article>
 
-      <!-- Legacy footer (visible when public_v2 is OFF) -->
-      <footer class="footer" data-public-v2-hide>
-        <span class="text-blur">Emersus © 2025</span>
-        <div style="display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:flex-end;">
-          <a class="text-blur" href="/privacy/">Privacy</a>
-          <a class="text-blur" href="/consumer-health-data/">Consumer Health Data Privacy</a>
-          <a class="text-blur" href="/terms/">Terms</a>
-          <a class="text-blur" href="/contact/">Contact</a>
-        </div>
-      </footer>
+        <article class="bento-card tall">
+          <div class="bento-label">Evidence</div>
+          <h3 class="bento-title">Grade, not guess.</h3>
+          <p class="bento-desc">Every claim tagged by study quality and replication. When evidence is mixed or thin, we say so — loudly.</p>
+          <div class="bento-visual">
+            <div class="vert-scale">
+              <div class="scale-row"><span class="scale-name">HIGH</span><div class="scale-bar full"></div></div>
+              <div class="scale-row"><span class="scale-name">MODERATE</span><div class="scale-bar mod"></div></div>
+              <div class="scale-row"><span class="scale-name">LIMITED</span><div class="scale-bar lim"></div></div>
+              <div class="scale-row"><span class="scale-name">INSUFFICIENT</span><div class="scale-bar insuf"></div></div>
+            </div>
+          </div>
+        </article>
 
-      <!-- Rich footer (visible when public_v2 is ON) -->
-      <footer class="pv-footer" data-public-v2-only>
-        <div class="pv-footer-grid">
-          <div class="pv-footer-col pv-footer-brand">
-            <img src="/emersus-logo.png" alt="Emersus" />
-            <p>Evidence-based fitness coaching grounded in over a million peer-reviewed studies.</p>
+        <article class="bento-card wide">
+          <div class="bento-label">Modalities</div>
+          <h3 class="bento-title">Every way you move.</h3>
+          <p class="bento-desc">Lift, run, swim, climb — one place to log it all, one model that understands the difference.</p>
+          <div class="bento-visual">
+            <div class="modality-grid">
+              <div class="mod-tile"><div class="mod-type">LIFT</div><div class="mod-activity">Push Day</div><div class="mod-stats">52 MIN · 6 LIFTS</div></div>
+              <div class="mod-tile"><div class="mod-type">CARDIO</div><div class="mod-activity">Zone 2 Run</div><div class="mod-stats">48 MIN · 142 BPM</div></div>
+              <div class="mod-tile"><div class="mod-type">SWIM</div><div class="mod-activity">Freestyle</div><div class="mod-stats">2.3 KM · 41 MIN</div></div>
+              <div class="mod-tile"><div class="mod-type">CLIMB</div><div class="mod-activity">Bouldering</div><div class="mod-stats">V4 FLASH · 8 SENDS</div></div>
+            </div>
           </div>
-          <div class="pv-footer-col">
-            <h4>Product</h4>
-            <ul>
-              <li><a href="/auth/">Log in</a></li>
-              <li><a href="/auth/?panel=request">Request access</a></li>
-              <li><a href="/demo/">See the demo</a></li>
-            </ul>
+        </article>
+
+        <article class="bento-card">
+          <div class="bento-label">Nutrition</div>
+          <h3 class="bento-title">Macros that add up.</h3>
+          <div class="bento-visual">
+            <div class="macros">
+              <div class="macro-row"><span class="macro-name">PROTEIN</span><div class="macro-bar-wrap"><div class="macro-bar protein" style="width: 88%"></div></div><span class="macro-val">165g</span></div>
+              <div class="macro-row"><span class="macro-name">CARBS</span><div class="macro-bar-wrap"><div class="macro-bar carbs" style="width: 72%"></div></div><span class="macro-val">220g</span></div>
+              <div class="macro-row"><span class="macro-name">FAT</span><div class="macro-bar-wrap"><div class="macro-bar fat" style="width: 54%"></div></div><span class="macro-val">72g</span></div>
+              <div class="macros-total"><span class="lbl">TARGET 2,250 KCAL</span><span class="val">2,180</span></div>
+            </div>
           </div>
-          <div class="pv-footer-col">
-            <h4>Resources</h4>
-            <ul>
-              <li><a href="#evidence">Evidence grading</a></li>
-              <li><a href="#faq">FAQ</a></li>
-              <li><a href="/contact/">Contact</a></li>
-            </ul>
+        </article>
+
+        <article class="bento-card wide">
+          <div class="bento-label">Labeling</div>
+          <h3 class="bento-title">Preprints, flagged.</h3>
+          <p class="bento-desc">Peer-reviewed and preprint research get clearly different tags. You decide how much to weight each.</p>
+          <div class="bento-visual">
+            <div class="paper-compare">
+              <div class="paper-card"><span class="paper-badge reviewed">Peer-reviewed</span><p class="paper-title">Resistance training frequency and hypertrophy: a meta-analysis.</p><div class="paper-meta">J STRENGTH COND RES · 2024</div></div>
+              <div class="paper-card preprint-card"><span class="paper-badge preprint">Preprint · Not yet reviewed</span><p class="paper-title">Daily creatine loading vs. standard protocols in trained athletes.</p><div class="paper-meta">BIORXIV · 2026 · 3 DAYS AGO</div></div>
+            </div>
           </div>
-          <div class="pv-footer-col">
-            <h4>Legal</h4>
-            <ul>
-              <li><a href="/privacy/">Privacy</a></li>
-              <li><a href="/terms/">Terms</a></li>
-              <li><a href="/consumer-health-data/">Consumer health data</a></li>
-            </ul>
+        </article>
+
+        <article class="bento-card full">
+          <div class="bento-label">Protocols</div>
+          <h3 class="bento-title">Built for how you actually train.</h3>
+          <p class="bento-desc">Dumbbells only? Back injury? 45 minutes three times a week? The model respects what you tell it — no cookie-cutter templates, no fighting back on your constraints.</p>
+          <div class="bento-visual">
+            <div class="mini-plans">
+              <div class="mini-plan">
+                <div class="plan-meta">POSTERIOR · 45 MIN · DUMBBELL</div>
+                <div class="plan-row"><span class="ex">Romanian Deadlift</span><span class="sets">4 × 8</span></div>
+                <div class="plan-row"><span class="ex">Bulgarian Split Squat</span><span class="sets">3 × 10</span></div>
+                <div class="plan-row"><span class="ex">Single-Leg Hip Thrust</span><span class="sets">3 × 12</span></div>
+                <div class="plan-row"><span class="ex">Standing Calf Raise</span><span class="sets">3 × 15</span></div>
+              </div>
+              <div class="mini-plan">
+                <div class="plan-meta">PUSH · 30 MIN · BODYWEIGHT</div>
+                <div class="plan-row"><span class="ex">Diamond Pushup</span><span class="sets">4 × 12</span></div>
+                <div class="plan-row"><span class="ex">Pike Pushup</span><span class="sets">3 × 10</span></div>
+                <div class="plan-row"><span class="ex">Dip</span><span class="sets">3 × AMRAP</span></div>
+                <div class="plan-row"><span class="ex">Pseudo-Planche Hold</span><span class="sets">3 × 30s</span></div>
+              </div>
+              <div class="mini-plan">
+                <div class="plan-meta">LEG · 60 MIN · KNEE-SAFE</div>
+                <div class="plan-row"><span class="ex">Trap-Bar Deadlift</span><span class="sets">4 × 6</span></div>
+                <div class="plan-row"><span class="ex">Hip Thrust</span><span class="sets">4 × 10</span></div>
+                <div class="plan-row"><span class="ex">Leg Press</span><span class="sets">3 × 12</span></div>
+                <div class="plan-row"><span class="ex">Nordic Curl</span><span class="sets">3 × 8</span></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="flow">
+      <div class="sec-eyebrow">The flow</div>
+      <h2 class="sec-title">From question to grounded answer in four steps.</h2>
+      <p class="sec-intro">Every thread traces back to the source literature. Here's what happens between typing a question and reading the response.</p>
+      <div class="steps-grid">
+        <div class="step"><span class="step-num">STEP 01</span><h4>Ask anything</h4><p>Natural-language questions about training, nutrition, recovery, or mechanism — no prompt engineering required.</p></div>
+        <div class="step"><span class="step-num">STEP 02</span><h4>Semantic retrieval</h4><p>We search 1M+ papers across PubMed, bioRxiv, medRxiv, and CORE. Ranked by relevance, recency, and quality.</p></div>
+        <div class="step"><span class="step-num">STEP 03</span><h4>Evidence grading</h4><p>Each claim is labeled by effect size, sample quality, and replication across independent trials.</p></div>
+        <div class="step"><span class="step-num">STEP 04</span><h4>Cited answer</h4><p>Full response with inline citations, explicit uncertainty, and direct links you can verify yourself.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sec-eyebrow">How we grade evidence</div>
+      <h2 class="sec-title">Not every study is a citation.</h2>
+      <p class="sec-intro">A 49-trial meta-analysis doesn't carry the same weight as one underpowered pilot, and we won't pretend otherwise. Every claim is tagged with one of four grades so you know exactly how much to trust it — and when the honest answer is "we don't know yet."</p>
+      <div class="evidence-scale">
+        <div class="grade"><div class="grade-bar" style="background: var(--accent);"></div><div class="grade-name">High</div><p class="grade-desc">Multiple meta-analyses or large RCTs with consistent findings.</p></div>
+        <div class="grade"><div class="grade-bar" style="background: var(--accent); opacity: 0.65;"></div><div class="grade-name">Moderate</div><p class="grade-desc">Single meta-analysis or multiple smaller RCTs with aligned results.</p></div>
+        <div class="grade"><div class="grade-bar" style="background: var(--accent); opacity: 0.32;"></div><div class="grade-name">Limited</div><p class="grade-desc">Individual studies, mechanistic data, or mixed results across trials.</p></div>
+        <div class="grade"><div class="grade-bar" style="background: var(--line-strong);"></div><div class="grade-name">Insufficient</div><p class="grade-desc">Evidence is unclear, contradictory, or doesn't exist yet. We'll say so.</p></div>
+      </div>
+    </section>
+
+    <section class="section" id="corpus">
+      <div class="sec-eyebrow">Corpus</div>
+      <h2 class="sec-title">What's indexed right now.</h2>
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-num">1,041,448</div><div class="stat-label">Papers indexed</div></div>
+        <div class="stat"><div class="stat-num">302</div><div class="stat-label">Topic areas</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Citations verifiable</div></div>
+      </div>
+    </section>
+
+    <section class="spotlight-section">
+      <div class="spotlight-header">
+        <div class="sec-eyebrow">Deeper capabilities</div>
+        <h2 class="sec-title">Five things no one else does.</h2>
+        <p class="sec-intro">Beyond "chat with your fitness data." Emersus wires every answer to interactive components, evidence-backed alternatives, and your actual training history.</p>
+      </div>
+
+      <div class="spotlight-row">
+        <div class="spotlight-copy">
+          <div class="spotlight-eyebrow">Responses</div>
+          <h3 class="spotlight-title">Not answers — interfaces.</h3>
+          <p class="spotlight-desc">The model emits live UI inside every response. Workout plans render as interactive cards. Macros show as bars. Citations unfold when you want the detail. No other chat product does this.</p>
+        </div>
+        <div class="spotlight-visual">
+          <div class="sv-chat">
+            <div class="sv-chat-head">EMERSUS · PUSH DAY</div>
+            <div class="sv-chat-body">
+              <p class="sv-chat-msg">Here's a 50-minute push day built for your dumbbell setup, prioritizing chest hypertrophy:</p>
+              <div class="sv-inline-widget">
+                <div class="sv-widget-label">WORKOUT · 4 MOVES · 50 MIN</div>
+                <div class="sv-widget-rows">
+                  <div class="sv-widget-row"><span>Dumbbell Bench Press</span><span class="sets">4 × 8</span></div>
+                  <div class="sv-widget-row"><span>Incline DB Press</span><span class="sets">3 × 10</span></div>
+                  <div class="sv-widget-row"><span>Dumbbell Fly</span><span class="sets">3 × 12</span></div>
+                  <div class="sv-widget-row"><span>Overhead Tricep Ext.</span><span class="sets">3 × 12</span></div>
+                </div>
+              </div>
+              <p class="sv-chat-msg">Volume and rep ranges follow Schoenfeld 2017 recommendations for intermediates.</p>
+            </div>
           </div>
         </div>
-        <div class="pv-footer-bottom">
-          <span>Emersus © 2026</span>
-          <span><a href="mailto:info@emersus.ai" style="color:inherit;">info@emersus.ai</a></span>
+      </div>
+
+      <div class="spotlight-row reverse">
+        <div class="spotlight-copy">
+          <div class="spotlight-eyebrow">Substitutions</div>
+          <h3 class="spotlight-title">Alternatives, with receipts.</h3>
+          <p class="spotlight-desc">Can't squat with a bad knee? Can't deadlift after a back flare-up? The model offers evidence-backed alternatives — and tells you which study justifies the swap, so you can decide whether to take it.</p>
         </div>
-      </footer>
-    </div>
+        <div class="spotlight-visual">
+          <div class="sv-chat">
+            <div class="sv-chat-head">EMERSUS · INJURY-AWARE</div>
+            <div class="sv-chat-body">
+              <p class="sv-chat-msg sv-user">I can't deadlift right now — lower back flare-up. Still want to train posterior chain.</p>
+              <p class="sv-chat-msg">Trap-bar deadlifts load the posterior chain with <strong>~35% less peak lumbar shear</strong> than conventional pulls. Hip thrusts isolate the glutes without spinal loading.</p>
+              <div class="sv-inline-widget minor">
+                <div class="sv-widget-label">CAMARA KD ET AL. · J STRENGTH COND RES · 2016</div>
+                <div class="sv-widget-meta">BIOMECH RCT · N=20 · MEASURED L4-L5 SHEAR</div>
+              </div>
+              <div class="sv-inline-widget">
+                <div class="sv-widget-label">RECOMMENDED SWAP</div>
+                <div class="sv-widget-rows">
+                  <div class="sv-widget-row"><span>Trap-bar Deadlift</span><span class="sets">4 × 6</span></div>
+                  <div class="sv-widget-row"><span>Hip Thrust</span><span class="sets">4 × 8</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="spotlight-row">
+        <div class="spotlight-copy">
+          <div class="spotlight-eyebrow">Progress</div>
+          <h3 class="spotlight-title">Your numbers, in context.</h3>
+          <p class="spotlight-desc">Your bench is up 8% this month. Is that good? Emersus plots your progression against the literature's expected intermediate curve — and tells you how you're actually doing, not just that you improved.</p>
+        </div>
+        <div class="spotlight-visual">
+          <div class="sv-chart">
+            <div class="sv-chart-head">
+              <span class="sv-chart-title">BENCH PRESS · 1RM · 6 MONTHS</span>
+              <span class="sv-chart-delta">+8% MoM</span>
+            </div>
+            <svg viewBox="0 0 400 180" xmlns="http://www.w3.org/2000/svg">
+              <g class="sv-grid">
+                <line x1="0" y1="40" x2="400" y2="40"/>
+                <line x1="0" y1="90" x2="400" y2="90"/>
+                <line x1="0" y1="140" x2="400" y2="140"/>
+              </g>
+              <path class="sv-band" d="M 10 120 L 70 112 L 130 104 L 190 96 L 250 88 L 310 82 L 380 76 L 380 106 L 310 112 L 250 118 L 190 124 L 130 130 L 70 138 L 10 146 Z"/>
+              <path class="sv-yours" d="M 10 130 L 70 118 L 130 102 L 190 82 L 250 70 L 310 58 L 380 48"/>
+              <circle class="sv-dot" cx="10" cy="130" r="3.5"/>
+              <circle class="sv-dot" cx="70" cy="118" r="3.5"/>
+              <circle class="sv-dot" cx="130" cy="102" r="3.5"/>
+              <circle class="sv-dot" cx="190" cy="82" r="3.5"/>
+              <circle class="sv-dot" cx="250" cy="70" r="3.5"/>
+              <circle class="sv-dot" cx="310" cy="58" r="3.5"/>
+              <circle class="sv-dot sv-dot-last" cx="380" cy="48" r="5"/>
+            </svg>
+            <div class="sv-chart-legend">
+              <div><span class="leg-dot leg-yours"></span>YOUR 1RM</div>
+              <div><span class="leg-dot leg-band"></span>TYPICAL INTERMEDIATE · Schoenfeld 2017</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="marquee-section">
+      <div class="marquee-heading">
+        <div class="sec-eyebrow">Things people ask</div>
+        <h2 class="sec-title">No topic is too niche.</h2>
+        <p class="sec-intro">Every question routes through 1M+ peer-reviewed papers. Nothing is too specific — and when the evidence isn't there, we'll tell you.</p>
+      </div>
+      <div class="marquee">
+        <div class="marquee-row">
+          <div class="marquee-track right">
+            <span class="marquee-item">How much protein do I actually need?</span>
+            <span class="marquee-item">Is creatine worth taking?</span>
+            <span class="marquee-item">Best Zone 2 cardio protocol</span>
+            <span class="marquee-item">Caffeine timing before heavy lifts</span>
+            <span class="marquee-item">Building muscle on a time crunch</span>
+            <span class="marquee-item">Ashwagandha and cortisol</span>
+            <span class="marquee-item">Sleep quality vs strength gains</span>
+            <span class="marquee-item">Carbs before bed — good or bad?</span>
+            <span class="marquee-item">Deload frequency for intermediates</span>
+            <span class="marquee-item">Ice baths, worth the commitment?</span>
+            <span class="marquee-item">How much protein do I actually need?</span>
+            <span class="marquee-item">Is creatine worth taking?</span>
+            <span class="marquee-item">Best Zone 2 cardio protocol</span>
+            <span class="marquee-item">Caffeine timing before heavy lifts</span>
+            <span class="marquee-item">Building muscle on a time crunch</span>
+            <span class="marquee-item">Ashwagandha and cortisol</span>
+            <span class="marquee-item">Sleep quality vs strength gains</span>
+            <span class="marquee-item">Carbs before bed — good or bad?</span>
+            <span class="marquee-item">Deload frequency for intermediates</span>
+            <span class="marquee-item">Ice baths, worth the commitment?</span>
+          </div>
+        </div>
+        <div class="marquee-row">
+          <div class="marquee-track left">
+            <span class="marquee-item">Best exercises for posterior chain</span>
+            <span class="marquee-item">Fasted training and muscle loss</span>
+            <span class="marquee-item">Training frequency per muscle group</span>
+            <span class="marquee-item">Running form cues that actually work</span>
+            <span class="marquee-item">Does spot reduction exist?</span>
+            <span class="marquee-item">Magnesium supplementation protocols</span>
+            <span class="marquee-item">Optimal hypertrophy set volume</span>
+            <span class="marquee-item">Heart rate zones, explained</span>
+            <span class="marquee-item">Omega-3 dosing for athletes</span>
+            <span class="marquee-item">How to stay injury-free while running</span>
+            <span class="marquee-item">Best exercises for posterior chain</span>
+            <span class="marquee-item">Fasted training and muscle loss</span>
+            <span class="marquee-item">Training frequency per muscle group</span>
+            <span class="marquee-item">Running form cues that actually work</span>
+            <span class="marquee-item">Does spot reduction exist?</span>
+            <span class="marquee-item">Magnesium supplementation protocols</span>
+            <span class="marquee-item">Optimal hypertrophy set volume</span>
+            <span class="marquee-item">Heart rate zones, explained</span>
+            <span class="marquee-item">Omega-3 dosing for athletes</span>
+            <span class="marquee-item">How to stay injury-free while running</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sec-eyebrow">How we compare</div>
+      <h2 class="sec-title">What you actually get, side-by-side.</h2>
+      <div class="compare-table">
+        <div class="compare-row head">
+          <div class="compare-cell head-cell">Feature</div>
+          <div class="compare-cell head-cell own">Emersus</div>
+          <div class="compare-cell head-cell">Generic AI chat</div>
+          <div class="compare-cell head-cell">Influencer content</div>
+        </div>
+        <div class="compare-row"><div class="compare-cell label">Verifiable citations on every claim</div><div class="compare-cell mark-yes">YES</div><div class="compare-cell mark-no">Sometimes</div><div class="compare-cell mark-no">No</div></div>
+        <div class="compare-row"><div class="compare-cell label">Evidence strength grading</div><div class="compare-cell mark-yes">YES</div><div class="compare-cell mark-no">No</div><div class="compare-cell mark-no">No</div></div>
+        <div class="compare-row"><div class="compare-cell label">Admits when evidence is insufficient</div><div class="compare-cell mark-yes">YES</div><div class="compare-cell mark-no">Rarely</div><div class="compare-cell mark-no">No</div></div>
+        <div class="compare-row"><div class="compare-cell label">Personalized to your goals &amp; constraints</div><div class="compare-cell mark-yes">YES</div><div class="compare-cell mark-no">Generic</div><div class="compare-cell mark-no">One-size</div></div>
+        <div class="compare-row"><div class="compare-cell label">Updated with daily literature</div><div class="compare-cell mark-yes">YES</div><div class="compare-cell mark-no">Training cutoff</div><div class="compare-cell mark-no">No</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sec-eyebrow">Coming soon</div>
+      <h2 class="sec-title">On the roadmap.</h2>
+      <p class="sec-intro">What's shipping next. Private beta members get it first — request access and we'll ping you when each drops.</p>
+      <div class="roadmap-grid">
+        <article class="roadmap-card"><div class="roadmap-badge">SOON</div><div class="roadmap-eyebrow">Integrations</div><h3 class="roadmap-title">Wearable sync.</h3><p class="roadmap-desc">Connect the watch you already wear. Heart rate, sleep, HRV, recovery, and workouts sync in — the model knows when to push and when to back off.</p></article>
+        <article class="roadmap-card"><div class="roadmap-badge">SOON</div><div class="roadmap-eyebrow">Nutrition</div><h3 class="roadmap-title">Recipe builder.</h3><p class="roadmap-desc">Compose meals from the ingredients you actually have. Macros auto-compute, swaps get suggested, and shopping lists write themselves.</p></article>
+        <article class="roadmap-card"><div class="roadmap-badge">SOON</div><div class="roadmap-eyebrow">Nutrition</div><h3 class="roadmap-title">Allergens &amp; diets.</h3><p class="roadmap-desc">Lock out what you can't or won't eat. Built-in profiles for keto, vegan, gluten-free, paleo, low-FODMAP — or define your own custom exclusions.</p></article>
+        <article class="roadmap-card"><div class="roadmap-badge">SOON</div><div class="roadmap-eyebrow">Training</div><h3 class="roadmap-title">Exercise video library.</h3><p class="roadmap-desc">Form demonstrations for every movement in the catalog — proper cues, common mistakes, regression and progression ladders. Technique with citations.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="sec-eyebrow">Common questions</div>
+      <h2 class="sec-title">Objections, pre-empted.</h2>
+      <div class="faq-list">
+        <details class="faq-item" open>
+          <summary>Where do the citations actually come from?</summary>
+          <div class="faq-body">Retrieval runs over 1M+ indexed papers from PubMed, bioRxiv, medRxiv, CORE, and Semantic Scholar. Every citation points back to a real, resolvable DOI or PubMed ID — not a fabricated reference.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How do you decide what's credible?</summary>
+          <div class="faq-body">Reranking weights study design, sample size, replication, RCR (relative citation ratio), and journal quality. Meta-analyses outrank single underpowered trials. Anecdotes, blog posts, and popular-press articles never enter the retrieval pool.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What if the evidence is mixed or insufficient?</summary>
+          <div class="faq-body">The model flags it explicitly. If no strong studies exist, you'll see an "insufficient evidence" label rather than a fabricated confident answer. Honest uncertainty beats false confidence every time.</div>
+        </details>
+        <details class="faq-item">
+          <summary>How does personalization work?</summary>
+          <div class="faq-body">Your training history, equipment, injuries, and goals shape every protocol. The model doesn't recommend a barbell program if you only have dumbbells — and it respects constraints without fighting them.</div>
+        </details>
+        <details class="faq-item">
+          <summary>What about very new research?</summary>
+          <div class="faq-body">The corpus refreshes daily. New preprints on bioRxiv and medRxiv surface within 24 hours of indexing, flagged as "preprint — not yet peer-reviewed" so you can weigh them accordingly.</div>
+        </details>
+      </div>
+    </section>
+
+    <section class="final-cta">
+      <div class="final-cta-inner">
+        <h2>Start asking better questions.</h2>
+        <p>Private beta — by invitation only. Rigorous answers, every one with its sources.</p>
+        <a class="btn btn-accent" href="/auth/?panel=request">Request access →</a>
+        <div class="reassurance">NO INFLUENCER TAKES · NO BRO SCIENCE · JUST EVIDENCE</div>
+      </div>
+    </section>
+
+    <footer class="footer-rich">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">EMERSUS</div>
+          <p class="footer-tagline">Evidence-based fitness intelligence. Every answer cited. Every protocol grounded in peer-reviewed research.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Product</h5>
+          <ul>
+            <li><a href="/chat/">Chat</a></li>
+            <li><a href="/app/train/">Train</a></li>
+            <li><a href="/app/nutrition/">Nutrition</a></li>
+            <li><a href="/app/progress/">Progress</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Science</h5>
+          <ul>
+            <li><a href="#what">Evidence grading</a></li>
+            <li><a href="#corpus">Data sources</a></li>
+            <li><a href="#flow">Methodology</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="/contact/">Contact</a></li>
+            <li><a href="/privacy/">Privacy</a></li>
+            <li><a href="/terms/">Terms</a></li>
+            <li><a href="/consumer-health-data/">Health Data</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bot">
+        <div>EMERSUS · 2026</div>
+        <div>EVIDENCE-BASED FITNESS INTELLIGENCE</div>
+      </div>
+    </footer>
   </main>
-  <style>
-    /* Reciprocal hide: only the legacy or v2 chrome at a time. */
-    [data-public-v2="1"] [data-public-v2-hide] { display: none !important; }
-    html:not([data-public-v2="1"]) [data-public-v2-only] { display: none !important; }
-  </style>
-  <script type="module" src="./script.js?v=anan-scale-bg-20260407d"></script>
 </body>
 </html>
