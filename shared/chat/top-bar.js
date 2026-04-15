@@ -11,6 +11,7 @@
 // isKnownModel) are unit-tested. The React component is the thin shell.
 
 import React from "react";
+import { PanelLeftOpen } from "lucide-react";
 
 const { useCallback, useEffect, useRef, useState } = React;
 const h = React.createElement;
@@ -66,6 +67,7 @@ export function ChatTopBar({
   onArchive,
   onDelete,
   sourceCount = 0,
+  onOpenSidebar,
 }) {
   const title = thread?.title || "New thread";
   const modelId = isKnownModel(thread?.model) ? thread.model : MODEL_OPTIONS[0].id;
@@ -163,6 +165,14 @@ export function ChatTopBar({
     h(
       "div",
       { className: "top-left" },
+      onOpenSidebar
+        ? h("button", {
+            type: "button",
+            className: "chat-nav-toggle",
+            "aria-label": "Open conversation list",
+            onClick: onOpenSidebar,
+          }, h(PanelLeftOpen, { size: 18, "aria-hidden": true }))
+        : null,
       editing
         ? h("input", {
             ref: inputRef,

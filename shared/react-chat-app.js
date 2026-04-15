@@ -3068,6 +3068,25 @@ export function ChatApp() {
   // the SSE stream mid-flight. Cleared in submitQuestion's finally block.
   const streamAbortRef = useRef(null);
 
+  // Mobile sidebar drawer — only visible at ≤ 768 px. Controls .chat-nav.is-open,
+  // .chat-nav-scrim.is-open, and html.is-nav-open (for body scroll-lock).
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const openSidebar = useCallback(() => setSidebarOpen(true), []);
+  const closeSidebar = useCallback(() => setSidebarOpen(false), []);
+
+  useEffect(() => {
+    if (!sidebarOpen) return undefined;
+    document.documentElement.classList.add("is-nav-open");
+    function onKey(e) {
+      if (e.key === "Escape") setSidebarOpen(false);
+    }
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.documentElement.classList.remove("is-nav-open");
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [sidebarOpen]);
+
   const activeThread = useMemo(() => chatHistory.find((threadData) => threadData.id === activeThreadId) || null, [activeThreadId, chatHistory]);
   const activeMessages = Array.isArray(activeThread?.messages) ? activeThread.messages : [];
   const visibleMessageStartIndex = Math.max(0, activeMessages.length - visibleMessageCount);
@@ -3935,7 +3954,12 @@ export function ChatApp() {
   }, []);
 
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}${chatV2On ? " chat-v2" : ""}` },
-    h("aside", { className: "chat-nav" },
+    h("div", {
+      className: `chat-nav-scrim${sidebarOpen ? " is-open" : ""}`,
+      onClick: closeSidebar,
+      "aria-hidden": true,
+    }),
+    h("aside", { className: `chat-nav${sidebarOpen ? " is-open" : ""}` },
       h("div", { className: "chat-brand" },
         h("div", { className: "chat-brand-head" },
           // Clickable brand â€” takes you back to the public landing page.
@@ -4002,7 +4026,10 @@ export function ChatApp() {
                       key: threadData.id,
                       type: "button",
                       className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`,
-                      onClick: () => setActiveThreadId(threadData.id),
+                      onClick: () => {
+                        setActiveThreadId(threadData.id);
+                        closeSidebar();
+                      },
                     },
                       h("span", null,
                         h("span", { className: "chat-nav-label" }, threadData.title || "New thread"),
@@ -4016,7 +4043,7 @@ export function ChatApp() {
           })()
         : h("div", { className: "chat-nav-list", "aria-label": "Chat history" },
             chatHistory.map((threadData) =>
-              h("button", { key: threadData.id, type: "button", className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`, onClick: () => setActiveThreadId(threadData.id) },
+              h("button", { key: threadData.id, type: "button", className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`, onClick: () => { setActiveThreadId(threadData.id); closeSidebar(); } },
                 h(History, { size: 17, "aria-hidden": true }),
                 h("span", null,
                   h("span", { className: "chat-nav-label" }, threadData.title || "New chat"),
@@ -4097,6 +4124,7 @@ export function ChatApp() {
             onArchive: handleArchiveThread,
             onDelete: handleDeleteThread,
             sourceCount,
+            onOpenSidebar: openSidebar,
           })
         : null,
       h("div", { className: "chat-main-body" },
