@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Emersus AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
+  <link rel="stylesheet" href="/shared/chrome.css?v=redesign-1">
+  <link rel="stylesheet" href="/shared/auth-v2.css?v=redesign-7">
+  <script type="module">
+    import { bootTheme } from '/shared/theme.js?v=redesign-1';
+    bootTheme();
+    document.documentElement.dataset.authV2 = '1';
+  </script>
+</head>
+<body class="auth-v2-body">
+  <div id="auth-v2-root"></div>
+  <script type="module" src="/auth/auth.js?v=redesign-7"></script>
+</body>
+</html>

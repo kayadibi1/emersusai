@@ -27,6 +27,7 @@ const htmlEntries = [
   "auth/login/index.html",
   "auth/reset-password/index.html",
   "auth/signup/index.html",
+  "auth/index.html",
   "chat/index.html",
   "contact/index.html",
   "demo/index.html",

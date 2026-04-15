@@ -71,12 +71,15 @@ describe('feature-flags — pure logic', () => {
     assert.equal(DEFAULT_FLAGS.chat_v2, true);
   });
 
+  test('DEFAULT_FLAGS flips auth_v2 to true (Phase 7 Task 8)', () => {
+    assert.equal(DEFAULT_FLAGS.auth_v2, true);
+  });
+
   test('DEFAULT_FLAGS does NOT pre-enable other v2 flags', () => {
     assert.equal(DEFAULT_FLAGS.train_v2, undefined);
     assert.equal(DEFAULT_FLAGS.nutrition_v2, undefined);
     assert.equal(DEFAULT_FLAGS.progress_v2, undefined);
     assert.equal(DEFAULT_FLAGS.profile_v2, undefined);
-    assert.equal(DEFAULT_FLAGS.auth_v2, undefined);
     assert.equal(DEFAULT_FLAGS.public_v2, undefined);
   });
 

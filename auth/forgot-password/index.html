@@ -10,7 +10,11 @@
   <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
+    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-7';
     bootTheme();
+    if (resolveFlag('auth_v2')) {
+      window.location.replace('/auth/?panel=forgot' + window.location.search.replace(/^\?/, '&'));
+    }
   </script>
   <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
 </head>
