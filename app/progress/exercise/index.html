@@ -52,7 +52,6 @@
       window.location.replace('/app/progress/?drill=exercise' + window.location.search.replace(/^\?/, '&'));
     }
   </script>
-  <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
   <style>
     /* Exercise detail — drill-down view. All tokens from shared/site.css. */
 
@@ -235,28 +234,12 @@
     }
   </style>
 </head>
-<body class="exercise-page">
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container site-header-inner">
-        <a class="brand-mark" href="/"><img src="/emersus-logo.png" alt="Emersus"></a>
-        <nav class="site-nav">
-          <a href="/app/">Dashboard</a>
-          <a href="/chat/">Chat</a>
-          <a href="/app/workout/">Workout</a>
-          <a href="/app/nutrition/">Nutrition</a>
-          <a href="/app/progress/" class="active" aria-current="page">Progress</a>
-          <button class="button button-ghost" type="button" data-auth-logout>Log Out</button>
-        </nav>
-      </div>
-    </header>
-
-    <main class="page-main">
-      <div id="exercise-root" class="exercise-shell">
-        <div class="progress-loading">Loading exercise...</div>
-      </div>
-    </main>
-  </div>
-  <script type="module" src="/app/progress/exercise/exercise.js"></script>
+<body>
+  <!-- redirect-only body: stripped legacy markup to avoid flash -->
+  <noscript>
+    <p style="padding:20px;font-family:system-ui,sans-serif;">
+      This page has moved. Please <a href="/">return home</a>.
+    </p>
+  </noscript>
 </body>
 </html>

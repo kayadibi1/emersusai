@@ -50,55 +50,13 @@
       window.location.replace('/auth/?panel=forgot' + window.location.search.replace(/^\?/, '&'));
     }
   </script>
-  <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
 </head>
-<body data-page="forgot-password">
-  <div class="site-shell">
-    <header class="site-header">
-      <div class="container site-header-inner">
-        <a class="brand-mark" href="/"><img src="/emersus-logo.png" alt="Emersus"></a>
-        <nav class="site-nav">
-          <a href="/privacy/">Privacy</a>
-          <a href="/terms/">Terms</a>
-          <a href="/contact/">Contact</a>
-          <a href="/auth/login/">Log In</a>
-        </nav>
-      </div>
-    </header>
-
-    <main class="page-main">
-      <div class="container auth-layout">
-        <section class="hero-panel auth-copy stack">
-          <p class="section-kicker">Account Recovery</p>
-          <h1>Reset your password securely.</h1>
-          <p class="lede">
-            We will send a password reset link to your email. Use the link from that message to set a new password.
-          </p>
-        </section>
-
-        <section class="form-panel stack">
-          <div>
-            <p class="section-kicker">Forgot Password</p>
-            <h2>Send reset link</h2>
-          </div>
-          <form class="form-grid" data-auth-forgot>
-            <label class="field">
-              <span class="field-label">Email</span>
-              <input type="email" name="email" autocomplete="email" required>
-            </label>
-            <div class="button-row">
-              <button class="button button-primary" type="submit">Send Reset Link</button>
-            </div>
-            <p class="status-text" data-auth-status></p>
-          </form>
-          <p class="helper-text">
-            Back to <a class="auth-switch" href="/auth/login/">log in</a>.
-          </p>
-        </section>
-      </div>
-    </main>
-  </div>
-
-  <script type="module" src="/shared/auth-pages.js"></script>
+<body>
+  <!-- redirect-only body: stripped legacy markup to avoid flash -->
+  <noscript>
+    <p style="padding:20px;font-family:system-ui,sans-serif;">
+      This page has moved. Please <a href="/">return home</a>.
+    </p>
+  </noscript>
 </body>
 </html>
