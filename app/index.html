@@ -3,37 +3,37 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Emersus | Emersus AI</title>
-  <!-- No-flash theme + chat_v2 attributes. Sync blocking; must run before
-       CSS paints. Mirrors bootTheme (shared/theme.js) + resolveFlag
-       (shared/feature-flags.js) for the pre-paint set; the deferred module
-       below still runs to keep the two paths in sync if either is extended. -->
+  <title>Emersus | Emersus AI</title>  <!-- no-flash-boot: resolves data-theme + v2 flags pre-paint -->
   <script>
     (function () {
+      var H = document.documentElement;
       try {
         var saved = localStorage.getItem('emersus-theme');
         var theme = (saved === 'mint' || saved === 'paper') ? saved
           : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'paper' : 'mint');
-        document.documentElement.setAttribute('data-theme', theme);
-      } catch (_) {
-        document.documentElement.setAttribute('data-theme', 'mint');
-      }
+        H.setAttribute('data-theme', theme);
+      } catch (_) { H.setAttribute('data-theme', 'mint'); }
       try {
         var url = new URLSearchParams(location.search);
-        var urlFlag = url.get('chat_v2');
-        var flags = {};
-        try { flags = JSON.parse(localStorage.getItem('emersus-flags') || '{}') || {}; } catch (_) {}
-        var chatV2 = (urlFlag === '0' || urlFlag === 'false') ? false
-          : (urlFlag === '1' || urlFlag === 'true') ? true
-          : (typeof flags.chat_v2 === 'boolean') ? flags.chat_v2
-          : true;
-        if (chatV2) document.documentElement.setAttribute('data-chat-v2', '1');
+        var stored = {};
+        try { stored = JSON.parse(localStorage.getItem('emersus-flags') || '{}') || {}; } catch (_) {}
+        var FLAGS = ['chat_v2','train_v2','nutrition_v2','profile_v2','progress_v2','auth_v2','public_v2','conversational_onboarding'];
+        FLAGS.forEach(function (flag) {
+          var raw = url.get(flag);
+          var val = (raw === '0' || raw === 'false') ? false
+            : (raw === '1' || raw === 'true') ? true
+            : (typeof stored[flag] === 'boolean') ? stored[flag]
+            : true;
+          if (val) H.setAttribute('data-' + flag.replace(/_/g, '-'), '1');
+        });
       } catch (_) {
-        document.documentElement.setAttribute('data-chat-v2', '1');
+        ['chat-v2','train-v2','nutrition-v2','profile-v2','progress-v2','auth-v2','public-v2','conversational-onboarding'].forEach(function (f) {
+          H.setAttribute('data-' + f, '1');
+        });
       }
     })();
   </script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
