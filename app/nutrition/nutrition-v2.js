@@ -101,10 +101,15 @@ function NextUpCard({ data }) {
   );
 }
 
+const SUPPLEMENT_PRESETS = ["Creatine", "Whey", "Multivitamin", "Omega-3", "Vitamin D", "Magnesium"];
+
 function WaterSupplementsStrip({ data, accessToken, onChange }) {
   const consumedMl = data?.consumed?.water_ml || 0;
   const targetMl = data?.target?.water_ml || 3000;
+  const waterPct = targetMl > 0 ? Math.min(100, (consumedMl / targetMl) * 100) : 0;
   const supplements = data?.consumed?.supplements || [];
+  const [suppOpen, setSuppOpen] = useState(false);
+  const [suppName, setSuppName] = useState("");
 
   const logWater = async (ml) => {
     try {
@@ -117,8 +122,8 @@ function WaterSupplementsStrip({ data, accessToken, onChange }) {
     } catch (err) { console.error(err); }
   };
 
-  const logSupplement = async () => {
-    const name = window.prompt("Supplement name:", "Creatine");
+  const submitSupplement = async (rawName) => {
+    const name = (rawName || "").trim();
     if (!name) return;
     try {
       await fetch("/api/nutrition/supplements", {
@@ -126,6 +131,8 @@ function WaterSupplementsStrip({ data, accessToken, onChange }) {
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
         body: JSON.stringify({ items: [{ name }] }),
       });
+      setSuppName("");
+      setSuppOpen(false);
       onChange?.();
     } catch (err) { console.error(err); }
   };
@@ -135,6 +142,9 @@ function WaterSupplementsStrip({ data, accessToken, onChange }) {
       h("div", { className: "nu-strip-head" },
         h("span", { className: "nu-strip-eyebrow" }, "Water"),
         h("span", { className: "nu-strip-value" }, `${(consumedMl/1000).toFixed(1)}L / ${(targetMl/1000).toFixed(0)}L`),
+      ),
+      h("div", { className: "nu-water-bar", role: "progressbar", "aria-valuemin": 0, "aria-valuemax": 100, "aria-valuenow": Math.round(waterPct) },
+        h("div", { className: "nu-water-bar-fill", style: { width: `${waterPct}%` } }),
       ),
       h("div", { className: "nu-strip-actions" },
         h("button", { type: "button", className: "nu-strip-btn", onClick: () => logWater(250) }, "+ 250ml"),
@@ -146,9 +156,42 @@ function WaterSupplementsStrip({ data, accessToken, onChange }) {
         h("span", { className: "nu-strip-eyebrow" }, "Supplements"),
         h("span", { className: "nu-strip-value" }, `${supplements.length} logged today`),
       ),
-      h("div", { className: "nu-strip-actions" },
-        h("button", { type: "button", className: "nu-strip-btn", onClick: logSupplement }, "+ Log supplement"),
-      ),
+      !suppOpen
+        ? h("div", { className: "nu-strip-actions" },
+            h("button", { type: "button", className: "nu-strip-btn", onClick: () => setSuppOpen(true) }, "+ Log supplement"),
+          )
+        : h("form", {
+            className: "nu-supp-form",
+            onSubmit: (e) => { e.preventDefault(); submitSupplement(suppName); },
+          },
+            h("input", {
+              className: "nu-supp-input",
+              type: "text",
+              value: suppName,
+              onChange: (e) => setSuppName(e.target.value),
+              placeholder: "Supplement name",
+              autoFocus: true,
+              maxLength: 80,
+            }),
+            h("div", { className: "nu-supp-presets" },
+              SUPPLEMENT_PRESETS.map((name) =>
+                h("button", {
+                  key: name,
+                  type: "button",
+                  className: "nu-supp-chip",
+                  onClick: () => submitSupplement(name),
+                }, name),
+              ),
+            ),
+            h("div", { className: "nu-strip-actions" },
+              h("button", { type: "submit", className: "nu-strip-btn nu-strip-btn-primary", disabled: !suppName.trim() }, "Log"),
+              h("button", {
+                type: "button",
+                className: "nu-strip-btn",
+                onClick: () => { setSuppName(""); setSuppOpen(false); },
+              }, "Cancel"),
+            ),
+          ),
     ),
   );
 }
