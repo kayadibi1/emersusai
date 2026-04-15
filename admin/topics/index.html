@@ -4,7 +4,37 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Topics | Emersus Admin</title>
-  <link rel="stylesheet" href="/shared/admin.css">
+    <!-- no-flash-boot: resolves data-theme + v2 flags pre-paint -->
+  <script>
+    (function () {
+      var H = document.documentElement;
+      try {
+        var saved = localStorage.getItem('emersus-theme');
+        var theme = (saved === 'mint' || saved === 'paper') ? saved
+          : (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'paper' : 'mint');
+        H.setAttribute('data-theme', theme);
+      } catch (_) { H.setAttribute('data-theme', 'mint'); }
+      try {
+        var url = new URLSearchParams(location.search);
+        var stored = {};
+        try { stored = JSON.parse(localStorage.getItem('emersus-flags') || '{}') || {}; } catch (_) {}
+        var FLAGS = ['chat_v2','train_v2','nutrition_v2','profile_v2','progress_v2','auth_v2','public_v2','conversational_onboarding'];
+        FLAGS.forEach(function (flag) {
+          var raw = url.get(flag);
+          var val = (raw === '0' || raw === 'false') ? false
+            : (raw === '1' || raw === 'true') ? true
+            : (typeof stored[flag] === 'boolean') ? stored[flag]
+            : true;
+          if (val) H.setAttribute('data-' + flag.replace(/_/g, '-'), '1');
+        });
+      } catch (_) {
+        ['chat-v2','train-v2','nutrition-v2','profile-v2','progress-v2','auth-v2','public-v2','conversational-onboarding'].forEach(function (f) {
+          H.setAttribute('data-' + f, '1');
+        });
+      }
+    })();
+  </script>
+<link rel="stylesheet" href="/shared/admin.css">
 </head>
 <body data-admin>
   <div class="admin-shell">
