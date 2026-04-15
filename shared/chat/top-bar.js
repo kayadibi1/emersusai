@@ -211,7 +211,7 @@ export function ChatTopBar({
               "aria-expanded": modelOpen,
               onClick: () => setModelOpen((v) => !v),
             },
-            activeModel.label.toUpperCase(),
+            h("span", { className: "model-pill-label" }, activeModel.label.toUpperCase()),
             " ",
             h("span", { className: "chev" }, "▾"),
           ),
@@ -246,7 +246,8 @@ export function ChatTopBar({
             title: "Papers cited so far in this thread",
             "data-sources": String(sourceCount),
           },
-          `${sourceCount} SOURCE${sourceCount === 1 ? "" : "S"} CITED`,
+          h("span", { className: "pill-sources-count" }, String(sourceCount)),
+          h("span", { className: "pill-sources-label" }, ` SOURCE${sourceCount === 1 ? "" : "S"} CITED`),
         ),
       ),
     ),
@@ -257,12 +258,12 @@ export function ChatTopBar({
         "button",
         {
           type: "button",
-          className: "icon-btn",
+          className: "icon-btn share-btn",
           onClick: () => {
             if (typeof onShare === "function") onShare();
           },
         },
-        "Share",
+        h("span", { className: "share-btn-label" }, "Share"),
       ),
       h(
         "div",

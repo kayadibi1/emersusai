@@ -1748,3 +1748,33 @@
     padding-bottom: calc(140px + env(safe-area-inset-bottom));
   }
 }
+
+/* ========================================================================== */
+/* MOBILE — narrow-phone top-bar pill collapse (Phase B)                       */
+/* ========================================================================== */
+
+@media (max-width: 500px) {
+  /* Hide the text label portions of the top-bar pills; keep icons/counts
+   * visible so the pills compress to glyphs + accent dots + counts. */
+  [data-chat-v2="1"] .top-bar .pill.model .model-pill-label,
+  [data-chat-v2="1"] .top-bar .pill.pill-sources .pill-sources-label {
+    display: none;
+  }
+  [data-chat-v2="1"] .top-bar .pill.model,
+  [data-chat-v2="1"] .top-bar .pill.pill-sources {
+    padding: 6px 8px;
+  }
+  /* Title ellipsizes instead of wrapping. The top-bar flex row already
+   * has min-width: 0 on the left block, so max-width + ellipsis work. */
+  [data-chat-v2="1"] .top-bar .thread-heading,
+  [data-chat-v2="1"] .top-bar .thread-heading-button {
+    max-width: 55vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /* Share button collapses to icon-only. */
+  [data-chat-v2="1"] .top-bar .share-btn .share-btn-label {
+    display: none;
+  }
+}
