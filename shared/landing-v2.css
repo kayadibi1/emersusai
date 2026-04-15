@@ -140,7 +140,12 @@ h1.headline {
 .thread-meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--dim); letter-spacing: 0.14em; }
 
 .msgs { flex: 1; padding: 24px 28px; overflow: hidden; }
-.msg { margin-bottom: 20px; }
+.msg {
+  margin-bottom: 20px;
+  opacity: 0; transform: translateY(6px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.msg.show { opacity: 1; transform: translateY(0); }
 .msg-who { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--dim); margin-bottom: 6px; }
 .msg-user .bubble { font-size: 15px; color: var(--ink); font-weight: 450; }
 .msg-assist .bubble { font-size: 14.5px; color: var(--ink); line-height: 1.62; }
@@ -151,7 +156,17 @@ h1.headline {
   border: 1px solid var(--line);
   border-radius: 10px;
   background: var(--surface-faint);
+  max-height: 0; opacity: 0; overflow: hidden;
+  transition: max-height .5s ease, opacity .35s ease, margin-top .3s ease;
 }
+.cite-card.show { max-height: 240px; opacity: 1; }
+/* Add a blinking caret for the typewriter effect during the demo. */
+.caret {
+  display: inline-block; width: 7px; height: 1.05em;
+  background: var(--accent); vertical-align: -2px; margin-left: 2px;
+  animation: caret-blink 1s steps(2) infinite;
+}
+@keyframes caret-blink { 50% { opacity: 0; } }
 .cite-head { display: flex; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid var(--line); }
 .cite-tag { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 0.22em; color: var(--citation); }
 .cite-strength { font-family: var(--font-mono); font-size: 10px; color: var(--accent); letter-spacing: 0.14em; display: flex; align-items: center; gap: 6px; }

@@ -69,14 +69,14 @@
               <div class="thread-meta">EMERSUS 0.5 · 3 SOURCES</div>
             </div>
             <div class="msgs">
-              <div class="msg msg-user show">
+              <div class="msg msg-user" id="demo-m1">
                 <div class="msg-who">You</div>
                 <div class="bubble">How much protein do I actually need per day for muscle growth?</div>
               </div>
-              <div class="msg msg-assist show">
+              <div class="msg msg-assist" id="demo-m2">
                 <div class="msg-who">Emersus</div>
-                <div class="bubble">For hypertrophy in resistance-trained adults, the evidence-based range is <strong>1.6–2.2 g/kg/day</strong>. At 78 kg, that's <strong>125–172 g/day</strong> split across 3–5 meals. Going beyond 2.2 g/kg shows diminishing returns.</div>
-                <div class="cite-card show">
+                <div class="bubble" id="demo-m2-text"></div>
+                <div class="cite-card" id="demo-cite">
                   <div class="cite-head">
                     <span class="cite-tag">Citation · 01</span>
                     <span class="cite-strength"><span class="bar"></span>HIGH EVIDENCE</span>
@@ -509,5 +509,80 @@
       </div>
     </footer>
   </main>
+
+  <script>
+    // Hero demo animation — types the assistant's response, then slides in
+    // the citation card. Runs on intersection-observer so it doesn't fire
+    // until the demo scrolls into view, then loops every ~16s. Honors
+    // prefers-reduced-motion by rendering the final state immediately.
+    (function () {
+      const m1 = document.getElementById('demo-m1');
+      const m2 = document.getElementById('demo-m2');
+      const m2text = document.getElementById('demo-m2-text');
+      const cite = document.getElementById('demo-cite');
+      const demo = document.getElementById('demo');
+      if (!m1 || !m2 || !m2text || !cite || !demo) return;
+
+      const fullAnswer =
+        "<strong>1.6–2.2 g/kg of bodyweight per day</strong> is the evidence-based range for adults training for hypertrophy. " +
+        "Above ~1.6 g/kg, additional protein intake shows diminishing returns in trained individuals. " +
+        "A 75 kg lifter targets roughly <strong>120–165 g/day</strong>, split across 3–5 meals.";
+
+      const reduced = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function showFinalImmediately() {
+        m1.classList.add('show');
+        m2.classList.add('show');
+        m2text.innerHTML = fullAnswer;
+        cite.classList.add('show');
+      }
+
+      function typeText(el, html, speed, done) {
+        el.innerHTML = ''; let i = 0;
+        const tokens = html.split(/(<[^>]+>)/).filter(Boolean);
+        let plain = '';
+        const caret = '<span class="caret"></span>';
+        function step() {
+          if (i < tokens.length) {
+            const tok = tokens[i];
+            if (tok.startsWith('<')) { plain += tok; i++; step(); return; }
+            let j = 0;
+            (function run() {
+              if (j < tok.length) { plain += tok[j]; el.innerHTML = plain + caret; j++; setTimeout(run, speed); }
+              else { i++; step(); }
+            })();
+          } else { el.innerHTML = plain; if (done) done(); }
+        }
+        step();
+      }
+
+      let loopTimer = null;
+      function playLoop() {
+        clearTimeout(loopTimer);
+        m1.classList.remove('show');
+        m2.classList.remove('show');
+        cite.classList.remove('show');
+        m2text.innerHTML = '';
+        setTimeout(() => m1.classList.add('show'), 400);
+        setTimeout(() => {
+          m2.classList.add('show');
+          typeText(m2text, fullAnswer, 14, () => {
+            setTimeout(() => cite.classList.add('show'), 400);
+          });
+        }, 1400);
+        loopTimer = setTimeout(playLoop, 16000);
+      }
+
+      if (reduced) { showFinalImmediately(); return; }
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) { playLoop(); obs.disconnect(); }
+        });
+      }, { threshold: 0.3 });
+      obs.observe(demo);
+    })();
+  </script>
 </body>
 </html>
