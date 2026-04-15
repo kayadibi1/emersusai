@@ -122,6 +122,15 @@ export const EMERSUS_THEME_CSS = `
     --chart-grid: rgba(255,255,255,0.06);
     --chart-border: rgba(255,255,255,0.08);
     --card-inset: rgba(255,255,255,0.04);
+    /* categorical chart-data palette — tuned for perceptual distinction on
+       the dark Graphite surface. Rotate through these for multi-series data,
+       never the semantic success/warning/danger/info tokens (those share
+       hues with the accent on one palette or the other). */
+    --chart-series-1: #34d399;
+    --chart-series-2: #60a5fa;
+    --chart-series-3: #fbbf24;
+    --chart-series-4: #f87171;
+    --chart-series-5: #c084fc;
   }
 
   /* ---------- PAPER · ROYAL (light) ---------- */
@@ -171,6 +180,13 @@ export const EMERSUS_THEME_CSS = `
     --chart-grid: rgba(26,24,19,0.10);
     --chart-border: rgba(26,24,19,0.18);
     --card-inset: rgba(26,24,19,0.04);
+    /* categorical chart-data palette — deeper saturated hues so multi-series
+       data reads on the cream surface without washing out. */
+    --chart-series-1: #3b82f6;
+    --chart-series-2: #16a34a;
+    --chart-series-3: #d97706;
+    --chart-series-4: #dc2626;
+    --chart-series-5: #9333ea;
   }
   * { box-sizing: border-box; min-width: 0; }
   html, body {
@@ -411,11 +427,27 @@ export function WidgetFrame({ code, html, title }) {
     // when the host theme flips, so new Chart(...) calls after a flip pick up
     // the updated vars. Existing Chart instances stay in the old palette (the
     // widget would need to redraw to pick up new defaults, which is rare).
+    var _rs = getComputedStyle(document.documentElement);
+    var _get = function (name, fallback) {
+      var v = (_rs.getPropertyValue(name) || '').trim();
+      return v || fallback;
+    };
+    var _axis = _get('--chart-axis', 'rgba(255,255,255,0.65)');
+    var _grid = _get('--chart-grid', 'rgba(255,255,255,0.06)');
+    var _border = _get('--chart-border', 'rgba(255,255,255,0.08)');
+    // Resolved categorical chart palette — exposed as a window array because
+    // Chart.js (and any widget JS) can't resolve CSS vars in config strings.
+    // Widgets use window.EMERSUS_CHART_SERIES[0..4] to pull palette-correct
+    // hex values that still track the host theme (re-resolves on iframe
+    // reload after a theme flip).
+    window.EMERSUS_CHART_SERIES = [
+      _get('--chart-series-1', '#34d399'),
+      _get('--chart-series-2', '#60a5fa'),
+      _get('--chart-series-3', '#fbbf24'),
+      _get('--chart-series-4', '#f87171'),
+      _get('--chart-series-5', '#c084fc'),
+    ];
     if (typeof Chart !== "undefined") {
-      var _rs = getComputedStyle(document.documentElement);
-      var _axis = (_rs.getPropertyValue('--chart-axis') || '').trim() || 'rgba(255,255,255,0.65)';
-      var _grid = (_rs.getPropertyValue('--chart-grid') || '').trim() || 'rgba(255,255,255,0.06)';
-      var _border = (_rs.getPropertyValue('--chart-border') || '').trim() || 'rgba(255,255,255,0.08)';
       Chart.defaults.color = _axis;
       Chart.defaults.borderColor = _border;
       Chart.defaults.font.family = "'Space Grotesk', system-ui, -apple-system, sans-serif";
