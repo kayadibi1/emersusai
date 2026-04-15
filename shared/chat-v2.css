@@ -572,3 +572,71 @@
   color: var(--dim);
   text-align: center;
 }
+
+/* ========== SIDEBAR PALETTE SWITCHER (Task 11) ========== */
+
+[data-chat-v2="1"] .chat-side-palette {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  margin-top: auto;
+  border-top: 1px solid var(--line);
+  background: var(--bg);
+}
+
+[data-chat-v2="1"] .chat-side-palette-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+[data-chat-v2="1"] .chat-side-palette-swatches {
+  display: flex;
+  gap: 6px;
+}
+
+[data-chat-v2="1"] .chat-side-swatch {
+  /* Inherits .palette-swatch sizing/rounding from chrome.css. We override the
+     swatch background per theme so each swatch previews its target palette. */
+  width: 28px;
+  height: 22px;
+  border: 1px solid rgba(128,128,128,0.25);
+  border-radius: 5px;
+  cursor: pointer;
+  position: relative;
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition: transform .15s, outline-color .14s;
+}
+[data-chat-v2="1"] .chat-side-swatch:hover {
+  transform: scale(1.06);
+}
+[data-chat-v2="1"] .chat-side-swatch.active {
+  outline-color: var(--accent);
+}
+[data-chat-v2="1"] .chat-side-swatch-mint {
+  background: linear-gradient(135deg, #1a1d23 0%, #2a2f38 100%);
+}
+[data-chat-v2="1"] .chat-side-swatch-paper {
+  background: linear-gradient(135deg, #fafaf7 0%, #ecebe5 100%);
+}
+[data-chat-v2="1"] .chat-side-swatch::after {
+  content: "";
+  position: absolute;
+  bottom: 3px;
+  right: 3px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+[data-chat-v2="1"] .chat-side-swatch-mint::after {
+  background: #34d399;
+  box-shadow: 0 0 4px #34d399;
+}
+[data-chat-v2="1"] .chat-side-swatch-paper::after {
+  background: #3b82f6;
+  box-shadow: 0 0 4px #3b82f6;
+}
