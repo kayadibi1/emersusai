@@ -9,6 +9,7 @@
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { createRoot } from "react-dom/client";
 import { getSession, requireAuth } from "/shared/supabase.js";
+import { applyTheme, readSavedTheme, VALID_THEMES } from "/shared/theme.js";
 
 const h = React.createElement;
 
@@ -17,6 +18,7 @@ const TABS = [
   { id: "equipment",    label: "Equipment" },
   { id: "injuries",     label: "Injuries" },
   { id: "integrations", label: "Integrations", soon: true },
+  { id: "appearance",   label: "Appearance" },
   { id: "billing",      label: "Billing" },
 ];
 
@@ -331,6 +333,59 @@ function IntegrationsTab() {
   );
 }
 
+function AppearanceTab() {
+  // Initialize from DOM (data-theme attr set by the pre-paint boot script)
+  // rather than localStorage so the visible UI matches what's rendered even
+  // if another tab in the same browser just toggled the theme.
+  const [theme, setTheme] = useState(() => {
+    const attr = typeof document !== "undefined"
+      ? document.documentElement.getAttribute("data-theme")
+      : null;
+    if (attr === "mint" || attr === "paper") return attr;
+    const saved = readSavedTheme();
+    return VALID_THEMES.includes(saved) ? saved : "paper";
+  });
+
+  const pick = (next) => {
+    if (next === theme) return;
+    applyTheme(next);
+    setTheme(next);
+  };
+
+  const OPTIONS = [
+    { id: "paper", label: "Light", sub: "Paper · Royal", swatch: "paper" },
+    { id: "mint",  label: "Dark",  sub: "Graphite · Jade", swatch: "mint" },
+  ];
+
+  return h("div", { className: "pf-tab pf-appearance" },
+    h("div", { className: "pf-section-head" }, "Theme"),
+    h("div", { className: "pf-appearance-options", role: "radiogroup", "aria-label": "Theme" },
+      OPTIONS.map((opt) =>
+        h("button", {
+          key: opt.id,
+          type: "button",
+          role: "radio",
+          "aria-checked": theme === opt.id,
+          className: `pf-appearance-option${theme === opt.id ? " is-active" : ""}`,
+          onClick: () => pick(opt.id),
+        },
+          h("span", { className: `pf-appearance-swatch pf-appearance-swatch-${opt.swatch}`, "aria-hidden": true }),
+          h("span", { className: "pf-appearance-meta" },
+            h("span", { className: "pf-appearance-label" }, opt.label),
+            h("span", { className: "pf-appearance-sub" }, opt.sub),
+          ),
+          theme === opt.id
+            ? h("span", { className: "pf-appearance-check", "aria-hidden": true }, "✓")
+            : null,
+        ),
+      ),
+    ),
+    h("p", { className: "pf-appearance-note" },
+      "Your choice is saved to this browser. It applies across the whole app — chat, training, nutrition, progress, and this settings page.",
+    ),
+  );
+}
+
 function BillingTab() {
   return h("div", { className: "pf-tab pf-billing" },
     h("div", { className: "pf-billing-hero" },
@@ -437,6 +492,7 @@ function ProfileApp() {
     tab === "equipment"    ? h(EquipmentTab,    { profile, patch, saving }) : null,
     tab === "injuries"     ? h(InjuriesTab,     { profile, debouncedPatch }) : null,
     tab === "integrations" ? h(IntegrationsTab, null) : null,
+    tab === "appearance"   ? h(AppearanceTab,   null) : null,
     tab === "billing"      ? h(BillingTab,      null) : null,
   );
 }

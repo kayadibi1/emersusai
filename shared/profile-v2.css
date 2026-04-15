@@ -543,3 +543,101 @@
   transition: background .14s;
 }
 [data-profile-v2="1"] .pf-danger-btn:hover { background: rgba(239,68,68,0.1); }
+
+/* ========== APPEARANCE TAB ========== */
+[data-profile-v2="1"] .pf-appearance-options {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 14px;
+  max-width: 520px;
+}
+[data-profile-v2="1"] .pf-appearance-option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  transition: border-color .14s, background .14s;
+}
+[data-profile-v2="1"] .pf-appearance-option:hover {
+  border-color: var(--line-strong);
+}
+[data-profile-v2="1"] .pf-appearance-option.is-active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+[data-profile-v2="1"] .pf-appearance-swatch {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  flex-shrink: 0;
+  position: relative;
+}
+[data-profile-v2="1"] .pf-appearance-swatch-mint {
+  background: linear-gradient(135deg, #1a1d23 0%, #2a2f38 100%);
+}
+[data-profile-v2="1"] .pf-appearance-swatch-mint::after {
+  content: "";
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 6px #34d399;
+}
+[data-profile-v2="1"] .pf-appearance-swatch-paper {
+  background: linear-gradient(135deg, #fafaf7 0%, #ecebe5 100%);
+}
+[data-profile-v2="1"] .pf-appearance-swatch-paper::after {
+  content: "";
+  position: absolute;
+  right: 7px;
+  bottom: 7px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3b82f6;
+  box-shadow: 0 0 6px #3b82f6;
+}
+[data-profile-v2="1"] .pf-appearance-meta {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+[data-profile-v2="1"] .pf-appearance-label {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--ink);
+}
+[data-profile-v2="1"] .pf-appearance-sub {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+[data-profile-v2="1"] .pf-appearance-check {
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+[data-profile-v2="1"] .pf-appearance-note {
+  max-width: 520px;
+  margin: 18px 0 0;
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--muted);
+}
