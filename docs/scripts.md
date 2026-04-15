@@ -23,6 +23,24 @@ All scripts are ES modules, run via `node` or the `npm run` aliases below. They 
 4. `embed:evidence` → embeddings computed, stored in pgvector column.
 5. `test:retrieval` → confirm search works end-to-end.
 
+## Build-time HTML modifiers
+
+The 2026-04-15 frontend redesign introduced a handful of idempotent Node
+scripts that inject or strip common markup across the repo's HTML entries.
+Each uses a sentinel comment so re-running is safe; they run against the
+source files (not `dist/`) and are picked up by the next `npm run build`.
+
+| Script | What it does | Target files |
+|---|---|---|
+| `scripts/inject-no-flash-boot.js` | Adds the synchronous pre-paint `<script>` that resolves `data-theme` + every enabled v2 flag before first paint, preventing FOUC. | All 33 HTML entries in `vite.config.js`. |
+| `scripts/inject-app-sidebar.js` | Adds the fixed-left 280px `.app-sidebar` with brand mark + SECTIONS nav to non-chat authenticated app pages (Train/Nutrition/Progress/Profile). Chat has its own React-rendered sidebar. | `app/{train,nutrition,progress,profile}/index.html` |
+| `scripts/inject-no-cache-app.js` | Adds `Cache-Control: no-cache, must-revalidate` meta to every `/app/*` and `/auth/*` HTML so browsers revalidate on every visit (prevents stale-HTML-flash-then-404 after deploys that rename routes). | `app/**/*.html`, `auth/**/*.html` |
+| `scripts/inject-no-cache-legacy.js` | Adds the stricter `no-cache, no-store, must-revalidate` meta to every HTML that contains a `window.location.replace` redirect. | ~20 legacy redirect pages. |
+| `scripts/strip-redirect-bodies.js` | Replaces the full legacy `<body>` of pure-redirect HTMLs (auth/login, auth/signup, auth/forgot-password, auth/reset-password, chat/, app/progress/exercise, app/progress/session) with a minimal skeleton + `<noscript>` fallback. Eliminates the "flash of old design" during the redirect. | 7 pure-redirect pages. |
+
+All five scripts are also checked into the repo so they can be re-run on
+future HTML entries added to `vite.config.js`.
+
 ## `scripts/import-usda-foods.js`
 
 One-time USDA FoodData Central importer. Loads Foundation, SR Legacy,
