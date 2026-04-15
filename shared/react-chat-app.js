@@ -3846,7 +3846,7 @@ export function ChatApp() {
                 ? "Loading conversation..."
                 : onboardingActive
                 ? "Tell me about yourself..."
-                : "Ask me anything about training, nutrition, recovery, or performance.",
+                : "Ask anything — training, nutrition, recovery, citations…",
               disabled: composerDisabled,
               value: question,
               onChange: (event) => setQuestion(event.target.value),

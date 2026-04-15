@@ -1369,3 +1369,71 @@
 /* Adjust palette block — no longer needs to be the last item; user-card sits
  * below it. Remove the auto top-margin so it doesn't push to the bottom. */
 [data-chat-v2="1"] .chat-side-palette { margin-top: 0 !important; }
+
+/* ===== Mockup parity (round 2) ===== */
+
+/* Empty state: hide the "Welcome, X" heading + body copy — mockup shows only
+ * the SUGGESTED chips. */
+[data-chat-v2="1"] .thread-welcome-eyebrow,
+[data-chat-v2="1"] .thread-welcome-title,
+[data-chat-v2="1"] .thread-welcome-copy { display: none !important; }
+[data-chat-v2="1"] .thread-welcome {
+  margin-top: 24px !important;
+  padding: 0 !important;
+}
+
+/* Theme switcher: REMOVE from the sidebar bottom and instead float at the
+ * top-right of the viewport per the mockup's `.palette-switch` position-fixed
+ * pattern. */
+[data-chat-v2="1"] .chat-side-palette { display: none !important; }
+[data-chat-v2="1"] .chat-app-shell::after {
+  /* No-op anchor for the floating palette — actual swatches are still rendered
+   * by react-chat-app inside .chat-side-palette but moved to fixed position
+   * via the rule below. */
+  content: none;
+}
+/* Re-show the palette but as a floating widget at top-right. */
+[data-chat-v2="1"] .chat-side-palette {
+  display: flex !important;
+  position: fixed !important;
+  top: 16px !important;
+  right: 16px !important;
+  z-index: 100 !important;
+  background: var(--switch-bg, var(--surface)) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  border: 1px solid var(--line-strong) !important;
+  border-radius: 10px !important;
+  padding: 8px !important;
+  gap: 6px !important;
+  box-shadow: 0 8px 24px -12px rgba(0,0,0,0.4) !important;
+  margin-top: 0 !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  border-top: 0 !important;
+}
+[data-chat-v2="1"] .chat-side-palette-label { display: none !important; }
+[data-chat-v2="1"] .chat-side-palette-swatches { gap: 6px !important; }
+[data-chat-v2="1"] .chat-side-swatch { width: 28px !important; height: 22px !important; }
+
+/* Composer: the mockup uses a different footer — no "⏎ SEND" hint, no green
+ * submit orb. Hide the hint, hide the orb, and let the user just press
+ * Enter to send. The submit-orb is still functional; we just don't show it. */
+[data-chat-v2="1"] .composer-utility-row .composer-hint { display: none !important; }
+[data-chat-v2="1"] .chat-composer-shell .submit-orb { display: none !important; }
+[data-chat-v2="1"] .chat-composer-shell .composer-actions {
+  /* Empty actions container — keep it for future Stop button placement */
+  margin: 0 !important;
+}
+/* Composer footer: small "+ Attach" placeholder on the left + status on right */
+[data-chat-v2="1"] .composer-utility-row::before {
+  content: "+ ATTACH" !important;
+  font-family: 'JetBrains Mono', ui-monospace, monospace !important;
+  font-size: 9.5px !important;
+  letter-spacing: 0.16em !important;
+  color: var(--dim) !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 6px !important;
+  padding: 5px 10px !important;
+  cursor: default !important;
+}
