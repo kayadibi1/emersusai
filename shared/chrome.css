@@ -706,3 +706,26 @@ body.profile-v2-body {
   body.progress-v2-body,
   body.profile-v2-body { padding-left: 0; }
 }
+
+/* Mobile tab-bar: existing .tabs uses gap: 40px + no wrap rule, which
+ * overflows horizontally on phones. Below 640 px, let tabs scroll
+ * horizontally with snap-to-start and hide the scrollbar so the UI
+ * still reads as a flat tab strip. */
+@media (max-width: 640px) {
+  .tabs {
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 20px;
+    padding: 0 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+  }
+  .tabs::-webkit-scrollbar {
+    display: none;
+  }
+  .tab {
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+}
