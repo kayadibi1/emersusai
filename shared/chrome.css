@@ -413,3 +413,186 @@
   70%  { box-shadow: 0 0 0 8px transparent; }
   100% { box-shadow: 0 0 0 0 transparent; }
 }
+
+/* ========== FORM CONTROLS ========== */
+
+/* Field wrapper */
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.field-label {
+  font-family: 'JetBrains Mono';
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  color: var(--muted);
+  text-transform: uppercase;
+  font-weight: 500;
+  display: flex;
+  justify-content: space-between;
+}
+.field-label .hint {
+  color: var(--dim);
+  letter-spacing: 0.14em;
+  font-size: 9.5px;
+}
+.field-helper {
+  font-family: 'JetBrains Mono';
+  font-size: 9.5px;
+  letter-spacing: 0.14em;
+  color: var(--dim);
+  margin-top: 2px;
+}
+.field-helper.accent { color: var(--accent); }
+
+/* Text input wrapper (supports suffix icons) */
+.field-input {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: var(--composer-bg);
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  transition: border-color .14s, box-shadow .14s;
+}
+.field-input:focus-within {
+  border-color: var(--accent-line);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+.field-input input, .field-input textarea {
+  flex: 1;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 11px 14px;
+  font-family: 'Space Grotesk';
+  font-size: 14.5px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.field-input input::placeholder, .field-input textarea::placeholder {
+  color: var(--dim);
+}
+
+/* Numeric input with unit suffix (weight, reps, kg, cm) */
+.num-input {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  background: var(--bg);
+  overflow: hidden;
+  transition: border-color .14s;
+}
+.num-input:focus-within { border-color: var(--accent-line); }
+.num-input input {
+  background: transparent;
+  border: 0;
+  padding: 8px 10px;
+  width: 80px;
+  font-family: 'Space Grotesk';
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  text-align: center;
+  outline: 0;
+}
+.num-input .unit {
+  font-family: 'JetBrains Mono';
+  font-size: 10.5px;
+  color: var(--muted);
+  letter-spacing: 0.14em;
+  padding: 0 12px 0 4px;
+}
+
+/* Pill group (segmented control) */
+.pill-group {
+  display: inline-flex;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--recessed);
+  flex-wrap: wrap;
+}
+.pill-group button {
+  background: transparent;
+  border: 0;
+  padding: 8px 14px;
+  font-family: 'Space Grotesk';
+  font-size: 12.5px;
+  font-weight: 500;
+  color: var(--muted);
+  cursor: pointer;
+  transition: all .14s;
+  letter-spacing: -0.005em;
+}
+.pill-group button:not(:last-child) {
+  border-right: 1px solid var(--line);
+}
+.pill-group button:hover { color: var(--ink); }
+.pill-group button.active {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* Toggle switch */
+.toggle {
+  position: relative;
+  width: 40px; height: 22px;
+  border-radius: 11px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  cursor: pointer;
+  transition: background .18s;
+}
+.toggle::after {
+  content: "";
+  position: absolute;
+  top: 2px; left: 2px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: transform .18s, background .18s;
+}
+.toggle.on {
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+.toggle.on::after {
+  transform: translateX(18px);
+  background: var(--accent);
+}
+
+/* Card (used as form container + as content card everywhere) */
+.card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface-faint);
+  overflow: hidden;
+}
+.card-head {
+  padding: 18px 24px 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid var(--line);
+  background: var(--recessed);
+  gap: 16px;
+}
+.card-title {
+  font-family: 'Space Grotesk';
+  font-size: 15.5px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+.card-sub {
+  font-family: 'JetBrains Mono';
+  font-size: 9.5px;
+  letter-spacing: 0.18em;
+  color: var(--dim);
+}
+.card-body { padding: 8px 24px; }
