@@ -59,6 +59,8 @@ const { default: suggestPromptsHandler } = await import("./api/emersus/suggest-p
 const { default: requestAccessHandler } = await import("./api/auth/request-access.js");
 const { default: validateInviteHandler } = await import("./api/auth/validate-invite.js");
 const { default: acceptInviteHandler } = await import("./api/auth/accept-invite.js");
+const { default: profileRouter } = await import("./api/emersus/profile.js");
+const { default: integrationsWaitlistHandler } = await import("./api/emersus/integrations-waitlist.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
@@ -103,6 +105,10 @@ app.get("/api/emersus/suggest-prompts", suggestPromptsHandler);
 app.post("/api/auth/request-access", publicRateLimitMiddleware("request-access"), requestAccessHandler);
 app.get("/api/auth/validate-invite", validateInviteHandler);
 app.post("/api/auth/accept-invite", acceptInviteHandler);
+
+// profile_v2: structured profile read/write + integrations waitlist.
+app.use("/api/profile", profileRouter());
+app.post("/api/integrations/waitlist", requireAuth, integrationsWaitlistHandler);
 
 // Auth + user endpoints
 app.post("/api/auth/check-email", publicRateLimitMiddleware("check-email"), checkEmailHandler);
