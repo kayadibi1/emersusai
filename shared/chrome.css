@@ -596,3 +596,60 @@
   color: var(--dim);
 }
 .card-body { padding: 8px 24px; }
+
+/* ========== APP CROSS-NAV (non-chat v2 pages) ==========
+ * Fixed top bar showing the 5 app sections so users can navigate between
+ * Train / Nutrition / Progress / Profile / Chat without a sidebar. The
+ * chat page has its own sidebar SECTIONS list, so it should NOT render
+ * .app-crossnav. All other v2 pages inject the markup near the top of
+ * <body> and include <script> that tags the active link.
+ *
+ * Page content lives under the bar via body padding keyed off the
+ * page-specific body class so the chat page is unaffected.
+ */
+.app-crossnav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 44px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 20px;
+  z-index: 50;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+}
+.app-crossnav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 13.5px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  transition: color .12s, background .12s, border-color .12s;
+}
+.app-crossnav a:hover {
+  color: var(--ink);
+  background: var(--surface-faint);
+  border-color: var(--line);
+}
+.app-crossnav a.is-active {
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-color: var(--accent-line);
+}
+
+/* Page padding so fixed bar doesn't overlap content. Keyed off the
+ * page-specific body class so the chat page (body.chat-page) is
+ * unaffected and keeps its full-bleed layout. */
+body.train-v2-body,
+body.nutrition-v2-body,
+body.progress-v2-body,
+body.profile-v2-body {
+  padding-top: 44px;
+}

@@ -47,7 +47,28 @@
   </script>
 </head>
 <body class="progress-v2-body">
-  <div id="progress-v2-root"></div>
+    <!-- app-crossnav: fixed top bar linking app sections -->
+  <aside class="app-crossnav" aria-label="App sections">
+    <a href="/app/" data-section="chat">Chat</a>
+    <a href="/app/train/" data-section="train">Train</a>
+    <a href="/app/nutrition/" data-section="nutrition">Nutrition</a>
+    <a href="/app/progress/" data-section="progress">Progress</a>
+    <a href="/app/profile/" data-section="profile">Profile</a>
+    <script>
+      (function () {
+        var p = location.pathname;
+        var key = /^\/app\/train/.test(p) ? 'train'
+          : /^\/app\/nutrition/.test(p) ? 'nutrition'
+          : /^\/app\/progress/.test(p) ? 'progress'
+          : /^\/app\/profile/.test(p) ? 'profile'
+          : 'chat';
+        var host = document.currentScript.parentElement;
+        var el = host.querySelector('[data-section="' + key + '"]');
+        if (el) el.classList.add('is-active');
+      })();
+    </script>
+  </aside>
+<div id="progress-v2-root"></div>
   <script type="module" src="/app/progress/progress-v2.js?v=redesign-9"></script>
 </body>
 </html>
