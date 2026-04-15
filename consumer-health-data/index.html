@@ -12,11 +12,13 @@
   <script type="module">
     import { bootTheme } from '/shared/theme.js?v=redesign-1';
     import { resolveFlag } from '/shared/feature-flags.js?v=redesign-8';
+    import { mountFloatingSwitcher } from '/shared/theme-switcher-widget.js?v=redesign-10';
     bootTheme();
     if (resolveFlag('public_v2')) {
       document.documentElement.dataset.publicV2 = '1';
       document.body.classList.add('static-v2');
     }
+    document.addEventListener('DOMContentLoaded', mountFloatingSwitcher);
   </script>
   <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
 </head>
