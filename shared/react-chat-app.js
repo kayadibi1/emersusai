@@ -2645,6 +2645,43 @@ function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
 
 const SOURCES_FOOTER_VISIBLE_BY_DEFAULT = 3;
 
+// Sidebar thread-list skeleton — shown on cold chat load (~200-500 ms
+// window between HTML paint and the first listChatThreadSummaries result).
+// Matches the grouped Today/Previous 7 days layout so there's no jump
+// when the real list renders.
+function ChatSidebarSkeleton({ grouped = true }) {
+  const GROUP_LAYOUT = [
+    { label: "Today", count: 3 },
+    { label: "Previous 7 days", count: 4 },
+  ];
+  if (!grouped) {
+    return h(
+      "div",
+      { className: "chat-nav-list", "aria-busy": "true", "aria-label": "Loading chat history" },
+      Array.from({ length: 6 }).map((_, i) =>
+        h("div", { key: i, className: "chat-nav-link", style: { pointerEvents: "none" } },
+          h("span", { className: "skel skel-line lg", style: { width: `${55 + ((i * 13) % 35)}%` } }),
+        ),
+      ),
+    );
+  }
+  return h(
+    "div",
+    { className: "chat-nav-list chat-nav-grouped", "aria-busy": "true", "aria-label": "Loading chat history" },
+    GROUP_LAYOUT.map((group, gi) =>
+      h("div", { key: gi, className: "chat-nav-group" },
+        h("div", { className: "chat-nav-group-label" },
+          h("span", { className: "skel skel-line", style: { width: 80, height: 9 } })),
+        Array.from({ length: group.count }).map((_, i) =>
+          h("div", { key: i, className: "chat-nav-link", style: { pointerEvents: "none" } },
+            h("span", { className: "skel skel-line lg", style: { width: `${55 + ((gi * 9 + i * 13) % 35)}%` } }),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
 // Skeleton rendered while an active thread's messages are being hydrated
 // from the server (click a thread in the sidebar → wait for /api/threads/:id
 // → ~200-600 ms). Three alternating message shapes so the shimmer hints at
@@ -3081,6 +3118,9 @@ function ThinkingGlyph({ state = "idle", size = 64, color = "#534AB7" }) {
 export function ChatApp() {
   const [session, setSession] = useState(null);
   const [chatHistory, setChatHistory] = useState([]);
+  // Flips to false once the boot effect has populated chatHistory at least
+  // once. Drives the sidebar thread-list skeleton on cold loads.
+  const [historyLoading, setHistoryLoading] = useState(true);
   const [activeThreadId, setActiveThreadId] = useState("");
   const [historyHidden, setHistoryHidden] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
@@ -3312,11 +3352,15 @@ export function ChatApp() {
         window.history.replaceState({}, "", currentUrl.toString());
       }
     }
-    boot().catch((error) => {
-      console.error(error);
-      setStatusTone("error");
-      setStatusMessage(error.message || "Unable to load chat.");
-    });
+    boot()
+      .catch((error) => {
+        console.error(error);
+        setStatusTone("error");
+        setStatusMessage(error.message || "Unable to load chat.");
+      })
+      .finally(() => {
+        if (!cancelled) setHistoryLoading(false);
+      });
     return () => {
       cancelled = true;
     };
@@ -4036,7 +4080,9 @@ export function ChatApp() {
               h("span", { className: "chat-side-section-dot" }), "Profile"))
         : null,
       chatV2On
-        ? (() => {
+        ? historyLoading && !chatHistory.length
+          ? h(ChatSidebarSkeleton, { grouped: true })
+          : (() => {
             const filtered = filterThreadsBySearch(chatHistory, searchQuery);
             const grouped = groupThreadsByDate(filtered);
             return h("div", { className: "chat-nav-list chat-nav-grouped", "aria-label": "Chat history" },
@@ -4065,7 +4111,9 @@ export function ChatApp() {
                 : null,
             );
           })()
-        : h("div", { className: "chat-nav-list", "aria-label": "Chat history" },
+        : historyLoading && !chatHistory.length
+          ? h(ChatSidebarSkeleton, { grouped: false })
+          : h("div", { className: "chat-nav-list", "aria-label": "Chat history" },
             chatHistory.map((threadData) =>
               h("button", { key: threadData.id, type: "button", className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`, onClick: () => { setActiveThreadId(threadData.id); closeSidebar(); } },
                 h(History, { size: 17, "aria-hidden": true }),
