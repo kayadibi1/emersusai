@@ -367,10 +367,10 @@ const UPDATE_USER_PROFILE = {
   name: "update_user_profile",
   strict: true,
   description: [
-    "Save extracted profile fields from the onboarding conversation.",
-    "Call this after each user response when you have new profile information to save.",
-    "Only include fields you have confident, non-null values for.",
-    "On the final exchange (after all info is gathered), include onboarding_completed: true.",
+    "Save or update fields on the user's saved profile (goal, experience, injuries, equipment, schedule, preferences).",
+    "Call this when the user wants to change a saved preference in regular chat ('change my goal to strength', 'I just hurt my shoulder', 'switch me to lbs'), or during onboarding when you've extracted new profile information from their answer.",
+    "Only include fields you have confident, non-null values for — never include a field with null.",
+    "During onboarding only: include onboarding_completed: true on the final exchange after all info is gathered.",
   ].join("\n"),
   parameters: {
     type: "object",
@@ -400,12 +400,14 @@ const UPDATE_USER_PROFILE = {
 
 // ── Exports ─────────────────────────────────────────────────────────────
 
-// Main chat tools. update_user_profile is intentionally EXCLUDED here —
-// it's onboarding-only. The onboarding handler passes it explicitly via
-// tools: [UPDATE_USER_PROFILE]. Exposing it in the main chat would let
-// the model call it during regular turns, where ctx._profileUpdates is
-// never persisted — silent save failure.
-export const TOOL_DEFINITIONS = [EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD, GET_USER_PROFILE];
+// Main chat tools. update_user_profile is included — stream.js now
+// persists ctx._profileUpdates to Supabase after the turn completes (via
+// persistProfileUpdates), so the silent-save-failure that previously
+// blocked exposing this tool in main chat is resolved.
+export const TOOL_DEFINITIONS = [
+  EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD,
+  GET_USER_PROFILE, UPDATE_USER_PROFILE,
+];
 
 /** Tools resolved server-side (profile lookup, etc.) — not forwarded to the client. */
 export const SERVER_SIDE_TOOLS = new Set(["get_user_profile", "update_user_profile"]);
