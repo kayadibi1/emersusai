@@ -564,4 +564,28 @@ h1.headline {
    * Citations verifiable). The 900 breakpoint maps it to 2×2, leaving
    * the 4th cell blank. Stack vertically instead. */
   .stats-grid      { grid-template-columns: 1fr; }
+
+  /* Comparison table — shrink padding, center mark + head cells,
+   * allow wrap inside cells so "Generic AI chat" and "Sometimes" fit
+   * instead of spilling past their cell borders. Label column stays
+   * left-aligned and keeps its share of the row. */
+  .compare-cell {
+    padding: 10px 6px;
+    font-size: 11.5px;
+    text-align: center;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+    line-height: 1.3;
+  }
+  .compare-cell.label {
+    text-align: left;
+    padding: 10px 10px;
+    font-size: 12px;
+  }
+  .compare-cell.head-cell {
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 10px 4px;
+  }
+  .mark-no { font-size: 10.5px; }
 }
