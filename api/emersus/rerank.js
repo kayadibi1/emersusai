@@ -113,12 +113,26 @@ export function dedupeEvidence(evidence) {
   const byId = new Map();
 
   for (const item of evidence) {
+    // Key preference: identifier fields (stable across chunks of the same
+    // paper) → URL → normalized title. We deliberately DO NOT fall back to
+    // `title:excerpt` — title chunks and abstract chunks of the same paper
+    // have identical title but different excerpts, and combining them in
+    // the key lets duplicates slip through. Normalized title (lowercased,
+    // whitespace-collapsed) catches those cases. Collision risk across
+    // distinct papers with identical titles is negligible vs. dupes from
+    // the same paper with chunked bodies.
+    const normalizedTitle = String(item.title || "")
+      .toLowerCase()
+      .replace(/\s+/g, " ")
+      .trim();
     const key =
       item.source_id ||
-      item.pmid ||
-      item.doi ||
+      (item.pmid ? `pmid:${item.pmid}` : null) ||
+      (item.doi ? `doi:${String(item.doi).toLowerCase()}` : null) ||
+      (item.external_id ? `ext:${String(item.external_id).toLowerCase()}` : null) ||
       item.url ||
-      `${item.title}:${item.excerpt}`;
+      (normalizedTitle ? `title:${normalizedTitle}` : null) ||
+      Symbol();
 
     const existing = byId.get(key);
 

@@ -2716,8 +2716,39 @@ function ChatThreadSkeleton() {
 }
 
 
+// Defensive: collapse duplicate sources by the strongest available identifier
+// (pmid → doi → external_id → url → lowercased title). Two title+abstract
+// chunks from the same paper arrive deduped from the server already, but
+// non-pubmed sources without DOI/external_id used to fall through to a
+// `title:excerpt` key on the server, letting dupes slip into the client.
+// Keeps the highest-similarity instance.
+function dedupeSources(list) {
+  if (!Array.isArray(list) || !list.length) return [];
+  const byKey = new Map();
+  for (const src of list) {
+    if (!src || typeof src !== "object") continue;
+    const key =
+      (src.pmid && `pmid:${src.pmid}`) ||
+      (src.doi && `doi:${String(src.doi).toLowerCase()}`) ||
+      (src.external_id && `ext:${String(src.external_id).toLowerCase()}`) ||
+      (src.url && `url:${String(src.url).toLowerCase()}`) ||
+      (src.title && `title:${String(src.title).toLowerCase().trim()}`) ||
+      null;
+    if (!key) {
+      // No identifier at all — keep it (rare; can't safely dedupe)
+      byKey.set(Symbol(), src);
+      continue;
+    }
+    const existing = byKey.get(key);
+    if (!existing || Number(src.similarity || 0) > Number(existing.similarity || 0)) {
+      byKey.set(key, src);
+    }
+  }
+  return Array.from(byKey.values());
+}
+
 function SourcesFooter({ sources, onAskFollowUp }) {
-  const items = Array.isArray(sources) ? sources : [];
+  const items = useMemo(() => dedupeSources(sources), [sources]);
   const [openSet, setOpenSet] = useState(() => new Set());
   const [listOpen, setListOpen] = useState(false);
   const [copied, setCopied] = useState(false);
