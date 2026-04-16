@@ -6,7 +6,8 @@
 
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { getSession, requireAuth } from "/shared/supabase.js";
+import { getSession, requireAuth, getProfile } from "/shared/supabase.js";
+import { resolveWeightUnit, fromKg } from "/shared/unit-conversion.js";
 import { parseTrainUrl, buildTrainUrl, MODALITIES, TABS } from "/shared/chat/url-state.js";
 import { SessionHeader } from "/shared/train/session-header.js";
 import { LiftActive } from "/shared/train/lift-active.js";
@@ -41,6 +42,71 @@ async function api(path, { method = "GET", body, accessToken } = {}) {
     throw new Error(errBody.error || `HTTP ${res.status}`);
   }
   return res.json();
+}
+
+function rpeLevel(rpe) {
+  if (rpe == null || rpe === "") return "none";
+  const n = parseFloat(rpe);
+  if (isNaN(n)) return "none";
+  if (n <= 6) return "low";
+  if (n <= 7.5) return "med";
+  return "high";
+}
+
+function groupSetsByExercise(sets) {
+  const groups = [];
+  const seen = new Map();
+  for (const s of sets) {
+    const eid = s.exercise_id;
+    if (!eid) continue;
+    if (seen.has(eid)) {
+      seen.get(eid).push(s);
+    } else {
+      const arr = [s];
+      seen.set(eid, arr);
+      groups.push({ exerciseId: eid, sets: arr });
+    }
+  }
+  return groups;
+}
+
+function findTopSetIndex(sets) {
+  let bestIdx = -1;
+  let bestLoad = -1;
+  let bestReps = -1;
+  for (let i = 0; i < sets.length; i++) {
+    const load = parseFloat(sets[i].load_kg) || 0;
+    const reps = parseInt(sets[i].reps, 10) || 0;
+    if (load > bestLoad || (load === bestLoad && reps > bestReps)) {
+      bestLoad = load;
+      bestReps = reps;
+      bestIdx = i;
+    }
+  }
+  return bestIdx;
+}
+
+function formatDuration(startedAt, endedAt) {
+  if (!startedAt) return "";
+  const start = new Date(startedAt).getTime();
+  const end = endedAt ? new Date(endedAt).getTime() : Date.now();
+  const mins = Math.max(0, Math.round((end - start) / 60000));
+  if (mins < 60) return `${mins} min`;
+  const h = Math.floor(mins / 60);
+  const m = mins % 60;
+  return m ? `${h}h ${m}m` : `${h}h`;
+}
+
+function formatDate(iso) {
+  const d = new Date(iso);
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+  const month = months[d.getMonth()];
+  const day = d.getDate();
+  const hours = d.getHours();
+  const mins = String(d.getMinutes()).padStart(2, "0");
+  const ampm = hours >= 12 ? "PM" : "AM";
+  const h12 = hours % 12 || 12;
+  return `${month} ${day} · ${h12}:${mins} ${ampm}`;
 }
 
 function ExercisePickerModal({ open, accessToken, onPick, onClose }) {
@@ -158,6 +224,13 @@ function TrainApp() {
   const { session, ready } = useAuthSession();
   const accessToken = session?.access_token || "";
 
+  useEffect(() => {
+    if (!session?.user?.id) return;
+    getProfile(session.user.id).then((p) => {
+      if (p?.weight_unit) setWeightUnit(resolveWeightUnit(p.weight_unit));
+    }).catch(() => {});
+  }, [session?.user?.id]);
+
   const [activeSession, setActiveSession] = useState(null);
   const [activeSets, setActiveSets] = useState([]);
   const [history, setHistory] = useState({ items: [], loading: false });
@@ -167,6 +240,11 @@ function TrainApp() {
   const [error, setError] = useState("");
   const [pickerOpen, setPickerOpen] = useState(false);
   const [finishOpen, setFinishOpen] = useState(false);
+  const [expandedSessionId, setExpandedSessionId] = useState(null);
+  const [sessionDetailCache, setSessionDetailCache] = useState({});
+  const [expandLoading, setExpandLoading] = useState(false);
+  const [expandError, setExpandError] = useState("");
+  const [weightUnit, setWeightUnit] = useState("kg");
 
   const updateUrl = useCallback((next) => {
     const url = buildTrainUrl(next);
@@ -179,6 +257,7 @@ function TrainApp() {
     const next = { ...state, modality, sessionId: "" };
     setState(next); updateUrl(next);
     setActiveSession(null); setActiveSets([]);
+    setExpandedSessionId(null);
   }, [state, updateUrl]);
 
   const setTab = useCallback((tab) => {
@@ -307,6 +386,36 @@ function TrainApp() {
     await patchActive({ ended_at: new Date().toISOString(), note: "[canceled]" });
     setActiveSession(null); setActiveSets([]);
   }, [activeSession, patchActive]);
+
+  const expandSession = useCallback(async (sessionId) => {
+    if (expandedSessionId === sessionId) {
+      setExpandedSessionId(null);
+      return;
+    }
+    setExpandedSessionId(sessionId);
+    setExpandError("");
+    if (sessionDetailCache[sessionId]) return;
+    setExpandLoading(true);
+    try {
+      const detail = await api(`/api/workout-sessions/${sessionId}`, { accessToken });
+      setSessionDetailCache((prev) => ({ ...prev, [sessionId]: detail }));
+      const sets = detail.sets || [];
+      const exerciseIds = [...new Set(sets.map((s) => s.exercise_id).filter(Boolean))];
+      const missing = exerciseIds.filter((id) => !exerciseLookup[id]);
+      if (missing.length) {
+        try {
+          const list = await api(`/api/exercises?recent=true&limit=100`, { accessToken });
+          const map = {};
+          for (const ex of (list.items || [])) map[ex.id] = ex;
+          setExerciseLookup((prev) => ({ ...prev, ...map }));
+        } catch {}
+      }
+    } catch (err) {
+      setExpandError(err.message || "Could not load session details.");
+    } finally {
+      setExpandLoading(false);
+    }
+  }, [expandedSessionId, sessionDetailCache, accessToken, exerciseLookup]);
 
   const finishTotals = useMemo(() => {
     const sets = activeSets.length;
