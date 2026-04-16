@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans. Steps use checkbox (`- [ ]`) syntax.
 
-**Goal:** Reskin `/app` (chat) with the Phase 1 chrome (sidebar + top bar + composer) while keeping the existing React app's state/streaming/widget pipeline intact. Add the Emersus 0.5 model pill, live source-count pill, share dropdown, always-visible message actions, empty-state prompt chips, and stop-stream button. No backend shape changes.
+**Goal:** Reskin `/app` (chat) with the Phase 1 chrome (sidebar + top bar + composer) while keeping the existing React app's state/streaming/widget pipeline intact. Add the Emersus model pill, live source-count pill, share dropdown, always-visible message actions, empty-state prompt chips, and stop-stream button. No backend shape changes.
 
 **Scope rule:** This phase is visual + behavioral chrome. Do **not** touch retrieval policy, `workflow.js` synthesis, or the guardrail system. If a task wants you to restructure streaming internals, stop and ask.
 
@@ -122,7 +122,7 @@ comment on column threads.shared_token
 
 Layout (spec):
 - Left: editable thread title (click to edit, Enter saves, Esc cancels)
-- Middle: `Emersus 0.5 ▾` model pill → dropdown with `Emersus 0.5 · Fast · Deep`
+- Middle: `Emersus ▾` model pill → dropdown with `Emersus · Fast · Deep`
 - Right cluster: `N SOURCES CITED` non-interactive pill · Share button · `⋯` menu
 
 Use classes from `chrome.css` (`.top-bar`, `.btn`) plus new chat-v2 classes. No new backend calls.
@@ -302,7 +302,7 @@ Covered:
 - ✓ Theme persistence — already in Phase 1
 
 Deferred to later phases:
-- The actual model-tier backend wiring (Emersus 0.5 Fast / Deep) — today the UI stores the selection but the workflow still routes to the single configured `OPENAI_EMERSUS_MODEL`. Extending retrieval-policy tier is a separate pipeline task.
+- The actual model-tier backend wiring (Emersus Fast / Deep) — today the UI stores the selection but the workflow still routes to the single configured `OPENAI_EMERSUS_MODEL`. Extending retrieval-policy tier is a separate pipeline task.
 - PDF export backend — stub OK for now; real server-side PDF rendering is a follow-up.
 - Thread sharing public-view rendering — the `/share/t/<token>` handler is minimal; polish is later.
 
