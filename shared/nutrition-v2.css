@@ -430,3 +430,194 @@
   font-family: inherit; font-size: 13px;
 }
 [data-nutrition-v2="1"] .nu-bottom-cta:hover { color: var(--accent); }
+
+/* Clickable meal rows */
+[data-nutrition-v2="1"] .nu-meal-row.is-clickable { cursor: pointer; transition: border-color .14s; }
+[data-nutrition-v2="1"] .nu-meal-row.is-clickable:hover { border-color: var(--line-strong); }
+[data-nutrition-v2="1"] .nu-meal-count {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px; letter-spacing: 0.12em; color: var(--dim);
+  background: var(--surface-faint); border: 1px solid var(--line);
+  padding: 2px 7px; border-radius: 4px; flex-shrink: 0;
+}
+[data-nutrition-v2="1"] .nu-meal-chevron { color: var(--dim); font-size: 14px; flex-shrink: 0; }
+
+/* ===== Meal edit modal ===== */
+[data-nutrition-v2="1"] .nu-modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.40);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; z-index: 100;
+}
+[data-nutrition-v2="1"] .nu-modal {
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--line-strong);
+  border-radius: 14px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.22);
+  width: 100%; max-width: 480px;
+  overflow: hidden; display: flex; flex-direction: column;
+  max-height: 85vh;
+}
+[data-nutrition-v2="1"] .nu-modal-head {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 16px 20px 12px; border-bottom: 1px solid var(--line);
+  flex-shrink: 0;
+}
+[data-nutrition-v2="1"] .nu-modal-head h3 { margin: 0; font-size: 16px; font-weight: 600; }
+[data-nutrition-v2="1"] .nu-modal-close {
+  background: transparent; border: 0; color: var(--muted);
+  font-size: 20px; cursor: pointer; padding: 0 4px;
+}
+[data-nutrition-v2="1"] .nu-modal-subtitle {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px; letter-spacing: 0.14em; color: var(--dim);
+  text-transform: uppercase; margin-top: 2px;
+}
+[data-nutrition-v2="1"] .nu-modal-body { overflow-y: auto; flex: 1; min-height: 0; }
+
+/* Food item rows */
+[data-nutrition-v2="1"] .nu-food-list { list-style: none; padding: 0; margin: 0; }
+[data-nutrition-v2="1"] .nu-food-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 20px; border-bottom: 1px solid var(--line);
+  transition: opacity .14s;
+}
+[data-nutrition-v2="1"] .nu-food-item:last-child { border-bottom: 0; }
+[data-nutrition-v2="1"] .nu-food-item.is-deleting { opacity: 0.4; }
+[data-nutrition-v2="1"] .nu-food-info { flex: 1; min-width: 0; }
+[data-nutrition-v2="1"] .nu-food-name { font-size: 14px; font-weight: 500; color: var(--ink); }
+[data-nutrition-v2="1"] .nu-food-meta-row {
+  display: flex; align-items: center; gap: 6px; margin-top: 2px; flex-wrap: wrap;
+}
+[data-nutrition-v2="1"] .nu-food-slot-select {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px; letter-spacing: 0.10em; color: var(--dim);
+  background: transparent; border: 1px solid var(--line); border-radius: 4px;
+  padding: 1px 4px; cursor: pointer; outline: 0;
+  -webkit-appearance: none; appearance: none;
+}
+[data-nutrition-v2="1"] .nu-food-slot-select:focus { border-color: var(--accent); }
+[data-nutrition-v2="1"] .nu-food-macros {
+  display: flex; gap: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px; letter-spacing: 0.10em;
+}
+[data-nutrition-v2="1"] .nu-food-macro-p { color: var(--protein); }
+[data-nutrition-v2="1"] .nu-food-macro-c { color: var(--carbs); }
+[data-nutrition-v2="1"] .nu-food-macro-f { color: var(--fat); }
+[data-nutrition-v2="1"] .nu-food-amount-wrap {
+  display: flex; align-items: center; gap: 5px; flex-shrink: 0;
+}
+[data-nutrition-v2="1"] .nu-food-amount-input {
+  width: 60px; text-align: right;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 6px;
+  padding: 5px 8px; font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 13px; color: var(--ink); outline: 0;
+  font-variant-numeric: tabular-nums;
+}
+[data-nutrition-v2="1"] .nu-food-amount-input:focus { border-color: var(--accent); }
+[data-nutrition-v2="1"] .nu-food-amount-unit {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; color: var(--dim); letter-spacing: 0.10em;
+}
+[data-nutrition-v2="1"] .nu-food-kcal {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; color: var(--muted); font-weight: 500;
+  width: 48px; text-align: right; flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+}
+[data-nutrition-v2="1"] .nu-food-delete {
+  background: transparent; border: 0; color: var(--dim);
+  font-size: 16px; cursor: pointer; padding: 4px;
+  border-radius: 4px; transition: color .14s, background .14s;
+  flex-shrink: 0;
+}
+[data-nutrition-v2="1"] .nu-food-delete:hover { color: var(--danger, #ef4444); background: rgba(239,68,68,0.08); }
+
+/* Meal total summary */
+[data-nutrition-v2="1"] .nu-meal-summary {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 20px; background: var(--surface-faint);
+  border-top: 1px solid var(--line); flex-shrink: 0;
+}
+[data-nutrition-v2="1"] .nu-meal-summary-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px; letter-spacing: 0.14em; color: var(--dim); text-transform: uppercase;
+}
+[data-nutrition-v2="1"] .nu-meal-summary-value {
+  font-size: 16px; font-weight: 600; color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+[data-nutrition-v2="1"] .nu-meal-summary-macros {
+  display: flex; gap: 12px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; letter-spacing: 0.10em;
+}
+
+/* Delete confirmation bar */
+[data-nutrition-v2="1"] .nu-delete-confirm {
+  display: flex; align-items: center; gap: 8px;
+  padding: 8px 20px; background: rgba(239,68,68,0.08);
+  border-top: 1px solid var(--line); font-size: 13px; flex-shrink: 0;
+}
+[data-nutrition-v2="1"] .nu-delete-confirm span { flex: 1; color: var(--danger, #ef4444); }
+[data-nutrition-v2="1"] .nu-delete-confirm-yes {
+  background: var(--danger, #ef4444); color: #fff; border: 0;
+  padding: 5px 12px; border-radius: 6px; font-family: inherit;
+  font-size: 12px; cursor: pointer; font-weight: 600;
+}
+[data-nutrition-v2="1"] .nu-delete-confirm-no {
+  background: transparent; border: 1px solid var(--line);
+  color: var(--muted); padding: 5px 12px; border-radius: 6px;
+  font-family: inherit; font-size: 12px; cursor: pointer;
+}
+
+/* Add food search */
+[data-nutrition-v2="1"] .nu-add-food-row {
+  display: flex; align-items: center; gap: 8px;
+  padding: 10px 20px; border-top: 1px solid var(--line); flex-shrink: 0;
+}
+[data-nutrition-v2="1"] .nu-add-food-input {
+  flex: 1; background: var(--bg); border: 1px solid var(--line);
+  border-radius: 6px; padding: 7px 10px; font-family: inherit;
+  font-size: 13px; color: var(--ink); outline: 0;
+}
+[data-nutrition-v2="1"] .nu-add-food-input:focus { border-color: var(--accent); }
+[data-nutrition-v2="1"] .nu-add-food-input::placeholder { color: var(--dim); }
+[data-nutrition-v2="1"] .nu-search-results {
+  list-style: none; padding: 0; margin: 0; max-height: 200px; overflow-y: auto;
+}
+[data-nutrition-v2="1"] .nu-search-result {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 20px; cursor: pointer; transition: background .14s;
+  border-top: 1px solid var(--line);
+}
+[data-nutrition-v2="1"] .nu-search-result:hover { background: var(--accent-soft); }
+[data-nutrition-v2="1"] .nu-search-result-name { font-size: 13px; color: var(--ink); }
+[data-nutrition-v2="1"] .nu-search-result-meta {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px; color: var(--dim); letter-spacing: 0.10em; flex-shrink: 0;
+}
+
+/* Modal empty + error */
+[data-nutrition-v2="1"] .nu-modal-empty {
+  padding: 32px 20px; text-align: center; color: var(--dim); font-size: 13px;
+}
+[data-nutrition-v2="1"] .nu-modal-error {
+  padding: 12px 16px; color: var(--danger, #ef4444); font-size: 13px;
+  display: flex; align-items: center; gap: 10px;
+}
+[data-nutrition-v2="1"] .nu-modal-error button {
+  background: transparent; border: 0; color: inherit; cursor: pointer; font-size: 16px;
+}
+
+/* Log food button */
+[data-nutrition-v2="1"] .nu-log-food-btn {
+  display: block; width: 100%; text-align: center;
+  background: var(--accent); color: var(--accent-text); border: 0;
+  padding: 10px 16px; border-radius: 8px;
+  font-family: inherit; font-size: 13px; font-weight: 600;
+  cursor: pointer; margin-top: 8px;
+  transition: filter .14s;
+}
+[data-nutrition-v2="1"] .nu-log-food-btn:hover { filter: brightness(1.08); }
