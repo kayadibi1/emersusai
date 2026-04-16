@@ -1,11 +1,10 @@
-/* shared/auth-v2.css — Phase 7 split-screen auth shell.
+/* shared/auth.css — Phase 7 split-screen auth shell.
  *
- * Loaded for /auth/index-v2.html. All rules scoped under [data-auth-v2="1"]
- * via the inline boot script in the HTML, so the file is safe to ship even
+ * Loaded for /auth/index-v2.html. All rules scoped under * via the inline boot script in the HTML, so the file is safe to ship even
  * when the legacy auth pages are still served as a fallback.
  */
 
-[data-auth-v2="1"] body.auth-v2-body {
+body.auth-v2-body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
@@ -14,7 +13,7 @@
   min-height: 100vh;
 }
 
-[data-auth-v2="1"] .auth-shell {
+.auth-shell {
   display: grid;
   grid-template-columns: 55% 45%;
   min-height: 100vh;
@@ -25,12 +24,12 @@
  * defined below wins. Previously this rule was here and the brand pane
  * rendered on phones despite display:none. */
 @media (max-width: 900px) {
-  [data-auth-v2="1"] .auth-shell { grid-template-columns: 1fr; }
+  .auth-shell { grid-template-columns: 1fr; }
 }
 
 /* ========== Brand pane ========== */
 
-[data-auth-v2="1"] .auth-brand {
+.auth-brand {
   position: relative;
   display: flex;
   align-items: center;
@@ -40,7 +39,7 @@
   overflow: hidden;
 }
 
-[data-auth-v2="1"] .auth-brand-grid {
+.auth-brand-grid {
   position: absolute; inset: 0;
   background-image:
     linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
@@ -49,7 +48,7 @@
   pointer-events: none;
 }
 
-[data-auth-v2="1"] .auth-brand-glow {
+.auth-brand-glow {
   position: absolute;
   width: 600px; height: 600px;
   top: 30%; left: 20%;
@@ -58,19 +57,19 @@
   pointer-events: none;
 }
 
-[data-auth-v2="1"] .auth-brand-inner {
+.auth-brand-inner {
   position: relative;
   max-width: 480px;
 }
 
-[data-auth-v2="1"] .auth-brand-mark img {
+.auth-brand-mark img {
   height: 38px;
   width: auto;
   display: block;
   margin-bottom: 48px;
 }
 
-[data-auth-v2="1"] .auth-brand-headline {
+.auth-brand-headline {
   font-size: 44px;
   font-weight: 500;
   letter-spacing: -0.025em;
@@ -79,7 +78,7 @@
   color: var(--ink);
 }
 
-[data-auth-v2="1"] .auth-brand-sub {
+.auth-brand-sub {
   font-size: 16px;
   line-height: 1.6;
   color: var(--muted);
@@ -87,12 +86,12 @@
   max-width: 420px;
 }
 
-[data-auth-v2="1"] .auth-brand-stats {
+.auth-brand-stats {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
-[data-auth-v2="1"] .auth-stat {
+.auth-stat {
   background: var(--surface-faint);
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -101,13 +100,13 @@
   flex-direction: column;
   gap: 4px;
 }
-[data-auth-v2="1"] .auth-stat-num {
+.auth-stat-num {
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 22px;
   font-weight: 600;
   color: var(--accent);
 }
-[data-auth-v2="1"] .auth-stat-lbl {
+.auth-stat-lbl {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 9px;
   letter-spacing: 0.18em;
@@ -117,19 +116,19 @@
 
 /* ========== Stage + panels ========== */
 
-[data-auth-v2="1"] .auth-stage {
+.auth-stage {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px;
 }
 
-[data-auth-v2="1"] .auth-stage-inner {
+.auth-stage-inner {
   width: 100%;
   max-width: 400px;
 }
 
-[data-auth-v2="1"] .auth-panel {
+.auth-panel {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -141,19 +140,19 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-[data-auth-v2="1"] .auth-panel-head h2 {
+.auth-panel-head h2 {
   font-size: 28px;
   font-weight: 500;
   letter-spacing: -0.02em;
   margin: 0 0 6px;
 }
-[data-auth-v2="1"] .auth-panel-head p {
+.auth-panel-head p {
   margin: 0;
   font-size: 14px;
   color: var(--muted);
 }
 
-[data-auth-v2="1"] .oauth-btn {
+.oauth-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -170,26 +169,26 @@
   cursor: pointer;
   transition: border-color .14s, background .14s;
 }
-[data-auth-v2="1"] .oauth-btn:hover {
+.oauth-btn:hover {
   border-color: var(--accent);
   background: var(--accent-soft);
 }
-[data-auth-v2="1"] .oauth-icon { width: 18px; height: 18px; }
+.oauth-icon { width: 18px; height: 18px; }
 
-[data-auth-v2="1"] .oauth-divider {
+.oauth-divider {
   display: flex;
   align-items: center;
   gap: 12px;
   margin: 4px 0;
 }
-[data-auth-v2="1"] .oauth-divider::before,
-[data-auth-v2="1"] .oauth-divider::after {
+.oauth-divider::before,
+.oauth-divider::after {
   content: "";
   flex: 1;
   height: 1px;
   background: var(--line);
 }
-[data-auth-v2="1"] .oauth-divider span {
+.oauth-divider span {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.2em;
@@ -197,25 +196,25 @@
   color: var(--dim);
 }
 
-[data-auth-v2="1"] .auth-form {
+.auth-form {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-[data-auth-v2="1"] .auth-field {
+.auth-field {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-[data-auth-v2="1"] .auth-field > span {
+.auth-field > span {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--dim);
 }
-[data-auth-v2="1"] .auth-field input {
+.auth-field input {
   background: var(--composer-bg);
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -226,28 +225,28 @@
   outline: none;
   transition: border-color .14s, background .14s;
 }
-[data-auth-v2="1"] .auth-field input:focus {
+.auth-field input:focus {
   border-color: var(--accent);
   background: var(--bg);
 }
-[data-auth-v2="1"] .auth-field input:disabled {
+.auth-field input:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-[data-auth-v2="1"] .auth-field-label-row {
+.auth-field-label-row {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-[data-auth-v2="1"] .auth-field-hint {
+.auth-field-hint {
   text-transform: lowercase;
   letter-spacing: 0;
   font-size: 11px;
   color: var(--dim);
 }
 
-[data-auth-v2="1"] .auth-show-toggle {
+.auth-show-toggle {
   background: transparent;
   border: 0;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
@@ -257,9 +256,9 @@
   cursor: pointer;
   padding: 0;
 }
-[data-auth-v2="1"] .auth-show-toggle:hover { color: var(--accent); }
+.auth-show-toggle:hover { color: var(--accent); }
 
-[data-auth-v2="1"] .auth-remember {
+.auth-remember {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -267,9 +266,9 @@
   color: var(--muted);
   user-select: none;
 }
-[data-auth-v2="1"] .auth-remember input { accent-color: var(--accent); }
+.auth-remember input { accent-color: var(--accent); }
 
-[data-auth-v2="1"] .auth-helper {
+.auth-helper {
   margin: 0;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 9px;
@@ -278,7 +277,7 @@
   color: var(--dim);
 }
 
-[data-auth-v2="1"] .auth-primary {
+.auth-primary {
   background: var(--accent);
   color: var(--accent-text);
   border: 0;
@@ -290,18 +289,18 @@
   cursor: pointer;
   transition: filter .14s, transform .14s;
 }
-[data-auth-v2="1"] .auth-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
-[data-auth-v2="1"] .auth-primary:disabled { opacity: 0.6; cursor: progress; transform: none; }
+.auth-primary:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.auth-primary:disabled { opacity: 0.6; cursor: progress; transform: none; }
 
-[data-auth-v2="1"] .auth-status {
+.auth-status {
   margin: 0;
   font-size: 12px;
   color: var(--muted);
   min-height: 16px;
 }
-[data-auth-v2="1"] .auth-status.is-error { color: var(--danger, #ef4444); }
+.auth-status.is-error { color: var(--danger, #ef4444); }
 
-[data-auth-v2="1"] .auth-link {
+.auth-link {
   background: transparent;
   border: 0;
   color: var(--accent);
@@ -311,15 +310,15 @@
   align-self: flex-start;
 }
 
-[data-auth-v2="1"] .auth-tos {
+.auth-tos {
   margin: 0;
   font-size: 11px;
   color: var(--dim);
   line-height: 1.5;
 }
-[data-auth-v2="1"] .auth-tos a { color: var(--muted); text-decoration: underline; }
+.auth-tos a { color: var(--muted); text-decoration: underline; }
 
-[data-auth-v2="1"] .auth-panel-foot {
+.auth-panel-foot {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -329,10 +328,10 @@
   font-size: 13px;
   color: var(--muted);
 }
-[data-auth-v2="1"] .auth-panel-foot p { margin: 0; }
-[data-auth-v2="1"] .auth-panel-foot a { color: var(--accent); text-decoration: none; }
-[data-auth-v2="1"] .auth-panel-foot a:hover { text-decoration: underline; }
-[data-auth-v2="1"] .auth-success {
+.auth-panel-foot p { margin: 0; }
+.auth-panel-foot a { color: var(--accent); text-decoration: none; }
+.auth-panel-foot a:hover { text-decoration: underline; }
+.auth-success {
   text-align: center;
   padding: 24px 16px;
   background: var(--accent-soft);
@@ -345,7 +344,7 @@
   text-transform: uppercase;
   line-height: 1.6;
 }
-[data-auth-v2="1"] .auth-success-sub {
+.auth-success-sub {
   display: block;
   margin-top: 8px;
   color: var(--ink);
@@ -359,21 +358,21 @@
  * to suppress iOS Safari's auto-zoom on focus. Profile + other forms
  * intentionally stay at 14 px on desktop; this only touches auth. */
 @media (max-width: 640px) {
-  [data-auth-v2="1"] .auth-form input,
-  [data-auth-v2="1"] .auth-form select,
-  [data-auth-v2="1"] .auth-form textarea {
+  .auth-form input,
+  .auth-form select,
+  .auth-form textarea {
     font-size: 16px;
   }
   /* Tighten the stage padding on phones. 40 px all-around at 400 px
    * viewport meant the panel had ~80 px of empty horizontal margin —
    * visually reads as a heavy left inset. Reduce so the form + OAuth
    * button + callout have room to breathe. */
-  [data-auth-v2="1"] .auth-stage {
+  .auth-stage {
     padding: 32px 20px;
   }
 }
 @media (max-width: 400px) {
-  [data-auth-v2="1"] .auth-stage {
+  .auth-stage {
     padding: 24px 16px;
   }
 }
@@ -389,5 +388,5 @@
    * auth panel — mobile users should land directly on the form, not
    * scroll past brand content. auth-shell collapses to 1fr in the rule
    * above so the form takes full width. */
-  [data-auth-v2="1"] .auth-brand { display: none; }
+  .auth-brand { display: none; }
 }
