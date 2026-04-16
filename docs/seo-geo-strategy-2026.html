@@ -1,0 +1,838 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emersus.ai — SEO + AI Discoverability Strategy 2026</title>
+  <style>
+    :root {
+      --bg: #0e1117;
+      --surface: #161b22;
+      --surface-2: #1c2129;
+      --border: #30363d;
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --accent: #58a6ff;
+      --accent-2: #3fb950;
+      --accent-3: #d2a8ff;
+      --accent-4: #f0883e;
+      --red: #f85149;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 40px 32px 80px;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, var(--accent), var(--accent-3));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      margin-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 24px;
+    }
+    h2 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 56px 0 16px;
+      color: var(--accent);
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--border);
+    }
+    h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 32px 0 12px;
+      color: var(--accent-3);
+    }
+    h4 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin: 24px 0 8px;
+      color: var(--accent-4);
+    }
+    p { margin: 12px 0; }
+    strong { color: #fff; }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 0.9rem;
+    }
+    th {
+      background: var(--surface-2);
+      color: var(--accent);
+      font-weight: 600;
+      text-align: left;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      white-space: nowrap;
+    }
+    td {
+      padding: 9px 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      vertical-align: top;
+    }
+    tr:hover td { background: var(--surface-2); }
+    .badge {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 12px;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .badge-green { background: rgba(63,185,80,.15); color: var(--accent-2); }
+    .badge-blue { background: rgba(88,166,255,.15); color: var(--accent); }
+    .badge-purple { background: rgba(210,168,255,.15); color: var(--accent-3); }
+    .badge-orange { background: rgba(240,136,62,.15); color: var(--accent-4); }
+    .badge-red { background: rgba(248,81,73,.12); color: var(--red); }
+    .badge-muted { background: rgba(139,148,158,.12); color: var(--text-muted); }
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin: 20px 0;
+    }
+    .plan-card h3 { margin-top: 0; }
+    .gap-list {
+      list-style: none;
+      counter-reset: gap;
+    }
+    .gap-list li {
+      counter-increment: gap;
+      padding: 8px 0 8px 36px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+    }
+    .gap-list li::before {
+      content: counter(gap);
+      position: absolute;
+      left: 0;
+      width: 24px;
+      height: 24px;
+      background: var(--red);
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 0.75rem;
+      line-height: 24px;
+      font-weight: 700;
+    }
+    .callout {
+      background: rgba(88,166,255,.08);
+      border-left: 4px solid var(--accent);
+      padding: 16px 20px;
+      margin: 20px 0;
+      border-radius: 0 8px 8px 0;
+    }
+    .callout-warn {
+      background: rgba(240,136,62,.08);
+      border-left-color: var(--accent-4);
+    }
+    .callout-success {
+      background: rgba(63,185,80,.08);
+      border-left-color: var(--accent-2);
+    }
+    ul, ol { margin: 8px 0 8px 24px; }
+    li { margin: 4px 0; }
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 28px;
+      margin: 24px 0 40px;
+    }
+    .toc h3 { margin-top: 0; color: var(--text); }
+    .toc a { color: var(--accent); text-decoration: none; }
+    .toc a:hover { text-decoration: underline; }
+    .toc ol { margin-left: 20px; }
+    .toc li { margin: 6px 0; }
+    .check { color: var(--accent-2); }
+    .cross { color: var(--text-muted); }
+    .section-divider {
+      border: none;
+      border-top: 2px dashed var(--border);
+      margin: 48px 0;
+    }
+    .stat {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+    .stat-row {
+      display: flex;
+      gap: 32px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+    .stat-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      flex: 1;
+      min-width: 200px;
+    }
+    .stat-card .stat { margin-bottom: 4px; }
+    .stat-card .stat-label { color: var(--text-muted); font-size: 0.85rem; }
+    @media print {
+      body { background: #fff; color: #111; max-width: 100%; }
+      h1 { background: none; -webkit-text-fill-color: #111; }
+      h2 { color: #0066cc; }
+      h3 { color: #6b21a8; }
+      th { background: #f3f4f6; color: #111; }
+      td { background: #fff; }
+      .plan-card, .toc, .stat-card { background: #fafafa; border-color: #ddd; }
+    }
+  </style>
+</head>
+<body>
+
+<h1>Emersus.ai &mdash; SEO + AI Discoverability Strategy</h1>
+<p class="subtitle">Comprehensive research &amp; 4 alternative implementation plans &bull; April 2026</p>
+
+<div class="toc">
+  <h3>Contents</h3>
+  <ol>
+    <li><a href="#baseline">Current Baseline &amp; Critical Gaps</a></li>
+    <li><a href="#key-insights">Key Research Insights</a></li>
+    <li><a href="#plan-a">Plan A: Fix the Foundation (Technical SEO First)</a></li>
+    <li><a href="#plan-b">Plan B: Content Engine (Publish to Rank)</a></li>
+    <li><a href="#plan-c">Plan C: AI-First (Generative Engine Optimization)</a></li>
+    <li><a href="#plan-d">Plan D: Full Spectrum (Everything in Parallel)</a></li>
+    <li><a href="#comparisons">Side-by-Side Comparisons</a></li>
+    <li><a href="#recommendation">Final Recommendation</a></li>
+    <li><a href="#sources">Sources</a></li>
+  </ol>
+</div>
+
+<!-- ============================================================ -->
+<h2 id="baseline">1. Current Baseline &amp; Critical Gaps</h2>
+
+<p>The emersus.ai site has <strong>zero foundational SEO infrastructure</strong>. The site likely has minimal Google index presence. There is no blog, no content pages, and no programmatic SEO assets. The good news: semantic HTML on the landing page is solid, and the evidence-based citation engine is a massive differentiator no competitor has.</p>
+
+<div class="stat-row">
+  <div class="stat-card">
+    <div class="stat" style="color:var(--red)">13</div>
+    <div class="stat-label">Critical SEO gaps identified</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat" style="color:var(--red)">0</div>
+    <div class="stat-label">Structured data schemas present</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat" style="color:var(--red)">0</div>
+    <div class="stat-label">Blog/content pages</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat" style="color:var(--accent-2)">Good</div>
+    <div class="stat-label">Semantic HTML on landing page</div>
+  </div>
+</div>
+
+<ol class="gap-list">
+  <li><strong>No robots.txt</strong> &mdash; crawlers have no guidance on what to crawl or skip</li>
+  <li><strong>No sitemap.xml</strong> &mdash; search engines have no page discovery aid</li>
+  <li><strong>No Open Graph / Twitter Card tags</strong> &mdash; links shared on social media have no preview</li>
+  <li><strong>No favicon</strong> &mdash; browsers show a generic icon; Google may not show a site icon</li>
+  <li><strong>No canonical tags</strong> on public pages (only one redirect page has one)</li>
+  <li><strong>No meta descriptions</strong> on any page except the landing page</li>
+  <li><strong>No structured data (JSON-LD)</strong> &mdash; missing FAQPage, Organization, WebApplication schemas</li>
+  <li><strong>Auth-gated app pages not marked noindex</strong> &mdash; /app/, /app/train/, /app/nutrition/, etc.</li>
+  <li><strong>No web manifest</strong> &mdash; no PWA support or theme-color</li>
+  <li><strong>Client-side redirects instead of 301s</strong> &mdash; /chat/ &rarr; /app/ uses JS, not server-side</li>
+  <li><strong>6.5 MB PNG</strong> sitting in root (neuron-hero-upscaled.png) &mdash; unused but a ticking bomb</li>
+  <li><strong>No skip-to-content link</strong> on any page</li>
+  <li><strong>Heading hierarchy gaps</strong> on legal pages (h1 &rarr; h3, skipping h2)</li>
+</ol>
+
+<!-- ============================================================ -->
+<h2 id="key-insights">2. Key Research Insights</h2>
+
+<div class="stat-row">
+  <div class="stat-card">
+    <div class="stat">23x</div>
+    <div class="stat-label">Higher conversion rate from AI-referred visitors vs organic search (Ahrefs)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat">527%</div>
+    <div class="stat-label">YoY growth in AI-referred web sessions (2024&ndash;2025)</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat">85%</div>
+    <div class="stat-label">Of brand mentions in AI responses come from <em>third-party</em> sites</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat">2.7x</div>
+    <div class="stat-label">Higher AI citation rate with FAQPage schema vs without</div>
+  </div>
+</div>
+
+<h3>SEO Best Practices (2025&ndash;2026)</h3>
+<ul>
+  <li><strong>Core Web Vitals</strong> are mandatory: LCP &lt; 2.5s, CLS &lt; 0.1, INP &lt; 200ms</li>
+  <li><strong>E-E-A-T</strong> (Experience, Expertise, Authoritativeness, Trustworthiness) is critical for YMYL health content</li>
+  <li><strong>Content pillar-cluster model</strong> is the proven structure for topical authority</li>
+  <li>Google's Dec 2025 core update hit AI-generated content without original insights &mdash; <strong>34% avg traffic decline</strong></li>
+  <li>Long-form content attracts <strong>77.2% more backlinks</strong> than short-form</li>
+  <li>SaaS companies publishing original research see <strong>18.7% increase</strong> in SEO traffic</li>
+</ul>
+
+<h3>AI Recommendation Optimization (GEO)</h3>
+<ul>
+  <li><strong>Definition-first opening sentences</strong> achieve 34 daily AI citations vs &lt;5 for narrative openings</li>
+  <li>Content with <strong>3+ statistics per 300 words</strong> gets 2.1x higher AI citation rate</li>
+  <li><strong>Reddit occupies 27%</strong> of ChatGPT's search slots during processing (hidden influence)</li>
+  <li>Perplexity cites Reddit in <strong>46.7% of top-10 sources</strong></li>
+  <li>ChatGPT Health launched Jan 2026 with fitness/nutrition integrations &mdash; <strong>direct integration opportunity</strong></li>
+  <li>Claude favors <strong>balanced, logically structured, academic/technical</strong> content; is ad-free by design</li>
+  <li><strong>llms.txt</strong> file at site root is an emerging standard for AI crawlers</li>
+</ul>
+
+<h3>Competitor Landscape</h3>
+<table>
+  <tr>
+    <th>Competitor</th>
+    <th>Strategy</th>
+    <th>Emersus Advantage</th>
+  </tr>
+  <tr>
+    <td><strong>Fitbod</strong></td>
+    <td>"Own the comparison" &mdash; publishes "best of" roundups where they top the list</td>
+    <td>Evidence transparency (Fitbod has none)</td>
+  </tr>
+  <tr>
+    <td><strong>Examine.com</strong></td>
+    <td>Gold standard evidence-based health SEO; 321K+ backlinks from depth + citations</td>
+    <td>AI-powered personalization (Examine is reference-only)</td>
+  </tr>
+  <tr>
+    <td><strong>MacroFactor</strong></td>
+    <td>Hub-and-spoke content + expert credibility (Nuckols/Trexler)</td>
+    <td>Broader scope (training + nutrition + chat)</td>
+  </tr>
+  <tr>
+    <td><strong>Noom</strong></td>
+    <td>Affiliate-dominated SERP control, $500M revenue</td>
+    <td>Science-first vs behavior-psych-first positioning</td>
+  </tr>
+  <tr>
+    <td><strong>Freeletics</strong></td>
+    <td>60M users, community-driven retention, organic = 45% of traffic</td>
+    <td>Research-backed vs algorithmic-only training</td>
+  </tr>
+</table>
+
+<h3>Content Gaps Emersus Can Fill</h3>
+<table>
+  <tr>
+    <th>Gap</th>
+    <th>Opportunity</th>
+  </tr>
+  <tr>
+    <td>Evidence transparency in fitness apps</td>
+    <td>Only 1 of 232 qualifying exercise apps provides scientific evidence. Emersus does this natively.</td>
+  </tr>
+  <tr>
+    <td>Programmatic calculator pages</td>
+    <td>TDEE, protein intake, 1RM, training volume, creatine &mdash; each with study citations. TDEECalculator.net gets 1M+ monthly visits.</td>
+  </tr>
+  <tr>
+    <td>Study-backed app comparisons</td>
+    <td>Nobody writes "Fitbod vs Freeletics: what does the research say?" &mdash; all existing comparisons are subjective feature lists.</td>
+  </tr>
+  <tr>
+    <td>AI fitness myth debunking</td>
+    <td>"Can AI replace a personal trainer? Here's what 47 studies say." Positions Emersus as the honest alternative.</td>
+  </tr>
+  <tr>
+    <td>Research digest / newsletter</td>
+    <td>Weekly fitness research roundup builds email list + earns backlinks from coaches/trainers.</td>
+  </tr>
+</table>
+
+<!-- ============================================================ -->
+<hr class="section-divider">
+
+<h2 id="plan-a">3. Plan A: "Fix the Foundation" &mdash; Technical SEO First</h2>
+
+<div class="plan-card">
+  <h3><span class="badge badge-blue">Conservative</span> &nbsp; <span class="badge badge-green">Low Risk</span> &nbsp; <span class="badge badge-muted">~40&ndash;60 hours</span></h3>
+  <p><strong>Philosophy:</strong> Fix every broken pipe before turning on the water. Get the site crawlable, indexable, and structured before investing in content or AI discoverability.</p>
+</div>
+
+<h3>Phase 1 &mdash; Crawlability &amp; Indexing (Weeks 1&ndash;2)</h3>
+<table>
+  <tr><th>Action</th><th>Details</th></tr>
+  <tr><td>Create <code>robots.txt</code></td><td>Allow all bots incl. GPTBot, ClaudeBot, OAI-SearchBot, PerplexityBot, Google-Extended. Disallow /app/, /api/</td></tr>
+  <tr><td>Create <code>sitemap.xml</code></td><td>All public pages: /, /contact/, /privacy/, /terms/, /consumer-health-data/, /demo/</td></tr>
+  <tr><td>Add <code>noindex</code> to auth-gated pages</td><td>/app/, /app/train/, /app/nutrition/, /app/progress/, /app/profile/</td></tr>
+  <tr><td>Add canonical tags</td><td>Every public page gets <code>&lt;link rel="canonical"&gt;</code></td></tr>
+  <tr><td>Fix redirects</td><td>/chat/ &rarr; /app/ should be a server-side 301 via Caddy, not meta refresh</td></tr>
+  <tr><td>Submit to Google Search Console</td><td>Verify ownership, submit sitemap, request indexing</td></tr>
+  <tr><td>Submit to Bing Webmaster Tools</td><td>Critical for Copilot/ChatGPT search visibility</td></tr>
+</table>
+
+<h3>Phase 2 &mdash; Meta Tags &amp; Social (Weeks 2&ndash;3)</h3>
+<table>
+  <tr><th>Action</th><th>Details</th></tr>
+  <tr><td>Meta descriptions</td><td>Add to all 6 public pages (150&ndash;160 chars each)</td></tr>
+  <tr><td>Open Graph tags</td><td>og:title, og:description, og:image, og:url, og:type, og:site_name on every page</td></tr>
+  <tr><td>Twitter Card tags</td><td>twitter:card, twitter:title, twitter:description, twitter:image</td></tr>
+  <tr><td>Favicon</td><td>Generate from existing logo, add link rel="icon" + apple-touch-icon</td></tr>
+  <tr><td>theme-color meta</td><td>Match design system palette</td></tr>
+</table>
+
+<h3>Phase 3 &mdash; Structured Data (Weeks 3&ndash;4)</h3>
+<table>
+  <tr><th>Schema Type</th><th>Where</th><th>Purpose</th></tr>
+  <tr><td>Organization</td><td>All pages</td><td>Brand identity, logo, contact, social links</td></tr>
+  <tr><td>WebSite</td><td>Landing page</td><td>Site-level search action</td></tr>
+  <tr><td>WebApplication</td><td>Landing page</td><td>applicationCategory: "HealthApplication", pricing, description</td></tr>
+  <tr><td>FAQPage</td><td>Landing page</td><td>Existing details/summary FAQ &mdash; earns rich results + 2.7x AI citation rate</td></tr>
+  <tr><td>BreadcrumbList</td><td>Legal/contact pages</td><td>Navigation path clarity</td></tr>
+</table>
+
+<h3>Phase 4 &mdash; Performance (Weeks 4&ndash;6)</h3>
+<table>
+  <tr><th>Action</th><th>Details</th></tr>
+  <tr><td>Delete neuron-hero-upscaled.png</td><td>6.5 MB unused asset</td></tr>
+  <tr><td>Convert images to WebP</td><td>Logo and any future images</td></tr>
+  <tr><td>Add loading="lazy"</td><td>All below-fold images</td></tr>
+  <tr><td>Explicit width/height on images</td><td>Prevent CLS</td></tr>
+  <tr><td>Audit Google Fonts loading</td><td>Add font-display: swap locally if not set</td></tr>
+  <tr><td>Add fetchpriority="high"</td><td>On LCP element</td></tr>
+  <tr><td>Web manifest</td><td>manifest.webmanifest for PWA basics</td></tr>
+</table>
+
+<h3>Phase 5 &mdash; E-E-A-T Foundation (Weeks 6&ndash;8)</h3>
+<table>
+  <tr><th>Action</th><th>Details</th></tr>
+  <tr><td>Create /about/ page</td><td>Team credentials, mission, scientific methodology, "why evidence-based"</td></tr>
+  <tr><td>Create editorial policy page</td><td>How content is created, reviewed, updated</td></tr>
+  <tr><td>Add health disclaimer to footer</td><td>"Not a substitute for professional medical advice"</td></tr>
+  <tr><td>Add dateModified to all pages</td><td>Schema + visible "Last updated"</td></tr>
+</table>
+
+<div class="callout callout-warn">
+  <strong>What Plan A does NOT include:</strong> Blog/content creation, directory listings, Reddit strategy, AI platform integrations, backlink building. This is foundation only &mdash; content must follow.
+</div>
+
+<!-- ============================================================ -->
+<hr class="section-divider">
+
+<h2 id="plan-b">4. Plan B: "Content Engine" &mdash; Publish to Rank</h2>
+
+<div class="plan-card">
+  <h3><span class="badge badge-purple">Content-Heavy</span> &nbsp; <span class="badge badge-orange">Medium Risk</span> &nbsp; <span class="badge badge-muted">~120&ndash;160 hours</span></h3>
+  <p><strong>Philosophy:</strong> Content is king. Fix minimum viable technical issues, then invest heavily in content assets that drive organic traffic AND AI citations. Emersus's pgvector-backed scientific literature database becomes the content flywheel.</p>
+</div>
+
+<h3>Phase 1 &mdash; Minimum Viable Technical Fix (Week 1)</h3>
+<p>Compressed from Plan A: robots.txt + sitemap.xml + canonical tags + meta descriptions + OG tags in one sprint.</p>
+
+<h3>Phase 2 &mdash; Blog Infrastructure (Weeks 2&ndash;4)</h3>
+<table>
+  <tr><th>Action</th><th>Details</th></tr>
+  <tr><td>Create /blog/ section</td><td>Static HTML pages or lightweight SSG &mdash; no WordPress needed</td></tr>
+  <tr><td>Blog index page</td><td>Posts with dates, categories, excerpts</td></tr>
+  <tr><td>Article template</td><td>BlogPosting JSON-LD, author bio, citation format, "Last updated"</td></tr>
+  <tr><td>RSS feed</td><td>/blog/feed.xml for syndication</td></tr>
+  <tr><td>Internal linking</td><td>Landing &rarr; Blog &rarr; Articles &rarr; Product</td></tr>
+</table>
+
+<h3>Phase 3 &mdash; Pillar Content (Weeks 4&ndash;12): 5 pillars, 8&ndash;15 clusters each</h3>
+<table>
+  <tr><th>Pillar</th><th>Example Clusters</th><th>Target Keywords</th></tr>
+  <tr><td><strong>Evidence-Based Training</strong></td><td>Progressive overload science, periodization models, RPE vs percentage-based, volume landmarks</td><td>"evidence-based workout", "progressive overload guide"</td></tr>
+  <tr><td><strong>Nutrition Science</strong></td><td>Protein timing meta-analysis, TDEE methods, creatine evidence, supplement efficacy</td><td>"evidence-based nutrition", "protein intake science"</td></tr>
+  <tr><td><strong>AI in Fitness</strong></td><td>Can AI replace a trainer?, AI workout accuracy, future of fitness tech</td><td>"AI fitness coach", "AI personal trainer"</td></tr>
+  <tr><td><strong>Recovery &amp; Adaptation</strong></td><td>Sleep &amp; muscle growth, deload protocols, overtraining markers, HRV evidence</td><td>"recovery science fitness", "optimal deload"</td></tr>
+  <tr><td><strong>Body Composition</strong></td><td>Cutting vs recomp evidence, muscle gain rate limits, metabolic adaptation</td><td>"body recomposition science", "muscle gain rate"</td></tr>
+</table>
+
+<h3>Phase 4 &mdash; Programmatic SEO Tools (Weeks 4&ndash;8, parallel)</h3>
+<table>
+  <tr><th>Calculator Page</th><th>Data Source</th><th>Target Keyword</th></tr>
+  <tr><td>TDEE Calculator</td><td>Mifflin-St Jeor + activity multipliers + citations</td><td>"TDEE calculator" (1M+ monthly searches)</td></tr>
+  <tr><td>Protein Intake Calculator</td><td>Morton et al. 2018 meta-analysis</td><td>"protein calculator"</td></tr>
+  <tr><td>1RM Calculator</td><td>Epley, Brzycki formulas with RPE tables</td><td>"one rep max calculator"</td></tr>
+  <tr><td>Training Volume Calculator</td><td>Schoenfeld et al. volume landmarks</td><td>"training volume calculator"</td></tr>
+  <tr><td>Creatine Loading Calculator</td><td>Hultman et al. protocol</td><td>"creatine dosage calculator"</td></tr>
+</table>
+
+<h3>Phase 5 &mdash; Comparison &amp; Research Content (Weeks 8&ndash;16)</h3>
+<table>
+  <tr><th>Content Type</th><th>Examples</th><th>Purpose</th></tr>
+  <tr><td>Comparison pages</td><td>"Emersus vs Fitbod", "Emersus vs MyFitnessPal", "Emersus vs ChatGPT for fitness"</td><td>Capture high-intent comparison queries</td></tr>
+  <tr><td>"Best of" roundups</td><td>"Best Evidence-Based Fitness Apps 2026"</td><td>Own the category SERP (Fitbod's strategy)</td></tr>
+  <tr><td>Research digests</td><td>"This Week in Exercise Science" biweekly blog/newsletter</td><td>Build email list + backlinks from coaches</td></tr>
+  <tr><td>Myth-busting</td><td>"Does AI Fitness Coaching Work? 47 Studies Reviewed"</td><td>E-E-A-T credibility + GEO citation magnet</td></tr>
+</table>
+
+<div class="callout callout-warn">
+  <strong>What Plan B does NOT include:</strong> Deep Core Web Vitals optimization, ChatGPT Apps integration, aggressive directory campaign, Reddit strategy.
+</div>
+
+<!-- ============================================================ -->
+<hr class="section-divider">
+
+<h2 id="plan-c">5. Plan C: "AI-First" &mdash; Generative Engine Optimization</h2>
+
+<div class="plan-card">
+  <h3><span class="badge badge-orange">Cutting-Edge</span> &nbsp; <span class="badge badge-red">Medium-High Risk</span> &nbsp; <span class="badge badge-muted">~100&ndash;140 hours</span></h3>
+  <p><strong>Philosophy:</strong> Traditional SEO is a red ocean &mdash; you're competing against Fitbod, Noom, and Examine with a fraction of their resources. Go where the puck is heading: AI assistants. AI-referred visitors convert 23x higher. 85% of brand mentions in AI responses come from third-party sites. Build presence where LLMs look.</p>
+</div>
+
+<h3>Phase 1 &mdash; AI Crawler Access + Structured Identity (Weeks 1&ndash;2)</h3>
+<table>
+  <tr><th>Action</th><th>Details</th></tr>
+  <tr><td><code>robots.txt</code> allowing all AI crawlers</td><td>GPTBot, OAI-SearchBot, ClaudeBot, PerplexityBot, Google-Extended, Bytespider</td></tr>
+  <tr><td>Create <code>/llms.txt</code></td><td>Markdown overview: what Emersus is, features, evidence-based approach, key pages, differentiators</td></tr>
+  <tr><td>JSON-LD structured data</td><td>Organization, WebApplication (HealthApplication), FAQPage</td></tr>
+  <tr><td>Brand Authority Statement page</td><td>/about/ &mdash; definition-first: "Emersus AI is an evidence-based fitness and nutrition coach that grounds every recommendation in peer-reviewed research."</td></tr>
+  <tr><td>Pricing transparency</td><td>Clear pricing on site &mdash; AI systems deprioritize "contact for pricing"</td></tr>
+</table>
+
+<h3>Phase 2 &mdash; Third-Party Authority Blitz (Weeks 2&ndash;6)</h3>
+<p>Omniscient Digital's analysis of 23,000+ citations: <strong>85% of brand mentions come from third-party sites</strong>. Your own site matters less than what others say about you.</p>
+
+<h4>Tier 1: High-priority (DA 82&ndash;95)</h4>
+<table>
+  <tr><th>Directory</th><th>DA</th><th>Action</th></tr>
+  <tr><td>Product Hunt</td><td>91</td><td>Full launch page, coordinate upvote campaign, evidence-based AI story</td></tr>
+  <tr><td>G2</td><td>92</td><td>Create profile in HealthApplication category, solicit reviews</td></tr>
+  <tr><td>Capterra</td><td>92</td><td>Create profile, solicit reviews</td></tr>
+  <tr><td>AlternativeTo</td><td>82</td><td>List as alternative to Fitbod, Noom, MyFitnessPal, Examine</td></tr>
+  <tr><td>Crunchbase</td><td>90</td><td>Create company profile</td></tr>
+  <tr><td>Trustpilot</td><td>93</td><td>Claim profile</td></tr>
+  <tr><td>Hacker News (Show HN)</td><td>91</td><td>Post evidence-based AI angle</td></tr>
+  <tr><td>Reddit</td><td>95</td><td>r/fitness, r/nutrition, r/SideProject, r/SaaS</td></tr>
+</table>
+
+<h4>Tier 2: AI-specific directories (20+, batch submit)</h4>
+<table>
+  <tr><th>Directory</th><th>Notes</th></tr>
+  <tr><td>There's An AI For That</td><td>2M+ monthly visitors, 9,500+ tools</td></tr>
+  <tr><td>Futurepedia</td><td>5,000+ tools, 54 categories</td></tr>
+  <tr><td>Toolify.ai</td><td>Product launch feature</td></tr>
+  <tr><td>TopAI.tools</td><td>Curated, credibility boost</td></tr>
+  <tr><td>FutureTools</td><td>Matt Wolfe's audience</td></tr>
+  <tr><td>Dang.ai, AI Scout, ListMyAI</td><td>Growing AI directories, 24&ndash;48hr approval</td></tr>
+</table>
+
+<h4>Tier 3: SaaS &amp; health-tech directories</h4>
+<p>SaaSHub, BetaList, Indie Hackers, GetApp, Software Advice, HealthTech Alpha, Wellfound, SportStartups.org</p>
+
+<h3>Phase 3 &mdash; Reddit + Community Strategy (Weeks 4&ndash;10)</h3>
+<div class="callout">
+  Reddit = <strong>27% of ChatGPT's search processing</strong> (hidden influence) + <strong>46.7% of Perplexity's top-10 sources</strong>. This is the highest-leverage community channel.
+</div>
+<table>
+  <tr><th>Subreddit</th><th>Approach</th></tr>
+  <tr><td>r/fitness (11M+)</td><td>Answer evidence questions, cite studies, mention Emersus when directly relevant</td></tr>
+  <tr><td>r/nutrition</td><td>Same &mdash; genuine value, build recognition</td></tr>
+  <tr><td>r/QuantifiedSelf</td><td>Share data insights, self-tracking methodology</td></tr>
+  <tr><td>r/MachineLearning, r/artificial</td><td>Technical posts about RAG over scientific literature</td></tr>
+  <tr><td>r/SideProject, r/SaaS</td><td>Build-in-public posts about the evidence-based approach</td></tr>
+</table>
+
+<h3>Phase 4 &mdash; Content Formatted for AI Extraction (Weeks 6&ndash;12)</h3>
+<p>Create 10&ndash;15 pages specifically optimized for AI citation:</p>
+<table>
+  <tr><th>Format Rule</th><th>Why It Works</th></tr>
+  <tr><td>120&ndash;180 word self-contained sections</td><td>Optimal extraction length for LLM citation</td></tr>
+  <tr><td>40&ndash;60 word direct-answer blocks after each H2</td><td>Matches LLM answer synthesis patterns</td></tr>
+  <tr><td>2&ndash;3 statistics per 300 words</td><td>2.1x higher AI citation rate</td></tr>
+  <tr><td>Expert quotes with name + credentials</td><td>Trust signal for all AI platforms</td></tr>
+  <tr><td>Comparison tables</td><td>Easier to parse than prose</td></tr>
+  <tr><td>FAQ with FAQPage schema</td><td>2.7x higher citation rate</td></tr>
+</table>
+
+<h3>Phase 5 &mdash; Platform Integration (Months 3&ndash;6)</h3>
+<table>
+  <tr><th>Platform</th><th>Action</th><th>Opportunity</th></tr>
+  <tr><td><strong>ChatGPT Apps (MCP)</strong></td><td>Build an Emersus app via MCP SDK &mdash; evidence-based exercise/nutrition Q&amp;A within ChatGPT</td><td>Direct integration into 800M weekly users. Health is a priority category.</td></tr>
+  <tr><td><strong>ChatGPT Health</strong></td><td>Apply when submissions open</td><td>Featured in ChatGPT's dedicated health tab</td></tr>
+  <tr><td><strong>Perplexity</strong></td><td>Ensure content is structured for Perplexity's citation engine</td><td>780M monthly queries</td></tr>
+</table>
+
+<h3>Phase 6 &mdash; Monitoring (Ongoing)</h3>
+<table>
+  <tr><th>Metric</th><th>Tool</th><th>Target</th></tr>
+  <tr><td>AI mention rate</td><td>Manual probing (20 queries/mo across 4 platforms)</td><td>&gt;10% mention rate</td></tr>
+  <tr><td>AI citation rate</td><td>Otterly AI ($29/mo) or GrackerAI ($39/mo)</td><td>Clickable URL in &gt;5% of relevant responses</td></tr>
+  <tr><td>AI referral traffic</td><td>GA4 + server log ChatGPT-User user agent</td><td>Track growth month-over-month</td></tr>
+</table>
+
+<div class="callout callout-warn">
+  <strong>What Plan C does NOT include:</strong> Deep content pillar strategy, programmatic calculator pages, full Core Web Vitals optimization, traditional backlink building.
+</div>
+
+<!-- ============================================================ -->
+<hr class="section-divider">
+
+<h2 id="plan-d">6. Plan D: "Full Spectrum" &mdash; Everything in Parallel</h2>
+
+<div class="plan-card">
+  <h3><span class="badge badge-green">Comprehensive</span> &nbsp; <span class="badge badge-blue">Low-Medium Risk</span> &nbsp; <span class="badge badge-muted">~300&ndash;400 hours</span></h3>
+  <p><strong>Philosophy:</strong> Do everything. Fix the technical foundation, build the content engine, AND optimize for AI discoverability simultaneously. Fastest potential results, but requires the most time commitment.</p>
+</div>
+
+<h3>Execution Timeline</h3>
+<table>
+  <tr><th>Week</th><th>Technical (Plan A)</th><th>Content (Plan B)</th><th>AI/GEO (Plan C)</th></tr>
+  <tr><td><strong>1&ndash;2</strong></td><td>robots.txt, sitemap, canonicals, meta descriptions, OG tags, favicon, noindex, Search Console + Bing</td><td>&mdash;</td><td>llms.txt, AI crawler verification, brand authority statement</td></tr>
+  <tr><td><strong>2&ndash;3</strong></td><td>JSON-LD structured data (all schemas)</td><td>Blog infrastructure + article template</td><td>Submit to all 30+ directories (batch)</td></tr>
+  <tr><td><strong>3&ndash;4</strong></td><td>Fix redirects to 301s via Caddy, delete 6.5MB PNG, image optimization</td><td>First 2 pillar articles drafted</td><td>Product Hunt launch prep</td></tr>
+  <tr><td><strong>4&ndash;6</strong></td><td>Core Web Vitals audit + fixes, web manifest</td><td>Pillar 1 published (5 clusters), first calculator live</td><td>Product Hunt launch, Reddit begins</td></tr>
+  <tr><td><strong>6&ndash;8</strong></td><td>About page, editorial policy, health disclaimer, E-E-A-T</td><td>Pillar 2, 2 more calculators, first comparison page</td><td>10 AI-optimized pages, G2/Capterra live</td></tr>
+  <tr><td><strong>8&ndash;12</strong></td><td>Performance monitoring, iterate</td><td>Pillars 3&ndash;4, research digest launches, "Best of" roundups</td><td>Reddit ongoing, AI mention rate monitoring</td></tr>
+  <tr><td><strong>12&ndash;16</strong></td><td>&mdash;</td><td>Pillar 5, all 5 calculators, newsletter growing</td><td>ChatGPT Apps MCP build begins</td></tr>
+  <tr><td><strong>16&ndash;24</strong></td><td>&mdash;</td><td>40+ content pages live, comparison hub complete</td><td>ChatGPT Apps submitted, Health application</td></tr>
+</table>
+
+<h3>Effort Estimate</h3>
+<table>
+  <tr><th>Work Stream</th><th>Hours/Week</th><th>Skills Needed</th></tr>
+  <tr><td>Technical SEO</td><td>5&ndash;8 hrs/wk (weeks 1&ndash;12), then 2 hrs/wk</td><td>Frontend dev, Caddy config</td></tr>
+  <tr><td>Content creation</td><td>10&ndash;15 hrs/wk (ongoing)</td><td>Writing, exercise science knowledge, editing</td></tr>
+  <tr><td>GEO / community</td><td>5&ndash;8 hrs/wk (ongoing)</td><td>Reddit participation, directory mgmt, outreach</td></tr>
+  <tr><td><strong>Total</strong></td><td><strong>20&ndash;30 hrs/wk peak, 10&ndash;15 steady state</strong></td><td></td></tr>
+</table>
+
+<!-- ============================================================ -->
+<hr class="section-divider">
+
+<h2 id="comparisons">7. Side-by-Side Comparisons</h2>
+
+<h3>Strategic Comparison</h3>
+<table>
+  <tr>
+    <th>Dimension</th>
+    <th><span class="badge badge-blue">A: Foundation</span></th>
+    <th><span class="badge badge-purple">B: Content</span></th>
+    <th><span class="badge badge-orange">C: AI-First</span></th>
+    <th><span class="badge badge-green">D: Full Spectrum</span></th>
+  </tr>
+  <tr>
+    <td><strong>Core bet</strong></td>
+    <td>Technical excellence drives indexing</td>
+    <td>Content volume drives organic traffic</td>
+    <td>AI assistants are the new discovery channel</td>
+    <td>All channels compound together</td>
+  </tr>
+  <tr>
+    <td><strong>Time to first result</strong></td>
+    <td>2&ndash;4 weeks (indexing)</td>
+    <td>8&ndash;16 weeks (content ranking)</td>
+    <td>4&ndash;8 weeks (directory listings, AI mentions)</td>
+    <td>2&ndash;4 weeks (indexing) + ongoing</td>
+  </tr>
+  <tr>
+    <td><strong>Total effort</strong></td>
+    <td>~40&ndash;60 hrs</td>
+    <td>~120&ndash;160 hrs</td>
+    <td>~100&ndash;140 hrs</td>
+    <td>~300&ndash;400 hrs</td>
+  </tr>
+  <tr>
+    <td><strong>Peak weekly hours</strong></td>
+    <td>10&ndash;15 hrs/wk</td>
+    <td>15&ndash;20 hrs/wk</td>
+    <td>10&ndash;15 hrs/wk</td>
+    <td>20&ndash;30 hrs/wk</td>
+  </tr>
+  <tr>
+    <td><strong>Ongoing maintenance</strong></td>
+    <td>2 hrs/wk</td>
+    <td>10&ndash;15 hrs/wk</td>
+    <td>5&ndash;8 hrs/wk</td>
+    <td>10&ndash;15 hrs/wk</td>
+  </tr>
+  <tr>
+    <td><strong>Risk level</strong></td>
+    <td><span class="badge badge-green">Low</span></td>
+    <td><span class="badge badge-orange">Medium</span></td>
+    <td><span class="badge badge-red">Medium-High</span></td>
+    <td><span class="badge badge-blue">Low-Medium</span></td>
+  </tr>
+  <tr>
+    <td><strong>Revenue impact timeline</strong></td>
+    <td>3&ndash;6 months</td>
+    <td>6&ndash;12 months</td>
+    <td>3&ndash;9 months</td>
+    <td>3&ndash;6 months</td>
+  </tr>
+</table>
+
+<h3>Channel Coverage</h3>
+<table>
+  <tr>
+    <th>Channel</th>
+    <th><span class="badge badge-blue">A</span></th>
+    <th><span class="badge badge-purple">B</span></th>
+    <th><span class="badge badge-orange">C</span></th>
+    <th><span class="badge badge-green">D</span></th>
+  </tr>
+  <tr><td>Google organic search</td><td>Partial</td><td><strong>Strong</strong></td><td>Weak</td><td><strong>Strong</strong></td></tr>
+  <tr><td>Google AI Overviews</td><td>Partial</td><td><strong>Strong</strong></td><td>Medium</td><td><strong>Strong</strong></td></tr>
+  <tr><td>ChatGPT recommendations</td><td>Partial</td><td>Medium</td><td><strong>Strong</strong></td><td><strong>Strong</strong></td></tr>
+  <tr><td>Claude recommendations</td><td>Partial</td><td><strong>Strong</strong></td><td><strong>Strong</strong></td><td><strong>Strong</strong></td></tr>
+  <tr><td>Perplexity citations</td><td>Partial</td><td><strong>Strong</strong></td><td><strong>Strong</strong></td><td><strong>Strong</strong></td></tr>
+  <tr><td>Social sharing</td><td>Medium</td><td><strong>Strong</strong></td><td>Medium</td><td><strong>Strong</strong></td></tr>
+  <tr><td>Direct/brand traffic</td><td>No impact</td><td>Medium</td><td><strong>Strong</strong></td><td><strong>Strong</strong></td></tr>
+</table>
+
+<h3>Deliverables Checklist</h3>
+<table>
+  <tr>
+    <th>Deliverable</th>
+    <th><span class="badge badge-blue">A</span></th>
+    <th><span class="badge badge-purple">B</span></th>
+    <th><span class="badge badge-orange">C</span></th>
+    <th><span class="badge badge-green">D</span></th>
+  </tr>
+  <tr><td>robots.txt + sitemap.xml</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+  <tr><td>Meta tags + OG tags + favicon</td><td class="check">Full</td><td>Minimal</td><td>Minimal</td><td class="check">Full</td></tr>
+  <tr><td>JSON-LD structured data</td><td class="check">Full</td><td>Basic</td><td class="check">Full</td><td class="check">Full</td></tr>
+  <tr><td>Core Web Vitals optimization</td><td class="check">Full</td><td class="cross">No</td><td class="cross">No</td><td class="check">Full</td></tr>
+  <tr><td>About page + E-E-A-T signals</td><td class="check">Yes</td><td class="cross">No</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+  <tr><td>llms.txt</td><td class="cross">No</td><td class="cross">No</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+  <tr><td>Blog with 40+ articles</td><td class="cross">No</td><td class="check">Yes</td><td class="cross">No</td><td class="check">Yes</td></tr>
+  <tr><td>5 calculator/tool pages</td><td class="cross">No</td><td class="check">Yes</td><td class="cross">No</td><td class="check">Yes</td></tr>
+  <tr><td>Comparison pages</td><td class="cross">No</td><td class="check">Yes</td><td class="cross">No</td><td class="check">Yes</td></tr>
+  <tr><td>Research digest/newsletter</td><td class="cross">No</td><td class="check">Yes</td><td class="cross">No</td><td class="check">Yes</td></tr>
+  <tr><td>30+ directory listings</td><td class="cross">No</td><td class="cross">No</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+  <tr><td>Product Hunt launch</td><td class="cross">No</td><td class="cross">No</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+  <tr><td>Reddit strategy</td><td class="cross">No</td><td class="cross">No</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+  <tr><td>ChatGPT Apps integration</td><td class="cross">No</td><td class="cross">No</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+  <tr><td>AI monitoring dashboard</td><td class="cross">No</td><td class="cross">No</td><td class="check">Yes</td><td class="check">Yes</td></tr>
+  <tr><td>Server-side 301 redirects</td><td class="check">Yes</td><td class="cross">No</td><td class="cross">No</td><td class="check">Yes</td></tr>
+</table>
+
+<h3>ROI Projection (Qualitative)</h3>
+<table>
+  <tr>
+    <th>Metric</th>
+    <th><span class="badge badge-blue">A</span></th>
+    <th><span class="badge badge-purple">B</span></th>
+    <th><span class="badge badge-orange">C</span></th>
+    <th><span class="badge badge-green">D</span></th>
+  </tr>
+  <tr><td>Organic traffic (6mo)</td><td>+20&ndash;50%</td><td><strong>+200&ndash;500%</strong></td><td>+50&ndash;100%</td><td><strong>+300&ndash;600%</strong></td></tr>
+  <tr><td>AI recommendation rate</td><td>Low</td><td>Medium</td><td><strong>High</strong></td><td><strong>High</strong></td></tr>
+  <tr><td>Backlink acquisition</td><td>Minimal</td><td><strong>High</strong></td><td>Medium</td><td><strong>High</strong></td></tr>
+  <tr><td>Brand authority</td><td>Low</td><td><strong>High</strong></td><td>Medium-High</td><td><strong>High</strong></td></tr>
+  <tr><td>Conversion rate impact</td><td>Low</td><td>Medium</td><td><strong>High (23x)</strong></td><td><strong>High</strong></td></tr>
+  <tr><td>Sustainability</td><td>Foundation only</td><td>Self-sustaining flywheel</td><td>Requires ongoing effort</td><td><strong>Self-sustaining + AI compounding</strong></td></tr>
+</table>
+
+<!-- ============================================================ -->
+<hr class="section-divider">
+
+<h2 id="recommendation">8. Recommendation</h2>
+
+<table>
+  <tr><th>If&hellip;</th><th>Then&hellip;</th></tr>
+  <tr><td>Time is very limited (&lt;5 hrs/wk)</td><td><span class="badge badge-blue">Plan A</span> &mdash; fix the foundation; everything else is wasted without it</td></tr>
+  <tr><td>You can write or have a writer (10&ndash;15 hrs/wk)</td><td><span class="badge badge-purple">Plan B</span> &mdash; content is proven, and your evidence database is the unfair advantage</td></tr>
+  <tr><td>You want to bet on the future (8&ndash;10 hrs/wk)</td><td><span class="badge badge-orange">Plan C</span> &mdash; AI discovery is growing 527% YoY and converts 23x higher</td></tr>
+  <tr><td>You're going all-in on growth</td><td><span class="badge badge-green">Plan D</span> &mdash; but note Plan A is a prerequisite anyway</td></tr>
+</table>
+
+<div class="callout callout-success">
+  <strong>Best sequencing if doing incrementally:</strong><br>
+  <strong>A first</strong> (weeks 1&ndash;4) &rarr; <strong>C next</strong> (weeks 4&ndash;8) &rarr; <strong>B last</strong> (weeks 8+)<br><br>
+  Technical foundation enables everything. GEO has faster feedback loops than content SEO. Content is the long-term compounding asset built on top.
+</div>
+
+<!-- ============================================================ -->
+<hr class="section-divider">
+
+<h2 id="sources">9. Sources</h2>
+
+<h4>SEO Best Practices</h4>
+<ul>
+  <li>Technical SEO in 2026: Core Web Vitals, Crawlability &mdash; cozychronicle.wordpress.com</li>
+  <li>Core Web Vitals Optimization Guide 2026 &mdash; skyseodigital.com</li>
+  <li>Technical SEO Guide 2026 &mdash; involvedigital.com</li>
+  <li>SEO Trends for Health &amp; Wellness 2026 &mdash; hyerstudios.com</li>
+  <li>E-E-A-T SEO Healthcare Content &mdash; healthus.ai</li>
+  <li>YMYL Content Guidelines 2026 &mdash; koanthic.com</li>
+  <li>SaaS SEO Strategy Guide 2026 &mdash; almcorp.com</li>
+  <li>SaaS Directory Backlink Strategy 2026 &mdash; equanax.com</li>
+  <li>SoftwareApplication Schema Guide &mdash; ranksightai.com</li>
+  <li>Schema Markup for Healthcare SEO &mdash; healthcaresuccess.com</li>
+  <li>47 SEO Best Practices 2026 &mdash; almcorp.com</li>
+  <li>INP Optimization &mdash; web.dev</li>
+</ul>
+
+<h4>Generative Engine Optimization (GEO)</h4>
+<ul>
+  <li>GEO Best Practices 2026 &mdash; gen-optima.com</li>
+  <li>Generative Engine Optimization Guide &mdash; frase.io</li>
+  <li>GEO Guide 2026 &mdash; foundationinc.co</li>
+  <li>GEO 2026 &mdash; llmrefs.com</li>
+  <li>GEO Everything You Need to Know 2026 &mdash; insightland.org</li>
+  <li>Mastering GEO in 2026 &mdash; searchengineland.com</li>
+  <li>How AI Chooses Which Brands to Recommend &mdash; searchenginejournal.com</li>
+  <li>How LLMs Source Brand Information (23,000+ Citations) &mdash; beomniscient.com</li>
+  <li>Reddit ChatGPT Influence 2025 &mdash; discoveredlabs.com</li>
+  <li>Top 10 Most Cited Domains by AI Assistants &mdash; ahrefs.com</li>
+  <li>The Future of Discoverability &mdash; BCG X</li>
+  <li>How Brands Manipulate ChatGPT &mdash; ppc.land</li>
+  <li>Schema &amp; Structured Data for LLM Visibility &mdash; quoleady.com</li>
+  <li>llms.txt for SEO &mdash; neilpatel.com</li>
+</ul>
+
+<h4>AI Platform Specifics</h4>
+<ul>
+  <li>ChatGPT Product Recommendations &mdash; blog.hubspot.com</li>
+  <li>How to Make ChatGPT Recommend Your Products &mdash; entrepreneur.com</li>
+  <li>Claude AI Citations &mdash; hashmeta.com</li>
+  <li>Claude Brand Visibility &mdash; adsx.com</li>
+  <li>Introducing ChatGPT Health &mdash; openai.com</li>
+  <li>Introducing Apps in ChatGPT &mdash; openai.com</li>
+  <li>The Perplexity Playbook &mdash; agenxus.com</li>
+  <li>Perplexity Optimization &mdash; upgrowth.in</li>
+  <li>GEO for Tech Brands 2026 &mdash; cracklepr.com</li>
+  <li>The Apps Inside ChatGPT Playbook &mdash; fantasy.co</li>
+</ul>
+
+<h4>Competitor &amp; Market Research</h4>
+<ul>
+  <li>Best AI Fitness Apps 2026 &mdash; sensai.fit, fitbod.me, techwhoop.com</li>
+  <li>Nutrition Tracking Apps 2026 &mdash; nutrola.app</li>
+  <li>MacroFactor vs Cal AI &mdash; macrofactor.com</li>
+  <li>Examine.com Traffic Analytics &mdash; semrush.com</li>
+  <li>Noom Growth to $500M &mdash; growthmodels.co</li>
+  <li>Freeletics Marketing Strategy &mdash; canvasbusinessmodel.com</li>
+  <li>AI Directories List &mdash; listmyai.net</li>
+  <li>SaaS Directories 2026 &mdash; saasconsult.co</li>
+  <li>Health &amp; Fitness Tech Startups &mdash; omdena.com</li>
+  <li>Calculator Sites Dominating SEO &mdash; creativewidgets.io</li>
+  <li>100+ AI SEO Statistics 2026 &mdash; seomator.com</li>
+</ul>
+
+<br><br>
+<p style="color:var(--text-muted); text-align:center; font-size:0.85rem; border-top:1px solid var(--border); padding-top:20px;">
+  Generated April 2026 &bull; No changes applied &bull; All plans are research-only pending approval
+</p>
+
+</body>
+</html>
