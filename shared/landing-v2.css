@@ -626,3 +626,18 @@ h1.headline {
     padding-right: 0;
   }
 }
+
+/* ---- Health disclaimer inside footer-rich ---- */
+.footer-disclaimer {
+  max-width: 680px;
+  margin: 32px auto 0;
+  padding: 16px 0 0;
+  border-top: 1px solid var(--line, rgba(255,255,255,0.06));
+  font-size: 0.8rem;
+  color: var(--muted, #8b949e);
+  line-height: 1.6;
+}
+.footer-disclaimer strong {
+  color: var(--ink, #e6edf3);
+  font-weight: 600;
+}
