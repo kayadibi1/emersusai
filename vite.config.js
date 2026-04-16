@@ -34,6 +34,7 @@ const htmlEntries = [
   "contact/index.html",
   "consumer-health-data/index.html",
   "demo/index.html",
+  "editorial-policy/index.html",
   "privacy/index.html",
   "terms/index.html",
 ];
