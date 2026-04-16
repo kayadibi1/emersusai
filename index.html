@@ -149,6 +149,54 @@
   "screenshot": "https://emersus.ai/og-image.png"
 }
 </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where do the citations actually come from?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Retrieval runs over 1M+ indexed papers from PubMed, bioRxiv, medRxiv, CORE, and Semantic Scholar. Every citation points back to a real, resolvable DOI or PubMed ID — not a fabricated reference."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do you decide what's credible?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Reranking weights study design, sample size, replication, RCR (relative citation ratio), and journal quality. Meta-analyses outrank single underpowered trials. Anecdotes, blog posts, and popular-press articles never enter the retrieval pool."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if the evidence is mixed or insufficient?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The model flags it explicitly. If no strong studies exist, you'll see an \"insufficient evidence\" label rather than a fabricated confident answer. Honest uncertainty beats false confidence every time."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does personalization work?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Your training history, equipment, injuries, and goals shape every protocol. The model doesn't recommend a barbell program if you only have dumbbells — and it respects constraints without fighting them."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What about very new research?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The corpus refreshes daily. New preprints on bioRxiv and medRxiv surface within 24 hours of indexing, flagged as \"preprint — not yet peer-reviewed\" so you can weigh them accordingly."
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body class="landing-v2-body">
 
