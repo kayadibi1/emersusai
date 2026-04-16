@@ -11,19 +11,28 @@ begin;
 
 create extension if not exists vector;
 
--- ── Extend guardrail_events.event_type check to accept 'memory_bulk_delete'
--- The existing check (from 20260405_guardrail_events.sql) lists four values.
--- We drop-and-recreate; idempotent if this migration is re-applied.
+-- ── Extend guardrail_events.event_type check to accept 'memory_bulk_delete'.
+-- Preserves every value added by prior migrations (20260405_guardrail_events,
+-- 20260409_guardrail_events_hard_refusal, 20260410_guardrail_events_bot_cooldown).
+-- Drop-and-recreate; idempotent if this migration is re-applied.
 alter table public.guardrail_events
   drop constraint if exists guardrail_events_event_type_check;
 
 alter table public.guardrail_events
   add constraint guardrail_events_event_type_check
   check (event_type in (
+    -- legacy values
     'allowed_with_caution',
     'medical_boundary',
     'disallowed_unsafe',
     'prompt_injection_or_system_probe',
+    'off_topic',
+    -- post-overhaul
+    'hard_refusal',
+    -- bot-detection
+    'guardrail_cooldown',
+    'suspected_bot',
+    -- memory subsystem (this migration)
     'memory_bulk_delete'
   ));
 
