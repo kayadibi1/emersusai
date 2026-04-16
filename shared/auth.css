@@ -4,7 +4,7 @@
  * when the legacy auth pages are still served as a fallback.
  */
 
-body.auth-v2-body {
+body.auth-body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);

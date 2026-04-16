@@ -2,7 +2,7 @@
  * Loaded by /app/nutrition/index-v2.html. Scoped under :root.
  */
 
-body.nutrition-v2-body {
+body.nutrition-body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);

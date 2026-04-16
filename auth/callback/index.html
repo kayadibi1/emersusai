@@ -12,7 +12,7 @@
   <meta name="theme-color" content="#0e1117">
   <link rel="manifest" href="/manifest.webmanifest">
   <title>Signing in | Emersus AI</title>
-  <!-- no-flash-boot: resolves data-theme + v2 attrs pre-paint -->
+  <!-- no-flash-boot: resolves data-theme pre-paint -->
   <script>
     (function () {
       var H = document.documentElement;
@@ -24,11 +24,6 @@
         var theme = (saved === 'mint' || saved === 'paper') ? saved : 'paper';
         H.setAttribute('data-theme', theme);
       } catch (_) { H.setAttribute('data-theme', 'paper'); }
-      // Phase-2 redesign data attributes — still set unconditionally until
-      // Phase 3 rescopes the CSS to drop the [data-X-v2="1"] prefixes.
-      ['chat-v2','train-v2','nutrition-v2','profile-v2','progress-v2','auth-v2','public-v2'].forEach(function (f) {
-        H.setAttribute('data-' + f, '1');
-      });
       // Auth pre-paint gate for /app/**. Without this, an unauthenticated
       // visitor clicking "Chat" sees the full chat UI flash for ~300 ms
       // (React mounts before the async requireAuth() -> config fetch chain
@@ -60,14 +55,14 @@
   <link rel="stylesheet" href="/shared/chrome.css">
   <link rel="stylesheet" href="/shared/auth.css">
   <style>
-    [data-auth-v2="1"] .callback-wrap {
+    .callback-wrap {
       min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       padding: 40px 24px;
     }
-    [data-auth-v2="1"] .callback-card {
+    .callback-card {
       max-width: 420px;
       width: 100%;
       text-align: center;
@@ -75,7 +70,7 @@
       flex-direction: column;
       gap: 12px;
     }
-    [data-auth-v2="1"] .callback-kicker {
+    .callback-kicker {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 10px;
       letter-spacing: 0.28em;
@@ -83,7 +78,7 @@
       color: var(--accent);
       margin: 0;
     }
-    [data-auth-v2="1"] .callback-title {
+    .callback-title {
       font-size: 32px;
       font-weight: 500;
       letter-spacing: -0.02em;
@@ -91,7 +86,7 @@
       color: var(--ink);
       margin: 0;
     }
-    [data-auth-v2="1"] .callback-status {
+    .callback-status {
       font-size: 15px;
       line-height: 1.55;
       color: var(--muted);
@@ -99,7 +94,7 @@
     }
   </style>
 </head>
-<body class="auth-v2-body">
+<body class="auth-body">
   <main class="callback-wrap">
     <section class="callback-card" data-auth-callback>
       <p class="callback-kicker">Authenticating</p>

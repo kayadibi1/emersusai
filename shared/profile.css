@@ -3,7 +3,7 @@
  * via the inline boot script in the HTML.
  */
 
-body.profile-v2-body {
+body.profile-body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);

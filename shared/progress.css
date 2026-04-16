@@ -2,7 +2,7 @@
  * Loaded by /app/progress/index-v2.html. Scoped under :root.
  */
 
-body.progress-v2-body {
+body.progress-body {
   margin: 0; background: var(--bg); color: var(--ink);
   font-family: 'Space Grotesk', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased; min-height: 100vh; overflow-x: hidden;

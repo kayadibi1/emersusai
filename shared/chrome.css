@@ -693,18 +693,18 @@
 
 /* Page content sits to the right of the 280px sidebar. Keyed off
  * page-specific body classes so the chat page is unaffected. */
-body.train-v2-body,
-body.nutrition-v2-body,
-body.progress-v2-body,
-body.profile-v2-body {
+body.train-body,
+body.nutrition-body,
+body.progress-body,
+body.profile-body {
   padding-left: 280px;
 }
 @media (max-width: 900px) {
   .app-sidebar { display: none; }
-  body.train-v2-body,
-  body.nutrition-v2-body,
-  body.progress-v2-body,
-  body.profile-v2-body { padding-left: 0; }
+  body.train-body,
+  body.nutrition-body,
+  body.progress-body,
+  body.profile-body { padding-left: 0; }
 }
 
 /* Mobile tab-bar: existing .tabs uses gap: 40px + no wrap rule, which
