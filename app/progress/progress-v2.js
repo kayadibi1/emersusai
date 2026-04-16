@@ -137,6 +137,47 @@ function ComingSoon({ title, hint }) {
   );
 }
 
+// Skeleton shown before auth session is ready.
+function ProgressSkeleton() {
+  return h("div", { className: "pg-shell", "aria-busy": "true", "aria-label": "Loading progress" },
+    h("header", { className: "pg-page-head skel-stack gap-6" },
+      h("div", { className: "skel skel-line xl w-40" }),
+      h("div", { className: "skel skel-line w-55" }),
+    ),
+    h("nav", { className: "pg-modality-tabs skel-row wrap" },
+      Array.from({ length: 4 }).map((_, i) =>
+        h("span", { key: i, className: "skel skel-pill lg" }))),
+    h("nav", { className: "pg-period-pills skel-row wrap" },
+      Array.from({ length: 4 }).map((_, i) =>
+        h("span", { key: i, className: "skel skel-pill" }))),
+    h(ProgressBodySkeleton),
+  );
+}
+
+// Body-only skeleton (when the period/modality tabs are real but data is fetching).
+function ProgressBodySkeleton() {
+  return h("div", { className: "pg-body-skeleton skel-stack gap-20", "aria-busy": "true" },
+    // Personal records: 4 cards
+    h("section", { className: "pg-section skel-stack gap-14" },
+      h("div", { className: "skel skel-line lg w-25" }),
+      h("div", { className: "pg-pr-grid skel-row wrap" },
+        Array.from({ length: 4 }).map((_, i) =>
+          h("div", { key: i, className: "skel skel-block h-120", style: { flex: "1 1 180px", minWidth: 180 } }))),
+    ),
+    // Streak + fuel gauge row
+    h("section", { className: "pg-section skel-stack gap-14" },
+      h("div", { className: "skel skel-line lg w-20" }),
+      h("div", { className: "skel skel-block h-160" }),
+    ),
+    // Recent sessions
+    h("section", { className: "pg-section skel-stack gap-14" },
+      h("div", { className: "skel skel-line lg w-30" }),
+      Array.from({ length: 3 }).map((_, i) =>
+        h("div", { key: i, className: "skel skel-block h-60" })),
+    ),
+  );
+}
+
 function ProgressApp() {
   const [filters, setFilters] = useState(() => parseUrl(window.location.search));
   const [session, setSession] = useState(null);
@@ -176,7 +217,7 @@ function ProgressApp() {
     window.history.pushState({}, "", url || window.location.pathname);
   };
 
-  if (!session) return h("div", { className: "pg-loading" }, "Loading…");
+  if (!session) return h(ProgressSkeleton);
 
   return h("div", { className: "pg-shell" },
     h("header", { className: "pg-page-head" },
@@ -201,7 +242,7 @@ function ProgressApp() {
     ),
 
     error ? h("p", { className: "pg-error" }, error) : null,
-    loading ? h("p", { className: "pg-loading" }, "Loading…") : null,
+    loading ? h(ProgressBodySkeleton) : null,
 
     !loading && data ? h(React.Fragment, null,
       // Personal records

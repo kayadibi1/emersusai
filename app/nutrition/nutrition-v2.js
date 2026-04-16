@@ -27,6 +27,44 @@ const QUICK_LOG_ITEMS = [
 
 function todayIso() { return new Date().toISOString().slice(0, 10); }
 
+// Full-page skeleton (shown before session resolves).
+function NutritionSkeleton() {
+  return h("div", { className: "nu-shell", "aria-busy": "true", "aria-label": "Loading nutrition" },
+    h("nav", { className: "nu-tabs skel-row wrap" },
+      Array.from({ length: 5 }).map((_, i) =>
+        h("span", { key: i, className: "skel skel-pill lg" }))),
+    h(NutritionTodaySkeleton),
+  );
+}
+
+// "Today" tab skeleton: fuel gauge + next-up card + water/supps strip + three meal slots.
+function NutritionTodaySkeleton() {
+  return h("div", { className: "nu-today-skeleton skel-stack gap-20", "aria-busy": "true" },
+    // Fuel gauge: big number + 3 macro rings
+    h("section", { className: "skel-stack gap-14" },
+      h("div", { className: "skel skel-line xl w-40" }),
+      h("div", { className: "skel-row gap-20" },
+        h("div", { className: "skel skel-circle ring" }),
+        h("div", { className: "skel skel-circle ring" }),
+        h("div", { className: "skel skel-circle ring" }),
+      ),
+    ),
+    // Next-up card
+    h("div", { className: "skel skel-block h-120" }),
+    // Water + supplements row
+    h("div", { className: "skel-row gap-12" },
+      h("div", { className: "skel skel-block h-60", style: { flex: 1 } }),
+      h("div", { className: "skel skel-block h-60", style: { flex: 1 } }),
+    ),
+    // Three meal rows
+    h("div", { className: "skel-stack gap-14" },
+      h("div", { className: "skel skel-line lg w-25" }),
+      Array.from({ length: 3 }).map((_, i) =>
+        h("div", { key: i, className: "skel skel-block h-60" })),
+    ),
+  );
+}
+
 function useNutritionDay(accessToken) {
   const [date, setDate] = useState(todayIso());
   const [data, setData] = useState(null);
@@ -296,7 +334,7 @@ function NutritionApp() {
     window.history.pushState({}, "", qs ? `?${qs}` : window.location.pathname);
   }
 
-  if (!session) return h("div", { className: "nu-loading" }, "Loading…");
+  if (!session) return h(NutritionSkeleton);
 
   return h("div", { className: "nu-shell" },
     h("nav", { className: "nu-tabs", role: "tablist" },
@@ -314,7 +352,7 @@ function NutritionApp() {
     tab === "today" ? h("div", { className: "nu-tab-body" },
       h(DateNavigator, { date: day.date, setDate: day.setDate }),
       day.loading
-        ? h("p", { className: "nu-loading" }, "Loading…")
+        ? h(NutritionTodaySkeleton)
         : day.error
           ? h("p", { className: "nu-error" }, day.error)
           : h(React.Fragment, null,

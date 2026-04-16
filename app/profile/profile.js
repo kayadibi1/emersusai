@@ -439,6 +439,39 @@ function Header({ profile, saving }) {
   );
 }
 
+function ProfileSkeleton() {
+  return h("div", { className: "pf-shell", "aria-busy": "true", "aria-label": "Loading profile" },
+    // Header: avatar + name + meta pills
+    h("header", { className: "pf-header" },
+      h("div", { className: "skel skel-circle lg" }),
+      h("div", { className: "pf-header-meta skel-stack" },
+        h("div", { className: "skel skel-line xl w-40" }),
+        h("div", { className: "skel-row gap-6" },
+          h("div", { className: "skel skel-pill sm" }),
+          h("div", { className: "skel skel-pill" }),
+          h("div", { className: "skel skel-pill lg" }),
+        ),
+      ),
+    ),
+    // Tab bar
+    h("nav", { className: "pf-tabs" },
+      Array.from({ length: 6 }).map((_, i) =>
+        h("span", { key: i, className: "skel skel-pill lg", style: { marginRight: 12 } }),
+      ),
+    ),
+    // Three form sections: label + 2-3 input rows each
+    h("div", { className: "pf-tab" },
+      Array.from({ length: 3 }).map((_, s) =>
+        h("div", { key: s, className: "pf-section skel-stack gap-14", style: { marginBottom: 24 } },
+          h("div", { className: "skel skel-line lg w-30" }),
+          h("div", { className: "skel skel-block h-60" }),
+          h("div", { className: "skel skel-block h-60" }),
+        ),
+      ),
+    ),
+  );
+}
+
 function ProfileApp() {
   const [tab, setTab] = useState(() => {
     const params = new URLSearchParams(window.location.search);
@@ -463,7 +496,7 @@ function ProfileApp() {
   }
 
   if (loading) {
-    return h("div", { className: "pf-shell pf-loading" }, "Loading profile…");
+    return h(ProfileSkeleton);
   }
   if (error || !profile) {
     return h("div", { className: "pf-shell pf-error" },
