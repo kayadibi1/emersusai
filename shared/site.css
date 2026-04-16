@@ -2549,3 +2549,22 @@ button.primary {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---- Health disclaimer footer (E-E-A-T / YMYL) ---- */
+.site-footer {
+  padding: 32px 24px 48px;
+  border-top: 1px solid var(--line, rgba(255,255,255,0.06));
+  margin-top: 48px;
+}
+.footer-disclaimer {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 16px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted, #8b949e);
+  line-height: 1.6;
+}
+.footer-disclaimer strong {
+  color: var(--ink, #e6edf3);
+  font-weight: 600;
+}
