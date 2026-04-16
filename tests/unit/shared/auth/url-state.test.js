@@ -4,7 +4,7 @@ import { parseAuthUrl, buildAuthUrl, PANELS } from '../../../../shared/auth/url-
 
 describe('auth url-state', () => {
   test('default panel is login', () => {
-    assert.deepEqual(parseAuthUrl(''), { panel: 'login', token: '' });
+    assert.deepEqual(parseAuthUrl(''), { panel: 'login' });
   });
 
   test('explicit panels round-trip', () => {
@@ -14,21 +14,17 @@ describe('auth url-state', () => {
     }
   });
 
-  test('token alone implies invite panel', () => {
-    assert.deepEqual(parseAuthUrl('?token=xyz'), { panel: 'invite', token: 'xyz' });
-  });
-
-  test('explicit invite + token', () => {
-    assert.deepEqual(parseAuthUrl('?panel=invite&token=abc'), { panel: 'invite', token: 'abc' });
-  });
-
   test('rejects unknown panel', () => {
     assert.equal(parseAuthUrl('?panel=fishing').panel, 'login');
   });
 
-  test('build omits default panel + empty token', () => {
+  test('build omits default panel', () => {
     assert.equal(buildAuthUrl({ panel: 'login' }), '');
     assert.equal(buildAuthUrl({ panel: 'forgot' }), '?panel=forgot');
-    assert.equal(buildAuthUrl({ panel: 'invite', token: 'x' }), '?panel=invite&token=x');
+    assert.equal(buildAuthUrl({ panel: 'signup' }), '?panel=signup');
+  });
+
+  test('PANELS contains login, signup, forgot', () => {
+    assert.deepEqual(PANELS.sort(), ['forgot', 'login', 'signup']);
   });
 });

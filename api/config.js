@@ -22,7 +22,6 @@ export default async function handler(req, res) {
     supabaseUrl,
     supabaseAnonKey,
     mapboxPublicToken: process.env.MAPBOX_PUBLIC_TOKEN || null,
-    turnstileSiteKey: process.env.TURNSTILE_SITE_KEY || null,
     // Marketing-display corpus stats. Operator overrides via env var when
     // the figures move; otherwise falls back to the figures used on the
     // public landing page.

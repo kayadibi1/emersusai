@@ -311,17 +311,6 @@
   align-self: flex-start;
 }
 
-[data-auth-v2="1"] .auth-callout {
-  background: var(--accent-soft);
-  border: 1px solid var(--accent-line);
-  border-radius: 10px;
-  padding: 12px 14px;
-  font-size: 13px;
-  color: var(--ink);
-  line-height: 1.5;
-}
-[data-auth-v2="1"] .auth-callout strong { color: var(--accent); }
-
 [data-auth-v2="1"] .auth-tos {
   margin: 0;
   font-size: 11px;
@@ -343,8 +332,6 @@
 [data-auth-v2="1"] .auth-panel-foot p { margin: 0; }
 [data-auth-v2="1"] .auth-panel-foot a { color: var(--accent); text-decoration: none; }
 [data-auth-v2="1"] .auth-panel-foot a:hover { text-decoration: underline; }
-[data-auth-v2="1"] .auth-foot-muted { color: var(--dim); }
-
 [data-auth-v2="1"] .auth-success {
   text-align: center;
   padding: 24px 16px;
@@ -366,20 +353,6 @@
   letter-spacing: 0;
   font-family: inherit;
   font-size: 13px;
-}
-
-[data-auth-v2="1"] .auth-invite-status {
-  text-align: center;
-  padding: 14px 16px;
-  background: var(--surface-faint);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  color: var(--muted);
-  font-size: 13px;
-}
-[data-auth-v2="1"] .auth-invite-status.is-error {
-  border-color: var(--danger, #ef4444);
-  color: var(--danger, #ef4444);
 }
 
 /* Mobile zoom guard: below 640 px, bump form-field font-size to 16 px
@@ -412,10 +385,9 @@
 /* ========================================================================== */
 
 @media (max-width: 900px) {
-  /* Hide the brand pane ("Trained on the literature." + stats) on the
-   * login, request-access, forgot, and every other auth panel — mobile
-   * users should land directly on the form, not scroll past brand
-   * content. auth-shell collapses to 1fr in the rule above so the form
-   * takes full width. */
+  /* Hide the brand pane ("Trained on the literature." + stats) on every
+   * auth panel — mobile users should land directly on the form, not
+   * scroll past brand content. auth-shell collapses to 1fr in the rule
+   * above so the form takes full width. */
   [data-auth-v2="1"] .auth-brand { display: none; }
 }

@@ -181,7 +181,7 @@ setInterval(() => {
 // --- General-purpose rate limiter for public endpoints ---
 // Lighter than the recommendation rate limiter: no bot scoring, no
 // question hashing. Used for unauthenticated POST endpoints like
-// contact, waitlist, check-email, notify-signup.
+// contact, check-email, notify-signup.
 
 const publicRateLimitStore = new Map();
 

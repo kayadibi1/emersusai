@@ -454,77 +454,6 @@ body:hover::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2)
   align-items: center;
 }
 
-.waitlist-form {
-  display: inline-grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  width: min(420px, 100%);
-  margin: 2.5rem auto 0;
-  gap: 0.5rem;
-}
-
-.waitlist-form input {
-  width: 100%;
-  border: 1px solid var(--line);
-  border-radius: 6px;
-  background: var(--surface);
-  color: var(--ink);
-  padding: 0.75rem 1.2rem;
-  font: inherit;
-  font-size: 0.88rem;
-  outline: none;
-}
-
-.waitlist-form input:focus {
-  border-color: var(--accent-line);
-}
-
-.waitlist-form input::placeholder {
-  color: var(--dim);
-}
-
-.waitlist-form button {
-  border: none;
-  border-radius: 6px;
-  background: var(--accent);
-  color: var(--bg);
-  padding: 0.75rem 1.8rem;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  cursor: pointer;
-}
-
-.waitlist-captcha {
-  grid-column: 1 / -1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.45rem;
-  min-height: 70px;
-}
-
-.waitlist-captcha > div {
-  min-height: 65px;
-}
-
-.waitlist-feedback {
-  min-height: 1.4rem;
-  margin-top: 0.8rem;
-  font-family: var(--mono);
-  font-size: 0.65rem;
-  color: var(--muted);
-}
-
-.waitlist-feedback.is-success {
-  color: var(--accent);
-}
-
-.waitlist-feedback.is-error {
-  color: var(--danger);
-}
-
 /* ─── FOOTER ─── */
 
 .footer {
@@ -560,14 +489,6 @@ body:hover::-webkit-scrollbar-thumb:hover { background: rgba(255, 255, 255, 0.2)
   .steps,
   .quote-grid {
     grid-template-columns: 1fr;
-  }
-
-  .waitlist-form {
-    grid-template-columns: 1fr;
-  }
-
-  .waitlist-form button {
-    padding: 0.75rem;
   }
 
   .footer {
