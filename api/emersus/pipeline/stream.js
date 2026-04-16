@@ -82,14 +82,16 @@ function processEvent(event, state) {
         const toolBuf = state.toolBuffers[callId];
         const toolName = event.item.name || toolBuf?.name || "unknown";
 
+        const argsStr = event.item.arguments || (toolBuf?.chunks.join("") ?? "");
+
         // Server-side tools (e.g. get_user_profile): queue for follow-up,
         // don't forward to the client.
         if (SERVER_SIDE_TOOLS.has(toolName)) {
-          if (state.serverToolCalls) state.serverToolCalls.push({ callId, name: toolName });
+          let args = null;
+          try { args = JSON.parse(argsStr); } catch {}
+          if (state.serverToolCalls) state.serverToolCalls.push({ callId, name: toolName, args });
           break;
         }
-
-        const argsStr = event.item.arguments || (toolBuf?.chunks.join("") ?? "");
         let args;
         try { args = JSON.parse(argsStr); } catch (parseErr) {
           console.error(`Tool JSON parse failed for ${toolName}:`, parseErr.message, argsStr.slice(0, 200));
@@ -163,17 +165,27 @@ function compactProfile(profile) {
  * request using previous_response_id so the model can continue generating.
  */
 async function resolveAndContinue(state, ctx) {
-  const toolOutputs = state.serverToolCalls.map((tc) => {
+  const toolOutputs = [];
+  for (const tc of state.serverToolCalls) {
     if (tc.name === "get_user_profile") {
       const profile = compactProfile(ctx.profile);
-      return {
+      toolOutputs.push({
         type: "function_call_output",
         call_id: tc.callId,
         output: JSON.stringify(profile || { note: "No profile data saved yet. Use defaults." }),
-      };
+      });
+    } else if (tc.name === "update_user_profile") {
+      if (tc.args && typeof tc.args === "object") {
+        if (!ctx._profileUpdates) ctx._profileUpdates = {};
+        Object.assign(ctx._profileUpdates, tc.args);
+      }
+      toolOutputs.push({
+        type: "function_call_output",
+        call_id: tc.callId,
+        output: JSON.stringify({ status: "saved" }),
+      });
     }
-    return null;
-  }).filter(Boolean);
+  }
 
   // Reset for next round
   state.serverToolCalls = [];
