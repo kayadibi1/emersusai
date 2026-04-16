@@ -1,11 +1,12 @@
 // scripts/inject-no-flash-boot.js
 // Injects a synchronous pre-paint <script> into the <head> of every HTML
-// entry listed in vite.config.js. The script resolves data-theme + every v2
-// flag from localStorage/URL BEFORE CSS loads, eliminating the FOUC caused
-// by deferred module scripts.
+// entry listed below. The script resolves data-theme + sets the v2-era data
+// attributes BEFORE CSS loads, eliminating the FOUC caused by deferred
+// module scripts. The data-*-v2="1" attributes are still set during the
+// transition until Phase 3 of the v2 cleanup rescopes the CSS rules.
 //
 // Idempotent: detects the sentinel comment and skips already-injected files.
-// Run: node scripts/inject-no-flash-boot.js [--dry-run]
+// Run: node scripts/inject-no-flash-boot.js [--dry-run] [--force]
 
 import fs from "node:fs";
 import path from "node:path";
@@ -48,9 +49,11 @@ const HTML_ENTRIES = [
   "demo/index.html",
   "privacy/index.html",
   "terms/index.html",
+  "about/index.html",
+  "editorial-policy/index.html",
 ];
 
-const SENTINEL = "<!-- no-flash-boot: resolves data-theme + v2 flags pre-paint -->";
+const SENTINEL = "<!-- no-flash-boot: resolves data-theme + v2 attrs pre-paint -->";
 
 const BOOT_BLOCK = `  ${SENTINEL}
   <script>
@@ -64,24 +67,11 @@ const BOOT_BLOCK = `  ${SENTINEL}
         var theme = (saved === 'mint' || saved === 'paper') ? saved : 'paper';
         H.setAttribute('data-theme', theme);
       } catch (_) { H.setAttribute('data-theme', 'paper'); }
-      try {
-        var url = new URLSearchParams(location.search);
-        var stored = {};
-        try { stored = JSON.parse(localStorage.getItem('emersus-flags') || '{}') || {}; } catch (_) {}
-        var FLAGS = ['chat_v2','train_v2','nutrition_v2','profile_v2','progress_v2','auth_v2','public_v2','conversational_onboarding'];
-        FLAGS.forEach(function (flag) {
-          var raw = url.get(flag);
-          var val = (raw === '0' || raw === 'false') ? false
-            : (raw === '1' || raw === 'true') ? true
-            : (typeof stored[flag] === 'boolean') ? stored[flag]
-            : true;
-          if (val) H.setAttribute('data-' + flag.replace(/_/g, '-'), '1');
-        });
-      } catch (_) {
-        ['chat-v2','train-v2','nutrition-v2','profile-v2','progress-v2','auth-v2','public-v2','conversational-onboarding'].forEach(function (f) {
-          H.setAttribute('data-' + f, '1');
-        });
-      }
+      // Phase-2 redesign data attributes — still set unconditionally until
+      // Phase 3 rescopes the CSS to drop the [data-X-v2="1"] prefixes.
+      ['chat-v2','train-v2','nutrition-v2','profile-v2','progress-v2','auth-v2','public-v2'].forEach(function (f) {
+        H.setAttribute('data-' + f, '1');
+      });
       // Auth pre-paint gate for /app/**. Without this, an unauthenticated
       // visitor clicking "Chat" sees the full chat UI flash for ~300 ms
       // (React mounts before the async requireAuth() -> config fetch chain
@@ -124,6 +114,9 @@ for (const rel of HTML_ENTRIES) {
   // file ends up with the canonical block. Sentinel match wins if present.
   const olderMarkers = [
     /\s*<!--\s*No-flash theme[\s\S]*?<\/script>\s*/,
+    // Pre-Phase-2 sentinel: the FLAGS-iterating boot block tagged with the
+    // older comment text. Strip so the new SENTINEL block can take its place.
+    /[ \t]*<!-- no-flash-boot: resolves data-theme \+ v2 flags pre-paint -->[\s\S]*?<\/script>\s*/,
   ];
   for (const re of olderMarkers) {
     const next = html.replace(re, "");
