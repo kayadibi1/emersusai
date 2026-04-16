@@ -2,7 +2,7 @@
 //
 // Layout (left → right):
 //   - Editable thread title (click to edit, Enter commits, Esc cancels)
-//   - Emersus 0.5 model pill → dropdown (Emersus 0.5 · Fast · Deep)
+//   - Emersus model pill → dropdown (Emersus · Fast · Deep)
 //   - N SOURCES CITED non-interactive pill
 //   - Share button
 //   - ⋯ overflow menu (Rename · Archive · Delete)
@@ -19,9 +19,9 @@ const h = React.createElement;
 const TITLE_MAX_LENGTH = 120;
 
 export const MODEL_OPTIONS = [
-  { id: "emersus-0.5", label: "Emersus 0.5", tier: "balanced" },
-  { id: "emersus-0.5-fast", label: "Emersus 0.5 · Fast", tier: "fast" },
-  { id: "emersus-0.5-deep", label: "Emersus 0.5 · Deep", tier: "deep" },
+  { id: "emersus-0.5", label: "Emersus", tier: "balanced" },
+  { id: "emersus-0.5-fast", label: "Emersus · Fast", tier: "fast" },
+  { id: "emersus-0.5-deep", label: "Emersus · Deep", tier: "deep" },
 ];
 
 const MODEL_IDS = new Set(MODEL_OPTIONS.map((m) => m.id));

@@ -580,7 +580,7 @@ If the labels don't have those classes, wrap the pill text in a `<span class="mo
 - [ ] **Step 3: Verify on 375 × 667.**
 
   - Title ellipsizes if long.
-  - Model pill shows just the pill + dot (no "Emersus 0.5" text).
+  - Model pill shows just the pill + dot (no "Emersus" text).
   - Sources pill shows just the count (no "sources cited" text).
   - Share icon no text.
   - ⋯ menu unchanged.

@@ -134,7 +134,7 @@ Brand mark: `EMERSUS` in JetBrains Mono 12.5px weight 600, letter-spacing 0.28em
 
 - Primary headline: **"Trained on the literature."** (double meaning: AI training + your training) — used on auth and secondary surfaces. Landing still uses "Your body deserves better than guesswork" as its hero.
 - Product positioning: **private beta** — no "Sign up free", instead `Request access`. Invite-gated with optional code to skip waitlist.
-- Model is branded **Emersus 0.5** in-product; the underlying GPT-5.4-mini is an implementation detail.
+- Model is branded **Emersus** in-product; the underlying GPT-5.4-mini is an implementation detail.
 - Contact email is **info@emersus.ai** only — subject-line routed (`?subject=Privacy`, etc.), not multiple fake addresses.
 - Auth supports **Google OAuth + email/password** on both login and request-access flows.
 
@@ -170,7 +170,7 @@ Mockup: `.superpowers/brainstorm/linear-landing/mockup-themes.html`.
 ### 2. Chat (`/app`, default home)
 
 - Sidebar (described above, Chat section active)
-- Top bar: thread title + **Emersus 0.5 ▾** (clickable model pill) + `3 SOURCES CITED` meta pill + Share / ⋯
+- Top bar: thread title + **Emersus ▾** (clickable model pill) + `3 SOURCES CITED` meta pill + Share / ⋯
 - Messages: mono `YOU` / `EMERSUS` labels + timestamps, body text, inline widgets (citation cards with `PUBMED ↗` / `DOI ↗` / `ASK FOLLOW-UP` footer actions, meal widgets with `Save to Nutrition →`)
 - Message actions (Copy / Cite / Regenerate / Save plan / Swap meal / Export) always visible at 55% opacity, brighter on hover
 - Streaming: `■ Stop` button replaces `Send` in composer; composer hint reads `GENERATING…`
@@ -346,10 +346,10 @@ Many places open a chat with a pre-populated prompt (empty-state chips, `Suggest
 
 #### Top bar
 - **Thread title** — editable inline (click to edit, `Enter` saves, `Esc` cancels). Mutation → `PATCH /api/threads/:id { title }`. If empty after edit, revert to "Untitled thread".
-- **`Emersus 0.5 ▾` model pill** — opens a dropdown with model choices.
-  - Options (initial): `Emersus 0.5` (balanced, default) · `Emersus 0.5 Fast` (quicker, less retrieval depth) · `Emersus 0.5 Deep` (slower, more aggressive retrieval).
-  - Under the hood, maps to `OPENAI_EMERSUS_MODEL` variants + retrieval-policy tier. Selection stored on the thread: `PATCH /api/threads/:id { model }`.
-  - New threads inherit the user's default (Profile → Preferences, not yet in the spec — add as a hidden default: use `Emersus 0.5`).
+- **`Emersus ▾` model pill** — opens a dropdown with model choices.
+  - Options (initial): `Emersus` (balanced, default) · `Emersus Fast` (quicker, less retrieval depth) · `Emersus Deep` (slower, more aggressive retrieval).
+  - Under the hood, maps to `OPENAI_EMERSUS_MODEL` variants + retrieval-policy tier. Selection stored on the thread: `PATCH /api/threads/:id { model }` (DB tier ids `emersus-0.5*` are kept stable for backwards compatibility).
+  - New threads inherit the user's default (Profile → Preferences, not yet in the spec — add as a hidden default: use the balanced `emersus-0.5` tier).
 - **`3 SOURCES CITED` pill** — non-interactive; displays count of unique citations served in the current thread. Updates live as the assistant streams new citations.
 - **`Share` button** — opens a share modal with three options:
   1. **Copy link** — generates a signed, public, read-only URL (`/share/t/<hash>`) that renders the thread as a static HTML page. Expires in 30 days by default. Endpoint: `POST /api/threads/:id/share { expires_days } → { url, expires_at }`.
@@ -744,7 +744,7 @@ For implementers — the new fields this spec assumes. If any don't exist, add m
 
 ### Feature flags (recommended per-phase rollout)
 
-- `chat_model_selector` — gate the Emersus 0.5 ▾ dropdown until multiple model tiers are wired.
+- `chat_model_selector` — gate the Emersus ▾ dropdown until multiple model tiers are wired.
 - `progress_benchmarks` — gate the Benchmark Bars section until the `benchmarks` table is seeded. Fall back to simple stat tiles otherwise.
 - `progress_training_load` — same — gate until the acute/chronic calc job is running.
 - `nutrition_quick_log` — gate the `+ Quick log` dropdown; fallback is just `+ Log a meal`.
@@ -795,7 +795,7 @@ Sign off on each page means: someone clicks every button, tries every form with 
 - Quiz/form-based onboarding (replaced with conversational)
 - Multiple fictional contact emails (use `info@emersus.ai` routed by subject)
 - "Sign up free" framing (this is private beta; use `Request access`)
-- "GPT-5.4-MINI" shown to users (brand as `Emersus 0.5`)
+- "GPT-5.4-MINI" shown to users (brand as `Emersus`)
 
 ---
 
