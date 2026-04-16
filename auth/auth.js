@@ -6,7 +6,7 @@
 // markup and add `data-auth-page` attribute on the panel root so auth-pages.js
 // finds it.
 
-import { parseAuthUrl, buildAuthUrl, PANELS } from "/shared/auth/url-state.js?v=redesign-7";
+import { parseAuthUrl, buildAuthUrl, PANELS } from "/shared/auth/url-state.js";
 
 const root = document.getElementById("auth-v2-root");
 const state = { panel: parseAuthUrl(window.location.search).panel };

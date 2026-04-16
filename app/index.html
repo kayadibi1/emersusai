@@ -68,15 +68,15 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
-  <link rel="stylesheet" href="/shared/chrome.css?v=redesign-1">
-  <link rel="stylesheet" href="/shared/skeleton.css?v=redesign-1">
+  <link rel="stylesheet" href="/shared/design-tokens.css">
+  <link rel="stylesheet" href="/shared/chrome.css">
+  <link rel="stylesheet" href="/shared/skeleton.css">
   <!-- chat-v2.css ships unconditionally — every rule is scoped under
        [data-chat-v2="1"], so it's a no-op until the boot script below sets
        the attribute. -->
-  <link rel="stylesheet" href="/shared/chat-v2.css?v=redesign-5">
+  <link rel="stylesheet" href="/shared/chat-v2.css">
   <script type="module">
-    import { bootTheme } from '/shared/theme.js?v=redesign-1';
+    import { bootTheme } from '/shared/theme.js';
     bootTheme();
     // data-chat-v2 and data-theme are already resolved by the synchronous
     // pre-paint script above. Module boot only re-syncs the theme in case

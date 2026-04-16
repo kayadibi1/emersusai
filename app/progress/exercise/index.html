@@ -71,11 +71,11 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
-  <link rel="stylesheet" href="/shared/chrome.css?v=redesign-1">
+  <link rel="stylesheet" href="/shared/design-tokens.css">
+  <link rel="stylesheet" href="/shared/chrome.css">
   <script type="module">
-    import { bootTheme } from '/shared/theme.js?v=redesign-1';
-    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-9';
+    import { bootTheme } from '/shared/theme.js';
+    import { resolveFlag } from '/shared/feature-flags.js';
     bootTheme();
     if (resolveFlag('progress_v2')) {
       window.location.replace('/app/progress/?drill=exercise' + window.location.search.replace(/^\?/, '&'));
