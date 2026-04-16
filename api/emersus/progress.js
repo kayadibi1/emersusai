@@ -295,6 +295,72 @@ async function loadMomentumCards(userId, profile) {
   return { items };
 }
 
+const BEESWARM_WEEKS = 8;
+const BEESWARM_EXERCISE_SLUG = "bench-press";
+
+async function loadBeeswarm(userId) {
+  if (!supabaseAdmin) return null;
+  const endDate = isoDaysAgo(0);
+  const startDate = isoDaysAgo(BEESWARM_WEEKS * 7);
+
+  const { data: ex } = await supabaseAdmin
+    .from("exercises")
+    .select("id, name")
+    .eq("slug", BEESWARM_EXERCISE_SLUG)
+    .maybeSingle();
+  if (!ex) return null;
+
+  const { data: logs } = await supabaseAdmin
+    .from("workout_logs")
+    .select("performed_at, load_kg, reps, rpe")
+    .eq("user_id", userId)
+    .eq("exercise_id", ex.id)
+    .gte("performed_at", startDate)
+    .lte("performed_at", endDate)
+    .order("performed_at", { ascending: true });
+
+  if (!logs || logs.length === 0) return null;
+
+  const { data: allLogs } = await supabaseAdmin
+    .from("workout_logs")
+    .select("load_kg, reps")
+    .eq("user_id", userId)
+    .eq("exercise_id", ex.id)
+    .order("load_kg", { ascending: false })
+    .limit(1);
+  const prLoadKg = allLogs && allLogs[0] ? Number(allLogs[0].load_kg) || 0 : 0;
+
+  // weekIndexFromDate from Task 2 uses MOMENTUM_WEEKS. We need BEESWARM_WEEKS here,
+  // so compute week_idx locally.
+  const endTs = new Date(endDate + "T00:00:00").getTime();
+  const sets = logs.map((log) => {
+    const dTs = new Date(log.performed_at + "T00:00:00").getTime();
+    const daysAgo = Math.floor((endTs - dTs) / 86400000);
+    const weeksAgo = Math.floor(daysAgo / 7);
+    const week_idx = Math.max(0, BEESWARM_WEEKS - 1 - weeksAgo);
+    return {
+      week_idx: Math.min(week_idx, BEESWARM_WEEKS - 1),
+      load_kg: Number(log.load_kg) || 0,
+      reps: Number(log.reps) || 0,
+      rpe: log.rpe != null ? Number(log.rpe) : null,
+      performed_at: log.performed_at,
+      is_pr: false,
+    };
+  });
+  for (const s of sets) {
+    if (prLoadKg > 0 && s.load_kg >= prLoadKg) s.is_pr = true;
+  }
+
+  return {
+    exercise_slug: BEESWARM_EXERCISE_SLUG,
+    exercise_name: ex.name,
+    weeks: BEESWARM_WEEKS,
+    sets,
+    pr_load_kg: prLoadKg,
+    total_sets: sets.length,
+  };
+}
+
 export default async function progressHandler(req, res) {
   if (!supabaseAdmin) return res.status(500).json({ error: "Backend unavailable." });
   const userId = req.verifiedUserId;
@@ -306,12 +372,13 @@ export default async function progressHandler(req, res) {
 
   try {
     const profile = await loadProfileExperience(userId);
-    const [benchmarks, prs, sessions, streak, momentum_cards] = await Promise.all([
+    const [benchmarks, prs, sessions, streak, momentum_cards, beeswarm] = await Promise.all([
       loadBenchmarks(profile?.experience_level),
       loadPRs(userId, days),
       loadRecentSessions(userId, modality, 10),
       loadStreak(userId),
       loadMomentumCards(userId, profile),
+      loadBeeswarm(userId),
     ]);
 
     res.setHeader("Cache-Control", "private, max-age=60");
@@ -321,7 +388,7 @@ export default async function progressHandler(req, res) {
       benchmarks,
       personal_records: prs,
       momentum_cards,
-      lift_range: { items: [], coming_soon: true },
+      beeswarm,
       cardio_zones: { items: [], coming_soon: true },
       training_load: { items: [], coming_soon: true, current_ratio: null },
       streak,
