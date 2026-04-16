@@ -2,6 +2,7 @@
 
 Append-only log of meaningful completed changes. Format: `YYYY-MM-DD — summary — key files`. Skip trivial edits.
 
+- 2026-04-15 — Onboarding profile-update fences → function-calling — replaced ~~~profile-update regex parsing with update_user_profile OpenAI tool call; multi-turn resolution via previous_response_id — api/emersus/pipeline/onboarding.js, api/emersus/pipeline/tools.js, api/emersus/pipeline/stream.js
 - 2026-04-15 — Meal-edit modal on /app/nutrition/ — tap a meal row to view/edit/delete items, add foods via search, auto-save amounts, change meal slots, standalone Log food button — app/nutrition/nutrition-v2.js, shared/nutrition-v2.css
 - 2026-04-15 — Profile data moved behind `get_user_profile` server-side tool call. Profile no longer appears in the initial LLM prompt — the model calls a tool when it needs personalization (workout plans, meal plans, injury-aware advice), the server intercepts the call, injects the stored profile via `previous_response_id` follow-up, and the model continues generating. Prevents the model from randomly echoing/narrating profile fields on general knowledge questions. System prompt updated with explicit "do not surface profile data" instructions. — `api/emersus/pipeline/tools.js`, `api/emersus/pipeline/prompt.js`, `api/emersus/pipeline/stream.js`, `api/emersus/pipeline/synthesize.js`
 - 2026-04-15 — History inline-expand on /app/train/ — click a session to see all exercises + set tiles with RPE color coding, top set highlight, accordion behavior — app/train/train.js, shared/train-v2.css, shared/design-tokens.css

@@ -34,7 +34,7 @@ No active checkpoint. The 2026-04-15 chat-visual issue is resolved — see chang
 4. ✅ **Phase 4 — Real meal-edit modal** — shipped 2026-04-15. Inline CRUD modal with food search, auto-save, delete, meal slot reassignment.
 5. ⬜ **Phase 5 — 4 missing chart types** on `/app/progress/`: Lift 1RM small multiples, Range plot, Cardio HR zones, Training load.
 6. ⬜ **Phase 8 — Real testimonial cards** on landing page (need customer consent).
-7. ⬜ **Phase 9 — Migrate `~~~profile-update` fences → OpenAI function-calling** for onboarding.
+7. ✅ **Phase 9 — Migrate `~~~profile-update` fences → OpenAI function-calling** — shipped 2026-04-15. Onboarding now uses `update_user_profile` tool call via previous_response_id multi-turn.
 
 ### D. Follow-ups from other specs
 
