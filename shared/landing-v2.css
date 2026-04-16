@@ -560,4 +560,8 @@ h1.headline {
    * single-column. */
   .steps-grid      { grid-template-columns: 1fr; }
   .evidence-scale  { grid-template-columns: 1fr; }
+  /* stats-grid has THREE items (Papers indexed / Topic areas /
+   * Citations verifiable). The 900 breakpoint maps it to 2×2, leaving
+   * the 4th cell blank. Stack vertically instead. */
+  .stats-grid      { grid-template-columns: 1fr; }
 }
