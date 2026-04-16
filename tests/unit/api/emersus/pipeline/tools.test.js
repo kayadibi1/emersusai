@@ -3,13 +3,10 @@ import assert from "node:assert/strict";
 import { TOOL_DEFINITIONS, validateToolCall } from "../../../../../api/emersus/pipeline/tools.js";
 
 describe("TOOL_DEFINITIONS", () => {
-  it("exports exactly 6 tool definitions", () => {
-    assert.equal(TOOL_DEFINITIONS.length, 6);
+  it("exports exactly 5 tool definitions", () => {
+    assert.equal(TOOL_DEFINITIONS.length, 5);
     const names = TOOL_DEFINITIONS.map(t => t.name).sort();
-    assert.deepStrictEqual(names, [
-      "emit_meal_plan", "emit_widget", "emit_workout_plan",
-      "get_user_profile", "log_food", "update_user_profile",
-    ]);
+    assert.deepStrictEqual(names, ["emit_meal_plan", "emit_widget", "emit_workout_plan", "get_user_profile", "log_food"]);
   });
 
   it("all tools have type function and strict true", () => {
