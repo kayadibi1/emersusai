@@ -97,17 +97,18 @@
 </head>
 <body>
   <div class="site-shell">
-    <header class="site-header">
-      <div class="container site-header-inner">
-        <a class="brand-mark" href="/"><img src="/emersus-logo.png" alt="Emersus" width="1088" height="417" fetchpriority="high"></a>
-        <nav class="site-nav">
-          <a href="/auth/login/">App / Login</a>
-          <a href="/consumer-health-data/">Health Data Privacy</a>
-          <a href="/terms/">Terms</a>
-          <a href="/contact/">Contact</a>
-        </nav>
-      </div>
-    </header>
+    <div class="nav-wrap">
+      <nav class="nav">
+        <a class="brand" href="/">EMERSUS</a>
+        <div class="nav-links">
+          <a href="/about/">About</a>
+          <a href="/auth/login/">Log in</a>
+        </div>
+        <div class="nav-right">
+          <a class="btn btn-accent" href="/auth/?panel=signup">Sign up</a>
+        </div>
+      </nav>
+    </div>
 
     <main class="page-main">
       <div class="container legal-shell">
