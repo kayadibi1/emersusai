@@ -59,3 +59,23 @@ docs/overview.md
 docs/schema.md
 docs/scripts.md
 docs/references/
+
+# Generic local-only workspace. Dump notes, scratch files, downloaded
+# references, etc. here — nothing under .local/ will be committed.
+.local/
+
+# Obvious local-only junk (dated backups, scratch-named assets).
+script.js.landing-backup-2026-04-11
+assets/Untitled-2.png
+
+# Local-only assets and working files (kept on disk, not on GitHub).
+# Source .ai file not referenced in production HTML/JS/CSS.
+assets/tutorial.ai
+# Marketing spreadsheet is a personal working tracker, not a team doc.
+Marketing/
+# Large upscaled hero image not referenced in production.
+neuron-hero-upscaled.png
+# Ad-hoc internal review drafts (email-mockups/ subdir stays tracked).
+internal/wedge-review-*.html
+# Plans that were authored locally but aren't intended for the public repo.
+docs/superpowers/plans/2026-04-16-progress-charts.md
