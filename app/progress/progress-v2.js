@@ -7,7 +7,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { requireAuth, getProfile } from "/shared/supabase.js";
 import { resolveWeightUnit } from "/shared/unit-conversion.js";
-import { momentumSparkline } from "/shared/progress-charts.js";
+import { momentumSparkline, beeswarmPlot } from "/shared/progress-charts.js";
 
 const h = React.createElement;
 
@@ -201,6 +201,40 @@ function MomentumCards({ data, weightUnit = "kg" }) {
   );
 }
 
+function BeeswarmPlot({ data, weightUnit = "kg" }) {
+  const bee = data?.beeswarm;
+  const [isMobile, setIsMobile] = React.useState(() => typeof window !== "undefined" && window.innerWidth < 600);
+  React.useEffect(() => {
+    function onResize() { setIsMobile(window.innerWidth < 600); }
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  if (!bee || !bee.sets || bee.sets.length < 5) {
+    return null;
+  }
+
+  const svg = beeswarmPlot(bee, { weightUnit, mobile: isMobile });
+  const unit = weightUnit === "lbs" ? "LOAD (LB)" : "LOAD (KG)";
+
+  return h("section", { className: "pg-section" },
+    h("h2", null, "Working weight distribution"),
+    h("div", { className: "pg-beeswarm-card" },
+      h("div", { className: "pg-beeswarm-head" },
+        h("div", null,
+          h("div", { className: "pg-beeswarm-title" }, `${bee.exercise_name} · every set logged`),
+          h("div", { className: "pg-beeswarm-sub" }, `${bee.weeks} WEEKS · ${bee.total_sets} SETS · ${unit}`),
+        ),
+      ),
+      h("div", { dangerouslySetInnerHTML: { __html: svg } }),
+      h("div", { className: "pg-beeswarm-note" },
+        h("span", { className: "pg-beeswarm-note-dot" }),
+        h("span", null, "Loads drifting up-and-right = progressive overload working"),
+      ),
+    ),
+  );
+}
+
 function ComingSoon({ title, hint }) {
   return h("section", { className: "pg-soon" },
     h("h3", null, title),
@@ -342,10 +376,10 @@ function ProgressApp() {
 
       // Momentum cards (replaces the 1RM ComingSoon)
       h(MomentumCards, { data, weightUnit }),
+      h(BeeswarmPlot, { data, weightUnit }),
 
       // Remaining coming-soon visualizations
       h("section", { className: "pg-section pg-section-soon-grid" },
-        h(ComingSoon, { title: "Working weight range", hint: "8-week vertical bars · current week highlighted" }),
         h(ComingSoon, { title: "Cardio HR zones", hint: "Z1–Z5 stacked bars" }),
         h(ComingSoon, { title: "Training load (acute:chronic)", hint: "Safe-zone band 0.8–1.3 · Gabbett 2016" }),
       ),

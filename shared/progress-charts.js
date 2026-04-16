@@ -169,6 +169,98 @@ export function momentumSparkline(values, prWeeks = []) {
   </svg>`;
 }
 
+/**
+ * Beeswarm plot: every set as a dot, x = week column, y = load.
+ * Deterministic jitter (no d3-force dependency).
+ * @param {{sets: Array, weeks: number, pr_load_kg: number}} data
+ * @param {{weightUnit?: "kg"|"lbs", mobile?: boolean}} opts
+ */
+export function beeswarmPlot(data, { weightUnit = "kg", mobile = false } = {}) {
+  if (!data || !data.sets || data.sets.length === 0) return "";
+  const W = 800, H = mobile ? 220 : 280;
+  const pad = { top: 30, right: 20, bottom: 40, left: 60 };
+  const chartW = W - pad.left - pad.right;
+  const chartH = H - pad.top - pad.bottom;
+
+  const weeks = data.weeks;
+  const effectiveCols = mobile ? Math.ceil(weeks / 2) : weeks;
+  const dotRadius = mobile ? 3 : 4;
+  const prDotRadius = mobile ? 4 : 5;
+
+  const loads = data.sets.map(s => s.load_kg);
+  const minL = Math.min(...loads) * 0.95;
+  const maxL = Math.max(Math.max(...loads), data.pr_load_kg) * 1.08;
+  const range = maxL - minL || 1;
+  const yFor = (loadKg) => pad.top + chartH - ((loadKg - minL) / range) * chartH;
+  const xForCol = (col) => pad.left + (col + 0.5) * (chartW / effectiveCols);
+
+  const dispLoad = (kg) => weightUnit === "lbs" ? Math.round(kg * 2.20462) : Math.round(kg);
+
+  let svg = `<svg class="pg-beeswarm" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">`;
+  for (let i = 0; i < 5; i++) {
+    const y = pad.top + (chartH / 4) * i;
+    svg += `<line x1="${pad.left}" y1="${y.toFixed(1)}" x2="${W - pad.right}" y2="${y.toFixed(1)}" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 3"/>`;
+  }
+  for (let i = 0; i < 5; i++) {
+    const y = pad.top + (chartH / 4) * i;
+    const v = maxL - (range / 4) * i;
+    svg += `<text x="${pad.left - 10}" y="${y + 4}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--dim)">${dispLoad(v)}</text>`;
+  }
+
+  if (data.pr_load_kg > 0) {
+    const prY = yFor(data.pr_load_kg);
+    svg += `<line x1="${pad.left}" y1="${prY.toFixed(1)}" x2="${W - pad.right}" y2="${prY.toFixed(1)}" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 3" opacity="0.5"/>`;
+    svg += `<text x="${W - pad.right - 10}" y="${(prY - 4).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="600" fill="var(--gold)">PR ${dispLoad(data.pr_load_kg)}</text>`;
+  }
+
+  const setsByCol = {};
+  for (const s of data.sets) {
+    const col = mobile ? Math.floor(s.week_idx / 2) : s.week_idx;
+    if (!setsByCol[col]) setsByCol[col] = [];
+    setsByCol[col].push(s);
+  }
+  for (const col of Object.keys(setsByCol)) {
+    const sets = setsByCol[col];
+    const xBase = xForCol(Number(col));
+    const jitterWidth = Math.min(14, (chartW / effectiveCols) * 0.35);
+    sets.forEach((s, i) => {
+      const seed = (s.performed_at || "").length + i * 7 + Number(col) * 13;
+      const jitter = Math.sin(seed * 1.3) * jitterWidth;
+      const x = xBase + jitter;
+      const y = yFor(s.load_kg);
+      const isCurrent = Number(col) === (effectiveCols - 1);
+      if (s.is_pr) {
+        svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${prDotRadius}" fill="var(--gold)" stroke="var(--bg)" stroke-width="1.5"/>`;
+      } else if (isCurrent) {
+        svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${dotRadius}" fill="var(--accent)" stroke="var(--bg)" stroke-width="1.5"/>`;
+      } else {
+        svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${dotRadius}" fill="var(--accent)" opacity="0.7"/>`;
+      }
+    });
+  }
+
+  if (mobile) {
+    const positions = [0, Math.floor(effectiveCols / 2), effectiveCols - 1];
+    const labels = ["START", "MID", "NOW"];
+    positions.forEach((col, i) => {
+      const x = xForCol(col);
+      const fill = i === positions.length - 1 ? "var(--accent)" : "var(--dim)";
+      svg += `<text x="${x.toFixed(1)}" y="${(H - pad.bottom + 18).toFixed(1)}" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="${fill}" font-weight="${i === positions.length - 1 ? 600 : 400}">${labels[i]}</text>`;
+    });
+  } else {
+    for (let i = 0; i < effectiveCols; i++) {
+      const x = xForCol(i);
+      const label = i === effectiveCols - 1 ? "NOW" : `W${i + 1}`;
+      const fill = i === effectiveCols - 1 ? "var(--accent)" : "var(--dim)";
+      const weight = i === effectiveCols - 1 ? 600 : 400;
+      svg += `<text x="${x.toFixed(1)}" y="${(H - pad.bottom + 18).toFixed(1)}" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="${fill}" font-weight="${weight}">${label}</text>`;
+    }
+  }
+
+  svg += `</svg>`;
+  return svg;
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────
 
 function weekLabel(dateStr) {
