@@ -31,7 +31,7 @@ No active checkpoint. The 2026-04-15 chat-visual issue is resolved — see chang
 1. ❌ **Phase 3 — "Ask Emersus" right-side drawer** — REJECTED (AI chat is a full-page experience, not a sidebar).
 2. ✅ **Phase 3 — History tab inline-expand** on `/app/train/` — shipped 2026-04-15.
 3. ⬜ **Phase 3 — Exercise demo videos** (TODO since 2026-04-10) — short animations per exercise in the workout session view.
-4. ⬜ **Phase 4 — Real meal-edit modal** — currently routes to chat; needs inline modal.
+4. ✅ **Phase 4 — Real meal-edit modal** — shipped 2026-04-15. Inline CRUD modal with food search, auto-save, delete, meal slot reassignment.
 5. ⬜ **Phase 5 — 4 missing chart types** on `/app/progress/`: Lift 1RM small multiples, Range plot, Cardio HR zones, Training load.
 6. ⬜ **Phase 8 — Real testimonial cards** on landing page (need customer consent).
 7. ⬜ **Phase 9 — Migrate `~~~profile-update` fences → OpenAI function-calling** for onboarding.
