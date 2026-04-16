@@ -128,6 +128,47 @@ export function muscleBar(pct, { color = "var(--primary)" } = {}) {
   </div>`;
 }
 
+/**
+ * Ghost sparkline SVG for momentum cards.
+ * @param {number[]} values - Weekly max e1RM (can include zeros for missing weeks)
+ * @param {number[]} prWeeks - Indices of PR weeks
+ */
+export function momentumSparkline(values, prWeeks = []) {
+  if (!values || values.length < 2) return "";
+  const W = 200, H = 60;
+  const max = Math.max(...values) || 1;
+  const min = Math.min(...values.filter(v => v > 0)) || 0;
+  const range = max - min || 1;
+  const pad = 4;
+  const plotH = H - pad * 2;
+
+  const points = values.map((v, i) => {
+    const x = (i / (values.length - 1)) * W;
+    const y = v > 0
+      ? pad + plotH - ((v - min) / range) * plotH
+      : H - pad;
+    return { x, y };
+  });
+
+  const polyline = points.map(p => `${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ");
+  const areaPath =
+    `M${points[0].x.toFixed(1)},${points[0].y.toFixed(1)} ` +
+    points.slice(1).map(p => `L${p.x.toFixed(1)},${p.y.toFixed(1)}`).join(" ") +
+    ` L${points[points.length - 1].x.toFixed(1)},${H} L${points[0].x.toFixed(1)},${H} Z`;
+
+  const prDots = (prWeeks || []).map(i => {
+    const p = points[i];
+    if (!p) return "";
+    return `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3" fill="var(--gold)" stroke="var(--bg)" stroke-width="1"/>`;
+  }).join("");
+
+  return `<svg class="pg-momentum-spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+    <path d="${areaPath}" fill="var(--accent)" opacity="0.35" stroke="none"/>
+    <polyline points="${polyline}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    ${prDots}
+  </svg>`;
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────
 
 function weekLabel(dateStr) {

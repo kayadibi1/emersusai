@@ -5,7 +5,9 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
-import { requireAuth } from "/shared/supabase.js";
+import { requireAuth, getProfile } from "/shared/supabase.js";
+import { resolveWeightUnit } from "/shared/unit-conversion.js";
+import { momentumSparkline } from "/shared/progress-charts.js";
 
 const h = React.createElement;
 
@@ -130,6 +132,75 @@ function DrillDownPanel({ open, kind, id, accessToken, onClose }) {
   );
 }
 
+function MomentumCard({ item, weightUnit = "kg" }) {
+  if (!item || !item.current_e1rm_kg) {
+    return h("article", { className: "pg-momentum-card" },
+      h("div", { className: "pg-momentum-label" }, `${item?.name || "—"} · ${item?.period_weeks || 12} wk`),
+      h("div", { className: "pg-momentum-empty" }, `No ${item?.name?.toLowerCase() || "data"} logged yet.`),
+    );
+  }
+
+  const unit = weightUnit === "lbs" ? "LB" : "KG";
+  const displayVal = weightUnit === "lbs"
+    ? Math.round(item.current_e1rm_kg * 2.20462)
+    : Math.round(item.current_e1rm_kg);
+
+  const badgeClass = `pg-momentum-badge ${item.momentum_label || "flat"}`;
+  const momSign = item.momentum_kg > 0 ? "+" : "";
+  const momArrow = item.momentum_label === "up" ? "↑"
+    : item.momentum_label === "down" ? "↓"
+    : "→";
+  const momDisplay = weightUnit === "lbs"
+    ? Math.round(item.momentum_kg * 2.20462)
+    : Math.round(item.momentum_kg * 10) / 10;
+
+  const lastSet = item.last_set;
+  const lastSetStr = lastSet
+    ? `est. 1RM · last set ${weightUnit === "lbs" ? Math.round(lastSet.load_kg * 2.20462) : Math.round(lastSet.load_kg)}×${lastSet.reps}${lastSet.rpe != null ? ` @${lastSet.rpe}` : ""}`
+    : "";
+
+  let benchBlock = null;
+  if (item.benchmark && item.benchmark.high_kg > 0) {
+    const scaleMax = Math.max(item.benchmark.high_kg * 1.15, item.current_e1rm_kg * 1.05);
+    const lowPct = (item.benchmark.low_kg / scaleMax) * 100;
+    const highPct = (item.benchmark.high_kg / scaleMax) * 100;
+    const dotPct = Math.min(100, (item.current_e1rm_kg / scaleMax) * 100);
+    benchBlock = h("div", { className: "pg-momentum-bench" },
+      h("div", { className: "pg-momentum-bench-bar" },
+        h("div", { className: "pg-momentum-bench-range", style: { left: `${lowPct}%`, width: `${highPct - lowPct}%` } }),
+        h("div", { className: "pg-momentum-bench-dot", style: { left: `${dotPct}%` } }),
+      ),
+      h("span", { className: "pg-momentum-bench-text" }, (item.benchmark.level || "intermediate").toUpperCase()),
+    );
+  }
+
+  return h("article", { className: "pg-momentum-card" },
+    h("div", { className: "pg-momentum-label" }, `${item.name} · ${item.period_weeks} wk`),
+    h("div", { className: "pg-momentum-hero" },
+      h("span", { className: "pg-momentum-num" }, displayVal),
+      h("span", { className: "pg-momentum-unit" }, unit),
+    ),
+    lastSetStr ? h("div", { className: "pg-momentum-sub" }, lastSetStr) : null,
+    h("div", {
+      style: { position: "absolute", bottom: 0, left: 0, right: 0, height: "70%", opacity: 0.20, zIndex: 1, pointerEvents: "none" },
+      dangerouslySetInnerHTML: { __html: momentumSparkline(item.sparkline || [], item.pr_weeks || []) },
+    }),
+    h("div", { className: badgeClass }, `${momSign}${momDisplay} ${unit} ${momArrow} ${item.period_weeks} WK`),
+    benchBlock,
+  );
+}
+
+function MomentumCards({ data, weightUnit = "kg" }) {
+  const items = data?.momentum_cards?.items || [];
+  if (!items.length) return null;
+  return h("section", { className: "pg-section" },
+    h("h2", null, "Strength trajectory"),
+    h("div", { className: "pg-momentum-grid" },
+      items.map((it) => h(MomentumCard, { key: it.slug, item: it, weightUnit })),
+    ),
+  );
+}
+
 function ComingSoon({ title, hint }) {
   return h("section", { className: "pg-soon" },
     h("h3", null, title),
@@ -185,9 +256,17 @@ function ProgressApp() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const [drill, setDrill] = useState({ open: false, kind: null, id: null });
+  const [weightUnit, setWeightUnit] = useState("kg");
   const accessToken = session?.access_token || "";
 
   useEffect(() => { requireAuth().then(setSession); }, []);
+
+  useEffect(() => {
+    if (!session?.user?.id) return;
+    getProfile(session.user.id).then((p) => {
+      if (p?.weight_unit) setWeightUnit(resolveWeightUnit(p.weight_unit));
+    }).catch(() => {});
+  }, [session?.user?.id]);
 
   const load = useCallback(async () => {
     if (!accessToken) return;
@@ -261,9 +340,11 @@ function ProgressApp() {
         h(StreakTracker, { streak: data.streak }),
       ),
 
-      // Coming-soon visualizations
+      // Momentum cards (replaces the 1RM ComingSoon)
+      h(MomentumCards, { data, weightUnit }),
+
+      // Remaining coming-soon visualizations
       h("section", { className: "pg-section pg-section-soon-grid" },
-        h(ComingSoon, { title: "Lift 1RM progression", hint: "Small multiples for Bench / Squat / Deadlift" }),
         h(ComingSoon, { title: "Working weight range", hint: "8-week vertical bars · current week highlighted" }),
         h(ComingSoon, { title: "Cardio HR zones", hint: "Z1–Z5 stacked bars" }),
         h(ComingSoon, { title: "Training load (acute:chronic)", hint: "Safe-zone band 0.8–1.3 · Gabbett 2016" }),
