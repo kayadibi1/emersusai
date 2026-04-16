@@ -45,7 +45,7 @@ async function loadProfileExperience(userId) {
   if (!supabaseAdmin) return null;
   const { data } = await supabaseAdmin
     .from("profiles")
-    .select("experience_level, body_weight_kg")
+    .select("experience_level, body_weight_kg, biological_sex, date_of_birth")
     .eq("id", userId)
     .maybeSingle();
   return data || null;
@@ -145,6 +145,156 @@ async function loadStreak(userId, days = 365) {
   } catch { return computeStreak([]); }
 }
 
+const MOMENTUM_EXERCISE_SLUGS = ["bench-press", "back-squat", "deadlift"];
+const MOMENTUM_EXERCISE_NAMES = {
+  "bench-press": "Bench Press",
+  "back-squat": "Back Squat",
+  "deadlift": "Deadlift",
+};
+const MOMENTUM_WEEKS = 12;
+
+function epley1RM(loadKg, reps) {
+  const l = Number(loadKg) || 0;
+  const r = Number(reps) || 0;
+  if (l <= 0 || r <= 0) return 0;
+  return l * (1 + r / 30);
+}
+
+function weekIndexFromDate(isoDate, endDate) {
+  const d = new Date(isoDate + "T00:00:00");
+  const end = new Date(endDate + "T00:00:00");
+  const daysAgo = Math.floor((end - d) / 86400000);
+  const weeksAgo = Math.floor(daysAgo / 7);
+  return Math.max(0, MOMENTUM_WEEKS - 1 - weeksAgo);
+}
+
+async function loadMomentumCards(userId, profile) {
+  if (!supabaseAdmin) return { items: [] };
+  const endDate = isoDaysAgo(0);
+  const startDate = isoDaysAgo(MOMENTUM_WEEKS * 7);
+
+  const { data: exs } = await supabaseAdmin
+    .from("exercises")
+    .select("id, slug, name")
+    .in("slug", MOMENTUM_EXERCISE_SLUGS);
+  const idBySlug = {};
+  for (const e of (exs || [])) idBySlug[e.slug] = e.id;
+
+  const exerciseIds = Object.values(idBySlug);
+  if (!exerciseIds.length) return { items: [] };
+
+  const { data: logs } = await supabaseAdmin
+    .from("workout_logs")
+    .select("exercise_id, performed_at, load_kg, reps, rpe")
+    .eq("user_id", userId)
+    .in("exercise_id", exerciseIds)
+    .gte("performed_at", startDate)
+    .lte("performed_at", endDate)
+    .order("performed_at", { ascending: true });
+
+  const byExerciseId = {};
+  for (const log of (logs || [])) {
+    if (!byExerciseId[log.exercise_id]) byExerciseId[log.exercise_id] = [];
+    byExerciseId[log.exercise_id].push(log);
+  }
+
+  const items = [];
+  for (const slug of MOMENTUM_EXERCISE_SLUGS) {
+    const exId = idBySlug[slug];
+    const exLogs = exId ? (byExerciseId[exId] || []) : [];
+
+    if (!exLogs.length) {
+      items.push({
+        slug,
+        name: MOMENTUM_EXERCISE_NAMES[slug],
+        current_e1rm_kg: 0,
+        period_weeks: MOMENTUM_WEEKS,
+        last_set: null,
+        sparkline: [],
+        pr_weeks: [],
+        momentum_kg: 0,
+        momentum_label: "flat",
+        benchmark: null,
+      });
+      continue;
+    }
+
+    const weeklyMax = new Array(MOMENTUM_WEEKS).fill(0);
+    for (const log of exLogs) {
+      const wi = weekIndexFromDate(log.performed_at, endDate);
+      const e1 = epley1RM(log.load_kg, log.reps);
+      if (e1 > weeklyMax[wi]) weeklyMax[wi] = e1;
+    }
+    let last = 0;
+    const sparkline = weeklyMax.map((v) => {
+      if (v > 0) last = v;
+      return Math.round(last * 10) / 10;
+    });
+
+    const current = sparkline[sparkline.length - 1];
+    const fourWeeksAgo = sparkline[Math.max(0, sparkline.length - 5)];
+    const momentum = Math.round((current - fourWeeksAgo) * 10) / 10;
+    const pct = fourWeeksAgo > 0 ? Math.abs(momentum) / fourWeeksAgo : 0;
+    let momentum_label;
+    if (pct < 0.02) momentum_label = "flat";
+    else if (momentum > 0) momentum_label = "up";
+    else momentum_label = "down";
+
+    const pr_weeks = [];
+    let runningMax = 0;
+    for (let i = 0; i < sparkline.length; i++) {
+      if (sparkline[i] > runningMax) {
+        runningMax = sparkline[i];
+        if (i > 0) pr_weeks.push(i);
+      } else if (sparkline[i] > 0 && runningMax === 0) {
+        runningMax = sparkline[i];
+      }
+    }
+
+    const lastLog = exLogs[exLogs.length - 1];
+    const last_set = {
+      load_kg: Number(lastLog.load_kg) || 0,
+      reps: Number(lastLog.reps) || 0,
+      rpe: lastLog.rpe != null ? Number(lastLog.rpe) : null,
+    };
+
+    items.push({
+      slug,
+      name: MOMENTUM_EXERCISE_NAMES[slug],
+      current_e1rm_kg: Math.round(current * 10) / 10,
+      period_weeks: MOMENTUM_WEEKS,
+      last_set,
+      sparkline,
+      pr_weeks,
+      momentum_kg: momentum,
+      momentum_label,
+      benchmark: null,
+    });
+  }
+
+  const experience = profile?.experience_level || "intermediate";
+  const sex = profile?.biological_sex || "male";
+  const metricSlugBySlug = {
+    "bench-press": "bench_press_1rm",
+    "back-squat": "back_squat_1rm",
+    "deadlift": "deadlift_1rm",
+  };
+  const { data: benchRows } = await supabaseAdmin
+    .from("benchmarks")
+    .select("metric, low, high")
+    .eq("experience", experience)
+    .eq("sex", sex)
+    .in("metric", Object.values(metricSlugBySlug));
+  const benchByMetric = {};
+  for (const r of (benchRows || [])) benchByMetric[r.metric] = r;
+  for (const it of items) {
+    const b = benchByMetric[metricSlugBySlug[it.slug]];
+    if (b) it.benchmark = { low_kg: Number(b.low) || 0, high_kg: Number(b.high) || 0, level: experience };
+  }
+
+  return { items };
+}
+
 export default async function progressHandler(req, res) {
   if (!supabaseAdmin) return res.status(500).json({ error: "Backend unavailable." });
   const userId = req.verifiedUserId;
@@ -156,11 +306,12 @@ export default async function progressHandler(req, res) {
 
   try {
     const profile = await loadProfileExperience(userId);
-    const [benchmarks, prs, sessions, streak] = await Promise.all([
+    const [benchmarks, prs, sessions, streak, momentum_cards] = await Promise.all([
       loadBenchmarks(profile?.experience_level),
       loadPRs(userId, days),
       loadRecentSessions(userId, modality, 10),
       loadStreak(userId),
+      loadMomentumCards(userId, profile),
     ]);
 
     res.setHeader("Cache-Control", "private, max-age=60");
@@ -169,7 +320,7 @@ export default async function progressHandler(req, res) {
       period,
       benchmarks,
       personal_records: prs,
-      lift_1rm: { items: [], coming_soon: true },
+      momentum_cards,
       lift_range: { items: [], coming_soon: true },
       cardio_zones: { items: [], coming_soon: true },
       training_load: { items: [], coming_soon: true, current_ratio: null },
