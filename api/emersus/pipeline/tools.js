@@ -400,13 +400,16 @@ const UPDATE_USER_PROFILE = {
 
 // ── Exports ─────────────────────────────────────────────────────────────
 
-// Main chat tools. update_user_profile is included — stream.js now
-// persists ctx._profileUpdates to Supabase after the turn completes (via
-// persistProfileUpdates), so the silent-save-failure that previously
-// blocked exposing this tool in main chat is resolved.
+// Main chat tools. update_user_profile is temporarily EXCLUDED again
+// after a 2026-04-16 prod incident: its schema has `required: []` but
+// OpenAI strict mode requires `required` to list every property key,
+// so the whole request 400s. Fix-forward is to add all keys to required
+// + make each type nullable (["string", "null"] etc., with null added
+// to enums). Keeping it out of TOOL_DEFINITIONS until that ships. The
+// persistProfileUpdates path in stream.js is left in place — a noop
+// until this tool is wired back in.
 export const TOOL_DEFINITIONS = [
-  EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD,
-  GET_USER_PROFILE, UPDATE_USER_PROFILE,
+  EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD, GET_USER_PROFILE,
 ];
 
 /** Tools resolved server-side (profile lookup, etc.) — not forwarded to the client. */
