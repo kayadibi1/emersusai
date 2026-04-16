@@ -27,7 +27,12 @@ body.landing-v2-body {
   font-weight: var(--body-weight);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
+  /* Extra belt: some mobile browsers still honor scroll on html even when
+   * body is hidden. Lock at html level too and cap to viewport width so
+   * no child can create an off-screen scroll target. */
+  max-width: 100vw;
 }
+html { overflow-x: hidden; max-width: 100vw; }
 body.landing-v2-body::before {
   content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
   background-image:
@@ -126,11 +131,24 @@ body.landing-v2-body main { position: relative; z-index: 1; }
 .theme-swatch-paper::after { background: #3b82f6; box-shadow: 0 0 4px #3b82f6; }
 @media (max-width: 700px) {
   .nav-links { display: none; }
-  /* Bento card visuals: stack the multi-column inner grids so the
-   * Protocols card's three mini-plans and the Preprint vs Peer-reviewed
-   * pair flow vertically instead of crushing to unreadable widths. */
+  /* Bento card visuals: stack EVERY multi-column inner grid so tiles
+   * don't overflow the viewport. Missing any of these causes the whole
+   * page to look broken (a single wide child inside a bento card
+   * blows past the 384 px phone viewport, gets clipped by the body's
+   * overflow-x: hidden, and the rest of the layout looks shoved right). */
   .mini-plans { grid-template-columns: 1fr; }
   .paper-compare { grid-template-columns: 1fr; }
+  .modality-grid { grid-template-columns: 1fr; }
+  /* Demo frame's inner split (title + model pill) — stack too so
+   * 'EMERSUS 0.5 · 3 SOURCES' doesn't crowd the thread title. */
+  .demo-header { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+@media (max-width: 500px) {
+  /* Step grid is 2x2 at 900 px (see rule below) — at narrow phones even
+   * 2-col crushes the body text. Force single-column. */
+  .steps-grid { grid-template-columns: 1fr; }
+  /* Similarly the 4-up evidence scale gets cramped at 500 */
+  .evidence-scale { grid-template-columns: 1fr; }
 }
 
 /* ===== HERO ===== */
