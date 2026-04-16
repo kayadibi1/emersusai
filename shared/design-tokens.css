@@ -40,6 +40,12 @@
   --protein: #4d8df5;
   --carbs: #78dc14;
   --fat: #e8a838;
+  --rpe-low: #34d399;
+  --rpe-med: #fbbf24;
+  --rpe-high: #f87171;
+  --rpe-low-bg: rgba(52,211,153,0.08);
+  --rpe-med-bg: rgba(251,191,36,0.08);
+  --rpe-high-bg: rgba(248,113,113,0.08);
   --frame-from: #141416;
   --frame-to: #0d0d10;
   --head-from: #ffffff;
@@ -74,6 +80,12 @@
   --protein: #2d5bda;
   --carbs: #4a7c0f;
   --fat: #a66a14;
+  --rpe-low: #22c55e;
+  --rpe-med: #f59e0b;
+  --rpe-high: #ef4444;
+  --rpe-low-bg: rgba(34,197,94,0.08);
+  --rpe-med-bg: rgba(245,158,11,0.08);
+  --rpe-high-bg: rgba(239,68,68,0.08);
   --frame-from: #faf6ee;
   --frame-to: #ece5d6;
   --head-from: #1a1813;
