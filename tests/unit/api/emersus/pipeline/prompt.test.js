@@ -3,7 +3,11 @@ import assert from "node:assert/strict";
 import { buildMessages } from "../../../../../api/emersus/pipeline/prompt.js";
 
 describe("buildMessages", () => {
-  it("returns an array of 5 input messages", () => {
+  it("returns an array of 3 input messages (2 system + 1 user)", () => {
+    // Few-shot was removed 2026-04-16: the prior assistant example ended with
+    // prose-only and no tool call, training the model to skip emit_widget on
+    // chart-shaped requests. Behavior now lives in tool descriptions per
+    // OpenAI Responses API guidance.
     const msgs = buildMessages({
       question: "best creatine dose?",
       profile: { goal: "strength" },
@@ -13,12 +17,10 @@ describe("buildMessages", () => {
       workoutPlan: null,
     });
     assert.ok(Array.isArray(msgs));
-    assert.equal(msgs.length, 5);
+    assert.equal(msgs.length, 3);
     assert.equal(msgs[0].role, "system");
     assert.equal(msgs[1].role, "system");
     assert.equal(msgs[2].role, "user");
-    assert.equal(msgs[3].role, "assistant");
-    assert.equal(msgs[4].role, "user");
   });
 
   it("includes user question in the final user message", () => {

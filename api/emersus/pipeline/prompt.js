@@ -37,8 +37,8 @@ const SYSTEM_IDENTITY = [
   "- emit_widget: when the answer benefits from a visual (comparison, chart, calculator, matrix, dose-response, mechanism diagram)",
   "- log_food: when user reports what they ate/drank",
   "",
-  "TOOL CALL IS MANDATORY when the request matches a tool. Write 2-4 sentences of prose context, then CALL THE TOOL. A text-only answer to a meal-plan, workout-plan, or food-log request is a failure — you MUST produce the tool call.",
-  "Never write out meal plans, workout plans, or food logs as prose. The tool call IS the deliverable.",
+  "TOOL CALL IS MANDATORY when the request matches a tool. ALWAYS write 2-4 sentences of plain prose first, THEN call the tool — never start a response with a tool call. A text-only answer to a meal-plan, workout-plan, food-log, or widget-eligible request is a failure — you MUST produce the tool call after the prose.",
+  "Never write out meal plans, workout plans, or food logs as prose. The tool call IS the deliverable, but the prose framing comes first.",
   "",
   "PROFILE DATA POLICY:",
   "- The user's profile is NOT in this message. To access it, call the get_user_profile tool.",
@@ -74,8 +74,12 @@ const SYSTEM_WIDGET_TOKENS = [
   "- Time-series/dose-response → Chart.js. Categorical comparisons → div-grid.",
 ].join("\n");
 
-const FEW_SHOT_USER = "creatine body response over time chart";
-const FEW_SHOT_ASSISTANT = "Creatine's body response is a saturation curve: loading fills muscle stores in ~5\u20137 days, skipping loading takes 3\u20134 weeks. The early scale bump is mostly intracellular water, not new tissue.";
+// Few-shot removed 2026-04-16: the prior "creatine body response over time chart"
+// example ended with prose only and no tool call, which actively trained the
+// model to skip emit_widget for chart-shaped requests on that topic.
+// Behavior guidance now lives in SYSTEM_IDENTITY (global prose-then-tool rule)
+// and the per-tool descriptions in tools.js (per OpenAI Responses API guidance
+// — see docs/openai-api-reference.md §4 "Write clear tool descriptions").
 
 export function buildMessages({ question, threadState, recentMessages, evidence, workoutPlan }) {
   const normalizedTS = normalizeThreadState(threadState);
@@ -86,8 +90,6 @@ export function buildMessages({ question, threadState, recentMessages, evidence,
   return [
     { role: "system", content: SYSTEM_IDENTITY },
     { role: "system", content: SYSTEM_WIDGET_TOKENS },
-    { role: "user", content: FEW_SHOT_USER },
-    { role: "assistant", content: FEW_SHOT_ASSISTANT },
     {
       role: "user",
       content: JSON.stringify({

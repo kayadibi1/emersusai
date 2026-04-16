@@ -241,6 +241,8 @@ const EMIT_WIDGET = {
   description: [
     "Emit an inline HTML visual widget. Call this when the answer benefits from a visual: comparisons, charts, calculators, evidence matrices, dose-response curves, mechanism diagrams, phased plans, or interactive explorers.",
     "",
+    "ALWAYS write 2-4 sentences of plain prose answering the user's question FIRST, then call this tool. The widget supplements the answer — it does not replace it. A response that starts with the tool call is a failure: the user's takeaway lives in the prose, not buried inside the visual.",
+    "",
     "EMIT A WIDGET WHEN ANY OF THESE ARE TRUE:",
     "- Comparison (X vs Y), evidence matrix, or evidence-by-outcome.",
     "- Three or more quantitative items (doses, ranges, study results, effect sizes).",
