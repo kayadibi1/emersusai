@@ -325,3 +325,65 @@
   color: var(--ink);
 }
 [data-public-v2="1"] .sv-aside-card a { color: var(--accent); font-weight: 600; }
+
+/* ========== Landing-style top nav (matches landing chrome) ==========
+ * Used by /about, /contact, /privacy, /terms, /consumer-health-data,
+ * /editorial-policy, /demo. Replaces the legacy `.site-header` markup. */
+[data-public-v2="1"] .nav-wrap {
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background: var(--nav-bg);
+  border-bottom: 1px solid var(--line);
+}
+[data-public-v2="1"] .nav-wrap .nav {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 18px 32px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 24px;
+}
+[data-public-v2="1"] .nav-wrap .brand {
+  justify-self: start;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 600;
+  font-size: 13px; letter-spacing: 0.28em;
+  color: var(--ink); text-decoration: none;
+  line-height: 1;
+}
+[data-public-v2="1"] .nav-wrap .nav-links {
+  justify-self: center;
+  display: flex; align-items: center; gap: 40px;
+}
+[data-public-v2="1"] .nav-wrap .nav-links a {
+  font-size: 14px; color: var(--muted);
+  text-decoration: none; font-weight: 500;
+  letter-spacing: -0.005em; line-height: 1;
+  transition: color .14s;
+}
+[data-public-v2="1"] .nav-wrap .nav-links a:hover { color: var(--ink); }
+[data-public-v2="1"] .nav-wrap .nav-right {
+  justify-self: end;
+  display: flex; align-items: center; gap: 14px;
+}
+[data-public-v2="1"] .nav-wrap .btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 13.5px; font-weight: 500;
+  padding: 8px 14px; border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  color: var(--ink); text-decoration: none;
+  transition: all .14s; cursor: pointer;
+  background: transparent;
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+}
+[data-public-v2="1"] .nav-wrap .btn:hover { background: var(--accent-soft); border-color: var(--accent-line); }
+[data-public-v2="1"] .nav-wrap .btn-accent {
+  background: var(--accent); color: var(--accent-text);
+  border-color: var(--accent); font-weight: 600;
+}
+[data-public-v2="1"] .nav-wrap .btn-accent:hover { filter: brightness(1.08); background: var(--accent); }
+@media (max-width: 700px) {
+  [data-public-v2="1"] .nav-wrap .nav-links { display: none; }
+}
