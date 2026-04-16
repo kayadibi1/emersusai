@@ -510,7 +510,7 @@ h1.headline {
 .final-cta .reassurance { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.22em; color: var(--dim); margin-top: 24px; }
 
 /* ===== FOOTER ===== */
-.footer-rich { border-top: 1px solid var(--line); padding: 64px 32px 28px; max-width: 1100px; margin: 0 auto; }
+.footer-rich { border-top: 1px solid var(--line); padding: 64px 32px 28px; padding-bottom: calc(28px + env(safe-area-inset-bottom)); max-width: 1100px; margin: 0 auto; }
 .footer-top { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; }
 .footer-brand { font-family: var(--font-mono); font-size: 14px; font-weight: 600; letter-spacing: 0.28em; color: var(--ink); margin-bottom: 14px; }
 .footer-tagline { font-size: 13.5px; color: var(--muted); line-height: 1.55; max-width: 320px; margin: 0; }
@@ -524,6 +524,15 @@ h1.headline {
   .steps-grid, .evidence-scale, .stats-grid { grid-template-columns: repeat(2, 1fr); }
   .compare-row { grid-template-columns: 2fr minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
+}
+/* At phone widths stack the 4 footer columns vertically. 13+ links in a
+ * 2-column grid squeezes both columns below 150 px, which crams wrapping.
+ * Vertical stack is the Hick-friendly pattern — each group scans as a
+ * headed list rather than a wrap-flow. */
+@media (max-width: 520px) {
+  .footer-top { grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; }
+  .footer-col h5 { margin-bottom: 10px; }
+  .footer-col ul { gap: 8px; }
 }
 @media (max-width: 860px) {
   .demo-body { grid-template-columns: 1fr; }

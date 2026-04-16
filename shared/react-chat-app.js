@@ -3001,9 +3001,15 @@ const Message = React.memo(function Message({
     message.role === "assistant" &&
     Array.isArray(message.sources) &&
     message.sources.length > 0;
+  const isAssistant = message.role === "assistant";
   return h(
     "article",
-    { className: `message ${message.role}` },
+    {
+      className: `message ${message.role}`,
+      // Announce streamed prose to screen readers as it arrives. aria-atomic
+      // false so only the delta is read, not the whole message every tick.
+      ...(isAssistant ? { "aria-live": "polite", "aria-atomic": "false" } : {}),
+    },
     h("div", { className: "message-content" },
       hasToolResults
         ? h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId, toolResults: message.toolResults })

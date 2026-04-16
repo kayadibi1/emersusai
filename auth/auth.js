@@ -57,7 +57,7 @@ function loginPanel() {
       <form class="auth-form" data-auth-login>
         <label class="auth-field">
           <span>Email</span>
-          <input type="email" name="email" autocomplete="email" required />
+          <input type="email" name="email" autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="off" required />
         </label>
         <label class="auth-field">
           <span class="auth-field-label-row">
@@ -105,7 +105,7 @@ function signupPanel() {
         </label>
         <label class="auth-field">
           <span>Email</span>
-          <input type="email" name="email" autocomplete="email" required />
+          <input type="email" name="email" autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="off" required />
         </label>
         <label class="auth-field">
           <span class="auth-field-label-row">
@@ -138,7 +138,7 @@ function forgotPanel() {
       <form class="auth-form" data-auth-forgot>
         <label class="auth-field">
           <span>Email</span>
-          <input type="email" name="email" autocomplete="email" required />
+          <input type="email" name="email" autocomplete="email" inputmode="email" spellcheck="false" autocapitalize="off" required />
         </label>
         <p class="auth-helper">LINK EXPIRES AFTER 30 MINUTES FOR SECURITY.</p>
         <button class="auth-primary" type="submit">Send reset link →</button>

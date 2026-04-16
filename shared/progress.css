@@ -90,6 +90,25 @@ body.progress-body {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 11px; color: var(--accent);
 }
+/* Peak moments — NEW PR + FIRST get an accent glow ring and a one-shot
+ * scale-in reveal so the most important cards pop on the page. Global
+ * prefers-reduced-motion kills the animation; the static ring survives. */
+.pg-pr-card-new,
+.pg-pr-card-first {
+  box-shadow:
+    0 0 0 1px var(--accent-line),
+    0 10px 32px -16px var(--accent-glow);
+  animation: pg-pr-reveal 420ms cubic-bezier(.2,.8,.2,1) both;
+}
+.pg-pr-card-new .pg-pr-tag,
+.pg-pr-card-first .pg-pr-tag {
+  color: var(--accent);
+  font-weight: 700;
+}
+@keyframes pg-pr-reveal {
+  from { opacity: 0; transform: translateY(6px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0)   scale(1); }
+}
 
 /* ===== Streak tracker ===== */
 .pg-streak {
@@ -233,6 +252,7 @@ body.progress-body {
   background: var(--bg);
   border-left: 1px solid var(--line);
   padding: 20px 24px;
+  padding-bottom: max(20px, env(safe-area-inset-bottom));
   overflow-y: auto;
   display: flex; flex-direction: column; gap: 14px;
   box-shadow: -10px 0 40px rgba(0,0,0,0.32);

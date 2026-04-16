@@ -32,7 +32,7 @@ export function weeklyActivityChart(data, { width = 400, height = 120 } = {}) {
     return { x, rH, rY, cH, cY, label, barW };
   });
 
-  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">`;
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" aria-hidden="true" focusable="false">`;
 
   for (const b of bars) {
     if (b.cH > 0) {
@@ -81,7 +81,7 @@ export function progressionLineChart(data, { width = 400, height = 140, color = 
     points.slice(1).map(p => `L${p.x},${p.y}`).join(" ") +
     ` L${points[points.length - 1].x},${pad.top + chartH} L${points[0].x},${pad.top + chartH} Z`;
 
-  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">`;
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" aria-hidden="true" focusable="false">`;
 
   // Grid lines
   for (let i = 0; i < 4; i++) {
@@ -452,7 +452,7 @@ function shortDate(dateStr) {
 }
 
 function emptyChart(w, h, msg) {
-  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+  return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}" aria-hidden="true" focusable="false">
     <text x="${w / 2}" y="${h / 2}" text-anchor="middle" font-size="12" fill="rgba(255,255,255,0.2)" font-family="system-ui,sans-serif">${msg}</text>
   </svg>`;
 }

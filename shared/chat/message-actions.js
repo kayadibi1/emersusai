@@ -69,6 +69,11 @@ const BASE_ACTIONS = [
   { id: "regenerate", label: "Regenerate" },
 ];
 
+// Primary actions stay visible on mobile; the rest fold into a "⋯" overflow
+// menu. Matches the ChatGPT/Claude convention where most users want
+// copy/regen one tap away and the niche actions out of sight.
+const PRIMARY_ACTION_IDS = new Set(["copy", "regenerate"]);
+
 /**
  * Decide which action buttons to render for a given message.
  * Always includes copy / cite / regenerate / export on assistant messages.
@@ -110,9 +115,11 @@ export function MessageActions({
   onExport,
 }) {
   const [toast, setToast] = useState("");
+  const [overflowOpen, setOverflowOpen] = useState(false);
 
   const actions = resolveAvailableActions(message);
   if (!actions.length) return null;
+  const hasSecondary = actions.some((a) => !PRIMARY_ACTION_IDS.has(a.id));
 
   const flashToast = useCallback((text) => {
     setToast(text);
@@ -158,20 +165,38 @@ export function MessageActions({
 
   return h(
     "div",
-    { className: "msg-actions", role: "toolbar", "aria-label": "Message actions" },
+    {
+      className: `msg-actions${overflowOpen ? " msg-actions-expanded" : ""}`,
+      role: "toolbar",
+      "aria-label": "Message actions",
+    },
     actions.map((action) =>
       h(
         "button",
         {
           key: action.id,
           type: "button",
-          className: "msg-action",
+          className: `msg-action${PRIMARY_ACTION_IDS.has(action.id) ? "" : " msg-action-secondary"}`,
           "data-action": action.id,
           onClick: () => handleAction(action.id),
         },
         action.label,
       ),
     ),
+    hasSecondary
+      ? h(
+          "button",
+          {
+            key: "__more",
+            type: "button",
+            className: "msg-action msg-action-more",
+            "aria-label": overflowOpen ? "Show fewer actions" : "Show more actions",
+            "aria-expanded": overflowOpen ? "true" : "false",
+            onClick: () => setOverflowOpen((v) => !v),
+          },
+          "\u22EF",
+        )
+      : null,
     toast ? h("span", { className: "msg-action-toast", role: "status" }, toast) : null,
   );
 }

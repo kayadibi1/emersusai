@@ -11,13 +11,14 @@ import { FuelGauge } from "/shared/nutrition/fuel-gauge.js";
 
 const h = React.createElement;
 
+// SOON-tabbed entries are hidden from the tab bar until their feature ships
+// (Miller/Hick — don't spend attention on unshipped surface). Re-add when
+// the backing endpoints and panels are ready.
 const TABS = [
   { id: "today",     label: "Today" },
   { id: "plans",     label: "Plans" },
   { id: "log",       label: "Log" },
-  { id: "recipes",   label: "Recipes",   soon: true },
-  { id: "allergens", label: "Allergens", soon: true },
-];
+].filter(Boolean);
 
 const QUICK_LOG_ITEMS = [
   { id: "water_250",  label: "Water +250ml", hint: "+ 250 ML" },
@@ -338,7 +339,7 @@ function ComingSoonCard({ label }) {
   );
 }
 
-function QuickLogDropdown({ accessToken, onLog }) {
+function QuickLogDropdown({ accessToken, onLog, onToast }) {
   const [open, setOpen] = useState(false);
   useEffect(() => {
     if (!open) return undefined;
@@ -350,11 +351,13 @@ function QuickLogDropdown({ accessToken, onLog }) {
   const handlePick = async (id) => {
     setOpen(false);
     if (id === "water_250" || id === "water_500") {
+      const ml = id === "water_250" ? 250 : 500;
       await fetch("/api/nutrition/water", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
-        body: JSON.stringify({ ml: id === "water_250" ? 250 : 500 }),
+        body: JSON.stringify({ ml }),
       });
+      onToast?.(`WATER + ${ml} ML LOGGED`);
     } else if (id === "supplement") {
       const name = window.prompt("Supplement name:", "Creatine");
       if (name) {
@@ -363,6 +366,7 @@ function QuickLogDropdown({ accessToken, onLog }) {
           headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
           body: JSON.stringify({ items: [{ name }] }),
         });
+        onToast?.(`${String(name).toUpperCase()} LOGGED`);
       }
     }
     onLog?.();
@@ -382,7 +386,7 @@ function QuickLogDropdown({ accessToken, onLog }) {
   );
 }
 
-function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate }) {
+function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, onToast }) {
   const [entries, setEntries] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -511,10 +515,13 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate })
       setSearchQuery("");
       setSearchResults([]);
       onMutate?.();
+      const kcal = Math.round(Number(added?.kcal_snapshot) || 0);
+      const foodName = (food?.name || "Food").toUpperCase();
+      onToast?.(kcal > 0 ? `${foodName} · ${kcal} KCAL LOGGED` : `${foodName} LOGGED`);
     } catch {
       setError("Could not add food.");
     }
-  }, [accessToken, date, mealSlot, onMutate]);
+  }, [accessToken, date, mealSlot, onMutate, onToast]);
 
   if (!open) return null;
 
@@ -655,8 +662,21 @@ function NutritionApp() {
   });
   const [session, setSession] = useState(null);
   const accessToken = session?.access_token || "";
+  const [toast, setToast] = useState("");
 
   useEffect(() => { requireAuth().then(setSession); }, []);
+
+  // Peak-End: confirm every log action with a brief toast so the gesture
+  // ends on a visible success beat. Auto-clears after 2.2 s.
+  const flashToast = useCallback((text) => {
+    if (!text) return;
+    setToast(String(text));
+  }, []);
+  useEffect(() => {
+    if (!toast) return undefined;
+    const id = window.setTimeout(() => setToast(""), 2200);
+    return () => window.clearTimeout(id);
+  }, [toast]);
 
   const day = useNutritionDay(accessToken);
 
@@ -734,7 +754,7 @@ function NutritionApp() {
     tab === "allergens" ? h("div", { className: "nu-tab-body" }, h(ComingSoonCard, { label: "Allergen tracking" })) : null,
 
     h("footer", { className: "nu-bottom-bar" },
-      h(QuickLogDropdown, { accessToken, onLog: day.reload }),
+      h(QuickLogDropdown, { accessToken, onLog: day.reload, onToast: flashToast }),
       h("a", { className: "nu-bottom-cta", href: "/app/?prompt=I want to log a meal" }, "Ask Emersus →"),
     ),
     h(MealEditModal, {
@@ -744,7 +764,9 @@ function NutritionApp() {
       accessToken,
       onClose: closeMealModal,
       onMutate: day.reload,
+      onToast: flashToast,
     }),
+    toast ? h("div", { className: "nu-toast", role: "status", "aria-live": "polite" }, toast) : null,
   );
 }
 
