@@ -89,6 +89,38 @@
     bootTheme();
     document.addEventListener('DOMContentLoaded', () => bindSwitcher(document));
   </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://emersus.ai/#organization",
+      "name": "Emersus AI",
+      "url": "https://emersus.ai/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://emersus.ai/emersus-logo.png",
+        "width": 512,
+        "height": 512
+      },
+      "description": "Evidence-based fitness and nutrition AI chat that grounds every recommendation in peer-reviewed research.",
+      "email": "info@emersus.ai",
+      "foundingDate": "2025",
+      "slogan": "Evidence-based fitness intelligence"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://emersus.ai/#website",
+      "url": "https://emersus.ai/",
+      "name": "Emersus AI",
+      "description": "Evidence-based fitness intelligence. Every answer cited.",
+      "publisher": { "@id": "https://emersus.ai/#organization" },
+      "inLanguage": "en-US"
+    }
+  ]
+}
+</script>
 </head>
 <body class="landing-v2-body">
 
