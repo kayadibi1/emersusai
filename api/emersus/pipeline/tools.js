@@ -92,7 +92,8 @@ const EMIT_MEAL_PLAN = {
     "  make me a plan, create a plan (in nutrition context), show me a meal plan,",
     "  calorie deficit plan, calorie surplus plan, maintenance diet",
     "",
-    "PROFILE DEFAULTS (use when user_profile fields are null/missing):",
+    "Call get_user_profile first to get body metrics for the TDEE calculation.",
+    "PROFILE DEFAULTS (use when profile fields are null/missing):",
     "  body_weight_kg: 75 (male) or 65 (female); default male if sex unknown",
     "  height_cm: 178 (male) or 165 (female)",
     "  date_of_birth: assume age 30",
@@ -327,9 +328,37 @@ const LOG_FOOD = {
   },
 };
 
+// ── get_user_profile (server-side tool) ────────────────────────────────
+//
+// The model calls this when it needs profile data to personalize the answer.
+// The server intercepts the call, injects the stored profile as the tool
+// output, and continues generation via previous_response_id. The profile
+// never appears in the initial prompt, so the model can't accidentally
+// parrot it when the question doesn't need personalization.
+
+const GET_USER_PROFILE = {
+  type: "function",
+  name: "get_user_profile",
+  strict: true,
+  description: [
+    "Retrieve the user's saved profile (goal, experience, injuries, equipment, schedule, body metrics, dietary preferences).",
+    "Call this when you need to personalize: workout plans, meal plans, injury-aware exercise swaps, schedule-specific programming, or body-metric calculations (TDEE, macros).",
+    "Do NOT call for general knowledge questions that apply to everyone.",
+  ].join("\n"),
+  parameters: {
+    type: "object",
+    required: [],
+    additionalProperties: false,
+    properties: {},
+  },
+};
+
 // ── Exports ─────────────────────────────────────────────────────────────
 
-export const TOOL_DEFINITIONS = [EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD];
+export const TOOL_DEFINITIONS = [EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD, GET_USER_PROFILE];
+
+/** Tools resolved server-side (profile lookup, etc.) — not forwarded to the client. */
+export const SERVER_SIDE_TOOLS = new Set(["get_user_profile"]);
 
 // ── Validators ──────────────────────────────────────────────────────────
 

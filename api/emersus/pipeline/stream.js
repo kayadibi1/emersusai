@@ -1,4 +1,4 @@
-import { validateToolCall } from "./tools.js";
+import { validateToolCall, TOOL_DEFINITIONS, SERVER_SIDE_TOOLS } from "./tools.js";
 import { formatSources } from "./format-sources.js";
 
 export function parseSSELine(line) {
@@ -81,6 +81,14 @@ function processEvent(event, state) {
         const callId = event.item.call_id || event.item.id;
         const toolBuf = state.toolBuffers[callId];
         const toolName = event.item.name || toolBuf?.name || "unknown";
+
+        // Server-side tools (e.g. get_user_profile): queue for follow-up,
+        // don't forward to the client.
+        if (SERVER_SIDE_TOOLS.has(toolName)) {
+          if (state.serverToolCalls) state.serverToolCalls.push({ callId, name: toolName });
+          break;
+        }
+
         const argsStr = event.item.arguments || (toolBuf?.chunks.join("") ?? "");
         let args;
         try { args = JSON.parse(argsStr); } catch (parseErr) {
@@ -136,6 +144,68 @@ async function readStream(reader, state) {
   }
 }
 
+// ── Server-side tool resolution (multi-turn) ──────────────────────────
+
+/** Strip empty/null/false profile fields so the model only sees what's set. */
+function compactProfile(profile) {
+  if (!profile || typeof profile !== "object") return null;
+  const out = {};
+  for (const [k, v] of Object.entries(profile)) {
+    if (v == null || v === "" || v === false) continue;
+    if (Array.isArray(v) && v.length === 0) continue;
+    out[k] = v;
+  }
+  return Object.keys(out).length > 0 ? out : null;
+}
+
+/**
+ * Resolve pending server-side tool calls, then make a follow-up streaming
+ * request using previous_response_id so the model can continue generating.
+ */
+async function resolveAndContinue(state, ctx) {
+  const toolOutputs = state.serverToolCalls.map((tc) => {
+    if (tc.name === "get_user_profile") {
+      const profile = compactProfile(ctx.profile);
+      return {
+        type: "function_call_output",
+        call_id: tc.callId,
+        output: JSON.stringify(profile || { note: "No profile data saved yet. Use defaults." }),
+      };
+    }
+    return null;
+  }).filter(Boolean);
+
+  // Reset for next round
+  state.serverToolCalls = [];
+  state.toolBuffers = {};
+
+  const apiKey = process.env.OPENAI_API_KEY;
+  const response = await fetch("https://api.openai.com/v1/responses", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    body: JSON.stringify({
+      model: ctx._synthesisModel,
+      previous_response_id: ctx._openaiResponseId,
+      input: toolOutputs,
+      tools: TOOL_DEFINITIONS,
+      stream: true,
+      max_output_tokens: 16000,
+    }),
+    signal: ctx._abortController.signal,
+  });
+
+  if (!response.ok) {
+    const errBody = await response.text().catch(() => "");
+    console.error(`OpenAI follow-up error ${response.status}:`, errBody);
+    throw new Error(`Profile follow-up failed (status ${response.status}).`);
+  }
+
+  return response.body;
+}
+
 /** Pipeline stage: stream SSE to the Express response. */
 export async function stream(ctx, res) {
   res.setHeader("Content-Type", "text/event-stream; charset=utf-8");
@@ -150,12 +220,22 @@ export async function stream(ctx, res) {
     ctx,
     proseBuffer: "",
     toolBuffers: {},
+    serverToolCalls: [],
     onProse: (delta) => sendSSE(res, { type: "prose", delta }),
     onTool: (name, data) => sendSSE(res, { type: "tool", name, data }),
     onToolError: (name, errors) => sendSSE(res, { type: "tool_error", name, errors }),
   };
 
   await readStream(ctx._openaiStream, state);
+
+  // Handle server-side tool calls (e.g. get_user_profile) — make a
+  // follow-up request with the tool output so the model can continue.
+  let followUpAttempts = 0;
+  while (state.serverToolCalls.length > 0 && ctx._openaiResponseId && followUpAttempts < 2) {
+    followUpAttempts++;
+    const followUpStream = await resolveAndContinue(state, ctx);
+    await readStream(followUpStream, state);
+  }
 
   ctx.prose = state.proseBuffer;
   ctx.sources = formatSources(ctx.evidence?.items || []);
@@ -177,12 +257,20 @@ export async function streamToBuffer(ctx) {
     ctx,
     proseBuffer: "",
     toolBuffers: {},
+    serverToolCalls: [],
     onProse: null,
     onTool: null,
     onToolError: null,
   };
 
   await readStream(ctx._openaiStream, state);
+
+  let followUpAttempts = 0;
+  while (state.serverToolCalls.length > 0 && ctx._openaiResponseId && followUpAttempts < 2) {
+    followUpAttempts++;
+    const followUpStream = await resolveAndContinue(state, ctx);
+    await readStream(followUpStream, state);
+  }
 
   ctx.prose = state.proseBuffer;
   ctx.sources = formatSources(ctx.evidence?.items || []);
