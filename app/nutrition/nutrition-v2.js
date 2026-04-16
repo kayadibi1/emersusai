@@ -25,6 +25,35 @@ const QUICK_LOG_ITEMS = [
   { id: "supplement", label: "Supplement",   hint: "QUICK" },
 ];
 
+const MEAL_SLOT_LABELS = {
+  breakfast: "Breakfast", mid_morning: "Mid morning", lunch: "Lunch",
+  afternoon: "Afternoon", dinner: "Dinner", evening: "Evening",
+  pre_workout: "Pre-workout", post_workout: "Post-workout",
+  supplements_am: "Supplements AM", supplements_pm: "Supplements PM",
+};
+const MEAL_SLOTS = Object.keys(MEAL_SLOT_LABELS);
+
+function guessMealSlot() {
+  const hour = new Date().getHours();
+  const min = new Date().getMinutes();
+  const t = hour + min / 60;
+  if (t < 10) return "breakfast";
+  if (t < 11.5) return "mid_morning";
+  if (t < 14) return "lunch";
+  if (t < 16.5) return "afternoon";
+  if (t < 20) return "dinner";
+  return "evening";
+}
+
+function smartDefaultAmount(food) {
+  if (food.common_unit && food.common_unit_grams) return food.common_unit_grams;
+  return food.base_amount || (food.base_unit === "serving" ? 1 : 100);
+}
+
+function smartDefaultUnit(food) {
+  return food.base_unit === "serving" ? "serving" : "g";
+}
+
 function todayIso() { return new Date().toISOString().slice(0, 10); }
 
 // Full-page skeleton (shown before session resolves).
@@ -234,27 +263,67 @@ function WaterSupplementsStrip({ data, accessToken, onChange }) {
   );
 }
 
-function MealsList({ data }) {
+function MealsList({ data, onOpenSlot }) {
   const meals = data?.meals || [];
   if (!meals.length) {
     return h("div", { className: "nu-meals-empty" },
       h("p", null, "No meals logged or planned for this day."),
-      h("a", { className: "nu-meals-cta", href: "/app/?prompt=Build me a meal plan" }, "Ask Emersus to plan a day →"),
+      h("a", { className: "nu-meals-cta", href: "/app/?prompt=Build me a meal plan" }, "Ask Emersus to plan a day \u2192"),
     );
   }
+
+  const consumed = meals.filter((m) => m.eaten_at);
+  const planned = meals.filter((m) => !m.eaten_at);
+  const groups = new Map();
+  for (const m of consumed) {
+    const slot = m.type || "other";
+    if (!groups.has(slot)) groups.set(slot, []);
+    groups.get(slot).push(m);
+  }
+
+  const groupedRows = [...groups.entries()].map(([slot, items]) => {
+    const totalKcal = items.reduce((s, m) => s + (m.kcal || 0), 0);
+    const totalP = items.reduce((s, m) => s + (m.protein_g || 0), 0);
+    const totalC = items.reduce((s, m) => s + (m.carbs_g || 0), 0);
+    const totalF = items.reduce((s, m) => s + (m.fat_g || 0), 0);
+    const earliest = items.reduce((t, m) => {
+      const mt = (m.eaten_at || "").slice(11, 16);
+      return !t || mt < t ? mt : t;
+    }, "");
+    return { slot, items, totalKcal, totalP, totalC, totalF, time: earliest || "\u2014" };
+  }).sort((a, b) => a.time.localeCompare(b.time));
+
   return h("div", { className: "nu-meals-list" },
-    meals.map((m) => h("article", {
-      key: m.id,
-      className: `nu-meal-row${m.eaten_at ? "" : " is-planned"}`,
+    groupedRows.map((g) => h("article", {
+      key: g.slot,
+      className: "nu-meal-row is-clickable",
+      onClick: () => onOpenSlot?.(g.slot),
     },
-      h("div", { className: "nu-meal-time" }, (m.eaten_at || m.planned_at || "").slice(11, 16) || "—"),
+      h("div", { className: "nu-meal-time" }, g.time),
+      h("div", { className: "nu-meal-body" },
+        h("div", { className: "nu-meal-head" },
+          h("span", { className: "nu-meal-name" }, MEAL_SLOT_LABELS[g.slot] || g.slot),
+          h("span", { className: "nu-meal-pill" }, "LOGGED"),
+        ),
+        h("div", { className: "nu-meal-macros" },
+          `${g.totalKcal} kcal \u00b7 ${g.totalP}g P \u00b7 ${g.totalC}g C \u00b7 ${g.totalF}g F`,
+        ),
+      ),
+      h("span", { className: "nu-meal-count" }, `${g.items.length} item${g.items.length !== 1 ? "s" : ""}`),
+      h("span", { className: "nu-meal-chevron" }, ">"),
+    )),
+    planned.map((m) => h("article", {
+      key: m.id,
+      className: "nu-meal-row is-planned",
+    },
+      h("div", { className: "nu-meal-time" }, (m.planned_at || "").slice(11, 16) || "\u2014"),
       h("div", { className: "nu-meal-body" },
         h("div", { className: "nu-meal-head" },
           h("span", { className: "nu-meal-name" }, m.name || m.type),
-          h("span", { className: "nu-meal-pill" }, m.eaten_at ? "LOGGED" : "PLANNED"),
+          h("span", { className: "nu-meal-pill" }, "PLANNED"),
         ),
         h("div", { className: "nu-meal-macros" },
-          `${m.kcal} kcal · ${m.protein_g}g P · ${m.carbs_g}g C · ${m.fat_g}g F`,
+          `${m.kcal} kcal \u00b7 ${m.protein_g}g P \u00b7 ${m.carbs_g}g C \u00b7 ${m.fat_g}g F`,
         ),
       ),
     )),
@@ -313,6 +382,271 @@ function QuickLogDropdown({ accessToken, onLog }) {
   );
 }
 
+function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate }) {
+  const [entries, setEntries] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [deleteTarget, setDeleteTarget] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [searchResults, setSearchResults] = useState([]);
+  const [searchLoading, setSearchLoading] = useState(false);
+
+  const title = mealSlot ? (MEAL_SLOT_LABELS[mealSlot] || mealSlot) : "Log food";
+
+  useEffect(() => {
+    if (!open || !accessToken) return;
+    setError(""); setSearchQuery(""); setSearchResults([]);
+    setDeleteTarget(null);
+    (async () => {
+      setLoading(true);
+      try {
+        const res = await fetch(`/api/emersus/meal-journal/day?date=${date}`, {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
+        if (!res.ok) throw new Error("fetch_failed");
+        const body = await res.json();
+        const all = body.entries || [];
+        if (mealSlot) {
+          setEntries(all.filter((e) => e.meal_slot === mealSlot));
+        } else {
+          setEntries([]);
+        }
+      } catch (err) {
+        setError(err.message || "Could not load meal details.");
+      } finally {
+        setLoading(false);
+      }
+    })();
+  }, [open, date, mealSlot, accessToken]);
+
+  useEffect(() => {
+    if (searchQuery.length < 2) { setSearchResults([]); return; }
+    const timer = setTimeout(async () => {
+      setSearchLoading(true);
+      try {
+        const res = await fetch(
+          `/api/emersus/foods/search?q=${encodeURIComponent(searchQuery)}&kind=food&limit=8`,
+          { headers: { Authorization: `Bearer ${accessToken}` } },
+        );
+        const body = await res.json();
+        setSearchResults(body.results || []);
+      } catch { setSearchResults([]); }
+      finally { setSearchLoading(false); }
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchQuery, accessToken]);
+
+  const patchEntry = useCallback(async (entryId, patch) => {
+    try {
+      const res = await fetch(`/api/emersus/meal-journal/entries/${entryId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
+        body: JSON.stringify(patch),
+      });
+      if (!res.ok) throw new Error("update_failed");
+      const body = await res.json();
+      if (patch.meal_slot && patch.meal_slot !== mealSlot && mealSlot) {
+        setEntries((prev) => prev.filter((e) => e.id !== entryId));
+      } else if (body.entry) {
+        setEntries((prev) => prev.map((e) => e.id === entryId ? { ...e, ...body.entry } : e));
+      }
+      onMutate?.();
+    } catch (err) {
+      setError("Save failed. Try again.");
+    }
+  }, [accessToken, mealSlot, onMutate]);
+
+  const handleAmountBlur = useCallback((entryId, newAmount) => {
+    const num = parseFloat(newAmount);
+    if (isNaN(num) || num <= 0) return;
+    patchEntry(entryId, { amount: num });
+  }, [patchEntry]);
+
+  const handleSlotChange = useCallback((entryId, newSlot) => {
+    patchEntry(entryId, { meal_slot: newSlot });
+  }, [patchEntry]);
+
+  const confirmDelete = useCallback(async () => {
+    if (!deleteTarget) return;
+    try {
+      const res = await fetch(`/api/emersus/meal-journal/entries/${deleteTarget}`, {
+        method: "DELETE",
+        headers: { Authorization: `Bearer ${accessToken}` },
+      });
+      if (!res.ok) throw new Error("delete_failed");
+      setEntries((prev) => prev.filter((e) => e.id !== deleteTarget));
+      setDeleteTarget(null);
+      onMutate?.();
+    } catch {
+      setError("Delete failed.");
+      setDeleteTarget(null);
+    }
+  }, [deleteTarget, accessToken, onMutate]);
+
+  const addFood = useCallback(async (food) => {
+    const slot = mealSlot || guessMealSlot();
+    const amount = smartDefaultAmount(food);
+    const amountUnit = smartDefaultUnit(food);
+    try {
+      const res = await fetch("/api/emersus/meal-journal/entries", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
+        body: JSON.stringify({
+          entries: [{
+            food_id: food.id,
+            logged_date: date,
+            meal_slot: slot,
+            amount,
+            amount_unit: amountUnit,
+            source: "manual_search",
+          }],
+        }),
+      });
+      if (!res.ok) throw new Error("add_failed");
+      const body = await res.json();
+      const added = (body.entries || [])[0];
+      if (added) {
+        setEntries((prev) => [...prev, { ...added, food }]);
+      }
+      setSearchQuery("");
+      setSearchResults([]);
+      onMutate?.();
+    } catch {
+      setError("Could not add food.");
+    }
+  }, [accessToken, date, mealSlot, onMutate]);
+
+  if (!open) return null;
+
+  const totalKcal = entries.reduce((s, e) => s + (Number(e.kcal_snapshot) || 0), 0);
+  const totalP = entries.reduce((s, e) => s + (Number(e.protein_g_snapshot) || 0), 0);
+  const totalC = entries.reduce((s, e) => s + (Number(e.carbs_g_snapshot) || 0), 0);
+  const totalF = entries.reduce((s, e) => s + (Number(e.fat_g_snapshot) || 0), 0);
+  const dateDisplay = new Date(date + "T12:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" });
+
+  return h("div", { className: "nu-modal-backdrop", onClick: onClose },
+    h("div", { className: "nu-modal", onClick: (e) => e.stopPropagation() },
+
+      h("div", { className: "nu-modal-head" },
+        h("div", null,
+          h("h3", null, title),
+          h("div", { className: "nu-modal-subtitle" },
+            `${dateDisplay} \u00b7 ${entries.length} item${entries.length !== 1 ? "s" : ""} logged`,
+          ),
+        ),
+        h("button", { className: "nu-modal-close", onClick: onClose, "aria-label": "Close" }, "\u00d7"),
+      ),
+
+      h("div", { className: "nu-modal-body" },
+        loading
+          ? h("div", { className: "nu-modal-empty" }, "Loading\u2026")
+          : error && !entries.length
+            ? h("div", { className: "nu-modal-error" },
+                error,
+                h("button", { onClick: () => setError("") }, "\u2715"),
+              )
+            : entries.length
+              ? h("ul", { className: "nu-food-list" },
+                  entries.map((e) => {
+                    const foodName = e.food?.description || "Unknown food";
+                    const kcal = Math.round(Number(e.kcal_snapshot) || 0);
+                    const prot = Math.round(Number(e.protein_g_snapshot) || 0);
+                    const carb = Math.round(Number(e.carbs_g_snapshot) || 0);
+                    const fat = Math.round(Number(e.fat_g_snapshot) || 0);
+                    const unit = e.amount_unit === "serving" ? "srv" : "g";
+                    const isDeleting = deleteTarget === e.id;
+
+                    return h("li", {
+                      key: e.id,
+                      className: `nu-food-item${isDeleting ? " is-deleting" : ""}`,
+                    },
+                      h("div", { className: "nu-food-info" },
+                        h("div", { className: "nu-food-name" }, foodName),
+                        h("div", { className: "nu-food-meta-row" },
+                          h("select", {
+                            className: "nu-food-slot-select",
+                            value: e.meal_slot,
+                            onChange: (ev) => handleSlotChange(e.id, ev.target.value),
+                            onClick: (ev) => ev.stopPropagation(),
+                          },
+                            MEAL_SLOTS.map((s) =>
+                              h("option", { key: s, value: s }, MEAL_SLOT_LABELS[s]),
+                            ),
+                          ),
+                          h("div", { className: "nu-food-macros" },
+                            h("span", { className: "nu-food-macro-p" }, `${prot}g P`),
+                            h("span", { className: "nu-food-macro-c" }, `${carb}g C`),
+                            h("span", { className: "nu-food-macro-f" }, `${fat}g F`),
+                          ),
+                        ),
+                      ),
+                      h("div", { className: "nu-food-amount-wrap" },
+                        h("input", {
+                          className: "nu-food-amount-input",
+                          type: "number",
+                          defaultValue: Math.round(Number(e.amount) || 0),
+                          step: unit === "srv" ? 0.5 : 10,
+                          min: 0,
+                          onBlur: (ev) => handleAmountBlur(e.id, ev.target.value),
+                          onKeyDown: (ev) => { if (ev.key === "Enter") ev.target.blur(); },
+                        }),
+                        h("span", { className: "nu-food-amount-unit" }, unit),
+                      ),
+                      h("span", { className: "nu-food-kcal" }, kcal),
+                      h("button", {
+                        className: "nu-food-delete",
+                        onClick: () => setDeleteTarget(e.id),
+                        title: "Delete",
+                      }, "\u00d7"),
+                    );
+                  }),
+                )
+              : h("div", { className: "nu-modal-empty" }, "No items logged yet."),
+      ),
+
+      deleteTarget ? h("div", { className: "nu-delete-confirm" },
+        h("span", null, `Remove \u201c${(entries.find((e) => e.id === deleteTarget)?.food?.description) || "item"}\u201d?`),
+        h("button", { className: "nu-delete-confirm-yes", onClick: confirmDelete }, "Remove"),
+        h("button", { className: "nu-delete-confirm-no", onClick: () => setDeleteTarget(null) }, "Cancel"),
+      ) : null,
+
+      entries.length > 0 ? h("div", { className: "nu-meal-summary" },
+        h("div", null,
+          h("div", { className: "nu-meal-summary-label" }, "MEAL TOTAL"),
+          h("div", { className: "nu-meal-summary-value" }, `${Math.round(totalKcal)} kcal`),
+        ),
+        h("div", { className: "nu-meal-summary-macros" },
+          h("span", { className: "nu-food-macro-p" }, `${Math.round(totalP)}g P`),
+          h("span", { className: "nu-food-macro-c" }, `${Math.round(totalC)}g C`),
+          h("span", { className: "nu-food-macro-f" }, `${Math.round(totalF)}g F`),
+        ),
+      ) : null,
+
+      h("div", { className: "nu-add-food-row" },
+        h("input", {
+          className: "nu-add-food-input",
+          type: "search",
+          placeholder: "Search to add a food\u2026",
+          value: searchQuery,
+          onChange: (e) => setSearchQuery(e.target.value),
+        }),
+      ),
+      searchResults.length > 0 ? h("ul", { className: "nu-search-results" },
+        searchResults.map((f) => h("li", {
+          key: f.id,
+          className: "nu-search-result",
+          onClick: () => addFood(f),
+        },
+          h("span", { className: "nu-search-result-name" }, f.description),
+          h("span", { className: "nu-search-result-meta" },
+            f.brand_name ? `${f.brand_name}` : (f.source || "").replace(/_/g, " "),
+          ),
+        )),
+      ) : null,
+    ),
+  );
+}
+
 function NutritionApp() {
   const [tab, setTab] = useState(() => {
     const params = new URLSearchParams(window.location.search);
@@ -325,6 +659,25 @@ function NutritionApp() {
   useEffect(() => { requireAuth().then(setSession); }, []);
 
   const day = useNutritionDay(accessToken);
+
+  const [modalSlot, setModalSlot] = useState(null);
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openMealModal = useCallback((slot) => {
+    setModalSlot(slot);
+    setModalOpen(true);
+  }, []);
+
+  const openLogFood = useCallback(() => {
+    setModalSlot(null);
+    setModalOpen(true);
+  }, []);
+
+  const closeMealModal = useCallback(() => {
+    setModalOpen(false);
+    setModalSlot(null);
+    day.reload();
+  }, [day]);
 
   function setTabAndUrl(next) {
     setTab(next);
@@ -359,11 +712,12 @@ function NutritionApp() {
               h(FuelGauge, { data: day.data }),
               h(NextUpCard, { data: day.data }),
               h(WaterSupplementsStrip, { data: day.data, accessToken, onChange: day.reload }),
-              h(MealsList, { data: day.data }),
-              h("a", {
-                className: "nu-meals-cta nu-meals-cta-bottom",
-                href: "/app/?prompt=Log a meal",
-              }, "+ Log a meal via chat"),
+              h(MealsList, { data: day.data, onOpenSlot: openMealModal }),
+              h("button", {
+                type: "button",
+                className: "nu-log-food-btn",
+                onClick: openLogFood,
+              }, "+ Log food"),
             ),
     ) : null,
 
@@ -383,6 +737,14 @@ function NutritionApp() {
       h(QuickLogDropdown, { accessToken, onLog: day.reload }),
       h("a", { className: "nu-bottom-cta", href: "/app/?prompt=I want to log a meal" }, "Ask Emersus →"),
     ),
+    h(MealEditModal, {
+      open: modalOpen,
+      mealSlot: modalSlot,
+      date: day.date,
+      accessToken,
+      onClose: closeMealModal,
+      onMutate: day.reload,
+    }),
   );
 }
 
