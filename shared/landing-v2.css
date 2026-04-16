@@ -541,5 +541,13 @@ h1.headline {
 @media (max-width: 860px) {
   .demo-body { grid-template-columns: 1fr; }
   .demo-side { display: none; }
+  /* Reserve height for the final animated state (header + 2 messages +
+   * expanded cite card + composer ≈ 580 px). Without this, the loop's
+   * reset shrinks the container and the re-type grows it again, pumping
+   * the page up/down on phones where the demo occupies most of the
+   * viewport. msgs gets its own min-height so the cite-card expansion
+   * fits inside instead of pushing demo-main outward. */
+  .demo-main { min-height: 580px; }
+  .msgs { min-height: 430px; }
   .hero { padding-top: 64px; }
 }
