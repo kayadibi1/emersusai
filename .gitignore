@@ -64,6 +64,11 @@ docs/references/
 # references, etc. here — nothing under .local/ will be committed.
 .local/
 
+# Naming convention: anything with `.local` in its name is local-only.
+# e.g. notes.local.md, config.local.json, scratch.local.txt
+*.local
+*.local.*
+
 # Obvious local-only junk (dated backups, scratch-named assets).
 script.js.landing-backup-2026-04-11
 assets/Untitled-2.png
