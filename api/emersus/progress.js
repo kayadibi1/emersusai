@@ -455,6 +455,78 @@ async function loadZoneRiver(userId, profile) {
   };
 }
 
+const ACWR_WEEKS = 12;
+
+async function loadControlChart(userId) {
+  if (!supabaseAdmin) return null;
+  const endDate = isoDaysAgo(0);
+  const startDate = isoDaysAgo((ACWR_WEEKS + 4) * 7);
+
+  const { data: logs } = await supabaseAdmin
+    .from("workout_logs")
+    .select("performed_at, load_kg, reps, rpe, duration_seconds")
+    .eq("user_id", userId)
+    .gte("performed_at", startDate)
+    .lte("performed_at", endDate);
+
+  if (!logs || logs.length === 0) return null;
+
+  const loadByDay = {};
+  for (const log of logs) {
+    const d = String(log.performed_at);
+    const rpe = log.rpe != null ? Number(log.rpe) : 5;
+    const load = (Number(log.load_kg) || 0) * (Number(log.reps) || 0);
+    const cardio = (Number(log.duration_seconds) || 0) / 60;
+    const load_pts = (load + cardio) * rpe;
+    loadByDay[d] = (loadByDay[d] || 0) + load_pts;
+  }
+
+  const totalWeeks = ACWR_WEEKS + 4;
+  const weeklyAcute = new Array(totalWeeks).fill(0);
+  const endTs = new Date(endDate + "T00:00:00").getTime();
+  for (const [d, pts] of Object.entries(loadByDay)) {
+    const dayObj = new Date(d + "T00:00:00");
+    const daysAgo = Math.floor((endTs - dayObj.getTime()) / 86400000);
+    const weeksAgo = Math.floor(daysAgo / 7);
+    const wi = totalWeeks - 1 - weeksAgo;
+    if (wi >= 0 && wi < totalWeeks) weeklyAcute[wi] += pts;
+  }
+
+  const weeks = [];
+  for (let i = 0; i < ACWR_WEEKS; i++) {
+    const globalIdx = (totalWeeks - ACWR_WEEKS) + i;
+    const acute = weeklyAcute[globalIdx];
+    const chronicWindow = weeklyAcute.slice(Math.max(0, globalIdx - 3), globalIdx + 1);
+    const chronic = chronicWindow.length > 0
+      ? chronicWindow.reduce((a, b) => a + b, 0) / chronicWindow.length
+      : 0;
+    const acwr = chronic > 0 ? acute / chronic : null;
+    const weekStartDate = isoDaysAgo((ACWR_WEEKS - i) * 7);
+    weeks.push({
+      week_idx: i,
+      date_start: weekStartDate,
+      acwr: acwr != null ? Math.round(acwr * 100) / 100 : null,
+      acute_load: Math.round(acute),
+      chronic_load: Math.round(chronic),
+      out_of_control: acwr != null && (acwr >= 1.5 || acwr < 0.5),
+    });
+  }
+
+  const validAcwr = weeks.filter(w => w.acwr != null).map(w => w.acwr);
+  if (validAcwr.length < 4) return null;
+
+  const current_acwr = weeks[weeks.length - 1].acwr;
+  const mean_acwr = Math.round((validAcwr.reduce((a, b) => a + b, 0) / validAcwr.length) * 100) / 100;
+  const excursions = weeks.filter(w => w.out_of_control).length;
+  let status = "in_control";
+  if (current_acwr != null) {
+    if (current_acwr >= 1.5 || current_acwr < 0.5) status = "out_of_control";
+    else if (current_acwr >= 1.3 || current_acwr < 0.8) status = "elevated";
+  }
+
+  return { weeks, current_acwr, mean_acwr, excursions, status };
+}
+
 export default async function progressHandler(req, res) {
   if (!supabaseAdmin) return res.status(500).json({ error: "Backend unavailable." });
   const userId = req.verifiedUserId;
@@ -466,7 +538,7 @@ export default async function progressHandler(req, res) {
 
   try {
     const profile = await loadProfileExperience(userId);
-    const [benchmarks, prs, sessions, streak, momentum_cards, beeswarm, zone_river] = await Promise.all([
+    const [benchmarks, prs, sessions, streak, momentum_cards, beeswarm, zone_river, control_chart] = await Promise.all([
       loadBenchmarks(profile?.experience_level),
       loadPRs(userId, days),
       loadRecentSessions(userId, modality, 10),
@@ -474,6 +546,7 @@ export default async function progressHandler(req, res) {
       loadMomentumCards(userId, profile),
       loadBeeswarm(userId),
       loadZoneRiver(userId, profile),
+      loadControlChart(userId),
     ]);
 
     res.setHeader("Cache-Control", "private, max-age=60");
@@ -485,7 +558,7 @@ export default async function progressHandler(req, res) {
       momentum_cards,
       beeswarm,
       zone_river,
-      training_load: { items: [], coming_soon: true, current_ratio: null },
+      control_chart,
       streak,
       recent_sessions: sessions,
     });

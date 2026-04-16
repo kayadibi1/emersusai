@@ -336,6 +336,108 @@ export function zoneRiver(data, { mobile = false } = {}) {
   return svg;
 }
 
+/**
+ * Control chart with mean + UCL/LCL/UWL/LWL lines.
+ * @param {{weeks: Array, mean_acwr: number}} data
+ * @param {{mobile?: boolean}} opts
+ */
+export function controlChart(data, { mobile = false } = {}) {
+  if (!data || !data.weeks || data.weeks.length === 0) return "";
+  const W = 800, H = mobile ? 220 : 260;
+  const pad = { top: 20, right: mobile ? 20 : 80, bottom: 40, left: 50 };
+  const chartW = W - pad.left - pad.right;
+  const chartH = H - pad.top - pad.bottom;
+
+  const yMin = 0.5, yMax = 2.0;
+  const yFor = (v) => pad.top + chartH - ((v - yMin) / (yMax - yMin)) * chartH;
+  const xFor = (i) => pad.left + (i / (data.weeks.length - 1)) * chartW;
+
+  const yCut = (v) => Math.max(pad.top, Math.min(pad.top + chartH, yFor(v)));
+
+  let svg = `<svg class="pg-control-chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">`;
+
+  // Background bands
+  svg += `<rect x="${pad.left}" y="${yCut(1.3).toFixed(1)}" width="${chartW}" height="${(yCut(0.8) - yCut(1.3)).toFixed(1)}" fill="var(--success,#15803d)" opacity="0.08"/>`;
+  svg += `<rect x="${pad.left}" y="${yCut(1.5).toFixed(1)}" width="${chartW}" height="${(yCut(1.3) - yCut(1.5)).toFixed(1)}" fill="var(--warning)" opacity="0.06"/>`;
+  svg += `<rect x="${pad.left}" y="${yCut(0.8).toFixed(1)}" width="${chartW}" height="${(yCut(0.5) - yCut(0.8)).toFixed(1)}" fill="var(--warning)" opacity="0.06"/>`;
+  svg += `<rect x="${pad.left}" y="${pad.top}" width="${chartW}" height="${(yCut(1.5) - pad.top).toFixed(1)}" fill="var(--danger)" opacity="0.06"/>`;
+
+  // Grid
+  for (let v = 0.5; v <= 2.0; v += 0.3) {
+    const y = yFor(v);
+    svg += `<line x1="${pad.left}" y1="${y.toFixed(1)}" x2="${W - pad.right}" y2="${y.toFixed(1)}" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 3"/>`;
+  }
+
+  // Reference lines
+  svg += `<line x1="${pad.left}" y1="${yFor(1.5).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(1.5).toFixed(1)}" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="6 4"/>`;
+  svg += `<line x1="${pad.left}" y1="${yFor(1.3).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(1.3).toFixed(1)}" stroke="var(--warning)" stroke-width="1" stroke-dasharray="3 3"/>`;
+  svg += `<line x1="${pad.left}" y1="${yFor(1.0).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(1.0).toFixed(1)}" stroke="var(--success,#15803d)" stroke-width="1.5"/>`;
+  svg += `<line x1="${pad.left}" y1="${yFor(0.8).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(0.8).toFixed(1)}" stroke="var(--warning)" stroke-width="1" stroke-dasharray="3 3"/>`;
+  svg += `<line x1="${pad.left}" y1="${yFor(0.5).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(0.5).toFixed(1)}" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="6 4"/>`;
+
+  if (!mobile) {
+    svg += `<text x="${(W - pad.right - 6).toFixed(1)}" y="${(yFor(1.5) - 3).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--danger)">UCL · 1.5</text>`;
+    svg += `<text x="${(W - pad.right - 6).toFixed(1)}" y="${(yFor(1.3) - 3).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--warning)">UWL · 1.3</text>`;
+    svg += `<text x="${(W - pad.right - 6).toFixed(1)}" y="${(yFor(1.0) - 3).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="600" fill="var(--success,#15803d)">MEAN · 1.0</text>`;
+    svg += `<text x="${(W - pad.right - 6).toFixed(1)}" y="${(yFor(0.8) + 11).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--warning)">LWL · 0.8</text>`;
+  }
+
+  for (let v = 0.5; v <= 2.0; v += 0.3) {
+    const y = yFor(v);
+    svg += `<text x="${(pad.left - 8).toFixed(1)}" y="${(y + 3).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--dim)">${v.toFixed(1)}</text>`;
+  }
+
+  const pts = data.weeks.map((w, i) => (w.acwr != null ? { x: xFor(i), y: yFor(w.acwr), w } : null));
+  let pathD = "";
+  for (let i = 0; i < pts.length; i++) {
+    const p = pts[i];
+    if (p) {
+      pathD += (pathD === "" || !pts[i - 1] ? "M" : "L") + p.x.toFixed(1) + "," + p.y.toFixed(1) + " ";
+    }
+  }
+  if (pathD) {
+    svg += `<path d="${pathD}" fill="none" stroke="var(--ink)" stroke-width="2" stroke-linecap="round"/>`;
+  }
+
+  for (let i = 0; i < pts.length; i++) {
+    const p = pts[i];
+    if (!p) continue;
+    const isCurrent = i === pts.length - 1;
+    const ooc = p.w.out_of_control;
+    if (isCurrent) {
+      svg += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="6" fill="var(--accent)" stroke="var(--bg)" stroke-width="2"/>`;
+    } else if (ooc) {
+      svg += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="6" fill="var(--danger)" stroke="var(--bg)" stroke-width="2"/>`;
+    } else {
+      svg += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="4" fill="var(--ink)" stroke="var(--bg)" stroke-width="1.5"/>`;
+    }
+  }
+
+  const N = data.weeks.length;
+  if (mobile) {
+    const positions = [0, Math.floor(N / 2), N - 1];
+    const labels = ["W1", `W${Math.floor(N / 2) + 1}`, "NOW"];
+    positions.forEach((idx, i) => {
+      const x = xFor(idx);
+      const fill = i === positions.length - 1 ? "var(--accent)" : "var(--dim)";
+      const weight = i === positions.length - 1 ? 600 : 400;
+      svg += `<text x="${x.toFixed(1)}" y="${(H - pad.bottom + 18).toFixed(1)}" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="${fill}" font-weight="${weight}">${labels[i]}</text>`;
+    });
+  } else {
+    const ticks = [0, Math.floor(N / 4), Math.floor(N / 2), Math.floor(3 * N / 4), N - 1];
+    ticks.forEach((idx) => {
+      const x = xFor(idx);
+      const label = idx === N - 1 ? "NOW" : `W${idx + 1}`;
+      const fill = idx === N - 1 ? "var(--accent)" : "var(--dim)";
+      const weight = idx === N - 1 ? 600 : 400;
+      svg += `<text x="${x.toFixed(1)}" y="${(H - pad.bottom + 18).toFixed(1)}" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="${fill}" font-weight="${weight}">${label}</text>`;
+    });
+  }
+
+  svg += `</svg>`;
+  return svg;
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────
 
 function weekLabel(dateStr) {

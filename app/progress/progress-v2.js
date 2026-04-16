@@ -7,7 +7,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { requireAuth, getProfile } from "/shared/supabase.js";
 import { resolveWeightUnit } from "/shared/unit-conversion.js";
-import { momentumSparkline, beeswarmPlot, zoneRiver } from "/shared/progress-charts.js";
+import { momentumSparkline, beeswarmPlot, zoneRiver, controlChart } from "/shared/progress-charts.js";
 
 const h = React.createElement;
 
@@ -271,6 +271,68 @@ function ZoneRiver({ data }) {
   );
 }
 
+function ControlChart({ data }) {
+  const cc = data?.control_chart;
+  const [isMobile, setIsMobile] = React.useState(() => typeof window !== "undefined" && window.innerWidth < 600);
+  React.useEffect(() => {
+    function onResize() { setIsMobile(window.innerWidth < 600); }
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  if (!cc) {
+    return h("section", { className: "pg-section" },
+      h("h2", null, "Training load"),
+      h("div", { className: "pg-control-card" },
+        h("div", { className: "pg-control-placeholder" },
+          "Need 4+ weeks of training to compute your training load. ",
+          h("a", { href: "/app/train/" }, "Log a session →"),
+        ),
+      ),
+    );
+  }
+
+  const svg = controlChart(cc, { mobile: isMobile });
+  const statusColor = cc.status === "out_of_control" ? "var(--danger)"
+    : cc.status === "elevated" ? "var(--warning)"
+    : "var(--success, #15803d)";
+  const statusLabel = cc.status === "out_of_control" ? "Out of control"
+    : cc.status === "elevated" ? "Elevated"
+    : "In control";
+
+  return h("section", { className: "pg-section" },
+    h("h2", null, "Training load"),
+    h("div", { className: "pg-control-card" },
+      h("div", { className: "pg-control-head" },
+        h("div", null,
+          h("div", { className: "pg-control-title" }, "Acute:chronic workload ratio"),
+          h("div", { className: "pg-control-sub" }, `${cc.weeks.length} WEEKS · WITH CONTROL LIMITS`),
+        ),
+      ),
+      h("div", { dangerouslySetInnerHTML: { __html: svg } }),
+      h("div", { className: "pg-control-stats" },
+        h("div", null,
+          h("div", { className: "pg-control-stat-label" }, "Current"),
+          h("div", { className: "pg-control-stat-value" }, cc.current_acwr != null ? cc.current_acwr.toFixed(2) : "—"),
+        ),
+        h("div", null,
+          h("div", { className: "pg-control-stat-label" }, `${cc.weeks.length} wk mean`),
+          h("div", { className: "pg-control-stat-value" }, cc.mean_acwr != null ? cc.mean_acwr.toFixed(2) : "—"),
+        ),
+        h("div", null,
+          h("div", { className: "pg-control-stat-label" }, "Excursions"),
+          h("div", { className: "pg-control-stat-value", style: { color: cc.excursions > 0 ? "var(--danger)" : "var(--ink)" } }, cc.excursions),
+        ),
+        h("div", null,
+          h("div", { className: "pg-control-stat-label" }, "Status"),
+          h("div", { className: "pg-control-stat-value status", style: { color: statusColor } }, statusLabel),
+        ),
+      ),
+      h("div", { className: "pg-control-citation" }, "GABBETT · BR J SPORTS MED · 2016"),
+    ),
+  );
+}
+
 function ComingSoon({ title, hint }) {
   return h("section", { className: "pg-soon" },
     h("h3", null, title),
@@ -414,11 +476,7 @@ function ProgressApp() {
       h(MomentumCards, { data, weightUnit }),
       h(BeeswarmPlot, { data, weightUnit }),
       h(ZoneRiver, { data }),
-
-      // Remaining coming-soon visualizations
-      h("section", { className: "pg-section pg-section-soon-grid" },
-        h(ComingSoon, { title: "Training load (acute:chronic)", hint: "Safe-zone band 0.8–1.3 · Gabbett 2016" }),
-      ),
+      h(ControlChart, { data }),
 
       // Recent sessions
       data.recent_sessions && data.recent_sessions.length
