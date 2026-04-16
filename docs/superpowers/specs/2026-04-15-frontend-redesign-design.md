@@ -348,8 +348,8 @@ Many places open a chat with a pre-populated prompt (empty-state chips, `Suggest
 - **Thread title** — editable inline (click to edit, `Enter` saves, `Esc` cancels). Mutation → `PATCH /api/threads/:id { title }`. If empty after edit, revert to "Untitled thread".
 - **`Emersus ▾` model pill** — opens a dropdown with model choices.
   - Options (initial): `Emersus` (balanced, default) · `Emersus Fast` (quicker, less retrieval depth) · `Emersus Deep` (slower, more aggressive retrieval).
-  - Under the hood, maps to `OPENAI_EMERSUS_MODEL` variants + retrieval-policy tier. Selection stored on the thread: `PATCH /api/threads/:id { model }` (DB tier ids `emersus-0.5*` are kept stable for backwards compatibility).
-  - New threads inherit the user's default (Profile → Preferences, not yet in the spec — add as a hidden default: use the balanced `emersus-0.5` tier).
+  - Under the hood, maps to `OPENAI_EMERSUS_MODEL` variants + retrieval-policy tier. Selection stored on the thread: `PATCH /api/threads/:id { model }` (DB tier ids: `emersus`, `emersus-fast`, `emersus-deep`).
+  - New threads inherit the user's default (Profile → Preferences, not yet in the spec — add as a hidden default: use the balanced `emersus` tier).
 - **`3 SOURCES CITED` pill** — non-interactive; displays count of unique citations served in the current thread. Updates live as the assistant streams new citations.
 - **`Share` button** — opens a share modal with three options:
   1. **Copy link** — generates a signed, public, read-only URL (`/share/t/<hash>`) that renders the thread as a static HTML page. Expires in 30 days by default. Endpoint: `POST /api/threads/:id/share { expires_days } → { url, expires_at }`.
@@ -733,7 +733,7 @@ For implementers — the new fields this spec assumes. If any don't exist, add m
 |---|---|---|
 | `profile` | `goal`, `experience`, `body_weight_kg`, `target_weight_kg`, `height_cm`, `training_env`, `equipment jsonb`, `preferences jsonb`, `macros jsonb`, `macros_overridden_at timestamptz?`, `reminders jsonb` | Most likely already there — verify against `docs/schema.md` |
 | `injuries` | `id, profile_id, name, body_region, severity, movements_to_avoid jsonb, note, reported_date, healed_at?` | Per-user injury list |
-| `threads` | `model text not null default 'emersus-0.5'`, `shared_token text?`, `shared_expires_at timestamptz?` | Per-thread model override + sharing |
+| `threads` | `model text not null default 'emersus'`, `shared_token text?`, `shared_expires_at timestamptz?` | Per-thread model override + sharing |
 | `sessions` (workout) | existing + `ended_at timestamptz?`, `note text?` | Confirm structure |
 | `benchmarks` (new) | `metric, experience, low, high, label, source_citation` | Literature-backed typical ranges — **seed required** |
 | `nutrition_days` (view) | materialized view or on-demand query aggregating `meals`, `water`, `supplements` per day per user | For the time-aware gauge |

@@ -19,9 +19,9 @@ const h = React.createElement;
 const TITLE_MAX_LENGTH = 120;
 
 export const MODEL_OPTIONS = [
-  { id: "emersus-0.5", label: "Emersus", tier: "balanced" },
-  { id: "emersus-0.5-fast", label: "Emersus · Fast", tier: "fast" },
-  { id: "emersus-0.5-deep", label: "Emersus · Deep", tier: "deep" },
+  { id: "emersus", label: "Emersus", tier: "balanced" },
+  { id: "emersus-fast", label: "Emersus · Fast", tier: "fast" },
+  { id: "emersus-deep", label: "Emersus · Deep", tier: "deep" },
 ];
 
 const MODEL_IDS = new Set(MODEL_OPTIONS.map((m) => m.id));
