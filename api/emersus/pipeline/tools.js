@@ -353,12 +353,57 @@ const GET_USER_PROFILE = {
   },
 };
 
+// ── update_user_profile (server-side tool) ─────────────────────────────
+//
+// The onboarding flow calls this to persist profile fields extracted from
+// the conversation. The server intercepts the call, PATCHes the profile
+// to Supabase, returns a confirmation, and continues generation.
+// Replaces the legacy ~~~profile-update fence pattern.
+
+const UPDATE_USER_PROFILE = {
+  type: "function",
+  name: "update_user_profile",
+  strict: true,
+  description: [
+    "Save extracted profile fields from the onboarding conversation.",
+    "Call this after each user response when you have new profile information to save.",
+    "Only include fields you have confident, non-null values for.",
+    "On the final exchange (after all info is gathered), include onboarding_completed: true.",
+  ].join("\n"),
+  parameters: {
+    type: "object",
+    required: [],
+    additionalProperties: false,
+    properties: {
+      goal: { type: "string", description: "Primary fitness/health goal" },
+      experience_level: { type: "string", enum: ["beginner", "intermediate", "advanced"], description: "Training experience level" },
+      injuries_limitations: { type: "string", description: "Any injuries or physical limitations" },
+      equipment_access: { type: "string", description: "What equipment they have access to" },
+      available_days_per_week: { type: "number", description: "Training days per week" },
+      dietary_preferences: { type: "string", description: "Diet preferences or restrictions" },
+      primary_use_case: { type: "string", description: "What they want to use Emersus for" },
+      weight_unit: { type: "string", enum: ["kg", "lbs"], description: "Preferred weight unit" },
+      distance_unit: { type: "string", enum: ["km", "mi"], description: "Preferred distance unit" },
+      preferred_sports: {
+        type: "array",
+        items: { type: "string", enum: ["weights", "running", "cycling", "swimming", "climbing", "mixed"] },
+        description: "Sports/activities they do",
+      },
+      default_pool_length_m: { type: "number", enum: [25, 50, 22.86, 30.48], description: "Pool length in meters" },
+      default_grade_system: { type: "string", enum: ["V", "YDS", "Font", "French"], description: "Climbing grade system" },
+      onboarding_completed: { type: "boolean", description: "Set true on the final exchange after all info is gathered" },
+    },
+  },
+};
+
 // ── Exports ─────────────────────────────────────────────────────────────
 
-export const TOOL_DEFINITIONS = [EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD, GET_USER_PROFILE];
+export const TOOL_DEFINITIONS = [EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD, GET_USER_PROFILE, UPDATE_USER_PROFILE];
 
 /** Tools resolved server-side (profile lookup, etc.) — not forwarded to the client. */
-export const SERVER_SIDE_TOOLS = new Set(["get_user_profile"]);
+export const SERVER_SIDE_TOOLS = new Set(["get_user_profile", "update_user_profile"]);
+
+export { UPDATE_USER_PROFILE };
 
 // ── Validators ──────────────────────────────────────────────────────────
 
