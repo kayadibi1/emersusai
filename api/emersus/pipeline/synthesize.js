@@ -32,7 +32,6 @@ export async function synthesize(ctx) {
 
   const messages = buildMessages({
     question: ctx.question,
-    profile: ctx.profile,
     threadState: ctx.threadState,
     recentMessages: ctx.recentMessages,
     evidence: ctx.evidence,
