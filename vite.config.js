@@ -68,6 +68,14 @@ export default defineConfig({
   plugins: [
     copyStaticFiles([
       "emersus-logo.png",
+      "emersus_mark_fibonacci_blue.svg",
+      "robots.txt",
+      "sitemap.xml",
+      "favicon.ico",
+      "favicon.svg",
+      "apple-touch-icon.png",
+      "manifest.webmanifest",
+      "og-image.png",
     ]),
   ],
 });
