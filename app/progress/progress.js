@@ -34,8 +34,13 @@ function buildUrl({ modality, period }) {
 
 function PrCard({ pr }) {
   const delta = pr?.delta ?? pr?.delta_kg ?? null;
-  return h("article", { className: "pg-pr-card" },
-    h("div", { className: "pg-pr-tag" }, pr?.is_first ? "FIRST" : (delta && delta > 0 ? "NEW PR" : "PR")),
+  const isNewPr = !pr?.is_first && delta && delta > 0;
+  const isFirst = !!pr?.is_first;
+  // Distinct visual beats for peak moments: "NEW PR" gets the accent ring +
+  // subtle reveal, "FIRST" gets a similar treatment. Plain "PR" stays quiet.
+  const variant = isFirst ? " pg-pr-card-first" : isNewPr ? " pg-pr-card-new" : "";
+  return h("article", { className: `pg-pr-card${variant}` },
+    h("div", { className: "pg-pr-tag" }, isFirst ? "FIRST" : (isNewPr ? "NEW PR" : "PR")),
     h("div", { className: "pg-pr-name" }, pr?.exercise_name || pr?.exercise || "—"),
     h("div", { className: "pg-pr-value" }, `${pr?.weight_kg ?? pr?.value ?? "—"} kg`),
     delta ? h("div", { className: "pg-pr-delta" }, `${delta > 0 ? "+" : ""}${delta} kg`) : null,

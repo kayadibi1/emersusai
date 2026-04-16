@@ -13,11 +13,13 @@ import { applyTheme, readSavedTheme, VALID_THEMES } from "/shared/theme.js";
 
 const h = React.createElement;
 
+// SOON-tabbed entries are hidden from the tab bar until the feature ships
+// (Miller/Hick — don't spend attention on unshipped surface). Re-add when
+// the backing endpoints and panels are ready.
 const TABS = [
   { id: "goals",        label: "Goals" },
   { id: "equipment",    label: "Equipment" },
   { id: "injuries",     label: "Injuries" },
-  { id: "integrations", label: "Integrations", soon: true },
   { id: "appearance",   label: "Appearance" },
   { id: "billing",      label: "Billing" },
 ];

@@ -282,6 +282,19 @@
   text-transform: uppercase;
 }
 
+/* Overflow "⋯" button is only needed on narrow viewports. On desktop every
+ * action fits inline, so hide the toggle. */
+.msg-action-more { display: none; }
+
+@media (max-width: 640px) {
+  /* On phones collapse non-primary actions (Cite / Save plan / Swap meal /
+   * Export) behind a ⋯ toggle so Copy + Regenerate stay one tap away. Still
+   * follows Miller's 7±2 — the visible row is 2 buttons + the overflow. */
+  .msg-action-more { display: inline-flex; }
+  .msg-actions .msg-action-secondary { display: none; }
+  .msg-actions.msg-actions-expanded .msg-action-secondary { display: inline-flex; }
+}
+
 /* ========== SHARE MODAL (Task 7) ========== */
 
 .share-modal-backdrop {

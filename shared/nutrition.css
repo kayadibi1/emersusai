@@ -390,6 +390,7 @@ body.nutrition-body {
   background: var(--bg);
   border-top: 1px solid var(--line);
   padding: 12px 24px;
+  padding-bottom: max(12px, env(safe-area-inset-bottom));
   display: flex; align-items: center; justify-content: space-between;
   z-index: 30;
 }
@@ -621,3 +622,28 @@ body.nutrition-body {
   transition: filter .14s;
 }
 .nu-log-food-btn:hover { filter: brightness(1.08); }
+
+/* Peak-End toast. Fires on quick-log, meal-add, and supplement success so
+ * the gesture ends on a visible beat rather than a silent list refresh.
+ * Sits above the bottom bar; clears itself via the 2.2 s timeout in app. */
+.nu-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(72px + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  padding: 10px 16px;
+  background: var(--accent);
+  color: var(--accent-text);
+  border-radius: 999px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.24);
+  z-index: 40;
+  animation: nu-toast-in 180ms ease-out;
+}
+@keyframes nu-toast-in {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}

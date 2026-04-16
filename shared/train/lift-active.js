@@ -6,7 +6,7 @@
 
 import React from "react";
 
-const { useCallback, useEffect, useMemo, useState } = React;
+const { useCallback, useEffect, useMemo, useRef, useState } = React;
 const h = React.createElement;
 
 const RPE_OPTIONS = [6, 7, 8, 9, 10];
@@ -75,10 +75,31 @@ function ExerciseCard({ entry, plannedSets, loggedSets, exerciseInfo, sessionId,
   const currentSetNumber = loggedSets.length + 1;
   const isDone = loggedSets.length >= plannedSets;
 
-  // Form state for the current set
-  const [weight, setWeight] = useState(entry?.target_weight_kg ?? "");
-  const [reps, setReps] = useState(entry?.target_reps ?? "");
+  // Form state for the current set.
+  // Pre-fill from the last logged set in this exercise when one exists (the
+  // Strong/Hevy convention — "next set starts at your previous weight/reps").
+  // Falls back to the plan target, then empty.
+  const lastLogged = loggedSets[loggedSets.length - 1];
+  const initialWeight = lastLogged?.load_kg ?? entry?.target_weight_kg ?? "";
+  const initialReps = lastLogged?.reps ?? entry?.target_reps ?? "";
+  const [weight, setWeight] = useState(initialWeight);
+  const [reps, setReps] = useState(initialReps);
   const [rpe, setRpe] = useState(null);
+
+  // When a set is logged (loggedSets grows), reseed the inputs with the
+  // values the user just logged so set N+1 starts where set N finished.
+  // Guarded on length so mid-entry edits aren't clobbered.
+  const prevLoggedCount = useRef(loggedSets.length);
+  useEffect(() => {
+    if (loggedSets.length > prevLoggedCount.current) {
+      const just = loggedSets[loggedSets.length - 1];
+      if (just) {
+        if (just.load_kg != null) setWeight(just.load_kg);
+        if (just.reps != null) setReps(just.reps);
+      }
+    }
+    prevLoggedCount.current = loggedSets.length;
+  }, [loggedSets.length]);
 
   const submit = useCallback(async () => {
     if (busy) return;
@@ -141,12 +162,16 @@ function ExerciseCard({ entry, plannedSets, loggedSets, exerciseInfo, sessionId,
             h("span", { className: "tr-set-num" }, setNum),
             h("input", {
               type: "number", min: 0, max: 999, step: 0.5,
+              inputMode: "decimal",
+              "aria-label": "Weight in kg",
               value: weight, onChange: (e) => setWeight(e.target.value),
               placeholder: "kg", className: "tr-set-weight-input",
             }),
             h("span", { className: "tr-set-times" }, "×"),
             h("input", {
               type: "number", min: 0, max: 200, step: 1,
+              inputMode: "numeric",
+              "aria-label": "Reps",
               value: reps, onChange: (e) => setReps(e.target.value),
               placeholder: "reps", className: "tr-set-reps-input",
             }),

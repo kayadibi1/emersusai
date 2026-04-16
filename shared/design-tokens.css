@@ -129,3 +129,33 @@ body {
 
 /* Tabular-nums for numeric displays */
 .nums { font-variant-numeric: tabular-nums; }
+
+/* ---------- KEYBOARD FOCUS (global) ---------- */
+/* Single source of truth for focus rings across the whole app.
+ * Modern browsers split :focus (programmatic/click) from :focus-visible
+ * (keyboard / assistive-tech). We only ring the latter — mouse users keep
+ * a clean visual. Any page/component can override on a specific selector. */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: inherit;
+}
+/* Belt-and-braces: kill the legacy dotted ring on non-keyboard focus
+ * in case some component relies on the browser default. */
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ---------- REDUCED MOTION (global) ---------- */
+/* Honor OS-level "reduce motion" preference. This is the WCAG-blessed
+ * kill-switch: animations complete quasi-instantly, transitions stop, but
+ * layout / functionality is preserved. Individual components should NOT
+ * re-introduce long durations for decorative effect when this is on. */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

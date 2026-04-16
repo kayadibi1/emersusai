@@ -254,9 +254,17 @@ body.auth-body {
   letter-spacing: 0.18em;
   color: var(--dim);
   cursor: pointer;
-  padding: 0;
+  padding: 12px 10px;
+  margin: -10px -8px;
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
 }
 .auth-show-toggle:hover { color: var(--accent); }
+.auth-show-toggle:focus-visible { color: var(--accent); outline-offset: 1px; }
 
 .auth-remember {
   display: flex;
