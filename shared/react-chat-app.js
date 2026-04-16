@@ -2716,35 +2716,64 @@ function ChatThreadSkeleton() {
 }
 
 
-// Defensive: collapse duplicate sources by the strongest available identifier
-// (pmid → doi → external_id → url → lowercased title). Two title+abstract
-// chunks from the same paper arrive deduped from the server already, but
-// non-pubmed sources without DOI/external_id used to fall through to a
-// `title:excerpt` key on the server, letting dupes slip into the client.
-// Keeps the highest-similarity instance.
+// Defensive dual-pass dedup (mirrors api/emersus/rerank.js dedupeEvidence).
+// Pass 1 collapses on identifiers. Pass 2 collapses on normalized title +
+// first-author surname + year — catches cases where the same paper was
+// stored under multiple DOIs (Zenodo versioned records, crossref doubles)
+// that the identifier pass can't see. Belt for old threads that were
+// persisted before the server-side two-pass dedup shipped.
+function sourcePrimaryKey(src) {
+  return (
+    (src.pmid && `pmid:${src.pmid}`) ||
+    (src.doi && `doi:${String(src.doi).toLowerCase()}`) ||
+    (src.external_id && `ext:${String(src.external_id).toLowerCase()}`) ||
+    (src.url && `url:${String(src.url).toLowerCase()}`) ||
+    (src.title && `title:${String(src.title).toLowerCase().trim()}`) ||
+    null
+  );
+}
+function sourceSecondaryKey(src) {
+  const title = String(src.title || "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  const rawAuthor = Array.isArray(src.authors) && src.authors[0]
+    ? String(src.authors[0])
+    : String(src.authors || "");
+  const firstAuthorSurname = rawAuthor
+    .toLowerCase()
+    .split(/[\s,]+/)
+    .filter(Boolean)[0] || "";
+  const year = String(src.year || "").slice(0, 4);
+  if (!title || !year) return null;
+  return `${title}|${firstAuthorSurname}|${year}`;
+}
 function dedupeSources(list) {
   if (!Array.isArray(list) || !list.length) return [];
-  const byKey = new Map();
+  const byPrimary = new Map();
+  const unkeyed = [];
   for (const src of list) {
     if (!src || typeof src !== "object") continue;
-    const key =
-      (src.pmid && `pmid:${src.pmid}`) ||
-      (src.doi && `doi:${String(src.doi).toLowerCase()}`) ||
-      (src.external_id && `ext:${String(src.external_id).toLowerCase()}`) ||
-      (src.url && `url:${String(src.url).toLowerCase()}`) ||
-      (src.title && `title:${String(src.title).toLowerCase().trim()}`) ||
-      null;
-    if (!key) {
-      // No identifier at all — keep it (rare; can't safely dedupe)
-      byKey.set(Symbol(), src);
-      continue;
-    }
-    const existing = byKey.get(key);
+    const key = sourcePrimaryKey(src);
+    if (!key) { unkeyed.push(src); continue; }
+    const existing = byPrimary.get(key);
     if (!existing || Number(src.similarity || 0) > Number(existing.similarity || 0)) {
-      byKey.set(key, src);
+      byPrimary.set(key, src);
     }
   }
-  return Array.from(byKey.values());
+  const bySecondary = new Map();
+  const final = [];
+  for (const src of [...byPrimary.values(), ...unkeyed]) {
+    const secondary = sourceSecondaryKey(src);
+    if (!secondary) { final.push(src); continue; }
+    const existing = bySecondary.get(secondary);
+    if (!existing || Number(src.similarity || 0) > Number(existing.similarity || 0)) {
+      bySecondary.set(secondary, src);
+    }
+  }
+  for (const src of bySecondary.values()) final.push(src);
+  return final;
 }
 
 function SourcesFooter({ sources, onAskFollowUp }) {

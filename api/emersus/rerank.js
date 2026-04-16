@@ -109,40 +109,91 @@ export function rankEvidence(evidence) {
     .sort((left, right) => right.ranking_score - left.ranking_score);
 }
 
+// Dual-pass dedup. Pass 1 collapses by strongest available identifier
+// (source_id → pmid → doi → external_id → url → normalized title). Pass 2
+// re-collapses on (normalized title + first-author surname + year) so cases
+// where the SAME paper was ingested under multiple DOIs survive only once.
+// This happens in practice with:
+//   - Zenodo versioned records: each version gets its own DOI, yet the
+//     retrieval index stores them as separate research_articles rows.
+//   - Crossref / OpenAlex emitting two DOIs for the same work (rare).
+//   - Same paper indexed from multiple sources where one lacks a DOI (the
+//     DOI-present row and the DOI-absent row skip each other on Pass 1).
+//
+// Secondary-pass collision risk (two genuinely different papers with
+// identical title + same first-author surname + same year) is negligible
+// vs. the observed dupe rate. If a future case pops up, extend the key
+// with journal or add a manual override list.
+function primaryDedupKey(item) {
+  const normalizedTitle = String(item.title || "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+  return (
+    item.source_id ||
+    (item.pmid ? `pmid:${item.pmid}` : null) ||
+    (item.doi ? `doi:${String(item.doi).toLowerCase()}` : null) ||
+    (item.external_id ? `ext:${String(item.external_id).toLowerCase()}` : null) ||
+    item.url ||
+    (normalizedTitle ? `title:${normalizedTitle}` : null) ||
+    null
+  );
+}
+
+function secondaryDedupKey(item) {
+  const title = String(item.title || "")
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}\s]/gu, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  const rawAuthor = Array.isArray(item.authors) && item.authors[0]
+    ? String(item.authors[0])
+    : String(item.author_label || "");
+  // Heuristic first-author surname: trim, lowercase, first whitespace- or
+  // comma-separated token. Handles "Morton RW" → "morton", "Morton, Robert"
+  // → "morton". Good enough to match across sources that normalize author
+  // order differently.
+  const firstAuthorSurname = rawAuthor
+    .toLowerCase()
+    .split(/[\s,]+/)
+    .filter(Boolean)[0] || "";
+  const year = String(item.publication_year || "").slice(0, 4);
+  if (!title || !year) return null;
+  return `${title}|${firstAuthorSurname}|${year}`;
+}
+
+function rankingScoreOf(item) {
+  return Number(item.ranking_score || item.similarity || 0);
+}
+
 export function dedupeEvidence(evidence) {
-  const byId = new Map();
+  if (!Array.isArray(evidence) || evidence.length === 0) return [];
 
+  // Pass 1: primary identifier-based dedup.
+  const byPrimary = new Map();
+  const unkeyed = [];
   for (const item of evidence) {
-    // Key preference: identifier fields (stable across chunks of the same
-    // paper) → URL → normalized title. We deliberately DO NOT fall back to
-    // `title:excerpt` — title chunks and abstract chunks of the same paper
-    // have identical title but different excerpts, and combining them in
-    // the key lets duplicates slip through. Normalized title (lowercased,
-    // whitespace-collapsed) catches those cases. Collision risk across
-    // distinct papers with identical titles is negligible vs. dupes from
-    // the same paper with chunked bodies.
-    const normalizedTitle = String(item.title || "")
-      .toLowerCase()
-      .replace(/\s+/g, " ")
-      .trim();
-    const key =
-      item.source_id ||
-      (item.pmid ? `pmid:${item.pmid}` : null) ||
-      (item.doi ? `doi:${String(item.doi).toLowerCase()}` : null) ||
-      (item.external_id ? `ext:${String(item.external_id).toLowerCase()}` : null) ||
-      item.url ||
-      (normalizedTitle ? `title:${normalizedTitle}` : null) ||
-      Symbol();
-
-    const existing = byId.get(key);
-
-    if (
-      !existing ||
-      Number(item.ranking_score || 0) > Number(existing.ranking_score || 0)
-    ) {
-      byId.set(key, item);
+    const key = primaryDedupKey(item);
+    if (!key) { unkeyed.push(item); continue; }
+    const existing = byPrimary.get(key);
+    if (!existing || rankingScoreOf(item) > rankingScoreOf(existing)) {
+      byPrimary.set(key, item);
     }
   }
 
-  return [...byId.values()];
+  // Pass 2: secondary (title + first-author surname + year) dedup. Catches
+  // same-paper-different-DOI cases that primary dedup can't see.
+  const bySecondary = new Map();
+  const final = [];
+  for (const item of [...byPrimary.values(), ...unkeyed]) {
+    const secondary = secondaryDedupKey(item);
+    if (!secondary) { final.push(item); continue; }
+    const existing = bySecondary.get(secondary);
+    if (!existing || rankingScoreOf(item) > rankingScoreOf(existing)) {
+      bySecondary.set(secondary, item);
+    }
+  }
+  for (const item of bySecondary.values()) final.push(item);
+
+  return final;
 }
