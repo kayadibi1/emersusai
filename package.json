@@ -19,6 +19,7 @@
     "test:meal-plan-schema": "node scripts/test-meal-plan-schema.js",
     "test:meal-plan-fence": "node scripts/test-meal-plan-fence-routing.js",
     "test:nutrition-parser": "node scripts/test-nutrition-parser.js",
+    "test:memory-preflight": "node scripts/memory-strict-preflight.js",
     "test": "node --experimental-test-module-mocks --test --test-concurrency=1 \"tests/unit/**/*.js\" \"tests/integration/**/*.js\"",
     "test:unit": "node --experimental-test-module-mocks --test \"tests/unit/**/*.js\"",
     "test:integration": "node --test --test-concurrency=1 \"tests/integration/**/*.js\""
