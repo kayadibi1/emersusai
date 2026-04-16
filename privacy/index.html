@@ -80,12 +80,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/shared/design-tokens.css?v=redesign-1">
-  <link rel="stylesheet" href="/shared/static-v2.css?v=redesign-8">
+  <link rel="stylesheet" href="/shared/design-tokens.css">
+  <link rel="stylesheet" href="/shared/static-v2.css">
   <script type="module">
-    import { bootTheme } from '/shared/theme.js?v=redesign-1';
-    import { resolveFlag } from '/shared/feature-flags.js?v=redesign-8';
-    import { mountFloatingSwitcher } from '/shared/theme-switcher-widget.js?v=redesign-10';
+    import { bootTheme } from '/shared/theme.js';
+    import { resolveFlag } from '/shared/feature-flags.js';
+    import { mountFloatingSwitcher } from '/shared/theme-switcher-widget.js';
     bootTheme();
     if (resolveFlag('public_v2')) {
       document.documentElement.dataset.publicV2 = '1';
@@ -93,7 +93,7 @@
     }
     document.addEventListener('DOMContentLoaded', mountFloatingSwitcher);
   </script>
-  <link rel="stylesheet" href="/shared/site.css?v=redesign-20260412">
+  <link rel="stylesheet" href="/shared/site.css">
 </head>
 <body>
   <div class="site-shell">

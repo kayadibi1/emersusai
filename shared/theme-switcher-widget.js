@@ -5,7 +5,7 @@
 // styles already in chrome.css. Calls bindSwitcher() so clicks toggle the
 // theme + persist to localStorage. Idempotent — calling twice is a no-op.
 
-import { bindSwitcher } from "/shared/theme.js?v=redesign-1";
+import { bindSwitcher } from "/shared/theme.js";
 
 let mounted = false;
 
