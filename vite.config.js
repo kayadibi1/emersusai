@@ -78,6 +78,7 @@ export default defineConfig({
       "apple-touch-icon.png",
       "manifest.webmanifest",
       "og-image.png",
+      "BingSiteAuth.xml",
     ]),
   ],
 });
