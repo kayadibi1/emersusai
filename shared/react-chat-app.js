@@ -4060,7 +4060,7 @@ export function ChatApp() {
   // conditionally in two branches (v2 + legacy), so use a capture-phase
   // document listener instead of a ref — one-time setup that catches any
   // matching scroll target. Class is added on scroll, cleared after 800 ms
-  // idle. CSS in chat-v2.css fades the thumb in/out off this class.
+  // idle. CSS in chat.css fades the thumb in/out off this class.
   useEffect(() => {
     const timers = new WeakMap();
     function onAnyScroll(event) {

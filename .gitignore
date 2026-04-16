@@ -79,3 +79,4 @@ neuron-hero-upscaled.png
 internal/wedge-review-*.html
 # Plans that were authored locally but aren't intended for the public repo.
 docs/superpowers/plans/2026-04-16-progress-charts.md
+.firecrawl/

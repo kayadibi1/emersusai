@@ -158,7 +158,7 @@ export function ChatTopBar({
   };
 
   // `.top-bar` is defined in chrome.css; `.chat-top` adds chat-specific tweaks
-  // in chat-v2.css (Task 12). Both classes stay on the element.
+  // in chat.css (Task 12). Both classes stay on the element.
   return h(
     "header",
     { className: "top-bar chat-top", "data-chat-top-bar": "v2" },
