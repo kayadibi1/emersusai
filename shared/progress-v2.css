@@ -416,3 +416,47 @@
   font-size: 9px; letter-spacing: 0.10em; color: var(--dim);
   font-style: italic;
 }
+
+/* ===== Control Chart ===== */
+[data-progress-v2="1"] .pg-control-card {
+  background: var(--surface-faint); border: 1px solid var(--line);
+  border-radius: 12px; padding: 16px 18px; overflow: hidden;
+}
+[data-progress-v2="1"] .pg-control-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 14px; flex-wrap: wrap; gap: 8px;
+}
+[data-progress-v2="1"] .pg-control-title { font-size: 15px; font-weight: 500; }
+[data-progress-v2="1"] .pg-control-sub {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; letter-spacing: 0.12em; color: var(--muted);
+}
+[data-progress-v2="1"] .pg-control-chart { width: 100%; height: auto; display: block; }
+[data-progress-v2="1"] .pg-control-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+  margin-top: 12px;
+}
+@media (max-width: 600px) {
+  [data-progress-v2="1"] .pg-control-stats { grid-template-columns: 1fr 1fr; }
+}
+[data-progress-v2="1"] .pg-control-stat-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px; letter-spacing: 0.14em; color: var(--dim); text-transform: uppercase;
+}
+[data-progress-v2="1"] .pg-control-stat-value {
+  font-size: 16px; font-weight: 600; color: var(--ink);
+  font-variant-numeric: tabular-nums; margin-top: 2px;
+}
+[data-progress-v2="1"] .pg-control-stat-value.status {
+  font-size: 13px; text-transform: uppercase; letter-spacing: 0.12em;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+[data-progress-v2="1"] .pg-control-citation {
+  text-align: right; margin-top: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px; letter-spacing: 0.14em; color: var(--dim);
+}
+[data-progress-v2="1"] .pg-control-placeholder {
+  padding: 24px; text-align: center; color: var(--dim); font-size: 13px;
+}
+[data-progress-v2="1"] .pg-control-placeholder a { color: var(--accent); text-decoration: none; }
