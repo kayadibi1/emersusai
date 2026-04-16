@@ -8,7 +8,7 @@
 
 import { parseAuthUrl, buildAuthUrl, PANELS } from "/shared/auth/url-state.js";
 
-const root = document.getElementById("auth-v2-root");
+const root = document.getElementById("auth-root");
 const state = { panel: parseAuthUrl(window.location.search).panel };
 
 function googleSvg() {
