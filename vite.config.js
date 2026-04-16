@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 const rootDir = path.resolve(".");
 const htmlEntries = [
   "index.html",
+  "about/index.html",
   "admin/index.html",
   "admin/alerts/index.html",
   "admin/candidates/index.html",
