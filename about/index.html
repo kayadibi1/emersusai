@@ -8,20 +8,20 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#0e1117">
   <link rel="manifest" href="/manifest.webmanifest">
-  <meta name="description" content="Get in touch with Emersus AI — evidence-based fitness and nutrition intelligence. Email info@emersus.ai for partnerships, press, or product questions.">
-  <title>Contact | Emersus AI</title>
-  <link rel="canonical" href="https://emersus.ai/contact/">
+  <meta name="description" content="Why we built Emersus AI — evidence-based fitness AI grounded in peer-reviewed research. How our scientific literature pipeline works and what &quot;evidence-based&quot; means for the recommendations you see.">
+  <title>About | Emersus AI</title>
+  <link rel="canonical" href="https://emersus.ai/about/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Emersus AI">
-  <meta property="og:title" content="Contact | Emersus AI">
-  <meta property="og:description" content="Get in touch with Emersus AI — partnerships, press, and product questions.">
-  <meta property="og:url" content="https://emersus.ai/contact/">
+  <meta property="og:title" content="About | Emersus AI">
+  <meta property="og:description" content="Why we built Emersus AI — evidence-based fitness AI grounded in peer-reviewed research.">
+  <meta property="og:url" content="https://emersus.ai/about/">
   <meta property="og:image" content="https://emersus.ai/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact | Emersus AI">
-  <meta name="twitter:description" content="Get in touch with Emersus AI.">
+  <meta name="twitter:title" content="About | Emersus AI">
+  <meta name="twitter:description" content="Why we built Emersus AI — evidence-based fitness AI grounded in peer-reviewed research.">
   <meta name="twitter:image" content="https://emersus.ai/og-image.png">
   <!-- no-flash-boot: resolves data-theme + v2 flags pre-paint -->
   <script>
@@ -102,65 +102,54 @@
         <a class="brand-mark" href="/"><img src="/emersus-logo.png" alt="Emersus" width="1088" height="417" fetchpriority="high"></a>
         <nav class="site-nav">
           <a href="/auth/login/">App / Login</a>
-          <a href="/about/">About</a>
-          <a href="/privacy/">Privacy</a>
           <a href="/consumer-health-data/">Health Data Privacy</a>
           <a href="/terms/">Terms</a>
+          <a href="/contact/">Contact</a>
         </nav>
       </div>
     </header>
 
     <main class="page-main">
-      <div class="container auth-layout">
-        <section class="hero-panel auth-copy stack">
-          <p class="section-kicker">Contact</p>
-          <h1>Reach the Emersus team.</h1>
-          <p class="lede">
-            Use this page for support, partnerships, product questions, or general outreach.
-          </p>
-          <div class="info-card">
-            <span class="mini-card-label">Email</span>
-            <p class="body-copy"><a href="mailto:info@emersus.ai">info@emersus.ai</a></p>
-          </div>
-        </section>
+      <div class="container legal-shell">
+        <section class="hero-panel legal-copy">
+          <p class="section-kicker">About</p>
+          <h1>Why Emersus exists.</h1>
+          <p class="lede">Fitness and nutrition advice has a credibility problem. Emersus AI is our attempt to fix it: every answer cites its sources, and every source is a real, resolvable study — not a hallucinated reference.</p>
 
-        <section class="form-panel stack">
-          <div>
-            <p class="section-kicker">Message Us</p>
-            <h2>Contact form</h2>
-          </div>
-          <form class="form-grid" data-contact-form>
-            <label class="field">
-              <span class="field-label">Name</span>
-              <input type="text" name="name" required>
-            </label>
-            <label class="field">
-              <span class="field-label">Email</span>
-              <input type="email" name="email" autocomplete="email" required>
-            </label>
-            <label class="field">
-              <span class="field-label">Category / Reason</span>
-              <select name="category" required>
-                <option value="">Select one</option>
-                <option value="support">Support</option>
-                <option value="partnership">Partnership</option>
-                <option value="press">Press</option>
-                <option value="feedback">Feedback</option>
-                <option value="other">Other</option>
-              </select>
-            </label>
-            <label class="field">
-              <span class="field-label">Message</span>
-              <textarea name="message" required></textarea>
-            </label>
-            <div class="button-row">
-              <button class="button button-primary" type="submit">Send Message</button>
-            </div>
-            <p class="status-text" data-contact-status></p>
-          </form>
+          <section>
+            <h2>What "evidence-based" actually means here.</h2>
+            <p>Most fitness apps will tell you they're "science-backed." Very few will show you which studies. Emersus does the opposite:</p>
+            <ul>
+              <li>Over 1 million peer-reviewed papers indexed in a pgvector semantic search engine, updated daily.</li>
+              <li>Every claim links to a specific DOI or PubMed ID — not a generic "studies show" handwave.</li>
+              <li>Claims are tagged by evidence quality (high / moderate / limited / insufficient).</li>
+              <li>Peer-reviewed research and preprints are labeled distinctly so you can weight them yourself.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>How the system works.</h2>
+            <p>When you ask a question, Emersus retrieves the most relevant studies from its corpus, re-ranks them by quality and topical fit, passes them to a frontier language model as grounding, and streams back a synthesized answer with the underlying citations attached. The model is constrained from giving advice that contradicts the retrieved evidence.</p>
+          </section>
+
+          <section>
+            <h2>What Emersus is not.</h2>
+            <p>Emersus is an information tool, not a medical device. It is not a substitute for a physician, a registered dietitian, or a qualified personal trainer. If a recommendation conflicts with advice from a healthcare provider who knows your specific situation, defer to them.</p>
+          </section>
+
+          <section>
+            <h2>Editorial and content policy.</h2>
+            <p>Read our <a href="/editorial-policy/">editorial policy</a> for how we build, review, and update the content surfaces on this site.</p>
+          </section>
+
+          <section>
+            <h2>Contact.</h2>
+            <p>Questions, partnerships, or corrections: <a href="mailto:info@emersus.ai">info@emersus.ai</a>.</p>
+          </section>
         </section>
       </div>
     </main>
+
     <footer class="site-footer">
       <div class="footer-disclaimer">
         <strong>Health disclaimer.</strong> Emersus AI provides evidence-based information
@@ -171,7 +160,5 @@
       </div>
     </footer>
   </div>
-
-  <script type="module" src="/shared/contact-page.js"></script>
 </body>
 </html>
