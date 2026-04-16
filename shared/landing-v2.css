@@ -589,3 +589,38 @@ h1.headline {
   }
   .mark-no { font-size: 10.5px; }
 }
+
+/* Roadmap: horizontal scroll strip on mobile. Converts the 4 stacked
+ * full-description cards (~720 px of vertical space) into a compact
+ * swipeable row of title-only cards (~120 px). */
+@media (max-width: 700px) {
+  .roadmap-grid {
+    grid-template-columns: none;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+  }
+  .roadmap-grid::-webkit-scrollbar { display: none; }
+  .roadmap-card {
+    flex: 0 0 200px;
+    scroll-snap-align: start;
+    padding: 16px 16px 14px;
+    gap: 6px;
+  }
+  .roadmap-desc { display: none; }
+  .roadmap-badge {
+    position: static;
+    align-self: flex-start;
+    font-size: 8px;
+    padding: 3px 7px;
+  }
+  .roadmap-title {
+    font-size: 15px;
+    padding-right: 0;
+  }
+}
