@@ -1,5 +1,6 @@
 import { validateToolCall, TOOL_DEFINITIONS, SERVER_SIDE_TOOLS } from "./tools.js";
 import { formatSources } from "./format-sources.js";
+import { PROMPT_CACHE_KEY } from "./synthesize.js";
 
 export function parseSSELine(line) {
   const trimmed = String(line).trim();
@@ -25,6 +26,48 @@ function sendSSE(res, payload) {
     res.write(`data: ${JSON.stringify(payload)}\n\n`);
     if (typeof res.flush === "function") res.flush();
   } catch { /* client disconnected */ }
+}
+
+// Valid columns the model is allowed to update via update_user_profile
+// in the main chat. onboarding_completed is deliberately excluded — it's
+// the onboarding flow's concern, not a user-editable preference.
+const MAIN_CHAT_PROFILE_COLUMNS = new Set([
+  "goal", "experience_level", "dietary_preferences", "injuries_limitations",
+  "equipment_access", "available_days_per_week", "available_minutes_per_session",
+  "sleep_stress_context", "primary_use_case", "weight_unit", "distance_unit",
+  "preferred_sports", "default_pool_length_m", "default_grade_system",
+]);
+
+async function persistProfileUpdates(ctx) {
+  const { _supabaseUrl: url, _serviceRoleKey: key, supabaseUserId, _profileUpdates: updates } = ctx;
+  if (!url || !key || !supabaseUserId) return;
+  if (!updates || typeof updates !== "object" || Object.keys(updates).length === 0) return;
+
+  const safeFields = { updated_at: new Date().toISOString() };
+  for (const [k, v] of Object.entries(updates)) {
+    if (MAIN_CHAT_PROFILE_COLUMNS.has(k) && v !== undefined && v !== null && v !== "") {
+      safeFields[k] = v;
+    }
+  }
+  if (Object.keys(safeFields).length === 1) return; // only updated_at
+
+  try {
+    const res = await fetch(`${url}/rest/v1/profiles?id=eq.${encodeURIComponent(supabaseUserId)}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: key,
+        Authorization: `Bearer ${key}`,
+        Prefer: "return=minimal",
+      },
+      body: JSON.stringify(safeFields),
+    });
+    if (!res.ok) {
+      console.error("Profile update persist failed:", res.status, await res.text().catch(() => ""));
+    }
+  } catch (err) {
+    console.error("Profile update persist error:", err);
+  }
 }
 
 async function logTokenUsage(ctx) {
@@ -63,10 +106,33 @@ function processEvent(event, state) {
       state.proseBuffer += event.delta || "";
       if (state.onProse) state.onProse(event.delta || "");
       break;
+    // Refusals come on a separate content part, not as regular prose.
+    // Stream them to the client as prose so the user still sees the
+    // refusal message (e.g. self-harm, PED, medication guardrails).
+    case "response.refusal.delta":
+      state.proseBuffer += event.delta || "";
+      if (state.onProse) state.onProse(event.delta || "");
+      break;
+    case "response.refusal.done":
+      // Full refusal text has already been streamed as deltas; nothing
+      // extra to append, but useful for telemetry.
+      console.warn("Model refusal:", (event.refusal || "").slice(0, 200));
+      break;
     case "response.function_call_arguments.delta": {
       const callId = event.call_id || event.item_id || "unknown";
       if (!state.toolBuffers[callId]) state.toolBuffers[callId] = { name: "", chunks: [] };
       state.toolBuffers[callId].chunks.push(event.delta || "");
+      break;
+    }
+    case "response.function_call_arguments.done": {
+      // Safety net: preserve the authoritative final args string in case
+      // a delta was dropped. output_item.done prefers event.item.arguments
+      // first, then falls back to this.
+      const callId = event.call_id || event.item_id || "unknown";
+      if (!state.toolBuffers[callId]) state.toolBuffers[callId] = { name: "", chunks: [] };
+      if (typeof event.arguments === "string") {
+        state.toolBuffers[callId].finalArgs = event.arguments;
+      }
       break;
     }
     case "response.output_item.added":
@@ -82,7 +148,7 @@ function processEvent(event, state) {
         const toolBuf = state.toolBuffers[callId];
         const toolName = event.item.name || toolBuf?.name || "unknown";
 
-        const argsStr = event.item.arguments || (toolBuf?.chunks.join("") ?? "");
+        const argsStr = event.item.arguments || toolBuf?.finalArgs || (toolBuf?.chunks.join("") ?? "");
 
         // Server-side tools (e.g. get_user_profile): queue for follow-up,
         // don't forward to the client.
@@ -123,6 +189,14 @@ function processEvent(event, state) {
       break;
     case "response.failed":
       console.error("OpenAI response failed:", event.response?.status_details);
+      if (state.onError) state.onError(event.response?.status_details?.error?.message || "response failed");
+      break;
+    // Mid-stream error (rate limit, context overflow, transient 5xx).
+    // Distinct from response.failed (terminal) — error can fire during
+    // generation without ending the response object.
+    case "error":
+      console.error("OpenAI stream error:", event.code, event.message);
+      if (state.onError) state.onError(event.message || "stream error");
       break;
   }
 }
@@ -205,6 +279,8 @@ async function resolveAndContinue(state, ctx) {
       tools: TOOL_DEFINITIONS,
       stream: true,
       max_output_tokens: 16000,
+      prompt_cache_key: PROMPT_CACHE_KEY,
+      prompt_cache_retention: "24h",
     }),
     signal: ctx._abortController.signal,
   });
@@ -236,6 +312,7 @@ export async function stream(ctx, res) {
     onProse: (delta) => sendSSE(res, { type: "prose", delta }),
     onTool: (name, data) => sendSSE(res, { type: "tool", name, data }),
     onToolError: (name, errors) => sendSSE(res, { type: "tool_error", name, errors }),
+    onError: (message) => sendSSE(res, { type: "error", message }),
   };
 
   await readStream(ctx._openaiStream, state);
@@ -261,6 +338,7 @@ export async function stream(ctx, res) {
   res.end();
 
   logTokenUsage(ctx).catch((err) => console.error("Token usage log error:", err));
+  persistProfileUpdates(ctx).catch((err) => console.error("Profile persist error:", err));
 }
 
 /** Buffer mode: collect the full response into ctx. */
@@ -273,6 +351,7 @@ export async function streamToBuffer(ctx) {
     onProse: null,
     onTool: null,
     onToolError: null,
+    onError: null,
   };
 
   await readStream(ctx._openaiStream, state);
@@ -288,5 +367,6 @@ export async function streamToBuffer(ctx) {
   ctx.sources = formatSources(ctx.evidence?.items || []);
 
   logTokenUsage(ctx).catch((err) => console.error("Token usage log error:", err));
+  persistProfileUpdates(ctx).catch((err) => console.error("Profile persist error:", err));
   return ctx;
 }
