@@ -398,7 +398,12 @@ const UPDATE_USER_PROFILE = {
 
 // ── Exports ─────────────────────────────────────────────────────────────
 
-export const TOOL_DEFINITIONS = [EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD, GET_USER_PROFILE, UPDATE_USER_PROFILE];
+// Main chat tools. update_user_profile is intentionally EXCLUDED here —
+// it's onboarding-only. The onboarding handler passes it explicitly via
+// tools: [UPDATE_USER_PROFILE]. Exposing it in the main chat would let
+// the model call it during regular turns, where ctx._profileUpdates is
+// never persisted — silent save failure.
+export const TOOL_DEFINITIONS = [EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD, GET_USER_PROFILE];
 
 /** Tools resolved server-side (profile lookup, etc.) — not forwarded to the client. */
 export const SERVER_SIDE_TOOLS = new Set(["get_user_profile", "update_user_profile"]);
