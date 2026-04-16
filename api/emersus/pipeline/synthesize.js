@@ -1,5 +1,5 @@
 import { buildMessages } from "./prompt.js";
-import { TOOL_DEFINITIONS } from "./tools.js";
+import { buildToolDefinitions } from "./tools.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
 
@@ -94,7 +94,7 @@ export async function synthesize(ctx) {
 
   const requestBody = buildRequestBody({
     messages,
-    tools: TOOL_DEFINITIONS,
+    tools: buildToolDefinitions(),
     model,
     metadata: buildMetadata(ctx),
   });

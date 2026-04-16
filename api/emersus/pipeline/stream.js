@@ -1,4 +1,4 @@
-import { validateToolCall, TOOL_DEFINITIONS, SERVER_SIDE_TOOLS } from "./tools.js";
+import { validateToolCall, buildToolDefinitions, SERVER_SIDE_TOOLS } from "./tools.js";
 import { formatSources } from "./format-sources.js";
 import { PROMPT_CACHE_KEY } from "./synthesize.js";
 
@@ -258,6 +258,16 @@ async function resolveAndContinue(state, ctx) {
         call_id: tc.callId,
         output: JSON.stringify({ status: "saved" }),
       });
+    } else if (tc.name === "remember_fact") {
+      // Lazy import so the handler module isn't loaded on every turn when the
+      // flag is off. Follows spec §5.2 + §10.2 Phase 1.
+      const { resolveRememberFact } = await import("./remember-fact-handler.js");
+      const result = await resolveRememberFact({ args: tc.args, ctx });
+      toolOutputs.push({
+        type: "function_call_output",
+        call_id: tc.callId,
+        output: JSON.stringify(result),
+      });
     }
   }
 
@@ -276,7 +286,7 @@ async function resolveAndContinue(state, ctx) {
       model: ctx._synthesisModel,
       previous_response_id: ctx._openaiResponseId,
       input: toolOutputs,
-      tools: TOOL_DEFINITIONS,
+      tools: buildToolDefinitions(),
       stream: true,
       max_output_tokens: 16000,
       prompt_cache_key: PROMPT_CACHE_KEY,

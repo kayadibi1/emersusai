@@ -398,6 +398,39 @@ const UPDATE_USER_PROFILE = {
   },
 };
 
+// ── remember_fact (server-side tool, flag-gated) ────────────────────────
+//
+// When MEMORY_REMEMBER_FACT_ENABLED=true, the model can call remember_fact
+// to save an explicit user-requested fact to public.user_memories. Resolved
+// server-side in stream.js. See spec §5.2.
+
+export const MEMORY_CATEGORY_ENUM = [
+  "injury","allergy","medication","chronic_condition","pregnancy_status","biological_constraint",
+  "goal","target_metric","dietary_protocol","schedule_pattern","coach_program",
+  "personal_record","completed_event",
+  "deload_window","illness_recovery","travel_constraint","sleep_deficit",
+  "exercise_preference","supplement_stack","equipment_inventory",
+  "custom",
+];
+
+export const REMEMBER_FACT = {
+  type: "function",
+  name: "remember_fact",
+  description:
+    "Save a fact the user explicitly asked to remember across future conversations. Use ONLY when the user clearly signals save-intent (e.g., 'remember that…', 'note this for next time', 'make sure you know I…'). Do NOT infer save-intent — if the user didn't explicitly ask, don't call this. For facts that don't fit any whitelist category, use category='custom'. Keep the fact text under 500 characters.",
+  strict: true,
+  parameters: {
+    type: "object",
+    properties: {
+      category: { type: "string", enum: MEMORY_CATEGORY_ENUM },
+      fact:     { type: "string" },
+      note:     { type: ["string", "null"] },
+    },
+    required: ["category", "fact", "note"],
+    additionalProperties: false,
+  },
+};
+
 // ── Exports ─────────────────────────────────────────────────────────────
 
 // Main chat tools. update_user_profile is temporarily EXCLUDED again
@@ -408,12 +441,31 @@ const UPDATE_USER_PROFILE = {
 // to enums). Keeping it out of TOOL_DEFINITIONS until that ships. The
 // persistProfileUpdates path in stream.js is left in place — a noop
 // until this tool is wired back in.
+//
+// Static export preserved for non-pipeline callers (unit tests, etc.).
+// The chat pipeline (synthesize.js) uses buildToolDefinitions() below so
+// flag-gated tools like remember_fact can be toggled at runtime.
 export const TOOL_DEFINITIONS = [
   EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD, GET_USER_PROFILE,
 ];
 
+/**
+ * Runtime tool-list used by the chat pipeline. Honors MEMORY_* kill switches.
+ * Non-pipeline callers (tests, static analysis) may still import TOOL_DEFINITIONS.
+ */
+export function buildToolDefinitions() {
+  const defs = [...TOOL_DEFINITIONS];
+  const v = String(process.env.MEMORY_REMEMBER_FACT_ENABLED || "").trim().toLowerCase();
+  if (v === "true" || v === "1") defs.push(REMEMBER_FACT);
+  return defs;
+}
+
 /** Tools resolved server-side (profile lookup, etc.) — not forwarded to the client. */
-export const SERVER_SIDE_TOOLS = new Set(["get_user_profile", "update_user_profile"]);
+export const SERVER_SIDE_TOOLS = new Set([
+  "get_user_profile",
+  "update_user_profile",
+  "remember_fact",
+]);
 
 export { UPDATE_USER_PROFILE };
 
