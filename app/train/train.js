@@ -219,6 +219,16 @@ function TrainHistorySkeleton() {
   );
 }
 
+function HistoryExpandSkeleton() {
+  return h("div", { className: "tr-history-expand-skel" },
+    Array.from({ length: 3 }).map((_, i) =>
+      h("div", { key: i, className: "tr-history-expand-skel-block" },
+        h("div", { className: "skel skel-line lg w-40" }),
+        h("div", { className: "skel skel-block h-80" }),
+      )),
+  );
+}
+
 function TrainApp() {
   const [state, setState] = useState(() => parseTrainUrl(window.location.search));
   const { session, ready } = useAuthSession();
@@ -490,14 +500,118 @@ function TrainApp() {
             ? h(TrainHistorySkeleton)
             : history.items.length
               ? h("ul", { className: "tr-history-list" },
-                  history.items.map((s) => h("li", { key: s.id, className: "tr-history-row" },
-                    h("div", { className: "tr-history-title" }, s.title || "Untitled session"),
-                    h("div", { className: "tr-history-meta" },
-                      new Date(s.started_at).toLocaleString(),
-                      " · ",
-                      s.ended_at ? "FINISHED" : "IN PROGRESS",
-                    ),
-                  )))
+                  history.items.map((s) => {
+                    const isExpanded = expandedSessionId === s.id;
+                    const detail = sessionDetailCache[s.id];
+                    const sets = detail?.sets || [];
+                    const groups = isExpanded && detail ? groupSetsByExercise(sets) : [];
+                    const totalSets = sets.length;
+                    const totalVolume = sets.reduce((acc, set) => acc + ((parseFloat(set.load_kg) || 0) * (parseInt(set.reps, 10) || 0)), 0);
+                    const displayVolume = weightUnit === "lbs" ? Math.round(fromKg(totalVolume, "lbs")) : Math.round(totalVolume);
+                    const volLabel = weightUnit === "lbs" ? "lb" : "kg";
+                    const duration = formatDuration(s.started_at, s.ended_at);
+                    const dateStr = formatDate(s.started_at);
+                    const status = s.ended_at ? "" : " · IN PROGRESS";
+
+                    return h("li", {
+                      key: s.id,
+                      className: `tr-history-row${isExpanded ? " is-expanded" : ""}`,
+                      onClick: () => expandSession(s.id),
+                    },
+                      h("div", { className: "tr-history-header" },
+                        h("div", { className: "tr-history-left" },
+                          h("div", { className: "tr-history-title" }, s.title || "Untitled session"),
+                          h("div", { className: "tr-history-meta-row" },
+                            h("span", { className: "tr-history-date" }, `${dateStr}${duration ? ` · ${duration}` : ""}${status}`),
+                            (s.exercises || []).length > 0 ? h("span", { className: "tr-history-dot" }, "·") : null,
+                            (s.exercises || []).length > 0
+                              ? h("span", { className: "tr-history-chip" }, `${(s.exercises || []).length} exercises`)
+                              : null,
+                            detail && totalSets > 0
+                              ? h("span", { className: "tr-history-chip" }, `${totalSets} sets`)
+                              : null,
+                            detail && totalVolume > 0
+                              ? h("span", { className: `tr-history-chip tr-history-chip-vol` }, `${displayVolume.toLocaleString()} ${volLabel}`)
+                              : null,
+                          ),
+                        ),
+                        h("span", { className: "tr-history-chevron" }, "›"),
+                      ),
+
+                      h("div", { className: "tr-history-body" },
+                        isExpanded && expandLoading && !detail
+                          ? h(HistoryExpandSkeleton)
+                          : isExpanded && expandError && !detail
+                            ? h("div", { className: "tr-history-expand-error", role: "alert" },
+                                expandError,
+                                h("button", { onClick: (e) => { e.stopPropagation(); setExpandError(""); } }, "✕"),
+                              )
+                            : isExpanded && detail
+                              ? h("div", { className: "tr-history-exercises" },
+                                  groups.map((g, gi) => {
+                                    const ex = exerciseLookup[g.exerciseId];
+                                    const exName = ex?.name || "Unknown exercise";
+                                    const topIdx = findTopSetIndex(g.sets);
+                                    const topSet = topIdx >= 0 ? g.sets[topIdx] : null;
+                                    const topLoad = topSet ? (weightUnit === "lbs" ? Math.round(fromKg(parseFloat(topSet.load_kg) || 0, "lbs")) : Math.round(parseFloat(topSet.load_kg) || 0)) : null;
+                                    const topReps = topSet ? (parseInt(topSet.reps, 10) || 0) : 0;
+                                    const topSummary = topLoad != null && topLoad > 0
+                                      ? `top: ${topLoad} ${volLabel} × ${topReps}`
+                                      : topReps > 0 ? `top: ${topReps} reps` : "";
+
+                                    return h(React.Fragment, { key: g.exerciseId },
+                                      gi > 0 ? h("hr", { className: "tr-history-ex-divider" }) : null,
+                                      h("div", null,
+                                        h("div", { className: "tr-history-ex-head" },
+                                          h("span", { className: "tr-history-ex-name" }, exName),
+                                          topSummary ? h("span", { className: "tr-history-ex-summary" }, topSummary) : null,
+                                        ),
+                                        g.sets.length === 0
+                                          ? h("div", { className: "tr-history-ex-empty" }, "No sets logged")
+                                          : h("div", { className: "tr-history-tiles" },
+                                              g.sets.map((set, si) => {
+                                                const loadKg = parseFloat(set.load_kg) || 0;
+                                                const displayLoad = loadKg > 0 ? (weightUnit === "lbs" ? Math.round(fromKg(loadKg, "lbs")) : Math.round(loadKg)) : null;
+                                                const reps = parseInt(set.reps, 10) || 0;
+                                                const rpe = set.rpe != null && set.rpe !== "" ? parseFloat(set.rpe) : null;
+                                                const level = rpeLevel(rpe);
+                                                const isTop = si === topIdx;
+
+                                                return h("div", {
+                                                  key: set.id || si,
+                                                  className: `tr-history-tile${isTop ? " is-top" : ""}`,
+                                                  onClick: (e) => e.stopPropagation(),
+                                                },
+                                                  h("span", { className: "tr-history-tile-num" }, si + 1),
+                                                  displayLoad != null
+                                                    ? h("div", { className: "tr-history-tile-load" }, displayLoad)
+                                                    : (reps > 0 ? h("div", { className: "tr-history-tile-load" }, reps) : null),
+                                                  displayLoad != null
+                                                    ? h("div", { className: "tr-history-tile-unit" }, volLabel.toUpperCase())
+                                                    : (reps > 0 ? h("div", { className: "tr-history-tile-unit" }, "REPS") : null),
+                                                  h("div", { className: "tr-history-tile-bottom" },
+                                                    displayLoad != null && reps > 0
+                                                      ? h("span", { className: "tr-history-tile-reps" }, `× ${reps}`)
+                                                      : null,
+                                                    rpe != null
+                                                      ? h("span", { className: `tr-history-tile-rpe tr-history-tile-rpe-${level}` }, `@${rpe}`)
+                                                      : null,
+                                                  ),
+                                                  h("div", { className: `tr-history-tile-stripe tr-history-tile-stripe-${level}` }),
+                                                );
+                                              }),
+                                            ),
+                                      ),
+                                    );
+                                  }),
+                                  detail.note
+                                    ? h("div", { className: "tr-history-note" }, `"${detail.note}"`)
+                                    : null,
+                                )
+                              : null,
+                      ),
+                    );
+                  }))
               : h("p", { className: "tr-empty-state" }, "No history yet."),
         ),
 
