@@ -35,6 +35,9 @@ pnpm-debug.log*
 # Scratch / experimental work — never deploy
 tmp/
 
+# Git worktrees (isolated feature-branch workspaces)
+.worktrees/
+
 # Superpowers plugin cache — per-session working state, not code
 .superpowers/
 
