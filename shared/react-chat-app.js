@@ -55,7 +55,6 @@ import {
   formatCitationLabel,
   formatCitationUrl,
 } from "/shared/citation-format.js";
-import { resolveFlag } from "/shared/feature-flags.js";
 import { ChatTopBar } from "/shared/chat/top-bar.js";
 import { MessageActions } from "/shared/chat/message-actions.js";
 import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
@@ -1318,12 +1317,10 @@ function WorkoutPlanCard({ segment, threadId }) {
 function MealPlanCard({ segment, threadId }) {
   const [parseError, setParseError] = useState("");
   const [plan, setPlan] = useState(null);
-  // chat_v2 swaps the "Save plan" label to "Save to Nutrition →" and adds an
-  // "Adjust meals" button that dispatches `emersus:seed-prompt`. The host
-  // ChatApp listens for that event and seeds the composer.
-  const chatV2On = useMemo(() => {
-    try { return resolveFlag("chat_v2"); } catch { return false; }
-  }, []);
+  // Always true post-Phase-2 cleanup; the chat_v2 flag was retired with the
+  // off-flag escape hatch already removed (commit 15b09f58, 2026-04-15).
+  // Kept as a const for the existing call sites until those are simplified.
+  const chatV2On = true;
 
   // Parse once per unique segment. segment.content is the raw JSON string
   // the model emitted inside the ```meal-plan fence. Invalid JSON renders
@@ -3882,9 +3879,10 @@ export function ChatApp() {
   }, [activeThread]);
   const sourceCount = Number(rail.sourceCount || latestAssistantSources.length || 0);
 
-  // chat_v2 feature flag — resolved once on mount. Drives whether the new
-  // ChatTopBar renders and the `.chat-main` uses the v2 chrome classes.
-  const [chatV2On] = useState(() => resolveFlag("chat_v2"));
+  // chat_v2 was retired in Phase 2 of the v2 cleanup — always true now.
+  // Existing branches that test chatV2On continue to work pending a later
+  // dead-code sweep.
+  const [chatV2On] = useState(true);
   const [shareModalOpen, setShareModalOpen] = useState(false);
   // chat_v2 sidebar search — debounced 300ms via a separate state pair so the
   // input stays responsive while filtering recomputes only after typing pauses.

@@ -9,20 +9,25 @@ import {
 } from '../../../shared/feature-flags.js';
 
 describe('feature-flags — pure logic', () => {
-  test('KNOWN_FLAGS is the canonical list', () => {
+  test('KNOWN_FLAGS is the canonical list (post-v2-cleanup)', () => {
     assert.ok(Array.isArray(KNOWN_FLAGS));
-    assert.ok(KNOWN_FLAGS.includes('chat_v2'));
-    assert.ok(KNOWN_FLAGS.includes('train_v2'));
-    assert.ok(KNOWN_FLAGS.includes('nutrition_v2'));
-    assert.ok(KNOWN_FLAGS.includes('progress_v2'));
-    assert.ok(KNOWN_FLAGS.includes('profile_v2'));
-    assert.ok(KNOWN_FLAGS.includes('auth_v2'));
-    assert.ok(KNOWN_FLAGS.includes('public_v2'));
+    // Per-phase v2 flags retired 2026-04-16 — every phase shipped on by
+    // default and the flags became no-ops. Only product flags remain.
     assert.ok(KNOWN_FLAGS.includes('conversational_onboarding'));
+    assert.ok(KNOWN_FLAGS.includes('chat_model_selector'));
+    assert.ok(KNOWN_FLAGS.includes('progress_benchmarks'));
+    assert.ok(KNOWN_FLAGS.includes('progress_training_load'));
+    assert.ok(KNOWN_FLAGS.includes('nutrition_quick_log'));
+    assert.ok(KNOWN_FLAGS.includes('integrations_waitlist'));
+    // Retired v2 phase flags MUST NOT appear in KNOWN_FLAGS
+    for (const retired of ['chat_v2', 'auth_v2', 'train_v2', 'nutrition_v2', 'progress_v2', 'profile_v2', 'public_v2']) {
+      assert.ok(!KNOWN_FLAGS.includes(retired), `${retired} should be retired`);
+    }
   });
 
   test('isKnownFlag recognizes canonical flags', () => {
-    assert.equal(isKnownFlag('chat_v2'), true);
+    assert.equal(isKnownFlag('conversational_onboarding'), true);
+    assert.equal(isKnownFlag('chat_v2'), false); // retired
     assert.equal(isKnownFlag('unknown_flag'), false);
     assert.equal(isKnownFlag(''), false);
     assert.equal(isKnownFlag(null), false);
@@ -30,17 +35,17 @@ describe('feature-flags — pure logic', () => {
   });
 
   test('readFlag returns default when saved + url are absent', () => {
-    assert.equal(readFlag('chat_v2', { saved: null, url: null }), false);
+    assert.equal(readFlag('chat_model_selector', { saved: null, url: null }), false);
   });
 
   test('readFlag returns saved value when set (no url override)', () => {
-    assert.equal(readFlag('chat_v2', { saved: true, url: null }), true);
-    assert.equal(readFlag('chat_v2', { saved: false, url: null }), false);
+    assert.equal(readFlag('conversational_onboarding', { saved: true, url: null }), true);
+    assert.equal(readFlag('conversational_onboarding', { saved: false, url: null }), false);
   });
 
   test('readFlag url override beats saved', () => {
-    assert.equal(readFlag('chat_v2', { saved: false, url: true }), true);
-    assert.equal(readFlag('chat_v2', { saved: true, url: false }), false);
+    assert.equal(readFlag('conversational_onboarding', { saved: false, url: true }), true);
+    assert.equal(readFlag('conversational_onboarding', { saved: true, url: false }), false);
   });
 
   test('readFlag returns false for unknown flag', () => {
@@ -63,43 +68,13 @@ describe('feature-flags — pure logic', () => {
   });
 
   test('readFlag with default override honors per-flag defaults', () => {
-    assert.equal(readFlag('chat_v2', { saved: null, url: null, defaults: { chat_v2: true } }), true);
-    assert.equal(readFlag('chat_v2', { saved: null, url: null, defaults: { chat_v2: false } }), false);
+    assert.equal(readFlag('conversational_onboarding', { saved: null, url: null, defaults: { conversational_onboarding: true } }), true);
+    assert.equal(readFlag('conversational_onboarding', { saved: null, url: null, defaults: { conversational_onboarding: false } }), false);
   });
 
-  test('DEFAULT_FLAGS flips chat_v2 to true (Phase 2 Task 13)', () => {
-    assert.equal(DEFAULT_FLAGS.chat_v2, true);
-  });
-
-  test('DEFAULT_FLAGS flips auth_v2 to true (Phase 7 Task 8)', () => {
-    assert.equal(DEFAULT_FLAGS.auth_v2, true);
-  });
-
-  test('DEFAULT_FLAGS flips profile_v2 to true (Phase 6 Task 10)', () => {
-    assert.equal(DEFAULT_FLAGS.profile_v2, true);
-  });
-
-  test('DEFAULT_FLAGS flips public_v2 to true (Phase 8 Task 15)', () => {
-    assert.equal(DEFAULT_FLAGS.public_v2, true);
-  });
-
-  test('DEFAULT_FLAGS flips conversational_onboarding to true (Phase 9 Task 7)', () => {
+  test('DEFAULT_FLAGS has only conversational_onboarding pre-enabled', () => {
     assert.equal(DEFAULT_FLAGS.conversational_onboarding, true);
-  });
-
-  test('DEFAULT_FLAGS flips nutrition_v2 to true (Phase 4 Task 12)', () => {
-    assert.equal(DEFAULT_FLAGS.nutrition_v2, true);
-  });
-
-  test('DEFAULT_FLAGS flips train_v2 to true (Phase 3 Task 18)', () => {
-    assert.equal(DEFAULT_FLAGS.train_v2, true);
-  });
-
-  test('DEFAULT_FLAGS flips progress_v2 to true (Phase 5 Task 14)', () => {
-    assert.equal(DEFAULT_FLAGS.progress_v2, true);
-  });
-
-  test('DEFAULT_FLAGS does NOT pre-enable any non-redesign flags', () => {
+    // Other flags have no default → resolve to false unless explicitly enabled.
     assert.equal(DEFAULT_FLAGS.chat_model_selector, undefined);
     assert.equal(DEFAULT_FLAGS.progress_benchmarks, undefined);
     assert.equal(DEFAULT_FLAGS.progress_training_load, undefined);
@@ -108,6 +83,6 @@ describe('feature-flags — pure logic', () => {
   });
 
   test('DEFAULT_FLAGS is frozen so callers cannot mutate the baseline', () => {
-    assert.throws(() => { DEFAULT_FLAGS.chat_v2 = false; }, /Cannot assign|read only/i);
+    assert.throws(() => { DEFAULT_FLAGS.conversational_onboarding = false; }, /Cannot assign|read only/i);
   });
 });
