@@ -1,4 +1,4 @@
-// app/nutrition/nutrition-v2.js — Phase 4 Nutrition v2 SPA entry.
+// app/nutrition/nutrition.js — Phase 4 Nutrition v2 SPA entry.
 //
 // Top tabs (Today / Plans / Log / Recipes [SOON] / Allergens [SOON]).
 // Today tab is the showcase: time-aware fuel gauge + water/supps strip

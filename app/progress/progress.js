@@ -1,4 +1,4 @@
-// app/progress/progress-v2.js — Phase 5 Progress v2 SPA entry.
+// app/progress/progress.js — Phase 5 Progress v2 SPA entry.
 //
 // Modality filter (All/Lift/Cardio/Swim/Climb/Nutrition) + period pills
 // (Week/Month/3M/Year). Renders 4 sections + 4 coming-soon placeholders.
