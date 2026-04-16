@@ -2645,6 +2645,40 @@ function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
 
 const SOURCES_FOOTER_VISIBLE_BY_DEFAULT = 3;
 
+// Skeleton rendered while an active thread's messages are being hydrated
+// from the server (click a thread in the sidebar → wait for /api/threads/:id
+// → ~200-600 ms). Three alternating message shapes so the shimmer hints at
+// the final conversation shape without guessing content.
+function ChatThreadSkeleton() {
+  return h("div", { className: "chat-thread-skeleton", "aria-busy": "true", "aria-label": "Loading conversation" },
+    // User message
+    h("article", { className: "message user" },
+      h("div", { className: "message-content skel-stack gap-6" },
+        h("div", { className: "skel skel-line lg w-70" }),
+        h("div", { className: "skel skel-line w-40" }))),
+    // Assistant message — longer, multi-paragraph
+    h("article", { className: "message assistant" },
+      h("div", { className: "message-content skel-stack gap-6" },
+        h("div", { className: "skel skel-line w-95" }),
+        h("div", { className: "skel skel-line w-90" }),
+        h("div", { className: "skel skel-line w-85" }),
+        h("div", { className: "skel skel-line w-60" }),
+        h("div", { className: "skel skel-line w-95", style: { marginTop: 14 } }),
+        h("div", { className: "skel skel-line w-75" }))),
+    // User follow-up
+    h("article", { className: "message user" },
+      h("div", { className: "message-content skel-stack gap-6" },
+        h("div", { className: "skel skel-line lg w-50" }))),
+    // Assistant reply
+    h("article", { className: "message assistant" },
+      h("div", { className: "message-content skel-stack gap-6" },
+        h("div", { className: "skel skel-line w-90" }),
+        h("div", { className: "skel skel-line w-95" }),
+        h("div", { className: "skel skel-line w-65" }))),
+  );
+}
+
+
 function SourcesFooter({ sources, onAskFollowUp }) {
   const items = Array.isArray(sources) ? sources : [];
   const [openSet, setOpenSet] = useState(() => new Set());
@@ -4114,10 +4148,7 @@ export function ChatApp() {
         h("section", { className: "conversation-canvas", ref: canvasRef },
           h("div", { className: `chat-thread${!activeMessages.length ? " is-empty" : ""}` },
             activeThreadNeedsHydration
-              ? h("section", { className: "thread-welcome" },
-                  h("p", { className: "thread-welcome-eyebrow" }, "Loading"),
-                  h("h2", { className: "thread-welcome-title" }, activeThread?.title || "Conversation"),
-                  h("p", { className: "thread-welcome-copy" }, "Fetching the full conversation so we can render the chat history without loading every thread up front."))
+              ? h(ChatThreadSkeleton)
               : activeMessages.length
               ? [
                   hiddenMessageCount

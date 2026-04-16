@@ -123,6 +123,36 @@ function FinishSessionSheet({ open, totals, onConfirm, onCancel }) {
   );
 }
 
+// Full-page skeleton while session + modality state boot.
+function TrainSkeleton() {
+  return h("div", { className: "tr-shell", "aria-busy": "true", "aria-label": "Loading training" },
+    h("nav", { className: "tr-modality-tabs skel-row" },
+      Array.from({ length: 4 }).map((_, i) =>
+        h("span", { key: i, className: "skel skel-pill lg" }))),
+    h("nav", { className: "tr-subtabs skel-row" },
+      h("span", { className: "skel skel-pill" }),
+      h("span", { className: "skel skel-pill" })),
+    h("div", { className: "tr-tab-body skel-stack gap-14" },
+      h("div", { className: "skel skel-block h-120" }),
+      h("div", { className: "skel skel-block h-160" }),
+      h("div", { className: "skel skel-block h-120" }),
+    ),
+  );
+}
+
+// History-tab skeleton: three session rows.
+function TrainHistorySkeleton() {
+  return h("ul", { className: "tr-history-list", "aria-busy": "true", "aria-label": "Loading history" },
+    Array.from({ length: 3 }).map((_, i) =>
+      h("li", { key: i, className: "tr-history-row" },
+        h("div", { className: "skel-stack gap-6", style: { flex: 1 } },
+          h("div", { className: "skel skel-line lg w-40" }),
+          h("div", { className: "skel skel-line w-60" })),
+        h("div", { className: "skel skel-pill lg" }),
+      )),
+  );
+}
+
 function TrainApp() {
   const [state, setState] = useState(() => parseTrainUrl(window.location.search));
   const { session, ready } = useAuthSession();
@@ -287,7 +317,7 @@ function TrainApp() {
     return { sets, volume_kg, duration: `${m}m ${s}s` };
   }, [activeSession, activeSets]);
 
-  if (!ready) return h("div", { className: "tr-loading" }, "Loading…");
+  if (!ready) return h(TrainSkeleton);
   if (!session) return h("div", { className: "tr-loading" }, "Sign in required.");
 
   const setsBySession = activeSession ? { [activeSession.id]: activeSets } : {};
@@ -348,7 +378,7 @@ function TrainApp() {
         )
       : h("div", { className: "tr-tab-body" },
           history.loading
-            ? h("p", { className: "tr-loading" }, "Loading…")
+            ? h(TrainHistorySkeleton)
             : history.items.length
               ? h("ul", { className: "tr-history-list" },
                   history.items.map((s) => h("li", { key: s.id, className: "tr-history-row" },
