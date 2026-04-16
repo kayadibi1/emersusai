@@ -45,8 +45,6 @@ app.use((req, res, next) => {
 // Import API handlers (each is a default-exported (req, res) function)
 const { default: configHandler } = await import("./api/config.js");
 const { default: contactHandler } = await import("./api/contact.js");
-const { default: waitlistHandler } = await import("./api/waitlist.js");
-const { default: waitlistConfirmHandler } = await import("./api/waitlist-confirm.js");
 const { default: notifySignupHandler } = await import("./api/notify-signup.js");
 const { default: recommendationHandler } = await import("./api/emersus/recommendation.js");
 const { default: foodsSearchHandler } = await import("./api/emersus/foods-search.js");
@@ -57,9 +55,6 @@ const { default: rpcProxy } = await import("./api/emersus/rpc-proxy.js");
 const { threadsShareApiRouter, publicShareRouter } = await import("./api/emersus/threads-share.js");
 const { default: suggestPromptsHandler } = await import("./api/emersus/suggest-prompts.js");
 const { default: threadTitleHandler } = await import("./api/emersus/thread-title.js");
-const { default: requestAccessHandler } = await import("./api/auth/request-access.js");
-const { default: validateInviteHandler } = await import("./api/auth/validate-invite.js");
-const { default: acceptInviteHandler } = await import("./api/auth/accept-invite.js");
 const { default: profileRouter } = await import("./api/emersus/profile.js");
 const { default: integrationsWaitlistHandler } = await import("./api/emersus/integrations-waitlist.js");
 const { default: workoutSessionsRouter } = await import("./api/emersus/workout-sessions.js");
@@ -90,8 +85,6 @@ import { requireAdmin } from "./api/admin/_middleware.js";
 // to reject unexpected methods at the routing layer.
 app.get("/api/config", configHandler);
 app.post("/api/contact", publicRateLimitMiddleware("contact"), contactHandler);
-app.post("/api/waitlist", publicRateLimitMiddleware("waitlist"), waitlistHandler);
-app.get("/api/waitlist/confirm", waitlistConfirmHandler);
 app.post("/api/notify-signup", publicRateLimitMiddleware("notify-signup"), notifySignupHandler);
 app.post("/api/emersus/recommendation", requireAuth, recommendationHandler);
 app.get("/api/emersus/foods/search", foodsSearchHandler);
@@ -112,11 +105,6 @@ app.get("/api/emersus/suggest-prompts", suggestPromptsHandler);
 // chat_v2 thread-title generator — one-shot LLM call fired after the first
 // assistant reply to give the sidebar a meaningful title.
 app.post("/api/emersus/thread-title", requireAuth, threadTitleHandler);
-
-// auth_v2: request access + invite landing endpoints.
-app.post("/api/auth/request-access", publicRateLimitMiddleware("request-access"), requestAccessHandler);
-app.get("/api/auth/validate-invite", validateInviteHandler);
-app.post("/api/auth/accept-invite", acceptInviteHandler);
 
 // profile_v2: structured profile read/write + integrations waitlist.
 app.use("/api/profile", profileRouter());

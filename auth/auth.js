@@ -1,7 +1,7 @@
 // auth/auth.js — Phase 7 split-screen auth shell.
 //
-// Single page that renders 4 state-switched panels (login, request, forgot,
-// invite). Reuses the existing /shared/auth-pages.js DOM-attribute wiring so
+// Single page that renders 3 state-switched panels (login, signup, forgot).
+// Reuses the existing /shared/auth-pages.js DOM-attribute wiring so
 // Supabase login/forgot/signup logic stays unchanged — we just relocate the
 // markup and add `data-auth-page` attribute on the panel root so auth-pages.js
 // finds it.
@@ -9,7 +9,7 @@
 import { parseAuthUrl, buildAuthUrl, PANELS } from "/shared/auth/url-state.js?v=redesign-7";
 
 const root = document.getElementById("auth-v2-root");
-const state = { panel: parseAuthUrl(window.location.search).panel, token: parseAuthUrl(window.location.search).token };
+const state = { panel: parseAuthUrl(window.location.search).panel };
 
 function googleSvg() {
   return `<svg class="oauth-icon" viewBox="0 0 18 18" aria-hidden="true">
@@ -77,53 +77,52 @@ function loginPanel() {
 
       <div class="auth-panel-foot">
         <a href="?panel=forgot" data-panel-link="forgot">Forgot password?</a>
-        <p>Don't have access? <a href="?panel=request" data-panel-link="request">Request private beta →</a></p>
-        <p class="auth-foot-muted">Just got an invite? <a href="?panel=invite" data-panel-link="invite">Set up account →</a></p>
+        <p>Don't have an account? <a href="?panel=signup" data-panel-link="signup">Sign up →</a></p>
       </div>
     </section>`;
 }
 
-function requestPanel() {
+function signupPanel() {
   return `
-    <section class="auth-panel" data-auth-page="request">
+    <section class="auth-panel" data-auth-page="signup">
       <header class="auth-panel-head">
-        <h2>Request access</h2>
-        <p>Emersus is in private beta.</p>
+        <h2>Create account</h2>
+        <p>Sign up to get started.</p>
       </header>
 
-      <button class="oauth-btn" type="button" data-auth-oauth="google" data-auth-mode="request">
+      <button class="oauth-btn" type="button" data-auth-oauth="google" data-auth-mode="signup">
         ${googleSvg()}
-        <span>Request access with Google</span>
+        <span>Continue with Google</span>
       </button>
+      <p class="auth-status" data-auth-oauth-status></p>
 
       <div class="oauth-divider"><span>or</span></div>
 
-      <form class="auth-form" data-auth-request>
+      <form class="auth-form" data-auth-signup>
         <label class="auth-field">
           <span>Full name</span>
-          <input type="text" name="name" autocomplete="name" required />
+          <input type="text" name="full_name" autocomplete="name" />
         </label>
         <label class="auth-field">
           <span>Email</span>
           <input type="email" name="email" autocomplete="email" required />
         </label>
         <label class="auth-field">
-          <span>Invite code <span class="auth-field-hint">(optional)</span></span>
-          <input type="text" name="invite_code" placeholder="EM-8X4K-9PQR" autocomplete="off" />
+          <span class="auth-field-label-row">
+            <span>Password</span>
+            <button class="auth-show-toggle" type="button" data-toggle-pw>SHOW</button>
+          </span>
+          <input type="password" name="password" autocomplete="new-password" required minlength="8" />
         </label>
-        <p class="auth-helper">WE'LL EMAIL YOU TO SET YOUR PASSWORD ONCE ACCESS IS APPROVED.</p>
-        <button class="auth-primary" type="submit">Request access →</button>
+        <button class="auth-primary" type="submit">Create Account</button>
         <p class="auth-status" data-auth-status></p>
+        <button class="auth-link" type="button" data-auth-resend hidden>Resend confirmation email</button>
       </form>
 
-      <div class="auth-callout">
-        <strong>Beta perks include:</strong> wearable sync, recipe library, and exercise videos as they ship.
-      </div>
-
-      <p class="auth-tos">By requesting access you agree to our <a href="/terms/">Terms</a> and <a href="/privacy/">Privacy Policy</a>.</p>
+      <p class="auth-tos">By signing up you agree to our <a href="/terms/">Terms</a> and <a href="/privacy/">Privacy Policy</a>.</p>
 
       <div class="auth-panel-foot">
-        <p>Already have access? <a href="?panel=login" data-panel-link="login">Log in →</a></p>
+        <p>Already have an account? <a href="?panel=login" data-panel-link="login">Log in →</a></p>
       </div>
     </section>`;
 }
@@ -152,49 +151,12 @@ function forgotPanel() {
     </section>`;
 }
 
-function invitePanel(token) {
-  const tokenAttr = token ? ` data-token="${token.replace(/"/g, '&quot;')}"` : "";
-  return `
-    <section class="auth-panel" data-auth-page="invite"${tokenAttr}>
-      <header class="auth-panel-head">
-        <h2>Set up account</h2>
-        <p>Welcome — let's finish setting up.</p>
-      </header>
-
-      <div class="auth-invite-status" data-invite-status>Validating your invite…</div>
-
-      <button class="oauth-btn" type="button" data-auth-oauth="google" data-auth-mode="invite" hidden>
-        ${googleSvg()}
-        <span>Continue with Google</span>
-      </button>
-
-      <div class="oauth-divider" hidden><span>or</span></div>
-
-      <form class="auth-form" data-auth-invite hidden>
-        <label class="auth-field">
-          <span>Email</span>
-          <input type="email" name="email" autocomplete="email" disabled />
-        </label>
-        <label class="auth-field">
-          <span class="auth-field-label-row">
-            <span>Password</span>
-            <button class="auth-show-toggle" type="button" data-toggle-pw>SHOW</button>
-          </span>
-          <input type="password" name="password" autocomplete="new-password" required minlength="8" />
-        </label>
-        <button class="auth-primary" type="submit">Complete setup →</button>
-        <p class="auth-status" data-auth-status></p>
-      </form>
-    </section>`;
-}
-
-function panelFor(name, token) {
+function panelFor(name) {
   switch (name) {
-    case "login":   return loginPanel();
-    case "request": return requestPanel();
-    case "forgot":  return forgotPanel();
-    case "invite":  return invitePanel(token);
-    default:        return loginPanel();
+    case "login":  return loginPanel();
+    case "signup": return signupPanel();
+    case "forgot": return forgotPanel();
+    default:       return loginPanel();
   }
 }
 
@@ -205,15 +167,14 @@ function render() {
       ${brandPane()}
       <main class="auth-stage">
         <div class="auth-stage-inner" data-panel-stage>
-          ${panelFor(state.panel, state.token)}
+          ${panelFor(state.panel)}
         </div>
       </main>
     </div>`;
   wireEvents();
   void hydrateStats();
-  if (state.panel === "invite") void wireInvite();
-  if (state.panel === "request") wireRequest();
   if (state.panel === "forgot") wireForgot();
+  ensureAuthPagesLoaded();
 }
 
 function wireEvents() {
@@ -237,14 +198,18 @@ function wireEvents() {
       btn.textContent = showing ? "SHOW" : "HIDE";
     });
   });
+}
 
-  // Hand the login panel off to the existing /shared/auth-pages.js wiring on
-  // first render. The module reads `data-auth-login`, `data-auth-oauth`, etc.
-  // and is idempotent across re-imports.
-  if (state.panel === "login" && !window.__emersusAuthPagesLoaded) {
-    window.__emersusAuthPagesLoaded = true;
-    import("/shared/auth-pages.js").catch((err) => console.error("auth-pages load failed", err));
-  }
+// Hand login + signup + forgot panels to the shared auth-pages.js wiring.
+// The module reads `data-auth-login`, `data-auth-signup`, `data-auth-oauth`,
+// etc. and is idempotent across re-imports — we trigger it on first render
+// and again on every panel switch so newly-mounted forms get bound.
+function ensureAuthPagesLoaded() {
+  import("/shared/auth-pages.js")
+    .then((mod) => {
+      if (typeof mod?.bindAuthForms === "function") mod.bindAuthForms();
+    })
+    .catch((err) => console.error("auth-pages load failed", err));
 }
 
 async function hydrateStats() {
@@ -263,103 +228,6 @@ function formatLargeNumber(n) {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M+`;
   if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K+`;
   return String(n);
-}
-
-async function wireInvite() {
-  const panel = root.querySelector('[data-auth-page="invite"]');
-  if (!panel) return;
-  const token = panel.getAttribute("data-token") || state.token;
-  const status = panel.querySelector("[data-invite-status]");
-  const oauth = panel.querySelector('[data-auth-oauth]');
-  const divider = panel.querySelector(".oauth-divider");
-  const form = panel.querySelector('[data-auth-invite]');
-
-  if (!token) {
-    status.textContent = "Missing invite token. Use the link from your invitation email.";
-    status.classList.add("is-error");
-    return;
-  }
-
-  try {
-    const res = await fetch(`/api/auth/validate-invite?token=${encodeURIComponent(token)}`);
-    if (!res.ok) {
-      const body = await res.json().catch(() => ({}));
-      status.textContent = body.error || "This invite link is invalid or expired.";
-      status.classList.add("is-error");
-      return;
-    }
-    const { email } = await res.json();
-    status.hidden = true;
-    oauth.hidden = false;
-    divider.hidden = false;
-    form.hidden = false;
-    form.querySelector('input[name="email"]').value = email;
-
-    form.addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const password = form.querySelector('input[name="password"]').value;
-      const submitBtn = form.querySelector('button[type="submit"]');
-      const fStatus = form.querySelector("[data-auth-status]");
-      submitBtn.disabled = true;
-      fStatus.textContent = "Setting up…";
-      fStatus.classList.remove("is-error");
-      try {
-        const acceptRes = await fetch("/api/auth/accept-invite", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ token, password }),
-        });
-        if (!acceptRes.ok) {
-          const body = await acceptRes.json().catch(() => ({}));
-          throw new Error(body.error || `HTTP ${acceptRes.status}`);
-        }
-        window.location.href = "/app/?onboarding=1";
-      } catch (err) {
-        fStatus.textContent = err.message || "Could not complete setup.";
-        fStatus.classList.add("is-error");
-        submitBtn.disabled = false;
-      }
-    });
-  } catch (err) {
-    status.textContent = "Could not reach the server.";
-    status.classList.add("is-error");
-  }
-}
-
-function wireRequest() {
-  const form = root.querySelector('[data-auth-request]');
-  if (!form) return;
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const status = form.querySelector("[data-auth-status]");
-    submitBtn.disabled = true;
-    status.textContent = "Submitting…";
-    status.classList.remove("is-error");
-
-    const data = Object.fromEntries(new FormData(form).entries());
-    try {
-      const res = await fetch("/api/auth/request-access", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-      });
-      const body = await res.json().catch(() => ({}));
-      if (!res.ok) {
-        throw new Error(body.error || `HTTP ${res.status}`);
-      }
-      if (body.status === "invited" && body.next) {
-        window.location.href = body.next;
-        return;
-      }
-      const position = body.position ? `· POSITION #${body.position}` : "";
-      form.innerHTML = `<div class="auth-success">YOU'RE ON THE WAITLIST ${position}<br/><span class="auth-success-sub">We'll email you when a spot opens.</span></div>`;
-    } catch (err) {
-      status.textContent = err.message || "Could not submit your request.";
-      status.classList.add("is-error");
-      submitBtn.disabled = false;
-    }
-  });
 }
 
 function wireForgot() {
@@ -392,7 +260,6 @@ function wireForgot() {
 window.addEventListener("popstate", () => {
   const next = parseAuthUrl(window.location.search);
   state.panel = next.panel;
-  state.token = next.token;
   render();
 });
 

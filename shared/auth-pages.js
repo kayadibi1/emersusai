@@ -159,6 +159,8 @@ function bindOAuthButtons() {
     if (!(button instanceof HTMLButtonElement)) {
       return;
     }
+    if (button.dataset.bound === "1") return;
+    button.dataset.bound = "1";
 
     button.addEventListener("click", async () => {
       const provider = button.dataset.authOauth;
@@ -207,6 +209,8 @@ function bindSignupForm() {
   if (!form) {
     return;
   }
+  if (form.dataset.bound === "1") return;
+  form.dataset.bound = "1";
 
   const status = document.querySelector("[data-auth-status]");
   bindResendConfirmation(form, status);
@@ -290,6 +294,8 @@ function bindLoginForm() {
   if (!form) {
     return;
   }
+  if (form.dataset.bound === "1") return;
+  form.dataset.bound = "1";
 
   const status = document.querySelector("[data-auth-status]");
   bindResendConfirmation(form, status);
@@ -344,6 +350,8 @@ function bindForgotPasswordForm() {
   if (!form) {
     return;
   }
+  if (form.dataset.bound === "1") return;
+  form.dataset.bound = "1";
 
   const status = document.querySelector("[data-auth-status]");
 
@@ -587,3 +595,14 @@ boot().catch((error) => {
   const status = document.querySelector("[data-auth-status]");
   setStatus(status, "error", error.message || "Authentication setup failed.");
 });
+
+// Re-bindable entry for SPA-style panel switching (auth/auth.js mounts
+// a different form per panel). Each bind* function is idempotent via a
+// `data-bound="1"` attribute on the form/button so calling this on every
+// render won't double-attach listeners.
+export function bindAuthForms() {
+  bindOAuthButtons();
+  bindSignupForm();
+  bindLoginForm();
+  bindForgotPasswordForm();
+}
