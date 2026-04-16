@@ -19,9 +19,13 @@
   grid-template-columns: 55% 45%;
   min-height: 100vh;
 }
+/* NOTE: Mobile rule that hides .auth-brand is relocated to the END of
+ * this file. Same-specificity cascade requires overrides to come AFTER
+ * defaults in source order, or the default `.auth-brand { display: flex }`
+ * defined below wins. Previously this rule was here and the brand pane
+ * rendered on phones despite display:none. */
 @media (max-width: 900px) {
   [data-auth-v2="1"] .auth-shell { grid-template-columns: 1fr; }
-  [data-auth-v2="1"] .auth-brand { display: none; }
 }
 
 /* ========== Brand pane ========== */
@@ -399,4 +403,19 @@
   [data-auth-v2="1"] .auth-stage {
     padding: 24px 16px;
   }
+}
+
+/* ========================================================================== */
+/* MOBILE OVERRIDES — kept at EOF so they win the cascade against the defaults */
+/* above. Same-specificity rules cascade by source order; putting these rules */
+/* before the defaults meant the defaults silently overrode them.             */
+/* ========================================================================== */
+
+@media (max-width: 900px) {
+  /* Hide the brand pane ("Trained on the literature." + stats) on the
+   * login, request-access, forgot, and every other auth panel — mobile
+   * users should land directly on the form, not scroll past brand
+   * content. auth-shell collapses to 1fr in the rule above so the form
+   * takes full width. */
+  [data-auth-v2="1"] .auth-brand { display: none; }
 }
