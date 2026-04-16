@@ -131,25 +131,12 @@ body.landing-v2-body main { position: relative; z-index: 1; }
 .theme-swatch-paper::after { background: #3b82f6; box-shadow: 0 0 4px #3b82f6; }
 @media (max-width: 700px) {
   .nav-links { display: none; }
-  /* Bento card visuals: stack EVERY multi-column inner grid so tiles
-   * don't overflow the viewport. Missing any of these causes the whole
-   * page to look broken (a single wide child inside a bento card
-   * blows past the 384 px phone viewport, gets clipped by the body's
-   * overflow-x: hidden, and the rest of the layout looks shoved right). */
-  .mini-plans { grid-template-columns: 1fr; }
-  .paper-compare { grid-template-columns: 1fr; }
-  .modality-grid { grid-template-columns: 1fr; }
-  /* Demo frame's inner split (title + model pill) — stack too so
-   * 'EMERSUS 0.5 · 3 SOURCES' doesn't crowd the thread title. */
-  .demo-header { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
-@media (max-width: 500px) {
-  /* Step grid is 2x2 at 900 px (see rule below) — at narrow phones even
-   * 2-col crushes the body text. Force single-column. */
-  .steps-grid { grid-template-columns: 1fr; }
-  /* Similarly the 4-up evidence scale gets cramped at 500 */
-  .evidence-scale { grid-template-columns: 1fr; }
-}
+/* NOTE: All mobile grid overrides (for .mini-plans, .paper-compare,
+ * .modality-grid, .demo-header, .steps-grid, .evidence-scale) moved to the
+ * END of this file so they come AFTER the grid defaults in source order.
+ * Same-specificity rules cascade by source order — putting the overrides
+ * before the defaults meant the defaults always won. */
 
 /* ===== HERO ===== */
 .hero { max-width: 1040px; margin: 0 auto; padding: 96px 32px 40px; text-align: center; }
@@ -541,13 +528,36 @@ h1.headline {
 @media (max-width: 860px) {
   .demo-body { grid-template-columns: 1fr; }
   .demo-side { display: none; }
-  /* Reserve height for the final animated state (header + 2 messages +
-   * expanded cite card + composer ≈ 580 px). Without this, the loop's
-   * reset shrinks the container and the re-type grows it again, pumping
-   * the page up/down on phones where the demo occupies most of the
-   * viewport. msgs gets its own min-height so the cite-card expansion
-   * fits inside instead of pushing demo-main outward. */
-  .demo-main { min-height: 580px; }
-  .msgs { min-height: 430px; }
+  /* Fixed height on demo-main so the loop's show/remove class swap
+   * can't change the outer container size. msgs is flex:1 inside, so
+   * it takes whatever space remains; cite-card's max-height:0→240
+   * expansion happens entirely within the fixed container.
+   * Height math: header (~48) + msgs content max (~490 w/ 2 msgs +
+   * expanded cite + padding) + composer (~64) + buffers = 640. */
+  .demo-main { height: 640px; min-height: 640px; }
+  .msgs { min-height: 0; overflow: hidden; }
   .hero { padding-top: 64px; }
+}
+
+/* ========================================================================== */
+/* MOBILE OVERRIDES — keep at END of file so cascade order lets them win over  */
+/* the grid defaults defined earlier (same specificity = later wins).          */
+/* ========================================================================== */
+
+@media (max-width: 700px) {
+  /* Bento card inner grids: stack every multi-column layout so tiles
+   * don't overflow the 384 px phone viewport. */
+  .mini-plans      { grid-template-columns: 1fr; }
+  .paper-compare   { grid-template-columns: 1fr; }
+  .modality-grid   { grid-template-columns: 1fr; }
+  /* Demo frame header: stack title + model pill */
+  .demo-header     { flex-direction: column; align-items: flex-start; gap: 6px; }
+}
+
+@media (max-width: 500px) {
+  /* 4-up steps and evidence-scale grids: at ≤ 500 px, even the 2-col
+   * fallback (set at the 900 breakpoint) crushes the body text — force
+   * single-column. */
+  .steps-grid      { grid-template-columns: 1fr; }
+  .evidence-scale  { grid-template-columns: 1fr; }
 }
