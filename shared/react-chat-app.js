@@ -4079,7 +4079,7 @@ export function ChatApp() {
     return () => document.removeEventListener("scroll", onAnyScroll, { capture: true });
   }, []);
 
-  return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}${chatV2On ? " chat-v2" : ""}` },
+  return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}` },
     h("div", {
       className: `chat-nav-scrim${sidebarOpen ? " is-open" : ""}`,
       onClick: closeSidebar,
