@@ -7,7 +7,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { requireAuth, getProfile } from "/shared/supabase.js";
 import { resolveWeightUnit } from "/shared/unit-conversion.js";
-import { momentumSparkline, beeswarmPlot } from "/shared/progress-charts.js";
+import { momentumSparkline, beeswarmPlot, zoneRiver } from "/shared/progress-charts.js";
 
 const h = React.createElement;
 
@@ -235,6 +235,42 @@ function BeeswarmPlot({ data, weightUnit = "kg" }) {
   );
 }
 
+function ZoneRiver({ data }) {
+  const zr = data?.zone_river;
+  const [isMobile, setIsMobile] = React.useState(() => typeof window !== "undefined" && window.innerWidth < 600);
+  React.useEffect(() => {
+    function onResize() { setIsMobile(window.innerWidth < 600); }
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  if (!zr || !zr.weeks || zr.weeks.length === 0) return null;
+
+  const svg = zoneRiver(zr, { mobile: isMobile });
+
+  return h("section", { className: "pg-section" },
+    h("h2", null, "Heart rate zones"),
+    h("div", { className: "pg-zone-river-card" },
+      h("div", { className: "pg-zone-river-head" },
+        h("div", null,
+          h("div", { className: "pg-zone-river-title" }, "Zone distribution"),
+          h("div", { className: "pg-zone-river-sub" }, `${zr.weeks.length} WEEKS · TIME IN ZONE`),
+        ),
+        h("span", { className: "pg-zone-pattern" }, zr.pattern_label),
+      ),
+      h("div", { dangerouslySetInnerHTML: { __html: svg } }),
+      h("div", { className: "pg-zone-legend" },
+        h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z1)" } }), "Z1 · Recovery"),
+        h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z2)" } }), "Z2 · Endurance"),
+        h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z3)" } }), "Z3 · Tempo"),
+        h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z4)" } }), "Z4 · Threshold"),
+        h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z5)" } }), "Z5 · VO2"),
+      ),
+      zr.hr_estimate_note ? h("div", { className: "pg-zone-estimate-note" }, zr.hr_estimate_note) : null,
+    ),
+  );
+}
+
 function ComingSoon({ title, hint }) {
   return h("section", { className: "pg-soon" },
     h("h3", null, title),
@@ -377,10 +413,10 @@ function ProgressApp() {
       // Momentum cards (replaces the 1RM ComingSoon)
       h(MomentumCards, { data, weightUnit }),
       h(BeeswarmPlot, { data, weightUnit }),
+      h(ZoneRiver, { data }),
 
       // Remaining coming-soon visualizations
       h("section", { className: "pg-section pg-section-soon-grid" },
-        h(ComingSoon, { title: "Cardio HR zones", hint: "Z1–Z5 stacked bars" }),
         h(ComingSoon, { title: "Training load (acute:chronic)", hint: "Safe-zone band 0.8–1.3 · Gabbett 2016" }),
       ),
 

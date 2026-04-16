@@ -361,6 +361,100 @@ async function loadBeeswarm(userId) {
   };
 }
 
+const ZONE_WEEKS = 8;
+
+function hrZoneFromHr(avgHr, maxHr, restHr = 60) {
+  if (!avgHr || !maxHr || maxHr <= restHr) return null;
+  const pct = (avgHr - restHr) / (maxHr - restHr);
+  if (pct < 0.60) return 1;
+  if (pct < 0.70) return 2;
+  if (pct < 0.80) return 3;
+  if (pct < 0.90) return 4;
+  return 5;
+}
+
+function ageFromDob(dob) {
+  if (!dob) return null;
+  const birth = new Date(dob);
+  if (isNaN(birth.getTime())) return null;
+  const ms = Date.now() - birth.getTime();
+  return Math.floor(ms / (365.25 * 86400000));
+}
+
+function classifyZonePattern(totals) {
+  const total = totals.z1 + totals.z2 + totals.z3 + totals.z4 + totals.z5;
+  if (total === 0) return { key: "mixed", label: "Mixed" };
+  const pct = {
+    z1: totals.z1 / total,
+    z2: totals.z2 / total,
+    z3: totals.z3 / total,
+    z4: totals.z4 / total,
+    z5: totals.z5 / total,
+  };
+  if (pct.z1 >= 0.80) return { key: "base_building", label: "Base building" };
+  if (pct.z1 >= 0.55 && (pct.z4 + pct.z5) >= 0.15 && (pct.z2 + pct.z3) <= 0.20) {
+    return { key: "polarized", label: "Polarized pattern" };
+  }
+  if (pct.z3 >= 0.30) return { key: "threshold", label: "Threshold pattern" };
+  if (pct.z2 >= 0.40) return { key: "zone_2_heavy", label: "Zone 2 heavy" };
+  return { key: "mixed", label: "Mixed" };
+}
+
+async function loadZoneRiver(userId, profile) {
+  if (!supabaseAdmin) return null;
+  const endDate = isoDaysAgo(0);
+  const startDate = isoDaysAgo(ZONE_WEEKS * 7);
+
+  const age = ageFromDob(profile?.date_of_birth);
+  const maxHr = age ? (220 - age) : 190;
+  const hrEstimateNote = age ? null : "Age unknown — zones estimated";
+
+  const { data: logs } = await supabaseAdmin
+    .from("workout_logs")
+    .select("performed_at, avg_heart_rate, duration_seconds")
+    .eq("user_id", userId)
+    .not("avg_heart_rate", "is", null)
+    .gt("duration_seconds", 0)
+    .gte("performed_at", startDate)
+    .lte("performed_at", endDate);
+
+  if (!logs || logs.length === 0) return null;
+
+  const weeks = [];
+  for (let i = 0; i < ZONE_WEEKS; i++) {
+    weeks.push({ week_idx: i, z1: 0, z2: 0, z3: 0, z4: 0, z5: 0 });
+  }
+  const totals = { z1: 0, z2: 0, z3: 0, z4: 0, z5: 0 };
+
+  const endTs = new Date(endDate + "T00:00:00").getTime();
+  for (const log of logs) {
+    const dTs = new Date(log.performed_at + "T00:00:00").getTime();
+    const daysAgo = Math.floor((endTs - dTs) / 86400000);
+    const weeksAgo = Math.floor(daysAgo / 7);
+    const wi = ZONE_WEEKS - 1 - weeksAgo;
+    if (wi < 0 || wi >= ZONE_WEEKS) continue;
+
+    const zone = hrZoneFromHr(Number(log.avg_heart_rate), maxHr);
+    if (!zone) continue;
+    const minutes = (Number(log.duration_seconds) || 0) / 60;
+    weeks[wi][`z${zone}`] += minutes;
+    totals[`z${zone}`] += minutes;
+  }
+
+  for (const w of weeks) {
+    for (const k of ["z1", "z2", "z3", "z4", "z5"]) w[k] = Math.round(w[k]);
+  }
+
+  const pattern = classifyZonePattern(totals);
+
+  return {
+    weeks,
+    pattern: pattern.key,
+    pattern_label: pattern.label,
+    hr_estimate_note: hrEstimateNote,
+  };
+}
+
 export default async function progressHandler(req, res) {
   if (!supabaseAdmin) return res.status(500).json({ error: "Backend unavailable." });
   const userId = req.verifiedUserId;
@@ -372,13 +466,14 @@ export default async function progressHandler(req, res) {
 
   try {
     const profile = await loadProfileExperience(userId);
-    const [benchmarks, prs, sessions, streak, momentum_cards, beeswarm] = await Promise.all([
+    const [benchmarks, prs, sessions, streak, momentum_cards, beeswarm, zone_river] = await Promise.all([
       loadBenchmarks(profile?.experience_level),
       loadPRs(userId, days),
       loadRecentSessions(userId, modality, 10),
       loadStreak(userId),
       loadMomentumCards(userId, profile),
       loadBeeswarm(userId),
+      loadZoneRiver(userId, profile),
     ]);
 
     res.setHeader("Cache-Control", "private, max-age=60");
@@ -389,7 +484,7 @@ export default async function progressHandler(req, res) {
       personal_records: prs,
       momentum_cards,
       beeswarm,
-      cardio_zones: { items: [], coming_soon: true },
+      zone_river,
       training_load: { items: [], coming_soon: true, current_ratio: null },
       streak,
       recent_sessions: sessions,

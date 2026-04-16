@@ -261,6 +261,81 @@ export function beeswarmPlot(data, { weightUnit = "kg", mobile = false } = {}) {
   return svg;
 }
 
+/**
+ * Zone River stream chart. 5 stacked streams across weekly columns.
+ * @param {{weeks: Array}} data
+ * @param {{mobile?: boolean}} opts
+ */
+export function zoneRiver(data, { mobile = false } = {}) {
+  if (!data || !data.weeks || data.weeks.length === 0) return "";
+  const weeks = data.weeks;
+  const N = weeks.length;
+  const W = 800, H = mobile ? 180 : 240;
+  const pad = { top: 10, right: 20, bottom: 30, left: 20 };
+  const chartW = W - pad.left - pad.right;
+  const chartH = H - pad.top - pad.bottom;
+
+  const xForCol = (i) => pad.left + (i / (N - 1)) * chartW;
+
+  const order = ["z5", "z4", "z3", "z2", "z1"];
+  const perWeekTotals = weeks.map(w => order.reduce((s, k) => s + (w[k] || 0), 0));
+  const maxTotal = Math.max(...perWeekTotals, 1);
+
+  const stacks = weeks.map((w, i) => {
+    const total = perWeekTotals[i];
+    const scale = total > 0 ? (chartH * (total / maxTotal)) / total : 0;
+    const heights = {};
+    for (const k of order) heights[k] = (w[k] || 0) * scale;
+    let y = pad.top + chartH - (chartH * (total / maxTotal));
+    const yTop = {};
+    for (const k of order) {
+      yTop[k] = y;
+      y += heights[k];
+    }
+    return { yTop, heights };
+  });
+
+  let svg = `<svg class="pg-zone-river" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">`;
+
+  for (const k of order) {
+    let d = "";
+    for (let i = 0; i < N; i++) {
+      const x = xForCol(i);
+      const y = stacks[i].yTop[k];
+      d += (i === 0 ? "M" : "L") + x.toFixed(1) + "," + y.toFixed(1) + " ";
+    }
+    for (let i = N - 1; i >= 0; i--) {
+      const x = xForCol(i);
+      const y = stacks[i].yTop[k] + stacks[i].heights[k];
+      d += "L" + x.toFixed(1) + "," + y.toFixed(1) + " ";
+    }
+    d += "Z";
+    svg += `<path fill="var(--${k})" opacity="0.85" d="${d}"/>`;
+  }
+
+  if (mobile) {
+    const positions = [0, Math.floor(N / 2), N - 1];
+    const labels = ["W1", `W${Math.floor(N / 2) + 1}`, "NOW"];
+    positions.forEach((col, i) => {
+      const x = xForCol(col);
+      const fill = i === positions.length - 1 ? "var(--accent)" : "var(--dim)";
+      const weight = i === positions.length - 1 ? 600 : 400;
+      svg += `<text x="${x.toFixed(1)}" y="${(H - pad.bottom + 18).toFixed(1)}" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="${fill}" font-weight="${weight}">${labels[i]}</text>`;
+    });
+  } else {
+    for (let i = 0; i < N; i++) {
+      const x = xForCol(i);
+      const label = i === N - 1 ? "NOW" : `W${i + 1}`;
+      const fill = i === N - 1 ? "var(--accent)" : "var(--dim)";
+      const weight = i === N - 1 ? 600 : 400;
+      svg += `<text x="${x.toFixed(1)}" y="${(H - pad.bottom + 18).toFixed(1)}" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="9" fill="${fill}" font-weight="${weight}">${label}</text>`;
+    }
+  }
+
+  svg += `</svg>`;
+  return svg;
+}
+
 // ── Helpers ──────────────────────────────────────────────────────────
 
 function weekLabel(dateStr) {
