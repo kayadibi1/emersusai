@@ -10,7 +10,7 @@
   <link rel="manifest" href="/manifest.webmanifest">
   <meta name="description" content="Evidence-based fitness intelligence. Every answer cited. Every protocol grounded in peer-reviewed research.">
   <title>Emersus AI — Evidence-based fitness intelligence</title>
-    <!-- no-flash-boot: resolves data-theme + v2 attrs pre-paint -->
+  <!-- no-flash-boot: resolves data-theme pre-paint -->
   <script>
     (function () {
       var H = document.documentElement;
@@ -22,11 +22,6 @@
         var theme = (saved === 'mint' || saved === 'paper') ? saved : 'paper';
         H.setAttribute('data-theme', theme);
       } catch (_) { H.setAttribute('data-theme', 'paper'); }
-      // Phase-2 redesign data attributes — still set unconditionally until
-      // Phase 3 rescopes the CSS to drop the [data-X-v2="1"] prefixes.
-      ['chat-v2','train-v2','nutrition-v2','profile-v2','progress-v2','auth-v2','public-v2'].forEach(function (f) {
-        H.setAttribute('data-' + f, '1');
-      });
       // Auth pre-paint gate for /app/**. Without this, an unauthenticated
       // visitor clicking "Chat" sees the full chat UI flash for ~300 ms
       // (React mounts before the async requireAuth() -> config fetch chain
@@ -184,7 +179,7 @@
 }
 </script>
 </head>
-<body class="landing-v2-body">
+<body class="landing-body">
 
   <div class="nav-wrap">
     <nav class="nav">

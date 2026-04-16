@@ -11,7 +11,7 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <meta name="theme-color" content="#0e1117">
   <link rel="manifest" href="/manifest.webmanifest">
-  <title>Emersus | Emersus AI</title>  <!-- no-flash-boot: resolves data-theme + v2 attrs pre-paint -->
+  <title>Emersus | Emersus AI</title>  <!-- no-flash-boot: resolves data-theme pre-paint -->
   <script>
     (function () {
       var H = document.documentElement;
@@ -23,11 +23,6 @@
         var theme = (saved === 'mint' || saved === 'paper') ? saved : 'paper';
         H.setAttribute('data-theme', theme);
       } catch (_) { H.setAttribute('data-theme', 'paper'); }
-      // Phase-2 redesign data attributes — still set unconditionally until
-      // Phase 3 rescopes the CSS to drop the [data-X-v2="1"] prefixes.
-      ['chat-v2','train-v2','nutrition-v2','profile-v2','progress-v2','auth-v2','public-v2'].forEach(function (f) {
-        H.setAttribute('data-' + f, '1');
-      });
       // Auth pre-paint gate for /app/**. Without this, an unauthenticated
       // visitor clicking "Chat" sees the full chat UI flash for ~300 ms
       // (React mounts before the async requireAuth() -> config fetch chain
@@ -59,13 +54,13 @@
   <link rel="stylesheet" href="/shared/chrome.css">
   <link rel="stylesheet" href="/shared/skeleton.css">
   <!-- chat.css ships unconditionally — every rule is scoped under
-       [data-chat-v2="1"], so it's a no-op until the boot script below sets
+       the data-chat-v2 attribute, so it's a no-op until the boot script below sets
        the attribute. -->
   <link rel="stylesheet" href="/shared/chat.css">
   <script type="module">
     import { bootTheme } from '/shared/theme.js';
     bootTheme();
-    // data-chat-v2 and data-theme are already resolved by the synchronous
+    // data-theme are already resolved by the synchronous
     // pre-paint script above. Module boot only re-syncs the theme in case
     // the user flipped it between the pre-paint run and this tick.
   </script>

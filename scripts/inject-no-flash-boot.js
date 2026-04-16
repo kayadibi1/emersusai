@@ -1,9 +1,7 @@
 // scripts/inject-no-flash-boot.js
 // Injects a synchronous pre-paint <script> into the <head> of every HTML
-// entry listed below. The script resolves data-theme + sets the v2-era data
-// attributes BEFORE CSS loads, eliminating the FOUC caused by deferred
-// module scripts. The data-*-v2="1" attributes are still set during the
-// transition until Phase 3 of the v2 cleanup rescopes the CSS rules.
+// entry listed below. The script resolves data-theme BEFORE CSS loads,
+// eliminating the FOUC caused by deferred module scripts.
 //
 // Idempotent: detects the sentinel comment and skips already-injected files.
 // Run: node scripts/inject-no-flash-boot.js [--dry-run] [--force]
@@ -53,7 +51,7 @@ const HTML_ENTRIES = [
   "editorial-policy/index.html",
 ];
 
-const SENTINEL = "<!-- no-flash-boot: resolves data-theme + v2 attrs pre-paint -->";
+const SENTINEL = "<!-- no-flash-boot: resolves data-theme pre-paint -->";
 
 const BOOT_BLOCK = `  ${SENTINEL}
   <script>
@@ -67,11 +65,6 @@ const BOOT_BLOCK = `  ${SENTINEL}
         var theme = (saved === 'mint' || saved === 'paper') ? saved : 'paper';
         H.setAttribute('data-theme', theme);
       } catch (_) { H.setAttribute('data-theme', 'paper'); }
-      // Phase-2 redesign data attributes — still set unconditionally until
-      // Phase 3 rescopes the CSS to drop the [data-X-v2="1"] prefixes.
-      ['chat-v2','train-v2','nutrition-v2','profile-v2','progress-v2','auth-v2','public-v2'].forEach(function (f) {
-        H.setAttribute('data-' + f, '1');
-      });
       // Auth pre-paint gate for /app/**. Without this, an unauthenticated
       // visitor clicking "Chat" sees the full chat UI flash for ~300 ms
       // (React mounts before the async requireAuth() -> config fetch chain
@@ -117,6 +110,9 @@ for (const rel of HTML_ENTRIES) {
     // Pre-Phase-2 sentinel: the FLAGS-iterating boot block tagged with the
     // older comment text. Strip so the new SENTINEL block can take its place.
     /[ \t]*<!-- no-flash-boot: resolves data-theme \+ v2 flags pre-paint -->[\s\S]*?<\/script>\s*/,
+    // Phase-2 sentinel: kept setting v2 attrs unconditionally; superseded
+    // by Phase 5 (data attributes no longer set; CSS uses body classes).
+    /[ \t]*<!-- no-flash-boot: resolves data-theme \+ v2 attrs pre-paint -->[\s\S]*?<\/script>\s*/,
   ];
   for (const re of olderMarkers) {
     const next = html.replace(re, "");

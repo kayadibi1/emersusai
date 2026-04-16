@@ -9,7 +9,7 @@
  * All scoped under :root.
  */
 
-body.static-v2 {
+body.static-page {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
