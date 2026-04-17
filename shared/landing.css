@@ -442,6 +442,16 @@ h1.headline {
 .thinking-dots span:nth-child(3) { animation-delay: 0.36s; }
 @keyframes thinking-pulse { 0%, 100% { opacity: 0.25; transform: scale(0.9); } 50% { opacity: 1; transform: scale(1.15); } }
 
+/* ===== DEMO WIDGET MOBILE ===== */
+@media (max-width: 520px) {
+  .wg-b-grid { grid-template-columns: 1fr; gap: 10px; }
+  .wg-c-macro { grid-template-columns: 60px 1fr 44px; }
+  .wg-a-chart .wg-ticks text:nth-child(2),
+  .wg-a-chart .wg-ticks text:nth-child(4) { display: none; }
+  .wg-c-inputs { font-size: 9.5px; }
+  .wg-c-kcal { font-size: 20px; }
+}
+
 /* ===== SECTIONS ===== */
 .section { max-width: 1100px; margin: 0 auto; padding: 96px 32px; border-top: 1px solid var(--line); }
 .sec-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
