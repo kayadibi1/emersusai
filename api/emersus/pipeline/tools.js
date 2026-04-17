@@ -18,6 +18,7 @@ import {
   validatePlan as validateWorkoutPlan,
 } from "../../../shared/workout-plan-schema.js";
 import { validateCalculatorWidget } from "../../../shared/widget-v2/validators/calculator.js";
+import { validateNutritionWidget } from "../../../shared/widget-v2/validators/nutrition.js";
 
 // ── Shared sub-schemas (inlined for strict mode) ────────────────────────
 
@@ -360,6 +361,96 @@ const EMIT_CALCULATOR_WIDGET = {
   },
 };
 
+// ── emit_nutrition_widget (widget-v2 · F3) ──────────────────────────
+
+const NUTRITION_MEAL_BAR = {
+  type: "object",
+  required: ["slot", "grams", "hour"],
+  additionalProperties: false,
+  properties: {
+    slot: { type: "string" },
+    grams: { type: "number" },
+    hour: { type: "integer" },
+  },
+};
+
+const PROTEIN_DISTRIBUTION_DATA = {
+  type: "object",
+  required: ["daily_target_g", "meals"],
+  additionalProperties: false,
+  properties: {
+    daily_target_g: { type: "number" },
+    meals: { type: "array", items: NUTRITION_MEAL_BAR },
+  },
+};
+
+const MEAL_MACRO_MEAL = {
+  type: "object",
+  required: ["name", "protein_kcal", "carbs_kcal", "fat_kcal"],
+  additionalProperties: false,
+  properties: {
+    name: { type: "string" },
+    protein_kcal: { type: "number" },
+    carbs_kcal: { type: "number" },
+    fat_kcal: { type: "number" },
+  },
+};
+
+const MEAL_MACRO_STACK_DATA = {
+  type: "object",
+  required: ["daily_total_kcal", "meals"],
+  additionalProperties: false,
+  properties: {
+    daily_total_kcal: { type: "number" },
+    meals: { type: "array", items: MEAL_MACRO_MEAL },
+  },
+};
+
+// Strict mode is disabled on multi-type widget-v2 tools because OpenAI's
+// strict schema can't cleanly represent a type-dependent `data` shape.
+// Server-side validators (shared/widget-v2/validators/nutrition.js etc.)
+// are the source of truth and surface tool_error SSE events for bad
+// payloads — the same guarantee strict would have given us.
+const EMIT_NUTRITION_WIDGET = {
+  type: "function",
+  name: "emit_nutrition_widget",
+  strict: false,
+  description: [
+    "Emit a nutrition visualization widget. Use for daily macro/protein timing and meal-level macro breakdowns. Write 2-4 sentences of prose FIRST, then call this tool.",
+    "",
+    "TEMPLATE SELECTION (pick `type`):",
+    "  protein_distribution_bar — horizontal bars of protein grams per meal across the day vs a daily target. Use when the user asks how to spread protein across meals.",
+    "  meal_macro_stack — stacked P/C/F bars per meal (kcal). Use when showing the macro composition of a multi-meal day.",
+    "",
+    "DO NOT CALL for: macro-split donut (use emit_calculator_widget type=macro_ring), meal-plan construction (use emit_meal_plan). Stick to visualization of what the user already has.",
+    "",
+    "DATA:",
+    "- Use concrete numbers the user gave or that retrieval context supports.",
+    "- For protein_distribution_bar: `hour` is 0-23 (local time). `slot` is a short label ('breakfast', 'post-workout').",
+    "- For meal_macro_stack: per-meal kcal split into protein/carbs/fat; the three kcal figures should roughly sum to the meal's total.",
+  ].join("\n"),
+  parameters: {
+    type: "object",
+    required: ["title", "display_width", "summary", "follow_up_chips", "type", "data"],
+    additionalProperties: false,
+    properties: {
+      title: { type: "string" },
+      display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
+      summary: { type: ["string", "null"] },
+      follow_up_chips: { type: "array", items: { type: "string" } },
+      type: { type: "string", enum: ["protein_distribution_bar", "meal_macro_stack"] },
+      data: {
+        type: "object",
+        description: [
+          "Shape depends on `type`:",
+          "  protein_distribution_bar: { daily_target_g: number, meals: [{ slot: string, grams: number, hour: int (0-23) }] }",
+          "  meal_macro_stack: { daily_total_kcal: number, meals: [{ name: string, protein_kcal: number, carbs_kcal: number, fat_kcal: number }] }",
+        ].join("\n"),
+      },
+    },
+  },
+};
+
 // ── log_food ────────────────────────────────────────────────────────────
 
 const LOG_FOOD = {
@@ -555,7 +646,7 @@ export const RECALL_MEMORY = {
 // The chat pipeline (synthesize.js) uses buildToolDefinitions() below so
 // flag-gated tools like remember_fact can be toggled at runtime.
 export const TOOL_DEFINITIONS = [
-  EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, EMIT_CALCULATOR_WIDGET, LOG_FOOD, GET_USER_PROFILE,
+  EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, EMIT_CALCULATOR_WIDGET, EMIT_NUTRITION_WIDGET, LOG_FOOD, GET_USER_PROFILE,
 ];
 
 /**
@@ -823,6 +914,10 @@ const VALIDATORS = {
   emit_widget:       validateEmitWidget,
   emit_calculator_widget: (args) => {
     const r = validateCalculatorWidget(args);
+    return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
+  },
+  emit_nutrition_widget: (args) => {
+    const r = validateNutritionWidget(args);
     return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
   },
   log_food:          validateLogFood,

@@ -59,3 +59,36 @@
 .wv-diagnostic { border-color: rgba(220,38,38,0.3); background: rgba(220,38,38,0.04); }
 .wv-diagnostic-head { font-weight: 600; color: var(--color-danger, #dc2626); font-size: 13px; }
 .wv-diagnostic-body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted); margin-top: 4px; }
+
+/* ─── protein_distribution_bar ─── */
+.wv-pdb-body { display: flex; flex-direction: column; gap: 12px; }
+.wv-pdb-head { display: flex; gap: 8px; align-items: baseline; font-size: 11px; color: var(--muted); }
+.wv-pdb-head-label { text-transform: uppercase; letter-spacing: 0.12em; font-size: 10px; }
+.wv-pdb-head-value { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; font-size: 13px; }
+.wv-pdb-head-emitted { margin-left: auto; font-size: 11px; font-variant-numeric: tabular-nums; }
+.wv-pdb-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.wv-pdb-row { display: grid; grid-template-columns: minmax(70px, 1fr) 40px 2.5fr auto; align-items: center; gap: 10px; }
+.wv-pdb-row-slot { font-size: 12px; color: var(--ink); text-transform: capitalize; }
+.wv-pdb-row-hour { font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.wv-pdb-track { height: 10px; background: var(--surface); border-radius: 6px; overflow: hidden; border: 1px solid var(--line); }
+.wv-pdb-bar { height: 100%; background: var(--protein, var(--accent)); border-radius: 6px; transition: width .2s; }
+.wv-pdb-row-grams { font-size: 12px; color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
+
+/* ─── meal_macro_stack ─── */
+.wv-mms-body { display: flex; flex-direction: column; gap: 12px; }
+.wv-mms-head { display: flex; gap: 8px; align-items: baseline; font-size: 11px; color: var(--muted); }
+.wv-mms-head-label { text-transform: uppercase; letter-spacing: 0.12em; font-size: 10px; }
+.wv-mms-head-value { color: var(--ink); font-weight: 700; font-variant-numeric: tabular-nums; font-size: 13px; }
+.wv-mms-head-emitted { margin-left: auto; font-size: 11px; font-variant-numeric: tabular-nums; }
+.wv-mms-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.wv-mms-row { display: grid; grid-template-columns: minmax(90px, 1fr) 3fr auto; align-items: center; gap: 10px; }
+.wv-mms-row-name { font-size: 12px; color: var(--ink); }
+.wv-mms-track { display: flex; height: 14px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); background: var(--surface); }
+.wv-mms-seg { height: 100%; display: grid; place-items: center; font-size: 9px; font-weight: 700; color: rgba(255,255,255,0.8); letter-spacing: 0.08em; }
+.wv-mms-seg-protein { background: var(--protein, #4d8df5); }
+.wv-mms-seg-carbs { background: var(--carbs, #78dc14); }
+.wv-mms-seg-fat { background: var(--fat, #e8a838); }
+.wv-mms-row-kcal { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.wv-mms-legend { display: flex; gap: 16px; font-size: 10px; color: var(--muted); margin-top: 4px; }
+.wv-mms-legend-item { display: inline-flex; align-items: center; gap: 4px; }
+.wv-mms-dot { display: inline-block; width: 8px; height: 8px; border-radius: 2px; }

@@ -2,17 +2,29 @@ import { describe, it } from "node:test";
 import assert from "node:assert/strict";
 import { TOOL_DEFINITIONS, validateToolCall, REMEMBER_FACT, RECALL_MEMORY, buildToolDefinitions, SERVER_SIDE_TOOLS, MEMORY_CATEGORY_ENUM } from "../../../../../api/emersus/pipeline/tools.js";
 
+// widget-v2 multi-type tools (emit_<family>_widget with >1 `type` enum value)
+// use strict:false because OpenAI strict mode can't represent a
+// type-dependent data shape. Server-side validators cover correctness.
+const MULTI_TYPE_WIDGET_V2 = new Set([
+  "emit_nutrition_widget", "emit_training_widget", "emit_progress_widget",
+  "emit_pharma_widget", "emit_evidence_widget",
+]);
+
 describe("TOOL_DEFINITIONS", () => {
-  it("exports exactly 6 tool definitions", () => {
-    assert.equal(TOOL_DEFINITIONS.length, 6);
+  it("exports exactly 7 tool definitions", () => {
+    assert.equal(TOOL_DEFINITIONS.length, 7);
     const names = TOOL_DEFINITIONS.map(t => t.name).sort();
-    assert.deepStrictEqual(names, ["emit_calculator_widget", "emit_meal_plan", "emit_widget", "emit_workout_plan", "get_user_profile", "log_food"]);
+    assert.deepStrictEqual(names, ["emit_calculator_widget", "emit_meal_plan", "emit_nutrition_widget", "emit_widget", "emit_workout_plan", "get_user_profile", "log_food"]);
   });
 
-  it("all tools have type function and strict true", () => {
+  it("all tools have type function and strict true (except multi-type widget-v2)", () => {
     for (const tool of TOOL_DEFINITIONS) {
       assert.equal(tool.type, "function");
-      assert.equal(tool.strict, true);
+      if (MULTI_TYPE_WIDGET_V2.has(tool.name)) {
+        assert.equal(tool.strict, false, `${tool.name} expected strict:false`);
+      } else {
+        assert.equal(tool.strict, true, `${tool.name} expected strict:true`);
+      }
       assert.ok(tool.description, `${tool.name} missing description`);
       assert.ok(tool.parameters, `${tool.name} missing parameters`);
     }
@@ -317,7 +329,7 @@ describe("buildToolDefinitions — flag-gated remember_fact", () => {
     try {
       const defs = buildToolDefinitions();
       assert.ok(!defs.some((d) => d.name === "remember_fact"));
-      assert.equal(defs.length, 6);
+      assert.equal(defs.length, 7);
     } finally {
       if (saved === undefined) delete process.env.MEMORY_REMEMBER_FACT_ENABLED;
       else process.env.MEMORY_REMEMBER_FACT_ENABLED = saved;
@@ -330,7 +342,7 @@ describe("buildToolDefinitions — flag-gated remember_fact", () => {
     try {
       const defs = buildToolDefinitions();
       assert.ok(defs.some((d) => d.name === "remember_fact"));
-      assert.equal(defs.length, 7);
+      assert.equal(defs.length, 8);
     } finally {
       if (saved === undefined) delete process.env.MEMORY_REMEMBER_FACT_ENABLED;
       else process.env.MEMORY_REMEMBER_FACT_ENABLED = saved;

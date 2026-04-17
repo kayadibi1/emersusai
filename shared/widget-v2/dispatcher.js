@@ -1,5 +1,7 @@
 import React from "react";
 import { MacroRing } from "./templates/calculators/macro-ring.js";
+import { ProteinDistributionBar } from "./templates/nutrition/protein-distribution-bar.js";
+import { MealMacroStack } from "./templates/nutrition/meal-macro-stack.js";
 
 const h = React.createElement;
 
@@ -12,9 +14,12 @@ const REGISTRY = {
     // plate_loader_visual, rpe_to_percent_rm, body_fat_estimator,
     // carb_cycling_calculator, protein_target_calculator, pace_calculator
   },
+  nutrition: {
+    protein_distribution_bar: ProteinDistributionBar,
+    meal_macro_stack: MealMacroStack,
+  },
   pharma:    {},  // Plan 2
   training:  {},  // Plan 3
-  nutrition: {},  // Plan 4
   evidence:  {},  // Plan 5
   progress:  {},  // Plan 6
 };
