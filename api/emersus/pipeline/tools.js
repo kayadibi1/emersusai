@@ -431,6 +431,35 @@ export const REMEMBER_FACT = {
   },
 };
 
+// ── recall_memory (server-side tool, flag-gated) ────────────────────────
+//
+// When MEMORY_RECALL_ENABLED=true, the model can query the user's memory
+// on demand — for off-path questions that always-inject + RAG didn't cover.
+// Typical uses: "what was my deadlift PR in March?", "remember when I
+// mentioned my shoulder?". Wider than Phase 2 auto-retrieval: all tiers,
+// includes resolved/archived history rows. See spec §5.3.
+
+export const RECALL_MEMORY = {
+  type: "function",
+  name: "recall_memory",
+  description:
+    "Retrieve prior-thread memory about the user. Use when you need context the profile and auto-injected memories don't cover — typically PR history, past events, preferences, or explicit recall requests from the user ('remember when I mentioned…', 'what was my…'). Either `query` OR `categories` must be non-null to produce useful results; passing both narrows the result. `limit` defaults to 6 if null; hard cap 20.",
+  strict: true,
+  parameters: {
+    type: "object",
+    properties: {
+      query:      { type: ["string", "null"] },
+      categories: {
+        type:  ["array", "null"],
+        items: { type: "string", enum: MEMORY_CATEGORY_ENUM },
+      },
+      limit:      { type: ["integer", "null"] },
+    },
+    required: ["query", "categories", "limit"],
+    additionalProperties: false,
+  },
+};
+
 // ── Exports ─────────────────────────────────────────────────────────────
 
 // Main chat tools. update_user_profile is temporarily EXCLUDED again
@@ -455,8 +484,10 @@ export const TOOL_DEFINITIONS = [
  */
 export function buildToolDefinitions() {
   const defs = [...TOOL_DEFINITIONS];
-  const v = String(process.env.MEMORY_REMEMBER_FACT_ENABLED || "").trim().toLowerCase();
-  if (v === "true" || v === "1") defs.push(REMEMBER_FACT);
+  const rememberEnabled = /^(true|1)$/i.test(String(process.env.MEMORY_REMEMBER_FACT_ENABLED || "").trim());
+  const recallEnabled   = /^(true|1)$/i.test(String(process.env.MEMORY_RECALL_ENABLED        || "").trim());
+  if (rememberEnabled) defs.push(REMEMBER_FACT);
+  if (recallEnabled)   defs.push(RECALL_MEMORY);
   return defs;
 }
 
@@ -465,6 +496,7 @@ export const SERVER_SIDE_TOOLS = new Set([
   "get_user_profile",
   "update_user_profile",
   "remember_fact",
+  "recall_memory",
 ]);
 
 export { UPDATE_USER_PROFILE };

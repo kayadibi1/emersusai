@@ -268,6 +268,15 @@ async function resolveAndContinue(state, ctx) {
         call_id: tc.callId,
         output: JSON.stringify(result),
       });
+    } else if (tc.name === "recall_memory") {
+      // Phase 3 — on-demand memory query. Lazy-imported.
+      const { resolveRecallMemory } = await import("./recall-memory-handler.js");
+      const result = await resolveRecallMemory({ args: tc.args, ctx });
+      toolOutputs.push({
+        type: "function_call_output",
+        call_id: tc.callId,
+        output: JSON.stringify(result),
+      });
     }
   }
 

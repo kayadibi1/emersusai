@@ -9,7 +9,7 @@
 // Run locally before flipping MEMORY_REMEMBER_FACT_ENABLED=true in prod.
 // Requires OPENAI_API_KEY and optionally OPENAI_EMERSUS_MODEL in env.
 
-import { REMEMBER_FACT } from '../api/emersus/pipeline/tools.js';
+import { REMEMBER_FACT, RECALL_MEMORY } from '../api/emersus/pipeline/tools.js';
 
 const API_KEY = process.env.OPENAI_API_KEY;
 const MODEL   = process.env.OPENAI_EMERSUS_MODEL || 'gpt-4.1-mini';
@@ -33,7 +33,7 @@ async function probe(name, userMessage) {
       body: JSON.stringify({
         model: MODEL,
         input: [{ role: 'user', content: userMessage }],
-        tools: [REMEMBER_FACT],
+        tools: [REMEMBER_FACT, RECALL_MEMORY],
         store: false,
       }),
     });
@@ -58,10 +58,12 @@ async function probe(name, userMessage) {
 }
 
 const probes = [
-  ['minimal',          'Remember that my left knee is the bad one.'],
-  ['custom_category',  'Remember that I prefer evening sessions because I work in restaurants.'],
-  ['note_populated',   'Remember that I take creatine 5g daily; started last month.'],
-  ['no_save_intent',   "What's a good protein target for a 75 kg lifter?"],
+  ['minimal',            'Remember that my left knee is the bad one.'],
+  ['custom_category',    'Remember that I prefer evening sessions because I work in restaurants.'],
+  ['note_populated',     'Remember that I take creatine 5g daily; started last month.'],
+  ['no_save_intent',     "What's a good protein target for a 75 kg lifter?"],
+  ['recall_pr_history',  'What was my deadlift PR from March?'],
+  ['recall_shoulder',    'Remember what I told you about my shoulder?'],
 ];
 
 let allPass = true;
