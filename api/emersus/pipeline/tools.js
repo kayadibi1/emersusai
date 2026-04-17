@@ -19,6 +19,7 @@ import {
 } from "../../../shared/workout-plan-schema.js";
 import { validateCalculatorWidget } from "../../../shared/widget-v2/validators/calculator.js";
 import { validateNutritionWidget } from "../../../shared/widget-v2/validators/nutrition.js";
+import { validateTrainingWidget } from "../../../shared/widget-v2/validators/training.js";
 
 // ── Shared sub-schemas (inlined for strict mode) ────────────────────────
 
@@ -451,6 +452,40 @@ const EMIT_NUTRITION_WIDGET = {
   },
 };
 
+// ── emit_training_widget (widget-v2 · F2) ──────────────────────────
+
+const EMIT_TRAINING_WIDGET = {
+  type: "function",
+  name: "emit_training_widget",
+  strict: false,
+  description: [
+    "Emit a training-programming visualization. Write 2-4 sentences of prose FIRST, then call.",
+    "",
+    "TEMPLATE SELECTION:",
+    "  periodization_ladder — multi-phase block plan (e.g. accumulation → intensification → realization → deload).",
+    "  volume_intensity_grid — heatmap of lifts × weeks × working volume.",
+    "",
+    "DO NOT CALL for: a concrete workout plan (use emit_workout_plan), single-session RPE/load, or exercise form cues. Use this for macro-level programming structure only.",
+    "",
+    "DATA:",
+    "  periodization_ladder: { weeks: int, focus_metric: 'volume'|'intensity'|'frequency', phases: [{ name, start_week, end_week, relative_load: 0-1.2 }] }",
+    "  volume_intensity_grid: { lifts: string[], weeks: int[], cells: [{ lift, week, volume }] }",
+  ].join("\n"),
+  parameters: {
+    type: "object",
+    required: ["title", "display_width", "summary", "follow_up_chips", "type", "data"],
+    additionalProperties: false,
+    properties: {
+      title: { type: "string" },
+      display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
+      summary: { type: ["string", "null"] },
+      follow_up_chips: { type: "array", items: { type: "string" } },
+      type: { type: "string", enum: ["periodization_ladder", "volume_intensity_grid"] },
+      data: { type: "object" },
+    },
+  },
+};
+
 // ── log_food ────────────────────────────────────────────────────────────
 
 const LOG_FOOD = {
@@ -646,7 +681,9 @@ export const RECALL_MEMORY = {
 // The chat pipeline (synthesize.js) uses buildToolDefinitions() below so
 // flag-gated tools like remember_fact can be toggled at runtime.
 export const TOOL_DEFINITIONS = [
-  EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, EMIT_CALCULATOR_WIDGET, EMIT_NUTRITION_WIDGET, LOG_FOOD, GET_USER_PROFILE,
+  EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, EMIT_CALCULATOR_WIDGET,
+  EMIT_NUTRITION_WIDGET, EMIT_TRAINING_WIDGET,
+  LOG_FOOD, GET_USER_PROFILE,
 ];
 
 /**
@@ -918,6 +955,10 @@ const VALIDATORS = {
   },
   emit_nutrition_widget: (args) => {
     const r = validateNutritionWidget(args);
+    return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
+  },
+  emit_training_widget: (args) => {
+    const r = validateTrainingWidget(args);
     return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
   },
   log_food:          validateLogFood,

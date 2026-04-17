@@ -2,6 +2,8 @@ import React from "react";
 import { MacroRing } from "./templates/calculators/macro-ring.js";
 import { ProteinDistributionBar } from "./templates/nutrition/protein-distribution-bar.js";
 import { MealMacroStack } from "./templates/nutrition/meal-macro-stack.js";
+import { PeriodizationLadder } from "./templates/training/periodization-ladder.js";
+import { VolumeIntensityGrid } from "./templates/training/volume-intensity-grid.js";
 
 const h = React.createElement;
 
@@ -18,8 +20,11 @@ const REGISTRY = {
     protein_distribution_bar: ProteinDistributionBar,
     meal_macro_stack: MealMacroStack,
   },
+  training: {
+    periodization_ladder: PeriodizationLadder,
+    volume_intensity_grid: VolumeIntensityGrid,
+  },
   pharma:    {},  // Plan 2
-  training:  {},  // Plan 3
   evidence:  {},  // Plan 5
   progress:  {},  // Plan 6
 };
