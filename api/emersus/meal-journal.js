@@ -23,6 +23,7 @@ const router = Router();
 
 // Required fields for each entry in a bulk insert.
 const ENTRY_REQUIRED = ["food_id", "logged_date", "meal_slot", "amount", "amount_unit", "source"];
+const VALID_MEAL_SLOTS = ["breakfast", "mid_morning", "lunch", "afternoon", "dinner", "evening", "pre_workout", "post_workout", "supplements_am", "supplements_pm"];
 
 // ─── POST /entries — bulk insert ────────────────────────────────────────────
 router.post("/entries", async (req, res) => {
@@ -44,6 +45,15 @@ router.post("/entries", async (req, res) => {
           res.status(400).json({ error: "entry_missing_required_field", index: i, field });
           return;
         }
+      }
+      const amt = Number(e.amount);
+      if (!Number.isFinite(amt) || amt <= 0) {
+        res.status(400).json({ error: "entry_invalid_amount", index: i });
+        return;
+      }
+      if (!VALID_MEAL_SLOTS.includes(e.meal_slot)) {
+        res.status(400).json({ error: "entry_invalid_meal_slot", index: i });
+        return;
       }
     }
 
@@ -75,6 +85,11 @@ router.patch("/entries/:id", async (req, res) => {
       servings,
       servings_unit,
     } = req.body ?? {};
+
+    if (meal_slot !== undefined && !VALID_MEAL_SLOTS.includes(meal_slot)) {
+      res.status(400).json({ error: "invalid_meal_slot" });
+      return;
+    }
 
     const supabase = clientForRequest(req);
     const { data, error } = await supabase.rpc("update_meal_journal_entry", {
@@ -126,6 +141,14 @@ router.post("/copy-day", async (req, res) => {
 
     if (!source_date || !target_date) {
       res.status(400).json({ error: "source_date_and_target_date_required" });
+      return;
+    }
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(source_date) || !/^\d{4}-\d{2}-\d{2}$/.test(target_date)) {
+      res.status(400).json({ error: "dates_must_be_yyyy_mm_dd" });
+      return;
+    }
+    if (meal_slots != null && (!Array.isArray(meal_slots) || !meal_slots.every(s => VALID_MEAL_SLOTS.includes(s)))) {
+      res.status(400).json({ error: "invalid_meal_slots" });
       return;
     }
 
