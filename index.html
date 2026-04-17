@@ -244,7 +244,33 @@
                 <div class="msg-who">Emersus</div>
                 <div class="bubble" id="demo-intro-text"></div>
                 <div class="demo-widget-slot">
-                  <div class="demo-widget" data-widget="a" hidden></div>
+                  <div class="demo-widget wg-a" data-widget="a" hidden>
+                    <div class="wg-head">
+                      <span class="wg-label">DOSE-RESPONSE · MUSCLE MASS Δ</span>
+                      <span class="wg-sub">Protein intake (g/kg BW)</span>
+                    </div>
+                    <svg class="wg-a-chart" viewBox="0 0 380 180" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                      <g class="wg-grid">
+                        <line x1="30" y1="30" x2="370" y2="30"/>
+                        <line x1="30" y1="80" x2="370" y2="80"/>
+                        <line x1="30" y1="130" x2="370" y2="130"/>
+                        <line x1="30" y1="30" x2="30" y2="150"/>
+                      </g>
+                      <g class="wg-ticks">
+                        <text x="30"  y="168">0.8</text>
+                        <text x="115" y="168">1.2</text>
+                        <text x="200" y="168">1.6</text>
+                        <text x="285" y="168">2.0</text>
+                        <text x="370" y="168">2.4 g/kg</text>
+                      </g>
+                      <line class="wg-plateau" x1="200" y1="30" x2="200" y2="150"/>
+                      <text class="wg-plateau-label" x="206" y="42">PLATEAU</text>
+                      <path class="wg-a-curve"
+                            d="M 30 130 Q 80 110, 115 90 T 200 55 Q 260 48, 330 46 T 370 46" />
+                      <circle class="wg-a-dot" cx="200" cy="55" r="4.5"/>
+                      <text class="wg-a-callout" x="214" y="60">Diminishing returns</text>
+                    </svg>
+                  </div>
                   <div class="demo-widget" data-widget="b" hidden></div>
                   <div class="demo-widget" data-widget="c" hidden></div>
                 </div>
