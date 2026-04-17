@@ -1298,7 +1298,7 @@ function WorkoutPlanCard({ segment, threadId }) {
               href: "/app/workout/",
               style: { color: "var(--ink)", textDecoration: "underline" },
             },
-            "Open workout planner â†’"
+            "Open workout planner \u2192"
           )
         )
       : null

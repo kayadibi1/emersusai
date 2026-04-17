@@ -823,7 +823,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
           disabled: isLastBlock,
           className: allSetsDone && !isLastBlock ? "primary" : "",
         },
-        "Next â†’"
+        "Next \u2192"
       )
     ),
 
