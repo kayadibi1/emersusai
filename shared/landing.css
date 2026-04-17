@@ -257,13 +257,15 @@ h1.headline {
 .demo-main[data-rotation="c"] .demo-widget[data-widget="c"] { display: block; }
 
 /* Phase-based visibility for message rows. The state machine sets
-   data-phase on .demo-main to drive which rows are shown. */
+   data-phase on .demo-main to drive which rows are shown.
+   Transitions live on the elements so all phase changes crossfade. */
+#demo-user-msg, #demo-assist-msg { transition: opacity .35s ease, transform .35s ease; }
 .demo-main[data-phase="composer"] #demo-user-msg,
 .demo-main[data-phase="composer"] #demo-assist-msg { opacity: 0; pointer-events: none; }
-.demo-main[data-phase="send"] #demo-user-msg { opacity: 1; transform: translateY(0); transition: opacity .35s ease, transform .35s ease; }
+.demo-main[data-phase="send"] #demo-user-msg { opacity: 1; transform: translateY(0); }
 .demo-main[data-phase="send"] #demo-assist-msg { opacity: 0; }
 .demo-main[data-phase="assist"] #demo-user-msg,
-.demo-main[data-phase="assist"] #demo-assist-msg { opacity: 1; transform: translateY(0); transition: opacity .35s ease, transform .35s ease; }
+.demo-main[data-phase="assist"] #demo-assist-msg { opacity: 1; transform: translateY(0); }
 
 /* Composer placeholder vs typed text */
 .composer-placeholder { color: var(--dim); }

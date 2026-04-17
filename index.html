@@ -876,7 +876,14 @@
       }
 
       async function runRotation(cfg) {
-        // Reset
+        // Thread-swap: fade titles down, update text + sidebar while faded,
+        // then fade back in with new content. On the first rotation the
+        // old/new text already match, so the fade is visually a no-op.
+        main.dataset.swapping = 'true';
+        chromeTitle.style.opacity = '0.15';
+        await sleep(220);
+
+        // Reset + update titles + sidebar while faded
         main.dataset.rotation = cfg.id;
         main.dataset.phase = 'composer';
         clearBubbleContents();
@@ -885,6 +892,11 @@
         threadTitle.textContent = cfg.threadTitle;
         threadMeta.textContent = 'EMERSUS · 1 WIDGET';
         chromeTitle.textContent = cfg.chromeTitle;
+
+        // Fade titles back in with new text
+        main.removeAttribute('data-swapping');
+        chromeTitle.style.opacity = '';
+        await sleep(200);
 
         // Type prompt into composer
         await typeComposer(cfg.prompt, 40, 10);
@@ -920,14 +932,9 @@
         // Cite pill
         renderCite(cfg.cite);
         citePill.classList.add('show');
-        await sleep(1800);
 
-        // Thread-swap fade-out before next rotation
-        main.dataset.swapping = 'true';
-        chromeTitle.style.opacity = '0.15';
-        await sleep(350);
-        main.removeAttribute('data-swapping');
-        chromeTitle.style.opacity = '';
+        // Hold full state for read pause before next rotation's swap-in
+        await sleep(1800);
       }
 
       async function loop() {
