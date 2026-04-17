@@ -104,6 +104,44 @@
   --head-to: #6e6557;
 }
 
+/* ---------- WIDGET TOKEN ALIASES ----------
+ * A handful of widget components (WorkoutPlanCard, MealPlanWidget,
+ * NutritionLogConfirmWidget, emersus-renderer) use `--color-*` and
+ * `--border-radius-*` tokens that pre-date the 2026-04-15 palette
+ * rewrite. They silently fell back to hardcoded dark-theme rgba values,
+ * which read as white-on-cream (unreadable) on Paper · Royal. These
+ * aliases map them to the real theme tokens so both palettes render
+ * correctly without touching every widget file.
+ *
+ * Defined on plain :root — cascade lets them inherit whichever palette
+ * is active because --bg/--ink/etc. resolve from the more-specific
+ * :root[data-theme="mint"|"paper"] block. */
+:root {
+  --color-background-primary:   var(--bg);
+  --color-background-secondary: var(--surface);
+  --color-background-tertiary:  var(--recessed);
+  --color-background-success:   var(--accent-soft);
+  --color-background-info:      var(--accent-soft);
+  --color-background-warning:   rgba(251, 191, 36, 0.14);
+  --color-background-danger:    rgba(248, 113, 113, 0.14);
+
+  --color-text-primary:   var(--ink);
+  --color-text-secondary: var(--muted);
+  --color-text-tertiary:  var(--dim);
+  --color-text-success:   var(--accent);
+  --color-text-info:      var(--info);
+  --color-text-warning:   var(--warning);
+  --color-text-danger:    var(--danger);
+
+  --color-border-primary:   var(--line-strong);
+  --color-border-secondary: var(--line);
+  --color-border-tertiary:  var(--line);
+
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 14px;
+}
+
 /* ---------- BASE RESET + TYPOGRAPHY ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 
