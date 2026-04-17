@@ -247,6 +247,71 @@ h1.headline {
 .composer-input { flex: 1; background: var(--surface-faint); border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; font-size: 13.5px; color: var(--muted); }
 .composer-hint { font-family: var(--font-mono); font-size: 10px; color: var(--dim); letter-spacing: 0.16em; }
 
+/* ===== DEMO ROTATION (2026-04-17) ===== */
+
+/* Per-rotation widget visibility — only the widget whose data-widget
+   matches the current data-rotation on .demo-main is visible. */
+.demo-main .demo-widget { display: none; }
+.demo-main[data-rotation="a"] .demo-widget[data-widget="a"] { display: block; }
+.demo-main[data-rotation="b"] .demo-widget[data-widget="b"] { display: block; }
+.demo-main[data-rotation="c"] .demo-widget[data-widget="c"] { display: block; }
+
+/* Phase-based visibility for message rows. The state machine sets
+   data-phase on .demo-main to drive which rows are shown. */
+.demo-main[data-phase="composer"] #demo-user-msg,
+.demo-main[data-phase="composer"] #demo-assist-msg { opacity: 0; pointer-events: none; }
+.demo-main[data-phase="send"] #demo-user-msg { opacity: 1; transform: translateY(0); transition: opacity .35s ease, transform .35s ease; }
+.demo-main[data-phase="send"] #demo-assist-msg { opacity: 0; }
+.demo-main[data-phase="assist"] #demo-user-msg,
+.demo-main[data-phase="assist"] #demo-assist-msg { opacity: 1; transform: translateY(0); transition: opacity .35s ease, transform .35s ease; }
+
+/* Composer placeholder vs typed text */
+.composer-placeholder { color: var(--dim); }
+#demo-composer-input { min-height: 22px; display: flex; align-items: center; }
+#demo-composer-input .typed { color: var(--ink); }
+#demo-composer-input .caret {
+  display: inline-block; width: 7px; height: 1.05em;
+  background: var(--accent); vertical-align: -2px; margin-left: 2px;
+  animation: caret-blink 1s steps(2) infinite;
+}
+
+/* Composer send pulse */
+#demo-composer-hint { transition: transform .12s ease, color .12s ease, text-shadow .2s ease; }
+#demo-composer-hint.pulse { transform: scale(1.18); color: var(--accent); text-shadow: 0 0 12px var(--accent-glow); }
+
+/* Cite pill below the widget */
+.cite-pill {
+  display: inline-flex; align-items: center; gap: 8px;
+  margin-top: 12px;
+  padding: 5px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-faint);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--dim);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  opacity: 0; transform: translateY(4px);
+  transition: opacity .35s ease, transform .35s ease;
+}
+.cite-pill.show { opacity: 1; transform: translateY(0); }
+.cite-pill .tag { color: var(--dim); }
+.cite-pill .grade {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border: 1px solid var(--accent-line);
+  letter-spacing: 0.14em;
+}
+.cite-pill .grade.mod { background: rgba(245, 158, 11, 0.18); color: #f59e0b; border-color: rgba(245, 158, 11, 0.45); }
+.cite-pill .grade.std { background: var(--surface-faint); color: var(--muted); border-color: var(--line); }
+
+/* Widget slot wrapper (provides spacing above widget relative to bubble) */
+.demo-widget-slot { margin-top: 14px; min-height: 40px; }
+
 /* ===== SECTIONS ===== */
 .section { max-width: 1100px; margin: 0 auto; padding: 96px 32px; border-top: 1px solid var(--line); }
 .sec-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
