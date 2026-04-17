@@ -99,9 +99,13 @@
 .wv-pl-head-label { color: var(--ink); font-weight: 600; }
 .wv-pl-head-metric { text-transform: uppercase; letter-spacing: 0.12em; font-size: 10px; }
 .wv-pl-phases { display: flex; align-items: flex-end; height: 90px; gap: 2px; margin-top: 4px; }
-.wv-pl-phase { border-radius: 4px 4px 0 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 6px 8px; color: var(--accent-text, rgba(0,0,0,0.75)); overflow: hidden; min-width: 0; }
+/* Phase bars get vivid chart-series fills. --accent-text is white on Paper
+ * and near-black on Graphite, but several series colors (amber/green) have
+ * too little contrast against white text. Force near-black + 1px white
+ * halo so names read cleanly on every series+palette combo. */
+.wv-pl-phase { border-radius: 4px 4px 0 0; display: flex; flex-direction: column; justify-content: flex-end; padding: 6px 8px; color: #0a0a0b; text-shadow: 0 0 2px rgba(255,255,255,0.55); overflow: hidden; min-width: 0; }
 .wv-pl-phase-name { font-size: 11px; font-weight: 700; white-space: nowrap; text-overflow: ellipsis; overflow: hidden; }
-.wv-pl-phase-meta { font-size: 9px; opacity: 0.8; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.wv-pl-phase-meta { font-size: 9px; font-variant-numeric: tabular-nums; white-space: nowrap; opacity: 0.85; }
 .wv-pl-axis { display: flex; gap: 2px; margin-top: 4px; }
 .wv-pl-tick { flex: 1; text-align: center; font-size: 9px; color: var(--dim); font-variant-numeric: tabular-nums; }
 
