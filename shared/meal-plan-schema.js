@@ -70,9 +70,11 @@ function validateMeal(meal, path, errors) {
     if (!isNonNegNumber(food.grams)) {
       errors.push(`${fpath}.grams: expected non-negative number`);
     }
-    // fdc_id optional — the LLM may not always know it
-    if (food.fdc_id !== undefined && !Number.isInteger(food.fdc_id)) {
-      errors.push(`${fpath}.fdc_id: expected integer if present`);
+    // fdc_id optional — the LLM may not always know it. Strict-mode tool
+    // schema types this as ["integer", "null"], so null is a legitimate
+    // value meaning "no FDC match available"; treat it the same as absent.
+    if (food.fdc_id !== undefined && food.fdc_id !== null && !Number.isInteger(food.fdc_id)) {
+      errors.push(`${fpath}.fdc_id: expected integer or null if present`);
     }
   });
 }
