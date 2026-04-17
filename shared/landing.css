@@ -314,6 +314,47 @@ h1.headline {
 /* Widget slot wrapper (provides spacing above widget relative to bubble) */
 .demo-widget-slot { margin-top: 14px; min-height: 40px; }
 
+/* Demo welcome (empty-state) — overlaid inside .msgs, fades with phase */
+.msgs { position: relative; }
+.thread-welcome-demo {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  padding: 24px 28px 60px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .45s ease;
+}
+.demo-main[data-phase="composer"] .thread-welcome-demo { opacity: 1; }
+.thread-welcome-demo-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0;
+}
+.thread-welcome-demo-title {
+  font-family: var(--font-head);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0;
+}
+.thread-welcome-demo-copy {
+  font-size: 13.5px;
+  color: var(--muted);
+  margin: 0;
+  max-width: 440px;
+  line-height: 1.55;
+}
+
 /* ===== WIDGET A — dose-response curve ===== */
 .wg-a { border: 1px solid var(--line); border-radius: 12px; background: var(--surface-faint); padding: 16px 18px; }
 .wg-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
