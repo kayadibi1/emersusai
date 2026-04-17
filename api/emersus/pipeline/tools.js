@@ -498,12 +498,51 @@ const EMIT_TRAINING_WIDGET = {
 
 // ── emit_progress_widget (widget-v2 · F5) ──────────────────────────
 
+// Progress superset data — strict:true. No field-name collisions across
+// the two templates so every field lives at the top of `data`.
+const PROGRESS_PR_ENTRY = {
+  type: "object",
+  required: ["date", "load", "reps"],
+  additionalProperties: false,
+  properties: {
+    date: { type: "string" },   // YYYY-MM-DD
+    load: { type: "number" },
+    reps: { type: "integer" },
+  },
+};
+const PROGRESS_TREND_POINT = {
+  type: "object",
+  required: ["week_start", "value"],
+  additionalProperties: false,
+  properties: {
+    week_start: { type: "string" },   // YYYY-MM-DD
+    value: { type: "number" },
+  },
+};
+const PROGRESS_DATA = {
+  type: "object",
+  required: [
+    // pr_timeline fields
+    "lift", "unit", "entries",
+    // volume_trend fields
+    "metric", "points",
+  ],
+  additionalProperties: false,
+  properties: {
+    lift: { type: ["string", "null"] },
+    unit: { type: ["string", "null"], enum: ["kg", "lb", null] },
+    entries: { type: ["array", "null"], items: PROGRESS_PR_ENTRY },
+    metric: { type: ["string", "null"] },
+    points: { type: ["array", "null"], items: PROGRESS_TREND_POINT },
+  },
+};
+
 const EMIT_PROGRESS_WIDGET = {
   type: "function",
   name: "emit_progress_widget",
-  strict: false,
+  strict: true,
   description: [
-    "Emit a personal-progression visualization from the user's own logged data or the numbers they supply in the prompt. Write 2-4 sentences of prose FIRST, then call.",
+    "Emit a personal-progression visualization from the user's own logged data or the numbers they supply. Write 2-4 sentences of prose FIRST, then call.",
     "",
     "TEMPLATE SELECTION:",
     "  pr_timeline — e1RM trend across dated sessions for one lift.",
@@ -511,12 +550,14 @@ const EMIT_PROGRESS_WIDGET = {
     "",
     "DO NOT CALL for: cross-user benchmarks, predictions of future PRs, or generic progression theory. This tool visualizes history only.",
     "",
-    "DATA (you MUST include this field — it is not optional):",
-    "  pr_timeline: { lift: string, unit: 'kg'|'lb', entries: [{ date: YYYY-MM-DD, load: number, reps: int }] }",
-    "  volume_trend: { metric: string, points: [{ week_start: YYYY-MM-DD, value: number }] }",
+    "DATA SHAPE (strict: fill the fields your `type` uses, set every other field to null):",
+    "  pr_timeline fills: lift, unit, entries",
+    "  volume_trend fills: metric, points",
     "",
     "EXAMPLE pr_timeline call:",
-    '  { "title": "Bench PRs", "display_width": "wide", "summary": "...", "follow_up_chips": [], "type": "pr_timeline", "data": { "lift": "Bench Press", "unit": "kg", "entries": [{ "date": "2026-01-14", "load": 80, "reps": 5 }, { "date": "2026-02-11", "load": 85, "reps": 5 }] } }',
+    '  data: { "lift": "Bench Press", "unit": "kg", "entries": [{ "date": "2026-01-14", "load": 80, "reps": 5 }], "metric": null, "points": null }',
+    "EXAMPLE volume_trend call:",
+    '  data: { "lift": null, "unit": null, "entries": null, "metric": "Squat tonnage (kg)", "points": [{ "week_start": "2026-01-05", "value": 4800 }] }',
   ].join("\n"),
   parameters: {
     type: "object",
@@ -528,7 +569,7 @@ const EMIT_PROGRESS_WIDGET = {
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
       type: { type: "string", enum: ["pr_timeline", "volume_trend"] },
-      data: { type: "object", description: "Required, non-null object. Shape depends on `type` — see the DATA section of this tool's description." },
+      data: PROGRESS_DATA,
     },
   },
 };
