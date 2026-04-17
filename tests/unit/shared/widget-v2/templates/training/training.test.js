@@ -55,7 +55,7 @@ const VIG_PAYLOAD = {
   type: "volume_intensity_grid",
   data: {
     lifts: ["Squat", "Bench", "Deadlift"],
-    weeks: [1, 2, 3, 4],
+    grid_weeks: [1, 2, 3, 4],
     cells: [
       { lift: "Squat", week: 1, volume: 120 },
       { lift: "Squat", week: 2, volume: 130 },

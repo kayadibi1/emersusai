@@ -5,11 +5,9 @@ import { TOOL_DEFINITIONS, validateToolCall, REMEMBER_FACT, RECALL_MEMORY, build
 // widget-v2 multi-type tools (emit_<family>_widget with >1 `type` enum value)
 // use strict:false because OpenAI strict mode can't represent a
 // type-dependent data shape. Server-side validators cover correctness.
-const MULTI_TYPE_WIDGET_V2 = new Set([
-  // Under Plan 9.5 families are migrating to strict:true via superset-data.
-  // Pharma + Progress + Evidence + Nutrition have landed; Training remains.
-  "emit_training_widget",
-]);
+// Plan 9.5 complete — all widget-v2 multi-type tools now run strict:true
+// with superset-data shapes. No strict:false tools remain.
+const MULTI_TYPE_WIDGET_V2 = new Set([]);
 
 describe("TOOL_DEFINITIONS", () => {
   it("exports exactly 11 tool definitions", () => {

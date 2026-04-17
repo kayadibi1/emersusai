@@ -450,25 +450,68 @@ const EMIT_NUTRITION_WIDGET = {
 
 // ── emit_training_widget (widget-v2 · F2) ──────────────────────────
 
+// Training superset data — strict:true. `weeks` (int, periodization total
+// week count) would collide with the grid's column-index array, so the
+// grid renames its field to `grid_weeks`.
+const TRAINING_PHASE = {
+  type: "object",
+  required: ["name", "start_week", "end_week", "relative_load"],
+  additionalProperties: false,
+  properties: {
+    name: { type: "string" },
+    start_week: { type: "integer" },
+    end_week: { type: "integer" },
+    relative_load: { type: "number" },
+  },
+};
+const TRAINING_CELL = {
+  type: "object",
+  required: ["lift", "week", "volume"],
+  additionalProperties: false,
+  properties: {
+    lift: { type: "string" },
+    week: { type: "integer" },
+    volume: { type: "number" },
+  },
+};
+const TRAINING_DATA = {
+  type: "object",
+  required: [
+    "weeks", "focus_metric", "phases",
+    "lifts", "grid_weeks", "cells",
+  ],
+  additionalProperties: false,
+  properties: {
+    weeks: { type: ["integer", "null"] },
+    focus_metric: { type: ["string", "null"], enum: ["volume", "intensity", "frequency", null] },
+    phases: { type: ["array", "null"], items: TRAINING_PHASE },
+    lifts: { type: ["array", "null"], items: { type: "string" } },
+    grid_weeks: { type: ["array", "null"], items: { type: "integer" } },
+    cells: { type: ["array", "null"], items: TRAINING_CELL },
+  },
+};
+
 const EMIT_TRAINING_WIDGET = {
   type: "function",
   name: "emit_training_widget",
-  strict: false,
+  strict: true,
   description: [
     "Emit a training-programming visualization. Write 2-4 sentences of prose FIRST, then call.",
     "",
     "TEMPLATE SELECTION:",
-    "  periodization_ladder — multi-phase block plan (e.g. accumulation → intensification → realization → deload).",
+    "  periodization_ladder — multi-phase block plan (accumulation → intensification → realization → deload).",
     "  volume_intensity_grid — heatmap of lifts × weeks × working volume.",
     "",
-    "DO NOT CALL for: a concrete workout plan (use emit_workout_plan), single-session RPE/load, or exercise form cues. Use this for macro-level programming structure only.",
+    "DO NOT CALL for: a concrete workout plan (use emit_workout_plan), single-session RPE/load, or exercise form cues.",
     "",
-    "DATA (you MUST include this field — it is not optional):",
-    "  periodization_ladder: { weeks: int, focus_metric: 'volume'|'intensity'|'frequency', phases: [{ name, start_week, end_week, relative_load: 0-1.2 }] }",
-    "  volume_intensity_grid: { lifts: string[], weeks: int[], cells: [{ lift, week, volume }] }",
+    "DATA SHAPE (strict: fill the fields your `type` uses, null the others. Field-clash fix: `weeks` is the periodization total week count (int); the grid's column indices use `grid_weeks`):",
+    "  periodization_ladder fills: weeks (int), focus_metric, phases",
+    "  volume_intensity_grid fills: lifts, grid_weeks, cells",
     "",
-    "EXAMPLE periodization_ladder call:",
-    '  { "title": "12-wk block", "display_width": "wide", "summary": "...", "follow_up_chips": [], "type": "periodization_ladder", "data": { "weeks": 12, "focus_metric": "volume", "phases": [{ "name": "Accumulation", "start_week": 1, "end_week": 4, "relative_load": 0.75 }] } }',
+    "EXAMPLE periodization_ladder:",
+    '  data: { "weeks": 12, "focus_metric": "volume", "phases": [{ "name": "Accumulation", "start_week": 1, "end_week": 4, "relative_load": 0.75 }], "lifts": null, "grid_weeks": null, "cells": null }',
+    "EXAMPLE volume_intensity_grid:",
+    '  data: { "weeks": null, "focus_metric": null, "phases": null, "lifts": ["Squat","Bench"], "grid_weeks": [1,2,3,4], "cells": [{ "lift": "Squat", "week": 1, "volume": 120 }] }',
   ].join("\n"),
   parameters: {
     type: "object",
@@ -480,7 +523,7 @@ const EMIT_TRAINING_WIDGET = {
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
       type: { type: "string", enum: ["periodization_ladder", "volume_intensity_grid"] },
-      data: { type: "object", description: "Required, non-null object. Shape depends on `type` — see the DATA section of this tool's description." },
+      data: TRAINING_DATA,
     },
   },
 };

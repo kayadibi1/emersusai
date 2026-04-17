@@ -2,6 +2,10 @@ import { validateBase } from "./index.js";
 
 const TRAINING_TYPES = new Set(["periodization_ladder", "volume_intensity_grid"]);
 
+// Superset data — strict:true. `weeks` lives at the period-block level
+// (integer); the grid's column indices are renamed `grid_weeks` to avoid
+// colliding with it.
+
 function validatePeriodization(data) {
   const errors = [];
   if (!Number.isInteger(data.weeks) || data.weeks < 1) errors.push("data.weeks must be positive integer");
@@ -25,7 +29,7 @@ function validatePeriodization(data) {
 function validateVolumeIntensityGrid(data) {
   const errors = [];
   if (!Array.isArray(data.lifts) || data.lifts.length < 1) errors.push("data.lifts must be non-empty");
-  if (!Array.isArray(data.weeks) || data.weeks.length < 1) errors.push("data.weeks must be non-empty");
+  if (!Array.isArray(data.grid_weeks) || data.grid_weeks.length < 1) errors.push("data.grid_weeks must be non-empty");
   if (!Array.isArray(data.cells)) {
     errors.push("data.cells must be array");
   } else {

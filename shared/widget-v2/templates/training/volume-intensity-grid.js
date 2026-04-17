@@ -9,7 +9,7 @@ const h = React.createElement;
 // proportional to relative volume so it tracks the palette automatically.
 
 export function VolumeIntensityGrid({ title, display_width, summary, follow_up_chips, data }) {
-  const { lifts, weeks, cells } = data;
+  const { lifts, grid_weeks: weeks, cells } = data;
   const byKey = new Map();
   for (const c of cells) byKey.set(`${c.lift}__${c.week}`, c.volume);
   const maxVol = Math.max(1, ...cells.map((c) => c.volume));
