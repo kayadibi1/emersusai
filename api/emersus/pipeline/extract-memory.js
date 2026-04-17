@@ -146,7 +146,16 @@ async function callOpenAI(schema, userContent, deps, { model } = {}) {
     body: JSON.stringify({
       model: effectiveModel,
       input: messages,
-      response_format: { type: "json_schema", json_schema: schema },
+      // Responses API: structured output lives on text.format, not
+      // response_format (the Chat Completions shape). See OpenAI docs.
+      text: {
+        format: {
+          type: "json_schema",
+          name: schema.name,
+          strict: !!schema.strict,
+          schema: schema.schema,
+        },
+      },
       store: false,
     }),
   });
