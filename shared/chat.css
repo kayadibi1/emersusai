@@ -1899,3 +1899,107 @@ body.chat-page {
   border-radius: 6px;
 }
 .memory-intro-banner-dismiss:hover { color: var(--ink); background: var(--surface-faint); }
+
+/* ========================================================================== */
+/* Inline confirmation / conflict chip (Phase 5)                              */
+/* ========================================================================== */
+
+.memory-chip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 6px 16px 12px;
+  padding: 12px 14px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 14px;
+  max-width: 640px;
+}
+.memory-chip-eyebrow {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10.5px;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.memory-chip-body { display: flex; flex-direction: column; gap: 4px; }
+.memory-chip-category {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  line-height: 1;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.memory-chip-fact { font-size: 14px; color: var(--ink); line-height: 1.4; }
+.memory-chip-fact-edit {
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.4;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--accent-line);
+  background: var(--surface-primary, var(--surface-faint));
+  color: var(--ink);
+  resize: vertical;
+  min-height: 44px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.memory-chip-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.memory-chip-btn-primary,
+.memory-chip-btn-secondary {
+  font-family: inherit;
+  font-size: 12.5px;
+  line-height: 1;
+  padding: 7px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  border: 1px solid var(--accent-line);
+  min-height: 30px;
+  transition: background 120ms ease, color 120ms ease, border-color 120ms ease;
+}
+.memory-chip-btn-primary {
+  background: var(--accent);
+  color: var(--accent-contrast, #fff);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+.memory-chip-btn-primary:hover:not(:disabled) { filter: brightness(1.05); }
+.memory-chip-btn-secondary {
+  background: transparent;
+  color: var(--ink);
+}
+.memory-chip-btn-secondary:hover:not(:disabled) {
+  background: var(--surface-faint);
+}
+.memory-chip-btn-primary:disabled,
+.memory-chip-btn-secondary:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.memory-chip-error {
+  font-size: 12px;
+  color: var(--danger, #b4221a);
+}
+.memory-chip-conflict-lines { display: flex; flex-direction: column; gap: 2px; }
+.memory-chip-conflict-label {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-right: 4px;
+}
+.memory-chip-conflict-old {
+  color: var(--muted);
+  text-decoration: line-through;
+  text-decoration-thickness: 1px;
+}
