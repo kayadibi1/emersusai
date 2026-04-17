@@ -54,6 +54,61 @@ function appendAssistBubble(msgsContainer) {
   return { row, bubble };
 }
 
+function appendSourcesList(msgsContainer, sources) {
+  if (!Array.isArray(sources) || sources.length === 0) return;
+  const wrap = el('div', 'anon-sources');
+  wrap.appendChild(el('p', 'anon-sources-label', 'SOURCES'));
+  const list = el('ul', 'anon-sources-list');
+  for (const src of sources) {
+    const li = document.createElement('li');
+    const idx = Number(src.index) || 0;
+    const authors = src.authors ? `${src.authors} · ` : '';
+    const journal = src.journal ? `${src.journal} · ` : '';
+    const year = src.year ? String(src.year) : '';
+    const meta = `${authors}${journal}${year}`.replace(/ · $/, '');
+    const titleText = `[${idx}] ${src.title || 'Untitled'}`;
+    if (src.url) {
+      const link = document.createElement('a');
+      link.href = src.url;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      link.textContent = titleText;
+      li.appendChild(link);
+    } else {
+      li.appendChild(document.createTextNode(titleText));
+    }
+    if (meta) {
+      li.appendChild(document.createElement('br'));
+      const metaSpan = el('span', null, meta);
+      metaSpan.style.color = 'var(--dim, #8f8676)';
+      metaSpan.style.fontSize = '10px';
+      li.appendChild(metaSpan);
+    }
+    list.appendChild(li);
+  }
+  wrap.appendChild(list);
+  msgsContainer.appendChild(wrap);
+}
+
+// Friendly labels for widget-v2 tool families — shown on the placeholder.
+const ANON_WIDGET_LABELS = {
+  emit_pharma_widget: 'dosing explorer',
+  emit_training_widget: 'training plan view',
+  emit_nutrition_widget: 'nutrition breakdown',
+  emit_evidence_widget: 'evidence matrix',
+  emit_progress_widget: 'progress chart',
+  emit_calculator_widget: 'calculator',
+  emit_workout_plan: 'workout plan',
+  meal_plan: 'meal plan',
+};
+
+function appendWidgetPlaceholder(msgsContainer, toolName) {
+  const label = ANON_WIDGET_LABELS[toolName] || 'interactive widget';
+  const placeholder = el('div', 'anon-widget-placeholder');
+  placeholder.innerHTML = `Your answer includes an interactive <strong>${label}</strong>. <a href="/auth/?panel=signup">Sign up</a> to use it.`;
+  msgsContainer.appendChild(placeholder);
+}
+
 function scrollToBottom(msgsContainer) {
   msgsContainer.scrollTop = msgsContainer.scrollHeight;
 }
@@ -196,12 +251,16 @@ export function boot({ msgsContainer, composer, composerInput, threadTitle, thre
         bubble.textContent = accumulated;
         scrollToBottom(msgsContainer);
       },
-      onTool: (_name, _data) => {
-        /* Task 9 renders the sign-up placeholder. */
+      onTool: (toolName, _data) => {
+        appendWidgetPlaceholder(msgsContainer, toolName);
+        scrollToBottom(msgsContainer);
       },
-      onDone: (_info) => {
+      onDone: (info) => {
         state.messages.push({ role: 'assistant', text: accumulated });
         state.asked += 1;
+        if (info && Array.isArray(info.sources) && info.sources.length > 0) {
+          appendSourcesList(msgsContainer, info.sources);
+        }
         if (state.asked >= LIMIT) {
           state.capped = true;
           renderBlockCard(msgsContainer, composer);
