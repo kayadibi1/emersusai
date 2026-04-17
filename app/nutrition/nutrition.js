@@ -8,6 +8,7 @@ import React, { useCallback, useEffect, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { requireAuth } from "/shared/supabase.js";
 import { FuelGauge } from "/shared/nutrition/fuel-gauge.js";
+import { localDateStr } from "/shared/date-utils.js";
 
 const h = React.createElement;
 
@@ -55,7 +56,7 @@ function smartDefaultUnit(food) {
   return food.base_unit === "serving" ? "serving" : "g";
 }
 
-function todayIso() { return new Date().toISOString().slice(0, 10); }
+function todayIso() { return localDateStr(); }
 
 // Full-page skeleton (shown before session resolves).
 function NutritionSkeleton() {
@@ -124,8 +125,9 @@ function useNutritionDay(accessToken) {
 function DateNavigator({ date, setDate }) {
   const isToday = date === todayIso();
   const offset = (delta) => {
-    const d = new Date(date); d.setUTCDate(d.getUTCDate() + delta);
-    setDate(d.toISOString().slice(0, 10));
+    const d = new Date(date + "T12:00:00");
+    d.setDate(d.getDate() + delta);
+    setDate(localDateStr(d));
   };
   const display = new Date(date + "T12:00:00").toLocaleDateString(undefined, {
     weekday: "long", month: "short", day: "numeric",
