@@ -140,3 +140,21 @@
 .wv-hld-compound { font-size: 13px; font-weight: 700; color: var(--ink); }
 .wv-hld-meta { font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: auto; }
 .wv-hld-svg { width: 100%; height: auto; display: block; }
+
+/* ─── study_matrix ─── */
+.wv-sm-body { display: flex; flex-direction: column; gap: 10px; }
+.wv-sm-question { font-size: 12px; color: var(--ink); font-style: italic; }
+.wv-sm-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.wv-sm-table th { text-align: left; font-weight: 600; font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); border-bottom: 1px solid var(--line); padding: 6px 8px 6px 0; }
+.wv-sm-table td { padding: 6px 8px 6px 0; border-bottom: 1px solid var(--line); color: var(--ink); vertical-align: top; }
+.wv-sm-cit { font-weight: 500; max-width: 260px; }
+.wv-sm-n, .wv-sm-eff { font-variant-numeric: tabular-nums; color: var(--muted); }
+.wv-sm-dir { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; }
+.wv-sm-pos { color: var(--accent); }
+.wv-sm-null { color: var(--muted); }
+.wv-sm-neg { color: var(--danger); }
+
+/* ─── effect_size_forest ─── */
+.wv-esf-body { display: flex; flex-direction: column; gap: 8px; }
+.wv-esf-outcome { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+.wv-esf-svg { width: 100%; height: auto; display: block; }

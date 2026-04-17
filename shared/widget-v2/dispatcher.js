@@ -8,6 +8,8 @@ import { PRTimeline } from "./templates/progress/pr-timeline.js";
 import { VolumeTrend } from "./templates/progress/volume-trend.js";
 import { DoseResponseCurve } from "./templates/pharma/dose-response-curve.js";
 import { HalfLifeDecay } from "./templates/pharma/half-life-decay.js";
+import { StudyMatrix } from "./templates/evidence/study-matrix.js";
+import { EffectSizeForest } from "./templates/evidence/effect-size-forest.js";
 
 const h = React.createElement;
 
@@ -36,7 +38,10 @@ const REGISTRY = {
     dose_response_curve: DoseResponseCurve,
     half_life_decay: HalfLifeDecay,
   },
-  evidence:  {},  // Plan 5
+  evidence: {
+    study_matrix: StudyMatrix,
+    effect_size_forest: EffectSizeForest,
+  },
 };
 
 function Diagnostic({ reason, family, type }) {

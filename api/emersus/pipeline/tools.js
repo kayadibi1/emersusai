@@ -22,6 +22,7 @@ import { validateNutritionWidget } from "../../../shared/widget-v2/validators/nu
 import { validateTrainingWidget } from "../../../shared/widget-v2/validators/training.js";
 import { validateProgressWidget } from "../../../shared/widget-v2/validators/progress.js";
 import { validatePharmaWidget } from "../../../shared/widget-v2/validators/pharma.js";
+import { validateEvidenceWidget } from "../../../shared/widget-v2/validators/evidence.js";
 
 // ── Shared sub-schemas (inlined for strict mode) ────────────────────────
 
@@ -556,6 +557,38 @@ const EMIT_PHARMA_WIDGET = {
   },
 };
 
+// ── emit_evidence_widget (widget-v2 · F4) ──────────────────────────
+
+const EMIT_EVIDENCE_WIDGET = {
+  type: "function",
+  name: "emit_evidence_widget",
+  strict: false,
+  description: [
+    "Emit a literature-evidence visualization. Write 2-4 sentences of prose FIRST, then call.",
+    "",
+    "TEMPLATE SELECTION:",
+    "  study_matrix — table of studies with design, n, effect size, direction. Use when summarizing the evidence base for a claim.",
+    "  effect_size_forest — forest plot of effect sizes with 95% CIs. Use when the user asks about the magnitude / consistency of effects across studies.",
+    "",
+    "DATA:",
+    "  study_matrix: { question: string, studies: [{ citation, design: 'RCT'|'meta'|'cohort'|'review'|'other', n?: int, effect_size?: number, direction: 'positive'|'null'|'negative' }] }",
+    "  effect_size_forest: { outcome: string, rows: [{ label: string, effect: number, ci_low: number, ci_high: number }] }",
+  ].join("\n"),
+  parameters: {
+    type: "object",
+    required: ["title", "display_width", "summary", "follow_up_chips", "type", "data"],
+    additionalProperties: false,
+    properties: {
+      title: { type: "string" },
+      display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
+      summary: { type: ["string", "null"] },
+      follow_up_chips: { type: "array", items: { type: "string" } },
+      type: { type: "string", enum: ["study_matrix", "effect_size_forest"] },
+      data: { type: "object" },
+    },
+  },
+};
+
 // ── log_food ────────────────────────────────────────────────────────────
 
 const LOG_FOOD = {
@@ -752,7 +785,7 @@ export const RECALL_MEMORY = {
 // flag-gated tools like remember_fact can be toggled at runtime.
 export const TOOL_DEFINITIONS = [
   EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, EMIT_CALCULATOR_WIDGET,
-  EMIT_NUTRITION_WIDGET, EMIT_TRAINING_WIDGET, EMIT_PROGRESS_WIDGET, EMIT_PHARMA_WIDGET,
+  EMIT_NUTRITION_WIDGET, EMIT_TRAINING_WIDGET, EMIT_PROGRESS_WIDGET, EMIT_PHARMA_WIDGET, EMIT_EVIDENCE_WIDGET,
   LOG_FOOD, GET_USER_PROFILE,
 ];
 
@@ -1037,6 +1070,10 @@ const VALIDATORS = {
   },
   emit_pharma_widget: (args) => {
     const r = validatePharmaWidget(args);
+    return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
+  },
+  emit_evidence_widget: (args) => {
+    const r = validateEvidenceWidget(args);
     return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
   },
   log_food:          validateLogFood,
