@@ -106,10 +106,10 @@ function LiveScreen({
     null,
     h("div", { className: "swim-topbar-live" },
       h("span", null, formatTimer(elapsedS), " elapsed"),
-      h("span", null, `${poolLen}m pool Â· ${stroke}`)
+      h("span", null, `${poolLen}m pool \u00b7 ${stroke}`)
     ),
     h("div", { className: "lap-big" }, lapCount),
-    h("div", { className: "lap-label" }, `LAPS Â· ${totalDistance}m`),
+    h("div", { className: "lap-label" }, `LAPS \u00b7 ${totalDistance}m`),
     h("button", { className: "lap-tap-btn", onClick: onTapLap, disabled: paused }, "TAP FOR LAP"),
     lapCount > 0 && h("button", { className: "lap-undo", onClick: onUndoLap }, "Undo last lap"),
     h("div", { className: "stat-row-swim" },

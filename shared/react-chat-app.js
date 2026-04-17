@@ -1052,7 +1052,7 @@ function WorkoutPlanCard({ segment, threadId }) {
   function handleDownload() {
     try {
       downloadPlanIcs(plan);
-      setToast("ICS download started â€” works with Google, Apple, and Outlook.");
+      setToast("ICS download started \u2014 works with Google, Apple, and Outlook.");
     } catch (err) {
       setError(String(err?.message || err) || "Could not generate .ics.");
     }
@@ -1189,14 +1189,14 @@ function WorkoutPlanCard({ segment, threadId }) {
       { style: style.header },
       h("div", { style: style.title }, plan.title || "Workout plan"),
       summary ? h("div", { style: style.subtitle }, summary) : null,
-      meta.length ? h("div", { style: style.meta }, meta.join(" Â· ")) : null,
+      meta.length ? h("div", { style: style.meta }, meta.join(" \u00b7 ")) : null,
       h("span", { style: style.chip }, isUpdate ? "Plan update" : "New plan")
     ),
     isUpdate && diffLines.length
       ? h(
           "div",
           { style: style.diffWrap },
-          diffLines.join(" Â· ")
+          diffLines.join(" \u00b7 ")
         )
       : null,
     previewSessions.length
@@ -1223,7 +1223,7 @@ function WorkoutPlanCard({ segment, threadId }) {
               h(
                 "div",
                 { style: style.sessionDuration },
-                session.start_time ? `${session.start_time} Â· ${session.duration_minutes || 60}m` : ""
+                session.start_time ? `${session.start_time} \u00b7 ${session.duration_minutes || 60}m` : ""
               )
             )
           ),
@@ -1507,7 +1507,7 @@ function MealPlanCard({ segment, threadId }) {
               h("span", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)" } }, m.name),
             ),
             h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, #666)", lineHeight: 1.6 } },
-              (m.foods || []).map((f, j) => h("li", { key: j }, `${f.description} â€” ${f.grams} g`))
+              (m.foods || []).map((f, j) => h("li", { key: j }, `${f.description} \u2014 ${f.grams} g`))
             ),
           )
         )
@@ -1518,7 +1518,7 @@ function MealPlanCard({ segment, threadId }) {
             h("div", { style: { fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, #666)", marginBottom: 6 } }, "Supplements"),
             h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, #666)", lineHeight: 1.6 } },
               activeDayType.supplements.map((s, i) =>
-                h("li", { key: i }, `${s.description} â€” ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " Â· " + s.timing.replace(/_/g, " ") : ""}`)
+                h("li", { key: i }, `${s.description} \u2014 ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " \u00b7 " + s.timing.replace(/_/g, " ") : ""}`)
               )
             ),
           )
@@ -3089,7 +3089,7 @@ function SourcesRailCard({ sources, chatV2On = false, onAskFollowUp }) {
   return h(
     "section",
     { className: "rail-card" },
-    h("h3", { className: "rail-title" }, `Sources Â· ${items.length}`),
+    h("h3", { className: "rail-title" }, `Sources \u00b7 ${items.length}`),
     h(
       "ul",
       { className: "source-list" },
@@ -3104,7 +3104,7 @@ function SourcesRailCard({ sources, chatV2On = false, onAskFollowUp }) {
           source?.evidence_level ||
           (Array.isArray(source?.publication_types) ? source.publication_types.join(", ") : "");
         if (pubType) metaParts.push(normalizeText(pubType, 60));
-        const meta = metaParts.join(" Â· ");
+        const meta = metaParts.join(" \u00b7 ");
         const snippet = normalizeText(
           source?.why_it_matters || source?.excerpt || source?.summary || "",
           240

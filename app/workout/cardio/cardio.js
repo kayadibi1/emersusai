@@ -100,7 +100,7 @@ function LiveScreen({
 
   const gpsLabel =
     gpsDenied ? "GPS unavailable" :
-    gpsState === "locked" ? `GPS locked Â· ${pathLength} pts` :
+    gpsState === "locked" ? `GPS locked \u00b7 ${pathLength} pts` :
     gpsState === "warn" ? "GPS weak" :
     "GPS searching...";
 
@@ -115,7 +115,7 @@ function LiveScreen({
       )
     ),
     gpsDenied &&
-      h("div", { className: "banner" }, "GPS permission denied â€” tracking time only. Switch to the planner to retry with GPS."),
+      h("div", { className: "banner" }, "GPS permission denied \u2014 tracking time only. Switch to the planner to retry with GPS."),
     h("div", { className: "live-timer", style: paused ? { color: "var(--muted)" } : null },
       formatTimer(elapsedS)
     ),

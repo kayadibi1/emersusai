@@ -363,7 +363,7 @@ function computeGymSummary(session) {
     .slice(0, 3)
     .map(([name, best]) => ({
       name,
-      best_set_display: best.loadKg ? `${best.loadKg}kg Ã— ${best.reps}` : `${best.reps} reps`,
+      best_set_display: best.loadKg ? `${best.loadKg}kg \u00d7 ${best.reps}` : `${best.reps} reps`,
       is_pr: false, // PR detection requires historical lookup; left false for v1
     }));
 
@@ -695,7 +695,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
     ),
 
     // Session crumbs
-    h("div", { className: "session-crumb" }, `Week ${targetSession.week} Â· ${["", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][targetSession.day_of_week]} Â· ${targetSession.date || ""}`),
+    h("div", { className: "session-crumb" }, `Week ${targetSession.week} \u00b7 ${["", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"][targetSession.day_of_week]} \u00b7 ${targetSession.date || ""}`),
     h("h1", { className: "session-title" }, targetSession.title || "Workout"),
     targetSession.summary
       ? h("p", { className: "session-summary" }, targetSession.summary)
@@ -707,7 +707,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
       { className: `phase-band ${currentEntry.kind === "warmup" ? "warmup" : ""}` },
       currentEntry.kind === "warmup"
         ? `Warm-up ${currentIndex + 1} / ${blockEntries.filter((b) => b.kind === "warmup").length}`
-        : `Working set Â· ${block.name || "Exercise"}`
+        : `Working set \u00b7 ${block.name || "Exercise"}`
     ),
 
     // Block card
@@ -720,7 +720,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
         { className: "block-prescription" },
         [
           block.sets ? `${block.sets} sets` : "",
-          block.reps ? `Ã— ${block.reps}` : "",
+          block.reps ? `\u00d7 ${block.reps}` : "",
           block.load ? `@ ${displayLoadString(block.load, weightUnit)}` : "",
         ]
           .filter(Boolean)
@@ -734,7 +734,7 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
           restSeconds ? `Rest ${restSeconds}s` : "",
         ]
           .filter(Boolean)
-          .join(" Â· ")
+          .join(" \u00b7 ")
       ),
       block.notes ? h("div", { className: "block-notes" }, block.notes) : null,
 

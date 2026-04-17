@@ -126,7 +126,7 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
       ),
 
       state === "rendering" &&
-        h("div", { className: "share-modal-spinner" }, "â€¦"),
+        h("div", { className: "share-modal-spinner" }, "\u2026"),
 
       state === "error" &&
         h("div", { className: "share-modal-error" }, error || "Unknown error"),

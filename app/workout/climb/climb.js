@@ -255,7 +255,7 @@ function ClimbSessionView({ session: authSession, planRow, sessionIndex, profile
               r.name && h("div", { className: "route-name" }, r.name),
             ),
             h("span", { className: `send-badge ${r.send_type}` },
-              r.send_type === "send" && r.attempts > 1 ? `SEND Â· ${r.attempts} tries` : r.send_type.toUpperCase()
+              r.send_type === "send" && r.attempts > 1 ? `SEND \u00b7 ${r.attempts} tries` : r.send_type.toUpperCase()
             )
           )
         )
