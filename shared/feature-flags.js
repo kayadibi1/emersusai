@@ -129,3 +129,9 @@ export function resolveFlag(flag, ctx = {}) {
     defaults: { ...DEFAULT_FLAGS, ...(ctx.defaults || {}) },
   });
 }
+
+// Widget v2 template system — gates the new emit_*_widget tools and the
+// React dispatcher path. Off by default; enable per environment via env var.
+// See docs/superpowers/specs/2026-04-17-widget-template-refactor-design.md §9.
+export const WIDGET_V2_ENABLED =
+  (typeof process !== "undefined" ? process.env.WIDGET_V2_ENABLED : "") === "true";

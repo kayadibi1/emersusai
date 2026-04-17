@@ -100,6 +100,45 @@ async function logTokenUsage(ctx) {
   } catch (err) { console.error("Token usage log failed:", err); }
 }
 
+const WIDGET_V2_TOOL_TO_FAMILY = {
+  emit_pharma_widget: "pharma",
+  emit_training_widget: "training",
+  emit_nutrition_widget: "nutrition",
+  emit_evidence_widget: "evidence",
+  emit_progress_widget: "progress",
+  emit_calculator_widget: "calculator",
+};
+
+async function logWidgetV2Emission(ctx, toolName, data, elapsedMs, validatorResult = "valid") {
+  const family = WIDGET_V2_TOOL_TO_FAMILY[toolName];
+  if (!family) return;
+  const { _supabaseUrl: url, _serviceRoleKey: key } = ctx;
+  if (!url || !key) return;
+  const payload = {
+    user_id: ctx.supabaseUserId || null,
+    thread_id: ctx.threadId || null,
+    family,
+    type: data?.type || null,
+    output_tokens: ctx.tokenUsage?.output_tokens || null,
+    elapsed_ms: elapsedMs,
+    display_width: data?.display_width || null,
+    validator_result: validatorResult,
+    openai_response_id: ctx._openaiResponseId || null,
+  };
+  try {
+    await fetch(`${url}/rest/v1/widget_v2_emission_events`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        apikey: key, Authorization: `Bearer ${key}`, Prefer: "return=minimal",
+      },
+      body: JSON.stringify(payload),
+    });
+  } catch (err) {
+    console.error("widget-v2 emission log failed:", err);
+  }
+}
+
 // Process events from the stream — shared logic between stream() and streamToBuffer()
 function processEvent(event, state) {
   switch (event.type) {
@@ -174,9 +213,13 @@ function processEvent(event, state) {
           if (state.onToolError) state.onToolError(toolName, validation.errors);
           // Invalid widgets should not render. The most common failure mode is
           // viewport-sized HTML that turns iframe auto-sizing into a runaway
-          // growth loop in the chat. Other tool payloads still fall back to
-          // raw data so the client can attempt a best-effort render.
-          if (toolName !== "emit_widget") {
+          // growth loop in the chat. widget-v2 emit_*_widget tools are
+          // strictly validated — invalid payloads surface a diagnostic via
+          // tool_error; we never fall back to raw data for them. Other tool
+          // payloads still fall back so the client can attempt a best-effort
+          // render.
+          const isWidgetV2Tool = /^emit_(pharma|training|nutrition|evidence|progress|calculator)_widget$/.test(toolName);
+          if (toolName !== "emit_widget" && !isWidgetV2Tool) {
             state.ctx.toolResults[toolName] = args;
             if (state.onTool) state.onTool(toolName, args);
           }
@@ -330,8 +373,20 @@ export async function stream(ctx, res) {
     toolBuffers: {},
     serverToolCalls: [],
     onProse: (delta) => sendSSE(res, { type: "prose", delta }),
-    onTool: (name, data) => sendSSE(res, { type: "tool", name, data }),
-    onToolError: (name, errors) => sendSSE(res, { type: "tool_error", name, errors }),
+    onTool: (name, data) => {
+      sendSSE(res, { type: "tool", name, data });
+      if (WIDGET_V2_TOOL_TO_FAMILY[name]) {
+        const elapsedMs = ctx._synthesisStartMs ? (Date.now() - ctx._synthesisStartMs) : null;
+        logWidgetV2Emission(ctx, name, data, elapsedMs, "valid").catch(() => {});
+      }
+    },
+    onToolError: (name, errors) => {
+      sendSSE(res, { type: "tool_error", name, errors });
+      if (WIDGET_V2_TOOL_TO_FAMILY[name]) {
+        const elapsedMs = ctx._synthesisStartMs ? (Date.now() - ctx._synthesisStartMs) : null;
+        logWidgetV2Emission(ctx, name, { type: null, display_width: null }, elapsedMs, "invalid").catch(() => {});
+      }
+    },
     onError: (message) => sendSSE(res, { type: "error", message }),
   };
 
@@ -418,3 +473,6 @@ function maybeExtractMemory(ctx) {
     )
     .catch((err) => console.warn("[extractMemory] failed:", err?.message || err));
 }
+
+// Test-only export. Do not import from production code.
+export const __testables = { processEvent };

@@ -34,6 +34,7 @@ import {
   parseLLMOutput,
   stripWidgetFencesForStreaming,
 } from "/shared/emersus-renderer.js?v=2026-04-09-liquid-glass";
+import { WidgetV2 } from "/shared/widget-v2/dispatcher.js";
 import {
   DAY_LABELS,
   summarizePlan,
@@ -1988,6 +1989,16 @@ function NutritionLogConfirmCard({ segment, threadId }) {
   );
 }
 
+// widget-v2: map tool names → family slugs (see docs/superpowers/specs/2026-04-17-widget-template-refactor-design.md)
+const WIDGET_V2_TOOL_TO_FAMILY = {
+  emit_pharma_widget: "pharma",
+  emit_training_widget: "training",
+  emit_nutrition_widget: "nutrition",
+  emit_evidence_widget: "evidence",
+  emit_progress_widget: "progress",
+  emit_calculator_widget: "calculator",
+};
+
 function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false, threadId = null, toolResults = null }) {
   const fullText = String(text || "");
   const visible = useTypewriter(fullText, typewrite);
@@ -2021,6 +2032,15 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
             "div",
             { key: `tr-widget`, className: "chat-widget-frame-wrap" },
             h(WidgetFrame, { code: toolData.html || "", title: toolData.title }),
+          ),
+        );
+      } else if (WIDGET_V2_TOOL_TO_FAMILY[toolName] && toolData) {
+        const family = WIDGET_V2_TOOL_TO_FAMILY[toolName];
+        children.push(
+          h(
+            "div",
+            { key: `tr-wv2-${toolName}`, className: "chat-widget-v2-wrap" },
+            h(WidgetV2, { family, payload: toolData }),
           ),
         );
       } else if (toolName === "emit_workout_plan" && toolData) {

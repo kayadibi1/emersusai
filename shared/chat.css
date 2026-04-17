@@ -21,6 +21,8 @@
  * shared/react-chat-app.js or shared/chat/*.js (verified 2026-04-15).
  */
 
+@import url("./widget-v2/tokens.css");
+
 /* ========== TOP BAR (Task 4) ========== */
 
 .top-bar.chat-top {

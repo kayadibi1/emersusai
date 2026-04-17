@@ -3,10 +3,10 @@ import assert from "node:assert/strict";
 import { TOOL_DEFINITIONS, validateToolCall, REMEMBER_FACT, RECALL_MEMORY, buildToolDefinitions, SERVER_SIDE_TOOLS, MEMORY_CATEGORY_ENUM } from "../../../../../api/emersus/pipeline/tools.js";
 
 describe("TOOL_DEFINITIONS", () => {
-  it("exports exactly 5 tool definitions", () => {
-    assert.equal(TOOL_DEFINITIONS.length, 5);
+  it("exports exactly 6 tool definitions", () => {
+    assert.equal(TOOL_DEFINITIONS.length, 6);
     const names = TOOL_DEFINITIONS.map(t => t.name).sort();
-    assert.deepStrictEqual(names, ["emit_meal_plan", "emit_widget", "emit_workout_plan", "get_user_profile", "log_food"]);
+    assert.deepStrictEqual(names, ["emit_calculator_widget", "emit_meal_plan", "emit_widget", "emit_workout_plan", "get_user_profile", "log_food"]);
   });
 
   it("all tools have type function and strict true", () => {
@@ -317,7 +317,7 @@ describe("buildToolDefinitions — flag-gated remember_fact", () => {
     try {
       const defs = buildToolDefinitions();
       assert.ok(!defs.some((d) => d.name === "remember_fact"));
-      assert.equal(defs.length, 5);
+      assert.equal(defs.length, 6);
     } finally {
       if (saved === undefined) delete process.env.MEMORY_REMEMBER_FACT_ENABLED;
       else process.env.MEMORY_REMEMBER_FACT_ENABLED = saved;
@@ -330,7 +330,7 @@ describe("buildToolDefinitions — flag-gated remember_fact", () => {
     try {
       const defs = buildToolDefinitions();
       assert.ok(defs.some((d) => d.name === "remember_fact"));
-      assert.equal(defs.length, 6);
+      assert.equal(defs.length, 7);
     } finally {
       if (saved === undefined) delete process.env.MEMORY_REMEMBER_FACT_ENABLED;
       else process.env.MEMORY_REMEMBER_FACT_ENABLED = saved;
