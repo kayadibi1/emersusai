@@ -410,15 +410,87 @@ const NUTRITION_MACRO_MEAL = {
   },
 };
 
+const NUTRITION_FOOD_POINT = {
+  type: "object",
+  required: ["name", "x", "y"],
+  additionalProperties: false,
+  properties: { name: { type: "string" }, x: { type: "number" }, y: { type: "number" } },
+};
+const NUTRITION_HYDRATION_EVENT = {
+  type: "object",
+  required: ["hour", "volume_ml", "kind"],
+  additionalProperties: false,
+  properties: {
+    hour: { type: "integer" }, volume_ml: { type: "number" },
+    kind: { type: ["string", "null"], enum: ["fluid", "meal", "workout", null] },
+  },
+};
+const NUTRITION_RADAR_AXIS = {
+  type: "object",
+  required: ["name", "pct"],
+  additionalProperties: false,
+  properties: { name: { type: "string" }, pct: { type: "number" } },
+};
+const NUTRITION_LEDGER_DAY = {
+  type: "object",
+  required: ["date", "intake", "expenditure"],
+  additionalProperties: false,
+  properties: { date: { type: "string" }, intake: { type: "number" }, expenditure: { type: "number" } },
+};
+const NUTRITION_TIMING_MEAL = {
+  type: "object",
+  required: ["hour", "label"],
+  additionalProperties: false,
+  properties: { hour: { type: "number" }, label: { type: "string" } },
+};
+const NUTRITION_LEG = {
+  type: ["object", "null"],
+  required: ["grams", "target_grams", "kcal"],
+  additionalProperties: false,
+  properties: { grams: { type: "number" }, target_grams: { type: "number" }, kcal: { type: "number" } },
+};
 const NUTRITION_DATA = {
   type: "object",
-  required: ["daily_target_g", "protein_meals", "daily_total_kcal", "macro_meals"],
+  required: [
+    "daily_target_g", "protein_meals", "daily_total_kcal", "macro_meals",
+    "x_label", "y_label", "foods",
+    "target_ml", "events",
+    "axes",
+    "days",
+    "workout_hour", "logged", "recommended_window",
+    "bmr", "tea", "neat", "tef", "tdee",
+    "kcal_total", "protein", "carbs", "fat",
+  ],
   additionalProperties: false,
   properties: {
     daily_target_g: { type: ["number", "null"] },
     protein_meals: { type: ["array", "null"], items: NUTRITION_PROTEIN_MEAL },
     daily_total_kcal: { type: ["number", "null"] },
     macro_meals: { type: ["array", "null"], items: NUTRITION_MACRO_MEAL },
+    x_label: { type: ["string", "null"] },
+    y_label: { type: ["string", "null"] },
+    foods: { type: ["array", "null"], items: NUTRITION_FOOD_POINT },
+    target_ml: { type: ["number", "null"] },
+    events: { type: ["array", "null"], items: NUTRITION_HYDRATION_EVENT },
+    axes: { type: ["array", "null"], items: NUTRITION_RADAR_AXIS },
+    days: { type: ["array", "null"], items: NUTRITION_LEDGER_DAY },
+    workout_hour: { type: ["number", "null"] },
+    logged: { type: ["array", "null"], items: NUTRITION_TIMING_MEAL },
+    recommended_window: {
+      type: ["object", "null"],
+      required: ["start", "end"],
+      additionalProperties: false,
+      properties: { start: { type: "number" }, end: { type: "number" } },
+    },
+    bmr: { type: ["number", "null"] },
+    tea: { type: ["number", "null"] },
+    neat: { type: ["number", "null"] },
+    tef: { type: ["number", "null"] },
+    tdee: { type: ["number", "null"] },
+    kcal_total: { type: ["number", "null"] },
+    protein: NUTRITION_LEG,
+    carbs: NUTRITION_LEG,
+    fat: NUTRITION_LEG,
   },
 };
 
@@ -446,6 +518,13 @@ const EMIT_NUTRITION_WIDGET = {
     "TEMPLATE SELECTION:",
     "  protein_distribution_bar — horizontal bars of protein grams per meal across the day vs a daily target.",
     "  meal_macro_stack — stacked P/C/F bars per meal (kcal).",
+    "  food_nutrient_scatter — scatter of foods on two nutrient density axes (numbered, with legend table).",
+    "  hydration_timeline — cumulative fluid vs ideal-pace line; meal and workout icons on the axis.",
+    "  micronutrient_radar — 3-10 axis radar of vitamin/mineral % RDI coverage with 50% threshold ring.",
+    "  calorie_balance_ledger — dual-direction in-vs-out bars per day over a short window.",
+    "  meal_timing_strip — meals plotted around a workout anchor with an optional recommended window.",
+    "  tdee_waterfall — BMR → TEA → NEAT → TEF → TDEE cumulative bar composition.",
+    "  macro_ring_nutrition — macro donut + per-macro progress bars (F3 variant, simpler than macro_ring in calculator family).",
     "",
     "DO NOT CALL for: macro-split donut (use emit_calculator_widget type=macro_ring), meal-plan construction (use emit_meal_plan).",
     "",
@@ -467,7 +546,12 @@ const EMIT_NUTRITION_WIDGET = {
       display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
-      type: { type: "string", enum: ["protein_distribution_bar", "meal_macro_stack"] },
+      type: { type: "string", enum: [
+        "protein_distribution_bar", "meal_macro_stack",
+        "food_nutrient_scatter", "hydration_timeline", "micronutrient_radar",
+        "calorie_balance_ledger", "meal_timing_strip", "tdee_waterfall",
+        "macro_ring_nutrition",
+      ] },
       data: NUTRITION_DATA,
     },
   },

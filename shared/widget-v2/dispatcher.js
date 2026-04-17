@@ -4,6 +4,13 @@ import { TDEECalculator } from "./templates/calculators/tdee-calculator.js";
 import { OneRMEstimator } from "./templates/calculators/one-rm-estimator.js";
 import { ProteinDistributionBar } from "./templates/nutrition/protein-distribution-bar.js";
 import { MealMacroStack } from "./templates/nutrition/meal-macro-stack.js";
+import { FoodNutrientScatter } from "./templates/nutrition/food-nutrient-scatter.js";
+import { HydrationTimeline } from "./templates/nutrition/hydration-timeline.js";
+import { MicronutrientRadar } from "./templates/nutrition/micronutrient-radar.js";
+import { CalorieBalanceLedger } from "./templates/nutrition/calorie-balance-ledger.js";
+import { MealTimingStrip } from "./templates/nutrition/meal-timing-strip.js";
+import { TdeeWaterfall } from "./templates/nutrition/tdee-waterfall.js";
+import { MacroRingNutrition } from "./templates/nutrition/macro-ring-nutrition.js";
 import { PeriodizationLadder } from "./templates/training/periodization-ladder.js";
 import { VolumeIntensityGrid } from "./templates/training/volume-intensity-grid.js";
 import { MevMrvRange } from "./templates/training/mev-mrv-range.js";
@@ -41,6 +48,13 @@ const REGISTRY = {
   nutrition: {
     protein_distribution_bar: ProteinDistributionBar,
     meal_macro_stack: MealMacroStack,
+    food_nutrient_scatter: FoodNutrientScatter,
+    hydration_timeline: HydrationTimeline,
+    micronutrient_radar: MicronutrientRadar,
+    calorie_balance_ledger: CalorieBalanceLedger,
+    meal_timing_strip: MealTimingStrip,
+    tdee_waterfall: TdeeWaterfall,
+    macro_ring_nutrition: MacroRingNutrition,
   },
   training: {
     periodization_ladder: PeriodizationLadder,

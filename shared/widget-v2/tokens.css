@@ -254,3 +254,36 @@
 .wv-dp-col-metrics { display: flex; gap: 12px; justify-content: center; font-size: 11px; color: var(--ink); }
 .wv-dp-col-metrics b { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); }
 .wv-dp-svg { width: 100%; height: auto; display: block; }
+
+/* ─── food_nutrient_scatter ─── */
+.wv-fns-layout { display: grid; grid-template-columns: 1fr 200px; gap: 16px; align-items: start; }
+.wv-fns-svg { width: 100%; height: auto; display: block; }
+.wv-fns-legend { list-style-position: inside; margin: 0; padding: 0; font-size: 11px; color: var(--ink); max-height: 320px; overflow-y: auto; }
+.wv-fns-legend li { padding: 2px 0; }
+@media (max-width: 500px) { .wv-fns-layout { grid-template-columns: 1fr; } }
+
+/* ─── hydration_timeline ─── */
+.wv-ht-svg { width: 100%; height: auto; display: block; }
+
+/* ─── micronutrient_radar ─── */
+.wv-mnr-svg { width: 100%; height: auto; display: block; max-width: 400px; margin: 0 auto; }
+
+/* ─── calorie_balance_ledger ─── */
+.wv-cbl-svg { width: 100%; height: auto; display: block; }
+
+/* ─── meal_timing_strip ─── */
+.wv-mts-svg { width: 100%; height: auto; display: block; }
+
+/* ─── tdee_waterfall ─── */
+.wv-tdw-svg { width: 100%; height: auto; display: block; max-width: 560px; margin: 0 auto; }
+
+/* ─── macro_ring_nutrition ─── */
+.wv-mrn-body { display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: center; }
+.wv-mrn-svg { display: block; }
+.wv-mrn-bars { display: flex; flex-direction: column; gap: 8px; }
+.wv-mrn-bar-row { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink); }
+.wv-mrn-bar-label { font-weight: 600; }
+.wv-mrn-bar-val { color: var(--muted); font-variant-numeric: tabular-nums; }
+.wv-mrn-bar-track { height: 6px; background: var(--surface); border-radius: 3px; overflow: hidden; border: 1px solid var(--line); margin-top: 3px; }
+.wv-mrn-bar-fill { height: 100%; transition: width .2s; border-radius: 3px; }
+@media (max-width: 500px) { .wv-mrn-body { grid-template-columns: 1fr; } .wv-mrn-svg { margin: 0 auto; } }
