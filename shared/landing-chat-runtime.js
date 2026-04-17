@@ -258,6 +258,11 @@ export function boot({ msgsContainer, composer, composerInput, threadTitle, thre
       onDone: (info) => {
         state.messages.push({ role: 'assistant', text: accumulated });
         state.asked += 1;
+        if (info && info.shortCircuit) {
+          const hint = el('div', 'anon-inline-hint',
+            'Emersus is tuned for fitness, nutrition, and exercise science — try one of those.');
+          msgsContainer.appendChild(hint);
+        }
         if (info && Array.isArray(info.sources) && info.sources.length > 0) {
           appendSourcesList(msgsContainer, info.sources);
         }
