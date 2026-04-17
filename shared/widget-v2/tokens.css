@@ -287,3 +287,38 @@
 .wv-mrn-bar-track { height: 6px; background: var(--surface); border-radius: 3px; overflow: hidden; border: 1px solid var(--line); margin-top: 3px; }
 .wv-mrn-bar-fill { height: 100%; transition: width .2s; border-radius: 3px; }
 @media (max-width: 500px) { .wv-mrn-body { grid-template-columns: 1fr; } .wv-mrn-svg { margin: 0 auto; } }
+
+/* ─── forest_plot ─── */
+.wv-fp-outcome { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+.wv-fp-svg { width: 100%; height: auto; display: block; }
+
+/* ─── evidence_strength_card ─── */
+.wv-esc-hero { padding: 16px; border-radius: 8px; margin-bottom: 12px; }
+.wv-esc-level { font-size: 10px; letter-spacing: 0.18em; font-weight: 700; opacity: 0.8; margin-bottom: 4px; }
+.wv-esc-claim { font-size: 15px; font-weight: 600; line-height: 1.3; }
+.wv-esc-factors { width: 100%; border-collapse: collapse; font-size: 11px; }
+.wv-esc-factors td { padding: 4px 8px 4px 0; border-bottom: 1px solid var(--line); color: var(--ink); }
+.wv-esc-fname { font-weight: 600; }
+.wv-esc-frating { text-transform: capitalize; color: var(--muted); }
+.wv-esc-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+.wv-esc-fnote { color: var(--dim); font-size: 10px; font-style: italic; }
+
+/* ─── butterfly_comparison ─── */
+.wv-bc-svg { width: 100%; height: auto; display: block; }
+
+/* ─── study_quality_matrix ─── */
+.wv-sqm-svg { width: 100%; height: auto; display: block; }
+
+/* ─── meta_regression_line ─── */
+.wv-mrl-svg { width: 100%; height: auto; display: block; }
+
+/* ─── ci_ladder ─── */
+.wv-cil-outcome { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+.wv-cil-svg { width: 100%; height: auto; display: block; }
+
+/* ─── citation_timeline ─── */
+.wv-ctl-svg { width: 100%; height: auto; display: block; }
+
+/* ─── study_beeswarm ─── */
+.wv-bs-outcome { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+.wv-bs-svg { width: 100%; height: auto; display: block; }

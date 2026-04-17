@@ -31,6 +31,14 @@ import { EffectDurationStrip } from "./templates/pharma/effect-duration-strip.js
 import { DoseThresholdBand } from "./templates/pharma/dose-threshold-band.js";
 import { StudyMatrix } from "./templates/evidence/study-matrix.js";
 import { EffectSizeForest } from "./templates/evidence/effect-size-forest.js";
+import { ForestPlot } from "./templates/evidence/forest-plot.js";
+import { EvidenceStrengthCard } from "./templates/evidence/evidence-strength-card.js";
+import { ButterflyComparison } from "./templates/evidence/butterfly-comparison.js";
+import { StudyQualityMatrix } from "./templates/evidence/study-quality-matrix.js";
+import { MetaRegressionLine } from "./templates/evidence/meta-regression-line.js";
+import { CiLadder } from "./templates/evidence/ci-ladder.js";
+import { CitationTimeline } from "./templates/evidence/citation-timeline.js";
+import { StudyBeeswarm } from "./templates/evidence/study-beeswarm.js";
 
 const h = React.createElement;
 
@@ -83,6 +91,14 @@ const REGISTRY = {
   evidence: {
     study_matrix: StudyMatrix,
     effect_size_forest: EffectSizeForest,
+    forest_plot: ForestPlot,
+    evidence_strength_card: EvidenceStrengthCard,
+    butterfly_comparison: ButterflyComparison,
+    study_quality_matrix: StudyQualityMatrix,
+    meta_regression_line: MetaRegressionLine,
+    ci_ladder: CiLadder,
+    citation_timeline: CitationTimeline,
+    study_beeswarm: StudyBeeswarm,
   },
 };
 

@@ -1019,15 +1019,122 @@ const EVIDENCE_FOREST_ROW = {
     ci_high: { type: "number" },
   },
 };
+const EVIDENCE_FP_STUDY = {
+  type: "object",
+  required: ["label", "n", "effect", "ci_low", "ci_high", "is_outlier"],
+  additionalProperties: false,
+  properties: {
+    label: { type: "string" }, n: { type: "integer" },
+    effect: { type: "number" }, ci_low: { type: "number" }, ci_high: { type: "number" },
+    is_outlier: { type: ["boolean", "null"] },
+  },
+};
+const EVIDENCE_FP_POOLED = {
+  type: ["object", "null"],
+  required: ["k", "effect", "ci_low", "ci_high"],
+  additionalProperties: false,
+  properties: {
+    k: { type: "integer" }, effect: { type: "number" },
+    ci_low: { type: "number" }, ci_high: { type: "number" },
+  },
+};
+const EVIDENCE_FACTOR = {
+  type: "object",
+  required: ["name", "rating", "note"],
+  additionalProperties: false,
+  properties: {
+    name: { type: "string" },
+    rating: { type: "string", enum: ["high", "moderate", "low"] },
+    note: { type: ["string", "null"] },
+  },
+};
+const EVIDENCE_PROCON = {
+  type: "object",
+  required: ["label", "magnitude"],
+  additionalProperties: false,
+  properties: { label: { type: "string" }, magnitude: { type: "number" } },
+};
+const EVIDENCE_QUALITY_STUDY = {
+  type: "object",
+  required: ["label", "n", "duration_weeks", "design"],
+  additionalProperties: false,
+  properties: {
+    label: { type: "string" }, n: { type: "integer" }, duration_weeks: { type: "number" },
+    design: { type: "string", enum: ["RCT", "meta", "cohort", "review", "other"] },
+  },
+};
+const EVIDENCE_METAREG_POINT = {
+  type: "object",
+  required: ["label", "x", "y"],
+  additionalProperties: false,
+  properties: { label: { type: "string" }, x: { type: "number" }, y: { type: "number" } },
+};
+const EVIDENCE_REGRESSION = {
+  type: ["object", "null"],
+  required: ["slope", "intercept", "r_squared"],
+  additionalProperties: false,
+  properties: { slope: { type: "number" }, intercept: { type: "number" }, r_squared: { type: "number" } },
+};
+const EVIDENCE_LADDER_PROTO = {
+  type: "object",
+  required: ["label", "effect", "ci_low", "ci_high"],
+  additionalProperties: false,
+  properties: { label: { type: "string" }, effect: { type: "number" }, ci_low: { type: "number" }, ci_high: { type: "number" } },
+};
+const EVIDENCE_CITATION_STUDY = {
+  type: "object",
+  required: ["year", "label", "citations"],
+  additionalProperties: false,
+  properties: { year: { type: "integer" }, label: { type: "string" }, citations: { type: "integer" } },
+};
+const EVIDENCE_BEESWARM_DOT = {
+  type: "object",
+  required: ["label", "effect"],
+  additionalProperties: false,
+  properties: { label: { type: "string" }, effect: { type: "number" } },
+};
 const EVIDENCE_DATA = {
   type: "object",
-  required: ["question", "studies", "outcome", "rows"],
+  required: [
+    "question", "studies", "outcome", "rows",
+    "outcome_label", "x_axis", "fp_studies", "pooled",
+    "claim", "level", "factors",
+    "subject", "pros", "cons",
+    "quality_studies",
+    "x_label", "y_label", "regression_points", "regression",
+    "ladder_protocols",
+    "timeline_studies",
+    "beeswarm_dots",
+  ],
   additionalProperties: false,
   properties: {
     question: { type: ["string", "null"] },
     studies: { type: ["array", "null"], items: EVIDENCE_STUDY },
     outcome: { type: ["string", "null"] },
     rows: { type: ["array", "null"], items: EVIDENCE_FOREST_ROW },
+    outcome_label: { type: ["string", "null"] },
+    x_axis: {
+      type: ["object", "null"],
+      required: ["min", "max", "label"],
+      additionalProperties: false,
+      properties: { min: { type: "number" }, max: { type: "number" }, label: { type: ["string", "null"] } },
+    },
+    fp_studies: { type: ["array", "null"], items: EVIDENCE_FP_STUDY },
+    pooled: EVIDENCE_FP_POOLED,
+    claim: { type: ["string", "null"] },
+    level: { type: ["string", "null"], enum: ["strong", "moderate", "limited", "insufficient", null] },
+    factors: { type: ["array", "null"], items: EVIDENCE_FACTOR },
+    subject: { type: ["string", "null"] },
+    pros: { type: ["array", "null"], items: EVIDENCE_PROCON },
+    cons: { type: ["array", "null"], items: EVIDENCE_PROCON },
+    quality_studies: { type: ["array", "null"], items: EVIDENCE_QUALITY_STUDY },
+    x_label: { type: ["string", "null"] },
+    y_label: { type: ["string", "null"] },
+    regression_points: { type: ["array", "null"], items: EVIDENCE_METAREG_POINT },
+    regression: EVIDENCE_REGRESSION,
+    ladder_protocols: { type: ["array", "null"], items: EVIDENCE_LADDER_PROTO },
+    timeline_studies: { type: ["array", "null"], items: EVIDENCE_CITATION_STUDY },
+    beeswarm_dots: { type: ["array", "null"], items: EVIDENCE_BEESWARM_DOT },
   },
 };
 
@@ -1045,7 +1152,15 @@ const EMIT_EVIDENCE_WIDGET = {
     "",
     "TEMPLATE SELECTION:",
     "  study_matrix — table of studies with design, n, effect size, direction.",
-    "  effect_size_forest — forest plot of effect sizes with 95% CIs.",
+    "  effect_size_forest — simple forest plot of effect sizes with 95% CIs.",
+    "  forest_plot — classic meta-analysis forest with per-study square sized by n, CI whiskers, pooled diamond at bottom.",
+    "  evidence_strength_card — GRADE-style badge card for a claim with contributing factors.",
+    "  butterfly_comparison — pros vs cons two-sided bars from a center axis.",
+    "  study_quality_matrix — n × duration scatter with design-shape encoding.",
+    "  meta_regression_line — dose/moderator vs effect scatter with fitted line + R².",
+    "  ci_ladder — protocols ranked by effect with CI whiskers; overlap = no statistical preference.",
+    "  citation_timeline — studies by year with dot size/opacity tracking citation count.",
+    "  study_beeswarm — every study as a dot jittered vertically; simple spread view.",
     "",
     "DATA SHAPE (strict: fill the fields your `type` uses, null the others):",
     "  study_matrix fills: question, studies",
@@ -1065,7 +1180,12 @@ const EMIT_EVIDENCE_WIDGET = {
       display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
-      type: { type: "string", enum: ["study_matrix", "effect_size_forest"] },
+      type: { type: "string", enum: [
+        "study_matrix", "effect_size_forest",
+        "forest_plot", "evidence_strength_card", "butterfly_comparison",
+        "study_quality_matrix", "meta_regression_line", "ci_ladder",
+        "citation_timeline", "study_beeswarm",
+      ] },
       data: EVIDENCE_DATA,
     },
   },
