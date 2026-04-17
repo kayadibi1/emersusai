@@ -4,6 +4,7 @@ import { supabaseAdmin } from "../lib/clients.js";
 export default async function nutritionWaterHandler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed." });
   if (!supabaseAdmin) return res.status(500).json({ error: "Backend unavailable." });
+  if (!req.verifiedUserId) return res.status(401).json({ error: "Auth required." });
   const ml = Number(req.body?.ml);
   if (!Number.isFinite(ml) || ml <= 0 || ml > 5000) {
     return res.status(400).json({ error: "ml must be 1-5000" });

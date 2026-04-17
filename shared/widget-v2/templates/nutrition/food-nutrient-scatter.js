@@ -9,8 +9,14 @@ const h = React.createElement;
 
 export function FoodNutrientScatter({ title, display_width, summary, follow_up_chips, data }) {
   const { foods, x_label, y_label } = data;
-  const maxX = Math.max(...foods.map((f) => f.x)) * 1.05;
-  const maxY = Math.max(...foods.map((f) => f.y)) * 1.05;
+  if (!foods || foods.length === 0) {
+    return h(CardFrame, { title, summary, display_width },
+      h("div", { className: "wv-fns-empty" }, "Not enough data to display."),
+      h(FollowUpChips, { chips: follow_up_chips }),
+    );
+  }
+  const maxX = Math.max(...foods.map((f) => f.x), 1) * 1.05;
+  const maxY = Math.max(...foods.map((f) => f.y), 1) * 1.05;
   const W = 520, H = 320, PAD = { t: 14, r: 14, b: 40, l: 40 };
   const plotW = W - PAD.l - PAD.r, plotH = H - PAD.t - PAD.b;
   const x = (v) => PAD.l + (v / maxX) * plotW;

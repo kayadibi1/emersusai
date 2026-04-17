@@ -30,6 +30,7 @@ function LogFoodModal({ onClose, onLogged, date, kindFilter }) {
   const [amount, setAmount] = useState("");
   const [mealSlot, setMealSlot] = useState("lunch");
   const [submitting, setSubmitting] = useState(false);
+  const [logError, setLogError] = useState("");
 
   useEffect(() => {
     if (query.length < 2) {
@@ -54,6 +55,7 @@ function LogFoodModal({ onClose, onLogged, date, kindFilter }) {
 
   async function log() {
     if (!selected) return;
+    setLogError("");
     setSubmitting(true);
     try {
       const amt = parseFloat(amount);
@@ -75,7 +77,11 @@ function LogFoodModal({ onClose, onLogged, date, kindFilter }) {
       if (res.ok) {
         onLogged?.();
         onClose?.();
+      } else {
+        setLogError("Could not log entry. Please try again.");
       }
+    } catch {
+      setLogError("Network error. Please try again.");
     } finally {
       setSubmitting(false);
     }
@@ -128,6 +134,7 @@ function LogFoodModal({ onClose, onLogged, date, kindFilter }) {
             h("option", { key: s, value: s }, s.replace(/_/g, " "))
           )),
         ]),
+        logError && h("div", { key: "err", className: "log-error", style: { color: "var(--danger)", fontSize: "13px", marginTop: "8px" } }, logError),
         h("button", {
           key: "go",
           className: "primary",

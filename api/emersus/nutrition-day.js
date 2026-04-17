@@ -48,12 +48,11 @@ export function computeWhyInsight({ meals = [], target, consumed }) {
 
 function isoDateString(d) { return d.toISOString().slice(0, 10); }
 
-function rangeForDate(dateStr) {
-  const start = `${dateStr}T00:00:00Z`;
-  const next = new Date(dateStr);
-  next.setUTCDate(next.getUTCDate() + 1);
-  const end = `${isoDateString(next)}T00:00:00Z`;
-  return { start, end };
+function rangeForDate(dateStr, tzOffsetMinutes = 0) {
+  const dayStart = new Date(`${dateStr}T00:00:00Z`);
+  dayStart.setTime(dayStart.getTime() + tzOffsetMinutes * 60_000);
+  const dayEnd = new Date(dayStart.getTime() + 86_400_000);
+  return { start: dayStart.toISOString(), end: dayEnd.toISOString() };
 }
 
 async function loadConsumed(userId, dateStr) {
@@ -92,8 +91,8 @@ async function loadActiveWorkoutPlan(userId) {
   return data || null;
 }
 
-async function loadWater(userId, dateStr) {
-  const { start, end } = rangeForDate(dateStr);
+async function loadWater(userId, dateStr, tzOffset) {
+  const { start, end } = rangeForDate(dateStr, tzOffset);
   const { data, error } = await supabaseAdmin
     .from("water_log")
     .select("id, ml, consumed_at")
@@ -107,8 +106,8 @@ async function loadWater(userId, dateStr) {
   return data || [];
 }
 
-async function loadSupplements(userId, dateStr) {
-  const { start, end } = rangeForDate(dateStr);
+async function loadSupplements(userId, dateStr, tzOffset) {
+  const { start, end } = rangeForDate(dateStr, tzOffset);
   const { data, error } = await supabaseAdmin
     .from("supplement_log")
     .select("id, name, amount, unit, consumed_at")
@@ -212,14 +211,15 @@ export default async function nutritionDayHandler(req, res) {
 
   const dateStr = String(req.query?.date || isoDateString(new Date()));
   if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return res.status(400).json({ error: "date must be YYYY-MM-DD" });
+  const tzOffset = Number(req.query?.tz) || 0;
 
   try {
     const [consumedRows, activePlan, activeWorkoutPlan, waterRows, supplementRows, target] = await Promise.all([
       loadConsumed(userId, dateStr),
       loadActivePlan(userId),
       loadActiveWorkoutPlan(userId),
-      loadWater(userId, dateStr),
-      loadSupplements(userId, dateStr),
+      loadWater(userId, dateStr, tzOffset),
+      loadSupplements(userId, dateStr, tzOffset),
       loadProfileTarget(userId),
     ]);
 

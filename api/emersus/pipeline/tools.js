@@ -1415,7 +1415,7 @@ const LOG_FOOD = {
     properties: {
       meal_slot: {
         type: "string",
-        enum: ["breakfast", "lunch", "dinner", "snack", "pre_workout", "post_workout"],
+        enum: ["breakfast", "mid_morning", "lunch", "afternoon", "dinner", "evening", "pre_workout", "post_workout", "supplements_am", "supplements_pm"],
       },
       foods: {
         type: "array",
@@ -1613,7 +1613,7 @@ export { UPDATE_USER_PROFILE };
 
 // ── Validators ──────────────────────────────────────────────────────────
 
-const VALID_MEAL_SLOTS = new Set(["breakfast", "lunch", "dinner", "snack", "pre_workout", "post_workout"]);
+const VALID_MEAL_SLOTS = new Set(["breakfast", "mid_morning", "lunch", "afternoon", "dinner", "evening", "pre_workout", "post_workout", "supplements_am", "supplements_pm"]);
 const VALID_FOOD_AMOUNT_UNITS = new Set(["g", "ml", "mg", "mcg", "IU", "capsule", "tablet", "scoop", "serving"]);
 const VALID_WORKOUT_BLOCK_CATEGORIES = new Set(["resistance", "cardio", "swimming", "climbing", "bodyweight"]);
 const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;

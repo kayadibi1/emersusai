@@ -17,7 +17,8 @@ export function HydrationTimeline({ title, display_width, summary, follow_up_chi
   const W = 640, H = 220, PAD = { t: 14, r: 14, b: 40, l: 48 };
   const plotW = W - PAD.l - PAD.r, plotH = H - PAD.t - PAD.b;
   const x = (hr) => PAD.l + (hr / 24) * plotW;
-  const y = (v) => PAD.t + (1 - v / Math.max(target_ml, cum)) * plotH;
+  const yMax = Math.max(target_ml, cum, 1);
+  const y = (v) => PAD.t + (1 - v / yMax) * plotH;
   const cumPath = cumPoints.length > 0
     ? `M ${x(0).toFixed(1)} ${y(0).toFixed(1)} ` + cumPoints.map((p) => `L ${x(p.hour).toFixed(1)} ${y(p.total).toFixed(1)}`).join(" ")
     : "";

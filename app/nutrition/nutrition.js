@@ -105,7 +105,7 @@ function useNutritionDay(accessToken) {
     if (!accessToken) return;
     setLoading(true); setError("");
     try {
-      const res = await fetch(`/api/nutrition/day?date=${target}`, {
+      const res = await fetch(`/api/nutrition/day?date=${target}&tz=${new Date().getTimezoneOffset()}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       if (!res.ok) throw new Error((await res.json()).error || `HTTP ${res.status}`);
