@@ -8,7 +8,7 @@
 
 import React, { useEffect, useState, useCallback, useRef } from "react";
 import { createRoot } from "react-dom/client";
-import { getSession, requireAuth } from "/shared/supabase.js";
+import { getSession, requireAuth, getSupabase } from "/shared/supabase.js";
 import { applyTheme, readSavedTheme, VALID_THEMES } from "/shared/theme.js";
 
 const h = React.createElement;
@@ -20,6 +20,7 @@ const TABS = [
   { id: "goals",        label: "Goals" },
   { id: "equipment",    label: "Equipment" },
   { id: "injuries",     label: "Injuries" },
+  { id: "memory",       label: "Memory" },
   { id: "appearance",   label: "Appearance" },
   { id: "billing",      label: "Billing" },
 ];
@@ -474,6 +475,360 @@ function ProfileSkeleton() {
   );
 }
 
+// ──────────────────────────────────────────────────────────────────────────
+// Memory tab (Phase 4a) — lives between Injuries and Appearance. Lists
+// confirmed memories grouped by tier, supports per-row CRUD, export JSON,
+// and delete-all with password re-auth. See spec §7.3 + §9.4.
+// ──────────────────────────────────────────────────────────────────────────
+
+const MEMORY_TIER_ORDER = [
+  { tier: "A", label: "Medical" },
+  { tier: "D", label: "Active now" },
+  { tier: "B", label: "Training" },
+  { tier: "C", label: "Milestones" },
+  { tier: "E", label: "Preferences" },
+  { tier: "X", label: "Custom" },
+];
+
+function formatMemoryCategory(cat) {
+  return String(cat || "").replace(/_/g, " ").toLowerCase();
+}
+
+function MemoryTab() {
+  const [rows, setRows] = useState(null);
+  const [error, setError] = useState("");
+  const [showArchive, setShowArchive] = useState(false);
+
+  const reload = useCallback(async () => {
+    setError("");
+    try {
+      const sb = await getSupabase();
+      const { data, error: err } = await sb
+        .from("user_memories")
+        .select("id, category, tier, fact, metadata, status, created_at, confirmed_at, resolved_at, last_mentioned_at, expires_at, source_thread_id")
+        .order("tier", { ascending: true })
+        .order("created_at", { ascending: false });
+      if (err) throw err;
+      setRows(data || []);
+    } catch (err) {
+      setError(err?.message || "Could not load memory.");
+    }
+  }, []);
+
+  useEffect(() => { void reload(); }, [reload]);
+
+  if (rows === null && !error) {
+    return h("div", { className: "pf-tab pf-memory" },
+      h("h2", { className: "pf-section-title" }, "Memory"),
+      h("p", { className: "pf-helper" }, "Loading…"));
+  }
+  if (error) {
+    return h("div", { className: "pf-tab pf-memory" },
+      h("h2", { className: "pf-section-title" }, "Memory"),
+      h("p", { className: "pf-error" }, error));
+  }
+
+  const live = rows.filter((r) => r.status === "confirmed");
+  const archived = rows.filter((r) => r.status === "archived" || r.status === "resolved");
+  const grouped = MEMORY_TIER_ORDER
+    .map((g) => ({ ...g, rows: live.filter((r) => r.tier === g.tier) }))
+    .filter((g) => g.rows.length > 0);
+
+  let lastSaved = null;
+  if (live.length) {
+    const latestTs = live.reduce((max, r) => {
+      const ts = new Date(r.confirmed_at || r.created_at).getTime();
+      return ts > max ? ts : max;
+    }, 0);
+    if (latestTs) lastSaved = new Date(latestTs).toISOString().slice(0, 10);
+  }
+
+  return h("div", { className: "pf-tab pf-memory" },
+    h("header", { className: "pf-memory-head" },
+      h("h2", { className: "pf-section-title" }, "Memory"),
+      h("p", { className: "pf-memory-summary" },
+        `${live.length} saved${lastSaved ? ` · last saved ${lastSaved}` : ""}`),
+    ),
+
+    grouped.length === 0
+      ? h("p", { className: "pf-helper" },
+          "Nothing saved yet. Ask me to remember something across chats and it'll appear here.")
+      : grouped.map((g) =>
+          h("section", { key: g.tier, className: "pf-memory-group" },
+            h("h3", { className: "pf-memory-group-title" }, `${g.label.toUpperCase()} (${g.rows.length})`),
+            h("ul", { className: "pf-memory-list" },
+              g.rows.map((r) => h(MemoryRow, { key: r.id, row: r, onMutate: reload })),
+            ),
+          )),
+
+    archived.length > 0
+      ? h("section", { className: "pf-memory-archive" },
+          h("button", {
+            type: "button",
+            className: "pf-memory-archive-toggle",
+            onClick: () => setShowArchive((v) => !v),
+          }, `${showArchive ? "▾" : "▸"} Archive (${archived.length})`),
+          showArchive
+            ? h("ul", { className: "pf-memory-list pf-memory-list-muted" },
+                archived.map((r) => h(MemoryRow, { key: r.id, row: r, onMutate: reload })),
+              )
+            : null,
+        )
+      : null,
+
+    h(MemoryDangerZone, { onMutate: reload }),
+  );
+}
+
+function MemoryRow({ row, onMutate }) {
+  const [editing, setEditing] = useState(false);
+  const [busy, setBusy] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [draftFact, setDraftFact] = useState(row.fact);
+  const [error, setError] = useState("");
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const close = () => setMenuOpen(false);
+    document.addEventListener("mousedown", close);
+    return () => document.removeEventListener("mousedown", close);
+  }, [menuOpen]);
+
+  const patchRow = useCallback(async (body) => {
+    setBusy(true); setError("");
+    try {
+      const sb = await getSupabase();
+      const { error: err } = await sb.from("user_memories").update(body).eq("id", row.id);
+      if (err) throw err;
+      await onMutate();
+    } catch (err) {
+      setError(err?.message || "Update failed.");
+    } finally {
+      setBusy(false);
+      setMenuOpen(false);
+    }
+  }, [row.id, onMutate]);
+
+  const hardDelete = useCallback(async () => {
+    const preview = String(row.fact).slice(0, 60) + (row.fact.length > 60 ? "…" : "");
+    if (!window.confirm(`Delete "${preview}" permanently?`)) return;
+    setBusy(true); setError("");
+    try {
+      const sb = await getSupabase();
+      const { error: err } = await sb.from("user_memories").delete().eq("id", row.id);
+      if (err) throw err;
+      await onMutate();
+    } catch (err) {
+      setError(err?.message || "Delete failed.");
+    } finally {
+      setBusy(false); setMenuOpen(false);
+    }
+  }, [row.id, row.fact, onMutate]);
+
+  const saveEdit = useCallback(async () => {
+    const text = String(draftFact || "").trim();
+    if (text.length < 1 || text.length > 500) {
+      setError("Fact must be 1–500 characters."); return;
+    }
+    await patchRow({ fact: text });
+    setEditing(false);
+  }, [draftFact, patchRow]);
+
+  const isLive = row.status === "confirmed";
+  const categoryLabel = formatMemoryCategory(row.category);
+
+  return h("li", {
+      className: `pf-memory-row${isLive ? "" : " is-muted"}`,
+      "data-status": row.status,
+    },
+    h("div", { className: "pf-memory-row-head" },
+      h("span", { className: "pf-memory-category" }, categoryLabel),
+      !editing
+        ? h("span", { className: "pf-memory-fact" }, row.fact)
+        : h("textarea", {
+            className: "pf-memory-fact-edit",
+            rows: 2,
+            value: draftFact,
+            onChange: (e) => setDraftFact(e.target.value),
+            maxLength: 500,
+          }),
+      h("div", { className: "pf-memory-row-actions" },
+        editing
+          ? [
+              h("button", {
+                key: "save", type: "button",
+                className: "pf-memory-btn-primary",
+                disabled: busy, onClick: saveEdit,
+              }, busy ? "…" : "Save"),
+              h("button", {
+                key: "cancel", type: "button",
+                className: "pf-memory-btn-secondary",
+                disabled: busy,
+                onClick: () => { setEditing(false); setDraftFact(row.fact); setError(""); },
+              }, "Cancel"),
+            ]
+          : h("div", {
+                className: "pf-memory-menu-wrap",
+                onMouseDown: (e) => e.stopPropagation(),
+              },
+              h("button", {
+                type: "button",
+                className: "pf-memory-menu-btn",
+                "aria-label": "More actions",
+                disabled: busy,
+                onClick: () => setMenuOpen((v) => !v),
+              }, "⋯"),
+              menuOpen
+                ? h("ul", { className: "pf-memory-menu" },
+                    isLive
+                      ? h("li", null, h("button", {
+                          type: "button",
+                          onClick: () => { setMenuOpen(false); setEditing(true); },
+                        }, "Edit fact"))
+                      : null,
+                    isLive
+                      ? h("li", null, h("button", {
+                          type: "button",
+                          onClick: () => patchRow({ status: "resolved", resolved_at: new Date().toISOString() }),
+                        }, "Mark resolved"))
+                      : null,
+                    isLive
+                      ? h("li", null, h("button", {
+                          type: "button",
+                          onClick: () => patchRow({ status: "archived" }),
+                        }, "Archive"))
+                      : null,
+                    h("li", null, h("button", {
+                      type: "button",
+                      className: "pf-memory-menu-danger",
+                      onClick: hardDelete,
+                    }, "Delete permanently")),
+                  )
+                : null,
+            ),
+      ),
+    ),
+    error ? h("div", { className: "pf-memory-row-error" }, error) : null,
+  );
+}
+
+function MemoryDangerZone({ onMutate }) {
+  const [showDelete, setShowDelete] = useState(false);
+
+  const exportJson = useCallback(async () => {
+    try {
+      const sb = await getSupabase();
+      const { data, error: err } = await sb.from("user_memories").select("*");
+      if (err) throw err;
+      const payload = { memories: data || [], exported_at: new Date().toISOString() };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      const stamp = new Date().toISOString().slice(0, 10);
+      a.href = url;
+      a.download = `emersus-memory-${stamp}.json`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      window.alert(`Export failed: ${err?.message || err}`);
+    }
+  }, []);
+
+  return h("section", { className: "pf-memory-danger" },
+    h("h3", { className: "pf-memory-danger-title" }, "DANGER ZONE"),
+    h("div", { className: "pf-memory-danger-row" },
+      h("button", {
+        type: "button",
+        className: "pf-memory-btn-secondary",
+        onClick: exportJson,
+      }, "Export my memory as JSON"),
+      h("button", {
+        type: "button",
+        className: "pf-memory-btn-danger",
+        onClick: () => setShowDelete(true),
+      }, "Delete all memory…"),
+    ),
+    showDelete
+      ? h(MemoryDeleteAllModal, {
+          onClose: () => setShowDelete(false),
+          onDone: () => { setShowDelete(false); void onMutate(); },
+        })
+      : null,
+  );
+}
+
+function MemoryDeleteAllModal({ onClose, onDone }) {
+  const [typed, setTyped]       = useState("");
+  const [password, setPassword] = useState("");
+  const [busy, setBusy]         = useState(false);
+  const [error, setError]       = useState("");
+
+  const ready = typed.trim().toLowerCase() === "delete" && password.length >= 1;
+
+  const confirm = useCallback(async () => {
+    setBusy(true); setError("");
+    try {
+      const sb = await getSupabase();
+      const userRes = await sb.auth.getUser();
+      if (userRes.error || !userRes.data?.user?.email) {
+        throw new Error("Could not identify current user.");
+      }
+      const email = userRes.data.user.email;
+      const auth = await sb.auth.signInWithPassword({ email, password });
+      if (auth.error) throw new Error("Password incorrect.");
+      const { data, error: rpcErr } = await sb.rpc("delete_all_my_memories");
+      if (rpcErr) throw rpcErr;
+      window.alert(`Deleted ${data} memor${data === 1 ? "y" : "ies"}.`);
+      onDone?.();
+    } catch (err) {
+      setError(err?.message || "Delete failed.");
+    } finally {
+      setBusy(false);
+    }
+  }, [password, onDone]);
+
+  return h("div", { className: "pf-modal-backdrop", onMouseDown: onClose },
+    h("div", { className: "pf-modal", onMouseDown: (e) => e.stopPropagation() },
+      h("header", { className: "pf-modal-head" }, h("h3", null, "Delete all memory")),
+      h("div", { className: "pf-modal-body" },
+        h("p", null, "This permanently removes every fact I've saved about you. This can't be undone."),
+        h("label", { className: "pf-memory-modal-label" }, "Type ", h("code", null, "delete"), " to confirm:"),
+        h("input", {
+          className: "pf-memory-input",
+          type: "text",
+          value: typed,
+          onChange: (e) => setTyped(e.target.value),
+          placeholder: "delete",
+        }),
+        h("label", { className: "pf-memory-modal-label" }, "Re-enter your password:"),
+        h("input", {
+          className: "pf-memory-input",
+          type: "password",
+          value: password,
+          onChange: (e) => setPassword(e.target.value),
+          autoComplete: "current-password",
+        }),
+        error ? h("p", { className: "pf-error" }, error) : null,
+      ),
+      h("footer", { className: "pf-modal-foot" },
+        h("button", {
+          type: "button",
+          className: "pf-memory-btn-secondary",
+          disabled: busy, onClick: onClose,
+        }, "Cancel"),
+        h("button", {
+          type: "button",
+          className: "pf-memory-btn-danger",
+          disabled: !ready || busy,
+          onClick: confirm,
+        }, busy ? "Deleting…" : "Delete everything"),
+      ),
+    ),
+  );
+}
+
 function ProfileApp() {
   const [tab, setTab] = useState(() => {
     const params = new URLSearchParams(window.location.search);
@@ -527,6 +882,7 @@ function ProfileApp() {
     tab === "equipment"    ? h(EquipmentTab,    { profile, patch, saving }) : null,
     tab === "injuries"     ? h(InjuriesTab,     { profile, debouncedPatch }) : null,
     tab === "integrations" ? h(IntegrationsTab, null) : null,
+    tab === "memory"       ? h(MemoryTab,       null) : null,
     tab === "appearance"   ? h(AppearanceTab,   null) : null,
     tab === "billing"      ? h(BillingTab,      null) : null,
   );
