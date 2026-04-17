@@ -898,3 +898,34 @@ h1.headline {
   color: var(--ink, #e6edf3);
   font-weight: 600;
 }
+
+/* ── Landing demo: LIVE pill in chrome bar ─────────────────────── */
+/* Pushes the pill to the right end of the chrome strip. The existing
+   .demo-chrome is flex with align-items:center — we just claim the
+   spare horizontal room for .chrome-title so the pill sits last. */
+.demo-chrome .chrome-title { flex: 1; }
+.chrome-live-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: #1c7a4a;
+  color: #fdfbf5;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+.chrome-live-dot {
+  width: 5px;
+  height: 5px;
+  background: #5ed39b;
+  border-radius: 50%;
+  animation: chromeLivePulse 2s infinite;
+}
+@keyframes chromeLivePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}

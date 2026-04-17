@@ -26,7 +26,6 @@ export function start() {
   const citePill      = document.getElementById('demo-cite-pill');
   const threadTitle   = document.getElementById('demo-thread-title');
   const threadMeta    = document.getElementById('demo-thread-meta');
-  const chromeTitle   = document.querySelector('.chrome-title');
   const sideItems     = document.querySelectorAll('.demo-side .side-item[data-slot]');
 
   const ROTATIONS = [
@@ -135,10 +134,9 @@ export function start() {
 
   async function runRotation(cfg) {
     // Thread-swap: fade titles down, update text + sidebar while faded,
-    // then fade back in with new content. On the first rotation the
-    // old/new text already match, so the fade is visually a no-op.
+    // then fade back in with new content. The chrome title is now static
+    // ("emersus.ai — ask anything below") so only the thread header fades.
     main.dataset.swapping = 'true';
-    chromeTitle.style.opacity = '0.15';
     await sleep(220);
 
     // Reset + update titles + sidebar while faded. Thread-title goes to
@@ -150,11 +148,9 @@ export function start() {
     setActiveSidebar(cfg.slot);
     threadTitle.textContent = 'New chat';
     threadMeta.textContent = '';
-    chromeTitle.textContent = cfg.chromeTitle;
 
-    // Fade titles back in with new text
+    // Fade thread header back in with new text
     main.removeAttribute('data-swapping');
-    chromeTitle.style.opacity = '';
     await sleep(200);
 
     // Type prompt into composer (faster, snappier)
@@ -218,7 +214,6 @@ export function start() {
     setActiveSidebar(cfg.slot);
     threadTitle.textContent = cfg.threadTitle;
     threadMeta.textContent = 'EMERSUS · 1 WIDGET';
-    chromeTitle.textContent = cfg.chromeTitle;
     userBubble.textContent = cfg.prompt;
     introText.innerHTML = cfg.intro;
     const widget = document.querySelector('.demo-widget[data-widget="' + cfg.id + '"]');
