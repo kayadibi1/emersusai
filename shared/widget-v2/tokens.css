@@ -55,3 +55,7 @@
 .wv-mring-foot { margin-top: 10px; font-size: 11px; color: var(--muted); padding-top: 8px; border-top: 1px solid var(--line); }
 .wv-mring-foot b { font-weight: 600; font-variant-numeric: tabular-nums; }
 @media (max-width: 400px) { .wv-mring-body { grid-template-columns: 1fr; } }
+
+.wv-diagnostic { border-color: rgba(220,38,38,0.3); background: rgba(220,38,38,0.04); }
+.wv-diagnostic-head { font-weight: 600; color: var(--color-danger, #dc2626); font-size: 13px; }
+.wv-diagnostic-body { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 11px; color: var(--muted); margin-top: 4px; }
