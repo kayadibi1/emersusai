@@ -25,7 +25,7 @@ function stubFetch(routes) {
 
 const CTX = {
   supabaseUserId: '00000000-0000-0000-0000-000000000001',
-  threadId: 't-1',
+  threadId: '00000000-0000-0000-0000-0000000000aa',
   _openaiResponseId: 'resp-1',
   question: "I hurt my shoulder doing overhead press last week.",
   lastAssistantReply: "Shoulder impingement from press is common. For now, avoid overhead work until pain subsides...",
@@ -225,6 +225,38 @@ describe('extractMemory — sanitization', () => {
     const result = await extractMemory(CTX, { ...DEPS_BASE, fetchImpl });
     assert.equal(result.extracted, 0);
     assert.equal(result.sanitize_rejected, 1);
+  });
+});
+
+describe('extractMemory — thread id hygiene', () => {
+  test('non-UUID threadId is coerced to null in the insert body', async () => {
+    const fetchImpl = stubFetch({
+      '/v1/responses': [
+        gateResponse({ relevant: true, categories: ['injury'] }),
+        factsResponse({
+          facts: [{
+            category: 'injury', fact: 'shoulder impingement',
+            confidence: 0.9, supersedes_hint: null,
+            meta_side: null, meta_onset: null, meta_dose: null,
+            meta_frequency: null, meta_value: null, meta_reps: null,
+            meta_unit: null, meta_date: null,
+          }],
+        }),
+      ],
+      '/rest/v1/user_memories': { body: [{ id: 'ok' }] },
+      '/rest/v1/rpc/retrieve_memory_rag': { body: [] },
+      '/rest/v1/rpc/recall_memory': { body: [] },
+    });
+
+    const result = await extractMemory(
+      { ...CTX, threadId: 'not-a-uuid' },
+      { ...DEPS_BASE, fetchImpl },
+    );
+    assert.equal(result.extracted, 1);
+    const insertCall = fetchImpl.calls.find(c =>
+      c.url.endsWith('/rest/v1/user_memories') && c.init.method === 'POST'
+    );
+    assert.equal(insertCall.body.source_thread_id, null);
   });
 });
 

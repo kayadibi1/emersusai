@@ -352,6 +352,14 @@ async function insertPendingRow(row, deps) {
     },
     body: JSON.stringify(row),
   });
+  if (!res.ok) {
+    // Surface the PostgREST error so silent schema/FK/RLS failures don't
+    // vanish into an `extracted: 0` result. Spec §13 observability.
+    const detail = await res.text().catch(() => "");
+    console.warn(
+      `[extractMemory] insert failed status=${res.status} category=${row.category} thread=${row.source_thread_id} body=${String(detail).slice(0, 300)}`,
+    );
+  }
   return res.ok;
 }
 
@@ -381,10 +389,15 @@ async function resolveAutosaveFlag(userId, deps) {
   }
 }
 
+const UUID_RE = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
 export async function extractMemory(ctx, deps = {}) {
   const startedAt = Date.now();
   const userId = ctx?.supabaseUserId;
-  const threadId = ctx?.threadId || null;
+  // source_thread_id is uuid in the DB; coerce anything non-UUID to null so
+  // a single malformed ctx can't 400-silence every extraction.
+  const rawThreadId = ctx?.threadId;
+  const threadId = typeof rawThreadId === "string" && UUID_RE.test(rawThreadId) ? rawThreadId : null;
   const turnRef = ctx?._openaiResponseId || null;
 
   if (!userId) {
