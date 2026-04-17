@@ -1,6 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
-import { defineConfig } from "vite";
+import { execSync } from "node:child_process";
+import { defineConfig, loadEnv } from "vite";
 
 const rootDir = path.resolve(".");
 const htmlEntries = [
@@ -67,6 +68,52 @@ function injectGtag() {
   };
 }
 
+function getGitSha() {
+  try {
+    return execSync("git rev-parse --short HEAD", { cwd: rootDir }).toString().trim();
+  } catch {
+    return "unknown";
+  }
+}
+
+function injectAnalytics(env) {
+  const posthogKey = env.VITE_POSTHOG_KEY || "";
+  const posthogHost = env.VITE_POSTHOG_HOST || "https://us.i.posthog.com";
+  const sentryDsn = env.VITE_SENTRY_DSN_WEB || "";
+  const release = env.VITE_RELEASE || getGitSha();
+  const appEnv = env.VITE_APP_ENV || process.env.NODE_ENV || "production";
+
+  // Nothing to inject if neither service is configured. Returns a no-op plugin
+  // so devs without keys can still build locally.
+  if (!posthogKey && !sentryDsn) {
+    return { name: "inject-analytics-noop" };
+  }
+
+  const configJson = JSON.stringify({
+    posthogKey,
+    posthogHost,
+    sentryDsn,
+    release,
+    env: appEnv,
+  });
+
+  const snippet = `
+    <!-- Emersus analytics bootstrap (PostHog + Sentry) -->
+    <script>window.__EMERSUS_ANALYTICS__ = ${configJson};</script>
+    <script type="module" src="/shared/analytics.js"></script>`;
+
+  return {
+    name: "inject-analytics",
+    transformIndexHtml: {
+      order: "pre",
+      handler(html) {
+        if (html.includes("__EMERSUS_ANALYTICS__")) return html;
+        return html.replace(/<\/head>/i, `${snippet}\n</head>`);
+      },
+    },
+  };
+}
+
 function copyStaticFiles(files) {
   return {
     name: "copy-static-files",
@@ -83,31 +130,35 @@ function copyStaticFiles(files) {
   };
 }
 
-export default defineConfig({
-  appType: "mpa",
-  build: {
-    outDir: "dist",
-    emptyOutDir: true,
-    sourcemap: false,
-    rollupOptions: {
-      input: Object.fromEntries(
-        htmlEntries.map((relativePath) => [relativePath, path.join(rootDir, relativePath)])
-      ),
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, rootDir, ["VITE_"]);
+  return {
+    appType: "mpa",
+    build: {
+      outDir: "dist",
+      emptyOutDir: true,
+      sourcemap: false,
+      rollupOptions: {
+        input: Object.fromEntries(
+          htmlEntries.map((relativePath) => [relativePath, path.join(rootDir, relativePath)])
+        ),
+      },
     },
-  },
-  plugins: [
-    injectGtag(),
-    copyStaticFiles([
-      "emersus-logo.png",
-      "emersus_mark_fibonacci_blue.svg",
-      "robots.txt",
-      "sitemap.xml",
-      "favicon.ico",
-      "favicon.svg",
-      "apple-touch-icon.png",
-      "manifest.webmanifest",
-      "og-image.png",
-      "BingSiteAuth.xml",
-    ]),
-  ],
+    plugins: [
+      injectGtag(),
+      injectAnalytics(env),
+      copyStaticFiles([
+        "emersus-logo.png",
+        "emersus_mark_fibonacci_blue.svg",
+        "robots.txt",
+        "sitemap.xml",
+        "favicon.ico",
+        "favicon.svg",
+        "apple-touch-icon.png",
+        "manifest.webmanifest",
+        "og-image.png",
+        "BingSiteAuth.xml",
+      ]),
+    ],
+  };
 });

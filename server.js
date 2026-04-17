@@ -1,4 +1,10 @@
 import "dotenv/config";
+// Initialize Sentry BEFORE any other import so its auto-instrumentation can
+// hook into express/http/etc. No-op when SENTRY_DSN is unset.
+import { initSentry, initPostHog, shutdownAnalytics, Sentry } from "./api/lib/analytics.js";
+initSentry();
+initPostHog();
+
 import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -145,6 +151,25 @@ app.use("/admin", express.static(path.join(__dirname, "admin")));
 app.use("/api/{*path}", (req, res) => {
   res.status(404).json({ error: "Not found." });
 });
+
+// ── Sentry error handler (must come after routes, before any other error
+// middleware). Sentry.setupExpressErrorHandler is a no-op when Sentry isn't
+// initialized (SENTRY_DSN unset), so this is safe in dev.
+if (process.env.SENTRY_DSN) {
+  Sentry.setupExpressErrorHandler(app);
+}
+
+// Graceful shutdown so PostHog + Sentry flush pending events before pm2
+// sends SIGKILL. Pm2 default kill timeout is 1600ms so we keep this tight.
+for (const sig of ["SIGTERM", "SIGINT"]) {
+  process.once(sig, async () => {
+    try {
+      await shutdownAnalytics();
+    } finally {
+      process.exit(0);
+    }
+  });
+}
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, "127.0.0.1", () => {

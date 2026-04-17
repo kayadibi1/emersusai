@@ -7,6 +7,7 @@ import { retrieve } from "./pipeline/retrieve.js";
 import { retrieveMemory } from "./pipeline/retrieve-memory.js";
 import { synthesize } from "./pipeline/synthesize.js";
 import { stream, streamToBuffer } from "./pipeline/stream.js";
+import { capture, Sentry } from "../lib/analytics.js";
 
 function parseJsonBody(req) {
   if (!req.body) return {};
@@ -26,6 +27,7 @@ function sendResponse(res, response) {
 }
 
 async function generateRecommendationStream(rawInput, res) {
+  const startedAt = Date.now();
   let ctx = createContext(rawInput);
   try {
     ctx = await sanitize(ctx);
@@ -46,8 +48,30 @@ async function generateRecommendationStream(rawInput, res) {
     ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence });
     ctx = await synthesize(ctx);
     await stream(ctx, res);
+    capture(ctx.stableUserId || "anonymous", "chat_stream_complete", {
+      latency_ms: Date.now() - startedAt,
+      evidence_count: ctx.evidence?.length || 0,
+      sources_count: ctx.sources?.length || 0,
+      confidence: ctx.confidence?.level || null,
+      memory_used: memResult.status === "fulfilled",
+      model: ctx.tokenUsage?.model || null,
+      tokens_in: ctx.tokenUsage?.input_tokens || null,
+      tokens_out: ctx.tokenUsage?.output_tokens || null,
+    });
   } catch (err) {
-    if (err instanceof ShortCircuit) return sendResponse(res, err.response);
+    if (err instanceof ShortCircuit) {
+      capture(ctx.stableUserId || "anonymous", "chat_short_circuit", {
+        reason: err.response?.guardrail?.response_mode || "unknown",
+        latency_ms: Date.now() - startedAt,
+      });
+      return sendResponse(res, err.response);
+    }
+    Sentry?.captureException?.(err, { tags: { pipeline: "stream" } });
+    capture(ctx.stableUserId || "anonymous", "chat_stream_failed", {
+      latency_ms: Date.now() - startedAt,
+      error_name: err?.name || "Error",
+      mid_stream: res.headersSent,
+    });
     if (res.headersSent) {
       try {
         console.error("Pipeline error (mid-stream):", err);
