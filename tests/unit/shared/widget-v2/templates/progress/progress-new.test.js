@@ -25,9 +25,9 @@ test("lift_progress_grid", () => {
 });
 test("weekly_volume_trend", () => {
   const p = { ...b, type: "weekly_volume_trend", data: { muscle_order: ["Chest", "Back", "Legs"], weeks: [
-    { week_start: "2026-01-05", by_muscle: { Chest: 12, Back: 14, Legs: 18 } },
-    { week_start: "2026-01-12", by_muscle: { Chest: 14, Back: 16, Legs: 20 } },
-    { week_start: "2026-01-19", by_muscle: { Chest: 15, Back: 18, Legs: 22 } },
+    { week_start: "2026-01-05", muscle_sets: [{ muscle: "Chest", sets: 12 }, { muscle: "Back", sets: 14 }, { muscle: "Legs", sets: 18 }] },
+    { week_start: "2026-01-12", muscle_sets: [{ muscle: "Chest", sets: 14 }, { muscle: "Back", sets: 16 }, { muscle: "Legs", sets: 20 }] },
+    { week_start: "2026-01-19", muscle_sets: [{ muscle: "Chest", sets: 15 }, { muscle: "Back", sets: 18 }, { muscle: "Legs", sets: 22 }] },
   ] } };
   assert.equal(validateProgressWidget(p).valid, true);
   assert.match(JSON.stringify(WeeklyVolumeTrendProgress(p)), /Chest/);

@@ -53,7 +53,11 @@ function vWeeklyVolume(d) {
   if (!Array.isArray(d.weeks) || d.weeks.length < 2) e.push("weeks");
   else d.weeks.forEach((w, i) => {
     if (!isISO(w.week_start)) e.push(`weeks[${i}].week_start`);
-    if (!w.by_muscle || typeof w.by_muscle !== "object") e.push(`weeks[${i}].by_muscle`);
+    if (!Array.isArray(w.muscle_sets)) e.push(`weeks[${i}].muscle_sets`);
+    else w.muscle_sets.forEach((m, j) => {
+      if (!isStr(m.muscle)) e.push(`weeks[${i}].muscle_sets[${j}].muscle`);
+      if (!isNum(m.sets) || m.sets < 0) e.push(`weeks[${i}].muscle_sets[${j}].sets`);
+    });
   });
   if (!Array.isArray(d.muscle_order) || d.muscle_order.length < 1) e.push("muscle_order");
   return e;

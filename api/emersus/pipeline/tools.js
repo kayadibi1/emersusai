@@ -839,13 +839,19 @@ const PROGRESS_LIFT = {
     plateau: { type: ["boolean", "null"] },
   },
 };
+const PROGRESS_MUSCLE_SETS = {
+  type: "object",
+  required: ["muscle", "sets"],
+  additionalProperties: false,
+  properties: { muscle: { type: "string" }, sets: { type: "number" } },
+};
 const PROGRESS_WEEK = {
   type: "object",
-  required: ["week_start", "by_muscle"],
+  required: ["week_start", "muscle_sets"],
   additionalProperties: false,
   properties: {
     week_start: { type: "string" },
-    by_muscle: { type: "object", additionalProperties: { type: "number" } },
+    muscle_sets: { type: "array", items: PROGRESS_MUSCLE_SETS },
   },
 };
 const PROGRESS_ADHERENCE_CELL = {
