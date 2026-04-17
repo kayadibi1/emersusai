@@ -213,7 +213,7 @@
       <div class="demo-frame">
         <div class="demo-chrome">
           <div class="dot-row"><span></span><span></span><span></span></div>
-          <div class="chrome-title">emersus.ai — protein intake</div>
+          <div class="chrome-title">emersus.ai — creatine vs beta-alanine</div>
         </div>
         <div class="demo-body">
           <aside class="demo-side">
@@ -230,9 +230,9 @@
               <div class="side-item"><span class="mini-dot"></span>Zone 2 protocol</div>
             </div>
           </aside>
-          <div class="demo-main" data-rotation="a" data-phase="composer">
+          <div class="demo-main" data-rotation="b" data-phase="composer">
             <div class="demo-header">
-              <div class="thread-title" id="demo-thread-title">Protein intake for hypertrophy</div>
+              <div class="thread-title" id="demo-thread-title">Creatine vs. beta-alanine</div>
               <div class="thread-meta" id="demo-thread-meta">EMERSUS · 1 WIDGET</div>
             </div>
             <div class="msgs">
@@ -773,15 +773,6 @@
 
       const ROTATIONS = [
         {
-          id: 'a',
-          slot: 'protein',
-          prompt: 'How much protein per day for hypertrophy?',
-          threadTitle: 'Protein intake for hypertrophy',
-          chromeTitle: 'emersus.ai — protein intake',
-          intro: 'The evidence centers on <strong>1.6–2.2 g/kg/day</strong>. Above ~1.6, gains plateau.',
-          cite: { tag: 'Morton et al · Br J Sports Med · 2018', grade: 'HIGH', gradeClass: 'strong' }
-        },
-        {
           id: 'b',
           slot: 'creatine',
           prompt: 'Creatine vs. beta-alanine — which actually works?',
@@ -798,6 +789,15 @@
           chromeTitle: 'emersus.ai — cut macros',
           intro: 'Mifflin-St Jeor + 1.55 activity multiplier. A 20% cut lands here:',
           cite: { tag: 'Mifflin-St Jeor · Am J Clin Nutr · 1990', grade: 'STANDARD', gradeClass: 'std' }
+        },
+        {
+          id: 'a',
+          slot: 'protein',
+          prompt: 'How much protein per day for hypertrophy?',
+          threadTitle: 'Protein intake for hypertrophy',
+          chromeTitle: 'emersus.ai — protein intake',
+          intro: 'The evidence centers on <strong>1.6–2.2 g/kg/day</strong>. Above ~1.6, gains plateau.',
+          cite: { tag: 'Morton et al · Br J Sports Med · 2018', grade: 'HIGH', gradeClass: 'strong' }
         }
       ];
 
