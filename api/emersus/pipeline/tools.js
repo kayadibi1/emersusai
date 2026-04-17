@@ -535,25 +535,68 @@ const EMIT_PROGRESS_WIDGET = {
 
 // ── emit_pharma_widget (widget-v2 · F1) ────────────────────────────
 
+// Pharma data superset — strict:true compatible. The `data` schema lists
+// every field from every type; fields not used by the chosen type are
+// emitted as null. No field name collides across types.
+const PHARMA_POINT = {
+  type: "object",
+  required: ["dose", "effect_pct", "study_n"],
+  additionalProperties: false,
+  properties: {
+    dose: { type: "number" },
+    effect_pct: { type: "number" },
+    study_n: { type: ["integer", "null"] },
+  },
+};
+const PHARMA_DATA = {
+  type: "object",
+  required: [
+    "compound",
+    // dose_response_curve fields
+    "unit", "points", "recommended_range",
+    // half_life_decay fields
+    "half_life_hours", "initial_dose", "dose_unit", "horizon_hours",
+  ],
+  additionalProperties: false,
+  properties: {
+    compound: { type: "string" },
+    unit: { type: ["string", "null"], enum: ["mg", "mg/kg", "g", "IU", null] },
+    points: { type: ["array", "null"], items: PHARMA_POINT },
+    recommended_range: {
+      type: ["object", "null"],
+      required: ["min", "max"],
+      additionalProperties: false,
+      properties: { min: { type: "number" }, max: { type: "number" } },
+    },
+    half_life_hours: { type: ["number", "null"] },
+    initial_dose: { type: ["number", "null"] },
+    dose_unit: { type: ["string", "null"] },
+    horizon_hours: { type: ["integer", "null"] },
+  },
+};
+
 const EMIT_PHARMA_WIDGET = {
   type: "function",
   name: "emit_pharma_widget",
-  strict: false,
+  strict: true,
   description: [
     "Emit a pharmacokinetics / dose-response visualization. Write 2-4 sentences of prose FIRST, then call.",
     "",
     "TEMPLATE SELECTION:",
-    "  dose_response_curve — effect vs dose with optional evidence-supported recommended range band. Use when the user asks about optimal dose, minimum effective dose, or ceiling.",
+    "  dose_response_curve — effect vs dose with optional recommended-range band. Use when the user asks about optimal dose, minimum effective dose, or ceiling.",
     "  half_life_decay — concentration-vs-time from a single dose. Use when the user asks how long a supplement/drug stays in their system.",
     "",
-    "DO NOT CALL for: prescription medication dosing (redirect to clinician), stacking / polypharmacy interaction matrices, or individual PK predictions — those are separate templates in later Plans.",
+    "DO NOT CALL for: prescription medication dosing (redirect to clinician), stacking / polypharmacy interaction matrices, or individual PK predictions.",
     "",
-    "DATA (you MUST include this field — it is not optional):",
-    "  dose_response_curve: { compound: string, unit: 'mg'|'mg/kg'|'g'|'IU', points: [{ dose: number, effect_pct: number, study_n?: int }], recommended_range?: { min, max } }",
-    "  half_life_decay: { compound: string, half_life_hours: number, initial_dose: number, dose_unit: string, horizon_hours: int }",
+    "DATA SHAPE (strict: fill the fields your `type` uses, set every other field to null):",
+    "  compound       — required for both types",
+    "  dose_response_curve fills: unit, points, recommended_range",
+    "  half_life_decay fills: half_life_hours, initial_dose, dose_unit, horizon_hours",
     "",
     "EXAMPLE half_life_decay call:",
-    '  { "title": "Caffeine t½", "display_width": "wide", "summary": "...", "follow_up_chips": [], "type": "half_life_decay", "data": { "compound": "Caffeine", "half_life_hours": 5, "initial_dose": 200, "dose_unit": "mg", "horizon_hours": 24 } }',
+    '  data: { "compound": "Caffeine", "unit": null, "points": null, "recommended_range": null, "half_life_hours": 5, "initial_dose": 200, "dose_unit": "mg", "horizon_hours": 24 }',
+    "EXAMPLE dose_response_curve call:",
+    '  data: { "compound": "Creatine monohydrate", "unit": "g", "points": [{ "dose": 3, "effect_pct": 7, "study_n": 120 }], "recommended_range": { "min": 3, "max": 5 }, "half_life_hours": null, "initial_dose": null, "dose_unit": null, "horizon_hours": null }',
   ].join("\n"),
   parameters: {
     type: "object",
@@ -565,7 +608,7 @@ const EMIT_PHARMA_WIDGET = {
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
       type: { type: "string", enum: ["dose_response_curve", "half_life_decay"] },
-      data: { type: "object", description: "Required, non-null object. Shape depends on `type` — see the DATA section of this tool's description." },
+      data: PHARMA_DATA,
     },
   },
 };

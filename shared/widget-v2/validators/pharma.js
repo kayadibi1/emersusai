@@ -2,6 +2,10 @@ import { validateBase } from "./index.js";
 
 const PHARMA_TYPES = new Set(["dose_response_curve", "half_life_decay"]);
 
+// Superset data schema: every field is declared on `data` and nullable.
+// Validator checks that the fields relevant to the chosen `type` are
+// populated (non-null) and well-formed.
+
 function validateDoseResponse(data) {
   const errors = [];
   if (typeof data.compound !== "string" || !data.compound.trim()) errors.push("data.compound");
@@ -13,11 +17,12 @@ function validateDoseResponse(data) {
       if (typeof p.effect_pct !== "number") errors.push(`points[${i}].effect_pct`);
     });
   }
-  if (data.recommended_range && (
-    typeof data.recommended_range.min !== "number" ||
-    typeof data.recommended_range.max !== "number" ||
-    data.recommended_range.max < data.recommended_range.min
-  )) errors.push("data.recommended_range");
+  if (data.recommended_range && data.recommended_range !== null) {
+    const r = data.recommended_range;
+    if (typeof r.min !== "number" || typeof r.max !== "number" || r.max < r.min) {
+      errors.push("data.recommended_range");
+    }
+  }
   return errors;
 }
 
