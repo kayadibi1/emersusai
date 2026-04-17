@@ -19,6 +19,27 @@ import crypto from "node:crypto";
 import { embedText as defaultEmbedText } from "../embeddings.js";
 import { MEMORY_GATE_SCHEMA, MEMORY_FACTS_SCHEMA, AUTO_EXTRACT_CATEGORIES } from "./extract-memory-schemas.js";
 import { sanitizeFactText } from "./extract-memory-sanitize.js";
+import { recordSuccess, recordError, getCircuitStatus } from "./extract-memory-circuit.js";
+
+function fireCircuitAlert(event) {
+  // Structured prefix so `pm2 logs | grep memory_alert` picks it up.
+  // Also fires the sendAlert email path if ALERT_EMAILS is configured.
+  try {
+    console.warn(`[memory_alert] circuit_open ${JSON.stringify(event)}`);
+    import("../lib/alerts.js")
+      .then(({ sendAlert }) => sendAlert({
+        type: "memory_extractor_circuit_open",
+        subject: "Emersus memory extractor auto-disabled (circuit open)",
+        body: [
+          `Extractor circuit opened at ${new Date(event.opened_at).toISOString()}.`,
+          `Error rate: ${(event.error_rate * 100).toFixed(1)}% over ${event.samples} samples.`,
+          `Cooldown: 30 minutes. Extractor will self-resume after that unless re-triggered.`,
+          ``,
+          `Check: pm2 logs emersus-api --lines 500 --nostream | grep extract_memory | tail`,
+        ].join("\n"),
+      }).catch(() => { /* email best-effort; log is authoritative */ }));
+  } catch { /* never let alerting break the pipeline */ }
+}
 
 function hashUserId(uid) {
   if (!uid) return null;
@@ -374,6 +395,19 @@ export async function extractMemory(ctx, deps = {}) {
     return r;
   }
 
+  // Circuit breaker — skip entirely when open (spec §13 auto-disable).
+  const circuit = getCircuitStatus();
+  if (circuit.open) {
+    const r = {
+      extracted: 0,
+      skipped_reason: "circuit_open",
+      circuit,
+      latency_ms: Date.now() - startedAt,
+    };
+    logResult(r, ctx);
+    return r;
+  }
+
   const effectiveDeps = {
     fetchImpl: deps.fetchImpl || globalThis.fetch,
     supabaseUrl: deps.supabaseUrl || process.env.SUPABASE_URL,
@@ -394,6 +428,7 @@ export async function extractMemory(ctx, deps = {}) {
       { model: effectiveDeps.gateModel },
     );
   } catch (err) {
+    recordError(Date.now(), { onOpen: fireCircuitAlert });
     const r = { extracted: 0, error: err.message, latency_ms: Date.now() - startedAt };
     logResult(r, ctx);
     return r;
@@ -418,6 +453,7 @@ export async function extractMemory(ctx, deps = {}) {
     );
     facts = Array.isArray(parsed?.facts) ? parsed.facts : [];
   } catch (err) {
+    recordError(Date.now(), { onOpen: fireCircuitAlert });
     const r = { extracted: 0, gate, error: err.message, latency_ms: Date.now() - startedAt };
     logResult(r, ctx);
     return r;
@@ -524,6 +560,7 @@ export async function extractMemory(ctx, deps = {}) {
     gate,
     latency_ms,
   };
+  recordSuccess(Date.now(), { onOpen: fireCircuitAlert });
   logResult(result, ctx);
   return result;
 }
