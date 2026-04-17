@@ -86,3 +86,16 @@ describe('feature-flags — pure logic', () => {
     assert.throws(() => { DEFAULT_FLAGS.conversational_onboarding = false; }, /Cannot assign|read only/i);
   });
 });
+
+describe('feature-flags — WIDGET_V2_ENABLED', () => {
+  test('WIDGET_V2_ENABLED exists and is boolean', async () => {
+    const { WIDGET_V2_ENABLED } = await import('../../../shared/feature-flags.js');
+    assert.equal(typeof WIDGET_V2_ENABLED, 'boolean');
+  });
+
+  test('WIDGET_V2_ENABLED defaults to false without env override', async () => {
+    const { WIDGET_V2_ENABLED } = await import('../../../shared/feature-flags.js');
+    // Default behavior: disabled until explicit opt-in via WIDGET_V2_ENABLED=true
+    assert.equal(WIDGET_V2_ENABLED, process.env.WIDGET_V2_ENABLED === 'true');
+  });
+});
