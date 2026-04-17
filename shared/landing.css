@@ -319,7 +319,7 @@ h1.headline {
 .wg-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
 .wg-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
 .wg-sub { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--dim); }
-.wg-a-chart { width: 100%; height: auto; display: block; }
+.wg-a-chart { width: 100%; max-width: 520px; height: auto; display: block; margin: 6px auto 0; }
 .wg-a-chart .wg-grid line { stroke: var(--line); stroke-width: 1; }
 .wg-a-chart .wg-ticks text { font-family: var(--font-mono); font-size: 9.5px; fill: var(--dim); letter-spacing: 0.1em; text-anchor: middle; }
 .wg-a-chart .wg-ticks text:last-child { text-anchor: end; }
@@ -327,7 +327,7 @@ h1.headline {
 .wg-a-chart .wg-plateau-label { font-family: var(--font-mono); font-size: 9px; fill: var(--accent); letter-spacing: 0.2em; }
 .wg-a-chart .wg-a-curve { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 4px var(--accent-glow)); }
 .wg-a-chart .wg-a-dot { fill: var(--accent); stroke: var(--bg); stroke-width: 2; filter: drop-shadow(0 0 6px var(--accent-glow)); }
-.wg-a-chart .wg-a-callout { font-family: var(--font-mono); font-size: 9.5px; fill: var(--muted); letter-spacing: 0.1em; }
+.wg-a-chart .wg-a-callout { font-family: var(--font-mono); font-size: 8.5px; fill: var(--muted); letter-spacing: 0.08em; }
 
 /* ===== WIDGET B — evidence matrix ===== */
 .wg-b { border: 1px solid var(--line); border-radius: 12px; background: var(--surface-faint); padding: 16px 18px; }
