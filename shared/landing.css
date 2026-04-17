@@ -312,6 +312,21 @@ h1.headline {
 /* Widget slot wrapper (provides spacing above widget relative to bubble) */
 .demo-widget-slot { margin-top: 14px; min-height: 40px; }
 
+/* ===== WIDGET A — dose-response curve ===== */
+.wg-a { border: 1px solid var(--line); border-radius: 12px; background: var(--surface-faint); padding: 16px 18px; }
+.wg-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 10px; flex-wrap: wrap; gap: 8px; }
+.wg-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+.wg-sub { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em; color: var(--dim); }
+.wg-a-chart { width: 100%; height: auto; display: block; }
+.wg-a-chart .wg-grid line { stroke: var(--line); stroke-width: 1; }
+.wg-a-chart .wg-ticks text { font-family: var(--font-mono); font-size: 9.5px; fill: var(--dim); letter-spacing: 0.1em; text-anchor: middle; }
+.wg-a-chart .wg-ticks text:last-child { text-anchor: end; }
+.wg-a-chart .wg-plateau { stroke: var(--accent); stroke-width: 1.2; stroke-dasharray: 3 4; opacity: 0.55; }
+.wg-a-chart .wg-plateau-label { font-family: var(--font-mono); font-size: 9px; fill: var(--accent); letter-spacing: 0.2em; }
+.wg-a-chart .wg-a-curve { fill: none; stroke: var(--accent); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 4px var(--accent-glow)); }
+.wg-a-chart .wg-a-dot { fill: var(--accent); stroke: var(--bg); stroke-width: 2; filter: drop-shadow(0 0 6px var(--accent-glow)); }
+.wg-a-chart .wg-a-callout { font-family: var(--font-mono); font-size: 9.5px; fill: var(--muted); letter-spacing: 0.1em; }
+
 /* ===== SECTIONS ===== */
 .section { max-width: 1100px; margin: 0 auto; padding: 96px 32px; border-top: 1px solid var(--line); }
 .sec-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
