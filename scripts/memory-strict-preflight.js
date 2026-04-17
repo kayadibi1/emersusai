@@ -69,7 +69,14 @@ async function probeSchema(name, schema, userMessage) {
       body: JSON.stringify({
         model: MODEL,
         input: [{ role: 'user', content: userMessage }],
-        response_format: { type: 'json_schema', json_schema: schema },
+        text: {
+          format: {
+            type: 'json_schema',
+            name: schema.name,
+            strict: !!schema.strict,
+            schema: schema.schema,
+          },
+        },
         store: false,
       }),
     });
