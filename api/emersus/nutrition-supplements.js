@@ -4,8 +4,9 @@ import { supabaseAdmin } from "../lib/clients.js";
 export default async function nutritionSupplementsHandler(req, res) {
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed." });
   if (!supabaseAdmin) return res.status(500).json({ error: "Backend unavailable." });
+  if (!req.verifiedUserId) return res.status(401).json({ error: "Auth required." });
   const items = Array.isArray(req.body?.items) ? req.body.items : [];
-  if (!items.length) return res.status(400).json({ error: "items must be a non-empty array" });
+  if (!items.length || items.length > 100) return res.status(400).json({ error: "items must be 1-100" });
 
   const rows = items
     .map((item) => ({
@@ -13,7 +14,7 @@ export default async function nutritionSupplementsHandler(req, res) {
       name: String(item?.name || "").slice(0, 120).trim(),
       amount: Number.isFinite(Number(item?.amount)) ? Number(item.amount) : null,
       unit: item?.unit ? String(item.unit).slice(0, 16) : null,
-      consumed_at: item?.consumed_at ? new Date(item.consumed_at).toISOString() : new Date().toISOString(),
+      consumed_at: (() => { const d = new Date(item?.consumed_at ?? Date.now()); return isNaN(d) ? new Date().toISOString() : d.toISOString(); })(),
     }))
     .filter((r) => r.name);
   if (!rows.length) return res.status(400).json({ error: "items need a name" });
