@@ -929,3 +929,131 @@ h1.headline {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.4; }
 }
+
+/* ── Landing demo: takeover states ─────────────────────────────── */
+
+/* Fade-out transition for the T3 wipe — all existing rotation content
+   fades to 0 opacity over ~300ms when the visitor clicks the composer.
+   Once mode flips to "anon-chat" the content is unmounted entirely. */
+.demo-main[data-mode="wiping"] .msg,
+.demo-main[data-mode="wiping"] .cite-pill,
+.demo-main[data-mode="wiping"] .demo-widget,
+.demo-main[data-mode="wiping"] .thread-welcome-demo {
+  transition: opacity 300ms ease-out;
+  opacity: 0;
+}
+
+/* Sidebar items dim to 30% once takeover starts — signals "you're in a
+   fresh session; these aren't real threads". */
+.demo-side[data-dimmed="true"] .side-item {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* Composer disabled after the visitor has used their 3 free questions. */
+.composer[data-disabled="true"] {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.composer[data-disabled="true"] .composer-input {
+  color: var(--dim, #8a8a8f);
+  cursor: not-allowed;
+}
+
+/* Block card: appears beneath the 3rd answer as the upgrade prompt. */
+.anon-block-card {
+  margin: 16px 0 8px;
+  padding: 14px 16px;
+  background: var(--surface-faint, #fdfbf5);
+  border: 1px solid var(--line, #d8d2c4);
+  border-radius: 8px;
+  text-align: center;
+}
+.anon-block-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink, #1a1713);
+  margin: 0 0 4px;
+}
+.anon-block-card-copy {
+  font-size: 12px;
+  color: var(--muted, #5a5347);
+  margin: 0 0 12px;
+}
+.anon-block-card-actions {
+  display: inline-flex;
+  gap: 8px;
+}
+.anon-block-card-actions .btn {
+  font-size: 12px;
+  padding: 6px 14px;
+}
+
+/* Inline hint after a safety refusal — "try a fitness question" nudge. */
+.anon-inline-hint {
+  font-size: 11px;
+  color: var(--dim, #7a7364);
+  font-style: italic;
+  padding: 6px 10px;
+  margin: 4px 0;
+  text-align: center;
+}
+
+/* Inline error for network/stream failures. */
+.anon-inline-error {
+  font-size: 12px;
+  color: #b04242;
+  padding: 8px 12px;
+  margin: 6px 0;
+  background: rgba(176, 66, 66, 0.08);
+  border-radius: 4px;
+  text-align: center;
+}
+
+/* Compact source list appended below anon-chat answers (from the
+   done SSE event). Widget placeholders use the same .anon-inline-hint
+   style above so no extra rule needed. */
+.anon-sources {
+  margin: 10px 0 4px;
+  padding: 10px 12px;
+  background: var(--surface-faint, rgba(255,255,255,0.03));
+  border-left: 2px solid var(--accent-line, rgba(196,138,60,0.34));
+  border-radius: 0 6px 6px 0;
+  font-size: 11px;
+  line-height: 1.45;
+}
+.anon-sources-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim, #8f8676);
+  margin: 0 0 6px;
+}
+.anon-sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.anon-sources-list li {
+  color: var(--muted, #5a5347);
+}
+
+/* Inline widget placeholder — when the model emits an interactive tool,
+   anonymous visitors see a call-to-action instead of the live widget. */
+.anon-widget-placeholder {
+  margin: 10px 0;
+  padding: 10px 14px;
+  background: var(--accent-soft, rgba(196,138,60,0.10));
+  border: 1px dashed var(--accent-line, rgba(196,138,60,0.34));
+  border-radius: 6px;
+  font-size: 12px;
+  color: var(--ink, #1a1713);
+  text-align: center;
+}
+.anon-widget-placeholder strong {
+  font-weight: 600;
+}
