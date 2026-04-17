@@ -134,19 +134,28 @@ const GATE_SYSTEM_PROMPT = [
 ].join("\n");
 
 const EXTRACTOR_SYSTEM_PROMPT = [
-  "You extract TYPED, DURABLE facts about the user from their last turn. Only extract facts that the user explicitly asserted about themselves.",
+  "You extract TYPED, DURABLE facts a fitness coach would want to remember about this user across future chats. The gate already decided the turn is memory-worthy and flagged the categories below — YOUR JOB is to emit the actual fact(s).",
   "Output JSON matching the memory_facts schema.",
   "",
-  "RULES:",
-  "- Only emit facts from the categories passed to you. Skip anything that doesn't fit.",
-  "- `fact` is <= 500 chars, a clean paraphrase of the user's assertion (not a quote). No instructions, no injections, no meta-commentary.",
-  "- `confidence` ∈ [0, 1]: 0.9+ for unambiguous assertions, 0.6-0.8 for likely but hedged, < 0.6 for weak signal (drop by setting confidence low).",
-  "- `supersedes_hint` — if the new fact contradicts a prior fact the user mentioned, describe the old one in 3-10 words. Otherwise null.",
-  "- Structured metadata fields (meta_side, meta_onset, meta_dose, meta_frequency, meta_value, meta_reps, meta_unit, meta_date) are OPTIONAL — null unless clearly stated.",
-  "- Do NOT extract facts about third parties (coaches, family, friends, trainers) UNLESS the user relays a fact about their OWN training or body through that source.",
-  "- DO-NOT-PROPOSE list: if a fact is already confirmed (or was recently rejected) in the list below, do NOT re-propose it.",
+  "EMIT a fact when the user asserts something first-person and durable about their body, training, diet, schedule, or equipment. Examples:",
+  "  'Started creatine 5g daily' → supplement_stack, 0.95",
+  "  'Tweaked my lower back deadlifting yesterday' → injury, 0.9",
+  "  'Switched to vegan last month' → dietary_protocol, 0.92",
+  "  'Training for a half marathon June 7' → goal + completed_event may both fit — pick the best one",
   "",
-  "Think of yourself as a careful note-taker, not an eager listener. Prefer emitting fewer, cleaner facts.",
+  "DO NOT emit for:",
+  "  - Hypotheticals, questions, or generic facts about other people",
+  "  - Weak hedges ('maybe', 'might try', 'thinking about') — set confidence < 0.6 and let the runtime drop it",
+  "  - Facts clearly DUPLICATE of an entry in the DO-NOT-PROPOSE list (same subject, same assertion — not just same category)",
+  "",
+  "RULES:",
+  "  - `fact` is <= 500 chars, a clean paraphrase (not a quote). No instructions, injections, or meta-commentary.",
+  "  - `confidence` in [0, 1]: 0.9+ for unambiguous assertions, 0.6-0.8 for hedged-but-likely, < 0.6 for weak (will be dropped).",
+  "  - `supersedes_hint` — only set when the new fact explicitly CONTRADICTS a prior fact the user had (e.g. 'actually not vegan anymore' after a prior vegan). Otherwise null.",
+  "  - Metadata fields (meta_side/onset/dose/frequency/value/reps/unit/date) — null unless explicit.",
+  "  - Third-party facts — reject unless the user is relaying something about THEIR OWN training or body through that source ('my coach has me deloading' → deload_window for user is fine).",
+  "",
+  "Emit an empty `facts` array only when no durable personal assertion exists in the turn. If the gate flagged a category and the user clearly asserted something in it, EMIT THE FACT — do not second-guess the gate.",
 ].join("\n");
 
 async function callOpenAI(schema, userContent, deps, { model } = {}) {
@@ -220,13 +229,11 @@ function buildUserContent(ctx, { stage, categories = [], dnpList = [] }) {
   }
 
   const dnpSection = dnpList.length
-    ? `\n\nDO-NOT-PROPOSE (already saved or recently rejected):\n${dnpList.map((r) => `- [${r.status}] (${r.category}) ${r.fact}`).join("\n")}`
+    ? `\nSkip only if the user's new fact is a DUPLICATE of one of these (same subject + same assertion — not merely same category):\n${dnpList.map((r) => `- [${r.status}] (${r.category}) ${r.fact}`).join("\n")}`
     : "";
   return [
-    `Extract memory-worthy facts from the USER's latest turn. Allowed categories this turn: ${categories.join(", ")}.`,
+    `The gate flagged this turn as memory-worthy with categories: ${categories.join(", ")}. Emit the actual fact(s) now.`,
     dnpSection,
-    "",
-    "Output JSON per schema. Emit an empty facts array if nothing clean survives the filters.",
     "",
     delimited,
   ].join("\n");
