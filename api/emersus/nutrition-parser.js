@@ -58,6 +58,7 @@ RULES:
 const PARSER_SCHEMA = {
   name: "parse_foods",
   description: "Parse a freeform food/supplement description into structured items.",
+  strict: true,
   parameters: {
     type: "object",
     properties: {
@@ -74,7 +75,7 @@ const PARSER_SCHEMA = {
             meal_slot:   { type: ["string", "null"] },
             confidence:  { type: "number", minimum: 0, maximum: 1 },
           },
-          required: ["description", "amount", "amount_unit", "kind", "confidence"],
+          required: ["raw_text", "description", "amount", "amount_unit", "kind", "meal_slot", "confidence"],
           additionalProperties: false,
         },
       },
