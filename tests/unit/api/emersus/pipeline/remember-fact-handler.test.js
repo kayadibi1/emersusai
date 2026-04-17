@@ -27,6 +27,8 @@ const DEFAULT_CTX = {
 const DEFAULT_DEPS = {
   supabaseUrl: 'https://supabase.example',
   serviceRoleKey: 'service-role-key',
+  // Stub embedText so tests don't hit OpenAI.
+  embedText: async (_text) => new Array(1536).fill(0.01),
 };
 
 describe('resolveRememberFact', () => {
@@ -58,6 +60,26 @@ describe('resolveRememberFact', () => {
     assert.equal(row.source_turn_ref, 'resp-y');
     assert.equal(row.expires_at, null); // Tier A indefinite
     assert.deepEqual(row.metadata, {}); // no note provided
+    assert.ok(Array.isArray(row.fact_embedding), 'fact_embedding populated for RAG visibility');
+    assert.equal(row.fact_embedding.length, 1536);
+  });
+
+  test('embedText failure is soft — row still saved, fact_embedding null', async () => {
+    const fetchImpl = stubFetch();
+    const depsWithBrokenEmbed = {
+      ...DEFAULT_DEPS,
+      fetchImpl,
+      embedText: async () => { throw new Error('openai_rate_limit'); },
+    };
+    const out = await resolveRememberFact({
+      args: { category: 'goal', fact: 'cutting for summer', note: null },
+      ctx: DEFAULT_CTX,
+      deps: depsWithBrokenEmbed,
+    });
+    assert.equal(out.saved, true, 'save succeeds even if embed fails');
+    const row = JSON.parse(fetchImpl.calls[0].init.body);
+    assert.equal(row.fact_embedding, null, 'embedding null when embedText throws');
+    assert.equal(row.fact, 'cutting for summer');
   });
 
   test('custom category maps to tier X with indefinite TTL', async () => {

@@ -2,13 +2,16 @@
 //
 // Resolves the remember_fact server-side tool call (spec §5.2). Writes a
 // single row to public.user_memories with source='explicit', status='confirmed',
-// tier derived from category, expires_at computed per tier TTL. Returns a
-// deterministic echo the model weaves into its reply.
+// tier derived from category, expires_at computed per tier TTL, and a
+// fact_embedding so the row is RAG-retrievable on future turns (spec §6.2).
+// Returns a deterministic echo the model weaves into its reply.
 //
 // Uses the service-role PostgREST fetch pattern (matches api/contact.js,
 // api/emersus/pipeline/safety.js). The service-role key bypasses RLS; security
 // boundary is the hard-coded user_id: ctx.supabaseUserId — never trust the
 // model's claim about who it's writing for.
+
+import { embedText as defaultEmbedText } from "../embeddings.js";
 
 const CATEGORY_TO_TIER = {
   injury: "A",
@@ -70,11 +73,33 @@ export async function resolveRememberFact({ args, ctx, deps = {} } = {}) {
   }
 
   const tier = CATEGORY_TO_TIER[category];
+  const fetchImpl = deps.fetchImpl || globalThis.fetch;
+  const supabaseUrl = deps.supabaseUrl || process.env.SUPABASE_URL;
+  const serviceRoleKey = deps.serviceRoleKey || process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const embedText = deps.embedText || defaultEmbedText;
+
+  if (!supabaseUrl || !serviceRoleKey) {
+    return { saved: false, error: "supabase_env_missing" };
+  }
+
+  // Embed the fact so the row is visible to RAG retrieval (spec §6.2). Soft-
+  // fail: if the embedding call throws, we still save the row without an
+  // embedding — always-inject (Tier A/D) still reaches the prompt; only the
+  // RAG channel (Tier B/C/E/X) degrades for this row, and the user has an
+  // error-free save from their perspective.
+  let fact_embedding = null;
+  try {
+    fact_embedding = await embedText(fact);
+  } catch (err) {
+    console.warn("[resolveRememberFact] embedText failed (soft):", err?.message || err);
+  }
+
   const row = {
     user_id: ctx.supabaseUserId,
     category,
     tier,
     fact,
+    fact_embedding,
     source: "explicit",
     source_thread_id: ctx.threadId || null,
     source_turn_ref: ctx._openaiResponseId || null,
@@ -84,14 +109,6 @@ export async function resolveRememberFact({ args, ctx, deps = {} } = {}) {
     expires_at: computeExpiresAt(tier),
     metadata: note ? { note } : {},
   };
-
-  const fetchImpl = deps.fetchImpl || globalThis.fetch;
-  const supabaseUrl = deps.supabaseUrl || process.env.SUPABASE_URL;
-  const serviceRoleKey = deps.serviceRoleKey || process.env.SUPABASE_SERVICE_ROLE_KEY;
-
-  if (!supabaseUrl || !serviceRoleKey) {
-    return { saved: false, error: "supabase_env_missing" };
-  }
 
   let response;
   try {
