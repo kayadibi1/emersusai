@@ -59,7 +59,11 @@ function LogFoodModal({ onClose, onLogged, date, kindFilter }) {
     setSubmitting(true);
     try {
       const amt = parseFloat(amount);
-      if (isNaN(amt) || amt <= 0) return;
+      if (isNaN(amt) || amt <= 0) {
+        setLogError("Amount must be a positive number.");
+        setSubmitting(false);
+        return;
+      }
       const res = await authFetch("/api/emersus/meal-journal/entries", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
