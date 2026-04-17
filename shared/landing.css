@@ -368,6 +368,51 @@ h1.headline {
 .wg-c-bar.fat { background: color-mix(in oklab, var(--accent) 30%, var(--muted)); }
 .wg-c.filled .wg-c-bar { width: var(--fill); }
 
+/* ===== WIDGET STATES — skeleton + filled ===== */
+
+/* Generic skeleton wash overlay */
+.demo-widget.skeleton { position: relative; overflow: hidden; }
+.demo-widget.skeleton::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(90deg, transparent 0%, var(--accent-glow) 50%, transparent 100%);
+  transform: translateX(-100%);
+  animation: skel-sweep 1.1s linear infinite;
+  opacity: 0.35;
+}
+@keyframes skel-sweep { to { transform: translateX(100%); } }
+
+/* --- Widget A: curve draws left-to-right on fill --- */
+.wg-a .wg-a-curve { stroke-dasharray: 520; stroke-dashoffset: 520; }
+.wg-a .wg-a-dot,
+.wg-a .wg-a-callout,
+.wg-a .wg-plateau,
+.wg-a .wg-plateau-label { opacity: 0; }
+.wg-a.skeleton .wg-a-curve { opacity: 0.18; }
+.wg-a.filled .wg-a-curve { stroke-dashoffset: 0; transition: stroke-dashoffset .9s ease-out; }
+.wg-a.filled .wg-a-dot { opacity: 1; transition: opacity .35s ease .85s; }
+.wg-a.filled .wg-a-callout { opacity: 1; transition: opacity .35s ease .95s; }
+.wg-a.filled .wg-plateau { opacity: 0.55; transition: opacity .35s ease .7s; }
+.wg-a.filled .wg-plateau-label { opacity: 1; transition: opacity .35s ease .75s; }
+
+/* --- Widget B: cells fade-scale in with stagger --- */
+.wg-b.filled .wg-b-cell { opacity: 1; transform: translateY(0) scale(1); }
+.wg-b.filled .wg-b-col:nth-child(1) .wg-b-cell[data-row="effect"]  { transition-delay: 0.00s; }
+.wg-b.filled .wg-b-col:nth-child(1) .wg-b-cell[data-row="studies"] { transition-delay: 0.08s; }
+.wg-b.filled .wg-b-col:nth-child(1) .wg-b-cell[data-row="grade"]   { transition-delay: 0.16s; }
+.wg-b.filled .wg-b-col:nth-child(1) .wg-b-cell[data-row="mech"]    { transition-delay: 0.24s; }
+.wg-b.filled .wg-b-col:nth-child(2) .wg-b-cell[data-row="effect"]  { transition-delay: 0.32s; }
+.wg-b.filled .wg-b-col:nth-child(2) .wg-b-cell[data-row="studies"] { transition-delay: 0.40s; }
+.wg-b.filled .wg-b-col:nth-child(2) .wg-b-cell[data-row="grade"]   { transition-delay: 0.48s; }
+.wg-b.filled .wg-b-col:nth-child(2) .wg-b-cell[data-row="mech"]    { transition-delay: 0.56s; }
+
+/* --- Widget C: inputs appear muted in skeleton, bars animate on fill --- */
+.wg-c.skeleton .wg-c-input,
+.wg-c.skeleton .wg-c-kcal,
+.wg-c.skeleton .wg-c-macro-v { opacity: 0.2; }
+.wg-c.filled .wg-c-input,
+.wg-c.filled .wg-c-kcal,
+.wg-c.filled .wg-c-macro-v { opacity: 1; transition: opacity .3s ease; }
+
 /* ===== SECTIONS ===== */
 .section { max-width: 1100px; margin: 0 auto; padding: 96px 32px; border-top: 1px solid var(--line); }
 .sec-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
