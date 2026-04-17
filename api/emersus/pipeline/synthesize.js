@@ -90,6 +90,7 @@ export async function synthesize(ctx) {
     recentMessages: ctx.recentMessages,
     evidence: ctx.evidence,
     workoutPlan: ctx.workoutPlan,
+    crossThreadMemory: ctx.crossThreadMemory,
   });
 
   const requestBody = buildRequestBody({

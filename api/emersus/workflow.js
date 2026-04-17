@@ -4,6 +4,7 @@ import { sanitize, validateRequest } from "./pipeline/sanitize.js";
 import { safety } from "./pipeline/safety.js";
 import { planRetrieval } from "./pipeline/retrieval-policy.js";
 import { retrieve } from "./pipeline/retrieve.js";
+import { retrieveMemory } from "./pipeline/retrieve-memory.js";
 import { synthesize } from "./pipeline/synthesize.js";
 import { stream, streamToBuffer } from "./pipeline/stream.js";
 
@@ -30,7 +31,18 @@ async function generateRecommendationStream(rawInput, res) {
     ctx = await sanitize(ctx);
     ctx = await safety(ctx);
     ctx = await planRetrieval(ctx);
-    ctx = await retrieve(ctx);
+    // Phase 2: memory retrieval runs in parallel with evidence retrieval.
+    // retrieveMemory mutates ctx.crossThreadMemory on success; no-op on
+    // failure. Both are independent reads — neither depends on the other.
+    const [evResult, memResult] = await Promise.allSettled([
+      retrieve(ctx),
+      retrieveMemory(ctx),
+    ]);
+    if (evResult.status === "fulfilled") ctx = evResult.value;
+    else throw evResult.reason; // evidence is load-bearing for the pipeline
+    if (memResult.status === "rejected") {
+      console.warn("[workflow] retrieveMemory failed:", memResult.reason?.message || memResult.reason);
+    }
     ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence });
     ctx = await synthesize(ctx);
     await stream(ctx, res);
@@ -54,7 +66,17 @@ async function generateRecommendationJSON(rawInput) {
     ctx = await sanitize(ctx);
     ctx = await safety(ctx);
     ctx = await planRetrieval(ctx);
-    ctx = await retrieve(ctx);
+    // Phase 2: parallel evidence + memory retrieval. Same pattern as the
+    // streaming path.
+    const [evResult, memResult] = await Promise.allSettled([
+      retrieve(ctx),
+      retrieveMemory(ctx),
+    ]);
+    if (evResult.status === "fulfilled") ctx = evResult.value;
+    else throw evResult.reason;
+    if (memResult.status === "rejected") {
+      console.warn("[workflow] retrieveMemory failed:", memResult.reason?.message || memResult.reason);
+    }
     ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence });
     ctx = await synthesize(ctx);
     ctx = await streamToBuffer(ctx);
