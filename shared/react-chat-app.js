@@ -945,7 +945,7 @@ function WorkoutPlanCard({ segment, threadId }) {
         {
           style: {
             background: "var(--color-background-warning, rgba(255,196,102,0.10))",
-            border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
+            border: "0.5px solid var(--line)",
             borderRadius: "var(--border-radius-lg, 14px)",
             padding: 16,
             margin: "10px 0",
@@ -969,7 +969,7 @@ function WorkoutPlanCard({ segment, threadId }) {
       { className: "chat-bubble chat-bubble-assistant chat-text-block" },
       h(
         "div",
-        { style: { color: "var(--color-text-danger, #ff6b6b)" } },
+        { style: { color: "var(--danger)" } },
         `Workout plan could not be parsed: ${parseResult.error || "invalid JSON"}`
       ),
       h(
@@ -1076,14 +1076,14 @@ function WorkoutPlanCard({ segment, threadId }) {
   const style = {
     card: {
       background: "var(--color-background-secondary, rgba(255,255,255,0.03))",
-      border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
+      border: "0.5px solid var(--line)",
       borderRadius: "var(--border-radius-lg, 14px)",
       padding: 18,
       margin: "10px 0",
     },
     header: { display: "flex", flexDirection: "column", gap: 4, marginBottom: 12 },
-    title: { fontSize: 15, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)" },
-    subtitle: { fontSize: 12, color: "var(--color-text-secondary, #666)" },
+    title: { fontSize: 15, fontWeight: 500, color: "var(--ink)" },
+    subtitle: { fontSize: 12, color: "var(--muted)" },
     chip: {
       display: "inline-block",
       fontSize: 11,
@@ -1110,7 +1110,7 @@ function WorkoutPlanCard({ segment, threadId }) {
       gap: 6,
       margin: "12px 0 14px",
       paddingTop: 10,
-      borderTop: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
+      borderTop: "0.5px solid var(--line)",
     },
     sessionRow: {
       display: "grid",
@@ -1118,11 +1118,11 @@ function WorkoutPlanCard({ segment, threadId }) {
       gap: 10,
       fontSize: 12,
       alignItems: "baseline",
-      color: "var(--color-text-primary, #e8e8e8)",
+      color: "var(--ink)",
     },
     sessionDay: {
       fontSize: 11,
-      color: "var(--color-text-secondary, #666)",
+      color: "var(--muted)",
       fontWeight: 500,
       textTransform: "uppercase",
       letterSpacing: "0.04em",
@@ -1138,7 +1138,7 @@ function WorkoutPlanCard({ segment, threadId }) {
     },
     diffWrap: {
       fontSize: 11,
-      color: "var(--color-text-secondary, #666)",
+      color: "var(--muted)",
       marginBottom: 10,
       padding: "8px 10px",
       background: "var(--color-background-tertiary, #f4f3f0)",
@@ -1150,19 +1150,19 @@ function WorkoutPlanCard({ segment, threadId }) {
       alignItems: "center",
       gap: 6,
       padding: "8px 14px",
-      border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
+      border: "0.5px solid var(--line)",
       borderRadius: "var(--border-radius-md, 8px)",
-      background: "var(--color-background-primary, #08080a)",
-      color: "var(--color-text-primary, #e8e8e8)",
+      background: "var(--bg)",
+      color: "var(--ink)",
       fontSize: 12,
       fontWeight: 500,
       cursor: busy ? "wait" : "pointer",
       opacity: busy ? 0.6 : 1,
     },
     buttonPrimary: {
-      background: "var(--color-text-primary, #e8e8e8)",
-      color: "var(--color-background-primary, #08080a)",
-      borderColor: "var(--color-text-primary, #e8e8e8)",
+      background: "var(--ink)",
+      color: "var(--bg)",
+      borderColor: "var(--ink)",
     },
     buttonDisabled: { opacity: 0.4, cursor: "not-allowed" },
     toast: {
@@ -1172,7 +1172,7 @@ function WorkoutPlanCard({ segment, threadId }) {
     },
     error: {
       fontSize: 11,
-      color: "var(--color-text-danger, #ff6b6b)",
+      color: "var(--danger)",
       marginTop: 8,
     },
   };
@@ -1296,7 +1296,7 @@ function WorkoutPlanCard({ segment, threadId }) {
             "a",
             {
               href: "/app/workout/",
-              style: { color: "var(--color-text-primary, #e8e8e8)", textDecoration: "underline" },
+              style: { color: "var(--ink)", textDecoration: "underline" },
             },
             "Open workout planner â†’"
           )
@@ -1363,7 +1363,7 @@ function MealPlanCard({ segment, threadId }) {
     return h(
       "div",
       { className: "chat-bubble chat-bubble-assistant chat-text-block" },
-      h("div", { style: { color: "var(--color-text-danger, #ff6b6b)" } }, parseError),
+      h("div", { style: { color: "var(--danger)" } }, parseError),
       segment?.content
         ? h(
             "pre",
@@ -1439,7 +1439,7 @@ function MealPlanCard({ segment, threadId }) {
       {
         style: {
           background: "var(--color-background-secondary, rgba(255,255,255,0.03))",
-          border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
+          border: "0.5px solid var(--line)",
           borderRadius: "var(--border-radius-lg, 14px)",
           padding: 16,
           margin: "10px 0",
@@ -1465,14 +1465,14 @@ function MealPlanCard({ segment, threadId }) {
               style: {
                 background:
                   dt.slug === activeSlug
-                    ? "var(--color-accent-primary, #78dc14)"
+                    ? "var(--accent)"
                     : "transparent",
                 color:
                   dt.slug === activeSlug
-                    ? "var(--color-text-inverse, #08080a)"
-                    : "var(--color-text-primary, #e8e8e8)",
+                    ? "var(--accent-text)"
+                    : "var(--ink)",
                 border:
-                  "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
+                  "0.5px solid var(--line)",
                 borderRadius: 999,
                 padding: "4px 12px",
                 fontSize: 12,
@@ -1486,13 +1486,13 @@ function MealPlanCard({ segment, threadId }) {
       ),
       // Target card â€” inline styled (not from shared module, which has cross-module caching issues)
       activeTargets
-        ? h("div", { style: { background: "var(--color-background-tertiary, rgba(255,255,255,0.03))", borderRadius: 10, padding: "12px 16px", marginBottom: 12 } },
-            activeDayType?.name ? h("div", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)", marginBottom: 10 } }, activeDayType.name) : null,
+        ? h("div", { style: { background: "var(--surface)", borderRadius: 10, padding: "12px 16px", marginBottom: 12 } },
+            activeDayType?.name ? h("div", { style: { fontSize: 13, fontWeight: 500, color: "var(--ink)", marginBottom: 10 } }, activeDayType.name) : null,
             h("div", { style: { display: "flex", gap: 12, flexWrap: "wrap" } },
               [["kcal", activeTargets.kcal], ["protein", `${activeTargets.protein_g}g`], ["carbs", `${activeTargets.carbs_g}g`], ["fat", `${activeTargets.fat_g}g`], ["fiber", `${activeTargets.fiber_g}g`]].map(([label, val]) =>
                 h("div", { key: label, style: { flex: 1, minWidth: 56, textAlign: "center" } },
-                  h("div", { style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, #666)" } }, label),
-                  h("div", { style: { fontSize: 18, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)" } }, val),
+                  h("div", { style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--muted)" } }, label),
+                  h("div", { style: { fontSize: 18, fontWeight: 500, color: "var(--ink)" } }, val),
                 )
               )
             ),
@@ -1501,12 +1501,12 @@ function MealPlanCard({ segment, threadId }) {
       // Meals â€” inline styled
       h("div", { style: { marginTop: 12 } },
         sortedMeals.map((m, i) =>
-          h("div", { key: `m-${i}`, style: { marginBottom: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.03))", borderRadius: 10 } },
+          h("div", { key: `m-${i}`, style: { marginBottom: 12, padding: "10px 12px", background: "var(--surface)", borderRadius: 10 } },
             h("div", { style: { display: "flex", gap: 8, alignItems: "baseline", marginBottom: 6 } },
-              h("span", { style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, #666)" } }, (m.slot || "").replace(/_/g, " ")),
-              h("span", { style: { fontSize: 13, fontWeight: 500, color: "var(--color-text-primary, #e8e8e8)" } }, m.name),
+              h("span", { style: { fontSize: 11, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--muted)" } }, (m.slot || "").replace(/_/g, " ")),
+              h("span", { style: { fontSize: 13, fontWeight: 500, color: "var(--ink)" } }, m.name),
             ),
-            h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, #666)", lineHeight: 1.6 } },
+            h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--muted)", lineHeight: 1.6 } },
               (m.foods || []).map((f, j) => h("li", { key: j }, `${f.description} \u2014 ${f.grams} g`))
             ),
           )
@@ -1514,9 +1514,9 @@ function MealPlanCard({ segment, threadId }) {
       ),
       // Supplement stack â€” inline styled
       activeDayType?.supplements?.length
-        ? h("div", { style: { marginTop: 12, padding: "10px 12px", background: "var(--color-background-tertiary, rgba(255,255,255,0.03))", borderRadius: 10 } },
-            h("div", { style: { fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--color-text-secondary, #666)", marginBottom: 6 } }, "Supplements"),
-            h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--color-text-secondary, #666)", lineHeight: 1.6 } },
+        ? h("div", { style: { marginTop: 12, padding: "10px 12px", background: "var(--surface)", borderRadius: 10 } },
+            h("div", { style: { fontSize: 12, fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.04em", color: "var(--muted)", marginBottom: 6 } }, "Supplements"),
+            h("ul", { style: { margin: 0, paddingLeft: 16, fontSize: 12, color: "var(--muted)", lineHeight: 1.6 } },
               activeDayType.supplements.map((s, i) =>
                 h("li", { key: i }, `${s.description} \u2014 ${s.amount} ${s.unit}${s.timing && s.timing !== "any" ? " \u00b7 " + s.timing.replace(/_/g, " ") : ""}`)
               )
@@ -1542,9 +1542,9 @@ function MealPlanCard({ segment, threadId }) {
           disabled: busy || resolved === "saved",
           style: {
             flex: 1,
-            background: "var(--color-background-primary, #08080a)",
-            color: "var(--color-text-primary, #e8e8e8)",
-            border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
+            background: "var(--bg)",
+            color: "var(--ink)",
+            border: "0.5px solid var(--line)",
             borderRadius: 8,
             padding: "6px 10px",
             fontSize: 13,
@@ -1562,8 +1562,8 @@ function MealPlanCard({ segment, threadId }) {
                 },
                 style: {
                   background: "transparent",
-                  color: "var(--color-text-primary, #e8e8e8)",
-                  border: "0.5px solid var(--color-border-primary, rgba(255,255,255,0.18))",
+                  color: "var(--ink)",
+                  border: "0.5px solid var(--line-strong)",
                   borderRadius: 8,
                   padding: "6px 14px",
                   fontSize: 13,
@@ -1580,8 +1580,8 @@ function MealPlanCard({ segment, threadId }) {
             onClick: handleSave,
             disabled: busy || resolved === "saved",
             style: {
-              background: "var(--color-accent-primary, #78dc14)",
-              color: "var(--color-text-inverse, #08080a)",
+              background: "var(--accent)",
+              color: "var(--accent-text)",
               border: "none",
               borderRadius: 8,
               padding: "6px 14px",
@@ -1608,7 +1608,7 @@ function MealPlanCard({ segment, threadId }) {
               style: {
                 marginTop: 8,
                 fontSize: 12,
-                color: "var(--color-text-secondary, #a8a8b2)",
+                color: "var(--muted)",
               },
             },
             toast
@@ -1621,7 +1621,7 @@ function MealPlanCard({ segment, threadId }) {
               style: {
                 marginTop: 8,
                 fontSize: 12,
-                color: "var(--color-text-danger, #ff6b6b)",
+                color: "var(--danger)",
               },
             },
             error
@@ -1775,7 +1775,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
     return h(
       "div",
       { className: "chat-bubble chat-bubble-assistant chat-text-block" },
-      h("div", { style: { color: "var(--color-text-danger, #ff6b6b)" } }, parseError),
+      h("div", { style: { color: "var(--danger)" } }, parseError),
       segment?.content
         ? h(
             "pre",
@@ -1809,7 +1809,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
           style: {
             padding: "10px 14px",
             background: "var(--color-background-success, rgba(120,220,20,0.10))",
-            border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
+            border: "0.5px solid var(--line)",
             borderRadius: "var(--border-radius-md, 12px)",
             display: "flex",
             alignItems: "center",
@@ -1838,7 +1838,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
       {
         style: {
           background: "var(--color-background-secondary, rgba(255,255,255,0.03))",
-          border: "0.5px solid var(--color-border-tertiary, rgba(255,255,255,0.06))",
+          border: "0.5px solid var(--line)",
           borderRadius: "var(--border-radius-lg, 14px)",
           padding: 16,
           margin: "10px 0",
@@ -1861,7 +1861,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
             style: {
               fontSize: 12,
               fontWeight: 600,
-              color: "var(--color-text-primary, #e8e8e8)",
+              color: "var(--ink)",
               textTransform: "uppercase",
               letterSpacing: "0.08em",
               flex: 1,
@@ -1960,11 +1960,11 @@ function NutritionLogConfirmCard({ segment, threadId }) {
               background:
                 items.length === 0
                   ? "rgba(255,255,255,0.03)"
-                  : "var(--color-accent-primary, #78dc14)",
+                  : "var(--accent)",
               color:
                 items.length === 0
                   ? "var(--color-text-tertiary, #3a3a3a)"
-                  : "var(--color-text-inverse, #08080a)",
+                  : "var(--accent-text)",
               border: "none",
               borderRadius: 8,
               fontSize: 13,
@@ -1980,7 +1980,7 @@ function NutritionLogConfirmCard({ segment, threadId }) {
         error
           ? h(
               "div",
-              { style: { fontSize: 12, color: "var(--color-text-danger, #ff6b6b)" } },
+              { style: { fontSize: 12, color: "var(--danger)" } },
               error
             )
           : null
