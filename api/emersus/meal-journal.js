@@ -134,6 +134,40 @@ router.delete("/entries/:id", async (req, res) => {
   }
 });
 
+// ─── POST /clear-day — delete all food, water, supplement logs for a date ───
+router.post("/clear-day", async (req, res) => {
+  try {
+    const { date, tz } = req.body ?? {};
+    if (!date || !/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+      res.status(400).json({ error: "date_required_yyyy_mm_dd" });
+      return;
+    }
+    const tzOffset = Number(tz) || 0;
+    const dayStart = new Date(`${date}T00:00:00Z`);
+    dayStart.setTime(dayStart.getTime() + tzOffset * 60_000);
+    const dayEnd = new Date(dayStart.getTime() + 86_400_000);
+    const start = dayStart.toISOString();
+    const end = dayEnd.toISOString();
+
+    const supabase = clientForRequest(req);
+    const [food, water, supps] = await Promise.all([
+      supabase.from("meal_journal_entries").delete().eq("logged_date", date),
+      supabase.from("water_log").delete().gte("consumed_at", start).lt("consumed_at", end),
+      supabase.from("supplement_log").delete().gte("consumed_at", start).lt("consumed_at", end),
+    ]);
+    const err = food.error || water.error || supps.error;
+    if (err) {
+      console.error("[meal-journal:clearDay]", err);
+      res.status(500).json({ error: "clear_failed" });
+      return;
+    }
+    res.json({ ok: true });
+  } catch (err) {
+    console.error("[meal-journal:clearDay]", err);
+    res.status(500).json({ error: "internal_error" });
+  }
+});
+
 // ─── POST /copy-day — clone a day's entries ──────────────────────────────────
 router.post("/copy-day", async (req, res) => {
   try {

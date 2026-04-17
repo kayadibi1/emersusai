@@ -767,6 +767,31 @@ function NutritionApp() {
     day.reload();
   }, [day]);
 
+  const [clearConfirm, setClearConfirm] = useState(false);
+  const [clearing, setClearing] = useState(false);
+
+  useEffect(() => { setClearConfirm(false); }, [day.date]);
+
+  const clearDay = useCallback(async () => {
+    setClearing(true);
+    try {
+      const res = await fetch("/api/emersus/meal-journal/clear-day", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
+        body: JSON.stringify({ date: day.date, tz: new Date().getTimezoneOffset() }),
+      });
+      if (!res.ok) throw new Error("clear_failed");
+      setClearConfirm(false);
+      flashToast("Day cleared");
+      day.reload();
+    } catch (err) {
+      console.error(err);
+      flashToast("Failed to clear");
+    } finally {
+      setClearing(false);
+    }
+  }, [accessToken, day, flashToast]);
+
   function setTabAndUrl(next) {
     setTab(next);
     const params = new URLSearchParams(window.location.search);
@@ -806,6 +831,28 @@ function NutritionApp() {
                 className: "nu-log-food-btn",
                 onClick: openLogFood,
               }, "+ Log food"),
+              ((day.data?.consumed?.kcal || 0) > 0 || (day.data?.consumed?.water_ml || 0) > 0 || (day.data?.consumed?.supplements?.length || 0) > 0)
+                ? clearConfirm
+                  ? h("div", { className: "nu-clear-day-confirm" },
+                      h("span", null, "Clear all entries for this day?"),
+                      h("button", {
+                        type: "button",
+                        className: "nu-clear-day-yes",
+                        onClick: clearDay,
+                        disabled: clearing,
+                      }, clearing ? "Clearing…" : "Clear"),
+                      h("button", {
+                        type: "button",
+                        className: "nu-clear-day-no",
+                        onClick: () => setClearConfirm(false),
+                      }, "Cancel"),
+                    )
+                  : h("button", {
+                      type: "button",
+                      className: "nu-clear-day-btn",
+                      onClick: () => setClearConfirm(true),
+                    }, "Clear day")
+                : null,
             ),
     ) : null,
 

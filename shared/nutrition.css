@@ -640,6 +640,35 @@ body.nutrition-body {
 }
 .nu-log-food-btn:hover { filter: brightness(1.08); }
 
+/* Clear day */
+.nu-clear-day-btn {
+  display: block; width: 100%; text-align: center;
+  background: transparent; color: var(--muted); border: 1px solid var(--line);
+  padding: 9px 16px; border-radius: 8px;
+  font-family: inherit; font-size: 13px; font-weight: 500;
+  cursor: pointer; margin-top: 6px;
+  transition: color .14s, border-color .14s;
+}
+.nu-clear-day-btn:hover { color: var(--danger, #ef4444); border-color: var(--danger, #ef4444); }
+.nu-clear-day-confirm {
+  display: flex; align-items: center; gap: 8px;
+  margin-top: 6px; padding: 8px 12px;
+  background: rgba(239,68,68,0.06); border-radius: 8px;
+  font-size: 13px; color: var(--ink);
+}
+.nu-clear-day-confirm span { flex: 1; }
+.nu-clear-day-yes {
+  background: var(--danger, #ef4444); color: #fff; border: 0;
+  padding: 6px 14px; border-radius: 6px; font-family: inherit;
+  font-size: 12px; font-weight: 600; cursor: pointer;
+}
+.nu-clear-day-yes:disabled { opacity: .6; cursor: default; }
+.nu-clear-day-no {
+  background: transparent; border: 1px solid var(--line);
+  color: var(--muted); padding: 6px 14px; border-radius: 6px;
+  font-family: inherit; font-size: 12px; cursor: pointer;
+}
+
 /* Peak-End toast. Fires on quick-log, meal-add, and supplement success so
  * the gesture ends on a visible beat rather than a silent list refresh.
  * Sits above the bottom bar; clears itself via the 2.2 s timeout in app. */
@@ -673,6 +702,9 @@ body.nutrition-body {
 .nu-food-delete:focus-visible,
 .nu-delete-confirm-yes:focus-visible,
 .nu-delete-confirm-no:focus-visible,
+.nu-clear-day-btn:focus-visible,
+.nu-clear-day-yes:focus-visible,
+.nu-clear-day-no:focus-visible,
 .nu-tab:focus-visible,
 .nu-date-arrow:focus-visible,
 .nu-supp-chip:focus-visible,
