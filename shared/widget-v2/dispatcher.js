@@ -10,6 +10,11 @@ import { PRTimeline } from "./templates/progress/pr-timeline.js";
 import { VolumeTrend } from "./templates/progress/volume-trend.js";
 import { DoseResponseCurve } from "./templates/pharma/dose-response-curve.js";
 import { HalfLifeDecay } from "./templates/pharma/half-life-decay.js";
+import { SupplementStackSchedule } from "./templates/pharma/supplement-stack-schedule.js";
+import { LoadingVsMaintenance } from "./templates/pharma/loading-vs-maintenance.js";
+import { AbsorptionMultiProtein } from "./templates/pharma/absorption-multi-protein.js";
+import { EffectDurationStrip } from "./templates/pharma/effect-duration-strip.js";
+import { DoseThresholdBand } from "./templates/pharma/dose-threshold-band.js";
 import { StudyMatrix } from "./templates/evidence/study-matrix.js";
 import { EffectSizeForest } from "./templates/evidence/effect-size-forest.js";
 
@@ -41,6 +46,11 @@ const REGISTRY = {
   pharma: {
     dose_response_curve: DoseResponseCurve,
     half_life_decay: HalfLifeDecay,
+    supplement_stack_schedule: SupplementStackSchedule,
+    loading_vs_maintenance: LoadingVsMaintenance,
+    absorption_multi_protein: AbsorptionMultiProtein,
+    effect_duration_strip: EffectDurationStrip,
+    dose_threshold_band: DoseThresholdBand,
   },
   evidence: {
     study_matrix: StudyMatrix,

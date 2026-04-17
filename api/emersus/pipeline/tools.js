@@ -658,18 +658,89 @@ const PHARMA_POINT = {
     study_n: { type: ["integer", "null"] },
   },
 };
+const PHARMA_DOSE = {
+  type: "object",
+  required: ["hour", "amount", "unit"],
+  additionalProperties: false,
+  properties: { hour: { type: "number" }, amount: { type: "number" }, unit: { type: "string" } },
+};
+const PHARMA_SUPPLEMENT = {
+  type: "object",
+  required: ["name", "doses"],
+  additionalProperties: false,
+  properties: { name: { type: "string" }, doses: { type: "array", items: PHARMA_DOSE } },
+};
+const PHARMA_XY = {
+  type: "object",
+  required: ["x", "y"],
+  additionalProperties: false,
+  properties: { x: { type: "number" }, y: { type: "number" } },
+};
+const PHARMA_PROTOCOL = {
+  type: "object",
+  required: ["label", "points"],
+  additionalProperties: false,
+  properties: { label: { type: "string" }, points: { type: "array", items: PHARMA_XY } },
+};
+const PHARMA_ABS_POINT = {
+  type: "object",
+  required: ["hour", "amount"],
+  additionalProperties: false,
+  properties: { hour: { type: "number" }, amount: { type: "number" } },
+};
+const PHARMA_CURVE = {
+  type: "object",
+  required: ["label", "points", "peak_hour"],
+  additionalProperties: false,
+  properties: {
+    label: { type: "string" },
+    points: { type: "array", items: PHARMA_ABS_POINT },
+    peak_hour: { type: ["number", "null"] },
+  },
+};
+const PHARMA_COMPOUND = {
+  type: "object",
+  required: ["name", "onset_hour", "peak_start_hour", "peak_end_hour", "wearoff_hour"],
+  additionalProperties: false,
+  properties: {
+    name: { type: "string" },
+    onset_hour: { type: "number" },
+    peak_start_hour: { type: "number" },
+    peak_end_hour: { type: "number" },
+    wearoff_hour: { type: "number" },
+  },
+};
+const PHARMA_ZONES = {
+  type: ["object", "null"],
+  required: ["sub_max", "therapeutic_min", "therapeutic_max", "over_min"],
+  additionalProperties: false,
+  properties: {
+    sub_max: { type: "number" }, therapeutic_min: { type: "number" },
+    therapeutic_max: { type: "number" }, over_min: { type: "number" },
+  },
+};
 const PHARMA_DATA = {
   type: "object",
   required: [
     "compound",
-    // dose_response_curve fields
+    // dose_response_curve
     "unit", "points", "recommended_range",
-    // half_life_decay fields
+    // half_life_decay
     "half_life_hours", "initial_dose", "dose_unit", "horizon_hours",
+    // supplement_stack_schedule
+    "supplements", "day_label",
+    // loading_vs_maintenance
+    "protocols", "saturation_y", "x_label", "y_label",
+    // absorption_multi_protein
+    "curves", "total_hours",
+    // effect_duration_strip
+    "compounds",
+    // dose_threshold_band
+    "current_dose", "zones", "axis_max",
   ],
   additionalProperties: false,
   properties: {
-    compound: { type: "string" },
+    compound: { type: ["string", "null"] },
     unit: { type: ["string", "null"], enum: ["mg", "mg/kg", "g", "IU", null] },
     points: { type: ["array", "null"], items: PHARMA_POINT },
     recommended_range: {
@@ -682,6 +753,18 @@ const PHARMA_DATA = {
     initial_dose: { type: ["number", "null"] },
     dose_unit: { type: ["string", "null"] },
     horizon_hours: { type: ["integer", "null"] },
+    supplements: { type: ["array", "null"], items: PHARMA_SUPPLEMENT },
+    day_label: { type: ["string", "null"] },
+    protocols: { type: ["array", "null"], items: PHARMA_PROTOCOL },
+    saturation_y: { type: ["number", "null"] },
+    x_label: { type: ["string", "null"] },
+    y_label: { type: ["string", "null"] },
+    curves: { type: ["array", "null"], items: PHARMA_CURVE },
+    total_hours: { type: ["number", "null"] },
+    compounds: { type: ["array", "null"], items: PHARMA_COMPOUND },
+    current_dose: { type: ["number", "null"] },
+    zones: PHARMA_ZONES,
+    axis_max: { type: ["number", "null"] },
   },
 };
 
@@ -700,18 +783,22 @@ const EMIT_PHARMA_WIDGET = {
     "TEMPLATE SELECTION:",
     "  dose_response_curve — effect vs dose with optional recommended-range band.",
     "  half_life_decay — concentration-vs-time from a single dose.",
+    "  supplement_stack_schedule — daily lane chart with dose pills at their hours.",
+    "  loading_vs_maintenance — two protocol curves comparing loading phase vs steady-state.",
+    "  absorption_multi_protein — 2-4 overlaid absorption curves (e.g. whey/casein/soy).",
+    "  effect_duration_strip — lozenge per compound with onset → peak → wear-off windows.",
+    "  dose_threshold_band — 1D dose ladder with sub/therapeutic/over zones + current marker.",
     "",
     "DO NOT CALL for: prescription medication dosing (redirect to clinician), stacking/polypharmacy interaction matrices, or individual PK predictions.",
     "",
-    "DATA SHAPE (strict: fill the fields your `type` uses, set every other field to null):",
-    "  compound       — required for both types",
-    "  dose_response_curve fills: unit, points, recommended_range",
-    "  half_life_decay fills: half_life_hours, initial_dose, dose_unit, horizon_hours",
-    "",
-    "EXAMPLE half_life_decay call:",
-    '  data: { "compound": "Caffeine", "unit": null, "points": null, "recommended_range": null, "half_life_hours": 5, "initial_dose": 200, "dose_unit": "mg", "horizon_hours": 24 }',
-    "EXAMPLE dose_response_curve call:",
-    '  data: { "compound": "Creatine monohydrate", "unit": "g", "points": [{ "dose": 3, "effect_pct": 7, "study_n": 120 }], "recommended_range": { "min": 3, "max": 5 }, "half_life_hours": null, "initial_dose": null, "dose_unit": null, "horizon_hours": null }',
+    "DATA SHAPE (strict: fill ONLY the fields your `type` uses, set every other field to null):",
+    "  dose_response_curve: compound, unit, points[], recommended_range",
+    "  half_life_decay: compound, half_life_hours, initial_dose, dose_unit, horizon_hours",
+    "  supplement_stack_schedule: supplements[{name, doses[{hour,amount,unit}]}], day_label",
+    "  loading_vs_maintenance: protocols[2]{label, points[{x,y}]}, saturation_y, x_label, y_label",
+    "  absorption_multi_protein: curves[2-4]{label, peak_hour, points[{hour,amount}]}, total_hours",
+    "  effect_duration_strip: compounds[{name,onset_hour,peak_start_hour,peak_end_hour,wearoff_hour}], total_hours",
+    "  dose_threshold_band: compound, dose_unit, current_dose, zones{sub_max,therapeutic_min,therapeutic_max,over_min}, axis_max",
   ].join("\n"),
   parameters: {
     type: "object",
@@ -722,7 +809,12 @@ const EMIT_PHARMA_WIDGET = {
       display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
-      type: { type: "string", enum: ["dose_response_curve", "half_life_decay"] },
+      type: { type: "string", enum: [
+        "dose_response_curve", "half_life_decay",
+        "supplement_stack_schedule", "loading_vs_maintenance",
+        "absorption_multi_protein", "effect_duration_strip",
+        "dose_threshold_band",
+      ] },
       data: PHARMA_DATA,
     },
   },

@@ -176,3 +176,29 @@
 .wv-orm-lift { font-size: 13px; font-weight: 600; color: var(--ink); }
 .wv-orm-set { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: auto; }
 .wv-orm-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+
+/* ─── supplement_stack_schedule ─── */
+.wv-sss-day { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+.wv-sss-svg { width: 100%; height: auto; display: block; }
+
+/* ─── loading_vs_maintenance ─── */
+.wv-lvm-svg { width: 100%; height: auto; display: block; }
+.wv-lvm-legend { display: flex; gap: 16px; font-size: 10px; color: var(--muted); margin-top: 6px; flex-wrap: wrap; }
+.wv-lvm-legend-item { display: inline-flex; align-items: center; gap: 4px; }
+.wv-lvm-swatch { display: inline-block; width: 10px; height: 2px; }
+
+/* ─── absorption_multi_protein ─── */
+.wv-amp-svg { width: 100%; height: auto; display: block; }
+.wv-amp-legend { display: flex; gap: 14px; font-size: 10px; color: var(--muted); margin-top: 6px; flex-wrap: wrap; }
+.wv-amp-legend-item { display: inline-flex; align-items: center; gap: 4px; }
+.wv-amp-swatch { display: inline-block; width: 8px; height: 8px; border-radius: 50%; }
+.wv-amp-peak { color: var(--dim); font-variant-numeric: tabular-nums; margin-left: 4px; }
+
+/* ─── effect_duration_strip ─── */
+.wv-eds-svg { width: 100%; height: auto; display: block; }
+
+/* ─── dose_threshold_band ─── */
+.wv-dtb-head { display: flex; gap: 12px; align-items: baseline; margin-bottom: 6px; }
+.wv-dtb-compound { font-size: 13px; font-weight: 700; color: var(--ink); }
+.wv-dtb-current { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: auto; }
+.wv-dtb-svg { width: 100%; height: auto; display: block; }
