@@ -5,6 +5,9 @@ import { FollowUpChips } from "../../primitives/follow-up-chips.js";
 const h = React.createElement;
 const CIRC = 2 * Math.PI * 60;                  // donut circumference at r=60
 
+// "MAINTENANCE" overflows the 120px inner ring. Abbreviate for in-ring display.
+const PHASE_SHORT = { cut: "CUT", maintenance: "MAINT", bulk: "BULK" };
+
 // Macro ring donut for a daily macro split. Pure SVG. Interactive hover
 // highlights a segment (local state only, no server round-trip).
 
@@ -71,7 +74,7 @@ export function MacroRing({ title, display_width, summary, follow_up_chips, data
         h("circle", { cx: 80, cy: 80, r: 60, fill: "none", stroke: "rgba(26,24,19,0.06)", strokeWidth: 18 }),
         ...arcs,
         h("text", { x: 80, y: 76, textAnchor: "middle", fontSize: 28, fontWeight: 700, fill: "var(--ink)" }, `${kcal_total}`),
-        h("text", { x: 80, y: 96, textAnchor: "middle", fontSize: 9, fill: "var(--muted)", letterSpacing: "0.14em" }, `KCAL · ${(data.phase || "").toUpperCase()}`),
+        h("text", { x: 80, y: 96, textAnchor: "middle", fontSize: 9, fill: "var(--muted)", letterSpacing: "0.1em" }, `KCAL · ${PHASE_SHORT[data.phase] || (data.phase || "").toUpperCase()}`),
       ),
       h("div", { className: "wv-mring-legend" }, ...legendRows),
     ),
