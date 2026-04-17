@@ -418,3 +418,6 @@ function maybeExtractMemory(ctx) {
     )
     .catch((err) => console.warn("[extractMemory] failed:", err?.message || err));
 }
+
+// Test-only export. Do not import from production code.
+export const __testables = { processEvent };
