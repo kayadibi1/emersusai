@@ -39,6 +39,34 @@ const htmlEntries = [
   "terms/index.html",
 ];
 
+const GA_MEASUREMENT_ID = "G-RVQWW1H0S9";
+const GA_SNIPPET = `
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${GA_MEASUREMENT_ID}');
+    </script>`;
+
+function injectGtag() {
+  return {
+    name: "inject-gtag",
+    transformIndexHtml: {
+      order: "pre",
+      handler(html) {
+        if (html.includes(GA_MEASUREMENT_ID)) return html;
+        const charsetRe = /<meta\s+charset\s*=\s*["']?[^"'>]+["']?\s*\/?>/i;
+        if (charsetRe.test(html)) {
+          return html.replace(charsetRe, (match) => `${match}${GA_SNIPPET}`);
+        }
+        return html.replace(/<head(\s[^>]*)?>/i, (match) => `${match}${GA_SNIPPET}`);
+      },
+    },
+  };
+}
+
 function copyStaticFiles(files) {
   return {
     name: "copy-static-files",
@@ -68,6 +96,7 @@ export default defineConfig({
     },
   },
   plugins: [
+    injectGtag(),
     copyStaticFiles([
       "emersus-logo.png",
       "emersus_mark_fibonacci_blue.svg",
