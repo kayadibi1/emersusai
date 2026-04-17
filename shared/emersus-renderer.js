@@ -17,6 +17,7 @@ import React, {
 } from "react";
 import MealPlanWidget from "./meal-plan-widget.js";
 import NutritionLogConfirmWidget from "./nutrition-log-confirm-widget.js";
+import { WidgetV2 } from "./widget-v2/dispatcher.js";
 
 const h = React.createElement;
 const MAX_WIDGET_FRAME_HEIGHT = 1400;
@@ -578,6 +579,10 @@ export function LLMResponse({ markdown, renderText }) {
             "\u26a0 meal plan could not be parsed",
           );
         }
+      }
+      if (segment.type === "widget-v2") {
+        const { family, payload } = segment.content || {};
+        return h(WidgetV2, { key: `wv-${index}`, family, payload });
       }
       if (segment.type === "nutrition-log-confirm") {
         try {
