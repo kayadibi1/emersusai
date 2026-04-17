@@ -62,12 +62,19 @@ export default function FoodDetailDrawer({ foodId, onClose, onLog }) {
         setFood(f);
 
         if (f) {
-          const { data: nutData } = await sb
-            .from("food_nutrients")
-            .select("amount_per_base, nutrients:nutrients!inner(slug, name, unit, category, default_dri_male, default_dri_female, display_order)")
-            .eq("food_id", foodId)
-            .order("nutrients(display_order)");
+          const [{ data: nutData }, { data: profile }] = await Promise.all([
+            sb
+              .from("food_nutrients")
+              .select("amount_per_base, nutrients:nutrients!inner(slug, name, unit, category, default_dri_male, default_dri_female, display_order)")
+              .eq("food_id", foodId)
+              .order("nutrients(display_order)"),
+            sb
+              .from("profiles")
+              .select("biological_sex")
+              .maybeSingle(),
+          ]);
           if (cancelled) return;
+          const useFemale = profile?.biological_sex === "female";
           // Normalize: scale per-100g to per-serving if the UI is showing serving
           setNutrients((nutData ?? []).map(row => ({
             slug: row.nutrients.slug,
@@ -75,7 +82,7 @@ export default function FoodDetailDrawer({ foodId, onClose, onLog }) {
             unit: row.nutrients.unit,
             category: row.nutrients.category,
             amount: row.amount_per_base * (f.common_unit_grams ?? f.base_amount) / f.base_amount,
-            dri: row.nutrients.default_dri_male,  // v1 assumes male defaults; v2 reads profile
+            dri: useFemale ? row.nutrients.default_dri_female : row.nutrients.default_dri_male,
           })));
 
           // Mini history: entries over last 30 days for this food

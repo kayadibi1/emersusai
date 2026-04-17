@@ -28,6 +28,29 @@ describe('nutrition-day — computePaceZone', () => {
     assert.ok(z.start > 0.9);
     assert.equal(z.end, 1);
   });
+
+  test('custom eating window shifts pace zone', () => {
+    const noon = new Date('2026-04-15T14:30:00');
+    // IF eating window = 12pm-8pm = 8h. 14:30 = 2.5h elapsed = 31.25%.
+    const z = computePaceZone({
+      targetKcal: 2200,
+      eatingWindow: { start: 12, end: 20 },
+      now: noon,
+    });
+    assert.ok(z.start > 0.22 && z.start < 0.33, `start=${z.start}`);
+    assert.ok(z.end > 0.33 && z.end < 0.42, `end=${z.end}`);
+  });
+
+  test('before custom window start returns 0', () => {
+    const earlyMorning = new Date('2026-04-15T10:00:00');
+    const z = computePaceZone({
+      targetKcal: 2200,
+      eatingWindow: { start: 12, end: 20 },
+      now: earlyMorning,
+    });
+    assert.equal(z.start, 0);
+    assert.ok(z.end < 0.1);
+  });
 });
 
 describe('nutrition-day — computeWhyInsight', () => {

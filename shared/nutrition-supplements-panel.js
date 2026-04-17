@@ -6,6 +6,8 @@
 
 import React from "react";
 import { localDateStr } from "./date-utils.js";
+import { resolveDayType } from "./meal-plan-day-type.js";
+import { createClient } from "@supabase/supabase-js";
 const { useEffect, useState } = React;
 const h = React.createElement;
 
@@ -23,6 +25,7 @@ const TIMING_ORDER = ["morning", "with_meal", "pre_workout", "post_workout", "be
 
 export default function NutritionSupplementsPanel({ onOpenFoodDetail }) {
   const [mealPlan, setMealPlan] = useState(null);
+  const [workoutPlan, setWorkoutPlan] = useState(null);
   const [todayLogged, setTodayLogged] = useState([]);
   const [loading, setLoading] = useState(true);
   const todayStr = localDateStr();
@@ -30,13 +33,23 @@ export default function NutritionSupplementsPanel({ onOpenFoodDetail }) {
   async function load() {
     setLoading(true);
     try {
-      const [mpRes, dayRes] = await Promise.all([
+      const sb = window.EMERSUS_SUPABASE ?? createClient(window.EMERSUS_SUPABASE_URL, window.EMERSUS_ANON_KEY);
+      if (!window.EMERSUS_SUPABASE) window.EMERSUS_SUPABASE = sb;
+
+      const [mpRes, dayRes, { data: wp }] = await Promise.all([
         authFetch("/api/emersus/meal-plans/active"),
         authFetch(`/api/emersus/meal-journal/day?date=${todayStr}`),
+        sb.from("workout_plans")
+          .select("id, plan")
+          .is("archived_at", null)
+          .order("updated_at", { ascending: false })
+          .limit(1)
+          .maybeSingle(),
       ]);
       const mp = mpRes.ok ? await mpRes.json() : { meal_plan: null };
       const day = dayRes.ok ? await dayRes.json() : { entries: [] };
       setMealPlan(mp.meal_plan);
+      setWorkoutPlan(wp);
       setTodayLogged((day.entries ?? []).filter(e => e.food?.kind === "supplement"));
     } finally {
       setLoading(false);
@@ -49,7 +62,13 @@ export default function NutritionSupplementsPanel({ onOpenFoodDetail }) {
 
   const prescribed = [];
   if (mealPlan?.plan?.day_types) {
-    const dt = mealPlan.plan.day_types[0];  // v1: show the first day-type's supps; could resolve by today's day_type
+    const todaySlug = resolveDayType({
+      date: todayStr,
+      mealPlan: mealPlan.plan,
+      workoutPlan: workoutPlan?.plan,
+    });
+    const dt = mealPlan.plan.day_types.find(d => d.slug === todaySlug)
+            ?? mealPlan.plan.day_types[0];
     if (dt?.supplements) prescribed.push(...dt.supplements);
   }
 

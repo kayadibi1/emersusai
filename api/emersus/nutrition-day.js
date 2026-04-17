@@ -9,6 +9,7 @@
 
 import { supabaseAdmin } from "../lib/clients.js";
 import { computeMacrosFromBodyWeight } from "./profile.js";
+import { resolveDayType } from "../../shared/meal-plan-day-type.js";
 
 const DEFAULT_EATING_WINDOW = { start: 7, end: 22 }; // 7 AM - 10 PM local
 const PACE_TOLERANCE = 0.08;                          // ±8% band
@@ -78,6 +79,19 @@ async function loadActivePlan(userId) {
   return data || null;
 }
 
+async function loadActiveWorkoutPlan(userId) {
+  const { data, error } = await supabaseAdmin
+    .from("workout_plans")
+    .select("id, plan")
+    .eq("user_id", userId)
+    .is("archived_at", null)
+    .order("updated_at", { ascending: false })
+    .limit(1)
+    .maybeSingle();
+  if (error) throw error;
+  return data || null;
+}
+
 async function loadWater(userId, dateStr) {
   const { start, end } = rangeForDate(dateStr);
   const { data, error } = await supabaseAdmin
@@ -111,13 +125,16 @@ async function loadSupplements(userId, dateStr) {
 async function loadProfileTarget(userId) {
   const { data } = await supabaseAdmin
     .from("profiles")
-    .select("body_weight_kg, macros, weight_unit")
+    .select("body_weight_kg, macros, weight_unit, eating_window_start, eating_window_end")
     .eq("id", userId)
     .maybeSingle();
   const macros = data?.macros || computeMacrosFromBodyWeight(data?.body_weight_kg) || {
     kcal: 2000, protein_g: 130, carbs_g: 220, fat_g: 70,
   };
-  return { ...macros, water_ml: 3000 };
+  const eatingWindow = (data?.eating_window_start != null && data?.eating_window_end != null)
+    ? { start: data.eating_window_start, end: data.eating_window_end }
+    : undefined;
+  return { ...macros, water_ml: 3000, eatingWindow };
 }
 
 function summarizeMacros(rows) {
@@ -165,11 +182,16 @@ function buildMealsList(consumedRows, planSlots) {
   });
 }
 
-function planSlotsFromActivePlan(activePlan) {
+function planSlotsFromActivePlan(activePlan, dateStr, workoutPlan) {
   if (!activePlan?.plan) return [];
   const dayTypes = activePlan.plan.day_types || [];
-  // Default to first day-type if no day mapping. Real day-of-week mapping is a follow-up.
-  const meals = (dayTypes[0]?.meals) || [];
+  const slug = resolveDayType({
+    date: dateStr,
+    mealPlan: activePlan.plan,
+    workoutPlan: workoutPlan?.plan,
+  });
+  const dt = dayTypes.find(d => d.slug === slug) ?? dayTypes[0];
+  const meals = dt?.meals || [];
   return meals.map((m) => ({
     id: m.id || `plan-${m.slot}-${m.name}`,
     slot: m.slot,
@@ -192,9 +214,10 @@ export default async function nutritionDayHandler(req, res) {
   if (!/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return res.status(400).json({ error: "date must be YYYY-MM-DD" });
 
   try {
-    const [consumedRows, activePlan, waterRows, supplementRows, target] = await Promise.all([
+    const [consumedRows, activePlan, activeWorkoutPlan, waterRows, supplementRows, target] = await Promise.all([
       loadConsumed(userId, dateStr),
       loadActivePlan(userId),
+      loadActiveWorkoutPlan(userId),
       loadWater(userId, dateStr),
       loadSupplements(userId, dateStr),
       loadProfileTarget(userId),
@@ -204,7 +227,7 @@ export default async function nutritionDayHandler(req, res) {
     consumed.water_ml = waterRows.reduce((acc, r) => acc + (Number(r.ml) || 0), 0);
     consumed.supplements = supplementRows.map((s) => ({ id: s.id, name: s.name, amount: s.amount, unit: s.unit }));
 
-    const planSlots = planSlotsFromActivePlan(activePlan);
+    const planSlots = planSlotsFromActivePlan(activePlan, dateStr, activeWorkoutPlan);
     const planned = planSlots.reduce((acc, s) => ({
       kcal: acc.kcal + s.kcal,
       protein_g: acc.protein_g + s.protein_g,
@@ -213,7 +236,7 @@ export default async function nutritionDayHandler(req, res) {
     }), { kcal: 0, protein_g: 0, carbs_g: 0, fat_g: 0 });
 
     const meals = buildMealsList(consumedRows, planSlots);
-    const pace = computePaceZone({ targetKcal: target.kcal });
+    const pace = computePaceZone({ targetKcal: target.kcal, eatingWindow: target.eatingWindow });
     const whyInsight = computeWhyInsight({ meals, target, consumed });
 
     res.json({
@@ -224,6 +247,7 @@ export default async function nutritionDayHandler(req, res) {
       meals,
       pace_zone_start: pace.start,
       pace_zone_end: pace.end,
+      eating_window: target.eatingWindow ?? DEFAULT_EATING_WINDOW,
       predicted_target_time: null,
       why_insight: whyInsight,
       active_plan: activePlan ? { id: activePlan.id, title: activePlan.title } : null,

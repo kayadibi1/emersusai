@@ -41,6 +41,14 @@ function validateTargets(targets, dayTypeSlug, errors) {
       errors.push(`targets.${dayTypeSlug}.${field}: expected non-negative number`);
     }
   }
+  if (isFiniteNumber(targets.kcal) && targets.kcal < 800) {
+    errors.push(`targets.${dayTypeSlug}.kcal: must be at least 800 (got ${targets.kcal})`);
+  }
+  for (const field of ["protein_g", "carbs_g", "fat_g"]) {
+    if (isFiniteNumber(targets[field]) && targets[field] <= 0) {
+      errors.push(`targets.${dayTypeSlug}.${field}: must be greater than 0`);
+    }
+  }
 }
 
 function validateMeal(meal, path, errors) {
