@@ -353,7 +353,7 @@ const EMIT_CALCULATOR_WIDGET = {
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
       type: { type: "string", enum: ["macro_ring", "tdee_calculator", "one_rm_estimator"] },
-      data: { type: "object" },
+      data: { type: "object", description: "Required, non-null object. Shape depends on `type` — see the DATA section of this tool's description." },
     },
   },
 };
@@ -477,7 +477,7 @@ const EMIT_TRAINING_WIDGET = {
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
       type: { type: "string", enum: ["periodization_ladder", "volume_intensity_grid"] },
-      data: { type: "object" },
+      data: { type: "object", description: "Required, non-null object. Shape depends on `type` — see the DATA section of this tool's description." },
     },
   },
 };
@@ -511,7 +511,7 @@ const EMIT_PROGRESS_WIDGET = {
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
       type: { type: "string", enum: ["pr_timeline", "volume_trend"] },
-      data: { type: "object" },
+      data: { type: "object", description: "Required, non-null object. Shape depends on `type` — see the DATA section of this tool's description." },
     },
   },
 };
@@ -545,7 +545,7 @@ const EMIT_PHARMA_WIDGET = {
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
       type: { type: "string", enum: ["dose_response_curve", "half_life_decay"] },
-      data: { type: "object" },
+      data: { type: "object", description: "Required, non-null object. Shape depends on `type` — see the DATA section of this tool's description." },
     },
   },
 };
@@ -577,7 +577,7 @@ const EMIT_EVIDENCE_WIDGET = {
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
       type: { type: "string", enum: ["study_matrix", "effect_size_forest"] },
-      data: { type: "object" },
+      data: { type: "object", description: "Required, non-null object. Shape depends on `type` — see the DATA section of this tool's description." },
     },
   },
 };
