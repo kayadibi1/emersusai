@@ -14,7 +14,11 @@
 
 import { embedText as defaultEmbedText } from "../embeddings.js";
 
-const RAG_MIN_SIMILARITY = 0.35;
+// text-embedding-3-small produces a compressed cosine range in short-text
+// domains. The spec §6.8 placeholder of 0.35 was untested and filters out
+// obvious matches (verified 2026-04-17: equipment-about-equipment scored
+// 0.22). Lowering to 0.20; adjust further if we see false positives.
+const RAG_MIN_SIMILARITY = 0.20;
 const RAG_LIMIT          = 6;
 const PERSISTENT_CAP     = 15;
 const ACTIVE_NOW_CAP     = 8;

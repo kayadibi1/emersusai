@@ -81,7 +81,7 @@ describe('retrieveMemory', () => {
         body: [
           { id: 'b1', category: 'personal_record',     tier: 'C', fact: 'bench 1RM 102.5 kg', metadata: {}, last_mentioned_at: '2026-03-15T00:00:00Z', similarity: 0.82 },
           { id: 'b2', category: 'goal',                tier: 'B', fact: 'cutting for summer',   metadata: {}, last_mentioned_at: '2026-04-01T00:00:00Z', similarity: 0.41 },
-          { id: 'b3', category: 'exercise_preference', tier: 'E', fact: 'hates burpees',        metadata: {}, last_mentioned_at: '2026-02-10T00:00:00Z', similarity: 0.22 },
+          { id: 'b3', category: 'exercise_preference', tier: 'E', fact: 'hates burpees',        metadata: {}, last_mentioned_at: '2026-02-10T00:00:00Z', similarity: 0.12 },
         ],
       },
       '/rest/v1/rpc/refresh_memory_mentions':  { body: 2 },
