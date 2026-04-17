@@ -112,3 +112,17 @@
 .wv-vig-week-head { text-align: center; font-size: 10px; color: var(--dim); letter-spacing: 0.08em; padding-bottom: 4px; }
 .wv-vig-lift-head { font-size: 11px; color: var(--muted); text-align: left; padding-right: 6px; display: grid; align-items: center; }
 .wv-vig-cell { text-align: center; padding: 6px 4px; border-radius: 3px; font-weight: 600; font-variant-numeric: tabular-nums; min-height: 22px; border: 1px solid var(--line); }
+
+/* ─── pr_timeline ─── */
+.wv-prt-body { display: flex; flex-direction: column; gap: 8px; }
+.wv-prt-head { display: flex; gap: 12px; align-items: baseline; }
+.wv-prt-lift { font-size: 13px; font-weight: 700; color: var(--ink); }
+.wv-prt-meta { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+.wv-prt-svg { width: 100%; height: auto; display: block; }
+
+/* ─── volume_trend ─── */
+.wv-vt-body { display: flex; flex-direction: column; gap: 8px; }
+.wv-vt-head { display: flex; gap: 12px; align-items: baseline; }
+.wv-vt-metric { font-size: 13px; font-weight: 600; color: var(--ink); }
+.wv-vt-range { font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: auto; }
+.wv-vt-svg { width: 100%; height: auto; display: block; }

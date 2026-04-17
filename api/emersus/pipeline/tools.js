@@ -20,6 +20,7 @@ import {
 import { validateCalculatorWidget } from "../../../shared/widget-v2/validators/calculator.js";
 import { validateNutritionWidget } from "../../../shared/widget-v2/validators/nutrition.js";
 import { validateTrainingWidget } from "../../../shared/widget-v2/validators/training.js";
+import { validateProgressWidget } from "../../../shared/widget-v2/validators/progress.js";
 
 // ── Shared sub-schemas (inlined for strict mode) ────────────────────────
 
@@ -486,6 +487,40 @@ const EMIT_TRAINING_WIDGET = {
   },
 };
 
+// ── emit_progress_widget (widget-v2 · F5) ──────────────────────────
+
+const EMIT_PROGRESS_WIDGET = {
+  type: "function",
+  name: "emit_progress_widget",
+  strict: false,
+  description: [
+    "Emit a personal-progression visualization from the user's own logged data or the numbers they supply in the prompt. Write 2-4 sentences of prose FIRST, then call.",
+    "",
+    "TEMPLATE SELECTION:",
+    "  pr_timeline — e1RM trend across dated sessions for one lift.",
+    "  volume_trend — weekly metric trend (tonnage, working sets, time under tension).",
+    "",
+    "DO NOT CALL for: cross-user benchmarks, predictions of future PRs, or generic progression theory. This tool visualizes history only.",
+    "",
+    "DATA:",
+    "  pr_timeline: { lift: string, unit: 'kg'|'lb', entries: [{ date: YYYY-MM-DD, load: number, reps: int }] }",
+    "  volume_trend: { metric: string, points: [{ week_start: YYYY-MM-DD, value: number }] }",
+  ].join("\n"),
+  parameters: {
+    type: "object",
+    required: ["title", "display_width", "summary", "follow_up_chips", "type", "data"],
+    additionalProperties: false,
+    properties: {
+      title: { type: "string" },
+      display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
+      summary: { type: ["string", "null"] },
+      follow_up_chips: { type: "array", items: { type: "string" } },
+      type: { type: "string", enum: ["pr_timeline", "volume_trend"] },
+      data: { type: "object" },
+    },
+  },
+};
+
 // ── log_food ────────────────────────────────────────────────────────────
 
 const LOG_FOOD = {
@@ -682,7 +717,7 @@ export const RECALL_MEMORY = {
 // flag-gated tools like remember_fact can be toggled at runtime.
 export const TOOL_DEFINITIONS = [
   EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, EMIT_CALCULATOR_WIDGET,
-  EMIT_NUTRITION_WIDGET, EMIT_TRAINING_WIDGET,
+  EMIT_NUTRITION_WIDGET, EMIT_TRAINING_WIDGET, EMIT_PROGRESS_WIDGET,
   LOG_FOOD, GET_USER_PROFILE,
 ];
 
@@ -959,6 +994,10 @@ const VALIDATORS = {
   },
   emit_training_widget: (args) => {
     const r = validateTrainingWidget(args);
+    return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
+  },
+  emit_progress_widget: (args) => {
+    const r = validateProgressWidget(args);
     return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
   },
   log_food:          validateLogFood,

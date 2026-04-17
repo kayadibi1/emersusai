@@ -4,6 +4,8 @@ import { ProteinDistributionBar } from "./templates/nutrition/protein-distributi
 import { MealMacroStack } from "./templates/nutrition/meal-macro-stack.js";
 import { PeriodizationLadder } from "./templates/training/periodization-ladder.js";
 import { VolumeIntensityGrid } from "./templates/training/volume-intensity-grid.js";
+import { PRTimeline } from "./templates/progress/pr-timeline.js";
+import { VolumeTrend } from "./templates/progress/volume-trend.js";
 
 const h = React.createElement;
 
@@ -24,9 +26,12 @@ const REGISTRY = {
     periodization_ladder: PeriodizationLadder,
     volume_intensity_grid: VolumeIntensityGrid,
   },
+  progress: {
+    pr_timeline: PRTimeline,
+    volume_trend: VolumeTrend,
+  },
   pharma:    {},  // Plan 2
   evidence:  {},  // Plan 5
-  progress:  {},  // Plan 6
 };
 
 function Diagnostic({ reason, family, type }) {
