@@ -803,3 +803,42 @@ body.profile-body {
   .pf-memory-row-actions { align-self: flex-end; }
   .pf-memory-row-error { margin-left: 0; }
 }
+
+/* Phase 5 additions — autosave toggle, pending section, orphan badge */
+.pf-memory-head-row {
+  display: flex; align-items: baseline; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap; width: 100%;
+}
+.pf-memory-autosave {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--dim); cursor: pointer;
+}
+.pf-memory-autosave input[type="checkbox"] {
+  appearance: auto;
+  accent-color: var(--accent);
+  width: 15px; height: 15px;
+  cursor: pointer;
+}
+.pf-memory-pending {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 12px 14px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 10px;
+}
+.pf-memory-row.is-pending {
+  border-left: 2px solid var(--accent);
+}
+.pf-memory-orphan-badge {
+  align-self: center;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 999px;
+  background: var(--surface-faint);
+  color: var(--muted);
+  border: 1px solid var(--surface-edge, var(--accent-line));
+  white-space: nowrap;
+}

@@ -496,6 +496,8 @@ function formatMemoryCategory(cat) {
 
 function MemoryTab() {
   const [rows, setRows] = useState(null);
+  const [threadIds, setThreadIds] = useState(null);
+  const [autosave, setAutosave] = useState(null);
   const [error, setError] = useState("");
   const [showArchive, setShowArchive] = useState(false);
 
@@ -503,15 +505,49 @@ function MemoryTab() {
     setError("");
     try {
       const sb = await getSupabase();
-      const { data, error: err } = await sb
-        .from("user_memories")
-        .select("id, category, tier, fact, metadata, status, created_at, confirmed_at, resolved_at, last_mentioned_at, expires_at, source_thread_id")
-        .order("tier", { ascending: true })
-        .order("created_at", { ascending: false });
-      if (err) throw err;
-      setRows(data || []);
+      const [memResp, threadResp, prefResp] = await Promise.all([
+        sb.from("user_memories")
+          .select("id, category, tier, fact, metadata, status, supersedes_id, source, confidence, created_at, confirmed_at, resolved_at, last_mentioned_at, expires_at, source_thread_id")
+          .order("tier", { ascending: true })
+          .order("created_at", { ascending: false }),
+        sb.from("chat_threads").select("id"),
+        sb.auth.getUser().then(({ data }) => {
+          const uid = data?.user?.id;
+          if (!uid) return { data: [] };
+          return sb.from("profiles").select("preferences").eq("id", uid).maybeSingle();
+        }),
+      ]);
+      if (memResp.error) throw memResp.error;
+      setRows(memResp.data || []);
+      setThreadIds(new Set((threadResp.data || []).map((t) => t.id)));
+      const prefs = prefResp?.data?.preferences;
+      if (prefs && typeof prefs === "object" && "memory_autosave" in prefs) {
+        setAutosave(!!prefs.memory_autosave);
+      } else {
+        setAutosave(true); // default opt-in
+      }
     } catch (err) {
       setError(err?.message || "Could not load memory.");
+    }
+  }, []);
+
+  const toggleAutosave = useCallback(async (next) => {
+    setAutosave(next);
+    try {
+      const sb = await getSupabase();
+      const { data: userData } = await sb.auth.getUser();
+      const uid = userData?.user?.id;
+      if (!uid) throw new Error("Not signed in.");
+      const { data: current } = await sb.from("profiles").select("preferences").eq("id", uid).maybeSingle();
+      const nextPrefs = { ...(current?.preferences || {}), memory_autosave: next };
+      const { error: err } = await sb.from("profiles")
+        .update({ preferences: nextPrefs, updated_at: new Date().toISOString() })
+        .eq("id", uid);
+      if (err) throw err;
+    } catch (err) {
+      // Revert optimistic toggle on failure.
+      setAutosave(!next);
+      setError(err?.message || "Could not save autosave preference.");
     }
   }, []);
 
@@ -528,11 +564,15 @@ function MemoryTab() {
       h("p", { className: "pf-error" }, error));
   }
 
+  const pending = rows.filter((r) => r.status === "pending");
   const live = rows.filter((r) => r.status === "confirmed");
   const archived = rows.filter((r) => r.status === "archived" || r.status === "resolved");
   const grouped = MEMORY_TIER_ORDER
     .map((g) => ({ ...g, rows: live.filter((r) => r.tier === g.tier) }))
     .filter((g) => g.rows.length > 0);
+
+  const isOrphan = (row) =>
+    row.source_thread_id && threadIds && !threadIds.has(row.source_thread_id);
 
   let lastSaved = null;
   if (live.length) {
@@ -545,19 +585,38 @@ function MemoryTab() {
 
   return h("div", { className: "pf-tab pf-memory" },
     h("header", { className: "pf-memory-head" },
-      h("h2", { className: "pf-section-title" }, "Memory"),
+      h("div", { className: "pf-memory-head-row" },
+        h("h2", { className: "pf-section-title" }, "Memory"),
+        h("label", { className: "pf-memory-autosave" },
+          h("input", {
+            type: "checkbox",
+            checked: autosave === true,
+            onChange: (e) => toggleAutosave(e.target.checked),
+          }),
+          h("span", null, "Auto-save facts from chat"),
+        ),
+      ),
       h("p", { className: "pf-memory-summary" },
-        `${live.length} saved${lastSaved ? ` · last saved ${lastSaved}` : ""}`),
+        `${live.length} saved${pending.length ? ` · ${pending.length} pending review` : ""}${lastSaved ? ` · last saved ${lastSaved}` : ""}`),
     ),
 
-    grouped.length === 0
+    pending.length > 0
+      ? h("section", { className: "pf-memory-pending" },
+          h("h3", { className: "pf-memory-group-title" }, `PENDING REVIEW (${pending.length})`),
+          h("ul", { className: "pf-memory-list" },
+            pending.map((r) => h(MemoryRow, { key: r.id, row: r, onMutate: reload, orphan: isOrphan(r) })),
+          ),
+        )
+      : null,
+
+    grouped.length === 0 && pending.length === 0
       ? h("p", { className: "pf-helper" },
           "Nothing saved yet. Ask me to remember something across chats and it'll appear here.")
       : grouped.map((g) =>
           h("section", { key: g.tier, className: "pf-memory-group" },
             h("h3", { className: "pf-memory-group-title" }, `${g.label.toUpperCase()} (${g.rows.length})`),
             h("ul", { className: "pf-memory-list" },
-              g.rows.map((r) => h(MemoryRow, { key: r.id, row: r, onMutate: reload })),
+              g.rows.map((r) => h(MemoryRow, { key: r.id, row: r, onMutate: reload, orphan: isOrphan(r) })),
             ),
           )),
 
@@ -570,7 +629,7 @@ function MemoryTab() {
           }, `${showArchive ? "▾" : "▸"} Archive (${archived.length})`),
           showArchive
             ? h("ul", { className: "pf-memory-list pf-memory-list-muted" },
-                archived.map((r) => h(MemoryRow, { key: r.id, row: r, onMutate: reload })),
+                archived.map((r) => h(MemoryRow, { key: r.id, row: r, onMutate: reload, orphan: isOrphan(r) })),
               )
             : null,
         )
@@ -580,7 +639,7 @@ function MemoryTab() {
   );
 }
 
-function MemoryRow({ row, onMutate }) {
+function MemoryRow({ row, onMutate, orphan = false }) {
   const [editing, setEditing] = useState(false);
   const [busy, setBusy] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -635,14 +694,24 @@ function MemoryRow({ row, onMutate }) {
   }, [draftFact, patchRow]);
 
   const isLive = row.status === "confirmed";
+  const isPending = row.status === "pending";
   const categoryLabel = formatMemoryCategory(row.category);
 
+  const confirmPending = () =>
+    patchRow({ status: "confirmed", confirmed_at: new Date().toISOString() });
+  const rejectPending = () =>
+    patchRow({ status: "rejected", resolved_at: new Date().toISOString() });
+
   return h("li", {
-      className: `pf-memory-row${isLive ? "" : " is-muted"}`,
+      className: `pf-memory-row${isLive ? "" : " is-muted"}${isPending ? " is-pending" : ""}`,
       "data-status": row.status,
     },
     h("div", { className: "pf-memory-row-head" },
       h("span", { className: "pf-memory-category" }, categoryLabel),
+      orphan
+        ? h("span", { className: "pf-memory-orphan-badge", title: "The chat that produced this memory was deleted." },
+            "FROM DELETED THREAD")
+        : null,
       !editing
         ? h("span", { className: "pf-memory-fact" }, row.fact)
         : h("textarea", {
@@ -667,7 +736,25 @@ function MemoryRow({ row, onMutate }) {
                 onClick: () => { setEditing(false); setDraftFact(row.fact); setError(""); },
               }, "Cancel"),
             ]
-          : h("div", {
+          : isPending
+            ? [
+                h("button", {
+                  key: "keep", type: "button",
+                  className: "pf-memory-btn-primary",
+                  disabled: busy, onClick: confirmPending,
+                }, "✓ Keep"),
+                h("button", {
+                  key: "edit", type: "button",
+                  className: "pf-memory-btn-secondary",
+                  disabled: busy, onClick: () => setEditing(true),
+                }, "✎ Edit"),
+                h("button", {
+                  key: "nope", type: "button",
+                  className: "pf-memory-btn-secondary",
+                  disabled: busy, onClick: rejectPending,
+                }, "✗ Reject"),
+              ]
+            : h("div", {
                 className: "pf-memory-menu-wrap",
                 onMouseDown: (e) => e.stopPropagation(),
               },
