@@ -6,6 +6,7 @@ import { TOOL_DEFINITIONS, validateToolCall, REMEMBER_FACT, RECALL_MEMORY, build
 // use strict:false because OpenAI strict mode can't represent a
 // type-dependent data shape. Server-side validators cover correctness.
 const MULTI_TYPE_WIDGET_V2 = new Set([
+  "emit_calculator_widget",
   "emit_nutrition_widget", "emit_training_widget", "emit_progress_widget",
   "emit_pharma_widget", "emit_evidence_widget",
 ]);

@@ -158,3 +158,17 @@
 .wv-esf-body { display: flex; flex-direction: column; gap: 8px; }
 .wv-esf-outcome { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
 .wv-esf-svg { width: 100%; height: auto; display: block; }
+
+/* ─── tdee_calculator ─── */
+.wv-tdee-body { display: flex; flex-direction: column; gap: 12px; }
+.wv-tdee-inputs { display: flex; gap: 16px; flex-wrap: wrap; font-size: 11px; color: var(--muted); }
+.wv-tdee-inputs span { display: inline-block; }
+.wv-tdee-capitalize { text-transform: capitalize; }
+.wv-tdee-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* ─── one_rm_estimator ─── */
+.wv-orm-body { display: flex; flex-direction: column; gap: 12px; }
+.wv-orm-input { display: flex; gap: 16px; align-items: baseline; padding: 10px 12px; background: var(--surface); border-radius: 8px; border: 1px solid var(--line); }
+.wv-orm-lift { font-size: 13px; font-weight: 600; color: var(--ink); }
+.wv-orm-set { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: auto; }
+.wv-orm-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }

@@ -1,5 +1,7 @@
 import React from "react";
 import { MacroRing } from "./templates/calculators/macro-ring.js";
+import { TDEECalculator } from "./templates/calculators/tdee-calculator.js";
+import { OneRMEstimator } from "./templates/calculators/one-rm-estimator.js";
 import { ProteinDistributionBar } from "./templates/nutrition/protein-distribution-bar.js";
 import { MealMacroStack } from "./templates/nutrition/meal-macro-stack.js";
 import { PeriodizationLadder } from "./templates/training/periodization-ladder.js";
@@ -18,9 +20,11 @@ const h = React.createElement;
 const REGISTRY = {
   calculator: {
     macro_ring: MacroRing,
-    // Plan 7: one_rm_estimator, tdee_calculator, macro_calculator,
-    // plate_loader_visual, rpe_to_percent_rm, body_fat_estimator,
-    // carb_cycling_calculator, protein_target_calculator, pace_calculator
+    tdee_calculator: TDEECalculator,
+    one_rm_estimator: OneRMEstimator,
+    // Plan 7 remaining: macro_calculator, plate_loader_visual,
+    // rpe_to_percent_rm, body_fat_estimator, carb_cycling_calculator,
+    // protein_target_calculator, pace_calculator
   },
   nutrition: {
     protein_distribution_bar: ProteinDistributionBar,
