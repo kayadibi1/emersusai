@@ -250,59 +250,6 @@ function publicRateLimitMiddleware(endpointName = "default") {
   };
 }
 
-// --- Anonymous /api/emersus/anon-ask rate limiter ---
-// 3 questions per 24 hours per client IP, in-memory.
-// Counter keyed by IP + UTC date. No bot heuristics: the 3/day cap makes
-// them unnecessary, and we want this path lightweight.
-
-const ANON_ASK_WINDOW_MS = 24 * 60 * 60 * 1000;
-const ANON_ASK_LIMIT = 3;
-const anonAskStore = new Map();
-
-function anonAskKey(req) {
-  const ip = getClientIp(req);
-  const utcDate = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
-  return `${ip}:${utcDate}`;
-}
-
-function checkAnonAskRateLimit(req) {
-  const now = Date.now();
-  const key = anonAskKey(req);
-  let entry = anonAskStore.get(key);
-  if (!entry || entry.resetAt <= now) {
-    entry = { count: 0, resetAt: now + ANON_ASK_WINDOW_MS };
-  }
-  entry.count += 1;
-  anonAskStore.set(key, entry);
-  const allowed = entry.count <= ANON_ASK_LIMIT;
-  return {
-    allowed,
-    asked: Math.min(entry.count, ANON_ASK_LIMIT),
-    limit: ANON_ASK_LIMIT,
-    resetAt: entry.resetAt,
-  };
-}
-
-function decrementAnonAskRateLimit(req) {
-  const key = anonAskKey(req);
-  const entry = anonAskStore.get(key);
-  if (!entry) return;
-  entry.count = Math.max(0, entry.count - 1);
-  anonAskStore.set(key, entry);
-}
-
-// Test-only reset hook.
-function __resetAnonAskStoreForTests() {
-  anonAskStore.clear();
-}
-
-setInterval(() => {
-  const now = Date.now();
-  for (const [key, entry] of anonAskStore) {
-    if (entry.resetAt <= now) anonAskStore.delete(key);
-  }
-}, CLEANUP_INTERVAL_MS).unref();
-
 export {
   getClientIp,
   buildRequestMeta,
@@ -311,8 +258,4 @@ export {
   checkPublicRateLimit,
   publicRateLimitMiddleware,
   RATE_LIMIT_MAX_REQUESTS,
-  checkAnonAskRateLimit,
-  decrementAnonAskRateLimit,
-  __resetAnonAskStoreForTests,
-  ANON_ASK_LIMIT,
 };
