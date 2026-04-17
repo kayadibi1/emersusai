@@ -232,10 +232,15 @@
           </aside>
           <div class="demo-main" data-rotation="b" data-phase="composer">
             <div class="demo-header">
-              <div class="thread-title" id="demo-thread-title">Creatine vs. beta-alanine</div>
-              <div class="thread-meta" id="demo-thread-meta">EMERSUS · 1 WIDGET</div>
+              <div class="thread-title" id="demo-thread-title">New chat</div>
+              <div class="thread-meta" id="demo-thread-meta"></div>
             </div>
             <div class="msgs">
+              <section class="thread-welcome-demo" id="demo-welcome">
+                <p class="thread-welcome-demo-eyebrow">EMERSUS</p>
+                <h3 class="thread-welcome-demo-title">Ready when you are.</h3>
+                <p class="thread-welcome-demo-copy">Ask about training, nutrition, supplements, recovery, or metabolic health — every answer is grounded in peer-reviewed research.</p>
+              </section>
               <div class="msg msg-user" id="demo-user-msg">
                 <div class="msg-who">You</div>
                 <div class="bubble" id="demo-user-bubble"></div>
@@ -883,14 +888,15 @@
         chromeTitle.style.opacity = '0.15';
         await sleep(220);
 
-        // Reset + update titles + sidebar while faded
+        // Reset + update titles + sidebar while faded. Thread-title goes to
+        // "New chat" while welcome is visible; swaps to topic on send.
         main.dataset.rotation = cfg.id;
         main.dataset.phase = 'composer';
         clearBubbleContents();
         document.querySelectorAll('.demo-widget').forEach((w) => w.classList.remove('skeleton', 'filled'));
         setActiveSidebar(cfg.slot);
-        threadTitle.textContent = cfg.threadTitle;
-        threadMeta.textContent = 'EMERSUS · 1 WIDGET';
+        threadTitle.textContent = 'New chat';
+        threadMeta.textContent = '';
         chromeTitle.textContent = cfg.chromeTitle;
 
         // Fade titles back in with new text
@@ -898,13 +904,15 @@
         chromeTitle.style.opacity = '';
         await sleep(200);
 
-        // Type prompt into composer
-        await typeComposer(cfg.prompt, 40, 10);
-        await sleep(1200);
+        // Type prompt into composer (faster, snappier)
+        await typeComposer(cfg.prompt, 22, 8);
+        await sleep(900);
 
-        // Send-flight — user bubble appears, composer clears, hint pulses
+        // Send-flight — user bubble appears, welcome fades, titles update
         userBubble.textContent = cfg.prompt;
         composerHint.classList.add('pulse');
+        threadTitle.textContent = cfg.threadTitle;
+        threadMeta.textContent = 'EMERSUS · 1 WIDGET';
         main.dataset.phase = 'send';
         await sleep(250);
         composerInput.innerHTML = '<span class="composer-placeholder">Ask anything…</span>';
@@ -949,8 +957,10 @@
         window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       function renderStaticA() {
-        const cfg = ROTATIONS[0];
-        main.dataset.rotation = 'a';
+        // Reduced-motion fallback: render rotation A (protein/dose-response)
+        // fully built, since it's the most legible at-a-glance.
+        const cfg = ROTATIONS.find((r) => r.id === 'a') || ROTATIONS[0];
+        main.dataset.rotation = cfg.id;
         main.dataset.phase = 'assist';
         setActiveSidebar(cfg.slot);
         threadTitle.textContent = cfg.threadTitle;
@@ -958,7 +968,7 @@
         chromeTitle.textContent = cfg.chromeTitle;
         userBubble.textContent = cfg.prompt;
         introText.innerHTML = cfg.intro;
-        const widget = document.querySelector('.demo-widget[data-widget="a"]');
+        const widget = document.querySelector('.demo-widget[data-widget="' + cfg.id + '"]');
         widget.classList.add('filled');
         renderCite(cfg.cite);
         citePill.classList.add('show');
