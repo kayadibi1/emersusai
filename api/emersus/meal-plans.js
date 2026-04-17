@@ -36,6 +36,12 @@ router.post("/", async (req, res) => {
 
     const supabase = clientForRequest(req);
 
+    const { data: { user }, error: authErr } = await supabase.auth.getUser();
+    if (authErr || !user) {
+      res.status(401).json({ error: "unauthorized" });
+      return;
+    }
+
     // Fetch any existing active plan for this user. If one exists, we
     // archive it in-place and copy its current plan into previous_plan of
     // the new row so undo can swap them.
@@ -66,6 +72,7 @@ router.post("/", async (req, res) => {
     const { data: inserted, error: insertErr } = await supabase
       .from("meal_plans")
       .insert({
+        user_id: user.id,
         title,
         plan,
         previous_plan: existing?.plan ?? null,
