@@ -174,9 +174,13 @@ function processEvent(event, state) {
           if (state.onToolError) state.onToolError(toolName, validation.errors);
           // Invalid widgets should not render. The most common failure mode is
           // viewport-sized HTML that turns iframe auto-sizing into a runaway
-          // growth loop in the chat. Other tool payloads still fall back to
-          // raw data so the client can attempt a best-effort render.
-          if (toolName !== "emit_widget") {
+          // growth loop in the chat. widget-v2 emit_*_widget tools are
+          // strictly validated — invalid payloads surface a diagnostic via
+          // tool_error; we never fall back to raw data for them. Other tool
+          // payloads still fall back so the client can attempt a best-effort
+          // render.
+          const isWidgetV2Tool = /^emit_(pharma|training|nutrition|evidence|progress|calculator)_widget$/.test(toolName);
+          if (toolName !== "emit_widget" && !isWidgetV2Tool) {
             state.ctx.toolResults[toolName] = args;
             if (state.onTool) state.onTool(toolName, args);
           }
