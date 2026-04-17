@@ -231,4 +231,54 @@ export function start() {
     });
   }, { threshold: 0.3 });
   obs.observe(demoRoot);
+
+  // ── Takeover: composer click hands control to landing-chat-runtime ──
+  const composer = document.querySelector('.composer');
+  if (composer) {
+    composer.addEventListener('click', handleTakeover, { once: true });
+  }
+
+  let tookOver = false;
+
+  async function handleTakeover() {
+    if (tookOver) return;
+    tookOver = true;
+
+    // Break the rotation loop. Any currently-awaited sleep will finish,
+    // then loop() exits because stopped = true.
+    stop();
+
+    // T3 wipe: fade existing content, then clear.
+    main.dataset.mode = 'wiping';
+    const side = document.querySelector('.demo-side');
+    if (side) side.dataset.dimmed = 'true';
+    await sleep(320);
+
+    // Unmount rotation-rendered content.
+    clearBubbleContents();
+    document.querySelectorAll('.demo-widget').forEach((w) => {
+      w.classList.remove('skeleton', 'filled');
+      w.hidden = true;
+    });
+    const welcome = document.getElementById('demo-welcome');
+    if (welcome) welcome.style.display = 'none';
+
+    threadTitle.textContent = 'New chat';
+    threadMeta.textContent = '';
+
+    main.dataset.mode = 'anon-chat';
+
+    // Boot the anonymous chat runtime into the same .msgs container.
+    const { boot } = await import('/shared/landing-chat-runtime.js');
+    const msgsContainer = document.querySelector('.demo-main .msgs');
+    composerInput.innerHTML = ''; // clear placeholder span
+    boot({
+      msgsContainer,
+      composer,
+      composerInput,
+      threadTitle,
+      threadMeta,
+      sidebar: side,
+    });
+  }
 }
