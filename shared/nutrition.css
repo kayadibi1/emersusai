@@ -61,7 +61,7 @@ body.nutrition-body {
 }
 .nu-date-arrow {
   background: transparent; border: 1px solid var(--line);
-  color: var(--muted); width: 32px; height: 32px;
+  color: var(--muted); width: 44px; height: 44px;
   border-radius: 6px; cursor: pointer; font-size: 18px;
   display: inline-flex; align-items: center; justify-content: center;
 }
@@ -221,10 +221,12 @@ body.nutrition-body {
   border: 1px solid var(--line);
   color: var(--muted);
   padding: 6px 12px;
+  min-height: 44px;
   border-radius: 6px;
   font-family: inherit; font-size: 12px;
   cursor: pointer;
   transition: all .14s;
+  display: inline-flex; align-items: center; justify-content: center;
 }
 .nu-strip-btn:hover {
   color: var(--accent); border-color: var(--accent);
@@ -279,13 +281,15 @@ body.nutrition-body {
   background: transparent;
   border: 1px solid var(--line);
   color: var(--muted);
-  padding: 4px 8px;
+  padding: 8px 12px;
+  min-height: 44px;
   border-radius: 999px;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.04em;
   cursor: pointer;
   transition: all .12s;
+  display: inline-flex; align-items: center;
 }
 .nu-supp-chip:hover {
   color: var(--accent);
@@ -426,6 +430,17 @@ body.nutrition-body {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px; letter-spacing: 0.16em; color: var(--dim);
 }
+.nu-quick-menu.is-supp {
+  min-width: 280px;
+  max-width: calc(100vw - 48px);
+  padding: 12px;
+}
+.nu-quick-supp-form {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 .nu-bottom-cta {
   color: var(--muted); text-decoration: none;
   font-family: inherit; font-size: 13px;
@@ -529,9 +544,11 @@ body.nutrition-body {
 }
 .nu-food-delete {
   background: transparent; border: 0; color: var(--dim);
-  font-size: 16px; cursor: pointer; padding: 4px;
+  font-size: 16px; cursor: pointer;
+  min-height: 44px; min-width: 44px;
   border-radius: 4px; transition: color .14s, background .14s;
   flex-shrink: 0;
+  display: inline-flex; align-items: center; justify-content: center;
 }
 .nu-food-delete:hover { color: var(--danger, #ef4444); background: rgba(239,68,68,0.08); }
 

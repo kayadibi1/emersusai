@@ -119,6 +119,12 @@ function ExercisePickerModal({ open, accessToken, onPick, onClose }) {
   }, [open]);
   useEffect(() => {
     if (!open) return undefined;
+    const handleKey = (e) => { if (e.key === "Escape") onClose?.(); };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [open, onClose]);
+  useEffect(() => {
+    if (!open) return undefined;
     const handle = window.setTimeout(async () => {
       setLoading(true);
       try {
@@ -165,6 +171,12 @@ function ExercisePickerModal({ open, accessToken, onPick, onClose }) {
 function FinishSessionSheet({ open, totals, onConfirm, onCancel }) {
   const [note, setNote] = useState("");
   const [busy, setBusy] = useState(false);
+  useEffect(() => {
+    if (!open) return undefined;
+    const handleKey = (e) => { if (e.key === "Escape") onCancel?.(); };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [open, onCancel]);
   if (!open) return null;
   return h("div", { className: "tr-modal-backdrop", onClick: onCancel },
     h("div", { className: "tr-modal tr-finish-sheet", onClick: (e) => e.stopPropagation() },
@@ -255,6 +267,15 @@ function TrainApp() {
   const [expandLoading, setExpandLoading] = useState(false);
   const [expandError, setExpandError] = useState("");
   const [weightUnit, setWeightUnit] = useState("kg");
+
+  useEffect(() => {
+    const handlePop = () => {
+      setState(parseTrainUrl(window.location.search));
+      setExpandedSessionId(null);
+    };
+    window.addEventListener("popstate", handlePop);
+    return () => window.removeEventListener("popstate", handlePop);
+  }, []);
 
   const updateUrl = useCallback((next) => {
     const url = buildTrainUrl(next);
@@ -539,6 +560,7 @@ function TrainApp() {
                       ),
 
                       h("div", { className: "tr-history-body" },
+                        h("div", { className: "tr-history-body-inner" },
                         isExpanded && expandLoading && !detail
                           ? h(HistoryExpandSkeleton)
                           : isExpanded && expandError && !detail
@@ -609,6 +631,7 @@ function TrainApp() {
                                     : null,
                                 )
                               : null,
+                        ),
                       ),
                     );
                   }))
@@ -652,12 +675,6 @@ function TrainApp() {
     }),
   );
 }
-
-window.addEventListener("popstate", () => {
-  // Soft refresh on browser nav.
-  // The component reads URL on mount; for popstate just reload to keep code simple.
-  window.location.reload();
-});
 
 const root = document.getElementById("train-v2-root");
 if (root) createRoot(root).render(h(TrainApp));

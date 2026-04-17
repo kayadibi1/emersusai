@@ -34,6 +34,12 @@ const MEAL_SLOT_LABELS = {
   supplements_am: "Supplements AM", supplements_pm: "Supplements PM",
 };
 const MEAL_SLOTS = Object.keys(MEAL_SLOT_LABELS);
+const MEAL_SLOT_GROUPS = [
+  { label: "Meals", slots: ["breakfast", "lunch", "dinner"] },
+  { label: "Snacks", slots: ["mid_morning", "afternoon", "evening"] },
+  { label: "Training", slots: ["pre_workout", "post_workout"] },
+  { label: "Supplements", slots: ["supplements_am", "supplements_pm"] },
+];
 
 function guessMealSlot() {
   const hour = new Date().getHours();
@@ -343,14 +349,39 @@ function ComingSoonCard({ label }) {
 
 function QuickLogDropdown({ accessToken, onLog, onToast }) {
   const [open, setOpen] = useState(false);
+  const [suppMode, setSuppMode] = useState(false);
+  const [suppName, setSuppName] = useState("");
   useEffect(() => {
     if (!open) return undefined;
     const close = () => setOpen(false);
     document.addEventListener("mousedown", close);
     return () => document.removeEventListener("mousedown", close);
   }, [open]);
+  useEffect(() => {
+    if (!open) { setSuppMode(false); setSuppName(""); }
+  }, [open]);
+
+  const submitSupp = async (rawName) => {
+    const name = (rawName || "").trim();
+    if (!name) return;
+    setOpen(false);
+    try {
+      await fetch("/api/nutrition/supplements", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
+        body: JSON.stringify({ items: [{ name }] }),
+      });
+      onToast?.(`${name.toUpperCase()} LOGGED`);
+    } catch (err) { console.error(err); }
+    onLog?.();
+  };
 
   const handlePick = async (id) => {
+    if (id === "supplement") {
+      setSuppMode(true);
+      setSuppName("");
+      return;
+    }
     setOpen(false);
     if (id === "water_250" || id === "water_500") {
       const ml = id === "water_250" ? 250 : 500;
@@ -360,30 +391,54 @@ function QuickLogDropdown({ accessToken, onLog, onToast }) {
         body: JSON.stringify({ ml }),
       });
       onToast?.(`WATER + ${ml} ML LOGGED`);
-    } else if (id === "supplement") {
-      const name = window.prompt("Supplement name:", "Creatine");
-      if (name) {
-        await fetch("/api/nutrition/supplements", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
-          body: JSON.stringify({ items: [{ name }] }),
-        });
-        onToast?.(`${String(name).toUpperCase()} LOGGED`);
-      }
     }
     onLog?.();
   };
 
   return h("div", { className: "nu-quick-wrap", onMouseDown: (e) => e.stopPropagation() },
     h("button", { type: "button", className: "nu-quick-btn", onClick: () => setOpen((v) => !v) },
-      "+ Quick log ▾"),
-    open ? h("ul", { className: "nu-quick-menu" },
-      QUICK_LOG_ITEMS.map((it) => h("li", { key: it.id },
-        h("button", { type: "button", onClick: () => handlePick(it.id) },
-          h("span", null, it.label),
-          h("span", { className: "nu-quick-hint" }, it.hint),
-        ),
-      )),
+      "+ Quick log \u25be"),
+    open ? h("ul", { className: `nu-quick-menu${suppMode ? " is-supp" : ""}` },
+      suppMode
+        ? h("li", { className: "nu-quick-supp-form" },
+            h("form", {
+              onSubmit: (e) => { e.preventDefault(); submitSupp(suppName); },
+            },
+              h("input", {
+                className: "nu-supp-input",
+                type: "text",
+                value: suppName,
+                onChange: (e) => setSuppName(e.target.value),
+                placeholder: "Supplement name",
+                autoFocus: true,
+                maxLength: 80,
+              }),
+              h("div", { className: "nu-supp-presets" },
+                SUPPLEMENT_PRESETS.map((name) =>
+                  h("button", {
+                    key: name,
+                    type: "button",
+                    className: "nu-supp-chip",
+                    onClick: () => submitSupp(name),
+                  }, name),
+                ),
+              ),
+              h("div", { className: "nu-strip-actions", style: { marginTop: 4 } },
+                h("button", { type: "submit", className: "nu-strip-btn nu-strip-btn-primary", disabled: !suppName.trim() }, "Log"),
+                h("button", {
+                  type: "button",
+                  className: "nu-strip-btn",
+                  onClick: () => setSuppMode(false),
+                }, "Cancel"),
+              ),
+            ),
+          )
+        : QUICK_LOG_ITEMS.map((it) => h("li", { key: it.id },
+            h("button", { type: "button", onClick: () => handlePick(it.id) },
+              h("span", null, it.label),
+              h("span", { className: "nu-quick-hint" }, it.hint),
+            ),
+          )),
     ) : null,
   );
 }
@@ -424,6 +479,13 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, o
       }
     })();
   }, [open, date, mealSlot, accessToken]);
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const handleKey = (e) => { if (e.key === "Escape") onClose?.(); };
+    document.addEventListener("keydown", handleKey);
+    return () => document.removeEventListener("keydown", handleKey);
+  }, [open, onClose]);
 
   useEffect(() => {
     if (searchQuery.length < 2) { setSearchResults([]); return; }
@@ -578,8 +640,12 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, o
                             onChange: (ev) => handleSlotChange(e.id, ev.target.value),
                             onClick: (ev) => ev.stopPropagation(),
                           },
-                            MEAL_SLOTS.map((s) =>
-                              h("option", { key: s, value: s }, MEAL_SLOT_LABELS[s]),
+                            MEAL_SLOT_GROUPS.map((g) =>
+                              h("optgroup", { key: g.label, label: g.label },
+                                g.slots.map((s) =>
+                                  h("option", { key: s, value: s }, MEAL_SLOT_LABELS[s]),
+                                ),
+                              ),
                             ),
                           ),
                           h("div", { className: "nu-food-macros" },
@@ -744,12 +810,18 @@ function NutritionApp() {
     ) : null,
 
     tab === "plans" ? h("div", { className: "nu-tab-body" },
-      h("p", { className: "nu-helper" }, "MEAL PLANS LIVE IN /CHAT — saved plans appear here automatically."),
-      h("a", { className: "nu-primary", href: "/app/?prompt=Build me a meal plan for today" }, "Build a plan in chat →"),
+      h("div", { className: "nu-meals-empty" },
+        h("p", { style: { fontWeight: 500, color: "var(--ink)", margin: "0 0 6px" } }, "Meal plans are built in chat"),
+        h("p", { style: { margin: "0 0 14px" } }, "Ask Emersus to create a plan tailored to your goals \u2014 it\u2019ll save here automatically."),
+        h("a", { className: "nu-primary", href: "/app/?prompt=Build me a meal plan for today" }, "Create a meal plan \u2192"),
+      ),
     ) : null,
 
     tab === "log" ? h("div", { className: "nu-tab-body" },
-      h("p", { className: "nu-helper" }, "PAGINATED RECENT-DAYS LIST SHIPS IN A FOLLOW-UP. For now, navigate via the date arrows above."),
+      h("div", { className: "nu-meals-empty" },
+        h("p", { style: { fontWeight: 500, color: "var(--ink)", margin: "0 0 6px" } }, "Browse by date"),
+        h("p", { style: { margin: 0 } }, "Switch to the Today tab and use the date arrows to view any day\u2019s meals and macros."),
+      ),
     ) : null,
 
     tab === "recipes"   ? h("div", { className: "nu-tab-body" }, h(ComingSoonCard, { label: "Recipes library" })) : null,

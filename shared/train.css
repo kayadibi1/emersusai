@@ -67,7 +67,8 @@ body.train-body {
 .tr-subtab {
   background: transparent;
   border: 1px solid transparent;
-  padding: 6px 12px;
+  padding: 10px 14px;
+  min-height: 44px;
   border-radius: 6px;
   font-family: 'Space Grotesk', system-ui, sans-serif;
   font-size: 12.5px;
@@ -75,6 +76,7 @@ body.train-body {
   cursor: pointer;
   font-weight: 500;
   transition: background .14s, color .14s;
+  display: inline-flex; align-items: center;
 }
 .tr-subtab:hover { color: var(--ink); background: var(--surface-faint); }
 .tr-subtab.is-active {
@@ -139,8 +141,10 @@ body.train-body {
 .tr-session-menu-wrap { position: relative; }
 .tr-session-menu-btn {
   background: transparent; border: 1px solid var(--line);
-  border-radius: 6px; padding: 4px 10px;
+  border-radius: 6px; padding: 8px 12px;
+  min-height: 44px; min-width: 44px;
   font-size: 14px; cursor: pointer; color: var(--muted);
+  display: inline-flex; align-items: center; justify-content: center;
 }
 .tr-session-menu-btn:hover { color: var(--ink); border-color: var(--line-strong); }
 .tr-session-menu {
@@ -345,8 +349,17 @@ body.train-body {
 .tr-history-row.is-expanded .tr-history-chevron { transform: rotate(90deg); }
 
 /* History expanded body */
-.tr-history-body { max-height: 0; overflow: hidden; transition: max-height .3s ease; }
-.tr-history-row.is-expanded .tr-history-body { max-height: 4000px; }
+.tr-history-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows .3s ease;
+}
+.tr-history-row.is-expanded .tr-history-body {
+  grid-template-rows: 1fr;
+}
+.tr-history-body-inner {
+  overflow: hidden;
+}
 
 /* Exercise blocks inside expanded */
 .tr-history-exercises { display: flex; flex-direction: column; gap: 10px; padding: 4px 12px 12px; }
@@ -458,9 +471,11 @@ body.train-body {
 }
 .tr-rest-btn {
   background: transparent; border: 1px solid var(--line);
-  color: var(--muted); padding: 4px 8px; border-radius: 4px;
+  color: var(--muted); padding: 8px 12px; border-radius: 4px;
+  min-height: 44px; min-width: 44px;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
 }
 .tr-rest-btn:hover { color: var(--ink); border-color: var(--line-strong); }
 .tr-rest-skip {
