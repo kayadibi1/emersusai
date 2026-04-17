@@ -1404,9 +1404,7 @@ const LOG_FOOD = {
     "",
     "Parse the food description into structured items with macros (kcal, protein_g, carbs_g, fat_g). Use USDA FDC reference data for macro estimates.",
     "Infer meal_slot from context or time of day if not stated.",
-    "For supplements (creatine, vitamin D, omega-3, etc.), set amount to the dose number and amount_unit to the appropriate unit (g, mg, IU, mcg, capsule). Set macros to 0.",
-    "For liquids (coffee, milk, shakes), use ml as amount_unit and set amount to the volume.",
-    "For solid foods, use g as amount_unit.",
+    "amount_unit MUST be 'g' or 'serving'. For solid foods and liquids, convert to grams (e.g. 250ml milk = 258g). For supplements with a per-serving base (capsules, tablets, scoops), use 'serving' and set amount to the number of servings. Set macros to 0 for supplements.",
   ].join("\n"),
   parameters: {
     type: "object",
@@ -1426,7 +1424,7 @@ const LOG_FOOD = {
           properties: {
             description: { type: "string" },
             amount:      { type: "number", description: "Quantity in the unit specified by amount_unit" },
-            amount_unit: { type: "string", enum: ["g", "ml", "mg", "mcg", "IU", "capsule", "tablet", "scoop", "serving"] },
+            amount_unit: { type: "string", enum: ["g", "serving"] },
             kcal:        { type: "number" },
             protein_g:   { type: "number" },
             carbs_g:     { type: "number" },
@@ -1614,7 +1612,7 @@ export { UPDATE_USER_PROFILE };
 // ── Validators ──────────────────────────────────────────────────────────
 
 const VALID_MEAL_SLOTS = new Set(["breakfast", "mid_morning", "lunch", "afternoon", "dinner", "evening", "pre_workout", "post_workout", "supplements_am", "supplements_pm"]);
-const VALID_FOOD_AMOUNT_UNITS = new Set(["g", "ml", "mg", "mcg", "IU", "capsule", "tablet", "scoop", "serving"]);
+const VALID_FOOD_AMOUNT_UNITS = new Set(["g", "serving"]);
 const VALID_WORKOUT_BLOCK_CATEGORIES = new Set(["resistance", "cardio", "swimming", "climbing", "bodyweight"]);
 const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 const WORKOUT_SESSION_ID_PATTERN = /^s_w\d+d[1-7]$/;
