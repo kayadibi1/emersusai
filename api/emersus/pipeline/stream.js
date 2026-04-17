@@ -109,22 +109,43 @@ const WIDGET_V2_TOOL_TO_FAMILY = {
   emit_calculator_widget: "calculator",
 };
 
-async function logWidgetV2Emission(ctx, toolName, data, elapsedMs, validatorResult = "valid") {
+// Record a widget-v2 emission for later flush. `response.completed` populates
+// ctx.tokenUsage / ctx._openaiResponseId AFTER `onTool` fires, so writing the
+// row inline would give null output_tokens + null response_id. Buffer here;
+// flushWidgetV2Emissions() drains the queue once the response has completed.
+function recordWidgetV2Emission(ctx, toolName, data, elapsedMs, validatorResult = "valid") {
   const family = WIDGET_V2_TOOL_TO_FAMILY[toolName];
   if (!family) return;
-  const { _supabaseUrl: url, _serviceRoleKey: key } = ctx;
-  if (!url || !key) return;
-  const payload = {
-    user_id: ctx.supabaseUserId || null,
-    thread_id: ctx.threadId || null,
+  if (!ctx._widgetV2Emissions) ctx._widgetV2Emissions = [];
+  ctx._widgetV2Emissions.push({
     family,
     type: data?.type || null,
-    output_tokens: ctx.tokenUsage?.output_tokens || null,
-    elapsed_ms: elapsedMs,
     display_width: data?.display_width || null,
+    elapsed_ms: elapsedMs,
     validator_result: validatorResult,
-    openai_response_id: ctx._openaiResponseId || null,
-  };
+  });
+}
+
+async function flushWidgetV2Emissions(ctx) {
+  const queue = ctx._widgetV2Emissions;
+  if (!Array.isArray(queue) || queue.length === 0) return;
+  const { _supabaseUrl: url, _serviceRoleKey: key } = ctx;
+  if (!url || !key) return;
+  const outputTokens = ctx.tokenUsage?.output_tokens || null;
+  const openaiResponseId = ctx._openaiResponseId || null;
+  const userId = ctx.supabaseUserId || null;
+  const threadId = ctx.threadId || null;
+  const rows = queue.map((q) => ({
+    user_id: userId,
+    thread_id: threadId,
+    family: q.family,
+    type: q.type,
+    output_tokens: outputTokens,
+    elapsed_ms: q.elapsed_ms,
+    display_width: q.display_width,
+    validator_result: q.validator_result,
+    openai_response_id: openaiResponseId,
+  }));
   try {
     await fetch(`${url}/rest/v1/widget_v2_emission_events`, {
       method: "POST",
@@ -132,11 +153,12 @@ async function logWidgetV2Emission(ctx, toolName, data, elapsedMs, validatorResu
         "Content-Type": "application/json",
         apikey: key, Authorization: `Bearer ${key}`, Prefer: "return=minimal",
       },
-      body: JSON.stringify(payload),
+      body: JSON.stringify(rows),
     });
   } catch (err) {
     console.error("widget-v2 emission log failed:", err);
   }
+  ctx._widgetV2Emissions = [];
 }
 
 // Process events from the stream — shared logic between stream() and streamToBuffer()
@@ -377,14 +399,14 @@ export async function stream(ctx, res) {
       sendSSE(res, { type: "tool", name, data });
       if (WIDGET_V2_TOOL_TO_FAMILY[name]) {
         const elapsedMs = ctx._synthesisStartMs ? (Date.now() - ctx._synthesisStartMs) : null;
-        logWidgetV2Emission(ctx, name, data, elapsedMs, "valid").catch(() => {});
+        recordWidgetV2Emission(ctx, name, data, elapsedMs, "valid");
       }
     },
     onToolError: (name, errors) => {
       sendSSE(res, { type: "tool_error", name, errors });
       if (WIDGET_V2_TOOL_TO_FAMILY[name]) {
         const elapsedMs = ctx._synthesisStartMs ? (Date.now() - ctx._synthesisStartMs) : null;
-        logWidgetV2Emission(ctx, name, { type: null, display_width: null }, elapsedMs, "invalid").catch(() => {});
+        recordWidgetV2Emission(ctx, name, { type: null, display_width: null }, elapsedMs, "invalid");
       }
     },
     onError: (message) => sendSSE(res, { type: "error", message }),
@@ -414,6 +436,7 @@ export async function stream(ctx, res) {
   res.end();
 
   logTokenUsage(ctx).catch((err) => console.error("Token usage log error:", err));
+  flushWidgetV2Emissions(ctx).catch((err) => console.error("widget-v2 flush error:", err));
   persistProfileUpdates(ctx).catch((err) => console.error("Profile persist error:", err));
   maybeExtractMemory(ctx);
 }
