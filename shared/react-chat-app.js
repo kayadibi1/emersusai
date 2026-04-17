@@ -61,6 +61,8 @@ import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
 import { buildFollowUpPrompt, citationLinks } from "/shared/chat/widget-footers.js";
 import { EmptyPrompts } from "/shared/chat/empty-prompts.js";
 import { FirstMentionBanner } from "/shared/memory/first-mention-banner.js";
+import { usePendingChips } from "/shared/memory/chip-host.js";
+import { ConfirmationChip } from "/shared/memory/confirmation-chip.js";
 import { groupThreadsByDate, filterThreadsBySearch, GROUP_ORDER } from "/shared/chat/sidebar-helpers.js";
 
 const h = React.createElement;
@@ -3641,6 +3643,7 @@ export function ChatApp() {
         let sseThreadState = null;
         let sseOnboardingCompleted = false;
         let sseConfidence = null;
+        let sseResponseId = null;
         const flushAccumulatedProse = ({ force = false } = {}) => {
           const commit = () => {
             proseFlushTimer = null;
@@ -3702,6 +3705,7 @@ export function ChatApp() {
               sseThreadState = event.thread_state || null;
               sseOnboardingCompleted = !!event.onboarding_completed;
               sseConfidence = event.confidence || null;
+              sseResponseId = typeof event.responseId === "string" ? event.responseId : null;
             }
           },
         });
@@ -3720,6 +3724,9 @@ export function ChatApp() {
           token_usage: sseUsage,
           onboarding_completed: sseOnboardingCompleted,
           confidence: sseConfidence,
+          // OpenAI response id forwarded from the backend done SSE —
+          // used as source_turn_ref for pending memory chips.
+          _responseId: sseResponseId,
           // Carry tool results so the message builder below can attach them.
           _toolResults: Object.keys(toolResults).length ? toolResults : undefined,
           _toolErrors: toolErrors.length ? toolErrors : undefined,
@@ -3773,6 +3780,7 @@ export function ChatApp() {
         text: assistantPlainText || normalizeText(assistantRaw, 4000),
         sources: Array.isArray(data.sources) ? data.sources : [],
         ...(data._toolErrors?.length ? { toolErrors: data._toolErrors } : {}),
+        ...(data._responseId ? { openaiResponseId: data._responseId } : {}),
         createdAt: new Date().toISOString(),
       });
 
@@ -3872,6 +3880,8 @@ export function ChatApp() {
     message,
     index: visibleMessageStartIndex + index,
   }));
+  const { byTurnRef: pendingChipsByTurnRef, reload: reloadPendingChips } =
+    usePendingChips(activeThread?.id || null);
   const rail = activeThread?.rail || {};
   const confidencePercent = typeof rail.confidencePercent === "number" ? rail.confidencePercent : Math.round(Math.max(0, Math.min(Number(rail.confidenceScore || 0), 1)) * 100);
   const latestAssistantSources = useMemo(() => {
@@ -4274,18 +4284,31 @@ export function ChatApp() {
                           onClick: () => setVisibleMessageCount((count) => Math.min(activeMessages.length, count + VISIBLE_MESSAGE_COUNT_STEP)),
                         }, `Load ${Math.min(VISIBLE_MESSAGE_COUNT_STEP, hiddenMessageCount)} earlier messages`))
                     : null,
-                  ...visibleMessageEntries.map(({ message, index }) => h(Message, {
-                    key: `${message.createdAt || ""}-${index}`,
-                    message,
-                    typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
-                    threadId: activeThread?.id || null,
-                    chatV2On,
-                    onRegenerate: handleRegenerateMessage,
-                    onSavePlan: handleSavePlanFromMessage,
-                    onSwapMeal: handleSwapMealFromMessage,
-                    onExport: handleExportMessage,
-                    onAskFollowUp: handleAskSourceFollowUp,
-                  })),
+                  ...visibleMessageEntries.flatMap(({ message, index }) => {
+                    const nodes = [h(Message, {
+                      key: `${message.createdAt || ""}-${index}`,
+                      message,
+                      typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
+                      threadId: activeThread?.id || null,
+                      chatV2On,
+                      onRegenerate: handleRegenerateMessage,
+                      onSavePlan: handleSavePlanFromMessage,
+                      onSwapMeal: handleSwapMealFromMessage,
+                      onExport: handleExportMessage,
+                      onAskFollowUp: handleAskSourceFollowUp,
+                    })];
+                    if (message.role === "assistant" && message.openaiResponseId) {
+                      const chipRows = pendingChipsByTurnRef[message.openaiResponseId] || [];
+                      for (const chipRow of chipRows) {
+                        nodes.push(h(ConfirmationChip, {
+                          key: `chip-${chipRow.id}`,
+                          row: chipRow,
+                          onResolved: reloadPendingChips,
+                        }));
+                      }
+                    }
+                    return nodes;
+                  }),
                   h("article", { key: "persistent-glyph", className: "message assistant message-pending" },
                     h("div", { className: "message-content" },
                       h(ThinkingGlyph, { state: glyphState, size: 56, color: "#534AB7" }))),
