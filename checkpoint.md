@@ -1,8 +1,8 @@
 # Checkpoint
 Status: none
-Updated: 2026-04-17
+Updated: 2026-04-17 (v2)
 
-No active checkpoint. Widget-v2 template system fully landed today (Plans 1-9.5 in one day) — see today's changelog entry. Prod telemetry shows 0% validator drop across all 6 families; emission-recall benchmark at 90% on natural-language prompts. Legacy `emit_widget` remains the fallback per the Plan 9 rollout runbook (`docs/widget-v2-rollout.md`, local-only). `feat/landing-ask-bar` merged alongside, shipping the anonymous `/api/emersus/anon-ask` streaming endpoint + landing-page takeover experience.
+No active checkpoint. Widget-v2 spec-complete end-to-end (Plans 1 through 10f): all 55 templates across 6 family tools, strict:true superset-data throughout, 0% prod validator drop. Prod telemetry shows 0% validator drop across all 6 families; emission-recall benchmark at 90% on natural-language prompts. Legacy `emit_widget` remains the fallback per the Plan 9 rollout runbook (`docs/widget-v2-rollout.md`, local-only). `feat/landing-ask-bar` merged alongside, shipping the anonymous `/api/emersus/anon-ask` streaming endpoint + landing-page takeover experience.
 
 ## Post-UI-redesign checklist
 
