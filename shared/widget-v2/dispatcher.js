@@ -6,6 +6,13 @@ import { ProteinDistributionBar } from "./templates/nutrition/protein-distributi
 import { MealMacroStack } from "./templates/nutrition/meal-macro-stack.js";
 import { PeriodizationLadder } from "./templates/training/periodization-ladder.js";
 import { VolumeIntensityGrid } from "./templates/training/volume-intensity-grid.js";
+import { MevMrvRange } from "./templates/training/mev-mrv-range.js";
+import { RpeHistogram } from "./templates/training/rpe-histogram.js";
+import { RepSchemeGrid } from "./templates/training/rep-scheme-grid.js";
+import { TrainingStressBalance } from "./templates/training/training-stress-balance.js";
+import { FatigueReadinessComposite } from "./templates/training/fatigue-readiness-composite.js";
+import { WeeklyPlanCalendar } from "./templates/training/weekly-plan-calendar.js";
+import { DeloadProtocol } from "./templates/training/deload-protocol.js";
 import { PRTimeline } from "./templates/progress/pr-timeline.js";
 import { VolumeTrend } from "./templates/progress/volume-trend.js";
 import { DoseResponseCurve } from "./templates/pharma/dose-response-curve.js";
@@ -38,6 +45,13 @@ const REGISTRY = {
   training: {
     periodization_ladder: PeriodizationLadder,
     volume_intensity_grid: VolumeIntensityGrid,
+    mev_mrv_range: MevMrvRange,
+    rpe_histogram: RpeHistogram,
+    rep_scheme_grid: RepSchemeGrid,
+    training_stress_balance: TrainingStressBalance,
+    fatigue_readiness_composite: FatigueReadinessComposite,
+    weekly_plan_calendar: WeeklyPlanCalendar,
+    deload_protocol: DeloadProtocol,
   },
   progress: {
     pr_timeline: PRTimeline,

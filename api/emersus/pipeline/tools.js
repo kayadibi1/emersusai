@@ -499,11 +499,75 @@ const TRAINING_CELL = {
     volume: { type: "number" },
   },
 };
+const TRAINING_MUSCLE = {
+  type: "object",
+  required: ["name", "mev", "mav", "mrv", "current"],
+  additionalProperties: false,
+  properties: { name: { type: "string" }, mev: { type: "number" }, mav: { type: "number" }, mrv: { type: "number" }, current: { type: "number" } },
+};
+const TRAINING_RPE_BUCKET = {
+  type: "object",
+  required: ["rpe", "count"],
+  additionalProperties: false,
+  properties: { rpe: { type: "number" }, count: { type: "integer" } },
+};
+const TRAINING_SCHEME = {
+  type: "object",
+  required: ["label", "reps_low", "reps_high", "pct_low", "pct_high", "focus"],
+  additionalProperties: false,
+  properties: {
+    label: { type: "string" },
+    reps_low: { type: "number" }, reps_high: { type: "number" },
+    pct_low: { type: "number" }, pct_high: { type: "number" },
+    focus: { type: "string", enum: ["STR", "HYP", "END", "POW"] },
+  },
+};
+const TRAINING_TSB_POINT = {
+  type: "object",
+  required: ["date", "ctl", "atl", "tsb"],
+  additionalProperties: false,
+  properties: { date: { type: "string" }, ctl: { type: "number" }, atl: { type: "number" }, tsb: { type: "number" } },
+};
+const TRAINING_SIGNAL = {
+  type: "object",
+  required: ["name", "score"],
+  additionalProperties: false,
+  properties: { name: { type: "string" }, score: { type: "number" } },
+};
+const TRAINING_DAY = {
+  type: "object",
+  required: ["label", "session", "intensity"],
+  additionalProperties: false,
+  properties: {
+    label: { type: "string" },
+    session: { type: ["string", "null"] },
+    intensity: { type: ["number", "null"] },
+  },
+};
+const TRAINING_DELOAD_PHASE = {
+  type: ["object", "null"],
+  required: ["sets", "rpe"],
+  additionalProperties: false,
+  properties: { sets: { type: "number" }, rpe: { type: "number" } },
+};
+const TRAINING_FATIGUE_POINT = {
+  type: "object",
+  required: ["label", "value"],
+  additionalProperties: false,
+  properties: { label: { type: "string" }, value: { type: "number" } },
+};
 const TRAINING_DATA = {
   type: "object",
   required: [
     "weeks", "focus_metric", "phases",
     "lifts", "grid_weeks", "cells",
+    "muscles", "metric_label",
+    "buckets", "target_rpe",
+    "schemes",
+    "series",
+    "readiness_score", "signals",
+    "days",
+    "before", "during", "after", "fatigue_curve",
   ],
   additionalProperties: false,
   properties: {
@@ -513,6 +577,19 @@ const TRAINING_DATA = {
     lifts: { type: ["array", "null"], items: { type: "string" } },
     grid_weeks: { type: ["array", "null"], items: { type: "integer" } },
     cells: { type: ["array", "null"], items: TRAINING_CELL },
+    muscles: { type: ["array", "null"], items: TRAINING_MUSCLE },
+    metric_label: { type: ["string", "null"] },
+    buckets: { type: ["array", "null"], items: TRAINING_RPE_BUCKET },
+    target_rpe: { type: ["number", "null"] },
+    schemes: { type: ["array", "null"], items: TRAINING_SCHEME },
+    series: { type: ["array", "null"], items: TRAINING_TSB_POINT },
+    readiness_score: { type: ["number", "null"] },
+    signals: { type: ["array", "null"], items: TRAINING_SIGNAL },
+    days: { type: ["array", "null"], items: TRAINING_DAY },
+    before: TRAINING_DELOAD_PHASE,
+    during: TRAINING_DELOAD_PHASE,
+    after: TRAINING_DELOAD_PHASE,
+    fatigue_curve: { type: ["array", "null"], items: TRAINING_FATIGUE_POINT },
   },
 };
 
@@ -531,6 +608,13 @@ const EMIT_TRAINING_WIDGET = {
     "TEMPLATE SELECTION:",
     "  periodization_ladder — multi-phase block plan (accumulation → intensification → realization → deload).",
     "  volume_intensity_grid — heatmap of lifts × weeks × working volume.",
+    "  mev_mrv_range — MEV/MAV/MRV floating bars per muscle + current-volume dot.",
+    "  rpe_histogram — bar distribution of session RPEs with optional target line.",
+    "  rep_scheme_grid — table of reps × %1RM schemes with STR/HYP/END/POW focus badges.",
+    "  training_stress_balance — CTL/ATL/TSB triple-line trend.",
+    "  fatigue_readiness_composite — big readiness ring + contributing signal bars.",
+    "  weekly_plan_calendar — 7-day strip with intensity-shaded session cards.",
+    "  deload_protocol — before/during/after sets + rpe, with fatigue-curve overlay.",
     "",
     "DO NOT CALL for: a concrete workout plan (use emit_workout_plan), single-session RPE/load, or exercise form cues.",
     "",
@@ -552,7 +636,12 @@ const EMIT_TRAINING_WIDGET = {
       display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
-      type: { type: "string", enum: ["periodization_ladder", "volume_intensity_grid"] },
+      type: { type: "string", enum: [
+        "periodization_ladder", "volume_intensity_grid",
+        "mev_mrv_range", "rpe_histogram", "rep_scheme_grid",
+        "training_stress_balance", "fatigue_readiness_composite",
+        "weekly_plan_calendar", "deload_protocol",
+      ] },
       data: TRAINING_DATA,
     },
   },

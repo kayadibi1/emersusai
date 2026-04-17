@@ -202,3 +202,55 @@
 .wv-dtb-compound { font-size: 13px; font-weight: 700; color: var(--ink); }
 .wv-dtb-current { font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: auto; }
 .wv-dtb-svg { width: 100%; height: auto; display: block; }
+
+/* ─── mev_mrv_range ─── */
+.wv-mmr-metric { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+.wv-mmr-svg { width: 100%; height: auto; display: block; }
+.wv-mmr-legend { display: flex; gap: 14px; font-size: 10px; color: var(--muted); margin-top: 4px; }
+.wv-mmr-legend i { display: inline-block; margin-right: 4px; }
+.wv-mmr-band { width: 14px; height: 6px; background: var(--accent-soft); border-radius: 3px; vertical-align: middle; }
+.wv-mmr-mav { width: 2px; height: 8px; background: var(--accent); vertical-align: middle; }
+.wv-mmr-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; vertical-align: middle; }
+
+/* ─── rpe_histogram ─── */
+.wv-rpe-svg { width: 100%; height: auto; display: block; }
+
+/* ─── rep_scheme_grid ─── */
+.wv-rsg-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.wv-rsg-table th { text-align: left; font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; padding: 6px 8px; border-bottom: 1px solid var(--line); font-weight: 600; }
+.wv-rsg-table td { padding: 6px 8px; border-bottom: 1px solid var(--line); color: var(--ink); }
+.wv-rsg-reps, .wv-rsg-pct { font-variant-numeric: tabular-nums; font-weight: 600; }
+.wv-rsg-badge { padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; }
+.wv-rsg-notes { color: var(--muted); font-size: 11px; }
+
+/* ─── training_stress_balance ─── */
+.wv-tsb-svg { width: 100%; height: auto; display: block; }
+.wv-tsb-legend { display: flex; gap: 14px; font-size: 10px; color: var(--muted); margin-top: 4px; flex-wrap: wrap; }
+.wv-tsb-legend i { display: inline-block; width: 10px; height: 2px; margin-right: 4px; vertical-align: middle; }
+
+/* ─── fatigue_readiness_composite ─── */
+.wv-frc-body { display: grid; grid-template-columns: 120px 1fr; gap: 20px; align-items: center; }
+.wv-frc-ring { display: block; }
+.wv-frc-signals { display: flex; flex-direction: column; gap: 8px; }
+.wv-frc-signal-row { display: flex; justify-content: space-between; font-size: 11px; color: var(--ink); }
+.wv-frc-signal-name { text-transform: capitalize; }
+.wv-frc-signal-score { font-variant-numeric: tabular-nums; color: var(--muted); }
+.wv-frc-signal-track { height: 6px; background: var(--surface); border-radius: 3px; overflow: hidden; border: 1px solid var(--line); margin-top: 3px; }
+.wv-frc-signal-bar { height: 100%; transition: width .2s; border-radius: 3px; }
+@media (max-width: 500px) { .wv-frc-body { grid-template-columns: 1fr; } }
+
+/* ─── weekly_plan_calendar ─── */
+.wv-wpc-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.wv-wpc-day { padding: 10px 8px; border-radius: 6px; text-align: center; min-height: 60px; display: flex; flex-direction: column; justify-content: space-between; }
+.wv-wpc-label { font-size: 9px; text-transform: uppercase; letter-spacing: 0.08em; opacity: 0.75; }
+.wv-wpc-session { font-size: 10px; font-weight: 600; text-transform: capitalize; }
+.wv-wpc-int { font-size: 9px; font-variant-numeric: tabular-nums; opacity: 0.7; }
+@media (max-width: 500px) { .wv-wpc-grid { grid-template-columns: repeat(7, 1fr); gap: 2px; } .wv-wpc-day { padding: 6px 2px; min-height: 48px; } .wv-wpc-session { font-size: 9px; } }
+
+/* ─── deload_protocol ─── */
+.wv-dp-cols { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 8px; }
+.wv-dp-col { padding: 10px 12px; border-radius: 8px; background: var(--surface); border: 1px solid var(--line); text-align: center; }
+.wv-dp-col-label { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 4px; }
+.wv-dp-col-metrics { display: flex; gap: 12px; justify-content: center; font-size: 11px; color: var(--ink); }
+.wv-dp-col-metrics b { font-size: 15px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--accent); }
+.wv-dp-svg { width: 100%; height: auto; display: block; }
