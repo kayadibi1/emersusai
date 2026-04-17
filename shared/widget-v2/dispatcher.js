@@ -6,6 +6,8 @@ import { PeriodizationLadder } from "./templates/training/periodization-ladder.j
 import { VolumeIntensityGrid } from "./templates/training/volume-intensity-grid.js";
 import { PRTimeline } from "./templates/progress/pr-timeline.js";
 import { VolumeTrend } from "./templates/progress/volume-trend.js";
+import { DoseResponseCurve } from "./templates/pharma/dose-response-curve.js";
+import { HalfLifeDecay } from "./templates/pharma/half-life-decay.js";
 
 const h = React.createElement;
 
@@ -30,7 +32,10 @@ const REGISTRY = {
     pr_timeline: PRTimeline,
     volume_trend: VolumeTrend,
   },
-  pharma:    {},  // Plan 2
+  pharma: {
+    dose_response_curve: DoseResponseCurve,
+    half_life_decay: HalfLifeDecay,
+  },
   evidence:  {},  // Plan 5
 };
 

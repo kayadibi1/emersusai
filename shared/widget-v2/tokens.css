@@ -126,3 +126,17 @@
 .wv-vt-metric { font-size: 13px; font-weight: 600; color: var(--ink); }
 .wv-vt-range { font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: auto; }
 .wv-vt-svg { width: 100%; height: auto; display: block; }
+
+/* ─── dose_response_curve ─── */
+.wv-drc-body { display: flex; flex-direction: column; gap: 8px; }
+.wv-drc-head { display: flex; gap: 12px; align-items: baseline; }
+.wv-drc-compound { font-size: 13px; font-weight: 700; color: var(--ink); }
+.wv-drc-unit { font-size: 10px; color: var(--muted); text-transform: lowercase; letter-spacing: 0.04em; margin-left: auto; }
+.wv-drc-svg { width: 100%; height: auto; display: block; }
+
+/* ─── half_life_decay ─── */
+.wv-hld-body { display: flex; flex-direction: column; gap: 8px; }
+.wv-hld-head { display: flex; gap: 12px; align-items: baseline; }
+.wv-hld-compound { font-size: 13px; font-weight: 700; color: var(--ink); }
+.wv-hld-meta { font-size: 10px; color: var(--muted); font-variant-numeric: tabular-nums; margin-left: auto; }
+.wv-hld-svg { width: 100%; height: auto; display: block; }

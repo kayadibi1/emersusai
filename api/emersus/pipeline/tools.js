@@ -21,6 +21,7 @@ import { validateCalculatorWidget } from "../../../shared/widget-v2/validators/c
 import { validateNutritionWidget } from "../../../shared/widget-v2/validators/nutrition.js";
 import { validateTrainingWidget } from "../../../shared/widget-v2/validators/training.js";
 import { validateProgressWidget } from "../../../shared/widget-v2/validators/progress.js";
+import { validatePharmaWidget } from "../../../shared/widget-v2/validators/pharma.js";
 
 // ── Shared sub-schemas (inlined for strict mode) ────────────────────────
 
@@ -521,6 +522,40 @@ const EMIT_PROGRESS_WIDGET = {
   },
 };
 
+// ── emit_pharma_widget (widget-v2 · F1) ────────────────────────────
+
+const EMIT_PHARMA_WIDGET = {
+  type: "function",
+  name: "emit_pharma_widget",
+  strict: false,
+  description: [
+    "Emit a pharmacokinetics / dose-response visualization. Write 2-4 sentences of prose FIRST, then call.",
+    "",
+    "TEMPLATE SELECTION:",
+    "  dose_response_curve — effect vs dose with optional evidence-supported recommended range band. Use when the user asks about optimal dose, minimum effective dose, or ceiling.",
+    "  half_life_decay — concentration-vs-time from a single dose. Use when the user asks how long a supplement/drug stays in their system.",
+    "",
+    "DO NOT CALL for: prescription medication dosing (redirect to clinician), stacking / polypharmacy interaction matrices, or individual PK predictions — those are separate templates in later Plans.",
+    "",
+    "DATA:",
+    "  dose_response_curve: { compound: string, unit: 'mg'|'mg/kg'|'g'|'IU', points: [{ dose: number, effect_pct: number, study_n?: int }], recommended_range?: { min, max } }",
+    "  half_life_decay: { compound: string, half_life_hours: number, initial_dose: number, dose_unit: string, horizon_hours: int }",
+  ].join("\n"),
+  parameters: {
+    type: "object",
+    required: ["title", "display_width", "summary", "follow_up_chips", "type", "data"],
+    additionalProperties: false,
+    properties: {
+      title: { type: "string" },
+      display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
+      summary: { type: ["string", "null"] },
+      follow_up_chips: { type: "array", items: { type: "string" } },
+      type: { type: "string", enum: ["dose_response_curve", "half_life_decay"] },
+      data: { type: "object" },
+    },
+  },
+};
+
 // ── log_food ────────────────────────────────────────────────────────────
 
 const LOG_FOOD = {
@@ -717,7 +752,7 @@ export const RECALL_MEMORY = {
 // flag-gated tools like remember_fact can be toggled at runtime.
 export const TOOL_DEFINITIONS = [
   EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, EMIT_CALCULATOR_WIDGET,
-  EMIT_NUTRITION_WIDGET, EMIT_TRAINING_WIDGET, EMIT_PROGRESS_WIDGET,
+  EMIT_NUTRITION_WIDGET, EMIT_TRAINING_WIDGET, EMIT_PROGRESS_WIDGET, EMIT_PHARMA_WIDGET,
   LOG_FOOD, GET_USER_PROFILE,
 ];
 
@@ -998,6 +1033,10 @@ const VALIDATORS = {
   },
   emit_progress_widget: (args) => {
     const r = validateProgressWidget(args);
+    return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
+  },
+  emit_pharma_widget: (args) => {
+    const r = validatePharmaWidget(args);
     return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
   },
   log_food:          validateLogFood,
