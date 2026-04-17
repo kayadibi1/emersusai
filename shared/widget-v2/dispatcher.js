@@ -2,6 +2,13 @@ import React from "react";
 import { MacroRing } from "./templates/calculators/macro-ring.js";
 import { TDEECalculator } from "./templates/calculators/tdee-calculator.js";
 import { OneRMEstimator } from "./templates/calculators/one-rm-estimator.js";
+import { MacroCalculator } from "./templates/calculators/macro-calculator.js";
+import { PlateLoaderVisual } from "./templates/calculators/plate-loader-visual.js";
+import { RpeToPercentRM } from "./templates/calculators/rpe-to-percent-rm.js";
+import { BodyFatEstimator } from "./templates/calculators/body-fat-estimator.js";
+import { CarbCyclingCalculator } from "./templates/calculators/carb-cycling-calculator.js";
+import { ProteinTargetCalculator } from "./templates/calculators/protein-target-calculator.js";
+import { PaceCalculator } from "./templates/calculators/pace-calculator.js";
 import { ProteinDistributionBar } from "./templates/nutrition/protein-distribution-bar.js";
 import { MealMacroStack } from "./templates/nutrition/meal-macro-stack.js";
 import { FoodNutrientScatter } from "./templates/nutrition/food-nutrient-scatter.js";
@@ -60,9 +67,13 @@ const REGISTRY = {
     macro_ring: MacroRing,
     tdee_calculator: TDEECalculator,
     one_rm_estimator: OneRMEstimator,
-    // Plan 7 remaining: macro_calculator, plate_loader_visual,
-    // rpe_to_percent_rm, body_fat_estimator, carb_cycling_calculator,
-    // protein_target_calculator, pace_calculator
+    macro_calculator: MacroCalculator,
+    plate_loader_visual: PlateLoaderVisual,
+    rpe_to_percent_rm: RpeToPercentRM,
+    body_fat_estimator: BodyFatEstimator,
+    carb_cycling_calculator: CarbCyclingCalculator,
+    protein_target_calculator: ProteinTargetCalculator,
+    pace_calculator: PaceCalculator,
   },
   nutrition: {
     protein_distribution_bar: ProteinDistributionBar,

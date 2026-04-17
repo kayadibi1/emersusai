@@ -309,23 +309,61 @@ const MACRO_RING_TDEE_REF = {
   additionalProperties: false,
   properties: { tdee: { type: "number" }, delta_kcal: { type: "number" } },
 };
+const CALC_MACRO_LEG = {
+  type: ["object", "null"],
+  required: ["grams", "target_grams", "kcal"],
+  additionalProperties: false,
+  properties: { grams: { type: "number" }, target_grams: { type: "number" }, kcal: { type: "number" } },
+};
+const CALC_PLATE = {
+  type: "object",
+  required: ["kg", "count"],
+  additionalProperties: false,
+  properties: { kg: { type: "number" }, count: { type: "integer" } },
+};
+const CALC_RPE_ROW = {
+  type: "object",
+  required: ["reps", "pcts_by_rpe"],
+  additionalProperties: false,
+  properties: { reps: { type: "integer" }, pcts_by_rpe: { type: "array", items: { type: "number" } } },
+};
+const CALC_CARB_DAY = {
+  type: "object",
+  required: ["day", "tier", "carbs_g"],
+  additionalProperties: false,
+  properties: { day: { type: "string" }, tier: { type: "string", enum: ["high", "med", "low"] }, carbs_g: { type: "number" } },
+};
 const CALCULATOR_DATA = {
   type: "object",
   required: [
-    // macro_ring fields
+    // macro_ring
     "kcal_total", "phase", "protein", "carbs", "fat", "tdee_reference",
-    // tdee_calculator fields
+    // tdee_calculator
     "weight_kg", "height_cm", "age", "sex", "activity_level", "bmr", "tdee",
-    // one_rm_estimator fields
+    // one_rm_estimator
     "lift", "unit", "load", "reps", "epley_1rm", "brzycki_1rm",
+    // macro_calculator
+    "protein_g_per_kg", "fat_pct", "body_weight_kg", "protein_g", "fat_g", "carbs_g",
+    // plate_loader_visual
+    "target_kg", "bar_kg", "plates_per_side",
+    // rpe_to_percent_rm
+    "rows",
+    // body_fat_estimator
+    "neck_cm", "waist_cm", "hip_cm", "body_fat_pct",
+    // carb_cycling_calculator
+    "weekly_avg_g", "plan",
+    // protein_target_calculator
+    "meal_count", "total_g", "per_meal_g", "leucine_threshold_g",
+    // pace_calculator
+    "distance_km", "time_sec", "pace_sec_per_km", "speed_kmh", "zone",
   ],
   additionalProperties: false,
   properties: {
     kcal_total: { type: ["number", "null"] },
     phase: { type: ["string", "null"], enum: ["cut", "maintenance", "bulk", null] },
-    protein: { type: ["object", "null"], required: ["grams", "target_grams", "kcal"], additionalProperties: false, properties: { grams: { type: "number" }, target_grams: { type: "number" }, kcal: { type: "number" } } },
-    carbs: { type: ["object", "null"], required: ["grams", "target_grams", "kcal"], additionalProperties: false, properties: { grams: { type: "number" }, target_grams: { type: "number" }, kcal: { type: "number" } } },
-    fat: { type: ["object", "null"], required: ["grams", "target_grams", "kcal"], additionalProperties: false, properties: { grams: { type: "number" }, target_grams: { type: "number" }, kcal: { type: "number" } } },
+    protein: CALC_MACRO_LEG,
+    carbs: CALC_MACRO_LEG,
+    fat: CALC_MACRO_LEG,
     tdee_reference: MACRO_RING_TDEE_REF,
     weight_kg: { type: ["number", "null"] },
     height_cm: { type: ["number", "null"] },
@@ -340,6 +378,31 @@ const CALCULATOR_DATA = {
     reps: { type: ["integer", "null"] },
     epley_1rm: { type: ["number", "null"] },
     brzycki_1rm: { type: ["number", "null"] },
+    protein_g_per_kg: { type: ["number", "null"] },
+    fat_pct: { type: ["number", "null"] },
+    body_weight_kg: { type: ["number", "null"] },
+    protein_g: { type: ["number", "null"] },
+    fat_g: { type: ["number", "null"] },
+    carbs_g: { type: ["number", "null"] },
+    target_kg: { type: ["number", "null"] },
+    bar_kg: { type: ["number", "null"] },
+    plates_per_side: { type: ["array", "null"], items: CALC_PLATE },
+    rows: { type: ["array", "null"], items: CALC_RPE_ROW },
+    neck_cm: { type: ["number", "null"] },
+    waist_cm: { type: ["number", "null"] },
+    hip_cm: { type: ["number", "null"] },
+    body_fat_pct: { type: ["number", "null"] },
+    weekly_avg_g: { type: ["number", "null"] },
+    plan: { type: ["array", "null"], items: CALC_CARB_DAY },
+    meal_count: { type: ["integer", "null"] },
+    total_g: { type: ["number", "null"] },
+    per_meal_g: { type: ["number", "null"] },
+    leucine_threshold_g: { type: ["number", "null"] },
+    distance_km: { type: ["number", "null"] },
+    time_sec: { type: ["number", "null"] },
+    pace_sec_per_km: { type: ["number", "null"] },
+    speed_kmh: { type: ["number", "null"] },
+    zone: { type: ["string", "null"], enum: ["Z1", "Z2", "Z3", "Z4", "Z5", null] },
   },
 };
 const EMIT_CALCULATOR_WIDGET = {
@@ -351,8 +414,15 @@ const EMIT_CALCULATOR_WIDGET = {
     "",
     "TEMPLATE SELECTION:",
     "  macro_ring — daily macro-split donut (grams/kcal per macro, optional TDEE comparison).",
-    "  tdee_calculator — BMR + TDEE card from weight/height/age/sex/activity. Use when the user asks for a maintenance-calorie calculation WITHOUT a macro breakdown.",
+    "  tdee_calculator — BMR + TDEE card from weight/height/age/sex/activity.",
     "  one_rm_estimator — one-rep-max card from a working set (load × reps). Shows Epley + Brzycki + average.",
+    "  macro_calculator — protein-anchored macro split card (mini donut + per-macro grams/kcal).",
+    "  plate_loader_visual — target weight → plate stack illustration per side.",
+    "  rpe_to_percent_rm — reps × RPE → %1RM lookup heatmap (RPE 6-10).",
+    "  body_fat_estimator — Navy-method body-fat card with zone label.",
+    "  carb_cycling_calculator — 7-day plan with high/med/low tier + carb grams per day.",
+    "  protein_target_calculator — body-weight × meals → per-meal protein + leucine-threshold check.",
+    "  pace_calculator — distance + time → pace/km + speed + optional training zone.",
     "",
     "DO NOT CALL for:",
     "  - Protein timing / per-meal macros — use emit_nutrition_widget.",
@@ -377,7 +447,12 @@ const EMIT_CALCULATOR_WIDGET = {
       display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
-      type: { type: "string", enum: ["macro_ring", "tdee_calculator", "one_rm_estimator"] },
+      type: { type: "string", enum: [
+        "macro_ring", "tdee_calculator", "one_rm_estimator",
+        "macro_calculator", "plate_loader_visual", "rpe_to_percent_rm",
+        "body_fat_estimator", "carb_cycling_calculator",
+        "protein_target_calculator", "pace_calculator",
+      ] },
       data: CALCULATOR_DATA,
     },
   },
