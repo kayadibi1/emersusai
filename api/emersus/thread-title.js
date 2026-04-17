@@ -67,8 +67,11 @@ export default async function threadTitleHandler(req, res) {
     const openai = getOpenAI();
     const completion = await openai.chat.completions.create({
       model: TITLE_MODEL,
-      temperature: 0.3,
-      max_tokens: 24,
+      // Newer OpenAI models (gpt-5.x, o-series) reject the legacy `max_tokens`
+      // + non-default `temperature` in chat.completions. Use the replacement
+      // param and drop the temperature override (default is fine for 3–6
+      // word titles).
+      max_completion_tokens: 24,
       messages: [
         { role: "system", content: SYSTEM_PROMPT },
         {

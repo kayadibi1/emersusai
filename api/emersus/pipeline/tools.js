@@ -417,7 +417,7 @@ export const REMEMBER_FACT = {
   type: "function",
   name: "remember_fact",
   description:
-    "Save a fact the user explicitly asked to remember across future conversations. Use ONLY when the user clearly signals save-intent (e.g., 'remember that…', 'note this for next time', 'make sure you know I…'). Do NOT infer save-intent — if the user didn't explicitly ask, don't call this. For facts that don't fit any whitelist category, use category='custom'. Keep the fact text under 500 characters.",
+    "Save a fact the user explicitly asked to remember across future conversations. Use ONLY when the user clearly signals save-intent (e.g., 'remember that…', 'note this for next time', 'make sure you know I…'). Do NOT infer save-intent — if the user didn't explicitly ask, don't call this. For facts that don't fit any whitelist category, use category='custom'. Keep the fact text under 500 characters. After the call returns, the result contains an `echo` field — surface that exact string in your reply verbatim (do not paraphrase it) so the user sees a deterministic save confirmation.",
   strict: true,
   parameters: {
     type: "object",
