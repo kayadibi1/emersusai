@@ -17,7 +17,7 @@ export function TdeeWaterfall({ title, display_width, summary, follow_up_chips, 
   ];
   const W = 560, H = 200, PAD = { t: 14, r: 14, b: 48, l: 40 };
   const plotW = W - PAD.l - PAD.r, plotH = H - PAD.t - PAD.b;
-  const maxY = Math.max(tdee, bmr + tea + neat + tef);
+  const maxY = Math.max(tdee, bmr + tea + neat + tef, 1);
   const colW = plotW / (segments.length + 1);
   const colors = ["var(--chart-series-1)", "var(--chart-series-2)", "var(--chart-series-3)", "var(--chart-series-4)"];
   let cum = 0;

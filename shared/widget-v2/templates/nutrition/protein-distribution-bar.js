@@ -17,9 +17,9 @@ export function ProteinDistributionBar({ title, display_width, summary, follow_u
   const { daily_target_g, protein_meals } = data;
   const sortedMeals = protein_meals.slice().sort((a, b) => a.hour - b.hour);
   const totalEmitted = sortedMeals.reduce((s, m) => s + (m.grams || 0), 0);
-  const maxBar = Math.max(daily_target_g, totalEmitted, ...sortedMeals.map((m) => m.grams));
+  const maxBar = Math.max(daily_target_g, totalEmitted, ...sortedMeals.map((m) => m.grams), 1);
   const widthOf = (g) => `${Math.min(100, (g / maxBar) * 100)}%`;
-  const deltaPct = Math.round((totalEmitted / daily_target_g) * 100);
+  const deltaPct = daily_target_g > 0 ? Math.round((totalEmitted / daily_target_g) * 100) : 0;
 
   return h(
     CardFrame,

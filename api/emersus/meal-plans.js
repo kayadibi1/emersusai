@@ -24,7 +24,7 @@ const router = Router();
 router.post("/", async (req, res) => {
   try {
     const { title, plan, source_thread_id, last_adjusted_via } = req.body ?? {};
-    if (!title || typeof title !== "string") {
+    if (!title || typeof title !== "string" || title.length > 256) {
       res.status(400).json({ error: "title_required" });
       return;
     }

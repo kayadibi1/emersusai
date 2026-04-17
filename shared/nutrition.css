@@ -647,3 +647,25 @@ body.nutrition-body {
   from { opacity: 0; transform: translate(-50%, 8px); }
   to   { opacity: 1; transform: translate(-50%, 0); }
 }
+
+/* ── Focus styles (a11y) ─────────────────────────────────────────────── */
+.nu-strip-btn:focus-visible,
+.nu-quick-btn:focus-visible,
+.nu-quick-menu button:focus-visible,
+.nu-log-food-btn:focus-visible,
+.nu-food-delete:focus-visible,
+.nu-delete-confirm-yes:focus-visible,
+.nu-delete-confirm-no:focus-visible,
+.nu-tab:focus-visible,
+.nu-date-arrow:focus-visible,
+.nu-supp-chip:focus-visible,
+.nu-modal-close:focus-visible,
+.nu-meals-cta-bottom:focus-visible,
+.nu-modal-backdrop button:focus-visible,
+.nu-add-food-input:focus-visible,
+.nu-supp-input:focus-visible,
+.nu-food-slot-select:focus-visible,
+.nu-food-amount-input:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

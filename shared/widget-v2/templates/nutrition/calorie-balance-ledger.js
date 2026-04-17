@@ -10,7 +10,7 @@ const h = React.createElement;
 
 export function CalorieBalanceLedger({ title, display_width, summary, follow_up_chips, data }) {
   const { days } = data;
-  const maxVal = Math.max(...days.flatMap((d) => [d.intake, d.expenditure]));
+  const maxVal = Math.max(...days.flatMap((d) => [d.intake, d.expenditure]), 1);
   const W = 640, ROW_H = 32, PAD_L = 90, PAD_R = 80;
   const plotW = W - PAD_L - PAD_R;
   const H = 20 + days.length * ROW_H;

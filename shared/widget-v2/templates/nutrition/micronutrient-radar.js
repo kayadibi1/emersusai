@@ -10,6 +10,12 @@ const h = React.createElement;
 export function MicronutrientRadar({ title, display_width, summary, follow_up_chips, data }) {
   const { axes } = data;
   const N = axes.length;
+  if (N === 0) {
+    return h(CardFrame, { title, summary, display_width },
+      h("div", { className: "wv-mnr-empty" }, "No micronutrient data available."),
+      h(FollowUpChips, { chips: follow_up_chips }),
+    );
+  }
   const CX = 200, CY = 200, R = 140;
   const pct = (i, r = R) => {
     const theta = (Math.PI * 2 * i) / N - Math.PI / 2;
