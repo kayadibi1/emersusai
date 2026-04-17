@@ -10,8 +10,8 @@ const h = React.createElement;
 // the same widget while keeping the breakdown ratios readable.
 
 export function MealMacroStack({ title, display_width, summary, follow_up_chips, data }) {
-  const { daily_total_kcal, meals } = data;
-  const mealTotals = meals.map((m) => m.protein_kcal + m.carbs_kcal + m.fat_kcal);
+  const { daily_total_kcal, macro_meals } = data;
+  const mealTotals = macro_meals.map((m) => m.protein_kcal + m.carbs_kcal + m.fat_kcal);
   const maxMeal = Math.max(1, ...mealTotals);
   const widthOf = (kcal) => `${(kcal / maxMeal) * 100}%`;
   const totalEmitted = mealTotals.reduce((s, k) => s + k, 0);
@@ -32,7 +32,7 @@ export function MealMacroStack({ title, display_width, summary, follow_up_chips,
       h(
         "ul",
         { className: "wv-mms-list" },
-        meals.map((m, i) => {
+        macro_meals.map((m, i) => {
           const total = mealTotals[i] || 1;
           const ppct = (m.protein_kcal / total) * 100;
           const cpct = (m.carbs_kcal / total) * 100;

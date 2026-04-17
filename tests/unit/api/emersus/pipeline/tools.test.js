@@ -7,8 +7,8 @@ import { TOOL_DEFINITIONS, validateToolCall, REMEMBER_FACT, RECALL_MEMORY, build
 // type-dependent data shape. Server-side validators cover correctness.
 const MULTI_TYPE_WIDGET_V2 = new Set([
   // Under Plan 9.5 families are migrating to strict:true via superset-data.
-  // Pharma + Progress + Evidence have landed; Nutrition + Training remain.
-  "emit_nutrition_widget", "emit_training_widget",
+  // Pharma + Progress + Evidence + Nutrition have landed; Training remains.
+  "emit_training_widget",
 ]);
 
 describe("TOOL_DEFINITIONS", () => {

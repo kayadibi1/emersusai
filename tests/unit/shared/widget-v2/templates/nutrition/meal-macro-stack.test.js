@@ -11,7 +11,7 @@ const VALID = {
   type: "meal_macro_stack",
   data: {
     daily_total_kcal: 2400,
-    meals: [
+    macro_meals: [
       { name: "Breakfast", protein_kcal: 180, carbs_kcal: 240, fat_kcal: 160 },
       { name: "Lunch", protein_kcal: 240, carbs_kcal: 320, fat_kcal: 180 },
       { name: "Snack", protein_kcal: 120, carbs_kcal: 160, fat_kcal: 60 },
@@ -28,7 +28,7 @@ test("validator accepts full payload", () => {
 test("validator rejects missing protein_kcal", () => {
   const bad = {
     ...VALID,
-    data: { ...VALID.data, meals: [{ name: "X", carbs_kcal: 100, fat_kcal: 50 }] },
+    data: { ...VALID.data, macro_meals: [{ name: "X", carbs_kcal: 100, fat_kcal: 50 }] },
   };
   const r = validateNutritionWidget(bad);
   assert.equal(r.valid, false);

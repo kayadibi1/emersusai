@@ -14,8 +14,8 @@ function formatHour(h24) {
 }
 
 export function ProteinDistributionBar({ title, display_width, summary, follow_up_chips, data }) {
-  const { daily_target_g, meals } = data;
-  const sortedMeals = meals.slice().sort((a, b) => a.hour - b.hour);
+  const { daily_target_g, protein_meals } = data;
+  const sortedMeals = protein_meals.slice().sort((a, b) => a.hour - b.hour);
   const totalEmitted = sortedMeals.reduce((s, m) => s + (m.grams || 0), 0);
   const maxBar = Math.max(daily_target_g, totalEmitted, ...sortedMeals.map((m) => m.grams));
   const widthOf = (g) => `${Math.min(100, (g / maxBar) * 100)}%`;

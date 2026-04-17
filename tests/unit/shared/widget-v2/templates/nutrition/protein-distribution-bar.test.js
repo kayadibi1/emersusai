@@ -11,7 +11,7 @@ const VALID = {
   type: "protein_distribution_bar",
   data: {
     daily_target_g: 180,
-    meals: [
+    protein_meals: [
       { slot: "breakfast", grams: 40, hour: 8 },
       { slot: "lunch", grams: 50, hour: 13 },
       { slot: "post-workout", grams: 40, hour: 18 },
@@ -26,13 +26,13 @@ test("validator accepts full payload", () => {
 });
 
 test("validator rejects bad hour", () => {
-  const bad = { ...VALID, data: { ...VALID.data, meals: [{ slot: "x", grams: 10, hour: 25 }] } };
+  const bad = { ...VALID, data: { ...VALID.data, protein_meals: [{ slot: "x", grams: 10, hour: 25 }] } };
   const r = validateNutritionWidget(bad);
   assert.equal(r.valid, false);
 });
 
 test("validator rejects negative grams", () => {
-  const bad = { ...VALID, data: { ...VALID.data, meals: [{ slot: "x", grams: -1, hour: 8 }] } };
+  const bad = { ...VALID, data: { ...VALID.data, protein_meals: [{ slot: "x", grams: -1, hour: 8 }] } };
   const r = validateNutritionWidget(bad);
   assert.equal(r.valid, false);
 });
@@ -51,7 +51,7 @@ test("component sorts meals by hour", () => {
     ...VALID,
     data: {
       daily_target_g: 120,
-      meals: [
+      protein_meals: [
         { slot: "lunch", grams: 40, hour: 13 },
         { slot: "breakfast", grams: 30, hour: 7 },
         { slot: "dinner", grams: 50, hour: 20 },

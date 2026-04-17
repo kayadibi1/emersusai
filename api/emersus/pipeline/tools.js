@@ -368,8 +368,10 @@ const EMIT_CALCULATOR_WIDGET = {
 };
 
 // ── emit_nutrition_widget (widget-v2 · F3) ──────────────────────────
+// Superset data — strict:true. Item-shape collision on `meals` is
+// resolved by renaming to `protein_meals` / `macro_meals` per type.
 
-const NUTRITION_MEAL_BAR = {
+const NUTRITION_PROTEIN_MEAL = {
   type: "object",
   required: ["slot", "grams", "hour"],
   additionalProperties: false,
@@ -380,17 +382,7 @@ const NUTRITION_MEAL_BAR = {
   },
 };
 
-const PROTEIN_DISTRIBUTION_DATA = {
-  type: "object",
-  required: ["daily_target_g", "meals"],
-  additionalProperties: false,
-  properties: {
-    daily_target_g: { type: "number" },
-    meals: { type: "array", items: NUTRITION_MEAL_BAR },
-  },
-};
-
-const MEAL_MACRO_MEAL = {
+const NUTRITION_MACRO_MEAL = {
   type: "object",
   required: ["name", "protein_kcal", "carbs_kcal", "fat_kcal"],
   additionalProperties: false,
@@ -402,13 +394,15 @@ const MEAL_MACRO_MEAL = {
   },
 };
 
-const MEAL_MACRO_STACK_DATA = {
+const NUTRITION_DATA = {
   type: "object",
-  required: ["daily_total_kcal", "meals"],
+  required: ["daily_target_g", "protein_meals", "daily_total_kcal", "macro_meals"],
   additionalProperties: false,
   properties: {
-    daily_total_kcal: { type: "number" },
-    meals: { type: "array", items: MEAL_MACRO_MEAL },
+    daily_target_g: { type: ["number", "null"] },
+    protein_meals: { type: ["array", "null"], items: NUTRITION_PROTEIN_MEAL },
+    daily_total_kcal: { type: ["number", "null"] },
+    macro_meals: { type: ["array", "null"], items: NUTRITION_MACRO_MEAL },
   },
 };
 
@@ -420,22 +414,24 @@ const MEAL_MACRO_STACK_DATA = {
 const EMIT_NUTRITION_WIDGET = {
   type: "function",
   name: "emit_nutrition_widget",
-  strict: false,
+  strict: true,
   description: [
-    "Emit a nutrition visualization widget. Use for daily macro/protein timing and meal-level macro breakdowns. Write 2-4 sentences of prose FIRST, then call this tool.",
+    "Emit a nutrition visualization widget. Write 2-4 sentences of prose FIRST, then call.",
     "",
-    "TEMPLATE SELECTION (pick `type`):",
-    "  protein_distribution_bar — horizontal bars of protein grams per meal across the day vs a daily target. Use when the user asks how to spread protein across meals.",
-    "  meal_macro_stack — stacked P/C/F bars per meal (kcal). Use when showing the macro composition of a multi-meal day.",
+    "TEMPLATE SELECTION:",
+    "  protein_distribution_bar — horizontal bars of protein grams per meal across the day vs a daily target.",
+    "  meal_macro_stack — stacked P/C/F bars per meal (kcal).",
     "",
-    "DO NOT CALL for: macro-split donut (use emit_calculator_widget type=macro_ring), meal-plan construction (use emit_meal_plan). Stick to visualization of what the user already has.",
+    "DO NOT CALL for: macro-split donut (use emit_calculator_widget type=macro_ring), meal-plan construction (use emit_meal_plan).",
     "",
-    "DATA (you MUST include this field — it is not optional):",
-    "  protein_distribution_bar: { daily_target_g: number, meals: [{ slot: string, grams: number, hour: int (0-23) }] }",
-    "  meal_macro_stack: { daily_total_kcal: number, meals: [{ name: string, protein_kcal: number, carbs_kcal: number, fat_kcal: number }] }",
+    "DATA SHAPE (strict: fill the fields your `type` uses, null the others. The `meals` array is split into `protein_meals` / `macro_meals` to keep strict-mode happy):",
+    "  protein_distribution_bar fills: daily_target_g, protein_meals",
+    "  meal_macro_stack fills: daily_total_kcal, macro_meals",
     "",
-    "EXAMPLE protein_distribution_bar call:",
-    '  { "title": "Protein across the day", "display_width": "wide", "summary": "...", "follow_up_chips": [], "type": "protein_distribution_bar", "data": { "daily_target_g": 180, "meals": [{ "slot": "breakfast", "grams": 40, "hour": 8 }, { "slot": "lunch", "grams": 50, "hour": 13 }] } }',
+    "EXAMPLE protein_distribution_bar:",
+    '  data: { "daily_target_g": 180, "protein_meals": [{ "slot": "breakfast", "grams": 40, "hour": 8 }], "daily_total_kcal": null, "macro_meals": null }',
+    "EXAMPLE meal_macro_stack:",
+    '  data: { "daily_target_g": null, "protein_meals": null, "daily_total_kcal": 2400, "macro_meals": [{ "name": "Breakfast", "protein_kcal": 180, "carbs_kcal": 240, "fat_kcal": 160 }] }',
   ].join("\n"),
   parameters: {
     type: "object",
@@ -447,14 +443,7 @@ const EMIT_NUTRITION_WIDGET = {
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
       type: { type: "string", enum: ["protein_distribution_bar", "meal_macro_stack"] },
-      data: {
-        type: "object",
-        description: [
-          "Shape depends on `type`:",
-          "  protein_distribution_bar: { daily_target_g: number, meals: [{ slot: string, grams: number, hour: int (0-23) }] }",
-          "  meal_macro_stack: { daily_total_kcal: number, meals: [{ name: string, protein_kcal: number, carbs_kcal: number, fat_kcal: number }] }",
-        ].join("\n"),
-      },
+      data: NUTRITION_DATA,
     },
   },
 };
