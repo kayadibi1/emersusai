@@ -18,12 +18,18 @@ test("renders one chip per string", () => {
   assert.equal(el.props.children.length, 2);
 });
 
-test("chip onClick calls window.sendPrompt with chip text", () => {
-  let sent = null;
-  global.window = { sendPrompt: (s) => { sent = s; } };
+test("chip onClick dispatches emersus:seed-prompt CustomEvent with chip text", () => {
+  const events = [];
+  const stubWindow = {
+    CustomEvent: function (name, opts) { this.type = name; this.detail = opts?.detail; },
+    dispatchEvent: (evt) => { events.push({ type: evt.type, prompt: evt.detail?.prompt }); },
+  };
+  global.window = stubWindow;
   const el = FollowUpChips({ chips: ["hello"] });
   const chip = el.props.children[0];
   chip.props.onClick();
-  assert.equal(sent, "hello");
+  assert.equal(events.length, 1);
+  assert.equal(events[0].type, "emersus:seed-prompt");
+  assert.equal(events[0].prompt, "hello");
   delete global.window;
 });

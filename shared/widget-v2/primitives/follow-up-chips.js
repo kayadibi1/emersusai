@@ -2,16 +2,20 @@ import React from "react";
 const h = React.createElement;
 
 // Follow-up chips render as a horizontal row at the bottom of a widget card.
-// Each chip, when clicked, calls window.sendPrompt so the chat app can feed
-// the text into the composer (existing behavior; see emersus-renderer.js
-// `window.sendPrompt` host bridge).
+// widget-v2 widgets render INLINE in the parent chat page (not inside an
+// iframe), so the legacy `window.sendPrompt` bridge defined in
+// emersus-renderer.js (which only exists inside the widget iframe's document)
+// is unreachable here. Use the same CustomEvent bridge MealPlanCard uses:
+// shared/react-chat-app.js has a useEffect that listens for
+// `emersus:seed-prompt` and calls setQuestion(event.detail.prompt) to seed
+// the composer. User still hits send.
 
 export function FollowUpChips({ chips }) {
   if (!Array.isArray(chips) || chips.length === 0) return null;
   const onClick = (text) => () => {
     try {
-      if (typeof window !== "undefined" && typeof window.sendPrompt === "function") {
-        window.sendPrompt(text);
+      if (typeof window !== "undefined" && typeof window.CustomEvent === "function") {
+        window.dispatchEvent(new CustomEvent("emersus:seed-prompt", { detail: { prompt: text } }));
       }
     } catch { /* noop */ }
   };
