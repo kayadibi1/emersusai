@@ -321,10 +321,16 @@ const MACRO_RING_DATA = {
   },
 };
 
+// Note (Plan 9.5 TODO): tdee_calculator and one_rm_estimator components
+// exist under shared/widget-v2/templates/calculators/ and are wired in the
+// dispatcher registry — but they are NOT listed in `type.enum` below
+// because multi-type strict:false proved unreliable in prod (model omits
+// `data` entirely). Re-enable them via the superset-data + strict:true
+// pattern or by splitting into per-type tools.
 const EMIT_CALCULATOR_WIDGET = {
   type: "function",
   name: "emit_calculator_widget",
-  strict: false,
+  strict: true,
   description: [
     "Emit a quantitative calculator widget. Write 2-4 sentences of prose FIRST, then call.",
     "",
@@ -355,8 +361,8 @@ const EMIT_CALCULATOR_WIDGET = {
       display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
-      type: { type: "string", enum: ["macro_ring", "tdee_calculator", "one_rm_estimator"] },
-      data: { type: "object", description: "Required, non-null object. Shape depends on `type` — see the DATA section of this tool's description." },
+      type: { type: "string", enum: ["macro_ring"] },
+      data: MACRO_RING_DATA,
     },
   },
 };

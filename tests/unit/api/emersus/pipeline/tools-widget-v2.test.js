@@ -6,10 +6,7 @@ test("emit_calculator_widget is in tool definitions", () => {
   const tools = buildToolDefinitions();
   const t = tools.find((x) => x.name === "emit_calculator_widget");
   assert.ok(t, "emit_calculator_widget missing from buildToolDefinitions()");
-  // Multi-type calculator now (macro_ring, tdee_calculator, one_rm_estimator)
-  // so strict must be false — OpenAI strict mode can't express a
-  // type-discriminated data schema.
-  assert.equal(t.strict, false);
+  assert.equal(t.strict, true);
 });
 
 test("emit_calculator_widget schema includes macro_ring type", () => {
