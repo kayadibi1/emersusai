@@ -299,34 +299,49 @@ const MACRO_RING_LEG = {
   },
 };
 
-const MACRO_RING_DATA = {
+// Calculator superset data — strict:true. Covers macro_ring +
+// tdee_calculator + one_rm_estimator in one schema. `load`, `reps`,
+// `lift`, `unit` are 1RM-only; `weight_kg`, `height_cm`, `age`, `sex`,
+// `activity_level`, `bmr`, `tdee` are TDEE-only. No name collisions.
+const MACRO_RING_TDEE_REF = {
+  type: ["object", "null"],
+  required: ["tdee", "delta_kcal"],
+  additionalProperties: false,
+  properties: { tdee: { type: "number" }, delta_kcal: { type: "number" } },
+};
+const CALCULATOR_DATA = {
   type: "object",
-  required: ["kcal_total", "phase", "protein", "carbs", "fat", "tdee_reference"],
+  required: [
+    // macro_ring fields
+    "kcal_total", "phase", "protein", "carbs", "fat", "tdee_reference",
+    // tdee_calculator fields
+    "weight_kg", "height_cm", "age", "sex", "activity_level", "bmr", "tdee",
+    // one_rm_estimator fields
+    "lift", "unit", "load", "reps", "epley_1rm", "brzycki_1rm",
+  ],
   additionalProperties: false,
   properties: {
-    kcal_total: { type: "number" },
-    phase: { type: "string", enum: ["cut", "maintenance", "bulk"] },
-    protein: MACRO_RING_LEG,
-    carbs: MACRO_RING_LEG,
-    fat: MACRO_RING_LEG,
-    tdee_reference: {
-      type: ["object", "null"],
-      required: ["tdee", "delta_kcal"],
-      additionalProperties: false,
-      properties: {
-        tdee: { type: "number" },
-        delta_kcal: { type: "number" },
-      },
-    },
+    kcal_total: { type: ["number", "null"] },
+    phase: { type: ["string", "null"], enum: ["cut", "maintenance", "bulk", null] },
+    protein: { type: ["object", "null"], required: ["grams", "target_grams", "kcal"], additionalProperties: false, properties: { grams: { type: "number" }, target_grams: { type: "number" }, kcal: { type: "number" } } },
+    carbs: { type: ["object", "null"], required: ["grams", "target_grams", "kcal"], additionalProperties: false, properties: { grams: { type: "number" }, target_grams: { type: "number" }, kcal: { type: "number" } } },
+    fat: { type: ["object", "null"], required: ["grams", "target_grams", "kcal"], additionalProperties: false, properties: { grams: { type: "number" }, target_grams: { type: "number" }, kcal: { type: "number" } } },
+    tdee_reference: MACRO_RING_TDEE_REF,
+    weight_kg: { type: ["number", "null"] },
+    height_cm: { type: ["number", "null"] },
+    age: { type: ["number", "null"] },
+    sex: { type: ["string", "null"], enum: ["male", "female", null] },
+    activity_level: { type: ["string", "null"], enum: ["sedentary", "light", "moderate", "active", "very_active", null] },
+    bmr: { type: ["number", "null"] },
+    tdee: { type: ["number", "null"] },
+    lift: { type: ["string", "null"] },
+    unit: { type: ["string", "null"], enum: ["kg", "lb", null] },
+    load: { type: ["number", "null"] },
+    reps: { type: ["integer", "null"] },
+    epley_1rm: { type: ["number", "null"] },
+    brzycki_1rm: { type: ["number", "null"] },
   },
 };
-
-// Note (Plan 9.5 TODO): tdee_calculator and one_rm_estimator components
-// exist under shared/widget-v2/templates/calculators/ and are wired in the
-// dispatcher registry — but they are NOT listed in `type.enum` below
-// because multi-type strict:false proved unreliable in prod (model omits
-// `data` entirely). Re-enable them via the superset-data + strict:true
-// pattern or by splitting into per-type tools.
 const EMIT_CALCULATOR_WIDGET = {
   type: "function",
   name: "emit_calculator_widget",
@@ -343,14 +358,15 @@ const EMIT_CALCULATOR_WIDGET = {
     "  - Protein timing / per-meal macros — use emit_nutrition_widget.",
     "  - Plate loading, RPE-to-%1RM, body-fat %, pace-per-km — use emit_widget (raw HTML) or prose; those templates are not shipped yet.",
     "",
-    "DATA (you MUST include this field — it is not optional):",
-    "  macro_ring: { kcal_total, phase: 'cut'|'maintenance'|'bulk', protein: { grams, target_grams, kcal }, carbs: { ... }, fat: { ... }, tdee_reference?: { tdee, delta_kcal } }",
-    "  tdee_calculator: { weight_kg, height_cm, age, sex: 'male'|'female', activity_level: 'sedentary'|'light'|'moderate'|'active'|'very_active', bmr, tdee }",
-    "  one_rm_estimator: { lift: string, unit: 'kg'|'lb', load: number, reps: 1-20, epley_1rm: load*(1+reps/30), brzycki_1rm: load*36/(37-reps) }",
-    "  Numbers must reflect what the user asked — do not default-fill fields the user didn't mention.",
+    "DATA SHAPE (strict: fill the fields your `type` uses, null the others):",
+    "  macro_ring fills: kcal_total, phase, protein, carbs, fat, tdee_reference (may be null)",
+    "  tdee_calculator fills: weight_kg, height_cm, age, sex, activity_level, bmr, tdee",
+    "  one_rm_estimator fills: lift, unit, load, reps, epley_1rm (load*(1+reps/30)), brzycki_1rm (load*36/(37-reps))",
     "",
-    "EXAMPLE one_rm_estimator call:",
-    '  { "title": "Squat 1RM", "display_width": "medium", "summary": "...", "follow_up_chips": [], "type": "one_rm_estimator", "data": { "lift": "Back Squat", "unit": "kg", "load": 100, "reps": 5, "epley_1rm": 116.7, "brzycki_1rm": 112.5 } }',
+    "EXAMPLE one_rm_estimator:",
+    '  data: { "lift": "Back Squat", "unit": "kg", "load": 100, "reps": 5, "epley_1rm": 116.7, "brzycki_1rm": 112.5, "kcal_total": null, "phase": null, "protein": null, "carbs": null, "fat": null, "tdee_reference": null, "weight_kg": null, "height_cm": null, "age": null, "sex": null, "activity_level": null, "bmr": null, "tdee": null }',
+    "EXAMPLE tdee_calculator:",
+    '  data: { "weight_kg": 80, "height_cm": 180, "age": 32, "sex": "male", "activity_level": "moderate", "bmr": 1810, "tdee": 2805, "kcal_total": null, "phase": null, "protein": null, "carbs": null, "fat": null, "tdee_reference": null, "lift": null, "unit": null, "load": null, "reps": null, "epley_1rm": null, "brzycki_1rm": null }',
   ].join("\n"),
   parameters: {
     type: "object",
@@ -361,8 +377,8 @@ const EMIT_CALCULATOR_WIDGET = {
       display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
-      type: { type: "string", enum: ["macro_ring"] },
-      data: MACRO_RING_DATA,
+      type: { type: "string", enum: ["macro_ring", "tdee_calculator", "one_rm_estimator"] },
+      data: CALCULATOR_DATA,
     },
   },
 };
