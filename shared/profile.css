@@ -641,3 +641,165 @@ body.profile-body {
   line-height: 1.55;
   color: var(--muted);
 }
+
+/* ========================================================================== */
+/* Profile › Memory tab (Phase 4a)                                            */
+/* ========================================================================== */
+
+.pf-memory { display: flex; flex-direction: column; gap: 24px; }
+.pf-memory-head {
+  display: flex; justify-content: space-between; align-items: baseline;
+  flex-wrap: wrap; gap: 8px;
+}
+.pf-memory-summary {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--dim); margin: 0;
+}
+
+.pf-memory-group { display: flex; flex-direction: column; gap: 10px; }
+.pf-memory-group-title {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.22em;
+  color: var(--muted); margin: 0 0 4px;
+  font-weight: 500; text-transform: uppercase;
+}
+
+.pf-memory-list {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.pf-memory-list-muted .pf-memory-row { opacity: 0.7; }
+
+.pf-memory-row {
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex; flex-direction: column; gap: 6px;
+  transition: border-color 0.14s;
+}
+.pf-memory-row.is-muted { border-style: dashed; }
+.pf-memory-row:hover { border-color: var(--line-strong); }
+
+.pf-memory-row-head { display: flex; align-items: flex-start; gap: 12px; }
+.pf-memory-category {
+  flex: 0 0 auto; min-width: 120px; padding-top: 2px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--accent);
+}
+.pf-memory-fact { flex: 1 1 auto; font-size: 14px; line-height: 1.5; color: var(--ink); }
+.pf-memory-fact-edit {
+  flex: 1 1 auto; font: inherit;
+  background: var(--composer-bg); color: var(--ink);
+  border: 1px solid var(--accent-line);
+  border-radius: 6px; padding: 6px 8px; resize: vertical;
+}
+.pf-memory-row-actions { flex: 0 0 auto; display: flex; gap: 6px; }
+.pf-memory-row-error { color: var(--danger); font-size: 12px; margin-left: 132px; }
+
+.pf-memory-menu-wrap { position: relative; }
+.pf-memory-menu-btn {
+  background: transparent; border: 1px solid transparent;
+  color: var(--muted); cursor: pointer;
+  padding: 4px 10px; border-radius: 6px;
+  font-size: 16px; line-height: 1; min-height: 32px;
+}
+.pf-memory-menu-btn:hover { color: var(--ink); border-color: var(--line); }
+.pf-memory-menu {
+  position: absolute; top: calc(100% + 4px); right: 0;
+  list-style: none; margin: 0; padding: 6px; min-width: 200px;
+  background: var(--surface, var(--bg));
+  border: 1px solid var(--line-strong);
+  border-radius: 8px; z-index: 20;
+  box-shadow: 0 10px 32px rgba(0,0,0,0.22);
+}
+.pf-memory-menu li { list-style: none; }
+.pf-memory-menu button {
+  width: 100%; text-align: left;
+  background: transparent; border: 0;
+  padding: 8px 10px; border-radius: 6px;
+  font: inherit; color: var(--ink); cursor: pointer;
+}
+.pf-memory-menu button:hover { background: var(--surface-faint); }
+.pf-memory-menu-danger { color: var(--danger) !important; }
+
+.pf-memory-btn-primary {
+  background: var(--accent); color: var(--accent-text);
+  border: 0; padding: 6px 12px; border-radius: 6px;
+  font: inherit; font-weight: 600; cursor: pointer;
+}
+.pf-memory-btn-primary:hover { filter: brightness(1.08); }
+.pf-memory-btn-secondary {
+  background: transparent; color: var(--ink);
+  border: 1px solid var(--line);
+  padding: 6px 12px; border-radius: 6px;
+  font: inherit; cursor: pointer;
+}
+.pf-memory-btn-secondary:hover { border-color: var(--line-strong); }
+.pf-memory-btn-danger {
+  background: var(--danger); color: var(--accent-text);
+  border: 0; padding: 6px 12px; border-radius: 6px;
+  font: inherit; font-weight: 600; cursor: pointer;
+}
+.pf-memory-btn-danger:hover { filter: brightness(1.08); }
+.pf-memory-btn-danger:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.pf-memory-archive { margin-top: 16px; }
+.pf-memory-archive-toggle {
+  background: transparent; border: 0;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.22em; color: var(--dim);
+  cursor: pointer; padding: 8px 0;
+  text-transform: uppercase;
+}
+.pf-memory-archive-toggle:hover { color: var(--ink); }
+
+.pf-memory-danger {
+  margin-top: 24px; padding: 20px;
+  border: 1px solid var(--danger);
+  border-radius: 10px;
+  display: flex; flex-direction: column; gap: 12px;
+}
+.pf-memory-danger-title {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px; letter-spacing: 0.22em;
+  color: var(--danger); margin: 0; font-weight: 600;
+}
+.pf-memory-danger-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.pf-memory-input {
+  width: 100%; font: inherit;
+  background: var(--composer-bg); color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: 6px; padding: 7px 10px;
+}
+.pf-memory-modal-label {
+  font-size: 13px; color: var(--muted); margin-top: 4px;
+}
+
+.pf-modal-backdrop {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.48);
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px; z-index: 1000;
+}
+.pf-modal {
+  background: var(--bg);
+  border: 1px solid var(--line-strong);
+  border-radius: 12px;
+  padding: 20px 24px;
+  max-width: 480px; width: 100%;
+  display: flex; flex-direction: column; gap: 14px;
+}
+.pf-modal-head h3 { margin: 0; font-size: 18px; }
+.pf-modal-body { display: flex; flex-direction: column; gap: 10px; font-size: 14px; }
+.pf-modal-foot { display: flex; justify-content: flex-end; gap: 10px; }
+
+@media (max-width: 600px) {
+  .pf-memory-row-head { flex-direction: column; gap: 8px; }
+  .pf-memory-category { min-width: 0; }
+  .pf-memory-row-actions { align-self: flex-end; }
+  .pf-memory-row-error { margin-left: 0; }
+}

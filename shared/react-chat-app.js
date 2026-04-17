@@ -60,6 +60,7 @@ import { MessageActions } from "/shared/chat/message-actions.js";
 import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
 import { buildFollowUpPrompt, citationLinks } from "/shared/chat/widget-footers.js";
 import { EmptyPrompts } from "/shared/chat/empty-prompts.js";
+import { FirstMentionBanner } from "/shared/memory/first-mention-banner.js";
 import { groupThreadsByDate, filterThreadsBySearch, GROUP_ORDER } from "/shared/chat/sidebar-helpers.js";
 
 const h = React.createElement;
@@ -4243,7 +4244,9 @@ export function ChatApp() {
               onClick: handleSkipOnboarding,
             }, "Skip setup →"),
           )
-        : null,
+        : !onboardingActive
+          ? h(FirstMentionBanner, null)
+          : null,
       chatV2On
         ? h(ChatTopBar, {
             thread: activeThread,

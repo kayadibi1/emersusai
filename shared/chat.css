@@ -1872,3 +1872,30 @@ body.chat-page {
     width: 100%;
   }
 }
+
+/* ========================================================================== */
+/* First-mention memory banner (Phase 4a)                                     */
+/* ========================================================================== */
+
+.memory-intro-banner {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  margin: 8px 16px 0;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 8px;
+  font-size: 13px; color: var(--ink);
+}
+.memory-intro-banner-text { flex: 1 1 auto; }
+.memory-intro-banner a { color: var(--accent); font-weight: 600; }
+.memory-intro-banner-dismiss {
+  flex: 0 0 auto;
+  background: transparent; border: 0;
+  color: var(--muted); cursor: pointer;
+  font-size: 18px; line-height: 1;
+  padding: 4px 8px;
+  min-height: 32px; min-width: 32px;
+  border-radius: 6px;
+}
+.memory-intro-banner-dismiss:hover { color: var(--ink); background: var(--surface-faint); }
