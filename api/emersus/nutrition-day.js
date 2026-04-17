@@ -14,9 +14,10 @@ import { resolveDayType } from "../../shared/meal-plan-day-type.js";
 const DEFAULT_EATING_WINDOW = { start: 7, end: 22 }; // 7 AM - 10 PM local
 const PACE_TOLERANCE = 0.08;                          // ±8% band
 
-export function computePaceZone({ targetKcal, eatingWindow = DEFAULT_EATING_WINDOW, now = new Date() }) {
+export function computePaceZone({ targetKcal, eatingWindow = DEFAULT_EATING_WINDOW, now = new Date(), tzOffsetMinutes = 0 }) {
   if (!targetKcal || targetKcal <= 0) return { start: 0, end: 0 };
-  const hours = now.getHours() + now.getMinutes() / 60;
+  const utcHours = now.getUTCHours() + now.getUTCMinutes() / 60;
+  const hours = ((utcHours - tzOffsetMinutes / 60) % 24 + 24) % 24;
   const windowSpan = Math.max(0.5, eatingWindow.end - eatingWindow.start);
   const elapsed = Math.max(0, Math.min(hours - eatingWindow.start, windowSpan));
   const idealRatio = elapsed / windowSpan;          // 0..1 across the eating window
@@ -43,7 +44,7 @@ export function computeWhyInsight({ meals = [], target, consumed }) {
   if (delta > 0) {
     return `${biggest.name || biggest.type} came in at ${biggest.kcal} kcal — pushing you ahead of pace.`;
   }
-  return `Logged meals total ${consumed.kcal} kcal so far. You can take in ${Math.round(target.kcal - (consumed?.kcal || 0))} more before bedtime.`;
+  return `Logged meals total ${consumed?.kcal || 0} kcal so far. You can take in ${Math.round(target.kcal - (consumed?.kcal || 0))} more before bedtime.`;
 }
 
 function isoDateString(d) { return d.toISOString().slice(0, 10); }
@@ -236,7 +237,7 @@ export default async function nutritionDayHandler(req, res) {
     }), { kcal: 0, protein_g: 0, carbs_g: 0, fat_g: 0 });
 
     const meals = buildMealsList(consumedRows, planSlots);
-    const pace = computePaceZone({ targetKcal: target.kcal, eatingWindow: target.eatingWindow });
+    const pace = computePaceZone({ targetKcal: target.kcal, eatingWindow: target.eatingWindow, tzOffsetMinutes: tzOffset });
     const whyInsight = computeWhyInsight({ meals, target, consumed });
 
     res.json({
