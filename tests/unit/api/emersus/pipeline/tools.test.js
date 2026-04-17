@@ -1,6 +1,6 @@
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
-import { TOOL_DEFINITIONS, validateToolCall, REMEMBER_FACT, buildToolDefinitions, SERVER_SIDE_TOOLS, MEMORY_CATEGORY_ENUM } from "../../../../../api/emersus/pipeline/tools.js";
+import { TOOL_DEFINITIONS, validateToolCall, REMEMBER_FACT, RECALL_MEMORY, buildToolDefinitions, SERVER_SIDE_TOOLS, MEMORY_CATEGORY_ENUM } from "../../../../../api/emersus/pipeline/tools.js";
 
 describe("TOOL_DEFINITIONS", () => {
   it("exports exactly 5 tool definitions", () => {
@@ -351,5 +351,72 @@ describe("buildToolDefinitions — flag-gated remember_fact", () => {
 
   it("SERVER_SIDE_TOOLS contains remember_fact regardless of flag", () => {
     assert.ok(SERVER_SIDE_TOOLS.has("remember_fact"));
+  });
+});
+
+describe("RECALL_MEMORY tool definition", () => {
+  it("has type=function, strict=true, correct parameter shape", () => {
+    assert.equal(RECALL_MEMORY.type, "function");
+    assert.equal(RECALL_MEMORY.name, "recall_memory");
+    assert.equal(RECALL_MEMORY.strict, true);
+    const p = RECALL_MEMORY.parameters;
+    assert.equal(p.additionalProperties, false);
+    assert.deepEqual(p.required.slice().sort(), ["categories", "limit", "query"]);
+    assert.deepEqual(p.properties.query.type, ["string", "null"]);
+    assert.deepEqual(p.properties.limit.type, ["integer", "null"]);
+    // categories is ["array","null"], and its items must enumerate the whitelist
+    assert.ok(Array.isArray(p.properties.categories.type));
+    assert.ok(p.properties.categories.type.includes("null"));
+    assert.ok(p.properties.categories.type.includes("array"));
+    assert.ok(Array.isArray(p.properties.categories.items.enum));
+    assert.ok(p.properties.categories.items.enum.includes("injury"));
+    assert.ok(p.properties.categories.items.enum.includes("custom"));
+  });
+});
+
+describe("buildToolDefinitions — flag-gated recall_memory", () => {
+  it("excludes recall_memory when MEMORY_RECALL_ENABLED unset", () => {
+    const saved = process.env.MEMORY_RECALL_ENABLED;
+    delete process.env.MEMORY_RECALL_ENABLED;
+    try {
+      const defs = buildToolDefinitions();
+      assert.ok(!defs.some((d) => d.name === "recall_memory"));
+    } finally {
+      if (saved === undefined) delete process.env.MEMORY_RECALL_ENABLED;
+      else process.env.MEMORY_RECALL_ENABLED = saved;
+    }
+  });
+
+  it("includes recall_memory when MEMORY_RECALL_ENABLED='true'", () => {
+    const saved = process.env.MEMORY_RECALL_ENABLED;
+    process.env.MEMORY_RECALL_ENABLED = "true";
+    try {
+      const defs = buildToolDefinitions();
+      assert.ok(defs.some((d) => d.name === "recall_memory"));
+    } finally {
+      if (saved === undefined) delete process.env.MEMORY_RECALL_ENABLED;
+      else process.env.MEMORY_RECALL_ENABLED = saved;
+    }
+  });
+
+  it("both remember_fact and recall_memory when both flags on", () => {
+    const savedR = process.env.MEMORY_REMEMBER_FACT_ENABLED;
+    const savedL = process.env.MEMORY_RECALL_ENABLED;
+    process.env.MEMORY_REMEMBER_FACT_ENABLED = "true";
+    process.env.MEMORY_RECALL_ENABLED = "true";
+    try {
+      const defs = buildToolDefinitions();
+      assert.ok(defs.some((d) => d.name === "remember_fact"));
+      assert.ok(defs.some((d) => d.name === "recall_memory"));
+    } finally {
+      if (savedR === undefined) delete process.env.MEMORY_REMEMBER_FACT_ENABLED;
+      else process.env.MEMORY_REMEMBER_FACT_ENABLED = savedR;
+      if (savedL === undefined) delete process.env.MEMORY_RECALL_ENABLED;
+      else process.env.MEMORY_RECALL_ENABLED = savedL;
+    }
+  });
+
+  it("SERVER_SIDE_TOOLS contains recall_memory regardless of flag", () => {
+    assert.ok(SERVER_SIDE_TOOLS.has("recall_memory"));
   });
 });
