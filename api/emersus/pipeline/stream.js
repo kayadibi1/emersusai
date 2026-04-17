@@ -1,6 +1,7 @@
 import { validateToolCall, buildToolDefinitions, SERVER_SIDE_TOOLS } from "./tools.js";
 import { formatSources } from "./format-sources.js";
 import { PROMPT_CACHE_KEY } from "./synthesize.js";
+import { isExtractorEnabled } from "./memory-flags.js";
 
 export function parseSSELine(line) {
   const trimmed = String(line).trim();
@@ -353,11 +354,13 @@ export async function stream(ctx, res) {
     sources: ctx.sources,
     confidence: ctx.confidence,
     usage: ctx.tokenUsage,
+    responseId: ctx._openaiResponseId || null,
   });
   res.end();
 
   logTokenUsage(ctx).catch((err) => console.error("Token usage log error:", err));
   persistProfileUpdates(ctx).catch((err) => console.error("Profile persist error:", err));
+  maybeExtractMemory(ctx);
 }
 
 /** Buffer mode: collect the full response into ctx. */
@@ -387,5 +390,31 @@ export async function streamToBuffer(ctx) {
 
   logTokenUsage(ctx).catch((err) => console.error("Token usage log error:", err));
   persistProfileUpdates(ctx).catch((err) => console.error("Profile persist error:", err));
+  maybeExtractMemory(ctx);
   return ctx;
+}
+
+// ── Phase 5: fire-and-forget memory extraction ────────────────────────
+// Runs after the assistant stream fully writes. Flag-gated on
+// MEMORY_EXTRACTOR_ENABLED. Never awaited — errors logged-and-swallowed
+// so a bad extraction never leaks to the client. Reads last 2 user/assistant
+// pairs for context (catches mid-thread retractions per spec §9.2).
+function maybeExtractMemory(ctx) {
+  if (!isExtractorEnabled()) return;
+  const recent = Array.isArray(ctx.recentMessages) ? ctx.recentMessages.slice(-4) : [];
+  import("./extract-memory.js")
+    .then(({ extractMemory }) =>
+      extractMemory({
+        supabaseUserId: ctx.supabaseUserId,
+        threadId: ctx.threadId,
+        _openaiResponseId: ctx._openaiResponseId,
+        question: ctx.question,
+        lastAssistantReply: ctx.prose || "",
+        recentPairs: recent,
+      }, {
+        supabaseUrl: ctx._supabaseUrl || process.env.SUPABASE_URL,
+        serviceRoleKey: ctx._serviceRoleKey || process.env.SUPABASE_SERVICE_ROLE_KEY,
+      }),
+    )
+    .catch((err) => console.warn("[extractMemory] failed:", err?.message || err));
 }
