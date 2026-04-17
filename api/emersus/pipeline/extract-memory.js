@@ -15,9 +15,37 @@
 //   5. pending count ≥ 20 → evict oldest pending (→ rejected), then insert
 //   6. INSERT status='pending', source='auto_extract'
 
+import crypto from "node:crypto";
 import { embedText as defaultEmbedText } from "../embeddings.js";
 import { MEMORY_GATE_SCHEMA, MEMORY_FACTS_SCHEMA, AUTO_EXTRACT_CATEGORIES } from "./extract-memory-schemas.js";
 import { sanitizeFactText } from "./extract-memory-sanitize.js";
+
+function hashUserId(uid) {
+  if (!uid) return null;
+  return crypto.createHash("sha256").update(String(uid)).digest("hex").slice(0, 12);
+}
+
+function logResult(result, ctx) {
+  try {
+    console.log(JSON.stringify({
+      component: "extract_memory",
+      user_id_hash: hashUserId(ctx?.supabaseUserId),
+      thread_id: ctx?.threadId || null,
+      turn_ref: ctx?._openaiResponseId || null,
+      skipped_reason: result.skipped_reason || null,
+      gate_relevant: result.gate ? !!result.gate.relevant : null,
+      gate_categories: result.gate?.categories || null,
+      extracted: result.extracted || 0,
+      dedupe_skipped: result.dedupe_skipped || 0,
+      superseded: result.superseded || 0,
+      sanitize_rejected: result.sanitize_rejected || 0,
+      low_confidence_dropped: result.low_confidence_dropped || 0,
+      pending_cap_evictions: result.pending_cap_evictions || 0,
+      latency_ms: result.latency_ms ?? null,
+      error: result.error || null,
+    }));
+  } catch { /* never let logging break the extractor */ }
+}
 
 const DEDUPE_SIMILARITY      = 0.92;
 const SUPERSEDE_SIMILARITY   = 0.75;
@@ -323,14 +351,18 @@ export async function extractMemory(ctx, deps = {}) {
   const turnRef = ctx?._openaiResponseId || null;
 
   if (!userId) {
-    return { extracted: 0, skipped_reason: "no_user", latency_ms: Date.now() - startedAt };
+    const r = { extracted: 0, skipped_reason: "no_user", latency_ms: Date.now() - startedAt };
+    logResult(r, ctx);
+    return r;
   }
 
   const autosaveEnabled = deps.autosaveEnabled != null
     ? !!deps.autosaveEnabled
     : await resolveAutosaveFlag(userId, deps);
   if (!autosaveEnabled) {
-    return { extracted: 0, skipped_reason: "autosave_off", latency_ms: Date.now() - startedAt };
+    const r = { extracted: 0, skipped_reason: "autosave_off", latency_ms: Date.now() - startedAt };
+    logResult(r, ctx);
+    return r;
   }
 
   const effectiveDeps = {
@@ -353,11 +385,15 @@ export async function extractMemory(ctx, deps = {}) {
       { model: effectiveDeps.gateModel },
     );
   } catch (err) {
-    return { extracted: 0, error: err.message, latency_ms: Date.now() - startedAt };
+    const r = { extracted: 0, error: err.message, latency_ms: Date.now() - startedAt };
+    logResult(r, ctx);
+    return r;
   }
 
   if (!gate?.relevant || !Array.isArray(gate.categories) || gate.categories.length === 0) {
-    return { extracted: 0, gate, latency_ms: Date.now() - startedAt };
+    const r = { extracted: 0, gate, latency_ms: Date.now() - startedAt };
+    logResult(r, ctx);
+    return r;
   }
 
   // DO-NOT-PROPOSE list for the flagged categories
@@ -373,7 +409,9 @@ export async function extractMemory(ctx, deps = {}) {
     );
     facts = Array.isArray(parsed?.facts) ? parsed.facts : [];
   } catch (err) {
-    return { extracted: 0, gate, error: err.message, latency_ms: Date.now() - startedAt };
+    const r = { extracted: 0, gate, error: err.message, latency_ms: Date.now() - startedAt };
+    logResult(r, ctx);
+    return r;
   }
 
   let extracted = 0, dedupe_skipped = 0, superseded = 0;
@@ -467,7 +505,7 @@ export async function extractMemory(ctx, deps = {}) {
   }
 
   const latency_ms = Date.now() - startedAt;
-  return {
+  const result = {
     extracted,
     dedupe_skipped,
     superseded,
@@ -477,4 +515,6 @@ export async function extractMemory(ctx, deps = {}) {
     gate,
     latency_ms,
   };
+  logResult(result, ctx);
+  return result;
 }
