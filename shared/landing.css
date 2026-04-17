@@ -345,6 +345,29 @@ h1.headline {
 .wg-b-pill.strong { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-line); }
 .wg-b-pill.moderate { background: rgba(245, 158, 11, 0.18); color: #f59e0b; border-color: rgba(245, 158, 11, 0.45); }
 
+/* ===== WIDGET C — TDEE + cut macros ===== */
+.wg-c { border: 1px solid var(--line); border-radius: 12px; background: var(--surface-faint); padding: 16px 18px; }
+.wg-c-inputs { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 14px; font-family: var(--font-mono); font-size: 10.5px; color: var(--muted); letter-spacing: 0.16em; }
+.wg-c-input { padding: 4px 8px; background: var(--bg); border: 1px solid var(--line); border-radius: 6px; }
+.wg-c-divider { color: var(--dim); }
+.wg-c-readout { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+.wg-c-row { display: flex; align-items: baseline; gap: 8px; }
+.wg-c-k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; color: var(--dim); min-width: 86px; }
+.wg-c-kcal { font-family: var(--font-mono); font-size: 24px; color: var(--ink); font-weight: 600; letter-spacing: -0.01em; }
+.wg-c-cut .wg-c-kcal { color: var(--accent); }
+.wg-c-unit { font-family: var(--font-mono); font-size: 11px; color: var(--dim); letter-spacing: 0.12em; }
+.wg-c-delta { font-family: var(--font-mono); font-size: 10px; color: var(--accent); letter-spacing: 0.14em; margin-left: auto; padding: 2px 8px; background: var(--accent-soft); border: 1px solid var(--accent-line); border-radius: 999px; }
+.wg-c-macros { display: flex; flex-direction: column; gap: 8px; border-top: 1px solid var(--line); padding-top: 12px; }
+.wg-c-macro { display: grid; grid-template-columns: 70px 1fr 48px; align-items: center; gap: 10px; }
+.wg-c-macro-k { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.16em; color: var(--dim); }
+.wg-c-macro-v { font-family: var(--font-mono); font-size: 11px; color: var(--ink); letter-spacing: 0.1em; text-align: right; }
+.wg-c-bar-wrap { height: 6px; background: var(--line); border-radius: 4px; overflow: hidden; }
+.wg-c-bar { height: 100%; width: 0%; border-radius: 4px; transition: width 1s cubic-bezier(.22,.8,.32,1); }
+.wg-c-bar.protein { background: var(--accent); }
+.wg-c-bar.carbs { background: color-mix(in oklab, var(--accent) 55%, var(--muted)); }
+.wg-c-bar.fat { background: color-mix(in oklab, var(--accent) 30%, var(--muted)); }
+.wg-c.filled .wg-c-bar { width: var(--fill); }
+
 /* ===== SECTIONS ===== */
 .section { max-width: 1100px; margin: 0 auto; padding: 96px 32px; border-top: 1px solid var(--line); }
 .sec-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
