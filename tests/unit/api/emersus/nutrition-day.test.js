@@ -8,7 +8,7 @@ describe('nutrition-day — computePaceZone', () => {
   });
 
   test('mid-day returns ~50% with ±8% band', () => {
-    const noon = new Date('2026-04-15T14:30:00');
+    const noon = new Date('2026-04-15T14:30:00Z');
     // Eating window is 7am-10pm = 15h. 14:30 = 7.5h elapsed = 50%.
     const z = computePaceZone({ targetKcal: 2200, now: noon });
     assert.ok(z.start > 0.40 && z.start < 0.45);
@@ -16,21 +16,21 @@ describe('nutrition-day — computePaceZone', () => {
   });
 
   test('start of window returns ~0', () => {
-    const morning = new Date('2026-04-15T07:00:00');
+    const morning = new Date('2026-04-15T07:00:00Z');
     const z = computePaceZone({ targetKcal: 2200, now: morning });
     assert.equal(z.start, 0);
     assert.ok(z.end > 0 && z.end < 0.1);
   });
 
   test('end of window returns ~1', () => {
-    const evening = new Date('2026-04-15T22:00:00');
+    const evening = new Date('2026-04-15T22:00:00Z');
     const z = computePaceZone({ targetKcal: 2200, now: evening });
     assert.ok(z.start > 0.9);
     assert.equal(z.end, 1);
   });
 
   test('custom eating window shifts pace zone', () => {
-    const noon = new Date('2026-04-15T14:30:00');
+    const noon = new Date('2026-04-15T14:30:00Z');
     // IF eating window = 12pm-8pm = 8h. 14:30 = 2.5h elapsed = 31.25%.
     const z = computePaceZone({
       targetKcal: 2200,
@@ -42,7 +42,7 @@ describe('nutrition-day — computePaceZone', () => {
   });
 
   test('before custom window start returns 0', () => {
-    const earlyMorning = new Date('2026-04-15T10:00:00');
+    const earlyMorning = new Date('2026-04-15T10:00:00Z');
     const z = computePaceZone({
       targetKcal: 2200,
       eatingWindow: { start: 12, end: 20 },
