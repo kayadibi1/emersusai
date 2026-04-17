@@ -22,6 +22,17 @@ import { WeeklyPlanCalendar } from "./templates/training/weekly-plan-calendar.js
 import { DeloadProtocol } from "./templates/training/deload-protocol.js";
 import { PRTimeline } from "./templates/progress/pr-timeline.js";
 import { VolumeTrend } from "./templates/progress/volume-trend.js";
+import { LiftProgressGrid } from "./templates/progress/lift-progress-grid.js";
+import { WeeklyVolumeTrendProgress } from "./templates/progress/weekly-volume-trend.js";
+import { AdherenceCalendarHeatmap } from "./templates/progress/adherence-calendar-heatmap.js";
+import { BodyCompTrend } from "./templates/progress/body-comp-trend.js";
+import { GoalTrajectoryDual } from "./templates/progress/goal-trajectory-dual.js";
+import { InterventionSlopegraph } from "./templates/progress/intervention-slopegraph.js";
+import { SessionConsistencyStrip } from "./templates/progress/session-consistency-strip.js";
+import { Vo2maxTrend } from "./templates/progress/vo2max-trend.js";
+import { SleepConsistencyBars } from "./templates/progress/sleep-consistency-bars.js";
+import { PrCelebrationCard } from "./templates/progress/pr-celebration-card.js";
+import { StreakCounterCard } from "./templates/progress/streak-counter-card.js";
 import { DoseResponseCurve } from "./templates/pharma/dose-response-curve.js";
 import { HalfLifeDecay } from "./templates/pharma/half-life-decay.js";
 import { SupplementStackSchedule } from "./templates/pharma/supplement-stack-schedule.js";
@@ -77,7 +88,19 @@ const REGISTRY = {
   },
   progress: {
     pr_timeline: PRTimeline,
+    pr_progression_line: PRTimeline,
     volume_trend: VolumeTrend,
+    lift_progress_grid: LiftProgressGrid,
+    weekly_volume_trend: WeeklyVolumeTrendProgress,
+    adherence_calendar_heatmap: AdherenceCalendarHeatmap,
+    body_comp_trend: BodyCompTrend,
+    goal_trajectory_dual: GoalTrajectoryDual,
+    intervention_slopegraph: InterventionSlopegraph,
+    session_consistency_strip: SessionConsistencyStrip,
+    vo2max_trend: Vo2maxTrend,
+    sleep_consistency_bars: SleepConsistencyBars,
+    pr_celebration_card: PrCelebrationCard,
+    streak_counter_card: StreakCounterCard,
   },
   pharma: {
     dose_response_curve: DoseResponseCurve,

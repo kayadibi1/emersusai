@@ -754,13 +754,89 @@ const PROGRESS_TREND_POINT = {
     value: { type: "number" },
   },
 };
+const PROGRESS_LIFT = {
+  type: "object",
+  required: ["name", "current", "delta_pct", "sparkline", "plateau"],
+  additionalProperties: false,
+  properties: {
+    name: { type: "string" }, current: { type: "number" }, delta_pct: { type: "number" },
+    sparkline: { type: "array", items: { type: "number" } },
+    plateau: { type: ["boolean", "null"] },
+  },
+};
+const PROGRESS_WEEK = {
+  type: "object",
+  required: ["week_start", "by_muscle"],
+  additionalProperties: false,
+  properties: {
+    week_start: { type: "string" },
+    by_muscle: { type: "object", additionalProperties: { type: "number" } },
+  },
+};
+const PROGRESS_ADHERENCE_CELL = {
+  type: "object",
+  required: ["date", "intensity"],
+  additionalProperties: false,
+  properties: { date: { type: "string" }, intensity: { type: "number" } },
+};
+const PROGRESS_COMP_POINT = {
+  type: "object",
+  required: ["date", "bw", "lbm", "fm"],
+  additionalProperties: false,
+  properties: { date: { type: "string" }, bw: { type: "number" }, lbm: { type: "number" }, fm: { type: "number" } },
+};
+const PROGRESS_GOAL_POINT = {
+  type: "object",
+  required: ["date", "value"],
+  additionalProperties: false,
+  properties: { date: { type: "string" }, value: { type: "number" } },
+};
+const PROGRESS_PROJ_POINT = {
+  type: "object",
+  required: ["date", "low", "high"],
+  additionalProperties: false,
+  properties: { date: { type: "string" }, low: { type: "number" }, high: { type: "number" } },
+};
+const PROGRESS_PERSON = {
+  type: "object",
+  required: ["label", "before", "after"],
+  additionalProperties: false,
+  properties: { label: { type: "string" }, before: { type: "number" }, after: { type: "number" } },
+};
+const PROGRESS_SESSION = {
+  type: "object",
+  required: ["date", "hour"],
+  additionalProperties: false,
+  properties: { date: { type: "string" }, hour: { type: "number" } },
+};
+const PROGRESS_VO2_POINT = {
+  type: "object",
+  required: ["date", "value"],
+  additionalProperties: false,
+  properties: { date: { type: "string" }, value: { type: "number" } },
+};
+const PROGRESS_NIGHT = {
+  type: "object",
+  required: ["date", "bed_hour", "wake_hour"],
+  additionalProperties: false,
+  properties: { date: { type: "string" }, bed_hour: { type: "number" }, wake_hour: { type: "number" } },
+};
 const PROGRESS_DATA = {
   type: "object",
   required: [
-    // pr_timeline fields
     "lift", "unit", "entries",
-    // volume_trend fields
-    "metric", "points",
+    "metric", "trend_points",
+    "lifts",
+    "weeks", "muscle_order",
+    "cells",
+    "comp_points",
+    "actual", "projected", "goal_value",
+    "before_label", "after_label", "people",
+    "sessions",
+    "vo2_points", "age_group",
+    "nights", "target_bed", "target_wake",
+    "value", "previous", "context",
+    "current", "best", "last_14",
   ],
   additionalProperties: false,
   properties: {
@@ -768,7 +844,30 @@ const PROGRESS_DATA = {
     unit: { type: ["string", "null"], enum: ["kg", "lb", null] },
     entries: { type: ["array", "null"], items: PROGRESS_PR_ENTRY },
     metric: { type: ["string", "null"] },
-    points: { type: ["array", "null"], items: PROGRESS_TREND_POINT },
+    trend_points: { type: ["array", "null"], items: PROGRESS_TREND_POINT },
+    lifts: { type: ["array", "null"], items: PROGRESS_LIFT },
+    weeks: { type: ["array", "null"], items: PROGRESS_WEEK },
+    muscle_order: { type: ["array", "null"], items: { type: "string" } },
+    cells: { type: ["array", "null"], items: PROGRESS_ADHERENCE_CELL },
+    comp_points: { type: ["array", "null"], items: PROGRESS_COMP_POINT },
+    actual: { type: ["array", "null"], items: PROGRESS_GOAL_POINT },
+    projected: { type: ["array", "null"], items: PROGRESS_PROJ_POINT },
+    goal_value: { type: ["number", "null"] },
+    before_label: { type: ["string", "null"] },
+    after_label: { type: ["string", "null"] },
+    people: { type: ["array", "null"], items: PROGRESS_PERSON },
+    sessions: { type: ["array", "null"], items: PROGRESS_SESSION },
+    vo2_points: { type: ["array", "null"], items: PROGRESS_VO2_POINT },
+    age_group: { type: ["string", "null"] },
+    nights: { type: ["array", "null"], items: PROGRESS_NIGHT },
+    target_bed: { type: ["number", "null"] },
+    target_wake: { type: ["number", "null"] },
+    value: { type: ["number", "null"] },
+    previous: { type: ["number", "null"] },
+    context: { type: ["string", "null"] },
+    current: { type: ["integer", "null"] },
+    best: { type: ["integer", "null"] },
+    last_14: { type: ["array", "null"], items: { type: "boolean" } },
   },
 };
 
@@ -787,8 +886,19 @@ const EMIT_PROGRESS_WIDGET = {
     "  am I progressing, is this going up or down, what direction is my [metric]",
     "",
     "TEMPLATE SELECTION:",
-    "  pr_timeline — e1RM trend across dated sessions for one lift.",
+    "  pr_timeline — e1RM trend across dated sessions for one lift (alias: pr_progression_line).",
     "  volume_trend — weekly metric trend (tonnage, working sets, time under tension).",
+    "  lift_progress_grid — 1-9 dashboard cards each with current number + delta % + sparkline + plateau flag.",
+    "  weekly_volume_trend — stacked bar per week grouped by muscle.",
+    "  adherence_calendar_heatmap — GitHub-style calendar showing session intensity per day.",
+    "  body_comp_trend — three-line overlay of BW, lean mass, fat mass over time.",
+    "  goal_trajectory_dual — actual-so-far line + projected cone + goal-value reference line.",
+    "  intervention_slopegraph — before/after two-column slopegraph, one line per person.",
+    "  session_consistency_strip — scatter of session start-hours across dates.",
+    "  vo2max_trend — VO₂ max over time with Cooper age-group zone bands.",
+    "  sleep_consistency_bars — per-night bedtime→wake bars with target ribbons.",
+    "  pr_celebration_card — hero number + context + delta from previous PR.",
+    "  streak_counter_card — current / best streak stat pair + 14-day proof dots (display_width: narrow).",
     "",
     "DO NOT CALL for: cross-user benchmarks, predictions of future PRs, or generic progression theory. This tool visualizes history only.",
     "",
@@ -810,7 +920,13 @@ const EMIT_PROGRESS_WIDGET = {
       display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
-      type: { type: "string", enum: ["pr_timeline", "volume_trend"] },
+      type: { type: "string", enum: [
+        "pr_timeline", "volume_trend",
+        "pr_progression_line", "lift_progress_grid", "weekly_volume_trend",
+        "adherence_calendar_heatmap", "body_comp_trend", "goal_trajectory_dual",
+        "intervention_slopegraph", "session_consistency_strip", "vo2max_trend",
+        "sleep_consistency_bars", "pr_celebration_card", "streak_counter_card",
+      ] },
       data: PROGRESS_DATA,
     },
   },

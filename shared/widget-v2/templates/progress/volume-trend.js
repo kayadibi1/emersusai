@@ -9,8 +9,8 @@ const h = React.createElement;
 // the trend direction readable at a glance.
 
 export function VolumeTrend({ title, display_width, summary, follow_up_chips, data }) {
-  const { metric, points } = data;
-  const sorted = points.slice().sort((a, b) => a.week_start.localeCompare(b.week_start));
+  const { metric, trend_points } = data;
+  const sorted = trend_points.slice().sort((a, b) => a.week_start.localeCompare(b.week_start));
   const maxV = Math.max(1, ...sorted.map((p) => p.value));
   const minV = Math.min(0, ...sorted.map((p) => p.value));
   const W = 600, H = 160, PAD = { t: 10, r: 14, b: 26, l: 40 };

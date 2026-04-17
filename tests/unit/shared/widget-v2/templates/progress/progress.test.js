@@ -54,7 +54,7 @@ const VT_PAYLOAD = {
   type: "volume_trend",
   data: {
     metric: "Squat tonnage (kg)",
-    points: [
+    trend_points: [
       { week_start: "2026-01-05", value: 4800 },
       { week_start: "2026-01-12", value: 5200 },
       { week_start: "2026-01-19", value: 5600 },
@@ -69,7 +69,7 @@ test("validator accepts volume_trend", () => {
 });
 
 test("validator rejects single-point volume trend", () => {
-  const bad = { ...VT_PAYLOAD, data: { ...VT_PAYLOAD.data, points: [{ week_start: "2026-01-01", value: 100 }] } };
+  const bad = { ...VT_PAYLOAD, data: { ...VT_PAYLOAD.data, trend_points: [{ week_start: "2026-01-01", value: 100 }] } };
   const r = validateProgressWidget(bad);
   assert.equal(r.valid, false);
 });
