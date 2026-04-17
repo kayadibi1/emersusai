@@ -17,6 +17,7 @@ import {
   normalizePlan as normalizeWorkoutPlan,
   validatePlan as validateWorkoutPlan,
 } from "../../../shared/workout-plan-schema.js";
+import { validateCalculatorWidget } from "../../../shared/widget-v2/validators/calculator.js";
 
 // ── Shared sub-schemas (inlined for strict mode) ────────────────────────
 
@@ -280,6 +281,84 @@ const EMIT_WIDGET = {
   },
 };
 
+// ── emit_calculator_widget (widget-v2 · F6) ──────────────────────────
+
+const MACRO_RING_LEG = {
+  type: "object",
+  required: ["grams", "target_grams", "kcal"],
+  additionalProperties: false,
+  properties: {
+    grams: { type: "number" },
+    target_grams: { type: "number" },
+    kcal: { type: "number" },
+  },
+};
+
+const MACRO_RING_DATA = {
+  type: "object",
+  required: ["kcal_total", "phase", "protein", "carbs", "fat", "tdee_reference"],
+  additionalProperties: false,
+  properties: {
+    kcal_total: { type: "number" },
+    phase: { type: "string", enum: ["cut", "maintenance", "bulk"] },
+    protein: MACRO_RING_LEG,
+    carbs: MACRO_RING_LEG,
+    fat: MACRO_RING_LEG,
+    tdee_reference: {
+      type: ["object", "null"],
+      required: ["tdee", "delta_kcal"],
+      additionalProperties: false,
+      properties: {
+        tdee: { type: "number" },
+        delta_kcal: { type: "number" },
+      },
+    },
+  },
+};
+
+const EMIT_CALCULATOR_WIDGET = {
+  type: "function",
+  name: "emit_calculator_widget",
+  strict: true,
+  description: [
+    "Emit an interactive calculator widget. Call this whenever the user asks to compute something: 1RM estimates, TDEE, macro budgets, plate loading, RPE-to-%1RM conversions, body-fat estimates, carb cycling, protein targets, pace.",
+    "",
+    "ALWAYS write 2-4 sentences of prose FIRST, then call this tool.",
+    "",
+    "Data-only: you provide a structured JSON payload, the client renders the calculator with sliders and live output. No HTML, no CSS, no colors to pick. Widget appears inline in the chat.",
+    "",
+    "TRIGGER PHRASES (non-exhaustive):",
+    "  calculate, calculator, compute, estimate, 1RM, TDEE, maintenance calories,",
+    "  macro split, macro breakdown (with live sliders), how much protein, plate loading,",
+    "  how many plates, RPE to %, body fat %, pace per km/mile",
+    "",
+    "TEMPLATE SELECTION (pick `type` from):",
+    "  macro_ring — macro split donut with per-macro grams/kcal and optional TDEE comparison",
+    "",
+    "CROSS-FAMILY:",
+    "  For protein-timing questions (not sliders) use emit_nutrition_widget(type=protein_distribution_bar).",
+    "",
+    "DATA:",
+    "- Numbers must reflect what the user asked — do not default-fill fields the user didn't mention.",
+    "- display_width: 'narrow' for simple stat cards; 'wide' for calculators with multiple sliders.",
+    "- summary: one-sentence takeaway (e.g., '~400 kcal deficit · 0.4 kg/wk projected loss').",
+    "- follow_up_chips: 1-4 short CTAs (e.g., 'Apply to plan', 'Log today').",
+  ].join("\n"),
+  parameters: {
+    type: "object",
+    required: ["title", "display_width", "summary", "follow_up_chips", "type", "data"],
+    additionalProperties: false,
+    properties: {
+      title: { type: "string" },
+      display_width: { type: "string", enum: ["narrow", "medium", "wide"] },
+      summary: { type: ["string", "null"] },
+      follow_up_chips: { type: "array", items: { type: "string" } },
+      type: { type: "string", enum: ["macro_ring"] },
+      data: MACRO_RING_DATA,
+    },
+  },
+};
+
 // ── log_food ────────────────────────────────────────────────────────────
 
 const LOG_FOOD = {
@@ -475,7 +554,7 @@ export const RECALL_MEMORY = {
 // The chat pipeline (synthesize.js) uses buildToolDefinitions() below so
 // flag-gated tools like remember_fact can be toggled at runtime.
 export const TOOL_DEFINITIONS = [
-  EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, LOG_FOOD, GET_USER_PROFILE,
+  EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, EMIT_CALCULATOR_WIDGET, LOG_FOOD, GET_USER_PROFILE,
 ];
 
 /**
@@ -741,6 +820,10 @@ const VALIDATORS = {
   emit_meal_plan:    validateEmitMealPlan,
   emit_workout_plan: validateEmitWorkoutPlan,
   emit_widget:       validateEmitWidget,
+  emit_calculator_widget: (args) => {
+    const r = validateCalculatorWidget(args);
+    return r.valid ? { valid: true, data: args } : { valid: false, errors: r.errors };
+  },
   log_food:          validateLogFood,
 };
 
