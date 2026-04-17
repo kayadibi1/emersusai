@@ -25,7 +25,7 @@ returns table (
 )
 language sql
 security invoker
-set search_path = public
+set search_path = public, extensions
 stable
 as $$
   select id, category, tier, fact, metadata, confirmed_at, expires_at
@@ -59,7 +59,7 @@ returns table (
 )
 language sql
 security invoker
-set search_path = public
+set search_path = public, extensions
 stable
 as $$
   select
@@ -90,7 +90,7 @@ create or replace function public.refresh_memory_mentions(
 returns integer
 language plpgsql
 security invoker
-set search_path = public
+set search_path = public, extensions
 as $$
 declare
   v_count integer;
