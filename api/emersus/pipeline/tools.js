@@ -656,23 +656,61 @@ const EMIT_PHARMA_WIDGET = {
 
 // ── emit_evidence_widget (widget-v2 · F4) ──────────────────────────
 
+// Evidence superset data — strict:true. No cross-type collisions.
+const EVIDENCE_STUDY = {
+  type: "object",
+  required: ["citation", "design", "n", "effect_size", "direction"],
+  additionalProperties: false,
+  properties: {
+    citation: { type: "string" },
+    design: { type: "string", enum: ["RCT", "meta", "cohort", "review", "other"] },
+    n: { type: ["integer", "null"] },
+    effect_size: { type: ["number", "null"] },
+    direction: { type: "string", enum: ["positive", "null", "negative"] },
+  },
+};
+const EVIDENCE_FOREST_ROW = {
+  type: "object",
+  required: ["label", "effect", "ci_low", "ci_high"],
+  additionalProperties: false,
+  properties: {
+    label: { type: "string" },
+    effect: { type: "number" },
+    ci_low: { type: "number" },
+    ci_high: { type: "number" },
+  },
+};
+const EVIDENCE_DATA = {
+  type: "object",
+  required: ["question", "studies", "outcome", "rows"],
+  additionalProperties: false,
+  properties: {
+    question: { type: ["string", "null"] },
+    studies: { type: ["array", "null"], items: EVIDENCE_STUDY },
+    outcome: { type: ["string", "null"] },
+    rows: { type: ["array", "null"], items: EVIDENCE_FOREST_ROW },
+  },
+};
+
 const EMIT_EVIDENCE_WIDGET = {
   type: "function",
   name: "emit_evidence_widget",
-  strict: false,
+  strict: true,
   description: [
     "Emit a literature-evidence visualization. Write 2-4 sentences of prose FIRST, then call.",
     "",
     "TEMPLATE SELECTION:",
-    "  study_matrix — table of studies with design, n, effect size, direction. Use when summarizing the evidence base for a claim.",
-    "  effect_size_forest — forest plot of effect sizes with 95% CIs. Use when the user asks about the magnitude / consistency of effects across studies.",
+    "  study_matrix — table of studies with design, n, effect size, direction.",
+    "  effect_size_forest — forest plot of effect sizes with 95% CIs.",
     "",
-    "DATA (you MUST include this field — it is not optional):",
-    "  study_matrix: { question: string, studies: [{ citation, design: 'RCT'|'meta'|'cohort'|'review'|'other', n?: int, effect_size?: number, direction: 'positive'|'null'|'negative' }] }",
-    "  effect_size_forest: { outcome: string, rows: [{ label: string, effect: number, ci_low: number, ci_high: number }] }",
+    "DATA SHAPE (strict: fill the fields your `type` uses, null the others):",
+    "  study_matrix fills: question, studies",
+    "  effect_size_forest fills: outcome, rows",
     "",
-    "EXAMPLE study_matrix call:",
-    '  { "title": "Creatine & strength", "display_width": "wide", "summary": "...", "follow_up_chips": [], "type": "study_matrix", "data": { "question": "Does creatine improve 1RM?", "studies": [{ "citation": "Branch 2003 (meta)", "n": 500, "design": "meta", "effect_size": 0.43, "direction": "positive" }] } }',
+    "EXAMPLE study_matrix:",
+    '  data: { "question": "Does creatine improve 1RM?", "studies": [{ "citation": "Branch 2003 (meta)", "design": "meta", "n": 500, "effect_size": 0.43, "direction": "positive" }], "outcome": null, "rows": null }',
+    "EXAMPLE effect_size_forest:",
+    '  data: { "question": null, "studies": null, "outcome": "Bench 1RM (kg)", "rows": [{ "label": "Branch 2003", "effect": 0.43, "ci_low": 0.28, "ci_high": 0.58 }] }',
   ].join("\n"),
   parameters: {
     type: "object",
@@ -684,7 +722,7 @@ const EMIT_EVIDENCE_WIDGET = {
       summary: { type: ["string", "null"] },
       follow_up_chips: { type: "array", items: { type: "string" } },
       type: { type: "string", enum: ["study_matrix", "effect_size_forest"] },
-      data: { type: "object", description: "Required, non-null object. Shape depends on `type` — see the DATA section of this tool's description." },
+      data: EVIDENCE_DATA,
     },
   },
 };
