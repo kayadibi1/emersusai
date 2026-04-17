@@ -1,8 +1,8 @@
 # Checkpoint
 Status: none
-Updated: 2026-04-15
+Updated: 2026-04-17
 
-No active checkpoint. The 2026-04-15 chat-visual issue is resolved — see changelog entries for `ef6ce094` (cascade fix), `bbbbdc9d` (FOUC fix site-wide), and `reference_hetzner_deploy_build.md` memory about the mandatory `npm run build` step.
+No active checkpoint. Widget-v2 template system fully landed today (Plans 1-9.5 in one day) — see today's changelog entry. Prod telemetry shows 0% validator drop across all 6 families; emission-recall benchmark at 90% on natural-language prompts. Legacy `emit_widget` remains the fallback per the Plan 9 rollout runbook (`docs/widget-v2-rollout.md`, local-only). `feat/landing-ask-bar` merged alongside, shipping the anonymous `/api/emersus/anon-ask` streaming endpoint + landing-page takeover experience.
 
 ## Post-UI-redesign checklist
 
