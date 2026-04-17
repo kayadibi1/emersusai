@@ -83,7 +83,7 @@ function buildFetch(g) {
 
 const CTX_BASE = {
   supabaseUserId: '00000000-0000-0000-0000-000000000001',
-  threadId: 't-1',
+  threadId: '00000000-0000-0000-0000-0000000000aa',
   _openaiResponseId: 'resp-1',
   recentPairs: [],
 };
