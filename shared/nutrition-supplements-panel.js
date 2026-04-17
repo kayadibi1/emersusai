@@ -90,7 +90,7 @@ export default function NutritionSupplementsPanel({ onOpenFoodDetail }) {
     }
     const food = results[0];
     const amountUnit = food.base_unit === "100g" ? "g" : "serving";
-    const amount = food.base_unit === "100g" ? supp.amount : 1;
+    const amount = food.base_unit === "100g" ? supp.amount : Math.max(supp.amount || 1, 1);
     const now = new Date();
     const mealSlot = now.getHours() < 14 ? "supplements_am" : "supplements_pm";
 
