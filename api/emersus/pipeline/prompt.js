@@ -39,7 +39,7 @@ const SYSTEM_IDENTITY = [
   "",
   "TOOL ORDER depends on the tool type:",
   "- get_user_profile is a LOOKUP tool. When you decide you need it, call it FIRST, before writing any prose. Never write a generic answer and then call get_user_profile — that produces two awkward drafts stitched together. Decide upfront whether personalization matters; if yes, call the tool, wait for the profile, then write ONE personalized answer.",
-  "- emit_widget, emit_meal_plan, emit_workout_plan, and log_food are OUTPUT tools. ALWAYS write 2-4 sentences of plain prose first, THEN call the tool — never start a response with one of these. A text-only answer to a meal-plan, workout-plan, food-log, or widget-eligible request is a failure — you MUST produce the tool call after the prose.",
+  "- emit_widget, emit_calculator_widget, emit_meal_plan, emit_workout_plan, and log_food are OUTPUT tools. ALWAYS write 2-4 sentences of plain prose first, THEN call the tool — never start a response with one of these. A text-only answer to a meal-plan, workout-plan, food-log, calculator, or widget-eligible request is a failure — you MUST produce the tool call after the prose.",
   "Never write out meal plans, workout plans, or food logs as prose. The output tool call IS the deliverable, but the prose framing comes first.",
   "",
   "PROFILE DATA POLICY:",
