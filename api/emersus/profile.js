@@ -16,6 +16,26 @@ const ALLOWED_TRAINING_ENV = ["home", "commercial", "outdoor", "mixed"];
 const ALLOWED_WEIGHT_UNIT = ["kg", "lbs"];
 const ALLOWED_DISTANCE_UNIT = ["km", "mi"];
 
+// Free-text profile fields returned to the model via get_user_profile.
+// Capped to bound prompt-injection payload size. The model-facing trust
+// boundary (user_profile_untrusted wrapper + system-prompt rule) is the
+// actual injection defense; these caps are defense-in-depth.
+const FREE_TEXT_FIELD_MAX = 500;
+const FREE_TEXT_FIELDS = [
+  "injuries_limitations",
+  "equipment_access",
+  "dietary_preferences",
+  "primary_use_case",
+  "sleep_stress_context",
+];
+
+// Whitelist for the arbitrary preferences JSONB column. Unknown keys are
+// rejected; string values get length-capped to FREE_TEXT_FIELD_MAX.
+const ALLOWED_PREFERENCE_KEYS = {
+  memory_autosave: "boolean",
+  metric_units:    "boolean",
+};
+
 function clampNumber(value, min, max) {
   const n = Number(value);
   if (!Number.isFinite(n)) return null;
@@ -78,8 +98,31 @@ export function validateProfilePatch(body) {
     out.equipment = body.equipment.slice(0, 100);
   }
   if (body.preferences !== undefined) {
-    if (typeof body.preferences !== "object") return { error: "preferences must be an object" };
-    out.preferences = body.preferences;
+    if (body.preferences === null || typeof body.preferences !== "object" || Array.isArray(body.preferences)) {
+      return { error: "preferences must be an object" };
+    }
+    const prefs = {};
+    for (const [k, v] of Object.entries(body.preferences)) {
+      const expected = ALLOWED_PREFERENCE_KEYS[k];
+      if (!expected) return { error: `preferences.${k} is not an allowed key` };
+      if (v === null) { prefs[k] = null; continue; }
+      if (expected === "boolean") {
+        if (typeof v !== "boolean") return { error: `preferences.${k} must be a boolean` };
+        prefs[k] = v;
+      } else if (expected === "string") {
+        if (typeof v !== "string") return { error: `preferences.${k} must be a string` };
+        prefs[k] = v.slice(0, FREE_TEXT_FIELD_MAX);
+      }
+    }
+    out.preferences = prefs;
+  }
+
+  for (const field of FREE_TEXT_FIELDS) {
+    if (body[field] !== undefined) {
+      if (body[field] === null) { out[field] = null; continue; }
+      if (typeof body[field] !== "string") return { error: `${field} must be a string` };
+      out[field] = body[field].slice(0, FREE_TEXT_FIELD_MAX);
+    }
   }
   if (body.weekly_targets !== undefined) {
     if (typeof body.weekly_targets !== "object") return { error: "weekly_targets must be an object" };

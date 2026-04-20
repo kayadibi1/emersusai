@@ -309,10 +309,11 @@ async function resolveAndContinue(state, ctx) {
   for (const tc of state.serverToolCalls) {
     if (tc.name === "get_user_profile") {
       const profile = compactProfile(ctx.profile);
+      const body = JSON.stringify(profile || { note: "No profile data saved yet. Use defaults." });
       toolOutputs.push({
         type: "function_call_output",
         call_id: tc.callId,
-        output: JSON.stringify(profile || { note: "No profile data saved yet. Use defaults." }),
+        output: `<user_profile_untrusted>${body}</user_profile_untrusted>`,
       });
     } else if (tc.name === "update_user_profile") {
       if (tc.args && typeof tc.args === "object") {
