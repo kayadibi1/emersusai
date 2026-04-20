@@ -478,6 +478,20 @@ body.profile-body {
   color: var(--accent);
   margin-top: 4px;
 }
+.pf-billing-portal-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+.pf-billing-portal-link {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  background: transparent;
+  border: 0;
+  padding: 2px 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.pf-billing-portal-link:hover { color: var(--ink); }
+.pf-billing-portal-link:focus-visible { outline: 1px solid var(--accent-line); outline-offset: 2px; border-radius: 2px; }
 .pf-billing-actions {
   display: flex;
   flex-wrap: wrap;

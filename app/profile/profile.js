@@ -384,6 +384,26 @@ function formatResetCountdown(resetAtIso) {
 function BillingTab({ reloadKey = 0 }) {
   const [usage, setUsage] = useState(null);
 
+  async function openPortal() {
+    try {
+      const session = await getSession();
+      const token = session?.access_token;
+      if (!token) { window.location.href = "/auth/"; return; }
+      const res = await fetch("/api/billing/polar/portal?json=1", {
+        headers: { Authorization: "Bearer " + token },
+      });
+      if (!res.ok) {
+        const body = await res.json().catch(() => ({}));
+        throw new Error(body.error || "Portal unavailable");
+      }
+      const { url } = await res.json();
+      window.location.href = url;
+    } catch (err) {
+      console.error(err);
+      alert("Could not open the billing portal. Try again, or email info@emersus.ai.");
+    }
+  }
+
   useEffect(() => {
     let cancelled = false;
     (async () => {
@@ -483,21 +503,8 @@ function BillingTab({ reloadKey = 0 }) {
                 btn.textContent = "Opening…";
                 btn.disabled = true;
                 try {
-                  const session = await getSession();
-                  const token = session?.access_token;
-                  if (!token) { window.location.href = "/auth/"; return; }
-                  const res = await fetch("/api/billing/polar/portal?json=1", {
-                    headers: { Authorization: "Bearer " + token },
-                  });
-                  if (!res.ok) {
-                    const body = await res.json().catch(() => ({}));
-                    throw new Error(body.error || "Portal unavailable");
-                  }
-                  const { url } = await res.json();
-                  window.location.href = url;
-                } catch (err) {
-                  console.error(err);
-                  alert("Could not open the billing portal. Try again, or email info@emersus.ai.");
+                  await openPortal();
+                } finally {
                   btn.textContent = orig;
                   btn.disabled = false;
                 }
@@ -512,8 +519,15 @@ function BillingTab({ reloadKey = 0 }) {
                 textDecoration: "none",
               },
             }, "Upgrade to Pro →"),
-        h("div", { className: "pf-billing-usage-sub" },
-          isPro ? "CANCEL · UPDATE CARD · INVOICES" : "100 MSG/DAY · PREPRINTS · $9"),
+        isPro
+          ? h("div", { className: "pf-billing-usage-sub pf-billing-portal-links" },
+              h("button", { type: "button", className: "pf-billing-portal-link", onClick: openPortal }, "CANCEL"),
+              " · ",
+              h("button", { type: "button", className: "pf-billing-portal-link", onClick: openPortal }, "UPDATE CARD"),
+              " · ",
+              h("button", { type: "button", className: "pf-billing-portal-link", onClick: openPortal }, "INVOICES"),
+            )
+          : h("div", { className: "pf-billing-usage-sub" }, "100 MSG/DAY · PREPRINTS · $9"),
       ),
     ),
     h("div", { className: "pf-billing-actions" },
