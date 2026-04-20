@@ -863,9 +863,12 @@
 
 /* ========== LAYOUT POLISH (Task 12) ========== */
 
-/* Sidebar gets a stable background + border to match the new chrome. */
+/* Sidebar gets a stable background + border to match the new chrome.
+ * Uses --sidebar-bg (not --bg) so it picks up the same tonal
+ * differentiation as .app-sidebar on /app/training, /app/nutrition,
+ * etc. See 2026-04-20 commit a5ef33bd. */
 .chat-app-shell .chat-nav {
-  background: var(--bg);
+  background: var(--sidebar-bg);
   border-right: 1px solid var(--line);
   display: flex;
   flex-direction: column;
