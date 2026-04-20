@@ -69,6 +69,7 @@ import { UsageRing } from "/shared/chat/usage-ring.js";
 import { COPY as RATE_LIMIT_COPY } from "/shared/chat/rate-limit-copy.js";
 import { groupThreadsByDate, filterThreadsBySearch, GROUP_ORDER } from "/shared/chat/sidebar-helpers.js";
 import { WelcomeScreen } from "/shared/chat/welcome-screen.js";
+import { OnboardingProgressBar } from "/shared/chat/onboarding-progress-bar.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -3244,6 +3245,9 @@ export function ChatApp() {
   const [streamingMessageKey, setStreamingMessageKey] = useState("");
   const [onboardingActive, setOnboardingActive] = useState(false);
   const [userProfile, setUserProfile] = useState(null);
+  const [onboardingProgress, setOnboardingProgress] = useState(
+    userProfile?.onboarding_progress ?? null,
+  );
   const [welcomeDismissed, setWelcomeDismissed] = useState(false);
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
@@ -3305,6 +3309,18 @@ export function ChatApp() {
     && userProfile.onboarding_completed === false
     && (userProfile.onboarding_progress ?? 0) === 0;
   const showWelcome = shouldShowWelcome && !welcomeDismissed;
+
+  // Keep onboardingProgress in sync when userProfile loads or is refreshed.
+  // Only accept upward moves — monotonic as a safety net.
+  useEffect(() => {
+    if (userProfile?.onboarding_progress !== undefined
+        && userProfile.onboarding_progress !== null) {
+      setOnboardingProgress((prev) => {
+        const next = userProfile.onboarding_progress;
+        return prev === null || next > prev ? next : prev;
+      });
+    }
+  }, [userProfile?.onboarding_progress]);
 
   useEffect(() => {
     chatHistoryRef.current = chatHistory;
@@ -3871,6 +3887,19 @@ export function ChatApp() {
       if (data.onboarding_completed) {
         setOnboardingActive(false);
       }
+      // Consume the onboarding progress envelope (JSON path: ShortCircuit turns).
+      // The SSE path does not carry this field; guard with truthiness check.
+      if (data.onboarding) {
+        const p = data.onboarding.progress;
+        if (typeof p === "number") {
+          setOnboardingProgress((prev) => (prev === null || p > prev ? p : prev));
+        }
+        if (data.onboarding.completed === true) {
+          // Flip local profile state so the bar disappears. Task 13 adds the toast.
+          setUserProfile((prev) => prev ? { ...prev, onboarding_completed: true, onboarding_progress: 1.0 } : prev);
+          setOnboardingProgress(1.0);
+        }
+      }
       setGlyphState("responding");
 
       const assistantRaw = String(data.answer_text || data.summary || "")
@@ -4245,25 +4274,25 @@ export function ChatApp() {
     streamAbortRef.current = null;
   }, []);
 
-  // Phase 9: skip the conversational onboarding flow. Calls PATCH /api/profile
-  // to set onboarding_completed=true server-side, then clears the local flag.
+  // Skip the conversational onboarding flow. POSTs to /api/profile/complete-onboarding
+  // with reason:"user_skipped", then immediately closes onboarding locally.
   const handleSkipOnboarding = useCallback(async () => {
-    if (!session?.access_token) return;
-    setOnboardingActive(false);
     try {
-      await fetch("/api/profile", {
-        method: "PATCH",
+      const token = session?.access_token;
+      await fetch("/api/profile/complete-onboarding", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${session.access_token}`,
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
-        body: JSON.stringify({ onboarding_completed: true }),
+        body: JSON.stringify({ reason: "user_skipped" }),
       });
+      setUserProfile((prev) => prev ? { ...prev, onboarding_completed: true, onboarding_progress: 1.0 } : prev);
+      setOnboardingProgress(1.0);
     } catch (err) {
-      // Local state already cleared — server will catch up next reload.
-      console.warn("skip-onboarding patch failed:", err);
+      console.error("skip onboarding failed", err);
     }
-  }, [session]);
+  }, [session?.access_token]);
 
   // Regenerate: find the user message that preceded `message` and re-run
   // inference using its text. Uses submitQuestionRef so this closure stays
@@ -4351,6 +4380,10 @@ export function ChatApp() {
       },
     });
   }
+
+  const showProgressBar = userProfile?.onboarding_completed === false
+    && onboardingProgress !== null
+    && onboardingProgress < 1.0;
 
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}` },
     h("div", {
@@ -4556,6 +4589,10 @@ export function ChatApp() {
             onOpenSidebar: openSidebar,
           })
         : null,
+      showProgressBar ? h(OnboardingProgressBar, {
+        progress: onboardingProgress,
+        onSkip: handleSkipOnboarding,
+      }) : null,
       h("div", { className: "chat-main-body" },
         h("section", { className: "conversation-canvas", ref: canvasRef },
           h("div", { className: `chat-thread${!activeMessages.length ? " is-empty" : ""}` },
