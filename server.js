@@ -15,6 +15,18 @@ const app = express();
 app.set("trust proxy", 1); // Caddy is the single reverse proxy
 app.disable("x-powered-by");   // Don't advertise Express
 
+// ── Polar webhook — MUST be registered BEFORE express.json() ──
+// The signature check (validateEvent in @polar-sh/sdk/webhooks) hashes
+// the raw request bytes. If the global JSON parser ran first, req.body
+// would be a parsed object with reformatted whitespace — signature
+// verification would fail on every call.
+const { default: polarWebhookHandler } = await import("./api/billing/webhook.js");
+app.post(
+  "/api/billing/polar/webhook",
+  express.raw({ type: "application/json", limit: "100kb" }),
+  polarWebhookHandler
+);
+
 // ── Body parsing with explicit size limits ──
 app.use(express.json({ limit: "100kb" }));
 app.use(express.urlencoded({ extended: true, limit: "100kb" }));
@@ -71,6 +83,7 @@ const { default: nutritionWaterHandler } = await import("./api/emersus/nutrition
 const { default: nutritionSupplementsHandler } = await import("./api/emersus/nutrition-supplements.js");
 const { default: progressHandler } = await import("./api/emersus/progress.js");
 const { default: usageHandler } = await import("./api/emersus/usage.js");
+const { default: polarCheckoutHandler } = await import("./api/billing/checkout.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
@@ -98,6 +111,7 @@ app.post("/api/contact", publicRateLimitMiddleware("contact"), contactHandler);
 app.post("/api/notify-signup", publicRateLimitMiddleware("notify-signup"), notifySignupHandler);
 app.post("/api/emersus/recommendation", requireAuth, userRateLimit(), recommendationHandler);
 app.get("/api/emersus/usage", requireAuth, usageHandler);
+app.post("/api/billing/polar/checkout", requireAuth, polarCheckoutHandler);
 app.get("/api/emersus/foods/search", foodsSearchHandler);
 app.post("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
 app.use("/api/emersus/meal-plans", mealPlansRouter);
