@@ -496,15 +496,19 @@ async function handleCallbackPage() {
     return;
   }
 
-  async function resolveAuthDestination(session) {
+  async function resolveAuthDestination(session, flowType) {
     const defaultDest = resolveNextPath("/app/");
     const accessToken = session?.access_token;
     const createdAtIso = session?.user?.created_at;
     if (!accessToken || !createdAtIso) return defaultDest;
 
     const createdMs = new Date(createdAtIso).getTime();
+    // isRecent covers OAuth new-signups (the whole dance takes <10s).
+    // isSignupConfirmation covers email-verification new-signups: the user
+    // waits for the email, opens it, and clicks — easily >60s after creation.
     const isRecent = Number.isFinite(createdMs) && Date.now() - createdMs < 60_000;
-    if (!isRecent) return defaultDest;
+    const isSignupConfirmation = flowType === "signup";
+    if (!isRecent && !isSignupConfirmation) return defaultDest;
 
     try {
       const controller = new AbortController();
@@ -564,7 +568,7 @@ async function handleCallbackPage() {
     maybeNotifyFreshOAuthUser();
 
     setStatus(status, "success", "Authentication confirmed. Redirecting...");
-    const destination = await resolveAuthDestination(session);
+    const destination = await resolveAuthDestination(session, flow.type);
     window.location.replace(destination);
   } catch (error) {
     setStatus(status, "error", error.message || "Unable to finish authentication.");
