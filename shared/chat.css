@@ -1388,12 +1388,25 @@ body.chat-page {
   margin-bottom: 6px;
 }
 .message.user::before {
-  content: "YOU";
-  color: var(--muted);
+  display: none;
+  content: none;
 }
 .message.assistant::before {
   content: "EMERSUS";
   color: var(--accent);
+}
+
+/* User messages render as a right-aligned bubble. Assistant messages stay
+ * full-width, labelled with the EMERSUS pseudo-element above. */
+.message.user {
+  align-self: flex-end;
+  max-width: min(80%, 620px);
+}
+.message.user .message-content {
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 14px;
+  padding: 10px 14px;
 }
 
 /* ===== Composer ===== */
