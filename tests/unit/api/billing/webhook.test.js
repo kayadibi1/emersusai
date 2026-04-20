@@ -132,6 +132,28 @@ describe("handleVerifiedEvent", () => {
     assert.deepEqual(invalidated, []);
   });
 
+  test("order.refunded → tier='free' (defensive, even if sub still active)", async () => {
+    const { supabase, state } = stubSupabase();
+    const invalidated = [];
+    const e = {
+      id: "evt_refund",
+      type: "order.refunded",
+      data: {
+        id: "order_1",
+        metadata: { user_id: "u-ref" },
+        customer: { external_customer_id: "u-ref" },
+      },
+    };
+    await handleVerifiedEvent(e, {
+      supabase,
+      invalidateTier: (id) => invalidated.push(id),
+    });
+    assert.deepEqual(state.profileUpdates, [
+      { patch: { tier: "free" }, col: "id", val: "u-ref" },
+    ]);
+    assert.deepEqual(invalidated, ["u-ref"]);
+  });
+
   test("unknown event types are logged + no-op'd on profile", async () => {
     const { supabase, state } = stubSupabase();
     await handleVerifiedEvent(

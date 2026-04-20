@@ -70,8 +70,28 @@ export async function handleVerifiedEvent(
     return { status: "insert_error" };
   }
 
-  // Only subscription.* events drive tier changes. Log everything else
-  // (for audit), but don't touch profiles.
+  // order.refunded defensively revokes Pro. A refund in Polar's dashboard
+  // doesn't always auto-cancel the subscription, so if we didn't demote
+  // on this signal we could have a refunded user still on tier='pro'.
+  if (event.type === "order.refunded") {
+    if (!userId) {
+      console.warn("[polar-webhook] order.refunded without user_id");
+      return { status: "no_user" };
+    }
+    const updateResult = await supabase
+      .from("profiles")
+      .update({ tier: "free" })
+      .eq("id", userId);
+    if (updateResult?.error) {
+      console.error("[polar-webhook] refund tier update failed:",
+        updateResult.error.message);
+      return { status: "update_error" };
+    }
+    invalidateTier(userId);
+    return { status: "tier_changed", tier: "free" };
+  }
+
+  // All other non-subscription events are logged only.
   if (!event.type?.startsWith("subscription.")) {
     return { status: "logged" };
   }
