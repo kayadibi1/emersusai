@@ -42,7 +42,6 @@ function stubSupabase() {
 
 function evt({ type, userId = "u-99", subStatus = "active", subId = "sub_1" }) {
   return {
-    id: `evt_${Math.random().toString(36).slice(2, 10)}`,
     type,
     data: {
       id: subId,
@@ -53,7 +52,33 @@ function evt({ type, userId = "u-99", subStatus = "active", subId = "sub_1" }) {
   };
 }
 
+function mkOpts(overrides = {}) {
+  return {
+    externalId: `evt_hdr_${Math.random().toString(36).slice(2, 10)}`,
+    ...overrides,
+  };
+}
+
 describe("handleVerifiedEvent", () => {
+  test("external_id uses webhook-id header when provided", async () => {
+    const { supabase, state } = stubSupabase();
+    await handleVerifiedEvent(
+      evt({ type: "subscription.active", userId: "u-h" }),
+      { supabase, invalidateTier: () => {}, externalId: "msg_abc123" }
+    );
+    assert.equal(state.billingEventsInserted[0].external_id, "msg_abc123");
+  });
+
+  test("external_id falls back to type:resource_id when header missing", async () => {
+    const { supabase, state } = stubSupabase();
+    await handleVerifiedEvent(
+      evt({ type: "subscription.active", userId: "u-h2", subId: "sub_xyz" }),
+      { supabase, invalidateTier: () => {} }
+    );
+    // Never null — would violate NOT NULL otherwise.
+    assert.equal(state.billingEventsInserted[0].external_id, "subscription.active:sub_xyz");
+  });
+
   test("subscription.active → tier='pro' + billing_events row", async () => {
     const { supabase, state } = stubSupabase();
     const invalidated = [];

@@ -39,18 +39,27 @@ function extractUserId(event) {
 
 /**
  * Core business logic. Pure enough to unit-test: takes the already-
- * verified event + dep-injected supabase + invalidateTier.
+ * verified event + dep-injected supabase + invalidateTier. externalId
+ * is the Standard-Webhooks id from the 'webhook-id' header — it's the
+ * authoritative dedup key for retries. Falls back to a type+resource
+ * composite if the header is missing.
  */
 export async function handleVerifiedEvent(
   event,
-  { supabase = supabaseAdmin, invalidateTier = invalidateTierDefault } = {}
+  {
+    supabase = supabaseAdmin,
+    invalidateTier = invalidateTierDefault,
+    externalId = null,
+  } = {}
 ) {
   const userId = extractUserId(event);
+  const dedupKey =
+    externalId || `${event.type}:${event.data?.id || "unknown"}`;
 
   // Idempotency: try to insert first. If we conflict on external_id,
   // this event was already processed — skip downstream work.
   const insertResult = await supabase.from("billing_events").insert({
-    external_id: event.id,
+    external_id: dedupKey,
     user_id: userId,
     event_type: event.type,
     raw: event,
@@ -158,8 +167,13 @@ export async function webhookHandler(req, res) {
     return res.status(400).send("");
   }
 
+  // Standard-Webhooks delivery id. Polar sets this header; it's the
+  // canonical dedup key across retries.
+  const externalId =
+    req.headers["webhook-id"] || req.headers["x-webhook-id"] || null;
+
   try {
-    await handleVerifiedEvent(event);
+    await handleVerifiedEvent(event, { externalId });
     return res.status(202).send("");
   } catch (err) {
     console.error("[polar-webhook] handler error:", err);
