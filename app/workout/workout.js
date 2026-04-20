@@ -68,7 +68,52 @@ const state = {
   plans: [],
   selectedPlanId: null,
   weightUnit: "kg",
+  tier: "free",
 };
+
+// Free-tier cap mirrors the DB trigger (20260421_workout_plans_free_limit.sql).
+const FREE_PLAN_CAP = 3;
+
+async function fetchTier() {
+  try {
+    const token = state.session?.access_token;
+    if (!token) return "free";
+    const res = await fetch("/api/emersus/usage", {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+    if (!res.ok) return "free";
+    const body = await res.json();
+    return body.tier || "free";
+  } catch (_) {
+    return "free";
+  }
+}
+
+function activePlanCount() {
+  return state.plans.filter((p) => !p.archived_at).length;
+}
+
+function exportSelectedPlanAsPdf() {
+  // Scoped printing: body.is-printing-plan hides everything except
+  // the .workout-detail section via @media print rules in index.html.
+  document.body.classList.add("is-printing-plan");
+  // Slight delay so the class paint commits before the print dialog.
+  setTimeout(() => {
+    try {
+      window.print();
+    } finally {
+      // Give browsers a moment to snapshot; afterprint fires too late
+      // on some (Safari). Redundant cleanup via onafterprint as well.
+      setTimeout(() => document.body.classList.remove("is-printing-plan"), 500);
+    }
+  }, 40);
+}
+
+if (typeof window !== "undefined") {
+  window.addEventListener("afterprint", () => {
+    document.body.classList.remove("is-printing-plan");
+  });
+}
 
 function el(tag, attrs = {}, ...children) {
   const node = document.createElement(tag);
@@ -139,6 +184,61 @@ function renderSidebar() {
   const list = document.querySelector("[data-plan-list]");
   if (!list) return;
   list.innerHTML = "";
+
+  // Free-tier cap banner: visible at the plan-list level so users see
+  // the constraint before they try to save from chat and hit the
+  // trigger's "Free tier allows up to 3 saved plans" error.
+  if (state.tier === "free") {
+    const count = activePlanCount();
+    const atCap = count >= FREE_PLAN_CAP;
+    const banner = el(
+      "li",
+      { class: "plan-cap-banner" },
+      el(
+        "div",
+        {
+          style:
+            "padding:10px 12px;border:1px solid var(--accent-line);border-radius:10px;background:var(--accent-soft);font-size:12px;line-height:1.4;color:var(--ink);margin-bottom:10px;",
+        },
+        el(
+          "strong",
+          { style: "display:block;margin-bottom:2px;" },
+          `${count}/${FREE_PLAN_CAP} plans (Free)`
+        ),
+        atCap
+          ? el(
+              "span",
+              { style: "color:var(--muted);" },
+              "Archive an old plan or ",
+              el(
+                "a",
+                {
+                  href: "/pricing/",
+                  style: "color:var(--accent);font-weight:600;",
+                },
+                "upgrade to Pro"
+              ),
+              " for unlimited plans."
+            )
+          : el(
+              "span",
+              { style: "color:var(--muted);" },
+              `${FREE_PLAN_CAP - count} slot${FREE_PLAN_CAP - count === 1 ? "" : "s"} left. `,
+              el(
+                "a",
+                {
+                  href: "/pricing/",
+                  style: "color:var(--accent);font-weight:600;",
+                },
+                "Pro unlocks unlimited"
+              ),
+              "."
+            )
+      )
+    );
+    list.appendChild(banner);
+  }
+
   if (!state.plans.length) {
     list.appendChild(el("li", { class: "plan-meta" }, "No plans yet."));
     return;
@@ -316,6 +416,28 @@ function renderDetail() {
       "Add to calendar (.ics)"
     )
   );
+  // Export PDF — Pro only. For Free users, the button becomes a link to
+  // /pricing so they can see why it's gated.
+  if (state.tier === "pro") {
+    actions.appendChild(
+      el(
+        "button",
+        {
+          type: "button",
+          onClick: () => exportSelectedPlanAsPdf(),
+        },
+        "Export PDF"
+      )
+    );
+  } else {
+    actions.appendChild(
+      el(
+        "a",
+        { href: "/pricing/", class: "button-pro-gated" },
+        "Export PDF · Pro →"
+      )
+    );
+  }
   actions.appendChild(
     el(
       "button",
@@ -502,6 +624,8 @@ async function boot() {
   } catch (_err) {
     state.weightUnit = resolveWeightUnit(null);
   }
+  // Fetch tier in parallel with plan load; render will read from state.tier.
+  state.tier = await fetchTier();
   try {
     await reloadPlans({ preserveSelection: false });
   } catch (error) {

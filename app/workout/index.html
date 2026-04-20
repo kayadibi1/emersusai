@@ -61,6 +61,61 @@
     window.location.replace('/app/train/' + window.location.search);
   </script>
   <link rel="stylesheet" href="/shared/site.css">
+  <style>
+    /* PDF export print stylesheet — activated when body.is-printing-plan
+     * is toggled by exportSelectedPlanAsPdf() in workout.js. Scope: hide
+     * every chrome surface and the plan list; keep only the selected
+     * plan's detail pane visible for print. */
+    @media print {
+      body.is-printing-plan .site-header,
+      body.is-printing-plan .hero-panel,
+      body.is-printing-plan .workout-sidebar,
+      body.is-printing-plan .workout-action-row,
+      body.is-printing-plan [data-workout-toast],
+      body.is-printing-plan .site-footer,
+      body.is-printing-plan .button-pro-gated {
+        display: none !important;
+      }
+      body.is-printing-plan {
+        background: white !important;
+      }
+      body.is-printing-plan .workout-detail {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+        color: #111;
+      }
+      body.is-printing-plan .workout-detail h1,
+      body.is-printing-plan .workout-detail h2,
+      body.is-printing-plan .workout-detail h3,
+      body.is-printing-plan .workout-detail p,
+      body.is-printing-plan .workout-detail li {
+        color: #111;
+      }
+      body.is-printing-plan .workout-detail .workout-week {
+        page-break-inside: avoid;
+      }
+      @page { margin: 0.5in; }
+    }
+    /* Styling for the Free-tier gated Export PDF link so it sits with
+     * the other action buttons visually. Real buttons are styled in
+     * site.css; this anchor mimics the same look. */
+    .button-pro-gated {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px dashed var(--accent-line);
+      border-radius: 8px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color .14s, background .14s;
+    }
+    .button-pro-gated:hover {
+      border-style: solid;
+      background: var(--accent-soft);
+    }
+  </style>
 </head>
 <body>
   <div class="site-shell">
