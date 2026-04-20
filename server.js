@@ -79,6 +79,9 @@ import { requireAuth } from "./api/emersus/auth-middleware.js";
 // Import public rate limiting middleware
 import { publicRateLimitMiddleware } from "./api/emersus/rate-limit.js";
 
+// Per-user daily message cap on the chat endpoint (Free: 10/day, Pro: 100/day).
+import { userRateLimit } from "./api/emersus/user-rate-limit.js";
+
 // Import admin API routers + middleware
 import adminCandidates from "./api/admin/candidates.js";
 import adminTopics from "./api/admin/topics.js";
@@ -92,7 +95,7 @@ import { requireAdmin } from "./api/admin/_middleware.js";
 app.get("/api/config", configHandler);
 app.post("/api/contact", publicRateLimitMiddleware("contact"), contactHandler);
 app.post("/api/notify-signup", publicRateLimitMiddleware("notify-signup"), notifySignupHandler);
-app.post("/api/emersus/recommendation", requireAuth, recommendationHandler);
+app.post("/api/emersus/recommendation", requireAuth, userRateLimit(), recommendationHandler);
 app.get("/api/emersus/foods/search", foodsSearchHandler);
 app.post("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
 app.use("/api/emersus/meal-plans", mealPlansRouter);
