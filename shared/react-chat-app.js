@@ -1022,7 +1022,13 @@ function WorkoutPlanCard({ segment, threadId }) {
       setToast("Plan saved. Open it in the workout planner anytime.");
       setResolved("saved");
     } catch (err) {
-      setError(String(err?.message || err) || "Save failed.");
+      if (err?.code === "workout_plans_free_limit_exceeded") {
+        setError(
+          "Free tier allows up to 3 saved workout plans. Archive an old plan or upgrade to Pro for unlimited."
+        );
+      } else {
+        setError(String(err?.message || err) || "Save failed.");
+      }
     } finally {
       setBusy(false);
     }

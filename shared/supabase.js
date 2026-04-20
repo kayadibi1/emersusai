@@ -415,6 +415,17 @@ export async function saveNewWorkoutPlan(userId, plan, { sourceThreadId = null }
     .select()
     .single();
   if (error) {
+    // The Postgres trigger for the Free-tier 3-plan cap raises P0001
+    // with a stable prefix. Promote it to a typed error the UI can
+    // branch on without string-matching the full message.
+    if (
+      error.code === "P0001" &&
+      String(error.message || "").includes("workout_plans_free_limit_exceeded")
+    ) {
+      const e = new Error("Free tier allows up to 3 saved workout plans.");
+      e.code = "workout_plans_free_limit_exceeded";
+      throw e;
+    }
     throw error;
   }
   return data;
