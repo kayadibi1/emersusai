@@ -59,10 +59,81 @@ function findModelOption(id) {
   return MODEL_OPTIONS.find((m) => m.id === id) || MODEL_OPTIONS[0];
 }
 
+/**
+ * Standalone model picker pill. Extracted from ChatTopBar so it can be
+ * rendered outside the top bar (e.g. below the composer).
+ */
+export function ModelPill({ modelId, onModelChange, className = "" }) {
+  const resolvedId = isKnownModel(modelId) ? modelId : MODEL_OPTIONS[0].id;
+  const activeModel = findModelOption(resolvedId);
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return undefined;
+    function handle(event) {
+      if (event.type === "keydown" && event.key !== "Escape") return;
+      setOpen(false);
+    }
+    document.addEventListener("mousedown", handle);
+    document.addEventListener("keydown", handle);
+    return () => {
+      document.removeEventListener("mousedown", handle);
+      document.removeEventListener("keydown", handle);
+    };
+  }, [open]);
+
+  const handleSelect = (id) => {
+    setOpen(false);
+    if (!isKnownModel(id) || id === resolvedId) return;
+    if (typeof onModelChange === "function") onModelChange(id);
+  };
+
+  return h(
+    "div",
+    { className: `model-pill-wrap ${className}`.trim(), onMouseDown: (e) => e.stopPropagation() },
+    h(
+      "button",
+      {
+        type: "button",
+        className: "pill model",
+        title: "Change model for this thread",
+        "aria-haspopup": "listbox",
+        "aria-expanded": open,
+        onClick: () => setOpen((v) => !v),
+      },
+      h("span", { className: "model-pill-label" }, activeModel.label.toUpperCase()),
+      " ",
+      h("span", { className: "chev" }, "▾"),
+    ),
+    open
+      ? h(
+          "ul",
+          { className: "model-pill-menu", role: "listbox" },
+          MODEL_OPTIONS.map((option) =>
+            h(
+              "li",
+              { key: option.id, role: "presentation" },
+              h(
+                "button",
+                {
+                  type: "button",
+                  role: "option",
+                  "aria-selected": option.id === resolvedId,
+                  className: `model-pill-option${option.id === resolvedId ? " is-active" : ""}`,
+                  onClick: () => handleSelect(option.id),
+                },
+                option.label,
+              ),
+            ),
+          ),
+        )
+      : null,
+  );
+}
+
 export function ChatTopBar({
   thread,
   onRename,
-  onModelChange,
   onShare,
   onArchive,
   onDelete,
@@ -70,16 +141,12 @@ export function ChatTopBar({
   onOpenSidebar,
 }) {
   const title = thread?.title || "New thread";
-  const modelId = isKnownModel(thread?.model) ? thread.model : MODEL_OPTIONS[0].id;
-  const activeModel = findModelOption(modelId);
 
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(title);
-  const [modelOpen, setModelOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const inputRef = useRef(null);
-  const modelBtnRef = useRef(null);
   const menuBtnRef = useRef(null);
 
   useEffect(() => {
@@ -97,10 +164,9 @@ export function ChatTopBar({
 
   // Close dropdowns on outside click / Escape.
   useEffect(() => {
-    if (!modelOpen && !menuOpen) return undefined;
+    if (!menuOpen) return undefined;
     function handle(event) {
       if (event.type === "keydown" && event.key !== "Escape") return;
-      setModelOpen(false);
       setMenuOpen(false);
     }
     document.addEventListener("mousedown", handle);
@@ -109,7 +175,7 @@ export function ChatTopBar({
       document.removeEventListener("mousedown", handle);
       document.removeEventListener("keydown", handle);
     };
-  }, [modelOpen, menuOpen]);
+  }, [menuOpen]);
 
   const commit = useCallback(() => {
     const next = normalizeThreadTitle(draft);
@@ -140,12 +206,6 @@ export function ChatTopBar({
     },
     [draft, title, commit, cancel],
   );
-
-  const handleModelSelect = (id) => {
-    setModelOpen(false);
-    if (!isKnownModel(id) || id === modelId) return;
-    if (typeof onModelChange === "function") onModelChange(id);
-  };
 
   const handleMenuAction = (action) => {
     setMenuOpen(false);
@@ -197,48 +257,6 @@ export function ChatTopBar({
       h(
         "div",
         { className: "top-badges" },
-        h(
-          "div",
-          { className: "model-pill-wrap", onMouseDown: (e) => e.stopPropagation() },
-          h(
-            "button",
-            {
-              ref: modelBtnRef,
-              type: "button",
-              className: "pill model",
-              title: "Change model for this thread",
-              "aria-haspopup": "listbox",
-              "aria-expanded": modelOpen,
-              onClick: () => setModelOpen((v) => !v),
-            },
-            h("span", { className: "model-pill-label" }, activeModel.label.toUpperCase()),
-            " ",
-            h("span", { className: "chev" }, "▾"),
-          ),
-          modelOpen
-            ? h(
-                "ul",
-                { className: "model-pill-menu", role: "listbox" },
-                MODEL_OPTIONS.map((option) =>
-                  h(
-                    "li",
-                    { key: option.id, role: "presentation" },
-                    h(
-                      "button",
-                      {
-                        type: "button",
-                        role: "option",
-                        "aria-selected": option.id === modelId,
-                        className: `model-pill-option${option.id === modelId ? " is-active" : ""}`,
-                        onClick: () => handleModelSelect(option.id),
-                      },
-                      option.label,
-                    ),
-                  ),
-                ),
-              )
-            : null,
-        ),
         h(
           "span",
           {

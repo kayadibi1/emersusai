@@ -301,6 +301,17 @@ export async function upsertChatThread(userId, thread) {
   return data;
 }
 
+export async function deleteChatThread(userId, threadId) {
+  const supabase = await getSupabase();
+  const { error } = await supabase
+    .from("chat_threads")
+    .delete()
+    .eq("user_id", userId)
+    .eq("id", threadId);
+  if (error) throw error;
+  return true;
+}
+
 export function resolveNextPath(fallback = "/app/") {
   const params = new URLSearchParams(window.location.search);
   const next = params.get("next");

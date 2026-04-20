@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { createRoot } from "react-dom/client";
 import {
   Activity,
+  ArrowDown,
   ArrowUp,
   CheckCircle2,
   ChevronDown,
@@ -14,9 +15,12 @@ import {
   PanelLeftOpen,
   Plus,
   Search,
+  Share2,
+  Trash2,
 } from "lucide-react";
 import {
   applyWorkoutPlanUpdate,
+  deleteChatThread,
   getChatThread,
   getProfile,
   getSession,
@@ -56,7 +60,7 @@ import {
   formatCitationLabel,
   formatCitationUrl,
 } from "/shared/citation-format.js";
-import { ChatTopBar } from "/shared/chat/top-bar.js";
+import { ChatTopBar, ModelPill } from "/shared/chat/top-bar.js";
 import { MessageActions } from "/shared/chat/message-actions.js";
 import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
 import { buildFollowUpPrompt, citationLinks } from "/shared/chat/widget-footers.js";
@@ -4016,9 +4020,108 @@ export function ChatApp() {
     setStatusMessage("Archive action coming soon.");
   }, []);
 
-  const handleDeleteThread = useCallback(() => {
-    setStatusTone("info");
-    setStatusMessage("Delete action coming soon.");
+  const handleDeleteThread = useCallback(async (threadIdOverride) => {
+    const targetId = threadIdOverride || activeThreadId;
+    if (!targetId) return;
+    const thread = chatHistoryRef.current.find((t) => t.id === targetId);
+    const label = thread?.title ? `"${thread.title}"` : "this thread";
+    if (typeof window !== "undefined" && !window.confirm(`Delete ${label}? This can't be undone.`)) return;
+    try {
+      if (session?.user?.id) {
+        await deleteChatThread(session.user.id, targetId);
+      }
+      let nextActiveId = activeThreadIdRef.current;
+      setChatHistory((history) => {
+        const remaining = history.filter((t) => t.id !== targetId);
+        if (targetId === nextActiveId) {
+          if (remaining.length) {
+            nextActiveId = remaining[0].id;
+          } else {
+            const fresh = createEmptyThread();
+            nextActiveId = fresh.id;
+            return [fresh];
+          }
+        }
+        return remaining;
+      });
+      if (targetId === activeThreadIdRef.current) {
+        setActiveThreadId(nextActiveId);
+      }
+      setStatusTone("success");
+      setStatusMessage("Thread deleted.");
+    } catch (err) {
+      console.warn("deleteChatThread failed:", err);
+      setStatusTone("error");
+      setStatusMessage("Couldn't delete thread. Try again.");
+    }
+  }, [activeThreadId, session?.user?.id]);
+
+  // Right-click context menu for chat history items.
+  // { x, y, threadId } when open; null when closed.
+  const [historyContextMenu, setHistoryContextMenu] = useState(null);
+  useEffect(() => {
+    if (!historyContextMenu) return undefined;
+    function onDocClick() { setHistoryContextMenu(null); }
+    function onKey(e) { if (e.key === "Escape") setHistoryContextMenu(null); }
+    function onScroll() { setHistoryContextMenu(null); }
+    document.addEventListener("mousedown", onDocClick);
+    document.addEventListener("keydown", onKey);
+    window.addEventListener("scroll", onScroll, true);
+    return () => {
+      document.removeEventListener("mousedown", onDocClick);
+      document.removeEventListener("keydown", onKey);
+      window.removeEventListener("scroll", onScroll, true);
+    };
+  }, [historyContextMenu]);
+
+  const handleThreadContextMenu = useCallback((event, threadId) => {
+    event.preventDefault();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    // Clamp so the 180 × 96 menu stays on-screen.
+    const x = Math.min(event.clientX, vw - 200);
+    const y = Math.min(event.clientY, vh - 110);
+    setHistoryContextMenu({ x, y, threadId });
+  }, []);
+
+  const handleContextMenuShare = useCallback(() => {
+    if (!historyContextMenu) return;
+    const { threadId } = historyContextMenu;
+    setHistoryContextMenu(null);
+    if (!threadId) return;
+    if (threadId !== activeThreadIdRef.current) setActiveThreadId(threadId);
+    setShareModalOpen(true);
+  }, [historyContextMenu]);
+
+  const handleContextMenuDelete = useCallback(() => {
+    if (!historyContextMenu) return;
+    const { threadId } = historyContextMenu;
+    setHistoryContextMenu(null);
+    handleDeleteThread(threadId);
+  }, [historyContextMenu, handleDeleteThread]);
+
+  // Scroll-to-bottom affordance above the composer.
+  const [showScrollDown, setShowScrollDown] = useState(false);
+  useEffect(() => {
+    const el = canvasRef.current;
+    if (!el) return undefined;
+    function update() {
+      const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
+      setShowScrollDown(distance > 220);
+    }
+    update();
+    el.addEventListener("scroll", update, { passive: true });
+    const ro = typeof ResizeObserver !== "undefined" ? new ResizeObserver(update) : null;
+    if (ro) ro.observe(el);
+    return () => {
+      el.removeEventListener("scroll", update);
+      if (ro) ro.disconnect();
+    };
+  }, [activeThreadId]);
+  const scrollCanvasToBottom = useCallback(() => {
+    const el = canvasRef.current;
+    if (!el) return;
+    el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
   }, []);
 
   const handleStopStreaming = useCallback(() => {
@@ -4195,6 +4298,7 @@ export function ChatApp() {
                         setActiveThreadId(threadData.id);
                         closeSidebar();
                       },
+                      onContextMenu: (event) => handleThreadContextMenu(event, threadData.id),
                     },
                       h("span", null,
                         h("span", { className: "chat-nav-label" }, threadData.title || "New thread"),
@@ -4210,7 +4314,13 @@ export function ChatApp() {
           ? h(ChatSidebarSkeleton, { grouped: false })
           : h("div", { className: "chat-nav-list", "aria-label": "Chat history" },
             chatHistory.map((threadData) =>
-              h("button", { key: threadData.id, type: "button", className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`, onClick: () => { setActiveThreadId(threadData.id); closeSidebar(); } },
+              h("button", {
+                key: threadData.id,
+                type: "button",
+                className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`,
+                onClick: () => { setActiveThreadId(threadData.id); closeSidebar(); },
+                onContextMenu: (event) => handleThreadContextMenu(event, threadData.id),
+              },
                 h(History, { size: 17, "aria-hidden": true }),
                 h("span", null,
                   h("span", { className: "chat-nav-label" }, threadData.title || "New chat"),
@@ -4329,9 +4439,11 @@ export function ChatApp() {
                     }
                     return nodes;
                   }),
-                  h("article", { key: "persistent-glyph", className: "message assistant message-pending" },
-                    h("div", { className: "message-content" },
-                      h(ThinkingGlyph, { state: glyphState, size: 56, color: "#534AB7" }))),
+                  isSubmitting && glyphState !== "idle"
+                    ? h("article", { key: "persistent-glyph", className: "message assistant message-pending is-active" },
+                        h("div", { className: "message-content" },
+                          h(ThinkingGlyph, { state: glyphState, size: 56, color: "#534AB7" })))
+                    : null,
                 ]
               : h("section", { className: "thread-welcome" },
                   h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
@@ -4346,6 +4458,15 @@ export function ChatApp() {
                     : null,
                 )))),
       h("div", { className: "chat-composer-shell" },
+        showScrollDown
+          ? h("button", {
+              type: "button",
+              className: "scroll-to-bottom-btn",
+              "aria-label": "Scroll to latest message",
+              title: "Jump to latest",
+              onClick: scrollCanvasToBottom,
+            }, h(ArrowDown, { size: 18, "aria-hidden": true }))
+          : null,
         h("form", { className: "composer", onSubmit: submitQuestion },
           h("div", { className: "composer-row" },
             h("textarea", {
@@ -4394,7 +4515,15 @@ export function ChatApp() {
                   )
                 : null,
             ),
-            h("p", { className: "status-text", ref: statusRef }))))),
+            h("p", { className: "status-text", ref: statusRef }),
+            chatV2On
+              ? h(ModelPill, {
+                  modelId: activeThread?.model,
+                  onModelChange: handleModelChange,
+                  className: "composer-model-pill",
+                })
+              : null,
+          )))),
     h("aside", { className: "chat-rail" },
       h("section", { className: "rail-card" },
         h("h3", { className: "rail-title" }, "System status"),
@@ -4420,6 +4549,21 @@ export function ChatApp() {
           accessToken: session?.access_token || "",
           onClose: closeShareModal,
         })
+      : null,
+    historyContextMenu
+      ? h("div", {
+          className: "thread-context-menu",
+          role: "menu",
+          style: { top: historyContextMenu.y + "px", left: historyContextMenu.x + "px" },
+          onMouseDown: (e) => e.stopPropagation(),
+          onContextMenu: (e) => e.preventDefault(),
+        },
+          h("button", { type: "button", role: "menuitem", className: "thread-context-item", onClick: handleContextMenuShare },
+            h(Share2, { size: 15, "aria-hidden": true }),
+            h("span", null, "Share")),
+          h("button", { type: "button", role: "menuitem", className: "thread-context-item thread-context-danger", onClick: handleContextMenuDelete },
+            h(Trash2, { size: 15, "aria-hidden": true }),
+            h("span", null, "Delete")))
       : null,
   );
 }
