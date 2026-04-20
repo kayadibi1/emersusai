@@ -95,6 +95,26 @@ function AssignmentsCalendar({ mealPlan, workoutPlan, onOverride }) {
   ]);
 }
 
+function exportMealPlanAsPdf() {
+  // Mirror the workout-plan PDF mechanic: toggle a body class that
+  // scopes an @media print stylesheet (defined in /app/nutrition/index.html)
+  // so only .plan-panel is printed.
+  document.body.classList.add("is-printing-nutrition-plan");
+  setTimeout(() => {
+    try {
+      window.print();
+    } finally {
+      setTimeout(() => document.body.classList.remove("is-printing-nutrition-plan"), 500);
+    }
+  }, 40);
+}
+
+if (typeof window !== "undefined") {
+  window.addEventListener("afterprint", () => {
+    document.body.classList.remove("is-printing-nutrition-plan");
+  });
+}
+
 export default function NutritionPlanPanel({ onRegenerateViaChat }) {
   const [mealPlan, setMealPlan] = useState(null);
   const [workoutPlan, setWorkoutPlan] = useState(null);
@@ -102,6 +122,19 @@ export default function NutritionPlanPanel({ onRegenerateViaChat }) {
   const [editing, setEditing] = useState(false);
   const [editedTargets, setEditedTargets] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [tier, setTier] = useState("free");
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const res = await authFetch("/api/emersus/usage");
+        if (res.ok) {
+          const body = await res.json();
+          if (body?.tier) setTier(body.tier);
+        }
+      } catch (_) { /* best-effort; tier stays 'free' */ }
+    })();
+  }, []);
 
   async function load() {
     setLoading(true);
@@ -249,6 +282,13 @@ export default function NutritionPlanPanel({ onRegenerateViaChat }) {
     h("div", { className: "plan-actions", key: "a" }, [
       h("button", { key: "re", onClick: onRegenerateViaChat }, "Regenerate plan"),
       h("button", { key: "u", onClick: undo }, "Undo last change"),
+      tier === "pro"
+        ? h("button", { key: "pdf", onClick: exportMealPlanAsPdf }, "Export PDF")
+        : h("a", {
+            key: "pdfgated",
+            href: "/pricing/",
+            className: "button-pro-gated",
+          }, "Export PDF \u00b7 Pro \u2192"),
     ]),
 
     h(AssignmentsCalendar, {

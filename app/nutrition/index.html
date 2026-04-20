@@ -55,6 +55,56 @@
   <link rel="stylesheet" href="/shared/chrome.css">
   <link rel="stylesheet" href="/shared/skeleton.css">
   <link rel="stylesheet" href="/shared/nutrition.css">
+  <style>
+    /* PDF export — scope @media print to just the active meal plan.
+     * exportMealPlanAsPdf in shared/nutrition-plan-panel.js toggles
+     * body.is-printing-nutrition-plan before window.print(). Clean
+     * chrome, keep only .plan-panel content for the print dialog. */
+    @media print {
+      body.is-printing-nutrition-plan .app-sidebar,
+      body.is-printing-nutrition-plan .nu-tabs,
+      body.is-printing-nutrition-plan .nu-top,
+      body.is-printing-nutrition-plan .plan-actions,
+      body.is-printing-nutrition-plan .day-type-tabs,
+      body.is-printing-nutrition-plan .nu-meals-cta,
+      body.is-printing-nutrition-plan .button-pro-gated {
+        display: none !important;
+      }
+      body.is-printing-nutrition-plan {
+        background: white !important;
+      }
+      body.is-printing-nutrition-plan .plan-panel,
+      body.is-printing-nutrition-plan .plan-panel * {
+        color: #111 !important;
+      }
+      body.is-printing-nutrition-plan .plan-panel {
+        width: 100%;
+        max-width: 100%;
+        padding: 0;
+      }
+      body.is-printing-nutrition-plan .plan-panel .meal-group,
+      body.is-printing-nutrition-plan .plan-panel .plan-supplements {
+        page-break-inside: avoid;
+      }
+      @page { margin: 0.5in; }
+    }
+    /* Matches /app/workout/ — dashed border styling for Free-gated link. */
+    .button-pro-gated {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px dashed var(--accent-line);
+      border-radius: 8px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: border-color .14s, background .14s;
+    }
+    .button-pro-gated:hover {
+      border-style: solid;
+      background: var(--accent-soft);
+    }
+  </style>
   <script type="module">
     import { bootTheme } from '/shared/theme.js';
     bootTheme();
