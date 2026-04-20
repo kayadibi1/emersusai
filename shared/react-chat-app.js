@@ -68,6 +68,7 @@ import { EmptyPrompts } from "/shared/chat/empty-prompts.js";
 import { UsageRing } from "/shared/chat/usage-ring.js";
 import { COPY as RATE_LIMIT_COPY } from "/shared/chat/rate-limit-copy.js";
 import { groupThreadsByDate, filterThreadsBySearch, GROUP_ORDER } from "/shared/chat/sidebar-helpers.js";
+import { WelcomeScreen } from "/shared/chat/welcome-screen.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -3242,6 +3243,8 @@ export function ChatApp() {
   const [glyphState, setGlyphState] = useState("idle");
   const [streamingMessageKey, setStreamingMessageKey] = useState("");
   const [onboardingActive, setOnboardingActive] = useState(false);
+  const [userProfile, setUserProfile] = useState(null);
+  const [welcomeDismissed, setWelcomeDismissed] = useState(false);
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
   const submitQuestionRef = useRef(null);
@@ -3291,6 +3294,17 @@ export function ChatApp() {
   const visibleMessages = activeMessages.slice(visibleMessageStartIndex);
   const hiddenMessageCount = visibleMessageStartIndex;
   const activeThreadNeedsHydration = !!activeThread && activeThread.isHydrated === false;
+
+  // Welcome screen: shown once to brand-new users arriving via ?onboarding=1.
+  const onboardingFlagPresent = typeof window !== "undefined"
+    ? new URLSearchParams(window.location.search).get("onboarding") === "1"
+    : false;
+  const shouldShowWelcome =
+    onboardingFlagPresent
+    && userProfile !== null
+    && userProfile.onboarding_completed === false
+    && (userProfile.onboarding_progress ?? 0) === 0;
+  const showWelcome = shouldShowWelcome && !welcomeDismissed;
 
   useEffect(() => {
     chatHistoryRef.current = chatHistory;
@@ -3417,6 +3431,7 @@ export function ChatApp() {
       if (cancelled) return;
       const needsOnboarding = !userProfile || userProfile.onboarding_completed === false;
       setOnboardingActive(needsOnboarding);
+      setUserProfile(userProfile);
       // Fetch tier + threads in parallel. Free users have a 30-day
       // retention window applied to the sidebar.
       const [tierRes, rawRows] = await Promise.all([
@@ -3474,16 +3489,6 @@ export function ChatApp() {
         await upsertChatThread(authSession.user.id, firstThread);
       }
 
-      // Auto-trigger onboarding for new users on their first empty thread.
-      if (needsOnboarding) {
-        setTimeout(() => {
-          const submit = submitQuestionRef.current;
-          if (typeof submit === "function") {
-            submit(null, "__onboarding_start__");
-          }
-        }, 300);
-      }
-
       // Deep link from /app/workout/<id>: open a fresh chat thread already
       // "attached" to a saved workout plan so the user can type natural
       // adjustment requests ("I missed Friday") and the backend loads the
@@ -3509,6 +3514,28 @@ export function ChatApp() {
       cancelled = true;
     };
   }, []);
+
+  // Auto-trigger onboarding after the welcome screen is dismissed (or
+  // immediately if there's no welcome screen to show).
+  useEffect(() => {
+    if (!onboardingActive || showWelcome) return;
+    const timer = setTimeout(() => {
+      const submit = submitQuestionRef.current;
+      if (typeof submit === "function") {
+        submit(null, "__onboarding_start__");
+      }
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [onboardingActive, showWelcome]);
+
+  // Emit PostHog event once when the welcome screen is going to be shown.
+  useEffect(() => {
+    if (!shouldShowWelcome) return;
+    if (typeof window === "undefined") return;
+    if (window.posthog && typeof window.posthog.capture === "function") {
+      window.posthog.capture("onboarding_welcome_shown");
+    }
+  }, [shouldShowWelcome]);
 
   useEffect(() => {
     if (!activeThreadId || !session?.user?.id || !activeThreadNeedsHydration) {
@@ -4305,6 +4332,25 @@ export function ChatApp() {
     document.addEventListener("scroll", onAnyScroll, { capture: true, passive: true });
     return () => document.removeEventListener("scroll", onAnyScroll, { capture: true });
   }, []);
+
+  if (showWelcome) {
+    const firstName = userProfile?.full_name
+      ? String(userProfile.full_name).split(" ")[0]
+      : null;
+    return h(WelcomeScreen, {
+      firstName,
+      onStart: async () => {
+        if (typeof window !== "undefined"
+            && window.posthog
+            && typeof window.posthog.capture === "function") {
+          window.posthog.capture("onboarding_started");
+        }
+        setWelcomeDismissed(true);
+        // On the next render, showWelcome flips to false; the onboardingActive
+        // useEffect (now dependent on showWelcome) auto-fires the submit.
+      },
+    });
+  }
 
   return h("div", { className: `chat-app-shell${historyHidden ? " history-hidden" : ""}` },
     h("div", {

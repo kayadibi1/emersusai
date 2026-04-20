@@ -142,7 +142,7 @@ export async function getProfile(userId) {
   const supabase = await getSupabase();
   const { data, error } = await supabase
     .from("profiles")
-    .select("id,goal,experience_level,dietary_preferences,injuries_limitations,onboarding_completed,primary_use_case,equipment_access,available_days_per_week,available_minutes_per_session,sleep_stress_context,weight_unit,distance_unit,preferred_sports,default_pool_length_m,default_grade_system,body_weight_kg,height_cm,date_of_birth,biological_sex,activity_level,mapbox_privacy_radius_m,created_at,updated_at")
+    .select("id,full_name,goal,experience_level,dietary_preferences,injuries_limitations,onboarding_completed,onboarding_progress,primary_use_case,equipment_access,available_days_per_week,available_minutes_per_session,sleep_stress_context,weight_unit,distance_unit,preferred_sports,default_pool_length_m,default_grade_system,body_weight_kg,height_cm,date_of_birth,biological_sex,activity_level,mapbox_privacy_radius_m,created_at,updated_at")
     .eq("id", userId)
     .maybeSingle();
 
