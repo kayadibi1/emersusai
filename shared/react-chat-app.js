@@ -3251,7 +3251,7 @@ export function ChatApp() {
   );
   const [welcomeDismissed, setWelcomeDismissed] = useState(false);
   const [toastVisible, setToastVisible] = useState(false);
-  const [shouldPersonalizePrompts, setShouldPersonalizePrompts] = useState(false);
+  const [toastReason, setToastReason] = useState("completed");
   const hasShownToastRef = useRef(false);
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
@@ -3902,9 +3902,9 @@ export function ChatApp() {
           // Flip local profile state so the bar disappears.
           setUserProfile((prev) => prev ? { ...prev, onboarding_completed: true, onboarding_progress: 1.0 } : prev);
           setOnboardingProgress(1.0);
-          setShouldPersonalizePrompts(true);
           if (!hasShownToastRef.current) {
             hasShownToastRef.current = true;
+            setToastReason("completed");
             setToastVisible(true);
           }
         }
@@ -4298,9 +4298,9 @@ export function ChatApp() {
       });
       setUserProfile((prev) => prev ? { ...prev, onboarding_completed: true, onboarding_progress: 1.0 } : prev);
       setOnboardingProgress(1.0);
-      setShouldPersonalizePrompts(true);
       if (!hasShownToastRef.current) {
         hasShownToastRef.current = true;
+        setToastReason("user_skipped");
         setToastVisible(true);
       }
     } catch (err) {
@@ -4395,7 +4395,8 @@ export function ChatApp() {
     });
   }
 
-  const showProgressBar = userProfile?.onboarding_completed === false
+  const showProgressBar = onboardingActive
+    && userProfile?.onboarding_completed === false
     && onboardingProgress !== null
     && onboardingProgress < 1.0;
 
@@ -4641,7 +4642,7 @@ export function ChatApp() {
                         profileId: session?.user?.id || "",
                         accessToken: session?.access_token || "",
                         onPick: (prompt) => setQuestion(prompt),
-                        personalize: shouldPersonalizePrompts,
+                        personalize: userProfile?.onboarding_completed === true,
                       })
                     : null,
                 )))),
@@ -4771,6 +4772,7 @@ export function ChatApp() {
         h("div", { className: "rail-foot-line" }, h("span", null, "Interface"), h("span", null, "React + Lucide")))),
     h(OnboardingCompletionToast, {
       visible: toastVisible,
+      reason: toastReason,
       onDismiss: () => setToastVisible(false),
     }),
     chatV2On
