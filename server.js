@@ -87,6 +87,7 @@ const { default: polarCheckoutHandler } = await import("./api/billing/checkout.j
 const { default: polarPortalHandler } = await import("./api/billing/portal.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
+const { default: completeOnboardingHandler } = await import("./api/profile/complete-onboarding.js");
 
 // Import auth middleware for recommendation endpoints
 import { requireAuth } from "./api/emersus/auth-middleware.js";
@@ -134,6 +135,7 @@ app.get("/api/emersus/suggest-prompts", suggestPromptsHandler);
 app.post("/api/emersus/thread-title", requireAuth, threadTitleHandler);
 
 // profile_v2: structured profile read/write + integrations waitlist.
+app.post("/api/profile/complete-onboarding", requireAuth, completeOnboardingHandler);
 app.use("/api/profile", profileRouter());
 app.post("/api/integrations/waitlist", requireAuth, integrationsWaitlistHandler);
 
