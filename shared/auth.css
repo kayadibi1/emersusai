@@ -62,10 +62,15 @@ body.auth-body {
   max-width: 480px;
 }
 
-.auth-brand-mark img {
-  height: 38px;
-  width: auto;
-  display: block;
+.auth-brand-mark {
+  display: inline-block;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.32em;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1;
   margin-bottom: 48px;
 }
 

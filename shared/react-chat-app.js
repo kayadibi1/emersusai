@@ -4240,9 +4240,7 @@ export function ChatApp() {
               "aria-label": "Emersus AI home",
               style: { textDecoration: "none", color: "inherit", display: "block" },
             },
-            h("h1", { className: "chat-brand-mark" },
-              h("img", { src: "/emersus-logo.png", alt: "Emersus", style: { height: "38px", width: "auto" } })
-            ),
+            h("h1", { className: "chat-brand-mark" }, "EMERSUS"),
             h("p", { className: "chat-brand-subtitle" }, "Evidence Layer Active")
           ),
           h("button", { className: "inline-button", type: "button", "aria-expanded": !historyHidden, "aria-label": "Toggle conversation history", onClick: () => setHistoryHidden((value) => !value) },

@@ -90,14 +90,15 @@ button { cursor: pointer; }
 }
 
 .brand-mark {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-}
-
-.brand-mark img {
-  height: 32px;
-  width: auto;
-  display: block;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.28em;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1;
 }
 
 .site-nav {

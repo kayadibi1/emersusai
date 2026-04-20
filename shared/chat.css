@@ -1107,10 +1107,7 @@ body.chat-page {
   letter-spacing: 0.28em;
   color: var(--ink);
 }
-.chat-brand-mark img {
-  height: 24px;
-  width: auto;
-}
+.chat-brand-mark { line-height: 1; }
 .chat-brand-subtitle {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 9px;
