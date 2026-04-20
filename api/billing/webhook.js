@@ -70,13 +70,17 @@ export async function handleVerifiedEvent(
       // Unique violation → already processed. Silent no-op.
       return { status: "duplicate" };
     }
-    // Unexpected error — log and skip downstream so we don't double-apply
-    // on retry.
+    // Unexpected DB error — throw so the HTTP handler returns 500 and
+    // Polar retries. Previously we returned a status string here, which
+    // the handler treated as success → Polar saw 202 → no retries, tier
+    // never flipped. That bug reached prod on the first live checkout.
     console.error(
       "[polar-webhook] billing_events insert failed:",
       insertResult.error.message || insertResult.error
     );
-    return { status: "insert_error" };
+    throw new Error(
+      `billing_events insert failed: ${insertResult.error.message || "unknown"}`
+    );
   }
 
   // order.refunded defensively revokes Pro. A refund in Polar's dashboard
@@ -94,7 +98,9 @@ export async function handleVerifiedEvent(
     if (updateResult?.error) {
       console.error("[polar-webhook] refund tier update failed:",
         updateResult.error.message);
-      return { status: "update_error" };
+      throw new Error(
+        `profile tier update failed: ${updateResult.error.message || "unknown"}`
+      );
     }
     invalidateTier(userId);
     return { status: "tier_changed", tier: "free" };
@@ -137,7 +143,9 @@ export async function handleVerifiedEvent(
       "[polar-webhook] profile tier update failed:",
       updateResult.error.message || updateResult.error
     );
-    return { status: "update_error" };
+    throw new Error(
+      `profile tier update failed: ${updateResult.error.message || "unknown"}`
+    );
   }
 
   invalidateTier(userId);

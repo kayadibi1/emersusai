@@ -144,6 +144,25 @@ describe("handleVerifiedEvent", () => {
     ]);
   });
 
+  test("non-duplicate insert error throws — so HTTP handler returns 500 and Polar retries", async () => {
+    const supabase = {
+      from() {
+        return {
+          insert: () => ({ error: { code: "23502", message: "null in external_id" } }),
+          update() { return { eq: () => ({ error: null }) }; },
+        };
+      },
+    };
+    await assert.rejects(
+      () =>
+        handleVerifiedEvent(
+          evt({ type: "subscription.active", userId: "u-err" }),
+          { supabase, invalidateTier: () => {} }
+        ),
+      /billing_events insert failed/
+    );
+  });
+
   test("duplicate event (conflict on external_id) is a silent no-op", async () => {
     const { supabase, state } = stubSupabase();
     state.billingEventsConflict = true;
