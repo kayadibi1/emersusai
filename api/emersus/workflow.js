@@ -64,7 +64,14 @@ async function generateRecommendationStream(rawInput, res) {
         reason: err.response?.guardrail?.response_mode || "unknown",
         latency_ms: Date.now() - startedAt,
       });
-      return sendResponse(res, err.response);
+      const shortResponse = err.response;
+      if (shortResponse.onboarding_progress !== null && shortResponse.onboarding_progress !== undefined) {
+        shortResponse.onboarding = {
+          progress: shortResponse.onboarding_progress,
+          completed: shortResponse.onboarding_completed === true,
+        };
+      }
+      return sendResponse(res, shortResponse);
     }
     Sentry?.captureException?.(err, { tags: { pipeline: "stream" } });
     capture(ctx.stableUserId || "anonymous", "chat_stream_failed", {

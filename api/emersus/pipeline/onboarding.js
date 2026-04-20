@@ -239,9 +239,13 @@ async function handleOnboarding({
     }
   }
 
+  let lastOnboardingProgress = null;
   if (Object.keys(profileFields).length > 0) {
-    upsertOnboardingProfile(supabaseUrl, serviceRoleKey, supabaseUserId, profileFields)
-      .catch((err) => console.error("Onboarding profile upsert error:", err));
+    const upsertResult = await upsertOnboardingProfile(supabaseUrl, serviceRoleKey, supabaseUserId, profileFields)
+      .catch((err) => { console.error("Onboarding profile upsert error:", err); return null; });
+    if (upsertResult && upsertResult.progress !== null && upsertResult.progress !== undefined) {
+      lastOnboardingProgress = upsertResult.progress;
+    }
   }
 
   return {
@@ -269,6 +273,7 @@ async function handleOnboarding({
       reasons: [],
     },
     onboarding_completed: onboardingCompleted || Boolean(profileFields.onboarding_completed),
+    onboarding_progress: lastOnboardingProgress,
   };
 }
 
