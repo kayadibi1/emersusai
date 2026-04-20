@@ -10,6 +10,7 @@
 //      atomically, returns 429 on block, sets req.rateLimitInfo otherwise.
 
 import { supabaseAdmin } from "../lib/clients.js";
+import { capture } from "../lib/analytics.js";
 
 const TIER_TTL_MS = 60_000;
 const tierCache = new Map();
@@ -94,6 +95,13 @@ export function userRateLimit({ supabase = supabaseAdmin } = {}) {
     );
 
     if (!row.allowed) {
+      try {
+        capture(userId, "chat_rate_limited", {
+          tier,
+          count: row.new_count,
+          limit: row.day_limit,
+        });
+      } catch (_) { /* analytics best-effort */ }
       return res.status(429).json({
         error: "daily_limit_reached",
         tier,

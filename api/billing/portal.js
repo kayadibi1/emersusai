@@ -10,6 +10,7 @@
 // return 404 so the caller can show "You don't have a subscription".
 
 import { requirePolar } from "./polar-client.js";
+import { capture } from "../lib/analytics.js";
 
 let clientOverride = null;
 
@@ -35,6 +36,9 @@ export async function portalHandler(req, res) {
     const session = await getClient().customerPortal.sessions.create({
       customerExternalId: userId,
     });
+    try {
+      capture(userId, "billing_portal_opened", {});
+    } catch (_) { /* analytics best-effort */ }
     if (wantsJson) {
       return res.json({ url: session.customerPortalUrl });
     }

@@ -8,6 +8,7 @@
 // customer portal to recognize the user on return.
 
 import { requirePolar, resolveProductId } from "./polar-client.js";
+import { capture } from "../lib/analytics.js";
 
 let clientOverride = null;
 
@@ -53,6 +54,9 @@ export async function checkoutHandler(req, res) {
       successUrl: `${siteUrl()}/app/profile?upgraded=1`,
       metadata: { user_id: userId, plan },
     });
+    try {
+      capture(userId, "billing_checkout_started", { plan });
+    } catch (_) { /* analytics best-effort */ }
     return res.json({ url: checkout.url, id: checkout.id });
   } catch (err) {
     console.error("[polar-checkout] create failed:", err?.message || err);

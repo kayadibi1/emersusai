@@ -20,6 +20,7 @@
 import { validateEvent, WebhookVerificationError } from "@polar-sh/sdk/webhooks";
 import { supabaseAdmin } from "../lib/clients.js";
 import { invalidateTier as invalidateTierDefault } from "../emersus/user-rate-limit.js";
+import { capture as captureDefault } from "../lib/analytics.js";
 
 const PRO_STATUSES = new Set(["active", "trialing"]);
 const FREE_STATUSES = new Set([
@@ -49,6 +50,7 @@ export async function handleVerifiedEvent(
   {
     supabase = supabaseAdmin,
     invalidateTier = invalidateTierDefault,
+    capture = captureDefault,
     externalId = null,
   } = {}
 ) {
@@ -103,6 +105,12 @@ export async function handleVerifiedEvent(
       );
     }
     invalidateTier(userId);
+    try {
+      capture(userId, "billing_subscription_revoked", {
+        reason: "order_refunded",
+        event_type: event.type,
+      });
+    } catch (_) { /* analytics best-effort */ }
     return { status: "tier_changed", tier: "free" };
   }
 
@@ -149,6 +157,16 @@ export async function handleVerifiedEvent(
   }
 
   invalidateTier(userId);
+  try {
+    const eventName = nextTier === "pro"
+      ? "billing_subscription_active"
+      : "billing_subscription_revoked";
+    capture(userId, eventName, {
+      event_type: event.type,
+      status,
+      subscription_id: event.data?.id,
+    });
+  } catch (_) { /* analytics best-effort */ }
   return { status: "tier_changed", tier: nextTier };
 }
 
