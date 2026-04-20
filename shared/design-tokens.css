@@ -15,7 +15,8 @@
  * win the cascade and force dark tokens regardless of data-theme. */
 :root[data-theme="mint"] {
   --bg: #0a0a0b;
-  --sidebar-bg: #0c0c0e;
+  --sidebar-bg: #111114;
+  --topbar-bg: #0f0f12;
   --surface: #141417;
   --surface-faint: rgba(255,255,255,0.02);
   --recessed: rgba(0,0,0,0.20);
@@ -61,7 +62,8 @@
 /* ---------- PALETTE: PAPER · ROYAL (light) ---------- */
 :root[data-theme="paper"] {
   --bg: #f4efe5;
-  --sidebar-bg: #ece5d6;
+  --sidebar-bg: #e6ddca;
+  --topbar-bg: #ede4d0;
   --surface: #ece5d6;
   --surface-faint: rgba(26,24,19,0.025);
   --recessed: rgba(0,0,0,0.025);
@@ -152,6 +154,27 @@ html, body {
   color: var(--ink);
   transition: background .4s, color .4s;
 }
+
+/* Global grid pattern — a subtle 64 px grid that fades toward the
+ * viewport edges. Sits behind all content so sidebars + cards with
+ * opaque backgrounds mask it naturally, creating visible tonal contrast.
+ * Landing overrides this on body.landing-body with a stronger mask; its
+ * higher specificity wins and no conflict arises. Pages can opt out
+ * with body.no-grid::before { display: none; }. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  mask-image: radial-gradient(ellipse 100% 80% at 50% 40%, black 40%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse 100% 80% at 50% 40%, black 40%, transparent 95%);
+}
+body.no-grid::before { display: none; }
 
 body {
   font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;

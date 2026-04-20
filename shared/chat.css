@@ -1066,7 +1066,9 @@ body.chat-page {
   grid-template-columns: 280px 1fr;
   height: 100vh;            /* fallback for browsers without dvh support */
   height: 100dvh;
-  background: var(--bg);
+  background: transparent;
+  position: relative;
+  z-index: 1;
   overflow: hidden;
 }
 .chat-app-shell.history-hidden {
@@ -1267,7 +1269,7 @@ body.chat-page {
   flex-direction: column;
   overflow: hidden;
   position: relative;
-  background: var(--bg);
+  background: transparent;
   padding: 0;
   margin: 0;
   min-width: 0;
@@ -1285,7 +1287,7 @@ body.chat-page {
   flex: 1;
   overflow-y: auto;
   scroll-behavior: smooth;
-  background: var(--bg);
+  background: transparent;
   padding: 0;
   min-height: 0;
 }

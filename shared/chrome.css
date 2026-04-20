@@ -256,8 +256,10 @@
     14px
     max(20px, env(safe-area-inset-left));
   border-bottom: 1px solid var(--line);
-  background: var(--bg);
+  background: var(--topbar-bg, var(--bg));
   gap: 16px;
+  position: relative;
+  z-index: 2;
 }
 
 /* ========== TAB BARS ========== */
