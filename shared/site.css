@@ -22,9 +22,13 @@
   --protein: #4d8df5;
   --carbs: #78dc14;
   --fat: #e8a838;
-  --serif: Georgia, "Times New Roman", serif;
-  --mono: "JetBrains Mono", monospace;
-  --sans: system-ui, -apple-system, sans-serif;
+  /* Unified typography — matches landing + chrome: Space Grotesk for
+   * body and headings, JetBrains Mono for labels and code. `--serif`
+   * is kept as a token name for legacy call sites but no longer points
+   * at Georgia; the 2026-04 redesign uses a single sans across the site. */
+  --serif: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+  --sans: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   --content-width: 1100px;
 
   /* Legacy aliases — old code references these; map to new tokens */
@@ -48,18 +52,9 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Grid texture */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 60px 60px;
-  pointer-events: none;
-  z-index: 0;
-}
+/* Grid texture moved to design-tokens.css body::before — that version
+ * is theme-aware (uses --grid-line) so it works on both palettes, while
+ * this hardcoded white grid was invisible on Paper · Royal. */
 
 a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; }
