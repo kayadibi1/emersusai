@@ -2170,6 +2170,7 @@ body.chat-page {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow-y: auto; /* allow scroll on short viewports (e.g. 667px minus address bar) */
   background: var(--bg, #0f1113);
   color: var(--ink, #e9e6df);
   z-index: 10;
@@ -2322,7 +2323,7 @@ body.chat-page {
     right: 16px;
     max-width: none;
     transform: none;
-    bottom: 96px;
+    bottom: 160px; /* composer shell ~149px tall (18+103+28px) + 11px gap */
   }
   @keyframes onboardingToastFadeIn {
     from { opacity: 0; transform: translateY(8px); }
