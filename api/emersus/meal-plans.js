@@ -42,13 +42,25 @@ router.post("/", async (req, res) => {
       return;
     }
 
-    // Fetch any existing active plan for this user. If one exists, we
-    // archive it in-place and copy its current plan into previous_plan of
-    // the new row so undo can swap them.
+    // Look up tier. Pro users get additive saves (keep existing active
+    // plans, add a new one); Free users get the replace-on-save flow
+    // where the old active plan is archived before insert.
+    const { data: profileRow } = await supabase
+      .from("profiles")
+      .select("tier")
+      .eq("id", user.id)
+      .maybeSingle();
+    const tier = profileRow?.tier === "pro" ? "pro" : "free";
+
+    // Fetch any existing active plan (Free uses it for previous_plan /
+    // auto-archive; Pro only uses it as a seed for previous_plan on the
+    // undo chain).
     const { data: existing, error: fetchErr } = await supabase
       .from("meal_plans")
-      .select("id, plan")
+      .select("id, plan, updated_at")
       .is("archived_at", null)
+      .order("updated_at", { ascending: false })
+      .limit(1)
       .maybeSingle();
     if (fetchErr) {
       console.error("[meal-plans:save] fetch error:", fetchErr);
@@ -56,8 +68,9 @@ router.post("/", async (req, res) => {
       return;
     }
 
-    // Archive existing (RLS scopes to own user automatically)
-    if (existing?.id) {
+    if (tier === "free" && existing?.id) {
+      // Auto-archive only for Free so UX stays replace-on-save (matches
+      // today's behavior before tier-aware changes).
       const { error: archiveErr } = await supabase
         .from("meal_plans")
         .update({ archived_at: new Date().toISOString() })
@@ -83,6 +96,19 @@ router.post("/", async (req, res) => {
       .select()
       .single();
     if (insertErr) {
+      // DB trigger for Free-tier cap raises P0001 with a stable prefix.
+      // Promote to 403 with a typed error code the client can match.
+      if (
+        insertErr.code === "P0001" &&
+        String(insertErr.message || "").includes("meal_plans_free_limit_exceeded")
+      ) {
+        res.status(403).json({
+          error: "meal_plans_free_limit_exceeded",
+          message:
+            "Free tier allows 1 active meal plan. Archive your current plan or upgrade to Pro for multiple.",
+        });
+        return;
+      }
       console.error("[meal-plans:save] insert error:", insertErr);
       res.status(500).json({ error: "save_failed" });
       return;
