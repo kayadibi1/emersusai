@@ -70,6 +70,7 @@ import { COPY as RATE_LIMIT_COPY } from "/shared/chat/rate-limit-copy.js";
 import { groupThreadsByDate, filterThreadsBySearch, GROUP_ORDER } from "/shared/chat/sidebar-helpers.js";
 import { WelcomeScreen } from "/shared/chat/welcome-screen.js";
 import { OnboardingProgressBar } from "/shared/chat/onboarding-progress-bar.js";
+import { OnboardingCompletionToast } from "/shared/chat/onboarding-completion-toast.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -3249,6 +3250,8 @@ export function ChatApp() {
     userProfile?.onboarding_progress ?? null,
   );
   const [welcomeDismissed, setWelcomeDismissed] = useState(false);
+  const [toastVisible, setToastVisible] = useState(false);
+  const hasShownToastRef = useRef(false);
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
   const submitQuestionRef = useRef(null);
@@ -3895,9 +3898,13 @@ export function ChatApp() {
           setOnboardingProgress((prev) => (prev === null || p > prev ? p : prev));
         }
         if (data.onboarding.completed === true) {
-          // Flip local profile state so the bar disappears. Task 13 adds the toast.
+          // Flip local profile state so the bar disappears.
           setUserProfile((prev) => prev ? { ...prev, onboarding_completed: true, onboarding_progress: 1.0 } : prev);
           setOnboardingProgress(1.0);
+          if (!hasShownToastRef.current) {
+            hasShownToastRef.current = true;
+            setToastVisible(true);
+          }
         }
       }
       setGlyphState("responding");
@@ -4289,6 +4296,10 @@ export function ChatApp() {
       });
       setUserProfile((prev) => prev ? { ...prev, onboarding_completed: true, onboarding_progress: 1.0 } : prev);
       setOnboardingProgress(1.0);
+      if (!hasShownToastRef.current) {
+        hasShownToastRef.current = true;
+        setToastVisible(true);
+      }
     } catch (err) {
       console.error("skip onboarding failed", err);
     }
@@ -4754,6 +4765,10 @@ export function ChatApp() {
       h("div", { className: "rail-foot" },
         h("div", { className: "rail-foot-line" }, h("span", null, "Pipeline"), h("span", null, "PubMed + PMC")),
         h("div", { className: "rail-foot-line" }, h("span", null, "Interface"), h("span", null, "React + Lucide")))),
+    h(OnboardingCompletionToast, {
+      visible: toastVisible,
+      onDismiss: () => setToastVisible(false),
+    }),
     chatV2On
       ? h(ChatShareModal, {
           open: shareModalOpen,

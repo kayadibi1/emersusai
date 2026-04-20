@@ -2270,3 +2270,62 @@ body.chat-page {
   .onboarding-progress { padding: 0 12px; }
   .onboarding-skip-link { padding: 12px 10px; }
 }
+
+/* ========================================================================== */
+/* Onboarding Completion Toast (Task 13)                                      */
+/* ========================================================================== */
+
+.onboarding-completion-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
+  max-width: 360px;
+  padding: 14px 18px;
+  background: rgba(15, 17, 19, 0.96);
+  color: var(--ink, #e9e6df);
+  border: 1px solid rgba(251, 191, 36, 0.35);
+  border-radius: 12px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  z-index: 50;
+  animation: onboardingToastFadeIn 240ms ease-out;
+}
+.onboarding-completion-toast-title {
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.onboarding-completion-toast-body {
+  font-size: 12px;
+  opacity: 0.7;
+  line-height: 1.45;
+}
+.onboarding-completion-toast-pro {
+  font-size: 11px;
+  opacity: 0.5;
+  margin-top: 8px;
+}
+.onboarding-completion-toast-link {
+  color: var(--gold, #fbbf24);
+  text-decoration: none;
+}
+.onboarding-completion-toast-link:hover { text-decoration: underline; }
+
+@keyframes onboardingToastFadeIn {
+  from { opacity: 0; transform: translate(-50%, 8px); }
+  to   { opacity: 1; transform: translate(-50%, 0); }
+}
+
+@media (max-width: 480px) {
+  .onboarding-completion-toast {
+    left: 16px;
+    right: 16px;
+    max-width: none;
+    transform: none;
+    bottom: 96px;
+  }
+  @keyframes onboardingToastFadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
