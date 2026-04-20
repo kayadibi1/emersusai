@@ -84,6 +84,7 @@ const { default: nutritionSupplementsHandler } = await import("./api/emersus/nut
 const { default: progressHandler } = await import("./api/emersus/progress.js");
 const { default: usageHandler } = await import("./api/emersus/usage.js");
 const { default: polarCheckoutHandler } = await import("./api/billing/checkout.js");
+const { default: polarPortalHandler } = await import("./api/billing/portal.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
@@ -112,6 +113,7 @@ app.post("/api/notify-signup", publicRateLimitMiddleware("notify-signup"), notif
 app.post("/api/emersus/recommendation", requireAuth, userRateLimit(), recommendationHandler);
 app.get("/api/emersus/usage", requireAuth, usageHandler);
 app.post("/api/billing/polar/checkout", requireAuth, polarCheckoutHandler);
+app.get("/api/billing/polar/portal", requireAuth, polarPortalHandler);
 app.get("/api/emersus/foods/search", foodsSearchHandler);
 app.post("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
 app.use("/api/emersus/meal-plans", mealPlansRouter);

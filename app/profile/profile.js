@@ -480,8 +480,40 @@ function BillingTab({ reloadKey = 0 }) {
         h("div", { className: "pf-billing-usage-label" },
           isPro ? "Manage subscription" : "Upgrade"),
         isPro
-          ? h("div", { className: "pf-billing-usage-value", style: { fontSize: 14, color: "var(--muted)" } },
-              "Portal ships with Polar")
+          ? h("button", {
+              type: "button",
+              className: "pf-secondary",
+              style: {
+                display: "inline-block",
+                marginTop: 6,
+                cursor: "pointer",
+              },
+              onClick: async (e) => {
+                const btn = e.currentTarget;
+                const orig = btn.textContent;
+                btn.textContent = "Opening…";
+                btn.disabled = true;
+                try {
+                  const session = await getSession();
+                  const token = session?.access_token;
+                  if (!token) { window.location.href = "/auth/"; return; }
+                  const res = await fetch("/api/billing/polar/portal?json=1", {
+                    headers: { Authorization: "Bearer " + token },
+                  });
+                  if (!res.ok) {
+                    const body = await res.json().catch(() => ({}));
+                    throw new Error(body.error || "Portal unavailable");
+                  }
+                  const { url } = await res.json();
+                  window.location.href = url;
+                } catch (err) {
+                  console.error(err);
+                  alert("Could not open the billing portal. Try again, or email info@emersus.ai.");
+                  btn.textContent = orig;
+                  btn.disabled = false;
+                }
+              },
+            }, "Manage billing →")
           : h("a", {
               href: "/pricing",
               className: "pf-secondary",
@@ -492,7 +524,7 @@ function BillingTab({ reloadKey = 0 }) {
               },
             }, "Upgrade to Pro →"),
         h("div", { className: "pf-billing-usage-sub" },
-          isPro ? "BILLING PORTAL — PHASE 2" : "100 MSG/DAY · PREPRINTS · $9"),
+          isPro ? "CANCEL · UPDATE CARD · INVOICES" : "100 MSG/DAY · PREPRINTS · $9"),
       ),
     ),
     h("div", { className: "pf-billing-actions" },
