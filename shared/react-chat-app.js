@@ -65,6 +65,7 @@ import { MessageActions } from "/shared/chat/message-actions.js";
 import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
 import { buildFollowUpPrompt, citationLinks } from "/shared/chat/widget-footers.js";
 import { EmptyPrompts } from "/shared/chat/empty-prompts.js";
+import { UsageRing } from "/shared/chat/usage-ring.js";
 import { FirstMentionBanner } from "/shared/memory/first-mention-banner.js";
 import { usePendingChips } from "/shared/memory/chip-host.js";
 import { ConfirmationChip } from "/shared/memory/confirmation-chip.js";
@@ -3230,6 +3231,10 @@ export function ChatApp() {
   // Holds the in-flight AbortController so the chat_v2 Stop button can cancel
   // the SSE stream mid-flight. Cleared in submitQuestion's finally block.
   const streamAbortRef = useRef(null);
+  // UsageRing imperative handle — parent calls bump() after a successful
+  // send and refresh() after a 429 to stay in sync with the server's
+  // authoritative counter.
+  const usageRingRef = useRef(null);
 
   // Mobile sidebar drawer — only visible at ≤ 768 px. Controls .chat-nav.is-open,
   // .chat-nav-scrim.is-open, and html.is-nav-open (for body scroll-lock).
@@ -3648,8 +3653,16 @@ export function ChatApp() {
       });
       if (!response.ok) {
         const errBody = await response.json().catch(() => ({}));
+        // Keep the usage ring in sync with the server on non-OK paths —
+        // including 429 where the server incremented + rolled back.
+        usageRingRef.current?.refresh();
         throw new Error(errBody.message || "Unable to generate a recommendation.");
       }
+      // Optimistically bump the usage ring. The middleware already
+      // incremented the counter server-side, so this is the matching
+      // client state. A refresh() happens naturally on the next page
+      // load or after a 429.
+      usageRingRef.current?.bump();
 
       const contentType = (response.headers.get("content-type") || "").toLowerCase();
 
@@ -4500,6 +4513,10 @@ export function ChatApp() {
                     h("span", { className: "stop-btn-label" }, "Stop"),
                   )
                 : null,
+              h(UsageRing, {
+                ref: usageRingRef,
+                getToken: async () => session?.access_token ?? null,
+              }),
               h("button", { className: "submit-orb", type: "submit", disabled: composerDisabled, "aria-label": "Send question" }, h(ArrowUp, { size: 21 })))),
           h("div", { className: "composer-utility-row" },
             h("div", { className: "composer-buttons" },
