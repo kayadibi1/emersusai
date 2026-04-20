@@ -17,6 +17,7 @@
 // until period end) doesn't change tier — the eventual revoked event
 // is what demotes them.
 
+import { randomUUID } from "node:crypto";
 import { validateEvent, WebhookVerificationError } from "@polar-sh/sdk/webhooks";
 import { supabaseAdmin } from "../lib/clients.js";
 import { invalidateTier as invalidateTierDefault } from "../emersus/user-rate-limit.js";
@@ -55,8 +56,15 @@ export async function handleVerifiedEvent(
   } = {}
 ) {
   const userId = extractUserId(event);
+  // external_id is NOT NULL in the DB. Build the dedup key defensively so no
+  // combination of missing header + missing event fields can ever yield an
+  // empty string or null. The random-UUID fallback loses idempotency for
+  // that one event, but that's preferable to insert failing entirely — and
+  // it only fires when the event shape is already malformed.
   const dedupKey =
-    externalId || `${event.type}:${event.data?.id || "unknown"}`;
+    (typeof externalId === "string" && externalId) ||
+    (event?.type && event?.data?.id ? `${event.type}:${event.data.id}` : null) ||
+    `fallback:${randomUUID()}`;
 
   // Idempotency: try to insert first. If we conflict on external_id,
   // this event was already processed — skip downstream work.
