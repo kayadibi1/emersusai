@@ -2159,3 +2159,73 @@ body.chat-page {
   .composer-model-pill .pill.model { font-size: 9px; padding: 4px 8px; letter-spacing: 0.12em; }
   .scroll-to-bottom-btn { width: 32px; height: 32px; bottom: calc(100% + 8px); }
 }
+
+/* ========================================================================== */
+/* Welcome screen (onboarding click-through, Task 8)                          */
+/* ========================================================================== */
+
+.welcome-screen {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg, #0f1113);
+  color: var(--ink, #e9e6df);
+  z-index: 10;
+}
+.welcome-screen-inner {
+  max-width: 400px;
+  text-align: center;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+.welcome-screen-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.5;
+}
+.welcome-screen-title {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 0;
+}
+.welcome-screen-subtitle {
+  font-size: 13px;
+  opacity: 0.55;
+  line-height: 1.5;
+  max-width: 300px;
+  margin: 0;
+}
+.welcome-screen-cta {
+  margin-top: 8px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  background: var(--gold, #c8a24b);
+  color: #1a1714;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  min-height: 44px;
+}
+.welcome-screen-cta:disabled { opacity: 0.6; cursor: wait; }
+.welcome-screen-error {
+  color: #e88a7a;
+  font-size: 12px;
+  margin: 4px 0 0;
+}
+
+@media (max-width: 480px) {
+  .welcome-screen-inner {
+    padding: 24px 20px;
+    gap: 12px;
+    max-width: 100%;
+  }
+  .welcome-screen-title { font-size: 22px; }
+}
