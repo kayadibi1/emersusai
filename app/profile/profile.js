@@ -428,7 +428,7 @@ function BillingTab({ reloadKey = 0 }) {
   const heroSub = cancelsAtLabel
     ? `CANCELS ON ${cancelsAtLabel.toUpperCase()} · STILL ACTIVE UNTIL THEN`
     : isPro
-    ? "100 MESSAGES/DAY · PREPRINT ACCESS · PRIORITY SPEED"
+    ? "100 MESSAGES/DAY · PREPRINT ACCESS · UNLIMITED PLANS"
     : "10 MESSAGES/DAY · PEER-REVIEWED CITATIONS";
 
   const usedLabel = usage ? `${usage.used} / ${usage.limit}` : "—";

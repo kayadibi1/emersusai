@@ -2,14 +2,6 @@ import { buildMessages } from "./prompt.js";
 import { buildToolDefinitions } from "./tools.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
-// Pro users get a bigger model (better reasoning, longer context) when
-// OPENAI_EMERSUS_PRO_MODEL is set. Unset → Pro gets the same model as
-// Free, which is fine for dev/local. Set in prod env to differentiate.
-const PRO_MODEL = process.env.OPENAI_EMERSUS_PRO_MODEL || DEFAULT_MODEL;
-
-export function modelForTier(tier) {
-  return tier === "pro" ? PRO_MODEL : DEFAULT_MODEL;
-}
 
 // Prompt-cache routing key. Bumping the version forces a fresh cache slot
 // (use when the system prompt or tool schemas change enough to invalidate
@@ -89,7 +81,7 @@ export async function synthesize(ctx) {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) throw new Error("Missing OPENAI_API_KEY");
 
-  const model = modelForTier(ctx.tier);
+  const model = DEFAULT_MODEL;
   ctx._synthesisModel = model;
 
   const messages = buildMessages({
