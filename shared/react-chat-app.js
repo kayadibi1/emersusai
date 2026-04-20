@@ -66,6 +66,7 @@ import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
 import { buildFollowUpPrompt, citationLinks } from "/shared/chat/widget-footers.js";
 import { EmptyPrompts } from "/shared/chat/empty-prompts.js";
 import { UsageRing } from "/shared/chat/usage-ring.js";
+import { COPY as RATE_LIMIT_COPY } from "/shared/chat/rate-limit-copy.js";
 import { FirstMentionBanner } from "/shared/memory/first-mention-banner.js";
 import { usePendingChips } from "/shared/memory/chip-host.js";
 import { ConfirmationChip } from "/shared/memory/confirmation-chip.js";
@@ -3235,6 +3236,11 @@ export function ChatApp() {
   // send and refresh() after a 429 to stay in sync with the server's
   // authoritative counter.
   const usageRingRef = useRef(null);
+  // Non-null when the server has returned 429 daily_limit_reached. Holds
+  // {tier, limit, reset_at}. Auto-clears at reset_at. Disables the
+  // composer and renders a banner with an Upgrade CTA (Free) or a
+  // See-usage link (Pro).
+  const [rateLimitBlock, setRateLimitBlock] = useState(null);
 
   // Mobile sidebar drawer — only visible at ≤ 768 px. Controls .chat-nav.is-open,
   // .chat-nav-scrim.is-open, and html.is-nav-open (for body scroll-lock).
@@ -3656,6 +3662,16 @@ export function ChatApp() {
         // Keep the usage ring in sync with the server on non-OK paths —
         // including 429 where the server incremented + rolled back.
         usageRingRef.current?.refresh();
+        if (response.status === 429 && errBody?.error === "daily_limit_reached") {
+          setRateLimitBlock({
+            tier: errBody.tier ?? "free",
+            limit: errBody.limit ?? 10,
+            reset_at: errBody.reset_at,
+          });
+          // Don't throw — the banner + disabled composer communicate the
+          // state. Setting a toast-style status would be redundant.
+          return;
+        }
         throw new Error(errBody.message || "Unable to generate a recommendation.");
       }
       // Optimistically bump the usage ring. The middleware already
@@ -3912,7 +3928,24 @@ export function ChatApp() {
   submitQuestionRef.current = submitQuestion;
 
   const displayName = getDisplayName(session);
-  const composerDisabled = isSubmitting || activeThreadNeedsHydration;
+  const composerDisabled = isSubmitting || activeThreadNeedsHydration || !!rateLimitBlock;
+
+  // Auto-unblock the composer at reset_at. Refreshing the ring once we
+  // re-enable gives the user the correct post-reset count immediately.
+  useEffect(() => {
+    if (!rateLimitBlock) return undefined;
+    const ms = new Date(rateLimitBlock.reset_at).getTime() - Date.now();
+    if (ms <= 0) {
+      setRateLimitBlock(null);
+      usageRingRef.current?.refresh();
+      return undefined;
+    }
+    const timer = setTimeout(() => {
+      setRateLimitBlock(null);
+      usageRingRef.current?.refresh();
+    }, ms + 1000);
+    return () => clearTimeout(timer);
+  }, [rateLimitBlock]);
   const visibleMessageEntries = visibleMessages.map((message, index) => ({
     message,
     index: visibleMessageStartIndex + index,
@@ -4478,13 +4511,48 @@ export function ChatApp() {
               onClick: scrollCanvasToBottom,
             }, h(ArrowDown, { size: 18, "aria-hidden": true }))
           : null,
+        rateLimitBlock
+          ? h("div", {
+              style: {
+                margin: "0 0 12px",
+                padding: "10px 14px",
+                background: "var(--accent-soft)",
+                border: "1px solid var(--accent-line)",
+                borderRadius: 10,
+                display: "flex",
+                alignItems: "center",
+                gap: 12,
+                fontSize: 13,
+              },
+            },
+              h("div", { style: { flex: 1 } },
+                h("strong", { style: { color: "var(--ink)" } },
+                  RATE_LIMIT_COPY[rateLimitBlock.tier].bannerTitle),
+                h("span", { style: { color: "var(--muted)", marginLeft: 6 } },
+                  RATE_LIMIT_COPY[rateLimitBlock.tier].bannerBody(rateLimitBlock.reset_at))),
+              h("a", {
+                href: RATE_LIMIT_COPY[rateLimitBlock.tier].bannerCta.href,
+                style: {
+                  background: "var(--accent)",
+                  color: "var(--accent-text)",
+                  padding: "6px 12px",
+                  borderRadius: 8,
+                  fontSize: 12,
+                  fontWeight: 600,
+                  textDecoration: "none",
+                  whiteSpace: "nowrap",
+                },
+              }, RATE_LIMIT_COPY[rateLimitBlock.tier].bannerCta.label))
+          : null,
         h("form", { className: "composer", onSubmit: submitQuestion },
           h("div", { className: "composer-row" },
             h("textarea", {
               id: "chat-question",
               name: "question",
               "aria-label": "Ask Emersus",
-              placeholder: activeThreadNeedsHydration
+              placeholder: rateLimitBlock
+                ? RATE_LIMIT_COPY[rateLimitBlock.tier].placeholder
+                : activeThreadNeedsHydration
                 ? "Loading conversation..."
                 : onboardingActive
                 ? "Tell me about yourself..."
