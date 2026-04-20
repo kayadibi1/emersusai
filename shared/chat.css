@@ -2229,3 +2229,44 @@ body.chat-page {
   }
   .welcome-screen-title { font-size: 22px; }
 }
+
+/* ========================================================================== */
+/* Onboarding Progress Bar (Task 11)                                          */
+/* ========================================================================== */
+
+.onboarding-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 0 16px;
+  margin-top: 8px;
+}
+.onboarding-progress-bar-track {
+  height: 2px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.onboarding-progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold, #fbbf24), #e0c77a);
+  transition: width 400ms ease-out;
+}
+.onboarding-skip-link {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  color: var(--ink, rgba(233, 230, 223, 0.45));
+  opacity: 0.5;
+  font-size: 11px;
+  cursor: pointer;
+  padding: 10px 12px;
+  min-height: 44px;
+  min-width: 44px;
+}
+.onboarding-skip-link:hover { opacity: 0.8; }
+
+@media (max-width: 480px) {
+  .onboarding-progress { padding: 0 12px; }
+  .onboarding-skip-link { padding: 12px 10px; }
+}
