@@ -389,20 +389,109 @@ function AppearanceTab() {
   );
 }
 
+function formatResetCountdown(resetAtIso) {
+  if (!resetAtIso) return "";
+  const ms = Math.max(new Date(resetAtIso).getTime() - Date.now(), 0);
+  const hrs = Math.floor(ms / 3_600_000);
+  const min = Math.floor((ms % 3_600_000) / 60_000);
+  if (hrs === 0) return `${min}m`;
+  return `${hrs}h ${min}m`;
+}
+
 function BillingTab() {
-  return h("div", { className: "pf-tab pf-billing" },
+  const [usage, setUsage] = useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const session = await getSession();
+      const token = session?.access_token;
+      if (!token) return;
+      const res = await fetch("/api/emersus/usage", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      if (!res.ok || cancelled) return;
+      setUsage(await res.json());
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const isPro = usage?.tier === "pro";
+  const tierLabel = isPro ? "Pro" : "Free";
+  const heroSub = isPro
+    ? "100 MESSAGES/DAY · PREPRINT ACCESS · PRIORITY SPEED"
+    : "10 MESSAGES/DAY · PEER-REVIEWED CITATIONS";
+
+  const usedLabel = usage ? `${usage.used} / ${usage.limit}` : "—";
+  const resetLabel = usage?.reset_at
+    ? `RESETS IN ${formatResetCountdown(usage.reset_at).toUpperCase()} · 00:00 UTC`
+    : "LOADING…";
+  const ringPct = usage ? Math.min(usage.used / usage.limit, 1) : 0;
+
+  return h("div", { id: "usage", className: "pf-tab pf-billing" },
     h("div", { className: "pf-billing-hero" },
       h("div", { className: "pf-billing-hero-label" }, "Current plan"),
-      h("div", { className: "pf-billing-hero-name" }, "Private beta"),
-      h("div", { className: "pf-billing-hero-sub" }, "BILLING PAUSED · ALL FEATURES UNLOCKED"),
+      h("div", { className: "pf-billing-hero-name" }, tierLabel),
+      h("div", { className: "pf-billing-hero-sub" }, heroSub),
     ),
     h("div", { className: "pf-billing-usage" },
-      ["Chats this month","Plans saved","Sessions logged"].map((label) =>
-        h("div", { key: label, className: "pf-billing-usage-tile" },
-          h("div", { className: "pf-billing-usage-label" }, label),
-          h("div", { className: "pf-billing-usage-value" }, "—"),
-          h("div", { className: "pf-billing-usage-sub" }, "UNLIMITED DURING BETA"),
+      h("div", { className: "pf-billing-usage-tile" },
+        h("div", { className: "pf-billing-usage-label" }, "Messages today"),
+        h("div", { className: "pf-billing-usage-value" }, usedLabel),
+        h("div", { className: "pf-billing-usage-sub" }, resetLabel),
+      ),
+      h("div", { className: "pf-billing-usage-tile" },
+        h("div", { className: "pf-billing-usage-label" }, "Today's usage"),
+        h("div", {
+          style: {
+            padding: "6px 0",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          },
+        },
+          h("svg", { width: 60, height: 60, viewBox: "0 0 60 60" },
+            h("circle", {
+              cx: 30, cy: 30, r: 26, fill: "none",
+              stroke: "var(--line)", strokeWidth: 4,
+            }),
+            h("circle", {
+              cx: 30, cy: 30, r: 26, fill: "none",
+              stroke: ringPct >= 1 ? "var(--danger)"
+                    : ringPct >= 0.8 ? "var(--warning)"
+                    : "var(--accent)",
+              strokeWidth: 4,
+              strokeDasharray: 2 * Math.PI * 26,
+              strokeDashoffset: 2 * Math.PI * 26 * (1 - ringPct),
+              strokeLinecap: "round",
+              transform: "rotate(-90 30 30)",
+            }),
+          ),
         ),
+        h("div", { className: "pf-billing-usage-sub" },
+          usage
+            ? `${Math.round(ringPct * 100)}% OF DAILY LIMIT`
+            : "LOADING…"),
+      ),
+      h("div", { className: "pf-billing-usage-tile" },
+        h("div", { className: "pf-billing-usage-label" },
+          isPro ? "Manage subscription" : "Upgrade"),
+        isPro
+          ? h("div", { className: "pf-billing-usage-value", style: { fontSize: 14, color: "var(--muted)" } },
+              "Portal ships with Polar")
+          : h("a", {
+              href: "/pricing",
+              className: "pf-secondary",
+              style: {
+                display: "inline-block",
+                marginTop: 6,
+                textDecoration: "none",
+              },
+            }, "Upgrade to Pro →"),
+        h("div", { className: "pf-billing-usage-sub" },
+          isPro ? "BILLING PORTAL — PHASE 2" : "100 MSG/DAY · PREPRINTS · $9"),
       ),
     ),
     h("div", { className: "pf-billing-actions" },
