@@ -398,7 +398,7 @@ function formatResetCountdown(resetAtIso) {
   return `${hrs}h ${min}m`;
 }
 
-function BillingTab() {
+function BillingTab({ reloadKey = 0 }) {
   const [usage, setUsage] = useState(null);
 
   useEffect(() => {
@@ -416,7 +416,8 @@ function BillingTab() {
     return () => {
       cancelled = true;
     };
-  }, []);
+    // reloadKey change forces a re-fetch (e.g., after ?upgraded=1 return).
+  }, [reloadKey]);
 
   const isPro = usage?.tier === "pro";
   const tierLabel = isPro ? "Pro" : "Free";
@@ -1008,17 +1009,68 @@ function MemoryDeleteAllModal({ onClose, onDone }) {
 function ProfileApp() {
   const [tab, setTab] = useState(() => {
     const params = new URLSearchParams(window.location.search);
+    // If we returned from Polar checkout, jump straight to Billing.
+    if (params.get("upgraded") === "1") return "billing";
     const t = params.get("tab");
     return TABS.find((x) => x.id === t) ? t : "goals";
   });
   const { profile, error, loading, saving, load, patch } = useProfile();
   const debouncedPatch = useDebouncedPatch(patch, 500);
+  const [billingReloadKey, setBillingReloadKey] = useState(0);
+  const [upgradeToast, setUpgradeToast] = useState(null); // 'processing' | 'active' | null
 
   useEffect(() => {
     requireAuth().then((session) => {
       if (session) load();
     });
   }, [load]);
+
+  // ?upgraded=1 return flow: toast immediately, poll usage for up to 15s
+  // waiting for the webhook to flip tier=pro, then clean the URL.
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("upgraded") !== "1") return undefined;
+    setUpgradeToast("processing");
+    let attempts = 0;
+    const maxAttempts = 8; // ~15s total at 2s intervals
+    const tick = async () => {
+      attempts += 1;
+      setBillingReloadKey((k) => k + 1);
+      try {
+        const session = await getSession();
+        const token = session?.access_token;
+        if (token) {
+          const res = await fetch("/api/emersus/usage", {
+            headers: { Authorization: `Bearer ${token}` },
+          });
+          if (res.ok) {
+            const data = await res.json();
+            if (data.tier === "pro") {
+              setUpgradeToast("active");
+              return true;
+            }
+          }
+        }
+      } catch (_) { /* retry on next tick */ }
+      return false;
+    };
+    const interval = setInterval(async () => {
+      const done = await tick();
+      if (done || attempts >= maxAttempts) {
+        clearInterval(interval);
+        // Clean up the URL so a refresh doesn't re-trigger this flow.
+        const p = new URLSearchParams(window.location.search);
+        p.delete("upgraded");
+        const qs = p.toString();
+        window.history.replaceState({}, "", qs ? `?${qs}` : window.location.pathname);
+        // Auto-dismiss the toast after 6s once we stop polling.
+        setTimeout(() => setUpgradeToast(null), 6000);
+      }
+    }, 2000);
+    // Fire the first tick immediately rather than waiting 2s.
+    tick();
+    return () => clearInterval(interval);
+  }, []);
 
   function setTabAndUrl(next) {
     setTab(next);
@@ -1060,7 +1112,53 @@ function ProfileApp() {
     tab === "integrations" ? h(IntegrationsTab, null) : null,
     tab === "memory"       ? h(MemoryTab,       null) : null,
     tab === "appearance"   ? h(AppearanceTab,   null) : null,
-    tab === "billing"      ? h(BillingTab,      null) : null,
+    tab === "billing"      ? h(BillingTab,      { reloadKey: billingReloadKey }) : null,
+    upgradeToast ? h(UpgradeToast, { status: upgradeToast, onDismiss: () => setUpgradeToast(null) }) : null,
+  );
+}
+
+function UpgradeToast({ status, onDismiss }) {
+  const isActive = status === "active";
+  return h("div", {
+    style: {
+      position: "fixed",
+      bottom: 24,
+      right: 24,
+      background: isActive ? "var(--accent)" : "var(--surface)",
+      color: isActive ? "var(--accent-text)" : "var(--ink)",
+      border: isActive ? "none" : "1px solid var(--accent-line)",
+      borderRadius: 12,
+      padding: "14px 18px",
+      minWidth: 280,
+      maxWidth: 380,
+      boxShadow: "0 12px 32px -8px rgba(0,0,0,0.3)",
+      zIndex: 50,
+      fontFamily: "'Space Grotesk', system-ui, sans-serif",
+    },
+  },
+    h("div", { style: { fontWeight: 600, fontSize: 14, marginBottom: 4 } },
+      isActive ? "Welcome to Pro 🎉" : "Finalizing your upgrade…"),
+    h("div", { style: { fontSize: 13, opacity: 0.85, lineHeight: 1.4 } },
+      isActive
+        ? "100 messages/day and preprint access are live on your account."
+        : "Your payment was successful. Your Pro access is being activated (usually a few seconds)."),
+    h("button", {
+      type: "button",
+      onClick: onDismiss,
+      "aria-label": "Dismiss",
+      style: {
+        position: "absolute",
+        top: 8, right: 10,
+        background: "transparent",
+        border: "none",
+        color: "inherit",
+        opacity: 0.6,
+        fontSize: 18,
+        cursor: "pointer",
+        padding: "2px 6px",
+        lineHeight: 1,
+      },
+    }, "×"),
   );
 }
 
