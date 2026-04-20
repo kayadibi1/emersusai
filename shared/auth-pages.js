@@ -496,19 +496,52 @@ async function handleCallbackPage() {
     return;
   }
 
+  async function resolveAuthDestination(session) {
+    const defaultDest = resolveNextPath("/app/");
+    const accessToken = session?.access_token;
+    const createdAtIso = session?.user?.created_at;
+    if (!accessToken || !createdAtIso) return defaultDest;
+
+    const createdMs = new Date(createdAtIso).getTime();
+    const isRecent = Number.isFinite(createdMs) && Date.now() - createdMs < 60_000;
+    if (!isRecent) return defaultDest;
+
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 2000);
+      const response = await fetch("/api/profile/", {
+        headers: { Authorization: `Bearer ${accessToken}` },
+        signal: controller.signal,
+      });
+      clearTimeout(timer);
+      if (!response.ok) return defaultDest;
+      const profile = await response.json();
+      if (profile && profile.onboarding_completed === false) {
+        return resolveNextPath("/app/?onboarding=1");
+      }
+    } catch (err) {
+      // Network blip, abort, etc. — fall back to default so returning users don't get stuck.
+      console.warn("resolveAuthDestination: profile fetch failed, defaulting", err);
+    }
+    return defaultDest;
+  }
+
   try {
     const supabase = await getSupabase();
     const flow = readAuthFlowFromUrl();
 
+    let session = null;
+
     if (flow.code) {
-      const { error } = await supabase.auth.exchangeCodeForSession(flow.code);
+      const { data, error } = await supabase.auth.exchangeCodeForSession(flow.code);
       if (error) {
         throw error;
       }
+      session = data?.session ?? null;
     }
 
     if (flow.accessToken && flow.refreshToken) {
-      const { error } = await supabase.auth.setSession({
+      const { data, error } = await supabase.auth.setSession({
         access_token: flow.accessToken,
         refresh_token: flow.refreshToken,
       });
@@ -516,6 +549,7 @@ async function handleCallbackPage() {
       if (error) {
         throw error;
       }
+      session = data?.session ?? session;
     }
 
     if (flow.type === "recovery") {
@@ -530,7 +564,8 @@ async function handleCallbackPage() {
     maybeNotifyFreshOAuthUser();
 
     setStatus(status, "success", "Authentication confirmed. Redirecting...");
-    window.location.replace(resolveNextPath("/app/"));
+    const destination = await resolveAuthDestination(session);
+    window.location.replace(destination);
   } catch (error) {
     setStatus(status, "error", error.message || "Unable to finish authentication.");
   }
