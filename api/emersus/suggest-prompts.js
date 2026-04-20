@@ -9,6 +9,7 @@
 // without hitting the database.
 
 import { supabaseAdmin } from "../lib/clients.js";
+import { generatePersonalizedPrompts } from "./suggest-prompts-personalize.js";
 
 export const GENERIC_PROMPTS = [
   { id: "g-protein", label: "How much protein do I need?", prompt: "How much protein do I need per day for muscle growth?" },
@@ -90,11 +91,20 @@ async function loadProfile(profileId) {
   try {
     const { data, error } = await supabaseAdmin
       .from("user_profiles")
-      .select("goal,experience_level")
+      .select("goal,experience_level,equipment,dietary_preferences")
       .eq("id", profileId)
       .maybeSingle();
     if (error || !data) return null;
-    return { goal: data.goal, experience: data.experience_level };
+    // `experience` is the normalized key used by promptsForProfile.
+    // The raw columns (experience_level, equipment, dietary_preferences) are
+    // preserved on the object so the personalize branch can forward them as-is.
+    return {
+      goal: data.goal,
+      experience: data.experience_level,
+      experience_level: data.experience_level,
+      equipment: data.equipment,
+      dietary_preferences: data.dietary_preferences,
+    };
   } catch {
     return null;
   }
@@ -104,6 +114,19 @@ export default async function suggestPromptsHandler(req, res) {
   try {
     const profileId = String(req.query?.profile_id || "").trim();
     const profile = profileId ? await loadProfile(profileId) : null;
+
+    // ?personalize=true — generate LLM-tailored chips based on the full profile.
+    // Falls through to generic/static chips on any failure or timeout.
+    const personalize = String(req.query?.personalize || "") === "true";
+    if (personalize && profile) {
+      const personalized = await generatePersonalizedPrompts(profile);
+      if (personalized) {
+        res.setHeader("Cache-Control", "private, max-age=30");
+        return res.json(personalized);
+      }
+      // fall through to static prompt resolution on failure
+    }
+
     const prompts = promptsForProfile(profile);
     res.setHeader("Cache-Control", "private, max-age=60");
     res.json(prompts);
