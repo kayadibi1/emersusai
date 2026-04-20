@@ -15,8 +15,11 @@
  * win the cascade and force dark tokens regardless of data-theme. */
 :root[data-theme="mint"] {
   --bg: #0a0a0b;
-  --sidebar-bg: #111114;
-  --topbar-bg: #0f0f12;
+  /* Sidebar + topbar tints are now whisper-level (~2% off --bg). The strong
+     edge on their borders does the tonal-differentiation work; the fill is
+     almost invisible so the sidebar doesn't read as a heavy panel. */
+  --sidebar-bg: #131315;
+  --topbar-bg: #131315;
   --surface: #141417;
   --surface-faint: rgba(255,255,255,0.02);
   --recessed: rgba(0,0,0,0.20);
@@ -69,8 +72,9 @@
 /* ---------- PALETTE: PAPER · ROYAL (light) ---------- */
 :root[data-theme="paper"] {
   --bg: #f4efe5;
-  --sidebar-bg: #e6ddca;
-  --topbar-bg: #ede4d0;
+  /* Whisper-level tint (~2.5% below --bg) — see mint block for rationale. */
+  --sidebar-bg: #efeadf;
+  --topbar-bg: #efeadf;
   --surface: #ece5d6;
   --surface-faint: rgba(26,24,19,0.025);
   --recessed: rgba(0,0,0,0.025);

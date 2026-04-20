@@ -48,7 +48,7 @@
 /* ========== SIDEBAR ========== */
 .sidebar {
   background: var(--sidebar-bg);
-  border-right: 1px solid var(--line);
+  border-right: 1px solid var(--line-strong);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -255,7 +255,7 @@
     max(20px, env(safe-area-inset-right))
     14px
     max(20px, env(safe-area-inset-left));
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--line-strong);
   background: var(--topbar-bg, var(--bg));
   gap: 16px;
   position: relative;
@@ -620,7 +620,7 @@
   top: 0; left: 0; bottom: 0;
   width: 280px;
   background: var(--sidebar-bg);
-  border-right: 1px solid var(--line);
+  border-right: 1px solid var(--line-strong);
   display: flex;
   flex-direction: column;
   z-index: 50;
