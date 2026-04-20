@@ -4566,17 +4566,6 @@ export function ChatApp() {
           h(PanelLeftOpen, { size: 18 }))
       : null,
     h("main", { className: "chat-main" },
-      chatV2On && onboardingActive
-        ? h("div", { className: "onboarding-banner", role: "status" },
-            h("span", { className: "onboarding-banner-eyebrow" }, "ONBOARDING"),
-            h("span", { className: "onboarding-banner-copy" }, "Tell me a bit about yourself so I can personalize future advice."),
-            h("button", {
-              type: "button",
-              className: "onboarding-banner-skip",
-              onClick: handleSkipOnboarding,
-            }, "Skip setup →"),
-          )
-        : null,
       chatV2On
         ? h(ChatTopBar, {
             thread: activeThread,
