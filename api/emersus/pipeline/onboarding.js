@@ -4,6 +4,7 @@
 // ---------------------------------------------------------------------------
 
 import { UPDATE_USER_PROFILE } from "./tools.js";
+import { computeOnboardingProgress } from "../onboarding-progress.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
 
@@ -84,7 +85,42 @@ async function upsertOnboardingProfile(supabaseUrl, serviceRoleKey, supabaseUser
 
   if (!response.ok) {
     console.error("Onboarding profile upsert failed:", await response.text().catch(() => ""));
+    return { ok: false, progress: null };
   }
+
+  // After primary PATCH succeeds, fetch the full profile row and recompute progress.
+  const getResp = await fetch(
+    `${supabaseUrl}/rest/v1/profiles?id=eq.${encodeURIComponent(supabaseUserId)}&select=*`,
+    {
+      headers: {
+        apikey: serviceRoleKey,
+        Authorization: `Bearer ${serviceRoleKey}`,
+      },
+    },
+  );
+  if (!getResp.ok) {
+    // Non-fatal — return without progress update; bar stays at last known value.
+    return { ok: true, progress: null };
+  }
+  const rows = await getResp.json();
+  const profile = Array.isArray(rows) ? rows[0] : null;
+  const progress = computeOnboardingProgress(profile);
+
+  // PATCH progress separately (only column, cheap).
+  await fetch(
+    `${supabaseUrl}/rest/v1/profiles?id=eq.${encodeURIComponent(supabaseUserId)}`,
+    {
+      method: "PATCH",
+      headers: {
+        apikey: serviceRoleKey,
+        Authorization: `Bearer ${serviceRoleKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ onboarding_progress: progress }),
+    },
+  );
+
+  return { ok: true, progress };
 }
 
 async function handleOnboarding({
