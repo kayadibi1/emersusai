@@ -86,7 +86,7 @@ function signupPanel() {
   return `
     <section class="auth-panel" data-auth-page="signup">
       <header class="auth-panel-head">
-        <h2>Create account</h2>
+        <h2>Get started with Emersus</h2>
         <p>Sign up to get started.</p>
       </header>
 

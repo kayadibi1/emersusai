@@ -47,14 +47,14 @@ export function EmptyPrompts({ profileId, accessToken, onPick, personalize = fal
     return h(
       "div",
       { className: "empty-prompts empty-prompts-loading", "aria-busy": status === "loading" },
-      h("span", { className: "empty-prompts-label" }, "Suggested"),
+      h("span", { className: "empty-prompts-label" }, "Try one of these"),
     );
   }
 
   return h(
     "div",
-    { className: "empty-prompts", "aria-label": "Suggested prompts" },
-    h("span", { className: "empty-prompts-label" }, "Suggested"),
+    { className: "empty-prompts", "aria-label": "Try one of these prompts" },
+    h("span", { className: "empty-prompts-label" }, "Try one of these"),
     h(
       "div",
       { className: "empty-prompts-row" },

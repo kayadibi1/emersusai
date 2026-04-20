@@ -356,7 +356,7 @@ function createEmptyThread() {
   return {
     id: createThreadId(),
     title: "New chat",
-    preview: "No messages yet",
+    preview: "Nothing here yet",
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),
     messages: [],
@@ -580,7 +580,7 @@ function deriveThreadPreview(threadData) {
     readMessageText(latestAssistant) || readMessageText(fallback),
     80
   );
-  if (!source) return "No messages yet";
+  if (!source) return "Nothing here yet";
   return source.length > 52 ? `${source.slice(0, 51).trim()}...` : source;
 }
 
@@ -646,7 +646,7 @@ function mapSavedThread(row) {
   return {
     id: row.id,
     title: row.title || "New chat",
-    preview: row.preview || "No messages yet",
+    preview: row.preview || "Nothing here yet",
     createdAt: row.created_at,
     updatedAt: row.updated_at,
     messages: normalizedMessages,
@@ -4480,7 +4480,7 @@ export function ChatApp() {
                     },
                       h("span", null,
                         h("span", { className: "chat-nav-label" }, threadData.title || "New thread"),
-                        h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "No messages yet"}`)))),
+                        h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "Nothing here yet"}`)))),
                 );
               }),
               !filtered.length
@@ -4502,7 +4502,7 @@ export function ChatApp() {
                 h(History, { size: 17, "aria-hidden": true }),
                 h("span", null,
                   h("span", { className: "chat-nav-label" }, threadData.title || "New chat"),
-                  h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "No messages yet"}`))),
+                  h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "Nothing here yet"}`))),
             userTier === "free" && hiddenThreadsCount > 0
               ? h("a", {
                   key: "__retention",
