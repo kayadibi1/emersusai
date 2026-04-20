@@ -67,9 +67,6 @@ import { buildFollowUpPrompt, citationLinks } from "/shared/chat/widget-footers.
 import { EmptyPrompts } from "/shared/chat/empty-prompts.js";
 import { UsageRing } from "/shared/chat/usage-ring.js";
 import { COPY as RATE_LIMIT_COPY } from "/shared/chat/rate-limit-copy.js";
-import { FirstMentionBanner } from "/shared/memory/first-mention-banner.js";
-import { usePendingChips } from "/shared/memory/chip-host.js";
-import { ConfirmationChip } from "/shared/memory/confirmation-chip.js";
 import { groupThreadsByDate, filterThreadsBySearch, GROUP_ORDER } from "/shared/chat/sidebar-helpers.js";
 
 const h = React.createElement;
@@ -3996,8 +3993,6 @@ export function ChatApp() {
     message,
     index: visibleMessageStartIndex + index,
   }));
-  const { byTurnRef: pendingChipsByTurnRef, reload: reloadPendingChips } =
-    usePendingChips(activeThread?.id || null);
   const rail = activeThread?.rail || {};
   const confidencePercent = typeof rail.confidencePercent === "number" ? rail.confidencePercent : Math.round(Math.max(0, Math.min(Number(rail.confidenceScore || 0), 1)) * 100);
   const latestAssistantSources = useMemo(() => {
@@ -4502,9 +4497,7 @@ export function ChatApp() {
               onClick: handleSkipOnboarding,
             }, "Skip setup →"),
           )
-        : !onboardingActive
-          ? h(FirstMentionBanner, null)
-          : null,
+        : null,
       chatV2On
         ? h(ChatTopBar, {
             thread: activeThread,
@@ -4545,16 +4538,6 @@ export function ChatApp() {
                       onExport: handleExportMessage,
                       onAskFollowUp: handleAskSourceFollowUp,
                     })];
-                    if (message.role === "assistant" && message.openaiResponseId) {
-                      const chipRows = pendingChipsByTurnRef[message.openaiResponseId] || [];
-                      for (const chipRow of chipRows) {
-                        nodes.push(h(ConfirmationChip, {
-                          key: `chip-${chipRow.id}`,
-                          row: chipRow,
-                          onResolved: reloadPendingChips,
-                        }));
-                      }
-                    }
                     return nodes;
                   }),
                   isSubmitting && glyphState !== "idle"
