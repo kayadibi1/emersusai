@@ -74,6 +74,22 @@ import { groupThreadsByDate, filterThreadsBySearch, GROUP_ORDER } from "/shared/
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
+// Free-tier thread retention window. Older threads stay in the DB but
+// are hidden from the sidebar; upgrade to Pro reveals everything.
+const FREE_THREAD_RETENTION_DAYS = 30;
+
+function filterThreadsByTier(rows, tier) {
+  if (tier === "pro") return { visible: rows, hiddenCount: 0 };
+  const cutoff = Date.now() - FREE_THREAD_RETENTION_DAYS * 24 * 3600 * 1000;
+  let hiddenCount = 0;
+  const visible = rows.filter((r) => {
+    const t = new Date(r.updated_at || r.created_at || 0).getTime();
+    if (Number.isFinite(t) && t >= cutoff) return true;
+    hiddenCount += 1;
+    return false;
+  });
+  return { visible, hiddenCount };
+}
 const DEFAULT_VISIBLE_MESSAGE_COUNT = 40;
 const VISIBLE_MESSAGE_COUNT_STEP = 40;
 
@@ -3247,6 +3263,11 @@ export function ChatApp() {
   // composer and renders a banner with an Upgrade CTA (Free) or a
   // See-usage link (Pro).
   const [rateLimitBlock, setRateLimitBlock] = useState(null);
+  // Billing tier (fetched in boot) + count of threads hidden by the
+  // Free-tier retention window. Drives the "N older threads · Upgrade"
+  // banner at the bottom of the sidebar.
+  const [userTier, setUserTier] = useState("free");
+  const [hiddenThreadsCount, setHiddenThreadsCount] = useState(0);
 
   // Mobile sidebar drawer — only visible at ≤ 768 px. Controls .chat-nav.is-open,
   // .chat-nav-scrim.is-open, and html.is-nav-open (for body scroll-lock).
@@ -3399,8 +3420,27 @@ export function ChatApp() {
       if (cancelled) return;
       const needsOnboarding = !userProfile || userProfile.onboarding_completed === false;
       setOnboardingActive(needsOnboarding);
-      const rows = await listChatThreadSummaries(authSession.user.id);
+      // Fetch tier + threads in parallel. Free users have a 30-day
+      // retention window applied to the sidebar.
+      const [tierRes, rawRows] = await Promise.all([
+        (async () => {
+          try {
+            const res = await fetch("/api/emersus/usage", {
+              headers: { Authorization: `Bearer ${authSession.access_token}` },
+            });
+            if (res.ok) return (await res.json()).tier || "free";
+          } catch (_) { /* best-effort */ }
+          return "free";
+        })(),
+        listChatThreadSummaries(authSession.user.id),
+      ]);
       if (cancelled) return;
+      setUserTier(tierRes);
+      const { visible: rows, hiddenCount } = filterThreadsByTier(
+        rawRows,
+        tierRes
+      );
+      setHiddenThreadsCount(hiddenCount);
       const loaded = rows.map(mapSavedThread);
       if (loaded.length) {
         if (openPlanId) {
@@ -4374,7 +4414,35 @@ export function ChatApp() {
                 h(History, { size: 17, "aria-hidden": true }),
                 h("span", null,
                   h("span", { className: "chat-nav-label" }, threadData.title || "New chat"),
-                  h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "No messages yet"}`))))),
+                  h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "No messages yet"}`))),
+            userTier === "free" && hiddenThreadsCount > 0
+              ? h("a", {
+                  key: "__retention",
+                  href: "/pricing/",
+                  className: "chat-nav-retention-cta",
+                  style: {
+                    display: "block",
+                    padding: "10px 14px",
+                    margin: "8px 0 4px",
+                    border: "1px dashed var(--accent-line)",
+                    borderRadius: 10,
+                    background: "var(--accent-soft)",
+                    color: "var(--ink)",
+                    fontSize: 12,
+                    lineHeight: 1.4,
+                    textDecoration: "none",
+                    textAlign: "left",
+                  },
+                },
+                  h("strong", { style: { display: "block", fontSize: 12, marginBottom: 2 } },
+                    `${hiddenThreadsCount} older thread${hiddenThreadsCount === 1 ? "" : "s"} hidden`),
+                  h("span", { style: { color: "var(--muted)" } },
+                    `Free shows ${FREE_THREAD_RETENTION_DAYS} days. `,
+                    h("span", { style: { color: "var(--accent)", fontWeight: 600 } }, "Upgrade to Pro"),
+                    " to see all.")
+                )
+              : null,
+          )),
       // Cross-page nav row. The chat page was a dead-end before â€” no way to
       // get back to the dashboard, the workout planner, or anywhere else â€”
       // so these three anchors sit above the "New chat" button in the

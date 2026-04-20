@@ -421,7 +421,13 @@ function BillingTab({ reloadKey = 0 }) {
 
   const isPro = usage?.tier === "pro";
   const tierLabel = isPro ? "Pro" : "Free";
-  const heroSub = isPro
+  const cancelsAt = isPro && usage?.cancels_at ? new Date(usage.cancels_at) : null;
+  const cancelsAtLabel = cancelsAt && !Number.isNaN(cancelsAt.getTime())
+    ? cancelsAt.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })
+    : null;
+  const heroSub = cancelsAtLabel
+    ? `CANCELS ON ${cancelsAtLabel.toUpperCase()} · STILL ACTIVE UNTIL THEN`
+    : isPro
     ? "100 MESSAGES/DAY · PREPRINT ACCESS · PRIORITY SPEED"
     : "10 MESSAGES/DAY · PEER-REVIEWED CITATIONS";
 
