@@ -3251,6 +3251,7 @@ export function ChatApp() {
   );
   const [welcomeDismissed, setWelcomeDismissed] = useState(false);
   const [toastVisible, setToastVisible] = useState(false);
+  const [shouldPersonalizePrompts, setShouldPersonalizePrompts] = useState(false);
   const hasShownToastRef = useRef(false);
   const statusRef = useRef(null);
   const canvasRef = useRef(null);
@@ -3901,6 +3902,7 @@ export function ChatApp() {
           // Flip local profile state so the bar disappears.
           setUserProfile((prev) => prev ? { ...prev, onboarding_completed: true, onboarding_progress: 1.0 } : prev);
           setOnboardingProgress(1.0);
+          setShouldPersonalizePrompts(true);
           if (!hasShownToastRef.current) {
             hasShownToastRef.current = true;
             setToastVisible(true);
@@ -4296,6 +4298,7 @@ export function ChatApp() {
       });
       setUserProfile((prev) => prev ? { ...prev, onboarding_completed: true, onboarding_progress: 1.0 } : prev);
       setOnboardingProgress(1.0);
+      setShouldPersonalizePrompts(true);
       if (!hasShownToastRef.current) {
         hasShownToastRef.current = true;
         setToastVisible(true);
@@ -4638,6 +4641,7 @@ export function ChatApp() {
                         profileId: session?.user?.id || "",
                         accessToken: session?.access_token || "",
                         onPick: (prompt) => setQuestion(prompt),
+                        personalize: shouldPersonalizePrompts,
                       })
                     : null,
                 )))),

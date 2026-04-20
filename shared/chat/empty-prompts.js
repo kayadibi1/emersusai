@@ -10,26 +10,27 @@ import React from "react";
 const { useEffect, useState } = React;
 const h = React.createElement;
 
-async function fetchPrompts(profileId, accessToken) {
-  const url = profileId
-    ? `/api/emersus/suggest-prompts?profile_id=${encodeURIComponent(profileId)}`
-    : "/api/emersus/suggest-prompts";
-  const headers = {};
-  if (accessToken) headers["Authorization"] = `Bearer ${accessToken}`;
+async function fetchPrompts(profileId, accessToken, personalize = false) {
+  const params = new URLSearchParams();
+  if (profileId) params.set("profile_id", profileId);
+  if (personalize) params.set("personalize", "true");
+  const qs = params.toString();
+  const url = qs ? `/api/emersus/suggest-prompts?${qs}` : "/api/emersus/suggest-prompts";
+  const headers = accessToken ? { Authorization: `Bearer ${accessToken}` } : {};
   const response = await fetch(url, { headers });
   if (!response.ok) throw new Error(`HTTP ${response.status}`);
   const body = await response.json();
   return Array.isArray(body) ? body : [];
 }
 
-export function EmptyPrompts({ profileId, accessToken, onPick }) {
+export function EmptyPrompts({ profileId, accessToken, onPick, personalize = false }) {
   const [prompts, setPrompts] = useState([]);
   const [status, setStatus] = useState("idle"); // idle | loading | ready | error
 
   useEffect(() => {
     let cancelled = false;
     setStatus("loading");
-    fetchPrompts(profileId || "", accessToken || "")
+    fetchPrompts(profileId || "", accessToken || "", personalize)
       .then((next) => {
         if (cancelled) return;
         setPrompts(next);
@@ -40,7 +41,7 @@ export function EmptyPrompts({ profileId, accessToken, onPick }) {
         setStatus("error");
       });
     return () => { cancelled = true; };
-  }, [profileId, accessToken]);
+  }, [profileId, accessToken, personalize]);
 
   if (status === "loading" || !prompts.length) {
     return h(
