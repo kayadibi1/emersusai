@@ -45,6 +45,10 @@ export default async function handler(req, res) {
       body.userId = `supabase:${req.verifiedUserId}`;
     }
 
+    // Propagate the billing tier set by the userRateLimit middleware so
+    // the pipeline can gate preprint access (Pro-only) in retrieve.js.
+    body.tier = req.rateLimitInfo?.tier || "free";
+
     // Stream SSE directly to the client.
     // ShortCircuit responses (onboarding, guardrail refusal) are sent as JSON
     // by generateRecommendationStream — the client detects via Content-Type.

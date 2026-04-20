@@ -18,6 +18,11 @@ export function createContext(raw) {
     userId:         raw.userId         ?? "",
     stableUserId:   "",
     supabaseUserId: "",
+    // Billing tier — populated by the recommendation handler from
+    // req.rateLimitInfo.tier (set by userRateLimit middleware). Read by
+    // retrieve.js to gate preprint access: free users get peer-reviewed
+    // evidence only; pro users get peer-reviewed + preprints.
+    tier:           raw.tier           ?? "free",
     threadId:       raw.threadId       ?? "",
     threadState:    raw.threadState    ?? {},
     recentMessages: raw.recentMessages ?? [],
