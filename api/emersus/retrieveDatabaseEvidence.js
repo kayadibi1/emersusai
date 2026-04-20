@@ -46,15 +46,20 @@ export async function retrieveDatabaseEvidence({
   prompt,
   matchThreshold = 0.4,
   matchCount = 10,
+  includePreprints = true,
 }) {
   const queryEmbedding = await embedText(prompt);
 
+  // v3 adds p_include_preprints. When false, peer-reviewed only (Free
+  // tier); when true, peer-reviewed + preprints (Pro tier). v2 remains
+  // for any caller that hasn't migrated.
   const { data: matches, error: matchError } = await supabaseAdmin.rpc(
-    "match_evidence_chunks",
+    "match_evidence_chunks_v3",
     {
       query_embedding: queryEmbedding,
       match_threshold: matchThreshold,
       match_count: matchCount,
+      p_include_preprints: includePreprints,
     }
   );
 

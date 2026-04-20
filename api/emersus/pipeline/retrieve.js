@@ -119,16 +119,18 @@ export function normalizeVectorEvidenceRow(row) {
 
 // ─── Retrieval (verbatim from workflow.js ~lines 1518–1547) ──────────────────
 
-async function retrieveVectorEvidence(question) {
+async function retrieveVectorEvidence(question, { includePreprints = true } = {}) {
   try {
     // Retrieval returns the raw candidate pool (up to VECTOR_MATCH_COUNT).
     // All ranking happens here via the shared rerank module so there is
     // exactly one rerank pass in the pipeline, operating on the full pool
-    // instead of a pre-truncated subset.
+    // instead of a pre-truncated subset. includePreprints is threaded
+    // through to match_evidence_chunks_v3 — false for Free, true for Pro.
     const matches = await retrieveVectorDatabaseEvidence({
       prompt: question,
       matchThreshold: VECTOR_MATCH_THRESHOLD,
       matchCount: VECTOR_MATCH_COUNT,
+      includePreprints,
     });
 
     return {
@@ -208,7 +210,9 @@ export async function retrieve(ctx) {
   }
 
   const start = Date.now();
-  const result = await retrieveVectorEvidence(ctx.question);
+  const result = await retrieveVectorEvidence(ctx.question, {
+    includePreprints: ctx.tier === "pro",
+  });
   ctx._timer.record("retrieval_ms", Date.now() - start);
   ctx.evidence = {
     status: "completed",
