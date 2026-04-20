@@ -158,6 +158,7 @@ h1.headline {
   letter-spacing: var(--head-ls);
   line-height: var(--head-lh);
   margin: 0 0 24px;
+  padding-bottom: 0.14em;
   background: linear-gradient(180deg, var(--head-from) 0%, var(--head-to) 100%);
   -webkit-background-clip: text; background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -502,7 +503,7 @@ h1.headline {
 .sec-intro { font-size: 17px; color: var(--muted); max-width: 640px; margin-bottom: 48px; }
 
 /* ===== BENTO ===== */
-.bento { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; gap: 12px; margin-top: 32px; }
+.bento { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; gap: 12px; margin-top: 32px; perspective: 1400px; }
 .bento-card {
   border: 1px solid var(--line);
   border-radius: 14px;
@@ -510,15 +511,24 @@ h1.headline {
   background: linear-gradient(180deg, var(--surface-faint) 0%, transparent 60%), var(--bg);
   position: relative;
   overflow: hidden;
-  transition: border-color .2s;
+  transition: border-color .25s, transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .3s;
   display: flex; flex-direction: column; gap: 10px;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 .bento-card::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(300px 180px at 100% 0%, var(--accent-glow), transparent 70%);
   opacity: 0; transition: opacity .3s;
 }
-.bento-card:hover { border-color: var(--accent-line); }
+.bento-card:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-4px) rotateX(3.5deg) rotateY(-4deg);
+  box-shadow: 0 30px 60px -30px rgba(0,0,0,0.45), 0 12px 24px -14px var(--accent-glow);
+}
+.bento-card.wide:hover { transform: translateY(-4px) rotateX(3deg) rotateY(-2.5deg); }
+.bento-card.full:hover { transform: translateY(-4px); box-shadow: 0 20px 48px -28px rgba(0,0,0,0.4); }
+.bento-card.full:has(.mini-plan:hover) { transform: none; box-shadow: none; }
 .bento-card:hover::before { opacity: 1; }
 .bento-card.wide { grid-column: span 2; }
 .bento-card.tall { grid-row: span 2; }
@@ -575,8 +585,9 @@ h1.headline {
 .paper-meta { font-family: var(--font-mono); font-size: 10px; color: var(--dim); letter-spacing: 0.08em; margin-top: auto; }
 .paper-card.preprint-card { opacity: 0.92; }
 
-.mini-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.mini-plan { border: 1px solid var(--line); border-radius: 10px; background: var(--surface-faint); overflow: hidden; }
+.mini-plans { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; perspective: 1400px; }
+.mini-plan { border: 1px solid var(--line); border-radius: 10px; background: var(--surface-faint); overflow: hidden; transition: border-color .25s, transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .3s; transform-style: preserve-3d; will-change: transform; }
+.mini-plan:hover { border-color: var(--accent-line); transform: translateY(-3px) rotateX(4deg) rotateY(-3deg); box-shadow: 0 20px 40px -24px rgba(0,0,0,0.45), 0 10px 20px -14px var(--accent-glow); }
 .plan-meta { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; color: var(--dim); padding: 12px 18px; border-bottom: 1px solid var(--line); background: var(--recessed); }
 .plan-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 18px; border-bottom: 1px solid var(--line); }
 .plan-row:last-child { border-bottom: 0; }
@@ -590,8 +601,10 @@ h1.headline {
 
 /* ===== STEPS ===== */
 .steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
-.step { background: var(--bg); padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; }
-.step-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em; color: var(--accent); font-weight: 500; }
+.step { background: var(--bg); padding: 28px 24px; display: flex; flex-direction: column; gap: 12px; transition: background .25s, transform .25s; position: relative; }
+.step:hover { background: var(--surface-faint); }
+.step:hover .step-num { color: var(--accent); }
+.step-num { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.24em; color: var(--accent); font-weight: 500; transition: color .2s; }
 .step h4 { font-family: var(--font-head); font-size: 17px; font-weight: var(--head-weight); letter-spacing: -0.015em; margin: 0; color: var(--ink); }
 .step p { font-size: 13.5px; color: var(--muted); margin: 0; line-height: 1.55; }
 
@@ -604,9 +617,14 @@ h1.headline {
 
 /* ===== STATS ===== */
 .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; margin-top: 24px; }
-.stat { background: var(--bg); padding: 40px 28px; }
-.stat-num { font-family: var(--font-head); font-size: clamp(36px, 4.4vw, 54px); font-weight: var(--head-weight); letter-spacing: -0.025em; color: var(--ink); line-height: 1; margin-bottom: 10px; }
+.stat { background: var(--bg); padding: 40px 28px; text-align: center; transition: background .25s; }
+.stat:hover { background: var(--surface-faint); }
+.stat-num { font-family: var(--font-head); font-size: clamp(36px, 4.4vw, 54px); font-weight: var(--head-weight); letter-spacing: -0.025em; color: var(--ink); line-height: 1; margin-bottom: 10px; font-variant-numeric: tabular-nums; }
+.stat-num .live-pulse { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-left: 10px; vertical-align: middle; box-shadow: 0 0 10px var(--accent); animation: live-pulse 1.8s ease-in-out infinite; }
+@keyframes live-pulse { 0%, 100% { opacity: 0.35; transform: scale(0.85); } 50% { opacity: 1; transform: scale(1.1); } }
 .stat-label { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+.section.section-center { text-align: center; }
+.section.section-center .sec-intro { margin-left: auto; margin-right: auto; }
 
 /* ===== SPOTLIGHT ===== */
 .spotlight-section { max-width: 1100px; margin: 0 auto; padding: 96px 32px; border-top: 1px solid var(--line); }
@@ -640,12 +658,18 @@ h1.headline {
 .sv-chart-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
 .sv-chart-title { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; color: var(--muted); }
 .sv-chart-delta { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.14em; color: var(--accent); font-weight: 600; }
+.sv-chart { position: relative; }
 .sv-chart svg { width: 100%; height: auto; display: block; overflow: visible; }
 .sv-grid line { stroke: var(--line); stroke-width: 1; }
-.sv-band { fill: var(--line); opacity: 0.85; }
+.sv-band { fill: var(--line); opacity: 0.85; transition: opacity .3s; }
+.sv-chart:hover .sv-band { opacity: 0.55; }
 .sv-yours { stroke: var(--accent); stroke-width: 2.5; fill: none; stroke-linecap: round; stroke-linejoin: round; }
-.sv-dot { fill: var(--accent); }
+.sv-dot { fill: var(--accent); transition: r .2s, filter .2s; cursor: pointer; }
+.sv-dot:hover { r: 7; filter: drop-shadow(0 0 8px var(--accent)); }
 .sv-dot-last { stroke: var(--bg); stroke-width: 2.5; }
+.sv-chart-tooltip { position: absolute; pointer-events: none; background: var(--bg); border: 1px solid var(--accent-line); color: var(--ink); font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.08em; padding: 6px 10px; border-radius: 6px; box-shadow: 0 10px 24px -12px rgba(0,0,0,0.5); white-space: nowrap; opacity: 0; transform: translate(-50%, -140%); transition: opacity .18s; z-index: 2; }
+.sv-chart-tooltip.show { opacity: 1; }
+.sv-chart-tooltip b { color: var(--accent); font-weight: 600; margin-left: 6px; }
 .sv-chart-legend { display: flex; gap: 24px; margin-top: 14px; font-family: var(--font-mono); font-size: 9.5px; letter-spacing: 0.14em; color: var(--dim); }
 .sv-chart-legend > div { display: flex; align-items: center; gap: 8px; }
 .leg-dot { width: 14px; height: 3px; border-radius: 2px; }
@@ -693,16 +717,16 @@ h1.headline {
 .compare-row { display: grid; grid-template-columns: 2.5fr minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); border-bottom: 1px solid var(--line); }
 .compare-row:last-child { border-bottom: 0; }
 .compare-row.head { background: var(--surface-faint); }
-.compare-cell { padding: 16px 22px; font-size: 13.5px; color: var(--ink); border-right: 1px solid var(--line); }
+.compare-cell { padding: 16px 22px; font-size: 13.5px; color: var(--ink); border-right: 1px solid var(--line); text-align: center; }
 .compare-cell:last-child { border-right: 0; }
-.compare-cell.label { color: var(--muted); }
-.compare-cell.head-cell { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.20em; color: var(--dim); text-transform: uppercase; font-weight: 500; }
+.compare-cell.label { color: var(--muted); text-align: center; }
+.compare-cell.head-cell { font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.20em; color: var(--dim); text-transform: uppercase; font-weight: 500; text-align: center; }
 .compare-cell.head-cell.own { color: var(--accent); }
 .mark-yes { color: var(--accent); font-weight: 600; font-family: var(--font-mono); }
 .mark-no  { color: var(--dim); font-family: var(--font-mono); font-size: 12.5px; }
 
 /* ===== ROADMAP ===== */
-.roadmap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 32px; }
+.roadmap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 32px; perspective: 1400px; }
 .roadmap-card {
   border: 1px dashed var(--line-strong);
   border-radius: 12px;
@@ -710,9 +734,15 @@ h1.headline {
   background: var(--surface-faint);
   position: relative;
   display: flex; flex-direction: column; gap: 12px;
-  transition: border-color .2s, background .2s;
+  transition: border-color .25s, background .25s, transform .45s cubic-bezier(.2,.8,.2,1), box-shadow .3s;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
-.roadmap-card:hover { border-color: var(--accent-line); }
+.roadmap-card:hover {
+  border-color: var(--accent-line);
+  transform: translateY(-4px) rotateX(3deg) rotateY(-3deg);
+  box-shadow: 0 26px 52px -28px rgba(0,0,0,0.45), 0 10px 22px -14px var(--accent-glow);
+}
 .roadmap-badge {
   position: absolute; top: 22px; right: 22px;
   font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.28em;

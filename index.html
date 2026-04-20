@@ -460,6 +460,27 @@
                 <div class="plan-row"><span class="ex">Leg Press</span><span class="sets">3 × 12</span></div>
                 <div class="plan-row"><span class="ex">Nordic Curl</span><span class="sets">3 × 8</span></div>
               </div>
+              <div class="mini-plan">
+                <div class="plan-meta">PULL · 50 MIN · BARBELL</div>
+                <div class="plan-row"><span class="ex">Weighted Pull-Up</span><span class="sets">4 × 6</span></div>
+                <div class="plan-row"><span class="ex">Pendlay Row</span><span class="sets">4 × 8</span></div>
+                <div class="plan-row"><span class="ex">Seated Cable Row</span><span class="sets">3 × 10</span></div>
+                <div class="plan-row"><span class="ex">Face Pull</span><span class="sets">3 × 15</span></div>
+              </div>
+              <div class="mini-plan">
+                <div class="plan-meta">CORE · 25 MIN · LOW-BACK</div>
+                <div class="plan-row"><span class="ex">Dead Bug</span><span class="sets">3 × 10</span></div>
+                <div class="plan-row"><span class="ex">Side Plank</span><span class="sets">3 × 30s</span></div>
+                <div class="plan-row"><span class="ex">Pallof Press</span><span class="sets">3 × 12</span></div>
+                <div class="plan-row"><span class="ex">Bird Dog</span><span class="sets">3 × 10</span></div>
+              </div>
+              <div class="mini-plan">
+                <div class="plan-meta">ZONE 2 · 45 MIN · CARDIO</div>
+                <div class="plan-row"><span class="ex">Incline Walk</span><span class="sets">10 min</span></div>
+                <div class="plan-row"><span class="ex">Steady Cycle</span><span class="sets">25 min</span></div>
+                <div class="plan-row"><span class="ex">Easy Row</span><span class="sets">8 min</span></div>
+                <div class="plan-row"><span class="ex">Cooldown Walk</span><span class="sets">2 min</span></div>
+              </div>
             </div>
           </div>
         </article>
@@ -479,13 +500,22 @@
     </section>
 
 
-    <section class="section" id="corpus">
+    <section class="section section-center" id="corpus">
       <div class="sec-eyebrow">Corpus</div>
       <h2 class="sec-title">What's indexed right now.</h2>
       <div class="stats-grid">
-        <div class="stat"><div class="stat-num">1,041,448</div><div class="stat-label">Papers indexed</div></div>
-        <div class="stat"><div class="stat-num">302</div><div class="stat-label">Topic areas</div></div>
-        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Citations verifiable</div></div>
+        <div class="stat">
+          <div class="stat-num" data-count-to="1041448" data-live="papers">0<span class="live-pulse" aria-hidden="true"></span></div>
+          <div class="stat-label">Papers indexed</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count-to="302">0</div>
+          <div class="stat-label">Topic areas</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num" data-count-to="100" data-suffix="%">0</div>
+          <div class="stat-label">Citations verifiable</div>
+        </div>
       </div>
     </section>
 
@@ -570,14 +600,15 @@
               </g>
               <path class="sv-band" d="M 10 120 L 70 112 L 130 104 L 190 96 L 250 88 L 310 82 L 380 76 L 380 106 L 310 112 L 250 118 L 190 124 L 130 130 L 70 138 L 10 146 Z"/>
               <path class="sv-yours" d="M 10 130 L 70 118 L 130 102 L 190 82 L 250 70 L 310 58 L 380 48"/>
-              <circle class="sv-dot" cx="10" cy="130" r="3.5"/>
-              <circle class="sv-dot" cx="70" cy="118" r="3.5"/>
-              <circle class="sv-dot" cx="130" cy="102" r="3.5"/>
-              <circle class="sv-dot" cx="190" cy="82" r="3.5"/>
-              <circle class="sv-dot" cx="250" cy="70" r="3.5"/>
-              <circle class="sv-dot" cx="310" cy="58" r="3.5"/>
-              <circle class="sv-dot sv-dot-last" cx="380" cy="48" r="5"/>
+              <circle class="sv-dot" cx="10"  cy="130" r="3.5" data-month="NOV" data-kg="90"/>
+              <circle class="sv-dot" cx="70"  cy="118" r="3.5" data-month="DEC" data-kg="95"/>
+              <circle class="sv-dot" cx="130" cy="102" r="3.5" data-month="JAN" data-kg="100"/>
+              <circle class="sv-dot" cx="190" cy="82"  r="3.5" data-month="FEB" data-kg="107"/>
+              <circle class="sv-dot" cx="250" cy="70"  r="3.5" data-month="MAR" data-kg="112"/>
+              <circle class="sv-dot" cx="310" cy="58"  r="3.5" data-month="APR" data-kg="117"/>
+              <circle class="sv-dot sv-dot-last" cx="380" cy="48" r="5" data-month="NOW" data-kg="122"/>
             </svg>
+            <div class="sv-chart-tooltip" id="sv-chart-tooltip" aria-hidden="true"></div>
             <div class="sv-chart-legend">
               <div><span class="leg-dot leg-yours"></span>YOUR 1RM</div>
               <div><span class="leg-dot leg-band"></span>TYPICAL INTERMEDIATE · Schoenfeld 2017</div>
@@ -674,7 +705,7 @@
       <div class="sec-eyebrow">Common questions</div>
       <h2 class="sec-title">Objections, pre-empted.</h2>
       <div class="faq-list">
-        <details class="faq-item" open>
+        <details class="faq-item">
           <summary>Where do the citations actually come from?</summary>
           <div class="faq-body">Retrieval runs over 1M+ indexed papers from PubMed, bioRxiv, medRxiv, CORE, and Semantic Scholar. Every citation points back to a real, resolvable DOI or PubMed ID — not a fabricated reference.</div>
         </details>
@@ -746,7 +777,7 @@
         <div>EVIDENCE-BASED FITNESS INTELLIGENCE</div>
       </div>
       <div class="footer-disclaimer">
-        <strong>Health disclaimer.</strong> Emersus AI provides evidence-based information
+        <strong>Health disclaimer:</strong> Emersus AI provides evidence-based information
         and AI-generated suggestions for educational and informational purposes only.
         It is not a substitute for professional medical advice, diagnosis, or treatment.
         Always consult a qualified healthcare provider before starting any new exercise
@@ -983,6 +1014,107 @@
         });
       }, { threshold: 0.3 });
       obs.observe(demoRoot);
+    })();
+  </script>
+
+  <script>
+    // Corpus stats: count-up on reveal + "live" ticker on papers count.
+    (function () {
+      const els = document.querySelectorAll('.stat-num[data-count-to]');
+      if (!els.length) return;
+      const reduced = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function formatNum(n, suffix) {
+        return n.toLocaleString('en-US') + (suffix || '');
+      }
+
+      function setStat(el, n) {
+        const suffix = el.dataset.suffix || '';
+        const hasPulse = el.dataset.live;
+        let html = formatNum(n, suffix);
+        if (hasPulse) html += '<span class="live-pulse" aria-hidden="true"></span>';
+        el.innerHTML = html;
+      }
+
+      function countUp(el, target, duration) {
+        const t0 = performance.now();
+        return new Promise((resolve) => {
+          function frame(t) {
+            const k = Math.min(1, (t - t0) / duration);
+            const eased = 1 - Math.pow(1 - k, 3);
+            const val = Math.round(target * eased);
+            setStat(el, val);
+            if (k < 1) requestAnimationFrame(frame);
+            else resolve();
+          }
+          requestAnimationFrame(frame);
+        });
+      }
+
+      function startLiveTicker(el, base) {
+        let cur = base;
+        function tick() {
+          const step = 1 + Math.floor(Math.random() * 3); // 1–3 papers
+          cur += step;
+          setStat(el, cur);
+          const next = 3500 + Math.random() * 5500; // 3.5–9s
+          setTimeout(tick, next);
+        }
+        setTimeout(tick, 2000 + Math.random() * 2000);
+      }
+
+      if (reduced) {
+        els.forEach((el) => setStat(el, Number(el.dataset.countTo)));
+        return;
+      }
+
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(async (entry) => {
+          if (!entry.isIntersecting) return;
+          obs.unobserve(entry.target);
+          const el = entry.target;
+          const target = Number(el.dataset.countTo);
+          const duration = target > 10000 ? 1800 : 1100;
+          await countUp(el, target, duration);
+          if (el.dataset.live) startLiveTicker(el, target);
+        });
+      }, { threshold: 0.35 });
+      els.forEach((el) => obs.observe(el));
+    })();
+
+    // Spotlight chart: hover tooltip on bench press dots.
+    (function () {
+      const chart = document.querySelector('.sv-chart');
+      const tip   = document.getElementById('sv-chart-tooltip');
+      if (!chart || !tip) return;
+      const svg   = chart.querySelector('svg');
+      const dots  = chart.querySelectorAll('.sv-dot');
+
+      function pointFor(dot) {
+        const r   = svg.getBoundingClientRect();
+        const vb  = svg.viewBox.baseVal; // 0 0 400 180
+        const cx  = Number(dot.getAttribute('cx'));
+        const cy  = Number(dot.getAttribute('cy'));
+        const sx  = r.width  / vb.width;
+        const sy  = r.height / vb.height;
+        return { x: cx * sx, y: cy * sy };
+      }
+
+      dots.forEach((dot) => {
+        const show = () => {
+          const { x, y } = pointFor(dot);
+          tip.style.left = x + 'px';
+          tip.style.top  = y + 'px';
+          tip.innerHTML  = dot.dataset.month + ' <b>' + dot.dataset.kg + ' kg</b>';
+          tip.classList.add('show');
+        };
+        const hide = () => tip.classList.remove('show');
+        dot.addEventListener('mouseenter', show);
+        dot.addEventListener('mouseleave', hide);
+        dot.addEventListener('focus', show);
+        dot.addEventListener('blur',  hide);
+      });
     })();
   </script>
 </body>
