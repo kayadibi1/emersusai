@@ -57,6 +57,13 @@
   --frame-to: #0d0d10;
   --head-from: #ffffff;
   --head-to: #b4b4b8;
+  /* Chart-series palette for inline widget-v2 templates. Same hues as the
+     iframe copy in emersus-renderer.js. */
+  --chart-series-1: #34d399;
+  --chart-series-2: #60a5fa;
+  --chart-series-3: #fbbf24;
+  --chart-series-4: #f87171;
+  --chart-series-5: #c084fc;
 }
 
 /* ---------- PALETTE: PAPER · ROYAL (light) ---------- */
@@ -104,6 +111,12 @@
   --frame-to: #ece5d6;
   --head-from: #1a1813;
   --head-to: #6e6557;
+  /* Deeper saturated hues tuned for the cream Paper surface. */
+  --chart-series-1: #3b82f6;
+  --chart-series-2: #16a34a;
+  --chart-series-3: #d97706;
+  --chart-series-4: #dc2626;
+  --chart-series-5: #9333ea;
 }
 
 /* ---------- WIDGET TOKEN ALIASES ----------
