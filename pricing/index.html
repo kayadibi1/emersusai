@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#0e1117">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="description" content="Simple pricing for Emersus AI. Free forever for casual questions. Pro ($9/mo or $79/yr) unlocks 100 messages a day and preprint research access.">
+  <title>Pricing | Emersus AI</title>
+  <!-- no-flash-boot: resolves data-theme pre-paint (same as other static pages) -->
+  <script>
+    (function () {
+      var H = document.documentElement;
+      try {
+        var saved = localStorage.getItem('emersus-theme');
+        var theme = (saved === 'mint' || saved === 'paper') ? saved : 'paper';
+        H.setAttribute('data-theme', theme);
+      } catch (_) { H.setAttribute('data-theme', 'paper'); }
+    })();
+  </script>
+  <link rel="canonical" href="https://emersus.ai/pricing/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Emersus AI">
+  <meta property="og:title" content="Pricing | Emersus AI">
+  <meta property="og:description" content="Free forever or $9/mo for serious training. Evidence-based fitness AI.">
+  <meta property="og:url" content="https://emersus.ai/pricing/">
+  <meta property="og:image" content="https://emersus.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pricing | Emersus AI">
+  <meta name="twitter:description" content="Free forever or $9/mo for serious training.">
+  <meta name="twitter:image" content="https://emersus.ai/og-image.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/shared/design-tokens.css">
+  <link rel="stylesheet" href="/shared/static.css">
+  <link rel="stylesheet" href="/shared/site.css">
+  <script type="module">
+    import { bootTheme } from '/shared/theme.js';
+    import { mountFloatingSwitcher } from '/shared/theme-switcher-widget.js';
+    bootTheme();
+    document.body.classList.add('static-page');
+    document.addEventListener('DOMContentLoaded', mountFloatingSwitcher);
+  </script>
+  <style>
+    /* Pricing-specific layout. All colors/fonts come from design-tokens.css. */
+    .pricing-hero {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 72px 24px 40px;
+      text-align: center;
+    }
+    .pricing-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+    .pricing-h1 {
+      font-size: 46px;
+      font-weight: 700;
+      line-height: 1.06;
+      letter-spacing: -0.015em;
+      margin: 0 0 18px;
+      color: var(--ink);
+    }
+    .pricing-lede {
+      font-size: 17px;
+      color: var(--muted);
+      line-height: 1.55;
+      margin: 0 auto;
+      max-width: 560px;
+    }
+
+    .plans {
+      max-width: 880px;
+      margin: 28px auto 0;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+    @media (max-width: 720px) {
+      .plans { grid-template-columns: 1fr; }
+    }
+    .plan {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 32px 28px 28px;
+      background: var(--surface);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .plan.featured {
+      border-color: var(--accent-line);
+      background:
+        linear-gradient(180deg, var(--accent-soft) 0%, transparent 40%),
+        var(--surface);
+      box-shadow:
+        0 0 0 1px var(--accent-soft),
+        0 20px 60px -30px var(--accent-glow);
+    }
+    .plan-tag {
+      position: absolute;
+      top: -11px;
+      left: 28px;
+      background: var(--accent);
+      color: var(--accent-text);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-weight: 600;
+    }
+    .plan-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+    .plan-tagline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 22px;
+      min-height: 18px;
+    }
+    .price-row {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+      margin-bottom: 2px;
+    }
+    .price {
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      font-variant-numeric: tabular-nums;
+    }
+    .price-period {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .annual-note {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 22px;
+      min-height: 16px;
+    }
+    .annual-note strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .cta {
+      display: block;
+      text-align: center;
+      padding: 11px 16px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      text-decoration: none;
+      transition: filter .15s, transform .15s;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+    .cta-primary {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+    .cta-primary:hover:not(:disabled) {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+    .cta-primary:disabled {
+      opacity: 0.6;
+      cursor: wait;
+      transform: none;
+    }
+    .cta-secondary {
+      background: transparent;
+      border: 1px solid var(--line-strong);
+      color: var(--ink);
+    }
+    .cta-secondary:hover {
+      border-color: var(--ink);
+    }
+    .cta-note {
+      text-align: center;
+      font-size: 11px;
+      color: var(--dim);
+      margin-bottom: 24px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: 0.03em;
+    }
+    .feat-group { margin-top: 20px; }
+    .feat-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--dim);
+      margin-bottom: 12px;
+    }
+    .feats {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .feats li {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+    .feats .check, .feats .star {
+      flex-shrink: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 2px;
+      line-height: 1;
+    }
+    .feats .check {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 10px;
+      font-weight: 700;
+    }
+    .feats .star {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+    .feats .star svg { display: block; }
+    .feats .em { color: var(--ink); font-weight: 500; }
+    .feats .pro-highlight { color: var(--ink); font-weight: 500; }
+    .feats .pro-highlight::after {
+      content: " · Pro only";
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .trust-band {
+      max-width: 880px;
+      margin: 56px auto 0;
+      padding: 28px 24px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      text-align: center;
+    }
+    @media (max-width: 720px) {
+      .trust-band { grid-template-columns: 1fr; }
+    }
+    .trust-n {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .trust-c {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .faq-section {
+      max-width: 720px;
+      margin: 56px auto;
+      padding: 0 24px;
+    }
+    .faq-title {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+    .faq-kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .faq-h {
+      font-size: 32px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -0.015em;
+      color: var(--ink);
+      margin: 0;
+    }
+    .faq-item {
+      border-top: 1px solid var(--line);
+      padding: 20px 0;
+    }
+    .faq-item:last-child {
+      border-bottom: 1px solid var(--line);
+    }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.58;
+    }
+    .faq-a a { color: var(--accent); text-decoration: none; }
+    .faq-a a:hover { text-decoration: underline; }
+
+    .cta-band {
+      max-width: 720px;
+      margin: 0 auto 72px;
+      padding: 36px 24px;
+      text-align: center;
+      border: 1px solid var(--accent-line);
+      border-radius: 16px;
+      background: linear-gradient(180deg, var(--accent-soft), transparent);
+    }
+    .cta-band h3 {
+      font-size: 22px;
+      font-weight: 700;
+      margin: 0 0 8px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .cta-band p {
+      color: var(--muted);
+      font-size: 14px;
+      margin: 0 0 18px;
+    }
+    .cta-band .cta {
+      display: inline-block;
+      padding: 11px 22px;
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <div class="nav-wrap">
+      <nav class="nav">
+        <a class="brand" href="/">EMERSUS</a>
+        <div class="nav-links">
+          <a href="/#what">Science</a>
+          <a href="/#flow">How it works</a>
+          <a href="/pricing/" style="color: var(--accent);">Pricing</a>
+          <a href="/about/">About</a>
+          <a href="/auth/">Log in</a>
+        </div>
+        <div class="nav-right">
+          <a class="btn btn-accent" href="/auth/?panel=signup">Sign up</a>
+        </div>
+      </nav>
+    </div>
+
+    <main class="page-main">
+      <section class="pricing-hero">
+        <div class="pricing-kicker">Pricing</div>
+        <h1 class="pricing-h1">Simple pricing. Built for people who actually train.</h1>
+        <p class="pricing-lede">Free forever for casual questions. Pro unlocks preprint research and the depth you need when you're programming your own training.</p>
+      </section>
+
+      <section class="plans">
+        <!-- FREE -->
+        <div class="plan">
+          <div class="plan-name">Free</div>
+          <div class="plan-tagline">Everything you need to try the science.</div>
+
+          <div class="price-row">
+            <span class="price">$0</span>
+            <span class="price-period">forever</span>
+          </div>
+          <div class="annual-note">No credit card required</div>
+
+          <a class="cta cta-secondary" href="/auth/?panel=signup">Sign up free</a>
+          <div class="cta-note">Start free · upgrade any time</div>
+
+          <div class="feat-group">
+            <div class="feat-label">What you get</div>
+            <ul class="feats">
+              <li><span class="check">✓</span><span><span class="em">10 messages per day</span> · resets at midnight UTC</span></li>
+              <li><span class="check">✓</span><span>Answers cited from <span class="em">peer-reviewed research</span></span></li>
+              <li><span class="check">✓</span><span>Workout planner, nutrition tracker, progress views</span></li>
+              <li><span class="check">✓</span><span>Memory across conversations</span></li>
+              <li><span class="check">✓</span><span>Standard response speed</span></li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- PRO -->
+        <div class="plan featured">
+          <div class="plan-tag">Full depth</div>
+          <div class="plan-name">Pro</div>
+          <div class="plan-tagline">For serious training &amp; the research frontier.</div>
+
+          <div class="price-row">
+            <span class="price">$9</span>
+            <span class="price-period">/ month</span>
+          </div>
+          <div class="annual-note">Or <strong>$79/year</strong> · save $29</div>
+
+          <button class="cta cta-primary" data-plan="monthly" type="button">Upgrade monthly · $9/mo →</button>
+          <button class="cta cta-secondary" data-plan="yearly" type="button" style="margin-bottom: 16px;">Upgrade yearly · $79/yr</button>
+          <div class="cta-note">Cancel any time · billed via Polar</div>
+
+          <div class="feat-group">
+            <div class="feat-label">Everything in Free, plus</div>
+            <ul class="feats">
+              <li><span class="star"><svg viewBox="0 0 16 16" width="9" height="9" fill="currentColor" aria-hidden="true"><path d="M8 1.2l2.06 4.17 4.6.67-3.33 3.25.79 4.58L8 11.7l-4.12 2.17.79-4.58L1.34 6.04l4.6-.67L8 1.2z"/></svg></span><span class="pro-highlight"><span class="em">Preprint access</span> — frontier research before peer review</span></li>
+              <li><span class="check">✓</span><span><span class="em">100 messages per day</span> · 10× the room to explore</span></li>
+              <li><span class="check">✓</span><span>Priority response speed</span></li>
+              <li><span class="check">✓</span><span>Unlimited workout &amp; nutrition history</span></li>
+              <li><span class="check">✓</span><span>Export training plans to PDF</span></li>
+              <li><span class="check">✓</span><span>Early access to new features</span></li>
+              <li><span class="check">✓</span><span>Email support within 24h</span></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="trust-band">
+        <div>
+          <div class="trust-n">1M+ studies</div>
+          <div class="trust-c">Indexed from PubMed, OpenAlex, and Semantic Scholar. Every claim is citable.</div>
+        </div>
+        <div>
+          <div class="trust-n">No lock-in</div>
+          <div class="trust-c">Cancel any time with one click. Your data exports on request.</div>
+        </div>
+        <div>
+          <div class="trust-n">Transparent billing</div>
+          <div class="trust-c">Handled by Polar. Sales tax &amp; VAT included in the price you see.</div>
+        </div>
+      </section>
+
+      <section class="faq-section">
+        <div class="faq-title">
+          <div class="faq-kicker">FAQ</div>
+          <h2 class="faq-h">Common questions.</h2>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What's the difference between peer-reviewed and preprints?</div>
+          <div class="faq-a">Peer-reviewed studies have been formally reviewed by other scientists before publication — the established standard. Preprints are papers researchers share before that review, often 6–18 months earlier. Pro includes both, clearly labeled so you can weigh them yourself. Free uses peer-reviewed only.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What counts as a message?</div>
+          <div class="faq-a">Each message you send to the chat. Widgets, workout plans, and citations that Emersus generates back don't count — only your prompts do.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">What happens when I hit the Free limit?</div>
+          <div class="faq-a">You'll see a notice in the chat and the composer pauses until midnight UTC. You can upgrade at any time and the new limit applies immediately.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Can I cancel any time?</div>
+          <div class="faq-a">Yes. Cancel from your account in two clicks. You keep Pro access until the end of the period you've paid for.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is there a student discount?</div>
+          <div class="faq-a">Not yet. If you're a full-time student and the price is a blocker, email <a href="mailto:info@emersus.ai">info@emersus.ai</a> and we'll work something out.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Is my data used to train AI models?</div>
+          <div class="faq-a">No. Your chats are used to run the app and improve your own experience. We don't sell data and we don't send it to third parties for training.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q">Can I get a refund?</div>
+          <div class="faq-a">If you're unhappy within 14 days of your first payment, email us and we'll refund you. No questions.</div>
+        </div>
+      </section>
+
+      <section class="cta-band">
+        <h3>Start free. Upgrade when you need the frontier.</h3>
+        <p>No credit card for Free. $9/mo for Pro. Cancel any time.</p>
+        <a class="cta cta-primary" href="/auth/?panel=signup">Get started →</a>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-disclaimer">
+        <strong>Health disclaimer.</strong> Emersus AI provides evidence-based information
+        and AI-generated suggestions for educational and informational purposes only.
+        It is not a substitute for professional medical advice, diagnosis, or treatment.
+        Always consult a qualified healthcare provider before starting any new exercise
+        or nutrition program, especially if you have a medical condition.
+      </div>
+    </footer>
+  </div>
+
+  <script type="module">
+    // Upgrade CTA wiring: fetch Supabase session, hit checkout endpoint,
+    // redirect to Polar. If not authed, send through signup → Polar.
+    import { getSession } from '/shared/supabase.js';
+
+    async function startCheckout(plan, button) {
+      const origLabel = button.textContent;
+      button.textContent = 'Redirecting...';
+      button.disabled = true;
+
+      try {
+        const session = await getSession();
+        const token = session?.access_token;
+        if (!token) {
+          // Not signed in — send them to signup, then back here
+          window.location.href = '/auth/?panel=signup&next=' + encodeURIComponent('/pricing/');
+          return;
+        }
+        const res = await fetch('/api/billing/polar/checkout', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: 'Bearer ' + token,
+          },
+          body: JSON.stringify({ plan }),
+        });
+        if (!res.ok) {
+          const err = await res.json().catch(() => ({}));
+          throw new Error(err.error || 'Checkout failed');
+        }
+        const { url } = await res.json();
+        window.location.href = url;
+      } catch (err) {
+        console.error(err);
+        alert('Could not start checkout. Try again, or email info@emersus.ai.');
+        button.textContent = origLabel;
+        button.disabled = false;
+      }
+    }
+
+    document.querySelectorAll('[data-plan]').forEach((btn) => {
+      btn.addEventListener('click', () => startCheckout(btn.dataset.plan, btn));
+    });
+  </script>
+</body>
+</html>
