@@ -5,6 +5,7 @@
 
 import { UPDATE_USER_PROFILE } from "./tools.js";
 import { computeOnboardingProgress } from "../onboarding-progress.js";
+import { capture } from "../../lib/analytics.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
 
@@ -245,6 +246,9 @@ async function handleOnboarding({
       .catch((err) => { console.error("Onboarding profile upsert error:", err); return null; });
     if (upsertResult && upsertResult.progress !== null && upsertResult.progress !== undefined) {
       lastOnboardingProgress = upsertResult.progress;
+      capture(supabaseUserId, "onboarding_turn_completed", {
+        progress: upsertResult.progress,
+      });
     }
   }
 
