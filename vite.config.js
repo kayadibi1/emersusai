@@ -37,6 +37,7 @@ const htmlEntries = [
   "demo/index.html",
   "editorial-policy/index.html",
   "privacy/index.html",
+  "pricing/index.html",
   "terms/index.html",
 ];
 
