@@ -70,6 +70,7 @@ const { default: nutritionDayHandler } = await import("./api/emersus/nutrition-d
 const { default: nutritionWaterHandler } = await import("./api/emersus/nutrition-water.js");
 const { default: nutritionSupplementsHandler } = await import("./api/emersus/nutrition-supplements.js");
 const { default: progressHandler } = await import("./api/emersus/progress.js");
+const { default: usageHandler } = await import("./api/emersus/usage.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
 const { default: meRoleHandler } = await import("./api/me/role.js");
 
@@ -96,6 +97,7 @@ app.get("/api/config", configHandler);
 app.post("/api/contact", publicRateLimitMiddleware("contact"), contactHandler);
 app.post("/api/notify-signup", publicRateLimitMiddleware("notify-signup"), notifySignupHandler);
 app.post("/api/emersus/recommendation", requireAuth, userRateLimit(), recommendationHandler);
+app.get("/api/emersus/usage", requireAuth, usageHandler);
 app.get("/api/emersus/foods/search", foodsSearchHandler);
 app.post("/api/emersus/foods/search-batch", foodsSearchBatchHandler);
 app.use("/api/emersus/meal-plans", mealPlansRouter);
