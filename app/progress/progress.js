@@ -195,19 +195,89 @@ function MomentumCard({ item, weightUnit = "kg" }) {
   );
 }
 
-function MomentumCards({ data, weightUnit = "kg" }) {
-  const items = data?.momentum_cards?.items || [];
-  if (!items.length) return null;
+// Copy generator for ghost previews. Shared by every ChartGhost consumer.
+function ghostUnlockCopy(ghost) {
+  if (!ghost) return "";
+  const remaining = Math.max(0, (ghost.target || 0) - (ghost.current || 0));
+  if (remaining <= 0) return "Unlocking…";
+  if ((ghost.current || 0) === 0) {
+    return `Unlocks at ${ghost.target} ${ghost.unit}`;
+  }
+  return `${remaining} more ${ghost.unit} to unlock`;
+}
+
+function ghostCta(slot) {
+  switch (slot) {
+    case "beeswarm":
+      return { href: "/app/train/?modality=lift", label: "Log a set →" };
+    case "momentum":
+      return { href: "/app/train/?modality=lift", label: "Log a session →" };
+    case "zone_river":
+      return { href: "/app/train/?modality=cardio", label: "Log cardio →" };
+    default:
+      return { href: "/app/train/", label: "Log a session →" };
+  }
+}
+
+// Shared wrapper for the muted "ghost preview" shown when a section is below
+// its unlock threshold. Children render the sample chart content; this wrapper
+// handles the desaturation, the corner "Preview" chip, the footer row with
+// progress copy + CTA, and keyboard/click semantics.
+function ChartGhost({ title, slot, ghost, children }) {
+  const copy = ghostUnlockCopy(ghost);
+  const cta = ghostCta(slot);
+  const aria = `${title}, locked. ${copy}. Tap to ${cta.label.replace(/\s*→\s*$/, "").toLowerCase()}.`;
+  const onClick = () => { window.location.href = cta.href; };
+  const onKey = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      onClick();
+    }
+  };
   return h("section", { className: "pg-section" },
-    h("h2", null, "Strength trajectory"),
+    h("h2", null, title),
+    h("div", {
+      className: "pg-chart-ghost",
+      role: "button",
+      tabIndex: 0,
+      "aria-label": aria,
+      onClick,
+      onKeyDown: onKey,
+    },
+      h("span", { className: "pg-chart-ghost-chip" }, "🔒 Preview"),
+      h("div", { className: "pg-chart-ghost-inner", "aria-hidden": "true" }, children),
+      h("div", { className: "pg-chart-ghost-footer" },
+        h("span", { className: "pg-chart-ghost-copy" }, copy),
+        h("span", { className: "pg-chart-ghost-cta" }, cta.label),
+      ),
+    ),
+  );
+}
+
+function MomentumCards({ data, weightUnit = "kg" }) {
+  const slot = data?.momentum_cards || {};
+  const items = slot.items || [];
+  const hasData = items.some((it) => Number(it?.current_e1rm_kg) > 0);
+  if (hasData) {
+    return h("section", { className: "pg-section" },
+      h("h2", null, "Strength trajectory"),
+      h("div", { className: "pg-momentum-grid" },
+        items.map((it) => h(MomentumCard, { key: it.slug, item: it, weightUnit })),
+      ),
+    );
+  }
+  const sampleItems = slot.ghost?.sample || [];
+  if (!sampleItems.length) return null;
+  return h(ChartGhost, { title: "Strength trajectory", slot: "momentum", ghost: slot.ghost },
     h("div", { className: "pg-momentum-grid" },
-      items.map((it) => h(MomentumCard, { key: it.slug, item: it, weightUnit })),
+      sampleItems.map((it) => h(MomentumCard, { key: it.slug, item: it, weightUnit })),
     ),
   );
 }
 
 function BeeswarmPlot({ data, weightUnit = "kg" }) {
-  const bee = data?.beeswarm;
+  const slot = data?.beeswarm || {};
+  const bee = slot.data;
   const [isMobile, setIsMobile] = React.useState(() => typeof window !== "undefined" && window.innerWidth < 600);
   React.useEffect(() => {
     function onResize() { setIsMobile(window.innerWidth < 600); }
@@ -215,33 +285,57 @@ function BeeswarmPlot({ data, weightUnit = "kg" }) {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  if (!bee || !bee.sets || bee.sets.length < 5) {
-    return null;
-  }
-
-  const svg = beeswarmPlot(bee, { weightUnit, mobile: isMobile });
   const unit = weightUnit === "lbs" ? "LOAD (LB)" : "LOAD (KG)";
 
-  return h("section", { className: "pg-section" },
-    h("h2", null, "Working weight distribution"),
+  if (bee && bee.sets && bee.sets.length >= 5) {
+    const svg = beeswarmPlot(bee, { weightUnit, mobile: isMobile });
+    return h("section", { className: "pg-section" },
+      h("h2", null, "Working weight distribution"),
+      h("div", { className: "pg-beeswarm-card" },
+        h("div", { className: "pg-beeswarm-head" },
+          h("div", null,
+            h("div", { className: "pg-beeswarm-title" }, `${bee.exercise_name} · every set logged`),
+            h("div", { className: "pg-beeswarm-sub" }, `${bee.weeks} WEEKS · ${bee.total_sets} SETS · ${unit}`),
+          ),
+        ),
+        h("div", { dangerouslySetInnerHTML: { __html: svg } }),
+        h("div", { className: "pg-beeswarm-note" },
+          h("span", { className: "pg-beeswarm-note-dot" }),
+          h("span", null, "Loads drifting up-and-right = progressive overload working"),
+        ),
+      ),
+    );
+  }
+
+  const sample = slot.ghost?.sample;
+  if (!sample) return null;
+  const sampleSvg = beeswarmPlot(sample, { weightUnit, mobile: isMobile });
+  return h(ChartGhost, { title: "Working weight distribution", slot: "beeswarm", ghost: slot.ghost },
     h("div", { className: "pg-beeswarm-card" },
       h("div", { className: "pg-beeswarm-head" },
         h("div", null,
-          h("div", { className: "pg-beeswarm-title" }, `${bee.exercise_name} · every set logged`),
-          h("div", { className: "pg-beeswarm-sub" }, `${bee.weeks} WEEKS · ${bee.total_sets} SETS · ${unit}`),
+          h("div", { className: "pg-beeswarm-title" }, `${sample.exercise_name} · every set logged`),
+          h("div", { className: "pg-beeswarm-sub" }, `${sample.weeks} WEEKS · ${sample.total_sets} SETS · ${unit}`),
         ),
       ),
-      h("div", { dangerouslySetInnerHTML: { __html: svg } }),
-      h("div", { className: "pg-beeswarm-note" },
-        h("span", { className: "pg-beeswarm-note-dot" }),
-        h("span", null, "Loads drifting up-and-right = progressive overload working"),
-      ),
+      h("div", { dangerouslySetInnerHTML: { __html: sampleSvg } }),
     ),
   );
 }
 
+function ZoneRiverLegend() {
+  return h("div", { className: "pg-zone-legend" },
+    h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z1)" } }), "Z1 · Recovery"),
+    h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z2)" } }), "Z2 · Endurance"),
+    h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z3)" } }), "Z3 · Tempo"),
+    h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z4)" } }), "Z4 · Threshold"),
+    h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z5)" } }), "Z5 · VO2"),
+  );
+}
+
 function ZoneRiver({ data }) {
-  const zr = data?.zone_river;
+  const slot = data?.zone_river || {};
+  const zr = slot.data;
   const [isMobile, setIsMobile] = React.useState(() => typeof window !== "undefined" && window.innerWidth < 600);
   React.useEffect(() => {
     function onResize() { setIsMobile(window.innerWidth < 600); }
@@ -249,7 +343,24 @@ function ZoneRiver({ data }) {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  if (!zr || !zr.weeks || zr.weeks.length === 0) return null;
+  if (!zr || !zr.weeks || zr.weeks.length === 0) {
+    const sample = slot.ghost?.sample;
+    if (!sample) return null;
+    const sampleSvg = zoneRiver(sample, { mobile: isMobile });
+    return h(ChartGhost, { title: "Heart rate zones", slot: "zone_river", ghost: slot.ghost },
+      h("div", { className: "pg-zone-river-card" },
+        h("div", { className: "pg-zone-river-head" },
+          h("div", null,
+            h("div", { className: "pg-zone-river-title" }, "Zone distribution"),
+            h("div", { className: "pg-zone-river-sub" }, `${sample.weeks.length} WEEKS · TIME IN ZONE`),
+          ),
+          h("span", { className: "pg-zone-pattern" }, sample.pattern_label),
+        ),
+        h("div", { dangerouslySetInnerHTML: { __html: sampleSvg } }),
+        h(ZoneRiverLegend),
+      ),
+    );
+  }
 
   const svg = zoneRiver(zr, { mobile: isMobile });
 
@@ -264,20 +375,15 @@ function ZoneRiver({ data }) {
         h("span", { className: "pg-zone-pattern" }, zr.pattern_label),
       ),
       h("div", { dangerouslySetInnerHTML: { __html: svg } }),
-      h("div", { className: "pg-zone-legend" },
-        h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z1)" } }), "Z1 · Recovery"),
-        h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z2)" } }), "Z2 · Endurance"),
-        h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z3)" } }), "Z3 · Tempo"),
-        h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z4)" } }), "Z4 · Threshold"),
-        h("div", { className: "pg-zone-legend-item" }, h("span", { className: "pg-zone-legend-swatch", style: { background: "var(--z5)" } }), "Z5 · VO2"),
-      ),
+      h(ZoneRiverLegend),
       zr.hr_estimate_note ? h("div", { className: "pg-zone-estimate-note" }, zr.hr_estimate_note) : null,
     ),
   );
 }
 
 function ControlChart({ data }) {
-  const cc = data?.control_chart;
+  const slot = data?.control_chart || {};
+  const cc = slot.data;
   const [isMobile, setIsMobile] = React.useState(() => typeof window !== "undefined" && window.innerWidth < 600);
   React.useEffect(() => {
     function onResize() { setIsMobile(window.innerWidth < 600); }
@@ -286,13 +392,18 @@ function ControlChart({ data }) {
   }, []);
 
   if (!cc) {
-    return h("section", { className: "pg-section" },
-      h("h2", null, "Training load"),
+    const sample = slot.ghost?.sample;
+    if (!sample) return null;
+    const sampleSvg = controlChart(sample, { mobile: isMobile });
+    return h(ChartGhost, { title: "Training load", slot: "control_chart", ghost: slot.ghost },
       h("div", { className: "pg-control-card" },
-        h("div", { className: "pg-control-placeholder" },
-          "Need 4+ weeks of training to compute your training load. ",
-          h("a", { href: "/app/train/" }, "Log a session →"),
+        h("div", { className: "pg-control-head" },
+          h("div", null,
+            h("div", { className: "pg-control-title" }, "Acute:chronic workload ratio"),
+            h("div", { className: "pg-control-sub" }, `${sample.weeks.length} WEEKS · WITH CONTROL LIMITS`),
+          ),
         ),
+        h("div", { dangerouslySetInnerHTML: { __html: sampleSvg } }),
       ),
     );
   }
@@ -461,15 +572,26 @@ function ProgressApp() {
     loading ? h(ProgressBodySkeleton) : null,
 
     !loading && data ? h(React.Fragment, null,
-      // Personal records
-      data.personal_records && data.personal_records.length
-        ? h("section", { className: "pg-section" },
+      // Personal records (+ ghost when empty)
+      (() => {
+        const pr = data.personal_records || {};
+        const items = pr.items || [];
+        if (items.length) {
+          return h("section", { className: "pg-section" },
             h("h2", null, "Personal records"),
             h("div", { className: "pg-pr-grid" },
-              data.personal_records.map((pr, i) => h(PrCard, { key: pr.id || i, pr })),
+              items.map((r, i) => h(PrCard, { key: r.id || i, pr: r })),
             ),
-          )
-        : null,
+          );
+        }
+        const sample = pr.ghost?.sample || [];
+        if (!sample.length) return null;
+        return h(ChartGhost, { title: "Personal records", slot: "personal_records", ghost: pr.ghost },
+          h("div", { className: "pg-pr-grid" },
+            sample.map((r, i) => h(PrCard, { key: `ghost-pr-${i}`, pr: r })),
+          ),
+        );
+      })(),
 
       // Streak tracker
       h("section", { className: "pg-section" },
@@ -483,17 +605,28 @@ function ProgressApp() {
       h(ZoneRiver, { data }),
       h(ControlChart, { data }),
 
-      // Recent sessions
-      data.recent_sessions && data.recent_sessions.length
-        ? h("section", { className: "pg-section" },
+      // Recent sessions (+ ghost when empty)
+      (() => {
+        const rs = data.recent_sessions || {};
+        const items = rs.items || [];
+        if (items.length) {
+          return h("section", { className: "pg-section" },
             h("h2", null, "Recent sessions"),
             h("ul", { className: "pg-recent-list" },
-              data.recent_sessions.map((s) => h(RecentSessionRow, {
+              items.map((s) => h(RecentSessionRow, {
                 key: s.id, s, onPick: () => setDrill({ open: true, kind: "session", id: s.id }),
               })),
             ),
-          )
-        : null,
+          );
+        }
+        const sample = rs.ghost?.sample || [];
+        if (!sample.length) return null;
+        return h(ChartGhost, { title: "Recent sessions", slot: "recent_sessions", ghost: rs.ghost },
+          h("ul", { className: "pg-recent-list" },
+            sample.map((s) => h(RecentSessionRow, { key: s.id, s, onPick: () => {} })),
+          ),
+        );
+      })(),
 
       // Benchmarks (only if any rows seeded)
       data.benchmarks && data.benchmarks.length

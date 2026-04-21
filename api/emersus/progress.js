@@ -11,6 +11,15 @@
 // flag — the client renders a placeholder for those.
 
 import { supabaseAdmin } from "../lib/clients.js";
+import {
+  GHOST_TARGETS,
+  MOMENTUM_SAMPLE,
+  BEESWARM_SAMPLE,
+  ZONE_RIVER_SAMPLE,
+  CONTROL_CHART_SAMPLE,
+  PR_SAMPLE,
+  RECENT_SESSIONS_SAMPLE,
+} from "../../shared/progress-ghost-samples.js";
 
 function periodToDays(period) {
   switch (String(period || "month").toLowerCase()) {
@@ -527,6 +536,72 @@ async function loadControlChart(userId) {
   return { weeks, current_acwr, mean_acwr, excursions, status };
 }
 
+// Counters used to drive ghost "X of Y" copy. Fail-soft: any error → 0.
+async function loadGhostCounts(userId) {
+  const zero = { total_sessions: 0, cardio_sessions: 0, bench_sets: 0, weeks_with_activity: 0 };
+  if (!supabaseAdmin) return zero;
+  try {
+    const [sessionsRes, cardioRes, benchExRes, logsRes] = await Promise.all([
+      supabaseAdmin
+        .from("workout_sessions")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", userId),
+      supabaseAdmin
+        .from("workout_sessions")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", userId)
+        .eq("modality", "cardio"),
+      supabaseAdmin
+        .from("exercises")
+        .select("id")
+        .eq("slug", "bench-press")
+        .maybeSingle(),
+      supabaseAdmin
+        .from("workout_logs")
+        .select("performed_at")
+        .eq("user_id", userId)
+        .gte("performed_at", isoDaysAgo(28)),
+    ]);
+
+    let benchSets = 0;
+    if (benchExRes?.data?.id) {
+      const { count } = await supabaseAdmin
+        .from("workout_logs")
+        .select("id", { count: "exact", head: true })
+        .eq("user_id", userId)
+        .eq("exercise_id", benchExRes.data.id);
+      benchSets = count || 0;
+    }
+
+    const weeks = new Set();
+    for (const row of (logsRes?.data || [])) {
+      const d = new Date(row.performed_at + "T00:00:00");
+      const jan1 = new Date(d.getFullYear(), 0, 1);
+      const weekNum = Math.ceil((((d - jan1) / 86400000) + jan1.getDay() + 1) / 7);
+      weeks.add(`${d.getFullYear()}-${weekNum}`);
+    }
+
+    return {
+      total_sessions: sessionsRes?.count || 0,
+      cardio_sessions: cardioRes?.count || 0,
+      bench_sets: benchSets,
+      weeks_with_activity: weeks.size,
+    };
+  } catch {
+    return zero;
+  }
+}
+
+function ghostFor(slot, currentCount, sample) {
+  const spec = GHOST_TARGETS[slot];
+  return {
+    current: currentCount,
+    target: spec.target,
+    unit: spec.unit,
+    sample,
+  };
+}
+
 export default async function progressHandler(req, res) {
   if (!supabaseAdmin) return res.status(500).json({ error: "Backend unavailable." });
   const userId = req.verifiedUserId;
@@ -538,7 +613,7 @@ export default async function progressHandler(req, res) {
 
   try {
     const profile = await loadProfileExperience(userId);
-    const [benchmarks, prs, sessions, streak, momentum_cards, beeswarm, zone_river, control_chart] = await Promise.all([
+    const [benchmarks, prs, sessions, streak, momentum_cards, beeswarm, zone_river, control_chart, counts] = await Promise.all([
       loadBenchmarks(profile?.experience_level),
       loadPRs(userId, days),
       loadRecentSessions(userId, modality, 10),
@@ -547,20 +622,43 @@ export default async function progressHandler(req, res) {
       loadBeeswarm(userId),
       loadZoneRiver(userId, profile),
       loadControlChart(userId),
+      loadGhostCounts(userId),
     ]);
+
+    // Momentum "is populated" = at least one card has a non-zero e1rm.
+    const momentumHasData = Array.isArray(momentum_cards?.items)
+      && momentum_cards.items.some((it) => Number(it?.current_e1rm_kg) > 0);
 
     res.setHeader("Cache-Control", "private, max-age=60");
     res.json({
       modality,
       period,
       benchmarks,
-      personal_records: prs,
-      momentum_cards,
-      beeswarm,
-      zone_river,
-      control_chart,
+      personal_records: {
+        items: Array.isArray(prs) ? prs : [],
+        ghost: ghostFor("personal_records", counts.total_sessions, PR_SAMPLE),
+      },
+      momentum_cards: {
+        items: momentum_cards?.items || [],
+        ghost: ghostFor("momentum", counts.total_sessions, momentumHasData ? null : MOMENTUM_SAMPLE),
+      },
+      beeswarm: {
+        data: beeswarm,
+        ghost: ghostFor("beeswarm", counts.bench_sets, beeswarm ? null : BEESWARM_SAMPLE),
+      },
+      zone_river: {
+        data: zone_river,
+        ghost: ghostFor("zone_river", counts.cardio_sessions, zone_river ? null : ZONE_RIVER_SAMPLE),
+      },
+      control_chart: {
+        data: control_chart,
+        ghost: ghostFor("control_chart", counts.weeks_with_activity, control_chart ? null : CONTROL_CHART_SAMPLE),
+      },
       streak,
-      recent_sessions: sessions,
+      recent_sessions: {
+        items: Array.isArray(sessions) ? sessions : [],
+        ghost: ghostFor("recent_sessions", counts.total_sessions, RECENT_SESSIONS_SAMPLE),
+      },
     });
   } catch (err) {
     console.error("progress orchestrator error", err);

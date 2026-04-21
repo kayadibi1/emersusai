@@ -480,3 +480,69 @@ body.progress-body {
   padding: 24px; text-align: center; color: var(--dim); font-size: 13px;
 }
 .pg-control-placeholder a { color: var(--accent); text-decoration: none; }
+
+/* ---------- Ghost / locked preview ---------- */
+/* Wraps the sample chart content inside a section. The whole card is one
+ * button: click or Enter/Space deep-links to /app/train/. Inner content is
+ * desaturated + dimmed so it reads as a teaser, not a real chart. */
+.pg-chart-ghost {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  cursor: pointer;
+  transition: transform .15s ease, border-color .15s ease, background .15s ease;
+  overflow: hidden;
+}
+.pg-chart-ghost:hover,
+.pg-chart-ghost:focus-visible {
+  border-color: var(--line-strong);
+  transform: translateY(-1px);
+  background: color-mix(in srgb, var(--surface) 94%, var(--ink) 6%);
+  outline: none;
+}
+.pg-chart-ghost:focus-visible {
+  box-shadow: 0 0 0 2px var(--accent-soft), 0 0 0 3px var(--accent);
+}
+.pg-chart-ghost-inner {
+  opacity: 0.45;
+  filter: saturate(0.45);
+  pointer-events: none;
+  user-select: none;
+}
+.pg-chart-ghost-chip {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: var(--line);
+  color: var(--ink);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  padding: 4px 8px;
+  border-radius: 4px;
+  z-index: 2;
+}
+.pg-chart-ghost-footer {
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.pg-chart-ghost-copy { color: var(--muted); }
+.pg-chart-ghost-cta { color: var(--accent); white-space: nowrap; }
+@media (max-width: 480px) {
+  .pg-chart-ghost-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
