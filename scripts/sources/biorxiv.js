@@ -40,9 +40,13 @@ const waitSlot = biorxivLimiter;
 async function fetchPage(from, to, cursor) {
   await waitSlot();
   const url = `${BASE_URL}/${from}/${to}/${cursor}`;
-  // bioRxiv API is slow — single-day queries take 7+ seconds, multi-month
-  // date ranges routinely exceed 25s. Use 45s to avoid spurious timeouts.
-  const resp = await fetchWithTimeoutAndUA(url, { accept: "application/json", timeoutMs: 45_000 });
+  // 15s timeout: a healthy biorxiv response is 5–8s; a stalled PHP
+  // backend won't recover even if we wait 45s. Faster failure means
+  // SourceTransientError fires sooner, page-skip advances faster.
+  // The watermark optimization (sweep handler computes daysBack from
+  // max(publication_date)) keeps total request count low enough that
+  // re-fetching skipped pages on next sweep is cheap.
+  const resp = await fetchWithTimeoutAndUA(url, { accept: "application/json", timeoutMs: 15_000 });
   const data = await resp.json();
   const msg = data.messages?.[0] ?? {};
   return {

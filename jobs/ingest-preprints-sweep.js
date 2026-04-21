@@ -34,10 +34,17 @@ const EXERCISE_UNION_QUERY = [
   "biomechanics", "physiology", "metabolism",
 ].join(" OR ");
 
+// Always re-fetch this many days past the watermark to catch backdated
+// submissions that arrived after our last pass.
+const WATERMARK_OVERLAP_DAYS = 3;
+// Floor on daysBack derived from watermark — never less than this even
+// if the watermark was updated yesterday. Covers a missed week.
+const WATERMARK_MIN_DAYS = 14;
+
 export async function ingestPreprintsSweepHandler(ctx, deps) {
   const {
     sources = DEFAULT_SOURCES,
-    daysBack = DEFAULT_DAYS_BACK,
+    daysBack: explicitDaysBack,
     query = EXERCISE_UNION_QUERY,
   } = ctx.data ?? {};
   const { sql, boss, log } = deps;
@@ -53,6 +60,31 @@ export async function ingestPreprintsSweepHandler(ctx, deps) {
       continue;
     }
 
+    // Compute the effective daysBack from the per-source watermark.
+    // Explicit data.daysBack (e.g., one-shot full-history backfill) wins.
+    // Otherwise: days since max(publication_date) + overlap, floored at
+    // WATERMARK_MIN_DAYS, fallback to DEFAULT_DAYS_BACK if no watermark.
+    let effectiveDaysBack;
+    if (explicitDaysBack != null) {
+      effectiveDaysBack = explicitDaysBack;
+    } else {
+      const wmRes = await sql`
+        SELECT max(publication_date) AS hwm
+        FROM research_articles
+        WHERE source = ${sourceId}
+      `;
+      const hwm = wmRes.rows[0]?.hwm;
+      if (hwm) {
+        const daysSince = Math.ceil(
+          (Date.now() - new Date(hwm).getTime()) / 86_400_000
+        );
+        effectiveDaysBack = Math.max(daysSince + WATERMARK_OVERLAP_DAYS, WATERMARK_MIN_DAYS);
+      } else {
+        effectiveDaysBack = DEFAULT_DAYS_BACK;
+      }
+      log.info?.(`preprints-sweep: ${sourceId} watermark=${hwm} → daysBack=${effectiveDaysBack}`);
+    }
+
     let inserted = 0;
     let skipped = 0;
     let errored = false;
@@ -60,7 +92,7 @@ export async function ingestPreprintsSweepHandler(ctx, deps) {
     try {
       for await (const paper of plugin.fetchPapers(query, {
         target: Infinity,
-        daysBack,
+        daysBack: effectiveDaysBack,
         signal: ctx.signal,
         progress: ctx.progress,
       })) {
