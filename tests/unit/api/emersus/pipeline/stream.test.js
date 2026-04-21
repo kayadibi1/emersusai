@@ -3,6 +3,7 @@ import assert from "node:assert/strict";
 import {
   parseSSELine,
   extractTokenUsage,
+  stream,
   streamToBuffer,
 } from "../../../../../api/emersus/pipeline/stream.js";
 
@@ -133,5 +134,65 @@ describe("streamToBuffer", () => {
     assert.equal(unknownErrors.length, 1, "unknown_tool error should surface once on output_item.added");
     // Prose after the bad tool still accumulates — stream didn't abort.
     assert.equal(state.proseBuffer, "still streaming prose");
+  });
+});
+
+function createMockRes() {
+  const writes = [];
+  const listeners = {};
+  return {
+    headersSent: false,
+    writes,
+    setHeader() {},
+    flushHeaders() {},
+    write(chunk) { writes.push(String(chunk)); return true; },
+    end() {},
+    on(event, fn) { listeners[event] = fn; },
+    // helper to decode SSE payloads written during the stream
+    sseEvents() {
+      const events = [];
+      for (const w of writes) {
+        const trimmed = String(w).trim();
+        if (!trimmed.startsWith("data: ")) continue;
+        try { events.push(JSON.parse(trimmed.slice(6))); } catch { /* noop */ }
+      }
+      return events;
+    },
+  };
+}
+
+describe("stream() done event — chainingUsed", () => {
+  it("emits chainingUsed:true when ctx._chainingUsed is true", async () => {
+    const ctx = createCtx([
+      'data: {"type":"response.output_text.delta","delta":"hi"}',
+      'data: {"type":"response.completed","response":{"id":"resp_c","usage":{"input_tokens":10,"output_tokens":5,"total_tokens":15,"input_tokens_details":{"cached_tokens":8}}}}',
+    ]);
+    ctx._chainingUsed = true;
+    const res = createMockRes();
+
+    await stream(ctx, res);
+
+    const events = res.sseEvents();
+    const done = events.find((e) => e.type === "done");
+    assert.ok(done, "done event should be emitted");
+    assert.equal(done.chainingUsed, true);
+    assert.equal(typeof done.chainingUsed, "boolean");
+  });
+
+  it("emits chainingUsed:false by default (when flag/context is absent)", async () => {
+    const ctx = createCtx([
+      'data: {"type":"response.output_text.delta","delta":"hi"}',
+      'data: {"type":"response.completed","response":{"id":"resp_d","usage":{"input_tokens":1,"output_tokens":1,"total_tokens":2}}}',
+    ]);
+    // ctx._chainingUsed intentionally unset
+    const res = createMockRes();
+
+    await stream(ctx, res);
+
+    const events = res.sseEvents();
+    const done = events.find((e) => e.type === "done");
+    assert.ok(done, "done event should be emitted");
+    assert.equal(done.chainingUsed, false);
+    assert.equal(typeof done.chainingUsed, "boolean");
   });
 });

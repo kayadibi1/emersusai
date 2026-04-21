@@ -508,6 +508,11 @@ export async function stream(ctx, res) {
     // reduce input-token billing on multi-turn threads. Not yet wired;
     // requires delta system-prompt handling + 30-day expiry fallback.
     responseId: ctx._openaiResponseId || null,
+    // Whether response chaining (previous_response_id) was used for this
+    // turn. Set by workflow.js from resolveChainingContext().shouldChain.
+    // Strict boolean — the client + ops can log/analyze chain adoption
+    // per turn without peeking at the feature flag surface.
+    chainingUsed: ctx._chainingUsed === true,
     // Extra flags when the underlying response ended in `incomplete` (e.g.
     // max_output_tokens / content_filter). Clients that ignore unknown
     // fields remain compatible; new clients can surface a "continue" CTA.

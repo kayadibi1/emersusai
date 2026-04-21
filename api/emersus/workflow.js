@@ -55,6 +55,9 @@ async function generateRecommendationStream(rawInput, res) {
       flagEnabled: chainingFlagEnabled,
       messages: ctx.recentMessages || [],
     });
+    // Observability: record whether chaining was used for this turn so the
+    // `done` SSE emit in stream.js can surface it to the client + ops.
+    ctx._chainingUsed = chainingContext?.shouldChain === true;
     ctx = await synthesize(ctx, { chainingContext });
     await stream(ctx, res);
     capture(ctx.stableUserId || "anonymous", "chat_stream_complete", {
@@ -124,6 +127,7 @@ async function generateRecommendationJSON(rawInput) {
       flagEnabled: chainingFlagEnabled,
       messages: ctx.recentMessages || [],
     });
+    ctx._chainingUsed = chainingContext?.shouldChain === true;
     ctx = await synthesize(ctx, { chainingContext });
     ctx = await streamToBuffer(ctx);
   } catch (err) {
