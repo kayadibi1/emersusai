@@ -201,7 +201,7 @@
   <main>
     <section class="hero">
       <div class="eyebrow"><span class="dot"></span>Evidence-Based Fitness Intelligence</div>
-      <h1 class="headline">Your body deserves better<br>than guesswork.</h1>
+      <h1 class="headline">Your body deserves better<br>than <span class="rotator" data-words='["guesswork.","influencer takes.","bro science."]' aria-label="guesswork, influencer takes, bro science"><span class="rot-text">guesswork.</span></span></h1>
       <p class="subhead">Every answer cited. Every protocol backed by peer-reviewed research. No influencer takes, no bro science — the actual evidence.</p>
       <div class="hero-actions">
         <a class="btn btn-accent" href="/auth/?panel=signup">Sign up →</a>
@@ -1047,6 +1047,77 @@
           }
         })
         .catch(() => { /* fall back to hardcoded defaults */ });
+    })();
+  </script>
+
+  <script>
+    // Hero headline rotator. Locks width to the widest word so the
+    // surrounding "than " never shifts; crossfades text with expo-out.
+    (function initRotators() {
+      const rotators = document.querySelectorAll('.rotator');
+      if (!rotators.length) return;
+
+      const measurer = document.createElement('span');
+      measurer.style.cssText =
+        'position:absolute;visibility:hidden;pointer-events:none;' +
+        'left:-9999px;top:0;white-space:nowrap;';
+      document.body.appendChild(measurer);
+      const TYPO_KEYS = ['fontFamily', 'fontSize', 'fontWeight', 'fontStyle',
+                         'fontVariationSettings', 'letterSpacing', 'textTransform'];
+
+      const FADE_OUT_MS = 280; // must match CSS .rot-text.is-out duration
+      const DWELL_MS = 2600;
+
+      rotators.forEach((rot) => {
+        let words;
+        try { words = JSON.parse(rot.dataset.words || '[]'); } catch (_) { return; }
+        if (!Array.isArray(words) || words.length < 2) return;
+
+        const txt = rot.querySelector('.rot-text');
+        if (!txt) return;
+
+        function syncMeasurerFont() {
+          const cs = getComputedStyle(txt);
+          TYPO_KEYS.forEach((k) => { measurer.style[k] = cs[k]; });
+        }
+        function applyMaxWidth() {
+          syncMeasurerFont();
+          let max = 0;
+          for (const w of words) {
+            measurer.textContent = w;
+            const mw = measurer.getBoundingClientRect().width;
+            if (mw > max) max = mw;
+          }
+          rot.style.width = Math.ceil(max) + 'px';
+        }
+
+        let i = Math.max(0, words.indexOf(txt.textContent.trim()));
+        txt.textContent = words[i];
+        applyMaxWidth();
+
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(applyMaxWidth);
+        }
+
+        function tick() {
+          const next = (i + 1) % words.length;
+          txt.classList.add('is-out');
+          setTimeout(() => {
+            txt.textContent = words[next];
+            txt.classList.remove('is-out');
+            txt.classList.add('is-in');
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+              txt.classList.remove('is-in');
+            }));
+            i = next;
+          }, FADE_OUT_MS);
+        }
+        setInterval(tick, DWELL_MS);
+
+        const host = rot.closest('.hero') || document.body;
+        const ro = new ResizeObserver(applyMaxWidth);
+        ro.observe(host);
+      });
     })();
   </script>
 

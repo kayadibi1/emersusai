@@ -25,8 +25,6 @@ const htmlEntries = [
   "app/workout/climb/index.html",
   "app/workout/session/index.html",
   "app/workout/swim/index.html",
-  "app/hero-motion-mockup.html",
-  "app/hero-text-effects-mockup.html",
   "auth/callback/index.html",
   "auth/forgot-password/index.html",
   "auth/login/index.html",
