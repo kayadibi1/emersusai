@@ -56,8 +56,8 @@ import "../scripts/sources/rss-journal-ejap.js";
  * Register all handlers with pg-boss and schedule cron jobs.
  * @param {{ boss: PgBoss, sql: Function, log: object, incrementJobsProcessed: Function }} param0
  */
-export async function registerHandlers({ boss, sql, log, incrementJobsProcessed }) {
-  const deps = { sql, boss, log, incrementJobsProcessed };
+export async function registerHandlers({ boss, sql, pool, log, incrementJobsProcessed }) {
+  const deps = { sql, boss, pool, log, incrementJobsProcessed };
 
   /**
    * Register a named handler with pg-boss.

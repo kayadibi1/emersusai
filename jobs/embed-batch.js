@@ -132,7 +132,7 @@ async function embedWithRetry(texts, openaiClient) {
 
 export async function embedBatchHandler(ctx, deps) {
   const { limit } = ctx.data;
-  const { sql } = deps;
+  const { pool } = deps;
   // Honor an explicit `null` (callers signalling "no client available") as
   // distinct from `undefined` (caller didn't specify → use default). `??`
   // would fall through on both, which hides bugs in callers that pass null
@@ -142,67 +142,81 @@ export async function embedBatchHandler(ctx, deps) {
   if (!openaiClient) {
     throw new Error("OPENAI client not configured — set OPENAI_API_KEY");
   }
+  if (!pool) {
+    throw new Error("pg pool missing from deps — cannot acquire transactional client");
+  }
 
   const fetchBatchSize = limit ?? DEFAULT_FETCH_BATCH_SIZE;
   let totalUpdated = 0;
   let batchNum = 0;
-  let afterId = 0;
 
   while (true) {
-    // Check for abort between batches
     if (ctx.signal.aborted) {
       await ctx.progress(`aborted after ${totalUpdated} embeddings`);
       break;
     }
 
-    // Fetch next batch of un-embedded chunks
-    const result = await withDbRetry("fetch unembedded chunks", () =>
-      sql`
-        SELECT id, pmid, chunk_type, content
-        FROM evidence_chunks
-        WHERE embedding IS NULL AND id > ${afterId}
-        ORDER BY id ASC
-        LIMIT ${fetchBatchSize}
-      `
-    );
-    const rows = result.rows;
+    // Atomically claim a batch of unembedded chunks via FOR UPDATE SKIP LOCKED.
+    // Relies on the partial index `evidence_chunks_unembedded_idx`
+    // (id) WHERE embedding IS NULL for O(log N) lookup regardless of the
+    // total table size. The transaction holds until the UPDATE commits, so
+    // concurrent handler invocations never re-embed the same row.
+    const client = await pool.connect();
+    let rows = [];
+    let batchUpserted = 0;
+    try {
+      await client.query("BEGIN");
+      const claimed = await client.query(
+        `SELECT id, pmid, chunk_type, content
+           FROM evidence_chunks
+           WHERE embedding IS NULL
+           ORDER BY id ASC
+           LIMIT $1
+           FOR UPDATE SKIP LOCKED`,
+        [fetchBatchSize]
+      );
+      rows = claimed.rows;
 
-    if (rows.length === 0) break;
+      if (rows.length === 0) {
+        await client.query("COMMIT");
+        break;
+      }
 
-    batchNum++;
-    afterId = rows[rows.length - 1].id;
+      batchNum++;
 
-    const texts = rows.map((r) => sanitizeForJson(r.content));
-    const embeddings = await embedWithRetry(texts, openaiClient);
+      const texts = rows.map((r) => sanitizeForJson(r.content));
+      const embeddings = await embedWithRetry(texts, openaiClient);
 
-    // Write back — skip null embeddings (bad-payload bisect dropped them)
-    const toUpsert = rows
-      .map((row, i) => ({ id: row.id, embedding: embeddings[i] }))
-      .filter((e) => e.embedding != null);
+      const toUpsert = rows
+        .map((row, i) => ({ id: row.id, embedding: embeddings[i] }))
+        .filter((e) => e.embedding != null);
 
-    if (toUpsert.length > 0) {
-      // Batch-update in a single SQL statement via unnest. The old
-      // per-row UPDATE loop was N sequential round-trips (~5-10ms each),
-      // which dominated the per-batch wall clock for any batch size above
-      // ~50. Measured 2026-04-14 during the non-pubmed backfill: 200-row
-      // batches spent ~2s in DB writes vs ~1s in OpenAI.
-      const ids = toUpsert.map((e) => e.id);
-      const embStrs = toUpsert.map((e) => "[" + e.embedding.join(",") + "]");
-      await withDbRetry("batch update embeddings", () =>
-        sql`
-          UPDATE evidence_chunks AS ec
+      if (toUpsert.length > 0) {
+        const ids = toUpsert.map((e) => e.id);
+        const embStrs = toUpsert.map((e) => "[" + e.embedding.join(",") + "]");
+        await client.query(
+          `UPDATE evidence_chunks AS ec
              SET embedding = v.emb::vector
              FROM (
-               SELECT unnest(${ids}::bigint[]) AS id,
-                      unnest(${embStrs}::text[]) AS emb
+               SELECT unnest($1::bigint[]) AS id,
+                      unnest($2::text[]) AS emb
              ) v
-          WHERE ec.id = v.id
-        `
-      );
-      totalUpdated += toUpsert.length;
+           WHERE ec.id = v.id`,
+          [ids, embStrs]
+        );
+        batchUpserted = toUpsert.length;
+      }
+
+      await client.query("COMMIT");
+      totalUpdated += batchUpserted;
+    } catch (err) {
+      try { await client.query("ROLLBACK"); } catch (_) { /* already closed */ }
+      throw err;
+    } finally {
+      client.release();
     }
 
-    await ctx.progress(`batch ${batchNum}: embedded ${toUpsert.length}/${rows.length} chunks (total ${totalUpdated})`);
+    await ctx.progress(`batch ${batchNum}: embedded ${batchUpserted}/${rows.length} chunks (total ${totalUpdated})`);
   }
 
   return { embedded: totalUpdated, batches: batchNum };

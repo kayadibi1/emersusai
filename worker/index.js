@@ -25,8 +25,11 @@ async function main() {
   await boss.start();
   log.info("pg-boss started");
 
-  // Direct pg pool for heartbeat + progress writes (bypasses pg-boss)
-  const pool = new pg.Pool({ connectionString: databaseUrl, max: 4 });
+  // Direct pg pool for heartbeat + progress writes (bypasses pg-boss).
+  // Pool size = 8 so 4 concurrent embed-batch handlers can each hold a
+  // client for the SELECT…FOR UPDATE SKIP LOCKED + OpenAI round-trip + UPDATE
+  // transaction (~30–60s wall), leaving headroom for heartbeat + progress.
+  const pool = new pg.Pool({ connectionString: databaseUrl, max: 8 });
   const sql = async (strings, ...vals) => {
     // Simple tagged template -> parameterized query
     let text = strings[0];
@@ -97,7 +100,7 @@ async function main() {
 
   // Register job handlers
   const { registerHandlers } = await import("../jobs/_registry.js");
-  await registerHandlers({ boss, sql, log, incrementJobsProcessed: hb.incrementJobsProcessed });
+  await registerHandlers({ boss, sql, pool, log, incrementJobsProcessed: hb.incrementJobsProcessed });
   log.info("handlers registered");
 
   // Re-entrant guard: rapid Ctrl+C or overlapping signals would otherwise
