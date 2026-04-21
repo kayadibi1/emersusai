@@ -23,17 +23,61 @@ const DEFAULT_TIMEOUT_MS = 25_000;
  * Exposes status, headers (Map-like), text(), json() — enough for all adapters.
  */
 class SimpleResponse {
-  constructor(statusCode, headers, body) {
+  constructor(statusCode, headers, body, url) {
     this.status = statusCode;
     this._headers = headers;
     this._body = body;
+    this._url = url;
   }
   /** @param {string} name */
   get(name) {
     return this._headers[name.toLowerCase()] ?? null;
   }
   async text() { return this._body; }
-  async json() { return JSON.parse(this._body); }
+  /**
+   * Parse the body as JSON. Tolerates leading garbage (PHP warnings, HTML
+   * error blocks) by scanning for the first `{` or `[` if a strict parse
+   * fails. api.biorxiv.org regularly emits ~35 KB of `<br /><b>Warning:`
+   * preamble before the actual JSON body — discovered 2026-04-21 when
+   * the funder include broke. Throws SourceTransientError (not raw
+   * SyntaxError) so adapters get a typed error consistent with the rest
+   * of the taxonomy and pg-boss retry policy applies cleanly.
+   */
+  async json() {
+    try {
+      return JSON.parse(this._body);
+    } catch (firstErr) {
+      const trimmed = this._body.trimStart();
+      if (trimmed.startsWith("{") || trimmed.startsWith("[")) {
+        // Strict failure on a body that looks like JSON — genuinely malformed.
+        throw new SourceTransientError(
+          `malformed JSON from ${this._url}: ${firstErr.message}`,
+          { cause: firstErr },
+        );
+      }
+      // Body has leading garbage. Find the first plausible JSON start
+      // and try again from there.
+      let salvageIdx = -1;
+      for (let i = 0; i < this._body.length; i++) {
+        const c = this._body.charCodeAt(i);
+        if (c === 0x7b || c === 0x5b) { // '{' or '['
+          salvageIdx = i;
+          break;
+        }
+      }
+      if (salvageIdx > 0) {
+        try {
+          return JSON.parse(this._body.slice(salvageIdx));
+        } catch {
+          // fall through to typed throw below
+        }
+      }
+      throw new SourceTransientError(
+        `non-JSON response from ${this._url} (body starts with ${JSON.stringify(this._body.slice(0, 60))})`,
+        { cause: firstErr },
+      );
+    }
+  }
 }
 
 /**
@@ -99,7 +143,7 @@ export async function fetchWithTimeoutAndUA(url, options = {}) {
           if (status >= 400) {
             return reject(new SourcePermanentError(`HTTP ${status} at ${url}`, { body }));
           }
-          resolve(new SimpleResponse(status, headers, body));
+          resolve(new SimpleResponse(status, headers, body, url));
         });
         res.on("error", (err) => {
           clearTimeout(timer);

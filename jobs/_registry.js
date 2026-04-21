@@ -184,7 +184,7 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   // exercise-science filter applied client-side. ~10 min wall time.
   // Replaces the per-topic fanout that overloaded api.biorxiv.org with
   // ~7000 redundant requests (2026-04-21 failure cluster).
-  await boss.schedule("ingest-preprints-sweep",    "0 6 * * 6", {},                        { tz: "America/New_York" });
+  await boss.schedule("ingest-preprints-sweep",    "0 6 * * 6", {},                        { tz: "America/New_York", retryLimit: 3, retryBackoff: true, retryDelay: 300 });
 
   log.info("all 18 handlers registered + 9 schedules");
 }
