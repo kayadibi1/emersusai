@@ -159,58 +159,7 @@ body.landing-body main { position: relative; z-index: 1; }
  * before the defaults meant the defaults always won. */
 
 /* ===== HERO ===== */
-/* `hero-shell` wraps the hero so the ribbon canvas can escape the hero's
- * 1040px cap and span full viewport width. The hero sits on top with
- * its children bumped onto a higher z-index so text stays crisp. */
-.hero-shell {
-  position: relative;
-  width: 100%;
-  isolation: isolate;
-}
-.hero-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
-.hero-bg-canvas {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-  opacity: 0;
-  transition: opacity .8s ease;
-}
-.landing-wave--mounted .hero-bg-canvas { opacity: 1; }
-.hero-bg-fallback {
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(880px 360px at 74% 38%, var(--accent-glow) 0%, transparent 72%),
-    radial-gradient(620px 280px at 28% 66%, var(--accent-glow-2) 0%, transparent 72%);
-  opacity: 1;
-  transition: opacity .8s ease;
-}
-.landing-wave--mounted .hero-bg-fallback { opacity: 0; }
-/* Keep hero text in its own stacking context above the ribbon. */
-.hero { max-width: 1040px; margin: 0 auto; padding: 96px 32px 40px; text-align: center; position: relative; z-index: 1; }
-/* Soft dark→transparent→dark mask on top of the canvas so hero text and
- * the demo-frame below both have clean contrast against the ribbon. Uses
- * a wide transparent middle band so the ribbon has room to breathe. */
-.hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0) 10%, rgba(0,0,0,0) 85%, var(--bg) 100%),
-    linear-gradient(90deg, var(--bg) 0%, rgba(0,0,0,0) 6%, rgba(0,0,0,0) 94%, var(--bg) 100%);
-}
-@media (prefers-reduced-motion: reduce) {
-  .hero-bg-canvas { opacity: 0.6; }
-}
+.hero { max-width: 1040px; margin: 0 auto; padding: 96px 32px 40px; text-align: center; }
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 11px; font-weight: 500;
@@ -310,7 +259,11 @@ h1.headline {
 .side-item .mini-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--muted); }
 .side-item.active .mini-dot { background: var(--accent); box-shadow: 0 0 8px var(--accent); }
 
-.demo-main { display: flex; flex-direction: column; min-height: 480px; }
+/* Fixed height (not min-height) keeps the chat area the same size across
+   every phase — composer, user-bubble, streaming intro, widget-fill, cite.
+   Without this, each phase change grows/shrinks the flex container and
+   pushes .final-cta + footer down by up to 73 px every few seconds. */
+.demo-main { display: flex; flex-direction: column; height: 680px; }
 .demo-header { padding: 14px 24px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; align-items: center; }
 .thread-title { font-size: 13.5px; color: var(--ink); font-weight: 500; }
 .thread-meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--dim); letter-spacing: 0.14em; }
