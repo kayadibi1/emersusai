@@ -638,7 +638,7 @@
 
     <section class="final-cta">
       <div class="final-cta-inner">
-        <h2>Start asking better questions.</h2>
+        <h2>Start asking <span class="cta-word" data-words='["better","smarter","cited","honest","sharper"]' aria-label="better, smarter, cited, honest, sharper"><span class="cta-word-text">better</span></span> questions.</h2>
         <p>Rigorous answers, every one with its sources.</p>
         <a class="btn btn-accent" href="/auth/?panel=signup">Sign up →</a>
         <div class="reassurance">NO INFLUENCER TAKES · NO BRO SCIENCE · JUST EVIDENCE</div>
@@ -1026,6 +1026,92 @@
         const ro = new ResizeObserver(applyMaxWidth);
         ro.observe(host);
       });
+    })();
+
+    // Final-CTA word cycle (better → smarter → cited → honest → sharper)
+    // with a shimmer sweep across the gradient text-fill on each arrival.
+    // Starts when the CTA enters the viewport; continues looping on an
+    // interval so visitors who linger see the rotation.
+    (function initCtaWord() {
+      const root = document.querySelector('.cta-word');
+      if (!root) return;
+      const txt = root.querySelector('.cta-word-text');
+      let words;
+      try { words = JSON.parse(root.dataset.words || '[]'); } catch (_) { return; }
+      if (!txt || !Array.isArray(words) || words.length < 2) return;
+
+      const measurer = document.createElement('span');
+      measurer.style.cssText =
+        'position:absolute;visibility:hidden;pointer-events:none;' +
+        'left:-9999px;top:0;white-space:nowrap;';
+      document.body.appendChild(measurer);
+      const TYPO_KEYS = ['fontFamily', 'fontSize', 'fontWeight', 'fontStyle',
+                         'fontVariationSettings', 'letterSpacing', 'textTransform'];
+
+      function lockWidth() {
+        const cs = getComputedStyle(txt);
+        TYPO_KEYS.forEach((k) => { measurer.style[k] = cs[k]; });
+        let max = 0;
+        for (const w of words) {
+          measurer.textContent = w;
+          const mw = measurer.getBoundingClientRect().width;
+          if (mw > max) max = mw;
+        }
+        root.style.width = Math.ceil(max) + 'px';
+      }
+
+      lockWidth();
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(lockWidth);
+      }
+      window.addEventListener('resize', lockWidth, { passive: true });
+
+      const reduce = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+
+      let i = 0;
+      const FADE_OUT_MS = 220;
+      const SHIMMER_MS = 1500;
+      const DWELL_AFTER_SHIMMER_MS = 900;
+      let timer = null;
+
+      function shimmerCurrent() {
+        txt.classList.remove('is-shimmering');
+        void txt.offsetWidth;
+        txt.classList.add('is-shimmering');
+      }
+
+      function tick() {
+        const next = (i + 1) % words.length;
+        txt.classList.add('is-out');
+        setTimeout(() => {
+          txt.textContent = words[next];
+          txt.classList.remove('is-out', 'is-shimmering');
+          txt.classList.add('is-in');
+          requestAnimationFrame(() => requestAnimationFrame(() => {
+            txt.classList.remove('is-in');
+            // Kick the shimmer sweep once the incoming word settles.
+            shimmerCurrent();
+          }));
+          i = next;
+          timer = setTimeout(tick, SHIMMER_MS + DWELL_AFTER_SHIMMER_MS);
+        }, FADE_OUT_MS);
+      }
+
+      function start() {
+        if (timer) return;
+        // Shimmer the initial word once, then start cycling after it finishes.
+        shimmerCurrent();
+        timer = setTimeout(tick, SHIMMER_MS + DWELL_AFTER_SHIMMER_MS);
+      }
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { start(); io.disconnect(); }
+        });
+      }, { threshold: 0.4 });
+      io.observe(root);
     })();
 
     // Step-count ticker — one-shot cycle through "one → two → three → four"
