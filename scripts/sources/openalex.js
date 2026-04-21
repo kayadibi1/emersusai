@@ -16,7 +16,14 @@ import { registerIngestion } from "./_registry.js";
 const WORKS_URL = "https://api.openalex.org/works";
 const PER_PAGE = 200; // OpenAlex max — minimizes search calls ($1/1000)
 
-const waitSlot = createLimiter(8); // 8 RPS — no published per-second cap with API key
+// 3 RPS — was 8, but the free-tier API key budget is $1/day ≈ 10k list
+// calls. A bulk-ingest run (303 topics × ~3 pages each ≈ 900 calls) is
+// fine at 8 RPS for one run, but back-to-back runs in the same UTC day
+// (manual fill + scheduled fill, or a re-run after a partial failure)
+// blew through the budget and triggered a failure-cluster alert
+// (2026-04-21). 3 RPS keeps a single run under ~1h wall time and leaves
+// budget headroom for accidental re-runs in the same day.
+const waitSlot = createLimiter(3);
 
 /**
  * OpenAlex stores abstracts as an "inverted index" — a map of word →
