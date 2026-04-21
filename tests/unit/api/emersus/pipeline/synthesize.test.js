@@ -1,6 +1,6 @@
 import { describe, it, mock } from "node:test";
 import assert from "node:assert/strict";
-import { buildRequestBody, PROMPT_CACHE_KEY, fetchWithRetry } from "../../../../../api/emersus/pipeline/synthesize.js";
+import { buildRequestBody, PROMPT_CACHE_KEY, fetchWithRetry, resolveMaxOutputTokens } from "../../../../../api/emersus/pipeline/synthesize.js";
 
 describe("buildRequestBody", () => {
   it("includes model, stream, max_output_tokens, input, tools", () => {
@@ -11,9 +11,27 @@ describe("buildRequestBody", () => {
     });
     assert.equal(body.model, "gpt-4.1-mini");
     assert.equal(body.stream, true);
-    assert.equal(body.max_output_tokens, 16000);
+    // Default kind is "synthesis" -> 8000 cap.
+    assert.equal(body.max_output_tokens, 8000);
     assert.equal(body.input.length, 2);
     assert.equal(body.tools.length, 1);
+  });
+  it("resolves per-kind output caps", () => {
+    assert.equal(resolveMaxOutputTokens("synthesis"), 8000);
+    assert.equal(resolveMaxOutputTokens("onboarding"), 1500);
+    assert.equal(resolveMaxOutputTokens("memory_extract"), 1000);
+    assert.equal(resolveMaxOutputTokens("tool_followup"), 4000);
+    assert.equal(resolveMaxOutputTokens("unknown"), 8000);
+    assert.equal(resolveMaxOutputTokens(), 8000);
+  });
+  it("honors `kind` param when building the body", () => {
+    const body = buildRequestBody({
+      messages: [{ role: "user", content: "hi" }],
+      tools: [],
+      model: "gpt-5.4-mini",
+      kind: "tool_followup",
+    });
+    assert.equal(body.max_output_tokens, 4000);
   });
   it("omits tools when array is empty", () => {
     const body = buildRequestBody({
@@ -49,6 +67,14 @@ describe("buildRequestBody", () => {
       metadata: {},
     });
     assert.equal(body.metadata, undefined);
+  });
+  it("sets store:true for OpenAI server-side state retention", () => {
+    const body = buildRequestBody({
+      messages: [{ role: "user", content: "hi" }],
+      tools: [],
+      model: "gpt-5.4-mini",
+    });
+    assert.equal(body.store, true);
   });
 });
 

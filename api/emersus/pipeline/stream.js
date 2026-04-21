@@ -1,6 +1,6 @@
 import { validateToolCall, buildToolDefinitions, SERVER_SIDE_TOOLS } from "./tools.js";
 import { formatSources } from "./format-sources.js";
-import { PROMPT_CACHE_KEY } from "./synthesize.js";
+import { PROMPT_CACHE_KEY, resolveMaxOutputTokens } from "./synthesize.js";
 import { isExtractorEnabled } from "./memory-flags.js";
 
 export function parseSSELine(line) {
@@ -27,6 +27,19 @@ function sendSSE(res, payload) {
     res.write(`data: ${JSON.stringify(payload)}\n\n`);
     if (typeof res.flush === "function") res.flush();
   } catch { /* client disconnected */ }
+}
+
+// Cache the known-tool-names set on first use. buildToolDefinitions()
+// is flag-gated (MEMORY_REMEMBER_FACT_ENABLED / MEMORY_RECALL_ENABLED),
+// so we rebuild the set each call — cheap, and flags can flip without
+// a process restart in prod.
+function isKnownToolName(name) {
+  if (!name || typeof name !== "string") return false;
+  if (SERVER_SIDE_TOOLS.has(name)) return true;
+  for (const def of buildToolDefinitions()) {
+    if (def?.name === name) return true;
+  }
+  return false;
 }
 
 // Valid columns the model is allowed to update via update_user_profile
@@ -168,17 +181,22 @@ function processEvent(event, state) {
       state.proseBuffer += event.delta || "";
       if (state.onProse) state.onProse(event.delta || "");
       break;
+    // Distinct prose-done signal — lets the client switch states cleanly
+    // (e.g. stop the typewriter, finalize formatting) before tool calls
+    // or the terminal `done` event arrive.
+    case "response.output_text.done":
+      if (state.onProseDone) state.onProseDone();
+      break;
     // Refusals come on a separate content part, not as regular prose.
-    // Stream them to the client as prose so the user still sees the
-    // refusal message (e.g. self-harm, PED, medication guardrails).
+    // Route them to a distinct refusal channel so the client can style
+    // the message as a guardrail refusal instead of normal prose.
     case "response.refusal.delta":
       state.proseBuffer += event.delta || "";
-      if (state.onProse) state.onProse(event.delta || "");
+      if (state.onRefusal) state.onRefusal(event.delta || "");
       break;
     case "response.refusal.done":
-      // Full refusal text has already been streamed as deltas; nothing
-      // extra to append, but useful for telemetry.
       console.warn("Model refusal:", (event.refusal || "").slice(0, 200));
+      if (state.onRefusalDone) state.onRefusalDone(event.refusal || "");
       break;
     case "response.function_call_arguments.delta": {
       const callId = event.call_id || event.item_id || "unknown";
@@ -202,6 +220,17 @@ function processEvent(event, state) {
         const callId = event.item.call_id || event.item.id || "unknown";
         if (!state.toolBuffers[callId]) state.toolBuffers[callId] = { name: event.item.name || "", chunks: [] };
         else state.toolBuffers[callId].name = event.item.name || "";
+        // Early unknown-tool check: surface the error on `added` so we don't
+        // buffer an entire arg payload before discovering the call is bogus.
+        // Continue processing the stream — the full-arg validation on
+        // `output_item.done` remains the authoritative shape check.
+        const announcedName = event.item.name || "";
+        if (announcedName && !isKnownToolName(announcedName)) {
+          console.warn(`Unknown tool emitted on output_item.added: ${announcedName}`);
+          if (state.onToolError) state.onToolError(announcedName, ["unknown_tool"]);
+          if (!state.toolBuffers[callId]) state.toolBuffers[callId] = { name: announcedName, chunks: [] };
+          state.toolBuffers[callId].unknown = true;
+        }
       }
       break;
     case "response.output_item.done":
@@ -253,13 +282,39 @@ function processEvent(event, state) {
       state.ctx.tokenUsage = extractTokenUsage(event);
       state.ctx._timer.record("synthesis_total_ms", Date.now() - state.ctx._synthesisStartMs);
       break;
-    case "response.failed":
-      console.error("OpenAI response failed:", event.response?.status_details);
-      if (state.onError) state.onError(event.response?.status_details?.error?.message || "response failed");
+    // Partial response (max_output_tokens hit, content_filter, etc.).
+    // Capture usage/response id like `completed`, but also surface the
+    // incompleteness reason so the client can decide whether to offer a
+    // retry or a "continue" affordance.
+    case "response.incomplete": {
+      state.ctx._openaiResponseId = event.response?.id || null;
+      state.ctx.tokenUsage = extractTokenUsage(event);
+      if (state.ctx._synthesisStartMs) {
+        state.ctx._timer.record("synthesis_total_ms", Date.now() - state.ctx._synthesisStartMs);
+      }
+      const reason =
+        event.response?.incomplete_details?.reason ||
+        event.incomplete_details?.reason ||
+        "unknown";
+      console.warn("OpenAI response incomplete:", reason);
+      state.ctx._incompleteReason = reason;
+      if (state.onIncomplete) state.onIncomplete(reason);
       break;
+    }
+    // Terminal failure — the response object ended in an error state.
+    // Not recoverable from the client's point of view; the client should
+    // surface a retry button rather than attempt a continuation.
+    case "response.failed": {
+      const message = event.response?.status_details?.error?.message || "response failed";
+      console.error("OpenAI response failed:", event.response?.status_details);
+      if (state.onFailed) state.onFailed(message);
+      else if (state.onError) state.onError(message);
+      break;
+    }
     // Mid-stream error (rate limit, context overflow, transient 5xx).
     // Distinct from response.failed (terminal) — error can fire during
-    // generation without ending the response object.
+    // generation without ending the response object, so the client may
+    // choose to retry or keep what it already has.
     case "error":
       console.error("OpenAI stream error:", event.code, event.message);
       if (state.onError) state.onError(event.message || "stream error");
@@ -323,7 +378,7 @@ async function resolveAndContinue(state, ctx) {
       toolOutputs.push({
         type: "function_call_output",
         call_id: tc.callId,
-        output: JSON.stringify({ status: "saved" }),
+        output: `<profile_update_untrusted>${JSON.stringify({ status: "saved" })}</profile_update_untrusted>`,
       });
     } else if (tc.name === "remember_fact") {
       // Lazy import so the handler module isn't loaded on every turn when the
@@ -333,7 +388,7 @@ async function resolveAndContinue(state, ctx) {
       toolOutputs.push({
         type: "function_call_output",
         call_id: tc.callId,
-        output: JSON.stringify(result),
+        output: `<remember_fact_untrusted>${JSON.stringify(result)}</remember_fact_untrusted>`,
       });
     } else if (tc.name === "recall_memory") {
       // Phase 3 — on-demand memory query. Lazy-imported.
@@ -342,7 +397,7 @@ async function resolveAndContinue(state, ctx) {
       toolOutputs.push({
         type: "function_call_output",
         call_id: tc.callId,
-        output: JSON.stringify(result),
+        output: `<memory_untrusted>${JSON.stringify(result)}</memory_untrusted>`,
       });
     }
   }
@@ -364,7 +419,10 @@ async function resolveAndContinue(state, ctx) {
       input: toolOutputs,
       tools: buildToolDefinitions(),
       stream: true,
-      max_output_tokens: 16000,
+      // Follow-up turn after a server-side tool output: recap + optional
+      // single additional tool call. Much smaller budget than a fresh
+      // synthesis turn.
+      max_output_tokens: resolveMaxOutputTokens("tool_followup"),
       prompt_cache_key: PROMPT_CACHE_KEY,
       prompt_cache_retention: "24h",
     }),
@@ -410,6 +468,11 @@ export async function stream(ctx, res) {
         recordWidgetV2Emission(ctx, name, { type: null, display_width: null }, elapsedMs, "invalid");
       }
     },
+    onProseDone: () => sendSSE(res, { type: "prose_done" }),
+    onRefusal: (delta) => sendSSE(res, { type: "refusal_chunk", delta }),
+    onRefusalDone: (refusal) => sendSSE(res, { type: "refusal_done", refusal }),
+    onIncomplete: (reason) => sendSSE(res, { type: "incomplete", reason, partial: true }),
+    onFailed: (message) => sendSSE(res, { type: "response_failed", message }),
     onError: (message) => sendSSE(res, { type: "error", message }),
   };
 
@@ -432,7 +495,23 @@ export async function stream(ctx, res) {
     sources: ctx.sources,
     confidence: ctx.confidence,
     usage: ctx.tokenUsage,
+    // Flat, frontend-friendly mirrors of the nested usage object. The rail
+    // consumer reads these directly without needing to understand OpenAI's
+    // input_tokens_details shape. `cachedTokens` is the input tokens served
+    // from the prompt cache — the KPI for tuning the cached prefix.
+    cachedTokens: ctx.tokenUsage?.cached_tokens || 0,
+    inputTokens: ctx.tokenUsage?.input_tokens || 0,
+    outputTokens: ctx.tokenUsage?.output_tokens || 0,
+    // OpenAI server-side response id (stored at OpenAI when `store: true`
+    // is on in buildRequestBody). Client persists this on the assistant
+    // message. Phase 2: pass as previous_response_id on the next turn to
+    // reduce input-token billing on multi-turn threads. Not yet wired;
+    // requires delta system-prompt handling + 30-day expiry fallback.
     responseId: ctx._openaiResponseId || null,
+    // Extra flags when the underlying response ended in `incomplete` (e.g.
+    // max_output_tokens / content_filter). Clients that ignore unknown
+    // fields remain compatible; new clients can surface a "continue" CTA.
+    ...(ctx._incompleteReason ? { incomplete: true, reason: ctx._incompleteReason } : {}),
   });
   res.end();
 

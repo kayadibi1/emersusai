@@ -800,6 +800,11 @@ function railFromData(data = {}) {
   const synthesisMode = data.summary ? "synthesized" : "idle";
   const confidencePercent = Math.round(Math.max(0, Math.min(confidenceScore, 1)) * 100);
   const tokenUsage = normalizeTokenUsage(data.token_usage);
+  // Cache telemetry — prefer the flat SSE mirrors, fall back to the nested
+  // OpenAI-shaped usage object so streamToBuffer / JSON-only paths still work.
+  const cachedTokens = Math.max(0, Number(data.cachedTokens || data.token_usage?.cached_tokens || 0));
+  const inputTokens = Math.max(0, Number(data.inputTokens || data.token_usage?.input_tokens || tokenUsage.prompt_tokens || 0));
+  const outputTokens = Math.max(0, Number(data.outputTokens || data.token_usage?.output_tokens || tokenUsage.completion_tokens || 0));
   return {
     confidenceScore,
     confidencePercent,
@@ -809,6 +814,9 @@ function railFromData(data = {}) {
     tokenUsage,
     totalTokens: tokenUsage.total_tokens,
     requestCount: tokenUsage.total_tokens > 0 ? 1 : 0,
+    cachedTokens,
+    inputTokens,
+    outputTokens,
   };
 }
 
@@ -3887,6 +3895,9 @@ export function ChatApp() {
         let sseOnboardingCompleted = false;
         let sseConfidence = null;
         let sseResponseId = null;
+        let sseCachedTokens = 0;
+        let sseInputTokens = 0;
+        let sseOutputTokens = 0;
         const flushAccumulatedProse = ({ force = false } = {}) => {
           const commit = () => {
             proseFlushTimer = null;
@@ -3962,6 +3973,10 @@ export function ChatApp() {
               sseOnboardingCompleted = !!event.onboarding_completed;
               sseConfidence = event.confidence || null;
               sseResponseId = typeof event.responseId === "string" ? event.responseId : null;
+              // Flat token-usage mirrors for the rail cache-hit chip.
+              sseCachedTokens = Number(event.cachedTokens || 0);
+              sseInputTokens = Number(event.inputTokens || 0);
+              sseOutputTokens = Number(event.outputTokens || 0);
             }
           },
         });
@@ -3993,6 +4008,12 @@ export function ChatApp() {
           token_usage: sseUsage,
           onboarding_completed: sseOnboardingCompleted,
           confidence: sseConfidence,
+          // Flat token-usage mirrors. Written alongside token_usage so
+          // railFromData can surface a cache-hit chip without needing to
+          // understand OpenAI's nested input_tokens_details shape.
+          cachedTokens: sseCachedTokens,
+          inputTokens: sseInputTokens,
+          outputTokens: sseOutputTokens,
           // OpenAI response id forwarded from the backend done SSE —
           // used as source_turn_ref for pending memory chips.
           _responseId: sseResponseId,
@@ -4088,6 +4109,11 @@ export function ChatApp() {
         text: assistantPlainText || normalizeText(assistantRaw, 4000),
         sources: Array.isArray(data.sources) ? data.sources : [],
         ...(data._toolErrors?.length ? { toolErrors: data._toolErrors } : {}),
+        // Persist the OpenAI response id on the assistant message (JSONB
+        // column — no schema change). Phase 2: pass as previous_response_id
+        // on the next turn to reduce input-token billing on multi-turn
+        // threads. Not yet wired; requires delta system-prompt handling +
+        // 30-day expiry fallback.
         ...(data._responseId ? { openaiResponseId: data._responseId } : {}),
         createdAt: new Date().toISOString(),
       });
@@ -4937,7 +4963,26 @@ export function ChatApp() {
         h("h3", { className: "rail-title" }, "System status"),
         h("div", { className: "rail-metric-stack" },
           h(RailMetric, { label: "Confidence", value: `${confidencePercent}%`, note: rail.confidenceLabel || "Idle", width: `${Math.max(0, Math.min(Number(rail.confidenceScore || 0) * 100, 100))}%` }),
-          h(RailMetric, { label: "Source count", value: String(sourceCount), note: "Attached", width: `${Math.max(10, Math.min(sourceCount * 16, 100))}%`, tone: "tone-medium" }))),
+          h(RailMetric, { label: "Source count", value: String(sourceCount), note: "Attached", width: `${Math.max(10, Math.min(sourceCount * 16, 100))}%`, tone: "tone-medium" }),
+          // Prompt-cache hit rate chip. Shows cached vs. total input tokens
+          // as "3.2k / 5.1k" (78%). Idle when the last turn had no input
+          // tokens (e.g. fresh session before any response).
+          (() => {
+            const cached = Number(rail.cachedTokens || 0);
+            const input = Number(rail.inputTokens || 0);
+            if (input <= 0) {
+              return h(RailMetric, { label: "Cache", value: "—", note: "Idle", width: "0%", tone: "tone-low" });
+            }
+            const fmt = (n) => (n >= 1000 ? `${(n / 1000).toFixed(1)}k` : String(n));
+            const pct = Math.round(Math.max(0, Math.min(cached / input, 1)) * 100);
+            return h(RailMetric, {
+              label: "Cache",
+              value: `${fmt(cached)} / ${fmt(input)}`,
+              note: `${pct}%`,
+              width: `${pct}%`,
+              tone: pct >= 50 ? "tone-high" : pct >= 20 ? "tone-medium" : "tone-low",
+            });
+          })())),
       h(SourcesRailCard, {
         sources: latestAssistantSources,
         chatV2On,

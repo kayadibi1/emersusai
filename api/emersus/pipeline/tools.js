@@ -569,11 +569,11 @@ const NUTRITION_DATA = {
   },
 };
 
-// Strict mode is disabled on multi-type widget-v2 tools because OpenAI's
-// strict schema can't cleanly represent a type-dependent `data` shape.
-// Server-side validators (shared/widget-v2/validators/nutrition.js etc.)
-// are the source of truth and surface tool_error SSE events for bad
-// payloads — the same guarantee strict would have given us.
+// Strict mode is enabled via the superset-data pattern: NUTRITION_DATA lists
+// every field from every template; unused fields are emitted as null. The
+// server-side validator (shared/widget-v2/validators/nutrition.js) still runs
+// for business rules (type↔required-field cross-checks) and surfaces
+// tool_error SSE for payloads that pass schema but fail semantics.
 const EMIT_NUTRITION_WIDGET = {
   type: "function",
   name: "emit_nutrition_widget",

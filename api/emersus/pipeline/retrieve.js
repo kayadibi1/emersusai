@@ -170,6 +170,10 @@ export function formatEvidenceForModel(evidence) {
   // see the same set. Previously this was hardcoded to 5 while the panel
   // used 6, so the sixth source showed up in the UI but was invisible to
   // the LLM.
+  // Retrieved evidence is wrapped in <source_untrusted id="N">…</source_untrusted>
+  // delimiters so the prompt's trust-boundary rule can instruct the model to
+  // ignore any imperatives embedded inside (prompt-injection defense — authors,
+  // titles, and abstracts are user-authored upstream data, not instructions).
   return evidence
     .slice(0, VECTOR_LIMIT)
     .map((item, index) => {
@@ -183,7 +187,8 @@ export function formatEvidenceForModel(evidence) {
         item.author_label || null,
       ].filter(Boolean);
       const header = `[${index + 1}] ${headerParts.length ? `${headerParts.join(" · ")} — ` : ""}${item.title || "Untitled evidence"}`;
-      return item.excerpt ? `${header}\n${item.excerpt}` : header;
+      const inner = item.excerpt ? `${header}\n${item.excerpt}` : header;
+      return `<source_untrusted id="${index + 1}">\n${inner}\n</source_untrusted>`;
     })
     .join("\n\n");
 }

@@ -94,4 +94,44 @@ describe("streamToBuffer", () => {
       html: "<div>ok</div>",
     });
   });
+
+  it("flags unknown tools early on output_item.added without aborting the stream", async () => {
+    const ctx = createCtx([
+      'data: {"type":"response.output_item.added","item":{"type":"function_call","id":"call_1","name":"launch_missiles"}}',
+      'data: {"type":"response.output_item.done","item":{"type":"function_call","id":"call_1","name":"launch_missiles","arguments":"{}"}}',
+      'data: {"type":"response.output_text.delta","delta":"still streaming prose"}',
+      'data: {"type":"response.completed","response":{"id":"resp_1","usage":{"input_tokens":1,"output_tokens":1,"total_tokens":2}}}',
+    ]);
+
+    // Spy on onToolError by monkey-patching after streamToBuffer sets it up.
+    // streamToBuffer leaves onToolError null; wire our own handler into the
+    // processEvent path by using the public streamToBuffer wrapper plus a
+    // state shim via ctx. Simplest route: use processEvent directly.
+    const { __testables } = await import("../../../../../api/emersus/pipeline/stream.js");
+    const captured = [];
+    const state = {
+      ctx,
+      proseBuffer: "",
+      toolBuffers: {},
+      serverToolCalls: [],
+      onToolError: (name, errors) => captured.push({ name, errors }),
+    };
+    for await (const line of ctx._openaiStream) {
+      const trimmed = line.trim();
+      if (!trimmed.startsWith("data: ")) continue;
+      const payload = trimmed.slice(6);
+      if (payload === "[DONE]") continue;
+      const event = JSON.parse(payload);
+      __testables.processEvent(event, state);
+    }
+    // One error on added (unknown_tool), one from the done-stage JSON parse
+    // fallback is fine — the key guarantee is that the unknown-tool error
+    // was emitted BEFORE the full-arg event would have parsed.
+    const unknownErrors = captured.filter(
+      (c) => c.name === "launch_missiles" && Array.isArray(c.errors) && c.errors.includes("unknown_tool")
+    );
+    assert.equal(unknownErrors.length, 1, "unknown_tool error should surface once on output_item.added");
+    // Prose after the bad tool still accumulates — stream didn't abort.
+    assert.equal(state.proseBuffer, "still streaming prose");
+  });
 });
