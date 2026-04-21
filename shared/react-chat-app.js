@@ -1576,6 +1576,7 @@ function MealPlanCard({ segment, threadId }) {
             borderRadius: 8,
             padding: "6px 10px",
             fontSize: 13,
+            fontFamily: "inherit",
           },
         }),
         chatV2On
@@ -1597,6 +1598,7 @@ function MealPlanCard({ segment, threadId }) {
                   fontSize: 13,
                   fontWeight: 500,
                   cursor: "pointer",
+                  fontFamily: "inherit",
                 },
               },
               "Adjust meals",
@@ -1617,6 +1619,7 @@ function MealPlanCard({ segment, threadId }) {
               fontWeight: 500,
               cursor: busy || resolved === "saved" ? "default" : "pointer",
               opacity: busy || resolved === "saved" ? 0.6 : 1,
+              fontFamily: "inherit",
             },
           },
           busy
