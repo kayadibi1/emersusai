@@ -496,7 +496,7 @@
 
     <section class="section" id="flow">
       <div class="sec-eyebrow">The flow</div>
-      <h2 class="sec-title">From question to grounded answer in four steps.</h2>
+      <h2 class="sec-title">From question to grounded answer in <span class="num-ticker" data-sequence='["one","two","three","four"]' aria-label="four">four</span> steps.</h2>
       <p class="sec-intro">Every thread traces back to the source literature. Here's what happens between typing a question and reading the response.</p>
       <div class="steps-grid">
         <div class="step"><span class="step-num">STEP 01</span><h4>Ask anything</h4><p>Natural-language questions about training, nutrition, recovery, or mechanism — no prompt engineering required.</p></div>
@@ -1025,6 +1025,99 @@
         const host = rot.closest('.hero') || document.body;
         const ro = new ResizeObserver(applyMaxWidth);
         ro.observe(host);
+      });
+    })();
+
+    // Step-count ticker — one-shot cycle through "one → two → three → four"
+    // when the Flow section enters the viewport. Width locks to the widest
+    // word (usually "three") so the H2 doesn't reflow mid-animation.
+    (function initNumTickers() {
+      const tickers = document.querySelectorAll('.num-ticker');
+      if (!tickers.length) return;
+
+      const measurer = document.createElement('span');
+      measurer.style.cssText =
+        'position:absolute;visibility:hidden;pointer-events:none;' +
+        'left:-9999px;top:0;white-space:nowrap;';
+      document.body.appendChild(measurer);
+
+      const TYPO_KEYS = ['fontFamily', 'fontSize', 'fontWeight', 'fontStyle',
+                         'fontVariationSettings', 'letterSpacing', 'textTransform'];
+      const FADE_OUT_MS = 180;
+      const DWELL_MS = 260;
+
+      tickers.forEach((root) => {
+        let words;
+        try { words = JSON.parse(root.dataset.sequence || '[]'); } catch (_) { return; }
+        if (!Array.isArray(words) || words.length < 2) return;
+
+        // Wrap the existing text in a span so we can crossfade. The initial
+        // text is replaced by the first word for the one-shot; final state
+        // will be the last word (already matches original "four").
+        const original = root.textContent;
+        root.textContent = '';
+        const txt = document.createElement('span');
+        txt.className = 'num-text';
+        txt.textContent = original;
+        root.appendChild(txt);
+
+        function lockWidth() {
+          const cs = getComputedStyle(txt);
+          TYPO_KEYS.forEach((k) => { measurer.style[k] = cs[k]; });
+          let max = 0;
+          for (const w of words) {
+            measurer.textContent = w;
+            const mw = measurer.getBoundingClientRect().width;
+            if (mw > max) max = mw;
+          }
+          root.style.width = Math.ceil(max) + 'px';
+        }
+
+        lockWidth();
+        if (document.fonts && document.fonts.ready) {
+          document.fonts.ready.then(lockWidth);
+        }
+        window.addEventListener('resize', lockWidth, { passive: true });
+
+        let played = false;
+        function play() {
+          if (played) return;
+          played = true;
+          let i = 0;
+          // Reset to first word before starting so the cycle actually shows
+          // one → two → three → four rather than skipping.
+          txt.textContent = words[0];
+          function step() {
+            if (i >= words.length - 1) return;
+            txt.classList.add('is-out');
+            setTimeout(() => {
+              i += 1;
+              txt.textContent = words[i];
+              txt.classList.remove('is-out');
+              txt.classList.add('is-in');
+              requestAnimationFrame(() => requestAnimationFrame(() => {
+                txt.classList.remove('is-in');
+              }));
+              setTimeout(step, DWELL_MS);
+            }, FADE_OUT_MS);
+          }
+          step();
+        }
+
+        const reduce = window.matchMedia &&
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reduce) {
+          // Show final word directly, skip the ticker.
+          txt.textContent = words[words.length - 1];
+          return;
+        }
+
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) { play(); io.disconnect(); }
+          });
+        }, { threshold: 0.45 });
+        io.observe(root);
       });
     })();
   </script>
