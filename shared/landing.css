@@ -53,10 +53,13 @@ body.landing-body main { position: relative; z-index: 1; }
 /* ===== NAV ===== */
 .nav-wrap {
   position: sticky; top: 0; z-index: 50;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: var(--nav-bg);
-  border-bottom: 1px solid var(--line);
+  /* Stronger blur + saturate so the nav reads over the wave canvas behind
+     the hero. Mixes --nav-bg with a higher-opacity accent surface so text
+     stays crisp regardless of what's scrolling past underneath. */
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom: 1px solid var(--line-strong);
 }
 .nav {
   max-width: 1200px;
@@ -613,7 +616,7 @@ h1.headline {
 }
 
 /* ===== SECTIONS ===== */
-.section { max-width: 1100px; margin: 0 auto; padding: 96px 32px; border-top: 1px solid var(--line); }
+.section { max-width: 1100px; margin: 0 auto; padding: 96px 32px; }
 .sec-eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase; color: var(--accent); margin-bottom: 16px; }
 .sec-title { font-family: var(--font-head); font-size: clamp(28px, 3.8vw, 46px); font-weight: var(--head-weight); letter-spacing: var(--head-ls); margin: 0 0 16px; color: var(--ink); }
 .sec-intro { font-size: 17px; color: var(--muted); max-width: 640px; margin-bottom: 48px; }
@@ -747,7 +750,7 @@ h1.headline {
 .section.section-center .sec-intro { margin-left: auto; margin-right: auto; }
 
 /* ===== MARQUEE ===== */
-.marquee-section { padding: 96px 0 0; border-top: 1px solid var(--line); overflow: hidden; }
+.marquee-section { padding: 96px 0 0; overflow: hidden; }
 .marquee-heading { max-width: 1100px; margin: 0 auto; padding: 0 32px 48px; }
 .marquee {
   display: flex; flex-direction: column; gap: 18px;
@@ -870,7 +873,13 @@ h1.headline {
   position: absolute; inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: radial-gradient(300px 180px at 100% 0%, var(--accent-glow), transparent 70%);
+  /* color-mix gives a visible accent wash — the design-token --accent-glow
+     at ~10% was too faint to read as a hover effect against solid card bg. */
+  background: radial-gradient(
+    360px 220px at 100% 0%,
+    color-mix(in srgb, var(--accent) 22%, transparent) 0%,
+    transparent 72%
+  );
   opacity: 0;
   transition: opacity .3s ease;
   z-index: 0;
@@ -881,7 +890,7 @@ h1.headline {
 .faq-item:hover::before { opacity: 1; }
 
 /* ===== FINAL CTA ===== */
-.final-cta { text-align: center; padding: 120px 32px 100px; border-top: 1px solid var(--line); position: relative; }
+.final-cta { text-align: center; padding: 120px 32px 100px; position: relative; }
 .final-cta::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background: radial-gradient(500px 220px at 50% 50%, var(--accent-glow), transparent 70%);

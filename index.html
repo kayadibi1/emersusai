@@ -188,6 +188,7 @@
         <a href="#what">Science</a>
         <a href="#flow">How it works</a>
         <a href="#corpus">Corpus</a>
+        <a href="/app/">App</a>
         <a href="/pricing/">Pricing</a>
         <a href="/about/">About</a>
         <a href="/auth/">Log in</a>
@@ -1100,6 +1101,70 @@
     import { initLandingWave } from '/shared/landing-wave.js';
     const canvas = document.getElementById('landing-wave');
     if (canvas) initLandingWave({ canvas });
+  </script>
+
+  <script>
+    // Smooth FAQ open/close. Chrome's <details> rendering model cancels
+    // CSS transitions when [open] is removed (the child stops participating
+    // in layout before the transition can run), so we intercept the summary
+    // click, measure the target height, and animate max-height manually.
+    // Keeps the [open] attr state in sync so the +/− marker still updates.
+    (function () {
+      const DURATION = 380;
+      const EASE = 'cubic-bezier(.4, 0, .2, 1)';
+
+      document.querySelectorAll('.faq-item').forEach((d) => {
+        const summary = d.querySelector('summary');
+        const body = d.querySelector('.faq-body');
+        if (!summary || !body) return;
+
+        summary.addEventListener('click', (e) => {
+          e.preventDefault();
+          const isOpen = d.hasAttribute('open');
+          // Temporarily override transition so we control it precisely.
+          body.style.transition =
+            'max-height ' + DURATION + 'ms ' + EASE +
+            ', padding-bottom ' + DURATION + 'ms ' + EASE +
+            ', opacity ' + Math.round(DURATION * 0.7) + 'ms ease';
+
+          if (isOpen) {
+            const h = body.scrollHeight;
+            body.style.maxHeight = h + 'px';
+            body.style.paddingBottom = '20px';
+            body.style.opacity = '1';
+            // Force reflow so the starting frame is committed
+            void body.offsetHeight;
+            body.style.maxHeight = '0px';
+            body.style.paddingBottom = '0px';
+            body.style.opacity = '0';
+            setTimeout(() => {
+              d.removeAttribute('open');
+              body.style.transition = '';
+              body.style.maxHeight = '';
+              body.style.paddingBottom = '';
+              body.style.opacity = '';
+            }, DURATION);
+          } else {
+            d.setAttribute('open', '');
+            // After [open] is set, measure the natural height and animate up.
+            const h = body.scrollHeight;
+            body.style.maxHeight = '0px';
+            body.style.paddingBottom = '0px';
+            body.style.opacity = '0';
+            void body.offsetHeight;
+            body.style.maxHeight = h + 'px';
+            body.style.paddingBottom = '20px';
+            body.style.opacity = '1';
+            setTimeout(() => {
+              body.style.transition = '';
+              body.style.maxHeight = '';
+              body.style.paddingBottom = '';
+              body.style.opacity = '';
+            }, DURATION);
+          }
+        });
+      });
+    })();
   </script>
 </body>
 </html>
