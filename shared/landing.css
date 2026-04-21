@@ -801,6 +801,31 @@ h1.headline {
 .faq-item[open] { border-color: var(--accent-line); }
 .faq-body { padding: 0 22px 20px; color: var(--muted); font-size: 14px; line-height: 1.6; }
 
+/* ===== SHARED CARD HOVER GLOW =====
+   Parity pass with .bento-card:hover::before — adds the same radial
+   accent-glow fade-in to every post-bento card type (steps, stats,
+   roadmap, FAQ). Layered on top of each card's existing hover (bg
+   change, border shift, etc.) so those still work. */
+.stat, .faq-item { position: relative; }
+.step, .stat, .roadmap-card, .faq-item { isolation: isolate; }
+.step::before,
+.stat::before,
+.roadmap-card::before,
+.faq-item::before {
+  content: "";
+  position: absolute; inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  background: radial-gradient(300px 180px at 100% 0%, var(--accent-glow), transparent 70%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  z-index: 0;
+}
+.step:hover::before,
+.stat:hover::before,
+.roadmap-card:hover::before,
+.faq-item:hover::before { opacity: 1; }
+
 /* ===== FINAL CTA ===== */
 .final-cta { text-align: center; padding: 120px 32px 100px; border-top: 1px solid var(--line); position: relative; }
 .final-cta::before {
