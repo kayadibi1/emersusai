@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mint">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing wave v2 — sea-wave wireframe</title>
+<!--
+  v2 iteration 2: rendered as THREE.LineSegments (sharp 1px GPU lines)
+  under a perspective camera, so the wireframe reads as a genuine 3D
+  wave surface receding into depth. N horizontal fibers on a plane that
+  undulates in Y as a traveling wave; phase shifts across fibers create
+  the apparent crossing.
+
+  URL knobs (live tuning):
+    ?wave=emersus|warm       palette
+    ?theme=mint|paper        theme
+    ?fibers=40..240          fiber count (default 96)
+    ?ampx=0.2..1.6           wave amplitude (default 0.85)
+    ?freqx=0.6..4.0          wavelengths across X (default 1.4)
+    ?freqz=0.2..2.4          phase shift between fibers (default 0.9)
+    ?tilt=0.15..0.9          camera pitch angle, radians (default 0.55)
+    ?spread=1.0..5.0         Z extent of the mesh (default 3.0)
+    ?camz=3..12              camera pull-back distance (default 5.5)
+    ?fov=30..80              camera FOV degrees (default 44)
+    ?yoff=-1..1              lift the mesh up or down in NDC (default 0)
+    ?alpha=0.5..3            global alpha multiplier (default 1)
+-->
+<style>
+  :root[data-theme="mint"] {
+    --bg: #0a0a0b;
+    --ink: #ededee;
+    --muted: #8a8a8f;
+    --accent: #34d399;
+    --accent-glow: rgba(52,211,153,0.10);
+  }
+  :root[data-theme="paper"] {
+    --bg: #f4efe5;
+    --ink: #1a1813;
+    --muted: #5e564a;
+    --accent: #3b82f6;
+    --accent-glow: rgba(59,130,246,0.11);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--ink);
+    font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+    font-weight: 450; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; max-width: 100vw;
+  }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 32px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px; color: var(--muted); letter-spacing: 0.04em;
+    position: relative; z-index: 5;
+  }
+  :root[data-theme="paper"] .topbar { border-color: rgba(26,24,19,0.12); }
+  .topbar a {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid rgba(52,211,153,0.22); border-radius: 999px;
+    margin-left: 4px;
+  }
+  :root[data-theme="paper"] .topbar a { border-color: rgba(59,130,246,0.34); }
+  .topbar a.active { background: rgba(52,211,153,0.12); }
+  :root[data-theme="paper"] .topbar a.active { background: rgba(59,130,246,0.10); }
+
+  /* ===== Control panel ===== */
+  .knobs {
+    position: fixed;
+    top: 72px; right: 16px;
+    width: 300px;
+    max-height: calc(100vh - 92px);
+    overflow-y: auto;
+    padding: 14px 14px 16px;
+    background: rgba(10,10,11,0.86);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 10px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px;
+    color: rgba(255,255,255,0.86);
+    z-index: 20;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.35);
+  }
+  :root[data-theme="paper"] .knobs {
+    background: rgba(255,255,255,0.90);
+    color: #2a241c;
+    border-color: rgba(26,24,19,0.18);
+    box-shadow: 0 10px 40px rgba(26,24,19,0.10);
+  }
+  .knobs h3 {
+    margin: 0 0 10px;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .knobs[open] h3::after { content: "  ▾"; }
+  .knobs h3::after { content: "  ▸"; }
+  .knob {
+    display: grid;
+    grid-template-columns: 76px 1fr 48px;
+    gap: 8px; align-items: center;
+    margin-bottom: 7px;
+  }
+  .knob label {
+    font-weight: 500;
+    color: rgba(255,255,255,0.7);
+  }
+  :root[data-theme="paper"] .knob label { color: rgba(26,24,19,0.72); }
+  .knob input[type="range"] {
+    width: 100%;
+    accent-color: var(--accent);
+  }
+  .knob output {
+    font-variant-numeric: tabular-nums;
+    text-align: right;
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .knob-pills {
+    display: flex; gap: 4px; margin-bottom: 8px; flex-wrap: wrap;
+  }
+  .knob-pills button {
+    padding: 3px 9px;
+    font: inherit; font-size: 10px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: transparent;
+    color: rgba(255,255,255,0.82);
+    border-radius: 999px;
+    cursor: pointer;
+  }
+  :root[data-theme="paper"] .knob-pills button {
+    border-color: rgba(26,24,19,0.2);
+    color: rgba(26,24,19,0.8);
+  }
+  .knob-pills button.active {
+    background: rgba(52,211,153,0.18);
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  :root[data-theme="paper"] .knob-pills button.active {
+    background: rgba(59,130,246,0.12);
+  }
+  .knob-row-title {
+    font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(255,255,255,0.45); margin: 10px 0 5px;
+  }
+  :root[data-theme="paper"] .knob-row-title { color: rgba(26,24,19,0.48); }
+  .knob-actions { display: flex; gap: 6px; margin-top: 10px; }
+  .knob-actions button {
+    flex: 1;
+    padding: 6px 10px;
+    font: inherit; font-size: 10px;
+    color: var(--accent);
+    background: transparent;
+    border: 1px solid var(--accent);
+    border-radius: 6px; cursor: pointer;
+  }
+  .knob-actions button:hover { background: rgba(52,211,153,0.12); }
+  :root[data-theme="paper"] .knob-actions button:hover { background: rgba(59,130,246,0.1); }
+
+  .hero-shell { position: relative; width: 100%; isolation: isolate; }
+  .hero-bg   { position: absolute; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+  .hero-bg-canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    display: block; opacity: 0; transition: opacity .8s ease;
+  }
+  .landing-wave--mounted .hero-bg-canvas { opacity: 1; }
+  .hero-bg-fallback {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(880px 360px at 74% 38%, var(--accent-glow) 0%, transparent 72%);
+    opacity: 1; transition: opacity .8s ease;
+  }
+  .landing-wave--mounted .hero-bg-fallback { opacity: 0; }
+  /* LIGHTER mask than before — only a gentle fade on the bottom so the
+     hero→demo handoff stays clean, and a minor top fade. Sides untouched. */
+  .hero-bg::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0) 6%, rgba(0,0,0,0) 90%, var(--bg) 100%);
+  }
+
+  .hero {
+    max-width: 1040px; margin: 0 auto;
+    padding: 96px 32px 40px; text-align: center;
+    position: relative; z-index: 1;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 24px;
+  }
+  .eyebrow .dot {
+    display: inline-block; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); margin-right: 10px; vertical-align: middle;
+    box-shadow: 0 0 12px var(--accent);
+  }
+  h1.headline {
+    font-size: clamp(42px, 6.2vw, 78px); font-weight: 500;
+    letter-spacing: -0.025em; line-height: 1.04;
+    margin: 0 0 24px; padding-bottom: 0.14em;
+    background: linear-gradient(180deg, #ffffff 0%, #b4b4b8 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  :root[data-theme="paper"] h1.headline {
+    background: linear-gradient(180deg, #1a1813 0%, #4a4538 100%);
+    -webkit-background-clip: text; background-clip: text;
+  }
+  .subhead {
+    font-size: 18px; color: var(--muted);
+    max-width: 620px; margin: 0 auto 32px; line-height: 1.55;
+  }
+  .btn {
+    display: inline-block; padding: 12px 22px;
+    background: var(--accent); color: var(--bg);
+    border-radius: 8px; font-weight: 500; text-decoration: none;
+  }
+  :root[data-theme="paper"] .btn { color: #fff; }
+  .hero-meta {
+    margin-top: 48px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; color: var(--muted); letter-spacing: 0.16em;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>emersus · wave v2 · line-segments wireframe · 2026-04-21</div>
+  <div>share a tuning via the URL's <code>?params</code></div>
+</div>
+
+<aside class="knobs" id="knobs">
+  <h3>wave controls</h3>
+
+  <div class="knob-row-title">palette</div>
+  <div class="knob-pills" id="palette-pills">
+    <button data-palette="emersus">emersus</button>
+    <button data-palette="warm">warm</button>
+  </div>
+
+  <div class="knob-row-title">theme</div>
+  <div class="knob-pills" id="theme-pills">
+    <button data-theme="mint">mint</button>
+    <button data-theme="paper">paper</button>
+  </div>
+
+  <div class="knob-row-title">wave shape</div>
+  <div class="knob"><label>amp</label><input type="range" id="k-ampx"  min="0.10" max="2.40" step="0.01"><output id="v-ampx"></output></div>
+  <div class="knob"><label>freq x</label><input type="range" id="k-freqx" min="0.40" max="4.50" step="0.02"><output id="v-freqx"></output></div>
+  <div class="knob"><label>freq z</label><input type="range" id="k-freqz" min="0.10" max="3.00" step="0.02"><output id="v-freqz"></output></div>
+  <div class="knob"><label>speed</label><input type="range" id="k-speed" min="0.00" max="0.80" step="0.01"><output id="v-speed"></output></div>
+  <div class="knob"><label>breathe</label><input type="range" id="k-breathe" min="0.00" max="0.90" step="0.01"><output id="v-breathe"></output></div>
+  <div class="knob"><label>brz-freq</label><input type="range" id="k-bfreq" min="0.02" max="0.40" step="0.005"><output id="v-bfreq"></output></div>
+
+  <div class="knob-row-title">view</div>
+  <div class="knob"><label>tilt</label><input type="range" id="k-tilt" min="0.05" max="1.10" step="0.01"><output id="v-tilt"></output></div>
+  <div class="knob"><label>fov</label><input type="range" id="k-fov"  min="22" max="86" step="1"><output id="v-fov"></output></div>
+  <div class="knob"><label>cam-z</label><input type="range" id="k-camz" min="2.5" max="12" step="0.1"><output id="v-camz"></output></div>
+  <div class="knob"><label>y-offset</label><input type="range" id="k-yoff" min="-1.20" max="1.20" step="0.01"><output id="v-yoff"></output></div>
+
+  <div class="knob-row-title">mesh</div>
+  <div class="knob"><label>fibers</label><input type="range" id="k-fibers" min="20" max="260" step="2"><output id="v-fibers"></output></div>
+  <div class="knob"><label>spread</label><input type="range" id="k-spread" min="1.0" max="5.2" step="0.05"><output id="v-spread"></output></div>
+  <div class="knob"><label>alpha</label><input type="range" id="k-alpha"  min="0.20" max="3.00" step="0.02"><output id="v-alpha"></output></div>
+
+  <div class="knob-actions">
+    <button type="button" id="btn-reset">reset</button>
+    <button type="button" id="btn-copy-url">copy URL</button>
+  </div>
+</aside>
+
+<main>
+  <div class="hero-shell">
+    <div class="hero-bg" aria-hidden="true">
+      <canvas id="landing-wave" class="hero-bg-canvas"></canvas>
+      <div class="hero-bg-fallback"></div>
+    </div>
+    <section class="hero">
+      <div class="eyebrow"><span class="dot"></span>Evidence-Based Fitness Intelligence</div>
+      <h1 class="headline">Your body deserves better<br>than guesswork.</h1>
+      <p class="subhead">Every answer cited. Every protocol backed by peer-reviewed research. No influencer takes, no bro science — the actual evidence.</p>
+      <a class="btn" href="#">Sign up →</a>
+      <div class="hero-meta">1,041,448 PAPERS INDEXED · UPDATED DAILY</div>
+    </section>
+  </div>
+</main>
+
+<script type="module">
+  import * as THREE from 'https://esm.sh/three@0.161.0';
+
+  /* ---- Defaults + URL hydration -------------------------------------- */
+  const DEFAULTS = {
+    palette: 'emersus',
+    theme:   'mint',
+    ampx:    0.85,
+    freqx:   1.40,
+    freqz:   0.90,
+    speed:   0.25,
+    breathe: 0.28,
+    bfreq:   0.14,
+    tilt:    0.55,
+    fov:     44,
+    camz:    5.50,
+    yoff:    0.00,
+    fibers:  96,
+    spread:  3.00,
+    alpha:   1.00,
+  };
+
+  const params = new URLSearchParams(location.search);
+  const state = { ...DEFAULTS };
+  for (const key of Object.keys(DEFAULTS)) {
+    const raw = params.get(key === 'palette' ? 'wave' : key);
+    if (raw == null) continue;
+    if (typeof DEFAULTS[key] === 'number') {
+      const n = parseFloat(raw);
+      if (Number.isFinite(n)) state[key] = n;
+    } else {
+      state[key] = raw;
+    }
+  }
+  if (state.theme !== 'mint' && state.theme !== 'paper') state.theme = 'mint';
+  if (state.palette !== 'emersus' && state.palette !== 'warm') state.palette = 'emersus';
+  document.documentElement.setAttribute('data-theme', state.theme);
+
+  const WIDTH  = 14.0;
+  const POINTS = 240;
+
+  /* ---- Palettes ------------------------------------------------------- */
+  const PALETTES = {
+    emersus: {
+      mint:  { stops: ['#bff6e4', '#34d399', '#5091f2', '#4338ca'], alpha: 0.72 },
+      paper: { stops: ['#55a687', '#2f8a6a', '#3b6dd6', '#2c3ea8'], alpha: 0.55 },
+    },
+    warm: {
+      mint:  { stops: ['#ffb6c1', '#ff6fa2', '#c084fc', '#5b63f6'], alpha: 0.78 },
+      paper: { stops: ['#b44f6f', '#a43a79', '#7a40c0', '#3d3fb8'], alpha: 0.55 },
+    },
+  };
+  const resolvePreset = () => PALETTES[state.palette][state.theme];
+  let preset = resolvePreset();
+
+  /* ---- Shaders ------------------------------------------------------- */
+  const VERT = /* glsl */ `
+    precision highp float;
+    attribute float aFiber;
+    uniform float uTime;
+    uniform float uWidth;
+    uniform float uFiberCount;
+    uniform float uSpread;
+    uniform float uAmpX;
+    uniform float uFreqX;
+    uniform float uFreqZ;
+    uniform float uSpeed;
+    uniform float uBreatheAmp;
+    uniform float uBreatheFreq;
+    uniform float uYoff;
+
+    varying float vRamp;   // 0..1 across X for colour
+    varying float vDepth;  // world-space Z before view transform
+
+    void main() {
+      float x = position.x;
+      float fiber = aFiber / max(uFiberCount - 1.0, 1.0);   // 0..1
+      float z = (fiber - 0.5) * uSpread;
+      float u = x / (uWidth * 0.5);                           // -1..1
+
+      // 2D wave surface — traveling wave with a second, slower harmonic.
+      float phase  = u * uFreqX * 3.14159 + z * uFreqZ + uTime * uSpeed;
+      float phase2 = u * uFreqX * 1.35 * 3.14159 - z * uFreqZ * 0.7 + uTime * uSpeed * 0.55;
+      float yWave = uAmpX * (sin(phase) + 0.35 * sin(phase2));
+
+      // Concave ↔ convex breathing.
+      yWave *= 1.0 + uBreatheAmp * sin(uTime * uBreatheFreq);
+
+      // Apply Y offset in world-space so the mesh can be lifted relative
+      // to the headline without rebuilding geometry.
+      float y = yWave + uYoff;
+
+      vec4 mvPosition = modelViewMatrix * vec4(x, y, z, 1.0);
+      gl_Position = projectionMatrix * mvPosition;
+
+      vRamp = (u + 1.0) * 0.5;
+      vDepth = z;
+    }
+  `;
+
+  const FRAG = /* glsl */ `
+    precision highp float;
+    uniform vec3 uC0; uniform vec3 uC1; uniform vec3 uC2; uniform vec3 uC3;
+    uniform float uAlpha;
+    uniform float uSpread;
+    varying float vRamp;
+    varying float vDepth;
+
+    vec3 ramp4(vec3 c0, vec3 c1, vec3 c2, vec3 c3, float t) {
+      float s = t * 3.0;
+      if (s < 1.0) return mix(c0, c1, s);
+      if (s < 2.0) return mix(c1, c2, s - 1.0);
+      return mix(c2, c3, clamp(s - 2.0, 0.0, 1.0));
+    }
+
+    void main() {
+      // Fade at screen-space edges of the colour ramp so the wireframe
+      // tails off gracefully rather than hard-cutting.
+      float edge = smoothstep(0.0, 0.12, vRamp) * smoothstep(1.0, 0.88, vRamp);
+      // Dim fibers toward the back of the mesh (far from camera).
+      float depth = 1.0 - clamp((vDepth + uSpread * 0.5) / uSpread, 0.0, 1.0) * 0.55;
+      vec3 c = ramp4(uC0, uC1, uC2, uC3, vRamp);
+      gl_FragColor = vec4(c, uAlpha * edge * depth);
+    }
+  `;
+
+  /* ---- Geometry: LineSegments (one GPU line per fiber) --------------- */
+  function buildLineGeometry(fiberCount, points, width) {
+    // Each fiber has (points-1) segments → 2*(points-1) vertex refs per fiber.
+    // We'll store each segment's 2 endpoints directly (non-indexed) so the
+    // gl.LINES draw call reads straight through.
+    const segPerFiber = points - 1;
+    const vertCount = fiberCount * segPerFiber * 2;
+    const positions = new Float32Array(vertCount * 3);
+    const aFiber    = new Float32Array(vertCount);
+
+    let w = 0;
+    for (let f = 0; f < fiberCount; f += 1) {
+      for (let i = 0; i < segPerFiber; i += 1) {
+        const x0 = -width * 0.5 + (width * i)       / (points - 1);
+        const x1 = -width * 0.5 + (width * (i + 1)) / (points - 1);
+        positions[w * 3]     = x0; aFiber[w] = f; w += 1;
+        positions[w * 3]     = x1; aFiber[w] = f; w += 1;
+      }
+    }
+
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    g.setAttribute('aFiber',   new THREE.BufferAttribute(aFiber, 1));
+    return g;
+  }
+
+  /* ---- Three.js setup ------------------------------------------------ */
+  const canvas = document.getElementById('landing-wave');
+  const renderer = new THREE.WebGLRenderer({
+    canvas, alpha: true, antialias: true, premultipliedAlpha: false,
+    powerPreference: 'high-performance',
+  });
+  renderer.setClearColor(0x000000, 0);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+  const scene = new THREE.Scene();
+
+  const camera = new THREE.PerspectiveCamera(state.fov, 1.7778, 0.1, 100);
+  function placeCamera() {
+    camera.fov = state.fov;
+    camera.position.set(
+      0,
+      Math.sin(state.tilt) * state.camz,
+      Math.cos(state.tilt) * state.camz
+    );
+    camera.lookAt(0, 0, 0);
+    camera.updateProjectionMatrix();
+  }
+  placeCamera();
+
+  const material = new THREE.ShaderMaterial({
+    uniforms: {
+      uTime:        { value: 0 },
+      uWidth:       { value: WIDTH },
+      uFiberCount:  { value: state.fibers },
+      uSpread:      { value: state.spread },
+      uAmpX:        { value: state.ampx },
+      uFreqX:       { value: state.freqx },
+      uFreqZ:       { value: state.freqz },
+      uSpeed:       { value: state.speed },
+      uBreatheAmp:  { value: state.breathe },
+      uBreatheFreq: { value: state.bfreq },
+      uYoff:        { value: state.yoff },
+      uC0: { value: new THREE.Color(preset.stops[0]) },
+      uC1: { value: new THREE.Color(preset.stops[1]) },
+      uC2: { value: new THREE.Color(preset.stops[2]) },
+      uC3: { value: new THREE.Color(preset.stops[3]) },
+      uAlpha: { value: preset.alpha * state.alpha },
+    },
+    vertexShader: VERT,
+    fragmentShader: FRAG,
+    transparent: true,
+    blending: THREE.AdditiveBlending,
+    depthWrite: false,
+    depthTest: false,
+  });
+
+  let geometry = buildLineGeometry(state.fibers, POINTS, WIDTH);
+  const mesh = new THREE.LineSegments(geometry, material);
+  scene.add(mesh);
+
+  function rebuildGeometry() {
+    geometry.dispose();
+    geometry = buildLineGeometry(state.fibers, POINTS, WIDTH);
+    mesh.geometry = geometry;
+    material.uniforms.uFiberCount.value = state.fibers;
+    material.uniforms.uSpread.value = state.spread;
+  }
+
+  function applyPaletteToUniforms() {
+    preset = resolvePreset();
+    material.uniforms.uC0.value.set(preset.stops[0]);
+    material.uniforms.uC1.value.set(preset.stops[1]);
+    material.uniforms.uC2.value.set(preset.stops[2]);
+    material.uniforms.uC3.value.set(preset.stops[3]);
+    material.uniforms.uAlpha.value = preset.alpha * state.alpha;
+  }
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const width = Math.max(1, Math.round(rect.width));
+    const height = Math.max(1, Math.round(rect.height));
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    renderer.setSize(width, height, false);
+  }
+  new ResizeObserver(resize).observe(canvas);
+  resize();
+
+  /* ---- Bind knobs ---------------------------------------------------- */
+  const UNIFORM_KEY = {
+    ampx: 'uAmpX', freqx: 'uFreqX', freqz: 'uFreqZ',
+    speed: 'uSpeed', breathe: 'uBreatheAmp', bfreq: 'uBreatheFreq',
+    yoff: 'uYoff',
+  };
+  function syncKnob(key) {
+    const slider = document.getElementById('k-' + key);
+    const readout = document.getElementById('v-' + key);
+    if (!slider || !readout) return;
+    slider.value = String(state[key]);
+    readout.textContent = (typeof state[key] === 'number' && key !== 'fibers')
+      ? Number(state[key]).toFixed(2)
+      : String(state[key]);
+  }
+  function onSlider(key, raw) {
+    const val = parseFloat(raw);
+    if (!Number.isFinite(val)) return;
+    state[key] = key === 'fibers' ? Math.round(val) : val;
+
+    if (UNIFORM_KEY[key]) {
+      material.uniforms[UNIFORM_KEY[key]].value = state[key];
+    } else if (key === 'alpha') {
+      material.uniforms.uAlpha.value = preset.alpha * state.alpha;
+    } else if (key === 'spread') {
+      // spread is baked into strand z inside the shader via uSpread.
+      material.uniforms.uSpread.value = state.spread;
+    } else if (key === 'fibers') {
+      rebuildGeometry();
+    } else if (key === 'tilt' || key === 'camz' || key === 'fov') {
+      placeCamera();
+    }
+    syncKnob(key);
+  }
+  for (const key of ['ampx','freqx','freqz','speed','breathe','bfreq',
+                     'tilt','fov','camz','yoff','fibers','spread','alpha']) {
+    const slider = document.getElementById('k-' + key);
+    if (!slider) continue;
+    slider.addEventListener('input', (e) => onSlider(key, e.target.value));
+    syncKnob(key);
+  }
+
+  /* palette + theme pills */
+  function refreshPills() {
+    document.querySelectorAll('#palette-pills button').forEach((b) => {
+      b.classList.toggle('active', b.dataset.palette === state.palette);
+    });
+    document.querySelectorAll('#theme-pills button').forEach((b) => {
+      b.classList.toggle('active', b.dataset.theme === state.theme);
+    });
+  }
+  document.querySelectorAll('#palette-pills button').forEach((b) => {
+    b.addEventListener('click', () => {
+      state.palette = b.dataset.palette;
+      applyPaletteToUniforms();
+      refreshPills();
+    });
+  });
+  document.querySelectorAll('#theme-pills button').forEach((b) => {
+    b.addEventListener('click', () => {
+      state.theme = b.dataset.theme;
+      document.documentElement.setAttribute('data-theme', state.theme);
+      applyPaletteToUniforms();
+      refreshPills();
+    });
+  });
+  refreshPills();
+
+  /* reset + copy URL */
+  document.getElementById('btn-reset').addEventListener('click', () => {
+    Object.assign(state, DEFAULTS);
+    document.documentElement.setAttribute('data-theme', state.theme);
+    applyPaletteToUniforms();
+    rebuildGeometry();
+    placeCamera();
+    for (const key of Object.keys(UNIFORM_KEY)) {
+      material.uniforms[UNIFORM_KEY[key]].value = state[key];
+    }
+    for (const key of ['ampx','freqx','freqz','speed','breathe','bfreq',
+                       'tilt','fov','camz','yoff','fibers','spread','alpha']) {
+      syncKnob(key);
+    }
+    refreshPills();
+  });
+  document.getElementById('btn-copy-url').addEventListener('click', async (e) => {
+    const p = new URLSearchParams();
+    if (state.palette !== DEFAULTS.palette) p.set('wave', state.palette);
+    if (state.theme !== DEFAULTS.theme) p.set('theme', state.theme);
+    for (const key of ['ampx','freqx','freqz','speed','breathe','bfreq',
+                       'tilt','fov','camz','yoff','fibers','spread','alpha']) {
+      if (state[key] !== DEFAULTS[key]) p.set(key, String(state[key]));
+    }
+    const url = location.origin + location.pathname + (p.toString() ? '?' + p.toString() : '');
+    try {
+      await navigator.clipboard.writeText(url);
+      e.target.textContent = 'copied ✓';
+      setTimeout(() => (e.target.textContent = 'copy URL'), 1200);
+    } catch (_) {
+      history.replaceState(null, '', url);
+      e.target.textContent = 'in URL bar';
+      setTimeout(() => (e.target.textContent = 'copy URL'), 1400);
+    }
+  });
+
+  /* ---- Render loop --------------------------------------------------- */
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const start = performance.now();
+  function frame(now) {
+    material.uniforms.uTime.value = reduced ? 14 : (now - start) * 0.001 + 14;
+    renderer.render(scene, camera);
+    if (!reduced) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  canvas.parentElement?.classList.add('landing-wave--mounted');
+</script>
+</body>
+</html>

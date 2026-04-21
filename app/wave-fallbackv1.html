@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mint">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Landing wave — fallbackv1 (2026-04-21)</title>
+<!--
+  Frozen snapshot of the first landing-hero ribbon iteration (2026-04-21).
+  Rejected as the live landing but preserved for reference. All engine +
+  shader + palette code is INLINED below so this file's behaviour won't
+  drift if shared/landing-wave.js changes later.
+
+  Try:
+    /app/wave-fallbackv1.html                       → emersus palette (default)
+    /app/wave-fallbackv1.html?wave=warm             → warm palette
+    /app/wave-fallbackv1.html?wave=warm&theme=paper → warm on paper theme
+    /app/wave-fallbackv1.html?theme=paper           → emersus on paper theme
+
+  See docs/superpowers/specs/2026-04-21-landing-wave-hero-design.md.
+-->
+<style>
+  :root[data-theme="mint"] {
+    --bg: #0a0a0b;
+    --ink: #ededee;
+    --muted: #8a8a8f;
+    --accent: #34d399;
+    --accent-glow: rgba(52,211,153,0.10);
+    --accent-glow-2: rgba(52,211,153,0.05);
+  }
+  :root[data-theme="paper"] {
+    --bg: #f4efe5;
+    --ink: #1a1813;
+    --muted: #5e564a;
+    --accent: #3b82f6;
+    --accent-glow: rgba(59,130,246,0.11);
+    --accent-glow-2: rgba(59,130,246,0.05);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--ink);
+    font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+    font-weight: 450;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden; max-width: 100vw;
+  }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 32px; border-bottom: 1px solid rgba(255,255,255,0.08);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px; color: var(--muted); letter-spacing: 0.04em;
+  }
+  .topbar .swap a {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid rgba(52,211,153,0.22); border-radius: 999px;
+    margin-left: 6px;
+  }
+  .topbar .swap a.active { background: rgba(52,211,153,0.12); }
+
+  .hero-shell {
+    position: relative; width: 100%; isolation: isolate;
+  }
+  .hero-bg {
+    position: absolute; inset: 0; z-index: 0;
+    pointer-events: none; overflow: hidden;
+  }
+  .hero-bg-canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    display: block; opacity: 0; transition: opacity .8s ease;
+  }
+  .landing-wave--mounted .hero-bg-canvas { opacity: 1; }
+  .hero-bg-fallback {
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(880px 360px at 74% 38%, var(--accent-glow) 0%, transparent 72%),
+      radial-gradient(620px 280px at 28% 66%, var(--accent-glow-2) 0%, transparent 72%);
+    opacity: 1; transition: opacity .8s ease;
+  }
+  .landing-wave--mounted .hero-bg-fallback { opacity: 0; }
+  .hero-bg::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0) 10%, rgba(0,0,0,0) 85%, var(--bg) 100%),
+      linear-gradient(90deg, var(--bg) 0%, rgba(0,0,0,0) 6%, rgba(0,0,0,0) 94%, var(--bg) 100%);
+  }
+
+  .hero {
+    max-width: 1040px; margin: 0 auto;
+    padding: 96px 32px 40px; text-align: center;
+    position: relative; z-index: 1;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 24px;
+  }
+  .eyebrow .dot {
+    display: inline-block; width: 5px; height: 5px; border-radius: 50%;
+    background: var(--accent); margin-right: 10px; vertical-align: middle;
+    box-shadow: 0 0 12px var(--accent);
+  }
+  h1.headline {
+    font-size: clamp(42px, 6.2vw, 78px); font-weight: 500;
+    letter-spacing: -0.025em; line-height: 1.04;
+    margin: 0 0 24px; padding-bottom: 0.14em;
+    background: linear-gradient(180deg, #ffffff 0%, #b4b4b8 100%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  :root[data-theme="paper"] h1.headline {
+    background: linear-gradient(180deg, #1a1813 0%, #4a4538 100%);
+    -webkit-background-clip: text; background-clip: text;
+  }
+  .subhead {
+    font-size: 18px; color: var(--muted);
+    max-width: 620px; margin: 0 auto 32px; line-height: 1.55;
+  }
+  .btn {
+    display: inline-block; padding: 12px 22px;
+    background: var(--accent); color: var(--bg);
+    border-radius: 8px; font-weight: 500; text-decoration: none;
+  }
+  .hero-meta {
+    margin-top: 48px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; color: var(--muted); letter-spacing: 0.16em;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>emersus · wave-fallbackv1 · 2026-04-21</div>
+  <div class="swap">
+    palette
+    <a href="?wave=emersus" id="swap-emersus">emersus</a>
+    <a href="?wave=warm" id="swap-warm">warm</a>
+    &nbsp;·&nbsp; theme
+    <a href="?theme=mint" id="swap-mint">mint</a>
+    <a href="?theme=paper" id="swap-paper">paper</a>
+  </div>
+</div>
+
+<main>
+  <div class="hero-shell">
+    <div class="hero-bg" aria-hidden="true">
+      <canvas id="landing-wave" class="hero-bg-canvas"></canvas>
+      <div class="hero-bg-fallback"></div>
+    </div>
+    <section class="hero">
+      <div class="eyebrow"><span class="dot"></span>Evidence-Based Fitness Intelligence</div>
+      <h1 class="headline">Your body deserves better<br>than guesswork.</h1>
+      <p class="subhead">Every answer cited. Every protocol backed by peer-reviewed research. No influencer takes, no bro science — the actual evidence.</p>
+      <a class="btn" href="#">Sign up →</a>
+      <div class="hero-meta">1,041,448 PAPERS INDEXED · UPDATED DAILY</div>
+    </section>
+  </div>
+</main>
+
+<script type="module">
+  import * as THREE from 'https://esm.sh/three@0.161.0';
+
+  // Theme toggle from URL query, so the snapshot is self-contained.
+  const params = new URLSearchParams(location.search);
+  const themeQ = params.get('theme');
+  if (themeQ === 'mint' || themeQ === 'paper') {
+    document.documentElement.setAttribute('data-theme', themeQ);
+  }
+
+  // Palette presets (INLINED — do not factor out; this file is a frozen snapshot).
+  const PALETTES = {
+    emersus: {
+      mint:  { a: ['#bff6e4', '#34d399', '#0ea5b7'], b: ['#a5c8ff', '#3b82f6', '#4338ca'],
+               alphaA: 0.58, alphaB: 0.52, edgeIn: 0.11, edgeOut: 0.89, blend: 'additive' },
+      paper: { a: ['#5ca37a', '#2f8a6a', '#0a7996'], b: ['#4a72c8', '#2b5ad0', '#2c3ea8'],
+               alphaA: 0.30, alphaB: 0.26, edgeIn: 0.13, edgeOut: 0.87, blend: 'normal' },
+    },
+    warm: {
+      mint:  { a: ['#ffd4c4', '#ff6fa2', '#c084fc'], b: ['#a855f7', '#7c3aed', '#5b63f6'],
+               alphaA: 0.62, alphaB: 0.56, edgeIn: 0.11, edgeOut: 0.89, blend: 'additive' },
+      paper: { a: ['#c45b78', '#a43a79', '#7a40c0'], b: ['#7b3cc8', '#5b2ab0', '#3d3fb8'],
+               alphaA: 0.28, alphaB: 0.24, edgeIn: 0.13, edgeOut: 0.87, blend: 'normal' },
+    },
+  };
+
+  const WIDTH = 15.2, STRANDS = 62, POINTS = 260;
+
+  // Highlight active palette + theme pills.
+  const family = (PALETTES[params.get('wave')] ? params.get('wave') : 'emersus');
+  document.getElementById('swap-' + family)?.classList.add('active');
+  document.getElementById('swap-' + (document.documentElement.getAttribute('data-theme') || 'mint'))?.classList.add('active');
+
+  const theme = document.documentElement.getAttribute('data-theme') === 'paper' ? 'paper' : 'mint';
+  const preset = PALETTES[family][theme];
+
+  const VERT = /* glsl */ `
+    precision highp float;
+    attribute float aStrand; attribute float aSide; attribute float aBundle;
+    uniform float uTime; uniform float uWidth; uniform float uAspect; uniform float uStrandCount;
+    varying float vX; varying float vBundle; varying float vStrand;
+    float bundleA(float x, float t) {
+      return -0.70 + sin((x + 4.4) * 0.32 + t * 0.17) * 0.40
+                   + sin((x - 0.8) * 0.12 - t * 0.10) * 0.24 - x * 0.014;
+    }
+    float bundleB(float x, float t) {
+      return -0.22 + x * 0.205
+                   + sin((x + 1.6) * 0.24 + t * 0.12) * 0.76
+                   + sin((x - 2.2) * 0.08 - t * 0.07) * 0.32;
+    }
+    void main() {
+      float x = position.x;
+      float strand = aStrand / max(uStrandCount - 1.0, 1.0);
+      float phi = strand - 0.5;
+      float drift = sin(uTime * 0.09 + strand * 5.7 + aBundle * 1.8) * 0.045;
+      float thickness = 0.0062;
+      float edge = aSide < 0.5 ? -1.0 : 1.0;
+      float y;
+      if (aBundle < 0.5) {
+        float fan = 0.86 + sin((x + 1.2) * 0.18 - uTime * 0.05) * 0.12;
+        y = bundleA(x, uTime) + phi * fan + drift;
+      } else {
+        float fan = 1.34 + sin((x - 0.7) * 0.17 + uTime * 0.07) * 0.18;
+        y = bundleB(x, uTime) + phi * fan + drift;
+      }
+      y += edge * thickness;
+      vec2 p = vec2(x / (uWidth * 0.5), y / 2.25 + 0.18);
+      p.x /= max(1.0, 1.0 / uAspect);
+      gl_Position = vec4(p, 0.0, 1.0);
+      vX = x; vBundle = aBundle; vStrand = strand;
+    }
+  `;
+  const FRAG = /* glsl */ `
+    precision highp float;
+    uniform float uWidth;
+    uniform vec3  uA0; uniform vec3 uA1; uniform vec3 uA2;
+    uniform vec3  uB0; uniform vec3 uB1; uniform vec3 uB2;
+    uniform float uAlphaA; uniform float uAlphaB;
+    uniform float uEdgeIn; uniform float uEdgeOut;
+    varying float vX; varying float vBundle; varying float vStrand;
+    vec3 ramp3(vec3 a, vec3 b, vec3 c, float t) {
+      return t < 0.5 ? mix(a, b, t * 2.0) : mix(b, c, (t - 0.5) * 2.0);
+    }
+    void main() {
+      float t = clamp((vX + uWidth * 0.5) / uWidth, 0.0, 1.0);
+      float edgeFade = smoothstep(0.005, uEdgeIn, t) * smoothstep(0.995, uEdgeOut, t);
+      float strandFade = 0.72 + smoothstep(0.02, 0.42, abs(vStrand - 0.5)) * 0.28;
+      vec3 colour; float alpha;
+      if (vBundle < 0.5) { colour = ramp3(uA0, uA1, uA2, t); alpha = uAlphaA; }
+      else              { colour = ramp3(uB0, uB1, uB2, t); alpha = uAlphaB; }
+      gl_FragColor = vec4(colour, alpha * edgeFade * strandFade);
+    }
+  `;
+
+  function makeStrand(strand, bundle) {
+    const positions = new Float32Array(POINTS * 2 * 3);
+    const aStrand = new Float32Array(POINTS * 2);
+    const aSide = new Float32Array(POINTS * 2);
+    const aBundle = new Float32Array(POINTS * 2);
+    const indices = new Uint32Array((POINTS - 1) * 6);
+    for (let i = 0; i < POINTS; i += 1) {
+      const x = -WIDTH * 0.5 + (WIDTH * i) / (POINTS - 1);
+      for (let side = 0; side < 2; side += 1) {
+        const v = i * 2 + side;
+        positions[v * 3] = x;
+        aStrand[v] = strand; aSide[v] = side; aBundle[v] = bundle;
+      }
+    }
+    for (let i = 0; i < POINTS - 1; i += 1) {
+      const v = i * 2, o = i * 6;
+      indices[o]=v; indices[o+1]=v+1; indices[o+2]=v+2;
+      indices[o+3]=v+1; indices[o+4]=v+3; indices[o+5]=v+2;
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    g.setAttribute('aStrand', new THREE.BufferAttribute(aStrand, 1));
+    g.setAttribute('aSide',   new THREE.BufferAttribute(aSide, 1));
+    g.setAttribute('aBundle', new THREE.BufferAttribute(aBundle, 1));
+    g.setIndex(new THREE.BufferAttribute(indices, 1));
+    return g;
+  }
+
+  const canvas = document.getElementById('landing-wave');
+  const renderer = new THREE.WebGLRenderer({
+    canvas, alpha: true, antialias: true, premultipliedAlpha: false,
+    powerPreference: 'high-performance',
+  });
+  renderer.setClearColor(0x000000, 0);
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0.1, 10);
+  camera.position.z = 4;
+
+  const material = new THREE.ShaderMaterial({
+    uniforms: {
+      uTime: { value: 0 }, uWidth: { value: WIDTH }, uAspect: { value: 1 },
+      uStrandCount: { value: STRANDS },
+      uA0: { value: new THREE.Color(preset.a[0]) }, uA1: { value: new THREE.Color(preset.a[1]) }, uA2: { value: new THREE.Color(preset.a[2]) },
+      uB0: { value: new THREE.Color(preset.b[0]) }, uB1: { value: new THREE.Color(preset.b[1]) }, uB2: { value: new THREE.Color(preset.b[2]) },
+      uAlphaA: { value: preset.alphaA }, uAlphaB: { value: preset.alphaB },
+      uEdgeIn: { value: preset.edgeIn }, uEdgeOut: { value: preset.edgeOut },
+    },
+    vertexShader: VERT, fragmentShader: FRAG,
+    transparent: true,
+    blending: preset.blend === 'additive' ? THREE.AdditiveBlending : THREE.NormalBlending,
+    depthWrite: false, depthTest: false, side: THREE.DoubleSide,
+  });
+
+  for (let bundle = 0; bundle < 2; bundle += 1) {
+    for (let strand = 0; strand < STRANDS; strand += 1) {
+      scene.add(new THREE.Mesh(makeStrand(strand, bundle), material));
+    }
+  }
+
+  function resize() {
+    const rect = canvas.getBoundingClientRect();
+    const width = Math.max(1, Math.round(rect.width));
+    const height = Math.max(1, Math.round(rect.height));
+    material.uniforms.uAspect.value = width / height;
+    renderer.setSize(width, height, false);
+  }
+  new ResizeObserver(resize).observe(canvas);
+  resize();
+
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const start = performance.now();
+  function frame(now) {
+    material.uniforms.uTime.value = reduced ? 14 : (now - start) * 0.001 + 14;
+    renderer.render(scene, camera);
+    if (!reduced) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+  canvas.parentElement?.classList.add('landing-wave--mounted');
+</script>
+</body>
+</html>

@@ -199,15 +199,21 @@
   </div>
 
   <main>
-    <section class="hero">
-      <div class="eyebrow"><span class="dot"></span>Evidence-Based Fitness Intelligence</div>
-      <h1 class="headline">Your body deserves better<br>than <span class="rotator" data-words='["guesswork.","influencer takes.","bro science."]' aria-label="guesswork, influencer takes, bro science"><span class="rot-text">guesswork.</span></span></h1>
-      <p class="subhead">Every answer cited. Every protocol backed by peer-reviewed research. No influencer takes, no bro science — the actual evidence.</p>
-      <div class="hero-actions">
-        <a class="btn btn-accent" href="/auth/?panel=signup">Sign up →</a>
+    <div class="hero-shell">
+      <div class="hero-bg" aria-hidden="true">
+        <canvas id="landing-wave" class="hero-bg-canvas"></canvas>
+        <div class="hero-bg-fallback"></div>
       </div>
-      <div class="hero-meta">1,041,448 PAPERS INDEXED · UPDATED DAILY</div>
-    </section>
+      <section class="hero">
+        <div class="eyebrow"><span class="dot"></span>Evidence-Based Fitness Intelligence</div>
+        <h1 class="headline">Your body deserves better<br>than <span class="rotator" data-words='["guesswork.","influencer takes.","bro science."]' aria-label="guesswork, influencer takes, bro science"><span class="rot-text">guesswork.</span></span></h1>
+        <p class="subhead">Every answer cited. Every protocol backed by peer-reviewed research. No influencer takes, no bro science — the actual evidence.</p>
+        <div class="hero-actions">
+          <a class="btn btn-accent" href="/auth/?panel=signup">Sign up →</a>
+        </div>
+        <div class="hero-meta">1,041,448 PAPERS INDEXED · UPDATED DAILY</div>
+      </section>
+    </div>
 
     <section class="demo-wrap" id="demo">
       <div class="demo-frame">
@@ -1088,6 +1094,12 @@
       els.forEach((el) => obs.observe(el));
     })();
 
+  </script>
+
+  <script type="module">
+    import { initLandingWave } from '/shared/landing-wave.js';
+    const canvas = document.getElementById('landing-wave');
+    if (canvas) initLandingWave({ canvas });
   </script>
 </body>
 </html>
