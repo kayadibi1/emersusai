@@ -15,6 +15,7 @@ import { fetchWithTimeoutAndUA } from "./_http.js";
 import { createLimiter } from "./_ratelimit.js";
 import { registerIngestion, registerDiscovery } from "./_registry.js";
 import { parseQueryIntoGroups, matchesQueryGroups } from "./_query-match.js";
+import { SourceTransientError } from "./_errors.js";
 
 const BASE_URL = "https://api.osf.io/v2/preprints/";
 const PAGE_SIZE = 100;
@@ -89,7 +90,18 @@ export const psyarxiv = {
     let pagesFetched = 0;
 
     while (url && yielded < target && pagesFetched < MAX_PAGES) {
-      const { items, nextUrl } = await fetchPage(url);
+      let pageData;
+      try {
+        pageData = await fetchPage(url);
+      } catch (err) {
+        // OSF API throws 502s + timeouts on individual pages under load.
+        // One bad page shouldn't kill iteration — bail out of THIS source
+        // run cleanly so the handler returns normally with whatever was
+        // already inserted, instead of throwing and burning retries.
+        if (err instanceof SourceTransientError) return;
+        throw err;
+      }
+      const { items, nextUrl } = pageData;
       pagesFetched += 1;
       if (items.length === 0) break;
 
