@@ -76,6 +76,78 @@ describe("buildRequestBody", () => {
     });
     assert.equal(body.store, true);
   });
+
+  it("with chaining enabled sends previous_response_id and trims messages to system + latest user turn", () => {
+    const messages = [
+      { role: "system", content: "sys1" },
+      { role: "system", content: "sys2" },
+      { role: "user", content: "old user" },
+      { role: "assistant", content: "old reply" },
+      { role: "user", content: "NEW user turn" },
+    ];
+    const body = buildRequestBody({
+      model: "gpt-5.4-mini",
+      messages,
+      tools: [],
+      chainingContext: { shouldChain: true, previousResponseId: "resp_123", reason: "ok" },
+    });
+
+    assert.equal(body.previous_response_id, "resp_123");
+    assert.equal(body.input.length, 3);
+    assert.equal(body.input[0].role, "system");
+    assert.equal(body.input[0].content, "sys1");
+    assert.equal(body.input[1].role, "system");
+    assert.equal(body.input[2].role, "user");
+    assert.equal(body.input[2].content, "NEW user turn");
+    assert.ok(!body.input.some((m) => m.content === "old user"), "stale user turn dropped");
+    assert.ok(!body.input.some((m) => m.role === "assistant"), "assistant turns dropped");
+    assert.equal(messages.length, 5, "caller's messages array must not be mutated");
+  });
+
+  it("without chainingContext preserves full messages and no previous_response_id", () => {
+    const body = buildRequestBody({
+      model: "gpt-5.4-mini",
+      messages: [
+        { role: "system", content: "sys" },
+        { role: "user", content: "u1" },
+        { role: "assistant", content: "a1" },
+        { role: "user", content: "u2" },
+      ],
+      tools: [],
+    });
+
+    assert.ok(!("previous_response_id" in body), "should not set previous_response_id");
+    assert.equal(body.input.length, 4);
+  });
+
+  it("with chainingContext.shouldChain=false ignores chaining", () => {
+    const body = buildRequestBody({
+      model: "gpt-5.4-mini",
+      messages: [
+        { role: "system", content: "sys" },
+        { role: "user", content: "u1" },
+      ],
+      tools: [],
+      chainingContext: { shouldChain: false, reason: "flag_disabled" },
+    });
+
+    assert.ok(!("previous_response_id" in body));
+    assert.equal(body.input.length, 2);
+  });
+
+  it("with chainingContext but no user message falls through to full history", () => {
+    // Defensive: shouldn't happen in practice but shouldn't crash.
+    const body = buildRequestBody({
+      model: "gpt-5.4-mini",
+      messages: [{ role: "system", content: "sys" }],
+      tools: [],
+      chainingContext: { shouldChain: true, previousResponseId: "resp_x", reason: "ok" },
+    });
+
+    // No user message → don't trim, don't add previous_response_id
+    assert.ok(!("previous_response_id" in body));
+    assert.equal(body.input.length, 1);
+  });
 });
 
 describe("fetchWithRetry", () => {

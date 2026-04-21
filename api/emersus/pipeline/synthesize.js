@@ -33,7 +33,7 @@ export function resolveMaxOutputTokens(kind = "synthesis") {
 // "auto" (default). Tool descriptions carry strong trigger phrases so the
 // model knows when to call each tool. See tools.js descriptions.
 
-export function buildRequestBody({ messages, tools, model, toolChoice, metadata, kind = "synthesis" }) {
+export function buildRequestBody({ messages, tools, model, toolChoice, metadata, kind = "synthesis", chainingContext = null }) {
   const body = {
     model,
     stream: true,
@@ -63,6 +63,26 @@ export function buildRequestBody({ messages, tools, model, toolChoice, metadata,
   }
   if (metadata && Object.keys(metadata).length > 0) {
     body.metadata = metadata;
+  }
+  // Response chaining: when chainingContext signals a viable previous turn,
+  // drop the prior conversation from `input` (OpenAI already has it via
+  // previous_response_id) and keep only system prompts + the newest user
+  // turn. Trimming + previous_response_id are a linked pair — do ONE if and
+  // only if we can do BOTH (defensive: a pathological no-user-message case
+  // falls through to full history rather than sending an empty chained turn).
+  if (chainingContext?.shouldChain && chainingContext.previousResponseId) {
+    const systemPrompts = (Array.isArray(body.input) ? body.input : []).filter(
+      (m) => m.role === "system"
+    );
+    let lastUserIdx = -1;
+    for (let i = body.input.length - 1; i >= 0; i--) {
+      if (body.input[i].role === "user") { lastUserIdx = i; break; }
+    }
+    if (lastUserIdx >= 0) {
+      body.input = [...systemPrompts, body.input[lastUserIdx]];
+      body.previous_response_id = chainingContext.previousResponseId;
+    }
+    // Else: no user message — unusual; leave body unchanged (full-history fallback).
   }
   return body;
 }
