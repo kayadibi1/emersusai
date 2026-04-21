@@ -37,15 +37,97 @@ function buildPlan(question, profile) {
   };
 }
 
+// ── Moderation precheck ──────────────────────────────────────────────────────
+//
+// OpenAI /v1/moderations acts as the first safety gate ahead of the regex
+// guards. Cost is negligible (~$0.00002/call) and the response is cached by
+// SHA-256 of the user input for 1 hour so repeat questions skip the round
+// trip. On API failure (network, 5xx, timeout) we fall through to the
+// regex-based classifier rather than hard-fail the turn.
+
+const MODERATION_CACHE = new Map(); // sha256(userInput) -> { flagged, expiresAt }
+const MODERATION_TTL_MS = 60 * 60 * 1000; // 1 hour
+const MODERATION_MODEL = "omni-moderation-latest";
+const MODERATION_ENDPOINT = "https://api.openai.com/v1/moderations";
+
+function hashInput(input) {
+  return createHash("sha256").update(String(input || "")).digest("hex");
+}
+
+async function runModerationCheck(userInput, fetchImpl) {
+  const key = hashInput(userInput);
+  const cached = MODERATION_CACHE.get(key);
+  if (cached && cached.expiresAt > Date.now()) {
+    return cached;
+  }
+
+  const impl = fetchImpl || globalThis.fetch;
+  const raw = await impl(MODERATION_ENDPOINT, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${process.env.OPENAI_API_KEY || ""}`,
+    },
+    body: JSON.stringify({ model: MODERATION_MODEL, input: userInput }),
+  });
+
+  // Real fetch returns a Response (with .json()); test mocks may return
+  // the parsed payload directly. Support both.
+  const data =
+    raw && typeof raw.json === "function" ? await raw.json() : raw;
+
+  const r0 = Array.isArray(data?.results) ? data.results[0] : null;
+  const flagged = r0?.flagged === true;
+  const entry = { flagged, expiresAt: Date.now() + MODERATION_TTL_MS };
+  MODERATION_CACHE.set(key, entry);
+  return entry;
+}
+
+// Exported for tests — never call from production code.
+function _resetModerationCacheForTests() {
+  MODERATION_CACHE.clear();
+}
+
 // ── classifySafety ───────────────────────────────────────────────────────────
 
-function classifySafety({ question, profile, threadState, recentMessages }) {
-  const questionOnly = normalizeText(question, 800).toLowerCase();
+async function classifySafety({
+  question,
+  userInput,
+  profile,
+  threadState,
+  recentMessages,
+  moderationEnabled = true,
+  _moderationFetch,
+} = {}) {
+  // Accept either legacy `question` or plan-spec `userInput`.
+  const inputText = question ?? userInput ?? "";
+
+  // ── 0. OpenAI moderation precheck (first gate) ──────────────────────────
+  if (moderationEnabled && inputText) {
+    try {
+      const { flagged } = await runModerationCheck(inputText, _moderationFetch);
+      if (flagged) {
+        return {
+          ...hardRefusal("moderation_flagged"),
+          refused: true,
+          source: "moderation",
+        };
+      }
+    } catch (err) {
+      console.warn(
+        "[safety] moderation API unavailable; falling through to regex guards",
+        err
+      );
+      // Fall through to regex classifier below.
+    }
+  }
+
+  const questionOnly = normalizeText(inputText, 800).toLowerCase();
 
   // Concatenated text for prompt-injection detection (injection can appear
   // in any field, not just the question).
   const allText = [
-    question,
+    inputText,
     profile?.goal,
     profile?.dietary_preferences,
     profile?.injuries_limitations,
@@ -108,7 +190,7 @@ function classifySafety({ question, profile, threadState, recentMessages }) {
 
   for (const pattern of INJECTION_PATTERNS) {
     if (pattern.test(allText)) {
-      return hardRefusal("prompt_injection_or_system_probe");
+      return tagRegex(hardRefusal("prompt_injection_or_system_probe"));
     }
   }
 
@@ -118,7 +200,7 @@ function classifySafety({ question, profile, threadState, recentMessages }) {
     /\b(starve myself|starving myself|how little can i eat|i (need|want) to (purge|throw up|vomit)|laxative (use|abuse|cleanse)|vomit after eating)\b/.test(questionOnly) ||
     (/\b(active )?(bulimi|anorexi)\w*/.test(questionOnly) && /\b(plan|protocol|how to|tips|help me)\b/.test(questionOnly))
   ) {
-    return hardRefusal("self_harm_or_ed_crisis");
+    return tagRegex(hardRefusal("self_harm_or_ed_crisis"));
   }
 
   // ── 3. PED protocol / dosing / sourcing ─────────────────────────────────
@@ -128,15 +210,25 @@ function classifySafety({ question, profile, threadState, recentMessages }) {
     /\b(cycle|stack|protocol|dosing|dosage|inject(ion)?|pin|pct|post[\s-]?cycle|blast|cruise|starter[\s-]?(cycle|kit)|first[\s-]?cycle|beginner[\s-]?cycle)\b[\s\S]{0,40}\b(steroid|tren|test|testosterone|sarms?|ostarine|rad[\s-]?140|lgd[\s-]?4033|mk[\s-]?677|anavar|dianabol|dbol|winstrol|deca|primobolan|halotestin|prohormone|hgh)\b/.test(questionOnly) ||
     /\b(where can i (buy|get|order|find|source)|how (do|can) i (buy|get|order|source)|(buy|order|source) (steroid|tren|test|sarms?|dnp|clen|hgh))\b/.test(questionOnly)
   ) {
-    return hardRefusal("ped_protocol_or_sourcing");
+    return tagRegex(hardRefusal("ped_protocol_or_sourcing"));
   }
 
   // ── Done. Scope enforcement (off-topic, medication, diagnosis) is ───────
   // ── handled by the model via the system prompt hard stops.           ─────
-  return {
+  return tagRegex({
     status: "allowed",
     responseMode: "normal",
     reasons: [],
+  });
+}
+
+// Tag a classifier result with the regex source + a `refused` convenience
+// boolean so downstream telemetry can distinguish moderation from regex.
+function tagRegex(result) {
+  return {
+    ...result,
+    refused: result.status === "hard_refusal",
+    source: "regex",
   };
 }
 
@@ -310,7 +402,7 @@ async function logGuardrailEvent({
 export async function safety(ctx) {
   ctx.plan = buildPlan(ctx.question, ctx.profile);
 
-  const result = classifySafety({
+  const result = await classifySafety({
     question: ctx.question,
     profile: ctx.profile,
     threadState: ctx.threadState,
@@ -346,4 +438,10 @@ export async function safety(ctx) {
 
 // ── Exports ──────────────────────────────────────────────────────────────────
 
-export { classifySafety, buildPlan, buildGuardrailResponse };
+export {
+  classifySafety,
+  buildPlan,
+  buildGuardrailResponse,
+  runModerationCheck,
+  _resetModerationCacheForTests,
+};
