@@ -27,14 +27,14 @@
   --ink: #ededee;
   --muted: #8a8a8f;
   --dim: #55555a;
-  --line: rgba(255,255,255,0.06);
-  --line-strong: rgba(255,255,255,0.10);
+  --line: rgba(255,255,255,0.10);
+  --line-strong: rgba(255,255,255,0.16);
   --grid-line: rgba(255,255,255,0.018);
   --nav-bg: rgba(10,10,11,0.72);
   --switch-bg: rgba(15,15,17,0.92);
   --accent: #34d399;
   --accent-text: #04221a;
-  --accent-soft: rgba(52,211,153,0.10);
+  --accent-soft: rgba(52,211,153,0.14);
   --accent-line: rgba(52,211,153,0.34);
   --accent-glow: rgba(52,211,153,0.10);
   --citation: #8ab4f8;
@@ -82,14 +82,14 @@
   --ink: #1a1813;
   --muted: #5e564a;
   --dim: #8f8676;
-  --line: rgba(26,24,19,0.10);
-  --line-strong: rgba(26,24,19,0.18);
+  --line: rgba(26,24,19,0.14);
+  --line-strong: rgba(26,24,19,0.22);
   --grid-line: rgba(26,24,19,0.035);
   --nav-bg: rgba(244,239,229,0.82);
   --switch-bg: rgba(250,246,237,0.94);
   --accent: #3b82f6;
   --accent-text: #ffffff;
-  --accent-soft: rgba(59,130,246,0.10);
+  --accent-soft: rgba(59,130,246,0.14);
   --accent-line: rgba(59,130,246,0.36);
   --accent-glow: rgba(59,130,246,0.11);
   --citation: #b37214;
@@ -200,6 +200,25 @@ body {
   letter-spacing: -0.005em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* /app pages get a modest bump for readability */
+body.app-body { font-size: 16px; }
+
+/* /app pages: remove the subtle background grid. */
+body.app-body::before { display: none; }
+
+/* /app pages: swap main-content bg with sidebar/topbar bg, per palette.
+ * Mint: #0a0a0b ↔ #131315.  Paper: #f4efe5 ↔ #efeadf. */
+:root[data-theme="mint"] body.app-body {
+  --bg: #131315;
+  --sidebar-bg: #0a0a0b;
+  --topbar-bg: #0a0a0b;
+}
+:root[data-theme="paper"] body.app-body {
+  --bg: #efeadf;
+  --sidebar-bg: #f4efe5;
+  --topbar-bg: #f4efe5;
 }
 
 /* Utility: opt-in monospace */
