@@ -272,7 +272,8 @@ export const EMERSUS_THEME_CSS = `
     justify-content: center;
     gap: 6px;
     padding: 9px 16px;
-    border: 1px solid var(--color-border-secondary);
+    border: 0;
+    box-shadow: inset 0 0 0 1px var(--color-border-secondary);
     border-radius: var(--border-radius-md);
     background: var(--button-bg);
     color: var(--color-text-primary);
@@ -283,10 +284,10 @@ export const EMERSUS_THEME_CSS = `
     text-transform: uppercase;
     letter-spacing: 0.14em;
     cursor: pointer;
-    transition: border-color 140ms ease, background 140ms ease, color 140ms ease, transform 140ms ease;
+    transition: box-shadow 140ms ease, background 140ms ease, color 140ms ease, transform 140ms ease;
   }
   button:hover {
-    border-color: var(--accent-line);
+    box-shadow: inset 0 0 0 1px var(--accent-line);
     background: var(--accent-soft);
     color: var(--accent-secondary);
     transform: translateY(-1px);
@@ -455,6 +456,10 @@ export function WidgetFrame({ code, html, title }) {
       Chart.defaults.borderColor = _border;
       Chart.defaults.font.family = "'Space Grotesk', system-ui, -apple-system, sans-serif";
       Chart.defaults.font.size = 11;
+      // Match the real device pixel ratio so lines + axis labels render at
+      // native resolution on HiDPI (4K, fractional Windows scale). Without
+      // this, Chart.js renders at 1x and the browser upscales → blurry.
+      Chart.defaults.devicePixelRatio = window.devicePixelRatio || 1;
       if (Chart.defaults.scale && Chart.defaults.scale.grid) {
         Chart.defaults.scale.grid.color = _grid;
       }

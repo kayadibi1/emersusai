@@ -331,7 +331,7 @@
 /* Period pill group (Week · Month · 3M · Year) */
 .period-group {
   display: inline-flex;
-  border: 1px solid var(--line);
+  box-shadow: inset 0 0 0 1px var(--line);
   border-radius: 8px;
   overflow: hidden;
   background: var(--surface-faint);
@@ -516,10 +516,12 @@
   padding: 0 12px 0 4px;
 }
 
-/* Pill group (segmented control) */
+/* Pill group (segmented control).
+ * Uses box-shadow inset instead of border to avoid half-device-pixel
+ * anti-aliasing on fractional-DPR displays (Windows 4K @ 125/150/175%). */
 .pill-group {
   display: inline-flex;
-  border: 1px solid var(--line);
+  box-shadow: inset 0 0 0 1px var(--line);
   border-radius: 8px;
   overflow: hidden;
   background: var(--recessed);

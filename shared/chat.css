@@ -687,7 +687,8 @@
 
 .empty-prompt-chip {
   background: var(--surface-faint);
-  border: 1px solid var(--line);
+  box-shadow: inset 0 0 0 1px var(--line);
+  border: 0;
   border-radius: 8px;
   padding: 8px 14px;
   font-family: 'Space Grotesk', system-ui, sans-serif;
@@ -696,11 +697,11 @@
   color: var(--ink);
   cursor: pointer;
   text-align: left;
-  transition: border-color .14s, background .14s, color .14s;
+  transition: box-shadow .14s, background .14s, color .14s;
 }
 .empty-prompt-chip:hover {
   background: var(--accent-soft);
-  border-color: var(--accent);
+  box-shadow: inset 0 0 0 1px var(--accent);
   color: var(--accent);
 }
 
