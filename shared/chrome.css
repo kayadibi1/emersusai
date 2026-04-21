@@ -65,7 +65,7 @@
 .brand {
   font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 24px;
   letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;
@@ -639,7 +639,7 @@
 .app-sidebar-brand {
   font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 24px;
   letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;

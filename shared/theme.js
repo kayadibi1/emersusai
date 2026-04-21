@@ -2,6 +2,10 @@
 // Pure functions (resolveInitialTheme, validateTheme) are unit-tested.
 // DOM effects (applyTheme, bootTheme, bindSwitcher) are thin, tested manually.
 
+// Side-effect: mount the animated brand dots globally. Every page that
+// imports bootTheme (every page) gets the dot animation for free.
+import './brand-dots.js';
+
 export const VALID_THEMES = ['mint', 'paper'];
 const STORAGE_KEY = 'emersus-theme';
 

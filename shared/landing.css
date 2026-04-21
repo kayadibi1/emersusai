@@ -71,7 +71,7 @@ body.landing-body main { position: relative; z-index: 1; }
   justify-self: start;
   font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 17px; letter-spacing: -0.01em;
+  font-size: 25px; letter-spacing: -0.01em;
   color: var(--ink); text-decoration: none;
   line-height: 1;
 }
@@ -745,7 +745,7 @@ h1.headline {
 /* minmax(0, 1fr) on the mark columns disables min-content flooring, so a
  * row with long text ("Training cutoff", "One-size") wraps inside its cell
  * instead of widening the column and shifting every other row's cells. */
-.compare-row { display: grid; grid-template-columns: 2.5fr minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); border-bottom: 1px solid var(--line); }
+.compare-row { display: grid; grid-template-columns: 2.5fr minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr); border-bottom: 1px solid var(--line); align-items: center; }
 .compare-row:last-child { border-bottom: 0; }
 .compare-row.head { background: var(--surface-faint); }
 .compare-cell { padding: 16px 22px; font-size: 13.5px; color: var(--ink); border-right: 1px solid var(--line); text-align: center; }
@@ -799,7 +799,28 @@ h1.headline {
 .faq-item summary::after { content: "+"; font-family: var(--font-mono); color: var(--dim); font-size: 18px; font-weight: 400; flex-shrink: 0; }
 .faq-item[open] summary::after { content: "−"; color: var(--accent); }
 .faq-item[open] { border-color: var(--accent-line); }
-.faq-body { padding: 0 22px 20px; color: var(--muted); font-size: 14px; line-height: 1.6; }
+/* Smooth open/close. Overrides the UA's display:none for closed <details>
+   children by keeping .faq-body rendered with max-height:0 and animating
+   to a safe ceiling on [open]. All answers fit well under 500px. */
+.faq-body {
+  display: block;
+  overflow: hidden;
+  max-height: 0;
+  padding: 0 22px;
+  opacity: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+  transition:
+    max-height .38s cubic-bezier(.4, 0, .2, 1),
+    padding-bottom .38s cubic-bezier(.4, 0, .2, 1),
+    opacity .28s ease .05s;
+}
+.faq-item[open] .faq-body {
+  max-height: 500px;
+  padding-bottom: 20px;
+  opacity: 1;
+}
 
 /* ===== SHARED CARD HOVER GLOW =====
    Parity pass with .bento-card:hover::before — adds the same radial
@@ -849,7 +870,7 @@ h1.headline {
 /* ===== FOOTER ===== */
 .footer-rich { border-top: 1px solid var(--line); padding: 64px 32px 28px; padding-bottom: calc(28px + env(safe-area-inset-bottom)); max-width: 1100px; margin: 0 auto; }
 .footer-top { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; }
-.footer-brand { font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 14px; }
+.footer-brand { font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif; font-size: 27px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 14px; }
 .footer-brand b { color: var(--accent); font-weight: inherit; }
 .footer-tagline { font-size: 13.5px; color: var(--muted); line-height: 1.55; max-width: 320px; margin: 0; }
 .footer-col h5 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim); margin: 0 0 16px; font-weight: 500; }

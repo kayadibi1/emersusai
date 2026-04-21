@@ -94,7 +94,7 @@ button { cursor: pointer; }
   align-items: center;
   font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 17px;
+  font-size: 25px;
   letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;

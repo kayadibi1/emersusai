@@ -349,7 +349,7 @@ body.static-page {
   justify-self: start;
   font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 17px; letter-spacing: -0.01em;
+  font-size: 25px; letter-spacing: -0.01em;
   color: var(--ink); text-decoration: none;
   line-height: 1;
 }
