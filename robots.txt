@@ -1,5 +1,8 @@
 # robots.txt for https://emersus.ai
-# Last updated: 2026-04-15
+# Last updated: 2026-04-20
+#
+# Per spec, a user-agent-specific block OVERRIDES the `*` block entirely,
+# so every AI-crawler block below must re-declare the private-path disallows.
 
 User-agent: *
 Allow: /
@@ -9,36 +12,87 @@ Disallow: /auth/
 Disallow: /admin/
 Disallow: /chat/
 
-# AI crawlers — explicitly allowed so our content can be cited
-# by ChatGPT, Claude, Perplexity, and Google AI Overviews.
+# AI crawlers — explicitly allowed on public pages so our content can be
+# cited by ChatGPT, Claude, Perplexity, and Google AI Overviews.
 User-agent: GPTBot
 Allow: /
+Disallow: /api/
+Disallow: /app/
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /chat/
 
 User-agent: OAI-SearchBot
 Allow: /
+Disallow: /api/
+Disallow: /app/
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /chat/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /api/
+Disallow: /app/
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /chat/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /api/
+Disallow: /app/
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /chat/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /api/
+Disallow: /app/
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /chat/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /api/
+Disallow: /app/
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /chat/
 
 User-agent: Perplexity-User
 Allow: /
+Disallow: /api/
+Disallow: /app/
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /chat/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /api/
+Disallow: /app/
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /chat/
 
 User-agent: Bytespider
 Allow: /
+Disallow: /api/
+Disallow: /app/
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /chat/
 
 User-agent: CCBot
 Allow: /
+Disallow: /api/
+Disallow: /app/
+Disallow: /auth/
+Disallow: /admin/
+Disallow: /chat/
 
 Sitemap: https://emersus.ai/sitemap.xml
+

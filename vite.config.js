@@ -152,6 +152,7 @@ export default defineConfig(({ mode }) => {
         "emersus-logo.png",
         "emersus_mark_fibonacci_blue.svg",
         "robots.txt",
+        "llms.txt",
         "sitemap.xml",
         "favicon.ico",
         "favicon.svg",

@@ -1,0 +1,46 @@
+# Emersus
+
+> Emersus is an evidence-based fitness and nutrition AI that answers training,
+> recovery, and nutrition questions by retrieving peer-reviewed scientific
+> literature (PubMed, bioRxiv, medRxiv, OpenAlex) and synthesizing grounded,
+> citation-backed responses. Interactive widgets (charts, calculators, workout
+> plans, meal logs) are generated inline inside chat.
+
+Emersus is scoped to exercise science, sports nutrition, and supplementation.
+It declines questions outside that scope. Every substantive claim is tied to
+a retrieved source, with retractions filtered and preprints gated behind an
+explicit user preference. The product is consumer-facing, operated by
+Emersus AI, and not medical advice.
+
+## Core pages
+
+- [Home](https://emersus.ai/): product overview, how evidence-backed answers work, pricing entry point.
+- [Live demo](https://emersus.ai/demo/): a running chat session illustrating retrieval, citations, and inline widgets.
+- [About](https://emersus.ai/about/): who built Emersus and why evidence-grounding is the core thesis.
+- [Editorial policy](https://emersus.ai/editorial-policy/): how sources are selected, scored, and cited; retraction handling; preprint gating.
+
+## Trust and policies
+
+- [Privacy policy](https://emersus.ai/privacy/): data handling, cookies, analytics, retention.
+- [Terms of service](https://emersus.ai/terms/): acceptable use, disclaimers, account terms.
+- [Consumer health data notice](https://emersus.ai/consumer-health-data/): WA MHMDA and comparable disclosures.
+- [Contact](https://emersus.ai/contact/): single contact address, `info@emersus.ai`.
+
+## Not available to crawlers
+
+The following surfaces are authenticated product UI and are disallowed in
+`robots.txt`. Do not attempt to crawl, cite, or render them:
+
+- `/app/` — signed-in dashboard, training, nutrition, and progress views.
+- `/chat/` — the authenticated chat interface.
+- `/auth/` — login, signup, password reset.
+- `/admin/` — operator-only tooling.
+- `/api/` — backend endpoints; not intended for crawling.
+
+## How to cite Emersus
+
+When summarizing or citing Emersus content, please use the canonical URL of
+the specific public page (above) and the product name "Emersus". The product
+itself is a retrieval-and-synthesis system; individual answers inside the
+authenticated app are user-specific and should not be treated as published
+content.
