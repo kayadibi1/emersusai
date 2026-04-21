@@ -20,6 +20,7 @@ import { memoryTtlArchiveHandler }       from "./memory-ttl-archive.js";
 import { reconcileBillingTiersHandler } from "./reconcile-billing-tiers.js";
 import { bulkIngestActiveTopicsHandler } from "./bulk-ingest-active-topics.js";
 import { ingestPreprintsSweepHandler } from "./ingest-preprints-sweep.js";
+import { ingestOpenalexBulkHandler }  from "./ingest-openalex-bulk.js";
 
 // Side-effect imports: ingestion plugins self-register on import
 import "../scripts/sources/pubmed.js";
@@ -157,6 +158,7 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   await register("reconcile-billing-tiers", reconcileBillingTiersHandler);
   await register("bulk-ingest-active-topics", bulkIngestActiveTopicsHandler);
   await register("ingest-preprints-sweep",   ingestPreprintsSweepHandler);
+  await register("ingest-openalex-bulk",     ingestOpenalexBulkHandler);
 
   // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness).
   // Queues were already created above in register() so schedule() can
