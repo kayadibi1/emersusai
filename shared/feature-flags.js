@@ -21,6 +21,7 @@ export const KNOWN_FLAGS = [
   'progress_training_load',
   'nutrition_quick_log',
   'integrations_waitlist',
+  'chat_response_id_chaining',
 ];
 
 /**
