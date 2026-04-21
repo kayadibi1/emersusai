@@ -18,6 +18,7 @@ import { sendAlertHandler }              from "./send-alert.js";
 import { chunkArticlesGcHandler }        from "./chunk-articles-gc.js";
 import { memoryTtlArchiveHandler }       from "./memory-ttl-archive.js";
 import { reconcileBillingTiersHandler } from "./reconcile-billing-tiers.js";
+import { bulkIngestActiveTopicsHandler } from "./bulk-ingest-active-topics.js";
 
 // Side-effect imports: ingestion plugins self-register on import
 import "../scripts/sources/pubmed.js";
@@ -153,6 +154,7 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   await register("chunk-articles-gc",        chunkArticlesGcHandler);
   await register("memory-ttl-archive",       memoryTtlArchiveHandler);
   await register("reconcile-billing-tiers", reconcileBillingTiersHandler);
+  await register("bulk-ingest-active-topics", bulkIngestActiveTopicsHandler);
 
   // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness).
   // Queues were already created above in register() so schedule() can
@@ -168,6 +170,11 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   // against Polar's authoritative subscription state. Catches dropped
   // revoked events (we saw this happen on 2026-04-20) + renewal drift.
   await boss.schedule("reconcile-billing-tiers", "30 4 * * *", { batchSize: 500 },         { tz: "America/New_York" });
+  // Weekly corpus refill: Sunday 02:00 ET, ~25h before discovery-weekly's
+  // Monday 03:00 ET candidate fanout. Idempotent — ingest-topic-from-source
+  // uses ON CONFLICT DO NOTHING, so each pass only inserts genuinely new
+  // papers across the 8 active sources. Wall time ~5–8h per run.
+  await boss.schedule("bulk-ingest-active-topics", "0 2 * * 0", {},                        { tz: "America/New_York" });
 
-  log.info("all 16 handlers registered + 7 schedules");
+  log.info("all 17 handlers registered + 8 schedules");
 }
