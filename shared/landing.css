@@ -69,11 +69,13 @@ body.landing-body main { position: relative; z-index: 1; }
 }
 .brand {
   justify-self: start;
-  font-family: var(--font-mono); font-weight: 600;
-  font-size: 13px; letter-spacing: 0.28em;
+  font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 17px; letter-spacing: -0.01em;
   color: var(--ink); text-decoration: none;
   line-height: 1;
 }
+.brand b { color: var(--accent); font-weight: inherit; }
 .nav-links {
   justify-self: center;
   display: flex; align-items: center; gap: 40px;
@@ -797,7 +799,8 @@ h1.headline {
 /* ===== FOOTER ===== */
 .footer-rich { border-top: 1px solid var(--line); padding: 64px 32px 28px; padding-bottom: calc(28px + env(safe-area-inset-bottom)); max-width: 1100px; margin: 0 auto; }
 .footer-top { display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr; gap: 48px; padding-bottom: 48px; }
-.footer-brand { font-family: var(--font-mono); font-size: 14px; font-weight: 600; letter-spacing: 0.28em; color: var(--ink); margin-bottom: 14px; }
+.footer-brand { font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif; font-size: 18px; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); margin-bottom: 14px; }
+.footer-brand b { color: var(--accent); font-weight: inherit; }
 .footer-tagline { font-size: 13.5px; color: var(--muted); line-height: 1.55; max-width: 320px; margin: 0; }
 .footer-col h5 { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dim); margin: 0 0 16px; font-weight: 500; }
 .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }

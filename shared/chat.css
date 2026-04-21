@@ -1105,12 +1105,13 @@ body.chat-page {
 .chat-brand-link { display: flex; align-items: center; }
 .chat-brand-mark {
   margin: 0;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 12.5px;
-  letter-spacing: 0.28em;
+  font-size: 16px;
+  letter-spacing: -0.01em;
   color: var(--ink);
 }
+.chat-brand-mark b { color: var(--accent); font-weight: inherit; }
 .chat-brand-mark { line-height: 1; }
 .chat-brand-subtitle {
   font-family: 'JetBrains Mono', ui-monospace, monospace;

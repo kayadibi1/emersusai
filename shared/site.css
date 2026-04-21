@@ -92,14 +92,15 @@ button { cursor: pointer; }
 .brand-mark {
   display: inline-flex;
   align-items: center;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 13px;
-  letter-spacing: 0.28em;
+  font-size: 17px;
+  letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;
   line-height: 1;
 }
+.brand-mark b { color: var(--accent); font-weight: inherit; }
 
 .site-nav {
   display: flex;

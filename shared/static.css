@@ -347,12 +347,13 @@ body.static-page {
 }
 .nav-wrap .brand {
   justify-self: start;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 13px; letter-spacing: 0.28em;
+  font-size: 17px; letter-spacing: -0.01em;
   color: var(--ink); text-decoration: none;
   line-height: 1;
 }
+.nav-wrap .brand b { color: var(--accent); font-weight: inherit; }
 .nav-wrap .nav-links {
   justify-self: center;
   display: flex; align-items: center; gap: 40px;

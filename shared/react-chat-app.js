@@ -4424,7 +4424,7 @@ export function ChatApp() {
               "aria-label": "Emersus AI home",
               style: { textDecoration: "none", color: "inherit", display: "block" },
             },
-            h("h1", { className: "chat-brand-mark" }, "EMERSUS"),
+            h("h1", { className: "chat-brand-mark", dangerouslySetInnerHTML: { __html: "em<b>∴</b>rsus" } }),
             h("p", { className: "chat-brand-subtitle" }, "Evidence Layer Active")
           ),
           h("button", { className: "inline-button", type: "button", "aria-expanded": !historyHidden, "aria-label": "Toggle conversation history", onClick: () => setHistoryHidden((value) => !value) },

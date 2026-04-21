@@ -64,15 +64,16 @@ body.auth-body {
 
 .auth-brand-mark {
   display: inline-block;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.32em;
+  font-size: 18px;
+  letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;
   line-height: 1;
   margin-bottom: 48px;
 }
+.auth-brand-mark b { color: var(--accent); font-weight: inherit; }
 
 .auth-brand-headline {
   font-size: 44px;

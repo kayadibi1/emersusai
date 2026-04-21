@@ -26,7 +26,7 @@ function brandPane() {
       <div class="auth-brand-grid" aria-hidden="true"></div>
       <div class="auth-brand-glow" aria-hidden="true"></div>
       <div class="auth-brand-inner">
-        <a href="/" class="auth-brand-mark">EMERSUS</a>
+        <a href="/" class="auth-brand-mark">em<b>∴</b>rsus</a>
         <h1 class="auth-brand-headline">Trained on the literature.</h1>
         <p class="auth-brand-sub">Over a million peer-reviewed papers. Every recommendation traced back to the study that justifies it. No hype, no marketing fluff — just evidence.</p>
         <div class="auth-brand-stats">

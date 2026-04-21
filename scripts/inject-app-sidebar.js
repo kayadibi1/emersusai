@@ -26,7 +26,7 @@ const MARKUP = `
   ${NEW_SENTINEL}
   <aside class="app-sidebar" aria-label="App navigation">
     <div class="app-sidebar-head">
-      <a class="app-sidebar-brand" href="/">EMERSUS</a>
+      <a class="app-sidebar-brand" href="/">em<b>∴</b>rsus</a>
     </div>
     <nav class="app-sidebar-sections">
       <div class="app-sidebar-sections-label">Sections</div>

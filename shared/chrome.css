@@ -63,14 +63,15 @@
 }
 
 .brand {
-  font-family: 'JetBrains Mono';
+  font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 12.5px;
-  letter-spacing: 0.28em;
+  font-size: 16px;
+  letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;
   transition: color .14s;
 }
+.brand b { color: var(--accent); font-weight: inherit; }
 .brand:hover { color: var(--accent); }
 
 /* Primary CTA inside sidebar (label varies per section) */
@@ -636,14 +637,15 @@
   justify-content: space-between;
 }
 .app-sidebar-brand {
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
   font-weight: 600;
-  font-size: 12.5px;
-  letter-spacing: 0.28em;
+  font-size: 16px;
+  letter-spacing: -0.01em;
   color: var(--ink);
   text-decoration: none;
   transition: color .14s;
 }
+.app-sidebar-brand b { color: var(--accent); font-weight: inherit; }
 .app-sidebar-brand:hover { color: var(--accent); }
 
 .app-sidebar-sections {
