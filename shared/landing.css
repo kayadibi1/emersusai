@@ -110,8 +110,16 @@ body.landing-body main { position: relative; z-index: 1; }
   color: var(--accent-text);
   border-color: var(--accent);
   font-weight: 600;
+  box-shadow: 0 2px 6px -2px color-mix(in srgb, var(--accent) 18%, transparent);
+  transition: transform .2s cubic-bezier(.2,.9,.3,1), box-shadow .3s ease;
 }
-.btn-accent:hover { filter: brightness(1.08); }
+.btn-accent:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 18px 38px -14px color-mix(in srgb, var(--accent) 40%, transparent),
+    0 4px 10px rgba(0, 0, 0, 0.18);
+}
+.btn-accent:active { transform: translateY(0); transition-duration: .08s; }
 @keyframes btn-accent-shift {
   0%, 100% { background-position: 0% 50%; }
   50%      { background-position: 100% 50%; }
