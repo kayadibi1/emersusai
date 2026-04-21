@@ -159,7 +159,58 @@ body.landing-body main { position: relative; z-index: 1; }
  * before the defaults meant the defaults always won. */
 
 /* ===== HERO ===== */
-.hero { max-width: 1040px; margin: 0 auto; padding: 96px 32px 40px; text-align: center; }
+/* `hero-shell` wraps the hero so the ribbon canvas can escape the hero's
+ * 1040px cap and span full viewport width. The hero sits on top with
+ * its children bumped onto a higher z-index so text stays crisp. */
+.hero-shell {
+  position: relative;
+  width: 100%;
+  isolation: isolate;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+.hero-bg-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  opacity: 0;
+  transition: opacity .8s ease;
+}
+.landing-wave--mounted .hero-bg-canvas { opacity: 1; }
+.hero-bg-fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(880px 360px at 74% 38%, var(--accent-glow) 0%, transparent 72%),
+    radial-gradient(620px 280px at 28% 66%, var(--accent-glow-2) 0%, transparent 72%);
+  opacity: 1;
+  transition: opacity .8s ease;
+}
+.landing-wave--mounted .hero-bg-fallback { opacity: 0; }
+/* Keep hero text in its own stacking context above the ribbon. */
+.hero { max-width: 1040px; margin: 0 auto; padding: 96px 32px 40px; text-align: center; position: relative; z-index: 1; }
+/* Soft dark→transparent→dark mask on top of the canvas so hero text and
+ * the demo-frame below both have clean contrast against the ribbon. Uses
+ * a wide transparent middle band so the ribbon has room to breathe. */
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0) 10%, rgba(0,0,0,0) 85%, var(--bg) 100%),
+    linear-gradient(90deg, var(--bg) 0%, rgba(0,0,0,0) 6%, rgba(0,0,0,0) 94%, var(--bg) 100%);
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-bg-canvas { opacity: 0.6; }
+}
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 11px; font-weight: 500;
@@ -308,12 +359,25 @@ h1.headline {
 
 /* ===== DEMO ROTATION (2026-04-17) ===== */
 
-/* Per-rotation widget visibility — only the widget whose data-widget
-   matches the current data-rotation on .demo-main is visible. */
-.demo-main .demo-widget { display: none; }
-.demo-main[data-rotation="a"] .demo-widget[data-widget="a"] { display: block; }
-.demo-main[data-rotation="b"] .demo-widget[data-widget="b"] { display: block; }
-.demo-main[data-rotation="c"] .demo-widget[data-widget="c"] { display: block; }
+/* Per-rotation widget visibility — all three widgets stack in a single CSS
+   grid cell so the slot auto-sizes to the tallest widget (which varies by
+   viewport). Only the widget matching data-rotation is visible; the rest
+   stay in layout via visibility:hidden to keep the slot height stable and
+   prevent the whole page below (final-cta, footer) from reflowing every
+   few seconds as rotations cycle. */
+.demo-widget-slot { display: grid; grid-template-areas: "stack"; }
+.demo-main .demo-widget[data-widget] {
+  display: block;
+  grid-area: stack;
+  visibility: hidden;
+  pointer-events: none;
+}
+.demo-main[data-rotation="a"] .demo-widget[data-widget="a"],
+.demo-main[data-rotation="b"] .demo-widget[data-widget="b"],
+.demo-main[data-rotation="c"] .demo-widget[data-widget="c"] {
+  visibility: visible;
+  pointer-events: auto;
+}
 
 /* Phase-based visibility for message rows. The state machine sets
    data-phase on .demo-main to drive which rows are shown.
