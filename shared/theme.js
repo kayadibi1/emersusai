@@ -16,11 +16,11 @@ export function validateTheme(theme) {
 /**
  * Resolve the initial theme. Order of precedence:
  *   1. Saved preference (user picked once, we respect it).
- *   2. Paper·Royal (light) — product default.
+ *   2. Graphite·Jade (mint, dark) — product default.
  *
- * We intentionally ignore `prefers-color-scheme` here: the product ships
- * light-first, and the OS-level hint was causing unexpected dark loads
- * for users who hadn't opted in. Users switch themes in Settings.
+ * We intentionally ignore `prefers-color-scheme` here: the OS-level hint
+ * was causing unexpected theme flips for users who hadn't opted in.
+ * Users switch themes in Settings.
  *
  * @param {{ saved: string | null | undefined, systemPrefersLight?: boolean | undefined }} ctx
  * @returns {'mint' | 'paper'}
@@ -28,7 +28,7 @@ export function validateTheme(theme) {
 export function resolveInitialTheme({ saved }) {
   const validSaved = validateTheme(saved);
   if (validSaved) return validSaved;
-  return 'paper';
+  return 'mint';
 }
 
 /**

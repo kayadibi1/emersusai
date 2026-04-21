@@ -16,12 +16,12 @@
       var H = document.documentElement;
       try {
         var saved = localStorage.getItem('emersus-theme');
-        // Default to Paper·Royal (light) for new visitors. Existing users keep
-        // whatever they've saved. System prefers-color-scheme is ignored by
-        // design — the product ships light-first; users switch in Settings.
-        var theme = (saved === 'mint' || saved === 'paper') ? saved : 'paper';
+        // Default to Graphite·Jade (mint, dark) for new visitors. Existing
+        // users keep whatever they've saved. System prefers-color-scheme is
+        // ignored by design; users switch in Settings.
+        var theme = (saved === 'mint' || saved === 'paper') ? saved : 'mint';
         H.setAttribute('data-theme', theme);
-      } catch (_) { H.setAttribute('data-theme', 'paper'); }
+      } catch (_) { H.setAttribute('data-theme', 'mint'); }
       // Auth pre-paint gate for /app/**. Without this, an unauthenticated
       // visitor clicking "Chat" sees the full chat UI flash for ~300 ms
       // (React mounts before the async requireAuth() -> config fetch chain
