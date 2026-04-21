@@ -78,10 +78,11 @@ export const medrxiv = {
     let yielded = 0;
     let consecutiveEmptyChunks = 0;
 
-    // Scan last 365 days in 30-day chunks, NEWEST to OLDEST. Bails out
+    // Scan last N days in 30-day chunks, NEWEST to OLDEST. Bails out
     // after MAX_CONSECUTIVE_EMPTY_CHUNKS so niche topics don't spin
-    // forever.
-    const totalDays = 365;
+    // forever. opts.daysBack lets sweep-mode callers shrink the window
+    // for weekly top-up runs (default 365 for first-fill / per-topic).
+    const totalDays = opts?.daysBack ?? 365;
     const chunkDays = 30;
 
     for (let daysAgo = 0; daysAgo < totalDays && yielded < target; daysAgo += chunkDays) {

@@ -19,6 +19,7 @@ import { chunkArticlesGcHandler }        from "./chunk-articles-gc.js";
 import { memoryTtlArchiveHandler }       from "./memory-ttl-archive.js";
 import { reconcileBillingTiersHandler } from "./reconcile-billing-tiers.js";
 import { bulkIngestActiveTopicsHandler } from "./bulk-ingest-active-topics.js";
+import { ingestPreprintsSweepHandler } from "./ingest-preprints-sweep.js";
 
 // Side-effect imports: ingestion plugins self-register on import
 import "../scripts/sources/pubmed.js";
@@ -155,6 +156,7 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   await register("memory-ttl-archive",       memoryTtlArchiveHandler);
   await register("reconcile-billing-tiers", reconcileBillingTiersHandler);
   await register("bulk-ingest-active-topics", bulkIngestActiveTopicsHandler);
+  await register("ingest-preprints-sweep",   ingestPreprintsSweepHandler);
 
   // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness).
   // Queues were already created above in register() so schedule() can
@@ -173,8 +175,16 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   // Weekly corpus refill: Sunday 02:00 ET, ~25h before discovery-weekly's
   // Monday 03:00 ET candidate fanout. Idempotent — ingest-topic-from-source
   // uses ON CONFLICT DO NOTHING, so each pass only inserts genuinely new
-  // papers across the 8 active sources. Wall time ~5–8h per run.
+  // papers across the 6 active per-topic sources (biorxiv + medrxiv now
+  // handled by ingest-preprints-sweep, see below). Wall time ~5–8h per run.
   await boss.schedule("bulk-ingest-active-topics", "0 2 * * 0", {},                        { tz: "America/New_York" });
+  // Weekly preprint sweep: Saturday 06:00 ET, ~20h before bulk-ingest so
+  // freshly inserted preprints get embedded ahead of the topic refill.
+  // Single pass over biorxiv + medrxiv covering the last 60 days, broad
+  // exercise-science filter applied client-side. ~10 min wall time.
+  // Replaces the per-topic fanout that overloaded api.biorxiv.org with
+  // ~7000 redundant requests (2026-04-21 failure cluster).
+  await boss.schedule("ingest-preprints-sweep",    "0 6 * * 6", {},                        { tz: "America/New_York" });
 
-  log.info("all 17 handlers registered + 8 schedules");
+  log.info("all 18 handlers registered + 9 schedules");
 }

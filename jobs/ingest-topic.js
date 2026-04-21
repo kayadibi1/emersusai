@@ -28,6 +28,12 @@ import { SourcePermanentError } from "../scripts/sources/_errors.js";
 // INGEST_DISABLED_SOURCES env var.
 const LEGACY_SUPPORTED_SOURCE_IDS = ["pubmed"];
 const DEPRIORITIZED_SOURCE_IDS = ["crossref", "doaj"];
+// biorxiv + medrxiv share api.biorxiv.org, ignore keyword queries, and
+// return identical date-range data per topic. Per-topic fanout was
+// triggering a thundering-herd of HTML error responses (2026-04-21).
+// They're now ingested by the dedicated `ingest-preprints-sweep` job
+// which walks the date range once. See jobs/ingest-preprints-sweep.js.
+const PREPRINT_SWEEP_SOURCE_IDS = ["biorxiv", "medrxiv"];
 
 function readEnvList(name) {
   return (process.env[name] || "")
@@ -73,6 +79,7 @@ export async function ingestTopicHandler(ctx, deps) {
   const isCandidate = (id) =>
     available.includes(id) &&
     !DEPRIORITIZED_SOURCE_IDS.includes(id) &&
+    !PREPRINT_SWEEP_SOURCE_IDS.includes(id) &&
     !disabledSources.includes(id);
 
   const sourceIds = multiSourceEnabled
