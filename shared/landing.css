@@ -99,8 +99,26 @@ body.landing-body main { position: relative; z-index: 1; }
   font-family: var(--font-body);
 }
 .btn:hover { background: var(--accent-soft); border-color: var(--accent-line); }
-.btn-accent { background: var(--accent); color: var(--accent-text); border-color: var(--accent); font-weight: 600; }
-.btn-accent:hover { filter: brightness(1.08); background: var(--accent); }
+.btn-accent {
+  background: linear-gradient(110deg,
+    var(--accent) 0%,
+    var(--accent) 35%,
+    color-mix(in srgb, var(--accent) 60%, #60a5fa 40%) 70%,
+    var(--accent) 100%);
+  background-size: 220% 100%;
+  animation: btn-accent-shift 7s ease-in-out infinite;
+  color: var(--accent-text);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+.btn-accent:hover { filter: brightness(1.08); }
+@keyframes btn-accent-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn-accent { animation: none; }
+}
 
 /* ===== Theme switcher (in nav) ===== */
 .nav-right { display: flex; align-items: center; gap: 14px; justify-self: end; }
