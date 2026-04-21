@@ -1019,6 +1019,38 @@
   </script>
 
   <script>
+    // Populate corpus stats from /api/config. Runs ASAP (not deferred)
+    // so numbers update before the count-up observer fires — but the
+    // observer also re-reads data-count-to at trigger time, so even a
+    // slow fetch is OK. Fallback values in the HTML remain the visible
+    // default if the fetch fails.
+    (function () {
+      fetch('/api/config', { credentials: 'omit' })
+        .then((r) => r.ok ? r.json() : null)
+        .then((cfg) => {
+          if (!cfg) return;
+          const el = (sel) => document.querySelector(sel);
+          if (cfg.corpus_papers != null) {
+            const n = el('.stat-num[data-live="papers"]');
+            if (n) n.dataset.countTo = String(cfg.corpus_papers);
+          }
+          if (cfg.corpus_topics != null) {
+            // Topics is the only other plain count-up stat on the page
+            // without a data-live hint.
+            document
+              .querySelectorAll('.stat-num[data-count-to]')
+              .forEach((n) => {
+                if (!n.dataset.live && n.dataset.countTo === '302') {
+                  n.dataset.countTo = String(cfg.corpus_topics);
+                }
+              });
+          }
+        })
+        .catch(() => { /* fall back to hardcoded defaults */ });
+    })();
+  </script>
+
+  <script>
     // Corpus stats: count-up on reveal + "live" ticker on papers count.
     (function () {
       const els = document.querySelectorAll('.stat-num[data-count-to]');

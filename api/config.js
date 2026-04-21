@@ -1,3 +1,69 @@
+// api/config.js
+// Public config endpoint — also carries live corpus stats for the
+// landing-page "What's indexed right now" block.
+//
+// Corpus stats come from a shared pg.Pool against the public schema.
+// Values are cached in-process for 5 minutes so the landing page's
+// on-load fetch doesn't hammer the DB under traffic bursts.
+//
+// Env overrides EMERSUS_CORPUS_PAPERS / EMERSUS_CORPUS_TOPICS still
+// win for marketing moments when you want to pin a specific number
+// (e.g., freezing figures around a launch). Unset = live.
+
+import pg from "pg";
+
+const CACHE_TTL_MS = 5 * 60_000;
+let cache = { fetchedAt: 0, value: null };
+
+let _pool = null;
+function pool() {
+  if (_pool) return _pool;
+  if (!process.env.DATABASE_URL) return null;
+  _pool = new pg.Pool({
+    connectionString: process.env.DATABASE_URL,
+    max: 2,
+    idleTimeoutMillis: 30_000,
+  });
+  return _pool;
+}
+
+async function loadLiveStats() {
+  const p = pool();
+  if (!p) return null;
+  try {
+    // Use pg_class.reltuples for papers count — avoids a parallel seq
+    // scan of 1.2M rows on every cache miss. reltuples is maintained by
+    // autovacuum/ANALYZE and is accurate to within a few %.
+    const [papersRes, topicsRes, sourcesRes] = await Promise.all([
+      p.query(`SELECT reltuples::bigint AS n FROM pg_class WHERE relname = 'research_articles'`),
+      p.query(`SELECT count(*)::int AS n FROM research_topics WHERE status = 'active'`),
+      p.query(`SELECT source, count(*)::int AS n FROM research_articles GROUP BY source ORDER BY n DESC`),
+    ]);
+    return {
+      papers: Number(papersRes.rows[0]?.n ?? 0),
+      topics: Number(topicsRes.rows[0]?.n ?? 0),
+      sources: sourcesRes.rows.map((r) => ({ id: r.source, count: Number(r.n) })),
+    };
+  } catch {
+    return null;
+  }
+}
+
+async function getCorpusStats() {
+  const now = Date.now();
+  if (cache.value && now - cache.fetchedAt < CACHE_TTL_MS) {
+    return cache.value;
+  }
+  const live = await loadLiveStats();
+  if (live) {
+    cache = { fetchedAt: now, value: live };
+    return live;
+  }
+  // Leave previous cache in place if the fetch failed — better a
+  // stale-but-plausible value than zeros.
+  return cache.value ?? { papers: null, topics: null, sources: null };
+}
+
 export default async function handler(req, res) {
   if (req.method !== "GET") {
     res.setHeader("Allow", "GET");
@@ -18,14 +84,18 @@ export default async function handler(req, res) {
     });
   }
 
+  const stats = await getCorpusStats();
+  const envPapers = Number(process.env.EMERSUS_CORPUS_PAPERS) || null;
+  const envTopics = Number(process.env.EMERSUS_CORPUS_TOPICS) || null;
+
   return res.status(200).json({
     supabaseUrl,
     supabaseAnonKey,
     mapboxPublicToken: process.env.MAPBOX_PUBLIC_TOKEN || null,
-    // Marketing-display corpus stats. Operator overrides via env var when
-    // the figures move; otherwise falls back to the figures used on the
-    // public landing page.
-    corpus_papers: Number(process.env.EMERSUS_CORPUS_PAPERS) || 1041448,
-    corpus_topics: Number(process.env.EMERSUS_CORPUS_TOPICS) || 302,
+    // Live corpus figures with env override + hardcoded fallback.
+    // Env vars win (marketing pins); else live DB; else a sane default.
+    corpus_papers: envPapers ?? stats.papers ?? 1041448,
+    corpus_topics: envTopics ?? stats.topics ?? 302,
+    corpus_sources: stats.sources,
   });
 }
