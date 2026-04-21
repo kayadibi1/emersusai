@@ -1,13 +1,11 @@
 // shared/brand-dots.js
-// Replaces the ∴ glyph inside every brand mark with three span-dots so
-// they can be individually positioned, then cycles their arrangement
-// every 30 s. Dots rotate through three configurations (A→B→C→A) with
-// a staggered ease so the motion reads as premium, not nervous.
+// Rotates the ∴ glyph 120° every 30 s. Since ∴ is visually symmetric
+// under 120° rotation, the dots appear to swap places between their
+// existing positions while the overall glyph looks identical at rest.
+// A brief accent glow fires during transit so the motion reads.
 //
 // Self-contained: injects its own <style>, side-effect mounts on load.
 // Loaded globally via a side-effect import from shared/theme.js.
-
-const DOT_GLYPH = '∴'; // ∴
 
 const SELECTORS = [
   '.brand b',
@@ -18,64 +16,39 @@ const SELECTORS = [
 ].join(',');
 
 const STYLE_ID = 'brand-dots-style';
-
-// Positions forming ∴ (top dot, bottom-left, bottom-right). Values in em
-// so they scale with the containing wordmark's font-size.
-const POS = {
-  A: { top: '0.10em', left: '0.27em' }, // top
-  B: { top: '0.54em', left: '0.07em' }, // bottom-left
-  C: { top: '0.54em', left: '0.47em' }, // bottom-right
-};
+const DOT_GLYPH = '∴';
+const ROTATE_EVERY_MS = 30000;
+const TRANSIT_MS = 1150;
 
 const STYLE = `
-  .brand-dots {
+  .brand b, .brand-mark b, .app-sidebar-brand b,
+  .footer-brand b, .nav-wrap .brand b {
     display: inline-block;
-    position: relative;
-    width: 0.68em;
-    height: 0.82em;
-    vertical-align: -0.04em;
-    margin: 0 0.02em;
-    /* Keep the accent color — inherits from the parent .brand b rule. */
-  }
-  .brand-dot {
-    position: absolute;
-    width: 0.13em;
-    height: 0.13em;
-    border-radius: 50%;
-    background: currentColor;
-    box-shadow: 0 0 0 0 currentColor;
+    /* Rotate about the ∴ centroid (slightly below the glyph's box center
+       because two dots live on the bottom row). Tuned visually so the
+       character sits in roughly the same spot across all 3 rotations. */
+    transform-origin: 50% 60%;
     transition:
-      top 1.15s cubic-bezier(.76, 0, .24, 1),
-      left 1.15s cubic-bezier(.76, 0, .24, 1),
-      box-shadow .45s ease;
+      transform ${TRANSIT_MS}ms cubic-bezier(.76, 0, .24, 1),
+      filter .5s ease;
+    will-change: transform, filter;
   }
-  /* Staggered delay produces a cascade — dot 1 leads, 2 follows, 3 last. */
-  .brand-dot-2 { transition-delay: 0.09s, 0.09s, 0s; }
-  .brand-dot-3 { transition-delay: 0.18s, 0.18s, 0s; }
-
-  /* Rotation 0 (resting ∴): dot-1=A, dot-2=B, dot-3=C */
-  .brand-dots[data-rot="0"] .brand-dot-1 { top: ${POS.A.top}; left: ${POS.A.left}; }
-  .brand-dots[data-rot="0"] .brand-dot-2 { top: ${POS.B.top}; left: ${POS.B.left}; }
-  .brand-dots[data-rot="0"] .brand-dot-3 { top: ${POS.C.top}; left: ${POS.C.left}; }
-
-  /* Rotation 1: each dot moves to the next position (A→B, B→C, C→A) */
-  .brand-dots[data-rot="1"] .brand-dot-1 { top: ${POS.B.top}; left: ${POS.B.left}; }
-  .brand-dots[data-rot="1"] .brand-dot-2 { top: ${POS.C.top}; left: ${POS.C.left}; }
-  .brand-dots[data-rot="1"] .brand-dot-3 { top: ${POS.A.top}; left: ${POS.A.left}; }
-
-  /* Rotation 2: one more step (A→C via B's slot, etc.) */
-  .brand-dots[data-rot="2"] .brand-dot-1 { top: ${POS.C.top}; left: ${POS.C.left}; }
-  .brand-dots[data-rot="2"] .brand-dot-2 { top: ${POS.A.top}; left: ${POS.A.left}; }
-  .brand-dots[data-rot="2"] .brand-dot-3 { top: ${POS.B.top}; left: ${POS.B.left}; }
-
-  /* While mid-rotation, dots glow briefly — signals transition intent. */
-  .brand-dots.rotating .brand-dot {
-    box-shadow: 0 0 0.45em 0 currentColor;
+  /* Brief glow during transit — telegraphs "something happened". */
+  .brand b.is-rotating,
+  .brand-mark b.is-rotating,
+  .app-sidebar-brand b.is-rotating,
+  .footer-brand b.is-rotating,
+  .nav-wrap .brand b.is-rotating {
+    filter:
+      drop-shadow(0 0 0.32em currentColor)
+      drop-shadow(0 0 0.08em currentColor);
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .brand-dot { transition: none; }
-    .brand-dots.rotating .brand-dot { box-shadow: none; }
+    .brand b, .brand-mark b, .app-sidebar-brand b,
+    .footer-brand b, .nav-wrap .brand b {
+      transition: none;
+    }
   }
 `;
 
@@ -87,46 +60,27 @@ function injectStyles() {
   document.head.appendChild(el);
 }
 
-function buildDots(b) {
-  b.textContent = '';
-  b.classList.add('brand-dots');
-  b.setAttribute('data-rot', '0');
-  b.setAttribute('aria-hidden', 'true');
-  for (let i = 1; i <= 3; i++) {
-    const span = document.createElement('span');
-    span.className = 'brand-dot brand-dot-' + i;
-    b.appendChild(span);
-  }
-}
-
+let rotDeg = 0;
 let instances = [];
-let intervalId = null;
-let rotStep = 0;
 
 function tick() {
-  rotStep = (rotStep + 1) % 3;
+  rotDeg += 120;
   instances.forEach((el) => {
-    el.classList.add('rotating');
-    el.setAttribute('data-rot', String(rotStep));
+    el.classList.add('is-rotating');
+    el.style.transform = `rotate(${rotDeg}deg)`;
   });
-  // Turn the glow off after the motion settles (stagger + transit).
+  // Drop the glow just after the transit settles.
   setTimeout(() => {
-    instances.forEach((el) => el.classList.remove('rotating'));
-  }, 1500);
+    instances.forEach((el) => el.classList.remove('is-rotating'));
+  }, TRANSIT_MS + 250);
 }
 
 function mount() {
-  const candidates = document.querySelectorAll(SELECTORS);
-  instances = [];
-  candidates.forEach((b) => {
-    if (b.textContent.trim() !== DOT_GLYPH) return;
-    buildDots(b);
-    instances.push(b);
-  });
+  instances = Array.from(document.querySelectorAll(SELECTORS))
+    .filter((el) => el.textContent.trim() === DOT_GLYPH);
   if (!instances.length) return;
   injectStyles();
-  // Delay the first rotation so the logo is seen at rest before it moves.
-  intervalId = setInterval(tick, 30000);
+  setInterval(tick, ROTATE_EVERY_MS);
 }
 
 if (typeof document !== 'undefined') {
