@@ -139,13 +139,15 @@ export async function registerHandlers({ boss, sql, pool, log, incrementJobsProc
   // RPS without) doesn't get stampeded. The 2026-04-11 deploy ran with
   // teamSize: 14 and NCBI TCP-dropped ~5% of requests under the burst.
   await register("ingest-topic-from-source",  ingestTopicFromSourceHandler,   { concurrency: 4 });
-  // embed-batch concurrency=1: concurrent UPDATEs serialize on the HNSW
-  // index (each INSERT/UPDATE holds a lock on index pages). The 2026-04-14
-  // non-pubmed backfill showed 2 workers contending on transactionid locks
-  // for ~1 min per UPDATE, cutting throughput 10x vs a single worker. The
-  // real throughput win came from the batched-UPDATE-via-unnest change in
-  // embed-batch.js; parallelism adds nothing here.
-  await register("embed-batch",               embedBatchHandler);
+  // embed-batch concurrency=4: post-2026-04-21 (OpenAlex bulk ingest),
+  // handler now uses FOR UPDATE SKIP LOCKED inside a transaction so
+  // parallel workers claim disjoint row sets from the partial index
+  // evidence_chunks_unembedded_idx. Combined with the 4 GB shared_buffers
+  // (raised from the 128 MB default the same day), HNSW insert contention
+  // no longer wastes 10x wall time — empirically sustains ~4x throughput.
+  // The earlier 2026-04-14 backfill finding (concurrency=1 wins) is
+  // obsolete; see docs/openalex-bulk-plan.md for the full context.
+  await register("embed-batch",               embedBatchHandler,              { concurrency: 4 });
   await register("s2-citation-backfill",      s2CitationBackfillHandler);
   await register("rcr-backfill",              rcrBackfillHandler);
   await register("validate-queries",          validateQueriesHandler);
