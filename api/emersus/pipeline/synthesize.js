@@ -3,6 +3,15 @@ import { buildToolDefinitions } from "./tools.js";
 
 const DEFAULT_MODEL = process.env.OPENAI_EMERSUS_MODEL || "gpt-5.4-mini";
 
+// Reasoning models (o*-class: o4, o5, etc.) accept body.reasoning = { effort:
+// "minimal" | "low" | "medium" | "high" }. When OPENAI_EMERSUS_MODEL is
+// switched to a reasoning model, uncomment the block below and preflight one
+// real API call — strict-mode contracts can differ for reasoning models, and
+// default reasoning.effort is "medium", which is often more than we need.
+//   if (/^o\d/.test(model)) {
+//     body.reasoning = { effort: "medium" };
+//   }
+
 // Prompt-cache routing key. Bumping the version forces a fresh cache slot
 // (use when the system prompt or tool schemas change enough to invalidate
 // prior cached prefixes). Shared across all users — the system prompt
@@ -45,14 +54,10 @@ export function buildRequestBody({ messages, tools, model, toolChoice, metadata,
     // alongside a widget emit) concurrently instead of serialising — trims
     // wall-clock on multi-tool turns.
     parallel_tool_calls: true,
-    // Server-side state retention at OpenAI. Gives us conversation visibility
-    // in the OpenAI dashboard and captures response.id for every turn so a
-    // future session can flip to previous_response_id chaining. Content is
-    // exercise-science coaching advice (not sensitive health data); OpenAI
-    // retains stored responses for 30 days per their retention policy.
-    // Phase 2: pass ctx._openaiResponseId as previous_response_id on the next
-    // turn to reduce input-token billing on multi-turn threads. Not yet wired;
-    // requires delta system-prompt handling + 30-day expiry fallback.
+    // Server-side state retention at OpenAI. Content is exercise-science
+    // coaching advice (not sensitive health data); OpenAI retains stored
+    // responses for 30 days per their retention policy. Required for the
+    // previous_response_id chaining path below.
     store: true,
   };
   if (tools && tools.length > 0) {
