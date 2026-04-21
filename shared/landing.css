@@ -101,7 +101,7 @@ body.landing-body main { position: relative; z-index: 1; }
   background: transparent;
   font-family: var(--font-body);
 }
-.btn:hover { background: var(--accent-soft); border-color: var(--accent-line); }
+.btn:not(.btn-accent):hover { background: var(--accent-soft); border-color: var(--accent-line); }
 .btn-accent {
   background: linear-gradient(110deg,
     var(--accent) 0%,
