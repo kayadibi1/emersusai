@@ -11,6 +11,13 @@ const BOT_SCORE_THRESHOLD = 0.55;
 
 const rateLimitStore = new Map();
 
+// Hard cap to bound memory between the 10-minute cleanup sweeps.
+// Under an IP-flood attack a unique key is created per request; without
+// a cap the Map can balloon. On overflow we wipe the store — legitimate
+// users simply get a fresh window, which is strictly more permissive
+// than their existing counter, so behavior under normal load is unchanged.
+const RATE_LIMIT_STORE_MAX_ENTRIES = 10000;
+
 // --- Helpers ---
 
 function getClientIp(req) {
@@ -135,6 +142,9 @@ function checkRateLimit(req, questionText) {
     ? RATE_LIMIT_BOT_MAX_REQUESTS
     : RATE_LIMIT_MAX_REQUESTS;
 
+  if (rateLimitStore.size >= RATE_LIMIT_STORE_MAX_ENTRIES && !rateLimitStore.has(key)) {
+    rateLimitStore.clear();
+  }
   rateLimitStore.set(key, entry);
 
   if (entry.count > effectiveMax) {
@@ -202,6 +212,9 @@ function checkPublicRateLimit(req, endpointName = "default") {
   }
 
   entry.count += 1;
+  if (publicRateLimitStore.size >= RATE_LIMIT_STORE_MAX_ENTRIES && !publicRateLimitStore.has(storeKey)) {
+    publicRateLimitStore.clear();
+  }
   publicRateLimitStore.set(storeKey, entry);
 
   const max = PUBLIC_RATE_LIMIT_MAX[endpointName] || PUBLIC_RATE_LIMIT_MAX.default;
