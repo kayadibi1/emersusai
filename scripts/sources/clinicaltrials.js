@@ -12,10 +12,12 @@
 //
 // Adapter ID: `clinicaltrials`. external_id = NCT number. peer_reviewed=false.
 //
-// Query syntax: the v2 API's `query.term` accepts free-text plus
-// AND/OR — but parens and quoted phrases are flaky. We sanitize the
-// boolean query down to plain keywords joined by spaces, which CT.gov
-// treats as implicit AND (good for precision).
+// Query syntax: the v2 API's `query.term` is Essie boolean — accepts
+// the same parenthesized AND/OR/NOT/quoted-phrase shape PubMed uses.
+// Pass the topic query through verbatim; URLSearchParams handles
+// encoding. Earlier (2026-04-21 first smoke) we stripped operators
+// down to plain keywords, which CT.gov treats as implicit AND on every
+// token — returning 0 results for any query with >3 distinct terms.
 
 import { fetchWithTimeoutAndUA } from "./_http.js";
 import { createLimiter } from "./_ratelimit.js";
@@ -27,24 +29,9 @@ const MAX_PAGES = 10;  // hard cap on a single topic — protects against runawa
 
 const waitSlot = createLimiter(5);
 
-/**
- * CT.gov accepts free-text but trips on parens / quoted phrases. Strip
- * boolean operators and quoting, leave the bare keywords. CT.gov treats
- * adjacent keywords as implicit AND.
- */
-export function sanitizeToKeywords(query) {
-  if (!query || typeof query !== "string") return "";
-  return query
-    .replace(/\b(AND|OR|NOT)\b/g, " ")
-    .replace(/["']/g, " ")
-    .replace(/[()]/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 function buildSearchUrl(query, pageToken) {
   const params = new URLSearchParams({
-    "query.term": sanitizeToKeywords(query),
+    "query.term": query ?? "",
     pageSize: String(PAGE_SIZE),
   });
   if (pageToken) params.set("pageToken", pageToken);
