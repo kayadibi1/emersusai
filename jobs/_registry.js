@@ -17,6 +17,7 @@ import { cleanupJobProgressHandler }     from "./cleanup-job-progress.js";
 import { sendAlertHandler }              from "./send-alert.js";
 import { chunkArticlesGcHandler }        from "./chunk-articles-gc.js";
 import { memoryTtlArchiveHandler }       from "./memory-ttl-archive.js";
+import { reconcileBillingTiersHandler } from "./reconcile-billing-tiers.js";
 
 // Side-effect imports: ingestion plugins self-register on import
 import "../scripts/sources/pubmed.js";
@@ -151,6 +152,7 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   await register("send-alert",               sendAlertHandler);
   await register("chunk-articles-gc",        chunkArticlesGcHandler);
   await register("memory-ttl-archive",       memoryTtlArchiveHandler);
+  await register("reconcile-billing-tiers", reconcileBillingTiersHandler);
 
   // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness).
   // Queues were already created above in register() so schedule() can
@@ -162,6 +164,10 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   await boss.schedule("chunk-articles-gc",       "30 3 * * *", { limit: 5000 },            { tz: "America/New_York" });
   // Phase 6: nightly memory TTL archival (Tier B/D/E rows whose expires_at passed)
   await boss.schedule("memory-ttl-archive",      "0 4 * * *",  { limit: 2000 },            { tz: "America/New_York" });
+  // Billing safety-net: every night at 04:30 NY, reconcile tier=pro rows
+  // against Polar's authoritative subscription state. Catches dropped
+  // revoked events (we saw this happen on 2026-04-20) + renewal drift.
+  await boss.schedule("reconcile-billing-tiers", "30 4 * * *", { batchSize: 500 },         { tz: "America/New_York" });
 
-  log.info("all 15 handlers registered + 6 schedules");
+  log.info("all 16 handlers registered + 7 schedules");
 }

@@ -424,12 +424,21 @@ function BillingTab({ reloadKey = 0 }) {
 
   const isPro = usage?.tier === "pro";
   const tierLabel = isPro ? "Pro" : "Free";
-  const cancelsAt = isPro && usage?.cancels_at ? new Date(usage.cancels_at) : null;
-  const cancelsAtLabel = cancelsAt && !Number.isNaN(cancelsAt.getTime())
-    ? cancelsAt.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })
-    : null;
+  const fmtDate = (iso) => {
+    const d = iso ? new Date(iso) : null;
+    return d && !Number.isNaN(d.getTime())
+      ? d.toLocaleDateString(undefined, { month: "short", day: "numeric", year: "numeric" })
+      : null;
+  };
+  const cancelsAtLabel = isPro ? fmtDate(usage?.cancels_at) : null;
+  const renewsAtLabel  = isPro ? fmtDate(usage?.renews_at) : null;
+  const isPastDue = isPro && usage?.subscription_status === "past_due";
   const heroSub = cancelsAtLabel
     ? `CANCELS ON ${cancelsAtLabel.toUpperCase()} · STILL ACTIVE UNTIL THEN`
+    : isPastDue
+    ? "PAYMENT FAILED · POLAR IS RETRYING YOUR CARD"
+    : renewsAtLabel
+    ? `RENEWS ON ${renewsAtLabel.toUpperCase()} · 100 MSG/DAY · PREPRINTS`
     : isPro
     ? "100 MESSAGES/DAY · PREPRINT ACCESS · UNLIMITED PLANS"
     : "10 MESSAGES/DAY · PEER-REVIEWED CITATIONS";

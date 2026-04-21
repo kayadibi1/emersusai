@@ -40,12 +40,21 @@ function stubSupabase() {
   return { supabase, state };
 }
 
-function evt({ type, userId = "u-99", subStatus = "active", subId = "sub_1" }) {
+function evt({
+  type,
+  userId = "u-99",
+  subStatus = "active",
+  subId = "sub_1",
+  cancelAtPeriodEnd = false,
+  currentPeriodEnd = "2026-05-20T17:40:55.000Z",
+}) {
   return {
     type,
     data: {
       id: subId,
       status: subStatus,
+      cancel_at_period_end: cancelAtPeriodEnd,
+      current_period_end: currentPeriodEnd,
       metadata: { user_id: userId },
       customer: { external_customer_id: userId },
     },
@@ -79,7 +88,7 @@ describe("handleVerifiedEvent", () => {
     assert.equal(state.billingEventsInserted[0].external_id, "subscription.active:sub_xyz");
   });
 
-  test("subscription.active → tier='pro' + billing_events row", async () => {
+  test("subscription.active → tier='pro' + billing_events row + state columns synced", async () => {
     const { supabase, state } = stubSupabase();
     const invalidated = [];
     await handleVerifiedEvent(
@@ -89,59 +98,87 @@ describe("handleVerifiedEvent", () => {
     assert.equal(state.billingEventsInserted.length, 1);
     assert.equal(state.billingEventsInserted[0].user_id, "u-1");
     assert.equal(state.billingEventsInserted[0].event_type, "subscription.active");
-    assert.deepEqual(state.profileUpdates, [
-      { patch: { tier: "pro" }, col: "id", val: "u-1" },
-    ]);
+    assert.equal(state.profileUpdates.length, 1);
+    const { patch, col, val } = state.profileUpdates[0];
+    assert.equal(col, "id");
+    assert.equal(val, "u-1");
+    assert.equal(patch.tier, "pro");
+    assert.equal(patch.subscription_status, "active");
+    assert.equal(patch.cancel_at_period_end, false);
+    assert.equal(patch.pro_until, "2026-05-20T17:40:55.000Z");
     assert.deepEqual(invalidated, ["u-1"]);
   });
 
-  test("subscription.revoked → tier='free'", async () => {
+  test("subscription.revoked → tier='free' + clears pending cancel flag", async () => {
     const { supabase, state } = stubSupabase();
     const invalidated = [];
     await handleVerifiedEvent(
       evt({ type: "subscription.revoked", userId: "u-2", subStatus: "revoked" }),
       { supabase, invalidateTier: (id) => invalidated.push(id) }
     );
-    assert.deepEqual(state.profileUpdates, [
-      { patch: { tier: "free" }, col: "id", val: "u-2" },
-    ]);
+    assert.equal(state.profileUpdates.length, 1);
+    assert.equal(state.profileUpdates[0].patch.tier, "free");
+    assert.equal(state.profileUpdates[0].patch.subscription_status, "revoked");
     assert.deepEqual(invalidated, ["u-2"]);
   });
 
-  test("subscription.canceled does NOT change tier (access until period end)", async () => {
+  test("subscription.canceled keeps tier=pro but flips cancel_at_period_end flag", async () => {
     const { supabase, state } = stubSupabase();
     const invalidated = [];
     await handleVerifiedEvent(
-      evt({ type: "subscription.canceled", userId: "u-3", subStatus: "canceled" }),
+      evt({
+        type: "subscription.canceled",
+        userId: "u-3",
+        subStatus: "canceled",
+        cancelAtPeriodEnd: true,
+        currentPeriodEnd: "2026-06-20T00:00:00.000Z",
+      }),
       { supabase, invalidateTier: (id) => invalidated.push(id) }
     );
     // billing_events row still written for audit
     assert.equal(state.billingEventsInserted.length, 1);
-    // But no profile update
-    assert.deepEqual(state.profileUpdates, []);
+    // Profile update DOES happen now — persist the cancel flag and period end
+    // so the UI can show "Cancels on Y". But tier is unchanged.
+    assert.equal(state.profileUpdates.length, 1);
+    const { patch } = state.profileUpdates[0];
+    assert.equal(patch.tier, undefined);
+    assert.equal(patch.cancel_at_period_end, true);
+    assert.equal(patch.pro_until, "2026-06-20T00:00:00.000Z");
+    assert.equal(patch.subscription_status, "canceled");
     assert.deepEqual(invalidated, []);
   });
 
-  test("subscription.updated with status=active → tier='pro'", async () => {
+  test("subscription.updated with status=active → tier='pro' + advances pro_until", async () => {
     const { supabase, state } = stubSupabase();
     await handleVerifiedEvent(
-      evt({ type: "subscription.updated", userId: "u-4", subStatus: "active" }),
+      evt({
+        type: "subscription.updated",
+        userId: "u-4",
+        subStatus: "active",
+        currentPeriodEnd: "2026-06-20T17:40:55.000Z",
+      }),
       { supabase, invalidateTier: () => {} }
     );
-    assert.deepEqual(state.profileUpdates, [
-      { patch: { tier: "pro" }, col: "id", val: "u-4" },
-    ]);
+    assert.equal(state.profileUpdates.length, 1);
+    assert.equal(state.profileUpdates[0].patch.tier, "pro");
+    assert.equal(state.profileUpdates[0].patch.pro_until, "2026-06-20T17:40:55.000Z");
   });
 
-  test("subscription.updated with status=past_due → tier='free'", async () => {
+  test("subscription.updated with status=past_due does NOT demote — Polar dunning owns the grace window", async () => {
     const { supabase, state } = stubSupabase();
+    const invalidated = [];
     await handleVerifiedEvent(
       evt({ type: "subscription.updated", userId: "u-5", subStatus: "past_due" }),
-      { supabase, invalidateTier: () => {} }
+      { supabase, invalidateTier: (id) => invalidated.push(id) }
     );
-    assert.deepEqual(state.profileUpdates, [
-      { patch: { tier: "free" }, col: "id", val: "u-5" },
-    ]);
+    // Audit row still written
+    assert.equal(state.billingEventsInserted.length, 1);
+    // Profile patch runs — we sync subscription_status='past_due' so the UI
+    // could surface a "payment failed, retrying" banner — but tier stays.
+    assert.equal(state.profileUpdates.length, 1);
+    assert.equal(state.profileUpdates[0].patch.tier, undefined);
+    assert.equal(state.profileUpdates[0].patch.subscription_status, "past_due");
+    assert.deepEqual(invalidated, []);
   });
 
   test("non-duplicate insert error throws — so HTTP handler returns 500 and Polar retries", async () => {
@@ -159,7 +196,7 @@ describe("handleVerifiedEvent", () => {
           evt({ type: "subscription.active", userId: "u-err" }),
           { supabase, invalidateTier: () => {} }
         ),
-      /billing_events insert failed/
+      /billing_events insert failed|profile update failed/
     );
   });
 
@@ -192,9 +229,14 @@ describe("handleVerifiedEvent", () => {
       supabase,
       invalidateTier: (id) => invalidated.push(id),
     });
-    assert.deepEqual(state.profileUpdates, [
-      { patch: { tier: "free" }, col: "id", val: "u-ref" },
-    ]);
+    assert.equal(state.profileUpdates.length, 1);
+    const { patch } = state.profileUpdates[0];
+    assert.equal(patch.tier, "free");
+    // Refund also clears the denormalized subscription columns so the
+    // profile doesn't end up in a weird tier=free + pro_until=future state.
+    assert.equal(patch.subscription_status, null);
+    assert.equal(patch.cancel_at_period_end, false);
+    assert.equal(patch.pro_until, null);
     assert.deepEqual(invalidated, ["u-ref"]);
   });
 
@@ -222,8 +264,8 @@ describe("handleVerifiedEvent", () => {
       },
     };
     await handleVerifiedEvent(e, { supabase, invalidateTier: () => {} });
-    assert.deepEqual(state.profileUpdates, [
-      { patch: { tier: "pro" }, col: "id", val: "u-7" },
-    ]);
+    assert.equal(state.profileUpdates.length, 1);
+    assert.equal(state.profileUpdates[0].patch.tier, "pro");
+    assert.equal(state.profileUpdates[0].val, "u-7");
   });
 });

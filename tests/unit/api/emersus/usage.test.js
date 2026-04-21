@@ -23,14 +23,32 @@ function mockRes() {
 // the daily_message_counts (count) read, and the billing_events scan
 // for cancellation state. billingEvents is the array returned when Pro
 // users trigger the subscription-events scan.
-function stubSupabase({ tier, count, billingEvents = [] }) {
+function stubSupabase({
+  tier,
+  count,
+  billingEvents = [],
+  proUntil = null,
+  subscriptionStatus = null,
+  cancelAtPeriodEnd = false,
+}) {
   return {
     from(table) {
       if (table === "profiles") {
         return {
-          select: () => ({
+          select: (cols) => ({
             eq: () => ({
-              maybeSingle: async () => ({ data: { tier }, error: null }),
+              maybeSingle: async () => {
+                // readTier selects the 'tier' column; the usage handler
+                // later selects the billing-state columns. Branch on the
+                // SELECT list so one stub serves both callers.
+                if (cols && /pro_until|subscription_status|cancel_at_period_end/.test(cols)) {
+                  return {
+                    data: { pro_until: proUntil, subscription_status: subscriptionStatus, cancel_at_period_end: cancelAtPeriodEnd },
+                    error: null,
+                  };
+                }
+                return { data: { tier }, error: null };
+              },
             }),
           }),
         };
@@ -127,6 +145,55 @@ describe("GET /api/emersus/usage", () => {
       }),
     });
     assert.equal(res._body.cancels_at, "2026-05-20T00:00:00Z");
+  });
+
+  test("pro tier uses denormalized columns: renews_at when not cancelling", async () => {
+    const req = { verifiedUserId: "u-renew" };
+    const res = mockRes();
+    await usageHandler(req, res, {
+      supabase: stubSupabase({
+        tier: "pro",
+        count: 7,
+        proUntil: "2026-05-20T17:40:55.000Z",
+        subscriptionStatus: "active",
+        cancelAtPeriodEnd: false,
+      }),
+    });
+    assert.equal(res._body.renews_at, "2026-05-20T17:40:55.000Z");
+    assert.equal(res._body.cancels_at, null);
+    assert.equal(res._body.subscription_status, "active");
+  });
+
+  test("pro tier uses denormalized columns: cancels_at when cancel flag set", async () => {
+    const req = { verifiedUserId: "u-cancel-col" };
+    const res = mockRes();
+    await usageHandler(req, res, {
+      supabase: stubSupabase({
+        tier: "pro",
+        count: 7,
+        proUntil: "2026-05-20T17:40:55.000Z",
+        subscriptionStatus: "canceled",
+        cancelAtPeriodEnd: true,
+      }),
+    });
+    assert.equal(res._body.cancels_at, "2026-05-20T17:40:55.000Z");
+    assert.equal(res._body.renews_at, null);
+  });
+
+  test("pro tier surfaces past_due status for UI banner", async () => {
+    const req = { verifiedUserId: "u-past" };
+    const res = mockRes();
+    await usageHandler(req, res, {
+      supabase: stubSupabase({
+        tier: "pro",
+        count: 1,
+        proUntil: "2026-05-20T17:40:55.000Z",
+        subscriptionStatus: "past_due",
+        cancelAtPeriodEnd: false,
+      }),
+    });
+    assert.equal(res._body.subscription_status, "past_due");
+    assert.equal(res._body.renews_at, "2026-05-20T17:40:55.000Z");
   });
 
   test("pro tier returns null cancels_at when re-activated after cancel", async () => {

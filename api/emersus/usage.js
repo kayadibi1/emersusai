@@ -1,10 +1,13 @@
 // api/emersus/usage.js
 //
-// GET /api/emersus/usage — returns {tier, used, limit, reset_at, cancelsAt}.
-// Powers the UsageRing below the chat composer and the Usage card in
-// /app/profile/. Two SELECTs: daily_message_counts for today + a small
-// scan of billing_events for cancellation-pending state. tier-cache
-// lookup is cached in-memory.
+// GET /api/emersus/usage — returns {tier, used, limit, reset_at,
+// cancels_at, renews_at, subscription_status}. Powers the UsageRing
+// below the chat composer and the Billing tab in /app/profile/. Reads
+// denormalized subscription state from public.profiles (kept current
+// by the Polar webhook) and falls back to a billing_events scan if the
+// new columns are null — that covers any legacy rows from before the
+// 2026-04-21 migration and any transient webhook gaps until the next
+// reconciliation cron run.
 
 import { supabaseAdmin } from "../lib/clients.js";
 import { readTier } from "./user-rate-limit.js";
@@ -69,7 +72,7 @@ export async function usageHandler(req, res, { supabase = supabaseAdmin } = {}) 
   const tier = await readTier(userId, { supabase });
   const limit = tier === "pro" ? 100 : 10;
 
-  const [{ data: countRow }, { data: eventRows }] = await Promise.all([
+  const [{ data: countRow }, { data: profileRow }] = await Promise.all([
     supabase
       .from("daily_message_counts")
       .select("count")
@@ -78,17 +81,41 @@ export async function usageHandler(req, res, { supabase = supabaseAdmin } = {}) 
       .maybeSingle(),
     tier === "pro"
       ? supabase
-          .from("billing_events")
-          .select("event_type, raw, created_at")
-          .eq("user_id", userId)
-          .like("event_type", "subscription.%")
-          .order("created_at", { ascending: false })
-          .limit(10)
-      : Promise.resolve({ data: [] }),
+          .from("profiles")
+          .select("pro_until, subscription_status, cancel_at_period_end")
+          .eq("id", userId)
+          .maybeSingle()
+      : Promise.resolve({ data: null }),
   ]);
 
+  // Primary path: use denormalized columns written by the webhook. Fall
+  // back to scanning billing_events only when those columns are null
+  // (legacy rows predating the 2026-04-21 migration).
+  let cancelsAt = null;
+  let renewsAt = null;
+  let subscriptionStatus = null;
+  if (tier === "pro") {
+    if (profileRow && (profileRow.pro_until || profileRow.subscription_status)) {
+      subscriptionStatus = profileRow.subscription_status ?? null;
+      if (profileRow.cancel_at_period_end) {
+        cancelsAt = profileRow.pro_until ?? null;
+      } else {
+        renewsAt = profileRow.pro_until ?? null;
+      }
+    } else {
+      // Legacy fallback for rows that never got touched by the new webhook.
+      const { data: eventRows } = await supabase
+        .from("billing_events")
+        .select("event_type, raw, created_at")
+        .eq("user_id", userId)
+        .like("event_type", "subscription.%")
+        .order("created_at", { ascending: false })
+        .limit(10);
+      cancelsAt = resolveCancelsAt(eventRows);
+    }
+  }
+
   const used = countRow?.count ?? 0;
-  const cancelsAt = tier === "pro" ? resolveCancelsAt(eventRows) : null;
 
   res.json({
     tier,
@@ -96,6 +123,8 @@ export async function usageHandler(req, res, { supabase = supabaseAdmin } = {}) 
     limit,
     reset_at: nextUtcMidnightIso(),
     cancels_at: cancelsAt,
+    renews_at: renewsAt,
+    subscription_status: subscriptionStatus,
   });
 }
 

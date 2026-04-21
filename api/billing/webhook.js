@@ -12,10 +12,12 @@
 //
 // Tier mapping: subscription.* events carry a `status` field. We flip
 // tier=pro when status is 'active' or 'trialing'; tier=free on
-// 'past_due' | 'revoked' | 'unpaid' | 'incomplete_expired'. A bare
-// subscription.canceled (user clicked cancel but still has access
-// until period end) doesn't change tier — the eventual revoked event
-// is what demotes them.
+// 'revoked' | 'incomplete_expired'. We deliberately ignore 'past_due'
+// and 'unpaid' so Polar's dunning retry window owns the grace period —
+// Polar retries for N days (configured in its dashboard) and emits
+// 'revoked' when it gives up. A bare subscription.canceled (user
+// clicked cancel but still has access until period end) also doesn't
+// change tier — the eventual revoked event is what demotes them.
 
 import { randomUUID } from "node:crypto";
 import { validateEvent, WebhookVerificationError } from "@polar-sh/sdk/webhooks";
@@ -24,12 +26,7 @@ import { invalidateTier as invalidateTierDefault } from "../emersus/user-rate-li
 import { capture as captureDefault } from "../lib/analytics.js";
 
 const PRO_STATUSES = new Set(["active", "trialing"]);
-const FREE_STATUSES = new Set([
-  "past_due",
-  "revoked",
-  "unpaid",
-  "incomplete_expired",
-]);
+const FREE_STATUSES = new Set(["revoked", "incomplete_expired"]);
 
 function extractUserId(event) {
   return (
@@ -101,9 +98,18 @@ export async function handleVerifiedEvent(
       console.warn("[polar-webhook] order.refunded without user_id");
       return { status: "no_user" };
     }
+    // Clear the denormalized subscription-state columns too — otherwise we
+    // leave a profile at tier='free' with pro_until=future +
+    // subscription_status='active', and anything that reads those columns
+    // without gating on tier sees an inconsistent view.
     const updateResult = await supabase
       .from("profiles")
-      .update({ tier: "free" })
+      .update({
+        tier: "free",
+        subscription_status: null,
+        cancel_at_period_end: false,
+        pro_until: null,
+      })
       .eq("id", userId);
     if (updateResult?.error) {
       console.error("[polar-webhook] refund tier update failed:",
@@ -127,55 +133,70 @@ export async function handleVerifiedEvent(
     return { status: "logged" };
   }
 
-  // subscription.canceled fires when the user asks to cancel but still
-  // has access until period end. Don't demote — wait for revoked.
-  if (event.type === "subscription.canceled") {
-    return { status: "logged" };
-  }
-
   if (!userId) {
     console.warn(
-      `[polar-webhook] ${event.type} without user_id — cannot update tier`
+      `[polar-webhook] ${event.type} without user_id — cannot update profile`
     );
     return { status: "no_user" };
   }
+
+  // Denormalized subscription-state columns on profiles — kept current on
+  // every subscription.* event so the UI/usage endpoint can render
+  // "Renews on Y" / "Cancels on Y" without scanning billing_events. Order
+  // of fields in the patch is intentional: tier is optional (set below only
+  // when the status transition warrants it), the rest always reflect the
+  // latest payload.
+  const patch = {
+    subscription_status: event.data?.status ?? null,
+    cancel_at_period_end: Boolean(event.data?.cancel_at_period_end),
+    pro_until:
+      event.data?.current_period_end ||
+      event.data?.ends_at ||
+      null,
+  };
 
   const status = event.data?.status;
   let nextTier = null;
   if (PRO_STATUSES.has(status)) nextTier = "pro";
   else if (FREE_STATUSES.has(status)) nextTier = "free";
-
-  if (!nextTier) {
-    return { status: "no_change" };
+  // subscription.canceled fires when the user asks to cancel but still has
+  // access until period end. Don't demote here — wait for revoked. But do
+  // persist the cancel_at_period_end flag above so the UI can render the
+  // pending-cancellation banner.
+  if (event.type !== "subscription.canceled" && nextTier) {
+    patch.tier = nextTier;
   }
 
   const updateResult = await supabase
     .from("profiles")
-    .update({ tier: nextTier })
+    .update(patch)
     .eq("id", userId);
 
   if (updateResult?.error) {
     console.error(
-      "[polar-webhook] profile tier update failed:",
+      "[polar-webhook] profile update failed:",
       updateResult.error.message || updateResult.error
     );
     throw new Error(
-      `profile tier update failed: ${updateResult.error.message || "unknown"}`
+      `profile update failed: ${updateResult.error.message || "unknown"}`
     );
   }
 
-  invalidateTier(userId);
-  try {
-    const eventName = nextTier === "pro"
-      ? "billing_subscription_active"
-      : "billing_subscription_revoked";
-    capture(userId, eventName, {
-      event_type: event.type,
-      status,
-      subscription_id: event.data?.id,
-    });
-  } catch (_) { /* analytics best-effort */ }
-  return { status: "tier_changed", tier: nextTier };
+  if (patch.tier) {
+    invalidateTier(userId);
+    try {
+      const eventName = patch.tier === "pro"
+        ? "billing_subscription_active"
+        : "billing_subscription_revoked";
+      capture(userId, eventName, {
+        event_type: event.type,
+        status,
+        subscription_id: event.data?.id,
+      });
+    } catch (_) { /* analytics best-effort */ }
+    return { status: "tier_changed", tier: patch.tier };
+  }
+  return { status: "state_synced" };
 }
 
 /**
