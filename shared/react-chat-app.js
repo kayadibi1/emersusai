@@ -71,6 +71,7 @@ import { groupThreadsByDate, filterThreadsBySearch, GROUP_ORDER } from "/shared/
 import { WelcomeScreen } from "/shared/chat/welcome-screen.js";
 import { OnboardingProgressBar } from "/shared/chat/onboarding-progress-bar.js";
 import { OnboardingCompletionToast } from "/shared/chat/onboarding-completion-toast.js";
+import { resolveFlag } from "/shared/feature-flags.js";
 
 const h = React.createElement;
 const MAX_HISTORY_ITEMS = 24;
@@ -551,10 +552,28 @@ function deriveThreadState(threadData, question = "", answerSummary = "") {
 function buildRecentMessages(messages, maxItems = 6) {
   return (Array.isArray(messages) ? messages : [])
     .slice(-maxItems)
-    .map((message) => ({
-      role: normalizeText(message?.role, 24),
-      text: normalizeText(readMessageText(message), 320),
-    }))
+    .map((message) => {
+      const role = normalizeText(message?.role, 24);
+      const shaped = {
+        role,
+        text: normalizeText(readMessageText(message), 320),
+      };
+      if (role === "assistant") {
+        if (
+          typeof message?.openaiResponseId === "string" &&
+          message.openaiResponseId.length > 0
+        ) {
+          shaped.openaiResponseId = message.openaiResponseId;
+        }
+        if (
+          typeof message?.createdAt === "string" ||
+          typeof message?.createdAt === "number"
+        ) {
+          shaped.createdAt = message.createdAt;
+        }
+      }
+      return shaped;
+    })
     .filter((message) => message.role && message.text);
 }
 
@@ -3835,6 +3854,9 @@ export function ChatApp() {
         userId: session?.user?.id ? `supabase:${session.user.id}` : "",
         threadState: persistedThread.threadState,
         recentMessages: buildRecentMessages(persistedThread.messages),
+        featureFlags: {
+          chat_response_id_chaining: resolveFlag("chat_response_id_chaining"),
+        },
       };
 
       // The backend returns EITHER:

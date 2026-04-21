@@ -7,6 +7,7 @@ import { retrieve } from "./pipeline/retrieve.js";
 import { retrieveMemory } from "./pipeline/retrieve-memory.js";
 import { synthesize } from "./pipeline/synthesize.js";
 import { stream, streamToBuffer } from "./pipeline/stream.js";
+import { resolveChainingContext } from "./pipeline/response-chaining.js";
 import { capture, Sentry } from "../lib/analytics.js";
 
 function parseJsonBody(req) {
@@ -28,6 +29,10 @@ function sendResponse(res, response) {
 
 async function generateRecommendationStream(rawInput, res) {
   const startedAt = Date.now();
+  // Feature flag forwarded by the client. Read BEFORE createContext/sanitize
+  // because those stages drop fields not declared in createContext.
+  const chainingFlagEnabled =
+    rawInput?.featureFlags?.chat_response_id_chaining === true;
   let ctx = createContext(rawInput);
   try {
     ctx = await sanitize(ctx);
@@ -46,7 +51,11 @@ async function generateRecommendationStream(rawInput, res) {
       console.warn("[workflow] retrieveMemory failed:", memResult.reason?.message || memResult.reason);
     }
     ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence });
-    ctx = await synthesize(ctx);
+    const chainingContext = resolveChainingContext({
+      flagEnabled: chainingFlagEnabled,
+      messages: ctx.recentMessages || [],
+    });
+    ctx = await synthesize(ctx, { chainingContext });
     await stream(ctx, res);
     capture(ctx.stableUserId || "anonymous", "chat_stream_complete", {
       latency_ms: Date.now() - startedAt,
@@ -92,6 +101,8 @@ async function generateRecommendationStream(rawInput, res) {
 }
 
 async function generateRecommendationJSON(rawInput) {
+  const chainingFlagEnabled =
+    rawInput?.featureFlags?.chat_response_id_chaining === true;
   let ctx = createContext(rawInput);
   try {
     ctx = await sanitize(ctx);
@@ -109,7 +120,11 @@ async function generateRecommendationJSON(rawInput) {
       console.warn("[workflow] retrieveMemory failed:", memResult.reason?.message || memResult.reason);
     }
     ctx.confidence = computeConfidence({ plan: ctx.plan, evidence: ctx.evidence });
-    ctx = await synthesize(ctx);
+    const chainingContext = resolveChainingContext({
+      flagEnabled: chainingFlagEnabled,
+      messages: ctx.recentMessages || [],
+    });
+    ctx = await synthesize(ctx, { chainingContext });
     ctx = await streamToBuffer(ctx);
   } catch (err) {
     if (err instanceof ShortCircuit) return err.response;

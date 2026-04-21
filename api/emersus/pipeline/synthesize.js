@@ -141,7 +141,7 @@ async function fetchWithRetry(url, init, { maxAttempts = 3, baseDelayMs = 250 } 
 
 export { fetchWithRetry };
 
-export async function synthesize(ctx) {
+export async function synthesize(ctx, { chainingContext = null } = {}) {
   const apiKey = process.env.OPENAI_API_KEY;
   if (!apiKey) throw new Error("Missing OPENAI_API_KEY");
 
@@ -162,6 +162,7 @@ export async function synthesize(ctx) {
     tools: buildToolDefinitions(),
     model,
     metadata: buildMetadata(ctx),
+    chainingContext,
   });
 
   const start = Date.now();

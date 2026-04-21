@@ -463,10 +463,32 @@ function normalizeRecentMessages(value) {
   }
 
   return value
-    .map((item) => ({
-      role: normalizeText(item?.role, 24).toLowerCase(),
-      text: normalizeText(item?.text, 320),
-    }))
+    .map((item) => {
+      const role = normalizeText(item?.role, 24).toLowerCase();
+      const shaped = {
+        role,
+        text: normalizeText(item?.text, 320),
+      };
+      // Preserve chaining metadata on assistant messages so that
+      // response-chaining.js can resolve `previous_response_id`. Without
+      // these fields here, `resolveChainingContext` always short-circuits to
+      // `no_prior_response_id` and the feature is inert. Only assistant
+      // messages carry an openaiResponseId; user messages never should.
+      if (role === "assistant") {
+        if (
+          typeof item?.openaiResponseId === "string" &&
+          item.openaiResponseId.length > 0
+        ) {
+          shaped.openaiResponseId = normalizeText(item.openaiResponseId, 128);
+        }
+        if (typeof item?.createdAt === "string") {
+          shaped.createdAt = normalizeText(item.createdAt, 64);
+        } else if (typeof item?.createdAt === "number") {
+          shaped.createdAt = item.createdAt;
+        }
+      }
+      return shaped;
+    })
     .filter((item) => item.role && item.text)
     .slice(-6);
 }

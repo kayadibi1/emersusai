@@ -1,4 +1,4 @@
-import { describe, it } from "node:test";
+import { describe, it, test } from "node:test";
 import assert from "node:assert/strict";
 import {
   normalizeText, normalizeList, parseUserId, normalizeUuid,
@@ -6,6 +6,7 @@ import {
   normalizeThreadState, normalizeRecentMessages, buildThreadMemoryBlock,
   mergeProfile,
 } from "../../../../../api/emersus/pipeline/sanitize.js";
+import { resolveChainingContext } from "../../../../../api/emersus/pipeline/response-chaining.js";
 
 describe("normalizeText", () => {
   it("strips control chars and collapses whitespace", () => {
@@ -76,6 +77,60 @@ describe("normalizeRecentMessages", () => {
     const msgs = Array.from({ length: 10 }, (_, i) => ({ role: "user", text: `msg${i}` }));
     assert.equal(normalizeRecentMessages(msgs).length, 6);
   });
+
+  it("preserves openaiResponseId and createdAt on assistant messages", () => {
+    const result = normalizeRecentMessages([
+      { role: "user", text: "hi", openaiResponseId: "should_not_appear", createdAt: "2026-01-01" },
+      { role: "assistant", text: "hello", openaiResponseId: "resp_abc123", createdAt: "2026-04-21T12:00:00Z" },
+    ]);
+    assert.equal(result.length, 2);
+    assert.equal(result[0].role, "user");
+    assert.ok(!("openaiResponseId" in result[0]), "user messages must not carry chaining metadata");
+    assert.ok(!("createdAt" in result[0]), "user messages must not carry createdAt");
+    assert.equal(result[1].openaiResponseId, "resp_abc123");
+    assert.equal(result[1].createdAt, "2026-04-21T12:00:00Z");
+  });
+
+  it("drops openaiResponseId that is not a non-empty string", () => {
+    const result = normalizeRecentMessages([
+      { role: "assistant", text: "x", openaiResponseId: "" },
+      { role: "assistant", text: "y", openaiResponseId: 123 },
+    ]);
+    assert.ok(!("openaiResponseId" in result[0]));
+    assert.ok(!("openaiResponseId" in result[1]));
+  });
+
+  it("accepts numeric createdAt on assistant messages", () => {
+    const result = normalizeRecentMessages([
+      { role: "assistant", text: "x", openaiResponseId: "resp_1", createdAt: 1_700_000_000_000 },
+    ]);
+    assert.equal(result[0].createdAt, 1_700_000_000_000);
+  });
+
+  it("drops createdAt that is neither string nor number", () => {
+    const result = normalizeRecentMessages([
+      { role: "assistant", text: "x", createdAt: { ts: 1 } },
+      { role: "assistant", text: "y", createdAt: true },
+    ]);
+    assert.ok(!("createdAt" in result[0]));
+    assert.ok(!("createdAt" in result[1]));
+  });
+});
+
+test("sanitize -> resolveChainingContext preserves chaining metadata end-to-end", () => {
+  const raw = [
+    { role: "user", text: "question" },
+    {
+      role: "assistant",
+      text: "answer",
+      openaiResponseId: "resp_xyz",
+      createdAt: new Date(Date.now() - 3600_000).toISOString(),
+    },
+  ];
+  const sanitized = normalizeRecentMessages(raw);
+  const ctx = resolveChainingContext({ flagEnabled: true, messages: sanitized });
+  assert.equal(ctx.shouldChain, true);
+  assert.equal(ctx.previousResponseId, "resp_xyz");
 });
 
 describe("buildThreadMemoryBlock", () => {
