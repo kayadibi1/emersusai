@@ -11,7 +11,7 @@
 // isKnownModel) are unit-tested. The React component is the thin shell.
 
 import React from "react";
-import { PanelLeftOpen } from "lucide-react";
+import { CaretDoubleRight as PanelLeftOpen } from "@phosphor-icons/react";
 
 const { useCallback, useEffect, useRef, useState } = React;
 const h = React.createElement;
