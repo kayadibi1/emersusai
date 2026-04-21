@@ -1,6 +1,13 @@
 import { describe, it, mock } from "node:test";
 import assert from "node:assert/strict";
-import { buildRequestBody, PROMPT_CACHE_KEY, fetchWithRetry, resolveMaxOutputTokens } from "../../../../../api/emersus/pipeline/synthesize.js";
+import {
+  buildRequestBody,
+  PROMPT_CACHE_KEY,
+  fetchWithRetry,
+  resolveMaxOutputTokens,
+  isPreviousResponseNotFound,
+  synthesize,
+} from "../../../../../api/emersus/pipeline/synthesize.js";
 
 describe("buildRequestBody", () => {
   it("includes model, stream, max_output_tokens, input, tools", () => {
@@ -191,5 +198,141 @@ describe("fetchWithRetry", () => {
       );
       assert.equal(mockFetch.mock.callCount(), 1);
     } finally { mockFetch.mock.restore(); }
+  });
+});
+
+describe("isPreviousResponseNotFound", () => {
+  it("detects error.code shape", () => {
+    assert.equal(isPreviousResponseNotFound({ error: { code: "previous_response_not_found" } }), true);
+  });
+  it("detects error.type shape", () => {
+    assert.equal(isPreviousResponseNotFound({ error: { type: "previous_response_not_found" } }), true);
+  });
+  it("returns false for other 400s", () => {
+    assert.equal(isPreviousResponseNotFound({ error: { code: "invalid_request_error" } }), false);
+  });
+  it("returns false for empty/missing body", () => {
+    assert.equal(isPreviousResponseNotFound(null), false);
+    assert.equal(isPreviousResponseNotFound({}), false);
+    assert.equal(isPreviousResponseNotFound(undefined), false);
+  });
+});
+
+// Minimal ctx + env setup for synthesize() integration tests. synthesize()
+// reads OPENAI_API_KEY from env and expects ctx._timer + ctx._abortController.
+function makeCtx() {
+  return {
+    question: "How much protein per day?",
+    threadState: null,
+    recentMessages: [],
+    evidence: { status: "completed", formatted: null },
+    workoutPlan: null,
+    crossThreadMemory: null,
+    threadId: "t1",
+    supabaseUserId: "u1",
+    plan: { topic: "nutrition", riskLevel: "low" },
+    _timer: { record: () => {} },
+    _abortController: new AbortController(),
+  };
+}
+
+describe("synthesize() stale-chaining recovery", () => {
+  it("rebuilds without chaining and retries ONCE on previous_response_not_found", async () => {
+    const prevKey = process.env.OPENAI_API_KEY;
+    process.env.OPENAI_API_KEY = "test-key";
+    const originalWarn = console.warn;
+    const warnCalls = [];
+    console.warn = (...args) => { warnCalls.push(args); };
+    const bodies = [];
+    const mockFetch = mock.method(globalThis, "fetch", async (_url, init) => {
+      const body = JSON.parse(init.body);
+      bodies.push(body);
+      if (bodies.length === 1) {
+        assert.ok(body.previous_response_id, "first call must carry chaining id");
+        return new Response(
+          JSON.stringify({ error: { code: "previous_response_not_found", message: "not found" } }),
+          { status: 400, headers: { "Content-Type": "application/json" } },
+        );
+      }
+      // Return a valid streaming-like response so synthesize() proceeds.
+      return new Response("ok", { status: 200 });
+    });
+    try {
+      const ctx = makeCtx();
+      await synthesize(ctx, {
+        chainingContext: { shouldChain: true, previousResponseId: "resp_stale", reason: "ok" },
+      });
+      assert.equal(mockFetch.mock.callCount(), 2, "exactly one recovery retry");
+      assert.ok(bodies[0].previous_response_id, "first body had chaining");
+      assert.ok(
+        !("previous_response_id" in bodies[1]),
+        "recovery body drops previous_response_id",
+      );
+      // Full-history path — messages array should be intact (system prompt + user).
+      assert.ok(bodies[1].input.length >= 2, "recovery body restores full history");
+      assert.ok(bodies[1].input.some((m) => m.role === "user"), "user turn preserved");
+      assert.ok(
+        warnCalls.some((args) => String(args[0] || "").includes("previous_response_id stale")),
+        "emits ops warning",
+      );
+    } finally {
+      mockFetch.mock.restore();
+      console.warn = originalWarn;
+      if (prevKey === undefined) delete process.env.OPENAI_API_KEY;
+      else process.env.OPENAI_API_KEY = prevKey;
+    }
+  });
+
+  it("does NOT retry a 400 with a DIFFERENT error code even when chaining was requested", async () => {
+    const prevKey = process.env.OPENAI_API_KEY;
+    process.env.OPENAI_API_KEY = "test-key";
+    let calls = 0;
+    const mockFetch = mock.method(globalThis, "fetch", async () => {
+      calls++;
+      return new Response(
+        JSON.stringify({ error: { code: "invalid_request_error", message: "bad schema" } }),
+        { status: 400, headers: { "Content-Type": "application/json" } },
+      );
+    });
+    try {
+      const ctx = makeCtx();
+      await assert.rejects(
+        () => synthesize(ctx, {
+          chainingContext: { shouldChain: true, previousResponseId: "resp_x", reason: "ok" },
+        }),
+        /Synthesis failed/,
+      );
+      assert.equal(calls, 1, "no retry on unrelated 400");
+    } finally {
+      mockFetch.mock.restore();
+      if (prevKey === undefined) delete process.env.OPENAI_API_KEY;
+      else process.env.OPENAI_API_KEY = prevKey;
+    }
+  });
+
+  it("does NOT trigger recovery when chainingContext was null to begin with", async () => {
+    const prevKey = process.env.OPENAI_API_KEY;
+    process.env.OPENAI_API_KEY = "test-key";
+    let calls = 0;
+    const mockFetch = mock.method(globalThis, "fetch", async () => {
+      calls++;
+      return new Response(
+        JSON.stringify({ error: { code: "previous_response_not_found" } }),
+        { status: 400, headers: { "Content-Type": "application/json" } },
+      );
+    });
+    try {
+      const ctx = makeCtx();
+      // No chainingContext passed → recovery branch must be skipped.
+      await assert.rejects(
+        () => synthesize(ctx),
+        /Synthesis failed/,
+      );
+      assert.equal(calls, 1, "no retry without chainingContext");
+    } finally {
+      mockFetch.mock.restore();
+      if (prevKey === undefined) delete process.env.OPENAI_API_KEY;
+      else process.env.OPENAI_API_KEY = prevKey;
+    }
   });
 });

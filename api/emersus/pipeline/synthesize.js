@@ -104,6 +104,17 @@ function buildMetadata(ctx) {
 // are not retried.
 const RETRY_STATUSES = new Set([429, 500, 502, 503, 504]);
 
+// Detects OpenAI's "previous_response_id is stale/gone" error shape. Both
+// `error.code` and `error.type` appear in their docs/responses — check both.
+// Exported for the stale-chaining recovery path in synthesize() (which has
+// the full messages array in scope; fetchWithRetry only sees the serialized
+// body and can't rebuild full history).
+export function isPreviousResponseNotFound(errBody) {
+  const err = errBody?.error;
+  if (!err) return false;
+  return err.code === "previous_response_not_found" || err.type === "previous_response_not_found";
+}
+
 async function fetchWithRetry(url, init, { maxAttempts = 3, baseDelayMs = 250 } = {}) {
   let lastErr = null;
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
@@ -157,13 +168,15 @@ export async function synthesize(ctx, { chainingContext = null } = {}) {
     crossThreadMemory: ctx.crossThreadMemory,
   });
 
-  const requestBody = buildRequestBody({
+  const buildBodyFor = (ctxOverride) => buildRequestBody({
     messages,
     tools: buildToolDefinitions(),
     model,
     metadata: buildMetadata(ctx),
-    chainingContext,
+    chainingContext: ctxOverride,
   });
+
+  const requestBody = buildBodyFor(chainingContext);
 
   const start = Date.now();
   // 60s outbound connect/headers timeout. This guards ONLY the initial
@@ -184,20 +197,43 @@ export async function synthesize(ctx, { chainingContext = null } = {}) {
     }, { once: true });
   }
 
+  const baseInit = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+    },
+    signal: combinedSignal,
+  };
+
   let response;
   try {
     response = await fetchWithRetry(
       "https://api.openai.com/v1/responses",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify(requestBody),
-        signal: combinedSignal,
-      }
+      { ...baseInit, body: JSON.stringify(requestBody) },
     );
+
+    // One-shot recovery: if chaining was requested but OpenAI returned a
+    // 400 previous_response_not_found (the server lost the 30-day-stored
+    // state — or we raced an eviction), rebuild the body WITHOUT chaining
+    // so buildRequestBody takes the full-history path and keeps all prior
+    // context, then retry ONCE. fetchWithRetry's transient-5xx backoff
+    // still applies to the retry.
+    if (chainingContext?.shouldChain && response.status === 400) {
+      // clone() so downstream error handling below can still read the body
+      // if the 400 turns out not to match our recovery shape.
+      const errorBody = await response.clone().json().catch(() => null);
+      if (isPreviousResponseNotFound(errorBody)) {
+        console.warn("[chat] previous_response_id stale; retrying with full history");
+        // Drain the original response so the connection can be reused.
+        await response.text().catch(() => "");
+        const fullHistoryBody = buildBodyFor(null);
+        response = await fetchWithRetry(
+          "https://api.openai.com/v1/responses",
+          { ...baseInit, body: JSON.stringify(fullHistoryBody) },
+        );
+      }
+    }
   } finally {
     clearTimeout(timeoutId);
   }
