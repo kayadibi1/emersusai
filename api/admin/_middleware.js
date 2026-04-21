@@ -1,12 +1,10 @@
 // api/admin/_middleware.js
 import { supabaseAdmin } from "../lib/clients.js";
 
-function parseAdminEmails() {
-  return (process.env.ADMIN_EMAILS ?? "")
-    .split(",")
-    .map((s) => s.trim())
-    .filter(Boolean);
-}
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? "")
+  .split(",")
+  .map((s) => s.trim().toLowerCase())
+  .filter(Boolean);
 
 export async function requireAdmin(req, res, next) {
   try {
@@ -21,8 +19,8 @@ export async function requireAdmin(req, res, next) {
       return res.status(401).json({ error: "invalid session" });
     }
 
-    const allow = parseAdminEmails();
-    if (allow.length === 0 || !allow.includes(data.user.email)) {
+    const email = data.user.email.trim().toLowerCase();
+    if (ADMIN_EMAILS.length === 0 || !ADMIN_EMAILS.includes(email)) {
       return res.status(403).json({ error: "forbidden" });
     }
 

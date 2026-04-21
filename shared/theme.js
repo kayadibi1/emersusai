@@ -73,6 +73,21 @@ export function bootTheme() {
     systemPrefersLight: systemPrefersLight(),
   });
   document.documentElement.setAttribute('data-theme', theme);
+
+  // Cross-tab sync: if another tab flips the theme, mirror it here so
+  // open pages don't drift. Only rebinds on the STORAGE_KEY to avoid
+  // reacting to unrelated localStorage writes.
+  if (typeof window !== 'undefined' && !window.__emersusThemeStorageBound) {
+    window.__emersusThemeStorageBound = true;
+    window.addEventListener('storage', (e) => {
+      if (e.key !== STORAGE_KEY) return;
+      const next = validateTheme(e.newValue);
+      if (!next) return;
+      document.documentElement.setAttribute('data-theme', next);
+      document.dispatchEvent(new CustomEvent('emersus:themechange', { detail: { theme: next } }));
+    });
+  }
+
   return theme;
 }
 

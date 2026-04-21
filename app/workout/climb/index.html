@@ -86,7 +86,7 @@
     .modal-sheet { background: #161922; border-radius: 20px; padding: 22px 20px; width: 100%; max-width: 480px; margin: 0 auto; }
     .modal-title { font-size: 1rem; font-weight: 700; margin-bottom: 14px; }
     .modal-sub { font-size: 0.6rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
-    .grade-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; }
+    .grade-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 16px; max-height: 60vh; overflow-y: auto; overscroll-behavior: contain; }
     .grade-cell { background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 10px; padding: 10px 0; text-align: center; font-size: 0.78rem; font-weight: 700; cursor: pointer; color: var(--ink); }
     .grade-cell.selected { background: rgba(120,220,20,0.14); border-color: var(--accent); color: var(--accent); }
     .counter-row { display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,0.04); border: 1px solid var(--line); border-radius: 12px; padding: 12px 16px; margin-bottom: 10px; }

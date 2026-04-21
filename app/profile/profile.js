@@ -169,7 +169,16 @@ function NumberField({ label, suffix, value, onChange, min, max, step, disabled 
         value: value ?? "",
         min, max, step,
         disabled,
-        onChange: (e) => onChange(e.target.value ? Number(e.target.value) : null),
+        onChange: (e) => {
+          const raw = e.target.value;
+          if (raw === "") { onChange(null); return; }
+          let n = Number(raw);
+          if (!Number.isFinite(n)) return;
+          if (n < 0) return;
+          if (typeof min === "number" && n < min) n = min;
+          if (typeof max === "number" && n > max) n = max;
+          onChange(n);
+        },
       }),
       suffix ? h("span", { className: "pf-number-suffix" }, suffix) : null,
     ),
@@ -337,6 +346,24 @@ function AppearanceTab() {
     applyTheme(next);
     setTheme(next);
   };
+
+  useEffect(() => {
+    const onThemeChange = (e) => {
+      const t = e?.detail?.theme;
+      if (t && VALID_THEMES.includes(t)) setTheme(t);
+    };
+    const onStorage = (e) => {
+      if (e.key !== "emersus-theme") return;
+      const t = e.newValue;
+      if (t && VALID_THEMES.includes(t)) setTheme(t);
+    };
+    window.addEventListener("emersus:themechange", onThemeChange);
+    window.addEventListener("storage", onStorage);
+    return () => {
+      window.removeEventListener("emersus:themechange", onThemeChange);
+      window.removeEventListener("storage", onStorage);
+    };
+  }, []);
 
   const OPTIONS = [
     { id: "paper", label: "Light", sub: "Paper · Royal", swatch: "paper" },
@@ -540,18 +567,21 @@ function BillingTab({ reloadKey = 0 }) {
       ),
     ),
     h("div", { className: "pf-billing-actions" },
-      h("button", { type: "button", className: "pf-secondary", onClick: () => alert("Email change flow ships in a follow-up.") }, "Change email"),
-      h("button", { type: "button", className: "pf-secondary", onClick: () => alert("Password change flow ships in a follow-up.") }, "Change password"),
       h("button", { type: "button", className: "pf-secondary", onClick: () => alert("Export flow ships in a follow-up.") }, "Request export"),
+    ),
+    h("p", { className: "pf-account-contact" },
+      "To change your email or password, email ",
+      h("a", { href: "mailto:info@emersus.ai" }, "info@emersus.ai"),
+      ".",
     ),
     h("div", { className: "pf-danger-zone" },
       h("div", { className: "pf-danger-zone-head" }, "Danger zone"),
       h("p", { className: "pf-danger-zone-copy" }, "Deleting your account removes all chats, plans, sessions, and journal entries. Re-registration within 30 days restores everything."),
-      h("button", {
-        type: "button",
-        className: "pf-danger-btn",
-        onClick: () => alert("Delete-account flow ships in a follow-up. For now, contact info@emersus.ai."),
-      }, "Delete account"),
+      h("p", { className: "pf-danger-zone-copy" },
+        "To request account deletion, email ",
+        h("a", { href: "mailto:info@emersus.ai" }, "info@emersus.ai"),
+        ".",
+      ),
     ),
   );
 }

@@ -29,6 +29,13 @@ export async function getPublicConfig() {
 
       return response.json();
     });
+    // If the fetch fails, clear the cached rejection so a subsequent
+    // caller (e.g. after the network recovers or the user retries) can
+    // re-attempt. Without this, a single transient /api/config failure
+    // wedges the page until reload.
+    configPromise.catch(() => {
+      configPromise = undefined;
+    });
   }
 
   return configPromise;

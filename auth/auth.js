@@ -50,7 +50,7 @@ function loginPanel() {
         ${googleSvg()}
         <span>Continue with Google</span>
       </button>
-      <p class="auth-status" data-auth-oauth-status></p>
+      <p class="auth-status" data-auth-oauth-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
 
       <div class="oauth-divider"><span>or</span></div>
 
@@ -66,12 +66,8 @@ function loginPanel() {
           </span>
           <input type="password" name="password" autocomplete="current-password" required />
         </label>
-        <label class="auth-remember">
-          <input type="checkbox" name="remember" />
-          <span>Remember for 30 days</span>
-        </label>
         <button class="auth-primary" type="submit">Sign in →</button>
-        <p class="auth-status" data-auth-status></p>
+        <p class="auth-status" data-auth-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
         <button class="auth-link" type="button" data-auth-resend hidden>Resend confirmation email</button>
       </form>
 
@@ -94,7 +90,7 @@ function signupPanel() {
         ${googleSvg()}
         <span>Continue with Google</span>
       </button>
-      <p class="auth-status" data-auth-oauth-status></p>
+      <p class="auth-status" data-auth-oauth-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
 
       <div class="oauth-divider"><span>or</span></div>
 
@@ -115,7 +111,7 @@ function signupPanel() {
           <input type="password" name="password" autocomplete="new-password" required minlength="8" />
         </label>
         <button class="auth-primary" type="submit">Create Account</button>
-        <p class="auth-status" data-auth-status></p>
+        <p class="auth-status" data-auth-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
         <button class="auth-link" type="button" data-auth-resend hidden>Resend confirmation email</button>
       </form>
 
@@ -142,7 +138,7 @@ function forgotPanel() {
         </label>
         <p class="auth-helper">LINK EXPIRES AFTER 30 MINUTES FOR SECURITY.</p>
         <button class="auth-primary" type="submit">Send reset link →</button>
-        <p class="auth-status" data-auth-status></p>
+        <p class="auth-status" data-auth-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
       </form>
 
       <div class="auth-panel-foot">
@@ -173,7 +169,6 @@ function render() {
     </div>`;
   wireEvents();
   void hydrateStats();
-  if (state.panel === "forgot") wireForgot();
   ensureAuthPagesLoaded();
 }
 
@@ -228,33 +223,6 @@ function formatLargeNumber(n) {
   if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M+`;
   if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K+`;
   return String(n);
-}
-
-function wireForgot() {
-  const form = root.querySelector('[data-auth-forgot]');
-  if (!form) return;
-  form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const submitBtn = form.querySelector('button[type="submit"]');
-    const status = form.querySelector("[data-auth-status]");
-    submitBtn.disabled = true;
-    status.textContent = "Sending…";
-    status.classList.remove("is-error");
-
-    const email = form.querySelector('input[name="email"]').value;
-    try {
-      const { getSupabase } = await import("/shared/supabase.js");
-      const supabase = await getSupabase();
-      await supabase.auth.resetPasswordForEmail(email, {
-        redirectTo: `${window.location.origin}/auth/reset-password/`,
-      });
-      // Always success — never leak whether the email exists.
-      form.innerHTML = `<div class="auth-success">CHECK YOUR INBOX<br/><span class="auth-success-sub">Link valid for 30 minutes.</span></div>`;
-    } catch (err) {
-      // Even on error, show success per security policy.
-      form.innerHTML = `<div class="auth-success">CHECK YOUR INBOX<br/><span class="auth-success-sub">Link valid for 30 minutes.</span></div>`;
-    }
-  });
 }
 
 window.addEventListener("popstate", () => {

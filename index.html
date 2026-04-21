@@ -205,9 +205,9 @@
         <canvas id="landing-wave" class="hero-bg-canvas"></canvas>
         <div class="hero-bg-fallback"></div>
       </div>
-      <section class="hero">
+      <section class="hero" id="hero">
         <div class="eyebrow"><span class="dot"></span>Evidence-Based Fitness Intelligence</div>
-        <h1 class="headline">Your body deserves better<br>than <span class="rotator" data-words='["guesswork.","influencer takes.","bro science."]' aria-label="guesswork, influencer takes, bro science"><span class="rot-text">guesswork.</span></span></h1>
+        <h1 class="headline">Your body deserves better<br>than <span class="rotator" data-words='["guesswork.","influencer takes.","bro science."]' aria-live="polite"><span class="rot-text">guesswork.</span></span></h1>
         <p class="subhead">Every answer cited. Every protocol backed by peer-reviewed research. No influencer takes, no bro science — the actual evidence.</p>
         <div class="hero-actions">
           <a class="btn btn-accent" href="/auth/?panel=signup">Sign up →</a>
@@ -638,7 +638,7 @@
 
     <section class="final-cta">
       <div class="final-cta-inner">
-        <h2>Start asking <span class="cta-word" data-words='["better","smarter","cited","honest","sharper"]' aria-label="better, smarter, cited, honest, sharper"><span class="cta-word-text">better</span></span> questions.</h2>
+        <h2>Start asking <span class="cta-word" data-words='["better","smarter","cited","honest","sharper"]' aria-live="polite"><span class="cta-word-text">better</span></span> questions.</h2>
         <p>Rigorous answers, every one with its sources.</p>
         <a class="btn btn-accent" href="/auth/?panel=signup">Sign up →</a>
         <div class="reassurance">NO INFLUENCER TAKES · NO BRO SCIENCE · JUST EVIDENCE</div>
@@ -772,7 +772,7 @@
       }
 
       async function countTo(el, target, duration) {
-        const start = Number((el.textContent || '').replace(/[^\d-]/g, '')) || 0;
+        const start = Number((el.textContent || '').replace(/[^\d]/g, '')) || 0;
         const t0 = performance.now();
         return new Promise((resolve) => {
           function frame(t) {
@@ -954,24 +954,38 @@
               });
           }
         })
-        .catch(() => { /* fall back to hardcoded defaults */ });
+        .catch((err) => {
+          console.warn('[emersus] /api/config fetch failed; stats fall back to hardcoded defaults', err);
+        });
     })();
   </script>
 
   <script>
+    // Shared hidden measurer for all width-lock rotators on the page.
+    // Created lazily on first use, re-used across the hero rotator, CTA
+    // word, and num ticker so each one doesn't leak its own <span> into
+    // <body>.
+    let __sharedMeasurer = null;
+    function getSharedMeasurer() {
+      if (__sharedMeasurer && __sharedMeasurer.isConnected) return __sharedMeasurer;
+      const m = document.createElement('span');
+      m.style.cssText =
+        'position:absolute;visibility:hidden;pointer-events:none;' +
+        'left:-9999px;top:0;white-space:nowrap;';
+      document.body.appendChild(m);
+      __sharedMeasurer = m;
+      return m;
+    }
+    const TYPO_KEYS = ['fontFamily', 'fontSize', 'fontWeight', 'fontStyle',
+                       'fontVariationSettings', 'letterSpacing', 'textTransform'];
+
     // Hero headline rotator. Locks width to the widest word so the
     // surrounding "than " never shifts; crossfades text with expo-out.
     (function initRotators() {
       const rotators = document.querySelectorAll('.rotator');
       if (!rotators.length) return;
 
-      const measurer = document.createElement('span');
-      measurer.style.cssText =
-        'position:absolute;visibility:hidden;pointer-events:none;' +
-        'left:-9999px;top:0;white-space:nowrap;';
-      document.body.appendChild(measurer);
-      const TYPO_KEYS = ['fontFamily', 'fontSize', 'fontWeight', 'fontStyle',
-                         'fontVariationSettings', 'letterSpacing', 'textTransform'];
+      const measurer = getSharedMeasurer();
 
       const FADE_OUT_MS = 280; // must match CSS .rot-text.is-out duration
       const DWELL_MS = 2600;
@@ -1014,9 +1028,11 @@
             txt.textContent = words[next];
             txt.classList.remove('is-out');
             txt.classList.add('is-in');
-            requestAnimationFrame(() => requestAnimationFrame(() => {
+            // Wait one frame so the DOM paints the inserted word before
+            // we drop is-in and start the crossfade transition.
+            requestAnimationFrame(() => {
               txt.classList.remove('is-in');
-            }));
+            });
             i = next;
           }, FADE_OUT_MS);
         }
@@ -1040,13 +1056,7 @@
       try { words = JSON.parse(root.dataset.words || '[]'); } catch (_) { return; }
       if (!txt || !Array.isArray(words) || words.length < 2) return;
 
-      const measurer = document.createElement('span');
-      measurer.style.cssText =
-        'position:absolute;visibility:hidden;pointer-events:none;' +
-        'left:-9999px;top:0;white-space:nowrap;';
-      document.body.appendChild(measurer);
-      const TYPO_KEYS = ['fontFamily', 'fontSize', 'fontWeight', 'fontStyle',
-                         'fontVariationSettings', 'letterSpacing', 'textTransform'];
+      const measurer = getSharedMeasurer();
 
       function lockWidth() {
         const cs = getComputedStyle(txt);
@@ -1089,11 +1099,12 @@
           txt.textContent = words[next];
           txt.classList.remove('is-out', 'is-shimmering');
           txt.classList.add('is-in');
-          requestAnimationFrame(() => requestAnimationFrame(() => {
+          // Wait one frame so the inserted word paints before we drop
+          // is-in and start the shimmer sweep.
+          requestAnimationFrame(() => {
             txt.classList.remove('is-in');
-            // Kick the shimmer sweep once the incoming word settles.
             shimmerCurrent();
-          }));
+          });
           i = next;
           timer = setTimeout(tick, SHIMMER_MS + DWELL_AFTER_SHIMMER_MS);
         }, FADE_OUT_MS);
@@ -1121,14 +1132,8 @@
       const tickers = document.querySelectorAll('.num-ticker');
       if (!tickers.length) return;
 
-      const measurer = document.createElement('span');
-      measurer.style.cssText =
-        'position:absolute;visibility:hidden;pointer-events:none;' +
-        'left:-9999px;top:0;white-space:nowrap;';
-      document.body.appendChild(measurer);
+      const measurer = getSharedMeasurer();
 
-      const TYPO_KEYS = ['fontFamily', 'fontSize', 'fontWeight', 'fontStyle',
-                         'fontVariationSettings', 'letterSpacing', 'textTransform'];
       const FADE_OUT_MS = 180;
       const DWELL_MS = 260;
 
@@ -1181,9 +1186,11 @@
               txt.textContent = words[i];
               txt.classList.remove('is-out');
               txt.classList.add('is-in');
-              requestAnimationFrame(() => requestAnimationFrame(() => {
+              // Wait one frame so the inserted word paints before we
+              // drop is-in and start the crossfade transition.
+              requestAnimationFrame(() => {
                 txt.classList.remove('is-in');
-              }));
+              });
               setTimeout(step, DWELL_MS);
             }, FADE_OUT_MS);
           }

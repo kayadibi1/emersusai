@@ -20,7 +20,10 @@ router.get("/", async (req, res) => {
   }
 
   const { data, error } = await query;
-  if (error) return res.status(500).json({ error: error.message });
+  if (error) {
+    console.error("[admin/topics] list failed:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
   res.json({ topics: data });
 });
 
@@ -46,7 +49,10 @@ router.patch("/:id", async (req, res) => {
     .eq("id", id)
     .select()
     .single();
-  if (error) return res.status(500).json({ error: error.message });
+  if (error) {
+    console.error("[admin/topics] patch failed:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
   if (!data) return res.status(404).json({ error: "topic not found" });
   res.json({ topic: data });
 });

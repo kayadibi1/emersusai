@@ -257,6 +257,9 @@
 .message.assistant .msg-actions:focus-within {
   opacity: 1;
 }
+@media (hover: none) {
+  .msg-actions { opacity: 1 !important; }
+}
 .msg-action {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px;
@@ -484,14 +487,14 @@
   background: var(--surface-faint);
   border: 1px solid var(--line);
   border-radius: 4px;
-  width: 26px;
+  min-width: 26px;
   height: 22px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: color .14s, border-color .14s, background .14s;
-  padding: 0;
+  padding: 0 6px;
 }
 .srcs-chip:hover {
   color: var(--accent);
@@ -921,7 +924,7 @@
   transition: color .14s ease, opacity .14s ease;
 }
 .chat-composer-shell .composer textarea:focus::placeholder {
-  color: transparent;
+  opacity: 0.3;
 }
 .chat-composer-shell .composer-utility-row {
   display: flex;
@@ -1016,7 +1019,7 @@
 }
 .onboarding-banner-copy {
   flex: 1;
-  color: var(--muted);
+  color: var(--ink);
 }
 .onboarding-banner-skip {
   background: transparent;
@@ -1501,7 +1504,8 @@ body.chat-page {
   transition: filter .14s;
 }
 .chat-composer-shell .submit-orb:hover { filter: brightness(1.08); }
-.chat-composer-shell .submit-orb:disabled { opacity: 0.5; cursor: not-allowed; }
+.chat-composer-shell .submit-orb:disabled { opacity: 0.45; cursor: not-allowed; }
+.submit-orb:disabled { opacity: 0.45; cursor: not-allowed; }
 .chat-composer-shell .composer-utility-row {
   display: flex;
   align-items: center;
@@ -1870,6 +1874,18 @@ body.chat-page {
   }
   .thread-welcome-copy {
     font-size: 14px;
+  }
+}
+
+@media (max-width: 420px) {
+  .thread-welcome {
+    padding: 0 16px;
+  }
+  .thread-welcome-title {
+    font-size: 22px;
+  }
+  .thread-welcome-copy {
+    font-size: 13.5px;
   }
 }
 

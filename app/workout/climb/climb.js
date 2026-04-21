@@ -67,7 +67,7 @@ function AddRouteModal({ initial, gradeSystem, onSave, onCancel }) {
       h("div", { className: "modal-title" }, initial ? "Edit route" : "Add route"),
       h("div", { className: "modal-sub" }, `Grade (${gradeSystem})`),
       h("div", { className: "grade-grid" },
-        grades.slice(0, 18).map((g) =>
+        grades.map((g) =>
           h("button", {
             key: g,
             className: `grade-cell${grade === g ? " selected" : ""}`,

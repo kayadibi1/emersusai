@@ -12,7 +12,10 @@
   <meta name="theme-color" content="#0e1117">
   <link rel="manifest" href="/manifest.webmanifest">
   <title>Emersus AI</title>
-  <!-- no-flash-boot: resolves data-theme pre-paint -->
+  <!-- no-flash-boot: resolves data-theme pre-paint.
+       Duplicated across every auth HTML by design: the localStorage read
+       must happen synchronously BEFORE first paint (FOUC guard). An
+       external module would be deferred and would flash the default theme. -->
   <script>
     (function () {
       var H = document.documentElement;

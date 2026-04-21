@@ -1,10 +1,13 @@
 // shared/progress-ghost-samples.js
-// Static demo data for the muted "ghost" previews shown on /app/progress/
-// when a user is below the unlock threshold for a given chart slot.
+// Backend-only demo-data reference for the muted "ghost" previews shown on
+// /app/progress/ when a user is below the unlock threshold for a given chart
+// slot.
 //
-// Shape matches what each chart helper in shared/progress-charts.js expects,
-// so the render path is identical to real data — we just wrap it in a muted
-// <ChartGhost>.
+// Consumed only by api/emersus/progress.js, which embeds the sample as the
+// `ghost.sample` field in the /api/progress response. The frontend renders
+// whatever the API returns — it does NOT import this module directly. Kept
+// in /shared/ so the shape stays colocated with shared/progress-charts.js,
+// which defines what each chart helper expects.
 
 export const GHOST_TARGETS = {
   personal_records: { target: 1, unit: "session" },

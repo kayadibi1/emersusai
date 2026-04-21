@@ -17,7 +17,10 @@ router.get("/", async (req, res) => {
     .order("confidence", { ascending: false })
     .order("created_at", { ascending: false })
     .limit(limit);
-  if (error) return res.status(500).json({ error: error.message });
+  if (error) {
+    console.error("[admin/candidates] list failed:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
   res.json({ candidates: data });
 });
 
@@ -64,7 +67,10 @@ router.post("/:id/accept", async (req, res) => {
     })
     .select()
     .single();
-  if (topicErr) return res.status(500).json({ error: topicErr.message });
+  if (topicErr) {
+    console.error("[admin/candidates] insert research_topics failed:", topicErr);
+    return res.status(500).json({ error: "Internal server error" });
+  }
 
   // Flip candidate to accepted
   await supabaseAdmin
@@ -106,7 +112,10 @@ router.post("/:id/reject", async (req, res) => {
       decided_by: req.adminUser.email,
     })
     .eq("id", id);
-  if (error) return res.status(500).json({ error: error.message });
+  if (error) {
+    console.error("[admin/candidates] reject failed:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
   res.json({ ok: true });
 });
 
@@ -126,7 +135,10 @@ router.post("/:id/snooze", async (req, res) => {
       decided_by: req.adminUser.email,
     })
     .eq("id", id);
-  if (error) return res.status(500).json({ error: error.message });
+  if (error) {
+    console.error("[admin/candidates] snooze failed:", error);
+    return res.status(500).json({ error: "Internal server error" });
+  }
   res.json({ ok: true });
 });
 

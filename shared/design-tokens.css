@@ -243,6 +243,45 @@ body.app-body::before { display: none; }
   outline: none;
 }
 
+/* ---------- A11Y UTILITIES ---------- */
+/* Visually-hidden text that stays announceable to screen readers. Standard
+ * "visually hidden" recipe; safe to apply anywhere a11y needs a label but
+ * the design intentionally omits visible text. */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Skip-to-main link. Hidden off-screen until keyboard-focused; then it
+ * jumps into the top-left corner for any keyboard user (including assistive
+ * tech) to land straight in the page body, bypassing the sidebar nav. */
+.skip-to-main {
+  position: fixed;
+  top: -100px;
+  left: 8px;
+  z-index: 10000;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+  text-decoration: none;
+  transition: top 0.16s ease;
+}
+.skip-to-main:focus,
+.skip-to-main:focus-visible {
+  top: 8px;
+  outline: 2px solid var(--ink);
+  outline-offset: 2px;
+}
+
 /* ---------- REDUCED MOTION (global) ---------- */
 /* Honor OS-level "reduce motion" preference. This is the WCAG-blessed
  * kill-switch: animations complete quasi-instantly, transitions stop, but

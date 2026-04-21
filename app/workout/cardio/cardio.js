@@ -92,6 +92,7 @@ function PreStart({ session, activityType, setActivityType, titleValue, setTitle
 function LiveScreen({
   elapsedS, pathLength, totalDistanceM, currentPaceSec, avgPaceSec,
   distanceUnit, gpsState, paused, onPause, onResume, onFinish, gpsDenied,
+  wakeLockFailed,
 }) {
   const gpsClass =
     gpsState === "locked" ? "" :
@@ -116,6 +117,8 @@ function LiveScreen({
     ),
     gpsDenied &&
       h("div", { className: "banner" }, "GPS permission denied \u2014 tracking time only. Switch to the planner to retry with GPS."),
+    wakeLockFailed &&
+      h("div", { className: "banner", role: "status" }, "Keep your screen on to track."),
     h("div", { className: "live-timer", style: paused ? { color: "var(--muted)" } : null },
       formatTimer(elapsedS)
     ),
@@ -173,6 +176,7 @@ function CardioSessionView({ session: authSession, planRow, sessionIndex, profil
   const [currentPaceSec, setCurrentPaceSec] = useState(null);
   const [gpsState, setGpsState] = useState("searching");
   const [gpsDenied, setGpsDenied] = useState(false);
+  const [wakeLockFailed, setWakeLockFailed] = useState(false);
   const [paused, setPaused] = useState(false);
 
   const trackerRef = useRef(null);
@@ -226,7 +230,12 @@ function CardioSessionView({ session: authSession, planRow, sessionIndex, profil
     if ("wakeLock" in navigator) {
       try {
         wakeLockRef.current = await navigator.wakeLock.request("screen");
-      } catch (_e) {}
+        setWakeLockFailed(false);
+      } catch (_e) {
+        setWakeLockFailed(true);
+      }
+    } else {
+      setWakeLockFailed(true);
     }
 
     // Start GPS tracker
@@ -237,7 +246,10 @@ function CardioSessionView({ session: authSession, planRow, sessionIndex, profil
         setTotalDistanceM(trackerRef.current?.getTotalDistanceM() || 0);
       },
       onError: (err) => {
-        if (err?.code === 1) {
+        const denied = err && typeof err.PERMISSION_DENIED === "number"
+          ? err.code === err.PERMISSION_DENIED
+          : err?.code === 1;
+        if (denied) {
           setGpsDenied(true);
           setGpsState("error");
         } else {
@@ -348,6 +360,7 @@ function CardioSessionView({ session: authSession, planRow, sessionIndex, profil
       gpsState,
       paused,
       gpsDenied,
+      wakeLockFailed,
       onPause,
       onResume,
       onFinish,

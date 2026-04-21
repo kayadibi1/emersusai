@@ -238,10 +238,50 @@
   position: relative;
 }
 
-/* Mobile: sidebar hidden, main full width */
+/* Mobile drawer: sidebar collapses into an overlay toggled by a
+ * hamburger button in the top bar. The button is only rendered at
+ * ≤900px (CSS hides it on desktop). Tapping the button flips
+ * .app-shell.is-nav-open, which slides the sidebar in and places a
+ * translucent scrim over the main pane. */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  padding: 8px;
+  margin-right: 4px;
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 8px;
+}
+.nav-toggle:hover { background: var(--surface-faint); }
+.nav-toggle svg { display: block; width: 22px; height: 22px; }
+
+.nav-scrim {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  z-index: 30;
+}
+
 @media (max-width: 900px) {
   .app-shell { grid-template-columns: 1fr; }
-  .sidebar { display: none; }
+  /* Sidebar becomes an overlay rather than display:none, so the drawer
+   * animation works and the nav tree stays in the DOM for assistive tech. */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: min(280px, 86vw);
+    transform: translateX(-105%);
+    transition: transform 0.24s ease;
+    z-index: 40;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.30);
+  }
+  .app-shell.is-nav-open .sidebar { transform: translateX(0); }
+  .app-shell.is-nav-open .nav-scrim { display: block; }
+  .nav-toggle { display: inline-flex; align-items: center; justify-content: center; }
 }
 
 /* ========== TOP BAR (inside .main) ========== */

@@ -443,6 +443,10 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
   const flushSave = useCallback(async () => {
     const planToSave = pendingPlanRef.current;
     if (!planToSave) return;
+    // Capture id at call start so a concurrent planRow change during the
+    // network round-trip can't commit to the wrong plan.
+    const planIdAtCallStart = planRef.current?.id;
+    if (!planIdAtCallStart) return;
     pendingPlanRef.current = null;
     if (saveTimeoutRef.current) {
       clearTimeout(saveTimeoutRef.current);
@@ -452,11 +456,15 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
     try {
       const updated = await applyManualWorkoutPlanEdit(
         authSession.user.id,
-        planRef.current.id,
+        planIdAtCallStart,
         planToSave
       );
+      if (planRef.current?.id !== planIdAtCallStart) {
+        setSavingState("idle");
+        return;
+      }
       // Sync completed_blocks to workout_logs (fire and forget â€” don't block the save UX)
-      upsertWorkoutLogs(authSession.user.id, planRef.current.id, planToSave, sessionId).catch(err =>
+      upsertWorkoutLogs(authSession.user.id, planIdAtCallStart, planToSave, sessionId).catch(err =>
         console.error("[workout-logs sync]", err)
       );
       planRef.current = updated;
@@ -778,6 +786,12 @@ function SessionView({ session: authSession, planRow, sessionId, profile, weight
             value: set.rpe,
             maxLength: MAX_RPE_LEN,
             onChange: (e) => updateSet(setIndex, "rpe", e.target.value),
+            onBlur: (e) => {
+              const n = Number(e.target.value);
+              if (e.target.value === "" || Number.isNaN(n)) return;
+              const clamped = Math.max(0, Math.min(10, n));
+              updateSet(setIndex, "rpe", String(Math.round(clamped * 10) / 10));
+            },
             "aria-label": `Set ${setIndex + 1} RPE (1 to 10)`,
             title: "Rate of Perceived Exertion, 1-10",
           }),

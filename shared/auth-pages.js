@@ -11,9 +11,30 @@ import { isAllowedEmailDomain } from "/shared/auth-email-allowlist.js";
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const BLOCKED_PROVIDER_MESSAGE =
   "That email provider isn't supported yet. Please use a mainstream provider like Gmail, Outlook, iCloud, or your ISP's address.";
+const OAUTH_DEBOUNCE_MS = 2000;
 
 function normalizeAuthMessage(message = "") {
   return String(message || "").toLowerCase();
+}
+
+function markFieldInvalid(field) {
+  if (!(field instanceof HTMLElement)) return;
+  field.setAttribute("aria-invalid", "true");
+  if (field.dataset.ariaInvalidBound === "1") return;
+  field.dataset.ariaInvalidBound = "1";
+  const clear = () => field.removeAttribute("aria-invalid");
+  field.addEventListener("input", clear);
+  field.addEventListener("change", clear);
+}
+
+function focusInvalid(field, status) {
+  const target = field instanceof HTMLElement ? field : status;
+  if (!(target instanceof HTMLElement)) return;
+  try {
+    target.focus({ preventScroll: false });
+  } catch (_err) {
+    target.focus();
+  }
 }
 
 const NOTIFY_SIGNUP_FLAG_PREFIX = "emersus:signup-notified:";
@@ -168,6 +189,13 @@ function bindOAuthButtons() {
         return;
       }
 
+      const now = Date.now();
+      const lastClickAt = Number(button.dataset.lastClickAt || 0);
+      if (lastClickAt && now - lastClickAt < OAUTH_DEBOUNCE_MS) {
+        return;
+      }
+      button.dataset.lastClickAt = String(now);
+
       setStatus(status, "", "");
       const previousText = button.querySelector("span")?.textContent;
       const labelSpan = button.querySelector("span");
@@ -222,21 +250,29 @@ function bindSignupForm() {
     const password = String(formData.get("password") || "");
     const fullName = String(formData.get("full_name") || "").trim();
     const submitButton = form.querySelector('button[type="submit"]');
+    const emailInput = form.querySelector('input[name="email"]');
+    const passwordInput = form.querySelector('input[name="password"]');
 
     setStatus(status, "", "");
 
     if (!emailPattern.test(email)) {
+      markFieldInvalid(emailInput);
       setStatus(status, "error", "Enter a valid email address.");
+      focusInvalid(emailInput, status);
       return;
     }
 
     if (!(await isAllowedEmailDomain(email))) {
+      markFieldInvalid(emailInput);
       setStatus(status, "error", BLOCKED_PROVIDER_MESSAGE);
+      focusInvalid(emailInput, status);
       return;
     }
 
     if (password.length < 8) {
+      markFieldInvalid(passwordInput);
       setStatus(status, "error", "Use at least 8 characters for your password.");
+      focusInvalid(passwordInput, status);
       return;
     }
 
@@ -282,6 +318,7 @@ function bindSignupForm() {
       const normalized = normalizeAuthMessage(message);
       updateResendButton(form, email, normalized.includes("confirm") || normalized.includes("already") || normalized.includes("exists"));
       setStatus(status, "error", message);
+      focusInvalid(null, status);
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = "Create Account";
@@ -306,11 +343,17 @@ function bindLoginForm() {
     const email = String(formData.get("email") || "").trim().toLowerCase();
     const password = String(formData.get("password") || "");
     const submitButton = form.querySelector('button[type="submit"]');
+    const emailInput = form.querySelector('input[name="email"]');
+    const passwordInput = form.querySelector('input[name="password"]');
 
     setStatus(status, "", "");
 
     if (!emailPattern.test(email) || !password) {
+      const firstInvalid = !emailPattern.test(email) ? emailInput : passwordInput;
+      if (!emailPattern.test(email)) markFieldInvalid(emailInput);
+      if (!password) markFieldInvalid(passwordInput);
       setStatus(status, "error", "Enter your email and password to continue.");
+      focusInvalid(firstInvalid, status);
       return;
     }
 
@@ -338,6 +381,7 @@ function bindLoginForm() {
         normalized.includes("confirm") || normalized.includes("not confirmed")
       );
       setStatus(status, "error", message);
+      focusInvalid(null, status);
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = "Log In";
@@ -360,11 +404,14 @@ function bindForgotPasswordForm() {
     const formData = new FormData(form);
     const email = String(formData.get("email") || "").trim().toLowerCase();
     const submitButton = form.querySelector('button[type="submit"]');
+    const emailInput = form.querySelector('input[name="email"]');
 
     setStatus(status, "", "");
 
     if (!emailPattern.test(email)) {
+      markFieldInvalid(emailInput);
       setStatus(status, "error", "Enter a valid email address.");
+      focusInvalid(emailInput, status);
       return;
     }
 
@@ -389,6 +436,7 @@ function bindForgotPasswordForm() {
       );
     } catch (error) {
       setStatus(status, "error", error.message || "Unable to send reset email.");
+      focusInvalid(null, status);
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = "Send Reset Link";
@@ -401,6 +449,8 @@ function bindResetPasswordForm() {
   if (!form) {
     return;
   }
+  if (form.dataset.bound === "1") return;
+  form.dataset.bound = "1";
 
   const status = document.querySelector("[data-auth-status]");
 
@@ -410,16 +460,22 @@ function bindResetPasswordForm() {
     const password = String(formData.get("password") || "");
     const confirmPassword = String(formData.get("confirm_password") || "");
     const submitButton = form.querySelector('button[type="submit"]');
+    const passwordInput = form.querySelector('input[name="password"]');
+    const confirmInput = form.querySelector('input[name="confirm_password"]');
 
     setStatus(status, "", "");
 
     if (password.length < 8) {
+      markFieldInvalid(passwordInput);
       setStatus(status, "error", "Use at least 8 characters for your new password.");
+      focusInvalid(passwordInput, status);
       return;
     }
 
     if (password !== confirmPassword) {
+      markFieldInvalid(confirmInput);
       setStatus(status, "error", "Your passwords do not match.");
+      focusInvalid(confirmInput, status);
       return;
     }
 
@@ -443,6 +499,7 @@ function bindResetPasswordForm() {
       }, 900);
     } catch (error) {
       setStatus(status, "error", error.message || "Unable to update your password.");
+      focusInvalid(null, status);
     } finally {
       submitButton.disabled = false;
       submitButton.textContent = "Update Password";
@@ -461,9 +518,14 @@ function readOAuthErrorFromUrl() {
   const description =
     searchParams.get("error_description") || hashParams.get("error_description");
   if (!error && !description) return null;
+  let cleaned = "";
+  if (description) {
+    const decoded = decodeURIComponent(description).replace(/\+/g, " ");
+    cleaned = decoded.replace(/[^\w\s.,!'?:;()\-—]/g, "").slice(0, 200);
+  }
   return {
-    code: error || "",
-    description: description ? decodeURIComponent(description).replace(/\+/g, " ") : "",
+    code: (error || "").replace(/[^\w\-]/g, "").slice(0, 64),
+    description: cleaned,
   };
 }
 

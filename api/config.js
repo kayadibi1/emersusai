@@ -67,11 +67,14 @@ async function getCorpusStats() {
 export default async function handler(req, res) {
   if (req.method !== "GET") {
     res.setHeader("Allow", "GET");
-    return res.status(405).json({ message: "Method not allowed." });
+    return res.status(405).json({ error: "Method not allowed." });
   }
 
   const supabaseUrl =
     process.env.NEXT_PUBLIC_SUPABASE_URL || process.env.SUPABASE_URL;
+  // supabaseAnonKey is the PUBLIC anonymous key (RLS-gated), not the
+  // service-role key. Safe to ship to the browser — never replace this
+  // with SUPABASE_SERVICE_ROLE_KEY.
   const supabaseAnonKey =
     process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY ||
     process.env.SUPABASE_ANON_KEY ||
@@ -80,7 +83,7 @@ export default async function handler(req, res) {
 
   if (!supabaseUrl || !supabaseAnonKey) {
     return res.status(500).json({
-      message: "Missing public Supabase environment variables.",
+      error: "Missing public Supabase environment variables.",
     });
   }
 

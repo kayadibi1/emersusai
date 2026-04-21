@@ -460,7 +460,7 @@ h1.headline {
   border: 1px solid var(--accent-line);
   letter-spacing: 0.14em;
 }
-.cite-pill .grade.mod { background: rgba(245, 158, 11, 0.18); color: #f59e0b; border-color: rgba(245, 158, 11, 0.45); }
+.cite-pill .grade.mod { background: rgba(245, 158, 11, 0.18); color: var(--z3); border-color: rgba(245, 158, 11, 0.45); }
 .cite-pill .grade.std { background: var(--surface-faint); color: var(--muted); border-color: var(--line); }
 
 /* Widget slot wrapper (provides spacing above widget relative to bubble) */
@@ -538,7 +538,7 @@ h1.headline {
   border: 1px solid transparent;
 }
 .wg-b-pill.strong { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-line); }
-.wg-b-pill.moderate { background: rgba(245, 158, 11, 0.18); color: #f59e0b; border-color: rgba(245, 158, 11, 0.45); }
+.wg-b-pill.moderate { background: rgba(245, 158, 11, 0.18); color: var(--z3); border-color: rgba(245, 158, 11, 0.45); }
 
 /* ===== WIDGET C — TDEE + cut macros ===== */
 .wg-c { border: 1px solid var(--line); border-radius: 12px; background: var(--surface-faint); padding: 16px 18px; }
@@ -733,7 +733,7 @@ h1.headline {
 .paper-card { border: 1px solid var(--line); border-radius: 10px; padding: 14px; background: var(--surface-faint); display: flex; flex-direction: column; gap: 10px; }
 .paper-badge { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; align-self: flex-start; font-weight: 500; }
 .paper-badge.reviewed { background: var(--accent-soft); color: var(--accent); border: 1px solid var(--accent-line); }
-.paper-badge.preprint { background: rgba(232,168,56,0.10); color: #e8a838; border: 1px solid rgba(232,168,56,0.32); }
+.paper-badge.preprint { background: rgba(232,168,56,0.10); color: var(--fat); border: 1px solid rgba(232,168,56,0.32); }
 .paper-title { font-size: 12px; color: var(--ink); line-height: 1.4; font-weight: 500; margin: 0; }
 .paper-meta { font-family: var(--font-mono); font-size: 10px; color: var(--dim); letter-spacing: 0.08em; margin-top: auto; }
 .paper-card.preprint-card { opacity: 0.92; }
@@ -1091,7 +1091,6 @@ h1.headline {
  * swipeable row of title-only cards (~120 px). */
 @media (max-width: 700px) {
   .roadmap-grid {
-    grid-template-columns: none;
     display: flex;
     gap: 10px;
     overflow-x: auto;

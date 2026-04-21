@@ -419,7 +419,76 @@ async function hydrateTodaysWorkoutCard(session) {
   actionsEl.appendChild(plannerLink);
 }
 
+// Inject a skip-to-main link + mobile nav hamburger if the page has an
+// app shell. Idempotent — safe to run on every module load.
+function mountShellAffordances() {
+  const appShell = document.querySelector(".app-shell");
+  if (!appShell) return;
+
+  // Skip-to-main: prepend as the first focusable element so tabbing from
+  // the address bar lands on it first.
+  const mainPane = appShell.querySelector(".main") || appShell.querySelector("main");
+  if (mainPane) {
+    if (!mainPane.id) mainPane.id = "main";
+    if (!document.querySelector(".skip-to-main")) {
+      const skip = document.createElement("a");
+      skip.className = "skip-to-main";
+      skip.href = `#${mainPane.id}`;
+      skip.textContent = "Skip to main content";
+      document.body.insertBefore(skip, document.body.firstChild);
+    }
+    // Make the main pane programmatically focusable so the skip anchor
+    // actually moves focus (anchors to non-focusable elements only scroll).
+    if (!mainPane.hasAttribute("tabindex")) mainPane.setAttribute("tabindex", "-1");
+  }
+
+  // Mobile drawer hamburger: render once into the top bar. The open/close
+  // state is a class on .app-shell; CSS handles the transform + scrim.
+  const sidebar = appShell.querySelector(".sidebar");
+  const topBar = appShell.querySelector(".top-bar");
+  if (sidebar && topBar && !topBar.querySelector(".nav-toggle")) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "nav-toggle";
+    btn.setAttribute("aria-label", "Open navigation");
+    btn.setAttribute("aria-controls", "app-sidebar");
+    btn.setAttribute("aria-expanded", "false");
+    btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>';
+    topBar.insertBefore(btn, topBar.firstChild);
+
+    if (!sidebar.id) sidebar.id = "app-sidebar";
+    if (!sidebar.getAttribute("role")) sidebar.setAttribute("role", "navigation");
+    if (!sidebar.getAttribute("aria-label")) sidebar.setAttribute("aria-label", "Main");
+
+    // Scrim sits as a sibling to .sidebar; tapping it closes the drawer.
+    let scrim = appShell.querySelector(".nav-scrim");
+    if (!scrim) {
+      scrim = document.createElement("div");
+      scrim.className = "nav-scrim";
+      appShell.appendChild(scrim);
+    }
+
+    const setOpen = (open) => {
+      appShell.classList.toggle("is-nav-open", !!open);
+      btn.setAttribute("aria-expanded", open ? "true" : "false");
+      btn.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+    };
+
+    btn.addEventListener("click", () => setOpen(!appShell.classList.contains("is-nav-open")));
+    scrim.addEventListener("click", () => setOpen(false));
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && appShell.classList.contains("is-nav-open")) setOpen(false);
+    });
+    // Close when a nav link is clicked so the user lands on the destination.
+    sidebar.addEventListener("click", (e) => {
+      const link = e.target.closest("a, .section-item, [data-sidebar-close]");
+      if (link) setOpen(false);
+    });
+  }
+}
+
 Promise.resolve()
+  .then(mountShellAffordances)
   .then(bindLogout)
   .then(bindProfileForm)
   .then(hydrateDashboard)

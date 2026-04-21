@@ -85,7 +85,7 @@ export default async function handler(req, res) {
   }
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST, OPTIONS");
-    return res.status(405).json({ message: "Method not allowed." });
+    return res.status(405).json({ error: "Method not allowed." });
   }
 
   const supabaseUrl =
@@ -104,7 +104,7 @@ export default async function handler(req, res) {
   const fullName = req.body?.full_name ? String(req.body.full_name).trim().slice(0, 255) : null;
 
   if (!email || !EMAIL_PATTERN.test(email)) {
-    return res.status(400).json({ message: "Invalid email." });
+    return res.status(400).json({ error: "Invalid email." });
   }
 
   // Non-fatal config check — if anything is missing, we log and 200 so the

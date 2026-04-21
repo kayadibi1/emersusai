@@ -3338,7 +3338,12 @@ export function ChatApp() {
   }, [statusTone, statusMessage]);
 
   useEffect(() => {
-    canvasRef.current?.scrollTo({ top: canvasRef.current.scrollHeight, behavior: "smooth" });
+    const el = canvasRef.current;
+    if (!el) return;
+    const nearBottom = el.scrollHeight - el.scrollTop - el.clientHeight < 120;
+    if (nearBottom) {
+      el.scrollTo({ top: el.scrollHeight, behavior: "auto" });
+    }
   }, [activeThread?.messages?.length, activeThreadId]);
 
   // When the user navigates to a different thread, clear streamingMessageKey
@@ -4712,6 +4717,11 @@ export function ChatApp() {
               disabled: composerDisabled,
               value: question,
               onChange: (event) => setQuestion(event.target.value),
+              onInput: (event) => {
+                const el = event.currentTarget;
+                el.style.height = "auto";
+                el.style.height = Math.min(el.scrollHeight, 160) + "px";
+              },
               onKeyDown: (event) => {
                 if (event.key === "Enter" && !event.shiftKey) {
                   event.preventDefault();
@@ -4791,10 +4801,17 @@ export function ChatApp() {
         })
       : null,
     historyContextMenu
-      ? h("div", {
+      ? (() => {
+          const menuW = 220;
+          const menuH = 96;
+          const maxX = (typeof window !== "undefined" ? window.innerWidth : 1024) - menuW - 8;
+          const maxY = (typeof window !== "undefined" ? window.innerHeight : 768) - menuH - 8;
+          const clampedX = Math.max(8, Math.min(historyContextMenu.x, maxX));
+          const clampedY = Math.max(8, Math.min(historyContextMenu.y, maxY));
+          return h("div", {
           className: "thread-context-menu",
           role: "menu",
-          style: { top: historyContextMenu.y + "px", left: historyContextMenu.x + "px" },
+          style: { top: clampedY + "px", left: clampedX + "px" },
           onMouseDown: (e) => e.stopPropagation(),
           onContextMenu: (e) => e.preventDefault(),
         },
@@ -4803,7 +4820,8 @@ export function ChatApp() {
             h("span", null, "Share")),
           h("button", { type: "button", role: "menuitem", className: "thread-context-item thread-context-danger", onClick: handleContextMenuDelete },
             h(Trash2, { size: 15, "aria-hidden": true }),
-            h("span", null, "Delete")))
+            h("span", null, "Delete")));
+        })()
       : null,
   );
 }

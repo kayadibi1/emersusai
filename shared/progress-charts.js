@@ -32,16 +32,21 @@ export function weeklyActivityChart(data, { width = 400, height = 120 } = {}) {
     return { x, rH, rY, cH, cY, label, barW };
   });
 
-  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" aria-hidden="true" focusable="false">`;
+  const totalVol = data.reduce((s, d) => s + (d.resistance_volume_kg || 0), 0);
+  const totalCardioSec = data.reduce((s, d) => s + (d.cardio_duration_seconds || 0), 0);
+  const cardioMin = Math.round(totalCardioSec / 60);
+  const summary = `Weekly activity: ${data.length} weeks, ${Math.round(totalVol)}kg resistance volume, ${cardioMin}min cardio.`;
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${summary}" focusable="false"><title>${summary}</title>`;
 
   for (const b of bars) {
     if (b.cH > 0) {
-      svg += `<rect x="${b.x}" y="${b.cY}" width="${b.barW}" height="${b.cH}" rx="3" fill="rgba(159,251,0,0.4)"/>`;
+      svg += `<rect x="${b.x}" y="${b.cY}" width="${b.barW}" height="${b.cH}" rx="3" fill="var(--carbs)" opacity="0.4"/>`;
     }
     if (b.rH > 0) {
-      svg += `<rect x="${b.x}" y="${b.rY}" width="${b.barW}" height="${b.rH}" rx="3" fill="rgba(109,159,255,0.55)"/>`;
+      svg += `<rect x="${b.x}" y="${b.rY}" width="${b.barW}" height="${b.rH}" rx="3" fill="var(--protein)" opacity="0.55"/>`;
     }
-    svg += `<text x="${b.x + b.barW / 2}" y="${height - 4}" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.3)" font-family="system-ui,sans-serif">${b.label}</text>`;
+    svg += `<text x="${b.x + b.barW / 2}" y="${height - 4}" text-anchor="middle" font-size="9" fill="var(--dim)" font-family="system-ui,sans-serif">${b.label}</text>`;
   }
 
   svg += `</svg>`;
@@ -55,7 +60,12 @@ export function weeklyActivityChart(data, { width = 400, height = 120 } = {}) {
  * @returns {string} SVG markup
  */
 export function progressionLineChart(data, { width = 400, height = 140, color = "#78dc14", prDate = null } = {}) {
-  if (!data || data.length < 2) return emptyChart(width, height, "Not enough data");
+  if (!data || data.length === 0) return emptyChart(width, height, "Not enough data");
+  if (data.length === 1) {
+    const only = data[0];
+    const cx = width / 2, cy = height / 2 - 6;
+    return `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="Progression: 1 data point, need more data" focusable="false"><title>Progression: 1 data point (${only.value}), need more data</title><circle cx="${cx}" cy="${cy}" r="4" fill="${color}"/><text x="${width / 2}" y="${height - 10}" text-anchor="middle" font-size="11" fill="var(--dim)" font-family="system-ui,sans-serif">Need more data</text></svg>`;
+  }
 
   const pad = { top: 12, bottom: 24, left: 8, right: 8 };
   const chartW = width - pad.left - pad.right;
@@ -81,7 +91,12 @@ export function progressionLineChart(data, { width = 400, height = 140, color = 
     points.slice(1).map(p => `L${p.x},${p.y}`).join(" ") +
     ` L${points[points.length - 1].x},${pad.top + chartH} L${points[0].x},${pad.top + chartH} Z`;
 
-  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" aria-hidden="true" focusable="false">`;
+  const first = values[0], last = values[values.length - 1];
+  const delta = last - first;
+  const trend = delta > 0 ? "up" : delta < 0 ? "down" : "flat";
+  const summary = `Progression: ${data.length} points, ${trend} ${Math.abs(Math.round(delta))} from ${Math.round(first)} to ${Math.round(last)}.`;
+
+  let svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}" role="img" aria-label="${summary}" focusable="false"><title>${summary}</title>`;
 
   // Grid lines
   for (let i = 0; i < 4; i++) {
@@ -98,8 +113,8 @@ export function progressionLineChart(data, { width = 400, height = 140, color = 
   // Data points
   for (const p of points) {
     if (p.isPR) {
-      svg += `<circle cx="${p.x}" cy="${p.y}" r="5" fill="none" stroke="#FFD700" stroke-width="1.5"/>`;
-      svg += `<circle cx="${p.x}" cy="${p.y}" r="3" fill="#FFD700"/>`;
+      svg += `<circle cx="${p.x}" cy="${p.y}" r="5" fill="none" stroke="var(--gold)" stroke-width="1.5"/>`;
+      svg += `<circle cx="${p.x}" cy="${p.y}" r="3" fill="var(--gold)"/>`;
     } else {
       svg += `<circle cx="${p.x}" cy="${p.y}" r="3" fill="${color}"/>`;
     }
@@ -109,7 +124,7 @@ export function progressionLineChart(data, { width = 400, height = 140, color = 
   const labelIndices = [0, Math.floor(points.length / 2), points.length - 1];
   for (const idx of [...new Set(labelIndices)]) {
     const p = points[idx];
-    svg += `<text x="${p.x}" y="${height - 4}" text-anchor="middle" font-size="9" fill="rgba(255,255,255,0.3)" font-family="system-ui,sans-serif">${shortDate(p.date)}</text>`;
+    svg += `<text x="${p.x}" y="${height - 4}" text-anchor="middle" font-size="9" fill="var(--dim)" font-family="system-ui,sans-serif">${shortDate(p.date)}</text>`;
   }
 
   svg += `</svg>`;
@@ -162,7 +177,13 @@ export function momentumSparkline(values, prWeeks = []) {
     return `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="3" fill="var(--gold)" stroke="var(--bg)" stroke-width="1"/>`;
   }).join("");
 
-  return `<svg class="pg-momentum-spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">
+  const nonZero = values.filter(v => v > 0);
+  const first = nonZero[0] ?? 0;
+  const last = nonZero[nonZero.length - 1] ?? 0;
+  const trend = last > first ? "up" : last < first ? "down" : "flat";
+  const summary = `Momentum: ${trend} over ${values.length} weeks, ${(prWeeks || []).length} PR(s).`;
+
+  return `<svg class="pg-momentum-spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${summary}"><title>${summary}</title>
     <path d="${areaPath}" fill="var(--accent)" opacity="0.35" stroke="none"/>
     <polyline points="${polyline}" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
     ${prDots}
@@ -195,8 +216,10 @@ export function beeswarmPlot(data, { weightUnit = "kg", mobile = false } = {}) {
   const xForCol = (col) => pad.left + (col + 0.5) * (chartW / effectiveCols);
 
   const dispLoad = (kg) => weightUnit === "lbs" ? Math.round(kg * 2.20462) : Math.round(kg);
+  const prCount = data.sets.filter(s => s.is_pr).length;
+  const summary = `Beeswarm: ${data.sets.length} sets across ${weeks} weeks, PR ${dispLoad(data.pr_load_kg)}${weightUnit}, ${prCount} PR set(s).`;
 
-  let svg = `<svg class="pg-beeswarm" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet">`;
+  let svg = `<svg class="pg-beeswarm" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="${summary}"><title>${summary}</title>`;
   for (let i = 0; i < 5; i++) {
     const y = pad.top + (chartH / 4) * i;
     svg += `<line x1="${pad.left}" y1="${y.toFixed(1)}" x2="${W - pad.right}" y2="${y.toFixed(1)}" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 3"/>`;
@@ -223,20 +246,33 @@ export function beeswarmPlot(data, { weightUnit = "kg", mobile = false } = {}) {
     const sets = setsByCol[col];
     const xBase = xForCol(Number(col));
     const jitterWidth = Math.min(14, (chartW / effectiveCols) * 0.35);
-    sets.forEach((s, i) => {
+    const placed = sets.map((s, i) => {
       const seed = (s.performed_at || "").length + i * 7 + Number(col) * 13;
       const jitter = Math.sin(seed * 1.3) * jitterWidth;
-      const x = xBase + jitter;
-      const y = yFor(s.load_kg);
-      const isCurrent = Number(col) === (effectiveCols - 1);
-      if (s.is_pr) {
-        svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${prDotRadius}" fill="var(--gold)" stroke="var(--bg)" stroke-width="1.5"/>`;
-      } else if (isCurrent) {
-        svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${dotRadius}" fill="var(--accent)" stroke="var(--bg)" stroke-width="1.5"/>`;
-      } else {
-        svg += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${dotRadius}" fill="var(--accent)" opacity="0.7"/>`;
-      }
+      return { s, x: xBase + jitter, y: yFor(s.load_kg), r: s.is_pr ? prDotRadius : dotRadius };
     });
+    // Simple collision nudge: scan pairs by cy, shift overlaps horizontally.
+    placed.sort((a, b) => a.y - b.y);
+    for (let i = 0; i < placed.length; i++) {
+      for (let j = 0; j < i; j++) {
+        const dx = placed[i].x - placed[j].x;
+        const dy = placed[i].y - placed[j].y;
+        const min = placed[i].r + placed[j].r + 1;
+        if (Math.abs(dy) < min && Math.abs(dx) < min) {
+          placed[i].x += (dx >= 0 ? 1 : -1) * (min - Math.abs(dx));
+        }
+      }
+    }
+    for (const p of placed) {
+      const isCurrent = Number(col) === (effectiveCols - 1);
+      if (p.s.is_pr) {
+        svg += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${prDotRadius}" fill="var(--gold)" stroke="var(--bg)" stroke-width="1.5"/>`;
+      } else if (isCurrent) {
+        svg += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${dotRadius}" fill="var(--accent)" stroke="var(--bg)" stroke-width="1.5"/>`;
+      } else {
+        svg += `<circle cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="${dotRadius}" fill="var(--accent)" opacity="0.7"/>`;
+      }
+    }
   }
 
   if (mobile) {
@@ -295,7 +331,10 @@ export function zoneRiver(data, { mobile = false } = {}) {
     return { yTop, heights };
   });
 
-  let svg = `<svg class="pg-zone-river" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">`;
+  const totalMin = perWeekTotals.reduce((a, b) => a + b, 0);
+  const summary = `Heart-rate zone river: ${weeks.length} weeks, ${Math.round(totalMin)} total minutes across zones 1-5.`;
+
+  let svg = `<svg class="pg-zone-river" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${summary}"><title>${summary}</title>`;
 
   for (const k of order) {
     let d = "";
@@ -348,41 +387,53 @@ export function controlChart(data, { mobile = false } = {}) {
   const chartW = W - pad.left - pad.right;
   const chartH = H - pad.top - pad.bottom;
 
-  const yMin = 0.5, yMax = 2.0;
+  const acwrs = data.weeks.map(w => w.acwr).filter(v => v != null && Number.isFinite(v));
+  const dataMax = acwrs.length ? Math.max(...acwrs) : 2.0;
+  const dataMin = acwrs.length ? Math.min(...acwrs) : 0.5;
+  const yMin = Math.min(0.5, dataMin - 0.1);
+  const yMax = Math.max(2.0, dataMax + 0.1);
   const yFor = (v) => pad.top + chartH - ((v - yMin) / (yMax - yMin)) * chartH;
   const xFor = (i) => pad.left + (i / (data.weeks.length - 1)) * chartW;
 
   const yCut = (v) => Math.max(pad.top, Math.min(pad.top + chartH, yFor(v)));
 
-  let svg = `<svg class="pg-control-chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none">`;
+  const lastAcwr = acwrs.length ? acwrs[acwrs.length - 1] : null;
+  const oocCount = data.weeks.filter(w => w.out_of_control).length;
+  const summary = lastAcwr != null
+    ? `Training load control chart: ACWR ${lastAcwr.toFixed(2)}, ${oocCount} of ${data.weeks.length} weeks out of control.`
+    : `Training load control chart: no ACWR data.`;
+
+  let svg = `<svg class="pg-control-chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" role="img" aria-label="${summary}"><title>${summary}</title>`;
 
   // Background bands
-  svg += `<rect x="${pad.left}" y="${yCut(1.3).toFixed(1)}" width="${chartW}" height="${(yCut(0.8) - yCut(1.3)).toFixed(1)}" fill="var(--success,#15803d)" opacity="0.08"/>`;
+  svg += `<rect x="${pad.left}" y="${yCut(1.3).toFixed(1)}" width="${chartW}" height="${(yCut(0.8) - yCut(1.3)).toFixed(1)}" fill="var(--accent)" opacity="0.08"/>`;
   svg += `<rect x="${pad.left}" y="${yCut(1.5).toFixed(1)}" width="${chartW}" height="${(yCut(1.3) - yCut(1.5)).toFixed(1)}" fill="var(--warning)" opacity="0.06"/>`;
-  svg += `<rect x="${pad.left}" y="${yCut(0.8).toFixed(1)}" width="${chartW}" height="${(yCut(0.5) - yCut(0.8)).toFixed(1)}" fill="var(--warning)" opacity="0.06"/>`;
+  svg += `<rect x="${pad.left}" y="${yCut(0.8).toFixed(1)}" width="${chartW}" height="${(yCut(Math.max(yMin, 0.5)) - yCut(0.8)).toFixed(1)}" fill="var(--warning)" opacity="0.06"/>`;
   svg += `<rect x="${pad.left}" y="${pad.top}" width="${chartW}" height="${(yCut(1.5) - pad.top).toFixed(1)}" fill="var(--danger)" opacity="0.06"/>`;
 
   // Grid
-  for (let v = 0.5; v <= 2.0; v += 0.3) {
+  const gridStep = 0.3;
+  const gridStart = Math.ceil(yMin / gridStep) * gridStep;
+  for (let v = gridStart; v <= yMax + 1e-9; v += gridStep) {
     const y = yFor(v);
     svg += `<line x1="${pad.left}" y1="${y.toFixed(1)}" x2="${W - pad.right}" y2="${y.toFixed(1)}" stroke="var(--line)" stroke-width="1" stroke-dasharray="2 3"/>`;
   }
 
-  // Reference lines
+  // Reference lines (Gabbett 1.5 UCL / 1.3 UWL / 1.0 mean / 0.8 LWL / 0.5 LCL)
   svg += `<line x1="${pad.left}" y1="${yFor(1.5).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(1.5).toFixed(1)}" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="6 4"/>`;
   svg += `<line x1="${pad.left}" y1="${yFor(1.3).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(1.3).toFixed(1)}" stroke="var(--warning)" stroke-width="1" stroke-dasharray="3 3"/>`;
-  svg += `<line x1="${pad.left}" y1="${yFor(1.0).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(1.0).toFixed(1)}" stroke="var(--success,#15803d)" stroke-width="1.5"/>`;
+  svg += `<line x1="${pad.left}" y1="${yFor(1.0).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(1.0).toFixed(1)}" stroke="var(--accent)" stroke-width="1.5"/>`;
   svg += `<line x1="${pad.left}" y1="${yFor(0.8).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(0.8).toFixed(1)}" stroke="var(--warning)" stroke-width="1" stroke-dasharray="3 3"/>`;
   svg += `<line x1="${pad.left}" y1="${yFor(0.5).toFixed(1)}" x2="${W - pad.right}" y2="${yFor(0.5).toFixed(1)}" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="6 4"/>`;
 
   if (!mobile) {
     svg += `<text x="${(W - pad.right - 6).toFixed(1)}" y="${(yFor(1.5) - 3).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--danger)">UCL · 1.5</text>`;
     svg += `<text x="${(W - pad.right - 6).toFixed(1)}" y="${(yFor(1.3) - 3).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--warning)">UWL · 1.3</text>`;
-    svg += `<text x="${(W - pad.right - 6).toFixed(1)}" y="${(yFor(1.0) - 3).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="600" fill="var(--success,#15803d)">MEAN · 1.0</text>`;
+    svg += `<text x="${(W - pad.right - 6).toFixed(1)}" y="${(yFor(1.0) - 3).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" font-weight="600" fill="var(--accent)">MEAN · 1.0</text>`;
     svg += `<text x="${(W - pad.right - 6).toFixed(1)}" y="${(yFor(0.8) + 11).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--warning)">LWL · 0.8</text>`;
   }
 
-  for (let v = 0.5; v <= 2.0; v += 0.3) {
+  for (let v = gridStart; v <= yMax + 1e-9; v += gridStep) {
     const y = yFor(v);
     svg += `<text x="${(pad.left - 8).toFixed(1)}" y="${(y + 3).toFixed(1)}" text-anchor="end" font-family="'JetBrains Mono',monospace" font-size="9" fill="var(--dim)">${v.toFixed(1)}</text>`;
   }

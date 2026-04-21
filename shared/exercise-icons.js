@@ -21,13 +21,6 @@ export const ICONS = {
     <line x1="8" y1="11" x2="16" y2="11"/>
     <line x1="12" y1="16" x2="8.5" y2="22"/><line x1="12" y1="16" x2="15.5" y2="22"/>
   </svg>`,
-
-  trophy: `<svg ${ATTRS} stroke="currentColor">
-    <path d="M8 2h8v10a4 4 0 0 1-8 0V2z"/>
-    <path d="M8 4H5a1 1 0 0 0-1 1v1a4 4 0 0 0 4 4"/>
-    <path d="M16 4h3a1 1 0 0 1 1 1v1a4 4 0 0 1-4 4"/>
-    <line x1="12" y1="14" x2="12" y2="18"/><line x1="8" y1="18" x2="16" y2="18"/>
-  </svg>`,
 };
 
 // Background color classes per category

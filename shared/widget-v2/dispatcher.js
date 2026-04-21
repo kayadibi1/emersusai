@@ -145,10 +145,41 @@ function Diagnostic({ reason, family, type }) {
   );
 }
 
+// Error boundary so a single throwing template renders a Diagnostic fallback
+// instead of crashing the whole chat tree.
+class WidgetErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { error: null };
+  }
+  static getDerivedStateFromError(error) {
+    return { error };
+  }
+  componentDidCatch(error) {
+    if (typeof console !== "undefined" && console.error) {
+      console.error("[widget-v2] template threw:", error);
+    }
+  }
+  render() {
+    if (this.state.error) {
+      return h(Diagnostic, {
+        reason: `render threw: ${this.state.error?.message || String(this.state.error)}`,
+        family: this.props.family,
+        type: this.props.type,
+      });
+    }
+    return this.props.children;
+  }
+}
+
 export function WidgetV2({ family, payload }) {
   const familyMap = REGISTRY[family];
   if (!familyMap) return h(Diagnostic, { reason: "unsupported family", family, type: payload?.type });
   const Component = familyMap[payload?.type];
   if (!Component) return h(Diagnostic, { reason: "unknown type", family, type: payload?.type });
-  return h(Component, payload);
+  return h(
+    WidgetErrorBoundary,
+    { family, type: payload?.type },
+    h(Component, payload),
+  );
 }

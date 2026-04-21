@@ -12,25 +12,17 @@
   <meta name="theme-color" content="#0e1117">
   <link rel="manifest" href="/manifest.webmanifest">
   <title>Reset Password | Emersus AI</title>
-  <!-- no-flash-boot: resolves data-theme pre-paint -->
+  <!-- no-flash-boot: resolves data-theme pre-paint. Duplicated across every
+       auth page by design: the sync read must happen BEFORE the first paint,
+       so it cannot be moved into an external module (which is deferred). -->
   <script>
     (function () {
       var H = document.documentElement;
       try {
         var saved = localStorage.getItem('emersus-theme');
-        // Default to Graphite·Jade (mint, dark) for new visitors. Existing
-        // users keep whatever they've saved. System prefers-color-scheme is
-        // ignored by design; users switch in Settings.
         var theme = (saved === 'mint' || saved === 'paper') ? saved : 'mint';
         H.setAttribute('data-theme', theme);
       } catch (_) { H.setAttribute('data-theme', 'mint'); }
-      // Auth pre-paint gate for /app/**. Without this, an unauthenticated
-      // visitor clicking "Chat" sees the full chat UI flash for ~300 ms
-      // (React mounts before the async requireAuth() -> config fetch chain
-      // finishes). Probe for any sb-*-auth-token key in localStorage; if
-      // absent, redirect to /auth/login/ synchronously with a next= param.
-      // A stale token still hits the async redirect from requireAuth()
-      // later — but the cold-visitor path no longer flashes.
       try {
         if (location.pathname.indexOf('/app/') === 0) {
           var hasSession = false;
@@ -50,23 +42,44 @@
   </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/design-tokens.css">
+  <link rel="stylesheet" href="/shared/chrome.css">
+  <link rel="stylesheet" href="/shared/auth.css">
   <script type="module">
     import { bootTheme } from '/shared/theme.js';
     bootTheme();
-    // Reset-password flow stays on the legacy page even with auth_v2 — the
-    // password-reset form is bound to a one-time token URL that Supabase emits;
-    // duplicating it under the v2 shell would require a 5th panel + token plumbing.
-    // Tracked as a Phase 7 follow-up.
   </script>
 </head>
-<body>
-  <!-- redirect-only body: stripped legacy markup to avoid flash -->
-  <noscript>
-    <p style="padding:20px;font-family:system-ui,sans-serif;">
-      This page has moved. Please <a href="/">return home</a>.
-    </p>
-  </noscript>
+<body class="auth-body" data-page="reset-password">
+  <main class="auth-stage" style="min-height:100vh;">
+    <div class="auth-stage-inner">
+      <section class="auth-panel">
+        <header class="auth-panel-head">
+          <h2>Set a new password</h2>
+          <p>Use at least 8 characters.</p>
+        </header>
+
+        <form class="auth-form" data-auth-reset novalidate>
+          <label class="auth-field">
+            <span>New password</span>
+            <input type="password" name="password" autocomplete="new-password" required minlength="8" />
+          </label>
+          <label class="auth-field">
+            <span>Confirm new password</span>
+            <input type="password" name="confirm_password" autocomplete="new-password" required minlength="8" />
+          </label>
+          <button class="auth-primary" type="submit">Update password</button>
+          <p class="auth-status" data-auth-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1"></p>
+        </form>
+
+        <div class="auth-panel-foot">
+          <p><a href="/auth/?panel=login">← Back to log in</a></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script type="module" src="/shared/auth-pages.js"></script>
 </body>
 </html>

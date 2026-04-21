@@ -6,12 +6,10 @@
 
 import { supabaseAdmin } from "../lib/clients.js";
 
-function parseAdminEmails() {
-  return (process.env.ADMIN_EMAILS ?? "")
-    .split(",")
-    .map((s) => s.trim().toLowerCase())
-    .filter(Boolean);
-}
+const ADMIN_EMAILS = (process.env.ADMIN_EMAILS ?? "")
+  .split(",")
+  .map((s) => s.trim().toLowerCase())
+  .filter(Boolean);
 
 export default async function handler(req, res) {
   if (req.method !== "GET") {
@@ -33,7 +31,7 @@ export default async function handler(req, res) {
     }
 
     const email = data.user.email.trim().toLowerCase();
-    const isAdmin = parseAdminEmails().includes(email);
+    const isAdmin = ADMIN_EMAILS.includes(email);
 
     return res.json({ role: isAdmin ? "admin" : "user" });
   } catch {

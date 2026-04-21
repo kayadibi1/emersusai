@@ -450,7 +450,16 @@ function TrainApp() {
 
   const finishTotals = useMemo(() => {
     const sets = activeSets.length;
-    const volume_kg = activeSets.reduce((acc, s) => acc + (Number(s.reps) || 0) * (Number(s.load_kg) || 0), 0);
+    const volume_kg = activeSets.reduce((acc, s) => {
+      const reps = Number(s.reps);
+      const load = Number(s.load_kg);
+      if (!Number.isFinite(load) || Number.isNaN(load)) {
+        console.warn("[volume] skipping non-numeric load_kg", s);
+        return acc;
+      }
+      if (!Number.isFinite(reps) || Number.isNaN(reps)) return acc;
+      return acc + reps * load;
+    }, 0);
     const startedAt = activeSession?.started_at ? new Date(activeSession.started_at).getTime() : Date.now();
     const totalSec = Math.max(0, Math.round((Date.now() - startedAt) / 1000));
     const m = Math.floor(totalSec / 60); const s = totalSec % 60;

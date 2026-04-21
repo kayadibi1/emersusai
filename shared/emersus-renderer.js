@@ -17,7 +17,6 @@ import React, {
 } from "react";
 import MealPlanWidget from "./meal-plan-widget.js";
 import NutritionLogConfirmWidget from "./nutrition-log-confirm-widget.js";
-import { WidgetV2 } from "./widget-v2/dispatcher.js";
 
 const h = React.createElement;
 const MAX_WIDGET_FRAME_HEIGHT = 1400;
@@ -359,19 +358,27 @@ function readCurrentTheme() {
 // Chart.js configs. Safe because nothing legitimate uses this exact palette.
 function remapLegacyWidgetColors(html) {
   if (!html || typeof html !== "string") return html;
-  return html
-    // off-white text → palette ink
-    .replace(/color\s*:\s*#f9f9fd\b/gi, "color: var(--color-text-primary)")
-    .replace(/color\s*:\s*#e8e8e8\b/gi, "color: var(--color-text-primary)")
-    // dark surface → palette bg
-    .replace(/background(-color)?\s*:\s*#0c0e11\b/gi, "background$1: var(--color-background-primary)")
-    .replace(/background(-color)?\s*:\s*#08080a\b/gi, "background$1: var(--color-background-primary)")
-    // chart axis/grid defaults (only caught if a widget overrode them inline)
-    .replace(/color\s*:\s*rgba\(\s*255\s*,\s*255\s*,\s*255\s*,\s*0?\.(?:55|65|75)\s*\)/gi, "color: var(--chart-axis)")
-    .replace(/color\s*:\s*rgba\(\s*255\s*,\s*255\s*,\s*255\s*,\s*0?\.(?:06|08|10)\s*\)/gi, "color: var(--chart-grid)")
-    // legacy accent hex (pre-redesign green + pre-redesign royal)
-    .replace(/color\s*:\s*#(78dc14|9ffb00|6d9fff)\b/gi, "color: var(--accent-primary)")
-    .replace(/background(-color)?\s*:\s*#(78dc14|9ffb00|6d9fff)\b/gi, "background$1: var(--accent-primary)");
+  // Rewrite declaration-by-declaration instead of scanning the whole HTML,
+  // so hex literals that live inside a `var(--foo, #hex)` fallback are never
+  // touched (the regex would otherwise substring-match the fallback hex and
+  // produce malformed `var(var(...))` output).
+  const remapDecl = (decl) => {
+    if (decl.includes("var(")) return decl;
+    return decl
+      // off-white text → palette ink
+      .replace(/\bcolor\s*:\s*#f9f9fd\b/gi, "color: var(--color-text-primary)")
+      .replace(/\bcolor\s*:\s*#e8e8e8\b/gi, "color: var(--color-text-primary)")
+      // dark surface → palette bg
+      .replace(/\bbackground(-color)?\s*:\s*#0c0e11\b/gi, "background$1: var(--color-background-primary)")
+      .replace(/\bbackground(-color)?\s*:\s*#08080a\b/gi, "background$1: var(--color-background-primary)")
+      // chart axis/grid defaults (only caught if a widget overrode them inline)
+      .replace(/\bcolor\s*:\s*rgba\(\s*255\s*,\s*255\s*,\s*255\s*,\s*0?\.(?:55|65|75)\s*\)/gi, "color: var(--chart-axis)")
+      .replace(/\bcolor\s*:\s*rgba\(\s*255\s*,\s*255\s*,\s*255\s*,\s*0?\.(?:06|08|10)\s*\)/gi, "color: var(--chart-grid)")
+      // legacy accent hex (pre-redesign green + pre-redesign royal)
+      .replace(/\bcolor\s*:\s*#(78dc14|9ffb00|6d9fff)\b/gi, "color: var(--accent-primary)")
+      .replace(/\bbackground(-color)?\s*:\s*#(78dc14|9ffb00|6d9fff)\b/gi, "background$1: var(--accent-primary)");
+  };
+  return html.split(";").map(remapDecl).join(";");
 }
 
 export function WidgetFrame({ code, html, title }) {
@@ -516,11 +523,16 @@ ${widgetBody}
     function onMessage(event) {
       const node = iframeRef.current;
       if (!node || event.source !== node.contentWindow) return;
-      // about:srcdoc iframes may report an opaque "null" origin even when
-      // sandboxed with allow-same-origin, so allow either the host origin
-      // or the opaque-origin case from this exact iframe only.
-      if (event.origin && event.origin !== "null" && event.origin !== window.location.origin) {
-        return;
+      // Threat model: a third-party iframe nested under us could postMessage
+      // with an opaque "null" origin (e.g. a data: frame) and match via
+      // frameId collision. Our widgets are rendered via `srcdoc`, which
+      // legitimately produces an opaque `"null"` origin even with
+      // allow-same-origin — that case is safe because we verified
+      // `event.source === node.contentWindow` above. For any other iframe
+      // (not rendered via srcdoc) an opaque origin is not trusted.
+      const isSrcdocFrame = node.hasAttribute("srcdoc");
+      if (event.origin && event.origin !== window.location.origin) {
+        if (event.origin !== "null" || !isSrcdocFrame) return;
       }
       const data = event && event.data;
       if (!data || data.frameId !== frameId) return;
@@ -555,6 +567,85 @@ ${widgetBody}
   });
 }
 
+// Parse a nutrition-style JSON fence body and mirror the shape of
+// parseWorkoutPlanBody in widget-fence-parser.js: never throw, always return
+// a structured { ok, data?, error?, raw } so the caller can render a clear
+// error state instead of swallowing the parse failure in a console warning.
+function parseNutritionFenceBody(body) {
+  const raw = String(body || "").trim();
+  if (!raw) return { ok: false, error: "empty fence body", raw };
+  try {
+    const parsed = JSON.parse(raw);
+    if (!parsed || typeof parsed !== "object") {
+      return { ok: false, error: "body was not a JSON object", raw };
+    }
+    return { ok: true, data: parsed };
+  } catch (err) {
+    return { ok: false, error: String(err && err.message || err), raw };
+  }
+}
+
+function WidgetParseError({ label, error, raw }) {
+  const [open, setOpen] = useState(false);
+  return h(
+    "div",
+    {
+      role: "alert",
+      style: {
+        padding: "10px 12px",
+        border: "1px solid var(--color-border-tertiary, rgba(255,255,255,0.08))",
+        borderRadius: "8px",
+        background: "var(--color-background-secondary, rgba(255,255,255,0.04))",
+        color: "var(--color-text-primary, inherit)",
+        fontSize: "13px",
+      },
+    },
+    h("div", null, `Couldn't parse ${label} data.`),
+    error
+      ? h(
+          "div",
+          { style: { color: "var(--color-text-secondary, inherit)", fontSize: "12px", marginTop: "4px" } },
+          error,
+        )
+      : null,
+    h(
+      "button",
+      {
+        type: "button",
+        onClick: () => setOpen((v) => !v),
+        style: {
+          marginTop: "8px",
+          background: "transparent",
+          border: "0",
+          padding: "0",
+          color: "var(--accent-primary, inherit)",
+          cursor: "pointer",
+          font: "inherit",
+          textDecoration: "underline",
+        },
+      },
+      open ? "Hide raw" : "View raw",
+    ),
+    open
+      ? h(
+          "pre",
+          {
+            style: {
+              marginTop: "8px",
+              maxHeight: "240px",
+              overflow: "auto",
+              whiteSpace: "pre-wrap",
+              wordBreak: "break-word",
+              fontSize: "12px",
+              fontFamily: "var(--font-mono, ui-monospace, monospace)",
+            },
+          },
+          raw || "",
+        )
+      : null,
+  );
+}
+
 // ---------------------------------------------------------------------------
 // LLMResponse
 // ---------------------------------------------------------------------------
@@ -573,37 +664,28 @@ export function LLMResponse({ markdown, renderText }) {
         return h(WidgetFrame, { key: `w-${index}`, code: segment.content });
       }
       if (segment.type === "meal-plan") {
-        try {
-          const plan = JSON.parse(segment.content);
-          return h(MealPlanWidget, { key: `mp-${index}`, plan });
-        } catch (err) {
-          console.error("[emersus-renderer] failed to parse meal-plan fence:", err);
-          return h(
-            "div",
-            { key: `mp-err-${index}`, style: { whiteSpace: "pre-wrap", color: "var(--text-primary)" } },
-            "\u26a0 meal plan could not be parsed",
-          );
+        const result = parseNutritionFenceBody(segment.content);
+        if (result.ok) {
+          return h(MealPlanWidget, { key: `mp-${index}`, plan: result.data });
         }
-      }
-      if (segment.type === "widget-v2") {
-        const { family, payload } = segment.content || {};
-        return h(WidgetV2, { key: `wv-${index}`, family, payload });
+        return h(WidgetParseError, {
+          key: `mp-err-${index}`,
+          label: "meal plan",
+          error: result.error,
+          raw: result.raw,
+        });
       }
       if (segment.type === "nutrition-log-confirm") {
-        try {
-          const payload = JSON.parse(segment.content);
-          return h(NutritionLogConfirmWidget, { key: `nlc-${index}`, payload });
-        } catch (err) {
-          console.error("[emersus-renderer] failed to parse nutrition-log-confirm fence:", err);
-          return h(
-            "div",
-            {
-              key: `nlc-err-${index}`,
-              style: { whiteSpace: "pre-wrap", color: "var(--text-primary)" },
-            },
-            "\u26a0 log preview could not be parsed",
-          );
+        const result = parseNutritionFenceBody(segment.content);
+        if (result.ok) {
+          return h(NutritionLogConfirmWidget, { key: `nlc-${index}`, payload: result.data });
         }
+        return h(WidgetParseError, {
+          key: `nlc-err-${index}`,
+          label: "log preview",
+          error: result.error,
+          raw: result.raw,
+        });
       }
       if (typeof renderText === "function") {
         return renderText(segment.content, index);

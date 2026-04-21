@@ -92,6 +92,21 @@
       color: var(--muted);
       margin: 4px 0 0;
     }
+    .callback-spinner {
+      width: 32px;
+      height: 32px;
+      margin: 12px auto 0;
+      border-radius: 50%;
+      border: 2px solid var(--line);
+      border-top-color: var(--accent);
+      animation: callback-spin 0.9s linear infinite;
+    }
+    @keyframes callback-spin {
+      to { transform: rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .callback-spinner { animation: none; border-top-color: var(--accent); }
+    }
   </style>
 </head>
 <body class="auth-body">
@@ -99,7 +114,8 @@
     <section class="callback-card" data-auth-callback>
       <p class="callback-kicker">Authenticating</p>
       <h1 class="callback-title">One moment…</h1>
-      <p class="callback-status" data-auth-status>Working on it…</p>
+      <p class="callback-status" data-auth-status role="status" aria-live="polite" aria-atomic="true" tabindex="-1">Working on it…</p>
+      <div class="callback-spinner" aria-hidden="true"></div>
     </section>
   </main>
 

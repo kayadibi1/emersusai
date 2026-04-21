@@ -9,6 +9,35 @@ import express from "express";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
+// ── Required env-var validation ──
+// In production, missing Supabase/OpenAI/Polar vars hard-fail at boot so
+// we never silently serve a broken surface. In dev, we warn only so local
+// work isn't blocked when Polar isn't configured.
+(function validateEnv() {
+  const isProd = process.env.NODE_ENV === "production";
+  const core = ["SUPABASE_URL", "SUPABASE_SERVICE_ROLE_KEY", "OPENAI_API_KEY"];
+  const billing = ["POLAR_PRODUCT_ID_MONTHLY", "POLAR_PRODUCT_ID_YEARLY", "SITE_URL"];
+  const missingCore = core.filter((k) => !process.env[k]);
+  const missingBilling = billing.filter((k) => !process.env[k]);
+
+  if (missingCore.length) {
+    const msg = `[boot] missing required env vars: ${missingCore.join(", ")}`;
+    if (isProd) {
+      console.error(msg);
+      process.exit(1);
+    }
+    console.warn(msg);
+  }
+  if (missingBilling.length) {
+    const msg = `[boot] missing billing env vars: ${missingBilling.join(", ")}`;
+    if (isProd) {
+      console.error(msg);
+      process.exit(1);
+    }
+    console.warn(msg);
+  }
+})();
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const app = express();

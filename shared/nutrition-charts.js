@@ -64,7 +64,11 @@ export function MacroRing({ actual, target, label, color = TOKENS.primary, size 
     return () => cancelAnimationFrame(frame);
   }, [visiblePct, overflowPct]);
 
-  return h("svg", { width: size, height: size, viewBox: `0 0 ${size} ${size}` }, [
+  return h("svg", {
+    width: size, height: size, viewBox: `0 0 ${size} ${size}`,
+    role: "img",
+    "aria-label": `${Math.round(safeActual)} of ${Math.round(safeTarget)} ${label}`,
+  }, [
     h("circle", {
       key: "bg", cx, cy, r,
       fill: "none", stroke: "rgba(255,255,255,0.08)", strokeWidth: stroke,

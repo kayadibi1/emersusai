@@ -27,15 +27,21 @@ export function RestTimer({ endsAt, onSkip, onAdjust }) {
 
   useEffect(() => {
     if (!endsAt) return undefined;
+    // TODO: move to rAF for battery — currently 250ms polling for smooth countdown.
     const id = window.setInterval(() => setNow(Date.now()), 250);
     return () => window.clearInterval(id);
   }, [endsAt]);
 
   if (!endsAt) return null;
 
-  return h("div", { className: "tr-rest-timer", role: "status" },
+  return h("div", { className: "tr-rest-timer" },
     h("span", { className: "tr-rest-label" }, "RESTING"),
-    h("span", { className: "tr-rest-time" }, formatRestRemaining(remaining)),
+    h("span", {
+      className: "tr-rest-time",
+      role: "status",
+      "aria-live": "polite",
+      "aria-atomic": "true",
+    }, formatRestRemaining(remaining)),
     h("button", { type: "button", className: "tr-rest-btn", onClick: () => onAdjust?.({ deltaSeconds: -30 }) }, "−30s"),
     h("button", { type: "button", className: "tr-rest-btn", onClick: () => onAdjust?.({ deltaSeconds: 30 }) }, "+30s"),
     h("button", { type: "button", className: "tr-rest-skip", onClick: onSkip }, "Skip"),

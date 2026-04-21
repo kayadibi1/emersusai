@@ -27,21 +27,36 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
   const [blob, setBlob] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
   const [error, setError] = useState(null);
+  const [copyStatus, setCopyStatus] = useState(null); // null | "copied"
 
   useEffect(() => {
     let cancelled = false;
+    let createdUrl = null;
+    let urlAdopted = false;
 
     (async () => {
+      let resultBlob;
       try {
-        const resultBlob = await renderShareCard(cardData, cardOpts);
-        if (cancelled) return;
-        const url = URL.createObjectURL(resultBlob);
-        setBlob(resultBlob);
-        setPreviewUrl(url);
-        setState("ready");
+        resultBlob = await renderShareCard(cardData, cardOpts);
       } catch (err) {
         if (cancelled) return;
         console.error("[share-modal] render failed:", err);
+        setError(err.message || String(err));
+        setState("error");
+        return;
+      }
+      if (cancelled) return;
+      try {
+        createdUrl = URL.createObjectURL(resultBlob);
+        setBlob(resultBlob);
+        setPreviewUrl(createdUrl);
+        setState("ready");
+        // State updates queued — mark the URL as adopted so the cleanup
+        // below leaves revocation to the previewUrl-scoped effect.
+        urlAdopted = true;
+      } catch (err) {
+        if (cancelled) return;
+        console.error("[share-modal] preview setup failed:", err);
         setError(err.message || String(err));
         setState("error");
       }
@@ -49,6 +64,11 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
 
     return () => {
       cancelled = true;
+      // If setPreviewUrl never ran (error path, or unmount mid-render),
+      // revoke the URL here so we don't leak.
+      if (createdUrl && !urlAdopted) {
+        URL.revokeObjectURL(createdUrl);
+      }
     };
   }, []);
 
@@ -57,6 +77,12 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
       if (previewUrl) URL.revokeObjectURL(previewUrl);
     };
   }, [previewUrl]);
+
+  useEffect(() => {
+    if (copyStatus !== "copied") return undefined;
+    const t = setTimeout(() => setCopyStatus(null), 1500);
+    return () => clearTimeout(t);
+  }, [copyStatus]);
 
   const filename = `${(cardData.title || "emersus").replace(/[^\w-]/g, "_")}.png`;
 
@@ -100,13 +126,7 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
         await navigator.clipboard.write([
           new ClipboardItem({ "image/png": blob }),
         ]);
-        // Flash a quick inline confirmation
-        const btn = document.querySelector("[data-share-copy]");
-        if (btn) {
-          const orig = btn.textContent;
-          btn.textContent = "Copied";
-          setTimeout(() => { btn.textContent = orig; }, 1200);
-        }
+        setCopyStatus("copied");
       }
     } catch (_err) {
       // Silent â€” some browsers block programmatic clipboard image writes
@@ -141,9 +161,8 @@ export function ShareModal({ cardData, cardOpts, onClose }) {
         h("button", { className: "share-btn-secondary", onClick: doDownload }, "Download"),
         h("button", {
           className: "share-btn-secondary",
-          "data-share-copy": "",
           onClick: doCopy,
-        }, "Copy to clipboard"),
+        }, copyStatus === "copied" ? "Copied" : "Copy to clipboard"),
         h("button", { className: "share-btn-tertiary", onClick: onClose }, "Close"),
       ),
 

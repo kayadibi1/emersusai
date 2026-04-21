@@ -47,7 +47,7 @@ export default async function handler(req, res) {
 
   if (req.method !== "POST") {
     res.setHeader("Allow", "POST, OPTIONS");
-    return res.status(405).json({ message: "Method not allowed." });
+    return res.status(405).json({ error: "Method not allowed." });
   }
 
   const supabaseUrl =
@@ -58,7 +58,7 @@ export default async function handler(req, res) {
 
   if (!supabaseUrl || !serviceRoleKey) {
     return res.status(500).json({
-      message: "Server is missing Supabase environment variables.",
+      error: "Server is missing Supabase environment variables.",
     });
   }
 
@@ -76,7 +76,7 @@ export default async function handler(req, res) {
 
   if (!name || !email || !category || !message || !EMAIL_PATTERN.test(email)) {
     return res.status(400).json({
-      message: "Please provide a name, valid email, category, and message.",
+      error: "Please provide a name, valid email, category, and message.",
     });
   }
 
@@ -99,11 +99,12 @@ export default async function handler(req, res) {
   });
 
   if (response.ok) {
+    // Contact record is persisted. Email notification is best-effort —
+    // fire and respond 202 regardless of delivery outcome.
     if (!process.env.RESEND_API_KEY || !contactNotificationEmail) {
       console.error("Contact notification email is not configured.");
-      return res.status(500).json({
-        message:
-          "Your message was saved, but the email notification is not configured yet.",
+      return res.status(202).json({
+        message: "Message received. We will get back to you soon.",
       });
     }
 
@@ -155,15 +156,11 @@ export default async function handler(req, res) {
           footer: "Reply directly to this email to respond to the sender.",
         }),
       });
-    } catch (error) {
-      console.error("Resend contact notification failed:", error);
-      return res.status(500).json({
-        message:
-          "Your message was saved, but the notification email failed to send.",
-      });
+    } catch (err) {
+      console.error("Resend contact notification failed:", err);
     }
 
-    return res.status(200).json({
+    return res.status(202).json({
       message: "Message received. We will get back to you soon.",
     });
   }
@@ -172,6 +169,6 @@ export default async function handler(req, res) {
   console.error("Supabase contact insert failed:", errorText);
 
   return res.status(500).json({
-    message: "Unable to send your message right now.",
+    error: "Unable to send your message right now.",
   });
 }

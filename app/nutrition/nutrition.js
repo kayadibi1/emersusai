@@ -4,13 +4,38 @@
 // Today tab is the showcase: time-aware fuel gauge + water/supps strip
 // + meals list + bottom Quick-log dropdown.
 
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useId, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import { requireAuth } from "/shared/supabase.js";
 import { FuelGauge } from "/shared/nutrition/fuel-gauge.js";
 import { localDateStr } from "/shared/date-utils.js";
 
 const h = React.createElement;
+
+// Simple class-based boundary — functional equivalents don't exist yet in
+// React 18. Any thrown render error in a child falls back to a plain
+// retry screen instead of blanking the page.
+class ErrorBoundary extends React.Component {
+  constructor(props) { super(props); this.state = { err: null }; }
+  static getDerivedStateFromError(err) { return { err }; }
+  componentDidCatch(err, info) { console.error("nutrition boundary:", err, info); }
+  render() {
+    if (!this.state.err) return this.props.children;
+    return h("div", {
+      className: "nu-shell",
+      role: "alert",
+      style: { padding: "60px 24px", textAlign: "center" },
+    },
+      h("p", { style: { fontSize: 16, color: "var(--ink)", margin: "0 0 14px" } },
+        "Something went wrong loading this view."),
+      h("button", {
+        type: "button",
+        className: "nu-primary",
+        onClick: () => window.location.reload(),
+      }, "Reload"),
+    );
+  }
+}
 
 // SOON-tabbed entries are hidden from the tab bar until their feature ships
 // (Miller/Hick — don't spend attention on unshipped surface). Re-add when
@@ -41,6 +66,9 @@ const MEAL_SLOT_GROUPS = [
   { label: "Supplements", slots: ["supplements_am", "supplements_pm"] },
 ];
 
+// Intentionally browser-local: this only seeds the default slot in the
+// log-food UI and never touches the server, so there's no TZ contract
+// to worry about. Wall-clock is what the user expects here.
 function guessMealSlot() {
   const hour = new Date().getHours();
   const min = new Date().getMinutes();
@@ -112,6 +140,12 @@ function useNutritionDay(accessToken) {
     if (!accessToken) return;
     setLoading(true); setError("");
     try {
+      // `date` is a local YYYY-MM-DD (from localDateStr). `tz` is the JS
+      // `getTimezoneOffset()` value in minutes — positive for zones west of
+      // UTC (e.g. +240 for EDT). `api/emersus/nutrition-day.js` adds this
+      // offset to the UTC day start to build the correct local-day window
+      // for water/supplement rows, so the sign MUST stay as the platform
+      // returns it — do not negate.
       const res = await fetch(`/api/nutrition/day?date=${target}&tz=${new Date().getTimezoneOffset()}`, {
         headers: { Authorization: `Bearer ${accessToken}` },
       });
@@ -179,7 +213,7 @@ function NextUpCard({ data }) {
 
 const SUPPLEMENT_PRESETS = ["Creatine", "Whey", "Multivitamin", "Omega-3", "Vitamin D", "Magnesium"];
 
-function WaterSupplementsStrip({ data, accessToken, onChange }) {
+function WaterSupplementsStrip({ data, accessToken, onChange, onToast }) {
   const consumedMl = data?.consumed?.water_ml || 0;
   const targetMl = data?.target?.water_ml || 3000;
   const waterPct = targetMl > 0 ? Math.min(100, (consumedMl / targetMl) * 100) : 0;
@@ -189,28 +223,36 @@ function WaterSupplementsStrip({ data, accessToken, onChange }) {
 
   const logWater = async (ml) => {
     try {
-      await fetch("/api/nutrition/water", {
+      const res = await fetch("/api/nutrition/water", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
         body: JSON.stringify({ ml }),
       });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       onChange?.();
-    } catch (err) { console.error(err); }
+    } catch (err) {
+      console.error(err);
+      onToast?.("LOGGED • WATER FAILED");
+    }
   };
 
   const submitSupplement = async (rawName) => {
     const name = (rawName || "").trim();
     if (!name) return;
     try {
-      await fetch("/api/nutrition/supplements", {
+      const res = await fetch("/api/nutrition/supplements", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
         body: JSON.stringify({ items: [{ name }] }),
       });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
       setSuppName("");
       setSuppOpen(false);
       onChange?.();
-    } catch (err) { console.error(err); }
+    } catch (err) {
+      console.error(err);
+      onToast?.("LOGGED • SUPPLEMENT FAILED");
+    }
   };
 
   return h("div", { className: "nu-strip" },
@@ -246,6 +288,7 @@ function WaterSupplementsStrip({ data, accessToken, onChange }) {
               value: suppName,
               onChange: (e) => setSuppName(e.target.value),
               placeholder: "Supplement name",
+              "aria-label": "Supplement name",
               autoFocus: true,
               maxLength: 80,
             }),
@@ -366,14 +409,18 @@ function QuickLogDropdown({ accessToken, onLog, onToast }) {
     if (!name) return;
     setOpen(false);
     try {
-      await fetch("/api/nutrition/supplements", {
+      const res = await fetch("/api/nutrition/supplements", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
         body: JSON.stringify({ items: [{ name }] }),
       });
-      onToast?.(`${name.toUpperCase()} LOGGED`);
-    } catch (err) { console.error(err); }
-    onLog?.();
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      onToast?.(`LOGGED • ${name.toUpperCase()}`);
+      onLog?.();
+    } catch (err) {
+      console.error(err);
+      onToast?.("LOGGED • SUPPLEMENT FAILED");
+    }
   };
 
   const handlePick = async (id) => {
@@ -385,14 +432,20 @@ function QuickLogDropdown({ accessToken, onLog, onToast }) {
     setOpen(false);
     if (id === "water_250" || id === "water_500") {
       const ml = id === "water_250" ? 250 : 500;
-      await fetch("/api/nutrition/water", {
-        method: "POST",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
-        body: JSON.stringify({ ml }),
-      });
-      onToast?.(`WATER + ${ml} ML LOGGED`);
+      try {
+        const res = await fetch("/api/nutrition/water", {
+          method: "POST",
+          headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
+          body: JSON.stringify({ ml }),
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        onToast?.(`LOGGED • WATER +${ml} ML`);
+        onLog?.();
+      } catch (err) {
+        console.error(err);
+        onToast?.("LOGGED • WATER FAILED");
+      }
     }
-    onLog?.();
   };
 
   return h("div", { className: "nu-quick-wrap", onMouseDown: (e) => e.stopPropagation() },
@@ -451,6 +504,9 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, o
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [searchLoading, setSearchLoading] = useState(false);
+  const modalRef = useRef(null);
+  const previousFocusRef = useRef(null);
+  const titleId = useId();
 
   const title = mealSlot ? (MEAL_SLOT_LABELS[mealSlot] || mealSlot) : "Log food";
 
@@ -480,11 +536,43 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, o
     })();
   }, [open, date, mealSlot, accessToken]);
 
+  // a11y modal plumbing: Escape closes, Tab wraps within modal, focus jumps
+  // to first focusable on open, returns to the originating trigger on close.
   useEffect(() => {
     if (!open) return undefined;
-    const handleKey = (e) => { if (e.key === "Escape") onClose?.(); };
+    previousFocusRef.current = document.activeElement;
+    const focusablesOf = () => {
+      const root = modalRef.current;
+      if (!root) return [];
+      return Array.from(root.querySelectorAll(
+        'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])',
+      )).filter((el) => !el.hasAttribute("disabled") && el.offsetParent !== null);
+    };
+    // Defer one frame so children have mounted before we grab focus.
+    const raf = requestAnimationFrame(() => {
+      const [first] = focusablesOf();
+      if (first) first.focus();
+    });
+    const handleKey = (e) => {
+      if (e.key === "Escape") { onClose?.(); return; }
+      if (e.key !== "Tab") return;
+      const list = focusablesOf();
+      if (!list.length) return;
+      const first = list[0];
+      const last = list[list.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault(); last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault(); first.focus();
+      }
+    };
     document.addEventListener("keydown", handleKey);
-    return () => document.removeEventListener("keydown", handleKey);
+    return () => {
+      cancelAnimationFrame(raf);
+      document.removeEventListener("keydown", handleKey);
+      const prev = previousFocusRef.current;
+      if (prev && typeof prev.focus === "function") prev.focus();
+    };
   }, [open, onClose]);
 
   useEffect(() => {
@@ -536,17 +624,19 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, o
 
   const confirmDelete = useCallback(async () => {
     if (!deleteTarget) return;
+    const id = deleteTarget;
     try {
-      const res = await fetch(`/api/emersus/meal-journal/entries/${deleteTarget}`, {
+      const res = await fetch(`/api/emersus/meal-journal/entries/${id}`, {
         method: "DELETE",
         headers: { Authorization: `Bearer ${accessToken}` },
       });
       if (!res.ok) throw new Error("delete_failed");
-      setEntries((prev) => prev.filter((e) => e.id !== deleteTarget));
-      setDeleteTarget(null);
+      setEntries((prev) => prev.filter((e) => e.id !== id));
       onMutate?.();
     } catch {
       setError("Delete failed.");
+    } finally {
+      // Always dismiss the confirm bar so the user can re-attempt or exit.
       setDeleteTarget(null);
     }
   }, [deleteTarget, accessToken, onMutate]);
@@ -581,7 +671,7 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, o
       onMutate?.();
       const kcal = Math.round(Number(added?.kcal_snapshot) || 0);
       const foodName = (food?.name || "Food").toUpperCase();
-      onToast?.(kcal > 0 ? `${foodName} · ${kcal} KCAL LOGGED` : `${foodName} LOGGED`);
+      onToast?.(kcal > 0 ? `LOGGED • ${foodName} · ${kcal} KCAL` : `LOGGED • ${foodName}`);
     } catch {
       setError("Could not add food.");
     }
@@ -596,11 +686,18 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, o
   const dateDisplay = new Date(date + "T12:00:00").toLocaleDateString(undefined, { month: "short", day: "numeric" });
 
   return h("div", { className: "nu-modal-backdrop", onClick: onClose },
-    h("div", { className: "nu-modal", onClick: (e) => e.stopPropagation() },
+    h("div", {
+      className: "nu-modal",
+      onClick: (e) => e.stopPropagation(),
+      role: "dialog",
+      "aria-modal": "true",
+      "aria-labelledby": titleId,
+      ref: modalRef,
+    },
 
       h("div", { className: "nu-modal-head" },
         h("div", null,
-          h("h3", null, title),
+          h("h3", { id: titleId }, title),
           h("div", { className: "nu-modal-subtitle" },
             `${dateDisplay} \u00b7 ${entries.length} item${entries.length !== 1 ? "s" : ""} logged`,
           ),
@@ -637,6 +734,7 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, o
                           h("select", {
                             className: "nu-food-slot-select",
                             value: e.meal_slot,
+                            "aria-label": "Meal slot",
                             onChange: (ev) => handleSlotChange(e.id, ev.target.value),
                             onClick: (ev) => ev.stopPropagation(),
                           },
@@ -659,8 +757,10 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, o
                         h("input", {
                           className: "nu-food-amount-input",
                           type: "number",
-                          defaultValue: Math.round(Number(e.amount) || 0),
-                          step: unit === "srv" ? 0.5 : 10,
+                          // Keep the real amount so fractional servings (e.g. 1.5)
+                          // survive round-trips; rounding only happens at render.
+                          defaultValue: Number(e.amount) || 0,
+                          step: unit === "srv" ? "any" : 1,
                           min: 0,
                           onBlur: (ev) => handleAmountBlur(e.id, ev.target.value),
                           onKeyDown: (ev) => { if (ev.key === "Enter") ev.target.blur(); },
@@ -702,6 +802,7 @@ function MealEditModal({ open, mealSlot, date, accessToken, onClose, onMutate, o
           className: "nu-add-food-input",
           type: "search",
           placeholder: "Search to add a food\u2026",
+          "aria-label": "Search to add a food",
           value: searchQuery,
           onChange: (e) => setSearchQuery(e.target.value),
         }),
@@ -778,6 +879,7 @@ function NutritionApp() {
       const res = await fetch("/api/emersus/meal-journal/clear-day", {
         method: "POST",
         headers: { "Content-Type": "application/json", Authorization: `Bearer ${accessToken}` },
+        // See useNutritionDay.load for the tz sign contract.
         body: JSON.stringify({ date: day.date, tz: new Date().getTimezoneOffset() }),
       });
       if (!res.ok) throw new Error("clear_failed");
@@ -824,7 +926,7 @@ function NutritionApp() {
           : h(React.Fragment, null,
               h(FuelGauge, { data: day.data }),
               h(NextUpCard, { data: day.data }),
-              h(WaterSupplementsStrip, { data: day.data, accessToken, onChange: day.reload }),
+              h(WaterSupplementsStrip, { data: day.data, accessToken, onChange: day.reload, onToast: flashToast }),
               h(MealsList, { data: day.data, onOpenSlot: openMealModal }),
               h("button", {
                 type: "button",
@@ -892,4 +994,4 @@ function NutritionApp() {
 }
 
 const root = document.getElementById("nutrition-v2-root");
-if (root) createRoot(root).render(h(NutritionApp));
+if (root) createRoot(root).render(h(ErrorBoundary, null, h(NutritionApp)));
