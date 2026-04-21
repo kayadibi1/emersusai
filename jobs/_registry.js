@@ -188,5 +188,5 @@ export async function registerHandlers({ boss, sql, log, incrementJobsProcessed 
   // ~7000 redundant requests (2026-04-21 failure cluster).
   await boss.schedule("ingest-preprints-sweep",    "0 6 * * 6", {},                        { tz: "America/New_York", retryLimit: 3, retryBackoff: true, retryDelay: 300 });
 
-  log.info("all 18 handlers registered + 9 schedules");
+  log.info("all 19 handlers registered + 9 schedules");
 }
