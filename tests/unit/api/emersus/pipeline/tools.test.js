@@ -10,10 +10,10 @@ import { TOOL_DEFINITIONS, validateToolCall, REMEMBER_FACT, RECALL_MEMORY, build
 const MULTI_TYPE_WIDGET_V2 = new Set([]);
 
 describe("TOOL_DEFINITIONS", () => {
-  it("exports exactly 11 tool definitions", () => {
-    assert.equal(TOOL_DEFINITIONS.length, 11);
+  it("exports exactly 12 tool definitions", () => {
+    assert.equal(TOOL_DEFINITIONS.length, 12);
     const names = TOOL_DEFINITIONS.map(t => t.name).sort();
-    assert.deepStrictEqual(names, ["emit_calculator_widget", "emit_evidence_widget", "emit_meal_plan", "emit_nutrition_widget", "emit_pharma_widget", "emit_progress_widget", "emit_training_widget", "emit_widget", "emit_workout_plan", "get_user_profile", "log_food"]);
+    assert.deepStrictEqual(names, ["emit_calculator_widget", "emit_evidence_widget", "emit_meal_plan", "emit_nutrition_widget", "emit_pharma_widget", "emit_progress_widget", "emit_training_widget", "emit_widget", "emit_workout_plan", "get_user_profile", "log_food", "update_user_profile"]);
   });
 
   it("all tools have type function and strict true (except multi-type widget-v2)", () => {
@@ -328,7 +328,7 @@ describe("buildToolDefinitions — flag-gated remember_fact", () => {
     try {
       const defs = buildToolDefinitions();
       assert.ok(!defs.some((d) => d.name === "remember_fact"));
-      assert.equal(defs.length, 11);
+      assert.equal(defs.length, 12);
     } finally {
       if (saved === undefined) delete process.env.MEMORY_REMEMBER_FACT_ENABLED;
       else process.env.MEMORY_REMEMBER_FACT_ENABLED = saved;
@@ -341,7 +341,7 @@ describe("buildToolDefinitions — flag-gated remember_fact", () => {
     try {
       const defs = buildToolDefinitions();
       assert.ok(defs.some((d) => d.name === "remember_fact"));
-      assert.equal(defs.length, 12);
+      assert.equal(defs.length, 13);
     } finally {
       if (saved === undefined) delete process.env.MEMORY_REMEMBER_FACT_ENABLED;
       else process.env.MEMORY_REMEMBER_FACT_ENABLED = saved;

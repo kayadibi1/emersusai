@@ -1475,31 +1475,45 @@ const UPDATE_USER_PROFILE = {
   description: [
     "Save or update fields on the user's saved profile (goal, experience, injuries, equipment, schedule, preferences).",
     "Call this when the user wants to change a saved preference in regular chat ('change my goal to strength', 'I just hurt my shoulder', 'switch me to lbs'), or during onboarding when you've extracted new profile information from their answer.",
-    "Only include fields you have confident, non-null values for — never include a field with null.",
+    "Strict mode requires every field in the arguments object. Pass null for any field you are NOT updating — only provide a concrete value for the fields you intend to change. The server drops null values before persisting.",
     "During onboarding only: include onboarding_completed: true on the final exchange after all info is gathered.",
   ].join("\n"),
   parameters: {
     type: "object",
-    required: [],
+    required: [
+      "goal",
+      "experience_level",
+      "injuries_limitations",
+      "equipment_access",
+      "available_days_per_week",
+      "dietary_preferences",
+      "primary_use_case",
+      "weight_unit",
+      "distance_unit",
+      "preferred_sports",
+      "default_pool_length_m",
+      "default_grade_system",
+      "onboarding_completed",
+    ],
     additionalProperties: false,
     properties: {
-      goal: { type: "string", description: "Primary fitness/health goal" },
-      experience_level: { type: "string", enum: ["beginner", "intermediate", "advanced"], description: "Training experience level" },
-      injuries_limitations: { type: "string", description: "Any injuries or physical limitations" },
-      equipment_access: { type: "string", description: "What equipment they have access to" },
-      available_days_per_week: { type: "number", description: "Training days per week" },
-      dietary_preferences: { type: "string", description: "Diet preferences or restrictions" },
-      primary_use_case: { type: "string", description: "What they want to use Emersus for" },
-      weight_unit: { type: "string", enum: ["kg", "lbs"], description: "Preferred weight unit" },
-      distance_unit: { type: "string", enum: ["km", "mi"], description: "Preferred distance unit" },
+      goal: { type: ["string", "null"], description: "Primary fitness/health goal. Null = no change." },
+      experience_level: { type: ["string", "null"], enum: ["beginner", "intermediate", "advanced", null], description: "Training experience level. Null = no change." },
+      injuries_limitations: { type: ["string", "null"], description: "Any injuries or physical limitations. Null = no change." },
+      equipment_access: { type: ["string", "null"], description: "What equipment they have access to. Null = no change." },
+      available_days_per_week: { type: ["number", "null"], description: "Training days per week. Null = no change." },
+      dietary_preferences: { type: ["string", "null"], description: "Diet preferences or restrictions. Null = no change." },
+      primary_use_case: { type: ["string", "null"], description: "What they want to use Emersus for. Null = no change." },
+      weight_unit: { type: ["string", "null"], enum: ["kg", "lbs", null], description: "Preferred weight unit. Null = no change." },
+      distance_unit: { type: ["string", "null"], enum: ["km", "mi", null], description: "Preferred distance unit. Null = no change." },
       preferred_sports: {
-        type: "array",
+        type: ["array", "null"],
         items: { type: "string", enum: ["weights", "running", "cycling", "swimming", "climbing", "mixed"] },
-        description: "Sports/activities they do",
+        description: "Sports/activities they do. Null = no change.",
       },
-      default_pool_length_m: { type: "number", enum: [25, 50, 22.86, 30.48], description: "Pool length in meters" },
-      default_grade_system: { type: "string", enum: ["V", "YDS", "Font", "French"], description: "Climbing grade system" },
-      onboarding_completed: { type: "boolean", description: "Set true on the final exchange after all info is gathered" },
+      default_pool_length_m: { type: ["number", "null"], enum: [25, 50, 22.86, 30.48, null], description: "Pool length in meters. Null = no change." },
+      default_grade_system: { type: ["string", "null"], enum: ["V", "YDS", "Font", "French", null], description: "Climbing grade system. Null = no change." },
+      onboarding_completed: { type: ["boolean", "null"], description: "Set true on the final exchange after all info is gathered. Null = no change." },
     },
   },
 };
@@ -1568,22 +1582,17 @@ export const RECALL_MEMORY = {
 
 // ── Exports ─────────────────────────────────────────────────────────────
 
-// Main chat tools. update_user_profile is temporarily EXCLUDED again
-// after a 2026-04-16 prod incident: its schema has `required: []` but
-// OpenAI strict mode requires `required` to list every property key,
-// so the whole request 400s. Fix-forward is to add all keys to required
-// + make each type nullable (["string", "null"] etc., with null added
-// to enums). Keeping it out of TOOL_DEFINITIONS until that ships. The
-// persistProfileUpdates path in stream.js is left in place — a noop
-// until this tool is wired back in.
+// Main chat tools. update_user_profile is included — its schema lists every
+// property in `required` with nullable union types so the model can pass
+// `null` for fields it's not changing. The persistProfileUpdates path in
+// stream.js drops null values before PATCHing Supabase.
 //
-// Static export preserved for non-pipeline callers (unit tests, etc.).
 // The chat pipeline (synthesize.js) uses buildToolDefinitions() below so
 // flag-gated tools like remember_fact can be toggled at runtime.
 export const TOOL_DEFINITIONS = [
   EMIT_MEAL_PLAN, EMIT_WORKOUT_PLAN, EMIT_WIDGET, EMIT_CALCULATOR_WIDGET,
   EMIT_NUTRITION_WIDGET, EMIT_TRAINING_WIDGET, EMIT_PROGRESS_WIDGET, EMIT_PHARMA_WIDGET, EMIT_EVIDENCE_WIDGET,
-  LOG_FOOD, GET_USER_PROFILE,
+  LOG_FOOD, GET_USER_PROFILE, UPDATE_USER_PROFILE,
 ];
 
 /**
