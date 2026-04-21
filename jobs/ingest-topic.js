@@ -33,7 +33,7 @@ const DEPRIORITIZED_SOURCE_IDS = ["crossref", "doaj"];
 // triggering a thundering-herd of HTML error responses (2026-04-21).
 // They're now ingested by the dedicated `ingest-preprints-sweep` job
 // which walks the date range once. See jobs/ingest-preprints-sweep.js.
-const PREPRINT_SWEEP_SOURCE_IDS = ["biorxiv", "medrxiv"];
+const PREPRINT_SWEEP_SOURCE_IDS = ["biorxiv", "medrxiv", "psyarxiv"];
 
 function readEnvList(name) {
   return (process.env[name] || "")

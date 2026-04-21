@@ -17,7 +17,7 @@
 import { getIngestionSource } from "../scripts/sources/_registry.js";
 import { buildGenericChunks } from "../scripts/lib/build-evidence-chunks-generic.js";
 
-const DEFAULT_SOURCES = ["biorxiv", "medrxiv"];
+const DEFAULT_SOURCES = ["biorxiv", "medrxiv", "psyarxiv"];
 const DEFAULT_DAYS_BACK = 60;
 
 // Broad exercise/sports-science term union. biorxiv/medrxiv return all

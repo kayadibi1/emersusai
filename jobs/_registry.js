@@ -34,6 +34,8 @@ import "../scripts/sources/semantic-scholar.js";
 import "../scripts/sources/epistemonikos.js";
 import "../scripts/sources/openaire.js";
 import "../scripts/sources/core.js";
+import "../scripts/sources/clinicaltrials.js";
+import "../scripts/sources/psyarxiv.js";
 
 // Discovery plugins
 import "../scripts/sources/rss-sbs.js";
