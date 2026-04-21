@@ -36,6 +36,7 @@ import "../scripts/sources/openaire.js";
 import "../scripts/sources/core.js";
 import "../scripts/sources/clinicaltrials.js";
 import "../scripts/sources/psyarxiv.js";
+import "../scripts/sources/elife.js";
 
 // Discovery plugins
 import "../scripts/sources/rss-sbs.js";
