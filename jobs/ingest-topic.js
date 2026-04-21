@@ -23,16 +23,15 @@ import { SourcePermanentError } from "../scripts/sources/_errors.js";
 // flag guarding the multi-source rollout for revertibility.
 //
 // MULTI_SOURCE_ENABLED=true enables fanout to every registered source
-// the caller requests, except deprioritized sources (crossref, doaj —
-// metadata-only, no abstracts to chunk) and sources disabled via the
-// INGEST_DISABLED_SOURCES env var.
+// the caller requests, minus sources handled by other jobs (preprint
+// sweep) and sources disabled via the INGEST_DISABLED_SOURCES env var.
 const LEGACY_SUPPORTED_SOURCE_IDS = ["pubmed"];
-const DEPRIORITIZED_SOURCE_IDS = ["crossref", "doaj"];
-// biorxiv + medrxiv share api.biorxiv.org, ignore keyword queries, and
-// return identical date-range data per topic. Per-topic fanout was
-// triggering a thundering-herd of HTML error responses (2026-04-21).
-// They're now ingested by the dedicated `ingest-preprints-sweep` job
-// which walks the date range once. See jobs/ingest-preprints-sweep.js.
+// biorxiv + medrxiv + psyarxiv share PHP-backed / paginated APIs with
+// no real keyword search. Per-topic fanout duplicated the same
+// date-range/page requests 300× and triggered a thundering-herd of
+// HTML error responses (2026-04-21). They're now ingested by the
+// dedicated `ingest-preprints-sweep` job which walks each source once.
+// See jobs/ingest-preprints-sweep.js.
 const PREPRINT_SWEEP_SOURCE_IDS = ["biorxiv", "medrxiv", "psyarxiv"];
 
 function readEnvList(name) {
@@ -78,7 +77,6 @@ export async function ingestTopicHandler(ctx, deps) {
 
   const isCandidate = (id) =>
     available.includes(id) &&
-    !DEPRIORITIZED_SOURCE_IDS.includes(id) &&
     !PREPRINT_SWEEP_SOURCE_IDS.includes(id) &&
     !disabledSources.includes(id);
 
@@ -88,7 +86,7 @@ export async function ingestTopicHandler(ctx, deps) {
 
   if (sourceIds.length === 0) {
     const reason = multiSourceEnabled
-      ? `no candidate sources to dispatch (requested=${requested.join(",")}, disabled=${disabledSources.join(",")}, deprioritized=${DEPRIORITIZED_SOURCE_IDS.join(",")})`
+      ? `no candidate sources to dispatch (requested=${requested.join(",")}, disabled=${disabledSources.join(",")}, sweep-only=${PREPRINT_SWEEP_SOURCE_IDS.join(",")})`
       : `no supported sources to dispatch (MULTI_SOURCE_ENABLED=false, legacy supports: ${LEGACY_SUPPORTED_SOURCE_IDS.join(", ")})`;
     await ctx.progress(reason, "warn");
     return { topicId, sourceCount: 0 };

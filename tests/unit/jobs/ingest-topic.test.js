@@ -147,15 +147,15 @@ test("uses all ingestion sources when sourceIds not provided (registry seeded ex
   // Only run this test if at least one source is registered
   if (allSources.length === 0) return;
 
-  // Filter out deprioritized + disabled sources that the handler skips
-  const DEPRIORITIZED = new Set(["crossref", "doaj"]);
+  // Filter out sweep-handled + disabled sources that the handler skips
+  const SWEEP_ONLY = new Set(["biorxiv", "medrxiv", "psyarxiv"]);
   const disabled = new Set(
     (process.env.INGEST_DISABLED_SOURCES || "").split(",").map((s) => s.trim()).filter(Boolean),
   );
   const legacySupported = new Set(["pubmed"]);
   const expected = process.env.MULTI_SOURCE_ENABLED === "true"
-    ? allSources.filter((s) => !DEPRIORITIZED.has(s.id) && !disabled.has(s.id))
-    : allSources.filter((s) => legacySupported.has(s.id) && !DEPRIORITIZED.has(s.id) && !disabled.has(s.id));
+    ? allSources.filter((s) => !SWEEP_ONLY.has(s.id) && !disabled.has(s.id))
+    : allSources.filter((s) => legacySupported.has(s.id) && !SWEEP_ONLY.has(s.id) && !disabled.has(s.id));
 
   const sql = makeSql({ topicRows: [FAKE_TOPIC] });
   const boss = makeBoss();
@@ -190,44 +190,28 @@ test("when MULTI_SOURCE_ENABLED is unset, only pubmed source is routed", async (
   }
 });
 
-test("when MULTI_SOURCE_ENABLED=true, all non-deprioritized sources are routed", async () => {
+test("when MULTI_SOURCE_ENABLED=true, non-sweep sources are routed and sweep sources are filtered", async () => {
   const originalFlag = process.env.MULTI_SOURCE_ENABLED;
   process.env.MULTI_SOURCE_ENABLED = "true";
   try {
     await import("../../../scripts/sources/europepmc.js");
     await import("../../../scripts/sources/biorxiv.js");
+    await import("../../../scripts/sources/openalex.js");
     const { ingestTopicHandler } = await import("../../../jobs/ingest-topic.js");
 
     const sql = makeSql({ topicRows: [FAKE_TOPIC] });
     const boss = makeBoss();
-    const ctx = makeCtx({ topicId: 42, sourceIds: ["pubmed", "europepmc", "biorxiv"] });
+    // biorxiv is sweep-only — should be filtered out. pubmed, europepmc,
+    // openalex should all fan out.
+    const ctx = makeCtx({
+      topicId: 42,
+      sourceIds: ["pubmed", "europepmc", "openalex", "biorxiv"],
+    });
 
     await ingestTopicHandler(ctx, { sql, boss });
 
-    const sentIds = boss.sent.map(j => j.payload.sourceId).sort();
-    assert.deepEqual(sentIds, ["biorxiv", "europepmc", "pubmed"]);
-  } finally {
-    if (originalFlag !== undefined) process.env.MULTI_SOURCE_ENABLED = originalFlag;
-    else delete process.env.MULTI_SOURCE_ENABLED;
-  }
-});
-
-test("crossref and doaj are filtered out even when MULTI_SOURCE_ENABLED=true", async () => {
-  const originalFlag = process.env.MULTI_SOURCE_ENABLED;
-  process.env.MULTI_SOURCE_ENABLED = "true";
-  try {
-    await import("../../../scripts/sources/crossref.js");
-    await import("../../../scripts/sources/doaj.js");
-    const { ingestTopicHandler } = await import("../../../jobs/ingest-topic.js");
-
-    const sql = makeSql({ topicRows: [FAKE_TOPIC] });
-    const boss = makeBoss();
-    const ctx = makeCtx({ topicId: 42, sourceIds: ["pubmed", "crossref", "doaj"] });
-
-    await ingestTopicHandler(ctx, { sql, boss });
-
-    const sentIds = boss.sent.map(j => j.payload.sourceId);
-    assert.deepEqual(sentIds, ["pubmed"], "only pubmed should survive the deprioritized filter");
+    const sentIds = boss.sent.map((j) => j.payload.sourceId).sort();
+    assert.deepEqual(sentIds, ["europepmc", "openalex", "pubmed"]);
   } finally {
     if (originalFlag !== undefined) process.env.MULTI_SOURCE_ENABLED = originalFlag;
     else delete process.env.MULTI_SOURCE_ENABLED;
