@@ -10,6 +10,7 @@ import { fetchWithTimeoutAndUA } from "./_http.js";
 import { biorxivLimiter } from "./_shared-limiters.js";
 import { registerIngestion, registerDiscovery } from "./_registry.js";
 import { parseQueryIntoGroups, matchesQueryGroups } from "./_query-match.js";
+import { SourceTransientError } from "./_errors.js";
 
 const BASE_URL = "https://api.biorxiv.org/details/medrxiv";
 const PAGE_SIZE = 100;
@@ -97,7 +98,21 @@ export const medrxiv = {
       let chunkYielded = 0;
 
       while (cursor <= total - 1 && yielded < target && pagesInThisChunk < MAX_PAGES_PER_CHUNK) {
-        const { collection, total: t, count } = await fetchPage(from, to, cursor);
+        let pageData;
+        try {
+          pageData = await fetchPage(from, to, cursor);
+        } catch (err) {
+          // api.biorxiv.org PHP backend regularly throws transient errors
+          // (mysqli, timeouts) on specific cursors. Skip the bad page
+          // and continue rather than crashing the whole iteration.
+          if (err instanceof SourceTransientError) {
+            cursor += PAGE_SIZE;
+            pagesInThisChunk += 1;
+            continue;
+          }
+          throw err;
+        }
+        const { collection, total: t, count } = pageData;
         total = t;
         pagesInThisChunk += 1;
 
