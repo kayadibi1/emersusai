@@ -4852,14 +4852,31 @@ export function ChatApp() {
                         }, `Load ${Math.min(VISIBLE_MESSAGE_COUNT_STEP, hiddenMessageCount)} earlier messages`))
                     : null,
                   ...(() => {
-                    // Merge the persistent orb into the last assistant message so
-                    // there's one EMERSUS label, not two.
-                    let lastAssistantPos = -1;
-                    for (let i = visibleMessageEntries.length - 1; i >= 0; i--) {
-                      if (visibleMessageEntries[i].message.role === "assistant") { lastAssistantPos = i; break; }
+                    // Single-source-of-truth: the orb lives in exactly ONE slot.
+                    // Preference: (1) as trailing content of the last message if
+                    // that message is an assistant; (2) otherwise as a standalone
+                    // fallback bubble — but only when something is actively in
+                    // flight, so past threads stay quiet.
+                    const lastPos = visibleMessageEntries.length - 1;
+                    const lastIsAssistant = lastPos >= 0 && visibleMessageEntries[lastPos].message.role === "assistant";
+                    const active = isSubmitting || glyphState !== "idle";
+                    // Orb attaches trailing if the last message is assistant, OR
+                    // when we're not mid-turn (ambient idle — attach to last
+                    // assistant for continuity). Trailing only happens on the
+                    // MOST-RECENT assistant, never on older ones.
+                    let trailingAnchorPos = -1;
+                    if (lastIsAssistant) {
+                      trailingAnchorPos = lastPos;
+                    } else if (!active) {
+                      for (let i = lastPos; i >= 0; i--) {
+                        if (visibleMessageEntries[i].message.role === "assistant") { trailingAnchorPos = i; break; }
+                      }
                     }
+                    // Fallback only when last message is user AND we're active.
+                    const needsFallback = active && !lastIsAssistant;
+
                     const nodes = visibleMessageEntries.flatMap(({ message, index }, i) => {
-                      const isLastAssistant = i === lastAssistantPos;
+                      const isAnchor = i === trailingAnchorPos;
                       return [h(Message, {
                         key: `${message.createdAt || ""}-${index}`,
                         message,
@@ -4871,16 +4888,11 @@ export function ChatApp() {
                         onSwapMeal: handleSwapMealFromMessage,
                         onExport: handleExportMessage,
                         onAskFollowUp: handleAskSourceFollowUp,
-                        trailingOrb: isLastAssistant
+                        trailingOrb: isAnchor
                           ? h("div", { className: "inline-orb-slot", key: "orb" }, h(EmersusOrb, { state: glyphState }))
                           : null,
                       })];
                     });
-                    // Fallback orb for the gap between user submit and the first
-                    // assistant token (no assistant message yet, but activity is live).
-                    const lastPos = visibleMessageEntries.length - 1;
-                    const lastIsAssistant = lastAssistantPos === lastPos && lastPos >= 0;
-                    const needsFallback = (isSubmitting || glyphState !== "idle") && !lastIsAssistant;
                     if (needsFallback) {
                       nodes.push(
                         h("article", { key: "fallback-orb", className: "message assistant" },
