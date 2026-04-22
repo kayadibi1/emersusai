@@ -3343,6 +3343,8 @@ export function ChatApp() {
   const [historyHidden, setHistoryHidden] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
   const [statusTone, setStatusTone] = useState("");
+  // Composer draft — persisted per-thread so a browser refresh or thread
+  // switch preserves unsent text. Stored in localStorage under `emersus.draft.<threadId>`.
   const [question, setQuestion] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [visibleMessageCount, setVisibleMessageCount] = useState(DEFAULT_VISIBLE_MESSAGE_COUNT);
@@ -3430,6 +3432,25 @@ export function ChatApp() {
     const t = setInterval(() => setOrbLabelIdx((i) => i + 1), ORB_LABEL_CYCLE_MS);
     return () => clearInterval(t);
   }, [glyphState]);
+
+  // Composer draft persistence: restore on thread switch, save on every
+  // keystroke (debounced via effect). Cleared in submitQuestion on send.
+  useEffect(() => {
+    if (typeof window === "undefined" || !activeThreadId) return;
+    try {
+      const saved = window.localStorage.getItem(`emersus.draft.${activeThreadId}`);
+      if (saved != null) setQuestion(saved);
+      else setQuestion("");
+    } catch (_) { /* localStorage unavailable */ }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeThreadId]);
+  useEffect(() => {
+    if (typeof window === "undefined" || !activeThreadId) return;
+    try {
+      if (question) window.localStorage.setItem(`emersus.draft.${activeThreadId}`, question);
+      else window.localStorage.removeItem(`emersus.draft.${activeThreadId}`);
+    } catch (_) { /* noop */ }
+  }, [question, activeThreadId]);
 
   // When the orb transitions out of responding (or thinking) into idle —
   // i.e. a response just finished — smooth-scroll the conversation to the
