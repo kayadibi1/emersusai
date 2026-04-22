@@ -149,6 +149,13 @@ async function processPartition(entry, dedup, topics, out) {
     if (wid && dedup.has(wid)) { dedupSkip += 1; continue; }
     if (doi && dedup.has(doi)) { dedupSkip += 1; continue; }
 
+    // Language gate: English only. OpenAlex's `work.language` is ISO 639-1.
+    // NULL slips through to be tagged later by the franc backfill;
+    // anything other than 'en' / 'sco' (Scots, franc's mis-tag for terse
+    // English) is dropped at the filter so we don't ship Indonesian /
+    // Russian / Turkish / Spanish papers to the ingest handler.
+    if (work.language && work.language !== "en" && work.language !== "sco") continue;
+
     // Topic gate: OpenAlex ML-classified 2024 Topics taxonomy.
     const primaryTopic = work.primary_topic?.display_name || null;
     const subfield = work.primary_topic?.subfield?.display_name || null;

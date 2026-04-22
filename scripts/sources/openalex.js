@@ -95,6 +95,13 @@ const OPENALEX_DROP_TYPES = new Set([
 
 function normalize(work) {
   if (OPENALEX_DROP_TYPES.has(work.type)) return null;
+  // Reject non-English at source. OpenAlex `work.language` is ISO 639-1
+  // ('en', 'es', …). NULL → keep (rare, and the periodic franc backfill
+  // will tag it later); anything other than English → drop. We accept
+  // 'sco' (Scots) too because franc occasionally tags terse English
+  // titles as 'sco' on the backfill side, and we want both code paths
+  // to behave identically.
+  if (work.language && work.language !== "en" && work.language !== "sco") return null;
   const pubDateStr = work.publication_date;
   const publishedAt = pubDateStr ? new Date(pubDateStr) : null;
   return {
