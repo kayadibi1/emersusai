@@ -3549,6 +3549,7 @@ export function ChatApp() {
   // bottom, but ONLY if the user isn't already near it. Avoids yanking
   // them while they're reading earlier context.
   const prevGlyphStateRef = useRef("idle");
+  const [firstTurnCelebration, setFirstTurnCelebration] = useState(false);
   useEffect(() => {
     const prev = prevGlyphStateRef.current;
     prevGlyphStateRef.current = glyphState;
@@ -3556,6 +3557,15 @@ export function ChatApp() {
     if (prev !== "responding" && prev !== "thinking") return;
     // Haptic pulse on mobile when response finishes streaming.
     try { navigator.vibrate?.(8); } catch (_) { /* ignored */ }
+    // First-ever successful turn — celebrate once. Stored in localStorage.
+    try {
+      const key = "emersus.firstTurnDone";
+      if (typeof window !== "undefined" && !window.localStorage.getItem(key)) {
+        window.localStorage.setItem(key, Date.now().toString());
+        setFirstTurnCelebration(true);
+        setTimeout(() => setFirstTurnCelebration(false), 4200);
+      }
+    } catch (_) { /* noop */ }
     const el = canvasRef.current;
     if (!el) return;
     const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
@@ -5361,6 +5371,11 @@ export function ChatApp() {
             h(Trash2, { size: 15, "aria-hidden": true }),
             h("span", null, "Delete")));
         })()
+      : null,
+    firstTurnCelebration
+      ? h("div", { className: "first-turn-burst", role: "status" },
+          h("span", { className: "first-turn-sparkle" }, "✦"),
+          h("span", { className: "first-turn-text" }, "Your first evidence-backed answer — welcome."))
       : null,
     undoToast
       ? h("div", { className: "undo-toast", role: "status", "aria-live": "polite" },

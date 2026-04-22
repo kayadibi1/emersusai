@@ -1492,6 +1492,45 @@ body.chat-page {
   color: var(--accent);
 }
 
+/* First-turn celebration — subtle burst on user's first-ever answered turn. */
+.first-turn-burst {
+  position: fixed;
+  left: 50%;
+  top: 120px;
+  transform: translateX(-50%);
+  z-index: 70;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 13px;
+  box-shadow: 0 20px 50px -10px color-mix(in oklab, var(--accent) 30%, transparent);
+  animation: firstTurnIn 500ms cubic-bezier(.22, 1, .36, 1), firstTurnOut 400ms 3800ms ease-in forwards;
+}
+.first-turn-sparkle {
+  color: var(--accent);
+  font-size: 16px;
+  animation: firstTurnSparkle 1.2s ease-in-out infinite;
+}
+@keyframes firstTurnIn {
+  from { opacity: 0; transform: translate(-50%, -12px) scale(0.94); }
+  to   { opacity: 1; transform: translate(-50%, 0) scale(1); }
+}
+@keyframes firstTurnOut {
+  to { opacity: 0; transform: translate(-50%, -12px) scale(0.96); }
+}
+@keyframes firstTurnSparkle {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  50%      { transform: scale(1.25) rotate(90deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .first-turn-burst, .first-turn-sparkle { animation: none; }
+}
+
 /* Slash-command menu — popover above the composer textarea. */
 .slash-menu {
   position: absolute;
