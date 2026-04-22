@@ -700,6 +700,14 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
+  animation: emptyPromptsFade 520ms cubic-bezier(.22, 1, .36, 1);
+}
+@keyframes emptyPromptsFade {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .empty-prompts-row { animation: none; }
 }
 
 .empty-prompt-chip {
