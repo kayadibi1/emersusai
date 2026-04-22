@@ -3484,6 +3484,43 @@ export function ChatApp() {
     } catch (_) { /* noop */ }
   }, [question, activeThreadId]);
 
+  // ─── Global keyboard shortcuts ───
+  // Cmd/Ctrl+K → new thread · Cmd+/ → focus composer ·
+  // Cmd+[ / Cmd+] → prev/next thread · Esc → stop streaming · ? → help overlay
+  const [showShortcutsHelp, setShowShortcutsHelp] = useState(false);
+  useEffect(() => {
+    function onKey(e) {
+      const mod = e.metaKey || e.ctrlKey;
+      const tag = (e.target?.tagName || "").toLowerCase();
+      const inField = tag === "input" || tag === "textarea" || e.target?.isContentEditable;
+
+      if (mod && e.key === "k") {
+        e.preventDefault();
+        startNewChat();
+      } else if (mod && e.key === "/") {
+        e.preventDefault();
+        document.getElementById("chat-question")?.focus();
+      } else if (mod && (e.key === "[" || e.key === "]")) {
+        e.preventDefault();
+        const list = chatHistoryRef.current || [];
+        const curIdx = list.findIndex((t) => t.id === activeThreadIdRef.current);
+        if (curIdx < 0 || !list.length) return;
+        const delta = e.key === "[" ? -1 : 1;
+        const next = list[(curIdx + delta + list.length) % list.length];
+        if (next) setActiveThreadId(next.id);
+      } else if (e.key === "Escape" && isSubmitting) {
+        e.preventDefault();
+        handleStopStreaming?.();
+      } else if (e.key === "?" && !inField && !mod) {
+        e.preventDefault();
+        setShowShortcutsHelp((v) => !v);
+      }
+    }
+    document.addEventListener("keydown", onKey);
+    return () => document.removeEventListener("keydown", onKey);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSubmitting]);
+
   // When the orb transitions out of responding (or thinking) into idle —
   // i.e. a response just finished — smooth-scroll the conversation to the
   // bottom, but ONLY if the user isn't already near it. Avoids yanking
@@ -5227,6 +5264,32 @@ export function ChatApp() {
             h(Trash2, { size: 15, "aria-hidden": true }),
             h("span", null, "Delete")));
         })()
+      : null,
+    showShortcutsHelp
+      ? h("div", {
+          className: "shortcuts-overlay",
+          onClick: () => setShowShortcutsHelp(false),
+          role: "dialog",
+          "aria-label": "Keyboard shortcuts",
+        },
+          h("div", { className: "shortcuts-card", onClick: (e) => e.stopPropagation() },
+            h("h3", { className: "shortcuts-title" }, "Keyboard shortcuts"),
+            h("dl", { className: "shortcuts-list" },
+              h("div", null, h("dt", null, h("kbd", null, "⌘K")), h("dd", null, "New thread")),
+              h("div", null, h("dt", null, h("kbd", null, "⌘/")), h("dd", null, "Focus composer")),
+              h("div", null, h("dt", null, h("kbd", null, "⌘["), " ", h("kbd", null, "⌘]")), h("dd", null, "Prev / next thread")),
+              h("div", null, h("dt", null, h("kbd", null, "Esc")), h("dd", null, "Stop generating")),
+              h("div", null, h("dt", null, h("kbd", null, "?")), h("dd", null, "Toggle this overlay")),
+              h("div", null, h("dt", null, h("kbd", null, "⏎")), h("dd", null, "Send message")),
+              h("div", null, h("dt", null, h("kbd", null, "⇧⏎")), h("dd", null, "Newline in composer")),
+            ),
+            h("button", {
+              className: "shortcuts-close",
+              type: "button",
+              onClick: () => setShowShortcutsHelp(false),
+            }, "Close"),
+          ),
+        )
       : null,
   );
 }
