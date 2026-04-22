@@ -3359,6 +3359,10 @@ export function ChatApp() {
   // Holds the in-flight AbortController so the chat_v2 Stop button can cancel
   // the SSE stream mid-flight. Cleared in submitQuestion's finally block.
   const streamAbortRef = useRef(null);
+  // Tracks the timestamp of the last SSE prose chunk so the orb can flip to
+  // "thinking" if the backend goes silent for ≥400 ms mid-stream.
+  const lastChunkAtRef = useRef(0);
+  const pauseWatcherRef = useRef(null);
   // UsageRing imperative handle — parent calls bump() after a successful
   // send and refresh() after a 429 to stay in sync with the server's
   // authoritative counter.
@@ -3963,6 +3967,14 @@ export function ChatApp() {
           onEvent(event) {
             if (event.type === "prose") {
               accumulatedProse += event.delta || "";
+              // Chunk-arrival debounce: flip orb to "thinking" if the backend
+              // goes silent for ≥400 ms, then back to "responding" on next chunk.
+              lastChunkAtRef.current = Date.now();
+              if (glyphState !== "responding") setGlyphState("responding");
+              if (pauseWatcherRef.current) clearTimeout(pauseWatcherRef.current);
+              pauseWatcherRef.current = setTimeout(() => {
+                if (Date.now() - lastChunkAtRef.current >= 400) setGlyphState("thinking");
+              }, 420);
               // Batch prose updates so tiny token bursts do not rewrite the
               // whole active thread state on every frame.
               flushAccumulatedProse();
@@ -4227,6 +4239,10 @@ export function ChatApp() {
       }
     } finally {
       if (streamAbortRef.current === abortController) streamAbortRef.current = null;
+      if (pauseWatcherRef.current) {
+        clearTimeout(pauseWatcherRef.current);
+        pauseWatcherRef.current = null;
+      }
       setIsSubmitting(false);
       setGlyphState("idle");
     }
