@@ -43,7 +43,7 @@ class ErrorBoundary extends React.Component {
 const TABS = [
   { id: "today",     label: "Today" },
   { id: "plans",     label: "Plans" },
-  { id: "log",       label: "Log" },
+  { id: "log",       label: "History" },
 ].filter(Boolean);
 
 const QUICK_LOG_ITEMS = [
@@ -388,6 +388,110 @@ function ComingSoonCard({ label }) {
     h("h3", null, label),
     h("p", { className: "nu-soon-copy" }, "We're working on this. Check back soon."),
   );
+}
+
+// History tab — real day list (mirrors Train's History tab).
+// Fetches GET /api/nutrition/history?limit=30, renders reverse-chronological
+// rows with kcal + macro chips, click to jump to that day on the Today tab.
+function NutritionHistory({ accessToken, onJumpToDate }) {
+  const [state, setState] = useState({ loading: true, items: [], error: "" });
+
+  useEffect(() => {
+    if (!accessToken) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/api/nutrition/history?limit=30", {
+          headers: { Authorization: `Bearer ${accessToken}` },
+        });
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const body = await res.json();
+        if (cancelled) return;
+        setState({ loading: false, items: body.items || [], error: "" });
+      } catch (err) {
+        if (cancelled) return;
+        setState({ loading: false, items: [], error: err.message || "Could not load history." });
+      }
+    })();
+    return () => { cancelled = true; };
+  }, [accessToken]);
+
+  if (state.loading) {
+    return h("ul", { className: "nu-history-list", "aria-busy": "true" },
+      Array.from({ length: 5 }).map((_, i) =>
+        h("li", { key: i, className: "nu-history-row" },
+          h("div", { style: { flex: 1 } },
+            h("div", { className: "skel skel-line lg w-30" }),
+            h("div", { className: "skel skel-line w-60", style: { marginTop: 6 } }),
+          ),
+          h("div", { className: "skel skel-pill lg" }),
+        )),
+    );
+  }
+  if (state.error) return h("p", { className: "nu-error" }, state.error);
+  if (!state.items.length) {
+    return h("div", { className: "nu-meals-empty" },
+      h("p", { style: { fontWeight: 500, color: "var(--ink)", margin: "0 0 6px" } }, "No logged days yet"),
+      h("p", { style: { margin: 0 } }, "Your nutrition history fills in as you log meals, water, and supplements."),
+    );
+  }
+
+  return h("ul", { className: "nu-history-list", "aria-label": "Nutrition history" },
+    state.items.map((d) => {
+      const rel = relativeDay(d.date);
+      const abs = absoluteDay(d.date);
+      return h("li", {
+        key: d.date,
+        className: "nu-history-row",
+        onClick: () => onJumpToDate && onJumpToDate(d.date),
+        role: "button",
+        tabIndex: 0,
+        onKeyDown: (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onJumpToDate && onJumpToDate(d.date);
+          }
+        },
+      },
+        h("div", { className: "nu-history-left" },
+          h("div", { className: "nu-history-date-row" },
+            h("span", { className: "nu-history-rel" }, rel),
+            h("span", { className: "nu-history-dot" }, "·"),
+            h("span", { className: "nu-history-abs" }, abs),
+          ),
+          h("div", { className: "nu-history-meta-row" },
+            h("span", { className: "nu-history-kcal" }, `${d.kcal.toLocaleString()} kcal`),
+            h("span", { className: "nu-history-chip nu-history-chip-p" }, `P ${d.protein_g}g`),
+            h("span", { className: "nu-history-chip nu-history-chip-c" }, `C ${d.carbs_g}g`),
+            h("span", { className: "nu-history-chip nu-history-chip-f" }, `F ${d.fat_g}g`),
+            d.fiber_g > 0
+              ? h("span", { className: "nu-history-chip nu-history-chip-fib" }, `Fib ${d.fiber_g}g`)
+              : null,
+            h("span", { className: "nu-history-entries" }, `${d.entries} entr${d.entries === 1 ? "y" : "ies"}`),
+          ),
+        ),
+        h("span", { className: "nu-history-chevron", "aria-hidden": true }, "›"),
+      );
+    }),
+  );
+}
+
+function relativeDay(iso) {
+  if (!iso) return "";
+  const today = localDateStr(new Date());
+  const yst = (() => { const d = new Date(); d.setDate(d.getDate() - 1); return localDateStr(d); })();
+  if (iso === today) return "Today";
+  if (iso === yst) return "Yesterday";
+  const target = new Date(`${iso}T00:00:00`);
+  const now = new Date();
+  const diffDays = Math.round((now - target) / 86400000);
+  if (diffDays >= 2 && diffDays < 7) return `${diffDays} days ago`;
+  return target.toLocaleDateString(undefined, { weekday: "short" });
+}
+function absoluteDay(iso) {
+  if (!iso) return "";
+  const d = new Date(`${iso}T00:00:00`);
+  return d.toLocaleDateString(undefined, { month: "short", day: "numeric" });
 }
 
 function QuickLogDropdown({ accessToken, onLog, onToast }) {
@@ -967,10 +1071,13 @@ function NutritionApp() {
     ) : null,
 
     tab === "log" ? h("div", { className: "nu-tab-body" },
-      h("div", { className: "nu-meals-empty" },
-        h("p", { style: { fontWeight: 500, color: "var(--ink)", margin: "0 0 6px" } }, "Browse by date"),
-        h("p", { style: { margin: 0 } }, "Switch to the Today tab and use the date arrows to view any day\u2019s meals and macros."),
-      ),
+      h(NutritionHistory, {
+        accessToken,
+        onJumpToDate: (isoDate) => {
+          day.setDate(isoDate);
+          setTabAndUrl("today");
+        },
+      }),
     ) : null,
 
     tab === "recipes"   ? h("div", { className: "nu-tab-body" }, h(ComingSoonCard, { label: "Recipes library" })) : null,

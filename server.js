@@ -108,6 +108,7 @@ const { default: workoutSessionsRouter } = await import("./api/emersus/workout-s
 const { default: setsHandler } = await import("./api/emersus/sets.js");
 const { default: exercisesCatalogHandler } = await import("./api/emersus/exercises-catalog.js");
 const { default: nutritionDayHandler } = await import("./api/emersus/nutrition-day.js");
+const { default: nutritionHistoryHandler } = await import("./api/emersus/nutrition-history.js");
 const { default: nutritionWaterHandler } = await import("./api/emersus/nutrition-water.js");
 const { default: nutritionSupplementsHandler } = await import("./api/emersus/nutrition-supplements.js");
 const { default: progressHandler } = await import("./api/emersus/progress.js");
@@ -175,6 +176,7 @@ app.get("/api/exercises", exercisesCatalogHandler);
 
 // nutrition_v2 (Phase 4): day aggregator + water + supplements.
 app.get("/api/nutrition/day", requireAuth, nutritionDayHandler);
+app.get("/api/nutrition/history", requireAuth, nutritionHistoryHandler);
 app.post("/api/nutrition/water", requireAuth, nutritionWaterHandler);
 app.post("/api/nutrition/supplements", requireAuth, nutritionSupplementsHandler);
 
