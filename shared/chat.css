@@ -1510,8 +1510,18 @@ body.chat-page {
 .chat-composer-shell .composer-actions {
   display: flex;
   gap: 6px;
-  align-items: center;
+  align-items: flex-end;
   margin-left: auto;
+}
+/* Send button stack: submit-orb on top, usage ring below it. The stack
+ * anchors to the bottom of the composer row so the orb sits at the
+ * textarea's bottom baseline and the ring peeks beneath it — roughly
+ * where people look after sending (how much of today's quota is gone). */
+.chat-composer-shell .send-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
 }
 .chat-composer-shell .submit-orb {
   background: var(--accent);

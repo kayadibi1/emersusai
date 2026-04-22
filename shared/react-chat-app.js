@@ -4957,11 +4957,12 @@ export function ChatApp() {
                     h("span", { className: "stop-btn-label" }, "Stop"),
                   )
                 : null,
-              h(UsageRing, {
-                ref: usageRingRef,
-                getToken: async () => session?.access_token ?? null,
-              }),
-              h("button", { className: "submit-orb", type: "submit", disabled: composerDisabled, "aria-label": "Send question" }, h(ArrowUp, { size: 21 })))),
+              h("div", { className: "send-stack" },
+                h("button", { className: "submit-orb", type: "submit", disabled: composerDisabled, "aria-label": "Send question" }, h(ArrowUp, { size: 21 })),
+                h(UsageRing, {
+                  ref: usageRingRef,
+                  getToken: async () => session?.access_token ?? null,
+                })))),
           h("div", { className: "composer-utility-row" },
             h("div", { className: "composer-buttons" },
               chatV2On
