@@ -15,6 +15,7 @@ import {
   CaretDoubleRight as PanelLeftOpen,
   Plus,
   MagnifyingGlass as Search,
+  PencilSimple as PencilEdit,
   Share as Share2,
   Trash as Trash2,
 } from "@phosphor-icons/react";
@@ -4308,12 +4309,13 @@ export function ChatApp() {
     return () => window.removeEventListener("emersus:seed-prompt", onSeed);
   }, []);
 
-  const handleRenameThread = useCallback(async (nextTitle) => {
-    if (!activeThreadId || !session?.user?.id) return;
-    const current = chatHistoryRef.current.find((t) => t.id === activeThreadId);
+  const handleRenameThread = useCallback(async (nextTitle, targetId) => {
+    const id = targetId || activeThreadId;
+    if (!id || !session?.user?.id) return;
+    const current = chatHistoryRef.current.find((t) => t.id === id);
     if (!current || current.title === nextTitle) return;
     const nextThread = { ...current, title: nextTitle, updatedAt: new Date().toISOString() };
-    setChatHistory((history) => patchThreadInHistory(history, activeThreadId, () => nextThread));
+    setChatHistory((history) => patchThreadInHistory(history, id, () => nextThread));
     try {
       await upsertChatThread(session.user.id, nextThread);
     } catch (error) {
@@ -4460,6 +4462,20 @@ export function ChatApp() {
     if (threadId !== activeThreadIdRef.current) setActiveThreadId(threadId);
     setShareModalOpen(true);
   }, [historyContextMenu]);
+
+  const handleContextMenuRename = useCallback(() => {
+    if (!historyContextMenu) return;
+    const { threadId } = historyContextMenu;
+    setHistoryContextMenu(null);
+    if (!threadId) return;
+    const current = chatHistoryRef.current.find((t) => t.id === threadId);
+    if (!current) return;
+    const next = window.prompt("Rename thread", current.title || "");
+    if (next === null) return;
+    const trimmed = next.trim();
+    if (!trimmed || trimmed === current.title) return;
+    handleRenameThread(trimmed, threadId);
+  }, [historyContextMenu, handleRenameThread]);
 
   const handleContextMenuDelete = useCallback(() => {
     if (!historyContextMenu) return;
@@ -5035,7 +5051,7 @@ export function ChatApp() {
     historyContextMenu
       ? (() => {
           const menuW = 220;
-          const menuH = 96;
+          const menuH = 132;
           const maxX = (typeof window !== "undefined" ? window.innerWidth : 1024) - menuW - 8;
           const maxY = (typeof window !== "undefined" ? window.innerHeight : 768) - menuH - 8;
           const clampedX = Math.max(8, Math.min(historyContextMenu.x, maxX));
@@ -5050,6 +5066,9 @@ export function ChatApp() {
           h("button", { type: "button", role: "menuitem", className: "thread-context-item", onClick: handleContextMenuShare },
             h(Share2, { size: 15, "aria-hidden": true }),
             h("span", null, "Share")),
+          h("button", { type: "button", role: "menuitem", className: "thread-context-item", onClick: handleContextMenuRename },
+            h(PencilEdit, { size: 15, "aria-hidden": true }),
+            h("span", null, "Rename")),
           h("button", { type: "button", role: "menuitem", className: "thread-context-item thread-context-danger", onClick: handleContextMenuDelete },
             h(Trash2, { size: 15, "aria-hidden": true }),
             h("span", null, "Delete")));
