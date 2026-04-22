@@ -130,3 +130,48 @@ export function updatePoints(ctx, particles, params) {
 export function render(ctx) {
   ctx.renderer.render(ctx.scene, ctx.camera);
 }
+
+// Rebuild link segment buffer from current rendered positions. Distance²
+// threshold of 650 (in shape-space units) matches the brainstorm tuning.
+// Returns number of segments drawn.
+export function updateLinks(ctx, particles, params) {
+  const N = particles.length;
+  const positions = ctx.linkGeom.attributes.position.array;
+  const colors = ctx.linkGeom.attributes.color.array;
+  let segIdx = 0;
+  const maxSeg = positions.length / 6;
+  if (params.linkAlpha < 0.01) {
+    ctx.linkGeom.setDrawRange(0, 0);
+    return 0;
+  }
+  for (let i = 0; i < N; i++) {
+    const a = particles[i];
+    const jEnd = Math.min(N, i + 14);
+    for (let j = i + 1; j < jEnd && segIdx < maxSeg; j++) {
+      const b = particles[j];
+      const dx = a.rx - b.rx, dy = a.ry - b.ry, dz = a.rz - b.rz;
+      const d2 = dx*dx + dy*dy + dz*dz;
+      if (d2 < 650) {
+        const alpha = params.linkAlpha * (1 - d2 / 650);
+        positions[segIdx*6+0] = a.rx;
+        positions[segIdx*6+1] = a.ry;
+        positions[segIdx*6+2] = a.rz;
+        positions[segIdx*6+3] = b.rx;
+        positions[segIdx*6+4] = b.ry;
+        positions[segIdx*6+5] = b.rz;
+        const c = alpha * 0.7;
+        colors[segIdx*6+0] = 0.71 * c;
+        colors[segIdx*6+1] = 0.82 * c;
+        colors[segIdx*6+2] = 0.90 * c;
+        colors[segIdx*6+3] = 0.71 * c;
+        colors[segIdx*6+4] = 0.82 * c;
+        colors[segIdx*6+5] = 0.90 * c;
+        segIdx++;
+      }
+    }
+  }
+  ctx.linkGeom.attributes.position.needsUpdate = true;
+  ctx.linkGeom.attributes.color.needsUpdate = true;
+  ctx.linkGeom.setDrawRange(0, segIdx * 2);
+  return segIdx;
+}
