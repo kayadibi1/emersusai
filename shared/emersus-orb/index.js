@@ -2,7 +2,7 @@
 // Public API entry. Orchestrates shape / physics / state / render.
 
 import { SHAPE_GENERATORS, SHAPE_SPIN, SHAPE_NAMES } from './shapes.js';
-import { greedyNearestAssign, curlAxisForPath, initialTangentVelocity, stepSpring } from './physics.js';
+import { greedyNearestAssign, curlAxisForPath, initialTangentVelocity } from './physics.js';
 import { STATES, easeInOutCubic, bell, lerpStateParams, breathScale } from './state.js';
 import { createRenderer, updatePoints, updateLinks, updateTrails, render as drawFrame } from './render.js';
 import { DEFAULTS, readTuning } from './config.js';
@@ -30,6 +30,8 @@ export function createEmersusOrb(canvas, opts = {}) {
   const size = opts.size || 160;
   const initialState = opts.initialState || 'idle';
   const initialShape = opts.initialShape || 'sphere';
+  if (!STATES[initialState]) throw new Error(`emersus-orb: unknown initialState "${initialState}"`);
+  if (!SHAPE_GENERATORS[initialShape]) throw new Error(`emersus-orb: unknown initialShape "${initialShape}"`);
   const particleCount = DEFAULTS.particleCount;
   const trailLen = DEFAULTS.trailLen;
 
