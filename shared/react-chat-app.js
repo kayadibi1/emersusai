@@ -4866,7 +4866,7 @@ export function ChatApp() {
                   isSubmitting && glyphState !== "idle"
                     ? h("article", { key: "persistent-glyph", className: "message assistant message-pending is-active" },
                         h("div", { className: "message-content" },
-                          h(EmersusOrb, { state: glyphState }))))
+                          h(EmersusOrb, { state: glyphState })))
                     : null,
                 ]
               : h("section", { className: "thread-welcome" },
