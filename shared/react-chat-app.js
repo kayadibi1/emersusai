@@ -31,7 +31,7 @@ import {
   setStatus,
   upsertChatThread,
 } from "/shared/supabase.js";
-import { createThinkingGlyph } from "/shared/thinking-glyph.js";
+import { createEmersusOrb } from "/shared/emersus-orb/index.js";
 import { localDateStr } from "/shared/date-utils.js";
 import {
   WidgetFrame,
@@ -3300,34 +3300,28 @@ function RailMetric({ label, value, note, width = "0%", tone = "" }) {
     h("div", { className: `rail-spark ${tone}`.trim(), style: { "--spark-width": width } }));
 }
 
-function ThinkingGlyph({ state = "idle", size = 64, color = "#534AB7" }) {
+function EmersusOrb({ state = "idle" }) {
   const canvasRef = useRef(null);
-  const glyphRef = useRef(null);
+  const orbRef = useRef(null);
 
   useEffect(() => {
     if (!canvasRef.current) return undefined;
-    glyphRef.current = createThinkingGlyph(canvasRef.current, { size, color, state });
+    orbRef.current = createEmersusOrb(canvasRef.current, { size: 160, initialState: state });
     return () => {
-      glyphRef.current?.destroy();
-      glyphRef.current = null;
+      orbRef.current?.destroy();
+      orbRef.current = null;
     };
-  }, [size, color]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
-    glyphRef.current?.setState(state);
+    orbRef.current?.setState(state);
   }, [state]);
-
-  const labelText = state === "thinking" ? "Thinking" : state === "responding" ? "Responding" : "";
 
   return h(
     "div",
-    {
-      className: "thinking-glyph-mount",
-      "data-state": state,
-      "aria-hidden": true,
-    },
-    h("canvas", { ref: canvasRef }),
-    h("span", { className: "thinking-glyph-label" }, labelText)
+    { className: "emersus-orb-mount", "data-state": state, "aria-hidden": true },
+    h("canvas", { ref: canvasRef, style: { width: "160px", height: "160px", display: "block" } })
   );
 }
 
@@ -4856,7 +4850,7 @@ export function ChatApp() {
                   isSubmitting && glyphState !== "idle"
                     ? h("article", { key: "persistent-glyph", className: "message assistant message-pending is-active" },
                         h("div", { className: "message-content" },
-                          h(ThinkingGlyph, { state: glyphState, size: 56, color: "#534AB7" })))
+                          h(EmersusOrb, { state: glyphState }))))
                     : null,
                 ]
               : h("section", { className: "thread-welcome" },
