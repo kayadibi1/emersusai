@@ -4925,7 +4925,35 @@ export function ChatApp() {
             const grouped = groupThreadsByDate(unpinned);
             function renderThreadItem(threadData) {
               const isPinned = pinnedThreadIds.has(threadData.id);
-              return h("div", { key: threadData.id, className: "chat-nav-item-row" },
+              let touchStartX = 0;
+              let rowEl = null;
+              const onTouchStart = (e) => {
+                touchStartX = e.touches[0]?.clientX || 0;
+                rowEl = e.currentTarget;
+              };
+              const onTouchMove = (e) => {
+                if (!rowEl) return;
+                const dx = (e.touches[0]?.clientX || 0) - touchStartX;
+                // Only allow leftward swipe
+                if (dx < 0) rowEl.style.transform = `translateX(${Math.max(dx, -80)}px)`;
+              };
+              const onTouchEnd = (e) => {
+                if (!rowEl) return;
+                const dx = (e.changedTouches[0]?.clientX || 0) - touchStartX;
+                rowEl.style.transform = "";
+                if (dx < -60) {
+                  handleDeleteThread(threadData.id);
+                }
+                rowEl = null;
+              };
+              return h("div", {
+                key: threadData.id,
+                className: "chat-nav-item-row",
+                onTouchStart,
+                onTouchMove,
+                onTouchEnd,
+                style: { transition: "transform 160ms ease" },
+              },
                 h("button", {
                   type: "button",
                   className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`,
