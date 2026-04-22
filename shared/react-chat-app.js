@@ -4858,7 +4858,7 @@ export function ChatApp() {
                     for (let i = visibleMessageEntries.length - 1; i >= 0; i--) {
                       if (visibleMessageEntries[i].message.role === "assistant") { lastAssistantPos = i; break; }
                     }
-                    return visibleMessageEntries.flatMap(({ message, index }, i) => {
+                    const nodes = visibleMessageEntries.flatMap(({ message, index }, i) => {
                       const isLastAssistant = i === lastAssistantPos;
                       return [h(Message, {
                         key: `${message.createdAt || ""}-${index}`,
@@ -4876,6 +4876,19 @@ export function ChatApp() {
                           : null,
                       })];
                     });
+                    // Fallback orb for the gap between user submit and the first
+                    // assistant token (no assistant message yet, but activity is live).
+                    const lastPos = visibleMessageEntries.length - 1;
+                    const lastIsAssistant = lastAssistantPos === lastPos && lastPos >= 0;
+                    const needsFallback = (isSubmitting || glyphState !== "idle") && !lastIsAssistant;
+                    if (needsFallback) {
+                      nodes.push(
+                        h("article", { key: "fallback-orb", className: "message assistant" },
+                          h("div", { className: "message-content" },
+                            h("div", { className: "inline-orb-slot" }, h(EmersusOrb, { state: glyphState }))))
+                      );
+                    }
+                    return nodes;
                   })(),
                 ]
               : h("section", { className: "thread-welcome" },
