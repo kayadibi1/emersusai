@@ -5191,7 +5191,33 @@ export function ChatApp() {
               }, RATE_LIMIT_COPY[rateLimitBlock.tier].bannerCta.label))
           : null,
         h("form", { className: "composer", onSubmit: submitQuestion },
-          h("div", { className: "composer-row" },
+          h("div", { className: "composer-row", style: { position: "relative" } },
+            // Slash-command menu — opens when composer value starts with "/".
+            (question.startsWith("/") && !isSubmitting)
+              ? (() => {
+                  const SLASH_CMDS = [
+                    { cmd: "/new", label: "New thread", run: () => { startNewChat(); setQuestion(""); } },
+                    { cmd: "/cite", label: "Show sources for the last answer", run: () => setQuestion("Show the sources you used for the last answer, with titles and years.") },
+                    { cmd: "/share", label: "Share this thread", run: () => { handleShareThread?.(); setQuestion(""); } },
+                    { cmd: "/summarize", label: "Summarize this thread", run: () => setQuestion("Summarize this thread into a concise brief.") },
+                    { cmd: "/help", label: "Show keyboard shortcuts", run: () => { setShowShortcutsHelp(true); setQuestion(""); } },
+                  ];
+                  const q = question.slice(1).toLowerCase();
+                  const matches = SLASH_CMDS.filter((c) => c.cmd.slice(1).startsWith(q));
+                  if (!matches.length) return null;
+                  return h("div", { className: "slash-menu", role: "listbox" },
+                    matches.map((m) =>
+                      h("button", {
+                        key: m.cmd, type: "button", className: "slash-item",
+                        onClick: () => m.run(),
+                      },
+                        h("span", { className: "slash-cmd" }, m.cmd),
+                        h("span", { className: "slash-label" }, m.label),
+                      ),
+                    ),
+                  );
+                })()
+              : null,
             h("textarea", {
               id: "chat-question",
               name: "question",
