@@ -91,33 +91,40 @@ body.profile-body {
 }
 .pf-saving-idle { color: var(--dim); }
 
-/* ===== Tabs ===== */
+/* ===== Tabs (button-style pills) ===== */
 .pf-tabs {
   display: flex;
-  gap: 4px;
+  gap: 8px;
+  flex-wrap: wrap;
   justify-content: center;
-  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
   margin-bottom: 8px;
 }
 .pf-tab-btn {
-  background: transparent;
-  border: 0;
-  padding: 12px 14px;
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 9px 14px;
   font-family: inherit;
   font-size: 13px;
   font-weight: 500;
   color: var(--muted);
   cursor: pointer;
-  border-bottom: 2px solid transparent;
-  transition: color .14s, border-color .14s;
+  transition: background .14s, border-color .14s, color .14s, transform .14s;
   display: inline-flex;
   gap: 6px;
   align-items: center;
 }
-.pf-tab-btn:hover { color: var(--ink); }
+.pf-tab-btn:hover {
+  color: var(--ink);
+  border-color: var(--accent-line);
+  transform: translateY(-1px);
+}
 .pf-tab-btn.is-active {
+  background: var(--accent-soft);
+  border-color: var(--accent);
   color: var(--accent);
-  border-bottom-color: var(--accent);
+  font-weight: 600;
 }
 .pf-soon-badge {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
