@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Emersus orb — live tuning</title>
+<link rel="stylesheet" href="/shared/design-tokens.css" />
+<style>
+  body { margin: 0; background: var(--bg); color: var(--ink); font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif; padding: 24px; }
+  .layout { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: 22px; max-width: 1180px; margin: 0 auto; }
+  .stage { height: 560px; border: 1px solid var(--line); border-radius: 16px; display: grid; place-items: center; background: #0b0b0d; position: relative; }
+  canvas { display: block; }
+  .controls { position: absolute; top: 12px; right: 12px; display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+  .row { display: flex; flex-wrap: wrap; gap: 4px; background: rgba(15,15,17,0.85); border: 1px solid var(--line); border-radius: 8px; padding: 4px; max-width: 460px; justify-content: flex-end; }
+  .row button { appearance: none; border: 0; background: transparent; color: var(--muted); font: inherit; font-size: 11px; padding: 4px 9px; border-radius: 5px; cursor: pointer; font-family: 'JetBrains Mono', monospace; }
+  .row button:hover { color: var(--ink); }
+  .row.state button.on { background: var(--accent-soft); color: var(--accent); }
+  .row.shape button.on { background: rgba(80,145,242,0.18); color: #9bc0f7; }
+  .row.demo button.on { background: rgba(67,56,202,0.2); color: #c3b8ff; }
+  aside { color: var(--muted); font-size: 13px; line-height: 1.5; }
+  aside code { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--accent); }
+</style>
+</head>
+<body>
+<div class="layout">
+  <div class="stage">
+    <canvas id="orb-canvas" style="width: 400px; height: 400px;"></canvas>
+    <div class="controls">
+      <div class="row state" id="state-row">
+        <button data-state="idle" class="on">idle</button>
+        <button data-state="thinking">thinking</button>
+        <button data-state="responding">responding</button>
+      </div>
+      <div class="row shape" id="shape-row"></div>
+      <div class="row demo" id="demo-row">
+        <button data-demo="off" class="on">demo off</button>
+        <button data-demo="turn">one turn</button>
+        <button data-demo="on">loop</button>
+      </div>
+    </div>
+  </div>
+  <aside>
+    <p>Append <code>?tune=1&amp;curve=0.3</code> etc. to the URL to override tunables.</p>
+    <p>See <code>shared/emersus-orb/config.js</code> for all knobs.</p>
+    <p>State buttons map directly to the orb's <code>setState()</code>. Demo "one turn" plays idle→responding (10s)→idle; "loop" alternates continuously.</p>
+  </aside>
+</div>
+<script type="module">
+  import { createEmersusOrb } from '/shared/emersus-orb/index.js';
+  import { SHAPE_NAMES } from '/shared/emersus-orb/shapes.js';
+
+  const canvas = document.getElementById('orb-canvas');
+  const orb = createEmersusOrb(canvas, { size: 400, initialState: 'idle', initialShape: 'sphere' });
+
+  const shapeRow = document.getElementById('shape-row');
+  for (const name of SHAPE_NAMES) {
+    const b = document.createElement('button');
+    b.dataset.shape = name;
+    b.textContent = name;
+    b.onclick = () => {
+      shapeRow.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+      b.classList.add('on');
+      orb.setShape(name);
+    };
+    shapeRow.appendChild(b);
+  }
+
+  document.getElementById('state-row').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    b.parentElement.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    orb.setState(b.dataset.state);
+  });
+
+  let demoTimer = null;
+  function stopDemo() { if (demoTimer) { clearTimeout(demoTimer); demoTimer = null; } }
+  function stateButtonsReflect(name) {
+    document.querySelectorAll('#state-row button').forEach(x => x.classList.toggle('on', x.dataset.state === name));
+  }
+  function startDemo() {
+    stopDemo();
+    orb.setState('idle');
+    stateButtonsReflect('idle');
+    const next = (phase) => {
+      const dur = phase === 'idle' ? 4500 : 10000;
+      demoTimer = setTimeout(() => {
+        const n = phase === 'idle' ? 'responding' : 'idle';
+        orb.setState(n);
+        stateButtonsReflect(n);
+        next(n);
+      }, dur);
+    };
+    next('idle');
+  }
+  function oneTurn() {
+    stopDemo();
+    orb.setState('responding');
+    stateButtonsReflect('responding');
+    demoTimer = setTimeout(() => {
+      orb.setState('idle');
+      stateButtonsReflect('idle');
+    }, 10000);
+  }
+  document.getElementById('demo-row').addEventListener('click', (e) => {
+    const b = e.target.closest('button');
+    if (!b) return;
+    b.parentElement.querySelectorAll('button').forEach(x => x.classList.remove('on'));
+    b.classList.add('on');
+    if (b.dataset.demo === 'on') startDemo();
+    else if (b.dataset.demo === 'turn') oneTurn();
+    else stopDemo();
+  });
+</script>
+</body>
+</html>
