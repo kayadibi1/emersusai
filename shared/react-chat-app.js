@@ -3143,6 +3143,7 @@ const Message = React.memo(function Message({
   onSwapMeal,
   onExport,
   onAskFollowUp,
+  trailingOrb = null,
 }) {
   // Choose rendering strategy:
   // 1. toolResults present â†’ SSE path (prose + structured tool outputs)
@@ -3171,7 +3172,8 @@ const Message = React.memo(function Message({
           ? h(MessageBlocks, { blocks: message.blocks, typewrite, threadId })
           : message.html
             ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
-            : h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId })),
+            : h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId }),
+      trailingOrb),
     showSourcesFooter
       ? h(SourcesFooter, { sources: message.sources, onAskFollowUp })
       : null,
@@ -3194,7 +3196,8 @@ const Message = React.memo(function Message({
   prevProps.onSavePlan === nextProps.onSavePlan &&
   prevProps.onSwapMeal === nextProps.onSwapMeal &&
   prevProps.onExport === nextProps.onExport &&
-  prevProps.onAskFollowUp === nextProps.onAskFollowUp
+  prevProps.onAskFollowUp === nextProps.onAskFollowUp &&
+  prevProps.trailingOrb === nextProps.trailingOrb
 );
 
 // Right-rail sources card. Displays up to 4 attached sources for the
@@ -4848,24 +4851,32 @@ export function ChatApp() {
                           onClick: () => setVisibleMessageCount((count) => Math.min(activeMessages.length, count + VISIBLE_MESSAGE_COUNT_STEP)),
                         }, `Load ${Math.min(VISIBLE_MESSAGE_COUNT_STEP, hiddenMessageCount)} earlier messages`))
                     : null,
-                  ...visibleMessageEntries.flatMap(({ message, index }) => {
-                    const nodes = [h(Message, {
-                      key: `${message.createdAt || ""}-${index}`,
-                      message,
-                      typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
-                      threadId: activeThread?.id || null,
-                      chatV2On,
-                      onRegenerate: handleRegenerateMessage,
-                      onSavePlan: handleSavePlanFromMessage,
-                      onSwapMeal: handleSwapMealFromMessage,
-                      onExport: handleExportMessage,
-                      onAskFollowUp: handleAskSourceFollowUp,
-                    })];
-                    return nodes;
-                  }),
-                  h("article", { key: "persistent-orb", className: "message assistant persistent-orb" },
-                    h("div", { className: "message-content" },
-                      h(EmersusOrb, { state: glyphState }))),
+                  ...(() => {
+                    // Merge the persistent orb into the last assistant message so
+                    // there's one EMERSUS label, not two.
+                    let lastAssistantPos = -1;
+                    for (let i = visibleMessageEntries.length - 1; i >= 0; i--) {
+                      if (visibleMessageEntries[i].message.role === "assistant") { lastAssistantPos = i; break; }
+                    }
+                    return visibleMessageEntries.flatMap(({ message, index }, i) => {
+                      const isLastAssistant = i === lastAssistantPos;
+                      return [h(Message, {
+                        key: `${message.createdAt || ""}-${index}`,
+                        message,
+                        typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
+                        threadId: activeThread?.id || null,
+                        chatV2On,
+                        onRegenerate: handleRegenerateMessage,
+                        onSavePlan: handleSavePlanFromMessage,
+                        onSwapMeal: handleSwapMealFromMessage,
+                        onExport: handleExportMessage,
+                        onAskFollowUp: handleAskSourceFollowUp,
+                        trailingOrb: isLastAssistant
+                          ? h("div", { className: "inline-orb-slot", key: "orb" }, h(EmersusOrb, { state: glyphState }))
+                          : null,
+                      })];
+                    });
+                  })(),
                 ]
               : h("section", { className: "thread-welcome" },
                   h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
