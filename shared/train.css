@@ -914,12 +914,25 @@ body.train-body {
 }
 .tr-mod-research-card:hover .tr-mod-research-cta { color: var(--accent); }
 
-/* Dashboard variant: hero shrinks (no eyebrow / title / subcopy) */
+/* Dashboard variant: hero shrinks (no eyebrow / title / subcopy).
+ * As of 2026-04-22 the compact CTA is rendered INSIDE LastSessionCard's
+ * header row instead of as a standalone band — this rule only kicks in
+ * for the no-last-session edge case (.tr-mod-standalone-cta). */
 .tr-mod-hero-compact {
-  padding: 16px 8px 8px;
+  padding: 12px 0 4px;
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  max-width: none;
+  width: 100%;
+}
+
+/* Standalone CTA band when there's no last-session to attach to.
+ * Right-aligns the Start button against the full dashboard width. */
+.tr-mod-standalone-cta {
+  display: flex;
+  justify-content: flex-end;
+  padding: 4px 0 0;
 }
 
 /* Last-session card (dashboard state) */
@@ -933,15 +946,25 @@ body.train-body {
 }
 .tr-mod-last:hover { border-color: var(--accent-line); }
 .tr-mod-last-head {
-  display: flex; align-items: center; gap: 8px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
+.tr-mod-last-head-left {
+  display: flex; align-items: center; gap: 8px;
+  min-width: 0; flex: 1;
+}
 .tr-mod-last-label { color: var(--accent); font-weight: 500; }
 .tr-mod-last-dot   { color: var(--dim); }
 .tr-mod-last-date  { color: var(--muted); font-variant-numeric: tabular-nums; }
+/* Reset CTA letter-spacing since the header row uses mono tracking */
+.tr-mod-last-start {
+  letter-spacing: 0.14em;
+  flex-shrink: 0;
+}
 
 .tr-mod-last-body { display: flex; flex-direction: column; gap: 6px; padding: 4px 0 6px; }
 .tr-mod-last-title {

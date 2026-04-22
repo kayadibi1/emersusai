@@ -16,7 +16,6 @@
 
 import React from "react";
 import {
-  HeroCTA,
   ResearchBand,
   MODALITY_CONTENT,
 } from "/shared/train/modality-empty-state.js";
@@ -79,7 +78,7 @@ function sessionSummaryLine(session, modality) {
   return parts.join(" · ");
 }
 
-function LastSessionCard({ modality, session, onView }) {
+function LastSessionCard({ modality, session, onView, onStart }) {
   const content = MODALITY_CONTENT[modality] || MODALITY_CONTENT.lift;
   const title = session.title || `Untitled ${modality} session`;
   const summary = sessionSummaryLine(session, modality);
@@ -88,9 +87,21 @@ function LastSessionCard({ modality, session, onView }) {
 
   return h("section", { className: "tr-mod-last" },
     h("div", { className: "tr-mod-last-head" },
-      h("span", { className: "tr-mod-last-label" }, content.lastSessionLabel),
-      h("span", { className: "tr-mod-last-dot" }, "·"),
-      h("span", { className: "tr-mod-last-date", title: absolute }, relative),
+      h("div", { className: "tr-mod-last-head-left" },
+        h("span", { className: "tr-mod-last-label" }, content.lastSessionLabel),
+        h("span", { className: "tr-mod-last-dot" }, "·"),
+        h("span", { className: "tr-mod-last-date", title: absolute }, relative),
+      ),
+      onStart
+        ? h("button", {
+            type: "button",
+            className: "tr-mod-hero-cta tr-mod-last-start",
+            onClick: onStart,
+          },
+            content.nextCtaLabel,
+            h("span", { className: "tr-mod-hero-cta-arrow", "aria-hidden": true }, "→"),
+          )
+        : null,
     ),
     h("div", { className: "tr-mod-last-body" },
       h("div", { className: "tr-mod-last-title" }, title),
@@ -143,8 +154,17 @@ export function ModalityDashboard({ modality, onStart, onViewSession, pastSessio
   const rest = list.slice(1, 5);
 
   return h("div", { className: "tr-mod-empty tr-mod-dashboard" },
-    h(HeroCTA, { modality, onStart, variant: "compact" }),
-    last ? h(LastSessionCard, { modality, session: last, onView: onViewSession }) : null,
+    // The "Start next lift" CTA is now rendered INSIDE LastSessionCard's
+    // header row (top-right) so it sits next to the date context rather
+    // than floating alone in a 620px column above it. If there's no
+    // last-session to attach to, render a standalone CTA at the top.
+    last
+      ? h(LastSessionCard, { modality, session: last, onView: onViewSession, onStart })
+      : h("section", { className: "tr-mod-standalone-cta" },
+          h("button", { type: "button", className: "tr-mod-hero-cta", onClick: onStart },
+            (MODALITY_CONTENT[modality] || MODALITY_CONTENT.lift).nextCtaLabel,
+            h("span", { className: "tr-mod-hero-cta-arrow", "aria-hidden": true }, "→"),
+          )),
     rest.length ? h(RecentSessionsList, { modality, sessions: rest, onView: onViewSession }) : null,
     h(ResearchBand, { modality }),
   );
