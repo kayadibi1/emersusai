@@ -3484,6 +3484,29 @@ export function ChatApp() {
     } catch (_) { /* noop */ }
   }, [question, activeThreadId]);
 
+  // ─── Pinned threads (local only, localStorage-backed) ───
+  const [pinnedThreadIds, setPinnedThreadIds] = useState(() => {
+    if (typeof window === "undefined") return new Set();
+    try {
+      const raw = window.localStorage.getItem("emersus.pinnedThreads");
+      if (!raw) return new Set();
+      const parsed = JSON.parse(raw);
+      return new Set(Array.isArray(parsed) ? parsed : []);
+    } catch (_) { return new Set(); }
+  });
+  const togglePinThread = useCallback((id) => {
+    if (!id) return;
+    setPinnedThreadIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id);
+      else if (next.size < 3) next.add(id); // cap at 3 pins
+      try {
+        window.localStorage.setItem("emersus.pinnedThreads", JSON.stringify(Array.from(next)));
+      } catch (_) { /* noop */ }
+      return next;
+    });
+  }, []);
+
   // ─── Global keyboard shortcuts ───
   // Cmd/Ctrl+K → new thread · Cmd+/ → focus composer ·
   // Cmd+[ / Cmd+] → prev/next thread · Esc → stop streaming · ? → help overlay
@@ -4865,27 +4888,45 @@ export function ChatApp() {
           ? h(ChatSidebarSkeleton, { grouped: true })
           : (() => {
             const filtered = filterThreadsBySearch(chatHistory, searchQuery);
-            const grouped = groupThreadsByDate(filtered);
+            const pinnedList = filtered.filter((t) => pinnedThreadIds.has(t.id));
+            const unpinned = filtered.filter((t) => !pinnedThreadIds.has(t.id));
+            const grouped = groupThreadsByDate(unpinned);
+            function renderThreadItem(threadData) {
+              const isPinned = pinnedThreadIds.has(threadData.id);
+              return h("div", { key: threadData.id, className: "chat-nav-item-row" },
+                h("button", {
+                  type: "button",
+                  className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`,
+                  onClick: () => {
+                    setActiveThreadId(threadData.id);
+                    closeSidebar();
+                  },
+                  onContextMenu: (event) => handleThreadContextMenu(event, threadData.id),
+                },
+                  h("span", null,
+                    h("span", { className: "chat-nav-label" }, threadData.title || "New thread"),
+                    h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "Nothing here yet"}`))),
+                h("button", {
+                  type: "button",
+                  className: `chat-nav-pin${isPinned ? " is-pinned" : ""}`,
+                  "aria-label": isPinned ? "Unpin thread" : "Pin thread",
+                  title: isPinned ? "Unpin" : "Pin to top",
+                  onClick: (e) => { e.stopPropagation(); togglePinThread(threadData.id); },
+                }, isPinned ? "★" : "☆"),
+              );
+            }
             return h("div", { className: "chat-nav-list chat-nav-grouped", "aria-label": "Chat history" },
+              pinnedList.length
+                ? h("div", { className: "chat-nav-group" },
+                    h("div", { className: "chat-nav-group-label" }, "Pinned"),
+                    pinnedList.map(renderThreadItem))
+                : null,
               GROUP_ORDER.map((bucket) => {
                 const items = grouped[bucket];
                 if (!items.length) return null;
                 return h("div", { key: bucket, className: "chat-nav-group" },
                   h("div", { className: "chat-nav-group-label" }, bucket),
-                  items.map((threadData) =>
-                    h("button", {
-                      key: threadData.id,
-                      type: "button",
-                      className: `chat-nav-link${threadData.id === activeThreadId ? " is-active" : ""}`,
-                      onClick: () => {
-                        setActiveThreadId(threadData.id);
-                        closeSidebar();
-                      },
-                      onContextMenu: (event) => handleThreadContextMenu(event, threadData.id),
-                    },
-                      h("span", null,
-                        h("span", { className: "chat-nav-label" }, threadData.title || "New thread"),
-                        h("span", { className: "chat-nav-meta" }, `${formatHistoryTime(threadData.updatedAt)} - ${threadData.preview || "Nothing here yet"}`)))),
+                  items.map(renderThreadItem),
                 );
               }),
               !filtered.length

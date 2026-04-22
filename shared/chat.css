@@ -1492,6 +1492,34 @@ body.chat-page {
   color: var(--accent);
 }
 
+/* Pinned threads sidebar item — row with thread button + pin star. */
+.chat-nav-item-row {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  position: relative;
+}
+.chat-nav-item-row > .chat-nav-link { flex: 1 1 auto; min-width: 0; }
+.chat-nav-pin {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--dim);
+  cursor: pointer;
+  width: 26px;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 6px;
+  opacity: 0;
+  transition: opacity 140ms ease, color 140ms ease, background 140ms ease;
+  flex: 0 0 auto;
+}
+.chat-nav-item-row:hover .chat-nav-pin,
+.chat-nav-pin.is-pinned,
+.chat-nav-pin:focus-visible { opacity: 1; }
+.chat-nav-pin.is-pinned { color: var(--accent); }
+.chat-nav-pin:hover { background: var(--surface-faint); color: var(--ink); }
+
 /* Keyboard shortcuts help overlay — modal card, dismissable by `?` again,
  * `Esc`, or clicking the backdrop. */
 .shortcuts-overlay {
