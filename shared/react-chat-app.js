@@ -3306,7 +3306,7 @@ function EmersusOrb({ state = "idle" }) {
 
   useEffect(() => {
     if (!canvasRef.current) return undefined;
-    orbRef.current = createEmersusOrb(canvasRef.current, { size: 96, initialState: state });
+    orbRef.current = createEmersusOrb(canvasRef.current, { size: 72, initialState: state });
     return () => {
       orbRef.current?.destroy();
       orbRef.current = null;
@@ -3321,7 +3321,7 @@ function EmersusOrb({ state = "idle" }) {
   return h(
     "div",
     { className: "emersus-orb-mount", "data-state": state, "aria-hidden": true },
-    h("canvas", { ref: canvasRef, style: { width: "96px", height: "96px", display: "block" } })
+    h("canvas", { ref: canvasRef, style: { width: "72px", height: "72px", display: "block" } })
   );
 }
 
