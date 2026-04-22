@@ -81,3 +81,80 @@ export function formatCitationLabel(source) {
   }
   return "";
 }
+
+// ─── Bibliography formatters ──────────────────────────────────────────────
+// Each returns a ready-to-copy string for a single source.
+
+function authorsPretty(source) {
+  const arr = Array.isArray(source?.authors) ? source.authors : [];
+  if (!arr.length) return "Unknown author";
+  const fmt = (a) => {
+    if (!a) return "";
+    if (typeof a === "string") return a.trim();
+    if (a.last && a.first) return `${a.last}, ${String(a.first).charAt(0)}.`;
+    return String(a.name || a.last || "").trim();
+  };
+  const names = arr.map(fmt).filter(Boolean);
+  if (names.length === 1) return names[0];
+  if (names.length <= 6) return names.slice(0, -1).join(", ") + ", & " + names[names.length - 1];
+  return names.slice(0, 6).join(", ") + ", et al.";
+}
+
+function yearOf(source) {
+  const y = source?.year || source?.publication_year;
+  if (typeof y === "number") return String(y);
+  if (typeof y === "string") return y.slice(0, 4);
+  const at = source?.published_at;
+  return typeof at === "string" ? at.slice(0, 4) : "n.d.";
+}
+
+export function formatPlain(source) {
+  if (!source) return "";
+  const parts = [];
+  if (source.title) parts.push(source.title);
+  const year = yearOf(source);
+  if (year && year !== "n.d.") parts.push(`(${year})`);
+  if (source.journal) parts.push(source.journal);
+  if (source.doi) parts.push(`doi:${source.doi}`);
+  if (source.pmid) parts.push(`PMID:${source.pmid}`);
+  return parts.join(" · ");
+}
+
+export function formatAPA(source) {
+  if (!source) return "";
+  const authors = authorsPretty(source);
+  const year = yearOf(source);
+  const title = source.title || "Untitled";
+  const journal = source.journal ? `. ${source.journal}` : "";
+  const doi = source.doi ? `. https://doi.org/${source.doi}` : "";
+  return `${authors} (${year}). ${title}${journal}${doi}`;
+}
+
+export function formatBibTeX(source) {
+  if (!source) return "";
+  const key = source.pmid
+    ? `pmid${source.pmid}`
+    : source.doi
+      ? String(source.doi).replace(/[^a-zA-Z0-9]/g, "_").slice(0, 40)
+      : `src_${Date.now()}`;
+  const lines = [`@article{${key},`];
+  if (source.title) lines.push(`  title   = {${source.title}},`);
+  const authors = Array.isArray(source.authors) ? source.authors : [];
+  if (authors.length) {
+    const fmt = (a) => typeof a === "string" ? a : (a?.name || [a?.last, a?.first].filter(Boolean).join(", "));
+    lines.push(`  author  = {${authors.map(fmt).filter(Boolean).join(" and ")}},`);
+  }
+  const y = yearOf(source);
+  if (y && y !== "n.d.") lines.push(`  year    = {${y}},`);
+  if (source.journal) lines.push(`  journal = {${source.journal}},`);
+  if (source.doi)     lines.push(`  doi     = {${source.doi}},`);
+  if (source.pmid)    lines.push(`  note    = {PMID: ${source.pmid}},`);
+  lines.push("}");
+  return lines.join("\n");
+}
+
+export const CITATION_FORMATS = [
+  { id: "plain",   label: "Plain",   format: formatPlain },
+  { id: "apa",     label: "APA",     format: formatAPA },
+  { id: "bibtex",  label: "BibTeX",  format: formatBibTeX },
+];
