@@ -2,6 +2,7 @@
 // Lap counter + grid, + Log lap with optional time and stroke.
 
 import React from "react";
+import { clampDurationSeconds, LIMITS } from "/shared/train/input-helpers.js";
 
 const { useCallback, useState } = React;
 const h = React.createElement;
@@ -68,7 +69,26 @@ export function SwimActive({ session, sets, accessToken, onLogged }) {
         ),
         h("label", { className: "tr-labeled-input" },
           h("span", null, "Time (mm:ss)"),
-          h("input", { type: "text", value: lapTime, placeholder: "0:42", onChange: (e) => setLapTime(e.target.value) }),
+          h("input", {
+            type: "text",
+            value: lapTime,
+            placeholder: "0:42",
+            inputMode: "numeric",
+            "aria-label": "Lap time in minutes and seconds",
+            onChange: (e) => {
+              // Accept only digits + colon while typing; cap total length to hh:mm:ss.
+              const raw = String(e.target.value);
+              if (!/^\d{0,3}(:\d{0,2}){0,2}$/.test(raw)) return;
+              setLapTime(raw);
+            },
+            onBlur: () => {
+              if (!lapTime) return;
+              const secs = clampDurationSeconds(lapTime, LIMITS.swim.lapSeconds);
+              const m = Math.floor(secs / 60);
+              const s = secs % 60;
+              setLapTime(`${m}:${String(s).padStart(2, "0")}`);
+            },
+          }),
         ),
       ),
       h("button", { type: "button", className: "tr-log-btn", disabled: submitting, onClick: log }, submitting ? "Saving…" : "+ Log lap"),

@@ -4,9 +4,34 @@
 // Persists each lap/segment via POST /api/sets with detail.activity_type=cardio.
 
 import React from "react";
+import { clampNumericChange, clampDurationSeconds, LIMITS } from "/shared/train/input-helpers.js";
 
 const { useCallback, useEffect, useState } = React;
 const h = React.createElement;
+
+// mm:ss format input — validates format on change, clamps total seconds
+// on blur so the user can type freely mid-entry without fighting the
+// caret.
+function makeDurationChangeHandler(setter, maxSeconds) {
+  return (e) => {
+    const raw = String(e?.target?.value ?? "");
+    // Allow only digits + colons, up to hh:mm:ss. Let the user type
+    // transient states like "2:" or "2:3" without blocking.
+    if (!/^\d{0,3}(:\d{0,2}){0,2}$/.test(raw)) return;
+    setter(raw);
+  };
+}
+function makeDurationBlurHandler(value, setter, maxSeconds) {
+  return () => {
+    if (!value) return;
+    const secs = clampDurationSeconds(value, maxSeconds);
+    const h = Math.floor(secs / 3600);
+    const m = Math.floor((secs % 3600) / 60);
+    const s = secs % 60;
+    const pad = (n) => String(n).padStart(2, "0");
+    setter(h > 0 ? `${h}:${pad(m)}:${pad(s)}` : `${m}:${pad(s)}`);
+  };
+}
 
 function formatPace(secondsPerKm) {
   if (!Number.isFinite(secondsPerKm) || secondsPerKm <= 0) return "—";
@@ -95,9 +120,36 @@ export function CardioActive({ session, sets, accessToken, onLogged }) {
     h("div", { className: "tr-cardio-form" },
       h("h3", null, "+ Log segment"),
       h("div", { className: "tr-cardio-inputs" },
-        h(LabeledInput, { label: "Distance (km)", value: distanceKm, onChange: setDistanceKm, placeholder: "5.0", type: "number" }),
-        h(LabeledInput, { label: "Duration (mm:ss)", value: duration, onChange: setDuration, placeholder: "28:30" }),
-        h(LabeledInput, { label: "Avg HR", value: hr, onChange: setHr, placeholder: "145", type: "number" }),
+        h(LabeledInput, {
+          label: "Distance (km)",
+          value: distanceKm,
+          onChange: setDistanceKm,
+          onChangeRaw: clampNumericChange((v) => setDistanceKm(v), LIMITS.cardio.distanceKm),
+          placeholder: "5.0",
+          type: "number",
+          min: LIMITS.cardio.distanceKm.min,
+          max: LIMITS.cardio.distanceKm.max,
+          inputMode: "decimal",
+        }),
+        h(LabeledInput, {
+          label: "Duration (mm:ss)",
+          value: duration,
+          onChangeRaw: makeDurationChangeHandler(setDuration, LIMITS.cardio.durationSeconds),
+          onBlur: makeDurationBlurHandler(duration, setDuration, LIMITS.cardio.durationSeconds),
+          placeholder: "28:30",
+          inputMode: "numeric",
+        }),
+        h(LabeledInput, {
+          label: "Avg HR",
+          value: hr,
+          onChange: setHr,
+          onChangeRaw: clampNumericChange((v) => setHr(v), LIMITS.cardio.hr),
+          placeholder: "145",
+          type: "number",
+          min: LIMITS.cardio.hr.min,
+          max: LIMITS.cardio.hr.max,
+          inputMode: "numeric",
+        }),
       ),
       h("button", { type: "button", className: "tr-log-btn", disabled: submitting, onClick: log }, submitting ? "Saving…" : "Log segment"),
       error ? h("p", { className: "tr-set-error" }, error) : null,
@@ -112,10 +164,23 @@ function MetricTile({ label, value }) {
   );
 }
 
-function LabeledInput({ label, value, onChange, placeholder, type = "text" }) {
+function LabeledInput({
+  label, value, onChange, onChangeRaw, onBlur,
+  placeholder, type = "text", min, max, inputMode,
+}) {
+  // onChangeRaw wins if provided — lets callers inject a clamping
+  // handler that consumes the raw event. Otherwise fall back to the
+  // older string-only onChange shape for legacy callsites.
+  const handleChange = onChangeRaw
+    ? onChangeRaw
+    : (e) => onChange && onChange(e.target.value);
   return h("label", { className: "tr-labeled-input" },
     h("span", null, label),
-    h("input", { type, value, placeholder, onChange: (e) => onChange(e.target.value) }),
+    h("input", {
+      type, value, placeholder, onChange: handleChange,
+      onBlur: onBlur || undefined,
+      min, max, inputMode,
+    }),
   );
 }
 

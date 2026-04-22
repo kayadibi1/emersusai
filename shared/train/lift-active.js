@@ -5,6 +5,7 @@
 // Persists via POST /api/sets and PATCH /api/workout-sessions/:id.
 
 import React from "react";
+import { clampNumericChange, LIMITS } from "/shared/train/input-helpers.js";
 
 const { useCallback, useEffect, useMemo, useRef, useState } = React;
 const h = React.createElement;
@@ -161,18 +162,26 @@ function ExerciseCard({ entry, plannedSets, loggedSets, exerciseInfo, sessionId,
           return h("li", { key: setNum, className: "tr-set-row tr-set-current" },
             h("span", { className: "tr-set-num" }, setNum),
             h("input", {
-              type: "number", min: 0, max: 999, step: 0.5,
+              type: "number",
+              min: LIMITS.lift.loadKg.min,
+              max: LIMITS.lift.loadKg.max,
+              step: 0.5,
               inputMode: "decimal",
               "aria-label": "Weight in kg",
-              value: weight, onChange: (e) => setWeight(e.target.value),
+              value: weight,
+              onChange: clampNumericChange(setWeight, LIMITS.lift.loadKg),
               placeholder: "kg", className: "tr-set-weight-input",
             }),
             h("span", { className: "tr-set-times" }, "×"),
             h("input", {
-              type: "number", min: 0, max: 200, step: 1,
+              type: "number",
+              min: LIMITS.lift.reps.min,
+              max: LIMITS.lift.reps.max,
+              step: 1,
               inputMode: "numeric",
               "aria-label": "Reps",
-              value: reps, onChange: (e) => setReps(e.target.value),
+              value: reps,
+              onChange: clampNumericChange(setReps, LIMITS.lift.reps),
               placeholder: "reps", className: "tr-set-reps-input",
             }),
             h("div", { className: "tr-rpe-chips", role: "group", "aria-label": "Rate of Perceived Exertion (RPE)" },
