@@ -54,11 +54,16 @@
   <link rel="stylesheet" href="/shared/design-tokens.css">
   <link rel="stylesheet" href="/shared/chrome.css">
   <link rel="stylesheet" href="/shared/skeleton.css">
+  <link rel="stylesheet" href="/shared/lighting-fx.css">
   <link rel="stylesheet" href="/shared/progress.css">
   <script type="module">
     import { bootTheme } from '/shared/theme.js';
+    import { initLightingFx } from '/shared/lighting-fx.js';
     bootTheme();
     document.documentElement.dataset.progressV2 = '1';
+    initLightingFx({
+      selectors: '.pg-stat, .pg-momentum-item, .pg-beeswarm-card, .pg-zone-river-card',
+    });
   </script>
 </head>
 <body class="progress-body app-body">

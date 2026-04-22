@@ -53,16 +53,21 @@
   <link rel="stylesheet" href="/shared/design-tokens.css">
   <link rel="stylesheet" href="/shared/chrome.css">
   <link rel="stylesheet" href="/shared/skeleton.css">
+  <link rel="stylesheet" href="/shared/lighting-fx.css">
   <!-- chat.css ships unconditionally — every rule is scoped under
        the data-chat-v2 attribute, so it's a no-op until the boot script below sets
        the attribute. -->
   <link rel="stylesheet" href="/shared/chat.css">
   <script type="module">
     import { bootTheme } from '/shared/theme.js';
+    import { initLightingFx } from '/shared/lighting-fx.js';
     bootTheme();
     // data-theme are already resolved by the synchronous
     // pre-paint script above. Module boot only re-syncs the theme in case
     // the user flipped it between the pre-paint run and this tick.
+    // Atmospheric lighting — MutationObserver inside picks up the
+    // React-rendered chat cards (source rows, rail cards).
+    initLightingFx({ selectors: '.source-row, .rail-card' });
   </script>
 </head>
 <body class="chat-page app-body">

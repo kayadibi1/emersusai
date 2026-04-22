@@ -1,0 +1,65 @@
+/* shared/lighting-fx.css — Linear-style atmospheric lighting primitives.
+ *
+ * Dark-theme-only (mint palette). Paper palette disables every rule.
+ * Consumed by the landing page AND every /app/* page, via
+ * shared/lighting-fx.js. Previously inlined in shared/landing.css;
+ * extracted 2026-04-22 so /app/* can reuse without pulling landing.css.
+ *
+ * Three pieces:
+ *   .lfx-grain       — fixed film-grain overlay (added to <body> once)
+ *   .lfx-card        — marker class added to each tracked element
+ *   .lfx-spotlight   — <span> inside each .lfx-card; cursor-masked border
+ */
+
+/* Grain — fixed overlay, overlay blend mode, above content but below
+ * nav/modal surfaces (z-index 2). Hidden entirely on paper palette. */
+:root[data-theme="mint"] .lfx-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  mix-blend-mode: overlay;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+}
+:root[data-theme="paper"] .lfx-grain { display: none; }
+
+/* Cursor-tracked spotlight border on interactive cards.
+ * --mask-x / --mask-y are card-local pixel coordinates of the pointer;
+ * --lfx-prox is 0..1 proximity (1 when pointer is inside the card).
+ * Both are updated on RAF by shared/lighting-fx.js. */
+:root[data-theme="mint"] .lfx-card {
+  --mask-x: -100%;
+  --mask-y: -100%;
+  --lfx-prox: 0;
+}
+:root[data-theme="mint"] .lfx-card .lfx-spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 4;
+  border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+  opacity: var(--lfx-prox);
+  transition: opacity .25s ease;
+  -webkit-mask-image: radial-gradient(
+    240px 240px at var(--mask-x) var(--mask-y),
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.55) 30%,
+    rgba(0,0,0,0.18) 52%,
+    rgba(0,0,0,0) 72%);
+          mask-image: radial-gradient(
+    240px 240px at var(--mask-x) var(--mask-y),
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.55) 30%,
+    rgba(0,0,0,0.18) 52%,
+    rgba(0,0,0,0) 72%);
+}
+:root[data-theme="paper"] .lfx-card .lfx-spotlight { display: none; }
+
+/* Guarantee the positioning context needed by the spotlight span.
+ * Most target cards already are relative/isolated, but if a consumer
+ * adds .lfx-card to a plain container, position:relative is required
+ * for inset:0 on the child span to anchor correctly. */
+.lfx-card { position: relative; }

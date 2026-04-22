@@ -54,6 +54,7 @@
   <link rel="stylesheet" href="/shared/design-tokens.css">
   <link rel="stylesheet" href="/shared/chrome.css">
   <link rel="stylesheet" href="/shared/skeleton.css">
+  <link rel="stylesheet" href="/shared/lighting-fx.css">
   <link rel="stylesheet" href="/shared/nutrition.css">
   <style>
     /* PDF export — scope @media print to just the active meal plan.
@@ -107,8 +108,10 @@
   </style>
   <script type="module">
     import { bootTheme } from '/shared/theme.js';
+    import { initLightingFx } from '/shared/lighting-fx.js';
     bootTheme();
     document.documentElement.dataset.nutritionV2 = '1';
+    initLightingFx({ selectors: '.nu-history-row, .nu-soon-card' });
   </script>
 </head>
 <body class="nutrition-body app-body">

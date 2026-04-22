@@ -54,11 +54,16 @@
   <link rel="stylesheet" href="/shared/design-tokens.css">
   <link rel="stylesheet" href="/shared/chrome.css">
   <link rel="stylesheet" href="/shared/skeleton.css">
+  <link rel="stylesheet" href="/shared/lighting-fx.css">
   <link rel="stylesheet" href="/shared/train.css">
   <script type="module">
     import { bootTheme } from '/shared/theme.js';
+    import { initLightingFx } from '/shared/lighting-fx.js';
     bootTheme();
     document.documentElement.dataset.trainV2 = '1';
+    initLightingFx({
+      selectors: '.tr-history-row, .tr-mod-last, .tr-mod-recent-btn, .tr-mod-research-card, .tr-mod-ghost-card, .mod-tile',
+    });
   </script>
 </head>
 <body class="train-body app-body">
