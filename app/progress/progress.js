@@ -13,6 +13,39 @@ const h = React.createElement;
 
 const MODALITIES = ["all", "lift", "cardio", "swim", "climb", "nutrition"];
 const PERIODS = ["week", "month", "3m", "year"];
+
+// Build the page title from the selected period so it actually reflects
+// what the user is looking at. Prior version hardcoded "April 2026"
+// (new Date() formatted month+year) regardless of period — confusing
+// when you clicked "Week" or "Year" and saw the same string.
+function periodTitle(period) {
+  const now = new Date();
+  if (period === "week") {
+    // Start of week = most-recent Monday.
+    const diffToMon = (now.getDay() + 6) % 7;
+    const start = new Date(now);
+    start.setDate(now.getDate() - diffToMon);
+    const end = new Date(start);
+    end.setDate(start.getDate() + 6);
+    const sameMonth = start.getMonth() === end.getMonth();
+    const startFmt = { month: "short", day: "numeric" };
+    const endFmt = sameMonth
+      ? { day: "numeric", year: "numeric" }
+      : { month: "short", day: "numeric", year: "numeric" };
+    return `Week of ${start.toLocaleDateString(undefined, startFmt)} – ${end.toLocaleDateString(undefined, endFmt)}`;
+  }
+  if (period === "3m") {
+    const start = new Date(now.getFullYear(), now.getMonth() - 2, 1);
+    const startLabel = start.toLocaleDateString(undefined, { month: "short" });
+    const endLabel = now.toLocaleDateString(undefined, { month: "short", year: "numeric" });
+    return `${startLabel} – ${endLabel}`;
+  }
+  if (period === "year") {
+    return String(now.getFullYear());
+  }
+  // Default / "month"
+  return now.toLocaleDateString(undefined, { month: "long", year: "numeric" });
+}
 const MODALITY_LABELS = { all: "All", lift: "Lift", cardio: "Cardio", swim: "Swim", climb: "Climb", nutrition: "Nutrition" };
 const MODALITY_COLORS = { lift: "var(--accent)", cardio: "#fbbf24", swim: "#60a5fa", climb: "#a78bfa", nutrition: "#f472b6" };
 
@@ -548,7 +581,7 @@ function ProgressApp() {
 
   return h("div", { className: "pg-shell" },
     h("header", { className: "pg-page-head" },
-      h("h1", null, new Date().toLocaleDateString(undefined, { month: "long", year: "numeric" })),
+      h("h1", null, periodTitle(filters.period)),
       h("p", null, "Your progress at a glance."),
     ),
 
