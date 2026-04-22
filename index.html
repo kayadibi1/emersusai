@@ -187,9 +187,6 @@
     <nav class="nav">
       <a class="brand" href="/">em<b>∴</b>rsus</a>
       <div class="nav-links">
-        <a href="#what">Science</a>
-        <a href="#flow">How it works</a>
-        <a href="#corpus">Corpus</a>
         <a href="/app/">App</a>
         <a href="/pricing/">Pricing</a>
         <a href="/about/">About</a>
@@ -214,7 +211,7 @@
         <div class="hero-actions">
           <a class="btn btn-accent" href="/auth/?panel=signup">Sign up →</a>
         </div>
-        <div class="hero-meta">1,041,448 PAPERS INDEXED · UPDATED DAILY</div>
+        <div class="hero-meta"><span data-live="papers-hero">2,393,186</span> PAPERS INDEXED · UPDATED DAILY</div>
       </section>
     </div>
 
@@ -943,6 +940,8 @@
           if (cfg.corpus_papers != null) {
             const n = el('.stat-num[data-live="papers"]');
             if (n) n.dataset.countTo = String(cfg.corpus_papers);
+            const hero = el('[data-live="papers-hero"]');
+            if (hero) hero.textContent = Number(cfg.corpus_papers).toLocaleString('en-US');
           }
           if (cfg.corpus_topics != null) {
             // Topics is the only other plain count-up stat on the page
