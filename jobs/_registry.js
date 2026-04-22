@@ -21,6 +21,7 @@ import { reconcileBillingTiersHandler } from "./reconcile-billing-tiers.js";
 import { bulkIngestActiveTopicsHandler } from "./bulk-ingest-active-topics.js";
 import { ingestPreprintsSweepHandler } from "./ingest-preprints-sweep.js";
 import { ingestOpenalexBulkHandler }  from "./ingest-openalex-bulk.js";
+import { autoCloseEmptyWorkoutSessionsHandler } from "./auto-close-empty-workout-sessions.js";
 
 // Side-effect imports: ingestion plugins self-register on import
 import "../scripts/sources/pubmed.js";
@@ -161,6 +162,7 @@ export async function registerHandlers({ boss, sql, pool, log, incrementJobsProc
   await register("bulk-ingest-active-topics", bulkIngestActiveTopicsHandler);
   await register("ingest-preprints-sweep",   ingestPreprintsSweepHandler);
   await register("ingest-openalex-bulk",     ingestOpenalexBulkHandler);
+  await register("auto-close-empty-workout-sessions", autoCloseEmptyWorkoutSessionsHandler);
 
   // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness).
   // Queues were already created above in register() so schedule() can
@@ -189,6 +191,9 @@ export async function registerHandlers({ boss, sql, pool, log, incrementJobsProc
   // Replaces the per-topic fanout that overloaded api.biorxiv.org with
   // ~7000 redundant requests (2026-04-21 failure cluster).
   await boss.schedule("ingest-preprints-sweep",    "0 6 * * 6", {},                        { tz: "America/New_York", retryLimit: 3, retryBackoff: true, retryDelay: 300 });
+  // Every 15 min: close workout_sessions with no logged sets that have been
+  // open >1h. Threshold + limit overridable via the cron payload below.
+  await boss.schedule("auto-close-empty-workout-sessions", "*/15 * * * *", { thresholdMinutes: 60, limit: 500 }, { tz: "America/New_York" });
 
-  log.info("all 19 handlers registered + 9 schedules");
+  log.info("all 20 handlers registered + 10 schedules");
 }
