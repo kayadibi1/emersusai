@@ -1512,16 +1512,22 @@ body.chat-page {
   gap: 6px;
   align-items: flex-end;
   margin-left: auto;
+  position: relative;
 }
-/* Send button stack: submit-orb on top, usage ring below it. The stack
- * anchors to the bottom of the composer row so the orb sits at the
- * textarea's bottom baseline and the ring peeks beneath it — roughly
- * where people look after sending (how much of today's quota is gone). */
-.chat-composer-shell .send-stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
+/* UsageRing slot — absolute-positioned below the submit-orb so the ring
+ * sits vertically centered in the gap between the orb's bottom edge
+ * and the composer's bottom border. The composer-row is above and the
+ * composer-utility-row (hint + status) below, so that gap spans roughly
+ * 8 (composer-row margin) + 8 (utility padding-top) + ~16 (utility row
+ * height) = ~32px. With a 22px ring, ~5px top-offset centers it nicely.
+ * Horizontal alignment pins it to the right edge so it lines up under
+ * the submit-orb. Ring popover keeps its own relative context via the
+ * inline style inside shared/chat/usage-ring.js. */
+.chat-composer-shell .composer-ring-slot {
+  position: absolute;
+  right: 7px;      /* visually aligns the 22px ring under the 36px orb */
+  top: calc(100% + 5px);
+  pointer-events: auto;
 }
 .chat-composer-shell .submit-orb {
   background: var(--accent);

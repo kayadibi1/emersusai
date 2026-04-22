@@ -4957,8 +4957,8 @@ export function ChatApp() {
                     h("span", { className: "stop-btn-label" }, "Stop"),
                   )
                 : null,
-              h("div", { className: "send-stack" },
-                h("button", { className: "submit-orb", type: "submit", disabled: composerDisabled, "aria-label": "Send question" }, h(ArrowUp, { size: 21 })),
+              h("button", { className: "submit-orb", type: "submit", disabled: composerDisabled, "aria-label": "Send question" }, h(ArrowUp, { size: 21 })),
+              h("div", { className: "composer-ring-slot", "aria-hidden": false },
                 h(UsageRing, {
                   ref: usageRingRef,
                   getToken: async () => session?.access_token ?? null,
