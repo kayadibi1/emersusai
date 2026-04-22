@@ -38,7 +38,7 @@ export async function autoCloseEmptyWorkoutSessionsHandler(ctx, deps) {
     WHERE ws.ended_at IS NULL
       AND ws.started_at < now() - (${thresholdMinutes} || ' minutes')::interval
       AND NOT EXISTS (
-        SELECT 1 FROM public.workout_logs wl WHERE wl.session_id = ws.id
+        SELECT 1 FROM public.workout_logs wl WHERE wl.session_id = ws.id::text
       )
   `;
   const scanned = countRows.rows?.[0]?.n ?? 0;
@@ -60,7 +60,7 @@ export async function autoCloseEmptyWorkoutSessionsHandler(ctx, deps) {
       WHERE ws.ended_at IS NULL
         AND ws.started_at < now() - (${thresholdMinutes} || ' minutes')::interval
         AND NOT EXISTS (
-          SELECT 1 FROM public.workout_logs wl WHERE wl.session_id = ws.id
+          SELECT 1 FROM public.workout_logs wl WHERE wl.session_id = ws.id::text
         )
       ORDER BY ws.started_at ASC
       LIMIT ${limit}
