@@ -419,6 +419,34 @@ function mergeThreadState(rawState) {
   };
 }
 
+// Time-aware welcome — rotates through contextual greetings based on local
+// hour, last activity, and thread count. Falls back to a static "Welcome"
+// if the inputs are missing. Keeps copy warm without feeling gimmicky.
+function greetingFor(name, _messagesLen, history) {
+  const hour = new Date().getHours();
+  const timeOfDay =
+    hour < 5  ? "Up late" :
+    hour < 12 ? "Good morning" :
+    hour < 18 ? "Afternoon" :
+    hour < 22 ? "Evening" :
+                "Late night";
+  // If we have thread history, find the most recent non-current thread's age.
+  let lastSeenAgo = null;
+  if (Array.isArray(history) && history.length > 0) {
+    const newest = history.reduce((acc, t) => {
+      const ts = t?.updatedAt ? new Date(t.updatedAt).getTime() : 0;
+      return ts > acc ? ts : acc;
+    }, 0);
+    if (newest > 0) {
+      const days = Math.floor((Date.now() - newest) / 86400_000);
+      if (days >= 2) lastSeenAgo = days;
+    }
+  }
+  const first = String(name || "").split(" ")[0] || "there";
+  if (lastSeenAgo != null) return `Welcome back, ${first} — it's been ${lastSeenAgo} days`;
+  return `${timeOfDay}, ${first}`;
+}
+
 function createEmptyThread() {
   return {
     id: createThreadId(),
@@ -4992,7 +5020,7 @@ export function ChatApp() {
                 ]
               : h("section", { className: "thread-welcome" },
                   h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
-                  h("h2", { className: "thread-welcome-title" }, `Welcome, ${displayName}`),
+                  h("h2", { className: "thread-welcome-title" }, greetingFor(displayName, activeMessages.length, chatHistory)),
                   chatV2On
                     ? h(EmptyPrompts, {
                         profileId: session?.user?.id || "",
