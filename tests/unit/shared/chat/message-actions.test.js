@@ -78,9 +78,9 @@ describe('message-actions — plan detection', () => {
 });
 
 describe('message-actions — available action resolver', () => {
-  test('defaults include copy / cite / regenerate / export', () => {
+  test('defaults include copy / cite / export', () => {
     const ids = resolveAvailableActions({ role: 'assistant', text: 'hi' }).map((a) => a.id);
-    assert.deepEqual(ids, ['copy', 'cite', 'regenerate', 'export']);
+    assert.deepEqual(ids, ['copy', 'cite', 'export']);
   });
 
   test('adds save-plan when workout plan is present', () => {
@@ -89,7 +89,8 @@ describe('message-actions — available action resolver', () => {
       text: '```workout-plan\n{"title":"a"}\n```',
     }).map((a) => a.id);
     assert.ok(ids.includes('save-plan'));
-    assert.equal(ids.indexOf('save-plan'), ids.indexOf('regenerate') + 1);
+    // save-plan slots in after cite, before export
+    assert.equal(ids.indexOf('save-plan'), ids.indexOf('cite') + 1);
   });
 
   test('adds swap-meal when meal plan is present', () => {

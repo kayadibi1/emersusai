@@ -66,17 +66,16 @@ export function formatSourcesAsAPA(sources) {
 const BASE_ACTIONS = [
   { id: "copy", label: "Copy" },
   { id: "cite", label: "Cite" },
-  { id: "regenerate", label: "Regenerate" },
 ];
 
 // Primary actions stay visible on mobile; the rest fold into a "⋯" overflow
 // menu. Matches the ChatGPT/Claude convention where most users want
-// copy/regen one tap away and the niche actions out of sight.
-const PRIMARY_ACTION_IDS = new Set(["copy", "regenerate"]);
+// copy one tap away and the niche actions out of sight.
+const PRIMARY_ACTION_IDS = new Set(["copy"]);
 
 /**
  * Decide which action buttons to render for a given message.
- * Always includes copy / cite / regenerate / export on assistant messages.
+ * Always includes copy / cite / export on assistant messages.
  * Appends save-plan / swap-meal when the relevant widget is present.
  * User messages get no action row.
  *
@@ -142,10 +141,6 @@ export function MessageActions({
         const apa = formatSourcesAsAPA(sources);
         const ok = await copyTextToClipboard(apa);
         flashToast(ok ? `CITATIONS COPIED · ${sources.length} PAPERS` : "COPY FAILED");
-        return;
-      }
-      if (id === "regenerate" && typeof onRegenerate === "function") {
-        onRegenerate(message);
         return;
       }
       if (id === "save-plan" && typeof onSavePlan === "function") {
