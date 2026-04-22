@@ -64,3 +64,10 @@ export function lerpStateParams(a, b, t) {
     breathFreq: lerp(a.breathFreq, b.breathFreq, t),
   };
 }
+
+// Returns 1 + amp · sin(t · 2π · freq). Apply to target position to get
+// the "breathing" effect: the whole shape rhythmically expands/contracts.
+export function breathScale(nowMs, amp, freq) {
+  if (amp === 0 || freq === 0) return 1;
+  return 1 + amp * Math.sin(nowMs / 1000 * Math.PI * 2 * freq);
+}
