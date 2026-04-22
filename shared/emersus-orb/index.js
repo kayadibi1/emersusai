@@ -32,6 +32,15 @@ export function createEmersusOrb(canvas, opts = {}) {
   const initialShape = opts.initialShape || 'sphere';
   if (!STATES[initialState]) throw new Error(`emersus-orb: unknown initialState "${initialState}"`);
   if (!SHAPE_GENERATORS[initialShape]) throw new Error(`emersus-orb: unknown initialShape "${initialShape}"`);
+
+  // ─── Reduced-motion detection ───
+  let reducedMotion = false;
+  if (typeof window !== 'undefined' && window.matchMedia) {
+    const mq = window.matchMedia('(prefers-reduced-motion: reduce)');
+    reducedMotion = mq.matches;
+    mq.addEventListener?.('change', (e) => { reducedMotion = e.matches; });
+  }
+
   const particleCount = DEFAULTS.particleCount;
   const trailLen = DEFAULTS.trailLen;
 
@@ -157,12 +166,14 @@ export function createEmersusOrb(canvas, opts = {}) {
     spinSpeed = spinSpeed + (targetSpin.speed - spinSpeed) * 0.03;
     spinAngle += dt * spinSpeed * tuning.spin;
 
-    stateRotAngleX += dt * current.stateRotX;
-    stateRotAngleY += dt * current.stateRotY;
-    stateRotAngleZ += dt * current.stateRotZ;
+    if (!reducedMotion) {
+      stateRotAngleX += dt * current.stateRotX;
+      stateRotAngleY += dt * current.stateRotY;
+      stateRotAngleZ += dt * current.stateRotZ;
+    }
 
     // Auto shape-cycle: responding only. Idle and thinking freeze.
-    if (state === 'responding' && (now - lastShapeChange) > STATES.responding.cycleMs) {
+    if (!reducedMotion && state === 'responding' && (now - lastShapeChange) > STATES.responding.cycleMs) {
       const options = SHAPE_NAMES.filter(k => k !== currentShape);
       const nextName = options[(Math.random() * options.length) | 0];
       transitionToShape(nextName);
@@ -210,7 +221,8 @@ export function createEmersusOrb(canvas, opts = {}) {
       }
 
       // Breath-scaled target
-      const breath = breathScale(now, current.breathAmp, current.breathFreq);
+      const breathAmp = reducedMotion ? current.breathAmp * 0.5 : current.breathAmp;
+      const breath = breathScale(now, breathAmp, current.breathFreq);
       const bTx = p.tx * breath, bTy = p.ty * breath, bTz = p.tz * breath;
 
       p.vx += (bTx - p.x) * k;
@@ -273,7 +285,8 @@ export function createEmersusOrb(canvas, opts = {}) {
 
     updatePoints(renderCtx, pts, current);
     updateLinks(renderCtx, pts, current);
-    updateTrails(renderCtx, pts, current);
+    if (reducedMotion) renderCtx.trailGeom.setDrawRange(0, 0);
+    else updateTrails(renderCtx, pts, current);
     drawFrame(renderCtx);
 
     rafId = requestAnimationFrame(tick);
