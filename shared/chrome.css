@@ -685,7 +685,7 @@
   padding: 18px 18px 12px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 .app-sidebar-brand {
   font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
