@@ -17,6 +17,30 @@ import { buildGenericChunks } from "../scripts/lib/build-evidence-chunks-generic
 const BATCH_SIZE = 500;
 const UPLOAD_DIR = process.env.OPENALEX_BULK_DIR ?? "/home/emersus/data/openalex-bulk";
 
+// OpenAlex `work.type` → research_articles row mapping.
+//   - KEEP    types become `is_deleted=false` with the labeled publication_types[]
+//   - DROP    types are inserted soft-deleted so retrieval ignores them but the
+//             row still exists for dedup against future ingests
+// Decisions (2026-04-22 audit, see docs/openalex-bulk-plan.md "Actuals"):
+//   - book/book-chapter: too variable in quality to vet at scale
+//   - dissertation:      gray literature, LLM may cite hypotheses as established findings
+//   - letter/editorial:  opinion/commentary, not primary evidence
+//   - other:             OpenAlex junk drawer (~95% non-research artifacts)
+//   - peer-review:       review reports themselves, not the paper
+//   - dataset/libguides/paratext/supplementary-materials/erratum/standard/retraction:
+//                        not citable evidence
+const OA_TYPE_KEEP = new Map([
+  ["article",  "Journal Article"],
+  ["review",   "Review"],
+  ["preprint", "Preprint"],
+]);
+const OA_TYPE_DROP = new Set([
+  "dataset", "libguides", "peer-review", "erratum", "paratext",
+  "supplementary-materials", "other", "dissertation", "book",
+  "book-chapter", "letter", "editorial", "report", "reference-entry",
+  "standard", "retraction",
+]);
+
 export async function ingestOpenalexBulkHandler(ctx, deps) {
   const { filename } = ctx.data;
   if (!filename || typeof filename !== "string" || filename.includes("/") || filename.includes("..")) {
@@ -55,7 +79,21 @@ export async function ingestOpenalexBulkHandler(ctx, deps) {
     const pubYears = batch.map((r) => r.publication_year ?? null);
     const journals = batch.map((r) => r.journal ?? null);
     const authorsJson = batch.map((r) => JSON.stringify(r.authors ?? []));
-    const peerRev = batch.map((r) => r.peer_reviewed === true);
+
+    // OpenAlex type → label + filter. Reviews are peer-reviewed by convention;
+    // articles are too. Preprints flow through but are tier-gated at retrieval
+    // (Free=peer-reviewed only; Pro=preprints+peer-reviewed). Drop types are
+    // inserted is_deleted=true so retrieval skips them but they still occupy
+    // a (source, external_id) row for future-run dedup.
+    const peerRev = batch.map((r) => {
+      const t = r.source_metadata?.type;
+      return t === "article" || t === "review";
+    });
+    const pubTypes = batch.map((r) => {
+      const label = OA_TYPE_KEEP.get(r.source_metadata?.type);
+      return label ? [label] : [];
+    });
+    const isDeleted = batch.map((r) => OA_TYPE_DROP.has(r.source_metadata?.type));
     const metaJson = batch.map((r) => JSON.stringify(r.source_metadata ?? {}));
 
     // ON CONFLICT DO NOTHING: untargeted so both pmid PK and
@@ -66,7 +104,7 @@ export async function ingestOpenalexBulkHandler(ctx, deps) {
       INSERT INTO research_articles (
         pmid, source, external_id, title, abstract, doi,
         publication_date, publication_year, journal, authors,
-        peer_reviewed, source_metadata
+        peer_reviewed, publication_types, is_deleted, source_metadata
       )
       SELECT * FROM unnest(
         ${pmids}::bigint[],
@@ -80,6 +118,8 @@ export async function ingestOpenalexBulkHandler(ctx, deps) {
         ${journals}::text[],
         ${authorsJson}::jsonb[],
         ${peerRev}::bool[],
+        ${pubTypes}::text[][],
+        ${isDeleted}::bool[],
         ${metaJson}::jsonb[]
       )
       ON CONFLICT DO NOTHING
@@ -92,11 +132,13 @@ export async function ingestOpenalexBulkHandler(ctx, deps) {
     inserted += ins.rows.length;
     skipped += batch.length - ins.rows.length;
 
-    // Chunk only inserted rows.
+    // Chunk only inserted rows that aren't soft-deleted — no point embedding
+    // 200k+ junk-type chunks that retrieval would never return.
     const allChunks = [];
     for (const r of batch) {
       const pmid = insertedByExtId.get(r.external_id);
       if (!pmid) continue;
+      if (OA_TYPE_DROP.has(r.source_metadata?.type)) continue;
       try {
         for (const c of buildGenericChunks({
           pmid, title: r.title, abstract: r.abstract,
