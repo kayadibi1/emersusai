@@ -80,7 +80,21 @@ async function fetchPage(query, page) {
   return body;
 }
 
+// OpenAlex `work.type` values that are NOT citable evidence for our
+// fitness/nutrition chat. Mirrors jobs/ingest-openalex-bulk.js (audit
+// 2026-04-22 — a per-topic run produced SEO/PED-marketing "report"-type
+// rows like "TrenMax Guide 2026" that got retrieved as evidence). Drop
+// these at the adapter layer so the generic ingest-topic-from-source
+// handler never inserts them.
+const OPENALEX_DROP_TYPES = new Set([
+  "dataset", "libguides", "peer-review", "erratum", "paratext",
+  "supplementary-materials", "other", "dissertation", "book",
+  "book-chapter", "letter", "editorial", "report", "reference-entry",
+  "standard", "retraction",
+]);
+
 function normalize(work) {
+  if (OPENALEX_DROP_TYPES.has(work.type)) return null;
   const pubDateStr = work.publication_date;
   const publishedAt = pubDateStr ? new Date(pubDateStr) : null;
   return {
@@ -119,7 +133,7 @@ export const openalex = {
       }
       for (const work of results) {
         const paper = normalize(work);
-        if (!paper.externalId || !paper.title) continue;
+        if (!paper || !paper.externalId || !paper.title) continue;
         yield paper;
         yielded += 1;
         if (opts?.signal?.aborted) return;
