@@ -902,11 +902,161 @@ body.train-body {
 }
 .tr-mod-research-card:hover .tr-mod-research-cta { color: var(--accent); }
 
+/* Dashboard variant: hero shrinks (no eyebrow / title / subcopy) */
+.tr-mod-hero-compact {
+  padding: 16px 8px 8px;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+/* Last-session card (dashboard state) */
+.tr-mod-last {
+  display: flex; flex-direction: column; gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px 22px 22px;
+  background: linear-gradient(180deg, var(--surface-faint) 0%, transparent 65%), var(--bg);
+  transition: border-color .14s ease;
+}
+.tr-mod-last:hover { border-color: var(--accent-line); }
+.tr-mod-last-head {
+  display: flex; align-items: center; gap: 8px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.tr-mod-last-label { color: var(--accent); font-weight: 500; }
+.tr-mod-last-dot   { color: var(--dim); }
+.tr-mod-last-date  { color: var(--muted); font-variant-numeric: tabular-nums; }
+
+.tr-mod-last-body { display: flex; flex-direction: column; gap: 6px; padding: 4px 0 6px; }
+.tr-mod-last-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  line-height: 1.25;
+}
+.tr-mod-last-summary {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+}
+
+.tr-mod-last-view {
+  align-self: flex-start;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  cursor: pointer;
+  transition: border-color .14s ease, color .14s ease, background .14s ease;
+  margin-top: 2px;
+}
+.tr-mod-last-view:hover {
+  border-color: var(--accent-line);
+  color: var(--accent);
+  background: var(--accent-soft);
+}
+.tr-mod-last-view-arrow { display: inline-block; transition: transform .14s ease; }
+.tr-mod-last-view:hover .tr-mod-last-view-arrow { transform: translateX(3px); }
+
+/* Recent sessions list */
+.tr-mod-recent {
+  display: flex; flex-direction: column; gap: 10px;
+}
+.tr-mod-recent-head {
+  display: flex; align-items: baseline; gap: 10px;
+}
+.tr-mod-recent-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--dim);
+  font-weight: 500;
+}
+.tr-mod-recent-count {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  color: var(--muted);
+  padding: 2px 7px;
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-variant-numeric: tabular-nums;
+}
+.tr-mod-recent-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 4px; }
+.tr-mod-recent-row { margin: 0; padding: 0; }
+.tr-mod-recent-btn {
+  width: 100%;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px;
+  padding: 12px 14px;
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .14s ease, background .14s ease, transform .14s ease;
+}
+.tr-mod-recent-btn:hover {
+  border-color: var(--accent-line);
+  background: var(--surface-faint);
+  transform: translateX(2px);
+}
+.tr-mod-recent-left { display: flex; flex-direction: column; gap: 3px; min-width: 0; flex: 1; }
+.tr-mod-recent-title {
+  font-family: 'Space Grotesk', system-ui, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.tr-mod-recent-meta {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  font-variant-numeric: tabular-nums;
+}
+.tr-mod-recent-chev {
+  color: var(--dim);
+  font-size: 20px;
+  line-height: 1;
+  transition: color .14s ease, transform .14s ease;
+}
+.tr-mod-recent-btn:hover .tr-mod-recent-chev { color: var(--accent); transform: translateX(2px); }
+
+/* Tighter top band in dashboard variant (hero has less to say there) */
+.tr-mod-dashboard .tr-mod-last,
+.tr-mod-dashboard .tr-mod-recent {
+  /* each section owns its own spacing; outer .tr-mod-empty gap:40px
+   * still applies, matching the empty-state rhythm. */
+}
+
 @media (max-width: 720px) {
   .tr-mod-ghost-grid,
   .tr-mod-research-grid {
     grid-template-columns: 1fr;
   }
   .tr-mod-hero { padding: 24px 4px 4px; }
+  .tr-mod-hero-compact { padding: 12px 0 4px; justify-content: stretch; }
+  .tr-mod-hero-compact .tr-mod-hero-cta { width: 100%; justify-content: center; }
   .tr-mod-ghost, .tr-mod-research { padding-top: 22px; }
+  .tr-mod-last { padding: 16px 18px 18px; }
+  .tr-mod-recent-btn { padding: 10px 12px; }
 }

@@ -16,6 +16,7 @@ import { CardioActive } from "/shared/train/cardio-active.js";
 import { SwimActive } from "/shared/train/swim-active.js";
 import { ClimbActive } from "/shared/train/climb-active.js";
 import { ModalityEmptyState } from "/shared/train/modality-empty-state.js";
+import { ModalityDashboard } from "/shared/train/modality-dashboard.js";
 
 const h = React.createElement;
 const MODALITY_LABELS = { lift: "Lift", cardio: "Cardio", swim: "Swim", climb: "Climb" };
@@ -256,6 +257,11 @@ function TrainApp() {
 
   const [activeSession, setActiveSession] = useState(null);
   const [activeSets, setActiveSets] = useState([]);
+  // Recent ENDED sessions for the current modality. Drives the dashboard
+  // empty-state (last session + recent list) when activeSession is null.
+  // Populated from the same /api/workout-sessions fetch that scans for a
+  // live session, so no extra round-trip.
+  const [pastSessions, setPastSessions] = useState([]);
   const [history, setHistory] = useState({ items: [], loading: false });
   const [exerciseLookup, setExerciseLookup] = useState({});
   const [restEndsAt, setRestEndsAt] = useState(null);
@@ -289,6 +295,7 @@ function TrainApp() {
     const next = { ...state, modality, sessionId: "" };
     setState(next); updateUrl(next);
     setActiveSession(null); setActiveSets([]);
+    setPastSessions([]);
     setExpandedSessionId(null);
   }, [state, updateUrl]);
 
@@ -299,13 +306,18 @@ function TrainApp() {
   }, [state, updateUrl]);
 
   // Load the most-recent in-progress session for the modality whenever
-  // modality changes or on first ready.
+  // modality changes or on first ready. Same fetch populates pastSessions
+  // so the dashboard empty-state can render last-session + recent list
+  // without a second round-trip.
   useEffect(() => {
     if (!ready || !accessToken || state.tab !== "active") return;
     (async () => {
       try {
         const list = await api(`/api/workout-sessions?modality=${state.modality}&limit=10`, { accessToken });
-        const live = (list.items || []).find((s) => !s.ended_at);
+        const items = list.items || [];
+        const live = items.find((s) => !s.ended_at);
+        const past = items.filter((s) => !!s.ended_at);
+        setPastSessions(past);
         if (live) {
           const detail = await api(`/api/workout-sessions/${live.id}`, { accessToken });
           setActiveSession(detail);
@@ -501,10 +513,25 @@ function TrainApp() {
 
     state.tab === "active"
       ? h("div", { className: "tr-tab-body" },
-          activeSession ? null : h(ModalityEmptyState, {
-            modality: state.modality,
-            onStart: startNewSession,
-          }),
+          activeSession
+            ? null
+            : pastSessions.length > 0
+              ? h(ModalityDashboard, {
+                  modality: state.modality,
+                  pastSessions,
+                  onStart: startNewSession,
+                  onViewSession: (id) => {
+                    // Switch to History tab and flag the session as expanded.
+                    // The history useEffect will fetch the list; when it
+                    // renders, the row matching expandedSessionId opens.
+                    setTab("history");
+                    expandSession(id);
+                  },
+                })
+              : h(ModalityEmptyState, {
+                  modality: state.modality,
+                  onStart: startNewSession,
+                }),
           activeSession && state.modality === "lift"
             ? h(LiftActive, {
                 session: activeSession,
