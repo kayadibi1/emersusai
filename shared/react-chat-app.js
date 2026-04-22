@@ -3490,6 +3490,8 @@ export function ChatApp() {
     prevGlyphStateRef.current = glyphState;
     if (glyphState !== "idle") return;
     if (prev !== "responding" && prev !== "thinking") return;
+    // Haptic pulse on mobile when response finishes streaming.
+    try { navigator.vibrate?.(8); } catch (_) { /* ignored */ }
     const el = canvasRef.current;
     if (!el) return;
     const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
@@ -3924,6 +3926,9 @@ export function ChatApp() {
       return;
     }
     if (isSubmitting) return;
+
+    // Haptic pulse on mobile when the user sends — tactile confirmation.
+    try { navigator.vibrate?.(6); } catch (_) { /* ignored */ }
 
     let baseThread = activeThread || createEmptyThread();
     if (baseThread.isHydrated === false) {
