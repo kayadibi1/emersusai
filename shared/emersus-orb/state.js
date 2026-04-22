@@ -71,3 +71,22 @@ export function breathScale(nowMs, amp, freq) {
   if (amp === 0 || freq === 0) return 1;
   return 1 + amp * Math.sin(nowMs / 1000 * Math.PI * 2 * freq);
 }
+
+// Paper-theme tint overrides — warmer ink + royal blue accent. Keys match
+// STATES. Only `tint` and `tintAmt` get overridden; everything else is shared.
+export const PAPER_TINTS = Object.freeze({
+  idle:       { tint: { r: 110, g: 100, b: 80 },   tintAmt: 0.07 },
+  thinking:   { tint: { r: 240, g: 230, b: 210 },  tintAmt: 0.14 },
+  responding: { tint: { r: 59,  g: 130, b: 246 },  tintAmt: 0.16 },
+});
+
+export function paletteFor(theme) {
+  if (theme === 'paper') {
+    const out = {};
+    for (const name of Object.keys(STATES)) {
+      out[name] = { ...STATES[name], ...PAPER_TINTS[name] };
+    }
+    return out;
+  }
+  return STATES; // default mint
+}

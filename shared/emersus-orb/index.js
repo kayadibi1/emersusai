@@ -3,7 +3,7 @@
 
 import { SHAPE_GENERATORS, SHAPE_SPIN, SHAPE_NAMES } from './shapes.js';
 import { greedyNearestAssign, curlAxisForPath, initialTangentVelocity } from './physics.js';
-import { STATES, easeInOutCubic, bell, lerpStateParams, breathScale } from './state.js';
+import { STATES, paletteFor, easeInOutCubic, bell, lerpStateParams, breathScale } from './state.js';
 import { createRenderer, updatePoints, updateLinks, updateTrails, render as drawFrame } from './render.js';
 import { DEFAULTS, readTuning } from './config.js';
 
@@ -41,6 +41,19 @@ export function createEmersusOrb(canvas, opts = {}) {
     mq.addEventListener?.('change', (e) => { reducedMotion = e.matches; });
   }
 
+  // ─── Theme palette ───
+  let paletteStates = paletteFor(
+    typeof document !== 'undefined' && document.documentElement ? document.documentElement.dataset.theme : 'mint'
+  );
+  let themeObserver = null;
+  if (typeof document !== 'undefined' && typeof MutationObserver !== 'undefined') {
+    themeObserver = new MutationObserver(() => {
+      const next = paletteFor(document.documentElement.dataset.theme || 'mint');
+      for (const k of Object.keys(next)) paletteStates[k] = next[k];
+    });
+    themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+
   const particleCount = DEFAULTS.particleCount;
   const trailLen = DEFAULTS.trailLen;
 
@@ -64,8 +77,8 @@ export function createEmersusOrb(canvas, opts = {}) {
     });
   }
 
-  let current = JSON.parse(JSON.stringify(STATES[initialState]));
-  current.tint = { ...STATES[initialState].tint };
+  let current = JSON.parse(JSON.stringify(paletteStates[initialState]));
+  current.tint = { ...paletteStates[initialState].tint };
   let state = initialState;
   let stx = null;
   let currentShape = initialShape;
@@ -80,13 +93,13 @@ export function createEmersusOrb(canvas, opts = {}) {
 
   function setState(next) {
     if (next === state || destroyed) return;
-    if (!STATES[next]) return;
+    if (!paletteStates[next]) return;
     stx = {
       from: state,
       to: next,
       start: performance.now(),
       fromParams: lerpStateParams(current, current, 0),
-      toParams: STATES[next],
+      toParams: paletteStates[next],
     };
     state = next;
   }
@@ -155,7 +168,7 @@ export function createEmersusOrb(canvas, opts = {}) {
       txForce = bell(raw, 0.45, 0.25);
       if (raw >= 1) stx = null;
     } else {
-      current = lerpStateParams(current, STATES[state], 0.02);
+      current = lerpStateParams(current, paletteStates[state], 0.02);
     }
 
     // Intrinsic shape rotation lerp
@@ -173,7 +186,7 @@ export function createEmersusOrb(canvas, opts = {}) {
     }
 
     // Auto shape-cycle: responding only. Idle and thinking freeze.
-    if (!reducedMotion && state === 'responding' && (now - lastShapeChange) > STATES.responding.cycleMs) {
+    if (!reducedMotion && state === 'responding' && (now - lastShapeChange) > paletteStates.responding.cycleMs) {
       const options = SHAPE_NAMES.filter(k => k !== currentShape);
       const nextName = options[(Math.random() * options.length) | 0];
       transitionToShape(nextName);
@@ -302,6 +315,7 @@ export function createEmersusOrb(canvas, opts = {}) {
       destroyed = true;
       document.removeEventListener('visibilitychange', onVisibility);
       if (io) io.disconnect();
+      if (themeObserver) themeObserver.disconnect();
       if (rafId) cancelAnimationFrame(rafId);
       renderCtx.dispose();
     },
