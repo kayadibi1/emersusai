@@ -10,6 +10,12 @@ import {
   catenoidTargets, helicoidTargets,
 } from '../../../../shared/emersus-orb/shapes.js';
 import { lorenzTargets, rosslerTargets, thomasTargets, halvorsenTargets } from '../../../../shared/emersus-orb/shapes.js';
+import {
+  dnaTargets, moleculeTargets, seashellTargets, heartTargets,
+  sunflowerTargets, galaxyTargets, saturnTargets,
+  vivianiTargets, lissajous3DTargets, infinityTargets,
+  SHAPE_SPIN, SHAPE_NAMES,
+} from '../../../../shared/emersus-orb/shapes.js';
 
 const N = 260;
 
@@ -78,4 +84,32 @@ describe('emersus-orb/shapes.js — chaos attractors', () => {
   test('rossler', () => assertValidTargets(rosslerTargets(N), 'rossler'));
   test('thomas', () => assertValidTargets(thomasTargets(N), 'thomas'));
   test('halvorsen', () => assertValidTargets(halvorsenTargets(N), 'halvorsen'));
+});
+
+describe('emersus-orb/shapes.js — bio / cosmic / curves', () => {
+  test('dna', () => assertValidTargets(dnaTargets(N), 'dna'));
+  test('molecule', () => assertValidTargets(moleculeTargets(N), 'molecule'));
+  test('seashell', () => assertValidTargets(seashellTargets(N), 'seashell', 250));
+  test('heart', () => assertValidTargets(heartTargets(N), 'heart', 250));
+  test('sunflower', () => assertValidTargets(sunflowerTargets(N), 'sunflower'));
+  test('galaxy', () => assertValidTargets(galaxyTargets(N), 'galaxy'));
+  test('saturn', () => assertValidTargets(saturnTargets(N), 'saturn'));
+  test('viviani', () => assertValidTargets(vivianiTargets(N), 'viviani'));
+  test('lissajous', () => assertValidTargets(lissajous3DTargets(N), 'lissajous'));
+  test('infinity', () => assertValidTargets(infinityTargets(N), 'infinity'));
+});
+
+describe('emersus-orb/shapes.js — SHAPE_SPIN + SHAPE_NAMES', () => {
+  test('SHAPE_NAMES has 31 entries', () => {
+    assert.equal(SHAPE_NAMES.length, 31);
+  });
+  test('every name has a SHAPE_SPIN entry with a unit axis + positive speed', () => {
+    for (const name of SHAPE_NAMES) {
+      const spin = SHAPE_SPIN[name];
+      assert.ok(spin, `missing spin for ${name}`);
+      const axisLen = Math.hypot(spin.axis[0], spin.axis[1], spin.axis[2]);
+      assert(Math.abs(axisLen - 1) < 1e-6, `${name} axis must be unit length`);
+      assert(spin.speed > 0, `${name} speed must be positive`);
+    }
+  });
 });
