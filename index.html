@@ -364,141 +364,215 @@
     <section class="section" id="what">
       <div class="sec-eyebrow">What you get</div>
       <h2 class="sec-title">A research assistant that shows its work.</h2>
-      <p class="sec-intro">Not another chat box. A retrieval-grounded system that cites, grades, and personalizes, so you can trust what you're reading.</p>
       <div class="bento">
 
-        <article class="bento-card wide">
-          <div class="bento-label">Citations</div>
-          <h3 class="bento-title">Every claim, sourced.</h3>
-          <p class="bento-desc">Responses aren't opinions. Each claim points back to a real, resolvable DOI or PubMed ID. Not a fabricated reference.</p>
+        <!-- ======================= CARD 1 · CITATIONS ======================= -->
+        <article class="bento-card wide" id="bento-cite">
+          <div class="bento-head">
+            <span class="bento-label">Citations</span>
+            <h3 class="bento-title">No fabricated papers.</h3>
+            <p class="bento-desc">Every source is a real paper you can open. Not a hallucinated reference.</p>
+          </div>
           <div class="bento-visual">
-            <div class="mini-cite">
-              <div class="mini-cite-head">
-                <span class="mini-cite-tag">MORTON RW · BR J SPORTS MED · 2018</span>
-                <span class="mini-cite-grade"><span class="bar"></span>HIGH</span>
+            <div class="cite-split">
+              <div class="cite-prose">
+                <span class="cite-prose-tag">Answer</span>
+                Creatine appears to improve working memory in healthy adults, with the effect strongest in sleep-deprived or vegetarian subjects.
               </div>
-              <div class="mini-cite-body">Effect of protein supplementation on resistance-training-induced gains in muscle mass and strength.</div>
-              <div class="mini-cite-stats">
-                <span><b>n</b>49 RCTs</span>
-                <span><b>N</b>1,863</span>
-                <span><b>d</b>0.10</span>
+              <div class="cite-sources">
+                <div class="source-row">
+                  <div class="source-index">1</div>
+                  <div class="source-body">
+                    <div class="source-title">Creatine supplementation and cognition in healthy adults.</div>
+                    <div class="source-meta">Nutrients · 2023 · Meta-analysis</div>
+                    <div class="source-actions">
+                      <a class="source-read" href="#" aria-label="Read source">Read →</a>
+                      <span class="source-followup">Ask follow-up</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="source-row">
+                  <div class="source-index">2</div>
+                  <div class="source-body">
+                    <div class="source-title">Creatine under sleep restriction: a controlled trial.</div>
+                    <div class="source-meta">Psychopharmacology · 2022 · RCT</div>
+                    <div class="source-actions">
+                      <a class="source-read" href="#" aria-label="Read source">Read →</a>
+                      <span class="source-followup">Ask follow-up</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="bento-card tall">
-          <div class="bento-label">Evidence</div>
-          <h3 class="bento-title">Grade, not guess.</h3>
-          <p class="bento-desc">Every claim tagged by study quality and replication. When evidence is mixed or thin, we say so. Loudly.</p>
+        <!-- ======================= CARD 2 · EVIDENCE ======================= -->
+        <article class="bento-card tall" id="bento-evidence">
+          <div class="bento-head">
+            <span class="bento-label">Evidence</span>
+            <h3 class="bento-title">Grade, not guess.</h3>
+            <p class="bento-desc">Every claim tagged by study quality and replication. When evidence is thin, we say so.</p>
+          </div>
           <div class="bento-visual">
-            <div class="vert-scale">
-              <div class="scale-row">
-                <div class="scale-head"><span class="scale-name">HIGH</span><div class="scale-bar full"></div></div>
-                <p class="scale-desc">3+ RCTs, consistent effect across populations.</p>
+            <div class="ladder">
+              <div class="ladder-track"></div>
+              <div class="ladder-spot"></div>
+              <div class="tier" data-level="high">
+                <span class="tier-dot"></span>
+                <span class="tier-name">HIGH</span>
+                <p class="tier-desc">3+ RCTs, consistent effect across populations.</p>
               </div>
-              <div class="scale-row">
-                <div class="scale-head"><span class="scale-name">MODERATE</span><div class="scale-bar mod"></div></div>
-                <p class="scale-desc">1–2 RCTs or strong observational cohorts.</p>
+              <div class="tier" data-level="mod">
+                <span class="tier-dot"></span>
+                <span class="tier-name">MODERATE</span>
+                <p class="tier-desc">1–2 RCTs or strong observational cohorts.</p>
               </div>
-              <div class="scale-row">
-                <div class="scale-head"><span class="scale-name">LIMITED</span><div class="scale-bar lim"></div></div>
-                <p class="scale-desc">Mechanistic or small trials only. Plausible, not yet validated.</p>
+              <div class="tier" data-level="lim">
+                <span class="tier-dot"></span>
+                <span class="tier-name">LIMITED</span>
+                <p class="tier-desc">Mechanistic or small trials only. Plausible.</p>
               </div>
-              <div class="scale-row">
-                <div class="scale-head"><span class="scale-name">INSUFFICIENT</span><div class="scale-bar insuf"></div></div>
-                <p class="scale-desc">Not enough data. We say so instead of bluffing.</p>
+              <div class="tier" data-level="insuf">
+                <span class="tier-dot"></span>
+                <span class="tier-name">INSUFFICIENT</span>
+                <p class="tier-desc">Not enough data. We say so instead of bluffing.</p>
               </div>
             </div>
           </div>
         </article>
 
-        <article class="bento-card wide">
-          <div class="bento-label">Modalities</div>
-          <h3 class="bento-title">Every way you move.</h3>
-          <p class="bento-desc">Lift, run, swim, climb. One place to log it all, one model that understands the difference.</p>
+        <!-- ======================= CARD 3 · MODALITIES ======================= -->
+        <article class="bento-card wide" id="bento-modalities">
+          <div class="bento-head">
+            <span class="bento-label">Modalities</span>
+            <h3 class="bento-title">Different sport, different science.</h3>
+            <p class="bento-desc">The literature for lifting isn't the literature for endurance. The model knows which is which.</p>
+          </div>
           <div class="bento-visual">
-            <div class="modality-grid">
-              <div class="mod-tile"><div class="mod-type">LIFT</div><div class="mod-activity">Push Day</div><div class="mod-stats">52 MIN · 6 LIFTS</div></div>
-              <div class="mod-tile"><div class="mod-type">CARDIO</div><div class="mod-activity">Zone 2 Run</div><div class="mod-stats">48 MIN · 142 BPM</div></div>
-              <div class="mod-tile"><div class="mod-type">SWIM</div><div class="mod-activity">Freestyle</div><div class="mod-stats">2.3 KM · 41 MIN</div></div>
-              <div class="mod-tile"><div class="mod-type">CLIMB</div><div class="mod-activity">Bouldering</div><div class="mod-stats">V4 FLASH · 8 SENDS</div></div>
+            <div class="mod-grid">
+              <div class="mod-tile" data-sport="lift">
+                <div class="mod-icon-wrap">
+                  <svg class="mod-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 12h16 M6 9v6 M8 7v10 M16 7v10 M18 9v6" />
+                  </svg>
+                </div>
+                <div class="mod-name">Lift</div>
+                <div class="mod-character">Dense RCT &amp; meta-analysis literature.</div>
+                <div class="mod-tags">
+                  <span class="mod-tag">Hypertrophy</span>
+                  <span class="mod-tag">Periodization</span>
+                </div>
+              </div>
+              <div class="mod-tile" data-sport="cardio">
+                <div class="mod-icon-wrap">
+                  <svg class="mod-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 14h3 l2.5 -7 l3 14 l2.5 -9 l2 4 h5" />
+                  </svg>
+                </div>
+                <div class="mod-name">Cardio</div>
+                <div class="mod-character">Large cohorts, long follow-ups.</div>
+                <div class="mod-tags">
+                  <span class="mod-tag">VO₂max</span>
+                  <span class="mod-tag">Zone 2</span>
+                </div>
+              </div>
+              <div class="mod-tile" data-sport="swim">
+                <div class="mod-icon-wrap">
+                  <svg class="mod-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M2 10 Q6 6 10 10 T18 10 T26 10" />
+                    <path d="M2 16 Q6 12 10 16 T18 16 T26 16" />
+                  </svg>
+                </div>
+                <div class="mod-name">Swim</div>
+                <div class="mod-character">Kinematics-heavy, niche journals.</div>
+                <div class="mod-tags">
+                  <span class="mod-tag">Stroke</span>
+                  <span class="mod-tag">Economy</span>
+                </div>
+              </div>
+              <div class="mod-tile" data-sport="climb">
+                <div class="mod-icon-wrap">
+                  <svg class="mod-icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="13" cy="5" r="2" />
+                    <path d="M12 8 L14 14 L18 13 M14 14 L10 20 M18 13 L21 17" />
+                  </svg>
+                </div>
+                <div class="mod-name">Climb</div>
+                <div class="mod-character">Small, specific, biomechanics-led.</div>
+                <div class="mod-tags">
+                  <span class="mod-tag">Grip</span>
+                  <span class="mod-tag">Case series</span>
+                </div>
+              </div>
             </div>
           </div>
         </article>
 
-        <article class="bento-card">
-          <div class="bento-label">Nutrition</div>
-          <h3 class="bento-title">Macros that add up.</h3>
+        <!-- ======================= CARD 4 · LABELING ======================= -->
+        <article class="bento-card full" id="bento-labeling">
+          <div class="bento-head">
+            <span class="bento-label">Labeling</span>
+            <h3 class="bento-title">Provenance, flagged.</h3>
+            <p class="bento-desc">Peer-reviewed, preprint, and retracted papers get visibly different tags. You decide how much to weight each.</p>
+          </div>
           <div class="bento-visual">
-            <div class="macros">
-              <div class="macro-row"><span class="macro-name">PROTEIN</span><div class="macro-bar-wrap"><div class="macro-bar protein" style="width: 88%"></div></div><span class="macro-val">165g</span></div>
-              <div class="macro-row"><span class="macro-name">CARBS</span><div class="macro-bar-wrap"><div class="macro-bar carbs" style="width: 72%"></div></div><span class="macro-val">220g</span></div>
-              <div class="macro-row"><span class="macro-name">FAT</span><div class="macro-bar-wrap"><div class="macro-bar fat" style="width: 54%"></div></div><span class="macro-val">72g</span></div>
-              <div class="macros-total"><span class="lbl">TARGET 2,250 KCAL</span><span class="val">2,180</span></div>
+            <div class="paper-stack">
+              <div class="paper">
+                <span class="paper-stamp reviewed"><span class="stamp-bar"></span>Peer-reviewed</span>
+                <p class="paper-title">Resistance training frequency and hypertrophy: a pooled meta-analysis.</p>
+                <div class="paper-meta">J STRENGTH COND RES · 2024</div>
+              </div>
+              <div class="paper is-preprint">
+                <span class="paper-stamp preprint"><span class="stamp-bar"></span>Preprint · not reviewed</span>
+                <p class="paper-title">Daily creatine loading vs. standard protocols in trained athletes.</p>
+                <div class="paper-meta">BIORXIV · 2026 · 3 DAYS AGO</div>
+              </div>
+              <div class="paper is-retracted">
+                <span class="paper-stamp retracted"><span class="stamp-bar"></span>Retracted · 2024</span>
+                <p class="paper-title">Rapid strength gains via novel tempo protocol — note: retracted for data integrity.</p>
+                <div class="paper-meta">J SPORT SCI · RETRACTION NOTICE</div>
+              </div>
             </div>
           </div>
         </article>
 
-        <article class="bento-card wide">
-          <div class="bento-label">Labeling</div>
-          <h3 class="bento-title">Preprints, flagged.</h3>
-          <p class="bento-desc">Peer-reviewed and preprint research get clearly different tags. You decide how much to weight each.</p>
-          <div class="bento-visual">
-            <div class="paper-compare">
-              <div class="paper-card"><span class="paper-badge reviewed">Peer-reviewed</span><p class="paper-title">Resistance training frequency and hypertrophy: a meta-analysis.</p><div class="paper-meta">J STRENGTH COND RES · 2024</div></div>
-              <div class="paper-card preprint-card"><span class="paper-badge preprint">Preprint · Not yet reviewed</span><p class="paper-title">Daily creatine loading vs. standard protocols in trained athletes.</p><div class="paper-meta">BIORXIV · 2026 · 3 DAYS AGO</div></div>
-            </div>
+        <!-- ======================= CARD 5 · PROTOCOLS ======================= -->
+        <article class="bento-card full" id="bento-protocols">
+          <div class="bento-head">
+            <span class="bento-label">Protocols</span>
+            <h3 class="bento-title">Built for how you actually train.</h3>
+            <p class="bento-desc">Tap a constraint. The plan respects it — no cookie-cutter templates, no fighting back.</p>
           </div>
-        </article>
-
-        <article class="bento-card full">
-          <div class="bento-label">Protocols</div>
-          <h3 class="bento-title">Built for how you actually train.</h3>
-          <p class="bento-desc">Dumbbells only? Back injury? 45 minutes three times a week? The model respects what you tell it. No cookie-cutter templates, no fighting back on your constraints.</p>
           <div class="bento-visual">
-            <div class="mini-plans">
-              <div class="mini-plan">
-                <div class="plan-meta">POSTERIOR · 45 MIN · DUMBBELL</div>
-                <div class="plan-row"><span class="ex">Romanian Deadlift</span><span class="sets">4 × 8</span></div>
-                <div class="plan-row"><span class="ex">Bulgarian Split Squat</span><span class="sets">3 × 10</span></div>
-                <div class="plan-row"><span class="ex">Single-Leg Hip Thrust</span><span class="sets">3 × 12</span></div>
-                <div class="plan-row"><span class="ex">Standing Calf Raise</span><span class="sets">3 × 15</span></div>
+            <div class="plan-wrap">
+              <div class="constraint-col" role="radiogroup" aria-label="Training constraint">
+                <button class="chip chip-constraint" role="radio" aria-pressed="true"  data-plan="full">
+                  <span class="chip-dot"></span>Full gym · 5 days
+                </button>
+                <button class="chip chip-constraint" role="radio" aria-pressed="false" data-plan="dumbbell">
+                  <span class="chip-dot"></span>Dumbbell · 3 days
+                </button>
+                <button class="chip chip-constraint" role="radio" aria-pressed="false" data-plan="knee">
+                  <span class="chip-dot"></span>Knee-safe · 4 days
+                </button>
+                <div class="chip-hint">Plan redraws on tap. No rebuilds, no friction.</div>
               </div>
-              <div class="mini-plan">
-                <div class="plan-meta">PUSH · 30 MIN · BODYWEIGHT</div>
-                <div class="plan-row"><span class="ex">Diamond Pushup</span><span class="sets">4 × 12</span></div>
-                <div class="plan-row"><span class="ex">Pike Pushup</span><span class="sets">3 × 10</span></div>
-                <div class="plan-row"><span class="ex">Dip</span><span class="sets">3 × AMRAP</span></div>
-                <div class="plan-row"><span class="ex">Pseudo-Planche Hold</span><span class="sets">3 × 30s</span></div>
-              </div>
-              <div class="mini-plan">
-                <div class="plan-meta">LEG · 60 MIN · KNEE-SAFE</div>
-                <div class="plan-row"><span class="ex">Trap-Bar Deadlift</span><span class="sets">4 × 6</span></div>
-                <div class="plan-row"><span class="ex">Hip Thrust</span><span class="sets">4 × 10</span></div>
-                <div class="plan-row"><span class="ex">Leg Press</span><span class="sets">3 × 12</span></div>
-                <div class="plan-row"><span class="ex">Nordic Curl</span><span class="sets">3 × 8</span></div>
-              </div>
-              <div class="mini-plan">
-                <div class="plan-meta">PULL · 50 MIN · BARBELL</div>
-                <div class="plan-row"><span class="ex">Weighted Pull-Up</span><span class="sets">4 × 6</span></div>
-                <div class="plan-row"><span class="ex">Pendlay Row</span><span class="sets">4 × 8</span></div>
-                <div class="plan-row"><span class="ex">Seated Cable Row</span><span class="sets">3 × 10</span></div>
-                <div class="plan-row"><span class="ex">Face Pull</span><span class="sets">3 × 15</span></div>
-              </div>
-              <div class="mini-plan">
-                <div class="plan-meta">CORE · 25 MIN · LOW-BACK</div>
-                <div class="plan-row"><span class="ex">Dead Bug</span><span class="sets">3 × 10</span></div>
-                <div class="plan-row"><span class="ex">Side Plank</span><span class="sets">3 × 30s</span></div>
-                <div class="plan-row"><span class="ex">Pallof Press</span><span class="sets">3 × 12</span></div>
-                <div class="plan-row"><span class="ex">Bird Dog</span><span class="sets">3 × 10</span></div>
-              </div>
-              <div class="mini-plan">
-                <div class="plan-meta">ZONE 2 · 45 MIN · CARDIO</div>
-                <div class="plan-row"><span class="ex">Incline Walk</span><span class="sets">10 min</span></div>
-                <div class="plan-row"><span class="ex">Steady Cycle</span><span class="sets">25 min</span></div>
-                <div class="plan-row"><span class="ex">Easy Row</span><span class="sets">8 min</span></div>
-                <div class="plan-row"><span class="ex">Cooldown Walk</span><span class="sets">2 min</span></div>
+              <div>
+                <div class="week-grid" id="week-grid">
+                  <div class="day-head">MON</div>
+                  <div class="day-head">TUE</div>
+                  <div class="day-head">WED</div>
+                  <div class="day-head">THU</div>
+                  <div class="day-head">FRI</div>
+                  <div class="day-head">SAT</div>
+                  <div class="day-head">SUN</div>
+                </div>
+                <div class="plan-legend">
+                  <span><span class="legend-dot lift"></span>Lift</span>
+                  <span><span class="legend-dot cardio"></span>Cardio</span>
+                  <span><span class="legend-dot recov"></span>Recovery</span>
+                </div>
               </div>
             </div>
           </div>
@@ -1055,6 +1129,85 @@
         .catch((err) => {
           console.warn('[emersus] /api/config fetch failed; stats fall back to hardcoded defaults', err);
         });
+    })();
+  </script>
+
+  <script>
+    /* ============================================================
+     * Bento v2 (2026-04-22) — reveal orchestration + Card 5 plan grid.
+     * One IntersectionObserver adds .in-view once per card (never
+     * removed); all reveal transitions in landing.css key off that
+     * class. Card 5's weekly plan is rendered from a JS data table
+     * that swaps on constraint-chip click.
+     * ============================================================ */
+    (function () {
+      'use strict';
+      var cards = document.querySelectorAll('#what .bento-card');
+      if ('IntersectionObserver' in window) {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting) {
+              e.target.classList.add('in-view');
+              io.unobserve(e.target);
+            }
+          });
+        }, { threshold: 0.25, rootMargin: '0px 0px -8% 0px' });
+        cards.forEach(function (c) { io.observe(c); });
+      } else {
+        cards.forEach(function (c) { c.classList.add('in-view'); });
+      }
+
+      var plans = {
+        full: [
+          ['lift','Push','Chest · Shoulders'], null, ['lift','Pull','Back · Bi'], null, ['lift','Legs','Quad · Post'], null, null,
+          ['cardio','Zone 2','45 min'], null, null, null, ['cardio','Zone 2','45 min'], ['lift','Full','Total'], null,
+          null, ['recov','Mobility','20 min'], null, ['recov','Mobility','20 min'], null, null, ['recov','Walk','Easy']
+        ],
+        dumbbell: [
+          ['lift','Push DB','Bench · OHP'], null, ['lift','Pull DB','Row · Curl'], null, ['lift','Legs DB','Split · RDL'], null, null,
+          null, null, null, null, null, ['cardio','Run','30 min'], null,
+          null, ['recov','Mobility','15 min'], null, ['recov','Mobility','15 min'], null, null, ['recov','Walk','Easy']
+        ],
+        knee: [
+          ['lift','Upper A','Push heavy'], null, ['lift','Hinge','RDL · Hip'], null, ['lift','Upper B','Pull heavy'], ['lift','Hinge','Hip thrust'], null,
+          ['cardio','Row','Zone 2 · 40'], null, null, null, ['cardio','Row','Zone 2 · 40'], null, null,
+          null, ['recov','Mobility','Knee-safe'], null, ['recov','Mobility','Knee-safe'], null, null, ['recov','Swim','Easy']
+        ]
+      };
+
+      var grid = document.getElementById('week-grid');
+      if (!grid) return;
+      function renderPlan(key) {
+        Array.prototype.slice.call(grid.querySelectorAll('.plan-block')).forEach(function (n) { n.remove(); });
+        var data = plans[key] || plans.full;
+        data.forEach(function (cell) {
+          var b = document.createElement('div');
+          if (!cell) {
+            b.className = 'plan-block empty';
+          } else {
+            b.className = 'plan-block';
+            b.setAttribute('data-type', cell[0]);
+            var l = document.createElement('div');
+            l.className = 'plan-label';
+            l.textContent = cell[1];
+            var s = document.createElement('div');
+            s.className = 'plan-sub';
+            s.textContent = cell[2];
+            b.appendChild(l);
+            b.appendChild(s);
+          }
+          grid.appendChild(b);
+        });
+      }
+      renderPlan('full');
+      document.querySelectorAll('.chip-constraint').forEach(function (chip) {
+        chip.addEventListener('click', function () {
+          document.querySelectorAll('.chip-constraint').forEach(function (c) {
+            c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+          });
+          renderPlan(chip.getAttribute('data-plan'));
+        });
+      });
     })();
   </script>
 
