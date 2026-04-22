@@ -100,8 +100,39 @@ export function createEmersusOrb(canvas, opts = {}) {
 
   function setShape(name) { transitionToShape(name); }
 
+  // ─── Pause RAF when off-screen or tab hidden ───
+  let isVisible = true;
+  let isOnScreen = true;
+  function shouldRun() { return isVisible && isOnScreen && !destroyed; }
+  function maybeStart() {
+    if (shouldRun() && !rafId) {
+      lastTime = performance.now();
+      rafId = requestAnimationFrame(tick);
+    }
+  }
+  function maybeStop() {
+    if (!shouldRun() && rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = 0;
+    }
+  }
+  function onVisibility() {
+    isVisible = document.visibilityState !== 'hidden';
+    if (isVisible) maybeStart(); else maybeStop();
+  }
+  document.addEventListener('visibilitychange', onVisibility);
+
+  let io = null;
+  if (typeof IntersectionObserver !== 'undefined') {
+    io = new IntersectionObserver(entries => {
+      for (const e of entries) isOnScreen = e.isIntersecting;
+      if (isOnScreen) maybeStart(); else maybeStop();
+    }, { threshold: 0.01 });
+    io.observe(canvas);
+  }
+
   function tick(now) {
-    if (destroyed) return;
+    if (destroyed || !shouldRun()) { rafId = 0; return; }
     const dt = Math.min(0.05, (now - lastTime) / 1000);
     lastTime = now;
 
@@ -256,6 +287,8 @@ export function createEmersusOrb(canvas, opts = {}) {
     getShape: () => currentShape,
     destroy() {
       destroyed = true;
+      document.removeEventListener('visibilitychange', onVisibility);
+      if (io) io.disconnect();
       if (rafId) cancelAnimationFrame(rafId);
       renderCtx.dispose();
     },
