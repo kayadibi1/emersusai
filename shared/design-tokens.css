@@ -172,26 +172,10 @@ html, body {
   transition: background .4s, color .4s;
 }
 
-/* Global grid pattern — a subtle 64 px grid that fades toward the
- * viewport edges. Sits behind all content so sidebars + cards with
- * opaque backgrounds mask it naturally, creating visible tonal contrast.
- * Landing overrides this on body.landing-body with a stronger mask; its
- * higher specificity wins and no conflict arises. Pages can opt out
- * with body.no-grid::before { display: none; }. */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse 100% 80% at 50% 40%, black 40%, transparent 95%);
-  -webkit-mask-image: radial-gradient(ellipse 100% 80% at 50% 40%, black 40%, transparent 95%);
-}
-body.no-grid::before { display: none; }
+/* Global grid mesh removed 2026-04-22. Was the wire-mesh body::before
+ * with a 64 px grid; opted out on landing first, now removed everywhere.
+ * --grid-line token retained because widgets + auth side-panel still
+ * use it for chart gridlines. */
 
 body {
   font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
@@ -204,9 +188,6 @@ body {
 
 /* /app pages get a modest bump for readability */
 body.app-body { font-size: 16px; }
-
-/* /app pages: remove the subtle background grid. */
-body.app-body::before { display: none; }
 
 /* /app pages: swap main-content bg with sidebar/topbar bg, per palette.
  * Mint: #0a0a0b ↔ #131315.  Paper: #f4efe5 ↔ #efeadf. */
