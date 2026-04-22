@@ -164,6 +164,12 @@ async function processPartition(entry, dedup, topics, out) {
     const journalStr = work.primary_location?.source?.display_name || null;
     if (!journalStr && titleStr.includes(" | ")) continue;
 
+    // Source-type gate: only accept `journal`-typed sources. Repositories,
+    // conference proceedings, ebook platforms, and book series leak grey
+    // literature and PubMed-fallback metadata. See 2026-04-22 audit.
+    const srcType = work.primary_location?.source?.type;
+    if (srcType && srcType !== "journal") continue;
+
     // Topic gate: OpenAlex ML-classified 2024 Topics taxonomy.
     const primaryTopic = work.primary_topic?.display_name || null;
     const subfield = work.primary_topic?.subfield?.display_name || null;

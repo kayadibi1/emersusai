@@ -111,6 +111,17 @@ function normalize(work) {
   // titles almost never contain a bare pipe, and real articles have a
   // journal. Both signals together → spam with very high precision.
   if (!journal && title.includes(" | ")) return null;
+  // Source-type gate: OpenAlex marks the journal/source with a `type`
+  // field (journal, repository, conference, ebook platform, book series).
+  // Reject anything that's NOT a real journal — the 2026-04-22 audit
+  // showed repository entries (PubMed-as-journal fallback, Research
+  // Square, IntechOpen, university CRIS, RePEc, etc.) accounted for
+  // ~80k garbage rows passing through. ISSN absence on the source is
+  // an additional signal but comes with name-collision noise (real
+  // Scientific Reports has an ISSN'd source AND a no-ISSN repository
+  // duplicate); type filtering is cleaner.
+  const sourceType = work.primary_location?.source?.type;
+  if (sourceType && sourceType !== "journal") return null;
   const pubDateStr = work.publication_date;
   const publishedAt = pubDateStr ? new Date(pubDateStr) : null;
   return {
