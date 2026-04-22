@@ -4863,10 +4863,9 @@ export function ChatApp() {
                     })];
                     return nodes;
                   }),
-                  h("div", {
-                    key: "persistent-orb",
-                    style: { display: "flex", justifyContent: "center", alignItems: "center", padding: "16px 0" },
-                  }, h(EmersusOrb, { state: glyphState })),
+                  h("article", { key: "persistent-orb", className: "message assistant persistent-orb" },
+                    h("div", { className: "message-content" },
+                      h(EmersusOrb, { state: glyphState }))),
                 ]
               : h("section", { className: "thread-welcome" },
                   h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),

@@ -1416,11 +1416,11 @@ body.chat-page {
   display: block;
   content: "";
   font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 10px;
+  font-size: 13px;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   font-weight: 500;
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
 .message.user::before {
   display: none;
