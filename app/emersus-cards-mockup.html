@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mint">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emersus — three-card static mockup (Stripe-style)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  Static mockup — three cards inspired by Stripe's 2026 landing.
+  Layout: Ask · Synthesize · Connect
+  Palette: Emersus wave v2 (mint · emerald · azure · indigo).
+  Typography: Space Grotesk (body + heading) + JetBrains Mono (meta), matching shared/landing.css.
+  No motion yet — just the static scene for each card.
+
+  URL knobs:
+    ?theme=mint|paper     switch dark/light themes
+-->
+<style>
+  /* ================== Wave palette (shared) ================== */
+  :root {
+    --wave-1: #bff6e4;
+    --wave-2: #34d399;
+    --wave-3: #5091f2;
+    --wave-4: #4338ca;
+    --wave-foil:
+      linear-gradient(112deg,
+        #bff6e4 0%,
+        #34d399 28%,
+        #5091f2 62%,
+        #4338ca 100%);
+    --wave-foil-soft:
+      linear-gradient(112deg,
+        rgba(191,246,228,0.92) 0%,
+        rgba(52,211,153,0.92)  28%,
+        rgba(80,145,242,0.92)  62%,
+        rgba(67,56,202,0.92)   100%);
+  }
+
+  /* ================== Dark (mint) ================== */
+  :root[data-theme="mint"] {
+    --bg: #0a0a0b;
+    --bg-card: #141417;
+    --bg-card-2: #1a1a1e;
+    --ink: #ededee;
+    --muted: #8a8a8f;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.14);
+    --accent: var(--wave-2);
+    --bubble: rgba(255,255,255,0.06);
+    --bubble-user: rgba(52,211,153,0.14);
+  }
+  /* ================== Light (paper) ================== */
+  :root[data-theme="paper"] {
+    --bg: #f4efe5;
+    --bg-card: #ffffff;
+    --bg-card-2: #fbf8f2;
+    --ink: #1a1813;
+    --muted: #5e564a;
+    --border: rgba(26,24,19,0.08);
+    --border-strong: rgba(26,24,19,0.14);
+    --accent: var(--wave-3);
+    --bubble: rgba(26,24,19,0.04);
+    --bubble-user: rgba(59,109,214,0.10);
+  }
+
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; min-height: 100vh;
+    background: var(--bg); color: var(--ink);
+    font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+    font-weight: 450; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ================== Top bar ================== */
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 32px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px; color: var(--muted); letter-spacing: 0.04em;
+  }
+  .topbar a {
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border-strong); border-radius: 999px;
+    margin-left: 6px;
+  }
+  .topbar a.active { background: rgba(52,211,153,0.10); }
+
+  /* ================== Section shell ================== */
+  .hero {
+    max-width: 1320px; margin: 0 auto; padding: 64px 32px 80px;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 12px;
+  }
+  h1.section-title {
+    font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+    font-weight: 500; font-size: 44px; line-height: 1.08;
+    margin: 0 0 10px; letter-spacing: -0.02em;
+  }
+  .section-sub {
+    font-size: 16px; color: var(--muted);
+    max-width: 680px; margin: 0 0 40px; line-height: 1.5;
+  }
+
+  /* ================== Card grid ================== */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--border);
+    overflow: hidden;
+  }
+  @media (max-width: 980px) {
+    .cards { grid-template-columns: 1fr; }
+  }
+  .card {
+    position: relative;
+    background: var(--bg-card);
+    padding: 28px 28px 32px;
+    min-height: 560px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  .card-title {
+    font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+    font-weight: 500; font-size: 22px; line-height: 1.22;
+    letter-spacing: -0.015em;
+    margin: 0; padding-right: 48px;
+    max-width: 320px;
+  }
+  .card-expand {
+    position: absolute; top: 20px; right: 20px;
+    width: 30px; height: 30px; border-radius: 8px;
+    display: grid; place-items: center;
+    background: var(--bubble); border: 1px solid var(--border);
+    color: var(--muted); font-size: 13px;
+  }
+  .card-scene {
+    flex: 1;
+    margin-top: 32px;
+    position: relative;
+    display: grid; place-items: center;
+    overflow: hidden;               /* contain neighbour papers that overflow */
+  }
+
+  /* ============================================================
+     CARD 1 — ASK : chat bubble + cloud of paper-dots
+     ============================================================ */
+  .scene-ask {
+    width: 100%; height: 420px;
+    position: relative;
+  }
+  .scene-ask .cloud {
+    position: absolute; inset: 0;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 78% 70% at 50% 50%, #000 0%, #000 55%, transparent 100%);
+  }
+  .scene-ask .dot {
+    position: absolute;
+    width: 3px; height: 3px; border-radius: 50%;
+    background: var(--wave-2);
+    opacity: 0.55;
+  }
+  .scene-ask .chat {
+    position: relative; z-index: 2;
+    width: 78%; max-width: 300px;
+    margin: 38px auto 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .bubble {
+    padding: 10px 13px; border-radius: 14px;
+    font-size: 13px; line-height: 1.42;
+    background: var(--bubble); color: var(--ink);
+    border: 1px solid var(--border);
+    max-width: 86%;
+  }
+  .bubble.user {
+    align-self: flex-end;
+    background: var(--bubble-user);
+    border-color: transparent;
+  }
+  .bubble.assistant {
+    align-self: flex-start;
+  }
+  .cite-row {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin-top: 2px;
+  }
+  .cite {
+    background: var(--bg-card-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 9px 10px;
+    font-size: 10.5px; line-height: 1.35;
+  }
+  .cite .j {
+    color: var(--muted); font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 9.5px; letter-spacing: 0.04em; text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .cite .t { color: var(--ink); font-weight: 500; }
+  .cite .n { color: var(--muted); margin-top: 3px; font-size: 9.5px; }
+
+  /* ============================================================
+     CARD 2 — READ : tilted paper, dense with math, default-blurred
+       · no reticle — just the page itself
+       · blur is exposed as CSS var (--focus-blur) so the hover
+         animation can later clear it under the cursor
+     ============================================================ */
+  .scene-paper {
+    width: 100%; height: 420px;
+    position: relative;
+    display: grid;
+    place-items: center;              /* hero centered; neighbours peek all four sides */
+    perspective: 1800px;
+    perspective-origin: 55% 50%;
+  }
+
+  .scene-paper { --focus-blur: 3.8px; }   /* hover anim will drive this to 0 */
+
+  .paper {
+    background: #0e1013;             /* deep near-black paper */
+    color: #e8e7e2;
+    border-radius: 2px;
+    padding: 18px 18px 22px;
+    overflow: hidden;
+    filter: blur(var(--focus-blur));
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.08),
+      inset 0 0 40px rgba(0,0,0,0.35);
+  }
+  :root[data-theme="paper"] .paper {
+    /* dark paper holds even in light theme for consistency */
+    background: #0e1013;
+    color: #e8e7e2;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.10),
+      inset 0 0 32px rgba(0,0,0,0.40);
+  }
+
+  /* Page fibers — very subtle horizontal lines on dark paper */
+  .paper::before {
+    content: ""; position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent 0 11px,
+        rgba(255,255,255,0.025) 11px 11.5px);
+    pointer-events: none;
+  }
+
+  /* Neighbour papers — same size, same tilt as hero. Positioned
+     left/right/top of the hero in the shared transform context, so
+     they read as a connected wall of papers extending past the card. */
+  .paper-group {
+    position: relative;
+    width: 240px; height: 300px;      /* hero size (shorter → top + bottom both peek) */
+    transform-style: preserve-3d;
+    transform:
+      rotateY(-20deg)
+      rotateX(6deg)
+      rotateZ(-2deg)
+      translateX(-4px);
+    filter: drop-shadow(18px 28px 40px rgba(67,56,202,0.35))
+            drop-shadow(0 4px 10px rgba(0,0,0,0.35));
+  }
+  /* 3×3 wall — hero centre, 8 neighbours, 10 px gaps */
+  .paper-hero   { position: absolute; inset: 0; }
+  .paper-left   { position: absolute; top:     0; left: -250px; }
+  .paper-right  { position: absolute; top:     0; left:  250px; }
+  .paper-top    { position: absolute; top: -310px; left:      0; }
+  .paper-tl     { position: absolute; top: -310px; left: -250px; }
+  .paper-tr     { position: absolute; top: -310px; left:  250px; }
+  .paper-bottom { position: absolute; top:  310px; left:      0; }
+  .paper-bl     { position: absolute; top:  310px; left: -250px; }
+  .paper-br     { position: absolute; top:  310px; left:  250px; }
+
+  /* Neighbour inner dims match hero exactly */
+  .paper.neighbour { width: 240px; height: 300px; }
+
+  /* Paper body (title / methods / equations) */
+  .paper-title {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600; font-size: 10.5px; line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: #f4f3ee;
+    padding-right: 20px;
+    margin: 0 0 4px;
+  }
+  .paper-meta {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 7px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.58);
+    margin: 0 0 10px;
+  }
+  .paper-section {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 7.2px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.68);
+    margin: 6px 0 4px;
+    border-bottom: 0.5px solid rgba(255,255,255,0.18);
+    padding-bottom: 2px;
+  }
+  .body-text {
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 6.8px; line-height: 1.45;
+    color: #e6e5df; opacity: 0.92;
+    text-align: justify;
+  }
+  .body-text p { margin: 0 0 4px; }
+  .body-text em { font-style: italic; }
+  .eq {
+    display: block;
+    font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif;
+    font-size: 7.8px;
+    text-align: center;
+    margin: 5px 0;
+    color: #efede7;
+    letter-spacing: 0.01em;
+  }
+  .eq-tag {
+    float: right;
+    font-family: 'Times New Roman', serif;
+    font-size: 6.8px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  /* Caption below the tilted page */
+  .paper-caption {
+    position: absolute;
+    bottom: 14px; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); white-space: nowrap;
+    z-index: 3;
+  }
+  .paper-caption .j { color: var(--ink); opacity: 0.95; }
+  .paper-caption .dot { opacity: 0.4; }
+
+  /* ============================================================
+     CARD 3 — CONNECT : dotted globe + citation arcs
+     ============================================================ */
+  .scene-globe {
+    width: 100%; height: 420px;
+    position: relative;
+    display: grid; place-items: center;
+    overflow: hidden;
+  }
+  .globe-svg { width: 100%; height: 100%; }
+  .ticket {
+    position: absolute;
+    background: var(--bg-card-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 9px;
+    display: flex; align-items: center; gap: 7px;
+    font-size: 10.5px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    z-index: 3;
+  }
+  .ticket .swatch {
+    width: 16px; height: 16px; border-radius: 4px;
+    background: var(--wave-foil);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+    flex-shrink: 0;
+  }
+  .ticket .meta { color: var(--muted); margin-left: 2px; }
+  .ticket.t1 { top: 28%; left: 8%; }
+  .ticket.t2 { top: 46%; right: 10%; }
+  .ticket.t3 { bottom: 22%; left: 38%; }
+
+  /* Captions under cards */
+  .card-cap {
+    margin-top: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>EMERSUS · cards static mockup</span>
+  <span>
+    <a href="?theme=mint"  id="link-mint">mint · dark</a>
+    <a href="?theme=paper" id="link-paper">paper · light</a>
+  </span>
+</div>
+
+<section class="hero">
+  <div class="cards">
+
+    <!-- ============ CARD 1 · ASK ============ -->
+    <div class="card">
+      <h2 class="card-title">Ask anything, grounded in peer-reviewed evidence</h2>
+      <div class="card-expand">↗</div>
+      <div class="card-scene">
+        <div class="scene-ask">
+          <!-- Paper-dot cloud (purely visual, positioned by JS) -->
+          <div class="cloud" id="cloud"></div>
+
+          <!-- Chat UI -->
+          <div class="chat">
+            <div class="bubble user">
+              Does creatine help with cognition, or just strength?
+            </div>
+            <div class="bubble assistant">
+              Both — about 25 RCTs find improved working memory and
+              reasoning in adults, effect strongest in sleep-deprived
+              or vegetarian subjects.
+            </div>
+            <div class="cite-row">
+              <div class="cite">
+                <div class="j">Nutrients · 2023</div>
+                <div class="t">Creatine &amp; cognitive performance</div>
+                <div class="n">Meta-analysis · n = 640</div>
+              </div>
+              <div class="cite">
+                <div class="j">Psychopharm · 2022</div>
+                <div class="t">Sleep deprivation &amp; supplementation</div>
+                <div class="n">RCT · n = 123</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-cap">Ask · chat</div>
+    </div>
+
+    <!-- ============ CARD 2 · READ ============ -->
+    <div class="card">
+      <h2 class="card-title">We read so you don&rsquo;t have to</h2>
+      <div class="card-expand">↗</div>
+      <div class="card-scene">
+        <div class="scene-paper">
+          <div class="paper-group">
+
+            <!-- TOP-LEFT neighbour -->
+            <div class="paper neighbour paper-tl">
+              <h3 class="paper-title">
+                Protein requirements in resistance-trained adults:
+                a revisited RDA
+              </h3>
+              <div class="paper-meta">
+                Phillips · Tang · J Appl Physiol · 2017
+              </div>
+              <div class="paper-section">Abstract</div>
+              <div class="body-text">
+                <p>Nitrogen-balance studies systematically underestimate protein
+                   needs in trained adults. Using the indicator amino acid
+                   oxidation (IAAO) method, we report requirements 30–50%
+                   higher than the current RDA (0.8 g·kg<sup>−1</sup>·d<sup>−1</sup>).</p>
+              </div>
+              <div class="eq">
+                EAR<sub>trained</sub> = 1.20 ± 0.18 g·kg<sup>−1</sup>·d<sup>−1</sup>
+                <span class="eq-tag">(1)</span>
+              </div>
+            </div>
+
+            <!-- TOP-RIGHT neighbour -->
+            <div class="paper neighbour paper-tr">
+              <h3 class="paper-title">
+                Maximal oxygen uptake and mitochondrial volume
+                density in elite endurance athletes
+              </h3>
+              <div class="paper-meta">
+                Montero · Lundby · J Physiol · 2018
+              </div>
+              <div class="paper-section">2. Methods</div>
+              <div class="body-text">
+                <p>Skeletal muscle biopsies (vastus lateralis) were processed
+                   for electron microscopy. Mitochondrial volume density
+                   (V<sub>V</sub>(mt,f)) was estimated by point-counting
+                   stereology:</p>
+              </div>
+              <div class="eq">
+                V<sub>V</sub>(mt,f) = P<sub>mt</sub> / P<sub>f</sub>
+                <span class="eq-tag">(2)</span>
+              </div>
+            </div>
+
+            <!-- TOP neighbour -->
+            <div class="paper neighbour paper-top">
+              <h3 class="paper-title">
+                Mitochondrial biogenesis and PGC-1α signalling after
+                high-intensity interval training
+              </h3>
+              <div class="paper-meta">
+                Gibala · Little · J Physiol · 2020
+              </div>
+              <div class="paper-section">3. Results</div>
+              <div class="body-text">
+                <p>Citrate synthase activity increased 27% (95% CI 18–36)
+                   following 6 weeks of SIT (3×30 s sprints, 3× wk<sup>−1</sup>).
+                   PGC-1α mRNA peaked at 3 h post-exercise
+                   (fold change 4.8 ± 1.1). The ratio of phosphorylated to
+                   total AMPK-α in vastus lateralis homogenates scaled
+                   linearly with session work (r = 0.71, p &lt; 0.001):</p>
+              </div>
+              <div class="eq">
+                p-AMPK/AMPK = β<sub>0</sub> + β<sub>1</sub>·W<sub>session</sub>
+                + β<sub>2</sub>·VO<sub>2peak</sub> + ε
+                <span class="eq-tag">(6)</span>
+              </div>
+              <div class="body-text">
+                <p>Residuals were normally distributed (Shapiro–Wilk,
+                   W = 0.97). Effects remained significant after Bonferroni
+                   correction (α<sub>adj</sub> = 0.0125).</p>
+              </div>
+            </div>
+
+            <!-- LEFT neighbour -->
+            <div class="paper neighbour paper-left">
+              <h3 class="paper-title">
+                Skeletal muscle carnosine synthesis:
+                rate-limiting role of β-alanine
+              </h3>
+              <div class="paper-meta">
+                Blancquaert · Everaert · Derave · Amino Acids · 2015
+              </div>
+              <div class="paper-section">1. Introduction</div>
+              <div class="body-text">
+                <p>Carnosine (β-alanyl-L-histidine) is synthesised in type-II
+                   fibres by carnosine synthase (CARNS1; EC 6.3.2.11) in an
+                   ATP-dependent condensation:</p>
+              </div>
+              <div class="eq">
+                β-Ala + L-His + ATP → Carnosine + AMP + PP<sub>i</sub>
+                <span class="eq-tag">(1)</span>
+              </div>
+              <div class="body-text">
+                <p>K<sub>m</sub> for β-alanine is ~1.1 mM and for histidine
+                   ~16 μM, making cytosolic β-alanine concentration the
+                   dominant rate-limiting substrate. Human skeletal muscle
+                   β-alanine is below K<sub>m</sub> under habitual intake:</p>
+              </div>
+              <div class="eq">
+                v = V<sub>max</sub>·[β-Ala] / (K<sub>m</sub> + [β-Ala])
+                <span class="eq-tag">(2)</span>
+              </div>
+            </div>
+
+            <!-- HERO (centre) — real CC-BY paper (Hof & Bridge, 2020,
+                 PMC7979639, J Pharmacokinet Pharmacodyn) -->
+            <div class="paper paper-hero">
+
+              <h3 class="paper-title">
+                Exact solutions and equi-dosing regimen regions for
+                multi-dose pharmacokinetics models with transit
+                compartments
+              </h3>
+              <div class="paper-meta">
+                Hof · Bridge · J Pharmacokinet Pharmacodyn · 2020
+              </div>
+
+              <div class="paper-section">3. Analytical solutions for equi-dosing regimens</div>
+              <div class="body-text">
+                <p>More generally, the transit compartment model
+                   (<em>M<sub>t</sub></em>) comprises a multi-compartment oral
+                   absorption process, and the ODEs may be written in matrix
+                   form as in (2.6). For equi-bolus dosing, the exact solution
+                   may be written using the matrix exponential [9, 27], or by
+                   using Laplace Transforms (Appendix 1.4):</p>
+              </div>
+
+              <div class="eq">
+                <em>a<sub>i</sub></em>(t) =
+                FD<sub>0</sub>·<em>k</em><sup><em>i</em>−1</sup> / (<em>i</em>−1)!
+                &nbsp;∑<sub><em>j</em>=1</sub><sup><em>M</em></sup>
+                <em>H</em>(<em>t<sub>j</sub></em>)·<em>t<sub>j</sub></em><sup><em>i</em>−1</sup>·e<sup>−<em>kt<sub>j</sub></em></sup>,
+                &nbsp; <em>i</em> = 1,…,<em>n</em>
+                <span class="eq-tag">(3.15)</span>
+              </div>
+
+              <div class="body-text">
+                <p>where <em>t<sub>j</sub></em> = <em>t</em> −
+                   (<em>j</em>−1)<em>T</em>. This result is equivalent to the
+                   multi-dose analytical result of Shen <em>et al</em> [46],
+                   and to the Savic single-dose solution [44] if
+                   <em>M</em> = 1. The absorption compartment solution
+                   (Appendix 1.4) is</p>
+              </div>
+
+              <div class="eq">
+                <em>a<sub>b</sub></em>(t) =
+                FD<sub>0</sub> / (<em>n</em>−1)! ·
+                <em>k</em> / (<em>k</em>−<em>k<sub>a</sub></em>)<sup><em>n</em></sup>
+                ·∑<sub><em>j</em>=1</sub><sup><em>M</em></sup>
+                <em>H</em>(<em>t<sub>j</sub></em>)·e<sup>−<em>k<sub>a</sub>t<sub>j</sub></em></sup>·γ(<em>n</em>, (<em>k</em>−<em>k<sub>a</sub></em>)<em>t<sub>j</sub></em>)
+                <span class="eq-tag">(3.16)</span>
+              </div>
+
+            </div>
+
+            <!-- RIGHT neighbour -->
+            <div class="paper neighbour paper-right">
+              <h3 class="paper-title">
+                Neuromuscular adaptations to concurrent aerobic and
+                resistance training: a dose–response meta-regression
+              </h3>
+              <div class="paper-meta">
+                Schoenfeld · Grgic · Helms · Sports Med · 2021
+              </div>
+              <div class="paper-section">2.3 Random-effects model</div>
+              <div class="body-text">
+                <p>Effect sizes (Hedges' <em>g</em>) were pooled under a
+                   random-effects meta-regression with training volume
+                   (sets·wk<sup>−1</sup>) as moderator. The restricted
+                   maximum-likelihood estimator (REML) yielded:</p>
+              </div>
+              <div class="eq">
+                <em>g</em><sub>i</sub> = μ + β·x<sub>i</sub> + u<sub>i</sub> + ε<sub>i</sub>,
+                &nbsp; u<sub>i</sub>&nbsp;∼&nbsp;N(0, τ<sup>2</sup>)
+                <span class="eq-tag">(3)</span>
+              </div>
+              <div class="body-text">
+                <p>Between-study heterogeneity was substantial (I<sup>2</sup>
+                   = 54%, τ<sup>2</sup> = 0.09). The fitted dose–response
+                   plateaued at ~20 sets·wk<sup>−1</sup> per muscle group;
+                   marginal returns &gt; 20 sets were indistinguishable from
+                   zero (β<sub>20+</sub> = 0.02, 95% CI −0.05 to 0.09).</p>
+              </div>
+            </div>
+
+            <!-- BOTTOM-LEFT neighbour -->
+            <div class="paper neighbour paper-bl">
+              <h3 class="paper-title">
+                Energy availability, RED-S, and menstrual function
+                in female athletes
+              </h3>
+              <div class="paper-meta">
+                Loucks · Kiens · Mountjoy · Br J Sports Med · 2023
+              </div>
+              <div class="paper-section">Results</div>
+              <div class="body-text">
+                <p>Below an energy availability threshold of 30
+                   kcal·kg<sup>−1</sup> FFM·d<sup>−1</sup>, luteinizing-hormone
+                   pulse frequency declined by 42% (p &lt; 0.001). IGF-1 and
+                   T<sub>3</sub> fell in parallel.</p>
+              </div>
+              <div class="eq">
+                EA = (EI − EEE) / FFM
+                <span class="eq-tag">(1)</span>
+              </div>
+            </div>
+
+            <!-- BOTTOM neighbour -->
+            <div class="paper neighbour paper-bottom">
+              <h3 class="paper-title">
+                Leucine-enriched EAA supplementation amplifies
+                mTORC1 signalling in older adults
+              </h3>
+              <div class="paper-meta">
+                Dickinson · Volpi · Rasmussen · Am J Physiol Endocrinol · 2020
+              </div>
+              <div class="paper-section">3.2 Kinetics</div>
+              <div class="body-text">
+                <p>Phosphorylation of p70S6K<sup>Thr389</sup> peaked 60 min
+                   post-ingestion (6.3-fold above basal). The dose–response
+                   followed a saturable first-order relationship:</p>
+              </div>
+              <div class="eq">
+                R(dose) = R<sub>max</sub>·[Leu] / (K<sub>d</sub> + [Leu])
+                <span class="eq-tag">(3)</span>
+              </div>
+              <div class="body-text">
+                <p>Half-maximal activation K<sub>d</sub> ≈ 1.8 mM. Clinical
+                   relevance beyond 3 g leucine is minimal.</p>
+              </div>
+            </div>
+
+            <!-- BOTTOM-RIGHT neighbour -->
+            <div class="paper neighbour paper-br">
+              <h3 class="paper-title">
+                Sleep restriction, testosterone, and muscle
+                protein turnover in young men
+              </h3>
+              <div class="paper-meta">
+                Dattilo · Saeed · Phillips · Sleep · 2021
+              </div>
+              <div class="paper-section">Methods</div>
+              <div class="body-text">
+                <p>Fifteen healthy men (age 23 ± 3 y) underwent 5 nights
+                   of 5-h TIB. Whole-body protein kinetics were assessed by
+                   [1-<sup>13</sup>C]leucine infusion pre/post. Net balance
+                   (NB) was derived from:</p>
+              </div>
+              <div class="eq">
+                NB = Q<sub>syn</sub> − Q<sub>deg</sub>
+                <span class="eq-tag">(2)</span>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Caption: journal · year · pmid -->
+          <div class="paper-caption">
+            <span class="j">J Pharmacokinet Pharmacodyn</span>
+            <span class="dot">·</span>
+            <span>2020</span>
+            <span class="dot">·</span>
+            <span>pmid 33040255</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-cap">Read · paper</div>
+    </div>
+
+    <!-- ============ CARD 3 · CONNECT ============ -->
+    <div class="card">
+      <h2 class="card-title">Connect findings across the global corpus</h2>
+      <div class="card-expand">↗</div>
+      <div class="card-scene">
+        <div class="scene-globe">
+          <!-- Dotted hemisphere + arcs drawn as SVG -->
+          <svg class="globe-svg" viewBox="0 0 420 400" id="globe"></svg>
+
+          <!-- Citation tickets (the Emersus equivalent of $USDC tiles) -->
+          <div class="ticket t1">
+            <div class="swatch"></div>
+            <span>BMJ</span><span class="meta">· +248 cites</span>
+          </div>
+          <div class="ticket t2">
+            <div class="swatch"></div>
+            <span>JAMA</span><span class="meta">· meta 2024</span>
+          </div>
+          <div class="ticket t3">
+            <div class="swatch"></div>
+            <span>Nature</span><span class="meta">· n = 3,104</span>
+          </div>
+        </div>
+      </div>
+      <div class="card-cap">Connect · network</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  /* ---------- theme + blur switches (URL knobs) ---------- */
+  (function () {
+    const params = new URLSearchParams(location.search);
+    const theme = params.get('theme') === 'paper' ? 'paper' : 'mint';
+    document.documentElement.setAttribute('data-theme', theme);
+    const mint = document.getElementById('link-mint');
+    const paper = document.getElementById('link-paper');
+    (theme === 'mint' ? mint : paper).classList.add('active');
+
+    // ?blur=0 → focus the whole wall (preview what the hover spotlight will reveal)
+    const blur = params.get('blur');
+    if (blur !== null) {
+      const scene = document.querySelector('.scene-paper');
+      if (scene) scene.style.setProperty('--focus-blur', blur + 'px');
+    }
+  })();
+
+  /* ---------- Card 1 · paper-dot cloud (static layout) ---------- */
+  (function () {
+    const host = document.getElementById('cloud');
+    if (!host) return;
+    const DOTS = 260;
+    const palette = ['#bff6e4', '#34d399', '#5091f2', '#4338ca'];
+
+    // Seedable PRNG so the layout is stable between reloads.
+    let seed = 1337;
+    const rand = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+
+    for (let i = 0; i < DOTS; i++) {
+      // Bias toward a torus around a central oval, mirroring Stripe card 1.
+      const t = rand() * Math.PI * 2;
+      const band = 0.58 + rand() * 0.42;         // annulus thickness
+      const rx = 44 + band * 8;                  // oval radius X %
+      const ry = 38 + band * 6;                  // oval radius Y %
+      const jitter = () => (rand() - 0.5) * 22;
+
+      const x = 50 + Math.cos(t) * rx + jitter();
+      const y = 50 + Math.sin(t) * ry + jitter() * 0.6;
+
+      const el = document.createElement('span');
+      el.className = 'dot';
+      el.style.left = x.toFixed(2) + '%';
+      el.style.top  = y.toFixed(2) + '%';
+      // size + colour stop based on band (outer ring is paler/smaller)
+      const stop = Math.floor(band * palette.length * 0.999);
+      el.style.background = palette[Math.min(stop, palette.length - 1)];
+      const sz = 1.4 + rand() * 3.2;
+      el.style.width = el.style.height = sz.toFixed(1) + 'px';
+      el.style.opacity = (0.35 + band * 0.45).toFixed(2);
+      host.appendChild(el);
+    }
+  })();
+
+  /* ---------- Card 3 · dotted hemisphere + arcs (static SVG) ---------- */
+  (function () {
+    const svg = document.getElementById('globe');
+    if (!svg) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    const palette = ['#bff6e4', '#34d399', '#5091f2', '#4338ca'];
+
+    let seed = 4242;
+    const rand = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+
+    // Hemisphere center + radius (in viewBox units)
+    const cx = 210, cy = 250, R = 170;
+    const DOTS = 900;
+
+    for (let i = 0; i < DOTS; i++) {
+      // Uniform disc sampling, biased upward so it reads as a hemisphere.
+      const r = Math.sqrt(rand()) * R;
+      const a = rand() * Math.PI * 2;
+      let x = cx + Math.cos(a) * r;
+      let y = cy + Math.sin(a) * r * 0.62;      // squash to ellipse
+      // Fade edges — drop the point if outside a softened oval
+      const nx = (x - cx) / R;
+      const ny = (y - cy) / (R * 0.62);
+      const d = Math.sqrt(nx*nx + ny*ny);
+      if (d > 1) continue;
+      // Edge falloff for opacity
+      const fall = 1 - Math.pow(d, 1.4);
+
+      // Colour by longitude (left cool, right warm-ish — but we stay cool)
+      const t = (x - (cx - R)) / (2 * R);         // 0..1
+      const idx = Math.min(palette.length - 1, Math.floor(t * palette.length));
+
+      const dot = document.createElementNS(NS, 'circle');
+      dot.setAttribute('cx', x.toFixed(1));
+      dot.setAttribute('cy', y.toFixed(1));
+      dot.setAttribute('r', (0.6 + rand() * 1.2).toFixed(2));
+      dot.setAttribute('fill', palette[idx]);
+      dot.setAttribute('opacity', (0.25 + fall * 0.65).toFixed(2));
+      svg.appendChild(dot);
+    }
+
+    // Pins (anchor points) + arcs between them
+    const pins = [
+      { x: cx - 130, y: cy - 30  },   // Boston
+      { x: cx - 40,  y: cy - 80  },   // London
+      { x: cx + 50,  y: cy - 50  },   // Copenhagen
+      { x: cx + 130, y: cy + 20  },   // Tokyo
+      { x: cx + 30,  y: cy + 80  },   // Sydney
+    ];
+    pins.forEach((p, i) => {
+      const ring = document.createElementNS(NS, 'circle');
+      ring.setAttribute('cx', p.x); ring.setAttribute('cy', p.y);
+      ring.setAttribute('r', 5.5);
+      ring.setAttribute('fill', 'none');
+      ring.setAttribute('stroke', palette[(i + 1) % palette.length]);
+      ring.setAttribute('stroke-width', '1.4');
+      ring.setAttribute('opacity', '0.85');
+      svg.appendChild(ring);
+
+      const core = document.createElementNS(NS, 'circle');
+      core.setAttribute('cx', p.x); core.setAttribute('cy', p.y);
+      core.setAttribute('r', 1.8);
+      core.setAttribute('fill', palette[(i + 1) % palette.length]);
+      svg.appendChild(core);
+    });
+
+    // Arcs — draw as quadratic Béziers lifted above the midpoint.
+    const arcs = [
+      [0, 2], [1, 4], [2, 3], [0, 3]
+    ];
+    arcs.forEach(([a, b], i) => {
+      const p1 = pins[a], p2 = pins[b];
+      const mx = (p1.x + p2.x) / 2;
+      const my = (p1.y + p2.y) / 2;
+      const lift = 80 + (i * 14);
+      const cpY = my - lift;
+      const path = document.createElementNS(NS, 'path');
+      path.setAttribute('d', `M ${p1.x} ${p1.y} Q ${mx} ${cpY} ${p2.x} ${p2.y}`);
+      path.setAttribute('fill', 'none');
+      path.setAttribute('stroke', palette[(i + 1) % palette.length]);
+      path.setAttribute('stroke-width', '1.1');
+      path.setAttribute('opacity', '0.72');
+      path.setAttribute('stroke-linecap', 'round');
+      svg.appendChild(path);
+    });
+  })();
+</script>
+
+</body>
+</html>
