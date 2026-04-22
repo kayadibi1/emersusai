@@ -5140,6 +5140,14 @@ export function ChatApp() {
                     : null,
                 )))),
       h("div", { className: "chat-composer-shell" },
+        (!isSubmitting && activeMessages.length >= 10)
+          ? h("button", {
+              type: "button",
+              className: "session-recap-chip",
+              onClick: () => setQuestion("Summarize this thread into a concise brief."),
+              "aria-label": "Request a summary of this thread",
+            }, h("span", null, "📋"), " Summarize this thread")
+          : null,
         showScrollDown
           ? h("button", {
               type: "button",

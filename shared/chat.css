@@ -1492,6 +1492,30 @@ body.chat-page {
   color: var(--accent);
 }
 
+/* Session-end recap chip — appears above composer on 10+ message threads,
+ * one-click prompt seed to summarize the thread. */
+.session-recap-chip {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface-faint);
+  color: var(--muted);
+  font: inherit;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  margin: 0 auto 10px;
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  cursor: pointer;
+  transition: border-color 140ms ease, color 140ms ease, background 140ms ease;
+}
+.session-recap-chip:hover {
+  border-color: var(--accent-line);
+  color: var(--ink);
+  background: var(--accent-soft);
+}
+
 /* Undo-toast — bottom-center, 6s auto-dismiss, click Undo to restore. */
 .undo-toast {
   position: fixed;
