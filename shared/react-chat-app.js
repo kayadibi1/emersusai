@@ -447,6 +447,45 @@ function greetingFor(name, _messagesLen, history) {
   return `${timeOfDay}, ${first}`;
 }
 
+function VoiceInputButton({ onTranscript, disabled }) {
+  const [listening, setListening] = React.useState(false);
+  const recognitionRef = React.useRef(null);
+  const start = () => {
+    if (listening || disabled) return;
+    const Rec = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!Rec) return;
+    const r = new Rec();
+    r.lang = "en-US";
+    r.interimResults = false;
+    r.continuous = false;
+    r.onresult = (event) => {
+      const txt = Array.from(event.results)
+        .map((res) => res[0]?.transcript || "")
+        .join(" ")
+        .trim();
+      if (txt) onTranscript?.(txt);
+    };
+    r.onerror = () => setListening(false);
+    r.onend = () => setListening(false);
+    recognitionRef.current = r;
+    r.start();
+    setListening(true);
+    try { navigator.vibrate?.(4); } catch (_) { /* noop */ }
+  };
+  const stop = () => {
+    try { recognitionRef.current?.stop(); } catch (_) { /* noop */ }
+    setListening(false);
+  };
+  return React.createElement("button", {
+    type: "button",
+    className: `voice-input-btn${listening ? " is-listening" : ""}`,
+    "aria-label": listening ? "Stop voice input" : "Voice input",
+    title: listening ? "Stop recording" : "Voice input (hold to speak)",
+    disabled,
+    onClick: listening ? stop : start,
+  }, React.createElement("span", { "aria-hidden": true }, listening ? "●" : "🎙"));
+}
+
 function createEmptyThread() {
   return {
     id: createThreadId(),
@@ -5283,6 +5322,15 @@ export function ChatApp() {
               },
             }),
             h("div", { className: "composer-actions" },
+              // Voice input — Web Speech API (Chrome/Edge). Hidden on browsers
+              // without support. Click to start, click again to stop.
+              (typeof window !== "undefined"
+                && (window.SpeechRecognition || window.webkitSpeechRecognition))
+                ? h(VoiceInputButton, {
+                    onTranscript: (text) => setQuestion((prev) => prev ? `${prev} ${text}` : text),
+                    disabled: composerDisabled,
+                  })
+                : null,
               chatV2On && isSubmitting
                 ? h(
                     "button",
