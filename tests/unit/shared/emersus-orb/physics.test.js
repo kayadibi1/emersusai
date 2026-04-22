@@ -2,6 +2,7 @@ import { test, describe } from 'node:test';
 import assert from 'node:assert/strict';
 import { greedyNearestAssign } from '../../../../shared/emersus-orb/physics.js';
 import { curlAxisForPath, initialTangentVelocity } from '../../../../shared/emersus-orb/physics.js';
+import { stepSpring } from '../../../../shared/emersus-orb/physics.js';
 
 describe('emersus-orb/physics.js — greedyNearestAssign', () => {
   test('assigns same-position particles to their original targets', () => {
@@ -57,5 +58,26 @@ describe('emersus-orb/physics.js — curl', () => {
     const axis = [0, 1, 0];
     const v = initialTangentVelocity(axis, 100, 0.1, -1);
     assert.equal(v[1], -10);
+  });
+});
+
+describe('emersus-orb/physics.js — stepSpring', () => {
+  test('particle at rest moves toward target on first step', () => {
+    const p = { x: 0, y: 0, z: 0, tx: 100, ty: 0, tz: 0, vx: 0, vy: 0, vz: 0 };
+    stepSpring(p, { spring: 0.1, drag: 0.9 });
+    assert(p.x > 0);
+    assert(p.vx > 0);
+  });
+
+  test('drag dampens velocity over time without new force', () => {
+    const p = { x: 0, y: 0, z: 0, tx: 0, ty: 0, tz: 0, vx: 10, vy: 0, vz: 0 };
+    stepSpring(p, { spring: 0, drag: 0.9 });
+    assert.equal(Math.abs(p.vx - 9), 0);
+  });
+
+  test('high drag + high spring — particle reaches near-target after enough frames', () => {
+    const p = { x: 0, y: 0, z: 0, tx: 100, ty: 0, tz: 0, vx: 0, vy: 0, vz: 0 };
+    for (let i = 0; i < 200; i++) stepSpring(p, { spring: 0.08, drag: 0.85 });
+    assert(Math.abs(p.x - 100) < 1, `x converges: ${p.x}`);
   });
 });

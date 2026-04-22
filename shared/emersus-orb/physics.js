@@ -65,3 +65,24 @@ export function initialTangentVelocity(curlAxis, distance, curve, sign) {
   const mag = curve * distance * sign;
   return [curlAxis[0] * mag, curlAxis[1] * mag, curlAxis[2] * mag];
 }
+
+// Single-frame Verlet-ish spring + drag integration. Mutates `p` in place.
+// `p` must have: x, y, z, tx, ty, tz, vx, vy, vz.
+// `opts`: { spring: k, drag: d, extraForce?: [fx, fy, fz] }
+export function stepSpring(p, opts) {
+  const { spring, drag, extraForce } = opts;
+  p.vx += (p.tx - p.x) * spring;
+  p.vy += (p.ty - p.y) * spring;
+  p.vz += (p.tz - p.z) * spring;
+  if (extraForce) {
+    p.vx += extraForce[0];
+    p.vy += extraForce[1];
+    p.vz += extraForce[2];
+  }
+  p.vx *= drag;
+  p.vy *= drag;
+  p.vz *= drag;
+  p.x += p.vx;
+  p.y += p.vy;
+  p.z += p.vz;
+}
