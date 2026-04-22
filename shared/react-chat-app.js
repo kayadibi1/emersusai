@@ -3431,6 +3431,24 @@ export function ChatApp() {
     return () => clearInterval(t);
   }, [glyphState]);
 
+  // When the orb transitions out of responding (or thinking) into idle —
+  // i.e. a response just finished — smooth-scroll the conversation to the
+  // bottom, but ONLY if the user isn't already near it. Avoids yanking
+  // them while they're reading earlier context.
+  const prevGlyphStateRef = useRef("idle");
+  useEffect(() => {
+    const prev = prevGlyphStateRef.current;
+    prevGlyphStateRef.current = glyphState;
+    if (glyphState !== "idle") return;
+    if (prev !== "responding" && prev !== "thinking") return;
+    const el = canvasRef.current;
+    if (!el) return;
+    const distance = el.scrollHeight - el.scrollTop - el.clientHeight;
+    if (distance > 120) {
+      el.scrollTo({ top: el.scrollHeight, behavior: "smooth" });
+    }
+  }, [glyphState]);
+
   // After every render, move the canvas into whichever slot currently holds
   // the `data-orb-slot` marker. One canvas, re-parented physically, so WebGL
   // context + particle positions survive across state transitions.
