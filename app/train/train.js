@@ -243,6 +243,31 @@ function HistoryExpandSkeleton() {
   );
 }
 
+// Active-tab skeleton shown while we're fetching the session list.
+// Deliberately NEUTRAL — doesn't claim "Ready for your first X?" because
+// we don't yet know if there's a live session / past sessions / none.
+// Once the fetch resolves, this is replaced with either the active
+// session UI, the dashboard, or the empty state.
+function TrainActiveSkeleton() {
+  return h("div", { className: "tr-mod-empty tr-mod-skel", "aria-busy": "true", "aria-label": "Loading your training" },
+    h("section", { className: "tr-mod-hero" },
+      h("div", { className: "skel skel-line w-20", style: { height: "12px", marginBottom: "6px" } }),
+      h("div", { className: "skel skel-line xl w-60", style: { marginBottom: "4px" } }),
+      h("div", { className: "skel skel-line w-90" }),
+      h("div", { className: "skel skel-line w-50", style: { marginTop: "18px", height: "40px", borderRadius: "8px" } })),
+    h("section", { className: "tr-mod-ghost" },
+      h("div", { className: "tr-mod-ghost-head" },
+        h("div", { className: "skel skel-line w-30" }),
+        h("div", { className: "skel skel-line w-20" })),
+      h("div", { className: "tr-mod-ghost-grid" },
+        Array.from({ length: 3 }).map((_, i) =>
+          h("div", { key: i, className: "tr-mod-ghost-card" },
+            h("div", { className: "skel skel-line w-40" }),
+            h("div", { className: "skel skel-block tr-mod-ghost-block" }),
+            h("div", { className: "skel skel-line w-50" }))))),
+  );
+}
+
 function TrainApp() {
   const [state, setState] = useState(() => parseTrainUrl(window.location.search));
   const { session, ready } = useAuthSession();
@@ -262,6 +287,10 @@ function TrainApp() {
   // Populated from the same /api/workout-sessions fetch that scans for a
   // live session, so no extra round-trip.
   const [pastSessions, setPastSessions] = useState([]);
+  // True while the Active-tab session fetch is in flight. Gates the
+  // "Ready for your first X?" empty state from flickering on mount /
+  // modality-switch before the server tells us what's actually there.
+  const [sessionsLoading, setSessionsLoading] = useState(true);
   const [history, setHistory] = useState({ items: [], loading: false });
   const [exerciseLookup, setExerciseLookup] = useState({});
   const [restEndsAt, setRestEndsAt] = useState(null);
@@ -296,6 +325,7 @@ function TrainApp() {
     setState(next); updateUrl(next);
     setActiveSession(null); setActiveSets([]);
     setPastSessions([]);
+    setSessionsLoading(true);
     setExpandedSessionId(null);
   }, [state, updateUrl]);
 
@@ -311,6 +341,7 @@ function TrainApp() {
   // without a second round-trip.
   useEffect(() => {
     if (!ready || !accessToken || state.tab !== "active") return;
+    setSessionsLoading(true);
     (async () => {
       try {
         const list = await api(`/api/workout-sessions?modality=${state.modality}&limit=10`, { accessToken });
@@ -329,6 +360,8 @@ function TrainApp() {
         }
       } catch (err) {
         setError(err.message || "Could not load active session.");
+      } finally {
+        setSessionsLoading(false);
       }
     })();
   }, [ready, accessToken, state.modality, state.tab]);
@@ -515,23 +548,25 @@ function TrainApp() {
       ? h("div", { className: "tr-tab-body" },
           activeSession
             ? null
-            : pastSessions.length > 0
-              ? h(ModalityDashboard, {
-                  modality: state.modality,
-                  pastSessions,
-                  onStart: startNewSession,
-                  onViewSession: (id) => {
-                    // Switch to History tab and flag the session as expanded.
-                    // The history useEffect will fetch the list; when it
-                    // renders, the row matching expandedSessionId opens.
-                    setTab("history");
-                    expandSession(id);
-                  },
-                })
-              : h(ModalityEmptyState, {
-                  modality: state.modality,
-                  onStart: startNewSession,
-                }),
+            : sessionsLoading
+              ? h(TrainActiveSkeleton)
+              : pastSessions.length > 0
+                ? h(ModalityDashboard, {
+                    modality: state.modality,
+                    pastSessions,
+                    onStart: startNewSession,
+                    onViewSession: (id) => {
+                      // Switch to History tab and flag the session as expanded.
+                      // The history useEffect will fetch the list; when it
+                      // renders, the row matching expandedSessionId opens.
+                      setTab("history");
+                      expandSession(id);
+                    },
+                  })
+                : h(ModalityEmptyState, {
+                    modality: state.modality,
+                    onStart: startNewSession,
+                  }),
           activeSession && state.modality === "lift"
             ? h(LiftActive, {
                 session: activeSession,
