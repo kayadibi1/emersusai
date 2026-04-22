@@ -33,14 +33,11 @@ body.landing-body {
   max-width: 100vw;
 }
 html { overflow-x: hidden; max-width: 100vw; }
+/* 2026-04-21: background grid mesh removed at user request. Keeping
+ * the selector with `display: none` rather than deleting so any mobile
+ * overrides further down the cascade don't silently fail. */
 body.landing-body::before {
-  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 64px 64px;
-  mask-image: radial-gradient(ellipse at 50% 30%, black 30%, transparent 85%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 30%, transparent 85%);
+  display: none;
 }
 body.landing-body::after {
   content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0;
@@ -193,11 +190,17 @@ body.landing-body main { position: relative; z-index: 1; }
 }
 .landing-wave--mounted .hero-bg-fallback { opacity: 0; }
 /* Soft top + bottom fade into bg so the hero text + the demo-frame below
- * both have clean handoffs out of the wave band. */
+ * both have clean handoffs out of the wave band.
+ *
+ * 2026-04-21: bottom stop changed from opaque var(--bg) to transparent.
+ * With the atmospheric sun/rim glow added to body::after, an opaque
+ * bottom fade here painted a solid-dark band inside hero-bg, creating
+ * a visible horizontal seam where hero-bg ended and the glow resumed.
+ * Transparent lets the ambient glow flow through the hero-bg boundary. */
 .hero-bg::after {
   content: ""; position: absolute; inset: 0; pointer-events: none;
   background:
-    linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0) 6%, rgba(0,0,0,0) 90%, var(--bg) 100%);
+    linear-gradient(180deg, var(--bg) 0%, rgba(0,0,0,0) 6%, rgba(0,0,0,0) 100%);
 }
 .hero {
   max-width: 1040px; margin: 0 auto;
@@ -1120,15 +1123,17 @@ h1.headline {
   }
 }
 
-/* ---- Health disclaimer inside footer-rich ---- */
+/* ---- Health disclaimer inside footer-rich ----
+ * 2026-04-21: moved up into the brand column (next to footer-tagline).
+ * No centering, no border-top — now lives as secondary copy beneath
+ * the tagline, so it shrinks and left-aligns to match its new home. */
 .footer-disclaimer {
-  max-width: 680px;
-  margin: 32px auto 0;
-  padding: 16px 0 0;
-  border-top: 1px solid var(--line, rgba(255,255,255,0.06));
-  font-size: 0.8rem;
-  color: var(--muted, #8b949e);
-  line-height: 1.6;
+  margin: 14px 0 0;
+  padding: 0;
+  font-size: 0.68rem;
+  color: var(--dim, #55555a);
+  line-height: 1.55;
+  max-width: 44ch;
 }
 .footer-disclaimer strong {
   color: var(--ink, #e6edf3);
