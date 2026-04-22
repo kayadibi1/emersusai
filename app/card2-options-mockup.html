@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="mint">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emersus — card 2 redesign options (A/B/C)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  Static mockups of three candidate concepts for the middle ("Read") card,
+  each using the shared dot visual language so it reads as a sibling to
+  the chat cloud (card 1) and the 3D globe (card 3).
+    A · Paper funnel       — corpus → neck → findings
+    B · Reading field      — tilted dot grid, sweep highlights readings
+    C · Stack → claim      — paper stack on left, beam, claim badges on right
+-->
+<style>
+  :root {
+    --wave-1: #bff6e4;
+    --wave-2: #34d399;
+    --wave-3: #5091f2;
+    --wave-4: #4338ca;
+    --wave-foil: linear-gradient(112deg,#bff6e4 0%,#34d399 28%,#5091f2 62%,#4338ca 100%);
+  }
+  :root[data-theme="mint"] {
+    --bg: #0a0a0b;
+    --bg-card: #141417;
+    --bg-card-2: #1a1a1e;
+    --ink: #ededee;
+    --muted: #8a8a8f;
+    --border: rgba(255,255,255,0.08);
+    --border-strong: rgba(255,255,255,0.14);
+    --accent: var(--wave-2);
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0; min-height: 100vh;
+    background: var(--bg); color: var(--ink);
+    font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+    font-weight: 450; -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  .topbar {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 32px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px; color: var(--muted); letter-spacing: 0.04em;
+  }
+  .hero {
+    max-width: 1380px; margin: 0 auto; padding: 48px 32px 72px;
+  }
+  .eyebrow {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 12px;
+  }
+  h1 {
+    font-size: 24px; font-weight: 600; letter-spacing: -0.01em;
+    margin: 0 0 32px;
+  }
+
+  /* --- Card shell -------------------------------------------------- */
+  .cards {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .card {
+    position: relative;
+    background: var(--bg-card); border: 1px solid var(--border);
+    border-radius: 20px; padding: 28px 28px 22px;
+    display: flex; flex-direction: column;
+  }
+  .card-title {
+    font-size: 18px; font-weight: 600; letter-spacing: -0.01em;
+    margin: 0 0 22px; line-height: 1.3; color: var(--ink);
+    max-width: 22ch;
+  }
+  .card-scene {
+    flex: 1; position: relative; min-height: 420px;
+    border-radius: 12px; overflow: hidden;
+  }
+  .card-cap {
+    margin-top: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }
+  .option-tag {
+    position: absolute; top: 16px; right: 18px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.2em;
+    color: var(--wave-2);
+    padding: 4px 9px; border-radius: 999px;
+    border: 1px solid rgba(52,211,153,0.35);
+    background: rgba(52,211,153,0.08);
+  }
+
+  /* --- Shared claim-badge ----------------------------------------- */
+  .claim {
+    position: absolute;
+    background: var(--bg-card-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 7px 10px;
+    display: flex; align-items: center; gap: 8px;
+    font-size: 11px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    z-index: 3;
+    max-width: 78%;
+  }
+  .claim .swatch {
+    width: 14px; height: 14px; border-radius: 4px;
+    background: var(--wave-foil);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+    flex-shrink: 0;
+  }
+  .claim .src {
+    color: var(--muted); font-size: 10px;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    margin-right: 2px;
+  }
+  .claim strong {
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11.5px;
+  }
+
+  /* =================================================================
+     OPTION A · Paper funnel (SVG)
+     Top row = wide corpus. Converging arcs lead to narrow neck.
+     Single 'output' claim below the neck.
+     ================================================================= */
+  .opt-a-svg {
+    width: 100%; height: 100%;
+    display: block;
+  }
+  .opt-a-overlay {
+    position: absolute; inset: 0; pointer-events: none;
+  }
+  .opt-a-top-label {
+    position: absolute; top: 14px; left: 50%; transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .opt-a-count {
+    position: absolute; right: 14px; top: 46px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; letter-spacing: 0.06em;
+    color: var(--muted);
+  }
+  .opt-a-count b { color: var(--wave-2); font-weight: 600; }
+  .opt-a-neck-label {
+    position: absolute; top: 40%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--wave-1);
+    padding: 3px 9px; border-radius: 999px;
+    background: rgba(10,10,11,0.7);
+    border: 1px solid rgba(52,211,153,0.25);
+    pointer-events: none;
+  }
+  .opt-a .claim {
+    left: 50%; transform: translateX(-50%);
+  }
+  .opt-a .claim { max-width: 88%; }
+  .opt-a .claim.c1 { bottom: 118px; }
+  .opt-a .claim.c2 { bottom: 64px;  }
+  .opt-a .claim.c3 { bottom: 10px;  }
+
+  /* =================================================================
+     OPTION B · Reading field (tilted grid of paper-dots)
+     ================================================================= */
+  .opt-b-stage {
+    position: absolute; inset: 0;
+    perspective: 900px;
+    perspective-origin: 50% 60%;
+  }
+  .opt-b-grid {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 520px; height: 380px;
+    transform: translate(-50%, -50%) rotateX(52deg) rotateZ(-6deg);
+    transform-style: preserve-3d;
+  }
+  .opt-b-grid .cell {
+    position: absolute;
+    width: 10px; height: 12px;
+    border-radius: 2px;
+    background: rgba(100,110,140,0.28);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.06);
+  }
+  .opt-b-grid .cell.live {
+    background: var(--wave-2);
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.3),
+      0 0 18px rgba(52,211,153,0.55),
+      0 0 30px rgba(52,211,153,0.35);
+  }
+  .opt-b-grid .cell.warm {
+    background: var(--wave-3);
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.28),
+      0 0 14px rgba(80,145,242,0.5);
+  }
+  .opt-b-grid .cell.read {
+    background: rgba(191,246,228,0.55);
+  }
+  .opt-b .claim.c1 { top: 22px;  left: 14px;  }
+  .opt-b .claim.c2 { top: 86px;  right: 18px; }
+  .opt-b .claim.c3 { bottom: 22px; left: 34%; }
+  .opt-b-lead {
+    position: absolute;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+    left: 14px; bottom: 6px;
+  }
+
+  /* =================================================================
+     OPTION C · Paper stack → claim
+     ================================================================= */
+  .opt-c-stage {
+    position: absolute; inset: 0;
+    display: grid; grid-template-columns: 30% 18% 52%;
+    align-items: center;
+  }
+  .opt-c-stack {
+    position: relative; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    perspective: 800px;
+  }
+  .opt-c-stack .paper-stub {
+    position: absolute;
+    width: 54px; height: 70px;
+    border-radius: 3px;
+    background: #16161a;
+    border: 1px solid rgba(255,255,255,0.12);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+  }
+  .opt-c-stack .paper-stub::before {
+    content: "";
+    position: absolute; top: 8px; left: 8px; right: 8px; height: 4px;
+    background: rgba(255,255,255,0.18);
+    border-radius: 2px;
+  }
+  .opt-c-stack .paper-stub::after {
+    content: "";
+    position: absolute; top: 18px; left: 8px; right: 18px; height: 3px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+    box-shadow:
+      0 6px 0 rgba(255,255,255,0.08),
+      0 12px 0 rgba(255,255,255,0.08),
+      0 18px 0 rgba(255,255,255,0.08),
+      0 24px 0 rgba(255,255,255,0.08),
+      0 30px 0 rgba(255,255,255,0.08);
+  }
+  .opt-c-beam {
+    position: relative; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .opt-c-beam-line {
+    position: relative;
+    width: 100%; height: 2px;
+    background: linear-gradient(to right,
+      rgba(191,246,228,0) 0%,
+      rgba(191,246,228,0.35) 18%,
+      rgba(52,211,153,0.9)  52%,
+      rgba(80,145,242,0.65) 82%,
+      rgba(80,145,242,0)    100%);
+    box-shadow: 0 0 16px rgba(52,211,153,0.45);
+  }
+  .opt-c-beam-line::after {
+    content: "";
+    position: absolute;
+    right: 6px; top: 50%;
+    width: 8px; height: 8px; border-radius: 999px;
+    background: var(--wave-1);
+    transform: translateY(-50%);
+    box-shadow:
+      0 0 12px var(--wave-2),
+      0 0 24px var(--wave-2);
+  }
+  .opt-c-beam-label {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--wave-1);
+  }
+  .opt-c-beam-stat {
+    position: absolute; bottom: 18px; left: 50%;
+    transform: translate(-50%, 0);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.1em;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .opt-c-beam-stat b { color: var(--wave-2); font-weight: 600; }
+  .opt-c-claims {
+    position: relative; height: 100%;
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 10px; padding-right: 14px;
+  }
+  .opt-c-claims .claim {
+    position: relative; left: auto; right: auto; top: auto; bottom: auto;
+    max-width: 100%;
+  }
+  .opt-c-claims .claim strong { font-size: 11px; line-height: 1.3; }
+  .opt-c-claims .claim.latest {
+    border-color: rgba(52,211,153,0.35);
+    box-shadow:
+      0 8px 18px rgba(0,0,0,0.25),
+      0 0 0 1px rgba(52,211,153,0.25) inset,
+      0 0 14px rgba(52,211,153,0.25);
+  }
+  .opt-c-stack-label {
+    position: absolute; top: 14px; left: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted);
+  }
+  .opt-c-stack-label b { color: var(--wave-2); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span>EMERSUS · card 2 redesign — static mockups</span>
+  <span>A · paper funnel &nbsp;|&nbsp; B · reading field &nbsp;|&nbsp; C · stack → claim</span>
+</div>
+
+<section class="hero">
+  <div class="eyebrow">Card 2 · Read</div>
+  <h1>Pick a concept</h1>
+
+  <div class="cards">
+
+    <!-- ============ OPTION A · Paper Funnel ============ -->
+    <div class="card opt-a">
+      <div class="option-tag">A</div>
+      <h2 class="card-title">We read so you don't have to</h2>
+      <div class="card-scene">
+        <div class="opt-a-top-label">Corpus · 51,284 papers</div>
+        <div class="opt-a-count"><b>●</b> reading 238/s</div>
+
+        <svg class="opt-a-svg" viewBox="0 0 400 420" preserveAspectRatio="xMidYMid meet" id="opt-a-svg"></svg>
+
+        <div class="opt-a-neck-label">Filter · read · extract</div>
+
+        <div class="opt-a-overlay">
+          <div class="claim c1">
+            <div class="swatch"></div>
+            <span class="src">Nutrients · 2023</span>
+            <strong>+0.6 kg FFM · 1.6 g·kg⁻¹</strong>
+          </div>
+          <div class="claim c2">
+            <div class="swatch"></div>
+            <span class="src">JAMA · 2024</span>
+            <strong>creatine 5 g/d · WM ↑ 8%</strong>
+          </div>
+          <div class="claim c3">
+            <div class="swatch"></div>
+            <span class="src">Sports Med · 2021</span>
+            <strong>plateau @ 20 sets·wk⁻¹</strong>
+          </div>
+        </div>
+      </div>
+      <div class="card-cap">Option A · funnel</div>
+    </div>
+
+    <!-- ============ OPTION B · Reading Field ============ -->
+    <div class="card opt-b">
+      <div class="option-tag">B</div>
+      <h2 class="card-title">We read so you don't have to</h2>
+      <div class="card-scene">
+        <div class="opt-b-stage">
+          <div class="opt-b-grid" id="opt-b-grid"></div>
+        </div>
+
+        <div class="claim c1">
+          <div class="swatch"></div>
+          <span class="src">Nutrients · 2023</span>
+          <strong>+0.6 kg FFM at 1.6 g·kg⁻¹ protein</strong>
+        </div>
+        <div class="claim c2">
+          <div class="swatch"></div>
+          <span class="src">JAMA · 2024</span>
+          <strong>creatine 5 g/d · working memory ↑ 8%</strong>
+        </div>
+        <div class="claim c3">
+          <div class="swatch"></div>
+          <span class="src">Sports Med · 2021</span>
+          <strong>plateau @ 20 sets·wk⁻¹</strong>
+        </div>
+        <div class="opt-b-lead">14 of 51,284 · reading</div>
+      </div>
+      <div class="card-cap">Option B · reading field</div>
+    </div>
+
+    <!-- ============ OPTION C · Stack → Claim ============ -->
+    <div class="card opt-c">
+      <div class="option-tag">C</div>
+      <h2 class="card-title">We read so you don't have to</h2>
+      <div class="card-scene">
+        <div class="opt-c-stack-label"><b>●</b> 51,284 papers</div>
+
+        <div class="opt-c-stage">
+          <!-- Left: stack of paper stubs -->
+          <div class="opt-c-stack" id="opt-c-stack"></div>
+
+          <!-- Middle: beam -->
+          <div class="opt-c-beam">
+            <div class="opt-c-beam-line"></div>
+            <div class="opt-c-beam-label">Reading</div>
+            <div class="opt-c-beam-stat">238 <b>papers/s</b></div>
+          </div>
+
+          <!-- Right: claim badges (output) -->
+          <div class="opt-c-claims">
+            <div class="claim latest">
+              <div class="swatch"></div>
+              <span class="src">Nutrients · 2023</span>
+              <strong>+0.6 kg FFM · 1.6 g·kg⁻¹</strong>
+            </div>
+            <div class="claim">
+              <div class="swatch"></div>
+              <span class="src">JAMA · 2024</span>
+              <strong>creatine · WM ↑ 8%</strong>
+            </div>
+            <div class="claim">
+              <div class="swatch"></div>
+              <span class="src">Sports Med · 2021</span>
+              <strong>plateau @ 20 sets·wk⁻¹</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="card-cap">Option C · stack → claim</div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  /* ---------- Option A · build funnel (SVG) ---------- */
+  (function () {
+    const svg = document.getElementById('opt-a-svg');
+    if (!svg) return;
+    const NS = 'http://www.w3.org/2000/svg';
+    const palette = ['#bff6e4', '#34d399', '#5091f2', '#4338ca'];
+
+    let seed = 7;
+    const rand = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+
+    const W = 400, H = 420;
+    const neckY = 200, neckHalfW = 26, topY = 50, topHalfW = 178;
+    const rows = 12;
+
+    // Draw funnel outline (very faint) so the shape is legible in static form.
+    const outline = document.createElementNS(NS, 'path');
+    outline.setAttribute('d',
+      `M ${W/2 - topHalfW} ${topY} L ${W/2 - neckHalfW} ${neckY}
+       M ${W/2 + topHalfW} ${topY} L ${W/2 + neckHalfW} ${neckY}`);
+    outline.setAttribute('stroke', 'rgba(255,255,255,0.06)');
+    outline.setAttribute('stroke-width', '1');
+    outline.setAttribute('fill', 'none');
+    svg.appendChild(outline);
+
+    // Dots: sample within the funnel band. Each row has fewer dots than the one above.
+    for (let r = 0; r < rows; r++) {
+      const t = r / (rows - 1);                         // 0..1 top→bottom
+      const y = topY + t * (neckY - topY);
+      const halfW = topHalfW * (1 - t) + neckHalfW * t;
+      const dotCount = Math.round(36 * (1 - t) + 6 * t);
+      for (let i = 0; i < dotCount; i++) {
+        const jx = (rand() - 0.5) * 8;
+        const jy = (rand() - 0.5) * 6;
+        const xNorm = (i + 0.5) / dotCount;             // 0..1
+        const x = W / 2 - halfW + xNorm * halfW * 2 + jx;
+        const yy = y + jy;
+        const dot = document.createElementNS(NS, 'circle');
+        dot.setAttribute('cx', x.toFixed(1));
+        dot.setAttribute('cy', yy.toFixed(1));
+        dot.setAttribute('r', (0.9 + rand() * 1.2).toFixed(2));
+        // Colour darker at top (unread corpus), mint at the neck
+        const colourIdx = Math.min(palette.length - 1, Math.floor(t * palette.length));
+        const isHot = t > 0.85 && rand() < 0.35;        // a handful glow at the neck
+        dot.setAttribute('fill', isHot ? palette[1] : palette[colourIdx]);
+        dot.setAttribute('opacity', (0.3 + t * 0.5 + (isHot ? 0.3 : 0)).toFixed(2));
+        svg.appendChild(dot);
+      }
+    }
+
+    // Post-neck: short 4-dot tail. Claims sit below.
+    for (let i = 0; i < 4; i++) {
+      const y = neckY + 8 + i * 11;
+      const x = W / 2 + (rand() - 0.5) * 4;
+      const dot = document.createElementNS(NS, 'circle');
+      dot.setAttribute('cx', x.toFixed(1));
+      dot.setAttribute('cy', y.toFixed(1));
+      dot.setAttribute('r', '1.8');
+      dot.setAttribute('fill', palette[1]);
+      dot.setAttribute('opacity', (0.9 - i * 0.1).toFixed(2));
+      svg.appendChild(dot);
+    }
+  })();
+
+  /* ---------- Option B · build tilted reading field ---------- */
+  (function () {
+    const host = document.getElementById('opt-b-grid');
+    if (!host) return;
+    const COLS = 26, ROWS = 14;
+    const cellW = 18, cellH = 24;
+
+    let seed = 42;
+    const rand = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+
+    // Spots currently "live" (being read) — a band in the middle
+    const liveSpots = new Set(['10,7', '12,6', '14,7', '11,8', '13,8']);
+    const warmSpots = new Set(['8,6', '16,7', '9,9', '15,9', '7,8', '17,8']);
+    const readSpots = new Set();
+    for (let c = 0; c < COLS; c++) {
+      for (let r = 0; r < ROWS; r++) {
+        if (rand() < 0.18 && c < 9) readSpots.add(`${c},${r}`);   // already read to the left
+      }
+    }
+
+    for (let c = 0; c < COLS; c++) {
+      for (let r = 0; r < ROWS; r++) {
+        const el = document.createElement('div');
+        el.className = 'cell';
+        const key = `${c},${r}`;
+        if (liveSpots.has(key))     el.classList.add('live');
+        else if (warmSpots.has(key)) el.classList.add('warm');
+        else if (readSpots.has(key)) el.classList.add('read');
+        el.style.left = (c * cellW) + 'px';
+        el.style.top  = (r * cellH) + 'px';
+        host.appendChild(el);
+      }
+    }
+  })();
+
+  /* ---------- Option C · build paper stack ---------- */
+  (function () {
+    const host = document.getElementById('opt-c-stack');
+    if (!host) return;
+    let seed = 99;
+    const rand = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+    const N = 18;
+    for (let i = 0; i < N; i++) {
+      const stub = document.createElement('div');
+      stub.className = 'paper-stub';
+      // Spread across a loose pile: horizontal cluster + vertical scatter +
+      // random rotation. Top of pile sits brightest.
+      const dx = (rand() - 0.5) * 68;
+      const dy = (rand() - 0.5) * 96 - i * 1.2;
+      const rot = (rand() - 0.5) * 28;
+      stub.style.transform =
+        `translate(${dx.toFixed(1)}px, ${dy.toFixed(1)}px) rotate(${rot.toFixed(1)}deg)`;
+      stub.style.zIndex = String(i);
+      stub.style.opacity = (0.45 + (i / N) * 0.5).toFixed(2);
+      host.appendChild(stub);
+    }
+  })();
+</script>
+
+</body>
+</html>

@@ -210,7 +210,129 @@
   .cite .n { color: var(--muted); margin-top: 3px; font-size: 9.5px; }
 
   /* ============================================================
-     CARD 2 — READ : tilted paper, dense with math, default-blurred
+     CARD 2 — READ : tilted grid of paper-dots (reading field)
+       · field of cells, each = one paper
+       · a reading "wave" sweeps across, lighting cells live→warm→read
+       · claim badges refresh as the wave passes
+       · hover tilts the field plane toward the cursor
+     ============================================================ */
+  .scene-read {
+    position: relative; width: 100%; height: 420px;
+    overflow: hidden;
+  }
+  .read-stage {
+    position: absolute; inset: 0;
+    perspective: 900px;
+    perspective-origin: 50% 60%;
+  }
+  .read-grid {
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 520px; height: 360px;
+    transform:
+      translate(-50%, -50%)
+      rotateX(calc(48deg + var(--tilt-y)))
+      rotateZ(calc(-6deg + var(--tilt-x)));
+    transform-style: preserve-3d;
+  }
+  .read-grid .cell {
+    position: absolute;
+    width: 10px; height: 12px;
+    border-radius: 2px;
+    background: rgba(100,110,140,0.22);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    transition: background 220ms ease, box-shadow 220ms ease, transform 260ms ease;
+    will-change: background, transform;
+  }
+  .read-grid .cell.read {
+    background: rgba(191,246,228,0.42);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  }
+  .read-grid .cell.warm {
+    background: #5091f2;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.28),
+      0 0 12px rgba(80,145,242,0.5);
+    transform: translateZ(6px);
+  }
+  .read-grid .cell.live {
+    background: #34d399;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.32),
+      0 0 20px rgba(52,211,153,0.65),
+      0 0 36px rgba(52,211,153,0.38);
+    transform: translateZ(14px);
+  }
+
+  /* Prominent live counter — ticks up with the reading wave. */
+  .read-panel {
+    position: absolute;
+    top: 20px; left: 20px; right: 20px;
+    z-index: 3;
+    padding: 14px 16px 12px;
+    background: rgba(14,14,16,0.68);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+  .read-panel-head {
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .read-panel-dot {
+    width: 6px; height: 6px; border-radius: 999px;
+    background: var(--wave-2);
+    box-shadow: 0 0 10px rgba(52,211,153,0.8);
+    animation: readingPulse 1.4s ease-in-out infinite;
+  }
+  @keyframes readingPulse {
+    0%, 100% { opacity: 1;   box-shadow: 0 0 10px rgba(52,211,153,0.8); }
+    50%      { opacity: 0.5; box-shadow: 0 0 4px rgba(52,211,153,0.3); }
+  }
+  .read-panel-counter {
+    display: flex; align-items: baseline; gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  .read-panel-counter .num {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1;
+  }
+  .read-panel-counter .sep { color: var(--muted); font-size: 14px; }
+  .read-panel-counter .total {
+    font-size: 15px;
+    color: var(--muted);
+    letter-spacing: 0;
+  }
+  .read-panel-bar {
+    margin-top: 11px;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.08);
+    overflow: hidden;
+  }
+  .read-panel-bar-fill {
+    height: 100%;
+    background: var(--wave-foil);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(52,211,153,0.4);
+    will-change: width;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .read-panel-dot { animation: none; }
+  }
+
+  /* ============================================================
+     CARD 2 (legacy) — tilted paper, dense with math, default-blurred
        · no reticle — just the page itself
        · blur is exposed as CSS var (--focus-blur) so the hover
          animation can later clear it under the cursor
@@ -219,12 +341,61 @@
     width: 100%; height: 420px;
     position: relative;
     display: grid;
-    place-items: center;              /* hero centered; neighbours peek all four sides */
+    grid-template-areas: "stage";     /* both paper-groups overlap here */
+    place-items: center;
     perspective: 1800px;
     perspective-origin: 55% 50%;
+    --mx: 50%; --my: 50%;             /* cursor position (percent) */
+  }
+  .paper-group,
+  .paper-group--sharp { grid-area: stage; }
+
+  /* Card-2 cursor-track: a crisp (un-blurred) clone of the wall, revealed
+     only within a radial mask around the cursor. Implemented by cloning
+     .paper-group in JS. Mask operates in pre-transform space so the circle
+     is slightly squished horizontally post-rotateY — acceptable at 20°. */
+  .paper-group--sharp {
+    --focus-blur: 0px;
+    --mask-r: 130px;
+    pointer-events: none;
+    opacity: 0;
+    -webkit-mask-image: radial-gradient(circle var(--mask-r) at var(--mx) var(--my),
+      #000 50%, rgba(0,0,0,0.5) 72%, transparent 100%);
+            mask-image: radial-gradient(circle var(--mask-r) at var(--mx) var(--my),
+      #000 50%, rgba(0,0,0,0.5) 72%, transparent 100%);
+    transition: opacity 260ms ease;
+  }
+  .scene-paper.focus-active .paper-group--sharp { opacity: 1; }
+
+  /* Idle animation: the hero paper's content reels upward continuously,
+     like the machine is scrolling through the whole paper. Looped by
+     duplicating the content block; translate goes 0 → −50% seamlessly.
+     Paused while hovered so the spotlight can be read. */
+  .paper-hero .paper-reel {
+    animation: paperReel 22s linear infinite;
+    will-change: transform;
+  }
+  @keyframes paperReel {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }
+  .scene-paper.focus-active .paper-hero .paper-reel { animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {
+    .paper-hero .paper-reel { animation: none; }
   }
 
-  .scene-paper { --focus-blur: 3.8px; }   /* hover anim will drive this to 0 */
+  /* Wall breathes gently when idle (scale pulse). */
+  @keyframes wallBreath {
+    0%, 100% { transform: rotateY(-20deg) rotateX(6deg) rotateZ(-2deg) translateX(-4px) scale(1); }
+    50%      { transform: rotateY(-20deg) rotateX(6deg) rotateZ(-2deg) translateX(-4px) scale(1.012); }
+  }
+  .paper-group { animation: wallBreath 9s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .paper-group { animation: none; }
+  }
+
+  .scene-paper { --focus-blur: 1.3px; }   /* soft enough to read motion, not
+                                             the text itself; hover reveals */
 
   .paper {
     background: #0e1013;             /* deep near-black paper */
@@ -350,10 +521,30 @@
   .scene-globe {
     width: 100%; height: 420px;
     position: relative;
-    display: grid; place-items: center;
     overflow: hidden;
   }
-  .globe-svg { width: 100%; height: 100%; }
+  .globe-canvas {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    display: block;
+  }
+
+  /* Card-3 idle: tickets bob gently; arcs pulse a glowing dot along them.
+     (Dot animation added with CSS vars below.) */
+  @keyframes ticketFloat {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-5px); }
+  }
+  .ticket {
+    animation: ticketFloat 3.6s ease-in-out infinite;
+    will-change: transform;
+  }
+  .ticket.t1 { animation-delay:  0s; }
+  .ticket.t2 { animation-delay: -1.2s; }
+  .ticket.t3 { animation-delay: -2.4s; }
+  @media (prefers-reduced-motion: reduce) {
+    .ticket { animation: none; }
+  }
   .ticket {
     position: absolute;
     background: var(--bg-card-2);
@@ -437,283 +628,33 @@
       <div class="card-cap">Ask · chat</div>
     </div>
 
-    <!-- ============ CARD 2 · READ ============ -->
+    <!-- ============ CARD 2 · READ (reading field) ============ -->
     <div class="card">
       <h2 class="card-title">We read so you don&rsquo;t have to</h2>
       <div class="card-expand">↗</div>
       <div class="card-scene">
-        <div class="scene-paper">
-          <div class="paper-group">
-
-            <!-- TOP-LEFT neighbour -->
-            <div class="paper neighbour paper-tl">
-              <h3 class="paper-title">
-                Protein requirements in resistance-trained adults:
-                a revisited RDA
-              </h3>
-              <div class="paper-meta">
-                Phillips · Tang · J Appl Physiol · 2017
-              </div>
-              <div class="paper-section">Abstract</div>
-              <div class="body-text">
-                <p>Nitrogen-balance studies systematically underestimate protein
-                   needs in trained adults. Using the indicator amino acid
-                   oxidation (IAAO) method, we report requirements 30–50%
-                   higher than the current RDA (0.8 g·kg<sup>−1</sup>·d<sup>−1</sup>).</p>
-              </div>
-              <div class="eq">
-                EAR<sub>trained</sub> = 1.20 ± 0.18 g·kg<sup>−1</sup>·d<sup>−1</sup>
-                <span class="eq-tag">(1)</span>
-              </div>
-            </div>
-
-            <!-- TOP-RIGHT neighbour -->
-            <div class="paper neighbour paper-tr">
-              <h3 class="paper-title">
-                Maximal oxygen uptake and mitochondrial volume
-                density in elite endurance athletes
-              </h3>
-              <div class="paper-meta">
-                Montero · Lundby · J Physiol · 2018
-              </div>
-              <div class="paper-section">2. Methods</div>
-              <div class="body-text">
-                <p>Skeletal muscle biopsies (vastus lateralis) were processed
-                   for electron microscopy. Mitochondrial volume density
-                   (V<sub>V</sub>(mt,f)) was estimated by point-counting
-                   stereology:</p>
-              </div>
-              <div class="eq">
-                V<sub>V</sub>(mt,f) = P<sub>mt</sub> / P<sub>f</sub>
-                <span class="eq-tag">(2)</span>
-              </div>
-            </div>
-
-            <!-- TOP neighbour -->
-            <div class="paper neighbour paper-top">
-              <h3 class="paper-title">
-                Mitochondrial biogenesis and PGC-1α signalling after
-                high-intensity interval training
-              </h3>
-              <div class="paper-meta">
-                Gibala · Little · J Physiol · 2020
-              </div>
-              <div class="paper-section">3. Results</div>
-              <div class="body-text">
-                <p>Citrate synthase activity increased 27% (95% CI 18–36)
-                   following 6 weeks of SIT (3×30 s sprints, 3× wk<sup>−1</sup>).
-                   PGC-1α mRNA peaked at 3 h post-exercise
-                   (fold change 4.8 ± 1.1). The ratio of phosphorylated to
-                   total AMPK-α in vastus lateralis homogenates scaled
-                   linearly with session work (r = 0.71, p &lt; 0.001):</p>
-              </div>
-              <div class="eq">
-                p-AMPK/AMPK = β<sub>0</sub> + β<sub>1</sub>·W<sub>session</sub>
-                + β<sub>2</sub>·VO<sub>2peak</sub> + ε
-                <span class="eq-tag">(6)</span>
-              </div>
-              <div class="body-text">
-                <p>Residuals were normally distributed (Shapiro–Wilk,
-                   W = 0.97). Effects remained significant after Bonferroni
-                   correction (α<sub>adj</sub> = 0.0125).</p>
-              </div>
-            </div>
-
-            <!-- LEFT neighbour -->
-            <div class="paper neighbour paper-left">
-              <h3 class="paper-title">
-                Skeletal muscle carnosine synthesis:
-                rate-limiting role of β-alanine
-              </h3>
-              <div class="paper-meta">
-                Blancquaert · Everaert · Derave · Amino Acids · 2015
-              </div>
-              <div class="paper-section">1. Introduction</div>
-              <div class="body-text">
-                <p>Carnosine (β-alanyl-L-histidine) is synthesised in type-II
-                   fibres by carnosine synthase (CARNS1; EC 6.3.2.11) in an
-                   ATP-dependent condensation:</p>
-              </div>
-              <div class="eq">
-                β-Ala + L-His + ATP → Carnosine + AMP + PP<sub>i</sub>
-                <span class="eq-tag">(1)</span>
-              </div>
-              <div class="body-text">
-                <p>K<sub>m</sub> for β-alanine is ~1.1 mM and for histidine
-                   ~16 μM, making cytosolic β-alanine concentration the
-                   dominant rate-limiting substrate. Human skeletal muscle
-                   β-alanine is below K<sub>m</sub> under habitual intake:</p>
-              </div>
-              <div class="eq">
-                v = V<sub>max</sub>·[β-Ala] / (K<sub>m</sub> + [β-Ala])
-                <span class="eq-tag">(2)</span>
-              </div>
-            </div>
-
-            <!-- HERO (centre) — real CC-BY paper (Hof & Bridge, 2020,
-                 PMC7979639, J Pharmacokinet Pharmacodyn) -->
-            <div class="paper paper-hero">
-
-              <h3 class="paper-title">
-                Exact solutions and equi-dosing regimen regions for
-                multi-dose pharmacokinetics models with transit
-                compartments
-              </h3>
-              <div class="paper-meta">
-                Hof · Bridge · J Pharmacokinet Pharmacodyn · 2020
-              </div>
-
-              <div class="paper-section">3. Analytical solutions for equi-dosing regimens</div>
-              <div class="body-text">
-                <p>More generally, the transit compartment model
-                   (<em>M<sub>t</sub></em>) comprises a multi-compartment oral
-                   absorption process, and the ODEs may be written in matrix
-                   form as in (2.6). For equi-bolus dosing, the exact solution
-                   may be written using the matrix exponential [9, 27], or by
-                   using Laplace Transforms (Appendix 1.4):</p>
-              </div>
-
-              <div class="eq">
-                <em>a<sub>i</sub></em>(t) =
-                FD<sub>0</sub>·<em>k</em><sup><em>i</em>−1</sup> / (<em>i</em>−1)!
-                &nbsp;∑<sub><em>j</em>=1</sub><sup><em>M</em></sup>
-                <em>H</em>(<em>t<sub>j</sub></em>)·<em>t<sub>j</sub></em><sup><em>i</em>−1</sup>·e<sup>−<em>kt<sub>j</sub></em></sup>,
-                &nbsp; <em>i</em> = 1,…,<em>n</em>
-                <span class="eq-tag">(3.15)</span>
-              </div>
-
-              <div class="body-text">
-                <p>where <em>t<sub>j</sub></em> = <em>t</em> −
-                   (<em>j</em>−1)<em>T</em>. This result is equivalent to the
-                   multi-dose analytical result of Shen <em>et al</em> [46],
-                   and to the Savic single-dose solution [44] if
-                   <em>M</em> = 1. The absorption compartment solution
-                   (Appendix 1.4) is</p>
-              </div>
-
-              <div class="eq">
-                <em>a<sub>b</sub></em>(t) =
-                FD<sub>0</sub> / (<em>n</em>−1)! ·
-                <em>k</em> / (<em>k</em>−<em>k<sub>a</sub></em>)<sup><em>n</em></sup>
-                ·∑<sub><em>j</em>=1</sub><sup><em>M</em></sup>
-                <em>H</em>(<em>t<sub>j</sub></em>)·e<sup>−<em>k<sub>a</sub>t<sub>j</sub></em></sup>·γ(<em>n</em>, (<em>k</em>−<em>k<sub>a</sub></em>)<em>t<sub>j</sub></em>)
-                <span class="eq-tag">(3.16)</span>
-              </div>
-
-            </div>
-
-            <!-- RIGHT neighbour -->
-            <div class="paper neighbour paper-right">
-              <h3 class="paper-title">
-                Neuromuscular adaptations to concurrent aerobic and
-                resistance training: a dose–response meta-regression
-              </h3>
-              <div class="paper-meta">
-                Schoenfeld · Grgic · Helms · Sports Med · 2021
-              </div>
-              <div class="paper-section">2.3 Random-effects model</div>
-              <div class="body-text">
-                <p>Effect sizes (Hedges' <em>g</em>) were pooled under a
-                   random-effects meta-regression with training volume
-                   (sets·wk<sup>−1</sup>) as moderator. The restricted
-                   maximum-likelihood estimator (REML) yielded:</p>
-              </div>
-              <div class="eq">
-                <em>g</em><sub>i</sub> = μ + β·x<sub>i</sub> + u<sub>i</sub> + ε<sub>i</sub>,
-                &nbsp; u<sub>i</sub>&nbsp;∼&nbsp;N(0, τ<sup>2</sup>)
-                <span class="eq-tag">(3)</span>
-              </div>
-              <div class="body-text">
-                <p>Between-study heterogeneity was substantial (I<sup>2</sup>
-                   = 54%, τ<sup>2</sup> = 0.09). The fitted dose–response
-                   plateaued at ~20 sets·wk<sup>−1</sup> per muscle group;
-                   marginal returns &gt; 20 sets were indistinguishable from
-                   zero (β<sub>20+</sub> = 0.02, 95% CI −0.05 to 0.09).</p>
-              </div>
-            </div>
-
-            <!-- BOTTOM-LEFT neighbour -->
-            <div class="paper neighbour paper-bl">
-              <h3 class="paper-title">
-                Energy availability, RED-S, and menstrual function
-                in female athletes
-              </h3>
-              <div class="paper-meta">
-                Loucks · Kiens · Mountjoy · Br J Sports Med · 2023
-              </div>
-              <div class="paper-section">Results</div>
-              <div class="body-text">
-                <p>Below an energy availability threshold of 30
-                   kcal·kg<sup>−1</sup> FFM·d<sup>−1</sup>, luteinizing-hormone
-                   pulse frequency declined by 42% (p &lt; 0.001). IGF-1 and
-                   T<sub>3</sub> fell in parallel.</p>
-              </div>
-              <div class="eq">
-                EA = (EI − EEE) / FFM
-                <span class="eq-tag">(1)</span>
-              </div>
-            </div>
-
-            <!-- BOTTOM neighbour -->
-            <div class="paper neighbour paper-bottom">
-              <h3 class="paper-title">
-                Leucine-enriched EAA supplementation amplifies
-                mTORC1 signalling in older adults
-              </h3>
-              <div class="paper-meta">
-                Dickinson · Volpi · Rasmussen · Am J Physiol Endocrinol · 2020
-              </div>
-              <div class="paper-section">3.2 Kinetics</div>
-              <div class="body-text">
-                <p>Phosphorylation of p70S6K<sup>Thr389</sup> peaked 60 min
-                   post-ingestion (6.3-fold above basal). The dose–response
-                   followed a saturable first-order relationship:</p>
-              </div>
-              <div class="eq">
-                R(dose) = R<sub>max</sub>·[Leu] / (K<sub>d</sub> + [Leu])
-                <span class="eq-tag">(3)</span>
-              </div>
-              <div class="body-text">
-                <p>Half-maximal activation K<sub>d</sub> ≈ 1.8 mM. Clinical
-                   relevance beyond 3 g leucine is minimal.</p>
-              </div>
-            </div>
-
-            <!-- BOTTOM-RIGHT neighbour -->
-            <div class="paper neighbour paper-br">
-              <h3 class="paper-title">
-                Sleep restriction, testosterone, and muscle
-                protein turnover in young men
-              </h3>
-              <div class="paper-meta">
-                Dattilo · Saeed · Phillips · Sleep · 2021
-              </div>
-              <div class="paper-section">Methods</div>
-              <div class="body-text">
-                <p>Fifteen healthy men (age 23 ± 3 y) underwent 5 nights
-                   of 5-h TIB. Whole-body protein kinetics were assessed by
-                   [1-<sup>13</sup>C]leucine infusion pre/post. Net balance
-                   (NB) was derived from:</p>
-              </div>
-              <div class="eq">
-                NB = Q<sub>syn</sub> − Q<sub>deg</sub>
-                <span class="eq-tag">(2)</span>
-              </div>
-            </div>
-
+        <div class="scene-read">
+          <div class="read-stage">
+            <div class="read-grid" id="read-grid"></div>
           </div>
 
-          <!-- Caption: journal · year · pmid -->
-          <div class="paper-caption">
-            <span class="j">J Pharmacokinet Pharmacodyn</span>
-            <span class="dot">·</span>
-            <span>2020</span>
-            <span class="dot">·</span>
-            <span>pmid 33040255</span>
+          <div class="read-panel">
+            <div class="read-panel-head">
+              <span class="read-panel-dot"></span>
+              <span>Reading · peer-reviewed literature</span>
+            </div>
+            <div class="read-panel-counter">
+              <span class="num" id="read-num">1,284,679</span>
+              <span class="sep">/</span>
+              <span class="total">2,000,000</span>
+            </div>
+            <div class="read-panel-bar">
+              <div class="read-panel-bar-fill" id="read-bar" style="width: 64.23%;"></div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="card-cap">Read · paper</div>
+      <div class="card-cap">Read · field</div>
     </div>
 
     <!-- ============ CARD 3 · CONNECT ============ -->
@@ -722,8 +663,8 @@
       <div class="card-expand">↗</div>
       <div class="card-scene">
         <div class="scene-globe">
-          <!-- Dotted hemisphere + arcs drawn as SVG -->
-          <svg class="globe-svg" viewBox="0 0 420 400" id="globe"></svg>
+          <!-- True 3D sphere of dots rendered to canvas -->
+          <canvas class="globe-canvas" id="globe"></canvas>
 
           <!-- Citation tickets (the Emersus equivalent of $USDC tiles) -->
           <div class="ticket t1">
@@ -800,91 +741,438 @@
     }
   })();
 
-  /* ---------- Card 3 · dotted hemisphere + arcs (static SVG) ---------- */
+  /* Card 3 now builds its 3D sphere inside its animation IIFE (see below). */
+
+  /* =================================================================
+     ANIMATIONS
+     Three cards, three motion archetypes:
+       1. Ask    · dot orbit + cursor repulsion
+       2. Read   · cloned sharp paper-wall revealed by a cursor spotlight
+       3. Connect · hemisphere tilts toward cursor; tickets bob (CSS)
+     Single shared rAF loop would be micro-optimal; separate IIFEs are
+     fine for ~260 dots and a few mask updates and keep concerns local.
+     ================================================================= */
+
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Card 1 · noise-drift + thinking pull ----------
+     Port of Stripe's agentic-graphic vertex shader:
+       pos += dir * noiseInner * SCATTER * pow(rand, scatter + scatter*align)
+       pos += dir * noiseInner * 0.2*SCATTER * align
+       pos = mix(pos, base, mouseDist)          // near cursor → snap back
+     Where:
+       dir   = unit vector from cloud-centre to the dot's base position
+       align = max(0, dot(thinkingVec, dir))^3  · hoverStrength
+       thinkingVec = unit vector centre → cursor (0 when not hovered)
+     Everything in pixels so it's actually visible (the old %-translate
+     produced 0.03 px on 3 px dots — invisible). */
   (function () {
-    const svg = document.getElementById('globe');
-    if (!svg) return;
-    const NS = 'http://www.w3.org/2000/svg';
-    const palette = ['#bff6e4', '#34d399', '#5091f2', '#4338ca'];
+    const host = document.getElementById('cloud');
+    if (!host) return;
+    const card = host.closest('.card');
+    const dots = Array.from(host.querySelectorAll('.dot'));
+    if (!dots.length) return;
 
-    let seed = 4242;
-    const rand = () => (seed = (seed * 9301 + 49297) % 233280) / 233280;
+    // Read host rect once — we re-read on resize.
+    let rect = host.getBoundingClientRect();
+    let cx = rect.width / 2, cy = rect.height / 2;
+    new ResizeObserver(() => {
+      rect = host.getBoundingClientRect();
+      cx = rect.width / 2; cy = rect.height / 2;
+    }).observe(host);
 
-    // Hemisphere center + radius (in viewBox units)
-    const cx = 210, cy = 250, R = 170;
-    const DOTS = 900;
+    // Freeze each dot's base pixel position + radial direction from centre.
+    const state = dots.map(el => {
+      const bxPct = parseFloat(el.style.left);
+      const byPct = parseFloat(el.style.top);
+      const bxPx = (bxPct / 100) * rect.width;
+      const byPx = (byPct / 100) * rect.height;
+      const rx = bxPx - cx, ry = byPx - cy;
+      const rl = Math.hypot(rx, ry) || 1;
+      return {
+        el,
+        bxPct, byPct,                  // for distance-to-cursor in % space
+        dirX: rx / rl, dirY: ry / rl,  // outward radial
+        rand:   Math.random(),         // per-dot scatter coefficient
+        phase1: Math.random() * 6.283, // noise offsets
+        phase2: Math.random() * 6.283,
+        speed1: 0.55 + Math.random() * 0.35,
+        speed2: 0.18 + Math.random() * 0.15,
+      };
+    });
 
-    for (let i = 0; i < DOTS; i++) {
-      // Uniform disc sampling, biased upward so it reads as a hemisphere.
-      const r = Math.sqrt(rand()) * R;
-      const a = rand() * Math.PI * 2;
-      let x = cx + Math.cos(a) * r;
-      let y = cy + Math.sin(a) * r * 0.62;      // squash to ellipse
-      // Fade edges — drop the point if outside a softened oval
-      const nx = (x - cx) / R;
-      const ny = (y - cy) / (R * 0.62);
-      const d = Math.sqrt(nx*nx + ny*ny);
-      if (d > 1) continue;
-      // Edge falloff for opacity
-      const fall = 1 - Math.pow(d, 1.4);
+    // Cursor + hover strength (both ease toward target each frame).
+    let cxPct = 50, cyPct = 50;
+    let hover = 0, targetHover = 0;
+    let tvX = 0, tvY = 0;   // thinking vector (from centre toward cursor, ±1)
 
-      // Colour by longitude (left cool, right warm-ish — but we stay cool)
-      const t = (x - (cx - R)) / (2 * R);         // 0..1
-      const idx = Math.min(palette.length - 1, Math.floor(t * palette.length));
+    card.addEventListener('mouseenter', () => { targetHover = 1; });
+    card.addEventListener('mouseleave', () => { targetHover = 0; });
+    card.addEventListener('mousemove', (e) => {
+      const r = host.getBoundingClientRect();
+      cxPct = ((e.clientX - r.left) / r.width)  * 100;
+      cyPct = ((e.clientY - r.top)  / r.height) * 100;
+      // Thinking vector in unit space (half-width = 50%)
+      const nx = (cxPct - 50) / 50;
+      const ny = (cyPct - 50) / 50;
+      const nl = Math.hypot(nx, ny) || 1;
+      tvX = nx / nl; tvY = ny / nl;
+    });
 
-      const dot = document.createElementNS(NS, 'circle');
-      dot.setAttribute('cx', x.toFixed(1));
-      dot.setAttribute('cy', y.toFixed(1));
-      dot.setAttribute('r', (0.6 + rand() * 1.2).toFixed(2));
-      dot.setAttribute('fill', palette[idx]);
-      dot.setAttribute('opacity', (0.25 + fall * 0.65).toFixed(2));
-      svg.appendChild(dot);
+    if (reducedMotion) return;
+
+    const SCATTER = 14;   // outward drift amplitude in px
+    const THINK_BOOST = 22; // extra push when aligned with cursor
+
+    const t0 = performance.now();
+    function frame(now) {
+      const t = (now - t0) / 1000;
+      hover += (targetHover - hover) * 0.08;
+
+      for (let i = 0; i < state.length; i++) {
+        const s = state[i];
+
+        // Two noise layers (sin/cos approximation of simplex)
+        const n1 = Math.sin(t * s.speed1 + s.phase1 + s.bxPct * 0.03);
+        const n2 = Math.sin(t * s.speed2 + s.phase2 + s.byPct * 0.02);
+
+        // Alignment with cursor direction — only positive side contributes
+        const align = Math.max(0, tvX * s.dirX + tvY * s.dirY);
+        const alignCubed = align * align * align * hover;
+
+        // Base outward drift, amplified by alignment (cursor-aligned dots "reach")
+        const scatter = SCATTER * Math.pow(s.rand, 1.2 - 0.8 * alignCubed);
+        let dx = s.dirX * n1 * scatter + s.dirY * n2 * scatter * 0.4;
+        let dy = s.dirY * n1 * scatter - s.dirX * n2 * scatter * 0.4;
+        dx += s.dirX * n1 * THINK_BOOST * alignCubed;
+        dy += s.dirY * n1 * THINK_BOOST * alignCubed;
+
+        // Calm zone: dots inside ~16% of cursor return to rest.
+        if (hover > 0.02) {
+          const vx = s.bxPct - cxPct;
+          const vy = s.byPct - cyPct;
+          const d  = Math.hypot(vx, vy);
+          if (d < 16) {
+            const calm = (1 - d / 16) * hover;
+            dx *= 1 - calm;
+            dy *= 1 - calm;
+          }
+        }
+
+        s.el.style.transform = `translate3d(${dx.toFixed(2)}px, ${dy.toFixed(2)}px, 0)`;
+      }
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+
+  /* ---------- Card 2 · reading field ----------
+     A tilted grid of cells (each cell = one paper). A "reading wave"
+     sweeps across the columns over WAVE_DURATION seconds. Each cell's
+     state depends on its distance from the wave front:
+         |diff| ≈ 0          → live  (mint glow, lifted Z)
+         |diff| < 0.075      → warm  (azure, mild glow)
+         diff ∈ (−0.42, −0.04)→ read  (pale mint, flat)
+     A prominent counter ticks up continuously (in sync with the wave)
+     showing how many papers of the total corpus have been read.
+     Hover tilts the whole field plane toward the cursor. */
+  (function () {
+    const host = document.getElementById('read-grid');
+    if (!host) return;
+    const scene = host.closest('.scene-read');
+    const card  = scene.closest('.card');
+    const numEl = document.getElementById('read-num');
+    const barEl = document.getElementById('read-bar');
+
+    // --- Build grid -----------------------------------------------------
+    const COLS = 26, ROWS = 14;
+    const cellW = 18, cellH = 24;
+    const cells = [];
+    for (let r = 0; r < ROWS; r++) {
+      for (let c = 0; c < COLS; c++) {
+        const el = document.createElement('div');
+        el.className = 'cell';
+        el.style.left = (c * cellW) + 'px';
+        el.style.top  = (r * cellH) + 'px';
+        host.appendChild(el);
+        cells.push({ el, c, r, state: '', jitter: Math.random() * 0.06 });
+      }
     }
 
-    // Pins (anchor points) + arcs between them
-    const pins = [
-      { x: cx - 130, y: cy - 30  },   // Boston
-      { x: cx - 40,  y: cy - 80  },   // London
-      { x: cx + 50,  y: cy - 50  },   // Copenhagen
-      { x: cx + 130, y: cy + 20  },   // Tokyo
-      { x: cx + 30,  y: cy + 80  },   // Sydney
-    ];
-    pins.forEach((p, i) => {
-      const ring = document.createElementNS(NS, 'circle');
-      ring.setAttribute('cx', p.x); ring.setAttribute('cy', p.y);
-      ring.setAttribute('r', 5.5);
-      ring.setAttribute('fill', 'none');
-      ring.setAttribute('stroke', palette[(i + 1) % palette.length]);
-      ring.setAttribute('stroke-width', '1.4');
-      ring.setAttribute('opacity', '0.85');
-      svg.appendChild(ring);
+    // --- Hover tilt (smoothed) -----------------------------------------
+    let tgtX = 0, tgtY = 0, tiltX = 0, tiltY = 0;
+    card.addEventListener('mousemove', (e) => {
+      const rect = scene.getBoundingClientRect();
+      tgtX = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
+      tgtY = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
+    });
+    card.addEventListener('mouseleave', () => { tgtX = 0; tgtY = 0; });
 
-      const core = document.createElementNS(NS, 'circle');
-      core.setAttribute('cx', p.x); core.setAttribute('cy', p.y);
-      core.setAttribute('r', 1.8);
-      core.setAttribute('fill', palette[(i + 1) % palette.length]);
-      svg.appendChild(core);
+    if (reducedMotion) return;
+
+    // --- Counter: ticks up continuously at ~RATE papers/sec -------------
+    //   The displayed count advances every frame; the progress bar mirrors.
+    //   The rate is high enough that the number visibly ticks (cf. 238/s
+    //   in the older draft — we want a busier, more confident pace here).
+    const TOTAL = 2_000_000;
+    const RATE  = 640;                        // papers/sec
+    let count   = 1_284_679;                  // seed value
+
+    // --- rAF --------------------------------------------------------------
+    const WAVE_DURATION = 7.5;
+    const t0 = performance.now();
+    let prev = t0;
+
+    function frame(now) {
+      const dt = (now - prev) / 1000;
+      prev = now;
+      const t  = (now - t0) / 1000;
+
+      // Tilt ease
+      tiltX += (tgtX - tiltX) * 0.08;
+      tiltY += (tgtY - tiltY) * 0.08;
+      host.style.setProperty('--tilt-x', (tiltX * 6).toFixed(2) + 'deg');
+      host.style.setProperty('--tilt-y', (-tiltY * 10).toFixed(2) + 'deg');
+
+      // Wave sweeps 0..1 across columns
+      const wave = (t / WAVE_DURATION) % 1;
+
+      for (let i = 0; i < cells.length; i++) {
+        const cell = cells[i];
+        const colNorm = cell.c / (COLS - 1);
+        let diff = colNorm - wave;
+        if (diff < -0.5) diff += 1;
+        if (diff >  0.5) diff -= 1;
+
+        let next = '';
+        const liveBand = 0.025 + cell.jitter * 0.35;
+        if (Math.abs(diff) < liveBand)        next = 'live';
+        else if (Math.abs(diff) < 0.075)       next = 'warm';
+        else if (diff < -0.04 && diff > -0.42) next = 'read';
+
+        if (next !== cell.state) {
+          if (cell.state) cell.el.classList.remove(cell.state);
+          if (next)       cell.el.classList.add(next);
+          cell.state = next;
+        }
+      }
+
+      // Counter ticks in sync with the wave: each second → RATE papers,
+      // with a burst multiplier peaking near the wave front for extra life.
+      const waveBoost = 1 + 0.9 * Math.max(0, Math.sin(wave * Math.PI * 2));
+      count = Math.min(TOTAL, count + dt * RATE * waveBoost);
+      const intC = Math.floor(count);
+      numEl.textContent = intC.toLocaleString('en-US');
+      barEl.style.width = ((intC / TOTAL) * 100).toFixed(3) + '%';
+
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+  })();
+
+  /* ---------- Card 3 · true 3D dot-sphere (canvas) ----------
+     Stripe's money-movement graphic renders ~30k dots through Three.js +
+     a custom vertex shader. We don't need 30k — ~520 reads as a globe —
+     but each point must live in 3D, rotate around Y every frame, and
+     project to screen with perspective + depth fade so the front of the
+     sphere is bright/large and the back fades out. That is what makes
+     the thing feel like a ball of points rather than a flat sticker.
+
+     Pipeline per frame:
+       1. For each point: apply continuous Y-rotation + cursor tilt on X/Y
+       2. Apply per-point corona burst: scale radius outward while ease > 0
+       3. Project with a cheap perspective divide (cam distance = 2.4)
+       4. Depth-fade alpha and scale by projected depth
+       5. Back-to-front sort, then draw filled arcs
+  */
+  (function () {
+    const scene = document.querySelector('.scene-globe');
+    if (!scene) return;
+    const canvas = document.getElementById('globe');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    const card = scene.closest('.card');
+
+    const palette = ['#bff6e4', '#34d399', '#5091f2', '#4338ca'];
+
+    // --- Fibonacci lattice: evenly-spaced points on the unit sphere -------
+    const N = 820;
+    const pts = [];
+    const PHI = Math.PI * (Math.sqrt(5) - 1);   // golden angle
+    for (let i = 0; i < N; i++) {
+      const y = 1 - (i / (N - 1)) * 2;
+      const rad = Math.sqrt(1 - y * y);
+      const theta = PHI * i;
+      const x = Math.cos(theta) * rad;
+      const z = Math.sin(theta) * rad;
+      pts.push({
+        x, y, z,
+        // colour stable per-point (by longitude) — gives the foil gradient
+        colour: palette[Math.min(3, Math.floor(((Math.atan2(z, x) + Math.PI) / (2 * Math.PI)) * 4))],
+        baseR: 0.9 + Math.random() * 1.1,     // dot radius in px @ depth=1
+        baseOp: 0.35 + Math.random() * 0.55,
+        twinkPhase: Math.random() * Math.PI * 2,
+        twinkRate:  2.2 + Math.random() * 2.8,
+        // Corona burst schedule: each dot bursts on its own clock
+        burstOffset: Math.random() * 14,       // stagger in seconds
+        burstEvery:  9 + Math.random() * 9,    // 9-18 s between bursts
+        burstDur:    1.1 + Math.random() * 0.9,
+        burstAmt:    0.10 + Math.random() * 0.12,  // up to +22% outward
+      });
+    }
+
+    // --- Canvas sizing: DPR-aware -----------------------------------------
+    let W = 0, H = 0, R = 0, CX = 0, CY = 0;
+    function resize() {
+      const rect = scene.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      W = Math.max(1, rect.width);
+      H = Math.max(1, rect.height);
+      canvas.width  = Math.round(W * dpr);
+      canvas.height = Math.round(H * dpr);
+      canvas.style.width  = W + 'px';
+      canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      R  = Math.min(W, H) * 0.38;
+      CX = W / 2;
+      CY = H * 0.56;
+    }
+    resize();
+    new ResizeObserver(resize).observe(scene);
+
+    // --- Cursor tilt (smoothed) -------------------------------------------
+    let tiltX = 0, tiltY = 0, tgtX = 0, tgtY = 0;
+    card.addEventListener('mousemove', (e) => {
+      const r = scene.getBoundingClientRect();
+      tgtX = ((e.clientX - r.left) / r.width  - 0.5) * 2;
+      tgtY = ((e.clientY - r.top)  / r.height - 0.5) * 2;
+    });
+    card.addEventListener('mouseleave', () => { tgtX = 0; tgtY = 0; });
+
+    // --- Reference labels: parallax with hover tilt -----------------------
+    // Each label is attached to a virtual 3D point on the front of the
+    // sphere. We don't let them drift with continuous spin (that would
+    // cycle them onto the back), but we DO reproject them per-frame using
+    // the same rotX/rotY so they move with the globe on hover.
+    const labels = [
+      { el: scene.querySelector('.ticket.t1'), nx: -0.74, ny: -0.42, nz: 0.53 },
+      { el: scene.querySelector('.ticket.t2'), nx:  0.82, ny:  0.10, nz: 0.56 },
+      { el: scene.querySelector('.ticket.t3'), nx:  0.18, ny:  0.62, nz: 0.77 },
+    ];
+    // Cache a "home" screen position per label so JS transform = home + parallax.
+    // Base stays rooted to the label's current CSS rect; we only DRIVE the delta.
+    labels.forEach(l => {
+      if (!l.el) return;
+      l.el.style.animation = 'none';           // disable the CSS bob — JS drives now
+      l.el.style.willChange = 'transform';
     });
 
-    // Arcs — draw as quadratic Béziers lifted above the midpoint.
-    const arcs = [
-      [0, 2], [1, 4], [2, 3], [0, 3]
-    ];
-    arcs.forEach(([a, b], i) => {
-      const p1 = pins[a], p2 = pins[b];
-      const mx = (p1.x + p2.x) / 2;
-      const my = (p1.y + p2.y) / 2;
-      const lift = 80 + (i * 14);
-      const cpY = my - lift;
-      const path = document.createElementNS(NS, 'path');
-      path.setAttribute('d', `M ${p1.x} ${p1.y} Q ${mx} ${cpY} ${p2.x} ${p2.y}`);
-      path.setAttribute('fill', 'none');
-      path.setAttribute('stroke', palette[(i + 1) % palette.length]);
-      path.setAttribute('stroke-width', '1.1');
-      path.setAttribute('opacity', '0.72');
-      path.setAttribute('stroke-linecap', 'round');
-      svg.appendChild(path);
-    });
+    if (reducedMotion) {
+      // Draw one still frame at default rotation and stop.
+      renderFrame(0);
+      return;
+    }
+
+    const CAM = 2.4;             // camera distance (ortho-ish perspective)
+    const ROT_SPEED = 0.085;     // rad/sec continuous spin
+    // Scratch array avoids per-frame allocation of 520 objects.
+    const scratch = new Array(pts.length);
+    for (let i = 0; i < pts.length; i++) scratch[i] = { sx: 0, sy: 0, size: 0, alpha: 0, colour: '', z: 0 };
+
+    function renderFrame(t) {
+      // Ease tilt toward target
+      tiltX += (tgtX - tiltX) * 0.08;
+      tiltY += (tgtY - tiltY) * 0.08;
+
+      // Full rotation = continuous spin + a nudge from cursor X,
+      // so hover subtly steers the globe instead of only flattening it.
+      const rotY = t * ROT_SPEED + tiltX * 0.35;
+      const rotX = tiltY * 0.28;
+      const cY = Math.cos(rotY), sY = Math.sin(rotY);
+      const cX = Math.cos(rotX), sX = Math.sin(rotX);
+
+      ctx.clearRect(0, 0, W, H);
+
+      for (let i = 0; i < pts.length; i++) {
+        const p = pts[i];
+
+        // Corona burst: per-point phase in its own cycle.
+        const local = (t + p.burstOffset) % p.burstEvery;
+        let ease = 0;
+        if (local < p.burstDur) {
+          // Half-sine envelope: 0 → 1 → 0 over burstDur
+          ease = Math.sin((local / p.burstDur) * Math.PI);
+        }
+        const rScale = 1 + ease * p.burstAmt;
+
+        // Rotate Y then X
+        const x0 = p.x * rScale, y0 = p.y * rScale, z0 = p.z * rScale;
+        const x1 =  x0 * cY + z0 * sY;
+        const z1 = -x0 * sY + z0 * cY;
+        const y1 =  y0 * cX - z1 * sX;
+        const z2 =  y0 * sX + z1 * cX;
+        const x2 =  x1;  // unchanged by rotX
+
+        // Perspective divide (z2 ∈ [−1, 1])
+        const persp = CAM / (CAM - z2);
+        const sx = CX + x2 * R * persp;
+        const sy = CY + y1 * R * persp;
+
+        // Depth fade: z2 = +1 → near/bright, z2 = −1 → far/dim.
+        // Keep back dots visible but muted — we want a sphere, not a bowl.
+        const depth  = (z2 + 1) * 0.5;                 // 0..1 (far..near)
+        const depthA = 0.28 + Math.pow(depth, 1.3) * 0.72;
+        const twink  = 0.82 + Math.sin(t * p.twinkRate + p.twinkPhase) * 0.14;
+        const alpha  = p.baseOp * depthA * twink + ease * 0.45 * depthA;
+        const size   = Math.max(0.35, p.baseR * persp * (1 + ease * 0.35));
+
+        const s = scratch[i];
+        s.sx = sx; s.sy = sy; s.size = size; s.alpha = alpha;
+        s.colour = p.colour; s.z = z2;
+      }
+
+      // Back-to-front so front dots overlap the back ones.
+      scratch.sort((a, b) => a.z - b.z);
+
+      for (let i = 0; i < scratch.length; i++) {
+        const s = scratch[i];
+        if (s.alpha < 0.03) continue;
+        ctx.globalAlpha = Math.min(1, s.alpha);
+        ctx.fillStyle = s.colour;
+        ctx.beginPath();
+        ctx.arc(s.sx, s.sy, s.size, 0, Math.PI * 2);
+        ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+
+      // --- Move reference labels with hover tilt --------------------------
+      // Project each anchor using ONLY the tilt rotation (not the
+      // continuous spin). That way labels follow the cursor-driven
+      // motion of the globe without orbiting out of view.
+      const lcX = Math.cos(rotX), lsX = Math.sin(rotX);
+      const ltY = tiltX * 0.35, lcY = Math.cos(ltY), lsY = Math.sin(ltY);
+      for (let i = 0; i < labels.length; i++) {
+        const L = labels[i];
+        if (!L.el) continue;
+        // Rotate the anchor by the hover-only deltas
+        const x0 = L.nx, y0 = L.ny, z0 = L.nz;
+        const x1 =  x0 * lcY + z0 * lsY;
+        const z1 = -x0 * lsY + z0 * lcY;
+        const y1 =  y0 * lcX - z1 * lsX;
+        // Compare to the rest-pose projection (tilt = 0) to get a pure delta.
+        // Rest-pose = (x0, y0, z0) unrotated, so dx = x1 - x0, dy = y1 - y0.
+        const dx = (x1 - x0) * R;
+        const dy = (y1 - y0) * R;
+        L.el.style.transform = `translate3d(${dx.toFixed(1)}px, ${dy.toFixed(1)}px, 0)`;
+      }
+    }
+
+    const t0 = performance.now();
+    function frame(now) {
+      renderFrame((now - t0) / 1000);
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
   })();
 </script>
 

@@ -1,0 +1,397 @@
+/* shared/ark-how.css - Ask-Read-Connect feature cards for landing.
+ * Generated from app/emersus-cards-mockup.html (single source of truth).
+ * Selectors scoped under .ark-how so nothing collides with landing.css.
+ *
+ * Palette + surface tokens are re-mapped to the landing's existing
+ * design-tokens.css; the section inherits light/dark automatically.
+ */
+
+.ark-how {
+  /* Wave palette (same colours as the hero canvas) */
+  --wave-1: #bff6e4;
+  --wave-2: #34d399;
+  --wave-3: #5091f2;
+  --wave-4: #4338ca;
+  --wave-foil:
+    linear-gradient(112deg, #bff6e4 0%, #34d399 28%, #5091f2 62%, #4338ca 100%);
+  --wave-foil-soft:
+    linear-gradient(112deg,
+      rgba(191,246,228,0.92) 0%,
+      rgba(52,211,153,0.92)  28%,
+      rgba(80,145,242,0.92)  62%,
+      rgba(67,56,202,0.92)   100%);
+  /* Re-map mockup-local surface vars to landing tokens. */
+  --bg: var(--surface);
+  --bg-card: var(--surface);
+  --bg-card-2: color-mix(in srgb, var(--surface) 92%, var(--ink) 4%);
+  --border: var(--line);
+  --border-strong: var(--line-strong);
+  --accent: var(--wave-2);
+  --bubble: color-mix(in srgb, var(--ink) 6%, transparent);
+  --bubble-user: rgba(52,211,153,0.14);
+}
+html[data-theme="paper"] .ark-how {
+  --bubble-user: rgba(59,109,214,0.10);
+  --accent: var(--wave-3);
+}
+
+/* Section-level shell — .ark-how is rendered inside a landing <section>.
+ * Landing's .section caps at 1100px which squeezes a 3-card row; bump
+ * to 1260 just for this section so cards have breathing room. */
+section.ark-how { max-width: 1260px; }
+.ark-how .cards-host {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+@media (max-width: 920px) {
+  .ark-how .cards-host { grid-template-columns: 1fr; }
+}
+/* Shrink the reading counter so the total ("/ 2,000,000") fits even in
+ * the narrower landing column. Using `section.ark-how` (type+class) to
+ * win over the mockup-origin rules that share `.ark-how` specificity. */
+section.ark-how .read-panel-counter .num   { font-size: 26px; }
+section.ark-how .read-panel-counter .total { font-size: 13px; }
+section.ark-how .read-panel-counter .sep   { font-size: 13px; }
+section.ark-how .read-panel                { padding: 12px 14px 10px; }
+
+.ark-how .topbar{
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 32px;
+    border-bottom: 1px solid var(--border);
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 12px; color: var(--muted); letter-spacing: 0.04em;
+  }.ark-how .topbar a{
+    color: var(--accent); text-decoration: none; padding: 4px 10px;
+    border: 1px solid var(--border-strong); border-radius: 999px;
+    margin-left: 6px;
+  }.ark-how .topbar a.active{ background: rgba(52,211,153,0.10); }.ark-how .hero{
+    max-width: 1320px; margin: 0 auto; padding: 64px 32px 80px;
+  }.ark-how .eyebrow{
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 12px;
+  }.ark-how h1.section-title{
+    font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+    font-weight: 500; font-size: 44px; line-height: 1.08;
+    margin: 0 0 10px; letter-spacing: -0.02em;
+  }.ark-how .section-sub{
+    font-size: 16px; color: var(--muted);
+    max-width: 680px; margin: 0 0 40px; line-height: 1.5;
+  }.ark-how .cards{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--border);
+    overflow: hidden;
+  }
+  @media (max-width: 980px) {.ark-how .cards{ grid-template-columns: 1fr; }
+  }.ark-how .card{
+    position: relative;
+    background: var(--bg-card);
+    padding: 28px 28px 32px;
+    min-height: 560px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }.ark-how .card-title{
+    font-family: 'Space Grotesk', system-ui, -apple-system, Segoe UI, sans-serif;
+    font-weight: 500; font-size: 22px; line-height: 1.22;
+    letter-spacing: -0.015em;
+    margin: 0; padding-right: 48px;
+    max-width: 320px;
+  }.ark-how .card-expand{
+    position: absolute; top: 20px; right: 20px;
+    width: 30px; height: 30px; border-radius: 8px;
+    display: grid; place-items: center;
+    background: var(--bubble); border: 1px solid var(--border);
+    color: var(--muted); font-size: 13px;
+  }.ark-how .card-scene{
+    flex: 1;
+    margin-top: 32px;
+    position: relative;
+    display: grid; place-items: center;
+    overflow: hidden;               /* contain neighbour papers that overflow */
+  }.ark-how .scene-ask{
+    width: 100%; height: 420px;
+    position: relative;
+  }.ark-how .scene-ask .cloud{
+    position: absolute; inset: 0;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse 78% 70% at 50% 50%, #000 0%, #000 55%, transparent 100%);
+  }.ark-how .scene-ask .dot{
+    position: absolute;
+    width: 3px; height: 3px; border-radius: 50%;
+    background: var(--wave-2);
+    opacity: 0.55;
+  }.ark-how .scene-ask .chat{
+    position: relative; z-index: 2;
+    width: 78%; max-width: 300px;
+    margin: 38px auto 0;
+    display: flex; flex-direction: column; gap: 10px;
+  }.ark-how .bubble{
+    padding: 10px 13px; border-radius: 14px;
+    font-size: 13px; line-height: 1.42;
+    background: var(--bubble); color: var(--ink);
+    border: 1px solid var(--border);
+    max-width: 86%;
+  }.ark-how .bubble.user{
+    align-self: flex-end;
+    background: var(--bubble-user);
+    border-color: transparent;
+  }.ark-how .bubble.assistant{
+    align-self: flex-start;
+  }.ark-how .cite-row{
+    display: grid; grid-template-columns: 1fr 1fr; gap: 8px;
+    margin-top: 2px;
+  }.ark-how .cite{
+    background: var(--bg-card-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 9px 10px;
+    font-size: 10.5px; line-height: 1.35;
+  }.ark-how .cite .j{
+    color: var(--muted); font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 9.5px; letter-spacing: 0.04em; text-transform: uppercase;
+    margin-bottom: 3px;
+  }.ark-how .cite .t{ color: var(--ink); font-weight: 500; }.ark-how .cite .n{ color: var(--muted); margin-top: 3px; font-size: 9.5px; }.ark-how .scene-read{
+    position: relative; width: 100%; height: 420px;
+    overflow: hidden;
+  }.ark-how .read-stage{
+    position: absolute; inset: 0;
+    perspective: 900px;
+    perspective-origin: 50% 60%;
+  }.ark-how .read-grid{
+    --tilt-x: 0deg;
+    --tilt-y: 0deg;
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 520px; height: 360px;
+    transform:
+      translate(-50%, -50%)
+      rotateX(calc(48deg + var(--tilt-y)))
+      rotateZ(calc(-6deg + var(--tilt-x)));
+    transform-style: preserve-3d;
+  }.ark-how .read-grid .cell{
+    position: absolute;
+    width: 10px; height: 12px;
+    border-radius: 2px;
+    background: rgba(100,110,140,0.22);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    transition: background 220ms ease, box-shadow 220ms ease, transform 260ms ease;
+    will-change: background, transform;
+  }.ark-how .read-grid .cell.read{
+    background: rgba(191,246,228,0.42);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  }.ark-how .read-grid .cell.warm{
+    background: #5091f2;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.28),
+      0 0 12px rgba(80,145,242,0.5);
+    transform: translateZ(6px);
+  }.ark-how .read-grid .cell.live{
+    background: #34d399;
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.32),
+      0 0 20px rgba(52,211,153,0.65),
+      0 0 36px rgba(52,211,153,0.38);
+    transform: translateZ(14px);
+  }.ark-how .read-panel{
+    position: absolute;
+    top: 20px; left: 20px; right: 20px;
+    z-index: 3;
+    padding: 14px 16px 12px;
+    background: rgba(14,14,16,0.68);
+    border: 1px solid rgba(255,255,255,0.09);
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }.ark-how .read-panel-head{
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; letter-spacing: 0.22em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 6px;
+  }.ark-how .read-panel-dot{
+    width: 6px; height: 6px; border-radius: 999px;
+    background: var(--wave-2);
+    box-shadow: 0 0 10px rgba(52,211,153,0.8);
+    animation: readingPulse 1.4s ease-in-out infinite;
+  }
+  @keyframes readingPulse {
+    0%, 100% { opacity: 1;   box-shadow: 0 0 10px rgba(52,211,153,0.8); }
+    50%      { opacity: 0.5; box-shadow: 0 0 4px rgba(52,211,153,0.3); }
+  }.ark-how .read-panel-counter{
+    display: flex; align-items: baseline; gap: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-variant-numeric: tabular-nums;
+  }.ark-how .read-panel-counter .num{
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    line-height: 1;
+  }.ark-how .read-panel-counter .sep{ color: var(--muted); font-size: 14px; }.ark-how .read-panel-counter .total{
+    font-size: 15px;
+    color: var(--muted);
+    letter-spacing: 0;
+  }.ark-how .read-panel-bar{
+    margin-top: 11px;
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.08);
+    overflow: hidden;
+  }.ark-how .read-panel-bar-fill{
+    height: 100%;
+    background: var(--wave-foil);
+    border-radius: 2px;
+    box-shadow: 0 0 10px rgba(52,211,153,0.4);
+    will-change: width;
+  }
+  @media (prefers-reduced-motion: reduce) {.ark-how .read-panel-dot{ animation: none; }
+  }.ark-how .scene-paper{
+    width: 100%; height: 420px;
+    position: relative;
+    display: grid;
+    grid-template-areas: "stage";     /* both paper-groups overlap here */
+    place-items: center;
+    perspective: 1800px;
+    perspective-origin: 55% 50%;
+    --mx: 50%; --my: 50%;             /* cursor position (percent) */
+  }.ark-how .paper-group, .ark-how .paper-group--sharp{ grid-area: stage; }.ark-how .paper-group--sharp{
+    --focus-blur: 0px;
+    --mask-r: 130px;
+    pointer-events: none;
+    opacity: 0;
+    -webkit-mask-image: radial-gradient(circle var(--mask-r) at var(--mx) var(--my),
+      #000 50%, rgba(0,0,0,0.5) 72%, transparent 100%);
+            mask-image: radial-gradient(circle var(--mask-r) at var(--mx) var(--my),
+      #000 50%, rgba(0,0,0,0.5) 72%, transparent 100%);
+    transition: opacity 260ms ease;
+  }.ark-how .scene-paper.focus-active .paper-group--sharp{ opacity: 1; }.ark-how .paper-hero .paper-reel{
+    animation: paperReel 22s linear infinite;
+    will-change: transform;
+  }
+  @keyframes paperReel {
+    0%   { transform: translateY(0); }
+    100% { transform: translateY(-50%); }
+  }.ark-how .scene-paper.focus-active .paper-hero .paper-reel{ animation-play-state: paused; }
+  @media (prefers-reduced-motion: reduce) {.ark-how .paper-hero .paper-reel{ animation: none; }
+  }@keyframes wallBreath{
+    0%, 100% { transform: rotateY(-20deg) rotateX(6deg) rotateZ(-2deg) translateX(-4px) scale(1); }
+    50%      { transform: rotateY(-20deg) rotateX(6deg) rotateZ(-2deg) translateX(-4px) scale(1.012); }
+  }.ark-how .paper-group{ animation: wallBreath 9s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {.ark-how .paper-group{ animation: none; }
+  }.ark-how .scene-paper{ --focus-blur: 1.3px; }.ark-how .paper{
+    background: #0e1013;             /* deep near-black paper */
+    color: #e8e7e2;
+    border-radius: 2px;
+    padding: 18px 18px 22px;
+    overflow: hidden;
+    filter: blur(var(--focus-blur));
+    box-shadow:
+      inset 0 0 0 1px rgba(255,255,255,0.08),
+      inset 0 0 40px rgba(0,0,0,0.35);
+  }.ark-how .paper::before{
+    content: ""; position: absolute; inset: 0;
+    background:
+      repeating-linear-gradient(0deg, transparent 0 11px,
+        rgba(255,255,255,0.025) 11px 11.5px);
+    pointer-events: none;
+  }.ark-how .paper-group{
+    position: relative;
+    width: 240px; height: 300px;      /* hero size (shorter → top + bottom both peek) */
+    transform-style: preserve-3d;
+    transform:
+      rotateY(-20deg)
+      rotateX(6deg)
+      rotateZ(-2deg)
+      translateX(-4px);
+    filter: drop-shadow(18px 28px 40px rgba(67,56,202,0.35))
+            drop-shadow(0 4px 10px rgba(0,0,0,0.35));
+  }.ark-how .paper-hero{ position: absolute; inset: 0; }.ark-how .paper-left{ position: absolute; top:     0; left: -250px; }.ark-how .paper-right{ position: absolute; top:     0; left:  250px; }.ark-how .paper-top{ position: absolute; top: -310px; left:      0; }.ark-how .paper-tl{ position: absolute; top: -310px; left: -250px; }.ark-how .paper-tr{ position: absolute; top: -310px; left:  250px; }.ark-how .paper-bottom{ position: absolute; top:  310px; left:      0; }.ark-how .paper-bl{ position: absolute; top:  310px; left: -250px; }.ark-how .paper-br{ position: absolute; top:  310px; left:  250px; }.ark-how .paper.neighbour{ width: 240px; height: 300px; }.ark-how .paper-title{
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600; font-size: 10.5px; line-height: 1.25;
+    letter-spacing: -0.005em;
+    color: #f4f3ee;
+    padding-right: 20px;
+    margin: 0 0 4px;
+  }.ark-how .paper-meta{
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 7px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: rgba(255,255,255,0.58);
+    margin: 0 0 10px;
+  }.ark-how .paper-section{
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 7.2px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: rgba(255,255,255,0.68);
+    margin: 6px 0 4px;
+    border-bottom: 0.5px solid rgba(255,255,255,0.18);
+    padding-bottom: 2px;
+  }.ark-how .body-text{
+    font-family: 'Times New Roman', Georgia, serif;
+    font-size: 6.8px; line-height: 1.45;
+    color: #e6e5df; opacity: 0.92;
+    text-align: justify;
+  }.ark-how .body-text p{ margin: 0 0 4px; }.ark-how .body-text em{ font-style: italic; }.ark-how .eq{
+    display: block;
+    font-family: 'Cambria Math', 'STIX Two Math', 'Times New Roman', serif;
+    font-size: 7.8px;
+    text-align: center;
+    margin: 5px 0;
+    color: #efede7;
+    letter-spacing: 0.01em;
+  }.ark-how .eq-tag{
+    float: right;
+    font-family: 'Times New Roman', serif;
+    font-size: 6.8px;
+    color: rgba(255,255,255,0.45);
+  }.ark-how .paper-caption{
+    position: absolute;
+    bottom: 14px; left: 50%; transform: translateX(-50%);
+    display: flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 9.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--muted); white-space: nowrap;
+    z-index: 3;
+  }.ark-how .paper-caption .j{ color: var(--ink); opacity: 0.95; }.ark-how .paper-caption .dot{ opacity: 0.4; }.ark-how .scene-globe{
+    width: 100%; height: 420px;
+    position: relative;
+    overflow: hidden;
+  }.ark-how .globe-canvas{
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    display: block;
+  }@keyframes ticketFloat{
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-5px); }
+  }.ark-how .ticket{
+    animation: ticketFloat 3.6s ease-in-out infinite;
+    will-change: transform;
+  }.ark-how .ticket.t1{ animation-delay:  0s; }.ark-how .ticket.t2{ animation-delay: -1.2s; }.ark-how .ticket.t3{ animation-delay: -2.4s; }
+  @media (prefers-reduced-motion: reduce) {.ark-how .ticket{ animation: none; }
+  }.ark-how .ticket{
+    position: absolute;
+    background: var(--bg-card-2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 6px 9px;
+    display: flex; align-items: center; gap: 7px;
+    font-size: 10.5px;
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    z-index: 3;
+  }.ark-how .ticket .swatch{
+    width: 16px; height: 16px; border-radius: 4px;
+    background: var(--wave-foil);
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,0.3);
+    flex-shrink: 0;
+  }.ark-how .ticket .meta{ color: var(--muted); margin-left: 2px; }.ark-how .ticket.t1{ top: 28%; left: 8%; }.ark-how .ticket.t2{ top: 46%; right: 10%; }.ark-how .ticket.t3{ bottom: 22%; left: 38%; }.ark-how .card-cap{
+    margin-top: 14px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; color: var(--muted);
+    letter-spacing: 0.06em; text-transform: uppercase;
+  }

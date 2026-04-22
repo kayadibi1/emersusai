@@ -67,6 +67,7 @@
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/shared/design-tokens.css">
   <link rel="stylesheet" href="/shared/landing.css">
+  <link rel="stylesheet" href="/shared/ark-how.css">
   <script type="module">
     import { bootTheme, bindSwitcher } from '/shared/theme.js';
     bootTheme();
@@ -505,17 +506,101 @@
       </div>
     </section>
 
-    <section class="section" id="flow">
-      <div class="sec-eyebrow">The flow</div>
-      <h2 class="sec-title">From question to grounded answer in <span class="num-ticker" data-sequence='["one","two","three","four"]' aria-label="four">four</span> steps.</h2>
-      <p class="sec-intro">Every thread traces back to the source literature. Here's what happens between typing a question and reading the response.</p>
-      <div class="steps-grid">
-        <div class="step"><span class="step-num">STEP 01</span><h4>Ask anything</h4><p>Natural-language questions about training, nutrition, recovery, or mechanism. No prompt engineering required.</p></div>
-        <div class="step"><span class="step-num">STEP 02</span><h4>Semantic retrieval</h4><p>We search 1M+ papers across PubMed, bioRxiv, medRxiv, and CORE. Ranked by relevance, recency, and quality.</p></div>
-        <div class="step"><span class="step-num">STEP 03</span><h4>Evidence grading</h4><p>Each claim is labeled by effect size, sample quality, and replication across independent trials.</p></div>
-        <div class="step"><span class="step-num">STEP 04</span><h4>Cited answer</h4><p>Full response with inline citations, explicit uncertainty, and direct links you can verify yourself.</p></div>
+    <section class="section ark-how" id="flow">
+      <div class="sec-eyebrow">How it works</div>
+      <h2 class="sec-title">Ask. Read. Connect.</h2>
+      <p class="sec-intro">Every answer starts from your question, pulls from peer-reviewed literature, and links back to the sources behind it.</p>
+      <div class="cards-host cards">
+
+        <!-- ============ CARD 1 · ASK ============ -->
+        <div class="card">
+          <h2 class="card-title">Ask anything, grounded in peer-reviewed evidence</h2>
+          <div class="card-expand">↗</div>
+          <div class="card-scene">
+            <div class="scene-ask">
+              <div class="cloud" id="cloud"></div>
+              <div class="chat">
+                <div class="bubble user">
+                  Does creatine help with cognition, or just strength?
+                </div>
+                <div class="bubble assistant">
+                  Both — about 25 RCTs find improved working memory and
+                  reasoning in adults, effect strongest in sleep-deprived
+                  or vegetarian subjects.
+                </div>
+                <div class="cite-row">
+                  <div class="cite">
+                    <div class="j">Nutrients · 2023</div>
+                    <div class="t">Creatine &amp; cognitive performance</div>
+                    <div class="n">Meta-analysis · n = 640</div>
+                  </div>
+                  <div class="cite">
+                    <div class="j">Psychopharm · 2022</div>
+                    <div class="t">Sleep deprivation &amp; supplementation</div>
+                    <div class="n">RCT · n = 123</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-cap">Ask · chat</div>
+        </div>
+
+        <!-- ============ CARD 2 · READ (reading field) ============ -->
+        <div class="card">
+          <h2 class="card-title">We read so you don&rsquo;t have to</h2>
+          <div class="card-expand">↗</div>
+          <div class="card-scene">
+            <div class="scene-read">
+              <div class="read-stage">
+                <div class="read-grid" id="read-grid"></div>
+              </div>
+              <div class="read-panel">
+                <div class="read-panel-head">
+                  <span class="read-panel-dot"></span>
+                  <span>Reading · peer-reviewed literature</span>
+                </div>
+                <div class="read-panel-counter">
+                  <span class="num" id="read-num">1,284,679</span>
+                  <span class="sep">/</span>
+                  <span class="total">2,000,000</span>
+                </div>
+                <div class="read-panel-bar">
+                  <div class="read-panel-bar-fill" id="read-bar" style="width: 64.23%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card-cap">Read · field</div>
+        </div>
+
+        <!-- ============ CARD 3 · CONNECT ============ -->
+        <div class="card">
+          <h2 class="card-title">Connect findings across the global corpus</h2>
+          <div class="card-expand">↗</div>
+          <div class="card-scene">
+            <div class="scene-globe">
+              <canvas class="globe-canvas" id="globe"></canvas>
+              <div class="ticket t1">
+                <div class="swatch"></div>
+                <span>BMJ</span><span class="meta">· +248 cites</span>
+              </div>
+              <div class="ticket t2">
+                <div class="swatch"></div>
+                <span>JAMA</span><span class="meta">· meta 2024</span>
+              </div>
+              <div class="ticket t3">
+                <div class="swatch"></div>
+                <span>Nature</span><span class="meta">· n = 3,104</span>
+              </div>
+            </div>
+          </div>
+          <div class="card-cap">Connect · network</div>
+        </div>
+
       </div>
     </section>
+    <script src="/shared/ark-how.js" defer></script>
 
 
     <section class="section section-center" id="corpus">
