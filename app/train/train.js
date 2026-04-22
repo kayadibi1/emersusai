@@ -17,6 +17,7 @@ import { SwimActive } from "/shared/train/swim-active.js";
 import { ClimbActive } from "/shared/train/climb-active.js";
 import { ModalityEmptyState } from "/shared/train/modality-empty-state.js";
 import { ModalityDashboard } from "/shared/train/modality-dashboard.js";
+import { generateSessionTitle } from "/shared/train/auto-name.js";
 
 const h = React.createElement;
 const MODALITY_LABELS = { lift: "Lift", cardio: "Cardio", swim: "Swim", climb: "Climb" };
@@ -449,13 +450,28 @@ function TrainApp() {
 
   const confirmFinish = useCallback(async (note) => {
     if (!activeSession) return;
-    await patchActive({ ended_at: new Date().toISOString(), note: note || null });
+    // Auto-name the session if the user never typed their own title.
+    // Uses the logged sets + exercise lookup to pick a contextual name
+    // (e.g., "Bench Press + Squat + Row", "Push day", "5.0 km run",
+    // "Freestyle · 24 laps", "6 problems · top V4"). Never overwrites
+    // a user-provided title.
+    const existingTitle = String(activeSession.title || "").trim();
+    const patch = { ended_at: new Date().toISOString(), note: note || null };
+    if (!existingTitle) {
+      const autoTitle = generateSessionTitle({
+        modality: activeSession.modality,
+        sets: activeSets,
+        exerciseLookup,
+      });
+      if (autoTitle) patch.title = autoTitle;
+    }
+    await patchActive(patch);
     setFinishOpen(false);
     setRestEndsAt(null);
     setActiveSession(null);
     setActiveSets([]);
     setTab("history");
-  }, [activeSession, patchActive, setTab]);
+  }, [activeSession, activeSets, exerciseLookup, patchActive, setTab]);
 
   const cancelSession = useCallback(async () => {
     if (!activeSession) return;
@@ -463,6 +479,31 @@ function TrainApp() {
     await patchActive({ ended_at: new Date().toISOString(), note: "[canceled]" });
     setActiveSession(null); setActiveSets([]);
   }, [activeSession, patchActive]);
+
+  const renameHistorySession = useCallback(async (sessionId, currentTitle) => {
+    if (!sessionId || !accessToken) return;
+    const next = window.prompt("Rename session", currentTitle || "");
+    if (next === null) return;
+    const trimmed = String(next).trim().slice(0, 200);
+    if (!trimmed || trimmed === (currentTitle || "")) return;
+    try {
+      const updated = await api(`/api/workout-sessions/${sessionId}`, {
+        method: "PATCH",
+        accessToken,
+        body: { title: trimmed },
+      });
+      setHistory((prev) => ({
+        ...prev,
+        items: prev.items.map((s) => (s.id === sessionId ? { ...s, title: updated.title ?? trimmed } : s)),
+      }));
+      setSessionDetailCache((prev) => {
+        if (!prev[sessionId]) return prev;
+        return { ...prev, [sessionId]: { ...prev[sessionId], title: updated.title ?? trimmed } };
+      });
+    } catch (err) {
+      setError(err.message || "Could not rename session.");
+    }
+  }, [accessToken]);
 
   const expandSession = useCallback(async (sessionId) => {
     if (expandedSessionId === sessionId) {
@@ -613,7 +654,19 @@ function TrainApp() {
                     },
                       h("div", { className: "tr-history-header" },
                         h("div", { className: "tr-history-left" },
-                          h("div", { className: "tr-history-title" }, s.title || "Untitled session"),
+                          h("div", { className: "tr-history-title-row" },
+                            h("div", { className: "tr-history-title" }, s.title || "Untitled session"),
+                            h("button", {
+                              type: "button",
+                              className: "tr-history-rename",
+                              "aria-label": "Rename session",
+                              title: "Rename",
+                              onClick: (e) => {
+                                e.stopPropagation();
+                                renameHistorySession(s.id, s.title || "");
+                              },
+                            }, "✎"),
+                          ),
                           h("div", { className: "tr-history-meta-row" },
                             h("span", { className: "tr-history-date" }, `${dateStr}${duration ? ` · ${duration}` : ""}${status}`),
                             (s.exercises || []).length > 0 ? h("span", { className: "tr-history-dot" }, "·") : null,

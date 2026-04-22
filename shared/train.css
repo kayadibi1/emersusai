@@ -337,7 +337,37 @@ body.train-body {
 
 .tr-history-header { display: flex; align-items: center; padding: 12px 16px; gap: 12px; }
 .tr-history-left { flex: 1; min-width: 0; }
-.tr-history-title { font-size: 15px; font-weight: 500; color: var(--ink); }
+.tr-history-title-row {
+  display: flex; align-items: center; gap: 8px;
+  min-width: 0;
+}
+.tr-history-title {
+  font-size: 15px; font-weight: 500; color: var(--ink);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  min-width: 0;
+}
+.tr-history-rename {
+  flex-shrink: 0;
+  background: transparent;
+  border: 0;
+  color: var(--dim);
+  font-size: 13px;
+  line-height: 1;
+  padding: 4px 6px;
+  border-radius: 5px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .14s, color .14s, background .14s;
+}
+.tr-history-row:hover .tr-history-rename,
+.tr-history-row.is-expanded .tr-history-rename {
+  opacity: 0.7;
+}
+.tr-history-rename:hover {
+  opacity: 1 !important;
+  color: var(--accent);
+  background: var(--accent-soft);
+}
 .tr-history-meta-row { display: flex; align-items: center; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
 .tr-history-date {
   font-family: 'JetBrains Mono', ui-monospace, monospace;
