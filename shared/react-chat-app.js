@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { createRoot } from "react-dom/client";
 import {
   Pulse as Activity,
@@ -3303,30 +3303,9 @@ function RailMetric({ label, value, note, width = "0%", tone = "" }) {
     h("div", { className: `rail-spark ${tone}`.trim(), style: { "--spark-width": width } }));
 }
 
-function EmersusOrb({ state = "idle" }) {
-  const canvasRef = useRef(null);
-  const orbRef = useRef(null);
-
-  useEffect(() => {
-    if (!canvasRef.current) return undefined;
-    orbRef.current = createEmersusOrb(canvasRef.current, { size: 72, initialState: state });
-    return () => {
-      orbRef.current?.destroy();
-      orbRef.current = null;
-    };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  useEffect(() => {
-    orbRef.current?.setState(state);
-  }, [state]);
-
-  return h(
-    "div",
-    { className: "emersus-orb-mount", "data-state": state, "aria-hidden": true },
-    h("canvas", { ref: canvasRef, style: { width: "72px", height: "72px", display: "block" } })
-  );
-}
+// EmersusOrb was a per-render React component; replaced by a singleton
+// canvas owned by ChatApp that's physically moved (via DOM appendChild)
+// between slots as the owner changes. See useLayoutEffect in ChatApp.
 
 // ChatApp powers the main authenticated chat experience.
 export function ChatApp() {
@@ -3366,6 +3345,11 @@ export function ChatApp() {
   // "thinking" if the backend goes silent for ≥400 ms mid-stream.
   const lastChunkAtRef = useRef(0);
   const pauseWatcherRef = useRef(null);
+  // Singleton orb canvas — stays in memory across slot changes, physically
+  // moved between message slots via DOM appendChild so WebGL context +
+  // particle positions persist. No per-slot remount.
+  const orbCanvasRef = useRef(null);
+  const orbInstanceRef = useRef(null);
   // UsageRing imperative handle — parent calls bump() after a successful
   // send and refresh() after a 429 to stay in sync with the server's
   // authoritative counter.
@@ -3386,6 +3370,39 @@ export function ChatApp() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const openSidebar = useCallback(() => setSidebarOpen(true), []);
   const closeSidebar = useCallback(() => setSidebarOpen(false), []);
+
+  // ─── Singleton orb: init once, reuse across slot changes ───
+  useEffect(() => {
+    if (orbInstanceRef.current) return undefined;
+    const canvas = document.createElement("canvas");
+    canvas.setAttribute("aria-hidden", "true");
+    canvas.style.cssText = "width:72px;height:72px;display:block;";
+    orbCanvasRef.current = canvas;
+    orbInstanceRef.current = createEmersusOrb(canvas, { size: 72, initialState: glyphState });
+    return () => {
+      orbInstanceRef.current?.destroy();
+      orbInstanceRef.current = null;
+      if (orbCanvasRef.current?.parentNode) orbCanvasRef.current.parentNode.removeChild(orbCanvasRef.current);
+      orbCanvasRef.current = null;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // Sync orb state to the glyphState React state
+  useEffect(() => {
+    orbInstanceRef.current?.setState(glyphState);
+  }, [glyphState]);
+
+  // After every render, move the canvas into whichever slot currently holds
+  // the `data-orb-slot` marker. One canvas, re-parented physically, so WebGL
+  // context + particle positions survive across state transitions.
+  useLayoutEffect(() => {
+    const canvas = orbCanvasRef.current;
+    if (!canvas) return;
+    const slot = document.querySelector("[data-orb-slot]");
+    if (slot && canvas.parentNode !== slot) slot.appendChild(canvas);
+    else if (!slot && canvas.parentNode) canvas.parentNode.removeChild(canvas);
+  });
 
   useEffect(() => {
     if (!sidebarOpen) return undefined;
@@ -4889,7 +4906,7 @@ export function ChatApp() {
                         onExport: handleExportMessage,
                         onAskFollowUp: handleAskSourceFollowUp,
                         trailingOrb: isAnchor
-                          ? h("div", { className: "inline-orb-slot", key: "orb" }, h(EmersusOrb, { state: glyphState }))
+                          ? h("div", { className: "inline-orb-slot", "data-orb-slot": "1", key: "orb" })
                           : null,
                       })];
                     });
@@ -4897,7 +4914,7 @@ export function ChatApp() {
                       nodes.push(
                         h("article", { key: "fallback-orb", className: "message assistant" },
                           h("div", { className: "message-content" },
-                            h("div", { className: "inline-orb-slot" }, h(EmersusOrb, { state: glyphState }))))
+                            h("div", { className: "inline-orb-slot", "data-orb-slot": "1" })))
                       );
                     }
                     return nodes;
