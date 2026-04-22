@@ -175,3 +175,41 @@ export function updateLinks(ctx, particles, params) {
   ctx.linkGeom.setDrawRange(0, segIdx * 2);
   return segIdx;
 }
+
+// Update trails geometry from each particle's trail ring buffer. Trails are
+// drawn as TRAIL_LEN-1 segments per particle, alpha-fading from the oldest
+// to the newest. Each particle must have a `.trail[]` (ring buffer of
+// [x,y,z]) and `.trailIdx` pointer.
+export function updateTrails(ctx, particles, params) {
+  const positions = ctx.trailGeom.attributes.position.array;
+  const colors = ctx.trailGeom.attributes.color.array;
+  const T = ctx.trailLen;
+  let seg = 0;
+  for (const p of particles) {
+    for (let k = 0; k < T - 1; k++) {
+      const idxA = (p.trailIdx + k) % T;
+      const idxB = (p.trailIdx + k + 1) % T;
+      const a = p.trail[idxA], b = p.trail[idxB];
+      if (!a || !b) continue;
+      positions[seg*6+0] = a[0];
+      positions[seg*6+1] = a[1];
+      positions[seg*6+2] = a[2];
+      positions[seg*6+3] = b[0];
+      positions[seg*6+4] = b[1];
+      positions[seg*6+5] = b[2];
+      const fade = 0.25 * ((k + 1) / (T - 1));
+      const [br, bg, bb] = p.baseRGB;
+      colors[seg*6+0] = (br / 255) * fade;
+      colors[seg*6+1] = (bg / 255) * fade;
+      colors[seg*6+2] = (bb / 255) * fade;
+      colors[seg*6+3] = (br / 255) * fade;
+      colors[seg*6+4] = (bg / 255) * fade;
+      colors[seg*6+5] = (bb / 255) * fade;
+      seg++;
+    }
+  }
+  ctx.trailGeom.attributes.position.needsUpdate = true;
+  ctx.trailGeom.attributes.color.needsUpdate = true;
+  ctx.trailGeom.setDrawRange(0, seg * 2);
+  return seg;
+}
