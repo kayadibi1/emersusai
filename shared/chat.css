@@ -1324,41 +1324,35 @@ body.chat-page {
   min-height: 0;
 }
 
-/* Empty-thread layout — composer pinned to true vertical center of the
- * empty area via absolute positioning. Welcome copy flows normally in the
- * top half with padding to clear the composer. As soon as a message lands,
- * is-empty-thread is removed and the normal layout resumes. */
+/* Empty-thread layout — welcome + composer centered as a group,
+ * ChatGPT/Claude style. The composer is NOT at the bottom; the whole
+ * stack floats in the vertical center of the viewport. */
 .chat-main-body.is-empty-thread {
-  position: relative !important;
-  display: block !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  height: 100% !important;
+  min-height: 0 !important;
 }
 .chat-main-body.is-empty-thread .conversation-canvas {
-  position: absolute !important;
-  top: 0 !important;
-  left: 0 !important;
-  right: 0 !important;
-  height: 50% !important;
+  flex: 0 0 auto !important;
   overflow: visible !important;
-  display: flex !important;
-  align-items: flex-end !important;
-  justify-content: center !important;
-  padding-bottom: 28px !important;
+  max-height: none !important;
 }
 .chat-main-body.is-empty-thread .chat-thread {
-  padding-top: 0 !important;
-  padding-bottom: 0 !important;
+  padding: 0 !important;
+  min-height: 0 !important;
 }
 .chat-main-body.is-empty-thread .thread-welcome {
-  margin-top: 0 !important;
+  margin: 0 auto !important;
   align-items: center !important;
   text-align: center !important;
+  padding: 24px 40px !important;
 }
 .chat-main-body.is-empty-thread .chat-composer-shell {
-  position: absolute !important;
-  top: 50% !important;
-  left: 0 !important;
-  right: 0 !important;
-  transform: translateY(-50%) !important;
+  flex: 0 0 auto !important;
+  margin-top: 12px !important;
 }
 .chat-main-body.is-empty-thread .chat-composer-shell::before {
   display: none !important;
