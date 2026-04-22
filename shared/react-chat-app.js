@@ -99,13 +99,13 @@ const VISIBLE_MESSAGE_COUNT_STEP = 40;
 // evidence-based brand voice (not generic "thinking..."). Cycles every
 // ORB_LABEL_CYCLE_MS and cross-fades via key-remount.
 const ORB_THINKING_PHRASES = [
-  "Thinking",
+  "Searching 2.4M papers",
   "Weighing the evidence",
   "Cross-referencing studies",
   "Checking meta-analyses",
   "Consulting the literature",
   "Finding relevant trials",
-  "Reviewing the data",
+  "Ranking by quality",
   "Considering edge cases",
 ];
 const ORB_RESPONDING_PHRASES = [
