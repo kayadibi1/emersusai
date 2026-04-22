@@ -1330,10 +1330,23 @@ body.chat-page {
  * composer at bottom). */
 .chat-main-body.is-empty-thread {
   justify-content: center;
+  align-items: stretch;
 }
 .chat-main-body.is-empty-thread .conversation-canvas {
   flex: 0 0 auto;
   overflow: visible;
+}
+.chat-main-body.is-empty-thread .chat-thread {
+  /* Kill the ambient page-top padding and welcome top-margin so the canvas
+   * shrinks to just the welcome block's intrinsic height. Without this the
+   * canvas is ~200 px taller than its content and the centering is offset. */
+  padding-top: 0;
+  padding-bottom: 0;
+}
+.chat-main-body.is-empty-thread .thread-welcome {
+  margin-top: 0;
+  align-items: center;
+  text-align: center;
 }
 .chat-main-body.is-empty-thread .chat-composer-shell {
   flex: 0 0 auto;
