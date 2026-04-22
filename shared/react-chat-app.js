@@ -95,6 +95,31 @@ function filterThreadsByTier(rows, tier) {
 const DEFAULT_VISIBLE_MESSAGE_COUNT = 40;
 const VISIBLE_MESSAGE_COUNT_STEP = 40;
 
+// Rotating phrases shown next to the orb while it's active. Leans into the
+// evidence-based brand voice (not generic "thinking..."). Cycles every
+// ORB_LABEL_CYCLE_MS and cross-fades via key-remount.
+const ORB_THINKING_PHRASES = [
+  "Thinking",
+  "Weighing the evidence",
+  "Cross-referencing studies",
+  "Checking meta-analyses",
+  "Consulting the literature",
+  "Finding relevant trials",
+  "Reviewing the data",
+  "Considering edge cases",
+];
+const ORB_RESPONDING_PHRASES = [
+  "Responding",
+  "Synthesizing findings",
+  "Citing sources",
+  "Composing",
+  "Drawing conclusions",
+  "Putting it together",
+  "Articulating",
+  "Shaping the answer",
+];
+const ORB_LABEL_CYCLE_MS = 3200;
+
 // Follow-up prompt trust boundary (see user memory
 // feedback_tool_output_trust_boundary.md). Citation fields (title, journal,
 // authors) are user-controlled data pulled from upstream sources — a
@@ -3345,6 +3370,9 @@ export function ChatApp() {
   // "thinking" if the backend goes silent for ≥400 ms mid-stream.
   const lastChunkAtRef = useRef(0);
   const pauseWatcherRef = useRef(null);
+  // Rotating phrase beside the orb while thinking / responding. Reset +
+  // advanced by an effect below; cross-fades via remount-by-key.
+  const [orbLabelIdx, setOrbLabelIdx] = useState(0);
   // Singleton orb canvas — stays in memory across slot changes, physically
   // moved between message slots via DOM appendChild so WebGL context +
   // particle positions persist. No per-slot remount.
@@ -3391,6 +3419,16 @@ export function ChatApp() {
   // Sync orb state to the glyphState React state
   useEffect(() => {
     orbInstanceRef.current?.setState(glyphState);
+  }, [glyphState]);
+
+  // Rotate the text label beside the orb every ORB_LABEL_CYCLE_MS while
+  // thinking or responding. Reset the index on state change so the first
+  // phrase is always visible for a full cycle.
+  useEffect(() => {
+    setOrbLabelIdx(0);
+    if (glyphState !== "thinking" && glyphState !== "responding") return undefined;
+    const t = setInterval(() => setOrbLabelIdx((i) => i + 1), ORB_LABEL_CYCLE_MS);
+    return () => clearInterval(t);
   }, [glyphState]);
 
   // After every render, move the canvas into whichever slot currently holds
@@ -4896,12 +4934,18 @@ export function ChatApp() {
                       })],
                     );
                     if (showOrb) {
-                      const label = glyphState === "responding" ? "Responding"
-                        : glyphState === "thinking" ? "Thinking" : null;
+                      const pool = glyphState === "responding" ? ORB_RESPONDING_PHRASES
+                        : glyphState === "thinking" ? ORB_THINKING_PHRASES : null;
+                      const label = pool ? pool[orbLabelIdx % pool.length] : null;
                       nodes.push(
                         h("div", { key: "orb-anchor", className: "orb-row" },
                           h("div", { className: "orb-anchor", "data-orb-slot": "1" }),
-                          label ? h("span", { className: "orb-state-label" }, label) : null)
+                          label
+                            ? h("span", {
+                                className: "orb-state-label",
+                                key: `${glyphState}-${orbLabelIdx}`,
+                              }, label)
+                            : null)
                       );
                     }
                     return nodes;

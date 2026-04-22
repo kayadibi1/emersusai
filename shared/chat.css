@@ -1456,14 +1456,17 @@ body.chat-page {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--muted);
-  animation: orbStatePulse 1.6s ease-in-out infinite;
+  /* Fade + slight rise each time the phrase rotates (React remounts the
+   * span via its key, re-firing this animation). */
+  animation: orbLabelIn 680ms cubic-bezier(.22, 1, .36, 1);
+  will-change: opacity, transform;
 }
-@keyframes orbStatePulse {
-  0%, 100% { opacity: 0.55; }
-  50%      { opacity: 1; }
+@keyframes orbLabelIn {
+  from { opacity: 0; transform: translateY(3px); }
+  to   { opacity: 0.82; transform: translateY(0); }
 }
 @media (prefers-reduced-motion: reduce) {
-  .orb-state-label { animation: none; opacity: 0.8; }
+  .orb-state-label { animation: none; opacity: 0.82; }
 }
 
 /* User messages render as a right-aligned bubble. Assistant messages stay
