@@ -9,6 +9,7 @@ import {
   kleinTargets, linkedCirclesTargets, supertoroidTargets,
   catenoidTargets, helicoidTargets,
 } from '../../../../shared/emersus-orb/shapes.js';
+import { lorenzTargets, rosslerTargets, thomasTargets, halvorsenTargets } from '../../../../shared/emersus-orb/shapes.js';
 
 const N = 260;
 
@@ -70,4 +71,11 @@ describe('emersus-orb/shapes.js — topology + surfaces', () => {
   test('supertoroid', () => assertValidTargets(supertoroidTargets(N), 'supertoroid'));
   test('catenoid', () => assertValidTargets(catenoidTargets(N), 'catenoid', 300));
   test('helicoid', () => assertValidTargets(helicoidTargets(N), 'helicoid'));
+});
+
+describe('emersus-orb/shapes.js — chaos attractors', () => {
+  test('lorenz', () => assertValidTargets(lorenzTargets(N), 'lorenz'));
+  test('rossler', () => assertValidTargets(rosslerTargets(N), 'rossler'));
+  test('thomas', () => assertValidTargets(thomasTargets(N), 'thomas'));
+  test('halvorsen', () => assertValidTargets(halvorsenTargets(N), 'halvorsen'));
 });

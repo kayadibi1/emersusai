@@ -238,3 +238,99 @@ export function helicoidTargets(N) {
   }
   return out;
 }
+
+function scaleCenter(pts, N, target) {
+  let minX=Infinity,maxX=-Infinity,minY=Infinity,maxY=-Infinity,minZ=Infinity,maxZ=-Infinity;
+  for (const p of pts) {
+    if(p[0]<minX)minX=p[0]; if(p[0]>maxX)maxX=p[0];
+    if(p[1]<minY)minY=p[1]; if(p[1]>maxY)maxY=p[1];
+    if(p[2]<minZ)minZ=p[2]; if(p[2]>maxZ)maxZ=p[2];
+  }
+  const cx=(minX+maxX)/2, cy=(minY+maxY)/2, cz=(minZ+maxZ)/2;
+  const spread = Math.max(maxX-minX, maxY-minY, maxZ-minZ) || 1;
+  const scale = target / spread;
+  const out = [];
+  for (let i = 0; i < N; i++) {
+    const p = pts[i % pts.length];
+    out.push([(p[0]-cx)*scale, (p[1]-cy)*scale, (p[2]-cz)*scale]);
+  }
+  return out;
+}
+
+export function lorenzTargets(N) {
+  const sigma = 10, rho = 28, beta = 8/3;
+  let x = 0.1, y = 0, z = 0;
+  const dt = 0.005;
+  for (let i = 0; i < 400; i++) {
+    x += sigma*(y-x) * dt;
+    y += (x*(rho-z) - y) * dt;
+    z += (x*y - beta*z) * dt;
+  }
+  const pts = [];
+  const steps = N * 6;
+  for (let i = 0; i < steps; i++) {
+    const dx = sigma*(y-x), dy = x*(rho-z) - y, dz = x*y - beta*z;
+    x += dx*dt; y += dy*dt; z += dz*dt;
+    if (i % 6 === 0) pts.push([x, y - 25, z]);
+  }
+  return scaleCenter(pts, N, 180);
+}
+
+export function rosslerTargets(N) {
+  const a = 0.2, b = 0.2, c = 5.7;
+  let x = 1, y = 1, z = 1;
+  const dt = 0.02;
+  for (let i = 0; i < 500; i++) {
+    x += (-y - z) * dt;
+    y += (x + a*y) * dt;
+    z += (b + z*(x - c)) * dt;
+  }
+  const pts = [];
+  const steps = N * 4;
+  for (let i = 0; i < steps; i++) {
+    const dx = -y - z, dy = x + a*y, dz = b + z*(x - c);
+    x += dx*dt; y += dy*dt; z += dz*dt;
+    if (i % 4 === 0) pts.push([x, y, z]);
+  }
+  return scaleCenter(pts, N, 180);
+}
+
+export function thomasTargets(N) {
+  const b = 0.19;
+  let x = 0.5, y = 0.5, z = 0.5;
+  const dt = 0.08;
+  for (let i = 0; i < 400; i++) {
+    x += (Math.sin(y) - b*x) * dt;
+    y += (Math.sin(z) - b*y) * dt;
+    z += (Math.sin(x) - b*z) * dt;
+  }
+  const pts = [];
+  const steps = N * 3;
+  for (let i = 0; i < steps; i++) {
+    const dx = Math.sin(y) - b*x, dy = Math.sin(z) - b*y, dz = Math.sin(x) - b*z;
+    x += dx*dt; y += dy*dt; z += dz*dt;
+    if (i % 3 === 0) pts.push([x, y, z]);
+  }
+  return scaleCenter(pts, N, 180);
+}
+
+export function halvorsenTargets(N) {
+  const a = 1.89;
+  let x = -1.48, y = -1.51, z = 2.04;
+  const dt = 0.008;
+  for (let i = 0; i < 400; i++) {
+    x += (-a*x - 4*y - 4*z - y*y) * dt;
+    y += (-a*y - 4*z - 4*x - z*z) * dt;
+    z += (-a*z - 4*x - 4*y - x*x) * dt;
+  }
+  const pts = [];
+  const steps = N * 4;
+  for (let i = 0; i < steps; i++) {
+    const dx = -a*x - 4*y - 4*z - y*y;
+    const dy = -a*y - 4*z - 4*x - z*z;
+    const dz = -a*z - 4*x - 4*y - x*x;
+    x += dx*dt; y += dy*dt; z += dz*dt;
+    if (i % 4 === 0) pts.push([x, y, z]);
+  }
+  return scaleCenter(pts, N, 180);
+}
