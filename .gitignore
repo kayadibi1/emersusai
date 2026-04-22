@@ -88,3 +88,6 @@ docs/superpowers/plans/2026-04-16-progress-charts.md
 
 # Local-only OpenAI API reference (snapshotted full docs dump)
 docs/openai-api-reference.md
+
+# OpenAlex bulk-ingest local artifacts (regenerated each run)
+scripts/openalex-bulk/data/
