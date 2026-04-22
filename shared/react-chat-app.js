@@ -4909,7 +4909,7 @@ export function ChatApp() {
         progress: onboardingProgress,
         onSkip: handleSkipOnboarding,
       }) : null,
-      h("div", { className: "chat-main-body" },
+      h("div", { className: `chat-main-body${!activeMessages.length ? " is-empty-thread" : ""}` },
         h("section", { className: "conversation-canvas", ref: canvasRef },
           h("div", { className: `chat-thread${!activeMessages.length ? " is-empty" : ""}` },
             activeThreadNeedsHydration

@@ -1323,6 +1323,26 @@ body.chat-page {
   padding: 0;
   min-height: 0;
 }
+
+/* Empty-thread layout — ChatGPT/Claude style: welcome + composer centered
+ * together vertically in the viewport. As soon as the first message lands,
+ * is-empty-thread is removed and the normal layout resumes (canvas scrolls,
+ * composer at bottom). */
+.chat-main-body.is-empty-thread {
+  justify-content: center;
+}
+.chat-main-body.is-empty-thread .conversation-canvas {
+  flex: 0 0 auto;
+  overflow: visible;
+}
+.chat-main-body.is-empty-thread .chat-composer-shell {
+  flex: 0 0 auto;
+}
+/* Suppress the scroll-edge gradient above the composer when empty —
+ * there's no scroll content behind it. */
+.chat-main-body.is-empty-thread .chat-composer-shell::before {
+  display: none;
+}
 .conversation-canvas::-webkit-scrollbar { width: 10px; }
 .conversation-canvas::-webkit-scrollbar-track { background: transparent; }
 .conversation-canvas::-webkit-scrollbar-thumb { background: var(--line); border-radius: 5px; }
