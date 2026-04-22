@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" data-theme="mint">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>chat empty-state test</title>
+<link rel="stylesheet" href="/shared/design-tokens.css" />
+<link rel="stylesheet" href="/shared/chat.css" />
+</head>
+<body class="chat-page">
+
+<div class="chat-app-shell history-hidden">
+  <main class="chat-main">
+    <header class="top-bar chat-top" data-chat-top-bar="v2">
+      <div style="padding: 12px 20px; color: var(--muted); font-family: 'JetBrains Mono', monospace; font-size: 12px;">top bar</div>
+    </header>
+    <div class="chat-main-body is-empty-thread">
+      <section class="conversation-canvas">
+        <div class="chat-thread is-empty">
+          <section class="thread-welcome">
+            <p class="thread-welcome-eyebrow">Emersus</p>
+            <h2 class="thread-welcome-title">Welcome, Test User</h2>
+            <p class="thread-welcome-copy">
+              Ask about training, nutrition, supplements, recovery, cardiovascular fitness, or
+              metabolic health and I'll keep the answer evidence-aware.
+            </p>
+          </section>
+        </div>
+      </section>
+      <div class="chat-composer-shell">
+        <form class="composer">
+          <div class="composer-row" style="display:flex;align-items:flex-end;gap:12px;">
+            <textarea
+              id="chat-question"
+              placeholder="Ask anything about training"
+              style="flex:1;resize:none;min-height:44px;"
+            ></textarea>
+            <button class="submit-orb" type="submit" aria-label="Send">→</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
