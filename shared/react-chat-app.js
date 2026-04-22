@@ -4893,7 +4893,7 @@ export function ChatApp() {
       ? h("button", { className: "history-restore-button", type: "button", "aria-expanded": false, "aria-label": "Show conversation history", onClick: () => setHistoryHidden(false) },
           h(PanelLeftOpen, { size: 18 }))
       : null,
-    h("main", { className: "chat-main" },
+    h("main", { className: `chat-main${!activeMessages.some((m) => m?.role === "user") ? " is-empty-thread" : ""}` },
       chatV2On
         ? h(ChatTopBar, {
             thread: activeThread,

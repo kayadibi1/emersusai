@@ -1324,41 +1324,40 @@ body.chat-page {
   min-height: 0;
 }
 
-/* Empty-thread layout — composer's VERTICAL CENTER sits at the middle of
- * the usable area. Welcome copy stacks above it with a 16 px gap. Grid
- * rows: 1fr / auto (composer) / 1fr — composer naturally lands at center.
- * When the welcome content is taller than the 1fr top row, the body
- * scrolls so nothing clips. */
-.chat-main-body.is-empty-thread {
-  display: grid !important;
-  grid-template-rows: 1fr auto 1fr !important;
-  grid-template-columns: 1fr !important;
-  height: 100% !important;
-  overflow-y: auto !important;
-  min-height: 0 !important;
+/* Empty-thread layout — ChatGPT/Claude style. The composer is a sibling
+ * of .chat-main-body inside .chat-main (not a child), so we attach the
+ * state class to .chat-main and position the composer absolutely at the
+ * vertical middle. The chat-main-body collapses to content height so the
+ * welcome + onboarding greeting flow naturally above the composer.
+ * Resumes normal layout the instant the user submits (class drops). */
+.chat-main.is-empty-thread {
+  position: relative !important;
 }
-.chat-main-body.is-empty-thread > .conversation-canvas {
-  grid-row: 1 !important;
-  align-self: end !important;
+.chat-main.is-empty-thread > .chat-main-body {
+  flex: 0 0 auto !important;
   overflow: visible !important;
   min-height: 0 !important;
-  padding-bottom: 16px !important;
 }
-.chat-main-body.is-empty-thread .chat-thread {
-  padding: 0 !important;
+.chat-main.is-empty-thread > .chat-main-body .conversation-canvas {
+  overflow: visible !important;
+  flex: 0 0 auto !important;
+}
+.chat-main.is-empty-thread > .chat-main-body .chat-thread {
+  padding-bottom: 40px !important;
   min-height: 0 !important;
 }
-.chat-main-body.is-empty-thread .thread-welcome {
-  margin: 0 auto !important;
-  align-items: center !important;
-  text-align: center !important;
-  padding: 24px 40px !important;
+.chat-main.is-empty-thread > .chat-main-body .thread-welcome {
+  margin-top: 0 !important;
 }
-.chat-main-body.is-empty-thread > .chat-composer-shell {
-  grid-row: 2 !important;
-  align-self: stretch !important;
+.chat-main.is-empty-thread > .chat-composer-shell {
+  position: absolute !important;
+  top: 50% !important;
+  left: 0 !important;
+  right: 0 !important;
+  transform: translateY(-50%) !important;
+  background: var(--bg) !important;
 }
-.chat-main-body.is-empty-thread .chat-composer-shell::before {
+.chat-main.is-empty-thread > .chat-composer-shell::before {
   display: none !important;
 }
 .conversation-canvas::-webkit-scrollbar { width: 10px; }
