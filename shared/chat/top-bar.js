@@ -11,7 +11,7 @@
 // isKnownModel) are unit-tested. The React component is the thin shell.
 
 import React from "react";
-import { CaretDoubleRight as PanelLeftOpen } from "@phosphor-icons/react";
+import { CaretDoubleRight as PanelLeftOpen, ShareFat as ShareIcon } from "@phosphor-icons/react";
 
 const { useCallback, useEffect, useRef, useState } = React;
 const h = React.createElement;
@@ -276,12 +276,19 @@ export function ChatTopBar({
         "button",
         {
           type: "button",
-          className: "icon-btn share-btn",
+          className: "share-btn",
+          title: thread?.id
+            ? `Share "${title}" — get a public link to this conversation`
+            : "Share this conversation — get a public link",
+          "aria-label": thread?.id
+            ? `Share thread "${title}"`
+            : "Share this conversation",
           onClick: () => {
             if (typeof onShare === "function") onShare();
           },
         },
-        h("span", { className: "share-btn-label" }, "Share"),
+        h(ShareIcon, { size: 14, weight: "bold", "aria-hidden": true, className: "share-btn-icon" }),
+        h("span", { className: "share-btn-label" }, "Share thread"),
       ),
       h(
         "div",
