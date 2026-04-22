@@ -4580,12 +4580,14 @@ export function ChatApp() {
     setStatusMessage("Archive action coming soon.");
   }, []);
 
+  // Undo-toast state for soft deletes — gives the user 6s to restore.
+  const [undoToast, setUndoToast] = useState(null); // { thread, expiresAt }
+  const undoTimerRef = useRef(null);
   const handleDeleteThread = useCallback(async (threadIdOverride) => {
     const targetId = threadIdOverride || activeThreadId;
     if (!targetId) return;
     const thread = chatHistoryRef.current.find((t) => t.id === targetId);
-    const label = thread?.title ? `"${thread.title}"` : "this thread";
-    if (typeof window !== "undefined" && !window.confirm(`Delete ${label}? This can't be undone.`)) return;
+    if (!thread) return;
     try {
       if (session?.user?.id) {
         await deleteChatThread(session.user.id, targetId);
@@ -4607,14 +4609,34 @@ export function ChatApp() {
       if (targetId === activeThreadIdRef.current) {
         setActiveThreadId(nextActiveId);
       }
-      setStatusTone("success");
-      setStatusMessage("Thread deleted.");
+      // Show undo toast for 6s. Clicking Undo restores the thread.
+      if (undoTimerRef.current) clearTimeout(undoTimerRef.current);
+      setUndoToast({ thread, expiresAt: Date.now() + 6000 });
+      undoTimerRef.current = setTimeout(() => setUndoToast(null), 6000);
     } catch (err) {
       console.warn("deleteChatThread failed:", err);
       setStatusTone("error");
       setStatusMessage("Couldn't delete thread. Try again.");
     }
   }, [activeThreadId, session?.user?.id]);
+  const handleUndoDelete = useCallback(async () => {
+    const toast = undoToast;
+    if (!toast?.thread) return;
+    setUndoToast(null);
+    if (undoTimerRef.current) { clearTimeout(undoTimerRef.current); undoTimerRef.current = null; }
+    const restored = toast.thread;
+    setChatHistory((history) => {
+      if (history.some((t) => t.id === restored.id)) return history;
+      return [restored, ...history];
+    });
+    try {
+      if (session?.user?.id) {
+        await upsertChatThread(session.user.id, restored);
+      }
+    } catch (err) {
+      console.warn("restore thread failed:", err);
+    }
+  }, [undoToast, session?.user?.id]);
 
   // Right-click context menu for chat history items.
   // { x, y, threadId } when open; null when closed.
@@ -5305,6 +5327,17 @@ export function ChatApp() {
             h(Trash2, { size: 15, "aria-hidden": true }),
             h("span", null, "Delete")));
         })()
+      : null,
+    undoToast
+      ? h("div", { className: "undo-toast", role: "status", "aria-live": "polite" },
+          h("span", { className: "undo-toast-text" },
+            "Deleted ", h("strong", null, undoToast.thread.title || "thread")),
+          h("button", {
+            type: "button",
+            className: "undo-toast-action",
+            onClick: handleUndoDelete,
+          }, "Undo"),
+        )
       : null,
     showShortcutsHelp
       ? h("div", {
