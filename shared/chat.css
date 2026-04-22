@@ -1324,22 +1324,21 @@ body.chat-page {
   min-height: 0;
 }
 
-/* Empty-thread layout — ChatGPT/Claude style: welcome + composer centered
- * together vertically in the viewport. As soon as the first message lands,
- * is-empty-thread is removed and the normal layout resumes (canvas scrolls,
- * composer at bottom). */
+/* Empty-thread layout — ChatGPT/Claude style: the INPUT BOX is pinned to
+ * the vertical center of the viewport. Welcome copy floats in the top half,
+ * its baseline resting just above the composer. 3-row grid with the middle
+ * row (composer) at its natural height and equal 1fr rows above and below. */
 .chat-main-body.is-empty-thread {
-  justify-content: center;
-  align-items: stretch;
+  display: grid;
+  grid-template-rows: 1fr auto 1fr;
 }
 .chat-main-body.is-empty-thread .conversation-canvas {
-  flex: 0 0 auto;
+  grid-row: 1;
+  align-self: end;
   overflow: visible;
+  padding-bottom: 28px;
 }
 .chat-main-body.is-empty-thread .chat-thread {
-  /* Kill the ambient page-top padding and welcome top-margin so the canvas
-   * shrinks to just the welcome block's intrinsic height. Without this the
-   * canvas is ~200 px taller than its content and the centering is offset. */
   padding-top: 0;
   padding-bottom: 0;
 }
@@ -1349,7 +1348,7 @@ body.chat-page {
   text-align: center;
 }
 .chat-main-body.is-empty-thread .chat-composer-shell {
-  flex: 0 0 auto;
+  grid-row: 2;
 }
 /* Suppress the scroll-edge gradient above the composer when empty —
  * there's no scroll content behind it. */
