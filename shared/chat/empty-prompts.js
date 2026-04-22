@@ -173,7 +173,7 @@ export function EmptyPrompts({ onPick }) {
     h(
       "div",
       { className: "empty-prompts-row", key: rotationKey },
-      prompts.map((prompt) =>
+      prompts.map((prompt, idx) =>
         h(
           "button",
           {
@@ -181,7 +181,26 @@ export function EmptyPrompts({ onPick }) {
             type: "button",
             className: "empty-prompt-chip",
             "data-prompt": prompt.prompt,
+            "data-chip-idx": idx,
             onClick: () => onPick?.(prompt.prompt),
+            onKeyDown: (e) => {
+              const row = e.currentTarget.parentElement;
+              const chips = row ? Array.from(row.querySelectorAll("[data-chip-idx]")) : [];
+              const cur = chips.indexOf(e.currentTarget);
+              if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+                e.preventDefault();
+                chips[(cur + 1) % chips.length]?.focus();
+              } else if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+                e.preventDefault();
+                chips[(cur - 1 + chips.length) % chips.length]?.focus();
+              } else if (e.key === "Home") {
+                e.preventDefault();
+                chips[0]?.focus();
+              } else if (e.key === "End") {
+                e.preventDefault();
+                chips[chips.length - 1]?.focus();
+              }
+            },
           },
           prompt.label,
         ),
