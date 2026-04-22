@@ -21,6 +21,27 @@ export default async function exercisesCatalogHandler(req, res) {
   const recent = String(req.query?.recent || "") === "true";
   const limit = Math.max(1, Math.min(Number(req.query?.limit) || 20, 100));
 
+  // When a search query is provided, route through search_exercises() RPC
+  // so both the name column AND the aliases[] array get matched. The prior
+  // .ilike("name", ...) path ignored aliases entirely, which is why common
+  // natural terms like "dumbbell chest press" never found the seeded
+  // "Dumbbell Bench Press" row. Recent-sort path (no q) keeps the direct
+  // table query since it filters by user's workout_logs anyway.
+  if (q && !recent) {
+    const { data, error } = await supabaseAdmin.rpc("search_exercises", {
+      p_q: q,
+      p_limit: limit,
+      p_equipment: equipment || null,
+      p_category: category || null,
+      p_muscle: muscle || null,
+    });
+    if (error) {
+      console.error("exercises-catalog search_exercises error", error);
+      return res.status(500).json({ error: "Could not load exercises." });
+    }
+    return res.json({ items: data || [] });
+  }
+
   let query = supabaseAdmin
     .from("exercises")
     .select("id,slug,name,aliases,muscle_groups,equipment,category,movement_type")
