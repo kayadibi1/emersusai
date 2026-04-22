@@ -55,6 +55,33 @@ export function filterThreadsBySearch(threads, rawQuery) {
   return list.filter((thread) => {
     const title = String(thread?.title || "").toLowerCase();
     const preview = String(thread?.preview || "").toLowerCase();
-    return title.includes(query) || preview.includes(query);
+    if (title.includes(query) || preview.includes(query)) return true;
+    // Full-text match: search message bodies. Only hydrated threads carry
+    // their full transcript in memory; others still match title/preview.
+    const messages = Array.isArray(thread?.messages) ? thread.messages : [];
+    for (const m of messages) {
+      const body = typeof m?.text === "string"
+        ? m.text
+        : typeof m?.content === "string"
+          ? m.content
+          : readMessageBody(m);
+      if (body && body.toLowerCase().includes(query)) return true;
+    }
+    return false;
   });
+}
+
+function readMessageBody(message) {
+  if (!message) return "";
+  const parts = [];
+  if (typeof message.text === "string") parts.push(message.text);
+  if (typeof message.content === "string") parts.push(message.content);
+  if (Array.isArray(message.blocks)) {
+    for (const b of message.blocks) {
+      if (typeof b === "string") parts.push(b);
+      else if (b && typeof b.text === "string") parts.push(b.text);
+      else if (b && typeof b.content === "string") parts.push(b.content);
+    }
+  }
+  return parts.join(" ");
 }
