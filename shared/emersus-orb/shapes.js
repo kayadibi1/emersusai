@@ -16,8 +16,12 @@ function polyVerticesEdges(V, expectedEdge, N) {
   const vertexPts = Math.min(Math.floor(N / 2), V.length * 3);
   for (let i = 0; i < vertexPts; i++) {
     const v = V[i % V.length];
-    const j = (Math.random()-0.5)*4;
-    out.push([v[0]+j, v[1]+j, v[2]+j]);
+    // isotropic jitter — independent per axis so clouds don't streak along (1,1,1)
+    out.push([
+      v[0] + (Math.random()-0.5)*4,
+      v[1] + (Math.random()-0.5)*4,
+      v[2] + (Math.random()-0.5)*4,
+    ]);
   }
   const edgePtsTotal = N - vertexPts;
   const perEdge = Math.ceil(edgePtsTotal / Math.max(E.length, 1));
@@ -25,8 +29,11 @@ function polyVerticesEdges(V, expectedEdge, N) {
   for (const [a, b] of E) {
     for (let k = 0; k < perEdge && count < edgePtsTotal; k++, count++) {
       const t = (k + 0.5) / perEdge;
-      const j = (Math.random()-0.5)*3;
-      out.push([lerp(V[a][0], V[b][0], t)+j, lerp(V[a][1], V[b][1], t)+j, lerp(V[a][2], V[b][2], t)+j]);
+      out.push([
+        lerp(V[a][0], V[b][0], t) + (Math.random()-0.5)*3,
+        lerp(V[a][1], V[b][1], t) + (Math.random()-0.5)*3,
+        lerp(V[a][2], V[b][2], t) + (Math.random()-0.5)*3,
+      ]);
     }
   }
   while (out.length < N) out.push(V[(Math.random()*V.length)|0].slice());
@@ -102,9 +109,10 @@ export function buckyTargets(N) {
   const out = [];
   const goldenAngle = Math.PI * (3 - Math.sqrt(5));
   const R = 105;
+  const denom = Math.max(N - 1, 1); // guard N ≤ 1
   for (let i = 0; i < N; i++) {
-    const y = 1 - (i / (N - 1)) * 2;
-    const radius = Math.sqrt(1 - y * y);
+    const y = 1 - (i / denom) * 2;
+    const radius = Math.sqrt(Math.max(0, 1 - y * y));
     const theta = i * goldenAngle;
     out.push([radius * Math.cos(theta) * R, y * R, radius * Math.sin(theta) * R]);
   }
