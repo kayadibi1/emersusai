@@ -1492,6 +1492,20 @@ body.chat-page {
   color: var(--accent);
 }
 
+/* Keyboard-only focus ring — clearer 2 px accent outline with 2 px offset,
+ * so tab-through power users can always see where they are. `focus-visible`
+ * scopes it to keyboard nav so mouse clicks don't leave an aggressive ring. */
+:where(button, a, input, textarea, select, [role="button"], [tabindex]):focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 2px !important;
+  border-radius: inherit;
+}
+/* Respect the single-line composer textarea's tighter layout. */
+.chat-composer-shell textarea:focus-visible {
+  outline: 2px solid var(--accent) !important;
+  outline-offset: 0 !important;
+}
+
 /* Single dedicated orb slot — sits at the end of the message list,
  * left-aligned to match assistant prose. The singleton canvas (owned by
  * ChatApp) is appendChild'd here every render. No EMERSUS pseudo-label
