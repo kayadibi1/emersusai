@@ -15,6 +15,7 @@ import { RestTimer } from "/shared/train/rest-timer.js";
 import { CardioActive } from "/shared/train/cardio-active.js";
 import { SwimActive } from "/shared/train/swim-active.js";
 import { ClimbActive } from "/shared/train/climb-active.js";
+import { ModalityEmptyState } from "/shared/train/modality-empty-state.js";
 
 const h = React.createElement;
 const MODALITY_LABELS = { lift: "Lift", cardio: "Cardio", swim: "Swim", climb: "Climb" };
@@ -500,10 +501,10 @@ function TrainApp() {
 
     state.tab === "active"
       ? h("div", { className: "tr-tab-body" },
-          activeSession ? null : h("div", { className: "tr-empty-state" },
-            h("p", null, `No active ${MODALITY_LABELS[state.modality].toLowerCase()} session.`),
-            h("button", { type: "button", className: "tr-primary", onClick: startNewSession }, `Start a ${MODALITY_LABELS[state.modality].toLowerCase()} session`),
-          ),
+          activeSession ? null : h(ModalityEmptyState, {
+            modality: state.modality,
+            onStart: startNewSession,
+          }),
           activeSession && state.modality === "lift"
             ? h(LiftActive, {
                 session: activeSession,
