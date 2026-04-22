@@ -150,8 +150,11 @@ export function torusKnotTargets(N) {
     const x = radial * Math.cos(p * t);
     const y = radial * Math.sin(p * t);
     const z = r * Math.sin(q * t) * 1.5;
-    const j = (Math.random()-0.5) * 5;
-    out.push([x + j, z + j, y + j]); // swap to make Y vertical
+    // Independent per-axis jitter — avoids the diagonal-streak cloud.
+    const jx = (Math.random()-0.5) * 5;
+    const jy = (Math.random()-0.5) * 5;
+    const jz = (Math.random()-0.5) * 5;
+    out.push([x + jx, z + jy, y + jz]); // swap to make Y vertical
   }
   return out;
 }
