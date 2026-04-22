@@ -33,8 +33,14 @@
 }
 
 @keyframes skel-shimmer {
-  from { background-position: -150% 0; }
-  to   { background-position:  250% 0; }
+  /* Bright band starts off-left, sweeps across to off-right.
+   * With background-size: 200% 100% the percentage formula is
+   *   image_offset = (container_w - image_w) * pct = -100% * pct
+   * so background-position: 250% puts the image (and its bright
+   * middle band) fully off-screen to the LEFT; -150% puts it fully
+   * off-screen to the RIGHT. Left→right sweep is 250% → -150%. */
+  from { background-position:  250% 0; }
+  to   { background-position: -150% 0; }
 }
 
 @keyframes skel-pulse {
@@ -55,7 +61,7 @@
   );
   background-size: 200% 100%;
   background-repeat: no-repeat;
-  background-position: -150% 0;
+  background-position: 250% 0;
   animation: skel-shimmer 1.4s linear infinite;
   will-change: background-position;
   color: transparent;
