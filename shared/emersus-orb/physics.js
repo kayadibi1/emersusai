@@ -29,3 +29,39 @@ export function greedyNearestAssign(startPositions, newTargets, rng = Math.rando
   }
   return assignment.map(j => newTargets[j].slice());
 }
+
+function cross(a, b) {
+  return [
+    a[1]*b[2] - a[2]*b[1],
+    a[2]*b[0] - a[0]*b[2],
+    a[0]*b[1] - a[1]*b[0],
+  ];
+}
+function normalize3(x, y, z) {
+  const len = Math.hypot(x, y, z) || 1;
+  return [x/len, y/len, z/len];
+}
+
+// Pick a unit vector perpendicular to `dir` for curved trajectories.
+// Uses a random reference axis; falls back to Y and then X if the random
+// ref is parallel to dir.
+export function curlAxisForPath(dir, rng = Math.random) {
+  const [dx, dy, dz] = dir;
+  let rax = rng() - 0.5, ray = rng() - 0.5, raz = rng() - 0.5;
+  const rlen = Math.hypot(rax, ray, raz) || 1;
+  rax /= rlen; ray /= rlen; raz /= rlen;
+  let c = cross([dx, dy, dz], [rax, ray, raz]);
+  if (Math.hypot(c[0], c[1], c[2]) < 0.1) {
+    c = cross([dx, dy, dz], [0, 1, 0]);
+    if (Math.hypot(c[0], c[1], c[2]) < 0.1) c = cross([dx, dy, dz], [1, 0, 0]);
+  }
+  return normalize3(c[0], c[1], c[2]);
+}
+
+// Returns an initial velocity vector along `curlAxis` scaled by distance +
+// curve knob. `sign` should be ±1; use Math.random() < 0.5 to pick once per
+// particle at creation so half the swarm curls each way.
+export function initialTangentVelocity(curlAxis, distance, curve, sign) {
+  const mag = curve * distance * sign;
+  return [curlAxis[0] * mag, curlAxis[1] * mag, curlAxis[2] * mag];
+}
