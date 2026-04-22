@@ -1,4 +1,7 @@
 <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Emersus">
-  <rect width="32" height="32" rx="7" fill="#0a0a0b"/>
-  <path d="M10 8v16h13v-3.5H13.5v-3H21v-3h-7.5v-3H23V8H10z" fill="#34d399"/>
+  <g fill="#78dc14">
+    <circle cx="16" cy="7" r="4.5"/>
+    <circle cx="7" cy="22" r="4.5"/>
+    <circle cx="25" cy="22" r="4.5"/>
+  </g>
 </svg>
