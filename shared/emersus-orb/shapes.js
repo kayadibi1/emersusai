@@ -345,16 +345,17 @@ export function dnaTargets(N) {
   const rungsPerRung = 4;
   const nDistinctRungs = Math.max(1, Math.floor(rungSlots / rungsPerRung));
   const j = () => (Math.random()-0.5)*3;
+  const strandDenom = Math.max(nStrand - 1, 1); // guard div-zero at tiny N
   // strand 1
   for (let i = 0; i < nStrand; i++) {
-    const u = i / (nStrand - 1);
+    const u = i / strandDenom;
     const t = u * turns * Math.PI * 2;
     const y = -height/2 + u * height;
     out.push([rHelix*Math.cos(t)+j(), y+j(), rHelix*Math.sin(t)+j()]);
   }
   // strand 2 (180° offset)
   for (let i = 0; i < nStrand; i++) {
-    const u = i / (nStrand - 1);
+    const u = i / strandDenom;
     const t = u * turns * Math.PI * 2;
     const y = -height/2 + u * height;
     out.push([rHelix*Math.cos(t+Math.PI)+j(), y+j(), rHelix*Math.sin(t+Math.PI)+j()]);
@@ -509,39 +510,42 @@ export function infinityTargets(N) {
 // ── Export tables ────────────────────────────────────────────────────────────
 
 function normalize3(x, y, z) { const len = Math.hypot(x, y, z) || 1; return [x/len, y/len, z/len]; }
+function frozenSpin(ax, ay, az, speed) {
+  return Object.freeze({ axis: Object.freeze(normalize3(ax, ay, az)), speed });
+}
 
 export const SHAPE_SPIN = Object.freeze({
-  sphere:     { axis: normalize3(0.35, 1.0, 0.2),  speed: 0.35 },
-  torus:      { axis: normalize3(0.3,  0.5, 1.0),  speed: 0.50 },
-  helix:      { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.80 },
-  molecule:   { axis: normalize3(0.7,  0.5, 0.4),  speed: 0.40 },
-  icosa:      { axis: normalize3(0.4,  0.7, 0.6),  speed: 0.45 },
-  trefoil:    { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.55 },
-  lorenz:     { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.30 },
-  galaxy:     { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.25 },
-  mobius:     { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.50 },
-  klein:      { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.35 },
-  dodeca:     { axis: normalize3(0.4,  0.6, 0.7),  speed: 0.40 },
-  rossler:    { axis: normalize3(0.0,  0.0, 1.0),  speed: 0.30 },
-  saturn:     { axis: normalize3(0.15, 1.0, 0.1),  speed: 0.32 },
-  helicoid:   { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.45 },
-  torusKnot:  { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.45 },
-  sunflower:  { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.25 },
-  octa:       { axis: normalize3(0.4,  0.7, 0.6),  speed: 0.45 },
-  tetra:      { axis: normalize3(1.0,  1.0, 0.5),  speed: 0.50 },
-  cube:       { axis: normalize3(0.4,  0.7, 0.5),  speed: 0.38 },
-  bucky:      { axis: normalize3(0.2,  1.0, 0.3),  speed: 0.32 },
-  viviani:    { axis: normalize3(0.0,  0.0, 1.0),  speed: 0.50 },
-  thomas:     { axis: normalize3(0.5,  0.5, 0.5),  speed: 0.35 },
-  halvorsen:  { axis: normalize3(0.3,  0.7, 0.6),  speed: 0.40 },
-  seashell:   { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.45 },
-  heart:      { axis: normalize3(0.0,  1.0, 0.1),  speed: 0.30 },
-  supertoroid:{ axis: normalize3(0.2,  0.5, 1.0),  speed: 0.40 },
-  lissajous:  { axis: normalize3(0.5,  0.7, 0.3),  speed: 0.40 },
-  infinity:   { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.40 },
-  catenoid:   { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.35 },
-  linked:     { axis: normalize3(1.0,  1.0, 0.0),  speed: 0.40 },
-  pyramid:    { axis: normalize3(0.0,  1.0, 0.0),  speed: 0.40 },
+  sphere:     frozenSpin(0.35, 1.0, 0.2, 0.35),
+  torus:      frozenSpin(0.3,  0.5, 1.0, 0.50),
+  helix:      frozenSpin(0.0,  1.0, 0.0, 0.80),
+  molecule:   frozenSpin(0.7,  0.5, 0.4, 0.40),
+  icosa:      frozenSpin(0.4,  0.7, 0.6, 0.45),
+  trefoil:    frozenSpin(0.0,  1.0, 0.0, 0.55),
+  lorenz:     frozenSpin(0.0,  1.0, 0.0, 0.30),
+  galaxy:     frozenSpin(0.0,  1.0, 0.0, 0.25),
+  mobius:     frozenSpin(0.0,  1.0, 0.0, 0.50),
+  klein:      frozenSpin(0.0,  1.0, 0.0, 0.35),
+  dodeca:     frozenSpin(0.4,  0.6, 0.7, 0.40),
+  rossler:    frozenSpin(0.0,  0.0, 1.0, 0.30),
+  saturn:     frozenSpin(0.15, 1.0, 0.1, 0.32),
+  helicoid:   frozenSpin(0.0,  1.0, 0.0, 0.45),
+  torusKnot:  frozenSpin(0.0,  1.0, 0.0, 0.45),
+  sunflower:  frozenSpin(0.0,  1.0, 0.0, 0.25),
+  octa:       frozenSpin(0.4,  0.7, 0.6, 0.45),
+  tetra:      frozenSpin(1.0,  1.0, 0.5, 0.50),
+  cube:       frozenSpin(0.4,  0.7, 0.5, 0.38),
+  bucky:      frozenSpin(0.2,  1.0, 0.3, 0.32),
+  viviani:    frozenSpin(0.0,  0.0, 1.0, 0.50),
+  thomas:     frozenSpin(0.5,  0.5, 0.5, 0.35),
+  halvorsen:  frozenSpin(0.3,  0.7, 0.6, 0.40),
+  seashell:   frozenSpin(0.0,  1.0, 0.0, 0.45),
+  heart:      frozenSpin(0.0,  1.0, 0.1, 0.30),
+  supertoroid:frozenSpin(0.2,  0.5, 1.0, 0.40),
+  lissajous:  frozenSpin(0.5,  0.7, 0.3, 0.40),
+  infinity:   frozenSpin(0.0,  1.0, 0.0, 0.40),
+  catenoid:   frozenSpin(0.0,  1.0, 0.0, 0.35),
+  linked:     frozenSpin(1.0,  1.0, 0.0, 0.40),
+  pyramid:    frozenSpin(0.0,  1.0, 0.0, 0.40),
 });
 
 export const SHAPE_NAMES = Object.freeze(Object.keys(SHAPE_SPIN));
