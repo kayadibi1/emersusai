@@ -4869,32 +4869,19 @@ export function ChatApp() {
                         }, `Load ${Math.min(VISIBLE_MESSAGE_COUNT_STEP, hiddenMessageCount)} earlier messages`))
                     : null,
                   ...(() => {
-                    // Single-source-of-truth: the orb lives in exactly ONE slot.
-                    // Preference: (1) as trailing content of the last message if
-                    // that message is an assistant; (2) otherwise as a standalone
-                    // fallback bubble — but only when something is actively in
-                    // flight, so past threads stay quiet.
+                    // Single-source-of-truth: the orb lives in exactly ONE
+                    // dedicated anchor at the end of the thread. No more
+                    // dual trailing-vs-fallback slots; the singleton canvas
+                    // always re-parents into this one element via the
+                    // useLayoutEffect above. Eliminates any race where two
+                    // [data-orb-slot] elements briefly co-exist.
                     const lastPos = visibleMessageEntries.length - 1;
-                    const lastIsAssistant = lastPos >= 0 && visibleMessageEntries[lastPos].message.role === "assistant";
+                    const hasAssistant = visibleMessageEntries.some((e) => e.message.role === "assistant");
                     const active = isSubmitting || glyphState !== "idle";
-                    // Orb attaches trailing if the last message is assistant, OR
-                    // when we're not mid-turn (ambient idle — attach to last
-                    // assistant for continuity). Trailing only happens on the
-                    // MOST-RECENT assistant, never on older ones.
-                    let trailingAnchorPos = -1;
-                    if (lastIsAssistant) {
-                      trailingAnchorPos = lastPos;
-                    } else if (!active) {
-                      for (let i = lastPos; i >= 0; i--) {
-                        if (visibleMessageEntries[i].message.role === "assistant") { trailingAnchorPos = i; break; }
-                      }
-                    }
-                    // Fallback only when last message is user AND we're active.
-                    const needsFallback = active && !lastIsAssistant;
+                    const showOrb = active || hasAssistant;
 
-                    const nodes = visibleMessageEntries.flatMap(({ message, index }, i) => {
-                      const isAnchor = i === trailingAnchorPos;
-                      return [h(Message, {
+                    const nodes = visibleMessageEntries.flatMap(({ message, index }, i) =>
+                      [h(Message, {
                         key: `${message.createdAt || ""}-${index}`,
                         message,
                         typewrite: message.role === "assistant" && message.createdAt === streamingMessageKey,
@@ -4905,16 +4892,16 @@ export function ChatApp() {
                         onSwapMeal: handleSwapMealFromMessage,
                         onExport: handleExportMessage,
                         onAskFollowUp: handleAskSourceFollowUp,
-                        trailingOrb: isAnchor
-                          ? h("div", { className: "inline-orb-slot", "data-orb-slot": "1", key: "orb" })
-                          : null,
-                      })];
-                    });
-                    if (needsFallback) {
+                        trailingOrb: null,
+                      })],
+                    );
+                    if (showOrb) {
+                      const label = glyphState === "responding" ? "Responding"
+                        : glyphState === "thinking" ? "Thinking" : null;
                       nodes.push(
-                        h("article", { key: "fallback-orb", className: "message assistant" },
-                          h("div", { className: "message-content" },
-                            h("div", { className: "inline-orb-slot", "data-orb-slot": "1" })))
+                        h("div", { key: "orb-anchor", className: "orb-row" },
+                          h("div", { className: "orb-anchor", "data-orb-slot": "1" }),
+                          label ? h("span", { className: "orb-state-label" }, label) : null)
                       );
                     }
                     return nodes;

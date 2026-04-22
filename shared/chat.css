@@ -1431,6 +1431,41 @@ body.chat-page {
   color: var(--accent);
 }
 
+/* Single dedicated orb slot — sits at the end of the message list,
+ * left-aligned to match assistant prose. The singleton canvas (owned by
+ * ChatApp) is appendChild'd here every render. No EMERSUS pseudo-label
+ * (the orb is its own element, not a fake message). */
+.orb-anchor {
+  display: flex;
+  align-items: center;
+  min-width: 72px;
+  min-height: 72px;
+}
+
+/* Flex row that groups the orb canvas with its state label. */
+.orb-row {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 4px;
+}
+.orb-state-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  animation: orbStatePulse 1.6s ease-in-out infinite;
+}
+@keyframes orbStatePulse {
+  0%, 100% { opacity: 0.55; }
+  50%      { opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orb-state-label { animation: none; opacity: 0.8; }
+}
+
 /* User messages render as a right-aligned bubble. Assistant messages stay
  * full-width, labelled with the EMERSUS pseudo-element above. */
 .message.user {
