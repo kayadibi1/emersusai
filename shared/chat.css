@@ -1556,9 +1556,7 @@ body.chat-page {
 
 /* ===== Sidebar Sections nav (Chat / Train / Nutrition / Progress / Profile) ===== */
 .chat-side-sections {
-  padding: 0 8px 12px;
-  border-bottom: 1px solid var(--line);
-  margin-bottom: 8px;
+  padding: 0 8px 14px;
 }
 .chat-side-sections-label {
   font-family: 'JetBrains Mono', ui-monospace, monospace;

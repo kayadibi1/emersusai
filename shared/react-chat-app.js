@@ -4656,11 +4656,27 @@ export function ChatApp() {
               "aria-label": "Emersus AI home",
               style: { textDecoration: "none", color: "inherit", display: "block" },
             },
-            h("h1", { className: "chat-brand-mark", dangerouslySetInnerHTML: { __html: "em<b>∴</b>rsus" } }),
-            h("p", { className: "chat-brand-subtitle" }, "Evidence Layer Active")
+            h("h1", { className: "chat-brand-mark", dangerouslySetInnerHTML: { __html: "em<b>∴</b>rsus" } })
           ),
           h("button", { className: "inline-button", type: "button", "aria-expanded": !historyHidden, "aria-label": "Toggle conversation history", onClick: () => setHistoryHidden((value) => !value) },
             historyHidden ? h(PanelLeftOpen, { size: 18 }) : h(PanelLeftClose, { size: 18 })))),
+      // Sections block first so its Y position matches non-chat pages
+      // (/app/train, /app/nutrition, etc.). Chat-only controls (+New thread,
+      // search) render below Sections, above the thread list.
+      chatV2On
+        ? h("div", { className: "chat-side-sections" },
+            h("div", { className: "chat-side-sections-label" }, "Sections"),
+            h("a", { className: "chat-side-section is-active", href: "/app/" },
+              h("span", { className: "chat-side-section-dot" }), "Chat"),
+            h("a", { className: "chat-side-section", href: "/app/train/" },
+              h("span", { className: "chat-side-section-dot" }), "Train"),
+            h("a", { className: "chat-side-section", href: "/app/nutrition/" },
+              h("span", { className: "chat-side-section-dot" }), "Nutrition"),
+            h("a", { className: "chat-side-section", href: "/app/progress/" },
+              h("span", { className: "chat-side-section-dot" }), "Progress"),
+            h("a", { className: "chat-side-section", href: "/app/profile/" },
+              h("span", { className: "chat-side-section-dot" }), "Profile"))
+        : null,
       chatV2On
         ? h("div", { className: "side-primary-row" },
             h("button", { className: "side-primary-btn", type: "button", onClick: startNewChat },
@@ -4676,20 +4692,6 @@ export function ChatApp() {
                 onChange: (e) => setSearchInput(e.target.value),
                 "aria-label": "Search threads",
               })))
-        : null,
-      chatV2On
-        ? h("div", { className: "chat-side-sections" },
-            h("div", { className: "chat-side-sections-label" }, "Sections"),
-            h("a", { className: "chat-side-section is-active", href: "/app/" },
-              h("span", { className: "chat-side-section-dot" }), "Chat"),
-            h("a", { className: "chat-side-section", href: "/app/train/" },
-              h("span", { className: "chat-side-section-dot" }), "Train"),
-            h("a", { className: "chat-side-section", href: "/app/nutrition/" },
-              h("span", { className: "chat-side-section-dot" }), "Nutrition"),
-            h("a", { className: "chat-side-section", href: "/app/progress/" },
-              h("span", { className: "chat-side-section-dot" }), "Progress"),
-            h("a", { className: "chat-side-section", href: "/app/profile/" },
-              h("span", { className: "chat-side-section-dot" }), "Profile"))
         : null,
       chatV2On
         ? historyLoading && !chatHistory.length
