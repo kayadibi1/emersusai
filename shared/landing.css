@@ -1134,3 +1134,101 @@ h1.headline {
   color: var(--ink, #e6edf3);
   font-weight: 600;
 }
+
+/* ===== LINEAR-STYLE ATMOSPHERIC LIGHTING (2026-04-21) =====
+ * Dark-theme-only. Cream paper absorbs colored glows at low opacity —
+ * there's nothing to "light up" — so every rule is scoped to
+ * :root[data-theme="mint"]. Paper palette retains its original look.
+ *
+ * Four layers:
+ *   1. Body::after rewrite — sun below fold + L/R rim lights
+ *   2. Film grain (.lfx-grain) — SVG turbulence, overlay blend
+ *   3. Cursor-tracked spotlight border on interactive cards
+ *   4. Headline text glow (::before on h1.headline)
+ *
+ * Existing effects kept intact:
+ *   - body::before grid lines
+ *   - hero-bg wave canvas + fade
+ *   - bento-card::before / roadmap-card::before hover radials
+ */
+
+/* 1. Scene sun below fold + rim lights — replaces the two top-weighted
+ *    radials in the base body::after. Specificity (0,3,2) beats (0,2,1). */
+:root[data-theme="mint"] body.landing-body::after {
+  background:
+    radial-gradient(1400px 900px at 50% 120%,
+      color-mix(in srgb, var(--accent) 12%, transparent) 0%,
+      transparent 55%),
+    radial-gradient(520px 760px at 0% 48%,
+      color-mix(in srgb, var(--accent) 7%, transparent) 0%,
+      transparent 65%),
+    radial-gradient(520px 760px at 100% 56%,
+      color-mix(in srgb, var(--citation) 7%, transparent) 0%,
+      transparent 65%),
+    radial-gradient(600px 400px at 80% 18%, var(--accent-glow), transparent 60%);
+}
+
+/* 2. Film grain */
+:root[data-theme="mint"] .lfx-grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  /* Above page content, below the nav (z:50) and modals/overlays. */
+  z-index: 2;
+  mix-blend-mode: overlay;
+  opacity: 0.22;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: 240px 240px;
+}
+:root[data-theme="paper"] .lfx-grain { display: none; }
+
+/* 3. Cursor-tracked spotlight border.
+ *    Applied by JS to interactive card-like elements. The inner
+ *    <span class="lfx-spotlight"> sits above the existing ::before glow
+ *    but below the card's content (z:4 card-spotlight > z:1 bento-visual
+ *    > z:0 bento-card::before). --lfx-prox rises from 0→1 as cursor
+ *    approaches within 200px; --mask-x/--mask-y are in card-local px. */
+:root[data-theme="mint"] .lfx-card {
+  --mask-x: -100%;
+  --mask-y: -100%;
+  --lfx-prox: 0;
+}
+:root[data-theme="mint"] .lfx-card .lfx-spotlight {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  z-index: 4;
+  border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+  opacity: var(--lfx-prox);
+  transition: opacity .25s ease;
+  -webkit-mask-image: radial-gradient(
+    240px 240px at var(--mask-x) var(--mask-y),
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.55) 30%,
+    rgba(0,0,0,0.18) 52%,
+    rgba(0,0,0,0) 72%);
+          mask-image: radial-gradient(
+    240px 240px at var(--mask-x) var(--mask-y),
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.55) 30%,
+    rgba(0,0,0,0.18) 52%,
+    rgba(0,0,0,0) 72%);
+}
+:root[data-theme="paper"] .lfx-card .lfx-spotlight { display: none; }
+
+/* 4. Headline text glow */
+h1.headline { position: relative; isolation: isolate; }
+:root[data-theme="mint"] h1.headline::before {
+  content: "";
+  position: absolute;
+  top: -40%; left: -15%; right: -15%; bottom: -40%;
+  background: radial-gradient(circle,
+    color-mix(in srgb, var(--ink) 6%, transparent) 0%,
+    color-mix(in srgb, var(--accent) 4%, transparent) 30%,
+    transparent 65%);
+  filter: blur(30px) opacity(0.75);
+  z-index: -1;
+  border-radius: 100%;
+  pointer-events: none;
+}

@@ -1353,5 +1353,65 @@
       });
     })();
   </script>
+
+  <script>
+    /* Linear-style atmospheric lighting — dark-theme only.
+     * - Inserts a fixed film-grain overlay.
+     * - Attaches cursor-tracked spotlight border to interactive cards.
+     * Paper palette skips all of this; no DOM injected there either. */
+    (function () {
+      if (document.documentElement.getAttribute('data-theme') !== 'mint') return;
+
+      /* Film grain overlay */
+      var grain = document.createElement('div');
+      grain.className = 'lfx-grain';
+      grain.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(grain);
+
+      /* Attach spotlight to interactive cards. .final-cta::before already
+       * uses a radial glow, so we skip it; rest of the card surface has
+       * nothing beyond the static hover radial from landing.css. */
+      var sel = '.bento-card, .roadmap-card, .stat, .step, .faq-item';
+      var cards = Array.prototype.slice.call(document.querySelectorAll(sel));
+      cards.forEach(function (c) {
+        c.classList.add('lfx-card');
+        var span = document.createElement('span');
+        span.className = 'lfx-spotlight';
+        span.setAttribute('aria-hidden', 'true');
+        c.appendChild(span);
+      });
+
+      var px = 0, py = 0, pending = false;
+      function onMove(e) {
+        px = e.clientX; py = e.clientY;
+        if (!pending) { pending = true; requestAnimationFrame(update); }
+      }
+      function update() {
+        pending = false;
+        cards.forEach(function (c) {
+          var r = c.getBoundingClientRect();
+          /* Skip offscreen cards for perf */
+          if (r.bottom < -200 || r.top > window.innerHeight + 200) {
+            c.style.setProperty('--lfx-prox', 0);
+            return;
+          }
+          /* Distance from pointer to nearest point on card rect */
+          var cx = Math.max(r.left, Math.min(px, r.right));
+          var cy = Math.max(r.top,  Math.min(py, r.bottom));
+          var d = Math.hypot(px - cx, py - cy);
+          var prox = Math.max(0, Math.min(1, 1 - d / 200));
+          c.style.setProperty('--lfx-prox', prox.toFixed(3));
+          if (prox > 0) {
+            c.style.setProperty('--mask-x', (px - r.left) + 'px');
+            c.style.setProperty('--mask-y', (py - r.top)  + 'px');
+          }
+        });
+      }
+      window.addEventListener('pointermove', onMove, { passive: true });
+      window.addEventListener('pointerleave', function () {
+        cards.forEach(function (c) { c.style.setProperty('--lfx-prox', 0); });
+      });
+    })();
+  </script>
 </body>
 </html>
