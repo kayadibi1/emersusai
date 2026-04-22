@@ -4909,9 +4909,9 @@ export function ChatApp() {
         progress: onboardingProgress,
         onSkip: handleSkipOnboarding,
       }) : null,
-      h("div", { className: `chat-main-body${!activeMessages.length ? " is-empty-thread" : ""}` },
+      h("div", { className: `chat-main-body${!activeMessages.some((m) => m?.role === "user") ? " is-empty-thread" : ""}` },
         h("section", { className: "conversation-canvas", ref: canvasRef },
-          h("div", { className: `chat-thread${!activeMessages.length ? " is-empty" : ""}` },
+          h("div", { className: `chat-thread${!activeMessages.some((m) => m?.role === "user") ? " is-empty" : ""}` },
             activeThreadNeedsHydration
               ? h(ChatThreadSkeleton)
               : activeMessages.length
