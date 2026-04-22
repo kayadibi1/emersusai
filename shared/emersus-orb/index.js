@@ -54,10 +54,32 @@ export function createEmersusOrb(canvas, opts = {}) {
     themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   }
 
+  canvas.setAttribute('aria-hidden', 'true');
+
   const particleCount = DEFAULTS.particleCount;
   const trailLen = DEFAULTS.trailLen;
 
-  const renderCtx = createRenderer(canvas, { size, particleCount, trailLen });
+  let renderCtx;
+  try {
+    renderCtx = createRenderer(canvas, { size, particleCount, trailLen });
+  } catch (err) {
+    console.warn('[emersus-orb] WebGL unavailable; rendering static fallback', err);
+    const ctx2d = canvas.getContext('2d');
+    if (ctx2d) {
+      const grad = ctx2d.createRadialGradient(size/2, size/2, 0, size/2, size/2, size/2);
+      grad.addColorStop(0,   '#bff6e4');
+      grad.addColorStop(0.4, '#34d399');
+      grad.addColorStop(0.8, '#5091f2');
+      grad.addColorStop(1,   '#4338ca');
+      ctx2d.fillStyle = grad;
+      ctx2d.beginPath(); ctx2d.arc(size/2, size/2, size/2 - 4, 0, Math.PI*2); ctx2d.fill();
+    }
+    return {
+      setState() {}, setShape() {},
+      getState: () => initialState, getShape: () => initialShape,
+      destroy() {},
+    };
+  }
 
   // particles — full state per particle
   const pts = [];
