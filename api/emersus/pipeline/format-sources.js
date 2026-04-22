@@ -10,7 +10,13 @@ export function formatSources(evidenceItems) {
     doi: item.doi || null,
     title: item.title || "Untitled",
     journal: item.journal || "",
-    authors: item.author_label || "",
+    // authors is the raw array — shared/chat/message-actions.js formatAuthorList,
+    // shared/chat/share-modal.js formatAuthors, and widget-footers.js all
+    // Array.isArray-gate this field and fall back to "Unknown author" if it
+    // isn't an array. Prior code sent item.author_label (pre-formatted string),
+    // which broke the Cite / Copy-citations action on every chat message.
+    authors: Array.isArray(item.authors) ? item.authors : [],
+    author_label: item.author_label || "",
     year: item.publication_year || "",
     publication_type: item.publication_type || "",
     url: item.url || "",
