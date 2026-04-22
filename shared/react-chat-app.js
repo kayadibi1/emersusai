@@ -3306,7 +3306,7 @@ function EmersusOrb({ state = "idle" }) {
 
   useEffect(() => {
     if (!canvasRef.current) return undefined;
-    orbRef.current = createEmersusOrb(canvasRef.current, { size: 160, initialState: state });
+    orbRef.current = createEmersusOrb(canvasRef.current, { size: 96, initialState: state });
     return () => {
       orbRef.current?.destroy();
       orbRef.current = null;
@@ -3321,7 +3321,7 @@ function EmersusOrb({ state = "idle" }) {
   return h(
     "div",
     { className: "emersus-orb-mount", "data-state": state, "aria-hidden": true },
-    h("canvas", { ref: canvasRef, style: { width: "160px", height: "160px", display: "block" } })
+    h("canvas", { ref: canvasRef, style: { width: "96px", height: "96px", display: "block" } })
   );
 }
 
@@ -4863,11 +4863,9 @@ export function ChatApp() {
                     })];
                     return nodes;
                   }),
-                  isSubmitting && glyphState !== "idle"
-                    ? h("article", { key: "persistent-glyph", className: "message assistant message-pending is-active" },
-                        h("div", { className: "message-content" },
-                          h(EmersusOrb, { state: glyphState })))
-                    : null,
+                  h("article", { key: "persistent-glyph", className: "message assistant message-pending is-active" },
+                    h("div", { className: "message-content" },
+                      h(EmersusOrb, { state: glyphState }))),
                 ]
               : h("section", { className: "thread-welcome" },
                   h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
