@@ -692,9 +692,14 @@
   font-weight: 600;
   font-size: 25px;
   letter-spacing: -0.01em;
+  line-height: 1;
   color: var(--ink);
   text-decoration: none;
   transition: color .14s;
+  /* Match .chat-brand-mark's line-box so the Sections block below the
+   * brand lines up pixel-for-pixel across /app/ (chat) and /app/train/,
+   * /app/nutrition/, etc. Without line-height:1 the brand text claims
+   * ~30px of vertical space on non-chat pages vs 25px on chat. */
 }
 .app-sidebar-brand b { color: var(--accent); font-weight: inherit; }
 .app-sidebar-brand:hover { color: var(--accent); }
