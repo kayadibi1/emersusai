@@ -95,6 +95,7 @@ body.profile-body {
 .pf-tabs {
   display: flex;
   gap: 4px;
+  justify-content: center;
   border-bottom: 1px solid var(--line);
   margin-bottom: 8px;
 }

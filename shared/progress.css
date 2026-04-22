@@ -28,6 +28,7 @@ body.progress-body {
 /* ===== Filters ===== */
 .pg-modality-tabs {
   display: flex; flex-wrap: wrap; gap: 28px;
+  justify-content: center;
   border-bottom: 1px solid var(--line); padding-bottom: 4px;
 }
 .pg-modality-tab {
