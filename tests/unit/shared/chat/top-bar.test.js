@@ -3,8 +3,6 @@ import assert from 'node:assert/strict';
 import {
   normalizeThreadTitle,
   resolveTitleKeyAction,
-  MODEL_OPTIONS,
-  isKnownModel,
 } from '../../../../shared/chat/top-bar.js';
 
 describe('top-bar — title normalization', () => {
@@ -77,25 +75,3 @@ describe('top-bar — key action resolver', () => {
   });
 });
 
-describe('top-bar — model registry', () => {
-  test('MODEL_OPTIONS has the three tiers with stable ids', () => {
-    assert.ok(Array.isArray(MODEL_OPTIONS));
-    const ids = MODEL_OPTIONS.map((m) => m.id);
-    assert.deepEqual(ids, ['emersus', 'emersus-fast', 'emersus-deep']);
-    for (const option of MODEL_OPTIONS) {
-      assert.equal(typeof option.label, 'string');
-      assert.ok(option.label.length > 0);
-    }
-  });
-
-  test('isKnownModel recognizes tier ids only', () => {
-    assert.equal(isKnownModel('emersus'), true);
-    assert.equal(isKnownModel('emersus-fast'), true);
-    assert.equal(isKnownModel('emersus-deep'), true);
-    assert.equal(isKnownModel('gpt-4'), false);
-    assert.equal(isKnownModel('emersus-0.5'), false);
-    assert.equal(isKnownModel(''), false);
-    assert.equal(isKnownModel(null), false);
-    assert.equal(isKnownModel(undefined), false);
-  });
-});

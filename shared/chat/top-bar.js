@@ -2,13 +2,19 @@
 //
 // Layout (left → right):
 //   - Editable thread title (click to edit, Enter commits, Esc cancels)
-//   - Emersus model pill → dropdown (Emersus · Fast · Deep)
 //   - N SOURCES CITED non-interactive pill
 //   - Share button
 //   - ⋯ overflow menu (Rename · Archive · Delete)
 //
-// Pure helpers (normalizeThreadTitle, resolveTitleKeyAction, MODEL_OPTIONS,
-// isKnownModel) are unit-tested. The React component is the thin shell.
+// Pure helpers (normalizeThreadTitle, resolveTitleKeyAction) are unit-tested.
+// The React component is the thin shell.
+//
+// Removed 2026-04-22: the Emersus / Fast / Deep model pill. The dropdown
+// stored a per-thread model id in local state but never sent it to the
+// backend — prod always used the server's OPENAI_EMERSUS_MODEL env value.
+// Rather than keep a control that lies about what it does, the pill + its
+// handler are gone. Re-introduce when the server pipeline actually reads
+// a per-request model parameter.
 
 import React from "react";
 import { CaretDoubleRight as PanelLeftOpen, ShareFat as ShareIcon } from "@phosphor-icons/react";
@@ -17,18 +23,6 @@ const { useCallback, useEffect, useRef, useState } = React;
 const h = React.createElement;
 
 const TITLE_MAX_LENGTH = 120;
-
-export const MODEL_OPTIONS = [
-  { id: "emersus", label: "Emersus", tier: "balanced" },
-  { id: "emersus-fast", label: "Emersus · Fast", tier: "fast" },
-  { id: "emersus-deep", label: "Emersus · Deep", tier: "deep" },
-];
-
-const MODEL_IDS = new Set(MODEL_OPTIONS.map((m) => m.id));
-
-export function isKnownModel(id) {
-  return typeof id === "string" && MODEL_IDS.has(id);
-}
 
 export function normalizeThreadTitle(raw) {
   if (raw === null || raw === undefined) return null;
@@ -53,82 +47,6 @@ export function resolveTitleKeyAction(key, modifiers, ctx) {
     return "commit";
   }
   return null;
-}
-
-function findModelOption(id) {
-  return MODEL_OPTIONS.find((m) => m.id === id) || MODEL_OPTIONS[0];
-}
-
-/**
- * Standalone model picker pill. Extracted from ChatTopBar so it can be
- * rendered outside the top bar (e.g. below the composer).
- */
-export function ModelPill({ modelId, onModelChange, className = "" }) {
-  const resolvedId = isKnownModel(modelId) ? modelId : MODEL_OPTIONS[0].id;
-  const activeModel = findModelOption(resolvedId);
-  const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    if (!open) return undefined;
-    function handle(event) {
-      if (event.type === "keydown" && event.key !== "Escape") return;
-      setOpen(false);
-    }
-    document.addEventListener("mousedown", handle);
-    document.addEventListener("keydown", handle);
-    return () => {
-      document.removeEventListener("mousedown", handle);
-      document.removeEventListener("keydown", handle);
-    };
-  }, [open]);
-
-  const handleSelect = (id) => {
-    setOpen(false);
-    if (!isKnownModel(id) || id === resolvedId) return;
-    if (typeof onModelChange === "function") onModelChange(id);
-  };
-
-  return h(
-    "div",
-    { className: `model-pill-wrap ${className}`.trim(), onMouseDown: (e) => e.stopPropagation() },
-    h(
-      "button",
-      {
-        type: "button",
-        className: "pill model",
-        title: "Change model for this thread",
-        "aria-haspopup": "listbox",
-        "aria-expanded": open,
-        onClick: () => setOpen((v) => !v),
-      },
-      h("span", { className: "model-pill-label" }, activeModel.label.toUpperCase()),
-      " ",
-      h("span", { className: "chev" }, "▾"),
-    ),
-    open
-      ? h(
-          "ul",
-          { className: "model-pill-menu", role: "listbox" },
-          MODEL_OPTIONS.map((option) =>
-            h(
-              "li",
-              { key: option.id, role: "presentation" },
-              h(
-                "button",
-                {
-                  type: "button",
-                  role: "option",
-                  "aria-selected": option.id === resolvedId,
-                  className: `model-pill-option${option.id === resolvedId ? " is-active" : ""}`,
-                  onClick: () => handleSelect(option.id),
-                },
-                option.label,
-              ),
-            ),
-          ),
-        )
-      : null,
-  );
 }
 
 export function ChatTopBar({

@@ -61,7 +61,7 @@ import {
   formatCitationLabel,
   formatCitationUrl,
 } from "/shared/citation-format.js";
-import { ChatTopBar, ModelPill, isKnownModel } from "/shared/chat/top-bar.js";
+import { ChatTopBar } from "/shared/chat/top-bar.js";
 import { MessageActions } from "/shared/chat/message-actions.js";
 import { ShareModal as ChatShareModal } from "/shared/chat/share-modal.js";
 import { citationLinks } from "/shared/chat/widget-footers.js";
@@ -4364,20 +4364,6 @@ export function ChatApp() {
     }
   }, [session]);
 
-  const handleModelChange = useCallback((modelId) => {
-    if (!activeThreadId) return;
-    // Guard against DevTools tampering with the <select> value. The dropdown
-    // only offers ids from MODEL_OPTIONS, so a rejected value here means the
-    // DOM was mutated outside our control — silently no-op (no toast/alert)
-    // since the server is still the authoritative allowlist.
-    if (!isKnownModel(modelId)) {
-      console.warn("[chat] handleModelChange: rejected unknown modelId:", modelId);
-      return;
-    }
-    setChatHistory((history) => patchThreadInHistory(history, activeThreadId, (t) => ({ ...t, model: modelId })));
-    // Persistence to threads.model lands once the Phase 2 DB migration is applied.
-  }, [activeThreadId]);
-
   const handleShareThread = useCallback(() => {
     if (!activeThreadId) return;
     setShareModalOpen(true);
@@ -4826,7 +4812,6 @@ export function ChatApp() {
         ? h(ChatTopBar, {
             thread: activeThread,
             onRename: handleRenameThread,
-            onModelChange: handleModelChange,
             onShare: handleShareThread,
             onArchive: handleArchiveThread,
             onDelete: handleDeleteThread,
@@ -4990,13 +4975,6 @@ export function ChatApp() {
                 : null,
             ),
             h("p", { className: "status-text", ref: statusRef }),
-            chatV2On
-              ? h(ModelPill, {
-                  modelId: activeThread?.model,
-                  onModelChange: handleModelChange,
-                  className: "composer-model-pill",
-                })
-              : null,
           )))),
     h("aside", { className: "chat-rail" },
       h("section", { className: "rail-card" },

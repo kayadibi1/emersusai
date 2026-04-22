@@ -100,33 +100,14 @@
   cursor: default;
 }
 
-.top-bar .pill.model {
-  color: var(--accent);
-  border-color: var(--accent-line);
-  background: var(--accent-soft);
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: background .14s, border-color .14s;
-}
-.top-bar .pill.model:hover {
-  border-color: var(--accent);
-}
-.top-bar .pill.model .chev {
-  font-size: 9px;
-  opacity: 0.8;
-}
-
-.top-bar .model-pill-wrap,
 .top-bar .menu-wrap {
   position: relative;
 }
 
-.top-bar .model-pill-menu,
 .top-bar .menu-pop {
   position: absolute;
   top: calc(100% + 6px);
+  right: 0;
   list-style: none;
   margin: 0;
   padding: 6px;
@@ -138,15 +119,8 @@
   z-index: 20;
 }
 
-.top-bar .model-pill-menu { left: 0; }
-.top-bar .menu-pop { right: 0; }
+.top-bar .menu-pop li { list-style: none; }
 
-.top-bar .model-pill-menu li,
-.top-bar .menu-pop li {
-  list-style: none;
-}
-
-.top-bar .model-pill-option,
 .top-bar .menu-pop button {
   width: 100%;
   text-align: left;
@@ -160,13 +134,8 @@
   cursor: pointer;
   transition: background .12s;
 }
-.top-bar .model-pill-option:hover,
 .top-bar .menu-pop button:hover {
   background: var(--surface-faint);
-}
-.top-bar .model-pill-option.is-active {
-  color: var(--accent);
-  font-weight: 600;
 }
 .top-bar .menu-pop-danger { color: var(--danger, #ef4444); }
 
@@ -1855,13 +1824,11 @@ body.chat-page {
 /* ========================================================================== */
 
 @media (max-width: 500px) {
-  /* Hide the text label portions of the top-bar pills; keep icons/counts
-   * visible so the pills compress to glyphs + accent dots + counts. */
-  .top-bar .pill.model .model-pill-label,
+  /* Hide the text label portion of the sources pill; keep the count
+   * visible so it compresses to just a number + accent dot. */
   .top-bar .pill.pill-sources .pill-sources-label {
     display: none;
   }
-  .top-bar .pill.model,
   .top-bar .pill.pill-sources {
     padding: 6px 8px;
   }
@@ -1901,10 +1868,9 @@ body.chat-page {
     height: 30px;
     font-size: 11px;
   }
-  /* Top-bar pills (model / sources-count / generic). Keep padding tight
+  /* Top-bar pills (sources-count / generic). Keep padding tight
    * horizontally; the bump is in min-height. */
   .top-bar .pill,
-  .top-bar .pill.model,
   .top-bar .pill.pill-sources {
     padding: 6px 10px;
     min-height: 32px;
@@ -2104,71 +2070,10 @@ body.chat-page {
   text-decoration-thickness: 1px;
 }
 
-/* ===== Composer model pill + scroll-to-bottom + thread context menu ===== */
-.composer-model-pill {
-  margin-left: auto;
-  position: relative;
-}
-.composer-model-pill .pill.model {
-  background: var(--surface-faint);
-  border: 1px solid var(--line);
-  color: var(--muted);
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  padding: 5px 10px;
-  border-radius: 999px;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: border-color .18s, color .18s, background .18s;
-}
-.composer-model-pill .pill.model:hover,
-.composer-model-pill .pill.model[aria-expanded="true"] {
-  border-color: var(--accent-line);
-  color: var(--ink);
-  background: var(--accent-soft);
-}
-.composer-model-pill .pill.model .chev { font-size: 9px; opacity: 0.7; }
-.composer-model-pill .model-pill-menu {
-  position: absolute;
-  right: 0;
-  bottom: calc(100% + 6px);
-  min-width: 180px;
-  list-style: none;
-  margin: 0;
-  padding: 6px;
-  background: var(--bg);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  box-shadow: 0 18px 36px -18px rgba(0,0,0,0.45);
-  z-index: 30;
-}
-.composer-model-pill .model-pill-menu li { list-style: none; }
-.composer-model-pill .model-pill-option {
-  display: block;
-  width: 100%;
-  text-align: left;
-  background: transparent;
-  border: 0;
-  border-radius: 6px;
-  padding: 8px 10px;
-  font-size: 13px;
-  color: var(--ink);
-  cursor: pointer;
-  font-family: inherit;
-}
-.composer-model-pill .model-pill-option:hover,
-.composer-model-pill .model-pill-option:focus-visible {
-  background: var(--surface-faint);
-  outline: none;
-}
-.composer-model-pill .model-pill-option.is-active {
-  color: var(--accent);
-  background: var(--accent-soft);
-  font-weight: 600;
-}
+/* ===== Scroll-to-bottom + thread context menu =====
+ * (The composer-model-pill block was removed on 2026-04-22 — the
+ * Emersus/Fast/Deep dropdown never wired through to the server and was
+ * misleading about product behavior.) */
 
 /* Scroll-to-bottom floating button — centered above the composer */
 .chat-composer-shell { position: relative; }
@@ -2237,9 +2142,8 @@ body.chat-page {
   color: var(--danger, #b4221a);
 }
 
-/* Mobile: composer utility row wraps; keep model pill visible but smaller */
+/* Mobile: shrink the scroll-to-bottom button */
 @media (max-width: 600px) {
-  .composer-model-pill .pill.model { font-size: 9px; padding: 4px 8px; letter-spacing: 0.12em; }
   .scroll-to-bottom-btn { width: 32px; height: 32px; bottom: calc(100% + 8px); }
 }
 
