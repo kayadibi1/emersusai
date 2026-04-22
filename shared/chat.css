@@ -1324,30 +1324,46 @@ body.chat-page {
   min-height: 0;
 }
 
-/* Empty-thread layout — ChatGPT/Claude style. The composer is a sibling
- * of .chat-main-body inside .chat-main (not a child), so we attach the
- * state class to .chat-main and position the composer absolutely at the
- * vertical middle. The chat-main-body collapses to content height so the
- * welcome + onboarding greeting flow naturally above the composer.
- * Resumes normal layout the instant the user submits (class drops). */
+/* Empty-thread layout — ChatGPT/Claude style. Composer pinned to vertical
+ * center (absolute). Welcome block pinned right above it (absolute, bottom
+ * anchored to composer top with a small gap). Welcome content is centered
+ * horizontally. Resumes normal layout the instant the user submits. */
 .chat-main.is-empty-thread {
   position: relative !important;
 }
+/* ~85 px = composer half-height (~65) + 20 px gap. Keeps welcome's bottom
+ * just above the composer's top edge. */
 .chat-main.is-empty-thread > .chat-main-body {
-  flex: 0 0 auto !important;
-  overflow: visible !important;
-  min-height: 0 !important;
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  top: 0 !important;
+  bottom: calc(50% + 85px) !important;
+  overflow: hidden !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-end !important;
 }
 .chat-main.is-empty-thread > .chat-main-body .conversation-canvas {
   overflow: visible !important;
   flex: 0 0 auto !important;
 }
 .chat-main.is-empty-thread > .chat-main-body .chat-thread {
-  padding-bottom: 40px !important;
+  padding: 0 !important;
   min-height: 0 !important;
+  align-items: center !important;
 }
 .chat-main.is-empty-thread > .chat-main-body .thread-welcome {
-  margin-top: 0 !important;
+  margin: 0 auto !important;
+  padding: 0 24px !important;
+  align-items: center !important;
+  text-align: center !important;
+}
+.chat-main.is-empty-thread > .chat-main-body .empty-prompts {
+  align-items: center !important;
+}
+.chat-main.is-empty-thread > .chat-main-body .empty-prompts-row {
+  justify-content: center !important;
 }
 .chat-main.is-empty-thread > .chat-composer-shell {
   position: absolute !important;

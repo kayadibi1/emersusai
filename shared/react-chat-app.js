@@ -4972,7 +4972,6 @@ export function ChatApp() {
               : h("section", { className: "thread-welcome" },
                   h("p", { className: "thread-welcome-eyebrow" }, "Emersus"),
                   h("h2", { className: "thread-welcome-title" }, `Welcome, ${displayName}`),
-                  h("p", { className: "thread-welcome-copy" }, "Ask about training, nutrition, supplements, recovery, cardiovascular fitness, or metabolic health and I'll keep the answer evidence-aware."),
                   chatV2On
                     ? h(EmptyPrompts, {
                         profileId: session?.user?.id || "",
