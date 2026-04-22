@@ -4,6 +4,11 @@ import {
   sphereTargets, icosaTargets, dodecaTargets, cubeTargets,
   octaTargets, tetraTargets, pyramidTargets, buckyTargets,
 } from '../../../../shared/emersus-orb/shapes.js';
+import {
+  torusTargets, trefoilTargets, torusKnotTargets, mobiusTargets,
+  kleinTargets, linkedCirclesTargets, supertoroidTargets,
+  catenoidTargets, helicoidTargets,
+} from '../../../../shared/emersus-orb/shapes.js';
 
 const N = 260;
 
@@ -53,4 +58,16 @@ describe('emersus-orb/shapes.js — polyhedra', () => {
   test('icosa is seed-stable for edge particles (only vertex wobble is random)', () => {
     assert.equal(icosaTargets(N).length, N);
   });
+});
+
+describe('emersus-orb/shapes.js — topology + surfaces', () => {
+  test('torus', () => assertValidTargets(torusTargets(N), 'torus'));
+  test('trefoil', () => assertValidTargets(trefoilTargets(N), 'trefoil', 180));
+  test('torusKnot', () => assertValidTargets(torusKnotTargets(N), 'torusKnot'));
+  test('möbius', () => assertValidTargets(mobiusTargets(N), 'mobius'));
+  test('klein', () => assertValidTargets(kleinTargets(N), 'klein'));
+  test('linkedCircles', () => assertValidTargets(linkedCirclesTargets(N), 'linked'));
+  test('supertoroid', () => assertValidTargets(supertoroidTargets(N), 'supertoroid'));
+  test('catenoid', () => assertValidTargets(catenoidTargets(N), 'catenoid', 300));
+  test('helicoid', () => assertValidTargets(helicoidTargets(N), 'helicoid'));
 });

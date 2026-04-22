@@ -118,3 +118,120 @@ export function buckyTargets(N) {
   }
   return out;
 }
+
+export function torusTargets(N) {
+  const out = []; const R = 105, r = 28;
+  for (let i = 0; i < N; i++) {
+    const u = Math.random() * Math.PI * 2;
+    const v = Math.random() * Math.PI * 2;
+    out.push([(R + r*Math.cos(v))*Math.cos(u), r*Math.sin(v), (R + r*Math.cos(v))*Math.sin(u)]);
+  }
+  return out;
+}
+
+export function trefoilTargets(N) {
+  const out = [], scale = 32;
+  for (let i = 0; i < N; i++) {
+    const t = (i / N) * Math.PI * 2;
+    const x = scale * (Math.sin(t) + 2 * Math.sin(2 * t));
+    const y = scale * (Math.cos(t) - 2 * Math.cos(2 * t));
+    const z = scale * (-Math.sin(3 * t));
+    const j = () => (Math.random()-0.5)*4;
+    out.push([x + j(), y + j(), z + j()]);
+  }
+  return out;
+}
+
+export function torusKnotTargets(N) {
+  const out = [], p = 3, q = 2, R = 60, r = 22;
+  for (let i = 0; i < N; i++) {
+    const t = (i / N) * Math.PI * 2;
+    const radial = R + r * Math.cos(q * t);
+    const x = radial * Math.cos(p * t);
+    const y = radial * Math.sin(p * t);
+    const z = r * Math.sin(q * t) * 1.5;
+    const j = (Math.random()-0.5) * 5;
+    out.push([x + j, z + j, y + j]); // swap to make Y vertical
+  }
+  return out;
+}
+
+export function mobiusTargets(N) {
+  const out = [], R = 75, W = 60;
+  for (let i = 0; i < N; i++) {
+    const v = Math.random() * Math.PI * 2;
+    const u = (Math.random() - 0.5) * 2 * W;
+    out.push([
+      (R + u * Math.cos(v / 2)) * Math.cos(v),
+      u * Math.sin(v / 2),
+      (R + u * Math.cos(v / 2)) * Math.sin(v),
+    ]);
+  }
+  return out;
+}
+
+export function kleinTargets(N) {
+  const out = [], R = 60, r = 28;
+  for (let i = 0; i < N; i++) {
+    const u = Math.random() * Math.PI * 2;
+    const v = Math.random() * Math.PI * 2;
+    const hv = v / 2;
+    const radial = R + r * Math.cos(hv) * Math.sin(u) - r * Math.sin(hv) * Math.sin(2 * u);
+    out.push([
+      radial * Math.cos(v),
+      r * Math.sin(hv) * Math.sin(u) + r * Math.cos(hv) * Math.sin(2 * u),
+      radial * Math.sin(v),
+    ]);
+  }
+  return out;
+}
+
+export function linkedCirclesTargets(N) {
+  const out = [], R = 75;
+  for (let i = 0; i < N; i++) {
+    const ring = i % 2;
+    const t = Math.random() * Math.PI * 2;
+    const thick = (Math.random()-0.5) * 8;
+    if (ring === 0) out.push([(R + thick) * Math.cos(t), thick * 0.3, (R + thick) * Math.sin(t)]);
+    else            out.push([R + thick * 0.3, (R + thick) * Math.cos(t), (R + thick) * Math.sin(t)]);
+  }
+  return out;
+}
+
+export function supertoroidTargets(N) {
+  const out = [], R = 90, r = 28, e = 0.5;
+  const sign = x => x < 0 ? -1 : 1;
+  const p = (a, e) => sign(Math.cos(a)) * Math.pow(Math.abs(Math.cos(a)), e);
+  const q = (a, e) => sign(Math.sin(a)) * Math.pow(Math.abs(Math.sin(a)), e);
+  for (let i = 0; i < N; i++) {
+    const u = Math.random() * Math.PI * 2;
+    const v = Math.random() * Math.PI * 2;
+    const radial = R + r * p(v, e);
+    out.push([radial * p(u, e), r * q(v, e), radial * q(u, e)]);
+  }
+  return out;
+}
+
+export function catenoidTargets(N) {
+  const out = [], a = 35, height = 180;
+  for (let i = 0; i < N; i++) {
+    const u = Math.random() * Math.PI * 2;
+    const v = (Math.random() - 0.5) * height / 2;
+    const r = a * Math.cosh(v / a);
+    out.push([r * Math.cos(u), v * 2, r * Math.sin(u)]);
+  }
+  return out;
+}
+
+export function helicoidTargets(N) {
+  const out = [], turns = 3, pitch = 28, maxR = 75;
+  for (let i = 0; i < N; i++) {
+    const v = Math.random() * turns * Math.PI * 2;
+    const u = (Math.random() * 2 - 1) * maxR;
+    const x = u * Math.cos(v);
+    const y = pitch * (v / (Math.PI * 2)) - (pitch * turns / 2);
+    const z = u * Math.sin(v);
+    out.push([x, y, z]);
+  }
+  return out;
+}
