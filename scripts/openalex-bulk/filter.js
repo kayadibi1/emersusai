@@ -156,6 +156,14 @@ async function processPartition(entry, dedup, topics, out) {
     // Russian / Turkish / Spanish papers to the ingest handler.
     if (work.language && work.language !== "en" && work.language !== "sco") continue;
 
+    // SEO-spam gate: pipe-delimited title with no journal → ~95% garbage
+    // in the 2026-04-22 audit (gym facility pages, supplement ads, tennis
+    // resort flyers, hostel sites, cabinetry ads, vet-clinic pages).
+    // Real research rarely uses " | " and real articles have a journal.
+    const titleStr = (work.title || "").trim();
+    const journalStr = work.primary_location?.source?.display_name || null;
+    if (!journalStr && titleStr.includes(" | ")) continue;
+
     // Topic gate: OpenAlex ML-classified 2024 Topics taxonomy.
     const primaryTopic = work.primary_topic?.display_name || null;
     const subfield = work.primary_topic?.subfield?.display_name || null;

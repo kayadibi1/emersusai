@@ -102,6 +102,15 @@ function normalize(work) {
   // titles as 'sco' on the backfill side, and we want both code paths
   // to behave identically.
   if (work.language && work.language !== "en" && work.language !== "sco") return null;
+  const title = (work.title || "").trim();
+  const journal = work.primary_location?.source?.display_name ?? null;
+  // Reject pipe-delimited marketing titles with no journal — the 2026-04-22
+  // SEO sweep found these were ~95% garbage (gym facility download pages,
+  // supplement ads "Clen XDV | Reviews | Ingredients", tennis resort flyers,
+  // hostel websites, cabinetry ads, vet-clinic pages, etc.). Real research
+  // titles almost never contain a bare pipe, and real articles have a
+  // journal. Both signals together → spam with very high precision.
+  if (!journal && title.includes(" | ")) return null;
   const pubDateStr = work.publication_date;
   const publishedAt = pubDateStr ? new Date(pubDateStr) : null;
   return {
