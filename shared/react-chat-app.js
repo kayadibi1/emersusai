@@ -3214,9 +3214,13 @@ const Message = React.memo(function Message({
     "article",
     {
       className: `message ${message.role}`,
-      // Announce streamed prose to screen readers as it arrives. aria-atomic
-      // false so only the delta is read, not the whole message every tick.
-      ...(isAssistant ? { "aria-live": "polite", "aria-atomic": "false" } : {}),
+      // Screen-reader announcement strategy: avoid per-token stutter by
+      // disabling aria-live while streaming (typewrite=true). Once the
+      // stream finishes and typewrite flips false, the completed message
+      // is announced once as a whole via aria-atomic=true.
+      ...(isAssistant && !typewrite
+        ? { "aria-live": "polite", "aria-atomic": "true" }
+        : {}),
     },
     h("div", { className: "message-content" },
       hasToolResults
