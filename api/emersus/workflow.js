@@ -117,6 +117,10 @@ async function generateRecommendationStream(rawInput, res) {
       model: ctx.tokenUsage?.model || null,
       tokens_in: ctx.tokenUsage?.input_tokens || null,
       tokens_out: ctx.tokenUsage?.output_tokens || null,
+      cached_tokens: ctx.tokenUsage?.cached_tokens || 0,
+      grounding_status: ctx.grounding?.status || null,
+      grounding_cited_fraction: ctx.grounding?.cited_fraction ?? null,
+      grounding_split_enabled: String(process.env.GROUNDING_SPLIT_PROMPT || "").toLowerCase() === "true",
     });
   } catch (err) {
     if (err instanceof ShortCircuit) {
