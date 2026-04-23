@@ -3289,7 +3289,11 @@ function SourcesFooter({
         if (year) metaParts.push(String(year).slice(0, 4));
         if (source?.journal) metaParts.push(source.journal);
         const meta = metaParts.join(" · ");
-        const snippet = source?.why_it_matters || source?.excerpt || source?.summary || "";
+        const rawSnippet = source?.why_it_matters || source?.excerpt || source?.summary || "";
+        const isTitleOnly =
+          source?.is_title_only_match === true ||
+          isTitleEquivalentExcerpt(rawSnippet, title);
+        const snippet = isTitleOnly ? "" : rawSnippet;
         const links = citationLinks(source);
         return h(
           "li",
@@ -3378,7 +3382,15 @@ function SourcesFooter({
           h(
             "div",
             { className: `srcs-detail${isOpen ? " is-open" : ""}` },
-            snippet ? h("p", null, snippet) : null,
+            isTitleOnly
+              ? h(
+                  "p",
+                  { className: "srcs-snippet-fallback" },
+                  "Title-only match — full text not available."
+                )
+              : snippet
+                ? h("p", null, snippet)
+                : null,
             h(
               "div",
               { className: "cite-actions" },

@@ -615,6 +615,11 @@
   line-height: 1.55;
   margin: 10px 0;
 }
+/* Honest fallback when this source's only chunk is the title. */
+.srcs-detail .srcs-snippet-fallback {
+  font-style: italic;
+  opacity: 0.7;
+}
 
 .srcs-more {
   display: flex;
