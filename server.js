@@ -213,19 +213,55 @@ if (process.env.SENTRY_DSN) {
   Sentry.setupExpressErrorHandler(app);
 }
 
-// Graceful shutdown so PostHog + Sentry flush pending events before pm2
-// sends SIGKILL. Pm2 default kill timeout is 1600ms so we keep this tight.
-for (const sig of ["SIGTERM", "SIGINT"]) {
-  process.once(sig, async () => {
-    try {
-      await shutdownAnalytics();
-    } finally {
-      process.exit(0);
-    }
-  });
-}
-
 const PORT = process.env.PORT || 3001;
-app.listen(PORT, "127.0.0.1", () => {
+const httpServer = app.listen(PORT, "127.0.0.1", () => {
   console.log(`Emersus API listening on http://127.0.0.1:${PORT}`);
 });
+
+// Long-lived SSE streams (chat, recommendation) keep the keep-alive socket
+// open well past the request lifetime. Without explicit timeout values
+// those sockets count as "in-flight" forever and server.close() never
+// resolves. 5 min is a generous upper bound for a single recommendation
+// stream — anything past that is hung and should be terminated.
+httpServer.keepAliveTimeout = 65_000;
+httpServer.headersTimeout = 70_000;
+httpServer.requestTimeout = 5 * 60_000;
+
+// Graceful shutdown — give in-flight requests up to 25s to drain before
+// forcing exit. PM2 default kill_timeout is 1600ms which truncates SSE
+// streams mid-flight on every deploy; bump it to 30s via:
+//   pm2 restart emersus-api --kill-timeout 30000
+// or persist in ecosystem config. Without a higher kill_timeout, this
+// handler still helps for the first 1.6s but pm2's SIGKILL takes over
+// after that.
+let shuttingDown = false;
+async function gracefulShutdown(sig) {
+  if (shuttingDown) return;
+  shuttingDown = true;
+  console.log(`[shutdown] received ${sig}, draining in-flight requests…`);
+
+  // Stop accepting new connections; resolves when in-flight requests close.
+  const closed = new Promise((resolve) => {
+    httpServer.close((err) => {
+      if (err) console.error("[shutdown] server.close error:", err.message);
+      resolve();
+    });
+  });
+
+  // Hard cap so a hung SSE doesn't hold up exit indefinitely.
+  const cap = new Promise((resolve) => setTimeout(resolve, 25_000));
+
+  await Promise.race([closed, cap]);
+
+  try {
+    await shutdownAnalytics();
+  } catch (err) {
+    console.error("[shutdown] analytics flush error:", err.message);
+  }
+
+  console.log("[shutdown] exit 0");
+  process.exit(0);
+}
+for (const sig of ["SIGTERM", "SIGINT"]) {
+  process.once(sig, () => gracefulShutdown(sig));
+}
