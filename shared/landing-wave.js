@@ -34,6 +34,24 @@ const DEFAULTS = {
   yoff:        0.0,
 };
 
+const LITE_DEFAULTS = {
+  ...DEFAULTS,
+  points:      160,
+  fibers:       64,
+  speed:       0.18,
+  breatheAmp:  0.18,
+};
+
+function getPerformanceTier() {
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+  const saveData = Boolean(conn && conn.saveData);
+  const lowMemory = (navigator.deviceMemory || 8) < 4;
+  const lowCores = (navigator.hardwareConcurrency || 8) < 4;
+  const coarseSmall = window.matchMedia('(pointer: coarse)').matches && window.innerWidth < 760;
+  const slowDisplay = window.matchMedia('(update: slow)').matches;
+  return (saveData || lowMemory || lowCores || coarseSmall || slowDisplay) ? 'lite' : 'full';
+}
+
 function resolveFamily(palette) {
   try {
     const q = new URLSearchParams(window.location.search).get('wave');
@@ -68,6 +86,8 @@ export function initLandingWave({ canvas, palette } = {}) {
   }
 
   const family = resolveFamily(palette);
+  const tier = getPerformanceTier();
+  const settings = tier === 'lite' ? LITE_DEFAULTS : DEFAULTS;
   let theme = currentTheme();
   let preset = resolvePalette(family, theme);
 
@@ -76,12 +96,12 @@ export function initLandingWave({ canvas, palette } = {}) {
     renderer = new THREE.WebGLRenderer({
       canvas,
       alpha: true,
-      antialias: true,
+      antialias: tier !== 'lite',
       premultipliedAlpha: false,
-      powerPreference: 'high-performance',
+      powerPreference: tier === 'lite' ? 'low-power' : 'high-performance',
     });
     renderer.setClearColor(0x000000, 0);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, tier === 'lite' ? 1 : 1.5));
   } catch (err) {
     console.warn('[landing-wave] WebGL unavailable', err);
     canvas.parentElement?.classList.add('landing-wave--fallback');
@@ -89,27 +109,27 @@ export function initLandingWave({ canvas, palette } = {}) {
   }
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(DEFAULTS.fov, 1.7778, 0.1, 100);
+  const camera = new THREE.PerspectiveCamera(settings.fov, 1.7778, 0.1, 100);
   camera.position.set(
     0,
-    Math.sin(DEFAULTS.tilt) * DEFAULTS.camz,
-    Math.cos(DEFAULTS.tilt) * DEFAULTS.camz,
+    Math.sin(settings.tilt) * settings.camz,
+    Math.cos(settings.tilt) * settings.camz,
   );
   camera.lookAt(0, 0, 0);
 
   const material = new THREE.ShaderMaterial({
     uniforms: {
       uTime:        { value: 0 },
-      uWidth:       { value: DEFAULTS.width },
-      uFiberCount:  { value: DEFAULTS.fibers },
-      uSpread:      { value: DEFAULTS.spread },
-      uAmpX:        { value: DEFAULTS.ampx },
-      uFreqX:       { value: DEFAULTS.freqx },
-      uFreqZ:       { value: DEFAULTS.freqz },
-      uSpeed:       { value: DEFAULTS.speed },
-      uBreatheAmp:  { value: DEFAULTS.breatheAmp },
-      uBreatheFreq: { value: DEFAULTS.breatheFreq },
-      uYoff:        { value: DEFAULTS.yoff },
+      uWidth:       { value: settings.width },
+      uFiberCount:  { value: settings.fibers },
+      uSpread:      { value: settings.spread },
+      uAmpX:        { value: settings.ampx },
+      uFreqX:       { value: settings.freqx },
+      uFreqZ:       { value: settings.freqz },
+      uSpeed:       { value: settings.speed },
+      uBreatheAmp:  { value: settings.breatheAmp },
+      uBreatheFreq: { value: settings.breatheFreq },
+      uYoff:        { value: settings.yoff },
       uC0:    { value: new THREE.Color(preset.stops[0]) },
       uC1:    { value: new THREE.Color(preset.stops[1]) },
       uC2:    { value: new THREE.Color(preset.stops[2]) },
@@ -124,7 +144,7 @@ export function initLandingWave({ canvas, palette } = {}) {
     depthTest: false,
   });
 
-  const geometry = buildLineGeometry(DEFAULTS.fibers, DEFAULTS.points, DEFAULTS.width);
+  const geometry = buildLineGeometry(settings.fibers, settings.points, settings.width);
   const mesh = new THREE.LineSegments(geometry, material);
   scene.add(mesh);
 
@@ -149,10 +169,26 @@ export function initLandingWave({ canvas, palette } = {}) {
   resizeObserver.observe(canvas);
   resize();
 
-  let intersecting = true;
-  let visible = true;
+  let intersecting = !('IntersectionObserver' in window);
+  let visible = document.visibilityState === 'visible';
   let disposed = false;
   let rafId = null;
+  let lastPaint = 0;
+  const maxFps = tier === 'lite' ? 24 : 36;
+  const minFrame = 1000 / maxFps;
+
+  function shouldRun() {
+    return !disposed && visible && intersecting;
+  }
+
+  function updateLoop() {
+    if (shouldRun()) {
+      if (!rafId) rafId = requestAnimationFrame(frame);
+    } else if (rafId) {
+      cancelAnimationFrame(rafId);
+      rafId = null;
+    }
+  }
 
   let intersectionObserver = null;
   if ('IntersectionObserver' in window) {
@@ -160,12 +196,14 @@ export function initLandingWave({ canvas, palette } = {}) {
       for (const entry of entries) {
         if (entry.target === canvas) intersecting = entry.isIntersecting;
       }
+      updateLoop();
     }, { threshold: 0.02 });
     intersectionObserver.observe(canvas);
   }
 
   function onVisibilityChange() {
     visible = document.visibilityState === 'visible';
+    updateLoop();
   }
   document.addEventListener('visibilitychange', onVisibilityChange);
 
@@ -180,17 +218,26 @@ export function initLandingWave({ canvas, palette } = {}) {
 
   const start = performance.now();
   function frame(now) {
+    rafId = null;
     if (disposed) return;
+    if (!shouldRun()) return;
+
+    if (mode !== 'frozen' && lastPaint && now - lastPaint < minFrame) {
+      rafId = requestAnimationFrame(frame);
+      return;
+    }
+    lastPaint = now;
+
     const t = (now - start) * 0.001 + 14;
     material.uniforms.uTime.value = mode === 'frozen' ? 14 : t;
 
-    if (intersecting && visible) {
-      renderer.render(scene, camera);
-    }
+    renderer.render(scene, camera);
     if (mode === 'frozen') return;
     rafId = requestAnimationFrame(frame);
   }
-  rafId = requestAnimationFrame(frame);
+  material.uniforms.uTime.value = 14;
+  renderer.render(scene, camera);
+  updateLoop();
   canvas.parentElement?.classList.add('landing-wave--mounted');
 
   return {

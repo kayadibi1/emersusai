@@ -1552,7 +1552,14 @@
      * than any JS can hope to be). */
     const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const isTouch = window.matchMedia('(pointer: coarse)').matches;
-    if (!prefersReduced && !isTouch) {
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+    const saveData = Boolean(conn && conn.saveData);
+    const lowMemory = (navigator.deviceMemory || 8) < 4;
+    const lowCores = (navigator.hardwareConcurrency || 8) < 4;
+    const slowDisplay = window.matchMedia('(update: slow)').matches;
+    const liteMotion = document.documentElement.classList.contains('motion-lite')
+      || saveData || lowMemory || lowCores || slowDisplay;
+    if (!prefersReduced && !isTouch && !liteMotion) {
       try {
         const { default: Lenis } = await import('https://esm.sh/lenis@1.1.13');
         const lenis = new Lenis({

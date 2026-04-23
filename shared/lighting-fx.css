@@ -24,6 +24,7 @@
   background-size: 240px 240px;
 }
 :root[data-theme="paper"] .lfx-grain { display: none; }
+html.motion-lite .lfx-grain { display: none; }
 
 /* Cursor-tracked spotlight border on interactive cards.
  * --mask-x / --mask-y are card-local pixel coordinates of the pointer;
@@ -57,6 +58,7 @@
     rgba(0,0,0,0) 72%);
 }
 :root[data-theme="paper"] .lfx-card .lfx-spotlight { display: none; }
+html.motion-lite .lfx-card .lfx-spotlight { display: none; }
 
 /* Guarantee the positioning context needed by the spotlight span.
  * Most target cards already are relative/isolated, but if a consumer

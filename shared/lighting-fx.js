@@ -27,6 +27,17 @@ const STATE = {
   py: 0,
 };
 
+function shouldUseLiteMotion() {
+  const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+  const saveData = Boolean(conn && conn.saveData);
+  const lowMemory = (navigator.deviceMemory || 8) < 4;
+  const lowCores = (navigator.hardwareConcurrency || 8) < 4;
+  const coarseSmall = window.matchMedia("(pointer: coarse)").matches && window.innerWidth < 760;
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const slowDisplay = window.matchMedia("(update: slow)").matches;
+  return reduced || saveData || lowMemory || lowCores || coarseSmall || slowDisplay;
+}
+
 function attachSpotlight(el) {
   if (!el || STATE.cards.has(el)) return;
   el.classList.add("lfx-card");
@@ -93,6 +104,16 @@ function onPointerLeave() {
  */
 export function initLightingFx(opts = {}) {
   const newSelectors = String(opts.selectors || "").trim();
+  if (shouldUseLiteMotion()) {
+    document.documentElement.classList.add("motion-lite");
+    if (newSelectors) {
+      STATE.selectors = STATE.selectors
+        ? `${STATE.selectors}, ${newSelectors}`
+        : newSelectors;
+    }
+    return;
+  }
+
   // Paper palette: no-op. Re-check every call since the user can flip
   // themes at runtime (see shared/theme.js). We don't tear down on
   // theme change — the CSS selectors handle visibility — but we avoid

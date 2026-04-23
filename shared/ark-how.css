@@ -395,3 +395,30 @@ section.ark-how .read-panel                { padding: 12px 14px 10px; }
     font-size: 11px; color: var(--muted);
     letter-spacing: 0.06em; text-transform: uppercase;
   }
+
+/* Adaptive quality tier. JS adds html.motion-lite for Data Saver, small
+ * touch devices, low-memory/low-core devices, and slow-update displays. */
+html.motion-lite .ark-how .read-panel {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+html.motion-lite .ark-how .read-grid .cell {
+  transition: none;
+  will-change: auto;
+}
+html.motion-lite .ark-how .read-grid .cell.warm {
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.22),
+    0 0 8px rgba(80,145,242,0.32);
+  transform: translateZ(4px);
+}
+html.motion-lite .ark-how .read-grid .cell.live {
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.26),
+    0 0 12px rgba(52,211,153,0.42);
+  transform: translateZ(8px);
+}
+html.motion-lite .ark-how .read-panel-bar-fill,
+html.motion-lite .ark-how .ticket {
+  will-change: auto;
+}

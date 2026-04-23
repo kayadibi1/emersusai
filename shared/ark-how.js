@@ -11,13 +11,76 @@
  */
 (function () {
   // Outer IIFE isolates our declarations from the global scope.
-  // `reducedMotion` is declared inside the mockup block below.
+  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function getMotionProfile() {
+    const conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+    const saveData = Boolean(conn && conn.saveData);
+    const lowMemory = (navigator.deviceMemory || 8) < 4;
+    const lowCores = (navigator.hardwareConcurrency || 8) < 4;
+    const coarseSmall = matchMedia('(pointer: coarse)').matches && window.innerWidth < 760;
+    const slowDisplay = matchMedia('(update: slow)').matches;
+    const lite = reducedMotion || saveData || lowMemory || lowCores || coarseSmall || slowDisplay;
+
+    return {
+      lite,
+      dotCount: lite ? 140 : 220,
+      readCols: lite ? 16 : 22,
+      readRows: lite ? 9 : 12,
+      globePoints: lite ? 320 : 520,
+      canvasDpr: lite ? 1 : Math.min(window.devicePixelRatio || 1, 1.5),
+      domFps: lite ? 18 : 30,
+      canvasFps: lite ? 22 : 30,
+    };
+  }
+
+  const profile = getMotionProfile();
+  if (profile.lite) document.documentElement.classList.add('motion-lite');
+
+  function bindActive(target, onChange, threshold = 0.04) {
+    let inView = !('IntersectionObserver' in window);
+    let visible = document.visibilityState === 'visible';
+
+    function emit() {
+      onChange(inView && visible);
+    }
+
+    let io = null;
+    if ('IntersectionObserver' in window) {
+      io = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+          if (entry.target === target) inView = entry.isIntersecting;
+        }
+        emit();
+      }, { rootMargin: '160px 0px', threshold });
+      io.observe(target);
+    }
+
+    function onVisibilityChange() {
+      visible = document.visibilityState === 'visible';
+      emit();
+    }
+    document.addEventListener('visibilitychange', onVisibilityChange);
+    emit();
+
+    return () => {
+      io?.disconnect();
+      document.removeEventListener('visibilitychange', onVisibilityChange);
+    };
+  }
+
+  function shouldPaint(now, clock, fps) {
+    const minFrame = 1000 / fps;
+    if (clock.last && now - clock.last < minFrame) return false;
+    clock.last = now;
+    return true;
+  }
 
   /* ---------- Card 1 · paper-dot cloud (static layout) ---------- */
   (function () {
     const host = document.getElementById('cloud');
     if (!host) return;
-    const DOTS = 260;
+    const DOTS = profile.dotCount;
     const palette = ['#bff6e4', '#34d399', '#5091f2', '#4338ca'];
 
     // Seedable PRNG so the layout is stable between reloads.
@@ -60,8 +123,6 @@
      Single shared rAF loop would be micro-optimal; separate IIFEs are
      fine for ~260 dots and a few mask updates and keep concerns local.
      ================================================================= */
-
-  const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* ---------- Card 1 · noise-drift + thinking pull ----------
      Port of Stripe's agentic-graphic vertex shader:
@@ -133,7 +194,17 @@
     const THINK_BOOST = 22; // extra push when aligned with cursor
 
     const t0 = performance.now();
+    const clock = { last: 0 };
+    let active = false;
+    let rafId = 0;
+
     function frame(now) {
+      rafId = 0;
+      if (!active) return;
+      if (!shouldPaint(now, clock, profile.domFps)) {
+        rafId = requestAnimationFrame(frame);
+        return;
+      }
       const t = (now - t0) / 1000;
       hover += (targetHover - hover) * 0.08;
 
@@ -169,9 +240,16 @@
 
         s.el.style.transform = `translate3d(${dx.toFixed(2)}px, ${dy.toFixed(2)}px, 0)`;
       }
-      requestAnimationFrame(frame);
+      rafId = requestAnimationFrame(frame);
     }
-    requestAnimationFrame(frame);
+    bindActive(card, (next) => {
+      active = next;
+      if (active && !rafId) rafId = requestAnimationFrame(frame);
+      if (!active && rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+    });
   })();
 
   /* ---------- Card 2 · reading field ----------
@@ -193,8 +271,9 @@
     const barEl = document.getElementById('read-bar');
 
     // --- Build grid -----------------------------------------------------
-    const COLS = 26, ROWS = 14;
-    const cellW = 18, cellH = 24;
+    const COLS = profile.readCols, ROWS = profile.readRows;
+    const cellW = profile.lite ? 28 : 22;
+    const cellH = profile.lite ? 34 : 28;
     const cells = [];
     for (let r = 0; r < ROWS; r++) {
       for (let c = 0; c < COLS; c++) {
@@ -216,8 +295,6 @@
     });
     card.addEventListener('mouseleave', () => { tgtX = 0; tgtY = 0; });
 
-    if (reducedMotion) return;
-
     // --- Counter: ticks up continuously at ~RATE papers/sec -------------
     //   The displayed count advances every frame; the progress bar mirrors.
     //   The rate is high enough that the number visibly ticks (cf. 238/s
@@ -230,8 +307,17 @@
     const WAVE_DURATION = 7.5;
     const t0 = performance.now();
     let prev = t0;
+    const clock = { last: 0 };
+    let active = false;
+    let rafId = 0;
 
     function frame(now) {
+      rafId = 0;
+      if (!active && !reducedMotion) return;
+      if (!reducedMotion && !shouldPaint(now, clock, profile.domFps)) {
+        rafId = requestAnimationFrame(frame);
+        return;
+      }
       const dt = (now - prev) / 1000;
       prev = now;
       const t  = (now - t0) / 1000;
@@ -273,9 +359,23 @@
       numEl.textContent = intC.toLocaleString('en-US');
       barEl.style.width = ((intC / TOTAL) * 100).toFixed(3) + '%';
 
-      requestAnimationFrame(frame);
+      if (!reducedMotion) rafId = requestAnimationFrame(frame);
     }
-    requestAnimationFrame(frame);
+    if (reducedMotion) {
+      frame(t0);
+      return;
+    }
+    bindActive(card, (next) => {
+      active = next;
+      if (active && !rafId) {
+        prev = performance.now();
+        rafId = requestAnimationFrame(frame);
+      }
+      if (!active && rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+    });
   })();
 
   /* ---------- Card 3 · true 3D dot-sphere (canvas) ----------
@@ -304,7 +404,7 @@
     const palette = ['#bff6e4', '#34d399', '#5091f2', '#4338ca'];
 
     // --- Fibonacci lattice: evenly-spaced points on the unit sphere -------
-    const N = 820;
+    const N = profile.globePoints;
     const pts = [];
     const PHI = Math.PI * (Math.sqrt(5) - 1);   // golden angle
     for (let i = 0; i < N; i++) {
@@ -333,7 +433,7 @@
     let W = 0, H = 0, R = 0, CX = 0, CY = 0;
     function resize() {
       const rect = scene.getBoundingClientRect();
-      const dpr = window.devicePixelRatio || 1;
+      const dpr = profile.canvasDpr;
       W = Math.max(1, rect.width);
       H = Math.max(1, rect.height);
       canvas.width  = Math.round(W * dpr);
@@ -374,12 +474,6 @@
       l.el.style.animation = 'none';           // disable the CSS bob — JS drives now
       l.el.style.willChange = 'transform';
     });
-
-    if (reducedMotion) {
-      // Draw one still frame at default rotation and stop.
-      renderFrame(0);
-      return;
-    }
 
     const CAM = 2.4;             // camera distance (ortho-ish perspective)
     const ROT_SPEED = 0.085;     // rad/sec continuous spin
@@ -475,11 +569,35 @@
       }
     }
 
-    const t0 = performance.now();
-    function frame(now) {
-      renderFrame((now - t0) / 1000);
-      requestAnimationFrame(frame);
+    if (reducedMotion) {
+      // Draw one still frame at default rotation and stop.
+      renderFrame(0);
+      return;
     }
-    requestAnimationFrame(frame);
+
+    const t0 = performance.now();
+    const clock = { last: 0 };
+    let active = false;
+    let rafId = 0;
+
+    function frame(now) {
+      rafId = 0;
+      if (!active) return;
+      if (!shouldPaint(now, clock, profile.canvasFps)) {
+        rafId = requestAnimationFrame(frame);
+        return;
+      }
+      renderFrame((now - t0) / 1000);
+      rafId = requestAnimationFrame(frame);
+    }
+    renderFrame(0);
+    bindActive(card, (next) => {
+      active = next;
+      if (active && !rafId) rafId = requestAnimationFrame(frame);
+      if (!active && rafId) {
+        cancelAnimationFrame(rafId);
+        rafId = 0;
+      }
+    });
   })();
 })();
