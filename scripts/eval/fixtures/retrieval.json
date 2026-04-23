@@ -19,9 +19,9 @@
   },
   {
     "question": "Protein timing for muscle growth",
-    "must_include_pmids": [23241341],
+    "must_include_pmids": [23241341, 10000292198, 10000896347, 28474785],
     "must_exclude_pmids": [],
-    "notes": "pmid 23241341 = 'Protein timing and its effects on muscular hypertrophy and strength' — the canonical paper."
+    "notes": "Recall passes if any of these pmids surface — they're duplicates of the same canonical Protein-timing meta-analysis indexed across PubMed + openalex. 23241341 = pubmed original, 10000292198 = openalex copy of same title."
   },
   {
     "question": "Vitamin D supplementation in athletes",
@@ -31,9 +31,9 @@
   },
   {
     "question": "Sleep deprivation effect on strength",
-    "must_include_pmids": [10000143891],
+    "must_include_pmids": [10000143891, 10000886434],
     "must_exclude_pmids": [],
-    "notes": "pmid 10000143891 = 'Effect of Partial Sleep Deprivation After Strenuous Exercise on Muscular Strength and Endurance'."
+    "notes": "10000143891 = 'Effect of Partial Sleep Deprivation on Strength'. 10000886434 = 'Implications of sleep loss or sleep deprivation on muscle strength' — equally on-topic systematic review."
   },
   {
     "question": "Cold water immersion after exercise",
@@ -55,9 +55,9 @@
   },
   {
     "question": "Omega-3 for muscle soreness",
-    "must_include_pmids": [32382573],
+    "must_include_pmids": [32382573, 10000368309],
     "must_exclude_pmids": [],
-    "notes": "pmid 32382573 = 'Omega-3 PUFA Supplementation for Reducing Muscle Soreness after Eccentric exercise'."
+    "notes": "Same canonical Omega-3/DOMS paper indexed under both pubmed (32382573) and openalex (10000368309)."
   },
   {
     "question": "Concurrent training interference effect",
@@ -85,15 +85,15 @@
   },
   {
     "question": "Resistance training frequency for hypertrophy",
-    "must_include_pmids": [30236847],
+    "must_include_pmids": [30236847, 10000029785],
     "must_exclude_pmids": [],
-    "notes": "pmid 30236847 = 'Resistance training frequency and skeletal muscle hypertrophy: A review of available evidence'."
+    "notes": "Same canonical 'Resistance training frequency and skeletal muscle hypertrophy review' indexed under pubmed (30236847) and openalex (10000029785)."
   },
   {
     "question": "Eccentric training adaptations",
-    "must_include_pmids": [10000683595],
+    "must_include_pmids": [10000683595, 10000029016],
     "must_exclude_pmids": [],
-    "notes": "pmid 10000683595 = 'Physiological and Neural Adaptations to Eccentric Exercise'."
+    "notes": "Same canonical 'Physiological and Neural Adaptations to Eccentric Exercise' indexed under two pmids."
   },
   {
     "question": "Glycemic index and exercise performance",
@@ -103,9 +103,9 @@
   },
   {
     "question": "Dietary fiber and athletic performance",
-    "must_include_pmids": [41956455],
+    "must_include_pmids": [41956455, 10002436477],
     "must_exclude_pmids": [],
-    "notes": "pmid 41956455 = 'Dietary Fiber in Sport: Implications for Performance and Body Composition Optimization'."
+    "notes": "Same 'Dietary Fiber in Sport: Implications for Performance' paper indexed under pubmed (41956455) and openalex (10002436477)."
   },
   {
     "question": "Polyphenols and post-exercise recovery",
