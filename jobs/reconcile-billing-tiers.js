@@ -27,6 +27,13 @@ const DEFAULT_BATCH = 500;
 const DEFAULT_CONCURRENCY = 2;
 const ACTIVE_POLAR_STATUSES = new Set(["active", "trialing"]);
 
+// Sentinel written by a manual admin Pro grant. Reconciliation must skip
+// these — they have no Polar subscription on purpose, so the normal
+// "no sub on Polar → demote" branch would revert the grant every night.
+// If the user later subscribes for real, the webhook overwrites this
+// status with the Polar value and reconciliation resumes its normal job.
+const MANUAL_GRANT_STATUS = "manual";
+
 /**
  * Pure reconciliation — iterates profile rows, asks Polar about each
  * user's current subscription, and calls the injected updateProfile
@@ -61,6 +68,10 @@ export async function reconcileProfiles({
     const slice = profiles.slice(i, i + concurrency);
     await Promise.all(slice.map(async (profile) => {
       summary.scanned++;
+      if (profile.subscription_status === MANUAL_GRANT_STATUS) {
+        // Manual admin grant — don't call Polar and don't demote.
+        return;
+      }
       let polarRes;
       try {
         polarRes = await polar.subscriptions.list({
@@ -169,6 +180,7 @@ export async function reconcileBillingTiersHandler(ctx, deps) {
     SELECT id, tier, pro_until, subscription_status, cancel_at_period_end
     FROM public.profiles
     WHERE tier = 'pro'
+      AND (subscription_status IS DISTINCT FROM ${MANUAL_GRANT_STATUS})
     ORDER BY pro_until NULLS FIRST
     LIMIT ${batchSize}
   `;

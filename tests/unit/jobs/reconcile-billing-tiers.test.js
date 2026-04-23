@@ -164,6 +164,31 @@ describe("reconcileProfiles", () => {
     assert.equal(calls.length, 0);
   });
 
+  test("skips manual admin grants — no Polar call, no demotion", async () => {
+    const profiles = [{
+      id: "u-manual",
+      tier: "pro",
+      pro_until: null,
+      subscription_status: "manual",
+      cancel_at_period_end: false,
+    }];
+    let polarCalls = 0;
+    const polar = {
+      subscriptions: {
+        list: async () => { polarCalls++; return { result: { items: [] } }; },
+      },
+    };
+    const { updateProfile, calls } = stubUpdater();
+    const summary = await reconcileProfiles({
+      profiles, polar, updateProfile, onInvalidate: () => {},
+    });
+    assert.equal(polarCalls, 0);
+    assert.equal(summary.scanned, 1);
+    assert.equal(summary.demoted, 0);
+    assert.equal(summary.synced, 0);
+    assert.equal(calls.length, 0);
+  });
+
   test("Polar API failure increments errors and skips that user", async () => {
     const profiles = [
       { id: "u-err", tier: "pro", pro_until: null, subscription_status: null, cancel_at_period_end: false },
