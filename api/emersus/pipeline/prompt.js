@@ -4,6 +4,18 @@ export function groundingEnforcementEnabled() {
   return String(process.env.GROUNDING_ENFORCEMENT_ENABLED || "").toLowerCase() === "true";
 }
 
+// When enabled, the EVIDENCE GROUNDING CONTRACT ships as its own system
+// message BEFORE SYSTEM_IDENTITY, rather than embedded at the top of
+// SYSTEM_IDENTITY. OpenAI's Responses API accepts multiple system
+// messages. The theory (see docs/openai-api-reference.md §17633
+// lost-in-the-middle): a focused system message dedicated to one
+// concern is harder for the model to deprioritize than a rule buried
+// inside a larger identity block. Controls the grounded-mode path
+// only; has no effect when groundingEnforcementEnabled() is false.
+export function groundingSplitPromptEnabled() {
+  return String(process.env.GROUNDING_SPLIT_PROMPT || "").toLowerCase() === "true";
+}
+
 const GROUNDING_CONTRACT_BLOCK = [
   "EVIDENCE GROUNDING CONTRACT (READ FIRST — this governs every scientific claim you make):",
   "",
@@ -53,8 +65,11 @@ const LEGACY_EVIDENCE_POLICY_BLOCK = [
   "",
 ];
 
-function buildSystemIdentity({ grounded }) {
-  const head = grounded ? GROUNDING_CONTRACT_BLOCK : [];
+function buildSystemIdentity({ grounded, split = false }) {
+  // When split=true, the grounding contract ships as its own system
+  // message (see buildMessages), so we omit it from SYSTEM_IDENTITY
+  // entirely rather than duplicating it.
+  const head = (grounded && !split) ? GROUNDING_CONTRACT_BLOCK : [];
   const legacyPolicy = grounded ? [] : LEGACY_EVIDENCE_POLICY_BLOCK;
   const sourcesPolicy = grounded ? SOURCES_POLICY_GROUNDED : SOURCES_POLICY_LEGACY;
 
@@ -162,6 +177,7 @@ export function buildMessages({ question, threadState, recentMessages, evidence,
   const threadMemory = buildThreadMemoryBlock(normalizedTS, normalizedRM);
   const today = new Date().toISOString().slice(0, 10);
   const grounded = groundingEnforcementEnabled();
+  const split = grounded && groundingSplitPromptEnabled();
 
   const userPayload = {
     today,
@@ -177,14 +193,14 @@ export function buildMessages({ question, threadState, recentMessages, evidence,
   const ctm = formatCrossThreadMemory(crossThreadMemory);
   if (ctm) userPayload.cross_thread_memory = ctm;
 
-  return [
-    { role: "system", content: buildSystemIdentity({ grounded }) },
-    { role: "system", content: SYSTEM_WIDGET_TOKENS },
-    {
-      role: "user",
-      content: JSON.stringify(userPayload),
-    },
-  ];
+  const messages = [];
+  if (split) {
+    messages.push({ role: "system", content: GROUNDING_CONTRACT_BLOCK.join("\n") });
+  }
+  messages.push({ role: "system", content: buildSystemIdentity({ grounded, split }) });
+  messages.push({ role: "system", content: SYSTEM_WIDGET_TOKENS });
+  messages.push({ role: "user", content: JSON.stringify(userPayload) });
+  return messages;
 }
 
 function wrapFact(fact) {

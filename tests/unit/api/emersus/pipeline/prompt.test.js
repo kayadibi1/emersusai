@@ -98,6 +98,34 @@ describe("buildMessages", () => {
     assert.ok(msgs[0].content.includes("wheelhouse"));
   });
 
+  it("split-prompt mode ships grounding contract as its own system message", () => {
+    const saveGrounded = process.env.GROUNDING_ENFORCEMENT_ENABLED;
+    const saveSplit = process.env.GROUNDING_SPLIT_PROMPT;
+    process.env.GROUNDING_ENFORCEMENT_ENABLED = "true";
+    process.env.GROUNDING_SPLIT_PROMPT = "true";
+    try {
+      const msgs = buildMessages({
+        question: "test", profile: {}, threadState: {},
+        recentMessages: [], evidence: { formatted: "" }, workoutPlan: null,
+      });
+      assert.equal(msgs.length, 4, "split mode yields 4 messages: contract + identity + widgets + user");
+      assert.equal(msgs[0].role, "system");
+      assert.match(msgs[0].content, /EVIDENCE GROUNDING CONTRACT/);
+      assert.equal(msgs[1].role, "system");
+      assert.ok(msgs[1].content.includes("EMERSUS"));
+      // SOURCES POLICY references the contract by name, but the actual
+      // contract body (RULES — non-negotiable, CITATION MARKER FORMAT)
+      // must not appear in the identity message.
+      assert.ok(!/RULES — non-negotiable/.test(msgs[1].content), "identity must not duplicate the contract body");
+      assert.ok(!/CITATION MARKER FORMAT/.test(msgs[1].content), "identity must not duplicate the marker format");
+    } finally {
+      if (saveGrounded === undefined) delete process.env.GROUNDING_ENFORCEMENT_ENABLED;
+      else process.env.GROUNDING_ENFORCEMENT_ENABLED = saveGrounded;
+      if (saveSplit === undefined) delete process.env.GROUNDING_SPLIT_PROMPT;
+      else process.env.GROUNDING_SPLIT_PROMPT = saveSplit;
+    }
+  });
+
   it("system prompt 2 contains design tokens", () => {
     const msgs = buildMessages({
       question: "test", profile: {}, threadState: {},
