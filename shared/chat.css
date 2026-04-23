@@ -1792,6 +1792,70 @@ body.chat-page {
 }
 .undo-toast-action:hover { background: var(--accent-line); }
 
+/* Bookmark icon inline on each SourcesFooter row. Lives in the same
+ * .mini-links strip as the PubMed/DOI link, so the row stays one line.
+ * Hollow when unsaved, filled with the accent colour when saved. */
+.mini-link.save-toggle {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  color: var(--dim);
+  padding: 0 4px;
+  display: inline-flex;
+  align-items: center;
+  transition: color 140ms ease, transform 140ms ease;
+}
+.mini-link.save-toggle:hover { color: var(--ink); }
+.mini-link.save-toggle.is-saved { color: var(--accent); }
+.mini-link.save-toggle.is-saved:hover { color: var(--accent); }
+.mini-link.save-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Transient toast for library save feedback. Same bottom-center slot as
+ * the undo-toast; library_full variant surfaces the upgrade CTA. */
+.library-toast {
+  position: fixed;
+  left: 50%;
+  bottom: 32px;
+  transform: translateX(-50%);
+  z-index: 80;
+  display: inline-flex;
+  align-items: center;
+  gap: 16px;
+  padding: 10px 14px 10px 16px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 13px;
+  box-shadow: 0 16px 40px -12px rgba(0, 0, 0, 0.5);
+  animation: undoToastIn 200ms cubic-bezier(.22, 1, .36, 1);
+  max-width: 480px;
+}
+.library-toast-library_full {
+  border-color: var(--accent-line);
+}
+.library-toast-action {
+  appearance: none;
+  border: 0;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 140ms ease;
+  white-space: nowrap;
+}
+.library-toast-action:hover { background: var(--accent-line); }
+
 /* Pinned threads sidebar item — row with thread button + pin star. */
 .chat-nav-item-row {
   display: flex;

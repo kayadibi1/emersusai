@@ -78,6 +78,7 @@
       <a class="app-sidebar-section" data-section="train" href="/app/train/"><span class="app-sidebar-section-dot"></span>Train</a>
       <a class="app-sidebar-section" data-section="nutrition" href="/app/nutrition/"><span class="app-sidebar-section-dot"></span>Nutrition</a>
       <a class="app-sidebar-section" data-section="progress" href="/app/progress/"><span class="app-sidebar-section-dot"></span>Progress</a>
+      <a class="app-sidebar-section" data-section="library" href="/app/library/"><span class="app-sidebar-section-dot"></span>Library</a>
       <a class="app-sidebar-section" data-section="profile" href="/app/profile/"><span class="app-sidebar-section-dot"></span>Profile</a>
     </nav>
     <script>
@@ -86,6 +87,7 @@
         var key = /^\/app\/train/.test(p) ? 'train'
           : /^\/app\/nutrition/.test(p) ? 'nutrition'
           : /^\/app\/progress/.test(p) ? 'progress'
+          : /^\/app\/library/.test(p) ? 'library'
           : /^\/app\/profile/.test(p) ? 'profile'
           : 'chat';
         var host = document.currentScript.parentElement;

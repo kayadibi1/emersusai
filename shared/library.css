@@ -1,0 +1,229 @@
+/* shared/library.css
+ *
+ * Styles for /app/library — the user's saved-sources page.
+ * Mirrors the quiet, typography-first feel of the chat sources footer.
+ */
+
+.library-body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Space Grotesk', -apple-system, system-ui, sans-serif;
+}
+
+.library-main {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 48px 32px 120px;
+}
+
+.library-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.library-title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.library-count {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+}
+
+.library-cap-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  margin-bottom: 20px;
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-line);
+  border-radius: 10px;
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.library-cap-cta {
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.library-cap-cta:hover { text-decoration: underline; }
+
+.library-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.library-search {
+  flex: 1 1 280px;
+  min-width: 220px;
+  padding: 10px 14px;
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+.library-search:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface);
+}
+
+.library-sort {
+  padding: 10px 14px;
+  background: var(--surface-faint);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 180px;
+}
+
+.library-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.library-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--surface-faint);
+  transition: border-color 140ms ease, background 140ms ease;
+}
+.library-item:hover {
+  border-color: var(--accent-line);
+  background: var(--surface);
+}
+
+.library-item-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.library-item-title {
+  display: block;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.35;
+  margin-bottom: 4px;
+}
+a.library-item-title:hover { color: var(--accent); text-decoration: underline; }
+
+.library-item-meta {
+  font-size: 12px;
+  color: var(--dim);
+  margin-bottom: 6px;
+}
+
+.library-item-sub {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+.library-item-sep { margin: 0 2px; }
+.library-item-thread {
+  color: var(--dim);
+  text-decoration: none;
+}
+.library-item-thread:hover { color: var(--accent); }
+
+.library-item-remove {
+  appearance: none;
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--dim);
+  font-size: 14px;
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: color 140ms ease, border-color 140ms ease, background 140ms ease;
+  flex-shrink: 0;
+}
+.library-item-remove:hover {
+  color: var(--ink);
+  border-color: var(--line);
+  background: var(--surface-faint);
+}
+
+.library-empty {
+  padding: 60px 20px;
+  text-align: center;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  color: var(--dim);
+}
+.library-empty-lead {
+  font-size: 16px;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+.library-empty-sub {
+  font-size: 13px;
+  margin: 0 0 20px;
+}
+.library-empty-cta {
+  display: inline-block;
+  padding: 10px 16px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background 140ms ease;
+}
+.library-empty-cta:hover { background: var(--accent-line); }
+
+.library-loading,
+.library-error {
+  padding: 40px 20px;
+  text-align: center;
+  color: var(--dim);
+  font-size: 14px;
+}
+.library-error { color: #f87171; }
+
+@media (max-width: 640px) {
+  .library-main { padding: 32px 20px 100px; }
+  .library-title { font-size: 24px; }
+  .library-controls { flex-direction: column; }
+  .library-sort { min-width: 0; }
+}

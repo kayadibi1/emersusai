@@ -3019,6 +3019,49 @@ function dedupeSources(list) {
   return final;
 }
 
+// Canonical identifier for a source, matching what the backend stores in
+// user_saved_sources.source_id. Priority: explicit source_id → DOI →
+// "pmid:N" → "<source>:<external_id>". Returns null if nothing identifies
+// the source uniquely (in which case we can't save it — caller should
+// omit the bookmark UI).
+function sourceIdForSource(source) {
+  if (!source) return null;
+  if (typeof source.source_id === "string" && source.source_id.trim()) {
+    return source.source_id.trim();
+  }
+  if (typeof source.doi === "string" && source.doi.trim()) {
+    return source.doi.trim().toLowerCase();
+  }
+  if (source.pmid !== null && source.pmid !== undefined) {
+    const n = Number(source.pmid);
+    if (Number.isFinite(n) && n > 0) return `pmid:${n}`;
+  }
+  if (source.external_id) {
+    const src = source.source || "src";
+    return `${src}:${source.external_id}`;
+  }
+  return null;
+}
+
+// Minimal, copyright-clean metadata snapshot for user_saved_sources. Only
+// bibliographic facts (title, authors, journal, year, DOI, PMID, source,
+// url). No abstract / excerpt / full text.
+function metaSnapshotFrom(source) {
+  if (!source) return null;
+  const snap = {
+    title: String(source.title || "Untitled").slice(0, 400),
+    authors: Array.isArray(source.authors) ? source.authors.slice(0, 20) : [],
+    journal: String(source.journal || "").slice(0, 200),
+    year: String(source.year || source.publication_year || "").slice(0, 8),
+    doi: String(source.doi || "").slice(0, 200),
+    pmid: source.pmid !== undefined && source.pmid !== null ? source.pmid : null,
+    source: String(source.source || "pubmed").slice(0, 40),
+    url: String(source.url || "").slice(0, 600),
+    publication_type: String(source.publication_type || "").slice(0, 120),
+  };
+  return snap;
+}
+
 // Trim an excerpt to ~200 chars at a sentence boundary when possible, else
 // at the nearest word boundary. Keeps the "Why this answer?" reveal short
 // enough to scan while preserving the evidence payload.
@@ -3105,7 +3148,13 @@ function WhyThisAnswer({ sources }) {
   );
 }
 
-function SourcesFooter({ sources, onAskFollowUp }) {
+function SourcesFooter({
+  sources,
+  onAskFollowUp,
+  onToggleSaveSource,
+  savedSourceIds,
+  saveContext,
+}) {
   const items = useMemo(() => dedupeSources(sources), [sources]);
   const [openSet, setOpenSet] = useState(() => new Set());
   const [listOpen, setListOpen] = useState(false);
@@ -3252,6 +3301,43 @@ function SourcesFooter({ sources, onAskFollowUp }) {
                   `${link.label} ↗`
                 )
               ),
+              (() => {
+                if (!onToggleSaveSource) return null;
+                const srcId = sourceIdForSource(source);
+                if (!srcId) return null;
+                const isSaved = savedSourceIds?.has(srcId) || false;
+                return h(
+                  "button",
+                  {
+                    type: "button",
+                    className: `mini-link save-toggle${isSaved ? " is-saved" : ""}`,
+                    "aria-pressed": isSaved,
+                    "aria-label": isSaved ? "Remove from library" : "Save to library",
+                    title: isSaved ? "Remove from library" : "Save to library",
+                    onClick: (e) => {
+                      e.stopPropagation();
+                      onToggleSaveSource(source, saveContext);
+                    },
+                  },
+                  h(
+                    "svg",
+                    {
+                      width: 11,
+                      height: 13,
+                      viewBox: "0 0 11 13",
+                      "aria-hidden": true,
+                      focusable: "false",
+                    },
+                    h("path", {
+                      d: "M1 1h9v11L5.5 9 1 12V1z",
+                      fill: isSaved ? "currentColor" : "none",
+                      stroke: "currentColor",
+                      strokeWidth: 1.2,
+                      strokeLinejoin: "round",
+                    })
+                  )
+                );
+              })(),
               h("span", { className: "caret", "aria-hidden": true }, "▸")
             )
           ),
@@ -3321,6 +3407,8 @@ const Message = React.memo(function Message({
   onSwapMeal,
   onExport,
   onAskFollowUp,
+  onToggleSaveSource,
+  savedSourceIds,
   trailingOrb = null,
 }) {
   // Choose rendering strategy:
@@ -3360,7 +3448,13 @@ const Message = React.memo(function Message({
       ? h(WhyThisAnswer, { sources: message.sources })
       : null,
     showSourcesFooter
-      ? h(SourcesFooter, { sources: message.sources, onAskFollowUp })
+      ? h(SourcesFooter, {
+          sources: message.sources,
+          onAskFollowUp,
+          onToggleSaveSource,
+          savedSourceIds,
+          saveContext: { thread_id: threadId, message_id: message.id || null },
+        })
       : null,
     chatV2On && message.role === "assistant"
       ? h(MessageActions, {
@@ -3382,6 +3476,8 @@ const Message = React.memo(function Message({
   prevProps.onSwapMeal === nextProps.onSwapMeal &&
   prevProps.onExport === nextProps.onExport &&
   prevProps.onAskFollowUp === nextProps.onAskFollowUp &&
+  prevProps.onToggleSaveSource === nextProps.onToggleSaveSource &&
+  prevProps.savedSourceIds === nextProps.savedSourceIds &&
   prevProps.trailingOrb === nextProps.trailingOrb
 );
 
@@ -3634,6 +3730,102 @@ export function ChatApp() {
       return next;
     });
   }, []);
+
+  // ─── Saved sources (Library) ───
+  // Server-backed Set<source_id>. Hydrated once per session so bookmark
+  // icons on SourcesFooter rows know their state without N network calls.
+  const [savedSourceIds, setSavedSourceIds] = useState(() => new Set());
+  // Surfaces a transient toast when POST fails (402 library_full /
+  // network) so the user understands why the icon rolled back.
+  const [librarySaveToast, setLibrarySaveToast] = useState(null);
+
+  useEffect(() => {
+    if (!session?.user?.id || !session?.access_token) return;
+    let cancelled = false;
+    (async () => {
+      try {
+        const res = await fetch("/api/emersus/saved-sources?ids_only=true", {
+          headers: { Authorization: `Bearer ${session.access_token}` },
+        });
+        if (!res.ok) return;
+        const data = await res.json();
+        if (cancelled) return;
+        setSavedSourceIds(new Set(Array.isArray(data.ids) ? data.ids : []));
+      } catch (_) { /* silent — empty set is a safe default */ }
+    })();
+    return () => { cancelled = true; };
+  }, [session?.user?.id, session?.access_token]);
+
+  const toggleSaveSource = useCallback(async (source, context) => {
+    if (!session?.access_token) return;
+    const sourceId = sourceIdForSource(source);
+    if (!sourceId) return;
+    const wasSaved = savedSourceIds.has(sourceId);
+
+    // Optimistic flip. Rolled back on error.
+    setSavedSourceIds((prev) => {
+      const next = new Set(prev);
+      if (wasSaved) next.delete(sourceId);
+      else next.add(sourceId);
+      return next;
+    });
+
+    try {
+      if (wasSaved) {
+        const res = await fetch(
+          `/api/emersus/saved-sources/by-source-id/${encodeURIComponent(sourceId)}`,
+          {
+            method: "DELETE",
+            headers: { Authorization: `Bearer ${session.access_token}` },
+          }
+        );
+        if (!res.ok) throw new Error(`delete ${res.status}`);
+      } else {
+        const res = await fetch("/api/emersus/saved-sources", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${session.access_token}`,
+          },
+          body: JSON.stringify({
+            source_id: sourceId,
+            saved_from: context || null,
+            meta_snapshot: metaSnapshotFrom(source),
+          }),
+        });
+        if (!res.ok) {
+          if (res.status === 402) {
+            const data = await res.json().catch(() => ({}));
+            setLibrarySaveToast({
+              kind: "library_full",
+              cap: data.cap || 20,
+              message:
+                data.message ||
+                "Your Free library holds up to 20 sources. Upgrade to Pro for unlimited.",
+            });
+          } else {
+            setLibrarySaveToast({ kind: "network", message: "Couldn't save. Try again." });
+          }
+          throw new Error(`save ${res.status}`);
+        }
+      }
+    } catch (_) {
+      // Rollback optimistic flip
+      setSavedSourceIds((prev) => {
+        const next = new Set(prev);
+        if (wasSaved) next.add(sourceId);
+        else next.delete(sourceId);
+        return next;
+      });
+    }
+  }, [savedSourceIds, session?.access_token]);
+
+  // Auto-dismiss the library toast after 5s so it doesn't linger.
+  useEffect(() => {
+    if (!librarySaveToast) return;
+    const id = setTimeout(() => setLibrarySaveToast(null), 5000);
+    return () => clearTimeout(id);
+  }, [librarySaveToast]);
 
   // ─── Global keyboard shortcuts ───
   // Cmd/Ctrl+K → new thread · Cmd+/ → focus composer ·
@@ -5024,6 +5216,8 @@ export function ChatApp() {
               h("span", { className: "chat-side-section-dot" }), "Nutrition"),
             h("a", { className: "chat-side-section", href: "/app/progress/" },
               h("span", { className: "chat-side-section-dot" }), "Progress"),
+            h("a", { className: "chat-side-section", href: "/app/library/" },
+              h("span", { className: "chat-side-section-dot" }), "Library"),
             h("a", { className: "chat-side-section", href: "/app/profile/" },
               h("span", { className: "chat-side-section-dot" }), "Profile"))
         : null,
@@ -5272,6 +5466,8 @@ export function ChatApp() {
                         onSwapMeal: handleSwapMealFromMessage,
                         onExport: handleExportMessage,
                         onAskFollowUp: handleAskSourceFollowUp,
+                        onToggleSaveSource: toggleSaveSource,
+                        savedSourceIds,
                         trailingOrb: null,
                       })],
                     );
@@ -5551,6 +5747,21 @@ export function ChatApp() {
             className: "undo-toast-action",
             onClick: handleUndoDelete,
           }, "Undo"),
+        )
+      : null,
+    librarySaveToast
+      ? h("div", {
+          className: `library-toast library-toast-${librarySaveToast.kind}`,
+          role: "status",
+          "aria-live": "polite",
+        },
+          h("span", { className: "library-toast-text" }, librarySaveToast.message),
+          librarySaveToast.kind === "library_full"
+            ? h("a", {
+                className: "library-toast-action",
+                href: "/pricing",
+              }, "Upgrade →")
+            : null,
         )
       : null,
     showShortcutsHelp

@@ -113,6 +113,7 @@ const { default: nutritionWaterHandler } = await import("./api/emersus/nutrition
 const { default: nutritionSupplementsHandler } = await import("./api/emersus/nutrition-supplements.js");
 const { default: progressHandler } = await import("./api/emersus/progress.js");
 const { default: usageHandler } = await import("./api/emersus/usage.js");
+const { default: savedSourcesHandler } = await import("./api/emersus/saved-sources.js");
 const { default: polarCheckoutHandler } = await import("./api/billing/checkout.js");
 const { default: polarPortalHandler } = await import("./api/billing/portal.js");
 const { default: checkEmailHandler } = await import("./api/auth/check-email.js");
@@ -143,6 +144,10 @@ app.post("/api/contact", publicRateLimitMiddleware("contact"), contactHandler);
 app.post("/api/notify-signup", publicRateLimitMiddleware("notify-signup"), notifySignupHandler);
 app.post("/api/emersus/recommendation", requireAuth, userRateLimit(), recommendationHandler);
 app.get("/api/emersus/usage", requireAuth, usageHandler);
+app.get("/api/emersus/saved-sources", requireAuth, savedSourcesHandler);
+app.post("/api/emersus/saved-sources", requireAuth, savedSourcesHandler);
+app.delete("/api/emersus/saved-sources/by-source-id/:source_id", requireAuth, savedSourcesHandler);
+app.delete("/api/emersus/saved-sources/:id", requireAuth, savedSourcesHandler);
 app.post("/api/billing/polar/checkout", requireAuth, polarCheckoutHandler);
 app.get("/api/billing/polar/portal", requireAuth, polarPortalHandler);
 app.get("/api/emersus/foods/search", foodsSearchHandler);
