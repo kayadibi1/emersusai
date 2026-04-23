@@ -1,0 +1,122 @@
+[
+  {
+    "question": "Sugar and athletic performance",
+    "must_include_pmids": [10000167649],
+    "must_exclude_pmids": [10004375236],
+    "notes": "The 2026-04-22 bug case (post centroid-filter version). 'Sugar and oral health' (pmid 10004277354 + 10004002708) was already soft-deleted by the centroid filter on 2026-04-22 PM and its chunks dropped — won't appear. 'Sugar and metabolic health' (pmid 10004375236, openalex) survived with 2 chunks (title + abstract); it's the live test for whether v4 demotes its title chunk or substitutes it with the abstract. 'Is There a Specific Role for Sucrose in Sports and Exercise Performance?' (pmid 10000167649, openalex) is the on-topic paper that should appear in top-3."
+  },
+  {
+    "question": "Creatine for strength training",
+    "must_include_pmids": [10000000009],
+    "must_exclude_pmids": [],
+    "notes": "pmid 10000000009 = 'The Impact of Creatine Supplementation on Strength Training' — should remain in top-5 after v4 cutover."
+  },
+  {
+    "question": "Caffeine before resistance training",
+    "must_include_pmids": [10000153670],
+    "must_exclude_pmids": [],
+    "notes": "pmid 10000153670 = 'Effect of caffeine ingestion on resistance training performance' — direct topic match."
+  },
+  {
+    "question": "Protein timing for muscle growth",
+    "must_include_pmids": [23241341],
+    "must_exclude_pmids": [],
+    "notes": "pmid 23241341 = 'Protein timing and its effects on muscular hypertrophy and strength' — the canonical paper."
+  },
+  {
+    "question": "Vitamin D supplementation in athletes",
+    "must_include_pmids": [23765355],
+    "must_exclude_pmids": [],
+    "notes": "pmid 23765355 = 'Vitamin D supplementation in athletes.' — exact match."
+  },
+  {
+    "question": "Sleep deprivation effect on strength",
+    "must_include_pmids": [10000143891],
+    "must_exclude_pmids": [],
+    "notes": "pmid 10000143891 = 'Effect of Partial Sleep Deprivation After Strenuous Exercise on Muscular Strength and Endurance'."
+  },
+  {
+    "question": "Cold water immersion after exercise",
+    "must_include_pmids": [10000149657],
+    "must_exclude_pmids": [],
+    "notes": "pmid 10000149657 = 'Cold water immersion and recovery from strenuous exercise: a meta-analysis'."
+  },
+  {
+    "question": "Beta-alanine and muscular endurance",
+    "must_include_pmids": [23075550],
+    "must_exclude_pmids": [],
+    "notes": "pmid 23075550 = 'Beta-alanine supplementation in high-intensity exercise'."
+  },
+  {
+    "question": "Carbohydrate periodization for endurance",
+    "must_include_pmids": [10000223104],
+    "must_exclude_pmids": [],
+    "notes": "pmid 10000223104 = 'Enhanced Endurance Performance by Periodization of Carbohydrate Intake'."
+  },
+  {
+    "question": "Omega-3 for muscle soreness",
+    "must_include_pmids": [32382573],
+    "must_exclude_pmids": [],
+    "notes": "pmid 32382573 = 'Omega-3 PUFA Supplementation for Reducing Muscle Soreness after Eccentric exercise'."
+  },
+  {
+    "question": "Concurrent training interference effect",
+    "must_include_pmids": [10000148024],
+    "must_exclude_pmids": [],
+    "notes": "pmid 10000148024 = 'Concurrent Training and the Acute Interference Effect on Strength: Reviewing the Relevant Variables'."
+  },
+  {
+    "question": "Beetroot juice nitrate and time-trial performance",
+    "must_include_pmids": [22248502],
+    "must_exclude_pmids": [],
+    "notes": "pmid 22248502 = 'Nitrate supplementation improvement of 10-km time-trial performance in trained cyclists'."
+  },
+  {
+    "question": "Branched-chain amino acids and recovery",
+    "must_include_pmids": [33586928],
+    "must_exclude_pmids": [],
+    "notes": "pmid 33586928 = 'Intake of branched chain amino acids favors post-exercise muscle recovery'."
+  },
+  {
+    "question": "Heat acclimatization protocols",
+    "must_include_pmids": [18460609],
+    "must_exclude_pmids": [],
+    "notes": "pmid 18460609 = 'A heat acclimation protocol for team sports'."
+  },
+  {
+    "question": "Resistance training frequency for hypertrophy",
+    "must_include_pmids": [30236847],
+    "must_exclude_pmids": [],
+    "notes": "pmid 30236847 = 'Resistance training frequency and skeletal muscle hypertrophy: A review of available evidence'."
+  },
+  {
+    "question": "Eccentric training adaptations",
+    "must_include_pmids": [10000683595],
+    "must_exclude_pmids": [],
+    "notes": "pmid 10000683595 = 'Physiological and Neural Adaptations to Eccentric Exercise'."
+  },
+  {
+    "question": "Glycemic index and exercise performance",
+    "must_include_pmids": [10000166497],
+    "must_exclude_pmids": [],
+    "notes": "pmid 10000166497 = 'Pre-exercise carbohydrate ingestion: effect of the glycemic index on endurance exercise performance'."
+  },
+  {
+    "question": "Dietary fiber and athletic performance",
+    "must_include_pmids": [41956455],
+    "must_exclude_pmids": [],
+    "notes": "pmid 41956455 = 'Dietary Fiber in Sport: Implications for Performance and Body Composition Optimization'."
+  },
+  {
+    "question": "Polyphenols and post-exercise recovery",
+    "must_include_pmids": [10000155693],
+    "must_exclude_pmids": [],
+    "notes": "pmid 10000155693 = 'Polyphenols in Exercise Performance and Prevention of Exercise-Induced Muscle Damage'."
+  },
+  {
+    "question": "Sodium loading for endurance events",
+    "must_include_pmids": [17218894],
+    "must_exclude_pmids": [],
+    "notes": "pmid 17218894 = 'Sodium loading aids fluid balance and reduces physiological strain'."
+  }
+]

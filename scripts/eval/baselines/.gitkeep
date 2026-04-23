@@ -1,0 +1,2 @@
+# Holds JSON baselines from retrieval-eval.js. Snapshots are versioned in git
+# so we can diff retrieval changes across PRs.

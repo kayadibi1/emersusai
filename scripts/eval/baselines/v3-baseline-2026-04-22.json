@@ -1,0 +1,375 @@
+{
+  "agg": {
+    "rpc": "v3",
+    "fixtures": 20,
+    "total_recall_hits": 20,
+    "total_recall_target": 20,
+    "total_exclusion_violations": 1,
+    "total_title_only": 0,
+    "total_matched_title": 167,
+    "mean_latency_ms": 561,
+    "timestamp": "2026-04-23T04:18:48.224Z"
+  },
+  "results": [
+    {
+      "question": "Sugar and athletic performance",
+      "latency_ms": 1231,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 1,
+      "title_only_count": 0,
+      "matched_title_count": 6,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.7553,
+      "top5_pmids": [
+        10000168541,
+        10004375236,
+        10003573888,
+        10000167649,
+        10000391784
+      ]
+    },
+    {
+      "question": "Creatine for strength training",
+      "latency_ms": 766,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 9,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.7863,
+      "top5_pmids": [
+        10000000728,
+        10000000036,
+        10000000149,
+        10000007073,
+        10000000009
+      ]
+    },
+    {
+      "question": "Caffeine before resistance training",
+      "latency_ms": 399,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 10,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.7945,
+      "top5_pmids": [
+        10000153670,
+        10003318702,
+        10003318484,
+        10002089753,
+        18046056
+      ]
+    },
+    {
+      "question": "Protein timing for muscle growth",
+      "latency_ms": 536,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 7,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.756,
+      "top5_pmids": [
+        28474785,
+        10002003196,
+        10000163130,
+        23241341,
+        10000057757
+      ]
+    },
+    {
+      "question": "Vitamin D supplementation in athletes",
+      "latency_ms": 698,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 10,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.8935,
+      "top5_pmids": [
+        23765355,
+        10000276918,
+        10003338038,
+        10001152478,
+        10000275294
+      ]
+    },
+    {
+      "question": "Sleep deprivation effect on strength",
+      "latency_ms": 546,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 9,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.7629,
+      "top5_pmids": [
+        2657963,
+        10002000355,
+        10000885844,
+        10004132025,
+        10000143891
+      ]
+    },
+    {
+      "question": "Cold water immersion after exercise",
+      "latency_ms": 795,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 9,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.8571,
+      "top5_pmids": [
+        10000728081,
+        10000725788,
+        21716151,
+        22057508,
+        10000149657
+      ]
+    },
+    {
+      "question": "Beta-alanine and muscular endurance",
+      "latency_ms": 408,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 8,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.8086,
+      "top5_pmids": [
+        23630039,
+        19276843,
+        23075550,
+        29905904,
+        10003334810
+      ]
+    },
+    {
+      "question": "Carbohydrate periodization for endurance",
+      "latency_ms": 393,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 9,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.7863,
+      "top5_pmids": [
+        10000223104,
+        10000166857,
+        28723843,
+        10003320161,
+        10000461666
+      ]
+    },
+    {
+      "question": "Omega-3 for muscle soreness",
+      "latency_ms": 457,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 7,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.7102,
+      "top5_pmids": [
+        32382573,
+        10003312843,
+        10002034411,
+        10002034378,
+        24150614
+      ]
+    },
+    {
+      "question": "Concurrent training interference effect",
+      "latency_ms": 392,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 9,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.8017,
+      "top5_pmids": [
+        10000152945,
+        10000152849,
+        10000148024,
+        10000153382,
+        10000013567
+      ]
+    },
+    {
+      "question": "Beetroot juice nitrate and time-trial performance",
+      "latency_ms": 419,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 3,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.8088,
+      "top5_pmids": [
+        38445207,
+        10001197703,
+        32470923,
+        22248502,
+        36159160
+      ]
+    },
+    {
+      "question": "Branched-chain amino acids and recovery",
+      "latency_ms": 464,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 9,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.8043,
+      "top5_pmids": [
+        10000138934,
+        33586928,
+        10003839005,
+        10002015596,
+        10000368263
+      ]
+    },
+    {
+      "question": "Heat acclimatization protocols",
+      "latency_ms": 562,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 10,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.7867,
+      "top5_pmids": [
+        10000223659,
+        10000169099,
+        10002106045,
+        20724560,
+        18460609
+      ]
+    },
+    {
+      "question": "Resistance training frequency for hypertrophy",
+      "latency_ms": 426,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 9,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.7426,
+      "top5_pmids": [
+        30236847,
+        10000454990,
+        9721008,
+        10000023140,
+        30363041
+      ]
+    },
+    {
+      "question": "Eccentric training adaptations",
+      "latency_ms": 416,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 10,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.8073,
+      "top5_pmids": [
+        10003621797,
+        10000008171,
+        19106784,
+        10000070535,
+        10000683595
+      ]
+    },
+    {
+      "question": "Glycemic index and exercise performance",
+      "latency_ms": 645,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 9,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.8541,
+      "top5_pmids": [
+        10000167768,
+        10002009329,
+        10000166497,
+        10000143683,
+        10001234226
+      ]
+    },
+    {
+      "question": "Dietary fiber and athletic performance",
+      "latency_ms": 511,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 9,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.7407,
+      "top5_pmids": [
+        41956455,
+        10000164724,
+        10001052317,
+        10000164446,
+        10000150340
+      ]
+    },
+    {
+      "question": "Polyphenols and post-exercise recovery",
+      "latency_ms": 397,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 8,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.8043,
+      "top5_pmids": [
+        10000155693,
+        10000149671,
+        40205487,
+        10003313005,
+        10000855705
+      ]
+    },
+    {
+      "question": "Sodium loading for endurance events",
+      "latency_ms": 765,
+      "recall_hits": 1,
+      "recall_target": 1,
+      "exclusion_violations": 0,
+      "title_only_count": 0,
+      "matched_title_count": 7,
+      "returned_count": 10,
+      "mean_top3_similarity": 0.7041,
+      "top5_pmids": [
+        17218894,
+        10004221758,
+        30507276,
+        23731903,
+        10002002853
+      ]
+    }
+  ]
+}
