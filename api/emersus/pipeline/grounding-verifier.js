@@ -11,7 +11,17 @@ const UNCERTAINTY_RE =
 const FACT_SIGNAL_RE =
   /\b(\d+(?:\.\d+)?\s?(?:g|mg|kg|lb|lbs|%|minutes?|hours?|days?|weeks?|sets?|reps?|rpe|rm|kcal|calories?)|increase|decrease|improve|reduce|raise|lower|cause|causes|associated|effective|ineffective|benefit|risk|dose|dosage|hypertrophy|strength|endurance|protein|creatine|caffeine|sleep|training|volume|intensity)\b/i;
 
-const CITATION_MARKER_RE = /\[(\d{1,2})\]/g;
+// OpenAI's recommended Unicode PUA citation marker format, per
+// docs/openai-api-reference.md §6161. The three delimiters are:
+//   U+E200 (CITATION_START), U+E202 (CITATION_DELIMITER), U+E201 (CITATION_STOP)
+// Our source IDs are the literal prefix 'src' + integer, matching the
+// grounding contract in prompt.js. Plain [N] is ALSO accepted so that:
+//   (a) the verifier can still score legacy answers stored before the
+//       format switch, and
+//   (b) minor model compliance slips don't blow up the citation score
+//       (they still get a marker, just the wrong shape).
+const CITATION_MARKER_STRICT_RE = /citesrc(\d{1,2})/g;
+const CITATION_MARKER_LEGACY_RE = /\[(\d{1,2})\]/g;
 
 const STOPWORDS = new Set([
   "about", "after", "again", "also", "because", "before", "being", "between",
@@ -68,10 +78,14 @@ function isFactualClaim(sentence) {
 
 function extractMarkers(sentence) {
   const out = [];
-  const re = new RegExp(CITATION_MARKER_RE);
+  const strict = new RegExp(CITATION_MARKER_STRICT_RE.source, "g");
   let match;
-  while ((match = re.exec(sentence)) !== null) {
-    out.push(Number(match[1]));
+  while ((match = strict.exec(sentence)) !== null) {
+    out.push({ id: Number(match[1]), format: "strict" });
+  }
+  const legacy = new RegExp(CITATION_MARKER_LEGACY_RE.source, "g");
+  while ((match = legacy.exec(sentence)) !== null) {
+    out.push({ id: Number(match[1]), format: "legacy" });
   }
   return out;
 }
@@ -130,12 +144,16 @@ function verifyCitationGrounding({ answerText, evidenceItems }) {
   const allMarkers = [];
   const labeledInferences = [];
 
+  let strictCount = 0;
+  let legacyCount = 0;
+
   for (const sentence of sentences) {
     const markers = extractMarkers(sentence);
-    markers.forEach((id) => {
-      allMarkers.push(id);
-      if (!validIds.has(id)) {
-        invalidMarkerHits.push({ sentence, marker: id });
+    markers.forEach((m) => {
+      allMarkers.push(m.id);
+      if (m.format === "strict") strictCount += 1; else legacyCount += 1;
+      if (!validIds.has(m.id)) {
+        invalidMarkerHits.push({ sentence, marker: m.id, format: m.format });
       }
     });
 
@@ -177,6 +195,8 @@ function verifyCitationGrounding({ answerText, evidenceItems }) {
     invalid_markers: invalidMarkerHits,
     all_markers: allMarkers,
     unique_markers: Array.from(new Set(allMarkers)).sort((a, b) => a - b),
+    strict_marker_count: strictCount,
+    legacy_marker_count: legacyCount,
   };
 }
 

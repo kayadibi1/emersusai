@@ -57,9 +57,13 @@ describe("verifyAnswerGrounding — citation mode", () => {
     { title: "Protein and hypertrophy", excerpt: "protein at 1.6 g/kg" },
   ];
 
-  it("status=grounded when every factual sentence carries a valid marker", () => {
+  // OpenAI's recommended Unicode PUA citation markers.
+  // U+E200 citesrcN is the strict format the prompt requires.
+  const cite = (n) => `citesrc${n}`;
+
+  it("status=grounded when every factual sentence carries a valid marker (strict format)", () => {
     const answerText =
-      "Creatine 3–5 g/day increases strength [1]. Saturation reaches plateau at 5 g/day after 4 weeks [2].";
+      `Creatine 3–5 g/day increases strength ${cite(1)}. Saturation reaches plateau at 5 g/day after 4 weeks ${cite(2)}.`;
     const result = verifyAnswerGrounding({
       answerText,
       evidenceItems: SOURCES,
@@ -70,7 +74,22 @@ describe("verifyAnswerGrounding — citation mode", () => {
     assert.equal(result.grounded, true);
     assert.equal(result.factual_sentences, 2);
     assert.equal(result.cited_sentences, 2);
+    assert.equal(result.strict_marker_count, 2);
+    assert.equal(result.legacy_marker_count, 0);
     assert.deepStrictEqual(result.uncited_claims, []);
+  });
+
+  it("accepts legacy [N] markers for back-compat with pre-switch threads", () => {
+    const answerText =
+      "Creatine 3–5 g/day increases strength [1]. Saturation reaches plateau at 5 g/day after 4 weeks [2].";
+    const result = verifyAnswerGrounding({
+      answerText,
+      evidenceItems: SOURCES,
+      mode: "citation",
+    });
+    assert.equal(result.status, "grounded");
+    assert.equal(result.strict_marker_count, 0);
+    assert.equal(result.legacy_marker_count, 2);
   });
 
   it("status=ungrounded when factual sentences have no markers", () => {
@@ -88,7 +107,7 @@ describe("verifyAnswerGrounding — citation mode", () => {
 
   it("status=partial when some claims are cited and some aren't", () => {
     const answerText =
-      "Creatine 3–5 g/day increases strength [1]. Protein at 1.6 g/kg matters. Saturation is ~4 weeks [2].";
+      `Creatine 3–5 g/day increases strength ${cite(1)}. Protein at 1.6 g/kg matters. Saturation is 5 g/day for 4 weeks ${cite(2)}.`;
     const result = verifyAnswerGrounding({
       answerText,
       evidenceItems: SOURCES,
@@ -100,7 +119,7 @@ describe("verifyAnswerGrounding — citation mode", () => {
   });
 
   it("status=ungrounded when a marker references a non-existent source id", () => {
-    const answerText = "Creatine 3–5 g/day increases strength [9].";
+    const answerText = `Creatine 3–5 g/day increases strength ${cite(9)}.`;
     const result = verifyAnswerGrounding({
       answerText,
       evidenceItems: SOURCES,
@@ -113,15 +132,12 @@ describe("verifyAnswerGrounding — citation mode", () => {
 
   it("labeled inferences are tracked but don't block grounded status", () => {
     const answerText =
-      "Creatine 3–5 g/day increases strength [1]. As a coaching inference, I'd take it with your post-workout shake for convenience.";
+      `Creatine 3–5 g/day increases strength ${cite(1)}. As a coaching inference, I'd take it with your post-workout shake for convenience.`;
     const result = verifyAnswerGrounding({
       answerText,
       evidenceItems: SOURCES,
       mode: "citation",
     });
-    // one sentence has fact signals and a marker, the inference sentence
-    // has no fact signals at all (no numbers, no training/nutrition vocab
-    // that trips FACT_SIGNAL_RE) — so factual_sentences counts only the first.
     assert.equal(result.factual_sentences, 1);
     assert.equal(result.cited_sentences, 1);
     assert.equal(result.status, "grounded");
@@ -139,11 +155,16 @@ describe("verifyAnswerGrounding — citation mode", () => {
     assert.equal(result.factual_sentences, 0);
   });
 
-  it("extracts multiple markers per sentence", () => {
-    assert.deepStrictEqual(
-      __testables.extractMarkers("Creatine boosts strength [1][2][3]."),
-      [1, 2, 3],
-    );
+  it("extracts multiple strict markers per sentence", () => {
+    const markers = __testables.extractMarkers(`Creatine boosts strength ${cite(1)}${cite(2)}${cite(3)}.`);
+    assert.deepStrictEqual(markers.map((m) => m.id), [1, 2, 3]);
+    assert.ok(markers.every((m) => m.format === "strict"));
+  });
+
+  it("extracts legacy markers and tags them", () => {
+    const markers = __testables.extractMarkers("Creatine boosts strength [1][2].");
+    assert.deepStrictEqual(markers.map((m) => m.id), [1, 2]);
+    assert.ok(markers.every((m) => m.format === "legacy"));
   });
 });
 

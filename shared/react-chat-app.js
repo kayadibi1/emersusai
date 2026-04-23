@@ -1054,16 +1054,19 @@ function renderInlineMarkdown(source, options = {}) {
   const text = String(source || "");
   if (!text) return [];
   const sourceCount = Number(options.sourceCount || 0);
-  // Order matters: ** before *, ` stays separate. Citation markers [N] are
-  // last — we don't want them to gate text inside **[N] bold**, but they
-  // rarely appear there. The regex requires a digit and NOT another digit
-  // after the close-bracket so "[10] kg" still parses as a marker.
+  // Order matters: ** before *, ` stays separate. Citation markers come
+  // last. We accept two formats:
+  //   (a) OpenAI's recommended Unicode PUA format: citesrcN (preferred)
+  //   (b) Plain [N] (legacy / back-compat with threads saved before the
+  //       format switch, and as a cheap fallback if the model slips)
+  // Both render as a superscript [N] to the user.
   const patterns = [
     { re: /\*\*([^*]+?)\*\*/, tag: "strong" },
     { re: /__([^_]+?)__/, tag: "strong" },
     { re: /(?<![A-Za-z0-9*])\*([^*\n]+?)\*(?![A-Za-z0-9*])/, tag: "em" },
     { re: /(?<![A-Za-z0-9_])_([^_\n]+?)_(?![A-Za-z0-9_])/, tag: "em" },
     { re: /`([^`]+?)`/, tag: "code" },
+    { re: /citesrc(\d{1,2})/, tag: "citation" },
     { re: /\[(\d{1,2})\]/, tag: "citation" },
   ];
   const out = [];
