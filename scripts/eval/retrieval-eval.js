@@ -56,9 +56,19 @@ function metricsFromResults(results, fixture) {
   const recallHits = mustInclude.filter((p) => top5Pmids.has(p));
   const exclusionViolations = mustExclude.filter((p) => top5Pmids.has(p));
   const titleOnlyCount = results.filter((r) => r.is_title_only_match === true).length;
+  // matched_title = title chunk hit at HNSW level (regardless of substitution).
+  // For v3, matched_chunk_type is undefined so this counts chunk_type==='title'.
+  // For v4, matched_chunk_type is set, so this counts what HNSW actually matched
+  // (independent of post-substitution shown content).
   const matchedTitleCount = results.filter(
-    (r) => r.matched_chunk_type === "title" || r.chunk_type === "title"
+    (r) => (r.matched_chunk_type === "title") ||
+           (r.matched_chunk_type === undefined && r.chunk_type === "title")
   ).length;
+  // shown_as_title = the user-facing metric. For v3 == matched_title (no
+  // substitution). For v4, this should be ~0 because passage substitution
+  // swaps title content for abstract content. This is THE headline metric
+  // for the title-as-passage rendering bug fix.
+  const shownAsTitleCount = results.filter((r) => r.chunk_type === "title").length;
   const topSims = results.slice(0, 3).map((r) => Number(r.similarity || 0));
   const meanTop3Sim = topSims.length
     ? topSims.reduce((a, b) => a + b, 0) / topSims.length
@@ -69,6 +79,7 @@ function metricsFromResults(results, fixture) {
     exclusion_violations: exclusionViolations.length,
     title_only_count: titleOnlyCount,
     matched_title_count: matchedTitleCount,
+    shown_as_title_count: shownAsTitleCount,
     returned_count: results.length,
     mean_top3_similarity: Number(meanTop3Sim.toFixed(4)),
     top5_pmids: Array.from(top5Pmids),
@@ -94,7 +105,7 @@ async function main() {
     results.push({ question: fx.question, latency_ms: dt, ...metrics });
     const recall =
       metrics.recall_target > 0 ? `${metrics.recall_hits}/${metrics.recall_target}` : "—";
-    const tail = `recall=${recall} excl_viol=${metrics.exclusion_violations ?? "?"} title_only=${metrics.title_only_count ?? "?"} matched_title=${metrics.matched_title_count ?? "?"} sim=${metrics.mean_top3_similarity ?? "?"} ${dt}ms`;
+    const tail = `recall=${recall} excl_viol=${metrics.exclusion_violations ?? "?"} shown_as_title=${metrics.shown_as_title_count ?? "?"} matched_title=${metrics.matched_title_count ?? "?"} title_only=${metrics.title_only_count ?? "?"} sim=${metrics.mean_top3_similarity ?? "?"} ${dt}ms`;
     console.log(`  ${fx.question.padEnd(55)} ${tail}`);
   }
   const agg = {
@@ -108,6 +119,8 @@ async function main() {
     ),
     total_title_only: results.reduce((a, r) => a + (r.title_only_count || 0), 0),
     total_matched_title: results.reduce((a, r) => a + (r.matched_title_count || 0), 0),
+    total_shown_as_title: results.reduce((a, r) => a + (r.shown_as_title_count || 0), 0),
+    total_returned: results.reduce((a, r) => a + (r.returned_count || 0), 0),
     mean_latency_ms: Math.round(
       results.reduce((a, r) => a + r.latency_ms, 0) / results.length
     ),
@@ -133,8 +146,14 @@ async function main() {
           ? baseline.agg.total_recall_hits / baseline.agg.total_recall_target
           : 0;
       const recallDelta = recallNow - recallBase;
+      const shownPctBase = baseline.agg.total_returned
+        ? (100 * baseline.agg.total_shown_as_title / baseline.agg.total_returned).toFixed(1)
+        : "?";
+      const shownPctNow = agg.total_returned
+        ? (100 * agg.total_shown_as_title / agg.total_returned).toFixed(1)
+        : "?";
       console.log(
-        `\n# vs ${args.compare}: recall delta ${(recallDelta * 100).toFixed(1)}pp, title_only ${baseline.agg.total_title_only} -> ${agg.total_title_only}, matched_title ${baseline.agg.total_matched_title} -> ${agg.total_matched_title}`
+        `\n# vs ${args.compare}: recall delta ${(recallDelta * 100).toFixed(1)}pp, shown_as_title ${baseline.agg.total_shown_as_title}/${baseline.agg.total_returned} (${shownPctBase}%) -> ${agg.total_shown_as_title}/${agg.total_returned} (${shownPctNow}%), matched_title ${baseline.agg.total_matched_title} -> ${agg.total_matched_title}`
       );
     } catch (err) {
       console.warn(`# Could not read baseline ${baselinePath}: ${err.message}`);
