@@ -94,8 +94,13 @@ export function normalizeVectorEvidenceRow(row) {
     publication_type: publicationTypes.join(", "),
     chunk_type: normalizeText(row.chunk_type, 40),
     chunk_text: normalizeText(row.chunk_text, 1200),
-    excerpt: normalizeText(row.chunk_text, 420),
-    summary: normalizeText(row.chunk_text, 600),
+    // For title-only matches, blank the excerpt-bearing fields so neither
+    // the LLM prompt nor the UI sees redundant title-as-passage. The UI
+    // renders an honest "title-only match" fallback in this case.
+    excerpt: row.is_title_only_match ? "" : normalizeText(row.chunk_text, 420),
+    summary: row.is_title_only_match ? "" : normalizeText(row.chunk_text, 600),
+    matched_chunk_type: normalizeText(row.matched_chunk_type, 40) || null,
+    is_title_only_match: row.is_title_only_match === true,
     similarity: clamp(Number(row.similarity || 0), 0, 1),
     database_score: clamp(Number(row.similarity || 0), 0, 1),
     // Credibility/impact signals from retrieveDatabaseEvidence — flow
@@ -109,10 +114,12 @@ export function normalizeVectorEvidenceRow(row) {
     evidence_level: publicationTypes.join(", "),
     published_at: publicationDate || publicationYear,
     url: citationUrl || "",
-    why_it_matters: normalizeText(
-      row.chunk_text || `Matched a PubMed evidence chunk with similarity ${Number(row.similarity || 0).toFixed(2)}.`,
-      240
-    ),
+    why_it_matters: row.is_title_only_match
+      ? ""
+      : normalizeText(
+          row.chunk_text || `Matched a PubMed evidence chunk with similarity ${Number(row.similarity || 0).toFixed(2)}.`,
+          240
+        ),
     mesh_terms: Array.isArray(row.mesh_terms) ? row.mesh_terms.slice(0, 8) : [],
   };
 }

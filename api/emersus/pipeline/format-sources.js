@@ -21,6 +21,8 @@ export function formatSources(evidenceItems) {
     publication_type: item.publication_type || "",
     url: item.url || "",
     excerpt: item.excerpt || "",
+    matched_chunk_type: item.matched_chunk_type || null,
+    is_title_only_match: item.is_title_only_match === true,
     similarity: item.similarity || 0,
   }));
 }

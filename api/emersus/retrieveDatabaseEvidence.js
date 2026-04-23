@@ -50,18 +50,19 @@ export async function retrieveDatabaseEvidence({
 }) {
   const queryEmbedding = await embedText(prompt);
 
-  // v3 adds p_include_preprints. When false, peer-reviewed only (Free
-  // tier); when true, peer-reviewed + preprints (Pro tier). v2 remains
-  // for any caller that hasn't migrated.
-  const { data: matches, error: matchError } = await supabaseAdmin.rpc(
-    "match_evidence_chunks_v3",
-    {
-      query_embedding: queryEmbedding,
-      match_threshold: matchThreshold,
-      match_count: matchCount,
-      p_include_preprints: includePreprints,
-    }
-  );
+  // RETRIEVAL_USE_V4 toggles between match_evidence_chunks_v3 (default)
+  // and v4 (source-centric with passage substitution + is_title_only_match).
+  // v4 is already deduped per source inside the RPC; v3 is not, so we run
+  // dedupByDoi only when on v3.
+  const useV4 = String(process.env.RETRIEVAL_USE_V4 || "").toLowerCase() === "true";
+  const rpcName = useV4 ? "match_evidence_chunks_v4" : "match_evidence_chunks_v3";
+
+  const { data: matches, error: matchError } = await supabaseAdmin.rpc(rpcName, {
+    query_embedding: queryEmbedding,
+    match_threshold: matchThreshold,
+    match_count: matchCount,
+    p_include_preprints: includePreprints,
+  });
 
   if (matchError) {
     throw new Error(`Vector search failed: ${matchError.message}`);
@@ -100,6 +101,12 @@ export async function retrieveDatabaseEvidence({
       similarity: row.similarity,
       chunk_type: row.chunk_type,
       chunk_text: row.content,
+      // v4 surfaces what actually matched the query (may be 'title' even
+      // when chunk_text was substituted to an abstract). v3 returns
+      // undefined for both — downstream treats undefined as
+      // "matched=chunk_type, not title-only".
+      matched_chunk_type: row.matched_chunk_type ?? row.chunk_type,
+      is_title_only_match: row.is_title_only_match === true,
       title: row.article.title,
       doi: row.article.doi,
       pmcid: row.article.pmcid,
@@ -118,7 +125,7 @@ export async function retrieveDatabaseEvidence({
       publication_country: row.article.publication_country ?? null,
     }));
 
-  // Cross-source dedup: collapse duplicates of the same DOI down to the
-  // highest-similarity occurrence. See spec §"Cross-source dedup".
-  return dedupByDoi(enriched);
+  // v4 already deduped per source inside the RPC. v3 needs dedupByDoi
+  // for cross-source DOI collisions.
+  return useV4 ? enriched : dedupByDoi(enriched);
 }
