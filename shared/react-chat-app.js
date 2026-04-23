@@ -3019,6 +3019,92 @@ function dedupeSources(list) {
   return final;
 }
 
+// Trim an excerpt to ~200 chars at a sentence boundary when possible, else
+// at the nearest word boundary. Keeps the "Why this answer?" reveal short
+// enough to scan while preserving the evidence payload.
+function trimExcerpt(text, maxChars = 220) {
+  const s = String(text || "").trim();
+  if (!s) return "";
+  if (s.length <= maxChars) return s;
+  const window = s.slice(0, maxChars);
+  const lastSentence = Math.max(
+    window.lastIndexOf(". "),
+    window.lastIndexOf("? "),
+    window.lastIndexOf("! ")
+  );
+  if (lastSentence >= 120) return s.slice(0, lastSentence + 1);
+  const lastSpace = window.lastIndexOf(" ");
+  return (lastSpace >= 120 ? s.slice(0, lastSpace) : window).trimEnd() + "…";
+}
+
+// "Why this answer?" — a compact reveal under each assistant message that
+// shows the top-3 retrieved evidence passages that backed the synthesis.
+// Intentionally hedged: no rerank/similarity scores exposed, excerpts trimmed
+// to ~220 chars, only the top-3 sources. This is a trust surface, not a
+// debugging panel.
+function WhyThisAnswer({ sources }) {
+  const items = useMemo(() => {
+    const deduped = dedupeSources(sources);
+    return deduped.slice(0, 3);
+  }, [sources]);
+  if (!items.length) return null;
+  return h(
+    "details",
+    { className: "why-this-answer" },
+    h(
+      "summary",
+      { className: "wta-summary" },
+      h("span", { className: "wta-icon", "aria-hidden": true }, "✦"),
+      h("span", { className: "wta-label" }, "Why this answer?"),
+      h(
+        "span",
+        { className: "wta-count" },
+        `${items.length} passage${items.length === 1 ? "" : "s"}`
+      ),
+      h("span", { className: "wta-caret", "aria-hidden": true }, "▾")
+    ),
+    h(
+      "ol",
+      { className: "wta-list" },
+      items.map((source, i) => {
+        const title = source?.title || "Untitled source";
+        const year = source?.year || source?.publication_year || source?.published_at || "";
+        const metaParts = [];
+        if (year) metaParts.push(String(year).slice(0, 4));
+        if (source?.journal) metaParts.push(source.journal);
+        const meta = metaParts.join(" · ");
+        const excerpt = trimExcerpt(
+          source?.excerpt || source?.why_it_matters || source?.summary || "",
+          220
+        );
+        const href = formatCitationUrl(source) || "";
+        return h(
+          "li",
+          { key: `${source?.pmid || source?.doi || i}`, className: "wta-item" },
+          h(
+            "div",
+            { className: "wta-head" },
+            href
+              ? h(
+                  "a",
+                  {
+                    href,
+                    target: "_blank",
+                    rel: "noopener noreferrer",
+                    className: "wta-title",
+                  },
+                  title
+                )
+              : h("span", { className: "wta-title" }, title),
+            meta ? h("span", { className: "wta-meta" }, meta) : null
+          ),
+          excerpt ? h("blockquote", { className: "wta-excerpt" }, excerpt) : null
+        );
+      })
+    )
+  );
+}
+
 function SourcesFooter({ sources, onAskFollowUp }) {
   const items = useMemo(() => dedupeSources(sources), [sources]);
   const [openSet, setOpenSet] = useState(() => new Set());
@@ -3270,6 +3356,9 @@ const Message = React.memo(function Message({
             ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
             : h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId }),
       trailingOrb),
+    showSourcesFooter
+      ? h(WhyThisAnswer, { sources: message.sources })
+      : null,
     showSourcesFooter
       ? h(SourcesFooter, { sources: message.sources, onAskFollowUp })
       : null,

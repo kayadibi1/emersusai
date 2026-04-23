@@ -647,6 +647,130 @@
   .srcs-row .mini-links { display: none; }
 }
 
+/* "Why this answer?" — compact trust reveal under each assistant message.
+ * Sits above the full Sources footer; exposes the top-3 retrieved passages
+ * with trimmed excerpts. No rerank/similarity scores — this is a trust
+ * surface, not a debug panel. See WhyThisAnswer in shared/react-chat-app.js. */
+.why-this-answer {
+  margin-top: 18px;
+  max-width: 74ch;
+}
+.why-this-answer[open] { margin-bottom: 4px; }
+
+.wta-summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-faint);
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dim);
+  cursor: pointer;
+  list-style: none;
+  transition: color 120ms ease, border-color 120ms ease, background 120ms ease;
+}
+.wta-summary::-webkit-details-marker { display: none; }
+.wta-summary:hover {
+  color: var(--ink);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+.why-this-answer[open] .wta-summary {
+  color: var(--ink);
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+
+.wta-icon { color: var(--accent); font-size: 12px; letter-spacing: 0; }
+.wta-label { color: var(--ink); }
+.wta-count {
+  color: var(--dim);
+  letter-spacing: 0.12em;
+}
+.wta-caret {
+  color: var(--dim);
+  transition: transform 140ms ease;
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.why-this-answer[open] .wta-caret { transform: rotate(180deg); }
+
+.wta-list {
+  list-style: none;
+  padding: 14px 0 4px 0;
+  margin: 0;
+  counter-reset: wta;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wta-item {
+  counter-increment: wta;
+  position: relative;
+  padding-left: 28px;
+}
+.wta-item::before {
+  content: counter(wta);
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  color: var(--dim);
+  background: var(--surface-faint);
+}
+
+.wta-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 10px;
+  line-height: 1.35;
+}
+.wta-title {
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+}
+a.wta-title:hover { color: var(--accent); text-decoration: underline; }
+.wta-meta {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
+.wta-excerpt {
+  margin: 6px 0 0 0;
+  padding: 8px 12px;
+  border-left: 2px solid var(--accent-line);
+  background: var(--surface-faint);
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.55;
+  font-style: italic;
+  border-radius: 0 6px 6px 0;
+}
+
+@media (max-width: 640px) {
+  .wta-meta { display: none; }
+  .wta-excerpt { font-size: 12.5px; padding: 7px 10px; }
+}
+
 /* Inline action row (inside the expanded detail panel). Reused by older
  * SourcesRailCard (off-v2) as well. */
 .cite-actions {
