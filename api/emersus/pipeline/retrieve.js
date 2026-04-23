@@ -10,6 +10,8 @@ import { retrieveDatabaseEvidence as retrieveVectorDatabaseEvidence } from "../r
 import { rankEvidence, dedupeEvidence } from "../rerank.js";
 import { formatCitationUrl, formatCitationLabel } from "../../../shared/citation-format.js";
 import { normalizeText, normalizeList } from "./sanitize.js";
+import { ShortCircuit } from "./context.js";
+import { formatSources } from "./format-sources.js";
 
 // ─── Constants ───────────────────────────────────────────────────────────────
 
@@ -205,6 +207,8 @@ function buildSkippedEvidence(reason) {
     status: "skipped",
     reason,
     available: false,
+    usable: false,
+    usePolicy: "action_only_no_evidence",
     method: null,
     items: [],
     formatted: null,
@@ -212,9 +216,55 @@ function buildSkippedEvidence(reason) {
   };
 }
 
+function hasUsableEvidence(items) {
+  return Array.isArray(items) && items.some((item) =>
+    item?.is_title_only_match !== true &&
+    typeof item?.excerpt === "string" &&
+    item.excerpt.trim().length >= 120
+  );
+}
+
+function buildInsufficientEvidenceResponse(ctx) {
+  const items = Array.isArray(ctx.evidence?.items) ? ctx.evidence.items : [];
+  const hasRelatedSources = items.length > 0;
+  const answerText = hasRelatedSources
+    ? "I found related database sources, but the retrieved passages are not strong enough to answer without leaning on pretrained knowledge. Ask me to narrow the question, or try a more specific version so I can retrieve usable evidence."
+    : "I don't have enough retrieved database evidence to answer that without leaning on pretrained knowledge. Ask me to narrow the question, or try a more specific version so I can retrieve usable evidence.";
+
+  return {
+    user: {
+      id: ctx.stableUserId || null,
+      profile_used: {},
+    },
+    plan: ctx.plan,
+    summary: answerText,
+    answer_text: answerText,
+    recommendations: {
+      general: [],
+    },
+    confidence: {
+      score: 0.18,
+      label: "insufficient",
+      rationale: hasRelatedSources
+        ? "Related database sources were retrieved, but none contained enough passage-level support to ground an answer."
+        : "No usable database evidence was retrieved for this question.",
+    },
+    limitations: [
+      "Emersus is configured to avoid answering from pretrained model knowledge when retrieved evidence is insufficient.",
+    ],
+    sources: formatSources(items),
+    cards: [],
+    guardrail: {
+      status: "allowed",
+      response_mode: "insufficient_evidence",
+      reasons: [ctx.evidence?.usePolicy || "no_usable_evidence"],
+    },
+  };
+}
+
 // ─── Pipeline stage ───────────────────────────────────────────────────────────
 
-export async function retrieve(ctx) {
+export async function retrieve(ctx, { retrieveVectorEvidenceImpl = retrieveVectorEvidence } = {}) {
   if (ctx.retrievalPolicy?.mode === "skip") {
     ctx._timer.record("retrieval_ms", 0);
     ctx.evidence = buildSkippedEvidence(ctx.retrievalPolicy.reason);
@@ -222,18 +272,29 @@ export async function retrieve(ctx) {
   }
 
   const start = Date.now();
-  const result = await retrieveVectorEvidence(ctx.question, {
+  const result = await retrieveVectorEvidenceImpl(ctx.question, {
     includePreprints: ctx.tier === "pro",
   });
   ctx._timer.record("retrieval_ms", Date.now() - start);
+  const items = result.evidence.slice(0, VECTOR_LIMIT);
+  const usable = hasUsableEvidence(items);
   ctx.evidence = {
     status: "completed",
     reason: null,
     available: result.available,
+    usable,
+    usePolicy: result.available
+      ? (usable ? "retrieved_evidence_only" : "no_usable_evidence")
+      : "no_usable_evidence",
     method: result.method,
-    items: result.evidence.slice(0, VECTOR_LIMIT),
+    items,
     formatted: formatEvidenceForModel(result.evidence),
     error: result.error,
   };
+
+  if (ctx.evidence.usePolicy === "no_usable_evidence") {
+    throw new ShortCircuit(buildInsufficientEvidenceResponse(ctx));
+  }
+
   return ctx;
 }

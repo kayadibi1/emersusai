@@ -142,6 +142,7 @@ async function generateRecommendationJSON(rawInput) {
     tool_results: ctx.toolResults,
     sources: ctx.sources,
     confidence: ctx.confidence,
+    grounding: ctx.grounding,
     token_usage: ctx.tokenUsage,
     guardrail: { status: "allowed", response_mode: "normal", reasons: [] },
   };

@@ -58,20 +58,22 @@ export function decideRetrieval({ question, workoutPlan }) {
     return { mode: "run", reason: "explicit_evidence_request" };
   }
 
+  // Pure data-entry turns do not require scientific grounding because the
+  // assistant should only acknowledge/log what the user supplied.
   if (isLogFoodIntent(question)) {
     return { mode: "skip", reason: "food_log_request" };
   }
 
   if (isMealPlanIntent(question)) {
-    return { mode: "skip", reason: "meal_plan_request" };
+    return { mode: "run", reason: "meal_plan_request" };
   }
 
   if (isWorkoutPlanIntent(question)) {
-    return { mode: "skip", reason: "workout_plan_request" };
+    return { mode: "run", reason: "workout_plan_request" };
   }
 
   if (isWorkoutAdjustmentIntent(question, workoutPlan)) {
-    return { mode: "skip", reason: "workout_adjustment_request" };
+    return { mode: "run", reason: "workout_adjustment_request" };
   }
 
   return { mode: "run", reason: "default" };

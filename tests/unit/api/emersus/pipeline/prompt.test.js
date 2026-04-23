@@ -42,13 +42,51 @@ describe("buildMessages", () => {
       profile: {},
       threadState: {},
       recentMessages: [],
-      evidence: { status: "skipped", reason: "food_log_request", formatted: null },
+      evidence: {
+        status: "skipped",
+        reason: "food_log_request",
+        usePolicy: "action_only_no_evidence",
+        formatted: null,
+      },
       workoutPlan: null,
     });
     const payload = JSON.parse(msgs[msgs.length - 1].content);
     assert.equal(payload.retrieval_status, "skipped");
     assert.equal(payload.retrieval_reason, "food_log_request");
+    assert.equal(payload.evidence_use_policy, "action_only_no_evidence");
     assert.equal(payload.retrieved_evidence, null);
+  });
+
+  it("system prompt forbids pretrained-knowledge fallback", () => {
+    const msgs = buildMessages({
+      question: "test", profile: {}, threadState: {},
+      recentMessages: [], evidence: { formatted: "" }, workoutPlan: null,
+    });
+    const sys = msgs[0].content;
+    assert.match(sys, /Do not use general coaching knowledge as a fallback source/i);
+    assert.match(sys, /without leaning on pretrained knowledge/i);
+  });
+
+  it("prompt contract tells the model not to override contradictory retrieved evidence", () => {
+    const msgs = buildMessages({
+      question: "Does protocol A improve strength?",
+      profile: {},
+      threadState: {},
+      recentMessages: [],
+      evidence: {
+        status: "completed",
+        usePolicy: "retrieved_evidence_only",
+        formatted:
+          "<source_untrusted id=\"1\">\n[1] 2026 · Trial — Protocol A reduced strength in this sample.\n</source_untrusted>",
+      },
+      workoutPlan: null,
+    });
+    const sys = msgs[0].content;
+    const payload = JSON.parse(msgs[2].content);
+    assert.equal(payload.evidence_use_policy, "retrieved_evidence_only");
+    assert.match(sys, /If retrieved evidence conflicts with your general knowledge/i);
+    assert.match(sys, /Do not silently override/i);
+    assert.match(sys, /Do not .*supplement retrieved evidence using pretrained knowledge/i);
   });
 
   it("system prompt contains identity and wheelhouse", () => {

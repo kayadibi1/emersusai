@@ -2,6 +2,8 @@ import { validateToolCall, buildToolDefinitions, SERVER_SIDE_TOOLS } from "./too
 import { formatSources } from "./format-sources.js";
 import { PROMPT_CACHE_KEY, resolveMaxOutputTokens } from "./synthesize.js";
 import { isExtractorEnabled } from "./memory-flags.js";
+import { verifyAnswerGrounding } from "./grounding-verifier.js";
+import { groundingEnforcementEnabled } from "./prompt.js";
 
 export function parseSSELine(line) {
   const trimmed = String(line).trim();
@@ -489,11 +491,17 @@ export async function stream(ctx, res) {
 
   ctx.prose = state.proseBuffer;
   ctx.sources = formatSources(ctx.evidence?.items || []);
+  ctx.grounding = verifyAnswerGrounding({
+    answerText: ctx.prose,
+    evidenceItems: ctx.evidence?.items || [],
+    mode: groundingEnforcementEnabled() ? "citation" : "legacy",
+  });
 
   sendSSE(res, {
     type: "done",
     sources: ctx.sources,
     confidence: ctx.confidence,
+    grounding: ctx.grounding,
     usage: ctx.tokenUsage,
     // Flat, frontend-friendly mirrors of the nested usage object. The rail
     // consumer reads these directly without needing to understand OpenAI's
@@ -550,6 +558,11 @@ export async function streamToBuffer(ctx) {
 
   ctx.prose = state.proseBuffer;
   ctx.sources = formatSources(ctx.evidence?.items || []);
+  ctx.grounding = verifyAnswerGrounding({
+    answerText: ctx.prose,
+    evidenceItems: ctx.evidence?.items || [],
+    mode: groundingEnforcementEnabled() ? "citation" : "legacy",
+  });
 
   logTokenUsage(ctx).catch((err) => console.error("Token usage log error:", err));
   persistProfileUpdates(ctx).catch((err) => console.error("Profile persist error:", err));

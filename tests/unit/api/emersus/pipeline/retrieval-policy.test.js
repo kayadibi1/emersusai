@@ -12,22 +12,22 @@ describe("decideRetrieval", () => {
     assert.deepStrictEqual(result, { mode: "skip", reason: "food_log_request" });
   });
 
-  it("skips retrieval for meal-plan requests", () => {
+  it("keeps retrieval on for meal-plan requests", () => {
     const result = decideRetrieval({ question: "Make me a meal plan for a cut" });
-    assert.deepStrictEqual(result, { mode: "skip", reason: "meal_plan_request" });
+    assert.deepStrictEqual(result, { mode: "run", reason: "meal_plan_request" });
   });
 
-  it("skips retrieval for workout-plan requests", () => {
+  it("keeps retrieval on for workout-plan requests", () => {
     const result = decideRetrieval({ question: "Build me a 4-day upper lower workout plan" });
-    assert.deepStrictEqual(result, { mode: "skip", reason: "workout_plan_request" });
+    assert.deepStrictEqual(result, { mode: "run", reason: "workout_plan_request" });
   });
 
-  it("skips retrieval for workout adjustments when a current plan is loaded", () => {
+  it("keeps retrieval on for workout adjustments when a current plan is loaded", () => {
     const result = decideRetrieval({
       question: "I missed Friday, can you move the lower day and reduce the volume?",
       workoutPlan: { id: "plan_1" },
     });
-    assert.deepStrictEqual(result, { mode: "skip", reason: "workout_adjustment_request" });
+    assert.deepStrictEqual(result, { mode: "run", reason: "workout_adjustment_request" });
   });
 
   it("keeps retrieval on for explicit evidence requests", () => {

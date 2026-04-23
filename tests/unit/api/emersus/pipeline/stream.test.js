@@ -96,6 +96,25 @@ describe("streamToBuffer", () => {
     });
   });
 
+  it("attaches grounding verification to buffered responses", async () => {
+    const ctx = createCtx([
+      'data: {"type":"response.output_text.delta","delta":"Caffeine improves endurance."}',
+      'data: {"type":"response.completed","response":{"id":"resp_1","usage":{"input_tokens":1,"output_tokens":1,"total_tokens":2}}}',
+    ]);
+    ctx.evidence = {
+      items: [{
+        title: "Creatine supplementation and resistance training",
+        excerpt: "Creatine increased strength during resistance training.",
+      }],
+    };
+
+    await streamToBuffer(ctx);
+
+    assert.equal(ctx.grounding.grounded, false);
+    assert.equal(ctx.grounding.unsupported_claims.length, 1);
+    assert.match(ctx.grounding.unsupported_claims[0].claim, /Caffeine improves endurance/i);
+  });
+
   it("flags unknown tools early on output_item.added without aborting the stream", async () => {
     const ctx = createCtx([
       'data: {"type":"response.output_item.added","item":{"type":"function_call","id":"call_1","name":"launch_missiles"}}',
@@ -177,6 +196,7 @@ describe("stream() done event — chainingUsed", () => {
     assert.ok(done, "done event should be emitted");
     assert.equal(done.chainingUsed, true);
     assert.equal(typeof done.chainingUsed, "boolean");
+    assert.equal(done.grounding.grounded, true);
   });
 
   it("emits chainingUsed:false by default (when flag/context is absent)", async () => {
