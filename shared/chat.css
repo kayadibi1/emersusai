@@ -766,6 +766,18 @@ a.wta-title:hover { color: var(--accent); text-decoration: underline; }
   border-radius: 0 6px 6px 0;
 }
 
+/* Honest fallback when the only chunk available for this source is the
+ * title itself — shown in place of the redundant blockquote. */
+.wta-excerpt-fallback {
+  border-left: none;
+  background: transparent;
+  color: var(--ink-soft, var(--ink));
+  opacity: 0.65;
+  padding: 4px 0 0 0;
+  font-size: 12.5px;
+  border-radius: 0;
+}
+
 @media (max-width: 640px) {
   .wta-meta { display: none; }
   .wta-excerpt { font-size: 12.5px; padding: 7px 10px; }

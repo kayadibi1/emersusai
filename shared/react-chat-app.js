@@ -40,6 +40,7 @@ import {
   stripWidgetFencesForStreaming,
 } from "/shared/emersus-renderer.js?v=2026-04-09-liquid-glass";
 import { WidgetV2 } from "/shared/widget-v2/dispatcher.js";
+import { isTitleEquivalentExcerpt } from "/shared/why-this-answer-helpers.js";
 import {
   DAY_LABELS,
   summarizePlan,
@@ -3088,7 +3089,31 @@ function trimExcerpt(text, maxChars = 220) {
 function WhyThisAnswer({ sources }) {
   const items = useMemo(() => {
     const deduped = dedupeSources(sources);
-    return deduped.slice(0, 3);
+    // Two-pass selection: prefer sources whose excerpt carries info beyond
+    // the title (substantive). Backfill from the title-only tail so we
+    // still surface up to 3 items when the corpus only has weak matches.
+    // is_title_only_match comes from match_evidence_chunks_v4 (when set);
+    // isTitleEquivalentExcerpt is the client-side fallback for v3 rows
+    // and as defense-in-depth for any title chunks that slip through v4.
+    const substantive = [];
+    const titleOnly = [];
+    for (const src of deduped) {
+      const rawExcerpt = src?.excerpt || src?.why_it_matters || src?.summary || "";
+      const titleStr = String(src?.title || "");
+      const isTitleOnly =
+        src?.is_title_only_match === true ||
+        isTitleEquivalentExcerpt(rawExcerpt, titleStr);
+      (isTitleOnly ? titleOnly : substantive).push(src);
+      if (substantive.length >= 3) break;
+    }
+    const picked = substantive.slice(0, 3);
+    if (picked.length < 3) {
+      for (const src of titleOnly) {
+        if (picked.length >= 3) break;
+        picked.push(src);
+      }
+    }
+    return picked;
   }, [sources]);
   if (!items.length) return null;
   return h(
@@ -3116,10 +3141,11 @@ function WhyThisAnswer({ sources }) {
         if (year) metaParts.push(String(year).slice(0, 4));
         if (source?.journal) metaParts.push(source.journal);
         const meta = metaParts.join(" · ");
-        const excerpt = trimExcerpt(
-          source?.excerpt || source?.why_it_matters || source?.summary || "",
-          220
-        );
+        const rawExcerpt = source?.excerpt || source?.why_it_matters || source?.summary || "";
+        const isTitleOnly =
+          source?.is_title_only_match === true ||
+          isTitleEquivalentExcerpt(rawExcerpt, title);
+        const excerpt = isTitleOnly ? "" : trimExcerpt(rawExcerpt, 220);
         const href = formatCitationUrl(source) || "";
         return h(
           "li",
@@ -3141,7 +3167,15 @@ function WhyThisAnswer({ sources }) {
               : h("span", { className: "wta-title" }, title),
             meta ? h("span", { className: "wta-meta" }, meta) : null
           ),
-          excerpt ? h("blockquote", { className: "wta-excerpt" }, excerpt) : null
+          isTitleOnly
+            ? h(
+                "p",
+                { className: "wta-excerpt wta-excerpt-fallback" },
+                "Title-only match — full text not available."
+              )
+            : excerpt
+              ? h("blockquote", { className: "wta-excerpt" }, excerpt)
+              : null
         );
       })
     )
