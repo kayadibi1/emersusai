@@ -1050,22 +1050,25 @@ function useTypewriter(fullText, enabled, charsPerTick = 3, intervalMs = 18) {
 // rarely produces them in prose and full parsing opens us up to edge cases.
 // The tokenizer walks left-to-right and treats the earliest matching delimiter
 // as the real one, so nested runs fall back to whichever pattern hit first.
-function renderInlineMarkdown(source) {
+function renderInlineMarkdown(source, options = {}) {
   const text = String(source || "");
   if (!text) return [];
-  // Order matters: ** before *, ` stays separate.
+  const sourceCount = Number(options.sourceCount || 0);
+  // Order matters: ** before *, ` stays separate. Citation markers [N] are
+  // last — we don't want them to gate text inside **[N] bold**, but they
+  // rarely appear there. The regex requires a digit and NOT another digit
+  // after the close-bracket so "[10] kg" still parses as a marker.
   const patterns = [
     { re: /\*\*([^*]+?)\*\*/, tag: "strong" },
     { re: /__([^_]+?)__/, tag: "strong" },
     { re: /(?<![A-Za-z0-9*])\*([^*\n]+?)\*(?![A-Za-z0-9*])/, tag: "em" },
     { re: /(?<![A-Za-z0-9_])_([^_\n]+?)_(?![A-Za-z0-9_])/, tag: "em" },
     { re: /`([^`]+?)`/, tag: "code" },
+    { re: /\[(\d{1,2})\]/, tag: "citation" },
   ];
   const out = [];
   let rest = text;
   let key = 0;
-  // Hard cap to avoid any accidental infinite loop if a pattern ever matches
-  // a zero-width slice.
   for (let guard = 0; guard < 1000 && rest.length; guard += 1) {
     let best = null;
     for (const pat of patterns) {
@@ -1081,7 +1084,24 @@ function renderInlineMarkdown(source) {
     if (best.m.index > 0) {
       out.push(rest.slice(0, best.m.index));
     }
-    out.push(h(best.pat.tag, { key: `im-${key++}` }, best.m[1]));
+    if (best.pat.tag === "citation") {
+      const n = Number(best.m[1]);
+      const isValid = sourceCount > 0 && n >= 1 && n <= sourceCount;
+      out.push(h(
+        "sup",
+        {
+          key: `cite-${key++}`,
+          className: `citation-marker${isValid ? " citation-marker-valid" : " citation-marker-orphan"}`,
+          "data-cite": String(n),
+          role: isValid ? "button" : undefined,
+          tabIndex: isValid ? 0 : undefined,
+          title: isValid ? `Source ${n}` : `Source ${n} (not in retrieved list)`,
+        },
+        n,
+      ));
+    } else {
+      out.push(h(best.pat.tag, { key: `im-${key++}` }, best.m[1]));
+    }
     rest = rest.slice(best.m.index + best.m[0].length);
   }
   return out;
@@ -1091,7 +1111,7 @@ function renderInlineMarkdown(source) {
 // segment. Used both by the streaming path (single bubble around the visible
 // substring) and the segment path (one bubble per text segment between
 // inline widgets).
-function renderProseChunks(text) {
+function renderProseChunks(text, options = {}) {
   const chunks = String(text || "")
     .trim()
     .split(/\r?\n\s*\r?\n/)
@@ -1104,12 +1124,12 @@ function renderProseChunks(text) {
     return h(
       React.Fragment,
       { key: chunkIndex },
-      proseLines.length ? h("p", null, ...renderInlineMarkdown(proseLines.join(" "))) : null,
+      proseLines.length ? h("p", null, ...renderInlineMarkdown(proseLines.join(" "), options)) : null,
       bulletLines.length
         ? h("ul", null, bulletLines.map((line, lineIndex) => h(
             "li",
             { key: lineIndex },
-            ...renderInlineMarkdown(line.replace(/^(?:[-*]|\u2022)\s+/, "")),
+            ...renderInlineMarkdown(line.replace(/^(?:[-*]|\u2022)\s+/, ""), options),
           )))
         : null
     );
@@ -2215,11 +2235,12 @@ const WIDGET_V2_TOOL_TO_FAMILY = {
   emit_calculator_widget: "calculator",
 };
 
-function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false, threadId = null, toolResults = null }) {
+function TextBlock({ text, role = "assistant", typewrite = false, typingActive = false, threadId = null, toolResults = null, sources = null }) {
   const fullText = String(text || "");
   const visible = useTypewriter(fullText, typewrite);
   const isTyping = typingActive || (typewrite && visible.length < fullText.length);
   const display = typewrite ? visible : fullText;
+  const proseOptions = { sourceCount: Array.isArray(sources) ? sources.length : 0 };
 
   // â”€â”€ New SSE path: toolResults present â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
   // When the message was built from SSE events, tool outputs arrive as
@@ -2235,7 +2256,7 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
         h(
           "div",
           { key: "prose", className: `chat-bubble chat-bubble-${role} chat-text-block` },
-          renderProseChunks(fullText),
+          renderProseChunks(fullText, proseOptions),
         ),
       );
     }
@@ -2333,7 +2354,7 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
     return h(
       "div",
       { className: `chat-bubble chat-bubble-${role} chat-text-block${isTyping ? " is-typing" : ""}` },
-      renderProseChunks(display),
+      renderProseChunks(display, proseOptions),
     );
   }
 
@@ -2345,7 +2366,7 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
     return h(
       "div",
       { className: `chat-bubble chat-bubble-${role} chat-text-block is-typing` },
-      renderProseChunks(proseOnly),
+      renderProseChunks(proseOnly, proseOptions),
     );
   }
 
@@ -2392,7 +2413,7 @@ function TextBlock({ text, role = "assistant", typewrite = false, typingActive =
           key: `t-${index}`,
           className: `chat-bubble chat-bubble-${role} chat-text-block`,
         },
-        renderProseChunks(segment.content),
+        renderProseChunks(segment.content, proseOptions),
       );
     }),
   );
@@ -2846,7 +2867,7 @@ function InsightCard({ block }) {
   return null;
 }
 
-function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
+function MessageBlocks({ blocks, typewrite = false, threadId = null, sources = null }) {
   const list = Array.isArray(blocks) ? blocks : [];
   const firstTextBlock = list.find((b) => b && b.type === "text");
   const firstTextFull = String(firstTextBlock?.text || "");
@@ -2872,11 +2893,11 @@ function MessageBlocks({ blocks, typewrite = false, threadId = null }) {
         // Still typing prose â€” render the partial prose substring only, with
         // the typing cursor. The widget is NOT in this text, so TextBlock's
         // pure-prose branch handles it.
-        return h(TextBlock, { key: index, text: visibleProse, role: block.role || "assistant", typingActive: true, threadId });
+        return h(TextBlock, { key: index, text: visibleProse, role: block.role || "assistant", typingActive: true, threadId, sources });
       }
       // Prose done (or no typewriter) â€” hand TextBlock the full text so it
       // switches into the segment-aware layout and mounts the WidgetFrame.
-      return h(TextBlock, { key: index, text: block.text, role: block.role || "assistant", threadId });
+      return h(TextBlock, { key: index, text: block.text, role: block.role || "assistant", threadId, sources });
     }
     if (block.type === "tool_result" || block.type === "tool_use") {
       // Hold cards back until the typewriter finishes the prose.
@@ -3061,6 +3082,36 @@ function metaSnapshotFrom(source) {
     publication_type: String(source.publication_type || "").slice(0, 120),
   };
   return snap;
+}
+
+// Small badge surfaced under each assistant message that describes how
+// well the answer's factual claims are grounded in the retrieved evidence.
+// Driven by the server-side citation-mode verifier (`ctx.grounding`).
+function GroundingBadge({ grounding }) {
+  if (!grounding || grounding.mode !== "citation") return null;
+  if (grounding.status === "no_claims") return null;
+  const labels = {
+    grounded: "Grounded in retrieved evidence",
+    partial: "Partially grounded",
+    ungrounded: "Weak grounding",
+  };
+  const label = labels[grounding.status];
+  if (!label) return null;
+  const cited = Number(grounding.cited_sentences || 0);
+  const total = Number(grounding.factual_sentences || 0);
+  const invalid = Number(grounding.invalid_markers?.length || grounding.invalid_marker_count || 0);
+  const tooltip =
+    `${cited}/${total} factual sentence${total === 1 ? "" : "s"} cited` +
+    (invalid ? ` · ${invalid} unknown-source marker${invalid === 1 ? "" : "s"}` : "");
+  return h(
+    "div",
+    { className: `grounding-badge grounding-badge-${grounding.status}`, title: tooltip },
+    h("span", { className: "gb-dot", "aria-hidden": true }),
+    h("span", { className: "gb-label" }, label),
+    total > 0
+      ? h("span", { className: "gb-count" }, `${cited}/${total}`)
+      : null,
+  );
 }
 
 // Trim an excerpt to ~200 chars at a sentence boundary when possible, else
@@ -3299,6 +3350,7 @@ function SourcesFooter({
           "li",
           {
             key: `${source?.pmid || source?.doi || i}`,
+            id: `cite-src-${i + 1}`,
             className: isHidden ? "is-hidden" : "",
           },
           h(
@@ -3483,13 +3535,16 @@ const Message = React.memo(function Message({
     },
     h("div", { className: "message-content" },
       hasToolResults
-        ? h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId, toolResults: message.toolResults })
+        ? h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId, toolResults: message.toolResults, sources: message.sources })
         : Array.isArray(message.blocks)
-          ? h(MessageBlocks, { blocks: message.blocks, typewrite, threadId })
+          ? h(MessageBlocks, { blocks: message.blocks, typewrite, threadId, sources: message.sources })
           : message.html
             ? h("div", { className: "message-html", dangerouslySetInnerHTML: { __html: message.html } })
-            : h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId }),
+            : h(TextBlock, { text: readMessageText(message), role: message.role, typewrite, threadId, sources: message.sources }),
       trailingOrb),
+    showSourcesFooter && message.grounding
+      ? h(GroundingBadge, { grounding: message.grounding })
+      : null,
     showSourcesFooter
       ? h(WhyThisAnswer, { sources: message.sources })
       : null,
@@ -3724,6 +3779,46 @@ export function ChatApp() {
   useEffect(() => {
     orbInstanceRef.current?.setState(glyphState);
   }, [glyphState]);
+
+  // Delegated click handler for inline citation markers. Clicking a valid
+  // [N] superscript expands + scrolls to the matching source row in the
+  // same message's SourcesFooter. Mounted once at the app level so each
+  // message doesn't wire its own handler.
+  useEffect(() => {
+    const onClick = (event) => {
+      const target = event.target.closest?.(".citation-marker-valid");
+      if (!target) return;
+      const n = Number(target.getAttribute("data-cite"));
+      if (!Number.isFinite(n) || n < 1) return;
+      event.preventDefault();
+      const messageEl = target.closest("article.message");
+      if (!messageEl) return;
+      const chipBtn = messageEl.querySelectorAll(".srcs-chip")[n - 1];
+      if (chipBtn) chipBtn.click();
+      // Defer scroll a tick so the source row has a chance to expand first.
+      window.setTimeout(() => {
+        const row = messageEl.querySelector(`#cite-src-${n}`);
+        if (row) {
+          row.scrollIntoView({ behavior: "smooth", block: "center" });
+          row.classList.add("cite-flash");
+          window.setTimeout(() => row.classList.remove("cite-flash"), 1400);
+        }
+      }, 30);
+    };
+    const onKeydown = (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      const target = event.target.closest?.(".citation-marker-valid");
+      if (!target) return;
+      event.preventDefault();
+      target.click();
+    };
+    document.addEventListener("click", onClick);
+    document.addEventListener("keydown", onKeydown);
+    return () => {
+      document.removeEventListener("click", onClick);
+      document.removeEventListener("keydown", onKeydown);
+    };
+  }, []);
 
   // Rotate the text label beside the orb every ORB_LABEL_CYCLE_MS while
   // thinking or responding. Reset the index on state change so the first
@@ -4485,6 +4580,7 @@ export function ChatApp() {
         let sseThreadState = null;
         let sseOnboardingCompleted = false;
         let sseConfidence = null;
+        let sseGrounding = null;
         let sseResponseId = null;
         let sseCachedTokens = 0;
         let sseInputTokens = 0;
@@ -4571,6 +4667,7 @@ export function ChatApp() {
               sseThreadState = event.thread_state || null;
               sseOnboardingCompleted = !!event.onboarding_completed;
               sseConfidence = event.confidence || null;
+              sseGrounding = event.grounding || null;
               sseResponseId = typeof event.responseId === "string" ? event.responseId : null;
               // Flat token-usage mirrors for the rail cache-hit chip.
               sseCachedTokens = Number(event.cachedTokens || 0);
@@ -4607,6 +4704,7 @@ export function ChatApp() {
           token_usage: sseUsage,
           onboarding_completed: sseOnboardingCompleted,
           confidence: sseConfidence,
+          grounding: sseGrounding,
           // Flat token-usage mirrors. Written alongside token_usage so
           // railFromData can surface a cache-hit chip without needing to
           // understand OpenAI's nested input_tokens_details shape.
@@ -4707,6 +4805,7 @@ export function ChatApp() {
         plainText: assistantPlainText || normalizeText(assistantRaw, 4000),
         text: assistantPlainText || normalizeText(assistantRaw, 4000),
         sources: Array.isArray(data.sources) ? data.sources : [],
+        ...(data.grounding ? { grounding: data.grounding } : {}),
         ...(data._toolErrors?.length ? { toolErrors: data._toolErrors } : {}),
         // Persist the OpenAI response id on the assistant message (JSONB
         // column — no schema change). Phase 2: pass as previous_response_id

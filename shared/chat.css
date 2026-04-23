@@ -2975,3 +2975,86 @@ body.chat-page {
     to   { opacity: 1; transform: translateY(0); }
   }
 }
+
+/* ── Inline citation markers (emitted by the evidence-grounded prompt) ──────
+ * Rendered as a superscript next to every factual claim the model grounded
+ * in retrieved evidence. Clicking a valid marker expands + scrolls to the
+ * matching source row in the same message's SourcesFooter.
+ */
+.citation-marker {
+  display: inline-block;
+  font-size: 0.72em;
+  line-height: 1;
+  padding: 0 2px;
+  margin: 0 1px 0 2px;
+  border-radius: 3px;
+  color: var(--accent-primary);
+  background: var(--accent-soft, rgba(0,0,0,0.04));
+  vertical-align: super;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+  transition: background 120ms ease, color 120ms ease;
+}
+.citation-marker-valid {
+  cursor: pointer;
+}
+.citation-marker-valid:hover,
+.citation-marker-valid:focus-visible {
+  background: var(--accent-primary);
+  color: var(--color-background-primary);
+  outline: none;
+}
+.citation-marker-orphan {
+  color: var(--color-text-tertiary);
+  background: transparent;
+  text-decoration: line-through dotted;
+  cursor: help;
+}
+
+/* Brief highlight when a source row is scrolled to from a citation click */
+.srcs-rows > li.cite-flash {
+  animation: citeFlash 1.4s ease-out;
+}
+@keyframes citeFlash {
+  0%   { background: var(--accent-soft, rgba(0,0,0,0.10)); }
+  70%  { background: var(--accent-soft, rgba(0,0,0,0.04)); }
+  100% { background: transparent; }
+}
+
+/* ── Grounding badge (rendered above the "Why this answer?" reveal) ───────── */
+.grounding-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  margin: 6px 0 0 0;
+  border-radius: 999px;
+  font-size: 12px;
+  line-height: 1;
+  background: var(--color-background-tertiary);
+  border: 0.5px solid var(--color-border-secondary);
+  color: var(--color-text-secondary);
+  width: fit-content;
+  font-variant-numeric: tabular-nums;
+  cursor: help;
+}
+.grounding-badge .gb-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-text-tertiary);
+  flex-shrink: 0;
+}
+.grounding-badge .gb-label {
+  font-weight: 500;
+}
+.grounding-badge .gb-count {
+  color: var(--color-text-tertiary);
+  font-size: 11px;
+}
+.grounding-badge-grounded { border-color: var(--ev-strong-dot, var(--color-text-success)); color: var(--color-text-primary); }
+.grounding-badge-grounded .gb-dot { background: var(--ev-strong-dot, var(--color-text-success)); }
+.grounding-badge-partial  { border-color: var(--ev-moderate-dot, var(--color-text-warning)); color: var(--color-text-primary); }
+.grounding-badge-partial  .gb-dot { background: var(--ev-moderate-dot, var(--color-text-warning)); }
+.grounding-badge-ungrounded { border-color: var(--color-border-secondary); color: var(--color-text-tertiary); }
+.grounding-badge-ungrounded .gb-dot { background: var(--color-text-tertiary); }
