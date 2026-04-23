@@ -104,6 +104,7 @@ function parseArgs(argv) {
     paraphrase: "off",
     outDir: RESULTS_DIR,
     label: null,
+    resume: null,
   };
   for (const raw of argv) {
     const [key, ...valueParts] = raw.split("=");
@@ -114,8 +115,37 @@ function parseArgs(argv) {
     else if (key === "--paraphrase") args.paraphrase = value;
     else if (key === "--out-dir") args.outDir = path.resolve(process.cwd(), value);
     else if (key === "--label") args.label = value;
+    else if (key === "--resume") args.resume = value || "auto";
   }
   return args;
+}
+
+// Locates the most recent snapshot for --resume. `resume` is either:
+//   "auto"      — pick the newest grounding-eval-*.json file in outDir
+//   "<label>"   — pick the newest grounding-eval-<label>-*.json
+//   "<path>"    — explicit .json path
+async function resolveResumeFile(resume, outDir, label) {
+  if (!resume) return null;
+  if (resume !== "auto" && resume.endsWith(".json")) {
+    return path.isAbsolute(resume) ? resume : path.resolve(process.cwd(), resume);
+  }
+  const wantLabel = resume !== "auto" ? resume : (label || null);
+  const files = await fs.readdir(outDir).catch(() => []);
+  const matched = files.filter((f) =>
+    f.startsWith("grounding-eval-") &&
+    f.endsWith(".json") &&
+    (!wantLabel || f.includes(`grounding-eval-${wantLabel}-`))
+  );
+  if (!matched.length) return null;
+  // Newest by mtime — filenames include a timestamp but a sort by name is
+  // not reliable across label/timestamp boundaries.
+  const withStat = await Promise.all(matched.map(async (f) => {
+    const p = path.join(outDir, f);
+    const st = await fs.stat(p);
+    return { p, mtime: st.mtimeMs };
+  }));
+  withStat.sort((a, b) => b.mtime - a.mtime);
+  return withStat[0].p;
 }
 
 function timestampForFile(date = new Date()) {
@@ -719,9 +749,33 @@ async function main() {
 
   const fixture = JSON.parse(await fs.readFile(FIXTURES_PATH, "utf8"));
   const prompts = fixture.slice(0, args.limit);
-  const generatedAt = new Date().toISOString();
-  const runId = timestampForFile(new Date());
-  const results = [];
+
+  // Resume support: if --resume is passed, try to continue from the
+  // newest matching snapshot in outDir. We reuse the prior run's
+  // generatedAt + runId so follow-up snapshots append to the SAME
+  // files (so the resumed run produces one continuous artifact).
+  let generatedAt = new Date().toISOString();
+  let runId = timestampForFile(new Date());
+  let results = [];
+  let skipIndices = new Set();
+  const resumeFile = await resolveResumeFile(args.resume, args.outDir, args.label);
+  if (resumeFile) {
+    try {
+      const prior = JSON.parse(await fs.readFile(resumeFile, "utf8"));
+      if (Array.isArray(prior.results)) {
+        results = prior.results;
+        skipIndices = new Set(results.map((r) => r.index));
+        if (prior.generated_at) generatedAt = prior.generated_at;
+        // Recover runId from the snapshot filename so writeArtifacts
+        // overwrites the same file.
+        const m = path.basename(resumeFile).match(/grounding-eval-.*?(\d{4}-\d{2}-\d{2}T\d{2}-\d{2}-\d{2}-\d+Z)\.json$/);
+        if (m) runId = m[1];
+        console.log(`[eval] resuming from ${resumeFile} (${results.length} prompts already done)`);
+      }
+    } catch (err) {
+      console.warn(`[eval] resume file ${resumeFile} unreadable: ${err.message} — starting fresh`);
+    }
+  }
 
   console.log(`[eval] emersus_model=${EMERSUS_MODEL}`);
   console.log(`[eval] bare_model=${BARE_MODEL}`);
@@ -734,6 +788,7 @@ async function main() {
 
   for (let i = 0; i < prompts.length; i++) {
     const index = i + 1;
+    if (skipIndices.has(index)) continue;
     const { question, category } = prompts[i];
     const started = Date.now();
     console.log(`[eval] ${index}/${prompts.length} [${category}]: ${question}`);
@@ -757,24 +812,28 @@ async function main() {
       emersus: scoreAnswer({ answer: emersus.text, evidence, variant: "emersus" }),
     };
 
-    let judgeResults = null;
-    if (args.judge === "on" && !bare.error && !emersus.error) {
-      const [jBare, jEmersus] = await Promise.all([
-        judge({ question, answer: bare.text, evidence, index, variant: "bare" }),
-        judge({ question, answer: emersus.text, evidence, index, variant: "emersus" }),
-      ]);
-      judgeResults = { bare: jBare, emersus: jEmersus };
-    }
-
-    let fidelityResult = null;
-    if (args.fidelity === "on" && !emersus.error && evidence.length > 0) {
-      fidelityResult = await fidelityGrade({ question, answer: emersus.text, evidence, index });
-    }
-
-    let paraphraseResult = null;
-    if (args.paraphrase === "on" && !emersus.error && evidence.length > 0) {
-      paraphraseResult = await paraphraseGrade({ answer: emersus.text, evidence });
-    }
+    // All four grader calls run in parallel — they're independent reads
+    // of (bare, emersus, evidence). Cuts per-prompt wall-clock roughly
+    // in half vs. awaiting each in sequence.
+    const graderTasks = {
+      judge: args.judge === "on" && !bare.error && !emersus.error
+        ? Promise.all([
+            judge({ question, answer: bare.text, evidence, index, variant: "bare" }),
+            judge({ question, answer: emersus.text, evidence, index, variant: "emersus" }),
+          ]).then(([jBare, jEmersus]) => ({ bare: jBare, emersus: jEmersus }))
+        : Promise.resolve(null),
+      fidelity: args.fidelity === "on" && !emersus.error && evidence.length > 0
+        ? fidelityGrade({ question, answer: emersus.text, evidence, index })
+        : Promise.resolve(null),
+      paraphrase: args.paraphrase === "on" && !emersus.error && evidence.length > 0
+        ? paraphraseGrade({ answer: emersus.text, evidence })
+        : Promise.resolve(null),
+    };
+    const [judgeResults, fidelityResult, paraphraseResult] = await Promise.all([
+      graderTasks.judge,
+      graderTasks.fidelity,
+      graderTasks.paraphrase,
+    ]);
 
     results.push({
       index,
@@ -815,8 +874,12 @@ async function main() {
       paraphrase: paraphraseResult,
     });
 
-    // Incremental snapshot so a crash doesn't lose progress
+    // Incremental snapshot so a crash doesn't lose progress. After
+    // resume, `results` may contain prior entries interleaved with new
+    // ones; sort by index before persisting so the snapshot stays in
+    // natural order.
     if (index % 10 === 0 || index === prompts.length) {
+      results.sort((a, b) => a.index - b.index);
       const summary = buildSummary(results);
       await writeArtifacts({
         outDir: args.outDir,
