@@ -52,6 +52,26 @@ const BARE_SYSTEM_PROMPT = [
   "Lead with the answer. Be direct and concise. Do not use section headings.",
 ].join("\n");
 
+// Per-claim fidelity grader: for each (claim, cited_sources) pair, ask if
+// the cited sources specifically support that claim (vs. being a decorative
+// marker whose content is only loosely related).
+const FIDELITY_SYSTEM_PROMPT = [
+  "You are a precise fact-checker evaluating whether each cited claim in an answer is directly supported by the specific sources it cites.",
+  "",
+  "You receive a list of (claim, cited_sources) pairs. For EACH pair, evaluate: do the cited sources directly and specifically support this exact claim? A decorative citation — where the source is topically related but does not actually establish the claim — is NOT support.",
+  "",
+  "Verdicts per pair:",
+  "  'supported'    = at least one cited source directly establishes the claim",
+  "  'weak'         = the cited source(s) are related to the topic but don't specifically establish the claim",
+  "  'decoy'        = the cited source(s) discuss something materially different from the claim; citation is decorative",
+  "  'contradicted' = the cited source(s) actually contradict the claim",
+  "",
+  "Output JSON only:",
+  '  {"per_claim": [{"claim_index": N, "verdict": "supported|weak|decoy|contradicted", "reasoning": "<1 short sentence>"}, ...]}',
+  "",
+  "Do not include any prose outside the JSON object. Do not skip claims — emit exactly one row per input pair.",
+].join("\n");
+
 const JUDGE_SYSTEM_PROMPT = [
   "You are a careful fact-checker evaluating a fitness/nutrition coaching answer against a set of retrieved scientific passages.",
   "",
@@ -80,6 +100,8 @@ function parseArgs(argv) {
   const args = {
     limit: 100,
     judge: "on",
+    fidelity: "off",
+    paraphrase: "off",
     outDir: RESULTS_DIR,
     label: null,
   };
@@ -88,6 +110,8 @@ function parseArgs(argv) {
     const value = valueParts.join("=");
     if (key === "--limit") args.limit = Number(value) || 100;
     else if (key === "--judge") args.judge = value;
+    else if (key === "--fidelity") args.fidelity = value;
+    else if (key === "--paraphrase") args.paraphrase = value;
     else if (key === "--out-dir") args.outDir = path.resolve(process.cwd(), value);
     else if (key === "--label") args.label = value;
   }
@@ -305,6 +329,203 @@ function countMatches(text, regex) {
   return matches ? matches.length : 0;
 }
 
+// ─── Per-claim extractor ─────────────────────────────────────────────────────
+// Walks the answer sentence-by-sentence, pulls out citesrcN markers and
+// returns [{ claim_index, sentence, cited_source_ids }] for every sentence
+// that carries at least one marker. Legacy [N] markers are also accepted.
+const CLAIM_SENTENCE_SPLIT_RE = /(?<=[.!?])\s+/;
+// U+E200 (CITATION_START) + literal "cite" + U+E202 (CITATION_DELIMITER)
+// + literal "src" + digits + U+E201 (CITATION_STOP). OpenAI's recommended
+// strict citation marker format. Written with explicit \u escapes to
+// survive tools that strip invisible PUA characters from regex literals.
+const STRICT_MARKER_RE = /\u{E200}cite\u{E202}src(\d{1,2})\u{E201}/gu;
+const LEGACY_MARKER_RE = /\[(\d{1,2})\]/g;
+
+function extractCitedClaims(answer, sourceCount) {
+  const sentences = String(answer || "")
+    .replace(/\s+/g, " ")
+    .split(CLAIM_SENTENCE_SPLIT_RE)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  const claims = [];
+  sentences.forEach((sentence, idx) => {
+    const ids = new Set();
+    // Clone the regexes (reset lastIndex) while preserving the `u` flag
+    // that makes \u{E200}-style escapes parse as Unicode code points.
+    const strictRe = new RegExp(STRICT_MARKER_RE.source, STRICT_MARKER_RE.flags);
+    const legacyRe = new RegExp(LEGACY_MARKER_RE.source, LEGACY_MARKER_RE.flags);
+    let m;
+    while ((m = strictRe.exec(sentence)) !== null) {
+      const n = Number(m[1]);
+      if (n >= 1 && n <= sourceCount) ids.add(n);
+    }
+    while ((m = legacyRe.exec(sentence)) !== null) {
+      const n = Number(m[1]);
+      if (n >= 1 && n <= sourceCount) ids.add(n);
+    }
+    if (ids.size > 0) {
+      claims.push({
+        claim_index: idx,
+        sentence,
+        cited_source_ids: Array.from(ids).sort((a, b) => a - b),
+      });
+    }
+  });
+  return claims;
+}
+
+// ─── Per-claim fidelity grader ───────────────────────────────────────────────
+async function fidelityGrade({ question, answer, evidence, index }) {
+  const citedClaims = extractCitedClaims(answer, evidence.length);
+  if (!citedClaims.length) {
+    return { per_claim: [], summary: { supported: 0, weak: 0, decoy: 0, contradicted: 0, total: 0 }, error: null, raw: null };
+  }
+
+  const evidenceText = formatEvidenceForJudge(evidence);
+  const pairsBlock = citedClaims.map((c, i) =>
+    `[pair ${i}] claim: "${c.sentence}"\n    cited sources: ${c.cited_source_ids.map((n) => `src${n}`).join(", ")}`
+  ).join("\n\n");
+
+  const userPrompt = [
+    `QUESTION:\n${question}`,
+    "",
+    `RETRIEVED PASSAGES:\n${evidenceText}`,
+    "",
+    `CITED-CLAIM PAIRS TO GRADE:\n${pairsBlock}`,
+  ].join("\n");
+
+  let raw;
+  try {
+    const result = await callResponses({
+      model: JUDGE_MODEL,
+      input: [
+        { role: "system", content: FIDELITY_SYSTEM_PROMPT },
+        { role: "user", content: userPrompt },
+      ],
+      metadata: {
+        eval_name: "grounding_eval",
+        eval_variant: "fidelity",
+        prompt_index: String(index),
+      },
+      maxOutputTokens: 1200,
+    });
+    raw = result.text;
+  } catch (err) {
+    return {
+      per_claim: citedClaims.map((c, i) => ({ claim_index: i, verdict: "unknown", reasoning: `grader error: ${err.message}` })),
+      summary: { supported: 0, weak: 0, decoy: 0, contradicted: 0, total: citedClaims.length },
+      error: err.message,
+      raw: null,
+    };
+  }
+
+  const cleaned = raw.replace(/```json\s*/gi, "").replace(/```\s*$/g, "").trim();
+  let parsed;
+  try {
+    parsed = JSON.parse(cleaned);
+  } catch (err) {
+    return {
+      per_claim: citedClaims.map((c, i) => ({ claim_index: i, verdict: "unknown", reasoning: "parse failure" })),
+      summary: { supported: 0, weak: 0, decoy: 0, contradicted: 0, total: citedClaims.length },
+      error: `parse: ${err.message}`,
+      raw,
+    };
+  }
+
+  const perClaim = (Array.isArray(parsed.per_claim) ? parsed.per_claim : []).map((row) => {
+    const src = citedClaims[row.claim_index] || null;
+    return {
+      claim_index: Number(row.claim_index),
+      sentence: src?.sentence || null,
+      cited_source_ids: src?.cited_source_ids || [],
+      verdict: String(row.verdict || "unknown"),
+      reasoning: String(row.reasoning || ""),
+    };
+  });
+
+  const summary = { supported: 0, weak: 0, decoy: 0, contradicted: 0, total: perClaim.length };
+  for (const row of perClaim) {
+    if (row.verdict in summary) summary[row.verdict] += 1;
+  }
+
+  return { per_claim: perClaim, summary, error: null, raw };
+}
+
+// ─── Embeddings-based paraphrase detector ────────────────────────────────────
+const EMBEDDING_MODEL = process.env.GROUNDING_EMBEDDING_MODEL || "text-embedding-3-small";
+const PARAPHRASE_LOW_THRESHOLD = 0.35;
+
+async function embedTexts(texts) {
+  const apiKey = process.env.OPENAI_API_KEY;
+  if (!apiKey) throw new Error("Missing OPENAI_API_KEY.");
+  const body = { model: EMBEDDING_MODEL, input: texts };
+  const res = await fetch("https://api.openai.com/v1/embeddings", {
+    method: "POST",
+    headers: { "Content-Type": "application/json", Authorization: `Bearer ${apiKey}` },
+    body: JSON.stringify(body),
+  });
+  const json = await res.json();
+  if (!res.ok) throw new Error(`embeddings failed: ${JSON.stringify(json)}`);
+  return json.data.map((r) => r.embedding);
+}
+
+function cosineSim(a, b) {
+  let dot = 0, na = 0, nb = 0;
+  for (let i = 0; i < a.length; i++) { dot += a[i] * b[i]; na += a[i] * a[i]; nb += b[i] * b[i]; }
+  return dot / (Math.sqrt(na) * Math.sqrt(nb) || 1);
+}
+
+async function paraphraseGrade({ answer, evidence }) {
+  const citedClaims = extractCitedClaims(answer, evidence.length);
+  if (!citedClaims.length) {
+    return { per_claim: [], summary: { mean_sim: null, low_sim_count: 0, total: 0 }, error: null };
+  }
+
+  const sourceTexts = evidence.map((it) => {
+    const body = [it.title, it.excerpt, it.summary, it.chunk_text].filter(Boolean).join(" ");
+    return body.slice(0, 2000);
+  });
+  const claimTexts = citedClaims.map((c) => c.sentence);
+
+  let claimEmbeds, sourceEmbeds;
+  try {
+    // Batch for efficiency. Note: 2 calls rather than interleaving so a
+    // failure in one doesn't corrupt the other.
+    [claimEmbeds, sourceEmbeds] = await Promise.all([
+      embedTexts(claimTexts),
+      embedTexts(sourceTexts),
+    ]);
+  } catch (err) {
+    return { per_claim: [], summary: { mean_sim: null, low_sim_count: 0, total: 0 }, error: err.message };
+  }
+
+  const perClaim = citedClaims.map((c, i) => {
+    const sims = c.cited_source_ids.map((n) => {
+      const srcIdx = n - 1;
+      if (srcIdx < 0 || srcIdx >= sourceEmbeds.length) return null;
+      return { source_id: n, similarity: Number(cosineSim(claimEmbeds[i], sourceEmbeds[srcIdx]).toFixed(3)) };
+    }).filter(Boolean);
+    const best = sims.reduce((b, s) => (s.similarity > b ? s.similarity : b), 0);
+    return {
+      claim_index: c.claim_index,
+      sentence: c.sentence,
+      cited_source_ids: c.cited_source_ids,
+      per_source_similarity: sims,
+      best_similarity: Number(best.toFixed(3)),
+      below_threshold: best < PARAPHRASE_LOW_THRESHOLD,
+    };
+  });
+
+  const totals = perClaim.length;
+  const meanSim = totals ? Number((perClaim.reduce((s, r) => s + r.best_similarity, 0) / totals).toFixed(3)) : null;
+  const lowSim = perClaim.filter((r) => r.below_threshold).length;
+  return {
+    per_claim: perClaim,
+    summary: { mean_sim: meanSim, low_sim_count: lowSim, total: totals, threshold: PARAPHRASE_LOW_THRESHOLD },
+    error: null,
+  };
+}
+
 function scoreAnswer({ answer, evidence, variant }) {
   const citation = verifyAnswerGrounding({
     answerText: answer,
@@ -377,6 +598,36 @@ function buildSummary(results) {
       reduction_pct: reductionPct,
       pass_40pct_gate: typeof reductionPct === "string" && reductionPct !== "n/a" && Number(reductionPct) >= 40,
     },
+    fidelity: (() => {
+      const rs = results.filter((r) => r.fidelity && r.fidelity.summary);
+      if (!rs.length) return null;
+      const agg = { supported: 0, weak: 0, decoy: 0, contradicted: 0, total: 0 };
+      for (const r of rs) {
+        for (const k of Object.keys(agg)) agg[k] += Number(r.fidelity.summary[k] || 0);
+      }
+      const decoyPlusContra = agg.decoy + agg.contradicted;
+      return {
+        graded_prompts: rs.length,
+        per_verdict: agg,
+        decoy_plus_contradicted_rate: agg.total ? Number((decoyPlusContra / agg.total).toFixed(3)) : null,
+        supported_rate: agg.total ? Number((agg.supported / agg.total).toFixed(3)) : null,
+      };
+    })(),
+    paraphrase: (() => {
+      const rs = results.filter((r) => r.paraphrase && r.paraphrase.summary && r.paraphrase.summary.total > 0);
+      if (!rs.length) return null;
+      const totals = rs.reduce((a, r) => a + r.paraphrase.summary.total, 0);
+      const lows = rs.reduce((a, r) => a + r.paraphrase.summary.low_sim_count, 0);
+      const sumMean = rs.reduce((a, r) => a + (r.paraphrase.summary.mean_sim || 0), 0);
+      return {
+        graded_prompts: rs.length,
+        total_cited_claims: totals,
+        low_similarity_count: lows,
+        low_similarity_rate: totals ? Number((lows / totals).toFixed(3)) : null,
+        mean_of_per_prompt_mean_sim: Number((sumMean / rs.length).toFixed(3)),
+        threshold: PARAPHRASE_LOW_THRESHOLD,
+      };
+    })(),
   };
 }
 
@@ -475,6 +726,8 @@ async function main() {
   console.log(`[eval] emersus_model=${EMERSUS_MODEL}`);
   console.log(`[eval] bare_model=${BARE_MODEL}`);
   console.log(`[eval] judge=${args.judge === "on" ? JUDGE_MODEL : "disabled"}`);
+  console.log(`[eval] fidelity=${args.fidelity === "on" ? JUDGE_MODEL : "disabled"}`);
+  console.log(`[eval] paraphrase=${args.paraphrase === "on" ? EMBEDDING_MODEL : "disabled"}`);
   console.log(`[eval] prompts=${prompts.length} (of ${fixture.length} available)`);
   console.log(`[eval] grounding_enforcement=${groundingEnforced}`);
   console.log(`[eval] out=${args.outDir}`);
@@ -513,6 +766,16 @@ async function main() {
       judgeResults = { bare: jBare, emersus: jEmersus };
     }
 
+    let fidelityResult = null;
+    if (args.fidelity === "on" && !emersus.error && evidence.length > 0) {
+      fidelityResult = await fidelityGrade({ question, answer: emersus.text, evidence, index });
+    }
+
+    let paraphraseResult = null;
+    if (args.paraphrase === "on" && !emersus.error && evidence.length > 0) {
+      paraphraseResult = await paraphraseGrade({ answer: emersus.text, evidence });
+    }
+
     results.push({
       index,
       category,
@@ -548,6 +811,8 @@ async function main() {
       },
       scores,
       judge: judgeResults,
+      fidelity: fidelityResult,
+      paraphrase: paraphraseResult,
     });
 
     // Incremental snapshot so a crash doesn't lose progress

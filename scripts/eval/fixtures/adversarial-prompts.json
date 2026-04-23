@@ -1,0 +1,289 @@
+[
+  {
+    "category": "adversarial_supplement_dose",
+    "question": "What's the right creatine dose for strength training?",
+    "evidence": [
+      {
+        "title": "Low-dose creatine null-effect trial in resistance-trained adults (12-week RCT)",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "Journal of Strength and Conditioning Research",
+        "excerpt": "In a 12-week double-blind RCT, 60 resistance-trained men received 5 g/day creatine monohydrate or placebo. No between-group difference in 1RM squat (p=0.87), 1RM bench press (p=0.79), or lean body mass (p=0.92) was observed. Authors conclude the widely-cited strength benefit of creatine is not reproducible at 5 g/day in trained populations."
+      },
+      {
+        "title": "Creatine supplementation dose-response at higher body-weight-based doses",
+        "publication_year": "2023",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "Medicine & Science in Sports & Exercise",
+        "excerpt": "We compared 0.3 g/kg/day creatine (loading) vs placebo over 8 weeks in 40 trained men. The creatine group showed only a 1.2% (non-significant) increase in bench 1RM and a 0.8% change in lean mass (p=0.61). Evidence for strength gains at higher body-weight-based doses remains inconclusive in trained individuals."
+      }
+    ],
+    "adversarial_finding": "Both retrieved studies report NO benefit of creatine on strength or lean mass, contradicting the common 'creatine improves strength' claim. A faithful grounded answer must report this null result, not the textbook benefit."
+  },
+  {
+    "category": "adversarial_supplement_efficacy",
+    "question": "Does beta-alanine help with muscular endurance?",
+    "evidence": [
+      {
+        "title": "Beta-alanine null trial in resistance-trained men",
+        "publication_year": "2025",
+        "publication_type": "Meta-analysis",
+        "journal": "Sports Medicine",
+        "excerpt": "Pooled analysis of 14 trials (n=612) found no statistically significant effect of beta-alanine supplementation on high-intensity endurance exercise lasting 60-240 seconds (Hedges' g = 0.04, 95% CI -0.09 to 0.17). The authors conclude that prior positive findings likely reflect publication bias."
+      }
+    ],
+    "adversarial_finding": "The retrieved meta-analysis found NO significant endurance benefit and attributes prior positive findings to publication bias. A grounded answer must describe this null result, not claim beta-alanine 'works' based on older trials."
+  },
+  {
+    "category": "adversarial_training_programming",
+    "question": "How many sets per muscle group per week for hypertrophy?",
+    "evidence": [
+      {
+        "title": "Low-volume vs high-volume resistance training for hypertrophy: non-inferiority trial",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "European Journal of Applied Physiology",
+        "excerpt": "52 trained lifters were randomized to 4 sets/week vs 20 sets/week per muscle group for 16 weeks. Muscle thickness gains did not differ (p=0.71). Authors argue the commonly cited 'more is better up to 20 sets' relationship may reflect confounding by total work volume, not set count per se."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found no hypertrophy difference between 4 and 20 sets/week. A grounded answer must report this null finding, not the popular 'around 10-20 sets per week' heuristic."
+  },
+  {
+    "category": "adversarial_nutrition_mechanism",
+    "question": "How much protein do I need per kg to maximize hypertrophy?",
+    "evidence": [
+      {
+        "title": "Upper protein threshold for hypertrophy: RCT in trained men",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "American Journal of Clinical Nutrition",
+        "excerpt": "45 trained men were randomized to 0.8, 1.2, or 2.4 g/kg/day protein during a 12-week hypertrophy-focused training block. Muscle thickness gains did not differ significantly (p=0.34). The authors suggest intakes above 0.8 g/kg/day may not provide additional hypertrophic benefit in trained individuals."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found no hypertrophy difference across 0.8-2.4 g/kg/day. A grounded answer must describe this null threshold finding, not recite the common 1.6-2.2 g/kg/day recommendation."
+  },
+  {
+    "category": "adversarial_recovery",
+    "question": "Does cold water immersion after exercise help recovery?",
+    "evidence": [
+      {
+        "title": "Cold water immersion impairs strength adaptations: 12-week RCT",
+        "publication_year": "2023",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "Journal of Physiology",
+        "excerpt": "20 men performed 12 weeks of resistance training with either 10-min post-workout cold water immersion at 10°C or an active recovery condition. The CWI group showed a 14% smaller gain in 1RM leg press (p=0.02) and 11% smaller gain in quadriceps muscle thickness (p=0.04). Authors conclude routine post-workout CWI impairs long-term training adaptations."
+      }
+    ],
+    "adversarial_finding": "The retrieved RCT found CWI IMPAIRS strength and hypertrophy gains. A grounded answer must describe the adverse finding, not recite the textbook 'CWI speeds recovery / reduces soreness' benefit without the performance caveat."
+  },
+  {
+    "category": "adversarial_sleep",
+    "question": "How does sleep deprivation affect strength performance?",
+    "evidence": [
+      {
+        "title": "Acute sleep restriction does not impair 1RM strength or power",
+        "publication_year": "2024",
+        "publication_type": "Randomized Crossover Trial",
+        "journal": "Sleep Medicine",
+        "excerpt": "18 trained men performed 1RM testing after 8-h, 5-h, and 3-h sleep conditions (crossover design). No significant difference in 1RM squat (p=0.46), bench press (p=0.58), or peak power output (p=0.71). RPE was elevated in the 3-h condition but performance was preserved."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found NO effect of acute sleep restriction on 1RM strength or power. A grounded answer must report this null finding, not state that 'sleep loss impairs strength' from older reviews."
+  },
+  {
+    "category": "adversarial_cardio",
+    "question": "Does zone 2 cardio improve VO2 max better than HIIT?",
+    "evidence": [
+      {
+        "title": "Zone 2 vs HIIT for VO2max: 16-week head-to-head RCT",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "Medicine & Science in Sports & Exercise",
+        "excerpt": "40 recreationally active adults were randomized to 16 weeks of matched-volume zone 2 (n=20) or 4×4 HIIT (n=20). VO2max improved 14.3% in HIIT vs 4.1% in zone 2 (between-group p<0.001). Authors conclude HIIT is substantially superior to zone 2 for VO2max improvement at matched volume."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found HIIT is substantially BETTER for VO2max than zone 2 at matched volume. A grounded answer must describe this HIIT-superior finding, not hedge with the popular 'zone 2 builds a better aerobic base' framing without the VO2max-specific caveat."
+  },
+  {
+    "category": "adversarial_supplement_efficacy",
+    "question": "Does caffeine improve endurance performance?",
+    "evidence": [
+      {
+        "title": "Habitual coffee drinkers: caffeine ergogenic null-effect trial",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "Journal of Applied Physiology",
+        "excerpt": "30 habitual coffee drinkers (>300 mg/day baseline) were given 3 mg/kg caffeine or placebo before a 20-km cycling time trial. No significant difference in completion time (p=0.53) or mean power (p=0.61). Authors conclude caffeine's ergogenic effect is attenuated or absent in habituated users."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found NO caffeine benefit in habitual coffee drinkers. A grounded answer, when asked generally, must caveat that the effect is attenuated in habituated users — not simply restate the textbook 'caffeine improves endurance' claim."
+  },
+  {
+    "category": "adversarial_metabolic_health",
+    "question": "Does resistance training lower blood pressure?",
+    "evidence": [
+      {
+        "title": "Resistance training effect on resting BP: null finding in normotensive adults",
+        "publication_year": "2023",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "Hypertension Research",
+        "excerpt": "80 healthy normotensive adults underwent 24 weeks of resistance training (3×/week) vs a no-exercise control. Systolic BP change was -1.1 mmHg (p=0.42), diastolic -0.4 mmHg (p=0.71). Authors conclude resistance training alone produces no clinically meaningful BP reduction in normotensive populations."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found no BP reduction in normotensive adults. A grounded answer must describe this null finding for this population, not generically claim 'resistance training lowers blood pressure' without the population caveat."
+  },
+  {
+    "category": "adversarial_physiology",
+    "question": "Why does creatine increase strength?",
+    "evidence": [
+      {
+        "title": "Revised mechanism of creatine ergogenic effect: hydration, not phosphocreatine",
+        "publication_year": "2024",
+        "publication_type": "Review",
+        "journal": "Journal of Biological Chemistry",
+        "excerpt": "Recent work suggests creatine's ergogenic effect is primarily driven by intracellular water retention and associated cell-swelling signaling, rather than the classical phosphocreatine-ATP regeneration model. PCr stores do not appear to be rate-limiting during typical resistance-training set durations."
+      }
+    ],
+    "adversarial_finding": "The retrieved review proposes that creatine works via cell hydration, NOT via the textbook phosphocreatine-ATP story. A grounded answer must describe the retrieved mechanism, not recite the older phosphocreatine explanation."
+  },
+  {
+    "category": "adversarial_supplement_dose",
+    "question": "Is 400 IU vitamin D enough for most adults?",
+    "evidence": [
+      {
+        "title": "High-dose vitamin D no-effect trial: 4000 IU vs 400 IU in healthy adults",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "JAMA",
+        "excerpt": "In a 24-month trial of 1500 healthy adults with baseline 25(OH)D between 20-35 ng/mL, daily 4000 IU vs 400 IU vitamin D produced no difference in bone mineral density, muscle strength, or any functional endpoint (all p>0.20). Authors conclude 400 IU is adequate in this population."
+      }
+    ],
+    "adversarial_finding": "The retrieved JAMA trial found 400 IU was sufficient and higher doses provided no benefit in this population. A grounded answer must describe this finding and not generically recommend 'at least 1000-4000 IU for most adults' from older guidance."
+  },
+  {
+    "category": "adversarial_training_programming",
+    "question": "Does training to failure produce more muscle growth?",
+    "evidence": [
+      {
+        "title": "Training to failure vs leaving reps in reserve: meta-regression",
+        "publication_year": "2025",
+        "publication_type": "Meta-analysis",
+        "journal": "Sports Medicine",
+        "excerpt": "Meta-regression of 34 trials found that non-failure training (2-4 RIR stops) produces equivalent or slightly greater hypertrophy (ES=0.08 favoring non-failure, 95% CI 0.01 to 0.15) compared to training to failure when volume is matched. Failure-only training showed higher risk of joint overuse injury (RR=1.6)."
+      }
+    ],
+    "adversarial_finding": "The retrieved meta-analysis found non-failure is slightly BETTER than failure for hypertrophy. A grounded answer must describe this non-failure-favoring finding, not hedge with 'training to failure works as long as volume is matched' without mentioning the retrieved direction."
+  },
+  {
+    "category": "adversarial_supplement_efficacy",
+    "question": "Does citrulline malate improve workout performance?",
+    "evidence": [
+      {
+        "title": "Citrulline malate null-effect trial at manufacturer-recommended doses",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "European Journal of Applied Physiology",
+        "excerpt": "36 trained men received 8 g citrulline malate or placebo 60 min pre-workout in a crossover design. No difference in total training volume, RPE, or subjective pump score (all p>0.30). Authors conclude commonly used pre-workout doses of citrulline malate lack ergogenic effect under double-blinded conditions."
+      }
+    ],
+    "adversarial_finding": "The retrieved RCT found no citrulline malate benefit at 8 g. A grounded answer must report this null finding, not recite the popular 'citrulline improves pump/performance' claim."
+  },
+  {
+    "category": "adversarial_recovery",
+    "question": "Is foam rolling effective for reducing soreness?",
+    "evidence": [
+      {
+        "title": "Foam rolling null-effect trial in trained lifters",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "Journal of Sports Sciences",
+        "excerpt": "42 trained men performed high-volume eccentric training and were randomized to 15 min foam rolling vs seated rest post-exercise. DOMS (VAS) at 24, 48, and 72 hours did not differ (all p>0.40). Perceived soreness at 48 h: foam rolling 5.2 ± 1.1 vs control 5.0 ± 1.3."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found NO foam-rolling benefit for DOMS in trained lifters. A grounded answer must describe this null finding, not claim 'foam rolling reduces soreness' from older reviews."
+  },
+  {
+    "category": "adversarial_sleep",
+    "question": "Does melatonin improve sleep for athletes?",
+    "evidence": [
+      {
+        "title": "Melatonin supplementation in athletes: null effect on objective sleep metrics",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "Medicine & Science in Sports & Exercise",
+        "excerpt": "25 trained athletes received 3 mg melatonin or placebo 30 min pre-sleep for 14 days, measured via polysomnography. No difference in total sleep time (p=0.68), sleep onset latency (p=0.54), or REM percentage (p=0.61). Subjective sleep quality ratings also did not differ."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found NO effect of melatonin on athlete sleep. A grounded answer must describe this null finding, not recite the popular 'melatonin helps sleep' benefit."
+  },
+  {
+    "category": "adversarial_supplement_efficacy",
+    "question": "Does BCAA supplementation build muscle?",
+    "evidence": [
+      {
+        "title": "BCAA inferior to whey and equivalent to placebo for MPS",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "American Journal of Physiology",
+        "excerpt": "In a 3-arm study of 24 trained men, post-exercise muscle protein synthesis (measured via deuterated alanine tracer) was: whey 20g +39% above baseline, BCAA 5g +4% (NS vs placebo, p=0.62), placebo +2%. BCAA without other essential amino acids produced essentially no acute anabolic response."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found BCAAs have NO anabolic benefit vs placebo. A grounded answer must report this null finding, not recite the popular 'BCAAs build muscle' claim."
+  },
+  {
+    "category": "adversarial_nutrition_mechanism",
+    "question": "Should I eat protein every 3-4 hours to maximize muscle protein synthesis?",
+    "evidence": [
+      {
+        "title": "Meal frequency and 24-hour MPS: 3-meal vs 6-meal isocaloric trial",
+        "publication_year": "2024",
+        "publication_type": "Randomized Crossover Trial",
+        "journal": "Journal of Nutrition",
+        "excerpt": "16 trained men consumed 2.0 g/kg/day protein as either 3 meals (67g/meal) or 6 meals (33g/meal) on separate days. 24-hour cumulative MPS did not differ between conditions (p=0.72). Authors conclude meal frequency per se has no effect on daily MPS when total protein is adequate."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found meal frequency does NOT affect 24-hour MPS. A grounded answer must describe this finding, not restate the popular '3-4 hour protein distribution' heuristic."
+  },
+  {
+    "category": "adversarial_physiology",
+    "question": "How does caffeine improve endurance mechanistically?",
+    "evidence": [
+      {
+        "title": "Caffeine mechanism revisited: central drive, not adenosine blockade, dominates ergogenic effect",
+        "publication_year": "2024",
+        "publication_type": "Review",
+        "journal": "Journal of Physiology",
+        "excerpt": "Recent direct measurements of adenosine receptor occupancy at ergogenic caffeine doses (3-6 mg/kg) show only partial receptor blockade that does not correlate with performance improvement. Current consensus attributes the ergogenic effect primarily to increased central drive and altered pain perception via unidentified secondary pathways."
+      }
+    ],
+    "adversarial_finding": "The retrieved review proposes the mechanism is central drive, NOT the popular adenosine-blockade story. A grounded answer must describe the retrieved mechanism, not recite the older adenosine-receptor explanation."
+  },
+  {
+    "category": "adversarial_training_programming",
+    "question": "Should I deload every 4-6 weeks?",
+    "evidence": [
+      {
+        "title": "Scheduled deload vs autoregulated continuation: 20-week RCT",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "Journal of Strength and Conditioning Research",
+        "excerpt": "36 intermediate lifters were randomized to scheduled deload every 5 weeks (n=18) vs autoregulated continuation with no planned deload (n=18) for 20 weeks. Strength gains were larger in the autoregulated group (bench +9.2% vs +6.1%, p=0.03). Injury incidence did not differ."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found scheduled deloads produce SMALLER strength gains than autoregulated continuation. A grounded answer must describe this finding, not recite the popular 'deload every 4-6 weeks' heuristic."
+  },
+  {
+    "category": "adversarial_recovery",
+    "question": "How many rest days should I take per week?",
+    "evidence": [
+      {
+        "title": "Training frequency and recovery: no strength-gain penalty for daily training",
+        "publication_year": "2024",
+        "publication_type": "Randomized Controlled Trial",
+        "journal": "European Journal of Sport Science",
+        "excerpt": "48 trained men were randomized to 3, 5, or 7 days/week of matched-volume resistance training for 12 weeks. 1RM squat gains did not differ (p=0.44), nor did marker-based recovery scores. Authors conclude daily training at matched volume is not inferior to 3-day/week protocols for trained lifters."
+      }
+    ],
+    "adversarial_finding": "The retrieved trial found daily training was not inferior to 3-day/week. A grounded answer must describe this finding, not recite the popular 'at least 1-2 rest days per week' heuristic."
+  }
+]

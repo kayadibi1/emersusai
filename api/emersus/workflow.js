@@ -9,6 +9,50 @@ import { synthesize } from "./pipeline/synthesize.js";
 import { stream, streamToBuffer } from "./pipeline/stream.js";
 import { resolveChainingContext } from "./pipeline/response-chaining.js";
 import { capture, Sentry } from "../lib/analytics.js";
+import { supabaseAdmin } from "../lib/clients.js";
+
+// Periodic prod sampling of (question, sources, answer, grounding) so a
+// downstream grader can track citation-quality drift over time without
+// running the full 100-prompt eval. GROUNDING_SAMPLE_RATE is a string
+// in [0..1]; default 0 disables sampling entirely. Writes are fire-and-
+// forget — a DB error never affects the user-visible response.
+function groundingSampleRate() {
+  const raw = Number(process.env.GROUNDING_SAMPLE_RATE || 0);
+  if (!Number.isFinite(raw) || raw <= 0) return 0;
+  return Math.min(1, raw);
+}
+
+async function maybeSampleGroundingTurn(ctx) {
+  const rate = groundingSampleRate();
+  if (rate <= 0) return;
+  if (Math.random() >= rate) return;
+  if (!supabaseAdmin) return;
+  if (!ctx?.prose || !ctx?.evidence?.items?.length) return;
+  const sources = (ctx.evidence.items || []).map((it) => ({
+    title: it.title,
+    excerpt: it.excerpt,
+    journal: it.journal,
+    publication_year: it.publication_year,
+    publication_type: it.publication_type,
+    pmid: it.pmid,
+    doi: it.doi,
+    is_title_only_match: it.is_title_only_match === true,
+  }));
+  try {
+    await supabaseAdmin.from("chat_grounding_samples").insert({
+      user_id: ctx.supabaseUserId || null,
+      thread_id: ctx.threadId || null,
+      message_id: ctx._openaiResponseId || null,
+      question: String(ctx.question || "").slice(0, 4000),
+      sources_json: sources,
+      answer: String(ctx.prose || "").slice(0, 16000),
+      grounding_json: ctx.grounding || null,
+      model: ctx._synthesisModel || null,
+    });
+  } catch (err) {
+    console.warn("[workflow] grounding sample insert failed:", err?.message || err);
+  }
+}
 
 function parseJsonBody(req) {
   if (!req.body) return {};
@@ -60,6 +104,10 @@ async function generateRecommendationStream(rawInput, res) {
     ctx._chainingUsed = chainingContext?.shouldChain === true;
     ctx = await synthesize(ctx, { chainingContext });
     await stream(ctx, res);
+    // Fire-and-forget: sample a small fraction of turns into
+    // chat_grounding_samples so a downstream grader can track
+    // citation-quality drift without depending on the eval cadence.
+    maybeSampleGroundingTurn(ctx).catch(() => {});
     capture(ctx.stableUserId || "anonymous", "chat_stream_complete", {
       latency_ms: Date.now() - startedAt,
       evidence_count: ctx.evidence?.length || 0,
@@ -130,6 +178,7 @@ async function generateRecommendationJSON(rawInput) {
     ctx._chainingUsed = chainingContext?.shouldChain === true;
     ctx = await synthesize(ctx, { chainingContext });
     ctx = await streamToBuffer(ctx);
+    maybeSampleGroundingTurn(ctx).catch(() => {});
   } catch (err) {
     if (err instanceof ShortCircuit) return err.response;
     throw err;
