@@ -215,7 +215,9 @@
       font-size: 10px;
       letter-spacing: 0.22em;
       text-transform: uppercase;
-      color: var(--dim);
+      /* --dim is 4.43:1 vs card surface — juuust under AA 4.5. --muted
+       * clears comfortably and stays visually quieter than body ink. */
+      color: var(--muted);
       margin-bottom: 12px;
     }
     .feats {

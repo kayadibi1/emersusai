@@ -593,7 +593,9 @@ body[data-page="forgot-password"]:not([data-auth-ready]) .auth-layout {
 .field { display: grid; gap: 0.5rem; }
 
 .field-label {
-  color: #555;
+  /* Was #555 hardcoded (2.65:1 on mint, fails AA). --muted resolves
+   * through the theme tokens and clears AA on both. */
+  color: var(--muted);
   font-family: var(--mono);
   font-size: 0.55rem;
   font-weight: 500;
