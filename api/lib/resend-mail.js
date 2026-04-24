@@ -23,6 +23,7 @@ export async function sendResendEmail({
   templateId,
   templateVariables,
   tags,
+  headers,
 }) {
   const apiKey = String(process.env.RESEND_API_KEY || "").trim();
   if (!apiKey) {
@@ -44,6 +45,7 @@ export async function sendResendEmail({
   if (normalizedCc && (!Array.isArray(normalizedCc) || normalizedCc.length > 0)) payload.cc = normalizedCc;
   if (normalizedBcc && (!Array.isArray(normalizedBcc) || normalizedBcc.length > 0)) payload.bcc = normalizedBcc;
   if (tags) payload.tags = tags;
+  if (headers) payload.headers = headers;
 
   if (templateId) {
     payload.template = {
