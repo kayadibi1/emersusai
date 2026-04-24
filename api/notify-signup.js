@@ -206,5 +206,23 @@ export default async function handler(req, res) {
     return res.status(200).json({ notified: false, reason: "send_failed" });
   }
 
+  // --- User-facing welcome email ---------------------------------------
+  // Separate from the operator notification above. Failure here must not
+  // break signup UX, so we log and continue.
+  try {
+    const { sendAuthWelcome } = await import("./lib/email/senders.js");
+    await sendAuthWelcome({
+      userId: user.id,
+      to: email,
+      samplePrompts: [
+        "How much protein do I actually need per day?",
+        "Creatine: cycling or continuous?",
+        "Zone-2 cardio for fat loss — dose-response?",
+      ],
+    });
+  } catch (err) {
+    console.error("[notify-signup] welcome email send failed:", err.message);
+  }
+
   return res.status(200).json({ notified: true });
 }
