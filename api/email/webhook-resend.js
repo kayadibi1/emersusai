@@ -60,11 +60,17 @@ export async function handleResendWebhook({ headers, rawBody }, {
   }
 
   if (kind === "complained" && sendRow?.user_id) {
-    await supabase.from("email_unsubscribes").upsert({
-      user_id: sendRow.user_id,
-      bucket: "all_marketing",
-      source: "complaint",
-    });
+    const upsertResult = await supabase.from("email_unsubscribes").upsert(
+      {
+        user_id: sendRow.user_id,
+        bucket: "all_marketing",
+        source: "complaint",
+      },
+      { onConflict: "user_id,bucket" },
+    );
+    if (upsertResult?.error) {
+      throw new Error(`unsubscribe upsert failed: ${upsertResult.error.message}`);
+    }
   }
 
   return { statusCode: 202, body: { ok: true, kind, send_id: sendRow?.id || null } };
