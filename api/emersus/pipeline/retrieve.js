@@ -17,7 +17,13 @@ import { formatSources } from "./format-sources.js";
 
 const VECTOR_LIMIT = 6;
 const VECTOR_MATCH_THRESHOLD = 0.4;
-const VECTOR_MATCH_COUNT = 10;
+// Bumped from 10 → 25 on 2026-04-24 alongside the Jina rerank integration.
+// A pool of 10 left the cross-encoder with nothing to reorder and capped
+// what the heuristic rankEvidence blend could pick from. 25 is the sweet
+// spot: wide enough for Jina to surface a relevant candidate from ranks
+// 15-25 that cosine-sim missed, narrow enough that per-request cost
+// (both Jina tokens and enrichment SQL) stays trivial.
+const VECTOR_MATCH_COUNT = 25;
 
 // ─── Helpers (verbatim from workflow.js) ─────────────────────────────────────
 

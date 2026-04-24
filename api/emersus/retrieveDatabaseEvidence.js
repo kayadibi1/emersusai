@@ -1,6 +1,7 @@
 import { supabaseAdmin } from "../lib/clients.js";
 import { embedText } from "./embeddings.js";
 import { generateHydePassage } from "./pipeline/hyde.js";
+import { jinaRerank, isJinaConfigured } from "./pipeline/jina-rerank.js";
 
 /**
  * Group matches by DOI and keep the highest-similarity chunk per DOI.
@@ -152,7 +153,37 @@ async function retrieveSingleQuery({ prompt, matchThreshold, matchCount, include
   const matches = await runMatchRpc({ queryEmbedding, matchThreshold, matchCount, includePreprints });
   const enriched = await enrichMatches(matches);
   const useV4 = String(process.env.RETRIEVAL_USE_V4 || "").toLowerCase() === "true";
-  return useV4 ? enriched : dedupByDoi(enriched);
+  const deduped = useV4 ? enriched : dedupByDoi(enriched);
+  return maybeJinaRerank(prompt, deduped);
+}
+
+// Optional cross-encoder rerank step applied to the full enriched candidate
+// pool before the downstream heuristic (rankEvidence in api/emersus/rerank.js)
+// sees it. Feature-flagged via CHAT_JINA_RERANK_ENABLED. Jina produces a
+// stronger query-doc relevance signal than cosine similarity; the heuristic
+// blend (freshness/quality/similarity/RCR) then boosts freshness + credibility
+// on top of that reordered pool. Net: better relevance pool going into the
+// final freshness/RCR blend, while preserving all existing UI signals.
+//
+// Non-fatal — jina-rerank.js catches API errors internally and returns the
+// input unchanged, so retrieval never blocks on rerank.
+async function maybeJinaRerank(prompt, candidates) {
+  const flag = String(process.env.CHAT_JINA_RERANK_ENABLED || "").toLowerCase() === "true";
+  if (!flag || !isJinaConfigured() || !Array.isArray(candidates) || candidates.length < 2) {
+    return candidates;
+  }
+  try {
+    const reranked = await jinaRerank({
+      query: prompt,
+      candidates,
+      topN: candidates.length,
+      contentField: "chunk_text",
+    });
+    return Array.isArray(reranked) && reranked.length > 0 ? reranked : candidates;
+  } catch (err) {
+    console.warn(`[retrieval] Jina rerank failed (${err.message}); falling back to non-reranked candidates.`);
+    return candidates;
+  }
 }
 
 // HyDE-augmented retrieval: generate a hypothetical passage, retrieve
@@ -182,7 +213,8 @@ async function retrieveWithHyde({ prompt, matchThreshold, matchCount, includePre
   const fused = rrfMerge([origMatches, hydeMatches]).slice(0, matchCount);
   const enriched = await enrichMatches(fused);
   const useV4 = String(process.env.RETRIEVAL_USE_V4 || "").toLowerCase() === "true";
-  return useV4 ? enriched : dedupByDoi(enriched);
+  const deduped = useV4 ? enriched : dedupByDoi(enriched);
+  return maybeJinaRerank(prompt, deduped);
 }
 
 // Pure candidate fetcher: embeds the prompt, runs the pgvector RPC, joins

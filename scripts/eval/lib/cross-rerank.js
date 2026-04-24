@@ -68,33 +68,49 @@ async function cohereRerank({ query, candidates, topN, model }) {
 async function jinaRerank({ query, candidates, topN, model }) {
   const apiKey = process.env.JINA_API_KEY;
   if (!apiKey) throw new Error("JINA_API_KEY missing.");
+  // Jina free tier: 100K tokens/minute. Rerank calls with 50 docs × ~500
+  // tokens = 25K/call so we can safely issue ~3 calls/min. When the matrix
+  // sustains more than that, we retry on 429 with a 65s sleep (crosses the
+  // rate-limit window). Three tries total then give up.
   const body = {
     model: model || DEFAULT_JINA_MODEL,
     query,
     documents: candidates.map((c) => stripForRerank(c.content)),
     top_n: topN,
   };
-  const res = await fetch(JINA_URL, {
-    method: "POST",
-    headers: {
-      "Authorization": `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
+
+  let lastErr = null;
+  for (let attempt = 1; attempt <= 3; attempt += 1) {
+    const res = await fetch(JINA_URL, {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
+    if (res.ok) {
+      const json = await res.json();
+      const results = Array.isArray(json.results) ? json.results : [];
+      return results
+        .sort((a, b) => b.relevance_score - a.relevance_score)
+        .map((r) => ({
+          ...candidates[r.index],
+          score: r.relevance_score,
+          original_rank: r.index,
+        }));
+    }
     const txt = await res.text().catch(() => "");
-    throw new Error(`Jina rerank ${res.status}: ${txt.slice(0, 200)}`);
+    if (res.status === 429 && attempt < 3) {
+      const waitMs = 65_000; // span one full 60s rate-limit window
+      console.warn(`  [jina] 429 on attempt ${attempt} — sleeping ${waitMs / 1000}s for rate-limit window…`);
+      await new Promise((r) => setTimeout(r, waitMs));
+      continue;
+    }
+    lastErr = new Error(`Jina rerank ${res.status}: ${txt.slice(0, 200)}`);
+    break;
   }
-  const json = await res.json();
-  const results = Array.isArray(json.results) ? json.results : [];
-  return results
-    .sort((a, b) => b.relevance_score - a.relevance_score)
-    .map((r) => ({
-      ...candidates[r.index],
-      score: r.relevance_score,
-      original_rank: r.index,
-    }));
+  throw lastErr || new Error("Jina rerank failed (unknown)");
 }
 
 async function voyageRerank({ query, candidates, topN, model }) {

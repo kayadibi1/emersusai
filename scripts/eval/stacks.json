@@ -89,5 +89,33 @@
     "query_transform": "none",
     "index": "v4",
     "rerank": "cohere"
+  },
+  {
+    "id": "S13",
+    "label": "Dense + Jina rerank only",
+    "query_transform": "none",
+    "index": "v4",
+    "rerank": "jina"
+  },
+  {
+    "id": "S14",
+    "label": "HyDE + dense + Jina rerank",
+    "query_transform": "hyde",
+    "index": "v4",
+    "rerank": "jina"
+  },
+  {
+    "id": "S15",
+    "label": "Multi-query + dense + Jina rerank",
+    "query_transform": "multi-query",
+    "index": "v4",
+    "rerank": "jina"
+  },
+  {
+    "id": "S16",
+    "label": "PICOs + dense + Jina rerank",
+    "query_transform": "picos",
+    "index": "v4",
+    "rerank": "jina"
   }
 ]

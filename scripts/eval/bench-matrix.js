@@ -29,6 +29,7 @@ import { fileURLToPath } from "node:url";
 import { supabaseAdmin, openai } from "../../api/lib/clients.js";
 import { STRATEGIES } from "./lib/query-expand.js";
 import { rerank as crossRerank, isConfigured as rerankConfigured } from "./lib/cross-rerank.js";
+import { rankEvidence, dedupeEvidence } from "../../api/emersus/rerank.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const FIXTURES_DEFAULT = path.join(__dirname, "fixtures", "retrieval.json");
@@ -41,6 +42,11 @@ const MATCH_COUNT = 100;
 const MATCH_THRESHOLD = 0.0;
 const CANDIDATE_MULTIPLIER = 10;
 const RRF_K = 60;
+// Cap docs sent to cross-encoder reranker. 50 is the sweet spot per
+// Anthropic's reranker guidance — plenty of reordering room, half the
+// tokens of top-100, keeps us inside Jina's 100K-tok/min free-tier rate
+// limit at ~4 calls/min.
+const RERANK_POOL_SIZE = 50;
 
 // Cost estimation constants (April 2026 rates).
 const OPENAI_RATES = {
@@ -60,6 +66,7 @@ function parseArgs(argv) {
     label: new Date().toISOString().slice(0, 10),
     limit: 0,
     stackFilter: null,
+    applyProdRerank: false,
   };
   for (const arg of argv.slice(2)) {
     const [k, vRaw] = arg.replace(/^--/, "").split("=");
@@ -70,8 +77,58 @@ function parseArgs(argv) {
       args.stackFilter = new Set(String(v).split(",").map((s) => s.trim()).filter(Boolean));
     } else if (k === "label") args.label = v;
     else if (k === "limit") args.limit = Number(v) || 0;
+    else if (k === "apply-prod-rerank") args.applyProdRerank = v === true || String(v).toLowerCase() === "true";
   }
   return args;
+}
+
+// End-to-end matrix mode: after cross-rerank (or raw if no cross-rerank),
+// enrich candidates with the article metadata that api/emersus/rerank.js's
+// rankEvidence needs, then run the production heuristic blend (freshness
+// 0.30 + quality 0.30 + similarity 0.25 + RCR 0.15) and slice to
+// VECTOR_LIMIT=6 — mirrors what retrieve.js feeds the LLM. Reveals
+// whether the heuristic preserves or erases retrieval/rerank gains.
+const PROD_VECTOR_LIMIT = 6;
+
+async function enrichForProdRerank(candidates) {
+  if (!candidates || candidates.length === 0) return [];
+  const pmids = [...new Set(candidates.map((c) => Number(c.pmid)).filter(Boolean))];
+  const { data: articles, error } = await supabaseAdmin
+    .from("research_articles")
+    .select("pmid,publication_date,publication_year,publication_types,rcr,source,doi")
+    .in("pmid", pmids)
+    .eq("is_deleted", false);
+  if (error) throw new Error(`enrichForProdRerank: ${error.message}`);
+  const byPmid = new Map((articles || []).map((a) => [a.pmid, a]));
+  return candidates
+    .map((c) => {
+      const article = byPmid.get(Number(c.pmid));
+      if (!article) return null;
+      const pubTypes = Array.isArray(article.publication_types) ? article.publication_types : [];
+      return {
+        pmid: c.pmid,
+        doi: article.doi,
+        source_id: c.pmid ? `pmid:${c.pmid}` : null,
+        similarity: Number(c.similarity ?? c.score ?? 0),
+        database_score: Number(c.similarity ?? c.score ?? 0),
+        published_at: article.publication_date || article.publication_year || null,
+        evidence_level: pubTypes.join(", "),
+        source_type: "pubmed_vector",
+        publication_types: pubTypes,
+        rcr: article.rcr ?? null,
+        // Pass through the fields rankEvidence reads
+        title: `pmid:${c.pmid}`, // placeholder; dedup uses source_id first
+      };
+    })
+    .filter(Boolean);
+}
+
+async function applyProdRerank(candidates) {
+  const enriched = await enrichForProdRerank(candidates);
+  if (enriched.length === 0) return [];
+  const deduped = dedupeEvidence(enriched);
+  const ranked = rankEvidence(deduped);
+  return ranked;
 }
 
 // ─── Embedding ───────────────────────────────────────────────────────────────
@@ -167,7 +224,7 @@ function fuseMultiQuery(candidateLists, k = RRF_K) {
 
 // ─── Per-stack execution ─────────────────────────────────────────────────────
 
-async function runStackOnFixture({ stack, fixture }) {
+async function runStackOnFixture({ stack, fixture, applyProd = false }) {
   const t0 = Date.now();
   const transform = STRATEGIES[stack.query_transform];
   if (!transform) throw new Error(`Unknown query_transform: ${stack.query_transform}`);
@@ -247,7 +304,7 @@ async function runStackOnFixture({ stack, fixture }) {
       final = await crossRerank({
         backend: stack.rerank,
         query: fixture.question,
-        candidates: fused.slice(0, MATCH_COUNT).map((c) => ({
+        candidates: fused.slice(0, RERANK_POOL_SIZE).map((c) => ({
           id: c.id,
           pmid: c.pmid,
           chunk_type: c.chunk_type,
@@ -255,7 +312,7 @@ async function runStackOnFixture({ stack, fixture }) {
           similarity: c.similarity,
           rrf_score: c.rrf_score,
         })),
-        topN: MATCH_COUNT,
+        topN: RERANK_POOL_SIZE,
       });
       rerankCalls = 1;
     } catch (err) {
@@ -267,8 +324,30 @@ async function runStackOnFixture({ stack, fixture }) {
     rerankMs = Date.now() - rerankStart;
   }
 
-  // 6. Metrics.
-  const topPmids = final.map((r) => Number(r.pmid));
+  // 5b. Production heuristic rerank (--apply-prod-rerank): applies
+  // api/emersus/rerank.js's rankEvidence blend + dedupe, producing the
+  // ordering the LLM actually sees in chat. Captures whether the
+  // freshness/quality/RCR weights preserve or erase retrieval gains.
+  let prodRanked = null;
+  let prodRerankMs = 0;
+  if (applyProd) {
+    const prodStart = Date.now();
+    try {
+      prodRanked = await applyProdRerank(final.slice(0, MATCH_COUNT));
+    } catch (err) {
+      return {
+        error: `prod_rerank_failed: ${err.message}`,
+        latency_ms: Date.now() - t0,
+      };
+    }
+    prodRerankMs = Date.now() - prodStart;
+  }
+
+  // 6. Metrics. When applyProd is on, measure on post-heuristic ordering
+  // (what prod actually surfaces). Otherwise measure on retrieval/rerank
+  // output (what the matrix has historically reported).
+  const measuredRows = applyProd ? prodRanked : final;
+  const topPmids = measuredRows.map((r) => Number(r.pmid));
   const metrics = measureRecall({ topPmids, fixture });
 
   // 7. Cost estimate.
@@ -285,14 +364,17 @@ async function runStackOnFixture({ stack, fixture }) {
     fixture_question: fixture.question,
     query_variants: queryStrings.length,
     candidate_pool_size: fused.length,
+    prod_rerank_applied: applyProd,
     ...metrics,
     latency_ms: Date.now() - t0,
     transform_ms: transformMs,
     embed_ms: embedMs,
     rpc_ms: rpcMs,
     rerank_ms: rerankMs,
+    prod_rerank_ms: prodRerankMs,
     cost_usd: cost,
     top_10_pmids: topPmids.slice(0, 10),
+    top_6_pmids: topPmids.slice(0, 6),
   };
 }
 
@@ -304,11 +386,13 @@ function measureRecall({ topPmids, fixture }) {
   const mustIncludeSet = new Set(mustInclude);
   const mustExcludeSet = new Set(mustExclude);
 
+  const top6 = new Set(topPmids.slice(0, 6));
   const top10 = new Set(topPmids.slice(0, 10));
   const top50 = new Set(topPmids.slice(0, 50));
   const top100 = new Set(topPmids.slice(0, 100));
 
   const denom = Math.max(mustInclude.length, 1);
+  const recall6 = mustInclude.filter((p) => top6.has(p)).length / denom;
   const recall10 = mustInclude.filter((p) => top10.has(p)).length / denom;
   const recall50 = mustInclude.filter((p) => top50.has(p)).length / denom;
   const recall100 = mustInclude.filter((p) => top100.has(p)).length / denom;
@@ -316,6 +400,7 @@ function measureRecall({ topPmids, fixture }) {
   // Hit-recall variant: recall is 1 if ANY must_include is in top-K (useful
   // for fixtures where multiple pmids are duplicates of the same paper and
   // surfacing ANY is a pass).
+  const hitAt6 = mustInclude.some((p) => top6.has(p)) ? 1 : 0;
   const hitAt10 = mustInclude.some((p) => top10.has(p)) ? 1 : 0;
   const hitAt50 = mustInclude.some((p) => top50.has(p)) ? 1 : 0;
   const hitAt100 = mustInclude.some((p) => top100.has(p)) ? 1 : 0;
@@ -329,17 +414,21 @@ function measureRecall({ topPmids, fixture }) {
     }
   }
 
-  // Exclusion violations.
+  // Exclusion violations (at the top-6 cut users see, and at top-10).
+  const exclusions6 = mustExclude.filter((p) => top6.has(p)).length;
   const exclusions10 = mustExclude.filter((p) => top10.has(p)).length;
 
   return {
+    recall_at_6: recall6,
     recall_at_10: recall10,
     recall_at_50: recall50,
     recall_at_100: recall100,
+    hit_at_6: hitAt6,
     hit_at_10: hitAt10,
     hit_at_50: hitAt50,
     hit_at_100: hitAt100,
     mrr_at_10: mrr10,
+    exclusion_violations_at_6: exclusions6,
     exclusion_violations_at_10: exclusions10,
     must_include_count: mustInclude.length,
     must_exclude_count: mustExclude.length,
@@ -403,22 +492,23 @@ function aggregatePerStack(rows) {
     byStack.set(r.stack_id, ex);
   }
   const agg = [];
+  const safe = (v, d = 0) => (typeof v === "number" && Number.isFinite(v) ? v : d);
   for (const ex of byStack.values()) {
     const n = Math.max(ex.count, 1);
     agg.push({
       stack_id: ex.stack_id,
-      fixtures: ex.count,
+      fixtures: ex.count || 0,
       errors: ex.errors || 0,
-      mean_recall_at_10: Number((ex.recall_at_10 / n).toFixed(3)),
-      mean_recall_at_50: Number((ex.recall_at_50 / n).toFixed(3)),
-      mean_recall_at_100: Number((ex.recall_at_100 / n).toFixed(3)),
-      hit_rate_at_10: Number((ex.hit_at_10 / n).toFixed(3)),
-      hit_rate_at_50: Number((ex.hit_at_50 / n).toFixed(3)),
-      hit_rate_at_100: Number((ex.hit_at_100 / n).toFixed(3)),
-      mean_mrr_at_10: Number((ex.mrr_at_10 / n).toFixed(3)),
-      total_exclusion_violations: ex.exclusion_violations_at_10,
-      mean_latency_ms: Math.round(ex.latency_ms / n),
-      total_cost_usd: Number(ex.cost_usd.toFixed(4)),
+      mean_recall_at_10: Number((safe(ex.recall_at_10) / n).toFixed(3)),
+      mean_recall_at_50: Number((safe(ex.recall_at_50) / n).toFixed(3)),
+      mean_recall_at_100: Number((safe(ex.recall_at_100) / n).toFixed(3)),
+      hit_rate_at_10: Number((safe(ex.hit_at_10) / n).toFixed(3)),
+      hit_rate_at_50: Number((safe(ex.hit_at_50) / n).toFixed(3)),
+      hit_rate_at_100: Number((safe(ex.hit_at_100) / n).toFixed(3)),
+      mean_mrr_at_10: Number((safe(ex.mrr_at_10) / n).toFixed(3)),
+      total_exclusion_violations: safe(ex.exclusion_violations_at_10),
+      mean_latency_ms: Math.round(safe(ex.latency_ms) / n),
+      total_cost_usd: Number(safe(ex.cost_usd).toFixed(4)),
     });
   }
   return agg;
@@ -533,7 +623,7 @@ async function main() {
     console.log(`\n## Stack ${stack.id} — ${stack.label}`);
     for (const fixture of useFixtures) {
       cellIdx += 1;
-      const result = await runStackOnFixture({ stack, fixture });
+      const result = await runStackOnFixture({ stack, fixture, applyProd: args.applyProdRerank });
       rows.push({
         stack_id: stack.id,
         fixture_question: fixture.question,
