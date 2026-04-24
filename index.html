@@ -548,13 +548,13 @@
           <div class="bento-visual">
             <div class="plan-wrap">
               <div class="constraint-col" role="radiogroup" aria-label="Training constraint">
-                <button class="chip chip-constraint" role="radio" aria-pressed="true"  data-plan="full">
+                <button class="chip chip-constraint" role="radio" aria-checked="true"  data-plan="full">
                   <span class="chip-dot"></span>Full gym · 5 days
                 </button>
-                <button class="chip chip-constraint" role="radio" aria-pressed="false" data-plan="dumbbell">
+                <button class="chip chip-constraint" role="radio" aria-checked="false" data-plan="dumbbell">
                   <span class="chip-dot"></span>Dumbbell · 3 days
                 </button>
-                <button class="chip chip-constraint" role="radio" aria-pressed="false" data-plan="knee">
+                <button class="chip chip-constraint" role="radio" aria-checked="false" data-plan="knee">
                   <span class="chip-dot"></span>Knee-safe · 4 days
                 </button>
                 <div class="chip-hint">Plan redraws on tap. No rebuilds, no friction.</div>
@@ -1204,7 +1204,8 @@
       document.querySelectorAll('.chip-constraint').forEach(function (chip) {
         chip.addEventListener('click', function () {
           document.querySelectorAll('.chip-constraint').forEach(function (c) {
-            c.setAttribute('aria-pressed', c === chip ? 'true' : 'false');
+            // role="radio" uses aria-checked (not aria-pressed, which is for toggle buttons).
+            c.setAttribute('aria-checked', c === chip ? 'true' : 'false');
           });
           renderPlan(chip.getAttribute('data-plan'));
         });

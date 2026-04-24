@@ -92,6 +92,19 @@ input[type="reset"] {
   touch-action: manipulation;
 }
 
+/* ========== A11Y — link distinguishability (WCAG 1.4.1) ==========
+ * Axe flags mailto links inside body copy as "link-in-text-block" —
+ * they rely on color alone to distinguish from surrounding text, which
+ * fails for users with color blindness. Global underline for mailto: +
+ * any explicit "inline prose" link classes we already use. Color cue
+ * still applies on top; this adds a non-color signal. */
+a[href^="mailto:"],
+.body-copy a,
+.info-card a {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* ─── LAYOUT SHELLS ─── */
 
 .site-shell { position: relative; min-height: 100vh; min-height: 100dvh; z-index: 1; }
