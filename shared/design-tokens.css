@@ -4,8 +4,12 @@
  * Two palettes, runtime-switchable via data-theme on <html>.
  */
 
-/* ---------- FONT LOADING ---------- */
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+/* ---------- FONT LOADING ----------
+ * Fonts are loaded via <link> in each HTML page's <head>. CSS @import
+ * inside a stylesheet was an anti-pattern here: it forced a second round
+ * trip after design-tokens.css downloaded, blocking paint. Every page
+ * that loads this stylesheet also includes a Google Fonts <link> with
+ * JetBrains Mono + Space Grotesk 400–700. */
 
 /* ---------- PALETTE: GRAPHITE · JADE (dark, default) ---------- */
 /* Both palette blocks use :root[data-theme=...] instead of [data-theme=...]

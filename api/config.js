@@ -64,6 +64,24 @@ async function getCorpusStats() {
   return cache.value ?? { papers: null, topics: null, sources: null };
 }
 
+// Keep the corpus-stats cache pre-filled and the pg.Pool connection warm.
+// Without this, the first visitor after pool idleTimeout (30s) pays a
+// ~3s cold-start tax while PG reopens. Fires immediately at boot, then
+// every 2 minutes — inside the 5-minute cache TTL so a visitor never
+// lands on an expired bucket.
+const WARM_INTERVAL_MS = 2 * 60_000;
+let warmTimer = null;
+export function startConfigWarmer() {
+  if (warmTimer) return;
+  const tick = () => {
+    getCorpusStats().catch(() => {});
+  };
+  // First tick shortly after boot so it doesn't race env-var validation.
+  setTimeout(tick, 100);
+  warmTimer = setInterval(tick, WARM_INTERVAL_MS);
+  if (warmTimer.unref) warmTimer.unref();
+}
+
 export default async function handler(req, res) {
   if (req.method !== "GET") {
     res.setHeader("Allow", "GET");

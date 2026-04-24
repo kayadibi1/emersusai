@@ -181,8 +181,15 @@ section.ark-how .read-panel                { padding: 12px 14px 10px; }
     background: rgba(100,110,140,0.22);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
     transition: background 220ms ease, box-shadow 220ms ease, transform 260ms ease;
-    will-change: background, transform;
-  }.ark-how .read-grid .cell.read{
+  }
+  /* will-change only on actively-transitioning states. Promoting all 264
+   * base cells to compositor layers was fine on strong GPUs but added
+   * measurable layer-tile pressure on low-end hardware. */
+  .ark-how .read-grid .cell.warm,
+  .ark-how .read-grid .cell.live{
+    will-change: transform;
+  }
+  .ark-how .read-grid .cell.read{
     background: rgba(191,246,228,0.42);
     box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
   }.ark-how .read-grid .cell.warm{

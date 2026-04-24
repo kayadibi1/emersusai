@@ -90,7 +90,7 @@ app.use((req, res, next) => {
 });
 
 // Import API handlers (each is a default-exported (req, res) function)
-const { default: configHandler } = await import("./api/config.js");
+const { default: configHandler, startConfigWarmer } = await import("./api/config.js");
 const { default: contactHandler } = await import("./api/contact.js");
 const { default: notifySignupHandler } = await import("./api/notify-signup.js");
 const { default: recommendationHandler } = await import("./api/emersus/recommendation.js");
@@ -221,6 +221,7 @@ if (process.env.SENTRY_DSN) {
 const PORT = process.env.PORT || 3001;
 const httpServer = app.listen(PORT, "127.0.0.1", () => {
   console.log(`Emersus API listening on http://127.0.0.1:${PORT}`);
+  startConfigWarmer();
 });
 
 // Long-lived SSE streams (chat, recommendation) keep the keep-alive socket

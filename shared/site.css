@@ -3,7 +3,8 @@
    Typographic Minimalist: Georgia + JetBrains Mono + #78dc14 on #08080a
    ═══════════════════════════════════════════════════════════════════════ */
 
-@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+/* Fonts come from a <link> in each HTML page's <head>. Dropping the
+ * @import here avoids a second round trip after site.css downloads. */
 
 :root {
   --bg: #08080a;
