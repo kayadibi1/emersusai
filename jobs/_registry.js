@@ -23,6 +23,7 @@ import { ingestPreprintsSweepHandler } from "./ingest-preprints-sweep.js";
 import { ingestOpenalexBulkHandler }  from "./ingest-openalex-bulk.js";
 import { autoCloseEmptyWorkoutSessionsHandler } from "./auto-close-empty-workout-sessions.js";
 import { emailRenewalReminderHandler } from "./email-renewal-reminder.js";
+import { emailResearchAlertsHandler } from "./email-research-alerts.js";
 
 // Side-effect imports: ingestion plugins self-register on import
 import "../scripts/sources/pubmed.js";
@@ -165,6 +166,7 @@ export async function registerHandlers({ boss, sql, pool, log, incrementJobsProc
   await register("ingest-openalex-bulk",     ingestOpenalexBulkHandler);
   await register("auto-close-empty-workout-sessions", autoCloseEmptyWorkoutSessionsHandler);
   await register("email-renewal-reminder", emailRenewalReminderHandler);
+  await register("email-research-alerts", emailResearchAlertsHandler);
 
   // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness).
   // Queues were already created above in register() so schedule() can
@@ -200,6 +202,10 @@ export async function registerHandlers({ boss, sql, pool, log, incrementJobsProc
   // Queries profiles.pro_until; idempotency key prevents duplicate sends
   // across multiple cron fires in the same billing cycle.
   await boss.schedule("email-renewal-reminder", "0 10 * * *", {}, { tz: "America/New_York" });
+  // Daily 12:00 NY — research alerts for followed topics.
+  // No-ops gracefully when `research_alerts_since` RPC or `user_topic_follows`
+  // table do not yet exist (returns {sent:0, skipped:0, reason:"rpc_missing"}).
+  await boss.schedule("email-research-alerts", "0 12 * * *", {}, { tz: "America/New_York" });
 
-  log.info("all 21 handlers registered + 11 schedules");
+  log.info("all 22 handlers registered + 12 schedules");
 }
