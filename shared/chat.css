@@ -2562,6 +2562,16 @@ body.chat-page {
   }
 }
 
+/* Touch-specific 44 px minimum per WCAG 2.5.5. Above rule scales at 32 px
+ * for narrow viewports on hover-capable devices; this rule lifts the
+ * floor to 44 px on any coarse pointer regardless of viewport width. */
+@media (pointer: coarse) {
+  .msg-action {
+    min-height: 44px;
+    padding: 8px 12px;
+  }
+}
+
 /* ========================================================================== */
 /* MOBILE — responsive message padding + welcome scale (Phase C)               */
 /* ========================================================================== */

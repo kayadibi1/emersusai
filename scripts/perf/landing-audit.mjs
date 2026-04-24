@@ -120,44 +120,82 @@ async function auditOne(browserCtx, vp, surface) {
 
   // Audit DOM — horizontal overflow, touch targets, stylesheet flags.
   const audit = await page.evaluate(({ vpW, isMobile }) => {
+    // Walk up the ancestor chain looking for an element whose
+    // computed overflow-x is hidden/clip/auto/scroll. If we find one,
+    // the offending element is visually clipped and isn't a user-
+    // facing overflow bug — it's a decorative or animated element
+    // that happens to extend past the viewport by design (marquees,
+    // tilted 3D grids, etc.). Only flag overflow when the element
+    // escapes to a root scrollable ancestor.
+    const isClipped = (el) => {
+      let p = el.parentElement;
+      while (p && p !== document.body && p !== document.documentElement) {
+        const cs = getComputedStyle(p);
+        const ox = cs.overflowX;
+        if (ox === 'hidden' || ox === 'clip' || ox === 'auto' || ox === 'scroll') return true;
+        p = p.parentElement;
+      }
+      return false;
+    };
+
     const overflowers = [];
     const all = document.querySelectorAll('body *');
     for (const el of all) {
       const r = el.getBoundingClientRect();
-      // Element sticks past the right edge by > 2px and isn't deliberately clipped.
-      if (r.right > vpW + 2 && getComputedStyle(el).overflow !== 'hidden' && r.width > 10) {
-        if (overflowers.length < 15) {
-          overflowers.push({
-            tag: el.tagName.toLowerCase(),
-            id: el.id || null,
-            cls: (typeof el.className === 'string' ? el.className : '').slice(0, 80),
-            overflowPx: Math.round(r.right - vpW),
-            width: Math.round(r.width),
-          });
-        }
+      if (r.right <= vpW + 2 || r.width <= 10) continue;
+      const cs = getComputedStyle(el);
+      if (cs.overflow === 'hidden' || cs.overflowX === 'hidden' || cs.overflowX === 'clip') continue;
+      if (isClipped(el)) continue;
+      if (overflowers.length < 15) {
+        overflowers.push({
+          tag: el.tagName.toLowerCase(),
+          id: el.id || null,
+          cls: (typeof el.className === 'string' ? el.className : '').slice(0, 80),
+          overflowPx: Math.round(r.right - vpW),
+          width: Math.round(r.width),
+        });
       }
     }
 
     // Touch-target check: WCAG 2.5.5 = 44×44 CSS px. Only run on mobile
     // viewports; desktop UI doesn't bind to this. Target set: <a>, <button>,
     // <summary>, <input type=[button|submit|checkbox|radio|...]>, role=button.
+    //
+    // WCAG 2.5.5 exempts "Inline: The target is in a sentence or block of
+    // text." — an <a> whose parent is a <p>, <li>, <span>, etc. with
+    // surrounding text content is treated as inline body text. We detect
+    // this by checking whether the element shares a text-flowing parent
+    // with other text content. Raw body links dominate audit noise without
+    // this filter (landing showed ~140 inline links on a single viewport).
+    const isInlineBodyLink = (el) => {
+      if (el.tagName !== 'A') return false;
+      const p = el.parentElement;
+      if (!p) return false;
+      const pTag = p.tagName;
+      const inlineParents = new Set(['P', 'LI', 'SPAN', 'TD', 'DD', 'DT', 'BLOCKQUOTE', 'SMALL']);
+      if (!inlineParents.has(pTag)) return false;
+      // Require surrounding text (not just the link alone in a <p>).
+      const parentText = (p.innerText || '').replace(el.innerText || '', '').trim();
+      return parentText.length > 8;
+    };
+
     const smallTargets = [];
     if (isMobile) {
       const interactive = document.querySelectorAll('a, button, summary, [role=button], input[type=submit], input[type=button], input[type=checkbox], input[type=radio]');
       for (const el of interactive) {
         const r = el.getBoundingClientRect();
         if (r.width === 0 || r.height === 0) continue;   // hidden
-        if (r.width < 44 || r.height < 44) {
-          if (smallTargets.length < 20) {
-            smallTargets.push({
-              tag: el.tagName.toLowerCase(),
-              id: el.id || null,
-              cls: (typeof el.className === 'string' ? el.className : '').slice(0, 60),
-              w: Math.round(r.width),
-              h: Math.round(r.height),
-              text: (el.innerText || el.value || '').slice(0, 40).replace(/\s+/g, ' '),
-            });
-          }
+        if (r.width >= 44 && r.height >= 44) continue;
+        if (isInlineBodyLink(el)) continue;
+        if (smallTargets.length < 20) {
+          smallTargets.push({
+            tag: el.tagName.toLowerCase(),
+            id: el.id || null,
+            cls: (typeof el.className === 'string' ? el.className : '').slice(0, 60),
+            w: Math.round(r.width),
+            h: Math.round(r.height),
+            text: (el.innerText || el.value || '').slice(0, 40).replace(/\s+/g, ' '),
+          });
         }
       }
     }

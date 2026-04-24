@@ -76,6 +76,22 @@ button { cursor: pointer; }
   }
 }
 
+/* touch-action: manipulation disables iOS Safari's 300 ms double-tap-to-
+ * zoom delay on primary interactive elements. Applied site-wide (not
+ * gated by media query — it's a no-op on non-touch devices) so every
+ * button and link feels responsive to the first tap. Browsers since
+ * iOS 10 mostly eliminate the delay already, but older devices and
+ * some hybrid pointers still benefit. */
+button,
+a,
+[role="button"],
+summary,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  touch-action: manipulation;
+}
+
 /* ─── LAYOUT SHELLS ─── */
 
 .site-shell { position: relative; min-height: 100vh; min-height: 100dvh; z-index: 1; }
