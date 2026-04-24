@@ -91,3 +91,9 @@ docs/openai-api-reference.md
 
 # OpenAlex bulk-ingest local artifacts (regenerated each run)
 scripts/openalex-bulk/data/
+
+# Email preview renders (never committed)
+.email-preview/
+
+# Resend-hosted template IDs (environment-specific; operator-managed)
+.env.resend-templates
