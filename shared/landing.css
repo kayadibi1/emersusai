@@ -254,6 +254,17 @@ h1.headline {
   text-align: left;
   white-space: nowrap;
   overflow: visible;
+  max-width: 100%;
+}
+/* At iPhone SE 1st-gen (320 px) the widest antagonist word can exceed
+ * the viewport, since the rotator's JS width-lock targets the widest
+ * word to prevent mid-cycle reflow. Allow the word to break at that
+ * narrow size rather than overflow the screen. */
+@media (max-width: 360px) {
+  .rotator {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
 }
 .rot-text {
   display: inline-block;
@@ -1489,6 +1500,16 @@ h1.headline {
 .footer-col ul { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
 .footer-col a { font-size: 13.5px; color: var(--muted); text-decoration: none; transition: color .14s; }
 .footer-col a:hover { color: var(--ink); }
+/* Touch tap-target floor for footer nav links — they're standalone
+ * interactive targets in a vertical stack, not inline body text. */
+@media (pointer: coarse) {
+  .footer-col a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .footer-col ul { gap: 0; }  /* min-height already provides vertical rhythm */
+}
 .footer-bot { border-top: 1px solid var(--line); padding-top: 24px; display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 10px; color: var(--dim); letter-spacing: 0.18em; }
 
 @media (max-width: 900px) {
