@@ -559,3 +559,17 @@ body.progress-body {
     gap: 6px;
   }
 }
+
+/* ========================================================================== */
+/* TOUCH TAP-TARGET FLOORS
+ *
+ * Modality tabs (lift/cardio/swim/climb) and period pills (day/week/month)
+ * render as tight uppercase-mono controls. Desktop density (~25-29 px) is
+ * fine with a mouse; on touch they fail WCAG 2.5.5. Scoped to pointer:coarse.
+ */
+@media (pointer: coarse) {
+  .pg-modality-tab,
+  .pg-period-pill {
+    min-height: 44px;
+  }
+}

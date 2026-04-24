@@ -865,3 +865,18 @@ body.profile-body {
   border: 1px solid var(--surface-edge, var(--accent-line));
   white-space: nowrap;
 }
+
+/* ========================================================================== */
+/* TOUCH iOS AUTO-ZOOM FLOOR
+ *
+ * Profile has body-weight, height, macro-target, and memory inputs — all
+ * need 16 px on touch so iOS Safari doesn't auto-zoom on focus. Macro-pill
+ * inputs are already at 16 px by design; number-field and memory inputs
+ * were 14 px.
+ */
+@media (pointer: coarse) {
+  .pf-number-field-input input,
+  .pf-memory-input {
+    font-size: 16px;
+  }
+}

@@ -835,3 +835,22 @@ body.nutrition-body {
   color: var(--accent);
   transform: translateX(2px);
 }
+
+/* ========================================================================== */
+/* TOUCH TAP-TARGET + iOS AUTO-ZOOM FLOORS
+ *
+ * Food search is keyboard-heavy on mobile — users type a food name, hit a
+ * result, adjust the portion size. Each of those inputs needs 16 px to
+ * avoid iOS Safari auto-zooming between every step. Search results must
+ * be 44 px tall so thumbs can land accurately.
+ */
+@media (pointer: coarse) {
+  .nu-supp-input,
+  .nu-food-amount-input,
+  .nu-add-food-input {
+    font-size: 16px;
+  }
+  .nu-search-result {
+    min-height: 44px;
+  }
+}

@@ -1126,3 +1126,26 @@ body.train-body {
   .tr-mod-last { padding: 16px 18px 18px; }
   .tr-mod-recent-btn { padding: 10px 12px; }
 }
+
+/* ========================================================================== */
+/* TOUCH TAP-TARGET + iOS AUTO-ZOOM FLOORS
+ *
+ * Workout tracking is the single most-touched surface once a user is in an
+ * active session — weight/rep inputs fire dozens of times per workout.
+ * Desktop keeps the tighter density; touch devices get a 44 CSS-px minimum
+ * per WCAG 2.5.5, and inputs bump to 16 px to suppress iOS Safari's focus
+ * auto-zoom (which would otherwise scale the page up on every set entry).
+ */
+@media (pointer: coarse) {
+  .tr-set-weight-input,
+  .tr-set-reps-input {
+    font-size: 16px;
+    min-height: 44px;
+  }
+  .tr-session-menu button,
+  .tr-log-btn,
+  .tr-add-btn,
+  .tr-rest-btn {
+    min-height: 44px;
+  }
+}
