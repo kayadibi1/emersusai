@@ -207,7 +207,9 @@ body.auth-body {
   font-size: 10px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--dim);
+  /* --muted clears WCAG 2 AA (4.5:1) against the auth surface on both
+   * themes. Previously --dim was 4.2:1 on mint / 2.8:1 on paper. */
+  color: var(--muted);
 }
 
 .auth-form {
@@ -357,7 +359,14 @@ body.auth-body {
   color: var(--muted);
 }
 .auth-panel-foot p { margin: 0; }
-.auth-panel-foot a { color: var(--accent); text-decoration: none; }
+/* WCAG 1.4.1 — panel-foot links ("Forgot password?", "Sign up →",
+ * "Sign in") must be distinguishable from body text without relying
+ * on color alone. Underline unconditionally. */
+.auth-panel-foot a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
 .auth-panel-foot a:hover { text-decoration: underline; }
 /* Touch tap-target: "Forgot password?" is a direct child (standalone
  * interactive link). "Sign up →" inside <p> with surrounding text is
