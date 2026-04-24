@@ -63,6 +63,19 @@ a { color: inherit; text-decoration: none; }
 button, input, select, textarea { font: inherit; }
 button { cursor: pointer; }
 
+/* Baseline touch tap-target floor — covers pages like /demo that don't
+ * load landing.css or static.css. Those stylesheets layer their own
+ * pointer:coarse rules on top with the same min-height, so this is
+ * additive, not overriding. Scoped to pointer:coarse so desktop
+ * button density is untouched. */
+@media (pointer: coarse) {
+  .btn,
+  a.btn,
+  button.btn {
+    min-height: 44px;
+  }
+}
+
 /* ─── LAYOUT SHELLS ─── */
 
 .site-shell { position: relative; min-height: 100vh; min-height: 100dvh; z-index: 1; }

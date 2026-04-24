@@ -856,6 +856,11 @@ h1.headline {
   display: inline-flex; align-items: center; gap: 4px;
 }
 .source-read:hover { opacity: 0.75; }
+/* Touch tap-target floor — "READ →" is a standalone interactive link,
+ * not inline body text, so WCAG 2.5.5 applies. */
+@media (pointer: coarse) {
+  .source-read { min-height: 44px; padding: 0 4px; }
+}
 .source-followup { color: var(--dim); cursor: pointer; }
 @media (hover: hover) {
   .source-row:hover .source-followup { color: var(--muted); }
@@ -1146,6 +1151,10 @@ h1.headline {
               background var(--dur-micro) var(--ease-out-quad),
               transform var(--dur-micro) var(--ease-out-quad);
   user-select: none;
+}
+/* Touch tap-target floor for the constraint-plan chips. */
+@media (pointer: coarse) {
+  .bento-card .chip { min-height: 44px; }
 }
 @media (hover: hover) {
   .bento-card .chip:hover { border-color: var(--accent-line); color: var(--ink); transform: translateY(-1px); }
