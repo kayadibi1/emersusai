@@ -1,5 +1,6 @@
 import { supabaseAdmin } from "../lib/clients.js";
 import { embedText } from "./embeddings.js";
+import { generateHydePassage } from "./pipeline/hyde.js";
 
 /**
  * Group matches by DOI and keep the highest-similarity chunk per DOI.
@@ -32,48 +33,68 @@ export function dedupByDoi(rows) {
   return [...byDoi.values(), ...withoutDoi];
 }
 
-// Pure candidate fetcher: embeds the prompt, runs the pgvector RPC, joins
-// each matched chunk to its research_articles row, and returns the raw set.
-// All ranking happens downstream in rerank.js — this function deliberately
-// does not sort or slice so the rerank operates on the full candidate
-// pool from the RPC.
-//
-// The matchThreshold default mirrors the value every production caller
-// actually passes. The previous default (0.65) was dead code: the only
-// call site (workflow.js) always passes VECTOR_MATCH_THRESHOLD = 0.4, so
-// the signature was lying about how strict retrieval actually is.
-export async function retrieveDatabaseEvidence({
-  prompt,
-  matchThreshold = 0.4,
-  matchCount = 10,
-  includePreprints = true,
-}) {
-  const queryEmbedding = await embedText(prompt);
+// Reciprocal Rank Fusion constant. k=60 is Cormack et al. SIGIR 2009
+// default — rank-based so it's unit-free and doesn't need similarity
+// normalization across the two retrieval variants (raw query vs HyDE).
+const RRF_K = 60;
 
-  // RETRIEVAL_USE_V4 toggles between match_evidence_chunks_v3 (default)
-  // and v4 (source-centric with passage substitution + is_title_only_match).
-  // v4 is already deduped per source inside the RPC; v3 is not, so we run
-  // dedupByDoi only when on v3.
+// RPC dispatch — same v3/v4 toggle as the pre-HyDE path.
+async function runMatchRpc({ queryEmbedding, matchThreshold, matchCount, includePreprints }) {
   const useV4 = String(process.env.RETRIEVAL_USE_V4 || "").toLowerCase() === "true";
   const rpcName = useV4 ? "match_evidence_chunks_v4" : "match_evidence_chunks_v3";
-
-  const { data: matches, error: matchError } = await supabaseAdmin.rpc(rpcName, {
+  const { data, error } = await supabaseAdmin.rpc(rpcName, {
     query_embedding: queryEmbedding,
     match_threshold: matchThreshold,
     match_count: matchCount,
     p_include_preprints: includePreprints,
   });
-
-  if (matchError) {
-    throw new Error(`Vector search failed: ${matchError.message}`);
+  if (error) {
+    throw new Error(`Vector search failed (${rpcName}): ${error.message}`);
   }
+  // Attach rank for downstream RRF. Rank is the position in the RPC's
+  // own ordering (by similarity), not any downstream rerank.
+  return (data || []).map((row, idx) => ({ ...row, _rank: idx + 1 }));
+}
 
-  if (!matches || matches.length === 0) {
-    return [];
+// Merge N candidate lists by pmid using RRF: score(p) = Σ 1/(k + rank_i(p)).
+// The fused list is a superset of all input lists; documents present in
+// multiple lists accumulate contributions from each. For display fields
+// (id, chunk_type, content, similarity) we keep the variant with the
+// highest similarity — that's the best-matching chunk across all queries.
+function rrfMerge(lists, k = RRF_K) {
+  const acc = new Map();
+  for (const list of lists) {
+    for (const row of list) {
+      const key = Number(row.pmid);
+      if (!Number.isFinite(key)) continue;
+      const score = 1 / (k + (row._rank || 1));
+      const existing = acc.get(key);
+      if (!existing) {
+        acc.set(key, { ...row, _rrf_score: score });
+        continue;
+      }
+      existing._rrf_score += score;
+      if ((row.similarity || 0) > (existing.similarity || 0)) {
+        existing.id = row.id;
+        existing.chunk_type = row.chunk_type;
+        existing.content = row.content;
+        existing.similarity = row.similarity;
+        existing.matched_chunk_type = row.matched_chunk_type;
+        existing.is_title_only_match = row.is_title_only_match;
+      }
+    }
   }
+  return Array.from(acc.values()).sort((a, b) => b._rrf_score - a._rrf_score);
+}
+
+// Enrich raw chunk matches with research_articles metadata and map to the
+// flat row shape every downstream consumer (rerank, workflow, retrieve.js)
+// has been consuming since before HyDE existed. This is the single
+// place the output shape is defined.
+async function enrichMatches(matches) {
+  if (!matches || matches.length === 0) return [];
 
   const pmids = [...new Set(matches.map((m) => m.pmid).filter(Boolean))];
-
   const { data: articles, error: articleError } = await supabaseAdmin
     .from("research_articles")
     .select(
@@ -88,7 +109,7 @@ export async function retrieveDatabaseEvidence({
 
   const byPmid = new Map((articles || []).map((a) => [a.pmid, a]));
 
-  const enriched = matches
+  return matches
     .map((match) => ({
       ...match,
       article: byPmid.get(match.pmid) || null,
@@ -124,8 +145,74 @@ export async function retrieveDatabaseEvidence({
       influential_citation_count: row.article.influential_citation_count ?? null,
       publication_country: row.article.publication_country ?? null,
     }));
+}
 
-  // v4 already deduped per source inside the RPC. v3 needs dedupByDoi
-  // for cross-source DOI collisions.
+async function retrieveSingleQuery({ prompt, matchThreshold, matchCount, includePreprints }) {
+  const queryEmbedding = await embedText(prompt);
+  const matches = await runMatchRpc({ queryEmbedding, matchThreshold, matchCount, includePreprints });
+  const enriched = await enrichMatches(matches);
+  const useV4 = String(process.env.RETRIEVAL_USE_V4 || "").toLowerCase() === "true";
   return useV4 ? enriched : dedupByDoi(enriched);
+}
+
+// HyDE-augmented retrieval: generate a hypothetical passage, retrieve
+// against both the raw prompt and the hypothetical, then RRF-merge the
+// candidate pools before enriching. Per-sub-query matchCount is doubled
+// so the fused pool has at least 2× candidates for the heuristic rerank
+// downstream to choose from. If HyDE fails at any step, fall back to
+// single-query retrieval — never block chat on the expansion.
+async function retrieveWithHyde({ prompt, matchThreshold, matchCount, includePreprints }) {
+  const hydePassage = await generateHydePassage(prompt);
+  if (!hydePassage) {
+    return retrieveSingleQuery({ prompt, matchThreshold, matchCount, includePreprints });
+  }
+
+  // Wider per-sub-query net so the fused pool is meaningfully richer.
+  const expandedCount = Math.max(matchCount * 2, 20);
+  const [origEmbedding, hydeEmbedding] = await Promise.all([
+    embedText(prompt),
+    embedText(hydePassage),
+  ]);
+
+  const [origMatches, hydeMatches] = await Promise.all([
+    runMatchRpc({ queryEmbedding: origEmbedding, matchThreshold, matchCount: expandedCount, includePreprints }),
+    runMatchRpc({ queryEmbedding: hydeEmbedding, matchThreshold, matchCount: expandedCount, includePreprints }),
+  ]);
+
+  const fused = rrfMerge([origMatches, hydeMatches]).slice(0, matchCount);
+  const enriched = await enrichMatches(fused);
+  const useV4 = String(process.env.RETRIEVAL_USE_V4 || "").toLowerCase() === "true";
+  return useV4 ? enriched : dedupByDoi(enriched);
+}
+
+// Pure candidate fetcher: embeds the prompt, runs the pgvector RPC, joins
+// each matched chunk to its research_articles row, and returns the raw set.
+// All ranking happens downstream in rerank.js — this function deliberately
+// does not sort or slice so the rerank operates on the full candidate
+// pool from the RPC.
+//
+// The matchThreshold default mirrors the value every production caller
+// actually passes. The previous default (0.65) was dead code: the only
+// call site (workflow.js) always passes VECTOR_MATCH_THRESHOLD = 0.4, so
+// the signature was lying about how strict retrieval actually is.
+//
+// When CHAT_HYDE_ENABLED=true, the function runs the HyDE-augmented path
+// (two embeddings, two RPC calls, RRF fusion) — output shape is
+// identical so downstream rerank/workflow code is unchanged.
+export async function retrieveDatabaseEvidence({
+  prompt,
+  matchThreshold = 0.4,
+  matchCount = 10,
+  includePreprints = true,
+}) {
+  const hydeEnabled = String(process.env.CHAT_HYDE_ENABLED || "").toLowerCase() === "true";
+
+  if (hydeEnabled) {
+    try {
+      return await retrieveWithHyde({ prompt, matchThreshold, matchCount, includePreprints });
+    } catch (err) {
+      console.warn(`HyDE retrieval failed (${err.message}); falling back to single-query.`);
+    }
+  }
+  return retrieveSingleQuery({ prompt, matchThreshold, matchCount, includePreprints });
 }
