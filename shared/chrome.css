@@ -453,6 +453,24 @@
   border-color: rgba(248,113,113,0.5);
 }
 
+/* ========== TOUCH TAP-TARGET FLOORS (app shell) ==========
+ * Scoped to pointer:coarse so mouse-driven desktop keeps the tighter
+ * density. On touch devices, every interactive control gets at least
+ * 44 CSS px of height per WCAG 2.5.5. The .side-search input font bump
+ * is the iOS Safari auto-zoom guard — less than 16 px triggers a
+ * disruptive page zoom on every focus. */
+@media (pointer: coarse) {
+  .btn,
+  .btn-sm,
+  .btn-icon,
+  .btn-accent,
+  .btn-danger {
+    min-height: 44px;
+  }
+  .period-group button { min-height: 44px; }
+  .side-search input { font-size: 16px; }
+}
+
 /* Auto-save indicator */
 .autosave-hint {
   display: flex;

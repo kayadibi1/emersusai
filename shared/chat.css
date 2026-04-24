@@ -163,6 +163,14 @@
   color: var(--ink);
   border-color: var(--line);
 }
+/* Touch tap-target floor — desktop density (~27 px tall) is fine with a
+ * mouse but fails WCAG 2.5.5 on touch. Scoped to pointer:coarse. */
+@media (pointer: coarse) {
+  .top-bar .icon-btn { min-height: 44px; }
+  .top-bar .share-btn { min-height: 44px; }
+  .slash-item { min-height: 44px; }
+  .side-search-input { font-size: 16px; }
+}
 
 /* ========== SHARE BUTTON — prominent in the top-right so users
  * can see their thread is shareable at a glance. Accent-outlined (not
@@ -1326,6 +1334,8 @@ body.chat-page {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 9px 14px 9px 34px;
+  /* 16 px on coarse-pointer (touch) to prevent iOS Safari auto-zoom on
+   * focus. Desktop keeps the tight 13.5 px look. */
   font-size: 13.5px;
   line-height: 1.2;
   color: var(--ink);
@@ -1909,6 +1919,7 @@ body.chat-page {
   z-index: 90;
   background: rgba(0, 0, 0, 0.42);
   backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   display: grid;
   place-items: center;
   animation: shortcutsFade 140ms ease-out;
@@ -2099,7 +2110,11 @@ body.chat-page {
   outline: 0;
   resize: none;
   font-family: 'Space Grotesk', system-ui, sans-serif;
-  font-size: 15px;
+  /* 16 px — any smaller triggers iOS Safari's auto-zoom on focus, which
+   * makes the whole page scale up every time a mobile user taps to
+   * type. This is the primary chat input, so the UX cost of zoom is
+   * very high. 15 px vs 16 px is visually indistinguishable. */
+  font-size: 16px;
   line-height: 1.55;
   color: var(--ink);
   padding: 0;
