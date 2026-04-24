@@ -11,6 +11,7 @@ import { renderBillingPaymentFailed } from "../../api/lib/email/templates/billin
 import { renderBillingCancellation } from "../../api/lib/email/templates/billing-cancellation.js";
 import { renderLegalTosUpdate } from "../../api/lib/email/templates/legal-tos-update.js";
 import { renderLegalPrivacyUpdate } from "../../api/lib/email/templates/legal-privacy-update.js";
+import { renderDataExportReady } from "../../api/lib/email/templates/data-export-ready.js";
 
 test("auth-verify: renders full HTML document", () => {
   const html = renderAuthVerify(FIXTURES["auth-verify"]);
@@ -122,6 +123,17 @@ test("legal-privacy-update: renders info callout, changes list, effective date, 
   }
   assert.match(html, /May 15, 2026/);
   assert.match(html, new RegExp(escRe(fx.privacyUrl)));
+});
+
+test("data-export-ready: stat rows, expiry warning, checksum code block", () => {
+  const fx = FIXTURES["data-export-ready"];
+  const html = renderDataExportReady(fx);
+  assert.match(html, /48 MB/);
+  assert.match(html, /12,421 chat messages/);
+  assert.match(html, /ZIP/);
+  assert.match(html, /rgba\(251,191,36,0\.08\)/);
+  assert.match(html, /3f8c1e4b9d0a7c2f/);
+  assert.match(html, new RegExp(escRe(fx.downloadUrl)));
 });
 
 function escRe(s) {
