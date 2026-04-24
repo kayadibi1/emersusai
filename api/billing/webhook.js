@@ -24,6 +24,11 @@ import { validateEvent, WebhookVerificationError } from "@polar-sh/sdk/webhooks"
 import { supabaseAdmin } from "../lib/clients.js";
 import { invalidateTier as invalidateTierDefault } from "../emersus/user-rate-limit.js";
 import { capture as captureDefault } from "../lib/analytics.js";
+import {
+  sendBillingReceipt,
+  sendBillingPaymentFailed,
+  sendBillingCancellation,
+} from "../lib/email/senders.js";
 
 const PRO_STATUSES = new Set(["active", "trialing"]);
 const FREE_STATUSES = new Set(["revoked", "incomplete_expired"]);
@@ -130,6 +135,30 @@ export async function handleVerifiedEvent(
 
   // All other non-subscription events are logged only.
   if (!event.type?.startsWith("subscription.")) {
+    // order.paid: send receipt email before returning.
+    if (event.type === "order.paid") {
+      // --- Outbound email notification (order.paid) -----------------------
+      // Best-effort; email failures must NOT fail the webhook.
+      try {
+        const data = event?.data || {};
+        const email = data?.customer?.email;
+        if (email) {
+          await sendBillingReceipt({
+            userId,
+            to: email,
+            plan: data?.product?.name || "Pro",
+            period: data?.billing_period?.display || "",
+            amount: data?.total_amount != null
+              ? `$${(Number(data.total_amount) / 100).toFixed(2)}`
+              : "",
+            cardLast4: data?.payment_method?.card?.last4 || "----",
+            invoiceUrl: data?.invoice_url || "https://emersus.ai/app/profile?tab=billing",
+          });
+        }
+      } catch (err) {
+        console.error("[billing] email send failed:", err.message, { type: event.type });
+      }
+    }
     return { status: "logged" };
   }
 
@@ -196,6 +225,36 @@ export async function handleVerifiedEvent(
     } catch (_) { /* analytics best-effort */ }
     return { status: "tier_changed", tier: patch.tier };
   }
+
+  // --- Outbound email notifications (subscription events) -----------------
+  // Best-effort; email failures must NOT fail the webhook (Polar retries on
+  // non-2xx). Downstream users get observability via email_events.
+  try {
+    const data = event?.data || {};
+    const email = data?.customer?.email;
+    if (email) {
+      if (event.type === "subscription.updated" && data?.status === "past_due") {
+        await sendBillingPaymentFailed({
+          userId,
+          to: email,
+          cardLast4: data?.payment_method?.card?.last4 || "----",
+          reason: data?.last_payment_error || "Card declined",
+          retryAt: data?.next_retry_at || "within 3 days",
+          finalAttemptAt: data?.dunning_expires_at || "within 10 days",
+        });
+      } else if (event.type === "subscription.canceled") {
+        await sendBillingCancellation({
+          userId,
+          to: email,
+          accessThrough: data?.current_period_end || "end of current period",
+          refund: "No refund — access continues to end of period",
+        });
+      }
+    }
+  } catch (err) {
+    console.error("[billing] email send failed:", err.message, { type: event.type });
+  }
+
   return { status: "state_synced" };
 }
 
