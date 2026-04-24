@@ -22,6 +22,7 @@ import { bulkIngestActiveTopicsHandler } from "./bulk-ingest-active-topics.js";
 import { ingestPreprintsSweepHandler } from "./ingest-preprints-sweep.js";
 import { ingestOpenalexBulkHandler }  from "./ingest-openalex-bulk.js";
 import { autoCloseEmptyWorkoutSessionsHandler } from "./auto-close-empty-workout-sessions.js";
+import { emailRenewalReminderHandler } from "./email-renewal-reminder.js";
 
 // Side-effect imports: ingestion plugins self-register on import
 import "../scripts/sources/pubmed.js";
@@ -163,6 +164,7 @@ export async function registerHandlers({ boss, sql, pool, log, incrementJobsProc
   await register("ingest-preprints-sweep",   ingestPreprintsSweepHandler);
   await register("ingest-openalex-bulk",     ingestOpenalexBulkHandler);
   await register("auto-close-empty-workout-sessions", autoCloseEmptyWorkoutSessionsHandler);
+  await register("email-renewal-reminder", emailRenewalReminderHandler);
 
   // Scheduled cron jobs (pg-boss internal cron, NY timezone for DST correctness).
   // Queues were already created above in register() so schedule() can
@@ -194,6 +196,10 @@ export async function registerHandlers({ boss, sql, pool, log, incrementJobsProc
   // Every 15 min: close workout_sessions with no logged sets that have been
   // open >1h. Threshold + limit overridable via the cron payload below.
   await boss.schedule("auto-close-empty-workout-sessions", "*/15 * * * *", { thresholdMinutes: 60, limit: 500 }, { tz: "America/New_York" });
+  // Daily 10:00 NY — nudge Pro subscribers 7 days before renewal.
+  // Queries profiles.pro_until; idempotency key prevents duplicate sends
+  // across multiple cron fires in the same billing cycle.
+  await boss.schedule("email-renewal-reminder", "0 10 * * *", {}, { tz: "America/New_York" });
 
-  log.info("all 20 handlers registered + 10 schedules");
+  log.info("all 21 handlers registered + 11 schedules");
 }
