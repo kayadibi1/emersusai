@@ -416,7 +416,9 @@ h3 {
 .mini-card-label {
   display: block;
   margin-bottom: 0.5rem;
-  color: #555;
+  /* Hardcoded #555 was theme-agnostic and failed contrast on both.
+   * --muted resolves through the design-token system and hits AA. */
+  color: var(--muted);
   font-size: 0.55rem;
   font-weight: 500;
   text-transform: uppercase;

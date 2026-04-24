@@ -1632,7 +1632,9 @@ h1.headline {
   margin: 14px 0 0;
   padding: 0;
   font-size: 0.68rem;
-  color: var(--dim, #55555a);
+  /* --muted clears WCAG AA against body bg on both themes; --dim was
+   * ~4.2:1 mint / ~2.8:1 paper (fail on paper). */
+  color: var(--muted);
   line-height: 1.55;
   max-width: 44ch;
 }

@@ -203,7 +203,8 @@
     .cta-note {
       text-align: center;
       font-size: 11px;
-      color: var(--dim);
+      /* --muted clears WCAG AA vs body background; --dim failed on paper. */
+      color: var(--muted);
       margin-bottom: 24px;
       font-family: 'JetBrains Mono', monospace;
       letter-spacing: 0.03em;
