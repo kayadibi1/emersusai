@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import { test } from "node:test";
-import { MacroCalculator } from "../../../../../../shared/widget-v2/templates/calculators/macro-calculator.js";
 import { PlateLoaderVisual } from "../../../../../../shared/widget-v2/templates/calculators/plate-loader-visual.js";
 import { RpeToPercentRM } from "../../../../../../shared/widget-v2/templates/calculators/rpe-to-percent-rm.js";
 import { BodyFatEstimator } from "../../../../../../shared/widget-v2/templates/calculators/body-fat-estimator.js";
@@ -11,10 +10,10 @@ import { validateCalculatorWidget } from "../../../../../../shared/widget-v2/val
 
 const b = { title: "t", display_width: "wide", summary: null, follow_up_chips: [] };
 
-test("macro_calculator", () => {
-  const p = { ...b, type: "macro_calculator", data: { kcal_total: 2400, protein_g_per_kg: 2.2, fat_pct: 0.3, body_weight_kg: 80, protein_g: 176, fat_g: 80, carbs_g: 264 } };
-  assert.equal(validateCalculatorWidget(p).valid, true);
-  assert.match(JSON.stringify(MacroCalculator(p)), /176/);
+// macro_calculator deprecated 2026-04-23 (P4 consolidation into macro_ring).
+test("macro_calculator type is rejected (deprecated)", () => {
+  const p = { ...b, type: "macro_calculator", data: { kcal_total: 2400 } };
+  assert.equal(validateCalculatorWidget(p).valid, false);
 });
 test("plate_loader_visual", () => {
   const p = { ...b, type: "plate_loader_visual", data: { target_kg: 140, bar_kg: 20, plates_per_side: [{ kg: 25, count: 2 }, { kg: 5, count: 1 }, { kg: 2.5, count: 1 }, { kg: 1.25, count: 2 }] } };
@@ -30,13 +29,24 @@ test("rpe_to_percent_rm", () => {
   assert.equal(validateCalculatorWidget(p).valid, true);
   assert.match(JSON.stringify(RpeToPercentRM(p)), /RPE 10/);
 });
-test("body_fat_estimator", () => {
-  const p = { ...b, type: "body_fat_estimator", data: { sex: "male", neck_cm: 38, waist_cm: 88, height_cm: 180, hip_cm: 0, body_fat_pct: 16.4 } };
+test("body_fat_estimator — Navy formula renderer-computed", () => {
+  // male, neck 38, waist 88, height 180 → Navy ~18.4% → "Acceptable" zone
+  const p = { ...b, type: "body_fat_estimator", data: { sex: "male", neck_cm: 38, waist_cm: 88, height_cm: 180, hip_cm: null, body_fat_pct: null } };
   assert.equal(validateCalculatorWidget(p).valid, true);
+  assert.match(JSON.stringify(BodyFatEstimator(p)), /Acceptable/);
+});
+test("body_fat_estimator Athletic zone for lean male inputs", () => {
+  // male, neck 38, waist 78, height 180 → Navy ~10% → "Athletic" zone
+  const p = { ...b, type: "body_fat_estimator", data: { sex: "male", neck_cm: 38, waist_cm: 78, height_cm: 180, hip_cm: null, body_fat_pct: null } };
+  assert.match(JSON.stringify(BodyFatEstimator(p)), /Athletic/);
+});
+test("body_fat_estimator Fit zone for mid-lean male inputs", () => {
+  // male, neck 38, waist 83, height 180 → Navy ~14.5% → "Fit" zone
+  const p = { ...b, type: "body_fat_estimator", data: { sex: "male", neck_cm: 38, waist_cm: 83, height_cm: 180, hip_cm: null, body_fat_pct: null } };
   assert.match(JSON.stringify(BodyFatEstimator(p)), /Fit/);
 });
 test("body_fat_estimator requires hip_cm for female", () => {
-  const p = { ...b, type: "body_fat_estimator", data: { sex: "female", neck_cm: 32, waist_cm: 74, height_cm: 170, body_fat_pct: 24, hip_cm: 0 } };
+  const p = { ...b, type: "body_fat_estimator", data: { sex: "female", neck_cm: 32, waist_cm: 74, height_cm: 170, body_fat_pct: null, hip_cm: 0 } };
   assert.equal(validateCalculatorWidget(p).valid, false);
 });
 test("carb_cycling_calculator", () => {

@@ -4,6 +4,9 @@ import { TDEECalculator } from "../../../../../../shared/widget-v2/templates/cal
 import { OneRMEstimator } from "../../../../../../shared/widget-v2/templates/calculators/one-rm-estimator.js";
 import { validateCalculatorWidget } from "../../../../../../shared/widget-v2/validators/calculator.js";
 
+// Post 2026-04-23 diagnostic: BMR/TDEE/Epley/Brzycki are now renderer-
+// computed from atomic inputs. The model may pass these as null or supply
+// a hint value; the component ignores the hint and recomputes.
 const TDEE_PAYLOAD = {
   title: "Your TDEE",
   display_width: "medium",
@@ -13,11 +16,11 @@ const TDEE_PAYLOAD = {
   data: {
     weight_kg: 80, height_cm: 180, age: 32, sex: "male",
     activity_level: "moderate",
-    bmr: 1810, tdee: 2805,
+    bmr: null, tdee: null,
   },
 };
 
-test("validator accepts tdee_calculator", () => {
+test("validator accepts tdee_calculator with null bmr/tdee (renderer-computed)", () => {
   const r = validateCalculatorWidget(TDEE_PAYLOAD);
   assert.equal(r.valid, true, r.errors?.join("; "));
 });
@@ -34,13 +37,26 @@ test("validator rejects unknown activity_level", () => {
   assert.equal(r.valid, false);
 });
 
-test("tdee component renders bmr + tdee", () => {
+test("tdee component renders renderer-computed Mifflin-St Jeor BMR + TDEE", () => {
   const el = TDEECalculator(TDEE_PAYLOAD);
   const s = JSON.stringify(el);
-  assert.match(s, /1810/);
-  assert.match(s, /2805/);
+  // Mifflin-St Jeor male 80kg 180cm 32y = 1770; TDEE @1.55 = 2744
+  assert.match(s, /1770/);
+  assert.match(s, /2744/);
   assert.match(s, /BMR/);
   assert.match(s, /TDEE/);
+});
+
+test("tdee component female formula", () => {
+  const el = TDEECalculator({
+    ...TDEE_PAYLOAD,
+    data: { ...TDEE_PAYLOAD.data, weight_kg: 65, height_cm: 168, age: 28, sex: "female", activity_level: "light" },
+  });
+  const s = JSON.stringify(el);
+  // Mifflin female: 10×65 + 6.25×168 − 5×28 − 161 = 650 + 1050 − 140 − 161 = 1399
+  // TDEE @1.375 = 1924
+  assert.match(s, /1399/);
+  assert.match(s, /1924/);
 });
 
 const ORM_PAYLOAD = {
@@ -53,12 +69,11 @@ const ORM_PAYLOAD = {
     lift: "Back Squat",
     unit: "kg",
     load: 100, reps: 5,
-    epley_1rm: 116.7,
-    brzycki_1rm: 112.5,
+    epley_1rm: null, brzycki_1rm: null,
   },
 };
 
-test("validator accepts one_rm_estimator", () => {
+test("validator accepts one_rm_estimator with null epley/brzycki", () => {
   const r = validateCalculatorWidget(ORM_PAYLOAD);
   assert.equal(r.valid, true, r.errors?.join("; "));
 });
@@ -69,17 +84,12 @@ test("validator rejects reps outside 1-20", () => {
   assert.equal(r.valid, false);
 });
 
-test("validator rejects 1rm estimate below working load", () => {
-  const bad = { ...ORM_PAYLOAD, data: { ...ORM_PAYLOAD.data, epley_1rm: 50 } };
-  const r = validateCalculatorWidget(bad);
-  assert.equal(r.valid, false);
-});
-
-test("1rm component renders lift + both estimates", () => {
+test("1rm component renders renderer-computed Epley + Brzycki", () => {
   const el = OneRMEstimator(ORM_PAYLOAD);
   const s = JSON.stringify(el);
   assert.match(s, /Back Squat/);
   assert.match(s, /100/);
-  assert.match(s, /117/);       // Epley rounded
-  assert.match(s, /113/);       // Brzycki rounded (~112.5 → 113)
+  // Epley 100×(1+5/30) = 116.67 → 117; Brzycki 100×36/(37-5) = 112.5 → 113
+  assert.match(s, /117/);
+  assert.match(s, /113/);
 });

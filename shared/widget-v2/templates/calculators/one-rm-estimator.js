@@ -5,13 +5,19 @@ import { StatCard } from "../../primitives/stat-card.js";
 
 const h = React.createElement;
 
-// Shows a user's working set and the two common 1RM estimates side-by-side.
-// Epley is the classic; Brzycki tends to read lower at high reps. Showing
-// both gives the user a plausible range, not a false-precision single number.
+// Epley: load × (1 + reps/30). Brzycki: load × (36 / (37 - reps)).
+// Renderer-computed so model arithmetic drift can't surface mislabeled
+// values (2026-04-23 diagnostic flagged several "Brzycki" labels with
+// off-by-~5-kg outputs). Brzycki becomes unstable at very high reps so we
+// clamp at 36; Epley is numerically stable across the useful range.
+function epley(load, reps) { return load * (1 + reps / 30); }
+function brzycki(load, reps) { return reps >= 36 ? load * 36 : load * (36 / (37 - reps)); }
 
 export function OneRMEstimator({ title, display_width, summary, follow_up_chips, data }) {
-  const { lift, unit, load, reps, epley_1rm, brzycki_1rm } = data;
-  const avg = Math.round((epley_1rm + brzycki_1rm) / 2);
+  const { lift, unit, load, reps } = data;
+  const epley1rm = Math.round(epley(load, reps));
+  const brzycki1rm = Math.round(brzycki(load, reps));
+  const avg = Math.round((epley1rm + brzycki1rm) / 2);
   return h(
     CardFrame,
     { title, summary, display_width },
@@ -22,13 +28,13 @@ export function OneRMEstimator({ title, display_width, summary, follow_up_chips,
         "div",
         { className: "wv-orm-input" },
         h("span", { className: "wv-orm-lift" }, lift),
-        h("span", { className: "wv-orm-set" }, `${load} ${unit} \u00d7 ${reps}`),
+        h("span", { className: "wv-orm-set" }, `${load} ${unit} × ${reps}`),
       ),
       h(
         "div",
         { className: "wv-orm-stats" },
-        h(StatCard, { caption: "Epley", value: Math.round(epley_1rm), unit: unit }),
-        h(StatCard, { caption: "Brzycki", value: Math.round(brzycki_1rm), unit: unit }),
+        h(StatCard, { caption: "Epley", value: epley1rm, unit: unit }),
+        h(StatCard, { caption: "Brzycki", value: brzycki1rm, unit: unit }),
         h(StatCard, { caption: "Average", value: avg, unit: unit }),
       ),
     ),

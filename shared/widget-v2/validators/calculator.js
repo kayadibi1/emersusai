@@ -1,8 +1,11 @@
 import { validateBase } from "./index.js";
 
+// macro_calculator was consolidated into macro_ring 2026-04-23 (diagnostic
+// priority P4). macro_ring now accepts the atomic inputs (kcal_total + phase
+// + protein.grams) and the renderer computes carbs/fat defaults by phase.
 const CALC_TYPES = new Set([
   "macro_ring", "tdee_calculator", "one_rm_estimator",
-  "macro_calculator", "plate_loader_visual", "rpe_to_percent_rm",
+  "plate_loader_visual", "rpe_to_percent_rm",
   "body_fat_estimator", "carb_cycling_calculator",
   "protein_target_calculator", "pace_calculator",
 ]);
@@ -10,42 +13,51 @@ const CALC_TYPES = new Set([
 const isStr = (v) => typeof v === "string" && v.trim().length > 0;
 const isNum = (v) => typeof v === "number" && Number.isFinite(v);
 const isInt = (v) => Number.isInteger(v);
+const isNumOrNull = (v) => v == null || (typeof v === "number" && Number.isFinite(v));
 
+// macro_ring — atomic contract: kcal_total + phase + protein.grams.
+// carbs + fat legs are optional; the renderer computes phase-based defaults
+// when the model doesn't supply them. Drops the widget only on the hard
+// requirements the user's prompt almost always provides.
 function vMacroRing(d) {
   const e = [];
-  if (!isNum(d.kcal_total) || d.kcal_total < 0) e.push("kcal_total");
+  if (!isNum(d.kcal_total) || d.kcal_total <= 0) e.push("kcal_total");
   if (!["cut", "maintenance", "bulk"].includes(d.phase)) e.push("phase");
+  if (!d.protein || !isNum(d.protein.grams) || d.protein.grams <= 0) e.push("protein.grams");
   for (const leg of ["protein", "carbs", "fat"]) {
     const v = d[leg];
-    if (!v) { e.push(leg); continue; }
-    for (const f of ["grams", "target_grams", "kcal"]) if (!isNum(v[f]) || v[f] < 0) e.push(`${leg}.${f}`);
+    if (v == null) continue;
+    for (const f of ["grams", "target_grams", "kcal"]) {
+      if (v[f] != null && (!isNum(v[f]) || v[f] < 0)) e.push(`${leg}.${f}`);
+    }
   }
   return e;
 }
+
+// tdee_calculator — atomic contract: weight/height/age/sex/activity_level.
+// bmr + tdee are computed by the renderer via Mifflin-St Jeor; the model
+// may omit or null them. This closes the "wrong BMR labeled Mifflin" class
+// of inconsistencies found in the 2026-04-23 diagnostic.
 function vTdee(d) {
   const e = [];
-  for (const f of ["weight_kg", "height_cm", "age", "bmr", "tdee"]) if (!isNum(d[f]) || d[f] <= 0) e.push(f);
+  for (const f of ["weight_kg", "height_cm", "age"]) if (!isNum(d[f]) || d[f] <= 0) e.push(f);
   if (!["male", "female"].includes(d.sex)) e.push("sex");
   if (!["sedentary", "light", "moderate", "active", "very_active"].includes(d.activity_level)) e.push("activity_level");
+  if (!isNumOrNull(d.bmr)) e.push("bmr");
+  if (!isNumOrNull(d.tdee)) e.push("tdee");
   return e;
 }
+
+// one_rm_estimator — atomic contract: lift/unit/load/reps. epley + brzycki
+// are renderer-computed (formulas documented at call site).
 function v1RM(d) {
   const e = [];
   if (!isStr(d.lift)) e.push("lift");
   if (!["kg", "lb"].includes(d.unit)) e.push("unit");
   if (!isNum(d.load) || d.load <= 0) e.push("load");
   if (!isInt(d.reps) || d.reps < 1 || d.reps > 20) e.push("reps");
-  if (!isNum(d.epley_1rm) || d.epley_1rm < d.load) e.push("epley_1rm");
-  if (!isNum(d.brzycki_1rm) || d.brzycki_1rm < d.load) e.push("brzycki_1rm");
-  return e;
-}
-function vMacroCalc(d) {
-  const e = [];
-  if (!isNum(d.kcal_total) || d.kcal_total <= 0) e.push("kcal_total");
-  if (!isNum(d.protein_g_per_kg) || d.protein_g_per_kg <= 0) e.push("protein_g_per_kg");
-  if (!isNum(d.fat_pct) || d.fat_pct < 0 || d.fat_pct > 1) e.push("fat_pct");
-  if (!isNum(d.body_weight_kg) || d.body_weight_kg <= 0) e.push("body_weight_kg");
-  for (const f of ["protein_g", "fat_g", "carbs_g"]) if (!isNum(d[f]) || d[f] < 0) e.push(f);
+  if (!isNumOrNull(d.epley_1rm)) e.push("epley_1rm");
+  if (!isNumOrNull(d.brzycki_1rm)) e.push("brzycki_1rm");
   return e;
 }
 function vPlateLoader(d) {
@@ -69,10 +81,13 @@ function vRpeTable(d) {
   });
   return e;
 }
+// body_fat_estimator — atomic contract: sex + neck/waist/height (+ hip for
+// female). body_fat_pct is renderer-computed via the Navy formula.
 function vBodyFat(d) {
   const e = [];
   if (!["male", "female"].includes(d.sex)) e.push("sex");
-  for (const f of ["neck_cm", "waist_cm", "height_cm", "body_fat_pct"]) if (!isNum(d[f]) || d[f] <= 0) e.push(f);
+  for (const f of ["neck_cm", "waist_cm", "height_cm"]) if (!isNum(d[f]) || d[f] <= 0) e.push(f);
+  if (!isNumOrNull(d.body_fat_pct)) e.push("body_fat_pct");
   if (d.sex === "female" && (!isNum(d.hip_cm) || d.hip_cm <= 0)) e.push("hip_cm (required for female)");
   return e;
 }
@@ -92,16 +107,16 @@ function vProteinTarget(d) {
   if (!isNum(d.body_weight_kg) || d.body_weight_kg <= 0) e.push("body_weight_kg");
   if (!isInt(d.meal_count) || d.meal_count < 1 || d.meal_count > 8) e.push("meal_count");
   if (!isNum(d.total_g) || d.total_g <= 0) e.push("total_g");
-  if (!isNum(d.per_meal_g) || d.per_meal_g <= 0) e.push("per_meal_g");
-  if (!isNum(d.leucine_threshold_g)) e.push("leucine_threshold_g");
+  if (!isNumOrNull(d.per_meal_g)) e.push("per_meal_g");
+  if (!isNumOrNull(d.leucine_threshold_g)) e.push("leucine_threshold_g");
   return e;
 }
 function vPace(d) {
   const e = [];
   if (!isNum(d.distance_km) || d.distance_km <= 0) e.push("distance_km");
   if (!isNum(d.time_sec) || d.time_sec <= 0) e.push("time_sec");
-  if (!isNum(d.pace_sec_per_km) || d.pace_sec_per_km <= 0) e.push("pace_sec_per_km");
-  if (!isNum(d.speed_kmh) || d.speed_kmh <= 0) e.push("speed_kmh");
+  if (!isNumOrNull(d.pace_sec_per_km)) e.push("pace_sec_per_km");
+  if (!isNumOrNull(d.speed_kmh)) e.push("speed_kmh");
   if (d.zone != null && !["Z1", "Z2", "Z3", "Z4", "Z5"].includes(d.zone)) e.push("zone");
   return e;
 }
@@ -116,7 +131,6 @@ export function validateCalculatorWidget(payload) {
     macro_ring: vMacroRing,
     tdee_calculator: vTdee,
     one_rm_estimator: v1RM,
-    macro_calculator: vMacroCalc,
     plate_loader_visual: vPlateLoader,
     rpe_to_percent_rm: vRpeTable,
     body_fat_estimator: vBodyFat,

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>widget-v2 render viewer</title>
+<link rel="stylesheet" href="/shared/design-tokens.css">
+<link rel="stylesheet" href="/shared/widget-v2/tokens.css">
+<link rel="stylesheet" href="/shared/chat.css">
+<style>
+  html, body { margin: 0; padding: 0; background: var(--surface-canvas, #0e1117); }
+  body { font-family: var(--font-body, system-ui, sans-serif); color: var(--text-primary, #e8eaed); }
+  #mount { padding: 24px; max-width: 720px; margin: 0 auto; }
+  .wv-card, .wv-wide { max-width: 720px !important; }
+</style>
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom": "https://esm.sh/react-dom@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime"
+  }
+}
+</script>
+</head>
+<body data-theme="mint">
+<div id="mount"></div>
+<script type="module">
+  import React from "react";
+  import { createRoot } from "react-dom/client";
+  import { WidgetV2 } from "/shared/widget-v2/dispatcher.js";
+
+  const h = React.createElement;
+  const params = new URLSearchParams(location.search);
+  const theme = params.get("theme") || "mint";
+  document.body.setAttribute("data-theme", theme);
+  const family = params.get("family");
+  const payloadJson = params.get("payload");
+  let payload = null;
+  try {
+    // payload is base64url-encoded JSON
+    const b64 = payloadJson.replace(/-/g, "+").replace(/_/g, "/");
+    const decoded = decodeURIComponent(escape(atob(b64)));
+    payload = JSON.parse(decoded);
+  } catch (e) {
+    document.getElementById("mount").innerText = "payload parse error: " + e.message;
+  }
+  if (family && payload) {
+    createRoot(document.getElementById("mount")).render(
+      h(WidgetV2, { family, payload }),
+    );
+    // Signal to Playwright that render is done.
+    setTimeout(() => { document.body.setAttribute("data-ready", "1"); }, 250);
+  }
+</script>
+</body>
+</html>

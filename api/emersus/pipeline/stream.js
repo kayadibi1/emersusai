@@ -4,6 +4,7 @@ import { PROMPT_CACHE_KEY, resolveMaxOutputTokens } from "./synthesize.js";
 import { isExtractorEnabled } from "./memory-flags.js";
 import { verifyAnswerGrounding } from "./grounding-verifier.js";
 import { groundingEnforcementEnabled } from "./prompt.js";
+import { sanitizeWidgetPayload } from "../../../shared/widget-v2/payload-sanitizer.js";
 
 export function parseSSELine(line) {
   const trimmed = String(line).trim();
@@ -259,8 +260,20 @@ function processEvent(event, state) {
         }
         const validation = validateToolCall(toolName, args);
         if (validation.valid) {
-          state.ctx.toolResults[toolName] = validation.data;
-          if (state.onTool) state.onTool(toolName, validation.data);
+          // Grounding sanitizer — strips ungrounded rows from evidence
+          // widgets and drops the widget if too few survive. Scope limited
+          // to emit_evidence_widget in this pass (2026-04-23 P1 diagnostic).
+          const sanitized = sanitizeWidgetPayload(toolName, validation.data, state.ctx);
+          if (sanitized.valid) {
+            state.ctx.toolResults[toolName] = sanitized.data;
+            if (sanitized.drops?.length) {
+              console.log(`[sanitizer] ${toolName}:`, sanitized.drops.join("; "));
+            }
+            if (state.onTool) state.onTool(toolName, sanitized.data);
+          } else {
+            console.warn(`[sanitizer] ${toolName} dropped:`, sanitized.errors.join("; "));
+            if (state.onToolError) state.onToolError(toolName, sanitized.errors);
+          }
         } else {
           console.error(`Tool validation failed for ${toolName}:`, validation.errors);
           if (state.onToolError) state.onToolError(toolName, validation.errors);
