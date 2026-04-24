@@ -45,7 +45,10 @@ body {
   --composer-bg: rgba(255,255,255,0.015);
   --ink: #ededee;
   --muted: #8a8a8f;
-  --dim: #55555a;
+  /* Was #55555a (3.8:1 vs --bg on mint — fails WCAG AA for small text).
+   * Nudged up to clear 4.5:1 while staying visually tertiary below --muted.
+   * Used for micro-labels, meta tags, timestamps, disclaimers. */
+  --dim: #7c7c82;
   --line: rgba(255,255,255,0.10);
   --line-strong: rgba(255,255,255,0.16);
   --grid-line: rgba(255,255,255,0.018);
@@ -100,7 +103,9 @@ body {
   --composer-bg: rgba(26,24,19,0.02);
   --ink: #1a1813;
   --muted: #5e564a;
-  --dim: #8f8676;
+  /* Was #8f8676 (2.8:1 vs --bg on paper — hard fail on small text).
+   * Darkened to clear 4.5:1 while staying visually tertiary below --muted. */
+  --dim: #706658;
   --line: rgba(26,24,19,0.14);
   --line-strong: rgba(26,24,19,0.22);
   --grid-line: rgba(26,24,19,0.035);
