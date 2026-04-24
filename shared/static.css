@@ -265,6 +265,18 @@ body.static-page {
   border-color: var(--accent);
 }
 .sv-contact-form textarea { min-height: 140px; resize: vertical; }
+/* info-card + body-copy links (like mailto:info@emersus.ai) render as
+ * the sole content of a <p>, which means my audit's inline-body-link
+ * exemption doesn't apply — they ARE standalone interactive targets.
+ * Give them a 44 px tap area on touch without disturbing desktop. */
+@media (pointer: coarse) {
+  .info-card a,
+  .body-copy a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+}
 .sv-contact-form button {
   align-self: flex-start;
   background: var(--accent);

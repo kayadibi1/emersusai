@@ -46,6 +46,7 @@
     "three": "^0.161.0"
   },
   "devDependencies": {
+    "axe-core": "^4.11.3",
     "nock": "^13.5.6",
     "playwright": "^1.59.1",
     "sharp": "^0.34.5",

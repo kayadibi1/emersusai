@@ -19,6 +19,15 @@
 import { chromium, webkit, firefox, devices } from 'playwright';
 import fs from 'node:fs';
 import path from 'node:path';
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
+// Read axe-core source once so each page-evaluate injection is cheap.
+// Loading from CDN fails against site CSP (script-src lacks unpkg.com);
+// injecting the library source directly through Playwright bypasses the
+// network hop AND the CSP check (it's a Playwright runtime eval, not a
+// <script> tag the page owns).
+const AXE_SOURCE = fs.readFileSync(require.resolve('axe-core/axe.min.js'), 'utf8');
 
 const args = process.argv.slice(2);
 const profileArg = args.find(a => a.startsWith('--profile='));
@@ -32,7 +41,9 @@ const PROFILES = {
     { name: 'terms',             path: '/terms' },
     { name: 'contact',           path: '/contact' },
     { name: 'consumer-health',   path: '/consumer-health-data' },
-    { name: 'demo',              path: '/demo' },
+    { name: 'about',             path: '/about' },
+    { name: 'pricing',           path: '/pricing' },
+    { name: 'editorial-policy',  path: '/editorial-policy' },
   ],
   auth: [
     { name: 'login',             path: '/auth/login' },
@@ -117,6 +128,40 @@ async function auditOne(browserCtx, vp, surface) {
 
   // Let page settle — fonts, wave, lazy content, etc.
   await page.waitForTimeout(1200);
+
+  // axe-core a11y audit — inject library source via page.evaluate so
+  // site CSP doesn't block it. Run on desktop viewport per browser
+  // (mobile viewports share the same DOM so running axe there is
+  // redundant and would ~3x the audit wall clock).
+  let axeResults = null;
+  if (vp.name === 'desktop' && status !== 404) {
+    try {
+      axeResults = await page.evaluate(async (axeSrc) => {
+        // eslint-disable-next-line no-new-func
+        new Function(axeSrc)();
+        const r = await window.axe.run(document, {
+          runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'] },
+          resultTypes: ['violations'],
+        });
+        return {
+          violations: r.violations.map((v) => ({
+            id: v.id,
+            impact: v.impact,
+            help: v.help,
+            helpUrl: v.helpUrl,
+            nodeCount: v.nodes.length,
+            sample: v.nodes.slice(0, 3).map((n) => ({
+              target: (n.target || []).join(' '),
+              summary: (n.failureSummary || '').slice(0, 200),
+              html: (n.html || '').slice(0, 160),
+            })),
+          })),
+        };
+      }, AXE_SOURCE);
+    } catch (err) {
+      axeResults = { error: String(err.message).slice(0, 200) };
+    }
+  }
 
   // Audit DOM — horizontal overflow, touch targets, stylesheet flags.
   const audit = await page.evaluate(({ vpW, isMobile }) => {
@@ -243,10 +288,14 @@ async function auditOne(browserCtx, vp, surface) {
     url,
     httpStatus: status,
     ...audit,
-    horizontalScroll: audit.docWidth > vp.w + 2,
+    // 404s hit Caddy's default error page (980 px wide), which trips
+    // the horizontal-scroll heuristic. Suppress for non-200 responses —
+    // those aren't real surfaces we're auditing.
+    horizontalScroll: status === 200 && audit.docWidth > vp.w + 2,
     consoleErrors: consoleMsgs.filter(m => m.type === 'error'),
     consoleWarnings: consoleMsgs.filter(m => m.type === 'warning').slice(0, 5),
     pageErrors,
+    axe: axeResults,
     screenshot: pngName,
   };
 }
@@ -314,6 +363,7 @@ try {
   flush();
 }
 
+const axeRuns = report.results.filter(r => r.axe && r.axe.violations);
 const summary = {
   totalRuns:        report.results.length,
   errors:           report.results.filter(r => r.error).length,
@@ -323,6 +373,9 @@ const summary = {
   consoleErrors:    report.results.reduce((s, r) => s + (r.consoleErrors?.length || 0), 0),
   pageErrors:       report.results.reduce((s, r) => s + (r.pageErrors?.length || 0), 0),
   totalFlag_100vh:  report.results.reduce((s, r) => s + (r.flags?.has100vhRules || 0), 0),
+  axeRuns:          axeRuns.length,
+  axeViolationsTotal: axeRuns.reduce((s, r) => s + r.axe.violations.length, 0),
+  axeSeriousPlus:   axeRuns.reduce((s, r) => s + r.axe.violations.filter(v => v.impact === 'serious' || v.impact === 'critical').length, 0),
 };
 console.log('\n─── SUMMARY ───');
 console.log(JSON.stringify(summary, null, 2));
