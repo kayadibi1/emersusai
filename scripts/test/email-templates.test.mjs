@@ -7,6 +7,7 @@ import { renderAuthWelcome } from "../../api/lib/email/templates/auth-welcome.js
 import { renderAuthPasswordChanged } from "../../api/lib/email/templates/auth-password-changed.js";
 import { renderBillingReceipt } from "../../api/lib/email/templates/billing-receipt.js";
 import { renderBillingRenewal } from "../../api/lib/email/templates/billing-renewal.js";
+import { renderBillingPaymentFailed } from "../../api/lib/email/templates/billing-payment-failed.js";
 
 test("auth-verify: renders full HTML document", () => {
   const html = renderAuthVerify(FIXTURES["auth-verify"]);
@@ -77,6 +78,16 @@ test("billing-renewal: shows plan, next charge, amount, manage URL", () => {
   assert.match(html, /May 1, 2026/);
   assert.match(html, /\$9\.00/);
   assert.match(html, new RegExp(escRe(fx.manageUrl)));
+});
+
+test("billing-payment-failed: warning callout, card last-4, retry + final-attempt dates", () => {
+  const fx = FIXTURES["billing-payment-failed"];
+  const html = renderBillingPaymentFailed(fx);
+  assert.match(html, /rgba\(251,191,36,0\.08\)/);
+  assert.match(html, /0341/);
+  assert.match(html, /Apr 27, 2026/);
+  assert.match(html, /May 1, 2026/);
+  assert.match(html, new RegExp(escRe(fx.updateUrl)));
 });
 
 function escRe(s) {
