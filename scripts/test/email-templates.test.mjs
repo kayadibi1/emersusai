@@ -12,6 +12,7 @@ import { renderBillingCancellation } from "../../api/lib/email/templates/billing
 import { renderLegalTosUpdate } from "../../api/lib/email/templates/legal-tos-update.js";
 import { renderLegalPrivacyUpdate } from "../../api/lib/email/templates/legal-privacy-update.js";
 import { renderDataExportReady } from "../../api/lib/email/templates/data-export-ready.js";
+import { renderResearchNewPaper } from "../../api/lib/email/templates/research-new-paper.js";
 
 test("auth-verify: renders full HTML document", () => {
   const html = renderAuthVerify(FIXTURES["auth-verify"]);
@@ -134,6 +135,24 @@ test("data-export-ready: stat rows, expiry warning, checksum code block", () => 
   assert.match(html, /rgba\(251,191,36,0\.08\)/);
   assert.match(html, /3f8c1e4b9d0a7c2f/);
   assert.match(html, new RegExp(escRe(fx.downloadUrl)));
+});
+
+test("research-new-paper: source row + abstract + reason + unsubscribe footer", () => {
+  const fx = FIXTURES["research-new-paper"];
+  const html = renderResearchNewPaper({ ...fx, unsubscribeUrl: "https://emersus.ai/api/email/unsubscribe?m=1&b=research_alerts&k=sig" });
+  assert.match(html, new RegExp(escRe(fx.paper.title)));
+  assert.match(html, /J Int Soc Sports Nutr/);
+  assert.match(html, /2026/);
+  assert.match(html, /digit-span performance/);
+  const htmlEscapedReason = fx.reason.replace(/'/g, "&#39;");
+  assert.match(html, new RegExp(escRe(htmlEscapedReason)));
+  assert.match(html, /Unsubscribe/);
+});
+
+test("research-new-paper: renders without unsubscribeUrl (test fallback)", () => {
+  const fx = FIXTURES["research-new-paper"];
+  const html = renderResearchNewPaper(fx);
+  assert.match(html, /Read on Emersus/);
 });
 
 function escRe(s) {
