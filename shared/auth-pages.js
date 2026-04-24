@@ -296,6 +296,35 @@ function bindSignupForm() {
         throw error;
       }
 
+      // Detect "user already registered" — Supabase returns 200 with a
+      // user object whose `identities` array is empty (vs a non-empty
+      // array for real new signups). This is Supabase's enumeration-
+      // resistant response shape. Treating it as "check your inbox"
+      // strands the user in a dead state waiting for an email that will
+      // never arrive. Instead: send them a password-reset link via our
+      // branded template so they can actually recover the account.
+      const identities = data?.user?.identities;
+      const isRepeatSignup =
+        !!data?.user && !data.session && Array.isArray(identities) && identities.length === 0;
+
+      if (isRepeatSignup) {
+        try {
+          await supabase.auth.resetPasswordForEmail(email, {
+            redirectTo: getAuthCallbackUrl(),
+          });
+        } catch (_resetErr) {
+          // Non-fatal — still show the user a useful message
+        }
+        form.reset();
+        updateResendButton(form, email, false);
+        setStatus(
+          status,
+          "success",
+          "This email is already registered. We've sent a password-reset link so you can sign in — check your inbox."
+        );
+        return;
+      }
+
       // Fire-and-forget admin notification. We don't await it, don't
       // handle errors, don't block the signup UX — notify-signup is
       // server-validated and failures are logged server-side.
