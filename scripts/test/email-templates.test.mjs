@@ -8,6 +8,7 @@ import { renderAuthPasswordChanged } from "../../api/lib/email/templates/auth-pa
 import { renderBillingReceipt } from "../../api/lib/email/templates/billing-receipt.js";
 import { renderBillingRenewal } from "../../api/lib/email/templates/billing-renewal.js";
 import { renderBillingPaymentFailed } from "../../api/lib/email/templates/billing-payment-failed.js";
+import { renderBillingCancellation } from "../../api/lib/email/templates/billing-cancellation.js";
 
 test("auth-verify: renders full HTML document", () => {
   const html = renderAuthVerify(FIXTURES["auth-verify"]);
@@ -88,6 +89,14 @@ test("billing-payment-failed: warning callout, card last-4, retry + final-attemp
   assert.match(html, /Apr 27, 2026/);
   assert.match(html, /May 1, 2026/);
   assert.match(html, new RegExp(escRe(fx.updateUrl)));
+});
+
+test("billing-cancellation: shows accessThrough, refund, reactivate URL", () => {
+  const fx = FIXTURES["billing-cancellation"];
+  const html = renderBillingCancellation(fx);
+  assert.match(html, /May 24, 2026/);
+  assert.match(html, /No refund/);
+  assert.match(html, new RegExp(escRe(fx.reactivateUrl)));
 });
 
 function escRe(s) {
