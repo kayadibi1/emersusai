@@ -25,11 +25,13 @@ export async function emailRenewalReminderHandler(ctx, { log } = {}) {
   // pro_until maps to "current_period_end" from Polar webhooks.
   // Exclude manual admin grants (subscription_status = 'manual') since
   // they have no Polar subscription and would produce spurious reminders.
+  // Skip users who've clicked cancel — they will not be charged again.
   const { data: rows, error } = await supabaseAdmin
     .from("profiles")
     .select("id, email, tier, pro_until, subscription_status")
     .eq("tier", "pro")
     .neq("subscription_status", "manual")
+    .eq("cancel_at_period_end", false)
     .gte("pro_until", sixDays.toISOString())
     .lte("pro_until", sevenDays.toISOString());
 
@@ -50,6 +52,11 @@ export async function emailRenewalReminderHandler(ctx, { log } = {}) {
         skipped++;
         continue;
       }
+
+      // NOTE: amount is hardcoded "$9.00" / plan "Pro". This is correct for the
+      // current monthly SKU but will send a wrong amount to yearly subscribers.
+      // Revisit when yearly volume is non-trivial — pull amount from the latest
+      // order.paid billing_events row or a dedicated profiles.plan_id column.
 
       // Idempotency key: one email per (user, renewal cycle).
       // pro_until is the canonical end of the current billing period.
