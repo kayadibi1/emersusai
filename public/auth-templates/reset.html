@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta name="supported-color-schemes" content="dark">
+<title>Reset your password.</title>
+<style>
+  body { margin:0; padding:0; background:#0a0a0b; }
+  @media (max-width: 480px) {
+    .em-pad { padding-left: 18px !important; padding-right: 18px !important; }
+    .em-inner { padding: 28px 18px 22px !important; }
+    .em-footer { padding: 18px !important; }
+    .em-h1 { font-size: 24px !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background:#0a0a0b; color:#ededee; font-family:'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; -webkit-font-smoothing:antialiased;">
+<div style="display:none; overflow:hidden; line-height:1; max-height:0; max-width:0; opacity:0; visibility:hidden;">Reset your Emersus password — link valid for 60 minutes.​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿​‌‍﻿</div>
+<table role="presentation" width="100%" border="0" cellpadding="0" cellspacing="0" style="background:#0a0a0b;">
+  <tr><td align="center" class="em-pad" style="padding:28px 12px;">
+    <table role="presentation" width="600" border="0" cellpadding="0" cellspacing="0" style="max-width:600px; width:100%; background:#131315; border:1px solid rgba(255,255,255,0.10);">
+      <tr><td style="height:1px; line-height:1px; font-size:1px; background:rgba(52,211,153,0.34);">&nbsp;</td></tr>
+      <tr><td class="em-inner" style="padding:36px 32px 28px;">
+        <div style="font-family:'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size:15px; font-weight:600; letter-spacing:-0.02em; color:#ededee; margin-bottom:28px;">em<b style="color:#34d399; font-weight:600;">∴</b>rsus</div>
+        <div style="font-family:'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size:11px; font-weight:500; letter-spacing:0.18em; text-transform:uppercase; color:#34d399; margin-bottom:12px;">
+          <span style="display:inline-block; width:6px; height:6px; background:#34d399; border-radius:50%; margin-right:8px; vertical-align:2px;">&nbsp;</span>Account
+        </div>
+        <h1 class="em-h1" style="margin:0 0 14px; font-family:'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size:28px; font-weight:600; line-height:1.15; letter-spacing:-0.02em; color:#ededee;">Reset your password.</h1>
+        <div style="font-family:'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size:15px; line-height:1.65; color:#c0c0c4;">
+    <p style="margin:0 0 14px;">Someone requested a password reset for your Emersus account. Tap below to pick a new one — the link is valid for 60 minutes.</p>
+    <p style="margin:0 0 6px; color:#8a8a8f; font-size:13px;">Button not working? Paste this into your browser:</p>
+    <div style="margin:10px 0 18px; padding:12px 14px; background:#18181b; border:1px solid rgba(255,255,255,0.10); font-family:'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size:12px; line-height:1.55; color:#ededee; word-break:break-all; white-space:pre-wrap;">{{ .ConfirmationURL }}</div>
+    <div style="margin:16px 0; padding:14px 18px; background:rgba(251,191,36,0.08); border-left:3px solid #fbbf24;">
+    <div style="font-family:'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size:14px; font-weight:600; color:#fbbf24; margin-bottom:4px;">Didn&#39;t request this?</div><div style="font-family:'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size:14px; color:#c0c0c4; line-height:1.6;">Ignore this email — your password won&#39;t change unless you open the link.</div>
+  </div>
+  </div>
+        <table role="presentation" border="0" cellpadding="0" cellspacing="0" style="margin:18px 0 4px;">
+        <tr><td bgcolor="#34d399" style="background:#34d399; border-radius:2px;">
+          <a href="{{ .ConfirmationURL }}" target="_blank" rel="noopener" style="display:inline-block; padding:13px 22px; font-family:'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif; font-size:14px; font-weight:600; line-height:1; color:#04221a; text-decoration:none; letter-spacing:-0.005em;">Reset password →</a>
+        </td></tr>
+      </table>
+      </td></tr>
+      <tr><td class="em-footer" style="padding:20px 32px 28px; border-top:1px solid rgba(255,255,255,0.10); font-family:'JetBrains Mono', ui-monospace, Menlo, Consolas, monospace; font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:#8a8a8f; line-height:1.9;">
+        Sent to {{ .Email }}<br>
+        Emersus AI · <a href="mailto:info@emersus.ai" style="color:#8a8a8f; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.10);">info@emersus.ai</a> · <a href="https://emersus.ai/privacy/" style="color:#8a8a8f; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.10);">Privacy</a> · <a href="https://emersus.ai/terms/" style="color:#8a8a8f; text-decoration:none; border-bottom:1px solid rgba(255,255,255,0.10);">Terms</a>
+      </td></tr>
+    </table>
+  </td></tr>
+</table>
+</body>
+</html>
