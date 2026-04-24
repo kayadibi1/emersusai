@@ -9,6 +9,7 @@ import { renderBillingReceipt } from "../../api/lib/email/templates/billing-rece
 import { renderBillingRenewal } from "../../api/lib/email/templates/billing-renewal.js";
 import { renderBillingPaymentFailed } from "../../api/lib/email/templates/billing-payment-failed.js";
 import { renderBillingCancellation } from "../../api/lib/email/templates/billing-cancellation.js";
+import { renderLegalTosUpdate } from "../../api/lib/email/templates/legal-tos-update.js";
 
 test("auth-verify: renders full HTML document", () => {
   const html = renderAuthVerify(FIXTURES["auth-verify"]);
@@ -97,6 +98,17 @@ test("billing-cancellation: shows accessThrough, refund, reactivate URL", () => 
   assert.match(html, /May 24, 2026/);
   assert.match(html, /No refund/);
   assert.match(html, new RegExp(escRe(fx.reactivateUrl)));
+});
+
+test("legal-tos-update: renders info callout, bullet list of changes, effective date", () => {
+  const fx = FIXTURES["legal-tos-update"];
+  const html = renderLegalTosUpdate(fx);
+  assert.match(html, /rgba\(96,165,250,0\.08\)/);
+  assert.match(html, /New §4\.2 — Acceptable use/);
+  assert.match(html, /New §6\.4 — You own your chat history\. We don&#39;t train on it\./);
+  assert.match(html, /§9 — Updated Delaware jurisdiction language/);
+  assert.match(html, /May 15, 2026/);
+  assert.match(html, new RegExp(escRe(fx.termsUrl)));
 });
 
 function escRe(s) {
